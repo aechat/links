@@ -1,0 +1,1 @@
+export const AboutPage = () => <div className="page"></div>;

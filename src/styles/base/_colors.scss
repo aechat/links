@@ -1,0 +1,110 @@
+// $light:(background: #eee,
+//   content_block:#fff,
+//   text:#000,
+//   accent: hsl(246, 32%, 56%),
+//   accent_button: hsl(246, 32%, 56%),
+//   accent_button_selected: hsla(246, 32%, 56%, 0.5),
+//   addition_info: hsl(200, 100%, 85%), addition_warning: hsl(50, 100%, 85%), addition_danger:hsl(0, 100%, 85%)
+//   );
+// $dark:(background: #000,
+//   content_block:#111,
+//   text:#fff,
+//   accent: hsl(241, 100%, 80%),
+//   accent_button: hsl(241, 40%, 60%),
+//   accent_button_selected: hsla(241, 40%, 60%, 0.5), addition_info: hsl(200, 30%, 40%), addition_warning: hsl(50, 30%, 40%), addition_danger:hsl(0, 30%, 40%)
+//   );
+
+$light:( // info: основные цвета
+  text: hsl(0, 0%, 5%),
+  background: hsl(0, 0%, 95%),
+  content_block: hsl(0, 0%, 100%),
+  accent: hsl(246, 32%, 56%),
+  // info: информационные блоки
+  addition_info: hsl(200, 100%, 85%),
+  addition_info-border: hsl(200, 90%, 75%),
+  addition_info-text: hsl(200, 75%, 25%),
+  addition_info-mark: hsl(200, 70%, 75%),
+  addition_warning: hsl(50, 100%, 85%),
+  addition_warning-border: hsl(50, 90%, 65%),
+  addition_warning-text: hsl(50, 75%, 20%),
+  addition_warning-mark: hsl(50, 70%, 75%),
+  addition_danger: hsl(0, 100%, 85%),
+  addition_danger-border: hsl(0, 90%, 75%),
+  addition_danger-text: hsl(0, 75%, 25%),
+  addition_danger-mark: hsl(0, 70%, 75%),
+  // info: второстепенные цвета
+  search_background: hsl(0, 0%, 85%),
+  search_border: hsl(0, 0%, 75%),
+  header_background: hsla(0, 0%, 100%, 0.5),
+  header_shadow:hsla(0, 0%, 0%, 0.25),
+  shadow: hsla(0, 0%, 0%, 0.05),
+  accent_hover: hsl(246, 30%, 85%),
+  secondary_hover: hsl(0, 0%, 85%),
+  accent_border: hsl(246, 30%, 80%),
+  secondary_border: hsl(0, 0%, 80%),
+  // info: оформление faq
+  summary_background: hsl(246, 41%, 97%),
+  summary_border: hsl(246, 35%, 92%),
+  summary_text: hsl(246, 32%, 50%),
+  li_background: hsl(241, 50%, 95%),
+  li_border: hsl(241, 50%, 85%),
+  mark_background: hsl(246, 75%, 97%),
+  mark_text: hsl(241, 50%, 25%),
+  mark_border: hsl(246, 90%, 85%),
+  a_color: hsl(246, 45%, 60%),
+);
+
+$dark:(text: hsl(0, 0%, 95%),
+  background: hsl(0, 0%, 0%),
+  content_block: hsl(0, 0%, 7.5%),
+  accent: hsl(241, 100%, 80%),
+  // info: информационные блоки
+  addition_info: hsl(200, 70%, 15%),
+  addition_info-border: hsl(200, 60%, 25%),
+  addition_info-text: hsl(200, 75%, 85%),
+  addition_info-mark: hsl(200, 90%, 20%),
+  addition_warning: hsl(50, 70%, 25%),
+  addition_warning-border: hsl(50, 90%, 35%),
+  addition_warning-text: hsl(50, 75%, 85%),
+  addition_warning-mark: hsl(50, 90%, 30%),
+  addition_danger: hsl(0, 50%, 25%),
+  addition_danger-border: hsl(0, 70%, 35%),
+  addition_danger-text: hsl(0, 100%, 85%),
+  addition_danger-mark: hsl(0, 50%, 30%),
+  // info: второстепенные цвета
+  search_background: hsl(0, 0%, 85%),
+  search_border: hsl(0, 0%, 75%),
+  header_background: hsla(0, 0%, 7.5%, 0.75),
+  header_shadow:hsla(0, 0%, 0%, 0.25),
+  shadow: hsla(0, 0%, 0%, 0.05),
+  accent_hover: hsl(241, 30%, 25%),
+  secondary_hover: hsl(0, 0%, 25%),
+  accent_border: hsl(241, 30%, 20%),
+  secondary_border: hsl(0, 0%, 20%),
+  // info: оформление faq
+  summary_background: hsl(241, 50%, 10%),
+  summary_border: hsl(241, 35%, 25%),
+  summary_text: hsl(241, 90%, 80%),
+  li_background: hsl(241, 25%, 12.5%),
+  li_border: hsl(241, 35%, 25%),
+  mark_background: hsl(241, 25%, 27%),
+  mark_border: hsl(241, 90%, 85%),
+  mark_text: hsl(241, 72%, 90%),
+  a_color: hsl(241, 75%, 75%),
+);
+
+.light {
+
+  @each $key,
+  $value in $light {
+    --#{$key}: #{$value};
+  }
+}
+
+.dark {
+
+  @each $key,
+  $value in $dark {
+    --#{$key}: #{$value};
+  }
+}
