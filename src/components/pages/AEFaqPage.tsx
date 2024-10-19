@@ -32,7 +32,6 @@ export const AEFaqPage = () => {
         transition={{duration: 0.5, ease: [0.075, 0.82, 0.165, 1]}}
       >
         <div className="main">
-          
           {/* Ссылки на полезные материалы */}
           <AEWhereFind />
           {/* Проблемы с установкой */}

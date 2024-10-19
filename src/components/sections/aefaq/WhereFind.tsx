@@ -1,6 +1,8 @@
+import { div } from "framer-motion/client"
+
 export const AEWhereFind = () => (
   <div className="faq-block">
-    <h1 className="disabled-title">Полезные ссылки от AEChat</h1>
+    <h1 className="block_hidden">Полезные ссылки от AEChat</h1>
     <h2 className="faq-separator">Ищем полезности</h2>
     <div className="faq-content">
       <details>
@@ -369,13 +371,119 @@ export const AEWhereFind = () => (
       </details>
       <details>
         <summary>
-          <h3>Где найти бесплатные звуки и звукоывые эффекты для своих видео?</h3>
+          <h3>Где найти бесплатные звуки и звуковые эффекты для своих видео?</h3>
         </summary>
+        <p>
+          В канале <a href="https://t.me/s/aetemp">AETemp</a> вы можете найти звуковые
+          эффекты в поиске по хештегу <mark className="tag">#звуки</mark>. Если же вам не
+          хватает ассортимента из канала, то ниже предоставлен список сайтов, откуда вы
+          можете достать бесплатные звуковые эффекты.
+        </p>
+        <div className="flexible-links">
+          <a
+            href="https://www.audiomicro.com/free-sound-effects"
+            title="Audiomicro"
+          >
+            Audiomicro
+          </a>
+
+          <a
+            href="https://www.zapsplat.com/"
+            title="Zapsplat"
+          >
+            Zapsplat
+          </a>
+
+          <a
+            href="https://www.freesfx.co.uk/"
+            title="FreeSFX"
+          >
+            FreeSFX
+          </a>
+
+          <a
+            href="https://www.freesoundslibrary.com/"
+            title="FreeSoundLibrary"
+          >
+            FreeSoundLibrary
+          </a>
+
+          <a
+            href="https://soundbible.com/"
+            title="SoundBible"
+          >
+            SoundBible
+          </a>
+
+          <a
+            href="https://www.soundeffectsplus.com/"
+            title="soundeffects+"
+          >
+            soundeffects+
+          </a>
+
+          <a
+            href="https://freesound.org/"
+            title="freesound"
+          >
+            freesound
+          </a>
+        </div>
+        <div className="addition-warning">
+          Перед использованием звуков в коммерческих целях - обязательно прочтите условия
+          использования и лицензии, чтобы не попасть в неприятную ситуацию.
+        </div>
       </details>
       <details>
         <summary>
           <h3>Где найти шрифт по имеющемуся фото?</h3>
         </summary>
+        <p>
+          Вы можете использовать сервисом
+          <a
+            href="https://en.likefont.com"
+            title="Сервис по нахождению шрифтов LikeFont"
+          >
+            LikeFont
+          </a>
+          для определения шрифта по фотографии. Этот сервис способен распознавать шрифты
+          как на латинице, так и на кириллице.
+        </p>
+        <p>
+          Как начать им пользоваться? Всё просто: зайдите на сайт и загрузите своё
+          изображение с помощью проводника или
+          <mark className="key">Ctrl + V</mark>.
+        </p>
+        {/* fixme: добавить изображения */}
+        <figure className="fig_windows-white">
+          <figcaption>Главная страница LikeFont</figcaption>
+          <img
+            loading="lazy"
+            src="src/assets/images/likefont/likefont_mainpage.png"
+            title="Главная страница LikeFont"
+            alt="Главная страница LikeFont"
+          />
+        </figure>
+        <div className="addition-danger">
+          {" "}
+          Учтите, что по умолчанию на странице стоит галка на{" "}
+          <mark className="ui">I agree to post it in Identification Community</mark>,
+          которая выкладывает ваш скриншот на общее обозрение. Если не хотите выкладывать
+          скриншот в сеть - уберите галочку.
+        </div>
+        <p>
+          Предположим, что на вход мы дали скриншот. Но вот незадача: он неконтрастный и
+          весь контент сливается. Что же делать?
+        </p>
+        <figure className="fig_windows-white">
+          <figcaption>Пример плохого исходника</figcaption>
+          <img
+            loading="lazy"
+            src="src/assets/images/likefont/aefaq_likefont_example.png"
+            alt="Пример плохого исходника"
+            title="Пример плохого исходника"
+          />
+        </figure>
       </details>
       <details>
         <summary>

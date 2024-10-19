@@ -6,7 +6,7 @@ export const AETips = () => (
         <summary>
           <h3></h3>
         </summary>
-        <p></p>
+        <p>{/* fixme: написать!! */}</p>
       </details>
     </div>
   </div>
