@@ -22,7 +22,7 @@ export const Links = () => (
       transition={{duration: 0.5, ease: [0.075, 0.82, 0.165, 1]}}
     >
       <div className="links">
-        <h1 className="disabled-title">Полезные ссылки от AEChat</h1>
+        <h1 className="block_hidden">Полезные ссылки от AEChat</h1>
         <motion.div
           className="faq-separator"
           initial={{scale: 0.75, opacity: 0}}
