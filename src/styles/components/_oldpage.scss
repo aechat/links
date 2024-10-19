@@ -1,0 +1,43 @@
+@use "../base/variables"as *;
+
+.notFound,
+.disabled_javascript {
+  top: 40%;
+  position: fixed;
+  margin-inline-start: 25px;
+  max-width: 400px;
+  background-color: var(--content_block);
+  padding: 10px;
+  border-radius: $roundness*2;
+
+  h1 {
+    padding: 5px;
+    font-size: 48px;
+  }
+
+  p {
+    margin-block-end: 10px;
+    font-size: 18px;
+    padding: 5px;
+  }
+
+  a {
+    color: #fff;
+    font-size: 18px;
+    display: block;
+    text-align: center;
+    border-radius: $roundness;
+    background-color: var(--accent_button);
+
+    &:hover {
+      transform: scale(1.025);
+    }
+
+    &:active {
+      transform: scale(0.975);
+    }
+
+    margin: 5px;
+    padding: 15px;
+  }
+}

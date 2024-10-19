@@ -1,0 +1,79 @@
+@use "../base/variables"as *;
+
+.addition {
+
+  &-info,
+  &-warning,
+  &-danger {
+
+    padding: 10px 20px;
+    border-radius: $roundness;
+    margin-block: 10px;
+
+    a {
+      font-weight: 700;
+      text-decoration: underline;
+    }
+
+    mark {
+      font-style: italic;
+    }
+  }
+
+  &-info {
+    background-color: var(--addition_info);
+    border: 2px solid var(--addition_info-border);
+    color: var(--addition_info-text);
+
+    .change_os {
+      border-radius: $roundness*0.5;
+      margin-inline: 5px;
+      padding: 2px 5px;
+      background-color: var(--addition_info-mark);
+      border: 2px solid var(--addition_info-border);
+      color: var(--addition_info-text);
+    }
+
+    a {
+      color: var(--addition_info-text);
+    }
+
+    mark {
+      background-color: var(--addition_info-mark);
+      border: 2px solid var(--addition_info-border);
+      color: var(--addition_info-text);
+    }
+  }
+
+  &-warning {
+    background-color: var(--addition_warning);
+    border: 2px solid var(--addition_warning-border);
+    color: var(--addition_warning-text);
+
+    a {
+      color: var(--addition_warning-text);
+    }
+
+    mark {
+      background-color: var(--addition_warning-mark);
+      border: 2px solid var(--addition_warning-border);
+      color: var(--addition_warning-text);
+    }
+  }
+
+  &-danger {
+    background-color: var(--addition_danger);
+    border: 2px solid var(--addition_danger-border);
+    color: var(--addition_danger-text);
+
+    a {
+      color: var(--addition_danger-text);
+    }
+
+    mark {
+      background-color: var(--addition_danger-mark);
+      border: 2px solid var(--addition_danger-border);
+      color: var(--addition_danger-text);
+    }
+  }
+}

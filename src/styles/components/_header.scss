@@ -1,0 +1,70 @@
+@use "../base/variables"as *;
+
+.header {
+  backdrop-filter: blur(50px);
+  z-index: 10;
+  background-color: var(--header_background);
+  box-shadow: 0 0 15px 0 var(--header_shadow);
+  border-bottom-left-radius: $roundness;
+  border-bottom-right-radius: $roundness;
+  padding-inline: 20px;
+  align-items: center;
+  justify-content: space-between;
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100vw;
+  max-width: 1400px;
+  height: 64px;
+
+  &-left {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+
+    .home {
+      margin-top: 4px;
+      fill: var(--accent);
+      height: 24px;
+      width: 24px;
+    }
+
+    a {
+      margin-right: 10px;
+    }
+  }
+
+  .logo {
+    @include font("Schuss Sans", 36px);
+    font-weight: 900;
+    color: var(--accent);
+  }
+
+  .searchbar {
+    background-color: var(--background);
+    border: 1px solid var(--search_border);
+    padding: 5px;
+    border-radius: $roundness*0.5;
+  }
+
+  .theme {
+    display: inline-block;
+    align-items: center;
+
+    &-button {
+      padding: 5px;
+    }
+
+    &-icon {
+      fill: var(--text);
+      height: 24px;
+      width: 24px;
+    }
+
+    .selected {
+      background-color: var(--accent_hover);
+    }
+  }
+}

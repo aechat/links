@@ -1,0 +1,43 @@
+@use "variables" as *;
+
+html {
+  scroll-padding-top: 80px;
+}
+
+body {
+  user-select: none;
+  @include font("Inter", 16px);
+  background-color: var(--background);
+  color: var(--text);
+  transition: background-color 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+
+
+.page {
+  overflow: hidden;
+  display: flex;
+}
+
+.main {
+  margin-top: 64px;
+  margin-inline: auto;
+}
+
+.content {
+  display: block;
+}
+
+.hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.block_hidden {
+  display: none;
+}
+
+.visible {
+  opacity: 1;
+  visibility: visible;
+}

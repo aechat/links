@@ -1,0 +1,87 @@
+@use "../base/variables"as *;
+
+.links {
+  margin-top: 64px;
+  margin-inline: auto;
+  max-width: 1400px;
+
+  &-button {
+    display: flex-inline;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--content_block);
+    border-radius: $roundness;
+    padding-inline: 15px;
+    padding-block: 10px;
+    gap: 15px;
+    height: 100%;
+    box-shadow: 0 5px 5px 0 var(--shadow);
+    border: 1px solid var(--accent_border);
+
+    &:hover {
+      cursor: pointer;
+      z-index: 15;
+      background-color: var(--accent_hover);
+      transition: background-color 0.5s cubic-bezier(0.075, 0.82, 0.165, 1)
+    }
+
+    .name_container {
+      display: flex;
+      align-items: center;
+      max-width: fit-content;
+      max-height: fit-content;
+      margin-block-end: 3px;
+
+      .icon {
+        path {
+          margin: auto;
+        }
+
+        vertical-align: middle;
+        margin-inline-end: 8px;
+        flex-shrink: 0;
+        width: 24px;
+        height: 36px;
+        color: var(--accent);
+      }
+
+      .name {
+        @include font("Schuss Sans", 20px);
+        color: var(--accent);
+        font-weight: 700;
+      }
+    }
+
+    .description {
+      font-size: 14px;
+      opacity: 80%;
+      margin-block-end: 4px;
+    }
+  }
+
+  &-grid {
+    margin-inline: auto;
+    padding: 0 10px;
+    display: grid;
+    gap: 10px;
+    align-items: center;
+    grid-template-columns: repeat(5, 1fr);
+
+    @media screen and (max-width: 1200px) {
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    @media screen and (max-width: 900px) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    @media screen and (max-width: 700px) {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+    }
+
+    @media screen and (max-width: 450px) {
+      grid-template-columns: repeat(1, 1fr);
+    }
+  }
+}
