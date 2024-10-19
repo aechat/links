@@ -15,13 +15,16 @@ import {AEExportProblems} from "../sections/aefaq/ExportProblems";
 
 import SummaryNumerateAndCopy from "../features/SummaryNumerateAndCopy";
 import MarkActions from "../features/MarkActions";
+import {useState} from "react";
 
 export const AEFaqPage = () => {
   SummaryNumerateAndCopy();
   MarkActions();
+
   return (
     <AnimatePresence>
       <Header pagename="aefaq" />
+      <div className="theme_modal"></div>
       <div className="copied hidden"></div>
       {/* (details>(summary>h3)+p)*5 */}
       <motion.div
@@ -54,6 +57,7 @@ export const AEFaqPage = () => {
           <AEExport />
           {/* Про ошибки экспорта */}
           <AEExportProblems />
+          <footer className="footer">m1sh3r@aechat</footer>
         </div>
       </motion.div>
     </AnimatePresence>

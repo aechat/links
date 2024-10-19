@@ -9,16 +9,21 @@
 // $dark:(background: #000,
 //   content_block:#111,
 //   text:#fff,
-//   accent: hsl(241, 100%, 80%),
-//   accent_button: hsl(241, 40%, 60%),
-//   accent_button_selected: hsla(241, 40%, 60%, 0.5), addition_info: hsl(200, 30%, 40%), addition_warning: hsl(50, 30%, 40%), addition_danger:hsl(0, 30%, 40%)
+//   accent: hsl(var(--accent-hue), 100%, 80%),
+//   accent_button: hsl(var(--accent-hue), 40%, 60%),
+//   accent_button_selected: hsla(var(--accent-hue), 40%, 60%, 0.5), addition_info: hsl(200, 30%, 40%), addition_warning: hsl(50, 30%, 40%), addition_danger:hsl(0, 30%, 40%)
 //   );
+
+:root {
+  --accent-hue: 245;
+}
+
 
 $light:( // info: основные цвета
   text: hsl(0, 0%, 5%),
   background: hsl(0, 0%, 95%),
   content_block: hsl(0, 0%, 100%),
-  accent: hsl(246, 32%, 56%),
+  accent: hsl(var(--accent-hue), 32%, 50%),
   // info: информационные блоки
   addition_info: hsl(200, 100%, 85%),
   addition_info-border: hsl(200, 90%, 75%),
@@ -38,26 +43,28 @@ $light:( // info: основные цвета
   header_background: hsla(0, 0%, 100%, 0.5),
   header_shadow:hsla(0, 0%, 0%, 0.25),
   shadow: hsla(0, 0%, 0%, 0.05),
-  accent_hover: hsl(246, 30%, 85%),
+  accent_hover: hsl(var(--accent-hue), 30%, 85%),
   secondary_hover: hsl(0, 0%, 85%),
-  accent_border: hsl(246, 30%, 80%),
+  accent_border: hsl(var(--accent-hue), 30%, 80%),
   secondary_border: hsl(0, 0%, 80%),
   // info: оформление faq
-  summary_background: hsl(246, 41%, 97%),
-  summary_border: hsl(246, 35%, 92%),
-  summary_text: hsl(246, 32%, 50%),
-  li_background: hsl(241, 50%, 95%),
-  li_border: hsl(241, 50%, 85%),
-  mark_background: hsl(246, 75%, 97%),
-  mark_text: hsl(241, 50%, 25%),
-  mark_border: hsl(246, 90%, 85%),
-  a_color: hsl(246, 45%, 60%),
+  summary_background: hsl(var(--accent-hue), 41%, 97%),
+  summary_border: hsl(var(--accent-hue), 35%, 92%),
+  summary_text: hsl(var(--accent-hue), 32%, 50%),
+  li_background: hsl(var(--accent-hue), 50%, 95%),
+  li_border: hsl(var(--accent-hue), 50%, 85%),
+  mark_background: hsl(var(--accent-hue), 75%, 97%),
+  mark_text: hsl(var(--accent-hue), 50%, 25%),
+  mark_border: hsl(var(--accent-hue), 90%, 85%),
+  a_color: hsl(var(--accent-hue), 45%, 50%),
+  // info: оформление модалки
+  modal_background: hsla(0, 0%, 100%, 70%),
 );
 
 $dark:(text: hsl(0, 0%, 95%),
   background: hsl(0, 0%, 0%),
   content_block: hsl(0, 0%, 7.5%),
-  accent: hsl(241, 100%, 80%),
+  accent: hsl(var(--accent-hue), 100%, 75%),
   // info: информационные блоки
   addition_info: hsl(200, 70%, 15%),
   addition_info-border: hsl(200, 60%, 25%),
@@ -77,20 +84,20 @@ $dark:(text: hsl(0, 0%, 95%),
   header_background: hsla(0, 0%, 7.5%, 0.75),
   header_shadow:hsla(0, 0%, 0%, 0.25),
   shadow: hsla(0, 0%, 0%, 0.05),
-  accent_hover: hsl(241, 30%, 25%),
+  accent_hover: hsl(var(--accent-hue), 30%, 25%),
   secondary_hover: hsl(0, 0%, 25%),
-  accent_border: hsl(241, 30%, 20%),
+  accent_border: hsl(var(--accent-hue), 30%, 20%),
   secondary_border: hsl(0, 0%, 20%),
   // info: оформление faq
-  summary_background: hsl(241, 50%, 10%),
-  summary_border: hsl(241, 35%, 25%),
-  summary_text: hsl(241, 90%, 80%),
-  li_background: hsl(241, 25%, 12.5%),
-  li_border: hsl(241, 35%, 25%),
-  mark_background: hsl(241, 25%, 27%),
-  mark_border: hsl(241, 90%, 85%),
-  mark_text: hsl(241, 72%, 90%),
-  a_color: hsl(241, 75%, 75%),
+  summary_background: hsl(var(--accent-hue), 20%, 7.5%),
+  summary_border: hsl(var(--accent-hue), 35%, 25%),
+  summary_text: hsl(var(--accent-hue), 90%, 80%),
+  li_background: hsl(var(--accent-hue), 25%, 12.5%),
+  li_border: hsl(var(--accent-hue), 35%, 25%),
+  mark_background: hsl(var(--accent-hue), 25%, 27%),
+  mark_border: hsl(var(--accent-hue), 90%, 85%),
+  mark_text: hsl(var(--accent-hue), 72%, 90%),
+  a_color: hsl(var(--accent-hue), 75%, 75%),
 );
 
 .light {

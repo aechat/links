@@ -13,7 +13,7 @@ import {LinksWork} from "../sections/LinksWork";
 export const Links = () => (
   <AnimatePresence>
     <Header pagename="links" />
-
+    <div className="theme_modal"></div>
     <motion.div
       className="page"
       initial={{y: 50, opacity: 0}}
@@ -101,7 +101,7 @@ export const Links = () => (
           Чёрные списки
         </motion.div>
         <LinksBlacklist />
-        <footer className="footer">mucxep@aechat</footer>
+        <footer className="footer">m1sh3r@aechat</footer>
       </div>
     </motion.div>
   </AnimatePresence>

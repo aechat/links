@@ -22,7 +22,9 @@ const RedirectHtml = () => {
 
 export const App = () => {
   return (
+    
     <AnimatePresence mode="sync">
+      
       <Routes
         location={location}
         key={location.pathname}

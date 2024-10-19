@@ -1,15 +1,16 @@
 import {Link} from "react-router-dom";
-import {ThemeButton} from "./Buttons";
 import {motion} from "framer-motion";
 import SearchBar from "./SearchBar";
 import {HomeRounded} from "@mui/icons-material";
 import {useState} from "react";
 import SearchResult from "./SearchResult";
+import ThemeManager from "./features/ThemeManager";
 
 export const Header = ({pagename}: {pagename: string}) => {
   const url = window.location.href;
   const isMainPage = url.endsWith("/");
   const [searchQuery, setSearchQuery] = useState<string>("");
+
   return (
     <header className="header">
       <div className="header-left">
@@ -53,7 +54,8 @@ export const Header = ({pagename}: {pagename: string}) => {
       ) : (
         <div></div>
       )}
-      <ThemeButton />
+
+      <ThemeManager />
     </header>
   );
 };

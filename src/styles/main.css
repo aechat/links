@@ -332,11 +332,15 @@ body {
   visibility: visible;
 }
 
+:root {
+  --accent-hue: 245;
+}
+
 .light {
   --text: hsl(0, 0%, 5%);
   --background: hsl(0, 0%, 95%);
   --content_block: hsl(0, 0%, 100%);
-  --accent: hsl(246, 32%, 56%);
+  --accent: hsl(var(--accent-hue), 32%, 50%);
   --addition_info: hsl(200, 100%, 85%);
   --addition_info-border: hsl(200, 90%, 75%);
   --addition_info-text: hsl(200, 75%, 25%);
@@ -354,26 +358,27 @@ body {
   --header_background: hsla(0, 0%, 100%, 0.5);
   --header_shadow: hsla(0, 0%, 0%, 0.25);
   --shadow: hsla(0, 0%, 0%, 0.05);
-  --accent_hover: hsl(246, 30%, 85%);
+  --accent_hover: hsl(var(--accent-hue), 30%, 85%);
   --secondary_hover: hsl(0, 0%, 85%);
-  --accent_border: hsl(246, 30%, 80%);
+  --accent_border: hsl(var(--accent-hue), 30%, 80%);
   --secondary_border: hsl(0, 0%, 80%);
-  --summary_background: hsl(246, 41%, 97%);
-  --summary_border: hsl(246, 35%, 92%);
-  --summary_text: hsl(246, 32%, 50%);
-  --li_background: hsl(241, 50%, 95%);
-  --li_border: hsl(241, 50%, 85%);
-  --mark_background: hsl(246, 75%, 97%);
-  --mark_text: hsl(241, 50%, 25%);
-  --mark_border: hsl(246, 90%, 85%);
-  --a_color: hsl(246, 45%, 60%);
+  --summary_background: hsl(var(--accent-hue), 41%, 97%);
+  --summary_border: hsl(var(--accent-hue), 35%, 92%);
+  --summary_text: hsl(var(--accent-hue), 32%, 50%);
+  --li_background: hsl(var(--accent-hue), 50%, 95%);
+  --li_border: hsl(var(--accent-hue), 50%, 85%);
+  --mark_background: hsl(var(--accent-hue), 75%, 97%);
+  --mark_text: hsl(var(--accent-hue), 50%, 25%);
+  --mark_border: hsl(var(--accent-hue), 90%, 85%);
+  --a_color: hsl(var(--accent-hue), 45%, 50%);
+  --modal_background: hsla(0, 0%, 100%, 0.7);
 }
 
 .dark {
   --text: hsl(0, 0%, 95%);
   --background: hsl(0, 0%, 0%);
   --content_block: hsl(0, 0%, 7.5%);
-  --accent: hsl(241, 100%, 80%);
+  --accent: hsl(var(--accent-hue), 100%, 75%);
   --addition_info: hsl(200, 70%, 15%);
   --addition_info-border: hsl(200, 60%, 25%);
   --addition_info-text: hsl(200, 75%, 85%);
@@ -391,19 +396,19 @@ body {
   --header_background: hsla(0, 0%, 7.5%, 0.75);
   --header_shadow: hsla(0, 0%, 0%, 0.25);
   --shadow: hsla(0, 0%, 0%, 0.05);
-  --accent_hover: hsl(241, 30%, 25%);
+  --accent_hover: hsl(var(--accent-hue), 30%, 25%);
   --secondary_hover: hsl(0, 0%, 25%);
-  --accent_border: hsl(241, 30%, 20%);
+  --accent_border: hsl(var(--accent-hue), 30%, 20%);
   --secondary_border: hsl(0, 0%, 20%);
-  --summary_background: hsl(241, 50%, 10%);
-  --summary_border: hsl(241, 35%, 25%);
-  --summary_text: hsl(241, 90%, 80%);
-  --li_background: hsl(241, 25%, 12.5%);
-  --li_border: hsl(241, 35%, 25%);
-  --mark_background: hsl(241, 25%, 27%);
-  --mark_border: hsl(241, 90%, 85%);
-  --mark_text: hsl(241, 72%, 90%);
-  --a_color: hsl(241, 75%, 75%);
+  --summary_background: hsl(var(--accent-hue), 20%, 7.5%);
+  --summary_border: hsl(var(--accent-hue), 35%, 25%);
+  --summary_text: hsl(var(--accent-hue), 90%, 80%);
+  --li_background: hsl(var(--accent-hue), 25%, 12.5%);
+  --li_border: hsl(var(--accent-hue), 35%, 25%);
+  --mark_background: hsl(var(--accent-hue), 25%, 27%);
+  --mark_border: hsl(var(--accent-hue), 90%, 85%);
+  --mark_text: hsl(var(--accent-hue), 72%, 90%);
+  --a_color: hsl(var(--accent-hue), 75%, 75%);
 }
 
 @font-face {
@@ -525,7 +530,8 @@ body {
   padding: 5px;
   border-radius: 5px;
 }
-.header .theme {
+
+.theme {
   display: inline-block;
   -webkit-box-align: center;
   -webkit-align-items: center;
@@ -533,16 +539,99 @@ body {
       -ms-flex-align: center;
           align-items: center;
 }
-.header .theme-button {
+.theme_button {
   padding: 5px;
 }
-.header .theme-icon {
-  fill: var(--text);
-  height: 24px;
-  width: 24px;
+.theme_button .icon {
+  fill: var(--accent);
 }
-.header .theme .selected {
+.theme-icon {
+  fill: var(--text);
+  margin: 5px;
+  height: 48px;
+  width: 48px;
+}
+.theme .selected {
   background-color: var(--accent_hover);
+}
+.theme_modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+     -moz-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+     -moz-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  z-index: 1000;
+}
+.theme_modal-content {
+  position: fixed;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -moz-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+     -moz-box-orient: vertical;
+     -moz-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+     -moz-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  z-index: 10;
+  background-color: var(--modal_background);
+  -webkit-backdrop-filter: blur(25px) saturate(50%);
+          backdrop-filter: blur(25px) saturate(50%);
+  padding: 10px;
+  border-radius: 8px;
+  width: 500px;
+  max-width: 90%;
+  -webkit-box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+          box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+.theme_modal-content h2 {
+  color: var(--accent);
+  text-align: center;
+  margin: 15px;
+  font-weight: 900;
+  font-family: "Schuss Sans";
+  font-size: 28px;
+}
+.theme_modal-header {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.theme_modal-body {
+  display: block;
+}
+.theme_modal .close-button {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
 }
 
 .links {
