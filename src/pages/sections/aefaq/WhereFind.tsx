@@ -494,7 +494,7 @@ const AEWhereFind: React.FC = () => {
           </thead>
           <tbody>
             <tr>
-              <td>Извлечение 3D-канала</td>
+              <td>Извлечение канала 3D</td>
               <td>3D Channel Extract</td>
               <td>
                 <a
@@ -506,7 +506,7 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>Криптоматт</td>
+              <td>-</td>
               <td>Cryptomatte</td>
               <td>
                 <a
@@ -542,8 +542,8 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>Извлечение</td>
-              <td>Extractor</td>
+              <td>-</td>
+              <td>EXtractoR</td>
               <td>
                 <a
                   title="Видео от Jake In Motion"
@@ -554,7 +554,7 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>3D-туман</td>
+              <td>3D туман</td>
               <td>Fog 3D</td>
               <td>
                 <a
@@ -566,7 +566,7 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>Идентификатор подложки</td>
+              <td>Подложка идентификатора</td>
               <td>ID Matte</td>
               <td>
                 <a
@@ -680,7 +680,7 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>Параметрический эквалайзер</td>
+              <td>Параметрическая коррекция</td>
               <td>Parametric EQ</td>
               <td>
                 <a
@@ -1028,7 +1028,7 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>Инверсия</td>
+              <td>Обратить</td>
               <td>Invert</td>
               <td>
                 <a
@@ -1100,7 +1100,7 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>Сплошной составной</td>
+              <td>Сплошной совмещенный</td>
               <td>Solid Composite</td>
               <td>
                 <a
@@ -1130,7 +1130,7 @@ const AEWhereFind: React.FC = () => {
           </thead>
           <tbody>
             <tr>
-              <td>Автоматическая коррекция цвета</td>
+              <td>Автоцвет</td>
               <td>Auto Color</td>
               <td>
                 <a
@@ -1154,7 +1154,7 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>Автоматические уровни</td>
+              <td>Автоуровни</td>
               <td>Auto Levels</td>
               <td>
                 <a
@@ -1478,7 +1478,7 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>Выборочный цвет</td>
+              <td>Выборочная коррекция цвета</td>
               <td>Selective Color</td>
               <td>
                 <a
@@ -1490,7 +1490,7 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>Тень/Светлые тона</td>
+              <td>Тень/подсветка</td>
               <td>Shadow/Highlight</td>
               <td>
                 <a
@@ -1538,7 +1538,7 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>Ограничитель видео</td>
+              <td>Видеоограничитель</td>
               <td>Video Limiter</td>
               <td>
                 <a
@@ -2030,7 +2030,7 @@ const AEWhereFind: React.FC = () => {
           </thead>
           <tbody>
             <tr>
-              <td>Элемент управления 3D-точками</td>
+              <td>Элемент управления 3D-точки</td>
               <td>3D Point Control</td>
               <td rowSpan={8}>
                 <a
@@ -2054,15 +2054,15 @@ const AEWhereFind: React.FC = () => {
               <td>Color Control</td>
             </tr>
             <tr>
-              <td>Элемент управления &quot;Раскрывающееся меню&quot;</td>
+              <td>Управление раскрывающимся меню</td>
               <td>Dropdown Menu Control</td>
             </tr>
             <tr>
-              <td>Элемент управления &quot;Слой&quot;</td>
+              <td>Элемент управления слоями</td>
               <td>Layer Control</td>
             </tr>
             <tr>
-              <td>Элемент управления &quot;Точка&quot;</td>
+              <td>Элемент управления точкой</td>
               <td>Point Control</td>
             </tr>
             <tr>
@@ -2466,7 +2466,7 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>Понижение шума VR</td>
+              <td>Понижение уровня шума VR</td>
               <td>VR De-Noise</td>
               <td>
                 <a
@@ -2478,7 +2478,7 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>Цифровое искажение VR</td>
+              <td>Цифровое сбой VR</td>
               <td>VR Digital Glitch</td>
               <td>
                 <a
@@ -2514,7 +2514,7 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>Плоскость в сферу VR</td>
+              <td>Плоскость VR в сферу</td>
               <td>VR Plane to Sphere</td>
               <td>
                 <a
@@ -2538,7 +2538,7 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>Увеличить резкость VR</td>
+              <td>Увеличить четкость VR</td>
               <td>VR Sharpen</td>
               <td>
                 <a
@@ -2550,7 +2550,7 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>Сфера в плоскость VR</td>
+              <td>Сфера VR в плоскость</td>
               <td>VR Sphere to Plane</td>
               <td>
                 <a
@@ -2580,7 +2580,7 @@ const AEWhereFind: React.FC = () => {
           </thead>
           <tbody>
             <tr>
-              <td>Расширенное подавление рассеяния</td>
+              <td>-</td>
               <td>Advanced Spill Suppressor</td>
               <td>
                 <a
@@ -2640,7 +2640,7 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>Извлечение</td>
+              <td>Извлечь</td>
               <td>Extract</td>
               <td>
                 <a
@@ -2664,7 +2664,7 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>Ключевая очистка</td>
+              <td>-</td>
               <td>Key Cleaner</td>
               <td>
                 <a
@@ -3934,7 +3934,7 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>Вытеснение карты</td>
+              <td>Вытеснение карт</td>
               <td>Card Wipe</td>
               <td>
                 <a
