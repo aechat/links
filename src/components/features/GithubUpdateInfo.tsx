@@ -23,13 +23,22 @@ const GithubUpdateInfo: React.FC<GithubUpdateInfoProps> = ({filePath}) => {
       }
 
       const commits = await response.json();
-      if (commits.length === 0) {
+      interface Commit {
+        commit: {
+          message: string;
+        };
+      }
+
+      const filteredCommits = commits.filter(
+        (commit: Commit) => !commit.commit.message.startsWith("Merge")
+      );
+      if (filteredCommits.length === 0) {
         setCommitInfo("Информация о свежести временно недоступна");
 
         return;
       }
 
-      const lastCommitDate = new Date(commits[0].commit.author.date);
+      const lastCommitDate = new Date(filteredCommits[0].commit.author.date);
 
       const dateOptions: Intl.DateTimeFormatOptions = {
         year: "2-digit",
@@ -46,9 +55,11 @@ const GithubUpdateInfo: React.FC<GithubUpdateInfoProps> = ({filePath}) => {
 
       const formattedClock = lastCommitDate.toLocaleString("ru-RU", clockOptions);
 
-      const commitMessage = commits[0].commit.message;
+      const commitMessage =
+        filteredCommits[0].commit.message.charAt(0).toLowerCase() +
+        filteredCommits[0].commit.message.slice(1);
 
-      const commitUrl = commits[0].html_url;
+      const commitUrl = filteredCommits[0].html_url;
       setCommitInfo(
         `Обновлено ${formattedDate}, ${formattedClock}: <a target="_blank" rel="noreferrer" href="${commitUrl}" target="_blank">${commitMessage}</a>`
       );
