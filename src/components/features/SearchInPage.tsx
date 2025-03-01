@@ -467,7 +467,7 @@ export const SearchInPage: React.FC<{sections: Array<{id: string; title: string}
 
     const headerHeight = document.querySelector("header")?.offsetHeight ?? 0;
 
-    const padding = 24;
+    const padding = 14;
 
     const y =
       summaryElement.getBoundingClientRect().top +

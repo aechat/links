@@ -35,7 +35,7 @@ export const generateAnchorId = () => {
           setTimeout(() => {
             const headerHeight = document.querySelector("header")?.offsetHeight ?? 0;
 
-            const padding = 24;
+            const padding = 14;
 
             const y =
               summary.getBoundingClientRect().top +
