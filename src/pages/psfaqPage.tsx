@@ -161,9 +161,8 @@ const PSFaQ = () => {
               </div>
               <SupportDonut />
               <AdditionDanger>
-                На данный момент не все секции перенесены. Если вам нужен доступ к старой
-                версии сайта, перейдите на{" "}
-                <a href="legacy/psfaq.html">aechat.ru/legacy/psfaq</a>.
+                На текущий момент данная страница ещё не полностью готова. В пунктах могут
+                быть ошибки или неполная информация.
               </AdditionDanger>
               {sections.map(({key, title, component: Component, id}) =>
                 visibleSections.includes(key) ? (
