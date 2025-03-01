@@ -41,11 +41,11 @@ const Header: React.FC<{title: string}> = ({title}) => {
       transition={{duration: 0.5, ease: [0.075, 0.82, 0.165, 1]}}
       className={`header ${isVisible ? "" : "header-transparent"}`}
       style={{
-        backgroundColor: isVisible ? "var(--header_background)" : "transparent",
-        backdropFilter: isVisible ? "blur(15px) saturate(50%)" : "none",
-        WebkitBackdropFilter: isVisible ? "blur(15px)" : "none",
-        boxShadow: isVisible ? "0 0 15px 0 var(--header_shadow)" : "none",
-        outline: isVisible ? "1px solid var(--header_border)" : "1px solid transparent",
+        backgroundColor: "var(--header_background)",
+        backdropFilter: "blur(15px) saturate(50%)",
+        WebkitBackdropFilter: "blur(15px)",
+        boxShadow: "0 0 15px 0 var(--header_shadow)",
+        outline: "1px solid var(--header_border)",
       }}
     >
       <div className="header-left">
@@ -58,7 +58,7 @@ const Header: React.FC<{title: string}> = ({title}) => {
         )}
         <div className="logo">
           {title}
-          <sub style={{fontSize: "0.75rem"}}>@aechat</sub>
+          <sub style={{fontSize: "0.825rem"}}>@aechat</sub>
         </div>
       </div>
       <div className="header-right">

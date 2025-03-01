@@ -17,8 +17,7 @@
   border-bottom-left-radius: $roundness * 1.5;
   background-color: var(--header_background);
   padding-inline: 15px;
-  padding-block: 2px;
-  width: calc(100% - 20px);
+  width: calc(100% - 8px);
   max-width: 1075px;
 
   svg {
@@ -56,9 +55,12 @@
       max-width: fit-content;
       color: var(--accent);
       font-style: italic;
-      font-weight: 750;
+      font-weight: 800;
       font-size: 1.35rem;
-      font-family: "JetBrains Mono", monospace;
+      font-family: "Red Hat Display", monospace;
+      sub {
+        font-weight: 500;
+      }
     }
   }
 
