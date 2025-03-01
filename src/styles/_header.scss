@@ -31,7 +31,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 5px;
     transition:
       background-color 0.5s cubic-bezier(0.075, 0.82, 0.165, 1),
       box-shadow 0.5s cubic-bezier(0.075, 0.82, 0.165, 1),
@@ -62,6 +61,10 @@
         font-weight: 500;
       }
     }
+  }
+
+  &-left {
+    gap: 8px;
   }
 
   &-right {
