@@ -405,9 +405,9 @@ const AEFromNewbies: React.FC = () => {
           <li>
             <mark className="word">Композиция</mark> или{" "}
             <mark className="word">композ</mark> - некая сцена вашего проекта в{" "}
-            <mark className="app">After Effects</mark>. В композиции пользователь обычно
-            собирает свою сцену с слоями, фигурами, эффектами или видео-файлами. У каждой
-            композиции есть частота кадров, разрешение и соотношение пикселя.
+            <mark className="app">After Effects</mark>. В композиции обычно собирают некую
+            сцену с слоями, фигурами, эффектами или видео-файлами. У каждой композиции
+            есть частота кадров, разрешение и соотношение пикселя.
             <AdditionInfo>
               Чтобы открыть окно настроек композиции - используйте комбинацию клавиш{" "}
               <mark className="key">Ctrl + K</mark>.
@@ -488,8 +488,7 @@ const AEFromNewbies: React.FC = () => {
             вопроса &quot;у тебя точно одинаковые версии программ от Adobe стоят?&quot;.
             Данный вопрос задаётся в случае когда пользователь, например, не может
             подсоединить <mark className="app">After Effects</mark> и{" "}
-            <mark className="app">Media Encoder</mark> между собой. В таких случаях часто
-            виноват сам пользователь при выборе версии программы.
+            <mark className="app">Media Encoder</mark> между собой.
             <AdditionWarning>
               Программы <mark className="app">After Effects</mark>,
               <mark className="app">Premiere Pro</mark> и

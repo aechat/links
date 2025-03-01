@@ -477,7 +477,7 @@ const PSWhereFind: React.FC = () => {
           Вы, наверное, не раз натыкались на то, что вкладка{" "}
           <mark className="ui">Neural Filters</mark> не доступна на &quot;народных
           версиях&quot; <mark className="app">Photoshop</mark>. Она не активна по той
-          причине, что пользователь не вошёл в аккаунт Adobe.
+          причине, что вы не вошли в аккаунт Adobe.
         </p>
         <ImageFigure
           styleClass="figure_windows-light"
