@@ -33,18 +33,19 @@ wiggle(x, y)`}</CodeSnippet>
       <DetailsSummary title="Как зациклить анимацию, которая была создана с помощью ключевых кадров?">
         <p>{/* FIXME: написать!! */}</p>
       </DetailsSummary>
-      <DetailsSummary title="Как мне сделать 'прыгучую' анимацию нужного параметра?">
+      <DetailsSummary title='Как мне сделать "прыгучую" анимацию нужного параметра?'>
         <p>
           {/* FIXME: про bouncy текста или положения. можно привести в пример motion tools pro где это есть */}
         </p>
       </DetailsSummary>
-      <DetailsSummary title="Как сделать слайдер с значением больше миллиона?">
+      <DetailsSummary title="Как я могу сделать слайдер с значением больше миллиона?">
         <p>
-          В <mark className="app">After Effects</mark> нет возможности поставить значение
-          в <mark className="plugin">Slider Control</mark> больше чем{" "}
+          К сожалению, в <mark className="app">After Effects</mark> нет возможности
+          поставить значение в <mark className="plugin">Slider Control</mark> больше чем{" "}
           <mark>1 000 000</mark> как в плюс, так и в минус (в итоге получается диапазон в
-          два миллиона). Если вы анимируете счётчик от нуля до какого-то значения, то
-          просто умножьте значение слайдера на нужный коэффициент, например на 10 или 25.
+          два миллиона). Если вы анимируете счётчик от нуля до какого-то значения, то вы
+          можете просто умножить значение слайдера на нужный коэффициент, например на 10
+          или 25, чтобы получилось нужное вам значение.
         </p>
         <VideoFigure
           styleClass="figure_windows-dark"
@@ -53,14 +54,24 @@ wiggle(x, y)`}</CodeSnippet>
         />
         <AdditionInfo>
           Для избавления от плавающей запятой можно использовать функцию{" "}
-          <mark className="copy">Math.round</mark>.
+          <mark className="copy">Math.round</mark> и засунуть в него значение переменной.
         </AdditionInfo>
       </DetailsSummary>
       <DetailsSummary title="Как сделать так, чтобы мой счётчик не дёргался при анимации числа?">
         <p>{/* FIXME: написать про monospace шрифт через поворот */}</p>
       </DetailsSummary>
-      <DetailsSummary title="Как отключить выражение через Checkbox Control?">
-        <p>{/* FIXME: написать!! */}</p>
+      <DetailsSummary title="Как я могу отключить выражение в нужном месте через Checkbox Control?">
+        <p>
+          Вы можете создать выражение с конструкцией <mark>if/else</mark>, которое будет
+          работать в зависимости от выполненного условия. В данном случае нам нужно
+          сделать вывод значение при включенном и выключенном{" "}
+          <mark>Checkbox Controller</mark>.
+        </p>
+        <p>
+          Для начала создайте контроллер, в котором вы будете применять{" "}
+          <mark>Checkbox Controller</mark>.
+        </p>
+        {/* FIXME: написать!! */}
       </DetailsSummary>
     </div>
   );

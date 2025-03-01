@@ -53,6 +53,9 @@ const AEExprStart: React.FC = () => (
     <DetailsSummary title="Как удалить выражения сразу в нескольких слоях?">
       <p>{/* FIXME: написать!! */}</p>
     </DetailsSummary>
+    <DetailsSummary title="Что можно посмотреть и почитать про выражения в After Effects?">
+      <p>{/* FIXME: написать!! */}</p>
+    </DetailsSummary>
     <DetailsSummary title="Мне не нравится редактировать выражения внутри After Effects. Есть ли варианты редактирования в стороннем редакторе кода?">
       <p>
         Если вам не удобно писать по каким-то причинам выражение внутри самого{" "}
