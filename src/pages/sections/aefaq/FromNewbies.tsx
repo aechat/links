@@ -2396,10 +2396,11 @@ const AEFromNewbies: React.FC = () => {
           композиции.
         </p>
         <p>
-          Вам нужно создать Solid и применить <mark className="plugin">Saber</mark> на
-          него. А затем нужно синхронизировать маски: из слоя, из которого вы хотели
-          изначально сделать обводку маской нужно прилинковать маску в Solid, на котором
-          применён <mark className="plugin">Saber</mark> нужного размера.
+          Вам нужно создать <mark>Solid Layer</mark> и применить{" "}
+          <mark className="plugin">Saber</mark> на него. А затем нужно синхронизировать
+          маски: из слоя, из которого вы хотели изначально сделать обводку маской нужно
+          прилинковать маску в Solid, на котором применён{" "}
+          <mark className="plugin">Saber</mark> нужного размера.
         </p>
         <ImageFigure
           styleClass="figure_windows-dark"
