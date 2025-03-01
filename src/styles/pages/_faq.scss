@@ -65,7 +65,6 @@
     border: solid 1px var(--summary_border);
     border-bottom-width: 4px;
     border-radius: $roundness;
-    background-image: linear-gradient(to left, var(--summary_background), transparent);
     background-color: var(--summary_background);
     padding: 10px 15px;
     color: var(--summary_text);
@@ -111,7 +110,6 @@
       border: solid 1px var(--summary_border);
       border-bottom-width: 4px;
       border-radius: $roundness;
-      background-image: linear-gradient(to left, var(--summary_background), transparent);
       background-color: var(--summary_background);
       padding: 10px 15px;
       color: var(--summary_text);
