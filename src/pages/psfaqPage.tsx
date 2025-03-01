@@ -1,16 +1,16 @@
 import React, {Suspense, lazy, useEffect, useState} from "react";
 import {Breadcrumb, Divider} from "antd";
-import {Link} from "react-router-dom";
-import {AdditionDanger} from "../components/Additions";
-import Header from "../components/Header";
 import {motion} from "framer-motion";
+import {Link} from "react-router-dom";
+import Header from "../components/Header";
 import Footer from "../components/Footer";
-import CopyMark from "../components/features/CopyMark";
+import {Helmet} from "react-helmet-async";
 import {SearchInPage, SearchProvider} from "../components/features/SearchInPage";
 import SupportDonut from "../components/modal/SupportDonut";
-import {Helmet} from "react-helmet-async";
+import CopyToClipboard from "../components/features/CopyToClipboard";
 import {CircularProgress} from "@mui/material";
 import {generateAnchorId} from "../components/DetailsSummary";
+import {AdditionDanger} from "../components/Additions";
 
 const PSActions = lazy(() => import("./sections/psfaq/Actions"));
 
@@ -34,7 +34,7 @@ const PSWhereFind = lazy(() => import("./sections/psfaq/WhereFind"));
 
 const PSFaQ = () => {
   useEffect(() => {
-    CopyMark.enableAutoCopy();
+    CopyToClipboard.enableAutoCopy();
   }, []);
 
   const sections = [

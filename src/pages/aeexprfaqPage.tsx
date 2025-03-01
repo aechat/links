@@ -1,15 +1,16 @@
 import React, {Suspense, lazy, useEffect, useState} from "react";
-import {motion} from "framer-motion";
-import Header from "../components/Header";
 import {Breadcrumb, Divider} from "antd";
+import {motion} from "framer-motion";
 import {Link} from "react-router-dom";
-import {AdditionDanger, AdditionWarning} from "../components/Additions";
+import Header from "../components/Header";
 import Footer from "../components/Footer";
+import {Helmet} from "react-helmet-async";
 import {SearchInPage, SearchProvider} from "../components/features/SearchInPage";
 import SupportDonut from "../components/modal/SupportDonut";
-import {Helmet} from "react-helmet-async";
+import CopyToClipboard from "../components/features/CopyToClipboard";
 import {CircularProgress} from "@mui/material";
 import {generateAnchorId} from "../components/DetailsSummary";
+import {AdditionDanger, AdditionWarning} from "../components/Additions";
 
 const AEExprStart = lazy(() => import("./sections/aeexprfaq/Start"));
 
@@ -22,6 +23,10 @@ const AEExprActions = lazy(() => import("./sections/aeexprfaq/Actions"));
 const AEExprErrors = lazy(() => import("./sections/aeexprfaq/Errors"));
 
 const AEExpressionPage = () => {
+  useEffect(() => {
+    CopyToClipboard.enableAutoCopy();
+  }, []);
+
   const sections = [
     {key: "1", title: "С чего начать?", id: "start", component: AEExprStart},
     {key: "2", title: "База всех баз", id: "base", component: AEExprBase},
@@ -99,7 +104,7 @@ const AEExpressionPage = () => {
           <div className="faq-container-flex">
             <div className="faq-container">
               <div className="faq-title">
-                <h1>aeexpressionfaq</h1>
+                <h1>aeexprfaq</h1>
                 <Breadcrumb
                   items={[
                     {

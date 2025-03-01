@@ -7,7 +7,7 @@ import Footer from "../components/Footer";
 import {Helmet} from "react-helmet-async";
 import {SearchInPage, SearchProvider} from "../components/features/SearchInPage";
 import SupportDonut from "../components/modal/SupportDonut";
-import CopyMark from "../components/features/CopyMark";
+import CopyToClipboard from "../components/features/CopyToClipboard";
 import {CircularProgress} from "@mui/material";
 import {generateAnchorId} from "../components/DetailsSummary";
 import {AdditionDanger} from "../components/Additions";
@@ -36,7 +36,7 @@ const PRWhereFind = lazy(() => import("./sections/prfaq/WhereFind"));
 
 const PRFaQ = () => {
   useEffect(() => {
-    CopyMark.enableAutoCopy();
+    CopyToClipboard.enableAutoCopy();
   }, []);
 
   const sections = [
