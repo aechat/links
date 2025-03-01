@@ -50,7 +50,7 @@
       background-color 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
 
     outline: none;
-    border: solid 2px var(--sber-border);
+    border: solid 1px var(--sber-border);
     border-radius: $roundness * 0.75;
     background-color: var(--sber-background);
     padding: 10px 20px;
@@ -71,7 +71,7 @@
       opacity,
       background-color 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
     outline: none;
-    border: solid 2px var(--yoomoney-border);
+    border: solid 1px var(--yoomoney-border);
     border-radius: $roundness * 0.75;
     background-color: var(--yoomoney-background);
     padding: 10px 20px;
@@ -142,7 +142,7 @@
     align-items: center;
     gap: 8px;
     cursor: pointer;
-    border: 2px solid var(--links_border);
+    border: 1px solid var(--links_border);
     border-radius: $roundness;
     background-color: var(--links_background);
     padding: 10px 20px;
@@ -158,7 +158,7 @@
     align-items: center;
     cursor: pointer;
     margin: 0 auto;
-    border: 2px solid var(--links_border);
+    border: 1px solid var(--links_border);
     border-radius: $roundness;
     background-color: var(--links_background);
     padding: 10px 20px;
@@ -348,7 +348,7 @@
       text-wrap: wrap;
       flex: 1 0 165px;
       transition: opacity 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
-      border: 2px solid var(--summary_border);
+      border: 1px solid var(--summary_border);
       border-radius: $roundness;
       background-color: var(--summary_background);
       padding-inline: 10px;
