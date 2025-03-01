@@ -78,8 +78,8 @@ const ChatRules = () => {
             >
               О чате и принципах
             </h2>
-            <section className="faq-section">
-              <div className="faq-content">
+            <div className="faq-content">
+              <section className="faq-section">
                 <AdditionDanger>
                   Предупреждение для иноязычных пользователей: In{" "}
                   <a
@@ -263,16 +263,16 @@ const ChatRules = () => {
                   Незнание правил не освобождает вас от ответственности. Для действующих
                   членов администрации чата правила могут не применяться.
                 </AdditionWarning>
-              </div>
-            </section>
+              </section>
+            </div>
             <h2
               className="faq-section-title"
               id="work"
             >
               О вакансиях и резюме
             </h2>
-            <section className="faq-section">
-              <div className="faq-content">
+            <div className="faq-content">
+              <section className="faq-section">
                 <p>
                   Если вы хотите опубликовать заказ в чате для потенциального исполнителя
                   или вакансию, то будьте добры соблюдать простые требования по
@@ -382,16 +382,16 @@ const ChatRules = () => {
                   заставит &quot;правонарушителя&quot; пошевелиться и решить вопрос, или
                   же предостережёт остальных людей от связей с &quot;кидалой&quot;.
                 </AdditionDanger>
-              </div>
-            </section>
+              </section>
+            </div>
             <h2
               className="faq-section-title"
               id="admins"
             >
               Администраторы чата никому и ничего не обязаны!
             </h2>
-            <section className="faq-section">
-              <div className="faq-content">
+            <div className="faq-content">
+              <section className="faq-section">
                 <p>
                   Администраторы следят за порядком чата и время от времени помогают
                   участникам, но не нужно принимать нас как за единственных спасителей. Мы
@@ -435,11 +435,11 @@ const ChatRules = () => {
                   пренебрегайте этим. Слишком частое повторение вопроса может привести к
                   запрету на отправку сообщений по усмотрению администрации.
                 </AdditionInfo>
-              </div>
-            </section>
+              </section>
+            </div>
             <h2 className="faq-section-title">Не гадим в чате и не злимся на других</h2>
-            <section className="faq-section">
-              <div className="faq-content">
+            <div className="faq-content">
+              <section className="faq-section">
                 <p>
                   В чате запрещён спам, флуд (отход от темы, вопросы не по продуктам Adobe
                   или много бессмысленных сообщений) и чрезмерное употребление матов.
@@ -452,16 +452,16 @@ const ChatRules = () => {
                   &quot;поязвить&quot; дальше - в бан пойдут оба аккаунта вне зависимости
                   от наказания.
                 </AdditionWarning>
-              </div>
-            </section>
+              </section>
+            </div>
             <h2
               className="faq-section-title"
               id="nometa"
             >
               Ребята, давайте жить без мета-вопросов!
             </h2>
-            <section className="faq-section">
-              <div className="faq-content">
+            <div className="faq-content">
+              <section className="faq-section">
                 <p>
                   Предположим, что вы только что зашли в чат и у вас явно есть вопрос. Не
                   нужно писать:{" "}
@@ -567,13 +567,13 @@ const ChatRules = () => {
                   администрация оставляет за собой право замутить вас для того, чтобы за
                   это время вы смогли внятно сформулировать вопрос.
                 </AdditionWarning>
-              </div>
-            </section>
+              </section>
+            </div>
             <h2 className="faq-section-title">
               Никакой порнухи, политики, сомнительного и шокирующего контента
             </h2>
-            <section className="faq-section">
-              <div className="faq-content">
+            <div className="faq-content">
+              <section className="faq-section">
                 <p>
                   Мы не одобряем политические или около-политические дискуссии в наших
                   чатах. Также в наших чатах нельзя размещать порнографию или любой другой
@@ -584,13 +584,13 @@ const ChatRules = () => {
                   провокационные ники и сомнительные аватарки, например с изображением
                   нацистской символики.
                 </AdditionWarning>
-              </div>
-            </section>
+              </section>
+            </div>
             <h2 className="faq-section-title">
               Никаких барыг, попрошаек и рекламодателей
             </h2>
-            <section className="faq-section">
-              <div className="faq-content">
+            <div className="faq-content">
+              <section className="faq-section">
                 <p>
                   Запрещена купля, продажа и перепродажа товаров, шаблонов, «доступов», а
                   также самопиар своей страницы в соцсетях, реферальные ссылки и реклама
@@ -601,8 +601,8 @@ const ChatRules = () => {
                   закреплённом сообщении. Если вы хотите поделиться с кем-то каналом -
                   перешлите его собеседнику в личные сообщения.
                 </AdditionInfo>
-              </div>
-            </section>
+              </section>
+            </div>
             <Footer
               title="aechat"
               initialYear={2021}

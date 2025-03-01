@@ -106,6 +106,7 @@
 
     &-title {
       position: relative;
+      filter: drop-shadow(0 3px 5px var(--shadow));
       margin-block: 10px;
       border: solid 1px var(--summary_border);
       border-bottom-width: 4px;
