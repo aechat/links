@@ -1174,7 +1174,7 @@ const AEFromNewbies: React.FC = () => {
                 Добавление ключевого кадра для нужного свойства
                 <AdditionInfo>
                   Например, нажав на <mark className="key">Alt + Shift + P</mark> вы
-                  добавите кейфрейм для аттрибута положения
+                  добавите ключевой кадр для аттрибута положения
                 </AdditionInfo>
               </td>
               <td>
@@ -2210,6 +2210,28 @@ const AEFromNewbies: React.FC = () => {
           videoSrc="images/aftereffects/change_graph_view.mp4"
           caption="Изменение вида графика скорости"
         />
+        <p>
+          Если вы хотите изменять плавность траектории движения объекта прямо в
+          предпросмотре, то вам нужно изменить тип пространственной интерполяции для
+          ключей. Для этого выделите нужные ключевые кадры и нажмите на комбинацию клавиш{" "}
+          <mark className="key">Ctrl + Alt + K</mark>. В открывшемся окне выберите в
+          пункте <mark className="ui">Spatial Interpolation</mark> значение{" "}
+          <mark className="ui">Bezier</mark> или любой другой тип безье. После этого вы
+          сможете изменять траекторию движения в предпросмотре без всяких проблем.
+        </p>
+        <VideoFigure
+          styleClass="figure_windows-dark"
+          videoSrc="images/aftereffects/change_spatial_interpolation.mp4"
+          caption="Изменение типа пространственной интерполяции"
+        />
+        <AdditionInfo>
+          Если вы не видите путь движения анимации вашего объекта или оно слишком короткое
+          - измените область времени отображения пути движения, открыв{" "}
+          <mark className="ui">Edit &gt; Preferences &gt; Display</mark> и установив
+          значение <mark className="ui">All Keyframes</mark>. Также убедитесь в том, что
+          вы включили отображение границ слоёв с помощью комбинации клавиш{" "}
+          <mark className="key">Ctrl + Shift + H</mark>.
+        </AdditionInfo>
       </DetailsSummary>
       <DetailsSummary title="Почему у меня отсутствует звук при проигрывании предпросмотра?">
         <p>
