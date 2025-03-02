@@ -21,19 +21,29 @@ const AEFromNewbies: React.FC = () => {
         <p>
           Если вы только начинаете свой путь в мире композитинга и никогда не работали с
           программами, такими как <mark className="app">After Effects</mark>, то мы
-          рекомендуем вам пройти курс от{" "}
-          <a
-            href="https://www.youtube.com/channel/UCmLY17yagzLy6GRiI1nVBow"
-            title="Канал Ильи Зернова на YouTube"
-          >
-            Ильи Зернова
+          рекомендуем вам пройти курс{" "}
+          <a href="https://www.youtube.com/playlist?list=PLcN7xY5E2wrmIU__8uNIHglZTyZ29RMIM">
+            Основы After Effects от Ильи Зернова
           </a>
-          . Этот курс поможет вам освоить интерфейс программы и избежать распространённых
-          ошибок на старте.
+          . Данный курс поможет вам освоить интерфейс программы и научиться работать с
+          ключевыми кадрами, титрами и эффектами.
         </p>
         <YouTubeVideo
           link="https://www.youtube.com/embed/nogR7eyhYug"
           caption="Основы After Effects от Ильи Зернова"
+        />
+        <p>
+          В качестве альтернативы вы можете пройти{" "}
+          <a href="https://www.youtube.com/playlist?list=PLrsq-o51mMFE4ez9Q4qmkyoXZ_lYsyZNi">
+            мини-курс от VideoSmile для начинающих
+          </a>
+          . В данном курсе вы научитесь работать с различными эффектами, создавать
+          анимацию текста, а также использовать маски и инструмент{" "}
+          <mark className="plugin">Rotobrush</mark> для вырезания объектов в кадре.
+        </p>
+        <YouTubeVideo
+          link="ZTrELWgEtUI"
+          caption="After Effects для начинающих"
         />
         <p>
           Если вы уже знакомы с интерфейсом, но всё ещё чувствуете себя неуверенно,
