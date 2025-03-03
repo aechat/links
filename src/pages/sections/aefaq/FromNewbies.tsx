@@ -785,7 +785,7 @@ const AEFromNewbies: React.FC = () => {
           <li>
             <mark className="word">Часы</mark> или{" "}
             <mark className="word">секундомер</mark> - элемент интерфейса на таймлайне или
-            в панели управления эффектом для добавления.
+            в панели управления эффектом для добавления ключевых кадров.
             <AdditionInfo>
               Если нажать на секундомер с зажатым <mark className="key">Alt</mark> -
               включится режим работы с выражениями. Выключается аналогичным образом.
@@ -1673,7 +1673,7 @@ const AEFromNewbies: React.FC = () => {
                 <AdditionInfo>
                   Если у вас клавиатура без цифрового блока справа, то вы можете
                   переназначить эту клавишу на любую другую в{" "}
-                  <mark className="ui">Edit + Keyboard Shortcuts</mark>
+                  <mark className="ui">Edit &gt; Keyboard Shortcuts</mark>
                 </AdditionInfo>
               </td>
             </tr>

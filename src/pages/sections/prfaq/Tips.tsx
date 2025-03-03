@@ -336,7 +336,7 @@ const PRTips: React.FC = () => {
         <p>
           Для начала нужно подготовить проект под его использование: нужно открыть
           настройки секвенции, перейдя в
-          <mark className="ui">Sequence &gt; Sequence Settings</mark> и в разделе
+          <mark className="ui">Sequence &gt; Sequence Settings</mark> и в разделе{" "}
           <mark className="ui">Video Previews</mark> указать нужный нам кодек для
           пре-рендера. В нашем случае мы укажем{" "}
           <mark className="video">Apple Prores 422</mark>, но вы можете выбрать любой
