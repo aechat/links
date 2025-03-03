@@ -429,17 +429,6 @@ const AEErrors: React.FC = () => {
           }
         />
       </DetailsSummary>
-      <DetailsSummary title="Иногда появляются тонкие полосы в композициях при использовании видео-исходников">
-        <p>
-          Такой баг встречался на некоторых версиях драйверов для видеокарт NVIDIA с{" "}
-          <mark>55X</mark>
-          до <mark>56X</mark>. Для решения этой проблемы достаточно обновить драйвера на
-          видеокарту или перекодировать видео в{" "}
-          <mark className="video">Apple Prores 422</mark> через любой удобный вам
-          конвертер видео файлов, например{" "}
-          <a href="https://www.shutterencoder.com/">Shutter Encoder</a>.
-        </p>
-      </DetailsSummary>
       <DetailsSummary title='"Не удалось выполнить преобразование символов Unicode" или "Не удалось загрузить псевдоэффекты" при запуске After Effects'>
         <p>
           Если вы попытаетесь запустить <mark className="app">After Effects</mark> с
@@ -533,7 +522,7 @@ const AEErrors: React.FC = () => {
           повторить попытку открытия проекта снова.
         </p>
       </DetailsSummary>
-      <DetailsSummary title="This project must be converted from version XX.X.X (Windows/macOS). The original file will be unchanged">
+      <DetailsSummary title='"This project must be converted from version XX.X.X (Windows/macOS). The original file will be unchanged" при открытии проекта'>
         <AdditionInfo>Данное окно является предупреждением, а не ошибкой.</AdditionInfo>
         <p>
           Вы открыли проект, созданный в более ранней версии{" "}
@@ -548,7 +537,7 @@ const AEErrors: React.FC = () => {
           помощью комбинации клавиш <mark className="key">Ctrl + S</mark>.
         </AdditionWarning>
       </DetailsSummary>
-      <DetailsSummary title="The file you are attempting to open was created with After Effects version XX.X.X (Windows/macOS) and cannot be opened with this version">
+      <DetailsSummary title='"The file you are attempting to open was created with After Effects version XX.X.X (Windows/macOS) and cannot be opened with this version" при открытии проекта'>
         <p>
           Вы пытаетесь открыть проект, созданный в более поздней версии{" "}
           <mark className="app">After Effects</mark>, чем та, что у вас установлена. У вас
@@ -730,7 +719,7 @@ const AEErrors: React.FC = () => {
           .
         </p>
       </DetailsSummary>
-      <DetailsSummary title="Frame rate mismatch, or footage with fields found. For best Roto Brush & Refine Edge results, set the composition to XX fps to match the layer source">
+      <DetailsSummary title='"Frame rate mismatch, or footage with fields found. For best Roto Brush & Refine Edge results, set the composition to XX fps to match the layer source" при использовании Rotobrush'>
         <p>
           Данное предупреждение показывается при использовании инструмента{" "}
           <mark className="plugin">Rotobrush</mark> и оповещает пользователя о том, что
@@ -794,7 +783,7 @@ const AEErrors: React.FC = () => {
           caption="Project Settings"
         />
       </DetailsSummary>
-      <DetailsSummary title="Layer must match Composition and use default transform values при использовании 3D Camera Tracker">
+      <DetailsSummary title='"Layer must match Composition and use default transform values" при использовании 3D Camera Tracker'>
         <p>
           Данная ошибка прямым текстом указывает на то, что слой должен быть по размеру
           композиции, а также не быть перемещённым, повёрнут или ещё каким-то образом
@@ -898,7 +887,7 @@ const AEErrors: React.FC = () => {
         </AdditionInfo>
       </DetailsSummary>
       <DetailsSummary
-        title='"Advanced 3D is not supported by the current software" или "Advanced 3D plug-in generated an unexpected exception"'
+        title='"Advanced 3D is not supported by the current software", "Advanced 3D plug-in generated an unexpected exception" или программа просто вылетает при попытке использовать Advanced 3D'
         tag="расширенный 3d, вылетает, адвансед 3д"
       >
         <p>
@@ -987,7 +976,7 @@ const AEErrors: React.FC = () => {
           обновите вашу систему до последней версии, хотя бы до Windows 10 22H2.
         </p>
       </DetailsSummary>
-      <DetailsSummary title="Точка входа в процедуру не найдена в библиотеке Kernel32.dll или не могу запустить программу, хотя Visual C++ Redistributable установил">
+      <DetailsSummary title='"Точка входа в процедуру не найдена в библиотеке Kernel32.dll" или не могу запустить программу, хотя Visual C++ Redistributable установил'>
         <p>
           Вы зачем-то установили <mark className="app">After Effects</mark> версии 2020
           или новее и пытаетесь запустить программу на неподдерживаемой операционной
@@ -997,7 +986,7 @@ const AEErrors: React.FC = () => {
           <mark>After Effects 2019</mark> или более старые.
         </p>
       </DetailsSummary>
-      <DetailsSummary title="Не найден файл D3DCompiler_47.dll">
+      <DetailsSummary title='"Не найден файл D3DCompiler_47.dll" при запуске программы'>
         <p>
           Для решения этой ошибки при запуске программы - распакуйте архив{" "}
           <a
@@ -1014,7 +1003,7 @@ const AEErrors: React.FC = () => {
       </DetailsSummary>
       <DetailsSummary title="After Effects warning: A rendering plug-in was not found. The default rendering plug-in will be substituted. “Ray-Traced 3D”">
         <p>
-          Данное предупреждение появится, когда вы попытаетесь открыть очень старый проект
+          Данное предупреждение появляется, когда вы пытаетесь открыть очень старый проект
           с использованием движка <mark className="plugin">Ray-Traced 3D</mark> в новых
           версиях <mark className="app">After Effects</mark>. Его вырезали в{" "}
           <mark className="app">After Effects 2020</mark> и новее, а это обозначает, что
@@ -1026,7 +1015,7 @@ const AEErrors: React.FC = () => {
           версии 2019 года или старше, в котором этот движок доживал последние дни.
         </p>
       </DetailsSummary>
-      <DetailsSummary title="Warning: This project uses fonts that are not currently available on this computer. Font substitution will occur until the originals become available">
+      <DetailsSummary title='"Warning: This project uses fonts that are not currently available on this computer. Font substitution will occur until the originals become available" при открытии проекта'>
         <AdditionInfo>
           <ul>
             <li>Это окно является предупреждением, а не ошибкой.</li>
@@ -1065,10 +1054,12 @@ const AEErrors: React.FC = () => {
           использовать.
         </p>
       </DetailsSummary>
-      <DetailsSummary title="This project contains references to missing effects. Please install the following effects to restore these references">
+      <DetailsSummary title='"This project contains references to missing effects. Please install the following effects to restore these references" при открытии проекта'>
         <p>
           Данное предупреждение указывает на то, что у вас не установлены какие-то
-          эффекты, которые используются в проекте.
+          эффекты, которые используются в проекте. Вы можете продолжить работу с проектом,
+          только вы не сможете использовать эффекты, указанные в этом списке, и видеть их
+          в предпросмотре.
         </p>
         <ImageFigure
           styleClass="figure_windows-dark"
@@ -1082,9 +1073,17 @@ const AEErrors: React.FC = () => {
           если она была открыта.
         </p>
         <AdditionInfo>
-          В редких случаях бывает такое, что эффект в зависимости от версии плагина или{" "}
-          <mark className="app">After Effects</mark> могут переименоваться, поэтому вам
-          нужно их будет заменить вручную.
+          <li>
+            В редких случаях бывает такое, что эффект в зависимости от версии плагина или{" "}
+            <mark className="app">After Effects</mark> могут переименоваться, поэтому вам
+            нужно их будет заменить вручную.
+          </li>
+          <li>
+            Прежде чем устанавливать сторонние плагины - убедитесь в том, что{" "}
+            <mark className="app">After Effects</mark> стоит на стандартном расположении.
+            Иначе плагины установятся в другое место, а в{" "}
+            <mark className="app">After Effects</mark> они не появятся.
+          </li>
         </AdditionInfo>
         <p>
           Иногда многие спрашивают, что за эффекты с приставкой <mark>S_</mark> и{" "}
@@ -1096,7 +1095,7 @@ const AEErrors: React.FC = () => {
           <mark>Red Giant</mark> и прочих компаний.
         </p>
       </DetailsSummary>
-      <DetailsSummary title="After Effects warning: The following plugins have failed to load. Please reinstall these plugins">
+      <DetailsSummary title='"After Effects warning: The following plugins have failed to load. Please reinstall these plugins" при запуске программы'>
         <p>
           Некоторые плагины не могут загрузиться по причине того, что они либо битые и
           криво установились, либо не поддерживаются текущей версией{" "}
@@ -1115,7 +1114,7 @@ const AEErrors: React.FC = () => {
           этого не могли загрузиться.
         </p>
       </DetailsSummary>
-      <DetailsSummary title='"Приложение Adobe Creative Cloud, необходимое для устранения проблемы отсутствует или повреждено..."?'>
+      <DetailsSummary title='"Приложение Adobe Creative Cloud, необходимое для устранения проблемы отсутствует или повреждено..." при запуске программы'>
         <p>
           Вы зачем-то установили приложение <mark className="app">Creative Cloud</mark>{" "}
           рядом с пиратскими программами, у которых вырезан модуль{" "}
