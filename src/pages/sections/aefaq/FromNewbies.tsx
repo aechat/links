@@ -2489,10 +2489,11 @@ const AEFromNewbies: React.FC = () => {
       </DetailsSummary>
       <DetailsSummary title="Как сделать прозрачный фон у слоя с эффектом Saber?">
         <p>
-          Для этого в настройках эффекта <mark className="plugin">Saber</mark> раскройте
-          пункт <mark className="ui">Render Settings</mark>. В этом же подпункте найдите
-          пункт <mark className="ui">Composite Settings</mark> и установите значение{" "}
-          <mark className="ui">Transparent</mark>.
+          По умолчанию <mark className="plugin">Saber</mark> рендерится на чёрном фоне, но
+          в параметрах эффекта можно включить прозрачность. Для этого найдите пункт{" "}
+          <mark className="ui">Render Settings</mark> и раскройте его. Затем найдите
+          параметр <mark className="ui">Composite Settings</mark> и выберите в нём
+          значение <mark className="ui">Transparent</mark>.
         </p>
         <ImageFigure
           imgSrc="images/aftereffects/transparent_saber.png"
