@@ -302,6 +302,13 @@ const AEImport: React.FC = () => {
           <mark className="plugin">Autokroma Influx</mark> вне зависимости от настройки{" "}
           <mark className="ui">Formats</mark>.
         </p>
+        <p>
+          В редких случаях вы можете встретиться с багом, который &quot;полосатит&quot;
+          изображения. Это баг встречался из-за кривых версий драйверов для видеокарт
+          NVIDIA с <mark>55X</mark>
+          до <mark>56X</mark>. Для решения этой проблемы достаточно обновить драйвера на
+          видеокарту.
+        </p>
       </DetailsSummary>
       <DetailsSummary
         title="Почему я не могу импортировать .psd по слоям? After Effects не мне предлагает выбор типа импорта!"
