@@ -2260,8 +2260,8 @@ const AEFromNewbies: React.FC = () => {
         />
         <p>
           Если вы проигрываете видео не в реальном времени и звук отсутствует (даже если
-          он вам и нужен запинающийся и растянутый), то возможно вы в настройках{" "}
-          <mark className="app">After Effects</mark> включили галочку{" "}
+          он вам и нужен запинающийся и растянутый), то вам в настройках{" "}
+          <mark className="app">After Effects</mark> нужно включить галочку{" "}
           <mark className="ui">Mute Audio When Preview Is Not Real-time</mark> в{" "}
           <mark className="ui">Edit &gt; Preferences &gt; Previews</mark>.
         </p>
@@ -2282,6 +2282,14 @@ const AEFromNewbies: React.FC = () => {
           imgTitle="Включение звука в окне Preview"
           caption="Preview"
         />
+        <p>
+          В редких случаях баги с проигрыванием звука могут возникнуть из-за самого
+          исходника звука. Чтобы исключить различные проблемы с воспроизведением аудио -
+          переконвертируйте его в формат <mark className="file">.wav</mark>, а затем
+          замените аудио в проекте. Если аудио запаковано вместе с видеофайлом -
+          переконвертируйте его в монтажный кодек, например, через{" "}
+          <mark className="app">Shutter Encoder</mark>.
+        </p>
       </DetailsSummary>
       <DetailsSummary title="Что такое Null Object и как с ним работать?">
         <p>
