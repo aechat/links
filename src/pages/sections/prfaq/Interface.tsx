@@ -53,7 +53,7 @@ const PRInterface: React.FC = () => {
       <DetailsSummary title='Куда пропала кнопка "Set to Frame Size"?'>
         <p>
           В <mark className="app">Premiere Pro</mark> версии 2025 эту функцию убрали,
-          заменив на <mark className="ui">Fill Frame</mark>.
+          заменив на <mark className="ui">Fit to Frame</mark>.
         </p>
         {/* TODO: дописать */}
       </DetailsSummary>
