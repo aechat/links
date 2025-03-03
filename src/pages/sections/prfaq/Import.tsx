@@ -374,6 +374,13 @@ const PRImport: React.FC = () => {
           перекодировать ваши исходники в монтажный кодек, например через{" "}
           <mark className="app">Shutter Encoder</mark>.
         </AdditionWarning>
+        <p>
+          Если вы сталкиваетесь с различными артефактами при использовании{" "}
+          <mark className="plugin">Autokroma Influx</mark> или не хотите устанавливать
+          сторонние плагины, то попробуйте всё же перекодировать ваши исходники через{" "}
+          <mark className="app">MKVToolNix</mark>, <mark className="app">HandBrake</mark>{" "}
+          или <mark className="app">Shutter Encoder</mark>.
+        </p>
       </DetailsSummary>
       <DetailsSummary title="Прислали исходники в формате .heic, .heif или .hevc. Как мне их открыть и импортировать в проект?">
         <AdditionDanger>
