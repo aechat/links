@@ -539,7 +539,8 @@ const AEImport: React.FC = () => {
         tag="инфлюкс, без кодирования"
       >
         <p>
-          <mark className="app">After Effects</mark> изначально не поддерживает большое
+          <mark className="app">After Effects</mark> и{" "}
+          <mark className="app">Media Encoder</mark> изначально не поддерживают большое
           количество кодеков, например <mark className="video">VP9</mark>,{" "}
           <mark className="video">AV1</mark>, а также контейнеры{" "}
           <mark className="file">.webm</mark>, <mark className="file">.flv</mark>,{" "}
@@ -566,6 +567,13 @@ const AEImport: React.FC = () => {
           перекодировать ваши исходники в монтажный кодек, например через{" "}
           <mark className="app">Shutter Encoder</mark>.
         </AdditionWarning>
+        <p>
+          Если вы сталкиваетесь с различными артефактами при использовании{" "}
+          <mark className="plugin">Autokroma Influx</mark> или не хотите устанавливать
+          сторонние плагины, то попробуйте всё же перекодировать ваши исходники через{" "}
+          <mark className="app">MKVToolNix</mark>, <mark className="app">HandBrake</mark>{" "}
+          или <mark className="app">Shutter Encoder</mark>.
+        </p>
       </DetailsSummary>
       <DetailsSummary
         title="Прислали исходники в формате .heic, .heif или .hevc, но выбивает ошибку. Как их мне открыть и импортировать в проект?"
