@@ -52,10 +52,18 @@ const PRInterface: React.FC = () => {
       </DetailsSummary>
       <DetailsSummary title='Куда пропала кнопка "Set to Frame Size"?'>
         <p>
-          В <mark className="app">Premiere Pro</mark> версии 2025 эту функцию убрали,
-          заменив на <mark className="ui">Fit to Frame</mark>.
+          В <mark className="app">Premiere Pro</mark> версии 2025{" "}
+          <mark className="ui">Set to Frame Size</mark> заменили на{" "}
+          <mark className="ui">Fit to Frame</mark>. Данная функция увеличивает значение{" "}
+          <mark className="ui">Scale</mark> до тех пор, пока не упрётся в ближайшую
+          сторону по высоте или ширине вашей секвенции.
         </p>
-        {/* TODO: дописать */}
+        <p>
+          Вместе с этим обновлением добавили новую функцию{" "}
+          <mark className="ui">Fill Frame</mark>, работающий также через{" "}
+          <mark className="ui">Scale</mark>, но подгоняет значение под самую большую
+          сторону вашей секвенции.
+        </p>
       </DetailsSummary>
       <DetailsSummary title="Как изменить вид отсчёта времени на таймлайне?">
         <p>
