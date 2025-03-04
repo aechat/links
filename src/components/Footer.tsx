@@ -1,6 +1,6 @@
 import {Modal} from "antd";
 import React from "react";
-import {CloseRounded, GitHub, Mail} from "@mui/icons-material";
+import {CloseRounded, GitHub} from "@mui/icons-material";
 interface FooterProps {
   title: string;
   initialYear: number;
@@ -52,18 +52,10 @@ const Footer: React.FC<FooterProps> = ({title, initialYear}) => {
           </div>
           <div className="modal-content">
             <p>
-              Привет, я{" "}
-              <a
-                target="_blank"
-                rel="noreferrer"
-                href="https://t.me/m1sh3r"
-              >
-                Мишер
-              </a>
-              , создатель этой страницы. Идея сайта заключалась в том, чтобы
-              минимизировать надоедливые вопросы по программам Adobe и направить людей на
-              альтернативные чаты, если возникли вопросы по другим программам.{" "}
-              <i>Надеюсь, что с этой задачей я справился.</i>
+              Идея сайта заключалась в том, чтобы минимизировать надоедливые вопросы по
+              программам Adobe и направить людей на альтернативные чаты, если возникли
+              вопросы по другим программам.{" "}
+              <i>Надеюсь, что мы с этой задачей справились.</i>
             </p>
             <p>
               Контент на сайте наполнялся благодаря команде администраторов и участников{" "}
@@ -83,18 +75,18 @@ const Footer: React.FC<FooterProps> = ({title, initialYear}) => {
             </p>
             <div className="flexible-links">
               <a
-                target="_blank"
-                rel="noreferrer"
-                href="mailto:me@m1sh3r.ru"
-              >
-                <Mail />
-              </a>
-              <a
+                style={{
+                  textDecoration: "none",
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "5px",
+                }}
                 target="_blank"
                 rel="noreferrer"
                 href="https://github.com/aechat/links"
               >
                 <GitHub />
+                Открыть страницу на GitHub
               </a>
             </div>
           </div>
