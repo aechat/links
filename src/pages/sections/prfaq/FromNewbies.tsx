@@ -891,6 +891,42 @@ const PRFromNewbies: React.FC = () => {
           caption="Shortcuts for the timeline in Premiere Pro - track targeting"
         />
       </DetailsSummary>
+      <DetailsSummary title='Чем отличается "Scale to Frame Size" от "Fill Frame" и "Fit to Frame"?'>
+        <p>
+          Использование разных способов подгонки изображения под размер вашей секвенции
+          может сказаться на качестве изображения.
+        </p>
+        <ul>
+          <li>
+            <mark className="ui">Scale to Frame Size</mark> изменяет разрешение клипа под
+            размер вашей секвенции, при этом оставляет значение{" "}
+            <mark className="ui">Scale</mark> на 100% и меньше нагружает ресурсы ПК.
+            <AdditionWarning>
+              Если вы уменьшите клип, записанный в <mark>4K</mark> под секвенцию{" "}
+              <mark>1080p</mark> через <mark className="ui">Scale to Frame Size</mark>, то
+              вы заметите, что качество просядет. Также это касается и увеличения клипов.
+            </AdditionWarning>
+          </li>
+          <li>
+            <mark className="ui">Fill Frame</mark> подгоняет значение{" "}
+            <mark className="ui">Scale</mark> под самую большую сторону вашей секвенции и
+            клип не теряет в качестве.
+          </li>
+          <li>
+            <mark className="ui">Fit to Frame</mark> подгоняет размер клипа под ближайшую
+            сторону вашей секвенции через значение <mark className="ui">Scale</mark>.
+          </li>
+        </ul>
+        <AdditionInfo>
+          В старых версиях <mark className="app">Premiere Pro</mark> вместо{" "}
+          <mark className="ui">Fit to Frame</mark> была кнопка{" "}
+          <mark className="ui">Set to Frame Size</mark>.
+        </AdditionInfo>
+        <YouTubeVideo
+          link="dKTWbkPfcmE"
+          caption="Чем отличается Scale to Frame size от Set to Frame size?"
+        />
+      </DetailsSummary>
       <DetailsSummary title="Как вернуть звуковую или видео дорожку на таймлайн?">
         <p>
           Для возвращения недостающей части у вашего исходника вам нужно выделить клип, а
