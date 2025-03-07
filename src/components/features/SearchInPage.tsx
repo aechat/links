@@ -179,9 +179,7 @@ export const SearchInPage: React.FC<{sections: Array<{id: string; title: string}
 
       const tag = detail.getAttribute("data-tags") ?? "";
 
-      const content = Array.from(
-        detail.querySelectorAll<HTMLParagraphElement>("p, .addition-info")
-      )
+      const content = Array.from(detail.querySelectorAll<HTMLParagraphElement>("p"))
         .map((el) => decodeHtmlEntities(el.textContent?.trim() ?? ""))
         .filter(Boolean)
         .join("\n");
@@ -246,9 +244,14 @@ export const SearchInPage: React.FC<{sections: Array<{id: string; title: string}
 
       const listItems = Array.from(detail.querySelectorAll<HTMLLIElement>("li"))
         .map((el) => {
-          const directChildUl = el.querySelector("ul");
+          const clonedEl = el.cloneNode(true) as HTMLLIElement;
+          clonedEl
+            .querySelectorAll(".addition-info, .addition-warning, .addition-danger")
+            .forEach((element) => element.remove());
 
-          const parentText = Array.from(el.childNodes)
+          const directChildUl = clonedEl.querySelector("ul");
+
+          const parentText = Array.from(clonedEl.childNodes)
             .map((node) => {
               if (node.nodeType === Node.TEXT_NODE) {
                 return decodeHtmlEntities(node.textContent?.trim() ?? "");
@@ -474,9 +477,7 @@ export const SearchInPage: React.FC<{sections: Array<{id: string; title: string}
       window.pageYOffset -
       headerHeight -
       padding;
-
     window.history.pushState({}, "", `#${id}`);
-
     window.scrollTo({
       top: y,
       behavior: "smooth",
