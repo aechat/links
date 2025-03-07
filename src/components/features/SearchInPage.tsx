@@ -408,51 +408,22 @@ export const SearchInPage: React.FC<{sections: Array<{id: string; title: string}
       .filter((word) => word.length > 0);
 
     const cleanLines = lines.map((line) => line.trim());
+
     for (const line of cleanLines) {
       const lineLower = line.toLowerCase();
       if (searchWords.every((word) => lineLower.includes(word))) {
-        return highlightText(line, query);
+        return line;
       }
     }
 
     for (const line of cleanLines) {
       const lineLower = line.toLowerCase();
       if (searchWords.some((word) => lineLower.includes(word))) {
-        return highlightText(line, query);
+        return line;
       }
     }
 
-    return highlightText(cleanLines[0] ?? "", query);
-  };
-
-  const stripHtmlTags = (text: string) => {
-    const div = document.createElement("div");
-    div.innerHTML = text;
-
-    return (div.textContent ?? div.innerText) || "";
-  };
-
-  const highlightText = (text: string, query: string) => {
-    if (!query.trim()) {
-      return text;
-    }
-
-    const strippedText = stripHtmlTags(text);
-
-    const escapedQuery = query.replace(/[-/\\^$.*+?()[\]{}|]/g, "\\$&");
-
-    const regex = new RegExp(`(${escapedQuery.split(/\s+/).join("|")})`, "gi");
-
-    const highlightedStrippedText = strippedText.replace(regex, (match) => {
-      return match.trim() ? `<mark>${match}</mark>` : match;
-    });
-
-    const div = document.createElement("div");
-    div.innerHTML = text;
-
-    const originalHtml = div.innerHTML;
-
-    return originalHtml.replace(strippedText, highlightedStrippedText);
+    return cleanLines[0] ?? "";
   };
 
   const handleLinkClick = (id: string) => {
