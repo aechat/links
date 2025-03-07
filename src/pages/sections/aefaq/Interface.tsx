@@ -333,7 +333,7 @@ const AEInterface: React.FC = () => {
                   Чтобы установить это расширение для изменения масштабирования
                   предпросмотра, вам нужно перенести файл{" "}
                   <mark className="file">Zoom.jsx</mark> из архива в стандартную папку для
-                  скриптов:{" "}
+                  скриптов -{" "}
                   <mark className="path">
                     C:\Program Files\Adobe\Adobe After Effects 20XX\Support Files\Scripts\
                   </mark>
@@ -341,8 +341,8 @@ const AEInterface: React.FC = () => {
                 </li>
                 <li>
                   Затем перенесите <mark className="file">Zoom.aex</mark> из папки архива{" "}
-                  <mark className="path">Plug-in/Windows</mark> в общую папку для
-                  плагинов:{" "}
+                  <mark className="path">Plug-in/Windows</mark> в общую папку для плагинов
+                  -{" "}
                   <mark className="path">
                     C:\Program Files\Adobe\Common\Plug-ins\7.0\MediaCore
                   </mark>
@@ -363,7 +363,7 @@ const AEInterface: React.FC = () => {
                   Чтобы установить это расширение для изменения масштабирования
                   предпросмотра, вам нужно перенести файл{" "}
                   <mark className="file">Zoom.jsx</mark> из архива в стандартную папку для
-                  скриптов:{" "}
+                  скриптов -{" "}
                   <mark className="path">
                     ~/Library/Applications/Adobe After Effects 20XX/Scripts/
                   </mark>
@@ -372,7 +372,7 @@ const AEInterface: React.FC = () => {
                 <li>
                   Затем перенесите <mark className="file">Zoom.plugin</mark> из папки
                   архива <mark className="path">Plug-in/macOS</mark> в общую папку для
-                  плагинов:{" "}
+                  плагинов -{" "}
                   <mark className="path">
                     /Library/Application Support/Adobe/Common/Plug-ins/7.0/MediaCore
                   </mark>

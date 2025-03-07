@@ -105,7 +105,7 @@ const PRInstallProblems: React.FC = () => {
                 <li>
                   Если в архиве находится файл <mark className="file">.prm</mark> или{" "}
                   <mark className="file">.aex</mark>, то такие плагины обычно
-                  распаковываются в общую папку плагинов:{" "}
+                  распаковываются в общую папку плагинов -{" "}
                   <mark className="path">
                     C:\Program Files\Adobe\Common\Plug-ins\7.0\MediaCore
                   </mark>
