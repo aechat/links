@@ -58,7 +58,7 @@ export default [
           ignoreMemberSort: false,
         },
       ],
-      "no-mixed-operators": "error",
+      // "no-mixed-operators": "error",
       "semi": ["error", "always"],
       "curly": ["error", "all"],
       "no-empty": ["error", {allowEmptyCatch: true}],
