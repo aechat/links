@@ -61,7 +61,7 @@
     filter: drop-shadow(0 3px 5px var(--shadow));
     transition: background-color 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
     cursor: pointer;
-    margin-block: 8px;
+    margin-block: min(calc(5px + (8 - 5) * ((100vw - 320px) / (768 - 320))), 8px);
     border: solid 1px var(--summary_border);
     border-bottom-width: 4px;
     border-radius: $roundness;

@@ -33,7 +33,7 @@ const GithubUpdateInfo: React.FC<GithubUpdateInfoProps> = ({filePath}) => {
         (commit: Commit) => !commit.commit.message.startsWith("Merge")
       );
       if (filteredCommits.length === 0) {
-        setCommitInfo("Информация о свежести временно недоступна");
+        setCommitInfo("Индикатор свежести информации временно недоступен");
 
         return;
       }
@@ -61,10 +61,10 @@ const GithubUpdateInfo: React.FC<GithubUpdateInfoProps> = ({filePath}) => {
 
       const commitUrl = filteredCommits[0].html_url;
       setCommitInfo(
-        `Обновлено ${formattedDate}, ${formattedClock}: <a target="_blank" rel="noreferrer" href="${commitUrl}" target="_blank">${commitMessage}</a>`
+        `Раздел обновлён ${formattedDate} в ${formattedClock}<br/>Что нового: <a style="font-weight: 800;" target="_blank" rel="noreferrer" href="${commitUrl}" target="_blank">${commitMessage}</a>`
       );
     } catch (err) {
-      setError(`Информация о свежести временно недоступна: ${err}`);
+      setError(`Индикатор свежести информации временно недоступен\n${err}`);
     }
   };
   useEffect(() => {
@@ -74,15 +74,17 @@ const GithubUpdateInfo: React.FC<GithubUpdateInfoProps> = ({filePath}) => {
     return (
       <p
         style={{
-          color: "red",
+          color: "var(--accent)",
           fontSize: "0.75rem",
-          opacity: "0.5",
+          opacity: "0.25",
           textAlign: "right",
           textWrap: "balance",
           whiteSpace: "pre-wrap",
           hyphens: "none",
+          fontWeight: "600",
           lineHeight: "1.25",
           marginBlockEnd: "20px",
+          marginInline: "10px",
         }}
       >
         {error}
@@ -98,9 +100,11 @@ const GithubUpdateInfo: React.FC<GithubUpdateInfoProps> = ({filePath}) => {
         opacity: "0.5",
         textAlign: "right",
         hyphens: "none",
+        fontWeight: "600",
         whiteSpace: "pre-wrap",
-        lineHeight: "1.25",
+        lineHeight: "1.35",
         marginBlockEnd: "20px",
+        marginInline: "10px",
       }}
       dangerouslySetInnerHTML={{__html: commitInfo}}
     />
