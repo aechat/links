@@ -45,8 +45,11 @@ li > .addition-danger,
 
     mark {
       outline: none;
-      padding-inline: 5px;
-      padding-block: 3px;
+      padding: 2px 3px 2px 3px;
+      &::before {
+        width: min(calc(12px + (14 - 12) * ((100vw - 320px) / (768 - 320))), 14px);
+        height: min(calc(12px + (14 - 12) * ((100vw - 320px) / (768 - 320))), 14px);
+      }
     }
 
     ul {
