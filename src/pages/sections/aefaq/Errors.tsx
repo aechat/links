@@ -469,12 +469,13 @@ const AEErrors: React.FC = () => {
         <p>
           Это редкий и неприятный баг пиратской{" "}
           <mark className="plugin">Boris FX Sapphire</mark> версий 2024.5X в виде репаков
-          от KpoJluk. Вместе с этим багом у вас пропадают все переключатели и настройки у
-          применённых эффектов.
+          от <mark>KpoJluk</mark>. Вместе с этим багом у вас пропадают все переключатели и
+          настройки у применённых эффектов.
         </p>
         <p>
-          Для решения этой проблемы установите более поздние релизы от Team V.R. или
-          откатитесь на ранние версии репаков от KpoJluk.
+          Для решения этой проблемы установите более поздние релизы от{" "}
+          <mark>Team V.R.</mark> или откатитесь на ранние версии репаков от{" "}
+          <mark>KpoJluk</mark>.
         </p>
         <AdditionInfo>
           Скачать популярные репаки плагинов и программ можно в канале{" "}
@@ -641,9 +642,9 @@ const AEErrors: React.FC = () => {
       </DetailsSummary>
       <DetailsSummary title='"Cinema 4D must be installed in order to use the Cinema 4D renderer" или "Cineware Server Suite failed to acquire renderer port and path. Server commands not available" или "Cinema 4D: Render Failed"'>
         <p>
-          Если у вас установлен <mark className="app">After Effects</mark> от KpoJluK, то
-          в его дистрибутивах c версий 2020 и выше не поставляется плагин{" "}
-          <mark className="plugin">Cineware</mark> и{" "}
+          Если у вас установлен <mark className="app">After Effects</mark> от{" "}
+          <mark>KpoJluK</mark>, то в его дистрибутивах c версий 2020 и выше не
+          поставляется плагин <mark className="plugin">Cineware</mark> и{" "}
           <mark className="plugin">Cinema 4D</mark> для уменьшения веса программы. Чтобы
           решить эту проблему - установите полноценную{" "}
           <mark className="app">Maxon Cinema 4D</mark> нужной версии, которую просит ваша

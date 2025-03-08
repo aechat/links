@@ -52,7 +52,6 @@ const PRExportProblems: React.FC = () => {
       >
         <p>{/* FIXME: написать!! */}</p>
       </DetailsSummary>
-
       <DetailsSummary title="Почему я не могу экспортировать видео в H.264 с нечётным разрешением?">
         <p>
           Вы не сможете экспортировать видео в <mark className="video">H.264</mark> или{" "}

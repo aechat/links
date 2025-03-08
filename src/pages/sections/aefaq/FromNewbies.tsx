@@ -15,7 +15,7 @@ const AEFromNewbies: React.FC = () => {
     <div className="faq-content">
       <GithubUpdateInfo filePath="src/pages/sections/aefaq/FromNewbies.tsx" />
       <DetailsSummary
-        title="Первый раз установил After Effects, с чего бы мне начать обучение?"
+        title="Я первый раз установил и открыл After Effects, с чего бы мне начать обучение?"
         tag="для новичка, первый раз, только открыл афтер"
       >
         <p>
@@ -2167,7 +2167,7 @@ const AEFromNewbies: React.FC = () => {
         />
       </DetailsSummary>
       <DetailsSummary
-        title='У меня график скорости отличается от того, что у туториала. Как мне сделать "нормальный вид" графика?'
+        title='Почему у меня график скорости отличается от того, что у туториала? Как мне сделать "нормальный вид" графика?'
         tag="стиль графов, другой вид, отображение скорости"
       >
         <p>
@@ -2592,34 +2592,6 @@ const AEFromNewbies: React.FC = () => {
           styleClass="figure_windows-dark"
           videoSrc="images/aftereffects/change_start_timecode.mp4"
           caption="Composition Settings"
-        />
-      </DetailsSummary>
-      <DetailsSummary title="Почему точки для того чтобы прицепить объект не отображаются в 3D Camera Tracker?">
-        <p>
-          Вы скрыли отображение границ слоёв и их манипуляторов в окне предпросмотра. Для
-          того чтобы их вернуть, нажмите на комбинацию клавиш{" "}
-          <mark className="key">Ctrl + Shift + H</mark> или нажмите на соответствующую
-          иконку в окне предпросмотра и продолжайте работу.
-        </p>
-        <AdditionInfo>
-          Точки будут отображаться если выделен сам эффект{" "}
-          <mark className="plugin">3D Camera Tracker</mark>
-        </AdditionInfo>
-        <ImageFigure
-          styleClass="figure_windows-dark"
-          imgSrc="images/aftereffects/view_layer_bounds.png"
-          imgTitle="Включение отображение границ масок и слоёв"
-          caption="Composition"
-        />
-        <p>
-          Если вам нужно принудительно отобразить точки трекинга, то включите функцию{" "}
-          <mark className="ui">Render Track Points</mark>.
-        </p>
-        <ImageFigure
-          styleClass="figure_windows-dark"
-          imgSrc="images/aftereffects/render_track_points.png"
-          imgTitle="Включение точек трекинга"
-          caption="Effects Controls"
         />
       </DetailsSummary>
       <DetailsSummary title="Почему не все параметры выравнивания текста доступны в окне Paragraph?">

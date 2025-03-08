@@ -437,6 +437,34 @@ const AEInterface: React.FC = () => {
           caption="Composition"
         />
       </DetailsSummary>
+      <DetailsSummary title="Почему точки, для того чтобы прицепить объект, не отображаются в 3D Camera Tracker?">
+        <p>
+          Вы скрыли отображение границ слоёв и их манипуляторов в окне предпросмотра. Для
+          того чтобы их вернуть, нажмите на комбинацию клавиш{" "}
+          <mark className="key">Ctrl + Shift + H</mark> или нажмите на соответствующую
+          иконку в окне предпросмотра и продолжайте работу.
+        </p>
+        <AdditionInfo>
+          Точки будут отображаться если выделен сам эффект{" "}
+          <mark className="plugin">3D Camera Tracker</mark>
+        </AdditionInfo>
+        <ImageFigure
+          styleClass="figure_windows-dark"
+          imgSrc="images/aftereffects/view_layer_bounds.png"
+          imgTitle="Включение отображение границ масок и слоёв"
+          caption="Composition"
+        />
+        <p>
+          Если вам нужно принудительно отобразить точки трекинга, то включите функцию{" "}
+          <mark className="ui">Render Track Points</mark>.
+        </p>
+        <ImageFigure
+          styleClass="figure_windows-dark"
+          imgSrc="images/aftereffects/render_track_points.png"
+          imgTitle="Включение точек трекинга"
+          caption="Effects Controls"
+        />
+      </DetailsSummary>
       <DetailsSummary title="Почему я не могу поставить плейхед в самый конец композиции?">
         <p>
           Плейхед или же временная метка воспроизведения показывает то, что находится{" "}
@@ -522,9 +550,9 @@ const AEInterface: React.FC = () => {
       <DetailsSummary title="Я использую After Effects 2019 и в нём не выделяется объект в Rotobrush, что делать?">
         <p>
           Скорее всего вы столкнулись с багом этой версии, если вы используете репак от
-          KpoJluk. Проблема решается откатом до CC 2018, установкой{" "}
-          <mark className="app">After Effects 2019</mark> сборки от m0nkrus или установкой
-          более свежей версии программы.
+          <mark>KpoJluk</mark>. Проблема решается откатом до CC 2018, установкой{" "}
+          <mark className="app">After Effects 2019</mark> сборки от <mark>m0nkrus</mark>{" "}
+          или установкой более свежей версии программы.
         </p>
       </DetailsSummary>
       <DetailsSummary title="Как отключить экран со списком недавних проектов при запуске?">

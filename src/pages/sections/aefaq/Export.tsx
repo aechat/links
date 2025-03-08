@@ -265,8 +265,8 @@ const AEExport: React.FC = () => {
         </p>
         <AdditionWarning>
           Если вы попробуете опубликовать историю с разрешением больше, чем{" "}
-          <mark>1280 x 720</mark>, то Telegram обратно сожмёт ваше видео до{" "}
-          <mark>720p</mark>.
+          <mark>1280 x 720</mark>, то <mark className="app">Telegram</mark> обратно сожмёт
+          ваше видео до <mark>720p</mark>.
         </AdditionWarning>
         <p>
           Для анимированной аватарки вашего профиля нужно вывести видео в разрешении до{" "}
