@@ -206,13 +206,15 @@ li > .addition-danger,
   line-height: 1.5;
 
   button {
-    opacity: 0.5;
+    opacity: 0.75;
     transition: opacity 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+    margin-inline-start: 5px;
     outline: 1px solid var(--summary_border);
     border-radius: $roundness * 0.5;
     padding: 5px 8px;
     color: var(--summary_text);
     font-weight: 600;
+    font-size: 0.85rem;
     line-height: 1.25;
     text-align: center;
     &:hover {

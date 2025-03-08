@@ -17,7 +17,8 @@ const ContentSwitcher: React.FC<ContentSwitcherProps> = ({
     if (
       userAgent.includes("mac") ||
       userAgent.includes("iphone") ||
-      userAgent.includes("ipad")
+      userAgent.includes("ipad") ||
+      userAgent.includes("apple")
     ) {
       setIsWindows(false);
     } else {
@@ -39,7 +40,7 @@ const ContentSwitcher: React.FC<ContentSwitcherProps> = ({
           <div style={{display: "flex", gap: "10px", alignItems: "center"}}>
             <WindowSharp />
             <div>
-              Информация ниже указана для устройств на{" "}
+              Информация указана для устройств на{" "}
               <b>
                 <u>Windows</u>
               </b>
@@ -50,7 +51,7 @@ const ContentSwitcher: React.FC<ContentSwitcherProps> = ({
           <div style={{display: "flex", gap: "10px", alignItems: "center"}}>
             <Apple />
             <div>
-              Информация ниже указана для устройств на{" "}
+              Информация указана для устройств на{" "}
               <b>
                 <u>macOS</u>
               </b>
