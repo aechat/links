@@ -46,6 +46,7 @@ const Header: React.FC<{title: string}> = ({title}) => {
         WebkitBackdropFilter: "blur(15px)",
         boxShadow: "0 0 15px 0 var(--header_shadow)",
         outline: "1px solid var(--header_border)",
+        translate: "0 0 0",
       }}
     >
       <div className="header-left">
