@@ -74,6 +74,7 @@ const SupportDonut: React.FC = () => {
       <Modal
         open={isDonateModalOpen}
         closeIcon={null}
+        centered
         onCancel={handleCloseDonateModal}
         footer={null}
       >
@@ -107,6 +108,7 @@ const SupportDonut: React.FC = () => {
               <Modal
                 open={isSberModalOpen}
                 closeIcon={null}
+                centered
                 className="support-modal"
                 onCancel={handleCloseSberModal}
                 footer={null}
@@ -166,6 +168,7 @@ const SupportDonut: React.FC = () => {
               <Modal
                 open={isYoomoneyModalOpen}
                 closeIcon={null}
+                centered
                 className="support-modal"
                 onCancel={handleCloseYoomoneyModal}
                 footer={null}
