@@ -629,16 +629,37 @@ const AEErrors: React.FC = () => {
       <DetailsSummary title="Error: overflow converting ratio denominators (17::19) или (17::18)">
         <p>
           Данная ошибка может выскочить по совершенно разным причинам и чаще всего на
-          старых версиях <mark className="app">After Effects</mark>. Если вы сталкиваетесь
-          с трудностями при открытии и работе с проектами, создайте новый проект и
-          импортируйте туда композиции из проекта, где вылезает данная ошибка.
+          старых версиях <mark className="app">After Effects</mark>. Причин и решений
+          может быть множество, но универсального решения, к сожалению, нет.
         </p>
-        <p>
-          Или попробуйте перекодировать исходники через{" "}
-          <a href="https://www.shutterencoder.com/">Shutter Encoder</a>, если
-          сталкиваетесь с данной проблемой при импорте какого-нибудь исходника.
-        </p>
-        {/* TODO: дописать, если найдутся ещё варианты решения */}
+        <ul>
+          <li>
+            Ошибка может возникнуть из-за исходников, в частности из-за его кривого
+            фреймрейта. Если у вашего исходника в окне <mark className="ui">Project</mark>{" "}
+            значение кадров в секунду выглядит как{" "}
+            <mark>{(Math.random() * (40 - 30) + 30).toFixed(3)}</mark>, то вам нужно либо
+            интерпретировать, либо перекодировать футаж в <mark>30 к\с</mark> через{" "}
+            <mark className="app">Shutter Encoder</mark> или{" "}
+            <mark className="app">Handbrake</mark>.{" "}
+            <mark className="app">After Effects</mark> не очень любит нестандартные
+            значения кадров в секунду и криво их интерпретирует.
+            <AdditionInfo>
+              Для интерпретации нужного футажа, выделите его в{" "}
+              <mark className="ui">Project</mark> и нажмите на комбинацию клавиш{" "}
+              <mark className="key">Ctrl + Alt + G</mark>.
+            </AdditionInfo>
+          </li>
+          <li>
+            Если после замены исходников вы всё ещё сталкиваетесь с проблемой, то
+            посмотрите, нет ли у вас масок для слоёв в проекте. Иногда может помочь их
+            пересоздание.
+          </li>
+          <li>
+            Если вы сталкиваетесь с трудностями при открытии и работе с проектами,
+            создайте новый проект и импортируйте туда композиции из проекта, где вылезает
+            данная ошибка.
+          </li>
+        </ul>
       </DetailsSummary>
       <DetailsSummary title='"Cinema 4D must be installed in order to use the Cinema 4D renderer" или "Cineware Server Suite failed to acquire renderer port and path. Server commands not available" или "Cinema 4D: Render Failed"'>
         <p>
