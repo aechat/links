@@ -273,22 +273,31 @@ const AEExport: React.FC = () => {
           <mark>800 x 800</mark> и с битрейтом до <mark>2 Мбит/с</mark>.
         </p>
       </DetailsSummary>
-      <DetailsSummary title="Почему из каждого угла советуют не использовать Media Encoder для экспорта композиций из After Effects?">
+      <DetailsSummary
+        title="Почему из каждого угла советуют не использовать Media Encoder для экспорта композиций из After Effects?"
+        tag="медиаенкодер, медиаэнкодер"
+      >
         <p>
           <mark className="app">Media Encoder</mark> славится своими багами и различными
           проблемами при экспорте композиций из <mark className="app">After Effects</mark>
           . Поэтому чтобы исключить траблы и не морочить себе голову при экспорте -
           советуем от него отказаться и использовать его только в крайних случаях,
-          например для создания прокси-видео.
-        </p>
-        <p>
-          Вы спросите, а в чём собственно проблема? Да проблем то от него целая куча...
+          например для создания прокси-видео. Вы спросите, а в чём собственно проблема? Да
+          проблем то от него целая куча...
         </p>
         <ul>
           <li>
             <mark className="app">Media Encoder</mark> при экспорте сложных сцен может
             просто остановить процесс рендера, и всё. Без объяснения причин, а потом ищи и
             гадай, что ему не нравится.
+            <AdditionWarning>
+              При начале экспорта через <mark className="app">Media Encoder</mark>,
+              программа запускает дополнительный процесс{" "}
+              <mark className="file">AfterFX.exe</mark>. Лишний процесс{" "}
+              <mark className="file">AfterFX.exe</mark> может дополнительно нагрузить ваш
+              компьютер или заполнить всю оперативную память. Из-за этого могут быть сбои
+              при экспорте через <mark className="app">Media Encoder</mark>.
+            </AdditionWarning>
           </li>
           <li>
             <mark className="app">Media Encoder</mark> любит терять исходники просто так,
@@ -297,21 +306,40 @@ const AEExport: React.FC = () => {
           </li>
           <li>
             <mark className="app">Media Encoder</mark> может вывести композиции с
-            артефактами, например сместив изображение в сторону. Хоть этот баг и исправили
-            в поздних версиях программ, но тем не менее.
+            различными артефактами, например сместив изображение в сторону или ухудшив
+            цветопередачу.
           </li>
           <li>
-            При экспорте из <mark className="app">After Effects</mark> в{" "}
-            <mark className="app">Media Encoder</mark> также могут появиться красные
-            кресты, водяные знаки или ещё что-то похожее, сигнализирующее об отсутствии
-            лицензии на плагин. Если в <mark className="app">After Effects</mark> всё с
+            При экспорте композиций из <mark className="app">After Effects</mark> в{" "}
+            <mark className="app">Media Encoder</mark> могут появиться красные кресты,
+            водяные знаки или ещё что-то похожее, сигнализирующее об отсутствии лицензии
+            на сторонних эффектах. Если в <mark className="app">After Effects</mark> всё с
             активацией хорошо, то не факт что она адекватно перенесётся в{" "}
-            <mark className="app">Media Encoder</mark>.
+            <mark className="app">Media Encoder</mark>, так как лицензия плагинов может
+            быть завязана глубже именно к <mark className="app">After Effects</mark>.
           </li>
           <li>
-            При экспорте в <mark className="app">Media Encoder</mark> вы не получите
-            стабильную работу функции Multi-frame Render, которая отлично работает в самом{" "}
-            <mark className="app">After Effects</mark>.
+            При экспорте в <mark className="app">Media Encoder</mark> вы вряд ли получите
+            стабильную работу функции <mark>Multi-frame Render</mark>, которая отлично
+            работает при экспорте напрямую из <mark className="app">After Effects</mark>.
+          </li>
+          <li>
+            При отправке композиций из <mark className="app">After Effects</mark> в{" "}
+            <mark className="app">Media Encoder</mark> она может просто не появиться в
+            очереди рендера. Такое бывает, когда происходит внутренний сбой в{" "}
+            <mark>Dynamic Link</mark>, но пользователю об этом не сообщают. Никому не
+            охота искать процессы Adobe, завершать их, а затем повторять попытку экспорта
+            снова.
+          </li>
+          <li>
+            Запуск экспорта в <mark className="app">After Effects</mark> происходит почти
+            моментально, в отличии от долгого запуска самого{" "}
+            <mark className="app">Media Encoder</mark>. После запуска{" "}
+            <mark className="app">Media Encoder</mark> надо ещё подождать, когда он
+            подгрузит композицию из <mark className="app">After Effects</mark>, запустит
+            ещё один процесс <mark className="file">AfterFX.exe</mark> для рендера и
+            только потом уже начнёт экспорт. Согласитесь, не очень удобно ждать минуту,
+            когда надо вывести короткое видео.
           </li>
         </ul>
         <p>
@@ -324,6 +352,16 @@ const AEExport: React.FC = () => {
           <mark className="app">After Effects</mark> по стандарту в старых версиях не было
           возможности экспортировать в кодек <mark className="video">H.264</mark>.
         </p>
+        <p>
+          После обновления программ до версий <mark>23.X</mark> и новее нужда в выводе
+          через <mark className="app">Media Encoder</mark> пропала, так как в{" "}
+          <mark className="app">After Effects</mark> добавили нативный экспорт в{" "}
+          <mark className="video">H.264</mark>. Также никто не запрещал устанавливать
+          сторонние плагины, например{" "}
+          <mark className="plugin">Autokroma AfterCodecs</mark> или{" "}
+          <mark className="plugin">Voukoder</mark> для экспорта в различные кодеки
+          напрямую из <mark className="app">After Effects</mark>.
+        </p>
         <AdditionInfo>
           Если вам нужно поставить на очередь просчёта сразу несколько композиций -
           создайте проект болванку и импортируйте туда несколько своих проектов. Затем вы
@@ -331,13 +369,14 @@ const AEExport: React.FC = () => {
           предварительно указав нужный формат и расположение.
         </AdditionInfo>
         <p>
-          При экспорте напрямую из <mark className="app">After Effects</mark> вы можете
-          уберечь себя от ужасов, описанных в списке выше. Надеюсь, что мы убедили вас его
-          не использовать.
+          Вывод из этого полотна проблем довольно простой: при экспорте напрямую из{" "}
+          <mark className="app">After Effects</mark> вы можете уберечь себя от ужасов,
+          которые создаёт <mark className="app">Media Encoder</mark>. Надеюсь, что мы
+          убедили вас его не использовать.
         </p>
         <AdditionInfo>
-          О том, как экспортировать в популярные форматы, вы можете посмотреть в следующих
-          пунктах по списку.
+          О том, как экспортировать в популярные форматы, вы можете прочитать в следующих
+          пунктах этой страницы.
         </AdditionInfo>
       </DetailsSummary>
       <DetailsSummary title="Как вывести композицию в .mp4 и H.264/H.265?">
