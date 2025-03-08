@@ -90,6 +90,8 @@
 
     .copy_button {
       fill: var(--summary_text);
+      width: min(calc(18px + (20 - 18) * ((100vw - 320px) / (768 - 320))), 20px);
+      height: min(calc(18px + (20 - 18) * ((100vw - 320px) / (768 - 320))), 20px);
     }
 
     &:hover {

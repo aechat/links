@@ -174,8 +174,6 @@ const DetailsSummary: React.FC<DetailsSummaryProps> = ({title, children, tag}) =
             onClick={handleCopyAnchor}
             className="copy_button"
             style={{
-              width: "20px",
-              height: "20px",
               flex: "none",
               filter: anchorId ? "none" : "saturate(0) opacity(0.25)",
             }}
