@@ -1119,23 +1119,67 @@ const AEErrors: React.FC = () => {
           <mark>Red Giant</mark> и прочих компаний.
         </p>
       </DetailsSummary>
-      <DetailsSummary title='"After Effects warning: The following plugins have failed to load. Please reinstall these plugins" при запуске программы'>
+      <DetailsSummary title='"After Effects warning: The following plugins have failed to load. Please reinstall these plugins" при запуске программы или "After Effects Error: This effect cannot be applied because it cannot be initialized. Try reinstalling or contacting the plug-in developer (25::3)" при применении эффекта'>
         <p>
-          Некоторые плагины не могут загрузиться по причине того, что они либо битые и
-          криво установились, либо не поддерживаются текущей версией{" "}
-          <mark className="app">After Effects</mark>.
+          Данные предупреждения и ошибки могут появиться по разным причинам: битые пакеты
+          файлов, несвежая система или отсутствие текущей поддержки плагинов программой.
         </p>
+        <ul>
+          <li>
+            Если вы недавно установили плагины и не можете их применить в своем проекте:
+            убедитесь в том, что установщик плагинов или сами{" "}
+            <mark className="file">.aex</mark> файлы были загружены полностью и не
+            возникали проблемы при скачивании.
+          </li>
+          <li>
+            Некоторые плагины могут не загрузиться из-за недостающих пакетов{" "}
+            <mark className="app">Microsoft C++ Visual Redistributable</mark>. Для решения
+            проблемы - обновите все пакеты или установите недостающие с помощью{" "}
+            <a href="https://github.com/abbodi1406/vcredist/releases/">
+              репака от abbodi1406
+            </a>
+            , перезагрузите компьютер и попробуйте запустить проект с плагинами, которые
+            до этого не могли загрузиться.
+          </li>
+          <li>
+            В редких случаях в <mark>Windows</mark> могут сломаться какие-либо системные
+            файлы. Для быстрого лечения системы вы можете выполнить команды{" "}
+            <mark className="code">sfc /scannow</mark> и{" "}
+            <mark className="code">dism /Online /Cleanup-Image /RestoreHealth</mark>, а
+            также <mark className="code">chkdsk /f /r</mark> для проверки вашего диска в
+            командной строке.
+            <AdditionInfo>
+              Если ваша система не может восстановиться после выполнения этих команд, то
+              вы можете скачать <mark className="file">.iso</mark> образ системы и
+              обновиться до неё поверх существующей. Текущий билд вашей системы можно
+              узнать с помощью <mark className="app">winver</mark>.
+            </AdditionInfo>
+          </li>
+          <li>
+            Также сторонние плагины могут не загрузиться из-за того, что они не подходят
+            под вашу текущую версию <mark className="app">After Effects</mark>. Плагины
+            либо слишком свежие, либо слишком старые по отношению к вашей версии{" "}
+            <mark className="app">After Effects</mark>.
+          </li>
+        </ul>
+      </DetailsSummary>
+      <DetailsSummary title="After Effects warning: there are duplicated effect plug-ins installed on your drive. To avoid problems, quit After Effects and move or delete the older or unneeded version">
         <p>
-          Ещё иногда такое бывает из-за отсутствия обновлений пакетов{" "}
-          <a href="https://github.com/abbodi1406/vcredist/releases/">
-            Microsoft C++ Visual Redistributable
-          </a>
-          . Для этого обновите все пакеты или доустановите недостающие с помощью{" "}
-          <a href="https://github.com/abbodi1406/vcredist/releases/">
-            репака от abbodi1406
-          </a>
-          , перезагрузите компьютер и попробуйте запустить проект с плагинами, которые до
-          этого не могли загрузиться.
+          Данное предупреждение показывает, что вы установили одинаковые плагины, но в
+          разных местах. <mark className="app">After Effects</mark> рекомендует удалить
+          дублирующиеся плагины, чтобы избежать каких-либо проблем и указывает путь к ним.
+        </p>
+        <ImageFigure
+          styleClass="figure_windows-dark"
+          imgSrc="images/aftereffects/duplicated_effect_plug-ins_installed.png"
+          imgTitle="Предупреждение о дублирующихся плагинах"
+          caption="After Effects"
+        />
+        <p>
+          Для решения проблемы достаточно перейти по одному из путей и удалить оттуда
+          файл, предварительно закрыв <mark className="app">After Effects</mark>. После
+          удаления плагина вы больше не будете сталкиваться с данным предупреждением при
+          открытии программы.
         </p>
       </DetailsSummary>
       <DetailsSummary title='"Приложение Adobe Creative Cloud, необходимое для устранения проблемы отсутствует или повреждено..." при запуске программы'>
