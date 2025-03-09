@@ -265,6 +265,12 @@ const Links = () => {
               description="Альтернативный чат по обсуждению Autodesk 3DS Max"
             />
             <LinkCard
+              href="https://t.me/unity3d_ru"
+              icon={<SportsEsportsRounded />}
+              name="Unity Engine: вопрос - ответ"
+              description="Общение о Unity в формате вопрос-ответ"
+            />
+            <LinkCard
               href="https://t.me/ue_chat"
               icon={<SportsEsportsRounded />}
               name="Unreal Engine Chat"
