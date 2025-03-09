@@ -149,7 +149,7 @@ const PRImport: React.FC = () => {
             <AdditionInfo>
               Если у вас видеокарта от NVIDIA, то не забудьте установить галочку в пункте{" "}
               <mark className="ui">Hardware Acceleration</mark> и выбрать рядом параметр{" "}
-              <mark className="ui">Nvidia NVENC</mark>.
+              <mark className="ui">NVIDIA NVENC</mark>.
             </AdditionInfo>
           </li>
         </ul>
@@ -333,7 +333,7 @@ const PRImport: React.FC = () => {
             <AdditionInfo>
               Если у вас видеокарта от NVIDIA, не забудьте установить галочку в пункте{" "}
               <mark className="ui">Hardware Acceleration</mark> и выбрать рядом параметр{" "}
-              <mark className="ui">Nvidia NVENC</mark>.
+              <mark className="ui">NVIDIA NVENC</mark>.
             </AdditionInfo>
           </li>
         </ul>
