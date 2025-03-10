@@ -1,9 +1,10 @@
-import {ConfigProvider} from "antd";
+import {ConfigProvider, unstableSetRender} from "antd";
 import {AnimatePresence, motion} from "framer-motion";
 import React, {Suspense, lazy, useEffect} from "react";
 import {Navigate, Route, Routes, useLocation} from "react-router-dom";
 import themeConfig from "./styles/ant_theme";
 import {LinearProgress} from "@mui/material";
+import {createRoot} from "react-dom/client";
 
 const Links = lazy(() => import("./pages/linksPage"));
 
@@ -235,3 +236,13 @@ export const App = () => {
     </ConfigProvider>
   );
 };
+
+unstableSetRender((node, container) => {
+  container._reactRoot ||= createRoot(container);
+  const root = container._reactRoot;
+  root.render(node);
+  return async () => {
+    await new Promise((resolve) => setTimeout(resolve, 0));
+    root.unmount();
+  };
+});
