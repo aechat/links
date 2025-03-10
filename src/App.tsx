@@ -239,8 +239,10 @@ export const App = () => {
 
 unstableSetRender((node, container) => {
   container._reactRoot ||= createRoot(container);
+
   const root = container._reactRoot;
   root.render(node);
+
   return async () => {
     await new Promise((resolve) => setTimeout(resolve, 0));
     root.unmount();
