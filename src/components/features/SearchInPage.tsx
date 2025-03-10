@@ -128,9 +128,15 @@ export const SearchInPage: React.FC<{sections: Array<{id: string; title: string}
 
   const [query, setQuery] = useState("");
 
-  const [results, setResults] = useState<
-    {title: string; content: string; id: string; tag?: string}[]
-  >([]);
+  const [results, setResults] = useState<{
+    title: string;
+    content: string;
+    id: string;
+    tag?: string;
+    isSingleParagraphMatch: boolean;
+    hasTitleMatch: boolean;
+    hasTagMatch: boolean;
+  }>([]);
 
   const [selectedResultIndex, setSelectedResultIndex] = useState(-1);
 
@@ -361,7 +367,7 @@ export const SearchInPage: React.FC<{sections: Array<{id: string; title: string}
       );
     });
 
-    const highlightedResults = filtered
+    const results = filtered
       .map((result) => {
         const isSingleParagraphMatch = result.content.split("\n").some((line) => {
           const lineLower = line.toLowerCase();
@@ -408,7 +414,7 @@ export const SearchInPage: React.FC<{sections: Array<{id: string; title: string}
 
         return 0;
       });
-    setResults(highlightedResults);
+    setResults(results);
   };
 
   const extractMatchingLine = (content: string, query: string) => {
@@ -424,7 +430,6 @@ export const SearchInPage: React.FC<{sections: Array<{id: string; title: string}
       .filter((word) => word.length > 0);
 
     const cleanLines = lines.map((line) => line.trim());
-
     for (const line of cleanLines) {
       const lineLower = line.toLowerCase();
       if (searchWords.every((word) => lineLower.includes(word))) {
