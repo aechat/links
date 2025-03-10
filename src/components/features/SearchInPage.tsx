@@ -261,10 +261,16 @@ export const SearchInPage: React.FC<{sections: Array<{id: string; title: string}
               ) {
                 const element = node as HTMLElement;
                 if (element.tagName === "MARK" || element.tagName === "A") {
-                  return decodeHtmlEntities(element.innerHTML?.trim() ?? "");
+                  return decodeHtmlEntities(element.innerHTML?.trim() ?? "").replace(
+                    /\s+$/,
+                    ""
+                  );
                 }
 
-                return decodeHtmlEntities(element.textContent?.trim() ?? "");
+                return decodeHtmlEntities(element.textContent?.trim() ?? "").replace(
+                  /\s+$/,
+                  ""
+                );
               }
 
               return "";
@@ -281,22 +287,32 @@ export const SearchInPage: React.FC<{sections: Array<{id: string; title: string}
               const text = Array.from(child.childNodes)
                 .map((node) => {
                   if (node.nodeType === Node.TEXT_NODE) {
-                    return decodeHtmlEntities(node.textContent?.trim() ?? "");
+                    return decodeHtmlEntities(node.textContent?.trim() ?? "").replace(
+                      /\s+$/,
+                      ""
+                    );
                   } else if (node.nodeType === Node.ELEMENT_NODE) {
                     const element = node as HTMLElement;
                     if (element.tagName === "MARK" || element.tagName === "A") {
-                      return decodeHtmlEntities(element.innerHTML?.trim() ?? "");
+                      return decodeHtmlEntities(element.innerHTML?.trim() ?? "").replace(
+                        /\s+$/,
+                        ""
+                      );
                     }
 
-                    return decodeHtmlEntities(element.textContent?.trim() ?? "");
+                    return decodeHtmlEntities(element.textContent?.trim() ?? "").replace(
+                      /\s+$/,
+                      ""
+                    );
                   }
 
                   return "";
                 })
                 .filter(Boolean)
-                .join(" ");
+                .join(" ")
+                .trim();
 
-              return text.trim();
+              return text;
             })
             .filter(Boolean)
             .join("\n");
@@ -308,7 +324,7 @@ export const SearchInPage: React.FC<{sections: Array<{id: string; title: string}
 
       const text = [content, tableContent, listItems].join("\n");
       if (title || text) {
-        data.push({title, content: text, id, tag});
+        data.push({title, content: text.trim(), id, tag: tag.trim()});
       }
     });
 
