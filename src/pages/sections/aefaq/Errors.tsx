@@ -159,8 +159,8 @@ const AEErrors: React.FC = () => {
       <DetailsSummary title="After Effects has encountered a failure related to GPU-enabled effects from this frame. This is likely because your GPU is out of memory.">
         <p>
           Данная ошибка указывает на то, что видеопамять вашей видеокарты заполнена и
-          эффект, использующий GPU-ускорение, задыхается. Такое часто происходит, если у
-          вас видеокарта с объёмом видеопамяти меньше чем 4 Гб.
+          эффект, использующий <mark>GPU-ускорение</mark>, задыхается. Такое часто
+          происходит, если у вас видеокарта с объёмом видеопамяти меньше чем 4 Гб.
         </p>
         <p>
           В таком случае пользователю надо освободить видеопамять любым способом -
@@ -995,7 +995,8 @@ const AEErrors: React.FC = () => {
           , который можно установить перед установкой After Effects в репаке от{" "}
           <mark>KpoJluk</mark> или вручную из{" "}
           <a href="https://github.com/abbodi1406/vcredist/releases/">этой ссылки</a>. Или
-          обновите вашу систему до последней версии, хотя бы до Windows 10 22H2.
+          обновите вашу систему до последней версии, хотя бы до Windows 10{" "}
+          <mark>22H2</mark>.
         </p>
       </DetailsSummary>
       <DetailsSummary title='"Точка входа в процедуру не найдена в библиотеке Kernel32.dll" или не могу запустить программу, хотя Visual C++ Redistributable установил'>
