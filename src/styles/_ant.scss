@@ -21,6 +21,10 @@
   background: var(--content-background-color);
 }
 
+.ant-message .ant-message-notice-wrapper .ant-message-notice-content {
+  font-size: 0.875rem;
+}
+
 .ant-modal {
   top: 8px;
 
