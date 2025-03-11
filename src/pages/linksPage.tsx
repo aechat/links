@@ -7,6 +7,7 @@ import {
   BurstModeRounded,
   BusinessCenterRounded,
   CarRepairRounded,
+  ContentCutRounded,
   DesktopWindowsRounded,
   DevicesOtherRounded,
   DomainRounded,
@@ -18,11 +19,13 @@ import {
   MmsRounded,
   MovieFilterRounded,
   MovieRounded,
+  MusicNoteRounded,
   PermMediaRounded,
   SlowMotionVideoRounded,
   SmartToyRounded,
   SpellcheckRounded,
   SportsEsportsRounded,
+  SubtitlesRounded,
   TextureRounded,
   VideoSettingsRounded,
   ViewInArRounded,
@@ -140,7 +143,7 @@ const Links = () => {
               description="как склад стройматериалов, но для macOS"
             />
           </div>
-          <Divider>Сервисы</Divider>
+          <Divider>Сервисы и утилиты</Divider>
           <div className="links-grid">
             <LinkCard
               href="https://t.me/HiStockBot?start=509060394"
@@ -161,6 +164,12 @@ const Links = () => {
               description="Оффлайн-конвертер видеофайлов в различные кодеки, в том числе монтажные"
             />
             <LinkCard
+              href="https://mkvtoolnix.download/downloads.html"
+              icon={<VideoSettingsRounded />}
+              name="MKVToolNix"
+              description="Кросс-платформенная утилита для работы с видеоконтейнерами .mkv и .webm"
+            />
+            <LinkCard
               href="https://mediaarea.net/MediaInfoOnline"
               icon={<FormatListBulletedRounded />}
               name="MediaInfo Online"
@@ -171,6 +180,36 @@ const Links = () => {
               icon={<Download />}
               name="кобальт"
               description="Сервис для скачивания видео с различных источников, в том числе YouTube"
+            />
+            <LinkCard
+              href="https://ru.savefrom.net/"
+              icon={<Download />}
+              name="SaveFrom"
+              description="Альтернативный сервис для скачивания видео с различных источников"
+            />
+            <LinkCard
+              href="https://github.com/kazukikasama/youtube-dlp-gui-installer"
+              icon={<Download />}
+              name="yt-dlp-gui"
+              description="Локальная Windows-программа для скачивания видео из YouTube"
+            />
+            <LinkCard
+              href="https://www.stemroller.com/"
+              icon={<MusicNoteRounded />}
+              name="StemRoller"
+              description="Программа для разделения аудиофайла на несколько дорожек"
+            />
+            <LinkCard
+              href="https://github.com/mifi/lossless-cut"
+              icon={<ContentCutRounded />}
+              name="LossLessCut"
+              description="Кросс-платформенная портативная программа для быстрой подрезки видео и аудио"
+            />
+            <LinkCard
+              href="https://github.com/SubtitleEdit/subtitleedit/releases"
+              icon={<SubtitlesRounded />}
+              name="Subtitle Edit"
+              description="Программа для редактирования и генерации субтитров с помощью Whisper и других движков"
             />
           </div>
           <Divider>Чаты в Telegram</Divider>
