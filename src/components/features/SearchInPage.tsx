@@ -128,15 +128,17 @@ export const SearchInPage: React.FC<{sections: Array<{id: string; title: string}
 
   const [query, setQuery] = useState("");
 
-  const [results, setResults] = useState<{
-    title: string;
-    content: string;
-    id: string;
-    tag?: string;
-    isSingleParagraphMatch: boolean;
-    hasTitleMatch: boolean;
-    hasTagMatch: boolean;
-  }>([]);
+  const [results, setResults] = useState<
+    {
+      title: string;
+      content: string;
+      id: string;
+      tag?: string;
+      isSingleParagraphMatch: boolean;
+      hasTitleMatch: boolean;
+      hasTagMatch: boolean;
+    }[]
+  >([]);
 
   const [selectedResultIndex, setSelectedResultIndex] = useState(-1);
 
