@@ -8,7 +8,21 @@ const PRExportProblems: React.FC = () => {
     <div className="faq-content">
       <GithubUpdateInfo filePath="src/pages/sections/prfaq/ExportProblems.tsx" />
       <DetailsSummary title="Почему созданные субтитры не отображаются на экспортированной секвенции?">
-        <p>{/* FIXME: написать!! */}</p>
+        <p>
+          По умолчанию в <mark className="app">Premiere Pro</mark> отключен параметр{" "}
+          <mark className="ui">Captions</mark> при экспорте, поэтому вы не экспортируете
+          видео вместе с наложенными субтитрами. Чтобы включить наложение созданных
+          субтитров - включите <mark className="ui">Captions</mark> в настройках экспорта,
+          а затем начните экспорт вашей секвенции. При желании, вы можете сохранить свой
+          пресет настроек, в котором <mark className="ui">Captions</mark> будет уже
+          включен.
+        </p>
+        <ImageFigure
+          styleClass="figure_windows-dark"
+          imgSrc="images/premierepro/enable_captions_export.png"
+          imgTitle="Включение наложения субтитров"
+          caption="Export"
+        />
       </DetailsSummary>
       <DetailsSummary title="Что делать, если экспорт зависает на определённом моменте?">
         <p>{/* FIXME: написать!! */}</p>
