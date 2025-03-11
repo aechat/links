@@ -100,7 +100,7 @@ const GithubUpdateInfo: React.FC<GithubUpdateInfoProps> = ({filePath}) => {
         opacity: "0.5",
         textAlign: "right",
         hyphens: "none",
-        fontWeight: "600",
+        fontWeight: "400",
         whiteSpace: "pre-wrap",
         lineHeight: "1.35",
         marginBlockEnd: "20px",
