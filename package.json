@@ -51,7 +51,7 @@
   "scripts": {
     "format": "eslint . --fix && prettier . --log-level warn --write  --config .prettierrc",
     "build": "yarn format && tsc && vite build",
-    "predeploy": "yarn build",
+    "predeploy": "yarn && yarn build",
     "deploy": "gh-pages -d dist -m \"обновление сайта\" && git push",
     "dev": "yarn & vite",
     "preview": "vite preview --host"
