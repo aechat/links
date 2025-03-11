@@ -146,57 +146,27 @@ const AEExpressionPage = () => {
                   >
                     <Suspense
                       fallback={
-                        <div style={{height: "75vh"}}>
-                          <motion.div
-                            initial={{opacity: 0}}
-                            animate={{opacity: 1}}
-                            style={{
-                              padding: "20px",
-                              display: "flex",
-                              marginBlock: "20px",
-                              flexDirection: "row",
-                              alignItems: "center",
-                              flexWrap: "wrap",
-                              gap: "15px",
-                              justifyContent: "center",
-                            }}
-                            transition={{
-                              duration: 0.5,
-                              ease: [0.075, 0.82, 0.165, 1],
-                              delay: 1,
-                            }}
-                          >
-                            <CircularProgress sx={{color: "var(--accent)"}} />
-                            <motion.p
-                              initial={{opacity: 0}}
-                              animate={{opacity: 0.5}}
-                              transition={{
-                                duration: 1,
-                                ease: [0.075, 0.82, 0.165, 1],
-                              }}
-                              style={{
-                                margin: "10px",
-                                fontSize: "0.875rem",
-                                maxWidth: "400px",
-                              }}
-                            >
-                              {
-                                [
-                                  "Всё ещё грузим полезную информацию",
-                                  "Интересный факт: в After Effects можно выполнять арифметические операции с помощью знаков сложения и вычитания, умножения и деления",
-                                  "Убедитесь в том, что ваше устройство подключено к Интернету",
-                                  "Секция всё ещё грузится, наберитесь терпения",
-                                  "Надеемся, что код сайта не поломался",
-                                  "Попробуйте перезагрузить страницу, если секция всё ещё грузится",
-                                  "Интересный факт: в After Effects имеется ограничение размера в 30 тысяч пикселей на каждую ось",
-                                  "Пока секции грузятся, дам совет: в любой непонятной ситуации - делай прекомпоз",
-                                  "Прочтите заклинание 'фастус информейтус лоадинг', если секция слишком долго грузится",
-                                  "Когда-нибудь секция загрузится и все будут жить счастливо...",
-                                ][Math.floor(Math.random() * 10)]
-                              }
-                            </motion.p>
-                          </motion.div>
-                        </div>
+                        <motion.div
+                          initial={{opacity: 0}}
+                          animate={{opacity: 1}}
+                          style={{
+                            padding: "20px",
+                            display: "flex",
+                            marginBlock: "20px",
+                            flexDirection: "row",
+                            alignItems: "center",
+                            justifyContent: "center",
+                            height: "80dvh",
+                            width: "100%",
+                          }}
+                          transition={{
+                            duration: 0.5,
+                            ease: [0.075, 0.82, 0.165, 1],
+                            delay: 1,
+                          }}
+                        >
+                          <CircularProgress sx={{color: "var(--accent)"}} />
+                        </motion.div>
                       }
                     >
                       <motion.div
