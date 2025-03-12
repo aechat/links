@@ -68,7 +68,11 @@ const GithubUpdateInfo: React.FC<GithubUpdateInfoProps> = ({filePath}) => {
     }
   };
   useEffect(() => {
-    getLastCommitDate();
+    const timer = setTimeout(() => {
+      getLastCommitDate();
+    }, 1500);
+
+    return () => clearTimeout(timer);
   }, [filePath]);
   if (error) {
     return (
