@@ -13,7 +13,6 @@ const NotFound = () => {
   const [subtitles, setSubtitles] = useState<Subtitle[]>([]);
 
   const [currentSubtitle, setCurrentSubtitle] = useState<string>("404");
-
   useEffect(() => {
     audioRef.current = new Audio("/files/404.mp3");
 
@@ -57,7 +56,6 @@ const NotFound = () => {
       const current = subtitles.find(
         (sub) => currentTime >= sub.start && currentTime <= sub.end
       );
-
       if (current && current.text !== currentSubtitle) {
         setCurrentSubtitle(current.text);
       } else if (!current && currentSubtitle !== "404") {
@@ -82,7 +80,7 @@ const NotFound = () => {
       initial={{x: 100, opacity: 0}}
       animate={{x: 0, opacity: 1}}
       exit={{x: -50, opacity: 0}}
-      transition={{duration: 0.5, type: "spring", ease: [0.075, 0.82, 0.165, 1]}}
+      transition={{duration: 0.5, type: "spring", ease: [0.25, 0, 0, 1]}}
     >
       <Helmet>
         <title>notfound@aechat</title>
@@ -106,7 +104,7 @@ const NotFound = () => {
               className="modal-open-button"
               whileHover={{
                 scale: 0.95,
-                transition: {duration: 0.5, ease: [0.075, 0.82, 0.165, 1]},
+                transition: {duration: 0.5, ease: [0.25, 0, 0, 1]},
               }}
               whileTap={{scale: 0.95, opacity: 0.5}}
             >

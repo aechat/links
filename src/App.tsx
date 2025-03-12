@@ -71,7 +71,7 @@ const ErrorFallback = ({error}: {error: Error}) => (
             className="modal-open-button"
             whileHover={{
               scale: 0.95,
-              transition: {duration: 0.5, ease: [0.075, 0.82, 0.165, 1]},
+              transition: {duration: 0.3, ease: [0.25, 0, 0, 1]},
             }}
             whileTap={{scale: 0.95, opacity: 0.5}}
           >
@@ -82,7 +82,7 @@ const ErrorFallback = ({error}: {error: Error}) => (
             className="modal-open-button"
             whileHover={{
               scale: 0.95,
-              transition: {duration: 0.5, ease: [0.075, 0.82, 0.165, 1]},
+              transition: {duration: 0.3, ease: [0.25, 0, 0, 1]},
             }}
             whileTap={{scale: 0.95, opacity: 0.5}}
           >
@@ -134,9 +134,9 @@ export const App = () => {
               initial={{opacity: 0}}
               animate={{opacity: 1}}
               transition={{
-                duration: 0.5,
-                ease: [0.075, 0.82, 0.165, 1],
-                delay: 1,
+                duration: 0.3,
+                ease: [0.25, 0, 0, 1],
+                delay: 3,
               }}
             >
               <LinearProgress color="inherit" />
@@ -146,7 +146,7 @@ export const App = () => {
                   animate={{opacity: 0.5}}
                   transition={{
                     duration: 1,
-                    ease: [0.075, 0.82, 0.165, 1],
+                    ease: [0.25, 0, 0, 1],
                     delay: 5,
                   }}
                   style={{
@@ -164,7 +164,7 @@ export const App = () => {
                   animate={{opacity: 0.25}}
                   transition={{
                     duration: 1,
-                    ease: [0.075, 0.82, 0.165, 1],
+                    ease: [0.25, 0, 0, 1],
                     delay: 7.5,
                   }}
                   style={{

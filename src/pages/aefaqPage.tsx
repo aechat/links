@@ -55,12 +55,7 @@ const AEFaQ = () => {
     {key: "4", title: "(не)Вредные советы", id: "tips", component: AETips},
     {key: "5", title: "Импорт", id: "import", component: AEImport},
     {key: "6", title: "Интерфейс", id: "interface", component: AEInterface},
-    {
-      key: "7",
-      title: "Производительность",
-      id: "performance",
-      component: AEPerformance,
-    },
+    {key: "7", title: "Производительность", id: "performance", component: AEPerformance},
     {key: "8", title: "Как и чем?", id: "actions", component: AEActions},
     {key: "9", title: "Ошибки и предупреждения", id: "errors", component: AEErrors},
     {key: "10", title: "Экспорт", id: "export", component: AEExport},
@@ -76,22 +71,18 @@ const AEFaQ = () => {
 
   const [isPageLoaded, setIsPageLoaded] = useState(false);
 
-  const [loadedCount, setLoadedCount] = useState(0);
+  const [isSectionsLoaded, setIsSectionsLoaded] = useState(false);
+  useEffect(() => {}, [visibleSections.length]);
+
+  const loadSection = async (section: {key: string}) => {
+    setVisibleSections((prev) => [...prev, section.key]);
+  };
+
+  const loadSections = async () => {
+    await Promise.all(sections.map(loadSection));
+    setIsSectionsLoaded(true);
+  };
   useEffect(() => {
-    if (loadedCount === sections.length) {
-      setIsPageLoaded(true);
-      generateAnchorId();
-    }
-  }, [loadedCount, sections.length]);
-  useEffect(() => {
-    const loadSections = async () => {
-      for (const section of sections) {
-        await new Promise<void>((resolve) => {
-          setVisibleSections((prev) => [...prev, section.key]);
-          setTimeout(resolve, 10);
-        });
-      }
-    };
     loadSections();
   }, []);
 
@@ -136,7 +127,10 @@ const AEFaQ = () => {
           initial={{x: 100, y: 0, opacity: 0}}
           animate={{x: 0, y: 0, opacity: 1}}
           exit={{x: 0, y: 50, opacity: 0}}
-          transition={{duration: 0.5, type: "spring", ease: [0.075, 0.82, 0.165, 1]}}
+          transition={{
+            duration: 0.3,
+            ease: [0.25, 0, 0, 1],
+          }}
         >
           <div className="faq-container-flex">
             <div className="faq-container">
@@ -168,64 +162,72 @@ const AEFaQ = () => {
                 />
               </div>
               <SupportDonut />
-              {sections.map(({key, title, component: Component, id}) =>
-                visibleSections.includes(key) ? (
-                  <div
-                    key={key}
-                    id={id}
+              <Suspense
+                fallback={
+                  <motion.div
+                    initial={{opacity: 0}}
+                    animate={{opacity: 1}}
+                    style={{
+                      padding: "20px",
+                      display: "flex",
+                      marginBlock: "20px",
+                      flexDirection: "row",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      height: "90dvh",
+                      width: "100%",
+                    }}
+                    transition={{
+                      duration: 0.5,
+                      ease: [0.25, 0, 0, 1],
+                      delay: 1,
+                    }}
                   >
-                    <Suspense
-                      fallback={
-                        <motion.div
-                          initial={{opacity: 0}}
-                          animate={{opacity: 1}}
-                          style={{
-                            padding: "20px",
-                            display: "flex",
-                            marginBlock: "20px",
-                            flexDirection: "row",
-                            alignItems: "center",
-                            justifyContent: "center",
-                            height: "80dvh",
-                            width: "100%",
-                          }}
-                          transition={{
-                            duration: 0.5,
-                            ease: [0.075, 0.82, 0.165, 1],
-                            delay: 1,
-                          }}
-                        >
-                          <CircularProgress sx={{color: "var(--accent)"}} />
-                        </motion.div>
+                    <CircularProgress sx={{color: "var(--accent)"}} />
+                  </motion.div>
+                }
+              >
+                {visibleSections.length > 0 && (
+                  <motion.div
+                    initial={{opacity: 0}}
+                    animate={isSectionsLoaded ? {opacity: 1} : {}}
+                    transition={{
+                      duration: 0.3,
+                      ease: [0.25, 0, 0, 1],
+                    }}
+                    onAnimationStart={() => {
+                      setIsPageLoaded(true);
+                      generateAnchorId();
+                    }}
+                  >
+                    {visibleSections.map((key) => {
+                      const section = sections.find((s) => s.key === key);
+                      if (!section) {
+                        return null;
                       }
-                    >
-                      <motion.div
-                        initial={{opacity: 0, scale: 0.9}}
-                        animate={{opacity: 1, scale: 1}}
-                        transition={{
-                          duration: 0.5,
-                          type: "spring",
-                          ease: [0.075, 0.82, 0.165, 1],
-                          delay: 0.1,
-                        }}
-                        onAnimationComplete={() => setLoadedCount((prev) => prev + 1)}
-                      >
-                        <Divider
-                          style={{
-                            color: "var(--text-color)",
-                            textTransform: "uppercase",
-                            fontWeight: "800",
-                          }}
-                          orientation="right"
+
+                      return (
+                        <div
+                          key={key}
+                          id={section.id}
                         >
-                          {title}
-                        </Divider>
-                        <Component />
-                      </motion.div>
-                    </Suspense>
-                  </div>
-                ) : null
-              )}
+                          <Divider
+                            style={{
+                              color: "var(--text-color)",
+                              textTransform: "uppercase",
+                              fontWeight: "800",
+                            }}
+                            orientation="right"
+                          >
+                            {section.title}
+                          </Divider>
+                          <section.component />
+                        </div>
+                      );
+                    })}
+                  </motion.div>
+                )}
+              </Suspense>
               <Footer
                 title="aechat"
                 initialYear={2023}
