@@ -64,7 +64,7 @@ const GithubUpdateInfo: React.FC<GithubUpdateInfoProps> = ({filePath}) => {
         `Раздел обновлён ${formattedDate} в ${formattedClock}<br/>Что нового: <a style="font-weight: 800;" target="_blank" rel="noreferrer" href="${commitUrl}" target="_blank">${commitMessage}</a>`
       );
     } catch (err) {
-      setError(`Индикатор свежести информации временно недоступен\n${err}`);
+      setError(`Индикатор свежести информации временно недоступен: ${err}`);
     }
   };
   useEffect(() => {
@@ -80,13 +80,14 @@ const GithubUpdateInfo: React.FC<GithubUpdateInfoProps> = ({filePath}) => {
         style={{
           color: "var(--accent)",
           fontSize: "0.75rem",
-          opacity: "0.25",
+          opacity: "0.35",
           textAlign: "right",
           textWrap: "balance",
           whiteSpace: "pre-wrap",
           hyphens: "none",
-          fontWeight: "600",
-          lineHeight: "1.25",
+          fontWeight: "400",
+          fontStyle: "italic",
+          lineHeight: "1.35",
           marginBlockEnd: "20px",
           marginInline: "10px",
         }}
