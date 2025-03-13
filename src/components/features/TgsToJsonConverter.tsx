@@ -50,11 +50,24 @@ const TgsToJsonConverter = () => {
           width: "calc(100% - 20px)",
         }}
       >
-        <div style={{display: "flex", gap: "10px", justifyContent: "center"}}>
+        <div
+          style={{
+            display: "flex",
+            gap: "10px",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
           <UploadFileRounded />
-          Перетащите файл формата .tgs в это поле или нажмите для выбора файла
+          <span style={{fontSize: "0.9rem"}}>
+            Перетащите файл формата .tgs в это поле или нажмите для выбора файла
+          </span>
         </div>
       </Upload.Dragger>
+      <p style={{opacity: "0.5", fontSize: "0.75rem", textAlign: "center"}}>
+        Конвертация происходит локально на вашем устройстве. Результат и качество
+        конвертации не гарантируется.
+      </p>
       {jsonData ? (
         <div
           style={{
