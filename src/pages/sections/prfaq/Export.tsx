@@ -644,12 +644,12 @@ const PRExport: React.FC = () => {
       <DetailsSummary title="Как вывести секвенцию в .gif?">
         <p>
           Из <mark className="app">Premiere Pro</mark> вывести ваш ролик в формат{" "}
-          <mark className="image">Gif</mark> можно тремя способами.
+          <mark className="image">GIF</mark> можно тремя способами.
         </p>
         <AdditionInfo>
-          Если вы собираетесь выводить секвенцию в <mark className="image">Gif</mark> для
+          Если вы собираетесь выводить секвенцию в <mark className="image">GIF</mark> для
           веб-страницы, то советую лучше вывести в формат{" "}
-          <mark className="image">WebM</mark>. Он лучше подходит для получения
+          <mark className="video">WebM</mark>. Он лучше подходит для получения
           качественного изображения с маленьким размером.
         </AdditionInfo>
         <ul>
@@ -671,7 +671,7 @@ const PRExport: React.FC = () => {
           </li>
         </ul>
         <AdditionWarning>
-          У формата <mark className="image">Gif</mark> есть множество ограничений и
+          У формата <mark className="image">GIF</mark> есть множество ограничений и
           нюансов.
           <ul>
             <li>
@@ -679,7 +679,7 @@ const PRExport: React.FC = () => {
               альфа-канала: <mark>#FFFFFF</mark> и <mark>#000000</mark>.
             </li>
             <li>
-              <mark className="image">Gif</mark> вмещает в себя только 256 цветов, поэтому
+              <mark className="image">GIF</mark> вмещает в себя только 256 цветов, поэтому
               забудьте о плавных градиентах и качественном цвете.
             </li>
             <li>
@@ -692,7 +692,7 @@ const PRExport: React.FC = () => {
         </AdditionWarning>
         <Divider>Выводим из Premiere Pro</Divider>
         <p>
-          Для начала экспорта <mark className="image">Gif</mark> напрямую из{" "}
+          Для начала экспорта <mark className="image">GIF</mark> напрямую из{" "}
           <mark className="app">Premiere Pro</mark> вам нужно перейти во вкладку{" "}
           <mark className="ui">Export</mark> с помощью комбинации клавиш{" "}
           <mark className="key">Ctrl + M</mark>. Затем выберите в графе{" "}
@@ -719,10 +719,10 @@ const PRExport: React.FC = () => {
         </p>
         <Divider>Выводим из Media Encoder</Divider>
         <p>
-          <mark className="image">Gif</mark> можно ещё получить с помощью{" "}
+          <mark className="image">GIF</mark> можно ещё получить с помощью{" "}
           <mark className="app">Media Encoder</mark>. Хоть мы и отговариваем от его
           использования, но если вам нужно вывести много изображений формата{" "}
-          <mark className="image">Gif</mark>, то он подойдет лучше.
+          <mark className="image">GIF</mark>, то он подойдет лучше.
         </p>
         <p>
           Для того чтобы начать экспорт через <mark className="app">Media Encoder</mark>,
@@ -761,14 +761,14 @@ const PRExport: React.FC = () => {
         <p>
           После настройки просто нажмите на кнопку <mark className="ui">OK</mark> и
           нажмите на зелёную иконку для начала экспорта. После этого в месте, куда вы
-          указали путь, появится файл формата <mark className="image">Gif</mark>.
+          указали путь, появится файл формата <mark className="image">GIF</mark>.
         </p>
         <Divider>Конвертируем через Ezgif</Divider>
         <p>
           Если вы не хотите возиться с экспортом или у вас уже есть готовое видео, которое
-          надо лишь перегнать в формат <mark className="image">Gif</mark>, то советую
+          надо лишь перегнать в формат <mark className="image">GIF</mark>, то советую
           онлайн-сервис <a href="https://ezgif.com/video-to-gif">Ezgif</a>. При
-          конвертации через этот сервис вы получите <mark className="image">Gif</mark> с
+          конвертации через этот сервис вы получите <mark className="image">GIF</mark> с
           отличным соотношением качества и размера файла.
         </p>
         <p>
@@ -801,7 +801,7 @@ const PRExport: React.FC = () => {
         />
         <p>
           Далее после успешной конвертации вы получите ваше видео в формате{" "}
-          <mark className="image">Gif</mark> чуть ниже, в разделе{" "}
+          <mark className="image">GIF</mark> чуть ниже, в разделе{" "}
           <mark className="ui">Output GIF Animation</mark>, которое можно сохранить по
           нажатию <mark className="key">ПКМ</mark> &gt;{" "}
           <mark className="ui">Сохранить изображение как...</mark>.

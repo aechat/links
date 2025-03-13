@@ -308,7 +308,7 @@ const AEExportProblems: React.FC = () => {
           нужно перейти в настройки <mark className="ui">Output Module</mark> и указать{" "}
           <mark className="ui">Audio Output On</mark> вместо{" "}
           <mark className="ui">Audio Output Auto</mark>. Также это может помочь от
-          принудительной конвертации вашего видео в <mark className="image">Gif</mark> в
+          принудительной конвертации вашего видео в <mark className="image">GIF</mark> в
           мессенджерах, например Telegram.
         </p>
         <ImageFigure
