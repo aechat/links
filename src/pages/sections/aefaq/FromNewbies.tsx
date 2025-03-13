@@ -151,7 +151,7 @@ const AEFromNewbies: React.FC = () => {
               при экспорте вы укажете <mark>50 Мбит/с</mark>, то качество изображения не
               улучшится. Вы просто увеличите размер файла без реальной пользы.
             </AdditionInfo>
-            Битрейт бывает нескольких видов:
+            <Divider>Виды битрейта</Divider>
             <ul>
               <li>
                 <mark className="word">CBR (Constant Bitrate)</mark> или{" "}
