@@ -7,22 +7,17 @@
     "@emotion/styled": "^11.14.0",
     "@mui/icons-material": "6.3.1",
     "@mui/material": "6.3.1",
-    "@types/animejs": "^3.1.13",
     "@vitejs/plugin-react": "^4.3.4",
-    "animejs": "^3.2.2",
     "antd": "5.23.0",
     "file-saver": "^2.0.5",
     "framer-motion": "11.16.3",
     "gh-pages": "^6.2.0",
-    "nextjs": "^0.0.3",
     "pako": "^2.1.0",
-    "prismjs": "^1.29.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-helmet-async": "^2.0.5",
     "react-router-dom": "^7.0.2",
-    "react-window": "^1.8.11",
-    "swiper": "^11.1.15"
+    "react-window": "^1.8.11"
   },
   "devDependencies": {
     "@eslint/js": "^9.17.0",
