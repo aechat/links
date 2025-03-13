@@ -8,6 +8,7 @@ import {
 } from "../../../components/Additions";
 import {ImageFigure, VideoFigure, YouTubeVideo} from "../../../components/ContentFigure";
 import {Divider} from "antd";
+import JsonToTgsModal from "../../../components/features/JsonToTgsConverter";
 
 const AEExport: React.FC = () => {
   return (
@@ -965,6 +966,10 @@ const AEExport: React.FC = () => {
           Учтите, что не все видео-проигрыватели корректно отображают видео с
           альфа-каналом.
         </AdditionInfo>
+      </DetailsSummary>
+      <DetailsSummary title="Как вывести анимацию как Telegram-стикеры?">
+        <AdditionWarning>Данный пункт ещё не полностью готов.</AdditionWarning>
+        <JsonToTgsModal />
       </DetailsSummary>
       <DetailsSummary title="Как вывести текущий кадр предпросмотра как файл изображения?">
         <p>

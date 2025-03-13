@@ -7,7 +7,7 @@ import {
   AdditionWarning,
 } from "../../../components/Additions";
 import {ImageFigure, VideoFigure, YouTubeVideo} from "../../../components/ContentFigure";
-import TgsToJsonModal from "../../../components/features/TgStickerToJSON";
+import TgsToJsonModal from "../../../components/features/TgsToJsonConverter";
 
 const AEImport: React.FC = () => {
   return (
