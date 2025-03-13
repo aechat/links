@@ -967,8 +967,16 @@ const AEExport: React.FC = () => {
           альфа-каналом.
         </AdditionInfo>
       </DetailsSummary>
-      <DetailsSummary title="Как вывести анимацию как Telegram-стикеры?">
-        <AdditionWarning>Данный пункт ещё не полностью готов.</AdditionWarning>
+      <DetailsSummary title="Как вывести композицию как Telegram-стикеры?">
+        <AdditionWarning>
+          Данный пункт ещё не полностью готов, следите за обновлениями.
+        </AdditionWarning>
+        <p>
+          В мессенджере <mark className="app">Telegram</mark> есть возможность создания
+          анимированных стикеров для последующей их отправки собеседникам. В них можно
+          хранить всякую ржаку, мемы и прочие виды контента.
+        </p>
+        <Divider>Конвертер JSON в TGS</Divider>
         <JsonToTgsModal />
       </DetailsSummary>
       <DetailsSummary title="Как вывести текущий кадр предпросмотра как файл изображения?">

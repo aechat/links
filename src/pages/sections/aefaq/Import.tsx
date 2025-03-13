@@ -7,7 +7,8 @@ import {
   AdditionWarning,
 } from "../../../components/Additions";
 import {ImageFigure, VideoFigure, YouTubeVideo} from "../../../components/ContentFigure";
-import TgsToJsonModal from "../../../components/features/TgsToJsonConverter";
+import TgsToJsonConverter from "../../../components/features/TgsToJsonConverter";
+import {Divider} from "antd";
 
 const AEImport: React.FC = () => {
   return (
@@ -654,7 +655,7 @@ const AEImport: React.FC = () => {
         </p>
       </DetailsSummary>
       <DetailsSummary
-        title="Как импортировать анимированный стикер из Telegram?"
+        title="Как импортировать анимированный стикер из Telegram как композицию?"
         tag="телеграм, стикеры"
       >
         <AdditionWarning>
@@ -688,10 +689,11 @@ const AEImport: React.FC = () => {
         <p>
           После того как мы получили <mark className="file">.tgs</mark>, нам нужно его
           переконвертировать в <mark className="file">.json</mark>. Сделать это вы можете
-          с помощью конвертера по кнопке ниже, предоставив ему файл. После успешной
-          конвертации не забудьте скачать файл.
+          с помощью конвертера ниже, предоставив ему файл. После успешной конвертации не
+          забудьте скачать файл.
         </p>
-        <TgsToJsonModal />
+        <Divider>Конвертер TGS в JSON</Divider>
+        <TgsToJsonConverter />
         <p>
           После конвертации нам нужно скачать плагин{" "}
           <mark className="plugin">Bodymovin</mark> из{" "}
