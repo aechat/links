@@ -215,15 +215,11 @@
       }
     }
 
-    ul {
-      margin-block: 10px;
-    }
-
     li {
       text-wrap: stable;
       position: relative;
-      padding-inline: 10px;
       padding-inline-start: 30px;
+      padding-inline-end: 15px;
       padding-block: 10px;
       line-height: 1.75;
       list-style-type: none;
