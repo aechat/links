@@ -1,7 +1,7 @@
 import {message} from "antd";
 
 const copyToClipboard = (event?: MouseEvent) => {
-  if (!event || !event.target) {
+  if (!event?.target) {
     return;
   }
 
