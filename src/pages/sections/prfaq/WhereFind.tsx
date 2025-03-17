@@ -63,8 +63,8 @@ const PRWhereFind: React.FC = () => {
         </ul>
         <AdditionInfo>
           Если у вас возникли проблемы с установкой программ или плагинов - прочтите
-          раздел <a href="#install-problems">Проблемы с установкой</a> или обратитесь к
-          нам в <a href="https://t.me/joinchat/F1DdXtG9LephYWUy">AEChat</a>.
+          раздел <mark>Проблемы с установкой</mark> или обратитесь к нам в{" "}
+          <a href="https://t.me/joinchat/F1DdXtG9LephYWUy">AEChat</a>.
         </AdditionInfo>
         <AdditionWarning>
           При установке программ с пометкой <mark>репак от кролика</mark> из{" "}
