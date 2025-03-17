@@ -12,8 +12,6 @@ interface GithubUpdateInfoProps {
 const GithubUpdateInfo: React.FC<GithubUpdateInfoProps> = ({filePath}) => {
   const [commitInfo, setCommitInfo] = useState<string>("Ищем информацию...");
 
-  const [error, setError] = useState<string | null>(null);
-
   const getLastCommitDate = async () => {
     const url = `https://api.github.com/repos/${OWNER}/${REPO}/commits?path=${filePath}&sha=${BRANCH}`;
     try {
@@ -61,41 +59,15 @@ const GithubUpdateInfo: React.FC<GithubUpdateInfoProps> = ({filePath}) => {
 
       const commitUrl = filteredCommits[0].html_url;
       setCommitInfo(
-        `Раздел обновлён ${formattedDate} в ${formattedClock}<br/>Что нового: <a style="font-weight: 800;" target="_blank" rel="noreferrer" href="${commitUrl}" target="_blank">${commitMessage}</a>`
+        `Обновлено ${formattedDate} в ${formattedClock}: <a style="font-weight: 800;" target="_blank" rel="noreferrer" href="${commitUrl}" target="_blank">${commitMessage}</a>`
       );
     } catch (err) {
-      setError(`Индикатор свежести информации временно недоступен: ${err}`);
+      setCommitInfo(`Индикатор свежести информации временно недоступен - ${err}`);
     }
   };
   useEffect(() => {
-    const timer = setTimeout(() => {
-      getLastCommitDate();
-    }, 1500);
-
-    return () => clearTimeout(timer);
+    getLastCommitDate();
   }, [filePath]);
-  if (error) {
-    return (
-      <p
-        style={{
-          color: "var(--accent)",
-          fontSize: "0.75rem",
-          opacity: "0.35",
-          textAlign: "right",
-          textWrap: "balance",
-          whiteSpace: "pre-wrap",
-          hyphens: "none",
-          fontWeight: "400",
-          fontStyle: "italic",
-          lineHeight: "1.35",
-          marginBlockEnd: "20px",
-          marginInline: "10px",
-        }}
-      >
-        {error}
-      </p>
-    );
-  }
 
   return (
     <p
@@ -104,9 +76,10 @@ const GithubUpdateInfo: React.FC<GithubUpdateInfoProps> = ({filePath}) => {
         fontSize: "0.75rem",
         opacity: "0.5",
         textAlign: "right",
-        hyphens: "none",
+        overflow: "hidden",
+        textOverflow: "ellipsis",
+        whiteSpace: "nowrap",
         fontWeight: "400",
-        whiteSpace: "pre-wrap",
         lineHeight: "1.35",
         marginBlockEnd: "20px",
         marginInline: "10px",
