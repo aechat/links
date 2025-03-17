@@ -442,8 +442,10 @@ const AEExport: React.FC = () => {
           <mark className="video">H.264 - 40 Мбит/c</mark>.
         </p>
         <p>
-          Чтобы начать изменять битрейт и аналогичные настройки для встроенного кодека
-          H.264, откройте окно <mark className="ui">Output Module</mark>, нажав на
+          Чтобы начать изменять битрейт и аналогичные настройки для встроенного кодека{" "}
+          <mark className="video">
+            H.264, откройте окно <mark className="ui">Output Module</mark>, нажав на
+          </mark>
           название выбранного пресета. Для выбора нужного нам битрейта откройте окно{" "}
           <mark className="ui">Format Options</mark>.
         </p>
@@ -483,9 +485,10 @@ const AEExport: React.FC = () => {
         />
         <Divider>Выводим через Voukoder</Divider>
         <p>
-          Если же вас результат рендера от стандартного H.264 не устраивает, то можно
-          воспользоваться плагином <mark className="plugin">Voukoder</mark>. В этом
-          примере мы рассмотрим плагин{" "}
+          Если же вас результат рендера от стандартного{" "}
+          <mark className="video">H.264</mark> не устраивает, то можно воспользоваться
+          плагином <mark className="plugin">Voukoder</mark>. В этом примере мы рассмотрим
+          плагин{" "}
           <a href="https://github.com/Vouk/voukoder/releases/tag/13.4.1">версии 13.4.1</a>
           , не Pro версию.
         </p>
