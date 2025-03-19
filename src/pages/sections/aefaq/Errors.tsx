@@ -1135,7 +1135,7 @@ const AEErrors: React.FC = () => {
           <li>
             Некоторые плагины могут не загрузиться из-за недостающих пакетов{" "}
             <mark className="app">Microsoft C++ Visual Redistributable</mark>. Для решения
-            проблемы - обновите все пакеты или установите недостающие с помощью{" "}
+            проблемы попробуйте обновить все пакеты или установить недостающие с помощью{" "}
             <a href="https://github.com/abbodi1406/vcredist/releases/">
               репака от abbodi1406
             </a>
@@ -1161,6 +1161,17 @@ const AEErrors: React.FC = () => {
             под вашу текущую версию <mark className="app">After Effects</mark>. Плагины
             либо слишком свежие, либо слишком старые по отношению к вашей версии{" "}
             <mark className="app">After Effects</mark>.
+          </li>
+          <li>
+            Если стандартные плагины не работают и не применяются, а обновление пакетов{" "}
+            <mark className="app">Microsoft C++ Visual Redistributable</mark> не помогает,
+            то пришла пора переустанавливать <mark className="app">After Effects</mark> с
+            нуля. Перед переустановкой - не забудьте почистить систему от хвостов
+            установленной программы с помощью{" "}
+            <a href="https://helpx.adobe.com/ru/creative-cloud/kb/cc-cleaner-tool-installation-problems.html">
+              Adobe Creative Cloud Cleaner
+            </a>
+            .
           </li>
         </ul>
       </DetailsSummary>
