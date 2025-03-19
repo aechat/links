@@ -920,9 +920,9 @@ const AEExport: React.FC = () => {
       </DetailsSummary>
       <DetailsSummary title="Как вывести композицию с альфа-каналом, то есть с прозрачностью?">
         <AdditionWarning>
-          Сразу скажу, в <mark className="video">H.264</mark> и{" "}
-          <mark className="file">.mp4</mark> нельзя вывести композицию с альфа-каналом.
-          Это можно сделать только на устройствах с macOS и при использовании кодека{" "}
+          В <mark className="video">H.264</mark> и <mark className="file">.mp4</mark>{" "}
+          нельзя вывести композицию с альфа-каналом. Это можно сделать только на
+          устройствах с macOS и при использовании кодека{" "}
           <mark className="video">H.265 (HEVC)</mark>.
         </AdditionWarning>
         <p>
