@@ -1,3 +1,9 @@
 {
-  "recommendations": ["usernamehw.errorlens", "esbenp.prettier-vscode"]
+  "recommendations": [
+    "usernamehw.errorlens",
+    "esbenp.prettier-vscode",
+    "dbaeumer.vscode-eslint",
+    "christopherstyles.html-entities",
+    "sonarsource.sonarlint-vscode"
+  ]
 }
