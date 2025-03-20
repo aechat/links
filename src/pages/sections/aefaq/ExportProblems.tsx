@@ -256,14 +256,14 @@ const AEExportProblems: React.FC = () => {
         </AdditionInfo>
       </DetailsSummary>
       <DetailsSummary
-        title="Почему я не могу экспортировать видео в H.264 с нечётным разрешением?"
+        title="Почему я не могу экспортировать видео с нечётным разрешением?"
         tag="odd resolution"
       >
         <p>
           Из-за технических ограничений кодеков <mark className="video">H.264</mark> и{" "}
-          <mark className="video">H.265</mark>, вы не сможете экспортировать видео в{" "}
-          <mark className="video">H.264</mark> с нечётным разрешением. Данные кодеки
-          используют макроблоки только с чётными значениями пикселей.
+          <mark className="video">H.265</mark>, вы не сможете экспортировать видео в таких
+          кодеках с нечётным разрешением. Данные кодеки используют макроблоки только с
+          чётными значениями пикселей.
         </p>
         <ImageFigure
           styleClass="figure_windows-light"
