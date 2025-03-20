@@ -184,6 +184,7 @@ export const SearchInPage: React.FC<{sections: Array<{id: string; title: string}
       }
 
       const title = summary.textContent ?? "";
+
       const tag = detail.getAttribute("data-tags") ?? "";
 
       const content = Array.from(detail.querySelectorAll<HTMLParagraphElement>("p"))
@@ -191,21 +192,67 @@ export const SearchInPage: React.FC<{sections: Array<{id: string; title: string}
         .filter(Boolean)
         .join("\n");
 
-      const tableContent = Array.from(detail.querySelectorAll<HTMLTableElement>("table"))
-        .map((table) => {
-          const tableHTML = table.outerHTML.toLowerCase();
-          const hasMatch =
-            searchWords.length === 0 ||
-            searchWords.some((word) => tableHTML.includes(word.toLowerCase()));
+      const tableGroups: Record<string, string[]> = {};
+      Array.from(detail.querySelectorAll<HTMLTableElement>("table")).forEach((table) => {
+        const headers = Array.from(table.querySelectorAll("th"))
+          .map((th) => decodeHtmlEntities(th.textContent?.trim() ?? ""))
+          .filter((header) => !header.toLowerCase().includes("описание"));
 
-          return hasMatch ? table.outerHTML : "";
+        const headerKey = headers.join("|");
+
+        const allRows = Array.from(table.querySelectorAll("tr"));
+
+        const excludedColumns = Array.from(table.querySelectorAll("th"))
+          .map((th, index) =>
+            th.textContent?.toLowerCase().includes("описание") ? index : -1
+          )
+          .filter((index) => index !== -1);
+
+        const processedRows = allRows
+          .map((row) => {
+            const clonedRow = row.cloneNode(true) as HTMLTableRowElement;
+            Array.from(clonedRow.cells).forEach((cell, index) => {
+              if (excludedColumns.includes(index)) {
+                cell.remove();
+              }
+            });
+            if (clonedRow.cells.length === 0) {
+              return null;
+            }
+
+            const rowHTML = clonedRow.innerHTML.toLowerCase();
+
+            const hasMatch = searchWords.every((word) =>
+              rowHTML.includes(word.toLowerCase())
+            );
+
+            return hasMatch ? clonedRow.outerHTML : null;
+          })
+          .filter((row): row is string => row !== null);
+
+        if (processedRows.length > 0) {
+          tableGroups[headerKey] ??= [];
+          tableGroups[headerKey].push(...processedRows);
+        }
+      });
+
+      const tableContent = Object.entries(tableGroups)
+        .map(([headerKey, rows]) => {
+          const headers = headerKey.split("|").filter(Boolean);
+
+          const headerRow =
+            headers.length > 0
+              ? `<thead><tr>${headers.map((h) => `<th>${h}</th>`).join("")}</tr></thead>`
+              : "";
+
+          return `<table>${headerRow}${rows.join("")}</table>`;
         })
-        .filter(Boolean)
-        .join("\n");
+        .join("");
 
       const listContent = Array.from(detail.querySelectorAll<HTMLUListElement>("ul"))
         .map((ul) => {
           const ulHTML = ul.outerHTML.toLowerCase();
+
           const hasMatch =
             searchWords.length === 0 ||
             searchWords.some((word) => ulHTML.includes(word.toLowerCase()));
