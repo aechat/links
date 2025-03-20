@@ -6,6 +6,10 @@ const copyToClipboard = (event?: MouseEvent) => {
   }
 
   const elementToCopy = event.target as HTMLElement;
+  if (elementToCopy.closest(".search-content")) {
+    return;
+  }
+
   if (elementToCopy.tagName === "MARK" && !elementToCopy.classList.length) {
     return;
   }
