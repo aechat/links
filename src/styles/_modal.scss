@@ -179,7 +179,7 @@
     justify-content: center;
     align-items: center;
     width: 100vw;
-    height: 100vh;
+    height: 100dvh;
     overflow: hidden;
   }
 
@@ -242,7 +242,7 @@
   &-results {
     outline: 1px solid var(--content-background-border);
     border-radius: $roundness * 1.5;
-    max-height: 65lvh;
+    max-height: 65dvh;
     overflow-y: auto;
 
     mark {
@@ -304,8 +304,9 @@
     font-size: 0.9375rem;
 
     &.faq-content {
-      margin: 0;
+      margin-block-start: -16px;
       padding: 0;
+      padding-block-start: 16px;
 
       p {
         margin-inline: 10px;
