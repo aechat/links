@@ -184,153 +184,38 @@ export const SearchInPage: React.FC<{sections: Array<{id: string; title: string}
       }
 
       const title = summary.textContent ?? "";
-
       const tag = detail.getAttribute("data-tags") ?? "";
 
       const content = Array.from(detail.querySelectorAll<HTMLParagraphElement>("p"))
-        .map((el) => decodeHtmlEntities(el.textContent?.trim() ?? ""))
+        .map((el) => el.outerHTML)
         .filter(Boolean)
         .join("\n");
 
-      const tableGroups: Record<string, string[]> = {};
-      Array.from(detail.querySelectorAll<HTMLTableElement>("table")).forEach((table) => {
-        const headers = Array.from(table.querySelectorAll("th"))
-          .map((th) => decodeHtmlEntities(th.textContent?.trim() ?? ""))
-          .filter((header) => !header.toLowerCase().includes("описание"));
+      const tableContent = Array.from(detail.querySelectorAll<HTMLTableElement>("table"))
+        .map((table) => {
+          const tableHTML = table.outerHTML.toLowerCase();
+          const hasMatch =
+            searchWords.length === 0 ||
+            searchWords.some((word) => tableHTML.includes(word.toLowerCase()));
 
-        const headerKey = headers.join("|");
-
-        const allRows = Array.from(table.querySelectorAll("tr"));
-
-        const excludedColumns = Array.from(table.querySelectorAll("th"))
-          .map((th, index) =>
-            th.textContent?.toLowerCase().includes("описание") ? index : -1
-          )
-          .filter((index) => index !== -1);
-
-        const processedRows = allRows
-          .map((row) => {
-            const clonedRow = row.cloneNode(true) as HTMLTableRowElement;
-            Array.from(clonedRow.cells).forEach((cell, index) => {
-              if (excludedColumns.includes(index)) {
-                cell.remove();
-              }
-            });
-            if (clonedRow.cells.length === 0) {
-              return null;
-            }
-
-            const rowHTML = clonedRow.innerHTML.toLowerCase();
-
-            const hasMatch = searchWords.every((word) =>
-              rowHTML.includes(word.toLowerCase())
-            );
-
-            return hasMatch ? clonedRow.outerHTML : null;
-          })
-          .filter((row): row is string => row !== null);
-        if (processedRows.length > 0) {
-          if (!tableGroups[headerKey]) {
-            tableGroups[headerKey] = [];
-          }
-          tableGroups[headerKey].push(...processedRows);
-        }
-      });
-
-      const tableContent = Object.entries(tableGroups)
-        .map(([headerKey, rows]) => {
-          const headers = headerKey.split("|").filter(Boolean);
-
-          const headerRow =
-            headers.length > 0
-              ? `<thead><tr>${headers.map((h) => `<th>${h}</th>`).join("")}</tr></thead>`
-              : "";
-
-          return `<table>${headerRow}${rows.join("")}</table>`;
-        })
-        .join("");
-
-      const listItems = Array.from(detail.querySelectorAll<HTMLLIElement>("li"))
-        .map((el) => {
-          const clonedEl = el.cloneNode(true) as HTMLLIElement;
-          clonedEl
-            .querySelectorAll(".addition-info, .addition-warning, .addition-danger")
-            .forEach((element) => element.remove());
-
-          const directChildUl = clonedEl.querySelector("ul");
-
-          const parentText = Array.from(clonedEl.childNodes)
-            .map((node) => {
-              if (node.nodeType === Node.TEXT_NODE) {
-                return decodeHtmlEntities(node.textContent?.trim() ?? "");
-              } else if (
-                node.nodeType === Node.ELEMENT_NODE &&
-                (node as HTMLElement).tagName !== "UL"
-              ) {
-                const element = node as HTMLElement;
-                if (element.tagName === "MARK" || element.tagName === "A") {
-                  return decodeHtmlEntities(element.innerHTML?.trim() ?? "").replace(
-                    /\s+$/,
-                    ""
-                  );
-                }
-
-                return decodeHtmlEntities(element.textContent?.trim() ?? "").replace(
-                  /\s+$/,
-                  ""
-                );
-              }
-
-              return "";
-            })
-            .filter(Boolean)
-            .join(" ")
-            .trim();
-          if (!directChildUl) {
-            return parentText;
-          }
-
-          const childItems = Array.from(directChildUl.querySelectorAll("li"))
-            .map((child) => {
-              const text = Array.from(child.childNodes)
-                .map((node) => {
-                  if (node.nodeType === Node.TEXT_NODE) {
-                    return decodeHtmlEntities(node.textContent?.trim() ?? "").replace(
-                      /\s+$/,
-                      ""
-                    );
-                  } else if (node.nodeType === Node.ELEMENT_NODE) {
-                    const element = node as HTMLElement;
-                    if (element.tagName === "MARK" || element.tagName === "A") {
-                      return decodeHtmlEntities(element.innerHTML?.trim() ?? "").replace(
-                        /\s+$/,
-                        ""
-                      );
-                    }
-
-                    return decodeHtmlEntities(element.textContent?.trim() ?? "").replace(
-                      /\s+$/,
-                      ""
-                    );
-                  }
-
-                  return "";
-                })
-                .filter(Boolean)
-                .join(" ")
-                .trim();
-
-              return text;
-            })
-            .filter(Boolean)
-            .join("\n");
-
-          return `${parentText}\n${childItems}`;
+          return hasMatch ? table.outerHTML : "";
         })
         .filter(Boolean)
         .join("\n");
 
-      const text = [content, tableContent, listItems].join("\n");
+      const listContent = Array.from(detail.querySelectorAll<HTMLUListElement>("ul"))
+        .map((ul) => {
+          const ulHTML = ul.outerHTML.toLowerCase();
+          const hasMatch =
+            searchWords.length === 0 ||
+            searchWords.some((word) => ulHTML.includes(word.toLowerCase()));
+
+          return hasMatch ? ul.outerHTML : "";
+        })
+        .filter(Boolean)
+        .join("\n");
+
+      const text = [content, tableContent, listContent].join("\n");
       if (title || text) {
         data.push({title, content: text.trim(), id, tag: tag.trim()});
       }
@@ -421,32 +306,27 @@ export const SearchInPage: React.FC<{sections: Array<{id: string; title: string}
 
   const extractMatchingLine = (content: string, query: string) => {
     if (!content || !query.trim()) {
-      return "";
+      return content;
     }
-
-    const lines = content.split("\n").filter((line) => line.trim().length > 0);
 
     const searchWords = query
       .toLowerCase()
       .split(/\s+/)
       .filter((word) => word.length > 0);
 
-    const cleanLines = lines.map((line) => line.trim());
-    for (const line of cleanLines) {
-      const lineLower = line.toLowerCase();
-      if (searchWords.every((word) => lineLower.includes(word))) {
-        return line;
+    const tempDiv = document.createElement("div");
+    tempDiv.innerHTML = content;
+
+    const allElements = Array.from(tempDiv.querySelectorAll("*"));
+
+    for (const element of allElements) {
+      const elementHTML = element.innerHTML.toLowerCase();
+      if (searchWords.every((word) => elementHTML.includes(word))) {
+        return element.outerHTML;
       }
     }
 
-    for (const line of cleanLines) {
-      const lineLower = line.toLowerCase();
-      if (searchWords.some((word) => lineLower.includes(word))) {
-        return line;
-      }
-    }
-
-    return cleanLines[0] ?? "";
+    return content;
   };
 
   const handleLinkClick = (id: string) => {
@@ -640,7 +520,7 @@ export const SearchInPage: React.FC<{sections: Array<{id: string; title: string}
                       )}
                     </div>
                     <div
-                      className="search-content"
+                      className="search-content faq-content"
                       dangerouslySetInnerHTML={{__html: content}}
                     />
                   </motion.button>

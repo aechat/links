@@ -246,11 +246,9 @@
     overflow-y: auto;
 
     mark {
-      filter: saturate(150%) brightness(98%);
       outline: 1px solid var(--mark_border);
       border-radius: $roundness * 0.5;
       background-color: var(--mark_background);
-      padding: 2px 1px;
       color: var(--mark_text);
     }
   }
@@ -302,11 +300,20 @@
     border-bottom-right-radius: $roundness;
     border-bottom-left-radius: $roundness;
     background-color: var(--content-background-color);
-    padding-inline: 10px;
-    padding-block: 8px;
-    padding-block-start: 16px;
+    // padding-inline: 10px;
+    // padding-block: 8px;
+    // padding-block-start: 16px;
     overflow: hidden;
     font-size: 0.9375rem;
+
+    &.faq-content {
+      margin: 0;
+      padding: 0;
+      p {
+        margin-inline: 10px;
+        margin-block: 10px;
+      }
+    }
   }
 
   &-selected {
