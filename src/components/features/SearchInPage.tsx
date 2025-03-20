@@ -229,7 +229,6 @@ export const SearchInPage: React.FC<{sections: Array<{id: string; title: string}
             return hasMatch ? clonedRow.outerHTML : null;
           })
           .filter((row): row is string => row !== null);
-
         if (processedRows.length > 0) {
           tableGroups[headerKey] ??= [];
           tableGroups[headerKey].push(...processedRows);
@@ -364,23 +363,23 @@ export const SearchInPage: React.FC<{sections: Array<{id: string; title: string}
     const tempDiv = document.createElement("div");
     tempDiv.innerHTML = content;
 
-    // Обработка списков UL с поиском первого совпадения
     const findFirstListMatch = (ulElement: HTMLUListElement) => {
-      const firstMatch = Array.from(ulElement.querySelectorAll('li')).find(li => {
-        const liText = li.textContent?.toLowerCase() || '';
-        return searchWords.every(word => liText.includes(word));
+      const firstMatch = Array.from(ulElement.querySelectorAll("li")).find((li) => {
+        const liText = li.textContent?.toLowerCase() || "";
+
+        return searchWords.every((word) => liText.includes(word));
       });
-      
       if (firstMatch) {
-        const newUl = document.createElement('ul');
+        const newUl = document.createElement("ul");
         newUl.appendChild(firstMatch.cloneNode(true));
+
         return newUl.outerHTML;
       }
+
       return null;
     };
 
-    // Проверяем все UL и находим первое совпадение
-    const ulElements = Array.from(tempDiv.querySelectorAll('ul'));
+    const ulElements = Array.from(tempDiv.querySelectorAll("ul"));
     for (const ul of ulElements) {
       const matchedList = findFirstListMatch(ul);
       if (matchedList) {
@@ -388,17 +387,16 @@ export const SearchInPage: React.FC<{sections: Array<{id: string; title: string}
       }
     }
 
-    // Поиск первого совпадения в других элементах
-    const allElements = Array.from(tempDiv.querySelectorAll('*'));
+    const allElements = Array.from(tempDiv.querySelectorAll("*"));
     for (const element of allElements) {
       const elementHTML = element.innerHTML.toLowerCase();
-      if (searchWords.every(word => elementHTML.includes(word))) {
+      if (searchWords.every((word) => elementHTML.includes(word))) {
         return element.outerHTML;
       }
     }
 
-    // Возвращаем первый элемент, если нет совпадений
     const firstElement = tempDiv.firstElementChild;
+
     return firstElement?.outerHTML || content;
   };
 
