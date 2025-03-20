@@ -300,18 +300,21 @@
     border-bottom-right-radius: $roundness;
     border-bottom-left-radius: $roundness;
     background-color: var(--content-background-color);
-    // padding-inline: 10px;
-    // padding-block: 8px;
-    // padding-block-start: 16px;
     overflow: hidden;
     font-size: 0.9375rem;
 
     &.faq-content {
       margin: 0;
       padding: 0;
+
       p {
         margin-inline: 10px;
         margin-block: 10px;
+      }
+
+      mark:hover,
+      a:hover {
+        opacity: 1;
       }
     }
   }
