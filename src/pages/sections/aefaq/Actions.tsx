@@ -24,7 +24,7 @@ const AEActions: React.FC = () => {
           <mark className="app">Topaz Video AI</mark>. Это отдельная программа, которая
           может подключаться к <mark className="app">After Effects</mark> и{" "}
           <mark className="app">Davinci Resolve</mark>. Но я бы посоветовал использовать
-          Standalone-версию — так будет стабильнее и проще работать с исходниками.
+          Standalone-версию - так будет стабильнее и проще работать с исходниками.
         </p>
         <YouTubeVideo
           link="zbX7x8Oo_Uc"
