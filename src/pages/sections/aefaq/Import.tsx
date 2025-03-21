@@ -311,7 +311,7 @@ const AEImport: React.FC = () => {
         </p>
       </DetailsSummary>
       <DetailsSummary
-        title="Почему я не могу импортировать .psd по слоям? After Effects не мне предлагает выбор типа импорта!"
+        title="Почему я не могу импортировать .psd по слоям? After Effects не предлагает мне выбор типа импорта!"
         tag="фотошоп, псд, не появляется окно"
       >
         <p>
