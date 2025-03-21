@@ -380,7 +380,7 @@ const AEWhereFind: React.FC = () => {
       </DetailsSummary>
       <DetailsSummary title="Где я могу найти шрифт по имеющемуся фото?">
         <p>
-          Вы можете использовать сервисом{" "}
+          Вы можете воспользоваться сервисом{" "}
           <a
             href="https://en.likefont.com"
             title="Сервис по нахождению шрифтов LikeFont"

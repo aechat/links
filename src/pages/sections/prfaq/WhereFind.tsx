@@ -309,7 +309,7 @@ const PRWhereFind: React.FC = () => {
       </DetailsSummary>
       <DetailsSummary title="Где найти шрифт по имеющемуся фото?">
         <p>
-          Вы можете использовать сервисом{" "}
+          Вы можете воспользоваться сервисом{" "}
           <a
             href="https://en.likefont.com"
             title="Сервис по нахождению шрифтов LikeFont"
@@ -404,6 +404,17 @@ const PRWhereFind: React.FC = () => {
           который обозначен на английском языке. В таких случаях можно обратиться к
           таблице перевода.
         </p>
+        <AdditionDanger>
+          В <mark className="app">Premiere Pro</mark> версии <mark>25.0</mark> и новее
+          убрали папку <mark className="path">Obsolete</mark>, где были расположены
+          устаревшие, по мнению Adobe, эффекты. Эффекты все ещё будут доступны для
+          проектов, который были созданы в старых версиях{" "}
+          <mark className="app">Premiere Pro</mark>, но без танцев с бубном их применить в
+          новых проектах не получится.{" "}
+          <a href="https://community.adobe.com/t5/premiere-pro-beta-discussions/now-released-obsolete-effects-transitions-and-presets-removed/td-p/14703879">
+            Подробнее...
+          </a>
+        </AdditionDanger>
         <Divider>Аудиоэффекты (Audio Effects)</Divider>
         <table className="table">
           <thead>

@@ -556,7 +556,7 @@ const PSWhereFind: React.FC = () => {
       </DetailsSummary>
       <DetailsSummary title="Где найти шрифт по имеющемуся фото?">
         <p>
-          Вы можете использовать сервисом{" "}
+          Вы можете воспользоваться сервисом{" "}
           <a
             href="https://en.likefont.com"
             title="Сервис по нахождению шрифтов LikeFont"
