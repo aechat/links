@@ -116,6 +116,40 @@ const DetailsSummary: React.FC<DetailsSummaryProps> = ({title, children, tag}) =
     }
   }, [children]);
 
+  useEffect(() => {
+    if (!sectionRef.current) {
+      return;
+    }
+
+    let timeoutId: NodeJS.Timeout;
+
+    const handleMouseEnter = () => {
+      timeoutId = setTimeout(() => {
+        const summaryId = detailsRef.current?.querySelector(".faq-summary")?.id;
+        if (summaryId) {
+          history.replaceState(
+            null,
+            "",
+            window.location.pathname + window.location.search + `#${summaryId}`
+          );
+        }
+      }, 1000);
+    };
+
+    const handleMouseLeave = () => {
+      clearTimeout(timeoutId);
+    };
+
+    sectionRef.current.addEventListener("mouseenter", handleMouseEnter);
+    sectionRef.current.addEventListener("mouseleave", handleMouseLeave);
+
+    return () => {
+      sectionRef.current?.removeEventListener("mouseenter", handleMouseEnter);
+      sectionRef.current?.removeEventListener("mouseleave", handleMouseLeave);
+      clearTimeout(timeoutId);
+    };
+  }, []);
+
   const handleToggle = (event: React.SyntheticEvent) => {
     const details = event.currentTarget as HTMLDetailsElement;
 
