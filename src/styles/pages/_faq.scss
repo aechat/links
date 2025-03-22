@@ -314,6 +314,10 @@
     font-family: "Onest", serif;
     text-align: center;
     text-decoration: none;
+
+    &::before {
+      display: none;
+    }
   }
 }
 
