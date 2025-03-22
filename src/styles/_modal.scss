@@ -39,6 +39,7 @@
     outline: 1px solid var(--content-background-border);
     border-radius: $roundness;
     background-color: var(--content-background-color);
+    width: 100%;
   }
 
   .sber {
@@ -48,7 +49,6 @@
     transition:
       opacity,
       background-color 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
-
     outline: none;
     border: solid 1px var(--sber-border);
     border-radius: $roundness * 0.75;
@@ -424,7 +424,6 @@
 }
 
 // *: стили для смены темы
-
 .support {
   display: flex;
   flex-wrap: wrap;
@@ -446,21 +445,21 @@
     justify-content: space-between;
     align-items: center;
     gap: 10px;
-    margin-block: 10px;
+    margin-inline: 10px;
+    margin-block-end: 8px;
     line-height: 1.35;
 
     button {
       flex-shrink: 0;
-      margin-inline-end: 10px;
     }
   }
 
   &-title {
-    opacity: 0.75;
     margin-inline: 15px;
+    margin-block-start: 10px;
+    margin-block-end: 2px;
     font-weight: 600;
     font-size: 0.9rem;
-    text-align: center;
   }
 
   &-selector {
@@ -468,14 +467,16 @@
     flex-shrink: 0;
     flex-wrap: wrap;
     justify-content: space-between;
-    gap: 10px;
-    margin-inline: 10px;
+    gap: 8px;
+    margin-block: 5px;
+    width: 100%;
   }
 
   &-button {
     display: flex;
-    flex: 1;
-    flex-wrap: wrap;
+    flex: 1 0 200px;
+    flex-wrap: nowrap;
+    justify-content: center;
     align-items: center;
     gap: 10px;
     border: 1px solid var(--links_border);

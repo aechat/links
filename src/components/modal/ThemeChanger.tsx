@@ -140,66 +140,64 @@ const ThemeModal: React.FC<ThemeModalProps> = ({isModalOpen, closeModal}) => {
             <CloseRounded />
           </button>
         </div>
-        <div className="modal-content">
-          <div
-            style={{
-              marginBlock: "10px",
-              display: "flex",
-              maxHeight: "100%",
-              alignItems: "center",
-              justifyContent: "space-between",
-              gap: "10px",
-            }}
-          >
-            <div className="theme-title">Тема сайта:</div>
-            <div className="theme-selector">
-              <motion.button
-                whileHover={{
-                  scale: 1.075,
-                  transition: {duration: 0.5, ease: [0.075, 0.82, 0.165, 1]},
-                }}
-                whileTap={{scale: 0.95, opacity: 0.5}}
-                className={
-                  theme === "light"
-                    ? "theme-button theme-button-selected"
-                    : "theme-button"
-                }
-                onClick={() => setTheme("light")}
-              >
-                <LightModeRounded />
-              </motion.button>
-              <motion.button
-                whileHover={{
-                  scale: 1.075,
-                  transition: {duration: 0.5, ease: [0.075, 0.82, 0.165, 1]},
-                }}
-                whileTap={{scale: 0.95, opacity: 0.5}}
-                className={
-                  theme === "dark" ? "theme-button theme-button-selected" : "theme-button"
-                }
-                onClick={() => setTheme("dark")}
-              >
-                <DarkModeRounded />
-              </motion.button>
-              <motion.button
-                whileHover={{
-                  scale: 1.075,
-                  transition: {duration: 0.5, ease: [0.075, 0.82, 0.165, 1]},
-                }}
-                whileTap={{scale: 0.95, opacity: 0.5}}
-                className={
-                  theme === "system"
-                    ? "theme-button theme-button-selected"
-                    : "theme-button"
-                }
-                onClick={() => setTheme("system")}
-              >
-                <HideSourceRounded />
-              </motion.button>
-            </div>
+        <div
+          style={{
+            // marginBlock: "10px",
+            display: "flex",
+            // maxHeight: "100%",
+            // alignItems: "center",
+            // justifyContent: "space-between",
+            // gap: "10px",
+          }}
+        >
+          <div className="theme-selector">
+            <motion.button
+              whileHover={{
+                scale: 0.975,
+                transition: {duration: 0.5, ease: [0.075, 0.82, 0.165, 1]},
+              }}
+              whileTap={{scale: 0.95, opacity: 0.5}}
+              className={
+                theme === "light" ? "theme-button theme-button-selected" : "theme-button"
+              }
+              onClick={() => setTheme("light")}
+            >
+              <LightModeRounded />
+              Светлая
+            </motion.button>
+            <motion.button
+              whileHover={{
+                scale: 0.975,
+                transition: {duration: 0.5, ease: [0.075, 0.82, 0.165, 1]},
+              }}
+              whileTap={{scale: 0.95, opacity: 0.5}}
+              className={
+                theme === "dark" ? "theme-button theme-button-selected" : "theme-button"
+              }
+              onClick={() => setTheme("dark")}
+            >
+              <DarkModeRounded />
+              Тёмная
+            </motion.button>
+            <motion.button
+              whileHover={{
+                scale: 0.975,
+                transition: {duration: 0.5, ease: [0.075, 0.82, 0.165, 1]},
+              }}
+              whileTap={{scale: 0.95, opacity: 0.5}}
+              className={
+                theme === "system" ? "theme-button theme-button-selected" : "theme-button"
+              }
+              onClick={() => setTheme("system")}
+            >
+              <HideSourceRounded />
+              Системная
+            </motion.button>
           </div>
+        </div>
+        <div className="modal-content">
+          <div className="theme-title">Оттенок акцентного цвета</div>
           <div className="theme-slider">
-            <div className="theme-title">Оттенок:</div>
             <Slider
               min={0}
               max={360}
@@ -223,8 +221,10 @@ const ThemeModal: React.FC<ThemeModalProps> = ({isModalOpen, closeModal}) => {
               </button>
             </Tooltip>
           </div>
+        </div>
+        <div className="modal-content">
+          <div className="theme-title">Насыщенность акцентного цвета</div>
           <div className="theme-slider">
-            <div className="theme-title">Насыщенность:</div>
             <Slider
               min={0}
               max={1.25}
