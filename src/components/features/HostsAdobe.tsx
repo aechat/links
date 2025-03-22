@@ -11,7 +11,7 @@ const HostsAdobeModal: React.FC = () => {
     <div>
       <motion.button
         whileHover={{
-          scale: 1.025,
+          scale: 0.975,
           transition: {duration: 0.5, ease: [0.075, 0.82, 0.165, 1]},
         }}
         whileTap={{scale: 0.95, opacity: 0.5}}

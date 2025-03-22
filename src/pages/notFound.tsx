@@ -103,7 +103,7 @@ const NotFound = () => {
               }}
               className="modal-open-button"
               whileHover={{
-                scale: 0.95,
+                scale: 0.975,
                 transition: {duration: 0.5, ease: [0.25, 0, 0, 1]},
               }}
               whileTap={{scale: 0.95, opacity: 0.5}}
