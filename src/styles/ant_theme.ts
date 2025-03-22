@@ -7,7 +7,7 @@ const themeConfig = {
       separatorColor: "var(--accent)",
     },
     Divider: {
-      colorTextHeading: "var(--accent)",
+      colorTextHeading: "var(--summary_text)",
       colorSplit: "var(--summary_border)",
       fontSizeLG: 15,
     },

@@ -136,6 +136,23 @@
       hyphens: auto;
     }
 
+    .ant-divider-inner-text {
+      text-wrap: stable;
+      opacity: 1;
+      outline: 1px solid var(--summary_border);
+      border-radius: $roundness * 0.75;
+      background-color: var(--summary_background);
+      padding: 6px 9px;
+      width: 100%;
+      max-width: fit-content;
+      overflow: hidden;
+      font-weight: 700;
+      font-size: 0.85rem;
+      font-family: "Inter", sans-serif;
+      text-overflow: ellipsis;
+      white-space: wrap;
+    }
+
     .message {
       &-correct,
       &-incorrect {
