@@ -1,6 +1,5 @@
 @use "@/styles/mixins" as *;
 
-// *: стили для обычных модальных окон
 .modal {
   display: flex;
   flex-direction: column;
@@ -171,7 +170,6 @@
   }
 }
 
-// *: стили для ошибок
 .error {
   &-container {
     display: flex;
@@ -196,7 +194,6 @@
   }
 }
 
-// *: стили для поиска
 .search {
   &-input {
     filter: drop-shadow(0 3px 5px var(--shadow));
@@ -423,7 +420,6 @@
   }
 }
 
-// *: стили для смены темы
 .support {
   display: flex;
   flex-wrap: wrap;
