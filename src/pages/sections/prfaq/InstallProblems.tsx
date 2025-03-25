@@ -15,8 +15,8 @@ const PRInstallProblems: React.FC = () => {
       <GithubUpdateInfo filePath="src/pages/sections/prfaq/InstallProblems.tsx" />
       <DetailsSummary title="Забыли положить инструкцию для установки рядом с файлами, куда что кидать?">
         <p>
-          Обычно установка большинства плагинов универсальна, поэтому следуйте
-          рекомендациям ниже.
+          Обычно установка большинства дополнительных материалов универсальна, поэтому
+          следуйте инструкциям ниже.
         </p>
         <AdditionWarning>
           Прежде чем использовать <mark className="file">.prproj</mark>,{" "}
@@ -62,7 +62,10 @@ const PRInstallProblems: React.FC = () => {
                   Если в архиве находится файл <mark className="file">.mogrt</mark>, то
                   такие шаблоны устанавливаются в панели{" "}
                   <mark className="ui">Graphics Templates</mark> с помощью кнопки{" "}
-                  <mark className="ui">Install Motion Graphics template</mark>.
+                  <mark className="ui">Install Motion Graphics template</mark>. Либо можно
+                  перенести файлы формата <mark className="file">.mogrt</mark> прямо в
+                  окно <mark className="ui">Graphics Templates</mark> с помощью{" "}
+                  <mark className="word">Drag-n-Drop</mark>.
                   <ImageFigure
                     styleClass="figure_windows-dark"
                     imgSrc="images/premierepro/install_mogrt.png"
@@ -465,11 +468,11 @@ const PRInstallProblems: React.FC = () => {
       </DetailsSummary>
       <DetailsSummary title='"Система Windows защитила ваш компьютер" или как отключить Windows Smartscreen?'>
         <p>
-          <mark className="app">Windows Smartscreen</mark> - это некий фильтр программ,
-          скачанных с интернета и часто он помечает <mark className="file">.exe</mark>{" "}
-          файлы как подозрительные. Поэтому и приостанавливает запуск исполняемых файлов.
-          Чтобы запустить такой файл, вам нужно нажать на{" "}
-          <mark className="ui">Подробнее</mark> и на{" "}
+          <mark className="app">Windows Smartscreen</mark> - это фильтр файлов от{" "}
+          <mark>Microsoft</mark>, скачанных с интернета и он часто помечает{" "}
+          <mark className="file">.exe</mark> файлы как подозрительные. Поэтому и
+          приостанавливает запуск исполняемых файлов. Чтобы запустить такой файл, вам
+          нужно нажать на <mark className="ui">Подробнее</mark> и на{" "}
           <mark className="ui">Выполнить в любом случае</mark>.
         </p>
         <p>

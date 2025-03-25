@@ -1,7 +1,11 @@
 import React from "react";
 import DetailsSummary from "../../../components/DetailsSummary";
 import {ImageFigure, VideoFigure, YouTubeVideo} from "../../../components/ContentFigure";
-import {AdditionInfo, AdditionWarning} from "../../../components/Additions";
+import {
+  AdditionDanger,
+  AdditionInfo,
+  AdditionWarning,
+} from "../../../components/Additions";
 import GithubUpdateInfo from "../../../components/features/GithubUpdateInfo";
 import {Divider} from "antd";
 import ContentSwitcher from "../../../components/features/OperatingSystemFilter";
@@ -11,67 +15,83 @@ const AEActions: React.FC = () => {
     <div className="faq-content">
       <GithubUpdateInfo filePath="src/pages/sections/aefaq/Actions.tsx" />
       <DetailsSummary
-        title="Чем бы мне улучшить качество изображений и видео?"
+        title="Какими средствами я могу улучшить качество изображений и видео?"
         tag="апскейл, топаз, качество, 4к"
       >
         <p>
           В настоящее время существует множество способов улучшить качество видео или фото
           с помощью нейросетей. Все эти методы работают локально на вашем компьютере,
-          поэтому запаситесь производительной видеокартой и процессором.
+          поэтому для начала запаситесь производительной видеокартой и процессором.
         </p>
+        <Divider>Улучшаем качество видео</Divider>
         <p>
-          Для улучшения качества видео я рекомендую{" "}
-          <mark className="app">Topaz Video AI</mark>. Это отдельная программа, которая
-          может подключаться к <mark className="app">After Effects</mark> и{" "}
-          <mark className="app">Davinci Resolve</mark>. Но я бы посоветовал использовать
-          Standalone-версию - так будет стабильнее и проще работать с исходниками.
+          Для улучшения качества видео можно использовать программу{" "}
+          <mark className="app">Topaz Video AI</mark>. Данная программа может подключаться
+          к <mark className="app">After Effects</mark> и{" "}
+          <mark className="app">Davinci Resolve</mark>, но я бы посоветовал использовать
+          Standalone-версию - так будет стабильнее и проще работать с исходниками. С
+          помощью него можно вытянуть из плохого качества - относительно хорошее, а также
+          увеличить плавность видео. С первого раза хороший результат из вашего исходника
+          может и не выйти, поэтому пробуйте экспериментировать с настройками для
+          получения хорошего результата.
         </p>
         <YouTubeVideo
           link="zbX7x8Oo_Uc"
           caption="Topaz Video AI"
         />
         <p>
-          Существует много плагинов для <mark className="app">After Effects</mark>,
-          которые помогают улучшить качество видео и изображений. Из такого рекомендую
-          обратить внимание на <mark className="plugin">BCC UpRes ML</mark> из набора
+          Также существуют много плагинов для <mark className="app">After Effects</mark>,
+          которые помогают улучшить качество видео и изображений. Из такого можно обратить
+          внимание на <mark className="plugin">BCC UpRes ML</mark> из набора сторонних
           плагинов <mark className="plugin">Boris FX Continuum</mark>.
         </p>
         <YouTubeVideo
           link="fTYcNP8ZdTE"
           caption="BCC UpRes ML"
         />
+        <Divider>Улучшаем качество фотографий</Divider>
         <p>
-          Если вы хотите улучшить качество фотографий, то для этого подойдут программы{" "}
-          <mark className="app">Topaz Photo AI</mark> и{" "}
+          Если вы хотите улучшить качество ваших фотографий, то для этого подойдут
+          программы <mark className="app">Topaz Photo AI</mark> или{" "}
           <mark className="app">Topaz Gigapixel AI</mark>. По своей задаче эти программы
-          похожи, результаты могут сильно отличаться, поэтому время от времени приходится
-          использовать обе программы. Для <mark className="app">Topaz Photo AI</mark> вам
-          понадобится около 15 Гб на жестком диске, а для{" "}
-          <mark className="app">Topaz Gigapixel AI</mark> — около 25 Гб. И это без учета
-          будущих обновлений.
+          похожи, а результаты могут сильно отличаться, поэтому время от времени
+          приходится использовать обе программы. Для{" "}
+          <mark className="app">Topaz Photo AI</mark> вам понадобится около 15 Гб на
+          жестком диске, а для <mark className="app">Topaz Gigapixel AI</mark> - около 25
+          Гб. И это без учета будущих обновлений.
         </p>
+        <AdditionInfo>
+          Про различия <mark className="app">Topaz Photo AI</mark> и{" "}
+          <mark className="app">Topaz Gigapixel AI</mark> можно узнать{" "}
+          <a href="https://www.topazlabs.com/pai-vs-gp">на официальном сайте</a>.
+        </AdditionInfo>
         <YouTubeVideo
           link="VMaYdjWqRRg"
           caption="Topaz Gigapixel AI"
         />
         <p>
-          Если вы ищете бесплатный и open-source аналог Topaz для улучшения изображений,
-          то есть более простой вариант — <mark className="app">Upscayl</mark>. Скачать
-          его можно по <a href="https://upscayl.org/">этой ссылке</a>. Эта программа также
-          использует ИИ-модели для улучшения качества изображений, но не поддерживает
-          видеофайлы.
+          Если вы ищете бесплатный и open-source аналог{" "}
+          <mark className="app">Topaz Gigapixel AI</mark> для улучшения изображений, то
+          есть более простой вариант - <mark className="app">Upscayl</mark>. Скачать его
+          можно по <a href="https://upscayl.org/">этой ссылке</a>. Эта программа также
+          использует генеративные модели для улучшения качества изображений.
         </p>
+        <AdditionWarning>
+          Данная программа не поддерживает улучшение видео-файлов.
+        </AdditionWarning>
         <VideoFigure
           styleClass="figure_macos-dark"
           videoSrc="https://github.com/upscayl/upscayl/assets/25067102/ad2453b1-3c5a-4eb2-b992-4cf10e6a49f5"
           caption="Upscayl"
         />
         <p>
-          В прошлом &quot;деды-фотографы&quot; улучшали изображения с помощью{" "}
-          <mark className="app">Benvista PhotoZoom</mark>, который вышел в 2005 году.
-          Недавно в него тоже добавили ИИ-модели, но можно обойтись и без них. Благодаря
-          своим алгоритмам, результат в этой программе может быть даже лучше, чем в
-          вышеупомянутых программах. И занимает всего 110 Мб на жестком диске.
+          В качестве альтернативы для улучшения качества изображений можно воспользоваться
+          программой <mark className="app">Benvista PhotoZoom</mark>, первая версия
+          которого вышла ещё в 2005 году. С относительно недавних пор в него также
+          добавили генеративные модели, но можно обойтись и без них. Благодаря своим
+          алгоритмам, результат в этой программе может быть даже лучше, чем в
+          вышеупомянутых программах. И занимает всего лишь <mark>110 Мб</mark> на жестком
+          диске.
         </p>
         <YouTubeVideo
           link="woDDQ0xnt84"
@@ -87,36 +107,59 @@ const AEActions: React.FC = () => {
         </AdditionInfo>
       </DetailsSummary>
       <DetailsSummary
-        title="Чем можно плавно замедлить видео?"
-        tag="слоумо, твикстор, топаз, ретаймер, тайм ремапинг, плавное замедление, флоуфреймс"
+        title="Какими средствами я могу замедлить видео или сделать его более плавным?"
+        tag="слоумо, твикстор, топаз, ретаймер, тайм ремапинг, плавное замедление, флоуфреймс, дайте мне больше фпс"
       >
         <p>
-          В какой-то момент каждый монтажёр или композер сталкивается с задачей замедлить
-          видео так, чтобы оно смотрелось плавно и без рывков, особенно если исходник
-          имеет низкую частоту кадров. К счастью, с современными технологиями сделать это
-          стало намного проще.
+          В какой-то момент у пользователя возникает задача замедлить видео так, чтобы оно
+          смотрелось плавно и без рывков, особенно если исходник имеет низкую частоту
+          кадров. Или просто сделать видео более плавным,{" "}
+          <i style={{opacity: "0.5"}}>
+            как это любят эдиторы, прибывшие из <mark className="app">TikTok</mark>
+          </i>
+          . Эту задачу можно решить с помощью интерполирования кадров или же добавлением
+          дополнительных кадров за счёт смешения существующих соседних.
         </p>
+        <AdditionWarning>
+          Прежде чем замедлять аниме-клипы, скринкасты видеоигр или исходники, записанные
+          с переменным FPS - стоит <a href="#8.7">избавиться от повторяющихся кадров</a>.
+          Таким образом вы обеспечите более стабильную работу интерполяции и можете
+          добиться более плавного замедления.
+        </AdditionWarning>
+        <AdditionInfo>
+          <ul>
+            <li>
+              Действия на видео, приведённые ниже, могут отличаться в зависимости от
+              версии программы или плагина.
+            </li>
+            <li>
+              Некоторые плагины и программы вы можете скачать в канале{" "}
+              <a href="https://t.me/+Qd9xu7A4TeIwNzY6">склад стройматериалов</a> по
+              хештегам <mark className="tag">#twixtor</mark>,{" "}
+              <mark className="tag">#continuum</mark> или{" "}
+              <mark className="tag">#topaz</mark>.
+            </li>
+          </ul>
+        </AdditionInfo>
+        <Divider>Замедляем плавно прямо в After Effects</Divider>
         <p>
-          Давайте рассмотрим несколько популярных плагинов и программ, которые помогут
-          интерполировать кадры. Это позволит вам добавить дополнительные кадры в секунду
-          и растянуть видео без неприятных пропусков.
-        </p>
-        <p>
-          Первым в списке плагинов для <mark className="app">After Effects</mark> идёт{" "}
-          <mark className="plugin">Twixtor</mark>. Этот плагин на рынке уже давно, и за
-          это время он успел зарекомендовать себя как надежный инструмент для монтажа. У
-          него множество настроек, что позволяет адаптировать его под разные задачи.
+          Первым в списке плагинов, с помощью которого можно плавно замедлить видео в{" "}
+          <mark className="app">After Effects</mark> идёт{" "}
+          <mark className="plugin">Twixtor</mark>. Этот плагин достатчно давно появился на
+          рынке и за это время он успел зарекомендовать себя как хороший инструмент для
+          интерполяции кадров и плавного изменения скорости видеоклипа. У него есть
+          множество настроек, что позволяет адаптировать его использование под различные
+          задачи.
         </p>
         <YouTubeVideo
           link="EGZCNcQyvrE"
           caption="Twixtor"
         />
         <p>
-          Совсем недавно в <mark className="plugin">Boris FX Continuum</mark> появился
-          аналог <mark className="plugin">Twixtor</mark>, который использует искусственный
-          интеллект. Этот новый эффект называется{" "}
-          <mark className="plugin">BCC Retimer ML</mark>, и порой он показывает
-          значительно лучшие результаты по сравнению с вышеупомянутым{" "}
+          Также в <mark className="plugin">Boris FX Continuum</mark> появился эффект{" "}
+          <mark className="plugin">BCC Retimer ML</mark> для интерполяции кадров и
+          плавного замедления видео, который использует искусственный интеллект. Этот
+          эффект порой показывает лучше результат, чем вышеупомянутый{" "}
           <mark className="plugin">Twixtor</mark>.
         </p>
         <YouTubeVideo
@@ -124,62 +167,78 @@ const AEActions: React.FC = () => {
           caption="BCC Retimer ML"
         />
         <p>
-          Если вы не хотите использовать <mark className="app">After Effects</mark> для
-          замедления видео или если при использовании плагинов у вас всё тормозит, то
-          можно использовать сторонние программы, которые генерируют видео отдельно на ваш
-          диск с увеличенной частотой кадров за счёт интерполяции. Например,{" "}
-          <mark className="app">FlowFrames</mark>.
+          Стандартными средствами <mark className="app">After Effects</mark> тоже можно
+          плавно замедлить видео с помощью функции смешивания соседних кадров, правда
+          результат может получиться не таким хорошим, как хотелось бы. Для этого вам
+          нужно добавить видео на таймлайн и замедлить его с помощью{" "}
+          <mark>Time Remapping</mark>. Его можно включить с помощью комбинации клавиш{" "}
+          <mark className="key">Ctrl + Alt + T</mark>. После изменения длины видео с
+          помощью ремапинга - выделите нужный слой, нажмите на{" "}
+          <mark className="key">ПКМ</mark> и выберите в контекстном меню{" "}
+          <mark className="ui">Frame Blending &gt; Frame Mix или Pixel Motion</mark>.
+        </p>
+        <YouTubeVideo
+          link="fNINAOwY2IY"
+          caption="Frame Blending и Pixel Motion в After Effects"
+        />
+        <Divider>Делаем видео более плавным вне After Effects</Divider>
+        <p>
+          Если же у вас возникает задача превратить видео, например с{" "}
+          <mark>24 кадрами в секунду</mark> в <mark>60</mark> или даже в <mark>120</mark>{" "}
+          для дальнейшей обработки или воспроизведения контента,{" "}
+          <i style={{opacity: "0.5"}}>
+            правда н@#&я, если большинство видео-площадок всё равно примут видео максимум
+            с 60 кадрами в секунду
+          </i>
+          , то можно воспользоваться различными сторонними утилитами. Первым по списку
+          пойдет <mark className="app">Flowframes</mark>. У данной программы существует
+          как <a href="https://nmkd.itch.io/flowframes">бесплатная</a> версия, для
+          скачивания которого нужно нажать на странице{" "}
+          <mark className="ui">Download Now</mark> и в модальном окне нажать на{" "}
+          <mark className="ui">No thanks, just take me to the downloads</mark>, так и{" "}
+          <a href="https://www.patreon.com/n00mkrad">платная</a>, которая обновляется чаще
+          и имеет больше функций.
         </p>
         <YouTubeVideo
           link="H8ISNjzDULw"
           caption="FlowFrames"
         />
         <p>
-          Или <mark className="app">FrameGUI</mark>.
+          В качестве альтернативы можно воспользоваться чуть менее популярным{" "}
+          <mark className="app">FrameGUI</mark>.
         </p>
         <YouTubeVideo
           link="Axz_KwiqNmc"
           caption="FrameGUI"
         />
         <p>
-          Ну или <mark className="app">Topaz Video AI</mark>. В этой программе также можно
-          улучшить качество исходников за счёт искусственного интеллекта.
+          Также в <mark className="app">Topaz Video AI</mark> есть функция для увеличения
+          количества кадров в секунду с выбором нескольких моделей для различных
+          экспериментов, чтобы выбрать более подходящий результат.
         </p>
         <YouTubeVideo
           link="591MqOooDAE"
           caption="Topaz Video AI"
         />
-        <AdditionInfo>
-          Действия на видео, приведённые выше, могут отличаться в зависимости от версии
-          программы или плагина. Некоторые плагины или программы вы можете скачать в
-          канале <a href="https://t.me/+Qd9xu7A4TeIwNzY6">склад стройматериалов</a> по
-          хештегам <mark className="tag">#twixtor</mark>,{" "}
-          <mark className="tag">#continuum</mark> или <mark className="tag">#topaz</mark>.
-        </AdditionInfo>
-        <p>
-          Стандартными средствами <mark className="app">After Effects</mark> тоже можно
-          замедлить видео, правда результат будет не таким хорошим, как хотелось бы. Для
-          этого вам нужно добавить видео на таймлайн и замедлить его с помощью комбинации
-          клавиш <mark className="key">Ctrl + Alt + T</mark>. Эта комбинация включит
-          функцию <mark className="ui">Enable Time Remapping</mark> для слоя. После
-          изменения длины видео - выделите слой, нажмите на{" "}
-          <mark className="key">ПКМ</mark> и выберите в контекстном меню{" "}
-          <mark className="ui">Frame Blending &gt; Frame Mix или Pixel Motion</mark>.
-        </p>
       </DetailsSummary>
-      <DetailsSummary title="Чем можно хорошо подавить шумы на видео?">
+      <DetailsSummary
+        title="Чем я могу хорошо подавить шумы на видео?"
+        tag="антишум, denoiser, денойз"
+      >
         <p>
-          Когда видео-исходник был снят в условиях малой освещенности или с высоким ISO -
-          вы неизбежно столкнётесь с цифровым шумом - дефектом изображения, возникающий
-          при съемке из-за несовершенства технологий сенсоров камер фотоаппаратов,
-          видеокамер и телефонов, а также из-за фотонной природы света. Особенно он
-          заметен на однотонных поверхностях - небо, кожа и в участках теней.
+          Если видео было снято в условиях плохой освещенности и с высоким значением{" "}
+          <mark>ISO</mark>, то скорее всего вы столкнётесь с цифровым шумом - дефектом
+          изображения, возникающий при съемке из-за несовершенства технологий сенсоров
+          камер фотоаппаратов, видеокамер и телефонов, а также из-за фотонной природы
+          света. Такой шум часто портит однотонные поверхности - небо, кожу и участки
+          теней. Полностью от такого шума избавиться сложно, но можно его существенно
+          подавить с помощью различных инструментов и плагинов.
         </p>
+        <Divider>Уменьшаем цифровой шум через сторонние плагины</Divider>
         <p>
-          Полностью от шума избавиться сложно, но можно его существенно подавить с помощью
-          различных инструментов и плагинов. Одним из эффективных плагинов для уменьшения
-          шума (и мерцаний от искусственного освещения) является{" "}
-          <mark className="plugin">Neat Video</mark>. Плагин гибко настраивается и
+          Первым в списке из эффективных плагинов для уменьшения шума и мерцаний от
+          искусственного освещения находится <mark className="plugin">Neat Video</mark>.
+          Он довольно гибко настраивается, подстраивается под различный шум и даже
           поддерживает <mark>GPU-ускорение</mark>.
         </p>
         <YouTubeVideo
@@ -187,33 +246,35 @@ const AEActions: React.FC = () => {
           caption="Neat Video"
         />
         <p>
-          У Red Giant тоже есть свой де-нойзер под названием{" "}
+          В качестве альтернативы можно попробовать применить{" "}
           <mark className="plugin">Denoiser III</mark>, который находится в пакете
-          плагинов <mark className="plugin">Magic Bullet Suite</mark>.
+          плагинов <mark className="plugin">Magic Bullet Suite</mark> от{" "}
+          <mark>Red Giant</mark>.
         </p>
         <YouTubeVideo
           link="PXCElU7HcX8"
           caption="Denoiser III"
         />
         <p>
-          И Boris FX тоже не отстаёт от инструментов для подавления шумов. В пакете
-          плагинов <mark className="plugin">Boris FX Continuum</mark> тоже можно найти два
-          де-нойзера - <mark className="plugin">BCC DeNoise OBS</mark> на основе
-          алгоритмов и относительно новый <mark className="plugin">BCC+DeNoise ML</mark>,
-          основанный на машинном обучении.{" "}
+          <mark>Boris FX</mark> тоже не отстаёт от инструментов для подавления цифрового
+          шума. В пакете плагинов <mark className="plugin">Boris FX Continuum</mark>
+          можно найти два де-нойзера: <mark className="plugin">BCC DeNoise OBS</mark> на
+          основе алгоритмов и более свежий <mark className="plugin">BCC+DeNoise ML</mark>,
+          основанный на машинном обучении.
         </p>
         <YouTubeVideo
           link="L1PeaTa13H4"
           caption="BCC DeNoise ML"
         />
         <p>
-          Ну и куда же без Re:Vision Effects с их <mark className="plugin">DE:Noise</mark>
-          .
+          Этот список сторонних эффектов для шумоподавления заканчивает{" "}
+          <mark className="plugin">DE:Noise</mark> от <mark>Re:Vision Effects</mark>.
         </p>
         <YouTubeVideo
           link="tGIXeddCPQM"
           caption="DE:Noise"
         />
+        <Divider>Подавляем шумы стандартными средствами After Effects</Divider>
         <p>
           Если вы не хотите использовать сторонние плагины в своём проекте - вы можете
           воспользоваться встроенным эффектом <mark className="plugin">Reduce Grain</mark>
@@ -225,15 +286,18 @@ const AEActions: React.FC = () => {
         />
       </DetailsSummary>
       <DetailsSummary
-        title="Какими средствами обычно удаляют зелёный или синий фон?"
-        tag="кеинг, клинап, убрать фон"
+        title="Как и чем можно отделить объект от однотонного фона?"
+        tag="кеинг, клинап, убрать фон, keying, зеленый фон, бекграунд зелёнка, синий бэкграунд"
       >
         <p>
-          Предположим, что заказчик предоставил вам исходники объекта или персонажа на
-          зелёном фоне. Можно конечно воспользоваться инструментом{" "}
-          <mark className="plugin">Rotobrush</mark>, но он нам не нужен, так как есть
-          более простые и эффективные решения.
+          Предположим, что вы получили или скачали исходники объекта или персонажа на
+          зелёном или синем фоне. Чтобы быстро убрать однотонный фон, нам нужно
+          воспользоваться инструментами для кенига. Пользоваться{" "}
+          <mark className="plugin">Rotobrush</mark> в контексте удаления однотонного фона
+          лучше не стоит, так как это только увеличит время работы и результат может в
+          принципе не понравиться.
         </p>
+        <Divider>Удаляем однотонный фон стандартными средствами After Effects</Divider>
         <AdditionInfo>
           Если вы хотите потренироваться с кеингом зелёного фона - скачайте любое видео из{" "}
           <a href="https://www.youtube.com/playlist?list=PLB62ktMZylCyHxubuonbeZ5VWIYPJMY9J">
@@ -251,14 +315,15 @@ const AEActions: React.FC = () => {
           caption="Keylight + Key Cleaner + Advanced Spill Suppressor"
         />
         <p>
-          Если у вас действительно полностью однотонный фон, то вы можете воспользоваться
-          эффектом <mark className="plugin">Linear Color Key</mark>, если результат не
-          сильно важен в угоду производительности сцены.
+          Если у вашего слоя действительно полностью однотонный фон, то вы можете
+          воспользоваться эффектом <mark className="plugin">Linear Color Key</mark>, если
+          результат не сильно важен в пользу производительности сцены.
         </p>
         <YouTubeVideo
           link="8RjOe6cO-cY"
           caption="Linear Color Key"
         />
+        <Divider>Убираем однотонный фон сторонними плагинами</Divider>
         <p>
           Из сторонних инструментов для удаления цветного фона любой сложности можно
           выделить <mark className="plugin">Primatte Keyer</mark>, поставляющийся в пакет
@@ -269,8 +334,9 @@ const AEActions: React.FC = () => {
           caption="Getting Started with Primatte Keyer"
         />
         <p>
-          Если результат от работы плагина выше не нравится - есть{" "}
-          <mark className="plugin">BCC Primatte Studio</mark>, поставляющийся в пакете{" "}
+          Если вам результат от работы плагина выше не нравится, то попробуйте
+          воспользоваться <mark className="plugin">BCC Primatte Studio</mark>, который
+          поставляется в стороннем пакете{" "}
           <mark className="plugin">Boris FX Continuum</mark>.
         </p>
         <YouTubeVideo
@@ -278,12 +344,16 @@ const AEActions: React.FC = () => {
           caption="BCC Primatte Studio"
         />
       </DetailsSummary>
-      <DetailsSummary title='А если исходник был снят не на "зелёнке", то как отделить объект от фона?'>
+      <DetailsSummary
+        title="Как я могу отделить объект от фона, если фон не однотонный и сложен для кеинга?"
+        tag="ротобраш, повермейт"
+      >
         <p>
           В век технологий существует много различных инструментов для отделения объекта
           от фона в сложных ситуациях. Например, когда у оператора не было возможности
           снять объект на однотонном фоне, а вырезать объект на пост-обработке нужно.
         </p>
+        <Divider>Выделяем объект с помощью встроенного Rotobrush</Divider>
         <p>
           В базовой поставке <mark className="app">After Effects</mark> давно существует
           прекрасный инструмент <mark className="plugin">Rotobrush</mark>{" "}
@@ -297,9 +367,10 @@ const AEActions: React.FC = () => {
           link="eoOIrdb_0ko"
           caption="Rotobrush"
         />
+        <Divider>Используем сторонние инструменты для ротоскопирования</Divider>
         <p>
-          Если результат от <mark className="plugin">Rotobrush</mark> вам не нравится - вы
-          можете воспользоваться сторонним плагином{" "}
+          Если результат от <mark className="plugin">Rotobrush</mark> вам не нравится, то
+          вы можете воспользоваться сторонним плагином{" "}
           <mark className="plugin">Boris FX Silhouette</mark> в котором есть инструмент{" "}
           <mark className="plugin">Power Matte</mark>.
         </p>
@@ -799,7 +870,10 @@ const AEActions: React.FC = () => {
           <a href="https://t.me/s/aetemp">AETemp</a>.
         </AdditionInfo>
       </DetailsSummary>
-      <DetailsSummary title="Как мне распаковать прекомпозицию?">
+      <DetailsSummary
+        title="Как распаковать созданную прекомпозицию?"
+        tag="unprecompose"
+      >
         <p>
           Бывают случаи, когда вы сделали несколько прекомпозиций, а потом внезапно вам
           понадобилось их распаковать. И порой не хочется заходить в каждую композицию,
@@ -831,9 +905,9 @@ const AEActions: React.FC = () => {
           caption="Распаковка нескольких прекомпозиций с помощью Un-precompose"
         />
         <AdditionWarning>
-          Имейте ввиду, что ссылки внутри эффектов (например указание слоя в{" "}
-          <mark className="plugin">Displacement Map</mark>) и внутри выражений при
-          распаковке прекомпозиций могут слететь.
+          Прежде чем распаковывать таким образом композиции, учтите, что ссылки внутри
+          эффектов и внутри выражений, например ссылка на слой в{" "}
+          <mark className="plugin">Displacement Map</mark>, могут слететь.
         </AdditionWarning>
       </DetailsSummary>
       <DetailsSummary title="Как разбить текстовый слой на отдельные слои с буквами, словами или строками?">
@@ -867,7 +941,10 @@ const AEActions: React.FC = () => {
           <mark className="ui">Convert to Point Text</mark>.
         </AdditionWarning>
       </DetailsSummary>
-      <DetailsSummary title="Как изменить параметры сразу нескольких композиций?">
+      <DetailsSummary
+        title="Как изменить параметры у нескольких композиций одновременно?"
+        tag="компсеттер, rd:compsetter"
+      >
         <p>
           Изменить разрешение, частоту кадров или другие параметры сразу в нескольких
           композициях стандартными способами программы не получится - вам нужно

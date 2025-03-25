@@ -522,8 +522,8 @@ const PSWhereFind: React.FC = () => {
           <mark className="file">hosts</mark>. Для этого вам нужно перейти в{" "}
           <mark className="path">C:\Windows\System32\drivers\etc</mark>, скопировать файл{" "}
           <mark className="path">hosts</mark> в любое удобное место, открыть любой
-          текстовый редактор (например <mark className="app">Notepad++</mark> или{" "}
-          <mark className="app">VS Code</mark>) и внести строки чуть ниже в конец файла.
+          текстовый редактор, например <mark className="app">Notepad++</mark> или{" "}
+          <mark className="app">VS Code</mark>, и внести строки чуть ниже в конец файла.
           Затем сохраните отредактированный файл и перенесите его обратно в{" "}
           <mark className="path">C:\Windows\System32\drivers\etc\hosts</mark> с заменой и
           перезагрузите <mark className="app">Photoshop</mark>, если он у вас был открыт.

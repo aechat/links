@@ -9,6 +9,7 @@ import {ImageFigure, VideoFigure} from "../../../components/ContentFigure";
 import GithubUpdateInfo from "../../../components/features/GithubUpdateInfo";
 import ContentSwitcher from "../../../components/features/OperatingSystemFilter";
 import HostsAdobeModal from "../../../components/features/HostsAdobe";
+import {Divider} from "antd";
 
 const AEErrors: React.FC = () => {
   return (
@@ -376,8 +377,8 @@ const AEErrors: React.FC = () => {
                 нужно перейти в{" "}
                 <mark className="path">C:\Windows\System32\drivers\etc</mark>, скопировать
                 файл <mark className="path">hosts</mark> в любое удобное место, открыть
-                любой текстовый редактор (например <mark className="app">Notepad++</mark>{" "}
-                или <mark className="app">VS Code</mark>) и внести строки из кнопки для
+                любой текстовый редактор, например <mark className="app">Notepad++</mark>{" "}
+                или <mark className="app">VS Code</mark>, и внести строки из кнопки для
                 открытия модального окна чуть ниже в конец файла. Затем сохраните
                 отредактированный файл и перенесите его обратно в{" "}
                 <mark className="path">C:\Windows\System32\drivers\etc\hosts</mark> с
@@ -661,30 +662,52 @@ const AEErrors: React.FC = () => {
       <DetailsSummary title='"Cinema 4D must be installed in order to use the Cinema 4D renderer" или "Cineware Server Suite failed to acquire renderer port and path. Server commands not available" или "Cinema 4D: Render Failed"'>
         <p>
           Если у вас установлен <mark className="app">After Effects</mark> от{" "}
-          <mark>KpoJluK</mark>, то в его дистрибутивах c версий 2020 и выше не
-          поставляется плагин <mark className="plugin">Cineware</mark> и{" "}
-          <mark className="plugin">Cinema 4D</mark> для уменьшения веса программы. Чтобы
-          решить эту проблему - установите полноценную{" "}
-          <mark className="app">Maxon Cinema 4D</mark> нужной версии, которую просит ваша
-          версия <mark className="app">After Effects</mark>. Обычно в такой ошибке
-          указывается, какую версию <mark className="app">Cinema 4D</mark> нужно
-          установить.
+          <mark>KpoJluK</mark>, то эта ошибка вознает из-за того, что в его дистрибутивах
+          c версий <mark>2020</mark> и выше не поставляется плагин{" "}
+          <mark className="plugin">Cineware</mark> и{" "}
+          <mark className="plugin">Cinema 4D</mark>. Это было сделано для уменьшения веса
+          программы, но таким образом отваливается возможность импорта проектов формата{" "}
+          <mark className="file">.c4d</mark> и включения соответствующего движка
+          3D-рендера. Чтобы решить эту проблему - достаточно установить полноценную{" "}
+          <mark className="app">Maxon Cinema 4D</mark> нужной версии на ваше устройство,
+          которую просит ваша версия <mark className="app">After Effects</mark>. Обычно в
+          такой ошибке указывается, какую версию <mark className="app">Cinema 4D</mark>{" "}
+          нужно установить.
         </p>
-        <AdditionInfo>
-          Если After Effects пишет, что нужно установить, например Cinema 4D 2023 - то
-          нужно ставить строго любую версию 2023.X.X! Версии 2024.X.X. или 25.X.X в таком
-          случае не подойдут.
-          <br />
-          Также Cinema 4D версий 26.X.X не подойдут для версий After Effects ниже 23.1,
-          так как Adobe не включала в поддержку эту версию.
-        </AdditionInfo>
+        <AdditionWarning>
+          <ul>
+            <li>
+              Если в этой ошибке <mark className="app">After Effects</mark> пишет, что
+              нужно установить, например <mark className="app">Cinema 4D</mark> версии{" "}
+              <mark>2023</mark> - то нужно ставить именно любую версию{" "}
+              <mark>2023.X.X</mark>! Версии <mark>2024.X.X</mark>. или <mark>25.X.X</mark>{" "}
+              в таком случае не подойдут.
+            </li>
+            <li>
+              <mark className="app">Cinema 4D</mark> версий <mark>26.X.X</mark> не
+              подойдут для версий <mark className="app">After Effects</mark> ниже{" "}
+              <mark>23.1</mark>, так как Adobe не включала в поддержку эту версию.
+            </li>
+            <li>
+              Если вы установили <mark className="app">Cinema 4D</mark> для вашей версии{" "}
+              <mark className="app">After Effects</mark>, но программы всё ещё не видят
+              друг друга, то убедитесь в том, что обе программы установлены на стандартном
+              расположении установки и в разделе <mark className="path">C:\</mark>, а не
+              на другом.
+            </li>
+          </ul>
+        </AdditionWarning>
+        <Divider>
+          Список соответствия версий Maxon Cinema 4D с версиями After Effects для
+          корректной работы
+        </Divider>
         <ul>
           <li>
             <mark className="app">After Effects 25.1 и новее</mark> требует{" "}
             <mark className="app">Cinema 4D 2025.X.X</mark>.
           </li>
           <li>
-            <mark className="app">After Effects 24.1-25.0</mark> требует{" "}
+            <mark className="app">After Effects 24.1 - 25.0</mark> требует{" "}
             <mark className="app">Cinema 4D 2024.X.X</mark>.
           </li>
           <li>
@@ -727,16 +750,16 @@ const AEErrors: React.FC = () => {
             </div>
           </li>
         </ul>
-        <p>
+        <AdditionInfo>
           Если у вас установлен <mark className="app">After Effects</mark> из{" "}
-          <mark className="app">Creative Cloud</mark> - достаточно установить{" "}
+          <mark className="app">Creative Cloud</mark>, то вам достаточно установить{" "}
           <mark className="plugin">Cinema 4D</mark> оттуда:{" "}
           <mark className="ui">
             Установленные приложения &gt; After Effects &gt; Подключаемые модули &gt;
             Cinema 4D &gt; Установить
           </mark>
           .
-        </p>
+        </AdditionInfo>
       </DetailsSummary>
       <DetailsSummary title='"Frame rate mismatch, or footage with fields found. For best Roto Brush & Refine Edge results, set the composition to XX fps to match the layer source" при использовании Rotobrush'>
         <p>
@@ -954,10 +977,10 @@ const AEErrors: React.FC = () => {
           <a href="https://helpx.adobe.com/ru/after-effects/system-requirements.html">
             нынешних системных требованиях для After Effects
           </a>{" "}
-          указано, что требуется процессор от Intel минимум 6 поколения (например,
-          i7-6700) или свежее, или процессор от AMD серии минимум 1000 (например, Ryzen 5
-          1600) например или свежее. У процессора, установленный в вашем устройстве,
-          обязательно должна быть поддержка инструкций AVX2.
+          указано, что требуется процессор от Intel минимум 6 поколения, например, i7-6700
+          или свежее, или процессор от AMD серии минимум 1000, например, Ryzen 5 1600 или
+          свежее. У процессора, установленный в вашем устройстве, обязательно должна быть
+          поддержка инструкций AVX2.
         </p>
         <AdditionInfo>
           На сайте Adobe пишется следующее: версии 24.х и более поздние нельзя установить

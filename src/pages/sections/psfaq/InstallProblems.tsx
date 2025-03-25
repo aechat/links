@@ -16,7 +16,7 @@ const PSInstallProblems: React.FC = () => {
       <DetailsSummary title="Забыли положить инструкцию для установки рядом с файлами, куда что кидать?">
         <p>
           Обычно установка большинства файлов в <mark className="app">Photoshop</mark>{" "}
-          универсальна, поэтому следуйте рекомендациям ниже.
+          универсальна, поэтому следуйте инструкциям ниже.
         </p>
         <ul>
           <li>
@@ -208,11 +208,11 @@ const PSInstallProblems: React.FC = () => {
       </DetailsSummary>
       <DetailsSummary title='"Система Windows защитила ваш компьютер" или как отключить Windows Smartscreen?'>
         <p>
-          <mark className="app">Windows Smartscreen</mark> - это некий фильтр программ,
-          скачанных с интернета и часто он помечает <mark className="file">.exe</mark>{" "}
-          файлы как подозрительные. Поэтому и приостанавливает запуск исполняемых файлов.
-          Чтобы запустить такой файл, вам нужно нажать на{" "}
-          <mark className="ui">Подробнее</mark> и на{" "}
+          <mark className="app">Windows Smartscreen</mark> - это фильтр файлов от{" "}
+          <mark>Microsoft</mark>, скачанных с интернета и он часто помечает{" "}
+          <mark className="file">.exe</mark> файлы как подозрительные. Поэтому и
+          приостанавливает запуск исполняемых файлов. Чтобы запустить такой файл, вам
+          нужно нажать на <mark className="ui">Подробнее</mark> и на{" "}
           <mark className="ui">Выполнить в любом случае</mark>.
         </p>
         <p>

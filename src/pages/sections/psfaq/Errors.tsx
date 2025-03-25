@@ -94,8 +94,8 @@ const PSErrors: React.FC = () => (
               нужно перейти в{" "}
               <mark className="path">C:\Windows\System32\drivers\etc</mark>, скопировать
               файл <mark className="path">hosts</mark> в любое удобное место, открыть
-              любой текстовый редактор (например <mark className="app">Notepad++</mark>{" "}
-              или <mark className="app">VS Code</mark>) и внести строки из кнопки для
+              любой текстовый редактор, например <mark className="app">Notepad++</mark>{" "}
+              или <mark className="app">VS Code</mark>, и внести строки из кнопки для
               открытия модального окна чуть ниже в конец файла. Затем сохраните
               отредактированный файл и перенесите его обратно в{" "}
               <mark className="path">C:\Windows\System32\drivers\etc\hosts</mark> с
