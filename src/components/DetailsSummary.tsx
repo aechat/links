@@ -115,12 +115,10 @@ const DetailsSummary: React.FC<DetailsSummaryProps> = ({title, children, tag}) =
       });
     }
   }, [children]);
-
   useEffect(() => {
     if (!sectionRef.current) {
       return;
     }
-
     let timeoutId: NodeJS.Timeout;
 
     const handleMouseEnter = () => {
@@ -139,7 +137,6 @@ const DetailsSummary: React.FC<DetailsSummaryProps> = ({title, children, tag}) =
     const handleMouseLeave = () => {
       clearTimeout(timeoutId);
     };
-
     sectionRef.current.addEventListener("mouseenter", handleMouseEnter);
     sectionRef.current.addEventListener("mouseleave", handleMouseLeave);
 
@@ -160,6 +157,23 @@ const DetailsSummary: React.FC<DetailsSummaryProps> = ({title, children, tag}) =
         "",
         window.location.pathname + window.location.search + `#${summaryId}`
       );
+
+      const headerHeight = document.querySelector("header")?.offsetHeight ?? 0;
+
+      const padding = Math.min(
+        10 + (14 - 10) * ((window.innerWidth - 320) / (768 - 320)),
+        14
+      );
+
+      const summary = detailsRef.current?.querySelector(".faq-summary");
+      if (summary) {
+        const y =
+          summary.getBoundingClientRect().top +
+          window.pageYOffset -
+          headerHeight -
+          padding;
+        window.scrollTo({top: y, behavior: "smooth"});
+      }
     } else if (window.location.hash) {
       history.replaceState(null, "", window.location.pathname + window.location.search);
     }
