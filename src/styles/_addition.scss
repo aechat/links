@@ -22,13 +22,13 @@ li > .addition-danger,
     display: flex;
     flex-direction: row;
     align-items: center;
-    gap: 10px;
+    gap: 12px;
     margin: 10px;
     border-radius: $roundness * 0.75;
-    padding: 10px;
-    padding-left: 15px;
+    padding: 12px 10px;
+    padding-left: 18px;
     font-size: 0.9375rem;
-    line-height: 1.65;
+    line-height: 1.7;
 
     &:first-child {
       margin-top: 10px;
@@ -36,6 +36,26 @@ li > .addition-danger,
 
     &:last-child {
       margin-bottom: 10px;
+    }
+
+    p {
+      margin-block: 10px;
+
+      &:first-child {
+        margin-block-start: 0;
+      }
+
+      &:last-child {
+        margin-block-end: 0;
+      }
+
+      &:not(first-child) {
+        margin-block-start: 10px;
+      }
+
+      &:not(last-child) {
+        margin-block-end: 10px;
+      }
     }
 
     a {
