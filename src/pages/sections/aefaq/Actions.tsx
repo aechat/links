@@ -725,7 +725,7 @@ const AEActions: React.FC = () => {
           caption="Animating with Create Nulls From Path"
         />
       </DetailsSummary>
-      <DetailsSummary title="Как мне сделать обводку слоя?">
+      <DetailsSummary title="Как сделать обводку слоя?">
         <p>
           Есть два быстрых способа для создания обводки: через{" "}
           <mark className="ui">Auto-trace</mark> и через{" "}
