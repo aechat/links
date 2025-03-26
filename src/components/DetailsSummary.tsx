@@ -40,13 +40,25 @@ export const generateAnchorId = () => {
               14
             );
 
-            const y =
-              summary.getBoundingClientRect().top +
-              window.pageYOffset -
-              headerHeight -
-              padding;
-            window.scrollTo({top: y, behavior: "smooth"});
-          }, 100);
+            const content = details.querySelector(".faq-section");
+            if (content) {
+              const y =
+                summary.getBoundingClientRect().top +
+                window.pageYOffset -
+                headerHeight -
+                padding;
+              window.scrollTo({top: y, behavior: "smooth"});
+            } else {
+              setTimeout(() => {
+                const y =
+                  summary.getBoundingClientRect().top +
+                  window.pageYOffset -
+                  headerHeight -
+                  padding;
+                window.scrollTo({top: y, behavior: "smooth"});
+              }, 100);
+            }
+          }, 300);
         }
       }
     });
