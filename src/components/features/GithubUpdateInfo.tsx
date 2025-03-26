@@ -59,7 +59,7 @@ const GithubUpdateInfo: React.FC<GithubUpdateInfoProps> = ({filePath}) => {
 
       const commitUrl = filteredCommits[0].html_url;
       setCommitInfo(
-        `Обновлено ${formattedDate} в ${formattedClock}: <a style="font-weight: 800;" target="_blank" rel="noreferrer" href="${commitUrl}" target="_blank">${commitMessage}</a>`
+        `Обновлено ${formattedDate} в ${formattedClock}: <a style="font-weight: 800; lineHeight: "1.35"" target="_blank" rel="noreferrer" href="${commitUrl}" target="_blank">${commitMessage}</a>`
       );
     } catch (err) {
       setCommitInfo(`Индикатор свежести информации временно недоступен - ${err}`);
@@ -75,6 +75,7 @@ const GithubUpdateInfo: React.FC<GithubUpdateInfoProps> = ({filePath}) => {
         filter: "saturate(0.5)",
         fontSize: "0.75rem",
         opacity: "0.5",
+        height: "20px",
         textAlign: "right",
         overflow: "hidden",
         textOverflow: "ellipsis",
