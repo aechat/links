@@ -263,8 +263,8 @@ const PRActions: React.FC = () => {
         </AdditionInfo>
       </DetailsSummary>
       <DetailsSummary
-        title="Как и чем можно сделать автоматические субтитры?"
-        tag="транскрибация, subtitle, речь в текст"
+        title="Как сделать автоматические субтитры для видео?"
+        tag="транскрибация, subtitle, речь в текст, speech to text"
       >
         <p>
           В <mark className="app">Premiere Pro</mark> с версии 2022 и новее добавили
@@ -272,14 +272,26 @@ const PRActions: React.FC = () => {
           версиях, так и на &quot;народных&quot;.
         </p>
         <AdditionInfo>
-          На &quot;народных&quot; обычно языковые пакеты не поставляются вместе с
-          дистрибутивом, чтобы не раздувать размер установщика. Но их можно загрузить
-          отдельно по запросу <mark className="copy">Speech To Text</mark> именно для
-          вашей версии <mark className="app">Premiere Pro</mark>. Если вы установите
-          языковой пакет, который предназначен для другой версии{" "}
-          <mark className="app">Premiere Pro</mark> - вы просто забьёте ваше устройство
-          лишним весом, а язык не будет установлен и будет постоянно просить его скачать в
-          программе.
+          <ul>
+            <li>
+              На <mark className="word">народных</mark> версиях обычно языковые пакеты не
+              поставляются вместе с дистрибутивом, чтобы не раздувать размер установщика.
+              Их можно загрузить отдельно по запросу{" "}
+              <mark className="copy">Speech To Text</mark> именно для вашей версии{" "}
+              <mark className="app">Premiere Pro</mark>.
+            </li>
+            <li>
+              Если вы установите языковой пакет, который предназначен для другой версии{" "}
+              <mark className="app">Premiere Pro</mark> - вы просто забьёте ваше
+              устройство лишним весом, а язык не будет установлен и будет постоянно
+              просить его скачать в программе.
+            </li>
+            <li>
+              Языковые пакеты также не установятся корректно, если{" "}
+              <mark className="app">Premiere Pro</mark> расположен в нестандартном пути
+              установки.
+            </li>
+          </ul>
         </AdditionInfo>
         <AdditionDanger>
           Также заранее предупреждаю - по умолчанию в настройках вывода выключен пункт{" "}
@@ -335,18 +347,20 @@ const PRActions: React.FC = () => {
           <mark className="file">.srt</mark>.
         </AdditionWarning>
         <p>
-          Допустим, нам не нравится результат расшифровки средствами{" "}
-          <mark className="app">Premiere Pro</mark>, какие есть альтернативы? А их на
-          самом деле достаточно много, но расскажу об одном универсальном инструменте.
-          Речь пойдет о <mark className="app">Subtitle Edit</mark>, его можно загрузить{" "}
+          Предположим, что нам не понравился результат расшифровки средствами{" "}
+          <mark className="app">Premiere Pro</mark>, и нам нужна альтернатива. А какие
+          есть? Их на самом деле достаточно много, но чаще всего основаны на одной и той
+          же базе. Из тонны подобных инструментов я расскажу об одном универсальном -{" "}
+          <mark className="app">Subtitle Edit</mark>. Его можно загрузить{" "}
           <a href="https://github.com/SubtitleEdit/subtitleedit/releases">
             на странице релизов в GitHub
           </a>
           .
         </p>
         <p>
-          После того как вы загрузили, установили и открыли программу, давайте откроем
-          видео или аудио файл. Просто перетащите его в правый нижний угол окна программы.
+          После того как вы загрузили, установили и открыли программу, нам нужно открыть в
+          ней видео или аудио файл. Просто перетащите его в правый нижний угол окна
+          программы.
         </p>
         <ImageFigure
           styleClass="figure_windows-light"
@@ -365,12 +379,16 @@ const PRActions: React.FC = () => {
           <mark className="ui">Video &gt; Audio to text (Whisper)</mark>. Нас попросят
           скачать <mark className="ui">Whisper.cpp</mark>, но мы откажемся от его
           скачивания, как-то кривовато он у меня работает. Поэтому нам нужно загрузить
-          альтернативный движок Whisper для распознавания речи -
+          альтернативный движок Whisper для распознавания речи -{" "}
           <mark>Purfview&apos;s Faster Whisper</mark>. Для этого в окне в пункте{" "}
           <mark className="ui">Engine</mark> выберите пункт{" "}
           <mark className="ui">Purfview&apos;s Faster Whisper</mark> и соглашаемся на
           загрузку.
         </p>
+        <AdditionInfo>
+          Если вы сталкиваетесь с проблемами при загрузке - попробуйте использовать{" "}
+          <mark className="app">VPN</mark>.
+        </AdditionInfo>
         <ImageFigure
           styleClass="figure_windows-light"
           imgSrc="images/subtitle_edit_change_engine.png"
@@ -386,7 +404,7 @@ const PRActions: React.FC = () => {
         </p>
         <AdditionInfo>
           Чем меньше весит модель, тем менее точным может быть распознавание, но требует
-          меньше ресурсов вашего устройства для вычисления.
+          меньше ресурсов вашего устройства для вычисления. Так и наоборот.
         </AdditionInfo>
         <ImageFigure
           styleClass="figure_windows-light"
@@ -399,6 +417,10 @@ const PRActions: React.FC = () => {
           нажмите на <mark className="ui">Generate</mark>. Начнётся генерация текста из
           речи.
         </p>
+        <AdditionInfo>
+          Скорость транскрибации речи в текст зависит от мощности вашей видеокарты и
+          скорости чтения жёсткого диска.
+        </AdditionInfo>
         <ImageFigure
           styleClass="figure_windows-light"
           imgSrc="images/subtitle_edit_change_language_generate.png"
@@ -406,22 +428,26 @@ const PRActions: React.FC = () => {
           caption="Subtitle Edit"
         />
         <AdditionInfo>
-          Если результат от Whisper вас не устраивает, то попробуйте выбрать{" "}
+          Если результат от <mark>Whisper</mark> вас не устраивает, то попробуйте выбрать{" "}
           <mark className="ui">Audio to text (Vosk/Kaldi)</mark> вместо{" "}
           <mark className="ui">Audio to text (Whisper)</mark> и начать транскрипцию
           аналогичным образом.
         </AdditionInfo>
         <p>
-          После генерации вы можете подредактировать сгенерированные субтитры в самой
-          программе или сразу сохранить их в формате <mark className="file">.srt</mark>.
-          Сохранить можно через комбинацию клавиш <mark className="key">Ctrl + S</mark>. В
-          открывшемся окне укажите название файла и путь для сохранения.
+          После генерации вы можете отредактировать сгенерированные субтитры в самой
+          программе или сразу сохранить их в формате <mark className="file">.srt</mark>{" "}
+          для дальнейшей обработки в <mark className="app">Premiere Pro</mark>. Сохранить
+          ваши субтитры можно с помощью комбинации клавиш{" "}
+          <mark className="key">Ctrl + S</mark>. В открывшемся окне укажите название
+          файла, путь для сохранения и, при необходимости, формат файла{" "}
+          <mark className="file">.srt</mark>.
         </p>
         <p>
-          Далее переходим в <mark className="app">Premiere Pro</mark>, возвращаемся к окну{" "}
-          <mark className="ui">Text</mark> и нажимаем на три точки в правом верхнем углу.
-          Там нам нужно перейти во вкладку <mark className="ui">Captions</mark> и выбрать
-          пункт <mark className="ui">Import captions from file</mark> и указываем путь до
+          После сохранения файла нам нужно перейти обратно в{" "}
+          <mark className="app">Premiere Pro</mark>. В программе нужно вернуться к окну{" "}
+          <mark className="ui">Text</mark> и нажать на три точки в правом верхнем углу.
+          Далее нужно перейти во вкладку <mark className="ui">Captions</mark> и выбрать
+          пункт <mark className="ui">Import captions from file</mark> и указать путь до
           наших недавно сохранённых субтитров.
         </p>
         <ImageFigure
@@ -431,8 +457,8 @@ const PRActions: React.FC = () => {
           caption="Text"
         />
         <p>
-          Затем в открывшемся модальном окне вы можете выбрать тип субтитров и вариант, от
-          чего начинать субтитры, и нажмите на <mark className="ui">OK</mark>.
+          Затем в открывшемся модальном окне выберите тип субтитров и вариант, от чего
+          начинать субтитры, а затем нажмите на <mark className="ui">OK</mark>.
         </p>
         <ImageFigure
           styleClass="figure_windows-dark"
