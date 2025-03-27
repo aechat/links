@@ -2318,6 +2318,62 @@ const AEFromNewbies: React.FC = () => {
           <mark className="app">Shutter Encoder</mark>.
         </p>
       </DetailsSummary>
+      <DetailsSummary title="Как открыть несколько экземпляров программы и работать в разных проектах?">
+        <AdditionDanger>
+          Использование нескольких открытых экземпляров{" "}
+          <mark className="app">After Effects</mark> может привести к увеличению
+          потребления оперативной памяти и остальных ресурсов вашего устройства.
+          Используйте эту опцию с умом!
+        </AdditionDanger>
+        <p>
+          Иногда возникает ситуация, когда вы закончили работу и поставили свой проект на
+          рендер, но в это время нужно открыть другой проект и внести в него правки. А
+          сделать вы это не можете, потому что программа занята экспортом другой
+          композиции. По умолчанию <mark className="app">After Effects</mark> не позволяет
+          открывать больше одного экземпляра, но разработчики оставили возможность запуска
+          нескольких инстанций программы.
+        </p>
+        <ContentSwitcher
+          windowsContent={
+            <div>
+              <p>
+                Чтобы убрать данное ограничение, нам нужно установить ключ{" "}
+                <mark className="code">-m</mark> в конец ярлыка с программой. Для этого
+                откройте свойства ярлыка с <mark className="app">After Effects</mark> и
+                переместите курсор до конца в поле <mark className="ui">Объект</mark>.
+                Затем напишите <mark className="code">-m</mark> и нажмите на{" "}
+                <mark className="ui">Применить</mark> в правом нижем углу окна. После
+                этого вы сможете запускать несколько экземпляров{" "}
+                <mark className="app">After Effects</mark> с помощью этого ярлыка и
+                работать с ними как обычно.
+              </p>
+              <VideoFigure
+                styleClass="figure_windows-dark"
+                videoSrc="images/aftereffects/enable_multiple_ae_instances.mp4"
+                caption="Включение множественных экземпляров After Effects"
+              />
+            </div>
+          }
+          macContent={
+            <div>
+              <p>
+                Чтобы открыть ещё один экземпляр - вам нужно перейти в{" "}
+                <mark className="path">~/Library/Applications/After Effects 20XX</mark>,
+                затем нажать <mark className="key">ПКМ</mark> по{" "}
+                <mark className="app">Adobe After Effects 20XX</mark> и выбрать{" "}
+                <mark className="ui">Показать содержимое пакета</mark>. После открытия
+                содержимого перейдите в <mark className="ui">Contents/MacOS</mark> и
+                нажмите два раза по файлу <mark className="app">After Effects</mark>. У
+                вас должна открыться консоль и открыться ещё один экземпляр программы.
+              </p>
+              <YouTubeVideo
+                link="k1x1goE2F10"
+                caption="Как открыть несколько инстанций After Effects"
+              />
+            </div>
+          }
+        />
+      </DetailsSummary>
       <DetailsSummary title="Что такое Null Object и как с ним работать?">
         <p>
           <mark className="word">Нулевой слой</mark> или же{" "}
