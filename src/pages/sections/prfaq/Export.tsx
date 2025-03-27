@@ -551,11 +551,8 @@ const PRExport: React.FC = () => {
         <p>
           Стандартными средствами из <mark className="app">Premiere Pro</mark> и{" "}
           <mark className="app">Media Encoder</mark> нельзя вывести композицию в{" "}
-          <mark className="file">.webm</mark>, поэтому мы пойдем таким путём: сначала
-          выведем композицию в <mark className="video">Apple Prores 422</mark>, если вам
-          не нужно выводить с альфа-каналом или в{" "}
-          <mark className="video">Apple Prores 4444</mark>, если вам нужно вывести с
-          альфа-каналом.
+          <mark className="file">.webm</mark>, но можно вывести в другом формате и
+          переконвертировать его.
         </p>
         <AdditionDanger>
           Крайне не рекомендую использовать плагин{" "}
@@ -564,6 +561,7 @@ const PRExport: React.FC = () => {
           <mark className="app">Media Encoder</mark>, так как он часто выводит видео на
           прозрачном фоне с жуткими артефактами.
         </AdditionDanger>
+        <Divider>Выводим секвенцию в удобном формате</Divider>
         <p>
           Для начала нам нужно вывести секвенцию как обычно, через{" "}
           <mark className="video">Apple Prores 4444</mark>, если вы хотите видео с
@@ -597,6 +595,7 @@ const PRExport: React.FC = () => {
           Затем не забудьте указать путь, куда вы хотите вывести видео и нажмите на кнопку{" "}
           <mark className="ui">Export</mark> в правом нижнем углу.
         </p>
+        <Divider>Конвертируем в WebM с помощью Shutter Encoder</Divider>
         <p>
           После успешного экспорта открываем <mark className="app">Shutter Encoder</mark>{" "}
           и вставляем в него выведенное видео из <mark className="app">Premiere Pro</mark>

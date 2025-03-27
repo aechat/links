@@ -672,11 +672,8 @@ const AEExport: React.FC = () => {
         <p>
           Стандартными средствами из <mark className="app">After Effects</mark> и{" "}
           <mark className="app">Media Encoder</mark> нельзя вывести композицию в{" "}
-          <mark className="file">.webm</mark>, поэтому мы пойдем таким путём: сначала
-          выведем композицию в <mark className="video">Apple Prores 422</mark>, если вам
-          не нужно выводить с альфа-каналом или в{" "}
-          <mark className="video">Apple Prores 4444</mark>, если вам нужно вывести с
-          альфа-каналом.
+          <mark className="file">.webm</mark>, но можно вывести в другом формате и
+          переконвертировать его.
         </p>
         <AdditionDanger>
           Крайне не рекомендую использовать плагин{" "}
@@ -684,6 +681,7 @@ const AEExport: React.FC = () => {
           <mark className="app">Media Encoder</mark>, так как он часто выводит видео на
           прозрачном фоне с жуткими артефактами.
         </AdditionDanger>
+        <Divider>Выводим композицию в удобном формате</Divider>
         <p>
           Для начала нам нужно вывести видео как обычно: в{" "}
           <mark className="video">Apple Prores 4444</mark>, если вы хотите видео с
@@ -709,6 +707,7 @@ const AEExport: React.FC = () => {
           <mark className="ui">Render</mark> или на клавишу{" "}
           <mark className="key">Enter</mark>.
         </p>
+        <Divider>Конвертируем в WebM с помощью Shutter Encoder</Divider>
         <p>
           После успешного экспорта открываем <mark className="app">Shutter Encoder</mark>{" "}
           и вставляем в него выведенное видео из{" "}
