@@ -39,7 +39,7 @@
     "sass": "1.85.1",
     "typescript": "^5.8.2",
     "typescript-eslint": "^8.26.1",
-    "vite": "^6.2.2"
+    "vite": "^6.2.3"
   },
   "scripts": {
     "format": "eslint . --fix && prettier . --log-level warn --write  --config .prettierrc",
