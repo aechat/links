@@ -1019,15 +1019,28 @@ const AEErrors: React.FC = () => {
           <mark>22H2</mark>.
         </p>
       </DetailsSummary>
-      <DetailsSummary title='"Точка входа в процедуру не найдена в библиотеке Kernel32.dll" или не могу запустить программу, хотя Visual C++ Redistributable установил'>
+      <DetailsSummary title='"Точка входа в процедуру не найдена в библиотеке Kernel32.dll", "Couldn not find entry point main entry point for XXXXX.aex (48::72)" или я не могу запустить программу, хотя пакеты Visual C++ Redistributable установлены'>
         <p>
-          Вы зачем-то установили <mark className="app">After Effects</mark> версии 2020
-          или новее и пытаетесь запустить программу на неподдерживаемой операционной
-          системе, например <mark>Windows 7</mark> или <mark>Windows 8.1</mark>. Adobe
-          давно прекратила поддержку этих операционных систем, поэтому для вас максимально
-          последняя версия <mark className="app">After Effects</mark> - это{" "}
-          <mark>After Effects 2019</mark> или более старые.
+          Скорее всего пытаетесь запустить <mark className="app">After Effects</mark> на
+          неподдерживаемой операционной системе. Такое бывает, когда{" "}
+          <mark>Windows 10</mark> слишком старой сборки или вы пытаетесь запустить свежую
+          версию программы на <mark>Windows 7</mark> или <mark>Windows 8.1</mark>. В
+          следующий раз прочтите системные требования по нужной версии{" "}
+          <mark className="app">After Effects</mark> и постарайтесь их соблюдать.
         </p>
+        <AdditionInfo>
+          <ul>
+            <li>
+              Посмотреть текущую сборку <mark>Windows</mark> можно с помощью{" "}
+              <mark className="app">winver</mark>.
+            </li>
+            <li>
+              Последняя поддерживаемая версия <mark className="app">After Effects</mark>{" "}
+              для <mark>Windows 7</mark> или <mark>Windows 8.1</mark> - это{" "}
+              <mark>After Effects 2019</mark> (16.X).
+            </li>
+          </ul>
+        </AdditionInfo>
       </DetailsSummary>
       <DetailsSummary title='"Не найден файл D3DCompiler_47.dll" при запуске программы'>
         <p>
