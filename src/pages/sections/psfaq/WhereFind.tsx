@@ -471,6 +471,32 @@ const PSWhereFind: React.FC = () => {
           <mark className="app">Stability Matrix</mark>, если он не был запущен. Да, это
           может быть не удобно, но куда деваться.
         </AdditionWarning>
+        <Divider>Firefly в Lightroom для устройств на Android</Divider>
+        <p>
+          Если вам прям позарез нужно использовать <mark>Adobe Firefly</mark> для
+          одноразового использования, то вы можете установить &quot;народную&quot; версию{" "}
+          <mark className="app">Lightroom</mark> для{" "}
+          <a href="https://4pda.to/forum/index.php?showtopic=636042">
+            устройств на Android
+          </a>
+          . Почему &quot;одноразовое&quot; использование? Потому что{" "}
+          <mark>Adobe Firefly</mark> работает на серверах и для пользователей без активной
+          подписки любого плана от Adobe предоставляется малое количество
+          &quot;генеративных баллов&quot;.
+        </p>
+        <AdditionWarning>
+          <ul>
+            <li>
+              Для работоспособности генеративной заливки для удаления требуется вход в
+              аккаунт <mark>Adobe</mark>.
+            </li>
+            <li>
+              Генеративная заливка с помощью <mark>Adobe Firefly</mark> будет работать
+              только для удаления объектов без возможности указать свой{" "}
+              <mark className="word">промпт</mark>.
+            </li>
+          </ul>
+        </AdditionWarning>
       </DetailsSummary>
       <DetailsSummary title="Где и как скачать нейро-фильтры в Photoshop?">
         <p>
