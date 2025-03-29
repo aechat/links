@@ -161,6 +161,12 @@ const Links = () => {
               description="Популярный онлайн-конвертер видеофайлов в GIF"
             />
             <LinkCard
+              href="https://www.svgsprite.com/tools/lottie-player/"
+              icon={<AnimationRounded />}
+              name="Lottie Player"
+              description="Проигрыватель анимации Lottie, принимает файлы формата JSON"
+            />
+            <LinkCard
               href="https://www.shutterencoder.com/"
               icon={<VideoSettingsRounded />}
               name="Shutter Encoder"
