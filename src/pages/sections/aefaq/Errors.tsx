@@ -1025,8 +1025,12 @@ const AEErrors: React.FC = () => {
           неподдерживаемой операционной системе. Такое бывает, когда{" "}
           <mark>Windows 10</mark> слишком старой сборки или вы пытаетесь запустить свежую
           версию программы на <mark>Windows 7</mark> или <mark>Windows 8.1</mark>. В
-          следующий раз прочтите системные требования по нужной версии{" "}
-          <mark className="app">After Effects</mark> и постарайтесь их соблюдать.
+          следующий раз прочтите{" "}
+          <a href="https://helpx.adobe.com/ru/after-effects/system-requirements.html">
+            системные требования
+          </a>{" "}
+          по нужной версии <mark className="app">After Effects</mark> и постарайтесь их
+          соблюдать.
         </p>
         <AdditionInfo>
           <ul>
