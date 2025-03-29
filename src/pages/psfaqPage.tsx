@@ -102,7 +102,7 @@ const PSFaQ = () => {
           <link
             rel="icon"
             type="image/svg+xml"
-            href="psfaq.svg"
+            href="icons/psfaq.svg"
           />
           <meta
             name="description"

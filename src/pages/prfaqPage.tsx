@@ -100,7 +100,7 @@ const PRFaQ = () => {
           <link
             rel="icon"
             type="image/svg+xml"
-            href="prfaq.svg"
+            href="icons/prfaq.svg"
           />
           <meta
             name="description"

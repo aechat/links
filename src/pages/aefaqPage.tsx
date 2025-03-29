@@ -94,7 +94,7 @@ const AEFaQ = () => {
           <link
             rel="icon"
             type="image/svg+xml"
-            href="aefaq.svg"
+            href="icons/aefaq.svg"
           />
           <meta
             name="description"

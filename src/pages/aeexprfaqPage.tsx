@@ -62,7 +62,7 @@ const AEExpressionPage = () => {
           <link
             rel="icon"
             type="image/svg+xml"
-            href="aeexprfaq.svg"
+            href="icons/aeexprfaq.svg"
           />
           <meta
             name="description"

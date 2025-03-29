@@ -52,7 +52,7 @@ const Links = () => {
         <link
           rel="icon"
           type="image/svg+xml"
-          href="favicon.svg"
+          href="icons/favicon.svg"
         />
       </Helmet>
       <Header title="links" />
