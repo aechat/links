@@ -334,11 +334,39 @@
 
   &-no-results {
     opacity: 0.75;
-    margin-block: auto;
-    padding: 20px;
-    font-weight: 700;
-    font-size: 0.95rem;
-    text-align: center;
+    width: 100%;
+
+    &-title {
+      margin-block-start: 20px;
+      padding-inline: 15px;
+      font-weight: 600;
+      font-size: 1.1rem;
+      line-height: 1.25;
+      text-align: center;
+    }
+
+    &-message {
+      text-wrap: balance;
+      opacity: 0.75;
+      margin-block: 10px;
+      padding-inline: 15px;
+      width: 100%;
+      font-size: 0.75rem;
+      line-height: 1.25;
+      text-align: center;
+    }
+
+    &-tip {
+      text-wrap: balance;
+      opacity: 0.5;
+      margin-inline-start: auto;
+      margin-block-start: 5px;
+      margin-block-end: 15px;
+      padding-inline: 15px;
+      font-size: 0.6rem;
+      line-height: 1.25;
+      text-align: right;
+    }
   }
 
   &-category {

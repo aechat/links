@@ -598,9 +598,79 @@ export const SearchInPage: React.FC<{sections: Array<{id: string; title: string}
                 </div>
               ))}
             {query.trim() !== "" && results.length === 0 && (
-              <p className="search-no-results">
-                Ничего не нашлось, попробуйте изменить ваш запрос.
-              </p>
+              <div>
+                <div className="search-no-results">
+                  <p className="search-no-results-title">
+                    По вашему запросу на этой странице ничего не нашлось
+                  </p>
+                  <p className="search-no-results-message">
+                    Попробуйте перефразировать свой запрос или выполните поиск в другом
+                    месте
+                  </p>
+                </div>
+                <div className="search-category">
+                  <button
+                    onClick={() => {
+                      window.open(
+                        `https://yandex.com/search/?text=${encodeURIComponent(query)} ${window.location.pathname.includes("aefaq") ? "after effects" : window.location.pathname.includes("prfaq") ? "premiere pro" : window.location.pathname.includes("psfaq") ? "photoshop" : window.location.pathname.includes("aeexprfaq") ? "after effects expression" : ""}`,
+                        "_blank"
+                      );
+                    }}
+                  >
+                    Найти в Яндексе
+                  </button>
+                  <button
+                    onClick={() => {
+                      window.open(
+                        `https://www.perplexity.ai/search?q=${encodeURIComponent(query)} ${window.location.pathname.includes("aefaq") ? "after effects" : window.location.pathname.includes("prfaq") ? "premiere pro" : window.location.pathname.includes("psfaq") ? "photoshop" : window.location.pathname.includes("aeexprfaq") ? "after effects expression" : ""}`,
+                        "_blank"
+                      );
+                    }}
+                  >
+                    Спросить у Perplexity*
+                  </button>
+                </div>
+                <p className="search-no-results-tip">
+                  <sup>*</sup>Perplexity может выдавать недостоверную информацию, не
+                  используйте его в качестве самоучителя
+                </p>
+              </div>
+            )}
+            {results.length > 0 && (
+              <div style={{paddingInline: "10px"}}>
+                <div className="search-no-results">
+                  <p className="search-no-results-message">
+                    Если вы не нашли то, что вам нужно, то попробуйте перефразировать свой
+                    запрос или выполните поиск в другом месте
+                  </p>
+                </div>
+                <div className="search-category">
+                  <button
+                    onClick={() => {
+                      window.open(
+                        `https://yandex.com/search/?text=${encodeURIComponent(query)} ${window.location.pathname.includes("aefaq") ? "after effects" : window.location.pathname.includes("prfaq") ? "premiere pro" : window.location.pathname.includes("psfaq") ? "photoshop" : window.location.pathname.includes("aeexprfaq") ? "after effects expression" : ""}`,
+                        "_blank"
+                      );
+                    }}
+                  >
+                    Найти в Яндексе
+                  </button>
+                  <button
+                    onClick={() => {
+                      window.open(
+                        `https://www.perplexity.ai/search?q=${encodeURIComponent(query)} ${window.location.pathname.includes("aefaq") ? "after effects" : window.location.pathname.includes("prfaq") ? "premiere pro" : window.location.pathname.includes("psfaq") ? "photoshop" : window.location.pathname.includes("aeexprfaq") ? "after effects expression" : ""}`,
+                        "_blank"
+                      );
+                    }}
+                  >
+                    Спросить у Perplexity*
+                  </button>
+                </div>
+                <p className="search-no-results-tip">
+                  <sup>*</sup>Perplexity может выдавать недостоверную информацию, не
+                  используйте его в качестве самоучителя
+                </p>
+              </div>
             )}
             {!isPageLoaded && (
               <p style={{textAlign: "center", fontSize: "1rem", margin: "20px"}}>
