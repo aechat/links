@@ -927,6 +927,36 @@ const PRFromNewbies: React.FC = () => {
           caption="Чем отличается Scale to Frame size от Set to Frame size?"
         />
       </DetailsSummary>
+      <DetailsSummary
+        title="Куда пропали эффекты из папки Obsolete в новых версиях программы?"
+        tag="вернуть устаревшие эффекты, восстановить встроенные пресеты"
+      >
+        <p>
+          Adobe признала встроенные эффекты, пресеты и переходы, которые были в папке{" "}
+          <mark className="path">Obsolete</mark> слишком устаревшими и решила их удалить в
+          новых версиях. Проекты, которые были созданы в более старых версиях{" "}
+          <mark className="app">Premiere Pro</mark>, могут работать спокойно, но применить
+          новые эффекты из окна <mark className="ui">Effects & Presets</mark> уже не
+          получится.
+        </p>
+        <div className="flexible-links">
+          <a href="https://community.adobe.com/t5/premiere-pro-beta-discussions/now-released-obsolete-effects-transitions-and-presets-removed/td-p/14703879">
+            Решение об удалении устаревших эффектов и чем их заменить в дальнейшем
+          </a>
+        </div>
+        <p>
+          К счастью, эти эффекты всё ещё можно восстановить в новых версиях{" "}
+          <mark className="app">Premiere Pro</mark>. Для этого нужно скачать{" "}
+          <a
+            href="files/Obsolete Effects.prfpset"
+            download
+          >
+            нужный пресет
+          </a>{" "}
+          и импортировать его в <mark className="app">Premiere Pro</mark> в соответствии с{" "}
+          <a href="#2.1">инструкцией по установке дополнительного контента</a>.
+        </p>
+      </DetailsSummary>
       <DetailsSummary title="Как вернуть звуковую или видео дорожку на таймлайн?">
         <p>
           Для возвращения недостающей части у вашего исходника вам нужно выделить клип, а
