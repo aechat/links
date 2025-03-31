@@ -59,25 +59,71 @@ const PRInstallProblems: React.FC = () => {
             <div>
               <ul>
                 <li>
-                  Если в архиве находится файл <mark className="file">.mogrt</mark>, то
-                  такие шаблоны устанавливаются в панели{" "}
-                  <mark className="ui">Graphics Templates</mark> с помощью кнопки{" "}
-                  <mark className="ui">Install Motion Graphics template</mark>. Либо можно
-                  перенести файлы формата <mark className="file">.mogrt</mark> прямо в
-                  окно <mark className="ui">Graphics Templates</mark> с помощью{" "}
-                  <mark className="word">Drag-n-Drop</mark>.
+                  <p>
+                    Если в архиве находится файл <mark className="file">.mogrt</mark>, то
+                    такие шаблоны устанавливаются в панели{" "}
+                    <mark className="ui">Graphics Templates</mark> с помощью кнопки{" "}
+                    <mark className="ui">Install Motion Graphics template</mark>. Либо
+                    можно перенести файлы формата <mark className="file">.mogrt</mark>{" "}
+                    прямо в окно <mark className="ui">Graphics Templates</mark> с помощью{" "}
+                    <mark className="word">Drag-n-Drop</mark>.
+                  </p>
                   <ImageFigure
                     styleClass="figure_windows-dark"
                     imgSrc="images/premierepro/install_mogrt.png"
                     imgTitle="Установка mogrt-шаблонов"
                     caption="Graphics Templates"
                   />
-                  Также файлы <mark className="file">.mogrt</mark> можно расположить в
-                  стандартную папку локальных шаблонов, которая находится по пути{" "}
-                  <mark className="path">
-                    %AppData%/Adobe/Common/Motion Graphics Templates/
-                  </mark>{" "}
-                  и они появятся в окне <mark className="ui">Graphics Templates</mark>.
+                  <p>
+                    Также файлы <mark className="file">.mogrt</mark> можно расположить в
+                    стандартную папку локальных шаблонов, которая находится по пути{" "}
+                    <mark className="path">
+                      %AppData%/Adobe/Common/Motion Graphics Templates/
+                    </mark>{" "}
+                    и они появятся в окне <mark className="ui">Graphics Templates</mark>.
+                  </p>
+                  <AdditionInfo>
+                    <p>
+                      <mark className="file">.mogrt</mark> файл по своей сути - архив,
+                      внутри которого обычно находятся два-три файла, которые формируют
+                      сам анимационный шаблон. Такие шаблоны можно создавать в{" "}
+                      <mark className="app">After Effects</mark> и{" "}
+                      <mark className="app">Premiere Pro</mark>.
+                    </p>
+                    <ul>
+                      <li>
+                        <mark className="file">definition.json</mark> - файл, в котором
+                        находятся ссылки, контроллеры и прочая техническая информация
+                        шаблона для его корректной работы.
+                      </li>
+                      <li>
+                        <mark className="file">project.aegraphics</mark> - файл, где
+                        хранится вся заготовленная анимация. Стандартными средствами{" "}
+                        <mark className="app">Premiere Pro</mark> анимацию нельзя
+                        отредактировать, но такой проект можно открыть в{" "}
+                        <mark className="app">After Effects</mark> и при необходимости
+                        внести свои правки там, а затем конвертировать обратно в{" "}
+                        <mark className="file">.mogrt</mark>.
+                      </li>
+                      <li>
+                        <mark className="file">thumb.jpg</mark> - статичная обложка для
+                        анимационного шаблона для предварительного просмотра в окне{" "}
+                        <mark className="ui">Graphics Templates</mark>.
+                      </li>
+                    </ul>
+                    <p>
+                      Часто пользователи, которые пользуются стандартным проводником{" "}
+                      <mark>Windows</mark> как основным средством работы с архивами
+                      зачем-то заходят внутрь <mark className="file">.mogrt</mark> файла и
+                      не могут понять, что с этими файлами делать. Содержимое{" "}
+                      <mark className="file">.mogrt</mark> без острой необходимости не
+                      нужно открывать. Архив с такими файлами нужно распаковать через{" "}
+                      <mark className="app">WinRAR</mark> или{" "}
+                      <mark className="app">7-zip</mark>, чтобы их спокойно можно было
+                      импортировать в <mark className="app">Premiere Pro</mark>, согласно
+                      инструкции выше.
+                    </p>
+                  </AdditionInfo>
                   <AdditionWarning>
                     При использовании некоторых шаблонов формата{" "}
                     <mark className="file">.mogrt</mark> может потребоваться установленный
