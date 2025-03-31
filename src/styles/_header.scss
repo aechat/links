@@ -8,7 +8,7 @@
   justify-content: space-between;
   align-items: center;
   transform: translateX(calc(-50% - 0.5px));
-  z-index: 100;
+  z-index: 1000000;
   transition:
     background-color 0.5s cubic-bezier(0.075, 0.82, 0.165, 1),
     box-shadow 0.5s cubic-bezier(0.075, 0.82, 0.165, 1),
@@ -19,6 +19,10 @@
   padding-inline: 15px;
   width: calc(100% - 8px);
   max-width: 1075px;
+
+  @media (max-width: 768px) {
+    z-index: 100;
+  }
 
   svg {
     fill: var(--accent);
@@ -57,6 +61,7 @@
       font-weight: 800;
       font-size: 1.35rem;
       font-family: "Red Hat Display", monospace;
+
       sub {
         font-weight: 500;
       }

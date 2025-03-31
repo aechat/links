@@ -21,6 +21,11 @@
   background: var(--content-background-color);
 }
 
+.ant-modal-root .ant-modal-mask {
+  backdrop-filter: blur(25px);
+  background-color: var(--background-color-alpha);
+}
+
 .ant-message .ant-message-notice-wrapper .ant-message-notice-content {
   font-size: 0.875rem;
 }

@@ -544,7 +544,8 @@ export const SearchInPage: React.FC<{sections: Array<{id: string; title: string}
               </p>
             </div>
           ) : (
-            <p className="search-modal-title">Результаты поиска:</p>
+            query.trim() !== "" &&
+            results.length > 0 && <p className="search-modal-title">Результаты поиска:</p>
           )}
           <div className="search-results">
             {query.trim() === "" && (
@@ -601,7 +602,18 @@ export const SearchInPage: React.FC<{sections: Array<{id: string; title: string}
               <div>
                 <div className="search-no-results">
                   <p className="search-no-results-title">
-                    По вашему запросу на этой странице ничего не нашлось
+                    По вашему запросу на этой странице{" "}
+                    <span
+                      style={{
+                        color: "var(--summary_text)",
+                        fontWeight: 800,
+                        fontStyle: "italic",
+                        marginInlineEnd: "3px",
+                      }}
+                    >
+                      ничего
+                    </span>{" "}
+                    не нашлось
                   </p>
                   <p className="search-no-results-message">
                     Попробуйте перефразировать свой запрос или выполните поиск в другом

@@ -333,15 +333,18 @@
   }
 
   &-no-results {
-    opacity: 0.75;
     width: 100%;
 
     &-title {
-      margin-block-start: 20px;
+      opacity: 0.9;
+      margin-block-start: 25px;
+      text-wrap: balance;
       padding-inline: 15px;
-      font-weight: 600;
-      font-size: 1.1rem;
+      font-weight: 550;
+      margin-inline: 25px;
+      font-size: 1.5rem;
       line-height: 1.25;
+      font-family: "Onest", sans-serif;
       text-align: center;
     }
 
@@ -351,7 +354,7 @@
       margin-block: 10px;
       padding-inline: 15px;
       width: 100%;
-      font-size: 0.75rem;
+      font-size: 0.775rem;
       line-height: 1.25;
       text-align: center;
     }

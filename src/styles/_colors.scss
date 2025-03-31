@@ -8,6 +8,7 @@
 $light: (
   // ~: стандартные цвета:
   background-color: hsl(0, 0%, 92.5%),
+  background-color-alpha: hsla(0, 0%, 95%, 0.35),
   text-color: hsl(0, 0%, 20%),
   content-background-color: hsl(0, 0%, 100%),
   content-background-border: hsl(0, 0%, 90%),
@@ -58,6 +59,7 @@ $light: (
 $dark: (
   // ~: стандартные цвета:
   background-color: hsl(0, 0%, 0%),
+  background-color-alpha: hsla(0, 0%, 0%, 0.5),
   text-color: hsl(0, 0%, 100%),
   content-background-color: hsl(0, 0%, 7.5%),
   content-background-border: hsl(0, 0%, 15%),
