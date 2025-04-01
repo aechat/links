@@ -10,7 +10,7 @@ const PRErrors: React.FC = () => {
   return (
     <div className="faq-content">
       <GithubUpdateInfo filePath="src/pages/sections/prfaq/Errors.tsx" />
-      <DetailsSummary title="This effect requires GPU Acceleration">
+      <DetailsSummary title="This effect requires GPU Acceleration при применении эффекта">
         <p>
           Скорее всего у вас отключено ускорение на основе видеокарты в настройках
           проекта. Некоторые эффекты могут напрочь отказывать работать на{" "}
@@ -21,7 +21,9 @@ const PRErrors: React.FC = () => {
           Для настройки типа рендеринга перейдите в{" "}
           <mark className="ui">File &gt; Project Settings &gt; General</mark> и в пункте{" "}
           <mark className="ui">Renderer</mark> установите значение{" "}
-          <mark className="ui">Mercury Playback Engine GPU Acceleration</mark>.
+          <mark className="ui">Mercury Playback Engine GPU Acceleration</mark>. Если у вас
+          отсутствует какой-либо пункт для ускорения на видеокарте, то попробуйте обновить
+          драйвера на ваш видеочип.
         </p>
         <ImageFigure
           styleClass="figure_windows-dark"
@@ -30,8 +32,10 @@ const PRErrors: React.FC = () => {
           caption="Premiere Pro"
         />
         <p>
-          Если у вас отсутствует какой-либо пункт для ускорения на видеокарте, то
-          попробуйте обновить драйвера на ваш видеочип.
+          В редких случаях эффект, требующий GPU-ускорения может конфликтовать с
+          остальными эффектами, применённые на клипе и выдавать похожую ошибку. Для этого
+          отключите все эффекты, а затем выявляйте виновника торжества с помощью
+          постепенного включения тех или иных эффектов.
         </p>
       </DetailsSummary>
       <DetailsSummary title="Media Offline или медиаданные в автономном режиме">
