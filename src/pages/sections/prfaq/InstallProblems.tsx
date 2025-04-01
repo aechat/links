@@ -700,6 +700,97 @@ const PRInstallProblems: React.FC = () => {
           <mark>m0nkrus</mark>.
         </p>
       </DetailsSummary>
+      <DetailsSummary title="Error: Extension Manager init failed, status = -193! A required resource is missing. Please relaunch the Creative Cloud app and try again">
+        <p>
+          На вашем устройстве отсутствует программа{" "}
+          <mark className="app">Adobe Creative Cloud</mark>. Но не спешите его
+          устанавливать, особенно если используете репаки от <mark>KpoJluK</mark> или{" "}
+          <mark>m0nkrus</mark>. Если вы пытаетесь установить расширение с помощью{" "}
+          <a href="https://zxpinstaller.com/">ZXP Installer от ELEMENTS Storage Media</a>,
+          то откажитесь от него в пользу{" "}
+          <a href="https://aescripts.com/learn/zxp-installer/">
+            ZXP Installer от aescripts
+          </a>{" "}
+          или ручной распаковки <mark className="file">.zxp</mark> файла в нужное место.
+        </p>
+        <AdditionInfo>
+          Более подробную информацию про установку дополнительных материалов вы можете
+          прочитать в <a href="#2.1">пункте 2.1</a>.
+        </AdditionInfo>
+      </DetailsSummary>
+      <DetailsSummary title="В названиях установщиков плагинов увидел обозначения Adobe, OFX или другое. Так для каких программ предназначены плагины?">
+        <p>
+          Обычно в названии установочных файлов указывается для каких программ
+          устанавливается плагин. Это сделано для того, чтобы не перепутать файлы для
+          нужных вам программ и установить как надо и куда надо.
+        </p>
+        <ul>
+          <li>
+            <mark className="word">AE</mark>, <mark className="word">PR</mark>,{" "}
+            <mark className="word">PS</mark>, <mark className="word">LR</mark> или{" "}
+            <mark className="word">Adobe</mark> - такие плагины устанавливаются в разные
+            программы от Adobe, например <mark className="app">After Effects</mark> и{" "}
+            <mark className="app">Premiere Pro</mark>,{" "}
+            <mark className="app">Photoshop</mark> и{" "}
+            <mark className="app">Lightroom</mark>.
+            <AdditionInfo>
+              <ul>
+                <li>
+                  Иногда плагины с припиской <mark className="word">AE</mark> могут
+                  устанавливаться и в <mark className="app">After Effects</mark>, и в{" "}
+                  <mark className="app">Premiere Pro</mark>.
+                </li>
+                <li>
+                  Плагины, распространяющиеся в установщиках будут устанавливаться в
+                  стандартные папки программ. Прежде чем устанавливать плагины с помощью
+                  установщиков - убедитесь в том, что вы изначально установили программы
+                  от <mark>Adobe</mark> в стандартное расположение, не меняя его, чтобы не
+                  ныть о том, что плагин не появился в нужной программе.
+                </li>
+              </ul>
+            </AdditionInfo>
+          </li>
+          <li>
+            <mark className="word">OFX</mark> - плагин установится для программ, которые
+            поддерживают стандарт формата <mark>OpenFX</mark>. К ним относятся{" "}
+            <mark className="app">Davinci Resolve</mark>,{" "}
+            <mark className="app">Vegas Pro</mark>, <mark className="app">Nuke</mark> и{" "}
+            <a href="https://ru.wikipedia.org/wiki/OpenFX#%D0%A5%D0%BE%D1%81%D1%82%D1%8B">
+              остальные
+            </a>
+            .
+            <AdditionWarning>
+              Такие плагины не подойдут для <mark className="app">After Effects</mark> и
+              для <mark className="app">Premiere Pro</mark>, так как они не поддерживают
+              стандарт плагинов <mark>OpenFX</mark>.
+            </AdditionWarning>
+          </li>
+          <li>
+            <mark className="word">Standalone</mark> - плагин, работающий как обычная
+            программа и может ни от кого не зависеть, например{" "}
+            <mark className="plugin">BorisFX Mocha Pro</mark> или{" "}
+            <mark className="plugin">BorisFX Optics</mark>.
+          </li>
+          <li>
+            <mark className="word">Репак от ...</mark> или{" "}
+            <mark className="word">Repack by ...</mark> - перепакованный установщик
+            плагина, который устанавливает плагин куда надо. Обычно такие плагины
+            предварительно активированы, если не указано иное.
+            <AdditionWarning>
+              При открытии таких установщиков стоит быть внимательным с чекбоксами, так
+              как есть риск того, что вы можете установить в свою систему явно что-то
+              лишнее.
+            </AdditionWarning>
+          </li>
+          <li>
+            <mark className="word">CE</mark> - маркировка от группы релизеров{" "}
+            <mark>Team V.R.</mark>, которая расшифровывается как{" "}
+            <mark>Corporate Edition</mark>. Таким образом они помечают, что такие
+            дистрибутивы достаточно просто установить без всяких лишних действий по
+            активации плагинов. То есть это для них как синоним к слову &quot;репак&quot;.
+          </li>
+        </ul>
+      </DetailsSummary>
       <DetailsSummary
         title="Установил VST-плагины, но они не отображаются в Premiere Pro"
         tag="вст, аудио плагины, звук, изотоп, izotope, vst3"
