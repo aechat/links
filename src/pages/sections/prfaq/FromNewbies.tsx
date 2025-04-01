@@ -114,74 +114,91 @@ const PRFromNewbies: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>Инструмент Track Select Backward Tool</td>
               <td>
-                <mark className="key">Shift + A</mark>
+                Инструмент выделения клипов правее курсора (Track Select Forward Tool)
               </td>
-            </tr>
-            <tr>
-              <td>Инструмент Track Select Forward Tool</td>
               <td>
                 <mark className="key">A</mark>
               </td>
             </tr>
             <tr>
-              <td>Инструмент ripple edit tool</td>
+              <td>
+                Инструмент выделения клипов левее курсора (Track Select Backward Tool)
+              </td>
+              <td>
+                <mark className="key">Shift + A</mark>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                Инструмент для подрезки начала и конца клипа, смещая остальные (Ripple
+                Edit Tool)
+              </td>
               <td>
                 <mark className="key">B</mark>
               </td>
             </tr>
             <tr>
-              <td>инструмент Rolling Edit Tool</td>
+              <td>
+                Инструмент изменения соотношения длины двух клипов (Rolling Edit Tool)
+              </td>
               <td>
                 <mark className="key">N</mark>
               </td>
             </tr>
             <tr>
-              <td>инструмент Rate Stretch Tool</td>
+              <td>Инструмент удлинения или укорачивания клипа (Rate Stretch Tool)</td>
               <td>
-                {" "}
                 <mark className="key">R</mark>
               </td>
             </tr>
             <tr>
-              <td>инструмент razor tool</td>
+              <td>Инструмент резки клипов (Razor Tool)</td>
               <td>
                 <mark className="key">C</mark>
               </td>
             </tr>
             <tr>
-              <td>инструмент slip tool</td>
+              <td>
+                Инструмент смещения клипа, оставляя его по точке начала и конца на месте
+                (Slip Tool)
+              </td>
               <td>
                 <mark className="key">Y</mark>
               </td>
             </tr>
             <tr>
-              <td>инструмент slide tool</td>
+              <td>
+                Инструмент смещения клипа, оставляя его на месте в таймлайне (Slide Tool)
+              </td>
               <td>
                 <mark className="key">U</mark>
               </td>
             </tr>
             <tr>
-              <td>инструмент pen tool</td>
+              <td>Инструмент пера для рисования масок или создания фигур (Pen Tool)</td>
               <td>
                 <mark className="key">P</mark>
               </td>
             </tr>
             <tr>
-              <td>инструмент руки (hand tool)</td>
+              <td>
+                Инструмент руки для перемещения некоторых частей интерфейса (Hand Tool)
+              </td>
               <td>
                 <mark className="key">H</mark>
               </td>
             </tr>
             <tr>
-              <td>инструмент zoom tool</td>
+              <td>
+                Инструмент лупы для увеличения или уменьшения предпросмотра (Zoom Tool)
+              </td>
               <td>
                 <mark className="key">Z</mark>
               </td>
             </tr>
             <tr>
-              <td>инструмент type tool</td>
+              <td>Инструмент создания и редактирования текста (Type Tool)</td>
               <td>
                 <mark className="key">T</mark>
               </td>
@@ -198,65 +215,65 @@ const PRFromNewbies: React.FC = () => {
           </thead>
           <tbody>
             <tr>
-              <td>создать новый проект.</td>
+              <td>Создание нового проекта</td>
               <td>
                 <mark className="key">Ctrl + Alt + N</mark>
               </td>
             </tr>
             <tr>
-              <td>создать новую секвенцию.</td>
+              <td>Создание новой секвенции</td>
               <td>
                 <mark className="key">Ctrl + N</mark>
               </td>
             </tr>
             <tr>
               <td>
-                создать новую папку в окне <mark className="ui">Project</mark>.
+                Создание новой папки в окне <mark className="ui">Project</mark>
               </td>
               <td>
                 <mark className="key">Ctrl + /</mark>
               </td>
             </tr>
             <tr>
-              <td>открыть файл проекта.</td>
+              <td>Открыть диалог открытия проекта</td>
               <td>
                 <mark className="key">Ctrl + O</mark>
               </td>
             </tr>
             <tr>
-              <td>закрыть окно интерфейса.</td>
+              <td>Закрыть то или иное окно интерфейса</td>
               <td>
                 <mark className="key">Ctrl + W</mark>
               </td>
             </tr>
             <tr>
-              <td>закрыть проект из таймлайна.</td>
+              <td>Закрыть текущий проект, открытый в таймлайне</td>
               <td>
                 <mark className="key">Ctrl + Shift + W</mark>
               </td>
             </tr>
             <tr>
-              <td>сохранить проект.</td>
+              <td>Сохранить текущий проект</td>
               <td>
                 <mark className="key">Ctrl + S</mark>
               </td>
             </tr>
             <tr>
-              <td>сохранить проект как другой формат.</td>
+              <td>Сохранить проект в другом месте</td>
               <td>
                 <mark className="key">Ctrl + Shift + S</mark>
               </td>
             </tr>
             <tr>
-              <td>сохранить проект как копию.</td>
+              <td>Сохранить текущий проект как копию</td>
               <td>
                 <mark className="key">Ctrl + Alt + S</mark>
               </td>
             </tr>
             <tr>
               <td>
-                открыть окно <mark className="ui">Import</mark> для импорта различных
-                файлов в ваш проект.
+                Открыть окно <mark className="ui">Import</mark> для импорта различных
+                файлов в ваш проект
               </td>
               <td>
                 <mark className="key">Ctrl + I</mark>
@@ -264,8 +281,8 @@ const PRFromNewbies: React.FC = () => {
             </tr>
             <tr>
               <td>
-                перейти во вкладку <mark className="ui">Export</mark> для экспорта
-                секвенции.
+                Переход во вкладку <mark className="ui">Export</mark> для экспорта
+                секвенции
               </td>
               <td>
                 <mark className="key">Ctrl + M</mark>
@@ -273,22 +290,25 @@ const PRFromNewbies: React.FC = () => {
             </tr>
             <tr>
               <td>
-                отправить секвенцию в <mark className="app">Adobe Media Encoder</mark> для
-                дальнейшего экспорта.
+                Отправить секвенцию в <mark className="app">Adobe Media Encoder</mark> для
+                дальнейшего экспорта
               </td>
               <td>
                 <mark className="key">Alt + Shift + M</mark>
               </td>
             </tr>
             <tr>
-              <td>открыть окно свойств для выделенного файла.</td>
+              <td>
+                Открыть <mark className="ui">Media File Properties</mark> для выделенного
+                файла
+              </td>
               <td>
                 <mark className="key">Ctrl + Shift + H</mark>
               </td>
             </tr>
             <tr>
               <td>
-                закрыть <mark className="app">Premiere Pro</mark>.
+                Закрыть <mark className="app">Premiere Pro</mark>
               </td>
               <td>
                 <mark className="key">Ctrl + Q</mark>
@@ -306,91 +326,112 @@ const PRFromNewbies: React.FC = () => {
           </thead>
           <tbody>
             <tr>
-              <td>отменить какое-либо действие.</td>
+              <td>Отменить какое-либо действие</td>
               <td>
                 <mark className="key">Ctrl + Z</mark>
               </td>
             </tr>
             <tr>
-              <td>вернуть ранее отменённое действие.</td>
+              <td>Вернуть ранее отменённое действие</td>
               <td>
                 <mark className="key">Ctrl + Shift + Z</mark>
               </td>
             </tr>
             <tr>
-              <td>вырезать выделенное и расположить к себе в буфер обмена.</td>
+              <td>Вырезать выделенное и поместить в буфер обмена.</td>
               <td>
                 <mark className="key">Ctrl + X</mark>
               </td>
             </tr>
             <tr>
-              <td>скопировать выделенное в буфер обмена.</td>
+              <td>Скопировать выделенное в буфер обмена</td>
               <td>
                 <mark className="key">Ctrl + C</mark>
               </td>
             </tr>
             <tr>
-              <td>вставить из буфера обмена.</td>
+              <td>Вставить из буфера обмена</td>
               <td>
                 <mark className="key">Ctrl + V</mark>
               </td>
             </tr>
             <tr>
-              <td>вставить из буфера обмена вставкой.</td>
+              <td>Вставить из буфера обмена вставкой</td>
               <td>
                 <mark className="key">Ctrl + Shift + V</mark>
               </td>
             </tr>
             <tr>
-              <td>вставить скопированные аттрибуты клипа.</td>
+              <td>
+                Вставить скопированные аттрибуты клипа, например положение или масштаб
+              </td>
               <td>
                 <mark className="key">Ctrl + Alt + V</mark>
               </td>
             </tr>
             <tr>
-              <td>удалить выделенное.</td>
+              <td>Удалить выделенный объект</td>
               <td>
                 <mark className="key">Delete</mark>
               </td>
             </tr>
             <tr>
-              <td>ripple delete</td>
+              <td>
+                Удалить выделенный клип и сдвинуть остальные на его место (Ripple Delete)
+              </td>
               <td>
                 <mark className="key">Shift + Delete</mark>
               </td>
             </tr>
             <tr>
-              <td>продублировать выделенное.</td>
+              <td>
+                Продублировать выделенные объекты в окне{" "}
+                <mark className="ui">Project</mark>
+              </td>
               <td>
                 <mark className="key">Ctrl + Shift + /</mark>
               </td>
             </tr>
             <tr>
-              <td>выделить все.</td>
+              <td>Выделить всё</td>
               <td>
                 <mark className="key">Ctrl + A</mark>
               </td>
             </tr>
             <tr>
-              <td>убрать выделение.</td>
+              <td>Убрать выделение</td>
               <td>
                 <mark className="key">Ctrl + Shift + A</mark>
               </td>
             </tr>
             <tr>
-              <td>найти.</td>
+              <td>
+                Открыть окно поиска
+                <AdditionInfo>
+                  Работа поиска зависит от выделенного окна{" "}
+                  <mark className="ui">Project</mark> или{" "}
+                  <mark className="ui">Timeline</mark>
+                </AdditionInfo>
+              </td>
               <td>
                 <mark className="key">Ctrl + F</mark>
               </td>
             </tr>
             <tr>
-              <td>открыть файл Edit original</td>
+              <td>
+                Открыть файл в сторонней программе (Edit Original)
+                <AdditionInfo>
+                  Открытие выделенного файла в сторонней программе зависит от настроенных
+                  зависимостей для каждого расширения в настройках вашей системы. Это
+                  может быть видео-проигрыватель или графический редактор.
+                </AdditionInfo>
+              </td>
               <td>
                 <mark className="key">Ctrl + E</mark>
               </td>
             </tr>
             <tr>
-              <td>открыть окно настроек комбинаций клавиш.</td>
+              <td>Открыть окно настроек комбинаций клавиш</td>
               <td>
                 <mark className="key">Ctrl + Alt + K</mark>
               </td>
@@ -407,65 +448,74 @@ const PRFromNewbies: React.FC = () => {
           </thead>
           <tbody>
             <tr>
-              <td>создать субклип make subclip</td>
+              <td>Создать субклип (Make Subclip)</td>
               <td>
                 <mark className="key">Ctrl + U</mark>
               </td>
             </tr>
             <tr>
-              <td>открыть окно модификации аудиоканалов у выделенного клипа.</td>
+              <td>Открыть окно модификации выделенного клипа (Modify Clip)</td>
               <td>
                 <mark className="key">Shift + G</mark>
               </td>
             </tr>
             <tr>
-              <td>audio gain</td>
+              <td>
+                Открыть диалог нормализации громкости выделенного клипа (Audio Gain)
+              </td>
               <td>
                 <mark className="key">G</mark>
               </td>
             </tr>
             <tr>
               <td>
-                открыть окно редактирования скорости и его интерполяции для выделенного
-                клипа.
+                Открыть окно редактирования скорости и его интерполяции для выделенного
+                клипа (Clip Speed / Duration)
               </td>
               <td>
                 <mark className="key">Ctrl + R</mark>
               </td>
             </tr>
             <tr>
-              <td>вставить клип.</td>
+              <td>
+                Вставить клип из <mark className="ui">Source Monitor</mark> или{" "}
+                <mark className="ui">Project</mark>
+              </td>
               <td>
                 <mark className="key">, (Б)</mark>
               </td>
             </tr>
             <tr>
-              <td>перезаписать клип на таймлайне.</td>
+              <td>
+                Перезаписать клип на таймлайне тем, что открыто в{" "}
+                <mark className="ui">Source Monitor</mark> или выделено в{" "}
+                <mark className="ui">Project</mark>
+              </td>
               <td>
                 <mark className="key">. (Ю)</mark>
               </td>
             </tr>
             <tr>
-              <td>связать нужные клипы друг с другом.</td>
+              <td>Связать нужные клипы друг с другом (Link)</td>
               <td>
                 <mark className="key">Ctrl + L</mark>
               </td>
             </tr>
             <tr>
-              <td>сгрупиировать клипы</td>
+              <td>Сгруппировать клипы (Group)</td>
               <td>
                 <mark className="key">Ctrl + G</mark>
               </td>
             </tr>
             <tr>
-              <td>разгрупировать клипы</td>
+              <td>Разгруппировать клипы (Ungroup)</td>
               <td>
                 <mark className="key">Ctrl + Shift + G</mark>
               </td>
             </tr>
           </tbody>
         </table>
-        <Divider>секвенция (sequence)</Divider>
+        <Divider>Секвенция (Sequence)</Divider>
         <table>
           <thead>
             <tr>
@@ -475,19 +525,28 @@ const PRFromNewbies: React.FC = () => {
           </thead>
           <tbody>
             <tr>
-              <td>начать пререндер части секвенции, где имеется красная полоска.</td>
+              <td>
+                Начать пререндер части секвенции, где имеется красная полоска (Render
+                Effects In to Out)
+                <AdditionInfo>
+                  При желании вы можете настроить комбинацию клавиш, например на{" "}
+                  <mark className="key">Shift + Enter</mark>, для действия{" "}
+                  <mark>Render In to Out</mark>, который делает пререндер части секвенции,
+                  где имеется жёлтая и красная полоска
+                </AdditionInfo>
+              </td>
               <td>
                 <mark className="key">Enter</mark>
               </td>
             </tr>
             <tr>
-              <td>match frame</td>
+              <td>(Match Frame)</td>
               <td>
                 <mark className="key">F</mark>
               </td>
             </tr>
             <tr>
-              <td>reverse match frame</td>
+              <td>(Reverse Match Frame)</td>
               <td>
                 <mark className="key">Shift + R</mark>
               </td>
@@ -499,68 +558,51 @@ const PRFromNewbies: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>применить видеопереход</td>
+              <td>Применить стандартный переход</td>
               <td>
                 <mark className="key">Ctrl + D</mark>
               </td>
             </tr>
             <tr>
-              <td>применить аудиопереход.</td>
+              <td>Применить стандартный аудиопереход</td>
               <td>
                 <mark className="key">Ctrl + Shift + D</mark>
               </td>
             </tr>
             <tr>
-              <td>Apply Default Transitions to Selections</td>
+              <td>
+                Применить стандартные переходы для выделенных клипов
+                <AdditionInfo>
+                  Изменить переход по умолчанию можно нажатием{" "}
+                  <mark className="key">ПКМ</mark> по нужному переходу в окне{" "}
+                  <mark className="ui">Effects</mark>
+                </AdditionInfo>
+              </td>
               <td>
                 <mark className="key">Shift + D</mark>
               </td>
             </tr>
             <tr>
-              <td>lift</td>
-              <td>
-                <mark className="key">; (Ж)</mark>
-              </td>
-            </tr>
-            <tr>
-              <td>Extract</td>
-              <td>
-                <mark className="key">&apos; (Э)</mark>
-              </td>
-            </tr>
-            <tr>
-              <td>уменьшить таймлайн</td>
+              <td>Уменьшить масштабирование таймлайна</td>
               <td>
                 <mark className="key">-</mark>
               </td>
             </tr>
             <tr>
-              <td>увеличить таймлайн</td>
+              <td>Увеличить масштабирование таймлайна</td>
               <td>
                 <mark className="key">=</mark>
               </td>
             </tr>
             <tr>
-              <td>перейти к следующему gap в секвенции.</td>
-              <td>
-                <mark className="key">Shift + ; (Ж)</mark>
-              </td>
-            </tr>
-            <tr>
-              <td>перейти к предыдущему gap в секвенции.</td>
-              <td>
-                <mark className="key">Ctrl + Shift + ; (Ж)</mark>
-              </td>
-            </tr>
-            <tr>
-              <td>включить или выключить магнит в таймлайне</td>
+              <td>Включить или выключить Snap</td>
               <td>
                 <mark className="key">S</mark>
               </td>
             </tr>
           </tbody>
         </table>
-        <Divider>маркеры</Divider>
+        <Divider>Маркеры</Divider>
         <table>
           <thead>
             <tr>
@@ -570,67 +612,69 @@ const PRFromNewbies: React.FC = () => {
           </thead>
           <tbody>
             <tr>
-              <td>пометить начало рабочей области</td>
+              <td>Пометить начало рабочей области</td>
               <td>
                 <mark className="key">I</mark>
               </td>
             </tr>
             <tr>
-              <td>пометить конец рабочей области</td>
+              <td>Пометить конец рабочей области</td>
               <td>
                 <mark className="key">O</mark>
               </td>
             </tr>
             <tr>
-              <td>пометить рабочую область от начала и до конца выделенного клипа</td>
+              <td>
+                Пометить рабочую область от начала и до конца вокруг выделенного клипа
+              </td>
               <td>
                 <mark className="key">X</mark>
               </td>
             </tr>
             <tr>
-              <td>пометить рабочую область в пределах выделенных клипов</td>
+              <td>Пометить рабочую область в пределах выделенных клипов</td>
               <td>
                 <mark className="key">/</mark>
               </td>
             </tr>
             <tr>
-              <td>переместить плейхед в начало рабочей области</td>
+              <td>Переместить плейхед в начало рабочей области</td>
               <td>
                 <mark className="key">Shift + I</mark>
               </td>
             </tr>
             <tr>
-              <td>переместить плейхед в конец рабочей области</td>
+              <td>Переместить плейхед в конец рабочей области</td>
               <td>
                 <mark className="key">Shift + O</mark>
               </td>
             </tr>
             <tr>
-              <td>убрать выделение начала и конца рабочей области</td>
+              <td>Убрать выделение начала и конца рабочей области</td>
               <td>
                 <mark className="key">Ctrl + Shift + X</mark>
               </td>
             </tr>
             <tr>
-              <td>добавить маркер</td>
+              <td>Добавить маркер</td>
               <td>
                 <mark className="key">M</mark>
               </td>
             </tr>
             <tr>
-              <td>перейти к следующему маркеру от плейхеда</td>
+              <td>Перейти к следующему маркеру от плейхеда</td>
               <td>
                 <mark className="key">Shift + M</mark>
               </td>
             </tr>
             <tr>
-              <td>перейти к предыдущему маркеру от плейхеда</td>
+              <td>Перейти к предыдущему маркеру от плейхеда</td>
               <td>
                 <mark className="key">Ctrl + Shift + M</mark>
               </td>
             </tr>
             <tr>
-              <td>удалить выделенные маркеры</td>
+              <td>Удалить выделенные маркеры</td>
               <td>
                 <mark className="key">Ctrl + Alt + M</mark>
                 <AdditionWarning>
@@ -641,7 +685,7 @@ const PRFromNewbies: React.FC = () => {
             </tr>
           </tbody>
         </table>
-        <Divider>графика (graphics and titles)</Divider>
+        <Divider>Графика (Graphics and Titles)</Divider>
         <table>
           <thead>
             <tr>
@@ -651,38 +695,26 @@ const PRFromNewbies: React.FC = () => {
           </thead>
           <tbody>
             <tr>
-              <td>создать новый слой с текстом</td>
+              <td>Создать новый слой с текстом (New Text Layer)</td>
               <td>
                 <mark className="key">Ctrl + T</mark>
               </td>
             </tr>
             <tr>
-              <td>создать новый слой с квадратом</td>
-              <td>
-                <mark className="key">Ctrl + Alt + R</mark>
-              </td>
-            </tr>
-            <tr>
-              <td>создать новый слой с эллипсом</td>
-              <td>
-                <mark className="key">Ctrl + Alt + E</mark>
-              </td>
-            </tr>
-            <tr>
-              <td>выделить следующий слой от плейхеда</td>
+              <td>Выделить следующий слой от плейхеда</td>
               <td>
                 <mark className="key">Ctrl + Alt + ]</mark>
               </td>
             </tr>
             <tr>
-              <td>выделить предыдущий слой от плейхеда</td>
+              <td>Выделить предыдущий слой от плейхеда</td>
               <td>
                 <mark className="key">Ctrl + Alt + [</mark>
               </td>
             </tr>
           </tbody>
         </table>
-        <Divider>window окна</Divider>
+        <Divider>Работа с окном (Window)</Divider>
         <table>
           <thead>
             <tr>
@@ -693,7 +725,7 @@ const PRFromNewbies: React.FC = () => {
           <tbody>
             <tr>
               <td>
-                открыть окно <mark className="ui">Project</mark>
+                Открыть окно <mark className="ui">Project</mark>
               </td>
               <td>
                 <mark className="key">Shift + 1</mark>
@@ -701,7 +733,7 @@ const PRFromNewbies: React.FC = () => {
             </tr>
             <tr>
               <td>
-                открыть окно <mark className="ui">Source Monitor</mark>
+                Открыть окно <mark className="ui">Source Monitor</mark>
               </td>
               <td>
                 <mark className="key">Shift + 2</mark>
@@ -709,7 +741,7 @@ const PRFromNewbies: React.FC = () => {
             </tr>
             <tr>
               <td>
-                открыть окно <mark className="ui">Timeline</mark>
+                Открыть окно <mark className="ui">Timeline</mark>
               </td>
               <td>
                 <mark className="key">Shift + 3</mark>
@@ -717,7 +749,7 @@ const PRFromNewbies: React.FC = () => {
             </tr>
             <tr>
               <td>
-                открыть окно <mark className="ui">Program Monitor</mark>
+                Открыть окно <mark className="ui">Program Monitor</mark>
               </td>
               <td>
                 <mark className="key">Shift + 4</mark>
@@ -725,7 +757,7 @@ const PRFromNewbies: React.FC = () => {
             </tr>
             <tr>
               <td>
-                открыть окно <mark className="ui">Effect Controls</mark>
+                Открыть окно <mark className="ui">Effect Controls</mark>
               </td>
               <td>
                 <mark className="key">Shift + 5</mark>
@@ -733,7 +765,7 @@ const PRFromNewbies: React.FC = () => {
             </tr>
             <tr>
               <td>
-                открыть окно <mark className="ui">Audio Track Mixer</mark>
+                Открыть окно <mark className="ui">Audio Track Mixer</mark>
               </td>
               <td>
                 <mark className="key">Shift + 6</mark>
@@ -741,7 +773,7 @@ const PRFromNewbies: React.FC = () => {
             </tr>
             <tr>
               <td>
-                открыть окно <mark className="ui">Effects</mark>
+                Открыть окно <mark className="ui">Effects</mark>
               </td>
               <td>
                 <mark className="key">Shift + 7</mark>
@@ -749,7 +781,7 @@ const PRFromNewbies: React.FC = () => {
             </tr>
             <tr>
               <td>
-                открыть окно <mark className="ui">Media Browser</mark>
+                Открыть окно <mark className="ui">Media Browser</mark>
               </td>
               <td>
                 <mark className="key">Shift + 8</mark>
@@ -757,14 +789,14 @@ const PRFromNewbies: React.FC = () => {
             </tr>
             <tr>
               <td>
-                открыть окно <mark className="ui">Audio Clip Mixer</mark>
+                Открыть окно <mark className="ui">Audio Clip Mixer</mark>
               </td>
               <td>
                 <mark className="key">Shift + 9</mark>
               </td>
             </tr>
             <tr>
-              <td>сбросить рабочее пространство до последнего сохранённого состояния</td>
+              <td>Сбросить рабочее пространство до последнего сохранённого состояния</td>
               <td>
                 <mark className="key">Alt + Shift + 0</mark>
               </td>
@@ -799,77 +831,88 @@ const PRFromNewbies: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>начать экспорт текущего кадра</td>
+              <td>Начать экспорт текущего кадра</td>
               <td>
                 <mark className="key">Ctrl + Shift + E</mark>
               </td>
             </tr>
             <tr>
-              <td>разрезать клип после плейхеда</td>
+              <td>Разрезать клип после плейхеда</td>
               <td>
                 <mark className="key">W</mark>
               </td>
             </tr>
             <tr>
-              <td>разрезать клип до плейхеда</td>
+              <td>Разрезать клип до плейхеда</td>
               <td>
                 <mark className="key">Q</mark>
               </td>
             </tr>
             <tr>
-              <td>extend next edit to playhead</td>
+              <td>Разрезать выделенный клип пополам по плейхеду</td>
+              <td>Ctrl + K</td>
+            </tr>
+            <tr>
+              <td>Разрезать все клипы пополам по плейхеду, кроме заблокированных</td>
+              <td>Ctrl + Shift + K</td>
+            </tr>
+            <tr>
+              <td>Extend Next Edit To Playhead</td>
               <td>
                 <mark className="key">Shift + W</mark>
               </td>
             </tr>
             <tr>
-              <td>extend previous edit to playhead</td>
+              <td>Extend Previous Edit To Playhead</td>
               <td>
                 <mark className="key">Shift + Q</mark>
               </td>
             </tr>
             <tr>
-              <td>trim next edit to playhead</td>
+              <td>Trim Next Edit To Playhead</td>
               <td>
                 <mark className="key">Ctrl + Alt + W</mark>
               </td>
             </tr>
             <tr>
-              <td>trim previous edit to playhead</td>
+              <td>Trim Previous Edit To Playhead</td>
               <td>
                 <mark className="key">Ctrl + Alt + Q</mark>
               </td>
             </tr>
             <tr>
-              <td>раскрыть окно, под которым расположен курсор, на весь экран</td>
+              <td>Раскрыть окно, под которым расположен курсор, на весь экран</td>
               <td>
                 <mark className="key">`</mark>, <mark className="key">~</mark> или{" "}
                 <mark className="key">Ё</mark>
               </td>
             </tr>
             <tr>
-              <td>проиграть предпросмотр в пределах рабочей области</td>
+              <td>Проиграть предпросмотр в пределах рабочей области</td>
               <td>
                 <mark className="key">Ctrl + Shift + Space</mark>
               </td>
             </tr>
             <tr>
-              <td>начать проигрывание предпросмотра</td>
+              <td>Начать проигрывание предпросмотра</td>
               <td>
                 <mark className="key">Space</mark>
               </td>
             </tr>
             <tr>
-              <td>выделить текущий клип под плейхедом</td>
+              <td>
+                Выделить текущий клип под плейхедом, если у вас выключен{" "}
+                <mark className="ui">Select Follow Playhead</mark>
+              </td>
               <td>
                 <mark className="key">D</mark>
               </td>
             </tr>
             <tr>
               <td>
-                проиграть предпросмотр назад. shuttle left
+                Проиграть предпросмотр назад (Shuttle Left)
                 <AdditionInfo>
-                  Многократное нажатие ускореяет проигрывание, с модификатором{" "}
+                  Многократное нажатие ускоряет проигрывание, с модификатором{" "}
                   <mark className="key">Shift</mark>, наоборот, замедляет.
                 </AdditionInfo>
               </td>
@@ -879,7 +922,7 @@ const PRFromNewbies: React.FC = () => {
             </tr>
             <tr>
               <td>
-                проиграть предпросмотр вперёд. shuttle right
+                Проиграть предпросмотр вперёд (Shuttle Right)
                 <AdditionInfo>
                   Многократное нажатие ускореяет проигрывание, с модификатором{" "}
                   <mark className="key">Shift</mark>, наоборот, замедляет.
@@ -890,19 +933,19 @@ const PRFromNewbies: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>остановить shuttle</td>
+              <td>Остановить Shuttle</td>
               <td>
                 <mark className="key">K</mark>
               </td>
             </tr>
             <tr>
-              <td>перейти на предыдущий кадр</td>
+              <td>Перейти на предыдущий кадр</td>
               <td>
                 <mark className="key">Стрелка влево</mark>
               </td>
             </tr>
             <tr>
-              <td>перейти на следующий кадр</td>
+              <td>Перейти на следующий кадр</td>
               <td>
                 <mark className="key">Стрелка вправо</mark>
               </td>
