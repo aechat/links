@@ -942,46 +942,58 @@ const AEErrors: React.FC = () => {
         </AdditionInfo>
       </DetailsSummary>
       <DetailsSummary
-        title='"Advanced 3D is not supported by the current software", "Advanced 3D plug-in generated an unexpected exception" или программа просто вылетает при попытке использовать Advanced 3D'
+        title='"Advanced 3D is not supported by the current software", "Advanced 3D plug-in generated an unexpected exception" или программа вылетает при попытке использовать новый движок 3D-рендера'
         tag="расширенный 3d, вылетает, адвансед 3д"
       >
         <p>
-          Ваша видеокарта не соответствует требованиям и не поддерживает функцию{" "}
-          <mark className="plugin">Advanced 3D</mark>. Проверьте на наличие и соответствие
-          вашей видеокарты в{" "}
-          <a href="https://helpx.adobe.com/ru/after-effects/using/advanced-3d-renderer.html">
-            системных требованиях
-          </a>{" "}
-          для этого модуля рендеринга.
-        </p>
-        <p>
-          Если ваш графический процессор имеется в{" "}
+          Вариантов возникновения данной ошибки может быть несколько, начиная устаревшими
+          драйверами и простым багом, заканчивая отсутствием поддержки вашей видеокарты
+          для корректной работы нового движка рендера. Если ваш графический процессор
+          находится в{" "}
           <a href="https://helpx.adobe.com/ru/after-effects/using/advanced-3d-renderer.html">
             списке поддерживаемых видеокарт
           </a>
-          , но при использовании <mark className="plugin">Advanced 3D</mark> программа
-          вылетает или не даёт ею воспользоваться - попробуйте обновить{" "}
-          <mark className="app">After Effects</mark> до последней версии или попробуйте
-          запустить <mark className="app">After Effects</mark> от имени администратора.
-          Чтобы каждый раз не прожимать кнопку &quot;Запустить от имени
-          администратора&quot;, установите галочку &quot;Запускать от имени
-          администратора&quot; в свойствах программы.
+          , но при попытке использования <mark className="plugin">Advanced 3D</mark> -{" "}
+          программа вылетает или не даёт ею воспользоваться, то попробуйте запустить{" "}
+          <mark className="app">After Effects</mark> от имени администратора. Чтобы каждый
+          раз не прожимать кнопку{" "}
+          <mark className="ui">Запустить от имени администратора</mark> в контекстном меню
+          - установите чекбокс{" "}
+          <mark className="ui">Запускать от имени администратора</mark> в свойствах
+          ярлыка.
         </p>
         <VideoFigure
           styleClass="figure_windows-dark"
           videoSrc="images/aftereffects/open_ae_as_admin.mp4"
           caption="Настройка ярлыка для дальнейшего запуска от имени администратора"
         />
+        <p>
+          Если запуск от администратора вам не помог от вылетающего{" "}
+          <mark className="app">After Effects</mark> при попытке использовать{" "}
+          <mark className="plugin">Advanced 3D</mark>, то попробуйте просто обновить
+          драйвера на вашу видеокарту, желательно на редакцию{" "}
+          <mark>NVIDIA Studio Driver</mark> для более стабильной работы с монтажными
+          программами.
+        </p>
         <AdditionInfo>
-          Совет про обновление даю не просто так. Когда эта функция только-только выходила
-          - моя GTX 1060 на 3 Гб VRAM отказывалась работать с ним (хотя карта была в{" "}
-          <a href="https://helpx.adobe.com/ru/after-effects/using/advanced-3d-renderer.html">
-            списке
+          Загрузить драйвера <mark>NVIDIA Studio</mark> вы можете на{" "}
+          <a href="https://www.nvidia.com/en-us/geforce/drivers/">
+            официальной странице загрузки драйверов
           </a>
-          ), также не работала функция Draft 3D долгое время. После нескольких обновлений
-          всё таки мне вернули и <mark className="plugin">Advanced 3D</mark>, и Draft 3D,
-          правда через пару месяцев я уже успел обновиться до RTX 4060 Ti.
+          . На странице укажите текущую модель вашей видеокарты, операционную систему и не
+          забудьте указать в <mark className="ui">Download Type</mark> значение{" "}
+          <mark>Studio Driver</mark>.
         </AdditionInfo>
+        <p>
+          Если ни запуск от администратора, ни обновление драйверов на видеокарту не
+          помогло, то скорее всего ваша видеокарта не соответствует требованиям и не
+          поддерживает функцию <mark className="plugin">Advanced 3D</mark>. Проверьте на
+          наличие и соответствие вашей видеокарты в{" "}
+          <a href="https://helpx.adobe.com/ru/after-effects/using/advanced-3d-renderer.html">
+            системных требованиях для Advanced 3D
+          </a>{" "}
+          и начните копить на новый графический ускоритель.
+        </p>
       </DetailsSummary>
       <DetailsSummary title="Ошибка при запуске приложения 0xc0000142">
         <p>
