@@ -965,15 +965,18 @@ const AEActions: React.FC = () => {
       </DetailsSummary>
       <DetailsSummary title="Как применить Adjustment Layer только на конкретные слои?">
         <p>
-          Изначально в <mark className="app">After Effects</mark> нет возможности
-          применить корректирующий слой только на определённые слои под ним. Либо надо
-          переносить по иерархии, либо городить костыли в виде масок.
+          Изначально в <mark className="app">After Effects</mark>, к сожалению, нет
+          возможности применить корректирующий слой только на определённые слои под ним. В
+          таком случае нужные слои надо переносить на другое место по иерархии в таймлайне
+          или городить костыли в виде масок.
         </p>
         <p>
-          В этом пункте мы сделаем второе. Для этого нам понадобится сторонний эффект{" "}
+          В этом пункте мы будем <mark className="word">костылить</mark> с помощью масок.
+          Для этого нам понадобится сторонний эффект{" "}
           <mark className="plugin">Supercomp</mark>, поставляемый в пакете плагинов{" "}
-          <mark className="plugin">VFX Suite</mark> от Red Giant. В нём нам нужно
-          обесцветить наши слои и сделать их супер яркими, чтобы сделать из них маску.
+          <mark className="plugin">VFX Suite</mark> от <mark>Red Giant</mark>. В нём нам
+          нужно обесцветить наши слои и сделать их супер яркими, чтобы сделать из них
+          маску.
         </p>
         <VideoFigure
           styleClass="figure_windows-dark"
@@ -983,12 +986,12 @@ const AEActions: React.FC = () => {
         <p>
           Если вы не хотите ставить <mark className="plugin">VFX Suite</mark>, то вы
           можете создать маску просто создав прекомпозицию из нужных слоёв и накинуть на
-          них <mark className="plugin">Fill</mark>.
+          них <mark className="plugin">Fill</mark> или обесцветить и сделать их ярче.
         </p>
         <VideoFigure
           styleClass="figure_windows-dark"
           videoSrc="images/aftereffects/supercomp_without_plugins.mp4"
-          caption="Демонстрация работы Supercomp для создания маски"
+          caption="Создание самодельных масок для дальнейшей работы"
         />
         <AdditionWarning>
           Со сложными слоями такой способ может не прокатить, экспериментируйте с умом.
