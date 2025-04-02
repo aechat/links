@@ -248,6 +248,21 @@ const PRErrors: React.FC = () => {
           }
         />
       </DetailsSummary>
+      <DetailsSummary
+        title='"Premiere Pro could not find any capable video play modules. Please update your video display drivers and start again" при запуске программы'
+        tag="premiere pro не удалось найти совместимые видеомодули воспроизведения, обновите видеодрайверы и запустите приложение повторно"
+      >
+        <p>
+          Данная ошибка может появиться после установки{" "}
+          <mark className="app">Premiere Pro</mark> версии <mark>25.2</mark> в вариации
+          репака от <mark>Kp0JluK</mark> и почему-то на устройствах с видеокартой от{" "}
+          <mark>NVIDIA</mark>. Если вы уверены в том, что у вас уже обновлены драйвера на
+          видеокарту, то попробуйте установить этот же релиз повторно, то есть произвести
+          двойную установку. То есть установите <mark className="app">Premiere Pro</mark>{" "}
+          первый раз, а затем просто откройте установщик и снова произведите установку уже
+          поверх установленного приложения.
+        </p>
+      </DetailsSummary>
       <DetailsSummary title="Вылетает Premiere Pro и Media Encoder после установки плагинов Boris FX Sapphire">
         <p>
           Это довольно популярный баг, который мешает нормальному запуску{" "}
