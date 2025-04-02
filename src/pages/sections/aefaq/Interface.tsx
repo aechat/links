@@ -73,7 +73,7 @@ const AEInterface: React.FC = () => {
           заголовка окна и выберите <mark className="ui">Close Panel</mark>.
         </p>
       </DetailsSummary>
-      <DetailsSummary title="Как мне прикрепить нужное окно в рабочее пространство программы?">
+      <DetailsSummary title="Как я могу прикрепить нужное окно в рабочее пространство программы?">
         <p>
           Для того, чтобы прикрепить окно к рабочему пространству программы - нужно зажать
           курсор в районе названия окна и перетащить его в нужное место. Программа сама
@@ -93,6 +93,34 @@ const AEInterface: React.FC = () => {
           Чтобы отцепить окно - нажмите на три полоски возле заголовка окна и нажмите на{" "}
           <mark className="ui">Undock Panel</mark>.
         </p>
+      </DetailsSummary>
+      <DetailsSummary title="Как сделать так, чтобы мое рабочее пространство не переключалось на другое при открытии чужих проектов?">
+        <AdditionWarning>
+          В старых версиях <mark className="app">After Effects</mark> такой опции нет.
+          Чтобы она появилась - обновитесь до более свежей версии.
+        </AdditionWarning>
+        <p>
+          В <mark className="app">After Effects</mark> версии <mark>25.2</mark> и новее
+          появилась новая функция в настройках, предотвращающая смену пользовательского
+          рабочего пространства на стандартное или иное. При частой работе с чужими
+          проектами изначальная особенность программы бесило многих пользователей и{" "}
+          <mark>Adobe</mark> добавила для этого{" "}
+          <a href="https://helpx.adobe.com/after-effects/using/whats-new/2025-2.html#maintain-workspace-when-opening-projects">
+            решение
+          </a>
+          . Для предотвращения переключения рабочих пространств нужно перейти в{" "}
+          <mark className="ui">Edit &gt; Preferences &gt; General</mark> и включить
+          параметр{" "}
+          <mark className="ui">Maintain current workspace when opening projects</mark>.
+          При включенной опции рабочие пространства перестанут переключаться сами по себе,
+          если пользователь явно не хочет их переключать.
+        </p>
+        <ImageFigure
+          styleClass="figure_windows-dark"
+          imgSrc="images/aftereffects/enable_maintain_current_workspace.png"
+          imgTitle="Настройка предотвращения переключения рабочих пространств"
+          caption="Preferences"
+        />
       </DetailsSummary>
       <DetailsSummary title="Почему я не могу прикрепить окно скрипта и как мне его в конце концов закрепить?">
         <p>
