@@ -259,6 +259,12 @@ const Links = () => {
               description="Обсуждаем монтаж в любой монтажной программе"
             />
             <LinkCard
+              href="https://t.me/DaVinci_Resolve_ru"
+              icon={<MovieRounded />}
+              name="DaVinci Resolve RU"
+              description="Обсуждаем работу в DaVinci Resolve"
+            />
+            <LinkCard
               href="https://t.me/ExitLight_Chat"
               icon={<GradientRounded />}
               name="ExitLight Community Chat"
