@@ -153,6 +153,19 @@ const AEErrors: React.FC = () => {
             требуется минимум <mark>32 Гб</mark> оперативной памяти.
           </li>
         </ul>
+        <AdditionInfo>
+          В <mark className="app">After Effects</mark> версии <mark>25.2</mark> и новее
+          добавили функцию проигрывания предпросмотра напрямую из жёсткого диска, минуя
+          оперативную память. Это может быть полезно, если у вас малое количество
+          оперативной памяти. Если у вас не отключен дисковый кэш, то эта опция уже
+          включена по умолчанию, а включить или выключить его можно в{" "}
+          <mark className="ui">
+            Edit &gt; Preferences &gt; Media & Disk Cache &gt; Enable Preview from Disk
+            Cache
+          </mark>
+          . При использовании данной опции желательно использовать быстрый твердотельный
+          накопитель.
+        </AdditionInfo>
       </DetailsSummary>
       <DetailsSummary title="After Effects has encountered a failure related to GPU-enabled effects from this frame. This is likely because your GPU is out of memory.">
         <p>
