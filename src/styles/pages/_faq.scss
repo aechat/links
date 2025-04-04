@@ -260,6 +260,14 @@
         margin: 0;
       }
 
+      .figure_macos,
+      .figure_windows {
+        &-light,
+        &-dark {
+          max-width: 100%;
+        }
+      }
+
       code {
         margin-inline: 0;
 

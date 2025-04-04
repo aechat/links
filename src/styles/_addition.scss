@@ -11,7 +11,18 @@ li > .addition-danger,
 .faq-container > .addition-danger,
 .faq-content > .addition-info,
 .faq-content > .addition-warning,
-.faq-content > .addition-danger {
+.faq-content > .addition-danger,
+.addition-info > .addition-info,
+.addition-info > .addition-warning,
+.addition-info > .addition-danger,
+.addition-warning > .addition-info,
+.addition-warning > .addition-warning,
+.addition-warning > .addition-danger,
+.addition-danger > .addition-info,
+.addition-danger > .addition-warning,
+.addition-danger > .addition-danger {
+  margin-right: 0;
+  margin-left: 0;
   margin-inline: 0;
 }
 
@@ -27,8 +38,9 @@ li > .addition-danger,
     border-radius: $roundness * 0.75;
     padding: 12px 10px;
     padding-left: 18px;
+    font-weight: 425;
     font-size: 0.9375rem;
-    line-height: 1.7;
+    line-height: 1.65;
 
     &:first-child {
       margin-top: 10px;
