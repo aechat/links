@@ -1,14 +1,57 @@
-import React, {useState} from "react";
-import {Upload, message} from "antd";
+import React, {useEffect, useState} from "react";
+import {Radio, Spin, Upload, message} from "antd";
 import {saveAs} from "file-saver";
 import {gzip} from "pako";
 import {motion} from "framer-motion";
 import {UploadFileRounded} from "@mui/icons-material";
+interface Pyodide {
+  FS: {
+    writeFile: (filename: string, data: Uint8Array) => void;
+    readFile: (filename: string) => Uint8Array;
+  };
+  runPythonAsync: (code: string) => Promise<void>;
+}
 
 const TgsToJsonConverter = () => {
-  const [jsonData, setJsonData] = useState<unknown>(null);
+  const [jsonData, setJsonData] = useState<Record<string, unknown> | null>(null);
 
   const [originalFileName, setOriginalFileName] = useState<string>("");
+
+  const [compressionMode, setCompressionMode] = useState<"js" | "python">("js");
+
+  const [pyodide, setPyodide] = useState<Pyodide | null>(null);
+
+  const [loading, setLoading] = useState(false);
+  useEffect(() => {
+    if (compressionMode === "python" && !pyodide) {
+      loadPyodideInline();
+    }
+  }, [compressionMode]);
+
+  const loadPyodideInline = async () => {
+    setLoading(true);
+    try {
+      const script = document.createElement("script");
+      script.src = "https://cdn.jsdelivr.net/pyodide/v0.22.1/full/pyodide.js";
+      script.onload = async () => {
+        // @ts-expect-error, чтобы не втыкал
+        const py: Pyodide = await (window as unknown).loadPyodide();
+        setPyodide(py);
+        setLoading(false);
+        message.success("Python-интерпретатор загружен, начните процесс конвертации");
+      };
+
+      script.onerror = () => {
+        message.error("Не удалось загрузить Python-интерпретатор");
+        setLoading(false);
+      };
+      document.body.appendChild(script);
+    } catch (e) {
+      console.error("Ошибка загрузки Pyodide:", e);
+      message.error("Не удалось загрузить Python-интерпретатор");
+      setLoading(false);
+    }
+  };
 
   const handleFileUpload = async (file: File) => {
     try {
@@ -26,21 +69,54 @@ const TgsToJsonConverter = () => {
     return false;
   };
 
-  const downloadTgs = () => {
-    if (jsonData) {
-      const jsonString = JSON.stringify(jsonData, null, 2);
-
-      const compressed = gzip(jsonString);
-
-      const blob = new Blob([compressed], {
-        type: "application/gzip",
-      });
-      saveAs(blob, `${originalFileName.replace(/\.json$/, "")}.tgs`);
+  const downloadTgs = async () => {
+    if (!jsonData) {
+      return;
     }
+    setLoading(true);
+
+    const jsonString = JSON.stringify(jsonData, null, 2);
+    let blob;
+    if (compressionMode === "js") {
+      const compressed = gzip(jsonString);
+      blob = new Blob([compressed], {type: "application/gzip"});
+    } else if (compressionMode === "python") {
+      if (!pyodide) {
+        message.error("Python-интерпретатор ещё загружается");
+        setLoading(false);
+
+        return;
+      }
+
+      const buffer = new TextEncoder().encode(jsonString);
+      (pyodide as Pyodide).FS.writeFile("input.json", buffer);
+      await (pyodide as Pyodide).runPythonAsync(`
+import gzip
+with open("input.json", "rb") as f_in:
+    with gzip.open("output.tgs", "wb") as f_out:
+        f_out.write(f_in.read())
+      `);
+
+      const result = (pyodide as Pyodide).FS.readFile("output.tgs");
+      blob = new Blob([result], {type: "application/gzip"});
+    }
+
+    if (!blob) {
+      message.error("Ошибка при создании файла!");
+      setLoading(false);
+
+      return;
+    }
+    saveAs(blob, `${originalFileName.replace(/\.json$/, "")}.tgs`);
+    setLoading(false);
   };
 
   return (
     <div>
+      <p style={{opacity: "0.5", fontSize: "0.75rem", textAlign: "center"}}>
+        Конвертация происходит локально на вашем устройстве, качественный результат не
+        гарантируется
+      </p>
       <Upload.Dragger
         accept=".json"
         beforeUpload={handleFileUpload}
@@ -66,11 +142,23 @@ const TgsToJsonConverter = () => {
           </span>
         </div>
       </Upload.Dragger>
-      <p style={{opacity: "0.5", fontSize: "0.75rem", textAlign: "center"}}>
-        Конвертация происходит локально на вашем устройстве. Результат и качество
-        конвертации не гарантируется.
-      </p>
-      {jsonData ? (
+      <div style={{paddingInline: "10px"}}>
+        <Radio.Group
+          style={{
+            justifyContent: "center",
+            display: "flex",
+            gap: "10px",
+            alignItems: "center",
+          }}
+          value={compressionMode}
+          onChange={(e) => setCompressionMode(e.target.value)}
+        >
+          <Radio value="js">js-pako-gzip</Radio>
+          <Radio value="python">python-gzip</Radio>
+        </Radio.Group>
+      </div>
+
+      {jsonData && typeof jsonData === "object" && jsonData !== null && (
         <div
           style={{
             display: "flex",
@@ -96,6 +184,7 @@ const TgsToJsonConverter = () => {
           </motion.button>
           <motion.button
             className="modal-open-button"
+            disabled={loading}
             style={{flexGrow: 3}}
             whileHover={{
               scale: 0.975,
@@ -104,10 +193,10 @@ const TgsToJsonConverter = () => {
             whileTap={{scale: 0.95, opacity: 0.5}}
             onClick={downloadTgs}
           >
-            Скачать преобразованный TGS
+            {loading ? <Spin size="small" /> : "Скачать TGS"}
           </motion.button>
         </div>
-      ) : null}
+      )}
     </div>
   );
 };
