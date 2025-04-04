@@ -39,6 +39,10 @@ const TgsToJsonConverter = () => {
 
   return (
     <div>
+      <p style={{opacity: "0.5", fontSize: "0.75rem", textAlign: "center"}}>
+        Конвертация происходит локально на вашем устройстве, качественный результат не
+        гарантируется
+      </p>
       <Upload.Dragger
         accept=".tgs"
         beforeUpload={handleFileUpload}
@@ -64,10 +68,6 @@ const TgsToJsonConverter = () => {
           </span>
         </div>
       </Upload.Dragger>
-      <p style={{opacity: "0.5", fontSize: "0.75rem", textAlign: "center"}}>
-        Конвертация происходит локально на вашем устройстве. Результат и качество
-        конвертации не гарантируется.
-      </p>
       {jsonData ? (
         <div
           style={{
