@@ -14,8 +14,8 @@ const AEExportProblems: React.FC = () => {
     <div className="faq-content">
       <GithubUpdateInfo filePath="src/pages/sections/aefaq/ExportProblems.tsx" />
       <DetailsSummary
-        title="Почему при экспорте в .mp4 через встроенный кодек H.264 сохраняется файл с размером в 1 Кб?"
         tag="не экспортируется, битый файл"
+        title="Почему при экспорте в .mp4 через встроенный кодек H.264 сохраняется файл с размером в 1 Кб?"
       >
         <p>
           В ранних версиях <mark className="app">After Effects</mark> версии{" "}
@@ -39,8 +39,8 @@ const AEExportProblems: React.FC = () => {
         </p>
       </DetailsSummary>
       <DetailsSummary
-        title="После экспорта у меня изменились цвета. Как избежать изменения цветов?"
         tag="исходник с айфона, hlg, rec709"
+        title="После экспорта у меня изменились цвета. Как избежать изменения цветов?"
       >
         <Divider>Проверяем рабочее цветовое пространство</Divider>
         <p>
@@ -53,10 +53,10 @@ const AEExportProblems: React.FC = () => {
           <mark>None</mark>.
         </p>
         <ImageFigure
-          styleClass="figure_windows-dark"
+          caption="Project Settings"
           imgSrc="images/aftereffects/change_working_color_space.png"
           imgTitle="Изменение цветового профиля"
-          caption="Project Settings"
+          styleClass="figure_windows-dark"
         />
         <Divider>Изменение цветов из-за особенностей кодека для вывода</Divider>
         <p>
@@ -99,15 +99,15 @@ const AEExportProblems: React.FC = () => {
           </ul>
         </AdditionInfo>
         <ImageFigure
-          styleClass="figure_macos-dark"
+          caption="Shutter Encoder"
           imgSrc="images/shutter_encoder_interface.png"
           imgTitle="Интерфейс Shutter Encoder"
-          caption="Shutter Encoder"
+          styleClass="figure_macos-dark"
         />
       </DetailsSummary>
       <DetailsSummary
-        title="Почему в предпросмотре Media Encoder и после экспорта видео смещается влево или вправо?"
         tag="медиаенкодер, медиаэнкодер, переместилось"
+        title="Почему в предпросмотре Media Encoder и после экспорта видео смещается влево или вправо?"
       >
         <p>
           Проверьте текущую версию программ, которыми вы пользуетесь. Вполне вероятно, что
@@ -126,8 +126,8 @@ const AEExportProblems: React.FC = () => {
         </AdditionInfo>
       </DetailsSummary>
       <DetailsSummary
-        title="Почему моя композиция плющится в предпросмотре и после экспорта?"
         tag="растянулось, соотношения пикселя, стандарт пикселя"
+        title="Почему моя композиция плющится в предпросмотре и после экспорта?"
       >
         <Divider>Проверяем настройки композиции</Divider>
         <p>
@@ -140,10 +140,10 @@ const AEExportProblems: React.FC = () => {
           <mark className="ui">Pixel Aspect Ratio</mark>.
         </p>
         <ImageFigure
-          styleClass="figure_windows-dark"
+          caption="Composition Settings"
           imgSrc="images/aftereffects/change_pixel_aspect_ratio.png"
           imgTitle="Изменение соотношения пикселей"
-          caption="Composition Settings"
+          styleClass="figure_windows-dark"
         />
         <Divider>Включаем коррекцию предпросмотра под размер пикселя</Divider>
         <p>
@@ -156,15 +156,15 @@ const AEExportProblems: React.FC = () => {
           результатами после вывода.
         </p>
         <ImageFigure
-          styleClass="figure_windows-dark"
+          caption="Composition"
           imgSrc="images/aftereffects/enable_pixel_ratio_correction.png"
           imgTitle="Включение коррекции предпросмотра под размер пикселя"
-          caption="Composition"
+          styleClass="figure_windows-dark"
         />
       </DetailsSummary>
       <DetailsSummary
-        title="Почему композиция с Element 3D экспортируется с мерцаниями?"
         tag="элемент 3д, фликерит"
+        title="Почему композиция с Element 3D экспортируется с мерцаниями?"
       >
         <p>
           Это может происходить из-за того, что в настройках вашей композиции указан FPS с
@@ -174,14 +174,14 @@ const AEExportProblems: React.FC = () => {
           <mark>60</mark>.
         </p>
         <VideoFigure
+          caption="Изменение FPS у композиции"
           styleClass="figure_windows-dark"
           videoSrc="images/aftereffects/change_fps_comp.mp4"
-          caption="Изменение FPS у композиции"
         />
       </DetailsSummary>
       <DetailsSummary
-        title="Экспортировал композицию и вижу в результате ужасный ступенчатый градиент. Как мне от него избавиться?"
         tag="колор бендинг, полоски, цвет, шум, глубина цвета"
+        title="Экспортировал композицию и вижу в результате ужасный ступенчатый градиент. Как мне от него избавиться?"
       >
         <p>
           Поздравляю, вы столкнулись с понятием{" "}
@@ -190,9 +190,9 @@ const AEExportProblems: React.FC = () => {
           сделать плавный неконтрастный градиент или смешать два цвета между собой.
         </p>
         <VideoFigure
+          caption="Полосатость в градиенте, эффект был усилен через Posterize"
           styleClass="figure_windows-dark"
           videoSrc="images/aftereffects/color_banding_example.mp4"
-          caption="Полосатость в градиенте, эффект был усилен через Posterize"
         />
         <p>
           Это происходит из-за недостаточной цветовой глубины, так как 8-битное
@@ -202,8 +202,8 @@ const AEExportProblems: React.FC = () => {
           <mark className="video">H.264</mark>.
         </p>
         <YouTubeVideo
-          link="h9j89L8eQQk"
           caption="Почему тёмные видео превращаются в кашу?"
+          link="h9j89L8eQQk"
         />
         <AdditionDanger>
           Способы решения, описанные ниже, не позволят вам полностью избавиться от
@@ -228,10 +228,10 @@ const AEExportProblems: React.FC = () => {
           .
         </AdditionWarning>
         <ImageFigure
-          styleClass="figure_windows-dark"
+          caption="Project Settings"
           imgSrc="images/aftereffects/change_bit_depth.png"
           imgTitle="Изменяем битность в проекте"
-          caption="Project Settings"
+          styleClass="figure_windows-dark"
         />
         <Divider>Подавляем полосатость с помощью генерации шума</Divider>
         <p>
@@ -256,8 +256,8 @@ const AEExportProblems: React.FC = () => {
         </AdditionInfo>
       </DetailsSummary>
       <DetailsSummary
-        title="Почему я не могу экспортировать видео с нечётным разрешением?"
         tag="odd resolution"
+        title="Почему я не могу экспортировать видео с нечётным разрешением?"
       >
         <p>
           Из-за технических ограничений кодеков <mark className="video">H.264</mark> и{" "}
@@ -266,10 +266,10 @@ const AEExportProblems: React.FC = () => {
           чётными значениями пикселей.
         </p>
         <ImageFigure
-          styleClass="figure_windows-light"
+          caption="Ошибка в AfterCodecs при экспорте с нечётным разрешением"
           imgSrc="images/odd_resolution_error.png"
           imgTitle="Ошибка экспорта с нечётным разрешением"
-          caption="Ошибка в AfterCodecs при экспорте с нечётным разрешением"
+          styleClass="figure_windows-light"
         />
         <p>
           Для решения проблемы при экспорте вам достаточно указать чётное значение
@@ -281,8 +281,8 @@ const AEExportProblems: React.FC = () => {
         </p>
       </DetailsSummary>
       <DetailsSummary
-        title="Как экспортировать композицию, если рендер сбоит на конкретном участке?"
         tag="крашится, останавливается сохранение, создание прокси"
+        title="Как экспортировать композицию, если рендер сбоит на конкретном участке?"
       >
         <p>
           Если вы испытываете проблемы с экспортом на определённом промежутке композиции,
@@ -304,9 +304,9 @@ const AEExportProblems: React.FC = () => {
           <mark className="ui">Set Proxy &gt; File</mark>.
         </p>
         <VideoFigure
+          caption="Создание прокси для композиций"
           styleClass="figure_windows-dark"
           videoSrc="images/aftereffects/create_comp_proxy.mp4"
-          caption="Создание прокси для композиций"
         />
         <AdditionInfo>
           Для создания прокси лучше указать формат QuickTime в кодеке{" "}
@@ -322,14 +322,14 @@ const AEExportProblems: React.FC = () => {
           экспорт как обычно.
         </p>
         <VideoFigure
+          caption="Настройка использования прокси в финальном рендере"
           styleClass="figure_windows-dark"
           videoSrc="images/aftereffects/use_all_proxies.mp4"
-          caption="Настройка использования прокси в финальном рендере"
         />
       </DetailsSummary>
       <DetailsSummary
-        title="Почему после экспорта в видеофайл отсутствует звук в видео?"
         tag="нет аудио"
+        title="Почему после экспорта отсутствует звук в видео?"
       >
         <p>
           Скорее всего вы столкнулись с редким багом, связанный с кривой автоматикой
@@ -342,10 +342,10 @@ const AEExportProblems: React.FC = () => {
           мессенджерах, например <mark className="app">Telegram</mark>.
         </p>
         <ImageFigure
-          styleClass="figure_windows-dark"
+          caption="Output Module Settings"
           imgSrc="images/aftereffects/audio_output_on.png"
           imgTitle="Принудительно включаем вывод звука"
-          caption="Output Module Settings"
+          styleClass="figure_windows-dark"
         />
         <p>
           Если это не помогло, то попробуйте вывести звук из вашей композиции отдельно в
@@ -354,8 +354,8 @@ const AEExportProblems: React.FC = () => {
         </p>
       </DetailsSummary>
       <DetailsSummary
-        title="Как сжать экспортированное видео без сильной потери качества или до определённого веса?"
         tag="конвертация, шаттер енкодер, сжатие видео, квантование, cqr"
+        title="Как сжать экспортированное видео без сильной потери качества или до определённого веса?"
       >
         <p>
           При экспорте какой-нибудь композиции из{" "}
@@ -401,10 +401,10 @@ const AEExportProblems: React.FC = () => {
           Там можно выбрать три варианта для кодирования.
         </p>
         <ImageFigure
-          styleClass="figure_macos-dark"
+          caption="Shutter Encoder"
           imgSrc="images/shutter_encoder_interface.png"
           imgTitle="Интерфейс Shutter Encoder"
-          caption="Shutter Encoder"
+          styleClass="figure_macos-dark"
         />
         <ul>
           <li>

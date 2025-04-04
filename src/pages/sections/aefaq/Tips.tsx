@@ -6,7 +6,7 @@ import {
   AdditionInfo,
   AdditionWarning,
 } from "../../../components/Additions";
-import ContentSwitcher from "../../../components/features/OperatingSystemFilter";
+import ContentSwitcher from "../../../components/features/ContentFilter";
 import {VideoFigure, YouTubeVideo} from "../../../components/ContentFigure";
 import {Divider} from "antd";
 
@@ -15,8 +15,8 @@ const AETips: React.FC = () => {
     <div className="faq-content">
       <GithubUpdateInfo filePath="src/pages/sections/aefaq/Tips.tsx" />
       <DetailsSummary
-        title="Как мне сделать историю изменений файлов и откатываться до предыдущих версий проекта в случае необходимости?"
         tag="бекап, резервное копирование, возврат, вернуть, восстановить, облачное хранилище, облако, яндекс диск, журнал файлов"
+        title="Как мне сделать историю изменений файлов и откатываться до предыдущих версий проекта в случае необходимости?"
       >
         <p>
           Вы, наверное, не раз натыкались на случаи, когда сделали какую-то правку, а
@@ -66,6 +66,23 @@ const AETips: React.FC = () => {
           необходимо включить. Обычно для работы этой функции нужен внешний накопитель.
         </p>
         <ContentSwitcher
+          macContent={
+            <div>
+              <p>
+                В macOS функция бэкапа файлов называется{" "}
+                <mark className="app">Time Machine</mark>, которая создаёт снапшот вашей
+                системы и файлов каждый час или по нажатию кнопки создания бэкапа.
+              </p>
+              <AdditionWarning>
+                Для работы данной функции нужен внешний накопитель, желательно с объёмом
+                от 512 Гб и более.
+              </AdditionWarning>
+              <YouTubeVideo
+                caption="How to Set up & Use Time Machine to Backup your Mac"
+                link="Gx76i28c150"
+              />
+            </div>
+          }
           windowsContent={
             <div>
               <p>
@@ -77,8 +94,8 @@ const AETips: React.FC = () => {
                 сохранять копии файлов в разделе <mark className="ui">Смена диска</mark>.
               </AdditionInfo>
               <YouTubeVideo
-                link="IIgxtSnURoA"
                 caption="История файлов в Windows 10"
+                link="IIgxtSnURoA"
               />
               <p>
                 В настройках этой функции можно установить интервал сохранения от 10 минут
@@ -113,23 +130,6 @@ const AETips: React.FC = () => {
               </AdditionInfo>
             </div>
           }
-          macContent={
-            <div>
-              <p>
-                В macOS функция бэкапа файлов называется{" "}
-                <mark className="app">Time Machine</mark>, которая создаёт снапшот вашей
-                системы и файлов каждый час или по нажатию кнопки создания бэкапа.
-              </p>
-              <AdditionWarning>
-                Для работы данной функции нужен внешний накопитель, желательно с объёмом
-                от 512 Гб и более.
-              </AdditionWarning>
-              <YouTubeVideo
-                link="Gx76i28c150"
-                caption="How to Set up & Use Time Machine to Backup your Mac"
-              />
-            </div>
-          }
         />
         <p>
           Самый крайний способ для контроля версий ваших файлов, если у вас нет желания
@@ -160,8 +160,8 @@ const AETips: React.FC = () => {
         </AdditionInfo>
       </DetailsSummary>
       <DetailsSummary
-        title="Какие плагины мне стоит поставить в первую очередь для программы?"
         tag="рекомендация, топ, твикстор, рсмб, мбл, борисфх, трапкод, флоу, тру комп дупликатор, юниверс, mbl"
+        title="Какие плагины мне стоит поставить в первую очередь для программы?"
       >
         <AdditionWarning>
           Сразу хочу{" "}
@@ -266,8 +266,8 @@ const AETips: React.FC = () => {
         </ul>
       </DetailsSummary>
       <DetailsSummary
-        title="Хочу обновиться с одного года программы на другой. Как мне перенести плагины без танцев с бубнами?"
         tag="обновление, перенос плагинов, новая версия"
+        title="Хочу обновиться с одного года программы на другой. Как мне перенести плагины без танцев с бубнами?"
       >
         <AdditionDanger>
           Данный способ обновления не гарантирует 100% стабильность работы новой версии
@@ -309,8 +309,8 @@ const AETips: React.FC = () => {
         </AdditionInfo>
       </DetailsSummary>
       <DetailsSummary
-        title="Как сократить время повторного экспорта, если заказчик попросил внести небольшие правки?"
         tag="прокси, proxy composition, ускорение времени рендера, уменьшение перепросчёта, пререндер, prerender"
+        title="Как сократить время повторного экспорта, если заказчик попросил внести небольшие правки?"
       >
         <p>
           В <mark className="app">After Effects</mark> можно создавать прокси для нужных
@@ -332,9 +332,9 @@ const AETips: React.FC = () => {
           <mark className="ui">Set Proxy &gt; File</mark>.
         </p>
         <VideoFigure
+          caption="Создание прокси для композиций"
           styleClass="figure_windows-dark"
           videoSrc="images/aftereffects/create_comp_proxy.mp4"
-          caption="Создание прокси для композиций"
         />
         <AdditionInfo>
           Для создания прокси лучше указать формат QuickTime в кодеке{" "}
@@ -349,9 +349,9 @@ const AETips: React.FC = () => {
           экспортировать композицию заново с использованием прокси.
         </p>
         <VideoFigure
+          caption="Настройка использования прокси в финальном рендере"
           styleClass="figure_windows-dark"
           videoSrc="images/aftereffects/use_all_proxies.mp4"
-          caption="Настройка использования прокси в финальном рендере"
         />
       </DetailsSummary>
       <DetailsSummary title="Какой компьютер или ноутбук стоит взять для работы в After Effects?">
@@ -708,6 +708,24 @@ const AETips: React.FC = () => {
           нескольких инстанций программы.
         </p>
         <ContentSwitcher
+          macContent={
+            <div>
+              <p>
+                Чтобы открыть ещё один экземпляр - вам нужно перейти в{" "}
+                <mark className="path">~/Library/Applications/After Effects 20XX</mark>,
+                затем нажать <mark className="key">ПКМ</mark> по{" "}
+                <mark className="app">Adobe After Effects 20XX</mark> и выбрать{" "}
+                <mark className="ui">Показать содержимое пакета</mark>. После открытия
+                содержимого перейдите в <mark className="ui">Contents/MacOS</mark> и
+                нажмите два раза по файлу <mark className="app">After Effects</mark>. У
+                вас должна открыться консоль и открыться ещё один экземпляр программы.
+              </p>
+              <YouTubeVideo
+                caption="Как открыть несколько инстанций After Effects"
+                link="k1x1goE2F10"
+              />
+            </div>
+          }
           windowsContent={
             <div>
               <p>
@@ -722,35 +740,17 @@ const AETips: React.FC = () => {
                 работать с ними как обычно.
               </p>
               <VideoFigure
+                caption="Включение множественных экземпляров After Effects"
                 styleClass="figure_windows-dark"
                 videoSrc="images/aftereffects/enable_multiple_ae_instances.mp4"
-                caption="Включение множественных экземпляров After Effects"
-              />
-            </div>
-          }
-          macContent={
-            <div>
-              <p>
-                Чтобы открыть ещё один экземпляр - вам нужно перейти в{" "}
-                <mark className="path">~/Library/Applications/After Effects 20XX</mark>,
-                затем нажать <mark className="key">ПКМ</mark> по{" "}
-                <mark className="app">Adobe After Effects 20XX</mark> и выбрать{" "}
-                <mark className="ui">Показать содержимое пакета</mark>. После открытия
-                содержимого перейдите в <mark className="ui">Contents/MacOS</mark> и
-                нажмите два раза по файлу <mark className="app">After Effects</mark>. У
-                вас должна открыться консоль и открыться ещё один экземпляр программы.
-              </p>
-              <YouTubeVideo
-                link="k1x1goE2F10"
-                caption="Как открыть несколько инстанций After Effects"
               />
             </div>
           }
         />
       </DetailsSummary>
       <DetailsSummary
-        title="Как я могу создать свой пресет с своими эффектами на слое и передать другому человеку?"
         tag="presets, ffx, пресеты"
+        title="Как я могу создать свой пресет с своими эффектами на слое и передать другому человеку?"
       >
         <p>
           <mark className="word">Пресеты</mark> - это набор эффектов с заданными
@@ -768,9 +768,9 @@ const AETips: React.FC = () => {
           путь и название для сохранения пресета.
         </p>
         <VideoFigure
+          caption="Создание пресета"
           styleClass="figure_windows-dark"
           videoSrc="images/aftereffects/save_animation_preset.mp4"
-          caption="Создание пресета"
         />
         <p>
           Теперь, когда у вас есть сохранённый пресет, им можно поделиться с другими

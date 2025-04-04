@@ -7,7 +7,7 @@ import {
 } from "../../../components/Additions";
 import {YouTubeVideo} from "../../../components/ContentFigure";
 import DetailsSummary from "../../../components/DetailsSummary";
-import ContentSwitcher from "../../../components/features/OperatingSystemFilter";
+import ContentSwitcher from "../../../components/features/ContentFilter";
 import {Divider} from "antd";
 
 const PRTips: React.FC = () => {
@@ -63,6 +63,23 @@ const PRTips: React.FC = () => {
           необходимо включить. Обычно для работы этой функции нужен внешний накопитель.
         </p>
         <ContentSwitcher
+          macContent={
+            <div>
+              <p>
+                В macOS функция бэкапа файлов называется{" "}
+                <mark className="app">Time Machine</mark>, которая создаёт снапшот вашей
+                системы и файлов каждый час или по нажатию кнопки создания бэкапа.
+              </p>
+              <AdditionWarning>
+                Для работы данной функции нужен внешний накопитель, желательно с объёмом
+                от 512 Гб и более.
+              </AdditionWarning>
+              <YouTubeVideo
+                caption="How to Set up & Use Time Machine to Backup your Mac"
+                link="Gx76i28c150"
+              />
+            </div>
+          }
           windowsContent={
             <div>
               <p>
@@ -74,8 +91,8 @@ const PRTips: React.FC = () => {
                 сохранять копии файлов в разделе <mark className="ui">Смена диска</mark>.
               </AdditionInfo>
               <YouTubeVideo
-                link="IIgxtSnURoA"
                 caption="История файлов в Windows 10"
+                link="IIgxtSnURoA"
               />
               <p>
                 В настройках этой функции можно установить интервал сохранения от 10 минут
@@ -110,23 +127,6 @@ const PRTips: React.FC = () => {
               </AdditionInfo>
             </div>
           }
-          macContent={
-            <div>
-              <p>
-                В macOS функция бэкапа файлов называется{" "}
-                <mark className="app">Time Machine</mark>, которая создаёт снапшот вашей
-                системы и файлов каждый час или по нажатию кнопки создания бэкапа.
-              </p>
-              <AdditionWarning>
-                Для работы данной функции нужен внешний накопитель, желательно с объёмом
-                от 512 Гб и более.
-              </AdditionWarning>
-              <YouTubeVideo
-                link="Gx76i28c150"
-                caption="How to Set up & Use Time Machine to Backup your Mac"
-              />
-            </div>
-          }
         />
         <p>
           Самый крайний способ для контроля версий ваших файлов, если у вас нет желания
@@ -149,8 +149,8 @@ const PRTips: React.FC = () => {
         </p>
       </DetailsSummary>
       <DetailsSummary
-        title="Какие плагины и инструменты мне стоит поставить в первую очередь для программы?"
         tag="рекомендация, топ, борисфх, твикстор, рсмб, юниверс, мбл, mbl"
+        title="Какие плагины и инструменты мне стоит поставить в первую очередь для программы?"
       >
         <AdditionWarning>
           Сразу хочу{" "}
@@ -325,8 +325,8 @@ const PRTips: React.FC = () => {
         </ul>
       </DetailsSummary>
       <DetailsSummary
-        title="Как сократить время повторного экспорта, если заказчик попросил внести небольшие правки?"
         tag="previews, ускорение времени рендера, уменьшение перепросчёта, пререндер, prerender"
+        title="Как сократить время повторного экспорта, если заказчик попросил внести небольшие правки?"
       >
         <p>
           Если вы хотите сократить время рендера при небольших правках от заказчика, то вы

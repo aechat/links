@@ -7,7 +7,7 @@ import {
   AdditionWarning,
 } from "../../../components/Additions";
 import {ImageFigure, VideoFigure, YouTubeVideo} from "../../../components/ContentFigure";
-import TgsToJsonConverter from "../../../components/features/TgsToJsonConverter";
+import TgsToJsonConverter from "../../../components/features/ConverterTgsToJson";
 import {Divider} from "antd";
 
 const AEImport: React.FC = () => {
@@ -15,8 +15,8 @@ const AEImport: React.FC = () => {
     <div className="faq-content">
       <GithubUpdateInfo filePath="src/pages/sections/aefaq/Import.tsx" />
       <DetailsSummary
-        title="Какие действия нужно совершить с чужими исходниками, прежде чем начать работу?"
         tag="пайплайн, импорт, конвертация, внятный кодек, шаттер енкодер, видео из айфона"
+        title="Какие действия нужно совершить с чужими исходниками, прежде чем начать работу?"
       >
         <p>
           Прежде чем начать создавать композиции и импортировать файлы в{" "}
@@ -66,10 +66,10 @@ const AEImport: React.FC = () => {
           артефактов от последствий кривого кодирования до вас.
         </p>
         <ImageFigure
-          styleClass="figure_windows-dark"
+          caption="Терминал - MediaInfo-CLI"
           imgSrc="images/mediainfo_example.png"
           imgTitle="Пример открытого в MediaInfo файла"
-          caption="Терминал - MediaInfo-CLI"
+          styleClass="figure_windows-dark"
         />
         <p>
           Для того, чтобы начать процесс перекодирования ваших исходников, вам нужно
@@ -89,10 +89,10 @@ const AEImport: React.FC = () => {
           ней для перекодирования исходников нужно сделать лишь несколько действий.
         </p>
         <ImageFigure
-          styleClass="figure_macos-dark"
+          caption="Shutter Encoder"
           imgSrc="images/shutter_encoder_interface.png"
           imgTitle="Интерфейс Shutter Encoder"
-          caption="Shutter Encoder"
+          styleClass="figure_macos-dark"
         />
         <ul>
           <li>
@@ -167,10 +167,10 @@ const AEImport: React.FC = () => {
           менеджере.
         </p>
         <ImageFigure
-          styleClass="figure_windows-dark"
+          caption="After Effects"
           imgSrc="images/aftereffects/replace_footage.png"
           imgTitle="Замена исходника в проекте"
-          caption="After Effects"
+          styleClass="figure_windows-dark"
         />
         <p>
           Вот и всё, удачной работы с проектом! И да, лучше перекодировать, чем
@@ -183,8 +183,8 @@ const AEImport: React.FC = () => {
         </AdditionInfo>
       </DetailsSummary>
       <DetailsSummary
-        title="Почему у меня появляются различные артефакты в предпросмотре?"
         tag="зелёный экран, зелень, дергается изображение, полосы, глитчи, артефакты, глюки, искажения, исходники из интернета в кодеке H.264, скачано из ютуба"
+        title="Почему у меня появляются различные артефакты в предпросмотре?"
       >
         <p>
           Если вы работаете с композицией и со временем у вас начинаются появляться в
@@ -208,9 +208,9 @@ const AEImport: React.FC = () => {
           дальнейшей работе. Очистка кэша в данном случае не всегда помогает.
         </p>
         <VideoFigure
+          caption="Пример артефактов кривого исходника из просторов интернета"
           styleClass="figure_windows-light"
           videoSrc="images/h264_artifacts.webm"
-          caption="Пример артефактов кривого исходника из просторов интернета"
         />
         <p>
           Чтобы с такими видео из интернета можно было спокойно работать - вам нужно
@@ -224,10 +224,10 @@ const AEImport: React.FC = () => {
           <mark className="app">Media Encoder</mark>.
         </p>
         <ImageFigure
-          styleClass="figure_macos-dark"
+          caption="Shutter Encoder"
           imgSrc="images/convert_to_prores_shutterencoder.png"
           imgTitle="Конвертируем в ProRes через Shutter Encoder"
-          caption="Shutter Encoder"
+          styleClass="figure_macos-dark"
         />
         <p>
           Если вы столкнулись с проблемой, когда вместо исходника появляется зеленая
@@ -239,10 +239,10 @@ const AEImport: React.FC = () => {
           встроенным в процессор видеочипом AMD.
         </p>
         <ImageFigure
-          styleClass="figure_windows-dark"
+          caption="Preferences"
           imgSrc="images/aftereffects/disable_hardware_accelerated_decoding.png"
           imgTitle="Отключение аппаратного декодирования в настройках"
-          caption="Preferences"
+          styleClass="figure_windows-dark"
         />
         <p>
           Если вы напрочь отказываетесь от перекодирования по каким-то причинам, то вы
@@ -311,8 +311,8 @@ const AEImport: React.FC = () => {
         </p>
       </DetailsSummary>
       <DetailsSummary
-        title="Почему я не могу импортировать .psd по слоям? After Effects не предлагает мне выбор типа импорта!"
         tag="фотошоп, псд, не появляется окно"
+        title="Почему я не могу импортировать .psd по слоям? After Effects не предлагает мне выбор типа импорта!"
       >
         <p>
           Такое бывает, когда вы сохраняете в <mark className="app">Photoshop</mark> файл
@@ -326,10 +326,10 @@ const AEImport: React.FC = () => {
           <mark className="app">Photoshop</mark> и посмотреть на его заголовок.
         </p>
         <ImageFigure
-          styleClass="figure_windows-light"
+          caption="Photoshop"
           imgSrc="images/aftereffects/tab_in_photoshop.png"
           imgTitle="Проверяем цветовой режим в Photoshop"
-          caption="Photoshop"
+          styleClass="figure_windows-light"
         />
         <p>
           Если в заголовке написано <mark>CMYK</mark>, <mark>Grayscale</mark> или что-то
@@ -339,10 +339,10 @@ const AEImport: React.FC = () => {
           <mark className="ui">RGB Color</mark>.
         </p>
         <ImageFigure
-          styleClass="figure_windows-light"
+          caption="Photoshop"
           imgSrc="images/aftereffects/photoshop_switch_to_rgb.png"
           imgTitle="Переключаем цветовой режим на RGB в Photoshop"
-          caption="Photoshop"
+          styleClass="figure_windows-light"
         />
         <AdditionWarning>
           Если появится окно с вопросом{" "}
@@ -363,10 +363,10 @@ const AEImport: React.FC = () => {
           <mark className="app">After Effects</mark>.
         </p>
         <ImageFigure
-          styleClass="figure_windows-dark"
+          caption="filename.psd"
           imgSrc="images/aftereffects/correct_import_psd.png"
           imgTitle="Корректный импорт PSD в After Effects"
-          caption="filename.psd"
+          styleClass="figure_windows-dark"
         />
         <p>
           Если этот способ вам не помог или вас не устраивают цвета после изменения
@@ -376,10 +376,10 @@ const AEImport: React.FC = () => {
           <mark className="ui">Layers to Files</mark>.
         </p>
         <ImageFigure
-          styleClass="figure_windows-light"
+          caption="Photoshop"
           imgSrc="images/aftereffects/photoshop_layers_to_files.png"
           imgTitle="Пункт для начала экспорта слоёв в файлы"
-          caption="Photoshop"
+          styleClass="figure_windows-light"
         />
         <p>
           В открывшемся окне вы можете указать путь для сохранения файлов, название и тип
@@ -387,10 +387,10 @@ const AEImport: React.FC = () => {
           <mark className="ui">OK</mark> и ваши слои сохранятся как файлы.
         </p>
         <ImageFigure
-          styleClass="figure_windows-light"
+          caption="Photoshop"
           imgSrc="images/aftereffects/photoshop_export_layers.png"
           imgTitle="Экспорт слоёв в файлы"
-          caption="Photoshop"
+          styleClass="figure_windows-light"
         />
         <p>
           После экспорта слоёв как отдельные слои, вы сможете их импортировать в{" "}
@@ -398,8 +398,8 @@ const AEImport: React.FC = () => {
         </p>
       </DetailsSummary>
       <DetailsSummary
-        title="Импортирую пачку изображений как секвенцию, но она получилась короче/длиннее чем нужно или с неверным FPS. Как исправить?"
         tag="фпс, частота кадров, интерпретация"
+        title="Импортирую пачку изображений как секвенцию, но она получилась короче/длиннее чем нужно или с неверным FPS. Как исправить?"
       >
         <p>
           При импорте картинок, как секвенция, задаётся фреймрейт, который указан в ваших
@@ -410,10 +410,10 @@ const AEImport: React.FC = () => {
           будет применяться при следующем импорте секвенций из картинок.
         </p>
         <ImageFigure
-          styleClass="figure_windows-dark"
+          caption="Preferences"
           imgSrc="images/aftereffects/change_fps_sequence_footage.png"
           imgTitle="Настройки импорта секвенций"
-          caption="Preferences"
+          styleClass="figure_windows-dark"
         />
         <p>
           Если вам нужно преобразовать из одного фреймрейта в другой уже импортированную
@@ -425,15 +425,15 @@ const AEImport: React.FC = () => {
           количество кадров в секунду.
         </p>
         <ImageFigure
-          styleClass="figure_windows-dark"
+          caption="Interpret Footage"
           imgSrc="images/aftereffects/interpret_footage_main.png"
           imgTitle="Интерпретация футажа"
-          caption="Interpret Footage"
+          styleClass="figure_windows-dark"
         />
       </DetailsSummary>
       <DetailsSummary
-        title="Импортировал исходник с переменным FPS. Почему длина исходника в After Effects короче, чем в видео-проигрывателе?"
         tag="переменный фпс, пропуски кадров"
+        title="Импортировал исходник с переменным FPS. Почему длина исходника в After Effects короче, чем в видео-проигрывателе?"
       >
         <p>
           <mark className="app">After Effects</mark> при импорте преобразует все кадры у
@@ -451,10 +451,10 @@ const AEImport: React.FC = () => {
           количество кадров в секунду.
         </p>
         <ImageFigure
-          styleClass="figure_windows-dark"
+          caption="Interpret Footage"
           imgSrc="images/aftereffects/interpret_footage_main.png"
           imgTitle="Интерпретация футажа"
-          caption="Interpret Footage"
+          styleClass="figure_windows-dark"
         />
         <p>
           Если это не помогло, то перекодируйте ваш исходник с постоянным FPS через{" "}
@@ -483,10 +483,10 @@ const AEImport: React.FC = () => {
           выбрать нужный файл проекта <mark className="app">Premiere Pro</mark>.
         </p>
         <ImageFigure
-          styleClass="figure_windows-light"
+          caption="After Effects"
           imgSrc="images/aftereffects/import_premiere_pro_project.png"
           imgTitle="Начало импорта секвенций из Premiere Pro"
-          caption="After Effects"
+          styleClass="figure_windows-light"
         />
         <p>
           Далее <mark className="app">After Effects</mark> спросит, какие секвенции нужно
@@ -495,10 +495,10 @@ const AEImport: React.FC = () => {
           секвенцию. Также при желании вы можете отключить импорт аудио-файлов.
         </p>
         <ImageFigure
-          styleClass="figure_windows-dark"
+          caption="Premiere Pro Importer"
           imgSrc="images/aftereffects/premiere_pro_importer.png"
           imgTitle="Импорт секвенций из Premiere Pro"
-          caption="Premiere Pro Importer"
+          styleClass="figure_windows-dark"
         />
         <p>
           После этого в окне <mark className="ui">Project</mark> появится новая папка с
@@ -508,8 +508,8 @@ const AEImport: React.FC = () => {
         </p>
       </DetailsSummary>
       <DetailsSummary
-        title="Как импортировать 3D-объекты формата .obj, .fbx или .glb?"
         tag="3д, элемент 3д, блендер, объемные модели"
+        title="Как импортировать 3D-объекты формата .obj, .fbx или .glb?"
       >
         <p>
           Станадртными средствами в старых версиях программы{" "}
@@ -526,8 +526,8 @@ const AEImport: React.FC = () => {
           вырезан в вашей сборке <mark className="app">After Effects</mark>.
         </AdditionInfo>
         <YouTubeVideo
-          link="Co9V2u0ZZO8"
           caption="Базовый курс по возможностям Element 3D"
+          link="Co9V2u0ZZO8"
         />
         <p>
           Потом позднее, в <mark className="app">After Effects</mark> версий{" "}
@@ -537,13 +537,13 @@ const AEImport: React.FC = () => {
           взаимодействия с ними.
         </p>
         <YouTubeVideo
-          link="Zetbh4p9Z8A"
           caption="Масштабные нововведения для 3D в After Effects"
+          link="Zetbh4p9Z8A"
         />
       </DetailsSummary>
       <DetailsSummary
-        title="Прислали исходники в формате .mkv, .flv или что-то не поддерживаемое программой, но перекодировать я их не хочу. Как мне их импортировать?"
         tag="инфлюкс, без кодирования"
+        title="Прислали исходники в формате .mkv, .flv или что-то не поддерживаемое программой, но перекодировать я их не хочу. Как мне их импортировать?"
       >
         <p>
           <mark className="app">After Effects</mark> и{" "}
@@ -577,8 +577,8 @@ const AEImport: React.FC = () => {
         </p>
       </DetailsSummary>
       <DetailsSummary
-        title="Прислали исходники в формате .heic, .heif или .hevc, но выбивает ошибку. Как их мне открыть и импортировать в проект?"
         tag="исходники видео фото с айфона"
+        title="Прислали исходники в формате .heic, .heif или .hevc, но выбивает ошибку. Как их мне открыть и импортировать в проект?"
       >
         <p>
           Некоторые пользователи, использующие <mark className="app">After Effects</mark>{" "}
@@ -625,10 +625,10 @@ const AEImport: React.FC = () => {
           </li>
         </ul>
         <ImageFigure
-          styleClass="figure_windows-dark"
+          caption="Браузер"
           imgSrc="images/link_generator_msstore.png"
           imgTitle="Генератор ссылок из Microsoft Store"
-          caption="Браузер"
+          styleClass="figure_windows-dark"
         />
         <p>
           После вставки ссылки и нажатия на кнопку <mark className="ui">OK</mark>, нажмите
@@ -655,8 +655,8 @@ const AEImport: React.FC = () => {
         </p>
       </DetailsSummary>
       <DetailsSummary
-        title="Как импортировать анимированный стикер из Telegram как композицию?"
         tag="телеграм, стикеры"
+        title="Как импортировать анимированный стикер из Telegram как композицию?"
       >
         <AdditionWarning>
           При импорте стикеров в формате <mark className="file">.tgs</mark> в некоторых
@@ -681,10 +681,10 @@ const AEImport: React.FC = () => {
           <mark className="ui">Сохранить как</mark>.
         </p>
         <ImageFigure
-          styleClass="figure_windows-dark"
+          caption="Telegram"
           imgSrc="images/download_tgs_from_telegram.png"
           imgTitle="Сохранить стикер как .tgs"
-          caption="Telegram"
+          styleClass="figure_windows-dark"
         />
         <p>
           После того как мы получили <mark className="file">.tgs</mark>, нам нужно его
@@ -720,10 +720,10 @@ const AEImport: React.FC = () => {
           переконвертировали ранее.
         </p>
         <ImageFigure
-          styleClass="figure_windows-dark"
+          caption="Bodymovin"
           imgSrc="images/aftereffects/bodymovin_import_json.png"
           imgTitle="Импортируем .json в After Effects через Bodymovin"
-          caption="Bodymovin"
+          styleClass="figure_windows-dark"
         />
         <p>
           Импорт <mark className="file">.json</mark> в{" "}
@@ -735,10 +735,10 @@ const AEImport: React.FC = () => {
           довольно долгое время, поэтому увы без этого никуда.
         </p>
         <ImageFigure
-          styleClass="figure_windows-dark"
+          caption="After Effects"
           imgSrc="images/aftereffects/gradient_data_bodymovin.png"
           imgTitle="Неперенесенные градиенты в After Effects через Bodymovin"
-          caption="After Effects"
+          styleClass="figure_windows-dark"
         />
         <p>
           Градиенты можно заменить на обычную заливку, если необходимо, или же всё-таки
@@ -747,8 +747,8 @@ const AEImport: React.FC = () => {
         </p>
       </DetailsSummary>
       <DetailsSummary
-        title="Скинули проект, который нельзя открыть в старой версии After Effects, но я не хочу обновляться. Или мне придётся?"
         tag="старая версия, не открывается, обновление, ошибка импорта"
+        title="Скинули проект, который нельзя открыть в старой версии After Effects, но я не хочу обновляться. Или мне придётся?"
       >
         <p>
           Если вы не хотите обновляться на более свежую версию{" "}
@@ -767,8 +767,8 @@ const AEImport: React.FC = () => {
         </p>
       </DetailsSummary>
       <DetailsSummary
-        title='При открытии чужого проекта выскакивает "After Effects warning: X files are missing since you last saved project" и вместо исходников - цветовая палитра. Как мне переподключить исходники?'
         tag="реконнект, потерялись файлы, ошибка импорта"
+        title='При открытии чужого проекта выскакивает "After Effects warning: X files are missing since you last saved project" и вместо исходников - цветовая палитра. Как мне переподключить исходники?'
       >
         <p>
           Для начала убедитесь в том, что вы{" "}
@@ -800,8 +800,8 @@ const AEImport: React.FC = () => {
         </AdditionInfo>
       </DetailsSummary>
       <DetailsSummary
-        title="Как перенести макет из Illustrator в After Effects по слоям и с градиентами?"
         tag="импорт из иллюстратора, градиенты"
+        title="Как перенести макет из Illustrator в After Effects по слоям и с градиентами?"
       >
         <p>
           Предположим, что у вас возникла необходимость перенести файл формата{" "}
@@ -821,9 +821,9 @@ const AEImport: React.FC = () => {
           или только необходимые фигуры на отдельные слои.
         </p>
         <VideoFigure
+          caption="Разбиваем слои в Illustrator"
           styleClass="figure_windows-light"
           videoSrc="images/manual_explode_layer_illustrator.mp4"
-          caption="Разбиваем слои в Illustrator"
         />
         <p>
           Затем после разбивки слоёв, сохраните проект в{" "}
@@ -836,10 +836,10 @@ const AEImport: React.FC = () => {
           <mark className="ui">Document Size</mark>.
         </p>
         <ImageFigure
-          styleClass="figure_windows-dark"
+          caption="File.ai"
           imgSrc="images/aftereffects/import_ai_file.png"
           imgTitle="Импортируем файл Illustrator"
-          caption="File.ai"
+          styleClass="figure_windows-dark"
         />
         <p>
           После импорта вы получите в <mark className="app">After Effects</mark> слои с
@@ -848,9 +848,9 @@ const AEImport: React.FC = () => {
           <mark className="ui">Continuously Rasterize</mark>.
         </p>
         <VideoFigure
+          caption="Импортированые нередактируемые фигуры"
           styleClass="figure_windows-dark"
           videoSrc="images/aftereffects/imported_non_editable_shapes.mp4"
-          caption="Импортированые нередактируемые фигуры"
         />
         <AdditionWarning>
           <ul>
@@ -878,8 +878,8 @@ const AEImport: React.FC = () => {
         </p>
       </DetailsSummary>
       <DetailsSummary
-        title="Как перенести макет из Figma в After Effects?"
         tag="импорт из фигмы, фигма"
+        title="Как перенести макет из Figma в After Effects?"
       >
         <p>
           Макет из онлайн-сервиса <mark className="app">Figma</mark> можно перегнать двумя
@@ -925,10 +925,10 @@ const AEImport: React.FC = () => {
           .
         </p>
         <ImageFigure
-          styleClass="figure_windows-dark"
+          caption="Figma"
           imgSrc="images/figma_install_plugin.png"
           imgTitle="Установка стороннего плагина в Figma"
-          caption="Figma"
+          styleClass="figure_windows-dark"
         />
         <p>
           После успешной установки плагина в <mark className="app">Figma</mark> его можно
@@ -937,10 +937,10 @@ const AEImport: React.FC = () => {
           .
         </p>
         <ImageFigure
-          styleClass="figure_windows-dark"
+          caption="Figma"
           imgSrc="images/figma_run_aeux.png"
           imgTitle="Запуск AEUX в Figma"
-          caption="Figma"
+          styleClass="figure_windows-dark"
         />
         <p>
           Чтобы начать отправку проекта в <mark className="app">After Effects</mark>,
@@ -953,9 +953,9 @@ const AEImport: React.FC = () => {
           ошибку.
         </AdditionWarning>
         <VideoFigure
+          caption="Figma"
           styleClass="figure_windows-dark"
           videoSrc="images/aftereffects/send_figma_to_ae.mp4"
-          caption="Figma"
         />
         <p>
           После нажатия на кнопку переноса - у вас откроется{" "}

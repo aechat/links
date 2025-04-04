@@ -71,6 +71,7 @@ const GithubUpdateInfo: React.FC<GithubUpdateInfoProps> = ({filePath}) => {
 
   return (
     <p
+      dangerouslySetInnerHTML={{__html: commitInfo}}
       style={{
         filter: "saturate(0.5)",
         fontSize: "0.75rem",
@@ -85,7 +86,6 @@ const GithubUpdateInfo: React.FC<GithubUpdateInfoProps> = ({filePath}) => {
         marginBlockEnd: "20px",
         marginInline: "10px",
       }}
-      dangerouslySetInnerHTML={{__html: commitInfo}}
     />
   );
 };

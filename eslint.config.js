@@ -2,6 +2,8 @@ import globals from "globals";
 import pluginJs from "@eslint/js";
 import tseslint from "typescript-eslint";
 import pluginReact from "eslint-plugin-react";
+import pluginJsxA11y from "eslint-plugin-jsx-a11y";
+
 /** @type {import('eslint').Linter.Config[]} */
 export default [
   {
@@ -16,6 +18,11 @@ export default [
   {
     languageOptions: {
       globals: globals.browser,
+    },
+  },
+  {
+    plugins: {
+      "jsx-a11y": pluginJsxA11y,
     },
   },
   pluginJs.configs.recommended,
@@ -72,6 +79,34 @@ export default [
       "space-unary-ops": ["error", {words: true, nonwords: false}],
       "no-console": ["warn", {allow: ["warn", "error"]}],
       "no-multiple-empty-lines": ["error", {max: 1, maxEOF: 1}],
+      "react/jsx-uses-vars": "error",
+      "react/jsx-sort-props": [
+        "error",
+        {
+          callbacksLast: true,
+          shorthandFirst: true,
+          shorthandLast: true,
+          ignoreCase: true,
+          reservedFirst: true,
+        },
+      ],
+      "react/jsx-props-no-spreading": "off",
+      "react/jsx-indent-props": ["error", 2],
+      "react/jsx-indent": ["error", 2],
+      "react/jsx-no-duplicate-props": "error",
+      "react/jsx-no-target-blank": "error",
+      "react/jsx-no-undef": "error",
+      "jsx-a11y/alt-text": "error",
+      "jsx-a11y/anchor-has-content": "error",
+      "jsx-a11y/aria-props": "error",
+      "jsx-a11y/anchor-is-valid": [
+        "error",
+        {
+          components: ["Link"],
+          specialLink: ["to"],
+          aspects: ["noHref", "invalidHref", "preferButton"],
+        },
+      ],
     },
   },
 ];

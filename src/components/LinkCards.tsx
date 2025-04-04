@@ -32,8 +32,8 @@ export const LinkCard: React.FC<LinkCardProps> = ({href, icon, name, description
     >
       <a
         href={href}
-        target="_blank"
         rel="noreferrer"
+        target="_blank"
       >
         <div className="name_container">
           <p className="name">{name}</p>
@@ -69,8 +69,8 @@ export const LinkCardNoDescription: React.FC<LinkCardPropsNoDescription> = ({
     >
       <a
         href={href}
-        target="_blank"
         rel="noreferrer"
+        target="_blank"
       >
         <div className="name_container">
           <p className="name">{name}</p>

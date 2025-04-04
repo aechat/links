@@ -78,99 +78,99 @@ const ImageFigure: React.FC<ImageFigureProps> = ({
   const content = isWindowsStyle ? (
     <div>
       <div
-        onDoubleClick={handleClick}
         className="window-header"
+        onDoubleClick={handleClick}
       >
         <figcaption>{caption}</figcaption>
         <div className="window-controls">
           <button
+            aria-label="Свернуть"
             className="minimize"
             onClick={handleClose}
-            aria-label="Свернуть"
           >
             <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="32"
               height="32"
               viewBox="0 0 24 24"
+              width="32"
+              xmlns="http://www.w3.org/2000/svg"
             >
               <path
-                fill="currentColor"
                 d="M5 20q-.425 0-.713-.288T4 19q0-.425.288-.713T5 18h14q.425 0 .713.288T20 19q0 .425-.288.713T19 20H5Z"
+                fill="currentColor"
               />
             </svg>
           </button>
           <button
+            aria-label="Раскрыть"
             className="maximize"
             onClick={handleMaximize}
-            aria-label="Раскрыть"
           >
             <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="32"
               height="32"
               viewBox="0 0 24 24"
+              width="32"
+              xmlns="http://www.w3.org/2000/svg"
             >
               <path
-                fill="currentColor"
                 d="M6 20q-.825 0-1.413-.588T4 18V6q0-.825.588-1.413T6 4h12q.825 0 1.413.588T20 6v12q0 .825-.588 1.413T18 20H6Zm0-2h12V6H6v12ZM6 6v12V6Z"
+                fill="currentColor"
               />
             </svg>
           </button>
           <button
+            aria-label="Закрыть"
             className="close"
             onClick={handleClose}
-            aria-label="Закрыть"
           >
             <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="32"
               height="32"
               viewBox="0 0 24 24"
+              width="32"
+              xmlns="http://www.w3.org/2000/svg"
             >
               <path
-                fill="currentColor"
                 d="m12 13.4l-4.9 4.9q-.275.275-.7.275t-.7-.275t-.275-.7t.275-.7l4.9-4.9l-4.9-4.9q-.275-.275-.275-.7t.275-.7t.7-.275t.7.275l4.9 4.9l4.9-4.9q.275-.275.7-.275t.7.275t.275.7t-.275.7L13.4 12l4.9 4.9q.275.275.275.7t-.275.7t-.7.275t-.7-.275z"
+                fill="currentColor"
               />
             </svg>
           </button>
         </div>
       </div>
       <img
-        onClick={handleClick}
-        src={imgSrc}
         alt={imgTitle}
+        src={imgSrc}
+        onClick={handleClick}
       />
     </div>
   ) : (
     <div>
       <div
-        onDoubleClick={handleClick}
         className="window-header"
+        onDoubleClick={handleClick}
       >
         <div className="window-controls">
           <button
+            aria-label="Закрыть"
             className="close"
             onClick={handleClose}
-            aria-label="Закрыть"
           ></button>
           <button
+            aria-label="Раскрыть"
             className="maximize"
             onClick={handleMaximize}
-            aria-label="Раскрыть"
           ></button>
           <button
+            aria-label="Свернуть"
             className="minimize"
             onClick={handleClose}
-            aria-label="Свернуть"
           ></button>
         </div>
         <figcaption>{caption}</figcaption>
       </div>
       <img
-        onClick={handleClick}
-        src={imgSrc}
         alt={imgTitle}
+        src={imgSrc}
+        onClick={handleClick}
       />
     </div>
   );
@@ -257,69 +257,69 @@ const VideoFigure: React.FC<VideoFigureProps> = ({styleClass, videoSrc, caption}
   const content = isWindowsStyle ? (
     <div>
       <div
-        onDoubleClick={handleClick}
         className="window-header"
+        onDoubleClick={handleClick}
       >
         <figcaption>{caption}</figcaption>
         <div className="window-controls">
           <button
+            aria-label="Свернуть"
             className="minimize"
             onClick={handleClose}
-            aria-label="Свернуть"
           >
             <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="32"
               height="32"
               viewBox="0 0 24 24"
+              width="32"
+              xmlns="http://www.w3.org/2000/svg"
             >
               <path
-                fill="currentColor"
                 d="M5 20q-.425 0-.713-.288T4 19q0-.425.288-.713T5 18h14q.425 0 .713.288T20 19q0 .425-.288.713T19 20H5Z"
+                fill="currentColor"
               />
             </svg>
           </button>
           <button
+            aria-label="Раскрыть"
             className="maximize"
             onClick={handleMaximize}
-            aria-label="Раскрыть"
           >
             <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="32"
               height="32"
               viewBox="0 0 24 24"
+              width="32"
+              xmlns="http://www.w3.org/2000/svg"
             >
               <path
-                fill="currentColor"
                 d="M6 20q-.825 0-1.413-.588T4 18V6q0-.825.588-1.413T6 4h12q.825 0 1.413.588T20 6v12q0 .825-.588 1.413T18 20H6Zm0-2h12V6H6v12ZM6 6v12V6Z"
+                fill="currentColor"
               />
             </svg>
           </button>
           <button
+            aria-label="Закрыть"
             className="close"
             onClick={handleClose}
-            aria-label="Закрыть"
           >
             <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="32"
               height="32"
               viewBox="0 0 24 24"
+              width="32"
+              xmlns="http://www.w3.org/2000/svg"
             >
               <path
-                fill="currentColor"
                 d="m12 13.4l-4.9 4.9q-.275.275-.7.275t-.7-.275t-.275-.7t.275-.7l4.9-4.9l-4.9-4.9q-.275-.275-.275-.7t.275-.7t.7-.275t.7.275l4.9 4.9l4.9-4.9q.275-.275.7-.275t.7.275t.275.7t-.275.7L13.4 12l4.9 4.9q.275.275.275.7t-.275.7t-.7.275t-.7-.275z"
+                fill="currentColor"
               />
             </svg>
           </button>
         </div>
       </div>
       <video
-        onClick={handleClick}
         controls
         loop
         preload="metadata"
+        onClick={handleClick}
       >
         <source src={videoSrc} />
       </video>
@@ -327,33 +327,33 @@ const VideoFigure: React.FC<VideoFigureProps> = ({styleClass, videoSrc, caption}
   ) : (
     <div>
       <div
-        onDoubleClick={handleClick}
         className="window-header"
+        onDoubleClick={handleClick}
       >
         <div className="window-controls">
           <button
+            aria-label="Закрыть"
             className="close"
             onClick={handleClose}
-            aria-label="Закрыть"
           ></button>
           <button
+            aria-label="Раскрыть"
             className="maximize"
             onClick={handleMaximize}
-            aria-label="Раскрыть"
           ></button>
           <button
+            aria-label="Свернуть"
             className="minimize"
             onClick={handleClose}
-            aria-label="Свернуть"
           ></button>
         </div>
         <figcaption>{caption}</figcaption>
       </div>
       <video
-        onClick={handleClick}
         controls
         loop
         preload="metadata"
+        onClick={handleClick}
       >
         <source src={videoSrc} />
       </video>
@@ -398,9 +398,9 @@ const YouTubeVideo: React.FC<{link: string; caption: string}> = ({link, caption}
           </figcaption>
         </div>
         <iframe
+          allowFullScreen
           src={`https://www.youtube.com/embed/${id}`}
           title={caption}
-          allowFullScreen
         />
       </figure>
     </div>

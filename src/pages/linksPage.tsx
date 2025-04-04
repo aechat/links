@@ -50,25 +50,25 @@ const Links = () => {
       <Helmet>
         <title>links@aechat</title>
         <link
+          href="icons/favicon.svg"
           rel="icon"
           type="image/svg+xml"
-          href="icons/favicon.svg"
         />
       </Helmet>
       <Header title="links" />
       <motion.main
-        className="main"
-        initial={{x: 100, opacity: 0}}
         animate={{x: 0, opacity: 1}}
+        className="main"
         exit={{x: -50, opacity: 0}}
+        initial={{x: 100, opacity: 0}}
         transition={{
           duration: 0.3,
           ease: [0.25, 0, 0, 1],
         }}
       >
         <div
-          style={{display: "none"}}
           className="logo-container"
+          style={{display: "none"}}
         >
           <h1 className="logo-title">links@aechat</h1>
           <p className="logo-slogan">Собрали полезные ссылки для вас</p>
@@ -77,148 +77,148 @@ const Links = () => {
           <Divider>Ответы на частые вопросы</Divider>
           <div className="links-grid">
             <LinkInAppCard
+              description="Преодолеваем трудности при работе с After Effects"
               href="/aefaq"
               icon={<AEIcon />}
               name="aefaq"
-              description="Преодолеваем трудности при работе с After Effects"
             />{" "}
             <LinkInAppCard
+              description="Поясняем за монтаж и нюансы в Premiere Pro"
               href="/prfaq"
               icon={<PRIcon />}
               name="prfaq (В РАЗРАБОТКЕ)"
-              description="Поясняем за монтаж и нюансы в Premiere Pro"
             />{" "}
             <LinkInAppCard
+              description="Базарим за обработку изображений в Photoshop"
               href="/psfaq"
               icon={<PSIcon />}
               name="psfaq (В РАЗРАБОТКЕ)"
-              description="Базарим за обработку изображений в Photoshop"
             />
             <LinkInAppCard
+              description="Шпаргалка по использованию выражений в After Effects"
               href="/aeexprfaq"
               icon={<AEExprIcon />}
               name="aeexprfaq (В РАЗРАБОТКЕ)"
-              description="Шпаргалка по использованию выражений в After Effects"
             />
           </div>
           <Divider>Наши каналы</Divider>
           <div className="links-grid">
             <LinkCard
+              description="Шаблоны и плагины для After Effects со всего интернета"
               href="https://t.me/s/aetemp"
               icon={<PermMediaRounded />}
               name="AETemp"
-              description="Шаблоны и плагины для After Effects со всего интернета"
             />
             <LinkCard
+              description="Шаблоны и плагины для Premiere Pro со всего интернета"
               href="https://t.me/s/premtemp"
               icon={<MovieFilterRounded />}
               name="PremTemp"
-              description="Шаблоны и плагины для Premiere Pro со всего интернета"
             />
             <LinkCard
+              description="Шаблоны для Photoshop, Illustrator и Figma"
               href="https://t.me/s/designworld"
               icon={<MmsRounded />}
               name="Design World"
-              description="Шаблоны для Photoshop, Illustrator и Figma"
             />
             <LinkCard
+              description="Приватный канал с различными обучающими курсами"
               href="https://teletype.in/@aetemp/Courses"
               icon={<SlowMotionVideoRounded />}
               name="Курсы от AETemp"
-              description="Приватный канал с различными обучающими курсами"
             />
             <LinkCard
+              description="программы для творчества на windows"
               href="https://t.me/+Qd9xu7A4TeIwNzY6"
               icon={<HandymanRounded />}
               name="склад стройматериалов"
-              description="программы для творчества на windows"
             />
             <LinkCard
+              description="невошедшее в стройматериалы на тематику операционных систем"
               href="https://t.me/+gSmpjWyhd5w3ZGFi"
               icon={<CarRepairRounded />}
               name="купить запчасти на форд фокус"
-              description="невошедшее в стройматериалы на тематику операционных систем"
             />
             <LinkCard
+              description="как склад стройматериалов, но для macOS"
               href="https://t.me/+ZqiaMfQRFgM4YmEy"
               icon={<Apple />}
               name="Яблоневый сад"
-              description="как склад стройматериалов, но для macOS"
             />
           </div>
           <Divider>Сервисы и утилиты</Divider>
           <div className="links-grid">
             <LinkCard
+              description="Бот для покупки шаблонов с Envato Element и других сервисов"
               href="https://t.me/HiStockBot?start=509060394"
               icon={<SmartToyRounded />}
               name="HiStockBot"
-              description="Бот для покупки шаблонов с Envato Element и других сервисов"
             />
             <LinkCard
+              description="Популярный онлайн-конвертер видеофайлов в GIF"
               href="https://ezgif.com/"
               icon={<BurstModeRounded />}
               name="Ezgif"
-              description="Популярный онлайн-конвертер видеофайлов в GIF"
             />
             <LinkCard
+              description="Проигрыватель анимации Lottie, принимает файлы формата JSON"
               href="https://www.svgsprite.com/tools/lottie-player/"
               icon={<AnimationRounded />}
               name="Lottie Player"
-              description="Проигрыватель анимации Lottie, принимает файлы формата JSON"
             />
             <LinkCard
+              description="Оффлайн-конвертер видеофайлов в различные кодеки, в том числе монтажные"
               href="https://www.shutterencoder.com/"
               icon={<VideoSettingsRounded />}
               name="Shutter Encoder"
-              description="Оффлайн-конвертер видеофайлов в различные кодеки, в том числе монтажные"
             />
             <LinkCard
+              description="Кросс-платформенная утилита для работы с видеоконтейнерами .mkv и .webm"
               href="https://mkvtoolnix.download/downloads.html"
               icon={<VideoSettingsRounded />}
               name="MKVToolNix"
-              description="Кросс-платформенная утилита для работы с видеоконтейнерами .mkv и .webm"
             />
             <LinkCard
+              description="Онлайн-версия MediaInfo, позволяющая просматривать мета-информацию о файлах"
               href="https://mediaarea.net/MediaInfoOnline"
               icon={<FormatListBulletedRounded />}
               name="MediaInfo Online"
-              description="Онлайн-версия MediaInfo, позволяющая просматривать мета-информацию о файлах"
             />
             <LinkCard
+              description="Сервис для скачивания видео с различных источников, в том числе YouTube"
               href="https://cobalt.tools/"
               icon={<Download />}
               name="кобальт"
-              description="Сервис для скачивания видео с различных источников, в том числе YouTube"
             />
             <LinkCard
+              description="Альтернативный сервис для скачивания видео с различных источников"
               href="https://ru.savefrom.net/"
               icon={<Download />}
               name="SaveFrom"
-              description="Альтернативный сервис для скачивания видео с различных источников"
             />
             <LinkCard
+              description="Локальная Windows-программа для скачивания видео из YouTube"
               href="https://github.com/kazukikasama/youtube-dlp-gui-installer"
               icon={<Download />}
               name="yt-dlp-gui"
-              description="Локальная Windows-программа для скачивания видео из YouTube"
             />
             <LinkCard
+              description="Программа для разделения аудиофайла на несколько дорожек"
               href="https://www.stemroller.com/"
               icon={<MusicNoteRounded />}
               name="StemRoller"
-              description="Программа для разделения аудиофайла на несколько дорожек"
             />
             <LinkCard
+              description="Кросс-платформенная портативная программа для быстрой подрезки видео и аудио"
               href="https://github.com/mifi/lossless-cut"
               icon={<ContentCutRounded />}
               name="LossLessCut"
-              description="Кросс-платформенная портативная программа для быстрой подрезки видео и аудио"
             />
             <LinkCard
+              description="Программа для редактирования и генерации субтитров с помощью Whisper и других движков"
               href="https://github.com/SubtitleEdit/subtitleedit/releases"
               icon={<SubtitlesRounded />}
               name="Subtitle Edit"
-              description="Программа для редактирования и генерации субтитров с помощью Whisper и других движков"
             />
           </div>
           <Divider>Чаты в Telegram</Divider>
@@ -229,130 +229,130 @@ const Links = () => {
           </AdditionWarning>
           <div className="links-grid">
             <LinkCard
+              description="Обсуждаем After Effects и Premiere Pro"
               href="https://t.me/joinchat/F1DdXtG9LephYWUy"
               icon={<ForumRounded />}
               name="AEChat"
-              description="Обсуждаем After Effects и Premiere Pro"
             />
             <LinkCard
+              description="Обсуждаем дизайн, Photoshop, Illustrator и Figma"
               href="https://t.me/+3LF_B_VK-Nw4YzYy"
               icon={<ForumRounded />}
               name="DWChat"
-              description="Обсуждаем дизайн, Photoshop, Illustrator и Figma"
             />
             <LinkCard
+              description="Обсуждаем компьютерные технологии и проблемы"
               href="https://t.me/technical_chat"
               icon={<DevicesOtherRounded />}
               name="Technical Chat"
-              description="Обсуждаем компьютерные технологии и проблемы"
             />
             <LinkCard
+              description="Обсуждаем компьютерное железо в тяжелых задачах"
               href="https://t.me/HARD_TALK"
               icon={<DesktopWindowsRounded />}
               name="HARD_TALK"
-              description="Обсуждаем компьютерное железо в тяжелых задачах"
             />
             <LinkCard
+              description="Обсуждаем монтаж в любой монтажной программе"
               href="https://t.me/ru_montage"
               icon={<MovieRounded />}
               name="ru_montage"
-              description="Обсуждаем монтаж в любой монтажной программе"
             />
             <LinkCard
+              description="Обсуждаем работу в DaVinci Resolve"
               href="https://t.me/DaVinci_Resolve_ru"
               icon={<MovieRounded />}
               name="DaVinci Resolve RU"
-              description="Обсуждаем работу в DaVinci Resolve"
             />
             <LinkCard
+              description="Обсуждаем цветокоррекцию в видео"
               href="https://t.me/ExitLight_Chat"
               icon={<GradientRounded />}
               name="ExitLight Community Chat"
-              description="Обсуждаем цветокоррекцию в видео"
             />
             <LinkCard
+              description="Угадываем шрифт по фото от других пользователей"
               href="https://t.me/whatthefontt"
               icon={<SpellcheckRounded />}
               name="Что за шрифт?"
-              description="Угадываем шрифт по фото от других пользователей"
             />
             <LinkCard
+              description="Обсуждаем саунд-дизайн, музыку и звук в целом"
               href="https://t.me/sound_tut"
               icon={<VolumeUpRounded />}
               name="Sound Chat"
-              description="Обсуждаем саунд-дизайн, музыку и звук в целом"
             />
             <LinkCard
+              description="Публикуем вакансии и обсуждаем рабочую жизнь"
               href="https://t.me/upworktut"
               icon={<BusinessCenterRounded />}
               name="Work Chat"
-              description="Публикуем вакансии и обсуждаем рабочую жизнь"
             />
             <LinkCard
+              description="Обсуждаем Blender и всё что с ним связано"
               href="https://t.me/blender3dchat"
               icon={<ViewInArRounded />}
               name="Blender 3D Chat"
-              description="Обсуждаем Blender и всё что с ним связано"
             />
             <LinkCard
+              description="Обсуждаем Maxon Cinema 4D и всё что с ним связано"
               href="https://t.me/cinema4dchat"
               icon={<AnimationRounded />}
               name="Cinema 4D Chat"
-              description="Обсуждаем Maxon Cinema 4D и всё что с ним связано"
             />
             <LinkCard
+              description="Обсуждаем текстурирование в программах Substance"
               href="https://t.me/+Utwk54hiRyjGorFJ"
               icon={<TextureRounded />}
               name="Substance Chat"
-              description="Обсуждаем текстурирование в программах Substance"
             />
             <LinkCard
+              description="Обсуждаем Autodesk 3DS Max"
               href="https://t.me/ohmy3dsmax"
               icon={<DomainRounded />}
               name="3DS Max"
-              description="Обсуждаем Autodesk 3DS Max"
             />
             <LinkCard
+              description="Альтернативный чат по обсуждению Autodesk 3DS Max"
               href="https://t.me/chat3dsmax"
               icon={<DomainRounded />}
               name="3DSMax (Визуализаторы)"
-              description="Альтернативный чат по обсуждению Autodesk 3DS Max"
             />
             <LinkCard
+              description="Общение о Unity в формате вопрос-ответ"
               href="https://t.me/unity3d_ru"
               icon={<SportsEsportsRounded />}
               name="Unity Engine: вопрос - ответ"
-              description="Общение о Unity в формате вопрос-ответ"
             />
             <LinkCard
+              description="Обсуждаем игровой движок Unreal Engine"
               href="https://t.me/ue_chat"
               icon={<SportsEsportsRounded />}
               name="Unreal Engine Chat"
-              description="Обсуждаем игровой движок Unreal Engine"
             />
             <LinkCard
+              description="Обсуждаем SideFX Houdini"
               href="https://t.me/houdinitut"
               icon={<WhatshotRounded />}
               name="Houdini Chat"
-              description="Обсуждаем SideFX Houdini"
             />
             <LinkCard
+              description="Обсуждаем нейросети"
               href="https://t.me/neuralnetworkstut"
               icon={<AssistantRounded />}
               name="Neural Networks Chat"
-              description="Обсуждаем нейросети"
             />
             <LinkCard
+              description="Обсуждаем фронтенд-разработку сайтов"
               href="https://t.me/friendlyfrontendchat"
               icon={<WebRounded />}
               name="Friendly Frontend Chat"
-              description="Обсуждаем фронтенд-разработку сайтов"
             />
             <LinkCard
+              description="Обсуждаем работу в сервисе Figma"
               href="https://t.me/figmachat"
               icon={<ArchitectureRounded />}
               name="Фигма-чат"
-              description="Обсуждаем работу в сервисе Figma"
             />
           </div>
           <Divider>Вакансии и работа</Divider>
@@ -405,25 +405,25 @@ const Links = () => {
               <li>
                 Если вы работаете на какой-либо бирже, по типу{" "}
                 <a
-                  target="_blank"
-                  rel="noreferrer"
                   href="https://kwork.ru/"
+                  rel="noreferrer"
+                  target="_blank"
                 >
                   Kwork
                 </a>
                 ,{" "}
                 <a
-                  target="_blank"
-                  rel="noreferrer"
                   href="https://www.fiverr.com/"
+                  rel="noreferrer"
+                  target="_blank"
                 >
                   Fiverr
                 </a>
                 ,{" "}
                 <a
-                  target="_blank"
-                  rel="noreferrer"
                   href="https://www.fl.ru/"
+                  rel="noreferrer"
+                  target="_blank"
                 >
                   FL
                 </a>{" "}
@@ -597,8 +597,8 @@ const Links = () => {
             />
           </div>
           <Footer
-            title="aechat"
             initialYear={2024}
+            title="aechat"
           />
         </div>
       </motion.main>

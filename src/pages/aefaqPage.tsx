@@ -5,7 +5,7 @@ import {Link} from "react-router-dom";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import {Helmet} from "react-helmet-async";
-import {SearchInPage, SearchProvider} from "../components/features/SearchInPage";
+import {SearchInPage, SearchProvider} from "../components/modal/SearchInPage";
 import SupportDonut from "../components/modal/SupportDonut";
 import CopyToClipboard from "../components/features/CopyToClipboard";
 import {CircularProgress} from "@mui/material";
@@ -92,41 +92,41 @@ const AEFaQ = () => {
         <Helmet>
           <title>aefaq@aechat</title>
           <link
+            href="icons/aefaq.svg"
             rel="icon"
             type="image/svg+xml"
-            href="icons/aefaq.svg"
           />
           <meta
+            content="Ответы на частые вопросы от пользователей After Effects"
             name="description"
-            content="Ответы на частые вопросы от пользователей After Effects"
           />
           <meta
-            name="keywords"
             content="чат, ссылки, After Effects, шаблоны After Effects, AETemp, Adobe, советы After Effects, FAQ After Effects, склад стройматериалов, помощь, видеомонтаж, графический дизайн, видеоэффекты, спецэффекты, анимация, 3D-моделирование, motion graphics, композитинг, цветокоррекция, Adobe Premiere, Photoshop, Illustrator, Media Encoder, плагины After Effects, видеопроизводство, рендеринг, обучение, видеоуроки, монтаж видео, создание видео, редактирование видео, графика, видеоконтент, пост-продакшн, filmmaking, кино, телевидение, спецэффекты для фильмов, видеомаркетинг, визуальные эффекты, мультимедиа, медиа, презентации, видеореклама, обучающие видео, видеокурсы, видеоуроки, курсы по анимации, туториалы по видеомонтажу, уроки по цветокоррекции, советы по ускорению After Effects, оптимизация, исправление ошибок, видеографика, motion design, инфографика, 3D-анимация, видеоклипы, рекламные ролики, видеопрезентации"
+            name="keywords"
           />
           <meta
-            property="og:type"
             content="website"
+            property="og:type"
           />
           <meta
-            property="og:url"
             content="https://aechat.ru/"
+            property="og:url"
           />
           <meta
-            property="og:title"
             content="aefaq@aechat"
+            property="og:title"
           />
           <meta
-            property="og:description"
             content="Ответы на частые вопросы от пользователей After Effects"
+            property="og:description"
           />
         </Helmet>
         <Header title="aefaq" />
         <motion.main
-          className="main"
-          initial={{x: 100, y: 0, opacity: 0}}
           animate={{x: 0, y: 0, opacity: 1}}
+          className="main"
           exit={{x: 0, y: 50, opacity: 0}}
+          initial={{x: 100, y: 0, opacity: 0}}
           transition={{
             duration: 0.3,
             ease: [0.25, 0, 0, 1],
@@ -165,8 +165,8 @@ const AEFaQ = () => {
               <Suspense
                 fallback={
                   <motion.div
-                    initial={{opacity: 0}}
                     animate={{opacity: 1}}
+                    initial={{opacity: 0}}
                     style={{
                       padding: "20px",
                       display: "flex",
@@ -189,8 +189,8 @@ const AEFaQ = () => {
               >
                 {visibleSections.length > 0 && (
                   <motion.div
-                    initial={{opacity: 0}}
                     animate={isSectionsLoaded ? {opacity: 1} : {}}
+                    initial={{opacity: 0}}
                     transition={{
                       duration: 0.3,
                       ease: [0.25, 0, 0, 1],
@@ -212,12 +212,12 @@ const AEFaQ = () => {
                           id={section.id}
                         >
                           <Divider
+                            orientation="right"
                             style={{
                               color: "var(--text-color)",
                               textTransform: "uppercase",
                               fontWeight: "800",
                             }}
-                            orientation="right"
                           >
                             {section.title}
                           </Divider>
@@ -229,8 +229,8 @@ const AEFaQ = () => {
                 )}
               </Suspense>
               <Footer
-                title="aechat"
                 initialYear={2023}
+                title="aechat"
               />
             </div>
           </div>

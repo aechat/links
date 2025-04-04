@@ -5,7 +5,7 @@ import {
   AdditionWarning,
 } from "../../../components/Additions";
 import DetailsSummary from "../../../components/DetailsSummary";
-import ContentSwitcher from "../../../components/features/OperatingSystemFilter";
+import ContentSwitcher from "../../../components/features/ContentFilter";
 import GithubUpdateInfo from "../../../components/features/GithubUpdateInfo";
 import {ImageFigure, YouTubeVideo} from "../../../components/ContentFigure";
 import {Divider} from "antd";
@@ -15,8 +15,8 @@ const AEInstallProblems: React.FC = () => {
     <div className="faq-content">
       <GithubUpdateInfo filePath="src/pages/sections/aefaq/InstallProblems.tsx" />
       <DetailsSummary
-        title="Забыли положить инструкцию для установки рядом с файлами, куда что кидать?"
         tag="как установить, куда устанавливать, установка, распаковка, инструкция, плагины, шаблоны, пресеты, скрипты, расширения, пакеты, плагины, луты"
+        title="Забыли положить инструкцию для установки рядом с файлами, куда что кидать?"
       >
         <p>
           Обычно установка большинства дополнительных материалов универсальна, поэтому
@@ -63,343 +63,6 @@ const AEInstallProblems: React.FC = () => {
           </li>
         </ul>
         <ContentSwitcher
-          windowsContent={
-            <div>
-              <ul>
-                <li>
-                  Если в архиве или в записи находится файл{" "}
-                  <mark className="file">.exe</mark>, то обычно в нём содержится
-                  автоматический установщик плагина. Если в записи указано, что данный
-                  установщик является репаком - в таком случае после его установки плагин
-                  будет уже активирован, никаких лишних телодвижений после установки
-                  делать не надо.
-                  <AdditionWarning>
-                    <ul>
-                      <li>
-                        При использовании установщиков убедитесь в том, что у вас{" "}
-                        <mark className="app">After Effects</mark> установлен в
-                        стандартном расположении{" "}
-                        <mark className="path">C:\Program Files\Adobe\</mark>, а не в
-                        другом месте или разделе. В противном случае устанавливаемый
-                        плагин может установиться в другом месте и может не отобразиться и
-                        корректно работать в программе.
-                      </li>
-                      <li>
-                        Перед установкой плагинов с помощью установщика - закройте все
-                        открытые инстанции <mark className="app">After Effects</mark> для
-                        корректной установки.
-                      </li>
-                    </ul>
-                  </AdditionWarning>
-                </li>
-                <li>
-                  Если в архиве находится файл <mark className="file">.aex</mark>, то
-                  такие плагины обычно распаковываются в общую папку плагинов -{" "}
-                  <mark className="path">
-                    C:\Program Files\Adobe\Common\Plug-ins\7.0\MediaCore
-                  </mark>
-                  .
-                  <AdditionInfo>
-                    <ul>
-                      <li>
-                        Обычно установленные плагины находятся в окне{" "}
-                        <mark className="ui">Effects & Presets</mark> и могут вызываться с
-                        помощью <mark className="plugin">FX Console</mark>. В редких
-                        случаях плагин может в программе вызываться из другого места -
-                        читайте приложенную документацию к устанавливаемому плагину.
-                      </li>
-                      <li>
-                        Не всегда новые версии плагинов могут работать со старыми версиями{" "}
-                        <mark className="app">After Effects</mark> и наоборот. Уточняйте в
-                        документации устанавливаемого плагина, для каких версий{" "}
-                        <mark className="app">After Effects</mark> он предназначен.
-                      </li>
-                    </ul>
-                  </AdditionInfo>
-                  <AdditionDanger>
-                    Плагины формата <mark className="file">.plugin</mark> не подходят для
-                    устройств на Windows, так как такие файлы предназначены для устройств
-                    на macOS.
-                  </AdditionDanger>
-                </li>
-                <li>
-                  Если в архиве находится файл <mark className="file">.ffx</mark>, то
-                  такие пресеты обычно распаковываются в стандартную папку пресетов -{" "}
-                  <mark className="path">
-                    C:\Program Files\Adobe\Adobe After Effects 20XX\Support Files\Presets
-                  </mark>
-                  .
-                  <AdditionInfo>
-                    <ul>
-                      <li>
-                        Установленные пресеты будут находиться в окне{" "}
-                        <mark className="ui">Effects & Presets</mark> в папке{" "}
-                        <mark className="path">Animation Presets</mark> и могут вызываться
-                        с помощью <mark className="plugin">FX Console</mark>.
-                      </li>
-                      <li>
-                        В папке с пресетами вы можете создать свою собственную папку со
-                        своим именем или расположить скачанные пресеты в уже существующие.
-                      </li>
-                      <li>
-                        Если у вас нет доступа для записи файлов в системных директориях,
-                        то вы можете распаковать пресеты в папку пользователя{" "}
-                        <mark className="path">
-                          C:\Users\%UserName%\Documents\Adobe\After Effects 20XX\User
-                          Presets
-                        </mark>
-                        .
-                      </li>
-                    </ul>
-                  </AdditionInfo>
-                </li>
-                <li>
-                  Если в архиве находится файл <mark className="file">.jsx</mark>, то
-                  такие скрипты распаковываются в стандартную папку скриптов -{" "}
-                  <mark className="path">
-                    C:\Program Files\Adobe\Adobe After Effects 20XX\Support Files\Scripts
-                  </mark>
-                  .
-                  <AdditionInfo>
-                    <ul>
-                      <li>
-                        <mark className="file">.jsx</mark> скрипты обычно появляются в
-                        контекстном меню <mark className="ui">File &gt; Scripts</mark>.
-                      </li>
-                      <li>
-                        В качестве альтернативы вы можете установить скрипт с помощью{" "}
-                        <mark className="ui">
-                          File &gt; Scripts &gt; Install Script File
-                        </mark>
-                        . В открывшемся окне укажите путь до нужного скрипта.
-                      </li>
-                      <li>
-                        Если вы не хотите устанавливать скрипт, а запустить его только
-                        один раз, то вы можете нажать на{" "}
-                        <mark className="ui">Run Script File</mark> в{" "}
-                        <mark className="ui">File &gt; Scripts</mark>. В открывшемся окне
-                        нужно указать путь до нужного скрипта и он будет запущен до
-                        перезапуска программы или действия закрытия окна пользователем.
-                      </li>
-                      <li>
-                        Если вы хотите закрепить окно <mark className="file">.jsx</mark>{" "}
-                        скрипта в рабочее пространство, то вы можете перенести его в
-                        дочернюю папку <mark className="ui">Scripts UI Panels</mark>.
-                        Таким образом полный путь должен быть{" "}
-                        <mark className="path">
-                          C:\Program Files\Adobe\Adobe After Effects 20XX\Support
-                          Files\Scripts\Script UI Panels
-                        </mark>
-                        . После этого - нужный вам скрипт перенесётся в{" "}
-                        <mark className="ui">Window</mark> и будет располагаться в самом
-                        низу списка, а также появится возможность прикрепить его к
-                        рабочему пространству.
-                        <AdditionWarning>
-                          Для прикрепления окна в рабочее пространство программы -
-                          держитесь за заголовок с названием скрипта, создаваемый
-                          программой, а не вашей операционной системы, то есть чуть ниже
-                          Windows&apos;кого фрейма.
-                        </AdditionWarning>
-                      </li>
-                      <li>
-                        При желании, вы можете назначить комбинацию клавиш для открытия
-                        нужного <mark className="file">.jsx</mark> скрипта в{" "}
-                        <mark className="ui">Keyboard Shortcuts</mark>.
-                        <AdditionWarning>
-                          При перемещении <mark className="ui">.jsx</mark> скрипта в
-                          дочернюю папку <mark className="path">Script UI Panels</mark>,
-                          вы не сможете открывать нужный скрипт, задав ему комбинацию
-                          клавиш стандартными средствами. Зато сможете закрепить его в
-                          окне вашего рабочего пространства.
-                        </AdditionWarning>
-                      </li>
-                    </ul>
-                  </AdditionInfo>
-                </li>
-                <li>
-                  Если в архиве находится <mark className="file">.jsxbin</mark> файл, то
-                  такие скрипты распаковываются в стандартную папку Script UI Panels -{" "}
-                  <mark className="path">
-                    C:\Program Files\Adobe\Adobe After Effects 20XX\Support
-                    Files\Scripts\Script UI Panels
-                  </mark>
-                  .
-                  <AdditionInfo>
-                    <ul>
-                      <li>
-                        <mark className="file">.jsxbin</mark> скрипты обычно появляются в
-                        контекстном меню <mark className="ui">Window</mark> в самом конце
-                        списка.
-                      </li>
-                      <li>
-                        В качестве альтернативы вы можете установить скрипт с помощью{" "}
-                        <mark className="ui">
-                          File &gt; Scripts &gt; Install ScriptUI Panel
-                        </mark>
-                        . В открывшемся окне укажите путь до нужного скрипта.
-                      </li>
-                      <li>
-                        Если вы не хотите устанавливать скрипт, а запустить его только
-                        один раз, то вы можете нажать на{" "}
-                        <mark className="ui">Run Script File</mark> в{" "}
-                        <mark className="ui">File &gt; Scripts</mark>. В открывшемся окне
-                        нужно указать путь до нужного скрипта и он будет запущен до
-                        перезапуска программы или действия закрытия окна пользователем.
-                      </li>
-                      <li>
-                        Для прикрепления окна в рабочее пространство программы - держитесь
-                        за заголовок с названием скрипта, создаваемый программой, а не
-                        вашей операционной системы, то есть чуть ниже Windows&apos;кого
-                        фрейма.
-                      </li>
-                    </ul>
-                  </AdditionInfo>
-                </li>
-                <li>
-                  Если в архиве находится файл <mark className="file">.zxp</mark>, то
-                  такие расширения обычно устанавливаются через{" "}
-                  <a href="https://aescripts.com/learn/zxp-installer/">
-                    ZXP Installer от aescripts
-                  </a>
-                  . Для установки требуется просто перенести{" "}
-                  <mark className="file">.zxp</mark> файл в окно{" "}
-                  <mark className="app">ZXP Installer</mark> для установки и следовать
-                  указаниям программы.
-                  <AdditionDanger>
-                    Пожалуйста, не используйте{" "}
-                    <a href="https://zxpinstaller.com/">
-                      ZXP Installer от ELEMENTS Storage Media
-                    </a>
-                    , если вы используете версии программ Adobe, которые отвязаны от
-                    приложения <mark className="app">Creative Cloud</mark>. Данный{" "}
-                    <a href="https://zxpinstaller.com/">ZXP Installer</a> будет вам
-                    выдавать ошибку <strong>-193</strong> до тех пор, пока вы не
-                    установите программу <mark className="app">Creative Cloud</mark>, а он
-                    же может вам поломать уже установленные программы. Для решения
-                    проблемы воспользуйтесь{" "}
-                    <a href="https://aescripts.com/learn/zxp-installer/">
-                      ZXP Installer от aescripts
-                    </a>{" "}
-                    или ручной установкой расширений.
-                  </AdditionDanger>
-                  <AdditionInfo>
-                    <ul>
-                      <li>
-                        Если вы не хотите устанавливать стороннее ПО для установки{" "}
-                        <mark className="file">.zxp</mark>, то вы можете переименовать
-                        файл <mark className="file">.zxp</mark> в{" "}
-                        <mark className="file">.zip</mark> и распаковать его как обычный
-                        архив. Содержимое свежераспакованного файла нужно поместить в
-                        папку{" "}
-                        <mark className="path">
-                          C:\Program Files (x86)\Common Files\Adobe\CEP\extensions
-                        </mark>{" "}
-                        (если такой папки нет - создайте) и после этого нужно применить{" "}
-                        <a
-                          download
-                          href="files/Enable Extensions Adobe.reg"
-                        >
-                          REG-патч
-                        </a>
-                        , если вы его не применяли.
-                      </li>
-                      <li>
-                        <a
-                          download
-                          href="files/Enable Extensions Adobe.reg"
-                        >
-                          REG-патч
-                        </a>{" "}
-                        нужно применить лишь один раз, он универсален. В дальнейшем при
-                        установке подобных расширений файл для внесений записей в реестр
-                        системы не нужно снова открывать.{" "}
-                        <a
-                          download
-                          href="files/Enable Extensions Adobe.reg"
-                        >
-                          REG-патч
-                        </a>{" "}
-                        включает debug-режим в <mark className="app">After Effects</mark>{" "}
-                        для корректного открытия и работы сторонних расширений,
-                        установленные из просторов интернета.
-                      </li>
-                      <li>
-                        Иногда в архиве может быть уже распакованный{" "}
-                        <mark className="file">.zxp</mark> архив. Это можно понять по
-                        наличию папок <mark className="path">META-INF</mark> и{" "}
-                        <mark className="path">CSXS</mark> внутри папки с названием
-                        расширения.
-                      </li>
-                      <li>
-                        Если расширение просит включить разрешение на запись файлов и
-                        доступ в интернет, то перейдите в{" "}
-                        <mark className="ui">
-                          Edit &gt; Preferences &gt; Scripting & Expressions
-                        </mark>{" "}
-                        и установите чекбокс у пункта{" "}
-                        <mark className="ui">
-                          Allow Scripts to Write Files and Access Network
-                        </mark>
-                        .
-                      </li>
-                    </ul>
-                  </AdditionInfo>
-                </li>
-                <li>
-                  Если в архиве находится файл <mark className="file">.cube</mark>,{" "}
-                  <mark className="file">.itx</mark>, <mark className="file">.look</mark>{" "}
-                  или <mark className="file">.lut</mark>, то такие файлы распаковываются в{" "}
-                  <mark className="path">
-                    C:\Program Files\Adobe\Adobe After Effects 20XX\Support
-                    Files\Lumetri\LUTs\Creative
-                  </mark>{" "}
-                  и затем используются с эффектом{" "}
-                  <mark className="plugin">Lumetri Color</mark> в вкладке{" "}
-                  <mark className="ui">Creative</mark>.
-                </li>
-                <li>
-                  Если в архиве находятся шрифты формата{" "}
-                  <mark className="file">.ttf</mark> или{" "}
-                  <mark className="file">.otf</mark>, то такие шрифты не распаковываются в
-                  папку с программой. Их нужно установить в саму систему, это можно
-                  сделать тремя способами.
-                  <ul>
-                    <li>
-                      Откройте файл шрифта двойным нажатием и в открывшемся окне нажмите в
-                      левом верхнем углу кнопку <mark className="ui">Установить</mark>.
-                    </li>
-                    <li>
-                      Если у вас есть целый набор шрифтов и вы не хотите открывать каждый
-                      файл по отдельности - просто распакуйте архив с шрифтами в любую
-                      папку. После этого выделите нужные шрифты в распакованной папке,
-                      нажмите <mark className="key">ПКМ</mark> и выберите в контекстном
-                      меню пункт <mark className="ui">Установить</mark> или{" "}
-                      <mark className="ui">Установить для всех пользователей</mark>.
-                    </li>
-                    <li>
-                      Распакуйте файлы шрифтов в{" "}
-                      <mark className="path">C:\Windows\Fonts</mark>. Это позволит
-                      установить шрифты для всех пользователей системы.
-                      <AdditionInfo>
-                        Если у вас нет прав администратора, то вы можете распаковать файлы
-                        шрифтов в папку{" "}
-                        <mark className="path">
-                          %LocalAppData%\Microsoft\Windows\Fonts
-                        </mark>
-                        . В таком случае шрифты будут установлены только для вашей учётной
-                        записи.
-                      </AdditionInfo>
-                    </li>
-                  </ul>
-                  Также при необходимости вы можете воспользоваться шрифтовыми менеджерами
-                  для организации и активации нужных шрифтов только при необходимости,
-                  например <mark className="app">Corel Font Manager</mark>,{" "}
-                  <mark className="app">FontExpert</mark> или{" "}
-                  <mark className="app">FontBase</mark>.
-                </li>
-              </ul>
-            </div>
-          }
           macContent={
             <div>
               <AdditionDanger>
@@ -750,6 +413,343 @@ const AEInstallProblems: React.FC = () => {
               </ul>
             </div>
           }
+          windowsContent={
+            <div>
+              <ul>
+                <li>
+                  Если в архиве или в записи находится файл{" "}
+                  <mark className="file">.exe</mark>, то обычно в нём содержится
+                  автоматический установщик плагина. Если в записи указано, что данный
+                  установщик является репаком - в таком случае после его установки плагин
+                  будет уже активирован, никаких лишних телодвижений после установки
+                  делать не надо.
+                  <AdditionWarning>
+                    <ul>
+                      <li>
+                        При использовании установщиков убедитесь в том, что у вас{" "}
+                        <mark className="app">After Effects</mark> установлен в
+                        стандартном расположении{" "}
+                        <mark className="path">C:\Program Files\Adobe\</mark>, а не в
+                        другом месте или разделе. В противном случае устанавливаемый
+                        плагин может установиться в другом месте и может не отобразиться и
+                        корректно работать в программе.
+                      </li>
+                      <li>
+                        Перед установкой плагинов с помощью установщика - закройте все
+                        открытые инстанции <mark className="app">After Effects</mark> для
+                        корректной установки.
+                      </li>
+                    </ul>
+                  </AdditionWarning>
+                </li>
+                <li>
+                  Если в архиве находится файл <mark className="file">.aex</mark>, то
+                  такие плагины обычно распаковываются в общую папку плагинов -{" "}
+                  <mark className="path">
+                    C:\Program Files\Adobe\Common\Plug-ins\7.0\MediaCore
+                  </mark>
+                  .
+                  <AdditionInfo>
+                    <ul>
+                      <li>
+                        Обычно установленные плагины находятся в окне{" "}
+                        <mark className="ui">Effects & Presets</mark> и могут вызываться с
+                        помощью <mark className="plugin">FX Console</mark>. В редких
+                        случаях плагин может в программе вызываться из другого места -
+                        читайте приложенную документацию к устанавливаемому плагину.
+                      </li>
+                      <li>
+                        Не всегда новые версии плагинов могут работать со старыми версиями{" "}
+                        <mark className="app">After Effects</mark> и наоборот. Уточняйте в
+                        документации устанавливаемого плагина, для каких версий{" "}
+                        <mark className="app">After Effects</mark> он предназначен.
+                      </li>
+                    </ul>
+                  </AdditionInfo>
+                  <AdditionDanger>
+                    Плагины формата <mark className="file">.plugin</mark> не подходят для
+                    устройств на Windows, так как такие файлы предназначены для устройств
+                    на macOS.
+                  </AdditionDanger>
+                </li>
+                <li>
+                  Если в архиве находится файл <mark className="file">.ffx</mark>, то
+                  такие пресеты обычно распаковываются в стандартную папку пресетов -{" "}
+                  <mark className="path">
+                    C:\Program Files\Adobe\Adobe After Effects 20XX\Support Files\Presets
+                  </mark>
+                  .
+                  <AdditionInfo>
+                    <ul>
+                      <li>
+                        Установленные пресеты будут находиться в окне{" "}
+                        <mark className="ui">Effects & Presets</mark> в папке{" "}
+                        <mark className="path">Animation Presets</mark> и могут вызываться
+                        с помощью <mark className="plugin">FX Console</mark>.
+                      </li>
+                      <li>
+                        В папке с пресетами вы можете создать свою собственную папку со
+                        своим именем или расположить скачанные пресеты в уже существующие.
+                      </li>
+                      <li>
+                        Если у вас нет доступа для записи файлов в системных директориях,
+                        то вы можете распаковать пресеты в папку пользователя{" "}
+                        <mark className="path">
+                          C:\Users\%UserName%\Documents\Adobe\After Effects 20XX\User
+                          Presets
+                        </mark>
+                        .
+                      </li>
+                    </ul>
+                  </AdditionInfo>
+                </li>
+                <li>
+                  Если в архиве находится файл <mark className="file">.jsx</mark>, то
+                  такие скрипты распаковываются в стандартную папку скриптов -{" "}
+                  <mark className="path">
+                    C:\Program Files\Adobe\Adobe After Effects 20XX\Support Files\Scripts
+                  </mark>
+                  .
+                  <AdditionInfo>
+                    <ul>
+                      <li>
+                        <mark className="file">.jsx</mark> скрипты обычно появляются в
+                        контекстном меню <mark className="ui">File &gt; Scripts</mark>.
+                      </li>
+                      <li>
+                        В качестве альтернативы вы можете установить скрипт с помощью{" "}
+                        <mark className="ui">
+                          File &gt; Scripts &gt; Install Script File
+                        </mark>
+                        . В открывшемся окне укажите путь до нужного скрипта.
+                      </li>
+                      <li>
+                        Если вы не хотите устанавливать скрипт, а запустить его только
+                        один раз, то вы можете нажать на{" "}
+                        <mark className="ui">Run Script File</mark> в{" "}
+                        <mark className="ui">File &gt; Scripts</mark>. В открывшемся окне
+                        нужно указать путь до нужного скрипта и он будет запущен до
+                        перезапуска программы или действия закрытия окна пользователем.
+                      </li>
+                      <li>
+                        Если вы хотите закрепить окно <mark className="file">.jsx</mark>{" "}
+                        скрипта в рабочее пространство, то вы можете перенести его в
+                        дочернюю папку <mark className="ui">Scripts UI Panels</mark>.
+                        Таким образом полный путь должен быть{" "}
+                        <mark className="path">
+                          C:\Program Files\Adobe\Adobe After Effects 20XX\Support
+                          Files\Scripts\Script UI Panels
+                        </mark>
+                        . После этого - нужный вам скрипт перенесётся в{" "}
+                        <mark className="ui">Window</mark> и будет располагаться в самом
+                        низу списка, а также появится возможность прикрепить его к
+                        рабочему пространству.
+                        <AdditionWarning>
+                          Для прикрепления окна в рабочее пространство программы -
+                          держитесь за заголовок с названием скрипта, создаваемый
+                          программой, а не вашей операционной системы, то есть чуть ниже
+                          Windows&apos;кого фрейма.
+                        </AdditionWarning>
+                      </li>
+                      <li>
+                        При желании, вы можете назначить комбинацию клавиш для открытия
+                        нужного <mark className="file">.jsx</mark> скрипта в{" "}
+                        <mark className="ui">Keyboard Shortcuts</mark>.
+                        <AdditionWarning>
+                          При перемещении <mark className="ui">.jsx</mark> скрипта в
+                          дочернюю папку <mark className="path">Script UI Panels</mark>,
+                          вы не сможете открывать нужный скрипт, задав ему комбинацию
+                          клавиш стандартными средствами. Зато сможете закрепить его в
+                          окне вашего рабочего пространства.
+                        </AdditionWarning>
+                      </li>
+                    </ul>
+                  </AdditionInfo>
+                </li>
+                <li>
+                  Если в архиве находится <mark className="file">.jsxbin</mark> файл, то
+                  такие скрипты распаковываются в стандартную папку Script UI Panels -{" "}
+                  <mark className="path">
+                    C:\Program Files\Adobe\Adobe After Effects 20XX\Support
+                    Files\Scripts\Script UI Panels
+                  </mark>
+                  .
+                  <AdditionInfo>
+                    <ul>
+                      <li>
+                        <mark className="file">.jsxbin</mark> скрипты обычно появляются в
+                        контекстном меню <mark className="ui">Window</mark> в самом конце
+                        списка.
+                      </li>
+                      <li>
+                        В качестве альтернативы вы можете установить скрипт с помощью{" "}
+                        <mark className="ui">
+                          File &gt; Scripts &gt; Install ScriptUI Panel
+                        </mark>
+                        . В открывшемся окне укажите путь до нужного скрипта.
+                      </li>
+                      <li>
+                        Если вы не хотите устанавливать скрипт, а запустить его только
+                        один раз, то вы можете нажать на{" "}
+                        <mark className="ui">Run Script File</mark> в{" "}
+                        <mark className="ui">File &gt; Scripts</mark>. В открывшемся окне
+                        нужно указать путь до нужного скрипта и он будет запущен до
+                        перезапуска программы или действия закрытия окна пользователем.
+                      </li>
+                      <li>
+                        Для прикрепления окна в рабочее пространство программы - держитесь
+                        за заголовок с названием скрипта, создаваемый программой, а не
+                        вашей операционной системы, то есть чуть ниже Windows&apos;кого
+                        фрейма.
+                      </li>
+                    </ul>
+                  </AdditionInfo>
+                </li>
+                <li>
+                  Если в архиве находится файл <mark className="file">.zxp</mark>, то
+                  такие расширения обычно устанавливаются через{" "}
+                  <a href="https://aescripts.com/learn/zxp-installer/">
+                    ZXP Installer от aescripts
+                  </a>
+                  . Для установки требуется просто перенести{" "}
+                  <mark className="file">.zxp</mark> файл в окно{" "}
+                  <mark className="app">ZXP Installer</mark> для установки и следовать
+                  указаниям программы.
+                  <AdditionDanger>
+                    Пожалуйста, не используйте{" "}
+                    <a href="https://zxpinstaller.com/">
+                      ZXP Installer от ELEMENTS Storage Media
+                    </a>
+                    , если вы используете версии программ Adobe, которые отвязаны от
+                    приложения <mark className="app">Creative Cloud</mark>. Данный{" "}
+                    <a href="https://zxpinstaller.com/">ZXP Installer</a> будет вам
+                    выдавать ошибку <strong>-193</strong> до тех пор, пока вы не
+                    установите программу <mark className="app">Creative Cloud</mark>, а он
+                    же может вам поломать уже установленные программы. Для решения
+                    проблемы воспользуйтесь{" "}
+                    <a href="https://aescripts.com/learn/zxp-installer/">
+                      ZXP Installer от aescripts
+                    </a>{" "}
+                    или ручной установкой расширений.
+                  </AdditionDanger>
+                  <AdditionInfo>
+                    <ul>
+                      <li>
+                        Если вы не хотите устанавливать стороннее ПО для установки{" "}
+                        <mark className="file">.zxp</mark>, то вы можете переименовать
+                        файл <mark className="file">.zxp</mark> в{" "}
+                        <mark className="file">.zip</mark> и распаковать его как обычный
+                        архив. Содержимое свежераспакованного файла нужно поместить в
+                        папку{" "}
+                        <mark className="path">
+                          C:\Program Files (x86)\Common Files\Adobe\CEP\extensions
+                        </mark>{" "}
+                        (если такой папки нет - создайте) и после этого нужно применить{" "}
+                        <a
+                          download
+                          href="files/Enable Extensions Adobe.reg"
+                        >
+                          REG-патч
+                        </a>
+                        , если вы его не применяли.
+                      </li>
+                      <li>
+                        <a
+                          download
+                          href="files/Enable Extensions Adobe.reg"
+                        >
+                          REG-патч
+                        </a>{" "}
+                        нужно применить лишь один раз, он универсален. В дальнейшем при
+                        установке подобных расширений файл для внесений записей в реестр
+                        системы не нужно снова открывать.{" "}
+                        <a
+                          download
+                          href="files/Enable Extensions Adobe.reg"
+                        >
+                          REG-патч
+                        </a>{" "}
+                        включает debug-режим в <mark className="app">After Effects</mark>{" "}
+                        для корректного открытия и работы сторонних расширений,
+                        установленные из просторов интернета.
+                      </li>
+                      <li>
+                        Иногда в архиве может быть уже распакованный{" "}
+                        <mark className="file">.zxp</mark> архив. Это можно понять по
+                        наличию папок <mark className="path">META-INF</mark> и{" "}
+                        <mark className="path">CSXS</mark> внутри папки с названием
+                        расширения.
+                      </li>
+                      <li>
+                        Если расширение просит включить разрешение на запись файлов и
+                        доступ в интернет, то перейдите в{" "}
+                        <mark className="ui">
+                          Edit &gt; Preferences &gt; Scripting & Expressions
+                        </mark>{" "}
+                        и установите чекбокс у пункта{" "}
+                        <mark className="ui">
+                          Allow Scripts to Write Files and Access Network
+                        </mark>
+                        .
+                      </li>
+                    </ul>
+                  </AdditionInfo>
+                </li>
+                <li>
+                  Если в архиве находится файл <mark className="file">.cube</mark>,{" "}
+                  <mark className="file">.itx</mark>, <mark className="file">.look</mark>{" "}
+                  или <mark className="file">.lut</mark>, то такие файлы распаковываются в{" "}
+                  <mark className="path">
+                    C:\Program Files\Adobe\Adobe After Effects 20XX\Support
+                    Files\Lumetri\LUTs\Creative
+                  </mark>{" "}
+                  и затем используются с эффектом{" "}
+                  <mark className="plugin">Lumetri Color</mark> в вкладке{" "}
+                  <mark className="ui">Creative</mark>.
+                </li>
+                <li>
+                  Если в архиве находятся шрифты формата{" "}
+                  <mark className="file">.ttf</mark> или{" "}
+                  <mark className="file">.otf</mark>, то такие шрифты не распаковываются в
+                  папку с программой. Их нужно установить в саму систему, это можно
+                  сделать тремя способами.
+                  <ul>
+                    <li>
+                      Откройте файл шрифта двойным нажатием и в открывшемся окне нажмите в
+                      левом верхнем углу кнопку <mark className="ui">Установить</mark>.
+                    </li>
+                    <li>
+                      Если у вас есть целый набор шрифтов и вы не хотите открывать каждый
+                      файл по отдельности - просто распакуйте архив с шрифтами в любую
+                      папку. После этого выделите нужные шрифты в распакованной папке,
+                      нажмите <mark className="key">ПКМ</mark> и выберите в контекстном
+                      меню пункт <mark className="ui">Установить</mark> или{" "}
+                      <mark className="ui">Установить для всех пользователей</mark>.
+                    </li>
+                    <li>
+                      Распакуйте файлы шрифтов в{" "}
+                      <mark className="path">C:\Windows\Fonts</mark>. Это позволит
+                      установить шрифты для всех пользователей системы.
+                      <AdditionInfo>
+                        Если у вас нет прав администратора, то вы можете распаковать файлы
+                        шрифтов в папку{" "}
+                        <mark className="path">
+                          %LocalAppData%\Microsoft\Windows\Fonts
+                        </mark>
+                        . В таком случае шрифты будут установлены только для вашей учётной
+                        записи.
+                      </AdditionInfo>
+                    </li>
+                  </ul>
+                  Также при необходимости вы можете воспользоваться шрифтовыми менеджерами
+                  для организации и активации нужных шрифтов только при необходимости,
+                  например <mark className="app">Corel Font Manager</mark>,{" "}
+                  <mark className="app">FontExpert</mark> или{" "}
+                  <mark className="app">FontBase</mark>.
+                </li>
+              </ul>
+            </div>
+          }
         />
         <AdditionInfo>
           Если у вас остались вопросы или до сих пор сталкиваетесь с проблемами при
@@ -758,8 +758,8 @@ const AEInstallProblems: React.FC = () => {
         </AdditionInfo>
       </DetailsSummary>
       <DetailsSummary
-        title="В Telegram-записи лежат файлы .part1, .part2 и дальше по списку. Что это такое и как такие файлы корректно распаковать?"
         tag="части архива, парт, распаковка, rar, zip"
+        title="В Telegram-записи лежат файлы .part1, .part2 и дальше по списку. Что это такое и как такие файлы корректно распаковать?"
       >
         <p>
           Данные файлы с пометкой <mark>.part1</mark>, <mark>.part2</mark> и далее по
@@ -773,6 +773,64 @@ const AEInstallProblems: React.FC = () => {
           или использованием в программах.
         </AdditionWarning>
         <ContentSwitcher
+          macContent={
+            <div>
+              <p>
+                Для распаковки архивов, в том числе и многотомных, вы можете использовать{" "}
+                <a
+                  href="https://www.keka.io/ru/"
+                  title="Официальный сайт keka"
+                >
+                  keka
+                </a>
+                . Он поддерживает кучу различных форматов архивов для распаковки, например{" "}
+                <mark className="file">.zip</mark> <mark className="file">.7z</mark>,{" "}
+                <mark className="file">.rar</mark>, <mark className="file">.tar</mark> и{" "}
+                <mark className="file">.iso</mark>. После установки этой программы вы
+                можете распаковать скачанный архив различными способами, как на{" "}
+                <a href="https://github.com/aonez/Keka/wiki/Extracting-with-Keka#how-to-extract-supported-files">
+                  примерах
+                </a>{" "}
+                ниже.
+              </p>
+              <div
+                style={{
+                  display: "grid",
+                  gridTemplateColumns: "repeat(auto-fit, minmax(275px, 1fr))",
+                  alignItems: "center",
+                }}
+              >
+                <ImageFigure
+                  caption="Распаковка через контекстное меню"
+                  imgSrc="https://github.com/aonez/Keka/raw/master/Wiki/Images/Animated/extract-context-menu.gif"
+                  imgTitle="Распаковка через контекстное меню"
+                  styleClass="figure_macos-light"
+                />
+                <ImageFigure
+                  caption="Распаковка с помощью открытого окна keka"
+                  imgSrc="https://github.com/aonez/Keka/raw/master/Wiki/Images/Animated/extract-window.gif"
+                  imgTitle="Распаковка с помощью открытого окна keka"
+                  styleClass="figure_macos-light"
+                />
+                <ImageFigure
+                  caption="Распаковка через иконку keka в Dock-меню"
+                  imgSrc="https://github.com/aonez/Keka/raw/master/Wiki/Images/Animated/extract-dock.gif"
+                  imgTitle="Распаковка через иконку keka в Dock-меню"
+                  styleClass="figure_macos-light"
+                />
+              </div>
+              <p>
+                Также вы можете установить данную утилиту как программу для распаковки
+                архивов по умолчанию, установив{" "}
+                <a href="https://www.keka.io/defaultapp/">kekaExternalHelper</a>.
+                Подробная инструкция расположена в{" "}
+                <a href="https://github.com/aonez/Keka/wiki/Default-application">
+                  Wiki на GitHub
+                </a>
+                .
+              </p>
+            </div>
+          }
           windowsContent={
             <div>
               <p>
@@ -803,74 +861,16 @@ const AEInstallProblems: React.FC = () => {
                 в нужное место или кнопки <mark className="ui">Распаковать</mark>.
               </p>
               <YouTubeVideo
-                link="1OVwQS0uHhk"
                 caption="Распаковка многотомного архива"
+                link="1OVwQS0uHhk"
               />
-            </div>
-          }
-          macContent={
-            <div>
-              <p>
-                Для распаковки архивов, в том числе и многотомных, вы можете использовать{" "}
-                <a
-                  href="https://www.keka.io/ru/"
-                  title="Официальный сайт keka"
-                >
-                  keka
-                </a>
-                . Он поддерживает кучу различных форматов архивов для распаковки, например{" "}
-                <mark className="file">.zip</mark> <mark className="file">.7z</mark>,{" "}
-                <mark className="file">.rar</mark>, <mark className="file">.tar</mark> и{" "}
-                <mark className="file">.iso</mark>. После установки этой программы вы
-                можете распаковать скачанный архив различными способами, как на{" "}
-                <a href="https://github.com/aonez/Keka/wiki/Extracting-with-Keka#how-to-extract-supported-files">
-                  примерах
-                </a>{" "}
-                ниже.
-              </p>
-              <div
-                style={{
-                  display: "grid",
-                  gridTemplateColumns: "repeat(auto-fit, minmax(275px, 1fr))",
-                  alignItems: "center",
-                }}
-              >
-                <ImageFigure
-                  styleClass="figure_macos-light"
-                  imgSrc="https://github.com/aonez/Keka/raw/master/Wiki/Images/Animated/extract-context-menu.gif"
-                  imgTitle="Распаковка через контекстное меню"
-                  caption="Распаковка через контекстное меню"
-                />
-                <ImageFigure
-                  styleClass="figure_macos-light"
-                  imgSrc="https://github.com/aonez/Keka/raw/master/Wiki/Images/Animated/extract-window.gif"
-                  imgTitle="Распаковка с помощью открытого окна keka"
-                  caption="Распаковка с помощью открытого окна keka"
-                />
-                <ImageFigure
-                  styleClass="figure_macos-light"
-                  imgSrc="https://github.com/aonez/Keka/raw/master/Wiki/Images/Animated/extract-dock.gif"
-                  imgTitle="Распаковка через иконку keka в Dock-меню"
-                  caption="Распаковка через иконку keka в Dock-меню"
-                />
-              </div>
-              <p>
-                Также вы можете установить данную утилиту как программу для распаковки
-                архивов по умолчанию, установив{" "}
-                <a href="https://www.keka.io/defaultapp/">kekaExternalHelper</a>.
-                Подробная инструкция расположена в{" "}
-                <a href="https://github.com/aonez/Keka/wiki/Default-application">
-                  Wiki на GitHub
-                </a>
-                .
-              </p>
             </div>
           }
         />
       </DetailsSummary>
       <DetailsSummary
-        title='"Не удаётся найти "..\install\helper.exe". Проверьте, правильно ли указано имя и повторите попытку", "Обнаружены угрозы", куда-то пропадают файлы плагинов и программ или как отключить Windows Defender?'
         tag="выключить дефендер, отрубить антивирус, вирусы, ложное срабатывание, хелпер, ошибка 24, windows не удается получить доступ к указанному устройству пути или файлу, возможно у вас нет нужных разрешений для доступа к этому объекту, некоторые файлы не были созданы"
+        title='"Не удаётся найти "..\install\helper.exe". Проверьте, правильно ли указано имя и повторите попытку", "Обнаружены угрозы", куда-то пропадают файлы плагинов и программ или как отключить Windows Defender?'
       >
         <p>
           Когда вы устанавливаете пиратские версии программ, часто можно услышать жалобы
@@ -911,8 +911,8 @@ const AEInstallProblems: React.FC = () => {
           <mark className="app">Windows Defender</mark> навсегда.
         </p>
         <YouTubeVideo
-          link="blwRAOQUjsM"
           caption="Как отключить Защитник Windows 11"
+          link="blwRAOQUjsM"
         />
         <p>
           Если вы хотите оставить включенным <mark className="app">Windows Defender</mark>
@@ -936,8 +936,8 @@ const AEInstallProblems: React.FC = () => {
           <mark className="app">Защитника Windows</mark>.
         </p>
         <YouTubeVideo
-          link="HxlxS1Mdyp0"
           caption="Как отключить Windows Smartscreen"
+          link="HxlxS1Mdyp0"
         />
       </DetailsSummary>
       <DetailsSummary title='Выскакивает "Некоторые установочные файлы были повреждены. Загрузите свежую копию и повторите установку" при открытии репака от KpoJluK'>
@@ -1043,8 +1043,8 @@ const AEInstallProblems: React.FC = () => {
           использовании символьных ссылок не гарантируется.
         </AdditionWarning>
         <YouTubeVideo
-          link="VaupaCuluJA"
           caption="Как сделать символическую ссылку в Windows на файл и папку"
+          link="VaupaCuluJA"
         />
       </DetailsSummary>
       <DetailsSummary title="Установил плагин с помощью установщика, а я его не вижу в After Effects">
@@ -1106,8 +1106,8 @@ const AEInstallProblems: React.FC = () => {
         </p>
       </DetailsSummary>
       <DetailsSummary
-        title="This project contains an expression error"
         tag="этот проект содержит ошибки выражений"
+        title="This project contains an expression error"
       >
         <p>
           Чаще всего данная ошибка возникает из-за двух факторов: язык самого{" "}
@@ -1152,6 +1152,46 @@ const AEInstallProblems: React.FC = () => {
           </ul>
         </AdditionDanger>
         <ContentSwitcher
+          macContent={
+            <div>
+              <Divider>Меняем язык с помощью консоли программы</Divider>
+              <AdditionWarning>
+                Этот способ смены языка работает только с{" "}
+                <mark className="app">After Effects</mark> версии <mark>24.x</mark> и
+                новее.
+              </AdditionWarning>
+              <p>
+                В новых версиях <mark className="app">After Effects</mark> разработчики
+                добавили возможность быстро поменять язык через консоль. Для этого нажмите
+                на комбинацию клавиш <mark className="key">Command + F12</mark>. В
+                открывшемся окне у заголовка нажимаем три полоски и переключаемся в режим{" "}
+                <mark className="ui">Debug Database View</mark>.
+              </p>
+              <ImageFigure
+                caption="Включение вида Debug Database View"
+                imgSrc="images/aftereffects/console_debug-database-view.png"
+                imgTitle="Включение вида Debug Database View"
+                styleClass="figure_windows-dark"
+              />
+              <p>
+                Затем в строке поиска нам нужно писать{" "}
+                <mark className="copy">ApplicationLanguage</mark>. В строке с одноимённым
+                параметром пишем <mark className="copy">en_US</mark>. После ввода значения
+                - перезапускаем <mark className="app">After Effects</mark>.
+              </p>
+              <ImageFigure
+                caption="Установка английского языка в консоли"
+                imgSrc="images/aftereffects/set_language_console.png"
+                imgTitle="Установка английского языка в консоли"
+                styleClass="figure_windows-dark"
+              />
+              <AdditionInfo>
+                Чтобы вернуть язык, который был установлен по умолчанию - достаточно
+                убрать значение из этого параметра и снова перезапустить{" "}
+                <mark className="app">After Effects</mark>.
+              </AdditionInfo>
+            </div>
+          }
           windowsContent={
             <div>
               <Divider>Меняем язык с помощью пустого текстового документа</Divider>
@@ -1199,10 +1239,10 @@ const AEInstallProblems: React.FC = () => {
                 <mark className="ui">Debug Database View</mark>.
               </p>
               <ImageFigure
-                styleClass="figure_windows-dark"
+                caption="Включение вида Debug Database View"
                 imgSrc="images/aftereffects/console_debug-database-view.png"
                 imgTitle="Включение вида Debug Database View"
-                caption="Включение вида Debug Database View"
+                styleClass="figure_windows-dark"
               />
               <p>
                 Затем в строке поиска нам нужно писать{" "}
@@ -1211,50 +1251,10 @@ const AEInstallProblems: React.FC = () => {
                 - перезапускаем <mark className="app">After Effects</mark>.
               </p>
               <ImageFigure
-                styleClass="figure_windows-dark"
+                caption="Установка английского языка в консоли"
                 imgSrc="images/aftereffects/set_language_console.png"
                 imgTitle="Установка английского языка в консоли"
-                caption="Установка английского языка в консоли"
-              />
-              <AdditionInfo>
-                Чтобы вернуть язык, который был установлен по умолчанию - достаточно
-                убрать значение из этого параметра и снова перезапустить{" "}
-                <mark className="app">After Effects</mark>.
-              </AdditionInfo>
-            </div>
-          }
-          macContent={
-            <div>
-              <Divider>Меняем язык с помощью консоли программы</Divider>
-              <AdditionWarning>
-                Этот способ смены языка работает только с{" "}
-                <mark className="app">After Effects</mark> версии <mark>24.x</mark> и
-                новее.
-              </AdditionWarning>
-              <p>
-                В новых версиях <mark className="app">After Effects</mark> разработчики
-                добавили возможность быстро поменять язык через консоль. Для этого нажмите
-                на комбинацию клавиш <mark className="key">Command + F12</mark>. В
-                открывшемся окне у заголовка нажимаем три полоски и переключаемся в режим{" "}
-                <mark className="ui">Debug Database View</mark>.
-              </p>
-              <ImageFigure
                 styleClass="figure_windows-dark"
-                imgSrc="images/aftereffects/console_debug-database-view.png"
-                imgTitle="Включение вида Debug Database View"
-                caption="Включение вида Debug Database View"
-              />
-              <p>
-                Затем в строке поиска нам нужно писать{" "}
-                <mark className="copy">ApplicationLanguage</mark>. В строке с одноимённым
-                параметром пишем <mark className="copy">en_US</mark>. После ввода значения
-                - перезапускаем <mark className="app">After Effects</mark>.
-              </p>
-              <ImageFigure
-                styleClass="figure_windows-dark"
-                imgSrc="images/aftereffects/set_language_console.png"
-                imgTitle="Установка английского языка в консоли"
-                caption="Установка английского языка в консоли"
               />
               <AdditionInfo>
                 Чтобы вернуть язык, который был установлен по умолчанию - достаточно
@@ -1276,10 +1276,10 @@ const AEInstallProblems: React.FC = () => {
           синтаксиса интерпретатора.
         </p>
         <ImageFigure
-          styleClass="figure_windows-dark"
+          caption="Project Settings"
           imgSrc="images/aftereffects/change_expression_language.png"
           imgTitle="Изменяем движок выражений"
-          caption="Project Settings"
+          styleClass="figure_windows-dark"
         />
         <p>
           Если вы применили чужой пресет с выражениями на свой слой, но все ещё
@@ -1314,58 +1314,79 @@ const AEInstallProblems: React.FC = () => {
       <DetailsSummary title="В названиях установщиков плагинов увидел обозначения Adobe, OFX или другое. Так для каких программ предназначены плагины?">
         <p>
           Обычно в названии установочных файлов указывается для каких программ
-          устанавливается плагин.
+          устанавливается плагин. Это сделано для того, чтобы не перепутать файлы для
+          нужных вам программ и установить как надо и куда надо.
         </p>
         <ul>
           <li>
-            <mark>AE</mark>, <mark>PR</mark>, <mark>PS</mark> или <mark>Adobe</mark> -
-            такие плагины устанавливаются в программы от Adobe. Иногда, если в названии
-            имеется суффикс <mark>AE</mark>, то он может устанавливаться и для{" "}
-            <mark className="app">After Effects</mark> и для{" "}
-            <mark className="app">Premiere Pro</mark>. Суффикс <mark>PS</mark> означает,
-            что плагин будет установлен для <mark className="app">Photoshop</mark>.
+            <mark className="word">AE</mark>, <mark className="word">PR</mark>,{" "}
+            <mark className="word">PS</mark>, <mark className="word">LR</mark> или{" "}
+            <mark className="word">Adobe</mark> - такие плагины устанавливаются в разные
+            программы от Adobe, например <mark className="app">After Effects</mark> и{" "}
+            <mark className="app">Premiere Pro</mark>,{" "}
+            <mark className="app">Photoshop</mark> и{" "}
+            <mark className="app">Lightroom</mark>.
+            <AdditionInfo>
+              <ul>
+                <li>
+                  Иногда плагины с припиской <mark className="word">AE</mark> могут
+                  устанавливаться и в <mark className="app">After Effects</mark>, и в{" "}
+                  <mark className="app">Premiere Pro</mark>.
+                </li>
+                <li>
+                  Плагины, распространяющиеся в установщиках будут устанавливаться в
+                  стандартные папки программ. Прежде чем устанавливать плагины с помощью
+                  установщиков - убедитесь в том, что вы изначально установили программы
+                  от <mark>Adobe</mark> в стандартное расположение, не меняя его, чтобы не
+                  ныть о том, что плагин не появился в нужной программе.
+                </li>
+              </ul>
+            </AdditionInfo>
           </li>
           <li>
-            <mark>OFX</mark> - такие плагины устанавливаются для программ с поддержкой
-            плагинов формата OpenFX. К ним относятся{" "}
+            <mark className="word">OFX</mark> - плагин установится для программ, которые
+            поддерживают стандарт формата <mark>OpenFX</mark>. К ним относятся{" "}
             <mark className="app">Davinci Resolve</mark>,{" "}
             <mark className="app">Vegas Pro</mark>, <mark className="app">Nuke</mark> и{" "}
             <a href="https://ru.wikipedia.org/wiki/OpenFX#%D0%A5%D0%BE%D1%81%D1%82%D1%8B">
-              далее по списку
+              остальные
             </a>
-            . Такие плагины не подойдут для <mark className="app">After Effects</mark> и
-            для <mark className="app">Premiere Pro</mark>, так как они не поддерживают
-            стандарт OpenFX.
+            .
+            <AdditionWarning>
+              Такие плагины не подойдут для <mark className="app">After Effects</mark> и
+              для <mark className="app">Premiere Pro</mark>, так как они не поддерживают
+              стандарт плагинов <mark>OpenFX</mark>.
+            </AdditionWarning>
           </li>
           <li>
-            <mark>Standalone</mark> - плагин ни от кого не зависит и запускается как
-            обычное приложение. Таких плагинов мало, один из таких является{" "}
-            <mark className="plugin">Mocha Pro</mark>.
+            <mark className="word">Standalone</mark> - плагин, работающий как обычная
+            программа и может ни от кого не зависеть, например{" "}
+            <mark className="plugin">BorisFX Mocha Pro</mark> или{" "}
+            <mark className="plugin">BorisFX Optics</mark>.
           </li>
           <li>
-            <mark>Репак от ...</mark> или <mark>Repack by ...</mark> - перепакованный
-            установщик плагина, в котором обычно за пользователя уже всё активировано. В
-            некоторых установщиках важно следить за галочками, а то вдруг установите
-            что-то лишнее.
+            <mark className="word">Репак от ...</mark> или{" "}
+            <mark className="word">Repack by ...</mark> - перепакованный установщик
+            плагина, который устанавливает плагин куда надо. Обычно такие плагины
+            предварительно активированы, если не указано иное.
+            <AdditionWarning>
+              При открытии таких установщиков стоит быть внимательным с чекбоксами, так
+              как есть риск того, что вы можете установить в свою систему явно что-то
+              лишнее.
+            </AdditionWarning>
           </li>
           <li>
-            <mark>CE</mark> - маркировка от группы релизеров <mark>Team V.R.</mark>,
-            которая расшифровывается как <mark>Corporate Edition</mark>. Таким образом они
-            помечают, что такие дистрибутивы достаточно просто установить без всяких
-            лишних действий по активации плагинов. То есть это для них как синоним к слову
-            &quot;репак&quot;.
+            <mark className="word">CE</mark> - маркировка от группы релизеров{" "}
+            <mark>Team V.R.</mark>, которая расшифровывается как{" "}
+            <mark>Corporate Edition</mark>. Таким образом они помечают, что такие
+            дистрибутивы достаточно просто установить без всяких лишних действий по
+            активации плагинов. То есть это для них как синоним к слову &quot;репак&quot;.
           </li>
         </ul>
-        <AdditionInfo>
-          Плагины, распространяющиеся в установщиках будут устанавливаться в стандартные
-          папки программ. Поэтому лучше не менять путь установки приложений от Adobe или
-          других монтажных программ, чтобы не ныть о том, что плагин не появился в нужной
-          программе.
-        </AdditionInfo>
       </DetailsSummary>
       <DetailsSummary
-        title="Я не доверяю репакам и автоматическим установщикам, но установить программы от Adobe хочется. Какие есть ещё варианты?"
         tag="генп, genp, ручная активация"
+        title="Я не доверяю репакам и автоматическим установщикам, но установить программы от Adobe хочется. Какие есть ещё варианты?"
       >
         <p>
           Если вы параноик и боитесь, что при установке репаков в ваш компьютер ворвётся
@@ -1411,10 +1432,10 @@ const AEInstallProblems: React.FC = () => {
           войти в аккаунт: вы можете создать новый или войти в уже существующий.
         </p>
         <ImageFigure
-          styleClass="figure_windows-light"
+          caption="Adobe Creative Cloud"
           imgSrc="images/creative_cloud_main_menu.png"
           imgTitle="Главное окно Creative Cloud"
-          caption="Adobe Creative Cloud"
+          styleClass="figure_windows-light"
         />
         <p>
           После успешного входа нам нужно отключить автоматические обновления и автозапуск{" "}
@@ -1423,20 +1444,20 @@ const AEInstallProblems: React.FC = () => {
           правом верхнем углу и в меню выбрать <mark className="ui">Установки</mark>.
         </p>
         <ImageFigure
-          styleClass="figure_windows-light"
+          caption="Adobe Creative Cloud"
           imgSrc="images/creative_cloud_open_settings.png"
           imgTitle="Открытие настроек Creative Cloud"
-          caption="Adobe Creative Cloud"
+          styleClass="figure_windows-light"
         />
         <p>
           В открывшемся окне отключаем три пункта про автозапуск и авто обновление
           приложений в разделе <mark className="ui">Общие</mark>.
         </p>
         <ImageFigure
-          styleClass="figure_windows-light"
+          caption="Adobe Creative Cloud"
           imgSrc="images/creative_cloud_settings.png"
           imgTitle="Пункты для отключения обновлений и автозапуска Creative Cloud"
-          caption="Adobe Creative Cloud"
+          styleClass="figure_windows-light"
         />
         <AdditionInfo>
           По вашему желанию вы можете выбрать английский язык для новых приложений по
@@ -1455,10 +1476,10 @@ const AEInstallProblems: React.FC = () => {
           <mark className="app">GenP</mark>, отключите ваш антивирус на время.
         </AdditionWarning>
         <ImageFigure
-          styleClass="figure_windows-dark"
+          caption="Браузер"
           imgSrc="images/reddit_genp.png"
           imgTitle="Скачиваем GenP из Reddit"
-          caption="Браузер"
+          styleClass="figure_windows-dark"
         />
         <p>
           После успешной загрузки архива нам нужно распаковать его в любом удобном месте,
@@ -1476,10 +1497,10 @@ const AEInstallProblems: React.FC = () => {
           появления двух файлов для <mark className="app">Creative Cloud</mark>.{" "}
         </p>
         <ImageFigure
-          styleClass="figure_windows-light"
+          caption="Adobe GenP"
           imgSrc="images/patching_creative_cloud.png"
           imgTitle="Патчим Creative Cloud"
-          caption="Adobe GenP"
+          styleClass="figure_windows-light"
         />
         <p>
           Их мы выделяем и нажимаем на кнопку <mark className="ui">Patch</mark> и ждём
@@ -1506,8 +1527,8 @@ const AEInstallProblems: React.FC = () => {
         </p>
       </DetailsSummary>
       <DetailsSummary
-        title='При установке любого пакета Red Giant выскакивает "This installer application has been moved. It must be run from its original folder containing a packages directory. The installer will now exit."'
         tag="trapcode, mbl, magic bullet, vfx suite, universe, юниверс, трапкод, партикуляр, мбл"
+        title='При установке любого пакета Red Giant выскакивает "This installer application has been moved. It must be run from its original folder containing a packages directory. The installer will now exit."'
       >
         <p>
           Скорее всего пытаетесь установить плагины от{" "}
@@ -1595,8 +1616,8 @@ const AEInstallProblems: React.FC = () => {
         </ul>
       </DetailsSummary>
       <DetailsSummary
-        title="Установил плагин, но при его применении вылазают красные кресты или надписи про отсутствие лицензии"
         tag="плагин не активирован, license failed, красный крест"
+        title="Установил плагин, но при его применении вылазают красные кресты или надписи про отсутствие лицензии"
       >
         <p>
           При применении эффектов из различных сторонних плагинов вы можете столкнуться с
@@ -1621,10 +1642,10 @@ const AEInstallProblems: React.FC = () => {
           программы.
         </p>
         <ImageFigure
-          styleClass="figure_windows-dark"
+          caption="After Effects"
           imgSrc="images/aftereffects/startup_repair_options.png"
           imgTitle="Окно для решения проблем при запуске программы"
-          caption="After Effects"
+          styleClass="figure_windows-dark"
         />
         <p>
           Для сброса всех настроек нужно нажать на прекрасную кнопочку{" "}
@@ -1645,8 +1666,8 @@ const AEInstallProblems: React.FC = () => {
         </p>
       </DetailsSummary>
       <DetailsSummary
-        title="Как я могу полностью удалить After Effects и остальные продукты от Adobe на моем устройстве?"
         tag="креатив клауд клинер, удаление adobe, очистка от хвостов"
+        title="Как я могу полностью удалить After Effects и остальные продукты от Adobe на моем устройстве?"
       >
         <p>
           Если вы хотите переустановить или забыть о программах <mark>Adobe</mark> раз и

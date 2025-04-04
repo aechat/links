@@ -12,7 +12,7 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "jsx": "react-jsx"
+    "jsx": "react"
   },
   "include": [".eslintrc.cjs", "src/**/*.ts", "src/**/*.tsx"],
   "references": [

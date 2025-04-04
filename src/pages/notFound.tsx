@@ -76,10 +76,10 @@ const NotFound = () => {
 
   return (
     <motion.main
-      className="not-found error"
-      initial={{x: 100, opacity: 0}}
       animate={{x: 0, opacity: 1}}
+      className="not-found error"
       exit={{x: -50, opacity: 0}}
+      initial={{x: 100, opacity: 0}}
       transition={{duration: 0.5, type: "spring", ease: [0.25, 0, 0, 1]}}
     >
       <Helmet>
@@ -96,17 +96,17 @@ const NotFound = () => {
           </div>
           <div className="modal-content">
             <motion.button
-              style={{marginBlock: "10px"}}
-              onClick={() => {
-                window.location.reload();
-                window.location.href = "/";
-              }}
               className="modal-open-button"
+              style={{marginBlock: "10px"}}
               whileHover={{
                 scale: 0.975,
                 transition: {duration: 0.5, ease: [0.25, 0, 0, 1]},
               }}
               whileTap={{scale: 0.95, opacity: 0.5}}
+              onClick={() => {
+                window.location.reload();
+                window.location.href = "/";
+              }}
             >
               На главную
             </motion.button>

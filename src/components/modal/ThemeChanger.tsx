@@ -106,8 +106,8 @@ export const ThemeToggleButton: React.FC = () => {
         <FormatColorFillOutlined />
       </button>
       <ThemeModal
-        isModalOpen={isModalOpen}
         closeModal={closeModal}
+        isModalOpen={isModalOpen}
       />
     </>
   );
@@ -123,12 +123,12 @@ const ThemeModal: React.FC<ThemeModalProps> = ({isModalOpen, closeModal}) => {
 
   return (
     <Modal
-      closeIcon={null}
-      open={isModalOpen}
-      footer={null}
       destroyOnClose
-      onCancel={closeModal}
+      closeIcon={null}
+      footer={null}
+      open={isModalOpen}
       width={450}
+      onCancel={closeModal}
     >
       <div className="modal">
         <div className="modal-header">
@@ -152,42 +152,42 @@ const ThemeModal: React.FC<ThemeModalProps> = ({isModalOpen, closeModal}) => {
         >
           <div className="theme-selector">
             <motion.button
+              className={
+                theme === "light" ? "theme-button theme-button-selected" : "theme-button"
+              }
               whileHover={{
                 scale: 0.975,
                 transition: {duration: 0.5, ease: [0.075, 0.82, 0.165, 1]},
               }}
               whileTap={{scale: 0.95, opacity: 0.5}}
-              className={
-                theme === "light" ? "theme-button theme-button-selected" : "theme-button"
-              }
               onClick={() => setTheme("light")}
             >
               <LightModeRounded />
               Светлая
             </motion.button>
             <motion.button
+              className={
+                theme === "dark" ? "theme-button theme-button-selected" : "theme-button"
+              }
               whileHover={{
                 scale: 0.975,
                 transition: {duration: 0.5, ease: [0.075, 0.82, 0.165, 1]},
               }}
               whileTap={{scale: 0.95, opacity: 0.5}}
-              className={
-                theme === "dark" ? "theme-button theme-button-selected" : "theme-button"
-              }
               onClick={() => setTheme("dark")}
             >
               <DarkModeRounded />
               Тёмная
             </motion.button>
             <motion.button
+              className={
+                theme === "system" ? "theme-button theme-button-selected" : "theme-button"
+              }
               whileHover={{
                 scale: 0.975,
                 transition: {duration: 0.5, ease: [0.075, 0.82, 0.165, 1]},
               }}
               whileTap={{scale: 0.95, opacity: 0.5}}
-              className={
-                theme === "system" ? "theme-button theme-button-selected" : "theme-button"
-              }
               onClick={() => setTheme("system")}
             >
               <HideSourceRounded />
@@ -199,15 +199,14 @@ const ThemeModal: React.FC<ThemeModalProps> = ({isModalOpen, closeModal}) => {
           <div className="theme-title">Оттенок акцентного цвета</div>
           <div className="theme-slider">
             <Slider
-              min={0}
               max={360}
+              min={0}
+              style={{flex: "1 1 auto", width: "100%"}}
               value={accentHue}
               onChange={(value) => setAccentHue(value)}
-              style={{flex: "1 1 auto", width: "100%"}}
             />
             <Tooltip title="Сбросить оттенок">
               <button
-                onClick={() => setAccentHue(210)}
                 style={{
                   width: "28px",
                   height: "28px",
@@ -216,6 +215,7 @@ const ThemeModal: React.FC<ThemeModalProps> = ({isModalOpen, closeModal}) => {
                   padding: 0,
                   cursor: "pointer",
                 }}
+                onClick={() => setAccentHue(210)}
               >
                 <RestartAlt />
               </button>
@@ -226,16 +226,15 @@ const ThemeModal: React.FC<ThemeModalProps> = ({isModalOpen, closeModal}) => {
           <div className="theme-title">Насыщенность акцентного цвета</div>
           <div className="theme-slider">
             <Slider
-              min={0}
               max={1.25}
+              min={0}
               step={0.025}
+              style={{flex: "1 1 auto", width: "100%"}}
               value={saturateRatio}
               onChange={(value) => setSaturateRatio(value)}
-              style={{flex: "1 1 auto", width: "100%"}}
             />
             <Tooltip title="Сбросить насыщенность">
               <button
-                onClick={() => setSaturateRatio(1)}
                 style={{
                   width: "28px",
                   height: "28px",
@@ -244,6 +243,7 @@ const ThemeModal: React.FC<ThemeModalProps> = ({isModalOpen, closeModal}) => {
                   padding: 0,
                   cursor: "pointer",
                 }}
+                onClick={() => setSaturateRatio(1)}
               >
                 <RestartAlt />
               </button>

@@ -32,32 +32,32 @@ const ChatRules = () => {
       <Helmet>
         <title>rules@aechat</title>
         <meta
+          content="Правила чатов AEChat и DWChat"
           name="description"
-          content="Правила чатов AEChat и DWChat"
         />
         <meta
-          property="og:type"
           content="website"
+          property="og:type"
         />
         <meta
-          property="og:url"
           content="https://aechat.ru/"
+          property="og:url"
         />
         <meta
-          property="og:title"
           content="aechat&dwchat-rules"
+          property="og:title"
         />
         <meta
-          property="og:description"
           content="Правила чатов AEChat и DWChat"
+          property="og:description"
         />
       </Helmet>
       <Header title="rules" />
       <motion.main
-        className="main"
-        initial={{x: 100, opacity: 0}}
         animate={{x: 0, opacity: 1}}
+        className="main"
         exit={{x: -50, opacity: 0}}
+        initial={{x: 100, opacity: 0}}
         transition={{duration: 0.5, type: "spring", ease: [0.25, 0, 0, 1]}}
       >
         <div className="faq-container-flex">
@@ -83,26 +83,26 @@ const ChatRules = () => {
                 <AdditionDanger>
                   Предупреждение для иноязычных пользователей: In{" "}
                   <a
-                    target="_blank"
-                    rel="noreferrer"
                     href="https://t.me/joinchat/F1DdXtG9LephYWUy"
+                    rel="noreferrer"
+                    target="_blank"
                   >
                     AEChat
                   </a>{" "}
                   and{" "}
                   <a
-                    target="_blank"
-                    rel="noreferrer"
                     href="https://t.me/+3LF_B_VK-Nw4YzYy"
+                    rel="noreferrer"
+                    target="_blank"
                   >
                     DWChat
                   </a>{" "}
                   we communicate exclusively in Russian. If you don&apos;t know Russian,
                   we recommend using an{" "}
                   <a
-                    target="_blank"
-                    rel="noreferrer"
                     href="https://translate.google.com"
+                    rel="noreferrer"
+                    target="_blank"
                   >
                     online-translator
                   </a>{" "}
@@ -111,25 +111,25 @@ const ChatRules = () => {
                 <p>
                   В наших чатах{" "}
                   <a
-                    target="_blank"
-                    rel="noreferrer"
                     href="https://t.me/joinchat/F1DdXtG9LephYWUy"
+                    rel="noreferrer"
+                    target="_blank"
                   >
                     AEChat
                   </a>{" "}
                   и{" "}
                   <a
-                    target="_blank"
-                    rel="noreferrer"
                     href="https://t.me/+3LF_B_VK-Nw4YzYy"
+                    rel="noreferrer"
+                    target="_blank"
                   >
                     DWChat
                   </a>{" "}
                   вы можете обсудить любые вопросы касающиеся тематики чата. В{" "}
                   <a
-                    target="_blank"
-                    rel="noreferrer"
                     href="https://t.me/joinchat/F1DdXtG9LephYWUy"
+                    rel="noreferrer"
+                    target="_blank"
                   >
                     AEChat
                   </a>{" "}
@@ -137,9 +137,9 @@ const ChatRules = () => {
                   <mark className="app">Premiere Pro</mark> и плагины для этих программ. А
                   в{" "}
                   <a
-                    target="_blank"
-                    rel="noreferrer"
                     href="https://t.me/+3LF_B_VK-Nw4YzYy"
+                    rel="noreferrer"
+                    target="_blank"
                   >
                     DWChat
                   </a>{" "}
@@ -163,25 +163,25 @@ const ChatRules = () => {
                   </b>{" "}
                   в чате или в{" "}
                   <a
-                    target="_blank"
-                    rel="noreferrer"
                     href="/aefaq"
+                    rel="noreferrer"
+                    target="_blank"
                   >
                     aefaq
                   </a>
                   ,{" "}
                   <a
-                    target="_blank"
-                    rel="noreferrer"
                     href="/prfaq"
+                    rel="noreferrer"
+                    target="_blank"
                   >
                     prfaq
                   </a>{" "}
                   или{" "}
                   <a
-                    target="_blank"
-                    rel="noreferrer"
                     href="/psfaq"
+                    rel="noreferrer"
+                    target="_blank"
                   >
                     psfaq
                   </a>
@@ -192,9 +192,9 @@ const ChatRules = () => {
                   <ul>
                     <li>
                       <a
-                        target="_blank"
-                        rel="noreferrer"
                         href="https://github.com/ShareX/ShareX/releases"
+                        rel="noreferrer"
+                        target="_blank"
                       >
                         ShareX
                       </a>{" "}
@@ -203,9 +203,9 @@ const ChatRules = () => {
                     </li>
                     <li>
                       <a
-                        target="_blank"
-                        rel="noreferrer"
                         href="https://www.ntwind.com/software/wincam.html"
+                        rel="noreferrer"
+                        target="_blank"
                       >
                         WinCam
                       </a>{" "}
@@ -213,9 +213,9 @@ const ChatRules = () => {
                     </li>
                     <li>
                       <a
-                        target="_blank"
-                        rel="noreferrer"
                         href="https://www.nvidia.com/ru-ru/software/nvidia-app/"
+                        rel="noreferrer"
+                        target="_blank"
                       >
                         NVIDIA App
                       </a>{" "}
@@ -223,9 +223,9 @@ const ChatRules = () => {
                     </li>
                     <li>
                       <a
-                        target="_blank"
-                        rel="noreferrer"
                         href="https://www.amd.com/en/products/software/adrenalin.html"
+                        rel="noreferrer"
+                        target="_blank"
                       >
                         AMD Software: Adrenalin Edition
                       </a>{" "}
@@ -234,18 +234,18 @@ const ChatRules = () => {
                   </ul>
                   Чтобы записать видео экрана на macOS - воспользуйтесь комбинацией клавиш{" "}
                   <a
-                    target="_blank"
-                    rel="noreferrer"
                     href="https://support.apple.com/ru-ru/102618"
+                    rel="noreferrer"
+                    target="_blank"
                   >
                     Shift + Command + 5
                   </a>{" "}
                   или встроенной программой QuickTime Player. Скриншоты можно сделать с
                   помощью комбинации клавиш{" "}
                   <a
-                    target="_blank"
-                    rel="noreferrer"
                     href="https://support.apple.com/ru-ru/102646"
+                    rel="noreferrer"
+                    target="_blank"
                   >
                     Shift + Command + 3
                   </a>
@@ -604,8 +604,8 @@ const ChatRules = () => {
               </section>
             </div>
             <Footer
-              title="aechat"
               initialYear={2021}
+              title="aechat"
             />
           </div>
         </div>

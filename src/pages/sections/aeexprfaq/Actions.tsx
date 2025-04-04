@@ -10,8 +10,8 @@ const AEExprActions: React.FC = () => {
     <div className="faq-content">
       <GithubUpdateInfo filePath="src/pages/sections/aeexprfaq/Actions.tsx" />
       <DetailsSummary
-        title="Как задать тряску у слоя?"
         tag="шейк, покачивание, случайное положение, причина тряски"
+        title="Как задать тряску у слоя?"
       >
         <p>
           Для задания случайного покачивания слоя в{" "}
@@ -48,9 +48,9 @@ wiggle(x, y)`}</CodeSnippet>
           или 25, чтобы получилось нужное вам значение.
         </p>
         <VideoFigure
+          caption="Умножение счётчика на нужный коэффициент"
           styleClass="figure_windows-dark"
           videoSrc="images/aftereffects/limit_million.mp4"
-          caption="Умножение счётчика на нужный коэффициент"
         />
         <AdditionInfo>
           Для избавления от плавающей запятой можно использовать функцию{" "}

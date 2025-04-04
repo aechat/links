@@ -3,7 +3,7 @@ import DetailsSummary from "../../../components/DetailsSummary";
 import GithubUpdateInfo from "../../../components/features/GithubUpdateInfo";
 import {AdditionInfo, AdditionWarning} from "../../../components/Additions";
 import {ImageFigure, YouTubeVideo} from "../../../components/ContentFigure";
-import ContentSwitcher from "../../../components/features/OperatingSystemFilter";
+import ContentSwitcher from "../../../components/features/ContentFilter";
 import {Divider} from "antd";
 
 const AEPerformance: React.FC = () => {
@@ -11,8 +11,8 @@ const AEPerformance: React.FC = () => {
     <div className="faq-content">
       <GithubUpdateInfo filePath="src/pages/sections/aefaq/Performance.tsx" />
       <DetailsSummary
-        title="Почему у меня, б%@#ь, лагает е&#!%й After Effects, с$%а?"
         tag="тормозит, жуткие лаги, медленно работает, низкая скорость работы программы, оптимизация, производительность, применение эффектов, системные требования, артефакты, искажения"
+        title="Почему у меня, б%@#ь, лагает е&#!%й After Effects, с$%а?"
       >
         <p>
           Здесь по этому вопросу можно рассуждать долго и бесконечно. Тут нельзя назвать
@@ -29,6 +29,67 @@ const AEPerformance: React.FC = () => {
         </p>
         <Divider>Рекомендуемые системные требования</Divider>
         <ContentSwitcher
+          macContent={
+            <div>
+              <ul>
+                <li>
+                  Для корректной установки и запуска программы требуется установленная
+                  операционная система минимум macOS <mark>Monterey</mark> (12.X.X) или
+                  новее.
+                  <AdditionWarning>
+                    <ul>
+                      <li>
+                        {" "}
+                        Поддержка macOS Big Sur (11.X) прекращена, вы можете установить
+                        последнюю версию <mark className="app">After Effects</mark> для
+                        вас - <mark>23.6</mark>.
+                      </li>
+                      <li>
+                        <mark className="app">After Effects</mark> версий{" "}
+                        <mark>2024</mark> и новее не поддерживают запуск через{" "}
+                        <mark className="app">Rosetta</mark>. Таким образом старые версии
+                        сторонних плагинов, которые были адаптированы для процессоров на{" "}
+                        <mark>Intel</mark> не будут работать на <mark>Apple Silicon</mark>
+                        . Для решения проблемы откатитесь до <mark>23.6</mark> или найдите
+                        обновления для сторонних плагинов с поддержкой процессоров{" "}
+                        <mark>Apple Silicon</mark>.{" "}
+                        <a href="https://helpx.adobe.com/ru/after-effects/kb/after-effects-apple-silicon.html">
+                          Подробнее...
+                        </a>
+                      </li>
+                    </ul>
+                  </AdditionWarning>
+                </li>
+                <li>
+                  <mark className="app">After Effects</mark> можно запустить на
+                  устройствах Mac с процессором <mark>Intel</mark> минимум 6-го поколения
+                  с поддержкой инструкций <mark>AVX2</mark>.
+                  <AdditionWarning>
+                    На старых устройствах, по типу <mark>Mac Pro 2013</mark>, у вас не
+                    получится установить <mark className="app">After Effects</mark> версий
+                    24.X и новее. Вы можете установить последнюю версию{" "}
+                    <mark className="app">After Effects</mark> для вас - <mark>23.6</mark>
+                    .
+                  </AdditionWarning>
+                  Но с развитием технологий, сейчас рекомендуется использовать устройство
+                  на базе процессоров <mark>Apple Silicon</mark> минимум <mark>M1</mark>{" "}
+                  или его более производительных производных, как <mark>M1 Pro</mark>,{" "}
+                  <mark>M1 Max</mark> и прочие. Они более производительнее и
+                  энергоэффективнее, чем устройства на базе <mark>Intel</mark>.
+                </li>
+                <li>
+                  Требуется и рекомендуется иметь минимум <mark>16 гигабайт</mark>{" "}
+                  оперативной памяти на вашем устройстве.
+                  <AdditionWarning>
+                    Если в комплектации вашего Mac-устройства только{" "}
+                    <mark>8 гигабайт</mark> оперативной памяти или ниже, то скорее всего в
+                    сложных проектах вы будете часто сталкиваться с нехваткой оперативной
+                    памяти и ошибками по типу <mark className="ui">Out of Memory</mark>.
+                  </AdditionWarning>
+                </li>
+              </ul>
+            </div>
+          }
           windowsContent={
             <div>
               <ul>
@@ -142,67 +203,6 @@ const AEPerformance: React.FC = () => {
               </ul>
             </div>
           }
-          macContent={
-            <div>
-              <ul>
-                <li>
-                  Для корректной установки и запуска программы требуется установленная
-                  операционная система минимум macOS <mark>Monterey</mark> (12.X.X) или
-                  новее.
-                  <AdditionWarning>
-                    <ul>
-                      <li>
-                        {" "}
-                        Поддержка macOS Big Sur (11.X) прекращена, вы можете установить
-                        последнюю версию <mark className="app">After Effects</mark> для
-                        вас - <mark>23.6</mark>.
-                      </li>
-                      <li>
-                        <mark className="app">After Effects</mark> версий{" "}
-                        <mark>2024</mark> и новее не поддерживают запуск через{" "}
-                        <mark className="app">Rosetta</mark>. Таким образом старые версии
-                        сторонних плагинов, которые были адаптированы для процессоров на{" "}
-                        <mark>Intel</mark> не будут работать на <mark>Apple Silicon</mark>
-                        . Для решения проблемы откатитесь до <mark>23.6</mark> или найдите
-                        обновления для сторонних плагинов с поддержкой процессоров{" "}
-                        <mark>Apple Silicon</mark>.{" "}
-                        <a href="https://helpx.adobe.com/ru/after-effects/kb/after-effects-apple-silicon.html">
-                          Подробнее...
-                        </a>
-                      </li>
-                    </ul>
-                  </AdditionWarning>
-                </li>
-                <li>
-                  <mark className="app">After Effects</mark> можно запустить на
-                  устройствах Mac с процессором <mark>Intel</mark> минимум 6-го поколения
-                  с поддержкой инструкций <mark>AVX2</mark>.
-                  <AdditionWarning>
-                    На старых устройствах, по типу <mark>Mac Pro 2013</mark>, у вас не
-                    получится установить <mark className="app">After Effects</mark> версий
-                    24.X и новее. Вы можете установить последнюю версию{" "}
-                    <mark className="app">After Effects</mark> для вас - <mark>23.6</mark>
-                    .
-                  </AdditionWarning>
-                  Но с развитием технологий, сейчас рекомендуется использовать устройство
-                  на базе процессоров <mark>Apple Silicon</mark> минимум <mark>M1</mark>{" "}
-                  или его более производительных производных, как <mark>M1 Pro</mark>,{" "}
-                  <mark>M1 Max</mark> и прочие. Они более производительнее и
-                  энергоэффективнее, чем устройства на базе <mark>Intel</mark>.
-                </li>
-                <li>
-                  Требуется и рекомендуется иметь минимум <mark>16 гигабайт</mark>{" "}
-                  оперативной памяти на вашем устройстве.
-                  <AdditionWarning>
-                    Если в комплектации вашего Mac-устройства только{" "}
-                    <mark>8 гигабайт</mark> оперативной памяти или ниже, то скорее всего в
-                    сложных проектах вы будете часто сталкиваться с нехваткой оперативной
-                    памяти и ошибками по типу <mark className="ui">Out of Memory</mark>.
-                  </AdditionWarning>
-                </li>
-              </ul>
-            </div>
-          }
         />
         <Divider>Типичные ошибки пользователя и их влияние на производительность</Divider>
         <p>
@@ -255,8 +255,8 @@ const AEPerformance: React.FC = () => {
                   видео от <a href="https://www.youtube.com/@VideoSmile">VideoSmile</a>{" "}
                   ниже.
                   <YouTubeVideo
-                    link="MprgQSTqL9E"
                     caption="Типы кодеков и их применение"
+                    link="MprgQSTqL9E"
                   />
                 </li>
               </ul>
@@ -333,10 +333,10 @@ const AEPerformance: React.FC = () => {
           <mark className="ui">Composition &gt; Preview</mark>.
         </p>
         <ImageFigure
-          styleClass="figure_windows-light"
+          caption="After Effects"
           imgSrc="images/aftereffects/disable_idle_cache.png"
           imgTitle="Отключение автоматического кэширования предпросмотра при бездействии"
-          caption="After Effects"
+          styleClass="figure_windows-light"
         />
         <Divider>Анализируем время рендера слоёв</Divider>
         <p>
@@ -356,15 +356,17 @@ const AEPerformance: React.FC = () => {
           столбцам.
         </AdditionInfo>
         <ImageFigure
-          styleClass="figure_windows-dark"
+          caption="Timeline"
           imgSrc="images/aftereffects/view_render_time.png"
           imgTitle="Смотрим время рендера слоя"
-          caption="Timeline"
+          styleClass="figure_windows-dark"
         />
+        <Divider>Поясняем за дисковый кэш</Divider>
+        <p>{/* FIXME:  */}</p>
       </DetailsSummary>
       <DetailsSummary
-        title="Как заставить программу использовать всю мощь компьютера?"
         tag="ускорить, увеличить скорость рендера"
+        title="Как заставить программу использовать всю мощь компьютера?"
       >
         <p>
           Предположим, что вы только-только купили новое устройство и вы хотите его
@@ -388,10 +390,10 @@ const AEPerformance: React.FC = () => {
           рендере.
         </p>
         <ImageFigure
-          styleClass="figure_windows-dark"
+          caption="Preferences"
           imgSrc="images/aftereffects/mfr_settings.png"
           imgTitle="Настройка ограничения процессора при многокадровом рендере"
-          caption="Preferences"
+          styleClass="figure_windows-dark"
         />
         <AdditionWarning>
           <ul>
@@ -455,10 +457,10 @@ const AEPerformance: React.FC = () => {
           параметра вы заметите, насколько сильно сократится список ваших эффектов.
         </p>
         <ImageFigure
-          styleClass="figure_windows-dark"
+          caption="After Effects"
           imgSrc="images/aftereffects/show_gpu_capable_effects_only.png"
           imgTitle="Включение отображение только тех эффектов, которые поддерживают GPU-ускорение"
-          caption="After Effects"
+          styleClass="figure_windows-dark"
         />
         <p>
           Рядом с названием плагинов обычно отображаются значки, которые показывают
@@ -474,10 +476,10 @@ const AEPerformance: React.FC = () => {
           исходниками.
         </AdditionInfo>
         <ImageFigure
-          styleClass="figure_windows-dark"
+          caption="Effects & Presets"
           imgSrc="images/aftereffects/effect_icons.png"
           imgTitle="Иконки рядом с эффектами"
-          caption="Effects & Presets"
+          styleClass="figure_windows-dark"
         />
         <Divider>Различия в работе между After Effects и Premiere Pro</Divider>
         <p>
@@ -512,10 +514,10 @@ const AEPerformance: React.FC = () => {
           комбинацию клавиш <mark className="key">Alt + Shift + I</mark>.
         </p>
         <ImageFigure
-          styleClass="figure_windows-light"
+          caption="After Effects"
           imgSrc="images/aftereffects/disable_idle_cache.png"
           imgTitle="Отключение автоматического кэширования предпросмотра при бездействии"
-          caption="After Effects"
+          styleClass="figure_windows-light"
         />
         <p>
           Если вы не хотите отключать эту функцию, но хотите изменить время, после
@@ -530,10 +532,10 @@ const AEPerformance: React.FC = () => {
           области.
         </AdditionInfo>
         <ImageFigure
-          styleClass="figure_windows-dark"
+          caption="Preferences"
           imgSrc="images/aftereffects/change_time_idle_cache.png"
           imgTitle="Изменение времени для автоматического кэширования при бездействии"
-          caption="Preferences"
+          styleClass="figure_windows-dark"
         />
       </DetailsSummary>
       <DetailsSummary title="Зачем люди переключают рендер на процессор, если есть видеокарта? Как мне переключить рендер на процессор?">
@@ -554,10 +556,10 @@ const AEPerformance: React.FC = () => {
           включения рендера на процессоре.
         </p>
         <ImageFigure
-          styleClass="figure_windows-dark"
+          caption="Project Manager"
           imgSrc="images/aftereffects/project_manager_mercury.png"
           imgTitle="Переключение типа рендера"
-          caption="Project Manager"
+          styleClass="figure_windows-dark"
         />
         <ul>
           <li>
@@ -599,8 +601,8 @@ const AEPerformance: React.FC = () => {
         </p>
       </DetailsSummary>
       <DetailsSummary
-        title="Предпросмотр идёт как-будто в slow-motion, что делать?"
         tag="замедленное превью, слоумо, растянутое аудио"
+        title="Предпросмотр идёт как-будто в slow-motion, что делать?"
       >
         <p>
           Скорее всего вы пытаетесь проиграть предпросмотр в реальном времени - эффекты и
@@ -610,10 +612,10 @@ const AEPerformance: React.FC = () => {
           и проигрывании кадров из памяти.
         </p>
         <ImageFigure
-          styleClass="figure_windows-dark"
+          caption="Info"
           imgSrc="images/aftereffects/info_non-realtime.png"
           imgTitle="Предпросмотр не в реальном времени"
-          caption="Info"
+          styleClass="figure_windows-dark"
         />
         <p>
           Чтобы устранить это стандартное поведение программы - вам нужно закэшировать
@@ -623,10 +625,10 @@ const AEPerformance: React.FC = () => {
           <mark className="ui">If caching, play caching frames</mark>.
         </p>
         <ImageFigure
-          styleClass="figure_windows-dark"
+          caption="Preview"
           imgSrc="images/aftereffects/preview_caching.png"
           imgTitle="Включение кэширования предпросмотра"
-          caption="Preview"
+          styleClass="figure_windows-dark"
         />
         <ul>
           <li>
@@ -666,10 +668,10 @@ const AEPerformance: React.FC = () => {
           предпросмотр в соответствии с частотой кадров в настройках композиции.
         </p>
         <ImageFigure
-          styleClass="figure_windows-dark"
+          caption="Preview"
           imgSrc="images/aftereffects/preview_change_fps.png"
           imgTitle="Изменение частоты кадров предпросмотра"
-          caption="Preview"
+          styleClass="figure_windows-dark"
         />
         <p>
           Если у вас возникают проблемы с записью кэша на жёсткий диск, то вы можете
@@ -678,10 +680,10 @@ const AEPerformance: React.FC = () => {
           чекбокс из пункта <mark className="ui">Enable Disk Cache</mark>.
         </p>
         <ImageFigure
-          styleClass="figure_windows-dark"
+          caption="Preferences"
           imgSrc="images/aftereffects/disable_disk_cache.png"
           imgTitle="Отключение дискового кэша"
-          caption="Preferences"
+          styleClass="figure_windows-dark"
         />
         <p>
           В редких случаях бывают ситуации, когда вы переключились между звуковыми
@@ -694,10 +696,10 @@ const AEPerformance: React.FC = () => {
           <mark className="ui">Edit &gt; Preferences &gt; Audio Hardware</mark>.
         </p>
         <ImageFigure
-          styleClass="figure_windows-dark"
+          caption="Preferences"
           imgSrc="images/aftereffects/audio_hardware_settings.png"
           imgTitle="Настройки звукового выхода"
-          caption="Preferences"
+          styleClass="figure_windows-dark"
         />
       </DetailsSummary>
     </div>

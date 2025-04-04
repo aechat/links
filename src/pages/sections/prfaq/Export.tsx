@@ -8,15 +8,15 @@ import {
 } from "../../../components/Additions";
 import {ImageFigure, VideoFigure, YouTubeVideo} from "../../../components/ContentFigure";
 import {Divider} from "antd";
-import ContentSwitcher from "../../../components/features/OperatingSystemFilter";
+import ContentSwitcher from "../../../components/features/ContentFilter";
 
 const PRExport: React.FC = () => {
   return (
     <div className="faq-content">
       <GithubUpdateInfo filePath="src/pages/sections/prfaq/Export.tsx" />
       <DetailsSummary
-        title="Какие настройки экспорта стоит установить для вывода в социальные сети?"
         tag="тикток, ютуб, максимальное качество, разрешение, битрейт"
+        title="Какие настройки экспорта стоит установить для вывода в социальные сети?"
       >
         <p>
           Каждая социальная сеть или видео площадка, увы, пережимают загружаемое
@@ -41,8 +41,8 @@ const PRExport: React.FC = () => {
           качеством.
         </p>
         <YouTubeVideo
-          link="r6Rp-uo6HmI"
           caption="Почему снег и конфетти паршивят картинку"
+          link="r6Rp-uo6HmI"
         />
         <p>
           Теперь поговорим о правилах хорошего тона для FPS. Если вы импортируете видео в
@@ -55,8 +55,8 @@ const PRExport: React.FC = () => {
           ваш трюк с комбинацией различных фреймрейтов в одном видео.
         </p>
         <YouTubeVideo
-          link="p3Jb3UPAw-w"
           caption="Как несовпадение частоты кадров портят ваше видео"
+          link="p3Jb3UPAw-w"
         />
         <p>
           И прежде чем загрузить куда-нибудь контент с чересстрочной разверткой - сделайте
@@ -254,10 +254,10 @@ const PRExport: React.FC = () => {
           кнопку выбора качества и потяните его максимально вправо.
         </p>
         <ImageFigure
-          styleClass="figure_windows-dark"
+          caption="Telegram"
           imgSrc="images/phone_telegram_videoquality.jpg"
           imgTitle="Выбор качества видео в Telegram"
-          caption="Telegram"
+          styleClass="figure_windows-dark"
         />
         <p>
           Если вы хотите опубликовать историю в Telegram, то вам нужно экспортировать
@@ -315,10 +315,10 @@ const PRExport: React.FC = () => {
           кодирования видео - всю секвенцию или только часть.
         </p>
         <ImageFigure
-          styleClass="figure_windows-dark"
+          caption="Интерфейс экспорта"
           imgSrc="images/premierepro/export_interface.png"
           imgTitle="Интерфейс экспорта"
-          caption="Интерфейс экспорта"
+          styleClass="figure_windows-dark"
         />
         <Divider>Выводим через встроенный H.264</Divider>
         <p>
@@ -336,9 +336,9 @@ const PRExport: React.FC = () => {
           просто уберите чекбокс справа от пунктов.
         </p>
         <VideoFigure
+          caption="Настройки экспорта видео"
           styleClass="figure_windows-dark"
           videoSrc="images/premierepro/export_video_settings.mp4"
-          caption="Настройки экспорта видео"
         />
         <p>
           Затем просто нажмите на кнопку <mark className="ui">Export</mark> в правом
@@ -371,10 +371,10 @@ const PRExport: React.FC = () => {
           <mark className="ui">Format</mark> выбрать <mark className="ui">Voukoder</mark>.
         </p>
         <ImageFigure
-          styleClass="figure_windows-dark"
+          caption="Export"
           imgSrc="images/premierepro/selecting_voukoder.png"
           imgTitle="Выбираем Voukoder для рендера"
-          caption="Export"
+          styleClass="figure_windows-dark"
         />
         <p>
           Чтобы перейти в настройки плагина, вам нужно раскрыть вкладку{" "}
@@ -382,10 +382,10 @@ const PRExport: React.FC = () => {
           <mark className="ui">Configure</mark>.
         </p>
         <ImageFigure
-          styleClass="figure_windows-dark"
+          caption="Export"
           imgSrc="images/premierepro/open_voukoder_settings.png"
           imgTitle="Открываем настройки Voukoder"
-          caption="Export"
+          styleClass="figure_windows-dark"
         />
         <p>
           После открытия настроек нам нужно выбрать кодек, в который мы хотим
@@ -425,10 +425,10 @@ const PRExport: React.FC = () => {
           </li>
         </ul>
         <ImageFigure
-          styleClass="figure_windows-light"
+          caption="Voukoder 13.4.1"
           imgSrc="images/premierepro/select_codec_in_voukoder.png"
           imgTitle="Выбираем нужный вариант кодека в Voukoder"
-          caption="Voukoder 13.4.1"
+          styleClass="figure_windows-light"
         />
         <p>
           После выбора нужного нам кодека (я выбрал{" "}
@@ -439,10 +439,10 @@ const PRExport: React.FC = () => {
           эквивалент качества, чем меньше - тем лучше качество, но больше вес.
         </p>
         <ImageFigure
-          styleClass="figure_windows-light"
+          caption="Voukoder 13.4.1"
           imgSrc="images/premierepro/codec_parameter_voukoder.png"
           imgTitle="Настраиваем качество видео в Voukoder"
-          caption="Voukoder 13.4.1"
+          styleClass="figure_windows-light"
         />
         <ul>
           <li>
@@ -482,10 +482,10 @@ const PRExport: React.FC = () => {
           <mark className="ui">AfterCodecs</mark>.
         </p>
         <ImageFigure
-          styleClass="figure_windows-dark"
+          caption="Export"
           imgSrc="images/premierepro/selecting_aftercodecs.png"
           imgTitle="Выбор AfterCodecs"
-          caption="Export"
+          styleClass="figure_windows-dark"
         />
         <p>
           Чтобы перейти в настройки <mark className="plugin">AfterCodecs</mark> -
@@ -499,10 +499,10 @@ const PRExport: React.FC = () => {
           для вывода.
         </AdditionInfo>
         <ImageFigure
-          styleClass="figure_windows-dark"
+          caption="Export"
           imgSrc="images/premierepro/change_format_open_aftercodecs_settings.png"
           imgTitle="Изменение контейнера и открытие настроек AfterCodecs"
-          caption="Export"
+          styleClass="figure_windows-dark"
         />
         <p>
           В открывшемся окне мы снова видим кучу непонятных параметров. Здесь нам нужно
@@ -537,10 +537,10 @@ const PRExport: React.FC = () => {
           </AdditionWarning>
         </ul>
         <ImageFigure
-          styleClass="figure_windows-dark"
+          caption="AfterCodecs 1.11.5 for Premiere Pro"
           imgSrc="images/premierepro/aftercodecs_settings.png"
           imgTitle="Настройки AfterCodecs"
-          caption="AfterCodecs 1.11.5 for Premiere Pro"
+          styleClass="figure_windows-dark"
         />
         <p>
           После завершения настроек мы нажимаем <mark className="ui">OK</mark> и начинаем
@@ -580,10 +580,10 @@ const PRExport: React.FC = () => {
           ваших требований.
         </p>
         <ImageFigure
-          styleClass="figure_windows-dark"
+          caption="Export"
           imgSrc="images/premierepro/export_prores4444_8bit-alpha.png"
           imgTitle="Выводим видео в Apple Prores"
-          caption="Export"
+          styleClass="figure_windows-dark"
         />
         <AdditionWarning>
           Не забудьте поставить в <mark className="ui">Depth</mark> параметр{" "}
@@ -607,10 +607,10 @@ const PRExport: React.FC = () => {
           можно скачать <a href="https://www.shutterencoder.com/">по этой ссылке</a>.
         </AdditionInfo>
         <ImageFigure
-          styleClass="figure_macos-dark"
+          caption="Shutter Encoder"
           imgSrc="images/select_vp9_shutter_encoder.png"
           imgTitle="Выбор VP9 в Shutter Encoder"
-          caption="Shutter Encoder"
+          styleClass="figure_macos-dark"
         />
         <p>
           Затем включаем в дополнительных опциях{" "}
@@ -618,10 +618,10 @@ const PRExport: React.FC = () => {
           альфа-каналом.
         </p>
         <ImageFigure
-          styleClass="figure_macos-dark"
+          caption="Shutter Encoder"
           imgSrc="images/enable_alpha_shutter_encoder.png"
           imgTitle="Включение альфа-канала в Shutter Encoder"
-          caption="Shutter Encoder"
+          styleClass="figure_macos-dark"
         />
         <p>
           В программе можно также выставить путь для файла (по умолчанию видео кодируется
@@ -700,10 +700,10 @@ const PRExport: React.FC = () => {
           файла.
         </p>
         <ImageFigure
-          styleClass="figure_windows-dark"
+          caption="Export"
           imgSrc="images/premierepro/selecting_animated_gif.png"
           imgTitle="Выбор формата Animated GIF"
-          caption="Export"
+          styleClass="figure_windows-dark"
         />
         <AdditionWarning>
           Если вы выберете в качестве формата пункт <mark className="ui">GIF</mark> без
@@ -746,10 +746,10 @@ const PRExport: React.FC = () => {
           параметры.
         </p>
         <ImageFigure
-          styleClass="figure_windows-light"
+          caption="Media Encoder"
           imgSrc="images/premierepro/selecting_animated_gif_media_encoder.png"
           imgTitle="Выбираем формат GIF для экспорта через Media Encoder"
-          caption="Media Encoder"
+          styleClass="figure_windows-light"
         />
         <AdditionWarning>
           Если вы выберете в качестве формата пункт <mark className="ui">GIF</mark> без
@@ -775,10 +775,10 @@ const PRExport: React.FC = () => {
           кнопку <mark className="ui">Upload Video</mark>.
         </p>
         <ImageFigure
-          styleClass="figure_windows-light"
+          caption="Ezgif"
           imgSrc="images/ezgif_main.png"
           imgTitle="Главная страница Ezgif"
-          caption="Ezgif"
+          styleClass="figure_windows-light"
         />
         <AdditionWarning>
           Максимальный размер файла, который можно загрузить в сервис, не должен превышать
@@ -793,10 +793,10 @@ const PRExport: React.FC = () => {
           <mark className="ui">Convert to GIF!</mark>.
         </p>
         <ImageFigure
-          styleClass="figure_windows-light"
+          caption="Ezgif"
           imgSrc="images/ezgif_settings.png"
           imgTitle="Настройки конвертации в Ezgif"
-          caption="Ezgif"
+          styleClass="figure_windows-light"
         />
         <p>
           Далее после успешной конвертации вы получите ваше видео в формате{" "}
@@ -822,10 +822,10 @@ const PRExport: React.FC = () => {
           виде шахматной доски для отображения прозрачных частей в секвенции.
         </p>
         <ImageFigure
-          styleClass="figure_windows-dark"
+          caption="Program Monitor"
           imgSrc="images/premierepro/toggle_transparency_grid.png"
           imgTitle="Включение сетки для отображения прозрачных частей"
-          caption="Program Monitor"
+          styleClass="figure_windows-dark"
         />
         <p>
           Если всё с этим в порядке, то пора переходить во вкладку{" "}
@@ -838,10 +838,10 @@ const PRExport: React.FC = () => {
           большей битностью.
         </p>
         <ImageFigure
-          styleClass="figure_windows-dark"
+          caption="Export"
           imgSrc="images/premierepro/export_prores4444_8bit-alpha.png"
           imgTitle="Экспорт секвенции с альфа-каналом"
-          caption="Export"
+          styleClass="figure_windows-dark"
         />
         <p>
           Затем укажите путь для вывода файла и нажмите на кнопку{" "}
@@ -872,9 +872,9 @@ const PRExport: React.FC = () => {
           название вашего будущего пресета и нажмите на <mark className="ui">OK</mark>.
         </p>
         <VideoFigure
+          caption="Export"
           styleClass="figure_windows-dark"
           videoSrc="images/premierepro/create_custom_preset.mp4"
-          caption="Export"
         />
         <p>
           После этого вы сможете воспользоваться своими заготовленными настройками
@@ -892,20 +892,20 @@ const PRExport: React.FC = () => {
           в <mark className="ui">Program Monitor</mark>.
         </p>
         <ImageFigure
-          styleClass="figure_windows-dark"
+          caption="Program Monitor"
           imgSrc="images/premierepro/export_frame_program_monitor.png"
           imgTitle="Экспорт текущего кадра в окне Program Monitor"
-          caption="Program Monitor"
+          styleClass="figure_windows-dark"
         />
         <p>
           Затем в открывшемся окне выберите формат и путь для сохранения изображения, а
           потом нажмите на <mark className="ui">OK</mark>.
         </p>
         <ImageFigure
-          styleClass="figure_windows-dark"
+          caption="Export Frame"
           imgSrc="images/premierepro/export_frame.png"
           imgTitle="Экспорт текущего кадра"
-          caption="Export Frame"
+          styleClass="figure_windows-dark"
         />
       </DetailsSummary>
       <DetailsSummary title="Как вывести все кадры секвенции как отдельные файлы изображений?">
@@ -921,10 +921,10 @@ const PRExport: React.FC = () => {
           <mark className="ui">Format</mark> нужный нам тип файла.
         </p>
         <ImageFigure
-          styleClass="figure_windows-dark"
+          caption="Export"
           imgSrc="images/premierepro/select_png_export.png"
           imgTitle="Выбираем формат изображений"
-          caption="Export"
+          styleClass="figure_windows-dark"
         />
         <AdditionInfo>
           Если вы хотите вывести кадры с прозрачностью - не забудьте указать параметр{" "}
@@ -962,10 +962,10 @@ const PRExport: React.FC = () => {
           рендера секвенции. Нам предлагают четыре варианта на выбор.
         </p>
         <ImageFigure
-          styleClass="figure_windows-dark"
+          caption="Export"
           imgSrc="images/premierepro/select_export_range.png"
           imgTitle="Выбираем область экспорта"
-          caption="Export"
+          styleClass="figure_windows-dark"
         />
         <ul>
           <li>
@@ -1003,10 +1003,10 @@ const PRExport: React.FC = () => {
           <mark className="ui">File</mark> контекстного меню.
         </p>
         <ImageFigure
-          styleClass="figure_windows-light"
+          caption="Premiere Pro"
           imgSrc="images/premierepro/file_project_manager.png"
           imgTitle="Открытие Project Manager"
-          caption="Premiere Pro"
+          styleClass="figure_windows-light"
         />
         <p>
           После открытия окна <mark className="ui">Project Manager</mark> вы можете
@@ -1024,34 +1024,12 @@ const PRExport: React.FC = () => {
           <mark className="ui">Collect Files and Copy to New Location</mark>.
         </p>
         <ImageFigure
-          styleClass="figure_windows-dark"
+          caption="Project Manager"
           imgSrc="images/premierepro/project_manager.png"
           imgTitle="Окно Project Manager"
-          caption="Project Manager"
+          styleClass="figure_windows-dark"
         />
         <ContentSwitcher
-          windowsContent={
-            <div>
-              <p>
-                После окончания сборки файлов, перейдите в папку, куда вы сохранили проект
-                и создайте архив с помощью{" "}
-                <a href="https://www.rarlab.com/download.htm">WinRAR</a> или{" "}
-                <a href="https://www.7-zip.org/">7-Zip</a>. Если площадка или социальная
-                сеть, в которой вы пытаетесь поделиться архивом, вставляет палки в колёса
-                в виде ограничений на размер файла - вы сможете разделить архив на
-                определённый размер файла перед его созданием и отправить его другому
-                человеку по кусочкам.
-              </p>
-              <YouTubeVideo
-                link="6KumGS0EyUQ"
-                caption="Как разбить архив на части и собрать его"
-              />
-              <p>
-                После создания архива, отправьте его другому человеку любым удобным для
-                вас способом.
-              </p>
-            </div>
-          }
           macContent={
             <div>
               <p>
@@ -1070,16 +1048,16 @@ const PRExport: React.FC = () => {
                 }}
               >
                 <ImageFigure
-                  styleClass="figure_macos-light"
+                  caption="Выбор формата архива"
                   imgSrc="https://github.com/aonez/Keka/raw/master/Wiki/Images/Animated/main-window-format.gif"
                   imgTitle="Выбор формата архива"
-                  caption="Выбор формата архива"
+                  styleClass="figure_macos-light"
                 />
                 <ImageFigure
-                  styleClass="figure_macos-light"
+                  caption="Выбор размера разделения архива"
                   imgSrc="https://github.com/aonez/Keka/raw/master/Wiki/Images/Animated/main-window-split.gif"
                   imgTitle="Выбор размера разделения архива"
-                  caption="Выбор размера разделения архива"
+                  styleClass="figure_macos-light"
                 />
               </div>
               <p>
@@ -1096,7 +1074,36 @@ const PRExport: React.FC = () => {
               </AdditionInfo>
             </div>
           }
+          windowsContent={
+            <div>
+              <p>
+                После окончания сборки файлов, перейдите в папку, куда вы сохранили проект
+                и создайте архив с помощью{" "}
+                <a href="https://www.rarlab.com/download.htm">WinRAR</a> или{" "}
+                <a href="https://www.7-zip.org/">7-Zip</a>. Если площадка или социальная
+                сеть, в которой вы пытаетесь поделиться архивом, вставляет палки в колёса
+                в виде ограничений на размер файла - вы сможете разделить архив на
+                определённый размер файла перед его созданием и отправить его другому
+                человеку по кусочкам.
+              </p>
+              <YouTubeVideo
+                caption="Как разбить архив на части и собрать его"
+                link="6KumGS0EyUQ"
+              />
+              <p>
+                После создания архива, отправьте его другому человеку любым удобным для
+                вас способом.
+              </p>
+            </div>
+          }
         />
+      </DetailsSummary>
+      <DetailsSummary title="Я нарезал видео в Premiere Pro, но хочу переместить таймлайн в другую монтажную программу. Как это сделать?">
+        <p>
+          В <mark className="app">Premiere Pro</mark> есть функция для экспорта{" "}
+          <mark className="file">.xml</mark> файла. В этом файле хранится вся информация
+          об используемых клипах, точках их входа и выхода, а также другие параметры.
+        </p>
       </DetailsSummary>
     </div>
   );

@@ -5,7 +5,7 @@ import {Link} from "react-router-dom";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import {Helmet} from "react-helmet-async";
-import {SearchInPage, SearchProvider} from "../components/features/SearchInPage";
+import {SearchInPage, SearchProvider} from "../components/modal/SearchInPage";
 import SupportDonut from "../components/modal/SupportDonut";
 import CopyToClipboard from "../components/features/CopyToClipboard";
 import {CircularProgress} from "@mui/material";
@@ -100,41 +100,41 @@ const PSFaQ = () => {
         <Helmet>
           <title>psfaq@aechat</title>
           <link
+            href="icons/psfaq.svg"
             rel="icon"
             type="image/svg+xml"
-            href="icons/psfaq.svg"
           />
           <meta
+            content="Ответы на частые вопросы от пользователей Photoshop"
             name="description"
-            content="Ответы на частые вопросы от пользователей Photoshop"
           />
           <meta
-            name="keywords"
             content="чат, ссылки, Photoshop, шаблоны Photoshop, AETemp, Adobe, советы Photoshop, FAQ Photoshop, склад стройматериалов, помощь, графический дизайн, редактирование, photo editing, ретушь, фотограф, фотография, дизайн, web design, UI/UX, создание логотипов, создание иконок, создание баннеров, создание визиток, создание буклетов, создание флаеров, создание постеров, создание визуальных эффектов, создание 3D-графики, создание анимации, видеографика, motion design, инфографика, 3D-анимация, видеоклипы, рекламные ролики, видеопрезентации"
+            name="keywords"
           />
           <meta
-            property="og:type"
             content="website"
+            property="og:type"
           />
           <meta
-            property="og:url"
             content="https://aechat.ru/"
+            property="og:url"
           />
           <meta
-            property="og:title"
             content="psfaq@aechat"
+            property="og:title"
           />
           <meta
-            property="og:description"
             content="Ответы на частые вопросы от пользователей Photoshop"
+            property="og:description"
           />
         </Helmet>
         <Header title="psfaq" />
         <motion.main
-          className="main"
-          initial={{x: 100, y: 0, opacity: 0}}
           animate={{x: 0, y: 0, opacity: 1}}
+          className="main"
           exit={{x: 0, y: 50, opacity: 0}}
+          initial={{x: 100, y: 0, opacity: 0}}
           transition={{
             duration: 0.3,
             ease: [0.25, 0, 0, 1],
@@ -166,8 +166,8 @@ const PSFaQ = () => {
               <Suspense
                 fallback={
                   <motion.div
-                    initial={{opacity: 0}}
                     animate={{opacity: 1}}
+                    initial={{opacity: 0}}
                     style={{
                       padding: "20px",
                       display: "flex",
@@ -190,8 +190,8 @@ const PSFaQ = () => {
               >
                 {visibleSections.length > 0 && (
                   <motion.div
-                    initial={{opacity: 0}}
                     animate={isSectionsLoaded ? {opacity: 1} : {}}
+                    initial={{opacity: 0}}
                     transition={{
                       duration: 0.3,
                       ease: [0.25, 0, 0, 1],
@@ -213,12 +213,12 @@ const PSFaQ = () => {
                           id={section.id}
                         >
                           <Divider
+                            orientation="right"
                             style={{
                               color: "var(--text-color)",
                               textTransform: "uppercase",
                               fontWeight: "800",
                             }}
-                            orientation="right"
                           >
                             {section.title}
                           </Divider>
@@ -230,8 +230,8 @@ const PSFaQ = () => {
                 )}
               </Suspense>
               <Footer
-                title="aechat & dwchat"
                 initialYear={2023}
+                title="aechat & dwchat"
               />
             </div>
           </div>

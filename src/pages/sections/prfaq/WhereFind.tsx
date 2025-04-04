@@ -92,8 +92,8 @@ const PRWhereFind: React.FC = () => {
         </AdditionDanger>
       </DetailsSummary>
       <DetailsSummary
-        title="Как скачать нужный мне шаблон, если у меня есть на него ссылка?"
         tag="енвато, моушен аррей, фрипик, артлист"
+        title="Как скачать нужный мне шаблон, если у меня есть на него ссылка?"
       >
         <p>
           Если вы не нашли то, что вам нужно из ссылок, то у нас имеется бот{" "}
@@ -101,7 +101,6 @@ const PRWhereFind: React.FC = () => {
             href="https://t.me/HiStockBot?start=509060394"
             title="Бот HiStock для покупки шаблонов в Telegram"
           >
-            {" "}
             HiStock в Telegram
           </a>{" "}
           для оперативной покупки шаблонов с платформ{" "}
@@ -324,10 +323,10 @@ const PRWhereFind: React.FC = () => {
           изображение с помощью проводника или <mark className="key">Ctrl + V</mark>.
         </p>
         <ImageFigure
-          styleClass="figure_windows-light"
+          caption="Главная страница LikeFont"
           imgSrc="images/likefont/likefont_mainpage.png"
           imgTitle="Главная страница LikeFont"
-          caption="Главная страница LikeFont"
+          styleClass="figure_windows-light"
         />
         <AdditionDanger>
           Учтите, что по умолчанию на странице стоит чекбокс напротив{" "}
@@ -340,10 +339,10 @@ const PRWhereFind: React.FC = () => {
           весь контент сливается. Что же делать?
         </p>
         <ImageFigure
-          styleClass="figure_windows-light"
+          caption="Пример плохого исходника"
           imgSrc="images/likefont/prfaq_likefont_example.png"
           imgTitle="Пример плохого исходника"
-          caption="Пример плохого исходника"
+          styleClass="figure_windows-light"
         />
         <p>
           Для этого нужно предварительно обработать изображение. После загрузки
@@ -353,10 +352,10 @@ const PRWhereFind: React.FC = () => {
           отзеркаливания и наклона изображения при необходимости.
         </p>
         <ImageFigure
-          styleClass="figure_windows-light"
+          caption="Изображение после обработки средствами сайта"
           imgSrc="images/likefont/prfaq_likefont_fixed.png"
           imgTitle="Изображение после обработки средствами сайта"
-          caption="Изображение после обработки средствами сайта"
+          styleClass="figure_windows-light"
         />
         <p>
           Как мы видим, Threshold помог, но не сильно, так как фрактальный шум по яркости
@@ -365,10 +364,10 @@ const PRWhereFind: React.FC = () => {
           изображений к которым нужно вписать букву.
         </p>
         <ImageFigure
-          styleClass="figure_windows-light"
+          caption="Изображения к которым нужно вписать букву"
           imgSrc="images/likefont/prfaq_likefont_recognition.png"
           imgTitle="Изображения к которым нужно вписать букву"
-          caption="Изображения к которым нужно вписать букву"
+          styleClass="figure_windows-light"
         />
         <p>
           Если на таких изображениях нет букв или символа, то такие ячейки можно
@@ -380,10 +379,10 @@ const PRWhereFind: React.FC = () => {
           Чем больше вы впишете букв, тем лучше будет результат распознавания шрифта!
         </AdditionInfo>
         <ImageFigure
-          styleClass="figure_windows-light"
+          caption="Результат распознавания"
           imgSrc="images/likefont/prfaq_likefont_result.png"
           imgTitle="Результат распознавания"
-          caption="Результат распознавания"
+          styleClass="figure_windows-light"
         />
         <p>
           В моём примере был использован шрифт <mark>Berlin Sans FB</mark> и с его

@@ -26,8 +26,8 @@ const RedirectHtml = () => {
   if (path.endsWith(".html")) {
     return (
       <Navigate
-        to={path.replace(/\.html$/, "")}
         replace
+        to={path.replace(/\.html$/, "")}
       />
     );
   }
@@ -64,27 +64,27 @@ const ErrorFallback = ({error}: {error: Error}) => (
         <p className="modal-message">Что вызвало ошибку: {error.message}</p>
         <div style={{display: "flex", gap: "10px", margin: "10px"}}>
           <motion.button
+            className="modal-open-button"
+            whileHover={{
+              scale: 0.95,
+              transition: {duration: 0.3, ease: [0.25, 0, 0, 1]},
+            }}
+            whileTap={{scale: 0.95, opacity: 0.5}}
             onClick={() => {
               window.location.reload();
               window.location.href = "/";
             }}
-            className="modal-open-button"
-            whileHover={{
-              scale: 0.95,
-              transition: {duration: 0.3, ease: [0.25, 0, 0, 1]},
-            }}
-            whileTap={{scale: 0.95, opacity: 0.5}}
           >
             На главную
           </motion.button>
           <motion.button
-            onClick={() => window.location.reload()}
             className="modal-open-button"
             whileHover={{
               scale: 0.95,
               transition: {duration: 0.3, ease: [0.25, 0, 0, 1]},
             }}
             whileTap={{scale: 0.95, opacity: 0.5}}
+            onClick={() => window.location.reload()}
           >
             Обновить страницу
           </motion.button>
@@ -131,8 +131,8 @@ export const App = () => {
         <Suspense
           fallback={
             <motion.div
-              initial={{opacity: 0}}
               animate={{opacity: 1}}
+              initial={{opacity: 0}}
               transition={{
                 duration: 0.3,
                 ease: [0.25, 0, 0, 1],
@@ -142,36 +142,36 @@ export const App = () => {
               <LinearProgress color="inherit" />
               <div style={{marginInline: "auto", maxWidth: "600px"}}>
                 <motion.p
-                  initial={{opacity: 0}}
                   animate={{opacity: 0.5}}
-                  transition={{
-                    duration: 1,
-                    ease: [0.25, 0, 0, 1],
-                    delay: 5,
-                  }}
+                  initial={{opacity: 0}}
                   style={{
                     margin: "10px",
                     marginTop: "20px",
                     fontSize: "0.75rem",
                     marginInline: "20px",
                   }}
+                  transition={{
+                    duration: 1,
+                    ease: [0.25, 0, 0, 1],
+                    delay: 5,
+                  }}
                 >
                   Если страница медленно загружается, проверьте скорость вашего
                   интернет-соединения
                 </motion.p>
                 <motion.p
-                  initial={{opacity: 0}}
                   animate={{opacity: 0.25}}
-                  transition={{
-                    duration: 1,
-                    ease: [0.25, 0, 0, 1],
-                    delay: 7.5,
-                  }}
+                  initial={{opacity: 0}}
                   style={{
                     margin: "10px",
                     fontSize: "0.625rem",
                     textAlign: "right",
                     marginInline: "20px",
+                  }}
+                  transition={{
+                    duration: 1,
+                    ease: [0.25, 0, 0, 1],
+                    delay: 7.5,
                   }}
                 >
                   ...или отключите VPN
@@ -192,41 +192,41 @@ export const App = () => {
             }}
           >
             <Routes
-              location={location}
               key={location.pathname}
+              location={location}
             >
               <Route
-                path="/"
                 element={<Links />}
+                path="/"
               />
               <Route
-                path="/aefaq"
                 element={<AEFaQ />}
+                path="/aefaq"
               />
               <Route
-                path="/prfaq"
                 element={<PRFaQ />}
+                path="/prfaq"
               />
               <Route
-                path="/psfaq"
                 element={<PSFaQ />}
+                path="/psfaq"
               />
               <Route
-                path="/aeexprfaq"
                 element={<AEExpressionPage />}
+                path="/aeexprfaq"
               />
               <Route
-                path="/rules"
                 element={<ChatRules />}
+                path="/rules"
               />
               <Route
-                path="*"
                 element={
                   <>
                     <NotFound />
                     <RedirectHtml />
                   </>
                 }
+                path="*"
               />
             </Routes>
           </AnimatePresence>

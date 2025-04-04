@@ -3,7 +3,7 @@ import GithubUpdateInfo from "../../../components/features/GithubUpdateInfo";
 import {AdditionInfo, AdditionWarning} from "../../../components/Additions";
 import DetailsSummary from "../../../components/DetailsSummary";
 import {ImageFigure, VideoFigure} from "../../../components/ContentFigure";
-import ContentSwitcher from "../../../components/features/OperatingSystemFilter";
+import ContentSwitcher from "../../../components/features/ContentFilter";
 import HostsAdobeModal from "../../../components/features/HostsAdobe";
 
 const PRErrors: React.FC = () => {
@@ -26,10 +26,10 @@ const PRErrors: React.FC = () => {
           драйвера на ваш видеочип.
         </p>
         <ImageFigure
-          styleClass="figure_windows-dark"
+          caption="Premiere Pro"
           imgSrc="images/premierepro/set_render_on_gpu.png"
           imgTitle="Установка рендеринга на GPU"
-          caption="Premiere Pro"
+          styleClass="figure_windows-dark"
         />
         <p>
           В редких случаях эффект, требующий GPU-ускорения может конфликтовать с
@@ -46,10 +46,10 @@ const PRErrors: React.FC = () => {
           запуске проекта или в качестве плейсхолдера с красной заливкой.
         </p>
         <ImageFigure
-          styleClass="figure_windows-dark"
+          caption="Premiere Pro"
           imgSrc="images/premierepro/медиаданные_в_автономном_режиме.png"
           imgTitle="Медиаданные в авнономном режиме"
-          caption="Premiere Pro"
+          styleClass="figure_windows-dark"
         />
         <p>
           Чтобы переподключить &quot;потеряшек&quot;, перейдите в{" "}
@@ -67,10 +67,10 @@ const PRErrors: React.FC = () => {
           остальные исходники вместе с ним подключатся автоматически.
         </AdditionInfo>
         <ImageFigure
-          styleClass="figure_windows-dark"
+          caption="Media Offline"
           imgSrc="images/premierepro/missing_media.png"
           imgTitle="Отсутствующие медиафайлы"
-          caption="Media Offline"
+          styleClass="figure_windows-dark"
         />
       </DetailsSummary>
       <DetailsSummary title='Вылезло "System Compatibility Report" при запуске Premiere Pro'>
@@ -81,10 +81,10 @@ const PRErrors: React.FC = () => {
           <mark className="ui">Continue with known issues</mark>.
         </AdditionInfo>
         <ImageFigure
-          styleClass="figure_windows-dark"
+          caption="System Compatibility Report"
           imgSrc="images/premierepro/system_compatibility_report.png"
           imgTitle="Предупреждение о несовместимости оборудования с программой"
-          caption="System Compatibility Report"
+          styleClass="figure_windows-dark"
         />
         <p>
           В данном окне обычно пишутся возможные проблемы с использованием программы,
@@ -102,10 +102,10 @@ const PRErrors: React.FC = () => {
           <mark className="ui">Show System Compatibility Issues</mark>.
         </p>
         <ImageFigure
-          styleClass="figure_windows-dark"
+          caption="Preferences"
           imgSrc="images/premierepro/show_system_compatibility_issues.png"
           imgTitle="Отключаем предупреждения о несовместимости оборудования с программой"
-          caption="Preferences"
+          styleClass="figure_windows-dark"
         />
       </DetailsSummary>
       <DetailsSummary title="Ошибка при запуске приложения 0xc0000142">
@@ -145,8 +145,8 @@ const PRErrors: React.FC = () => {
         </AdditionInfo>
       </DetailsSummary>
       <DetailsSummary
-        title='"This unlicensed Adobe app is not genuine and will be disabled soon", "Unlicensed Adobe apps may expose your device to increased security risks", "This app will disable in X days" или что-то похожее с красной полоской при запуске, но на другом языке. Как запустить программу нормально?'
         tag="слетела лицензия, красное окно, не запускается, впн, файл хостс, блокировка доступа в интернет"
+        title='"This unlicensed Adobe app is not genuine and will be disabled soon", "Unlicensed Adobe apps may expose your device to increased security risks", "This app will disable in X days" или что-то похожее с красной полоской при запуске, но на другом языке. Как запустить программу нормально?'
       >
         <p>Программа от Adobe решила достучаться в интернет. Причин может быть четыре.</p>
         <ul>
@@ -178,12 +178,44 @@ const PRErrors: React.FC = () => {
           </li>
         </ul>
         <ImageFigure
-          styleClass="figure_windows-light"
+          caption="Adobe"
           imgSrc="images/adobe_the_unlicensed_app.png"
           imgTitle="Сообщение об отсутствии лицензии"
-          caption="Adobe"
+          styleClass="figure_windows-light"
         />
         <ContentSwitcher
+          macContent={
+            <div>
+              <p>
+                Для блокировки доступа определённым программам к интернету на устройствах
+                с macOS можно воспользоваться программой{" "}
+                <a href="https://radiosilenceapp.com/">Radio Silence</a>. После установки
+                и активации этой программы перейдите в вкладку{" "}
+                <mark className="ui">Network Monitor</mark>. В этой же вкладке запретите
+                программам от Adobe, которые лезут в сеть, доступ в интернет, нажав на
+                кнопку <mark className="ui">Block</mark>.
+              </p>
+              <ImageFigure
+                caption="Radio Silence"
+                imgSrc="images/network_radio_silence.png"
+                imgTitle="Блокируем доступ в интернет программам на примере Premiere Pro"
+                styleClass="figure_macos-dark"
+              />
+              <p>
+                После проделанных действий <mark className="app">Premiere Pro</mark> и
+                остальные программы от Adobe не должен стучаться в сеть и выдавать ошибку
+                об отсутствии лицензии. Ниже показано, как в итоге примерно должна
+                выглядеть у вас вкладка <mark className="ui">Firewall</mark> после отлова
+                процессов Adobe, лезущие в интернет.
+              </p>
+              <ImageFigure
+                caption="Radio Silence"
+                imgSrc="images/firewall_radio_silence.png"
+                imgTitle="Окно Firewall после блокировки доступа в интернет программам"
+                styleClass="figure_macos-dark"
+              />
+            </div>
+          }
           windowsContent={
             <div>
               <p>
@@ -214,43 +246,11 @@ const PRErrors: React.FC = () => {
               </AdditionWarning>
             </div>
           }
-          macContent={
-            <div>
-              <p>
-                Для блокировки доступа определённым программам к интернету на устройствах
-                с macOS можно воспользоваться программой{" "}
-                <a href="https://radiosilenceapp.com/">Radio Silence</a>. После установки
-                и активации этой программы перейдите в вкладку{" "}
-                <mark className="ui">Network Monitor</mark>. В этой же вкладке запретите
-                программам от Adobe, которые лезут в сеть, доступ в интернет, нажав на
-                кнопку <mark className="ui">Block</mark>.
-              </p>
-              <ImageFigure
-                styleClass="figure_macos-dark"
-                imgSrc="images/network_radio_silence.png"
-                imgTitle="Блокируем доступ в интернет программам на примере Premiere Pro"
-                caption="Radio Silence"
-              />
-              <p>
-                После проделанных действий <mark className="app">Premiere Pro</mark> и
-                остальные программы от Adobe не должен стучаться в сеть и выдавать ошибку
-                об отсутствии лицензии. Ниже показано, как в итоге примерно должна
-                выглядеть у вас вкладка <mark className="ui">Firewall</mark> после отлова
-                процессов Adobe, лезущие в интернет.
-              </p>
-              <ImageFigure
-                styleClass="figure_macos-dark"
-                imgSrc="images/firewall_radio_silence.png"
-                imgTitle="Окно Firewall после блокировки доступа в интернет программам"
-                caption="Radio Silence"
-              />
-            </div>
-          }
         />
       </DetailsSummary>
       <DetailsSummary
-        title='"Premiere Pro could not find any capable video play modules. Please update your video display drivers and start again" при запуске программы'
         tag="premiere pro не удалось найти совместимые видеомодули воспроизведения, обновите видеодрайверы и запустите приложение повторно"
+        title='"Premiere Pro could not find any capable video play modules. Please update your video display drivers and start again" при запуске программы'
       >
         <p>
           Данная ошибка может появиться после установки{" "}
@@ -283,9 +283,9 @@ const PRErrors: React.FC = () => {
           .
         </p>
         <VideoFigure
+          caption="Настройка режима совместимости"
           styleClass="figure_windows-dark"
           videoSrc="images/compatibility_media_encoder.mp4"
-          caption="Настройка режима совместимости"
         />
         <p>
           После проделанных действий программа при запуске не должна вылетать. Если всё

@@ -38,9 +38,9 @@ const AEExprStart: React.FC = () => (
         поля.
       </p>
       <VideoFigure
+        caption="After Effects"
         styleClass="figure_windows-dark"
         videoSrc="images/aftereffects/enable_expressions.mp4"
-        caption="After Effects"
       />
     </DetailsSummary>
     <DetailsSummary title="Как отобразить результат выражения в графике скорости?">
@@ -91,8 +91,8 @@ const AEExprStart: React.FC = () => (
       {/* FIXME: написать!! */}
     </DetailsSummary>
     <DetailsSummary
-      title="Можно ли использовать GPT и аналогичные чат-боты для генерации выражений?"
       tag="ии, искуственный интеллект, чатгпт, нейросети"
+      title="Можно ли использовать GPT и аналогичные чат-боты для генерации выражений?"
     >
       {/* TODO: показать примеры промптов и дать советы какие лучше модели юзать */}
       <p>

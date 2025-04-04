@@ -32,13 +32,13 @@ const Footer: React.FC<FooterProps> = ({title, initialYear}) => {
         </button>
       </p>
       <Modal
-        open={isModalOpen}
-        closeIcon={null}
-        width={700}
-        onOk={handleOk}
-        onCancel={handleCancel}
-        footer={null}
         centered
+        closeIcon={null}
+        footer={null}
+        open={isModalOpen}
+        width={700}
+        onCancel={handleCancel}
+        onOk={handleOk}
       >
         <div className="modal">
           <div className="modal-header">
@@ -60,9 +60,9 @@ const Footer: React.FC<FooterProps> = ({title, initialYear}) => {
             <p>
               Контент на сайте наполнялся благодаря команде администраторов и участников{" "}
               <a
-                target="_blank"
-                rel="noreferrer"
                 href="https://t.me/joinchat/F1DdXtG9LephYWUy"
+                rel="noreferrer"
+                target="_blank"
               >
                 AEChat
               </a>
@@ -75,6 +75,8 @@ const Footer: React.FC<FooterProps> = ({title, initialYear}) => {
             </p>
             <div className="flexible-links">
               <a
+                href="https://github.com/aechat/links"
+                rel="noreferrer"
                 style={{
                   textDecoration: "none",
                   display: "flex",
@@ -82,8 +84,6 @@ const Footer: React.FC<FooterProps> = ({title, initialYear}) => {
                   gap: "5px",
                 }}
                 target="_blank"
-                rel="noreferrer"
-                href="https://github.com/aechat/links"
               >
                 <GitHub />
                 Открыть страницу на GitHub

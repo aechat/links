@@ -8,15 +8,15 @@ import {
 } from "../../../components/Additions";
 import {ImageFigure, VideoFigure, YouTubeVideo} from "../../../components/ContentFigure";
 import {Divider} from "antd";
-import JsonToTgsModal from "../../../components/features/JsonToTgsConverter";
+import JsonToTgsConverter from "../../../components/features/ConverterJsonToTgs";
 
 const AEExport: React.FC = () => {
   return (
     <div className="faq-content">
       <GithubUpdateInfo filePath="src/pages/sections/aefaq/Export.tsx" />
       <DetailsSummary
-        title="Какие настройки экспорта стоит установить для вывода в социальные сети?"
         tag="тикток, ютуб, максимальное качество, разрешение, битрейт"
+        title="Какие настройки экспорта стоит установить для вывода в социальные сети?"
       >
         <p>
           Каждая социальная сеть или видео площадка, увы, пережимают загружаемое
@@ -41,8 +41,8 @@ const AEExport: React.FC = () => {
           качеством.
         </p>
         <YouTubeVideo
-          link="r6Rp-uo6HmI"
           caption="Почему снег и конфетти паршивят картинку"
+          link="r6Rp-uo6HmI"
         />
         <p>
           Теперь поговорим о правилах хорошего тона для FPS. Если вы импортируете видео в
@@ -55,8 +55,8 @@ const AEExport: React.FC = () => {
           ваш трюк с комбинацией различных фреймрейтов в одном видео.
         </p>
         <YouTubeVideo
-          link="p3Jb3UPAw-w"
           caption="Как несовпадение частоты кадров портят ваше видео"
+          link="p3Jb3UPAw-w"
         />
         <p>
           И прежде чем загрузить куда-нибудь контент с чересстрочной разверткой - сделайте
@@ -254,10 +254,10 @@ const AEExport: React.FC = () => {
           кнопку выбора качества и потяните его максимально вправо.
         </p>
         <ImageFigure
-          styleClass="figure_windows-dark"
+          caption="Telegram"
           imgSrc="images/phone_telegram_videoquality.jpg"
           imgTitle="Выбор качества видео в Telegram"
-          caption="Telegram"
+          styleClass="figure_windows-dark"
         />
         <p>
           Если вы хотите опубликовать историю в Telegram, то вам нужно экспортировать
@@ -275,8 +275,8 @@ const AEExport: React.FC = () => {
         </p>
       </DetailsSummary>
       <DetailsSummary
-        title="Почему из каждого угла советуют не использовать Media Encoder для экспорта композиций из After Effects?"
         tag="медиаенкодер, медиаэнкодер"
+        title="Почему из каждого угла советуют не использовать Media Encoder для экспорта композиций из After Effects?"
       >
         <p>
           <mark className="app">Media Encoder</mark> славится своими багами и различными
@@ -418,10 +418,10 @@ const AEExport: React.FC = () => {
           <mark className="ui">Render Settings</mark>.
         </p>
         <ImageFigure
-          styleClass="figure_windows-dark"
+          caption="Render Queue"
           imgSrc="images/aftereffects/render_queue.png"
           imgTitle="Интерфейс очереди просчёта"
-          caption="Render Queue"
+          styleClass="figure_windows-dark"
         />
         <Divider>Выводим через встроенный H.264</Divider>
         <AdditionWarning>
@@ -450,10 +450,10 @@ const AEExport: React.FC = () => {
           <mark className="ui">Format Options</mark>.
         </p>
         <ImageFigure
-          styleClass="figure_windows-dark"
+          caption="Output Module Settings"
           imgSrc="images/aftereffects/output_module_format_options.png"
           imgTitle="Окно Output Module"
-          caption="Output Module Settings"
+          styleClass="figure_windows-dark"
         />
         <p>
           В открывшемся окне мы можем выбрать <mark>VBR</mark> или <mark>CBR</mark>. Если
@@ -462,10 +462,10 @@ const AEExport: React.FC = () => {
           <mark>VBR</mark> больше подойдет тем, кому нужен минимальный вес файла.
         </p>
         <ImageFigure
-          styleClass="figure_windows-dark"
+          caption="H.264 Options"
           imgSrc="images/aftereffects/h264_options.png"
           imgTitle="Окно настроек H.264"
-          caption="H.264 Options"
+          styleClass="figure_windows-dark"
         />
         <p>
           После того, как вы указали нужный битрейт, прожимайте кнопки{" "}
@@ -478,10 +478,10 @@ const AEExport: React.FC = () => {
           <mark className="key">Enter</mark>.
         </p>
         <ImageFigure
-          styleClass="figure_windows-dark"
+          caption="Render Queue"
           imgSrc="images/aftereffects/start_render_button.png"
           imgTitle="Кнопка начала рендера"
-          caption="Render Queue"
+          styleClass="figure_windows-dark"
         />
         <Divider>Выводим через Voukoder</Divider>
         <p>
@@ -514,10 +514,10 @@ const AEExport: React.FC = () => {
           <mark className="ui">Format Options</mark>.
         </p>
         <ImageFigure
-          styleClass="figure_windows-dark"
+          caption="Output Module Settings"
           imgSrc="images/aftereffects/selecting_voukoder.png"
           imgTitle="Выбираем Voukoder из списка форматов"
-          caption="Output Module Settings"
+          styleClass="figure_windows-dark"
         />
         <p>
           После открытия настроек нам нужно выбрать кодек, в который мы хотим
@@ -557,10 +557,10 @@ const AEExport: React.FC = () => {
           </li>
         </ul>
         <ImageFigure
-          styleClass="figure_windows-light"
+          caption="Voukoder 13.4.1"
           imgSrc="images/aftereffects/select_codec_in_voukoder.png"
           imgTitle="Выбираем нужный вариант кодека в Voukoder"
-          caption="Voukoder 13.4.1"
+          styleClass="figure_windows-light"
         />
         <p>
           После выбора нужного нам кодека (я выбрал{" "}
@@ -571,10 +571,10 @@ const AEExport: React.FC = () => {
           эквивалент качества, чем меньше - тем лучше качество, но больше вес.
         </p>
         <ImageFigure
-          styleClass="figure_windows-light"
+          caption="Voukoder 13.4.1"
           imgSrc="images/aftereffects/codec_parameter_voukoder.png"
           imgTitle="Настраиваем качество видео в Voukoder"
-          caption="Voukoder 13.4.1"
+          styleClass="figure_windows-light"
         />
         <ul>
           <li>
@@ -614,10 +614,10 @@ const AEExport: React.FC = () => {
           на кнопку <mark className="ui">Format Options</mark>.
         </p>
         <ImageFigure
-          styleClass="figure_windows-dark"
+          caption="Output Module Settings"
           imgSrc="images/aftereffects/selecting_aftercodecs.png"
           imgTitle="Выбираем AfterCodecs из списка форматов"
-          caption="Output Module Settings"
+          styleClass="figure_windows-dark"
         />
         <p>
           В открывшемся окне мы снова видим кучу непонятных параметров. Здесь нам нужно
@@ -652,10 +652,10 @@ const AEExport: React.FC = () => {
           </AdditionWarning>
         </ul>
         <ImageFigure
-          styleClass="figure_windows-dark"
+          caption="AfterCodecs 1.11.5 for After Effects"
           imgSrc="images/aftereffects/aftercodecs_settings.png"
           imgTitle="Настройки AfterCodecs"
-          caption="AfterCodecs 1.11.5 for After Effects"
+          styleClass="figure_windows-dark"
         />
         <p>
           После завершения настроек мы нажимаем <mark className="ui">OK</mark> и начинаем
@@ -698,9 +698,9 @@ const AEExport: React.FC = () => {
           альфа-каналом.
         </AdditionWarning>
         <VideoFigure
+          caption="Выводим видео в Apple Prores"
           styleClass="figure_windows-dark"
           videoSrc="images/aftereffects/export_to_prores.mp4"
-          caption="Выводим видео в Apple Prores"
         />
         <p>
           Затем не забудьте указать путь, куда вы хотите вывести видео, и нажмите на{" "}
@@ -720,10 +720,10 @@ const AEExport: React.FC = () => {
           можно скачать <a href="https://www.shutterencoder.com/">по этой ссылке</a>.
         </AdditionInfo>
         <ImageFigure
-          styleClass="figure_macos-dark"
+          caption="Shutter Encoder"
           imgSrc="images/select_vp9_shutter_encoder.png"
           imgTitle="Выбор VP9 в Shutter Encoder"
-          caption="Shutter Encoder"
+          styleClass="figure_macos-dark"
         />
         <p>
           Затем включаем в дополнительных опциях{" "}
@@ -731,10 +731,10 @@ const AEExport: React.FC = () => {
           альфа-каналом.
         </p>
         <ImageFigure
-          styleClass="figure_macos-dark"
+          caption="Shutter Encoder"
           imgSrc="images/enable_alpha_shutter_encoder.png"
           imgTitle="Включение альфа-канала в Shutter Encoder"
-          caption="Shutter Encoder"
+          styleClass="figure_macos-dark"
         />
         <p>
           В программе можно также выставить путь для файла (по умолчанию видео кодируется
@@ -809,10 +809,10 @@ const AEExport: React.FC = () => {
           <mark className="ui">Window &gt; Extensions</mark>.
         </p>
         <ImageFigure
-          styleClass="figure_windows-light"
+          caption="After Effects"
           imgSrc="images/aftereffects/open_gifgun.png"
           imgTitle="Открытие расширения GifGun"
-          caption="After Effects"
+          styleClass="figure_windows-light"
         />
         <p>
           После открытия расширения вы увидите простое окно с двумя кнопками:{" "}
@@ -822,10 +822,10 @@ const AEExport: React.FC = () => {
           выходному файлу.
         </p>
         <ImageFigure
-          styleClass="figure_windows-dark"
+          caption="GifGun"
           imgSrc="images/aftereffects/gifgun_settings.png"
           imgTitle="Настройки расширения GifGun"
-          caption="GifGun"
+          styleClass="figure_windows-dark"
         />
         <Divider>Выводим через Media Encoder</Divider>
         <p>
@@ -857,10 +857,10 @@ const AEExport: React.FC = () => {
           параметры.
         </p>
         <ImageFigure
-          styleClass="figure_windows-light"
+          caption="Media Encoder"
           imgSrc="images/aftereffects/selecting_animated_gif_media_encoder.png"
           imgTitle="Выбираем формат GIF для экспорта через Media Encoder"
-          caption="Media Encoder"
+          styleClass="figure_windows-light"
         />
         <AdditionWarning>
           Если вы выберете в качестве формата пункт <mark className="ui">GIF</mark> без
@@ -886,10 +886,10 @@ const AEExport: React.FC = () => {
           кнопку <mark className="ui">Upload Video</mark>.
         </p>
         <ImageFigure
-          styleClass="figure_windows-light"
+          caption="Ezgif"
           imgSrc="images/ezgif_main.png"
           imgTitle="Главная страница Ezgif"
-          caption="Ezgif"
+          styleClass="figure_windows-light"
         />
         <AdditionWarning>
           Максимальный размер файла, который можно загрузить в сервис, не должен превышать
@@ -904,10 +904,10 @@ const AEExport: React.FC = () => {
           <mark className="ui">Convert to GIF!</mark>.
         </p>
         <ImageFigure
-          styleClass="figure_windows-light"
+          caption="Ezgif"
           imgSrc="images/ezgif_settings.png"
           imgTitle="Настройки конвертации в Ezgif"
-          caption="Ezgif"
+          styleClass="figure_windows-light"
         />
         <p>
           Далее после успешной конвертации вы получите ваше видео в формате{" "}
@@ -932,10 +932,10 @@ const AEExport: React.FC = () => {
           в виде шахматной доски для отображения прозрачных частей в композиции.
         </p>
         <ImageFigure
-          styleClass="figure_windows-dark"
+          caption="Composition"
           imgSrc="images/aftereffects/toggle_transparency_grid.png"
           imgTitle="Включение сетки для отображения прозрачных частей"
-          caption="Composition"
+          styleClass="figure_windows-dark"
         />
         <p>
           Если всё с этим в порядке, то пора переходить в{" "}
@@ -951,9 +951,9 @@ const AEExport: React.FC = () => {
           <mark className="ui">RGB + Alpha</mark>, чтобы вывести видео с прозрачностью.
         </p>
         <VideoFigure
+          caption="After Effects"
           styleClass="figure_windows-dark"
           videoSrc="images/aftereffects/export_prores4444_rgb-alpha.mp4"
-          caption="After Effects"
         />
         <p>
           Затем укажите путь для вывода файла и нажмите на кнопку{" "}
@@ -995,10 +995,10 @@ const AEExport: React.FC = () => {
           <mark className="ui">File</mark>.
         </p>
         <ImageFigure
-          styleClass="figure_windows-dark"
+          caption="Render Queue"
           imgSrc="images/aftereffects/export_one_frame_render_queue.png"
           imgTitle="Сохранение одного кадра через Render Queue"
-          caption="Render Queue"
+          styleClass="figure_windows-dark"
         />
         <p>
           После этого у вас откроется <mark className="ui">Render Queue</mark>, который
@@ -1027,10 +1027,10 @@ const AEExport: React.FC = () => {
           окне предпросмотра.
         </p>
         <ImageFigure
-          styleClass="figure_windows-dark"
+          caption="FX Console"
           imgSrc="images/aftereffects/fx_console_full_resolution_screenshots.png"
           imgTitle="Устанавливаем полное разрешение скриншотов"
-          caption="FX Console"
+          styleClass="figure_windows-dark"
         />
         <p>
           Теперь для быстрого сохранения текущего кадра в отдельный файл вам достаточно
@@ -1040,10 +1040,10 @@ const AEExport: React.FC = () => {
           сохранить кадр в буфер обмена.
         </p>
         <ImageFigure
-          styleClass="figure_windows-dark"
+          caption="After Effects"
           imgSrc="images/aftereffects/fx_console_save_frame_as.png"
           imgTitle="Сохраняем текущий кадр через FX Console"
-          caption="After Effects"
+          styleClass="figure_windows-dark"
         />
         <p>
           При выборе пунктов <mark className="ui">Save to JPG</mark> или{" "}
@@ -1079,10 +1079,10 @@ const AEExport: React.FC = () => {
           <mark className="ui">Save in subfolder</mark> при выборе расположения вывода.
         </AdditionInfo>
         <ImageFigure
-          styleClass="figure_windows-dark"
+          caption="Render Queue"
           imgSrc="images/aftereffects/render_queue.png"
           imgTitle="Интерфейс очереди просчёта"
-          caption="Render Queue"
+          styleClass="figure_windows-dark"
         />
         <p>
           Потом в окне <mark className="ui">Output Module</mark> в пункте{" "}
@@ -1098,10 +1098,10 @@ const AEExport: React.FC = () => {
           <mark className="ui">Channels</mark>.
         </AdditionInfo>
         <ImageFigure
-          styleClass="figure_windows-dark"
+          caption="Output Module Settings"
           imgSrc="images/aftereffects/selecting_png_sequence.png"
           imgTitle="Выбираем последовательность PNG для вывода"
-          caption="Output Module Settings"
+          styleClass="figure_windows-dark"
         />
         <p>
           После этого просто нажимаем на кнопку <mark className="ui">Render</mark> или на
@@ -1125,10 +1125,10 @@ const AEExport: React.FC = () => {
           <mark className="ui">Make Template</mark>.
         </p>
         <ImageFigure
-          styleClass="figure_windows-dark"
+          caption="Render Queue"
           imgSrc="images/aftereffects/make_template_render_settings.png"
           imgTitle="Создание шаблона для Render Settings"
-          caption="Render Queue"
+          styleClass="figure_windows-dark"
         />
         <p>
           В открывшемся окне у нас уже будет создан пресет под названием{" "}
@@ -1137,10 +1137,10 @@ const AEExport: React.FC = () => {
           <mark className="ui">Defaults</mark> для нужного типа файла.
         </p>
         <ImageFigure
-          styleClass="figure_windows-dark"
+          caption="Render Queue"
           imgSrc="images/aftereffects/render_settings_templates.png"
           imgTitle="Создание шаблона для Render Settings"
-          caption="Render Queue"
+          styleClass="figure_windows-dark"
         />
         <p>
           Для редактирования нового шаблона нужно нажать на{" "}
@@ -1152,10 +1152,10 @@ const AEExport: React.FC = () => {
           <mark className="ui">Work Area Only</mark>.
         </p>
         <ImageFigure
-          styleClass="figure_windows-dark"
+          caption="Render Queue"
           imgSrc="images/aftereffects/change_render_time_span.png"
           imgTitle="Изменение области рендера композиции"
-          caption="Render Queue"
+          styleClass="figure_windows-dark"
         />
       </DetailsSummary>
       <DetailsSummary title="Как вывести композицию файлом с отображением всех границ и путей движения?">
@@ -1165,8 +1165,8 @@ const AEExport: React.FC = () => {
           в формате видео.
         </p>
         <YouTubeVideo
-          link="vNH3d9YqLo4"
           caption="Cyclops Tutorial"
+          link="vNH3d9YqLo4"
         />
       </DetailsSummary>
       <DetailsSummary title="Как сохранить свой шаблон с настройками для экспорта композиций?">
@@ -1180,10 +1180,10 @@ const AEExport: React.FC = () => {
           создания и настроек пресетов.
         </p>
         <ImageFigure
-          styleClass="figure_windows-dark"
+          caption="Make Template"
           imgSrc="images/aftereffects/render_queue_make_template.png"
           imgTitle="Создаём шаблон экспорта"
-          caption="Make Template"
+          styleClass="figure_windows-dark"
         />
         <p>
           В открывшемся окне у нас уже будет создан пресет под названием{" "}
@@ -1192,10 +1192,10 @@ const AEExport: React.FC = () => {
           <mark className="ui">Defaults</mark>, если необходимо.
         </p>
         <ImageFigure
-          styleClass="figure_windows-dark"
+          caption="Output Module Templates"
           imgSrc="images/aftereffects/output_module_templates.png"
           imgTitle="Настраиваем шаблоны для экспорта"
-          caption="Output Module Templates"
+          styleClass="figure_windows-dark"
         />
         <p>
           Для редактирования нового шаблона нужно нажать на{" "}
@@ -1227,10 +1227,10 @@ const AEExport: React.FC = () => {
           рядом с файлом проекта.
         </AdditionInfo>
         <ImageFigure
-          styleClass="figure_windows-light"
+          caption="After Effects"
           imgSrc="images/aftereffects/select_collect_files.png"
           imgTitle="Выбираем функцию Collect Files"
-          caption="After Effects"
+          styleClass="figure_windows-light"
         />
         <p>
           Далее появится окно, где нам предложат, что именно паковать в папку с проектом.
@@ -1241,10 +1241,10 @@ const AEExport: React.FC = () => {
           куда сохранить папку с проектом.
         </p>
         <ImageFigure
-          styleClass="figure_windows-dark"
+          caption="Collect Files"
           imgSrc="images/aftereffects/collect_files_settings.png"
           imgTitle="Настройки Collect Files"
-          caption="Collect Files"
+          styleClass="figure_windows-dark"
         />
         <p>
           После выполнения функции <mark className="ui">Collect Files</mark> вы можете

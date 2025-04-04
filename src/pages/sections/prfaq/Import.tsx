@@ -62,10 +62,10 @@ const PRImport: React.FC = () => {
           артефактов от последствий кривого кодирования до вас.
         </p>
         <ImageFigure
-          styleClass="figure_windows-dark"
+          caption="Терминал - MediaInfo-CLI"
           imgSrc="images/mediainfo_example.png"
           imgTitle="Пример открытого в MediaInfo файла"
-          caption="Терминал - MediaInfo-CLI"
+          styleClass="figure_windows-dark"
         />
         <p>
           Для того, чтобы начать процесс перекодирования ваших исходников, вам нужно
@@ -85,10 +85,10 @@ const PRImport: React.FC = () => {
           ней для перекодирования исходников нужно сделать лишь несколько действий.
         </p>
         <ImageFigure
-          styleClass="figure_macos-dark"
+          caption="Shutter Encoder"
           imgSrc="images/shutter_encoder_interface.png"
           imgTitle="Интерфейс Shutter Encoder"
-          caption="Shutter Encoder"
+          styleClass="figure_macos-dark"
         />
         <ul>
           <li>
@@ -161,10 +161,10 @@ const PRImport: React.FC = () => {
           нового файла в системном файловом менеджере.
         </p>
         <ImageFigure
-          styleClass="figure_windows-dark"
+          caption="Premiere Pro"
           imgSrc="images/premierepro/replace_footage.png"
           imgTitle="Замена исходника в проекте"
-          caption="Premiere Pro"
+          styleClass="figure_windows-dark"
         />
         <p>
           Вот и всё, удачной работы с проектом! И да, лучше перекодировать, чем
@@ -177,8 +177,8 @@ const PRImport: React.FC = () => {
         </AdditionInfo>
       </DetailsSummary>
       <DetailsSummary
-        title="Почему у меня появляются различные артефакты при использовании исходников в кодеке H.264?"
         tag="зелёный экран, зелень, дергается изображение, полосы, глитчи, артефакты, глюки, искажения"
+        title="Почему у меня появляются различные артефакты при использовании исходников в кодеке H.264?"
       >
         <p>
           Скорее всего вы импортируете исходники, которые были загружены из интернета.
@@ -188,9 +188,9 @@ const PRImport: React.FC = () => {
           дальнейшей работе.
         </p>
         <VideoFigure
+          caption="Артефакты кривых исходников из просторов интернета"
           styleClass="figure_windows-light"
           videoSrc="images/h264_artifacts.webm"
-          caption="Артефакты кривых исходников из просторов интернета"
         />
         <p>
           Чтобы с такими видео из интернета можно было спокойно работать - вам нужно
@@ -204,10 +204,10 @@ const PRImport: React.FC = () => {
           <mark className="app">Media Encoder</mark>.
         </p>
         <ImageFigure
-          styleClass="figure_macos-dark"
+          caption="Shutter Encoder"
           imgSrc="images/convert_to_prores_shutterencoder.png"
           imgTitle="Конвертируем в ProRes через Shutter Encoder"
-          caption="Shutter Encoder"
+          styleClass="figure_macos-dark"
         />
         <p>
           В редких случаях вы можете встретиться с багом, который &quot;полосатит&quot;
@@ -217,8 +217,8 @@ const PRImport: React.FC = () => {
         </p>
       </DetailsSummary>
       <DetailsSummary
-        title="Импортировал видео, а оно слишком засвеченное. Как исправить?"
         tag="пересвет, айфон, яркость, цветовое пространство, рек709"
+        title="Импортировал видео, а оно слишком засвеченное. Как исправить?"
       >
         <p>
           Скорее всего вы импортировали видео, записанное на iPhone или на камеру в
@@ -237,10 +237,10 @@ const PRImport: React.FC = () => {
           При создании новых секвенций эта опция обычно включена по умолчанию.
         </AdditionInfo>
         <ImageFigure
-          styleClass="figure_windows-dark"
+          caption="Sequence Settings"
           imgSrc="images/premierepro/enable_auto_tone_map.png"
           imgTitle="Включение Auto Tone Map Media в настройках секвенции"
-          caption="Sequence Settings"
+          styleClass="figure_windows-dark"
         />
         <Divider>Перекодируем в другой цветовой профиль</Divider>
         <p>
@@ -252,10 +252,10 @@ const PRImport: React.FC = () => {
           информацию о формате, FPS и цветовом пространстве вашего исходника.
         </p>
         <ImageFigure
-          styleClass="figure_windows-dark"
+          caption="Терминал - MediaInfo-CLI"
           imgSrc="images/mediainfo_example.png"
           imgTitle="Пример открытого в MediaInfo файла"
-          caption="Терминал - MediaInfo-CLI"
+          styleClass="figure_windows-dark"
         />
         <p>
           Чтобы начать перекодирование ваших исходников, вам нужно установить программу{" "}
@@ -275,10 +275,10 @@ const PRImport: React.FC = () => {
           вам нужно сделать всего несколько простых шагов.
         </p>
         <ImageFigure
-          styleClass="figure_macos-dark"
+          caption="Shutter Encoder"
           imgSrc="images/shutter_encoder_interface.png"
           imgTitle="Интерфейс Shutter Encoder"
-          caption="Shutter Encoder"
+          styleClass="figure_macos-dark"
         />
         <ul>
           <li>
@@ -416,10 +416,10 @@ const PRImport: React.FC = () => {
           </li>
         </ul>
         <ImageFigure
-          styleClass="figure_windows-dark"
+          caption="Браузер"
           imgSrc="images/link_generator_msstore.png"
           imgTitle="Генератор ссылок из Microsoft Store"
-          caption="Браузер"
+          styleClass="figure_windows-dark"
         />
         <p>
           После вставки ссылки и нажатия на кнопку <mark className="ui">OK</mark>, нажмите

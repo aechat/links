@@ -10,24 +10,24 @@ const HostsAdobeModal: React.FC = () => {
   return (
     <div>
       <motion.button
+        className="modal-open-button"
+        style={{marginInline: "auto"}}
         whileHover={{
           scale: 0.975,
           transition: {duration: 0.5, ease: [0.075, 0.82, 0.165, 1]},
         }}
         whileTap={{scale: 0.95, opacity: 0.5}}
-        className="modal-open-button"
-        style={{marginInline: "auto"}}
         onClick={() => setIsModalOpen(true)}
       >
         Открыть адреса для блокировки Adobe в hosts
       </motion.button>
       <Modal
-        open={isModalOpen}
-        onCancel={() => setIsModalOpen(false)}
-        footer={null}
-        width={700}
-        closeIcon={null}
         centered
+        closeIcon={null}
+        footer={null}
+        open={isModalOpen}
+        width={700}
+        onCancel={() => setIsModalOpen(false)}
       >
         <div className="modal">
           <div className="modal-header">
@@ -2485,8 +2485,8 @@ const HostsAdobeModal: React.FC = () => {
               для блокировки в hosts находятся{" "}
               <a
                 href="https://a.dove.isdumb.one/list.txt"
-                target="_blank"
                 rel="noreferrer"
+                target="_blank"
               >
                 по этой ссылке
               </a>

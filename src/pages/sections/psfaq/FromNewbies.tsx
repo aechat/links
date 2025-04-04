@@ -8,8 +8,8 @@ const PSFromNewbies: React.FC = () => {
     <div className="faq-content">
       <GithubUpdateInfo filePath="src/pages/sections/psfaq/FromNewbies.tsx" />
       <DetailsSummary
-        title="Первый раз установил Photoshop, с чего бы мне начать обучение?"
         tag="для новичка, первый раз, только открыл"
+        title="Первый раз установил Photoshop, с чего бы мне начать обучение?"
       >
         <p>
           <mark className="app">Photoshop</mark> сейчас широко применяется во многих
@@ -23,8 +23,8 @@ const PSFromNewbies: React.FC = () => {
           от <a href="https://www.youtube.com/@Photofoxchannel">PhotoFox</a>.
         </p>
         <YouTubeVideo
-          link="-IqjBmVaApg"
           caption='Курс "Фотошоп с нуля"'
+          link="-IqjBmVaApg"
         />
         <p>
           Если вы уже уверенно обрабатываете и создаёте изображения в{" "}
@@ -49,14 +49,14 @@ const PSFromNewbies: React.FC = () => {
         </p>
       </DetailsSummary>
       <DetailsSummary
-        title="Не понимаю термины от других пользователей Photoshop, проясните!"
         tag="сленг, жаргон, сокращения, словосочетания, говор"
+        title="Не понимаю термины от других пользователей Photoshop, проясните!"
       >
         <p>{/* FIXME: написать!! по аналогии как с терминами в аефаке */}</p>
       </DetailsSummary>
       <DetailsSummary
-        title="Где я могу узнать об нововведениях в обновлениях Photoshop?"
         tag="что нового, фишки, обновления, апдейт"
+        title="Где я могу узнать об нововведениях в обновлениях Photoshop?"
       >
         <p>
           Обычно на сайте Adobe в день выхода публичной стабильной версии выкладываются
@@ -81,8 +81,8 @@ const PSFromNewbies: React.FC = () => {
         <p>{/* FIXME: написать!! */}</p>
       </DetailsSummary>
       <DetailsSummary
-        title="Почему мне с каждого угла советуют поставить английский язык программы и как это сделать?"
         tag="изменить язык, смена языка, установка английской версии"
+        title="Почему мне с каждого угла советуют поставить английский язык программы и как это сделать?"
       >
         <p>{/* FIXME: написать!! */}</p>
       </DetailsSummary>

@@ -26,10 +26,10 @@ const PRInterface: React.FC = () => {
           языке.
         </p>
         <ImageFigure
-          styleClass="figure_windows-dark"
+          caption="Premiere Pro"
           imgSrc="images/premierepro/set_double_language.png"
           imgTitle="Установка двойного языка"
-          caption="Premiere Pro"
+          styleClass="figure_windows-dark"
         />
         <AdditionDanger>
           Не рекомендуется использовать двойной язык на постоянной основе, так как
@@ -86,8 +86,8 @@ const PRInterface: React.FC = () => {
         {/* TODO: приложить скриншот */}
       </DetailsSummary>
       <DetailsSummary
-        title="Есть ли аналог FX Console для Premiere Pro?"
         tag="панель эффектов, фх консоль, экскалибур"
+        title="Есть ли аналог FX Console для Premiere Pro?"
       >
         <p>
           Да, есть, и называется{" "}
@@ -96,10 +96,10 @@ const PRInterface: React.FC = () => {
           всплывающего меню, а также выполнять некоторые команды.
         </p>
         <ImageFigure
-          styleClass="figure_macos-light"
+          caption="Premiere Pro"
           imgSrc="https://images.squarespace-cdn.com/content/v1/5d090703bfcf6300017faaa8/1605797292871-IKNJ3QIJPGK2TFMMBIIY/web_01_fx.gif?format=750w"
           imgTitle="Демонстрация работы Excalibur"
-          caption="Premiere Pro"
+          styleClass="figure_macos-light"
         />
         <AdditionInfo>
           По умолчанию для открытия всплывающего окна указана комбинация клавиш{" "}
@@ -129,14 +129,24 @@ const PRInterface: React.FC = () => {
       </DetailsSummary>
       <DetailsSummary title="Как отключить выделение объекта на таймлайне при перемещении временной метки?">
         <p>
-          Его можно отключить, убрав галочку с{" "}
-          <mark className="ui">Select Follow Playhead</mark> в{" "}
-          <mark className="ui">Sequence</mark>.
+          Функцию выделения клипа при перемещении временной метки можно отключить, убрав
+          галочку с <mark className="ui">Select Follow Playhead</mark> в{" "}
+          <mark className="ui">Sequence</mark>. Выделение клипа зависит от выбранных
+          дорожек с помощью <mark>Track Targeting</mark>.
         </p>
-        {/* TODO: показать скриншот */}
+        {/* TODO: показать скриншот включения этой опции */}
         <AdditionInfo>
-          Выделение клипов зависит от выбранных дорожек с помощью{" "}
-          <mark className="ui">Track Targeting</mark>.
+          <ul>
+            <li>
+              Выделение клипов зависит от выбранных дорожек с помощью{" "}
+              <mark className="ui">Track Targeting</mark>.
+            </li>
+            <li>
+              Выделить текущий клип под плейхедом, если у вас выключен{" "}
+              <mark className="ui">Select Follow Playhead</mark> можно с помощью клавиши{" "}
+              <mark className="key">D</mark>.
+            </li>
+          </ul>
         </AdditionInfo>
       </DetailsSummary>
       <DetailsSummary title="Куда пропала настройка Timeline в Preferences?">
@@ -175,12 +185,15 @@ const PRInterface: React.FC = () => {
           <mark className="ui">Debug Database View</mark>.
         </AdditionInfo>
         <ImageFigure
-          styleClass="figure_windows-dark"
+          caption="Console"
           imgSrc="images/premierepro/console_theme_colorizing.png"
           imgTitle="Включение возможности изменения акцента интерфейса"
-          caption="Console"
+          styleClass="figure_windows-dark"
         />
-        <p>В настройках...</p>
+        <p>
+          Далее, после включения возможности изменять цвет, перейдите в{" "}
+          <mark className="app">Edit &gt; Preferences &gt; Appearance</mark> и...
+        </p>
         {/* TODO: показать пункт и скриншот в настройках */}
         <p>
           В открывшейся цветовой палитре вы можете указать любой цвет, какой захотите.

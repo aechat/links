@@ -2,9 +2,9 @@ import React from "react";
 
 export const AEIcon = () => (
   <svg
-    xmlns="http://www.w3.org/2000/svg"
     version="1.2"
     viewBox="0 0 80 77"
+    xmlns="http://www.w3.org/2000/svg"
   >
     <g>
       <path
@@ -25,9 +25,9 @@ export const AEIcon = () => (
 
 export const PRIcon = () => (
   <svg
-    xmlns="http://www.w3.org/2000/svg"
     version="1.2"
     viewBox="0 0 80 77"
+    xmlns="http://www.w3.org/2000/svg"
   >
     <g>
       <path
@@ -48,9 +48,9 @@ export const PRIcon = () => (
 
 export const PSIcon = () => (
   <svg
-    xmlns="http://www.w3.org/2000/svg"
     version="1.2"
     viewBox="0 0 80 77"
+    xmlns="http://www.w3.org/2000/svg"
   >
     <g>
       <path
@@ -71,9 +71,9 @@ export const PSIcon = () => (
 
 export const AEExprIcon = () => (
   <svg
-    xmlns="http://www.w3.org/2000/svg"
     version="1.2"
     viewBox="0 0 80 77"
+    xmlns="http://www.w3.org/2000/svg"
   >
     <g>
       <path

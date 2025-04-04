@@ -1,7 +1,7 @@
 import {ArrowBackRounded} from "@mui/icons-material";
 import React, {useEffect, useState} from "react";
 import {Link} from "react-router-dom";
-import {SearchButton, WideSearchButton} from "./features/SearchInPage";
+import {SearchButton, WideSearchButton} from "./modal/SearchInPage";
 import {motion} from "framer-motion";
 import {MoveToTop} from "./features/MoveToTop";
 import {ThemeToggleButton} from "./modal/ThemeChanger";
@@ -35,11 +35,10 @@ const Header: React.FC<{title: string}> = ({title}) => {
 
   return (
     <motion.header
-      initial={{opacity: 0}}
       animate={{opacity: 1}}
-      exit={{opacity: 0}}
-      transition={{duration: 0.5, ease: [0.075, 0.82, 0.165, 1]}}
       className={`header ${isVisible ? "" : "header-transparent"}`}
+      exit={{opacity: 0}}
+      initial={{opacity: 0}}
       style={{
         backgroundColor: "var(--header_background)",
         backdropFilter: "blur(15px) saturate(50%)",
@@ -48,6 +47,7 @@ const Header: React.FC<{title: string}> = ({title}) => {
         outline: "1px solid var(--header_border)",
         translate: "0 0 0",
       }}
+      transition={{duration: 0.5, ease: [0.075, 0.82, 0.165, 1]}}
     >
       <div className="header-left">
         {location.pathname === "/" ? null : (

@@ -27,8 +27,8 @@ const PRActions: React.FC = () => {
           пакете плагинов <mark className="plugin">Boris FX Continuum</mark>.
         </p>
         <YouTubeVideo
-          link="_gHNqhHfeck"
           caption="BCC UpRes ML"
+          link="_gHNqhHfeck"
         />
         <p>
           Далее могу посоветовать программу <mark className="app">Topaz Video AI</mark>.
@@ -39,8 +39,8 @@ const PRActions: React.FC = () => {
           отсутствует.
         </p>
         <YouTubeVideo
-          link="zbX7x8Oo_Uc"
           caption="Topaz Video AI"
+          link="zbX7x8Oo_Uc"
         />
         <AdditionInfo>
           Скачать программу <mark className="app">Topaz Video AI</mark>, а также пакет
@@ -49,8 +49,8 @@ const PRActions: React.FC = () => {
         </AdditionInfo>
       </DetailsSummary>
       <DetailsSummary
-        title="Чем можно плавно замедлить видео?"
         tag="слоумо, твикстор, топаз, ретаймер, тайм ремапинг, плавное замедление, флоуфреймс"
+        title="Чем можно плавно замедлить видео?"
       >
         <p>
           Бывают случаи, когда перед монтажёром встаёт задача сделать видео более
@@ -69,8 +69,8 @@ const PRActions: React.FC = () => {
           хорошо зарекомендовал себя в монтаже и имеет много настроек.
         </p>
         <YouTubeVideo
-          link="20Smtrzt3m4"
           caption="Twixtor"
+          link="20Smtrzt3m4"
         />
         <p>
           С относительно недавних пор в <mark className="plugin">Boris FX Continuum</mark>{" "}
@@ -79,8 +79,8 @@ const PRActions: React.FC = () => {
           <mark className="plugin">Twixtor</mark> выдаёт гораздо лучшие результаты.
         </p>
         <YouTubeVideo
-          link="YraSxOpy1Qg"
           caption="BCC Retimer ML"
+          link="YraSxOpy1Qg"
         />
         <p>
           Если вы не хотите замедлять видео в <mark className="app">Premiere Pro</mark>{" "}
@@ -91,15 +91,15 @@ const PRActions: React.FC = () => {
           для дальнейшей работы.
         </p>
         <YouTubeVideo
-          link="H8ISNjzDULw"
           caption="FlowFrames"
+          link="H8ISNjzDULw"
         />
         <p>
           Или с помощью <mark className="app">FrameGUI</mark>.
         </p>
         <YouTubeVideo
-          link="Axz_KwiqNmc"
           caption="FrameGUI"
+          link="Axz_KwiqNmc"
         />
         <p>
           Ну или замедлить через <mark className="app">Topaz Video AI</mark>. В этой
@@ -107,8 +107,8 @@ const PRActions: React.FC = () => {
           интеллекта.
         </p>
         <YouTubeVideo
-          link="591MqOooDAE"
           caption="Topaz Video AI"
+          link="591MqOooDAE"
         />
         <AdditionInfo>
           Действия на видео, приведённые выше, могут отличаться в зависимости от версии
@@ -128,8 +128,8 @@ const PRActions: React.FC = () => {
           <mark className="ui">Optical Flow</mark>.
         </p>
         <YouTubeVideo
-          link="JemBgoF3K6Q"
           caption="How to Use Optical Flow"
+          link="JemBgoF3K6Q"
         />
       </DetailsSummary>
       <DetailsSummary title="Чем можно хорошо подавить шумы на видео?">
@@ -148,8 +148,8 @@ const PRActions: React.FC = () => {
           <mark className="plugin">Neat Video</mark>.
         </p>
         <YouTubeVideo
-          link="DYKBQF7eIUo"
           caption="Neat Video"
+          link="DYKBQF7eIUo"
         />
         <p>
           У Red Giant тоже есть свой де-нойзер под названием{" "}
@@ -157,8 +157,8 @@ const PRActions: React.FC = () => {
           плагинов <mark className="plugin">Magic Bullet Suite</mark>.
         </p>
         <YouTubeVideo
-          link="PXCElU7HcX8"
           caption="Denoiser III"
+          link="PXCElU7HcX8"
         />
         <p>
           И Boris FX тоже не отстаёт от инструментов для подавления шумов. В пакете
@@ -168,16 +168,16 @@ const PRActions: React.FC = () => {
           основанный на машинном обучении.{" "}
         </p>
         <YouTubeVideo
-          link="L1PeaTa13H4"
           caption="BCC DeNoise ML"
+          link="L1PeaTa13H4"
         />
         <p>
           Ну и куда же без Re:Vision Effects с их <mark className="plugin">DE:Noise</mark>
           .
         </p>
         <YouTubeVideo
-          link="tGIXeddCPQM"
           caption="DE:Noise"
+          link="tGIXeddCPQM"
         />
         <p>
           Если вам не хочется заморачиваться с сторонними плагинами, но хотите немного
@@ -185,13 +185,13 @@ const PRActions: React.FC = () => {
           <mark className="plugin">VR De-Noise</mark>.
         </p>
         <YouTubeVideo
-          link="hr7qFhh6Y5g"
           caption="VR De-Noise"
+          link="hr7qFhh6Y5g"
         />
       </DetailsSummary>
       <DetailsSummary
-        title="Какими средствами обычно удаляют зелёный или синий фон?"
         tag="кеинг, клинап, убрать фон"
+        title="Какими средствами обычно удаляют зелёный или синий фон?"
       >
         <p>
           Допустим, у вас есть видеоматериал с объектом или персонажем на зелёном фоне,
@@ -211,8 +211,8 @@ const PRActions: React.FC = () => {
           <mark className="file">Ultra Key</mark>.
         </p>
         <YouTubeVideo
-          link="c_P8s3r1dXE"
           caption="Ultra Key"
+          link="c_P8s3r1dXE"
         />
         <AdditionInfo>
           Плагины ниже демонстрируются в <mark className="app">After Effects</mark>. Все
@@ -225,8 +225,8 @@ const PRActions: React.FC = () => {
           плагинов <mark className="plugin">Red Giant VFX Suite</mark>.
         </p>
         <YouTubeVideo
-          link="zYARqiWTArU"
           caption="Getting Started with Primatte Keyer"
+          link="zYARqiWTArU"
         />
         <p>
           Если результат от работы плагина выше не нравится - есть{" "}
@@ -234,8 +234,8 @@ const PRActions: React.FC = () => {
           <mark className="plugin">Boris FX Continuum</mark>.
         </p>
         <YouTubeVideo
-          link="AaKTHKspAkQ"
           caption="BCC Primatte Studio"
+          link="AaKTHKspAkQ"
         />
       </DetailsSummary>
       <DetailsSummary title="Как мне быстро расставить маркеры под бит, желательно автоматически?">
@@ -254,8 +254,8 @@ const PRActions: React.FC = () => {
           задачу.
         </p>
         <YouTubeVideo
-          link="JGVLRcjp7ss"
           caption="Как создавать маркеры с помощью Beat Edit"
+          link="JGVLRcjp7ss"
         />
         <AdditionInfo>
           Плагин, приведённый в этом пункте можно скачать из канала{" "}
@@ -263,8 +263,8 @@ const PRActions: React.FC = () => {
         </AdditionInfo>
       </DetailsSummary>
       <DetailsSummary
-        title="Как сделать автоматические субтитры для видео?"
         tag="транскрибация, subtitle, речь в текст, speech to text"
+        title="Как сделать автоматические субтитры для видео?"
       >
         <p>
           В <mark className="app">Premiere Pro</mark> с версии 2022 и новее добавили
@@ -309,10 +309,10 @@ const PRActions: React.FC = () => {
           функцию <mark className="ui">Generate static transcript</mark>.
         </p>
         <ImageFigure
-          styleClass="figure_windows-dark"
+          caption="Text"
           imgSrc="images/premierepro/text_generate_static_transcript.png"
           imgTitle="Начало генерации текста на основе речи"
-          caption="Text"
+          styleClass="figure_windows-dark"
         />
         <p>
           В открывшемся окне выберите язык, на котором говорит голос из аудио, параметр
@@ -320,10 +320,10 @@ const PRActions: React.FC = () => {
           доступны при некоторых факторах.
         </p>
         <ImageFigure
-          styleClass="figure_windows-dark"
+          caption="Generate static transcript"
           imgSrc="images/premierepro/generate_transcribe_settings.png"
           imgTitle="Настройки генерации текста на основе речи"
-          caption="Generate static transcript"
+          styleClass="figure_windows-dark"
         />
         <p>
           После этого подождите некоторое время и вы получите какую-никакую расшифровку
@@ -333,10 +333,10 @@ const PRActions: React.FC = () => {
           фразу.
         </p>
         <ImageFigure
-          styleClass="figure_windows-dark"
+          caption="Text"
           imgSrc="images/premierepro/create_captions_from_transcribe.png"
           imgTitle="Создание субтитров на основе генерации текста"
-          caption="Text"
+          styleClass="figure_windows-dark"
         />
         <Divider>Делаем субтитры через Subtitle Edit</Divider>
         <AdditionWarning>
@@ -363,10 +363,10 @@ const PRActions: React.FC = () => {
           программы.
         </p>
         <ImageFigure
-          styleClass="figure_windows-light"
+          caption="Subtitle Edit"
           imgSrc="images/subtitle_edit_import.png"
           imgTitle="Импорт видео или аудио в Subtitle Edit"
-          caption="Subtitle Edit"
+          styleClass="figure_windows-light"
         />
         <AdditionInfo>
           Если у вас установлен <mark className="app">MPC-HC</mark> или{" "}
@@ -390,10 +390,10 @@ const PRActions: React.FC = () => {
           <mark className="app">VPN</mark>.
         </AdditionInfo>
         <ImageFigure
-          styleClass="figure_windows-light"
+          caption="Subtitle Edit"
           imgSrc="images/subtitle_edit_change_engine.png"
           imgTitle="Изменение движка распознавания речи"
-          caption="Subtitle Edit"
+          styleClass="figure_windows-light"
         />
         <p>
           Далее нам нужно скачать сам языковой пакет. Для этого рядом с{" "}
@@ -407,10 +407,10 @@ const PRActions: React.FC = () => {
           меньше ресурсов вашего устройства для вычисления. Так и наоборот.
         </AdditionInfo>
         <ImageFigure
-          styleClass="figure_windows-light"
+          caption="Subtitle Edit"
           imgSrc="images/subtitle_edit_download_models.png"
           imgTitle="Загрузка моделей распознавания речи"
-          caption="Subtitle Edit"
+          styleClass="figure_windows-light"
         />
         <p>
           После успешной загрузки модели выберите язык, на котором основан ваш аудио и
@@ -422,10 +422,10 @@ const PRActions: React.FC = () => {
           скорости чтения жёсткого диска.
         </AdditionInfo>
         <ImageFigure
-          styleClass="figure_windows-light"
+          caption="Subtitle Edit"
           imgSrc="images/subtitle_edit_change_language_generate.png"
           imgTitle="Изменение языка и начало генерации текста из речи"
-          caption="Subtitle Edit"
+          styleClass="figure_windows-light"
         />
         <AdditionInfo>
           Если результат от <mark>Whisper</mark> вас не устраивает, то попробуйте выбрать{" "}
@@ -451,20 +451,20 @@ const PRActions: React.FC = () => {
           наших недавно сохранённых субтитров.
         </p>
         <ImageFigure
-          styleClass="figure_windows-dark"
+          caption="Text"
           imgSrc="images/premierepro/import_captions_from_file.png"
           imgTitle="Импорт субтитров в Premiere Pro"
-          caption="Text"
+          styleClass="figure_windows-dark"
         />
         <p>
           Затем в открывшемся модальном окне выберите тип субтитров и вариант, от чего
           начинать субтитры, а затем нажмите на <mark className="ui">OK</mark>.
         </p>
         <ImageFigure
-          styleClass="figure_windows-dark"
+          caption="New caption track"
           imgSrc="images/premierepro/new_caption_track.png"
           imgTitle="Создание новой дорожки субтитров"
-          caption="New caption track"
+          styleClass="figure_windows-dark"
         />
         <p>
           После этого сгенерированные субтитры из{" "}
@@ -497,10 +497,10 @@ const PRActions: React.FC = () => {
           элемент очереди файлов.
         </p>
         <ImageFigure
-          styleClass="figure_windows-dark"
+          caption="StemRoller"
           imgSrc="images/stemroller_interface.png"
           imgTitle="Главная страница StemRoller"
-          caption="StemRoller"
+          styleClass="figure_windows-dark"
         />
         <AdditionWarning>
           Скорость обработки аудио-файла зависит от мощности вашего устройства, обычно оно

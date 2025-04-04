@@ -14,8 +14,8 @@ const PRFromNewbies: React.FC = () => {
     <div className="faq-content">
       <GithubUpdateInfo filePath="src/pages/sections/prfaq/FromNewbies.tsx" />
       <DetailsSummary
-        title="Первый раз установил Premiere Pro, с чего бы мне начать обучение?"
         tag="для новичка, первый раз, только открыл"
+        title="Первый раз установил Premiere Pro, с чего бы мне начать обучение?"
       >
         <p>
           Если вы только начинаете свой путь в монтаже или никогда не использовали{" "}
@@ -35,8 +35,8 @@ const PRFromNewbies: React.FC = () => {
           Некоторые функции могут чуть отличаться от вашей текущей версии программы.
         </AdditionInfo>
         <YouTubeVideo
-          link="Wi-AalXwilg"
           caption="Азбука Premiere Pro"
+          link="Wi-AalXwilg"
         />
         <p>
           Также при желании вы можете отдельно посмотреть курс по работе с вкладкой{" "}
@@ -45,8 +45,8 @@ const PRFromNewbies: React.FC = () => {
           исходников от <a href="https://www.youtube.com/@Bolharov">Романа Болгарова</a>.
         </p>
         <YouTubeVideo
-          link="xqRnW1T_pNk"
           caption="Цветокоррекция в Lumetri"
+          link="xqRnW1T_pNk"
         />
         <p>
           Если вы уже уверенно монтируете в <mark className="app">Premiere Pro</mark>, и
@@ -67,15 +67,15 @@ const PRFromNewbies: React.FC = () => {
         </p>
       </DetailsSummary>
       <DetailsSummary
-        title="Не понимаю термины от других пользователей Premiere Pro, проясните!"
         tag="сленг, жаргон, сокращения, словосочетания, говор"
+        title="Не понимаю термины от других пользователей Premiere Pro, проясните!"
       >
         <p></p>
         {/* FIXME: написать!! по аналогии как с терминами в аефаке */}
       </DetailsSummary>
       <DetailsSummary
-        title="А есть список популярных комбинаций клавиш для работы в Premiere Pro?"
         tag="хоткеи, горячие клавиши, шорткаты, ускорение работы"
+        title="А есть список популярных комбинаций клавиш для работы в Premiere Pro?"
       >
         <p>
           Шорткаты могут помочь ускорить ваш рутинный процесс нахождения нужной функции
@@ -955,8 +955,8 @@ const PRFromNewbies: React.FC = () => {
         {/* FIXME: по возможности дописать ещё */}
       </DetailsSummary>
       <DetailsSummary
-        title="Где я могу узнать об нововведениях в обновлениях Premiere Pro?"
         tag="что нового, фишки, обновления, апдейт"
+        title="Где я могу узнать об нововведениях в обновлениях Premiere Pro?"
       >
         <p>
           Обычно на сайте Adobe в день выхода публичной стабильной версии выкладываются
@@ -983,8 +983,8 @@ const PRFromNewbies: React.FC = () => {
         </p>
       </DetailsSummary>
       <DetailsSummary
-        title="Почему мне с каждого угла советуют поставить английский язык программы и как это сделать?"
         tag="изменить язык, смена языка, установка английской версии"
+        title="Почему мне с каждого угла советуют поставить английский язык программы и как это сделать?"
       >
         <p>
           В <mark className="app">Premiere Pro</mark>, аналогично как и с{" "}
@@ -1000,10 +1000,10 @@ const PRFromNewbies: React.FC = () => {
           отображения <mark className="ui">Debug Database View</mark>.
         </p>
         <ImageFigure
-          styleClass="figure_windows-dark"
+          caption="Включение вида Debug Database View"
           imgSrc="images/premierepro/console_debug-database-view.png"
           imgTitle="Включение вида Debug Database View"
-          caption="Включение вида Debug Database View"
+          styleClass="figure_windows-dark"
         />
         <p>
           Затем в строке поиска нам нужно написать{" "}
@@ -1011,10 +1011,10 @@ const PRFromNewbies: React.FC = () => {
           В строке с одноимённым параметром пишем <mark className="copy">en_US</mark>.
         </p>
         <ImageFigure
-          styleClass="figure_windows-dark"
+          caption="Установка английского языка в консоли"
           imgSrc="images/premierepro/set_language_console.png"
           imgTitle="Установка английского языка в консоли"
-          caption="Установка английского языка в консоли"
+          styleClass="figure_windows-dark"
         />
         <p>
           После ввода значения - перезагрузите программу и вы сможете насладиться
@@ -1034,8 +1034,8 @@ const PRFromNewbies: React.FC = () => {
         </AdditionDanger>
       </DetailsSummary>
       <DetailsSummary
-        title="Что такое Nest, как их создать и распаковывать?"
         tag="нест, unnest, вложенный таймлайн, вложенные клипы, прекомпоз"
+        title="Что такое Nest, как их создать и распаковывать?"
       >
         <p>
           <mark>Nest</mark> - функция объединения нескольких клипов или слоев в одну
@@ -1050,9 +1050,9 @@ const PRFromNewbies: React.FC = () => {
           вписать название новой секвенции.
         </p>
         <VideoFigure
+          caption="Premiere Pro"
           styleClass="figure_windows-dark"
           videoSrc="images/premierepro/creating_nest.mp4"
-          caption="Premiere Pro"
         />
         <p>
           А чтобы распаковать <mark>Nest</mark> или же наложить на таймлайн
@@ -1065,14 +1065,14 @@ const PRFromNewbies: React.FC = () => {
           без всяких проблем.
         </p>
         <VideoFigure
+          caption="Premiere Pro"
           styleClass="figure_windows-dark"
           videoSrc="images/premierepro/unnesting_nest.mp4"
-          caption="Premiere Pro"
         />
       </DetailsSummary>
       <DetailsSummary
-        title="Для чего нужны A1 и V1 слева от клипов на таймлайне?"
         tag="выделение, вставка клипов"
+        title="Для чего нужны A1 и V1 слева от клипов на таймлайне?"
       >
         <p>
           Вы, наверное, не раз замечали параметры слева от ваших клипов, но не всегда
@@ -1087,8 +1087,8 @@ const PRFromNewbies: React.FC = () => {
           таймлайн.
         </p>
         <YouTubeVideo
-          link="BOW2Fr7SKo0"
           caption="How to add video and audio to the timeline in Premiere Pro"
+          link="BOW2Fr7SKo0"
         />
         <p>
           А вот <mark className="ui">A1</mark>, <mark className="ui">A2</mark>,{" "}
@@ -1098,8 +1098,8 @@ const PRFromNewbies: React.FC = () => {
           вставку видео и аудиодорожек на таймлайн.
         </p>
         <YouTubeVideo
-          link="pzQnzaRm2OY"
           caption="Shortcuts for the timeline in Premiere Pro - track targeting"
+          link="pzQnzaRm2OY"
         />
       </DetailsSummary>
       <DetailsSummary title='Чем отличается "Scale to Frame Size" от "Fill Frame" и "Fit to Frame"?'>
@@ -1134,13 +1134,13 @@ const PRFromNewbies: React.FC = () => {
           <mark className="ui">Set to Frame Size</mark>.
         </AdditionInfo>
         <YouTubeVideo
-          link="dKTWbkPfcmE"
           caption="Чем отличается Scale to Frame size от Set to Frame size?"
+          link="dKTWbkPfcmE"
         />
       </DetailsSummary>
       <DetailsSummary
-        title="Куда пропали эффекты из папки Obsolete в новых версиях программы?"
         tag="вернуть устаревшие эффекты, восстановить встроенные пресеты"
+        title="Куда пропали эффекты из папки Obsolete в новых версиях программы?"
       >
         <p>
           Adobe признала встроенные эффекты, пресеты и переходы, которые были в папке{" "}
@@ -1159,8 +1159,8 @@ const PRFromNewbies: React.FC = () => {
           К счастью, эти эффекты всё ещё можно восстановить в новых версиях{" "}
           <mark className="app">Premiere Pro</mark>. Для этого нужно скачать{" "}
           <a
-            href="files/Obsolete Effects.prfpset"
             download
+            href="files/Obsolete Effects.prfpset"
           >
             нужный пресет
           </a>{" "}
@@ -1177,9 +1177,9 @@ const PRFromNewbies: React.FC = () => {
           <mark className="key">.</mark> или <mark className="key">Ю</mark>.
         </p>
         <VideoFigure
+          caption="Видео из Telegram-канала @nano_tutorials"
           styleClass="figure_macos-dark"
           videoSrc="images/premierepro/restore_missing.mp4"
-          caption="Видео из Telegram-канала @nano_tutorials"
         />
       </DetailsSummary>
       <DetailsSummary title="Хочу перевести голос в субтитры, но загрузка падает в бесконечность. Почему функция транскрибации не работает?">
@@ -1214,10 +1214,10 @@ const PRFromNewbies: React.FC = () => {
           в пункте <mark className="ui">Default Output</mark> нужный вам аудиовыход.
         </p>
         <ImageFigure
-          styleClass="figure_windows-dark"
+          caption="Preferences"
           imgSrc="images/premierepro/set_audio_output.png"
           imgTitle="Установка аудиовыхода"
-          caption="Preferences"
+          styleClass="figure_windows-dark"
         />
         <AdditionInfo>
           Иногда в некоторых случаях необходимо будет в пункте{" "}

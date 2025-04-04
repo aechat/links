@@ -8,15 +8,15 @@ import {
 } from "../../../components/Additions";
 import GithubUpdateInfo from "../../../components/features/GithubUpdateInfo";
 import {Divider} from "antd";
-import ContentSwitcher from "../../../components/features/OperatingSystemFilter";
+import ContentSwitcher from "../../../components/features/ContentFilter";
 
 const AEActions: React.FC = () => {
   return (
     <div className="faq-content">
       <GithubUpdateInfo filePath="src/pages/sections/aefaq/Actions.tsx" />
       <DetailsSummary
-        title="Какими средствами я могу улучшить качество изображений и видео?"
         tag="апскейл, топаз, качество, 4к"
+        title="Какими средствами я могу улучшить качество изображений и видео?"
       >
         <p>
           В настоящее время существует множество способов улучшить качество видео или фото
@@ -36,8 +36,8 @@ const AEActions: React.FC = () => {
           получения хорошего результата.
         </p>
         <YouTubeVideo
-          link="zbX7x8Oo_Uc"
           caption="Topaz Video AI"
+          link="zbX7x8Oo_Uc"
         />
         <p>
           Также существуют много плагинов для <mark className="app">After Effects</mark>,
@@ -46,8 +46,8 @@ const AEActions: React.FC = () => {
           плагинов <mark className="plugin">Boris FX Continuum</mark>.
         </p>
         <YouTubeVideo
-          link="fTYcNP8ZdTE"
           caption="BCC UpRes ML"
+          link="fTYcNP8ZdTE"
         />
         <Divider>Улучшаем качество фотографий</Divider>
         <p>
@@ -66,8 +66,8 @@ const AEActions: React.FC = () => {
           <a href="https://www.topazlabs.com/pai-vs-gp">на официальном сайте</a>.
         </AdditionInfo>
         <YouTubeVideo
-          link="VMaYdjWqRRg"
           caption="Topaz Gigapixel AI"
+          link="VMaYdjWqRRg"
         />
         <p>
           Если вы ищете бесплатный и open-source аналог{" "}
@@ -80,9 +80,9 @@ const AEActions: React.FC = () => {
           Данная программа не поддерживает улучшение видео-файлов.
         </AdditionWarning>
         <VideoFigure
+          caption="Upscayl"
           styleClass="figure_macos-dark"
           videoSrc="https://github.com/upscayl/upscayl/assets/25067102/ad2453b1-3c5a-4eb2-b992-4cf10e6a49f5"
-          caption="Upscayl"
         />
         <p>
           В качестве альтернативы для улучшения качества изображений можно воспользоваться
@@ -94,8 +94,8 @@ const AEActions: React.FC = () => {
           диске.
         </p>
         <YouTubeVideo
-          link="woDDQ0xnt84"
           caption="Benvista Photozoom"
+          link="woDDQ0xnt84"
         />
         <AdditionInfo>
           Скачать программы <mark className="app">Benvista PhotoZoom</mark>,{" "}
@@ -107,8 +107,8 @@ const AEActions: React.FC = () => {
         </AdditionInfo>
       </DetailsSummary>
       <DetailsSummary
-        title="Какими средствами я могу замедлить видео или сделать его более плавным?"
         tag="слоумо, твикстор, топаз, ретаймер, тайм ремапинг, плавное замедление, флоуфреймс, дайте мне больше фпс"
+        title="Какими средствами я могу замедлить видео или сделать его более плавным?"
       >
         <p>
           В какой-то момент у пользователя возникает задача замедлить видео так, чтобы оно
@@ -152,8 +152,8 @@ const AEActions: React.FC = () => {
           задачи.
         </p>
         <YouTubeVideo
-          link="EGZCNcQyvrE"
           caption="Twixtor"
+          link="EGZCNcQyvrE"
         />
         <p>
           Также в <mark className="plugin">Boris FX Continuum</mark> появился эффект{" "}
@@ -163,8 +163,8 @@ const AEActions: React.FC = () => {
           <mark className="plugin">Twixtor</mark>.
         </p>
         <YouTubeVideo
-          link="YraSxOpy1Qg"
           caption="BCC Retimer ML"
+          link="YraSxOpy1Qg"
         />
         <p>
           Стандартными средствами <mark className="app">After Effects</mark> тоже можно
@@ -178,8 +178,8 @@ const AEActions: React.FC = () => {
           <mark className="ui">Frame Blending &gt; Frame Mix или Pixel Motion</mark>.
         </p>
         <YouTubeVideo
-          link="fNINAOwY2IY"
           caption="Frame Blending и Pixel Motion в After Effects"
+          link="fNINAOwY2IY"
         />
         <Divider>Делаем видео более плавным вне After Effects</Divider>
         <p>
@@ -200,16 +200,16 @@ const AEActions: React.FC = () => {
           и имеет больше функций.
         </p>
         <YouTubeVideo
-          link="H8ISNjzDULw"
           caption="FlowFrames"
+          link="H8ISNjzDULw"
         />
         <p>
           В качестве альтернативы можно воспользоваться чуть менее популярным{" "}
           <mark className="app">FrameGUI</mark>.
         </p>
         <YouTubeVideo
-          link="Axz_KwiqNmc"
           caption="FrameGUI"
+          link="Axz_KwiqNmc"
         />
         <p>
           Также в <mark className="app">Topaz Video AI</mark> есть функция для увеличения
@@ -217,13 +217,13 @@ const AEActions: React.FC = () => {
           экспериментов, чтобы выбрать более подходящий результат.
         </p>
         <YouTubeVideo
-          link="591MqOooDAE"
           caption="Topaz Video AI"
+          link="591MqOooDAE"
         />
       </DetailsSummary>
       <DetailsSummary
-        title="Чем я могу хорошо подавить шумы на видео?"
         tag="антишум, denoiser, денойз"
+        title="Чем я могу хорошо подавить шумы на видео?"
       >
         <p>
           Если видео было снято в условиях плохой освещенности и с высоким значением{" "}
@@ -242,8 +242,8 @@ const AEActions: React.FC = () => {
           поддерживает <mark>GPU-ускорение</mark>.
         </p>
         <YouTubeVideo
-          link="mwSqzxApy-E"
           caption="Neat Video"
+          link="mwSqzxApy-E"
         />
         <p>
           В качестве альтернативы можно попробовать применить{" "}
@@ -252,8 +252,8 @@ const AEActions: React.FC = () => {
           <mark>Red Giant</mark>.
         </p>
         <YouTubeVideo
-          link="PXCElU7HcX8"
           caption="Denoiser III"
+          link="PXCElU7HcX8"
         />
         <p>
           <mark>Boris FX</mark> тоже не отстаёт от инструментов для подавления цифрового
@@ -263,16 +263,16 @@ const AEActions: React.FC = () => {
           основанный на машинном обучении.
         </p>
         <YouTubeVideo
-          link="L1PeaTa13H4"
           caption="BCC DeNoise ML"
+          link="L1PeaTa13H4"
         />
         <p>
           Этот список сторонних эффектов для шумоподавления заканчивает{" "}
           <mark className="plugin">DE:Noise</mark> от <mark>Re:Vision Effects</mark>.
         </p>
         <YouTubeVideo
-          link="tGIXeddCPQM"
           caption="DE:Noise"
+          link="tGIXeddCPQM"
         />
         <Divider>Подавляем шумы стандартными средствами After Effects</Divider>
         <p>
@@ -281,13 +281,13 @@ const AEActions: React.FC = () => {
           .
         </p>
         <YouTubeVideo
-          link="FmSTOXu2V6I"
           caption="Reduce Grain"
+          link="FmSTOXu2V6I"
         />
       </DetailsSummary>
       <DetailsSummary
-        title="Как и чем можно отделить объект от однотонного фона?"
         tag="кеинг, клинап, убрать фон, keying, зеленый фон, бекграунд зелёнка, синий бэкграунд"
+        title="Как и чем можно отделить объект от однотонного фона?"
       >
         <p>
           Предположим, что вы получили или скачали исходники объекта или персонажа на
@@ -311,8 +311,8 @@ const AEActions: React.FC = () => {
           , который закрывает большинство задач по быстрому удалению фона.
         </p>
         <YouTubeVideo
-          link="tK_Z1dYgtxs"
           caption="Keylight + Key Cleaner + Advanced Spill Suppressor"
+          link="tK_Z1dYgtxs"
         />
         <p>
           Если у вашего слоя действительно полностью однотонный фон, то вы можете
@@ -320,8 +320,8 @@ const AEActions: React.FC = () => {
           результат не сильно важен в пользу производительности сцены.
         </p>
         <YouTubeVideo
-          link="8RjOe6cO-cY"
           caption="Linear Color Key"
+          link="8RjOe6cO-cY"
         />
         <p>
           Если вы столкнулись с достаточно сложной ситуацией, когда у слоя имеется
@@ -336,8 +336,8 @@ const AEActions: React.FC = () => {
           описанными выше.
         </p>
         <YouTubeVideo
-          link="D7jueRoMt_Q"
           caption="Paint Bucket Keying"
+          link="D7jueRoMt_Q"
         />
         <Divider>Убираем однотонный фон сторонними плагинами</Divider>
         <p>
@@ -346,8 +346,8 @@ const AEActions: React.FC = () => {
           плагинов <mark className="plugin">Red Giant VFX Suite</mark>.
         </p>
         <YouTubeVideo
-          link="zYARqiWTArU"
           caption="Getting Started with Primatte Keyer"
+          link="zYARqiWTArU"
         />
         <p>
           Если вам результат от работы плагина выше не нравится, то попробуйте
@@ -356,13 +356,13 @@ const AEActions: React.FC = () => {
           <mark className="plugin">Boris FX Continuum</mark>.
         </p>
         <YouTubeVideo
-          link="AaKTHKspAkQ"
           caption="BCC Primatte Studio"
+          link="AaKTHKspAkQ"
         />
       </DetailsSummary>
       <DetailsSummary
-        title="Как я могу отделить объект от фона, если фон не однотонный и сложен для кеинга?"
         tag="ротобраш, повермейт"
+        title="Как я могу отделить объект от фона, если фон не однотонный и сложен для кеинга?"
       >
         <p>
           В век технологий существует много различных инструментов для отделения объекта
@@ -380,8 +380,8 @@ const AEActions: React.FC = () => {
           инструмента.
         </p>
         <YouTubeVideo
-          link="eoOIrdb_0ko"
           caption="Rotobrush"
+          link="eoOIrdb_0ko"
         />
         <Divider>Используем сторонние инструменты для ротоскопирования</Divider>
         <p>
@@ -391,13 +391,13 @@ const AEActions: React.FC = () => {
           <mark className="plugin">Power Matte</mark>.
         </p>
         <YouTubeVideo
-          link="3pdkJ1BPEg0"
           caption="Power Matte in Silhouette"
+          link="3pdkJ1BPEg0"
         />
       </DetailsSummary>
       <DetailsSummary
-        title="Как и чем я могу сгенерировать карту глубины из видео?"
         tag="depth scanner, сканер глубины"
+        title="Как и чем я могу сгенерировать карту глубины из видео?"
       >
         <p>
           Иногда у вас может возникнуть задача сгенерировать карту глубины из видео,
@@ -418,13 +418,13 @@ const AEActions: React.FC = () => {
           плагином.
         </AdditionDanger>
         <YouTubeVideo
-          link="OLV8Q93KKHQ"
           caption="Depth Scanner Plugin Tutorial"
+          link="OLV8Q93KKHQ"
         />
       </DetailsSummary>
       <DetailsSummary
-        title="Как и чем можно вырезать белый или чёрный цвет у слоя?"
         tag="удалить цвет, убрать фон"
+        title="Как и чем можно вырезать белый или чёрный цвет у слоя?"
       >
         <p>
           Для удаления чёрного и белого фона есть встроенный эффект{" "}
@@ -436,8 +436,8 @@ const AEActions: React.FC = () => {
           неприятную кашу.
         </p>
         <YouTubeVideo
-          link="v7pqZ9gtn8I"
           caption="Extract"
+          link="v7pqZ9gtn8I"
         />
         <p>
           Если результат от стандартного эффекта не удовлетворяет вас (как раз из-за
@@ -454,8 +454,8 @@ const AEActions: React.FC = () => {
           слой с применённым эффектом и привязать их друг к другу, если необходимо.
         </AdditionWarning>
         <YouTubeVideo
-          link="GGjIu0CZ1M4"
           caption="Red Giant Universe Unmult"
+          link="GGjIu0CZ1M4"
         />
         <p>
           Если вы не хотите заморачиваться с эффектами и плагинами - просто добавьте видео
@@ -470,13 +470,13 @@ const AEActions: React.FC = () => {
           маску с помощью функции Track Matte.
         </p>
         <YouTubeVideo
-          link="ltrGC0kDFic"
           caption="How to Use Luma Mattes"
+          link="ltrGC0kDFic"
         />
       </DetailsSummary>
       <DetailsSummary
-        title="Как и чем можно удалить повторяющиеся кадры в видео?"
         tag="дублирующиеся фреймы"
+        title="Как и чем можно удалить повторяющиеся кадры в видео?"
       >
         <p>
           Когда вы обрабатываете запись видео-игры, аниме или контент с плавающим
@@ -513,8 +513,8 @@ const AEActions: React.FC = () => {
           </li>
         </ul>
         <YouTubeVideo
-          link="yg0vJmgCG5U"
           caption="Duplicate Frame Remover 3 - Quick Start Tutorial"
+          link="yg0vJmgCG5U"
         />
         <p>
           Для удобства при дальнейшей работе рекомендую отрендерить обработанный через
@@ -531,10 +531,10 @@ const AEActions: React.FC = () => {
           для вывода файла и нажмите на <mark className="ui">Start function</mark>.
         </p>
         <ImageFigure
-          styleClass="figure_macos-dark"
+          caption="Shutter Encoder"
           imgSrc="images/shutter_encoder_remove_duplicate_frames.png"
           imgTitle="Включение удаления дублирующихся кадров"
-          caption="Shutter Encoder"
+          styleClass="figure_macos-dark"
         />
         <Divider>Удаляем дублирующиеся кадры через FFmpeg</Divider>
         <p>
@@ -545,6 +545,23 @@ const AEActions: React.FC = () => {
           конвертирования и преобразования различных видеофайлов.
         </p>
         <ContentSwitcher
+          macContent={
+            <div>
+              <AdditionWarning>
+                В этой инструкции <mark className="app">FFmpeg</mark> будет
+                устанавливаться через сторонний пакетный менеджер{" "}
+                <mark className="app">Homebrew</mark>. Прежде чем выполнять команду для
+                установки <mark className="app">FFmpeg</mark> - убедитесь в том, что{" "}
+                <mark className="app">Homebrew</mark> установлен в вашей системе.{" "}
+                <a href="https://brew.sh/">Что ещё за Homebrew?</a>
+              </AdditionWarning>
+              <p>
+                Для установки <mark className="app">FFmpeg</mark> на устройство с macOS -
+                достаточно выполнить команду{" "}
+                <mark className="code">brew install ffmpeg</mark>.
+              </p>
+            </div>
+          }
           windowsContent={
             <div>
               <p>
@@ -572,23 +589,6 @@ const AEActions: React.FC = () => {
                   </li>
                 </ul>
               </AdditionWarning>
-            </div>
-          }
-          macContent={
-            <div>
-              <AdditionWarning>
-                В этой инструкции <mark className="app">FFmpeg</mark> будет
-                устанавливаться через сторонний пакетный менеджер{" "}
-                <mark className="app">Homebrew</mark>. Прежде чем выполнять команду для
-                установки <mark className="app">FFmpeg</mark> - убедитесь в том, что{" "}
-                <mark className="app">Homebrew</mark> установлен в вашей системе.{" "}
-                <a href="https://brew.sh/">Что ещё за Homebrew?</a>
-              </AdditionWarning>
-              <p>
-                Для установки <mark className="app">FFmpeg</mark> на устройство с macOS -
-                достаточно выполнить команду{" "}
-                <mark className="code">brew install ffmpeg</mark>.
-              </p>
             </div>
           }
         />
@@ -678,8 +678,8 @@ const AEActions: React.FC = () => {
           </li>
         </ul>
         <YouTubeVideo
-          link="tqWWhChc8RA"
           caption="Motion Tracking"
+          link="tqWWhChc8RA"
         />
         <AdditionInfo>
           Если ваш объект движется слишком быстро - увеличьте область действия работы
@@ -693,8 +693,8 @@ const AEActions: React.FC = () => {
           <mark className="plugin">3D Camera Tracker</mark>.
         </p>
         <YouTubeVideo
-          link="yaT3YwIK-BI"
           caption="3D Camera Tracker"
+          link="yaT3YwIK-BI"
         />
         <p>
           Если результат от способов выше не понравился, то не время унывать. В
@@ -706,8 +706,8 @@ const AEActions: React.FC = () => {
           движением на исходное видео выполнить может.
         </p>
         <YouTubeVideo
-          link="be_8uRcyiEs"
           caption="Mocha AE For Beginners"
+          link="be_8uRcyiEs"
         />
         <AdditionInfo>
           Если у вас слой после переноса трекинга из <mark className="plugin">Mocha</mark>{" "}
@@ -737,8 +737,8 @@ const AEActions: React.FC = () => {
           выпадающего меню.
         </p>
         <YouTubeVideo
-          link="Unnvx0alhyw"
           caption="Animating with Create Nulls From Path"
+          link="Unnvx0alhyw"
         />
       </DetailsSummary>
       <DetailsSummary title="Как сделать обводку слоя?">
@@ -755,9 +755,9 @@ const AEActions: React.FC = () => {
           раскрыть свойства обводки и изменить ему цвет, прозрачность или размер.
         </p>
         <VideoFigure
+          caption="Создание обводки через Layer Style"
           styleClass="figure_windows-dark"
           videoSrc="images/aftereffects/stroke_layer-style.mp4"
-          caption="Создание обводки через Layer Style"
         />
         <p>
           Второй способ, через <mark className="ui">Auto-Trace</mark>, будет чуть
@@ -774,9 +774,9 @@ const AEActions: React.FC = () => {
           <mark className="plugin">Stroke</mark> на слой с созданной маской.
         </p>
         <VideoFigure
+          caption="Создание обводки через Auto-Trace и эффекта Stroke"
           styleClass="figure_windows-dark"
           videoSrc="images/aftereffects/stroke_auto-trace.mp4"
-          caption="Создание обводки через Auto-Trace и эффекта Stroke"
         />
         <AdditionInfo>
           Эффект <mark className="plugin">Stroke</mark> автоматически сделает обводку из
@@ -798,8 +798,8 @@ const AEActions: React.FC = () => {
           этого получается красивая и быстрая анимация смены толщины текста.
         </p>
         <YouTubeVideo
-          link="yyDAFSC2qDo"
           caption="Smooth Typo Transition from Bold Text to Thin Text"
+          link="yyDAFSC2qDo"
         />
       </DetailsSummary>
       <DetailsSummary title="Какими средствами и плагинами обычно делают анимацию 2D-персонажей?">
@@ -830,8 +830,8 @@ const AEActions: React.FC = () => {
           </li>
         </ul>
         <YouTubeVideo
-          link="AcEIT03Mrzk"
           caption="Сравнение популярных плагинов для персонажной анимации"
+          link="AcEIT03Mrzk"
         />
       </DetailsSummary>
       <DetailsSummary title="Как мне быстро расставить ключи и маркеры под бит, желательно автоматически?">
@@ -850,10 +850,10 @@ const AEActions: React.FC = () => {
           <mark className="ui">Keyframe Assistant &gt; Convert Audio to Keyframes</mark>.
         </p>
         <ImageFigure
-          styleClass="figure_windows-dark"
+          caption="Генерация ключей из аудиодорожки"
           imgSrc="images/aftereffects/convert_audio_to_keyframes.png"
           imgTitle="Генерация ключей из аудиодорожки"
-          caption="Генерация ключей из аудиодорожки"
+          styleClass="figure_windows-dark"
         />
         <p>
           Минус этого способа заключается в том, что вы не можете настроить интерполяцию
@@ -866,8 +866,8 @@ const AEActions: React.FC = () => {
           в пакет плагинов <mark className="plugin">Red Giant Trapcode Suite</mark>.
         </p>
         <YouTubeVideo
-          link="uqKFsIHu-DA"
           caption="Как пользоваться Sound Keys в After Effects"
+          link="uqKFsIHu-DA"
         />
         <p>
           Хоть <mark className="plugin">Sound Keys</mark> и даёт хороший результат за счёт
@@ -877,8 +877,8 @@ const AEActions: React.FC = () => {
           задачу.
         </p>
         <YouTubeVideo
-          link="JGVLRcjp7ss"
           caption="Как создавать маркеры с помощью Beat Edit"
+          link="JGVLRcjp7ss"
         />
         <AdditionInfo>
           Плагины, приведённые в этом пункте можно скачать из канала{" "}
@@ -887,8 +887,8 @@ const AEActions: React.FC = () => {
         </AdditionInfo>
       </DetailsSummary>
       <DetailsSummary
-        title="Как распаковать созданную прекомпозицию?"
         tag="unprecompose"
+        title="Как распаковать созданную прекомпозицию?"
       >
         <p>
           Бывают случаи, когда вы сделали несколько прекомпозиций, а потом внезапно вам
@@ -916,9 +916,9 @@ const AEActions: React.FC = () => {
           и вы можете его скачать абсолютно бесплатно.
         </AdditionInfo>
         <VideoFigure
+          caption="Распаковка нескольких прекомпозиций с помощью Un-precompose"
           styleClass="figure_windows-light"
           videoSrc="images/aftereffects/unprecompose_demonstration.mp4"
-          caption="Распаковка нескольких прекомпозиций с помощью Un-precompose"
         />
         <AdditionWarning>
           Прежде чем распаковывать таким образом композиции, учтите, что ссылки внутри
@@ -944,9 +944,9 @@ const AEActions: React.FC = () => {
           и вы можете его скачать абсолютно бесплатно.
         </AdditionInfo>
         <VideoFigure
+          caption="Разделяем текстовый слой на слова с помощью DecomposeText"
           styleClass="figure_windows-dark"
           videoSrc="images/aftereffects/decomposetext.mp4"
-          caption="Разделяем текстовый слой на слова с помощью DecomposeText"
         />
         <AdditionWarning>
           Скрипт не поддерживает текст, созданный как <mark>Paragraph Text</mark>. Для
@@ -958,8 +958,8 @@ const AEActions: React.FC = () => {
         </AdditionWarning>
       </DetailsSummary>
       <DetailsSummary
-        title="Как изменить параметры у нескольких композиций одновременно?"
         tag="компсеттер, rd:compsetter"
+        title="Как изменить параметры у нескольких композиций одновременно?"
       >
         <p>
           Изменить разрешение, частоту кадров или другие параметры сразу в нескольких
@@ -973,9 +973,9 @@ const AEActions: React.FC = () => {
           на <mark className="ui">Apply</mark>.
         </p>
         <VideoFigure
+          caption="Демонстрация работы rd: Comp Setter"
           styleClass="figure_windows-dark"
           videoSrc="images/aftereffects/rd_compsetter_demonstration.mp4"
-          caption="Демонстрация работы rd: Comp Setter"
         />
         <p>Вот и всё, теперь ваши выделенные композиции приведены к общему виду.</p>
       </DetailsSummary>
@@ -995,9 +995,9 @@ const AEActions: React.FC = () => {
           маску.
         </p>
         <VideoFigure
+          caption="Демонстрация работы Supercomp для создания маски"
           styleClass="figure_windows-dark"
           videoSrc="images/aftereffects/supercomp_demonstration.mp4"
-          caption="Демонстрация работы Supercomp для создания маски"
         />
         <p>
           Если вы не хотите ставить <mark className="plugin">VFX Suite</mark>, то вы
@@ -1005,9 +1005,9 @@ const AEActions: React.FC = () => {
           них <mark className="plugin">Fill</mark> или обесцветить и сделать их ярче.
         </p>
         <VideoFigure
+          caption="Создание самодельных масок для дальнейшей работы"
           styleClass="figure_windows-dark"
           videoSrc="images/aftereffects/supercomp_without_plugins.mp4"
-          caption="Создание самодельных масок для дальнейшей работы"
         />
         <AdditionWarning>
           Со сложными слоями такой способ может не прокатить, экспериментируйте с умом.

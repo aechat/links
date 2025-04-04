@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import {Upload, message} from "antd";
 import {saveAs} from "file-saver";
-import {inflate} from "pako";
+import {gzip} from "pako";
 import {motion} from "framer-motion";
 import {UploadFileRounded} from "@mui/icons-material";
 
@@ -12,14 +12,12 @@ const TgsToJsonConverter = () => {
 
   const handleFileUpload = async (file: File) => {
     try {
-      const fileData = await file.arrayBuffer();
+      const fileData = await file.text();
       setOriginalFileName(file.name);
 
-      const decompressed = inflate(new Uint8Array(fileData));
-
-      const json = JSON.parse(new TextDecoder().decode(decompressed));
+      const json = JSON.parse(fileData);
       setJsonData(json);
-      message.success("Файл успешно преобразован!");
+      message.success("Файл успешно загружен!");
     } catch (error) {
       console.error("Ошибка при обработке файла:", error);
       message.error("Не удалось конвертировать файл!");
@@ -28,21 +26,25 @@ const TgsToJsonConverter = () => {
     return false;
   };
 
-  const downloadJson = () => {
+  const downloadTgs = () => {
     if (jsonData) {
-      const blob = new Blob([JSON.stringify(jsonData, null, 2)], {
-        type: "application/json",
+      const jsonString = JSON.stringify(jsonData, null, 2);
+
+      const compressed = gzip(jsonString);
+
+      const blob = new Blob([compressed], {
+        type: "application/gzip",
       });
-      saveAs(blob, `${originalFileName.replace(/\.tgs$/, "")}.json`);
+      saveAs(blob, `${originalFileName.replace(/\.json$/, "")}.tgs`);
     }
   };
 
   return (
     <div>
       <Upload.Dragger
-        name="file"
-        accept=".tgs"
+        accept=".json"
         beforeUpload={handleFileUpload}
+        name="file"
         showUploadList={false}
         style={{
           marginInline: "10px",
@@ -60,7 +62,7 @@ const TgsToJsonConverter = () => {
         >
           <UploadFileRounded />
           <span style={{fontSize: "0.9rem"}}>
-            Перетащите файл формата .tgs в это поле или нажмите для выбора файла
+            Перетащите файл формата .json в это поле или нажмите для выбора файла
           </span>
         </div>
       </Upload.Dragger>
@@ -78,13 +80,13 @@ const TgsToJsonConverter = () => {
           }}
         >
           <motion.button
+            className="modal-open-button"
             style={{filter: "saturate(0)", flexGrow: 1}}
             whileHover={{
               scale: 0.975,
               transition: {duration: 0.5, ease: [0.075, 0.82, 0.165, 1]},
             }}
             whileTap={{scale: 0.95, opacity: 0.5}}
-            className="modal-open-button"
             onClick={() => {
               setJsonData(null);
               setOriginalFileName("");
@@ -93,16 +95,16 @@ const TgsToJsonConverter = () => {
             Сбросить
           </motion.button>
           <motion.button
+            className="modal-open-button"
             style={{flexGrow: 3}}
             whileHover={{
               scale: 0.975,
               transition: {duration: 0.5, ease: [0.075, 0.82, 0.165, 1]},
             }}
             whileTap={{scale: 0.95, opacity: 0.5}}
-            className="modal-open-button"
-            onClick={downloadJson}
+            onClick={downloadTgs}
           >
-            Скачать преобразованный JSON
+            Скачать преобразованный TGS
           </motion.button>
         </div>
       ) : null}

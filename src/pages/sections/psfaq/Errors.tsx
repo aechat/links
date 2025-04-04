@@ -3,7 +3,7 @@ import GithubUpdateInfo from "../../../components/features/GithubUpdateInfo";
 import {AdditionWarning} from "../../../components/Additions";
 import {ImageFigure} from "../../../components/ContentFigure";
 import DetailsSummary from "../../../components/DetailsSummary";
-import ContentSwitcher from "../../../components/features/OperatingSystemFilter";
+import ContentSwitcher from "../../../components/features/ContentFilter";
 import HostsAdobeModal from "../../../components/features/HostsAdobe";
 
 const PSErrors: React.FC = () => (
@@ -34,15 +34,15 @@ const PSErrors: React.FC = () => (
         нужно переключить режим заливки на <mark className="ui">Generative AI Off</mark>.
       </p>
       <ImageFigure
-        styleClass="figure_windows-light"
+        caption="Photoshop"
         imgSrc="images/photoshop/disable_generative_ai_removetool.png"
         imgTitle="Отключаем генеративную заливку при использовании инструмента Remove Tool"
-        caption="Photoshop"
+        styleClass="figure_windows-light"
       />
     </DetailsSummary>
     <DetailsSummary
-      title='"This unlicensed Adobe app is not genuine and will be disabled soon", "Unlicensed Adobe apps may expose your device to increased security risks", "This app will disable in X days" или что-то похожее с красной полоской при запуске, но на другом языке. Как запустить программу нормально?'
       tag="слетела лицензия, красное окно, не запускается, впн, файл хостс, блокировка доступа в интернет"
+      title='"This unlicensed Adobe app is not genuine and will be disabled soon", "Unlicensed Adobe apps may expose your device to increased security risks", "This app will disable in X days" или что-то похожее с красной полоской при запуске, но на другом языке. Как запустить программу нормально?'
     >
       <p>Программа от Adobe решила достучаться в интернет. Причин может быть четыре.</p>
       <ul>
@@ -74,12 +74,44 @@ const PSErrors: React.FC = () => (
         </li>
       </ul>
       <ImageFigure
-        styleClass="figure_windows-light"
+        caption="Adobe"
         imgSrc="images/adobe_the_unlicensed_app.png"
         imgTitle="Сообщение об отсутствии лицензии"
-        caption="Adobe"
+        styleClass="figure_windows-light"
       />
       <ContentSwitcher
+        macContent={
+          <div>
+            <p>
+              Для блокировки доступа определённым программам к интернету на устройствах с
+              macOS можно воспользоваться программой{" "}
+              <a href="https://radiosilenceapp.com/">Radio Silence</a>. После установки и
+              активации этой программы перейдите в вкладку{" "}
+              <mark className="ui">Network Monitor</mark>. В этой же вкладке запретите
+              программам от Adobe, которые лезут в сеть, доступ в интернет, нажав на
+              кнопку <mark className="ui">Block</mark>.
+            </p>
+            <ImageFigure
+              caption="Radio Silence"
+              imgSrc="images/network_radio_silence.png"
+              imgTitle="Блокируем доступ в интернет программам на примере Premiere Pro"
+              styleClass="figure_macos-dark"
+            />
+            <p>
+              После проделанных действий <mark className="app">Photoshop</mark> и
+              остальные программы от Adobe не должен стучаться в сеть и выдавать ошибку об
+              отсутствии лицензии. Ниже показано, как в итоге примерно должна выглядеть у
+              вас вкладка <mark className="ui">Firewall</mark> после отлова процессов
+              Adobe, лезущие в интернет.
+            </p>
+            <ImageFigure
+              caption="Radio Silence"
+              imgSrc="images/firewall_radio_silence.png"
+              imgTitle="Окно Firewall после блокировки доступа в интернет программам"
+              styleClass="figure_macos-dark"
+            />
+          </div>
+        }
         windowsContent={
           <div>
             <p>
@@ -108,38 +140,6 @@ const PSErrors: React.FC = () => (
             <AdditionWarning>
               Для изменения системных файлов требуются права администратора.
             </AdditionWarning>
-          </div>
-        }
-        macContent={
-          <div>
-            <p>
-              Для блокировки доступа определённым программам к интернету на устройствах с
-              macOS можно воспользоваться программой{" "}
-              <a href="https://radiosilenceapp.com/">Radio Silence</a>. После установки и
-              активации этой программы перейдите в вкладку{" "}
-              <mark className="ui">Network Monitor</mark>. В этой же вкладке запретите
-              программам от Adobe, которые лезут в сеть, доступ в интернет, нажав на
-              кнопку <mark className="ui">Block</mark>.
-            </p>
-            <ImageFigure
-              styleClass="figure_macos-dark"
-              imgSrc="images/network_radio_silence.png"
-              imgTitle="Блокируем доступ в интернет программам на примере Premiere Pro"
-              caption="Radio Silence"
-            />
-            <p>
-              После проделанных действий <mark className="app">Photoshop</mark> и
-              остальные программы от Adobe не должен стучаться в сеть и выдавать ошибку об
-              отсутствии лицензии. Ниже показано, как в итоге примерно должна выглядеть у
-              вас вкладка <mark className="ui">Firewall</mark> после отлова процессов
-              Adobe, лезущие в интернет.
-            </p>
-            <ImageFigure
-              styleClass="figure_macos-dark"
-              imgSrc="images/firewall_radio_silence.png"
-              imgTitle="Окно Firewall после блокировки доступа в интернет программам"
-              caption="Radio Silence"
-            />
           </div>
         }
       />

@@ -5,7 +5,7 @@ import {
   AdditionInfo,
   AdditionWarning,
 } from "../../../components/Additions";
-import ContentSwitcher from "../../../components/features/OperatingSystemFilter";
+import ContentSwitcher from "../../../components/features/ContentFilter";
 import {ImageFigure, VideoFigure, YouTubeVideo} from "../../../components/ContentFigure";
 import GithubUpdateInfo from "../../../components/features/GithubUpdateInfo";
 import {Divider} from "antd";
@@ -15,8 +15,8 @@ const AEFromNewbies: React.FC = () => {
     <div className="faq-content">
       <GithubUpdateInfo filePath="src/pages/sections/aefaq/FromNewbies.tsx" />
       <DetailsSummary
-        title="Я первый раз установил и открыл After Effects, с чего бы мне начать обучение?"
         tag="для новичка, первый раз, только открыл афтер"
+        title="Я первый раз установил и открыл After Effects, с чего бы мне начать обучение?"
       >
         <p>
           Если вы только начинаете свой путь в мире композитинга и никогда не работали с
@@ -29,8 +29,8 @@ const AEFromNewbies: React.FC = () => {
           ключевыми кадрами, титрами и эффектами.
         </p>
         <YouTubeVideo
-          link="https://www.youtube.com/embed/nogR7eyhYug"
           caption="Основы After Effects от Ильи Зернова"
+          link="https://www.youtube.com/embed/nogR7eyhYug"
         />
         <p>
           В качестве альтернативы вы можете пройти{" "}
@@ -42,8 +42,8 @@ const AEFromNewbies: React.FC = () => {
           <mark className="plugin">Rotobrush</mark> для вырезания объектов в кадре.
         </p>
         <YouTubeVideo
-          link="ZTrELWgEtUI"
           caption="After Effects для начинающих"
+          link="ZTrELWgEtUI"
         />
         <p>
           Если вы уже знакомы с интерфейсом, но всё ещё чувствуете себя неуверенно,
@@ -85,8 +85,8 @@ const AEFromNewbies: React.FC = () => {
         </p>
       </DetailsSummary>
       <DetailsSummary
-        title="Не понимаю термины от других пользователей After Effects, проясните!"
         tag="сленг, жаргон, сокращения, словосочетания, говор"
+        title="Не понимаю термины от других пользователей After Effects, проясните!"
       >
         <p>
           Когда пользователь только начинает изучать{" "}
@@ -829,8 +829,8 @@ const AEFromNewbies: React.FC = () => {
         </ul>
       </DetailsSummary>
       <DetailsSummary
-        title="А есть список популярных комбинаций клавиш для работы в After Effects?"
         tag="хоткеи, горячие клавиши, шорткаты, ускорение работы"
+        title="А есть список популярных комбинаций клавиш для работы в After Effects?"
       >
         <p>
           Горячие клавиши могут помочь ускорить ваш рутинный процесс нахождения нужной
@@ -1815,8 +1815,8 @@ const AEFromNewbies: React.FC = () => {
         </AdditionInfo>
       </DetailsSummary>
       <DetailsSummary
-        title="Где я могу узнать об нововведениях в обновлениях After Effects?"
         tag="что нового, фишки, обновления, апдейт"
+        title="Где я могу узнать об нововведениях в обновлениях After Effects?"
       >
         <p>
           Обычно на сайте Adobe в день выхода публичной стабильной версии выкладываются
@@ -1845,8 +1845,8 @@ const AEFromNewbies: React.FC = () => {
         </p>
       </DetailsSummary>
       <DetailsSummary
-        title="Почему мне с каждого угла советуют поставить английский язык программы и как это сделать без переустановки?"
         tag="изменить язык, смена языка, установка английской версии"
+        title="Почему мне с каждого угла советуют поставить английский язык программы и как это сделать без переустановки?"
       >
         <p>
           Установив английскую версию программы - вы обережёте себя от возможных ошибок с
@@ -1885,6 +1885,46 @@ const AEFromNewbies: React.FC = () => {
           </ul>
         </AdditionDanger>
         <ContentSwitcher
+          macContent={
+            <div>
+              <Divider>Меняем язык с помощью консоли программы</Divider>
+              <AdditionWarning>
+                Этот способ смены языка работает только с{" "}
+                <mark className="app">After Effects</mark> версии <mark>24.x</mark> и
+                новее.
+              </AdditionWarning>
+              <p>
+                В новых версиях <mark className="app">After Effects</mark> разработчики
+                добавили возможность быстро поменять язык через консоль. Для этого нажмите
+                на комбинацию клавиш <mark className="key">Command + F12</mark>. В
+                открывшемся окне у заголовка нажимаем три полоски и переключаемся в режим{" "}
+                <mark className="ui">Debug Database View</mark>.
+              </p>
+              <ImageFigure
+                caption="Включение вида Debug Database View"
+                imgSrc="images/aftereffects/console_debug-database-view.png"
+                imgTitle="Включение вида Debug Database View"
+                styleClass="figure_windows-dark"
+              />
+              <p>
+                Затем в строке поиска нам нужно писать{" "}
+                <mark className="copy">ApplicationLanguage</mark>. В строке с одноимённым
+                параметром пишем <mark className="copy">en_US</mark>. После ввода значения
+                - перезапускаем <mark className="app">After Effects</mark>.
+              </p>
+              <ImageFigure
+                caption="Установка английского языка в консоли"
+                imgSrc="images/aftereffects/set_language_console.png"
+                imgTitle="Установка английского языка в консоли"
+                styleClass="figure_windows-dark"
+              />
+              <AdditionInfo>
+                Чтобы вернуть язык, который был установлен по умолчанию - достаточно
+                убрать значение из этого параметра и снова перезапустить{" "}
+                <mark className="app">After Effects</mark>.
+              </AdditionInfo>
+            </div>
+          }
           windowsContent={
             <div>
               <Divider>Меняем язык с помощью пустого текстового документа</Divider>
@@ -1932,10 +1972,10 @@ const AEFromNewbies: React.FC = () => {
                 <mark className="ui">Debug Database View</mark>.
               </p>
               <ImageFigure
-                styleClass="figure_windows-dark"
+                caption="Включение вида Debug Database View"
                 imgSrc="images/aftereffects/console_debug-database-view.png"
                 imgTitle="Включение вида Debug Database View"
-                caption="Включение вида Debug Database View"
+                styleClass="figure_windows-dark"
               />
               <p>
                 Затем в строке поиска нам нужно писать{" "}
@@ -1944,50 +1984,10 @@ const AEFromNewbies: React.FC = () => {
                 - перезапускаем <mark className="app">After Effects</mark>.
               </p>
               <ImageFigure
-                styleClass="figure_windows-dark"
+                caption="Установка английского языка в консоли"
                 imgSrc="images/aftereffects/set_language_console.png"
                 imgTitle="Установка английского языка в консоли"
-                caption="Установка английского языка в консоли"
-              />
-              <AdditionInfo>
-                Чтобы вернуть язык, который был установлен по умолчанию - достаточно
-                убрать значение из этого параметра и снова перезапустить{" "}
-                <mark className="app">After Effects</mark>.
-              </AdditionInfo>
-            </div>
-          }
-          macContent={
-            <div>
-              <Divider>Меняем язык с помощью консоли программы</Divider>
-              <AdditionWarning>
-                Этот способ смены языка работает только с{" "}
-                <mark className="app">After Effects</mark> версии <mark>24.x</mark> и
-                новее.
-              </AdditionWarning>
-              <p>
-                В новых версиях <mark className="app">After Effects</mark> разработчики
-                добавили возможность быстро поменять язык через консоль. Для этого нажмите
-                на комбинацию клавиш <mark className="key">Command + F12</mark>. В
-                открывшемся окне у заголовка нажимаем три полоски и переключаемся в режим{" "}
-                <mark className="ui">Debug Database View</mark>.
-              </p>
-              <ImageFigure
                 styleClass="figure_windows-dark"
-                imgSrc="images/aftereffects/console_debug-database-view.png"
-                imgTitle="Включение вида Debug Database View"
-                caption="Включение вида Debug Database View"
-              />
-              <p>
-                Затем в строке поиска нам нужно писать{" "}
-                <mark className="copy">ApplicationLanguage</mark>. В строке с одноимённым
-                параметром пишем <mark className="copy">en_US</mark>. После ввода значения
-                - перезапускаем <mark className="app">After Effects</mark>.
-              </p>
-              <ImageFigure
-                styleClass="figure_windows-dark"
-                imgSrc="images/aftereffects/set_language_console.png"
-                imgTitle="Установка английского языка в консоли"
-                caption="Установка английского языка в консоли"
               />
               <AdditionInfo>
                 Чтобы вернуть язык, который был установлен по умолчанию - достаточно
@@ -2092,10 +2092,10 @@ const AEFromNewbies: React.FC = () => {
           открывшемся окне нажмите на <mark className="ui">OK</mark>.
         </p>
         <ImageFigure
-          styleClass="figure_windows-light"
+          caption="Очистка кэша и освобождение оперативной памяти"
           imgSrc="images/aftereffects/edit_purge_all-memory-and-disk-cache.png"
           imgTitle="Очистка кэша и освобождение оперативной памяти"
-          caption="Очистка кэша и освобождение оперативной памяти"
+          styleClass="figure_windows-light"
         />
         <AdditionInfo>
           При желании вы можете создать свою комбинацию клавиш для быстрой очистки
@@ -2124,19 +2124,19 @@ const AEFromNewbies: React.FC = () => {
           разрешении, которое вы указали там, где отображается ваша композиция.
         </AdditionInfo>
         <ImageFigure
-          styleClass="figure_windows-dark"
+          caption="Preview"
           imgSrc="images/aftereffects/change_resolution_preview.png"
           imgTitle="Изменение предпросмотра в окне Preview"
-          caption="Preview"
+          styleClass="figure_windows-dark"
         />
         <p>
           Ещё проверьте разрешение в окне <mark className="ui">Composition</mark>. Список
           с выбором разрешения предпросмотра отображается в нижней границе окна.
         </p>
         <VideoFigure
+          caption="After Effects"
           styleClass="figure_windows-dark"
           videoSrc="images/aftereffects/change_resolution_comppreview.mp4"
-          caption="After Effects"
         />
         <p>
           А вообще, часто бывают случаи, когда пользователь сам устанавливает в настройках
@@ -2167,10 +2167,10 @@ const AEFromNewbies: React.FC = () => {
           программа будет каждый раз растрировать этот слой до нужного разрешения.
         </p>
         <ImageFigure
-          styleClass="figure_windows-dark"
+          caption="Timeline"
           imgSrc="images/aftereffects/enable_continuously_rasterize.png"
           imgTitle="Включаем Continuously Rasterize"
-          caption="Timeline"
+          styleClass="figure_windows-dark"
         />
         <AdditionWarning>
           При включенной опции <mark className="ui">Continuously Rasterize</mark> могут
@@ -2187,15 +2187,15 @@ const AEFromNewbies: React.FC = () => {
           <mark className="ui">Auto</mark>.
         </p>
         <ImageFigure
-          styleClass="figure_windows-dark"
+          caption="Preview"
           imgSrc="images/aftereffects/change_preview_fps.png"
           imgTitle="Изменение предпросмотра в окне Preview"
-          caption="Preview"
+          styleClass="figure_windows-dark"
         />
       </DetailsSummary>
       <DetailsSummary
-        title='Почему у меня график скорости отличается от того, что у туториала? Как мне сделать "нормальный вид" графика?'
         tag="стиль графов, другой вид, отображение скорости"
+        title='Почему у меня график скорости отличается от того, что у туториала? Как мне сделать "нормальный вид" графика?'
       >
         <p>
           Вы пытаетесь отредактировать график скорости в виде отличный от того, который вы
@@ -2206,14 +2206,14 @@ const AEFromNewbies: React.FC = () => {
           таймлайне, открыть контекстное меню и выбрать то, что нам нужно.
         </p>
         <VideoFigure
+          caption="Изменение вида графика скорости"
           styleClass="figure_windows-dark"
           videoSrc="images/aftereffects/change_graph_view.mp4"
-          caption="Изменение вида графика скорости"
         />
       </DetailsSummary>
       <DetailsSummary
-        title="Почему я не могу изменить плавность с помощью направляющих Безье в графике скорости?"
         tag="разделить оси, не редактируется скорость, separate dimensions, усики, сосочки, манипуляторы, value speed graph"
+        title="Почему я не могу изменить плавность с помощью направляющих Безье в графике скорости?"
       >
         <p>
           Вы пытаетесь отредактировать график значения у аттрибута, имеющий более одного
@@ -2231,9 +2231,9 @@ const AEFromNewbies: React.FC = () => {
           получается, то вам нужно переключиться на другой вид графика.
         </p>
         <VideoFigure
+          caption="Разделение аттрибутов положения на X и Y"
           styleClass="figure_windows-dark"
           videoSrc="images/aftereffects/separate_dimensions.mp4"
-          caption="Разделение аттрибутов положения на X и Y"
         />
         <p>
           Для того, чтобы изменить вид графика с <mark className="ui">Value Graph</mark>{" "}
@@ -2243,9 +2243,9 @@ const AEFromNewbies: React.FC = () => {
           открыть контекстное меню и выбрать то, что нам нужно.
         </p>
         <VideoFigure
+          caption="Изменение вида графика скорости"
           styleClass="figure_windows-dark"
           videoSrc="images/aftereffects/change_graph_view.mp4"
-          caption="Изменение вида графика скорости"
         />
         <p>
           Если вы хотите изменять плавность траектории движения объекта прямо в
@@ -2257,9 +2257,9 @@ const AEFromNewbies: React.FC = () => {
           сможете изменять траекторию движения в предпросмотре без всяких проблем.
         </p>
         <VideoFigure
+          caption="Изменение типа пространственной интерполяции"
           styleClass="figure_windows-dark"
           videoSrc="images/aftereffects/change_spatial_interpolation.mp4"
-          caption="Изменение типа пространственной интерполяции"
         />
         <AdditionInfo>
           Если вы не видите путь движения анимации вашего объекта или оно слишком короткое
@@ -2280,10 +2280,10 @@ const AEFromNewbies: React.FC = () => {
           в пункте <mark className="ui">Default Output</mark> нужный вам аудиовыход.
         </p>
         <ImageFigure
-          styleClass="figure_windows-dark"
+          caption="Preferences"
           imgSrc="images/aftereffects/set_audio_output.png"
           imgTitle="Установка аудиовыхода"
-          caption="Preferences"
+          styleClass="figure_windows-dark"
         />
         <p>
           Если вы проигрываете видео не в реальном времени и звук отсутствует (даже если
@@ -2293,10 +2293,10 @@ const AEFromNewbies: React.FC = () => {
           <mark className="ui">Edit &gt; Preferences &gt; Previews</mark>.
         </p>
         <ImageFigure
-          styleClass="figure_windows-dark"
+          caption="Preferences"
           imgSrc="images/aftereffects/mute_audio_when_preview_is_not_real-time.png"
           imgTitle="Выключение Mute Audio When Preview Is Not Real-time"
-          caption="Preferences"
+          styleClass="figure_windows-dark"
         />
         <p>
           Если советы выше не помогли - проверьте окно <mark className="ui">Preview</mark>
@@ -2304,10 +2304,10 @@ const AEFromNewbies: React.FC = () => {
           снова.
         </p>
         <ImageFigure
-          styleClass="figure_windows-dark"
+          caption="Preview"
           imgSrc="images/aftereffects/toggle_audio_preview.png"
           imgTitle="Включение звука в окне Preview"
-          caption="Preview"
+          styleClass="figure_windows-dark"
         />
         <p>
           В редких случаях баги с проигрыванием звука могут возникнуть из-за самого
@@ -2337,8 +2337,8 @@ const AEFromNewbies: React.FC = () => {
           столбцам, и выбрать <mark className="ui">Columns &gt; Parent & Link</mark>.
         </AdditionInfo>
         <YouTubeVideo
-          link="8ei_cj6A2Gg"
           caption="Тебе НУЖНО использовать нулевые слои в After Effects"
+          link="8ei_cj6A2Gg"
         />
       </DetailsSummary>
       <DetailsSummary title="Что такое Adjustment Layer и для чего он нужен?">
@@ -2349,8 +2349,8 @@ const AEFromNewbies: React.FC = () => {
           просто добавить искажения от линзы.
         </p>
         <YouTubeVideo
-          link="rgMKGFWWqjA"
           caption="Используем корректирующие слои в After Effects"
+          link="rgMKGFWWqjA"
         />
       </DetailsSummary>
       <DetailsSummary title="Зачем нужен Solid Layer и для чего на него применяют эффекты?">
@@ -2387,8 +2387,8 @@ const AEFromNewbies: React.FC = () => {
           <mark className="ui">Motion Bro</mark>.
         </p>
         <YouTubeVideo
-          link="MCJxSEj2BL4"
           caption="Solid Layers - Explained"
+          link="MCJxSEj2BL4"
         />
         <AdditionWarning>
           Однотонный слой, на котором применены эффекты, работающие в 3D-пространстве,
@@ -2405,10 +2405,10 @@ const AEFromNewbies: React.FC = () => {
           послания другому монтажёру, чтобы он исправил что-то в дальнейшем.
         </p>
         <ImageFigure
-          styleClass="figure_windows-dark"
+          caption="Timeline"
           imgSrc="images/aftereffects/guide_layer_example.png"
           imgTitle="Пример использования Guide Layer"
-          caption="Timeline"
+          styleClass="figure_windows-dark"
         />
         <p>
           <mark className="word">Guide Layer</mark> можно включить как для текстовых
@@ -2436,9 +2436,9 @@ const AEFromNewbies: React.FC = () => {
           основная.
         </p>
         <VideoFigure
+          caption="Применяем Grow Bounds"
           styleClass="figure_windows-dark"
           videoSrc="images/aftereffects/apply_grow_bounds.mp4"
-          caption="Применяем Grow Bounds"
         />
         <p>
           Если вы хотите устранить этот неприятный эффект, то вам нужно применить
@@ -2469,10 +2469,10 @@ const AEFromNewbies: React.FC = () => {
           <mark className="plugin">Saber</mark> нужного размера.
         </p>
         <ImageFigure
-          styleClass="figure_windows-dark"
+          caption="Timeline"
           imgSrc="images/aftereffects/linking_masks_for_saber.png"
           imgTitle="Соединяем маски для Saber"
-          caption="Timeline"
+          styleClass="figure_windows-dark"
         />
       </DetailsSummary>
       <DetailsSummary title="Не могу изменить параметры наложения у 3D-слоёв. Что делать?">
@@ -2490,10 +2490,10 @@ const AEFromNewbies: React.FC = () => {
           <mark className="plugin">Classic 3D</mark>.
         </p>
         <ImageFigure
-          styleClass="figure_windows-dark"
+          caption="Composition Settings"
           imgSrc="images/aftereffects/change_3d_renderer.png"
           imgTitle="Изменяем движок для рендера 3D-слоёв"
-          caption="Composition Settings"
+          styleClass="figure_windows-dark"
         />
       </DetailsSummary>
       <DetailsSummary title="Почему не исчезает фон при использовании режимов наложения?">
@@ -2510,8 +2510,8 @@ const AEFromNewbies: React.FC = () => {
           <mark className="plugin">Red Giant Universe</mark>.
         </p>
         <YouTubeVideo
-          link="GGjIu0CZ1M4"
           caption="Red Giant Universe Unmult"
+          link="GGjIu0CZ1M4"
         />
       </DetailsSummary>
       <DetailsSummary title="Как сделать прозрачный фон у слоя с эффектом Saber?">
@@ -2523,10 +2523,10 @@ const AEFromNewbies: React.FC = () => {
           значение <mark className="ui">Transparent</mark>.
         </p>
         <ImageFigure
-          imgSrc="images/aftereffects/transparent_saber.png"
-          styleClass="figure_windows-dark"
-          imgTitle="Включение прозрачности в Saber"
           caption="Включение прозрачности в Saber"
+          imgSrc="images/aftereffects/transparent_saber.png"
+          imgTitle="Включение прозрачности в Saber"
+          styleClass="figure_windows-dark"
         />
         <p>
           Теперь слой с <mark className="plugin">Saber</mark> будет прозрачный и вы
@@ -2534,8 +2534,8 @@ const AEFromNewbies: React.FC = () => {
         </p>
       </DetailsSummary>
       <DetailsSummary
-        title="Продублировал композицию на таймлайне, но копия зависит от оригинала. Как сделать композиции независимыми друг от друга?"
         tag="тру комп дупликатор, композиция, прекомпоз, копирование, 🦅 независимость 🦅"
+        title="Продублировал композицию на таймлайне, но копия зависит от оригинала. Как сделать композиции независимыми друг от друга?"
       >
         <p>
           Копируя композицию с помощью комбинации клавиш{" "}
@@ -2548,9 +2548,9 @@ const AEFromNewbies: React.FC = () => {
           клонировать в окне <mark className="ui">Project</mark>.
         </p>
         <VideoFigure
+          caption="Правильное клонирование композиции"
           styleClass="figure_windows-dark"
           videoSrc={"images/aftereffects/duplicate_composition.mp4"}
-          caption="Правильное клонирование композиции"
         />
         <p>
           Если вам нужно клонировать одну и ту же композицию с указанием нужного
@@ -2580,9 +2580,9 @@ const AEFromNewbies: React.FC = () => {
           <mark className="key">Ctrl + V</mark>.
         </p>
         <VideoFigure
+          caption="Переворачиваем очерёдность слоёв"
           styleClass="figure_windows-dark"
           videoSrc="images/aftereffects/invert_layer_numeration.mp4"
-          caption="Переворачиваем очерёдность слоёв"
         />
       </DetailsSummary>
       <DetailsSummary title="Переместил слой из одной композиции в другую, но оно ушло за пределы моей композиции. Как его вернуть на своё место?">
@@ -2592,9 +2592,9 @@ const AEFromNewbies: React.FC = () => {
           нажмите на <mark className="key">]</mark>.
         </p>
         <VideoFigure
+          caption="Перемещаем слои по времени вокруг временной метки"
           styleClass="figure_windows-dark"
           videoSrc="images/aftereffects/move_layers_around_playhead.mp4"
-          caption="Перемещаем слои по времени вокруг временной метки"
         />
       </DetailsSummary>
       <DetailsSummary title="Почему первый кадр в композиции начинается не с нулевой секунды?">
@@ -2616,9 +2616,9 @@ const AEFromNewbies: React.FC = () => {
           <mark>00:00:00:00</mark>, чтобы отсчёт вёлся с нуля.
         </p>
         <VideoFigure
+          caption="Composition Settings"
           styleClass="figure_windows-dark"
           videoSrc="images/aftereffects/change_start_timecode.mp4"
-          caption="Composition Settings"
         />
       </DetailsSummary>
       <DetailsSummary title="Почему не все параметры выравнивания текста доступны в окне Paragraph?">
@@ -2633,9 +2633,9 @@ const AEFromNewbies: React.FC = () => {
           <mark className="ui">Paragraph Text</mark>.
         </p>
         <VideoFigure
+          caption="Создание Paragraph Text"
           styleClass="figure_windows-dark"
           videoSrc="images/aftereffects/create_paragraph_text.mp4"
-          caption="Создание Paragraph Text"
         />
         <p>
           Или переконвертировать уже существующий текстовый слой в формат{" "}
@@ -2643,9 +2643,9 @@ const AEFromNewbies: React.FC = () => {
           Text.
         </p>
         <VideoFigure
+          caption="Конвертация текстового слоя в Paragraph Text"
           styleClass="figure_windows-dark"
           videoSrc={"images/aftereffects/convert_to_paragraph_text.mp4"}
-          caption="Конвертация текстового слоя в Paragraph Text"
         />
       </DetailsSummary>
       <DetailsSummary title="Чем отличается однонодовая камера от двунодовой?">
@@ -2667,8 +2667,8 @@ const AEFromNewbies: React.FC = () => {
           </li>
         </ul>
         <YouTubeVideo
-          link="zgMHWFolli8"
           caption="Техники с 3D камерами в After Effects"
+          link="zgMHWFolli8"
         />
       </DetailsSummary>
       <DetailsSummary title="Чем отличается Mocha AE от Mocha Pro?">
@@ -2714,9 +2714,9 @@ const AEFromNewbies: React.FC = () => {
           <mark className="ui">Italic</mark>.
         </p>
         <VideoFigure
+          caption="Проблема кривого начертания на примере Cascadia Mono"
           styleClass="figure_windows-dark"
           videoSrc="images/aftereffects/font-reset_bug.mp4"
-          caption="Проблема кривого начертания на примере Cascadia Mono"
         />
         <AdditionWarning>
           Приведённые ниже способы{" "}

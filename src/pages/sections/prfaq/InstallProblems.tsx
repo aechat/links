@@ -7,7 +7,7 @@ import {
 } from "../../../components/Additions";
 import {ImageFigure, YouTubeVideo} from "../../../components/ContentFigure";
 import DetailsSummary from "../../../components/DetailsSummary";
-import ContentSwitcher from "../../../components/features/OperatingSystemFilter";
+import ContentSwitcher from "../../../components/features/ContentFilter";
 
 const PRInstallProblems: React.FC = () => {
   return (
@@ -55,6 +55,7 @@ const PRInstallProblems: React.FC = () => {
           </li>
         </ul>
         <ContentSwitcher
+          macContent={<div>{/* TODO: дописать */}</div>}
           windowsContent={
             <div>
               <ul>
@@ -69,10 +70,10 @@ const PRInstallProblems: React.FC = () => {
                     <mark className="word">Drag-n-Drop</mark>.
                   </p>
                   <ImageFigure
-                    styleClass="figure_windows-dark"
+                    caption="Graphics Templates"
                     imgSrc="images/premierepro/install_mogrt.png"
                     imgTitle="Установка mogrt-шаблонов"
-                    caption="Graphics Templates"
+                    styleClass="figure_windows-dark"
                   />
                   <p>
                     Также файлы <mark className="file">.mogrt</mark> можно расположить в
@@ -183,10 +184,10 @@ const PRInstallProblems: React.FC = () => {
                         душе удобно.
                       </AdditionInfo>
                       <ImageFigure
-                        styleClass="figure_windows-dark"
+                        caption="Premiere Pro"
                         imgSrc="images/premierepro/import_presets.png"
                         imgTitle="Установка пресетов в Premiere Pro"
-                        caption="Premiere Pro"
+                        styleClass="figure_windows-dark"
                       />
                     </li>
                     <li>
@@ -343,12 +344,11 @@ const PRInstallProblems: React.FC = () => {
               </ul>
             </div>
           }
-          macContent={<div>{/* TODO: дописать */}</div>}
         />
       </DetailsSummary>
       <DetailsSummary
-        title="В Telegram-записи лежат файлы .part1, .part2 и дальше по списку. Что это такое и как такие файлы корректно распаковать?"
         tag="части архива, парт, распаковка, rar, zip"
+        title="В Telegram-записи лежат файлы .part1, .part2 и дальше по списку. Что это такое и как такие файлы корректно распаковать?"
       >
         <p>
           Данные файлы с пометкой <mark>.part1</mark>, <mark>.part2</mark> и далее по
@@ -362,6 +362,64 @@ const PRInstallProblems: React.FC = () => {
           или использованием в программах.
         </AdditionWarning>
         <ContentSwitcher
+          macContent={
+            <div>
+              <p>
+                Для распаковки архивов, в том числе и многотомных, вы можете использовать{" "}
+                <a
+                  href="https://www.keka.io/ru/"
+                  title="Официальный сайт keka"
+                >
+                  keka
+                </a>
+                . Он поддерживает кучу различных форматов архивов для распаковки, например{" "}
+                <mark className="file">.zip</mark> <mark className="file">.7z</mark>,{" "}
+                <mark className="file">.rar</mark>, <mark className="file">.tar</mark> и{" "}
+                <mark className="file">.iso</mark>. После установки этой программы вы
+                можете распаковать скачанный архив различными способами, как на{" "}
+                <a href="https://github.com/aonez/Keka/wiki/Extracting-with-Keka#how-to-extract-supported-files">
+                  примерах
+                </a>{" "}
+                ниже.
+              </p>
+              <div
+                style={{
+                  display: "grid",
+                  gridTemplateColumns: "repeat(auto-fit, minmax(275px, 1fr))",
+                  alignItems: "center",
+                }}
+              >
+                <ImageFigure
+                  caption="Распаковка через контекстное меню"
+                  imgSrc="https://github.com/aonez/Keka/raw/master/Wiki/Images/Animated/extract-context-menu.gif"
+                  imgTitle="Распаковка через контекстное меню"
+                  styleClass="figure_macos-light"
+                />
+                <ImageFigure
+                  caption="Распаковка с помощью открытого окна keka"
+                  imgSrc="https://github.com/aonez/Keka/raw/master/Wiki/Images/Animated/extract-window.gif"
+                  imgTitle="Распаковка с помощью открытого окна keka"
+                  styleClass="figure_macos-light"
+                />
+                <ImageFigure
+                  caption="Распаковка через иконку keka в Dock-меню"
+                  imgSrc="https://github.com/aonez/Keka/raw/master/Wiki/Images/Animated/extract-dock.gif"
+                  imgTitle="Распаковка через иконку keka в Dock-меню"
+                  styleClass="figure_macos-light"
+                />
+              </div>
+              <p>
+                Также вы можете установить данную утилиту как программу для распаковки
+                архивов по умолчанию, установив{" "}
+                <a href="https://www.keka.io/defaultapp/">kekaExternalHelper</a>.
+                Подробная инструкция расположена в{" "}
+                <a href="https://github.com/aonez/Keka/wiki/Default-application">
+                  Wiki на GitHub
+                </a>
+                .
+              </p>
+            </div>
+          }
           windowsContent={
             <div>
               <p>
@@ -392,74 +450,16 @@ const PRInstallProblems: React.FC = () => {
                 в нужное место или кнопки <mark className="ui">Распаковать</mark>.
               </p>
               <YouTubeVideo
-                link="1OVwQS0uHhk"
                 caption="Распаковка многотомного архива"
+                link="1OVwQS0uHhk"
               />
-            </div>
-          }
-          macContent={
-            <div>
-              <p>
-                Для распаковки архивов, в том числе и многотомных, вы можете использовать{" "}
-                <a
-                  href="https://www.keka.io/ru/"
-                  title="Официальный сайт keka"
-                >
-                  keka
-                </a>
-                . Он поддерживает кучу различных форматов архивов для распаковки, например{" "}
-                <mark className="file">.zip</mark> <mark className="file">.7z</mark>,{" "}
-                <mark className="file">.rar</mark>, <mark className="file">.tar</mark> и{" "}
-                <mark className="file">.iso</mark>. После установки этой программы вы
-                можете распаковать скачанный архив различными способами, как на{" "}
-                <a href="https://github.com/aonez/Keka/wiki/Extracting-with-Keka#how-to-extract-supported-files">
-                  примерах
-                </a>{" "}
-                ниже.
-              </p>
-              <div
-                style={{
-                  display: "grid",
-                  gridTemplateColumns: "repeat(auto-fit, minmax(275px, 1fr))",
-                  alignItems: "center",
-                }}
-              >
-                <ImageFigure
-                  styleClass="figure_macos-light"
-                  imgSrc="https://github.com/aonez/Keka/raw/master/Wiki/Images/Animated/extract-context-menu.gif"
-                  imgTitle="Распаковка через контекстное меню"
-                  caption="Распаковка через контекстное меню"
-                />
-                <ImageFigure
-                  styleClass="figure_macos-light"
-                  imgSrc="https://github.com/aonez/Keka/raw/master/Wiki/Images/Animated/extract-window.gif"
-                  imgTitle="Распаковка с помощью открытого окна keka"
-                  caption="Распаковка с помощью открытого окна keka"
-                />
-                <ImageFigure
-                  styleClass="figure_macos-light"
-                  imgSrc="https://github.com/aonez/Keka/raw/master/Wiki/Images/Animated/extract-dock.gif"
-                  imgTitle="Распаковка через иконку keka в Dock-меню"
-                  caption="Распаковка через иконку keka в Dock-меню"
-                />
-              </div>
-              <p>
-                Также вы можете установить данную утилиту как программу для распаковки
-                архивов по умолчанию, установив{" "}
-                <a href="https://www.keka.io/defaultapp/">kekaExternalHelper</a>.
-                Подробная инструкция расположена в{" "}
-                <a href="https://github.com/aonez/Keka/wiki/Default-application">
-                  Wiki на GitHub
-                </a>
-                .
-              </p>
             </div>
           }
         />
       </DetailsSummary>
       <DetailsSummary
-        title='"Не удаётся найти "..\install\helper.exe". Проверьте, правильно ли указано имя и повторите попытку", "Обнаружены угрозы", куда-то пропадают файлы плагинов и программ или как отключить Windows Defender?'
         tag="выключить дефендер, отрубить антивирус, вирусы, ложное срабатывание, хелпер, ошибка 24, windows не удается получить доступ к указанному устройству пути или файлу, возможно у вас нет нужных разрешений для доступа к этому объекту, некоторые файлы не были созданы"
+        title='"Не удаётся найти "..\install\helper.exe". Проверьте, правильно ли указано имя и повторите попытку", "Обнаружены угрозы", куда-то пропадают файлы плагинов и программ или как отключить Windows Defender?'
       >
         <p>
           Когда вы устанавливаете пиратские версии программ, часто можно услышать жалобы
@@ -503,8 +503,8 @@ const PRInstallProblems: React.FC = () => {
           <mark className="app">Windows Defender</mark> навсегда.
         </p>
         <YouTubeVideo
-          link="blwRAOQUjsM"
           caption="Как отключить Защитник Windows 11"
+          link="blwRAOQUjsM"
         />
         <p>
           Если вы хотите оставить включенным <mark className="app">Windows Defender</mark>
@@ -528,8 +528,8 @@ const PRInstallProblems: React.FC = () => {
           <mark className="app">Защитника Windows</mark>.
         </p>
         <YouTubeVideo
-          link="HxlxS1Mdyp0"
           caption="Как отключить Windows Smartscreen"
+          link="HxlxS1Mdyp0"
         />
       </DetailsSummary>
       <DetailsSummary title='Выскакивает "Некоторые установочные файлы были повреждены. Загрузите свежую копию и повторите установку" при открытии репака от KpoJluK'>
@@ -635,8 +635,8 @@ const PRInstallProblems: React.FC = () => {
           использовании символьных ссылок не гарантируется.
         </AdditionWarning>
         <YouTubeVideo
-          link="VaupaCuluJA"
           caption="Как сделать символическую ссылку в Windows на файл и папку"
+          link="VaupaCuluJA"
         />
       </DetailsSummary>
       <DetailsSummary title="Установил плагин с помощью установщика, а я его не вижу в Premiere Pro">
@@ -792,8 +792,8 @@ const PRInstallProblems: React.FC = () => {
         </ul>
       </DetailsSummary>
       <DetailsSummary
-        title="Установил VST-плагины, но они не отображаются в Premiere Pro"
         tag="вст, аудио плагины, звук, изотоп, izotope, vst3"
+        title="Установил VST-плагины, но они не отображаются в Premiere Pro"
       >
         <p>
           Предположим, что вы недавно установили новые VST-плагины для обработки звука, но
@@ -807,10 +807,10 @@ const PRInstallProblems: React.FC = () => {
           <mark className="ui">Manage Audio Plug-ins</mark>.
         </p>
         <ImageFigure
-          styleClass="figure_windows-dark"
+          caption="Preferences"
           imgSrc="images/premierepro/edit_audio_manage_audio_plugins.png"
           imgTitle="Окно Preferences с открытым разделом Audio"
-          caption="Preferences"
+          styleClass="figure_windows-dark"
         />
         <p>
           Затем в открывшемся окне вы можете начать сканирование плагинов с помощью кнопки{" "}
@@ -820,10 +820,10 @@ const PRInstallProblems: React.FC = () => {
           <mark className="ui">Track Mixer</mark> или где-нибудь ещё.
         </p>
         <ImageFigure
-          styleClass="figure_windows-dark"
+          caption="Audio Plug-in Manager"
           imgSrc="images/premierepro/audio_plugin_manager.png"
           imgTitle="Менеджер аудио-плагинов"
-          caption="Audio Plug-in Manager"
+          styleClass="figure_windows-dark"
         />
       </DetailsSummary>
       <DetailsSummary title='Код ошибки 21 при установке Premiere Pro или "операционная система не соответствует минимальным требованиям для этой программы установки"'>

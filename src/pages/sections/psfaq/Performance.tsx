@@ -7,8 +7,8 @@ const PSPerformance: React.FC = () => {
     <div className="faq-content">
       <GithubUpdateInfo filePath="src/pages/sections/psfaq/Performance.tsx" />
       <DetailsSummary
-        title="Почему у меня, б%@#ь, лагает е&#!%й Photoshop, с$%а?"
         tag="тормозит, лаги, медленно, скорость работы, оптимизация, производительность"
+        title="Почему у меня, б%@#ь, лагает е&#!%й Photoshop, с$%а?"
       >
         <p>{/* FIXME: написать!! */}</p>
       </DetailsSummary>

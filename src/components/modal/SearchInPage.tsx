@@ -488,32 +488,32 @@ export const SearchInPage: React.FC<{sections: Array<{id: string; title: string}
   return (
     <Modal
       closeIcon={null}
-      open={isOpen}
-      onCancel={closeModal}
       footer={null}
-      width={850}
       forceRender={true}
       getContainer={false}
+      open={isOpen}
+      width={850}
+      onCancel={closeModal}
     >
       <div>
         <div className="search-input-wrapper">
           <input
+            ref={inputRef}
             className="search-input"
+            placeholder="Введите что-нибудь для поиска..."
+            style={{cursor: "text"}}
             type="text"
             value={query}
             onChange={(e) => handleSearch(e.target.value)}
-            placeholder="Введите что-нибудь для поиска..."
-            ref={inputRef}
-            style={{cursor: "text"}}
           />
           {query.trim() !== "" && (
             <button
+              className="search-input-clear"
+              style={{cursor: "pointer"}}
               onClick={() => {
                 setQuery("");
                 setResults([]);
               }}
-              className="search-input-clear"
-              style={{cursor: "pointer"}}
             >
               <Tooltip title="Очистить">
                 <BackspaceOutlined fontSize="small" />
@@ -567,17 +567,17 @@ export const SearchInPage: React.FC<{sections: Array<{id: string; title: string}
                     ref={(el) => {
                       resultRefs.current[index] = el;
                     }}
+                    animate={{
+                      scale: index === selectedResultIndex ? 1 : 0.98,
+                    }}
+                    className={`search-link ${index === selectedResultIndex ? "search-selected" : ""}`}
+                    initial={{scale: 1}}
                     tabIndex={0}
+                    transition={{duration: 0.5, ease: [0.075, 0.82, 0.165, 1]}}
                     onClick={(e) => {
                       e.preventDefault();
                       handleLinkClick(id);
                     }}
-                    className={`search-link ${index === selectedResultIndex ? "search-selected" : ""}`}
-                    initial={{scale: 1}}
-                    animate={{
-                      scale: index === selectedResultIndex ? 1 : 0.98,
-                    }}
-                    transition={{duration: 0.5, ease: [0.075, 0.82, 0.165, 1]}}
                   >
                     <div
                       className={`search-header ${index === selectedResultIndex ? "search-selected" : ""}`}

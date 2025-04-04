@@ -42,7 +42,6 @@ const SupportDonut: React.FC = () => {
       <div className="support">
         <motion.button
           className="modal-page-button"
-          onClick={showEditModal}
           style={{
             filter: "saturate(0.5)",
           }}
@@ -51,6 +50,7 @@ const SupportDonut: React.FC = () => {
             transition: {duration: 0.5, ease: [0.075, 0.82, 0.165, 1]},
           }}
           whileTap={{scale: 0.95, opacity: 0.5}}
+          onClick={showEditModal}
         >
           <EditRounded />
           Помочь с редактированием страницы
@@ -72,11 +72,11 @@ const SupportDonut: React.FC = () => {
         </motion.button>
       </div>
       <Modal
-        open={isDonateModalOpen}
-        closeIcon={null}
         centered
-        onCancel={handleCloseDonateModal}
+        closeIcon={null}
         footer={null}
+        open={isDonateModalOpen}
+        onCancel={handleCloseDonateModal}
       >
         <div className="modal">
           <div className="modal-header">
@@ -96,22 +96,22 @@ const SupportDonut: React.FC = () => {
             <div className="flexible-links">
               <motion.button
                 className="sber"
-                onClick={() => setIsSberModalOpen(true)}
                 whileHover={{
                   scale: 0.975,
                   transition: {duration: 0.5, ease: [0.075, 0.82, 0.165, 1]},
                 }}
                 whileTap={{scale: 0.95, opacity: 0.5}}
+                onClick={() => setIsSberModalOpen(true)}
               >
                 Сбербанк
               </motion.button>
               <Modal
-                open={isSberModalOpen}
-                closeIcon={null}
                 centered
                 className="support-modal"
-                onCancel={handleCloseSberModal}
+                closeIcon={null}
                 footer={null}
+                open={isSberModalOpen}
+                onCancel={handleCloseSberModal}
               >
                 <div className="modal">
                   <div className="modal-header">
@@ -129,13 +129,13 @@ const SupportDonut: React.FC = () => {
                       сумму.
                     </p>
                     <motion.mark
+                      className="sber"
+                      style={{marginInline: "10px"}}
                       whileHover={{
                         scale: 0.975,
                         transition: {duration: 0.5, ease: [0.075, 0.82, 0.165, 1]},
                       }}
                       whileTap={{scale: 0.95, opacity: 0.5}}
-                      className="sber"
-                      style={{marginInline: "10px"}}
                     >
                       2202202357342488
                     </motion.mark>
@@ -156,22 +156,22 @@ const SupportDonut: React.FC = () => {
               </Modal>
               <motion.button
                 className="yoomoney"
-                onClick={() => setIsYoomoneyModalOpen(true)}
                 whileHover={{
                   scale: 0.975,
                   transition: {duration: 0.5, ease: [0.075, 0.82, 0.165, 1]},
                 }}
                 whileTap={{scale: 0.95, opacity: 0.5}}
+                onClick={() => setIsYoomoneyModalOpen(true)}
               >
                 ЮMoney
               </motion.button>
               <Modal
-                open={isYoomoneyModalOpen}
-                closeIcon={null}
                 centered
                 className="support-modal"
-                onCancel={handleCloseYoomoneyModal}
+                closeIcon={null}
                 footer={null}
+                open={isYoomoneyModalOpen}
+                onCancel={handleCloseYoomoneyModal}
               >
                 <div className="modal">
                   <div className="modal-header">
@@ -197,12 +197,12 @@ const SupportDonut: React.FC = () => {
                         Вставьте этот номер в поле &quot;Номер кошелька&quot; приложения
                         банка и введите любую сумму, а затем подтвердите перевод.
                         <motion.mark
+                          className="yoomoney"
                           whileHover={{
                             scale: 0.975,
                             transition: {duration: 0.5, ease: [0.075, 0.82, 0.165, 1]},
                           }}
                           whileTap={{scale: 0.95, opacity: 0.5}}
-                          className="yoomoney"
                         >
                           410016763684808
                         </motion.mark>
@@ -219,12 +219,12 @@ const SupportDonut: React.FC = () => {
                         <p style={{fontSize: "0.75rem", opacity: "0.75"}}>
                           Или пополните баланс автору с помощью{" "}
                           <a
+                            href="https://yoomoney.ru/to/410016763684808"
                             style={{
                               color: "var(--accent)",
                               fontWeight: 700,
                               textDecoration: "underline",
                             }}
-                            href="https://yoomoney.ru/to/410016763684808"
                           >
                             этой ссылки
                           </a>
@@ -240,11 +240,11 @@ const SupportDonut: React.FC = () => {
         </div>
       </Modal>
       <Modal
-        open={isEditModalOpen}
-        closeIcon={null}
         centered
-        onCancel={handleCloseEditModal}
+        closeIcon={null}
         footer={null}
+        open={isEditModalOpen}
+        onCancel={handleCloseEditModal}
       >
         <div className="modal">
           <div className="modal-header">
@@ -261,33 +261,33 @@ const SupportDonut: React.FC = () => {
               Если вы хотите помочь с наполнением данной страницы и вы имеете
               какой-никакой опыт работы с{" "}
               <a
-                target="_blank"
-                rel="noreferrer"
                 href="https://git-scm.com/"
+                rel="noreferrer"
+                target="_blank"
               >
                 Git
               </a>{" "}
               и{" "}
               <a
-                target="_blank"
-                rel="noreferrer"
                 href="https://github.com/git-guides"
+                rel="noreferrer"
+                target="_blank"
               >
                 GitHub
               </a>
               , то вы можете{" "}
               <a
-                target="_blank"
-                rel="noreferrer"
                 href="https://github.com/aechat/links/fork"
+                rel="noreferrer"
+                target="_blank"
               >
                 создать форк проекта сайта
               </a>{" "}
               и внести свои изменения с помощью{" "}
               <a
-                target="_blank"
-                rel="noreferrer"
                 href="https://arduinoplus.ru/git-course/chuzhoi-repozitorii/"
+                rel="noreferrer"
+                target="_blank"
               >
                 Pull Request
               </a>
@@ -299,9 +299,9 @@ const SupportDonut: React.FC = () => {
               <mark className="file">.tsx</mark>. Более подробно о форматировании и
               редактировании указано в файле{" "}
               <a
-                target="_blank"
-                rel="noreferrer"
                 href="https://github.com/aechat/links/blob/main/README.md"
+                rel="noreferrer"
+                target="_blank"
               >
                 README.md
               </a>

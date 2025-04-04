@@ -7,7 +7,7 @@ import {
 } from "../../../components/Additions";
 import {ImageFigure, VideoFigure} from "../../../components/ContentFigure";
 import GithubUpdateInfo from "../../../components/features/GithubUpdateInfo";
-import ContentSwitcher from "../../../components/features/OperatingSystemFilter";
+import ContentSwitcher from "../../../components/features/ContentFilter";
 import HostsAdobeModal from "../../../components/features/HostsAdobe";
 import {Divider} from "antd";
 
@@ -187,10 +187,10 @@ const AEErrors: React.FC = () => {
           <mark className="ui">Video Rendering and Effects</mark>.
         </p>
         <ImageFigure
-          styleClass="figure_windows-dark"
+          caption="Project Settings"
           imgSrc="images/aftereffects/set_render_on_cpu.png"
           imgTitle="Установка рендера на процессор"
-          caption="Project Settings"
+          styleClass="figure_windows-dark"
         />
         <AdditionInfo>
           Подробнее о каждом пункте на примере использования устройства на связке
@@ -229,10 +229,10 @@ const AEErrors: React.FC = () => {
           предпросмотр снова.
         </p>
         <ImageFigure
-          styleClass="figure_windows-light"
+          caption="Очистка кэша и освобождение оперативной памяти"
           imgSrc="images/aftereffects/edit_purge_all-memory-and-disk-cache.png"
           imgTitle="Очистка кэша и освобождение оперативной памяти"
-          caption="Очистка кэша и освобождение оперативной памяти"
+          styleClass="figure_windows-light"
         />
         <AdditionInfo>
           Иногда может быть такое, что применяемый эффект может заставить держать ваш
@@ -246,10 +246,10 @@ const AEErrors: React.FC = () => {
           поэтому и отображается эта ошибка.
         </p>
         <ImageFigure
-          styleClass="figure_windows-dark"
+          caption="Одна из причин ошибки - маленькая рабочая область"
           imgSrc="images/aftereffects/low_work-area.png"
           imgTitle="Маленькая рабочая область"
-          caption="Одна из причин ошибки - маленькая рабочая область"
+          styleClass="figure_windows-dark"
         />
         <p>
           Чтобы это исправить - перейдите в начало вашей композиции (
@@ -330,15 +330,15 @@ const AEErrors: React.FC = () => {
           убрать галочку с <mark className="ui">Enable Multi-frame Render</mark>.
         </p>
         <ImageFigure
+          caption="Preferences"
           imgSrc="images/aftereffects/checkbox_multiframe-render.png"
           imgTitle="Переключение работы функции Multi-Frame Render"
           styleClass="figure_windows-dark"
-          caption="Preferences"
         />
       </DetailsSummary>
       <DetailsSummary
-        title='"This unlicensed Adobe app is not genuine and will be disabled soon", "Unlicensed Adobe apps may expose your device to increased security risks", "This app will disable in X days" или что-то похожее с красной полоской при запуске, но на другом языке. Как запустить программу нормально?'
         tag="слетела лицензия, красное окно, не запускается, впн, файл хостс, блокировка доступа в интернет"
+        title='"This unlicensed Adobe app is not genuine and will be disabled soon", "Unlicensed Adobe apps may expose your device to increased security risks", "This app will disable in X days" или что-то похожее с красной полоской при запуске, но на другом языке. Как запустить программу нормально?'
       >
         <p>Программа от Adobe решила достучаться в интернет. Причин может быть четыре.</p>
         <ul>
@@ -370,12 +370,44 @@ const AEErrors: React.FC = () => {
           </li>
         </ul>
         <ImageFigure
-          styleClass="figure_windows-light"
+          caption="Adobe"
           imgSrc="images/adobe_the_unlicensed_app.png"
           imgTitle="Сообщение об отсутствии лицензии"
-          caption="Adobe"
+          styleClass="figure_windows-light"
         />
         <ContentSwitcher
+          macContent={
+            <div>
+              <p>
+                Для блокировки доступа определённым программам к интернету на устройствах
+                с macOS можно воспользоваться программой{" "}
+                <a href="https://radiosilenceapp.com/">Radio Silence</a>. После установки
+                и активации этой программы перейдите в вкладку{" "}
+                <mark className="ui">Network Monitor</mark>. В этой же вкладке запретите
+                программам от Adobe, которые лезут в сеть, доступ в интернет, нажав на
+                кнопку <mark className="ui">Block</mark>.
+              </p>
+              <ImageFigure
+                caption="Radio Silence"
+                imgSrc="images/network_radio_silence.png"
+                imgTitle="Блокируем доступ в интернет программам на примере Premiere Pro"
+                styleClass="figure_macos-dark"
+              />
+              <p>
+                После проделанных действий <mark className="app">After Effects</mark> и
+                остальные программы от Adobe не должен стучаться в сеть и выдавать ошибку
+                об отсутствии лицензии. Ниже показано, как в итоге примерно должна
+                выглядеть у вас вкладка <mark className="ui">Firewall</mark> после отлова
+                процессов Adobe, лезущие в интернет.
+              </p>
+              <ImageFigure
+                caption="Radio Silence"
+                imgSrc="images/firewall_radio_silence.png"
+                imgTitle="Окно Firewall после блокировки доступа в интернет программам"
+                styleClass="figure_macos-dark"
+              />
+            </div>
+          }
           windowsContent={
             <div>
               <p>
@@ -404,38 +436,6 @@ const AEErrors: React.FC = () => {
               <AdditionWarning>
                 Для изменения системных файлов требуются права администратора.
               </AdditionWarning>
-            </div>
-          }
-          macContent={
-            <div>
-              <p>
-                Для блокировки доступа определённым программам к интернету на устройствах
-                с macOS можно воспользоваться программой{" "}
-                <a href="https://radiosilenceapp.com/">Radio Silence</a>. После установки
-                и активации этой программы перейдите в вкладку{" "}
-                <mark className="ui">Network Monitor</mark>. В этой же вкладке запретите
-                программам от Adobe, которые лезут в сеть, доступ в интернет, нажав на
-                кнопку <mark className="ui">Block</mark>.
-              </p>
-              <ImageFigure
-                styleClass="figure_macos-dark"
-                imgSrc="images/network_radio_silence.png"
-                imgTitle="Блокируем доступ в интернет программам на примере Premiere Pro"
-                caption="Radio Silence"
-              />
-              <p>
-                После проделанных действий <mark className="app">After Effects</mark> и
-                остальные программы от Adobe не должен стучаться в сеть и выдавать ошибку
-                об отсутствии лицензии. Ниже показано, как в итоге примерно должна
-                выглядеть у вас вкладка <mark className="ui">Firewall</mark> после отлова
-                процессов Adobe, лезущие в интернет.
-              </p>
-              <ImageFigure
-                styleClass="figure_macos-dark"
-                imgSrc="images/firewall_radio_silence.png"
-                imgTitle="Окно Firewall после блокировки доступа в интернет программам"
-                caption="Radio Silence"
-              />
             </div>
           }
         />
@@ -571,10 +571,10 @@ const AEErrors: React.FC = () => {
           конвертации.
         </p>
         <ImageFigure
-          styleClass="figure_windows-dark"
+          caption="After Effects"
           imgSrc="images/aftereffects/file_save_as.png"
           imgTitle="Сохранение проекта под более старую версию"
-          caption="After Effects"
+          styleClass="figure_windows-dark"
         />
       </DetailsSummary>
       <DetailsSummary title="Your disk cache folder is on a drive that does not have enough avaiable space to safely store the full amount specified in your preferences. Please make more space available or go to Media & Disk Cache preferences to change the folder or maximium disk cache size">
@@ -584,10 +584,10 @@ const AEErrors: React.FC = () => {
           место на разделе, где хранится дисковый кэш.
         </p>
         <ImageFigure
-          styleClass="figure_windows-dark"
+          caption="Warning"
           imgSrc="images/aftereffects/low_diskcache_space_warning.png"
           imgTitle="Предупреждение о недостаточном свободном месте на диске"
-          caption="Warning"
+          styleClass="figure_windows-dark"
         />
         <p>
           Вы можете уменьшить максимальное количество гигабайт для дискового кэша или
@@ -598,10 +598,10 @@ const AEErrors: React.FC = () => {
           например на другом диске или внешнем накопителе.
         </p>
         <ImageFigure
-          styleClass="figure_windows-dark"
+          caption="Preferences"
           imgSrc="images/aftereffects/preferences-media_and_disk_cache.png"
           imgTitle="Настройка дискового кэша"
-          caption="Preferences"
+          styleClass="figure_windows-dark"
         />
         <p style={{fontSize: "0.75rem", opacity: "0.5"}}>
           Или просто отключите дисковый кэш, убрав галочку с{" "}
@@ -627,10 +627,10 @@ const AEErrors: React.FC = () => {
           размер для дискового кэша или очистить его.
         </p>
         <ImageFigure
-          styleClass="figure_windows-dark"
+          caption="Preferences"
           imgSrc="images/aftereffects/preferences-media_and_disk_cache.png"
           imgTitle="Настройка дискового кэша"
-          caption="Preferences"
+          styleClass="figure_windows-dark"
         />
         <p style={{fontSize: "0.75rem", opacity: "0.5"}}>
           Или просто отключите дисковый кэш, убрав галочку с{" "}
@@ -743,22 +743,22 @@ const AEErrors: React.FC = () => {
               }}
             >
               <ImageFigure
-                styleClass="figure_windows-dark"
+                caption="Composition Settings"
                 imgSrc="images/aftereffects/composition_settings_3drenderer_cinema4d.png"
                 imgTitle="Composition Settings"
-                caption="Composition Settings"
+                styleClass="figure_windows-dark"
               />
               <ImageFigure
-                styleClass="figure_windows-dark"
+                caption="Choose CINEMA 4D Installation"
                 imgSrc="images/aftereffects/cinema4d_renderer_options.png"
                 imgTitle="Choose CINEMA 4D Installation"
-                caption="Choose CINEMA 4D Installation"
+                styleClass="figure_windows-dark"
               />
               <ImageFigure
-                styleClass="figure_windows-dark"
+                caption="Choose CINEMA 4D Installation"
                 imgSrc="images/aftereffects/choose_cinema4d_installation.png"
                 imgTitle="Choose CINEMA 4D Installation"
-                caption="Choose CINEMA 4D Installation"
+                styleClass="figure_windows-dark"
               />
             </div>
           </li>
@@ -832,10 +832,10 @@ const AEErrors: React.FC = () => {
           <mark className="ui">Working Color Space</mark>.
         </p>
         <ImageFigure
-          styleClass="figure_windows-dark"
+          caption="Project Settings"
           imgSrc="images/aftereffects/change_working_color_space.png"
           imgTitle="Изменение цветового профиля"
-          caption="Project Settings"
+          styleClass="figure_windows-dark"
         />
       </DetailsSummary>
       <DetailsSummary title='"Layer must match Composition and use default transform values" при использовании 3D Camera Tracker'>
@@ -886,10 +886,10 @@ const AEErrors: React.FC = () => {
             <mark className="ui">Detailed Analysis</mark> в вкладке{" "}
             <mark className="ui">Advanced</mark>.
             <ImageFigure
-              styleClass="figure_windows-dark"
+              caption="Effect Controls"
               imgSrc="images/aftereffects/detailed_analysis-3d_camera_tracker.png"
               imgTitle="Включение детального анализа исходника"
-              caption="Effect Controls"
+              styleClass="figure_windows-dark"
             />
           </li>
           <li>
@@ -908,10 +908,10 @@ const AEErrors: React.FC = () => {
           <mark className="ui">Continue with known issues</mark>.
         </AdditionInfo>
         <ImageFigure
-          styleClass="figure_windows-dark"
+          caption="System Compatibility Report"
           imgSrc="images/aftereffects/system_compatibility_report.png"
           imgTitle="Предупреждение о несовместимости оборудования с программой"
-          caption="System Compatibility Report"
+          styleClass="figure_windows-dark"
         />
         <p>
           В данном окне обычно пишутся возможные проблемы с использованием программы,
@@ -931,10 +931,10 @@ const AEErrors: React.FC = () => {
           <mark className="ui">Show System Compatibility Issues</mark>.
         </p>
         <ImageFigure
-          styleClass="figure_windows-dark"
+          caption="Preferences"
           imgSrc="images/aftereffects/show_system_compatibility_issues.png"
           imgTitle="Отключаем предупреждения о несовместимости оборудования с программой"
-          caption="Preferences"
+          styleClass="figure_windows-dark"
         />
         <AdditionInfo>
           В старых версиях <mark className="app">After Effects</mark> этот пункт находится
@@ -942,8 +942,8 @@ const AEErrors: React.FC = () => {
         </AdditionInfo>
       </DetailsSummary>
       <DetailsSummary
-        title='"Advanced 3D is not supported by the current software", "Advanced 3D plug-in generated an unexpected exception" или программа вылетает при попытке использовать новый движок 3D-рендера'
         tag="расширенный 3d, вылетает, адвансед 3д"
+        title='"Advanced 3D is not supported by the current software", "Advanced 3D plug-in generated an unexpected exception" или программа вылетает при попытке использовать новый движок 3D-рендера'
       >
         <p>
           Вариантов возникновения данной ошибки может быть несколько, начиная устаревшими
@@ -963,9 +963,9 @@ const AEErrors: React.FC = () => {
           ярлыка.
         </p>
         <VideoFigure
+          caption="Настройка ярлыка для дальнейшего запуска от имени администратора"
           styleClass="figure_windows-dark"
           videoSrc="images/aftereffects/open_ae_as_admin.mp4"
-          caption="Настройка ярлыка для дальнейшего запуска от имени администратора"
         />
         <p>
           Если запуск от администратора вам не помог от вылетающего{" "}
@@ -1126,10 +1126,10 @@ const AEErrors: React.FC = () => {
           вручную в сети Интернет.
         </AdditionInfo>
         <ImageFigure
-          styleClass="figure_windows-dark"
+          caption="Предупреждение об отсутствующих шрифтах в системе"
           imgSrc="images/aftereffects/missing_fonts_warning.png"
           imgTitle="Предупреждение об отсутствующих шрифтах в системе"
-          caption="Предупреждение об отсутствующих шрифтах в системе"
+          styleClass="figure_windows-dark"
         />
         <p>
           Если вы установили шрифт, а это сообщение никуда не пропало - просто
@@ -1147,10 +1147,10 @@ const AEErrors: React.FC = () => {
           в предпросмотре.
         </p>
         <ImageFigure
-          styleClass="figure_windows-dark"
+          caption="Warning"
           imgSrc="images/aftereffects/missing_effects_warning.png"
           imgTitle="Предупреждение об отсутствующих эффектах"
-          caption="Warning"
+          styleClass="figure_windows-dark"
         />
         <p>
           Для решения этой проблемы просто установите эффекты и плагины из этого списка в{" "}
@@ -1244,10 +1244,10 @@ const AEErrors: React.FC = () => {
           дублирующиеся плагины, чтобы избежать каких-либо проблем и указывает путь к ним.
         </p>
         <ImageFigure
-          styleClass="figure_windows-dark"
+          caption="After Effects"
           imgSrc="images/aftereffects/duplicated_effect_plug-ins_installed.png"
           imgTitle="Предупреждение о дублирующихся плагинах"
-          caption="After Effects"
+          styleClass="figure_windows-dark"
         />
         <p>
           Для решения проблемы достаточно перейти по одному из путей и удалить оттуда
@@ -1294,9 +1294,9 @@ const AEErrors: React.FC = () => {
           .
         </p>
         <VideoFigure
+          caption="Настройка режима совместимости"
           styleClass="figure_windows-dark"
           videoSrc="images/compatibility_media_encoder.mp4"
-          caption="Настройка режима совместимости"
         />
         <p>
           После проделанных действий программа при запуске не должна вылетать. Если всё
@@ -1305,8 +1305,8 @@ const AEErrors: React.FC = () => {
         </p>
       </DetailsSummary>
       <DetailsSummary
-        title="Почему метка воспроизведения на таймлайне иногда останавливается?"
         tag="cti stuck, плейхед зависает, не работает зум"
+        title="Почему метка воспроизведения на таймлайне иногда останавливается?"
       >
         <p>
           Предположим, что вы начали кэширование предпросмотра и в какой-то момент у вас
@@ -1343,10 +1343,10 @@ const AEErrors: React.FC = () => {
           заново.
         </p>
         <ImageFigure
-          styleClass="figure_windows-dark"
+          caption="After Effects"
           imgSrc="images/aftereffects/disable_previewplaybackoptimization.png"
           imgTitle="Отключение оптимизации предпросмотра"
-          caption="After Effects"
+          styleClass="figure_windows-dark"
         />
       </DetailsSummary>
     </div>
