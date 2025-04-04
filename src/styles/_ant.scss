@@ -38,6 +38,24 @@
   }
 }
 
+.ant-spin .ant-spin-dot-holder {
+  color: var(--accent);
+}
+
+.ant-radio-wrapper .ant-radio-inner {
+  border-color: var(--content-background-border);
+  background-color: var(--content-background-border);
+}
+
+.ant-radio-wrapper .ant-radio-checked .ant-radio-inner {
+  border-color: var(--accent);
+  background-color: var(--accent);
+}
+
+.ant-radio-wrapper:hover .ant-radio-inner {
+  border-color: var(--accent);
+}
+
 .ant-modal .ant-modal-content {
   box-shadow: none;
   border: none;
