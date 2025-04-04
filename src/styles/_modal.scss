@@ -12,9 +12,9 @@
     align-items: center;
     gap: 10px;
     filter: drop-shadow(0 3px 5px var(--shadow));
-    border: 1px solid var(--summary_border);
+    border: 1px solid var(--summary-border);
     border-radius: $roundness;
-    background-color: var(--summary_background);
+    background-color: var(--summary-background);
     padding-inline: 15px;
     padding-inline-end: 10px;
     padding-block: 10px;
@@ -23,13 +23,13 @@
     text-transform: uppercase;
 
     &-title {
-      color: var(--summary_text);
+      color: var(--summary-text);
       font-weight: 700;
       font-size: 1.3rem;
     }
 
     &-close {
-      color: var(--summary_text);
+      color: var(--summary-text);
     }
   }
 
@@ -141,11 +141,11 @@
     align-items: center;
     gap: 8px;
     cursor: pointer;
-    border: 1px solid var(--links_border);
+    border: 1px solid var(--links-border);
     border-radius: $roundness;
-    background-color: var(--links_background);
+    background-color: var(--links-background);
     padding: 10px 20px;
-    color: var(--summary_text);
+    color: var(--summary-text);
     font-weight: 700;
     font-size: 0.9rem;
     font-family: "Onest", sans-serif;
@@ -157,12 +157,12 @@
     align-items: center;
     cursor: pointer;
     margin: 0 auto;
-    border: 1px solid var(--links_border);
+    border: 1px solid var(--links-border);
     border-radius: $roundness;
-    background-color: var(--links_background);
+    background-color: var(--links-background);
     padding: 10px 20px;
     width: calc(100% - 20px);
-    color: var(--summary_text);
+    color: var(--summary-text);
     font-weight: 700;
     font-size: 0.95rem;
     font-family: "Onest", sans-serif;
@@ -197,13 +197,13 @@
 .search {
   &-input {
     filter: drop-shadow(0 3px 5px var(--shadow));
-    border: 1px solid var(--summary_border);
+    border: 1px solid var(--summary-border);
     border-radius: $roundness;
-    background-color: var(--summary_background);
+    background-color: var(--summary-background);
     padding-inline-start: 16px;
     padding-block: 8px;
     width: 100%;
-    color: var(--summary_text);
+    color: var(--summary-text);
     font-weight: 600;
 
     &::placeholder {
@@ -226,13 +226,13 @@
       flex-shrink: 0;
       align-items: center;
       filter: drop-shadow(0 3px 5px var(--shadow));
-      outline: 1px solid var(--summary_border);
+      outline: 1px solid var(--summary-border);
       border-radius: $roundness;
-      background-color: var(--summary_background);
+      background-color: var(--summary-background);
       padding: 10px;
       width: 40px;
       height: 40px;
-      color: var(--summary_text);
+      color: var(--summary-text);
     }
   }
 
@@ -243,10 +243,10 @@
     overflow-y: auto;
 
     mark {
-      outline: 1px solid var(--mark_border);
+      outline: 1px solid var(--mark-border);
       border-radius: $roundness * 0.5;
-      background-color: var(--mark_background);
-      color: var(--mark_text);
+      background-color: var(--mark-background);
+      color: var(--mark-text);
     }
   }
 
@@ -266,23 +266,23 @@
     z-index: 1000;
     transition: background-color 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
     cursor: pointer;
-    border-top: solid 1px var(--summary_border);
-    border-right: solid 1px var(--summary_border);
-    border-bottom: solid 4px var(--summary_border);
-    border-left: solid 1px var(--summary_border);
+    border-top: solid 1px var(--summary-border);
+    border-right: solid 1px var(--summary-border);
+    border-bottom: solid 4px var(--summary-border);
+    border-left: solid 1px var(--summary-border);
     border-radius: $roundness;
-    background-image: linear-gradient(to bottom, var(--summary_background), transparent);
-    background-color: var(--summary_background);
+    background-image: linear-gradient(to bottom, var(--summary-background), transparent);
+    background-color: var(--summary-background);
     padding: 10px 15px;
 
     &:hover {
-      background-color: var(--links_hover);
+      background-color: var(--links-hover);
     }
   }
 
   &-title {
     position: relative;
-    color: var(--summary_text);
+    color: var(--summary-text);
     font-weight: 800;
     font-size: 1.175rem;
     line-height: 1.25;
@@ -324,11 +324,11 @@
     outline: 1px solid var(--accent);
 
     .search-header {
-      background-color: var(--links_hover);
+      background-color: var(--links-hover);
     }
 
     .search-content {
-      background-color: var(--links_background);
+      background-color: var(--links-background);
     }
   }
 
@@ -387,12 +387,12 @@
       text-wrap: wrap;
       flex: 1 0 165px;
       transition: opacity 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
-      border: 1px solid var(--summary_border);
+      border: 1px solid var(--summary-border);
       border-radius: $roundness;
-      background-color: var(--summary_background);
+      background-color: var(--summary-background);
       padding-inline: 10px;
       padding-block: 5px;
-      color: var(--summary_text);
+      color: var(--summary-text);
       font-weight: 700;
       font-size: 0.9rem;
       font-family: "Onest", serif;
@@ -440,10 +440,10 @@
     mark {
       text-wrap: wrap;
       filter: saturate(0.5);
-      outline: solid 1px var(--summary_border);
-      background-color: var(--button_background);
+      outline: solid 1px var(--summary-border);
+      background-color: var(--button-background);
       padding: 2px 5px;
-      color: var(--summary_text);
+      color: var(--summary-text);
       font-weight: 700;
       font-size: 0.65rem;
       line-height: 1.25;
@@ -506,9 +506,9 @@
     justify-content: center;
     align-items: center;
     gap: 10px;
-    border: 1px solid var(--links_border);
+    border: 1px solid var(--links-border);
     border-radius: $roundness;
-    background-color: var(--links_background);
+    background-color: var(--links-background);
     padding: 10px;
     max-width: 100%;
     overflow-y: hidden;
@@ -522,7 +522,7 @@
     }
 
     &-selected {
-      background-color: var(--links_hover);
+      background-color: var(--links-hover);
     }
   }
 }

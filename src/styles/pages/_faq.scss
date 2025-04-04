@@ -17,7 +17,7 @@
   &-title {
     margin-inline: 15px;
     margin-block: 10px;
-    color: var(--summary_text);
+    color: var(--summary-text);
     font-weight: 700;
     font-size: 1.275rem;
     font-family: "Onest", sans-serif;
@@ -62,12 +62,12 @@
     transition: background-color 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
     cursor: pointer;
     margin-block: min(calc(5px + (8 - 5) * ((100vw - 320px) / (768 - 320))), 8px);
-    border: solid 1px var(--summary_border);
+    border: solid 1px var(--summary-border);
     border-bottom-width: 4px;
     border-radius: $roundness;
-    background-color: var(--summary_background);
+    background-color: var(--summary-background);
     padding: 10px 15px;
-    color: var(--summary_text);
+    color: var(--summary-text);
     font-weight: 700;
     font-size: min(
       calc(1.175rem + (1.275 - 1.175) * ((100vw - 320px) / (768 - 320))),
@@ -89,13 +89,13 @@
     }
 
     .copy_button {
-      fill: var(--summary_text);
+      fill: var(--summary-text);
       width: min(calc(18px + (20 - 18) * ((100vw - 320px) / (768 - 320))), 20px);
       height: min(calc(18px + (20 - 18) * ((100vw - 320px) / (768 - 320))), 20px);
     }
 
     &:hover {
-      background-color: var(--links_hover);
+      background-color: var(--links-hover);
     }
   }
 
@@ -112,12 +112,12 @@
       position: relative;
       filter: drop-shadow(0 3px 5px var(--shadow));
       margin-block: 10px;
-      border: solid 1px var(--summary_border);
+      border: solid 1px var(--summary-border);
       border-bottom-width: 4px;
       border-radius: $roundness;
-      background-color: var(--summary_background);
+      background-color: var(--summary-background);
       padding: 10px 15px;
-      color: var(--summary_text);
+      color: var(--summary-text);
       font-weight: 700;
       font-size: 1.275rem;
       font-family: "Onest", sans-serif;
@@ -139,9 +139,9 @@
     .ant-divider-inner-text {
       text-wrap: stable;
       opacity: 1;
-      outline: 1px solid var(--summary_border);
+      outline: 1px solid var(--summary-border);
       border-radius: $roundness * 0.75;
-      background-color: var(--summary_background);
+      background-color: var(--summary-background);
       padding: 6px 9px;
       width: 100%;
       max-width: fit-content;
@@ -189,12 +189,12 @@
         margin-right: auto;
         margin-left: 10px;
         margin-block: 10px;
-        border: 1px solid var(--mark_border);
+        border: 1px solid var(--mark-border);
         border-radius: $roundness * 0.75;
-        background-color: var(--mark_background);
+        background-color: var(--mark-background);
         padding: 10px;
         max-width: 70%;
-        color: var(--mark_text);
+        color: var(--mark-text);
         font-size: 0.875rem;
         line-height: 1.15;
         text-align: left;
@@ -205,12 +205,12 @@
         margin-right: 10px;
         margin-left: auto;
         margin-block: 10px;
-        border: 1px solid var(--mark_border);
+        border: 1px solid var(--mark-border);
         border-radius: $roundness * 0.75;
-        background-color: var(--mark_background);
+        background-color: var(--mark-background);
         padding: 10px;
         max-width: 70%;
-        color: var(--mark_text);
+        color: var(--mark-text);
         font-size: 0.875rem;
         line-height: 1.15;
         text-align: right;
@@ -331,12 +331,12 @@
     vertical-align: middle;
     transition: opacity 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
     margin-block: 0;
-    border: 2px solid var(--summary_border);
+    border: 2px solid var(--summary-border);
     border-radius: $roundness;
-    background-color: var(--summary_background);
+    background-color: var(--summary-background);
     padding-inline: 10px;
     padding-block: 5px;
-    color: var(--summary_text);
+    color: var(--summary-text);
     font-weight: 700;
     font-size: 1rem;
     line-height: 1.5;
@@ -400,11 +400,11 @@ mark {
   filter: saturate(75%);
   margin-inline: 1px;
   margin-block: 2px;
-  outline: 1px solid var(--mark_border);
+  outline: 1px solid var(--mark-border);
   border-radius: $roundness * 0.5;
-  background-color: var(--mark_background);
+  background-color: var(--mark-background);
   padding: 2px 3px 2px 3px;
-  color: var(--mark_text);
+  color: var(--mark-text);
   font-weight: 600;
   font-size: 0.95em;
 
@@ -439,7 +439,7 @@ mark {
       margin-block: 1px;
       background-size: contain;
       background-repeat: no-repeat;
-      background-color: var(--mark_text);
+      background-color: var(--mark-text);
       width: min(calc(13px + (15 - 13) * ((100vw - 320px) / (768 - 320))), 15px);
       height: min(calc(13px + (15 - 13) * ((100vw - 320px) / (768 - 320))), 15px);
       content: "";

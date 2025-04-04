@@ -40,11 +40,11 @@ const Header: React.FC<{title: string}> = ({title}) => {
       exit={{opacity: 0}}
       initial={{opacity: 0}}
       style={{
-        backgroundColor: "var(--header_background)",
+        backgroundColor: "var(--header-background)",
         backdropFilter: "blur(15px) saturate(50%)",
         WebkitBackdropFilter: "blur(15px)",
-        boxShadow: "0 0 15px 0 var(--header_shadow)",
-        outline: "1px solid var(--header_border)",
+        boxShadow: "0 0 15px 0 var(--header-shadow)",
+        outline: "1px solid var(--header-border)",
         translate: "0 0 0",
       }}
       transition={{duration: 0.5, ease: [0.075, 0.82, 0.165, 1]}}

@@ -4,7 +4,7 @@ table {
   box-sizing: border-box;
   margin: 10px;
   border-collapse: collapse;
-  background-color: var(--table_background);
+  background-color: var(--table-background);
   width: calc(100% - 20px);
   font-size: 0.875rem;
 }
@@ -30,7 +30,7 @@ table {
 td,
 th {
   vertical-align: middle;
-  outline: 1px solid var(--table_background-border);
+  outline: 1px solid var(--table-background-border);
   padding: 5px 10px;
   text-align: center;
 
@@ -43,7 +43,7 @@ th {
 }
 
 thead {
-  background-color: var(--mark_background);
-  color: var(--mark_text);
+  background-color: var(--mark-background);
+  color: var(--mark-text);
   font-weight: 700;
 }

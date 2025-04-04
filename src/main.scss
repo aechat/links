@@ -21,7 +21,7 @@ body {
   background: var(--background-color);
   padding: 0;
   scroll-padding-top: var(--header-height);
-  scrollbar-color: var(--summary_border) var(--content-background-color);
+  scrollbar-color: var(--summary-border) var(--content-background-color);
   scrollbar-width: thin;
   color: var(--text-color);
   user-select: none;
@@ -32,7 +32,7 @@ body {
 
   &::-webkit-scrollbar-thumb {
     border-radius: $roundness;
-    background-color: var(--summary_background);
+    background-color: var(--summary-background);
   }
 
   &::-webkit-scrollbar-track {

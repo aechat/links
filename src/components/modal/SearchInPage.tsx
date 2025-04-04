@@ -115,7 +115,7 @@ export const WideSearchButton: React.FC = () => {
       <div className="wide-search-button">
         {" "}
         <Search />
-        Поиск по странице<mark>Ctrl + F</mark>
+        Поиск по странице <mark>Ctrl + F</mark>
       </div>
     </button>
   );
@@ -605,7 +605,7 @@ export const SearchInPage: React.FC<{sections: Array<{id: string; title: string}
                     По вашему запросу на этой странице{" "}
                     <span
                       style={{
-                        color: "var(--summary_text)",
+                        color: "var(--summary-text)",
                         fontWeight: 800,
                         fontStyle: "italic",
                         marginInlineEnd: "3px",

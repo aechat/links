@@ -7,8 +7,8 @@ const themeConfig = {
       separatorColor: "var(--accent)",
     },
     Divider: {
-      colorTextHeading: "var(--summary_text)",
-      colorSplit: "var(--summary_border)",
+      colorTextHeading: "var(--summary-text)",
+      colorSplit: "var(--summary-border)",
       fontSizeLG: 15,
     },
     Slider: {
@@ -19,7 +19,7 @@ const themeConfig = {
       dotBorderColor: "var(--accent)",
       railBg: "var(--content-background-border)",
       railHoverBg: "var(--content-background-border)",
-      trackBg: "var(--links_border)",
+      trackBg: "var(--links-border)",
       trackHoverBg: "var(--accent)",
     },
     Tooltip: {

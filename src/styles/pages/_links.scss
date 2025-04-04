@@ -29,8 +29,8 @@
     &:hover {
       z-index: 25;
       cursor: pointer;
-      outline-color: var(--links_border);
-      background-color: var(--links_hover);
+      outline-color: var(--links-border);
+      background-color: var(--links-hover);
     }
 
     .name_container {
@@ -40,10 +40,10 @@
       align-items: stretch;
       vertical-align: middle;
       box-sizing: border-box;
-      outline: 1px solid var(--links_border);
+      outline: 1px solid var(--links-border);
       border-radius: $roundness * 0.75;
-      background-image: linear-gradient(to top, var(--summary_background), transparent);
-      background-color: var(--links_background);
+      background-image: linear-gradient(to top, var(--summary-background), transparent);
+      background-color: var(--links-background);
       padding-inline: 10px;
       padding-block: 5px;
 
@@ -53,7 +53,7 @@
         margin-block: 3px;
         width: min(calc(18px + (20 - 18) * ((100vw - 320px) / (768 - 320))), 20px);
         height: min(calc(18px + (20 - 18) * ((100vw - 320px) / (768 - 320))), 20px);
-        color: var(--links_text);
+        color: var(--links-text);
 
         path {
           margin-block: auto;
@@ -62,7 +62,7 @@
 
       .name {
         margin: 3px;
-        color: var(--links_text);
+        color: var(--links-text);
         font-weight: 700;
         font-size: 1.15rem;
         font-family: "Onest", sans-serif;

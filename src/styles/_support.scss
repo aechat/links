@@ -94,11 +94,11 @@
     filter 0.35s cubic-bezier(0.075, 0.82, 0.165, 1);
   cursor: pointer;
   margin-block: 10px;
-  border: 1px solid var(--mark_border);
+  border: 1px solid var(--mark-border);
   border-radius: $roundness * 0.5;
-  background-color: var(--mark_background);
+  background-color: var(--mark-background);
   padding: 5px 10px;
-  color: var(--mark_text);
+  color: var(--mark-text);
   font-weight: 700;
   font-size: 1.125rem;
   text-align: center;

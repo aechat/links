@@ -124,7 +124,7 @@ li > .addition-danger,
 
   &-info {
     outline: 1px solid var(--addition_info-border);
-    background-color: var(--addition_info);
+    background-color: var(--addition_info-background);
     color: var(--addition_info-text);
 
     .change_os {
@@ -168,7 +168,7 @@ li > .addition-danger,
 
   &-warning {
     outline: 1px solid var(--addition_warning-border);
-    background-color: var(--addition_warning);
+    background-color: var(--addition_warning-background);
     color: var(--addition_warning-text);
 
     a {
@@ -201,7 +201,7 @@ li > .addition-danger,
 
   &-danger {
     outline: 1px solid var(--addition_danger-border);
-    background-color: var(--addition_danger);
+    background-color: var(--addition_danger-background);
     color: var(--addition_danger-text);
 
     a {
@@ -242,11 +242,11 @@ li > .addition-danger,
   filter: saturate(0.5);
   margin: 10px;
   margin-block: 15px;
-  outline: 1px solid var(--summary_border);
+  outline: 1px solid var(--summary-border);
   border-radius: $roundness;
-  background-color: var(--summary_background);
+  background-color: var(--summary-background);
   padding: 10px 15px;
-  color: var(--summary_text);
+  color: var(--summary-text);
   font-size: 0.9375rem;
   line-height: 1.5;
 
@@ -254,10 +254,10 @@ li > .addition-danger,
     opacity: 0.75;
     transition: opacity 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
     margin-inline-start: 5px;
-    outline: 1px solid var(--summary_border);
+    outline: 1px solid var(--summary-border);
     border-radius: $roundness * 0.5;
     padding: 5px 8px;
-    color: var(--summary_text);
+    color: var(--summary-text);
     font-weight: 600;
     font-size: 0.85rem;
     line-height: 1.25;

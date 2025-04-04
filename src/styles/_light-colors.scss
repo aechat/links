@@ -1,0 +1,53 @@
+$light: (
+  // ~: стандартные цвета:
+  background-color: hsl(0, 0%, 92.5%),
+  background-color-alpha: hsla(0, 0%, 95%, 0.35),
+  text-color: hsl(0, 0%, 20%),
+  content-background-color: hsl(0, 0%, 100%),
+  content-background-border: hsl(0, 0%, 90%),
+  header-background: hsla(0, 0%, 100%, 0.75),
+  // ~: банковские цвета:
+  sber-background: hsl(130, calc(45% * var(--saturate-ratio)), 90%),
+  sber-text: hsl(130, calc(50% * var(--saturate-ratio)), 30%),
+  sber-hover: hsl(130, calc(50% * var(--saturate-ratio)), 85%),
+  sber-border: hsl(130, calc(75% * var(--saturate-ratio)), 80%),
+  yoomoney-background: hsl(257, calc(75% * var(--saturate-ratio)), 95%),
+  yoomoney-text: hsl(257, calc(50% * var(--saturate-ratio)), 25%),
+  yoomoney-hover: hsl(257, calc(50% * var(--saturate-ratio)), 85%),
+  yoomoney-border: hsl(257, calc(90% * var(--saturate-ratio)), 85%),
+  // ~: с применением акцентного цвета:
+  accent: hsl(var(--accent-hue), calc(65% * var(--saturate-ratio)), 45%),
+  mark-background: hsl(var(--accent-hue), calc(75% * var(--saturate-ratio)), 97%),
+  mark-text: hsl(var(--accent-hue), calc(50% * var(--saturate-ratio)), 25%),
+  mark-border: hsl(var(--accent-hue), calc(90% * var(--saturate-ratio)), 85%),
+  button-background: hsl(var(--accent-hue), calc(50% * var(--saturate-ratio)), 95%),
+  button-border: hsl(var(--accent-hue), calc(50% * var(--saturate-ratio)), 85%),
+  header-border: hsla(var(--accent-hue), calc(35% * var(--saturate-ratio)), 80%, 0.5),
+  // *: стили summary
+  summary-background: hsl(var(--accent-hue), calc(41% * var(--saturate-ratio)), 97%),
+  summary-border: hsl(var(--accent-hue), calc(35% * var(--saturate-ratio)), 80%),
+  summary-text: hsl(var(--accent-hue), calc(85% * var(--saturate-ratio)), 40%),
+  // *: стили кнопок главной страницы
+  links-background: hsl(var(--accent-hue), calc(41% * var(--saturate-ratio)), 97%),
+  links-border: hsl(var(--accent-hue), calc(35% * var(--saturate-ratio)), 80%),
+  links-hover: hsl(var(--accent-hue), calc(75% * var(--saturate-ratio)), 92.5%),
+  links-text: hsl(var(--accent-hue), calc(85% * var(--saturate-ratio)), 40%),
+  // ~: информационные блоки:
+  addition_info-background: hsl(200, calc(100% * var(--saturate-ratio)), 96.5%),
+  addition_info-border: hsl(200, calc(70% * var(--saturate-ratio)), 87.5%),
+  addition_info-text: hsl(200, calc(75% * var(--saturate-ratio)), 25%),
+  addition_info-mark: hsl(200, calc(70% * var(--saturate-ratio)), 87.5%),
+  // ~: предупреждающие блоки:
+  addition_warning-background: hsl(50, calc(100% * var(--saturate-ratio)), 96%),
+  addition_warning-border: hsl(50, calc(70% * var(--saturate-ratio)), 80%),
+  addition_warning-text: hsl(50, calc(100% * var(--saturate-ratio)), 20%),
+  addition_warning-mark: hsl(50, calc(75% * var(--saturate-ratio)), 85%),
+  // ~: остерегающие блоки:
+  addition_danger-background: hsl(0, calc(100% * var(--saturate-ratio)), 96%),
+  addition_danger-border: hsl(0, calc(70% * var(--saturate-ratio)), 87.5%),
+  addition_danger-text: hsl(0, calc(75% * var(--saturate-ratio)), 25%),
+  addition_danger-mark: hsl(0, calc(80% * var(--saturate-ratio)), 87.5%),
+  // *: стили таблицы
+  table-background: hsl(0, calc(0% * var(--saturate-ratio)), 95%),
+  table-background-border: hsl(0, calc(0% * var(--saturate-ratio)), 90%)
+);

@@ -15,7 +15,7 @@
     border 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
   border-bottom-right-radius: $roundness * 1.5;
   border-bottom-left-radius: $roundness * 1.5;
-  background-color: var(--header_background);
+  background-color: var(--header-background);
   padding-inline: 15px;
   width: calc(100% - 8px);
   max-width: 1075px;
@@ -82,11 +82,11 @@
   display: flex;
   align-items: center;
   gap: 6px;
-  outline: 1px solid var(--summary_border);
+  outline: 1px solid var(--summary-border);
   border-radius: $roundness * 0.75;
-  background: var(--header_background);
+  background: var(--header-background);
   padding: 5px;
-  color: var(--mark_text);
+  color: var(--mark-text);
   font-weight: 300;
   font-size: 0.825rem;
 
