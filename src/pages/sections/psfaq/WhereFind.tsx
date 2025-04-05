@@ -52,11 +52,13 @@ const PSWhereFind: React.FC = () => {
           <li>
             <a href="https://t.me/+Qd9xu7A4TeIwNzY6">склад стройматериалов</a> - канал с
             творческими программами, утилитами и плагинами к различным программам по
-            демократичным ценам для пользователей компьютеров на базе Windows.
+            демократичным ценам для пользователей компьютеров на базе <mark>Windows</mark>
+            .
           </li>
           <li>
             <a href="https://t.me/+ZqiaMfQRFgM4YmEy">Яблоневый сад</a> - аналогичный канал
-            с программами, как склад, но для пользователей устройств на macOS.
+            с программами, как склад, но для пользователей устройств на <mark>macOS</mark>
+            .
           </li>
         </ul>
         <AdditionInfo>
@@ -170,7 +172,8 @@ const PSWhereFind: React.FC = () => {
           <li>
             Вы можете развернуть локальный <mark className="app">Stable Diffusion</mark> и
             использовать его в качестве плагина для <mark className="app">Photoshop</mark>
-            . Данный способ требует хорошей видеокарты с объёмом VRAM не менее 8 Гб.
+            . Данный способ требует хорошей видеокарты с объёмом VRAM не менее{" "}
+            <mark>8 гигабайт</mark>.
           </li>
           <li>
             Либо вы можете воспользоваться различными онлайн-сервисами по генерации
@@ -199,9 +202,11 @@ const PSWhereFind: React.FC = () => {
         </p>
         <Divider>Связываем Stable Diffusion с Photoshop</Divider>
         <AdditionWarning>
-          Действия проделываются на устройстве с операционной системой Windows. Способ
-          соединения <mark className="app">Stable Diffusion</mark> и{" "}
-          <mark className="app">Photoshop</mark> на устройствах с macOS не проверялся.
+          Действия проделываются на устройстве с операционной системой{" "}
+          <mark>Windows</mark>. Способ соединения{" "}
+          <mark className="app">Stable Diffusion</mark> и{" "}
+          <mark className="app">Photoshop</mark> на устройствах с <mark>macOS</mark> не
+          проверялся.
         </AdditionWarning>
         <p>
           Для начала нам нужно загрузить сам <mark className="app">Stable Diffusion</mark>
@@ -210,7 +215,7 @@ const PSWhereFind: React.FC = () => {
           <a href="https://github.com/LykosAI/StabilityMatrix/releases">
             страницы релизов на GitHub
           </a>
-          . Он доступен для Windows и macOS.
+          . Он доступен для <mark>Windows</mark> и <mark>macOS</mark>.
         </p>
         <AdditionInfo>
           Если у вас уже установлен <mark className="app">Stable Diffusion</mark>, то вы
@@ -236,9 +241,9 @@ const PSWhereFind: React.FC = () => {
               моделей для генерации изображений.
             </li>
             <li>
-              Рекомендуется иметь не менее 20-30 Гб свободного места на накопителе, так
-              как среднестатистическая модель Stable Diffusion занимает около 4-8 Гб в
-              зависимости от типа модели.
+              Рекомендуется иметь не менее <mark>20-30 гигабайт</mark> свободного места на
+              накопителе, так как среднестатистическая модель Stable Diffusion занимает
+              около <mark>4-8 гигабайт</mark> в зависимости от типа модели.
             </li>
             <li>
               {" "}

@@ -34,15 +34,16 @@ const AEPerformance: React.FC = () => {
               <ul>
                 <li>
                   Для корректной установки и запуска программы требуется установленная
-                  операционная система минимум macOS <mark>Monterey</mark> (12.X.X) или
+                  операционная система минимум <mark>macOS Monterey</mark> (12.X.X) или
                   новее.
                   <AdditionWarning>
                     <ul>
                       <li>
                         {" "}
-                        Поддержка macOS Big Sur (11.X) прекращена, вы можете установить
-                        последнюю версию <mark className="app">After Effects</mark> для
-                        вас - <mark>23.6</mark>.
+                        Поддержка <mark>macOS Big Sur</mark> (11.X) прекращена, вы можете
+                        установить последнюю версию{" "}
+                        <mark className="app">After Effects</mark> для вас -{" "}
+                        <mark>23.6</mark>.
                       </li>
                       <li>
                         <mark className="app">After Effects</mark> версий{" "}
@@ -94,10 +95,11 @@ const AEPerformance: React.FC = () => {
             <div>
               <ul>
                 <li>
-                  Для корректной установки и запуска программы требуется Windows 10
-                  (64-битная) версии <mark>22H2</mark> или Windows 11 версии минимум{" "}
-                  <mark>21H2</mark>, желательно <mark>23H2</mark> или <mark>24H2</mark>.
-                  Также рекомендуется обновить пакеты{" "}
+                  Для корректной установки и запуска программы требуется{" "}
+                  <mark>Windows 10</mark>
+                  (64-битная) версии <mark>22H2</mark> или <mark>Windows 11</mark> версии
+                  минимум <mark>21H2</mark>, желательно <mark>23H2</mark> или{" "}
+                  <mark>24H2</mark>. Также рекомендуется обновить пакеты{" "}
                   <a href="https://github.com/abbodi1406/vcredist/releases">
                     Microsoft Visual C++ Redistributable
                   </a>{" "}
@@ -106,26 +108,27 @@ const AEPerformance: React.FC = () => {
                   <AdditionWarning>
                     <ul>
                       <li>
-                        С ноября 2025 поддержка Windows 10 <mark>22H2</mark> закончится и,{" "}
-                        <i>предварительно</i>, свежие версии{" "}
-                        <mark className="app">After Effects</mark> от <mark>2026</mark>{" "}
-                        будут недоступны к установке.{" "}
+                        С ноября 2025 поддержка <mark>Windows 10</mark> версии{" "}
+                        <mark>22H2</mark> закончится и, <i>предварительно</i>, свежие
+                        версии <mark className="app">After Effects</mark> от{" "}
+                        <mark>2026</mark> будут недоступны к установке.{" "}
                         <i style={{opacity: 0.5}}>
                           Почему предварительно? Потому что <mark>Adobe</mark> прекратила
-                          выпуск новых версий <mark>After Effects</mark> для Windows 7 и
-                          Windows 8.1 (для него раньше, в одно время с отключением
-                          поддержки &quot;семёрки&quot;) после их официальной поддержки{" "}
+                          выпуск новых версий <mark>After Effects</mark> для{" "}
+                          <mark>Windows 7</mark> и <mark>Windows 8.1</mark> (для него
+                          раньше, в одно время с отключением поддержки
+                          &quot;семёрки&quot;) после их официальной поддержки{" "}
                           <mark>Майкрософтом</mark> и есть причина подозревать в скорой
                           отключении поддержки &quot;устаревшей&quot; операционной системы
                           в ближайшее время.
                         </i>
                       </li>
                       <li>
-                        На Windows 10 версии <mark>21H2</mark> и ниже вы не сможете
-                        установить <mark className="app">After Effects 2024</mark>. Для
-                        решения проблемы - обновите систему до более свежего билда. Если у
-                        вас стоит редакция <mark>LTSC</mark> - переустановите систему с
-                        нуля или установите последнюю версию{" "}
+                        На <mark>Windows 10</mark> версии <mark>21H2</mark> и ниже вы не
+                        сможете установить <mark className="app">After Effects 2024</mark>
+                        . Для решения проблемы - обновите систему до более свежего билда.
+                        Если у вас стоит редакция <mark>LTSC</mark> - переустановите
+                        систему с нуля или установите последнюю версию{" "}
                         <mark className="app">After Effects</mark> для вас -{" "}
                         <mark>23.6</mark>.
                       </li>
@@ -404,13 +407,10 @@ const AEPerformance: React.FC = () => {
               <mark className="ui">Multi-Frame Rendering</mark>, либо ограничьте
               использование оперативной памяти, увеличив значение{" "}
               <mark className="ui">RAM reserved for other applications</mark> в
-              настройках. Также{" "}
-              <a href="https://remontka.pro/fail-podkachki-windows/">
-                настройте файл подкачки
-              </a>
-              , если у вас устройство на Windows и установите программу{" "}
+              настройках. Также Если у вас устройство на <mark>Windows</mark> -{" "}
+              <a href="#4.8">настройте файл подачки</a> и установите программу{" "}
               <a href="https://github.com/henrypp/memreduct/releases">Mem Reduct</a> для
-              периодической очистки ОЗУ.
+              периодической очистки оперативной памяти.
             </li>
             <li>
               Пожалуйста,{" "}

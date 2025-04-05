@@ -122,8 +122,8 @@ const AEFromNewbies: React.FC = () => {
             <mark className="file">.avi</mark> или <mark className="file">.webm</mark>, в
             которые вы можете закодировать видео с кодеком, который поддерживает
             альфа-канал. Однако, будьте осторожны с <mark className="file">.mp4</mark>: в
-            него нельзя запаковать альфа-канал, кроме как через устройство на macOS, но
-            это уже другая история.
+            него нельзя запаковать альфа-канал, кроме как через устройство на{" "}
+            <mark>macOS</mark>, но это уже другая история.
             <AdditionInfo>
               Если хотите узнать больше об альфа-канале, то{" "}
               <a href="https://ru.wikipedia.org/wiki/%D0%90%D0%BB%D1%8C%D1%84%D0%B0-%D0%BA%D0%B0%D0%BD%D0%B0%D0%BB">
@@ -180,9 +180,8 @@ const AEFromNewbies: React.FC = () => {
                 <mark className="word">Constant Quantization</mark> - это метод сжатия
                 видео, с помощью которого уровень качества изображения сохраняется
                 постоянным на протяжении всего видео, независимо от его сложности. Чем
-                меньше значение
-                <mark>CQ</mark>, тем лучше качество изображения, но больше вес. Обычно
-                хватает значения <mark>23</mark> для большинства случаев.
+                меньше значение <mark>CQ</mark>, тем лучше качество изображения, но больше
+                вес. Обычно хватает значения <mark>23</mark> для большинства случаев.
               </li>
               <li>
                 <mark className="word">Lossless</mark> - кодирование данных без потерь. В
@@ -540,10 +539,10 @@ const AEFromNewbies: React.FC = () => {
             </AdditionInfo>
           </li>
           <li>
-            <mark className="word">Плагин</mark> - подключаемые (встроенные или сторонние)
-            эффекты с расширением <mark className="file">.aex</mark> (Windows) или{" "}
-            <mark className="file">.plugin</mark> (macOS). Часто применяется с выражением
-            &quot;где скачать?&quot;.
+            <mark className="word">Плагин</mark> - подключаемые, обычно встроенные или
+            сторонние эффекты с расширением <mark className="file">.aex</mark> для{" "}
+            <mark>Windows</mark> или <mark className="file">.plugin</mark> для{" "}
+            <mark>macOS</mark>. Часто применяется с выражением &quot;где скачать?&quot;.
           </li>
           <li>
             <mark className="word">Плейхед</mark> - вертикальная временная метка,
@@ -582,8 +581,8 @@ const AEFromNewbies: React.FC = () => {
             <AdditionInfo>
               Чтобы его скачать, вам нужно зарегистрироваться на сайте{" "}
               <a href="https://aescripts.com">aescripts</a> и на странице с плагином
-              указать цену 0. После этого данный плагин появится в ваших заказах и вы
-              можете оттуда его скачать.
+              указать цену <mark>0</mark>. После этого данный плагин появится в ваших
+              заказах и вы можете оттуда его скачать.
             </AdditionInfo>
           </li>
           <li>
@@ -823,7 +822,8 @@ const AEFromNewbies: React.FC = () => {
               >
                 REG-патч
               </a>{" "}
-              (Windows) или ввели нужные команды для их активации в терминале (macOS).
+              для <mark>Windows</mark> или ввели нужные команды для их активации в
+              терминале для <mark>macOS</mark>.
             </AdditionInfo>
           </li>
         </ul>
@@ -838,9 +838,10 @@ const AEFromNewbies: React.FC = () => {
           комбинации.
         </p>
         <AdditionInfo>
-          В таблице приведены комбинации для устройств на Windows. На macOS{" "}
-          <mark className="key">Ctrl</mark> равен <mark className="key">Command</mark>, а{" "}
-          <mark className="key">Alt</mark> равен <mark className="key">Option</mark>.
+          В таблице приведены комбинации для устройств на <mark>Windows</mark>. На{" "}
+          <mark>macOS</mark> <mark className="key">Ctrl</mark> равен{" "}
+          <mark className="key">Command</mark>, а <mark className="key">Alt</mark> равен{" "}
+          <mark className="key">Option</mark>.
         </AdditionInfo>
         <Divider>Работа с файлами и проектом</Divider>
         <table>
@@ -2562,8 +2563,8 @@ const AEFromNewbies: React.FC = () => {
         <AdditionInfo>
           <sup>*</sup>Чтобы скачать скрипт - зарегистрируйтесь на сайте{" "}
           <a href="https://aescripts.com">aescripts</a>, вернитесь на страницу с плагином,
-          установите цену 0 в <mark className="ui">Name Your Own Price</mark>, добавьте
-          его в корзину и подтвердите заказ. Нужный плагин появится{" "}
+          установите цену <mark>0</mark> в <mark className="ui">Name Your Own Price</mark>
+          , добавьте его в корзину и подтвердите заказ. Нужный плагин появится{" "}
           <a href="https://aescripts.com/downloadable/customer/products/">
             в вашем профиле
           </a>{" "}

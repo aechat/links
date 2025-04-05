@@ -556,8 +556,8 @@ const AEActions: React.FC = () => {
                 <a href="https://brew.sh/">Что ещё за Homebrew?</a>
               </AdditionWarning>
               <p>
-                Для установки <mark className="app">FFmpeg</mark> на устройство с macOS -
-                достаточно выполнить команду{" "}
+                Для установки <mark className="app">FFmpeg</mark> на устройство с{" "}
+                <mark>macOS</mark> - достаточно выполнить команду{" "}
                 <mark className="code">brew install ffmpeg</mark>.
               </p>
             </div>
@@ -908,8 +908,8 @@ const AEActions: React.FC = () => {
         <AdditionInfo>
           <sup>*</sup>Чтобы скачать скрипт - зарегистрируйтесь на сайте{" "}
           <a href="https://aescripts.com">aescripts</a>, вернитесь на страницу с плагином,
-          установите цену 0 в <mark className="ui">Name Your Own Price</mark>, добавьте
-          его в корзину и подтвердите заказ. Нужный плагин появится{" "}
+          установите цену <mark>0</mark> в <mark className="ui">Name Your Own Price</mark>
+          , добавьте его в корзину и подтвердите заказ. Нужный плагин появится{" "}
           <a href="https://aescripts.com/downloadable/customer/products/">
             в вашем профиле
           </a>{" "}
@@ -936,8 +936,8 @@ const AEActions: React.FC = () => {
         <AdditionInfo>
           <sup>*</sup>Чтобы скачать скрипт - зарегистрируйтесь на сайте{" "}
           <a href="https://aescripts.com">aescripts</a>, вернитесь на страницу с плагином,
-          установите цену 0 в <mark className="ui">Name Your Own Price</mark>, добавьте
-          его в корзину и подтвердите заказ. Нужный плагин появится{" "}
+          установите цену <mark>0</mark> в <mark className="ui">Name Your Own Price</mark>
+          , добавьте его в корзину и подтвердите заказ. Нужный плагин появится{" "}
           <a href="https://aescripts.com/downloadable/customer/products/">
             в вашем профиле
           </a>{" "}

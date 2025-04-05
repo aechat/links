@@ -192,7 +192,7 @@ const AEExport: React.FC = () => {
             Вес полученного файла не должен превышать <mark>75 Мб</mark>, если вы
             собираетесь выкладывать видео с устройства на Android. Или не превышать{" "}
             <mark>250 Мб</mark>, если вы собираетесь выкладывать видео с устройства на
-            iOS.
+            <mark>iOS</mark>.
           </li>
           <li>
             Контейнер у видео должен быть <mark className="file">.mp4</mark>.
@@ -387,22 +387,25 @@ const AEExport: React.FC = () => {
         </p>
         <ul>
           <li>
-            Через встроенный кодек <mark className="plugin">H.264</mark>. Доступен только
-            на <mark className="app">After Effects</mark> версий 2023 или новее.
+            С помощью встроенного кодека <mark className="plugin">H.264</mark>. Он
+            доступен только на <mark className="app">After Effects</mark> версий{" "}
+            <mark>2023</mark> и новее.
           </li>
           <li>
-            Через сторонний плагин <mark className="plugin">Voukoder</mark>. Доступен
-            только для Windows, поддержка устройств на macOS косвенно присутствует с
-            версий Voukoder Pro 2.0 и новее, но мы его рассматривать не будем.
+            С помощью стороннего плагина <mark className="plugin">Voukoder</mark>.
+            Доступен для устройств на <mark>Windows</mark>. Поддержка устройств на{" "}
+            <mark>macOS</mark> косвенно присутствует с версий{" "}
+            <mark className="app">Voukoder Pro 2.0</mark> и новее, но эту версию в этом
+            пункте рассматривать не будем.
           </li>
           <li>
-            Через сторонний плагин <mark className="plugin">AfterCodecs</mark>. Доступен
-            для Windows и macOS, а также поддерживает достаточно много старых версий
-            программы.
+            С помощью стороннего плагина <mark className="plugin">AfterCodecs</mark>.
+            Доступен для <mark>Windows</mark> и <mark>macOS</mark>, а также поддерживает
+            достаточно много старых версий <mark className="app">After Effects</mark>.
           </li>
         </ul>
         <AdditionWarning>
-          Через кодеки <mark className="video">H.264</mark> и{" "}
+          С помощью кодеков <mark className="video">H.264</mark> и{" "}
           <mark className="video">H.265</mark> нельзя вывести видео с альфа-каналом, то
           есть с прозрачностью. Для вывода видео на прозрачном фоне воспользуйтесь
           форматами <mark className="video">Quicktime - Apple Prores 4444</mark> или{" "}
@@ -494,8 +497,8 @@ const AEExport: React.FC = () => {
         </p>
         <AdditionWarning>
           Демонстрируемая версия плагина <mark className="plugin">Voukoder</mark>{" "}
-          недоступна на устройствах с macOS. Чтобы подключить плагин к программе, нужно
-          скачать и установить{" "}
+          недоступна на устройствах с <mark>macOS</mark>. Чтобы подключить плагин к
+          программе, нужно скачать и установить{" "}
           <a href="https://github.com/Vouk/voukoder/releases/download/13.4.1/voukoder-13.4.1.msi">
             сам Voukoder
           </a>{" "}
@@ -749,7 +752,8 @@ const AEExport: React.FC = () => {
         </p>
         <AdditionWarning>
           Имейте ввиду, что поддержка <mark className="video">WebM</mark> на прозрачном
-          фоне в <mark className="app">Safari</mark> для устройств на iOS и macOS
+          фоне в <mark className="app">Safari</mark> для устройств на <mark>iOS</mark> и{" "}
+          <mark>macOS</mark>
           отсутствует, там будет отображаться чёрный фон вместо прозрачности.
         </AdditionWarning>
       </DetailsSummary>
@@ -892,7 +896,7 @@ const AEExport: React.FC = () => {
           styleClass="figure_windows-light"
         />
         <AdditionWarning>
-          Максимальный размер файла, который можно загрузить в сервис, не должен превышать
+          Максимальный размер файла, который можно загрузить в сервис, не должен превышать{" "}
           <mark>200 Мб</mark>. Максимальная длина не должна превышать 60 секунд для
           конвертации в <mark>5 FPS</mark>
           или 15 секунд для конвертации в <mark>20 FPS</mark>.
@@ -921,7 +925,7 @@ const AEExport: React.FC = () => {
         <AdditionWarning>
           В <mark className="video">H.264</mark> и <mark className="file">.mp4</mark>{" "}
           нельзя вывести композицию с альфа-каналом. Это можно сделать только на
-          устройствах с macOS и при использовании кодека{" "}
+          устройствах с <mark>macOS</mark> и при использовании кодека{" "}
           <mark className="video">H.265 (HEVC)</mark>.
         </AdditionWarning>
         <p>

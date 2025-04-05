@@ -705,8 +705,8 @@ const AEImport: React.FC = () => {
         <AdditionInfo>
           <sup>*</sup>Чтобы скачать скрипт - зарегистрируйтесь на сайте{" "}
           <a href="https://aescripts.com">aescripts</a>, вернитесь на страницу с плагином,
-          установите цену 0 в <mark className="ui">Name Your Own Price</mark>, добавьте
-          его в корзину и подтвердите заказ. Нужный плагин появится{" "}
+          установите цену <mark>0</mark> в <mark className="ui">Name Your Own Price</mark>
+          , добавьте его в корзину и подтвердите заказ. Нужный плагин появится{" "}
           <a href="https://aescripts.com/downloadable/customer/products/">
             в вашем профиле
           </a>{" "}

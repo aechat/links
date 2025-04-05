@@ -94,9 +94,10 @@ const PRFromNewbies: React.FC = () => {
           .
         </AdditionWarning>
         <AdditionInfo>
-          В таблице приведены комбинации для устройств на Windows. На macOS{" "}
-          <mark className="key">Ctrl</mark> равен <mark className="key">Command</mark>, а{" "}
-          <mark className="key">Alt</mark> равен <mark className="key">Option</mark>.
+          В таблице приведены комбинации для устройств на <mark>Windows</mark>. На{" "}
+          <mark>macOS</mark> <mark className="key">Ctrl</mark> равен{" "}
+          <mark className="key">Command</mark>, а <mark className="key">Alt</mark> равен{" "}
+          <mark className="key">Option</mark>.
         </AdditionInfo>
         <Divider>Выбор инструментов</Divider>
         <table>
