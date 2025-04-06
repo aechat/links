@@ -4230,6 +4230,2897 @@ const AEWhereFind: React.FC = () => {
           </tbody>
         </table>
       </DetailsSummary>
+      <DetailsSummary
+        tag="русский афтер, английский"
+        title="Где найти таблицу перевода стандартных пресетов?"
+      >
+        <AdditionWarning>
+          Перевод и наличие пресетов, а также способ их работы может отличаться в
+          зависимости от версии <mark className="app">After Effects</mark>. Также
+          рекомендуем переустановить программу сразу на английском языке, чтобы не
+          возвращаться к этой таблице снова и снова.
+        </AdditionWarning>
+        <p>
+          Порой иногда пользователю требуется перевод и стандартных пресетов, так как их
+          названия тоже зависят от локализации программы при первой установке.
+        </p>
+        <Divider>Adobe Express - In</Divider>
+        <table>
+          <thead>
+            <tr>
+              <th>Пресет на русском</th>
+              <th>Пресет на английском</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Возникновение возгоранием</td>
+              <td>Flicker In</td>
+            </tr>
+            <tr>
+              <td>Возникновение вскакиванием</td>
+              <td>Pop In</td>
+            </tr>
+            <tr>
+              <td>Возникновение вырастанием</td>
+              <td>Grow In</td>
+            </tr>
+            <tr>
+              <td>Возникновение кручением</td>
+              <td>Spin In</td>
+            </tr>
+            <tr>
+              <td>Возникновение прыжками</td>
+              <td>Tumble In</td>
+            </tr>
+            <tr>
+              <td>Возникновение сдвигом</td>
+              <td>Slide In</td>
+            </tr>
+            <tr>
+              <td>Возникновение тряской</td>
+              <td>Bungee In</td>
+            </tr>
+            <tr>
+              <td>Возникновение уменьшением</td>
+              <td>Shrink In</td>
+            </tr>
+            <tr>
+              <td>Постепенное возникновение</td>
+              <td>Fade In</td>
+            </tr>
+          </tbody>
+        </table>{" "}
+        <Divider>Adobe Express - Looping</Divider>
+        <table>
+          <thead>
+            <tr>
+              <th>Пресет на русском</th>
+              <th>Пресет на английском</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Цикл вращения</td>
+              <td>Spin Loop</td>
+            </tr>
+            <tr>
+              <td>Цикл дрожания</td>
+              <td>Jitter Loop</td>
+            </tr>
+            <tr>
+              <td>Цикл дыхания</td>
+              <td>Breathe Loop</td>
+            </tr>
+            <tr>
+              <td>Цикл извивания</td>
+              <td>Wiggle Loop</td>
+            </tr>
+            <tr>
+              <td>Цикл качания</td>
+              <td>Bob Loop</td>
+            </tr>
+            <tr>
+              <td>Цикл мерцания</td>
+              <td>Flicker Loop</td>
+            </tr>
+            <tr>
+              <td>Цикл мигания</td>
+              <td>Blinking Loop</td>
+            </tr>
+            <tr>
+              <td>Цикл подпрыгивания</td>
+              <td>Yoyo Loop</td>
+            </tr>
+            <tr>
+              <td>Цикл пульса</td>
+              <td>Pulse Loop</td>
+            </tr>
+          </tbody>
+        </table>
+        <Divider>Adobe Express - Out</Divider>
+        <table>
+          <thead>
+            <tr>
+              <th>Пресет на русском</th>
+              <th>Пресет на английском</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Исчезновение вырастанием</td>
+              <td>Grow Out</td>
+            </tr>
+            <tr>
+              <td>Исчезновение выскакиванием</td>
+              <td>Pop Out</td>
+            </tr>
+            <tr>
+              <td>Исчезновение кручением</td>
+              <td>Spin Out</td>
+            </tr>
+            <tr>
+              <td>Исчезновение прыжками</td>
+              <td>Tumble Out</td>
+            </tr>
+            <tr>
+              <td>Исчезновение сдвигом</td>
+              <td>Slide Out</td>
+            </tr>
+            <tr>
+              <td>Исчезновение тряской</td>
+              <td>Bungee Out</td>
+            </tr>
+            <tr>
+              <td>Исчезновение угасанием</td>
+              <td>Flicker Out</td>
+            </tr>
+            <tr>
+              <td>Исчезновение уменьшением</td>
+              <td>Shrink Out</td>
+            </tr>
+            <tr>
+              <td>Постепенное исчезновение</td>
+              <td>Fade Out</td>
+            </tr>
+          </tbody>
+        </table>
+        <Divider>Backgrounds</Divider>
+        <table>
+          <thead>
+            <tr>
+              <th>Пресет на русском</th>
+              <th>Пресет на английском</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Аниме - быстрые линии</td>
+              <td>Anime Speed Lines</td>
+            </tr>
+            <tr>
+              <td>Аниме - радиальные линии</td>
+              <td>Anime Radial</td>
+            </tr>
+            <tr>
+              <td>Видение</td>
+              <td>Apparition</td>
+            </tr>
+            <tr>
+              <td>Глубокие ткани</td>
+              <td>Deep Tissue</td>
+            </tr>
+            <tr>
+              <td>Гонки прямоугольников</td>
+              <td>Racing Rectangles</td>
+            </tr>
+            <tr>
+              <td>Жуть</td>
+              <td>Creepy</td>
+            </tr>
+            <tr>
+              <td>Занавес</td>
+              <td>Curtain</td>
+            </tr>
+            <tr>
+              <td>Green Crystals</td>
+              <td>Зеленые кристалы</td>
+            </tr>
+            <tr>
+              <td>Зигзаг молнии</td>
+              <td>Lightning Bend</td>
+            </tr>
+            <tr>
+              <td>Инфекция</td>
+              <td>Infection</td>
+            </tr>
+            <tr>
+              <td>Кирпичи</td>
+              <td>Blocks</td>
+            </tr>
+            <tr>
+              <td>Космическая мощь</td>
+              <td>Cosmic Power</td>
+            </tr>
+            <tr>
+              <td>Красная скорость</td>
+              <td>Red Speed</td>
+            </tr>
+            <tr>
+              <td>Магма</td>
+              <td>Magma</td>
+            </tr>
+            <tr>
+              <td>Несварение</td>
+              <td>Indigestion</td>
+            </tr>
+            <tr>
+              <td>Огни в тумане</td>
+              <td>Fog Lights</td>
+            </tr>
+            <tr>
+              <td>Поднимающийся дым</td>
+              <td>Smoke Rising</td>
+            </tr>
+            <tr>
+              <td>Река</td>
+              <td>River</td>
+            </tr>
+            <tr>
+              <td>Розовый свет</td>
+              <td>Rose Light</td>
+            </tr>
+            <tr>
+              <td>Стремительные изгибы</td>
+              <td>Sweeping Curves</td>
+            </tr>
+            <tr>
+              <td>Сфера</td>
+              <td>Orb</td>
+            </tr>
+            <tr>
+              <td>Угольки</td>
+              <td>Cinders</td>
+            </tr>
+            <tr>
+              <td>Шелк</td>
+              <td>Silk</td>
+            </tr>
+            <tr>
+              <td>Электрическая цепь</td>
+              <td>Circuit</td>
+            </tr>
+          </tbody>
+        </table>
+        <Divider>Behaviors</Divider>
+        <table>
+          <thead>
+            <tr>
+              <th>Пресет на русском</th>
+              <th>Пресет на английском</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Автопрокрутка - по вертикали</td>
+              <td>Autoscroll - vertical</td>
+            </tr>
+            <tr>
+              <td>Автопрокрутка - по горизонтали</td>
+              <td>Autoscroll - horizontal</td>
+            </tr>
+            <tr>
+              <td>Генерация значения волны</td>
+              <td>Wave Value Generator</td>
+            </tr>
+            <tr>
+              <td>Затухание поверх нижнего слоя</td>
+              <td>Fade Out Over Layer Below</td>
+            </tr>
+            <tr>
+              <td>Колебания</td>
+              <td>Wigglerama</td>
+            </tr>
+            <tr>
+              <td>Масштаб по осям XYZ</td>
+              <td>Separate XYZ Scale</td>
+            </tr>
+            <tr>
+              <td>Масштабирование одиночного отражения сигнала - по маркерам слоя</td>
+              <td>Scale Bounce - layer markers</td>
+            </tr>
+            <tr>
+              <td>Масштабирование одиночного отражения сигнала - произвольно</td>
+              <td>Scale Bounce - random</td>
+            </tr>
+            <tr>
+              <td>Мигание непрозрачности - по маркерам слоя</td>
+              <td>Opacity Flash - layer markers</td>
+            </tr>
+            <tr>
+              <td>Мигание непрозрачности - произвольно</td>
+              <td>Opacity Flash - random</td>
+            </tr>
+            <tr>
+              <td>Моргание непрозрачности</td>
+              <td>Blinking Opacity</td>
+            </tr>
+            <tr>
+              <td>Нарастание + затухание - кадры</td>
+              <td>Fade In+Out - frames</td>
+            </tr>
+            <tr>
+              <td>Нарастание + затухание - мс</td>
+              <td>Fade In+Out - msec</td>
+            </tr>
+            <tr>
+              <td>Нарастание поверх нижнего слоя</td>
+              <td>Fade In Over Layer Below</td>
+            </tr>
+            <tr>
+              <td>Обрезать контуры - на слой в кадр</td>
+              <td>Trim Paths - at layer in</td>
+            </tr>
+            <tr>
+              <td>Обрезать контуры - на слой из кадра</td>
+              <td>Trim Paths - at layer out</td>
+            </tr>
+            <tr>
+              <td>Поворот со временем</td>
+              <td>Rotate Over Time</td>
+            </tr>
+            <tr>
+              <td>Покачивания - желе</td>
+              <td>Wiggle - gelatin</td>
+            </tr>
+            <tr>
+              <td>Покачивания - наклон</td>
+              <td>Wiggle - shear</td>
+            </tr>
+            <tr>
+              <td>Покачивания - поворот</td>
+              <td>Wiggle - rotation</td>
+            </tr>
+            <tr>
+              <td>Покачивания - позиция</td>
+              <td>Wiggle - position</td>
+            </tr>
+            <tr>
+              <td>Покачивания - шкала</td>
+              <td>Wiggle - scale</td>
+            </tr>
+            <tr>
+              <td>Принудительное использование опорной точки</td>
+              <td>Lock Anchor Point</td>
+            </tr>
+            <tr>
+              <td>Случайное вкл.-выкл.</td>
+              <td>Random On-Off</td>
+            </tr>
+            <tr>
+              <td>Случайные цвета</td>
+              <td>Random Colors</td>
+            </tr>
+            <tr>
+              <td>Случайные целые числа</td>
+              <td>Random Whole Numbers</td>
+            </tr>
+            <tr>
+              <td>Смещение со временем</td>
+              <td>Drift Over Time</td>
+            </tr>
+          </tbody>
+        </table>
+        <Divider>Image - Creative</Divider>
+        <table>
+          <thead>
+            <tr>
+              <th>Пресет на русском</th>
+              <th>Пресет на английском</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Виньетированная подсветка</td>
+              <td>Vignette Lighting</td>
+            </tr>
+            <tr>
+              <td>Декоративная подсветка - аморфная</td>
+              <td>Mood Lighting - amorphous</td>
+            </tr>
+            <tr>
+              <td>Декоративная подсветка - полосы</td>
+              <td>Mood Lighting - streaks</td>
+            </tr>
+            <tr>
+              <td>Декоративная подсветка - цифровая</td>
+              <td>Mood Lighting - digital</td>
+            </tr>
+            <tr>
+              <td>Зашумленное виньетирование</td>
+              <td>Noisy Vignette</td>
+            </tr>
+            <tr>
+              <td>Контрастность - насыщенность</td>
+              <td>Contrast - saturation</td>
+            </tr>
+            <tr>
+              <td>Контрастность - яркость</td>
+              <td>Contrast - luminance</td>
+            </tr>
+            <tr>
+              <td>Наложенные тени</td>
+              <td>Stacked Drop Shadows</td>
+            </tr>
+            <tr>
+              <td>Оттенки серого 1</td>
+              <td>Grayscale 1</td>
+            </tr>
+            <tr>
+              <td>Оттенки серого 2</td>
+              <td>Grayscale 2</td>
+            </tr>
+            <tr>
+              <td>Оттенки серого 3</td>
+              <td>Grayscale 3</td>
+            </tr>
+            <tr>
+              <td>Оттенки серого 4</td>
+              <td>Grayscale 4</td>
+            </tr>
+            <tr>
+              <td>Размер - свечение+тень</td>
+              <td>Dimension - glow+shadow</td>
+            </tr>
+            <tr>
+              <td>Размер - фаска+тень</td>
+              <td>Dimension - bevel+shadow</td>
+            </tr>
+            <tr>
+              <td>Тонирование - голубое небо</td>
+              <td>Colorize - sky blue</td>
+            </tr>
+            <tr>
+              <td>Тонирование - градиент заката</td>
+              <td>Colorize - sunset gradient</td>
+            </tr>
+            <tr>
+              <td>Тонирование - инфракрасный</td>
+              <td>Colorize - infrared</td>
+            </tr>
+            <tr>
+              <td>Тонирование - королевский пурпур</td>
+              <td>Colorize - royal purple</td>
+            </tr>
+            <tr>
+              <td>Тонирование - красный отпечаток руки</td>
+              <td>Colorize - red hand tint</td>
+            </tr>
+            <tr>
+              <td>Тонирование - лунные тени</td>
+              <td>Colorize - moonshadows</td>
+            </tr>
+            <tr>
+              <td>Тонирование - оранжевое небо</td>
+              <td>Colorize - sky orange</td>
+            </tr>
+            <tr>
+              <td>Тонирование - погружение в золото</td>
+              <td>Colorize - gold dip</td>
+            </tr>
+            <tr>
+              <td>Тонирование - сепия</td>
+              <td>Colorize - sepia</td>
+            </tr>
+            <tr>
+              <td>Тонирование - синяя акварель</td>
+              <td>Colorize - blue wash</td>
+            </tr>
+            <tr>
+              <td>Цветение - кристаллизация 1</td>
+              <td>Bloom - crystallize 1</td>
+            </tr>
+            <tr>
+              <td>Цветение - кристаллизация 2</td>
+              <td>Bloom - crystallize 2</td>
+            </tr>
+            <tr>
+              <td>Цветение - светлые+темные</td>
+              <td>Bloom - brights+darks</td>
+            </tr>
+            <tr>
+              <td>Цветение - яркие краски</td>
+              <td>Bloom - brights</td>
+            </tr>
+            <tr>
+              <td>Эффект мерцания VHS</td>
+              <td>VHS Flicker Effect</td>
+            </tr>
+            <tr>
+              <td>Эффект отрисовки вручную</td>
+              <td>Hand Drawn Effect</td>
+            </tr>
+          </tbody>
+        </table>
+        <Divider>Image - Special Effects</Divider>
+        <table>
+          <thead>
+            <tr>
+              <th>Пресет на русском</th>
+              <th>Пресет на английском</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Ночное видение</td>
+              <td>Night Vision</td>
+            </tr>
+            <tr>
+              <td>Ошибки регистрации движения</td>
+              <td>Motion Registration Errors</td>
+            </tr>
+            <tr>
+              <td>Плохой телевизор 1 - деформация</td>
+              <td>Bad TV 1 - warp</td>
+            </tr>
+            <tr>
+              <td>Плохой телевизор 2 - старый</td>
+              <td>Bad TV 2 - old</td>
+            </tr>
+            <tr>
+              <td>Плохой телевизор 3 - слабый</td>
+              <td>Bad TV 3 - weak</td>
+            </tr>
+            <tr>
+              <td>Треснутый кафель</td>
+              <td>Cracked Tiles</td>
+            </tr>
+            <tr>
+              <td>Утечки света - по маркерам слоя</td>
+              <td>Light Leaks - layer markers</td>
+            </tr>
+            <tr>
+              <td>Утечки света - произвольно</td>
+              <td>Light Leaks - random</td>
+            </tr>
+          </tbody>
+        </table>
+        <Divider>Image - Utilities</Divider>
+        <table>
+          <thead>
+            <tr>
+              <th>Пресет на русском</th>
+              <th>Пресет на английском</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Keylight + Ключевая очистка + Расширенное подавление пропуска цвета</td>
+              <td>Keylight + Key Cleaner + Advanced Spill Suppressor</td>
+            </tr>
+            <tr>
+              <td>Альфа-каналы из освещенности (Unmult)</td>
+              <td>Alpha From Lightness (Unmult)</td>
+            </tr>
+            <tr>
+              <td>Альфа-увеличение и выделение</td>
+              <td>Magnify & Preserve Alpha</td>
+            </tr>
+            <tr>
+              <td>Динамический диапазон сжатия-расширения</td>
+              <td>Compress-Expand Dynamic Range</td>
+            </tr>
+            <tr>
+              <td>Инверсия альфа-канала</td>
+              <td>Invert Alpha</td>
+            </tr>
+            <tr>
+              <td>Обрезка краев</td>
+              <td>Crop Edges</td>
+            </tr>
+            <tr>
+              <td>Отражение + переворот</td>
+              <td>Flip + Flop</td>
+            </tr>
+            <tr>
+              <td>Отражение</td>
+              <td>Flip</td>
+            </tr>
+            <tr>
+              <td>Переворот</td>
+              <td>Flop</td>
+            </tr>
+            <tr>
+              <td>Пример выражения образа</td>
+              <td>Sample Image Expression</td>
+            </tr>
+            <tr>
+              <td>Прозрачное наложение - размытие зеленого</td>
+              <td>Keying - green blur</td>
+            </tr>
+            <tr>
+              <td>Прозрачное наложение - размытие синего</td>
+              <td>Keying - blue blur</td>
+            </tr>
+            <tr>
+              <td>Уровни - из видео на компьютер</td>
+              <td>Levels - Video to Computer</td>
+            </tr>
+            <tr>
+              <td>Уровни - с компьютера в видео</td>
+              <td>Levels - computer to video</td>
+            </tr>
+          </tbody>
+        </table>
+        <Divider>Legacy</Divider>
+        <table>
+          <thead>
+            <tr>
+              <th>Пресет на русском</th>
+              <th>Пресет на английском</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>3D - поворот по окружности</td>
+              <td>3D Rotate around Circle</td>
+            </tr>
+            <tr>
+              <td>3D - увеличение масштаба строк</td>
+              <td>3D Lines Zoom In</td>
+            </tr>
+            <tr>
+              <td>Вертишка</td>
+              <td>Pinwheel</td>
+            </tr>
+            <tr>
+              <td>Возгорание</td>
+              <td>Inflammation</td>
+            </tr>
+            <tr>
+              <td>Вспыхивающие слова</td>
+              <td>Word Flash</td>
+            </tr>
+            <tr>
+              <td>Вставка видео - рваные края</td>
+              <td>Inset Video - torn edges</td>
+            </tr>
+            <tr>
+              <td>Вставка видео - с рамкой</td>
+              <td>Inset Video - framed</td>
+            </tr>
+            <tr>
+              <td>Входящие</td>
+              <td>Incoming</td>
+            </tr>
+            <tr>
+              <td>Вьющиеся ленты 2</td>
+              <td>Twisty Ribbons 2</td>
+            </tr>
+            <tr>
+              <td>Вьющиеся ленты</td>
+              <td>Twisty Ribbons</td>
+            </tr>
+            <tr>
+              <td>Голубые вспышки</td>
+              <td>Blue Flash</td>
+            </tr>
+            <tr>
+              <td>Замещение</td>
+              <td>Outgoing - Incoming</td>
+            </tr>
+            <tr>
+              <td>Звездная дорожка</td>
+              <td>Walk Of Stars</td>
+            </tr>
+            <tr>
+              <td>Зеленые точки</td>
+              <td>Green Dots</td>
+            </tr>
+            <tr>
+              <td>Зумер-США</td>
+              <td>DialTone-US</td>
+            </tr>
+            <tr>
+              <td>Изменчивость</td>
+              <td>Fluctuate</td>
+            </tr>
+            <tr>
+              <td>Иступление</td>
+              <td>Frenzy</td>
+            </tr>
+            <tr>
+              <td>Капли</td>
+              <td>Drop Bounce</td>
+            </tr>
+            <tr>
+              <td>Левая треть - маска ковша NTSC</td>
+              <td>Left Third - scoop mask NTSC</td>
+            </tr>
+            <tr>
+              <td>Левая треть - маска ковша PAL</td>
+              <td>Left Third - scoop mask PAL</td>
+            </tr>
+            <tr>
+              <td>Мигающие полосы</td>
+              <td>Bars Blinky</td>
+            </tr>
+            <tr>
+              <td>Многократная экспозиция с тиснением</td>
+              <td>Embossed Multiple Exposure</td>
+            </tr>
+            <tr>
+              <td>Многоножка</td>
+              <td>Centipede</td>
+            </tr>
+            <tr>
+              <td>Молния - по вертикали</td>
+              <td>Lightning - Vertical</td>
+            </tr>
+            <tr>
+              <td>Молния - по горизонтали</td>
+              <td>Lightning - Horizontal</td>
+            </tr>
+            <tr>
+              <td>Нижняя треть - маска ковша NTSC</td>
+              <td>Lower Third - scoop mask NTSC</td>
+            </tr>
+            <tr>
+              <td>Нижняя треть - маска ковша PAL</td>
+              <td>Lower Third - scoop mask PAL</td>
+            </tr>
+            <tr>
+              <td>Обрезка белого</td>
+              <td>White Trim</td>
+            </tr>
+            <tr>
+              <td>Овалы - концентрические NTSC</td>
+              <td>Ovals - concentric NTSC</td>
+            </tr>
+            <tr>
+              <td>Овалы - концентрические PAL</td>
+              <td>Ovals - concentric PAL</td>
+            </tr>
+            <tr>
+              <td>Овалы - произвольно 1 NTSC</td>
+              <td>Ovals - random 1 NTSC</td>
+            </tr>
+            <tr>
+              <td>Овалы - произвольно 1 PAL</td>
+              <td>Ovals - random 1 PAL</td>
+            </tr>
+            <tr>
+              <td>Овалы - произвольно 2 NTSC</td>
+              <td>Ovals - random 2 NTSC</td>
+            </tr>
+            <tr>
+              <td>Овалы - произвольно 2 PAL</td>
+              <td>Ovals - random 2 PAL</td>
+            </tr>
+            <tr>
+              <td>Окна - заштрихованные NTSC</td>
+              <td>Boxes - stroked NTSC</td>
+            </tr>
+            <tr>
+              <td>Окна - заштрихованные PAL</td>
+              <td>Boxes - stroked PAL</td>
+            </tr>
+            <tr>
+              <td>Окна - концентрические NTSC</td>
+              <td>Boxes - concentric NTSC</td>
+            </tr>
+            <tr>
+              <td>Окна - концентрические PAL</td>
+              <td>Boxes - concentric PAL</td>
+            </tr>
+            <tr>
+              <td>Окна - произвольные 1 NTSC</td>
+              <td>Boxes - random 1 NTSC</td>
+            </tr>
+            <tr>
+              <td>Окна - произвольные 1 PAL</td>
+              <td>Boxes - random 1 PAL</td>
+            </tr>
+            <tr>
+              <td>Окна - произвольные 2 NTSC</td>
+              <td>Boxes - random 2 NTSC</td>
+            </tr>
+            <tr>
+              <td>Окна - произвольные 2 PAL</td>
+              <td>Boxes - random 2 PAL</td>
+            </tr>
+            <tr>
+              <td>Окна - произвольные 3 NTSC</td>
+              <td>Boxes - random 3 NTSC</td>
+            </tr>
+            <tr>
+              <td>Окна - произвольные 3 PAL</td>
+              <td>Boxes - random 3 PAL</td>
+            </tr>
+            <tr>
+              <td>Организм</td>
+              <td>Organism</td>
+            </tr>
+            <tr>
+              <td>Отдельная позиция XYZ</td>
+              <td>Separate XYZ Position</td>
+            </tr>
+            <tr>
+              <td>Отражение по нескольким линиям</td>
+              <td>Multi-Line Flip</td>
+            </tr>
+            <tr>
+              <td>Оттягивание нижней трети - затемнение</td>
+              <td>Lower Third Holldout - darken</td>
+            </tr>
+            <tr>
+              <td>Оттягивание нижней трети - насыщение</td>
+              <td>Lower Third Holddout - saturate</td>
+            </tr>
+            <tr>
+              <td>Передний план - задний план</td>
+              <td>Front - Back</td>
+            </tr>
+            <tr>
+              <td>Переход к вставке</td>
+              <td>Fly to Inset</td>
+            </tr>
+            <tr>
+              <td>Петарды</td>
+              <td>Spin Flash</td>
+            </tr>
+            <tr>
+              <td>Появление</td>
+              <td>Emerge</td>
+            </tr>
+            <tr>
+              <td>Пульсация</td>
+              <td>Pulse Exposure</td>
+            </tr>
+            <tr>
+              <td>С обеих сторон</td>
+              <td>Frontside - Backside</td>
+            </tr>
+            <tr>
+              <td>Сжатие - расширение</td>
+              <td>Contract - Expand</td>
+            </tr>
+            <tr>
+              <td>Силуэты</td>
+              <td>Silhouettes</td>
+            </tr>
+            <tr>
+              <td>Скрепка</td>
+              <td>Paper Clip</td>
+            </tr>
+            <tr>
+              <td>Спирограф</td>
+              <td>Spirograph</td>
+            </tr>
+            <tr>
+              <td>Тени</td>
+              <td>Shadows</td>
+            </tr>
+            <tr>
+              <td>Уменьшение блочности DV</td>
+              <td>Reduce DV blockiness</td>
+            </tr>
+            <tr>
+              <td>Цифровой</td>
+              <td>Digital</td>
+            </tr>
+            <tr>
+              <td>Элегия</td>
+              <td>Lyrical</td>
+            </tr>
+            <tr>
+              <td>Эфирный</td>
+              <td>Ethereal</td>
+            </tr>
+            <tr>
+              <td>Эхо-локация</td>
+              <td>Sonar Ping</td>
+            </tr>
+          </tbody>
+        </table>
+        <Divider>Shapes - Backgrounds</Divider>
+        <table>
+          <thead>
+            <tr>
+              <th>Пресет на русском</th>
+              <th>Пресет на английском</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Граница композиции</td>
+              <td>Composition Border</td>
+            </tr>
+            <tr>
+              <td>Калейдоскоп</td>
+              <td>Kaleidoscopic</td>
+            </tr>
+            <tr>
+              <td>Нейронная сеть - круговая</td>
+              <td>Nerve Net - Circular</td>
+            </tr>
+            <tr>
+              <td>Нейронная сеть - пента</td>
+              <td>Nerve Net - Penta</td>
+            </tr>
+            <tr>
+              <td>Скопление рамок</td>
+              <td>Box Swarm</td>
+            </tr>
+            <tr>
+              <td>Солнечные лучи</td>
+              <td>Sunburst</td>
+            </tr>
+          </tbody>
+        </table>
+        <Divider>Shapes - Elements</Divider>
+        <table>
+          <thead>
+            <tr>
+              <th>Пресет на русском</th>
+              <th>Пресет на английском</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Аналоговые часы</td>
+              <td>Analogue Clock</td>
+            </tr>
+            <tr>
+              <td>Бегущая строка - рамки</td>
+              <td>Chasing Line - Boxes</td>
+            </tr>
+            <tr>
+              <td>Булавка для карты</td>
+              <td>Popping Map Pin</td>
+            </tr>
+            <tr>
+              <td>Всплеск</td>
+              <td>Burst Pop</td>
+            </tr>
+            <tr>
+              <td>Гистограмма</td>
+              <td>Bar Graph</td>
+            </tr>
+            <tr>
+              <td>Двумерное текстовое окно (форма)</td>
+              <td>2D Text Box (Shape)</td>
+            </tr>
+            <tr>
+              <td>Значки карты колебаний</td>
+              <td>Bouncing Map Icons</td>
+            </tr>
+            <tr>
+              <td>Изменяемый курсор</td>
+              <td>Switchable Cursor Element</td>
+            </tr>
+            <tr>
+              <td>Инструменты отслеживания области</td>
+              <td>Marquee Chasers</td>
+            </tr>
+            <tr>
+              <td>Каркасный червь</td>
+              <td>Wireframe Worm</td>
+            </tr>
+            <tr>
+              <td>Кольцевая диаграмма</td>
+              <td>Ring Chart</td>
+            </tr>
+            <tr>
+              <td>Линейная диаграмма</td>
+              <td>Line Graph</td>
+            </tr>
+            <tr>
+              <td>Надпись на стрелке</td>
+              <td>Write On Arrow</td>
+            </tr>
+            <tr>
+              <td>Наклейка с вырубкой</td>
+              <td>Crinkle Cut Sticker</td>
+            </tr>
+            <tr>
+              <td>Ограничительная рамка</td>
+              <td>Bounding Box</td>
+            </tr>
+            <tr>
+              <td>Повторяющиеся линии</td>
+              <td>Repeating Lines</td>
+            </tr>
+            <tr>
+              <td>Почтовая марка</td>
+              <td>Postage Stamp</td>
+            </tr>
+            <tr>
+              <td>Простой маркер для карты</td>
+              <td>Simple Map Marker</td>
+            </tr>
+            <tr>
+              <td>Радиальная диаграмма</td>
+              <td>Radial Graph</td>
+            </tr>
+            <tr>
+              <td>Рамка с зубчиками</td>
+              <td>Scalloped Frame</td>
+            </tr>
+            <tr>
+              <td>Решетка из крестов</td>
+              <td>Grid of Crosses</td>
+            </tr>
+            <tr>
+              <td>Спираль ДНК</td>
+              <td>DNA Helix</td>
+            </tr>
+          </tbody>
+        </table>
+        <Divider>Shapes - Sprites - Animated</Divider>
+        <table>
+          <thead>
+            <tr>
+              <th>Пресет на русском</th>
+              <th>Пресет на английском</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Винтажная звездочка</td>
+              <td>Vintage Star</td>
+            </tr>
+            <tr>
+              <td>Круговой - ячеистое разделение</td>
+              <td>Circular - cellular divvision</td>
+            </tr>
+            <tr>
+              <td>Лицо пришельца - с анимацией</td>
+              <td>Alien Face - animated</td>
+            </tr>
+            <tr>
+              <td>Мандала - с анимацией</td>
+              <td>Mandala - animated</td>
+            </tr>
+            <tr>
+              <td>Область стадии</td>
+              <td>Phase Scope</td>
+            </tr>
+            <tr>
+              <td>Сверкающая_звезда</td>
+              <td>TwinkleStar</td>
+            </tr>
+            <tr>
+              <td>Спирограф_мандала</td>
+              <td>SpiroMandala</td>
+            </tr>
+            <tr>
+              <td>Танцевальный узел</td>
+              <td>Dancing Knot</td>
+            </tr>
+          </tbody>
+        </table>
+        <Divider>Shapes - Sprites - Still</Divider>
+        <table>
+          <thead>
+            <tr>
+              <th>Пресет на русском</th>
+              <th>Пресет на английском</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Благодатный огонь</td>
+              <td>Holy Light</td>
+            </tr>
+            <tr>
+              <td>Власть цветам</td>
+              <td>Flower Power</td>
+            </tr>
+            <tr>
+              <td>Индейское солнце</td>
+              <td>Indian Sun</td>
+            </tr>
+            <tr>
+              <td>Иноземные письмена</td>
+              <td>Alien Calligraphy</td>
+            </tr>
+            <tr>
+              <td>Круговой - полукруг</td>
+              <td>Circular - half round</td>
+            </tr>
+            <tr>
+              <td>Кругovoй - тройной пунктир</td>
+              <td>Circular - tri dash</td>
+            </tr>
+            <tr>
+              <td>Лицо пришельца</td>
+              <td>Alien Face</td>
+            </tr>
+            <tr>
+              <td>Лопасти вентилятора</td>
+              <td>Fan Blades</td>
+            </tr>
+            <tr>
+              <td>Лучистая звезда-4</td>
+              <td>RayStar-4</td>
+            </tr>
+            <tr>
+              <td>Лучистая звезда-8</td>
+              <td>RayStar-8</td>
+            </tr>
+            <tr>
+              <td>Мандала</td>
+              <td>Mandala</td>
+            </tr>
+            <tr>
+              <td>Мишень</td>
+              <td>Bullseye</td>
+            </tr>
+            <tr>
+              <td>Перекрестие - квадратное</td>
+              <td>Crosshair - square</td>
+            </tr>
+            <tr>
+              <td>Перекрестие - квадратные скобки</td>
+              <td>Crosshair - brackets</td>
+            </tr>
+            <tr>
+              <td>Перекрестие - круглое</td>
+              <td>Crosshair - round</td>
+            </tr>
+            <tr>
+              <td>Рамка - пунктирные линии</td>
+              <td>Box - dashed lines</td>
+            </tr>
+            <tr>
+              <td>Скругленная скобка - двойная</td>
+              <td>Rounded Bracket - double</td>
+            </tr>
+            <tr>
+              <td>Скругленная скобка - с фаской</td>
+              <td>Rounded Bracket - bevelled</td>
+            </tr>
+            <tr>
+              <td>Тризуб</td>
+              <td>Tri Cog</td>
+            </tr>
+            <tr>
+              <td>Шестеренка 1</td>
+              <td>Gear 1</td>
+            </tr>
+            <tr>
+              <td>Шестеренка 2</td>
+              <td>Gear 2</td>
+            </tr>
+            <tr>
+              <td>Эригерон</td>
+              <td>Seaside Daisy</td>
+            </tr>
+          </tbody>
+        </table>
+        <Divider>Sound Effects</Divider>
+        <table>
+          <thead>
+            <tr>
+              <th>Пресет на русском</th>
+              <th>Пресет на английском</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Бластер</td>
+              <td>Blaster</td>
+            </tr>
+            <tr>
+              <td>Занят</td>
+              <td>Busy</td>
+            </tr>
+            <tr>
+              <td>Звонок телефона-США</td>
+              <td>Phone-US</td>
+            </tr>
+            <tr>
+              <td>Позвонить в Adobe</td>
+              <td>CallAdobe</td>
+            </tr>
+            <tr>
+              <td>Телефонная компания</td>
+              <td>PhoneCompany</td>
+            </tr>
+            <tr>
+              <td>Тональный набор</td>
+              <td>DTMF</td>
+            </tr>
+          </tbody>
+        </table>
+        <Divider>Synthetics</Divider>
+        <table>
+          <thead>
+            <tr>
+              <th>Пресет на русском</th>
+              <th>Пресет на английском</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Голографическая пленка</td>
+              <td>Holographic Foil</td>
+            </tr>
+            <tr>
+              <td>Дым - сносимый ветром</td>
+              <td>Smoke - Drifting</td>
+            </tr>
+            <tr>
+              <td>Звездная спираль</td>
+              <td>Starburst Spin</td>
+            </tr>
+            <tr>
+              <td>Золотая атмосфера</td>
+              <td>Gold Ambiance</td>
+            </tr>
+            <tr>
+              <td>Мозаика</td>
+              <td>Mosaic</td>
+            </tr>
+            <tr>
+              <td>Мозаичная пленка</td>
+              <td>Chip Foil</td>
+            </tr>
+            <tr>
+              <td>Оборотная сторона компакт-диска</td>
+              <td>CD Back</td>
+            </tr>
+            <tr>
+              <td>Оранжевые прожилки</td>
+              <td>Orange Streaks</td>
+            </tr>
+            <tr>
+              <td>Синие полосы</td>
+              <td>Blue Bars</td>
+            </tr>
+            <tr>
+              <td>Топографические линии</td>
+              <td>Topographic Lines</td>
+            </tr>
+            <tr>
+              <td>Ячейки</td>
+              <td>Cells</td>
+            </tr>
+          </tbody>
+        </table>
+        <Divider>Text - 3D Text</Divider>
+        <table>
+          <thead>
+            <tr>
+              <th>Пресет на русском</th>
+              <th>Пресет на английском</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>3D база, вращение вокруг оси X, каскад (возн.)</td>
+              <td>3D Basic Rotate X Cascade In</td>
+            </tr>
+            <tr>
+              <td>3D база, вращение вокруг оси Y, каскад (возн.)</td>
+              <td>3D Basic Rotate Y Cascade In</td>
+            </tr>
+            <tr>
+              <td>3D база, позиция по оси Z, каскад (возн.)</td>
+              <td>3D Basic Position Z Cascade In</td>
+            </tr>
+            <tr>
+              <td>3D база, позиция по оси Z, печать (возн.)</td>
+              <td>3D Basic Position Z Type In</td>
+            </tr>
+            <tr>
+              <td>3D волна на дорожке (возн.)</td>
+              <td>3D Swing In On Path</td>
+            </tr>
+            <tr>
+              <td>3D дождь по словам (возн.)</td>
+              <td>3D Rain In By Word</td>
+            </tr>
+            <tr>
+              <td>3D опускание по спирали и развертывание</td>
+              <td>3D Spiral Down & Unfold</td>
+            </tr>
+            <tr>
+              <td>3D падение, масштаб и наклон (возн.)</td>
+              <td>3D Fall Back Scale & Skew In</td>
+            </tr>
+            <tr>
+              <td>3D падение, перемешивание и размытие (возн.)</td>
+              <td>3D Fall Back Scramble & Blur In</td>
+            </tr>
+            <tr>
+              <td>3D полет и развертывание (возн.)</td>
+              <td>3D Fly In & Unfold</td>
+            </tr>
+            <tr>
+              <td>3D полет из-за камеры (возн.)</td>
+              <td>3D Fly In From Behind Camera</td>
+            </tr>
+            <tr>
+              <td>3D полет, случайный порядок, вращение вокруг оси Y (возн.)</td>
+              <td>3D Fly In Random & Rotate Y</td>
+            </tr>
+            <tr>
+              <td>3D разворот и цветные символы</td>
+              <td>3D Twist & color characters</td>
+            </tr>
+            <tr>
+              <td>3D случайные символы, кувыркание (возн.)</td>
+              <td>3D Random Spike Tumble In</td>
+            </tr>
+            <tr>
+              <td>3D случайные слова, кувыркание (возн.)</td>
+              <td>3D Random Tumble In By Word</td>
+            </tr>
+            <tr>
+              <td>3D установка на позиции (возн.)</td>
+              <td>3D Resolve Position In</td>
+            </tr>
+            <tr>
+              <td>3D - колебание внутрь - в случайном порядке</td>
+              <td>3D Flutter In Random Order</td>
+            </tr>
+            <tr>
+              <td>3D - колебание внутрь - слева</td>
+              <td>3D Flutter In From Left</td>
+            </tr>
+            <tr>
+              <td>3D - колебание наружу - справа</td>
+              <td>3D Flutter Out From Right</td>
+            </tr>
+            <tr>
+              <td>3D - колебание - по центру</td>
+              <td>3D Bouncing In Centered</td>
+            </tr>
+            <tr>
+              <td>3D - отразить вверх - отражение</td>
+              <td>3D Flip Up Reflection</td>
+            </tr>
+            <tr>
+              <td>3D - отразить внутрь - поворот по оси X</td>
+              <td>3D Flip In Rotate X</td>
+            </tr>
+            <tr>
+              <td>3D - отразить наружу - поворот по оси X</td>
+              <td>3D Flip Out Rotate X</td>
+            </tr>
+            <tr>
+              <td>3D - поворот внутрь по символу X</td>
+              <td>3D Rotate in by Character X</td>
+            </tr>
+            <tr>
+              <td>3D - поворот внутрь по символу</td>
+              <td>3D Rotate in by Character</td>
+            </tr>
+            <tr>
+              <td>3D - поворот наружу по символу X</td>
+              <td>3D Rotate out by Character X</td>
+            </tr>
+            <tr>
+              <td>3D - поворот наружу по слову</td>
+              <td>3D Rotate out by Word</td>
+            </tr>
+            <tr>
+              <td>3D - скремблирование в положении по оси Z</td>
+              <td>3D Scramble in Position Z</td>
+            </tr>
+            <tr>
+              <td>3D - спиральный поворот внутри по строке</td>
+              <td>3D Spiral Rotate In by Line</td>
+            </tr>
+            <tr>
+              <td>3D - спиральный поворот наружу по строке</td>
+              <td>3D Spiral Rotate Out by Line</td>
+            </tr>
+          </tbody>
+        </table>
+        <Divider>Text - Animate In</Divider>
+        <table>
+          <thead>
+            <tr>
+              <th>Пресет на русском</th>
+              <th>Пресет на английском</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Вброс с прокруткой</td>
+              <td>Fly In With A Twist</td>
+            </tr>
+            <tr>
+              <td>Вброс снизу</td>
+              <td>Fly In From Bottom</td>
+            </tr>
+            <tr>
+              <td>Всплывающие словечки</td>
+              <td>Pop Buzz Words</td>
+            </tr>
+            <tr>
+              <td>Выезд в случайном порядке</td>
+              <td>Random Shuffle In</td>
+            </tr>
+            <tr>
+              <td>Высыпание символов</td>
+              <td>Raining Characters In</td>
+            </tr>
+            <tr>
+              <td>Вытеснение к центру</td>
+              <td>Wipe In To Center</td>
+            </tr>
+            <tr>
+              <td>Генерирующая таблица</td>
+              <td>Espresso Eye Chart</td>
+            </tr>
+            <tr>
+              <td>Декодирование в кадр по случайным символам</td>
+              <td>Decode In By Random Character</td>
+            </tr>
+            <tr>
+              <td>Закручивание пословно</td>
+              <td>Spin In By Word</td>
+            </tr>
+            <tr>
+              <td>Медленное затухание - вкл</td>
+              <td>Slow Fade On</td>
+            </tr>
+            <tr>
+              <td>Мерцание непрозрачности в кадр</td>
+              <td>Opacity Flicker In</td>
+            </tr>
+            <tr>
+              <td>Мигающий курсор телетайпа</td>
+              <td>Blinking Cursor Typewriter Console</td>
+            </tr>
+            <tr>
+              <td>Печатная машинка</td>
+              <td>Typewriter</td>
+            </tr>
+            <tr>
+              <td>Плавный выезд</td>
+              <td>Smooth Move In</td>
+            </tr>
+            <tr>
+              <td>Посимвольное вбрасывание</td>
+              <td>Drop In By Character</td>
+            </tr>
+            <tr>
+              <td>Посимвольное всплывание</td>
+              <td>Fade Up Characters</td>
+            </tr>
+            <tr>
+              <td>Посимвольный ввод с прокруткой</td>
+              <td>Spin In By Character</td>
+            </tr>
+            <tr>
+              <td>Посимвольный выезд</td>
+              <td>Characters Shuffle In</td>
+            </tr>
+            <tr>
+              <td>Последовательно посимвольно</td>
+              <td>Straight In By Character</td>
+            </tr>
+            <tr>
+              <td>Последовательно пословно</td>
+              <td>Straight In By Word</td>
+            </tr>
+            <tr>
+              <td>Последовательный многострочный ввод 2</td>
+              <td>Straight In Multi-Line 2</td>
+            </tr>
+            <tr>
+              <td>Пословное проявление</td>
+              <td>Fade Up Words</td>
+            </tr>
+            <tr>
+              <td>Пословный выезд в случайном порядке</td>
+              <td>Random Word Shuffle In</td>
+            </tr>
+            <tr>
+              <td>Построчное растяжение</td>
+              <td>Stretch In Each Line</td>
+            </tr>
+            <tr>
+              <td>Построчный ввод</td>
+              <td>Straight In Multi-Line</td>
+            </tr>
+            <tr>
+              <td>Прокрутка каждого слова</td>
+              <td>Twirl On Each Word</td>
+            </tr>
+            <tr>
+              <td>Прокрутка каждой строки</td>
+              <td>Twirl On Each Line</td>
+            </tr>
+            <tr>
+              <td>Проявление с отражением</td>
+              <td>Fade Up And Flip</td>
+            </tr>
+            <tr>
+              <td>Проявление с эффектом декодирования</td>
+              <td>Decoder Fade In</td>
+            </tr>
+            <tr>
+              <td>Проявляющиеся строки</td>
+              <td>Fade Up Lines</td>
+            </tr>
+            <tr>
+              <td>Растяжение каждого слова</td>
+              <td>Stretch In Each Word</td>
+            </tr>
+            <tr>
+              <td>Скольжение в кадр по границе композиции</td>
+              <td>Slide In From Comp Edge</td>
+            </tr>
+            <tr>
+              <td>Скольжение в кадр по линии</td>
+              <td>Slide In By Line</td>
+            </tr>
+            <tr>
+              <td>Скольжение вверх по символу</td>
+              <td>Slide Up By Character</td>
+            </tr>
+            <tr>
+              <td>Скольжение вверх по слову</td>
+              <td>Slide Up By Word</td>
+            </tr>
+            <tr>
+              <td>Скольжение вниз по символу</td>
+              <td>Slide Down By Character</td>
+            </tr>
+            <tr>
+              <td>Скольжение и всплывание в кадр</td>
+              <td>Slide and Pop In</td>
+            </tr>
+            <tr>
+              <td>Случайное появление (возн.)</td>
+              <td>Random Fade In</td>
+            </tr>
+            <tr>
+              <td>Спираль в центр (возн.)</td>
+              <td>Center Spiral In</td>
+            </tr>
+            <tr>
+              <td>Чередующиеся символы в кадр</td>
+              <td>Alternating Characters In</td>
+            </tr>
+          </tbody>
+        </table>
+        <Divider>Text - Animate Out</Divider>
+        <table>
+          <thead>
+            <tr>
+              <th>Пресет на русском</th>
+              <th>Пресет на английском</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Декодирование из кадра по случайным символам</td>
+              <td>Decode Out By Random Character</td>
+            </tr>
+            <tr>
+              <td>Затухание с эффектом кодирования</td>
+              <td>Encoder Fade Out</td>
+            </tr>
+            <tr>
+              <td>Медленное затухание</td>
+              <td>Fade Out Slow</td>
+            </tr>
+            <tr>
+              <td>Мерцание непрозрачности из кадра</td>
+              <td>Opacity Flicker Out</td>
+            </tr>
+            <tr>
+              <td>Посимвольное затухание</td>
+              <td>Fade Out By Character</td>
+            </tr>
+            <tr>
+              <td>Посимвольное осыпание</td>
+              <td>Raining Characters Out</td>
+            </tr>
+            <tr>
+              <td>Посимвольное стирание со скольжением вправо</td>
+              <td>Slide Off Right By Character</td>
+            </tr>
+            <tr>
+              <td>Пословная скрутка</td>
+              <td>Twirl Off Each Word</td>
+            </tr>
+            <tr>
+              <td>Пословное рассыпание в случайном порядке</td>
+              <td>Random Word Fly Off</td>
+            </tr>
+            <tr>
+              <td>Пословное убегание вправо</td>
+              <td>Slide Off Right By Word</td>
+            </tr>
+            <tr>
+              <td>Построчное растяжение</td>
+              <td>Stretch Out Each Line</td>
+            </tr>
+            <tr>
+              <td>Рассыпание в случайном порядке</td>
+              <td>Random Fly Off</td>
+            </tr>
+            <tr>
+              <td>Растяжение каждого слова</td>
+              <td>Stretch Out Each Word</td>
+            </tr>
+            <tr>
+              <td>Скольжение и всплывание из кадра</td>
+              <td>Slide and Pop Out</td>
+            </tr>
+            <tr>
+              <td>Скольжение из кадра по границе композиции</td>
+              <td>Slide Out To Comp Edge</td>
+            </tr>
+            <tr>
+              <td>Скольжение из кадра по линии</td>
+              <td>Slide Out By Line</td>
+            </tr>
+            <tr>
+              <td>Скрутка по линиям</td>
+              <td>Twirl Off Each Line</td>
+            </tr>
+            <tr>
+              <td>Чередующиеся символы из кадра</td>
+              <td>Alternating Characters Out</td>
+            </tr>
+          </tbody>
+        </table>
+        <Divider>Text - Blurs</Divider>
+        <table>
+          <thead>
+            <tr>
+              <th>Пресет на русском</th>
+              <th>Пресет на английском</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Испарение (исч.)</td>
+              <td>Evaporate Out</td>
+            </tr>
+            <tr>
+              <td>Каретка (возн.)</td>
+              <td>Transporter In</td>
+            </tr>
+            <tr>
+              <td>Размытие и наплывание в кадр</td>
+              <td>Blur and Fade In</td>
+            </tr>
+            <tr>
+              <td>Размытие и наплывание из кадра</td>
+              <td>Blur and Fade Out</td>
+            </tr>
+            <tr>
+              <td>Размытие по словам (возн.)</td>
+              <td>Blur In By Word</td>
+            </tr>
+            <tr>
+              <td>Размытие с помехами</td>
+              <td>Blur Glitch</td>
+            </tr>
+            <tr>
+              <td>Резкое размытие в кадр по символу</td>
+              <td>Harsh Blur In By Character</td>
+            </tr>
+            <tr>
+              <td>Резкое размытие из кадра по символу</td>
+              <td>Harsh Blur Out By Character</td>
+            </tr>
+            <tr>
+              <td>Скоростной поезд (возн.)</td>
+              <td>Bullet Train In</td>
+            </tr>
+            <tr>
+              <td>Туман (возн.)</td>
+              <td>Foggy In</td>
+            </tr>
+          </tbody>
+        </table>
+        <Divider>Text - Curver and Spins</Divider>
+        <table>
+          <thead>
+            <tr>
+              <th>Пресет на русском</th>
+              <th>Пресет на английском</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Быстрое вращение (возн.)</td>
+              <td>Spin Fast In</td>
+            </tr>
+            <tr>
+              <td>Вброс с прокруткой по часовой стрелке</td>
+              <td> Clockwise Entry</td>
+            </tr>
+            <tr>
+              <td>Ввод спиралью</td>
+              <td>Spiral In</td>
+            </tr>
+            <tr>
+              <td>Кто успел</td>
+              <td>Musical Chairs</td>
+            </tr>
+            <tr>
+              <td>Лассо (возн.)</td>
+              <td>Lasso In</td>
+            </tr>
+            <tr>
+              <td>Лассо по словам (возн.)</td>
+              <td>Lasso Tumble In</td>
+            </tr>
+            <tr>
+              <td>Ньютон</td>
+              <td>Newton</td>
+            </tr>
+            <tr>
+              <td>Обод колеса (возн.)</td>
+              <td>Tire Rim In</td>
+            </tr>
+            <tr>
+              <td>Обратное вращение</td>
+              <td>Retrograde</td>
+            </tr>
+            <tr>
+              <td>Пикирование (возн.)</td>
+              <td>Swoop In</td>
+            </tr>
+            <tr>
+              <td>Поворот против часовой стрелки</td>
+              <td>Counter Rotate</td>
+            </tr>
+            <tr>
+              <td>Поворот</td>
+              <td>Rotate</td>
+            </tr>
+            <tr>
+              <td>Появление с прокруткой</td>
+              <td>Whirl In</td>
+            </tr>
+            <tr>
+              <td>Пылевой дьявол (исч.)</td>
+              <td>Dust Devil Out</td>
+            </tr>
+            <tr>
+              <td>Радиальное сверкание (возн.)</td>
+              <td>Radial Flare In</td>
+            </tr>
+            <tr>
+              <td>Раскрывающийся цветок (возн.)</td>
+              <td>Bloom Flower In</td>
+            </tr>
+            <tr>
+              <td>Сальто (возн.)</td>
+              <td>Somersault In</td>
+            </tr>
+            <tr>
+              <td>Спираль (исч.)</td>
+              <td>Spiral Out</td>
+            </tr>
+            <tr>
+              <td>Чаинки (возн.)</td>
+              <td>Tea Leaves In</td>
+            </tr>
+          </tbody>
+        </table>
+        <Divider>Text - Expressions</Divider>
+        <table>
+          <thead>
+            <tr>
+              <th>Пресет на русском</th>
+              <th>Пресет на английском</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Выделение списка слов</td>
+              <td>Word List Highlight</td>
+            </tr>
+            <tr>
+              <td>Двумерное текстовое окно (маска и эффекты)</td>
+              <td>2D Text Box (Mask &amp; Effects)</td>
+            </tr>
+            <tr>
+              <td>Номер кадра</td>
+              <td>Frame Number</td>
+            </tr>
+            <tr>
+              <td>Отображение компьютерного времени</td>
+              <td>Display Comp Time</td>
+            </tr>
+            <tr>
+              <td>Скачущий текст</td>
+              <td>Text Bounce</td>
+            </tr>
+            <tr>
+              <td>Цикл списка слов</td>
+              <td>Cycle Word List</td>
+            </tr>
+            <tr>
+              <td>Червячок</td>
+              <td>Inch Worm</td>
+            </tr>
+          </tbody>
+        </table>
+        <Divider>Text - Fill and Stroke</Divider>
+        <table>
+          <thead>
+            <tr>
+              <th>Пресет на русском</th>
+              <th>Пресет на английском</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Вымывание цвета</td>
+              <td>Color Wash Behavior</td>
+            </tr>
+            <tr>
+              <td>Вытеснение заливки</td>
+              <td>Fill Color Wipe</td>
+            </tr>
+            <tr>
+              <td>Мигающая обводка - построчно по ширине</td>
+              <td>Wiggly Stroke Width By Line</td>
+            </tr>
+            <tr>
+              <td>Ниспадающая дорожка</td>
+              <td>Stroke Ease Down</td>
+            </tr>
+            <tr>
+              <td>Оранжевая пульсация</td>
+              <td>Pulse Orange</td>
+            </tr>
+            <tr>
+              <td>Последовательное выделение</td>
+              <td>Chasing Stroke</td>
+            </tr>
+            <tr>
+              <td>Пульсирующие дорожки</td>
+              <td>Pulsing Strokes</td>
+            </tr>
+            <tr>
+              <td>Скользящее мерцание цвета</td>
+              <td>Sliding Color Flicker</td>
+            </tr>
+            <tr>
+              <td>Смещение в холодный оттенок</td>
+              <td>Chill Hue Shift</td>
+            </tr>
+            <tr>
+              <td>Цветное мигание</td>
+              <td>Flicker Color</td>
+            </tr>
+            <tr>
+              <td>Циклическая заливка оттенка</td>
+              <td>Cycle Fill Hue</td>
+            </tr>
+          </tbody>
+        </table>
+        <Divider>Text - Graphical</Divider>
+        <table>
+          <thead>
+            <tr>
+              <th>Пресет на русском</th>
+              <th>Пресет на английском</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Голубой фон</td>
+              <td>Blue Note</td>
+            </tr>
+            <tr>
+              <td>Желтые кубики</td>
+              <td>Yellow Boxes</td>
+            </tr>
+            <tr>
+              <td>Красные круги</td>
+              <td>Red Circles</td>
+            </tr>
+            <tr>
+              <td>Нарезка</td>
+              <td>Cut Shapes</td>
+            </tr>
+            <tr>
+              <td>Опасность</td>
+              <td>Hazard</td>
+            </tr>
+            <tr>
+              <td>Поцарапанная пленка</td>
+              <td>Scratchy Film</td>
+            </tr>
+            <tr>
+              <td>Размен</td>
+              <td>Exchange</td>
+            </tr>
+            <tr>
+              <td>Снежинки</td>
+              <td>Snowflakes</td>
+            </tr>
+          </tbody>
+        </table>
+        <Divider>Text - Lights and Optical</Divider>
+        <table>
+          <thead>
+            <tr>
+              <th>Пресет на русском</th>
+              <th>Пресет на английском</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Бродвей</td>
+              <td>Broadway</td>
+            </tr>
+            <tr>
+              <td>Вспышки</td>
+              <td>Flash</td>
+            </tr>
+            <tr>
+              <td>Лампа дневного света</td>
+              <td>Fluorescent Light</td>
+            </tr>
+            <tr>
+              <td>Легкое мигание</td>
+              <td>Office Light</td>
+            </tr>
+            <tr>
+              <td>Наложение</td>
+              <td>Overlay</td>
+            </tr>
+            <tr>
+              <td>Проявление с мерцанием</td>
+              <td>Flicker Exposure</td>
+            </tr>
+            <tr>
+              <td>Пульсирующие пузырьки</td>
+              <td>Bubble Pulse</td>
+            </tr>
+          </tbody>
+        </table>
+        <Divider>Text - Mechanical</Divider>
+        <table>
+          <thead>
+            <tr>
+              <th>Пресет на русском</th>
+              <th>Пресет на английском</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Автоматика</td>
+              <td>Automation</td>
+            </tr>
+            <tr>
+              <td>Автомобильная поездка 2</td>
+              <td>Roadtrip 2</td>
+            </tr>
+            <tr>
+              <td>Автомобильная поездка</td>
+              <td>Roadtrip</td>
+            </tr>
+            <tr>
+              <td>Алгоритм (возн.)</td>
+              <td>Algorithm In</td>
+            </tr>
+            <tr>
+              <td>Вертолет (возн.)</td>
+              <td>Helicopter In</td>
+            </tr>
+            <tr>
+              <td>Вставка текста (возн.)</td>
+              <td>Insert Text In</td>
+            </tr>
+            <tr>
+              <td>Гиперпространственный двигатель 9.8</td>
+              <td>Warp 9.8</td>
+            </tr>
+            <tr>
+              <td>Кинематика (возн.)</td>
+              <td>Kinematic In</td>
+            </tr>
+            <tr>
+              <td>Кольцевой алгоритм</td>
+              <td>Algorithm Loop</td>
+            </tr>
+            <tr>
+              <td>Лестница</td>
+              <td>Stairstep</td>
+            </tr>
+            <tr>
+              <td>Механика (возн.)</td>
+              <td>Mechanical In</td>
+            </tr>
+            <tr>
+              <td>Поворот экрана</td>
+              <td>Screen Roll</td>
+            </tr>
+            <tr>
+              <td>Подлодка</td>
+              <td>Submarine</td>
+            </tr>
+            <tr>
+              <td>Подчеркивание (возн.)</td>
+              <td>Underscore In</td>
+            </tr>
+            <tr>
+              <td>Поршни</td>
+              <td>Pistons</td>
+            </tr>
+            <tr>
+              <td>Прыжки с увеличением</td>
+              <td>Scale Bounce</td>
+            </tr>
+            <tr>
+              <td>Сбой сигнала</td>
+              <td>Bad Reception</td>
+            </tr>
+            <tr>
+              <td>Стеллаж и перо</td>
+              <td>Rack & Pinion</td>
+            </tr>
+            <tr>
+              <td>Электромагнит (возн.)</td>
+              <td>Electro Magnet In</td>
+            </tr>
+            <tr>
+              <td>Эффект Доплера</td>
+              <td>Doppler</td>
+            </tr>
+          </tbody>
+        </table>
+        <Divider>Text - Miscellaneous</Divider>
+        <table>
+          <thead>
+            <tr>
+              <th>Пресет на русском</th>
+              <th>Пресет на английском</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Вброс углом</td>
+              <td>Angle Fly-In</td>
+            </tr>
+            <tr>
+              <td>Взрыв (исч.)</td>
+              <td>Explode Out</td>
+            </tr>
+            <tr>
+              <td>Волнистые линии (возн.)</td>
+              <td>Wiggly Lines In</td>
+            </tr>
+            <tr>
+              <td>Вопрос</td>
+              <td>Question</td>
+            </tr>
+            <tr>
+              <td>Впрыгивание</td>
+              <td>Bounce In</td>
+            </tr>
+            <tr>
+              <td>Выдувание (исч.)</td>
+              <td>Blow Away Out</td>
+            </tr>
+            <tr>
+              <td>Выжимка</td>
+              <td>Squeeze</td>
+            </tr>
+            <tr>
+              <td>Декодер текста со сбоями</td>
+              <td>Glitchy Text Decoder</td>
+            </tr>
+            <tr>
+              <td>Дымок</td>
+              <td>Smokey</td>
+            </tr>
+            <tr>
+              <td>Йо-йо</td>
+              <td>Yo-Yo</td>
+            </tr>
+            <tr>
+              <td>Качение и прыжок (возн.)</td>
+              <td>Roll Bounce In</td>
+            </tr>
+            <tr>
+              <td>Маятник (возн.)</td>
+              <td>Pendulum In</td>
+            </tr>
+            <tr>
+              <td>Прыжки на веревке</td>
+              <td>Bungee</td>
+            </tr>
+            <tr>
+              <td>Равномерные скачки</td>
+              <td>Sequential Jump</td>
+            </tr>
+            <tr>
+              <td>Сальто назад</td>
+              <td>Back Flip</td>
+            </tr>
+            <tr>
+              <td>Скольжение и прыжок (возн.)</td>
+              <td>Slide Bounce In</td>
+            </tr>
+            <tr>
+              <td>Смывающаяся точка (возн.)</td>
+              <td>Vanishing Point In</td>
+            </tr>
+            <tr>
+              <td>Соскальзывание (возн.)</td>
+              <td>Slip In</td>
+            </tr>
+            <tr>
+              <td>Суматоха</td>
+              <td>Rattle</td>
+            </tr>
+            <tr>
+              <td>Супергерой (возн.)</td>
+              <td>Superhero In</td>
+            </tr>
+            <tr>
+              <td>Хаос (возн.)</td>
+              <td>Chaotic In</td>
+            </tr>
+            <tr>
+              <td>Швырок (исч.)</td>
+              <td>Clay Pigeons Out</td>
+            </tr>
+            <tr>
+              <td>Шестизарядный револьвер (возн.)</td>
+              <td>Six-Shooter in</td>
+            </tr>
+          </tbody>
+        </table>
+        <Divider>Text - Multi-line</Divider>
+        <table>
+          <thead>
+            <tr>
+              <th>Пресет на русском</th>
+              <th>Пресет на английском</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Вброс по символам</td>
+              <td>Fly In By Characters</td>
+            </tr>
+            <tr>
+              <td>Вброс по словам</td>
+              <td>Fly In By Words</td>
+            </tr>
+            <tr>
+              <td>Договор (возн.)</td>
+              <td>Deal In</td>
+            </tr>
+            <tr>
+              <td>Живчик (возн.)</td>
+              <td>Zippy In</td>
+            </tr>
+            <tr>
+              <td>Идеи</td>
+              <td>Ideas</td>
+            </tr>
+            <tr>
+              <td>Пакет данных</td>
+              <td>Data Packet</td>
+            </tr>
+            <tr>
+              <td>Пневматика (возн.)</td>
+              <td>Pneumatic In</td>
+            </tr>
+            <tr>
+              <td>Поток данных (возн.)</td>
+              <td>Data Stream In</td>
+            </tr>
+            <tr>
+              <td>Реактивная струя (возн.)</td>
+              <td>Jetstream In</td>
+            </tr>
+            <tr>
+              <td>Сбор стопки (возн.)</td>
+              <td>Alternating Stack In</td>
+            </tr>
+            <tr>
+              <td>Суп из букв</td>
+              <td>Alphabet Soup</td>
+            </tr>
+            <tr>
+              <td>Текстовый редактор (возн.)</td>
+              <td>Word Processor In</td>
+            </tr>
+            <tr>
+              <td>Течения (возн.)</td>
+              <td>Currents In</td>
+            </tr>
+            <tr>
+              <td>Шифрование (возн.)</td>
+              <td>Encryption In</td>
+            </tr>
+          </tbody>
+        </table>
+        <Divider>Text - Number Counters</Divider>
+        <table>
+          <thead>
+            <tr>
+              <th>Пресет на русском</th>
+              <th>Пресет на английском</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Обратный отсчет с фиксированной шириной</td>
+              <td>Counter Countdown Monospaced</td>
+            </tr>
+            <tr>
+              <td>Отсчет времени с фиксированной шириной</td>
+              <td>Timer Countdown Monospaced</td>
+            </tr>
+            <tr>
+              <td>Счетчик валюты с фиксированной шириной</td>
+              <td>Currency Counter Monospaced</td>
+            </tr>
+            <tr>
+              <td>Счетчик процентов с фиксированной шириной</td>
+              <td>Percentage Counter Monospaced</td>
+            </tr>
+          </tbody>
+        </table>
+        <Divider>Text - Organic</Divider>
+        <table>
+          <thead>
+            <tr>
+              <th>Пресет на русском</th>
+              <th>Пресет на английском</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Амплитудные прыжки</td>
+              <td>Dip-Bounce</td>
+            </tr>
+            <tr>
+              <td>Бумеранг (возн.)</td>
+              <td>Boomerang In</td>
+            </tr>
+            <tr>
+              <td>Вдоль и поперек (возн.)</td>
+              <td>Slice and Dice In</td>
+            </tr>
+            <tr>
+              <td>Выезд</td>
+              <td>Shuffle</td>
+            </tr>
+            <tr>
+              <td>Двойная спираль</td>
+              <td>Double-Helix</td>
+            </tr>
+            <tr>
+              <td>Диагональный прыжок (возн.)</td>
+              <td>Diagonal Bounce In</td>
+            </tr>
+            <tr>
+              <td>Дрожание</td>
+              <td>Quiver</td>
+            </tr>
+            <tr>
+              <td>Жвачка (возн.)</td>
+              <td>Chewing Gum In</td>
+            </tr>
+            <tr>
+              <td>Кипяток</td>
+              <td>Boiling</td>
+            </tr>
+            <tr>
+              <td>Колебание (возн.)</td>
+              <td>Wobble In</td>
+            </tr>
+            <tr>
+              <td>Колибри (возн.)</td>
+              <td>Hummingbird In</td>
+            </tr>
+            <tr>
+              <td>Командная борьба</td>
+              <td>Tag Team</td>
+            </tr>
+            <tr>
+              <td>Лабрадор (возн.)</td>
+              <td>Labrador In</td>
+            </tr>
+            <tr>
+              <td>Летающие формы</td>
+              <td>Flying Formation</td>
+            </tr>
+            <tr>
+              <td>Медленное кипение</td>
+              <td>Simmer</td>
+            </tr>
+            <tr>
+              <td>Морская болезнь</td>
+              <td>Sea-Sick</td>
+            </tr>
+            <tr>
+              <td>Насекомые (возн.)</td>
+              <td>Insects In</td>
+            </tr>
+            <tr>
+              <td>Океанский прилив</td>
+              <td>Ocean Tide</td>
+            </tr>
+            <tr>
+              <td>Осень</td>
+              <td>Autumn</td>
+            </tr>
+            <tr>
+              <td>Подъем (возн.)</td>
+              <td>Climb In</td>
+            </tr>
+            <tr>
+              <td>Поток ветра</td>
+              <td>Wind Current</td>
+            </tr>
+            <tr>
+              <td>Приманка</td>
+              <td>Fish Bait</td>
+            </tr>
+            <tr>
+              <td>Прорастание (возн.)</td>
+              <td>Sprouts In</td>
+            </tr>
+            <tr>
+              <td>Пульсация (возн.)</td>
+              <td>Ripple In</td>
+            </tr>
+            <tr>
+              <td>Пшеничное поле</td>
+              <td>Wheatfield</td>
+            </tr>
+            <tr>
+              <td>Разреженная строка</td>
+              <td>Loose Line</td>
+            </tr>
+            <tr>
+              <td>Резинка</td>
+              <td>Rubber</td>
+            </tr>
+            <tr>
+              <td>Резиновый пол</td>
+              <td>Rubber Floor</td>
+            </tr>
+            <tr>
+              <td>Салфетка от насекомых</td>
+              <td>Insect Wipe</td>
+            </tr>
+            <tr>
+              <td>Слепень (возн.)</td>
+              <td>Horsefly In</td>
+            </tr>
+            <tr>
+              <td>Чехарда</td>
+              <td>Leapfrog</td>
+            </tr>
+          </tbody>
+        </table>
+        <Divider>Text - Paths</Divider>
+        <table>
+          <thead>
+            <tr>
+              <th>Пресет на русском</th>
+              <th>Пресет на английском</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Антилопа</td>
+              <td>Antelope</td>
+            </tr>
+            <tr>
+              <td>Барьеры</td>
+              <td>Hurdles</td>
+            </tr>
+            <tr>
+              <td>Безделушка</td>
+              <td>Tchotchke</td>
+            </tr>
+            <tr>
+              <td>В объезд</td>
+              <td>Bump And Slide On</td>
+            </tr>
+            <tr>
+              <td>Вниз и наружу</td>
+              <td>Down And Out</td>
+            </tr>
+            <tr>
+              <td>Воздушный шар</td>
+              <td>Balloon</td>
+            </tr>
+            <tr>
+              <td>Всплывание пузыря (исч.)</td>
+              <td>Bubble Pop Out</td>
+            </tr>
+            <tr>
+              <td>Двойная спираль</td>
+              <td>Double Spiral</td>
+            </tr>
+            <tr>
+              <td>Длинная спираль (исч.)</td>
+              <td>Long Spiral Out</td>
+            </tr>
+            <tr>
+              <td>Зигзаг</td>
+              <td>Zig-Zag</td>
+            </tr>
+            <tr>
+              <td>Змейка</td>
+              <td>Serpent</td>
+            </tr>
+            <tr>
+              <td>Канатный мост</td>
+              <td>Rope Bridge</td>
+            </tr>
+            <tr>
+              <td>Катушки 2</td>
+              <td>Reel-To-Reel 2</td>
+            </tr>
+            <tr>
+              <td>Катушки</td>
+              <td>Reel To Reel</td>
+            </tr>
+            <tr>
+              <td>Колебание</td>
+              <td>Bouncing</td>
+            </tr>
+            <tr>
+              <td>Конвейер</td>
+              <td>Conveyor Belt</td>
+            </tr>
+            <tr>
+              <td>Крысиное гнездо</td>
+              <td>Rat Nest</td>
+            </tr>
+            <tr>
+              <td>Муравьи</td>
+              <td>Ants</td>
+            </tr>
+            <tr>
+              <td>Оборот на 360</td>
+              <td>360 Loop</td>
+            </tr>
+            <tr>
+              <td>Печатная плата (исч.)</td>
+              <td>Circuit Board Out</td>
+            </tr>
+            <tr>
+              <td>Равновесие</td>
+              <td>Balance</td>
+            </tr>
+            <tr>
+              <td>Симметрия</td>
+              <td>Symmetry</td>
+            </tr>
+            <tr>
+              <td>Скольжение под гору - выкл</td>
+              <td>Downhill Slide Off</td>
+            </tr>
+            <tr>
+              <td>Трубы</td>
+              <td>Pipes</td>
+            </tr>
+            <tr>
+              <td>Удар каратиста</td>
+              <td>Karate Chop</td>
+            </tr>
+            <tr>
+              <td>Цикл возникновения-исчезновения</td>
+              <td>Loop In and Out</td>
+            </tr>
+            <tr>
+              <td>Эластичный</td>
+              <td>Springy</td>
+            </tr>
+          </tbody>
+        </table>
+        <Divider>Text - Rotation</Divider>
+        <table>
+          <thead>
+            <tr>
+              <th>Пресет на русском</th>
+              <th>Пресет на английском</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Водоворот</td>
+              <td>Swirly Rotation</td>
+            </tr>
+            <tr>
+              <td>Вращение каждого символа</td>
+              <td>Rotate Per Character</td>
+            </tr>
+            <tr>
+              <td>Закручивание</td>
+              <td>Spin In</td>
+            </tr>
+            <tr>
+              <td>Огромная петля</td>
+              <td>Loopy Loop</td>
+            </tr>
+            <tr>
+              <td>Отразить вверх</td>
+              <td>Flip Up</td>
+            </tr>
+            <tr>
+              <td>Поворот по словам</td>
+              <td>Rotate Per Word</td>
+            </tr>
+            <tr>
+              <td>Полный оборот</td>
+              <td>Full Rotation</td>
+            </tr>
+            <tr>
+              <td>Случайные вращения</td>
+              <td>Random Rotation</td>
+            </tr>
+            <tr>
+              <td>Смерч</td>
+              <td>Whirlwind</td>
+            </tr>
+            <tr>
+              <td>Стекание</td>
+              <td>Drip Down</td>
+            </tr>
+          </tbody>
+        </table>
+        <Divider>Text - Scale</Divider>
+        <table>
+          <thead>
+            <tr>
+              <th>Пресет на русском</th>
+              <th>Пресет на английском</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Давайте танцевать</td>
+              <td>Lets Dance</td>
+            </tr>
+            <tr>
+              <td>Масштаб (возн.)</td>
+              <td>Scale In</td>
+            </tr>
+            <tr>
+              <td>Масштаб (исч.)</td>
+              <td>Scale Out</td>
+            </tr>
+            <tr>
+              <td>Масштаб по словам (возн.)</td>
+              <td>Scale In By Word</td>
+            </tr>
+            <tr>
+              <td>Масштаб по словам (исч.)</td>
+              <td>Scale Out By Word</td>
+            </tr>
+            <tr>
+              <td>Масштабирование в кадр от точки</td>
+              <td>Scale In From Point</td>
+            </tr>
+            <tr>
+              <td>Масштабирование из кадра от точки</td>
+              <td>Scale Out From Point</td>
+            </tr>
+            <tr>
+              <td>Мигающее вытеснение с масштабированием</td>
+              <td>Wiggly Scale Wipe</td>
+            </tr>
+            <tr>
+              <td>Произвольное масштабирование (возн.)</td>
+              <td>Random Scale In</td>
+            </tr>
+            <tr>
+              <td>Увеличение вперед</td>
+              <td>Zoom Forward</td>
+            </tr>
+            <tr>
+              <td>Удаление с уменьшением</td>
+              <td>Zoom Away</td>
+            </tr>
+          </tbody>
+        </table>
+        <Divider>Text - Tracking</Divider>
+        <table>
+          <thead>
+            <tr>
+              <th>Пресет на русском</th>
+              <th>Пресет на английском</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Растяжение</td>
+              <td>Increase Tracking</td>
+            </tr>
+            <tr>
+              <td>Растянутый</td>
+              <td>Stretchy</td>
+            </tr>
+            <tr>
+              <td>Расширение</td>
+              <td>Extend</td>
+            </tr>
+            <tr>
+              <td>Сжатие</td>
+              <td>Contract</td>
+            </tr>
+            <tr>
+              <td>Смещение в кадр по трекингу</td>
+              <td>Shift In By Tracking</td>
+            </tr>
+            <tr>
+              <td>Смещение из кадра по трекингу</td>
+              <td>Shift Out By Tracking</td>
+            </tr>
+            <tr>
+              <td>Судорога</td>
+              <td>Spasm</td>
+            </tr>
+            <tr>
+              <td>Сужение</td>
+              <td>Decrease Tracking</td>
+            </tr>
+            <tr>
+              <td>Увеличение</td>
+              <td>Magnify</td>
+            </tr>
+          </tbody>
+        </table>
+        <Divider>Transitions - Dissolves</Divider>
+        <table>
+          <thead>
+            <tr>
+              <th>Пресет на русском</th>
+              <th>Пресет на английском</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Затухание блока - построчное</td>
+              <td>Block Dissolve - scanlines</td>
+            </tr>
+            <tr>
+              <td>Затухание блока - цифровое</td>
+              <td>Block Dissolve - digital</td>
+            </tr>
+            <tr>
+              <td>Затухание - мигание в белый</td>
+              <td>Fade - flash to white</td>
+            </tr>
+            <tr>
+              <td>Затухание - погружение в черный</td>
+              <td>Fade - dip to black</td>
+            </tr>
+            <tr>
+              <td>Мерцающая непрозрачность - на слой в кадр</td>
+              <td>Flickering Opacity - at layer in</td>
+            </tr>
+            <tr>
+              <td>Мерцающая непрозрачность - на слой из кадра</td>
+              <td>Flickering Opacity - at layer out</td>
+            </tr>
+            <tr>
+              <td>Нарастание - переэкспонированное</td>
+              <td>Fade - overexposed</td>
+            </tr>
+            <tr>
+              <td>Пиксельное растворение</td>
+              <td>Pixelated Dissolve</td>
+            </tr>
+            <tr>
+              <td>Растворение блока - произвольно</td>
+              <td>Block Dissolve - random</td>
+            </tr>
+            <tr>
+              <td>Растворение - большие двоичные объекты</td>
+              <td>Dissolve - blobs</td>
+            </tr>
+            <tr>
+              <td>Растворение - дизеринг</td>
+              <td>Dissolve - dither</td>
+            </tr>
+            <tr>
+              <td>Растворение - нерастаявший</td>
+              <td>Dissolve - unmelt</td>
+            </tr>
+            <tr>
+              <td>Растворение - пар</td>
+              <td>Dissolve - vapor</td>
+            </tr>
+            <tr>
+              <td>Растворение - песок</td>
+              <td>Dissolve - sand</td>
+            </tr>
+            <tr>
+              <td>Растворение - рябь</td>
+              <td>Dissolve - ripple</td>
+            </tr>
+            <tr>
+              <td>Чернильное растворение</td>
+              <td>Inky Dissolve</td>
+            </tr>
+          </tbody>
+        </table>
+        <Divider>Transitions - Movement</Divider>
+        <table>
+          <thead>
+            <tr>
+              <th>Пресет на русском</th>
+              <th>Пресет на английском</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Всплывание и отражение в кадр</td>
+              <td>Pop and Wobble In</td>
+            </tr>
+            <tr>
+              <td>Вытеснение карт - 2D дробные</td>
+              <td>Card Wipe - 2D fractured</td>
+            </tr>
+            <tr>
+              <td>Вытеснение карт - 3D качание</td>
+              <td>Card Wipe - 3D swing</td>
+            </tr>
+            <tr>
+              <td>Вытеснение карт - 3D пиксельная буря</td>
+              <td>Card Wipe - 3D pixelstorm</td>
+            </tr>
+            <tr>
+              <td>Масштаб полный</td>
+              <td>Scale - Cardinal</td>
+            </tr>
+            <tr>
+              <td>Масштаб - 2D-вращение</td>
+              <td>Zoom - 2D spin</td>
+            </tr>
+            <tr>
+              <td>Масштаб - 3D-переворот</td>
+              <td>Zoom - 3D tumble</td>
+            </tr>
+            <tr>
+              <td>Масштаб - пузырь</td>
+              <td>Zoom - bubble</td>
+            </tr>
+            <tr>
+              <td>Масштаб - раскачивание</td>
+              <td>Zoom - wobbling</td>
+            </tr>
+            <tr>
+              <td>Масштаб - спираль</td>
+              <td>Zoom - spiral</td>
+            </tr>
+            <tr>
+              <td>Растягивание из линии - по горизонтали</td>
+              <td>Stretch Over - horizontal</td>
+            </tr>
+            <tr>
+              <td>Растягивание по вертикали</td>
+              <td>Stretch Over - vertical</td>
+            </tr>
+            <tr>
+              <td>Растяжение и размытие</td>
+              <td>Stretch & Blur</td>
+            </tr>
+            <tr>
+              <td>Растяжение и скольжение</td>
+              <td>Stretch & Slide</td>
+            </tr>
+            <tr>
+              <td>Растяжение с края</td>
+              <td>Stretch - Edge</td>
+            </tr>
+            <tr>
+              <td>Слайд - обвал</td>
+              <td>Slide - swoop</td>
+            </tr>
+            <tr>
+              <td>Слайд - падение</td>
+              <td>Slide - drop</td>
+            </tr>
+            <tr>
+              <td>Слайд - прямо</td>
+              <td>Slide - straight</td>
+            </tr>
+          </tbody>
+        </table>
+        <Divider>Transitions - Wipes</Divider>
+        <table>
+          <thead>
+            <tr>
+              <th>Пресет на русском</th>
+              <th>Пресет на английском</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Двери сарая</td>
+              <td>Barn Doors</td>
+            </tr>
+            <tr>
+              <td>Жалюзи</td>
+              <td>Venetian Blinds</td>
+            </tr>
+            <tr>
+              <td>Закрашивание сверху</td>
+              <td>Paint On</td>
+            </tr>
+            <tr>
+              <td>Заполнение - шашки HD</td>
+              <td>Checker Wipe HD</td>
+            </tr>
+            <tr>
+              <td>Ленты - встречное заполнение HD</td>
+              <td>Band Wipe - crossing HD</td>
+            </tr>
+            <tr>
+              <td>Ленты - заклеивание HD</td>
+              <td>Band Wipe - Build HD</td>
+            </tr>
+            <tr>
+              <td>Ленты - зигзаг HD</td>
+              <td>Band Wipe - Zig Zag HD</td>
+            </tr>
+            <tr>
+              <td>Линейное вытеснение</td>
+              <td>Linear Wipe</td>
+            </tr>
+            <tr>
+              <td>Пиксельное вытеснение из центра</td>
+              <td>Pixelated Iris Wipe</td>
+            </tr>
+            <tr>
+              <td>Пиксельное линейное вытеснение</td>
+              <td>Pixelated Linear Wipe</td>
+            </tr>
+            <tr>
+              <td>Раскладушка</td>
+              <td>Clam Shell</td>
+            </tr>
+            <tr>
+              <td>Сетка_Вытеснение</td>
+              <td>Grid Wipe</td>
+            </tr>
+            <tr>
+              <td>Стирание - радиальное полное</td>
+              <td>Radial Wipe - Cardinal</td>
+            </tr>
+            <tr>
+              <td>Угол_Отображение</td>
+              <td>Corner Reveal</td>
+            </tr>
+            <tr>
+              <td>Часы_Вытеснение</td>
+              <td> Clock Wipe</td>
+            </tr>
+            <tr>
+              <td>Чернильное вытеснение из центра</td>
+              <td>Inky Iris Wipe</td>
+            </tr>
+            <tr>
+              <td>Чернильное линейное вытеснение</td>
+              <td>Inky Linear Wipe</td>
+            </tr>
+          </tbody>
+        </table>
+      </DetailsSummary>
     </div>
   );
 };
