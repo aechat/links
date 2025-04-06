@@ -461,15 +461,14 @@ const AEWhereFind: React.FC = () => {
         </p>
       </DetailsSummary>
       <DetailsSummary
-        title="Где найти таблицу перевода стандартных эффектов?"
         tag="русский афтер, английский"
+        title="Где найти таблицу перевода стандартных эффектов?"
       >
         <AdditionWarning>
           Перевод и наличие эффектов, а также способ их работы может отличаться в
           зависимости от версии <mark className="app">After Effects</mark>. Также
           рекомендуем переключить интерфейс на английский язык, чтобы не возвращаться к
-          этой таблице снова и снова. Перевод встроенных пресетов в данной таблице
-          отсутствует.
+          этой таблице снова и снова.
         </AdditionWarning>
         <p>
           Пользователям, использующие русскоязычный интерфейс{" "}
@@ -498,8 +497,8 @@ const AEWhereFind: React.FC = () => {
               <td>3D Channel Extract</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/qAKdcIeku3Q&t=6"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -510,8 +509,8 @@ const AEWhereFind: React.FC = () => {
               <td>Cryptomatte</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/_cOG53NWJj4&t=6"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -522,8 +521,8 @@ const AEWhereFind: React.FC = () => {
               <td>Depth Matte</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/qAKdcIeku3Q&t=278"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -534,8 +533,8 @@ const AEWhereFind: React.FC = () => {
               <td>Depth of Field</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/qAKdcIeku3Q&t=216"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -546,8 +545,8 @@ const AEWhereFind: React.FC = () => {
               <td>EXtractoR</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/7DW84Vt5gvQ&t=6"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -558,8 +557,8 @@ const AEWhereFind: React.FC = () => {
               <td>Fog 3D</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/qAKdcIeku3Q&t=318"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -570,8 +569,8 @@ const AEWhereFind: React.FC = () => {
               <td>ID Matte</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/qAKdcIeku3Q&t=457"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -582,8 +581,8 @@ const AEWhereFind: React.FC = () => {
               <td>IDentifier</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/7DW84Vt5gvQ&t=195"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -612,8 +611,8 @@ const AEWhereFind: React.FC = () => {
               <td>Backwards</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/lNYgKQPU2Pk&t=46"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -624,8 +623,8 @@ const AEWhereFind: React.FC = () => {
               <td>Bass &amp; Treble</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/lNYgKQPU2Pk&t=79"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -636,8 +635,8 @@ const AEWhereFind: React.FC = () => {
               <td>Delay</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/lNYgKQPU2Pk&t=101"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -648,8 +647,8 @@ const AEWhereFind: React.FC = () => {
               <td>Flange &amp; Chorus</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/lNYgKQPU2Pk&t=139"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -660,8 +659,8 @@ const AEWhereFind: React.FC = () => {
               <td>High-Low Pass</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/lNYgKQPU2Pk&t=158"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -672,8 +671,8 @@ const AEWhereFind: React.FC = () => {
               <td>Modulator</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/lNYgKQPU2Pk&t=177"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -684,8 +683,8 @@ const AEWhereFind: React.FC = () => {
               <td>Parametric EQ</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/lNYgKQPU2Pk&t=191"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -696,8 +695,8 @@ const AEWhereFind: React.FC = () => {
               <td>Reverb</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/lNYgKQPU2Pk&t=211"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -708,8 +707,8 @@ const AEWhereFind: React.FC = () => {
               <td>Stereo Mixer</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/lNYgKQPU2Pk&t=224"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -720,8 +719,8 @@ const AEWhereFind: React.FC = () => {
               <td>Tone</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/lNYgKQPU2Pk&t=242"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -750,8 +749,8 @@ const AEWhereFind: React.FC = () => {
               <td>Bilateral Blur</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/oq0FC5UuE7M&t=6"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -762,8 +761,8 @@ const AEWhereFind: React.FC = () => {
               <td>Camera Lens Blur</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/EPw0nMrhP8E&t=6"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -774,8 +773,8 @@ const AEWhereFind: React.FC = () => {
               <td>Camera-Shake Deblur</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/28L2XalNr5A&t=1178"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -786,8 +785,8 @@ const AEWhereFind: React.FC = () => {
               <td>CC Cross Blur</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/UOEFos3tyHs&t=6"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -798,8 +797,8 @@ const AEWhereFind: React.FC = () => {
               <td>CC Radial Blur</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/4hpvPSexGOg&t=161"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -810,8 +809,8 @@ const AEWhereFind: React.FC = () => {
               <td>CC Radial Fast Blur</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/4hpvPSexGOg&t=248"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -822,8 +821,8 @@ const AEWhereFind: React.FC = () => {
               <td>CC Vector Blur</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/tWF41oySk3U&t=6"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -834,8 +833,8 @@ const AEWhereFind: React.FC = () => {
               <td>Channel Blur</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/x4jHZoUk2uc&t=6"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -846,8 +845,8 @@ const AEWhereFind: React.FC = () => {
               <td>Compound Blur</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/JGkoDPa1XEw&t=6"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -858,8 +857,8 @@ const AEWhereFind: React.FC = () => {
               <td>Directonal Blur</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/7BUnCtU9ARY&t=6"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -870,8 +869,8 @@ const AEWhereFind: React.FC = () => {
               <td>Fast Box Blur</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/MyEZcFBwloY&t=6"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -882,8 +881,8 @@ const AEWhereFind: React.FC = () => {
               <td>Gaussian Blur</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/MyEZcFBwloY&t=76"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -894,8 +893,8 @@ const AEWhereFind: React.FC = () => {
               <td>Radial Blur</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/4hpvPSexGOg&t=6"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -906,8 +905,8 @@ const AEWhereFind: React.FC = () => {
               <td>Sharpen</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/2HwYIQWSQb8&t=6"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -918,8 +917,8 @@ const AEWhereFind: React.FC = () => {
               <td>Smart Blur</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/oq0FC5UuE7M&t=104"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -930,8 +929,8 @@ const AEWhereFind: React.FC = () => {
               <td>Unsharp Mask</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/QhKqU1ZHUJ4&t=6"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -960,8 +959,8 @@ const AEWhereFind: React.FC = () => {
               <td>Arithmetic</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/fV_6S9hF3as&t=6"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -972,8 +971,8 @@ const AEWhereFind: React.FC = () => {
               <td>Blend</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/fV_6S9hF3as&t=176"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -984,8 +983,8 @@ const AEWhereFind: React.FC = () => {
               <td>Calculations</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/fV_6S9hF3as&t=223"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -996,8 +995,8 @@ const AEWhereFind: React.FC = () => {
               <td>CC Composite</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/trNkh341o6s&t=6"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -1008,8 +1007,8 @@ const AEWhereFind: React.FC = () => {
               <td>Channel Combiner</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/fV_6S9hF3as&t=310"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -1020,8 +1019,8 @@ const AEWhereFind: React.FC = () => {
               <td>Compound Arithmetic</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/fV_6S9hF3as&t=116"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -1032,8 +1031,8 @@ const AEWhereFind: React.FC = () => {
               <td>Invert</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/1hhA-21q8Xw&t=6"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -1044,8 +1043,8 @@ const AEWhereFind: React.FC = () => {
               <td>Minimax</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/ibfYiy--9Hs&t=6"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -1056,8 +1055,8 @@ const AEWhereFind: React.FC = () => {
               <td>Remove Color Matting</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/8u8uJkSl9Uw&t=6"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -1068,8 +1067,8 @@ const AEWhereFind: React.FC = () => {
               <td>Set Channels</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/IKah5aJHwmg&t=6"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -1080,8 +1079,8 @@ const AEWhereFind: React.FC = () => {
               <td>Set Matte</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/zfmuXUgATpo&t=6"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -1092,8 +1091,8 @@ const AEWhereFind: React.FC = () => {
               <td>Shift Channels</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/-pqGYehO-4s&t=6"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -1104,8 +1103,8 @@ const AEWhereFind: React.FC = () => {
               <td>Solid Composite</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/ZZiabVb-OEg&t=6"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -1134,8 +1133,8 @@ const AEWhereFind: React.FC = () => {
               <td>Auto Color</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/NW4VGAt5x4g&t=198"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -1146,8 +1145,8 @@ const AEWhereFind: React.FC = () => {
               <td>Auto Contrast</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/NW4VGAt5x4g&t=166"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -1158,8 +1157,8 @@ const AEWhereFind: React.FC = () => {
               <td>Auto Levels</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/NW4VGAt5x4g&t=6"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -1170,8 +1169,8 @@ const AEWhereFind: React.FC = () => {
               <td>Black &amp; White</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/fmN2-L0NG6o&t=6"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -1182,8 +1181,8 @@ const AEWhereFind: React.FC = () => {
               <td>Brightness &amp; Contrast</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/s4bAXwpcj-0&t=6"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -1194,8 +1193,8 @@ const AEWhereFind: React.FC = () => {
               <td>Broadcast Colors</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/pE58Xz1wXxI&t=6"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -1206,8 +1205,8 @@ const AEWhereFind: React.FC = () => {
               <td>CC Color Neutralizer</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/earDDwlY5IE&t=6"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -1218,8 +1217,8 @@ const AEWhereFind: React.FC = () => {
               <td>CC Color Offset</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/1-vGTVngKRw&t=10"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -1230,8 +1229,8 @@ const AEWhereFind: React.FC = () => {
               <td>СС Kernel</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/H1cXvYYM_0U&t=6"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -1242,8 +1241,8 @@ const AEWhereFind: React.FC = () => {
               <td>CC Toner</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/euIDwp4bsi0&t=186"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -1254,8 +1253,8 @@ const AEWhereFind: React.FC = () => {
               <td>Change Color</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/LfbBtfbRFo8&t=6"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -1266,8 +1265,8 @@ const AEWhereFind: React.FC = () => {
               <td>Change to Color</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/LfbBtfbRFo8&t=154"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -1278,8 +1277,8 @@ const AEWhereFind: React.FC = () => {
               <td>Channel Mixer</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/pkPBKtVumaQ&t=6"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -1290,8 +1289,8 @@ const AEWhereFind: React.FC = () => {
               <td>Color Balance</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/pkPBKtVumaQ&t=139"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -1302,8 +1301,8 @@ const AEWhereFind: React.FC = () => {
               <td>Color Balance (HLS)</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/pkPBKtVumaQ&t=180"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -1314,8 +1313,8 @@ const AEWhereFind: React.FC = () => {
               <td>Color Link</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/Vq6FpcCtSd0&t=6"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -1326,8 +1325,8 @@ const AEWhereFind: React.FC = () => {
               <td>Color Stabilizer</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/8-16s24iBy8&t=6"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -1338,8 +1337,8 @@ const AEWhereFind: React.FC = () => {
               <td>Colorama</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/85XJHcAydVU&t=6"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -1350,8 +1349,8 @@ const AEWhereFind: React.FC = () => {
               <td>Curves</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/nP47ynBc3B8&t=398"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -1362,8 +1361,8 @@ const AEWhereFind: React.FC = () => {
               <td>Equalize</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/_S4N3PEvaws&t=6"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -1374,8 +1373,8 @@ const AEWhereFind: React.FC = () => {
               <td>Exposure</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/PciM7SLWu40&t=6"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -1386,8 +1385,8 @@ const AEWhereFind: React.FC = () => {
               <td>Gamma/Pedestal/Gain</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/yJyHkxTTlc4&t=6"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -1398,8 +1397,8 @@ const AEWhereFind: React.FC = () => {
               <td>Hue/Saturation</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/76LQhG-nl_0&t=6"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -1410,8 +1409,8 @@ const AEWhereFind: React.FC = () => {
               <td>Leave Color</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/LfbBtfbRFo8&t=314"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -1422,8 +1421,8 @@ const AEWhereFind: React.FC = () => {
               <td>Levels</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/nP47ynBc3B8&t=6"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -1434,8 +1433,8 @@ const AEWhereFind: React.FC = () => {
               <td>Levels (Individual Controls)</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/nP47ynBc3B8&t=372"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -1446,8 +1445,8 @@ const AEWhereFind: React.FC = () => {
               <td>Lumetri Color</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/y4fuhIPxmJg&t=6"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -1458,8 +1457,8 @@ const AEWhereFind: React.FC = () => {
               <td>Photo Filter</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/LwdOCzlVHe4&t=6"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -1470,8 +1469,8 @@ const AEWhereFind: React.FC = () => {
               <td>PS Arbitrary Map</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/POK5dgZh6zQ&t=6"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -1482,8 +1481,8 @@ const AEWhereFind: React.FC = () => {
               <td>Selective Color</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/R__aeOjw2Ms&t=6"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -1494,8 +1493,8 @@ const AEWhereFind: React.FC = () => {
               <td>Shadow/Highlight</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/D8FOw8fUbSg&t=6"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -1506,8 +1505,8 @@ const AEWhereFind: React.FC = () => {
               <td>Tint</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/euIDwp4bsi0&t=87"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -1518,8 +1517,8 @@ const AEWhereFind: React.FC = () => {
               <td>Tritone</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/euIDwp4bsi0&t=134"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -1530,8 +1529,8 @@ const AEWhereFind: React.FC = () => {
               <td>Vibrance</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/o9O-SK4j5yc&t=6"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -1542,8 +1541,8 @@ const AEWhereFind: React.FC = () => {
               <td>Video Limiter</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/iuNNcEmuJI8&t=6"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -1572,8 +1571,8 @@ const AEWhereFind: React.FC = () => {
               <td>Bezier Warp</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/J77LkU-aiIM&t=6"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -1584,8 +1583,8 @@ const AEWhereFind: React.FC = () => {
               <td>Bulge</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/03JF-PxF1gE&t=6"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -1596,8 +1595,8 @@ const AEWhereFind: React.FC = () => {
               <td>CC Bend It</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/L46aRRGkb58&t=6"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -1608,8 +1607,8 @@ const AEWhereFind: React.FC = () => {
               <td>CC Bender</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/L46aRRGkb58&t=440"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -1620,8 +1619,8 @@ const AEWhereFind: React.FC = () => {
               <td>CC Blobbylize</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/WPo-dkPiynI&t=470"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -1632,8 +1631,8 @@ const AEWhereFind: React.FC = () => {
               <td>CC Flo Motion</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/8prrshDN0eo&t=6"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -1644,8 +1643,8 @@ const AEWhereFind: React.FC = () => {
               <td>CC Griddler</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/SN6yteIc88k&t=6"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -1656,8 +1655,8 @@ const AEWhereFind: React.FC = () => {
               <td>CC Lens</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/HhY6NqWRU_M&t=228"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -1668,8 +1667,8 @@ const AEWhereFind: React.FC = () => {
               <td>CC Page Turn</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/fybg41bOoLE&t=6"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -1680,8 +1679,8 @@ const AEWhereFind: React.FC = () => {
               <td>CC Power Pin</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/NeUrbL0oadc&t=146"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -1692,8 +1691,8 @@ const AEWhereFind: React.FC = () => {
               <td>CC Ripple Pulse</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/k5b_kRqgky8&t=369"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -1704,8 +1703,8 @@ const AEWhereFind: React.FC = () => {
               <td>CC Slant</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/wxOL7Cjm-is&t=6"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -1716,8 +1715,8 @@ const AEWhereFind: React.FC = () => {
               <td>CC Smear</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/w6PkkWRpZpQ&t=84"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -1728,8 +1727,8 @@ const AEWhereFind: React.FC = () => {
               <td>CC Split</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/sZjtBJX_Its&t=6"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -1740,8 +1739,8 @@ const AEWhereFind: React.FC = () => {
               <td>CC Split 2</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/sZjtBJX_Its&t=62"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -1752,8 +1751,8 @@ const AEWhereFind: React.FC = () => {
               <td>CC Tiler</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/uAc5sToN5DM&t=6"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -1764,8 +1763,8 @@ const AEWhereFind: React.FC = () => {
               <td>Corner Pin</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/NeUrbL0oadc&t=6"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -1776,8 +1775,8 @@ const AEWhereFind: React.FC = () => {
               <td>Detail-preserving Upscale</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/njLTViB1dTk&t=6"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -1788,8 +1787,8 @@ const AEWhereFind: React.FC = () => {
               <td>Displacement Map</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/4N2xvjYoLTM&t=6"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -1800,8 +1799,8 @@ const AEWhereFind: React.FC = () => {
               <td>Liquify</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/EHlmVsp-JPs&t=6"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -1812,8 +1811,8 @@ const AEWhereFind: React.FC = () => {
               <td>Magnify</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/c_dn9kPHmhA&t=6"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -1824,8 +1823,8 @@ const AEWhereFind: React.FC = () => {
               <td>Mesh Warp</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/2_nRHBNmCuQ&t=6"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -1836,8 +1835,8 @@ const AEWhereFind: React.FC = () => {
               <td>Mirror</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/9XMohV-HL-0&t=6"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -1848,8 +1847,8 @@ const AEWhereFind: React.FC = () => {
               <td>Offset</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/3DYJQO70B7M&t=6"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -1860,8 +1859,8 @@ const AEWhereFind: React.FC = () => {
               <td>Optics Compensation</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/HhY6NqWRU_M&t=6"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -1872,8 +1871,8 @@ const AEWhereFind: React.FC = () => {
               <td>Polar Coordinates</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/9do6TuDBYEQ&t=6"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -1884,8 +1883,8 @@ const AEWhereFind: React.FC = () => {
               <td>Reshape</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/Rp6iKBfOfgg&t=6"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -1896,8 +1895,8 @@ const AEWhereFind: React.FC = () => {
               <td>Ripple</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/k5b_kRqgky8&t=6"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -1908,8 +1907,8 @@ const AEWhereFind: React.FC = () => {
               <td>Rolling Shutter Repair</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/28L2XalNr5A&t=1363"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -1920,8 +1919,8 @@ const AEWhereFind: React.FC = () => {
               <td>Smear</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/w6PkkWRpZpQ&t=6"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -1932,8 +1931,8 @@ const AEWhereFind: React.FC = () => {
               <td>Spherize</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/MUAStb2uULc&t=6"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -1944,8 +1943,8 @@ const AEWhereFind: React.FC = () => {
               <td>Transform</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/JChsjyYSA2A&t=6"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -1956,8 +1955,8 @@ const AEWhereFind: React.FC = () => {
               <td>Turbulent Displace</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/HiKTFo-PYAg&t=6"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -1968,8 +1967,8 @@ const AEWhereFind: React.FC = () => {
               <td>Twirl</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/Jb9YMWrVHLk&t=6"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -1980,8 +1979,8 @@ const AEWhereFind: React.FC = () => {
               <td>Warp</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/Qg9eeziEpJo&t=6"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -1992,8 +1991,8 @@ const AEWhereFind: React.FC = () => {
               <td>Warp Stabilizer</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/28L2XalNr5A&t=6"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -2004,8 +2003,8 @@ const AEWhereFind: React.FC = () => {
               <td>Wave Warp</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/AbY7V6bJITA&t=6"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -2034,8 +2033,8 @@ const AEWhereFind: React.FC = () => {
               <td>3D Point Control</td>
               <td rowSpan={8}>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/zW3Oj2X9oEY&t=6"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -2092,8 +2091,8 @@ const AEWhereFind: React.FC = () => {
               <td>4-Color Gradient</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/MfyN1bBe8rE&t=6"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -2104,8 +2103,8 @@ const AEWhereFind: React.FC = () => {
               <td>Advanced Lightning</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/YJ8jXYU9lYs&t=6"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -2116,8 +2115,8 @@ const AEWhereFind: React.FC = () => {
               <td>Audio Spectrum</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/1MCQ2JvExyE&t=510"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -2128,8 +2127,8 @@ const AEWhereFind: React.FC = () => {
               <td>Audio Waveform</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/1MCQ2JvExyE&t=6"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -2140,8 +2139,8 @@ const AEWhereFind: React.FC = () => {
               <td>Beam</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/ESaxBxvt6Us&t=6"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -2152,8 +2151,8 @@ const AEWhereFind: React.FC = () => {
               <td>CC Glue Gun</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/RjClIwbbV04&t=6"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -2164,8 +2163,8 @@ const AEWhereFind: React.FC = () => {
               <td>CC Light Burst 2.5</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/rNJ5SRrWqyo&t=6"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -2176,8 +2175,8 @@ const AEWhereFind: React.FC = () => {
               <td>CC Light Rays</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/lUyIpM4aRwU&t=6"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -2188,8 +2187,8 @@ const AEWhereFind: React.FC = () => {
               <td>CC Light Sweep</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/0n0pZp_BA2w&t=6"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -2200,8 +2199,8 @@ const AEWhereFind: React.FC = () => {
               <td>CC Threads</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/fn2Yx3YjlS0&t=6"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -2212,8 +2211,8 @@ const AEWhereFind: React.FC = () => {
               <td>Cell Pattern</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/y6R1_9E0tPo&t=6"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -2224,8 +2223,8 @@ const AEWhereFind: React.FC = () => {
               <td>Checkerboard</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/xhIJdj_dA7U&t=6"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -2236,8 +2235,8 @@ const AEWhereFind: React.FC = () => {
               <td>Circle</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/yb-wbWtJnng&t=6"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -2248,8 +2247,8 @@ const AEWhereFind: React.FC = () => {
               <td>Ellipse</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/yb-wbWtJnng&t=312"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -2260,8 +2259,8 @@ const AEWhereFind: React.FC = () => {
               <td>Eyedropper Fill</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/bNsQ0RCT2l4&t=6"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -2272,8 +2271,8 @@ const AEWhereFind: React.FC = () => {
               <td>Fill</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/euIDwp4bsi0&t=6"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -2284,8 +2283,8 @@ const AEWhereFind: React.FC = () => {
               <td>Fractal</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/Rl2CpXgDgok&t=6"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -2296,8 +2295,8 @@ const AEWhereFind: React.FC = () => {
               <td>Gradient Ramp</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/JhdhSF2ibgQ&t=6"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -2308,8 +2307,8 @@ const AEWhereFind: React.FC = () => {
               <td>Grid</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/5Ug1sVc7uYE&t=6"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -2320,8 +2319,8 @@ const AEWhereFind: React.FC = () => {
               <td>Lens Flare</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/bgiA3_-9abw&t=6"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -2332,8 +2331,8 @@ const AEWhereFind: React.FC = () => {
               <td>Paint Bucket</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/bNsQ0RCT2l4&t=192"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -2344,8 +2343,8 @@ const AEWhereFind: React.FC = () => {
               <td>Radio Waves</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/wf8XFPvUptc&t=6"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -2356,8 +2355,8 @@ const AEWhereFind: React.FC = () => {
               <td>Scribble</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/2l4ao-cXlxM&t=6"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -2368,8 +2367,8 @@ const AEWhereFind: React.FC = () => {
               <td>Stroke</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/NZAcHdOaUH4&t=6"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -2380,8 +2379,8 @@ const AEWhereFind: React.FC = () => {
               <td>Vegas</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/FQ0oTGpHbBs&t=6"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -2392,8 +2391,8 @@ const AEWhereFind: React.FC = () => {
               <td>Write-on</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/NZAcHdOaUH4&t=179"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -2422,8 +2421,8 @@ const AEWhereFind: React.FC = () => {
               <td>VR Blur</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/cXv70dpIQJw&t=320"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -2434,8 +2433,8 @@ const AEWhereFind: React.FC = () => {
               <td>VR Chromatic Abberations</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/cXv70dpIQJw&t=435"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -2446,8 +2445,8 @@ const AEWhereFind: React.FC = () => {
               <td>VR Color Gradients</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/cXv70dpIQJw&t=538"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -2458,8 +2457,8 @@ const AEWhereFind: React.FC = () => {
               <td>VR Converter</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/cXv70dpIQJw&t=621"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -2470,8 +2469,8 @@ const AEWhereFind: React.FC = () => {
               <td>VR De-Noise</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/cXv70dpIQJw&t=648"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -2482,8 +2481,8 @@ const AEWhereFind: React.FC = () => {
               <td>VR Digital Glitch</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/cXv70dpIQJw&t=680"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -2494,8 +2493,8 @@ const AEWhereFind: React.FC = () => {
               <td>VR Fractal Noise</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/cXv70dpIQJw&t=927"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -2506,8 +2505,8 @@ const AEWhereFind: React.FC = () => {
               <td>VR Glow</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/cXv70dpIQJw&t=1011"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -2518,8 +2517,8 @@ const AEWhereFind: React.FC = () => {
               <td>VR Plane to Sphere</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/cXv70dpIQJw&t=1037"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -2530,8 +2529,8 @@ const AEWhereFind: React.FC = () => {
               <td>VR Rotate Sphere</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/cXv70dpIQJw&t=1131"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -2542,8 +2541,8 @@ const AEWhereFind: React.FC = () => {
               <td>VR Sharpen</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/cXv70dpIQJw&t=1153"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -2554,8 +2553,8 @@ const AEWhereFind: React.FC = () => {
               <td>VR Sphere to Plane</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/cXv70dpIQJw&t=1167"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -2584,8 +2583,8 @@ const AEWhereFind: React.FC = () => {
               <td>Advanced Spill Suppressor</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/tK_Z1dYgtxs&t=112"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -2596,8 +2595,8 @@ const AEWhereFind: React.FC = () => {
               <td>CC Simple Wire Removal</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/ALAoNGXvLC4&t=6"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -2608,8 +2607,8 @@ const AEWhereFind: React.FC = () => {
               <td>Color Difference Key</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/kO-HrJ1su-0&t=6"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -2620,8 +2619,8 @@ const AEWhereFind: React.FC = () => {
               <td>Color Range</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/W6vIw8_bZHM&t=6"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -2632,8 +2631,8 @@ const AEWhereFind: React.FC = () => {
               <td>Difference Matte</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/ciX-roxC4oQ&t=6"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -2644,8 +2643,8 @@ const AEWhereFind: React.FC = () => {
               <td>Extract</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/v7pqZ9gtn8I&t=6"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -2656,8 +2655,8 @@ const AEWhereFind: React.FC = () => {
               <td>Inner/Outer Key</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/z1Ji43Sg5bk&t=6"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -2668,8 +2667,8 @@ const AEWhereFind: React.FC = () => {
               <td>Key Cleaner</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/tK_Z1dYgtxs&t=334"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -2680,8 +2679,8 @@ const AEWhereFind: React.FC = () => {
               <td>Keylight (1.2)</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/tK_Z1dYgtxs&t=443"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -2692,8 +2691,8 @@ const AEWhereFind: React.FC = () => {
               <td>Linear Color Key</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/8RjOe6cO-cY&t=6"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -2722,8 +2721,8 @@ const AEWhereFind: React.FC = () => {
               <td>Matte Choker</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/rGmc9rrf5pc&t=6"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -2734,8 +2733,8 @@ const AEWhereFind: React.FC = () => {
               <td>Mocha shape</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/wmV2p5DprI8&t=6"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -2746,8 +2745,8 @@ const AEWhereFind: React.FC = () => {
               <td>Refine Hard Matte</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/0m5b7Qs6Ido&t=423"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -2758,8 +2757,8 @@ const AEWhereFind: React.FC = () => {
               <td>Refine Soft Matte</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/0m5b7Qs6Ido&t=6"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -2770,8 +2769,8 @@ const AEWhereFind: React.FC = () => {
               <td>Simple Choker</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/8lCEc-H3JJU&t=6"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -2800,8 +2799,8 @@ const AEWhereFind: React.FC = () => {
               <td>Add Grain</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/FmSTOXu2V6I&t=6"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -2812,8 +2811,8 @@ const AEWhereFind: React.FC = () => {
               <td>Dust &amp; Scratches</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/Q1BBpMxmbXU&t=6"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -2824,8 +2823,8 @@ const AEWhereFind: React.FC = () => {
               <td>Fractal Noise</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/kdttSozSLG4&t=6"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -2836,8 +2835,8 @@ const AEWhereFind: React.FC = () => {
               <td>Match Grain</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/FmSTOXu2V6I&t=621"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -2848,8 +2847,8 @@ const AEWhereFind: React.FC = () => {
               <td>Median</td>
               <td rowSpan={2}>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/x-m_B8qThhI&t=6"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -2864,8 +2863,8 @@ const AEWhereFind: React.FC = () => {
               <td>Noise</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/pWSNY7XvN-A&t=6"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -2876,8 +2875,8 @@ const AEWhereFind: React.FC = () => {
               <td>Noise Alpha</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/jZj0hioZYoM&t=6"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -2888,8 +2887,8 @@ const AEWhereFind: React.FC = () => {
               <td>Noise HLS</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/pWSNY7XvN-A&t=55"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -2900,8 +2899,8 @@ const AEWhereFind: React.FC = () => {
               <td>Noise HLS Auto</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/pWSNY7XvN-A&t=165"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -2912,8 +2911,8 @@ const AEWhereFind: React.FC = () => {
               <td>Remove Grain</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/FmSTOXu2V6I&t=835"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -2924,8 +2923,8 @@ const AEWhereFind: React.FC = () => {
               <td>Turbulent Noise</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/kdttSozSLG4&t=262"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -2954,8 +2953,8 @@ const AEWhereFind: React.FC = () => {
               <td>Basic 3D</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/sQFUGX_Of84&t=45"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -2966,8 +2965,8 @@ const AEWhereFind: React.FC = () => {
               <td>Basic Text</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/sQFUGX_Of84&t=85"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -2978,8 +2977,8 @@ const AEWhereFind: React.FC = () => {
               <td>Color Key</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/sQFUGX_Of84&t=249"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -2990,8 +2989,8 @@ const AEWhereFind: React.FC = () => {
               <td>Gaussian Blur (Legacy)</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/sQFUGX_Of84&t=167"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -3002,8 +3001,8 @@ const AEWhereFind: React.FC = () => {
               <td>Lightning</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/sQFUGX_Of84&t=135"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -3014,8 +3013,8 @@ const AEWhereFind: React.FC = () => {
               <td>Luma Key</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/sQFUGX_Of84&t=339"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -3026,8 +3025,8 @@ const AEWhereFind: React.FC = () => {
               <td>Path Text</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/sQFUGX_Of84&t=112"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -3038,8 +3037,8 @@ const AEWhereFind: React.FC = () => {
               <td>Reduce Interlace Flicker</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/sQFUGX_Of84&t=205"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -3050,8 +3049,8 @@ const AEWhereFind: React.FC = () => {
               <td>Spill Suppressor</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/sQFUGX_Of84&t=403"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -3080,8 +3079,8 @@ const AEWhereFind: React.FC = () => {
               <td>3D Camera Tracker</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/yaT3YwIK-BI&t=6"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -3092,8 +3091,8 @@ const AEWhereFind: React.FC = () => {
               <td>3D Glasses</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/hLLcg1xE7Mo&t=6"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -3104,8 +3103,8 @@ const AEWhereFind: React.FC = () => {
               <td>Bevel Alpha</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/Y217431eGeM&t=6"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -3116,8 +3115,8 @@ const AEWhereFind: React.FC = () => {
               <td>Bevel Edges</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/Y217431eGeM&t=36"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -3128,8 +3127,8 @@ const AEWhereFind: React.FC = () => {
               <td>CC Cylinder</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/Y205itPnJCc&t=627"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -3140,8 +3139,8 @@ const AEWhereFind: React.FC = () => {
               <td>CC Environment</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/WFwbm0kOzRQ&t=6"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -3152,8 +3151,8 @@ const AEWhereFind: React.FC = () => {
               <td>CC Sphere</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/Y205itPnJCc&t=6"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -3164,8 +3163,8 @@ const AEWhereFind: React.FC = () => {
               <td>CC Spotlight</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/vagmclmkMU4&t=6"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -3176,8 +3175,8 @@ const AEWhereFind: React.FC = () => {
               <td>Drop Shadow</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/nzapxMlX74A&t=6"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -3188,8 +3187,8 @@ const AEWhereFind: React.FC = () => {
               <td>Radial Shadow</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/Bx-T-8Vjm2k&t=6"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -3218,8 +3217,8 @@ const AEWhereFind: React.FC = () => {
               <td>Card Dance</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/XC-Pd_wNbbM&t=695"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -3230,8 +3229,8 @@ const AEWhereFind: React.FC = () => {
               <td>Caustics</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/20keMi3bDqc&t=440"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -3242,8 +3241,8 @@ const AEWhereFind: React.FC = () => {
               <td>CC Ball Action</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/uV83WKGQw8Q&t=6"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -3254,8 +3253,8 @@ const AEWhereFind: React.FC = () => {
               <td>CC Bubbles</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/B-6XRRtxdSE&t=6"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -3266,8 +3265,8 @@ const AEWhereFind: React.FC = () => {
               <td>CC Drizzle</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/jJ5MJoL2X_I&t=6"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -3278,8 +3277,8 @@ const AEWhereFind: React.FC = () => {
               <td>CC Hair</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/Jw6P4lnFT6I&t=6"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -3290,8 +3289,8 @@ const AEWhereFind: React.FC = () => {
               <td>CC Mr. Mercury</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/QwzDqLmIKSI&t=6"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -3302,8 +3301,8 @@ const AEWhereFind: React.FC = () => {
               <td>CC Particle Systems II</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/7Fp9207Ds5I&t=6"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -3314,8 +3313,8 @@ const AEWhereFind: React.FC = () => {
               <td>CC Particle World</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/7Fp9207Ds5I&t=2503"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -3326,8 +3325,8 @@ const AEWhereFind: React.FC = () => {
               <td>CC Pixel Polly</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/Wtsws9nN4jM&t=6"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -3338,8 +3337,8 @@ const AEWhereFind: React.FC = () => {
               <td>CC Rainfall</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/c2TT33Vn0OU&t=6"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -3350,8 +3349,8 @@ const AEWhereFind: React.FC = () => {
               <td>CC Scatterize</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/2XrcDJI8dhc&t=6"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -3362,8 +3361,8 @@ const AEWhereFind: React.FC = () => {
               <td>CC Snowfall</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/c2TT33Vn0OU&t=483"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -3374,8 +3373,8 @@ const AEWhereFind: React.FC = () => {
               <td>CC Star Burst</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/G9qbU1ifWWc&t=6"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -3386,8 +3385,8 @@ const AEWhereFind: React.FC = () => {
               <td>Foam</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/74iePAKBQrg&t=6"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -3398,8 +3397,8 @@ const AEWhereFind: React.FC = () => {
               <td>Particle Playground</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/qzzEy76cCXo&t=6"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -3410,8 +3409,8 @@ const AEWhereFind: React.FC = () => {
               <td>Shatter</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/UJI7cbilZYA&t=6"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -3422,8 +3421,8 @@ const AEWhereFind: React.FC = () => {
               <td>Wave World</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/20keMi3bDqc&t=6"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -3452,8 +3451,8 @@ const AEWhereFind: React.FC = () => {
               <td>Brush Strokes</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/2sQ0R6zQeYY&t=6"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -3464,8 +3463,8 @@ const AEWhereFind: React.FC = () => {
               <td>Cartoon</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/QS9QFYnvRi4&t=6"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -3476,8 +3475,8 @@ const AEWhereFind: React.FC = () => {
               <td>CC Block Load</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/YQRdM_hus4k&t=6"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -3488,8 +3487,8 @@ const AEWhereFind: React.FC = () => {
               <td>CC Burn Film</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/HNu77TCadtE&t=6"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -3500,8 +3499,8 @@ const AEWhereFind: React.FC = () => {
               <td>CC Glass</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/WPo-dkPiynI&t=6"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -3512,8 +3511,8 @@ const AEWhereFind: React.FC = () => {
               <td>CC HexTile</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/oqwCF_U3fBo&t=6"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -3524,8 +3523,8 @@ const AEWhereFind: React.FC = () => {
               <td>CC Kaleida</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/TwiP0uHa4WI&t=6"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -3536,8 +3535,8 @@ const AEWhereFind: React.FC = () => {
               <td>CC Mr. Shoothie</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/8hk95dMWk4k&t=6"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -3548,8 +3547,8 @@ const AEWhereFind: React.FC = () => {
               <td>CC Plastic</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/WPo-dkPiynI&t=335"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -3560,8 +3559,8 @@ const AEWhereFind: React.FC = () => {
               <td>CC RepeTile</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/UptUlJdoS0M&t=161"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -3572,8 +3571,8 @@ const AEWhereFind: React.FC = () => {
               <td>CC Threshold</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/OGEENhaGDL8&t=79"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -3584,8 +3583,8 @@ const AEWhereFind: React.FC = () => {
               <td>CC Threshold RGB</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/OGEENhaGDL8&t=186"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -3596,8 +3595,8 @@ const AEWhereFind: React.FC = () => {
               <td>CC Vignette</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/eBtk3tN_91o&t=6"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -3608,8 +3607,8 @@ const AEWhereFind: React.FC = () => {
               <td>Color Emboss</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/X-SpnyETdEA&t=143"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -3620,8 +3619,8 @@ const AEWhereFind: React.FC = () => {
               <td>Emboss</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/X-SpnyETdEA&t=6"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -3632,8 +3631,8 @@ const AEWhereFind: React.FC = () => {
               <td>Find Edges</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/gEWfYGCejsU&t=6"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -3644,8 +3643,8 @@ const AEWhereFind: React.FC = () => {
               <td>Glow</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/t40ZTEBr_M0&t=6"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -3656,8 +3655,8 @@ const AEWhereFind: React.FC = () => {
               <td>Mosaic</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/luVfpqT_rYg&t=6"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -3668,8 +3667,8 @@ const AEWhereFind: React.FC = () => {
               <td>Motion Tile</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/UptUlJdoS0M&t=6"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -3680,8 +3679,8 @@ const AEWhereFind: React.FC = () => {
               <td>Posterize</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/vNWMxYpv6js&t=6"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -3692,8 +3691,8 @@ const AEWhereFind: React.FC = () => {
               <td>Roughen Edges</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/DbMCkyMg0sw&t=6"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -3704,8 +3703,8 @@ const AEWhereFind: React.FC = () => {
               <td>Scatter</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/oGw-o6eMbgI&t=6"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -3716,8 +3715,8 @@ const AEWhereFind: React.FC = () => {
               <td>Strobe Light</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/N1to_8jgnjQ&t=6"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -3728,8 +3727,8 @@ const AEWhereFind: React.FC = () => {
               <td>Texturize</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/u9KJs9q-6es&t=6"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -3740,8 +3739,8 @@ const AEWhereFind: React.FC = () => {
               <td>Threshold</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/OGEENhaGDL8&t=6"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -3770,8 +3769,8 @@ const AEWhereFind: React.FC = () => {
               <td>Numbers</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/EMHcq7YOhfQ&t=6"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -3782,8 +3781,8 @@ const AEWhereFind: React.FC = () => {
               <td>Timecode</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/EMHcq7YOhfQ&t=360"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -3812,8 +3811,8 @@ const AEWhereFind: React.FC = () => {
               <td>CC Force Motion Blur</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://www.youtube.com/watch?v=ANG3iMQVHVo"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -3824,8 +3823,8 @@ const AEWhereFind: React.FC = () => {
               <td>CC Wide Time</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/IQxvw91sOB4&t=6"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -3836,8 +3835,8 @@ const AEWhereFind: React.FC = () => {
               <td>Echo</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/N2qxF8V57FE&t=6"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -3848,8 +3847,8 @@ const AEWhereFind: React.FC = () => {
               <td>Pixel Motion Blur</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/DZAakVlJoGU&t=6"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -3860,8 +3859,8 @@ const AEWhereFind: React.FC = () => {
               <td>Posterize Time</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/Iu1E9M1EDHY&t=6"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -3872,8 +3871,8 @@ const AEWhereFind: React.FC = () => {
               <td>Time Difference</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/AzKAVI6KT18&t=6"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -3884,8 +3883,8 @@ const AEWhereFind: React.FC = () => {
               <td>Time Displacement</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/vjXP8Hyj4XE&t=6"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -3896,8 +3895,8 @@ const AEWhereFind: React.FC = () => {
               <td>Timewarp</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/JsyuG98HZMo&t=6"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -3926,8 +3925,8 @@ const AEWhereFind: React.FC = () => {
               <td>Block Dissolve</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/6O2I2oLgw4E&t=6"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -3938,8 +3937,8 @@ const AEWhereFind: React.FC = () => {
               <td>Card Wipe</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/XC-Pd_wNbbM&t=6"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -3950,8 +3949,8 @@ const AEWhereFind: React.FC = () => {
               <td>CC Glass Wipe</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/QcLSKGk7G4s&t=6"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -3962,8 +3961,8 @@ const AEWhereFind: React.FC = () => {
               <td>CC Grid Wipe</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/BC30h50BHqo&t=6"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -3974,8 +3973,8 @@ const AEWhereFind: React.FC = () => {
               <td>CC Image Wipe</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/QcLSKGk7G4s&t=195"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -3986,8 +3985,8 @@ const AEWhereFind: React.FC = () => {
               <td>CC Jaws</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/BC30h50BHqo&t=119"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -3998,8 +3997,8 @@ const AEWhereFind: React.FC = () => {
               <td>CC Light Wipe</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/YEiAz-BddNs&t=6"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -4010,8 +4009,8 @@ const AEWhereFind: React.FC = () => {
               <td>CC Line Sweep</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/BC30h50BHqo&t=97"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -4022,8 +4021,8 @@ const AEWhereFind: React.FC = () => {
               <td>CC Radial ScaleWipe</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/u0Eru4q2qek&t=132"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -4034,8 +4033,8 @@ const AEWhereFind: React.FC = () => {
               <td>CC Scale Wipe</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/u0Eru4q2qek&t=6"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -4046,8 +4045,8 @@ const AEWhereFind: React.FC = () => {
               <td>CC Twister</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/F0FRc-oORS0&t=6"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -4058,8 +4057,8 @@ const AEWhereFind: React.FC = () => {
               <td>CC WarpoMatic</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/QcLSKGk7G4s&t=292"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -4070,8 +4069,8 @@ const AEWhereFind: React.FC = () => {
               <td>Gradient Wipe</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/acYRLZGEYmc&t=6"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -4082,8 +4081,8 @@ const AEWhereFind: React.FC = () => {
               <td>Iris Wipe</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/VoyS7UsjZTY&t=68"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -4094,8 +4093,8 @@ const AEWhereFind: React.FC = () => {
               <td>Linear Wipe</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/VoyS7UsjZTY&t=6"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -4106,8 +4105,8 @@ const AEWhereFind: React.FC = () => {
               <td>Radial Wipe</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/VoyS7UsjZTY&t=36"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -4118,8 +4117,8 @@ const AEWhereFind: React.FC = () => {
               <td>Venetian Blinds</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/1Bcq4j69RBg&t=6"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -4148,8 +4147,8 @@ const AEWhereFind: React.FC = () => {
               <td>Apply Color LUT</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/S1GUo46T2H8&t=6"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -4160,8 +4159,8 @@ const AEWhereFind: React.FC = () => {
               <td>CC Overbrights</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/2Akn5zdDMgM&t=6"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -4172,8 +4171,8 @@ const AEWhereFind: React.FC = () => {
               <td>Cineon Converter</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/EPxpRkz5Q1Y&t=6"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -4184,8 +4183,8 @@ const AEWhereFind: React.FC = () => {
               <td>Color Profile Converter</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/xJ8JFqNW07Q&t=8"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -4196,8 +4195,8 @@ const AEWhereFind: React.FC = () => {
               <td>Grow Bounds</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/-JzYpi6Uyb4&t=6"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -4208,8 +4207,8 @@ const AEWhereFind: React.FC = () => {
               <td>HDR Compander</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/VvH1JOdd_Cw&t=6"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
@@ -4220,8 +4219,8 @@ const AEWhereFind: React.FC = () => {
               <td>HDR Highlight Compression</td>
               <td>
                 <a
-                  title="Видео от Jake In Motion"
                   href="https://youtu.be/npeUQbpaZbA&t=6"
+                  title="Видео от Jake In Motion"
                 >
                   Видео
                 </a>
