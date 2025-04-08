@@ -380,10 +380,23 @@ const AEExport: React.FC = () => {
           пунктах этой страницы.
         </AdditionInfo>
       </DetailsSummary>
-      <DetailsSummary title="Как вывести композицию в .mp4 и H.264/H.265?">
+      <DetailsSummary
+        tag="H.265, мп4, ш264, ш265, h264, h265, вывести видео, avc1"
+        title="Как экспортировать композицию в .mp4 и H.264?"
+      >
         <p>
-          Вы можете вывести композиции в популярном кодеке напрямую из{" "}
-          <mark className="app">After Effects</mark> тремя способами.
+          <mark className="video">H.264</mark> - это популярный кодек видео, с которым мы
+          встречаемся каждый день - в социальных сетях, видеоплощадках, на сайтах и даже в
+          телевидении. Первая версия этого кодека появилась в 2003 году и с тех пор его
+          распространение продолжается до сих пор. Сейчас, конечно, есть более эффективные
+          наследники <mark className="video">H.264</mark>, такие как{" "}
+          <mark className="video">H.265</mark>, <mark className="video">H.266</mark> и
+          прочие, но обычно при открытии таких видео на старых устройствах пользователь
+          сталкивается с плохой совместимостью, поэтому они менее популярны в народе. Раз{" "}
+          <mark className="video">H.264</mark> такой популярный, то может возникнуть
+          вопрос, а как вывести его из <mark className="app">After Effects</mark> без
+          танцев с бубном? Из программы вывести видео с таким кодеком без использования{" "}
+          <mark className="app">Media Encoder</mark> можно аж тремя способами.
         </p>
         <ul>
           <li>
@@ -671,18 +684,30 @@ const AEExport: React.FC = () => {
           <a href="https://t.me/montage_tutors/2">Montage Tutors</a>.
         </AdditionInfo>
       </DetailsSummary>
-      <DetailsSummary title="Как вывести композицию в .webm и VP9?">
+      <DetailsSummary title="Как вывести композицию в .webm и VP9/AV1?">
         <p>
-          Стандартными средствами из <mark className="app">After Effects</mark> и{" "}
-          <mark className="app">Media Encoder</mark> нельзя вывести композицию в{" "}
-          <mark className="file">.webm</mark>, но можно вывести в другом формате и
-          переконвертировать его.
+          <mark className="video">VP9</mark>, <mark className="video">AV1</mark> или же{" "}
+          <mark className="video">WebM</mark> - стандарт сжатия видео, который часто
+          используется для встраивания в различные веб-ресурсы и мобильные приложения. Эти
+          кодеки обычно лучше сжимают видео по сравнению с{" "}
+          <mark className="video">H.264</mark>, а также поддерживают{" "}
+          <mark className="word">альфа-канал</mark>, чтобы можно было прикрепить видео с
+          прозрачным фоном. Но, к сожалению, стандартными средствами из{" "}
+          <mark className="app">After Effects</mark> и{" "}
+          <mark className="app">Media Encoder</mark> невозможно экспортировать композицию
+          в <mark className="video">WebM</mark>. Для вывода видео в таком кодеке мы будем
+          экспортировать композицию как обычно, а затем конвертировать полученный файл в
+          нужный формат с помощью <mark className="app">Shutter Encoder</mark>.
         </p>
         <AdditionDanger>
-          Крайне не рекомендую использовать плагин{" "}
-          <a href="https://fnord.com/">WebM от fnord</a> для экспорта из{" "}
-          <mark className="app">Media Encoder</mark>, так как он часто выводит видео на
-          прозрачном фоне с жуткими артефактами.
+          Автор{" "}
+          <b>
+            <u>крайне не рекомендует</u>
+          </b>{" "}
+          использовать плагин <a href="https://fnord.com/">WebM от fnord</a> для экспорта
+          из <mark className="app">Media Encoder</mark>, так как он часто экспортирует
+          видео на прозрачном фоне с жуткими артефактами или внезапно останавливает
+          кодирование без причины.
         </AdditionDanger>
         <Divider>Выводим композицию в удобном формате</Divider>
         <p>
