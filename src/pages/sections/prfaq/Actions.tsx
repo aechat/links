@@ -279,26 +279,43 @@ const PRActions: React.FC = () => {
               Их можно загрузить отдельно по запросу{" "}
               <mark className="copy">Speech To Text</mark> именно для вашей версии{" "}
               <mark className="app">Premiere Pro</mark>.
+              <AdditionInfo>
+                Языковые пакеты вы можете скачать в канале{" "}
+                <a href="https://t.me/+Qd9xu7A4TeIwNzY6">
+                  склад стройматериалов (Windows)
+                </a>{" "}
+                по хештегу <mark className="tag">#speechtotext</mark> или в канале{" "}
+                <a href="https://t.me/+ZqiaMfQRFgM4YmEy">Яблоневый сад (macOS)</a> по
+                поиску <mark className="tag">Speech To Text</mark>.
+              </AdditionInfo>
             </li>
             <li>
-              Если вы установите языковой пакет, который предназначен для другой версии{" "}
-              <mark className="app">Premiere Pro</mark> - вы просто забьёте ваше
-              устройство лишним весом, а язык не будет установлен и будет постоянно
-              просить его скачать в программе.
+              Если вы установите языковой пакет, который предназначен для версии{" "}
+              <mark className="app">Premiere Pro</mark>, отличной от вашей - вы просто
+              забьёте ваше устройство лишним весом, а язык не будет установлен и будет
+              постоянно просить его скачать в программе. То есть, если у вас установлен{" "}
+              <mark className="app">Premiere Pro</mark> версии <mark>24.6</mark>, а
+              языковой пакет, который вы скачали и установили - предназначен для{" "}
+              <mark>24.1</mark>, то в вашей версии программы он попросту не появится.
+              <AdditionInfo>
+                Информацию о текущей сборке программы вы можете узнать в{" "}
+                <mark className="ui">Help &gt; About Premiere Pro</mark>.
+              </AdditionInfo>
             </li>
             <li>
-              Языковые пакеты также не установятся корректно, если{" "}
+              Языковые пакеты могут не установиться корректно, если{" "}
               <mark className="app">Premiere Pro</mark> расположен в нестандартном пути
-              установки.
+              установки, то есть отличном от{" "}
+              <mark className="path">C:\Program Files\Adobe</mark>.
             </li>
           </ul>
         </AdditionInfo>
         <AdditionDanger>
-          Также заранее предупреждаю - по умолчанию в настройках вывода выключен пункт{" "}
+          При экспорте учтите, что по умолчанию в настройках вывода выключен пункт{" "}
           <mark className="ui">Captions</mark>. Включите его, если вы хотите получить
           видео с наложенными субтитрами.
         </AdditionDanger>
-        <Divider>Делаем субтитры в Premiere Pro</Divider>
+        <Divider>Генерируем субтитры из речи в Premiere Pro</Divider>
         <p>
           Предположим, что вы уже установили языковые пакеты для конкретно вашей версии{" "}
           <mark className="app">Premiere Pro</mark> и нужно приступить к транскрибации
@@ -471,7 +488,10 @@ const PRActions: React.FC = () => {
           <mark className="app">Subtitle Edit</mark> попадут в ваш проект{" "}
           <mark className="app">Premiere Pro</mark>. Субтитры можно отредактировать в
           дальнейшем в окне <mark className="ui">Text</mark> во вкладке{" "}
-          <mark className="ui">Captions</mark>.
+          <mark className="ui">Captions</mark>. При необходимости вы можете применить
+          различные стили на ваши субтитры с помощью сторонних плагинов{" "}
+          <mark className="plugin">Submachine</mark> или{" "}
+          <mark className="plugin">Captioneer</mark>.
         </p>
       </DetailsSummary>
       <DetailsSummary title="Как и чем разделить голос человека от музыки?">
