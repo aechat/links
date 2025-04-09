@@ -461,11 +461,51 @@ const AEExportProblems: React.FC = () => {
           После выставления нужных значений - укажите путь до файла, включите при
           необходимости конвертацию цветового пространства, а также аппаратное ускорение в
           нижней части интерфейса и нажмите на <mark className="ui">Start function</mark>.
+          После успешного завершения процедуры вы получите новый файл в той папке, в
+          которой вы указали сохранение видео.
         </p>
+        <Divider>Сжимаем через Adobe Media Encoder</Divider>
         <p>
-          В такие конвертеры достаточно расположить вашу экспортированную композицию и
-          указать нужный формат. Обычно в конвертере есть различные пресеты для качества
-          или для маленького размера в ущерб качеству.
+          Изначально <mark className="app">Media Encoder</mark> был задуман как конвертер
+          и в нём ещё не было возможности экспорта композиций из{" "}
+          <mark className="app">After Effects</mark>. Воспользуемся в кои-то веки данной
+          программой по назначению. Чтобы начать конвертацию - импортируйте нужное видео в{" "}
+          <mark className="app">Media Encoder</mark> любым способом - через{" "}
+          <mark className="word">Drag-n-drop</mark> в очередь экспорта, через{" "}
+          <mark className="ui">File &gt; Import</mark>, через{" "}
+          <mark className="key">Ctrl + I</mark> или с помощью двойного нажатия по пустой
+          очереди экспорта. В открывшемся окне проводника укажите путь до файла, который
+          нужно конвертировать.
+        </p>
+        <ImageFigure
+          caption="Media Encoder"
+          imgSrc="images/media_encoder_import.png"
+          imgTitle="Импорт в Media Encoder"
+          styleClass="figure_windows-light"
+        />
+        <p>
+          После импорта файлов вы можете выбрать формат, шаблон и путь сохранения для
+          конвертируемого видео. Слева от выбора формата или шаблона вы можете открыть
+          список шаблонов, а нажав по названию формата или шаблона - вы можете открыть
+          редактор шаблона для конвертации, где вы можете изменить различные параметры
+          конвертации. Также вы можете указать путь до папки, в которую нужно сохранить и
+          вариант рендера на процессоре или с аппаратным ускорением с помощью видеокарты.
+        </p>
+        <ImageFigure
+          caption="Media Encoder"
+          imgSrc="images/media_encoder_exporting.png"
+          imgTitle="Экспорт в Media Encoder"
+          styleClass="figure_windows-light"
+        />
+        <AdditionInfo>
+          В <mark className="app">Media Encoder</mark> можно конвертировать видео с
+          помощью сторонних плагинов, по типу <mark className="plugin">Voukoder</mark> и{" "}
+          <mark className="plugin">AfterCodecs</mark>, если вам не нравится результат от
+          стандартных кодеков.
+        </AdditionInfo>
+        <p>
+          После настройки параметров просто нажмите на кнопку начала конвертации и
+          ожидайте результата в выходной папке.
         </p>
       </DetailsSummary>
       <DetailsSummary title='"Rendering error while writing to file (...). Unable to delete existing file" или "An unexpected error occurred while exporting a composition. Error code: 9988"'>
