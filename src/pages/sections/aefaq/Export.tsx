@@ -998,17 +998,333 @@ const AEExport: React.FC = () => {
           альфа-каналом.
         </AdditionInfo>
       </DetailsSummary>
-      <DetailsSummary title="Как вывести композицию как Telegram-стикеры?">
+      <DetailsSummary
+        tag="телеграм, стикеры, tgs"
+        title="Как вывести композицию как стикеры и эмодзи для Telegram?"
+      >
+        <p>
+          В наше время только ленивый не слышал о мессенджере{" "}
+          <mark className="app">Telegram</mark>, а также о функции отправки стикеров
+          собеседнику. В <mark className="word">стикерах</mark> можно хранить всякую
+          ржаку, мемы и прочие виды контента. Но мало кто знает, как их можно создать в{" "}
+          <mark className="app">Telegram</mark> и вывести свою композицию из{" "}
+          <mark className="app">After Effects</mark> в соответствии с требованиями
+          стикеров. Стикеры делятся на четыре вида и у каждого имеется свой подход к
+          экспорту из программы и импорту в <mark className="app">Telegram</mark>.
+        </p>
+        <Divider>Разбираемся с типами стикеров</Divider>
+        <ul>
+          <li>
+            <mark className="word">Статичный стикер</mark> или{" "}
+            <mark className="word">статичный эмодзи</mark> - обычная картинка, которая
+            отправляется собеседнику. Их можно создать в любом графическом редакторе,
+            например <mark className="app">Photoshop</mark> или{" "}
+            <mark className="app">GIMP</mark>, или вывести из{" "}
+            <mark className="app">After Effects</mark> как <a href="#10.9">один кадр</a>,
+            главное соблюдать некоторые требования.
+            <ul>
+              <li>
+                Для создания принимаются изображения формата{" "}
+                <mark className="image">PNG</mark> или <mark className="image">WebP</mark>{" "}
+                с прозрачным или непрозрачным фоном.
+              </li>
+              <li>
+                Разрешение такого стикера должно быть не больше, чем <mark>512</mark> на{" "}
+                <mark>512</mark> пикселей. Такие стикеры можно сделать с любым
+                соотношением сторон, главное чтобы ни одна сторона не была больше чем{" "}
+                <mark>512</mark> пикселей.
+              </li>
+            </ul>
+          </li>
+          <li>
+            <mark className="word">Анимированный стикер</mark> - векторные стикеры с
+            анимацией, которые не теряют качество в зависимости от того, на каком
+            устройстве они проигрываются. По своей сути, он похож на анимацию{" "}
+            <mark>Lottie</mark> и имеет ряд ограничений по эффектам и весу. Разрешение у
+            композиции должно быть <mark>512</mark> на <mark>512</mark> пикселей.
+            Количество <mark>FPS</mark> у композиции должно быть строго со значением{" "}
+            <mark>30</mark> или <mark>60</mark>, иначе рендер завершится с ошибкой.
+            <AdditionDanger>
+              <p>
+                Для корректной вывода анимации в файл формата{" "}
+                <mark className="file">.tgs</mark>, в вашей композиции не должно быть
+                нижеперечисленных эффектов и свойств.
+              </p>
+              <ul>
+                <li>
+                  Выражения не поддерживаются, но их можно конвертировать в ключи. Для
+                  этого выделите нужное свойство с выражением, нажмите на{" "}
+                  <mark className="key">ПКМ</mark> и выберите{" "}
+                  <mark className="ui">
+                    Keyframe Assistant &gt; Convert Expression to Keyframes
+                  </mark>
+                  .
+                </li>
+                <li>
+                  Не поддерживается интерполяция скорости с помощью{" "}
+                  <mark>Auto Bezier</mark> у ключевых кадров. Для смены типа интерполяции
+                  кадров выделите нужные ключи, нажмите на{" "}
+                  <mark className="key">Ctrl + Alt + K</mark> и избавляйтесь там от типа
+                  автоматического Безье.
+                </li>
+                <li>
+                  Слои с изображениями не поддерживаются. Если вам нужно будет
+                  использовать такой слой, то вы можете выполнить авто-трассировку слоя
+                  для конвертации в вектор в <mark className="ui">Illustrator</mark> или
+                  другом софте, а затем импортировать их как слои-фигуры.{" "}
+                  <a href="https://helpx.adobe.com/ru/illustrator/using/image-trace-results-optimization.html">
+                    Подробнее...
+                  </a>
+                </li>
+                <li>
+                  Различные эффекты из <mark className="ui">Effects & Presets</mark>,
+                  которыми вы привыкли пользоваться, категорически нельзя использовать.
+                  Иначе они просто пропадут из вашей финальной анимации.
+                </li>
+                <li>
+                  Нельзя растягивать слои и использовать <mark>Time Remapping</mark>.
+                  Проверить <mark className="word">растянутость</mark> можно в столбце{" "}
+                  <mark className="ui">Stretch</mark>.
+                </li>
+                <li>
+                  Текстовые слои не поддерживаются, их нужно конвертировать в фигуру.
+                  Конвертация происходит с помощью нажатия{" "}
+                  <mark className="key">ПКМ</mark> по слою с текстом и выбора{" "}
+                  <mark className="ui">Create &gt; Create Shapes from Text</mark>.
+                </li>
+                <li>
+                  Не поддерживается поворот слоёв с помощью{" "}
+                  <mark>Auto-Oriented Layers</mark>. Авто-ориентацию можно выключить
+                  выделением слоя и нажатием <mark className="key">Ctrl + Alt + O</mark>.
+                  В открывшемся окне выберите параметр <mark className="ui">Off</mark>.
+                </li>
+                <li>
+                  Маски для слоёв, 3D-слои, <mark>Solid Layer</mark>,{" "}
+                  <mark>Merge Paths</mark>, <mark>Repeater</mark>, <mark>Star Shape</mark>
+                  и <mark>Gradient Stroke</mark> не поддерживаются.
+                </li>
+              </ul>
+            </AdditionDanger>
+          </li>
+          <li>
+            <mark className="word">Анимированные эмодзи</mark> - по своей сути похожи на{" "}
+            <mark className="word">анимированные стикеры</mark>, к ней применяются такие
+            же ограничения по эффектам и возможностям{" "}
+            <mark className="app">After Effects</mark> и выводится аналогичным образом.
+            <ul>
+              <li>
+                Для анимированных эмодзи нужно указать размер композиции <mark>100</mark>{" "}
+                на <mark>100</mark> пикселей. Ни больше, ни меньше.
+              </li>
+              <li>
+                Все ограничения по эффектам такие же, как и у{" "}
+                <mark className="word">анимированных стикеров</mark>.
+              </li>
+            </ul>
+          </li>
+          <li>
+            <mark className="word">Видео-стикер</mark> - стикер, по сути являющийся
+            обычным видео, который хранится в формате <mark className="video">WebM</mark>{" "}
+            и кодеке <mark className="video">VP9</mark>s. Разрешение такого стикера должно
+            быть максимум <mark>512</mark> на <mark>512</mark> пикселей.
+          </li>
+        </ul>
+        <AdditionInfo>
+          Подробнее о требованиях для того или иного типа стикеров вы можете посмотреть на{" "}
+          <a href="https://core.telegram.org/stickers">сайте Telegram</a>.
+        </AdditionInfo>
+        <Divider>Выводим анимированный стикер через Bodymovin-Telegram</Divider>
+        <p>
+          Для вывода из <mark className="app">After Effects</mark> в стикеры формата{" "}
+          <mark className="file">.tgs</mark> нам нужно использовать бесплатное стороннее
+          расширение{" "}
+          <a href="https://github.com/TelegramMessenger/bodymovin-extension">
+            Bodymovin-TG
+          </a>
+          . Учтите, что он давно не обновлялся и могут возникать различные ошибки при
+          использовании самой свежей версии <mark className="app">After Effects</mark> и в
+          нём меньше функций, по сравнению с оригинальным{" "}
+          <mark className="plugin">Bodymovin</mark>. После установки{" "}
+          <mark className="plugin">Bodymovin-TG</mark> он появится в{" "}
+          <mark className="ui">
+            Window &gt; Extensions &gt; Bodymovin for Telegram Stickers
+          </mark>
+          . Если вы уверены, что ваша анимация подходит под все требования создания
+          анимированных стикеров или анимированных эмодзи, то откройте окно расширения и
+          выделите в нём нужную композицию, укажите путь для сохранения и нажмите на
+          кнопку <mark className="ui">Export</mark>. Если при экспорте что-то пойдет не
+          так, то расширение подскажет об этом.
+        </p>
+        <ImageFigure
+          caption="Bodymovin for Telegram Stickers"
+          imgSrc="images/aftereffects/bodymovin_tg_export_window.png"
+          imgTitle="Вывод анимированного стикера через Bodymovin for Telegram Stickers"
+          styleClass="figure_windows-dark"
+        />
         <AdditionWarning>
-          Данный пункт ещё не полностью готов, следите за обновлениями.
+          Для корректной работы расширения требуется установить чекбокс у пункта{" "}
+          <mark className="ui">Allow Scripts to Write Files and Access Network</mark> в
+          настройках <mark className="app">After Effects</mark> -{" "}
+          <mark className="ui">Edit &gt; Preferences &gt; Scripting & Expressions</mark>.
         </AdditionWarning>
         <p>
-          В мессенджере <mark className="app">Telegram</mark> есть возможность создания
-          анимированных стикеров для последующей их отправки собеседникам. В них можно
-          хранить всякую ржаку, мемы и прочие виды контента.
+          После экспорта перейдите в{" "}
+          <a href="https://t.me/Stickers">бот для создания стикеров</a> и начните процесс
+          создания стикера. Если что-то пойдет не так, бот об этом сообщит и скажет, что
+          не так. Часто ошибки могут появиться из-за слишком большого размера файла или
+          неверного типа стикеров при инициализации процесса создания.
         </p>
+        <Divider>
+          Альтернативный вывод анимированного стикера через обычный Bodymovin
+        </Divider>
+        <AdditionDanger>
+          Данный способ не всегда работает стабильно и был создан ради экспериментальной
+          альтернативы.
+        </AdditionDanger>
+        <p>
+          Если экспорт из <mark className="plugin">Bodymovin-TG</mark> произошёл со сбоями
+          или вам не хватает функционала из оригинального расширения, то вы можете
+          попробовать вывести анимацию через обычный{" "}
+          <mark className="plugin">Bodymovin</mark>, а затем конвертировать полученный
+          файл через <i style={{opacity: 0.5}}>самодельный</i> конвертер в этом пункте.
+        </p>
+        <p>
+          Прежде чем начать экспорт анимации в <mark className="file">.json</mark> нам
+          нужно установить стороннее бесплатное
+          <sup>*</sup> расширение <mark className="plugin">Bodymovin</mark>, который можно
+          загрузить из <a href="https://aescripts.com/bodymovin/">aescripts</a>. После
+          установки он появится в{" "}
+          <mark className="ui">Window &gt; Extensions &gt; Bodymovin</mark>.
+        </p>
+        <AdditionInfo>
+          <sup>*</sup>Чтобы скачать расширение - зарегистрируйтесь на сайте{" "}
+          <a href="https://aescripts.com">aescripts</a>, вернитесь на страницу с
+          расширением, установите цену <mark>0</mark> в{" "}
+          <mark className="ui">Name Your Own Price</mark>, добавьте его в корзину и
+          подтвердите заказ. Нужный плагин появится{" "}
+          <a href="https://aescripts.com/downloadable/customer/products/">
+            в вашем профиле
+          </a>{" "}
+          и вы можете его скачать абсолютно бесплатно.
+        </AdditionInfo>
+        <AdditionWarning>
+          <ul>
+            <li>
+              Перед началом экспорта убедитесь в том, что вся ваша анимация поддерживается
+              для вывода из <mark className="plugin">Bodymovin</mark>. Совместимость
+              эффектов вы можете проверить прямо в{" "}
+              <mark className="plugin">Bodymovin</mark> во вкладке{" "}
+              <mark className="ui">Support Features</mark>. Если тот или иной эффект или
+              действие не будет поддерживаться, то в выведенной композиции могут пропасть
+              некоторые объекты, слои или анимация.
+            </li>
+            <li>
+              Для корректной работы расширения требуется установить чекбокс у пункта{" "}
+              <mark className="ui">Allow Scripts to Write Files and Access Network</mark>{" "}
+              в настройках <mark className="app">After Effects</mark> -{" "}
+              <mark className="ui">
+                Edit &gt; Preferences &gt; Scripting & Expressions
+              </mark>
+              .
+            </li>
+          </ul>
+        </AdditionWarning>
+        <p>
+          Для вывода векторной анимации в <mark className="file">.json</mark> откройте
+          вкладку <mark className="ui">Compositions</mark> расширения{" "}
+          <mark className="plugin">Bodymovin</mark>, выделите в этом окне нужную
+          композицию, укажите путь для сохранения и нажмите на кнопку{" "}
+          <mark className="ui">Export</mark>. Если при экспорте что-то пойдет не так, то
+          расширение подскажет об этом.
+        </p>
+        <ImageFigure
+          caption="Bodymovin"
+          imgSrc="images/aftereffects/bodymovin_export_window.png"
+          imgTitle="Вывод композиции через Bodymovin"
+          styleClass="figure_windows-dark"
+        />
+        <AdditionInfo>
+          Полученную анимацию вы можете посмотреть в расширении во вкладке{" "}
+          <mark className="ui">Preview</mark> или в{" "}
+          <a href="https://www.svgsprite.com/tools/lottie-player/">Lottie Player</a>.
+        </AdditionInfo>
+        <p>
+          После успешного вывода анимации в <mark className="file">.json</mark> -
+          поместите его в блок с конвертером чуть ниже, а затем нажмите на{" "}
+          <mark className="ui">Скачать преобразованный TGS</mark>.
+        </p>
+        <AdditionInfo>
+          По небольшим тестам после конвертации <mark className="file">.tgs</mark> в{" "}
+          <mark className="file">.json</mark> из пункта про импорт{" "}
+          <mark className="file">.tgs</mark> в <mark className="app">After Effects</mark>{" "}
+          на этой странице и обратной конвертации в <mark className="file">.tgs</mark> с
+          помощью блока ниже, выяснилось, что метод <mark>python-gzip</mark> чуть лучше
+          сжимает файл, нежели <mark>js-pako-gzip</mark>.
+        </AdditionInfo>
         <Divider>Конвертер JSON в TGS</Divider>
-        <JsonToTgsModal />
+        <JsonToTgsConverter />
+        <p>
+          После конвертации перейдите в{" "}
+          <a href="https://t.me/Stickers">бот для создания стикеров</a> и начните процесс
+          создания анимированных стикеров или эмодзи с помощью команд{" "}
+          <mark className="code">/newanimated</mark> или{" "}
+          <mark className="code">/newemojipack</mark>. Если что-то пойдет не так, бот об
+          этом сообщит и скажет, что не так с вашим файлом. Часто ошибки могут появиться
+          из-за слишком большого размера файла или неподдерживаемой анимации.
+        </p>
+        <Divider>Выводим видео-стикер</Divider>
+        <p>
+          Видео-стикер по своей сути - обычный короткий видеоролик, который запакован в{" "}
+          <mark className="file">WebM</mark> в кодеке <mark className="video">VP9</mark>.
+          Требования от <mark className="app">Telegram</mark> по такому формату следующие.
+        </p>
+        <ul>
+          <li>
+            Для обоих типов требуется вывести видео в формате{" "}
+            <mark className="video">WebM</mark> и в кодеке{" "}
+            <mark className="video">VP9</mark>.{" "}
+            <a href="#10.4">На этой странице уже обсуждался вывод в WebM/VP9</a> из{" "}
+            <mark className="app">After Effects</mark> с помощью конвертации полученного
+            видео.
+          </li>
+          <li>
+            Если вы собираетесь создавать видео-
+            <b>
+              <u>стикеры</u>
+            </b>
+            , то максимальное разрешение такого файла должно быть не больше, чем{" "}
+            <mark>512</mark> на <mark>512</mark> пикселей.
+          </li>
+          <li>
+            Если вы собираетесь создавать видео-
+            <b>
+              <u>смайлики</u>
+            </b>{" "}
+            или видео-
+            <b>
+              <u>эмодзи</u>
+            </b>
+            , то максимальное разрешение такого файла должно быть <mark>100</mark> на{" "}
+            <mark>100</mark> пикселей. Ни больше, ни меньше.
+          </li>
+          <li>
+            Длина видеофайла не должен превышать <mark>3</mark> секунды, а размер
+            видеофайла не должен превышать <mark>256</mark> килобайт.
+          </li>
+          <li>
+            Фреймрейт видеофайла должен быть не больше чем <mark>30</mark> кадров в
+            секунду.{" "}
+            <i style={{opacity: 0.5, fontSize: "0.8em"}}>Странно, что не 60...</i>
+          </li>
+        </ul>
+        <p>
+          После конвертации перейдите в{" "}
+          <a href="https://t.me/Stickers">бот для создания стикеров</a> и начните процесс
+          создания видео-стикеров с помощью команд <mark className="code">/newvideo</mark>{" "}
+          или <mark className="code">/newemojipack</mark>. Если что-то пойдет не так, бот
+          об этом сообщит и скажет, что не так с вашим файлом.
+        </p>
+      </DetailsSummary>
       </DetailsSummary>
       <DetailsSummary title="Как вывести текущий кадр предпросмотра как файл изображения?">
         <p>
