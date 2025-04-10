@@ -15,19 +15,22 @@ const AEInstallProblems: React.FC = () => {
     <div className="faq-content">
       <GithubUpdateInfo filePath="src/pages/sections/aefaq/InstallProblems.tsx" />
       <DetailsSummary
-        tag="как установить, куда устанавливать, установка, распаковка, инструкция, плагины, шаблоны, пресеты, скрипты, расширения, пакеты, плагины, луты"
-        title="Забыли положить инструкцию для установки рядом с файлами, куда что кидать?"
+        tag="как установить, куда устанавливать, установка, распаковка, инструкция, плагины, шаблоны, пресеты, скрипты, расширения, пакеты, плагины, луты, архивы, zip, rar"
+        title="В архив или под записью забыли положить инструкцию для установки. Куда что кидать?"
       >
         <p>
-          Обычно установка большинства дополнительных материалов универсальна, поэтому
-          следуйте инструкциям ниже.
+          Обычно установка большинства дополнительных материалов универсальна, но может
+          отличаться в зависимости от вашей операционной системы. В этом пункте указано
+          как установить тот или иной тип файла для{" "}
+          <mark className="app">After Effects</mark>.
         </p>
         <AdditionWarning>
-          Прежде чем использовать <mark className="file">.aep</mark> или пакеты для{" "}
-          <mark className="plugin">AtomX</mark>,{" "}
+          Прежде чем использовать проекты формата <mark className="file">.aep</mark> или
+          пакеты для <mark className="plugin">AtomX</mark>,{" "}
           <mark className="plugin">Motion Bro</mark> или подобных расширений - убедитесь,
-          что они полностью распакованы из архива и расположены в пути не длиннее 256
-          символов без кириллицы!
+          что архив с проектом или пакетом полностью распакован и его содержимое
+          расположено в директории, путь до которой не превышает 256 символов без
+          кириллицы!
         </AdditionWarning>
         <ul>
           <li>
@@ -38,15 +41,16 @@ const AEInstallProblems: React.FC = () => {
             <AdditionInfo>
               <ul>
                 <li>
+                  Прежде чем открывать проект формата <mark className="file">.aep</mark> -
+                  полностью распакуйте архив, с помощью архиватора, а затем открывайте
+                  проект из уже распакованной папки. Таким образом вы убережёте себя от
+                  разноцветного экрана, как при технических работах на телевидении.
+                </li>
+                <li>
                   Если вы попытаетесь открыть лишь один <mark className="file">.aep</mark>{" "}
                   файл из архива без его полной распаковки, то вы столкнетесь с тем, что{" "}
                   <mark className="app">After Effects</mark> не сможет найти все
                   необходимые файлы для проекта.
-                </li>
-                <li>
-                  Чтобы избежать ошибок про отсутствующие файлы и разноцветной заглушки -
-                  распакуйте полностью архив с шаблоном с помощью архиватора, а затем
-                  открывайте проект из уже распакованной папки.
                 </li>
               </ul>
             </AdditionInfo>
@@ -74,6 +78,51 @@ const AEInstallProblems: React.FC = () => {
                 интересного для пользователя.
               </AdditionDanger>
               <ul>
+                <li>
+                  Если вы скачали архив формата <mark className="file">.zip</mark> или{" "}
+                  <mark className="file">.rar</mark>, то вам необходимо его распаковать с
+                  помощью архиватора для дальнейшей работы с ним. Это можно сделать с
+                  помощью <mark className="app">keka</mark> или{" "}
+                  <mark className="app">The Unarchiver</mark>.
+                  <AdditionInfo>
+                    <ul>
+                      <li>
+                        Загрузить <mark className="app">keka</mark> можно по{" "}
+                        <a href="https://www.keka.io/ru/">этой ссылке</a>, а{" "}
+                        <mark className="app">The Unarchiver</mark> - по{" "}
+                        <a href="https://theunarchiver.com/">этой</a>.
+                      </li>
+                      <li>
+                        Для распаковки многотомного архива, то есть если в названии
+                        архивов есть <mark>.part1</mark>, <mark>.part2</mark> и так далее
+                        - нужно запустить распаковку только первой части архива, остальные
+                        части подхватятся сами. Остальные части архива не нужно трогать
+                        без острой необходимости, если вы не знаете что с ними делать.
+                      </li>
+                      <li>
+                        Многотомные архивы создаются для того, чтобы файл можно было
+                        спокойно передать, обойдя ограничения максимального размера в{" "}
+                        <mark className="app">Telegram</mark> или другого ресурса.
+                      </li>
+                      <li>
+                        Если вы хотите сделать <mark className="app">keka</mark>{" "}
+                        архиватором по умолчанию, то вам нужно будет установить{" "}
+                        <a href="https://www.keka.io/defaultapp/">kekaExternalHelper</a>.
+                        Подробная инструкция расположена в{" "}
+                        <a href="https://github.com/aonez/Keka/wiki/Default-application">
+                          Wiki на GitHub
+                        </a>
+                        .
+                      </li>
+                    </ul>
+                  </AdditionInfo>
+                  <ImageFigure
+                    caption="Распаковка через контекстное меню"
+                    imgSrc="https://github.com/aonez/Keka/raw/master/Wiki/Images/Animated/extract-context-menu.gif"
+                    imgTitle="Распаковка через контекстное меню"
+                    styleClass="figure_macos-light"
+                  />
+                </li>
                 <li>
                   Если в архиве или в записи находится файл{" "}
                   <mark className="file">.dmg</mark>, <mark className="file">.app</mark>{" "}
@@ -419,6 +468,44 @@ const AEInstallProblems: React.FC = () => {
             <div>
               <ul>
                 <li>
+                  Если вы скачали архив формата <mark className="file">.zip</mark> или{" "}
+                  <mark className="file">.rar</mark>, то вам необходимо его распаковать с
+                  помощью архиватора для дальнейшей работы с ним. Это можно сделать с
+                  помощью <mark className="app">WinRAR</mark>.
+                  <AdditionInfo>
+                    <ul>
+                      <li>
+                        <mark className="app">WinRAR</mark> для устройств на{" "}
+                        <mark>Windows</mark> можно загрузить по{" "}
+                        <a href="https://www.rarlab.com/download.htm">этой ссылке</a>.{" "}
+                        <i style={{opacity: 0.5, fontSize: "0.85em"}}>
+                          Надеюсь, что вы в курсе как обойти 40-дневное
+                          &quot;ограничение&quot;
+                        </i>
+                        .
+                      </li>
+                      <li>
+                        Для распаковки многотомного архива, то есть если в названии
+                        архивов есть <mark>.part1</mark>, <mark>.part2</mark> и так далее
+                        - нужно запустить распаковку только первой части архива, нажав{" "}
+                        <mark className="key">ПКМ</mark> по файлу и выбрать в контекстном
+                        меню <mark className="ui">WinRAR &gt; Распаковать в...</mark>.
+                        Остальные части подхватятся сами и их не нужно трогать без острой
+                        необходимости, если вы не знаете что с ними делать.
+                      </li>
+                      <li>
+                        Многотомные архивы создаются для того, чтобы файл можно было
+                        спокойно передать, обойдя ограничения максимального размера в{" "}
+                        <mark className="app">Telegram</mark> или другого ресурса.
+                      </li>
+                    </ul>
+                  </AdditionInfo>
+                  <YouTubeVideo
+                    caption="Распаковка многотомного архива"
+                    link="1OVwQS0uHhk"
+                  />
+                </li>
+                <li>
                   Если в архиве или в записи находится файл{" "}
                   <mark className="file">.exe</mark>, то обычно в нём содержится
                   автоматический установщик плагина. Если в записи указано, что данный
@@ -760,117 +847,6 @@ const AEInstallProblems: React.FC = () => {
           установке - обратитесь к нам в{" "}
           <a href="https://t.me/joinchat/F1DdXtG9LephYWUy">AEChat</a>.
         </AdditionInfo>
-      </DetailsSummary>
-      <DetailsSummary
-        tag="части архива, парт, распаковка, rar, zip"
-        title="В Telegram-записи лежат файлы .part1, .part2 и дальше по списку. Что это такое и как такие файлы корректно распаковать?"
-      >
-        <p>
-          Данные файлы с пометкой <mark>.part1</mark>, <mark>.part2</mark> и далее по
-          списку - это лишь части одного и того же архива. Архивы поделены на 2 или на 4
-          Гб из-за ограничений <mark className="app">Telegram</mark> на размер загружаемых
-          файлов. Чтобы корректно распаковать нужный архив - нужно загрузить все файлы на
-          ваш компьютер, а затем распаковать с помощью программ-архиваторов.
-        </p>
-        <AdditionWarning>
-          Если вы не распакуете архив полностью, то у вас могут быть проблемы с установкой
-          или использованием в программах.
-        </AdditionWarning>
-        <ContentSwitcher
-          macContent={
-            <div>
-              <p>
-                Для распаковки архивов, в том числе и многотомных, вы можете использовать{" "}
-                <a
-                  href="https://www.keka.io/ru/"
-                  title="Официальный сайт keka"
-                >
-                  keka
-                </a>
-                . Он поддерживает кучу различных форматов архивов для распаковки, например{" "}
-                <mark className="file">.zip</mark> <mark className="file">.7z</mark>,{" "}
-                <mark className="file">.rar</mark>, <mark className="file">.tar</mark> и{" "}
-                <mark className="file">.iso</mark>. После установки этой программы вы
-                можете распаковать скачанный архив различными способами, как на{" "}
-                <a href="https://github.com/aonez/Keka/wiki/Extracting-with-Keka#how-to-extract-supported-files">
-                  примерах
-                </a>{" "}
-                ниже.
-              </p>
-              <div
-                style={{
-                  display: "grid",
-                  gridTemplateColumns: "repeat(auto-fit, minmax(275px, 1fr))",
-                  alignItems: "center",
-                }}
-              >
-                <ImageFigure
-                  caption="Распаковка через контекстное меню"
-                  imgSrc="https://github.com/aonez/Keka/raw/master/Wiki/Images/Animated/extract-context-menu.gif"
-                  imgTitle="Распаковка через контекстное меню"
-                  styleClass="figure_macos-light"
-                />
-                <ImageFigure
-                  caption="Распаковка с помощью открытого окна keka"
-                  imgSrc="https://github.com/aonez/Keka/raw/master/Wiki/Images/Animated/extract-window.gif"
-                  imgTitle="Распаковка с помощью открытого окна keka"
-                  styleClass="figure_macos-light"
-                />
-                <ImageFigure
-                  caption="Распаковка через иконку keka в Dock-меню"
-                  imgSrc="https://github.com/aonez/Keka/raw/master/Wiki/Images/Animated/extract-dock.gif"
-                  imgTitle="Распаковка через иконку keka в Dock-меню"
-                  styleClass="figure_macos-light"
-                />
-              </div>
-              <p>
-                Также вы можете установить данную утилиту как программу для распаковки
-                архивов по умолчанию, установив{" "}
-                <a href="https://www.keka.io/defaultapp/">kekaExternalHelper</a>.
-                Подробная инструкция расположена в{" "}
-                <a href="https://github.com/aonez/Keka/wiki/Default-application">
-                  Wiki на GitHub
-                </a>
-                .
-              </p>
-            </div>
-          }
-          windowsContent={
-            <div>
-              <p>
-                Для устройств на <mark>Windows</mark> есть два популярных архиватора,
-                которые умеют работать с многотомными архивами. Это{" "}
-                <a
-                  href="https://www.rarlab.com/download.htm"
-                  title="Официальный сайт WinRAR"
-                >
-                  WinRAR
-                </a>{" "}
-                и{" "}
-                <a
-                  href="https://www.7-zip.org/"
-                  title="Официальный сайт 7-Zip"
-                >
-                  7-Zip
-                </a>
-                . Но для <mark className="file">.rar</mark> файлов всё-таки лучше подойдёт{" "}
-                <a
-                  href="https://www.rarlab.com/download.htm"
-                  title="Официальный сайт WinRAR"
-                >
-                  WinRAR
-                </a>
-                . Для распаковки многотомного архива достаточно лишь открыть первую часть
-                и начать распаковку, например с помощью <mark>drag&apos;n&apos;drop</mark>{" "}
-                в нужное место или кнопки <mark className="ui">Распаковать</mark>.
-              </p>
-              <YouTubeVideo
-                caption="Распаковка многотомного архива"
-                link="1OVwQS0uHhk"
-              />
-            </div>
-          }
-        />
       </DetailsSummary>
       <DetailsSummary
         tag="выключить дефендер, отрубить антивирус, вирусы, ложное срабатывание, хелпер, ошибка 24, windows не удается получить доступ к указанному устройству пути или файлу, возможно у вас нет нужных разрешений для доступа к этому объекту, некоторые файлы не были созданы"
