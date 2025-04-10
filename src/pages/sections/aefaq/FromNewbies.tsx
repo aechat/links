@@ -446,8 +446,7 @@ const AEFromNewbies: React.FC = () => {
             <mark className="word">Могрт</mark> или <mark className="word">Mogrt</mark> -
             шаблон анимационного дизайна, который создаётся в{" "}
             <mark className="app">After Effects</mark>, чтобы использовать в дальнейшем в
-            других проектах. Чаще всего такие шаблоны делают для использования в{" "}
-            <mark className="app">Premiere Pro</mark>.
+            проектах, созданные в <mark className="app">Premiere Pro</mark>.
           </li>
           <li>
             <mark className="word">Мокка</mark> или <mark className="word">моча</mark> -
