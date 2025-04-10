@@ -254,13 +254,11 @@ const AEPerformance: React.FC = () => {
                   (Constant) FPS.
                 </li>
                 <li>
-                  Подробнее о типах кодеков и их области применения вы можете посмотреть в
-                  видео от <a href="https://www.youtube.com/@VideoSmile">VideoSmile</a>{" "}
-                  ниже.
-                  <YouTubeVideo
-                    caption="Типы кодеков и их применение"
-                    link="MprgQSTqL9E"
-                  />
+                  Подробнее о типах кодеков и их области применения вы можете посмотреть в{" "}
+                  <a href="https://www.youtube.com/watch?v=MprgQSTqL9E">
+                    видео от VideoSmile
+                  </a>
+                  .
                 </li>
               </ul>
             </AdditionInfo>
