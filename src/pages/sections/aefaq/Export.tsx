@@ -791,8 +791,8 @@ const AEExport: React.FC = () => {
         </AdditionWarning>
       </DetailsSummary>
       <DetailsSummary
-        title="Как экспортировать композицию в .gif?"
         tag="создать гифку"
+        title="Как экспортировать композицию в .gif?"
       >
         <p>
           В базовой комплектации <mark className="app">After Effects</mark> вывести
