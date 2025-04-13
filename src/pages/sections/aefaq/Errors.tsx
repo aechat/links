@@ -582,57 +582,63 @@ const AEErrors: React.FC = () => {
           styleClass="figure_windows-dark"
         />
       </DetailsSummary>
-      <DetailsSummary title="Unable to allocate enough memory to render the current frame (XXXX x XXXX @ X bpc). Either decrease the memory requirements for the rendering frame, or install more RAM">
+      <DetailsSummary title='"Unable to allocate enough memory to render the current frame (XXXX x XXXX @ X bpc). Either decrease the memory requirements for the rendering frame, or install more RAM" или "Effect cannot allocate a buffer larger than 30000 pixels in either dimension"'>
         <p>
-          Вы создали каким-то образом (с помощью{" "}
-          <mark className="plugin">Motion Tile</mark>,{" "}
-          <mark className="plugin">CC Repetile</mark> или другим способом) настолько
-          большое изображение, что ваш компьютер не переваривает. Или установили высокую
-          битность ( <mark>16 бит</mark> или <mark>32 бит</mark>) в настройках проекта. Ну
-          или вы просто применили эффект, который потребляет слишком много оперативной
-          памяти.
+          Эти две ошибки обычно возникают из-за неправильных действий пользователя или
+          неумения оптимизировать свой проект. В первой ошибке программе не хватает
+          ресурсов устройства для рендера кадра, а во второй - пользователь каким-то
+          образом создал слишком большой файл по разрешению и упёрся в лимит по пикселям.
+        </p>
+        <Divider>
+          Объясняем причину и решение &quot;Unable to allocate enough memory to render the
+          current frame (XXXX x XXXX @ X bpc)&quot;
+        </Divider>
+        <p>
+          В описании этой ошибки указано, что проблема связана с чрезмерными требования и
+          программа не может выделить ресурсы при генерации кадра. Чаще всего это
+          происходит из-за использования ресурсоёмких эффектов или из-за большой глубины
+          цвета, указанная в настройках проекта.
+        </p>
+        <ul>
+          <li>
+            Попробуйте отключть все эффекты на время, а затем поочерёдно включить их,
+            чтобы определить, какой из них вызывает проблему при рендере кадра.
+          </li>
+          <li>
+            Попробуйте очистить кэши в <mark className="ui">Edit &gt; Purge</mark>,
+            освободить оперативную память через <mark className="app">Mem Reduct</mark>{" "}
+            для <mark>Windows</mark> или <a href="#4.7">настроить файл подкачки</a>.
+          </li>
+          <li>
+            Попробуйте понизить цветовую глубину. Чтобы это сделать - откройте{" "}
+            <mark className="ui">Project Manager</mark> с помощью комбинации клавиш{" "}
+            <mark className="key">Ctrl + Alt + Shift + K</mark>, перейдите во вкладку{" "}
+            <mark className="ui">Color</mark> и в параметре{" "}
+            <mark className="ui">Bit Depth</mark> укажите меньшее значение цветовой
+            глубины, например <mark>8 bits per channel</mark>.
+          </li>
+        </ul>
+        <Divider>
+          Объясняем причину и решение &quot;Effect cannot allocate a buffer larger than
+          30000 pixels in either dimension&quot;
+        </Divider>
+        <p>
+          Ошибка{" "}
+          <mark>
+            Effect cannot allocate a buffer larger than 30000 pixels in either dimension
+          </mark>{" "}
+          чаще всего связана с эффектами вроде <mark className="plugin">Motion Tile</mark>{" "}
+          или <mark className="plugin">CC Repetile</mark>. Эти эффекты увеличивают
+          фактическое разрешение слоя за счёт расширения его границ. Если исходное
+          разрешение слоя уже большое, например, <mark>16384x16384</mark>, то любое
+          дополнительное расширение может привести к превышению этого лимита.
         </p>
         <p>
-          В описании ошибки буквально есть решение проблемы - нужно уменьшить требования к
-          генерируемому кадру проекта. Это означает что вам нужно убрать ресурсоёмкие
-          эффекты, понизить битность цвета в <mark className="ui">Project Manager</mark> и
-          банально освободить оперативную память, например через{" "}
-          <mark className="ui">Edit &gt; Purge</mark> или{" "}
-          <mark className="app">Mem Reduct</mark>.
-        </p>
-        <p>
-          Иногда может помочь{" "}
-          <a href="https://remontka.pro/fail-podkachki-windows/">
-            настройка файла подкачки
-          </a>{" "}
-          в вашей системе, если у вас устройство на <mark>Windows</mark>. Советую
-          установить значение от <mark className="copy">4096</mark> до{" "}
-          <mark className="copy">65536</mark> (будет создаваться файл подкачки с
-          изначальным размером в <mark>4 Гб</mark>, который динамически может расширяться
-          до <mark>64 Гб</mark>), в большинстве случаев этого хватает.
-        </p>
-        <AdditionInfo>
-          Если у вас мало оперативной памяти и советы выше не помогают - вряд ли что-то
-          можно сделать, не переделывая весь проект. В таком случае советую докупить
-          больше оперативной памяти. В нынешних реалиях для комфортной работы в{" "}
-          <mark className="app">After Effects</mark> требуется минимум 32 Гб ОЗУ.
-        </AdditionInfo>
-      </DetailsSummary>
-      <DetailsSummary title="Effect cannot allocate a buffer larger than 30000 pixels in either dimension">
-        <p>
-          Данная ошибка появляется, когда вы создали каким-то образом слишком большое
-          изображение, например через <mark className="plugin">Motion Tile</mark> или{" "}
-          <mark className="plugin">CC Repetile</mark>. Текст ошибки указывает на то, что
-          размер слоя на выходе не может превышать больше чем 30000 пикселей на одну ось.
-        </p>
-        <AdditionInfo>
-          30000 пикселей у слоя на каждую ось - это максимальное значение для{" "}
-          <mark className="app">After Effects</mark>. Данное ограничение нельзя обойти.
-        </AdditionInfo>
-        <p>
-          Для решения этой проблемы уменьшите разрешение вашего слоя любыми удобными для
-          вас способами или настройте эффекты так, чтобы они не генерировали слишком
-          большое разрешение у слоя.
+          В <mark className="app">After Effects</mark> размер любого слоя не может
+          превышать <mark>30000</mark> пикселей по ширине или высоте и это ограничение
+          никак нельзя обойти. Для решения проблемы найдите эффект, который увеличивает
+          размеры изображения, и либо временно отключите его, либо уменьшите параметры
+          расширения, чтобы итоговое разрешение слоя оставалось в допустимых пределах.
         </p>
       </DetailsSummary>
       <DetailsSummary title="This effect may slow down Preview and Export as it is optimized Multi-Frame Render">
