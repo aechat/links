@@ -9,6 +9,7 @@ import {
 import {ImageFigure, VideoFigure, YouTubeVideo} from "../../../components/ContentFigure";
 import {Divider} from "antd";
 import JsonToTgsConverter from "../../../components/features/ConverterJsonToTgs";
+import ContentSwitcher from "../../../components/features/ContentFilter";
 
 const AEExport: React.FC = () => {
   return (
@@ -396,9 +397,10 @@ const AEExport: React.FC = () => {
           прочие, но обычно при открытии таких видео на старых устройствах пользователь
           сталкивается с плохой совместимостью, поэтому они менее популярны в народе. Раз{" "}
           <mark className="video">H.264</mark> такой популярный, то может возникнуть
-          вопрос, а как вывести его из <mark className="app">After Effects</mark> без
-          танцев с бубном? Из программы вывести видео с таким кодеком без использования{" "}
-          <mark className="app">Media Encoder</mark> можно аж тремя способами.
+          вопрос, а как экспортировать его из <mark className="app">After Effects</mark>{" "}
+          без танцев с бубном? Из программы вывести видео с таким кодеком без
+          использования <mark className="app">Media Encoder</mark> можно аж тремя
+          способами.
         </p>
         <ul>
           <li>
@@ -687,7 +689,10 @@ const AEExport: React.FC = () => {
           <a href="https://t.me/montage_tutors/2">Montage Tutors</a>.
         </AdditionInfo>
       </DetailsSummary>
-      <DetailsSummary title="Как вывести композицию в .webm и VP9/AV1?">
+      <DetailsSummary
+        tag="вебм, вп9, ав1"
+        title="Как экспортировать композицию в .webm и VP9/AV1?"
+      >
         <p>
           <mark className="video">VP9</mark>, <mark className="video">AV1</mark> или же{" "}
           <mark className="video">WebM</mark> - стандарт сжатия видео, который часто
@@ -785,7 +790,10 @@ const AEExport: React.FC = () => {
           отсутствует, там будет отображаться чёрный фон вместо прозрачности.
         </AdditionWarning>
       </DetailsSummary>
-      <DetailsSummary title="Как вывести композицию в .gif?">
+      <DetailsSummary
+        title="Как экспортировать композицию в .gif?"
+        tag="создать гифку"
+      >
         <p>
           В базовой комплектации <mark className="app">After Effects</mark> вывести
           композицию в формат <mark className="image">GIF</mark> не получится, но никто не
@@ -949,7 +957,10 @@ const AEExport: React.FC = () => {
           <mark className="ui">Сохранить изображение как...</mark>.
         </p>
       </DetailsSummary>
-      <DetailsSummary title="Как вывести композицию с альфа-каналом, то есть с прозрачностью?">
+      <DetailsSummary
+        tag="export with alpha-channel, прорес 4444"
+        title="Как экспортировать композицию с альфа-каналом, то есть с прозрачностью?"
+      >
         <AdditionWarning>
           В <mark className="video">H.264</mark> и <mark className="file">.mp4</mark>{" "}
           нельзя вывести композицию с альфа-каналом. Это можно сделать только на
@@ -1002,8 +1013,8 @@ const AEExport: React.FC = () => {
         </AdditionInfo>
       </DetailsSummary>
       <DetailsSummary
-        tag="телеграм, стикеры, tgs"
-        title="Как вывести композицию как стикеры и эмодзи для Telegram?"
+        tag="телеграм, стикеры, tgs, тгс"
+        title="Как экспортировать композицию как стикеры и эмодзи для Telegram?"
       >
         <p>
           В наше время только ленивый не слышал о мессенджере{" "}
@@ -1329,7 +1340,7 @@ const AEExport: React.FC = () => {
         </p>
       </DetailsSummary>
       </DetailsSummary>
-      <DetailsSummary title="Как вывести текущий кадр предпросмотра как файл изображения?">
+      <DetailsSummary title="Как экспортировать текущий кадр предпросмотра как файл изображения?">
         <p>
           Иногда у пользователя возникает нужда в выводе одного кадра из композиции как
           файл изображения, желательно в полном качестве, например для создания превью или
@@ -1407,7 +1418,10 @@ const AEExport: React.FC = () => {
           каким-либо другим.
         </AdditionInfo>
       </DetailsSummary>
-      <DetailsSummary title="Как вывести все кадры композиции как отдельные файлы изображений?">
+      <DetailsSummary
+        tag="вывести секвенцию фото"
+        title="Как экспортировать все кадры композиции как отдельные файлы изображений?"
+      >
         <p>
           Если вы хотите вывести все кадры из композиции в отдельные файлы, то вам
           достаточно выбрать в качестве способа вывода{" "}
@@ -1457,7 +1471,7 @@ const AEExport: React.FC = () => {
           композиции сохранятся в нужную папку.
         </p>
       </DetailsSummary>
-      <DetailsSummary title="Как вывести только часть моей композиции? Можно ли сделать так, чтобы композиция всегда экспортировалась по всей длине вне зависимости от указанной рабочей области?">
+      <DetailsSummary title="Как экспортировать только часть моей композиции? Можно ли сделать так, чтобы композиция всегда экспортировалась по всей длине вне зависимости от указанной рабочей области?">
         <p>
           По умолчанию <mark className="app">After Effects</mark> выводит композицию
           длиной, соответствующей вашей рабочей области, которую вы указали с помощью
@@ -1511,7 +1525,7 @@ const AEExport: React.FC = () => {
           styleClass="figure_windows-dark"
         />
       </DetailsSummary>
-      <DetailsSummary title="Как вывести композицию файлом с отображением всех границ и путей движения?">
+      <DetailsSummary title="Как экспортировать композицию файлом с отображением всех границ и путей движения?">
         <p>
           Для этого существует сторонний плагин <mark className="plugin">Cyclops</mark>. С
           помощью него можно вывести вашу композицию вместе с границами и путями движения
