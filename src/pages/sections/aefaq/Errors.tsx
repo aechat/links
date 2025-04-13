@@ -670,28 +670,6 @@ const AEErrors: React.FC = () => {
           styleClass="figure_windows-dark"
         />
       </DetailsSummary>
-      <DetailsSummary title='"Не удалось выполнить преобразование символов Unicode" или "Не удалось загрузить псевдоэффекты" при запуске After Effects'>
-        <p>
-          Если вы попытаетесь запустить <mark className="app">After Effects</mark> с
-          русской локализацией, то вы можете столкнуться с данной проблемой. Она
-          встречается на старых версиях и на версии <mark>24.4</mark>, которую позже
-          исправили. Для решения данной проблемы нужно переустановить{" "}
-          <mark className="app">After Effects</mark> на английский язык. Если вы не хотите
-          менять язык, то вам нужно обновиться до более свежей версии программы или
-          откатиться до более старой.
-        </p>
-        <p>
-          Если вы сидите на другой версии программы или на английской локализации, то
-          причин для появления этой ошибки может быть очень много. Поэтому просто дам
-          совет: постарайтесь меньше использовать кириллицу в директориях, файлах и
-          названиях слоёв. В некоторых случаях помогает{" "}
-          <a href="https://community.adobe.com/t5/after-effects-discussions/faq-how-to-reset-trash-preferences-in-after-effects/td-p/10634342">
-            сброс настроек After Effects
-          </a>{" "}
-          до стандартных, изменение локали в операционной системе или создание новой
-          учётной записи пользователя на самом устройстве.
-        </p>
-      </DetailsSummary>
       <DetailsSummary
         tag="этот проект содержит ошибки выражений"
         title="This project contains an expression error"
@@ -880,6 +858,108 @@ const AEErrors: React.FC = () => {
           обработке выражения. Это может вам помочь при дальнейшем анализе проблемы.
         </p>
       </DetailsSummary>
+      <DetailsSummary title='"Cinema 4D must be installed in order to use the Cinema 4D renderer" или "Cineware Server Suite failed to acquire renderer port and path. Server commands not available" или "Cinema 4D: Render Failed"'>
+        <p>
+          Если у вас установлен <mark className="app">After Effects</mark> от{" "}
+          <mark>KpoJluK</mark>, то эта ошибка вознает из-за того, что в его дистрибутивах
+          c версий <mark>2020</mark> и выше не поставляется плагин{" "}
+          <mark className="plugin">Cineware</mark> и{" "}
+          <mark className="plugin">Cinema 4D</mark>. Это было сделано для уменьшения веса
+          программы, но таким образом отваливается возможность импорта проектов формата{" "}
+          <mark className="file">.c4d</mark> и включения соответствующего движка
+          3D-рендера. Чтобы решить эту проблему - достаточно установить полноценную{" "}
+          <mark className="app">Maxon Cinema 4D</mark> нужной версии на ваше устройство,
+          которую просит ваша версия <mark className="app">After Effects</mark>. Обычно в
+          такой ошибке указывается, какую версию <mark className="app">Cinema 4D</mark>{" "}
+          нужно установить.
+        </p>
+        <AdditionWarning>
+          <ul>
+            <li>
+              Если в этой ошибке <mark className="app">After Effects</mark> пишет, что
+              нужно установить, например <mark className="app">Cinema 4D</mark> версии{" "}
+              <mark>2023</mark> - то нужно ставить именно любую версию{" "}
+              <mark>2023.X.X</mark>! Версии <mark>2024.X.X</mark>. или <mark>25.X.X</mark>{" "}
+              в таком случае не подойдут.
+            </li>
+            <li>
+              <mark className="app">Cinema 4D</mark> версий <mark>26.X.X</mark> не
+              подойдут для версий <mark className="app">After Effects</mark> ниже{" "}
+              <mark>23.1</mark>, так как Adobe не включала в поддержку эту версию.
+            </li>
+            <li>
+              Если вы установили <mark className="app">Cinema 4D</mark> для вашей версии{" "}
+              <mark className="app">After Effects</mark>, но программы всё ещё не видят
+              друг друга, то убедитесь в том, что обе программы установлены на стандартном
+              расположении установки и в разделе <mark className="path">C:\</mark>, а не
+              на другом.
+            </li>
+          </ul>
+        </AdditionWarning>
+        <Divider>
+          Список соответствия версий Maxon Cinema 4D с версиями After Effects для
+          корректной работы
+        </Divider>
+        <ul>
+          <li>
+            <mark className="app">After Effects 25.1 и новее</mark> требует{" "}
+            <mark className="app">Cinema 4D 2025.X.X</mark>.
+          </li>
+          <li>
+            <mark className="app">After Effects 24.1 - 25.0</mark> требует{" "}
+            <mark className="app">Cinema 4D 2024.X.X</mark>.
+          </li>
+          <li>
+            <mark className="app">After Effects 23.1 - 23.6</mark> требует{" "}
+            <mark className="app">Cinema 4D 2023.X.X</mark>.
+          </li>
+          <li>
+            <mark className="app">After Effects 22.x - 23.0</mark> требует{" "}
+            <mark className="app">Cinema 4D 25.X.X</mark>.
+          </li>
+          <li>
+            <mark className="app">After Effects 17.x (2020)</mark> и{" "}
+            <mark className="app">After Effects 18.x (2021)</mark> требует{" "}
+            <mark className="app">Cinema 4D R21.X.X.</mark>. Путь до установленных
+            программ вы можете настроить в настройках 3D-рендера.
+            <div
+              style={{
+                display: "grid",
+                gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))",
+              }}
+            >
+              <ImageFigure
+                caption="Composition Settings"
+                imgSrc="images/aftereffects/composition_settings_3drenderer_cinema4d.png"
+                imgTitle="Composition Settings"
+                styleClass="figure_windows-dark"
+              />
+              <ImageFigure
+                caption="Choose CINEMA 4D Installation"
+                imgSrc="images/aftereffects/cinema4d_renderer_options.png"
+                imgTitle="Choose CINEMA 4D Installation"
+                styleClass="figure_windows-dark"
+              />
+              <ImageFigure
+                caption="Choose CINEMA 4D Installation"
+                imgSrc="images/aftereffects/choose_cinema4d_installation.png"
+                imgTitle="Choose CINEMA 4D Installation"
+                styleClass="figure_windows-dark"
+              />
+            </div>
+          </li>
+        </ul>
+        <AdditionInfo>
+          Если у вас установлен <mark className="app">After Effects</mark> из{" "}
+          <mark className="app">Creative Cloud</mark>, то вам достаточно установить{" "}
+          <mark className="plugin">Cinema 4D</mark> оттуда:{" "}
+          <mark className="ui">
+            Установленные приложения &gt; After Effects &gt; Подключаемые модули &gt;
+            Cinema 4D &gt; Установить
+          </mark>
+          .
+        </AdditionInfo>
+      </DetailsSummary>
       <DetailsSummary
         tag="сапфир"
         title="Почему у меня появляется красный экран и пропадают параметры эффектов из BorisFX Sapphire?"
@@ -1031,6 +1111,28 @@ const AEErrors: React.FC = () => {
           <mark className="ui">Enable Disk Cache</mark>.
         </p>
       </DetailsSummary>
+      <DetailsSummary title='"Не удалось выполнить преобразование символов Unicode" или "Не удалось загрузить псевдоэффекты" при запуске After Effects'>
+        <p>
+          Если вы попытаетесь запустить <mark className="app">After Effects</mark> с
+          русской локализацией, то вы можете столкнуться с данной проблемой. Она
+          встречается на старых версиях и на версии <mark>24.4</mark>, которую позже
+          исправили. Для решения данной проблемы нужно переустановить{" "}
+          <mark className="app">After Effects</mark> на английский язык. Если вы не хотите
+          менять язык, то вам нужно обновиться до более свежей версии программы или
+          откатиться до более старой.
+        </p>
+        <p>
+          Если вы сидите на другой версии программы или на английской локализации, то
+          причин для появления этой ошибки может быть очень много. Поэтому просто дам
+          совет: постарайтесь меньше использовать кириллицу в директориях, файлах и
+          названиях слоёв. В некоторых случаях помогает{" "}
+          <a href="https://community.adobe.com/t5/after-effects-discussions/faq-how-to-reset-trash-preferences-in-after-effects/td-p/10634342">
+            сброс настроек After Effects
+          </a>{" "}
+          до стандартных, изменение локали в операционной системе или создание новой
+          учётной записи пользователя на самом устройстве.
+        </p>
+      </DetailsSummary>
       <DetailsSummary title="Error: overflow converting ratio denominators (17::19) или (17::18)">
         <p>
           Данная ошибка может выскочить по совершенно разным причинам и чаще всего на
@@ -1065,108 +1167,6 @@ const AEErrors: React.FC = () => {
             данная ошибка.
           </li>
         </ul>
-      </DetailsSummary>
-      <DetailsSummary title='"Cinema 4D must be installed in order to use the Cinema 4D renderer" или "Cineware Server Suite failed to acquire renderer port and path. Server commands not available" или "Cinema 4D: Render Failed"'>
-        <p>
-          Если у вас установлен <mark className="app">After Effects</mark> от{" "}
-          <mark>KpoJluK</mark>, то эта ошибка вознает из-за того, что в его дистрибутивах
-          c версий <mark>2020</mark> и выше не поставляется плагин{" "}
-          <mark className="plugin">Cineware</mark> и{" "}
-          <mark className="plugin">Cinema 4D</mark>. Это было сделано для уменьшения веса
-          программы, но таким образом отваливается возможность импорта проектов формата{" "}
-          <mark className="file">.c4d</mark> и включения соответствующего движка
-          3D-рендера. Чтобы решить эту проблему - достаточно установить полноценную{" "}
-          <mark className="app">Maxon Cinema 4D</mark> нужной версии на ваше устройство,
-          которую просит ваша версия <mark className="app">After Effects</mark>. Обычно в
-          такой ошибке указывается, какую версию <mark className="app">Cinema 4D</mark>{" "}
-          нужно установить.
-        </p>
-        <AdditionWarning>
-          <ul>
-            <li>
-              Если в этой ошибке <mark className="app">After Effects</mark> пишет, что
-              нужно установить, например <mark className="app">Cinema 4D</mark> версии{" "}
-              <mark>2023</mark> - то нужно ставить именно любую версию{" "}
-              <mark>2023.X.X</mark>! Версии <mark>2024.X.X</mark>. или <mark>25.X.X</mark>{" "}
-              в таком случае не подойдут.
-            </li>
-            <li>
-              <mark className="app">Cinema 4D</mark> версий <mark>26.X.X</mark> не
-              подойдут для версий <mark className="app">After Effects</mark> ниже{" "}
-              <mark>23.1</mark>, так как Adobe не включала в поддержку эту версию.
-            </li>
-            <li>
-              Если вы установили <mark className="app">Cinema 4D</mark> для вашей версии{" "}
-              <mark className="app">After Effects</mark>, но программы всё ещё не видят
-              друг друга, то убедитесь в том, что обе программы установлены на стандартном
-              расположении установки и в разделе <mark className="path">C:\</mark>, а не
-              на другом.
-            </li>
-          </ul>
-        </AdditionWarning>
-        <Divider>
-          Список соответствия версий Maxon Cinema 4D с версиями After Effects для
-          корректной работы
-        </Divider>
-        <ul>
-          <li>
-            <mark className="app">After Effects 25.1 и новее</mark> требует{" "}
-            <mark className="app">Cinema 4D 2025.X.X</mark>.
-          </li>
-          <li>
-            <mark className="app">After Effects 24.1 - 25.0</mark> требует{" "}
-            <mark className="app">Cinema 4D 2024.X.X</mark>.
-          </li>
-          <li>
-            <mark className="app">After Effects 23.1 - 23.6</mark> требует{" "}
-            <mark className="app">Cinema 4D 2023.X.X</mark>.
-          </li>
-          <li>
-            <mark className="app">After Effects 22.x - 23.0</mark> требует{" "}
-            <mark className="app">Cinema 4D 25.X.X</mark>.
-          </li>
-          <li>
-            <mark className="app">After Effects 17.x (2020)</mark> и{" "}
-            <mark className="app">After Effects 18.x (2021)</mark> требует{" "}
-            <mark className="app">Cinema 4D R21.X.X.</mark>. Путь до установленных
-            программ вы можете настроить в настройках 3D-рендера.
-            <div
-              style={{
-                display: "grid",
-                gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))",
-              }}
-            >
-              <ImageFigure
-                caption="Composition Settings"
-                imgSrc="images/aftereffects/composition_settings_3drenderer_cinema4d.png"
-                imgTitle="Composition Settings"
-                styleClass="figure_windows-dark"
-              />
-              <ImageFigure
-                caption="Choose CINEMA 4D Installation"
-                imgSrc="images/aftereffects/cinema4d_renderer_options.png"
-                imgTitle="Choose CINEMA 4D Installation"
-                styleClass="figure_windows-dark"
-              />
-              <ImageFigure
-                caption="Choose CINEMA 4D Installation"
-                imgSrc="images/aftereffects/choose_cinema4d_installation.png"
-                imgTitle="Choose CINEMA 4D Installation"
-                styleClass="figure_windows-dark"
-              />
-            </div>
-          </li>
-        </ul>
-        <AdditionInfo>
-          Если у вас установлен <mark className="app">After Effects</mark> из{" "}
-          <mark className="app">Creative Cloud</mark>, то вам достаточно установить{" "}
-          <mark className="plugin">Cinema 4D</mark> оттуда:{" "}
-          <mark className="ui">
-            Установленные приложения &gt; After Effects &gt; Подключаемые модули &gt;
-            Cinema 4D &gt; Установить
-          </mark>
-          .
-        </AdditionInfo>
       </DetailsSummary>
       <DetailsSummary title='"Frame rate mismatch, or footage with fields found. For best Roto Brush & Refine Edge results, set the composition to XX fps to match the layer source" при использовании Rotobrush'>
         <p>
@@ -1206,7 +1206,7 @@ const AEErrors: React.FC = () => {
           </li>
         </ul>
       </DetailsSummary>
-      <DetailsSummary title="Content Aware Fill Error: Initialization Failed">
+      <DetailsSummary title='"Content Aware Fill Error: Initialization Failed"'>
         <p>
           Данная ошибка может вылезти по совершенно разным причинам. Одна из них -
           кириллица в пути к <mark className="file">.aep</mark> файлу, в названии
@@ -1232,7 +1232,10 @@ const AEErrors: React.FC = () => {
           styleClass="figure_windows-dark"
         />
       </DetailsSummary>
-      <DetailsSummary title='"Layer must match Composition and use default transform values" при использовании 3D Camera Tracker'>
+      <DetailsSummary
+        tag="размер слоя должен соответствовать композиции и использовать значения трансформирования по умолчанию"
+        title='"Layer must match Composition and use default transform values" при использовании 3D Camera Tracker'
+      >
         <p>
           Данная ошибка прямым текстом указывает на то, что слой должен быть по размеру
           композиции, а также не быть перемещённым, повёрнут или ещё каким-то образом
