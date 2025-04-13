@@ -1622,11 +1622,69 @@ const AEExport: React.FC = () => {
           imgTitle="Настройки Collect Files"
           styleClass="figure_windows-dark"
         />
-        <p>
-          После выполнения функции <mark className="ui">Collect Files</mark> вы можете
-          заархивировать папку с проектом любым удобным для вас способом, чтобы передать
-          ее другому человеку или сохранить ее в облачном хранилище.
-        </p>
+        <ContentSwitcher
+          macContent={
+            <div>
+              <p>
+                После окончания сборки файлов, перейдите в папку, куда вы сохранили проект
+                и создайте архив с помощью <a href="https://www.keka.io/ru/">keka</a>.
+                Если площадка или социальная сеть, в которой вы пытаетесь поделиться
+                архивом, вставляет палки в колёса в виде ограничений на размер файла - вы
+                сможете разделить архив на определённый размер файла перед его созданием и
+                отправить его другому человеку по кусочкам. После создания архива,
+                отправьте его другому человеку любым удобным для вас способом.
+              </p>
+              <div
+                style={{
+                  display: "grid",
+                  gap: "10px",
+                  gridTemplateColumns: "repeat(auto-fit, minmax(275px, 1fr))",
+                  alignItems: "center",
+                }}
+              >
+                <ImageFigure
+                  caption="Выбор формата архива"
+                  imgSrc="https://github.com/aonez/Keka/raw/master/Wiki/Images/Animated/main-window-format.gif"
+                  imgTitle="Выбор формата архива"
+                  styleClass="figure_macos-light"
+                />
+                <ImageFigure
+                  caption="Выбор размера разделения архива"
+                  imgSrc="https://github.com/aonez/Keka/raw/master/Wiki/Images/Animated/main-window-split.gif"
+                  imgTitle="Выбор размера разделения архива"
+                  styleClass="figure_macos-light"
+                />
+              </div>
+              <AdditionInfo>
+                Подробнее о создании архивов через{" "}
+                <a href="https://www.keka.io/ru/">keka</a> вы можете прочесть на{" "}
+                <a href="https://github.com/aonez/Keka/wiki/Compressing-with-Keka">
+                  этой странице
+                </a>
+                .
+              </AdditionInfo>
+            </div>
+          }
+          windowsContent={
+            <div>
+              <p>
+                После окончания сборки файлов, перейдите в папку, куда вы сохранили проект
+                и создайте архив с помощью{" "}
+                <a href="https://www.rarlab.com/download.htm">WinRAR</a> или{" "}
+                <a href="https://www.7-zip.org/">7-Zip</a>. Если площадка или социальная
+                сеть, в которой вы пытаетесь поделиться архивом, вставляет палки в колёса
+                в виде ограничений на размер файла - вы сможете разделить архив на
+                определённый размер файла перед его созданием и отправить его другому
+                человеку по кусочкам. После создания архива, отправьте его другому
+                человеку любым удобным для вас способом.
+              </p>
+              <YouTubeVideo
+                caption="Как разбить архив на части и собрать его"
+                link="6KumGS0EyUQ"
+              />
+            </div>
+          }
+        />
       </DetailsSummary>
       <DetailsSummary
         tag="лотти"
