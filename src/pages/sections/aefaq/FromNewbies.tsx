@@ -2180,13 +2180,22 @@ const AEFromNewbies: React.FC = () => {
           <mark className="plugin">Puppet Tool</mark>.
         </AdditionWarning>
       </DetailsSummary>
-      <DetailsSummary title="Почему у меня предпросмотр проигрывается ускоренно или замедленно?">
+      <DetailsSummary
+        tag="замедленное превью, слоумо, растянутое аудио, slow motion"
+        title="Почему у меня предпросмотр проигрывается ускоренно или замедленно?"
+      >
+        {/* FIXME: адаптировать */}
+        <p>
+          Вариантов такого поведения много, начиная от банальной невнимательности
+          пользователя, заканчивая кривыми исходниками.
+        </p>
+        <Divider>Проверяем FPS в окне Preview</Divider>
         <p>
           Проверьте окно <mark className="ui">Preview</mark>. Вполне вероятно, что вы
-          установили там значение FPS, отличное от того, что у вас установлено в
-          композиции. Для этого откройте окно Preview с помощью{" "}
-          <mark className="ui">Window &gt; Preview</mark> и укажите в FPS значение{" "}
-          <mark className="ui">Auto</mark>.
+          установили там значение <mark>FPS</mark>, отличное от того, что у вас
+          установлено в композиции. Для этого откройте окно Preview с помощью{" "}
+          <mark className="ui">Window &gt; Preview</mark> и укажите в <mark>FPS</mark>{" "}
+          значение <mark className="ui">Auto</mark>.
         </p>
         <ImageFigure
           caption="Preview"
@@ -2194,6 +2203,114 @@ const AEFromNewbies: React.FC = () => {
           imgTitle="Изменение предпросмотра в окне Preview"
           styleClass="figure_windows-dark"
         />
+        <Divider>Смотрим предпросмотр из кэша, минуя рендер в реальном времени</Divider>
+        <p>
+          Лагать предпросмотр может из-за того, что пытаетесь проиграть предпросмотр в
+          реальном времени - эффекты и видео-исходники вряд ли смогут так быстро
+          обрабатывать кадры на лету, чтобы оно игралось спокойно и без запинок.
+        </p>
+        <AdditionInfo>
+          Для отображения количества <mark>FPS</mark> в предпросмотре можно
+          воспользоваться окном <mark className="ui">Info</mark>. В нём отображается
+          текущий <mark>FPS</mark> предпросмотра и дополнительная информация о рендеринге
+          и проигрывании кадров из памяти.
+        </AdditionInfo>
+        <ImageFigure
+          caption="Info"
+          imgSrc="images/aftereffects/info_non-realtime.png"
+          imgTitle="Предпросмотр не в реальном времени"
+          styleClass="figure_windows-dark"
+        />
+        <p>
+          Чтобы устранить такое стандартное поведение программы - вам нужно включить
+          параметр, который говорит программе команду{" "}
+          <mark>закэшировать предпросмотр, прежде чем его воспроизводить</mark>. Чтобы
+          включить кэширование предпросмотра перед его воспроизведением - нужно открыть
+          окно <mark className="ui">Preview</mark> и прожать в ней две опции -{" "}
+          <mark className="ui">Cache Before Playback</mark> и{" "}
+          <mark className="ui">If caching, play caching frames</mark>.
+        </p>
+        <ImageFigure
+          caption="Preview"
+          imgSrc="images/aftereffects/preview_caching.png"
+          imgTitle="Включение кэширования предпросмотра"
+          styleClass="figure_windows-dark"
+        />
+        <AdditionInfo>
+          <ul>
+            <li>
+              Включение чекбокса у <mark className="ui">Cache Before Playback</mark>{" "}
+              позволит программе закэшировать предпросмотр, прежде чем воспроизвести его.
+              Повторное нажатие на кнопку воспроизведения остановит кэширование.
+            </li>
+            <li>
+              Включение чекбокса у{" "}
+              <mark className="ui">If caching, play caching frames</mark> позволит
+              остановить кэширование предпросмотра и проиграть те кадры, которые уже
+              закэшировались при повторном нажатии на кнопку воспроизведения.
+            </li>
+          </ul>
+        </AdditionInfo>
+        {/*         
+        <p>
+          Если вы используете в проекте видео-исходники, скачанные из интернета, то скорее
+          всего они были закодированы в неприятный для{" "}
+          <mark className="app">After Effects</mark> кодек и плохо проигрываются
+          программой. Для решения проблемы - достаточно перекодировать ваши исходники в
+          монтажный кодек, например <mark className="video">Apple Prores 422</mark> через
+          конвертер, например <mark className="app">Shutter Encoder</mark>. После
+          конвертации - импортируйте исходники снова и попытайтесь воспроизвести
+          предпросмотр снова.
+        </p>
+        <p>
+          Если ваши видео-исходники играются плавно, но вы испытываете проблемы только со
+          звуком - стоит попробовать вывести аудио из видео отдельным файлом и
+          перекодировать его в <mark className="file">.wav</mark>, а затем импортировать
+          его в программу заново.
+        </p>
+        <p>
+          Иногда бывает такое, что вы случайно изменили{" "}
+          <mark className="ui">Frame Rate</mark> в окне{" "}
+          <mark className="ui">Preview</mark> и композиция проигрывается либо быстро, либо
+          замедленно. Для этого в пункте <mark className="ui">Frame Rate</mark> установите
+          значение <mark className="ui">Auto</mark>. Это позволит программе воспроизводить
+          предпросмотр в соответствии с частотой кадров в настройках композиции.
+        </p>
+        <ImageFigure
+          caption="Preview"
+          imgSrc="images/aftereffects/preview_change_fps.png"
+          imgTitle="Изменение частоты кадров предпросмотра"
+          styleClass="figure_windows-dark"
+        />
+        <p>
+          Если у вас возникают проблемы с записью кэша на жёсткий диск, то вы можете
+          отключить опцию кэширования на жёсткий диск в{" "}
+          <mark className="ui">Edit &gt; Preferences &gt; Media & Disk Cache</mark>, убрав
+          чекбокс из пункта <mark className="ui">Enable Disk Cache</mark>.
+        </p>
+        <ImageFigure
+          caption="Preferences"
+          imgSrc="images/aftereffects/disable_disk_cache.png"
+          imgTitle="Отключение дискового кэша"
+          styleClass="figure_windows-dark"
+        />
+        <p>
+          В редких случаях бывают ситуации, когда вы переключились между звуковыми
+          выходами, например, подключили беспроводные наушники. Из-за внезапной смены
+          аудио-выхода <mark className="app">After Effects</mark> не может нормально
+          синхронизировать картинку и звук. В таких случаях рекомендуется обновить
+          звуковые драйвера или изменить аудиовыход на другой в{" "}
+          <mark className="ui">Default Output</mark> и уменьшить значение{" "}
+          <mark className="ui">Latency</mark> до минимального в{" "}
+          <mark className="ui">Edit &gt; Preferences &gt; Audio Hardware</mark>.
+        </p>
+        <ImageFigure
+          caption="Preferences"
+          imgSrc="images/aftereffects/audio_hardware_settings.png"
+          imgTitle="Настройки звукового выхода"
+          styleClass="figure_windows-dark"
+        />
+      </DetailsSummary> */}
       </DetailsSummary>
       <DetailsSummary
         tag="стиль графов, другой вид, отображение скорости"
