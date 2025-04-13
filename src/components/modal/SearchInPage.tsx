@@ -1,5 +1,5 @@
 import {BackspaceOutlined, CloseRounded, Search} from "@mui/icons-material";
-import {Modal, Tooltip, message} from "antd";
+import {Modal, message} from "antd";
 import {motion} from "framer-motion";
 import React, {
   createContext,
@@ -119,6 +119,34 @@ export const WideSearchButton: React.FC = () => {
       </div>
     </button>
   );
+};
+
+const getResultWord = (count: number) => {
+  if (count % 10 === 1 && count % 100 !== 11) {
+    return "результат";
+  } else if (
+    count % 10 >= 2 &&
+    count % 10 <= 4 &&
+    (count % 100 < 10 || count % 100 >= 20)
+  ) {
+    return "результата";
+  } else {
+    return "результатов";
+  }
+};
+
+const getFoundWord = (count: number) => {
+  if (count % 10 === 1 && count % 100 !== 11) {
+    return "Найден";
+  } else if (
+    count % 10 >= 2 &&
+    count % 10 <= 4 &&
+    (count % 100 < 10 || count % 100 >= 20)
+  ) {
+    return "Найдены";
+  } else {
+    return "Найдено";
+  }
 };
 
 export const SearchInPage: React.FC<{sections: Array<{id: string; title: string}>}> = ({
@@ -515,9 +543,7 @@ export const SearchInPage: React.FC<{sections: Array<{id: string; title: string}
                 setResults([]);
               }}
             >
-              <Tooltip title="Очистить">
-                <BackspaceOutlined fontSize="small" />
-              </Tooltip>
+              <BackspaceOutlined fontSize="small" />
             </button>
           )}
           <button
@@ -528,36 +554,41 @@ export const SearchInPage: React.FC<{sections: Array<{id: string; title: string}
           </button>
         </div>
         <div className="modal-content">
-          {query.trim() === "" ? (
-            <div
-              style={{
-                display: "flex",
-                flexWrap: "nowrap",
-                alignItems: "center",
-                justifyContent: "space-between",
-              }}
-            >
-              <p className="search-modal-title">Навигация по категориям:</p>
-              <p className="search-modal-tip">
-                Для открытия браузерного окна поиска по странице - нажмите на{" "}
-                <mark className="key">F3</mark>
-              </p>
-            </div>
-          ) : (
-            query.trim() !== "" &&
-            results.length > 0 && <p className="search-modal-title">Результаты поиска:</p>
-          )}
+          {query.trim() === ""
+            ? null
+            : query.trim() !== "" &&
+              results.length > 0 && (
+                <p className="search-modal-title">
+                  {getFoundWord(results.length)}{" "}
+                  <span
+                    style={{
+                      color: "var(--summary-text)",
+                      fontWeight: 800,
+                      fontSize: "1.05em",
+                    }}
+                  >
+                    {results.length}
+                  </span>{" "}
+                  {getResultWord(results.length)}
+                </p>
+              )}
           <div className="search-results">
             {query.trim() === "" && (
-              <div className="search-category">
-                {sections.map((section) => (
-                  <button
-                    key={section.id}
-                    onClick={() => handleLinkClick(section.id)}
-                  >
-                    {section.title}
-                  </button>
-                ))}
+              <div>
+                <div className="search-category">
+                  {sections.map((section) => (
+                    <button
+                      key={section.id}
+                      onClick={() => handleLinkClick(section.id)}
+                    >
+                      {section.title}
+                    </button>
+                  ))}
+                </div>
+                <p className="search-category-tip">
+                  Для открытия браузерного окна поиска по странице - нажмите на{" "}
+                  <mark className="key">F3</mark>
+                </p>
               </div>
             )}
             {results.length > 0 &&
