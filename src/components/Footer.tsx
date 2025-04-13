@@ -1,6 +1,7 @@
-import {Modal} from "antd";
 import React from "react";
-import {CloseRounded, GitHub} from "@mui/icons-material";
+import {GitHub} from "@mui/icons-material";
+import {motion} from "framer-motion";
+
 interface FooterProps {
   title: string;
   initialYear: number;
@@ -9,90 +10,59 @@ interface FooterProps {
 const Footer: React.FC<FooterProps> = ({title, initialYear}) => {
   const currentYear = new Date().getFullYear();
 
-  const [isModalOpen, setIsModalOpen] = React.useState(false);
-
-  const showModal = () => {
-    setIsModalOpen(true);
-  };
-
-  const handleOk = () => {
-    setIsModalOpen(false);
-  };
-
-  const handleCancel = () => {
-    setIsModalOpen(false);
-  };
-
   return (
-    <footer className="footer">
-      <p className="footer__copyright">
-        <button onClick={showModal}>
-          {title} &copy; {initialYear} - {currentYear} {"// "}
-          m1sh3r
-        </button>
-      </p>
-      <Modal
-        centered
-        closeIcon={null}
-        footer={null}
-        open={isModalOpen}
-        width={700}
-        onCancel={handleCancel}
-        onOk={handleOk}
+    <motion.footer
+      animate={{opacity: 0.5}}
+      className="footer"
+      initial={{opacity: 0}}
+      transition={{duration: 0.5, delay: 1}}
+    >
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+        }}
       >
-        <div className="modal">
-          <div className="modal-header">
-            <div className="modal-header-title">О сайте</div>
-            <button
-              className="modal-header-close"
-              onClick={handleCancel}
+        <div>
+          <p>
+            m1sh3r {"// "}
+            {title} &copy; {initialYear} - {currentYear}
+          </p>
+          {(window.location.pathname === "/aefaq" ||
+            window.location.pathname === "/prfaq" ||
+            window.location.pathname === "/psfaq" ||
+            window.location.pathname === "/aeexprfaq") && (
+            <p
+              style={{
+                opacity: 0.5,
+                fontSize: "0.9em",
+
+                fontWeight: 400,
+              }}
             >
-              <CloseRounded />
-            </button>
-          </div>
-          <div className="modal-content">
-            <p>
-              Идея сайта заключалась в том, чтобы минимизировать надоедливые вопросы по
-              программам Adobe и направить людей на альтернативные чаты, если возникли
-              вопросы по другим программам.{" "}
-              <i>Надеюсь, что мы с этой задачей справились.</i>
+              Контент на этой странице обновляется благодаря вопросам участников наших
+              чатов.
             </p>
-            <p>
-              Контент на сайте наполнялся благодаря команде администраторов и участников{" "}
-              <a
-                href="https://t.me/joinchat/F1DdXtG9LephYWUy"
-                rel="noreferrer"
-                target="_blank"
-              >
-                AEChat
-              </a>
-              .
-            </p>
-            <p className="modal-message">
-              При копировании контента, пожалуйста, ссылайтесь на первоисточник, мы
-              старались не просто так. В каждом пункте можно скопировать ссылку, нажав на
-              кнопку справа.
-            </p>
-            <div className="flexible-links">
-              <a
-                href="https://github.com/aechat/links"
-                rel="noreferrer"
-                style={{
-                  textDecoration: "none",
-                  display: "flex",
-                  alignItems: "center",
-                  gap: "5px",
-                }}
-                target="_blank"
-              >
-                <GitHub />
-                Открыть страницу на GitHub
-              </a>
-            </div>
-          </div>
+          )}
         </div>
-      </Modal>
-    </footer>
+        <a
+          href="https://github.com/aechat/links"
+          rel="noreferrer"
+          style={{
+            textDecoration: "none",
+            display: "flex",
+            alignItems: "center",
+            gap: "5px",
+            flexShrink: 0,
+          }}
+          target="_blank"
+        >
+          <GitHub />
+        </a>
+      </div>
+    </motion.footer>
   );
 };
+
 export default Footer;

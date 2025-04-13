@@ -63,12 +63,22 @@ html {
 }
 
 .footer {
-  opacity: 0.5;
   margin-inline: auto;
-  margin-block: 30px;
-  padding-inline: 10px;
-  font-size: 0.75rem;
-  text-align: center;
+  margin-block-start: 30px;
+  outline: 1px solid var(--content-background-border);
+  border-top-right-radius: $roundness;
+  border-top-left-radius: $roundness;
+  background-color: var(--content-background-color);
+  padding-inline: 20px;
+  padding-block: 20px;
+  font-weight: 600;
+  font-size: 0.85rem;
+  font-family: "Onest", sans-serif;
+
+  p {
+    text-wrap: balance;
+    margin-block: 2px;
+  }
 }
 
 .hidden {
