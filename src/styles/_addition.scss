@@ -35,6 +35,7 @@ li > .addition-danger,
     align-items: center;
     gap: 12px;
     margin: 10px;
+    filter: drop-shadow(0 5px 10px var(--shadow));
     border-radius: $roundness * 0.75;
     padding: 12px 10px;
     padding-left: 18px;
@@ -240,7 +241,7 @@ li > .addition-danger,
   justify-content: space-between;
   align-items: center;
   gap: 10px;
-  filter: saturate(0.5);
+  filter: saturate(0.5) drop-shadow(0 5px 10px var(--shadow));
   margin: 10px;
   margin-block: 15px;
   outline: 1px solid var(--summary-border);

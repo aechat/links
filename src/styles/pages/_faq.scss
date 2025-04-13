@@ -112,8 +112,8 @@
       position: relative;
       filter: drop-shadow(0 3px 5px var(--shadow));
       margin-block: 10px;
+      box-shadow: 0 5px 8px var(--summary-border);
       border: solid 1px var(--summary-border);
-      border-bottom-width: 4px;
       border-radius: $roundness;
       background-color: var(--summary-background);
       padding: 10px 15px;

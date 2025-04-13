@@ -48,6 +48,6 @@ $dark: (
   addition_danger-text: hsl(0, calc(100% * var(--saturate-ratio)), 90%),
   addition_danger-mark: hsl(0, calc(60% * var(--saturate-ratio)), 30%),
   // *: стили таблицы
-  table-background: hsl(0, calc(0% * var(--saturate-ratio)), 12.5%),
-  table-background-border: hsl(0, calc(0% * var(--saturate-ratio)), 20%)
+  table-background: hsl(0, calc(0% * var(--saturate-ratio)), 10%),
+  table-background-border: hsl(0, calc(0% * var(--saturate-ratio)), 15%)
 );

@@ -49,5 +49,5 @@ $light: (
   addition_danger-mark: hsl(0, calc(80% * var(--saturate-ratio)), 87.5%),
   // *: стили таблицы
   table-background: hsl(0, calc(0% * var(--saturate-ratio)), 95%),
-  table-background-border: hsl(0, calc(0% * var(--saturate-ratio)), 90%)
+  table-background-border: hsl(0, calc(0% * var(--saturate-ratio)), 87.5%)
 );

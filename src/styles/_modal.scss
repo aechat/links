@@ -36,7 +36,7 @@
   &-content {
     filter: drop-shadow(0 3px 5px var(--shadow));
     outline: 1px solid var(--content-background-border);
-    border-radius: $roundness;
+    border-radius: $roundness * 1.5;
     background-color: var(--content-background-color);
     width: 100%;
   }
@@ -155,6 +155,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    filter: drop-shadow(0 5px 10px var(--shadow));
     cursor: pointer;
     margin: 0 auto;
     border: 1px solid var(--links-border);
@@ -196,7 +197,7 @@
 
 .search {
   &-input {
-    filter: drop-shadow(0 3px 5px var(--shadow));
+    box-shadow: 0 3px 5px var(--shadow);
     border: 1px solid var(--summary-border);
     border-radius: $roundness;
     background-color: var(--summary-background);
@@ -223,16 +224,20 @@
     &-close,
     &-clear {
       display: flex;
+      flex-grow: 0;
       flex-shrink: 0;
+      justify-content: center;
       align-items: center;
-      filter: drop-shadow(0 3px 5px var(--shadow));
       outline: 1px solid var(--summary-border);
+      box-shadow: 0 3px 5px var(--shadow);
       border-radius: $roundness;
       background-color: var(--summary-background);
-      padding: 10px;
       width: 40px;
-      height: 40px;
       color: var(--summary-text);
+      svg {
+        width: 17px;
+        height: 17px;
+      }
     }
   }
 
@@ -336,12 +341,12 @@
     width: 100%;
 
     &-title {
-      opacity: 0.9;
-      margin-block-start: 25px;
       text-wrap: balance;
+      opacity: 0.9;
+      margin-inline: 25px;
+      margin-block-start: 25px;
       padding-inline: 15px;
       font-weight: 550;
-      margin-inline: 25px;
       font-size: 1.5rem;
       line-height: 1.25;
       font-family: "Onest", sans-serif;
@@ -382,6 +387,16 @@
     padding: 10px;
     width: 100%;
 
+    &-tip {
+      text-wrap: balance;
+      opacity: 0.4;
+      margin-block-start: 2px;
+      margin-block-end: 15px;
+      padding-inline: 15px;
+      font-size: 0.75rem;
+      line-height: 1.25;
+      text-align: center;
+    }
     button,
     a {
       text-wrap: wrap;
@@ -408,10 +423,11 @@
   &-modal-title {
     opacity: 0.75;
     padding-inline: 15px;
-    padding-block: 15px;
-    font-weight: 600;
+    padding-block: 12px;
+    font-weight: 450;
     font-size: 0.85rem;
     line-height: 1.25;
+    text-align: center;
   }
 
   &-modal-tip {
@@ -506,6 +522,7 @@
     justify-content: center;
     align-items: center;
     gap: 10px;
+    box-shadow: 0 3px 5px var(--shadow);
     border: 1px solid var(--links-border);
     border-radius: $roundness;
     background-color: var(--links-background);

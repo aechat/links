@@ -4,6 +4,7 @@
   &_container {
     display: flex;
     margin-block: 10px;
+    filter: drop-shadow(0 5px 10px var(--shadow));
   }
 
   &_browser {
