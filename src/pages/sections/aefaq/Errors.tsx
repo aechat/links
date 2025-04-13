@@ -927,49 +927,6 @@ const AEErrors: React.FC = () => {
           повторить попытку открытия проекта снова.
         </p>
       </DetailsSummary>
-      <DetailsSummary title='"This project must be converted from version XX.X.X (Windows/macOS). The original file will be unchanged" при открытии проекта'>
-        <AdditionInfo>Данное окно является предупреждением, а не ошибкой.</AdditionInfo>
-        <p>
-          Вы открыли проект, созданный в более ранней версии{" "}
-          <mark className="app">After Effects</mark> в более свежей версии программы. В
-          таком случае программа сама переконвертирует исходный файл проекта для работы с
-          более новой версией <mark className="app">After Effects</mark>. Исходный файл
-          проекта не будет затронут и каким-либо образом изменён. Такое часто бывает при
-          обновлении с версии на версию и в этом нет ничего страшного.
-        </p>
-        <AdditionWarning>
-          После конвертации файла проекта программой - не забудьте сохранить проект с
-          помощью комбинации клавиш <mark className="key">Ctrl + S</mark>.
-        </AdditionWarning>
-      </DetailsSummary>
-      <DetailsSummary title='"The file you are attempting to open was created with After Effects version XX.X.X (Windows/macOS) and cannot be opened with this version" при открытии проекта'>
-        <p>
-          Вы пытаетесь открыть проект, созданный в более поздней версии{" "}
-          <mark className="app">After Effects</mark>, чем та, что у вас установлена. У вас
-          нет другого выхода, кроме как просить пользователей более новой версии{" "}
-          <mark className="app">After Effects</mark> сохранить проект под более старую
-          версию программы или всё же обновить <mark className="app">After Effects</mark>{" "}
-          до последней версии.
-        </p>
-        <AdditionWarning>
-          Учтите, что свежие версии программы уже не позволяют сохранить проекты для
-          версии <mark>18.X</mark> или <mark>22.X</mark>, для этого нужно городить цепочку
-          из установленных нескольких версий на вашем компьютере и перегонять по цепочке.
-        </AdditionWarning>
-        <p>
-          Чтобы конвертировать файл проекта для старой версии{" "}
-          <mark className="app">After Effects</mark> вам нужно перейти в{" "}
-          <mark className="ui">File</mark>, в контекстном меню выбрать{" "}
-          <mark className="ui">Save As</mark> и выбрать минимально возможную версию для
-          конвертации.
-        </p>
-        <ImageFigure
-          caption="After Effects"
-          imgSrc="images/aftereffects/file_save_as.png"
-          imgTitle="Сохранение проекта под более старую версию"
-          styleClass="figure_windows-dark"
-        />
-      </DetailsSummary>
       <DetailsSummary title="Your disk cache folder is on a drive that does not have enough avaiable space to safely store the full amount specified in your preferences. Please make more space available or go to Media & Disk Cache preferences to change the folder or maximium disk cache size">
         <p>
           В данном предупреждении буквально написано, что не хватает места на разделе, где
