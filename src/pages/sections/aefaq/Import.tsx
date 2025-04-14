@@ -505,36 +505,53 @@ const AEImport: React.FC = () => {
       </DetailsSummary>
       <DetailsSummary
         tag="3д, элемент 3д, блендер, объемные модели"
-        title="Как импортировать 3D-объекты формата .obj, .fbx или .glb?"
+        title="Как я могу импортировать 3D-объекты формата .c4d, .obj или .fbx, .gtlf или .glb в мой проект?"
       >
         <p>
-          Станадртными средствами в старых версиях программы{" "}
-          <mark className="app">After Effects</mark> нельзя было импортировать 3D-объекты
-          без танцев с бубнами. Поэтому раньше приходилось использовать сторонние плагины,
-          например <mark className="plugin">VideoCopilot Element 3D</mark>. С помощью него
-          можно импортировать 3D-модели форматов <mark className="file">.obj</mark>,{" "}
-          <mark className="file">.fbx</mark> и проекты из{" "}
-          <mark className="app">Cinema 4D</mark>.
+          В <mark className="app">After Effects</mark> версии <mark>24.1</mark> появился
+          новый движок рендеринга, который позволяет импортировать 3D-объекты без
+          использования сторонних плагинов. На момент написания этого пункта в последней
+          версии можно импотрировать <mark className="file">.obj</mark>,{" "}
+          <mark className="file">.fbx</mark>, <mark className="file">.gtlf</mark> и{" "}
+          <mark className="file">.glb</mark>. Такие модели можно создать в любом
+          популярном 3D-редакторе, например <mark className="app">Blender</mark>,{" "}
+          <mark className="app">Cinema 4D</mark> или{" "}
+          <mark className="app">Substance Painter 3D</mark>.
         </p>
         <AdditionInfo>
-          При импорте моделей формата <mark className="file">.c4d</mark> требуется
-          установленный полноценнный <mark className="app">Maxon Cinema 4D</mark>, если он
-          вырезан в вашей сборке <mark className="app">After Effects</mark>.
+          <mark>Adobe</mark> рекомендует использовать формат моделей{" "}
+          <mark className="file">.glb</mark>, так как в один файл обычно уже запакованы
+          нужные материалы и текстуры.
         </AdditionInfo>
         <YouTubeVideo
-          caption="Базовый курс по возможностям Element 3D"
-          link="Co9V2u0ZZO8"
+          caption="Работаем с 3D-моделями из Substance Painter в After Effects"
+          link="qPOkGR7Ek2I"
         />
         <p>
-          Потом позднее, в <mark className="app">After Effects</mark> версий{" "}
-          <mark>2024</mark> и новее завезли новый физический движок для рендера{" "}
-          <mark className="plugin">Advanced 3D</mark>, где заодно добавили нативный импорт
-          3D-моделей. Поддержка форматов, правда, не впечатляет, как и функции
-          взаимодействия с ними.
+          Чтобы импортировать проект формата <mark className="file">.c4d</mark> в{" "}
+          <mark className="app">After Effects</mark>, на устройстве должна быть
+          установлена полноценная <mark className="app">Cinema 4D</mark>. В противном
+          случае программа будет выдавать ошибку и требовать установленную версию{" "}
+          <mark className="app">Cinema 4D</mark>.
         </p>
         <YouTubeVideo
-          caption="Масштабные нововведения для 3D в After Effects"
-          link="Zetbh4p9Z8A"
+          caption="Cineware"
+          link="qFVQrxWvOjw"
+        />
+        <p>
+          Если вы используете <mark className="app">After Effects</mark> версии ниже{" "}
+          <mark>24.0</mark>, то вам придется использовать сторонний плагин{" "}
+          <mark className="plugin">Element 3D</mark>. Он поддерживает импорт файлов
+          формата <mark className="file">.c4d</mark>, <mark className="file">.obj</mark> и{" "}
+          <mark className="file">.e3d</mark>.
+        </p>
+        <AdditionWarning>
+          Для импорта <mark className="file">.c4d</mark> файлов требуется установленная
+          полноценная версия <mark className="app">Cinema 4D</mark> на вашем устройстве.
+        </AdditionWarning>
+        <YouTubeVideo
+          caption="Element 3D V2 First Look!"
+          link="z5nBA45DvRo"
         />
       </DetailsSummary>
       <DetailsSummary
