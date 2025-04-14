@@ -776,11 +776,9 @@ const AEExport: React.FC = () => {
           В программе можно также выставить путь для файла (по умолчанию видео кодируется
           в папку, где был исходник) и остальные параметры, если вам это нужно. После
           настроек нажимаем на кнопку <mark className="ui">Start function</mark> или на
-          комбинацию клавиш <mark className="key">Ctrl + Enter</mark>.
-        </p>
-        <p>
-          После экспорта вы получите видео в кодеке <mark className="video">VP9</mark> и
-          контейнере <mark className="file">.webm</mark>, которое можно использовать в
+          комбинацию клавиш <mark className="key">Ctrl + Enter</mark>. Готовый файл будет
+          закодирован в <mark className="video">VP9</mark> и упакован в контейнер{" "}
+          <mark className="file">.webm</mark> - его можно будет использовать в своих
           веб-проектах или где-нибудь ещё.
         </p>
         <AdditionWarning>
