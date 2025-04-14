@@ -572,6 +572,10 @@ const AEImport: React.FC = () => {
           <mark className="app">Premiere Pro</mark> и{" "}
           <mark className="app">Media Encoder</mark>.
         </p>
+        <YouTubeVideo
+          caption="Autokroma Influx"
+          link="l3zBFli6BIk"
+        />
         <AdditionWarning>
           Поскольку декодирование из немонтажных кодеков, а также через{" "}
           <mark className="plugin">Autokroma Influx</mark> работает не так, как хотелось
