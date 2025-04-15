@@ -672,9 +672,57 @@ const AEImport: React.FC = () => {
         </p>
       </DetailsSummary>
       <DetailsSummary
+        tag="открыть могрт, import mogrt, aeproject"
+        title="Как открыть анимационный шаблон формата .mogrt и импортировать в свой проект?"
       >
+        <p>
+          Шаблоны анимации в формате <mark className="file">.mogrt</mark> обычно создаются
+          в <mark className="app">After Effects</mark> и используется позже в проектах{" "}
+          <mark className="app">Premiere Pro</mark>. Но при необходимости такие файлы
+          можно распаковать обратно и использовать в своих композициях{" "}
+          <mark className="app">After Effects</mark>.
+        </p>
+        <Divider>Открываем .mogrt как проект</Divider>
+        <p>
+          Чтобы открыть шаблон формата <mark className="file">.mogrt</mark> - нужно
+          открыть окно открытия проекта с помощью{" "}
+          <mark className="ui">File &gt; Open Project</mark> или{" "}
+          <mark className="key">Ctrl + O</mark>. В открывшемся окне проводника выберите
+          нужный файл <mark className="file">.mogrt</mark>, а затем укажите папку, куда
+          нужно распаковать этот проект и нажмите на <mark className="ui">Extract</mark>.
+          После этого <mark className="app">After Effects</mark> конвертирует{" "}
+          <mark className="file">.mogrt</mark> шаблон как отдельный проект и сохранит его
+          в указанной папке.
+        </p>
         <AdditionWarning>
+          Через <mark className="ui">File &gt; Import</mark> такие шаблоны импортировать в
+          проект не получится - будет выдавать ошибку неподдерживаемого файла.
         </AdditionWarning>
+        <p>
+          Чтобы начать редактировать такой шаблон, откройте нужную композицию в окне{" "}
+          <mark className="ui">Project</mark>, а затем откройте окно{" "}
+          <mark className="ui">Essential Graphics</mark> с помощью{" "}
+          <mark className="ui">Composition &gt; Open in Essential Graphics</mark>. В этом
+          же окне вы можете обратно запаковать проект в{" "}
+          <mark className="file">.mogrt</mark> после нужных правок.
+        </p>
+        {/* TODO: приложить скриншот */}
+        <Divider>Используем .mogrt в другом проекте</Divider>
+        <p>
+          Так как с помощью <mark className="ui">Open Project</mark> мы конвертировали
+          анимацию формата <mark className="file">.mogrt</mark> в{" "}
+          <mark className="file">.aep</mark> - его можно будет спокойно применять в своих
+          проектах с помощью импорта композиций через{" "}
+          <mark className="ui">File &gt; Import</mark> или комбинации клавиш{" "}
+          <mark className="key">Ctrl + I</mark>. В открывшемся окне импорта нужно указать{" "}
+          <mark className="file">.aep</mark> файл в директории, в которую изначально был
+          распакован <mark className="ui">.mogrt</mark> файл из предыдущих действий.
+          Импортированные композиции появятся в окне <mark className="ui">Project</mark> и
+          редактировать такие анимационные шаблоны можно также через{" "}
+          <mark className="ui">Composition &gt; Open in Essential Graphics</mark> или
+          ручным ковырянием слоёв.
+        </p>
+      </DetailsSummary>
       <DetailsSummary
         tag="телеграм, стикеры, тгс, tgs"
         title="Как импортировать анимированный стикер из Telegram как композицию?"
