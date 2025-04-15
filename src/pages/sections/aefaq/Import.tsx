@@ -511,7 +511,7 @@ const AEImport: React.FC = () => {
           В <mark className="app">After Effects</mark> версии <mark>24.1</mark> появился
           новый движок рендеринга, который позволяет импортировать 3D-объекты без
           использования сторонних плагинов. На момент написания этого пункта в последней
-          версии можно импотрировать <mark className="file">.obj</mark>,{" "}
+          версии можно импортировать <mark className="file">.obj</mark>,{" "}
           <mark className="file">.fbx</mark>, <mark className="file">.gtlf</mark> и{" "}
           <mark className="file">.glb</mark>. Такие модели можно создать в любом
           популярном 3D-редакторе, например <mark className="app">Blender</mark>,{" "}
