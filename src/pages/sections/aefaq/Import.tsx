@@ -672,30 +672,23 @@ const AEImport: React.FC = () => {
         </p>
       </DetailsSummary>
       <DetailsSummary
-        tag="телеграм, стикеры"
-        title="Как импортировать анимированный стикер из Telegram как композицию?"
       >
         <AdditionWarning>
-          При импорте стикеров в формате <mark className="file">.tgs</mark> в некоторых
-          случаях вам нужно будет пересоздать градиенты. Обычно в окне плагина для импорта
-          вам скажут, какие градиенты нужно пересоздать.
         </AdditionWarning>
+      <DetailsSummary
+        tag="телеграм, стикеры, тгс, tgs"
+        title="Как импортировать анимированный стикер из Telegram как композицию?"
+      >
         <p>
           С ростом популярности различных стикеров в мессенджере{" "}
           <mark className="app">Telegram</mark> у пользователей возникает желание
           импортировать анимированные стикеры в <mark className="app">After Effects</mark>{" "}
           и использовать их в проекте. Особенно это заметно у рилсомейкеров, которые
-          применяют стандартные анимированные эмодзи в своих проектах.
-        </p>
-        <AdditionInfo>
-          Большинство стандартных анимированных эмодзи можно найти в различных
-          стикер-паках, например{" "}
-          <a href="https://t.me/addstickers/AnimatedEmojies">тут</a>.
-        </AdditionInfo>
-        <p>
-          Стикеры можно загрузить на ваше устройство, нажав{" "}
-          <mark className="key">ПКМ</mark> по отправленному стикеру в чат и выбрав{" "}
-          <mark className="ui">Сохранить как</mark>.
+          применяют стандартные анимированные эмодзи в своих проектах. Стикеры из{" "}
+          <mark className="app">Telegram</mark> можно загрузить на ваше устройство с
+          помощью десктопного клиента (веб-версия не подойдет), нажав{" "}
+          <mark className="key">ПКМ</mark> по отправленному стикеру в чат и выбрать в
+          контекстном меню <mark className="ui">Сохранить как</mark>.
         </p>
         <ImageFigure
           caption="Telegram"
@@ -703,38 +696,122 @@ const AEImport: React.FC = () => {
           imgTitle="Сохранить стикер как .tgs"
           styleClass="figure_windows-dark"
         />
-        <p>
-          После того как мы получили <mark className="file">.tgs</mark>, нам нужно его
-          переконвертировать в <mark className="file">.json</mark>. Сделать это вы можете
-          с помощью конвертера ниже, предоставив ему файл. После успешной конвертации не
-          забудьте скачать файл.
-        </p>
-        <Divider>Конвертер TGS в JSON</Divider>
-        <TgsToJsonConverter />
-        <p>
-          После конвертации нам нужно скачать плагин{" "}
-          <mark className="plugin">Bodymovin</mark> из{" "}
-          <a href="https://aescripts.com/bodymovin/">aescripts</a>
-          <sup>*</sup> и установить его в <mark className="app">After Effects</mark>.
-          Найти и открыть плагин можно в{" "}
-          <mark className="ui">Window &gt; Extensions</mark>.
-        </p>
         <AdditionInfo>
-          <sup>*</sup>Чтобы скачать скрипт - зарегистрируйтесь на сайте{" "}
-          <a href="https://aescripts.com">aescripts</a>, вернитесь на страницу с плагином,
-          установите цену <mark>0</mark> в <mark className="ui">Name Your Own Price</mark>
-          , добавьте его в корзину и подтвердите заказ. Нужный плагин появится{" "}
-          <a href="https://aescripts.com/downloadable/customer/products/">
-            в вашем профиле
-          </a>{" "}
-          и вы можете его скачать абсолютно бесплатно.
+          Большинство стандартных анимированных эмодзи можно найти в различных
+          стикер-паках, например{" "}
+          <a href="https://t.me/addstickers/AnimatedEmojies">тут</a>.
         </AdditionInfo>
         <p>
-          После открытия плагина <mark className="plugin">Bodymovin</mark> нам нужно
-          перейти во вкладку <mark className="ui">Import Lottie Animation</mark> и нажать
-          на кнопку <mark className="ui">Import Local File</mark>. В открытом системном
-          окне выберите <mark className="file">.json</mark>, который вы уже
-          переконвертировали ранее.
+          После того как вы получили <mark className="file">.tgs</mark> - его нужно
+          переконвертировать в <mark className="file">.json</mark>. Сделать это вы можете
+          с помощью конвертера ниже, предоставив ему файл. После успешной конвертации не
+          забудьте скачать файл, а затем выберите один из способов импорта в{" "}
+          <mark className="app">After Effects</mark> - через{" "}
+          <mark className="plugin">LottieFiles</mark> или{" "}
+          <mark className="plugin">Bodymovin</mark>.
+        </p>
+        <AdditionDanger>
+          Учтите, что в силу особенностей импорта <mark className="file">.json</mark>{" "}
+          файлов - некоторые элементы анимации могут импортироваться некорректно.
+        </AdditionDanger>
+        <Divider>Конвертер TGS в JSON</Divider>
+        <TgsToJsonConverter />
+        <Divider>Импортируем через LottieFiles</Divider>
+        <p>
+          <mark className="plugin">LottieFiles for After Effects</mark> - официальное
+          бесплатное<sup>*</sup> расширение от{" "}
+          <a href="https://lottiefiles.com/">LottieFiles</a>, с помощью которого вы можете
+          импортировать <mark className="file">.json</mark> анимацию в композицию{" "}
+          <mark className="app">After Effects</mark>. Скачать его можно на из{" "}
+          <a href="https://aescripts.com/lottiefiles/">aescripts</a>. После установки
+          расширение появится в <mark className="ui">Window &gt; Extensions</mark>. При
+          открытии вам понадобится войти в аккаунт <mark>LottieFiles</mark> для того,
+          чтобы вы могли работать с этим расширением.
+        </p>
+        <AdditionInfo>
+          <ul>
+            <li>
+              Для пользователей с РФ, возможно, нужно будет использовать{" "}
+              <mark className="app">VPN</mark> для успешного входа в аккаунт. После
+              авторизации его можно будет отключить.
+            </li>
+            <li>
+              Для корректной работы расширения требуется установить чекбокс у пункта{" "}
+              <mark className="ui">Allow Scripts to Write Files and Access Network</mark>{" "}
+              в настройках <mark className="app">After Effects</mark> -{" "}
+              <mark className="ui">
+                Edit &gt; Preferences &gt; Scripting & Expressions
+              </mark>
+              .
+            </li>
+            <li>
+              <sup>*</sup>Чтобы скачать расширение - зарегистрируйтесь на сайте{" "}
+              <a href="https://aescripts.com">aescripts</a>, добавьте расширение в корзину
+              и подтвердите заказ. Нужный плагин появится{" "}
+              <a href="https://aescripts.com/downloadable/customer/products/">
+                в вашем профиле
+              </a>{" "}
+              и вы можете его скачать абсолютно бесплатно.
+            </li>
+          </ul>
+        </AdditionInfo>
+        <p>
+          После успешного входа в аккаунт - перейдите во вкладку{" "}
+          <mark className="ui">Import</mark> в расширении и нажмите на кнопку{" "}
+          <mark className="ui">Browse</mark> для выбора вашего{" "}
+          <mark className="file">.json</mark> файла. Расширение начнёт конвертацию и
+          создаст новую композицию с вашей анимацией, которую вы можете использовать
+          дальше в своих проектах.
+        </p>
+        <ImageFigure
+          caption="LottieFiles"
+          imgSrc="images/aftereffects/import_lottiefiles.png"
+          imgTitle="Импорт с помощью расширения LottieFiles"
+          styleClass="figure_windows-dark"
+        />
+        <Divider>Импортируем через Bodymovin</Divider>
+        <AdditionWarning>
+          При импорте стикеров через <mark className="plugin">Bodymovin</mark> в некоторых
+          случаях вам нужно будет пересоздать градиенты вручную. Обычно в окне плагина для
+          импорта вам скажут, какие градиенты нужно пересоздать и с какими данными.
+        </AdditionWarning>
+        <p>
+          <mark className="plugin">Bodymovin</mark> - альтернативное бесплатное
+          <sup>*</sup> расширение из{" "}
+          <a href="https://aescripts.com/bodymovin/">aescripts</a>, которое можно
+          установить его в <mark className="app">After Effects</mark>. После установки он
+          будет находиться в <mark className="ui">Window &gt; Extensions</mark>.
+        </p>
+        <AdditionInfo>
+          <ul>
+            <li>
+              <sup>*</sup>Чтобы скачать расширение - зарегистрируйтесь на сайте{" "}
+              <a href="https://aescripts.com">aescripts</a>, вернитесь на страницу с
+              плагином, установите цену <mark>0</mark> в{" "}
+              <mark className="ui">Name Your Own Price</mark>, добавьте его в корзину и
+              подтвердите заказ. Нужный плагин появится{" "}
+              <a href="https://aescripts.com/downloadable/customer/products/">
+                в вашем профиле
+              </a>{" "}
+              и вы можете его скачать абсолютно бесплатно.
+            </li>
+            <li>
+              Для корректной работы расширения требуется установить чекбокс у пункта{" "}
+              <mark className="ui">Allow Scripts to Write Files and Access Network</mark>{" "}
+              в настройках <mark className="app">After Effects</mark> -{" "}
+              <mark className="ui">
+                Edit &gt; Preferences &gt; Scripting & Expressions
+              </mark>
+              .
+            </li>
+          </ul>
+        </AdditionInfo>
+        <p>
+          После открытия расширения <mark className="plugin">Bodymovin</mark> - перейдите
+          во вкладку <mark className="ui">Import Lottie Animation</mark> и нажмите на
+          кнопку <mark className="ui">Import Local File</mark>. В открытом окне проводника
+          выберите нужный файл формата <mark className="file">.json</mark>, который был
+          конвертирован ранее.
         </p>
         <ImageFigure
           caption="Bodymovin"
