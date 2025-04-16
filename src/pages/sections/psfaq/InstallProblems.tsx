@@ -80,6 +80,7 @@ const PSInstallProblems: React.FC = () => {
               <div
                 style={{
                   display: "grid",
+                  gap: "10px",
                   gridTemplateColumns: "repeat(auto-fit, minmax(275px, 1fr))",
                   alignItems: "center",
                 }}
