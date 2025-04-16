@@ -884,22 +884,63 @@ const AEInstallProblems: React.FC = () => {
           <mark>Contrebrew.A!ml</mark>, <mark>Adware</mark> или иначе. Такое иногда может
           быть и на дистрибутивах от <mark>m0nkrus</mark> или аналогичных репакеров.
         </p>
+        <Divider>Отключаем стандартный антивирус на время</Divider>
         <p>
-          Для того, чтобы нормально установить программы, плагины или вас бесит ложное
-          срабатывание встроенного антивируса - вам следует отключить{" "}
-          <mark className="app">Windows Defender</mark> на время. Если вы доверяете
-          источникам, откуда вы устанавливаете программы, то вы можете отключить{" "}
-          <mark className="app">Windows Defender</mark> навсегда.
+          Если вы готовы взять на себя риски, связанные с установкой программного
+          обеспечения неофициальными способами, то для нормальной установки программ,
+          плагинов или другого содержимого - необходимо временно отключить встроенный
+          антивирус <mark className="app">Windows Defender</mark> или любой другой,
+          установленный на вашем устройстве.
         </p>
         <YouTubeVideo
           caption="Как отключить Защитник Windows 11"
           link="blwRAOQUjsM"
         />
+        <Divider>Вносим исключения для Windows Defender</Divider>
         <p>
-          Если вы хотите оставить включенным <mark className="app">Windows Defender</mark>
-          , но не хотите чтобы файлы программ удалялись, то внесите папки с нужным софтом
-          в белый лист для обнаружений.
+          Если вы не хотите отключать или удалять{" "}
+          <mark className="app">Windows Defender</mark> с вашего устройства, то вы можете
+          добавить папку <mark className="path">C:\Program Files\Adobe</mark>, а также
+          добавить <mark className="path">%Temp%</mark> в список исключений вашего
+          антивируса. После настроек исключений - начните установку программы как обычно.
         </p>
+        <AdditionInfo>
+          Если директория <mark className="path">C:\Program Files\Adobe</mark> отсутствует
+          - создайте его сами.
+        </AdditionInfo>
+        <YouTubeVideo
+          caption="Windows Defender - как восстановить файлы и запретить их удаление"
+          link="ET94_dv3f8c"
+        />
+        <Divider>...или удаляем Windows Defender с корнями</Divider>
+        <p>
+          Если вы доверяете источникам, откуда вы скачиваете и устанавливаете программы,
+          или вас бесят ложные срабатывания от{" "}
+          <mark className="app">Windows Defender</mark>, то вы можете удалить его навсегда
+          с помощью различных утилит.
+        </p>
+        <ul>
+          <li>
+            С помощью <mark className="app">Defender Remover</mark>, доступный на{" "}
+            <a href="https://github.com/ionuttbara/windows-defender-remover/releases">
+              GitHub
+            </a>
+            .
+          </li>
+          <li>
+            С помощью <mark className="app">Winaero Tweaker</mark>.{" "}
+            <a href="https://winaero.com/disable-or-enable-windows-defender-in-windows-10#Disable_Microsoft_Defender_with_Winaero_Tweaker">
+              Подробнее...
+            </a>
+          </li>
+        </ul>
+        <AdditionWarning>
+          <mark className="app">Windows Defender</mark> может вернуться к вам после
+          установки крупного обновления, например при переходе с <mark>Windows 11</mark>{" "}
+          версии <mark>24H2</mark> на <mark>Windows 11</mark> версии <mark>25H2</mark>.
+          Для его удаления и отключения в системе - просто повторите процесс сноса заново.
+        </AdditionWarning>
+        <Divider>Вынимаем палки из колёс от Windows Smartscreen</Divider>
         <p>
           Иногда при открытии установочного файла вам может помешать предупреждение{" "}
           <mark className="ui">Система Windows защитила ваш компьютер</mark> по центру
@@ -908,12 +949,10 @@ const AEInstallProblems: React.FC = () => {
           помечает <mark className="file">.exe</mark> файлы как подозрительные. Поэтому и
           приостанавливает запуск исполняемых файлов. Чтобы запустить такой файл, вам
           нужно нажать на <mark className="ui">Подробнее</mark> и на{" "}
-          <mark className="ui">Выполнить в любом случае</mark>.
-        </p>
-        <p>
-          Но иногда бывают такие случаи, что после нажатия на{" "}
-          <mark className="ui">Подробнее</mark> ничего не выводится. В таком случае вам
-          нужно отключить <mark className="app">Windows Smartscreen</mark> в параметрах{" "}
+          <mark className="ui">Выполнить в любом случае</mark>. Но иногда бывают такие
+          случаи, что после нажатия на <mark className="ui">Подробнее</mark> ничего не
+          выводится. В таком случае вам нужно отключить{" "}
+          <mark className="app">Windows Smartscreen</mark> в параметрах{" "}
           <mark className="app">Защитника Windows</mark>.
         </p>
         <YouTubeVideo
