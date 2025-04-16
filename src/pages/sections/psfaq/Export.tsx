@@ -12,7 +12,7 @@ const PSExport: React.FC = () => {
       <DetailsSummary title="Как сохранить слои отдельными файлами?">
         <p>{/* FIXME: */}</p>
       </DetailsSummary>
-      <DetailsSummary title="Как сохранить последовательность фото в .gif?">
+      <DetailsSummary title="Как сохранить последовательность фото в анимационный .gif?">
         <p>{/* FIXME: */}</p>
       </DetailsSummary>
     </div>
