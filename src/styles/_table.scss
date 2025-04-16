@@ -5,7 +5,6 @@ table {
   box-sizing: border-box;
   margin: 10px;
   outline: 1px solid var(--table-background-border);
-  border-radius: $roundness * 0.75;
   border-collapse: collapse;
   background-color: var(--table-background);
   width: calc(100% - 20px);
