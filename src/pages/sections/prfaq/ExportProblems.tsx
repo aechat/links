@@ -75,10 +75,10 @@ const PRExportProblems: React.FC = () => {
           включен.
         </p>
         <ImageFigure
-          styleClass="figure_windows-dark"
+          caption="Export"
           imgSrc="images/premierepro/enable_captions_export.png"
           imgTitle="Включение наложения субтитров"
-          caption="Export"
+          styleClass="figure_windows-dark"
         />
       </DetailsSummary>
       <DetailsSummary title="Что делать, если экспорт зависает на определённом моменте?">
@@ -88,20 +88,20 @@ const PRExportProblems: React.FC = () => {
         <p>{/* FIXME: написать!! */}</p>
       </DetailsSummary>
       <DetailsSummary
-        title="Почему при экспорте в .mp4 через встроенный кодек H.264 сохраняется файл с размером в 1 Кб?"
         tag="не экспортируется, битый файл"
+        title="Почему при экспорте в .mp4 через встроенный кодек H.264 сохраняется файл с размером в 1 Кб?"
       >
         <p>{/* FIXME: написать!! */}</p>
       </DetailsSummary>
       <DetailsSummary
-        title="После экспорта у меня изменились цвета. Как избежать изменения цветов?"
         tag="исходник с айфона, hlg, rec709"
+        title="После экспорта у меня изменились цвета. Как избежать изменения цветов?"
       >
         <p>{/* FIXME: написать!! */}</p>
       </DetailsSummary>
       <DetailsSummary
-        title="Почему в предпросмотре Premiere Pro, Media Encoder и после экспорта видео смещается влево или вправо?"
         tag="медиаенкодер, медиаэнкодер, переместилось"
+        title="Почему в предпросмотре Premiere Pro, Media Encoder и после экспорта видео смещается влево или вправо?"
       >
         <p>
           Проверьте текущую версию программ, установленные на вашем устройстве. Вполне
@@ -118,8 +118,8 @@ const PRExportProblems: React.FC = () => {
         </p>
       </DetailsSummary>
       <DetailsSummary
-        title="Экспортировал композицию и вижу в результате ужасный ступенчатый градиент. Как мне от него избавиться?"
         tag="колор бендинг, полоски, цвет, шум, глубина цвета"
+        title="Экспортировал композицию и вижу в результате ужасный ступенчатый градиент. Как мне от него избавиться?"
       >
         <p>{/* FIXME: написать!! */}</p>
       </DetailsSummary>
@@ -132,10 +132,10 @@ const PRExportProblems: React.FC = () => {
           <mark>575</mark>.
         </p>
         <ImageFigure
-          styleClass="figure_windows-light"
+          caption="Ошибка в AfterCodecs при экспорте с нечётным разрешением"
           imgSrc="images/odd_resolution_error.png"
           imgTitle="Ошибка экспорта с нечётным разрешением"
-          caption="Ошибка в AfterCodecs при экспорте с нечётным разрешением"
+          styleClass="figure_windows-light"
         />
         <p>
           Для решения проблемы просто укажите чётное значение пикселей у каждой стороны в
