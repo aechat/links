@@ -2,7 +2,7 @@ import React from "react";
 import DetailsSummary from "../../../components/DetailsSummary";
 import GithubUpdateInfo from "../../../components/features/GithubUpdateInfo";
 import {AdditionInfo, AdditionWarning} from "../../../components/Additions";
-import {ImageFigure, YouTubeVideo} from "../../../components/ContentFigure";
+import {ImageFigure} from "../../../components/ContentFigure";
 import ContentSwitcher from "../../../components/features/ContentFilter";
 import {Divider} from "antd";
 
@@ -362,8 +362,6 @@ const AEPerformance: React.FC = () => {
           imgTitle="Смотрим время рендера слоя"
           styleClass="figure_windows-dark"
         />
-        <Divider>Поясняем за дисковый кэш</Divider>
-        <p>{/* FIXME:  */}</p>
       </DetailsSummary>
       <DetailsSummary
         tag="ускорить, увеличить скорость рендера"
@@ -495,7 +493,10 @@ const AEPerformance: React.FC = () => {
           задаче редактирования видео, но подходы их реализации разительно отличаются.
         </p>
       </DetailsSummary>
-      <DetailsSummary title="Как отключить автоматическое кэширование предпросмотра при бездействии?">
+      <DetailsSummary
+        tag="idle cache, кеширование при простое"
+        title="Очень тормозит программа при выполнении какого-нибудь действия или как отключить автоматическое кэширование предпросмотра при бездействии?"
+      >
         <p>
           Функция автоматического кэширования кадров текущей композиции во время простоя
           была добавлена в <mark className="app">After Effects</mark> версии{" "}
