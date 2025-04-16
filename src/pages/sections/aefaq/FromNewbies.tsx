@@ -1823,8 +1823,8 @@ const AEFromNewbies: React.FC = () => {
         <p>
           Обычно на сайте Adobe в день выхода публичной стабильной версии выкладываются
           основные нововведения. Это сделано для того, чтобы каждый прохожий не спрашивал
-          из каждого угла <mark>&quot;А что обновилось то?&quot;</mark>. Ещё время от
-          времени Adobe выкладывает на сайт список выявленных неполадок и старается
+          из каждого угла <mark className="quote">А что обновилось то?</mark>. Ещё время
+          от времени Adobe выкладывает на сайт список выявленных неполадок и старается
           приложить к ним временное решение.
         </p>
         <div className="flexible-links">
@@ -2181,10 +2181,9 @@ const AEFromNewbies: React.FC = () => {
         </AdditionWarning>
       </DetailsSummary>
       <DetailsSummary
-        tag="замедленное превью, слоумо, растянутое аудио, slow motion"
-        title="Почему у меня предпросмотр проигрывается ускоренно или замедленно?"
+        tag="замедленное превью, слоумо, растянутое аудио, slow motion, лагает"
+        title="Почему у меня предпросмотр проигрывается ускоренно, замедленно или с тормозами?"
       >
-        {/* FIXME: адаптировать */}
         <p>
           Вариантов такого поведения много, начиная от банальной невнимательности
           пользователя, заканчивая кривыми исходниками.
@@ -2203,7 +2202,7 @@ const AEFromNewbies: React.FC = () => {
           imgTitle="Изменение предпросмотра в окне Preview"
           styleClass="figure_windows-dark"
         />
-        <Divider>Смотрим предпросмотр из кэша, минуя рендер в реальном времени</Divider>
+        <Divider>Смотрим предпросмотр из кэша без реал-тайма</Divider>
         <p>
           Лагать предпросмотр может из-за того, что пытаетесь проиграть предпросмотр в
           реальном времени - эффекты и видео-исходники вряд ли смогут так быстро
@@ -2251,7 +2250,24 @@ const AEFromNewbies: React.FC = () => {
             </li>
           </ul>
         </AdditionInfo>
-        {/*         
+        <Divider>Смотрим настройки аудио-выхода</Divider>
+        <p>
+          В некоторых случаях бывают ситуации, когда из-за смены аудио-выхода, например
+          при подключении беспроводных наушников -{" "}
+          <mark className="app">After Effects</mark> не может нормально синхронизировать
+          картинку и звук и предпросмотр идёт как-бы с замедлением. В таких случаях нужно
+          изменить аудиовыход на другой в <mark className="ui">Default Output</mark>,
+          уменьшить значение <mark className="ui">Latency</mark> до минимального в{" "}
+          <mark className="ui">Edit &gt; Preferences &gt; Audio Hardware</mark>. В крайнем
+          случае можно попробовать обновить звуковые драйвера в вашей системе.
+        </p>
+        <ImageFigure
+          caption="Preferences"
+          imgSrc="images/aftereffects/audio_hardware_settings.png"
+          imgTitle="Настройки звукового выхода"
+          styleClass="figure_windows-dark"
+        />
+        <Divider>Разбираемся с кривыми исходниками</Divider>
         <p>
           Если вы используете в проекте видео-исходники, скачанные из интернета, то скорее
           всего они были закодированы в неприятный для{" "}
@@ -2268,49 +2284,54 @@ const AEFromNewbies: React.FC = () => {
           перекодировать его в <mark className="file">.wav</mark>, а затем импортировать
           его в программу заново.
         </p>
+      </DetailsSummary>
+      <DetailsSummary title="Почему у меня отсутствует звук при проигрывании предпросмотра?">
         <p>
-          Иногда бывает такое, что вы случайно изменили{" "}
-          <mark className="ui">Frame Rate</mark> в окне{" "}
-          <mark className="ui">Preview</mark> и композиция проигрывается либо быстро, либо
-          замедленно. Для этого в пункте <mark className="ui">Frame Rate</mark> установите
-          значение <mark className="ui">Auto</mark>. Это позволит программе воспроизводить
-          предпросмотр в соответствии с частотой кадров в настройках композиции.
+          Если вы недавно меняли аудиовыход, например подключили беспроводные наушники или
+          внешний монитор с колонками, то вполне вероятно что у вас сбились настройки
+          звука. Вам следует проверить настройки аудиовыхода в настройках программы, для
+          этого нужно перейти в{" "}
+          <mark className="ui">Edit &gt; Preferences &gt; Audio Hardware</mark> и указать
+          в пункте <mark className="ui">Default Output</mark> нужный вам аудиовыход.
+        </p>
+        <ImageFigure
+          caption="Preferences"
+          imgSrc="images/aftereffects/set_audio_output.png"
+          imgTitle="Установка аудиовыхода"
+          styleClass="figure_windows-dark"
+        />
+        <p>
+          Если вы проигрываете видео не в реальном времени и звук отсутствует (даже если
+          он вам и нужен запинающийся и растянутый), то вам в настройках{" "}
+          <mark className="app">After Effects</mark> нужно включить галочку{" "}
+          <mark className="ui">Mute Audio When Preview Is Not Real-time</mark> в{" "}
+          <mark className="ui">Edit &gt; Preferences &gt; Previews</mark>.
+        </p>
+        <ImageFigure
+          caption="Preferences"
+          imgSrc="images/aftereffects/mute_audio_when_preview_is_not_real-time.png"
+          imgTitle="Выключение Mute Audio When Preview Is Not Real-time"
+          styleClass="figure_windows-dark"
+        />
+        <p>
+          Если советы выше не помогли - проверьте окно <mark className="ui">Preview</mark>
+          , включен ли там вывод звука? Если нет, то включите и проиграйте предпросмотр
+          снова.
         </p>
         <ImageFigure
           caption="Preview"
-          imgSrc="images/aftereffects/preview_change_fps.png"
-          imgTitle="Изменение частоты кадров предпросмотра"
+          imgSrc="images/aftereffects/toggle_audio_preview.png"
+          imgTitle="Включение звука в окне Preview"
           styleClass="figure_windows-dark"
         />
         <p>
-          Если у вас возникают проблемы с записью кэша на жёсткий диск, то вы можете
-          отключить опцию кэширования на жёсткий диск в{" "}
-          <mark className="ui">Edit &gt; Preferences &gt; Media & Disk Cache</mark>, убрав
-          чекбокс из пункта <mark className="ui">Enable Disk Cache</mark>.
+          В редких случаях баги с проигрыванием звука могут возникнуть из-за самого
+          исходника звука. Чтобы исключить различные проблемы с воспроизведением аудио -
+          переконвертируйте его в формат <mark className="file">.wav</mark>, а затем
+          замените аудио в проекте. Если аудио запаковано вместе с видеофайлом -
+          переконвертируйте его в монтажный кодек, например, через{" "}
+          <mark className="app">Shutter Encoder</mark>.
         </p>
-        <ImageFigure
-          caption="Preferences"
-          imgSrc="images/aftereffects/disable_disk_cache.png"
-          imgTitle="Отключение дискового кэша"
-          styleClass="figure_windows-dark"
-        />
-        <p>
-          В редких случаях бывают ситуации, когда вы переключились между звуковыми
-          выходами, например, подключили беспроводные наушники. Из-за внезапной смены
-          аудио-выхода <mark className="app">After Effects</mark> не может нормально
-          синхронизировать картинку и звук. В таких случаях рекомендуется обновить
-          звуковые драйвера или изменить аудиовыход на другой в{" "}
-          <mark className="ui">Default Output</mark> и уменьшить значение{" "}
-          <mark className="ui">Latency</mark> до минимального в{" "}
-          <mark className="ui">Edit &gt; Preferences &gt; Audio Hardware</mark>.
-        </p>
-        <ImageFigure
-          caption="Preferences"
-          imgSrc="images/aftereffects/audio_hardware_settings.png"
-          imgTitle="Настройки звукового выхода"
-          styleClass="figure_windows-dark"
-        />
-      </DetailsSummary> */}
       </DetailsSummary>
       <DetailsSummary
         tag="стиль графов, другой вид, отображение скорости"
@@ -2388,54 +2409,6 @@ const AEFromNewbies: React.FC = () => {
           вы включили отображение границ слоёв с помощью комбинации клавиш{" "}
           <mark className="key">Ctrl + Shift + H</mark>.
         </AdditionInfo>
-      </DetailsSummary>
-      <DetailsSummary title="Почему у меня отсутствует звук при проигрывании предпросмотра?">
-        <p>
-          Если вы недавно меняли аудиовыход, например подключили беспроводные наушники или
-          внешний монитор с колонками, то вполне вероятно что у вас сбились настройки
-          звука. Вам следует проверить настройки аудиовыхода в настройках программы, для
-          этого нужно перейти в{" "}
-          <mark className="ui">Edit &gt; Preferences &gt; Audio Hardware</mark> и указать
-          в пункте <mark className="ui">Default Output</mark> нужный вам аудиовыход.
-        </p>
-        <ImageFigure
-          caption="Preferences"
-          imgSrc="images/aftereffects/set_audio_output.png"
-          imgTitle="Установка аудиовыхода"
-          styleClass="figure_windows-dark"
-        />
-        <p>
-          Если вы проигрываете видео не в реальном времени и звук отсутствует (даже если
-          он вам и нужен запинающийся и растянутый), то вам в настройках{" "}
-          <mark className="app">After Effects</mark> нужно включить галочку{" "}
-          <mark className="ui">Mute Audio When Preview Is Not Real-time</mark> в{" "}
-          <mark className="ui">Edit &gt; Preferences &gt; Previews</mark>.
-        </p>
-        <ImageFigure
-          caption="Preferences"
-          imgSrc="images/aftereffects/mute_audio_when_preview_is_not_real-time.png"
-          imgTitle="Выключение Mute Audio When Preview Is Not Real-time"
-          styleClass="figure_windows-dark"
-        />
-        <p>
-          Если советы выше не помогли - проверьте окно <mark className="ui">Preview</mark>
-          , включен ли там вывод звука? Если нет, то включите и проиграйте предпросмотр
-          снова.
-        </p>
-        <ImageFigure
-          caption="Preview"
-          imgSrc="images/aftereffects/toggle_audio_preview.png"
-          imgTitle="Включение звука в окне Preview"
-          styleClass="figure_windows-dark"
-        />
-        <p>
-          В редких случаях баги с проигрыванием звука могут возникнуть из-за самого
-          исходника звука. Чтобы исключить различные проблемы с воспроизведением аудио -
-          переконвертируйте его в формат <mark className="file">.wav</mark>, а затем
-          замените аудио в проекте. Если аудио запаковано вместе с видеофайлом -
-          переконвертируйте его в монтажный кодек, например, через{" "}
-          <mark className="app">Shutter Encoder</mark>.
-        </p>
       </DetailsSummary>
       <DetailsSummary title="Что такое Null Object и как с ним работать?">
         <p>
@@ -2594,7 +2567,7 @@ const AEFromNewbies: React.FC = () => {
           styleClass="figure_windows-dark"
         />
       </DetailsSummary>
-      <DetailsSummary title="Не могу изменить параметры наложения у 3D-слоёв. Что делать?">
+      <DetailsSummary title="Почему я не могу изменить параметры наложения у 3D-слоёв. Что делать?">
         <p>
           Скорее всего у вас включен режим <mark className="plugin">Advanced 3D</mark> или{" "}
           <mark className="plugin">Cinema 4D</mark>, а там не поддерживаются режимы
@@ -2605,7 +2578,8 @@ const AEFromNewbies: React.FC = () => {
         <p>
           Для возвращения классического движка рендера - нужно открыть настройки проекта с
           помощью комбинации клавиш <mark className="key">Ctrl + Alt + Shift + K</mark>,
-          перейти в вкладку <mark className="ui">3D Renderer</mark> и установить там{" "}
+          перейти в вкладку <mark className="ui">3D Renderer</mark> и установить в
+          параметре <mark className="ui">Renderer</mark> значение{" "}
           <mark className="plugin">Classic 3D</mark>.
         </p>
         <ImageFigure
@@ -2615,7 +2589,7 @@ const AEFromNewbies: React.FC = () => {
           styleClass="figure_windows-dark"
         />
       </DetailsSummary>
-      <DetailsSummary title="Почему не исчезает фон при использовании режимов наложения?">
+      <DetailsSummary title="Почему у слоя не исчезает фон при использовании режимов наложения?">
         <p>
           Убедитесь в том, что по иерархии слой, на котором вы хотите применить режим
           наложения - находится выше, чем слои с фоном или остальными объектами. Режимы
