@@ -2,9 +2,10 @@ import React from "react";
 import GithubUpdateInfo from "../../../components/features/GithubUpdateInfo";
 import {AdditionInfo, AdditionWarning} from "../../../components/Additions";
 import DetailsSummary from "../../../components/DetailsSummary";
-import {ImageFigure, VideoFigure} from "../../../components/ContentFigure";
+import {ImageFigure, VideoFigure, YouTubeVideo} from "../../../components/ContentFigure";
 import ContentSwitcher from "../../../components/features/ContentFilter";
 import HostsAdobeModal from "../../../components/features/HostsAdobe";
+import {Divider} from "antd";
 
 const PRErrors: React.FC = () => {
   return (
@@ -38,40 +39,334 @@ const PRErrors: React.FC = () => {
           постепенного включения тех или иных эффектов.
         </p>
       </DetailsSummary>
-      <DetailsSummary title="Media Offline или медиаданные в автономном режиме">
+      <DetailsSummary
+        tag="слетела лицензия, красное окно, не запускается, впн, файл хостс, блокировка доступа в интернет"
+        title='"This unlicensed Adobe app is not genuine and will be disabled soon", "Unlicensed Adobe apps may expose your device to increased security risks", "This app will disable in X days" или что-то похожее с красной полоской при запуске, но на другом языке. Как запустить программу нормально?'
+      >
         <p>
-          Эта ошибка часто возникает, если вы удалили исходники из диска, перенесли их или
-          открыли чужой проект, не распаковав его из архива полностью. Оно может
-          появляться в разных воплощениях - в качестве окна о потерянных исходниках при
-          запуске проекта или в качестве плейсхолдера с красной заливкой.
+          Пользователь, работающий в <mark className="word">народной</mark> версии{" "}
+          <mark className="app">Premiere Pro</mark> или в любой другой программе от{" "}
+          <mark>Adobe</mark> может столкнуться ошибкой проверки лицензии. Оно
+          сопровождается небольшим окном на белом фоне и с красной полосой сверху, а текст
+          внутри окна обычно написан на английском языке. Иногда встречаются варианты
+          отображения окна об отсутствии лицензии и на другом языке, например на немецком
+          или на голландском. Причин для такого поведения &quot;слетевшей&quot; лицензии
+          может быть несколько.
         </p>
         <ImageFigure
-          caption="Premiere Pro"
-          imgSrc="images/premierepro/медиаданные_в_автономном_режиме.png"
-          imgTitle="Медиаданные в авнономном режиме"
-          styleClass="figure_windows-dark"
+          caption="Adobe"
+          imgSrc="images/adobe_the_unlicensed_app.png"
+          imgTitle="Сообщение об отсутствии лицензии"
+          styleClass="figure_windows-light"
         />
+        <Divider>Проверяем устройство на наличие VPN-соединения</Divider>
         <p>
-          Чтобы переподключить &quot;потеряшек&quot;, перейдите в{" "}
-          <mark className="ui">File</mark> и выберите пункт{" "}
-          <mark className="ui">Link Media</mark>. В открывшемся окне вы увидите список
-          потерявшихся исходников. Вы можете выделить нужный и указать ему путь, нажав на{" "}
-          <mark className="ui">Locate</mark>.
+          В связи с наплывом блокировок различных интернет-ресурсов на территории СНГ -
+          большинство пользователей стали пользоваться различными способами обхода,
+          например, с помощью <mark className="app">VPN</mark>. И именно из-за
+          использования <mark className="word">VPN-соединения</mark> - программа от{" "}
+          <mark>Adobe</mark> смогла достучаться в интернет и вывела окно об отсутствии
+          лицензии на языке той страны, к которой вы подключились. Почему так происходит?
+          При использовании вашего <mark className="app">VPN-клиента</mark> - он
+          игнорирует ваши правила соединения, созданные в вашей операционной системе, то
+          есть игнорирует стандартный <mark className="app">брандмауэр</mark> и адреса в{" "}
+          <mark className="file">hosts</mark>. Для быстрого решения проблемы с активацией
+          достаточно отключить текущее <mark className="word">VPN-соединение</mark> и
+          пользоваться программами от <mark>Adobe</mark> без него.
         </p>
         <AdditionInfo>
-          Нажав на кнопку <mark className="ui">Search</mark> в окне для указания пути,
-          программа попытается найти все потерянные файлы во вложенных папках текущего
-          пути. Если вы не помните где потеряли ваши файлы, откройте корень вашего диска,
-          нажмите на кнопку поиска и подождите некоторое время. Также если вы укажете путь
-          только одному файлу, рядом с которым лежат такие же &quot;потеряшки&quot;, то и
-          остальные исходники вместе с ним подключатся автоматически.
+          <ul>
+            <li>
+              Если вы не хотите отключать себя от{" "}
+              <mark className="word">VPN-соединения</mark>, то вы можете проверить
+              настройки своего <mark className="app">VPN-клиента</mark>. Возможно, в нём
+              есть возможность внести программы от <mark>Adobe</mark> или его адреса в
+              список исключений соединений для того, чтобы соединение для{" "}
+              <mark className="app">Premiere Pro</mark> проходило с учетом ваших настроек
+              брандмауэра или вовсе блокировались.
+            </li>
+            <li>
+              Если вы наоборот используете лицензионную версию{" "}
+              <mark className="app">Premiere Pro</mark>, то вам нужно будет поддерживать{" "}
+              <mark className="word">VPN-соединение</mark> к другой стране во время
+              использования программы, так как <mark>Adobe</mark> блокирует доступ к своим
+              ресурсам пользователям РФ и из-за этого может выскакивать данная ошибка, так
+              как не может сверить лицензии.
+            </li>
+          </ul>
         </AdditionInfo>
-        <ImageFigure
-          caption="Media Offline"
-          imgSrc="images/premierepro/missing_media.png"
-          imgTitle="Отсутствующие медиафайлы"
-          styleClass="figure_windows-dark"
+        <ContentSwitcher
+          macContent={
+            <div>
+              <p>
+                Если вы не используете различные средства обхода блокировок или{" "}
+                <mark className="app">VPN</mark>, то скорее всего{" "}
+                <mark className="app">Premiere Pro</mark> как-то смог достучаться до
+                интернета. Для блокировки доступа определённым программам к интернету на
+                устройствах с <mark>macOS</mark> можно воспользоваться программой{" "}
+                <a href="https://radiosilenceapp.com/">Radio Silence</a>. После установки
+                и активации этой программы перейдите во вкладку{" "}
+                <mark className="ui">Network Monitor</mark> и в ней запретите программам
+                от <mark>Adobe</mark>, которые лезут в сеть, доступ в интернет, нажав на
+                кнопку <mark className="ui">Block</mark> рядом с названием программы.
+              </p>
+              <ImageFigure
+                caption="Radio Silence"
+                imgSrc="images/network_radio_silence.png"
+                imgTitle="Блокируем доступ в интернет программам на примере Premiere Pro"
+                styleClass="figure_macos-dark"
+              />
+              <p>
+                После проделанных действий, указанные вами программы от <mark>Adobe</mark>{" "}
+                не должны стучаться в сеть и выдавать ошибку об отсутствии лицензии. Ниже
+                показано, как в итоге примерно должна выглядеть вкладка{" "}
+                <mark className="ui">Firewall</mark> после отлова процессов Adobe, лезущие
+                в интернет.
+              </p>
+              <ImageFigure
+                caption="Radio Silence"
+                imgSrc="images/firewall_radio_silence.png"
+                imgTitle="Окно Firewall после блокировки доступа в интернет программам"
+                styleClass="figure_macos-dark"
+              />
+            </div>
+          }
+          windowsContent={
+            <div>
+              <Divider>Блокируем программе доступ в интернет</Divider>
+              <p>
+                Если вы не используете различные средства обхода блокировок или{" "}
+                <mark className="app">VPN</mark>, то скорее всего адреса для проверки
+                лицензии от <mark>Adobe</mark> обновились и не были вписаны в ваши правила
+                блокировки соединения. Это исправляется правкой файла{" "}
+                <mark className="file">hosts</mark> или внесением новых правил в{" "}
+                <mark className="app">брандмауэре</mark> вашей операционной системы.
+              </p>
+              <Divider>Правим файл hosts</Divider>
+              <p>
+                Для редактирования файла <mark className="file">hosts</mark> - вам нужно
+                перейти в папку{" "}
+                <mark className="path">C:\Windows\System32\drivers\etc</mark>, скопировать
+                файл <mark className="path">hosts</mark> в любое удобное место, открыть
+                любой текстовый редактор, например <mark className="app">Notepad++</mark>{" "}
+                или <mark className="app">VS Code</mark>, и внести строки из кнопки для
+                открытия модального окна чуть ниже в конец файла. Затем сохраните
+                отредактированный файл и перенесите его обратно в{" "}
+                <mark className="path">C:\Windows\System32\drivers\etc\hosts</mark> с
+                заменой.
+              </p>
+              <HostsAdobeModal />
+              <AdditionInfo>
+                <ul>
+                  <li>
+                    Если файл <mark className="file">hosts</mark> в этой директории
+                    отсутствует, то создайте его без расширения.
+                  </li>
+                  <li>
+                    Если вы не хотите перемещать туда-сюда файл{" "}
+                    <mark className="file">hosts</mark> для редактирования, то вы можете
+                    открыть ваш текстовый редактор от имени администратора и спокойно
+                    сохранять изменения.
+                  </li>
+                </ul>
+              </AdditionInfo>
+              <YouTubeVideo
+                caption="Как редактировать файл hosts"
+                link="wHhay41ocsc"
+              />
+              <AdditionWarning>
+                <ul>
+                  <li>Для изменения системных файлов требуются права администратора.</li>
+                  <li>
+                    После изменения файла <mark className="file">hosts</mark> желательно
+                    перезагрузить ваше устройство.
+                  </li>
+                </ul>
+              </AdditionWarning>
+              <Divider>Создаём новые правила в брандмауэре</Divider>
+              <p>
+                Если правка файла <mark className="file">hosts</mark> вам не помогла и вы
+                всё ещё сталкиваетесь с сбоем лицензии, то попробуйте настроить правила
+                брандмауэра. Для этого откройте окно{" "}
+                <mark className="app">Выполнить</mark> с помощью комбинации клавиш{" "}
+                <mark className="key">Win + R</mark>, введите в него{" "}
+                <mark className="code">wf.msc</mark> и нажмите на{" "}
+                <mark className="key">Enter</mark>. Таким образом вы откроете{" "}
+                <mark className="app">монитор брандмауэра</mark>, в котором вы можете
+                настроить правила для блокировки доступа в интернет нужной программе.
+              </p>
+              <AdditionInfo>
+                При установке приложений <mark>Adobe</mark> в формате репака от{" "}
+                <mark>Kp0JluK</mark> правила в брандмауэре автоматически прописываются при
+                установке.
+              </AdditionInfo>
+              <p>
+                После открытия монитора брандмауэра перейдите в раздел правил для входящих
+                подключений в левой части окна.
+              </p>
+              <ImageFigure
+                caption="Монитор брандмауэра Защитника Windows в режиме повышенной безопасности"
+                imgSrc="images/firewall_main_page.png"
+                imgTitle="Список правил брандмауэра"
+                styleClass="figure_windows-light"
+              />
+              <p>
+                Затем в правой части интерфейса найдите кнопку{" "}
+                <mark className="ui">Создать правило</mark> и нажмите на него.
+              </p>
+              <ImageFigure
+                caption="Монитор брандмауэра Защитника Windows в режиме повышенной безопасности"
+                imgSrc="images/firewall_creating_rule.png"
+                imgTitle="Окно создания правила брандмауэра"
+                styleClass="figure_windows-light"
+              />
+              <p>
+                После нажатия на кнопку создания нового правила в брандмауэре у вас
+                откроется новое окно с пятью вкладками. В первой вкладке оставьте значение{" "}
+                <mark className="ui">Для программы</mark> и нажмите на{" "}
+                <mark className="ui">Далее</mark>.
+              </p>
+              <ImageFigure
+                caption="Мастер создания правила для нового входящего подключения"
+                imgSrc="images/firewall_rule_type.png"
+                imgTitle="Выбор типа правила брандмауэра"
+                styleClass="figure_windows-light"
+              />
+              <p>
+                Во второй папке нужно указать путь до исполняемого файла программы вручную
+                или через кнопку <mark className="ui">Обзор</mark>, а затем снова нажать
+                на <mark className="ui">Далее</mark>. Путь должен выглядеть как{" "}
+                <mark className="path">
+                  C:\Program Files\Adobe\Adobe Premiere Pro 20XX\Support Files\Adobe
+                  Premiere Pro.exe
+                </mark>
+                .
+              </p>
+              <ImageFigure
+                caption="Мастер создания правила для нового входящего подключения"
+                imgSrc="images/firewall_select_app.png"
+                imgTitle="Выбор программы для блокировки доступа"
+                styleClass="figure_windows-light"
+              />
+              <p>
+                Для действия нового правила нам, очевидно, нужно установить параметр{" "}
+                <mark className="ui">Блокировать подключение</mark>.
+              </p>
+              <ImageFigure
+                caption="Мастер создания правила для нового входящего подключения"
+                imgSrc="images/firewall_blocking.png"
+                imgTitle="Окно настроек брандмауэра"
+                styleClass="figure_windows-light"
+              />
+              <p>
+                Во вкладке <mark className="ui">Профили</mark> нужно оставить три чекбокса
+                включенными и опять нажать на <mark className="ui">Далее</mark>.
+              </p>
+              <ImageFigure
+                caption="Мастер создания правила для нового входящего подключения"
+                imgSrc="images/firewall_select_profile.png"
+                imgTitle="Выбор профиля брандмауэра"
+                styleClass="figure_windows-light"
+              />
+              <p>
+                Далее назовите своё новое правило любым именем. Можно просто написать
+                название программы и нажать на <mark className="ui">Готово</mark>. После
+                этого правило будет создано, а указанная программа теперь не должна
+                стучаться в интернет.
+              </p>
+              <ImageFigure
+                caption="Мастер создания правила для нового входящего подключения"
+                imgSrc="images/firewall_naming.png"
+                imgTitle="Выбор имени для правила брандмауэра"
+                styleClass="figure_windows-light"
+              />
+              <AdditionInfo>
+                Возможно подобные действия нужно провернуть и к{" "}
+                <mark>правилам для исходящего подключения</mark> по аналогичной схеме.
+              </AdditionInfo>
+              <Divider>Проверяем установленные сервисы на устройстве</Divider>
+              <p>
+                Если вы переходили с лицензионных версий на{" "}
+                <mark className="word">народные</mark>, то скорее всего вы полностью не
+                очищали вашу систему от предыдущих установок программ от{" "}
+                <mark>Adobe</mark>. Среди не удалённых сервисов в вашей системе мог
+                затесаться{" "}
+                <mark className="app">Adobe Genuine Software Integrity Service</mark>,
+                который проверяет программы на легальное использование и именно он может
+                вызвать окно об отсутствии лицензии. Для решения проблемы - достаточно{" "}
+                <a href="https://github.com/wangzhenjjcn/AdobeGenp/wiki/Disable-Adobe-Genuine-Software-Integrity-on-Windows">
+                  отключить
+                </a>{" "}
+                этот сервис в <mark className="app">services.msc</mark> или очистить
+                систему от программ <mark>Adobe</mark> с помощью{" "}
+                <a href="https://helpx.adobe.com/ru/creative-cloud/kb/cc-cleaner-tool-installation-problems.html">
+                  Adobe Creative Cloud Cleaner
+                </a>
+                .
+              </p>
+              <Divider>Проверяем, не натворил ли чего антивирус</Divider>
+              <p>
+                В редких случаях ваш антивирус мог удалить файлы для корректной подмены
+                активации, ссылаясь на то, что на вашем устройстве затесался якобы вирус.
+                Для решения этой проблемы - внесите директорию с программами от{" "}
+                <mark>Adobe</mark> в список исключений вашего антивируса, а затем
+                установите программу вашей версии поверх существующей.
+              </p>
+            </div>
+          }
         />
+      </DetailsSummary>
+      <DetailsSummary title="Ошибка при запуске приложения 0xc0000142">
+        <p>
+          Скорее всего вы пытаетесь запустить приложение на устройстве с процессором без
+          поддержки инструкций <mark>AVX2</mark>. В{" "}
+          <a href="https://helpx.adobe.com/ru/premiere-pro/system-requirements.html">
+            нынешних системных требованиях для Premiere Pro
+          </a>{" "}
+          указано, что требуется процессор от Intel минимум 6 поколения, например, i7-6700
+          или свежее, или процессор от AMD серии минимум 1000, например, Ryzen 5 1600 или
+          свежее. У процессора, установленный в вашем устройстве, обязательно должна быть
+          поддержка инструкций <mark>AVX2</mark>.
+        </p>
+        <AdditionInfo>
+          На сайте Adobe пишется следующее: версии <mark>24.х</mark> и более поздние
+          нельзя установить в системах с процессорами Intel® 3-го поколения или более
+          ранних версий (а также в системах с более ранними процессорами AMD).
+        </AdditionInfo>
+        <p>
+          Решение достаточно простое: вы можете установить{" "}
+          <mark className="app">Premiere Pro</mark> версии <mark>23.6</mark>. Это будет
+          последняя поддерживаемая для вас версия программы. Либо обновите процессор на
+          вашем устройстве.
+        </p>
+        <p>
+          Бывают редкие случаи, когда процессор действительно поддерживает инструкции
+          <mark>AVX2</mark>, но он каким-то образом выключен в вашей системе. Для этого
+          вам нужно попробовать ввести команду ниже в командную строку от имени
+          администратора и перезагрузить устройство.
+        </p>
+        <code>bcdedit /set xsavedisable 0</code>
+        <AdditionInfo>
+          Чтобы снова отключить <mark>AVX2</mark>, введите команду{" "}
+          <mark className="code">bcdedit /set xsavedisable 1</mark> и снова перезагрузите
+          устройство.
+        </AdditionInfo>
+      </DetailsSummary>
+      <DetailsSummary title="Ошибка про отсутствие MSVCP140.dll, api-ms-win-crt-runtime-l1-1-0.dll или аналогичные">
+        <p>
+          Скорее всего вы забыли установить или обновить пакеты{" "}
+          <a href="https://github.com/abbodi1406/vcredist/releases/">
+            Microsoft Visual C++ Redistributable
+          </a>
+          , которые можно установить перед установкой{" "}
+          <mark className="app">Premiere Pro</mark> в репаке от <mark>KpoJluk</mark> или
+          вручную по{" "}
+          <a href="https://github.com/abbodi1406/vcredist/releases/">этой ссылке</a>.
+        </p>
+        <p>
+          Если установка пакетов не помогла - попробуйте обновить вашу систему до
+          последней версии, хотя бы до <mark>Windows 10</mark> версии <mark>22H2</mark>.
+        </p>
       </DetailsSummary>
       <DetailsSummary title='Вылезло "System Compatibility Report" при запуске Premiere Pro'>
         <AdditionInfo>
@@ -106,148 +401,6 @@ const PRErrors: React.FC = () => {
           imgSrc="images/premierepro/show_system_compatibility_issues.png"
           imgTitle="Отключаем предупреждения о несовместимости оборудования с программой"
           styleClass="figure_windows-dark"
-        />
-      </DetailsSummary>
-      <DetailsSummary title="Ошибка при запуске приложения 0xc0000142">
-        <p>
-          Вы пытаетесь запустить приложение на устройстве с процессором без поддержки
-          инструкций <mark>AVX2</mark>. В{" "}
-          <a href="https://helpx.adobe.com/ru/after-effects/system-requirements.html">
-            нынешних системных требованиях для After Effects
-          </a>{" "}
-          указано, что требуется процессор от Intel минимум 6 поколения, например, i7-6700
-          или свежее, или процессор от AMD серии минимум 1000, например, Ryzen 5 1600 или
-          свежее. У процессора, установленный в вашем устройстве, обязательно должна быть
-          поддержка инструкций <mark>AVX2</mark>.
-        </p>
-        <AdditionInfo>
-          На сайте Adobe пишется следующее: версии 24.х и более поздние нельзя установить
-          в системах с процессорами Intel® 3-го поколения или более ранних версий (а
-          также в системах с более ранними процессорами AMD).
-        </AdditionInfo>
-        <p>
-          Решение достаточно простое: вы можете установить{" "}
-          <mark className="app">Premiere Pro</mark> версии 23.6. Это будет последняя
-          поддерживаемая для вас версия программы. Либо обновите процессор на вашем
-          устройстве.
-        </p>
-        <p>
-          Бывают редкие случаи, когда процессор действительно поддерживает инструкции
-          <mark>AVX2</mark>, но он каким-то образом выключен в вашей системе. Для этого
-          вам нужно попробовать ввести команду ниже в командную строку от имени
-          администратора и перезагрузить устройство.
-        </p>
-        <code>bcdedit /set xsavedisable 0</code>
-        <AdditionInfo>
-          Чтобы снова отключить <mark>AVX2</mark>, введите команду{" "}
-          <mark className="code">bcdedit /set xsavedisable 1</mark> и снова перезагрузите
-          устройство.
-        </AdditionInfo>
-      </DetailsSummary>
-      <DetailsSummary
-        tag="слетела лицензия, красное окно, не запускается, впн, файл хостс, блокировка доступа в интернет"
-        title='"This unlicensed Adobe app is not genuine and will be disabled soon", "Unlicensed Adobe apps may expose your device to increased security risks", "This app will disable in X days" или что-то похожее с красной полоской при запуске, но на другом языке. Как запустить программу нормально?'
-      >
-        <p>Программа от Adobe решила достучаться в интернет. Причин может быть четыре.</p>
-        <ul>
-          <li>
-            Вы забыли отключить <mark className="app">VPN</mark>. С наплывом блокировок
-            различных ресурсов на территории СНГ пользователи стали часто пользоваться
-            обходами, да вот забыли что не все <mark className="app">VPN-клиенты</mark>
-            корректно работают с правилами в <mark className="file">hosts</mark> и
-            системном брандмауэре. Соответственно клиентами они игнорируются и пускают
-            доступ к интернету программам.
-          </li>
-          <li>
-            Если вы не пользуетесь <mark className="app">VPN</mark>, то возможно, что во
-            время установки программ от Adobe что-то не прописалось в файл{" "}
-            <mark className="file">hosts</mark> или кто-то удалил оттуда строки.
-          </li>
-          <li>
-            Возможно в вашей системе затесалась служба{" "}
-            <mark className="app">Adobe Genuine Software</mark>, которая осталась от
-            установки версии из <mark className="app">Creative Cloud</mark>. Попробуйте
-            отключить службу{" "}
-            <mark className="app">Adobe Genuine Software Monitor Service</mark> через
-            программу <mark className="app">services.msc</mark>.
-          </li>
-          <li>
-            Ваш антивирус съел какие-то файлы для корректной подмены активации, ссылаясь
-            на то, что это якобы вирус. Для устранения этого - отключите антивирус или
-            внесите папку с программами Adobe в белый лист антивируса, а затем
-            переустановите программу.
-          </li>
-        </ul>
-        <ImageFigure
-          caption="Adobe"
-          imgSrc="images/adobe_the_unlicensed_app.png"
-          imgTitle="Сообщение об отсутствии лицензии"
-          styleClass="figure_windows-light"
-        />
-        <ContentSwitcher
-          macContent={
-            <div>
-              <p>
-                Для блокировки доступа определённым программам к интернету на устройствах
-                с <mark>macOS</mark> можно воспользоваться программой{" "}
-                <a href="https://radiosilenceapp.com/">Radio Silence</a>. После установки
-                и активации этой программы перейдите в вкладку{" "}
-                <mark className="ui">Network Monitor</mark>. В этой же вкладке запретите
-                программам от Adobe, которые лезут в сеть, доступ в интернет, нажав на
-                кнопку <mark className="ui">Block</mark>.
-              </p>
-              <ImageFigure
-                caption="Radio Silence"
-                imgSrc="images/network_radio_silence.png"
-                imgTitle="Блокируем доступ в интернет программам на примере Premiere Pro"
-                styleClass="figure_macos-dark"
-              />
-              <p>
-                После проделанных действий <mark className="app">Premiere Pro</mark> и
-                остальные программы от Adobe не должен стучаться в сеть и выдавать ошибку
-                об отсутствии лицензии. Ниже показано, как в итоге примерно должна
-                выглядеть у вас вкладка <mark className="ui">Firewall</mark> после отлова
-                процессов Adobe, лезущие в интернет.
-              </p>
-              <ImageFigure
-                caption="Radio Silence"
-                imgSrc="images/firewall_radio_silence.png"
-                imgTitle="Окно Firewall после блокировки доступа в интернет программам"
-                styleClass="figure_macos-dark"
-              />
-            </div>
-          }
-          windowsContent={
-            <div>
-              <p>
-                Если вы хотите использовать одновременно <mark className="app">VPN</mark>{" "}
-                и <mark className="app">Premiere Pro</mark>, то изучите настройки вашего
-                <mark className="app">VPN-клиента</mark>. Возможно, там есть пункт про
-                раздельное туннелирование или список исключений, не позволяющий прогонять
-                трафик программы через <mark className="app">VPN</mark>.
-              </p>
-              <p>
-                Если вы не используете <mark className="app">VPN</mark> на устройстве с{" "}
-                <mark>Windows</mark>, то попробуйте отредактировать файл{" "}
-                <mark className="file">hosts</mark>. Для этого вам нужно перейти в{" "}
-                <mark className="path">C:\Windows\System32\drivers\etc</mark>, скопировать
-                файл <mark className="path">hosts</mark> в любое удобное место, открыть
-                любой текстовый редактор, например <mark className="app">Notepad++</mark>{" "}
-                или <mark className="app">VS Code</mark>, и внести строки из кнопки для
-                открытия модального окна чуть ниже в конец файла. Затем сохраните
-                отредактированный файл и перенесите его обратно в{" "}
-                <mark className="path">C:\Windows\System32\drivers\etc\hosts</mark> с
-                заменой. Также попробуйте скрипт{" "}
-                <a href="https://github.com/ph33nx/WinMasterBlocker">WinMasterBlocker</a>{" "}
-                для автоматического внесения правил блокировки доступа в интернет в
-                брандмауэр.
-              </p>
-              <HostsAdobeModal />
-              <AdditionWarning>
-                Для изменения системных файлов требуются права администратора.
-              </AdditionWarning>
-            </div>
-          }
         />
       </DetailsSummary>
       <DetailsSummary
