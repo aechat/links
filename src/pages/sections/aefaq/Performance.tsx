@@ -406,7 +406,7 @@ const AEPerformance: React.FC = () => {
               использование оперативной памяти, увеличив значение{" "}
               <mark className="ui">RAM reserved for other applications</mark> в
               настройках. Также Если у вас устройство на <mark>Windows</mark> -{" "}
-              <a href="#4.8">настройте файл подачки</a> и установите программу{" "}
+              <a href="#4.7">настройте файл подачки</a> и установите программу{" "}
               <a href="https://github.com/henrypp/memreduct/releases">Mem Reduct</a> для
               периодической очистки оперативной памяти.
             </li>
