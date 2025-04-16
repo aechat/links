@@ -55,10 +55,218 @@ const PRInstallProblems: React.FC = () => {
           </li>
         </ul>
         <ContentSwitcher
-          macContent={<div>{/* TODO: дописать */}</div>}
+          macContent={
+            <div>
+              <AdditionDanger>
+                Если в архиве находится папка <mark className="path">_MACOSX</mark>, то в
+                нём нет никаких полезных файлов, установщиков и плагинов, которые
+                предназначены именно для устройств <mark>macOS</mark>. Это скрытая
+                системная папка, которая иногда создаётся операционной системой, в которой
+                хранятся метаданные и информация о файловой системе. В нём нет ничего
+                интересного для пользователя.
+              </AdditionDanger>
+              <ul>
+                <li>
+                  Если вы скачали архив формата <mark className="file">.zip</mark> или{" "}
+                  <mark className="file">.rar</mark>, то вам необходимо его распаковать с
+                  помощью архиватора для дальнейшей работы с ним. Это можно сделать с
+                  помощью <mark className="app">keka</mark> или{" "}
+                  <mark className="app">The Unarchiver</mark>.
+                  <AdditionInfo>
+                    <ul>
+                      <li>
+                        Загрузить <mark className="app">keka</mark> можно по{" "}
+                        <a href="https://www.keka.io/ru/">этой ссылке</a>, а{" "}
+                        <mark className="app">The Unarchiver</mark> - по{" "}
+                        <a href="https://theunarchiver.com/">этой</a>.
+                      </li>
+                      <li>
+                        Для распаковки многотомного архива, то есть если в названии
+                        архивов есть <mark>.part1</mark>, <mark>.part2</mark> и так далее
+                        - нужно запустить распаковку только первой части архива, остальные
+                        части подхватятся сами. Остальные части архива не нужно трогать
+                        без острой необходимости, если вы не знаете что с ними делать.
+                      </li>
+                      <li>
+                        Многотомные архивы создаются для того, чтобы файл можно было
+                        спокойно передать, обойдя ограничения максимального размера в{" "}
+                        <mark className="app">Telegram</mark> или другого ресурса.
+                      </li>
+                      <li>
+                        Если вы хотите сделать <mark className="app">keka</mark>{" "}
+                        архиватором по умолчанию, то вам нужно будет установить{" "}
+                        <a href="https://www.keka.io/defaultapp/">kekaExternalHelper</a>.
+                        Подробная инструкция расположена в{" "}
+                        <a href="https://github.com/aonez/Keka/wiki/Default-application">
+                          Wiki на GitHub
+                        </a>
+                        .
+                      </li>
+                    </ul>
+                  </AdditionInfo>
+                  <ImageFigure
+                    caption="Распаковка через контекстное меню"
+                    imgSrc="https://github.com/aonez/Keka/raw/master/Wiki/Images/Animated/extract-context-menu.gif"
+                    imgTitle="Распаковка через контекстное меню"
+                    styleClass="figure_macos-light"
+                  />
+                </li>
+                <li>
+                  Если в архиве или в записи находится файл{" "}
+                  <mark className="file">.dmg</mark>, <mark className="file">.app</mark>{" "}
+                  или <mark className="file">.pkg</mark>, то обычно в нём содержится
+                  автоматический установщик плагина. Для установки таких файлов нужно
+                  следовать инструкциям установщика, например перенести файл из одного
+                  места в другое и так далее.
+                  <AdditionInfo>
+                    <ul>
+                      <li>
+                        По умолчанию в <mark>macOS</mark> вы не сможете без танцев с
+                        бубном открыть установщики от неподтверждённых разработчиков.
+                        Чтобы обойти этот запрет - нужно изменить настройки безопасности
+                        операционной системы. Подробнее об этом вы можете прочитать на{" "}
+                        <a href="https://support.apple.com/ru-ru/102445">сайте Apple</a> и
+                        на{" "}
+                        <a href="https://www.iphones.ru/iNotes/pochemu-mac-ne-razreshaet-ustanavlivat-prilozheniya-ne-iz-app-store-05-15-2020">
+                          iPhones.ru
+                        </a>
+                        .
+                      </li>
+                      <li>
+                        Не все установщики могут открыться на вашей версии{" "}
+                        <mark>macOS</mark> и вы можете столкнуться с ошибкой{" "}
+                        <mark className="ui">
+                          Не удаётся открыть программу &quot;XXXXXX&quot;
+                        </mark>
+                        . Для решения проблемы достаточно найти более свежий установщик
+                        или откатить при желании и возможности ваше устройство на более
+                        старую версию <mark>macOS</mark>.
+                      </li>
+                    </ul>
+                  </AdditionInfo>
+                </li>
+                {/* <li>
+                  Если в архиве находится файл <mark className="file">.plugin</mark>, то
+                  такие плагины обычно распаковываются в общую папку плагинов{" "}
+                  <mark className="path">
+                    ~/Library/Application Support/Adobe/Common/Plug-ins/7.0/MediaCore
+                  </mark>
+                  .
+                  <AdditionInfo>
+                    <ul>
+                      <li>
+                        Обычно установленные плагины находятся в окне{" "}
+                        <mark className="ui">Effects</mark> и могут вызываться с
+                        помощью <mark className="plugin">FX Console</mark>. В редких
+                        случаях плагин может в программе вызываться из другого места -
+                        читайте приложенную документацию к устанавливаемому плагину.
+                      </li>
+                      <li>
+                        Не всегда новые версии плагинов могут работать со старыми версиями{" "}
+                        <mark className="app">Premiere Pro</mark> и наоборот. Уточняйте в
+                        документации устанавливаемого плагина, для каких версий{" "}
+                        <mark className="app">Premiere Pro</mark> он предназначен.
+                      </li>
+                    </ul>
+                  </AdditionInfo>
+                  <AdditionDanger>
+                    Плагины формата <mark className="file">.aex</mark> не подходят для
+                    устройств на <mark>macOS</mark>, так как такие файлы предназначены для
+                    устройств на <mark>Windows</mark>.
+                  </AdditionDanger>
+                </li> */}
+                <li>
+                  <p>
+                    Если в архиве находится файл <mark className="file">.mogrt</mark>, то
+                    такие шаблоны устанавливаются в панели{" "}
+                    <mark className="ui">Graphics Templates</mark> с помощью кнопки{" "}
+                    <mark className="ui">Install Motion Graphics template</mark>. Либо
+                    можно перенести файлы формата <mark className="file">.mogrt</mark>{" "}
+                    прямо в окно <mark className="ui">Graphics Templates</mark> с помощью{" "}
+                    <mark className="word">Drag-n-Drop</mark>.
+                  </p>
+                  <ImageFigure
+                    caption="Graphics Templates"
+                    imgSrc="images/premierepro/install_mogrt.png"
+                    imgTitle="Установка mogrt-шаблонов"
+                    styleClass="figure_macos-dark"
+                  />{" "}
+                  <AdditionInfo>
+                    <p>
+                      <mark className="file">.mogrt</mark> файл по своей сути - архив,
+                      внутри которого обычно находятся два-три файла, которые формируют
+                      сам анимационный шаблон. Такие шаблоны можно создавать в{" "}
+                      <mark className="app">After Effects</mark> и{" "}
+                      <mark className="app">Premiere Pro</mark>.
+                    </p>
+                    <ul>
+                      <li>
+                        <mark className="file">definition.json</mark> - файл, в котором
+                        находятся ссылки, контроллеры и прочая техническая информация
+                        шаблона для его корректной работы.
+                      </li>
+                      <li>
+                        <mark className="file">project.aegraphics</mark> - файл, где
+                        хранится вся заготовленная анимация. Стандартными средствами{" "}
+                        <mark className="app">Premiere Pro</mark> анимацию нельзя
+                        отредактировать, но такой проект можно открыть в{" "}
+                        <mark className="app">After Effects</mark> и при необходимости
+                        внести свои правки там, а затем конвертировать обратно в{" "}
+                        <mark className="file">.mogrt</mark>.
+                      </li>
+                      <li>
+                        <mark className="file">thumb.jpg</mark> - статичная обложка для
+                        анимационного шаблона для предварительного просмотра в окне{" "}
+                        <mark className="ui">Graphics Templates</mark>.
+                      </li>
+                    </ul>
+                  </AdditionInfo>
+                </li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+              </ul>
+
+              {/* TODO: дописать */}
+            </div>
+          }
           windowsContent={
             <div>
               <ul>
+                <li>
+                  Если в архиве или в записи находится файл{" "}
+                  <mark className="file">.exe</mark>, то обычно в нём содержится
+                  установщик. Если в записи указано, что данный установщик является
+                  репаком - в таком случае после его установки плагин будет уже
+                  активирован, никаких лишних телодвижений после установки делать не надо.
+                  <AdditionWarning>
+                    При использовании установщиков убедитесь в том, что у вас{" "}
+                    <mark className="app">Premiere Pro</mark> установлен в стандартном
+                    расположении <mark className="path">C:\Program Files\Adobe\</mark>, не
+                    на другом месте или разделе. В противном случае устанавливаемый плагин
+                    установится в другом месте и не будет отображаться в вашем{" "}
+                    <mark className="app">Premiere Pro</mark>.
+                  </AdditionWarning>
+                </li>
+                {/* <li>
+                  Если в архиве находится файл <mark className="file">.prm</mark> или{" "}
+                  <mark className="file">.aex</mark>, то такие плагины обычно
+                  распаковываются в общую папку плагинов -{" "}
+                  <mark className="path">
+                    C:\Program Files\Adobe\Common\Plug-ins\7.0\MediaCore
+                  </mark>
+                  .
+                  <AdditionWarning>
+                    Учтите, что не все плагины формата <mark className="file">.aex</mark>{" "}
+                    поддерживаются в <mark className="app">Premiere Pro</mark>, так как по
+                    большей части плагины такого формата были предназначены для{" "}
+                    <mark className="app">After Effects</mark> и не всегда имеет
+                    &quot;обратную совместимость&quot; с{" "}
+                    <mark className="app">Premiere Pro</mark>.
+                  </AdditionWarning>
+                </li> */}
+
                 <li>
                   <p>
                     Если в архиве находится файл <mark className="file">.mogrt</mark>, то
@@ -138,38 +346,6 @@ const PRInstallProblems: React.FC = () => {
                   </AdditionWarning>
                 </li>
                 <li>
-                  Если в архиве или в записи находится файл{" "}
-                  <mark className="file">.exe</mark>, то обычно в нём содержится
-                  установщик. Если в записи указано, что данный установщик является
-                  репаком - в таком случае после его установки плагин будет уже
-                  активирован, никаких лишних телодвижений после установки делать не надо.
-                  <AdditionWarning>
-                    При использовании установщиков убедитесь в том, что у вас{" "}
-                    <mark className="app">Premiere Pro</mark> установлен в стандартном
-                    расположении <mark className="path">C:\Program Files\Adobe\</mark>, не
-                    на другом месте или разделе. В противном случае устанавливаемый плагин
-                    установится в другом месте и не будет отображаться в вашем{" "}
-                    <mark className="app">Premiere Pro</mark>.
-                  </AdditionWarning>
-                </li>
-                <li>
-                  Если в архиве находится файл <mark className="file">.prm</mark> или{" "}
-                  <mark className="file">.aex</mark>, то такие плагины обычно
-                  распаковываются в общую папку плагинов -{" "}
-                  <mark className="path">
-                    C:\Program Files\Adobe\Common\Plug-ins\7.0\MediaCore
-                  </mark>
-                  .
-                  <AdditionWarning>
-                    Учтите, что не все плагины формата <mark className="file">.aex</mark>{" "}
-                    поддерживаются в <mark className="app">Premiere Pro</mark>, так как по
-                    большей части плагины такого формата были предназначены для{" "}
-                    <mark className="app">After Effects</mark> и не всегда имеет
-                    &quot;обратную совместимость&quot; с{" "}
-                    <mark className="app">Premiere Pro</mark>.
-                  </AdditionWarning>
-                </li>
-                <li>
                   Если в архива находится файл <mark className="file">.prfpset</mark>, то
                   такие файлы пресетов устанавливается следующим образом.
                   <ul>
@@ -225,13 +401,25 @@ const PRInstallProblems: React.FC = () => {
                     C:\Program Files\Adobe\Adobe Premiere Pro 20XX\Support
                     Files\Lumetri\LUTs\Creative
                   </mark>
-                  , а затем используются в окне
+                  , а затем используются в окне{" "}
                   <mark className="plugin">Lumetri Color</mark> в вкладке{" "}
                   <mark className="ui">Creative</mark>.
                   <AdditionInfo>
-                    Чтобы открыть окно для цветокоррекции через Lumetri, то перейдите в{" "}
-                    <mark className="ui">Window</mark> и выберите{" "}
-                    <mark className="ui">Lumetri Color</mark>.
+                    <ul>
+                      <li>
+                        Чтобы открыть окно для цветокоррекции через Lumetri, то перейдите
+                        в <mark className="ui">Window</mark> и выберите{" "}
+                        <mark className="ui">Lumetri Color</mark>.
+                      </li>
+                      <li>
+                        {/* FIXME: дописать */}
+                        Если вы не хотите перемещать данный файл в директорию с различными
+                        LUT, то откройте список выбора LUT в{" "}
+                        <mark className="app">Premiere Pro</mark> и нажмите на{" "}
+                        <mark className="ui">Browse</mark>. В открывшемся окне выберите
+                        нужный файл для цветокоррекции.
+                      </li>
+                    </ul>
                   </AdditionInfo>
                 </li>
                 <li>
@@ -342,117 +530,6 @@ const PRInstallProblems: React.FC = () => {
                   <mark className="app">FontBase</mark>.
                 </li>
               </ul>
-            </div>
-          }
-        />
-      </DetailsSummary>
-      <DetailsSummary
-        tag="части архива, парт, распаковка, rar, zip"
-        title="В Telegram-записи лежат файлы .part1, .part2 и дальше по списку. Что это такое и как такие файлы корректно распаковать?"
-      >
-        <p>
-          Данные файлы с пометкой <mark>.part1</mark>, <mark>.part2</mark> и далее по
-          списку - это лишь части одного и того же архива. Архивы поделены на 2 или на 4
-          Гб из-за ограничений <mark className="app">Telegram</mark> на размер загружаемых
-          файлов. Чтобы корректно распаковать нужный архив - нужно загрузить все файлы на
-          ваш компьютер, а затем распаковать с помощью программ-архиваторов.
-        </p>
-        <AdditionWarning>
-          Если вы не распакуете архив полностью, то у вас могут быть проблемы с установкой
-          или использованием в программах.
-        </AdditionWarning>
-        <ContentSwitcher
-          macContent={
-            <div>
-              <p>
-                Для распаковки архивов, в том числе и многотомных, вы можете использовать{" "}
-                <a
-                  href="https://www.keka.io/ru/"
-                  title="Официальный сайт keka"
-                >
-                  keka
-                </a>
-                . Он поддерживает кучу различных форматов архивов для распаковки, например{" "}
-                <mark className="file">.zip</mark> <mark className="file">.7z</mark>,{" "}
-                <mark className="file">.rar</mark>, <mark className="file">.tar</mark> и{" "}
-                <mark className="file">.iso</mark>. После установки этой программы вы
-                можете распаковать скачанный архив различными способами, как на{" "}
-                <a href="https://github.com/aonez/Keka/wiki/Extracting-with-Keka#how-to-extract-supported-files">
-                  примерах
-                </a>{" "}
-                ниже.
-              </p>
-              <div
-                style={{
-                  display: "grid",
-                  gridTemplateColumns: "repeat(auto-fit, minmax(275px, 1fr))",
-                  alignItems: "center",
-                }}
-              >
-                <ImageFigure
-                  caption="Распаковка через контекстное меню"
-                  imgSrc="https://github.com/aonez/Keka/raw/master/Wiki/Images/Animated/extract-context-menu.gif"
-                  imgTitle="Распаковка через контекстное меню"
-                  styleClass="figure_macos-light"
-                />
-                <ImageFigure
-                  caption="Распаковка с помощью открытого окна keka"
-                  imgSrc="https://github.com/aonez/Keka/raw/master/Wiki/Images/Animated/extract-window.gif"
-                  imgTitle="Распаковка с помощью открытого окна keka"
-                  styleClass="figure_macos-light"
-                />
-                <ImageFigure
-                  caption="Распаковка через иконку keka в Dock-меню"
-                  imgSrc="https://github.com/aonez/Keka/raw/master/Wiki/Images/Animated/extract-dock.gif"
-                  imgTitle="Распаковка через иконку keka в Dock-меню"
-                  styleClass="figure_macos-light"
-                />
-              </div>
-              <p>
-                Также вы можете установить данную утилиту как программу для распаковки
-                архивов по умолчанию, установив{" "}
-                <a href="https://www.keka.io/defaultapp/">kekaExternalHelper</a>.
-                Подробная инструкция расположена в{" "}
-                <a href="https://github.com/aonez/Keka/wiki/Default-application">
-                  Wiki на GitHub
-                </a>
-                .
-              </p>
-            </div>
-          }
-          windowsContent={
-            <div>
-              <p>
-                Для устройств на <mark>Windows</mark> есть два популярных архиватора,
-                которые умеют работать с многотомными архивами. Это{" "}
-                <a
-                  href="https://www.rarlab.com/download.htm"
-                  title="Официальный сайт WinRAR"
-                >
-                  WinRAR
-                </a>{" "}
-                и{" "}
-                <a
-                  href="https://www.7-zip.org/"
-                  title="Официальный сайт 7-Zip"
-                >
-                  7-Zip
-                </a>
-                . Но для <mark className="file">.rar</mark> файлов всё-таки лучше подойдёт{" "}
-                <a
-                  href="https://www.rarlab.com/download.htm"
-                  title="Официальный сайт WinRAR"
-                >
-                  WinRAR
-                </a>
-                . Для распаковки многотомного архива достаточно лишь открыть первую часть
-                и начать распаковку, например с помощью <mark>drag&apos;n&apos;drop</mark>{" "}
-                в нужное место или кнопки <mark className="ui">Распаковать</mark>.
-              </p>
-              <YouTubeVideo
-                caption="Распаковка многотомного архива"
-                link="1OVwQS0uHhk"
-              />
             </div>
           }
         />
