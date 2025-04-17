@@ -607,35 +607,39 @@ const AEInterface: React.FC = () => {
           или установкой более свежей версии программы.
         </p>
       </DetailsSummary>
-      <DetailsSummary title="Как отключить экран со списком недавних проектов при запуске?">
+      <DetailsSummary
+        tag="стартовый экран, домашний экран, окно с проектами"
+        title="Почему у меня не работает окно с недавними проектами и как отключить его?"
+      >
         <p>
           По умолчанию, при запуске <mark className="app">After Effects</mark> открывается
-          домашнее окно с приветствием и списком недавних проектов. На некоторых
-          устройствах или старых версиях <mark className="app">After Effects</mark>{" "}
-          загрузка данного окна занимает относительно много времени или вовсе не
-          загружается корректно. За это время вы бы уже смогли создать новую композицию и
-          уже начать работу.
+          домашнее окно с приветствием и списком недавних проектов. На некоторых{" "}
+          <mark className="word">народных</mark> версиях{" "}
+          <mark className="app">After Effects</mark> стартовый экран может не грузиться и
+          выдавать пустоту. Для быстрого решения этой проблемы - достаточно войти в
+          аккаунт <mark>Adobe</mark> с помощью{" "}
+          <mark className="ui">Help &gt; Sign In</mark>.
         </p>
+        <Divider>Отключаем домашний экран при запуске программы</Divider>
         <p>
-          К счастью, это окно можно отключить. Для отключения стартового окна со списком
-          недавних проектов - откройте настройки{" "}
-          <mark className="app">After Effects</mark> с помощью комбинации клавиш{" "}
-          <mark className="key">Ctrl + Alt + ; (Ж)</mark>, перейдите в раздел{" "}
-          <mark className="ui">Startup & Repair</mark> и выключите пункт{" "}
+          Если вариант со входом в аккаунт вас не устраивает или вас бесит это окно, то к
+          счастью, это окно можно отключить. Для отключения стартового окна со списком
+          недавних проектов откройте настройки <mark className="app">After Effects</mark>{" "}
+          с помощью{" "}
+          <mark className="ui">Edit &gt; Preferences &gt; Startup & Repair</mark>, а затем
+          в открывшемся окне выключите пункт{" "}
           <mark className="ui">Enable Home Screen</mark>.
         </p>
+        <AdditionInfo>
+          В старых версиях <mark className="app">After Effects</mark> пункт с выключением
+          домашнего экрана находится во вкладке <mark className="ui">General</mark>.
+        </AdditionInfo>
         <ImageFigure
           caption="Preferences"
           imgSrc="images/aftereffects/enable_home_screen.png"
           imgTitle="Переключаем отображение домашнего экрана"
           styleClass="figure_windows-dark"
         />
-        <AdditionInfo>
-          Если вы хотите оставить стартовое окно, но оно у вас не грузится корректно -
-          попробуйте войти в аккаунт Adobe. Это можно сделать через{" "}
-          <mark className="ui">Help &gt; Sign In</mark>. После входа псевдо-лицензия не
-          слетит.
-        </AdditionInfo>
       </DetailsSummary>
       <DetailsSummary title="Как изменить акцентный цвет интерфейса программы?">
         <AdditionDanger>
