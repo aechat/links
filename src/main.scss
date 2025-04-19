@@ -1,15 +1,15 @@
-@use "@/styles/mixins" as *;
-@use "@/styles/reset";
-@use "@/styles/fonts";
-@use "@/styles/pages/links";
-@use "@/styles/pages/faq";
-@use "@/styles/figure";
-@use "@/styles/header";
-@use "@/styles/table";
-@use "@/styles/colors";
-@use "@/styles/ant";
-@use "@/styles/modal";
-@use "@/styles/addition";
+@use "styles/mixins" as *;
+@use "styles/reset";
+@use "styles/fonts";
+@use "styles/pages/links";
+@use "styles/pages/faq";
+@use "styles/figure";
+@use "styles/header";
+@use "styles/table";
+@use "styles/colors";
+@use "styles/ant";
+@use "styles/modal";
+@use "styles/addition";
 
 :root {
   --header-height: 55px;

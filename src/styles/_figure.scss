@@ -36,7 +36,6 @@
             padding: 2px 8px;
             width: 100%;
             overflow: hidden;
-            overflow-x: hidden;
             color: #eeeeee;
             font-size: 0.8125rem;
             text-align: center;
@@ -61,8 +60,7 @@
           flex-direction: row;
           justify-content: space-between;
           align-items: center;
-          padding: 4px 5px;
-          padding-left: 10px;
+          padding: 4px 5px 4px 10px;
 
           figcaption {
             flex: 1 10 auto;
