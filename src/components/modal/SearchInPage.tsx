@@ -211,7 +211,9 @@ export const SearchInPage: React.FC<{sections: Array<{id: string; title: string}
         return;
       }
 
-      const title = summary.textContent ?? "";
+      const titleElement = summary.querySelector("h3");
+
+      const title = titleElement ? (titleElement.textContent ?? "") : "";
 
       const tag = detail.getAttribute("data-tags") ?? "";
 
@@ -615,11 +617,16 @@ export const SearchInPage: React.FC<{sections: Array<{id: string; title: string}
                     >
                       <p className="search-title">{title.replace(/^[+-]+/, "").trim()}</p>
                       {tag && tag.trim() !== "" && (
-                        <div className="search-tags">
+                        <span className="faq-tags">
                           {tag.split(", ").map((t, index) => (
-                            <mark key={index}>{t}</mark>
+                            <mark
+                              key={index}
+                              className="tag"
+                            >
+                              {t}
+                            </mark>
                           ))}
-                        </div>
+                        </span>
                       )}
                     </div>
                     <div

@@ -11,7 +11,7 @@ import React, {
 interface DetailsSummaryProps {
   title: string;
   children: ReactNode;
-  tag?: string;
+  tag: string;
 }
 
 const SpoilerContext = createContext(false);
@@ -230,7 +230,21 @@ const DetailsSummary: React.FC<DetailsSummaryProps> = ({title, children, tag}) =
           <span style={{fontFamily: "JetBrains Mono, monospace"}}>
             {isOpen ? "-" : "+"}
           </span>
-          <h3>{`${anchorId ? `${anchorId}. ` : ""}${title}`}</h3>
+          <div>
+            <h3>{`${anchorId ? `${anchorId}. ` : ""}${title}`}</h3>
+            {tag && (
+              <span className="faq-tags">
+                {tag.split(", ").map((t, index) => (
+                  <mark
+                    key={index}
+                    className="tag"
+                  >
+                    {t}
+                  </mark>
+                ))}
+              </span>
+            )}
+          </div>
         </div>
         <Tooltip title="Скопировать ссылку на пункт">
           <button
@@ -258,19 +272,6 @@ const DetailsSummary: React.FC<DetailsSummaryProps> = ({title, children, tag}) =
           className="faq-section"
         >
           {children}
-          {tag && (
-            <div className="faq-tags">
-              <span>Теги для поиска:</span>
-              {tag.split(", ").map((t, index) => (
-                <mark
-                  key={index}
-                  className="tag"
-                >
-                  {t}
-                </mark>
-              ))}
-            </div>
-          )}
         </section>
       </SpoilerContext.Provider>
     </details>

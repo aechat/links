@@ -10,6 +10,14 @@ const copyToClipboard = (event?: MouseEvent) => {
     return;
   }
 
+  if (elementToCopy.closest(".search-tags")) {
+    return;
+  }
+
+  if (elementToCopy.closest(".faq-tags .tag")) {
+    return;
+  }
+
   if (elementToCopy.tagName === "MARK" && !elementToCopy.classList.length) {
     return;
   }

@@ -234,6 +234,7 @@
       background-color: var(--summary-background);
       width: 40px;
       color: var(--summary-text);
+
       svg {
         width: 17px;
         height: 17px;
@@ -246,13 +247,6 @@
     border-radius: $roundness * 1.5;
     max-height: 72.5svh;
     overflow-y: auto;
-
-    mark {
-      outline: 1px solid var(--mark-border);
-      border-radius: $roundness * 0.5;
-      background-color: var(--mark-background);
-      color: var(--mark-text);
-    }
   }
 
   &-link {
@@ -267,7 +261,6 @@
     display: flex;
     position: relative;
     flex-direction: column;
-    gap: 8px;
     z-index: 1000;
     transition: background-color 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
     cursor: pointer;
@@ -397,6 +390,7 @@
       line-height: 1.25;
       text-align: center;
     }
+
     button,
     a {
       text-wrap: wrap;
@@ -439,31 +433,6 @@
     font-size: 0.75rem;
     line-height: 1.25;
     text-align: right;
-  }
-
-  &-tags {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-    align-items: center;
-    gap: 8px;
-    opacity: 1;
-    margin: 0;
-    width: 100%;
-    font-size: 0.8125rem;
-
-    mark {
-      text-wrap: wrap;
-      filter: saturate(0.5);
-      outline: solid 1px var(--summary-border);
-      background-color: var(--button-background);
-      padding: 2px 5px;
-      color: var(--summary-text);
-      font-weight: 700;
-      font-size: 0.65rem;
-      line-height: 1.25;
-    }
   }
 }
 
