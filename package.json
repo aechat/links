@@ -46,10 +46,10 @@
     "vite": "6.3.2"
   },
   "scripts": {
-    "format": "eslint . --fix && prettier . --log-level warn --write  --config .prettierrc",
-    "build": "yarn format && tsc && vite build",
+    "format": "eslint . --fix && prettier . --log-level warn --write  --config .prettierrc && tsc",
+    "build": "git stash && yarn format && vite build",
     "predeploy": "yarn && yarn build",
-    "deploy": "gh-pages -d dist -m \"обновление сайта\" && git push",
+    "deploy": "gh-pages -d dist -m \"обновление сайта\" && git push && git stash apply",
     "dev": "yarn & vite",
     "preview": "vite preview --host"
   },
