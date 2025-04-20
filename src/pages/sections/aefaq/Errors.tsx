@@ -864,20 +864,23 @@ const AEErrors: React.FC = () => {
           обработке выражения. Это может вам помочь при дальнейшем анализе проблемы.
         </p>
       </DetailsSummary>
-      <DetailsSummary title='"Cinema 4D must be installed in order to use the Cinema 4D renderer" или "Cineware Server Suite failed to acquire renderer port and path. Server commands not available" или "Cinema 4D: Render Failed"'>
+      <DetailsSummary
+        tag="синема 4д не работает, c4d, с4д"
+        title='"Cinema 4D must be installed in order to use the Cinema 4D renderer", "Cineware Server Suite failed to acquire renderer port and path. Server commands not available", "Cinema 4D: Render Failed" или ошибка 5027::12'
+      >
         <p>
           Если у вас установлен <mark className="app">After Effects</mark> от{" "}
-          <mark>KpoJluK</mark>, то эта ошибка вознает из-за того, что в его дистрибутивах
-          c версий <mark>2020</mark> и выше не поставляется плагин{" "}
-          <mark className="plugin">Cineware</mark> и{" "}
-          <mark className="plugin">Cinema 4D</mark>. Это было сделано для уменьшения веса
-          программы, но таким образом отваливается возможность импорта проектов формата{" "}
-          <mark className="file">.c4d</mark> и включения соответствующего движка
-          3D-рендера. Чтобы решить эту проблему - достаточно установить полноценную{" "}
-          <mark className="app">Maxon Cinema 4D</mark> нужной версии на ваше устройство,
-          которую просит ваша версия <mark className="app">After Effects</mark>. Обычно в
-          такой ошибке указывается, какую версию <mark className="app">Cinema 4D</mark>{" "}
-          нужно установить.
+          <mark>KpoJluK</mark>, то эта ошибка возникает из-за того, что в его
+          дистрибутивах c версий <mark>2020</mark> и выше не поставляется{" "}
+          <mark className="plugin">Cinema 4D Lite</mark>. Это было сделано для уменьшения
+          веса программы, но из-за такого подхода отваливается возможность импорта
+          проектов формата <mark className="file">.c4d</mark>, не работает корректно
+          плагин <mark className="plugin">Cineware</mark> и нельзя включить
+          соответствующий движок 3D-рендера. Чтобы решить эту проблему - достаточно
+          установить полноценную <mark className="app">Maxon Cinema 4D</mark> нужной
+          версии на ваше устройство, которую просит ваша версия{" "}
+          <mark className="app">After Effects</mark>. Обычно в такой ошибке указывается,
+          какую версию <mark className="app">Cinema 4D</mark> нужно установить.
         </p>
         <AdditionWarning>
           <ul>
@@ -885,7 +888,7 @@ const AEErrors: React.FC = () => {
               Если в этой ошибке <mark className="app">After Effects</mark> пишет, что
               нужно установить, например <mark className="app">Cinema 4D</mark> версии{" "}
               <mark>2023</mark> - то нужно ставить именно любую версию{" "}
-              <mark>2023.X.X</mark>! Версии <mark>2024.X.X</mark>. или <mark>25.X.X</mark>{" "}
+              <mark>2023.X.X</mark>! Версии <mark>2024.X.X</mark> или <mark>25.X.X</mark>{" "}
               в таком случае не подойдут.
             </li>
             <li>
@@ -906,6 +909,11 @@ const AEErrors: React.FC = () => {
           Список соответствия версий Maxon Cinema 4D с версиями After Effects для
           корректной работы
         </Divider>
+        <AdditionInfo>
+          Чтобы посмотреть текущую версию <mark className="app">After Effects</mark>,
+          установленная на вашем устройстве - перейдите в программе в{" "}
+          <mark className="ui">Help &gt; About After Effects</mark>.
+        </AdditionInfo>
         <ul>
           <li>
             <mark className="app">After Effects 25.1 и новее</mark> требует{" "}
@@ -931,7 +939,9 @@ const AEErrors: React.FC = () => {
             <div
               style={{
                 display: "grid",
+                gap: "10px",
                 gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))",
+                alignItems: "center",
               }}
             >
               <ImageFigure
@@ -956,14 +966,23 @@ const AEErrors: React.FC = () => {
           </li>
         </ul>
         <AdditionInfo>
-          Если у вас установлен <mark className="app">After Effects</mark> из{" "}
-          <mark className="app">Creative Cloud</mark>, то вам достаточно установить{" "}
-          <mark className="plugin">Cinema 4D</mark> оттуда:{" "}
-          <mark className="ui">
-            Установленные приложения &gt; After Effects &gt; Подключаемые модули &gt;
-            Cinema 4D &gt; Установить
-          </mark>
-          .
+          <ul>
+            <li>
+              Если у вас установлен <mark className="app">After Effects</mark> из{" "}
+              <mark className="app">Creative Cloud</mark>, то вам достаточно установить{" "}
+              <mark className="plugin">Cinema 4D</mark> оттуда:{" "}
+              <mark className="ui">
+                Установленные приложения &gt; After Effects &gt; Подключаемые модули &gt;
+                Cinema 4D &gt; Установить
+              </mark>
+              .
+            </li>
+            <li>
+              В <mark className="app">After Effects</mark> от <mark>m0nkrus</mark> и
+              некоторых релизеров - <mark className="app">Cinema 4D Lite</mark> обычно не
+              вырезан, соответственно подобные манипуляции проводить не надо.
+            </li>
+          </ul>
         </AdditionInfo>
       </DetailsSummary>
       <DetailsSummary
