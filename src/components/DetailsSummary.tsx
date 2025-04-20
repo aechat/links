@@ -11,7 +11,7 @@ import React, {
 interface DetailsSummaryProps {
   title: string;
   children: ReactNode;
-  tag: string;
+  tag?: string;
 }
 
 const SpoilerContext = createContext(false);
