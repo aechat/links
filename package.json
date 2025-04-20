@@ -47,9 +47,9 @@
   },
   "scripts": {
     "format": "eslint . --fix && prettier . --log-level warn --write  --config .prettierrc && tsc",
-    "build": "git stash && yarn format && vite build",
+    "build": "git stash -u && yarn format && vite build && git stash apply",
     "predeploy": "yarn && yarn build",
-    "deploy": "gh-pages -d dist -m \"обновление сайта\" && git push && git stash apply",
+    "deploy": "gh-pages -d dist -m \"обновление сайта\" && git push",
     "dev": "yarn & vite",
     "preview": "vite preview --host"
   },
