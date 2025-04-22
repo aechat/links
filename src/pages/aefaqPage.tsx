@@ -33,7 +33,7 @@ const AEExport = lazy(() => import("./sections/aefaq/Export"));
 
 const AEExportProblems = lazy(() => import("./sections/aefaq/ExportProblems"));
 
-const AEFaQ = () => {
+const AEFAQ = () => {
   useEffect(() => {
     CopyToClipboard.enableAutoCopy();
   }, []);
@@ -139,21 +139,21 @@ const AEFaQ = () => {
                 <Breadcrumb
                   items={[
                     {
-                      title: <Link to="/aefaq">FaQ по Adobe After Effects</Link>,
+                      title: <Link to="/aefaq">FAQ по Adobe After Effects</Link>,
                       menu: {
                         items: [
                           {
                             title: (
                               <Link to="/aeexprfaq">
-                                FaQ по выражениям в After Effects
+                                FAQ по выражениям в After Effects
                               </Link>
                             ),
                           },
                           {
-                            title: <Link to="/prfaq">FaQ по Adobe Premiere Pro</Link>,
+                            title: <Link to="/prfaq">FAQ по Adobe Premiere Pro</Link>,
                           },
                           {
-                            title: <Link to="/psfaq">FaQ по Adobe Photoshop</Link>,
+                            title: <Link to="/psfaq">FAQ по Adobe Photoshop</Link>,
                           },
                         ],
                       },
@@ -240,4 +240,4 @@ const AEFaQ = () => {
     </div>
   );
 };
-export default AEFaQ;
+export default AEFAQ;

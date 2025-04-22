@@ -28,10 +28,10 @@ const AEExpressionPage = () => {
   }, []);
 
   const sections = [
-    {key: "1", title: "С чего начать?", id: "start", component: AEExprStart},
-    {key: "2", title: "База всех баз", id: "base", component: AEExprBase},
+    {key: "1", title: "Начинаем выражать выражения", id: "start", component: AEExprStart},
+    {key: "2", title: "Основы синтаксиса", id: "base", component: AEExprBase},
     {key: "3", title: "Ссылки и привязки", id: "linking", component: AEExprLinking},
-    {key: "4", title: "Как и чем?", id: "actions", component: AEExprActions},
+    {key: "4", title: "Примеры выражений", id: "actions", component: AEExprActions},
     {key: "5", title: "Ошибки и предупреждения", id: "errors", component: AEExprErrors},
   ];
 
@@ -108,16 +108,16 @@ const AEExpressionPage = () => {
                   items={[
                     {
                       title: (
-                        <Link to="/aeexprfaq">FaQ по выражениям в After Effects</Link>
+                        <Link to="/aeexprfaq">FAQ по выражениям в After Effects</Link>
                       ),
                       menu: {
                         items: [
-                          {title: <Link to="/aefaq">FaQ по Adobe After Effects</Link>},
+                          {title: <Link to="/aefaq">FAQ по Adobe After Effects</Link>},
                           {
-                            title: <Link to="/prfaq">FaQ по Adobe Premiere Pro</Link>,
+                            title: <Link to="/prfaq">FAQ по Adobe Premiere Pro</Link>,
                           },
                           {
-                            title: <Link to="/psfaq">FaQ по Adobe Photoshop</Link>,
+                            title: <Link to="/psfaq">FAQ по Adobe Photoshop</Link>,
                           },
                         ],
                       },
@@ -132,10 +132,18 @@ const AEExpressionPage = () => {
                 выражений.
               </AdditionDanger>
               <AdditionWarning>
-                Данная страница не является полноценным курсом по написанию выражений в{" "}
-                <mark className="app">After Effects</mark>. Мнение автора и мнение
-                читателя могут отличаться. Примеры выражений выполняются на движке{" "}
-                <mark>JavaScript</mark>, его можно изменить в настройках проекта.
+                Данная страница{" "}
+                <b>
+                  <u>не является</u>
+                </b>{" "}
+                полноценным курсом по написанию выражений в{" "}
+                <mark className="app">After Effects</mark>, а также здесь не будут
+                разбираться случаи с написанием скриптов формата{" "}
+                <mark className="file">.jsx</mark> и <mark className="file">.jsxbin</mark>
+                . Примеры выражений выполняются на движке <mark>JavaScript</mark>, его
+                можно изменить во вкладке <mark className="ui">Expression</mark> окна{" "}
+                <mark className="ui">Project Manager</mark>, который открывается с помощью
+                комбинации клавиш <mark className="key">Ctrl + Alt + Shift + K</mark>.
               </AdditionWarning>
               <Suspense
                 fallback={

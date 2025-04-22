@@ -32,7 +32,7 @@ const PSPerformance = lazy(() => import("./sections/psfaq/Performance"));
 
 const PSWhereFind = lazy(() => import("./sections/psfaq/WhereFind"));
 
-const PSFaQ = () => {
+const PSFAQ = () => {
   useEffect(() => {
     CopyToClipboard.enableAutoCopy();
   }, []);
@@ -241,4 +241,4 @@ const PSFaQ = () => {
     </div>
   );
 };
-export default PSFaQ;
+export default PSFAQ;

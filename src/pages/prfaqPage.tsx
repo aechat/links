@@ -34,7 +34,7 @@ const PRTips = lazy(() => import("./sections/prfaq/Tips"));
 
 const PRWhereFind = lazy(() => import("./sections/prfaq/WhereFind"));
 
-const PRFaQ = () => {
+const PRFAQ = () => {
   useEffect(() => {
     CopyToClipboard.enableAutoCopy();
   }, []);
@@ -239,4 +239,4 @@ const PRFaQ = () => {
     </div>
   );
 };
-export default PRFaQ;
+export default PRFAQ;

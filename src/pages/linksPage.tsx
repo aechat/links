@@ -155,7 +155,7 @@ const Links = () => {
               name="HiStockBot"
             />
             <LinkCard
-              description="Популярный онлайн-конвертер видеофайлов в GIF"
+              description="Популярный онлайн конвертер видео файлов в GIF"
               href="https://ezgif.com/"
               icon={<BurstModeRounded />}
               name="Ezgif"
@@ -167,7 +167,7 @@ const Links = () => {
               name="Lottie Player"
             />
             <LinkCard
-              description="Оффлайн-конвертер видеофайлов в различные кодеки, в том числе монтажные"
+              description="Оффлайн конвертер видео файлов в различные кодеки, в том числе монтажные"
               href="https://www.shutterencoder.com/"
               icon={<VideoSettingsRounded />}
               name="Shutter Encoder"
