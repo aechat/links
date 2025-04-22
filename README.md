@@ -128,7 +128,7 @@ import DetailsSummary from "../../../components/DetailsSummary";
 - Иконка кнопки интерфейса: `className="ui"`
 - Иконка метки или же тега: `className="tag"`
 - Иконка термина: `className="word"`
-- Иконка видеофайла: `className="video"`
+- Иконка видео файла: `className="video"`
 - Иконка изображения: `className="image"`
 
 ```typescript
@@ -145,7 +145,7 @@ import DetailsSummary from "../../../components/DetailsSummary";
 </DetailsSummary>
 ```
 
-Изображения добавляются через компонент `ImageFigure`. Видеофайлы добавляются через компонент `VideoFigure`. Этот компонент стилизован компонент нужными классами, которые нужно ввести вручную:
+Изображения добавляются через компонент `ImageFigure`. Видео файлы добавляются через компонент `VideoFigure`. Этот компонент стилизован компонент нужными классами, которые нужно ввести вручную:
 
 Фигура окна аля Windows:
 
@@ -184,7 +184,7 @@ import DetailsSummary from "../../../components/DetailsSummary";
 </DetailsSummary>
 ```
 
-Для добавления видео из сервиса YouTube используется компонент `YouTubeVideo`. Использует два аттрибута: `link` и `caption`. Если надо добавить из другого сервиса, который позволяет ссылаться на сам видеофайл - можно сделать это через компонент `VideoFigure`.
+Для добавления видео из сервиса YouTube используется компонент `YouTubeVideo`. Использует два аттрибута: `link` и `caption`. Если надо добавить из другого сервиса, который позволяет ссылаться на сам видео файл - можно сделать это через компонент `VideoFigure`.
 
 ```typescript
 import {YouTubeVideo} from "../../../components/ContentFigure";
