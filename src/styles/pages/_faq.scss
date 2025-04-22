@@ -1,4 +1,4 @@
-@use "@/styles/mixins" as *;
+@use "../mixins" as *;
 
 .faq {
   &-container {
@@ -379,9 +379,10 @@ code {
   scrollbar-width: thin;
   color: #ffffff;
   font-weight: 400;
-  font-size: 0.875rem;
-  line-height: 1.25;
+  font-size: 0.95rem;
+  line-height: 1.4;
   font-family: "JetBrains Mono", monospace;
+  font-variant-ligatures: none;
   user-select: text;
 
   &:hover {

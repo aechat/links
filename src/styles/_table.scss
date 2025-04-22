@@ -1,4 +1,4 @@
-@use "@/styles/mixins" as *;
+@use "mixins" as *;
 
 table {
   filter: drop-shadow(0 5px 10px var(--shadow));

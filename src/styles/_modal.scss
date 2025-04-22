@@ -1,4 +1,4 @@
-@use "@/styles/mixins" as *;
+@use "mixins" as *;
 
 .modal {
   display: flex;
@@ -36,7 +36,7 @@
   &-content {
     filter: drop-shadow(0 3px 5px var(--shadow));
     outline: 1px solid var(--content-background-border);
-    border-radius: $roundness * 1.5;
+    border-radius: $roundness;
     background-color: var(--content-background-color);
     width: 100%;
   }
@@ -84,9 +84,10 @@
   }
 
   p {
-    padding-inline: 15px;
-    padding-block: 10px;
+    margin-inline: 15px;
+    margin-block: 10px;
     font-size: 0.95rem;
+    line-height: 1.5;
   }
 
   a {

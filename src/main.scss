@@ -65,12 +65,14 @@ html {
 .footer {
   margin-inline: auto;
   margin-block-start: 30px;
+  margin-block-end: 40px;
   outline: 1px solid var(--content-background-border);
-  border-top-right-radius: $roundness;
-  border-top-left-radius: $roundness;
+  border-radius: $roundness;
   background-color: var(--content-background-color);
   padding-inline: 20px;
-  padding-block: 20px;
+  padding-block: 10px;
+  width: calc(100% - 40px);
+  max-width: 500px;
   font-weight: 600;
   font-size: 0.85rem;
   font-family: "Onest", sans-serif;
