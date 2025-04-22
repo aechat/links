@@ -4,6 +4,7 @@ import React, {Suspense, lazy, useEffect} from "react";
 import {Navigate, Route, Routes, useLocation} from "react-router-dom";
 import themeConfig from "./styles/ant_theme";
 import {LinearProgress} from "@mui/material";
+import "@ant-design/v5-patch-for-react-19";
 
 const Links = lazy(() => import("./pages/linksPage"));
 
@@ -11,11 +12,11 @@ const ChatRules = lazy(() => import("./pages/chatRules"));
 
 const NotFound = lazy(() => import("./pages/notFound"));
 
-const AEFaQ = lazy(() => import("./pages/aefaqPage"));
+const AEFAQ = lazy(() => import("./pages/aefaqPage"));
 
-const PRFaQ = lazy(() => import("./pages/prfaqPage"));
+const PRFAQ = lazy(() => import("./pages/prfaqPage"));
 
-const PSFaQ = lazy(() => import("./pages/psfaqPage"));
+const PSFAQ = lazy(() => import("./pages/psfaqPage"));
 
 const AEExpressionPage = lazy(() => import("./pages/aeexprfaqPage"));
 
@@ -54,14 +55,13 @@ const ErrorFallback = ({error}: {error: Error}) => (
       style={{maxWidth: "450px", margin: "15px"}}
     >
       <div className="modal-header">
-        <div className="modal-header-title">Произошла ошибка на стороне клиента</div>
+        <div className="modal-header-title">Error: {error.message}</div>
       </div>
       <div className="modal-content">
         <p>
-          Возможно это произошло из-за обновления файлов на сервере. Попробуйте обновить
-          страницу, чтобы загрузить актуальные данные.
+          Скорее всего некоторые файлы изменились на сервере. Обновите страницу, чтобы
+          загрузить актуальные данные.
         </p>
-        <p className="modal-message">Что вызвало ошибку: {error.message}</p>
         <div style={{display: "flex", gap: "10px", margin: "10px"}}>
           <motion.button
             className="modal-open-button"
@@ -200,15 +200,15 @@ export const App = () => {
                 path="/"
               />
               <Route
-                element={<AEFaQ />}
+                element={<AEFAQ />}
                 path="/aefaq"
               />
               <Route
-                element={<PRFaQ />}
+                element={<PRFAQ />}
                 path="/prfaq"
               />
               <Route
-                element={<PSFaQ />}
+                element={<PSFAQ />}
                 path="/psfaq"
               />
               <Route
