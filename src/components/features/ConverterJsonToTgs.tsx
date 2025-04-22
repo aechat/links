@@ -89,15 +89,15 @@ const TgsToJsonConverter = () => {
       }
 
       const buffer = new TextEncoder().encode(jsonString);
-      (pyodide as Pyodide).FS.writeFile("input.json", buffer);
-      await (pyodide as Pyodide).runPythonAsync(`
+      pyodide.FS.writeFile("input.json", buffer);
+      await pyodide.runPythonAsync(`
 import gzip
 with open("input.json", "rb") as f_in:
     with gzip.open("output.tgs", "wb") as f_out:
         f_out.write(f_in.read())
       `);
 
-      const result = (pyodide as Pyodide).FS.readFile("output.tgs");
+      const result = pyodide.FS.readFile("output.tgs");
       blob = new Blob([result], {type: "application/gzip"});
     }
 
@@ -158,7 +158,7 @@ with open("input.json", "rb") as f_in:
         </Radio.Group>
       </div>
 
-      {jsonData && typeof jsonData === "object" && jsonData !== null && (
+      {jsonData && typeof jsonData === "object" && (
         <div
           style={{
             display: "flex",
