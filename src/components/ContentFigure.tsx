@@ -19,9 +19,6 @@ const ImageFigure: React.FC<ImageFigureProps> = ({
   caption,
 }) => {
   const isOpen = useSpoiler();
-  if (!isOpen) {
-    return null;
-  }
 
   const [isFullscreen, setIsFullscreen] = useState(false);
 
@@ -74,6 +71,9 @@ const ImageFigure: React.FC<ImageFigureProps> = ({
       document.removeEventListener("keydown", handleEscKey);
     };
   }, [isFullscreen, handleClose]);
+  if (!isOpen) {
+    return null;
+  }
 
   const content = isWindowsStyle ? (
     <div>
@@ -198,9 +198,6 @@ const ImageFigure: React.FC<ImageFigureProps> = ({
 
 const VideoFigure: React.FC<VideoFigureProps> = ({styleClass, videoSrc, caption}) => {
   const isOpen = useSpoiler();
-  if (!isOpen) {
-    return null;
-  }
 
   const [isFullscreen, setIsFullscreen] = useState(false);
 
@@ -253,6 +250,9 @@ const VideoFigure: React.FC<VideoFigureProps> = ({styleClass, videoSrc, caption}
       document.removeEventListener("keydown", handleEscKey);
     };
   }, [isFullscreen, handleClose]);
+  if (!isOpen) {
+    return null;
+  }
 
   const content = isWindowsStyle ? (
     <div>
@@ -383,11 +383,11 @@ const VideoFigure: React.FC<VideoFigureProps> = ({styleClass, videoSrc, caption}
 
 const YouTubeVideo: React.FC<{link: string; caption: string}> = ({link, caption}) => {
   const isOpen = useSpoiler();
+
+  const id = link.split("/").pop();
   if (!isOpen) {
     return null;
   }
-
-  const id = link.split("/").pop();
 
   return (
     <div className="figure_container">
