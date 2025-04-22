@@ -962,8 +962,8 @@ const PRFromNewbies: React.FC = () => {
         <p>
           Обычно на сайте Adobe в день выхода публичной стабильной версии выкладываются
           основные нововведения. Это сделано для того, чтобы каждый прохожий не спрашивал
-          из каждого угла <mark>&quot;А что обновилось то?&quot;</mark>. Ещё время от
-          времени Adobe выкладывает на сайт список выявленных неполадок и старается
+          из каждого угла <mark className="quote">А что обновилось то?</mark>. Ещё время
+          от времени Adobe выкладывает на сайт список выявленных неполадок и старается
           приложить к ним временное решение.
         </p>
         <div className="flexible-links">
@@ -1102,6 +1102,9 @@ const PRFromNewbies: React.FC = () => {
           caption="Shortcuts for the timeline in Premiere Pro - track targeting"
           link="pzQnzaRm2OY"
         />
+      </DetailsSummary>
+      <DetailsSummary title="Продублировал секвенцию на таймлайне, но копия зависит от оригинала. Как сделать Nest независимыми друг от друга?">
+        <p>{/* опять новые пункты писать ну емае */}</p>
       </DetailsSummary>
       <DetailsSummary title='Чем отличается "Scale to Frame Size" от "Fill Frame" и "Fit to Frame"?'>
         <p>

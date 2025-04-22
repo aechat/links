@@ -33,7 +33,10 @@ const AEErrors: React.FC = () => {
         </ul>
       </AdditionDanger>
       <GithubUpdateInfo filePath="src/pages/sections/aefaq/Errors.tsx" />
-      <DetailsSummary title='Ошибка 23::40, окно "Out of Memory", "After Effects has unexpectedly run out of memory and cannot complete this export" или "Low memory warning. RAM use has been extended for previews"'>
+      <DetailsSummary
+        tag="нехватка озу, оперативная память, не проигрывается предпросмотр, зацикливается превью"
+        title='Ошибка 23::40, окно "Out of Memory", "After Effects has unexpectedly run out of memory and cannot complete this export" или "Low memory warning. RAM use has been extended for previews"'
+      >
         <p>
           Поздравляю, вы встретились с первым боссом в{" "}
           <mark className="app">After Effects</mark>. Эти ошибки и предупреждения
@@ -179,7 +182,10 @@ const AEErrors: React.FC = () => {
           накопитель.
         </AdditionInfo>
       </DetailsSummary>
-      <DetailsSummary title="After Effects has encountered a failure related to GPU-enabled effects from this frame. This is likely because your GPU is out of memory.">
+      <DetailsSummary
+        tag="видеокарта, гпу, нехватает видеопамяти, врам, vram"
+        title="After Effects has encountered a failure related to GPU-enabled effects from this frame. This is likely because your GPU is out of memory."
+      >
         <p>
           Данная ошибка указывает на то, что видеопамять вашей видеокарты заполнена и
           эффект, использующий <mark>GPU-ускорение</mark>, задыхается. Такое часто
@@ -511,7 +517,10 @@ const AEErrors: React.FC = () => {
           }
         />
       </DetailsSummary>
-      <DetailsSummary title='"Cached preview needs 2 or more frames for playback" или почему у меня рендер предпросмотра не завершается до конца и начинает идти по кругу?'>
+      <DetailsSummary
+        tag="требуется 2 или больше кадра для воспроизведения, не проигрывается предпросмотр, зацикливается превью"
+        title='"Cached preview needs 2 or more frames for playback" или почему у меня рендер предпросмотра не завершается до конца и начинает идти по кругу?'
+      >
         <p>
           Данная ошибка может выскочить по двум причинам: из-за банальной невнимательности
           пользователя или из-за переполненного кэша программы и оперативной памяти.
@@ -588,7 +597,10 @@ const AEErrors: React.FC = () => {
           styleClass="figure_windows-dark"
         />
       </DetailsSummary>
-      <DetailsSummary title='"Unable to allocate enough memory to render the current frame (XXXX x XXXX @ X bpc). Either decrease the memory requirements for the rendering frame, or install more RAM" или "Effect cannot allocate a buffer larger than 30000 pixels in either dimension"'>
+      <DetailsSummary
+        tag="нехватка озу, перекрутил, не проигрывается предпросмотр, зацикливается превью"
+        title='"Unable to allocate enough memory to render the current frame (XXXX x XXXX @ X bpc). Either decrease the memory requirements for the rendering frame, or install more RAM" или "Effect cannot allocate a buffer larger than 30000 pixels in either dimension"'
+      >
         <p>
           Эти две ошибки обычно возникают из-за неправильных действий пользователя или
           неумения оптимизировать свой проект. В первой ошибке программе не хватает
@@ -607,7 +619,7 @@ const AEErrors: React.FC = () => {
         </p>
         <ul>
           <li>
-            Попробуйте отключть все эффекты на время, а затем поочерёдно включить их,
+            Попробуйте отключить все эффекты на время, а затем поочерёдно включить их,
             чтобы определить, какой из них вызывает проблему при рендере кадра.
           </li>
           <li>
@@ -647,7 +659,10 @@ const AEErrors: React.FC = () => {
           расширения, чтобы итоговое разрешение слоя оставалось в допустимых пределах.
         </p>
       </DetailsSummary>
-      <DetailsSummary title='"This effect may slow down Preview and Export as it is optimized Multi-Frame Render" при попытке применения эффекта'>
+      <DetailsSummary
+        tag="этот эффект может замедлить предпросмтр и экспорт, так как он не оптимизрован для мультикадрового рендера"
+        title='"This effect may slow down Preview and Export as it is optimized Multi-Frame Render" при попытке применения эффекта'
+      >
         <p>
           Это предупреждение сообщает, что используемый вами плагин не поддерживает
           технологию <mark>Multi-Frame Render</mark>, поскольку его версия ещё не
@@ -1015,7 +1030,10 @@ const AEErrors: React.FC = () => {
           </ul>
         </AdditionInfo>
       </DetailsSummary>
-      <DetailsSummary title="Почему появляется красный или синий экран при использовании Twixtor на слое?">
+      <DetailsSummary
+        tag="твикстор"
+        title="Почему появляется красный или синий экран при использовании Twixtor на слое?"
+      >
         <p>
           Обычно заливка слоя красным или синим цветом может зависеть от кривых действий
           пользователя при использовании <mark className="plugin">Twixtor</mark>.
@@ -1035,7 +1053,10 @@ const AEErrors: React.FC = () => {
           </li>
         </ul>
       </DetailsSummary>
-      <DetailsSummary title='"File is damaged", "Unable to import file (НАЗВАНИЕ_ФАЙЛА.XYZ) as project (bad format or not readable)" или "Error with file"'>
+      <DetailsSummary
+        tag="файл поврежден, невозможно импортировать файл, ошибка файлом, не читается"
+        title='"File is damaged", "Unable to import file (НАЗВАНИЕ_ФАЙЛА.XYZ) as project (bad format or not readable)" или "Error with file"'
+      >
         <p>
           Если вы открыли проект, прекрасно работавший вчера, но вдруг сегодня он перестал
           открываться, то поздравляю. Возможно, вы экстренно завершили процесс с
@@ -1076,7 +1097,10 @@ const AEErrors: React.FC = () => {
           повторить попытку открытия проекта снова.
         </p>
       </DetailsSummary>
-      <DetailsSummary title="Your disk cache folder is on a drive that does not have enough avaiable space to safely store the full amount specified in your preferences. Please make more space available or go to Media & Disk Cache preferences to change the folder or maximium disk cache size">
+      <DetailsSummary
+        tag="дисковый кэш, не хватает места"
+        title="Your disk cache folder is on a drive that does not have enough avaiable space to safely store the full amount specified in your preferences. Please make more space available or go to Media & Disk Cache preferences to change the folder or maximium disk cache size"
+      >
         <p>
           В данном предупреждении буквально написано, что не хватает места на разделе, где
           указано хранение дискового кэша. Для решения этой проблемы просто освободите
@@ -1107,7 +1131,10 @@ const AEErrors: React.FC = () => {
           <mark className="ui">Enable Disk Cache</mark>.
         </p>
       </DetailsSummary>
-      <DetailsSummary title="After Effects error: Disk Cache folder doesn't exist (or isn't a directory), so it will be reset to the system temporary directory. Please check your settings in Media and Disk Cache Preferences">
+      <DetailsSummary
+        tag="дисковый кэш отсутствует"
+        title="After Effects error: Disk Cache folder doesn't exist (or isn't a directory), so it will be reset to the system temporary directory. Please check your settings in Media and Disk Cache Preferences"
+      >
         <AdditionInfo>
           Данное предупреждение не является критической ошибкой, вы можете проигнорировать
           его и работать с программой как прежде.

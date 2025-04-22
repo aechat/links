@@ -420,7 +420,7 @@ const PRImport: React.FC = () => {
         {/* FIXME: сверить с аефакнутым вариантом */}
         <AdditionDanger>
           <mark className="app">Premiere Pro</mark>, к сожалению, даже после установки
-          кодеков HEVC и HEIF/HEIC не сможет импортировать видеофайлы формата{" "}
+          кодеков HEVC и HEIF/HEIC не сможет импортировать видео файлы формата{" "}
           <mark className="file">.hevc</mark>. Такие файлы нужно перекодировать через{" "}
           <mark className="app">Shutter Encoder</mark> в другой кодек или попробуйте
           установить <a href="https://www.autokroma.com/Influx">Autokroma Influx</a> для

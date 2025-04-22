@@ -497,7 +497,10 @@ const AEImport: React.FC = () => {
           <mark className="app">Handbrake</mark>.
         </p>
       </DetailsSummary>
-      <DetailsSummary title="Как импортировать секвенцию из Premiere Pro в композицию After Effects?">
+      <DetailsSummary
+        tag="import premiere pro sequence"
+        title="Как импортировать секвенцию из Premiere Pro в композицию After Effects?"
+      >
         <p>
           Давайте представим, что вы смонтировали видеоролик в{" "}
           <mark className="app">Premiere Pro</mark> и теперь хотите перенести его в{" "}
@@ -542,18 +545,18 @@ const AEImport: React.FC = () => {
         </p>
       </DetailsSummary>
       <DetailsSummary
-        tag="3д, элемент 3д, блендер, объемные модели"
+        tag="3д, элемент 3д, блендер, объемные модели, расширенный 3д, адвансед 3д"
         title="Как я могу импортировать 3D-объекты формата .c4d, .obj или .fbx, .gtlf или .glb в мой проект?"
       >
         <p>
-          В <mark className="app">After Effects</mark> версии <mark>24.1</mark> появился
-          новый движок рендеринга, который позволяет импортировать 3D-объекты без
-          использования сторонних плагинов. На момент написания этого пункта в последней
-          версии можно импортировать <mark className="file">.obj</mark>,{" "}
-          <mark className="file">.fbx</mark>, <mark className="file">.gtlf</mark> и{" "}
-          <mark className="file">.glb</mark>. Такие модели можно создать в любом
-          популярном 3D-редакторе, например <mark className="app">Blender</mark>,{" "}
-          <mark className="app">Cinema 4D</mark> или{" "}
+          В <mark className="app">After Effects</mark> версиях <mark>24.1</mark> и новее
+          появился новый движок рендеринга <mark className="plugin">Advanced 3D</mark>,
+          который позволяет импортировать 3D-объекты без использования сторонних плагинов.
+          На момент написания этого пункта в последней версии можно импортировать{" "}
+          <mark className="file">.obj</mark>, <mark className="file">.fbx</mark>,{" "}
+          <mark className="file">.gtlf</mark> и <mark className="file">.glb</mark>. Такие
+          модели можно создать в любом популярном 3D-редакторе, например{" "}
+          <mark className="app">Blender</mark>, <mark className="app">Cinema 4D</mark> или{" "}
           <mark className="app">Substance Painter 3D</mark>.
         </p>
         <AdditionInfo>
@@ -659,11 +662,11 @@ const AEImport: React.FC = () => {
               <ul>
                 <li>
                   <mark className="app">After Effects</mark> даже после установки кодеков{" "}
-                  <mark className="video">HEVC</mark> не сможет импортировать видеофайлы
+                  <mark className="video">HEVC</mark> не сможет импортировать видео файлы
                   формата <mark className="file">.hevc</mark>.
                 </li>
                 <li>
-                  Для решения проблемы с импортом видеофайлы с расширением{" "}
+                  Для решения проблемы с импортом видео файлы с расширением{" "}
                   <mark className="file">.hevc</mark> лучше всего перекодировать через{" "}
                   <mark className="app">Shutter Encoder</mark> в другой кодек или
                   переименовать файлы в <mark className="file">.mp4</mark>, а затем
