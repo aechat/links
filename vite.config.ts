@@ -10,6 +10,9 @@ export default defineConfig({
       "@": path.resolve(__dirname, "./src"),
     },
   },
+  build: {
+    target: ["es2017", "safari12"],
+  },
   plugins: [
     react(),
     {
