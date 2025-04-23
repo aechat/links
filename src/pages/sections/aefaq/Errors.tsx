@@ -34,7 +34,7 @@ const AEErrors: React.FC = () => {
       </AdditionDanger>
       <GithubUpdateInfo filePath="src/pages/sections/aefaq/Errors.tsx" />
       <DetailsSummary
-        tag="нехватка озу, оперативная память, не проигрывается предпросмотр, зацикливается превью"
+        tag="предупреждение о нехватке памяти, оперативная память, не проигрывается предпросмотр, зацикливается превью"
         title='Ошибка 23::40, окно "Out of Memory", "After Effects has unexpectedly run out of memory and cannot complete this export" или "Low memory warning. RAM use has been extended for previews"'
       >
         <p>
@@ -518,7 +518,7 @@ const AEErrors: React.FC = () => {
         />
       </DetailsSummary>
       <DetailsSummary
-        tag="требуется 2 или больше кадра для воспроизведения, не проигрывается предпросмотр, зацикливается превью"
+        tag="для воспроизведения кэшированного предпросмотра требуется 2 или более кадров, не проигрывается предпросмотр, зацикливается превью"
         title='"Cached preview needs 2 or more frames for playback" или почему у меня рендер предпросмотра не завершается до конца и начинает идти по кругу?'
       >
         <p>
@@ -598,8 +598,8 @@ const AEErrors: React.FC = () => {
         />
       </DetailsSummary>
       <DetailsSummary
-        tag="нехватка озу, перекрутил, не проигрывается предпросмотр, зацикливается превью"
-        title='"Unable to allocate enough memory to render the current frame (XXXX x XXXX @ X bpc). Either decrease the memory requirements for the rendering frame, or install more RAM" или "Effect cannot allocate a buffer larger than 30000 pixels in either dimension"'
+        tag="невозможно выделить для эффекта буфер величиной более 30000 пикс. в любом направлении, нехватка озу, перекрутил, не проигрывается предпросмотр, зацикливается превью, motion tile, мозаика движения"
+        title='"Unable to allocate enough memory to render the current frame (XXXX x XXXX @ X bpc). Either decrease the memory requirements for the rendering frame, or install more RAM" или "Effect cannot allocate a buffer larger than 30000 pixels in either dimension (25::56)"'
       >
         <p>
           Эти две ошибки обычно возникают из-за неправильных действий пользователя или
@@ -660,7 +660,7 @@ const AEErrors: React.FC = () => {
         </p>
       </DetailsSummary>
       <DetailsSummary
-        tag="этот эффект может замедлить предпросмтр и экспорт, так как он не оптимизрован для мультикадрового рендера"
+        tag="этот эффект может замедлить предпросмтр и экспорт так как он не оптимизрован для мультикадрового рендера"
         title='"This effect may slow down Preview and Export as it is optimized Multi-Frame Render" при попытке применения эффекта'
       >
         <p>
@@ -693,7 +693,7 @@ const AEErrors: React.FC = () => {
       </DetailsSummary>
       <DetailsSummary
         tag="этот проект содержит ошибки выражений"
-        title="This project contains an expression error"
+        title='"This project contains an expression error"'
       >
         <p>
           Чаще всего данная ошибка возникает из-за двух факторов: язык самого{" "}
@@ -1054,7 +1054,7 @@ const AEErrors: React.FC = () => {
         </ul>
       </DetailsSummary>
       <DetailsSummary
-        tag="файл поврежден, невозможно импортировать файл, ошибка файлом, не читается"
+        tag="файл поврежден, невозможно импортировать файл, ошибка с файлом, не читается"
         title='"File is damaged", "Unable to import file (НАЗВАНИЕ_ФАЙЛА.XYZ) as project (bad format or not readable)" или "Error with file"'
       >
         <p>
@@ -1220,7 +1220,10 @@ const AEErrors: React.FC = () => {
           </li>
         </ul>
       </DetailsSummary>
-      <DetailsSummary title='"Frame rate mismatch, or footage with fields found. For best Roto Brush & Refine Edge results, set the composition to XX fps to match the layer source" при использовании Rotobrush'>
+      <DetailsSummary
+        tag='Несоответствие частоты кадров либо не найден видеоряд с полями. Для достижения оптимального результата операций "Кисть для ротоскопии" и "Уточнить края" необходимо задать частоту кадров композиции XX в соответствии с источником слоя'
+        title='"Frame rate mismatch, or footage with fields found. For best Roto Brush & Refine Edge results, set the composition to XX fps to match the layer source" при использовании Rotobrush'
+      >
         <p>
           Данное предупреждение показывается при использовании инструмента{" "}
           <mark className="plugin">Rotobrush</mark> и оповещает пользователя о том, что
@@ -1258,7 +1261,10 @@ const AEErrors: React.FC = () => {
           </li>
         </ul>
       </DetailsSummary>
-      <DetailsSummary title='"Content Aware Fill Error: Initialization Failed"'>
+      <DetailsSummary
+        tag="ошибка инициализации заливки с учетом содержимого"
+        title='"Content Aware Fill Error: Initialization Failed"'
+      >
         <p>
           Данная ошибка может вылезти по совершенно разным причинам. Одна из них -
           кириллица в пути к <mark className="file">.aep</mark> файлу, в названии
@@ -1446,7 +1452,10 @@ const AEErrors: React.FC = () => {
           <mark className="ui">3D Renderer</mark>.
         </p>
       </DetailsSummary>
-      <DetailsSummary title="Ошибка при запуске приложения 0xc0000142">
+      <DetailsSummary
+        tag="неподдерживаемое устройство, авх2"
+        title="Ошибка при запуске приложения 0xc0000142"
+      >
         <p>
           Скорее всего вы пытаетесь запустить приложение на устройстве с процессором без
           поддержки инструкций <mark>AVX2</mark>. В{" "}
@@ -1482,7 +1491,10 @@ const AEErrors: React.FC = () => {
           устройство.
         </AdditionInfo>
       </DetailsSummary>
-      <DetailsSummary title="Ошибка про отсутствие MSVCP140.dll, api-ms-win-crt-runtime-l1-1-0.dll или аналогичные">
+      <DetailsSummary
+        tag="отсутствует visual c++"
+        title="Ошибки про отсутствие MSVCP140.dll, api-ms-win-crt-runtime-l1-1-0.dll или аналогичные"
+      >
         <p>
           Скорее всего вы забыли установить или обновить пакеты{" "}
           <a href="https://github.com/abbodi1406/vcredist/releases/">
@@ -1498,7 +1510,10 @@ const AEErrors: React.FC = () => {
           последней версии, хотя бы до <mark>Windows 10</mark> версии <mark>22H2</mark>.
         </p>
       </DetailsSummary>
-      <DetailsSummary title='"Точка входа в процедуру не найдена в библиотеке Kernel32.dll", "Couldn not find entry point main entry point for XXXXX.aex (48::72)" или я не могу запустить программу, хотя пакеты Visual C++ Redistributable установлены'>
+      <DetailsSummary
+        tag="запуск новых версий программ на старых версиях windows 7 и 8.1"
+        title='"Точка входа в процедуру не найдена в библиотеке Kernel32.dll", "Couldn not find entry point main entry point for XXXXX.aex (48::72)" или я не могу запустить программу, хотя пакеты Visual C++ Redistributable установлены'
+      >
         <p>
           Скорее всего пытаетесь запустить <mark className="app">After Effects</mark> на
           неподдерживаемой операционной системе. Такое бывает, когда{" "}
@@ -1540,7 +1555,10 @@ const AEErrors: React.FC = () => {
           <mark className="path">C:\Program Files\Adobe\Adobe After Effects 20XX</mark>.
         </p>
       </DetailsSummary>
-      <DetailsSummary title="After Effects warning: A rendering plug-in was not found. The default rendering plug-in will be substituted. “Ray-Traced 3D”">
+      <DetailsSummary
+        tag="отсутствует рейтрейсед 3д"
+        title="After Effects warning: A rendering plug-in was not found. The default rendering plug-in will be substituted. “Ray-Traced 3D”"
+      >
         <p>
           Данное предупреждение появляется, когда вы пытаетесь открыть очень старый проект
           с использованием движка <mark className="plugin">Ray-Traced 3D</mark> в новых
@@ -1554,7 +1572,10 @@ const AEErrors: React.FC = () => {
           версии 2019 года или старше, в котором этот движок доживал последние дни.
         </p>
       </DetailsSummary>
-      <DetailsSummary title='"Warning: This project uses fonts that are not currently available on this computer. Font substitution will occur until the originals become available" при открытии проекта'>
+      <DetailsSummary
+        tag="предупреждение, в данном проекте используются шрифты которые в настоящий момент недоступны на этом компьютере, замена шрифтов будет выполняться до тех пор пока не станут доступны исходные шрифты"
+        title='"Warning: This project uses fonts that are not currently available on this computer. Font substitution will occur until the originals become available" при открытии проекта'
+      >
         <AdditionInfo>
           <ul>
             <li>Это окно является предупреждением, а не ошибкой.</li>
@@ -1593,7 +1614,10 @@ const AEErrors: React.FC = () => {
           использовать.
         </p>
       </DetailsSummary>
-      <DetailsSummary title='"This project contains references to missing effects. Please install the following effects to restore these references" при открытии проекта'>
+      <DetailsSummary
+        tag="данный проект содержит сылку на отсутствующий эффект, установите следующий эффект чтобы восстановить эту ссылку"
+        title='"This project contains references to missing effects. Please install the following effects to restore these references" при открытии проекта'
+      >
         <p>
           Данное предупреждение указывает на то, что у вас не установлены какие-то
           эффекты, которые используются в проекте. Вы можете продолжить работу с проектом,
@@ -1636,7 +1660,10 @@ const AEErrors: React.FC = () => {
           <mark>Red Giant</mark> и прочих компаний.
         </p>
       </DetailsSummary>
-      <DetailsSummary title='"After Effects warning: The following plugins have failed to load. Please reinstall these plugins" при запуске программы или "After Effects Error: This effect cannot be applied because it cannot be initialized. Try reinstalling or contacting the plug-in developer (25::3)" при применении эффекта'>
+      <DetailsSummary
+        tag="предупреждение, сбой загрузки следующих подключаемых модулей, переустановите эти модули, ошибка, невозможно применить эффект, не удалось выполнить его инициализацию, попытайтесь переустановить подключаемый модуль или обратитесь к его разработчику"
+        title='"After Effects warning: The following plugins have failed to load. Please reinstall these plugins" при запуске программы или "After Effects Error: This effect cannot be applied because it cannot be initialized. Try reinstalling or contacting the plug-in developer (25::3)" при применении эффекта'
+      >
         <p>
           Данные предупреждения и ошибки могут появиться по разным причинам: битые пакеты
           файлов, несвежая система или отсутствие текущей поддержки плагинов программой.
@@ -1691,7 +1718,10 @@ const AEErrors: React.FC = () => {
           </li>
         </ul>
       </DetailsSummary>
-      <DetailsSummary title="After Effects warning: there are duplicated effect plug-ins installed on your drive. To avoid problems, quit After Effects and move or delete the older or unneeded version">
+      <DetailsSummary
+        tag="предупреждение, на диске существует копия подключаемого модуля эффекта, во избежание конфликтов закройте After Effects после чего удалите или переместите более раннюю или ненужную версию"
+        title="After Effects warning: there are duplicated effect plug-ins installed on your drive. To avoid problems, quit After Effects and move or delete the older or unneeded version"
+      >
         <p>
           Данное предупреждение показывает, что вы установили одинаковые плагины, но в
           разных местах. <mark className="app">After Effects</mark> рекомендует удалить
@@ -1708,25 +1738,6 @@ const AEErrors: React.FC = () => {
           файл, предварительно закрыв <mark className="app">After Effects</mark>. После
           удаления плагина вы больше не будете сталкиваться с данным предупреждением при
           открытии программы.
-        </p>
-      </DetailsSummary>
-      <DetailsSummary title='"Приложение Adobe Creative Cloud, необходимое для устранения проблемы отсутствует или повреждено..." при запуске программы'>
-        <p>
-          Вы зачем-то установили приложение <mark className="app">Creative Cloud</mark>{" "}
-          рядом с пиратскими программами, у которых вырезан модуль{" "}
-          <mark className="app">Creative Cloud</mark>. А потом само приложение{" "}
-          <mark className="app">Creative Cloud</mark> удалили, оставив за собой
-          нежелательные хвосты.
-        </p>
-        <p>
-          Решение довольно простое - снесите приложения и поставьте их заново, чтобы
-          лишние зависимости программ от <mark className="app">Creative Cloud</mark>{" "}
-          почистились. Да, вы не ослышались. Для очистки системы от некоторых или всех
-          программ от Adobe можно воспользоваться консольной утилитой{" "}
-          <a href="https://helpx.adobe.com/ru/creative-cloud/kb/cc-cleaner-tool-installation-problems.html">
-            Adobe Creative Cloud Cleaner
-          </a>
-          .
         </p>
       </DetailsSummary>
       <DetailsSummary title="Вылетает Adobe Media Encoder после установки плагинов Boris FX Sapphire">
@@ -1758,6 +1769,26 @@ const AEErrors: React.FC = () => {
           до последних версий.
         </p>
       </DetailsSummary>
+      <DetailsSummary title='"Приложение Adobe Creative Cloud, необходимое для устранения проблемы отсутствует или повреждено..." при запуске программы'>
+        <p>
+          Вы зачем-то установили приложение <mark className="app">Creative Cloud</mark>{" "}
+          рядом с пиратскими программами, у которых вырезан модуль{" "}
+          <mark className="app">Creative Cloud</mark>. А потом само приложение{" "}
+          <mark className="app">Creative Cloud</mark> удалили, оставив за собой
+          нежелательные хвосты.
+        </p>
+        <p>
+          Решение довольно простое - снесите приложения и поставьте их заново, чтобы
+          лишние зависимости программ от <mark className="app">Creative Cloud</mark>{" "}
+          почистились. Да, вы не ослышались. Для очистки системы от некоторых или всех
+          программ от Adobe можно воспользоваться консольной утилитой{" "}
+          <a href="https://helpx.adobe.com/ru/creative-cloud/kb/cc-cleaner-tool-installation-problems.html">
+            Adobe Creative Cloud Cleaner
+          </a>
+          .
+        </p>
+      </DetailsSummary>
+
       <DetailsSummary
         tag="cti stuck, плейхед зависает, не работает зум"
         title="Почему метка воспроизведения на таймлайне иногда останавливается?"

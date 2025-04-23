@@ -929,7 +929,10 @@ const AEImport: React.FC = () => {
           будет зависеть от самого стикера.
         </p>
       </DetailsSummary>
-      <DetailsSummary title='"This project must be converted from version XX.X.X (Windows/macOS). The original file will be unchanged" при открытии проекта'>
+      <DetailsSummary
+        tag="требуется преобразовать данный проект из версии XX.X.X (Windows/macOS). исходный файл останется без изменений"
+        title='"This project must be converted from version XX.X.X (Windows/macOS). The original file will be unchanged" при открытии проекта'
+      >
         <p>
           Данное сообщение указывает на то, что вы открыли проект, который был создан в
           более ранней версии <mark className="app">After Effects</mark> в более свежей
