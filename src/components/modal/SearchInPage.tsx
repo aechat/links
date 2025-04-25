@@ -230,7 +230,17 @@ export const SearchInPage: React.FC<{sections: Array<{id: string; title: string}
 
         const headerKey = headers.join("|");
 
-        const allRows = Array.from(table.querySelectorAll("tr"));
+        const allRows = Array.from(table.querySelectorAll("tr")).filter((row) => {
+          let parent = row.parentElement;
+          while (parent) {
+            if (parent.tagName.toLowerCase() === "thead") {
+              return false;
+            }
+            parent = parent.parentElement;
+          }
+
+          return true;
+        });
 
         const excludedColumns = Array.from(table.querySelectorAll("th"))
           .map((th, index) =>
