@@ -17,8 +17,7 @@ const ContentSwitcher: React.FC<ContentSwitcherProps> = ({
     if (
       userAgent.includes("mac") ||
       userAgent.includes("iphone") ||
-      userAgent.includes("ipad") ||
-      userAgent.includes("apple")
+      userAgent.includes("ipad")
     ) {
       setIsWindows(false);
     } else {
