@@ -4,7 +4,6 @@ import React, {Suspense, lazy, useEffect} from "react";
 import {Navigate, Route, Routes, useLocation} from "react-router-dom";
 import themeConfig from "./styles/ant_theme";
 import {LinearProgress} from "@mui/material";
-import "@ant-design/v5-patch-for-react-19";
 
 const Links = lazy(() => import("./pages/linksPage"));
 
