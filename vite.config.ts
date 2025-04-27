@@ -36,7 +36,14 @@ export default defineConfig({
     postcss: {
       plugins: [
         autoprefixer({
-          overrideBrowserslist: ["last 2 versions", "> 1%", "not dead"],
+          overrideBrowserslist: [
+            ">0.2%",
+            "not dead",
+            "not op_mini all",
+            "last 1 chrome version",
+            "last 1 firefox version",
+            "last 2 safari version",
+          ],
           grid: true,
         }),
       ],
