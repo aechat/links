@@ -598,7 +598,7 @@ const AEErrors: React.FC = () => {
         />
       </DetailsSummary>
       <DetailsSummary
-        tag="невозможно выделить для эффекта буфер величиной более 30000 пикс. в любом направлении, нехватка озу, перекрутил, не проигрывается предпросмотр, зацикливается превью, motion tile, мозаика движения"
+        tag="выделенный объем памяти превышает внутреннее ограничение, рекомендуется снизить требования к памяти для рендеринга этого кадра, невозможно выделить для эффекта буфер величиной более 30000 пикс. в любом направлении, нехватка озу, перекрутил, не проигрывается предпросмотр, зацикливается превью, motion tile, мозаика движения"
         title='"Unable to allocate enough memory to render the current frame (XXXX x XXXX @ X bpc). Either decrease the memory requirements for the rendering frame, or install more RAM" или "Effect cannot allocate a buffer larger than 30000 pixels in either dimension (25::56)"'
       >
         <p>
