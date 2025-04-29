@@ -355,29 +355,23 @@ const PRActions: React.FC = () => {
           imgTitle="Создание субтитров на основе генерации текста"
           styleClass="figure_windows-dark"
         />
-        <Divider>Делаем субтитры через Subtitle Edit</Divider>
+        <Divider>Генерируем речь в текст с помощью Subtitle Edit</Divider>
         <AdditionWarning>
-          Демонстрируемая версия <mark className="app">Subtitle Edit</mark> доступна
-          только для устройств на <mark>Windows</mark>, увы. Пользователи других
-          операционных систем могут воспользоваться любыми другими сервисами и
-          программами, которые работают с технологией Whisper и позволяют выводить
-          субтитры в <mark className="file">.srt</mark>.
+          Демонстрируемая программа <mark className="app">Subtitle Edit</mark> для
+          редактирования и генерации субтитров доступна только для устройств на{" "}
+          <mark>Windows</mark>. Пользователи устройств на <mark>macOS</mark> могут
+          воспользоваться альтернативами в виде <mark className="app">MacWhisper</mark>{" "}
+          или <mark className="app">Tero Subtitler</mark>.
         </AdditionWarning>
         <p>
-          Предположим, что нам не понравился результат расшифровки средствами{" "}
-          <mark className="app">Premiere Pro</mark>, и нам нужна альтернатива. А какие
-          есть? Их на самом деле достаточно много, но чаще всего основаны на одной и той
-          же базе. Из тонны подобных инструментов я расскажу об одном универсальном -{" "}
-          <mark className="app">Subtitle Edit</mark>. Его можно загрузить{" "}
+          Для начала вам необходимо загрузить <mark className="app">Subtitle Edit</mark>{" "}
+          из{" "}
           <a href="https://github.com/SubtitleEdit/subtitleedit/releases">
-            на странице релизов в GitHub
+            страницы релизов на GitHub
           </a>
-          .
-        </p>
-        <p>
-          После того как вы загрузили, установили и открыли программу, нам нужно открыть в
-          ней видео или аудио файл. Просто перетащите его в правый нижний угол окна
-          программы.
+          , а затем установить программу как обычно. После открытия{" "}
+          <mark className="app">Whisper</mark> нам нужно открыть в ней видео или аудио -
+          для этого просто перетащите файл в правый нижний угол окна программы.
         </p>
         <ImageFigure
           caption="Subtitle Edit"
@@ -392,26 +386,44 @@ const PRActions: React.FC = () => {
           сделать в <mark className="ui">Options &gt; Settings &gt; Video Player</mark>.
         </AdditionInfo>
         <p>
-          Затем нам нужно перейти в{" "}
-          <mark className="ui">Video &gt; Audio to text (Whisper)</mark>. Нас попросят
-          скачать <mark className="ui">Whisper.cpp</mark>, но мы откажемся от его
-          скачивания, как-то кривовато он у меня работает. Поэтому нам нужно загрузить
-          альтернативный движок Whisper для распознавания речи -{" "}
-          <mark>Purfview&apos;s Faster Whisper</mark>. Для этого в окне в пункте{" "}
-          <mark className="ui">Engine</mark> выберите пункт{" "}
-          <mark className="ui">Purfview&apos;s Faster Whisper</mark> и соглашаемся на
-          загрузку.
+          Затем перейдите в <mark className="ui">Video</mark> и выберите пункт{" "}
+          <mark className="ui">Audio to text (Whisper)</mark> или{" "}
+          <mark className="ui">Audio to text (Vosk/Kaldi)</mark>. В этом пункте будет
+          рассматриваться генерация через <mark>Whisper</mark>. После открытия окна вас
+          попросят установить <mark className="app">FFmpeg</mark>, а затем{" "}
+          <mark>Purfview&apos;s Faster Whisper XXL</mark>, с чем нужно согласиться.
         </p>
-        <AdditionInfo>
-          Если вы сталкиваетесь с проблемами при загрузке - попробуйте использовать{" "}
-          <mark className="app">VPN</mark>.
-        </AdditionInfo>
         <ImageFigure
           caption="Subtitle Edit"
-          imgSrc="images/subtitle_edit_change_engine.png"
-          imgTitle="Изменение движка распознавания речи"
+          imgSrc="images/subtitle_edit_video_audio-to-text.png"
+          imgTitle="Функция для генерации субтитров"
           styleClass="figure_windows-light"
         />
+        <AdditionInfo>
+          <ul>
+            <li>
+              Если вы сталкиваетесь с проблемами при загрузке - попробуйте использовать{" "}
+              <mark className="app">VPN</mark>.
+            </li>
+            <li>
+              Если после установки программа предложит скачать{" "}
+              <mark className="ui">Whisper.cpp</mark> - лучше отказаться от его
+              скачивания, нажав <mark className="ui">No</mark> в диалоговом окне, так как
+              он кривовато работает. После отказа нужно загрузить альтернативный движок{" "}
+              <mark>Whisper</mark> для распознавания речи -{" "}
+              <mark>Purfview&apos;s Faster Whisper</mark>. Для этого в окне в пункте{" "}
+              <mark className="ui">Engine</mark> выберите пункт{" "}
+              <mark className="ui">Purfview&apos;s Faster Whisper</mark> и подтвердите
+              загрузку.
+              <ImageFigure
+                caption="Subtitle Edit"
+                imgSrc="images/subtitle_edit_change_engine.png"
+                imgTitle="Изменение движка распознавания речи"
+                styleClass="figure_windows-light"
+              />
+            </li>
+          </ul>
+        </AdditionInfo>
         <p>
           Далее нам нужно скачать сам языковой пакет. Для этого рядом с{" "}
           <mark className="ui">Choose Model</mark> нажмите на три точки. В открывшемся
@@ -420,8 +432,9 @@ const PRActions: React.FC = () => {
           относительно хорошей точностью.
         </p>
         <AdditionInfo>
-          Чем меньше весит модель, тем менее точным может быть распознавание, но требует
-          меньше ресурсов вашего устройства для вычисления. Так и наоборот.
+          Чем меньше весит модель, тем быстрее она работает, но при этом может ухудшаться
+          точность распознавания речи. Также скорость работы транскрибации зависит от
+          мощности вашей видеокарты и скорости чтения жёсткого диска.
         </AdditionInfo>
         <ImageFigure
           caption="Subtitle Edit"
@@ -430,35 +443,26 @@ const PRActions: React.FC = () => {
           styleClass="figure_windows-light"
         />
         <p>
-          После успешной загрузки модели выберите язык, на котором основан ваш аудио и
-          нажмите на <mark className="ui">Generate</mark>. Начнётся генерация текста из
-          речи.
+          Когда модель будет загружена, выберите язык вашего аудио и нажмите{" "}
+          <mark className="ui">Generate</mark> - это запустит процесс преобразования речи
+          в текст.
         </p>
-        <AdditionInfo>
-          Скорость транскрибации речи в текст зависит от мощности вашей видеокарты и
-          скорости чтения жёсткого диска.
-        </AdditionInfo>
         <ImageFigure
           caption="Subtitle Edit"
           imgSrc="images/subtitle_edit_change_language_generate.png"
           imgTitle="Изменение языка и начало генерации текста из речи"
           styleClass="figure_windows-light"
         />
-        <AdditionInfo>
-          Если результат от <mark>Whisper</mark> вас не устраивает, то попробуйте выбрать{" "}
-          <mark className="ui">Audio to text (Vosk/Kaldi)</mark> вместо{" "}
-          <mark className="ui">Audio to text (Whisper)</mark> и начать транскрипцию
-          аналогичным образом.
-        </AdditionInfo>
         <p>
-          После генерации вы можете отредактировать сгенерированные субтитры в самой
-          программе или сразу сохранить их в формате <mark className="file">.srt</mark>{" "}
-          для дальнейшей обработки в <mark className="app">Premiere Pro</mark>. Сохранить
-          ваши субтитры можно с помощью комбинации клавиш{" "}
-          <mark className="key">Ctrl + S</mark>. В открывшемся окне укажите название
-          файла, путь для сохранения и, при необходимости, формат файла{" "}
-          <mark className="file">.srt</mark>.
+          После генерации вы можете отредактировать сгенерированные субтитры в{" "}
+          <mark className="app">Subtitle Edit</mark> или сразу сохранить их в формате{" "}
+          <mark className="file">.srt</mark> для дальнейшей обработки в{" "}
+          <mark className="app">After Effects</mark>. Сохранить ваши субтитры можно с
+          помощью комбинации клавиш <mark className="key">Ctrl + S</mark>. В открывшемся
+          окне для сохранения файла - укажите название файла, путь для сохранения и, при
+          необходимости, формат файла <mark className="file">.srt</mark>.
         </p>
+        <Divider>Импортируем файл субтитров в секвенцию</Divider>
         <p>
           После сохранения файла нам нужно перейти обратно в{" "}
           <mark className="app">Premiere Pro</mark>. В программе нужно вернуться к окну{" "}
