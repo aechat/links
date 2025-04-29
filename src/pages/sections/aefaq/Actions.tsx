@@ -449,6 +449,193 @@ const AEActions: React.FC = () => {
         />
       </DetailsSummary>
       <DetailsSummary
+        tag="транскрибация, виспер, whisper, speech to text, речь в текст, субтитры"
+        title="Как сгенерировать автоматические субтитры из речи и применить их в мою композицию?"
+      >
+        <p>
+          В наше время популярности вертикальных видео, таких как{" "}
+          <mark className="word">Reels</mark>, <mark className="word">Shorts</mark> или{" "}
+          <mark className="word">тиктоки</mark>, у пользователей{" "}
+          <mark className="app">After Effects</mark> часто возникает вопрос -{" "}
+          <mark className="quote">
+            как сделать автоматические субтитры, если я не хочу лезть в Premiere Pro?
+          </mark>
+          . В <mark className="app">After Effects</mark>, к сожалению, нет нативной
+          возможности генерировать текст из речи, а также нельзя импортировать{" "}
+          <mark className="file">.srt</mark> файлы без танцев с бубнами. В этом пункте мы
+          воспользуемся сторонними средствами для решения этой задачи.
+        </p>
+        <Divider>Генерируем речь в текст с помощью Subtitle Edit</Divider>
+        <AdditionWarning>
+          Демонстрируемая программа <mark className="app">Subtitle Edit</mark> для
+          редактирования и генерации субтитров доступна только для устройств на{" "}
+          <mark>Windows</mark>. Пользователи устройств на <mark>macOS</mark> могут
+          воспользоваться альтернативами в виде <mark className="app">MacWhisper</mark>{" "}
+          или <mark className="app">Tero Subtitler</mark>.
+        </AdditionWarning>
+        <p>
+          Для начала вам необходимо загрузить <mark className="app">Subtitle Edit</mark>{" "}
+          из{" "}
+          <a href="https://github.com/SubtitleEdit/subtitleedit/releases">
+            страницы релизов на GitHub
+          </a>
+          , а затем установить программу как обычно. После открытия{" "}
+          <mark className="app">Whisper</mark> нам нужно открыть в ней видео или аудио -
+          для этого просто перетащите файл в правый нижний угол окна программы.
+        </p>
+        <ImageFigure
+          caption="Subtitle Edit"
+          imgSrc="images/subtitle_edit_import.png"
+          imgTitle="Импорт видео или аудио в Subtitle Edit"
+          styleClass="figure_windows-light"
+        />
+        <AdditionInfo>
+          Если у вас установлен <mark className="app">MPC-HC</mark> или{" "}
+          <mark className="app">VLC</mark>, то рекомендую установить этот проигрыватель в
+          программе <mark className="app">Subtitle Edit</mark> как стандартный. Это можно
+          сделать в <mark className="ui">Options &gt; Settings &gt; Video Player</mark>.
+        </AdditionInfo>
+        <p>
+          Затем перейдите в <mark className="ui">Video</mark> и выберите пункт{" "}
+          <mark className="ui">Audio to text (Whisper)</mark> или{" "}
+          <mark className="ui">Audio to text (Vosk/Kaldi)</mark>. В этом пункте будет
+          рассматриваться генерация через <mark>Whisper</mark>. После открытия окна вас
+          попросят установить <mark className="app">FFmpeg</mark>, а затем{" "}
+          <mark>Purfview&apos;s Faster Whisper XXL</mark>, с чем нужно согласиться.
+        </p>
+        <ImageFigure
+          caption="Subtitle Edit"
+          imgSrc="images/subtitle_edit_video_audio-to-text.png"
+          imgTitle="Функция для генерации субтитров"
+          styleClass="figure_windows-light"
+        />
+        <AdditionInfo>
+          <ul>
+            <li>
+              Если вы сталкиваетесь с проблемами при загрузке - попробуйте использовать{" "}
+              <mark className="app">VPN</mark>.
+            </li>
+            <li>
+              Если после установки программа предложит скачать{" "}
+              <mark className="ui">Whisper.cpp</mark> - лучше отказаться от его
+              скачивания, нажав <mark className="ui">No</mark> в диалоговом окне, так как
+              он кривовато работает. После отказа нужно загрузить альтернативный движок{" "}
+              <mark>Whisper</mark> для распознавания речи -{" "}
+              <mark>Purfview&apos;s Faster Whisper</mark>. Для этого в окне в пункте{" "}
+              <mark className="ui">Engine</mark> выберите пункт{" "}
+              <mark className="ui">Purfview&apos;s Faster Whisper</mark> и подтвердите
+              загрузку.
+              <ImageFigure
+                caption="Subtitle Edit"
+                imgSrc="images/subtitle_edit_change_engine.png"
+                imgTitle="Изменение движка распознавания речи"
+                styleClass="figure_windows-light"
+              />
+            </li>
+          </ul>
+        </AdditionInfo>
+        <p>
+          Далее нам нужно скачать сам языковой пакет. Для этого рядом с{" "}
+          <mark className="ui">Choose Model</mark> нажмите на три точки. В открывшемся
+          окне вы можете выбрать любую модель, например <mark>large-v3</mark> или{" "}
+          <mark>large-v2</mark>, чтобы вы могли перевести русскоязычную речь в текст с
+          относительно хорошей точностью.
+        </p>
+        <AdditionInfo>
+          Чем меньше весит модель, тем быстрее она работает, но при этом может ухудшаться
+          точность распознавания речи. Также скорость работы транскрибации зависит от
+          мощности вашей видеокарты и скорости чтения жёсткого диска.
+        </AdditionInfo>
+        <ImageFigure
+          caption="Subtitle Edit"
+          imgSrc="images/subtitle_edit_download_models.png"
+          imgTitle="Загрузка моделей распознавания речи"
+          styleClass="figure_windows-light"
+        />
+        <p>
+          Когда модель будет загружена, выберите язык вашего аудио и нажмите{" "}
+          <mark className="ui">Generate</mark> - это запустит процесс преобразования речи
+          в текст.
+        </p>
+        <ImageFigure
+          caption="Subtitle Edit"
+          imgSrc="images/subtitle_edit_change_language_generate.png"
+          imgTitle="Изменение языка и начало генерации текста из речи"
+          styleClass="figure_windows-light"
+        />
+        <p>
+          После генерации вы можете отредактировать сгенерированные субтитры в{" "}
+          <mark className="app">Subtitle Edit</mark> или сразу сохранить их в формате{" "}
+          <mark className="file">.srt</mark> для дальнейшей обработки в{" "}
+          <mark className="app">After Effects</mark>. Сохранить ваши субтитры можно с
+          помощью комбинации клавиш <mark className="key">Ctrl + S</mark>. В открывшемся
+          окне для сохранения файла - укажите название файла, путь для сохранения и, при
+          необходимости, формат файла <mark className="file">.srt</mark>.
+        </p>
+        <Divider>Импортируем файл субтитров в композицию</Divider>
+        <p>
+          После того как вы сохранили и получили <mark className="file">.srt</mark> файл -
+          его нужно импортировать в <mark className="app">After Effects</mark>. Как
+          сказано в начале - стандартными средствами{" "}
+          <mark className="app">After Effects</mark> такой файл субтитров вы не сможете
+          импортировать, но никто не запрещал использовать сторонние способы. Для этого
+          нам понадобится стороннее расширение{" "}
+          <a href="https://aescripts.com/subtitle-pro/">Subtitle Pro</a>, с помощью
+          которого можно импортировать <mark className="file">.srt</mark> файлы как
+          текстовые слои в композицию <mark className="app">After Effects</mark>. Если вы
+          корректно установили <mark className="plugin">Subtitle Pro</mark>, то он должен
+          появиться в <mark className="ui">Window &gt; Extensions</mark>.
+        </p>
+        <AdditionWarning>
+          Для корректной работы расширения рекомендуется установить чекбокс у пункта{" "}
+          <mark className="ui">Allow Scripts to Write Files and Access Network</mark> в
+          настройках <mark className="app">After Effects</mark> -{" "}
+          <mark className="ui">Edit &gt; Preferences &gt; Scripting & Expressions</mark>.
+        </AdditionWarning>
+        <ImageFigure
+          caption="After Effects"
+          imgSrc="images/aftereffects/subtitlepro_opening.png"
+          imgTitle="Открытие расширения Subtitle Pro"
+          styleClass="figure_windows-light"
+        />
+        <p>
+          В открывшемся окне расширения <mark className="plugin">Subtitle Pro</mark>{" "}
+          нажмите на <mark className="ui">Import</mark> и выберите{" "}
+          <mark className="file">.srt</mark>, который вы ранее сохранили. Затем откройте
+          или выберите в <mark className="ui">Project</mark> нужную композицию, куда вы
+          хотите применить субтитры и нажмите на <mark className="ui">Apply</mark>.
+        </p>
+        <ImageFigure
+          caption="Subtitle Pro"
+          imgSrc="images/aftereffects/subtitlepro_import_apply.png"
+          imgTitle="Импорт и применение импортированных субтитров"
+          styleClass="figure_windows-dark"
+        />
+        <p>
+          После нажатия на <mark className="ui">Apply</mark> вам предложат применить
+          различные стили для ваших субтитров. Но к сожалению - не все стили могут
+          работать корректно, поэтому рекомендую выбрать{" "}
+          <mark className="ui">Classic 01</mark>. В любом случае вы можете позже изменить
+          слой на свой лад.
+        </p>
+        <ImageFigure
+          caption="Subtitle Pro"
+          imgSrc="images/aftereffects/subtitlepro_select_style.png"
+          imgTitle="Выбор стиля субтитров"
+          styleClass="figure_windows-light"
+        />
+        <p>
+          После применения в вашей композиции появятся несколько новых слоёв. Контент для
+          субтитров хранится в маркерах, поэтому вы можете изменить текст, нажав два раза
+          по нему, а также передвинуть и указать точку начала и конца вашего текста.
+        </p>
+        <VideoFigure
+          caption="After Effects"
+          styleClass="figure_windows-dark"
+          videoSrc="images/aftereffects/edit_subtitlepro_text.mp4"
+        />
+      </DetailsSummary>
+      <DetailsSummary
         tag="кеинг, клинап, убрать фон, keying, зеленый фон, бекграунд зелёнка, синий бэкграунд"
         title="Как и чем можно отделить объект от однотонного фона?"
       >
