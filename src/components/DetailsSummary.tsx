@@ -32,33 +32,25 @@ export const generateAnchorId = () => {
         if (details && !details.hasAttribute("data-anchor-processed")) {
           details.setAttribute("open", "true");
           details.setAttribute("data-anchor-processed", "true");
-          setTimeout(() => {
-            const headerHeight = document.querySelector("header")?.offsetHeight ?? 0;
 
-            const padding = Math.min(
-              10 + (14 - 10) * ((window.innerWidth - 320) / (768 - 320)),
-              14
-            );
+          const headerHeight = document.querySelector("header")?.offsetHeight ?? 0;
 
-            const content = details.querySelector(".faq-section");
-            if (content) {
+          const padding = Math.min(
+            10 + (14 - 10) * ((window.innerWidth - 320) / (768 - 320)),
+            14
+          );
+
+          const content = details.querySelector(".faq-section");
+          if (content) {
+            setTimeout(() => {
               const y =
                 summary.getBoundingClientRect().top +
                 window.pageYOffset -
                 headerHeight -
                 padding;
               window.scrollTo({top: y, behavior: "smooth"});
-            } else {
-              setTimeout(() => {
-                const y =
-                  summary.getBoundingClientRect().top +
-                  window.pageYOffset -
-                  headerHeight -
-                  padding;
-                window.scrollTo({top: y, behavior: "smooth"});
-              }, 100);
-            }
-          }, 300);
+            }, 300);
+          }
         }
       }
     });
