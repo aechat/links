@@ -122,7 +122,7 @@ const AEActions: React.FC = () => {
         </p>
         <AdditionWarning>
           Прежде чем замедлять аниме-клипы, скринкасты видеоигр или исходники, записанные
-          с переменным FPS - стоит <a href="#8.8">избавиться от повторяющихся кадров</a>.
+          с переменным FPS - стоит <a href="#8.3">избавиться от повторяющихся кадров</a>.
           Таким образом вы обеспечите более стабильную работу интерполяции и можете
           добиться более плавного замедления.
         </AdditionWarning>
@@ -220,6 +220,169 @@ const AEActions: React.FC = () => {
           caption="Topaz Video AI"
           link="591MqOooDAE"
         />
+      </DetailsSummary>{" "}
+      <DetailsSummary
+        tag="дублирующиеся фреймы, аниме"
+        title="Как и чем можно удалить повторяющиеся кадры в видео?"
+      >
+        <p>
+          Когда вы обрабатываете запись видео-игры, аниме или контент с плавающим
+          значением <mark>FPS</mark>, то наверное вы сталкивались с тем, что кадры иногда
+          дублируются и это может мешать плавности вашей композиции. Для исправления этого
+          неприятного эффекта нужно удалить дублирующиеся кадры. Это можно сделать
+          несколькими способами.
+        </p>
+        <Divider>Удаляем через Duplicate Frame Remover</Divider>
+        <p>
+          Из <mark className="app">After Effects</mark> дублирующиеся кадры можно убрать с
+          помощью стороннего плагина{" "}
+          <a href="https://aescripts.com/duplicate-frame-remover/">
+            Duplicate Frame Remover
+          </a>
+          . Из настроек есть несколько параметров.
+        </p>
+        <ul>
+          <li>
+            <mark className="ui">Threshold</mark> - чем больше его значение, тем чаще
+            будет удаляться дублирующиеся кадры.
+          </li>
+          <li>
+            <mark className="ui">Use Region of Interest</mark> - алгоритм обнаружения, в
+            зависимости от включенной опции, будет обрабатываться в пределах{" "}
+            <mark className="ui">Region of Interest</mark>, указанный вами, чтобы
+            исключить ложные срабатывания.
+          </li>
+          <li>
+            <mark className="ui">Retime to original length</mark> - возвращает исходную
+            длину слоя с включением встроенных режимов интерполяции кадров:{" "}
+            <mark className="ui">Pixel Motion</mark> или{" "}
+            <mark className="ui">Frame Mix</mark>.
+          </li>
+        </ul>
+        <YouTubeVideo
+          caption="Duplicate Frame Remover 3 - Quick Start Tutorial"
+          link="yg0vJmgCG5U"
+        />
+        <p>
+          Для удобства при дальнейшей работе рекомендую отрендерить обработанный через
+          плагин видео и заменить его в проекте. Таким образом вы избавите себя от
+          повторных рендеров слоя, из которого вы удалили повторяющиеся кадры.
+        </p>
+        <Divider>Используем Shutter Encoder для удаления дублирующихся кадров</Divider>
+        <p>
+          В <mark className="app">Shutter Encoder</mark> есть опция, которая анализирует
+          повторяющиеся кадры и удаляет их при конвертации. После импорта вашего исходника
+          выберите формат для вывода и во вкладке{" "}
+          <mark className="ui">Advanced features</mark> включите пункт{" "}
+          <mark className="ui">Remove duplicate frames</mark>. Затем укажите нужный путь
+          для вывода файла и нажмите на <mark className="ui">Start function</mark>.
+        </p>
+        <ImageFigure
+          caption="Shutter Encoder"
+          imgSrc="images/shutter_encoder_remove_duplicate_frames.png"
+          imgTitle="Включение удаления дублирующихся кадров"
+          styleClass="figure_macos-dark"
+        />
+        <Divider>Удаляем дублирующиеся кадры через FFmpeg</Divider>
+        <p>
+          Если вы не боитесь командной строки и согласны воспользоваться им, чтобы
+          исправить ваш исходник, то вам нужно загрузить и установить{" "}
+          <mark className="app">FFmpeg</mark> на ваше устройство.{" "}
+          <mark className="app">FFmpeg</mark> - утилита командной строки для
+          конвертирования и преобразования различных видео файлов.
+        </p>
+        <ContentSwitcher
+          macContent={
+            <div>
+              <AdditionWarning>
+                В этой инструкции <mark className="app">FFmpeg</mark> будет
+                устанавливаться через сторонний пакетный менеджер{" "}
+                <mark className="app">Homebrew</mark>. Прежде чем выполнять команду для
+                установки <mark className="app">FFmpeg</mark> - убедитесь в том, что{" "}
+                <mark className="app">Homebrew</mark> установлен в вашей системе.{" "}
+                <a href="https://brew.sh/">Что ещё за Homebrew?</a>
+              </AdditionWarning>
+              <p>
+                Для установки <mark className="app">FFmpeg</mark> на устройство с{" "}
+                <mark>macOS</mark> - достаточно выполнить команду{" "}
+                <mark className="code">brew install ffmpeg</mark>.
+              </p>
+            </div>
+          }
+          windowsContent={
+            <div>
+              <p>
+                Для быстрой установки <mark className="app">FFmpeg</mark> выполните
+                команду <mark className="code">winget install Gyan.FFmpeg</mark>. Для
+                корректной установки, возможно, потребуются права администратора.
+              </p>
+              <AdditionWarning>
+                <ul>
+                  <li>
+                    Если в вашей сборке <mark>Windows</mark> была вырезана утилита{" "}
+                    <mark className="app">winget</mark>, то{" "}
+                    <a href="https://github.com/microsoft/winget-cli/releases">
+                      установите его вручную
+                    </a>
+                    .
+                  </li>
+                  <li>
+                    Если вы работаете из под ограниченной учётной записи, то вы можете
+                    распаковать <mark className="app">FFmpeg</mark> в удобную вам папку и
+                    работать из под неё, перейдя в нужный каталог с исполнительным файлом
+                    в командной строке. Скачать портативную версию{" "}
+                    <mark className="app">FFmpeg</mark> можно на сайте{" "}
+                    <a href="https://www.gyan.dev/ffmpeg/builds/">Gyan.Dev</a>.
+                  </li>
+                </ul>
+              </AdditionWarning>
+            </div>
+          }
+        />
+        <p>
+          После корректной установки и прописывания утилиты в переменную среду вы можете
+          воспользоваться им, не указывая полный путь до исполняемого файла{" "}
+          <mark className="app">FFmpeg</mark>. Чтобы убрать повторяющиеся кадры в вашем
+          видео - скопируйте в терминал команду ниже и выполните её.{" "}
+          <b>
+            <u>Не забудьте</u>
+          </b>{" "}
+          подменить значения на нужные.
+        </p>
+        <code>
+          ffmpeg -i INPUT_VIDEO_NAME.mp4 -vf &quot;mpdecimate,setpts=N/FRAME_RATE/TB&quot;
+          OUTPUT_VIDEO_NAME.mp4
+        </code>
+        <ul>
+          <li>
+            Вместо <mark>INPUT_VIDEO_NAME.mp4</mark> введите абсолютный или относительный
+            путь до вашего видео.
+            <AdditionInfo>
+              <ul>
+                <li>
+                  <mark className="word">Абсолютный путь</mark> - полный путь до от
+                  корневого раздела файловой системы. Например:{" "}
+                  <mark className="path">C:/Users/aechat/Downloads/your_video.mp4</mark>.
+                </li>
+                <li>
+                  <mark className="word">Относительный путь</mark> - путь относительно
+                  раздела в котором вы сейчас находитесь. Например, если вы находитесь в{" "}
+                  <mark className="path">C:/Users/aechat</mark>, а ваш файл{" "}
+                  <mark className="file">your_video.mp4</mark> находится в папке{" "}
+                  <mark className="path">Downloads</mark>, то вам нужно указать{" "}
+                  <mark className="path">Downloads/your_video.mp4</mark>.
+                </li>
+              </ul>
+            </AdditionInfo>
+          </li>
+          <li>
+            Вместо <mark>FRAME_RATE</mark> введите нужное количество <mark>FPS</mark>.
+          </li>
+          <li>
+            Вместо <mark>OUTPUT_VIDEO_NAME.mp4</mark> введите любое название и контейнер
+            для результата конвертации.
+          </li>
+        </ul>
       </DetailsSummary>
       <DetailsSummary
         tag="антишум, denoiser, денойз, неат видео"
@@ -473,169 +636,6 @@ const AEActions: React.FC = () => {
           caption="How to Use Luma Mattes"
           link="ltrGC0kDFic"
         />
-      </DetailsSummary>
-      <DetailsSummary
-        tag="дублирующиеся фреймы, аниме"
-        title="Как и чем можно удалить повторяющиеся кадры в видео?"
-      >
-        <p>
-          Когда вы обрабатываете запись видео-игры, аниме или контент с плавающим
-          значением <mark>FPS</mark>, то наверное вы сталкивались с тем, что кадры иногда
-          дублируются и это может мешать плавности вашей композиции. Для исправления этого
-          неприятного эффекта нужно удалить дублирующиеся кадры. Это можно сделать
-          несколькими способами.
-        </p>
-        <Divider>Удаляем через Duplicate Frame Remover</Divider>
-        <p>
-          Из <mark className="app">After Effects</mark> дублирующиеся кадры можно убрать с
-          помощью стороннего плагина{" "}
-          <a href="https://aescripts.com/duplicate-frame-remover/">
-            Duplicate Frame Remover
-          </a>
-          . Из настроек есть несколько параметров.
-        </p>
-        <ul>
-          <li>
-            <mark className="ui">Threshold</mark> - чем больше его значение, тем чаще
-            будет удаляться дублирующиеся кадры.
-          </li>
-          <li>
-            <mark className="ui">Use Region of Interest</mark> - алгоритм обнаружения, в
-            зависимости от включенной опции, будет обрабатываться в пределах{" "}
-            <mark className="ui">Region of Interest</mark>, указанный вами, чтобы
-            исключить ложные срабатывания.
-          </li>
-          <li>
-            <mark className="ui">Retime to original length</mark> - возвращает исходную
-            длину слоя с включением встроенных режимов интерполяции кадров:{" "}
-            <mark className="ui">Pixel Motion</mark> или{" "}
-            <mark className="ui">Frame Mix</mark>.
-          </li>
-        </ul>
-        <YouTubeVideo
-          caption="Duplicate Frame Remover 3 - Quick Start Tutorial"
-          link="yg0vJmgCG5U"
-        />
-        <p>
-          Для удобства при дальнейшей работе рекомендую отрендерить обработанный через
-          плагин видео и заменить его в проекте. Таким образом вы избавите себя от
-          повторных рендеров слоя, из которого вы удалили повторяющиеся кадры.
-        </p>
-        <Divider>Используем Shutter Encoder для удаления дублирующихся кадров</Divider>
-        <p>
-          В <mark className="app">Shutter Encoder</mark> есть опция, которая анализирует
-          повторяющиеся кадры и удаляет их при конвертации. После импорта вашего исходника
-          выберите формат для вывода и во вкладке{" "}
-          <mark className="ui">Advanced features</mark> включите пункт{" "}
-          <mark className="ui">Remove duplicate frames</mark>. Затем укажите нужный путь
-          для вывода файла и нажмите на <mark className="ui">Start function</mark>.
-        </p>
-        <ImageFigure
-          caption="Shutter Encoder"
-          imgSrc="images/shutter_encoder_remove_duplicate_frames.png"
-          imgTitle="Включение удаления дублирующихся кадров"
-          styleClass="figure_macos-dark"
-        />
-        <Divider>Удаляем дублирующиеся кадры через FFmpeg</Divider>
-        <p>
-          Если вы не боитесь командной строки и согласны воспользоваться им, чтобы
-          исправить ваш исходник, то вам нужно загрузить и установить{" "}
-          <mark className="app">FFmpeg</mark> на ваше устройство.{" "}
-          <mark className="app">FFmpeg</mark> - утилита командной строки для
-          конвертирования и преобразования различных видео файлов.
-        </p>
-        <ContentSwitcher
-          macContent={
-            <div>
-              <AdditionWarning>
-                В этой инструкции <mark className="app">FFmpeg</mark> будет
-                устанавливаться через сторонний пакетный менеджер{" "}
-                <mark className="app">Homebrew</mark>. Прежде чем выполнять команду для
-                установки <mark className="app">FFmpeg</mark> - убедитесь в том, что{" "}
-                <mark className="app">Homebrew</mark> установлен в вашей системе.{" "}
-                <a href="https://brew.sh/">Что ещё за Homebrew?</a>
-              </AdditionWarning>
-              <p>
-                Для установки <mark className="app">FFmpeg</mark> на устройство с{" "}
-                <mark>macOS</mark> - достаточно выполнить команду{" "}
-                <mark className="code">brew install ffmpeg</mark>.
-              </p>
-            </div>
-          }
-          windowsContent={
-            <div>
-              <p>
-                Для быстрой установки <mark className="app">FFmpeg</mark> выполните
-                команду <mark className="code">winget install Gyan.FFmpeg</mark>. Для
-                корректной установки, возможно, потребуются права администратора.
-              </p>
-              <AdditionWarning>
-                <ul>
-                  <li>
-                    Если в вашей сборке <mark>Windows</mark> была вырезана утилита{" "}
-                    <mark className="app">winget</mark>, то{" "}
-                    <a href="https://github.com/microsoft/winget-cli/releases">
-                      установите его вручную
-                    </a>
-                    .
-                  </li>
-                  <li>
-                    Если вы работаете из под ограниченной учётной записи, то вы можете
-                    распаковать <mark className="app">FFmpeg</mark> в удобную вам папку и
-                    работать из под неё, перейдя в нужный каталог с исполнительным файлом
-                    в командной строке. Скачать портативную версию{" "}
-                    <mark className="app">FFmpeg</mark> можно на сайте{" "}
-                    <a href="https://www.gyan.dev/ffmpeg/builds/">Gyan.Dev</a>.
-                  </li>
-                </ul>
-              </AdditionWarning>
-            </div>
-          }
-        />
-        <p>
-          После корректной установки и прописывания утилиты в переменную среду вы можете
-          воспользоваться им, не указывая полный путь до исполняемого файла{" "}
-          <mark className="app">FFmpeg</mark>. Чтобы убрать повторяющиеся кадры в вашем
-          видео - скопируйте в терминал команду ниже и выполните её.{" "}
-          <b>
-            <u>Не забудьте</u>
-          </b>{" "}
-          подменить значения на нужные.
-        </p>
-        <code>
-          ffmpeg -i INPUT_VIDEO_NAME.mp4 -vf &quot;mpdecimate,setpts=N/FRAME_RATE/TB&quot;
-          OUTPUT_VIDEO_NAME.mp4
-        </code>
-        <ul>
-          <li>
-            Вместо <mark>INPUT_VIDEO_NAME.mp4</mark> введите абсолютный или относительный
-            путь до вашего видео.
-            <AdditionInfo>
-              <ul>
-                <li>
-                  <mark className="word">Абсолютный путь</mark> - полный путь до от
-                  корневого раздела файловой системы. Например:{" "}
-                  <mark className="path">C:/Users/aechat/Downloads/your_video.mp4</mark>.
-                </li>
-                <li>
-                  <mark className="word">Относительный путь</mark> - путь относительно
-                  раздела в котором вы сейчас находитесь. Например, если вы находитесь в{" "}
-                  <mark className="path">C:/Users/aechat</mark>, а ваш файл{" "}
-                  <mark className="file">your_video.mp4</mark> находится в папке{" "}
-                  <mark className="path">Downloads</mark>, то вам нужно указать{" "}
-                  <mark className="path">Downloads/your_video.mp4</mark>.
-                </li>
-              </ul>
-            </AdditionInfo>
-          </li>
-          <li>
-            Вместо <mark>FRAME_RATE</mark> введите нужное количество <mark>FPS</mark>.
-          </li>
-          <li>
-            Вместо <mark>OUTPUT_VIDEO_NAME.mp4</mark> введите любое название и контейнер
-            для результата конвертации.
-          </li>
-        </ul>
       </DetailsSummary>
       <DetailsSummary
         tag="tracking, камера трекер, трекинг, мокка"
