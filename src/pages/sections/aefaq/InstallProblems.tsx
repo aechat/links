@@ -407,7 +407,7 @@ const AEInstallProblems: React.FC = () => {
                       </li>
                       <li>
                         Если расширение просит включить разрешение на запись файлов и
-                        доступ в интернет, то перейдите в{" "}
+                        доступ в интернет - перейдите в{" "}
                         <mark className="ui">
                           Edit &gt; Preferences &gt; Scripting & Expressions
                         </mark>{" "}
@@ -771,7 +771,7 @@ const AEInstallProblems: React.FC = () => {
                       </li>
                       <li>
                         Если расширение просит включить разрешение на запись файлов и
-                        доступ в интернет, то перейдите в{" "}
+                        доступ в интернет - перейдите в{" "}
                         <mark className="ui">
                           Edit &gt; Preferences &gt; Scripting & Expressions
                         </mark>{" "}
