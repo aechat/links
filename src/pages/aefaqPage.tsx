@@ -10,6 +10,7 @@ import SupportDonut from "../components/modal/SupportDonut";
 import CopyToClipboard from "../components/features/CopyToClipboard";
 import {CircularProgress} from "@mui/material";
 import {generateAnchorId} from "../components/DetailsSummary";
+import {AdditionDanger} from "../components/Additions";
 
 const AEWhereFind = lazy(() => import("./sections/aefaq/WhereFind"));
 
@@ -161,6 +162,16 @@ const AEFAQ = () => {
                   ]}
                 />
               </div>
+              {navigator.userAgent.toLowerCase().includes("iphone") && (
+                <AdditionDanger>
+                  На некоторых <mark>iPhone</mark> эта страница может упасть с ошибкой{" "}
+                  <mark className="ui">На этой странице произошла ошибка</mark>. Причина
+                  возникновения этой проблемы на данный момент автору не известна, скорее
+                  всего это происходит из-за слишком большого количества ответов на
+                  вопросы. Лучше откройте этот сайт с компьютера или ноутбука, на котором
+                  вы работаете в <mark className="app">After Effects</mark>.
+                </AdditionDanger>
+              )}
               <SupportDonut />
               <Suspense
                 fallback={
