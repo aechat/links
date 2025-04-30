@@ -48,6 +48,7 @@
   },
   "scripts": {
     "format": "eslint . --fix && prettier . --log-level warn --write  --config .prettierrc && tsc",
+    "quick-build": "vite build",
     "build": "git stash -u && yarn format && vite build && git stash apply",
     "predeploy": "yarn && yarn build",
     "deploy": "gh-pages -d dist -m \"обновление сайта\" && git push",
