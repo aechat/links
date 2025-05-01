@@ -49,6 +49,7 @@
       font-size: 0.625rem;
 
       &.tag::before {
+        flex-shrink: 0;
         background-color: var(--summary-text);
         width: min(calc(8px + (10 - 8) * ((100vw - 320px) / (768 - 320))), 10px);
         height: min(calc(8px + (10 - 8) * ((100vw - 320px) / (768 - 320))), 10px);
