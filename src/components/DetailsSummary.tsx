@@ -62,7 +62,7 @@ export const generateAnchorId = () => {
     const existingAnchor = document.getElementById(anchorId);
     if (!existingAnchor && /^\d+\.\d+$/.test(anchorId)) {
       message.error(
-        "Не удалось найти пункт, который был указан в ссылке. Скорее всего он был перемещён в другое место или удалён"
+        "Не удалось найти пункт по ссылке, возможно он был перемещён или удалён"
       );
       history.replaceState(null, "", window.location.pathname + window.location.search);
     }
@@ -188,7 +188,7 @@ const DetailsSummary: React.FC<DetailsSummaryProps> = ({title, children, tag}) =
     const anchorId = detailsRef.current?.querySelector(".faq-summary")?.id ?? "";
     if (!anchorId) {
       message.warning(
-        "Копирование ссылок на пункты временно недоступно, дождитесь полной загрузки страницы"
+        "Прежде чем копировать ссылку - дождитесь полной загрузки страницы"
       );
 
       return;
@@ -196,9 +196,7 @@ const DetailsSummary: React.FC<DetailsSummaryProps> = ({title, children, tag}) =
 
     const anchor = `${window.location.origin}${window.location.pathname}#${anchorId}`;
     navigator.clipboard.writeText(anchor);
-    message.success(
-      `Теперь вы можете поделиться пунктом ${anchorId} с другими пользователями`
-    );
+    message.success(`Ссылка на пункт ${anchorId} скопирована в буфер обмена`);
   };
 
   const anchorId = detailsRef.current?.querySelector(".faq-summary")?.id ?? "";

@@ -38,7 +38,7 @@ export const SearchProvider: React.FC<{
           openModal();
         } else {
           message.warning(
-            "Поиск временно недоступен, дождитесь полной загрузки страницы"
+            "Прежде чем воспользоваться поиском по странице - дождитесь полной загрузки страницы"
           );
         }
       }
@@ -61,9 +61,7 @@ export const SearchProvider: React.FC<{
 export const useSearch = () => {
   const context = useContext(SearchContext);
   if (!context) {
-    throw new Error(
-      "useSearch должен использоваться с SearchProvider. кто-то забыл обернуть компонент на странице."
-    );
+    throw new Error("useSearch must use with SearchProvider.");
   }
 
   return context;
@@ -81,7 +79,7 @@ export const SearchButton: React.FC = () => {
       onClick={() => {
         if (!isPageLoaded) {
           message.warning(
-            "Поиск временно недоступен, дождитесь полной загрузки страницы"
+            "Прежде чем воспользоваться поиском по странице - дождитесь полной загрузки страницы"
           );
         } else {
           openModal();
@@ -105,7 +103,7 @@ export const WideSearchButton: React.FC = () => {
       onClick={() => {
         if (!isPageLoaded) {
           message.warning(
-            "Поиск временно недоступен, дождитесь полной загрузки страницы"
+            "Прежде чем воспользоваться поиском по странице - дождитесь полной загрузки страницы"
           );
         } else {
           openModal();
