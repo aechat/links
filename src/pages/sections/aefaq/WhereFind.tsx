@@ -4626,8 +4626,8 @@ const AEWhereFind: React.FC = () => {
               <td>Curtain</td>
             </tr>
             <tr>
-              <td>Green Crystals</td>
               <td>Зеленые кристалы</td>
+              <td>Green Crystals</td>
             </tr>
             <tr>
               <td>Зигзаг молнии</td>
