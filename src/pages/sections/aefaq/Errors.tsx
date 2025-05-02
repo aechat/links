@@ -428,9 +428,9 @@ const AEErrors: React.FC = () => {
                 styleClass="figure_windows-light"
               />
               <p>
-                Во второй вкладке нужно указать путь до исполняемого файла программы вручную
-                или через кнопку <mark className="ui">Обзор</mark>, а затем снова нажать
-                на <mark className="ui">Далее</mark>. Путь должен выглядеть как{" "}
+                Во второй вкладке нужно указать путь до исполняемого файла программы
+                вручную или через кнопку <mark className="ui">Обзор</mark>, а затем снова
+                нажать на <mark className="ui">Далее</mark>. Путь должен выглядеть как{" "}
                 <mark className="path">
                   C:\Program Files\Adobe\Adobe After Effects 20XX\Support
                   Files\AfterFX.exe
