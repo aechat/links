@@ -237,7 +237,7 @@ const DetailsSummary: React.FC<DetailsSummaryProps> = ({title, children, tag}) =
             )}
           </div>
         </div>
-        <Tooltip title="Скопировать ссылку на пункт">
+        <Tooltip title="Скопировать ссылку в буфер обмена">
           <button
             className="copy_button"
             style={{
