@@ -1548,35 +1548,52 @@ const AEInstallProblems: React.FC = () => {
         <AdditionInfo>
           По вашему желанию вы можете выбрать английский язык для новых приложений по
           умолчанию в разделе <mark className="ui">Приложения</mark> или изменить язык{" "}
-          <mark className="app">After Effects</mark> вручную после установки.
+          <mark className="app">After Effects</mark> вручную после установки. После
+          изменения настроек и перед применением патча обязательно закрываем приложение{" "}
+          <mark className="app">Creative Cloud</mark>.
         </AdditionInfo>
+        <AdditionDanger>
+          Суббреддит <mark>r/genp</mark> был заблокирован по просьбе <mark>Adobe</mark>.
+          Чтобы скачать <mark className="app">GenP</mark> - пользуйтесь альтернативными
+          источниками распространения, например{" "}
+          <a href="https://discord.gg/UDypEJjW4V">Discord</a> или{" "}
+          <a href="https://github.com/wangzhenjjcn/AdobeGenp/releases">
+            репозиторием на GitHub
+          </a>
+          .
+        </AdditionDanger>
+        <div style={{opacity: "0.5"}}>
+          <p>
+            Далее нам нужно скачать сам <mark className="app">GenP</mark> с темы{" "}
+            <a href="https://www.reddit.com/r/genP/">/r/genp</a> на Reddit.
+          </p>
+          <AdditionWarning>
+            Если ссылка на скачивание не работает, то обычно ниже прикладываются ссылки на
+            зеркало скачивания. Перед скачиванием, распаковкой и дальнейшем использованием{" "}
+            <mark className="app">GenP</mark>, отключите ваш антивирус на время.
+          </AdditionWarning>
+          <ImageFigure
+            caption="Браузер"
+            imgSrc="images/reddit_genp.png"
+            imgTitle="Скачиваем GenP из Reddit"
+            styleClass="figure_windows-dark"
+          />
+        </div>
         <p>
-          После изменения настроек и перед применением патча обязательно закрываем
-          приложение <mark className="app">Creative Cloud</mark>. Далее нам нужно скачать
-          сам <mark className="app">GenP</mark> с темы{" "}
-          <a href="https://www.reddit.com/r/genP/">/r/genp</a> на Reddit.
-        </p>
-        <AdditionWarning>
-          Если ссылка на скачивание не работает, то обычно ниже прикладываются ссылки на
-          зеркало скачивания. Перед скачиванием, распаковкой и дальнейшем использованием{" "}
-          <mark className="app">GenP</mark>, отключите ваш антивирус на время.
-        </AdditionWarning>
-        <ImageFigure
-          caption="Браузер"
-          imgSrc="images/reddit_genp.png"
-          imgTitle="Скачиваем GenP из Reddit"
-          styleClass="figure_windows-dark"
-        />
-        <p>
-          После успешной загрузки архива нам нужно распаковать его в любом удобном месте,
-          а затем открыть <mark className="app">AdobeGenP.exe</mark> в папке{" "}
+          После успешной загрузки архива - нужно распаковать его в любом удобном месте, а
+          затем открыть <mark className="app">AdobeGenP.exe</mark> в папке{" "}
           <mark className="path">Source</mark>. Если вас при первом открытии спросят{" "}
           <mark>
             Do you wish to elevate GenP to Trustedlnstaller to allow for patching of
             XD/UWP apps?
           </mark>
-          , на что мы любезно отвечаем <mark className="ui">No</mark>.
+          - нажмите на <mark className="ui">No</mark>.
         </p>
+        <AdditionWarning>
+          Интерфейс <mark className="app">GenP</mark>, в зависимости от актуальной версии,
+          может незначительно отличаться от того, что демонстрируется в этом пункте. Суть
+          всех действий остаётся примерно одинаковым.
+        </AdditionWarning>
         <p>
           Внизу интерфейса <mark className="app">GenP</mark> есть несколько кнопок. Нам
           нужно нажать на кнопку <mark className="ui">Search</mark> и подождать до
