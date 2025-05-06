@@ -14,7 +14,10 @@ const PRInstallProblems: React.FC = () => {
   return (
     <div className="faq-content">
       <GithubUpdateInfo filePath="src/pages/sections/prfaq/InstallProblems.tsx" />
-      <DetailsSummary title="Забыли положить инструкцию для установки рядом с файлами, куда что кидать?">
+      <DetailsSummary
+        tag="как установить, куда устанавливать, установка, распаковка, инструкция, плагины, шаблоны, пресеты, скрипты, расширения, пакеты, луты, архивы, zip, rar"
+        title="В архив или под записью забыли положить инструкцию для установки. Куда что кидать?"
+      >
         <p>
           Обычно установка большинства дополнительных материалов универсальна, поэтому
           следуйте инструкциям ниже.
@@ -48,6 +51,12 @@ const PRInstallProblems: React.FC = () => {
             Если в архиве находится <mark className="file">.atom</mark>, то такие файлы
             устанавливаются путём <mark>drag&apos;n&apos;drop</mark> в окно расширения{" "}
             <mark className="plugin">AtomX</mark>.
+            <AdditionWarning>
+              <mark className="plugin">AtomX</mark> версии <mark>3.0.9</mark> может не
+              импортировать пакеты, выдавая ошибку <mark>Connection Failure</mark>. Для
+              решения этой проблемы установите <mark className="plugin">AtomX</mark>{" "}
+              версии <mark>3.0.8</mark> и повторите попытку установки.
+            </AdditionWarning>
           </li>
           <li>
             Если в архиве находится <mark className="file">.mbr</mark>, то такие файлы

@@ -15,7 +15,7 @@ const AEInstallProblems: React.FC = () => {
     <div className="faq-content">
       <GithubUpdateInfo filePath="src/pages/sections/aefaq/InstallProblems.tsx" />
       <DetailsSummary
-        tag="как установить, куда устанавливать, установка, распаковка, инструкция, плагины, шаблоны, пресеты, скрипты, расширения, пакеты, плагины, луты, архивы, zip, rar"
+        tag="как установить, куда устанавливать, установка, распаковка, инструкция, плагины, шаблоны, пресеты, скрипты, расширения, пакеты, луты, архивы, zip, rar"
         title="В архив или под записью забыли положить инструкцию для установки. Куда что кидать?"
       >
         <p>
@@ -59,6 +59,12 @@ const AEInstallProblems: React.FC = () => {
             Если в архиве находится <mark className="file">.atom</mark>, то такие файлы
             устанавливаются путём <mark>drag&apos;n&apos;drop</mark> в окно расширения{" "}
             <mark className="plugin">AtomX</mark>.
+            <AdditionWarning>
+              <mark className="plugin">AtomX</mark> версии <mark>3.0.9</mark> может не
+              импортировать пакеты, выдавая ошибку <mark>Connection Failure</mark>. Для
+              решения этой проблемы установите <mark className="plugin">AtomX</mark>{" "}
+              версии <mark>3.0.8</mark> и повторите попытку установки.
+            </AdditionWarning>
           </li>
           <li>
             Если в архиве находится <mark className="file">.mbr</mark>, то такие файлы
