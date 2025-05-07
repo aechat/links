@@ -922,62 +922,6 @@ const AEInterface: React.FC = () => {
           videoSrc="images/aftereffects/custom_splash_opening.mp4"
         />
       </DetailsSummary>
-      <DetailsSummary title="Где-то слышал про секретные настройки, что это такое?">
-        <p>
-          Разработчики из Adobe оставили некоторые функции от любопытных лиц и поместила
-          их в отдельную категорию <mark className="ui">Secret</mark>, только вот не учли
-          одно но. Там нет ничего интересного. Прям совсем.
-        </p>
-        <p>
-          Для того, чтобы отключить &quot;секретные настройки&quot; в{" "}
-          <mark className="app">After Effects</mark>, вам нужно открыть любой пункт
-          настроек в <mark className="ui">Edit &gt; Preferences</mark> с зажатой клавишей{" "}
-          <mark className="key">Shift</mark>. Затем в окне настроек появится пункт{" "}
-          <mark className="ui">Secret</mark> и мы сможем в него перейти.
-        </p>
-        <AdditionInfo>
-          Учтите, что клавиша <mark className="key">Shift</mark> должна быть зажата до тех
-          пор, пока окно с настройками не откроется.
-        </AdditionInfo>
-        <ImageFigure
-          caption="Preferences"
-          imgSrc="images/aftereffects/secret_settings.png"
-          imgTitle="Секретные настройки"
-          styleClass="figure_windows-dark"
-        />
-        <p>
-          В последних версиях <mark className="app">After Effects</mark> там находятся
-          всего лишь три настройки.
-        </p>
-        <ul>
-          <li>
-            <mark className="ui">Disable Layer Cache</mark> - ожидаемо отключает
-            кэширование слоёв.
-          </li>
-          <li>
-            <mark className="ui">Purge Every X Frames During Make Movie</mark>, где вместо{" "}
-            <mark>X</mark> любое число от <mark>0</mark> (выключено) до <mark>99999</mark>{" "}
-            - автоматически очищать каждый выбранный кадр при рендере последовательности
-            изображений.
-          </li>
-          <li>
-            <mark className="ui">Ignore Sequence Rendering Errors</mark> позволяет
-            программе забить болт на ошибки при рендере последовательности изображений. В
-            повседневной практике пункт бесполезен, имхо.
-          </li>
-        </ul>
-        <p>
-          Иногда отключение кэширование слоя и автоматическая очистка кадров может вам
-          помочь, если вы испытываете проблемы с переполнением оперативной памяти при
-          экспорте композиции.
-        </p>
-        <AdditionWarning>
-          Изменение этих параметров может серьёзно сказаться на стабильности программы!
-          <b>
-            <u>Выполняйте действия на свой страх и риск!</u>
-          </b>
-        </AdditionWarning>
-      </DetailsSummary>
     </div>
   );
 };
