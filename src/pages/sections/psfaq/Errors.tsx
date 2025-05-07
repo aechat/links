@@ -99,17 +99,51 @@ const PSErrors: React.FC = () => (
       <ContentSwitcher
         macContent={
           <div>
+            <Divider>Блокируем программе доступ в интернет</Divider>
             <p>
               Если вы не используете различные средства обхода блокировок или{" "}
-              <mark className="app">VPN</mark>, то скорее всего{" "}
-              <mark className="app">Photoshop</mark> как-то смог достучаться до интернета.
-              Для блокировки доступа определённым программам к интернету на устройствах с{" "}
-              <mark>macOS</mark> можно воспользоваться программой{" "}
-              <a href="https://radiosilenceapp.com/">Radio Silence</a>. После установки и
-              активации этой программы перейдите во вкладку{" "}
-              <mark className="ui">Network Monitor</mark> и в ней запретите программам от{" "}
-              <mark>Adobe</mark>, которые лезут в сеть, доступ в интернет, нажав на кнопку{" "}
-              <mark className="ui">Block</mark> рядом с названием программы.
+              <mark className="app">VPN</mark>, то вы можете попробовать отредактировать
+              файл <mark className="file">hosts</mark> для блокировки соединения вашего
+              устройства к серверам <mark>Adobe</mark>.
+            </p>
+            <Divider>Правим файл hosts</Divider>
+            <p>
+              Для редактирования файла <mark className="file">hosts</mark> - вам нужно
+              перейти в директорию <mark className="path">/private/etc</mark>, найти и
+              скопировать файл <mark className="file">hosts</mark> в любое удобное место,
+              открыть любой текстовый редактор, например{" "}
+              <mark className="app">TextEdit</mark> или{" "}
+              <mark className="app">VS Code</mark>, и внести строки из кнопки для открытия
+              модального окна чуть ниже в конец файла. Затем сохраните отредактированный
+              файл и перенесите его обратно в <mark className="path">/private/etc</mark> с
+              заменой.
+            </p>
+            <HostsAdobeModal />
+            <AdditionInfo>
+              <ul>
+                <li>
+                  Если файл <mark className="file">hosts</mark> в этой директории по
+                  какой-то причине отсутствует - создайте его самостоятельно без указания
+                  расширения файла.
+                </li>
+                <li>
+                  Если вы не хотите перемещать туда-сюда файл{" "}
+                  <mark className="file">hosts</mark> для редактирования, то вы можете
+                  открыть ваш текстовый редактор от имени администратора и спокойно
+                  сохранять изменения.
+                </li>
+              </ul>
+            </AdditionInfo>
+            <Divider>Блокируем доступ в интернет с помощью Radio Silence</Divider>
+            <p>
+              Если внесение адресов в <mark className="file">hosts</mark> вам не помогло,
+              то попробуйте воспользоваться программой{" "}
+              <a href="https://radiosilenceapp.com/">Radio Silence</a> для блокировки
+              доступа в интернет нужным приложениям. После установки и активации этой
+              программы перейдите во вкладку <mark className="ui">Network Monitor</mark> и
+              в ней запретите программам от <mark>Adobe</mark>, которые лезут в сеть,
+              доступ в интернет, нажав на кнопку <mark className="ui">Block</mark> рядом с
+              названием программы.
             </p>
             <ImageFigure
               caption="Radio Silence"
@@ -160,8 +194,9 @@ const PSErrors: React.FC = () => (
             <AdditionInfo>
               <ul>
                 <li>
-                  Если файл <mark className="file">hosts</mark> в этой директории
-                  отсутствует, то создайте его без расширения.
+                  Если файл <mark className="file">hosts</mark> в этой директории по
+                  какой-то причине отсутствует - создайте его самостоятельно без указания
+                  расширения файла.
                 </li>
                 <li>
                   Если вы не хотите перемещать туда-сюда файл{" "}
