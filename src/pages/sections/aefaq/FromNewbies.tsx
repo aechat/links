@@ -307,9 +307,9 @@ const AEFromNewbies: React.FC = () => {
                 всего используется в монтаже как исходники или прокси, а{" "}
                 <mark className="video">Prores 4444</mark> используется для того чтобы
                 импортировать видео с прозрачным фоном без сильной потери качества. Чтобы
-                вывести такой файл из <mark className="app">After Effects</mark>, вам
-                нужно выбрать <mark className="file">Quicktime</mark> из списка доступных
-                кодеков для вывода.{" "}
+                экспортировать такой файл из <mark className="app">After Effects</mark>,
+                вам нужно выбрать <mark className="file">Quicktime</mark> из списка
+                доступных кодеков для вывода.{" "}
                 <AdditionInfo>
                   В кодеках <mark className="video">Apple Prores</mark> вы не можете
                   настроить битрейт, так как у каждого типа, например <mark>422</mark>,{" "}
@@ -389,8 +389,8 @@ const AEFromNewbies: React.FC = () => {
                 <mark className="video">H.265</mark>.
                 <AdditionInfo>
                   Из <mark className="app">After Effects</mark> файлы с таким кодеком
-                  стандартными средствами вывести не получится, для этого нужно перегнать
-                  ваше видео через конвертер, например{" "}
+                  стандартными средствами экспортировать не получится, для этого нужно
+                  перегнать ваше видео через конвертер, например{" "}
                   <a href="https://www.shutterencoder.com/">Shutter Encoder</a>.
                 </AdditionInfo>
               </li>
@@ -2027,8 +2027,8 @@ const AEFromNewbies: React.FC = () => {
             В <mark className="app">Premiere Pro</mark> можно создавать видеоролики с
             использованием моушен-дизайна с нуля, но работа с анимацией в этой программе
             реализована настолько неудобно, что уж проще сделать моушен-дизайн в{" "}
-            <mark className="app">After Effects</mark>, а затем вывести оттуда композиции
-            и импортировать их в <mark className="app">Premiere Pro</mark>.
+            <mark className="app">After Effects</mark>, а затем экспортировать оттуда
+            композиции и импортировать их в <mark className="app">Premiere Pro</mark>.
           </li>
           <li>
             <mark className="app">After Effects</mark> - программа не для создания очень
@@ -2310,7 +2310,7 @@ const AEFromNewbies: React.FC = () => {
         </p>
         <p>
           Если ваши видео-исходники играются плавно, но вы испытываете проблемы только со
-          звуком - стоит попробовать вывести аудио из видео отдельным файлом и
+          звуком - стоит попробовать экспортировать аудио из видео отдельным файлом и
           перекодировать его в <mark className="file">.wav</mark>, а затем импортировать
           его в программу заново.
         </p>

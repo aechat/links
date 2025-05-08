@@ -746,7 +746,7 @@ const AEInstallProblems: React.FC = () => {
                         >
                           REG-патч
                         </a>
-                        , если вы его не применяли.
+                        , открыв его и подтвердив слияние записей реестра.
                       </li>
                       <li>
                         <a
@@ -755,7 +755,8 @@ const AEInstallProblems: React.FC = () => {
                         >
                           REG-патч
                         </a>{" "}
-                        нужно применить лишь один раз, он универсален. В дальнейшем при
+                        нужно применить лишь один раз, он универсален для всех расширений
+                        формата <mark className="file">.zxp</mark>. В дальнейшем при
                         установке подобных расширений файл для внесений записей в реестр
                         системы не нужно снова открывать.{" "}
                         <a
@@ -853,7 +854,7 @@ const AEInstallProblems: React.FC = () => {
         </AdditionInfo>
       </DetailsSummary>
       <DetailsSummary
-        tag="выключить дефендер, отрубить антивирус, ложное срабатывание, хелпер, ошибка 24, windows не удается получить доступ к указанному устройству пути или файлу, возможно у вас нет нужных разрешений для доступа к этому объекту, некоторые файлы не были созданы, операция не была успешно завершена так как файл содержит вирус или потенциально нежелательную программу, 0x800700E1"
+        tag="выключить дефендер, отрубить антивирус, ложное срабатывание, хелпер, ошибка 24, windows не удается получить доступ к указанному устройству пути или файлу, возможно у вас нет нужных разрешений для доступа к этому объекту, некоторые файлы не были созданы, операция не была успешно завершена так как файл содержит вирус или потенциально нежелательную программу, operation did not complete successfully because the file contains a virus or potentially unwanted software, 0x800700E1"
         title='"Не удаётся найти "..\install\helper.exe". Проверьте, правильно ли указано имя и повторите попытку", "Обнаружены угрозы", куда-то пропадают файлы плагинов и программ или как отключить Windows Defender и Windows Smartscreen?'
       >
         <p>
@@ -1290,6 +1291,101 @@ const AEInstallProblems: React.FC = () => {
           </li>
         </ul>
       </DetailsSummary>
+      <DetailsSummary
+        tag="в настоящее время невозможно установить, операционная система не соответствует минимальным требованиям для этой программы установки"
+        title="Код ошибки 1, 501, 176, 21 или другие при установке After Effects"
+      >
+        <Divider>Исправляем ошибку 1 или 501</Divider>
+        <p>
+          Обычно ошибка <mark>1</mark> и <mark>501</mark> возникает из-за того, что у вас
+          повреждено приложение <mark className="app">Adobe Creative Cloud Cleaner</mark>{" "}
+          или были криво удалены предыдущие программы от <mark>Adobe</mark>. Чтобы
+          исправить это - очистите остатки предыдущих установок с помощью{" "}
+          <a href="https://helpx.adobe.com/ru/creative-cloud/kb/cc-cleaner-tool-installation-problems.html">
+            Adobe Creative Cloud Cleaner
+          </a>{" "}
+          или <mark className="app">Revo Uninstaller</mark>.
+        </p>
+        <Divider>Исправляем ошибку 176</Divider>
+        <ContentSwitcher
+          macContent={
+            <div>
+              <p>
+                Скорее всего вы до установки более новых версий{" "}
+                <mark className="app">After Effects</mark> пользовались другими
+                программами <mark>Adobe</mark>. Для решения - попробуйте удалить папку{" "}
+                <mark className="path">~/Library/Application Support/Adobe/caps</mark>, а
+                затем повторить попытку установки нужной программы.
+              </p>
+            </div>
+          }
+          windowsContent={
+            <div>
+              <p>
+                Скорее всего вы до установки более новых версий{" "}
+                <mark className="app">After Effects</mark> пользовались другими
+                программами <mark>Adobe</mark>. Для решения - попробуйте удалить папку{" "}
+                <mark className="path">
+                  C:\Program Files (x86)\Common Files\Adobe\caps
+                </mark>
+                , а затем повторить попытку установки нужной программы.
+              </p>
+            </div>
+          }
+        />
+        <Divider>
+          Исправляем ошибку 21 - &quot;Операционная система не соответствует минимальным
+          требованиям для этой программы установки&quot;
+        </Divider>
+        <p>
+          Скорее всего вы пытаетесь установить <mark className="app">After Effects</mark>{" "}
+          версии <mark>2024</mark> или новее на несвежую сборку <mark>Windows</mark>. В
+          таком случае у вас есть только два выхода, по какому пути идти - решать только
+          вам.
+        </p>
+        <ul>
+          <li>
+            Если вы хотите установить свежую версию{" "}
+            <mark className="app">After Effects</mark>, то вам нужно обновить вашу систему
+            до <mark>Windows 10</mark> сборки <mark>22H2</mark> или установить{" "}
+            <mark>Windows 11</mark>. Обычно в{" "}
+            <a href="https://helpx.adobe.com/ru/after-effects/system-requirements.html">
+              системных требованиях After Effects
+            </a>{" "}
+            указывается минимальная версия операционной системы.
+            <AdditionInfo>
+              <ul>
+                <li>
+                  Текущую сборку <mark>Windows</mark> вы можете посмотреть в{" "}
+                  <mark className="app">winver</mark>.
+                </li>
+                <li>
+                  Если у вас стоит <mark>Windows 10</mark> редакции <mark>LTSC</mark>, то
+                  сборку новее <mark>21H2</mark> вы не сможете установить. Вам нужно будет
+                  переустановить систему на редакцию <mark>Home</mark> или{" "}
+                  <mark>Pro</mark>.{" "}
+                  <i style={{opacity: "0.5"}}>
+                    Или поэкспериментировать с редакцией <mark>LTSC для IoT</mark>.
+                  </i>
+                </li>
+              </ul>
+            </AdditionInfo>
+          </li>
+          <li>
+            Если вы не желаете обновлять или переустанавливать систему, то вы можете
+            установить более старую версию <mark className="app">After Effects</mark>,
+            например <mark>23.6</mark> (2023) или <mark>15.1</mark> (2018). В таком случае
+            установщик выполнит установку корректно.
+          </li>
+        </ul>
+        <AdditionInfo>
+          Остальные решения по кодам ошибок при установке вы можете найти на{" "}
+          <a href="https://helpx.adobe.com/ru/creative-cloud/kb/troubleshoot-download-install-logs.html">
+            сайте Adobe
+          </a>{" "}
+          или на различных форумах в интернете.
+        </AdditionInfo>
+      </DetailsSummary>
       <DetailsSummary title="Error: Extension Manager init failed, status = -193! A required resource is missing. Please relaunch the Creative Cloud app and try again">
         <p>
           Данная ошибка прямым указывает на то, что на вашем устройстве отсутствует
@@ -1310,7 +1406,7 @@ const AEInstallProblems: React.FC = () => {
           прочитать в <a href="#2.1">пункте 2.1</a>.
         </AdditionInfo>
       </DetailsSummary>
-      <DetailsSummary title="В названиях установщиков плагинов увидел обозначения Adobe, OFX или другое. Я запутался, для каких программ предназначены плагины?">
+      <DetailsSummary title="В названиях установщиков плагинов увидел обозначения Adobe, OFX или другое. Я запутался - для каких программ предназначены такие плагины?">
         <p>
           Обычно в названии установочных файлов указывается для каких программ
           устанавливается плагин. Это сделано для того, чтобы не перепутать файлы для
@@ -1385,7 +1481,7 @@ const AEInstallProblems: React.FC = () => {
       </DetailsSummary>
       <DetailsSummary
         tag="плагин не активирован, license failed, красный крест"
-        title="Установил плагин, но почему при его применении вылазают красные кресты, непонятные наложения или надписи про отсутствие лицензии?"
+        title="Установил плагин, но почему при его применении появляются красные кресты, непонятные наложения или надписи про отсутствие лицензии?"
       >
         <p>
           При применении эффектов из различных сторонних плагинов вы можете столкнуться с
@@ -1426,55 +1522,6 @@ const AEInstallProblems: React.FC = () => {
           <mark className="file">.exe</mark>, <mark className="file">.msi</mark> и
           подобных установочных файлов.
         </p>
-      </DetailsSummary>
-      <DetailsSummary title='Код ошибки 21 при установке After Effects или "операционная система не соответствует минимальным требованиям для этой программы установки"'>
-        <p>
-          Скорее всего вы пытаетесь установить <mark className="app">After Effects</mark>{" "}
-          версии <mark>2024</mark> или новее на несвежую сборку <mark>Windows</mark>. В
-          таком случае у вас только два выхода, по какому пути идти - решать только вам.
-        </p>
-        <ul>
-          <li>
-            Если вы хотите установить свежую версию{" "}
-            <mark className="app">After Effects</mark>, то вам нужно обновить вашу систему
-            до <mark>Windows 10</mark> сборки <mark>22H2</mark> или установить{" "}
-            <mark>Windows 11</mark>. Обычно в{" "}
-            <a href="https://helpx.adobe.com/ru/after-effects/system-requirements.html">
-              системных требованиях After Effects
-            </a>{" "}
-            указывается минимальная версия операционной системы.
-            <AdditionInfo>
-              <ul>
-                <li>
-                  Текущую сборку <mark>Windows</mark> вы можете посмотреть в{" "}
-                  <mark className="app">winver</mark>.
-                </li>
-                <li>
-                  Если у вас стоит <mark>Windows 10</mark> редакции <mark>LTSC</mark>, то
-                  сборку новее <mark>21H2</mark> вы не сможете установить. Вам нужно будет
-                  переустановить систему на редакцию <mark>Home</mark> или{" "}
-                  <mark>Pro</mark>.{" "}
-                  <i style={{opacity: "0.5"}}>
-                    Или поэкспериментировать с редакцией <mark>LTSC для IoT</mark>.
-                  </i>
-                </li>
-              </ul>
-            </AdditionInfo>
-          </li>
-          <li>
-            Если вы не желаете обновлять или переустанавливать систему, то вы можете
-            установить более старую версию <mark className="app">After Effects</mark>,
-            например <mark>23.6</mark> (2023) или <mark>15.1</mark> (2018). В таком случае
-            установщик выполнит установку корректно.
-          </li>
-        </ul>
-        <AdditionInfo>
-          Остальные решения по кодам ошибок при установке вы можете найти на{" "}
-          <a href="https://helpx.adobe.com/ru/creative-cloud/kb/troubleshoot-download-install-logs.html">
-            сайте Adobe
-          </a>
-          .
-        </AdditionInfo>
       </DetailsSummary>
       <DetailsSummary
         tag="генп, genp, ручная активация"

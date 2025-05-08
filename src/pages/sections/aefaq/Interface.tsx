@@ -189,7 +189,7 @@ const AEInterface: React.FC = () => {
           заголовка окна и выберите <mark className="ui">Close Panel</mark>.
         </p>
       </DetailsSummary>
-      <DetailsSummary title="Как я могу прикрепить нужное окно в рабочее пространство программы?">
+      <DetailsSummary title="Как прикрепить нужное окно в рабочее пространство программы?">
         <p>
           Для того, чтобы прикрепить окно к рабочему пространству программы - нужно зажать
           курсор в районе названия окна и перетащить его в нужное место. Программа сама
@@ -238,7 +238,7 @@ const AEInterface: React.FC = () => {
           styleClass="figure_windows-dark"
         />
       </DetailsSummary>
-      <DetailsSummary title="Почему я не могу прикрепить окно скрипта и как мне его в конце концов закрепить?">
+      <DetailsSummary title="Почему я не могу прикрепить окно скрипта. Есть какие-то способы закрепить его?">
         <p>
           Скрипты формата <mark className="file">.jsx</mark> или{" "}
           <mark className="file">.jsxbin</mark>, которые содержат интерфейс, не могут быть
@@ -301,25 +301,8 @@ const AEInterface: React.FC = () => {
         />
       </DetailsSummary>
       <DetailsSummary
-        tag="отобразить переключатели, включить кнопки"
-        title="Пропали нужные переключатели и колонки на таймлайне. Как мне их вернуть?"
-      >
-        <p>
-          Если вы случайным образом куда-то нажали так, что у вас нужные параметры на
-          таймлайне пропали, то не время паниковать. В левом нижнем углу окна таймлайна
-          есть 4 кнопки для быстрого переключения отображения некоторых колонок. Также
-          колонки можно включать и выключать, нажав <mark className="key">ПКМ</mark> по
-          столбцам и в <mark className="ui">Columns</mark> выбрать то, что вам нужно.
-        </p>
-        <VideoFigure
-          caption="Включение колонок на таймлайне"
-          styleClass="figure_windows-dark"
-          videoSrc="images/aftereffects/enable_timeline_columns.mp4"
-        />
-      </DetailsSummary>
-      <DetailsSummary
-        tag="шляпка, стесняшка, медуза, shy, тихий, скрытые слои"
-        title="Почему я не вижу некоторые слои на таймлайне, хотя они есть и спокойно отображаются в окне предпросмотра?"
+        tag="шляпка, стесняшка, медуза, shy layer, тихий, скрытые слои"
+        title="Почему я не вижу некоторые слои на таймлайне, хотя они видны в композиции и спокойно отображаются в окне предпросмотра?"
       >
         <p>
           Обычно таким вопросом вы можете задаться, когда открываете шаблон или чужой
@@ -343,7 +326,10 @@ const AEInterface: React.FC = () => {
           углу.
         </AdditionInfo>
       </DetailsSummary>
-      <DetailsSummary title="Компьютер во время работы упал в BSOD и испортил мне настройки. Как мне их восстановить?">
+      <DetailsSummary
+        tag="сбросились настройки, восстановить параметры"
+        title="Компьютер во время работы упал в BSOD и испортил мне настройки. Как мне их восстановить?"
+      >
         <p>
           В редких случаях при обычной работе с <mark className="app">After Effects</mark>{" "}
           ваше устройство может упасть в &quot;синий экран смерти&quot;, и в это время по
@@ -380,7 +366,7 @@ const AEInterface: React.FC = () => {
         </p>
       </DetailsSummary>
       <DetailsSummary
-        tag="track matte, альфа люма мейт, трекмейт"
+        tag="track matte, альфа люма мейт, трекмейт, trkmat"
         title="Установил After Effects 2023 или новее и не могу понять, что случилось с Alpha и Luma Matte?"
       >
         <p>
@@ -404,15 +390,25 @@ const AEInterface: React.FC = () => {
           .
         </AdditionInfo>
       </DetailsSummary>
-      <DetailsSummary title='Меня бесит окно "Properties", как отключить его автоматическое открытие?'>
+      <DetailsSummary
+        tag="properties window"
+        title="Как отключить автоматическое открытие окна свойств слоя?"
+      >
         <p>
-          Новая функция <mark className="ui">Свойства</mark> или же{" "}
+          Отдельное окно <mark className="ui">Свойства</mark> или же{" "}
           <mark className="ui">Properties</mark> была добавлена в{" "}
           <mark className="app">After Effects 23.4</mark> и новее. После выхода этого
-          обновления не все приняли положительно новое окно свойств слоя, а некоторых
-          взбесило, что это окно само стало открываться при выборе того или иного
-          инструмента.
+          обновления не все приняли положительно такое окно свойств слоя, а кого-то и
+          выбешивало то, что это окно открывается автоматически при выборе некоторых
+          инструментов.
         </p>
+        <AdditionInfo>
+          Подробности о работе этой функции вы можете{" "}
+          <a href="https://helpx.adobe.com/ru/after-effects/using/properties-panel.html">
+            прочитать на официальном сайте Adobe
+          </a>
+          .
+        </AdditionInfo>
         <p>
           К счастью, автоматическое открытие окна свойств можно отключить, убрав галочку
           из <mark className="ui">Auto-Open Panel</mark>. Эту процедуру нужно выполнить
@@ -424,16 +420,9 @@ const AEInterface: React.FC = () => {
           imgTitle="Отключение автоматического открытия окна свойств"
           styleClass="figure_windows-dark"
         />
-        <AdditionInfo>
-          Подробнее о работе этой новой функции вы можете{" "}
-          <a href="https://helpx.adobe.com/ru/after-effects/using/properties-panel.html">
-            прочитать на официальном сайте Adobe
-          </a>
-          .
-        </AdditionInfo>
       </DetailsSummary>
       <DetailsSummary
-        tag="ктрл пробел, применение эффектов, фх консоль"
+        tag="ктрл пробел, быстрое применение эффектов, фх консоль"
         title="Как включить всплывающую панель для применения эффектов, которая открывается с помощью Ctrl+Space?"
       >
         <p>
@@ -457,7 +446,7 @@ const AEInterface: React.FC = () => {
         />
       </DetailsSummary>
       <DetailsSummary
-        tag="другой вид, альтернативный таймкод"
+        tag="другой вид, альтернативный таймкод, отображение кадров"
         title="Как изменить вид отсчёта времени на таймлайне?"
       >
         <p>
@@ -474,7 +463,7 @@ const AEInterface: React.FC = () => {
           videoSrc="images/aftereffects/alternate_timecode_style.mp4"
         />
       </DetailsSummary>
-      <DetailsSummary title="Как мне установить свой процент масштабирования предпросмотра?">
+      <DetailsSummary title="Как установить свой процент масштабирования предпросмотра?">
         <p>
           Многих пользователей бесит, что по умолчанию в{" "}
           <mark className="app">After Effects</mark> в предпросмотре нельзя установить
@@ -562,30 +551,16 @@ const AEInterface: React.FC = () => {
           из пункта <mark className="ui">Window</mark>.
         </AdditionInfo>
       </DetailsSummary>
-      <DetailsSummary title="Как убрать пикселизацию предпросмотра при перемещении плейхеда?">
-        <p>
-          То, что вы называете пикселизацией - на самом деле называется адаптивным
-          разрешением, которая включена в <mark className="app">After Effects</mark> по
-          умолчанию. Его можно отключить, нажав на молнию (
-          <mark className="ui">Fast Previews</mark>)в окне предпросмотра и выбрать там
-          пункт <mark className="ui">Off</mark>.
-        </p>
-        <ImageFigure
-          caption="Timeline"
-          imgSrc="images/aftereffects/disable_adaptive_resolution.png"
-          imgTitle="Отключение адаптивного разрешения"
-          styleClass="figure_windows-dark"
-        />
-        <p>
-          После отключения этого параметра, при перемещении временной метки качество не
-          должно ухудшаться и будет соответствовать выбранному параметру разрешения
-          предпросмотра.
-        </p>
-      </DetailsSummary>
       <DetailsSummary title="Где найти Front View, Current Camera и прочие варианты отображения камеры?">
         <p>
-          Чтобы &quot;включить&quot; эти кнопки, в вашей композиции должна быть создана
-          камера или хотя бы один слой должен быть переведён в режим 3D-слоя.
+          Если в вашей композиции отсутствует камера или не включено трёхмерное
+          пространство у какого-либо слоя, то данные кнопки будут скрыты по причине
+          ненадобности в текущем понимании. Чтобы &quot;включить&quot; эти кнопки - в
+          вашей композиции должна быть создана камера, применён любой эффект, который
+          работает в 3D-пространстве, например{" "}
+          <mark className="plugin">CC Particle World</mark> или{" "}
+          <mark className="plugin">Trapcode Particular</mark>, или хотя бы один слой
+          должен быть переведён в режим 3D-слоя.
         </p>
         <ImageFigure
           caption="Timeline"
@@ -607,8 +582,8 @@ const AEInterface: React.FC = () => {
       </DetailsSummary>
       <DetailsSummary title="Почему точки, для того чтобы прицепить объект, не отображаются в 3D Camera Tracker?">
         <p>
-          Вы скрыли отображение границ слоёв и их манипуляторов в окне предпросмотра. Для
-          того чтобы их вернуть, нажмите на комбинацию клавиш{" "}
+          Скорее всего вы скрыли отображение границ слоёв и их манипуляторов в окне
+          предпросмотра. Для того чтобы их вернуть - нажмите на комбинацию клавиш{" "}
           <mark className="key">Ctrl + Shift + H</mark> или нажмите на соответствующую
           иконку в окне предпросмотра и продолжайте работу.
         </p>
@@ -624,7 +599,8 @@ const AEInterface: React.FC = () => {
         />
         <p>
           Если вам нужно принудительно отобразить точки трекинга, то включите функцию{" "}
-          <mark className="ui">Render Track Points</mark>.
+          <mark className="ui">Render Track Points</mark>. В таком случае вы не сможете
+          выделять точки для трекинга.
         </p>
         <ImageFigure
           caption="Effects Controls"
@@ -633,20 +609,20 @@ const AEInterface: React.FC = () => {
           styleClass="figure_windows-dark"
         />
       </DetailsSummary>
-      <DetailsSummary title="Почему я не могу поставить плейхед в самый конец композиции?">
+      <DetailsSummary
+        tag="плейхед, cti"
+        title="Почему я не могу поставить метку текущего времени в самый конец композиции?"
+      >
         <p>
-          Плейхед или же временная метка воспроизведения показывает то, что находится{" "}
-          <u>впереди</u> его пути. <mark className="app">After Effects</mark> выделяет
-          кадр, который вы видите в предпросмотре небольшой подсветкой по всей высоте
-          вашего таймлайна. Переместив плейхед максимально вправо или нажав на кнопку{" "}
-          <mark className="key">End</mark> вы действительно попадёте в самый конец
+          <mark className="word">Плейхед</mark>,{" "}
+          <mark className="word">временная метка воспроизведения</mark> или{" "}
+          <mark className="word">CTI (Current Time Indicator)</mark> показывает то, что
+          находится <u>впереди</u> его пути. <mark className="app">After Effects</mark>{" "}
+          выделяет кадр, который вы видите в предпросмотре небольшой подсветкой по всей
+          высоте вашего таймлайна. Переместив плейхед максимально вправо или нажав на
+          кнопку <mark className="key">End</mark> вы действительно попадёте в самый конец
           композиции, дальше перемещать его смысла нет.
         </p>
-        <AdditionInfo>
-          Вы, конечно, можете поставить плейхед в самый конец композиции, прибавив ещё
-          один кадр в таймкоде вручную. Только там вы не увидите ровным счётом ничего,
-          потому что композиция закончилась раньше, чем временная метка.
-        </AdditionInfo>
         <ImageFigure
           caption="Timeline"
           imgSrc="images/aftereffects/last_frame_problem.png"
@@ -662,6 +638,12 @@ const AEInterface: React.FC = () => {
           программирования. Всего у композиции будет действительно <mark>750</mark>{" "}
           кадров, но они будут нумероваться от <mark>0</mark> до <mark>749</mark>.
         </p>
+        <AdditionInfo>
+          Вы, конечно, можете поставить <mark className="word">временную метку</mark> в
+          самый конец композиции, прибавив ещё один кадр в таймкоде вручную. Только таким
+          образом в предпросмотре вы не увидите ровным счётом ничего, потому что
+          композиция закончилась раньше, чем <mark className="word">плейхед</mark>.
+        </AdditionInfo>
       </DetailsSummary>
       <DetailsSummary title="У меня есть два ключа с одинаковым значением, но между ними всё равно идёт какая-то анимация. Как её убрать?">
         <p>
@@ -680,13 +662,10 @@ const AEInterface: React.FC = () => {
           Чтобы убрать анимацию между двумя кадрами, вам нужно изменить режим интерполяции
           ключевых кадров. Для этого нужно выделить все ключи, которые вам нужны и нажать
           на комбинацию клавиш <mark className="key">Ctrl + Alt + K</mark> для открытия
-          окна <mark className="ui">Keyframe Interpolation</mark>.
-        </p>
-        <p>
-          В открывшемся окне в пункте <mark className="ui">Temporal Interpolation</mark>{" "}
-          нужно выбрать <mark className="ui">Linear</mark> или{" "}
-          <mark className="ui">Hold</mark>. После этого у вас между выделенными ключами не
-          должно быть лишней анимации.
+          окна <mark className="ui">Keyframe Interpolation</mark>. В открывшемся окне в
+          пункте <mark className="ui">Temporal Interpolation</mark> выберите{" "}
+          <mark className="ui">Linear</mark> или <mark className="ui">Hold</mark>. После
+          этого у вас между выделенными ключами не должно быть лишней анимации.
         </p>
         <ImageFigure
           caption="Keyframe Interpolation"
@@ -694,6 +673,11 @@ const AEInterface: React.FC = () => {
           imgTitle="Изменение интерполяции ключевых кадров"
           styleClass="figure_windows-dark"
         />
+        <p>
+          Или достаточно посмотреть на график скорости вашего параметра, нажав на
+          комбинацию клавиш <mark className="key">Shift + F3</mark>. В этом же графике
+          скорости вы сможете подстроить скорость вашей анимации.
+        </p>
       </DetailsSummary>
       <DetailsSummary
         tag="вейвформ, аудио, увидеть волну"
