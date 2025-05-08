@@ -58,7 +58,7 @@ const ChatRules = () => {
         className="main"
         exit={{x: -50, opacity: 0}}
         initial={{x: 100, opacity: 0}}
-        transition={{duration: 0.5, type: "spring", ease: [0.25, 0, 0, 1]}}
+        transition={{duration: 0.5, ease: [0.25, 0, 0, 1]}}
       >
         <div className="faq-container-flex">
           <div className="faq-container">
