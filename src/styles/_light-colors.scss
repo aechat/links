@@ -7,10 +7,10 @@ $light: (
   content-background-border: hsl(0, 0%, 90%),
   header-background: hsla(0, 0%, 100%, 0.75),
   // ~: банковские цвета:
-  sber-background: hsl(130, calc(45% * var(--saturate-ratio)), 90%),
-  sber-text: hsl(130, calc(50% * var(--saturate-ratio)), 30%),
+  sber-background: hsl(130, calc(75% * var(--saturate-ratio)), 90%),
+  sber-text: hsl(130, calc(50% * var(--saturate-ratio)), 20%),
   sber-hover: hsl(130, calc(50% * var(--saturate-ratio)), 85%),
-  sber-border: hsl(130, calc(75% * var(--saturate-ratio)), 80%),
+  sber-border: hsl(130, calc(50% * var(--saturate-ratio)), 75%),
   yoomoney-background: hsl(257, calc(75% * var(--saturate-ratio)), 95%),
   yoomoney-text: hsl(257, calc(50% * var(--saturate-ratio)), 25%),
   yoomoney-hover: hsl(257, calc(50% * var(--saturate-ratio)), 85%),
