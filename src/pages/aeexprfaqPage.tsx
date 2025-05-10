@@ -65,7 +65,7 @@ const AEExpressionPage = () => {
             type="image/svg+xml"
           />
           <meta
-            content="Ответы на частые вопросы о выражениях в After Effects"
+            content="Ответы на частые вопросы о выражениях в Adobe After Effects"
             name="description"
           />
           <meta
@@ -85,7 +85,7 @@ const AEExpressionPage = () => {
             property="og:title"
           />
           <meta
-            content="Ответы на частые вопросы о выражениях в After Effects"
+            content="Ответы на частые вопросы о выражениях в Adobe After Effects"
             property="og:description"
           />
         </Helmet>
@@ -137,7 +137,7 @@ const AEExpressionPage = () => {
                   <u>не является</u>
                 </b>{" "}
                 полноценным курсом по написанию выражений в{" "}
-                <mark className="app">After Effects</mark>, а также здесь не будут
+                <mark className="app">Adobe After Effects</mark>, а также здесь не будут
                 разбираться случаи с написанием скриптов формата{" "}
                 <mark className="file">.jsx</mark> и <mark className="file">.jsxbin</mark>
                 . Примеры выражений выполняются на движке <mark>JavaScript</mark>, его

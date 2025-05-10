@@ -135,7 +135,7 @@ import DetailsSummary from "../../../components/DetailsSummary";
 import DetailsSummary from "../../../components/DetailsSummary";
 <DetailsSummary title="А можешь привести примеры использования тега mark?">
   <p>
-    Конечно. Я могу рассказать об <mark className="app">After Effects</mark>, указывая на
+    Конечно. Я могу рассказать об <mark className="app">Adobe After Effects</mark>, указывая на
     интерфейс с помощью тегов. Например я могу указать кнопку в интерфейсе: очистка
     кэша находится в <mark className="ui">Edit &gt; Purge &gt; All Memory and Cache</mark>
     . Также могу сказать, что используя сторонние эффекты, например{" "}
@@ -163,7 +163,7 @@ import {ImageFigure, VideoFigure} from "../../../components/ContentFigure";
 import DetailsSummary from "../../../components/DetailsSummary";
 <DetailsSummary title="Вопрос">
   <p>
-    Кэш в <mark className="app">After Effects</mark> очищается таким образом, как показано
+    Кэш в <mark className="app">Adobe After Effects</mark> очищается таким образом, как показано
     на изображении ниже.
   </p>
   <ImageFigure
@@ -174,7 +174,7 @@ import DetailsSummary from "../../../components/DetailsSummary";
   />
   <p>
     Если вы не понимаете куда нажимать по изображению - ниже приведён скринкаст действий
-    для очистки кэша в <mark className="app">After Effects</mark>.
+    для очистки кэша в <mark className="app">Adobe After Effects</mark>.
   </p>
   <VideoFigure
     styleClass="figure_macos-dark"

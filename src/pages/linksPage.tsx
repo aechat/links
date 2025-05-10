@@ -77,25 +77,25 @@ const Links = () => {
           <Divider>Ответы на частые вопросы</Divider>
           <div className="links-grid">
             <LinkInAppCard
-              description="Преодолеваем трудности при работе с After Effects"
+              description="Преодолеваем трудности при работе с Adobe After Effects"
               href="/aefaq"
               icon={<AEIcon />}
               name="aefaq"
             />{" "}
             <LinkInAppCard
-              description="Поясняем за монтаж и нюансы в Premiere Pro"
+              description="Поясняем за монтаж и нюансы в Adobe Premiere Pro"
               href="/prfaq"
               icon={<PRIcon />}
               name="prfaq (beta)"
             />{" "}
             <LinkInAppCard
-              description="Базарим за обработку изображений в Photoshop"
+              description="Базарим за обработку изображений в Adobe Photoshop"
               href="/psfaq"
               icon={<PSIcon />}
               name="psfaq (WIP)"
             />
             <LinkInAppCard
-              description="Шпаргалка по использованию выражений в After Effects"
+              description="Шпаргалка по использованию выражений в Adobe After Effects"
               href="/aeexprfaq"
               icon={<AEExprIcon />}
               name="aeexprfaq (WIP)"
@@ -104,19 +104,19 @@ const Links = () => {
           <Divider>Наши каналы</Divider>
           <div className="links-grid">
             <LinkCard
-              description="Шаблоны и плагины для After Effects со всего интернета"
+              description="Шаблоны и плагины для Adobe After Effects со всего интернета"
               href="https://t.me/s/aetemp"
               icon={<PermMediaRounded />}
               name="AETemp"
             />
             <LinkCard
-              description="Шаблоны и плагины для Premiere Pro со всего интернета"
+              description="Шаблоны и плагины для Adobe Premiere Pro со всего интернета"
               href="https://t.me/s/premtemp"
               icon={<MovieFilterRounded />}
               name="PremTemp"
             />
             <LinkCard
-              description="Шаблоны для Photoshop, Illustrator и Figma"
+              description="Шаблоны для Adobe Photoshop, Adobe Illustrator и Figma"
               href="https://t.me/s/designworld"
               icon={<MmsRounded />}
               name="Design World"
@@ -229,13 +229,13 @@ const Links = () => {
           </AdditionWarning>
           <div className="links-grid">
             <LinkCard
-              description="Обсуждаем After Effects и Premiere Pro"
+              description="Обсуждаем Adobe After Effects и Adobe Premiere Pro"
               href="https://t.me/joinchat/F1DdXtG9LephYWUy"
               icon={<ForumRounded />}
               name="AEChat"
             />
             <LinkCard
-              description="Обсуждаем дизайн, Photoshop, Illustrator и Figma"
+              description="Обсуждаем дизайн, Adobe Photoshop, Adobe Illustrator и Figma"
               href="https://t.me/+3LF_B_VK-Nw4YzYy"
               icon={<ForumRounded />}
               name="DWChat"

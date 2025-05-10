@@ -103,7 +103,7 @@ const PRFAQ = () => {
             type="image/svg+xml"
           />
           <meta
-            content="Ответы на частые вопросы от пользователей Premiere Pro"
+            content="Ответы на частые вопросы от пользователей Adobe Premiere Pro"
             name="description"
           />
           <meta
@@ -123,7 +123,7 @@ const PRFAQ = () => {
             property="og:title"
           />
           <meta
-            content="Ответы на частые вопросы от пользователей Premiere Pro"
+            content="Ответы на частые вопросы от пользователей Adobe Premiere Pro"
             property="og:description"
           />
         </Helmet>

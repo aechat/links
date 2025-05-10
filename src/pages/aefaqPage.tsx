@@ -98,7 +98,7 @@ const AEFAQ = () => {
             type="image/svg+xml"
           />
           <meta
-            content="Ответы на частые вопросы от пользователей After Effects"
+            content="Ответы на частые вопросы от пользователей Adobe After Effects"
             name="description"
           />
           <meta
@@ -118,7 +118,7 @@ const AEFAQ = () => {
             property="og:title"
           />
           <meta
-            content="Ответы на частые вопросы от пользователей After Effects"
+            content="Ответы на частые вопросы от пользователей Adobe After Effects"
             property="og:description"
           />
         </Helmet>
@@ -169,7 +169,7 @@ const AEFAQ = () => {
                   возникновения этой проблемы на данный момент автору не известна, скорее
                   всего это происходит из-за слишком большого количества ответов на
                   вопросы. Лучше откройте этот сайт с компьютера или ноутбука, на котором
-                  вы работаете в <mark className="app">After Effects</mark>.
+                  вы работаете в <mark className="app">Adobe After Effects</mark>.
                 </AdditionDanger>
               )}
               <SupportDonut />

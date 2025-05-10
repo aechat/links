@@ -105,7 +105,7 @@ const PSFAQ = () => {
             type="image/svg+xml"
           />
           <meta
-            content="Ответы на частые вопросы от пользователей Photoshop"
+            content="Ответы на частые вопросы от пользователей Adobe Photoshop"
             name="description"
           />
           <meta
@@ -125,7 +125,7 @@ const PSFAQ = () => {
             property="og:title"
           />
           <meta
-            content="Ответы на частые вопросы от пользователей Photoshop"
+            content="Ответы на частые вопросы от пользователей Adobe Photoshop"
             property="og:description"
           />
         </Helmet>
