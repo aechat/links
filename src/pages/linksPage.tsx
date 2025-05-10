@@ -92,7 +92,7 @@ const Links = () => {
               description="Базарим за обработку изображений в Adobe Photoshop"
               href="/psfaq"
               icon={<PSIcon />}
-              name="psfaq (WIP)"
+              name="psfaq (beta)"
             />
             <LinkInAppCard
               description="Шпаргалка по использованию выражений в Adobe After Effects"
