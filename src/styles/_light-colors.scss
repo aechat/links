@@ -7,7 +7,7 @@ $light: (
   content-background-border: hsl(0, 0%, 90%),
   header-background: hsla(0, 0%, 100%, 0.75),
   // ~: банковские цвета:
-  sber-background: hsl(130, calc(75% * var(--saturate-ratio)), 90%),
+  sber-background: hsl(130, calc(60% * var(--saturate-ratio)), 92.5%),
   sber-text: hsl(130, calc(50% * var(--saturate-ratio)), 20%),
   sber-hover: hsl(130, calc(50% * var(--saturate-ratio)), 85%),
   sber-border: hsl(130, calc(50% * var(--saturate-ratio)), 75%),
