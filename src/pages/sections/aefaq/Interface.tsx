@@ -711,18 +711,44 @@ const AEInterface: React.FC = () => {
         </p>
       </DetailsSummary>
       <DetailsSummary
-        tag="стартовый экран, домашний экран, окно с проектами"
+        tag="стартовая страница, домашний экран, окно с проектами"
         title="Почему у меня не работает окно с недавними проектами и как отключить его?"
       >
         <p>
-          По умолчанию, при запуске <mark className="app">After Effects</mark> открывается
-          домашнее окно с приветствием и списком недавних проектов. На некоторых{" "}
-          <mark className="word">народных</mark> версиях{" "}
-          <mark className="app">After Effects</mark> стартовый экран может не грузиться и
-          выдавать пустоту. Для быстрого решения этой проблемы - достаточно войти в
-          аккаунт <mark>Adobe</mark> с помощью{" "}
+          По умолчанию, при запуске <mark className="app">Adobe After Effects</mark>{" "}
+          открывается домашнее окно с приветствием и списком недавних проектов. На
+          некоторых <mark className="word">народных</mark> версиях{" "}
+          <mark className="app">Adobe After Effects</mark> стартовый экран может не
+          грузиться и выдавать пустоту. Для быстрого решения этой проблемы - достаточно
+          войти в аккаунт <mark>Adobe</mark> с помощью{" "}
           <mark className="ui">Help &gt; Sign In</mark>.
         </p>
+        <AdditionWarning>
+          <ul>
+            <li>
+              Если при попытке входа вы столкнулись с окном{" "}
+              <mark className="ui">Sorry, something went wrong</mark> и надписью{" "}
+              <mark className="ui">Are you connected to the internet?</mark>, то, скорее
+              всего, программа не может выйти в интернет. Для решения этой проблемы -
+              включите на время <mark className="app">VPN</mark> или разрешите программе
+              доступ в интернет с помощью <mark className="app">брандмауэра</mark>.{" "}
+            </li>
+            <li>
+              Чтобы открыть брандмауэр - откройте окно{" "}
+              <mark className="app">Выполнить</mark> с помощью комбинации клавиш{" "}
+              <mark className="key">Win + R</mark>, введите в него{" "}
+              <mark className="code">wf.msc</mark> и нажмите на{" "}
+              <mark className="key">Enter</mark>. После этого перейдите в{" "}
+              <mark className="ui">Правила для входящих подключений</mark> и у правил,
+              связанных с блокировкой <mark>Adobe</mark>, нажмите на{" "}
+              <mark className="key">ПКМ</mark> и выберите{" "}
+              <mark className="ui">Отключить правило</mark>. После отключения правил -
+              перезапустите <mark className="app">Adobe After Effects</mark>, выполните
+              процедуру входа в аккаунт и снова включите правила{" "}
+              <mark className="app">брандмауэра</mark>.
+            </li>
+          </ul>
+        </AdditionWarning>
         <Divider>Отключаем домашний экран при запуске программы</Divider>
         <p>
           Если вариант со входом в аккаунт вас не устраивает или вас бесит это окно, то к
