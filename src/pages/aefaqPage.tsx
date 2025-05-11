@@ -165,11 +165,9 @@ const AEFAQ = () => {
               {navigator.userAgent.toLowerCase().includes("iphone") && (
                 <AdditionDanger>
                   На некоторых <mark>iPhone</mark> эта страница может упасть с ошибкой{" "}
-                  <mark className="ui">На этой странице произошла ошибка</mark>. Причина
-                  возникновения этой проблемы на данный момент автору не известна, скорее
-                  всего это происходит из-за слишком большого количества ответов на
-                  вопросы. Лучше откройте этот сайт с компьютера или ноутбука, на котором
-                  вы работаете в <mark className="app">Adobe After Effects</mark>.
+                  <mark className="ui">На этой странице произошла ошибка</mark> по
+                  неизвестной автору причине. Лучше откройте этот сайт с устройства, на
+                  котором вы работаете в <mark className="app">Adobe After Effects</mark>.
                 </AdditionDanger>
               )}
               <SupportDonut />
