@@ -2400,6 +2400,54 @@ const AEFromNewbies: React.FC = () => {
           <a href="#4.1">настройте бэкап файлов в облачном хранилище или локально</a>.
         </AdditionInfo>
       </DetailsSummary>
+      <DetailsSummary
+        tag="менеджер эффектов, effect may have caused to quit, if you want you can disable this effect now, to re-enable it later select manager effects from effects menu options"
+        title="Программа аварийно завершила работу и предложила отключить эффект, который вызывает сбой. Я его отключил, но при последующих запусках он не возвращается обратно. Как его активировать снова?"
+      >
+        <p>
+          В <mark className="app">Adobe After Effects</mark> версии <mark>23.4</mark> и
+          новее была добавлена возможность отключения эффектов, если программа
+          подозревает, что именно он вызывает сбой и вылеты. Только вот при отключении
+          эффекта через диалоговое окно - он будет отключен до тех пор, пока он не будет
+          активирован вручную в <mark className="ui">менеджере эффектов</mark>. То есть
+          при следующем запуске <mark className="app">Adobe After Effects</mark> он до сих
+          пор будет отключен.
+        </p>
+        <Divider>Включаем отключенные эффекты</Divider>
+        <p>
+          Для включения отключенных эффектов - перейдите в{" "}
+          <mark className="ui">менеджер эффектов</mark>. В него можно попасть двумя
+          способами - из <mark className="ui">Effects Controls</mark> или из{" "}
+          <mark className="ui">Effects & Presets</mark>. Для этого нужно открыть
+          контекстное меню одного из этих двух окон и выбрать{" "}
+          <mark className="ui">Manage Effects</mark>.
+        </p>
+        <ImageFigure
+          caption="Adobe After Effects"
+          imgSrc="images/aftereffects/effects_presets_manage_effects.png"
+          imgTitle="Открытие менеджера эффектов"
+          styleClass="figure_windows-dark"
+        />
+        <p>
+          После этого у вас откроется список с установленными эффектами. По умолчанию в
+          этом окне отображаются только сторонние эффекты, а также отсортированы по
+          &quot;включено/выключено&quot;, то есть выключенный эффект у вас должен
+          отобразиться первым в списке. Чтобы его включить - нажмите на чекбокс возле
+          нужного эффекта, нажмите на <mark className="ui">OK</mark> в правом нижнем углу
+          окна и перезапустите <mark className="app">Adobe After Effects</mark>.
+        </p>
+        <AdditionInfo>
+          Также вы можете отключить или включить все эффекты в этом списке с помощью
+          кнопок <mark className="ui">Disable All</mark> или{" "}
+          <mark className="ui">Enable All</mark>.
+        </AdditionInfo>
+        <ImageFigure
+          caption="Effect Manager"
+          imgSrc="images/aftereffects/effect_manager.png"
+          imgTitle="Менеджер эффектов"
+          styleClass="figure_windows-dark"
+        />
+      </DetailsSummary>
       <DetailsSummary title="Применяю эффект, например Glow, но он обрезается по границе слоя. Как расширить действие эффекта?">
         <Divider>Расширяем края с помощью Grow Bounds</Divider>
         <p>
