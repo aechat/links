@@ -26,6 +26,10 @@
   background-color: var(--background-color-alpha);
 }
 
+.ant-breadcrumb {
+  font-size: 0.875rem;
+}
+
 .ant-message .ant-message-notice-wrapper .ant-message-notice-content {
   font-size: 0.875rem;
 }
@@ -70,8 +74,30 @@
 
 .ant-dropdown-menu-item {
   outline: 1px solid transparent;
+  border-radius: $roundness;
+}
+
+.ant-dropdown-menu-submenu {
+  border-radius: $roundness;
+}
+
+.ant-dropdown-menu-item .ant-dropdown-menu-item-only-child {
+  border-radius: $roundness;
+}
+
+.ant-dropdown-menu-submenu .ant-dropdown-menu .ant-dropdown-menu-submenu-title-content {
+  border-radius: $roundness;
 }
 
 .ant-dropdown-menu-item:hover {
   outline: 1px solid var(--summary-border);
+}
+
+.ant-dropdown-menu-title-content {
+  font-size: 0.875rem;
+}
+
+.ant-dropdown {
+  border: 1px solid var(--content-background-border);
+  border-radius: $roundness;
 }

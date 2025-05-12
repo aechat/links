@@ -25,7 +25,7 @@
     &-title {
       color: var(--summary-text);
       font-weight: 700;
-      font-size: 1.3rem;
+      font-size: 1.2rem;
     }
 
     &-close {
@@ -55,7 +55,7 @@
     padding: 10px 20px;
     color: var(--sber-text) !important;
     font-weight: 700;
-    font-size: 0.95rem;
+    font-size: 1.05rem;
 
     &:hover {
       background-color: var(--sber-hover);
@@ -76,7 +76,7 @@
     padding: 10px 20px;
     color: var(--yoomoney-text) !important;
     font-weight: 700;
-    font-size: 0.95rem;
+    font-size: 1.05rem;
 
     &:hover {
       background-color: var(--yoomoney-hover);
@@ -101,13 +101,14 @@
   }
 
   li {
-    display: flex;
     position: relative;
     flex-direction: column;
     gap: 10px;
     padding-inline: 15px;
     padding-inline-start: 30px;
     padding-block: 10px;
+    font-size: 0.95rem;
+    line-height: 1.75;
     list-style-type: none;
 
     &:not(:last-child) {
@@ -132,12 +133,12 @@
   &-message {
     opacity: 0.5;
     font-weight: 600;
-    font-size: 0.85rem !important;
+    font-size: 0.875rem !important;
   }
 
   &-page-button {
     display: flex;
-    flex: 1 1 250px;
+    flex: 1 1 150px;
     justify-content: center;
     align-items: center;
     gap: 8px;
@@ -148,8 +149,9 @@
     padding: 10px 20px;
     color: var(--summary-text);
     font-weight: 700;
-    font-size: 0.9rem;
+    font-size: 0.875rem;
     font-family: "Onest", sans-serif;
+    text-align: center;
   }
 
   &-open-button {
@@ -207,6 +209,7 @@
     width: 100%;
     color: var(--summary-text);
     font-weight: 600;
+    font-size: 0.9rem;
 
     &::placeholder {
       opacity: 1;
@@ -246,7 +249,7 @@
   &-results {
     outline: 1px solid var(--content-background-border);
     border-radius: $roundness * 1.5;
-    max-height: 72.5svh;
+    max-height: 70dvh;
     overflow-y: auto;
   }
 
@@ -283,7 +286,7 @@
     position: relative;
     color: var(--summary-text);
     font-weight: 800;
-    font-size: 1.175rem;
+    font-size: 1.1rem;
     line-height: 1.25;
     font-family: "Onest", sans-serif;
     text-transform: uppercase;
@@ -297,7 +300,15 @@
     border-bottom-left-radius: $roundness;
     background-color: var(--content-background-color);
     overflow: hidden;
-    font-size: 0.9375rem;
+    font-size: 0.9rem;
+
+    .addition {
+      &-info,
+      &-warning,
+      &-danger {
+        font-size: 0.875rem;
+      }
+    }
 
     &.faq-content {
       margin-block-start: -16px;
@@ -376,7 +387,7 @@
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: flex-start;
-    gap: 5px;
+    gap: 8px;
     margin: 0;
     padding: 10px;
     width: 100%;
@@ -408,6 +419,10 @@
       font-family: "Onest", serif;
       text-align: center;
       text-decoration: none;
+
+      @media (max-width: 545px) {
+        flex: 1 0 125px;
+      }
 
       &:hover {
         opacity: 0.65;
@@ -487,7 +502,7 @@
 
   &-button {
     display: flex;
-    flex: 1 0 200px;
+    flex: 1 0 120px;
     flex-wrap: nowrap;
     justify-content: center;
     align-items: center;
@@ -499,13 +514,14 @@
     padding: 10px;
     max-width: 100%;
     overflow-y: hidden;
-    font-weight: 500;
+    font-weight: 600;
     font-size: 0.875rem;
+    font-family: "Onest", sans-serif;
 
     svg {
       fill: var(--text-color);
-      width: 22px;
-      height: 22px;
+      width: 20px;
+      height: 20px;
     }
 
     &-selected {

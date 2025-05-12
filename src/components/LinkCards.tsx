@@ -33,6 +33,7 @@ export const LinkCard: React.FC<LinkCardProps> = ({href, icon, name, description
       <a
         href={href}
         rel="noreferrer"
+        style={{height: "100%"}}
         target="_blank"
       >
         <div className="name_container">
@@ -70,9 +71,13 @@ export const LinkCardNoDescription: React.FC<LinkCardPropsNoDescription> = ({
       <a
         href={href}
         rel="noreferrer"
+        style={{height: "100%"}}
         target="_blank"
       >
-        <div className="name_container">
+        <div
+          className="name_container"
+          style={{height: "100%"}}
+        >
           <p className="name">{name}</p>
           <span className="icon">{icon}</span>
         </div>
@@ -104,7 +109,10 @@ export const LinkInAppCard: React.FC<LinkCardProps> = ({
         opacity: 0.5,
       }}
     >
-      <Link to={href}>
+      <Link
+        style={{height: "100%"}}
+        to={href}
+      >
         <div className="name_container">
           <p className="name">{name}</p>
           <span className="icon">{icon}</span>

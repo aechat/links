@@ -33,7 +33,7 @@
     flex-wrap: wrap;
     justify-content: flex-start;
     align-items: center;
-    gap: 4px;
+    gap: 2px;
     opacity: 0.75;
     margin-inline-end: 10px;
     margin-block-start: 5px;
@@ -46,7 +46,7 @@
       align-items: center;
       color: var(--summary-text);
       font-weight: 700;
-      font-size: 0.625rem;
+      font-size: 0.6rem;
 
       &.tag::before {
         flex-shrink: 0;
@@ -79,8 +79,8 @@
     color: var(--summary-text);
     font-weight: 700;
     font-size: min(
-      calc(1.175rem + (1.275 - 1.175) * ((100vw - 320px) / (768 - 320))),
-      1.275rem
+      calc(1.125rem + (1.225 - 1.125) * ((100vw - 320px) / (768 - 320))),
+      1.225rem
     );
     line-height: 1.3;
     font-family: "Onest", sans-serif;
@@ -124,14 +124,17 @@
       position: relative;
       filter: drop-shadow(0 3px 5px var(--shadow));
       margin-block: 10px;
-      box-shadow: 0 5px 8px var(--summary-border);
       border: solid 1px var(--summary-border);
+      border-bottom-width: 4px;
       border-radius: $roundness;
       background-color: var(--summary-background);
       padding: 10px 15px;
       color: var(--summary-text);
       font-weight: 700;
-      font-size: 1.275rem;
+      font-size: min(
+        calc(1.125rem + (1.225 - 1.125) * ((100vw - 320px) / (768 - 320))),
+        1.225rem
+      );
       font-family: "Onest", sans-serif;
       text-transform: uppercase;
     }

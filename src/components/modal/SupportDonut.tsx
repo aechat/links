@@ -43,7 +43,7 @@ const SupportDonut: React.FC = () => {
         <motion.button
           className="modal-page-button"
           style={{
-            filter: "saturate(0.5)",
+            filter: "saturate(0.5) drop-shadow(0 3px 5px var(--shadow))",
           }}
           whileHover={{
             scale: 0.975,
@@ -53,12 +53,12 @@ const SupportDonut: React.FC = () => {
           onClick={showEditModal}
         >
           <EditRounded />
-          Помочь с редактированием страницы
+          Помочь с редактированием
         </motion.button>
         <motion.button
           className="modal-page-button"
           style={{
-            filter: "saturate(1.25)",
+            filter: "saturate(1.25) drop-shadow(0 3px 5px var(--shadow))",
           }}
           whileHover={{
             scale: 0.975,
@@ -80,7 +80,7 @@ const SupportDonut: React.FC = () => {
       >
         <div className="modal">
           <div className="modal-header">
-            <div className="modal-header-title">Поддержать проект</div>
+            <div className="modal-header-title">Поддержать сайт</div>
             <button
               className="modal-header-close"
               onClick={handleCloseDonateModal}
@@ -142,14 +142,13 @@ const SupportDonut: React.FC = () => {
                     <p
                       style={{
                         textAlign: "center",
-                        fontSize: "0.6875rem",
+                        fontSize: "0.8rem",
                         opacity: "0.75",
-                        marginBlockEnd: "10px",
                       }}
                     >
                       Нажмите на номер карты, чтобы скопировать его в буфер обмена
                       <br />
-                      Получатель: Михаил Денисович Ф.
+                      Получатель: <mark>Михаил Денисович Ф.</mark>
                     </p>
                   </div>
                 </div>
@@ -188,14 +187,17 @@ const SupportDonut: React.FC = () => {
                     <ul>
                       <li>Зайдите в приложение своего банка.</li>
                       <li>
-                        Откройте раздел &quot;Платежи&quot; и найдите в категориях
-                        &quot;Электронные кошельки&quot; или &quot;Финансы&quot; пункт
-                        &quot;ЮMoney&quot;. Ну или в поиске введите &quot;ЮMoney&quot;.
+                        Откройте раздел <mark className="ui">Платежи</mark> и найдите в
+                        нём категорию <mark className="ui">Электронные кошельки</mark> или{" "}
+                        <mark className="ui">Финансы</mark>. Обычно в этих разделах можно
+                        найти <mark>ЮMoney</mark>. Также вы можете воспользоваться поиском
+                        вашего банка.
                       </li>
                       <li>
                         Нажмите на номер кошелька снизу, он скопируется в буфер обмена.
-                        Вставьте этот номер в поле &quot;Номер кошелька&quot; приложения
-                        банка и введите любую сумму, а затем подтвердите перевод.
+                        Вставьте этот номер в поле{" "}
+                        <mark className="ui">Номер кошелька</mark> приложения вашего банка
+                        и введите любую сумму. После этого - подтвердите перевод.
                         <motion.mark
                           className="yoomoney"
                           whileHover={{
@@ -209,15 +211,11 @@ const SupportDonut: React.FC = () => {
                         <p
                           style={{
                             textAlign: "center",
-                            fontSize: "0.625rem",
+                            fontSize: "0.8rem",
                             opacity: "0.75",
-                            marginTop: "-5px",
                           }}
                         >
-                          Нажмите, чтобы скопировать
-                        </p>
-                        <p style={{fontSize: "0.75rem", opacity: "0.75"}}>
-                          Или пополните баланс автору с помощью{" "}
+                          Нажмите, чтобы скопировать или пополните баланс автору с помощью{" "}
                           <a
                             href="https://yoomoney.ru/to/410016763684808"
                             style={{
@@ -248,7 +246,7 @@ const SupportDonut: React.FC = () => {
       >
         <div className="modal">
           <div className="modal-header">
-            <div className="modal-header-title">Помочь с редактированием страницы</div>
+            <div className="modal-header-title">Помочь с редактированием</div>
             <button
               className="modal-header-close"
               onClick={handleCloseEditModal}
