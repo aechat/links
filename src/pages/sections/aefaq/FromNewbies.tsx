@@ -20,7 +20,7 @@ const AEFromNewbies: React.FC = () => {
       >
         <p>
           Если вы только начинаете свой путь в мире композитинга и никогда не работали с
-          программами, такими как <mark className="app">After Effects</mark>, то мы
+          программами, такими как <mark className="app">Adobe After Effects</mark>, то мы
           рекомендуем вам пройти курс{" "}
           <a href="https://www.youtube.com/playlist?list=PLcN7xY5E2wrmIU__8uNIHglZTyZ29RMIM">
             Основы After Effects от Ильи Зернова
@@ -90,7 +90,7 @@ const AEFromNewbies: React.FC = () => {
       >
         <p>
           Когда пользователь только начинает изучать{" "}
-          <mark className="app">After Effects</mark> - у него может возникнуть
+          <mark className="app">Adobe After Effects</mark> - у него может возникнуть
           недопонимания в процессе общения с другими пользователями программы. Это
           нормально, у каждой сферы есть свой сленг и местные понятия. В этом списке мы
           собрали часто используемые термины и слова.
@@ -225,8 +225,8 @@ const AEFromNewbies: React.FC = () => {
               Если вы нажмёте на <mark className="ui">Continuously Rasterize</mark> у слоя
               - при увеличении предпросмотра вы никогда не добьётесь &quot;векторного
               предпросмотра&quot;. Это происходит потому, что{" "}
-              <mark className="app">After Effects</mark> всегда растрирует предпросмотр в
-              соответствии с заданным в настройках разрешением композиции.
+              <mark className="app">Adobe After Effects</mark> всегда растрирует
+              предпросмотр в соответствии с заданным в настройках разрешением композиции.
             </AdditionInfo>
           </li>
           <li>
@@ -273,7 +273,7 @@ const AEFromNewbies: React.FC = () => {
           <li>
             <mark className="word">Инфлюкс</mark> - сторонний плагин{" "}
             <mark className="plugin">Autokroma Influx</mark>, позволяющий импортировать в{" "}
-            <mark className="app">After Effects</mark> неподдерживаемые типы файлов,
+            <mark className="app">Adobe After Effects</mark> неподдерживаемые типы файлов,
             например <mark className="file">.mkv</mark> или{" "}
             <mark className="file">.flv</mark>.
           </li>
@@ -307,9 +307,10 @@ const AEFromNewbies: React.FC = () => {
                 всего используется в монтаже как исходники или прокси, а{" "}
                 <mark className="video">Prores 4444</mark> используется для того чтобы
                 импортировать видео с прозрачным фоном без сильной потери качества. Чтобы
-                экспортировать такой файл из <mark className="app">After Effects</mark>,
-                вам нужно выбрать <mark className="file">Quicktime</mark> из списка
-                доступных кодеков для вывода.{" "}
+                экспортировать такой файл из{" "}
+                <mark className="app">Adobe After Effects</mark>, вам нужно выбрать{" "}
+                <mark className="file">Quicktime</mark> из списка доступных кодеков для
+                вывода.
                 <AdditionInfo>
                   В кодеках <mark className="video">Apple Prores</mark> вы не можете
                   настроить битрейт, так как у каждого типа, например <mark>422</mark>,{" "}
@@ -362,7 +363,8 @@ const AEFromNewbies: React.FC = () => {
                     </li>
                     <li>
                       Прежде чем использовать видео из популярных площадок для монтажа -
-                      стоит их перекодировать в монтажный кодек, например в{" "}
+                      стоит их перекодировать в{" "}
+                      <mark className="word">монтажный кодек</mark>, например в{" "}
                       <mark className="video">Apple Prores 422</mark>, чтобы не заработать
                       себе головные боли в дальнейшем. <a href="#5.1">Подробнее...</a>
                     </li>
@@ -388,9 +390,9 @@ const AEFromNewbies: React.FC = () => {
                 с видео в кодеке <mark className="video">H.264</mark> или{" "}
                 <mark className="video">H.265</mark>.
                 <AdditionInfo>
-                  Из <mark className="app">After Effects</mark> файлы с таким кодеком
-                  стандартными средствами экспортировать не получится, для этого нужно
-                  перегнать ваше видео через конвертер, например{" "}
+                  Из <mark className="app">Adobe After Effects</mark> файлы с таким
+                  кодеком стандартными средствами экспортировать не получится, для этого
+                  нужно перегнать ваше видео через конвертер, например{" "}
                   <a href="https://www.shutterencoder.com/">Shutter Encoder</a>.
                 </AdditionInfo>
               </li>
@@ -411,9 +413,9 @@ const AEFromNewbies: React.FC = () => {
           <li>
             <mark className="word">Коллект файл</mark> - функция{" "}
             <mark className="ui">Collect Files</mark> для сборки всех файлов, используемые
-            в вашем проекте <mark className="app">After Effects</mark> в одну папку. Эту
-            папку вы можете заархивировать и отправить другому человеку или перенести в
-            другое место, например на внешний жёсткий диск.
+            в вашем проекте <mark className="app">Adobe After Effects</mark> в одну папку.
+            Эту папку вы можете заархивировать и отправить другому человеку или перенести
+            в другое место, например на внешний жёсткий диск.
             <AdditionInfo>
               Данная функция находится в{" "}
               <mark className="ui">File &gt; Dependencies &gt; Collect Files</mark>.
@@ -422,9 +424,9 @@ const AEFromNewbies: React.FC = () => {
           <li>
             <mark className="word">Композиция</mark> или{" "}
             <mark className="word">композ</mark> - некая сцена вашего проекта в{" "}
-            <mark className="app">After Effects</mark>. В композиции обычно собирают некую
-            сцену с слоями, фигурами, эффектами или видео-файлами. У каждой композиции
-            есть частота кадров, разрешение и соотношение пикселя.
+            <mark className="app">Adobe After Effects</mark>. В композиции обычно собирают
+            некую сцену с слоями, фигурами, эффектами или видео-файлами. У каждой
+            композиции есть частота кадров, разрешение и соотношение пикселя.
             <AdditionInfo>
               Чтобы открыть окно настроек композиции - используйте комбинацию клавиш{" "}
               <mark className="key">Ctrl + K</mark>.
@@ -436,7 +438,7 @@ const AEFromNewbies: React.FC = () => {
             одновременного изменения параметров нескольких композиций.
             <AdditionInfo>
               Инструкцию по установке сторонних плагинов и скриптов вы можете найти в{" "}
-              <a href="#2.1">пункте 2.1</a>.
+              <a href="#2.1">статье 2.1</a>.
             </AdditionInfo>
           </li>
           <li>
@@ -448,14 +450,15 @@ const AEFromNewbies: React.FC = () => {
           <li>
             <mark className="word">Могрт</mark> или <mark className="word">Mogrt</mark> -
             шаблон анимационного дизайна, который создаётся в{" "}
-            <mark className="app">After Effects</mark>, чтобы использовать в дальнейшем в
-            проектах, созданные в <mark className="app">Premiere Pro</mark>.
+            <mark className="app">Adobe After Effects</mark>, чтобы использовать в
+            дальнейшем в проектах, созданные в{" "}
+            <mark className="app">Adobe Premiere Pro</mark>.
           </li>
           <li>
             <mark className="word">Мокка</mark> или <mark className="word">моча</mark> -
             плагин <mark className="plugin">Boris FX Mocha</mark>, которая используется
             для трекинга и привязки объектов. Данный плагин включён в базовую поставку{" "}
-            <mark className="app">After Effects</mark>, но в урезанном виде. Для
+            <mark className="app">Adobe After Effects</mark>, но в урезанном виде. Для
             разблокировки некоторых функций требуется полная версия{" "}
             <mark className="plugin">Boris FX Mocha Pro</mark>.{" "}
             <a href="https://support.Boris FX.com/hc/en-us/articles/10232625711117-I-use-Mocha-AE-what-is-the-difference-between-Mocha-AE-and-Mocha-Pro-Do-I-need-Mocha-Pro">
@@ -489,8 +492,8 @@ const AEFromNewbies: React.FC = () => {
             <mark className="word">Мультифрейм рендер</mark> или{" "}
             <mark className="word">MFR</mark> - относительно свежая функция{" "}
             <mark className="ui">Multi Frame Render</mark>, добавленная в{" "}
-            <mark className="app">After Effects 2022</mark>, призванная ускорить время
-            рендера за счёт рендера несколько кадров одновременно. Для раскрытия
+            <mark className="app">Adobe After Effects 2022</mark>, призванная ускорить
+            время рендера за счёт рендера несколько кадров одновременно. Для раскрытия
             потенциала этой функции требуется многоядерный процессор.
           </li>
           <li>
@@ -503,12 +506,12 @@ const AEFromNewbies: React.FC = () => {
             <mark className="word">Одинаковый год</mark> - часто встречается в контексте
             вопроса &quot;у тебя точно одинаковые версии программ от Adobe стоят?&quot;.
             Данный вопрос задаётся в случае когда пользователь, например, не может
-            подсоединить <mark className="app">After Effects</mark> и{" "}
-            <mark className="app">Media Encoder</mark> между собой.
+            подсоединить <mark className="app">Adobe After Effects</mark> и{" "}
+            <mark className="app">Adobe Media Encoder</mark> между собой.
             <AdditionWarning>
-              Программы <mark className="app">After Effects</mark>,
-              <mark className="app">Premiere Pro</mark> и
-              <mark className="app">Media Encoder</mark> разных годов, например{" "}
+              Программы <mark className="app">Adobe After Effects</mark>,
+              <mark className="app">Adobe Premiere Pro</mark> и
+              <mark className="app">Adobe Media Encoder</mark> разных годов, например{" "}
               <mark>2020</mark>, <mark>2018</mark>и <mark>2022</mark> не совместимы друг с
               другом.
             </AdditionWarning>
@@ -525,16 +528,16 @@ const AEFromNewbies: React.FC = () => {
           </li>
           <li>
             <mark className="word">Перекодируй видос</mark> - призыв к процессу
-            конвертации исходников в монтажный кодек, чаще всего через{" "}
-            <mark className="app">Media Encoder</mark> или{" "}
+            конвертации исходников в <mark className="word">монтажный кодек</mark>, чаще
+            всего через <mark className="app">Adobe Media Encoder</mark> или{" "}
             <mark className="app">Shutter Encoder</mark>.
           </li>
           <li>
             <mark className="word">Перелинкуй исходники</mark> - переподключение
             потерянных файлов в вашем проекте. Это делается с помощью{" "}
             <mark className="key">ПКМ</mark> по потерянным исходникам в окне{" "}
-            <mark className="ui">Project</mark> и выбора пункта{" "}
-            <mark className="ui">Replace Footage</mark>.
+            <mark className="ui">Project</mark> и нажатию кнопки{" "}
+            <mark className="ui">Replace Footage</mark> у исходников.
             <AdditionInfo>
               Если остальные потерянные исходники находятся в одной папке, то они
               автоматически подключатся после указания первого потерянного файла.
@@ -603,8 +606,8 @@ const AEFromNewbies: React.FC = () => {
             кодека. Его нужно создавать, если вы имеете проблемы с производительностью
             проекта из-за большого разрешения или когда нужна более стабильная работа с
             проектом. Прокси можно создать прямо в{" "}
-            <mark className="app">After Effects</mark> или с помощью сторонних программ,
-            например <mark className="app">Media Encoder</mark>,{" "}
+            <mark className="app">Adobe After Effects</mark> или с помощью сторонних
+            программ, например <mark className="app">Adobe Media Encoder</mark>,{" "}
             <mark className="app">Shutter Encoder</mark> или{" "}
             <mark className="app">Handbrake</mark>. Также прокси можно создавать и для
             композиций с целью уменьшения времени повторного рендера, если вы не
@@ -618,7 +621,7 @@ const AEFromNewbies: React.FC = () => {
                 </li>
                 <li>
                   Если вы создали прокси в другой программе, то указать их в{" "}
-                  <mark className="app">After Effects</mark> можно в окне{" "}
+                  <mark className="app">Adobe After Effects</mark> можно в окне{" "}
                   <mark className="ui">Project</mark>, выбрав нужный файл, нажав по нему{" "}
                   <mark className="key">ПКМ</mark> и выбрав{" "}
                   <mark className="ui">Set Proxy &gt; File</mark>.
@@ -627,7 +630,7 @@ const AEFromNewbies: React.FC = () => {
                   По умолчанию, если у исходника или композиции имеется прокси, то в
                   финальный рендер попадает оригинальный файл. Это поведение можно
                   изменить в окне <mark className="ui">Render Settings</mark>, выбрав в
-                  пункте <mark className="ui">Proxy Use</mark> значение{" "}
+                  параметре <mark className="ui">Proxy Use</mark> значение{" "}
                   <mark className="ui">Use All Proxies</mark>.
                 </li>
               </ul>
@@ -656,18 +659,22 @@ const AEFromNewbies: React.FC = () => {
             </AdditionInfo>
           </li>
           <li>
-            <mark className="word">Редьюс</mark> - функция{" "}
-            <mark className="ui">Reduce Project</mark> которая облегчает ваш проект за
-            счёт удаления всех объектов, кроме выбранной композиции в окне{" "}
-            <mark className="ui">Project</mark>. Сделать это можно с помощью{" "}
-            <mark className="ui">File &gt; Dependencies &gt; Reduce Project</mark>.
+            <p>
+              <mark className="word">Редьюс</mark> - функция{" "}
+              <mark className="ui">Reduce Project</mark> которая облегчает ваш проект за
+              счёт удаления всех объектов, кроме выбранной композиции в окне{" "}
+              <mark className="ui">Project</mark>. Сделать это можно с помощью{" "}
+              <mark className="ui">File &gt; Dependencies &gt; Reduce Project</mark>.
+            </p>
             <AdditionWarning>
               Если вы первый раз пользуетесь этой функцией - создайте на крайний случай
               копию файла вашего проекта, вдруг эта функция удалит не те файлы, как
               планировалось.
             </AdditionWarning>
-            Также существует пункт <mark className="ui">Remove Unused Footage</mark> для
-            удаления неиспользованных исходников в вашем проекте.
+            <p>
+              Также существует кнопка <mark className="ui">Remove Unused Footage</mark>{" "}
+              для удаления неиспользованных исходников в вашем проекте.
+            </p>
           </li>
           <li>
             <mark className="word">Рендер</mark> - процесс генерации кадров и дальнейшей
@@ -689,9 +696,9 @@ const AEFromNewbies: React.FC = () => {
           </li>
           <li>
             <mark className="word">Ротобраш</mark> - стандартный инструмент в{" "}
-            <mark className="app">After Effects</mark> для выделения движущегося объекта в
-            кадре. Часто используется для создания обводки вокруг объекта или отделения от
-            фона.
+            <mark className="app">Adobe After Effects</mark> для выделения движущегося
+            объекта в кадре. Часто используется для создания обводки вокруг объекта или
+            отделения от фона.
           </li>
           <li>
             <mark className="word">Ротоскоп</mark> - процесс разделения сцены или кадра на
@@ -717,15 +724,15 @@ const AEFromNewbies: React.FC = () => {
           </li>
           <li>
             <mark className="word">Солнышко</mark> или{" "}
-            <mark className="word">звёздочка</mark> - пункт{" "}
+            <mark className="word">звёздочка</mark> - параметр{" "}
             <mark className="ui">Continuously Rasterize</mark> для уменьшения
             &quot;пикселей&quot; у векторных объектов.
             <AdditionInfo>
               При включенной опции <mark className="ui">Continuously Rasterize</mark> у
               слоя - при увеличении предпросмотра вы никогда не добьётесь &quot;векторного
               предпросмотра&quot;. Это происходит потому, что{" "}
-              <mark className="app">After Effects</mark> всегда растрирует предпросмотр в
-              соответствии с заданным в настройках разрешением композиции.
+              <mark className="app">Adobe After Effects</mark> всегда растрирует
+              предпросмотр в соответствии с заданным в настройках разрешением композиции.
             </AdditionInfo>
           </li>
           <li>
@@ -755,7 +762,8 @@ const AEFromNewbies: React.FC = () => {
           <li>
             <mark className="word">Элемент 3Д</mark> - сторонний плагин{" "}
             <mark className="plugin">Element 3D</mark> от VideoCopilot, позволяющий
-            создавать 3D-сцены в композициях <mark className="app">After Effects</mark>.
+            создавать 3D-сцены в композициях{" "}
+            <mark className="app">Adobe After Effects</mark>.
           </li>
           <li>
             <mark className="word">Трекинг</mark> - механизм определения местоположения
@@ -806,6 +814,15 @@ const AEFromNewbies: React.FC = () => {
             <mark className="word">shape</mark>, означает слой с фигурой.
           </li>
           <li>
+            <mark className="word">Шейк</mark> или <mark className="word">вигл</mark> -
+            обычно случайное движение слоя или же тряска по позиции X и Y. Этот эффект
+            часто встречается в <mark className="word">эдитах</mark> и различных видео.
+            Под <mark className="word">виглом</mark> обычно подразумевает тоже самое, но
+            только в качестве встроенной функции выражения{" "}
+            <mark className="code">wiggle(freq, amp)</mark> для задания случайной анимации
+            от исходного значения.
+          </li>
+          <li>
             <mark className="word">Эдиты</mark> - обычно это видео под музыку, за основу
             которого берутся кадры из фильмов, аниме или игр. Часто распространён на
             YouTube и TikTok с очень сильным разбросом по качеству изготовления таких
@@ -840,10 +857,25 @@ const AEFromNewbies: React.FC = () => {
           комбинации.
         </p>
         <AdditionInfo>
-          В таблице приведены комбинации для устройств на <mark>Windows</mark>. На{" "}
-          <mark>macOS</mark> <mark className="key">Ctrl</mark> равен{" "}
-          <mark className="key">Command</mark>, а <mark className="key">Alt</mark> равен{" "}
-          <mark className="key">Option</mark>.
+          <ul>
+            <li>
+              В таблице приведены комбинации для устройств на <mark>Windows</mark>. На{" "}
+              <mark>macOS</mark> <mark className="key">Ctrl</mark> равен{" "}
+              <mark className="key">Command</mark>, а <mark className="key">Alt</mark>{" "}
+              равен <mark className="key">Option</mark>.
+            </li>
+            <li>
+              Более подробный список комбинаций клавиш вы можете прочесть{" "}
+              <a href="https://helpx.adobe.com/ru/after-effects/using/keyboard-shortcuts-reference.html">
+                на официальном сайте Adobe
+              </a>
+              , посмотреть в{" "}
+              <a href="https://www.youtube.com/watch?v=i6eFTDS2rvI">видео от AEPlug</a>{" "}
+              или изучить в окне <mark className="ui">Keyboard Shortcuts</mark>. Всего
+              шорткатов достаточно много, но по моему мнению, те что указаны тут - чаще
+              всего используют в повседневных задачах.
+            </li>
+          </ul>
         </AdditionInfo>
         <Divider>Работа с файлами и проектом</Divider>
         <table>
@@ -1808,15 +1840,6 @@ const AEFromNewbies: React.FC = () => {
             </tr>
           </tbody>
         </table>
-        <AdditionInfo>
-          Более подробный список комбинаций клавиш вы можете прочесть{" "}
-          <a href="https://helpx.adobe.com/ru/after-effects/using/keyboard-shortcuts-reference.html">
-            на официальном сайте Adobe
-          </a>{" "}
-          или в окне <mark className="ui">Keyboard Shortcuts</mark>. Всего шорткатов
-          достаточно много, но по моему мнению, те что указаны тут - чаще всего используют
-          в повседневных задачах.
-        </AdditionInfo>
       </DetailsSummary>
       <DetailsSummary
         tag="что нового, фишки, обновления, апдейты"
@@ -1842,10 +1865,10 @@ const AEFromNewbies: React.FC = () => {
         </div>
         <p>
           Мы советуем время от времени обновлять{" "}
-          <mark className="app">After Effects</mark>, а также сторонние плагины, чтобы
-          исключить возможные проблемы при дальнейшем использовании программы. Многие баги
-          старых версий исправляются в более новых, например утечка ОЗУ или смещение кадра
-          при экспорте.
+          <mark className="app">Adobe After Effects</mark>, а также сторонние плагины,
+          чтобы исключить возможные проблемы при дальнейшем использовании программы.
+          Многие баги старых версий исправляются в более новых, например утечка ОЗУ или
+          смещение кадра при экспорте.
         </p>
       </DetailsSummary>
       <DetailsSummary
@@ -1882,8 +1905,8 @@ const AEFromNewbies: React.FC = () => {
               После такого способа смены языка, названия стандартных пресетов и рабочих
               областей останутся на русском языке. Их можно будет переименовать вручную
               или удалить, а затем поставить поверх дистрибутив{" "}
-              <mark className="app">After Effects</mark> с указанием английского языка в
-              установщике. Или достаточно просто переустановить программу сразу на
+              <mark className="app">Adobe After Effects</mark> с указанием английского
+              языка в установщике. Или достаточно просто переустановить программу сразу на
               английском языке, предварительно почистив все &quot;хвосты&quot;.
             </li>
           </ul>
@@ -1894,14 +1917,15 @@ const AEFromNewbies: React.FC = () => {
               <Divider>Меняем язык с помощью консоли программы</Divider>
               <AdditionWarning>
                 Этот способ смены языка работает только с{" "}
-                <mark className="app">After Effects</mark> версии <mark>24.x</mark> и
-                новее.
+                <mark className="app">Adobe After Effects</mark> версии <mark>24.x</mark>{" "}
+                и новее.
               </AdditionWarning>
               <p>
-                В новых версиях <mark className="app">After Effects</mark> разработчики
-                добавили возможность быстро поменять язык через консоль. Для этого нажмите
-                на комбинацию клавиш <mark className="key">Command + F12</mark>. В
-                открывшемся окне у заголовка нажимаем три полоски и переключаемся в режим{" "}
+                В новых версиях <mark className="app">Adobe After Effects</mark>{" "}
+                разработчики добавили возможность быстро поменять язык через консоль. Для
+                этого нажмите на комбинацию клавиш{" "}
+                <mark className="key">Command + F12</mark>. В открывшемся окне у заголовка
+                нажимаем три полоски и переключаемся в режим{" "}
                 <mark className="ui">Debug Database View</mark>.
               </p>
               <ImageFigure
@@ -1914,7 +1938,7 @@ const AEFromNewbies: React.FC = () => {
                 Затем в строке поиска нам нужно писать{" "}
                 <mark className="copy">ApplicationLanguage</mark>. В строке с одноимённым
                 параметром пишем <mark className="copy">en_US</mark>. После ввода значения
-                - перезапускаем <mark className="app">After Effects</mark>.
+                - перезапускаем <mark className="app">Adobe After Effects</mark>.
               </p>
               <ImageFigure
                 caption="Установка английского языка в консоли"
@@ -1925,7 +1949,7 @@ const AEFromNewbies: React.FC = () => {
               <AdditionInfo>
                 Чтобы вернуть язык, который был установлен по умолчанию - достаточно
                 убрать значение из этого параметра и снова перезапустить{" "}
-                <mark className="app">After Effects</mark>.
+                <mark className="app">Adobe After Effects</mark>.
               </AdditionInfo>
             </div>
           }
@@ -1938,9 +1962,10 @@ const AEFromNewbies: React.FC = () => {
                 переместить его в папку документов пользователя, обычно это{" "}
                 <mark className="path">%USERPROFILE%/Documents</mark>. В сам текстовый
                 файл ничего писать не нужно. После того, как вы поместили текстовый файл в
-                нужное место - перезапустите <mark className="app">After Effects</mark>,
-                если он у вас был запущен. Теперь программа должна запустится на
-                английском языке и ошибка в проекте должна пропасть.
+                нужное место - перезапустите{" "}
+                <mark className="app">Adobe After Effects</mark>, если он у вас был
+                запущен. Теперь программа должна запустится на английском языке и ошибка в
+                проекте должна пропасть.
               </p>
               <AdditionInfo>
                 Чтобы быстро открыть папку документов текущего пользователя в{" "}
@@ -1965,15 +1990,15 @@ const AEFromNewbies: React.FC = () => {
               <Divider>Меняем язык с помощью консоли программы</Divider>
               <AdditionWarning>
                 Этот способ смены языка работает только с{" "}
-                <mark className="app">After Effects</mark> версии <mark>24.x</mark> и
-                новее.
+                <mark className="app">Adobe After Effects</mark> версии <mark>24.x</mark>{" "}
+                и новее.
               </AdditionWarning>
               <p>
-                В новых версиях <mark className="app">After Effects</mark> разработчики
-                добавили возможность быстро поменять язык через консоль. Для этого нажмите
-                на комбинацию клавиш <mark className="key">Ctrl + F12</mark>. В
-                открывшемся окне у заголовка нажимаем три полоски и переключаемся в режим{" "}
-                <mark className="ui">Debug Database View</mark>.
+                В новых версиях <mark className="app">Adobe After Effects</mark>{" "}
+                разработчики добавили возможность быстро поменять язык через консоль. Для
+                этого нажмите на комбинацию клавиш <mark className="key">Ctrl + F12</mark>
+                . В открывшемся окне у заголовка нажимаем три полоски и переключаемся в
+                режим <mark className="ui">Debug Database View</mark>.
               </p>
               <ImageFigure
                 caption="Включение вида Debug Database View"
@@ -1985,7 +2010,7 @@ const AEFromNewbies: React.FC = () => {
                 Затем в строке поиска нам нужно писать{" "}
                 <mark className="copy">ApplicationLanguage</mark>. В строке с одноимённым
                 параметром пишем <mark className="copy">en_US</mark>. После ввода значения
-                - перезапускаем <mark className="app">After Effects</mark>.
+                - перезапускаем <mark className="app">Adobe After Effects</mark>.
               </p>
               <ImageFigure
                 caption="Установка английского языка в консоли"
@@ -1996,7 +2021,7 @@ const AEFromNewbies: React.FC = () => {
               <AdditionInfo>
                 Чтобы вернуть язык, который был установлен по умолчанию - достаточно
                 убрать значение из этого параметра и снова перезапустить{" "}
-                <mark className="app">After Effects</mark>.
+                <mark className="app">Adobe After Effects</mark>.
               </AdditionInfo>
             </div>
           }
@@ -2005,67 +2030,73 @@ const AEFromNewbies: React.FC = () => {
       <DetailsSummary title="В каком случае нужно использовать After Effects, а в каком - Premiere Pro?">
         <p>
           Начнём сразу с того, что эти две программы используются для совершенно разных
-          целей. В <mark className="app">After Effects</mark> конечно можно смонтировать
-          двухчасовой ролик, а в <mark className="app">Premiere Pro</mark> - сделать всю
-          работу по композингу. Но это всё звучит как полнейший бред до такой степени, что
-          некоторые пользователи до сих пор почему-то используют программы не для того,
-          для чего они созданы. Давайте разъясним, для чего нужно использовать{" "}
-          <mark className="app">After Effects</mark>, а для чего{" "}
-          <mark className="app">Premiere Pro</mark>.
+          целей. В <mark className="app">Adobe After Effects</mark> конечно можно
+          смонтировать двухчасовой ролик, а в{" "}
+          <mark className="app">Adobe Premiere Pro</mark> - сделать всю работу по
+          композингу. Но это всё звучит как полнейший бред до такой степени, что некоторые
+          пользователи до сих пор почему-то используют программы не для того, для чего они
+          созданы. Давайте разъясним, для чего нужно использовать{" "}
+          <mark className="app">Adobe After Effects</mark>, а для чего{" "}
+          <mark className="app">Adobe Premiere Pro</mark>.
         </p>
         <ul>
           <li>
-            В <mark className="app">After Effects</mark> и{" "}
-            <mark className="app">Premiere Pro</mark> можно делать короткие видеоролики до
-            одной минуты, а также вешать на них различные эффекты. Обе программы отлично
-            подойдут для создания <mark className="word">рилсов</mark> и{" "}
+            В <mark className="app">Adobe After Effects</mark> и{" "}
+            <mark className="app">Adobe Premiere Pro</mark> можно делать короткие
+            видеоролики до одной минуты, а также вешать на них различные эффекты. Обе
+            программы отлично подойдут для создания <mark className="word">рилсов</mark> и{" "}
             <mark className="word">тиктоков</mark>, а также создания различных анонсов,
-            анимированных афиш, баннеров и коротких
-            <mark className="word">эдитов</mark>.
+            анимированных афиш, баннеров и коротких <mark className="word">эдитов</mark>.
           </li>
           <li>
-            В <mark className="app">Premiere Pro</mark> можно создавать видеоролики с
-            использованием моушен-дизайна с нуля, но работа с анимацией в этой программе
+            В <mark className="app">Adobe Premiere Pro</mark> можно создавать видеоролики
+            с использованием моушен-дизайна с нуля, но работа с анимацией в этой программе
             реализована настолько неудобно, что уж проще сделать моушен-дизайн в{" "}
-            <mark className="app">After Effects</mark>, а затем экспортировать оттуда
-            композиции и импортировать их в <mark className="app">Premiere Pro</mark>.
+            <mark className="app">Adobe After Effects</mark>, а затем экспортировать
+            оттуда композиции и импортировать их в{" "}
+            <mark className="app">Adobe Premiere Pro</mark>.
           </li>
           <li>
-            <mark className="app">After Effects</mark> - программа не для создания очень
-            длинных видеороликов, так как работает с памятью и исходниками совершенно по
-            другому, в отличие от <mark className="app">Premiere Pro</mark>. Даже если вы
-            и выполните всю работу по созданию длинного видеоролика в{" "}
-            <mark className="app">After Effects</mark> (представлю, сколько нервов уйдет
-            из-за <mark>Out of Memory</mark>), то время и скорость рендера вас явно не
-            впечатлит. Лучше соберите проект изначально в{" "}
-            <mark className="app">Premiere Pro</mark> и выдёргивайте только нужные кусочки
-            для дальнейшего редактирования в <mark className="app">After Effects</mark>{" "}
-            или создавайте короткие композиции и выводите их частями, а потом склеивайте
-            их в <mark className="app">Premiere Pro</mark>.
+            <mark className="app">Adobe After Effects</mark> - программа не для создания
+            очень длинных видеороликов, так как работает с памятью и исходниками
+            совершенно по другому, в отличие от{" "}
+            <mark className="app">Adobe Premiere Pro</mark>. Даже если вы и выполните всю
+            работу по созданию длинного видеоролика в{" "}
+            <mark className="app">Adobe After Effects</mark> (представлю, сколько нервов
+            уйдет из-за <mark>Out of Memory</mark>), то время и скорость рендера вас явно
+            не впечатлит. Лучше соберите проект изначально в{" "}
+            <mark className="app">Adobe Premiere Pro</mark> и выдёргивайте только нужные
+            кусочки для дальнейшего редактирования в{" "}
+            <mark className="app">Adobe After Effects</mark> или создавайте короткие
+            композиции и выводите их частями, а потом склеивайте их в{" "}
+            <mark className="app">Adobe Premiere Pro</mark>.
             <AdditionDanger>
-              В <mark className="app">After Effects</mark> можно делать композиции длиной
-              максимум до трёх часов, но крайне не рекомендуется делать их с такой длиной.
+              В <mark className="app">Adobe After Effects</mark> можно делать композиции
+              длиной максимум до трёх часов, но крайне не рекомендуется делать их с такой
+              длиной.
             </AdditionDanger>
           </li>
           <li>
-            <mark className="app">After Effects</mark> не годится для обработки звука и
-            голоса, несмотря на наличие нескольких встроенных эффектов, например{" "}
+            <mark className="app">Adobe After Effects</mark> не годится для обработки
+            звука и голоса, несмотря на наличие нескольких встроенных эффектов, например{" "}
             <mark className="plugin">Echo</mark> или{" "}
             <mark className="plugin">Reverb</mark>. Для этого хорошо подходит{" "}
-            <mark className="app">Premiere Pro</mark> или{" "}
+            <mark className="app">Adobe Premiere Pro</mark> или{" "}
             <mark className="app">Audition</mark> за счёт удобной работы с несколькими
             аудиодорожками и поддержкой VST-плагинов.
           </li>
           <li>
-            В <mark className="app">Premiere Pro</mark> можно и нужно делать длинные
+            В <mark className="app">Adobe Premiere Pro</mark> можно и нужно делать длинные
             видеоролики, например подкасты, фильмы, короткометражки или сериалы. Если вы
-            хотите использовать <mark className="app">After Effects</mark> в длинном видео
-            - импортируйте кусочек вашего видео, например с помощью{" "}
+            хотите использовать <mark className="app">Adobe After Effects</mark> в длинном
+            видео - импортируйте кусочек вашего видео, например с помощью{" "}
             <mark className="ui">Replace with After Effects Composition</mark> и после
-            редактирования экспортируйте оттуда композиции в монтажный кодек, например в{" "}
+            редактирования экспортируйте оттуда композиции в{" "}
+            <mark className="word">монтажный кодек</mark>, например в{" "}
             <mark className="video">Apple Prores 4444</mark>. Затем замените нужный кусок
-            на то, что вы экспортировали из <mark className="app">After Effects</mark> и
-            продолжайте работу дальше в <mark className="app">Premiere Pro</mark>.
+            на то, что вы экспортировали из{" "}
+            <mark className="app">Adobe After Effects</mark> и продолжайте работу дальше в{" "}
+            <mark className="app">Adobe Premiere Pro</mark>.
             <AdditionWarning>
               Не рекомендуется частое использование функции <mark>Dynamic Link</mark>, так
               как на больших проектах его работа может быть крайне нестабильна и может
@@ -2073,12 +2104,12 @@ const AEFromNewbies: React.FC = () => {
             </AdditionWarning>
           </li>
           <li>
-            <mark className="app">Premiere Pro</mark> не очень подходит для композитинга и
-            создания эффектов уровня фильмов от Marvel.{" "}
-            <mark className="app">After Effects</mark> лучше подходит для редактирования
-            сложных сцен и применения различных спецэффектов, так как он даёт гораздо
-            больший простор воображению для создания 3D-сцен и поддерживает больше
-            сторонних эффектов и плагинов для генерации эффектов с нуля, например{" "}
+            <mark className="app">Adobe Premiere Pro</mark> не очень подходит для
+            композитинга и создания эффектов уровня фильмов от Marvel.{" "}
+            <mark className="app">Adobe After Effects</mark> лучше подходит для
+            редактирования сложных сцен и применения различных спецэффектов, так как он
+            даёт гораздо больший простор воображению для создания 3D-сцен и поддерживает
+            больше сторонних эффектов и плагинов для генерации эффектов с нуля, например{" "}
             <mark className="plugin">Trapcode Particular</mark>.
           </li>
         </ul>
@@ -2115,8 +2146,8 @@ const AEFromNewbies: React.FC = () => {
               При желании вы можете создать свою комбинацию клавиш для быстрой очистки
               оперативной памяти и дискового кэша в{" "}
               <mark className="ui">Edit &gt; Keyboard Shortcuts</mark>. По умолчанию в{" "}
-              <mark className="app">After Effects</mark> предусмотрена комбинация только
-              для очистки оперативной памяти -{" "}
+              <mark className="app">Adobe After Effects</mark> предусмотрена комбинация
+              только для очистки оперативной памяти -{" "}
               <mark className="key">Ctrl + Alt + / (на Numpad)</mark>.
             </li>
             <li>
@@ -2124,7 +2155,7 @@ const AEFromNewbies: React.FC = () => {
               производительный процессор, который быстро обрабатывает ваши композиции, то
               вы можете отключить дисковый кэш в настройках программы. Для этого перейдите
               в <mark className="ui">Edit &gt; Preferences &gt; Media & Disk Cache</mark>{" "}
-              и уберите галочку с пункта <mark className="ui">Enable Disk Cache</mark>.
+              и уберите галочку с параметра <mark className="ui">Enable Disk Cache</mark>.
               Это позволит программе меньше обращаться к дисковому накопителю и меньше
               сталкиваться с багами работы дискового кэша.
             </li>
@@ -2155,7 +2186,7 @@ const AEFromNewbies: React.FC = () => {
           Список с выбором разрешения отображается в нижней границе окна предпросмотра.
         </p>
         <VideoFigure
-          caption="After Effects"
+          caption="Adobe After Effects"
           styleClass="figure_windows-dark"
           videoSrc="images/aftereffects/change_resolution_comppreview.mp4"
         />
@@ -2195,12 +2226,12 @@ const AEFromNewbies: React.FC = () => {
         </p>
         <p>
           Есть ещё отдельная категория лиц, которая считает, что в{" "}
-          <mark className="app">After Effects</mark> есть возможность отображения
+          <mark className="app">Adobe After Effects</mark> есть возможность отображения
           предпросмотра без потери качества при приближении, как в{" "}
           <mark className="app">Adobe Illustrator</mark>, если в композиции есть векторные
-          слои. Нет, это так не работает, <mark className="app">After Effects</mark> не
-          является векторным редактором графики. Он показывает и растрирует все ваши слои
-          под то разрешение, которое указано в настройках вашей композиции.
+          слои. Нет, это так не работает, <mark className="app">Adobe After Effects</mark>{" "}
+          не является векторным редактором графики. Он показывает и растрирует все ваши
+          слои под то разрешение, которое указано в настройках вашей композиции.
         </p>
         <AdditionInfo>
           Исключение, где вы можете увеличить предпросмотр без потери качества больше чем
@@ -2284,10 +2315,11 @@ const AEFromNewbies: React.FC = () => {
         <p>
           В некоторых случаях бывают ситуации, когда из-за смены аудио-выхода, например
           при подключении беспроводных наушников -{" "}
-          <mark className="app">After Effects</mark> не может нормально синхронизировать
-          картинку и звук и предпросмотр идёт как-бы с замедлением. В таких случаях нужно
-          изменить аудиовыход на другой в <mark className="ui">Default Output</mark>,
-          уменьшить значение <mark className="ui">Latency</mark> до минимального в{" "}
+          <mark className="app">Adobe After Effects</mark> не может нормально
+          синхронизировать картинку и звук и предпросмотр идёт как-бы с замедлением. В
+          таких случаях нужно изменить аудиовыход на другой в{" "}
+          <mark className="ui">Default Output</mark>, уменьшить значение{" "}
+          <mark className="ui">Latency</mark> до минимального в{" "}
           <mark className="ui">Edit &gt; Preferences &gt; Audio Hardware</mark>. В крайнем
           случае можно попробовать обновить звуковые драйвера в вашей системе.
         </p>
@@ -2301,12 +2333,12 @@ const AEFromNewbies: React.FC = () => {
         <p>
           Если вы используете в проекте видео-исходники, скачанные из интернета, то скорее
           всего они были закодированы в неприятный для{" "}
-          <mark className="app">After Effects</mark> кодек и плохо проигрываются
+          <mark className="app">Adobe After Effects</mark> кодек и плохо проигрываются
           программой. Для решения проблемы - достаточно перекодировать ваши исходники в
-          монтажный кодек, например <mark className="video">Apple Prores 422</mark> через
-          конвертер, например <mark className="app">Shutter Encoder</mark>. После
-          конвертации - импортируйте исходники снова и попытайтесь воспроизвести
-          предпросмотр снова.
+          <mark className="word">монтажный кодек</mark>, например{" "}
+          <mark className="video">Apple Prores 422</mark> через конвертер, например{" "}
+          <mark className="app">Shutter Encoder</mark>. После конвертации - импортируйте
+          исходники снова и попытайтесь воспроизвести предпросмотр снова.
         </p>
         <p>
           Если ваши видео-исходники играются плавно, но вы испытываете проблемы только со
@@ -2323,7 +2355,7 @@ const AEFromNewbies: React.FC = () => {
           звука. Вам следует проверить настройки аудиовыхода в настройках программы, для
           этого нужно перейти в{" "}
           <mark className="ui">Edit &gt; Preferences &gt; Audio Hardware</mark> и указать
-          в пункте <mark className="ui">Default Output</mark> нужный вам аудиовыход.
+          в параметре <mark className="ui">Default Output</mark> нужный вам аудиовыход.
         </p>
         <ImageFigure
           caption="Preferences"
@@ -2337,7 +2369,7 @@ const AEFromNewbies: React.FC = () => {
         <p>
           Если вы проигрываете видео не в реальном времени и звук отсутствует (даже если
           он вам и нужен запинающийся и растянутый), то вам в настройках{" "}
-          <mark className="app">After Effects</mark> нужно включить галочку{" "}
+          <mark className="app">Adobe After Effects</mark> нужно включить галочку{" "}
           <mark className="ui">Mute Audio When Preview Is Not Real-time</mark> в{" "}
           <mark className="ui">Edit &gt; Preferences &gt; Previews</mark>.
         </p>
@@ -2365,16 +2397,16 @@ const AEFromNewbies: React.FC = () => {
           исходника звука. Чтобы исключить различные проблемы с воспроизведением аудио -
           переконвертируйте его в формат <mark className="file">.wav</mark>, а затем
           замените аудио в проекте. Если аудио запаковано вместе с видео файлом -
-          переконвертируйте его в монтажный кодек, например, через{" "}
-          <mark className="app">Shutter Encoder</mark>.
+          переконвертируйте его в <mark className="word">монтажный кодек</mark>, например,
+          через <mark className="app">Shutter Encoder</mark>.
         </p>
       </DetailsSummary>
-      <DetailsSummary title="Как убрать пикселизацию предпросмотра при перемещении временной метки?">
+      <DetailsSummary title="Как убрать пикселизацию предпросмотра при перемещении временной метки или объекта?">
         <p>
-          По умолчанию в <mark className="app">After Effects</mark> включена функция
+          По умолчанию в <mark className="app">Adobe After Effects</mark> включена функция
           адаптивного разрешения, которая изменяет качество предпросмотра при перемещении{" "}
-          <mark className="word">плейхеда</mark>. Если вас эта функция раздражает - его
-          можно отключить. Для этого нажмите на иконку молнии{" "}
+          <mark className="word">плейхеда</mark> или какого-нибудь слоя. Если вас эта
+          функция раздражает - его можно отключить. Для этого нажмите на иконку молнии{" "}
           <mark className="ui">Fast Previews</mark> в окне предпросмотра и выберите там
           значение <mark className="ui">Off (Final Quality)</mark>. После отключения{" "}
           <mark className="ui">Adaptive Resolution</mark> - качество предпросмотра при
@@ -2388,12 +2420,13 @@ const AEFromNewbies: React.FC = () => {
           styleClass="figure_windows-dark"
         />
       </DetailsSummary>
-      <DetailsSummary title="Я работал над проектом, но его ни разу не сохранял. Вдруг After Effects вылетел. Возможно ли в таком случае восстановить проект?">
+      <DetailsSummary title="Я работал над проектом, но его ни разу не сохранял. Если программа аварийно завершила работу, возможно ли в таком случае восстановить проект?">
         <p>
-          Нет, <mark className="app">After Effects</mark> не создаёт авто-сохранения или
-          какие-нибудь файлы проекта, если изначально проект не был сохранён. В следующий
-          раз перед началом работы - сразу сохраните файл проекта и периодически нажимайте
-          на <mark className="key">Ctrl + S</mark> для сохранения ваших изменений.
+          Нет, <mark className="app">Adobe After Effects</mark> не создаёт авто-сохранения
+          или какие-нибудь файлы проекта, если изначально проект не был сохранён. В
+          следующий раз перед началом работы - сразу сохраните файл проекта и периодически
+          нажимайте на <mark className="key">Ctrl + S</mark> для сохранения ваших
+          изменений.
         </p>
         <AdditionInfo>
           Чтобы не попасть в просак, если при работе файл проекта повредится - заранее{" "}
@@ -2539,7 +2572,7 @@ const AEFromNewbies: React.FC = () => {
       <DetailsSummary title="Как сделать прозрачный фон у слоя с эффектом Saber?">
         <p>
           По умолчанию <mark className="plugin">Saber</mark> рендерится на чёрном фоне, но
-          в параметрах эффекта можно включить прозрачность. Для этого найдите пункт{" "}
+          в параметрах эффекта можно включить прозрачность. Для этого найдите параметр{" "}
           <mark className="ui">Render Settings</mark> и раскройте его. Затем найдите
           параметр <mark className="ui">Composite Settings</mark> и выберите в нём
           значение <mark className="ui">Transparent</mark>. После этого слой с{" "}
@@ -2621,7 +2654,7 @@ const AEFromNewbies: React.FC = () => {
       </DetailsSummary>
       <DetailsSummary title="Почему первый кадр в композиции начинается не с нулевой секунды?">
         <p>
-          Скорее всего вы при создании прекомпозиции указали галочку в пункте{" "}
+          Скорее всего вы при создании прекомпозиции указали галочку в параметре{" "}
           <mark className="ui">
             Adjust composition duration to the time span of the selected layers
           </mark>
@@ -2670,32 +2703,9 @@ const AEFromNewbies: React.FC = () => {
           videoSrc={"images/aftereffects/convert_to_paragraph_text.mp4"}
         />
       </DetailsSummary>
-      <DetailsSummary title="Чем отличается однонодовая камера от двунодовой?">
-        <p>
-          При создании камеры в <mark className="app">After Effects</mark> можно
-          наткнуться на настройку типа камеры: <mark>One-Node</mark> и{" "}
-          <mark>Two-Node</mark>. Да, они действительно отличаются в плане способов
-          перемещения и поворота камеры.
-        </p>
-        <ul>
-          <li>
-            <mark>One-Node</mark> работает как физическая камера, которая перемещается
-            независимо от выбранной точки.
-          </li>
-          <li>
-            <mark>Two-Node</mark> смотрит на заданную точку и сама камера будет
-            поворачивать в сторону <mark>Point of Interest</mark>. Данный тип камер
-            полезен для создания параллакс-эффекта.
-          </li>
-        </ul>
-        <YouTubeVideo
-          caption="Техники с 3D камерами в After Effects"
-          link="zgMHWFolli8"
-        />
-      </DetailsSummary>
       <DetailsSummary title="Чем отличается Mocha AE от Mocha Pro?">
         <p>
-          В стандартную поставку <mark className="app">After Effects</mark> входит
+          В стандартную поставку <mark className="app">Adobe After Effects</mark> входит
           встроенный плагин для трекинга различных объектов{" "}
           <mark className="plugin">Mocha AE</mark>. Но у него функционал, по сравнению с
           Pro-версией, несколько урезан.
@@ -2704,8 +2714,8 @@ const AEFromNewbies: React.FC = () => {
           В встроенной <mark className="plugin">Mocha AE</mark> вы не сможете
           стабилизировать видео, делать клин-ап (удалять объекты), использовать магнитное
           лассо и прочее. <mark className="plugin">Mocha Pro</mark> же лишена этих
-          ограничений, а также можно вставить в <mark className="app">Premiere Pro</mark>{" "}
-          и другие программы.
+          ограничений, а также можно вставить в{" "}
+          <mark className="app">Adobe Premiere Pro</mark> и другие программы.
         </p>
         <AdditionInfo>
           Подробнее о различиях между этими версиями вы можете прочитать на{" "}
@@ -2719,18 +2729,18 @@ const AEFromNewbies: React.FC = () => {
         <p>
           Предположим, что вы решили написать какой-нибудь текст определённым шрифтом. Но
           вот незадача, шрифт при написании какого-то хрена меняется. Если вы уверены, что
-          с шрифтом всё в порядке, например в <mark className="app">Photoshop</mark> всё
-          работает отлично, то скорее всего вы столкнулись с редким багом, который может
-          встретиться на абсолютно любой версии <mark className="app">After Effects</mark>
-          . К сожалению, не все шрифты, прекрасно работающие в{" "}
-          <mark className="app">Photoshop</mark> и{" "}
-          <mark className="app">Illustrator</mark> будут прекрасно работать и в{" "}
-          <mark className="app">After Effects</mark>.
+          с шрифтом всё в порядке, например в <mark className="app">Adobe Photoshop</mark>{" "}
+          всё работает отлично, то скорее всего вы столкнулись с редким багом, который
+          может встретиться на абсолютно любой версии{" "}
+          <mark className="app">Adobe After Effects</mark>. К сожалению, не все шрифты,
+          прекрасно работающие в <mark className="app">Adobe Photoshop</mark> и{" "}
+          <mark className="app">Adobe Illustrator</mark> будут прекрасно работать и в{" "}
+          <mark className="app">Adobe After Effects</mark>.
         </p>
         <p>
           Суть бага заключается в том, что при смене начертания шрифта,{" "}
-          <mark className="app">After Effects</mark> почему-то оставляет на некоторых
-          буквах предыдущий вариант шрифта. Или просто сбрасывает стиль до{" "}
+          <mark className="app">Adobe After Effects</mark> почему-то оставляет на
+          некоторых буквах предыдущий вариант шрифта. Или просто сбрасывает стиль до{" "}
           <mark className="app">Times New Roman</mark>. Также такой багованный шрифт не
           реагирует на кнопки <mark className="ui">Bold</mark> и{" "}
           <mark className="ui">Italic</mark>.
@@ -2780,10 +2790,10 @@ const AEFromNewbies: React.FC = () => {
         </p>
         <p>
           Для того, чтобы открыть &quot;секретные настройки&quot; в{" "}
-          <mark className="app">After Effects</mark> - нужно открыть любой пункт настроек
-          в <mark className="ui">Edit &gt; Preferences</mark> с зажатой клавишей{" "}
+          <mark className="app">Adobe After Effects</mark> - нужно открыть любой раздел
+          настроек в <mark className="ui">Edit &gt; Preferences</mark> с зажатой клавишей{" "}
           <mark className="key">Shift</mark>. После этого у вас откроется окно{" "}
-          <mark className="ui">Preferences</mark>, в котором появится пункт{" "}
+          <mark className="ui">Preferences</mark>, в котором появится раздел{" "}
           <mark className="ui">Secret</mark>, куда вы можете перейти.
         </p>
         <AdditionWarning>
@@ -2797,10 +2807,10 @@ const AEFromNewbies: React.FC = () => {
           styleClass="figure_windows-dark"
         />
         <p>
-          В последних версиях <mark className="app">After Effects</mark> там находятся
-          всего лишь три настройки. Иногда отключение кэширование слоя и автоматическая
-          очистка кадров может вам помочь, если вы испытываете проблемы с переполнением
-          оперативной памяти при экспорте композиции.
+          В последних версиях <mark className="app">Adobe After Effects</mark> там
+          находятся всего лишь три настройки. Иногда отключение кэширование слоя и
+          автоматическая очистка кадров может вам помочь, если вы испытываете проблемы с
+          переполнением оперативной памяти при экспорте композиции.
         </p>
         <AdditionWarning>
           Изменение этих параметров может серьёзно сказаться на стабильности программы.{" "}
@@ -2822,7 +2832,7 @@ const AEFromNewbies: React.FC = () => {
           <li>
             <mark className="ui">Ignore Sequence Rendering Errors</mark> позволяет
             программе забить болт на ошибки при рендере последовательности изображений. В
-            повседневной практике пункт бесполезен, имхо.
+            повседневной практике параметр бесполезен, имхо.
           </li>
         </ul>
       </DetailsSummary>

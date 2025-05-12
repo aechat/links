@@ -278,109 +278,143 @@ const AEExport: React.FC = () => {
         </p>
       </DetailsSummary>
       <DetailsSummary
-        tag="медиаенкодер, медиаэнкодер"
-        title="Почему из каждого угла советуют не использовать Media Encoder для экспорта композиций из After Effects?"
+        tag="медиаенкодер, медиаэнкодер, adobe media encoder"
+        title="Почему из каждого угла советуют не использовать Adobe Media Encoder для экспорта композиций из Adobe After Effects?"
       >
         <p>
-          <mark className="app">Media Encoder</mark> славится своими багами и различными
-          проблемами при экспорте композиций из <mark className="app">After Effects</mark>
-          . Поэтому чтобы исключить траблы и не морочить себе голову при экспорте -
-          советуем от него отказаться и использовать его только в крайних случаях,
-          например для создания прокси-видео. Вы спросите, а в чём собственно проблема? Да
-          проблем то от него целая куча...
+          <mark className="app">Adobe Media Encoder</mark> часто становится источником
+          проблем при экспорте композиций из{" "}
+          <mark className="app">Adobe After Effects</mark>. Его используют либо по
+          привычке, либо потому, что в старых версиях{" "}
+          <mark className="app">Adobe After Effects</mark> нельзя было напрямую
+          экспортировать в <mark className="video">H.264</mark>. Сейчас в нём такой
+          необходимости уже нет, так как в{" "}
+          <mark className="app">Adobe After Effects</mark> версий <mark>23.0</mark> и выше
+          экспорт в <mark className="video">H.264</mark> вернули, а для старых версий
+          программы при желании можно поставить{" "}
+          <mark className="plugin">AfterCodecs</mark> или{" "}
+          <mark className="plugin">Voukoder</mark>. А теперь перечислим, какие палки в
+          колёса вставляет <mark className="app">Adobe Media Encoder</mark> при
+          повседневном использовании.
         </p>
         <ul>
           <li>
-            <mark className="app">Media Encoder</mark> при экспорте сложных сцен может
-            просто остановить процесс рендера, и всё. Без объяснения причин, а потом ищи и
-            гадай, что ему не нравится.
+            <mark className="app">Adobe Media Encoder</mark> при экспорте сложных сцен
+            может просто остановить процесс рендера без объяснения причины. В таком случае
+            сложно будет понять, что ему не нравится. Лучше экспортировать сложные сцены
+            напрямую в <mark className="app">Adobe After Effects</mark> и, при
+            необходимости, использовать прокси для композиций, чтобы минимизировать время
+            экспорта и различные ошибки.
             <AdditionWarning>
-              При начале экспорта через <mark className="app">Media Encoder</mark>,
-              программа запускает дополнительный процесс{" "}
-              <mark className="file">AfterFX.exe</mark>. Лишний процесс{" "}
-              <mark className="file">AfterFX.exe</mark> может дополнительно нагрузить ваш
-              компьютер или заполнить всю оперативную память. Из-за этого могут быть сбои
-              при экспорте через <mark className="app">Media Encoder</mark>.
+              При начале экспорта композиции через{" "}
+              <mark className="app">Adobe Media Encoder</mark> - программа запускает
+              дополнительный процесс <mark className="file">AfterFX.exe</mark>. Лишний
+              процесс <mark className="file">AfterFX.exe</mark> может дополнительно
+              нагрузить ваш компьютер или заполнить всю оперативную память. Из-за этого
+              могут быть сбои при экспорте через{" "}
+              <mark className="app">Adobe Media Encoder</mark>.
             </AdditionWarning>
           </li>
           <li>
-            <mark className="app">Media Encoder</mark> любит терять исходники просто так,
-            поэтому не удивляйтесь, если вы вместо изображения или видео вы увидите
-            палитру цветов как при технических работах на ТВ.
+            Некоторые пользователи могут столкнуться с кодом ошибки{" "}
+            <mark className="code">-1609629695</mark> лишь с малым объяснением, что
+            произошло при экспорте композиции из{" "}
+            <mark className="app">Adobe After Effects</mark> в{" "}
+            <mark className="app">Adobe Media Encoder</mark>. Они бы не сталкивались с
+            ним, если бы его не использовали в качестве единственного способа экспорта
+            композиций из программы.
           </li>
           <li>
-            <mark className="app">Media Encoder</mark> может вывести композиции с
-            различными артефактами, например сместив изображение в сторону или ухудшив
-            цветопередачу.
+            <mark className="app">Adobe Media Encoder</mark> может потерять исходники, то
+            есть после экспорта вы можете обнаружить разноцветный плейсхолдер вместо
+            нужного исходника. Это не всегда бывает приятно, особенно когда вы долго
+            экспортировали композицию.
           </li>
           <li>
-            При экспорте композиций из <mark className="app">After Effects</mark> в{" "}
-            <mark className="app">Media Encoder</mark> могут появиться красные кресты,
-            водяные знаки или ещё что-то похожее, сигнализирующее об отсутствии лицензии
-            на сторонних эффектах. Если в <mark className="app">After Effects</mark> всё с
-            активацией хорошо, то не факт что она адекватно перенесётся в{" "}
-            <mark className="app">Media Encoder</mark>, так как лицензия плагинов может
-            быть завязана глубже именно к <mark className="app">After Effects</mark>.
+            <mark className="app">Adobe Media Encoder</mark> может экспортировать
+            композиции с различными артефактами, например сместив изображение в сторону
+            или ухудшив цветопередачу.
+            <AdditionInfo>
+              Для исправления бага со смещением изображения - проверьте установленные
+              версии <mark className="app">Adobe After Effects</mark> и{" "}
+              <mark className="app">Adobe Media Encoder</mark>. Если их версии попадают в
+              промежуток от <mark>23.1</mark> до <mark>23.5</mark> включительно, то вам
+              нужно будет обновить обе программы до <mark>23.6</mark>.
+            </AdditionInfo>
           </li>
           <li>
-            При экспорте в <mark className="app">Media Encoder</mark> вы вряд ли получите
-            стабильную работу функции <mark>Multi-frame Render</mark>, которая отлично
-            работает при экспорте напрямую из <mark className="app">After Effects</mark>.
+            При экспорте композиций из <mark className="app">Adobe After Effects</mark> в{" "}
+            <mark className="app">Adobe Media Encoder</mark> могут появиться красные
+            кресты, водяные знаки или ещё что-то похожее, сигнализирующее об отсутствии
+            лицензии на сторонних эффектах. Если в{" "}
+            <mark className="app">Adobe After Effects</mark> всё с активацией хорошо, то
+            не факт что активация плагинов хорошо перенесётся в{" "}
+            <mark className="app">Adobe Media Encoder</mark>, так как лицензия плагинов
+            может быть завязана глубже именно к{" "}
+            <mark className="app">Adobe After Effects</mark>.
           </li>
           <li>
-            При отправке композиций из <mark className="app">After Effects</mark> в{" "}
-            <mark className="app">Media Encoder</mark> она может просто не появиться в
-            очереди рендера. Такое бывает, когда происходит внутренний сбой в{" "}
-            <mark>Dynamic Link</mark>, но пользователю об этом не сообщают. Никому не
-            охота искать процессы Adobe, завершать их, а затем повторять попытку экспорта
-            снова.
+            При экспорте в <mark className="app">Adobe Media Encoder</mark> вы вряд ли
+            получите стабильную работу функции <mark>Multi-frame Render</mark>, которая
+            отлично работает при экспорте напрямую из{" "}
+            <mark className="app">Adobe After Effects</mark>.
           </li>
           <li>
-            Запуск экспорта в <mark className="app">After Effects</mark> происходит почти
-            моментально, в отличии от долгого запуска самого{" "}
-            <mark className="app">Media Encoder</mark>. После запуска{" "}
-            <mark className="app">Media Encoder</mark> надо ещё подождать, когда он
-            подгрузит композицию из <mark className="app">After Effects</mark>, запустит
-            ещё один процесс <mark className="file">AfterFX.exe</mark> для рендера и
-            только потом уже начнёт экспорт. Согласитесь, не очень удобно ждать минуту,
-            когда надо вывести короткое видео.
+            При отправке композиций из <mark className="app">Adobe After Effects</mark> в{" "}
+            <mark className="app">Adobe Media Encoder</mark> она может просто не появиться
+            в очереди рендера. Такое бывает, когда происходит внутренний сбой в{" "}
+            <mark>Dynamic Link</mark>, но пользователю об этом не сообщают.
+          </li>
+          <li>
+            Запуск экспорта в <mark className="app">Adobe After Effects</mark> происходит
+            почти моментально, в отличии от долгого запуска самого{" "}
+            <mark className="app">Adobe Media Encoder</mark>. После запуска{" "}
+            <mark className="app">Adobe Media Encoder</mark> надо ещё подождать, когда он
+            подгрузит композицию из <mark className="app">Adobe After Effects</mark>,
+            запустит ещё один процесс <mark className="file">AfterFX.exe</mark> для
+            рендера и только потом уже начнёт экспорт. Согласитесь, не очень удобно ждать
+            минуту, когда надо экспортировать короткое видео.
           </li>
         </ul>
         <p>
-          Изначально <mark className="app">Media Encoder</mark> был создан для
+          Изначально <mark className="app">Adobe Media Encoder</mark> был создан для
           перекодирования исходников из одного формата в другой и для создания прокси,
-          чтобы в дальнейшем их подключить в <mark className="app">Premiere Pro</mark>. Но
-          со временем Adobe решил добавить туда функцию экспорта из{" "}
-          <mark className="app">After Effects</mark> и понеслась. Большинство
+          чтобы в дальнейшем их подключить в{" "}
+          <mark className="app">Adobe Premiere Pro</mark>. Но со временем{" "}
+          <mark>Adobe</mark> решил добавить туда функцию экспорта из{" "}
+          <mark className="app">Adobe After Effects</mark> и понеслась. Большинство
           пользователей экспортом в этой программе занимались по причине того, что в{" "}
-          <mark className="app">After Effects</mark> по стандарту в старых версиях не было
-          возможности экспортировать в кодек <mark className="video">H.264</mark>.
+          <mark className="app">Adobe After Effects</mark> по стандарту в старых версиях
+          не было возможности экспортировать в кодек <mark className="video">H.264</mark>.
         </p>
         <p>
-          После обновления программ до версий <mark>23.X</mark> и новее нужда в выводе
-          через <mark className="app">Media Encoder</mark> пропала, так как в{" "}
-          <mark className="app">After Effects</mark> добавили нативный экспорт в{" "}
+          После обновления <mark className="app">Adobe After Effects</mark> на версию{" "}
+          <mark>23.X</mark> и новее - нужда в выводе через{" "}
+          <mark className="app">Adobe Media Encoder</mark> пропадает, так как в{" "}
+          <mark className="app">Adobe After Effects</mark> добавили нативный экспорт в{" "}
           <mark className="video">H.264</mark>. Также никто не запрещал устанавливать
           сторонние плагины, например{" "}
           <mark className="plugin">Autokroma AfterCodecs</mark> или{" "}
           <mark className="plugin">Voukoder</mark> для экспорта в различные кодеки
-          напрямую из <mark className="app">After Effects</mark>.
+          напрямую из <mark className="app">Adobe After Effects</mark>.
         </p>
         <AdditionInfo>
           Если вам нужно поставить на очередь просчёта сразу несколько композиций -
-          создайте проект болванку и импортируйте туда несколько своих проектов. Затем вы
-          сможете все нужные композиции закинуть в очередь просчёта и начать его,
-          предварительно указав нужный формат и расположение.
+          создайте проект-болванку в <mark className="app">Adobe After Effects</mark> и
+          импортируйте туда несколько своих проектов. Затем вы сможете все нужные
+          композиции закинуть в очередь просчёта и начать его, предварительно указав
+          нужный формат и расположение.
         </AdditionInfo>
         <p>
-          Вывод из этого полотна проблем довольно простой: при экспорте напрямую из{" "}
-          <mark className="app">After Effects</mark> вы можете уберечь себя от ужасов,
-          которые создаёт <mark className="app">Media Encoder</mark>. Надеюсь, что мы
-          убедили вас его не использовать.
+          Вывод из перечисления популярных проблем довольно простой - при экспорте
+          напрямую из <mark className="app">Adobe After Effects</mark> вы можете уберечь
+          себя от проблем, которые создаёт{" "}
+          <mark className="app">Adobe Media Encoder</mark>. Надеюсь, что мы убедили вас
+          его не использовать.
         </p>
         <AdditionInfo>
-          О том, как экспортировать в популярные форматы, вы можете прочитать в следующих
-          пунктах этой страницы.
+          О том, как экспортировать в различные популярные форматы - вы можете прочитать в
+          следующих статьях на этой странице.
         </AdditionInfo>
       </DetailsSummary>
       <DetailsSummary
@@ -397,44 +431,78 @@ const AEExport: React.FC = () => {
           прочие, но обычно при открытии таких видео на старых устройствах пользователь
           сталкивается с плохой совместимостью, поэтому они менее популярны в народе. Раз{" "}
           <mark className="video">H.264</mark> такой популярный, то может возникнуть
-          вопрос, а как экспортировать его из <mark className="app">After Effects</mark>{" "}
-          без танцев с бубном? Из программы вывести видео с таким кодеком без
-          использования <mark className="app">Media Encoder</mark> можно аж тремя
-          способами.
+          вопрос -{" "}
+          <mark className="quote">
+            а как экспортировать его из After Effects без танцев с бубном?
+          </mark>
+          . Из программы экспортировать композицию в таком кодеке без использования{" "}
+          <mark className="app">Adobe Media Encoder</mark> можно тремя способами.
         </p>
         <ul>
           <li>
-            С помощью встроенного кодека <mark className="plugin">H.264</mark>. Он
-            доступен только на <mark className="app">After Effects</mark> версий{" "}
+            С помощью встроенного кодека <mark className="plugin">H.264</mark>, который
+            доступен в <mark className="app">Adobe After Effects</mark> версиях{" "}
             <mark>2023</mark> и новее.
+            <AdditionWarning>
+              <p>
+                У встроенного в <mark className="app">Adobe After Effects</mark> кодека{" "}
+                <mark className="plugin">H.264</mark> есть ряд ограничений. Программа при
+                необходимости выбьет окно с предупреждением, в котором будет описана
+                определённая ошибка при выборе тех или иных настроек экспорта.
+              </p>
+              <ul>
+                <li>
+                  Нельзя экспортировать видео с нестандартным FPS, например{" "}
+                  <mark>20</mark>. Если проигнорировать предупреждение программы - видео
+                  получится быстрее и закончится раньше, чем ваша аудиодорожка.
+                </li>
+                <li>
+                  Из-за особенностей стандарта <mark className="video">H.264</mark> - вы
+                  не сможете экспортировать композицию с нечётным значением разрешения,
+                  например <mark>725 на 501</mark>.{" "}
+                  <mark className="app">Adobe After Effects</mark> в таком случае растянет
+                  ваше видео до <mark>726 на 502</mark>.
+                </li>
+                <li>
+                  Стандартный кодек может некорректно работать с неквадратными пикселями в
+                  настройках вашей композиции.
+                </li>
+              </ul>
+            </AdditionWarning>
           </li>
           <li>
             С помощью стороннего плагина <mark className="plugin">Voukoder</mark>.
-            Доступен для устройств на <mark>Windows</mark>. Поддержка устройств на{" "}
-            <mark>macOS</mark> косвенно присутствует с версий{" "}
-            <mark className="app">Voukoder Pro 2.0</mark> и новее, но эту версию в этом
-            пункте рассматривать не будем.
+            Доступен для устройств на <mark>Windows</mark> и <mark>macOS</mark>
+            <sup>*</sup>.
+            <AdditionWarning>
+              <sup>*</sup>Поддержка устройств на <mark>macOS</mark> появилась в{" "}
+              <mark className="plugin">Voukoder</mark> версий <mark>Pro 2.0</mark> и
+              новее. <mark className="plugin">Voukoder Classic</mark>, который
+              рассматривается в данной статье - не поддерживается на устройствах с{" "}
+              <mark>macOS</mark>.
+            </AdditionWarning>
           </li>
           <li>
-            С помощью стороннего плагина <mark className="plugin">AfterCodecs</mark>.
-            Доступен для <mark>Windows</mark> и <mark>macOS</mark>, а также поддерживает
-            достаточно много старых версий <mark className="app">After Effects</mark>.
+            С помощью стороннего плагина <mark className="plugin">AfterCodecs</mark>. Он
+            доступен для <mark>Windows</mark> и <mark>macOS</mark>, а также поддерживает
+            большинство старых версий <mark className="app">Adobe After Effects</mark>.
           </li>
         </ul>
-        <AdditionWarning>
+        <AdditionDanger>
           С помощью кодеков <mark className="video">H.264</mark> и{" "}
-          <mark className="video">H.265</mark> нельзя вывести видео с альфа-каналом, то
-          есть с прозрачностью. Для вывода видео на прозрачном фоне воспользуйтесь
-          форматами <mark className="video">Quicktime - Apple Prores 4444</mark> или{" "}
+          <mark className="video">H.265</mark> нельзя экспортировать видео с
+          альфа-каналом, то есть с прозрачностью. Для вывода видео на прозрачном фоне
+          воспользуйтесь форматами{" "}
+          <mark className="video">Quicktime - Apple Prores 4444</mark> или{" "}
           <mark className="video">WebM - VP9</mark>.
-        </AdditionWarning>
+        </AdditionDanger>
         <p>
-          Сначала разберёмся, куда что тыкать. Для того чтобы засунуть вашу нужную
-          композицию в очередь экспорта, нажмите на комбинацию клавиш{" "}
-          <mark className="key">Ctrl + M</mark>. Вы переместитесь в окно очереди экспорта,
-          где вы можете установить кодек для экспорта в пункте{" "}
+          Прежде чем начать экспорт - нужно разобраться, куда что нажимать. Для того чтобы
+          отправить вашу нужную композицию в очередь экспорта - нажмите на комбинацию
+          клавиш <mark className="key">Ctrl + M</mark>. Таким образом вы переместитесь в
+          окно очереди экспорта, где вы можете установить кодек для экспорта в параметре{" "}
           <mark className="ui">Output Module</mark>, параметры экспорта, например
-          использование прокси или принудительно отключить эффекты в пункте{" "}
+          использование прокси или принудительно отключить эффекты в параметре{" "}
           <mark className="ui">Render Settings</mark>.
         </p>
         <ImageFigure
@@ -443,30 +511,32 @@ const AEExport: React.FC = () => {
           imgTitle="Интерфейс очереди просчёта"
           styleClass="figure_windows-dark"
         />
-        <Divider>Выводим через встроенный H.264</Divider>
-        <AdditionWarning>
-          У стандартного кодека <mark className="plugin">H.264</mark> есть ряд ограничений
-          - нельзя выводить видео с нестандартным FPS, например <mark>20</mark> и может
-          некорректно работать с не-квадратными пикселями в настройках вашей композиции.
-          Программа при необходимости выбьет окно с предупреждением, в котором будет
-          описана определённая ошибка при выборе тех или иных настроек экспорта.
-        </AdditionWarning>
+        <Divider>Экспортируем с помощью встроенного H.264</Divider>
         <p>
-          Начнём по порядку, с первого и простого способа. Вывод в{" "}
-          <mark className="video">H.264</mark> стандартными способами вернули в версиях{" "}
-          <mark className="app">After Effects</mark> 2023 и новее. Теперь вместо{" "}
-          <mark className="plugin">AVI</mark> по умолчанию уже стоит то, что нам нужно.
-          Обычно в большинстве случаев хватает трёх стандартных пресетов:{" "}
+          Начнём с первого и простого способа экспорта в{" "}
+          <mark className="video">H.264</mark>. Вывод в{" "}
+          <mark className="video">H.264</mark> стандартными способами вернули и заменили
+          пресет по умолчанию вместо <mark className="video">AVI - Animation</mark> в
+          версиях <mark className="app">Adobe After Effects</mark> 2023 и новее. Обычно в
+          большинстве случаев для экспорта хватает трёх стандартных пресетов:{" "}
           <mark className="video">H.264 - 5 Мбит/c</mark>,{" "}
           <mark className="video">H.264 - 15 Мбит/c</mark> и{" "}
           <mark className="video">H.264 - 40 Мбит/c</mark>.
         </p>
+        <AdditionInfo>
+          Если вы хотите создать свой пресет - перейдите в{" "}
+          <mark className="ui">Edit &gt; Templates</mark> и нажмите на{" "}
+          <mark className="ui">Output Module</mark>. В открывшемся окне нажмите на{" "}
+          <mark className="ui">New</mark> и задайте новое имя пресета. Чтобы
+          отредактировать его - нажмите на <mark className="ui">Edit</mark>. Также при
+          желании вы можете задать свой новый пресет в качестве стандартного или изменить
+          уже существующие.
+        </AdditionInfo>
         <p>
-          Чтобы начать изменять битрейт и аналогичные настройки для встроенного кодека{" "}
-          <mark className="video">
-            H.264, откройте окно <mark className="ui">Output Module</mark>, нажав на
-          </mark>
-          название выбранного пресета. Для выбора нужного нам битрейта откройте окно{" "}
+          Чтобы изменить битрейт или другие настройки для встроенного кодека{" "}
+          <mark className="video">H.264</mark> - откройте окно{" "}
+          <mark className="ui">Output Module</mark>, нажав на название выбранного пресета
+          в очереди рендера. Для выбора нужного нам битрейта откройте окно{" "}
           <mark className="ui">Format Options</mark>.
         </p>
         <ImageFigure
@@ -478,7 +548,7 @@ const AEExport: React.FC = () => {
         <p>
           В открывшемся окне мы можем выбрать <mark>VBR</mark> или <mark>CBR</mark>. Если
           в вашем видео есть слишком быстрые движения объектов и куча частиц - установите
-          больше битрейта и <mark>CBR</mark>, но не переусердствуйте. Пункт{" "}
+          больше битрейта и <mark>CBR</mark>, но не переусердствуйте. Параметр{" "}
           <mark>VBR</mark> больше подойдет тем, кому нужен минимальный вес файла.
         </p>
         <ImageFigure
@@ -490,7 +560,7 @@ const AEExport: React.FC = () => {
         <p>
           После того, как вы указали нужный битрейт, прожимайте кнопки{" "}
           <mark className="ui">OK</mark> до полного закрытия{" "}
-          <mark className="ui">Output Module</mark>. В графе{" "}
+          <mark className="ui">Output Module</mark>. В{" "}
           <mark className="ui">Output To</mark> вы можете указать путь и название для
           вашей экспортируемой композиции, в стрелочке слева можно указать
           предустановленный шаблон названия или создать свой. Для начала экспорта нажмите
@@ -503,36 +573,41 @@ const AEExport: React.FC = () => {
           imgTitle="Кнопка начала рендера"
           styleClass="figure_windows-dark"
         />
-        <Divider>Выводим через Voukoder</Divider>
+        <Divider>Экспортируем с помощью Voukoder</Divider>
         <p>
-          Если же вас результат рендера от стандартного{" "}
-          <mark className="video">H.264</mark> не устраивает, то можно воспользоваться
-          плагином <mark className="plugin">Voukoder</mark>. В этом примере мы рассмотрим
-          плагин{" "}
-          <a href="https://github.com/Vouk/voukoder/releases/tag/13.4.1">версии 13.4.1</a>
-          , не Pro версию.
-        </p>
-        <AdditionWarning>
-          Демонстрируемая версия плагина <mark className="plugin">Voukoder</mark>{" "}
-          недоступна на устройствах с <mark>macOS</mark>. Чтобы подключить плагин к
-          программе, нужно скачать и установить{" "}
-          <a href="https://github.com/Vouk/voukoder/releases/download/13.4.1/voukoder-13.4.1.msi">
-            сам Voukoder
-          </a>{" "}
-          и{" "}
-          <a href="https://github.com/Vouk/voukoder-connectors/blob/master/aftereffects/aftereffects-connector-0.10.0.msi?raw=true">
-            коннектор для After Effects
-          </a>{" "}
-          к нему.
-        </AdditionWarning>
-        <p>
-          Для того чтобы начать рендер с помощью <mark className="plugin">Voukoder</mark>,
-          вам нужно снова зайти в <mark className="ui">Output Module</mark> и выбрать
-          пункте <mark className="ui">Format</mark> плагин{" "}
-          <mark className="ui">Voukoder</mark>. Чтобы перейти в настройки{" "}
-          <mark className="ui">Voukoder</mark> нужно нажать рядом кнопку{" "}
+          Если результат экспорта от стандартного <mark className="video">H.264</mark> вас
+          не устраивает - попробуйте экспортировать композицию через сторонний плагин{" "}
+          <mark className="plugin">Voukoder</mark>. Для того чтобы начать рендер с помощью{" "}
+          <mark className="plugin">Voukoder</mark>, вам нужно снова зайти в{" "}
+          <mark className="ui">Output Module</mark> и выбрать в параметре{" "}
+          <mark className="ui">Format</mark> значение{" "}
+          <mark className="plugin">Voukoder</mark>. Чтобы перейти в настройки{" "}
+          <mark className="plugin">Voukoder</mark> - нажмите на кнопку{" "}
           <mark className="ui">Format Options</mark>.
         </p>
+        <AdditionWarning>
+          <ul>
+            <li>
+              Чтобы подключить плагин к <mark className="app">Adobe After Effects</mark> -
+              нужно скачать и установить сам <mark className="plugin">Voukoder</mark>и{" "}
+              <mark className="plugin">коннектор для After Effects</mark> к нему. Для
+              корректной установки плагина - убедитесь в том, что вы не устанавливали{" "}
+              <mark className="app">Adobe After Effects</mark> в нестандартное
+              расположение.
+            </li>
+            <li>
+              В этой статье используется версия{" "}
+              <mark className="plugin">Voukoder Classic 13.4.1</mark>. К сожалению,
+              исходный репозиторий на{" "}
+              <a href="https://github.com/Vouk/voukoder/releases/tag/13.4.1">GitHub</a>{" "}
+              был удалён, поэтому последнюю классическую версию вы можете найти в{" "}
+              <a href="https://t.me/+Qd9xu7A4TeIwNzY6">складе стройматериалов</a> по
+              хештегу <mark className="tag">#voukoder</mark>. Демонстрируемая версия
+              плагина <mark className="plugin">Voukoder</mark> недоступна для устройств с{" "}
+              <mark>macOS</mark>.
+            </li>
+          </ul>
+        </AdditionWarning>
         <ImageFigure
           caption="Output Module Settings"
           imgSrc="images/aftereffects/selecting_voukoder.png"
@@ -540,27 +615,31 @@ const AEExport: React.FC = () => {
           styleClass="figure_windows-dark"
         />
         <p>
-          После открытия настроек нам нужно выбрать кодек, в который мы хотим
+          После открытия настроек - нужно выбрать кодек, в который вы хотите
           экспортировать видео. В основном для вывода видео и его корректного открытия на
           многих современных устройствах используется кодек{" "}
           <mark className="video">H.264</mark>. Но можно и воспользоваться{" "}
           <mark className="video">HEVC (H.265)</mark>, если вам нужно примерно сохранить
-          качество видео с меньшим объёмом файла. Кодеки{" "}
-          <mark className="video">AV1</mark> и <mark className="video">VP9</mark> для
-          вывода из <mark className="app">After Effects</mark> используются редко, а если
-          уж и надо вывести в таком формате, то проще переконвертировать видео позже через
-          условный <a href="https://www.shutterencoder.com/">Shutter Encoder</a>. Теперь
-          поговорим и о приставках в названиях кодеков.
+          качество видео с меньшим объёмом файла.
         </p>
         <AdditionInfo>
-          Варианты кодирования показаны на устройстве с связкой процессора AMD и
-          видеокарты NVIDIA. Выбор у вас может отличаться в зависимости от вашего железа.
+          Кодеки <mark className="video">AV1</mark> и <mark className="video">VP9</mark>{" "}
+          для вывода из <mark className="app">Adobe After Effects</mark> используются
+          редко. А если уж вам надо экспортировать в таком формате - проще
+          переконвертировать видео позже через условный{" "}
+          <a href="https://www.shutterencoder.com/">Shutter Encoder</a>.
+        </AdditionInfo>
+        <p>
+          Теперь поговорим и о приставках в названиях кодеков. Для вариантов{" "}
+          <mark className="video">H.264</mark> и <mark className="video">H.265</mark> есть
+          три варианта для кодирования.
+        </p>
+        <AdditionInfo>
+          Варианты кодирования показаны на устройстве с связкой процессора{" "}
+          <mark>AMD</mark> и видеокарты <mark>NVIDIA</mark>. Выбор на вашем устройстве
+          может отличаться от демонстрируемых скриншотов в зависимости от вашего железа.
         </AdditionInfo>
         <ul>
-          <p>
-            Для вариантов <mark className="video">H.264</mark> и{" "}
-            <mark className="video">H.265</mark> есть три варианта для кодирования.
-          </p>
           <li>
             <mark>x264</mark> или <mark>x265</mark> используется кодирования видео на
             процессоре без дополнительного использования видеокарты. Стабильно, но не
@@ -568,12 +647,13 @@ const AEExport: React.FC = () => {
           </li>
           <li>
             <mark>NVIDIA NVENC</mark> используется для кодирования видео с использованием
-            видеокарты NVIDIA. Может ускорить процесс рендера, но не гарантирует 100%
-            использование видеокарты.
+            видеокарты <mark>NVIDIA</mark>. Данный параметр может ускорить процесс
+            рендера, но не гарантирует 100% использование видеокарты, особенно если вы
+            используете нагруженные эффекты, которые могут конфликтовать друг с другом.
           </li>
           <li>
-            <mark>AMD AMF</mark> - тоже самое, что и предыдущий пункт, но на встроенном
-            видеочипе AMD.
+            <mark>AMD AMF</mark> - тоже самое, что и предыдущий параметр, но рендер будет
+            выполняться на встроенном видеочипе <mark>AMD</mark>.
           </li>
         </ul>
         <ImageFigure
@@ -583,12 +663,12 @@ const AEExport: React.FC = () => {
           styleClass="figure_windows-light"
         />
         <p>
-          После выбора нужного нам кодека (я выбрал{" "}
-          <mark className="video">H.264 (NVIDIA NVENC)</mark>), нужно перейти во вкладку{" "}
-          <mark className="ui">Параметры</mark>. В этой вкладке можно указать качество
-          желаемого видео. По умолчанию там уже стоит то, что нам нужно, а именно параметр
-          квантования и его фактор. <mark>CQP</mark> или <mark>CRF</mark> - это некий
-          эквивалент качества, чем меньше - тем лучше качество, но больше вес.
+          После выбора нужного кодека, например{" "}
+          <mark className="video">H.264 (NVIDIA NVENC)</mark> - перейдите во вкладку{" "}
+          <mark className="ui">Параметры</mark>. В этой вкладке вы можете указать качество
+          желаемого видео. По умолчанию в этой вкладке установлен параметр кодирования
+          через квантование и его фактор. <mark>CQP</mark> или <mark>CRF</mark> - это
+          некий эквивалент качества, чем меньше - тем лучше качество, но больше вес.
         </p>
         <ImageFigure
           caption="Voukoder 13.4.1"
@@ -613,20 +693,23 @@ const AEExport: React.FC = () => {
           </li>
           <li>
             Если вы хотите получить видео с хорошим соотношением{" "}
-            <mark>качество/минимальный вес</mark>, тогда укажите значение <mark>30</mark>.
-            Можете поэкспериментировать с значением в большую или меньшую сторону.
+            <mark>качество/минимальный вес</mark> - укажите значение <mark>30</mark>.
             <AdditionWarning>
-              Экстремальные значения, например <mark>50</mark>, не рекомендуется
-              использовать, так как можете получить кашу из кадров на выходе.
+              Вы можете поэкспериментировать с значением в большую или меньшую сторону,
+              здесь нет универсального значения. Экстремальные значения, например{" "}
+              <mark>50</mark>, не рекомендуется использовать, так как вы можете получить в
+              итоге кашу из кадров.
             </AdditionWarning>
           </li>
         </ul>
         <p>
           Дальше в <mark className="plugin">Voukoder</mark> нам ничего не нужно
           настраивать. При необходимости вы можете изменить другие параметры в окне
-          экспорта и начать экспорт с помощью кнопки <mark className="ui">Render</mark>.
+          экспорта, закрыть окно настройки <mark className="plugin">Voukoder</mark>{" "}
+          кнопкой <mark className="ui">ОК</mark> и начать экспорт с помощью кнопки{" "}
+          <mark className="ui">Render</mark>.
         </p>
-        <Divider>Выводим через AfterCodecs</Divider>
+        <Divider>Экспортируем с помощью AfterCodecs</Divider>
         <p>
           Теперь поговорим и про <mark className="plugin">AfterCodecs</mark>. Для начала
           экспорта через <mark className="plugin">AfterCodecs</mark> нам нужно снова зайти
@@ -646,8 +729,8 @@ const AEExport: React.FC = () => {
         </p>
         <ul>
           <li>
-            В пункте <mark className="ui">Tradeoff</mark> мы можем указать три варианта на
-            что ориентироваться при кодировании: на процент качества (похож на метод
+            В параметре <mark className="ui">Tradeoff</mark> мы можем указать три варианта
+            на что ориентироваться при кодировании: на процент качества (похож на метод
             квантования CQP), на желаемый битрейт или на желаемый размер файла (не
             рекомендуется при повседневном использовании).
           </li>
@@ -661,7 +744,7 @@ const AEExport: React.FC = () => {
           </li>
           <li>
             В <mark className="ui">Audio</mark> лучше указать значение <mark>512</mark>,
-            вместо <mark>Auto</mark>, чтобы вывести звук в аудио без сильной потери
+            вместо <mark>Auto</mark>, чтобы запаковать звук в аудио без сильной потери
             качества.
           </li>
           <AdditionWarning>
@@ -673,7 +756,7 @@ const AEExport: React.FC = () => {
           </AdditionWarning>
         </ul>
         <ImageFigure
-          caption="AfterCodecs 1.11.5 for After Effects"
+          caption="AfterCodecs 1.11.5 for Adobe After Effects"
           imgSrc="images/aftereffects/aftercodecs_settings.png"
           imgTitle="Настройки AfterCodecs"
           styleClass="figure_windows-dark"
@@ -694,18 +777,20 @@ const AEExport: React.FC = () => {
         title="Как экспортировать композицию в .webm и VP9/AV1?"
       >
         <p>
-          <mark className="video">VP9</mark>, <mark className="video">AV1</mark> или же{" "}
-          <mark className="video">WebM</mark> - стандарт сжатия видео, который часто
-          используется для встраивания в различные веб-ресурсы и мобильные приложения. Эти
-          кодеки обычно лучше сжимают видео по сравнению с{" "}
+          <mark className="video">VP9</mark> и <mark className="video">AV1</mark> -
+          стандарты сжатия видео, разрабатываемые корпорацией <mark>Google</mark>, которые
+          часто используются для встраивания видеороликов в различные веб-ресурсы и
+          мобильные приложения. Обычно данные кодеки пакуются в контейнер{" "}
+          <mark className="video">WebM</mark> и лучше сжимают видео по сравнению с{" "}
           <mark className="video">H.264</mark>, а также поддерживают{" "}
           <mark className="word">альфа-канал</mark>, чтобы можно было прикрепить видео с
-          прозрачным фоном. Но, к сожалению, стандартными средствами из{" "}
-          <mark className="app">After Effects</mark> и{" "}
-          <mark className="app">Media Encoder</mark> невозможно экспортировать композицию
-          в <mark className="video">WebM</mark>. Для вывода видео в таком кодеке мы будем
-          экспортировать композицию как обычно, а затем конвертировать полученный файл в
-          нужный формат с помощью <mark className="app">Shutter Encoder</mark>.
+          прозрачным фоном. К сожалению, стандартными средствами из{" "}
+          <mark className="app">Adobe After Effects</mark> и{" "}
+          <mark className="app">Adobe Media Encoder</mark> не получится экспортировать
+          композицию в <mark className="video">WebM</mark>. Для вывода композиции в таком
+          кодеке нужно будет экспортировать композицию как обычно, например в{" "}
+          <mark className="video">Apple Prores</mark>, а затем конвертировать полученный
+          файл в нужный кодек с помощью <mark className="app">Shutter Encoder</mark>.
         </p>
         <AdditionDanger>
           Автор{" "}
@@ -713,47 +798,54 @@ const AEExport: React.FC = () => {
             <u>крайне не рекомендует</u>
           </b>{" "}
           использовать плагин <a href="https://fnord.com/">WebM от fnord</a> для экспорта
-          из <mark className="app">Media Encoder</mark>, так как он часто экспортирует
-          видео на прозрачном фоне с жуткими артефактами или внезапно останавливает
-          кодирование без причины.
+          композиций в данном формате из <mark className="app">Adobe Media Encoder</mark>,
+          так как он часто экспортирует видео на прозрачном фоне с жуткими артефактами или
+          внезапно останавливает кодирование без причины.
         </AdditionDanger>
-        <Divider>Выводим композицию в удобном формате</Divider>
+        <Divider>Экспортируем композицию в удобном формате</Divider>
         <p>
-          Для начала нам нужно вывести видео как обычно: в{" "}
-          <mark className="video">Apple Prores 4444</mark>, если вы хотите видео с
-          альфа-каналом или в <mark className="video">Apple Prores 422</mark>, если вы
-          хотите видео без альфа-канала. Для этого мы переходим в очередь рендера,
-          открываем <mark className="ui">Output Module</mark>. В пункте{" "}
-          <mark className="ui">Format</mark> выбираем{" "}
+          Для начала вам нужно экспортировать видео как обычно. Выбор формата для
+          изначального экспорта зависит от ваших целей. В этой статье будет
+          рассматриваться экспорт в <mark className="video">Apple Prores</mark>, а затем
+          последующая конвертация в <mark className="video">WebM</mark>. Для этого мы
+          переходим в очередь рендера, открываем <mark className="ui">Output Module</mark>
+          . В параметре <mark className="ui">Format</mark> выбираем{" "}
           <mark className="ui">Quicktime</mark>, а в{" "}
-          <mark className="ui">Format Options</mark> нужный нам кодек.
-        </p>
-        <AdditionWarning>
-          Не забудьте поставить в <mark className="ui">Channels</mark> параметр{" "}
-          <mark className="ui">RGB + Alpha</mark>, если вы собираетесь выводить видео с
-          альфа-каналом.
-        </AdditionWarning>
-        <VideoFigure
-          caption="Выводим видео в Apple Prores"
-          styleClass="figure_windows-dark"
-          videoSrc="images/aftereffects/export_to_prores.mp4"
-        />
-        <p>
-          Затем не забудьте указать путь, куда вы хотите вывести видео, и нажмите на{" "}
+          <mark className="ui">Format Options</mark> нужный нам кодек. Затем не забудьте
+          указать путь, куда вы хотите экспортировать видео, и нажмите на{" "}
           <mark className="ui">Render</mark> или на клавишу{" "}
           <mark className="key">Enter</mark>.
         </p>
+        <ul>
+          <li>
+            Если вам нужно экспортировать видео с альфа-каналом - выберите кодек{" "}
+            <mark className="video">Apple Prores 4444</mark> и не забудьте поставить в
+            параметр <mark className="ui">Channels</mark> значение{" "}
+            <mark className="ui">RGB + Alpha</mark>.
+          </li>
+          <li>
+            Если вы хотите экспортировать видео без альфа-канала - выберите кодек{" "}
+            <mark className="video">Apple Prores 422</mark> или любой другой. Также вы
+            можете выбрать любой другой формат, который не поддерживает вывод с
+            альфа-каналом, например <mark className="video">H.264</mark>.
+          </li>
+        </ul>
+        <VideoFigure
+          caption="Экспортируем видео в Apple Prores 4444"
+          styleClass="figure_windows-dark"
+          videoSrc="images/aftereffects/export_to_prores.mp4"
+        />
         <Divider>Конвертируем в WebM с помощью Shutter Encoder</Divider>
         <p>
-          После успешного экспорта открываем <mark className="app">Shutter Encoder</mark>{" "}
-          и вставляем в него выведенное видео из{" "}
-          <mark className="app">After Effects</mark>. В пункте{" "}
-          <mark className="ui">Choose Function</mark> выбираем{" "}
-          <mark className="video">VP9</mark>.
+          После успешного экспорта - откройте <mark className="app">Shutter Encoder</mark>{" "}
+          и вставьте в него экспортированное видео из{" "}
+          <mark className="app">Adobe After Effects</mark>. В параметре{" "}
+          <mark className="ui">Choose Function</mark> выберите{" "}
+          <mark className="video">VP9</mark> или <mark className="video">AV1</mark>.
         </p>
         <AdditionInfo>
-          Если у вас не установлен <mark className="app">Shutter Encoder</mark>, то его
-          можно скачать <a href="https://www.shutterencoder.com/">по этой ссылке</a>.
+          Если у вас не установлен <mark className="app">Shutter Encoder</mark> - скачайте
+          и установите его <a href="https://www.shutterencoder.com/">по этой ссылке</a>.
         </AdditionInfo>
         <ImageFigure
           caption="Shutter Encoder"
@@ -762,9 +854,9 @@ const AEExport: React.FC = () => {
           styleClass="figure_macos-dark"
         />
         <p>
-          Затем включаем в дополнительных опциях{" "}
-          <mark className="ui">Enable alpha channel</mark>, если вы хотите вывести видео с
-          альфа-каналом.
+          Затем включите в дополнительных опциях{" "}
+          <mark className="ui">Enable alpha channel</mark>, если вам нужно конвертировать
+          видео с альфа-каналом.
         </p>
         <ImageFigure
           caption="Shutter Encoder"
@@ -773,13 +865,14 @@ const AEExport: React.FC = () => {
           styleClass="figure_macos-dark"
         />
         <p>
-          В программе можно также выставить путь для файла (по умолчанию видео кодируется
-          в папку, где был исходник) и остальные параметры, если вам это нужно. После
-          настроек нажимаем на кнопку <mark className="ui">Start function</mark> или на
-          комбинацию клавиш <mark className="key">Ctrl + Enter</mark>. Готовый файл будет
-          закодирован в <mark className="video">VP9</mark> и упакован в контейнер{" "}
-          <mark className="file">.webm</mark> - его можно будет использовать в своих
-          веб-проектах или где-нибудь ещё.
+          В программе вы можете выставить путь для файла и остальные параметры, если вам
+          это нужно. После указания нужных вам настроек - нажмите на кнопку{" "}
+          <mark className="ui">Start function</mark> или на комбинацию клавиш{" "}
+          <mark className="key">Ctrl + Enter</mark> для начала конвертации. Готовый файл
+          будет закодирован в <mark className="video">VP9</mark> или{" "}
+          <mark className="video">AV1</mark>, в зависимости от того что вы указали, и
+          упакован в контейнер <mark className="file">.webm</mark>, который можно будет
+          использовать в своих веб-проектах или где-нибудь ещё.
         </p>
         <AdditionWarning>
           Имейте ввиду, что поддержка <mark className="video">WebM</mark> на прозрачном
@@ -793,36 +886,17 @@ const AEExport: React.FC = () => {
         title="Как экспортировать композицию в .gif?"
       >
         <p>
-          В базовой комплектации <mark className="app">After Effects</mark> вывести
-          композицию в формат <mark className="image">GIF</mark> не получится, но никто не
-          запрещал воспользоваться альтернативными способами.
+          <mark className="image">GIF</mark> - старый, но ещё популярный формат для обмена
+          изображений, чаще всего анимированных. В базовой комплектации{" "}
+          <mark className="app">Adobe After Effects</mark> экспортировать композицию в
+          формат <mark className="image">GIF</mark> не получится, но никто не запрещал
+          воспользоваться альтернативными способами.
         </p>
-        <AdditionInfo>
-          Если вы собираетесь выводить композицию в <mark className="image">GIF</mark> для
-          веб-страницы, то советую лучше вывести в формат{" "}
-          <mark className="video">WebM</mark>. Он лучше подходит для получения
-          качественного изображения с маленьким размером.
-        </AdditionInfo>
-        <ul>
-          <li>
-            Из самого <mark className="app">After Effects</mark> можно вывести{" "}
-            <mark className="file">.gif</mark> с помощью расширения{" "}
-            <mark className="plugin">GifGun</mark>.
-          </li>
-          <li>
-            Либо вывести <mark className="file">.gif</mark> через{" "}
-            <del style={{opacity: 0.5}}>упаси боже</del>{" "}
-            <mark className="plugin">Media Encoder</mark>.
-          </li>
-          <li>
-            С помощью конвертации вашего видео через онлайн-сервис{" "}
-            <a href="https://ezgif.com/video-to-gif">Ezgif</a>. Он даёт самый адекватный
-            результат по соотношению <mark>качество/размер файла</mark>.
-          </li>
-        </ul>
         <AdditionWarning>
-          У формата <mark className="image">GIF</mark> есть множество ограничений и
-          нюансов.
+          <p>
+            У формата <mark className="image">GIF</mark> есть множество ограничений и
+            нюансов.
+          </p>
           <ul>
             <li>
               Данный формат не поддерживает полупрозрачность, только два цвета для
@@ -840,14 +914,38 @@ const AEExport: React.FC = () => {
             </li>
           </ul>
         </AdditionWarning>
-        <Divider>Выводим через GifGun</Divider>
+        <ul>
+          <li>
+            Из самого <mark className="app">Adobe After Effects</mark> можно
+            экспортировать <mark className="image">GIF</mark> с помощью расширения{" "}
+            <mark className="plugin">GifGun</mark>.
+          </li>
+          <li>
+            Либо экспортировать <mark className="image">GIF</mark> через{" "}
+            <del style={{opacity: 0.5}}>упаси боже</del>{" "}
+            <mark className="app">Adobe Media Encoder</mark>.
+          </li>
+          <li>
+            С помощью конвертации вашего видео через онлайн-сервис{" "}
+            <a href="https://ezgif.com/video-to-gif">Ezgif</a>. Он даёт самый адекватный
+            результат по соотношению <mark>качество/размер файла</mark>.
+          </li>
+        </ul>
+        <AdditionInfo>
+          Если вы собираетесь выводить композицию в <mark className="image">GIF</mark> для
+          веб-страницы - советую экспортировать вашу композицию в{" "}
+          <mark className="video">WebM</mark>. Он лучше подойдет для получения
+          качественного изображения с маленьким размером, а также для встраивания в
+          различные приложения.
+        </AdditionInfo>
+        <Divider>Экспортируем с помощью GifGun</Divider>
         <p>
           Предположим, что вы уже установили расширение{" "}
           <mark className="plugin">GifGun</mark>. Он должен появиться в{" "}
           <mark className="ui">Window &gt; Extensions</mark>.
         </p>
         <ImageFigure
-          caption="After Effects"
+          caption="Adobe After Effects"
           imgSrc="images/aftereffects/open_gifgun.png"
           imgTitle="Открытие расширения GifGun"
           styleClass="figure_windows-light"
@@ -855,7 +953,7 @@ const AEExport: React.FC = () => {
         <p>
           После открытия расширения вы увидите простое окно с двумя кнопками:{" "}
           <mark className="ui">Make GIF</mark> для начала экспорта в{" "}
-          <mark className="file">.gif</mark> и кнопку с шестерёнкой. Нажав на вторую
+          <mark className="image">GIF</mark> и кнопку с шестерёнкой. Нажав на вторую
           кнопку вы откроете настройки, где сможете указать размер, FPS или путь к
           выходному файлу.
         </p>
@@ -865,29 +963,30 @@ const AEExport: React.FC = () => {
           imgTitle="Настройки расширения GifGun"
           styleClass="figure_windows-dark"
         />
-        <Divider>Выводим через Media Encoder</Divider>
+        <Divider>Экспортируем с помощью Media Encoder</Divider>
         <p>
           <mark className="image">GIF</mark> можно ещё получить с помощью{" "}
-          <mark className="app">Media Encoder</mark>. Хоть мы и отговариваем от его
+          <mark className="app">Adobe Media Encoder</mark>. Хоть мы и отговариваем от его
           использования, но в выборе различных форматов для экспорта он занимает более
           выигрышную позицию по сравнению с выводом напрямую из{" "}
-          <mark className="app">After Effects</mark>.
+          <mark className="app">Adobe After Effects</mark>.
         </p>
         <p>
-          Для того чтобы начать экспорт через <mark className="app">Media Encoder</mark>,
-          перейдите в <mark className="ui">File &gt; Export</mark> и нажмите на{" "}
+          Для того чтобы начать экспорт через{" "}
+          <mark className="app">Adobe Media Encoder</mark>, перейдите в{" "}
+          <mark className="ui">File &gt; Export</mark> и нажмите на{" "}
           <mark className="ui">Add to Adobe Media Encoder Queue</mark> и подождите, когда
           откроется вторая программа.
         </p>
         <AdditionInfo>
-          Композиция из <mark className="app">After Effects</mark> корректно отправится в{" "}
-          <mark className="app">Media Encoder</mark> только в том случае, если у вас
-          установлен одинаковый год программ и на стандартном расположении программ. В
-          противном случае вам выбьют ошибку о том, что{" "}
-          <mark className="app">Media Encoder</mark> не установлен.
+          Композиция из <mark className="app">Adobe After Effects</mark> корректно
+          отправится в <mark className="app">Adobe Media Encoder</mark> только в том
+          случае, если у вас установлен одинаковый год программ и на стандартном
+          расположении программ. В противном случае вам выбьют ошибку о том, что{" "}
+          <mark className="app">Adobe Media Encoder</mark> не установлен.
         </AdditionInfo>
         <p>
-          После открытия <mark className="app">Media Encoder</mark> укажите формат{" "}
+          После открытия <mark className="app">Adobe Media Encoder</mark> укажите формат{" "}
           <mark className="image">Animated GIF</mark> в очереди экспорта. Там же вы можете
           указать пресет и путь к выходному файлу. Для детальной настройки вы можете
           открыть <mark className="ui">Export Settings</mark>, нажав по названию
@@ -897,13 +996,13 @@ const AEExport: React.FC = () => {
         <ImageFigure
           caption="Media Encoder"
           imgSrc="images/aftereffects/selecting_animated_gif_media_encoder.png"
-          imgTitle="Выбираем формат GIF для экспорта через Media Encoder"
+          imgTitle="Выбираем формат GIF для экспорта через Adobe Media Encoder"
           styleClass="figure_windows-light"
         />
         <AdditionWarning>
-          Если вы выберете в качестве формата пункт <mark className="ui">GIF</mark> без
+          Если вы выберете в качестве формата параметр <mark className="ui">GIF</mark> без
           слова <mark>Animated</mark>, то вы получите только кадры отдельными
-          изображениями формата <mark className="file">.gif</mark> и забьёте себе папку
+          изображениями формата <mark className="image">GIF</mark> и забьёте себе папку
           для сохранения.
         </AdditionWarning>
         <p>
@@ -956,12 +1055,12 @@ const AEExport: React.FC = () => {
         </p>
       </DetailsSummary>
       <DetailsSummary
-        tag="export with alpha-channel, прорес 4444"
+        tag="export with alpha-channel, вывод в прорес 4444"
         title="Как экспортировать композицию с альфа-каналом, то есть с прозрачностью?"
       >
         <AdditionWarning>
           В <mark className="video">H.264</mark> и <mark className="file">.mp4</mark>{" "}
-          нельзя вывести композицию с альфа-каналом. Это можно сделать только на
+          нельзя экспортировать композицию с альфа-каналом. Это можно сделать только на
           устройствах с <mark>macOS</mark> и при использовании кодека{" "}
           <mark className="video">H.265 (HEVC)</mark>.
         </AdditionWarning>
@@ -982,17 +1081,19 @@ const AEExport: React.FC = () => {
           Если всё с этим в порядке, то пора переходить в{" "}
           <mark className="ui">Render Queue</mark>, нажав на комбинацию клавиш{" "}
           <mark className="key">Ctrl + M</mark>. После перехода в очередь рендера откройте{" "}
-          <mark className="ui">Output Module</mark> и выберите в пункте{" "}
-          <mark className="ui">Format</mark> параметр{" "}
+          <mark className="ui">Output Module</mark> и выберите в параметре{" "}
+          <mark className="ui">Format</mark> значение{" "}
           <mark className="plugin">Quicktime</mark>. Потом откройте{" "}
           <mark className="ui">Format Options</mark> и выберите там параметр{" "}
           <mark className="video">Apple Prores 4444</mark> или{" "}
-          <mark className="video">GoPro Cineform</mark> в разделе Video Codec. Затем не
-          забудьте указать в <mark className="ui">Channels</mark> параметр{" "}
-          <mark className="ui">RGB + Alpha</mark>, чтобы вывести видео с прозрачностью.
+          <mark className="video">GoPro Cineform</mark> в разделе{" "}
+          <mark className="ui">Video Codec</mark>. Затем не забудьте указать в{" "}
+          <mark className="ui">Channels</mark> значение{" "}
+          <mark className="ui">RGB + Alpha</mark>, чтобы экспортировать видео с
+          прозрачностью.
         </p>
         <VideoFigure
-          caption="After Effects"
+          caption="Adobe After Effects"
           styleClass="figure_windows-dark"
           videoSrc="images/aftereffects/export_prores4444_rgb-alpha.mp4"
         />
@@ -1015,12 +1116,12 @@ const AEExport: React.FC = () => {
         title="Как экспортировать композицию как стикеры и эмодзи для Telegram?"
       >
         <p>
-          В наше время только ленивый не слышал о мессенджере{" "}
+          В современном мире - только ленивый не слышал о мессенджере{" "}
           <mark className="app">Telegram</mark>, а также о функции отправки стикеров
           собеседнику. В <mark className="word">стикерах</mark> можно хранить всякую
           ржаку, мемы и прочие виды контента. Но мало кто знает, как их можно создать в{" "}
-          <mark className="app">Telegram</mark> и вывести свою композицию из{" "}
-          <mark className="app">After Effects</mark> в соответствии с требованиями
+          <mark className="app">Telegram</mark> и экспортировать свою композицию из{" "}
+          <mark className="app">Adobe After Effects</mark> в соответствии с требованиями
           стикеров. Стикеры делятся на четыре вида и у каждого имеется свой подход к
           экспорту из программы и импорту в <mark className="app">Telegram</mark>.
         </p>
@@ -1030,10 +1131,10 @@ const AEExport: React.FC = () => {
             <mark className="word">Статичный стикер</mark> или{" "}
             <mark className="word">статичный эмодзи</mark> - обычная картинка, которая
             отправляется собеседнику. Их можно создать в любом графическом редакторе,
-            например <mark className="app">Photoshop</mark> или{" "}
-            <mark className="app">GIMP</mark>, или вывести из{" "}
-            <mark className="app">After Effects</mark> как <a href="#10.9">один кадр</a>,
-            главное соблюдать некоторые требования.
+            например <mark className="app">Adobe Photoshop</mark> или{" "}
+            <mark className="app">GIMP</mark>, или экспортировать из{" "}
+            <mark className="app">Adobe After Effects</mark> как{" "}
+            <a href="#10.9">один кадр</a>, главное соблюдать некоторые требования.
             <ul>
               <li>
                 Для создания принимаются изображения формата{" "}
@@ -1082,8 +1183,8 @@ const AEExport: React.FC = () => {
                 <li>
                   Слои с изображениями не поддерживаются. Если вам нужно будет
                   использовать такой слой, то вы можете выполнить авто-трассировку слоя
-                  для конвертации в вектор в <mark className="ui">Illustrator</mark> или
-                  другом софте, а затем импортировать их как слои-фигуры.{" "}
+                  для конвертации в вектор в <mark className="ui">Adobe Illustrator</mark>{" "}
+                  или другом софте, а затем импортировать их как слои-фигуры.{" "}
                   <a href="https://helpx.adobe.com/ru/illustrator/using/image-trace-results-optimization.html">
                     Подробнее...
                   </a>
@@ -1122,7 +1223,8 @@ const AEExport: React.FC = () => {
             <mark className="word">Анимированные эмодзи</mark> - по своей сути похожи на{" "}
             <mark className="word">анимированные стикеры</mark>, к ней применяются такие
             же ограничения по эффектам и возможностям{" "}
-            <mark className="app">After Effects</mark> и выводится аналогичным образом.
+            <mark className="app">Adobe After Effects</mark> и выводится аналогичным
+            образом.
             <ul>
               <li>
                 Для анимированных эмодзи нужно указать размер композиции <mark>100</mark>{" "}
@@ -1145,19 +1247,19 @@ const AEExport: React.FC = () => {
           Подробнее о требованиях для того или иного типа стикеров вы можете посмотреть на{" "}
           <a href="https://core.telegram.org/stickers">сайте Telegram</a>.
         </AdditionInfo>
-        <Divider>Выводим анимированный стикер через Bodymovin-Telegram</Divider>
+        <Divider>Экспортируем анимированный стикер через Bodymovin-Telegram</Divider>
         <p>
-          Для вывода из <mark className="app">After Effects</mark> в стикеры формата{" "}
+          Для вывода из <mark className="app">Adobe After Effects</mark> в стикеры формата{" "}
           <mark className="file">.tgs</mark> нам нужно использовать бесплатное стороннее
           расширение{" "}
           <a href="https://github.com/TelegramMessenger/bodymovin-extension">
             Bodymovin-TG
           </a>
           . Учтите, что он давно не обновлялся и могут возникать различные ошибки при
-          использовании самой свежей версии <mark className="app">After Effects</mark> и в
-          нём меньше функций, по сравнению с оригинальным{" "}
-          <mark className="plugin">Bodymovin</mark>. После установки{" "}
-          <mark className="plugin">Bodymovin-TG</mark> он появится в{" "}
+          использовании самой свежей версии{" "}
+          <mark className="app">Adobe After Effects</mark> и в нём меньше функций, по
+          сравнению с оригинальным <mark className="plugin">Bodymovin</mark>. После
+          установки <mark className="plugin">Bodymovin-TG</mark> он появится в{" "}
           <mark className="ui">
             Window &gt; Extensions &gt; Bodymovin for Telegram Stickers
           </mark>
@@ -1174,9 +1276,9 @@ const AEExport: React.FC = () => {
           styleClass="figure_windows-dark"
         />
         <AdditionWarning>
-          Для корректной работы расширения требуется установить чекбокс у пункта{" "}
+          Для корректной работы расширения требуется установить чекбокс у параметра{" "}
           <mark className="ui">Allow Scripts to Write Files and Access Network</mark> в
-          настройках <mark className="app">After Effects</mark> -{" "}
+          настройках <mark className="app">Adobe After Effects</mark> -{" "}
           <mark className="ui">Edit &gt; Preferences &gt; Scripting & Expressions</mark>.
         </AdditionWarning>
         <p>
@@ -1196,9 +1298,9 @@ const AEExport: React.FC = () => {
         <p>
           Если экспорт из <mark className="plugin">Bodymovin-TG</mark> произошёл со сбоями
           или вам не хватает функционала из оригинального расширения, то вы можете
-          попробовать вывести анимацию через обычный{" "}
+          попробовать экспортировать анимацию через обычный{" "}
           <mark className="plugin">Bodymovin</mark>, а затем конвертировать полученный
-          файл через <i style={{opacity: 0.5}}>самодельный</i> конвертер в этом пункте.
+          файл через <i style={{opacity: 0.5}}>самодельный</i> конвертер в этой статье.
         </p>
         <p>
           Прежде чем начать экспорт анимации в <mark className="file">.json</mark> нам
@@ -1231,9 +1333,9 @@ const AEExport: React.FC = () => {
               некоторые объекты, слои или анимация.
             </li>
             <li>
-              Для корректной работы расширения требуется установить чекбокс у пункта{" "}
+              Для корректной работы расширения требуется установить чекбокс у параметра{" "}
               <mark className="ui">Allow Scripts to Write Files and Access Network</mark>{" "}
-              в настройках <mark className="app">After Effects</mark> -{" "}
+              в настройках <mark className="app">Adobe After Effects</mark> -{" "}
               <mark className="ui">
                 Edit &gt; Preferences &gt; Scripting & Expressions
               </mark>
@@ -1267,11 +1369,12 @@ const AEExport: React.FC = () => {
         </p>
         <AdditionInfo>
           По небольшим тестам после конвертации <mark className="file">.tgs</mark> в{" "}
-          <mark className="file">.json</mark> из пункта про импорт{" "}
-          <mark className="file">.tgs</mark> в <mark className="app">After Effects</mark>{" "}
-          на этой странице и обратной конвертации в <mark className="file">.tgs</mark> с
-          помощью блока ниже, выяснилось, что метод <mark>python-gzip</mark> чуть лучше
-          сжимает файл, нежели <mark>js-pako-gzip</mark>.
+          <mark className="file">.json</mark> из статьи про импорт{" "}
+          <mark className="file">.tgs</mark> в{" "}
+          <mark className="app">Adobe After Effects</mark> на этой странице и обратной
+          конвертации в <mark className="file">.tgs</mark> с помощью блока ниже,
+          выяснилось, что метод <mark>python-gzip</mark> чуть лучше сжимает файл, нежели{" "}
+          <mark>js-pako-gzip</mark>.
         </AdditionInfo>
         <Divider>Конвертер JSON в TGS</Divider>
         <JsonToTgsConverter />
@@ -1284,7 +1387,7 @@ const AEExport: React.FC = () => {
           этом сообщит и скажет, что не так с вашим файлом. Часто ошибки могут появиться
           из-за слишком большого размера файла или неподдерживаемой анимации.
         </p>
-        <Divider>Выводим видео-стикер</Divider>
+        <Divider>Экспортируем видео-стикер</Divider>
         <p>
           Видео-стикер по своей сути - обычный короткий видеоролик, который запакован в{" "}
           <mark className="file">WebM</mark> в кодеке <mark className="video">VP9</mark>.
@@ -1292,12 +1395,12 @@ const AEExport: React.FC = () => {
         </p>
         <ul>
           <li>
-            Для обоих типов требуется вывести видео в формате{" "}
+            Для обоих типов требуется экспортировать видео в формате{" "}
             <mark className="video">WebM</mark> и в кодеке{" "}
             <mark className="video">VP9</mark>.{" "}
             <a href="#10.4">На этой странице уже обсуждался вывод в WebM/VP9</a> из{" "}
-            <mark className="app">After Effects</mark> с помощью конвертации полученного
-            видео.
+            <mark className="app">Adobe After Effects</mark> с помощью конвертации
+            полученного видео.
           </li>
           <li>
             Если вы собираетесь создавать видео-
@@ -1342,9 +1445,9 @@ const AEExport: React.FC = () => {
         title="Как экспортировать мою композицию как анимационный шаблон для дальнейшего использования в Premiere Pro?"
       >
         <p>
-          В <mark className="app">After Effects</mark> есть возможность создать
+          В <mark className="app">Adobe After Effects</mark> есть возможность создать
           анимационный шаблон из вашей композиции для последующего использования в{" "}
-          <mark className="app">Premiere Pro</mark>. Для этого в окне{" "}
+          <mark className="app">Adobe Premiere Pro</mark>. Для этого в окне{" "}
           <mark className="ui">Essential Graphics</mark> достаточно нажать на кнопку{" "}
           <mark className="ui">Export Motion Graphics Template</mark>.
         </p>
@@ -1373,9 +1476,10 @@ const AEExport: React.FC = () => {
             <li>
               <mark className="file">project.aegraphics</mark> - файл, где хранится вся
               заготовленная анимация. Стандартными средствами{" "}
-              <mark className="app">Premiere Pro</mark> анимацию нельзя отредактировать,
-              но такой проект можно открыть в <mark className="app">After Effects</mark> и
-              при необходимости внести свои правки там, а затем конвертировать обратно в{" "}
+              <mark className="app">Adobe Premiere Pro</mark> анимацию нельзя
+              отредактировать, но такой проект можно открыть в{" "}
+              <mark className="app">Adobe After Effects</mark> и при необходимости внести
+              свои правки там, а затем конвертировать обратно в{" "}
               <mark className="file">.mogrt</mark>.
             </li>
             <li>
@@ -1391,9 +1495,9 @@ const AEExport: React.FC = () => {
           <mark className="ui">Local Drive</mark> и с помощью кнопки{" "}
           <mark className="ui">Browse</mark> укажите нужный путь для сохранения шаблона.
           Также в разделе <mark className="ui">Compatibility</mark> вы можете указать,
-          нужно ли будет пользователю <mark className="app">Premiere Pro</mark>{" "}
-          устанавливать <mark className="app">After Effects</mark> для корректной работы
-          анимации или нет.
+          нужно ли будет пользователю <mark className="app">Adobe Premiere Pro</mark>{" "}
+          устанавливать <mark className="app">Adobe After Effects</mark> для корректной
+          работы анимации или нет.
         </p>
         <ImageFigure
           caption="Export as Motion Graphics Template"
@@ -1405,11 +1509,11 @@ const AEExport: React.FC = () => {
           <p>
             Не все эффекты, созданными вами, будут поддерживаться в анимационном шаблоне,
             если вы решите использовать <mark className="file">.mogrt</mark> в{" "}
-            <mark className="app">Premiere Pro</mark> без установленного{" "}
-            <mark className="app">After Effects</mark> на устройстве. Ниже вы можете
+            <mark className="app">Adobe Premiere Pro</mark> без установленного{" "}
+            <mark className="app">Adobe After Effects</mark> на устройстве. Ниже вы можете
             посмотреть условия для корректной работы вашего анимационного шаблона в{" "}
-            <mark className="app">Premiere Pro</mark> без{" "}
-            <mark className="app">After Effects</mark>.
+            <mark className="app">Adobe Premiere Pro</mark> без{" "}
+            <mark className="app">Adobe After Effects</mark>.
           </p>
           <ul>
             <li>
@@ -1420,7 +1524,7 @@ const AEExport: React.FC = () => {
               <mark className="plugin">Puppet</mark> для деформации слоёв.
             </li>
             <li>
-              Само собой из-за отсутствия <mark className="app">After Effects</mark>{" "}
+              Само собой из-за отсутствия <mark className="app">Adobe After Effects</mark>{" "}
               нельзя будет использовать сторонние плагины.
             </li>
             <li>
@@ -1435,7 +1539,7 @@ const AEExport: React.FC = () => {
         </AdditionDanger>
         <p>
           После успешного экспорта вы можете использовать вашу анимацию в{" "}
-          <mark className="app">Premiere Pro</mark>, сначала переместив файл в{" "}
+          <mark className="app">Adobe Premiere Pro</mark>, сначала переместив файл в{" "}
           <mark className="ui">Graphic Templates</mark>, а затем импортированный шаблон -
           на таймлайн секвенции.
         </p>
@@ -1450,7 +1554,7 @@ const AEExport: React.FC = () => {
           файл изображения, желательно в полном качестве, например для создания превью или
           показать пример чего-либо. Можно сделать это двумя способами.
         </p>
-        <Divider>Выводим через Render Queue</Divider>
+        <Divider>Экспортируем через Render Queue</Divider>
         <p>
           Для того, чтобы быстро отправить текущий кадр в очередь рендера, нужно прожать
           комбинацию клавиш <mark className="key">Ctrl + Alt + S</mark> или перейти в{" "}
@@ -1474,7 +1578,7 @@ const AEExport: React.FC = () => {
           когда вы экспортируете кадр через{" "}
           <mark className="ui">Composition &gt; Save Frame As &gt; File</mark>.
         </AdditionInfo>
-        <Divider>Выводим через FX Console</Divider>
+        <Divider>Экспортируем с помощью FX Console</Divider>
         <p>
           Если вы считаете способ через <mark className="ui">Save Frame As</mark>{" "}
           неудобным, то есть альтернатива. Вы можете сохранить текущий кадр через плагин{" "}
@@ -1484,7 +1588,7 @@ const AEExport: React.FC = () => {
         <p>
           После установки плагина, откройте панель эффектов с помощью комбинации клавиш{" "}
           <mark className="key">Ctrl + Space</mark> и нажмите на иконку шестерёнки. В
-          настройках установите чекбокс у пункта{" "}
+          настройках установите чекбокс у параметра{" "}
           <mark className="ui">Full Resolution Screenshots</mark>. Это позволит сохранять
           вам скриншоты в полном разрешении, независимо от того, какое было установлено в
           окне предпросмотра.
@@ -1503,13 +1607,13 @@ const AEExport: React.FC = () => {
           сохранить кадр в буфер обмена.
         </p>
         <ImageFigure
-          caption="After Effects"
+          caption="Adobe After Effects"
           imgSrc="images/aftereffects/fx_console_save_frame_as.png"
           imgTitle="Сохраняем текущий кадр через FX Console"
           styleClass="figure_windows-dark"
         />
         <p>
-          При выборе пунктов <mark className="ui">Save to JPG</mark> или{" "}
+          При нажатии на кнопку <mark className="ui">Save to JPG</mark> или{" "}
           <mark className="ui">Save to PNG</mark> появится системное окно для выбора места
           сохранения изображения. После указания местоположения вы сразу же получите файл
           в нужном месте.
@@ -1527,7 +1631,7 @@ const AEExport: React.FC = () => {
         title="Как экспортировать все кадры композиции как отдельные файлы изображений?"
       >
         <p>
-          Если вы хотите вывести все кадры из композиции в отдельные файлы, то вам
+          Если вы хотите экспортировать все кадры из композиции в отдельные файлы, то вам
           достаточно выбрать в качестве способа вывода{" "}
           <mark className="ui">JPG Sequence</mark>,{" "}
           <mark className="ui">PNG Sequence</mark> или любой другой формат с названием{" "}
@@ -1539,9 +1643,9 @@ const AEExport: React.FC = () => {
           вывода.
         </p>
         <AdditionInfo>
-          <mark className="app">After Effects</mark> по умолчанию при выводе секвенции
-          создаст дополнительную папку, чтобы не забивать папку, в которую вы хотите
-          вывести. Это поведение можно отключить, убрав чекбокс с{" "}
+          <mark className="app">Adobe After Effects</mark> по умолчанию при выводе
+          секвенции создаст дополнительную папку, чтобы не забивать папку, в которую вы
+          хотите экспортировать. Это поведение можно отключить, убрав чекбокс с{" "}
           <mark className="ui">Save in subfolder</mark> при выборе расположения вывода.
         </AdditionInfo>
         <ImageFigure
@@ -1551,16 +1655,16 @@ const AEExport: React.FC = () => {
           styleClass="figure_windows-dark"
         />
         <p>
-          Потом в окне <mark className="ui">Output Module</mark> в пункте{" "}
-          <mark className="ui">Format</mark> выбираем любой формат с названием{" "}
+          Потом в окне <mark className="ui">Output Module</mark> в параметре{" "}
+          <mark className="ui">Format</mark> выберите любой формат с названием{" "}
           <mark>Sequence</mark> в конце. В моем случае - я выберу{" "}
           <mark className="ui">PNG Sequence</mark>. В{" "}
           <mark className="ui">Format Options</mark> можно настроить параметры
           изображения, например качество или сжатие.
         </p>
         <AdditionInfo>
-          Если вы хотите вывести кадры с прозрачностью - не забудьте указать параметр{" "}
-          <mark className="ui">RGB + Alpha</mark> в пункте{" "}
+          Если вы хотите экспортировать кадры с прозрачностью - не забудьте указать
+          параметр <mark className="ui">RGB + Alpha</mark> в параметре{" "}
           <mark className="ui">Channels</mark>.
         </AdditionInfo>
         <ImageFigure
@@ -1577,7 +1681,7 @@ const AEExport: React.FC = () => {
       </DetailsSummary>
       <DetailsSummary title="Как экспортировать только часть моей композиции? Можно ли сделать так, чтобы композиция всегда экспортировалась по всей длине вне зависимости от указанной рабочей области?">
         <p>
-          По умолчанию <mark className="app">After Effects</mark> выводит композицию
+          По умолчанию <mark className="app">Adobe After Effects</mark> выводит композицию
           длиной, соответствующей вашей рабочей области, которую вы указали с помощью
           комбинаций клавиш <mark className="key">B</mark> и{" "}
           <mark className="key">N</mark> или соответствующими маркерами на таймлайне.
@@ -1586,8 +1690,8 @@ const AEExport: React.FC = () => {
           Если же вы хотите сделать так, чтобы композиция всегда экспортировалась по всей
           длине композиции, то вам нужно создать свой пресет для{" "}
           <mark className="ui">Render Settings</mark> и сделать его при необходимости
-          стандартным. Для этого нажмите на иконку стрелочки возле пункта{" "}
-          <mark className="ui">Render Settings</mark> и выберите пункт{" "}
+          стандартным. Для этого нажмите на иконку стрелочки возле{" "}
+          <mark className="ui">Render Settings</mark> и нажмите на кнопку{" "}
           <mark className="ui">Make Template</mark>.
         </p>
         <ImageFigure
@@ -1618,7 +1722,7 @@ const AEExport: React.FC = () => {
           <mark className="ui">Edit</mark>, которое открывает уже привычное нам окно{" "}
           <mark className="key">Render Settings</mark>. Окно редактирования шаблона
           настроек буквально ничем не отличается от обычной настройки параметров рендера.
-          В этом окне в пункте <mark className="ui">Time Span</mark> нужно установить
+          В этом окне в параметре <mark className="ui">Time Span</mark> нужно установить
           значение <mark className="ui">Length of Comp</mark> вместо{" "}
           <mark className="ui">Work Area Only</mark>.
         </p>
@@ -1633,9 +1737,9 @@ const AEExport: React.FC = () => {
         <p>
           Для экспорта композиции с отображением границ и путей движения можно
           воспользоваться сторонним плагином <mark className="plugin">Cyclops</mark>. Он
-          позволяет вывести вашу композицию в видео вместе с визуальными элементами, такие
-          как границы слоёв и пути анимации, что упрощает процесс презентации вашей
-          работы.
+          позволяет экспортировать вашу композицию в видео вместе с визуальными
+          элементами, такие как границы слоёв и пути анимации, что упрощает процесс
+          презентации вашей работы.
         </p>
         <YouTubeVideo
           caption="Cyclops Tutorial"
@@ -1644,7 +1748,7 @@ const AEExport: React.FC = () => {
       </DetailsSummary>
       <DetailsSummary title="Как сохранить свой шаблон с настройками для экспорта композиций?">
         <p>
-          У каждого пользователя <mark className="app">After Effects</mark> может
+          У каждого пользователя <mark className="app">Adobe After Effects</mark> может
           возникнуть желание сохранить настройки для экспорта, чтобы каждый раз не
           настраивать его. Для создания своих предустановок нужно открыть очередь экспорта
           с помощью комбинации клавиш <mark className="key">Ctrl + M</mark> и нажать на
@@ -1694,12 +1798,13 @@ const AEExport: React.FC = () => {
         title="Я сделал работу в After Effects, но мне нужно передать .aep файл вместе с исходниками другому человеку. Возможно ли это сделать без танцев с бубном?"
       >
         <p>
-          В <mark className="app">After Effects</mark> есть функция для сохранения вашего
-          проекта в отдельную папку вместе со всеми исходниками, чтобы в дальнейшем при
-          переносе или передаче другому лицу ничего не потерялось и не отвалилось. Чтобы
-          это сделать, нужно перейти в <mark className="ui">File &gt; Dependencies</mark>{" "}
-          и выбрать пункт <mark className="ui">Collect Files</mark>. Если не сохраняли
-          проект, то программа предложит вам это сделать.
+          В <mark className="app">Adobe After Effects</mark> есть функция для сохранения
+          вашего проекта в отдельную папку вместе со всеми исходниками, чтобы в дальнейшем
+          при переносе или передаче другому лицу ничего не потерялось и не отвалилось.
+          Чтобы это сделать, нужно перейти в{" "}
+          <mark className="ui">File &gt; Dependencies</mark> и нажать кнопку{" "}
+          <mark className="ui">Collect Files</mark>. Если не сохраняли проект, то
+          программа предложит вам это сделать.
         </p>
         <AdditionInfo>
           Данная функция не сохраняет исполняемые файлы плагинов, пресетов и шрифтов.
@@ -1709,7 +1814,7 @@ const AEExport: React.FC = () => {
           проекта.
         </AdditionInfo>
         <ImageFigure
-          caption="After Effects"
+          caption="Adobe After Effects"
           imgSrc="images/aftereffects/select_collect_files.png"
           imgTitle="Выбираем функцию Collect Files"
           styleClass="figure_windows-light"

@@ -20,14 +20,15 @@ const AEActions: React.FC = () => {
       >
         <p>
           В настоящее время существует множество способов улучшить качество видео или фото
-          с помощью нейросетей. Все эти методы работают локально на вашем компьютере,
-          поэтому для начала запаситесь производительной видеокартой и процессором.
+          с помощью нейросетей. Описанные здесь методы работают локально на вашем
+          компьютере, поэтому для начала запаситесь производительной видеокартой и
+          процессором.
         </p>
         <Divider>Улучшаем качество видео</Divider>
         <p>
           Для улучшения качества видео можно использовать программу{" "}
           <mark className="app">Topaz Video AI</mark>. Данная программа может подключаться
-          к <mark className="app">After Effects</mark> и{" "}
+          к <mark className="app">Adobe After Effects</mark> и{" "}
           <mark className="app">Davinci Resolve</mark>, но я бы посоветовал использовать
           Standalone-версию - так будет стабильнее и проще работать с исходниками. С
           помощью него можно вытянуть из плохого качества - относительно хорошее, а также
@@ -40,10 +41,11 @@ const AEActions: React.FC = () => {
           link="zbX7x8Oo_Uc"
         />
         <p>
-          Также существуют много плагинов для <mark className="app">After Effects</mark>,
-          которые помогают улучшить качество видео и изображений. Из такого можно обратить
-          внимание на <mark className="plugin">BCC UpRes ML</mark> из набора сторонних
-          плагинов <mark className="plugin">Boris FX Continuum</mark>.
+          Также существуют много плагинов для{" "}
+          <mark className="app">Adobe After Effects</mark>, которые помогают улучшить
+          качество видео и изображений. Из такого можно обратить внимание на{" "}
+          <mark className="plugin">BCC UpRes ML</mark> из набора сторонних плагинов{" "}
+          <mark className="plugin">Boris FX Continuum</mark>.
         </p>
         <YouTubeVideo
           caption="BCC UpRes ML"
@@ -144,7 +146,7 @@ const AEActions: React.FC = () => {
         <Divider>Замедляем плавно прямо в After Effects</Divider>
         <p>
           Первым в списке плагинов, с помощью которого можно плавно замедлить видео в{" "}
-          <mark className="app">After Effects</mark> идёт{" "}
+          <mark className="app">Adobe After Effects</mark> идёт{" "}
           <mark className="plugin">Twixtor</mark>. Этот плагин достаточно давно появился
           на рынке и за это время он успел зарекомендовать себя как хороший инструмент для
           интерполяции кадров и плавного изменения скорости видеоклипа. У него есть
@@ -167,10 +169,10 @@ const AEActions: React.FC = () => {
           link="YraSxOpy1Qg"
         />
         <p>
-          Стандартными средствами <mark className="app">After Effects</mark> тоже можно
-          плавно замедлить видео с помощью функции смешивания соседних кадров, правда
-          результат может получиться не таким хорошим, как хотелось бы. Для этого вам
-          нужно добавить видео на таймлайн и замедлить его с помощью{" "}
+          Стандартными средствами <mark className="app">Adobe After Effects</mark> тоже
+          можно плавно замедлить видео с помощью функции смешивания соседних кадров,
+          правда результат может получиться не таким хорошим, как хотелось бы. Для этого
+          вам нужно добавить видео на таймлайн и замедлить его с помощью{" "}
           <mark>Time Remapping</mark>. Его можно включить с помощью комбинации клавиш{" "}
           <mark className="key">Ctrl + Alt + T</mark>. После изменения длины видео с
           помощью ремапинга - выделите нужный слой, нажмите на{" "}
@@ -178,7 +180,7 @@ const AEActions: React.FC = () => {
           <mark className="ui">Frame Blending &gt; Frame Mix или Pixel Motion</mark>.
         </p>
         <YouTubeVideo
-          caption="Frame Blending и Pixel Motion в After Effects"
+          caption="Frame Blending и Pixel Motion в Adobe After Effects"
           link="fNINAOwY2IY"
         />
         <Divider>Делаем видео более плавным вне After Effects</Divider>
@@ -234,8 +236,8 @@ const AEActions: React.FC = () => {
         </p>
         <Divider>Удаляем через Duplicate Frame Remover</Divider>
         <p>
-          Из <mark className="app">After Effects</mark> дублирующиеся кадры можно убрать с
-          помощью стороннего плагина{" "}
+          Из <mark className="app">Adobe After Effects</mark> дублирующиеся кадры можно
+          убрать с помощью стороннего плагина{" "}
           <a href="https://aescripts.com/duplicate-frame-remover/">
             Duplicate Frame Remover
           </a>
@@ -273,7 +275,7 @@ const AEActions: React.FC = () => {
           В <mark className="app">Shutter Encoder</mark> есть опция, которая анализирует
           повторяющиеся кадры и удаляет их при конвертации. После импорта вашего исходника
           выберите формат для вывода и во вкладке{" "}
-          <mark className="ui">Advanced features</mark> включите пункт{" "}
+          <mark className="ui">Advanced features</mark> включите параметр{" "}
           <mark className="ui">Remove duplicate frames</mark>. Затем укажите нужный путь
           для вывода файла и нажмите на <mark className="ui">Start function</mark>.
         </p>
@@ -456,13 +458,13 @@ const AEActions: React.FC = () => {
           В наше время популярности вертикальных видео, таких как{" "}
           <mark className="word">Reels</mark>, <mark className="word">Shorts</mark> или{" "}
           <mark className="word">тиктоки</mark>, у пользователей{" "}
-          <mark className="app">After Effects</mark> часто возникает вопрос -{" "}
+          <mark className="app">Adobe After Effects</mark> часто возникает вопрос -{" "}
           <mark className="quote">
             как сделать автоматические субтитры, если я не хочу лезть в Premiere Pro?
           </mark>
-          . В <mark className="app">After Effects</mark>, к сожалению, нет нативной
+          . В <mark className="app">Adobe After Effects</mark>, к сожалению, нет нативной
           возможности генерировать текст из речи, а также нельзя импортировать{" "}
-          <mark className="file">.srt</mark> файлы без танцев с бубнами. В этом пункте мы
+          <mark className="file">.srt</mark> файлы без танцев с бубнами. В этой статье мы
           воспользуемся сторонними средствами для решения этой задачи.
         </p>
         <Divider>Генерируем речь в текст с помощью Subtitle Edit</Divider>
@@ -496,9 +498,9 @@ const AEActions: React.FC = () => {
           сделать в <mark className="ui">Options &gt; Settings &gt; Video Player</mark>.
         </AdditionInfo>
         <p>
-          Затем перейдите в <mark className="ui">Video</mark> и выберите пункт{" "}
+          Затем перейдите в <mark className="ui">Video</mark> и нажмите на{" "}
           <mark className="ui">Audio to text (Whisper)</mark> или{" "}
-          <mark className="ui">Audio to text (Vosk/Kaldi)</mark>. В этом пункте будет
+          <mark className="ui">Audio to text (Vosk/Kaldi)</mark>. В этой статье будет
           рассматриваться генерация через <mark>Whisper</mark>. После открытия окна вас
           попросят установить <mark className="app">FFmpeg</mark>, а затем{" "}
           <mark>Purfview&apos;s Faster Whisper XXL</mark>, с чем нужно согласиться.
@@ -521,8 +523,8 @@ const AEActions: React.FC = () => {
               скачивания, нажав <mark className="ui">No</mark> в диалоговом окне, так как
               он кривовато работает. После отказа нужно загрузить альтернативный движок{" "}
               <mark>Whisper</mark> для распознавания речи -{" "}
-              <mark>Purfview&apos;s Faster Whisper</mark>. Для этого в окне в пункте{" "}
-              <mark className="ui">Engine</mark> выберите пункт{" "}
+              <mark>Purfview&apos;s Faster Whisper</mark>. Для этого в окне в параметре{" "}
+              <mark className="ui">Engine</mark> выберите параметр{" "}
               <mark className="ui">Purfview&apos;s Faster Whisper</mark> и подтвердите
               загрузку.
               <ImageFigure
@@ -567,33 +569,33 @@ const AEActions: React.FC = () => {
           После генерации вы можете отредактировать сгенерированные субтитры в{" "}
           <mark className="app">Subtitle Edit</mark> или сразу сохранить их в формате{" "}
           <mark className="file">.srt</mark> для дальнейшей обработки в{" "}
-          <mark className="app">After Effects</mark>. Сохранить ваши субтитры можно с
-          помощью комбинации клавиш <mark className="key">Ctrl + S</mark>. В открывшемся
+          <mark className="app">Adobe After Effects</mark>. Сохранить ваши субтитры можно
+          с помощью комбинации клавиш <mark className="key">Ctrl + S</mark>. В открывшемся
           окне для сохранения файла - укажите название файла, путь для сохранения и, при
           необходимости, формат файла <mark className="file">.srt</mark>.
         </p>
         <Divider>Импортируем файл субтитров в композицию</Divider>
         <p>
           После того как вы сохранили и получили <mark className="file">.srt</mark> файл -
-          его нужно импортировать в <mark className="app">After Effects</mark>. Как
+          его нужно импортировать в <mark className="app">Adobe After Effects</mark>. Как
           сказано в начале - стандартными средствами{" "}
-          <mark className="app">After Effects</mark> такой файл субтитров вы не сможете
-          импортировать, но никто не запрещал использовать сторонние способы. Для этого
-          нам понадобится стороннее расширение{" "}
+          <mark className="app">Adobe After Effects</mark> такой файл субтитров вы не
+          сможете импортировать, но никто не запрещал использовать сторонние способы. Для
+          этого понадобится стороннее расширение{" "}
           <a href="https://aescripts.com/subtitle-pro/">Subtitle Pro</a>, с помощью
           которого можно импортировать <mark className="file">.srt</mark> файлы как
-          текстовые слои в композицию <mark className="app">After Effects</mark>. Если вы
-          корректно установили <mark className="plugin">Subtitle Pro</mark>, то он должен
-          появиться в <mark className="ui">Window &gt; Extensions</mark>.
+          текстовые слои в композицию <mark className="app">Adobe After Effects</mark>.
+          Если вы корректно установили <mark className="plugin">Subtitle Pro</mark>, то он
+          должен появиться в <mark className="ui">Window &gt; Extensions</mark>.
         </p>
         <AdditionWarning>
-          Для корректной работы расширения рекомендуется установить чекбокс у пункта{" "}
+          Для корректной работы расширения рекомендуется установить чекбокс у параметра{" "}
           <mark className="ui">Allow Scripts to Write Files and Access Network</mark> в
-          настройках <mark className="app">After Effects</mark> -{" "}
+          настройках <mark className="app">Adobe After Effects</mark> -{" "}
           <mark className="ui">Edit &gt; Preferences &gt; Scripting & Expressions</mark>.
         </AdditionWarning>
         <ImageFigure
-          caption="After Effects"
+          caption="Adobe After Effects"
           imgSrc="images/aftereffects/subtitlepro_opening.png"
           imgTitle="Открытие расширения Subtitle Pro"
           styleClass="figure_windows-light"
@@ -630,7 +632,7 @@ const AEActions: React.FC = () => {
           по нему, а также передвинуть и указать точку начала и конца вашего текста.
         </p>
         <VideoFigure
-          caption="After Effects"
+          caption="Adobe After Effects"
           styleClass="figure_windows-dark"
           videoSrc="images/aftereffects/edit_subtitlepro_text.mp4"
         />
@@ -656,7 +658,8 @@ const AEActions: React.FC = () => {
           и экспериментируйте.
         </AdditionInfo>
         <p>
-          В стандартной поставке <mark className="app">After Effects</mark> есть пресет{" "}
+          В стандартной поставке <mark className="app">Adobe After Effects</mark> есть
+          пресет{" "}
           <mark className="file">Keylight + Key Cleaner + Advanced Spill Suppressor</mark>
           , который закрывает большинство задач по быстрому удалению фона.
         </p>
@@ -721,8 +724,8 @@ const AEActions: React.FC = () => {
         </p>
         <Divider>Выделяем объект с помощью встроенного Rotobrush</Divider>
         <p>
-          В базовой поставке <mark className="app">After Effects</mark> давно существует
-          прекрасный инструмент <mark className="plugin">Rotobrush</mark>{" "}
+          В базовой поставке <mark className="app">Adobe After Effects</mark> давно
+          существует прекрасный инструмент <mark className="plugin">Rotobrush</mark>{" "}
           <mark className="key">Alt + W</mark>, который позволяет вырезать объект от фона
           любой сложности. С относительно недавних пор Adobe обновили этот инструмент до
           версии 3.0, в которой улучшили работу ротоскопирования объектов с помощью
@@ -753,7 +756,7 @@ const AEActions: React.FC = () => {
           Иногда у вас может возникнуть задача сгенерировать карту глубины из видео,
           например для размытия или затемнения фона, а также для применения различных
           эффектов, которые требуют карту глубины. В{" "}
-          <mark className="app">After Effects</mark> сделать это можно с помощью
+          <mark className="app">Adobe After Effects</mark> сделать это можно с помощью
           стороннего плагина <mark className="plugin">Depth Scanner</mark>. На выбор есть
           множество настроек по качеству обработки, типу работы, а также выбор различных
           моделей для анализа глубины у слоя.
@@ -779,7 +782,7 @@ const AEActions: React.FC = () => {
         <p>
           Для удаления чёрного и белого фона есть встроенный эффект{" "}
           <mark className="plugin">Extract</mark>, который входит в стандартную поставку{" "}
-          <mark className="app">After Effects</mark>. С помощью него можно вырезать
+          <mark className="app">Adobe After Effects</mark>. С помощью него можно вырезать
           светлые и тёмные тона по яркостной шкале. Этот эффект хорошо подходит для
           отделения от фона простых объектов. Но! Если вы попытаетесь использовать его,
           например, на композиции с эффектом взрыва или сложными частицами - вы получите
@@ -794,7 +797,7 @@ const AEActions: React.FC = () => {
           каши), то можно воспользоваться сторонним эффектом{" "}
           <mark className="plugin">uni.unmult</mark>, который поставляется в пакет
           плагинов <mark className="plugin">Red Giant Universe</mark>. Он достаточно
-          хорошо убирает тёмные или светлые оттенки, если включен пункт{" "}
+          хорошо убирает тёмные или светлые оттенки, если включен параметр{" "}
           <mark className="ui">Invert</mark>. Плагин делает слой прозрачным, что позволяет
           применить футаж поверх любой композиции.{" "}
         </p>
@@ -888,8 +891,8 @@ const AEActions: React.FC = () => {
         />
         <p>
           Если результат от способов выше не понравился, то не время унывать. В
-          стандартной поставке <mark className="app">After Effects</mark> есть прекрасный
-          инструмент для планарного трекинга под названием{" "}
+          стандартной поставке <mark className="app">Adobe After Effects</mark> есть
+          прекрасный инструмент для планарного трекинга под названием{" "}
           <mark className="plugin">Mocha AE</mark>. Он будет несколько урезанней, нежели
           его полноценная версия под названием <mark className="plugin">Mocha Pro</mark>,
           которую надо устанавливать отдельно, но базовые вещи для наложения слоя с
@@ -923,7 +926,7 @@ const AEActions: React.FC = () => {
         </p>
         <p>
           Для упрощения анимации масок и фигурных слоёв в базовой поставке{" "}
-          <mark className="app">After Effects</mark> добавлен разработчиками скрипт{" "}
+          <mark className="app">Adobe After Effects</mark> добавлен разработчиками скрипт{" "}
           <mark className="file">Create Nulls From Path.jsx</mark>, который создаёт нули
           для контроля точек фигуры. Его можно открыть с помощью{" "}
           <mark className="ui">Window &gt; Create Nulls From Path.jsx</mark> в конце
@@ -935,7 +938,7 @@ const AEActions: React.FC = () => {
         />
       </DetailsSummary>
       <DetailsSummary
-        tag="stroke, строук, авто трассировка"
+        tag="stroke, строук, автотрейс, авто-трассировка"
         title="Как сделать обводку слоя?"
       >
         <p>
@@ -943,6 +946,7 @@ const AEActions: React.FC = () => {
           <mark className="ui">Auto-trace</mark> и через{" "}
           <mark className="ui">Layer Style</mark>.
         </p>
+        <Divider>Создаём обводку с помощью Layer Style</Divider>
         <p>
           Начнём с первого способа - через <mark className="ui">Layer Style</mark>. Для
           этого вам нужно выделить ваш слой в окне предпросмотра или в таймлайне, нажать{" "}
@@ -955,6 +959,7 @@ const AEActions: React.FC = () => {
           styleClass="figure_windows-dark"
           videoSrc="images/aftereffects/stroke_layer-style.mp4"
         />
+        <Divider>Создаём обводку с помощью авто-трассировки</Divider>
         <p>
           Второй способ, через <mark className="ui">Auto-Trace</mark>, будет чуть
           посложнее. Вам нужно будет создать маску с помощью функции авто-трассировки. Для
@@ -964,7 +969,7 @@ const AEActions: React.FC = () => {
           или в пределах рабочей области, то есть создать маску покадрово. Затем у нас
           сгенерируется маска на новом слое. Также можно выбрать на основе чего создавать
           трассировку: из альфа-канала, яркости или определённого цвета. Вы можете
-          применить маску сразу на выделенный слой, убрав в окне галочку с пункта{" "}
+          применить маску сразу на выделенный слой, убрав в окне чекбокс с параметра{" "}
           <mark className="ui">Apply to new layer</mark>. После настройки просто нажмите
           на кнопку <mark className="ui">OK</mark> и примените эффект{" "}
           <mark className="plugin">Stroke</mark> на слой с созданной маской.
@@ -1050,8 +1055,8 @@ const AEActions: React.FC = () => {
           <a href="https://github.com/stemrollerapp/stemroller/releases">StemRoller</a>.
         </AdditionInfo>
         <p>
-          В <mark className="app">After Effects</mark> вы можете сгенерировать ключи с
-          помощью нажатия <mark className="key">ПКМ</mark> по слою с аудиофайлом и выбрав{" "}
+          В <mark className="app">Adobe After Effects</mark> вы можете сгенерировать ключи
+          с помощью <mark className="key">ПКМ</mark> по слою с аудиофайлом и нажатия на{" "}
           <mark className="ui">Keyframe Assistant &gt; Convert Audio to Keyframes</mark>.
         </p>
         <ImageFigure
@@ -1071,7 +1076,7 @@ const AEActions: React.FC = () => {
           в пакет плагинов <mark className="plugin">Red Giant Trapcode Suite</mark>.
         </p>
         <YouTubeVideo
-          caption="Как пользоваться Sound Keys в After Effects"
+          caption="Как пользоваться Sound Keys в Adobe After Effects"
           link="uqKFsIHu-DA"
         />
         <p>
@@ -1086,7 +1091,7 @@ const AEActions: React.FC = () => {
           link="JGVLRcjp7ss"
         />
         <AdditionInfo>
-          Плагины, приведённые в этом пункте можно скачать из канала{" "}
+          Плагины, приведённые в этой статье можно скачать из канала{" "}
           <a href="https://t.me/+Qd9xu7A4TeIwNzY6">склад стройматериалов</a> или из канала{" "}
           <a href="https://t.me/s/aetemp">AETemp</a>.
         </AdditionInfo>
@@ -1192,13 +1197,13 @@ const AEActions: React.FC = () => {
         title="Как применить Adjustment Layer только на конкретные слои?"
       >
         <p>
-          Изначально в <mark className="app">After Effects</mark>, к сожалению, нет
+          Изначально в <mark className="app">Adobe After Effects</mark>, к сожалению, нет
           возможности применить корректирующий слой только на определённые слои под ним. В
           таком случае нужные слои надо переносить на другое место по иерархии в таймлайне
           или городить костыли в виде масок.
         </p>
         <p>
-          В этом пункте мы будем <mark className="word">костылить</mark> с помощью масок.
+          В этой статье мы будем <mark className="word">костылить</mark> с помощью масок.
           Для этого нам понадобится сторонний эффект{" "}
           <mark className="plugin">Supercomp</mark>, поставляемый в пакете плагинов{" "}
           <mark className="plugin">VFX Suite</mark> от <mark>Red Giant</mark>. В нём нам

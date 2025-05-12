@@ -30,7 +30,7 @@ const AEInterface: React.FC = () => {
           Если вы всё ещё не видите то, что вам нужно с этой включённой опцией - проверьте
           настройки <mark className="ui">View Options</mark>, нажав на комбинацию клавиш{" "}
           <mark className="key">Ctrl + Alt + U</mark> и выставьте галочки рядом со всеми
-          пунктами.
+          параметрами.
         </p>
         <ImageFigure
           caption="View Options"
@@ -107,7 +107,7 @@ const AEInterface: React.FC = () => {
           предпросмотре, то вам нужно изменить тип пространственной интерполяции для
           ключей. Для этого выделите нужные ключевые кадры и нажмите на комбинацию клавиш{" "}
           <mark className="key">Ctrl + Alt + K</mark>. В открывшемся окне выберите в
-          пункте <mark className="ui">Spatial Interpolation</mark> значение{" "}
+          параметре <mark className="ui">Spatial Interpolation</mark> значение{" "}
           <mark className="ui">Bezier</mark> или любой другой тип безье. После этого вы
           сможете изменять траекторию движения в предпросмотре без всяких проблем.
         </p>
@@ -175,7 +175,7 @@ const AEInterface: React.FC = () => {
         <p>
           Для восстановления случайно закрытого окна перейдите в{" "}
           <mark className="ui">Window</mark> и выберите нужное вам окно. Также в этом
-          пункте можно открыть окна расширений или переключиться между рабочими
+          контекстном меню можно открыть окна расширений или переключиться между рабочими
           пространствами.
         </p>
         <VideoFigure
@@ -197,8 +197,8 @@ const AEInterface: React.FC = () => {
         </p>
         <AdditionWarning>
           Цепляться нужно именно за название вкладки в интерфейсе самого{" "}
-          <mark className="app">After Effects</mark>, а не за заголовок окна, создаваемый
-          вашей операционной системой.
+          <mark className="app">Adobe After Effects</mark>, а не за заголовок окна,
+          создаваемый вашей операционной системой.
         </AdditionWarning>
         <VideoFigure
           caption="Прикрепление окна в рабочее пространство"
@@ -212,15 +212,15 @@ const AEInterface: React.FC = () => {
       </DetailsSummary>
       <DetailsSummary title="Как сделать так, чтобы мое рабочее пространство не переключалось на другое при открытии чужих проектов?">
         <AdditionWarning>
-          В старых версиях <mark className="app">After Effects</mark> такой опции нет.
-          Чтобы она появилась - обновитесь до более свежей версии.
+          В старых версиях <mark className="app">Adobe After Effects</mark> такой опции
+          нет. Чтобы она появилась - обновитесь до более свежей версии.
         </AdditionWarning>
         <p>
-          В <mark className="app">After Effects</mark> версии <mark>25.2</mark> и новее
-          появилась новая функция в настройках, предотвращающая смену пользовательского
-          рабочего пространства на стандартное или иное. При частой работе с чужими
-          проектами изначальная особенность программы бесило многих пользователей и{" "}
-          <mark>Adobe</mark> добавила для этого{" "}
+          В <mark className="app">Adobe After Effects</mark> версии <mark>25.2</mark> и
+          новее появилась новая функция в настройках, предотвращающая смену
+          пользовательского рабочего пространства на стандартное или иное. При частой
+          работе с чужими проектами изначальная особенность программы бесило многих
+          пользователей и <mark>Adobe</mark> добавила для этого{" "}
           <a href="https://helpx.adobe.com/after-effects/using/whats-new/2025-2.html#maintain-workspace-when-opening-projects">
             решение
           </a>
@@ -247,7 +247,7 @@ const AEInterface: React.FC = () => {
           , минуя папку <mark className="path">ScriptUI Panels</mark>.
         </p>
         <VideoFigure
-          caption="After Effects"
+          caption="Adobe After Effects"
           styleClass="figure_windows-light"
           videoSrc="images/aftereffects/i_cant_attach_script.mp4"
         />
@@ -255,8 +255,9 @@ const AEInterface: React.FC = () => {
           Для возможности прикрепления таких окон в рабочее пространство скрипты формата{" "}
           <mark className="file">.jsx</mark> или <mark className="file">.jsxbin</mark>{" "}
           необходимо переместить в папку <mark className="path">ScriptUI Panels</mark>.
-          После этого требуется перезагрузка <mark className="app">After Effects</mark>,
-          если приложение уже было запущено.
+          После этого требуется перезагрузка{" "}
+          <mark className="app">Adobe After Effects</mark>, если приложение уже было
+          запущено.
         </p>
         <VideoFigure
           caption="Проводник"
@@ -331,23 +332,23 @@ const AEInterface: React.FC = () => {
         title="Компьютер во время работы упал в BSOD и испортил мне настройки. Как мне их восстановить?"
       >
         <p>
-          В редких случаях при обычной работе с <mark className="app">After Effects</mark>{" "}
-          ваше устройство может упасть в &quot;синий экран смерти&quot;, и в это время по
-          несчастливому стечению обстоятельств программа перезаписывала файл ваших
-          настроек. Соответственно <mark className="app">After Effects</mark> может побить
-          файл настроек и, скорее всего, в таком случае вы увидите при следующем запуске
-          программы ошибку чтения пользовательских настроек и сбросит их до
-          &quot;заводских&quot;.
+          В редких случаях при обычной работе с{" "}
+          <mark className="app">Adobe After Effects</mark> ваше устройство может упасть в
+          &quot;синий экран смерти&quot;, и в это время по несчастливому стечению
+          обстоятельств программа перезаписывала файл ваших настроек. Соответственно{" "}
+          <mark className="app">Adobe After Effects</mark> может побить файл настроек и,
+          скорее всего, в таком случае вы увидите при следующем запуске программы ошибку
+          чтения пользовательских настроек и сбросит их до &quot;заводских&quot;.
         </p>
         <p>
           Если вы обновлялись с предыдущих версий{" "}
-          <mark className="app">After Effects</mark>, то вы можете импортировать настройки
-          со старых версий. Для этого перейдите в{" "}
+          <mark className="app">Adobe After Effects</mark>, то вы можете импортировать
+          настройки со старых версий. Для этого перейдите в{" "}
           <mark className="ui">Edit &gt; Preferences &gt; Startup & Repair</mark> найдите
           и нажмите на кнопку{" "}
           <mark className="ui">Migrate Previous Version Preferences</mark>. В открывшемся
           окне вы можете выбрать из какой версии{" "}
-          <mark className="app">After Effects</mark> перенести настройки.
+          <mark className="app">Adobe After Effects</mark> перенести настройки.
         </p>
         <ImageFigure
           caption="Preferences"
@@ -377,8 +378,8 @@ const AEInterface: React.FC = () => {
           обновления работа с слоями-масками стала проще. Но после этого обновления
           появилась другая проблема - старые обучающие видео вводят новичков с новыми
           версиями в заблуждение, а новые видео - пользователей с старыми версиями{" "}
-          <mark className="app">After Effects</mark>. Поэтому постарайтесь найти более
-          актуальное видео для объяснения решения вашей задачи или приспособьтесь к
+          <mark className="app">Adobe After Effects</mark>. Поэтому постарайтесь найти
+          более актуальное видео для объяснения решения вашей задачи или приспособьтесь к
           немного другой реализации работы с масками.
         </p>
         <YouTubeVideo
@@ -400,9 +401,9 @@ const AEInterface: React.FC = () => {
         <p>
           Отдельное окно <mark className="ui">Свойства</mark> или же{" "}
           <mark className="ui">Properties</mark> была добавлена в{" "}
-          <mark className="app">After Effects 23.4</mark> и новее. После выхода этого
-          обновления не все приняли положительно такое окно свойств слоя, а кого-то и
-          выбешивало то, что это окно открывается автоматически при выборе некоторых
+          <mark className="app">Adobe After Effects 23.4</mark> и новее. После выхода
+          этого обновления не все приняли положительно такое окно свойств слоя, а кого-то
+          и выбешивало то, что это окно открывается автоматически при выборе некоторых
           инструментов.
         </p>
         <AdditionInfo>
@@ -418,7 +419,7 @@ const AEInterface: React.FC = () => {
           пару раз, потому что эта галочка не отключает авто-открытие у всех инструментов.
         </p>
         <ImageFigure
-          caption="After Effects"
+          caption="Adobe After Effects"
           imgSrc="images/aftereffects/toggle_auto-open_panel.png"
           imgTitle="Отключение автоматического открытия окна свойств"
           styleClass="figure_windows-dark"
@@ -430,7 +431,8 @@ const AEInterface: React.FC = () => {
       >
         <p>
           То, что описано в этом вопросе - не является встроенной функцией{" "}
-          <mark className="app">After Effects</mark>. Здесь идёт речь о стороннем плагине{" "}
+          <mark className="app">Adobe After Effects</mark>. Здесь идёт речь о стороннем
+          плагине{" "}
           <a href="https://www.videocopilot.net/blog/?s=fx%20console">FX Console</a>. С
           помощью него действительно можно быстро применить эффект на выделенный слой,
           нажав на комбинацию клавиш <mark className="key">Ctrl + Space</mark>. Также с
@@ -438,7 +440,7 @@ const AEInterface: React.FC = () => {
           в буфер обмена.
         </p>
         <AdditionInfo>
-          Для создания скриншотов с полным разрешением - укажите пункт{" "}
+          Для создания скриншотов с полным разрешением - включите параметр{" "}
           <mark className="ui">Full Resolution Screenshots</mark> в настройках плагина.
           Там же можно и переназначить комбинацию клавиш для открытия окна плагина.
         </AdditionInfo>
@@ -453,7 +455,7 @@ const AEInterface: React.FC = () => {
         title="Как изменить вид отсчёта времени на таймлайне?"
       >
         <p>
-          В <mark className="app">After Effects</mark> доступно два вида отображения
+          В <mark className="app">Adobe After Effects</mark> доступно два вида отображения
           текущего времени на таймлайне: в формате <mark>ЧЧ:ММ:СС:КК</mark>, где{" "}
           <mark>Ч</mark> - часы, <mark>М</mark> - минуты, <mark>С</mark> - секунды и{" "}
           <mark>К</mark> - кадры или отображение текущего положения по кадрам. Между этими
@@ -469,12 +471,13 @@ const AEInterface: React.FC = () => {
       <DetailsSummary title="Как установить свой процент масштабирования предпросмотра?">
         <p>
           Многих пользователей бесит, что по умолчанию в{" "}
-          <mark className="app">After Effects</mark> в предпросмотре нельзя установить
-          свой процент масштабирования, доступны только жалкие фиксированные значения:{" "}
-          <mark>25%</mark>, <mark>33.3%</mark>, <mark>50%</mark>, <mark>100%</mark> и
-          прочие. К счастью, есть сторонний плагин <mark className="plugin">ae-zoom</mark>
-          , который создаёт окно с регулировкой своего процента масштабирования в
-          предпросмотре и решает проблему. Скачать его можно на{" "}
+          <mark className="app">Adobe After Effects</mark> в предпросмотре нельзя
+          установить свой процент масштабирования, доступны только жалкие фиксированные
+          значения: <mark>25%</mark>, <mark>33.3%</mark>, <mark>50%</mark>,{" "}
+          <mark>100%</mark> и прочие. К счастью, есть сторонний плагин{" "}
+          <mark className="plugin">ae-zoom</mark>, который создаёт окно с регулировкой
+          своего процента масштабирования в предпросмотре и решает проблему. Скачать его
+          можно на{" "}
           <a href="https://github.com/QuisPic/ae-zoom/releases">
             странице релизов в GitHub
           </a>
@@ -551,7 +554,7 @@ const AEInterface: React.FC = () => {
           Если вы хотите сделать прикрепляемое окно для масштабирования, то переместите{" "}
           <mark className="file">Zoom.jsx</mark> в дочернюю папку{" "}
           <mark className="path">Script UI Panels</mark>. Тогда скрипт будет открываться
-          из пункта <mark className="ui">Window</mark>.
+          из контекстного меню <mark className="ui">Window</mark>.
         </AdditionInfo>
       </DetailsSummary>
       <DetailsSummary title="Где найти Front View, Current Camera и прочие варианты отображения камеры?">
@@ -620,10 +623,11 @@ const AEInterface: React.FC = () => {
           <mark className="word">Плейхед</mark>,{" "}
           <mark className="word">временная метка воспроизведения</mark> или{" "}
           <mark className="word">CTI (Current Time Indicator)</mark> показывает то, что
-          находится <u>впереди</u> его пути. <mark className="app">After Effects</mark>{" "}
-          выделяет кадр, который вы видите в предпросмотре небольшой подсветкой по всей
-          высоте вашего таймлайна. Переместив плейхед максимально вправо или нажав на
-          кнопку <mark className="key">End</mark> вы действительно попадёте в самый конец
+          находится <u>впереди</u> его пути.{" "}
+          <mark className="app">Adobe After Effects</mark> выделяет кадр, который вы
+          видите в предпросмотре небольшой подсветкой по всей высоте вашего таймлайна.
+          Переместив плейхед максимально вправо или нажав на кнопку{" "}
+          <mark className="key">End</mark> вы действительно попадёте в самый конец
           композиции, дальше перемещать его смысла нет.
         </p>
         <ImageFigure
@@ -649,11 +653,15 @@ const AEInterface: React.FC = () => {
         </AdditionInfo>
       </DetailsSummary>
       <DetailsSummary title="У меня есть два ключа с одинаковым значением, но между ними всё равно идёт какая-то анимация. Как её убрать?">
+        <Divider>Проверяем график скорости</Divider>
         <p>
           Скорее всего вы ни разу не смотрели на график скорости между двумя ключами,
-          особенно после того, как вы изменили длительность между кадрами. В моем примере
-          у первого и второго ключа стоит одинаковое значение <mark>100%</mark>, но между
-          ними всё равно будет идти анимация из-за изменённого графика скорости Безье.
+          особенно после того, как вы изменили длительность между кадрами. Чтобы
+          посмотреть на график скорости выделенного параметра - нажмите на комбинацию
+          клавиш <mark className="key">Shift + F3</mark>. В этом же графике скорости вы
+          сможете подстроить скорость вашей анимации с помощью манипуляторов. В моем
+          примере у первого и второго ключа стоит одинаковое значение <mark>100%</mark>,
+          но между ними всё равно будет идти анимация из-за изменённого графика скорости.
         </p>
         <ImageFigure
           caption="Speed Graph"
@@ -661,12 +669,15 @@ const AEInterface: React.FC = () => {
           imgTitle="Пример с проблемной интерполяцией"
           styleClass="figure_windows-dark"
         />
+        <Divider>Меняем интерполяцию между кадрами</Divider>
         <p>
-          Чтобы убрать анимацию между двумя кадрами, вам нужно изменить режим интерполяции
-          ключевых кадров. Для этого нужно выделить все ключи, которые вам нужны и нажать
-          на комбинацию клавиш <mark className="key">Ctrl + Alt + K</mark> для открытия
-          окна <mark className="ui">Keyframe Interpolation</mark>. В открывшемся окне в
-          пункте <mark className="ui">Temporal Interpolation</mark> выберите{" "}
+          Чтобы убрать анимацию между двумя кадрами - воспользуйтесь манипуляторами для
+          изменения скорости в <mark className="ui">Speed Editor</mark> или измените режим
+          интерполяции ключевых кадров. Для изменения режима интерполяции - выделите все
+          ключи, которые вам нужны и нажмите на комбинацию клавиш{" "}
+          <mark className="key">Ctrl + Alt + K</mark> для открытия окна{" "}
+          <mark className="ui">Keyframe Interpolation</mark>. В открывшемся окне в
+          параметре <mark className="ui">Temporal Interpolation</mark> выберите значение{" "}
           <mark className="ui">Linear</mark> или <mark className="ui">Hold</mark>. После
           этого у вас между выделенными ключами не должно быть лишней анимации.
         </p>
@@ -676,11 +687,6 @@ const AEInterface: React.FC = () => {
           imgTitle="Изменение интерполяции ключевых кадров"
           styleClass="figure_windows-dark"
         />
-        <p>
-          Или достаточно посмотреть на график скорости вашего параметра, нажав на
-          комбинацию клавиш <mark className="key">Shift + F3</mark>. В этом же графике
-          скорости вы сможете подстроить скорость вашей анимации.
-        </p>
       </DetailsSummary>
       <DetailsSummary
         tag="вейвформ, аудио, увидеть волну"
@@ -702,12 +708,17 @@ const AEInterface: React.FC = () => {
           волны.
         </AdditionInfo>
       </DetailsSummary>
-      <DetailsSummary title="Я использую After Effects 2019 и в нём не выделяется объект в Rotobrush, что делать?">
+      <DetailsSummary
+        tag="ротобраш"
+        title="Я использую After Effects 2019 и в нём не выделяется объект в Rotobrush, что делать?"
+      >
         <p>
           Скорее всего вы столкнулись с багом этой версии, если вы используете репак от{" "}
-          <mark>KpoJluk</mark>. Проблема решается откатом до CC 2018, установкой{" "}
-          <mark className="app">After Effects 2019</mark> сборки от <mark>m0nkrus</mark>{" "}
-          или установкой более свежей версии программы.
+          <mark>KpoJluk</mark>. Проблема решается откатом программы до версии{" "}
+          <mark>CC 2018</mark>, установкой{" "}
+          <mark className="app">Adobe After Effects 2019</mark> сборки от{" "}
+          <mark>m0nkrus</mark> или установкой более свежей версии программы от кого
+          угодно.
         </p>
       </DetailsSummary>
       <DetailsSummary
@@ -753,15 +764,16 @@ const AEInterface: React.FC = () => {
         <p>
           Если вариант со входом в аккаунт вас не устраивает или вас бесит это окно, то к
           счастью, это окно можно отключить. Для отключения стартового окна со списком
-          недавних проектов откройте настройки <mark className="app">After Effects</mark>{" "}
-          с помощью{" "}
+          недавних проектов откройте настройки{" "}
+          <mark className="app">Adobe After Effects</mark> с помощью{" "}
           <mark className="ui">Edit &gt; Preferences &gt; Startup & Repair</mark>, а затем
-          в открывшемся окне выключите пункт{" "}
+          в открывшемся окне выключите параметр{" "}
           <mark className="ui">Enable Home Screen</mark>.
         </p>
         <AdditionInfo>
-          В старых версиях <mark className="app">After Effects</mark> пункт с выключением
-          домашнего экрана находится во вкладке <mark className="ui">General</mark>.
+          В старых версиях <mark className="app">Adobe After Effects</mark> параметр с
+          выключением домашнего экрана находится в разделе{" "}
+          <mark className="ui">General</mark>.
         </AdditionInfo>
         <ImageFigure
           caption="Preferences"
@@ -772,8 +784,9 @@ const AEInterface: React.FC = () => {
       </DetailsSummary>
       <DetailsSummary title="Как изменить акцентный цвет интерфейса программы?">
         <AdditionDanger>
-          Для <mark className="app">After Effects</mark> версий 25.X данная инструкция
-          неактуальна, после включения пункта в консоли - в настройках ничего не будет.
+          Для <mark className="app">Adobe After Effects</mark> версий <mark>25.X</mark>{" "}
+          данная инструкция неактуальна, после включения параметра в консоли - в
+          настройках ничего не будет.
         </AdditionDanger>
         <p>
           Вы, наверное, не раз натыкались на различные скриншоты, где у пользователей
@@ -786,7 +799,7 @@ const AEInterface: React.FC = () => {
         <code>debug.set Enable_Theme_Colorizing=true</code>
         <AdditionInfo>
           Режимы отображения консоли можно изменить нажав на три полоски в заголовке окна.
-          Также этот пункт можно найти и в режиме отображения{" "}
+          Также этот параметр можно найти и в режиме отображения{" "}
           <mark className="ui">Debug Database View</mark>.
         </AdditionInfo>
         <ImageFigure
@@ -803,7 +816,7 @@ const AEInterface: React.FC = () => {
         <ImageFigure
           caption="Preferences"
           imgSrc="images/aftereffects/select_theme_color.png"
-          imgTitle="Выбираем пункт для смены цвета интерфейса"
+          imgTitle="Находим кнопку для смены цвета интерфейса"
           styleClass="figure_windows-dark"
         />
         <p>
@@ -837,7 +850,7 @@ const AEInterface: React.FC = () => {
           устройств на <mark>Windows</mark>.
         </AdditionDanger>
         <p>
-          При запуске <mark className="app">After Effects</mark> вы часто видите
+          При запуске <mark className="app">Adobe After Effects</mark> вы часто видите
           какую-либо картинку, задуманной Adobe и наверное задумывались, что неплохо бы её
           заменить на свою. Да, такое можно сделать с помощью махинаций с{" "}
           <mark className="file">.dll</mark> файлами. Для этого нам пригодится программа{" "}
@@ -889,18 +902,19 @@ const AEInterface: React.FC = () => {
         />
         <p>
           Отредактировать извлечённый файл вы можете в любом редакторе изображений,
-          например <mark className="app">Photoshop</mark>,{" "}
-          <mark className="app">GIMP</mark>, <mark className="app">Illustrator</mark> и
-          даже в самом <mark className="app">After Effects</mark>. Нужно просто не менять
-          размер изображения и сохранить его также в <mark className="file">.png</mark>.
+          например <mark className="app">Adobe Photoshop</mark>,{" "}
+          <mark className="app">GIMP</mark>,{" "}
+          <mark className="app">Adobe Illustrator</mark> и даже в самом{" "}
+          <mark className="app">Adobe After Effects</mark>. Нужно просто не менять размер
+          изображения и сохранить его также в <mark className="file">.png</mark>.
         </p>
         <p>
-          Я же просто заменю в <mark className="app">Photoshop</mark> стандартное
-          изображение на изображение автомобиля Ford Focus и сохраню его в{" "}
+          Я же просто заменю в <mark className="app">Adobe Photoshop</mark> стандартное
+          изображение на изображение автомобиля <mark>Ford Focus</mark> и сохраню его в{" "}
           <mark className="file">.png</mark>.
         </p>
         <ImageFigure
-          caption="Пример модификации изображения при загрузке After Effects"
+          caption="Пример модификации изображения при загрузке Adobe After Effects"
           imgSrc="images/aftereffects/custom_splash_example.png"
           imgTitle="Изменённое изображение при открытии программы"
           styleClass="figure_windows-light"

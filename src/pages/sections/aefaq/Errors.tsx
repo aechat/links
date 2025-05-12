@@ -39,7 +39,7 @@ const AEErrors: React.FC = () => {
       >
         <p>
           Поздравляю, вы встретились с первым боссом в{" "}
-          <mark className="app">After Effects</mark>. Эти ошибки и предупреждения
+          <mark className="app">Adobe After Effects</mark>. Эти ошибки и предупреждения
           возникают из-за того, что у вас банально не хватает оперативной памяти для
           реализации ваших проектов. Часто это происходит из-за того что вы используете
           слишком нагруженные эффекты, не монтажный кодек у видео-исходников или
@@ -47,8 +47,9 @@ const AEErrors: React.FC = () => {
         </p>
         <AdditionWarning>
           <p>
-            При появлении данных ошибок убедитесь в том, вы соблюдаете пункты ниже. Если
-            хотя бы один пункт нарушен, то постарайтесь исправить это в своём проекте.
+            При появлении данных ошибок убедитесь в том, вы соблюдаете условия ниже. Если
+            хотя бы одно условие будет нарушено - постарайтесь исправить это в своём
+            проекте.
           </p>
           <ul>
             <li>
@@ -61,7 +62,7 @@ const AEErrors: React.FC = () => {
               <mark>16 бит</mark> или <mark>32 бит</mark> в параметрах проекта. Для этого
               откройте <mark className="ui">Project Manager</mark> с помощью комбинации
               клавиш <mark className="key">Ctrl + Alt + Shift + K</mark> и выберите там
-              вкладку <mark className="ui">Color</mark>. В пункте{" "}
+              вкладку <mark className="ui">Color</mark>. В параметре{" "}
               <mark className="ui">Depth</mark> вы можете снизить битность проекта, чтобы
               облегчить работу с проектом.
             </li>
@@ -112,7 +113,7 @@ const AEErrors: React.FC = () => {
               </b>{" "}
               вам следовать этому вредному совету, так как вы можете заработать себе кучу
               проблем. При отключенном файле подкачки вы можете в{" "}
-              <mark className="app">After Effects</mark> столкнуться с различными
+              <mark className="app">Adobe After Effects</mark> столкнуться с различными
               ошибками, например{" "}
               <mark className="ui">
                 After Effects has unexpectedly run out of memory and cannot complete this
@@ -150,12 +151,12 @@ const AEErrors: React.FC = () => {
             Проверьте настройки в{" "}
             <mark className="ui">Edit &gt; Preferences &gt; Memory & Performance</mark>.
             Если вы туда лезли и что-то настраивали, то есть шанс, что вы неправильно
-            прочитали описание настройки и оставили программам Adobe 1 Гб ОЗУ, а
-            оставшуюся часть памяти - на другие программы. Для того чтобы выделить всю
-            возможную память для программ Adobe, установите значение <mark>0</mark> в
-            пункте <mark className="ui">RAM reserved for other applications</mark>. После
-            нажатия на <mark className="key">Enter</mark> программа сама установит нужное
-            значение.
+            прочитали описание настройки и оставили программам <mark>Adobe</mark> 1 Гб
+            ОЗУ, а оставшуюся часть памяти - на другие программы. Для того чтобы выделить
+            всю возможную память для программ Adobe, установите значение <mark>0</mark> в
+            параметре <mark className="ui">RAM reserved for other applications</mark>.
+            После нажатия на <mark className="key">Enter</mark> программа сама установит
+            нужное значение.
           </li>
           <li>
             Если вы используете несколько композиций с различными эффектами - попробуйте
@@ -176,8 +177,9 @@ const AEErrors: React.FC = () => {
           <li>
             Ну и самое главное: если у вас мало оперативной памяти на вашем устройстве -
             докупите ещё и установите в материнскую плату, если возможно. В нынешних
-            реалиях для комфортной работы в <mark className="app">After Effects</mark>{" "}
-            требуется минимум <mark>32 Гб</mark> оперативной памяти.
+            реалиях для комфортной работы в{" "}
+            <mark className="app">Adobe After Effects</mark> требуется минимум{" "}
+            <mark>32 Гб</mark> оперативной памяти.
           </li>
         </ul>
         <AdditionInfo>
@@ -223,7 +225,7 @@ const AEErrors: React.FC = () => {
           styleClass="figure_windows-dark"
         />
         <AdditionInfo>
-          Подробнее о каждом пункте на примере использования устройства на связке
+          Подробнее о каждом параметре на примере использования устройства на связке
           &quot;процессор AMD и видеокарта NVIDIA&quot;:
           <ul>
             <li>
@@ -235,7 +237,7 @@ const AEErrors: React.FC = () => {
             </li>
             <li>
               <mark className="ui">Mercury GPU Acceleration (OpenCL или OpenGL)</mark> -
-              аналогично предыдущему пункту, но на встроенном видеочипе процессора.
+              аналогично предыдущему параметру, но на встроенном видеочипе процессора.
             </li>
             <li>
               <mark className="ui">Mercury Software only</mark> - программа будет
@@ -252,7 +254,7 @@ const AEErrors: React.FC = () => {
       >
         <p>
           Пользователь, работающий в <mark className="word">народной</mark> версии{" "}
-          <mark className="app">After Effects</mark> или в любой другой программе от{" "}
+          <mark className="app">Adobe After Effects</mark> или в любой другой программе от{" "}
           <mark>Adobe</mark> может столкнуться ошибкой проверки лицензии. Оно
           сопровождается небольшим окном на белом фоне и с красной полосой сверху, а текст
           внутри окна обычно написан на английском языке. Иногда встречаются варианты
@@ -289,16 +291,16 @@ const AEErrors: React.FC = () => {
               настройки своего <mark className="app">VPN-клиента</mark>. Возможно, в нём
               есть возможность внести программы от <mark>Adobe</mark> или его адреса в
               список исключений соединений для того, чтобы соединение для{" "}
-              <mark className="app">After Effects</mark> проходило с учетом ваших настроек
-              брандмауэра или вовсе блокировались.
+              <mark className="app">Adobe After Effects</mark> проходило с учетом ваших
+              настроек брандмауэра или вовсе блокировались.
             </li>
             <li>
               Если вы наоборот используете лицензионную версию{" "}
-              <mark className="app">After Effects</mark>, то вам нужно будет поддерживать{" "}
-              <mark className="word">VPN-соединение</mark> к другой стране во время
-              использования программы, так как <mark>Adobe</mark> блокирует доступ к своим
-              ресурсам пользователям РФ и из-за этого может выскакивать данная ошибка, так
-              как не может сверить лицензии.
+              <mark className="app">Adobe After Effects</mark>, то вам нужно будет
+              поддерживать <mark className="word">VPN-соединение</mark> к другой стране во
+              время использования программы, так как <mark>Adobe</mark> блокирует доступ к
+              своим ресурсам пользователям РФ и из-за этого может выскакивать данная
+              ошибка, так как не может сверить лицензии.
             </li>
           </ul>
         </AdditionInfo>
@@ -354,7 +356,7 @@ const AEErrors: React.FC = () => {
               <ImageFigure
                 caption="Radio Silence"
                 imgSrc="images/network_radio_silence.png"
-                imgTitle="Блокируем доступ в интернет программам на примере Premiere Pro"
+                imgTitle="Блокируем доступ в интернет программам на примере Adobe Premiere Pro"
                 styleClass="figure_macos-dark"
               />
               <p>
@@ -629,13 +631,14 @@ const AEErrors: React.FC = () => {
         <p>
           А если вы сталкиваетесь с тем, что ваш предпросмотр начинает идти по кругу, то
           попробуйте включить новую функцию предпросмотра из дискового кэша. Она доступна
-          в <mark className="app">After Effects</mark> версии <mark>25.2</mark> и новее и
-          позволяет проиграть предпросмотр напрямую из дискового кэша, не отправляя кадры
-          из него в оперативную память. Чтобы эта функция была активирована - вам нужно
-          включить дисковый кэш, который настраивается в{" "}
+          в <mark className="app">Adobe After Effects</mark> версии <mark>25.2</mark> и
+          новее и позволяет проиграть предпросмотр напрямую из дискового кэша, не
+          отправляя кадры из него в оперативную память. Чтобы эта функция была
+          активирована - вам нужно включить дисковый кэш, который настраивается в{" "}
           <mark className="ui">Edit &gt; Preferences &gt; Media & Disk Cache</mark> и
           включить параметр <mark className="ui">Enable Preview from Disk Cache</mark>.
-          После включения этой опции - попробуйте
+          После включения этой опции - попробуйте начать кэширование заново и проверьте,
+          насколько дольше оно станет проигрываться.
         </p>
         <ImageFigure
           caption="Preferences"
@@ -699,7 +702,7 @@ const AEErrors: React.FC = () => {
           дополнительное расширение может привести к превышению этого лимита.
         </p>
         <p>
-          В <mark className="app">After Effects</mark> размер любого слоя не может
+          В <mark className="app">Adobe After Effects</mark> размер любого слоя не может
           превышать <mark>30000</mark> пикселей по ширине или высоте и это ограничение
           никак нельзя обойти. Для решения проблемы найдите эффект, который увеличивает
           размеры изображения, и либо временно отключите его, либо уменьшите параметры
@@ -722,7 +725,7 @@ const AEErrors: React.FC = () => {
           <mark className="ui">Effect Controls</mark> вас раздражает или у вас нет
           возможности или желания обновлять используемый плагин - вы можете отключить
           предупреждение, отключив функцию многокадрового рендера в настройках{" "}
-          <mark className="app">After Effects</mark>. Для этого вам нужно перейти в{" "}
+          <mark className="app">Adobe After Effects</mark>. Для этого вам нужно перейти в{" "}
           <mark className="ui">Edit &gt; Preferences &gt; Memory & Performance</mark> и
           убрать галочку с <mark className="ui">Enable Multi-frame Render</mark>.
         </p>
@@ -744,21 +747,21 @@ const AEErrors: React.FC = () => {
       >
         <p>
           Чаще всего данная ошибка возникает из-за двух факторов: язык самого{" "}
-          <mark className="app">After Effects</mark> и движок интерпретатора выражений,
-          указанный в настройках проекта. Иногда пользователи, использующие русскоязычную
-          локализацию <mark className="app">After Effects</mark> сталкиваются с
-          неожиданной проблемой: открывая чужой проект с выражениями или применяя
-          сторонний пресет, программа выдаёт ошибку{" "}
+          <mark className="app">Adobe After Effects</mark> и движок интерпретатора
+          выражений, указанный в настройках проекта. Иногда пользователи, использующие
+          русскоязычную локализацию <mark className="app">Adobe After Effects</mark>{" "}
+          сталкиваются с неожиданной проблемой: открывая чужой проект с выражениями или
+          применяя сторонний пресет, программа выдаёт ошибку{" "}
           <mark className="ui">Этот проект содержит ошибки выражений</mark> в окне
           предпросмотра. Причина кроется в языке интерфейса у пользователя - большинство
           выражений пишутся под английскую локализацию или под тот язык, который
           использовал автор проекта или пресета. Или в редких случаях выражение может быть
-          написано под старый или новый движок интерпретатора выражений. В этом пункте мы
+          написано под старый или новый движок интерпретатора выражений. В этой статье мы
           поговорим, как быстро эту проблему решить.
         </p>
         <Divider>Меняем язык программы</Divider>
         <p>
-          Если у вас установлен <mark className="app">After Effects</mark> на языке,
+          Если у вас установлен <mark className="app">Adobe After Effects</mark> на языке,
           отличном от английского - попробуйте сменить язык на английский. Делается это
           достаточно просто.
         </p>
@@ -778,8 +781,8 @@ const AEErrors: React.FC = () => {
               После такого способа смены языка, названия стандартных пресетов и рабочих
               областей останутся на русском языке. Их можно будет переименовать вручную
               или удалить, а затем поставить поверх дистрибутив{" "}
-              <mark className="app">After Effects</mark> с указанием английского языка в
-              установщике. Или достаточно просто переустановить программу сразу на
+              <mark className="app">Adobe After Effects</mark> с указанием английского
+              языка в установщике. Или достаточно просто переустановить программу сразу на
               английском языке, предварительно почистив все &quot;хвосты&quot;.
             </li>
           </ul>
@@ -790,14 +793,15 @@ const AEErrors: React.FC = () => {
               <Divider>Меняем язык с помощью консоли программы</Divider>
               <AdditionWarning>
                 Этот способ смены языка работает только с{" "}
-                <mark className="app">After Effects</mark> версии <mark>24.x</mark> и
-                новее.
+                <mark className="app">Adobe After Effects</mark> версии <mark>24.x</mark>{" "}
+                и новее.
               </AdditionWarning>
               <p>
-                В новых версиях <mark className="app">After Effects</mark> разработчики
-                добавили возможность быстро поменять язык через консоль. Для этого нажмите
-                на комбинацию клавиш <mark className="key">Command + F12</mark>. В
-                открывшемся окне у заголовка нажимаем три полоски и переключаемся в режим{" "}
+                В новых версиях <mark className="app">Adobe After Effects</mark>{" "}
+                разработчики добавили возможность быстро поменять язык через консоль. Для
+                этого нажмите на комбинацию клавиш{" "}
+                <mark className="key">Command + F12</mark>. В открывшемся окне у заголовка
+                нажимаем три полоски и переключаемся в режим{" "}
                 <mark className="ui">Debug Database View</mark>.
               </p>
               <ImageFigure
@@ -810,7 +814,7 @@ const AEErrors: React.FC = () => {
                 Затем в строке поиска нам нужно писать{" "}
                 <mark className="copy">ApplicationLanguage</mark>. В строке с одноимённым
                 параметром пишем <mark className="copy">en_US</mark>. После ввода значения
-                - перезапускаем <mark className="app">After Effects</mark>.
+                - перезапускаем <mark className="app">Adobe After Effects</mark>.
               </p>
               <ImageFigure
                 caption="Установка английского языка в консоли"
@@ -821,7 +825,7 @@ const AEErrors: React.FC = () => {
               <AdditionInfo>
                 Чтобы вернуть язык, который был установлен по умолчанию - достаточно
                 убрать значение из этого параметра и снова перезапустить{" "}
-                <mark className="app">After Effects</mark>.
+                <mark className="app">Adobe After Effects</mark>.
               </AdditionInfo>
             </div>
           }
@@ -834,9 +838,10 @@ const AEErrors: React.FC = () => {
                 переместить его в папку документов пользователя, обычно это{" "}
                 <mark className="path">%USERPROFILE%/Documents</mark>. В сам текстовый
                 файл ничего писать не нужно. После того, как вы поместили текстовый файл в
-                нужное место - перезапустите <mark className="app">After Effects</mark>,
-                если он у вас был запущен. Теперь программа должна запустится на
-                английском языке и ошибка в проекте должна пропасть.
+                нужное место - перезапустите{" "}
+                <mark className="app">Adobe After Effects</mark>, если он у вас был
+                запущен. Теперь программа должна запустится на английском языке и ошибка в
+                проекте должна пропасть.
               </p>
               <AdditionInfo>
                 Чтобы быстро открыть папку документов текущего пользователя в{" "}
@@ -861,15 +866,15 @@ const AEErrors: React.FC = () => {
               <Divider>Меняем язык с помощью консоли программы</Divider>
               <AdditionWarning>
                 Этот способ смены языка работает только с{" "}
-                <mark className="app">After Effects</mark> версии <mark>24.x</mark> и
-                новее.
+                <mark className="app">Adobe After Effects</mark> версии <mark>24.X</mark>{" "}
+                и новее.
               </AdditionWarning>
               <p>
-                В новых версиях <mark className="app">After Effects</mark> разработчики
-                добавили возможность быстро поменять язык через консоль. Для этого нажмите
-                на комбинацию клавиш <mark className="key">Ctrl + F12</mark>. В
-                открывшемся окне у заголовка нажимаем три полоски и переключаемся в режим{" "}
-                <mark className="ui">Debug Database View</mark>.
+                В новых версиях <mark className="app">Adobe After Effects</mark>{" "}
+                разработчики добавили возможность быстро поменять язык через консоль. Для
+                этого нажмите на комбинацию клавиш <mark className="key">Ctrl + F12</mark>
+                . В открывшемся окне у заголовка нажимаем три полоски и переключаемся в
+                режим <mark className="ui">Debug Database View</mark>.
               </p>
               <ImageFigure
                 caption="Включение вида Debug Database View"
@@ -881,7 +886,7 @@ const AEErrors: React.FC = () => {
                 Затем в строке поиска нам нужно писать{" "}
                 <mark className="copy">ApplicationLanguage</mark>. В строке с одноимённым
                 параметром пишем <mark className="copy">en_US</mark>. После ввода значения
-                - перезапускаем <mark className="app">After Effects</mark>.
+                - перезапускаем <mark className="app">Adobe After Effects</mark>.
               </p>
               <ImageFigure
                 caption="Установка английского языка в консоли"
@@ -892,7 +897,7 @@ const AEErrors: React.FC = () => {
               <AdditionInfo>
                 Чтобы вернуть язык, который был установлен по умолчанию - достаточно
                 убрать значение из этого параметра и снова перезапустить{" "}
-                <mark className="app">After Effects</mark>.
+                <mark className="app">Adobe After Effects</mark>.
               </AdditionInfo>
             </div>
           }
@@ -903,7 +908,7 @@ const AEErrors: React.FC = () => {
           сменить язык программирования для выражений. Для откройте окно{" "}
           <mark className="ui">Project Manager</mark> с помощью комбинации клавиш{" "}
           <mark className="key">Ctrl + Alt + Shift + K</mark> и в ней перейдите во вкладку{" "}
-          <mark className="ui">Expressions</mark>. В этой вкладке в пункте{" "}
+          <mark className="ui">Expressions</mark>. В этой вкладке в параметре{" "}
           <mark className="ui">Expressions Engine</mark> выберите другой движок, отличный
           от текущего. Такое бывает, когда выражение в шаблоне создано для другого
           синтаксиса интерпретатора.
@@ -917,9 +922,9 @@ const AEErrors: React.FC = () => {
         <p>
           Если вы применили чужой пресет с выражениями на свой слой, но все ещё
           сталкиваетесь с ошибкой после советов выше, то желательно бы посмотреть, на что{" "}
-          <mark className="app">After Effects</mark> ругается. Часто это бывает из-за
-          ссылок, которые ведут к несуществующим значениям или параметрам. Чтобы
-          посмотреть, на что жалуется <mark className="app">After Effects</mark> при
+          <mark className="app">Adobe After Effects</mark> ругается. Часто это бывает
+          из-за ссылок, которые ведут к несуществующим значениям или параметрам. Чтобы
+          посмотреть, на что жалуется <mark className="app">Adobe After Effects</mark> при
           исполнении выражения, нужно выделить слой и нажать два раза на клавишу{" "}
           <mark className="key">E</mark>. Затем рядом с полем выражения нажмите на иконку
           треугольника. В открывшемся окне программа покажет, обо что она споткнулась при
@@ -931,7 +936,7 @@ const AEErrors: React.FC = () => {
         title='"Cinema 4D must be installed in order to use the Cinema 4D renderer", "Cineware Server Suite failed to acquire renderer port and path. Server commands not available", "Cinema 4D: Render Failed" или ошибка 5027::12'
       >
         <p>
-          Если у вас установлен <mark className="app">After Effects</mark> от{" "}
+          Если у вас установлен <mark className="app">Adobe After Effects</mark> от{" "}
           <mark>KpoJluK</mark>, то эта ошибка возникает из-за того, что в его
           дистрибутивах c версий <mark>2020</mark> и выше не поставляется{" "}
           <mark className="plugin">Cinema 4D Lite</mark>. Это было сделано для уменьшения
@@ -941,29 +946,30 @@ const AEErrors: React.FC = () => {
           соответствующий движок 3D-рендера. Чтобы решить эту проблему - достаточно
           установить полноценную <mark className="app">Maxon Cinema 4D</mark> нужной
           версии на ваше устройство, которую просит ваша версия{" "}
-          <mark className="app">After Effects</mark>. Обычно в такой ошибке указывается,
-          какую версию <mark className="app">Cinema 4D</mark> нужно установить.
+          <mark className="app">Adobe After Effects</mark>. Обычно в такой ошибке
+          указывается, какую версию <mark className="app">Cinema 4D</mark> нужно
+          установить.
         </p>
         <AdditionWarning>
           <ul>
             <li>
-              Если в этой ошибке <mark className="app">After Effects</mark> пишет, что
-              нужно установить, например <mark className="app">Cinema 4D</mark> версии{" "}
+              Если в этой ошибке <mark className="app">Adobe After Effects</mark> пишет,
+              что нужно установить, например <mark className="app">Cinema 4D</mark> версии{" "}
               <mark>2023</mark> - то нужно ставить именно любую версию{" "}
               <mark>2023.X.X</mark>! Версии <mark>2024.X.X</mark> или <mark>25.X.X</mark>{" "}
               в таком случае не подойдут.
             </li>
             <li>
               <mark className="app">Cinema 4D</mark> версий <mark>26.X.X</mark> не
-              подойдут для версий <mark className="app">After Effects</mark> ниже{" "}
+              подойдут для версий <mark className="app">Adobe After Effects</mark> ниже{" "}
               <mark>23.1</mark>, так как Adobe не включала в поддержку эту версию.
             </li>
             <li>
               Если вы установили <mark className="app">Cinema 4D</mark> для вашей версии{" "}
-              <mark className="app">After Effects</mark>, но программы всё ещё не видят
-              друг друга, то убедитесь в том, что обе программы установлены на стандартном
-              расположении установки и в разделе <mark className="path">C:\</mark>, а не
-              на другом.
+              <mark className="app">Adobe After Effects</mark>, но программы всё ещё не
+              видят друг друга, то убедитесь в том, что обе программы установлены на
+              стандартном расположении установки и в разделе{" "}
+              <mark className="path">C:\</mark>, а не на другом.
             </li>
           </ul>
         </AdditionWarning>
@@ -972,30 +978,30 @@ const AEErrors: React.FC = () => {
           корректной работы
         </Divider>
         <AdditionInfo>
-          Чтобы посмотреть текущую версию <mark className="app">After Effects</mark>,
-          установленная на вашем устройстве - перейдите в программе в{" "}
+          Чтобы посмотреть текущую версию <mark className="app">Adobe After Effects</mark>
+          , установленная на вашем устройстве - перейдите в программе в{" "}
           <mark className="ui">Help &gt; About After Effects</mark>.
         </AdditionInfo>
         <ul>
           <li>
-            <mark className="app">After Effects 25.1 и новее</mark> требует{" "}
+            <mark className="app">Adobe After Effects 25.1 и новее</mark> требует{" "}
             <mark className="app">Cinema 4D 2025.X.X</mark>.
           </li>
           <li>
-            <mark className="app">After Effects 24.1 - 25.0</mark> требует{" "}
+            <mark className="app">Adobe After Effects 24.1 - 25.0</mark> требует{" "}
             <mark className="app">Cinema 4D 2024.X.X</mark>.
           </li>
           <li>
-            <mark className="app">After Effects 23.1 - 23.6</mark> требует{" "}
+            <mark className="app">Adobe After Effects 23.1 - 23.6</mark> требует{" "}
             <mark className="app">Cinema 4D 2023.X.X</mark>.
           </li>
           <li>
-            <mark className="app">After Effects 22.x - 23.0</mark> требует{" "}
+            <mark className="app">Adobe After Effects 22.x - 23.0</mark> требует{" "}
             <mark className="app">Cinema 4D 25.X.X</mark>.
           </li>
           <li>
-            <mark className="app">After Effects 17.x (2020)</mark> и{" "}
-            <mark className="app">After Effects 18.x (2021)</mark> требует{" "}
+            <mark className="app">Adobe After Effects 17.x (2020)</mark> и{" "}
+            <mark className="app">Adobe After Effects 18.x (2021)</mark> требует{" "}
             <mark className="app">Cinema 4D R21.X.X.</mark>. Путь до установленных
             программ вы можете настроить в настройках 3D-рендера.
             <div
@@ -1030,7 +1036,7 @@ const AEErrors: React.FC = () => {
         <AdditionInfo>
           <ul>
             <li>
-              Если у вас установлен <mark className="app">After Effects</mark> из{" "}
+              Если у вас установлен <mark className="app">Adobe After Effects</mark> из{" "}
               <mark className="app">Creative Cloud</mark>, то вам достаточно установить{" "}
               <mark className="plugin">Cinema 4D</mark> оттуда:{" "}
               <mark className="ui">
@@ -1040,7 +1046,7 @@ const AEErrors: React.FC = () => {
               .
             </li>
             <li>
-              В <mark className="app">After Effects</mark> от <mark>m0nkrus</mark> и
+              В <mark className="app">Adobe After Effects</mark> от <mark>m0nkrus</mark> и
               некоторых релизеров - <mark className="app">Cinema 4D Lite</mark> обычно не
               вырезан, соответственно подобные манипуляции проводить не надо.
             </li>
@@ -1128,8 +1134,8 @@ const AEErrors: React.FC = () => {
           автоматического авто-сохранения сбрасывается. Также файлы авто-сохранений не
           создаются, если у вас изначально не был сохранён проект. Поэтому рекомендуем
           выработать привычку сохранять файл проекта сразу же после открытия{" "}
-          <mark className="app">After Effects</mark> и установить минимальное время для
-          авто-сохранений в настройках программы:{" "}
+          <mark className="app">Adobe After Effects</mark> и установить минимальное время
+          для авто-сохранений в настройках программы:{" "}
           <mark className="ui">Edit &gt; Preferences &gt; Auto-Save</mark> и укажите
           значение <mark className="ui">Save every</mark> от 1 до 3 минут.
         </AdditionInfo>
@@ -1138,10 +1144,11 @@ const AEErrors: React.FC = () => {
           если свободного места на дисковом разделе крайне мало. Так как операционная
           система <mark>Windows</mark> не всегда предупреждает о малом объёме свободной
           дисковой памяти на разделах, вы могли упустить такую мелочь и можете столкнуться
-          с невозможностью открытия проекта в <mark className="app">After Effects</mark>.
-          Для решения этой проблемы вам достаточно почистить систему от накопившегося
-          мусора, хотя бы удалив файлы из папки <mark className="path">%Temp%</mark> и
-          повторить попытку открытия проекта снова.
+          с невозможностью открытия проекта в{" "}
+          <mark className="app">Adobe After Effects</mark>. Для решения этой проблемы вам
+          достаточно почистить систему от накопившегося мусора, хотя бы удалив файлы из
+          папки <mark className="path">%Temp%</mark> и повторить попытку открытия проекта
+          снова.
         </p>
       </DetailsSummary>
       <DetailsSummary
@@ -1162,7 +1169,7 @@ const AEErrors: React.FC = () => {
         <p>
           Вы можете уменьшить максимальное количество гигабайт для дискового кэша или
           изменить местоположение хранения в настройках{" "}
-          <mark className="app">After Effects</mark>. Для этого перейдите в{" "}
+          <mark className="app">Adobe After Effects</mark>. Для этого перейдите в{" "}
           <mark className="ui">Edit &gt; Preferences &gt; Media & Disk Cache</mark> и
           уменьшите максимальный размер дискового кэша или укажите другое расположение,
           например на другом диске или внешнем накопителе.
@@ -1212,12 +1219,12 @@ const AEErrors: React.FC = () => {
       </DetailsSummary>
       <DetailsSummary title='"Не удалось выполнить преобразование символов Unicode" или "Не удалось загрузить псевдоэффекты" при запуске After Effects'>
         <p>
-          Если вы попытаетесь запустить <mark className="app">After Effects</mark> с
+          Если вы попытаетесь запустить <mark className="app">Adobe After Effects</mark> с
           русской локализацией, то вы можете столкнуться с данной проблемой. Она
           встречается на старых версиях и на версии <mark>24.4</mark>, которую позже
           исправили. Для решения данной проблемы нужно переустановить{" "}
-          <mark className="app">After Effects</mark> на английский язык. Если вы не хотите
-          менять язык, то вам нужно обновиться до более свежей версии программы или
+          <mark className="app">Adobe After Effects</mark> на английский язык. Если вы не
+          хотите менять язык, то вам нужно обновиться до более свежей версии программы или
           откатиться до более старой.
         </p>
         <p>
@@ -1235,8 +1242,8 @@ const AEErrors: React.FC = () => {
       <DetailsSummary title="Error: overflow converting ratio denominators (17::19) или (17::18)">
         <p>
           Данная ошибка может выскочить по совершенно разным причинам и чаще всего на
-          старых версиях <mark className="app">After Effects</mark>. Причин и решений
-          может быть множество, но универсального решения, к сожалению, нет.
+          старых версиях <mark className="app">Adobe After Effects</mark>. Причин и
+          решений может быть множество, но универсального решения, к сожалению, нет.
         </p>
         <ul>
           <li>
@@ -1247,7 +1254,7 @@ const AEErrors: React.FC = () => {
             интерпретировать, либо перекодировать футаж в <mark>30 к\с</mark> через{" "}
             <mark className="app">Shutter Encoder</mark> или{" "}
             <mark className="app">Handbrake</mark>.{" "}
-            <mark className="app">After Effects</mark> не очень любит нестандартные
+            <mark className="app">Adobe After Effects</mark> не очень любит нестандартные
             значения кадров в секунду и криво их интерпретирует.
             <AdditionInfo>
               Для интерпретации нужного футажа, выделите его в{" "}
@@ -1327,7 +1334,7 @@ const AEErrors: React.FC = () => {
           <mark className="ui">Color</mark> в <mark className="ui">Project Manager</mark>,
           которое открывается комбинацией клавиш{" "}
           <mark className="key">Ctrl + Alt + Shift + K</mark>. Затем укажите значение{" "}
-          <mark className="ui">None</mark> или любое другое в пункте{" "}
+          <mark className="ui">None</mark> или любое другое в параметре{" "}
           <mark className="ui">Working Color Space</mark>.
         </p>
         <ImageFigure
@@ -1398,7 +1405,7 @@ const AEErrors: React.FC = () => {
             Если вы считаете, что с вашим исходником всё в порядке, то попробуйте
             перекодировать его в монтажный кодек и заменить в проекте. Не всегда
             исходники, полученные из интернета, будут хорошо дружить с{" "}
-            <mark className="app">After Effects</mark>.
+            <mark className="app">Adobe After Effects</mark>.
           </li>
         </ul>
       </DetailsSummary>
@@ -1429,7 +1436,7 @@ const AEErrors: React.FC = () => {
         <p>
           Для отключения этого окна перейдите в настройки программы:{" "}
           <mark className="ui">Edit &gt; Preferences &gt; Startup & Repair</mark>. Затем в
-          этом разделе отключите галочку с пункта{" "}
+          этом разделе отключите галочку с параметра{" "}
           <mark className="ui">Show System Compatibility Issues</mark>.
         </p>
         <ImageFigure
@@ -1439,8 +1446,8 @@ const AEErrors: React.FC = () => {
           styleClass="figure_windows-dark"
         />
         <AdditionInfo>
-          В старых версиях <mark className="app">After Effects</mark> этот пункт находится
-          в разделе <mark className="ui">General</mark>.
+          В старых версиях <mark className="app">Adobe After Effects</mark> этот параметр
+          находится в разделе <mark className="ui">General</mark>.
         </AdditionInfo>
       </DetailsSummary>
       <DetailsSummary
@@ -1457,8 +1464,8 @@ const AEErrors: React.FC = () => {
           </a>
           , но при попытке использования <mark className="plugin">Advanced 3D</mark> -{" "}
           программа вылетает или не даёт ею воспользоваться, то попробуйте запустить{" "}
-          <mark className="app">After Effects</mark> от имени администратора. Чтобы каждый
-          раз не прожимать кнопку{" "}
+          <mark className="app">Adobe After Effects</mark> от имени администратора. Чтобы
+          каждый раз не прожимать кнопку{" "}
           <mark className="ui">Запустить от имени администратора</mark> в контекстном меню
           - установите чекбокс{" "}
           <mark className="ui">Запускать от имени администратора</mark> в свойствах
@@ -1471,7 +1478,7 @@ const AEErrors: React.FC = () => {
         />
         <p>
           Если запуск от администратора вам не помог от вылетающего{" "}
-          <mark className="app">After Effects</mark> при попытке использовать{" "}
+          <mark className="app">Adobe After Effects</mark> при попытке использовать{" "}
           <mark className="plugin">Advanced 3D</mark>, то попробуйте просто обновить
           драйвера на вашу видеокарту, желательно на редакцию{" "}
           <mark>NVIDIA Studio Driver</mark> для более стабильной работы с монтажными
@@ -1521,9 +1528,9 @@ const AEErrors: React.FC = () => {
         </AdditionInfo>
         <p>
           Решение достаточно простое: вы можете установить{" "}
-          <mark className="app">After Effects</mark> версии <mark>23.6</mark>. Это будет
-          последняя поддерживаемая для вас версия программы. Либо обновите процессор на
-          вашем устройстве.
+          <mark className="app">Adobe After Effects</mark> версии <mark>23.6</mark>. Это
+          будет последняя поддерживаемая для вас версия программы. Либо обновите процессор
+          на вашем устройстве.
         </p>
         <p>
           Бывают редкие случаи, когда процессор действительно поддерживает инструкции
@@ -1548,8 +1555,8 @@ const AEErrors: React.FC = () => {
             Microsoft Visual C++ Redistributable
           </a>
           , которые можно установить перед установкой{" "}
-          <mark className="app">After Effects</mark> в репаке от <mark>KpoJluk</mark> или
-          вручную по{" "}
+          <mark className="app">Adobe After Effects</mark> в репаке от{" "}
+          <mark>KpoJluk</mark> или вручную по{" "}
           <a href="https://github.com/abbodi1406/vcredist/releases/">этой ссылке</a>.
         </p>
         <p>
@@ -1562,16 +1569,16 @@ const AEErrors: React.FC = () => {
         title='"Точка входа в процедуру не найдена в библиотеке Kernel32.dll", "Couldn not find entry point main entry point for XXXXX.aex (48::72)" или я не могу запустить программу, хотя пакеты Visual C++ Redistributable установлены'
       >
         <p>
-          Скорее всего пытаетесь запустить <mark className="app">After Effects</mark> на
-          неподдерживаемой операционной системе. Такое бывает, когда{" "}
-          <mark>Windows 10</mark> слишком старой сборки или вы пытаетесь запустить свежую
-          версию программы на <mark>Windows 7</mark> или <mark>Windows 8.1</mark>. В
-          следующий раз прочтите{" "}
+          Скорее всего пытаетесь запустить{" "}
+          <mark className="app">Adobe After Effects</mark> на неподдерживаемой
+          операционной системе. Такое бывает, когда <mark>Windows 10</mark> слишком старой
+          сборки или вы пытаетесь запустить свежую версию программы на{" "}
+          <mark>Windows 7</mark> или <mark>Windows 8.1</mark>. В следующий раз прочтите{" "}
           <a href="https://helpx.adobe.com/ru/after-effects/system-requirements.html">
             системные требования
           </a>{" "}
-          по нужной версии <mark className="app">After Effects</mark> и постарайтесь их
-          соблюдать.
+          по нужной версии <mark className="app">Adobe After Effects</mark> и постарайтесь
+          их соблюдать.
         </p>
         <AdditionInfo>
           <ul>
@@ -1580,9 +1587,9 @@ const AEErrors: React.FC = () => {
               <mark className="app">winver</mark>.
             </li>
             <li>
-              Последняя поддерживаемая версия <mark className="app">After Effects</mark>{" "}
-              для <mark>Windows 7</mark> или <mark>Windows 8.1</mark> - это{" "}
-              <mark>After Effects 2019</mark> (16.X).
+              Последняя поддерживаемая версия{" "}
+              <mark className="app">Adobe After Effects</mark> для <mark>Windows 7</mark>{" "}
+              или <mark>Windows 8.1</mark> - это <mark>After Effects 2019</mark> (16.X).
             </li>
           </ul>
         </AdditionInfo>
@@ -1609,9 +1616,9 @@ const AEErrors: React.FC = () => {
         <p>
           Данное предупреждение появляется, когда вы пытаетесь открыть очень старый проект
           с использованием движка <mark className="plugin">Ray-Traced 3D</mark> в новых
-          версиях <mark className="app">After Effects</mark>. Его вырезали в{" "}
-          <mark className="app">After Effects 2020</mark> и новее, а это обозначает, что
-          вы не сможете там открыть проект без танцев с бубном.
+          версиях <mark className="app">Adobe After Effects</mark>. Его вырезали в{" "}
+          <mark className="app">Adobe After Effects 2020</mark> и новее, а это обозначает,
+          что вы не сможете там открыть проект без танцев с бубном.
         </p>
         <p>
           Чтобы корректно открыть проект с использованием устаревшего{" "}
@@ -1657,7 +1664,7 @@ const AEErrors: React.FC = () => {
           Если вы установили шрифт, а это сообщение никуда не пропало - просто
           переназначьте шрифты на те, что вы недавно установили. Бывает такое, что один и
           тот же шрифт распространяется под разными названиями и{" "}
-          <mark className="app">After Effects</mark> не понимает, как ему нужно
+          <mark className="app">Adobe After Effects</mark> не понимает, как ему нужно
           использовать.
         </p>
       </DetailsSummary>
@@ -1679,21 +1686,21 @@ const AEErrors: React.FC = () => {
         />
         <p>
           Для решения этой проблемы просто установите эффекты и плагины из этого списка в{" "}
-          <mark className="app">After Effects</mark>, а затем перезапустите программу,
-          если она была открыта.
+          <mark className="app">Adobe After Effects</mark>, а затем перезапустите
+          программу, если она была открыта.
         </p>
         <AdditionInfo>
           <ul>
             <li>
               В редких случаях бывает такое, что эффект в зависимости от версии плагина
-              или <mark className="app">After Effects</mark> могут переименоваться,
+              или <mark className="app">Adobe After Effects</mark> могут переименоваться,
               поэтому вам нужно их будет заменить вручную.
             </li>
             <li>
               Прежде чем устанавливать сторонние плагины - убедитесь в том, что{" "}
-              <mark className="app">After Effects</mark> стоит на стандартном
+              <mark className="app">Adobe After Effects</mark> стоит на стандартном
               расположении. Иначе плагины установятся в другое место, а в{" "}
-              <mark className="app">After Effects</mark> они не появятся.
+              <mark className="app">Adobe After Effects</mark> они не появятся.
             </li>
           </ul>
         </AdditionInfo>
@@ -1748,16 +1755,16 @@ const AEErrors: React.FC = () => {
           </li>
           <li>
             Также сторонние плагины могут не загрузиться из-за того, что они не подходят
-            под вашу текущую версию <mark className="app">After Effects</mark>. Плагины
-            либо слишком свежие, либо слишком старые по отношению к вашей версии{" "}
-            <mark className="app">After Effects</mark>.
+            под вашу текущую версию <mark className="app">Adobe After Effects</mark>.
+            Плагины либо слишком свежие, либо слишком старые по отношению к вашей версии{" "}
+            <mark className="app">Adobe After Effects</mark>.
           </li>
           <li>
             Если стандартные плагины не работают и не применяются, а обновление пакетов{" "}
             <mark className="app">Microsoft C++ Visual Redistributable</mark> не помогает,
-            то пришла пора переустанавливать <mark className="app">After Effects</mark> с
-            нуля. Перед переустановкой - не забудьте почистить систему от хвостов
-            установленной программы с помощью{" "}
+            то пришла пора переустанавливать{" "}
+            <mark className="app">Adobe After Effects</mark> с нуля. Перед переустановкой
+            - не забудьте почистить систему от хвостов установленной программы с помощью{" "}
             <a href="https://helpx.adobe.com/ru/creative-cloud/kb/cc-cleaner-tool-installation-problems.html">
               Adobe Creative Cloud Cleaner
             </a>
@@ -1771,35 +1778,36 @@ const AEErrors: React.FC = () => {
       >
         <p>
           Данное предупреждение показывает, что вы установили одинаковые плагины, но в
-          разных местах. <mark className="app">After Effects</mark> рекомендует удалить
-          дублирующиеся плагины, чтобы избежать каких-либо проблем и указывает путь к ним.
+          разных местах. <mark className="app">Adobe After Effects</mark> рекомендует
+          удалить дублирующиеся плагины, чтобы избежать каких-либо проблем и указывает
+          путь к ним.
         </p>
         <ImageFigure
-          caption="After Effects"
+          caption="Adobe After Effects"
           imgSrc="images/aftereffects/duplicated_effect_plug-ins_installed.png"
           imgTitle="Предупреждение о дублирующихся плагинах"
           styleClass="figure_windows-dark"
         />
         <p>
           Для решения проблемы достаточно перейти по одному из путей и удалить оттуда
-          файл, предварительно закрыв <mark className="app">After Effects</mark>. После
-          удаления плагина вы больше не будете сталкиваться с данным предупреждением при
-          открытии программы.
+          файл, предварительно закрыв <mark className="app">Adobe After Effects</mark>.
+          После удаления плагина вы больше не будете сталкиваться с данным предупреждением
+          при открытии программы.
         </p>
       </DetailsSummary>
       <DetailsSummary title="Вылетает Adobe Media Encoder после установки плагинов Boris FX Sapphire">
         <p>
           Это довольно популярный баг, который мешает нормальному запуску{" "}
-          <mark className="app">Media Encoder</mark> при наличии установленных в системе
-          плагинов <mark className="plugin">Boris FX Sapphire</mark>. В более поздних
-          версиях плагинов и программ это исправили, но если вы с таким столкнулись - вам
-          достаточно просто указать{" "}
+          <mark className="app">Adobe Media Encoder</mark> при наличии установленных в
+          системе плагинов <mark className="plugin">Boris FX Sapphire</mark>. В более
+          поздних версиях плагинов и программ это исправили, но если вы с таким
+          столкнулись - вам достаточно просто указать{" "}
           <mark className="ui">режим совместимости с Windows 8</mark> в свойствах ярлыка
           программы.
         </p>
         <p>
           Для этого открываем свойства ярлыка, переходим в вкладку{" "}
-          <mark className="ui">Совместимость</mark> и нажимаем галочку рядом с пунктом{" "}
+          <mark className="ui">Совместимость</mark> и нажимаем галочку рядом с параметром{" "}
           <mark className="ui">
             Запускать программу в режиме совместимости с Windows 8
           </mark>
@@ -1849,10 +1857,10 @@ const AEErrors: React.FC = () => {
         </p>
         <p>
           Баг <u>может</u> возникнуть из-за одновременно открытых{" "}
-          <mark className="app">After Effects</mark> и{" "}
-          <mark className="app">Premiere Pro</mark>, а также при использовании{" "}
+          <mark className="app">Adobe After Effects</mark> и{" "}
+          <mark className="app">Adobe Premiere Pro</mark>, а также при использовании{" "}
           <mark className="plugin">Dynamic Link</mark>. Также баг может возникнуть на
-          совершенно чистой установке <mark className="app">After Effects</mark> без
+          совершенно чистой установке <mark className="app">Adobe After Effects</mark> без
           сторонних плагинов и скриптов.
         </p>
         <AdditionWarning>
@@ -1865,7 +1873,7 @@ const AEErrors: React.FC = () => {
         </AdditionWarning>
         <p>
           Для возможного решения проблемы попробуйте установить значение{" "}
-          <mark>false</mark> рядом с пунктом{" "}
+          <mark>false</mark> рядом с параметром{" "}
           <mark className="ui">PreviewPlaybackOptimization</mark> в консоли. Чтобы это
           сделать - откройте консоль с помощью комбинации клавиш{" "}
           <mark className="key">Ctrl + F12</mark>, установите вид отображения{" "}
@@ -1875,7 +1883,7 @@ const AEErrors: React.FC = () => {
           заново.
         </p>
         <ImageFigure
-          caption="After Effects"
+          caption="Adobe After Effects"
           imgSrc="images/aftereffects/disable_previewplaybackoptimization.png"
           imgTitle="Отключение оптимизации предпросмотра"
           styleClass="figure_windows-dark"

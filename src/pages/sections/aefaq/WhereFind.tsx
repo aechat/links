@@ -33,13 +33,13 @@ const AEWhereFind: React.FC = () => {
           <li>
             <a href="https://t.me/s/aetemp">AETemp</a> - канал с переходами, шаблонами,
             расширениями и прочими полезными материалами для ваших композиций в{" "}
-            <mark className="app">After Effects</mark>.
+            <mark className="app">Adobe After Effects</mark>.
           </li>
           <li>
             <a href="https://t.me/s/designworld">Design World</a> - канал с статичной
-            графикой, эффектами и кистями для <mark className="app">Photoshop</mark>,
-            которые в дальнейшем можно использовать для ваших композиций{" "}
-            <mark className="app">After Effects</mark>.
+            графикой, эффектами и кистями для <mark className="app">Adobe Photoshop</mark>
+            , которые в дальнейшем можно использовать для ваших композиций{" "}
+            <mark className="app">Adobe After Effects</mark>.
           </li>
         </ul>
         <AdditionInfo>
@@ -120,8 +120,8 @@ const AEWhereFind: React.FC = () => {
         <AdditionWarning>
           При установке программ с пометкой <mark>репак от кролика</mark> из{" "}
           <a href="https://t.me/+Qd9xu7A4TeIwNzY6">склада стройматериалов (Windows)</a> не
-          забывайте убирать галочку с пункта <mark className="ui">Реклама</mark> и
-          отключать антивирус перед установкой, иначе можете наткнуться на проблему{" "}
+          забывайте убирать галочку <mark className="ui">Реклама</mark> и отключать
+          антивирус перед установкой, иначе можете наткнуться на проблему{" "}
           <mark className="ui">helper.exe не найден</mark>.
         </AdditionWarning>
         <AdditionDanger>
@@ -289,8 +289,8 @@ const AEWhereFind: React.FC = () => {
           </a>{" "}
           в <mark className="app">Telegram</mark> с полезными материалами для
           использования в различных графических редакторах, например{" "}
-          <mark className="app">Photoshop</mark> и{" "}
-          <mark className="app">Illustrator</mark>. В{" "}
+          <mark className="app">Adobe Photoshop</mark> и{" "}
+          <mark className="app">Adobe Illustrator</mark>. В{" "}
           <a
             href="https://t.me/s/DesignWorld"
             title="Канал Design World в Telegram"
@@ -670,15 +670,15 @@ const AEWhereFind: React.FC = () => {
       >
         <AdditionWarning>
           Перевод и наличие эффектов, а также способ их работы может отличаться в
-          зависимости от версии <mark className="app">After Effects</mark>. Также
+          зависимости от версии <mark className="app">Adobe After Effects</mark>. Также
           рекомендуем переключить интерфейс на английский язык, чтобы не возвращаться к
           этой таблице снова и снова.
         </AdditionWarning>
         <p>
           Пользователям, использующие русскоязычный интерфейс{" "}
-          <mark className="app">After Effects</mark>, иногда бывает трудно найти эффект,
-          который обозначен на английском языке. В таких случаях можно обратиться к
-          таблице перевода.
+          <mark className="app">Adobe After Effects</mark>, иногда бывает трудно найти
+          эффект, который обозначен на английском языке. В таких случаях можно обратиться
+          к таблице перевода.
         </p>
         <Divider>Эффекты для работы с 3D-каналами (3D Channel Effects)</Divider>
         <table>
@@ -4439,7 +4439,7 @@ const AEWhereFind: React.FC = () => {
       >
         <AdditionWarning>
           Перевод и наличие пресетов, а также способ их работы может отличаться в
-          зависимости от версии <mark className="app">After Effects</mark>. Также
+          зависимости от версии <mark className="app">Adobe After Effects</mark>. Также
           рекомендуем переустановить программу сразу на английском языке, чтобы не
           возвращаться к этой таблице снова и снова.
         </AdditionWarning>

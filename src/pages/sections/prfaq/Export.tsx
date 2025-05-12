@@ -280,7 +280,7 @@ const PRExport: React.FC = () => {
           кодеке
           <mark className="video">H.264</mark> или <mark className="video">H.265</mark>, а
           также в цветовом пространстве <mark>Rec.709</mark>. Из{" "}
-          <mark className="app">Premiere Pro</mark> можно вывести тремя способами.
+          <mark className="app">Adobe Premiere Pro</mark> можно вывести тремя способами.
         </p>
         <ul>
           <li>
@@ -321,11 +321,11 @@ const PRExport: React.FC = () => {
           imgTitle="Интерфейс экспорта"
           styleClass="figure_windows-dark"
         />
-        <Divider>Выводим через встроенный H.264</Divider>
+        <Divider>Экспортируем через встроенный H.264</Divider>
         <p>
           По умолчанию при открытии вкладки экспорта,{" "}
-          <mark className="app">Premiere Pro</mark> сам установит пресет для вывода в{" "}
-          <mark className="video">H.264</mark> с переменным битрейтом с одним проходом
+          <mark className="app">Adobe Premiere Pro</mark> сам установит пресет для вывода
+          в <mark className="video">H.264</mark> с переменным битрейтом с одним проходом
           примерно в 15 Мбит/с. Для социальных сетей таких параметров хватит спокойно.
         </p>
         <p>
@@ -334,7 +334,7 @@ const PRExport: React.FC = () => {
           доступных параметров нам доступно изменение битрейта, кадров в секунду,
           цветового профиля, включение эффектов и переключение между Software- или
           Hardware-кодированием. Чтобы изменять &quot;заблокированные&quot; параметры -
-          просто уберите чекбокс справа от пунктов.
+          просто уберите чекбокс справа от параметров.
         </p>
         <VideoFigure
           caption="Настройки экспорта видео"
@@ -345,7 +345,7 @@ const PRExport: React.FC = () => {
           Затем просто нажмите на кнопку <mark className="ui">Export</mark> в правом
           нижнем углу и дождитесь окончания кодирования вашей секвенции.
         </p>
-        <Divider>Выводим через Voukoder</Divider>
+        <Divider>Экспортируем через Voukoder</Divider>
         <p>
           Если же вас результат рендера от стандартного H.264 не устраивает, то можно
           воспользоваться плагином <mark className="plugin">Voukoder</mark>. В этом
@@ -354,21 +354,31 @@ const PRExport: React.FC = () => {
           , не Pro версию.
         </p>
         <AdditionWarning>
-          Демонстрируемая версия плагина <mark className="plugin">Voukoder</mark>{" "}
-          недоступна на устройствах с <mark>macOS</mark>. Чтобы подключить плагин к
-          программе, нужно скачать и установить{" "}
-          <a href="https://github.com/Vouk/voukoder/releases/download/13.4.1/voukoder-13.4.1.msi">
-            сам Voukoder
-          </a>{" "}
-          и{" "}
-          <a href="https://github.com/Vouk/voukoder-connectors/blob/master/premiere/premiere-connector-1.13.0.msi?raw=true">
-            коннектор для Premiere Pro
-          </a>{" "}
-          к нему.
+          <ul>
+            <li>
+              Чтобы подключить плагин к <mark className="app">Adobe Premiere Pro</mark> -
+              нужно скачать и установить сам <mark className="plugin">Voukoder</mark>и{" "}
+              <mark className="plugin">коннектор</mark> к нему. Для корректной установки
+              плагина - убедитесь в том, что вы не устанавливали{" "}
+              <mark className="app">Adobe Premiere Pro</mark> в нестандартное
+              расположение.
+            </li>
+            <li>
+              В этой статье используется версия{" "}
+              <mark className="plugin">Voukoder Classic 13.4.1</mark>. К сожалению,
+              исходный репозиторий на{" "}
+              <a href="https://github.com/Vouk/voukoder/releases/tag/13.4.1">GitHub</a>{" "}
+              был удалён, поэтому последнюю классическую версию вы можете найти в{" "}
+              <a href="https://t.me/+Qd9xu7A4TeIwNzY6">складе стройматериалов</a> по
+              хештегу <mark className="tag">#voukoder</mark>. Демонстрируемая версия
+              плагина <mark className="plugin">Voukoder</mark> недоступна для устройств с{" "}
+              <mark>macOS</mark>.
+            </li>
+          </ul>
         </AdditionWarning>
         <p>
           Чтобы начать рендер с помощью <mark className="plugin">Voukoder</mark>, вам
-          нужно снова перейти в вкладку <mark className="ui">Export</mark> и в пункте{" "}
+          нужно снова перейти в вкладку <mark className="ui">Export</mark> и в параметре{" "}
           <mark className="ui">Format</mark> выбрать <mark className="ui">Voukoder</mark>.
         </p>
         <ImageFigure
@@ -396,10 +406,10 @@ const PRExport: React.FC = () => {
           <mark className="video">HEVC (H.265)</mark>, если вам нужно примерно сохранить
           качество видео с меньшим объёмом файла. Кодеки{" "}
           <mark className="video">AV1</mark> и <mark className="video">VP9</mark> для
-          вывода из <mark className="app">After Effects</mark> используются редко, а если
-          уж и надо вывести в таком формате, то проще переконвертировать видео позже через
-          условный <a href="https://www.shutterencoder.com/">Shutter Encoder</a>. Теперь
-          поговорим и о приставках в названиях кодеков.
+          вывода из <mark className="app">Adobe After Effects</mark> используются редко, а
+          если уж и надо вывести в таком формате, то проще переконвертировать видео позже
+          через условный <a href="https://www.shutterencoder.com/">Shutter Encoder</a>.
+          Теперь поговорим и о приставках в названиях кодеков.
         </p>
         <AdditionInfo>
           Варианты кодирования показаны на устройстве с связкой процессора AMD и
@@ -421,7 +431,7 @@ const PRExport: React.FC = () => {
             использование видеокарты.
           </li>
           <li>
-            <mark>AMD AMF</mark> - тоже самое, что и предыдущий пункт, но на встроенном
+            <mark>AMD AMF</mark> - тоже самое, что и предыдущий параметр, но на встроенном
             видеочипе AMD.
           </li>
         </ul>
@@ -474,11 +484,11 @@ const PRExport: React.FC = () => {
           настраивать. При необходимости вы можете изменить другие параметры в окне
           экспорта и начать экспорт с помощью кнопки <mark className="ui">Export</mark>.
         </p>
-        <Divider>Выводим через AfterCodecs</Divider>
+        <Divider>Экспортируем через AfterCodecs</Divider>
         <p>
           Теперь поговорим и про <mark className="plugin">AfterCodecs</mark>. Для начала
           экспорта через <mark className="plugin">AfterCodecs</mark> нам нужно снова
-          вернуться во вкладку <mark className="ui">Export</mark> и выбрать в пункте{" "}
+          вернуться во вкладку <mark className="ui">Export</mark> и выбрать в параметре{" "}
           <mark className="ui">Format</mark> значение{" "}
           <mark className="ui">AfterCodecs</mark>.
         </p>
@@ -495,9 +505,9 @@ const PRExport: React.FC = () => {
         </p>
         <AdditionInfo>
           По умолчанию в <mark className="plugin">AfterCodecs</mark> стоит контейнер{" "}
-          <mark className="file">.mov</mark>. Так как мы в этом пункте выводим видео в{" "}
-          <mark className="file">.mp4</mark>, то и указать нужно соответствующий контейнер
-          для вывода.
+          <mark className="file">.mov</mark>. Так как мы в этой статье экспортируем видео
+          в <mark className="file">.mp4</mark>, то и указать нужно соответствующий
+          контейнер для вывода.
         </AdditionInfo>
         <ImageFigure
           caption="Export"
@@ -511,8 +521,8 @@ const PRExport: React.FC = () => {
         </p>
         <ul>
           <li>
-            В пункте <mark className="ui">Tradeoff</mark> мы можем указать три варианта на
-            что ориентироваться при кодировании: на процент качества (похож на метод
+            В параметре <mark className="ui">Tradeoff</mark> мы можем указать три варианта
+            на что ориентироваться при кодировании: на процент качества (похож на метод
             квантования CQP), на желаемый битрейт или на желаемый размер файла (не
             рекомендуется при повседневном использовании).
           </li>
@@ -538,7 +548,7 @@ const PRExport: React.FC = () => {
           </AdditionWarning>
         </ul>
         <ImageFigure
-          caption="AfterCodecs 1.11.5 for Premiere Pro"
+          caption="AfterCodecs 1.11.5 for Adobe Premiere Pro"
           imgSrc="images/premierepro/aftercodecs_settings.png"
           imgTitle="Настройки AfterCodecs"
           styleClass="figure_windows-dark"
@@ -550,19 +560,19 @@ const PRExport: React.FC = () => {
       </DetailsSummary>
       <DetailsSummary title="Как вывести секвенцию в .WebM и VP9?">
         <p>
-          Стандартными средствами из <mark className="app">Premiere Pro</mark> и{" "}
-          <mark className="app">Media Encoder</mark> нельзя вывести композицию в{" "}
+          Стандартными средствами из <mark className="app">Adobe Premiere Pro</mark> и{" "}
+          <mark className="app">Adobe Media Encoder</mark> нельзя вывести композицию в{" "}
           <mark className="file">.webm</mark>, но можно вывести в другом формате и
           переконвертировать его.
         </p>
         <AdditionDanger>
           Крайне не рекомендую использовать плагин{" "}
           <a href="https://fnord.com/">WebM от fnord</a> для экспорта из{" "}
-          <mark className="app">Premiere Pro</mark> и{" "}
-          <mark className="app">Media Encoder</mark>, так как он часто выводит видео на
-          прозрачном фоне с жуткими артефактами.
+          <mark className="app">Adobe Premiere Pro</mark> и{" "}
+          <mark className="app">Adobe Media Encoder</mark>, так как он часто выводит видео
+          на прозрачном фоне с жуткими артефактами.
         </AdditionDanger>
-        <Divider>Выводим секвенцию в удобном формате</Divider>
+        <Divider>Экспортируем секвенцию в удобном формате</Divider>
         <p>
           Для начала нам нужно вывести секвенцию как обычно, через{" "}
           <mark className="video">Apple Prores 4444</mark>, если вы хотите видео с
@@ -573,17 +583,17 @@ const PRExport: React.FC = () => {
           клавиш <mark className="key">Ctrl + M</mark>.
         </p>
         <p>
-          После перехода во вкладку экспорта выбираем в пункте{" "}
+          После перехода во вкладку экспорта выбираем в параметре{" "}
           <mark className="ui">Format</mark> значение{" "}
           <mark className="plugin">QuickTime</mark>. Затем раскройте вкладку{" "}
-          <mark className="ui">Video</mark> и в пункте{" "}
+          <mark className="ui">Video</mark> и в параметре{" "}
           <mark className="ui">Video Codec</mark> укажите нужный кодек в зависимости от
           ваших требований.
         </p>
         <ImageFigure
           caption="Export"
           imgSrc="images/premierepro/export_prores4444_8bit-alpha.png"
-          imgTitle="Выводим видео в Apple Prores"
+          imgTitle="Экспортируем видео в Apple Prores"
           styleClass="figure_windows-dark"
         />
         <AdditionWarning>
@@ -599,8 +609,9 @@ const PRExport: React.FC = () => {
         <Divider>Конвертируем в WebM с помощью Shutter Encoder</Divider>
         <p>
           После успешного экспорта открываем <mark className="app">Shutter Encoder</mark>{" "}
-          и вставляем в него выведенное видео из <mark className="app">Premiere Pro</mark>
-          . В пункте <mark className="ui">Choose Function</mark> выбираем{" "}
+          и вставляем в него выведенное видео из{" "}
+          <mark className="app">Adobe Premiere Pro</mark>. В параметре{" "}
+          <mark className="ui">Choose Function</mark> выбираем{" "}
           <mark className="video">VP9</mark>.
         </p>
         <AdditionInfo>
@@ -644,7 +655,7 @@ const PRExport: React.FC = () => {
       </DetailsSummary>
       <DetailsSummary title="Как вывести секвенцию в .gif?">
         <p>
-          Из <mark className="app">Premiere Pro</mark> вывести ваш ролик в формат{" "}
+          Из <mark className="app">Adobe Premiere Pro</mark> вывести ваш ролик в формат{" "}
           <mark className="image">GIF</mark> можно тремя способами.
         </p>
         <AdditionInfo>
@@ -655,13 +666,13 @@ const PRExport: React.FC = () => {
         </AdditionInfo>
         <ul>
           <li>
-            Вывести <mark className="file">.gif</mark> напрямую из{" "}
-            <mark className="app">Premiere Pro</mark>, указав формат{" "}
+            Вывести <mark className="image">GIF</mark> напрямую из{" "}
+            <mark className="app">Adobe Premiere Pro</mark>, указав формат{" "}
             <mark className="ui">Animated GIF</mark> во вкладке{" "}
             <mark className="ui">Export</mark>.
           </li>
           <li>
-            Либо вывести <mark className="file">.gif</mark> через{" "}
+            Либо вывести <mark className="image">GIF</mark> через{" "}
             <del style={{opacity: 0.5}}>упаси боже</del>{" "}
             <mark className="plugin">Media Encoder</mark>.
           </li>
@@ -672,8 +683,10 @@ const PRExport: React.FC = () => {
           </li>
         </ul>
         <AdditionWarning>
-          У формата <mark className="image">GIF</mark> есть множество ограничений и
-          нюансов.
+          <p>
+            У формата <mark className="image">GIF</mark> есть множество ограничений и
+            нюансов.
+          </p>
           <ul>
             <li>
               Данный формат не поддерживает полупрозрачность, только два цвета для
@@ -691,13 +704,13 @@ const PRExport: React.FC = () => {
             </li>
           </ul>
         </AdditionWarning>
-        <Divider>Выводим из Premiere Pro</Divider>
+        <Divider>Экспортируем из Premiere Pro</Divider>
         <p>
           Для начала экспорта <mark className="image">GIF</mark> напрямую из{" "}
-          <mark className="app">Premiere Pro</mark> вам нужно перейти во вкладку{" "}
+          <mark className="app">Adobe Premiere Pro</mark> вам нужно перейти во вкладку{" "}
           <mark className="ui">Export</mark> с помощью комбинации клавиш{" "}
-          <mark className="key">Ctrl + M</mark>. Затем выберите в графе{" "}
-          <mark className="ui">Format</mark> пункт{" "}
+          <mark className="key">Ctrl + M</mark>. Затем выберите в параметре{" "}
+          <mark className="ui">Format</mark> значение{" "}
           <mark className="ui">Animated GIF</mark> и не забудьте указать путь для вывода
           файла.
         </p>
@@ -708,9 +721,9 @@ const PRExport: React.FC = () => {
           styleClass="figure_windows-dark"
         />
         <AdditionWarning>
-          Если вы выберете в качестве формата пункт <mark className="ui">GIF</mark> без
+          Если вы выберете в качестве формата параметр <mark className="ui">GIF</mark> без
           слова <mark>Animated</mark>, то вы получите только кадры отдельными
-          изображениями формата <mark className="file">.gif</mark> и забьёте себе папку
+          изображениями формата <mark className="image">GIF</mark> и забьёте себе папку
           для сохранения.
         </AdditionWarning>
         <p>
@@ -718,29 +731,30 @@ const PRExport: React.FC = () => {
           <mark className="ui">Export</mark> в правом нижнем углу экрана и вы получите в
           нужном месте нужный файл.
         </p>
-        <Divider>Выводим из Media Encoder</Divider>
+        <Divider>Экспортируем из Media Encoder</Divider>
         <p>
           <mark className="image">GIF</mark> можно ещё получить с помощью{" "}
-          <mark className="app">Media Encoder</mark>. Хоть мы и отговариваем от его
+          <mark className="app">Adobe Media Encoder</mark>. Хоть мы и отговариваем от его
           использования, но если вам нужно вывести много изображений формата{" "}
           <mark className="image">GIF</mark>, то он подойдет лучше.
         </p>
         <p>
-          Для того чтобы начать экспорт через <mark className="app">Media Encoder</mark>,
-          перейдите в <mark className="ui">File &gt; Export</mark> и нажмите на{" "}
+          Для того чтобы начать экспорт через{" "}
+          <mark className="app">Adobe Media Encoder</mark>, перейдите в{" "}
+          <mark className="ui">File &gt; Export</mark> и нажмите на{" "}
           <mark className="ui">Add to Adobe Media Encoder Queue</mark> или нажмите на
           комбинацию клавиш <mark className="key">Alt + Shift + M</mark> и подождите,
           когда откроется вторая программа.
         </p>
         <AdditionInfo>
-          Секвенция из <mark className="app">Premiere Pro</mark> корректно отправится в{" "}
-          <mark className="app">Media Encoder</mark> только в том случае, если у вас
-          установлен одинаковый год программ и на стандартном расположении программ. В
-          противном случае вам выбьют ошибку о том, что{" "}
-          <mark className="app">Media Encoder</mark> не установлен.
+          Секвенция из <mark className="app">Adobe Premiere Pro</mark> корректно
+          отправится в <mark className="app">Adobe Media Encoder</mark> только в том
+          случае, если у вас установлен одинаковый год программ и на стандартном
+          расположении программ. В противном случае вам выбьют ошибку о том, что{" "}
+          <mark className="app">Adobe Media Encoder</mark> не установлен.
         </AdditionInfo>
         <p>
-          После открытия <mark className="app">Media Encoder</mark> укажите формат{" "}
+          После открытия <mark className="app">Adobe Media Encoder</mark> укажите формат{" "}
           <mark className="image">Animated GIF</mark> в очереди экспорта. Там же вы можете
           указать пресет и путь к выходному файлу. Для детальной настройки вы можете
           открыть <mark className="ui">Export Settings</mark>, нажав по названию
@@ -750,13 +764,13 @@ const PRExport: React.FC = () => {
         <ImageFigure
           caption="Media Encoder"
           imgSrc="images/premierepro/selecting_animated_gif_media_encoder.png"
-          imgTitle="Выбираем формат GIF для экспорта через Media Encoder"
+          imgTitle="Выбираем формат GIF для экспорта через Adobe Media Encoder"
           styleClass="figure_windows-light"
         />
         <AdditionWarning>
-          Если вы выберете в качестве формата пункт <mark className="ui">GIF</mark> без
+          Если вы выберете в качестве формата параметр <mark className="ui">GIF</mark> без
           слова <mark>Animated</mark>, то вы получите только кадры отдельными
-          изображениями формата <mark className="file">.gif</mark> и забьёте себе папку
+          изображениями формата <mark className="image">GIF</mark> и забьёте себе папку
           для сохранения.
         </AdditionWarning>
         <p>
@@ -819,7 +833,7 @@ const PRExport: React.FC = () => {
           Прежде чем начать вывод секвенции с прозрачностью, убедитесь в том, что сама
           прозрачность у вас существует. Без этого никак. Чтобы проверить прозрачные
           участки в видео - нажмите на иконку гаечного ключа в окне{" "}
-          <mark className="ui">Program Monitor</mark> и выберите в меню пункт{" "}
+          <mark className="ui">Program Monitor</mark> и выберите в меню параметр{" "}
           <mark className="ui">Transparency Grid</mark>. Данная опция подставляет сетку в
           виде шахматной доски для отображения прозрачных частей в секвенции.
         </p>
@@ -863,13 +877,13 @@ const PRExport: React.FC = () => {
         <p>
           Вы, наверное, не раз замечали параметр <mark className="ui">Preset</mark> в окне
           экспорта и задумывались, можно ли добавить свои? Да, в{" "}
-          <mark className="app">Premiere Pro</mark> можно добавить свои надстройки, чтобы
-          в дальнейшем не перенастраивать экспорт.
+          <mark className="app">Adobe Premiere Pro</mark> можно добавить свои надстройки,
+          чтобы в дальнейшем не перенастраивать экспорт.
         </p>
         <p>
           Для этого перейдите во вкладку <mark className="ui">Export</mark> и начните там
           настраивать экспорт под себя. После того, как вы закончили - нажмите на три
-          точки рядом с пунктом <mark className="ui">Preset</mark> и в контекстном меню
+          точки рядом с параметром <mark className="ui">Preset</mark> и в контекстном меню
           нажмите на <mark className="ui">Save Preset</mark>. В открывшемся меню введите
           название вашего будущего пресета и нажмите на <mark className="ui">OK</mark>.
         </p>
@@ -919,7 +933,7 @@ const PRExport: React.FC = () => {
         </p>
         <p>
           Для начала как всегда нам нужно перейти во вкладку{" "}
-          <mark className="ui">Export</mark> и выбрать в пункте{" "}
+          <mark className="ui">Export</mark> и выбрать в параметре{" "}
           <mark className="ui">Format</mark> нужный нам тип файла.
         </p>
         <ImageFigure
@@ -938,9 +952,9 @@ const PRExport: React.FC = () => {
             <u>не забудьте</u>
           </b>{" "}
           создать новую пустую папку, куда вы хотите экспортировать все кадры и указать её
-          в качестве пути для вывода. <mark className="app">Premiere Pro</mark> не создаёт
-          автоматически подпапку для секвенции изображений, как это делает{" "}
-          <mark className="app">After Effects</mark>.
+          в качестве пути для вывода. <mark className="app">Adobe Premiere Pro</mark> не
+          создаёт автоматически подпапку для секвенции изображений, как это делает{" "}
+          <mark className="app">Adobe After Effects</mark>.
         </p>
         <p>
           После этого просто нажимаем на кнопку <mark className="ui">Export</mark>. Вот и
@@ -959,9 +973,9 @@ const PRExport: React.FC = () => {
           <mark className="key">Ctrl + Shift + X</mark>.
         </AdditionInfo>
         <p>
-          Затем нам нужно перейти во вкладку <mark className="ui">Export</mark> и в пункте{" "}
-          <mark className="ui">Range</mark> под окном предпросмотра указать область
-          рендера секвенции. Нам предлагают четыре варианта на выбор.
+          Затем нам нужно перейти во вкладку <mark className="ui">Export</mark> и в
+          параметре <mark className="ui">Range</mark> под окном предпросмотра указать
+          область рендера секвенции. Нам предлагают четыре варианта на выбор.
         </p>
         <ImageFigure
           caption="Export"
@@ -1001,11 +1015,11 @@ const PRExport: React.FC = () => {
       <DetailsSummary title="Я сделал работу в Premiere Pro, но мне нужно передать .prproj файл вместе с исходниками другому человеку. Возможно ли это сделать без танцев с бубном?">
         <p>
           Да, возможно. Это можно сделать через{" "}
-          <mark className="ui">Project Manager</mark>, который находится в пункте{" "}
+          <mark className="ui">Project Manager</mark>, который находится в параметре{" "}
           <mark className="ui">File</mark> контекстного меню.
         </p>
         <ImageFigure
-          caption="Premiere Pro"
+          caption="Adobe Premiere Pro"
           imgSrc="images/premierepro/file_project_manager.png"
           imgTitle="Открытие Project Manager"
           styleClass="figure_windows-light"
@@ -1014,7 +1028,7 @@ const PRExport: React.FC = () => {
           После открытия окна <mark className="ui">Project Manager</mark> вы можете
           увидеть список ваших секвенций. В этом списке вы можете выбрать все секвенции
           для экспорта или оставить только нужные. Также не забудьте указать нужный путь
-          до файла, нажав на кнопку <mark className="ui">Browse</mark> в пункте{" "}
+          до файла, нажав на кнопку <mark className="ui">Browse</mark> в параметре{" "}
           <mark className="ui">Destination Path</mark>. В разделе{" "}
           <mark className="ui">Options</mark> вы можете указать, сохранять ли файлы
           предпросмотра или неиспользуемые исходники и прочие параметры.
@@ -1022,7 +1036,7 @@ const PRExport: React.FC = () => {
         <p>
           Чтобы начать сохранение проекта вместе с исходниками, достаточно нажать на{" "}
           <mark className="ui">OK</mark> в правом нижнем углу и дождаться окончания
-          операции. Убедитесь в том, что у вас стоит пункт{" "}
+          операции. Убедитесь в том, что у вас включен параметр{" "}
           <mark className="ui">Collect Files and Copy to New Location</mark>.
         </p>
         <ImageFigure
@@ -1097,7 +1111,7 @@ const PRExport: React.FC = () => {
       </DetailsSummary>
       <DetailsSummary title="Я нарезал видео в Premiere Pro, но хочу переместить таймлайн в другую монтажную программу. Как это сделать?">
         <p>
-          В <mark className="app">Premiere Pro</mark> есть функция для экспорта{" "}
+          В <mark className="app">Adobe Premiere Pro</mark> есть функция для экспорта{" "}
           <mark className="file">.xml</mark> файла. В этом файле хранится вся информация
           об используемых клипах, точках их входа и выхода, а также другие параметры.
         </p>

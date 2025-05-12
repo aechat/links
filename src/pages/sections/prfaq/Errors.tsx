@@ -20,14 +20,14 @@ const PRErrors: React.FC = () => {
         </p>
         <p>
           Для настройки типа рендеринга перейдите в{" "}
-          <mark className="ui">File &gt; Project Settings &gt; General</mark> и в пункте{" "}
-          <mark className="ui">Renderer</mark> установите значение{" "}
+          <mark className="ui">File &gt; Project Settings &gt; General</mark> и в
+          параметре <mark className="ui">Renderer</mark> установите значение{" "}
           <mark className="ui">Mercury Playback Engine GPU Acceleration</mark>. Если у вас
-          отсутствует какой-либо пункт для ускорения на видеокарте, то попробуйте обновить
-          драйвера на ваш видеочип.
+          отсутствует какой-либо параметр для ускорения на видеокарте, то попробуйте
+          обновить драйвера на ваш видеочип.
         </p>
         <ImageFigure
-          caption="Premiere Pro"
+          caption="Adobe Premiere Pro"
           imgSrc="images/premierepro/set_render_on_gpu.png"
           imgTitle="Установка рендеринга на GPU"
           styleClass="figure_windows-dark"
@@ -45,7 +45,7 @@ const PRErrors: React.FC = () => {
       >
         <p>
           Пользователь, работающий в <mark className="word">народной</mark> версии{" "}
-          <mark className="app">Premiere Pro</mark> или в любой другой программе от{" "}
+          <mark className="app">Adobe Premiere Pro</mark> или в любой другой программе от{" "}
           <mark>Adobe</mark> может столкнуться ошибкой проверки лицензии. Оно
           сопровождается небольшим окном на белом фоне и с красной полосой сверху, а текст
           внутри окна обычно написан на английском языке. Иногда встречаются варианты
@@ -82,16 +82,16 @@ const PRErrors: React.FC = () => {
               настройки своего <mark className="app">VPN-клиента</mark>. Возможно, в нём
               есть возможность внести программы от <mark>Adobe</mark> или его адреса в
               список исключений соединений для того, чтобы соединение для{" "}
-              <mark className="app">Premiere Pro</mark> проходило с учетом ваших настроек
-              брандмауэра или вовсе блокировались.
+              <mark className="app">Adobe Premiere Pro</mark> проходило с учетом ваших
+              настроек брандмауэра или вовсе блокировались.
             </li>
             <li>
               Если вы наоборот используете лицензионную версию{" "}
-              <mark className="app">Premiere Pro</mark>, то вам нужно будет поддерживать{" "}
-              <mark className="word">VPN-соединение</mark> к другой стране во время
-              использования программы, так как <mark>Adobe</mark> блокирует доступ к своим
-              ресурсам пользователям РФ и из-за этого может выскакивать данная ошибка, так
-              как не может сверить лицензии.
+              <mark className="app">Adobe Premiere Pro</mark>, то вам нужно будет
+              поддерживать <mark className="word">VPN-соединение</mark> к другой стране во
+              время использования программы, так как <mark>Adobe</mark> блокирует доступ к
+              своим ресурсам пользователям РФ и из-за этого может выскакивать данная
+              ошибка, так как не может сверить лицензии.
             </li>
           </ul>
         </AdditionInfo>
@@ -147,7 +147,7 @@ const PRErrors: React.FC = () => {
               <ImageFigure
                 caption="Radio Silence"
                 imgSrc="images/network_radio_silence.png"
-                imgTitle="Блокируем доступ в интернет программам на примере Premiere Pro"
+                imgTitle="Блокируем доступ в интернет программам на примере Adobe Premiere Pro"
                 styleClass="figure_macos-dark"
               />
               <p>
@@ -376,9 +376,9 @@ const PRErrors: React.FC = () => {
         </AdditionInfo>
         <p>
           Решение достаточно простое: вы можете установить{" "}
-          <mark className="app">Premiere Pro</mark> версии <mark>23.6</mark>. Это будет
-          последняя поддерживаемая для вас версия программы. Либо обновите процессор на
-          вашем устройстве.
+          <mark className="app">Adobe Premiere Pro</mark> версии <mark>23.6</mark>. Это
+          будет последняя поддерживаемая для вас версия программы. Либо обновите процессор
+          на вашем устройстве.
         </p>
         <p>
           Бывают редкие случаи, когда процессор действительно поддерживает инструкции
@@ -400,8 +400,8 @@ const PRErrors: React.FC = () => {
             Microsoft Visual C++ Redistributable
           </a>
           , которые можно установить перед установкой{" "}
-          <mark className="app">Premiere Pro</mark> в репаке от <mark>KpoJluk</mark> или
-          вручную по{" "}
+          <mark className="app">Adobe Premiere Pro</mark> в репаке от <mark>KpoJluk</mark>{" "}
+          или вручную по{" "}
           <a href="https://github.com/abbodi1406/vcredist/releases/">этой ссылке</a>.
         </p>
         <p>
@@ -434,7 +434,7 @@ const PRErrors: React.FC = () => {
         <p>
           Для отключения этого окна перейдите в настройки программы:{" "}
           <mark className="ui">Edit &gt; Preferences &gt; General</mark>. Затем в этом
-          разделе отключите галочку с пункта{" "}
+          разделе отключите галочку с параметра{" "}
           <mark className="ui">Show System Compatibility Issues</mark>.
         </p>
         <ImageFigure
@@ -450,29 +450,30 @@ const PRErrors: React.FC = () => {
       >
         <p>
           Данная ошибка может появиться после установки{" "}
-          <mark className="app">Premiere Pro</mark> версии <mark>25.2</mark> в вариации
-          репака от <mark>Kp0JluK</mark> и почему-то на устройствах с видеокартой от{" "}
-          <mark>NVIDIA</mark>. Если вы уверены в том, что у вас уже обновлены драйвера на
-          видеокарту, то попробуйте установить этот же релиз повторно, то есть произвести
-          двойную установку. То есть установите <mark className="app">Premiere Pro</mark>{" "}
-          первый раз, а затем просто откройте установщик и снова произведите установку уже
-          поверх установленного приложения.
+          <mark className="app">Adobe Premiere Pro</mark> версии <mark>25.2</mark> в
+          вариации репака от <mark>Kp0JluK</mark> и почему-то на устройствах с видеокартой
+          от <mark>NVIDIA</mark>. Если вы уверены в том, что у вас уже обновлены драйвера
+          на видеокарту, то попробуйте установить этот же релиз повторно, то есть
+          произвести двойную установку. То есть установите{" "}
+          <mark className="app">Adobe Premiere Pro</mark> первый раз, а затем просто
+          откройте установщик и снова произведите установку уже поверх установленного
+          приложения.
         </p>
       </DetailsSummary>
       <DetailsSummary title="Вылетает Premiere Pro и Media Encoder после установки плагинов Boris FX Sapphire">
         <p>
           Это довольно популярный баг, который мешает нормальному запуску{" "}
-          <mark className="app">Premiere Pro</mark> и{" "}
-          <mark className="app">Media Encoder</mark> при наличии установленных в системе
-          плагинов <mark className="plugin">Boris FX Sapphire</mark>. В более поздних
-          версиях плагинов и программ это исправили, но если вы с таким столкнулись - вам
-          достаточно просто указать{" "}
+          <mark className="app">Adobe Premiere Pro</mark> и{" "}
+          <mark className="app">Adobe Media Encoder</mark> при наличии установленных в
+          системе плагинов <mark className="plugin">Boris FX Sapphire</mark>. В более
+          поздних версиях плагинов и программ это исправили, но если вы с таким
+          столкнулись - вам достаточно просто указать{" "}
           <mark className="ui">режим совместимости с Windows 8</mark> в свойствах ярлыка
           программы.
         </p>
         <p>
           Для этого открываем свойства ярлыка, переходим в вкладку{" "}
-          <mark className="ui">Совместимость</mark> и нажимаем галочку рядом с пунктом{" "}
+          <mark className="ui">Совместимость</mark> и нажимаем галочку рядом с параметром{" "}
           <mark className="ui">
             Запускать программу в режиме совместимости с Windows 8
           </mark>

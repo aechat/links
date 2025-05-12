@@ -2,11 +2,7 @@ import React from "react";
 import GithubUpdateInfo from "../../../components/features/GithubUpdateInfo";
 import DetailsSummary from "../../../components/DetailsSummary";
 import {ImageFigure, YouTubeVideo} from "../../../components/ContentFigure";
-import {
-  AdditionDanger,
-  AdditionInfo,
-  AdditionWarning,
-} from "../../../components/Additions";
+import {AdditionInfo, AdditionWarning} from "../../../components/Additions";
 import {Divider} from "antd";
 
 const PRActions: React.FC = () => {
@@ -22,7 +18,7 @@ const PRActions: React.FC = () => {
           непроизводительная видеокарта - могут возникнуть проблемы с производительностью.
         </p>
         <p>
-          Одним из хороших плагинов для <mark className="app">Premiere Pro</mark> по
+          Одним из хороших плагинов для <mark className="app">Adobe Premiere Pro</mark> по
           улучшению качества могу назвать <mark className="plugin">BCC UpRes ML</mark> в
           пакете плагинов <mark className="plugin">Boris FX Continuum</mark>.
         </p>
@@ -35,7 +31,7 @@ const PRActions: React.FC = () => {
           Она позволяет улучшить качество видео за счёт различных алгоритмов и моделей.
           Если у вас есть достаточно времени для экспериментов - можно добыть из плохого
           исходника вполне себе хорошее качество изображения. Программа распространяется
-          как Standalone, плагин для <mark className="app">Premiere Pro</mark>{" "}
+          как Standalone, плагин для <mark className="app">Adobe Premiere Pro</mark>{" "}
           отсутствует.
         </p>
         <YouTubeVideo
@@ -64,9 +60,9 @@ const PRActions: React.FC = () => {
           замедлять видео без заметных рывков.
         </p>
         <p>
-          Первым плагином для <mark className="app">Premiere Pro</mark> в этом списке
-          является <mark className="plugin">Twixtor</mark>. Он вышел достаточно давно,
-          хорошо зарекомендовал себя в монтаже и имеет много настроек.
+          Первым плагином для <mark className="app">Adobe Premiere Pro</mark> в этом
+          списке является <mark className="plugin">Twixtor</mark>. Он вышел достаточно
+          давно, хорошо зарекомендовал себя в монтаже и имеет много настроек.
         </p>
         <YouTubeVideo
           caption="Twixtor"
@@ -83,12 +79,12 @@ const PRActions: React.FC = () => {
           link="YraSxOpy1Qg"
         />
         <p>
-          Если вы не хотите замедлять видео в <mark className="app">Premiere Pro</mark>{" "}
-          или если плагины вызывают различные ошибки при рендере, то можно воспользоваться
-          сторонними программами. Например, с помощью программы{" "}
-          <mark className="app">FlowFrames</mark> можно создать копию вашего видео с
-          повышенной частотой кадров через интерполирование и сохранить его на вашем диске
-          для дальнейшей работы.
+          Если вы не хотите замедлять видео в{" "}
+          <mark className="app">Adobe Premiere Pro</mark> или если плагины вызывают
+          различные ошибки при рендере, то можно воспользоваться сторонними программами.
+          Например, с помощью программы <mark className="app">FlowFrames</mark> можно
+          создать копию вашего видео с повышенной частотой кадров через интерполирование и
+          сохранить его на вашем диске для дальнейшей работы.
         </p>
         <YouTubeVideo
           caption="FlowFrames"
@@ -118,11 +114,11 @@ const PRActions: React.FC = () => {
           <mark className="tag">#continuum</mark> или <mark className="tag">#topaz</mark>.
         </AdditionInfo>
         <p>
-          Стандартными средствами <mark className="app">Premiere Pro</mark> тоже можно
-          замедлить видео, правда результат будет не таким хорошим, как хотелось бы. Для
-          этого выделите нужный клип, нажмите на комбинацию клавиш{" "}
+          Стандартными средствами <mark className="app">Adobe Premiere Pro</mark> тоже
+          можно замедлить видео, правда результат будет не таким хорошим, как хотелось бы.
+          Для этого выделите нужный клип, нажмите на комбинацию клавиш{" "}
           <mark className="key">Ctrl + R</mark> и растяните видео на нужную длину. В
-          пункте <mark className="ui">Time Interpolation</mark> можно выбрать три типа
+          параметре <mark className="ui">Time Interpolation</mark> можно выбрать три типа
           интерполяции: <mark className="ui">Frame Sampling</mark>,{" "}
           <mark className="ui">Frame Blending</mark> или{" "}
           <mark className="ui">Optical Flow</mark>.
@@ -206,8 +202,8 @@ const PRActions: React.FC = () => {
           и экспериментируйте.
         </AdditionInfo>
         <p>
-          В <mark className="app">Premiere Pro</mark> легко убрать зелёный фон, используя
-          встроенный эффект
+          В <mark className="app">Adobe Premiere Pro</mark> легко убрать зелёный фон,
+          используя встроенный эффект
           <mark className="file">Ultra Key</mark>.
         </p>
         <YouTubeVideo
@@ -215,9 +211,10 @@ const PRActions: React.FC = () => {
           link="c_P8s3r1dXE"
         />
         <AdditionInfo>
-          Плагины ниже демонстрируются в <mark className="app">After Effects</mark>. Все
-          эти действия можно повторить и в <mark className="app">Premiere Pro</mark>,
-          принцип работы мало чем отличается.
+          Плагины ниже демонстрируются в <mark className="app">Adobe After Effects</mark>.
+          Все эти действия можно повторить и в{" "}
+          <mark className="app">Adobe Premiere Pro</mark>, принцип работы мало чем
+          отличается.
         </AdditionInfo>
         <p>
           Из сторонних инструментов для удаления цветного фона любой сложности можно
@@ -258,7 +255,7 @@ const PRActions: React.FC = () => {
           link="JGVLRcjp7ss"
         />
         <AdditionInfo>
-          Плагин, приведённый в этом пункте можно скачать из канала{" "}
+          Плагин, приведённый в этой статье можно скачать из канала{" "}
           <a href="https://t.me/s/aetemp">AETemp</a>.
         </AdditionInfo>
       </DetailsSummary>
@@ -267,7 +264,7 @@ const PRActions: React.FC = () => {
         title="Как сделать автоматические субтитры для видео?"
       >
         <p>
-          В <mark className="app">Premiere Pro</mark> с версии 2022 и новее добавили
+          В <mark className="app">Adobe Premiere Pro</mark> с версии 2022 и новее добавили
           поддержку автоматического перевода текста в речь. Работает как и на лицензионных
           версиях, так и на &quot;народных&quot;.
         </p>
@@ -278,7 +275,7 @@ const PRActions: React.FC = () => {
               поставляются вместе с дистрибутивом, чтобы не раздувать размер установщика.
               Их можно загрузить отдельно по запросу{" "}
               <mark className="copy">Speech To Text</mark> именно для вашей версии{" "}
-              <mark className="app">Premiere Pro</mark>.
+              <mark className="app">Adobe Premiere Pro</mark>.
               <AdditionInfo>
                 Языковые пакеты вы можете скачать в канале{" "}
                 <a href="https://t.me/+Qd9xu7A4TeIwNzY6">
@@ -291,12 +288,13 @@ const PRActions: React.FC = () => {
             </li>
             <li>
               Если вы установите языковой пакет, который предназначен для версии{" "}
-              <mark className="app">Premiere Pro</mark>, отличной от вашей - вы просто
-              забьёте ваше устройство лишним весом, а язык не будет установлен и будет
-              постоянно просить его скачать в программе. То есть, если у вас установлен{" "}
-              <mark className="app">Premiere Pro</mark> версии <mark>24.6</mark>, а
-              языковой пакет, который вы скачали и установили - предназначен для{" "}
-              <mark>24.1</mark>, то в вашей версии программы он попросту не появится.
+              <mark className="app">Adobe Premiere Pro</mark>, отличной от вашей - вы
+              просто забьёте ваше устройство лишним весом, а язык не будет установлен и
+              будет постоянно просить его скачать в программе. То есть, если у вас
+              установлен <mark className="app">Adobe Premiere Pro</mark> версии{" "}
+              <mark>24.6</mark>, а языковой пакет, который вы скачали и установили -
+              предназначен для <mark>24.1</mark>, то в вашей версии программы он попросту
+              не появится.
               <AdditionInfo>
                 Информацию о текущей сборке программы вы можете узнать в{" "}
                 <mark className="ui">Help &gt; About Premiere Pro</mark>.
@@ -304,22 +302,17 @@ const PRActions: React.FC = () => {
             </li>
             <li>
               Языковые пакеты могут не установиться корректно, если{" "}
-              <mark className="app">Premiere Pro</mark> расположен в нестандартном пути
-              установки, то есть отличном от{" "}
+              <mark className="app">Adobe Premiere Pro</mark> расположен в нестандартном
+              пути установки, то есть отличном от{" "}
               <mark className="path">C:\Program Files\Adobe</mark>.
             </li>
           </ul>
         </AdditionInfo>
-        <AdditionDanger>
-          При экспорте учтите, что по умолчанию в настройках вывода выключен пункт{" "}
-          <mark className="ui">Captions</mark>. Включите его, если вы хотите получить
-          видео с наложенными субтитрами.
-        </AdditionDanger>
         <Divider>Генерируем субтитры из речи в Premiere Pro</Divider>
         <p>
           Предположим, что вы уже установили языковые пакеты для конкретно вашей версии{" "}
-          <mark className="app">Premiere Pro</mark> и нужно приступить к транскрибации
-          аудио файла и созданию субтитров. Для этого откройте окно{" "}
+          <mark className="app">Adobe Premiere Pro</mark> и нужно приступить к
+          транскрибации аудио файла и созданию субтитров. Для этого откройте окно{" "}
           <mark className="ui">Text</mark> через контекстное меню в{" "}
           <mark className="ui">Window</mark>. Затем в открывшемся окне в вкладке{" "}
           <mark className="ui">Transcribe</mark> нажмите на три точки в углу и выберите
@@ -386,9 +379,9 @@ const PRActions: React.FC = () => {
           сделать в <mark className="ui">Options &gt; Settings &gt; Video Player</mark>.
         </AdditionInfo>
         <p>
-          Затем перейдите в <mark className="ui">Video</mark> и выберите пункт{" "}
+          Затем перейдите в <mark className="ui">Video</mark> и выберите параметр{" "}
           <mark className="ui">Audio to text (Whisper)</mark> или{" "}
-          <mark className="ui">Audio to text (Vosk/Kaldi)</mark>. В этом пункте будет
+          <mark className="ui">Audio to text (Vosk/Kaldi)</mark>. В этой статье будет
           рассматриваться генерация через <mark>Whisper</mark>. После открытия окна вас
           попросят установить <mark className="app">FFmpeg</mark>, а затем{" "}
           <mark>Purfview&apos;s Faster Whisper XXL</mark>, с чем нужно согласиться.
@@ -411,8 +404,8 @@ const PRActions: React.FC = () => {
               скачивания, нажав <mark className="ui">No</mark> в диалоговом окне, так как
               он кривовато работает. После отказа нужно загрузить альтернативный движок{" "}
               <mark>Whisper</mark> для распознавания речи -{" "}
-              <mark>Purfview&apos;s Faster Whisper</mark>. Для этого в окне в пункте{" "}
-              <mark className="ui">Engine</mark> выберите пункт{" "}
+              <mark>Purfview&apos;s Faster Whisper</mark>. Для этого в окне в параметре{" "}
+              <mark className="ui">Engine</mark> выберите параметр{" "}
               <mark className="ui">Purfview&apos;s Faster Whisper</mark> и подтвердите
               загрузку.
               <ImageFigure
@@ -457,24 +450,24 @@ const PRActions: React.FC = () => {
           После генерации вы можете отредактировать сгенерированные субтитры в{" "}
           <mark className="app">Subtitle Edit</mark> или сразу сохранить их в формате{" "}
           <mark className="file">.srt</mark> для дальнейшей обработки в{" "}
-          <mark className="app">After Effects</mark>. Сохранить ваши субтитры можно с
-          помощью комбинации клавиш <mark className="key">Ctrl + S</mark>. В открывшемся
+          <mark className="app">Adobe After Effects</mark>. Сохранить ваши субтитры можно
+          с помощью комбинации клавиш <mark className="key">Ctrl + S</mark>. В открывшемся
           окне для сохранения файла - укажите название файла, путь для сохранения и, при
           необходимости, формат файла <mark className="file">.srt</mark>.
         </p>
         <Divider>Импортируем файл субтитров в секвенцию</Divider>
         <p>
           После сохранения файла нам нужно перейти обратно в{" "}
-          <mark className="app">Premiere Pro</mark>. В программе нужно вернуться к окну{" "}
-          <mark className="ui">Text</mark> и нажать на три точки в правом верхнем углу.
-          Далее нужно перейти во вкладку <mark className="ui">Captions</mark> и выбрать
-          пункт <mark className="ui">Import captions from file</mark> и указать путь до
-          наших недавно сохранённых субтитров.
+          <mark className="app">Adobe Premiere Pro</mark>. В программе нужно вернуться к
+          окну <mark className="ui">Text</mark> и нажать на три точки в правом верхнем
+          углу. Далее нужно перейти во вкладку <mark className="ui">Captions</mark>,
+          нажать на кнопку <mark className="ui">Import captions from file</mark> и указать
+          путь до наших недавно сохранённых субтитров.
         </p>
         <ImageFigure
           caption="Text"
           imgSrc="images/premierepro/import_captions_from_file.png"
-          imgTitle="Импорт субтитров в Premiere Pro"
+          imgTitle="Импорт субтитров в Adobe Premiere Pro"
           styleClass="figure_windows-dark"
         />
         <p>
@@ -490,8 +483,8 @@ const PRActions: React.FC = () => {
         <p>
           После этого сгенерированные субтитры из{" "}
           <mark className="app">Subtitle Edit</mark> попадут в ваш проект{" "}
-          <mark className="app">Premiere Pro</mark>. Субтитры можно отредактировать в
-          дальнейшем в окне <mark className="ui">Text</mark> во вкладке{" "}
+          <mark className="app">Adobe Premiere Pro</mark>. Субтитры можно отредактировать
+          в дальнейшем в окне <mark className="ui">Text</mark> во вкладке{" "}
           <mark className="ui">Captions</mark>. При необходимости вы можете применить
           различные стили на ваши субтитры с помощью сторонних плагинов{" "}
           <mark className="plugin">Submachine</mark> или{" "}

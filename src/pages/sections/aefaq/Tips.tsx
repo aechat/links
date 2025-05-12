@@ -138,7 +138,7 @@ const AETips: React.FC = () => {
                     меню нажмите на <mark className="ui">Добавить в библиотеку</mark>. Вы
                     можете выбрать уже существующую библиотеку или создать новую.
                     <AdditionWarning>
-                      Если у вас нет пункта{" "}
+                      Если у вас нет кнопки{" "}
                       <mark className="ui">Добавить в библиотеку</mark> в контекстном меню
                       - включите их отображение в параметрах папок.{" "}
                       <a href="https://remontka.pro/manage-libraries-windows/">
@@ -181,10 +181,10 @@ const AETips: React.FC = () => {
             <u>предупредить</u>
           </b>{" "}
           - пожалуйста, не надо скачивать и устанавливать в{" "}
-          <mark className="app">After Effects</mark> все плагины мира подряд, так как это
-          может привести к снижению производительности программы. Для начала определитесь
-          с тем, что вам действительно нужно. Рекомендации автора по списку сторонних
-          плагинов может не совпадать с вашим мнением.
+          <mark className="app">Adobe After Effects</mark> все плагины мира подряд, так
+          как это может привести к снижению производительности программы. Для начала
+          определитесь с тем, что вам действительно нужно. Рекомендации автора по списку
+          сторонних плагинов может не совпадать с вашим мнением.
         </AdditionWarning>
         <p>
           <mark className="plugin">Плагины</mark> - вещь действительно интересная и
@@ -290,25 +290,26 @@ const AETips: React.FC = () => {
           различные новые функции или исправляют старые баги. У некоторых пользователей
           часто возникает вопрос про то, как правильно обновляться и нужно ли что-то
           делать из дополнительных действий после обновления{" "}
-          <mark className="app">After Effects</mark>. На данный момент есть два вида
-          обновлений - между <mark>одним годом</mark> и между <mark>разными годами</mark>.
+          <mark className="app">Adobe After Effects</mark>. На данный момент есть два вида
+          обновлений - между <mark className="word">одним годом</mark> и между{" "}
+          <mark className="word">разными годами</mark>.
         </p>
         <AdditionInfo>
           Под <mark className="word">годом</mark> обычно подразумевается годовое число в
           названии версии программы, например{" "}
-          <mark className="app">After Effects 2023</mark> или{" "}
-          <mark className="app">Media Encoder 2025</mark>.
+          <mark className="app">Adobe After Effects 2023</mark> или{" "}
+          <mark className="app">Adobe Media Encoder 2025</mark>.
         </AdditionInfo>
         <Divider>Переход между версиями одного года</Divider>
         <p>
-          При переходе с одной версии <mark className="app">After Effects</mark> на другую
-          в пределах <mark className="word">одного года</mark>, например из{" "}
+          При переходе с одной версии <mark className="app">Adobe After Effects</mark> на
+          другую в пределах <mark className="word">одного года</mark>, например из{" "}
           <mark>24.1</mark> в <mark>24.6</mark> - ничего из файлов плагинов и пресетов
           переносить не нужно. Установщик в таком случае перезапишет старые файлы
           программы в том расположении, где она была установлена и не затронет
           пользовательские файлы. При запуске новой версии{" "}
-          <mark className="app">After Effects</mark> вам предложат перенести настройки
-          пользователя со старой версии программы в новую.
+          <mark className="app">Adobe After Effects</mark> вам предложат перенести
+          настройки пользователя со старой версии программы в новую.
         </p>
         <AdditionInfo>
           Если вы случайно закрыли окно с вопросом про перенос настроек из старой версии,
@@ -317,8 +318,8 @@ const AETips: React.FC = () => {
             Edit &gt; Preferences &gt; Startup & Repair &gt; Migrate Previous Version
             Preferences
           </mark>
-          . В старых версиях <mark className="app">After Effects</mark> данная кнопка
-          находится в разделе <mark className="ui">General</mark>.
+          . В старых версиях <mark className="app">Adobe After Effects</mark> данная
+          кнопка находится в разделе <mark className="ui">General</mark>.
         </AdditionInfo>
         <Divider>Обновление с одного года на другой</Divider>
         <p>
@@ -330,10 +331,11 @@ const AETips: React.FC = () => {
         </p>
         <AdditionDanger>
           Способ обновления программы, описанный ниже, не гарантирует <mark>100%</mark>{" "}
-          стабильность работы новой версии <mark className="app">After Effects</mark>,
-          поэтому обновляйтесь таким способом на свой страх и риск. Если после такого
-          способа обновления вы столкнулись с трудностями в работе - переустановите
-          программу начисто, предварительно удалив предыдущие версии с помощью{" "}
+          стабильность работы новой версии{" "}
+          <mark className="app">Adobe After Effects</mark>, поэтому обновляйтесь таким
+          способом на свой страх и риск. Если после такого способа обновления вы
+          столкнулись с трудностями в работе - переустановите программу начисто,
+          предварительно удалив предыдущие версии с помощью{" "}
           <a href="https://helpx.adobe.com/ru/creative-cloud/kb/cc-cleaner-tool-installation-problems.html">
             Adobe Creative Cloud Cleaner
           </a>{" "}
@@ -358,17 +360,17 @@ const AETips: React.FC = () => {
           том, что установщик увидел продублированную папку и предлагает установить в неё.
           Далее выбираем нужный язык программы, то есть английский и нажимаем на{" "}
           <mark className="ui">Продолжить</mark>. После установки новая версия{" "}
-          <mark className="app">After Effects</mark> предложит вам перенести настройки со
-          старой версии программы, с чем мы и соглашаемся.
+          <mark className="app">Adobe After Effects</mark> предложит вам перенести
+          настройки со старой версии программы, с чем мы и соглашаемся.
         </p>
         <AdditionInfo>
-          После обновления <mark className="app">After Effects</mark> не забудьте обновить{" "}
-          <mark className="app">Premiere Pro</mark> и{" "}
-          <mark className="app">Media Encoder</mark> для корректной работы связи между
-          этими программы. Если у вас были установлены слишком старые версии определённых
-          плагинов и они перестали работать в новой версии{" "}
-          <mark className="app">After Effects</mark> - найдите и установите более свежие
-          версии нужных плагинов, предварительно удалив старые версии.
+          После обновления <mark className="app">Adobe After Effects</mark> не забудьте
+          обновить <mark className="app">Adobe Premiere Pro</mark> и{" "}
+          <mark className="app">Adobe Media Encoder</mark> для корректной работы связи
+          между этими программы. Если у вас были установлены слишком старые версии
+          определённых плагинов и они перестали работать в новой версии{" "}
+          <mark className="app">Adobe After Effects</mark> - найдите и установите более
+          свежие версии нужных плагинов, предварительно удалив старые версии.
         </AdditionInfo>
       </DetailsSummary>
       <DetailsSummary
@@ -376,8 +378,8 @@ const AETips: React.FC = () => {
         title="Как сократить время повторного экспорта, если заказчик попросил внести небольшие правки?"
       >
         <p>
-          В <mark className="app">After Effects</mark> можно создавать прокси для нужных
-          композиций, чтобы не пересчитывать сложные композиции заново, если вы не
+          В <mark className="app">Adobe After Effects</mark> можно создавать прокси для
+          нужных композиций, чтобы не пересчитывать сложные композиции заново, если вы не
           планируете их дальше редактировать. Это бывает очень полезно, если из-за сложных
           композиций вы сталкиваетесь с трудностями при экспорте или медленным рендером.
         </p>
@@ -386,7 +388,7 @@ const AETips: React.FC = () => {
           выбрать композицию с которым вы испытываете проблемы, нажать{" "}
           <mark className="key">ПКМ</mark> и выбрать{" "}
           <mark className="ui">Create Proxy &gt; Movie</mark>. После нажатия вас отправят
-          в очередь экспорта. Далее в нём нужно открыть пункт{" "}
+          в очередь экспорта. Далее в нём нужно открыть окно{" "}
           <mark className="ui">Render Settings &gt; Custom</mark> и поставить везде
           наивысшие настройки (или выбрать пресет{" "}
           <mark className="ui">Best Settings</mark>), чтобы после создания прокси ничего
@@ -492,7 +494,7 @@ const AETips: React.FC = () => {
               более мощным процессором на встроенном видеочипе.
               <br />
               <br />
-              Вы же помните, что <mark className="app">After Effects</mark> редко
+              Вы же помните, что <mark className="app">Adobe After Effects</mark> редко
               использует видеокарту?
             </AdditionInfo>
           </li>
@@ -518,7 +520,8 @@ const AETips: React.FC = () => {
       </DetailsSummary>
       <DetailsSummary title="Какая версия After Effects наиболее стабильная, наименее лагучая и какую мне лучше всего поставить?">
         <AdditionInfo>
-          Перед установкой <mark className="app">After Effects</mark> обратите внимание на{" "}
+          Перед установкой <mark className="app">Adobe After Effects</mark> обратите
+          внимание на{" "}
           <a href="https://helpx.adobe.com/ru/after-effects/system-requirements.html">
             рекомендуемые системные требования к программе
           </a>
@@ -537,8 +540,8 @@ const AETips: React.FC = () => {
           Если вы задаёте себе вопрос{" "}
           <mark className="quote">а версию ае какую лучше скачать под мой пк</mark>, то
           вам не стоит надеяться на то, что существует какая-то чудо-версия{" "}
-          <mark className="app">After Effects</mark>, которая якобы будет быстро работать
-          на вашем железе. Выбор версии программы слабо влияет на общую
+          <mark className="app">Adobe After Effects</mark>, которая якобы будет быстро
+          работать на вашем железе. Выбор версии программы слабо влияет на общую
           производительность. Также устанавливая слишком старый софт, вы лишаете себя
           новых функций и возможного улучшения пользовательского опыта, при этом получив
           малый профит.
@@ -547,18 +550,18 @@ const AETips: React.FC = () => {
           <b>
             <u>Ни одна версия</u>
           </b>{" "}
-          <mark className="app">After Effects</mark>{" "}
+          <mark className="app">Adobe After Effects</mark>{" "}
           <b>
             <u>не может считаться эталонным</u>
           </b>
-          , поэтому рекомендации на момент написания этого пункта следующие.
+          , поэтому рекомендации на момент написания этой статьи следующие.
         </p>
         <Divider>Рекомендации по выбору версии</Divider>
         <ul>
           <li>
             Если вы не часто работаете в программе, любите новые функции и стабильность
             для вас не в приоритете, то вы можете установить последнюю версию{" "}
-            <mark className="app">After Effects</mark> на момент чтения этого пункта.
+            <mark className="app">Adobe After Effects</mark> на момент чтения этой статьи.
           </li>
           <li>
             Если вам нужна более откатанная и стабильная, а также относительно современная
@@ -609,7 +612,7 @@ const AETips: React.FC = () => {
         </ul>
         <p>
           Список обновлений и исправлений в версиях{" "}
-          <mark className="app">After Effects</mark> вы всегда можете посмотреть на
+          <mark className="app">Adobe After Effects</mark> вы всегда можете посмотреть на
           официальном сайте Adobe.
         </p>
         <div className="flexible-links">
@@ -632,8 +635,8 @@ const AETips: React.FC = () => {
           </b>{" "}
           Из-за того что существуют пользователи, которые сидят на устаревших версиях
           сторонних плагинов, например <mark className="plugin">Boris FX Sapphire</mark>,
-          на новых версиях <mark className="app">After Effects</mark>, бытуют ложные слухи
-          о том что{" "}
+          на новых версиях <mark className="app">Adobe After Effects</mark>, бытуют ложные
+          слухи о том что{" "}
           <mark className="quote">
             ой, версия афтыра XX.X очень логучая и вылитает на маих эдитах!!1!
           </mark>{" "}
@@ -665,8 +668,8 @@ const AETips: React.FC = () => {
           </b>{" "}
           вам следовать этому вредному совету, так как вы можете заработать себе кучу
           проблем. При отключенном файле подкачки вы можете в{" "}
-          <mark className="app">After Effects</mark> столкнуться с различными ошибками,
-          например{" "}
+          <mark className="app">Adobe After Effects</mark> столкнуться с различными
+          ошибками, например{" "}
           <mark className="ui">
             After Effects has unexpectedly run out of memory and cannot complete this
             export
@@ -711,20 +714,21 @@ const AETips: React.FC = () => {
             <mark className="ui">Виртуальная память</mark>.
           </li>
           <li>
-            Если у вас стоит чекбокс возле пункта{" "}
+            Если у вас стоит чекбокс возле параметра{" "}
             <mark className="ui">Автоматически выбирать объем файла подкачки</mark> -
             уберите его.
           </li>
           <li>
-            Выберите раздел, на котором у вас стоит система. Если у раздела стоит пункт{" "}
-            <mark className="ui">Без файла подкачки</mark> или{" "}
+            Выберите раздел, на котором у вас стоит система. Если у выбранного раздела
+            стоит значение <mark className="ui">Без файла подкачки</mark> или{" "}
             <mark className="ui">Размер по выбору системы</mark> - измените на{" "}
             <mark className="ui">Указать размер</mark>.
             <AdditionInfo>
               Для файла подкачки нужно выбрать раздел с самым производительным диском,
               установленный на вашем устройстве. Установка файла подкачки на раздел с
               медленным диском может ухудшить пользовательский опыт работы с{" "}
-              <mark className="app">After Effects</mark> и <mark>Windows</mark> в целом.
+              <mark className="app">Adobe After Effects</mark> и <mark>Windows</mark> в
+              целом.
             </AdditionInfo>
           </li>
           <li>
@@ -785,7 +789,7 @@ const AETips: React.FC = () => {
       <DetailsSummary title="Как открыть несколько экземпляров программы и работать в разных проектах?">
         <AdditionDanger>
           Использование нескольких открытых экземпляров{" "}
-          <mark className="app">After Effects</mark> может привести к увеличению
+          <mark className="app">Adobe After Effects</mark> может привести к увеличению
           потребления оперативной памяти и остальных ресурсов вашего устройства.
           Используйте эту опцию с умом!
         </AdditionDanger>
@@ -793,25 +797,25 @@ const AETips: React.FC = () => {
           Иногда возникает ситуация, когда вы закончили работу и поставили свой проект на
           рендер, но в это время нужно открыть другой проект и внести в него правки. А
           сделать вы это не можете, потому что программа занята экспортом другой
-          композиции. По умолчанию <mark className="app">After Effects</mark> не позволяет
-          открывать больше одного экземпляра, но разработчики оставили возможность запуска
-          нескольких инстанций программы.
+          композиции. По умолчанию <mark className="app">Adobe After Effects</mark> не
+          позволяет открывать больше одного экземпляра, но разработчики оставили
+          возможность запуска нескольких инстанций программы.
         </p>
         <ContentSwitcher
           macContent={
             <div>
               <p>
-                Чтобы открыть ещё один экземпляр - вам нужно перейти в{" "}
+                Чтобы открыть ещё один экземпляр - нужно перейти в директорию{" "}
                 <mark className="path">~/Library/Applications/After Effects 20XX</mark>,
                 затем нажать <mark className="key">ПКМ</mark> по{" "}
                 <mark className="app">Adobe After Effects 20XX</mark> и выбрать{" "}
                 <mark className="ui">Показать содержимое пакета</mark>. После открытия
                 содержимого перейдите в <mark className="ui">Contents/MacOS</mark> и
-                нажмите два раза по файлу <mark className="app">After Effects</mark>. У
-                вас должна открыться консоль и открыться ещё один экземпляр программы.
+                нажмите два раза по файлу <mark className="app">Adobe After Effects</mark>
+                . У вас должна открыться консоль и открыться ещё один экземпляр программы.
               </p>
               <YouTubeVideo
-                caption="Как открыть несколько инстанций After Effects"
+                caption="Как открыть несколько инстанций Adobe After Effects"
                 link="k1x1goE2F10"
               />
             </div>
@@ -819,18 +823,19 @@ const AETips: React.FC = () => {
           windowsContent={
             <div>
               <p>
-                Чтобы убрать данное ограничение, нам нужно установить ключ{" "}
+                Чтобы убрать данное ограничение - установите ключ{" "}
                 <mark className="code">-m</mark> в конец ярлыка с программой. Для этого
-                откройте свойства ярлыка с <mark className="app">After Effects</mark> и
-                переместите курсор до конца в поле <mark className="ui">Объект</mark>.
-                Затем напишите <mark className="code">-m</mark> и нажмите на{" "}
+                откройте свойства ярлыка с{" "}
+                <mark className="app">Adobe After Effects</mark> и переместите курсор до
+                конца в поле <mark className="ui">Объект</mark>. Затем напишите{" "}
+                <mark className="code">-m</mark> и нажмите на{" "}
                 <mark className="ui">Применить</mark> в правом нижем углу окна. После
                 этого вы сможете запускать несколько экземпляров{" "}
-                <mark className="app">After Effects</mark> с помощью этого ярлыка и
-                работать с ними как обычно.
+                <mark className="app">Adobe After Effects</mark> с помощью этого ярлыка и
+                работать с программами как обычно.
               </p>
               <VideoFigure
-                caption="Включение множественных экземпляров After Effects"
+                caption="Включение возможности открытия нескольких экземпляров Adobe After Effects"
                 styleClass="figure_windows-dark"
                 videoSrc="images/aftereffects/enable_multiple_ae_instances.mp4"
               />
@@ -872,10 +877,10 @@ const AETips: React.FC = () => {
         </p>
         <AdditionWarning>
           Прежде чем делиться какими-либо пресетами - уточните для получателя, для какой
-          версии <mark className="app">After Effects</mark> они предназначены, для какого
-          разрешения проекта или соотношения сторон и, при необходимости, укажите, какие
-          сторонние плагины и их версии должны быть установлены для корректной работы
-          ваших пресетов.
+          версии <mark className="app">Adobe After Effects</mark> они предназначены, для
+          какого разрешения проекта или соотношения сторон и, при необходимости, укажите,
+          какие сторонние плагины и их версии должны быть установлены для корректной
+          работы ваших пресетов.
         </AdditionWarning>
       </DetailsSummary>
     </div>

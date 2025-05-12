@@ -20,9 +20,9 @@ const AEInstallProblems: React.FC = () => {
       >
         <p>
           Обычно установка большинства дополнительных материалов универсальна, но может
-          отличаться в зависимости от вашей операционной системы. В этом пункте указано
+          отличаться в зависимости от вашей операционной системы. В этой статье указано
           как установить тот или иной тип файла для{" "}
-          <mark className="app">After Effects</mark>.
+          <mark className="app">Adobe After Effects</mark>.
         </p>
         <AdditionWarning>
           Прежде чем использовать проекты формата <mark className="file">.aep</mark> или
@@ -49,7 +49,7 @@ const AEInstallProblems: React.FC = () => {
                 <li>
                   Если вы попытаетесь открыть лишь один <mark className="file">.aep</mark>{" "}
                   файл из архива без его полной распаковки, то вы столкнетесь с тем, что{" "}
-                  <mark className="app">After Effects</mark> не сможет найти все
+                  <mark className="app">Adobe After Effects</mark> не сможет найти все
                   необходимые файлы для проекта.
                 </li>
               </ul>
@@ -179,9 +179,10 @@ const AEInstallProblems: React.FC = () => {
                       </li>
                       <li>
                         Не всегда новые версии плагинов могут работать со старыми версиями{" "}
-                        <mark className="app">After Effects</mark> и наоборот. Уточняйте в
-                        документации устанавливаемого плагина, для каких версий{" "}
-                        <mark className="app">After Effects</mark> он предназначен.
+                        <mark className="app">Adobe After Effects</mark> и наоборот.
+                        Уточняйте в документации устанавливаемого плагина, для каких
+                        версий <mark className="app">Adobe After Effects</mark> он
+                        предназначен.
                       </li>
                     </ul>
                   </AdditionInfo>
@@ -330,12 +331,12 @@ const AEInstallProblems: React.FC = () => {
                     ZXP Installer от aescripts
                   </a>
                   . Прежде чем устанавливать расширение такого формата, убедитесь в том,
-                  что ваша версия <mark className="app">After Effects</mark> его
+                  что ваша версия <mark className="app">Adobe After Effects</mark> его
                   поддерживает. После того как вы установите расширение, откройте терминал
                   и введите команды ниже, их можно скопировать одним нажатием. Если
                   терминал не выдал никакие ошибки, то вы можете спокойно открыть{" "}
-                  <mark className="app">After Effects</mark> и проверить работоспособность
-                  установленного расширения.
+                  <mark className="app">Adobe After Effects</mark> и проверить
+                  работоспособность установленного расширения.
                   <AdditionDanger>
                     Пожалуйста, не используйте{" "}
                     <a href="https://zxpinstaller.com/">
@@ -400,7 +401,7 @@ const AEInstallProblems: React.FC = () => {
                         Команды выше достаточно ввести один раз, в дальнейшем при
                         установке подобных расширений команды для терминала вводить не
                         нужно. Эти команды включают debug-режим в{" "}
-                        <mark className="app">After Effects</mark> для корректного
+                        <mark className="app">Adobe After Effects</mark> для корректного
                         открытия и работы сторонних расширений, установленные из просторов
                         интернета.
                       </li>
@@ -417,7 +418,7 @@ const AEInstallProblems: React.FC = () => {
                         <mark className="ui">
                           Edit &gt; Preferences &gt; Scripting & Expressions
                         </mark>{" "}
-                        и установите чекбокс у пункта{" "}
+                        и установите чекбокс у параметра{" "}
                         <mark className="ui">
                           Allow Scripts to Write Files and Access Network
                         </mark>
@@ -520,7 +521,7 @@ const AEInstallProblems: React.FC = () => {
                     <ul>
                       <li>
                         При использовании установщиков убедитесь в том, что у вас{" "}
-                        <mark className="app">After Effects</mark> установлен в
+                        <mark className="app">Adobe After Effects</mark> установлен в
                         стандартном расположении{" "}
                         <mark className="path">C:\Program Files\Adobe\</mark>, а не в
                         другом месте или разделе. В противном случае устанавливаемый
@@ -529,8 +530,9 @@ const AEInstallProblems: React.FC = () => {
                       </li>
                       <li>
                         Перед установкой плагинов с помощью установщика - закройте все
-                        открытые инстанции <mark className="app">After Effects</mark> для
-                        корректной установки.
+                        открытые инстанции{" "}
+                        <mark className="app">Adobe After Effects</mark> для корректной
+                        установки.
                       </li>
                     </ul>
                   </AdditionWarning>
@@ -553,9 +555,10 @@ const AEInstallProblems: React.FC = () => {
                       </li>
                       <li>
                         Не всегда новые версии плагинов могут работать со старыми версиями{" "}
-                        <mark className="app">After Effects</mark> и наоборот. Уточняйте в
-                        документации устанавливаемого плагина, для каких версий{" "}
-                        <mark className="app">After Effects</mark> он предназначен.
+                        <mark className="app">Adobe After Effects</mark> и наоборот.
+                        Уточняйте в документации устанавливаемого плагина, для каких
+                        версий <mark className="app">Adobe After Effects</mark> он
+                        предназначен.
                       </li>
                     </ul>
                   </AdditionInfo>
@@ -709,7 +712,7 @@ const AEInstallProblems: React.FC = () => {
                   <mark className="app">ZXP Installer</mark> для установки и следовать
                   указаниям программы. Прежде чем устанавливать расширение такого формата,
                   убедитесь в том, что ваша версия{" "}
-                  <mark className="app">After Effects</mark> его поддерживает.
+                  <mark className="app">Adobe After Effects</mark> его поддерживает.
                   <AdditionDanger>
                     Пожалуйста, не используйте{" "}
                     <a href="https://zxpinstaller.com/">
@@ -765,9 +768,10 @@ const AEInstallProblems: React.FC = () => {
                         >
                           REG-патч
                         </a>{" "}
-                        включает debug-режим в <mark className="app">After Effects</mark>{" "}
-                        для корректного открытия и работы сторонних расширений,
-                        установленные из просторов интернета.
+                        включает debug-режим в{" "}
+                        <mark className="app">Adobe After Effects</mark> для корректного
+                        открытия и работы сторонних расширений, установленные из просторов
+                        интернета.
                       </li>
                       <li>
                         Иногда в архиве может быть уже распакованный{" "}
@@ -782,7 +786,7 @@ const AEInstallProblems: React.FC = () => {
                         <mark className="ui">
                           Edit &gt; Preferences &gt; Scripting & Expressions
                         </mark>{" "}
-                        и установите чекбокс у пункта{" "}
+                        и установите чекбокс у параметра{" "}
                         <mark className="ui">
                           Allow Scripts to Write Files and Access Network
                         </mark>
@@ -818,8 +822,8 @@ const AEInstallProblems: React.FC = () => {
                       Если у вас есть целый набор шрифтов и вы не хотите открывать каждый
                       файл по отдельности - просто распакуйте архив с шрифтами в любую
                       папку. После этого выделите нужные шрифты в распакованной папке,
-                      нажмите <mark className="key">ПКМ</mark> и выберите в контекстном
-                      меню пункт <mark className="ui">Установить</mark> или{" "}
+                      нажмите <mark className="key">ПКМ</mark> и нажмите в контекстном
+                      меню кнопку <mark className="ui">Установить</mark> или{" "}
                       <mark className="ui">Установить для всех пользователей</mark>.
                     </li>
                     <li>
@@ -999,7 +1003,7 @@ const AEInstallProblems: React.FC = () => {
           исчезнуть.
         </p>
       </DetailsSummary>
-      <DetailsSummary title='Перед установкой репака от KpoJluK, я забыл убрать галочку с пункта "Реклама". Как избавиться от последствий?'>
+      <DetailsSummary title='Перед установкой репака от KpoJluK, я забыл убрать галочку "Реклама". Как избавиться от последствий?'>
         <p>
           По умолчанию в репаках от <mark>KpoJluk</mark> включена галочка
           &quot;Реклама&quot;, поэтому можно случайно нарваться на установку{" "}
@@ -1009,38 +1013,38 @@ const AEInstallProblems: React.FC = () => {
           <mark className="app">Панель управления</mark>.
         </p>
         <p>
-          В следующий раз не забывайте убирать галочку с пункта &quot;Реклама&quot;. Если
-          вы хотите поставить себе автоматический &quot;убиратель галочек&quot; при
+          В следующий раз не забывайте убирать галочку с параметра &quot;Реклама&quot;.
+          Если вы хотите поставить себе автоматический &quot;убиратель галочек&quot; при
           установке, воспользуйтесь программой{" "}
           <a href="https://unchecky.com/">Unchecky</a>.
         </p>
       </DetailsSummary>
       <DetailsSummary
-        tag="символьные ссылки, symlink, нестандартное расположение программы, установил на диск D:\"
+        tag="символьные ссылки, symlink, нестандартное расположение программы, установил на диск D:\, some products require host applications which are not installed on this computer"
         title="Я установил плагин с помощью установщика, но в программе он не появился. Да и зачем люди из каждого угла советуют не менять путь для установки After Effects? А если у меня нет места на жёстком диске?"
       >
         <AdditionInfo>
-          Вся информация в этом пункте относится к устройствам с установленной
+          Вся информация в этой статье относится к устройствам с установленной
           операционной системой <mark>Windows</mark>.
         </AdditionInfo>
         <p>
           Часто в различных чатах возникает вопрос о проблемах при установке того или
           иного стороннего плагина или расширения, даже если тот, кто пишет, полностью
           следует всем инструкциям, но забыл об одной маленькой детали. У него{" "}
-          <mark className="app">After Effects</mark> установлен на другом разделе. Почему
-          эта мелочь является одной из главных проблем при установке плагинов?
+          <mark className="app">Adobe After Effects</mark> установлен на другом разделе.
+          Почему эта мелочь является одной из главных проблем при установке плагинов?
         </p>
         <ul>
           <li>
-            Изначальная установка <mark className="app">After Effects</mark> в
+            Изначальная установка <mark className="app">Adobe After Effects</mark> в
             нестандартную директорию, например на <mark className="path">D:\MyApps</mark>,
             может привести к проблемам при установке сторонних плагинов. Большинство
             установочных пакетов, таких как <mark className="plugin">Red Giant</mark> или{" "}
             <mark className="plugin">FX Console</mark>, не смогут корректно установиться в
             нужное место. Это происходит из-за того, что большинство установщиков плагинов
             запрограммированы на распаковку в стандартные директории Adobe и не проверяют
-            действительное расположение <mark className="app">After Effects</mark> в
-            системе. Когда <mark className="app">After Effects</mark> находится в
+            действительное расположение <mark className="app">Adobe After Effects</mark> в
+            системе. Когда <mark className="app">Adobe After Effects</mark> находится в
             нестандартном месте, плагины не могут быть установлены корректно или
             обнаружены установщиком, даже если программа установлена в системе.
             <AdditionInfo>
@@ -1051,36 +1055,36 @@ const AEInstallProblems: React.FC = () => {
               у вас установлен монтажный хост, который поддерживает формат плагинов{" "}
               <mark>OpenFX</mark>, например <mark className="app">Davinci Resolve</mark>,
               и он стоит на стандартной директории, а{" "}
-              <mark className="app">After Effects</mark> стоит на другой, то установщик
-              распакует файлы только для <mark>OFX-хоста</mark>, а для{" "}
-              <mark className="app">After Effects</mark> - ничего, потому что он не
-              обнаружил с <mark className="app">After Effects</mark> в стандартной
+              <mark className="app">Adobe After Effects</mark> стоит на другой, то
+              установщик распакует файлы только для <mark>OFX-хоста</mark>, а для{" "}
+              <mark className="app">Adobe After Effects</mark> - ничего, потому что он не
+              обнаружил с <mark className="app">Adobe After Effects</mark> в стандартной
               директории.
             </AdditionInfo>
           </li>
           <li>
             Даже при установке скриптов, расширений и пресетов в стандартные директории,
             указанные в <a href="#2.1">универсальных инструкциях</a> - тоже существует
-            вероятность того, что <mark className="app">After Effects</mark> их не
+            вероятность того, что <mark className="app">Adobe After Effects</mark> их не
             обнаружит.
           </li>
           <li>
-            Если вы устанавливаете <mark className="app">After Effects</mark>,{" "}
-            <mark className="app">Media Encoder</mark> и{" "}
-            <mark className="app">Premiere Pro</mark> в нестандартные директории, то это
-            может вызвать проблемы с взаимодействием друг с другом. Программы могут не
+            Если вы устанавливаете <mark className="app">Adobe After Effects</mark>,{" "}
+            <mark className="app">Adobe Media Encoder</mark> и{" "}
+            <mark className="app">Adobe Premiere Pro</mark> в нестандартные директории, то
+            это может вызвать проблемы с взаимодействием друг с другом. Программы могут не
             обнаружить друг друга, даже если они установлены на вашем устройстве.
             Например, при попытке экспортировать композицию из{" "}
-            <mark className="app">After Effects</mark> в{" "}
-            <mark className="app">Media Encoder</mark>, первая программа может сообщить об
-            отсутствии <mark className="app">Media Encoder</mark>, несмотря на его наличие
-            в системе.
+            <mark className="app">Adobe After Effects</mark> в{" "}
+            <mark className="app">Adobe Media Encoder</mark>, первая программа может
+            сообщить об отсутствии <mark className="app">Adobe Media Encoder</mark>,
+            несмотря на его наличие в системе.
           </li>
         </ul>
         <p>
           Чтобы избавиться от подобных проблем - вам нужно переустановить{" "}
-          <mark className="app">After Effects</mark> по-человечески, то есть не менять
-          местоположение программы при установке. Но, к сожалению, часто в качестве
+          <mark className="app">Adobe After Effects</mark> по-человечески, то есть не
+          менять местоположение программы при установке. Но, к сожалению, часто в качестве
           аргумента на вопрос{" "}
           <mark className="quote">
             А зачем вы собственно установили After Effects на другой раздел?
@@ -1090,19 +1094,19 @@ const AEInstallProblems: React.FC = () => {
             А у меня на разделе, где Windows установлена - мало места!
           </mark>{" "}
           и пользователь, у которого проблемы с установкой - не хочет идти на верный путь.
-          Но и для таких случаев есть хорошие новости - в этом пункте мы рассмотрим
+          Но и для таких случаев есть хорошие новости - в этой статье мы рассмотрим
           варианты как навести порядок в вашей системе на <mark>Windows</mark> или
           корректно перенести программы на другой раздел.
         </p>
         <Divider>Очищаем системный раздел от мусора</Divider>
         <p>
-          Если вы согласны переустановить <mark className="app">After Effects</mark> на
-          стандартный раздел, но у вас мало места, то попробуйте почистить систему от
+          Если вы согласны переустановить <mark className="app">Adobe After Effects</mark>{" "}
+          на стандартный раздел, но у вас мало места, то попробуйте почистить систему от
           разного хлама. Это можно сделать разными способами, например стандартными
           средствами, сторонними программами или руками, предварительно проанализировав
           всю систему. После очистки системы от мусора - начните процесс переустановки{" "}
-          <mark className="app">After Effects</mark> на стандартное место и наслаждайтесь
-          корректной работой сторонних плагинов.
+          <mark className="app">Adobe After Effects</mark> на стандартное место и
+          наслаждайтесь корректной работой сторонних плагинов.
         </p>
         <ul>
           <li>
@@ -1158,7 +1162,7 @@ const AEInstallProblems: React.FC = () => {
             <mark className="code">compact /compactos:always</mark> и дождитесь окончания
             операции. Обычно сжатие системы освобождает примерно <mark>3-5 гигабайт</mark>{" "}
             дискового пространства, которое можно занять установкой{" "}
-            <mark className="app">After Effects</mark>.
+            <mark className="app">Adobe After Effects</mark>.
             <AdditionInfo>
               Текущее состояние сжатия <mark>Windows</mark> вы можете узнать с помощью
               команды <mark className="code">compact /compactos:query</mark>
@@ -1237,34 +1241,35 @@ const AEInstallProblems: React.FC = () => {
         />
       </DetailsSummary>
       <DetailsSummary
-        tag="dynamic link, динамик линк"
+        tag="dynamic link, динамик линк, adobe media encoder is not installed, please download and install it to use this feature, медиа енкодер"
         title="Установил After Effects и Media Encoder, но они не видят друг друга и не подключаются. Как это исправить?"
       >
         <p>
           Функция <mark className="plugin">Dynamic Link</mark> позволяет синхронизировать
-          композиции из <mark className="app">After Effects</mark> и очередь рендера в{" "}
-          <mark className="app">Media Encoder</mark>. Но не всегда их получается
-          подружить. Иногда <mark className="app">After Effects</mark> при попытке
+          композиции из <mark className="app">Adobe After Effects</mark> и очередь рендера
+          в <mark className="app">Adobe Media Encoder</mark>. Но не всегда их получается
+          подружить. Иногда <mark className="app">Adobe After Effects</mark> при попытке
           отправить композицию на очередь рендера в{" "}
-          <mark className="app">Media Encoder</mark> выдаёт просьбу, что нужно установить{" "}
-          <mark className="app">Media Encoder</mark>, хотя эта программа вроде как
-          установлена в системе. Для того, чтобы программы видели друг друга - вам нужно
-          соблюсти два условия.
+          <mark className="app">Adobe Media Encoder</mark> выдаёт просьбу, что нужно
+          установить <mark className="app">Adobe Media Encoder</mark>, хотя эта программа
+          вроде как установлена в системе. Для того, чтобы программы видели друг друга -
+          вам нужно соблюсти два условия.
         </p>
         <ul>
           <li>
-            Убедитесь в том, что вы установили <mark className="app">After Effects</mark>{" "}
-            и <mark className="app">Media Encoder</mark> одного года. Если вы, например,
-            установили <mark className="app">After Effects 2022</mark> и{" "}
-            <mark className="app">Media Encoder 2019</mark> - они никогда не увидят друг
-            друга, так как программы жёстко привязаны к году.
+            Убедитесь в том, что вы установили{" "}
+            <mark className="app">Adobe After Effects</mark> и{" "}
+            <mark className="app">Adobe Media Encoder</mark> одного года. Если вы,
+            например, установили <mark className="app">Adobe After Effects 2022</mark> и{" "}
+            <mark className="app">Adobe Media Encoder 2019</mark> - они никогда не увидят
+            друг друга, так как программы жёстко привязаны к году.
           </li>
           <li>
-            Если вы установили <mark className="app">After Effects</mark> и{" "}
-            <mark className="app">Media Encoder</mark> одного года, но они всё ещё не
-            видят друг друга - убедитесь в том, что вы установили обе программы в место по
-            умолчанию, не на другом разделе, отличном от <mark className="path">C:\</mark>
-            .
+            Если вы установили <mark className="app">Adobe After Effects</mark> и{" "}
+            <mark className="app">Adobe Media Encoder</mark> одного года, но они всё ещё
+            не видят друг друга - убедитесь в том, что вы установили обе программы в место
+            по умолчанию, не на другом разделе, отличном от{" "}
+            <mark className="path">C:\</mark>.
             <AdditionInfo>
               Если у вас мало места на системном диске или вы хотите перенести программы
               от <mark>Adobe</mark> на другой раздел - воспользуйтесь функцией создания
@@ -1293,7 +1298,7 @@ const AEInstallProblems: React.FC = () => {
       </DetailsSummary>
       <DetailsSummary
         tag="в настоящее время невозможно установить, операционная система не соответствует минимальным требованиям для этой программы установки"
-        title="Код ошибки 1, 501, 176, 21 или другие при установке After Effects"
+        title="Код ошибки 1, 501, 176, 21 или другие при установке Adobe After Effects"
       >
         <Divider>Исправляем ошибку 1 или 501</Divider>
         <p>
@@ -1312,7 +1317,7 @@ const AEInstallProblems: React.FC = () => {
             <div>
               <p>
                 Скорее всего вы до установки более новых версий{" "}
-                <mark className="app">After Effects</mark> пользовались другими
+                <mark className="app">Adobe After Effects</mark> пользовались другими
                 программами <mark>Adobe</mark>. Для решения - попробуйте удалить папку{" "}
                 <mark className="path">~/Library/Application Support/Adobe/caps</mark>, а
                 затем повторить попытку установки нужной программы.
@@ -1323,7 +1328,7 @@ const AEInstallProblems: React.FC = () => {
             <div>
               <p>
                 Скорее всего вы до установки более новых версий{" "}
-                <mark className="app">After Effects</mark> пользовались другими
+                <mark className="app">Adobe After Effects</mark> пользовались другими
                 программами <mark>Adobe</mark>. Для решения - попробуйте удалить папку{" "}
                 <mark className="path">
                   C:\Program Files (x86)\Common Files\Adobe\caps
@@ -1338,16 +1343,16 @@ const AEInstallProblems: React.FC = () => {
           требованиям для этой программы установки&quot;
         </Divider>
         <p>
-          Скорее всего вы пытаетесь установить <mark className="app">After Effects</mark>{" "}
-          версии <mark>2024</mark> или новее на несвежую сборку <mark>Windows</mark>. В
-          таком случае у вас есть только два выхода, по какому пути идти - решать только
-          вам.
+          Скорее всего вы пытаетесь установить{" "}
+          <mark className="app">Adobe After Effects</mark> версии <mark>2024</mark> или
+          новее на несвежую сборку <mark>Windows</mark>. В таком случае у вас есть только
+          два выхода, по какому пути идти - решать только вам.
         </p>
         <ul>
           <li>
             Если вы хотите установить свежую версию{" "}
-            <mark className="app">After Effects</mark>, то вам нужно обновить вашу систему
-            до <mark>Windows 10</mark> сборки <mark>22H2</mark> или установить{" "}
+            <mark className="app">Adobe After Effects</mark>, то вам нужно обновить вашу
+            систему до <mark>Windows 10</mark> сборки <mark>22H2</mark> или установить{" "}
             <mark>Windows 11</mark>. Обычно в{" "}
             <a href="https://helpx.adobe.com/ru/after-effects/system-requirements.html">
               системных требованиях After Effects
@@ -1373,9 +1378,10 @@ const AEInstallProblems: React.FC = () => {
           </li>
           <li>
             Если вы не желаете обновлять или переустанавливать систему, то вы можете
-            установить более старую версию <mark className="app">After Effects</mark>,
-            например <mark>23.6</mark> (2023) или <mark>15.1</mark> (2018). В таком случае
-            установщик выполнит установку корректно.
+            установить более старую версию{" "}
+            <mark className="app">Adobe After Effects</mark>, например <mark>23.6</mark>{" "}
+            (2023) или <mark>15.1</mark> (2018). В таком случае установщик выполнит
+            установку корректно.
           </li>
         </ul>
         <AdditionInfo>
@@ -1403,7 +1409,7 @@ const AEInstallProblems: React.FC = () => {
         </p>
         <AdditionInfo>
           Более подробную информацию про установку дополнительных материалов вы можете
-          прочитать в <a href="#2.1">пункте 2.1</a>.
+          прочитать в <a href="#2.1">статье 2.1</a>.
         </AdditionInfo>
       </DetailsSummary>
       <DetailsSummary title="В названиях установщиков плагинов увидел обозначения Adobe, OFX или другое. Я запутался - для каких программ предназначены такие плагины?">
@@ -1417,16 +1423,16 @@ const AEInstallProblems: React.FC = () => {
             <mark className="word">AE</mark>, <mark className="word">PR</mark>,{" "}
             <mark className="word">PS</mark>, <mark className="word">LR</mark> или{" "}
             <mark className="word">Adobe</mark> - такие плагины устанавливаются в разные
-            программы от Adobe, например <mark className="app">After Effects</mark> и{" "}
-            <mark className="app">Premiere Pro</mark>,{" "}
-            <mark className="app">Photoshop</mark> и{" "}
+            программы от Adobe, например <mark className="app">Adobe After Effects</mark>{" "}
+            и <mark className="app">Adobe Premiere Pro</mark>,{" "}
+            <mark className="app">Adobe Photoshop</mark> и{" "}
             <mark className="app">Lightroom</mark>.
             <AdditionInfo>
               <ul>
                 <li>
                   Иногда плагины с припиской <mark className="word">AE</mark> могут
-                  устанавливаться и в <mark className="app">After Effects</mark>, и в{" "}
-                  <mark className="app">Premiere Pro</mark>.
+                  устанавливаться и в <mark className="app">Adobe After Effects</mark>, и
+                  в <mark className="app">Adobe Premiere Pro</mark>.
                 </li>
                 <li>
                   Плагины, распространяющиеся в установщиках будут устанавливаться в
@@ -1448,8 +1454,9 @@ const AEInstallProblems: React.FC = () => {
             </a>
             .
             <AdditionWarning>
-              Такие плагины не подойдут для <mark className="app">After Effects</mark> и
-              для <mark className="app">Premiere Pro</mark>, так как они не поддерживают
+              Такие плагины не подойдут для{" "}
+              <mark className="app">Adobe After Effects</mark> и для{" "}
+              <mark className="app">Adobe Premiere Pro</mark>, так как они не поддерживают
               стандарт плагинов <mark>OpenFX</mark>.
             </AdditionWarning>
           </li>
@@ -1492,7 +1499,7 @@ const AEInstallProblems: React.FC = () => {
           иного стороннего плагина или неправильно ею воспользовались. В редких случаях
           источник, откуда вы скачали плагин, может дать нерабочий вариант. Для этого
           найдите нужный плагин из другого источника, например из{" "}
-          <a href="#1.1">самого первого пункта</a> этой страницы.
+          <a href="#1.1">самой первой статьи</a> на этой странице.
         </p>
       </DetailsSummary>
       <DetailsSummary
@@ -1543,10 +1550,10 @@ const AEInstallProblems: React.FC = () => {
           <li>
             Из минусов: пользователи часто жалуются на проблемы при использовании{" "}
             <mark className="plugin">Dynamic Link</mark>, то есть{" "}
-            <mark className="app">After Effects</mark> и{" "}
-            <mark className="app">Premiere Pro</mark> могут не увидеть друг друга. После
-            обновления программ от Adobe может не всегда работать патч, для этого нужно
-            периодически обновлять сам <mark className="app">GenP</mark>.
+            <mark className="app">Adobe After Effects</mark> и{" "}
+            <mark className="app">Adobe Premiere Pro</mark> могут не увидеть друг друга.
+            После обновления программ от Adobe может не всегда работать патч, для этого
+            нужно периодически обновлять сам <mark className="app">GenP</mark>.
           </li>
         </ul>
         <AdditionDanger>
@@ -1589,19 +1596,19 @@ const AEInstallProblems: React.FC = () => {
           styleClass="figure_windows-light"
         />
         <p>
-          В открывшемся окне отключаем три пункта про автозапуск и авто обновление
+          В открывшемся окне отключаем три параметра про автозапуск и авто обновление
           приложений в разделе <mark className="ui">Общие</mark>.
         </p>
         <ImageFigure
           caption="Adobe Creative Cloud"
           imgSrc="images/creative_cloud_settings.png"
-          imgTitle="Пункты для отключения обновлений и автозапуска Creative Cloud"
+          imgTitle="Параметры для отключения обновлений и автозапуска Creative Cloud"
           styleClass="figure_windows-light"
         />
         <AdditionInfo>
           По вашему желанию вы можете выбрать английский язык для новых приложений по
           умолчанию в разделе <mark className="ui">Приложения</mark> или изменить язык{" "}
-          <mark className="app">After Effects</mark> вручную после установки. После
+          <mark className="app">Adobe After Effects</mark> вручную после установки. После
           изменения настроек и перед применением патча обязательно закрываем приложение{" "}
           <mark className="app">Creative Cloud</mark>.
         </AdditionInfo>
@@ -1644,7 +1651,7 @@ const AEInstallProblems: React.FC = () => {
         </p>
         <AdditionWarning>
           Интерфейс <mark className="app">GenP</mark>, в зависимости от актуальной версии,
-          может незначительно отличаться от того, что демонстрируется в этом пункте. Суть
+          может незначительно отличаться от того, что демонстрируется в этой статье. Суть
           всех действий остаётся примерно одинаковым.
         </AdditionWarning>
         <p>
@@ -1665,7 +1672,7 @@ const AEInstallProblems: React.FC = () => {
         <p>
           После патча <mark className="app">Creative Cloud</mark>, нам нужно в него зайти
           и начать скачивать оттуда программы. После установки{" "}
-          <mark className="app">After Effects</mark> и остального софта -{" "}
+          <mark className="app">Adobe After Effects</mark> и остального софта -{" "}
           <u>не спешите</u> их открывать.
         </p>
         <p>
@@ -1692,7 +1699,7 @@ const AEInstallProblems: React.FC = () => {
           настройки программы.
         </p>
         <ImageFigure
-          caption="After Effects"
+          caption="Adobe After Effects"
           imgSrc="images/aftereffects/startup_repair_options.png"
           imgTitle="Окно для решения проблем при запуске программы"
           styleClass="figure_windows-dark"
@@ -1704,7 +1711,7 @@ const AEInstallProblems: React.FC = () => {
           находятся в <mark className="path">%AppData%\Adobe\After Effects\XX.X</mark>.
         </p>
         <AdditionInfo>
-          В старых версиях <mark className="app">After Effects</mark> при запуске
+          В старых версиях <mark className="app">Adobe After Effects</mark> при запуске
           программы с нажатыми модификаторами{" "}
           <mark className="key">Ctrl + Alt + Shift</mark> появляется более простое окно,
           где вас сразу спросят, сбросить ли настройки программы.
@@ -1712,8 +1719,8 @@ const AEInstallProblems: React.FC = () => {
         <p>
           Если вы все ещё сталкиваетесь с какими-то трудностями при работе с программой -
           попробуйте накатить ту же версию, что у вас установлена поверх. Либо просто
-          переустановите <mark className="app">After Effects</mark> с нуля, предварительно
-          удалив хвосты с помощью{" "}
+          переустановите <mark className="app">Adobe After Effects</mark> с нуля,
+          предварительно удалив хвосты с помощью{" "}
           <mark className="app">Adobe Creative Cloud Cleaner</mark> или{" "}
           <mark className="app">Revo Uninstaller</mark>.
         </p>

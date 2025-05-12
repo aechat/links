@@ -18,17 +18,17 @@ const AEExportProblems: React.FC = () => {
         title="Почему при экспорте в .mp4 через встроенный кодек H.264 сохраняется файл с размером в 1 Кб?"
       >
         <p>
-          В ранних версиях <mark className="app">After Effects</mark> версии{" "}
+          В ранних версиях <mark className="app">Adobe After Effects</mark> версии{" "}
           <mark>2023</mark> был неприятный баг, когда при экспорте композиции через
           встроенный кодек <mark className="video">H.264</mark> в путь с кириллицей - на
           выходе получался файл размером <mark>1 Кб</mark>. И соответственно
           экспортированная композиция не открывалась и никем не читался. Для решения этой
-          проблемы достаточно обновить <mark className="app">After Effects</mark> до
+          проблемы достаточно обновить <mark className="app">Adobe After Effects</mark> до
           версии <mark>23.6</mark> или новее. После обновления начните экспорт заново.
         </p>
         <AdditionInfo>
-          Проверить текущую версию <mark className="app">After Effects</mark> вы можете в{" "}
-          <mark className="ui">Help &gt; About After Effects</mark>.
+          Проверить текущую версию <mark className="app">Adobe After Effects</mark> вы
+          можете в <mark className="ui">Help &gt; About After Effects</mark>.
         </AdditionInfo>
         <p>
           Если вы по каким-то причинам не можете или не хотите обновлять программу, то
@@ -63,9 +63,9 @@ const AEExportProblems: React.FC = () => {
           Ещё бывает такое, что некоторые кодеки и варианты экспорта любят изменять цвета
           из-за сжатия или некоторых особенностей, например{" "}
           <mark className="video">H.264</mark>. Исправить это поведение сложновато, кроме
-          как экспортом из <mark className="app">After Effects</mark> в другой формат,
-          например <mark className="video">Apple Prores 422</mark>. После экспорта можно
-          переконвертировать в <mark className="video">H.264</mark> через{" "}
+          как экспортом из <mark className="app">Adobe After Effects</mark> в другой
+          формат, например <mark className="video">Apple Prores 422</mark>. После экспорта
+          можно переконвертировать в <mark className="video">H.264</mark> через{" "}
           <mark className="app">Shutter Encoder</mark> и не потерять в цветах.
         </p>
         <Divider>Изменение цветов из-за исходников</Divider>
@@ -113,17 +113,18 @@ const AEExportProblems: React.FC = () => {
           Проверьте текущую версию программ, которыми вы пользуетесь. Вполне вероятно, что
           вы используете версии в промежутках от <mark>23.1</mark> до <mark>23.5</mark>,
           где присутствует такой неприятный баг при использовании{" "}
-          <mark className="app">Media Encoder</mark> в качестве основной программы для
-          экспорта композиций. Для решения данного бага достаточно обновить все программы
-          от Adobe до версии <mark>23.6</mark> или свежее.{" "}
+          <mark className="app">Adobe Media Encoder</mark> в качестве основной программы
+          для экспорта композиций. Для решения данного бага достаточно обновить все
+          программы от Adobe до версии <mark>23.6</mark> или свежее.{" "}
           <i style={{opacity: "0.5"}}>
-            Или отказаться от <mark className="app">After Effects</mark> в пользу вывода
-            композиций напрямую из <mark className="app">After Effects</mark>.
+            Или отказаться от <mark className="app">Adobe Media Encoder</mark> в пользу
+            вывода композиций напрямую из <mark className="app">Adobe After Effects</mark>
+            .
           </i>
         </p>
         <AdditionInfo>
-          Проверить текущую версию <mark className="app">After Effects</mark> и{" "}
-          <mark className="app">Media Encoder</mark> вы можете в{" "}
+          Проверить текущую версию <mark className="app">Adobe After Effects</mark> и{" "}
+          <mark className="app">Adobe Media Encoder</mark> вы можете в{" "}
           <mark className="ui">Help &gt; About</mark>.
         </AdditionInfo>
       </DetailsSummary>
@@ -155,7 +156,7 @@ const AEExportProblems: React.FC = () => {
         <p>
           Если вы всё же хотите использовать неквадратный пиксель для композиции, чтобы
           экспортировать его под формат для телевидения, то вам стоит включить коррекцию
-          предпросмотра под размер пикселя. Он включается пунктом{" "}
+          предпросмотра под размер пикселя. Он включается параметром{" "}
           <mark className="ui">Pixel Aspect Ration Correction</mark> в меню окна
           предпросмотра. Это позволит отобразить предпросмотр корректно, как задумано в
           настройках соотношения пикселя в композиции и не столкнуться с неожиданными
@@ -173,13 +174,24 @@ const AEExportProblems: React.FC = () => {
         tag="элемент 3д, фликерит"
         title="Почему композиция с Element 3D экспортируется с мерцаниями?"
       >
+        <Divider>Проверяем значение FPS у композиции</Divider>
         <p>
-          Это может происходить из-за того, что в настройках вашей композиции указан FPS с
-          плавающим значением, например <mark>29,97</mark>. При использовании{" "}
-          <mark className="plugin">Element 3D</mark> в настройках текущей композиции лучше
-          указать целую часть числа для FPS, например <mark>24</mark>, <mark>30</mark> или{" "}
-          <mark>60</mark>.
+          Причин для некорректного поведения при рендере композиции с применённым{" "}
+          <mark className="plugin">Element 3D</mark> может быть несколько. Одна из частых
+          - дробное значение кадров в секунду у вашей композиции, например{" "}
+          <mark>29,97</mark>. Чтобы проверить этот параметр и изменить его, откройте
+          настройки композиции с помощью <mark className="key">Ctrl + K</mark> или{" "}
+          <mark className="key">ПКМ</mark> по композиции в окне{" "}
+          <mark className="ui">Projects</mark> и выберите{" "}
+          <mark className="ui">Composition Settings</mark>. В открывшемся окне настроек
+          композиции укажите в параметре <mark className="ui">Frame Rate</mark> целую
+          часть числа, например <mark>24</mark>, <mark>30</mark> или <mark>60</mark>.
         </p>
+        <AdditionInfo>
+          Если композиций с плавающим значением много, то для пакетного изменения
+          параметров можно воспользоваться скриптом{" "}
+          <a href="https://aescripts.com/rd-compsetter/">rd: Comp Setter</a>.
+        </AdditionInfo>
         <VideoFigure
           caption="Изменение FPS у композиции"
           styleClass="figure_windows-dark"
@@ -225,11 +237,11 @@ const AEExportProblems: React.FC = () => {
           проекте. Для этого вам нужно открыть окно{" "}
           <mark className="ui">Project Settings</mark> с помощью комбинации клавиш{" "}
           <mark className="key">Ctrl + Alt + Shift + K</mark>. Затем нужно перейти во
-          вкладку <mark className="ui">Color</mark> и в пункте{" "}
+          вкладку <mark className="ui">Color</mark> и в параметре{" "}
           <mark className="ui">Bit Depth</mark> установить 16 или 32 бита.
         </p>
         <AdditionWarning>
-          При повышении глубины цвета для <mark className="app">After Effects</mark>{" "}
+          При повышении глубины цвета для <mark className="app">Adobe After Effects</mark>{" "}
           требуется больше ресурсов вашего устройства для корректного рендера. Из-за этого
           возрастает риск нарваться на различные ошибки по типу <mark>Out of Memory</mark>
           .
@@ -302,7 +314,7 @@ const AEExportProblems: React.FC = () => {
           выбрать композицию с которым вы испытываете проблемы, нажать{" "}
           <mark className="key">ПКМ</mark> и выбрать{" "}
           <mark className="ui">Create Proxy &gt; Movie</mark>. После нажатия вас отправят
-          в очередь экспорта. Далее в нём нужно открыть пункт{" "}
+          в очередь экспорта. Далее в нём нужно открыть окно{" "}
           <mark className="ui">Render Settings &gt; Custom</mark> и поставить везде
           наивысшие настройки (или выбрать пресет{" "}
           <mark className="ui">Best Settings</mark>), чтобы после создания прокси ничего
@@ -370,19 +382,19 @@ const AEExportProblems: React.FC = () => {
       >
         <p>
           При экспорте какой-нибудь композиции из{" "}
-          <mark className="app">After Effects</mark> вы можете наткнуться на неприятный
-          сюрприз - файл может получиться слишком большим по весу на жёстком диске. Такой
-          файл может не подойти для загрузки видео на нужный сервис или просто занимать
-          кучу места на дисковом пространстве.
+          <mark className="app">Adobe After Effects</mark> вы можете наткнуться на
+          неприятный сюрприз - файл может получиться слишком большим по весу на жёстком
+          диске. Такой файл может не подойти для загрузки видео на нужный сервис или
+          просто занимать кучу места на дисковом пространстве.
         </p>
         <AdditionInfo>
-          В ранних версиях <mark className="app">After Effects</mark>, до возвращения
-          нативного экспорта в <mark className="video">H.264</mark>, по умолчанию стоял не
-          очень оптимальный пресет для повседневного экспорта. Поэтому, если новичок
-          случайно сохранит композицию в <mark className="file">.avi</mark> с кодеком{" "}
-          <mark className="file">Animation</mark>, то он быстро столкнётся с тем, что
-          размер файла у полученного ролика уйдет в небеса. В таких случаях без сжатия и
-          конвертации видео не обойтись.{" "}
+          В ранних версиях <mark className="app">Adobe After Effects</mark>, до
+          возвращения нативного экспорта в <mark className="video">H.264</mark>, по
+          умолчанию стоял не очень оптимальный пресет для повседневного экспорта. Поэтому,
+          если новичок случайно сохранит композицию в <mark className="file">.avi</mark> с
+          кодеком <mark className="file">Animation</mark>, то он быстро столкнётся с тем,
+          что размер файла у полученного ролика уйдет в небеса. В таких случаях без сжатия
+          и конвертации видео не обойтись.{" "}
           <i style={{opacity: "0.5"}}>
             Или достаточно было выбрать другой вариант для экспорта.
           </i>
@@ -485,11 +497,11 @@ const AEExportProblems: React.FC = () => {
         </p>
         <Divider>Сжимаем через Adobe Media Encoder</Divider>
         <p>
-          Изначально <mark className="app">Media Encoder</mark> был задуман как конвертер
-          и в нём ещё не было возможности экспорта композиций из{" "}
-          <mark className="app">After Effects</mark>. Воспользуемся в кои-то веки данной
-          программой по назначению. Чтобы начать конвертацию - импортируйте нужное видео в{" "}
-          <mark className="app">Media Encoder</mark> любым способом - через{" "}
+          Изначально <mark className="app">Adobe Media Encoder</mark> был задуман как
+          конвертер и в нём ещё не было возможности экспорта композиций из{" "}
+          <mark className="app">Adobe After Effects</mark>. Воспользуемся в кои-то веки
+          данной программой по назначению. Чтобы начать конвертацию - импортируйте нужное
+          видео в <mark className="app">Adobe Media Encoder</mark> любым способом - через{" "}
           <mark className="word">Drag-n-drop</mark> в очередь экспорта, через{" "}
           <mark className="ui">File &gt; Import</mark>, через{" "}
           <mark className="key">Ctrl + I</mark> или с помощью двойного нажатия по пустой
@@ -499,7 +511,7 @@ const AEExportProblems: React.FC = () => {
         <ImageFigure
           caption="Media Encoder"
           imgSrc="images/media_encoder_import.png"
-          imgTitle="Импорт в Media Encoder"
+          imgTitle="Импорт в Adobe Media Encoder"
           styleClass="figure_windows-light"
         />
         <p>
@@ -513,11 +525,11 @@ const AEExportProblems: React.FC = () => {
         <ImageFigure
           caption="Media Encoder"
           imgSrc="images/media_encoder_exporting.png"
-          imgTitle="Экспорт в Media Encoder"
+          imgTitle="Экспорт в Adobe Media Encoder"
           styleClass="figure_windows-light"
         />
         <AdditionInfo>
-          В <mark className="app">Media Encoder</mark> можно конвертировать видео с
+          В <mark className="app">Adobe Media Encoder</mark> можно конвертировать видео с
           помощью сторонних плагинов, по типу <mark className="plugin">Voukoder</mark> и{" "}
           <mark className="plugin">AfterCodecs</mark>, если вам не нравится результат от
           стандартных кодеков.
