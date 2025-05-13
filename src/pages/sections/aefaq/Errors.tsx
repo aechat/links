@@ -1164,7 +1164,10 @@ const AEErrors: React.FC = () => {
           </ul>
         </AdditionInfo>
       </DetailsSummary>
-      <DetailsSummary title="Почему вылетает Adobe Media Encoder после установки плагинов Boris FX Sapphire">
+      <DetailsSummary
+        tag="сапфир"
+        title="Почему вылетает Adobe Media Encoder после установки плагинов Boris FX Sapphire?"
+      >
         <p>
           Это довольно популярный баг, который мешает нормальному запуску{" "}
           <mark className="app">Adobe Media Encoder</mark> при наличии установленных в
