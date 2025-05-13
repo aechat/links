@@ -1110,6 +1110,31 @@ const AEErrors: React.FC = () => {
         </AdditionInfo>
       </DetailsSummary>
       <DetailsSummary
+        tag="отключение планирования аппаратного ускорения gpu"
+        title="При работе в программе у меня пропадает изображение на мониторе, как будто перезагружаются драйвера на видеокарту. Есть ли способы исправить это?"
+      >
+        <Divider>Отключаем аппаратное ускорение на устройствах с Windows</Divider>
+        <p>
+          Попробуйте отключить аппаратное ускорение дисплея в{" "}
+          <mark className="app">параметрах Windows</mark>. Для этого откройте их с помощью
+          комбинации клавиш <mark className="key">Win + I</mark>. Затем нажмите в левом
+          углу раздел <mark className="ui">Система</mark>, далее перейдите в{" "}
+          <mark className="ui">Дисплей</mark>, затем <mark className="ui">Графика</mark>.
+          Раскройте <mark className="ui">Дополнительные графические параметры</mark> и
+          уберите чекбокс возле{" "}
+          <mark className="ui">Планирование GPU с аппаратным ускорением</mark>. После
+          отключения этого параметра - перезагрузите ваше устройство и продолжите работу
+          дальше.
+        </p>
+        <ImageFigure
+          caption="Параметры"
+          imgSrc="images/disable_gpu_planning.png"
+          imgTitle="Отключаем планирование GPU"
+          styleClass="figure_windows-dark"
+        />
+        {/* TODO: найти ещё решения, если найдутся */}
+      </DetailsSummary>
+      <DetailsSummary
         tag="сапфир"
         title="Почему у меня появляется красный экран и пропадают параметры эффектов из BorisFX Sapphire?"
       >
