@@ -197,6 +197,41 @@ const AEExportProblems: React.FC = () => {
           styleClass="figure_windows-dark"
           videoSrc="images/aftereffects/change_fps_comp.mp4"
         />
+        <Divider>Разбираемся с исходниками</Divider>
+        <p>
+          Нестабильную работу плагина могут вызывать и используемые исходники, особенно
+          если они применяются в качестве текстур - например, для замены изображения на
+          экране модели. Видео, используемое как текстура, должно иметь целое значение
+          кадров в секунду и желательно быть перекодировано в{" "}
+          <mark className="word">монтажный кодек</mark>. Если перекодирование исходника не
+          помогает, то попробуйте создать прекомпозицию со слоем-текстурой и в нём создать
+          пустой текстовый слой. На текстовый слой в{" "}
+          <mark className="ui">Source Text</mark> примените выражение{" "}
+          <mark className="code">timeToTimecode(time);</mark> и поместите его позади
+          вашего исходника.
+        </p>
+        <ImageFigure
+          caption="Adobe After Effects"
+          imgSrc="images/aftereffects/timetotimecode_element3d_fix.png"
+          imgTitle="Создание текстового слоя с выражением"
+          styleClass="figure_windows-dark"
+        />
+        <AdditionInfo>
+          Чтобы включить режим написания выражения у нужного параметра - нажмите на иконку{" "}
+          <mark className="ui">секундомера</mark> с зажатым{" "}
+          <mark className="key">Alt</mark>.
+        </AdditionInfo>
+        <Divider>Временно отключаем многокадровый рендер</Divider>
+        <p>
+          В редких случаях <mark className="plugin">Element 3D</mark> может работать
+          нестабильно при включенном <mark>многокадровом рендере</mark>. Попробуйте
+          отключить его на время - для этого перейдите в{" "}
+          <mark className="ui">Edit &gt; Preferences &gt; Memory & Performance</mark> и
+          уберите галочку с <mark className="ui">Enable Multi-frame Render</mark>, а затем
+          повторите попытку рендера. Также попробуйте почистить кэш через{" "}
+          <mark className="ui">Edit &gt; Purge &gt; All Memory & Disk Cache</mark>.{" "}
+          <i style={{opacity: "0.5"}}>Банально, но вдруг всё же поможет.</i>
+        </p>
       </DetailsSummary>
       <DetailsSummary
         tag="колор бендинг, полоски, цвет, шум, глубина цвета"
