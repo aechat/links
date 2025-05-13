@@ -781,6 +781,50 @@ const AEInterface: React.FC = () => {
           imgTitle="Переключаем отображение домашнего экрана"
           styleClass="figure_windows-dark"
         />
+      </DetailsSummary><DetailsSummary
+        tag="cti stuck, плейхед зависает, не работает зум"
+        title="Почему метка воспроизведения на таймлайне иногда останавливается?"
+      >
+        <p>
+          Предположим, что вы начали кэширование предпросмотра и в какой-то момент у вас
+          полоса текущего времени предпросмотра внезапно останавливается. Дополнительно
+          при этом может зависнуть сам предпросмотр, то есть не реагировать на увеличение
+          или на перемещение плейхеда. Данный баг относительно новый и может появиться на
+          любой версии программы, даже на чистой и лицензионной.
+        </p>
+        <p>
+          Баг <u>может</u> возникнуть из-за одновременно открытых{" "}
+          <mark className="app">Adobe After Effects</mark> и{" "}
+          <mark className="app">Adobe Premiere Pro</mark>, а также при использовании{" "}
+          <mark className="plugin">Dynamic Link</mark>. Также баг может возникнуть на
+          совершенно чистой установке <mark className="app">Adobe After Effects</mark> без
+          сторонних плагинов и скриптов.
+        </p>
+        <AdditionWarning>
+          Приведённые ниже способы{" "}
+          <u>
+            <b>не являются панацеей</b>
+          </u>{" "}
+          для решения этой проблемы и позволяют лишь исключить часть проблем при
+          воспроизведении и кэшировании предпросмотра.
+        </AdditionWarning>
+        <p>
+          Для возможного решения проблемы попробуйте установить значение{" "}
+          <mark>false</mark> рядом с параметром{" "}
+          <mark className="ui">PreviewPlaybackOptimization</mark> в консоли. Чтобы это
+          сделать - откройте консоль с помощью комбинации клавиш{" "}
+          <mark className="key">Ctrl + F12</mark>, установите вид отображения{" "}
+          <mark className="ui">Debug Database View</mark> и уберите чекбокс напротив{" "}
+          <mark className="ui">PreviewPlaybackOptimization</mark>. После этого
+          перезагрузите программу и попробуйте закэшировать и проиграть предпросмотр
+          заново.
+        </p>
+        <ImageFigure
+          caption="Adobe After Effects"
+          imgSrc="images/aftereffects/disable_previewplaybackoptimization.png"
+          imgTitle="Отключение оптимизации предпросмотра"
+          styleClass="figure_windows-dark"
+        />
       </DetailsSummary>
       <DetailsSummary title="Как изменить акцентный цвет интерфейса программы?">
         <AdditionDanger>

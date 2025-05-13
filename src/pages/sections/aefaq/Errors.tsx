@@ -711,7 +711,7 @@ const AEErrors: React.FC = () => {
       </DetailsSummary>
       <DetailsSummary
         tag="этот эффект может замедлить предпросмтр и экспорт так как он не оптимизрован для мультикадрового рендера"
-        title='"This effect may slow down Preview and Export as it is optimized Multi-Frame Render" при попытке применения эффекта'
+        title='"This effect may slow down Preview and Export as it is optimized Multi-Frame Render" при применении эффекта'
       >
         <p>
           Это предупреждение сообщает, что используемый вами плагин не поддерживает
@@ -1698,7 +1698,7 @@ const AEErrors: React.FC = () => {
         </p>
       </DetailsSummary>
       <DetailsSummary
-        tag="данный проект содержит сылку на отсутствующий эффект, установите следующий эффект чтобы восстановить эту ссылку"
+        tag="данный проект содержит ссылку на отсутствующий эффект, установите следующий эффект чтобы восстановить эту ссылку"
         title='"This project contains references to missing effects. Please install the following effects to restore these references" при открытии проекта'
       >
         <p>
@@ -1744,7 +1744,7 @@ const AEErrors: React.FC = () => {
         </p>
       </DetailsSummary>
       <DetailsSummary
-        tag="предупреждение, сбой загрузки следующих подключаемых модулей, переустановите эти модули, ошибка, невозможно применить эффект, не удалось выполнить его инициализацию, попытайтесь переустановить подключаемый модуль или обратитесь к его разработчику"
+        tag="предупреждение, сбой загрузки следующих подключаемых модулей, переустановите эти модули, ошибка, невозможно применить эффект, не удалось выполнить его инициализацию, попытайтесь переустановить подключаемый модуль или обратитесь к его разработчику, plug-in generated an unexpected exception"
         title='"After Effects warning: The following plugins have failed to load. Please reinstall these plugins" при запуске программы или "After Effects Error: This effect cannot be applied because it cannot be initialized. Try reinstalling or contacting the plug-in developer (25::3)" при применении эффекта'
       >
         <p>
