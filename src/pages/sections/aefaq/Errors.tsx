@@ -932,6 +932,62 @@ const AEErrors: React.FC = () => {
         </p>
       </DetailsSummary>
       <DetailsSummary
+        tag="расширенный 3d, вылетает, адвансед 3д, advanced 3D is not supported by the current software"
+        title='"Advanced 3D plug-in generated an unexpected exception" или программа вылетает при попытке использовать новый движок 3D-рендера'
+      >
+        <p>
+          Вариантов возникновения данной ошибки может быть несколько, начиная устаревшими
+          драйверами и простым багом, заканчивая отсутствием поддержки вашей видеокарты
+          для корректной работы нового движка рендера. Если ваш графический процессор
+          находится в{" "}
+          <a href="https://helpx.adobe.com/ru/after-effects/using/advanced-3d-renderer.html">
+            списке поддерживаемых видеокарт
+          </a>
+          , но при попытке использования <mark className="plugin">Advanced 3D</mark> -{" "}
+          программа вылетает или не даёт ею воспользоваться, то попробуйте запустить{" "}
+          <mark className="app">Adobe After Effects</mark> от имени администратора. Чтобы
+          каждый раз не прожимать кнопку{" "}
+          <mark className="ui">Запустить от имени администратора</mark> в контекстном меню
+          - установите чекбокс{" "}
+          <mark className="ui">Запускать от имени администратора</mark> в свойствах
+          ярлыка.
+        </p>
+        <VideoFigure
+          caption="Настройка ярлыка для дальнейшего запуска от имени администратора"
+          styleClass="figure_windows-dark"
+          videoSrc="images/aftereffects/open_ae_as_admin.mp4"
+        />
+        <p>
+          Если запуск от администратора вам не помог от вылетающего{" "}
+          <mark className="app">Adobe After Effects</mark> при попытке использовать{" "}
+          <mark className="plugin">Advanced 3D</mark>, то попробуйте просто обновить
+          драйвера на вашу видеокарту, желательно на редакцию{" "}
+          <mark>NVIDIA Studio Driver</mark> для более стабильной работы с монтажными
+          программами.
+        </p>
+        <AdditionInfo>
+          Загрузить драйвера <mark>NVIDIA Studio</mark> вы можете на{" "}
+          <a href="https://www.nvidia.com/en-us/geforce/drivers/">
+            официальной странице загрузки драйверов
+          </a>
+          . На странице укажите текущую модель вашей видеокарты, операционную систему и не
+          забудьте указать в <mark className="ui">Download Type</mark> значение{" "}
+          <mark>Studio Driver</mark>.
+        </AdditionInfo>
+        <p>
+          Если ни запуск от администратора, ни обновление драйверов на видеокарту не
+          помогло, то скорее всего ваша видеокарта не соответствует требованиям и не
+          поддерживает функцию <mark className="plugin">Advanced 3D</mark>. Проверьте на
+          наличие и соответствие вашей видеокарты в{" "}
+          <a href="https://helpx.adobe.com/ru/after-effects/using/advanced-3d-renderer.html">
+            системных требованиях для Advanced 3D
+          </a>
+          , начните копить на новый графический ускоритель и переключите 3D-движок на{" "}
+          <mark className="plugin">Classic 3D</mark> в настройках композиции во вкладке{" "}
+          <mark className="ui">3D Renderer</mark>.
+        </p>
+      </DetailsSummary>
+      <DetailsSummary
         tag="синема 4д не работает, c4d, с4д"
         title='"Cinema 4D must be installed in order to use the Cinema 4D renderer", "Cineware Server Suite failed to acquire renderer port and path. Server commands not available", "Cinema 4D: Render Failed" или ошибка 5027::12'
       >
@@ -1082,6 +1138,35 @@ const AEErrors: React.FC = () => {
             </li>
           </ul>
         </AdditionInfo>
+      </DetailsSummary>
+      <DetailsSummary title="Почему вылетает Adobe Media Encoder после установки плагинов Boris FX Sapphire">
+        <p>
+          Это довольно популярный баг, который мешает нормальному запуску{" "}
+          <mark className="app">Adobe Media Encoder</mark> при наличии установленных в
+          системе плагинов <mark className="plugin">Boris FX Sapphire</mark>. В более
+          поздних версиях плагинов и программ это исправили, но если вы с таким
+          столкнулись - вам достаточно просто указать{" "}
+          <mark className="ui">режим совместимости с Windows 8</mark> в свойствах ярлыка
+          программы.
+        </p>
+        <p>
+          Для этого открываем свойства ярлыка, переходим в вкладку{" "}
+          <mark className="ui">Совместимость</mark> и нажимаем галочку рядом с параметром{" "}
+          <mark className="ui">
+            Запускать программу в режиме совместимости с Windows 8
+          </mark>
+          .
+        </p>
+        <VideoFigure
+          caption="Настройка режима совместимости"
+          styleClass="figure_windows-dark"
+          videoSrc="images/compatibility_media_encoder.mp4"
+        />
+        <p>
+          После проделанных действий программа при запуске не должна вылетать. Если всё
+          ещё вылетает, обновите плагины <mark className="plugin">Boris FX Sapphire</mark>{" "}
+          до последних версий.
+        </p>
       </DetailsSummary>
       <DetailsSummary
         tag="твикстор"
@@ -1451,62 +1536,6 @@ const AEErrors: React.FC = () => {
         </AdditionInfo>
       </DetailsSummary>
       <DetailsSummary
-        tag="расширенный 3d, вылетает, адвансед 3д"
-        title='"Advanced 3D is not supported by the current software", "Advanced 3D plug-in generated an unexpected exception" или программа вылетает при попытке использовать новый движок 3D-рендера'
-      >
-        <p>
-          Вариантов возникновения данной ошибки может быть несколько, начиная устаревшими
-          драйверами и простым багом, заканчивая отсутствием поддержки вашей видеокарты
-          для корректной работы нового движка рендера. Если ваш графический процессор
-          находится в{" "}
-          <a href="https://helpx.adobe.com/ru/after-effects/using/advanced-3d-renderer.html">
-            списке поддерживаемых видеокарт
-          </a>
-          , но при попытке использования <mark className="plugin">Advanced 3D</mark> -{" "}
-          программа вылетает или не даёт ею воспользоваться, то попробуйте запустить{" "}
-          <mark className="app">Adobe After Effects</mark> от имени администратора. Чтобы
-          каждый раз не прожимать кнопку{" "}
-          <mark className="ui">Запустить от имени администратора</mark> в контекстном меню
-          - установите чекбокс{" "}
-          <mark className="ui">Запускать от имени администратора</mark> в свойствах
-          ярлыка.
-        </p>
-        <VideoFigure
-          caption="Настройка ярлыка для дальнейшего запуска от имени администратора"
-          styleClass="figure_windows-dark"
-          videoSrc="images/aftereffects/open_ae_as_admin.mp4"
-        />
-        <p>
-          Если запуск от администратора вам не помог от вылетающего{" "}
-          <mark className="app">Adobe After Effects</mark> при попытке использовать{" "}
-          <mark className="plugin">Advanced 3D</mark>, то попробуйте просто обновить
-          драйвера на вашу видеокарту, желательно на редакцию{" "}
-          <mark>NVIDIA Studio Driver</mark> для более стабильной работы с монтажными
-          программами.
-        </p>
-        <AdditionInfo>
-          Загрузить драйвера <mark>NVIDIA Studio</mark> вы можете на{" "}
-          <a href="https://www.nvidia.com/en-us/geforce/drivers/">
-            официальной странице загрузки драйверов
-          </a>
-          . На странице укажите текущую модель вашей видеокарты, операционную систему и не
-          забудьте указать в <mark className="ui">Download Type</mark> значение{" "}
-          <mark>Studio Driver</mark>.
-        </AdditionInfo>
-        <p>
-          Если ни запуск от администратора, ни обновление драйверов на видеокарту не
-          помогло, то скорее всего ваша видеокарта не соответствует требованиям и не
-          поддерживает функцию <mark className="plugin">Advanced 3D</mark>. Проверьте на
-          наличие и соответствие вашей видеокарты в{" "}
-          <a href="https://helpx.adobe.com/ru/after-effects/using/advanced-3d-renderer.html">
-            системных требованиях для Advanced 3D
-          </a>
-          , начните копить на новый графический ускоритель и переключите 3D-движок на{" "}
-          <mark className="plugin">Classic 3D</mark> в настройках композиции во вкладке{" "}
-          <mark className="ui">3D Renderer</mark>.
-        </p>
-      </DetailsSummary>
-      <DetailsSummary
         tag="неподдерживаемое устройство, авх2"
         title="Ошибка при запуске приложения 0xc0000142"
       >
@@ -1794,100 +1823,6 @@ const AEErrors: React.FC = () => {
           После удаления плагина вы больше не будете сталкиваться с данным предупреждением
           при открытии программы.
         </p>
-      </DetailsSummary>
-      <DetailsSummary title="Вылетает Adobe Media Encoder после установки плагинов Boris FX Sapphire">
-        <p>
-          Это довольно популярный баг, который мешает нормальному запуску{" "}
-          <mark className="app">Adobe Media Encoder</mark> при наличии установленных в
-          системе плагинов <mark className="plugin">Boris FX Sapphire</mark>. В более
-          поздних версиях плагинов и программ это исправили, но если вы с таким
-          столкнулись - вам достаточно просто указать{" "}
-          <mark className="ui">режим совместимости с Windows 8</mark> в свойствах ярлыка
-          программы.
-        </p>
-        <p>
-          Для этого открываем свойства ярлыка, переходим в вкладку{" "}
-          <mark className="ui">Совместимость</mark> и нажимаем галочку рядом с параметром{" "}
-          <mark className="ui">
-            Запускать программу в режиме совместимости с Windows 8
-          </mark>
-          .
-        </p>
-        <VideoFigure
-          caption="Настройка режима совместимости"
-          styleClass="figure_windows-dark"
-          videoSrc="images/compatibility_media_encoder.mp4"
-        />
-        <p>
-          После проделанных действий программа при запуске не должна вылетать. Если всё
-          ещё вылетает, обновите плагины <mark className="plugin">Boris FX Sapphire</mark>{" "}
-          до последних версий.
-        </p>
-      </DetailsSummary>
-      <DetailsSummary title='"Приложение Adobe Creative Cloud, необходимое для устранения проблемы отсутствует или повреждено..." при запуске программы'>
-        <p>
-          Вы зачем-то установили приложение <mark className="app">Creative Cloud</mark>{" "}
-          рядом с пиратскими программами, у которых вырезан модуль{" "}
-          <mark className="app">Creative Cloud</mark>. А потом само приложение{" "}
-          <mark className="app">Creative Cloud</mark> удалили, оставив за собой
-          нежелательные хвосты.
-        </p>
-        <p>
-          Решение довольно простое - снесите приложения и поставьте их заново, чтобы
-          лишние зависимости программ от <mark className="app">Creative Cloud</mark>{" "}
-          почистились. Да, вы не ослышались. Для очистки системы от некоторых или всех
-          программ от Adobe можно воспользоваться консольной утилитой{" "}
-          <a href="https://helpx.adobe.com/ru/creative-cloud/kb/cc-cleaner-tool-installation-problems.html">
-            Adobe Creative Cloud Cleaner
-          </a>
-          .
-        </p>
-      </DetailsSummary>
-
-      <DetailsSummary
-        tag="cti stuck, плейхед зависает, не работает зум"
-        title="Почему метка воспроизведения на таймлайне иногда останавливается?"
-      >
-        <p>
-          Предположим, что вы начали кэширование предпросмотра и в какой-то момент у вас
-          полоса текущего времени предпросмотра внезапно останавливается. Дополнительно
-          при этом может зависнуть сам предпросмотр, то есть не реагировать на увеличение
-          или на перемещение плейхеда. Данный баг относительно новый и может появиться на
-          любой версии программы, даже на чистой и лицензионной.
-        </p>
-        <p>
-          Баг <u>может</u> возникнуть из-за одновременно открытых{" "}
-          <mark className="app">Adobe After Effects</mark> и{" "}
-          <mark className="app">Adobe Premiere Pro</mark>, а также при использовании{" "}
-          <mark className="plugin">Dynamic Link</mark>. Также баг может возникнуть на
-          совершенно чистой установке <mark className="app">Adobe After Effects</mark> без
-          сторонних плагинов и скриптов.
-        </p>
-        <AdditionWarning>
-          Приведённые ниже способы{" "}
-          <u>
-            <b>не являются панацеей</b>
-          </u>{" "}
-          для решения этой проблемы и позволяют лишь исключить часть проблем при
-          воспроизведении и кэшировании предпросмотра.
-        </AdditionWarning>
-        <p>
-          Для возможного решения проблемы попробуйте установить значение{" "}
-          <mark>false</mark> рядом с параметром{" "}
-          <mark className="ui">PreviewPlaybackOptimization</mark> в консоли. Чтобы это
-          сделать - откройте консоль с помощью комбинации клавиш{" "}
-          <mark className="key">Ctrl + F12</mark>, установите вид отображения{" "}
-          <mark className="ui">Debug Database View</mark> и уберите чекбокс напротив{" "}
-          <mark className="ui">PreviewPlaybackOptimization</mark>. После этого
-          перезагрузите программу и попробуйте закэшировать и проиграть предпросмотр
-          заново.
-        </p>
-        <ImageFigure
-          caption="Adobe After Effects"
-          imgSrc="images/aftereffects/disable_previewplaybackoptimization.png"
-          imgTitle="Отключение оптимизации предпросмотра"
-          styleClass="figure_windows-dark"
-        />
       </DetailsSummary>
     </div>
   );
