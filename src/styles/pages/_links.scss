@@ -4,7 +4,7 @@
   margin-top: 0;
   margin-inline: auto;
   width: calc(100% - 16px);
-  max-width: 1400px;
+  max-width: 1300px;
 
   &-button {
     display: flex;
@@ -12,14 +12,10 @@
     flex-direction: column;
     align-items: flex-start;
     transition: background-color 1s cubic-bezier(0.075, 0.82, 0.165, 1);
-    outline: 1px solid var(--content-background-border);
+    outline: 1px solid var(--links-border);
     box-shadow: 0 3px 8px 0 var(--shadow);
-    border-radius: $roundness;
-    background-image: linear-gradient(
-      to top,
-      var(--content-background-color),
-      transparent
-    );
+    border-radius: $roundness * 0.75;
+    background-image: linear-gradient(to bottom, var(--links-gradient), transparent);
     background-color: var(--content-background-color);
 
     @media (max-width: 525px) {
@@ -45,19 +41,16 @@
       display: flex;
       position: relative;
       justify-content: space-between;
-      align-items: stretch;
+      align-items: center;
       vertical-align: middle;
+      gap: 8px;
       box-sizing: border-box;
-      outline: 1px solid var(--links-border);
-      border-radius: $roundness * 0.75;
-      background-image: linear-gradient(to top, var(--summary-background), transparent);
-      background-color: var(--links-background);
+      border-radius: $roundness;
       padding-inline: 10px;
       padding-block: 5px;
 
       .icon {
         flex-shrink: 0;
-        margin-inline-start: 8px;
         margin-block: 3px;
         width: min(calc(18px + (20 - 18) * ((100vw - 320px) / (768 - 320))), 20px);
         height: min(calc(18px + (20 - 18) * ((100vw - 320px) / (768 - 320))), 20px);
@@ -69,37 +62,43 @@
       }
 
       .name {
+        text-wrap: balance;
         margin: 3px;
+        margin-bottom: 1px;
         color: var(--links-text);
         font-weight: 700;
-        font-size: 1.05rem;
+        font-size: 0.975rem;
         font-family: "Onest", sans-serif;
+        text-align: left;
 
         @media (min-width: 320px) {
-          font-size: calc(1.05rem + (1.15 - 1.05) * ((100vw - 320px) / (768 - 320)));
+          font-size: calc(0.975rem + (1.075 - 0.975) * ((100vw - 320px) / (768 - 320)));
         }
 
         @media (min-width: 768px) {
-          font-size: 1.15rem;
+          font-size: 1.075rem;
         }
       }
     }
 
     .description {
       text-wrap: balance;
-      align-items: stretch;
-      opacity: 0.75;
+      vertical-align: middle;
+      opacity: 0.7;
       padding-inline: 12px;
       padding-block: 8px;
-      font-weight: 400;
-      font-size: 0.875rem;
+      padding-block-start: 2px;
+      height: fit-content;
+      font-weight: 375;
+      font-size: 0.8rem;
+      text-align: left;
 
       @media (min-width: 320px) {
-        font-size: calc(0.875rem + (0.925 - 0.875) * ((100vw - 320px) / (768 - 320)));
+        font-size: calc(0.8rem + (0.875 - 0.8) * ((100vw - 320px) / (768 - 320)));
       }
 
       @media (min-width: 768px) {
-        font-size: 0.925rem;
+        font-size: 0.875rem;
       }
     }
   }
