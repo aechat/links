@@ -133,7 +133,17 @@ const AEInterface: React.FC = () => {
           под расположение точек. Данную функцию можно отключить в панели инструментов,
           убрав соответствующую галочку.
         </p>
-        {/* TODO: приложить запись демонстрации ротобезье и как его отключить */}
+        <AdditionInfo>
+          Для конвертирования типа вертекса - воспользуйтесь инструментом{" "}
+          <mark className="ui">Convert Vertex Tool</mark>. Она активирует{" "}
+          <mark className="word">усики</mark> у созданных фигур, которые были созданы не с
+          помощью <mark className="ui">Rotobeizer</mark>.
+        </AdditionInfo>
+        <VideoFigure
+          caption="Adobe After Effects"
+          styleClass="figure_windows-dark"
+          videoSrc="images/aftereffects/rotobezier_demo.mp4"
+        />
       </DetailsSummary>
       <DetailsSummary
         tag="стиль графов, другой вид, отображение скорости, как сделать нормальный вид графика, speed value graph выглядит по другому"
