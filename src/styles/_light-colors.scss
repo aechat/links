@@ -29,7 +29,7 @@ $light: (
   summary-text: hsl(var(--accent-hue), calc(85% * var(--saturate-ratio)), 40%),
   // *: стили кнопок главной страницы
   links-background: hsl(var(--accent-hue), calc(41% * var(--saturate-ratio)), 97%),
-  links-gradient: hsl(var(--accent-hue), calc(31% * var(--saturate-ratio)), 94%),
+  links-gradient: hsl(var(--accent-hue), calc(50% * var(--saturate-ratio)), 95%),
   links-border: hsl(var(--accent-hue), calc(25% * var(--saturate-ratio)), 85%),
   links-hover: hsl(var(--accent-hue), calc(50% * var(--saturate-ratio)), 95%),
   links-text: hsl(var(--accent-hue), calc(85% * var(--saturate-ratio)), 40%),

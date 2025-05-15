@@ -15,7 +15,7 @@
     outline: 1px solid var(--links-border);
     box-shadow: 0 3px 8px 0 var(--shadow);
     border-radius: $roundness * 0.75;
-    background-image: linear-gradient(to bottom, var(--links-gradient), transparent);
+    background-image: linear-gradient(to bottom, var(--links-gradient), transparent 50%);
     background-color: var(--content-background-color);
 
     @media (max-width: 525px) {
@@ -46,7 +46,7 @@
       gap: 8px;
       box-sizing: border-box;
       border-radius: $roundness;
-      padding-inline: 10px;
+      padding-inline: 12px;
       padding-block: 5px;
 
       .icon {
@@ -63,8 +63,7 @@
 
       .name {
         text-wrap: balance;
-        margin: 3px;
-        margin-bottom: 1px;
+        margin-block: 3px;
         color: var(--links-text);
         font-weight: 700;
         font-size: 0.975rem;
