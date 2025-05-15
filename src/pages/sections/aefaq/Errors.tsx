@@ -988,8 +988,8 @@ const AEErrors: React.FC = () => {
         </p>
       </DetailsSummary>
       <DetailsSummary
-        tag="синема 4д не работает, c4d, с4д"
-        title='"Cinema 4D must be installed in order to use the Cinema 4D renderer", "Cineware Server Suite failed to acquire renderer port and path. Server commands not available", "Cinema 4D: Render Failed" или ошибка 5027::12'
+        tag="синема 4д не работает, c4d, с4д, cineware server suite failed to acquire renderer port and path. server commands not available, чтобы использовать средство рендеринга cinema 4d - необходимо установить cinema 4d"
+        title='"Cinema 4D must be installed in order to use the Cinema 4D renderer", "", "Cinema 4D: Render Failed" или ошибка 5027::12'
       >
         <p>
           Если у вас установлен <mark className="app">Adobe After Effects</mark> от{" "}
@@ -1029,6 +1029,25 @@ const AEErrors: React.FC = () => {
             </li>
           </ul>
         </AdditionWarning>
+        <AdditionInfo>
+          <ul>
+            <li>
+              Если у вас установлен <mark className="app">Adobe After Effects</mark> из{" "}
+              <mark className="app">Creative Cloud</mark>, то вам достаточно установить{" "}
+              <mark className="plugin">Cinema 4D</mark> оттуда:{" "}
+              <mark className="ui">
+                Установленные приложения &gt; After Effects &gt; Подключаемые модули &gt;
+                Cinema 4D &gt; Установить
+              </mark>
+              .
+            </li>
+            <li>
+              В <mark className="app">Adobe After Effects</mark> от <mark>m0nkrus</mark> и
+              некоторых релизеров - <mark className="app">Cinema 4D Lite</mark> обычно не
+              вырезан, соответственно подобные манипуляции проводить не надо.
+            </li>
+          </ul>
+        </AdditionInfo>
         <Divider>
           Список соответствия версий Maxon Cinema 4D с версиями After Effects для
           корректной работы
@@ -1090,23 +1109,6 @@ const AEErrors: React.FC = () => {
           </li>
         </ul>
         <AdditionInfo>
-          <ul>
-            <li>
-              Если у вас установлен <mark className="app">Adobe After Effects</mark> из{" "}
-              <mark className="app">Creative Cloud</mark>, то вам достаточно установить{" "}
-              <mark className="plugin">Cinema 4D</mark> оттуда:{" "}
-              <mark className="ui">
-                Установленные приложения &gt; After Effects &gt; Подключаемые модули &gt;
-                Cinema 4D &gt; Установить
-              </mark>
-              .
-            </li>
-            <li>
-              В <mark className="app">Adobe After Effects</mark> от <mark>m0nkrus</mark> и
-              некоторых релизеров - <mark className="app">Cinema 4D Lite</mark> обычно не
-              вырезан, соответственно подобные манипуляции проводить не надо.
-            </li>
-          </ul>
         </AdditionInfo>
       </DetailsSummary>
       <DetailsSummary
