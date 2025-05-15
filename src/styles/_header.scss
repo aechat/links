@@ -7,21 +7,26 @@
   left: 50%;
   justify-content: space-between;
   align-items: center;
-  transform: translateX(calc(-50% - 0.5px));
+  transform: translateX(-50%);
   z-index: 1000000;
   transition:
     background-color 0.5s cubic-bezier(0.075, 0.82, 0.165, 1),
     box-shadow 0.5s cubic-bezier(0.075, 0.82, 0.165, 1),
     border 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
-  border-bottom-right-radius: $roundness * 1.5;
-  border-bottom-left-radius: $roundness * 1.5;
   background-color: var(--header-background);
   padding-inline: 15px;
-  width: calc(100% - 8px);
+  width: 100%;
   max-width: 1075px;
 
   @media (max-width: 768px) {
     z-index: 100;
+  }
+
+  @media (min-width: 1075px) {
+    transform: translateX(calc(-50% - 0.5px));
+    border-bottom-right-radius: $roundness * 1.5;
+    border-bottom-left-radius: $roundness * 1.5;
+    width: calc(100% - 8px);
   }
 
   svg {
