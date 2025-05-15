@@ -17,7 +17,7 @@ const PRFAQ = lazy(() => import("./pages/prfaqPage"));
 
 const PSFAQ = lazy(() => import("./pages/psfaqPage"));
 
-const AEExpressionPage = lazy(() => import("./pages/aeexprfaqPage"));
+const AEExpressionPage = lazy(() => import("./pages/aeexprPage"));
 
 const RedirectHtml = () => {
   const location = useLocation();
@@ -212,7 +212,7 @@ export const App = () => {
               />
               <Route
                 element={<AEExpressionPage />}
-                path="/aeexprfaq"
+                path="/aeexpr"
               />
               <Route
                 element={<ChatRules />}

@@ -96,9 +96,9 @@ const Links = () => {
             />
             <LinkInAppCard
               description="Шпаргалка по использованию выражений в Adobe After Effects"
-              href="/aeexprfaq"
+              href="/aeexpr"
               icon={<AEExprIcon />}
-              name="aeexprfaq (WIP)"
+              name="aeexpr (WIP)"
             />
           </div>
           <Divider>Наши каналы</Divider>

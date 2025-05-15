@@ -69,7 +69,7 @@ const Header: React.FC<{title: string}> = ({title}) => {
         {(location.pathname.includes("aefaq") ||
           location.pathname.includes("prfaq") ||
           location.pathname.includes("psfaq") ||
-          location.pathname.includes("aeexprfaq")) && (
+          location.pathname.includes("aeexpr")) && (
           <div>{isWide ? <WideSearchButton /> : <SearchButton />}</div>
         )}
         <ThemeToggleButton />

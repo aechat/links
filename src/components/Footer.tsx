@@ -32,7 +32,7 @@ const Footer: React.FC<FooterProps> = ({title, initialYear}) => {
           {(window.location.pathname === "/aefaq" ||
             window.location.pathname === "/prfaq" ||
             window.location.pathname === "/psfaq" ||
-            window.location.pathname === "/aeexprfaq") && (
+            window.location.pathname === "/aeexpr") && (
             <p
               style={{
                 opacity: 0.5,

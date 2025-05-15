@@ -670,7 +670,7 @@ export const SearchInPage: React.FC<{sections: Array<{id: string; title: string}
                   <button
                     onClick={() => {
                       window.open(
-                        `https://yandex.com/search/?text=${encodeURIComponent(query)} ${window.location.pathname.includes("aefaq") ? "after effects" : window.location.pathname.includes("prfaq") ? "premiere pro" : window.location.pathname.includes("psfaq") ? "photoshop" : window.location.pathname.includes("aeexprfaq") ? "after effects expression" : ""}`,
+                        `https://yandex.com/search/?text=${encodeURIComponent(query)} ${window.location.pathname.includes("aefaq") ? "after effects" : window.location.pathname.includes("prfaq") ? "premiere pro" : window.location.pathname.includes("psfaq") ? "photoshop" : window.location.pathname.includes("aeexpr") ? "after effects expression" : ""}`,
                         "_blank"
                       );
                     }}
@@ -680,7 +680,7 @@ export const SearchInPage: React.FC<{sections: Array<{id: string; title: string}
                   <button
                     onClick={() => {
                       window.open(
-                        `https://www.perplexity.ai/search?q=${encodeURIComponent(query)} ${window.location.pathname.includes("aefaq") ? "after effects" : window.location.pathname.includes("prfaq") ? "premiere pro" : window.location.pathname.includes("psfaq") ? "photoshop" : window.location.pathname.includes("aeexprfaq") ? "after effects expression" : ""}`,
+                        `https://www.perplexity.ai/search?q=${encodeURIComponent(query)} ${window.location.pathname.includes("aefaq") ? "after effects" : window.location.pathname.includes("prfaq") ? "premiere pro" : window.location.pathname.includes("psfaq") ? "photoshop" : window.location.pathname.includes("aeexpr") ? "after effects expression" : ""}`,
                         "_blank"
                       );
                     }}
@@ -706,7 +706,7 @@ export const SearchInPage: React.FC<{sections: Array<{id: string; title: string}
                   <button
                     onClick={() => {
                       window.open(
-                        `https://yandex.com/search/?text=${encodeURIComponent(query)} ${window.location.pathname.includes("aefaq") ? "after effects" : window.location.pathname.includes("prfaq") ? "premiere pro" : window.location.pathname.includes("psfaq") ? "photoshop" : window.location.pathname.includes("aeexprfaq") ? "after effects expression" : ""}`,
+                        `https://yandex.com/search/?text=${encodeURIComponent(query)} ${window.location.pathname.includes("aefaq") ? "after effects" : window.location.pathname.includes("prfaq") ? "premiere pro" : window.location.pathname.includes("psfaq") ? "photoshop" : window.location.pathname.includes("aeexpr") ? "after effects expression" : ""}`,
                         "_blank"
                       );
                     }}
@@ -716,7 +716,7 @@ export const SearchInPage: React.FC<{sections: Array<{id: string; title: string}
                   <button
                     onClick={() => {
                       window.open(
-                        `https://www.perplexity.ai/search?q=${encodeURIComponent(query)} ${window.location.pathname.includes("aefaq") ? "after effects" : window.location.pathname.includes("prfaq") ? "premiere pro" : window.location.pathname.includes("psfaq") ? "photoshop" : window.location.pathname.includes("aeexprfaq") ? "after effects expression" : ""}`,
+                        `https://www.perplexity.ai/search?q=${encodeURIComponent(query)} ${window.location.pathname.includes("aefaq") ? "after effects" : window.location.pathname.includes("prfaq") ? "premiere pro" : window.location.pathname.includes("psfaq") ? "photoshop" : window.location.pathname.includes("aeexpr") ? "after effects expression" : ""}`,
                         "_blank"
                       );
                     }}

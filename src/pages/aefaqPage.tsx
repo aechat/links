@@ -145,9 +145,7 @@ const AEFAQ = () => {
                         items: [
                           {
                             title: (
-                              <Link to="/aeexprfaq">
-                                FAQ по выражениям в After Effects
-                              </Link>
+                              <Link to="/aeexpr">FAQ по выражениям в After Effects</Link>
                             ),
                           },
                           {

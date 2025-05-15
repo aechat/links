@@ -12,15 +12,15 @@ import {CircularProgress} from "@mui/material";
 import {generateAnchorId} from "../components/DetailsSummary";
 import {AdditionDanger, AdditionWarning} from "../components/Additions";
 
-const AEExprStart = lazy(() => import("./sections/aeexprfaq/Start"));
+const AEExprStart = lazy(() => import("./sections/aeexpr/Start"));
 
-const AEExprBase = lazy(() => import("./sections/aeexprfaq/Base"));
+const AEExprBase = lazy(() => import("./sections/aeexpr/Base"));
 
-const AEExprLinking = lazy(() => import("./sections/aeexprfaq/Linking"));
+const AEExprLinking = lazy(() => import("./sections/aeexpr/Linking"));
 
-const AEExprActions = lazy(() => import("./sections/aeexprfaq/Actions"));
+const AEExprActions = lazy(() => import("./sections/aeexpr/Actions"));
 
-const AEExprErrors = lazy(() => import("./sections/aeexprfaq/Errors"));
+const AEExprErrors = lazy(() => import("./sections/aeexpr/Errors"));
 
 const AEExpressionPage = () => {
   useEffect(() => {
@@ -58,9 +58,9 @@ const AEExpressionPage = () => {
     <div className="page">
       <SearchProvider isPageLoaded={isPageLoaded}>
         <Helmet>
-          <title>aeexprfaq@aechat</title>
+          <title>aeexpr@aechat</title>
           <link
-            href="icons/aeexprfaq.svg"
+            href="icons/aeexpr.svg"
             rel="icon"
             type="image/svg+xml"
           />
@@ -81,7 +81,7 @@ const AEExpressionPage = () => {
             property="og:url"
           />
           <meta
-            content="aeexprfaq@aechat"
+            content="aeexpr@aechat"
             property="og:title"
           />
           <meta
@@ -89,7 +89,7 @@ const AEExpressionPage = () => {
             property="og:description"
           />
         </Helmet>
-        <Header title="aeexprfaq" />
+        <Header title="aeexpr" />
         <motion.main
           animate={{x: 0, y: 0, opacity: 1}}
           className="main"
@@ -103,13 +103,11 @@ const AEExpressionPage = () => {
           <div className="faq-container-flex">
             <div className="faq-container">
               <div className="faq-title">
-                <h1>aeexprfaq</h1>
+                <h1>aeexpr</h1>
                 <Breadcrumb
                   items={[
                     {
-                      title: (
-                        <Link to="/aeexprfaq">FAQ по выражениям в After Effects</Link>
-                      ),
+                      title: <Link to="/aeexpr">FAQ по выражениям в After Effects</Link>,
                       menu: {
                         items: [
                           {title: <Link to="/aefaq">FAQ по Adobe After Effects</Link>},

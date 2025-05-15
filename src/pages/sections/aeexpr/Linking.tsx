@@ -6,11 +6,8 @@ const AEExprLinking: React.FC = () => {
   return (
     <div className="faq-content">
       <GithubUpdateInfo filePath="src/pages/sections/aeexprfaq/Linking.tsx" />
-      <DetailsSummary title="Зачем нужны контроллеры и как их создать?">
-        <p>{/* FIXME: написать!! */}</p>
-      </DetailsSummary>
-      <DetailsSummary title="Как привязать параметры одного слоя к другому?">
-        <p>{/* FIXME: написать!! */}</p>
+      <DetailsSummary title="Как присвоить значение свойства из другого слоя к нужному?">
+        <p>{/* FIXME: */}</p>
       </DetailsSummary>
     </div>
   );
