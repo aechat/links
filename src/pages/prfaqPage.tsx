@@ -53,7 +53,7 @@ const PRFAQ = () => {
       id: "from-newbies",
       component: PRFromNewbies,
     },
-    {key: "4", title: "(не)Вредные советы", id: "tips", component: PRTips},
+    {key: "4", title: "Вопросы на засыпку", id: "tips", component: PRTips},
     {key: "5", title: "Импорт", id: "import", component: PRImport},
     {key: "6", title: "Интерфейс", id: "interface", component: PRInterface},
     {

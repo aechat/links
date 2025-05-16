@@ -53,7 +53,7 @@ const AEFAQ = () => {
       id: "from-newbies",
       component: AEFromNewbies,
     },
-    {key: "4", title: "(не)Вредные советы", id: "tips", component: AETips},
+    {key: "4", title: "Вопросы на засыпку", id: "tips", component: AETips},
     {key: "5", title: "Импорт", id: "import", component: AEImport},
     {key: "6", title: "Интерфейс", id: "interface", component: AEInterface},
     {key: "7", title: "Производительность", id: "performance", component: AEPerformance},
