@@ -752,6 +752,7 @@ const AEActions: React.FC = () => {
         tag="depth scanner, сканер глубины"
         title="Как и чем я могу сгенерировать карту глубины из видео?"
       >
+        <Divider>Генерируем карту глубины в Adobe After Effects</Divider>
         <p>
           Иногда у вас может возникнуть задача сгенерировать карту глубины из видео,
           например для размытия или затемнения фона, а также для применения различных
@@ -773,6 +774,15 @@ const AEActions: React.FC = () => {
         <YouTubeVideo
           caption="Depth Scanner Plugin Tutorial"
           link="OLV8Q93KKHQ"
+        />
+        <p>
+          В качестве альтернативы вы можете воспользоваться{" "}
+          <mark className="plugin">Quick Depth</mark>. Он работает аналогичным образом,
+          как и предыдущий плагин.
+        </p>
+        <YouTubeVideo
+          caption="Introduction Quick Depth 3"
+          link="2BvqTIPNVxY"
         />
       </DetailsSummary>
       <DetailsSummary
