@@ -1854,6 +1854,37 @@ const AEInstallProblems: React.FC = () => {
           </li>
         </ul>
       </DetailsSummary>
+      <AdditionInfo>
+        Некоторые решения проблем, которые у вас могут возникнуть после установки
+        дополнительных материалов или во время использования программы, находятся в общем
+        разделе{" "}
+        <a
+          href="#errors"
+          onClick={(e) => {
+            e.preventDefault();
+
+            const target = document.getElementById("errors");
+            if (target) {
+              const headerHeight = document.querySelector("header")?.offsetHeight ?? 0;
+
+              const padding = Math.min(
+                10 + (14 - 10) * ((window.innerWidth - 320) / (768 - 320)),
+                14
+              );
+
+              const y =
+                target.getBoundingClientRect().top +
+                window.pageYOffset -
+                headerHeight -
+                padding;
+              window.scrollTo({top: y, behavior: "smooth"});
+            }
+          }}
+        >
+          Ошибки и предупреждения
+        </a>
+        .
+      </AdditionInfo>
     </div>
   );
 };
