@@ -1691,7 +1691,7 @@ const AEInstallProblems: React.FC = () => {
       </DetailsSummary>
       <DetailsSummary
         tag="предупреждение, сбой загрузки следующих подключаемых модулей, переустановите эти модули, ошибка, невозможно применить эффект, не удалось выполнить его инициализацию, попытайтесь переустановить подключаемый модуль или обратитесь к его разработчику, plug-in generated an unexpected exception"
-        title='"After Effects warning: The following plugins have failed to load. Please reinstall these plugins" при запуске программы или "After Effects Error: This effect cannot be applied because it cannot be initialized. Try reinstalling or contacting the plug-in developer (25::3)" при применении эффекта'
+        title='"Warning: The following plugins have failed to load. Please reinstall these plugins" при запуске программы или "Error: This effect cannot be applied because it cannot be initialized. Try reinstalling or contacting the plug-in developer (25::3)" при применении эффекта'
       >
         <p>
           Данные предупреждения и ошибки могут появиться по разным причинам: битые пакеты
@@ -1749,7 +1749,7 @@ const AEInstallProblems: React.FC = () => {
       </DetailsSummary>
       <DetailsSummary
         tag="предупреждение, на диске существует копия подключаемого модуля эффекта, во избежание конфликтов закройте After Effects после чего удалите или переместите более раннюю или ненужную версию"
-        title="After Effects warning: there are duplicated effect plug-ins installed on your drive. To avoid problems, quit After Effects and move or delete the older or unneeded version"
+        title="Warning: there are duplicated effect plug-ins installed on your drive. To avoid problems, quit After Effects and move or delete the older or unneeded version"
       >
         <p>
           Данное предупреждение показывает, что вы установили одинаковые плагины, но в

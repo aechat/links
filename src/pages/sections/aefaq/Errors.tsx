@@ -1382,7 +1382,7 @@ const AEErrors: React.FC = () => {
       </DetailsSummary>
       <DetailsSummary
         tag="дисковый кэш отсутствует"
-        title="After Effects error: Disk Cache folder doesn't exist (or isn't a directory), so it will be reset to the system temporary directory. Please check your settings in Media and Disk Cache Preferences"
+        title="Error: Disk Cache folder doesn't exist (or isn't a directory), so it will be reset to the system temporary directory. Please check your settings in Media and Disk Cache Preferences"
       >
         <AdditionInfo>
           Данное предупреждение не является критической ошибкой, вы можете проигнорировать
@@ -1750,7 +1750,7 @@ const AEErrors: React.FC = () => {
       </DetailsSummary>
       <DetailsSummary
         tag="отсутствует рейтрейсед 3д"
-        title="After Effects warning: A rendering plug-in was not found. The default rendering plug-in will be substituted. “Ray-Traced 3D”"
+        title="Warning: A rendering plug-in was not found. The default rendering plug-in will be substituted. “Ray-Traced 3D”"
       >
         <p>
           Данное предупреждение появляется, когда вы пытаетесь открыть очень старый проект
