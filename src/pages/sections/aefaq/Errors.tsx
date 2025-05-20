@@ -34,8 +34,8 @@ const AEErrors: React.FC = () => {
       </AdditionDanger>
       <GithubUpdateInfo filePath="src/pages/sections/aefaq/Errors.tsx" />
       <DetailsSummary
-        tag="предупреждение о нехватке памяти, оперативная память, не проигрывается предпросмотр, зацикливается превью"
-        title='Ошибка 23::40, окно "Out of Memory", "After Effects has unexpectedly run out of memory and cannot complete this export" или "Low memory warning. RAM use has been extended for previews"'
+        tag="предупреждение о нехватке памяти, оперативная память, не проигрывается предпросмотр, зацикливается превью, 23::40, after effects has unexpectedly run out of memory and cannot complete this export"
+        title='Из-за чего появляется "Out of Memory" или "Low memory warning. RAM use has been extended for previews" и как это исправить?'
       >
         <p>
           Поздравляю, вы встретились с первым боссом в{" "}
@@ -181,30 +181,29 @@ const AEErrors: React.FC = () => {
             </AdditionInfo>
           </li>
           <li>
-            Ну и самое главное: если у вас мало оперативной памяти на вашем устройстве -
-            докупите ещё и установите в материнскую плату, если возможно. В нынешних
-            реалиях для комфортной работы в{" "}
-            <mark className="app">Adobe After Effects</mark> требуется минимум{" "}
-            <mark>32 Гб</mark> оперативной памяти.
+            Если у вас мало оперативной памяти на вашем устройстве - докупите ещё и
+            установите в материнскую плату, если возможно. В нынешних реалиях для
+            комфортной работы в <mark className="app">Adobe After Effects</mark> требуется
+            минимум <mark>32 Гб</mark> оперативной памяти.
+            <AdditionInfo>
+              В <mark className="app">After Effects</mark> версии <mark>25.2</mark> и
+              новее добавили функцию проигрывания предпросмотра напрямую из жёсткого
+              диска, минуя оперативную память. Это может быть полезно, если у вас малое
+              количество оперативной памяти. Если у вас не отключен дисковый кэш, то эта
+              опция уже включена по умолчанию, а включить или выключить его можно в{" "}
+              <mark className="ui">
+                Edit &gt; Preferences &gt; Media & Disk Cache &gt; Enable Preview from
+                Disk Cache
+              </mark>
+              . При использовании данной опции желательно использовать быстрый
+              твердотельный накопитель.
+            </AdditionInfo>
           </li>
         </ul>
-        <AdditionInfo>
-          В <mark className="app">After Effects</mark> версии <mark>25.2</mark> и новее
-          добавили функцию проигрывания предпросмотра напрямую из жёсткого диска, минуя
-          оперативную память. Это может быть полезно, если у вас малое количество
-          оперативной памяти. Если у вас не отключен дисковый кэш, то эта опция уже
-          включена по умолчанию, а включить или выключить его можно в{" "}
-          <mark className="ui">
-            Edit &gt; Preferences &gt; Media & Disk Cache &gt; Enable Preview from Disk
-            Cache
-          </mark>
-          . При использовании данной опции желательно использовать быстрый твердотельный
-          накопитель.
-        </AdditionInfo>
       </DetailsSummary>
       <DetailsSummary
-        tag="видеокарта, гпу, нехватает видеопамяти, врам, vram"
-        title="After Effects has encountered a failure related to GPU-enabled effects from this frame. This is likely because your GPU is out of memory."
+        tag="видеокарта, гпу, нехватает видеопамяти, врам, vram, This is likely because your GPU is out of memory"
+        title='Из-за чего появляется "After Effects has encountered a failure related to GPU-enabled effects from this frame"?'
       >
         <p>
           Данная ошибка указывает на то, что видеопамять вашей видеокарты заполнена и
@@ -255,8 +254,8 @@ const AEErrors: React.FC = () => {
         </AdditionInfo>
       </DetailsSummary>
       <DetailsSummary
-        tag="слетела лицензия, красное окно, не запускается, впн, файл хостс, блокировка доступа в интернет"
-        title='"This unlicensed Adobe app is not genuine and will be disabled soon", "Unlicensed Adobe apps may expose your device to increased security risks", "This app will disable in X days" или что-то похожее с красной полоской при запуске, но на другом языке. Как запустить программу нормально?'
+        tag="слетела лицензия, красное окно, окно с красной полоской при запуске, не запускается, впн, файл хостс, блокировка доступа в интернет, This unlicensed Adobe app is not genuine and will be disabled soon, Unlicensed Adobe apps may expose your device to increased security risks, This app will disable in days, this app has been disabled"
+        title='Как избавиться от "The unlicensed Adobe app has been disabled"?'
       >
         <p>
           Пользователь, работающий в <mark className="word">народной</mark> версии{" "}
@@ -654,8 +653,8 @@ const AEErrors: React.FC = () => {
         />
       </DetailsSummary>
       <DetailsSummary
-        tag="выделенный объем памяти превышает внутреннее ограничение, рекомендуется снизить требования к памяти для рендеринга этого кадра, невозможно выделить для эффекта буфер величиной более 30000 пикс. в любом направлении, нехватка озу, перекрутил, не проигрывается предпросмотр, зацикливается превью, motion tile, мозаика движения"
-        title='"Unable to allocate enough memory to render the current frame (XXXX x XXXX @ X bpc). Either decrease the memory requirements for the rendering frame, or install more RAM" или "Effect cannot allocate a buffer larger than 30000 pixels in either dimension (25::56)"'
+        tag="выделенный объем памяти превышает внутреннее ограничение, рекомендуется снизить требования к памяти для рендеринга этого кадра, невозможно выделить для эффекта буфер величиной более 30000 пикс. в любом направлении, нехватка озу, перекрутил, не проигрывается предпросмотр, зацикливается превью, motion tile, мозаика движения, Either decrease the memory requirements for the rendering frame or install more RAM"
+        title='"Unable to allocate enough memory to render the current frame" или "Effect cannot allocate a buffer larger than 30000 pixels in either dimension (25::56)"'
       >
         <p>
           Эти две ошибки обычно возникают из-за неправильных действий пользователя или
@@ -716,8 +715,8 @@ const AEErrors: React.FC = () => {
         </p>
       </DetailsSummary>
       <DetailsSummary
-        tag="этот эффект может замедлить предпросмтр и экспорт так как он не оптимизрован для мультикадрового рендера"
-        title='"This effect may slow down Preview and Export as it is optimized Multi-Frame Render" при применении эффекта'
+        tag="этот эффект может замедлить предпросмотр и экспорт так как он не оптимизирован для мультикадрового рендера"
+        title='Почему появляется "This effect may slow down Preview and Export as it is optimized Multi-Frame Render" при применении эффекта?'
       >
         <p>
           Это предупреждение сообщает, что используемый вами плагин не поддерживает
@@ -749,7 +748,7 @@ const AEErrors: React.FC = () => {
       </DetailsSummary>
       <DetailsSummary
         tag="этот проект содержит ошибки выражений"
-        title='"This project contains an expression error"'
+        title='Из-за чего появляется "This project contains an expression error"?'
       >
         <p>
           Чаще всего данная ошибка возникает из-за двух факторов: язык самого{" "}
@@ -994,8 +993,8 @@ const AEErrors: React.FC = () => {
         </p>
       </DetailsSummary>
       <DetailsSummary
-        tag="синема 4д не работает, c4d, с4д, cineware server suite failed to acquire renderer port and path. server commands not available, чтобы использовать средство рендеринга cinema 4d - необходимо установить cinema 4d"
-        title='"Cinema 4D must be installed in order to use the Cinema 4D renderer", "", "Cinema 4D: Render Failed" или ошибка 5027::12'
+        tag="синема 4д не работает, c4d, с4д, cinema 4d: render failed, cineware server suite failed to acquire renderer port and path. server commands not available, чтобы использовать средство рендеринга cinema 4d - необходимо установить cinema 4d"
+        title='"Cinema 4D must be installed in order to use the Cinema 4D renderer" или ошибка 5027::12'
       >
         <p>
           Если у вас установлен <mark className="app">Adobe After Effects</mark> от{" "}
@@ -1180,9 +1179,10 @@ const AEErrors: React.FC = () => {
         <p>
           В более редких случаях вполне может быть такое, что новая версия{" "}
           <mark className="app">Adobe After Effects</mark> не поддерживает вашу видеокарту
-          или драйвера, которые вы давно не обновляли. Обычно проблемы совместимости
-          указываются в окне <mark className="ui">System Compatibility Report</mark> при
-          запуске, если оно было вами не отключено в настройках программы.
+          или драйвера, которые вы давно не обновляли. Или наоборот. Обычно проблемы
+          совместимости указываются в окне{" "}
+          <mark className="ui">System Compatibility Report</mark> при запуске, если оно
+          было вами не отключено в настройках программы.
         </p>
         <AdditionInfo>
           По своему опыту скажу, что когда я использовал <mark>GTX 1060 3 GB</mark> -
@@ -1309,13 +1309,13 @@ const AEErrors: React.FC = () => {
       </DetailsSummary>
       <DetailsSummary
         tag="файл поврежден, невозможно импортировать файл, ошибка с файлом, не читается"
-        title='"File is damaged", "Unable to import file (НАЗВАНИЕ_ФАЙЛА.XYZ) as project (bad format or not readable)" или "Error with file"'
+        title='"File is damaged", "Unable to import file as project (bad format or not readable)" или "Error with file"'
       >
         <p>
           Если вы открыли проект, прекрасно работавший вчера, но вдруг сегодня он перестал
           открываться, то поздравляю. Возможно, вы экстренно завершили процесс с
-          программой или компьютер упал в BSOD. В таком случае восстановить проект будет
-          крайне проблематично.
+          программой или компьютер упал в <mark>BSOD</mark>. В таком случае восстановить
+          проект будет крайне проблематично.
         </p>
         <ul>
           <li>
@@ -1324,10 +1324,12 @@ const AEErrors: React.FC = () => {
           </li>
           <li>
             Если файла авто-сохранения нет, или там находятся очень старые файлы, то снова
-            примите мои соболезнования. В следующий раз позаботьтесь о своих нервах и
-            создавайте резервные копии проекта или настройте облачное хранилище с
-            поддержкой отката файлов, например{" "}
-            <a href="https://360.yandex.ru/">Яндекс.Диск</a>.
+            примите мои соболезнования. В следующий раз{" "}
+            <a href="#4.1">
+              позаботьтесь о своих нервах и создавайте резервные копии проекта или
+              настройте облачное хранилище с поддержкой отката файлов
+            </a>
+            , например <a href="https://360.yandex.ru/">Яндекс.Диск</a>.
           </li>
         </ul>
         <AdditionInfo>
@@ -1625,7 +1627,8 @@ const AEErrors: React.FC = () => {
         />
         <p>
           В данном окне обычно пишутся возможные проблемы с использованием программы,
-          например устаревшие драйвера или плагины с каким-то критическим багом.
+          например устаревшие или, наоборот, слишком свежие драйвера, а также плагины с
+          каким-то критическим багом.
         </p>
         <p>
           Если вы в курсе о причинах некой несовместимости и вы согласны работать дальше с

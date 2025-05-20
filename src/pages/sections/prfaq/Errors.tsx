@@ -40,8 +40,8 @@ const PRErrors: React.FC = () => {
         </p>
       </DetailsSummary>
       <DetailsSummary
-        tag="слетела лицензия, красное окно, не запускается, впн, файл хостс, блокировка доступа в интернет"
-        title='"This unlicensed Adobe app is not genuine and will be disabled soon", "Unlicensed Adobe apps may expose your device to increased security risks", "This app will disable in X days" или что-то похожее с красной полоской при запуске, но на другом языке. Как запустить программу нормально?'
+        tag="слетела лицензия, красное окно, окно с красной полоской при запуске, не запускается, впн, файл хостс, блокировка доступа в интернет, This unlicensed Adobe app is not genuine and will be disabled soon, Unlicensed Adobe apps may expose your device to increased security risks, This app will disable in days, this app has been disabled"
+        title='Как избавиться от "The unlicensed Adobe app has been disabled"?'
       >
         <p>
           Пользователь, работающий в <mark className="word">народной</mark> версии{" "}
