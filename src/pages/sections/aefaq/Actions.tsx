@@ -9,6 +9,7 @@ import {
 import GithubUpdateInfo from "../../../components/features/GithubUpdateInfo";
 import {Divider} from "antd";
 import ContentSwitcher from "../../../components/features/ContentFilter";
+import CodeSnippet from "../../../components/features/CodeSnippet";
 
 const AEActions: React.FC = () => {
   return (
@@ -752,6 +753,15 @@ const AEActions: React.FC = () => {
         tag="depth scanner, сканер глубины"
         title="Как и чем я могу сгенерировать карту глубины из видео?"
       >
+        <AdditionDanger>
+          Все перечисленные способы в этой статье{" "}
+          <b>
+            <u>очень требовательны</u>
+          </b>{" "}
+          к мощности видеокарты, объёму видеопамяти и оперативной памяти. Также
+          рекомендуется использовать видеокарты от <mark>NVIDIA</mark> для работы, так как
+          все эти инструменты используют ядра <mark>CUDA</mark>.
+        </AdditionDanger>
         <Divider>Генерируем карту глубины в Adobe After Effects</Divider>
         <p>
           Иногда у вас может возникнуть задача сгенерировать карту глубины из видео,
@@ -762,28 +772,228 @@ const AEActions: React.FC = () => {
           множество настроек по качеству обработки, типу работы, а также выбор различных
           моделей для анализа глубины у слоя.
         </p>
-        <AdditionDanger>
-          Данный плагин{" "}
-          <b>
-            <u>очень требователен</u>
-          </b>{" "}
-          к мощности видеокарты, объёму видеопамяти и оперативной памяти. Также
-          рекомендуется использовать видеокарты от <mark>NVIDIA</mark> для работы с
-          плагином.
-        </AdditionDanger>
         <YouTubeVideo
           caption="Depth Scanner Plugin Tutorial"
           link="OLV8Q93KKHQ"
         />
         <p>
-          В качестве альтернативы вы можете воспользоваться{" "}
-          <mark className="plugin">Quick Depth</mark>. Он работает аналогичным образом,
-          как и предыдущий плагин.
+          В качестве альтернативного плагина вы можете воспользоваться{" "}
+          <mark className="plugin">Quick Depth</mark>. Он работает похожим образом, как и
+          предыдущий плагин.
         </p>
         <YouTubeVideo
           caption="Introduction Quick Depth 3"
           link="2BvqTIPNVxY"
         />
+        <Divider>Генерируем карту глубины через Depth Anything V2</Divider>
+        <p>
+          Если вам неудобно работать с этими плагинами для создания карт глубины -
+          попробуйте <mark className="app">Depth Anything V2</mark>, который работает
+          отдельно от <mark className="app">Adobe After Effects</mark>. С помощью него
+          можно генерировать карту глубины как для картинок, так и для видео. Для
+          генерации карты глубины для видео больше подойдёт{" "}
+          <a href="https://github.com/DepthAnything/Video-Depth-Anything">
+            Video Depth Anything
+          </a>
+          , но в этой статье он рассматриваться не будет, так как{" "}
+          <mark className="app">Depth Anything V2</mark> более универсален.
+        </p>
+        <AdditionWarning>
+          Все действия в статье проделываются в операционной системе <mark>Windows</mark>.
+          На <mark>macOS</mark> установка <mark className="app">Python</mark> и
+          зависимостей для работы <mark className="app">Depth Anything V2</mark> может
+          отличаться.
+        </AdditionWarning>
+        <p>
+          Прежде чем скачать и развернуть у себя{" "}
+          <mark className="app">Depth Anything V2</mark> - вам нужно установить{" "}
+          <mark className="app">Python</mark> версии <mark>3.11.9</mark>. Для того чтобы
+          скачать его - перейдите{" "}
+          <a href="https://www.python.org/ftp/python/3.11.9/python-3.11.9-amd64.exe">
+            по этой ссылке
+          </a>{" "}
+          и подтвердите при необходимости скачивание. Затем откройте установщик,
+          установите возле параметра <mark className="ui">Add python.exe to PATH</mark>{" "}
+          чекбокс, а потом нажмите на <mark className="ui">Install Now</mark> и ожидайте
+          успешной установки. После установки <mark className="app">Python</mark>{" "}
+          рекомендую перезагрузить устройство, чтобы переменная среда с{" "}
+          <mark className="app">Python</mark> применилась.
+        </p>
+        <ImageFigure
+          caption="Python 3.11.9 (64-bit) Setup"
+          imgSrc="images/install_python_3119.png"
+          imgTitle="Установка Python 3.11.9"
+          styleClass="figure_windows-light"
+        />
+        <p>
+          После установки <mark className="app">Python</mark> нужно скачать сам{" "}
+          <mark className="app">Depth Anything V2</mark>. Для этого откройте страницу с{" "}
+          <a href="https://github.com/DepthAnything/Depth-Anything-V2">
+            репозиторием на GitHub
+          </a>
+          , нажмите на <mark className="ui">Code</mark> и в контекстном меню нажмите на{" "}
+          <mark className="ui">Download ZIP</mark>.
+        </p>
+        <ImageFigure
+          caption="GitHub"
+          imgSrc="images/depth_anything_clone_repo.png"
+          imgTitle="Клонирование репозитория Depth Anything"
+          styleClass="figure_windows-dark"
+        />
+        <p>
+          После успешного скачивания архива с репозиторием - распакуйте его. Для
+          корректной распаковки архива рекомендую использовать{" "}
+          <mark className="app">WinRAR</mark>. После распаковки архива - откройте
+          командную строку и перейдите внутрь распакованной папки с помощью команды{" "}
+          <mark className="code">cd диск:/путь/до/файла</mark>. После открытия папки -
+          выполните команду <mark className="code">pip install -r requirements.txt</mark>.
+          Она установит нужные зависимости для корректной работы данной утилиты.
+        </p>
+        <AdditionWarning>
+          <ul>
+            <li>
+              На более свежих версиях <mark className="app">Python</mark> у вас могут не
+              установиться корректно некоторые нужные зависимости без танцев с бубнами. В
+              этой статье используется <mark className="app">Python</mark> версии{" "}
+              <mark>3.11</mark>, так как у автора на <mark>3.13</mark> не мог корректно
+              установиться <mark>gradio</mark>.
+            </li>
+            <li>
+              Учтите, что в зависимостях устанавливается <mark>Torch</mark> без поддержки{" "}
+              <mark>CUDA</mark>, поэтому обработка с помощью видеокарты может не работать
+              и будет выполняться на процессоре. Для того, чтобы генерация карты глубины
+              работала корректно с помощью вашей видеокарты - нужно удалить существующие
+              зависимости с помощью команды{" "}
+              <mark className="code">pip uninstall torch torchvision -y</mark>, а затем
+              установить те же зависимости, но из другого места -{" "}
+              <mark className="code">
+                pip install torch torchvision --index-url
+                https://download.pytorch.org/whl/cu121
+              </mark>
+              .
+              <li>
+                Если у вас видеокарта <mark>Geforce GTX 1000 серии</mark>, то попробуйте
+                выполнить{" "}
+                <mark className="code">
+                  pip install torch torchvision --index-url
+                  https://download.pytorch.org/whl/cu118
+                </mark>
+                , если у вас не заведется.
+              </li>
+            </li>
+            <li>
+              Если вы работаете с другими инструментами, работающие с{" "}
+              <mark className="app">Python</mark>, например{" "}
+              <mark className="app">Stable Diffusion</mark> - советую установить
+              зависимости в отдельную виртуальную среду внутри папки с{" "}
+              <mark className="app">Depth Anything V2</mark>.{" "}
+              <a href="https://packaging.python.org/en/latest/guides/installing-using-pip-and-virtual-environments/">
+                Подробнее...
+              </a>
+            </li>
+          </ul>
+        </AdditionWarning>
+        <p>
+          После успешной установки зависимостей, то есть если у вас не выбило никакую
+          ошибку при их загрузке и установке - вам нужно скачать модели для обработки. Их
+          несколько -{" "}
+          <a href="https://huggingface.co/depth-anything/Depth-Anything-V2-Small/resolve/main/depth_anything_v2_vits.pth?download=true">
+            Depth-Anything-V2-Small
+          </a>
+          ,{" "}
+          <a href="https://huggingface.co/depth-anything/Depth-Anything-V2-Base/resolve/main/depth_anything_v2_vitb.pth?download=true">
+            Depth-Anything-V2-Base
+          </a>{" "}
+          и{" "}
+          <a href="https://huggingface.co/depth-anything/Depth-Anything-V2-Large/resolve/main/depth_anything_v2_vitl.pth?download=true">
+            Depth-Anything-V2-Large
+          </a>
+          . Вы можете скачать все или только определенную. После скачивания эти модели
+          нужно расположить внутри распакованной папки с репозиторием{" "}
+          <mark className="app">Depth Anything V2</mark> в подпапку{" "}
+          <mark className="path">checkpoints</mark>. По умолчанию её нет, поэтому его
+          нужно создать самостоятельно.
+        </p>
+        <p>
+          После установки моделей для работы с{" "}
+          <mark className="app">Depth Anything V2</mark> - вы можете начать пользоваться
+          им с помощью командной строки. Команда для начала генерации чем-то похожа на{" "}
+          <mark className="app">FFmpeg</mark>. В команде ниже нужно будет заменить
+          несколько параметров в зависимости от того, что вам нужно.
+        </p>
+        <ul>
+          <li>
+            Для генерации карты глубины для <mark className="image">изображения</mark>{" "}
+            используется скрипт <mark className="file">run.py</mark>. Для его запуска
+            нужно передать несколько входных значений.
+            <CodeSnippet>
+              {`python .\\run.py --encoder МОДЕЛЬ --img-path ДИСК:\\ПУТЬ\\ДО\\ИСХОДНОГО_ФАЙЛА\\С.РАСШИРЕНИЕМ --outdir ДИСК:\\ПУТЬ\\ДЛЯ\\СОХРАНЕНИЯ\\ --grayscale --pred-only`}
+            </CodeSnippet>
+          </li>
+          <li>
+            Для генерации карты глубины для <mark className="video">видео</mark>{" "}
+            используется скрипт <mark className="file">run_video.py</mark>. Для его
+            запуска нужно передать несколько входных значений.
+            <CodeSnippet>
+              {`python .\\run_video.py --encoder МОДЕЛЬ --video-path ДИСК:\\ПУТЬ\\ДО\\ИСХОДНОГО_ФАЙЛА\\С.РАСШИРЕНИЕМ --outdir ДИСК:\\ПУТЬ\\ДЛЯ\\СОХРАНЕНИЯ\\ --grayscale --pred-only`}
+            </CodeSnippet>
+          </li>
+          <li>
+            <ul>
+              <li>
+                Вместо <mark className="code">МОДЕЛЬ</mark> вам нужно будет вписать одно
+                из трёх значений.
+                <ul>
+                  <li>
+                    <mark className="code">vits</mark> - будет использоваться модель{" "}
+                    <mark className="file">Depth-Anything-V2-Small</mark> для генерации
+                    глубины.
+                  </li>
+                  <li>
+                    <mark className="code">vitb</mark> - будет использоваться модель{" "}
+                    <mark className="file">Depth-Anything-V2-Base</mark> для генерации
+                    глубины.
+                  </li>
+                  <li>
+                    <mark className="code">vitl</mark> - будет использоваться модель{" "}
+                    <mark className="file">Depth-Anything-V2-Large</mark> для генерации
+                    глубины.
+                  </li>
+                </ul>
+              </li>
+              <li>
+                Вместо{" "}
+                <mark className="code">ДИСК:\ПУТЬ\ДО\ИСХОДНОГО_ФАЙЛА\С.РАСШИРЕНИЕМ</mark>{" "}
+                вам нужно будет указать <mark className="word">полный</mark> или{" "}
+                <mark className="word">относительный</mark> путь до нужного вам видео.
+              </li>
+              <li>
+                Вместо <mark className="code">ДИСК:\ПУТЬ\ДЛЯ\СОХРАНЕНИЯ\</mark> вам нужно
+                будет указать <mark className="word">полный</mark> или{" "}
+                <mark className="word">относительный</mark> путь для сохранения
+                полученного файла.
+              </li>
+              <li>
+                Вы можете указать необязательный аргумент{" "}
+                <mark className="code">--grayscale</mark>, который даёт вам карту глубины
+                в чёрно-белом варианте. Без этого аргумента вы получите файл с
+                сине-красным оттенком, будто тепловизор.
+              </li>
+              <li>
+                Вы можете указать необязательный аргумент{" "}
+                <mark className="code">--pred-only</mark>, который сохранит только карту
+                глубины. Без этого аргумента вы получите{" "}
+                <mark className="word">side-by-side</mark> видео, где слева будет карта
+                глубины, а справа - оригинальный файл.
+              </li>
+            </ul>
+          </li>
+        </ul>
+        <p>
+          После успешного выполнения скрипта вы получите в нужном месте файл с картой
+          глубины в соответствии с заданными вами параметрами. Его вы можете использовать
+          в <mark className="app">Adobe After Effects</mark> или где-нибудь ещё.
+        </p>
       </DetailsSummary>
       <DetailsSummary
         tag="удалить цвет, убрать фон, кеинг, экстракт, анмульт, унмульт"
