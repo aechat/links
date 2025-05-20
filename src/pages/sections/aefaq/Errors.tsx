@@ -141,6 +141,12 @@ const AEErrors: React.FC = () => {
             </AdditionInfo>
           </li>
           <li>
+            Если у вас включен файл подкачки и вы уверены, что дело не в программе -
+            попробуйте проверить ваши плашки оперативной памяти, например проверив их
+            через <a href="https://www.memtest86.com/">MemTest86</a> или поменяв их
+            местами на материнской плате.
+          </li>
+          <li>
             Если у вас включена функция <mark>Multi-Frame Render</mark> - попробуйте его
             временно отключить. Для этого перейдите в{" "}
             <mark className="ui">Edit &gt; Preferences &gt; Memory & Performance</mark> и
