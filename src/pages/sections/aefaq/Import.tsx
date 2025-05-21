@@ -654,7 +654,7 @@ const AEImport: React.FC = () => {
         <p>
           Некоторые пользователи, использующие{" "}
           <mark className="app">Adobe After Effects</mark> на операционных системах{" "}
-          <mark>Windows 10/11</mark> могут столкнуться с проблемой открытия и импорта
+          <mark>Windows 10 или 11</mark> могут столкнуться с проблемой открытия и импорта
           таких файлов, так как у них не установлены кодеки для работы с данными форматами
           изображений и видео. Казалось бы, достаточно их установить с{" "}
           <mark className="app">Microsoft Store</mark>, но увы. Один из кодеков платный, а
@@ -670,30 +670,22 @@ const AEImport: React.FC = () => {
         </p>
         <ul>
           <li>
+            Для скачивания кодека <mark className="image">HEIF/HEIC</mark>.
+            <code>https://apps.microsoft.com/9pmmsr1cgpwg</code>
+          </li>
+          <li>
             Для скачивания кодека <mark className="video">HEVC</mark>.
             <code>https://apps.microsoft.com/9n4wgh0z6vhq</code>
             <AdditionDanger>
-              <ul>
-                <li>
-                  <mark className="app">Adobe After Effects</mark> даже после установки
-                  кодеков <mark className="video">HEVC</mark> не сможет импортировать
-                  видео файлы формата <mark className="file">.hevc</mark>.
-                </li>
-                <li>
-                  Для решения проблемы с импортом видео файлы с расширением{" "}
-                  <mark className="file">.hevc</mark> лучше всего перекодировать через{" "}
-                  <mark className="app">Shutter Encoder</mark> в другой кодек или
-                  переименовать файлы в <mark className="file">.mp4</mark>, а затем
-                  импортировать с помощью{" "}
-                  <a href="https://www.autokroma.com/Influx">Autokroma Influx</a> в ваш
-                  проект.
-                </li>
-              </ul>
+              <mark className="app">Adobe After Effects</mark> после установки кодеков все
+              ещё не будет импортировать видео с контейнером{" "}
+              <mark className="video">HEVC</mark>. То есть если вы попробуете
+              импортировать <mark className="video">.hevc</mark> в проект - вам скажут,
+              что такой файл не поддерживается. Чтобы это исправить - попробуйте
+              переименовать ваше видео в <mark className="video">.mp4</mark> или
+              перекодируйте видео в другой кодек через{" "}
+              <mark className="app">Shutter Encoder</mark>.
             </AdditionDanger>
-          </li>
-          <li>
-            Для скачивания кодека <mark className="video">HEIF/HEIC</mark>.
-            <code>https://apps.microsoft.com/9pmmsr1cgpwg</code>
           </li>
         </ul>
         <ImageFigure

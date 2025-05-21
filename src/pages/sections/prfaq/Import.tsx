@@ -416,20 +416,16 @@ const PRImport: React.FC = () => {
           или <mark className="app">Shutter Encoder</mark>.
         </p>
       </DetailsSummary>
-      <DetailsSummary title="Прислали исходники в формате .heic, .heif или .hevc. Как мне их открыть и импортировать в проект?">
-        {/* FIXME: сверить с аефакнутым вариантом */}
-        <AdditionDanger>
-          <mark className="app">Premiere Pro</mark>, к сожалению, даже после установки
-          кодеков HEVC и HEIF/HEIC не сможет импортировать видео файлы формата{" "}
-          <mark className="file">.hevc</mark>. Такие файлы нужно перекодировать через{" "}
-          <mark className="app">Shutter Encoder</mark> в другой кодек или попробуйте
-          установить <a href="https://www.autokroma.com/Influx">Autokroma Influx</a> для
-          импорта файлов неподдерживаемых форматов в ваш проект.
-        </AdditionDanger>
+      <DetailsSummary
+        tag="исходники видео фото с айфона"
+        title="Прислали исходники в формате .heic, .heif или .hevc, но выбивает ошибку. Как их мне открыть и импортировать в проект?"
+      >
         <p>
-          Некоторые пользователи операционных систем Windows 10 и 11 могут столкнуться с
-          проблемой открытия таких файлов, так как у них не установлены кодеки для работы
-          с данными форматами изображений и видео. Казалось бы, достаточно их установить с{" "}
+          Некоторые пользователи, использующие{" "}
+          <mark className="app">Adobe Premiere Pro</mark> на операционных системах{" "}
+          <mark>Windows 10 или 11</mark> могут столкнуться с проблемой открытия и импорта
+          таких файлов, так как у них не установлены кодеки для работы с данными форматами
+          изображений и видео. Казалось бы, достаточно их установить с{" "}
           <mark className="app">Microsoft Store</mark>, но увы. Один из кодеков платный, а
           другой - устанавливается неочевидно.
         </p>
@@ -443,12 +439,22 @@ const PRImport: React.FC = () => {
         </p>
         <ul>
           <li>
-            Для скачивания кодека <mark className="video">HEVC</mark>.
-            <code>https://apps.microsoft.com/9n4wgh0z6vhq</code>
+            Для скачивания кодека <mark className="image">HEIF/HEIC</mark>.
+            <code>https://apps.microsoft.com/9pmmsr1cgpwg</code>
           </li>
           <li>
-            Для скачивания кодека <mark className="video">HEIF/HEIC</mark>.
-            <code>https://apps.microsoft.com/9pmmsr1cgpwg</code>
+            Для скачивания кодека <mark className="video">HEVC</mark>.
+            <code>https://apps.microsoft.com/9n4wgh0z6vhq</code>
+            <AdditionDanger>
+              <mark className="app">Adobe Premiere Pro</mark> после установки кодеков все
+              ещё не будет импортировать видео с контейнером{" "}
+              <mark className="video">HEVC</mark>. То есть если вы попробуете
+              импортировать <mark className="video">.hevc</mark> в проект - вам скажут,
+              что такой файл не поддерживается. Чтобы это исправить - попробуйте
+              переименовать ваше видео в <mark className="video">.mp4</mark> или
+              перекодируйте видео в другой кодек через{" "}
+              <mark className="app">Shutter Encoder</mark>.
+            </AdditionDanger>
           </li>
         </ul>
         <ImageFigure
@@ -463,10 +469,10 @@ const PRImport: React.FC = () => {
         </p>
         <AdditionWarning>
           Если браузер жалуется, мол вы скачиваете редкий файл или некий вирус, то
-          проигнорируйте это и продолжите скачивание дальше.
+          проигнорируйте и продолжите скачивание дальше.
         </AdditionWarning>
         <p>
-          Чтобы установить пакеты с расширением <mark className="file">.appxbundle</mark>,
+          Для установки пакетов с расширением <mark className="file">.appxbundle</mark> -
           достаточно их открыть двойным кликом. Если вам предлагают открыть файл с помощью{" "}
           <mark className="app">Обработчика команд Windows</mark> или{" "}
           <mark className="app">Установщика приложений</mark>, то выберите то, что вам
@@ -478,8 +484,7 @@ const PRImport: React.FC = () => {
           <mark className="file">.heif</mark>, <mark className="file">.heic</mark> и{" "}
           <mark className="file">.hevc</mark> в различных видеоплеерах и просмотрщиков
           фото, например в <mark className="app">MPC-HC</mark> и{" "}
-          <mark className="app">FastStone Image Viewer</mark>, а также конвертировать
-          такие файлы через <mark className="app">Shutter Encoder</mark>.
+          <mark className="app">FastStone Image Viewer</mark>.
         </p>
       </DetailsSummary>
       <DetailsSummary title="Как импортировать композиции из After Effects в секвенцию Premiere Pro?">
