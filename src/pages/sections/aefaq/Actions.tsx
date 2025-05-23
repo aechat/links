@@ -785,6 +785,16 @@ const AEActions: React.FC = () => {
           caption="Introduction Quick Depth 3"
           link="2BvqTIPNVxY"
         />
+        <p>
+          Также в <mark className="plugin">BorisFX Continuum</mark> с версии{" "}
+          <mark>2025.5</mark> и новее добавили{" "}
+          <mark className="plugin">BCC+ Depth Map ML</mark>. С его помощью тоже можно
+          генерировать карту глубины и делать с помощью этой карты различные эффекты.
+        </p>
+        <YouTubeVideo
+          caption="Instant AI Depth Maps with Continuum"
+          link="OVLxRFsnqM8"
+        />
         <Divider>Генерируем карту глубины через Depth Anything V2</Divider>
         <p>
           Если вам неудобно работать с этими плагинами для создания карт глубины -
