@@ -2528,7 +2528,7 @@ const AEFromNewbies: React.FC = () => {
           styleClass="figure_windows-dark"
         />
       </DetailsSummary>
-      <DetailsSummary title="Почему я не могу изменить режимы наложения у 3D слоёв?">
+      <DetailsSummary title="Почему пропадают режимы наложения в Mode и Track Matte, когда я перевожу слой в 3D?">
         <p>
           Скорее всего у вас включен движок рендера{" "}
           <mark className="plugin">Advanced 3D</mark> или{" "}
