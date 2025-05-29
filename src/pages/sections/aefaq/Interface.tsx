@@ -895,6 +895,27 @@ const AEInterface: React.FC = () => {
           styleClass="figure_windows-dark"
         />
       </DetailsSummary>
+      <DetailsSummary title="Как изменить стандартные цвета меток для различных типов слоёв?">
+        <p>
+          В <mark className="app">Adobe After Effects</mark> всем типам слоев
+          присваивается тот или иной цвет. Иногда пользователю хочется сделать цвета слоёв
+          более насыщенными или изменить на свои. Чтобы это сделать - перейдите в
+          настройки программы{" "}
+          <mark className="ui">Edit &gt; Preferences &gt; Labels</mark>.
+        </p>
+        <ImageFigure
+          caption="Preferences"
+          imgSrc="images/aftereffects/preferences_labels.png"
+          imgTitle="Настройки меток"
+          styleClass="figure_windows-dark"
+        />
+        <p>
+          Перед вами появятся две категории - <mark className="ui">Label Defaults</mark> и{" "}
+          <mark className="ui">Label Colors</mark>. В первой категории вы можете задать
+          для нужного типа слоя или маркера любой цвет из второй категории. Во второй
+          категории вы можете изменить цвет и даже задать ему своё имя.
+        </p>
+      </DetailsSummary>
       <DetailsSummary title="Как изменить акцентный цвет интерфейса программы?">
         <AdditionDanger>
           Для <mark className="app">Adobe After Effects</mark> версий <mark>25.X</mark>{" "}
