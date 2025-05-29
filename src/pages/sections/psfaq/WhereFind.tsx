@@ -32,16 +32,16 @@ const PSWhereFind: React.FC = () => {
         <ul>
           <li>
             <a href="https://t.me/s/designworld">Design World</a> - канал с статичной
-            графикой, эффектами и кистями для <mark className="app">Photoshop</mark>,
-            которые в дальнейшем можно использовать в ваших работах.
+            графикой, эффектами и кистями для <mark className="app">Adobe Photoshop</mark>
+            , которые в дальнейшем можно использовать в ваших работах.
           </li>
           <li>
             <a href="https://t.me/s/aetemp">AETemp</a> и{" "}
             <a href="https://t.me/s/premtemp">PremTemp</a> - каналы с переходами,
             шаблонами, расширениями и прочими ништяками для ваших проектов в{" "}
-            <mark className="app">After Effects</mark> и{" "}
-            <mark className="app">Premiere Pro</mark>. Оттуда можно почерпнуть идеи для
-            ваших проектов в <mark className="app">Photoshop</mark>.
+            <mark className="app">Adobe After Effects</mark> и{" "}
+            <mark className="app">Adobe Premiere Pro</mark>. Оттуда можно подчерпнуть идеи
+            для ваших проектов в <mark className="app">Adobe Photoshop</mark>.
           </li>
         </ul>
         <AdditionInfo>
@@ -123,8 +123,8 @@ const PSWhereFind: React.FC = () => {
         <AdditionWarning>
           При установке программ с пометкой <mark>репак от кролика</mark> из{" "}
           <a href="https://t.me/+Qd9xu7A4TeIwNzY6">склада стройматериалов (Windows)</a> не
-          забывайте убирать галочку с пункта <mark className="ui">Реклама</mark> и
-          отключать антивирус перед установкой, иначе можете наткнуться на проблему{" "}
+          забывайте убирать галочку <mark className="ui">Реклама</mark> и отключать
+          антивирус перед установкой, иначе можете наткнуться на проблему{" "}
           <mark className="ui">helper.exe не найден</mark>.
         </AdditionWarning>
         <AdditionDanger>
@@ -168,8 +168,8 @@ const PSWhereFind: React.FC = () => {
           </a>{" "}
           в <mark className="app">Telegram</mark> с полезными материалами для
           использования в различных графических редакторах, например{" "}
-          <mark className="app">Photoshop</mark> и{" "}
-          <mark className="app">Illustrator</mark>. В{" "}
+          <mark className="app">Adobe Photoshop</mark> и{" "}
+          <mark className="app">Adobe Illustrator</mark>. В{" "}
           <a
             href="https://t.me/s/DesignWorld"
             title="Канал Design World в Telegram"
@@ -315,21 +315,22 @@ const PSWhereFind: React.FC = () => {
         </p>
         <p style={{fontWeight: "600", lineHeight: "1.5"}}>
           Для использования <mark className="plugin">Adobe Firefly</mark> в{" "}
-          <mark className="app">Photoshop</mark> оформите подписку Creative Cloud или
-          активируйте пробную версию на 14 дней.
+          <mark className="app">Adobe Photoshop</mark> оформите подписку Creative Cloud
+          или активируйте пробную версию на 14 дней.
         </p>
         <Divider></Divider>
         <p>
-          С выходом <mark className="app">Photoshop 2024</mark> многие начали из каждого
-          угла спрашивать, мол <mark>где народный фш с нейросетью можно скачать?</mark>.
-          Благодаря таким повсеместным вопросам от халявщиков - Adobe прикрыл эту функцию
-          с сентября 2023 года для тех, у кого отсутствует подписка Creative Cloud. Да,
-          перестаньте об этом спрашивать, пожалуйста.
+          С выходом <mark className="app">Adobe Photoshop 2024</mark> многие начали из
+          каждого угла спрашивать, мол{" "}
+          <mark>где народный фш с нейросетью можно скачать?</mark>. Благодаря таким
+          повсеместным вопросам от халявщиков - Adobe прикрыл эту функцию с сентября 2023
+          года для тех, у кого отсутствует подписка Creative Cloud. Да, перестаньте об
+          этом спрашивать, пожалуйста.
         </p>
         <AdditionInfo>
           Источники, распространяющие в интернете{" "}
-          <mark className="app">Photoshop с &quot;генеративной заливкой&quot;</mark> -
-          либо распространяют устаревшую бету-версию или патчер-заменятор-файлов от{" "}
+          <mark className="app">Adobe Photoshop с &quot;генеративной заливкой&quot;</mark>{" "}
+          - либо распространяют устаревшую бету-версию или патчер-заменятор-файлов от{" "}
           <mark>m0nkrus</mark>, которую тоже исправили давным давно, либо предлагают
           оформить пробную версию на 14 дней. Нам эти варианты не подходят.
         </AdditionInfo>
@@ -342,9 +343,9 @@ const PSWhereFind: React.FC = () => {
         <ul>
           <li>
             Вы можете развернуть локальный <mark className="app">Stable Diffusion</mark> и
-            использовать его в качестве плагина для <mark className="app">Photoshop</mark>
-            . Данный способ требует хорошей видеокарты с объёмом VRAM не менее{" "}
-            <mark>8 гигабайт</mark>.
+            использовать его в качестве плагина для{" "}
+            <mark className="app">Adobe Photoshop</mark>. Данный способ требует хорошей
+            видеокарты с объёмом VRAM не менее <mark>8 гигабайт</mark>.
           </li>
           <li>
             Либо вы можете воспользоваться различными онлайн-сервисами по генерации
@@ -369,15 +370,15 @@ const PSWhereFind: React.FC = () => {
         <p>
           Более подробно поговорим только о самом локальном{" "}
           <mark className="app">Stable Diffusion</mark> и его внедрении в{" "}
-          <mark className="app">Photoshop</mark> через плагин.
+          <mark className="app">Adobe Photoshop</mark> через плагин.
         </p>
         <Divider>Связываем Stable Diffusion с Photoshop</Divider>
         <AdditionWarning>
           Действия проделываются на устройстве с операционной системой{" "}
           <mark>Windows</mark>. Способ соединения{" "}
           <mark className="app">Stable Diffusion</mark> и{" "}
-          <mark className="app">Photoshop</mark> на устройствах с <mark>macOS</mark> не
-          проверялся.
+          <mark className="app">Adobe Photoshop</mark> на устройствах с <mark>macOS</mark>{" "}
+          не проверялся.
         </AdditionWarning>
         <p>
           Для начала нам нужно загрузить сам <mark className="app">Stable Diffusion</mark>
@@ -425,7 +426,7 @@ const PSWhereFind: React.FC = () => {
         </AdditionInfo>
         <p>
           Далее программа предлагает нам установить любой интерфейс для{" "}
-          <mark className="app">Stable Diffusion</mark>. В данном пункте я выберу{" "}
+          <mark className="app">Stable Diffusion</mark>. В данной статье я выберу{" "}
           <mark className="ui">Stable Diffusion reForge</mark>, так как она хорошо
           оптимизирована для слабых видеокарт. Вы же можете выбрать любой другой
           интерфейс, основанный на <mark>Automatic1111</mark> или следовать моему выбору.
@@ -466,7 +467,7 @@ const PSWhereFind: React.FC = () => {
         <p>
           Если у вас установка интерфейса прошла успешно, то время устанавливать плагин
           для соединения <mark className="app">Stable Diffusion</mark> и{" "}
-          <mark className="app">Photoshop</mark>. Загрузку моделей для генеративной
+          <mark className="app">Adobe Photoshop</mark>. Загрузку моделей для генеративной
           заливки и подобного мы отложим и вернёмся к нему позже.
         </p>
         <AdditionWarning>
@@ -489,7 +490,7 @@ const PSWhereFind: React.FC = () => {
           Далее в интерфейсе <mark className="app">Stable Diffusion</mark> мы переходим в
           вкладку <mark className="ui">Extensions</mark>, чтобы найти там плагин для
           соединения <mark className="app">Stable Diffusion</mark> и{" "}
-          <mark className="app">Photoshop</mark>.
+          <mark className="app">Adobe Photoshop</mark>.
         </p>
         <ImageFigure
           caption="Firefox // Stable Diffusion"
@@ -501,14 +502,14 @@ const PSWhereFind: React.FC = () => {
           В вкладке <mark className="ui">Extensions</mark> нам нужно перейти в вкладку{" "}
           <mark className="ui">Available</mark> и загрузить список моделей, нажав на{" "}
           <mark className="ui">Load from</mark> в верхней части окна. Затем нужно ввести в
-          поиск расширений слово <mark>Photoshop</mark> и нажать на{" "}
+          поиск расширений слово <mark>Adobe Photoshop</mark> и нажать на{" "}
           <mark className="ui">Install</mark> рядом с{" "}
           <mark className="plugin">Auto-Photoshop-StableDiffusion-Plugin</mark>.
         </p>
         <ImageFigure
           caption="Firefox // Stable Diffusion"
           imgSrc="images/photoshop/download_ps_sd_extension.png"
-          imgTitle="Загрузка плагина для соединения Stable Diffusion и Photoshop"
+          imgTitle="Загрузка плагина для соединения Stable Diffusion и Adobe Photoshop"
           styleClass="figure_windows-dark"
         />
         <p>
@@ -526,7 +527,7 @@ const PSWhereFind: React.FC = () => {
         <p>
           С установкой плагина для <mark className="app">Stable Diffusion</mark> мы
           разобрались, осталось установить плагин для{" "}
-          <mark className="app">Photoshop</mark>. Для этого переходим на{" "}
+          <mark className="app">Adobe Photoshop</mark>. Для этого переходим на{" "}
           <a href="https://github.com/AbdullahAlfaraj/Auto-Photoshop-StableDiffusion-Plugin/releases">
             страницу релизов плагина на GitHub
           </a>{" "}
@@ -541,7 +542,7 @@ const PSWhereFind: React.FC = () => {
           в этой папке.
         </p>
         <p>
-          Казалось бы, можно уже запускать <mark className="app">Photoshop</mark> и
+          Казалось бы, можно уже запускать <mark className="app">Adobe Photoshop</mark> и
           творить чудеса. Но мы всё-таки не установили модели для генерации изображений.
           Для этого вернитесь в <mark className="app">Stability Matrix</mark> и перейдите
           в раздел с моделями.
@@ -557,17 +558,18 @@ const PSWhereFind: React.FC = () => {
           styleClass="figure_windows-dark"
         />
         <p>
-          Далее нам нужно открыть сам плагин в <mark className="app">Photoshop</mark>. Для
-          этого переходим в <mark className="ui">Plugins</mark> и выбираем{" "}
+          Далее нам нужно открыть сам плагин в{" "}
+          <mark className="app">Adobe Photoshop</mark>. Для этого переходим в{" "}
+          <mark className="ui">Plugins</mark> и выбираем{" "}
           <mark className="plugin">
             Auto Photoshop StableDiffusion Plugin &gt; Auto-Photoshop-SD
           </mark>
           .
         </p>
         <ImageFigure
-          caption="Photoshop"
+          caption="Adobe Photoshop"
           imgSrc="images/photoshop/open_sd_plugin_in_ps.png"
-          imgTitle="Открываем плагин Stable Diffusion в Photoshop"
+          imgTitle="Открываем плагин Stable Diffusion в Adobe Photoshop"
           styleClass="figure_windows-light"
         />
         <p>
@@ -581,7 +583,7 @@ const PSWhereFind: React.FC = () => {
           галочку и указать другой адрес сервера при необходимости.
         </AdditionInfo>
         <ImageFigure
-          caption="Photoshop"
+          caption="Adobe Photoshop"
           imgSrc="images/photoshop/change_server_sd_settings.png"
           imgTitle="Меняем настройки привязки"
           styleClass="figure_windows-light"
@@ -591,10 +593,10 @@ const PSWhereFind: React.FC = () => {
           вставляли перед запуском <mark className="app">Stable Diffusion</mark>. И
           естественно из-за этого пока не получится подключить{" "}
           <mark className="app">Stable Diffusion</mark> и{" "}
-          <mark className="app">Photoshop</mark>.
+          <mark className="app">Adobe Photoshop</mark>.
         </p>
         <ImageFigure
-          caption="Photoshop"
+          caption="Adobe Photoshop"
           imgSrc="images/photoshop/forgotten_api_flag.png"
           imgTitle="Предупреждение о том, что мы забыли флаг для запуска в SD"
           styleClass="figure_windows-light"
@@ -613,21 +615,28 @@ const PSWhereFind: React.FC = () => {
         />
         <p>
           После этого перезагрузите сервер <mark className="app">SD</mark>, если он был
-          запущен, а затем в <mark className="app">Photoshop</mark> в вкладке{" "}
+          запущен, а затем в <mark className="app">Adobe Photoshop</mark> в вкладке{" "}
           <mark className="ui">Stable Diffusion</mark> плагина нажмите на кнопку{" "}
           <mark className="ui">Refresh</mark>. После этого соединение между двумя
           вселенными произойдет корректно и даже появится возможность выбрать модель.
           Установку плагина можно считать завершённым, осталось разобраться с интерфейсом
           плагина.
         </p>
+        <AdditionInfo>
+          Если соединение между двумя вселенными всё ещё не может установиться -
+          попробуйте разрешить соединение по порту, на котором работает{" "}
+          <mark className="app">Stable Diffusion</mark>, в{" "}
+          <mark className="app">брандмауэре Windows</mark>. Возможно он был заблокирован
+          для блокировки доступа <mark className="app">Adobe Photoshop</mark> в интернет.
+        </AdditionInfo>
         <AdditionWarning>
-          Перед использованием пунктов <mark className="ui">Img2Img</mark>,{" "}
+          Перед использованием параметров <mark className="ui">Img2Img</mark>,{" "}
           <mark className="ui">Outpainting</mark> или{" "}
           <mark className="ui">Inpainting</mark> - не забудьте переключиться на
           соответствующую модель, иначе можете наткнуться на неожиданные генерации.
         </AdditionWarning>
         <VideoFigure
-          caption="Stable Diffusion в Photoshop"
+          caption="Stable Diffusion в Adobe Photoshop"
           styleClass="figure_windows-light"
           videoSrc="images/photoshop/sd_in_ps_example.mp4"
         />
@@ -641,7 +650,7 @@ const PSWhereFind: React.FC = () => {
         </p>
         <AdditionWarning>
           Прежде чем использовать плагин для соединения <mark className="app">SD</mark> и{" "}
-          <mark className="app">Photoshop</mark> - интерфейс{" "}
+          <mark className="app">Adobe Photoshop</mark> - интерфейс{" "}
           <mark className="app">Stable Diffusion</mark> нужно каждый раз запускать через{" "}
           <mark className="app">Stability Matrix</mark>, если он не был запущен. Да, это
           может быть не удобно, но куда деваться.
@@ -650,7 +659,7 @@ const PSWhereFind: React.FC = () => {
         <p>
           Если вам прям позарез нужно использовать <mark>Adobe Firefly</mark> для
           одноразового использования, то вы можете установить &quot;народную&quot; версию{" "}
-          <mark className="app">Lightroom</mark> для{" "}
+          <mark className="app">Adobe Lightroom</mark> для{" "}
           <a href="https://4pda.to/forum/index.php?showtopic=636042">
             устройств на Android
           </a>
@@ -680,11 +689,11 @@ const PSWhereFind: React.FC = () => {
         <p>
           Вы, наверное, не раз натыкались на то, что вкладка{" "}
           <mark className="ui">Neural Filters</mark> не доступна на &quot;народных
-          версиях&quot; <mark className="app">Photoshop</mark>. Она не активна по той
-          причине, что вы не вошли в аккаунт Adobe.
+          версиях&quot; <mark className="app">Adobe Photoshop</mark>. Она не активна по
+          той причине, что вы не вошли в аккаунт Adobe.
         </p>
         <ImageFigure
-          caption="Photoshop"
+          caption="Adobe Photoshop"
           imgSrc="images/photoshop/disabled_neural_filters.png"
           imgTitle="Вкладка Neural Filters неактивна"
           styleClass="figure_windows-light"
@@ -704,18 +713,18 @@ const PSWhereFind: React.FC = () => {
           доступа программе в интернет.
         </AdditionInfo>
         <ImageFigure
-          caption="Photoshop"
+          caption="Adobe Photoshop"
           imgSrc="images/photoshop/help_sign_in.png"
           imgTitle="Вход в аккаунт"
           styleClass="figure_windows-light"
         />
         <p>
           После входа в аккаунт - вкладка <mark className="ui">Neural Filters</mark> в
-          пункте <mark className="ui">Filter</mark> станет активной и вы сможете загрузить
-          нейро-фильтры, нажав на иконку загрузки рядом с ними.
+          контекстном меню <mark className="ui">Filter</mark> станет активной и вы сможете
+          загрузить нейро-фильтры, нажав на иконку загрузки рядом с ними.
         </p>
         <ImageFigure
-          caption="Photoshop"
+          caption="Adobe Photoshop"
           imgSrc="images/photoshop/download_neural_filters.png"
           imgTitle="Загружаем нейро-фильтры"
           styleClass="figure_windows-light"
@@ -730,7 +739,8 @@ const PSWhereFind: React.FC = () => {
           <mark className="app">VS Code</mark>, и внести строки чуть ниже в конец файла.
           Затем сохраните отредактированный файл и перенесите его обратно в{" "}
           <mark className="path">C:\Windows\System32\drivers\etc\hosts</mark> с заменой и
-          перезагрузите <mark className="app">Photoshop</mark>, если он у вас был открыт.
+          перезагрузите <mark className="app">Adobe Photoshop</mark>, если он у вас был
+          открыт.
         </p>
         <AdditionWarning>
           Для изменения системных файлов требуются права администратора.

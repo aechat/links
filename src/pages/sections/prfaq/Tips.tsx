@@ -138,7 +138,7 @@ const PRTips: React.FC = () => {
                     меню нажмите на <mark className="ui">Добавить в библиотеку</mark>. Вы
                     можете выбрать уже существующую библиотеку или создать новую.
                     <AdditionWarning>
-                      Если у вас нет пункта{" "}
+                      Если у вас нет кнопки{" "}
                       <mark className="ui">Добавить в библиотеку</mark> в контекстном меню
                       - включите их отображение в параметрах папок.{" "}
                       <a href="https://remontka.pro/manage-libraries-windows/">
@@ -226,8 +226,8 @@ const PRTips: React.FC = () => {
           умолчанию через комбинацию клавиш <mark className="key">Alt + Space</mark>, но
           можно переназначить на другую комбинацию в настройках плагина. Данный плагин
           считается аналогом <mark className="plugin">FX Console</mark> из{" "}
-          <mark className="app">After Effects</mark> для{" "}
-          <mark className="app">Premiere Pro</mark>.
+          <mark className="app">Adobe After Effects</mark> для{" "}
+          <mark className="app">Adobe Premiere Pro</mark>.
         </li>
         <li>
           <mark className="plugin">AtomX</mark>, <mark className="plugin">MotionBro</mark>
@@ -241,8 +241,9 @@ const PRTips: React.FC = () => {
         </li>
         <li>
           <mark className="app">Nobe OmniScope</mark> - программа, подключаемая к{" "}
-          <mark className="app">Premiere Pro</mark> для отображения спектрограммы вашего
-          видео. Похож на <mark className="plugin">Lumetri Scopes</mark>, только лучше.
+          <mark className="app">Adobe Premiere Pro</mark> для отображения спектрограммы
+          вашего видео. Похож на <mark className="plugin">Lumetri Scopes</mark>, только
+          лучше.
         </li>
         <Divider>Синхронизация дорожек c разных камер</Divider>
         <ul>
@@ -285,7 +286,7 @@ const PRTips: React.FC = () => {
             </a>
             .
             <AdditionDanger>
-              Данный плагин на <mark className="app">Premiere Pro</mark> версий{" "}
+              Данный плагин на <mark className="app">Adobe Premiere Pro</mark> версий{" "}
               <mark>24.2</mark> и <mark>24.2.1</mark> работает кривовато. Рекомендуется
               обновить программу до последней версии или откатиться до <mark>24.1</mark>.
             </AdditionDanger>
@@ -298,7 +299,7 @@ const PRTips: React.FC = () => {
         </ul>
         <Divider>Обработка звука</Divider>
         <AdditionInfo>
-          <mark className="app">Premiere Pro</mark> поддерживает любые VST3-плагины,
+          <mark className="app">Adobe Premiere Pro</mark> поддерживает любые VST3-плагины,
           поэтому вы можете своими любимыми эффектами для обработки звука, если вы
           работали ранее в DAW-программах и хотите перенести эффекты оттуда.
         </AdditionInfo>
@@ -353,8 +354,8 @@ const PRTips: React.FC = () => {
       >
         <p>
           Если вы хотите сократить время рендера при небольших правках от заказчика, то вы
-          можете вывести видео из <mark className="app">Premiere Pro</mark> с файлами от
-          пре-рендера.
+          можете экспортировать видео из <mark className="app">Adobe Premiere Pro</mark> с
+          файлами от пре-рендера.
         </p>
         <p>
           Для начала нужно подготовить проект под его использование: нужно открыть
@@ -401,7 +402,8 @@ const PRTips: React.FC = () => {
       </DetailsSummary>
       <DetailsSummary title="Какая версия Premiere Pro наиболее стабильная, наименее лагучая и какую мне лучше всего поставить?">
         <AdditionInfo>
-          Перед установкой <mark className="app">Premiere Pro</mark> обратите внимание на{" "}
+          Перед установкой <mark className="app">Adobe Premiere Pro</mark> обратите
+          внимание на{" "}
           <a href="https://helpx.adobe.com/ru/premiere-pro/system-requirements.html">
             рекомендуемые системные требования к программе
           </a>
@@ -420,8 +422,8 @@ const PRTips: React.FC = () => {
           Если вы задаёте себе вопрос{" "}
           <mark className="quote">а версию премьера какую лучше скачать под мой пк</mark>,
           то вам не стоит надеяться на то, что существует какая-то чудо-версия{" "}
-          <mark className="app">Premiere Pro</mark>, которая якобы будет быстро работать
-          на вашем железе. Выбор версии программы слабо влияет на общую
+          <mark className="app">Adobe Premiere Pro</mark>, которая якобы будет быстро
+          работать на вашем железе. Выбор версии программы слабо влияет на общую
           производительность. Также устанавливая слишком старый софт, вы лишаете себя
           новых функций и возможного улучшения пользовательского опыта, при этом получив
           малый профит.
@@ -430,18 +432,18 @@ const PRTips: React.FC = () => {
           <b>
             <u>Ни одна версия</u>
           </b>{" "}
-          <mark className="app">Premiere Pro</mark>{" "}
+          <mark className="app">Adobe Premiere Pro</mark>{" "}
           <b>
             <u>не может считаться эталонным</u>
           </b>
-          , поэтому рекомендации на момент написания этого пункта следующие.
+          , поэтому рекомендации на момент написания этой статьи следующие.
         </p>
         <Divider>Рекомендации по выбору версии</Divider>
         <ul>
           <li>
             Если вы не часто работаете в программе, любите новые функции и стабильность
             для вас не в приоритете, то вы можете установить последнюю версию{" "}
-            <mark className="app">Premiere Pro</mark> на момент чтения этого пункта.
+            <mark className="app">Adobe Premiere Pro</mark> на момент чтения этой статьи.
           </li>
           <li>
             Если вам нужна более откатанная и стабильная, а также относительно современная
@@ -487,7 +489,7 @@ const PRTips: React.FC = () => {
         </ul>
         <p>
           Список обновлений и исправлений в версиях{" "}
-          <mark className="app">Premiere Pro</mark> вы всегда можете посмотреть на
+          <mark className="app">Adobe Premiere Pro</mark> вы всегда можете посмотреть на
           официальном сайте Adobe.
         </p>{" "}
         <div className="flexible-links">
@@ -510,8 +512,8 @@ const PRTips: React.FC = () => {
           </b>{" "}
           Из-за того что существуют пользователи, которые сидят на устаревших версиях
           сторонних плагинов, например <mark className="plugin">Boris FX Continuum</mark>,
-          на новых версиях <mark className="app">Premiere Pro</mark>, бытуют ложные слухи
-          о том что{" "}
+          на новых версиях <mark className="app">Adobe Premiere Pro</mark>, бытуют ложные
+          слухи о том что{" "}
           <mark className="quote">
             ой, версия примьера XX.X очень логучая и вылитает на маих видосах!!1!
           </mark>{" "}
