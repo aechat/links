@@ -59,8 +59,23 @@ export const generateAnchorId = () => {
   if (window.location.hash) {
     const anchorId = window.location.hash.slice(1);
 
-    const existingAnchor = document.getElementById(anchorId);
-    if (!existingAnchor && /^\d+\.\d+$/.test(anchorId)) {
+    const section = document.getElementById(anchorId);
+    if (section) {
+      const headerHeight = document.querySelector("header")?.offsetHeight ?? 0;
+
+      const padding = Math.min(
+        10 + (14 - 10) * ((window.innerWidth - 320) / (768 - 320)),
+        14
+      );
+      setTimeout(() => {
+        const y =
+          section.getBoundingClientRect().top +
+          window.pageYOffset -
+          headerHeight -
+          padding;
+        window.scrollTo({top: y, behavior: "smooth"});
+      }, 300);
+    } else if (/^\d+\.\d+$/.test(anchorId)) {
       message.error(
         "Не удалось найти статью по ссылке, возможно он был перемещён или удалён"
       );
