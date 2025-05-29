@@ -1021,7 +1021,7 @@ const AEInstallProblems: React.FC = () => {
       </DetailsSummary>
       <DetailsSummary
         tag="символьные ссылки, symlink, нестандартное расположение программы, установил на диск D:\, some products require host applications which are not installed on this computer"
-        title="Я установил плагин с помощью установщика, но в программе он не появился. Да и зачем люди из каждого угла советуют не менять путь для установки After Effects? А если у меня нет места на жёстком диске?"
+        title="Я установил плагин с помощью установщика, но в программе он не появился. Да и зачем люди из каждого угла советуют не менять путь для установки Adobe After Effects? А если у меня нет места на жёстком диске?"
       >
         <AdditionInfo>
           Вся информация в этой статье относится к устройствам с установленной
@@ -1426,7 +1426,7 @@ const AEInstallProblems: React.FC = () => {
             программы от Adobe, например <mark className="app">Adobe After Effects</mark>{" "}
             и <mark className="app">Adobe Premiere Pro</mark>,{" "}
             <mark className="app">Adobe Photoshop</mark> и{" "}
-            <mark className="app">Lightroom</mark>.
+            <mark className="app">Adobe Lightroom</mark>.
             <AdditionInfo>
               <ul>
                 <li>
@@ -1510,7 +1510,7 @@ const AEInstallProblems: React.FC = () => {
           Скорее всего пытаетесь установить плагины от{" "}
           <mark className="plugin">Red Giant</mark>, предварительно не распаковав архив
           полностью. При использовании стандартного просмотрщика архивов в{" "}
-          <mark>Windows 10/11</mark> и при открытии в нём любого{" "}
+          <mark>Windows 10 или 11</mark> и при открытии в нём любого{" "}
           <mark className="file">.exe</mark> файла - остальные файлы-зависимости не будут
           распакованы. Поэтому установщик не видит файлы для распаковки и выдаёт данную
           ошибку.
@@ -1837,8 +1837,8 @@ const AEInstallProblems: React.FC = () => {
         </p>
       </DetailsSummary>
       <DetailsSummary
-        tag="креатив клауд клинер, удаление adobe, очистка от хвостов"
-        title="Как я могу полностью удалить After Effects и остальные продукты от Adobe на моем устройстве?"
+        tag="креатив клауд клинер, удаление адоба, очистка от хвостов"
+        title="Как я могу полностью удалить Adobe After Effects и остальные продукты от Adobe на моем устройстве?"
       >
         <p>
           Если вы хотите переустановить или забыть о программах <mark>Adobe</mark> раз и

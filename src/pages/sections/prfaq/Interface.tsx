@@ -18,15 +18,15 @@ const PRInterface: React.FC = () => {
           &quot;двойной язык&quot; интерфейса. Для этого откройте консоль с помощью
           комбинации клавиш <mark className="key">Ctrl + F12</mark> и переключитесь на
           режим отображения <mark className="ui">Debug Database View</mark>. Далее найдите
-          пункты <mark className="ui">ApplicationLanguage</mark> и{" "}
+          параметры <mark className="ui">ApplicationLanguage</mark> и{" "}
           <mark className="ui">ApplicationLanguageBilingual</mark> и укажите значения{" "}
           <mark className="copy">ru_RU</mark> и <mark className="copy">true</mark>{" "}
-          соответственно. После этого перезагрузите программу и теперь во многих пунктах
+          соответственно. После этого перезагрузите программу и теперь во многих местах
           интерфейса у вас будет русский язык и в скобках будет эквивалент на английском
           языке.
         </p>
         <ImageFigure
-          caption="Premiere Pro"
+          caption="Adobe Premiere Pro"
           imgSrc="images/premierepro/set_double_language.png"
           imgTitle="Установка двойного языка"
           styleClass="figure_windows-dark"
@@ -34,12 +34,13 @@ const PRInterface: React.FC = () => {
         <AdditionDanger>
           Не рекомендуется использовать двойной язык на постоянной основе, так как
           основной язык программы останется русским, а соответственно баги русской
-          локализации <mark className="app">Premiere Pro</mark> никуда не денутся от вас.
+          локализации <mark className="app">Adobe Premiere Pro</mark> никуда не денутся от
+          вас.
         </AdditionDanger>
       </DetailsSummary>
       <DetailsSummary title="Куда пропало окно Essential Graphics?">
         <p>
-          В <mark className="app">Premiere Pro</mark> версий 2025 и новее панель{" "}
+          В <mark className="app">Adobe Premiere Pro</mark> версий 2025 и новее панель{" "}
           <mark className="ui">Essential Graphics</mark> убрали и перенесли часть
           функционала в новое окно <mark className="ui">Graphics Templates</mark>. Открыть
           его можно в контекстном меню <mark className="ui">Window</mark>.
@@ -52,7 +53,7 @@ const PRInterface: React.FC = () => {
       </DetailsSummary>
       <DetailsSummary title='Куда пропала кнопка "Set to Frame Size"?'>
         <p>
-          В <mark className="app">Premiere Pro</mark> версии 2025{" "}
+          В <mark className="app">Adobe Premiere Pro</mark> версии 2025{" "}
           <mark className="ui">Set to Frame Size</mark> заменили на{" "}
           <mark className="ui">Fit to Frame</mark>. Данная функция увеличивает значение{" "}
           <mark className="ui">Scale</mark> до тех пор, пока не упрётся в ближайшую
@@ -67,7 +68,7 @@ const PRInterface: React.FC = () => {
       </DetailsSummary>
       <DetailsSummary title="Как изменить вид отсчёта времени на таймлайне?">
         <p>
-          По умолчанию в <mark className="app">Premiere Pro</mark> текущее время
+          По умолчанию в <mark className="app">Adobe Premiere Pro</mark> текущее время
           отображается в формате <mark>ЧЧ:ММ:СС:Кадр</mark>, но иногда хочется поменять
           вариант отображения на что-то другое.
         </p>
@@ -96,7 +97,7 @@ const PRInterface: React.FC = () => {
           всплывающего меню, а также выполнять некоторые команды.
         </p>
         <ImageFigure
-          caption="Premiere Pro"
+          caption="Adobe Premiere Pro"
           imgSrc="https://images.squarespace-cdn.com/content/v1/5d090703bfcf6300017faaa8/1605797292871-IKNJ3QIJPGK2TFMMBIIY/web_01_fx.gif?format=750w"
           imgTitle="Демонстрация работы Excalibur"
           styleClass="figure_macos-light"
@@ -110,13 +111,13 @@ const PRInterface: React.FC = () => {
       <DetailsSummary title="Пропала визуализация аудиодорожек на таймлайне, как их вернуть?">
         <p>
           Это довольно частый и неприятный баг, возникающий при использовании{" "}
-          <mark className="app">Premiere Pro</mark>. Обычно это лечится очисткой кэша{" "}
-          <mark className="file">.peak</mark> файлов.
+          <mark className="app">Adobe Premiere Pro</mark>. Обычно это лечится очисткой
+          кэша <mark className="file">.peak</mark> файлов.
         </p>
         <p>
           Для очистки кэша и файлов предпросмотра перейдите в{" "}
           <mark className="ui">Edit &gt; Preferences &gt; Media Cache</mark> и нажмите на{" "}
-          <mark className="ui">Delete</mark> возле пункта{" "}
+          <mark className="ui">Delete</mark> возле параметра{" "}
           <mark className="ui">Remove Media Cache Files</mark>. Или очистите кэш вручную в{" "}
           <mark className="path">%Temp%</mark> и папке проекта.
         </p>
@@ -152,23 +153,25 @@ const PRInterface: React.FC = () => {
       <DetailsSummary title="Куда пропала настройка Timeline в Preferences?">
         <p>
           В настройках раздел <mark className="ui">Timeline</mark> может отсутствовать на
-          некоторых &quot;народных&quot; версиях <mark className="app">Premiere Pro</mark>{" "}
-          и его можно вернуть простым способом - входом в аккаунт Adobe.
+          некоторых &quot;народных&quot; версиях{" "}
+          <mark className="app">Adobe Premiere Pro</mark> и его можно вернуть простым
+          способом - входом в аккаунт Adobe.
         </p>
         <AdditionInfo>
           После входа в аккаунт Adobe псевдо-лицензия не слетит, не переживайте.
         </AdditionInfo>
         <p>
-          Для входа в аккаунт перейдите в <mark className="ui">Help</mark> и выберите
-          пункт <mark className="ui">Sign In</mark>. Затем в появившемся окне проведите
+          Для входа в аккаунт перейдите в <mark className="ui">Help</mark> и нажмите на{" "}
+          <mark className="ui">Sign In</mark>. Затем в появившемся окне проведите
           процедуру входа в аккаунт, а затем попробуйте открыть настройки снова и
           убедитесь в том, что там появился раздел <mark className="ui">Timeline</mark>.
         </p>
       </DetailsSummary>
       <DetailsSummary title="Как изменить акцентный цвет интерфейса программы?">
         <AdditionDanger>
-          Для <mark className="app">Premiere Pro</mark> версий 25.X данная инструкция
-          неактуальна, после включения пункта в консоли - в настройках ничего не будет.
+          Для <mark className="app">Adobe Premiere Pro</mark> версий <mark>25.X</mark>{" "}
+          данная инструкция неактуальна, после включения параметра в консоли - в
+          настройках ничего не будет.
         </AdditionDanger>
         <p>
           Вы, наверное, не раз натыкались на различные скриншоты, где у пользователей
@@ -181,7 +184,7 @@ const PRInterface: React.FC = () => {
         <code>debug.set Enable_Theme_Colorizing=true</code>
         <AdditionInfo>
           Режимы отображения консоли можно изменить нажав на три полоски в заголовке окна.
-          Также этот пункт можно найти и в режиме отображения{" "}
+          Также этот параметр можно найти и в режиме отображения{" "}
           <mark className="ui">Debug Database View</mark>.
         </AdditionInfo>
         <ImageFigure
@@ -194,7 +197,7 @@ const PRInterface: React.FC = () => {
           Далее, после включения возможности изменять цвет, перейдите в{" "}
           <mark className="app">Edit &gt; Preferences &gt; Appearance</mark> и...
         </p>
-        {/* TODO: показать пункт и скриншот в настройках */}
+        {/* TODO: показать параметр и скриншот в настройках */}
         <p>
           В открывшейся цветовой палитре вы можете указать любой цвет, какой захотите.
           Желательно выбрать тот цвет, который будет хорошо выделяться на фоне остального

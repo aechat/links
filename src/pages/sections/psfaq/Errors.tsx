@@ -11,7 +11,12 @@ const PSErrors: React.FC = () => (
   <div className="faq-content">
     <GithubUpdateInfo filePath="src/pages/sections/psfaq/Errors.tsx" />
     <DetailsSummary title="Рабочий диск заполнен или Scratch Disk Full">
-      <p>{/* FIXME: написать!! */}</p>
+      <p>
+        В основном данная ошибка возникает по причине нехватки дискового пространства в
+        системном разделе. Чтобы устранить эту ошибку - достаточно его почистить от
+        различного хлама.
+      </p>
+      {/* FIXME: написать!! */}
     </DetailsSummary>
     <DetailsSummary title='"Для доступа к функциям на базе технологии Firefly в приложениях Adobe у вас должны быть установлены подлинные приложения Adobe", "Проверьте своё подключение к интернету и повторите попытку" или "Could not complete your request because of a program error"'>
       <p>
@@ -22,7 +27,7 @@ const PSErrors: React.FC = () => (
       <p>
         Решения два: либо вы оформляете подписку на Creative Cloud, либо заменяйте Firefly
         на интеграцию <mark className="app">Stable Diffusion</mark> в{" "}
-        <mark className="app">Photoshop</mark> через плагин{" "}
+        <mark className="app">Adobe Photoshop</mark> через плагин{" "}
         <a href="https://github.com/AbdullahAlfaraj/Auto-Photoshop-StableDiffusion-Plugin/releases">
           Auto-Photoshop-StableDiffusion
         </a>
@@ -35,7 +40,7 @@ const PSErrors: React.FC = () => (
         нужно переключить режим заливки на <mark className="ui">Generative AI Off</mark>.
       </p>
       <ImageFigure
-        caption="Photoshop"
+        caption="Adobe Photoshop"
         imgSrc="images/photoshop/disable_generative_ai_removetool.png"
         imgTitle="Отключаем генеративную заливку при использовании инструмента Remove Tool"
         styleClass="figure_windows-light"
@@ -47,7 +52,7 @@ const PSErrors: React.FC = () => (
     >
       <p>
         Пользователь, работающий в <mark className="word">народной</mark> версии{" "}
-        <mark className="app">Photoshop</mark> или в любой другой программе от{" "}
+        <mark className="app">Adobe Photoshop</mark> или в любой другой программе от{" "}
         <mark>Adobe</mark> может столкнуться ошибкой проверки лицензии. Оно сопровождается
         небольшим окном на белом фоне и с красной полосой сверху, а текст внутри окна
         обычно написан на английском языке. Иногда встречаются варианты отображения окна
@@ -83,12 +88,12 @@ const PSErrors: React.FC = () => (
             своего <mark className="app">VPN-клиента</mark>. Возможно, в нём есть
             возможность внести программы от <mark>Adobe</mark> или его адреса в список
             исключений соединений для того, чтобы соединение для{" "}
-            <mark className="app">Photoshop</mark> проходило с учетом ваших настроек
+            <mark className="app">Adobe Photoshop</mark> проходило с учетом ваших настроек
             брандмауэра или вовсе блокировались.
           </li>
           <li>
             Если вы наоборот используете лицензионную версию{" "}
-            <mark className="app">Photoshop</mark>, то вам нужно будет поддерживать{" "}
+            <mark className="app">Adobe Photoshop</mark>, то вам нужно будет поддерживать{" "}
             <mark className="word">VPN-соединение</mark> к другой стране во время
             использования программы, так как <mark>Adobe</mark> блокирует доступ к своим
             ресурсам пользователям РФ и из-за этого может выскакивать данная ошибка, так
@@ -148,7 +153,7 @@ const PSErrors: React.FC = () => (
             <ImageFigure
               caption="Radio Silence"
               imgSrc="images/network_radio_silence.png"
-              imgTitle="Блокируем доступ в интернет программам на примере Premiere Pro"
+              imgTitle="Блокируем доступ в интернет программам на примере Adobe Premiere Pro"
               styleClass="figure_macos-dark"
             />
             <p>
@@ -366,13 +371,13 @@ const PSErrors: React.FC = () => (
         поддержка инструкций <mark>AVX2</mark> и <mark>SSE 4.2</mark>.
       </p>
       <AdditionInfo>
-        На сайте Adobe пишется следующее: версии <mark>24.х</mark> и более поздние нельзя
+        На сайте Adobe пишется следующее: версии <mark>24.X</mark> и более поздние нельзя
         установить в системах с процессорами Intel® 3-го поколения или более ранних
         версий (а также в системах с более ранними процессорами AMD).
       </AdditionInfo>
       <p>
         Решение достаточно простое: вы можете установить{" "}
-        <mark className="app">Photoshop</mark> версии <mark>25.12</mark>. Это будет
+        <mark className="app">Adobe Photoshop</mark> версии <mark>25.12</mark>. Это будет
         последняя поддерживаемая для вас версия программы. Либо обновите процессор на
         вашем устройстве.
       </p>
@@ -414,8 +419,9 @@ const PSErrors: React.FC = () => (
         <a href="https://github.com/abbodi1406/vcredist/releases/">
           Microsoft Visual C++ Redistributable
         </a>
-        , которые можно установить перед установкой <mark className="app">Photoshop</mark>{" "}
-        в репаке от <mark>KpoJluk</mark> или вручную по{" "}
+        , которые можно установить перед установкой{" "}
+        <mark className="app">Adobe Photoshop</mark> в репаке от <mark>KpoJluk</mark> или
+        вручную по{" "}
         <a href="https://github.com/abbodi1406/vcredist/releases/">этой ссылке</a>.
       </p>
       <p>

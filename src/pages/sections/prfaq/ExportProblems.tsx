@@ -20,7 +20,8 @@ const PRExportProblems: React.FC = () => {
           <u>
             <b>не являются панацеей</b>
           </u>{" "}
-          для решения и позволяют лишь исключить часть проблем при экспорте.
+          для решения ошибки и позволяют лишь исключить часть проблем при экспорте вашей
+          секвенции.
         </AdditionWarning>
         <ul>
           <li>
@@ -113,9 +114,9 @@ const PRExportProblems: React.FC = () => {
           вероятно, что вы используете версии в промежутках от <mark>23.1</mark> до{" "}
           <mark>23.5</mark>, где присутствует такой неприятный баг смещения текущего
           кадра. Оно может возникнуть при использовании композиций из{" "}
-          <mark className="app">After Effects</mark> через{" "}
+          <mark className="app">Adobe After Effects</mark> через{" "}
           <mark className="plugin">Dynamic Link</mark> или при экспорте секвенции через{" "}
-          <mark className="app">Media Encoder</mark>.
+          <mark className="app">Adobe Media Encoder</mark>.
         </p>
         <p>
           Для решения данного бага просто обновите все программы от Adobe до{" "}
@@ -158,11 +159,11 @@ const PRExportProblems: React.FC = () => {
         title="Как сжать экспортированное видео без сильной потери качества или до определённого веса?"
       >
         <p>
-          При экспорте какой-нибудь секвенции из <mark className="app">Premiere Pro</mark>{" "}
-          можно наткнуться на неприятный сюрприз - файл может получиться слишком большим
-          по весу. Такой файл может не подойти для загрузки видео на нужный сервис или
-          просто занимать кучу места на диске. В таких случаях без сжатия и конвертации
-          видео не обойтись.
+          При экспорте какой-нибудь секвенции из{" "}
+          <mark className="app">Adobe Premiere Pro</mark> можно наткнуться на неприятный
+          сюрприз - файл может получиться слишком большим по весу. Такой файл может не
+          подойти для загрузки видео на нужный сервис или просто занимать кучу места на
+          диске. В таких случаях без сжатия и конвертации видео не обойтись.
         </p>
         <Divider>Конвертируем через Shutter Encoder</Divider>
         <p>
@@ -261,11 +262,11 @@ const PRExportProblems: React.FC = () => {
         </p>
         <Divider>Сжимаем через Adobe Media Encoder</Divider>
         <p>
-          Изначально <mark className="app">Media Encoder</mark> был задуман как конвертер
-          и в нём ещё не было возможности экспорта секвенций из{" "}
-          <mark className="app">Premiere Pro</mark>. Воспользуемся в кои-то веки данной
-          программой по назначению. Чтобы начать конвертацию - импортируйте нужное видео в{" "}
-          <mark className="app">Media Encoder</mark> любым способом - через{" "}
+          Изначально <mark className="app">Adobe Media Encoder</mark> был задуман как
+          конвертер и в нём ещё не было возможности экспорта секвенций из{" "}
+          <mark className="app">Adobe Premiere Pro</mark>. Воспользуемся в кои-то веки
+          данной программой по назначению. Чтобы начать конвертацию - импортируйте нужное
+          видео в <mark className="app">Adobe Media Encoder</mark> любым способом - через{" "}
           <mark className="word">Drag-n-drop</mark> в очередь экспорта, через{" "}
           <mark className="ui">File &gt; Import</mark>, через{" "}
           <mark className="key">Ctrl + I</mark> или с помощью двойного нажатия по пустой
@@ -275,7 +276,7 @@ const PRExportProblems: React.FC = () => {
         <ImageFigure
           caption="Media Encoder"
           imgSrc="images/media_encoder_import.png"
-          imgTitle="Импорт в Media Encoder"
+          imgTitle="Импорт в Adobe Media Encoder"
           styleClass="figure_windows-light"
         />
         <p>
@@ -289,11 +290,11 @@ const PRExportProblems: React.FC = () => {
         <ImageFigure
           caption="Media Encoder"
           imgSrc="images/media_encoder_exporting.png"
-          imgTitle="Экспорт в Media Encoder"
+          imgTitle="Экспорт в Adobe Media Encoder"
           styleClass="figure_windows-light"
         />
         <AdditionInfo>
-          В <mark className="app">Media Encoder</mark> можно конвертировать видео с
+          В <mark className="app">Adobe Media Encoder</mark> можно конвертировать видео с
           помощью сторонних плагинов, по типу <mark className="plugin">Voukoder</mark> и{" "}
           <mark className="plugin">AfterCodecs</mark>, если вам не нравится результат от
           стандартных кодеков.
