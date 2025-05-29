@@ -33,19 +33,20 @@ const PRWhereFind: React.FC = () => {
           <li>
             <a href="https://t.me/s/premtemp">PremTemp</a> - канал с переходами,
             шаблонами, расширениями и прочими полезными материалами для ваших секвенций в{" "}
-            <mark className="app">Premiere Pro</mark>.
+            <mark className="app">Adobe Premiere Pro</mark>.
           </li>
           <li>
             <a href="https://t.me/s/aetemp">AETemp</a> - аналогичный канал, как{" "}
             <mark className="app">PremTemp</mark>, но для{" "}
-            <mark className="app">After Effects</mark>. Иногда в нём можно найти старые
-            записи, которые предназначены для <mark className="app">Premiere Pro</mark>.
+            <mark className="app">Adobe After Effects</mark>. Иногда в нём можно найти
+            старые записи, которые предназначены для{" "}
+            <mark className="app">Adobe Premiere Pro</mark>.
           </li>
           <li>
             <a href="https://t.me/s/designworld">Design World</a> - канал с статичной
-            графикой, эффектами и кистями для <mark className="app">Photoshop</mark>,
-            которые в дальнейшем можно использовать для ваших проектов в{" "}
-            <mark className="app">Premiere Pro</mark>.
+            графикой, эффектами и кистями для <mark className="app">Adobe Photoshop</mark>
+            , которые в дальнейшем можно использовать для ваших проектов в{" "}
+            <mark className="app">Adobe Premiere Pro</mark>.
           </li>
         </ul>
         <AdditionInfo>
@@ -127,8 +128,8 @@ const PRWhereFind: React.FC = () => {
         <AdditionWarning>
           При установке программ с пометкой <mark>репак от кролика</mark> из{" "}
           <a href="https://t.me/+Qd9xu7A4TeIwNzY6">склада стройматериалов (Windows)</a> не
-          забывайте убирать галочку с пункта <mark className="ui">Реклама</mark> и
-          отключать антивирус перед установкой, иначе можете наткнуться на проблему{" "}
+          забывайте убирать галочку <mark className="ui">Реклама</mark> и отключать
+          антивирус перед установкой, иначе можете наткнуться на проблему{" "}
           <mark className="ui">helper.exe не найден</mark>.
         </AdditionWarning>
         <AdditionDanger>
@@ -297,8 +298,8 @@ const PRWhereFind: React.FC = () => {
           </a>{" "}
           в <mark className="app">Telegram</mark> с полезными материалами для
           использования в различных графических редакторах, например{" "}
-          <mark className="app">Photoshop</mark> и{" "}
-          <mark className="app">Illustrator</mark>. В{" "}
+          <mark className="app">Adobe Photoshop</mark> и{" "}
+          <mark className="app">Adobe Illustrator</mark>. В{" "}
           <a
             href="https://t.me/s/DesignWorld"
             title="Канал Design World в Telegram"
@@ -678,23 +679,23 @@ const PRWhereFind: React.FC = () => {
       >
         <AdditionWarning>
           Перевод и наличие эффектов, а также способ их работы может отличаться в
-          зависимости от версии <mark className="app">Premiere Pro</mark>. Также
+          зависимости от версии <mark className="app">Adobe Premiere Pro</mark>. Также
           рекомендуем переключить интерфейс на английский язык, чтобы не возвращаться к
           этой таблице снова и снова.
         </AdditionWarning>
         <p>
           Пользователям, использующие русскоязычный интерфейс{" "}
-          <mark className="app">Premiere Pro</mark>, иногда бывает трудно найти эффект,
-          который обозначен на английском языке. В таких случаях можно обратиться к
-          таблице перевода.
+          <mark className="app">Adobe Premiere Pro</mark>, иногда бывает трудно найти
+          эффект, который обозначен на английском языке. В таких случаях можно обратиться
+          к таблице перевода.
         </p>
         <AdditionDanger>
-          В <mark className="app">Premiere Pro</mark> версии <mark>25.0</mark> и новее
-          убрали папку <mark className="path">Obsolete</mark>, где были расположены
+          В <mark className="app">Adobe Premiere Pro</mark> версии <mark>25.0</mark> и
+          новее убрали папку <mark className="path">Obsolete</mark>, где были расположены
           устаревшие, по мнению Adobe, эффекты. Эффекты все ещё будут доступны для
           проектов, который были созданы в старых версиях{" "}
-          <mark className="app">Premiere Pro</mark>, но без танцев с бубном их применить в
-          новых проектах не получится.{" "}
+          <mark className="app">Adobe Premiere Pro</mark>, но без танцев с бубном их
+          применить в новых проектах не получится.{" "}
           <a href="https://community.adobe.com/t5/premiere-pro-beta-discussions/now-released-obsolete-effects-transitions-and-presets-removed/td-p/14703879">
             Подробнее...
           </a>

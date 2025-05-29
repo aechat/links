@@ -690,7 +690,7 @@ const AETips: React.FC = () => {
           Чтобы настроить размер файла подкачки в <mark>Windows</mark> или включить его -
           следуйте поэтапной инструкции ниже.
         </p>
-        <Divider>Инструкция для Windows 10 и 11</Divider>
+        <Divider>Инструкция для Windows 10 или 11</Divider>
         <ul>
           <li>
             Откройте окно <mark className="app">Выполнить</mark> с помощью комбинации

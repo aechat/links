@@ -9,6 +9,9 @@ const PSInterface: React.FC = () => {
       <DetailsSummary title="Как отключить стартовое окно с последними открытыми проектами при запуске?">
         <p>{/* FIXME: написать!! */}</p>
       </DetailsSummary>
+      <DetailsSummary title="Как сделать фон программы светлее или темнее?">
+        <p>{/* FIXME: */}</p>
+      </DetailsSummary>
       <DetailsSummary title="Как изменить акцентный цвет интерфейса программы?">
         <p>{/* FIXME: */}</p>
       </DetailsSummary>

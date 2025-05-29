@@ -421,7 +421,7 @@ const AEImport: React.FC = () => {
         </p>
         <ImageFigure
           caption="Adobe Photoshop"
-          imgSrc="images/aftereffects/photoshop_layers_to_files.png"
+          imgSrc="images/photoshop/layers_to_files.png"
           imgTitle="Кнопка для начала экспорта слоёв в файлы"
           styleClass="figure_windows-light"
         />
@@ -432,7 +432,7 @@ const AEImport: React.FC = () => {
         </p>
         <ImageFigure
           caption="Adobe Photoshop"
-          imgSrc="images/aftereffects/photoshop_export_layers.png"
+          imgSrc="images/photoshop/export_layers.png"
           imgTitle="Экспорт слоёв в файлы"
           styleClass="figure_windows-light"
         />

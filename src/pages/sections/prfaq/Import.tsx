@@ -16,7 +16,7 @@ const PRImport: React.FC = () => {
       <DetailsSummary title="Какие действия нужно совершить с чужими исходниками, прежде чем начать работу?">
         <p>
           Прежде чем начать создавать секвенцию и импортировать файлы в{" "}
-          <mark className="app">Premiere Pro</mark>, вам стоит расположить все ваши
+          <mark className="app">Adobe Premiere Pro</mark>, вам стоит расположить все ваши
           исходники в отдельный диск, раздел или папку, чтобы иметь быстрый доступ к
           исходникам, а не на рабочем столе или в системных папках. Так вам будет проще
           работать с кучей материала, особенно когда начинаете работу постепенно.{" "}
@@ -103,7 +103,7 @@ const PRImport: React.FC = () => {
             <mark className="ui">VBR</mark> или <mark className="ui">CQ</mark>.
             <AdditionInfo>
               При кодировании в некоторые кодеки, в частности{" "}
-              <mark className="video">Apple Prores</mark> этот пункт можно пропустить,
+              <mark className="video">Apple Prores</mark> этот параметр можно пропустить,
               из-за отсутствия режимов кодирования, так как там обычно используются
               стандартные шаблоны для битрейта.
               <ul>
@@ -133,7 +133,7 @@ const PRImport: React.FC = () => {
           </li>
           <li>
             Если цветовое пространство исходника отличается от <mark>Rec.709</mark>, то в
-            пункте <mark className="ui">Colorimetry</mark> включите галочку{" "}
+            параметре <mark className="ui">Colorimetry</mark> включите галочку{" "}
             <mark className="ui">Convert Colorspace</mark>. Затем установите там первым
             значением ваш цветовой профиль, который был указан в{" "}
             <mark className="app">MediaInfo</mark>, а вторым значением -{" "}
@@ -141,27 +141,27 @@ const PRImport: React.FC = () => {
           </li>
           <li>
             Затем укажите битрейт для аудио, достаточно установить значение{" "}
-            <mark>320</mark> Кбит/с в пункте <mark className="ui">Audio Bitrate</mark>.
+            <mark>320</mark> Кбит/с в параметре <mark className="ui">Audio Bitrate</mark>.
           </li>
           <li>
             После настройки - укажите путь для сохранения перекодированных файлов и
             нажмите на кнопку <mark className="ui">Start Function</mark>.
             <AdditionInfo>
-              Если у вас видеокарта от NVIDIA, то не забудьте установить галочку в пункте{" "}
-              <mark className="ui">Hardware Acceleration</mark> и выбрать рядом параметр{" "}
-              <mark className="ui">NVIDIA NVENC</mark>.
+              Если у вас видеокарта от NVIDIA, то не забудьте установить галочку в
+              параметре <mark className="ui">Hardware Acceleration</mark> и выбрать рядом
+              параметр <mark className="ui">NVIDIA NVENC</mark>.
             </AdditionInfo>
           </li>
         </ul>
         <p>
           После успешного перекодирования исходников вы можете их заменить в окне проекта.
           Для этого перейдите в <mark className="ui">Project</mark>, выделите нужные
-          исходники, нажмите на <mark className="key">ПКМ</mark> и выберите пункт{" "}
+          исходники, нажмите на <mark className="key">ПКМ</mark> и нажмите на кнопку{" "}
           <mark className="ui">Replace Footage</mark>. В открывшемся окне укажите путь до
           нового файла в системном файловом менеджере.
         </p>
         <ImageFigure
-          caption="Premiere Pro"
+          caption="Adobe Premiere Pro"
           imgSrc="images/premierepro/replace_footage.png"
           imgTitle="Замена исходника в проекте"
           styleClass="figure_windows-dark"
@@ -201,7 +201,7 @@ const PRImport: React.FC = () => {
           Перекодировать видео можно с помощью программ{" "}
           <mark className="app">Shutter Encoder</mark>,{" "}
           <mark className="app">Handbrake</mark> или{" "}
-          <mark className="app">Media Encoder</mark>.
+          <mark className="app">Adobe Media Encoder</mark>.
         </p>
         <ImageFigure
           caption="Shutter Encoder"
@@ -226,7 +226,7 @@ const PRImport: React.FC = () => {
         </p>
         <Divider>Включаем Auto Tone Map Media</Divider>
         <p>
-          В <mark className="app">Premiere Pro</mark> версии 23.2 и выше появилась
+          В <mark className="app">Adobe Premiere Pro</mark> версии 23.2 и выше появилась
           возможность активировать коррекцию цвета для исходников с большим цветовым
           диапазоном. Чтобы его включить - перейдите в настройки нужной секвенции через{" "}
           <mark className="ui">Sequence &gt; Sequence Settings</mark> и активируйте опцию{" "}
@@ -245,7 +245,7 @@ const PRImport: React.FC = () => {
         <Divider>Перекодируем в другой цветовой профиль</Divider>
         <p>
           Или же, если результат от <mark className="ui">Auto Tone Map Media</mark> не
-          устраивает или этот пункт не помогает, то вам нужно все ваши исходники
+          устраивает или этот параметр не помогает, то вам нужно все ваши исходники
           перекодировать из одного цветового пространства в другой. Какое цветовое
           пространство у ваших исходников - вы можете об этом узнать через{" "}
           <mark className="app">MediaInfo</mark>. Обычно через эту утилиту можно извлечь
@@ -293,7 +293,7 @@ const PRImport: React.FC = () => {
             <mark className="ui">CQ</mark>.
             <AdditionInfo>
               При кодировании в некоторые кодеки, например,{" "}
-              <mark className="video">Apple Prores</mark>, этот пункт можно пропустить,
+              <mark className="video">Apple Prores</mark>, этот параметр можно пропустить,
               так как там обычно используются стандартные шаблоны для битрейта.
               <ul>
                 <li>
@@ -322,7 +322,7 @@ const PRImport: React.FC = () => {
           </li>
           <li>
             Если цветовое пространство вашего исходника отличается от <mark>Rec.709</mark>
-            , то в пункте <mark className="ui">Colorimetry</mark> включите галочку{" "}
+            , то в параметре <mark className="ui">Colorimetry</mark> включите галочку{" "}
             <mark className="ui">Convert Colorspace</mark>. Затем установите первым
             значением ваш цветовой профиль, указанный в{" "}
             <mark className="app">MediaInfo</mark>, а вторым - <mark>Rec.709</mark>.
@@ -331,7 +331,7 @@ const PRImport: React.FC = () => {
             После настройки укажите путь для сохранения перекодированных файлов и нажмите
             на кнопку <mark className="ui">Start Function</mark>.
             <AdditionInfo>
-              Если у вас видеокарта от NVIDIA, не забудьте установить галочку в пункте{" "}
+              Если у вас видеокарта от NVIDIA, не забудьте установить галочку в параметре{" "}
               <mark className="ui">Hardware Acceleration</mark> и выбрать рядом параметр{" "}
               <mark className="ui">NVIDIA NVENC</mark>.
             </AdditionInfo>
@@ -353,14 +353,14 @@ const PRImport: React.FC = () => {
           запуске проекта или в качестве плейсхолдера с красной заливкой.
         </p>
         <ImageFigure
-          caption="Premiere Pro"
+          caption="Adobe Premiere Pro"
           imgSrc="images/premierepro/медиаданные_в_автономном_режиме.png"
           imgTitle="Медиаданные в авнономном режиме"
           styleClass="figure_windows-dark"
         />
         <p>
           Чтобы переподключить &quot;потеряшек&quot;, перейдите в{" "}
-          <mark className="ui">File</mark> и выберите пункт{" "}
+          <mark className="ui">File</mark> и нажмите на кнопку{" "}
           <mark className="ui">Link Media</mark>. В открывшемся окне вы увидите список
           потерявшихся исходников. Вы можете выделить нужный и указать ему путь, нажав на{" "}
           <mark className="ui">Locate</mark>.
@@ -382,7 +382,7 @@ const PRImport: React.FC = () => {
       </DetailsSummary>
       <DetailsSummary title="Прислали исходники в формате .mkv, .flv или что-то не поддерживаемое программой. Как мне их импортировать?">
         <p>
-          <mark className="app">Premiere Pro</mark> может не поддерживать некоторые
+          <mark className="app">Adobe Premiere Pro</mark> может не поддерживать некоторые
           кодеки, например <mark className="video">VP9</mark>,{" "}
           <mark className="video">AV1</mark>, а также контейнеры по типу{" "}
           <mark className="file">.flv</mark>, <mark className="file">.mkv</mark> и прочие.
@@ -395,9 +395,9 @@ const PRImport: React.FC = () => {
           перекодированием исходников, то вы можете попробовать плагин{" "}
           <a href="https://www.autokroma.com/Influx">Autokroma Influx</a>. Он облегчает
           импорт некоторых файлов которые не поддерживаются в{" "}
-          <mark className="app">Premiere Pro</mark>,{" "}
-          <mark className="app">After Effects</mark> и{" "}
-          <mark className="app">Media Encoder</mark>.
+          <mark className="app">Adobe Premiere Pro</mark>,{" "}
+          <mark className="app">Adobe After Effects</mark> и{" "}
+          <mark className="app">Adobe Media Encoder</mark>.
         </p>
         <AdditionWarning>
           Поскольку декодирование из немонтажных кодеков, а также через{" "}
@@ -490,7 +490,7 @@ const PRImport: React.FC = () => {
       <DetailsSummary title="Как импортировать композиции из After Effects в секвенцию Premiere Pro?">
         <AdditionWarning>
           Прежде чем начать импорт композиций из{" "}
-          <mark className="app">After Effects</mark> - убедитесь что обе программы
+          <mark className="app">Adobe After Effects</mark> - убедитесь что обе программы
           установлены на стандартном расположении и их версии являются
           &quot;одногодками&quot;. При использовании разных версий программ у вас могут
           быть проблемы с подсоединением файлов и{" "}
@@ -498,27 +498,28 @@ const PRImport: React.FC = () => {
         </AdditionWarning>
         <p>
           Для того, чтобы импортировать композиции из{" "}
-          <mark className="app">After Effects</mark> в{" "}
-          <mark className="app">Premiere Pro</mark> через{" "}
+          <mark className="app">Adobe After Effects</mark> в{" "}
+          <mark className="app">Adobe Premiere Pro</mark> через{" "}
           <mark className="plugin">Dynamic Link</mark> - достаточно открыть окно импорта
           через комбинацию клавиш <mark className="key">Ctrl + I</mark> и указать там
           нужный <mark className="file">.aep</mark> файл.
         </p>
         <p>
           После выбора нужного <mark className="file">.aep</mark> файла - у вас откроется
-          окно, в котором <mark className="app">Premiere Pro</mark> подключится к{" "}
-          <mark className="app">After Effects</mark> и через некоторое время выдаст вам
-          список композиций. Вы можете выбрать одну или несколько композиций для импорта.
+          окно, в котором <mark className="app">Adobe Premiere Pro</mark> подключится к{" "}
+          <mark className="app">Adobe After Effects</mark> и через некоторое время выдаст
+          вам список композиций. Вы можете выбрать одну или несколько композиций для
+          импорта.
         </p>
         {/* TODO: приложить скриншот */}
         <p>
           После успешного импорта вы можете расположить композиции из{" "}
-          <mark className="app">After Effects</mark> прямо на таймлайн в{" "}
-          <mark className="app">Premiere Pro</mark>.
+          <mark className="app">Adobe After Effects</mark> прямо на таймлайн в{" "}
+          <mark className="app">Adobe Premiere Pro</mark>.
         </p>
         <AdditionInfo>
           Чтобы закэшировать предпросмотр в местах, где расположены композиции из{" "}
-          <mark className="app">After Effects</mark> - перейдите в{" "}
+          <mark className="app">Adobe After Effects</mark> - перейдите в{" "}
           <mark className="ui">Sequence</mark> и выберите{" "}
           <mark className="ui">Render In to Out</mark>. Рекомендую поставить свою
           комбинацию клавиш для этого действия.
@@ -539,8 +540,8 @@ const PRImport: React.FC = () => {
               ухудшить производительность вашего проекта и заработать себе проблемы при
               экспорте секвенции. Если вы не планируете редактировать нужные композиции в
               дальнейшем - рекомендую отрендерить их в{" "}
-              <mark className="app">After Effects</mark> и заменить их в секвенции{" "}
-              <mark className="app">Premiere Pro</mark>.
+              <mark className="app">Adobe After Effects</mark> и заменить их в секвенции{" "}
+              <mark className="app">Adobe Premiere Pro</mark>.
             </li>
           </ul>
         </AdditionWarning>
