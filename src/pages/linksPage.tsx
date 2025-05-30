@@ -86,13 +86,13 @@ const Links = () => {
               description="Поясняем за монтаж и нюансы в Adobe Premiere Pro"
               href="/prfaq"
               icon={<PRIcon />}
-              name="prfaq (beta)"
+              name="prfaq (WIP)"
             />{" "}
             <LinkInAppCard
               description="Базарим за обработку изображений в Adobe Photoshop"
               href="/psfaq"
               icon={<PSIcon />}
-              name="psfaq (beta)"
+              name="psfaq (WIP)"
             />
             <LinkInAppCard
               description="Шпаргалка по использованию выражений в Adobe After Effects"
