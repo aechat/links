@@ -9,14 +9,60 @@ import React, {
   useRef,
   useState,
 } from "react";
+
+/**
+ * пропсы для компонента спойлера
+ */
+
 interface DetailsSummaryProps {
+  /** заголовок спойлера */
+
   title: string;
+
+  /** содержимое спойлера */
+
   children: ReactNode;
+
+  /** теги для фильтрации */
+
   tag?: string;
 }
 
+/**
+ * контекст для отслеживания состояния спойлера
+ */
+
 const SpoilerContext = createContext(false);
+
+/**
+ * хук для получения состояния спойлера
+ * @returns {boolean} текущее состояние спойлера
+ */
+
 export const useSpoiler = () => useContext(SpoilerContext);
+
+/**
+ * константы для компонента
+ */
+
+const constants = {
+  SCROLL_DELAY: 300,
+  MOUSE_ENTER_DELAY: 1000,
+  PADDING: {
+    MIN: 10,
+    MAX: 14,
+    SCREEN: {
+      MIN: 320,
+      MAX: 768,
+    },
+  },
+} as const;
+
+/**
+ * генерирует и устанавливает якоря для спойлеров
+ * @returns {string} сгенерированный якорь
+ */
+
 export const generateAnchorId = () => {
   const containers = Array.from(document.querySelectorAll(".faq-content"));
   let generatedAnchor = "";
@@ -37,8 +83,11 @@ export const generateAnchorId = () => {
           const headerHeight = document.querySelector("header")?.offsetHeight ?? 0;
 
           const padding = Math.min(
-            10 + (14 - 10) * ((window.innerWidth - 320) / (768 - 320)),
-            14
+            constants.PADDING.MIN +
+              (constants.PADDING.MAX - constants.PADDING.MIN) *
+                ((window.innerWidth - constants.PADDING.SCREEN.MIN) /
+                  (constants.PADDING.SCREEN.MAX - constants.PADDING.SCREEN.MIN)),
+            constants.PADDING.MAX
           );
 
           const content = details.querySelector(".faq-section");
@@ -50,7 +99,7 @@ export const generateAnchorId = () => {
                 headerHeight -
                 padding;
               window.scrollTo({top: y, behavior: "smooth"});
-            }, 300);
+            }, constants.SCROLL_DELAY);
           }
         }
       }
@@ -64,8 +113,11 @@ export const generateAnchorId = () => {
       const headerHeight = document.querySelector("header")?.offsetHeight ?? 0;
 
       const padding = Math.min(
-        10 + (14 - 10) * ((window.innerWidth - 320) / (768 - 320)),
-        14
+        constants.PADDING.MIN +
+          (constants.PADDING.MAX - constants.PADDING.MIN) *
+            ((window.innerWidth - constants.PADDING.SCREEN.MIN) /
+              (constants.PADDING.SCREEN.MAX - constants.PADDING.SCREEN.MIN)),
+        constants.PADDING.MAX
       );
       setTimeout(() => {
         const y =
@@ -74,7 +126,7 @@ export const generateAnchorId = () => {
           headerHeight -
           padding;
         window.scrollTo({top: y, behavior: "smooth"});
-      }, 300);
+      }, constants.SCROLL_DELAY);
     } else if (/^\d+\.\d+$/.test(anchorId)) {
       message.error(
         "Не удалось найти статью по ссылке, возможно он был перемещён или удалён"
@@ -86,12 +138,23 @@ export const generateAnchorId = () => {
   return generatedAnchor;
 };
 
+/**
+ * компонент спойлера с поддержкой якорей и тегов
+ * @param {DetailsSummaryProps} props - пропсы компонента
+ * @returns {JSX.Element} компонент спойлера
+ */
+
 const DetailsSummary: React.FC<DetailsSummaryProps> = ({title, children, tag}) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const detailsRef = useRef<HTMLDetailsElement>(null);
 
   const sectionRef = useRef<HTMLElement>(null);
+
+  /*
+   * отслеживает изменение состояния спойлера
+   */
+
   useEffect(() => {
     if (detailsRef.current) {
       const observer = new MutationObserver(() => {
@@ -102,6 +165,11 @@ const DetailsSummary: React.FC<DetailsSummaryProps> = ({title, children, tag}) =
       return () => observer.disconnect();
     }
   }, []);
+
+  /*
+   * добавляет обработчик горячих клавиш для раскрытия всех спойлеров
+   */
+
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
       if (
@@ -121,6 +189,11 @@ const DetailsSummary: React.FC<DetailsSummaryProps> = ({title, children, tag}) =
       window.removeEventListener("keydown", handleKeyDown);
     };
   }, []);
+
+  /*
+   * настраивает атрибуты для внешних ссылок
+   */
+
   useEffect(() => {
     if (sectionRef.current) {
       const links = sectionRef.current.querySelectorAll("a");
@@ -135,6 +208,11 @@ const DetailsSummary: React.FC<DetailsSummaryProps> = ({title, children, tag}) =
       });
     }
   }, [children]);
+
+  /*
+   * добавляет обработчики для обновления якоря при наведении
+   */
+
   useEffect(() => {
     if (!sectionRef.current) {
       return;
@@ -151,7 +229,7 @@ const DetailsSummary: React.FC<DetailsSummaryProps> = ({title, children, tag}) =
             window.location.pathname + window.location.search + `#${summaryId}`
           );
         }
-      }, 1000);
+      }, constants.MOUSE_ENTER_DELAY);
     };
 
     const handleMouseLeave = () => {
@@ -167,6 +245,10 @@ const DetailsSummary: React.FC<DetailsSummaryProps> = ({title, children, tag}) =
     };
   }, []);
 
+  /*
+   * обработчик переключения состояния спойлера
+   */
+
   const handleToggle = (event: React.SyntheticEvent) => {
     const details = event.currentTarget as HTMLDetailsElement;
 
@@ -181,8 +263,11 @@ const DetailsSummary: React.FC<DetailsSummaryProps> = ({title, children, tag}) =
       const headerHeight = document.querySelector("header")?.offsetHeight ?? 0;
 
       const padding = Math.min(
-        10 + (14 - 10) * ((window.innerWidth - 320) / (768 - 320)),
-        14
+        constants.PADDING.MIN +
+          (constants.PADDING.MAX - constants.PADDING.MIN) *
+            ((window.innerWidth - constants.PADDING.SCREEN.MIN) /
+              (constants.PADDING.SCREEN.MAX - constants.PADDING.SCREEN.MIN)),
+        constants.PADDING.MAX
       );
 
       const summary = detailsRef.current?.querySelector(".faq-summary");
@@ -198,6 +283,10 @@ const DetailsSummary: React.FC<DetailsSummaryProps> = ({title, children, tag}) =
       history.replaceState(null, "", window.location.pathname + window.location.search);
     }
   };
+
+  /*
+   * обработчик копирования ссылки на спойлер
+   */
 
   const handleCopyAnchor = () => {
     const anchorId = detailsRef.current?.querySelector(".faq-summary")?.id ?? "";

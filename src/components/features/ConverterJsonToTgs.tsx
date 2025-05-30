@@ -4,37 +4,77 @@ import {saveAs} from "file-saver";
 import {gzip} from "pako";
 import {motion} from "framer-motion";
 import {UploadFileRounded} from "@mui/icons-material";
+
+/**
+ * интерфейс для работы с pyodide
+ */
+
 interface Pyodide {
+  /** файловая система */
+
   FS: {
+    /** запись файла */
+
     writeFile: (filename: string, data: Uint8Array) => void;
+
+    /** чтение файла */
+
     readFile: (filename: string) => Uint8Array;
   };
+
+  /** выполнение python кода */
+
   runPythonAsync: (code: string) => Promise<void>;
 }
 
-const TgsToJsonConverter = () => {
+/**
+ * компонент для конвертации json файлов в tgs
+ * @returns компонент с возможностью загрузки и конвертации файлов
+ */
+
+const TgsToJsonConverter: React.FC = () => {
+  /** данные json после загрузки */
+
   const [jsonData, setJsonData] = useState<Record<string, unknown> | null>(null);
+
+  /** оригинальное имя загруженного файла */
 
   const [originalFileName, setOriginalFileName] = useState<string>("");
 
+  /** режим сжатия: js или python */
+
   const [compressionMode, setCompressionMode] = useState<"js" | "python">("js");
+
+  /** экземпляр pyodide для python сжатия */
 
   const [pyodide, setPyodide] = useState<Pyodide | null>(null);
 
+  /** состояние загрузки */
+
   const [loading, setLoading] = useState(false);
+
+  /*
+   * загружает pyodide при выборе python режима
+   */
+
   useEffect(() => {
     if (compressionMode === "python" && !pyodide) {
       loadPyodideInline();
     }
   }, [compressionMode]);
 
-  const loadPyodideInline = async () => {
+  /*
+   * загружает pyodide из cdn
+   */
+
+  const loadPyodideInline = async (): Promise<void> => {
     setLoading(true);
     try {
       const script = document.createElement("script");
       script.src = "https://cdn.jsdelivr.net/pyodide/v0.22.1/full/pyodide.js";
       script.onload = async () => {
         // @ts-expect-error, чтобы не втыкал
+
         const py: Pyodide = await (window as unknown).loadPyodide();
         setPyodide(py);
         setLoading(false);
@@ -53,7 +93,13 @@ const TgsToJsonConverter = () => {
     }
   };
 
-  const handleFileUpload = async (file: File) => {
+  /*
+   * обрабатывает загрузку файла
+   * @param file - загруженный файл
+   * @returns false для предотвращения автоматической загрузки
+   */
+
+  const handleFileUpload = async (file: File): Promise<boolean> => {
     try {
       const fileData = await file.text();
       setOriginalFileName(file.name);
@@ -69,7 +115,11 @@ const TgsToJsonConverter = () => {
     return false;
   };
 
-  const downloadTgs = async () => {
+  /*
+   * скачивает преобразованный tgs файл
+   */
+
+  const downloadTgs = async (): Promise<void> => {
     if (!jsonData) {
       return;
     }
@@ -157,7 +207,6 @@ with open("input.json", "rb") as f_in:
           <Radio value="python">python-gzip</Radio>
         </Radio.Group>
       </div>
-
       {jsonData && typeof jsonData === "object" && (
         <div
           style={{

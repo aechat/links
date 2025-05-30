@@ -5,12 +5,27 @@ import {inflate} from "pako";
 import {motion} from "framer-motion";
 import {UploadFileRounded} from "@mui/icons-material";
 
-const TgsToJsonConverter = () => {
+/**
+ * компонент для конвертации tgs файлов в json
+ * @returns компонент с возможностью загрузки и конвертации файлов
+ */
+
+const TgsToJsonConverter: React.FC = () => {
+  /** данные json после конвертации */
+
   const [jsonData, setJsonData] = useState<unknown>(null);
+
+  /** оригинальное имя загруженного файла */
 
   const [originalFileName, setOriginalFileName] = useState<string>("");
 
-  const handleFileUpload = async (file: File) => {
+  /*
+   * обрабатывает загрузку файла
+   * @param file - загруженный файл
+   * @returns false для предотвращения автоматической загрузки
+   */
+
+  const handleFileUpload = async (file: File): Promise<boolean> => {
     try {
       const fileData = await file.arrayBuffer();
       setOriginalFileName(file.name);
@@ -28,7 +43,11 @@ const TgsToJsonConverter = () => {
     return false;
   };
 
-  const downloadJson = () => {
+  /*
+   * скачивает преобразованный json файл
+   */
+
+  const downloadJson = (): void => {
     if (jsonData) {
       const blob = new Blob([JSON.stringify(jsonData, null, 2)], {
         type: "application/json",

@@ -9,17 +9,58 @@ import {
   RestartAlt,
 } from "@mui/icons-material";
 import {motion} from "framer-motion";
+
+/**
+ * тип темы оформления
+ * @typedef {"light" | "dark" | "system"} Theme
+ */
+
 type Theme = "light" | "dark" | "system";
+
+/**
+ * интерфейс контекста темы
+ * @interface ThemeContextProps
+ */
+
 interface ThemeContextProps {
+  /** текущая тема */
+
   theme: Theme;
+
+  /** функция установки темы */
+
   setTheme: (theme: Theme) => void;
+
+  /** оттенок акцентного цвета */
+
   accentHue: number;
+
+  /** функция установки оттенка */
+
   setAccentHue: (hue: number) => void;
+
+  /** насыщенность акцентного цвета */
+
   saturateRatio: number;
+
+  /** функция установки насыщенности */
+
   setSaturateRatio: (ratio: number) => void;
 }
 
+/**
+ * контекст темы
+ */
+
 const ThemeContext = createContext<ThemeContextProps | undefined>(undefined);
+
+/**
+ * провайдер темы
+ * @param {Object} props - пропсы компонента
+ * @param {React.ReactNode} props.children - дочерние элементы
+ * @returns {JSX.Element} провайдер темы
+ */
+
 export const ThemeProvider: React.FC<{children: React.ReactNode}> = ({children}) => {
   const [themeState, setThemeState] = useState<Theme>(
     () => (localStorage.getItem("theme") as Theme) || "system"
@@ -33,20 +74,39 @@ export const ThemeProvider: React.FC<{children: React.ReactNode}> = ({children})
     parseFloat(localStorage.getItem("saturateRatio") ?? "1")
   );
 
+  /*
+   * устанавливает тему
+   * @param {Theme} newTheme - новая тема
+   */
+
   const setTheme = (newTheme: Theme) => {
     setThemeState(newTheme);
     localStorage.setItem("theme", newTheme);
   };
+
+  /*
+   * устанавливает оттенок акцентного цвета
+   * @param {number} hue - новый оттенок
+   */
 
   const setAccentHue = (hue: number) => {
     setAccentHueState(hue);
     localStorage.setItem("accentHue", hue.toString());
   };
 
+  /*
+   * устанавливает насыщенность акцентного цвета
+   * @param {number} ratio - новая насыщенность
+   */
+
   const setSaturateRatio = (ratio: number) => {
     setSaturateRatioState(ratio);
     localStorage.setItem("saturateRatio", ratio.toString());
   };
+
+  /*
+   * обновляет тему и стили
+   */
 
   const updateTheme = () => {
     const root = document.documentElement;
@@ -84,6 +144,12 @@ export const ThemeProvider: React.FC<{children: React.ReactNode}> = ({children})
   return <ThemeContext.Provider value={contextValue}>{children}</ThemeContext.Provider>;
 };
 
+/**
+ * хук для работы с темой
+ * @returns {ThemeContextProps} контекст темы
+ * @throws {Error} если хук используется вне ThemeProvider
+ */
+
 export const useTheme = (): ThemeContextProps => {
   const context = useContext(ThemeContext);
   if (!context) {
@@ -92,6 +158,11 @@ export const useTheme = (): ThemeContextProps => {
 
   return context;
 };
+
+/**
+ * кнопка переключения темы
+ * @returns {JSX.Element} кнопка переключения темы
+ */
 
 export const ThemeToggleButton: React.FC = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -112,10 +183,27 @@ export const ThemeToggleButton: React.FC = () => {
     </>
   );
 };
+
+/**
+ * пропсы для модального окна темы
+ * @interface ThemeModalProps
+ */
+
 interface ThemeModalProps {
+  /** флаг видимости модального окна */
+
   isModalOpen: boolean;
+
+  /** функция закрытия модального окна */
+
   closeModal: () => void;
 }
+
+/**
+ * модальное окно настроек темы
+ * @param {ThemeModalProps} props - пропсы компонента
+ * @returns {JSX.Element} модальное окно настроек темы
+ */
 
 const ThemeModal: React.FC<ThemeModalProps> = ({isModalOpen, closeModal}) => {
   const {theme, setTheme, accentHue, setAccentHue, saturateRatio, setSaturateRatio} =
@@ -142,12 +230,7 @@ const ThemeModal: React.FC<ThemeModalProps> = ({isModalOpen, closeModal}) => {
         </div>
         <div
           style={{
-            // marginBlock: "10px",
             display: "flex",
-            // maxHeight: "100%",
-            // alignItems: "center",
-            // justifyContent: "space-between",
-            // gap: "10px",
           }}
         >
           <div className="theme-selector">

@@ -1,16 +1,54 @@
 import React, {useCallback, useEffect, useState} from "react";
 import {useSpoiler} from "./DetailsSummary";
+
+/**
+ * пропсы для компонента изображения
+ */
+
 interface ImageFigureProps {
+  /** класс стиля для фигуры */
+
   styleClass: string;
+
+  /** источник изображения */
+
   imgSrc: string;
+
+  /** заголовок изображения */
+
   imgTitle: string;
+
+  /** подпись к изображению */
+
   caption: string;
 }
+
+/**
+ * пропсы для компонента видео
+ */
+
 interface VideoFigureProps {
+  /** класс стиля для фигуры */
+
   styleClass: string;
+
+  /** источник видео */
+
   videoSrc: string;
+
+  /** подпись к видео */
+
   caption: string;
 }
+
+/**
+ * компонент для отображения изображения с возможностью полноэкранного просмотра
+ * @param styleClass - класс стиля для фигуры
+ * @param imgSrc - источник изображения
+ * @param imgTitle - заголовок изображения
+ * @param caption - подпись к изображению
+ * @returns компонент изображения с поддержкой полноэкранного режима
+ */
 
 const ImageFigure: React.FC<ImageFigureProps> = ({
   styleClass,
@@ -27,10 +65,18 @@ const ImageFigure: React.FC<ImageFigureProps> = ({
   const isWindowsStyle =
     styleClass === "figure_windows-light" || styleClass === "figure_windows-dark";
 
+  /*
+   * обработчик открытия полноэкранного режима
+   */
+
   const handleMaximize = useCallback(() => {
     setIsFullscreen(true);
     setIsClosing(false);
   }, []);
+
+  /*
+   * обработчик закрытия полноэкранного режима
+   */
 
   const handleClose = useCallback(() => {
     setIsClosing(true);
@@ -40,6 +86,10 @@ const ImageFigure: React.FC<ImageFigureProps> = ({
     }, 250);
   }, []);
 
+  /*
+   * обработчик клика по изображению
+   */
+
   const handleClick = useCallback(() => {
     if (isFullscreen) {
       handleClose();
@@ -47,6 +97,10 @@ const ImageFigure: React.FC<ImageFigureProps> = ({
       handleMaximize();
     }
   }, [isFullscreen, handleClose, handleMaximize]);
+
+  /*
+   * обработчик клика вне изображения
+   */
 
   const handleClickOutside = useCallback(
     (e: React.MouseEvent<HTMLDivElement>) => {
@@ -195,6 +249,14 @@ const ImageFigure: React.FC<ImageFigureProps> = ({
     </>
   );
 };
+
+/**
+ * компонент для отображения видео с возможностью полноэкранного просмотра
+ * @param styleClass - класс стиля для фигуры
+ * @param videoSrc - источник видео
+ * @param caption - подпись к видео
+ * @returns компонент видео с поддержкой полноэкранного режима
+ */
 
 const VideoFigure: React.FC<VideoFigureProps> = ({styleClass, videoSrc, caption}) => {
   const isOpen = useSpoiler();
@@ -206,10 +268,18 @@ const VideoFigure: React.FC<VideoFigureProps> = ({styleClass, videoSrc, caption}
   const isWindowsStyle =
     styleClass === "figure_windows-light" || styleClass === "figure_windows-dark";
 
+  /*
+   * обработчик открытия полноэкранного режима
+   */
+
   const handleMaximize = useCallback(() => {
     setIsFullscreen(true);
     setIsClosing(false);
   }, []);
+
+  /*
+   * обработчик закрытия полноэкранного режима
+   */
 
   const handleClose = useCallback(() => {
     setIsClosing(true);
@@ -219,6 +289,10 @@ const VideoFigure: React.FC<VideoFigureProps> = ({styleClass, videoSrc, caption}
     }, 250);
   }, []);
 
+  /*
+   * обработчик клика по видео
+   */
+
   const handleClick = useCallback(() => {
     if (isFullscreen) {
       handleClose();
@@ -226,6 +300,10 @@ const VideoFigure: React.FC<VideoFigureProps> = ({styleClass, videoSrc, caption}
       handleMaximize();
     }
   }, [isFullscreen, handleClose, handleMaximize]);
+
+  /*
+   * обработчик клика вне видео
+   */
 
   const handleClickOutside = useCallback(
     (e: React.MouseEvent<HTMLDivElement>) => {
@@ -317,12 +395,9 @@ const VideoFigure: React.FC<VideoFigureProps> = ({styleClass, videoSrc, caption}
       </div>
       <video
         controls
-        loop
-        preload="metadata"
+        src={videoSrc}
         onClick={handleClick}
-      >
-        <source src={videoSrc} />
-      </video>
+      />
     </div>
   ) : (
     <div>
@@ -351,12 +426,9 @@ const VideoFigure: React.FC<VideoFigureProps> = ({styleClass, videoSrc, caption}
       </div>
       <video
         controls
-        loop
-        preload="metadata"
+        src={videoSrc}
         onClick={handleClick}
-      >
-        <source src={videoSrc} />
-      </video>
+      />
     </div>
   );
 
@@ -381,10 +453,32 @@ const VideoFigure: React.FC<VideoFigureProps> = ({styleClass, videoSrc, caption}
   );
 };
 
-const YouTubeVideo: React.FC<{link: string; caption: string}> = ({link, caption}) => {
+/**
+ * пропсы для компонента YouTube видео
+ */
+
+interface YouTubeVideoProps {
+  /** ссылка на YouTube видео */
+
+  link: string;
+
+  /** подпись к видео */
+
+  caption: string;
+}
+
+/**
+ * компонент для отображения YouTube видео
+ * @param link - обрезанная ссылка на YouTube видео
+ * @param caption - подпись к видео
+ * @returns компонент YouTube видео
+ */
+
+const YouTubeVideo: React.FC<YouTubeVideoProps> = ({link, caption}) => {
   const isOpen = useSpoiler();
 
   const id = link.split("/").pop();
+
   if (!isOpen) {
     return null;
   }
@@ -406,4 +500,5 @@ const YouTubeVideo: React.FC<{link: string; caption: string}> = ({link, caption}
     </div>
   );
 };
+
 export {ImageFigure, VideoFigure, YouTubeVideo};

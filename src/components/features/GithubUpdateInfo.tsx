@@ -1,18 +1,67 @@
 import React, {useEffect, useState} from "react";
 
+/** владелец репозитория */
+
 const OWNER = "aechat";
+
+/** название репозитория */
 
 const REPO = "links";
 
+/** ветка репозитория */
+
 const BRANCH = "main";
+
+/**
+ * пропсы компонента информации об обновлении
+ */
+
 interface GithubUpdateInfoProps {
+  /** путь к файлу в репозитории */
+
   filePath: string;
 }
+
+/**
+ * интерфейс коммита из github api
+ */
+
+interface Commit {
+  /** информация о коммите */
+
+  commit: {
+    /** сообщение коммита */
+
+    message: string;
+
+    /** информация об авторе */
+
+    author: {
+      /** дата коммита */
+
+      date: string;
+    };
+  };
+
+  /** url коммита */
+
+  html_url: string;
+}
+
+/**
+ * компонент для отображения информации о последнем обновлении файла в github
+ * @param filePath - путь к файлу в репозитории
+ * @returns компонент с информацией о последнем обновлении
+ */
 
 const GithubUpdateInfo: React.FC<GithubUpdateInfoProps> = ({filePath}) => {
   const [commitInfo, setCommitInfo] = useState<string>("Ищем информацию...");
 
-  const getLastCommitDate = async () => {
+  /*
+   * получает информацию о последнем коммите файла
+   */
+
+  const getLastCommitDate = async (): Promise<void> => {
     const url = `https://api.github.com/repos/${OWNER}/${REPO}/commits?path=${filePath}&sha=${BRANCH}`;
     try {
       const response = await fetch(url);
@@ -20,15 +69,10 @@ const GithubUpdateInfo: React.FC<GithubUpdateInfoProps> = ({filePath}) => {
         throw new Error(`${response.status}`);
       }
 
-      const commits = await response.json();
-      interface Commit {
-        commit: {
-          message: string;
-        };
-      }
+      const commits = (await response.json()) as Commit[];
 
       const filteredCommits = commits.filter(
-        (commit: Commit) => !commit.commit.message.startsWith("Merge")
+        (commit) => !commit.commit.message.startsWith("Merge")
       );
       if (filteredCommits.length === 0) {
         setCommitInfo("Индикатор свежести информации временно недоступен");
@@ -65,6 +109,9 @@ const GithubUpdateInfo: React.FC<GithubUpdateInfoProps> = ({filePath}) => {
       setCommitInfo(`Индикатор свежести информации временно недоступен - ${err}`);
     }
   };
+
+  // получение информации о коммите при изменении пути к файлу
+
   useEffect(() => {
     getLastCommitDate();
   }, [filePath]);
