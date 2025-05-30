@@ -18,10 +18,27 @@ const AEFromNewbies: React.FC = () => {
         tag="для новичка, первый раз, только открыл афтер"
         title="Я первый раз установил и открыл After Effects, с чего бы мне начать обучение?"
       >
+        <AdditionDanger>
+          <ul>
+            <li>
+              Будьте готовы к тому, что большинство авторов курсов и каналов на{" "}
+              <mark className="app">YouTube</mark> выполняют свои действия в английской
+              версии программы, поэтому рекомендую{" "}
+              <a href="#3.5">изменить язык на английский</a>, если у вас установлена
+              русская локализация во избежание проблем и вопросов про перевод эффектов или
+              частей интерфейса.
+            </li>
+            <li>
+              Если вы всё же наотрез отказываетесь от перехода на английскую локализацию -
+              вам могут пригодиться таблицы <a href="#1.6">перевода эффектов</a> и{" "}
+              <a href="#1.7">пресетов</a>.
+            </li>
+          </ul>
+        </AdditionDanger>
         <p>
           Если вы только начинаете свой путь в мире композитинга и никогда не работали с
-          программами, такими как <mark className="app">Adobe After Effects</mark>, то мы
-          рекомендуем вам пройти курс{" "}
+          программами, такими как <mark className="app">Adobe After Effects</mark> -
+          рекомендую пройти вам курс{" "}
           <a href="https://www.youtube.com/playlist?list=PLcN7xY5E2wrmIU__8uNIHglZTyZ29RMIM">
             Основы After Effects от Ильи Зернова
           </a>
@@ -46,9 +63,25 @@ const AEFromNewbies: React.FC = () => {
           link="ZTrELWgEtUI"
         />
         <p>
-          Если вы уже знакомы с интерфейсом, но всё ещё чувствуете себя неуверенно,
-          советую изучить каналы на YouTube из списка ниже, которые помогут вам прокачать
-          свои навыки.
+          Если вы обладаете английским языком на уровне комфортного прослушивания и
+          понимания речи или у вас есть возможность перевести видео на нужный вам язык -
+          рекомендую к просмотру плейлист{" "}
+          <a href="https://www.youtube.com/playlist?list=PLYfCBK8IplO77FDDLnS06qEMoVLD7Qyib">
+            Learn Adobe After Effects от Gareth David Studio
+          </a>
+          . Автор в своём курсе подробно разбирает основные функции программы и
+          демонстрирует различные примеры работы с{" "}
+          <mark className="app">Adobe After Effects</mark>.
+        </p>
+        <YouTubeVideo
+          caption="What is Adobe After Effects?"
+          link="FuJMHF510mc"
+        />
+        <p>
+          Если вы уже знакомы с интерфейсом программы, но вы всё ещё чувствуете себя
+          неуверенно - вы можете попробовать изучить каналы на{" "}
+          <mark className="app">YouTube</mark> из списка ниже, которые помогут вам
+          прокачать свои навыки.
         </p>
         <div className="flexible-links">
           <a href="https://www.youtube.com/@TutoView">Tutorial View+</a>
@@ -60,8 +93,8 @@ const AEFromNewbies: React.FC = () => {
           </a>
         </div>
         <p>
-          Также я могу порекомендовать несколько отличных курсов, как бесплатных, так и
-          платных.
+          Ну и не забываем про дополнительный список как бесплатных, так и платных курсов
+          по <mark className="app">Adobe After Effects</mark>.
         </p>
         <div className="flexible-links">
           <a href="https://cloudlessons.ru/v/410/">
