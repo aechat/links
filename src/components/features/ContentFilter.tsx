@@ -1,9 +1,26 @@
 import {Apple, WindowSharp} from "@mui/icons-material";
 import React, {ReactNode, useEffect, useState} from "react";
+
+/**
+ * пропсы компонента переключения контента
+ */
+
 interface ContentSwitcherProps {
-  windowsContent: ReactNode; // контент для Windows
-  macContent: ReactNode; // контент для macOS
+  /** контент для windows */
+
+  windowsContent: ReactNode;
+
+  /** контент для macos */
+
+  macContent: ReactNode;
 }
+
+/**
+ * компонент для переключения контента между windows и macos
+ * @param windowsContent - контент для windows
+ * @param macContent - контент для macos
+ * @returns компонент с возможностью переключения контента
+ */
 
 const ContentSwitcher: React.FC<ContentSwitcherProps> = ({
   windowsContent,
@@ -11,26 +28,34 @@ const ContentSwitcher: React.FC<ContentSwitcherProps> = ({
 }) => {
   const [isWindows, setIsWindows] = useState(true);
 
-  // *: определение устройства по userAgent
-  const detectOperatingSystem = () => {
+  /*
+   * определяет операционную систему по useragent
+   * @returns true если система windows, false если macos
+   */
+
+  const detectOperatingSystem = (): boolean => {
     const userAgent = window.navigator.userAgent.toLowerCase();
-    if (
+
+    return !(
       userAgent.includes("mac") ||
       userAgent.includes("iphone") ||
       userAgent.includes("ipad")
-    ) {
-      setIsWindows(false);
-    } else {
-      setIsWindows(true);
-    }
+    );
   };
-  useEffect(() => {
-    detectOperatingSystem();
-  }, []);
 
-  const toggleContent = () => {
+  /*
+   * переключает отображаемый контент
+   */
+
+  const toggleContent = (): void => {
     setIsWindows(!isWindows);
   };
+
+  // определение операционной системы при монтировании компонента
+
+  useEffect(() => {
+    setIsWindows(detectOperatingSystem());
+  }, []);
 
   return (
     <div>
@@ -58,7 +83,10 @@ const ContentSwitcher: React.FC<ContentSwitcherProps> = ({
             </div>
           </div>
         )}
-        <button onClick={toggleContent}>
+        <button
+          aria-label={isWindows ? "Показать для macOS" : "Показать для Windows"}
+          onClick={toggleContent}
+        >
           {isWindows ? "Показать для macOS" : "Показать для Windows"}
         </button>
       </div>

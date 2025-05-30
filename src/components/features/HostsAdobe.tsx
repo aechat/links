@@ -4,7 +4,14 @@ import {Modal} from "antd";
 import {AdditionInfo} from "../Additions";
 import {CloseRounded} from "@mui/icons-material";
 
+/**
+ * компонент для отображения адресов adobe для внесения в hosts
+ * @returns компонент с модальным окном и списком адресов
+ */
+
 const HostsAdobeModal: React.FC = () => {
+  /** состояние открытия модального окна */
+
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
@@ -31,8 +38,8 @@ const HostsAdobeModal: React.FC = () => {
       >
         <div className="modal">
           <div className="modal-header">
-            <div className="modal-header-title">Адреса Adobe для внесения в hosts</div>
             <button
+              aria-label="Закрыть"
               className="modal-header-close"
               onClick={() => setIsModalOpen(false)}
             >
@@ -4340,5 +4347,4 @@ const HostsAdobeModal: React.FC = () => {
     </div>
   );
 };
-
 export default HostsAdobeModal;

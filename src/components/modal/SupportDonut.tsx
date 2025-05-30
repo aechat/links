@@ -4,6 +4,11 @@ import {motion} from "framer-motion";
 import {CloseRounded, CoffeeRounded, EditRounded} from "@mui/icons-material";
 import {AdditionInfo} from "../Additions";
 
+/**
+ * компонент для отображения модальных окон поддержки и редактирования
+ * @returns {JSX.Element} компонент с модальными окнами
+ */
+
 const SupportDonut: React.FC = () => {
   const [isDonateModalOpen, setIsDonateModalOpen] = useState(false);
 
@@ -13,25 +18,49 @@ const SupportDonut: React.FC = () => {
 
   const [isYoomoneyModalOpen, setIsYoomoneyModalOpen] = useState(false);
 
+  /*
+   * открывает модальное окно для доната
+   */
+
   const showDonateModal = () => {
     setIsDonateModalOpen(true);
   };
+
+  /*
+   * открывает модальное окно для редактирования
+   */
 
   const showEditModal = () => {
     setIsEditModalOpen(true);
   };
 
+  /*
+   * закрывает модальное окно доната
+   */
+
   const handleCloseDonateModal = () => {
     setIsDonateModalOpen(false);
   };
+
+  /*
+   * закрывает модальное окно редактирования
+   */
 
   const handleCloseEditModal = () => {
     setIsEditModalOpen(false);
   };
 
+  /*
+   * закрывает модальное окно сбербанка
+   */
+
   const handleCloseSberModal = () => {
     setIsSberModalOpen(false);
   };
+
+  /*
+   * закрывает модальное окно юmoney
+   */
 
   const handleCloseYoomoneyModal = () => {
     setIsYoomoneyModalOpen(false);
