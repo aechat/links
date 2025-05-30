@@ -5,7 +5,7 @@ import {Link} from "react-router-dom";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import {Helmet} from "react-helmet-async";
-import {SearchInPage, SearchProvider} from "../components/modal/SearchInPage";
+import {SearchInPage, SearchProvider} from "../components/search";
 import SupportDonut from "../components/modal/SupportDonut";
 import CopyToClipboard from "../components/features/CopyToClipboard";
 import {CircularProgress} from "@mui/material";
