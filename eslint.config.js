@@ -5,6 +5,7 @@ import pluginReact from "eslint-plugin-react";
 import pluginJsxA11y from "eslint-plugin-jsx-a11y";
 
 /** @type {import('eslint').Linter.Config[]} */
+
 export default [
   {
     ignores: [
@@ -55,7 +56,9 @@ export default [
         {blankLine: "always", prev: "*", next: "return"},
       ],
       "grouped-accessor-pairs": ["error", "getBeforeSet"],
+
       // "no-unused-vars": ["warn"],
+
       "no-duplicate-imports": "error",
       "sort-imports": [
         "error",
@@ -65,7 +68,9 @@ export default [
           ignoreMemberSort: false,
         },
       ],
+
       // "no-mixed-operators": "error",
+
       "semi": ["error", "always"],
       "curly": ["error", "all"],
       "no-empty": ["error", {allowEmptyCatch: true}],
@@ -79,6 +84,25 @@ export default [
       "space-unary-ops": ["error", {words: true, nonwords: false}],
       "no-console": ["warn", {allow: ["warn", "error"]}],
       "no-multiple-empty-lines": ["error", {max: 1, maxEOF: 1}],
+
+      // "lines-around-comment": [
+      //   "error",
+      //   {
+      //     beforeLineComment: true,
+      //     afterLineComment: true,
+      //     allowBlockStart: false,
+      //     allowBlockEnd: false,
+      //     allowClassStart: false,
+      //     allowClassEnd: false,
+      //     allowObjectStart: false,
+      //     allowObjectEnd: false,
+      //     allowArrayStart: false,
+      //     allowArrayEnd: false,
+      //     beforeBlockComment: true,
+      //     afterBlockComment: true,
+      //   },
+      // ],
+
       "react/jsx-uses-vars": "error",
       "react/jsx-sort-props": [
         "error",
