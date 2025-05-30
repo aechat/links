@@ -10,13 +10,14 @@ interface CodeSnippetProps {
 
 const CodeSnippet: React.FC<CodeSnippetProps> = ({language = "javascript", children}) => {
   const codeRef = useRef<HTMLElement | null>(null);
+
   useEffect(() => {
     if (codeRef.current) {
       hljs.highlightBlock(codeRef.current);
     }
   }, [children, language]);
 
-  const handleCopy = (event: React.MouseEvent<HTMLPreElement>) => {
+  const handleCopy = (event: React.MouseEvent<HTMLPreElement>): void => {
     event.stopPropagation();
 
     const textArea = document.createElement("textarea");
@@ -31,7 +32,11 @@ const CodeSnippet: React.FC<CodeSnippetProps> = ({language = "javascript", child
   };
 
   return (
-    <pre onClick={handleCopy}>
+    <pre
+      aria-label="Нажмите, чтобы скопировать код"
+      role="button"
+      onClick={handleCopy}
+    >
       <code
         ref={codeRef}
         className={language}

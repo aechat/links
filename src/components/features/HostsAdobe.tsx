@@ -1,8 +1,8 @@
 import React, {useState} from "react";
 import {motion} from "framer-motion";
 import {Modal} from "antd";
-import {AdditionInfo} from "../Additions";
 import {CloseRounded} from "@mui/icons-material";
+import {AdditionInfo} from "../Additions";
 
 const HostsAdobeModal: React.FC = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -31,8 +31,8 @@ const HostsAdobeModal: React.FC = () => {
       >
         <div className="modal">
           <div className="modal-header">
-            <div className="modal-header-title">Адреса Adobe для внесения в hosts</div>
             <button
+              aria-label="Закрыть"
               className="modal-header-close"
               onClick={() => setIsModalOpen(false)}
             >
@@ -4340,5 +4340,4 @@ const HostsAdobeModal: React.FC = () => {
     </div>
   );
 };
-
 export default HostsAdobeModal;

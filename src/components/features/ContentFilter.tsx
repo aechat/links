@@ -1,8 +1,9 @@
 import {Apple, WindowSharp} from "@mui/icons-material";
 import React, {ReactNode, useEffect, useState} from "react";
+
 interface ContentSwitcherProps {
-  windowsContent: ReactNode; // контент для Windows
-  macContent: ReactNode; // контент для macOS
+  windowsContent: ReactNode;
+  macContent: ReactNode;
 }
 
 const ContentSwitcher: React.FC<ContentSwitcherProps> = ({
@@ -11,26 +12,22 @@ const ContentSwitcher: React.FC<ContentSwitcherProps> = ({
 }) => {
   const [isWindows, setIsWindows] = useState(true);
 
-  // *: определение устройства по userAgent
-  const detectOperatingSystem = () => {
+  const detectOperatingSystem = (): boolean => {
     const userAgent = window.navigator.userAgent.toLowerCase();
-    if (
+    return !(
       userAgent.includes("mac") ||
       userAgent.includes("iphone") ||
       userAgent.includes("ipad")
-    ) {
-      setIsWindows(false);
-    } else {
-      setIsWindows(true);
-    }
+    );
   };
-  useEffect(() => {
-    detectOperatingSystem();
-  }, []);
 
-  const toggleContent = () => {
+  const toggleContent = (): void => {
     setIsWindows(!isWindows);
   };
+
+  useEffect(() => {
+    setIsWindows(detectOperatingSystem());
+  }, []);
 
   return (
     <div>
@@ -58,7 +55,10 @@ const ContentSwitcher: React.FC<ContentSwitcherProps> = ({
             </div>
           </div>
         )}
-        <button onClick={toggleContent}>
+        <button
+          aria-label={isWindows ? "Показать для macOS" : "Показать для Windows"}
+          onClick={toggleContent}
+        >
           {isWindows ? "Показать для macOS" : "Показать для Windows"}
         </button>
       </div>

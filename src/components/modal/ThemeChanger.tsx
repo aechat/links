@@ -9,17 +9,25 @@ import {
   RestartAlt,
 } from "@mui/icons-material";
 import {motion} from "framer-motion";
+
 type Theme = "light" | "dark" | "system";
+
 interface ThemeContextProps {
   theme: Theme;
+
   setTheme: (theme: Theme) => void;
+
   accentHue: number;
+
   setAccentHue: (hue: number) => void;
+
   saturateRatio: number;
+
   setSaturateRatio: (ratio: number) => void;
 }
 
 const ThemeContext = createContext<ThemeContextProps | undefined>(undefined);
+
 export const ThemeProvider: React.FC<{children: React.ReactNode}> = ({children}) => {
   const [themeState, setThemeState] = useState<Theme>(
     () => (localStorage.getItem("theme") as Theme) || "system"
@@ -112,8 +120,10 @@ export const ThemeToggleButton: React.FC = () => {
     </>
   );
 };
+
 interface ThemeModalProps {
   isModalOpen: boolean;
+
   closeModal: () => void;
 }
 
@@ -142,12 +152,7 @@ const ThemeModal: React.FC<ThemeModalProps> = ({isModalOpen, closeModal}) => {
         </div>
         <div
           style={{
-            // marginBlock: "10px",
             display: "flex",
-            // maxHeight: "100%",
-            // alignItems: "center",
-            // justifyContent: "space-between",
-            // gap: "10px",
           }}
         >
           <div className="theme-selector">

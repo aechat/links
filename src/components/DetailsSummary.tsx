@@ -9,6 +9,7 @@ import React, {
   useRef,
   useState,
 } from "react";
+
 interface DetailsSummaryProps {
   title: string;
   children: ReactNode;
@@ -16,7 +17,22 @@ interface DetailsSummaryProps {
 }
 
 const SpoilerContext = createContext(false);
+
 export const useSpoiler = () => useContext(SpoilerContext);
+
+const constants = {
+  SCROLL_DELAY: 300,
+  MOUSE_ENTER_DELAY: 1000,
+  PADDING: {
+    MIN: 10,
+    MAX: 14,
+    SCREEN: {
+      MIN: 320,
+      MAX: 768,
+    },
+  },
+} as const;
+
 export const generateAnchorId = () => {
   const containers = Array.from(document.querySelectorAll(".faq-content"));
   let generatedAnchor = "";
@@ -37,8 +53,11 @@ export const generateAnchorId = () => {
           const headerHeight = document.querySelector("header")?.offsetHeight ?? 0;
 
           const padding = Math.min(
-            10 + (14 - 10) * ((window.innerWidth - 320) / (768 - 320)),
-            14
+            constants.PADDING.MIN +
+              (constants.PADDING.MAX - constants.PADDING.MIN) *
+                ((window.innerWidth - constants.PADDING.SCREEN.MIN) /
+                  (constants.PADDING.SCREEN.MAX - constants.PADDING.SCREEN.MIN)),
+            constants.PADDING.MAX
           );
 
           const content = details.querySelector(".faq-section");
@@ -50,7 +69,7 @@ export const generateAnchorId = () => {
                 headerHeight -
                 padding;
               window.scrollTo({top: y, behavior: "smooth"});
-            }, 300);
+            }, constants.SCROLL_DELAY);
           }
         }
       }
@@ -64,8 +83,11 @@ export const generateAnchorId = () => {
       const headerHeight = document.querySelector("header")?.offsetHeight ?? 0;
 
       const padding = Math.min(
-        10 + (14 - 10) * ((window.innerWidth - 320) / (768 - 320)),
-        14
+        constants.PADDING.MIN +
+          (constants.PADDING.MAX - constants.PADDING.MIN) *
+            ((window.innerWidth - constants.PADDING.SCREEN.MIN) /
+              (constants.PADDING.SCREEN.MAX - constants.PADDING.SCREEN.MIN)),
+        constants.PADDING.MAX
       );
       setTimeout(() => {
         const y =
@@ -74,7 +96,7 @@ export const generateAnchorId = () => {
           headerHeight -
           padding;
         window.scrollTo({top: y, behavior: "smooth"});
-      }, 300);
+      }, constants.SCROLL_DELAY);
     } else if (/^\d+\.\d+$/.test(anchorId)) {
       message.error(
         "Не удалось найти статью по ссылке, возможно он был перемещён или удалён"
@@ -92,6 +114,7 @@ const DetailsSummary: React.FC<DetailsSummaryProps> = ({title, children, tag}) =
   const detailsRef = useRef<HTMLDetailsElement>(null);
 
   const sectionRef = useRef<HTMLElement>(null);
+
   useEffect(() => {
     if (detailsRef.current) {
       const observer = new MutationObserver(() => {
@@ -102,6 +125,7 @@ const DetailsSummary: React.FC<DetailsSummaryProps> = ({title, children, tag}) =
       return () => observer.disconnect();
     }
   }, []);
+
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
       if (
@@ -121,6 +145,7 @@ const DetailsSummary: React.FC<DetailsSummaryProps> = ({title, children, tag}) =
       window.removeEventListener("keydown", handleKeyDown);
     };
   }, []);
+
   useEffect(() => {
     if (sectionRef.current) {
       const links = sectionRef.current.querySelectorAll("a");
@@ -135,6 +160,7 @@ const DetailsSummary: React.FC<DetailsSummaryProps> = ({title, children, tag}) =
       });
     }
   }, [children]);
+
   useEffect(() => {
     if (!sectionRef.current) {
       return;
@@ -151,7 +177,7 @@ const DetailsSummary: React.FC<DetailsSummaryProps> = ({title, children, tag}) =
             window.location.pathname + window.location.search + `#${summaryId}`
           );
         }
-      }, 1000);
+      }, constants.MOUSE_ENTER_DELAY);
     };
 
     const handleMouseLeave = () => {
@@ -181,8 +207,11 @@ const DetailsSummary: React.FC<DetailsSummaryProps> = ({title, children, tag}) =
       const headerHeight = document.querySelector("header")?.offsetHeight ?? 0;
 
       const padding = Math.min(
-        10 + (14 - 10) * ((window.innerWidth - 320) / (768 - 320)),
-        14
+        constants.PADDING.MIN +
+          (constants.PADDING.MAX - constants.PADDING.MIN) *
+            ((window.innerWidth - constants.PADDING.SCREEN.MIN) /
+              (constants.PADDING.SCREEN.MAX - constants.PADDING.SCREEN.MIN)),
+        constants.PADDING.MAX
       );
 
       const summary = detailsRef.current?.querySelector(".faq-summary");

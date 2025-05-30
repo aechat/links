@@ -1,11 +1,13 @@
 import React, {useCallback, useEffect, useState} from "react";
 import {useSpoiler} from "./DetailsSummary";
+
 interface ImageFigureProps {
   styleClass: string;
   imgSrc: string;
   imgTitle: string;
   caption: string;
 }
+
 interface VideoFigureProps {
   styleClass: string;
   videoSrc: string;
@@ -317,12 +319,9 @@ const VideoFigure: React.FC<VideoFigureProps> = ({styleClass, videoSrc, caption}
       </div>
       <video
         controls
-        loop
-        preload="metadata"
+        src={videoSrc}
         onClick={handleClick}
-      >
-        <source src={videoSrc} />
-      </video>
+      />
     </div>
   ) : (
     <div>
@@ -351,12 +350,9 @@ const VideoFigure: React.FC<VideoFigureProps> = ({styleClass, videoSrc, caption}
       </div>
       <video
         controls
-        loop
-        preload="metadata"
+        src={videoSrc}
         onClick={handleClick}
-      >
-        <source src={videoSrc} />
-      </video>
+      />
     </div>
   );
 
@@ -381,10 +377,16 @@ const VideoFigure: React.FC<VideoFigureProps> = ({styleClass, videoSrc, caption}
   );
 };
 
-const YouTubeVideo: React.FC<{link: string; caption: string}> = ({link, caption}) => {
+interface YouTubeVideoProps {
+  link: string;
+  caption: string;
+}
+
+const YouTubeVideo: React.FC<YouTubeVideoProps> = ({link, caption}) => {
   const isOpen = useSpoiler();
 
   const id = link.split("/").pop();
+
   if (!isOpen) {
     return null;
   }
@@ -406,4 +408,5 @@ const YouTubeVideo: React.FC<{link: string; caption: string}> = ({link, caption}
     </div>
   );
 };
+
 export {ImageFigure, VideoFigure, YouTubeVideo};

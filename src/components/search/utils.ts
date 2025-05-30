@@ -1,21 +1,9 @@
-/**
- * декодирует html-сущности в тексте
- * @param text - текст с html-сущностями
- * @returns декодированный текст
- */
-
 export const decodeHtmlEntities = (text: string): string => {
   const textArea = document.createElement("textarea");
   textArea.innerHTML = text;
 
   return textArea.value;
 };
-
-/**
- * возвращает правильную форму слова "результат" в зависимости от числа
- * @param count - количество результатов
- * @returns слово "результат" в нужной форме
- */
 
 export const getResultWord = (count: number): string => {
   if (count % 10 === 1 && count % 100 !== 11) {
@@ -29,12 +17,6 @@ export const getResultWord = (count: number): string => {
   return "результатов";
 };
 
-/**
- * возвращает правильную форму слова "найден" в зависимости от числа
- * @param count - количество найденных элементов
- * @returns слово "найден" в нужной форме
- */
-
 export const getFoundWord = (count: number): string => {
   if (count % 10 === 1 && count % 100 !== 11) {
     return "Найден";
@@ -46,13 +28,6 @@ export const getFoundWord = (count: number): string => {
 
   return "Найдено";
 };
-
-/**
- * извлекает первую строку, содержащую все слова из поискового запроса
- * @param content - html-содержимое для поиска
- * @param query - поисковый запрос
- * @returns html-содержимое первой найденной строки или исходное содержимое
- */
 
 export const extractMatchingLine = (content: string, query: string): string => {
   if (!content || !query.trim()) {
@@ -66,12 +41,6 @@ export const extractMatchingLine = (content: string, query: string): string => {
 
   const tempDiv = document.createElement("div");
   tempDiv.innerHTML = content;
-
-  /*
-   * находит первое совпадение в списке
-   * @param ulElement - элемент списка для поиска
-   * @returns html-содержимое найденного элемента или null
-   */
 
   const findFirstListMatch = (ulElement: HTMLUListElement): string | null => {
     const firstMatch = Array.from(ulElement.querySelectorAll("li")).find((li) => {
@@ -89,8 +58,6 @@ export const extractMatchingLine = (content: string, query: string): string => {
     return null;
   };
 
-  // сначала ищем в списках
-
   const ulElements = Array.from(tempDiv.querySelectorAll("ul"));
   for (const ul of ulElements) {
     const matchedList = findFirstListMatch(ul);
@@ -99,8 +66,6 @@ export const extractMatchingLine = (content: string, query: string): string => {
     }
   }
 
-  // если в списках не нашли, ищем в любых элементах
-
   const allElements = Array.from(tempDiv.querySelectorAll("*"));
   for (const element of allElements) {
     const elementHTML = element.innerHTML.toLowerCase();
@@ -108,8 +73,6 @@ export const extractMatchingLine = (content: string, query: string): string => {
       return element.outerHTML;
     }
   }
-
-  // если ничего не нашли, возвращаем первый элемент
 
   const firstElement = tempDiv.firstElementChild;
 

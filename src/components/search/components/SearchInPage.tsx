@@ -7,6 +7,171 @@ import {useSearchLogic} from "../hooks";
 import {SearchSection} from "../types";
 import {getFoundWord, getResultWord} from "../utils";
 
+
+const SearchCategories: React.FC<{
+  onLinkClick: (id: string) => void;
+  sections: SearchSection[];
+}> = ({onLinkClick, sections}) => (
+  <div>
+    <div className="search-category">
+      {sections.map((section) => (
+        <button
+          key={section.id}
+          onClick={() => onLinkClick(section.id)}
+        >
+          {section.title}
+        </button>
+      ))}
+    </div>
+  </div>
+);
+
+
+const SearchResults: React.FC<{
+  onLinkClick: (id: string) => void;
+  resultRefs: React.RefObject<(HTMLButtonElement | null)[]>;
+  results: Array<{content: string; id: string; tag?: string; title: string}>;
+  selectedResultIndex: number;
+}> = ({onLinkClick, resultRefs, results, selectedResultIndex}) => (
+  <div className="search-results">
+    <p className="search-modal-title">
+      {getFoundWord(results.length)}{" "}
+      <span
+        style={{
+          color: "var(--summary-text)",
+          fontWeight: 800,
+          fontSize: "1.05em",
+        }}
+      >
+        {results.length}
+      </span>{" "}
+      {getResultWord(results.length)}
+    </p>
+    {results.map(({title, content, id, tag}, index) => (
+      <div key={id}>
+        <motion.button
+          ref={(el) => {
+            if (resultRefs.current) {
+              resultRefs.current[index] = el;
+            }
+          }}
+          animate={{
+            scale: index === selectedResultIndex ? 1 : 0.98,
+          }}
+          className={`search-link ${index === selectedResultIndex ? "search-selected" : ""}`}
+          initial={{scale: 1}}
+          tabIndex={0}
+          transition={{duration: 0.5, ease: [0.075, 0.82, 0.165, 1]}}
+          onClick={(e) => {
+            e.preventDefault();
+            onLinkClick(id);
+          }}
+        >
+          <div
+            className={`search-header ${index === selectedResultIndex ? "search-selected" : ""}`}
+          >
+            <p className="search-title">{title.replace(/^[+-]+/, "").trim()}</p>
+            {tag && tag.trim() !== "" && (
+              <span className="faq-tags">
+                {tag.split(", ").map((t, index) => (
+                  <mark
+                    key={index}
+                    className="tag"
+                  >
+                    {t}
+                  </mark>
+                ))}
+              </span>
+            )}
+          </div>
+          <div
+            className="search-content faq-content"
+            dangerouslySetInnerHTML={{__html: content}}
+          />
+        </motion.button>
+      </div>
+    ))}
+  </div>
+);
+
+
+const ExternalSearch: React.FC<{query: string}> = ({query}) => {
+  const getSearchQuery = () => {
+    const path = window.location.pathname;
+    let context = "";
+
+    if (path.includes("aefaq")) {
+      context = "after effects";
+    } else if (path.includes("prfaq")) {
+      context = "premiere pro";
+    } else if (path.includes("psfaq")) {
+      context = "photoshop";
+    } else if (path.includes("aeexpr")) {
+      context = "after effects expression";
+    }
+
+    return `${query} ${context}`;
+  };
+
+  return (
+    <div style={{paddingInline: "10px"}}>
+      <div className="search-category">
+        <button
+          onClick={() => {
+            window.open(
+              `https://yandex.com/search/?text=${encodeURIComponent(getSearchQuery())}`,
+              "_blank"
+            );
+          }}
+        >
+          Найти в Яндексе
+        </button>
+        <button
+          onClick={() => {
+            window.open(
+              `https://www.perplexity.ai/search?q=${encodeURIComponent(getSearchQuery())}`,
+              "_blank"
+            );
+          }}
+        >
+          Спросить у Perplexity*
+        </button>
+      </div>
+      <p className="search-no-results-tip">
+        <sup>*</sup>Perplexity может выдавать недостоверную информацию, не используйте его
+        в качестве самоучителя
+      </p>
+    </div>
+  );
+};
+
+
+
+const NoResults: React.FC<{query: string}> = ({query}) => (
+  <div>
+    <div className="search-no-results">
+      <p className="search-no-results-title">
+        По вашему запросу на этой странице{" "}
+        <span
+          style={{
+            color: "var(--summary-text)",
+            fontWeight: 800,
+            fontStyle: "italic",
+            marginInlineEnd: "3px",
+          }}
+        >
+          ничего
+        </span>{" "}
+        не нашлось
+      </p>
+      <p className="search-no-results-message">
+        Попробуйте перефразировать свой запрос или выполните поиск в другом месте
+      </p>
+    </div>
+    <ExternalSearch query={query} />
+  </div>
+);
+
 export const SearchInPage: React.FC<{sections: SearchSection[]}> = ({sections}) => {
   const {isOpen, closeModal, isPageLoaded} = useSearch();
 
@@ -25,7 +190,6 @@ export const SearchInPage: React.FC<{sections: SearchSection[]}> = ({sections}) 
     isPageLoaded
   );
 
-  // эффект для отслеживания обработки результатов
 
   useEffect(() => {
     if (isPageLoaded) {

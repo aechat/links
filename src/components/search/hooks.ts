@@ -3,8 +3,6 @@ import debounce from "lodash/debounce";
 import {SearchResult} from "./types";
 import {decodeHtmlEntities} from "./utils";
 
-// константы для поиска комбинаций клавиш
-
 const KEY_MODIFIERS = ["ctrl", "alt", "shift", "win", "cmd"] as const;
 
 const KEY_MODIFIER_ALIASES: Record<string, string> = {
@@ -13,14 +11,10 @@ const KEY_MODIFIER_ALIASES: Record<string, string> = {
   command: "cmd",
 };
 
-// типы для работы с поиском
-
 type SearchMatch = {
   result: string;
   matchCount: number;
 };
-
-// функция для удаления html-тегов из текста
 
 const stripHtml = (html: string): string => {
   const tmp = document.createElement("div");
@@ -34,12 +28,8 @@ const normalizeText = (text: string): string => {
     text
       .toLowerCase()
       .replace(/ё/g, "е")
-      .replace(/\s+/g, " ") // нормализация пробелов
-      // сохраняем специальные символы для комбинаций клавиш
-
+      .replace(/\s+/g, " ")
       .replace(/[.,!?;:()[\]{}"'`]/g, (match) => {
-        // сохраняем символы, которые могут быть частью комбинаций клавиш
-
         if (
           match === "+" ||
           match === "-" ||
@@ -56,30 +46,22 @@ const normalizeText = (text: string): string => {
   );
 };
 
-// функция для проверки, является ли текст комбинацией клавиш
-
 const isKeyCombinationSearch = (text: string): boolean => {
   return KEY_MODIFIERS.some((modifier) => text.toLowerCase().includes(modifier));
 };
 
-// функция для нормализации комбинаций клавиш
-
 const normalizeKeyCombination = (text: string): string => {
   let normalized = text.toLowerCase();
-
-  // заменяем алиасы модификаторов
 
   Object.entries(KEY_MODIFIER_ALIASES).forEach(([alias, standard]) => {
     normalized = normalized.replace(new RegExp(alias, "g"), standard);
   });
 
   return normalized
-    .replace(/\s*\+\s*/g, " ") // заменяем все плюсы и пробелы на один пробел
-    .replace(/\s+/g, " ") // нормализуем пробелы
+    .replace(/\s*\+\s*/g, " ")
+    .replace(/\s+/g, " ")
     .trim();
 };
-
-// функция для извлечения текста из mark.key элементов
 
 const extractKeyCombinationText = (element: Element): string => {
   const keyElements = element.querySelectorAll("mark.key");
@@ -91,8 +73,6 @@ const extractKeyCombinationText = (element: Element): string => {
 
   return element.textContent?.toLowerCase() || "";
 };
-
-// функция для проверки совпадения в тексте
 
 const hasMatch = (
   text: string,
@@ -112,8 +92,6 @@ const hasMatch = (
   return searchWords.every((word) => normalizedText.includes(normalizeText(word)));
 };
 
-// функция для обработки текстового узла
-
 const processTextNode = (
   node: Text,
   searchWords: string[],
@@ -124,25 +102,17 @@ const processTextNode = (
   return hasMatch(text, searchWords, isKeyCombination) ? text : "";
 };
 
-// функция для обработки элемента
-
 const processElement = (
   element: Element,
   searchWords: string[],
   isKeyCombination: boolean
 ): SearchMatch => {
-  // если это элемент списка или параграф, проверяем его целиком
-
   if (element.tagName === "LI" || element.tagName === "P") {
     const fullText = element.textContent || "";
     if (hasMatch(fullText, searchWords, isKeyCombination)) {
-      // если это элемент списка с вложенными списками
-
       if (element.tagName === "LI" && element.querySelector("ul")) {
         const ul = element.querySelector("ul");
         if (ul) {
-          // проверяем вложенные элементы
-
           const nestedItems = Array.from(ul.querySelectorAll("li"));
 
           const matchingNestedItems = nestedItems.filter((item) =>
@@ -150,18 +120,12 @@ const processElement = (
           );
 
           if (matchingNestedItems.length > 0) {
-            // создаем новый ul только с совпадающими элементами
-
             const newUl = document.createElement("ul");
             matchingNestedItems.forEach((item) => {
               newUl.appendChild(item.cloneNode(true));
             });
 
-            // создаем клон родительского элемента
-
             const clone = element.cloneNode(true) as Element;
-
-            // заменяем старый ul на новый
 
             const oldUl = clone.querySelector("ul");
             if (oldUl) {
@@ -188,8 +152,6 @@ const processElement = (
   let result = "";
   let matchCount = 0;
 
-  // обрабатываем все дочерние узлы
-
   Array.from(element.childNodes).forEach((node) => {
     if (node.nodeType === Node.TEXT_NODE) {
       const textResult = processTextNode(node as Text, searchWords, isKeyCombination);
@@ -212,8 +174,6 @@ const processElement = (
 
   return {result, matchCount};
 };
-
-// функция для обработки таблицы
 
 const processTable = (
   table: HTMLTableElement,
@@ -241,7 +201,10 @@ const processTable = (
     }
 
     const tbody = document.createElement("tbody");
-    matchingRows.forEach((row) => tbody.appendChild(row.cloneNode(true)));
+    matchingRows.forEach((row) => {
+      tbody.appendChild(row.cloneNode(true));
+    });
+
     newTable.appendChild(tbody);
 
     return newTable.outerHTML;
@@ -350,11 +313,9 @@ const formatSearchResult = (text: string, searchWords: string[]): string => {
     if (firstElement) {
       return firstElement.outerHTML;
     }
+  });
 
-    return "";
-  }
-
-  return bestResult.result;
+  return result;
 };
 
 export const useSearchLogic = (query: string, isPageLoaded: boolean) => {
@@ -548,19 +509,21 @@ export const useSearchLogic = (query: string, isPageLoaded: boolean) => {
     debounce((text: string) => {
       if (!isPageLoaded || !text.trim()) {
         setResults([]);
-
         return;
       }
 
-      const searchWords = text
-        .split(/\s+/)
-        .filter((word) => word.length > 0)
-        .map(normalizeText);
+      setIsLoading(true);
+      setError(null);
 
-      const detailsData = extractDetailsData(searchWords);
+      try {
+        const searchWords = searchQuery
+          .toLowerCase()
+          .split(/\s+/)
+          .filter((word) => word.length > 0);
 
-      const filtered = detailsData.filter(({title, content, tag}) => {
-        const normalizedTitle = normalizeText(title);
+        const isKeyCombination = isKeyCombinationSearch(searchQuery);
+
+        const elements = document.querySelectorAll("article");
 
         const normalizedContent = normalizeText(stripHtml(content || ""));
 
@@ -657,7 +620,7 @@ export const useSearchLogic = (query: string, isPageLoaded: boolean) => {
   );
 
   useEffect(() => {
-    handleSearch(query);
+    debouncedSearch(query);
 
     return () => handleSearch.cancel();
   }, [query, handleSearch]);
@@ -668,7 +631,7 @@ export const useSearchLogic = (query: string, isPageLoaded: boolean) => {
 
   return {
     results,
-    selectedResultIndex,
-    setSelectedResultIndex,
+    isLoading,
+    error,
   };
 };

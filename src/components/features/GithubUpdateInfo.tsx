@@ -5,14 +5,27 @@ const OWNER = "aechat";
 const REPO = "links";
 
 const BRANCH = "main";
+
 interface GithubUpdateInfoProps {
   filePath: string;
+}
+
+interface Commit {
+  commit: {
+    message: string;
+
+    author: {
+      date: string;
+    };
+  };
+
+  html_url: string;
 }
 
 const GithubUpdateInfo: React.FC<GithubUpdateInfoProps> = ({filePath}) => {
   const [commitInfo, setCommitInfo] = useState<string>("Ищем информацию...");
 
-  const getLastCommitDate = async () => {
+  const getLastCommitDate = async (): Promise<void> => {
     const url = `https://api.github.com/repos/${OWNER}/${REPO}/commits?path=${filePath}&sha=${BRANCH}`;
     try {
       const response = await fetch(url);
@@ -20,15 +33,10 @@ const GithubUpdateInfo: React.FC<GithubUpdateInfoProps> = ({filePath}) => {
         throw new Error(`${response.status}`);
       }
 
-      const commits = await response.json();
-      interface Commit {
-        commit: {
-          message: string;
-        };
-      }
+      const commits = (await response.json()) as Commit[];
 
       const filteredCommits = commits.filter(
-        (commit: Commit) => !commit.commit.message.startsWith("Merge")
+        (commit) => !commit.commit.message.startsWith("Merge")
       );
       if (filteredCommits.length === 0) {
         setCommitInfo("Индикатор свежести информации временно недоступен");
@@ -65,6 +73,7 @@ const GithubUpdateInfo: React.FC<GithubUpdateInfoProps> = ({filePath}) => {
       setCommitInfo(`Индикатор свежести информации временно недоступен - ${err}`);
     }
   };
+
   useEffect(() => {
     getLastCommitDate();
   }, [filePath]);

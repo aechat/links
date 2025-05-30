@@ -4,15 +4,18 @@ import {saveAs} from "file-saver";
 import {gzip} from "pako";
 import {motion} from "framer-motion";
 import {UploadFileRounded} from "@mui/icons-material";
+
 interface Pyodide {
   FS: {
     writeFile: (filename: string, data: Uint8Array) => void;
+
     readFile: (filename: string) => Uint8Array;
   };
+
   runPythonAsync: (code: string) => Promise<void>;
 }
 
-const TgsToJsonConverter = () => {
+const TgsToJsonConverter: React.FC = () => {
   const [jsonData, setJsonData] = useState<Record<string, unknown> | null>(null);
 
   const [originalFileName, setOriginalFileName] = useState<string>("");
@@ -22,19 +25,21 @@ const TgsToJsonConverter = () => {
   const [pyodide, setPyodide] = useState<Pyodide | null>(null);
 
   const [loading, setLoading] = useState(false);
+
   useEffect(() => {
     if (compressionMode === "python" && !pyodide) {
       loadPyodideInline();
     }
   }, [compressionMode]);
 
-  const loadPyodideInline = async () => {
+  const loadPyodideInline = async (): Promise<void> => {
     setLoading(true);
     try {
       const script = document.createElement("script");
       script.src = "https://cdn.jsdelivr.net/pyodide/v0.22.1/full/pyodide.js";
       script.onload = async () => {
         // @ts-expect-error, чтобы не втыкал
+
         const py: Pyodide = await (window as unknown).loadPyodide();
         setPyodide(py);
         setLoading(false);
@@ -53,7 +58,7 @@ const TgsToJsonConverter = () => {
     }
   };
 
-  const handleFileUpload = async (file: File) => {
+  const handleFileUpload = async (file: File): Promise<boolean> => {
     try {
       const fileData = await file.text();
       setOriginalFileName(file.name);
@@ -69,7 +74,7 @@ const TgsToJsonConverter = () => {
     return false;
   };
 
-  const downloadTgs = async () => {
+  const downloadTgs = async (): Promise<void> => {
     if (!jsonData) {
       return;
     }
@@ -157,7 +162,6 @@ with open("input.json", "rb") as f_in:
           <Radio value="python">python-gzip</Radio>
         </Radio.Group>
       </div>
-
       {jsonData && typeof jsonData === "object" && (
         <div
           style={{
@@ -193,7 +197,7 @@ with open("input.json", "rb") as f_in:
             whileTap={{scale: 0.95, opacity: 0.5}}
             onClick={downloadTgs}
           >
-            {loading ? <Spin size="small" /> : "Скачать TGS"}
+            {loading ? <Spin size="small" /> : "Скачать преобразованный TGS"}
           </motion.button>
         </div>
       )}

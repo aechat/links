@@ -1,8 +1,8 @@
 import React from "react";
 import {SwipeUpRounded} from "@mui/icons-material";
 
-export const MoveToTop = () => {
-  const scrollToTop = () => {
+export const MoveToTop: React.FC = () => {
+  const scrollToTop = (): void => {
     window.scrollTo({
       top: 0,
       behavior: "smooth",
@@ -11,7 +11,10 @@ export const MoveToTop = () => {
   };
 
   return (
-    <button onClick={scrollToTop}>
+    <button
+      aria-label="Прокрутить страницу вверх"
+      onClick={scrollToTop}
+    >
       <SwipeUpRounded />
     </button>
   );
