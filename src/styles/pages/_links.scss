@@ -52,8 +52,8 @@
       .icon {
         flex-shrink: 0;
         margin-block: 3px;
-        width: min(calc(18px + (20 - 18) * ((100vw - 320px) / (768 - 320))), 20px);
-        height: min(calc(18px + (20 - 18) * ((100vw - 320px) / (768 - 320))), 20px);
+        width: min(calc(17px + (20 - 17) * ((100vw - 320px) / (768 - 320))), 20px);
+        height: min(calc(17px + (20 - 17) * ((100vw - 320px) / (768 - 320))), 20px);
         color: var(--links-text);
 
         path {
@@ -65,13 +65,13 @@
         text-wrap: balance;
         margin-block: 3px;
         color: var(--links-text);
-        font-weight: 700;
+        font-weight: 675;
         font-size: 0.975rem;
         font-family: "Onest", sans-serif;
         text-align: left;
 
         @media (min-width: 320px) {
-          font-size: calc(0.975rem + (1.075 - 0.975) * ((100vw - 320px) / (768 - 320)));
+          font-size: calc(1.05rem + (1.075 - 1.05) * ((100vw - 320px) / (768 - 320)));
         }
 
         @media (min-width: 768px) {
@@ -93,7 +93,7 @@
       text-align: left;
 
       @media (min-width: 320px) {
-        font-size: calc(0.8rem + (0.875 - 0.8) * ((100vw - 320px) / (768 - 320)));
+        font-size: calc(0.825rem + (0.875 - 0.825) * ((100vw - 320px) / (768 - 320)));
       }
 
       @media (min-width: 768px) {
