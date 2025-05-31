@@ -265,6 +265,12 @@ const Links = () => {
               name="DaVinci Resolve RU"
             />
             <LinkCard
+              description="Сообщество от @TimesaverVFX, где обсуждают Davinci Resolve и Fusion"
+              href="https://t.me/timesaverchat"
+              icon={<MovieRounded />}
+              name="Чат Таймсейвера"
+            />
+            <LinkCard
               description="Обсуждаем цветокоррекцию в видео"
               href="https://t.me/ExitLight_Chat"
               icon={<GradientRounded />}
