@@ -308,194 +308,36 @@ export const SearchInPage: React.FC<{sections: SearchSection[]}> = ({sections}) 
   const renderContent = () => {
     if (!isSearching) {
       return (
-        <div>
-          <div className="search-category">
-            {sections.map((section) => (
-              <button
-                key={section.id}
-                onClick={() => handleLinkClick(section.id)}
-              >
-                {section.title}
-              </button>
-            ))}
-          </div>
-          <p className="search-category-tip">
-            Для открытия браузерного окна поиска по странице - нажмите на{" "}
-            <mark className="key">F3</mark>
-          </p>
-        </div>
+        <SearchCategories
+          sections={sections}
+          onLinkClick={handleLinkClick}
+        />
       );
     }
 
     if (results.length > 0) {
       return (
         <>
-          <p className="search-modal-title">
-            {getFoundWord(results.length)}{" "}
-            <span
-              style={{
-                color: "var(--summary-text)",
-                fontWeight: 800,
-                fontSize: "1.05em",
-              }}
-            >
-              {results.length}
-            </span>{" "}
-            {getResultWord(results.length)}
-          </p>
-          {results.map(({title, content, id, tag}, index) => (
-            <div key={id}>
-              <motion.button
-                ref={(el) => {
-                  resultRefs.current[index] = el;
-                }}
-                animate={{
-                  scale: index === selectedResultIndex ? 1 : 0.98,
-                }}
-                className={`search-link ${index === selectedResultIndex ? "search-selected" : ""}`}
-                initial={{scale: 1}}
-                tabIndex={0}
-                transition={{duration: 0.5, ease: [0.075, 0.82, 0.165, 1]}}
-                onClick={(e) => {
-                  e.preventDefault();
-                  handleLinkClick(id);
-                }}
-              >
-                <div
-                  className={`search-header ${index === selectedResultIndex ? "search-selected" : ""}`}
-                >
-                  <p className="search-title">{title.replace(/^[+-]+/, "").trim()}</p>
-                  {tag && tag.trim() !== "" && (
-                    <span className="faq-tags">
-                      {tag.split(", ").map((t, index) => (
-                        <mark
-                          key={index}
-                          className="tag"
-                        >
-                          {t}
-                        </mark>
-                      ))}
-                    </span>
-                  )}
-                </div>
-                <div
-                  className="search-content faq-content"
-                  dangerouslySetInnerHTML={{__html: content}}
-                />
-              </motion.button>
-            </div>
-          ))}
-          <div style={{paddingInline: "10px"}}>
-            <div className="search-no-results">
-              <p className="search-no-results-message">
-                Если вы не нашли то, что вам нужно, то попробуйте перефразировать свой
-                запрос или выполните поиск в другом месте
-              </p>
-            </div>
-            <div className="search-category">
-              <button
-                onClick={() => {
-                  window.open(
-                    `https://yandex.com/search/?text=${encodeURIComponent(query)} ${window.location.pathname.includes("aefaq") ? "after effects" : window.location.pathname.includes("prfaq") ? "premiere pro" : window.location.pathname.includes("psfaq") ? "photoshop" : window.location.pathname.includes("aeexpr") ? "after effects expression" : ""}`,
-                    "_blank"
-                  );
-                }}
-              >
-                Найти в Яндексе
-              </button>
-              <button
-                onClick={() => {
-                  window.open(
-                    `https://www.perplexity.ai/search?q=${encodeURIComponent(query)} ${window.location.pathname.includes("aefaq") ? "after effects" : window.location.pathname.includes("prfaq") ? "premiere pro" : window.location.pathname.includes("psfaq") ? "photoshop" : window.location.pathname.includes("aeexpr") ? "after effects expression" : ""}`,
-                    "_blank"
-                  );
-                }}
-              >
-                Спросить у Perplexity*
-              </button>
-            </div>
-            <p className="search-no-results-tip">
-              <sup>*</sup>Perplexity может выдавать недостоверную информацию, не
-              используйте его в качестве самоучителя
-            </p>
-          </div>
+          <SearchResults
+            results={results}
+            selectedResultIndex={selectedResultIndex}
+            resultRefs={resultRefs}
+            onLinkClick={handleLinkClick}
+          />
+          <ExternalSearch query={query} />
         </>
       );
     }
 
-    // показываем плашку "ничего не найдено" только если результаты полностью обработаны
-
     if (query.trim() !== "" && results.length === 0 && isResultsProcessed) {
-      return (
-        <div>
-          <div className="search-no-results">
-            <p className="search-no-results-title">
-              По вашему запросу на этой странице{" "}
-              <span
-                style={{
-                  color: "var(--summary-text)",
-                  fontWeight: 800,
-                  fontStyle: "italic",
-                  marginInlineEnd: "3px",
-                }}
-              >
-                ничего
-              </span>{" "}
-              не нашлось
-            </p>
-            <p className="search-no-results-message">
-              Попробуйте перефразировать свой запрос или выполните поиск в другом месте
-            </p>
-          </div>
-          <div className="search-category">
-            <button
-              onClick={() => {
-                window.open(
-                  `https://yandex.com/search/?text=${encodeURIComponent(query)} ${window.location.pathname.includes("aefaq") ? "after effects" : window.location.pathname.includes("prfaq") ? "premiere pro" : window.location.pathname.includes("psfaq") ? "photoshop" : window.location.pathname.includes("aeexpr") ? "after effects expression" : ""}`,
-                  "_blank"
-                );
-              }}
-            >
-              Найти в Яндексе
-            </button>
-            <button
-              onClick={() => {
-                window.open(
-                  `https://www.perplexity.ai/search?q=${encodeURIComponent(query)} ${window.location.pathname.includes("aefaq") ? "after effects" : window.location.pathname.includes("prfaq") ? "premiere pro" : window.location.pathname.includes("psfaq") ? "photoshop" : window.location.pathname.includes("aeexpr") ? "after effects expression" : ""}`,
-                  "_blank"
-                );
-              }}
-            >
-              Спросить у Perplexity*
-            </button>
-          </div>
-          <p className="search-no-results-tip">
-            <sup>*</sup>Perplexity может выдавать недостоверную информацию, не используйте
-            его в качестве самоучителя
-          </p>
-        </div>
-      );
+      return <NoResults query={query} />;
     }
 
-    // во время поиска показываем категории
-
     return (
-      <div>
-        <div className="search-category">
-          {sections.map((section) => (
-            <button
-              key={section.id}
-              onClick={() => handleLinkClick(section.id)}
-            >
-              {section.title}
-            </button>
-          ))}
-        </div>
-        <p className="search-category-tip">
-          Для открытия браузерного окна поиска по странице - нажмите на{" "}
-          <mark className="key">F3</mark>
-        </p>
-      </div>
+      <SearchCategories
+        sections={sections}
+        onLinkClick={handleLinkClick}
+      />
     );
   };
 
@@ -539,16 +381,14 @@ export const SearchInPage: React.FC<{sections: SearchSection[]}> = ({sections}) 
             <CloseRounded />
           </button>
         </div>
-        <div className="modal-content">
-          <div className="search-results">
-            {renderContent()}
-            {!isPageLoaded && (
-              <p style={{textAlign: "center", fontSize: "1rem", margin: "20px"}}>
-                Страница ещё загружается, а поиск всё ещё недоступен. Пожалуйста,
-                подождите...
-              </p>
-            )}
-          </div>
+        <div>
+          {renderContent()}
+          {!isPageLoaded && (
+            <p style={{textAlign: "center", fontSize: "1rem", margin: "20px"}}>
+              Страница ещё загружается, а поиск всё ещё недоступен. Пожалуйста,
+              подождите...
+            </p>
+          )}
         </div>
       </div>
     </Modal>
