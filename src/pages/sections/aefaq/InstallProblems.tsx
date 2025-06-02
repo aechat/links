@@ -1781,6 +1781,107 @@ const AEInstallProblems: React.FC = () => {
           при открытии программы.
         </p>
       </DetailsSummary>
+      <DetailsSummary
+        tag="rosetta, розетта, старые плагины на новом маке, to use these plugins run on an intel-based mac computer, to run in a compatible mode choose get info in the application context menu and enable open using rosetta"
+        title='"The following plugins are installed, but not yet compatible with this version of After Effects. They will show as missing in existing projects and cannot be applied" после установки плагинов на устройство Mac с Apple Silicon'
+      >
+        <p>
+          В данном окне вам пишут, что вы установили плагин, но он не поддерживает вашу
+          версию <mark className="app">Adobe After Effects</mark>. Чаще всего это
+          происходит из-за того, что вы установили на устройство <mark>Mac</mark> с новыми
+          процессорами <mark>Apple Silicon</mark> старый плагин, который был адаптирован
+          для <mark>Mac</mark> на <mark>Intel</mark>. У новых процессоров новая
+          архитектура, поэтому старые программы и плагины не совместимы без прослойки{" "}
+          <mark className="app">Rosetta</mark>. У данного предупреждения есть две
+          вариации, в зависимости от того, какая версия программы у вас установлена.
+        </p>
+        <AdditionWarning>
+          При использовании <mark className="app">Adobe After Effects</mark> через слой
+          эмуляции <mark className="app">Rosetta</mark> - производительность программы
+          может упасть.
+        </AdditionWarning>
+        <AdditionInfo>
+          <ul>
+            <li>
+              <mark className="app">Rosetta</mark> - слой эмуляции, которая позволяет
+              запускать программы на <mark>Mac</mark> с <mark>Apple Silicon</mark>,
+              которые предназначены для <mark>Mac</mark> на <mark>Intel</mark>
+            </li>
+            <li>
+              Под <mark>Apple Silicon</mark> имеются ввиду все <mark>Mac</mark> с
+              процессорами <mark>M-серии</mark>, будь то <mark>M1</mark>,{" "}
+              <mark>M2 Pro</mark> и прочие.
+            </li>
+          </ul>
+        </AdditionInfo>
+        <Divider>
+          To run After Effects in a compatible mode, choose &quot;Get Info&quot; in the
+          application context menu and enable &quot;Open using Rosetta&quot;
+        </Divider>
+        <p>
+          В данном случаем вам чуть повезло, вы можете открыть<sup>*</sup> программу со
+          старыми плагинами в режиме совместимости с помощью{" "}
+          <mark className="app">Rosetta</mark>. Для этого перейдите в{" "}
+          <mark className="ui">Help</mark> и выберите в нём{" "}
+          <mark className="ui">Open using Rosetta</mark>. После этого{" "}
+          <mark className="app">Adobe After Effects</mark> перезагрузится в режим
+          совместимости и старые плагины должны быть доступны для использования в ваших
+          проектах.
+        </p>
+        <AdditionDanger>
+          <ul>
+            <li>
+              <sup>*</sup>Запустить программу в режиме совместимости вы сможете лишь с
+              оговоркой - <mark className="app">Adobe After Effects</mark>, начиная с
+              версии <mark>24.0</mark> и новее, больше не поддерживает эмуляцию через{" "}
+              <mark className="app">Rosetta</mark>. То есть в этих версиях вы не можете
+              открыть версию программы для <mark>Intel</mark> на процессорах{" "}
+              <mark>Apple Silicon</mark>. Если вы видите этот текст в вашем
+              предупреждении, но в контекстном меню <mark className="ui">Help</mark> у вас
+              отсутствует кнопка <mark className="ui">Open using Rosetta</mark>, то,
+              скорее всего, <mark>Adobe</mark> забыли убрать этот текст в вашей версии
+              программы. Последняя версия, где ещё возможно открыть{" "}
+              <mark className="app">Adobe After Effects</mark> в режиме эмуляции через{" "}
+              <mark className="app">Rosetta</mark> - это <mark>23.6</mark>.
+            </li>
+            <li>
+              Плагины, которые адаптированы только под <mark>Apple Silicon</mark> могут не
+              работать в режиме совместимости с помощью{" "}
+              <mark className="app">Rosetta</mark>.
+            </li>
+          </ul>
+        </AdditionDanger>
+        <Divider>
+          To use these plugins, run After Effects on an Intel-based Mac computer
+        </Divider>
+        <p>
+          В данном случае ситуация ещё плачевнее - <mark>Adobe</mark> убрал поддержку{" "}
+          <mark>Rosetta</mark> в последних версиях{" "}
+          <mark className="app">Adobe After Effects</mark>, начиная с <mark>24.0</mark>.
+          Поэтому плагины, которые были созданы для <mark>Mac</mark> на <mark>Intel</mark>{" "}
+          уже не смогут запуститься в режиме совместимости. В таком случае у вас есть три
+          варианта.
+        </p>
+        <ul>
+          <li>
+            В вашем окне с данным предупреждением будет отображён список с плагинами,
+            которые сейчас недоступны. Попробуйте найти более свежие версии перечисленных
+            плагинов на просторах интернета, установить их, а затем открыть{" "}
+            <mark className="app">Adobe After Effects</mark> заново.
+          </li>
+          <li>
+            Если нужные вам плагины не давно обновлялись или недоступны для{" "}
+            <mark>Mac</mark> на <mark>Apple Silicon</mark> - откатите{" "}
+            <mark className="app">Adobe After Effects</mark> до версии <mark>23.6</mark>,
+            в котором ещё была возможность запуска программы в режиме совместимости со
+            старыми <mark>Mac</mark> на <mark>Intel</mark>.
+          </li>
+          <li>
+            Найти у себя среди запылившихся девайсов <mark>Mac</mark> на{" "}
+            <mark>Intel</mark> и работать на нём.
+          </li>
+        </ul>
+      </DetailsSummary>
       <DetailsSummary title="Чую, что у меня программа работает неправильно, но переустанавливать программу я не хочу. Как сбросить все настройки?">
         <p>
           Для сброса настроек программы вам нужно открыть ярлык программы как обычно, но с
