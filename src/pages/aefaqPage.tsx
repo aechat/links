@@ -58,7 +58,7 @@ const AEFAQ = () => {
     {key: "7", title: "Производительность", id: "performance", component: AEPerformance},
     {key: "8", title: "Как и чем?", id: "actions", component: AEActions},
     {key: "9", title: "Ошибки и предупреждения", id: "errors", component: AEErrors},
-    {key: "10", title: "Экспорт", id: "export", component: AEExport},
+    {key: "10", title: "Рендер и экспорт", id: "export", component: AEExport},
     {
       key: "11",
       title: "Проблемы при экспорте",

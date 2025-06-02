@@ -64,7 +64,7 @@ const PRFAQ = () => {
     },
     {key: "8", title: "Как и чем?", id: "actions", component: PRActions},
     {key: "9", title: "Ошибки и предупреждения", id: "errors", component: PRErrors},
-    {key: "10", title: "Экспорт", id: "export", component: PRExport},
+    {key: "10", title: "Рендер и экспорт", id: "export", component: PRExport},
     {
       key: "11",
       title: "Проблемы при экспорте",
