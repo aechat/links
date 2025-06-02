@@ -66,7 +66,7 @@ const PSFAQ = () => {
       component: PSActions,
     },
     {key: "8", title: "Ошибки и предупреждения", id: "errors", component: PSErrors},
-    {key: "9", title: "Экспорт", id: "export", component: PSExport},
+    {key: "9", title: "Рендер и экспорт", id: "export", component: PSExport},
     {
       key: "10",
       title: "Проблемы при экспорте",
