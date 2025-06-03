@@ -340,53 +340,6 @@ const AEExportProblems: React.FC = () => {
         </p>
       </DetailsSummary>
       <DetailsSummary
-        tag="крашится, останавливается сохранение, создание прокси"
-        title="Как экспортировать композицию, если рендер сбоит на конкретном участке?"
-      >
-        <p>
-          Если вы испытываете проблемы с экспортом на определённом промежутке композиции,
-          когда же в предпросмотре всё проигрывается отлично, то вам стоит попробовать
-          создать прокси для композиции и использовать их в финальном рендере.
-        </p>
-        <Divider>Создаём прокси для композиций</Divider>
-        <p>
-          Для создания прокси нужно перейти в окно <mark className="ui">Project</mark>,
-          выбрать композицию с которым вы испытываете проблемы, нажать{" "}
-          <mark className="key">ПКМ</mark> и выбрать{" "}
-          <mark className="ui">Create Proxy &gt; Movie</mark>. После нажатия вас отправят
-          в очередь экспорта. Далее в нём нужно открыть окно{" "}
-          <mark className="ui">Render Settings &gt; Custom</mark> и поставить везде
-          наивысшие настройки (или выбрать пресет{" "}
-          <mark className="ui">Best Settings</mark>), чтобы после создания прокси ничего
-          не пропало и не ухудшилось. Если прокси автоматически не установилось для
-          композиции - сделайте это вручную через{" "}
-          <mark className="ui">Set Proxy &gt; File</mark>.
-        </p>
-        <VideoFigure
-          caption="Создание прокси для композиций"
-          styleClass="figure_windows-dark"
-          videoSrc="images/aftereffects/create_comp_proxy.mp4"
-        />
-        <AdditionInfo>
-          Для создания прокси лучше указать формат QuickTime в кодеке{" "}
-          <mark className="video">Apple Prores 422</mark> или{" "}
-          <mark className="video">Apple Prores 4444</mark>, если композиция содержит
-          альфа-канал.
-        </AdditionInfo>
-        <Divider>Экспортируем композицию с использованием прокси</Divider>
-        <p>
-          Чтобы начать экспорт композиции с использованием прокси - не забудьте указать{" "}
-          <mark className="ui">Use All Proxies</mark> в окне{" "}
-          <mark className="ui">Render Settings</mark>. После изменения параметра начните
-          экспорт как обычно.
-        </p>
-        <VideoFigure
-          caption="Настройка использования прокси в финальном рендере"
-          styleClass="figure_windows-dark"
-          videoSrc="images/aftereffects/use_all_proxies.mp4"
-        />
-      </DetailsSummary>
-      <DetailsSummary
         tag="пропало аудио, отсутствует музыка в видео"
         title="Почему в экспортированной композиции нет звука?"
       >

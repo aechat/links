@@ -382,50 +382,61 @@ const AETips: React.FC = () => {
           свежие версии нужных плагинов, предварительно удалив старые версии.
         </AdditionInfo>
       </DetailsSummary>
-      <DetailsSummary
-        tag="прокси, proxy composition, ускорение времени рендера, уменьшение перепросчёта, пререндер, prerender"
-        title="Как сократить время повторного экспорта, если заказчик попросил внести небольшие правки?"
-      >
+      <DetailsSummary title="Как открыть несколько экземпляров программы и работать в разных проектах?">
+        <AdditionDanger>
+          Использование нескольких открытых экземпляров{" "}
+          <mark className="app">Adobe After Effects</mark> может привести к увеличению
+          потребления оперативной памяти и остальных ресурсов вашего устройства.
+          Используйте эту опцию с умом!
+        </AdditionDanger>
         <p>
-          В <mark className="app">Adobe After Effects</mark> можно создавать прокси для
-          нужных композиций, чтобы не пересчитывать сложные композиции заново, если вы не
-          планируете их дальше редактировать. Это бывает очень полезно, если из-за сложных
-          композиций вы сталкиваетесь с трудностями при экспорте или медленным рендером.
+          Иногда возникает ситуация, когда вы закончили работу и поставили свой проект на
+          рендер, но в это время нужно открыть другой проект и внести в него правки. А
+          сделать вы это не можете, потому что программа занята экспортом другой
+          композиции. По умолчанию <mark className="app">Adobe After Effects</mark> не
+          позволяет открывать больше одного экземпляра, но разработчики оставили
+          возможность запуска нескольких инстанций программы.
         </p>
-        <p>
-          Для создания прокси нужно перейти в окно <mark className="ui">Project</mark>,
-          выбрать композицию с которым вы испытываете проблемы, нажать{" "}
-          <mark className="key">ПКМ</mark> и выбрать{" "}
-          <mark className="ui">Create Proxy &gt; Movie</mark>. После нажатия вас отправят
-          в очередь экспорта. Далее в нём нужно открыть окно{" "}
-          <mark className="ui">Render Settings &gt; Custom</mark> и поставить везде
-          наивысшие настройки (или выбрать пресет{" "}
-          <mark className="ui">Best Settings</mark>), чтобы после создания прокси ничего
-          не пропало и не ухудшилось. Если прокси автоматически не установилось для
-          композиции - сделайте это вручную через{" "}
-          <mark className="ui">Set Proxy &gt; File</mark>.
-        </p>
-        <VideoFigure
-          caption="Создание прокси для композиций"
-          styleClass="figure_windows-dark"
-          videoSrc="images/aftereffects/create_comp_proxy.mp4"
-        />
-        <AdditionInfo>
-          Для создания прокси лучше указать формат QuickTime в кодеке{" "}
-          <mark className="video">Apple Prores 422</mark> или{" "}
-          <mark className="video">Apple Prores 4444</mark>, если композиция содержит
-          альфа-канал.
-        </AdditionInfo>
-        <p>
-          В финальном экспорте не забудьте указать{" "}
-          <mark className="ui">Use All Proxies</mark> в{" "}
-          <mark className="ui">Render Settings</mark>. После этого попробуйте
-          экспортировать композицию заново с использованием прокси.
-        </p>
-        <VideoFigure
-          caption="Настройка использования прокси в финальном рендере"
-          styleClass="figure_windows-dark"
-          videoSrc="images/aftereffects/use_all_proxies.mp4"
+        <ContentSwitcher
+          macContent={
+            <div>
+              <p>
+                Чтобы открыть ещё один экземпляр - нужно перейти в директорию{" "}
+                <mark className="path">~/Library/Applications/After Effects 20XX</mark>,
+                затем нажать <mark className="key">ПКМ</mark> по{" "}
+                <mark className="app">Adobe After Effects 20XX</mark> и выбрать{" "}
+                <mark className="ui">Показать содержимое пакета</mark>. После открытия
+                содержимого перейдите в <mark className="ui">Contents/MacOS</mark> и
+                нажмите два раза по файлу <mark className="app">Adobe After Effects</mark>
+                . У вас должна открыться консоль и открыться ещё один экземпляр программы.
+              </p>
+              <YouTubeVideo
+                caption="Как открыть несколько инстанций Adobe After Effects"
+                link="k1x1goE2F10"
+              />
+            </div>
+          }
+          windowsContent={
+            <div>
+              <p>
+                Чтобы убрать данное ограничение - установите ключ{" "}
+                <mark className="code">-m</mark> в конец ярлыка с программой. Для этого
+                откройте свойства ярлыка с{" "}
+                <mark className="app">Adobe After Effects</mark> и переместите курсор до
+                конца в поле <mark className="ui">Объект</mark>. Затем напишите{" "}
+                <mark className="code">-m</mark> и нажмите на{" "}
+                <mark className="ui">Применить</mark> в правом нижем углу окна. После
+                этого вы сможете запускать несколько экземпляров{" "}
+                <mark className="app">Adobe After Effects</mark> с помощью этого ярлыка и
+                работать с программами как обычно.
+              </p>
+              <VideoFigure
+                caption="Включение возможности открытия нескольких экземпляров Adobe After Effects"
+                styleClass="figure_windows-dark"
+                videoSrc="images/aftereffects/enable_multiple_ae_instances.mp4"
+              />
+            </div>
+          }
         />
       </DetailsSummary>
       <DetailsSummary title="Какой компьютер или ноутбук стоит взять для работы в After Effects?">
@@ -794,63 +805,6 @@ const AETips: React.FC = () => {
             соответствии с заданными параметрами.
           </li>
         </ul>
-      </DetailsSummary>
-      <DetailsSummary title="Как открыть несколько экземпляров программы и работать в разных проектах?">
-        <AdditionDanger>
-          Использование нескольких открытых экземпляров{" "}
-          <mark className="app">Adobe After Effects</mark> может привести к увеличению
-          потребления оперативной памяти и остальных ресурсов вашего устройства.
-          Используйте эту опцию с умом!
-        </AdditionDanger>
-        <p>
-          Иногда возникает ситуация, когда вы закончили работу и поставили свой проект на
-          рендер, но в это время нужно открыть другой проект и внести в него правки. А
-          сделать вы это не можете, потому что программа занята экспортом другой
-          композиции. По умолчанию <mark className="app">Adobe After Effects</mark> не
-          позволяет открывать больше одного экземпляра, но разработчики оставили
-          возможность запуска нескольких инстанций программы.
-        </p>
-        <ContentSwitcher
-          macContent={
-            <div>
-              <p>
-                Чтобы открыть ещё один экземпляр - нужно перейти в директорию{" "}
-                <mark className="path">~/Library/Applications/After Effects 20XX</mark>,
-                затем нажать <mark className="key">ПКМ</mark> по{" "}
-                <mark className="app">Adobe After Effects 20XX</mark> и выбрать{" "}
-                <mark className="ui">Показать содержимое пакета</mark>. После открытия
-                содержимого перейдите в <mark className="ui">Contents/MacOS</mark> и
-                нажмите два раза по файлу <mark className="app">Adobe After Effects</mark>
-                . У вас должна открыться консоль и открыться ещё один экземпляр программы.
-              </p>
-              <YouTubeVideo
-                caption="Как открыть несколько инстанций Adobe After Effects"
-                link="k1x1goE2F10"
-              />
-            </div>
-          }
-          windowsContent={
-            <div>
-              <p>
-                Чтобы убрать данное ограничение - установите ключ{" "}
-                <mark className="code">-m</mark> в конец ярлыка с программой. Для этого
-                откройте свойства ярлыка с{" "}
-                <mark className="app">Adobe After Effects</mark> и переместите курсор до
-                конца в поле <mark className="ui">Объект</mark>. Затем напишите{" "}
-                <mark className="code">-m</mark> и нажмите на{" "}
-                <mark className="ui">Применить</mark> в правом нижем углу окна. После
-                этого вы сможете запускать несколько экземпляров{" "}
-                <mark className="app">Adobe After Effects</mark> с помощью этого ярлыка и
-                работать с программами как обычно.
-              </p>
-              <VideoFigure
-                caption="Включение возможности открытия нескольких экземпляров Adobe After Effects"
-                styleClass="figure_windows-dark"
-                videoSrc="images/aftereffects/enable_multiple_ae_instances.mp4"
-              />
-            </div>
-          }
-        />
       </DetailsSummary>
       <DetailsSummary
         tag="presets, ffx, пресеты"
