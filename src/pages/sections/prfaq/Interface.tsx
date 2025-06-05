@@ -6,7 +6,8 @@ import {
   AdditionInfo,
   AdditionWarning,
 } from "../../../components/Additions";
-import {ImageFigure} from "../../../components/ContentFigure";
+import {ImageFigure, VideoFigure} from "../../../components/ContentFigure";
+import {Divider} from "antd";
 
 const PRInterface: React.FC = () => {
   return (
