@@ -207,11 +207,12 @@ const PRExport: React.FC = () => {
           </li>
         </ul>
         <Divider>
-          Экспортируем для Instagram<sup>*</sup>
+          Экспортируем для Instagram<sup>1</sup>
         </Divider>
         <AdditionDanger>
-          <sup>*</sup>Instagram и Meta всё ещё признаны экстремистскими организациями и
-          запрещены на территории Российской Федерации.
+          <sup>1</sup> <mark className="app">Instagram</mark> и <mark>Meta</mark> всё ещё
+          признаны экстремистскими организациями и запрещены на территории Российской
+          Федерации.
         </AdditionDanger>
         <p>
           На этой площадке можно выложить видео как отдельный пост, так и вертикальные

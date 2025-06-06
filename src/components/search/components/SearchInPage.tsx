@@ -247,11 +247,11 @@ export const SearchInPage: React.FC<{sections: SearchSection[]}> = ({sections}) 
                   );
                 }}
               >
-                Спросить у Perplexity*
+                Спросить у Perplexity
               </button>
             </div>
             <p className="search-no-results-tip">
-              <sup>*</sup>Perplexity может выдавать недостоверную информацию, не
+              Perplexity может выдавать недостоверную информацию, не
               используйте его в качестве самоучителя
             </p>
           </div>
@@ -306,7 +306,7 @@ export const SearchInPage: React.FC<{sections: SearchSection[]}> = ({sections}) 
             </button>
           </div>
           <p className="search-no-results-tip">
-            <sup>*</sup>Perplexity может выдавать недостоверную информацию, не используйте
+            Perplexity может выдавать недостоверную информацию, не используйте
             его в качестве самоучителя
           </p>
         </div>

@@ -1819,7 +1819,7 @@ const AEInstallProblems: React.FC = () => {
           application context menu and enable &quot;Open using Rosetta&quot;
         </Divider>
         <p>
-          В данном случаем вам чуть повезло, вы можете открыть<sup>*</sup> программу со
+          В данном случаем вам чуть повезло, вы можете открыть<sup>1</sup> программу со
           старыми плагинами в режиме совместимости с помощью{" "}
           <mark className="app">Rosetta</mark>. Для этого перейдите в{" "}
           <mark className="ui">Help</mark> и выберите в нём{" "}
@@ -1831,7 +1831,7 @@ const AEInstallProblems: React.FC = () => {
         <AdditionDanger>
           <ul>
             <li>
-              <sup>*</sup>Запустить программу в режиме совместимости вы сможете лишь с
+              <sup>1</sup> Запустить программу в режиме совместимости вы сможете лишь с
               оговоркой - <mark className="app">Adobe After Effects</mark>, начиная с
               версии <mark>24.0</mark> и новее, больше не поддерживает эмуляцию через{" "}
               <mark className="app">Rosetta</mark>. То есть в этих версиях вы не можете
