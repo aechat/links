@@ -815,7 +815,7 @@ const AEImport: React.FC = () => {
         <Divider>Импортируем через LottieFiles</Divider>
         <p>
           <mark className="plugin">LottieFiles for After Effects</mark> - официальное
-          бесплатное<sup>*</sup> расширение от{" "}
+          бесплатное<sup>1</sup> расширение от{" "}
           <a href="https://lottiefiles.com/">LottieFiles</a>, с помощью которого вы можете
           импортировать <mark className="file">.json</mark> анимацию в композицию{" "}
           <mark className="app">Adobe After Effects</mark>. Скачать его можно на из{" "}
@@ -841,7 +841,7 @@ const AEImport: React.FC = () => {
               .
             </li>
             <li>
-              <sup>*</sup>Чтобы скачать расширение - зарегистрируйтесь на сайте{" "}
+              <sup>1</sup> Чтобы скачать расширение - зарегистрируйтесь на сайте{" "}
               <a href="https://aescripts.com">aescripts</a>, добавьте расширение в корзину
               и подтвердите заказ. Нужный плагин появится{" "}
               <a href="https://aescripts.com/downloadable/customer/products/">
@@ -873,7 +873,7 @@ const AEImport: React.FC = () => {
         </AdditionWarning>
         <p>
           <mark className="plugin">Bodymovin</mark> - альтернативное бесплатное
-          <sup>*</sup> расширение из{" "}
+          <sup>1</sup> расширение из{" "}
           <a href="https://aescripts.com/bodymovin/">aescripts</a>, которое можно
           установить его в <mark className="app">Adobe After Effects</mark>. После
           установки он будет находиться в{" "}
@@ -882,7 +882,7 @@ const AEImport: React.FC = () => {
         <AdditionInfo>
           <ul>
             <li>
-              <sup>*</sup>Чтобы скачать расширение - зарегистрируйтесь на сайте{" "}
+              <sup>1</sup> Чтобы скачать расширение - зарегистрируйтесь на сайте{" "}
               <a href="https://aescripts.com">aescripts</a>, вернитесь на страницу с
               плагином, установите цену <mark>0</mark> в{" "}
               <mark className="ui">Name Your Own Price</mark>, добавьте его в корзину и

@@ -473,9 +473,9 @@ const AEExport: React.FC = () => {
           <li>
             С помощью стороннего плагина <mark className="plugin">Voukoder</mark>.
             Доступен для устройств на <mark>Windows</mark> и <mark>macOS</mark>
-            <sup>*</sup>.
+            <sup>1</sup>.
             <AdditionWarning>
-              <sup>*</sup>Поддержка устройств на <mark>macOS</mark> появилась в{" "}
+              <sup>1</sup> Поддержка устройств на <mark>macOS</mark> появилась в{" "}
               <mark className="plugin">Voukoder</mark> версий <mark>Pro 2.0</mark> и
               новее. <mark className="plugin">Voukoder Classic</mark>, который
               рассматривается в данной статье - не поддерживается на устройствах с{" "}
@@ -1305,13 +1305,13 @@ const AEExport: React.FC = () => {
         <p>
           Прежде чем начать экспорт анимации в <mark className="file">.json</mark> нам
           нужно установить стороннее бесплатное
-          <sup>*</sup> расширение <mark className="plugin">Bodymovin</mark>, который можно
+          <sup>1</sup> расширение <mark className="plugin">Bodymovin</mark>, который можно
           загрузить из <a href="https://aescripts.com/bodymovin/">aescripts</a>. После
           установки он появится в{" "}
           <mark className="ui">Window &gt; Extensions &gt; Bodymovin</mark>.
         </p>
         <AdditionInfo>
-          <sup>*</sup>Чтобы скачать расширение - зарегистрируйтесь на сайте{" "}
+          <sup>1</sup> Чтобы скачать расширение - зарегистрируйтесь на сайте{" "}
           <a href="https://aescripts.com">aescripts</a>, вернитесь на страницу с
           расширением, установите цену <mark>0</mark> в{" "}
           <mark className="ui">Name Your Own Price</mark>, добавьте его в корзину и
