@@ -128,9 +128,166 @@ const AEFromNewbies: React.FC = () => {
           нормально, у каждой сферы есть свой сленг и местные понятия. В этом списке мы
           собрали часто используемые термины и слова.
         </p>
+        <Divider>Базовые понятия и интерфейс</Divider>
         <ul>
           <li>
-            <mark className="word">Аджастмент</mark> - это корректирующий слой, который в
+            <mark className="word">Композиция</mark> или{" "}
+            <mark className="word">композ</mark> - некая сцена вашего проекта в{" "}
+            <mark className="app">Adobe After Effects</mark>. В композиции обычно собирают
+            некую сцену с слоями, фигурами, эффектами или видео-файлами. У каждой
+            композиции есть частота кадров, разрешение и соотношение пикселя.
+            <AdditionInfo>
+              Чтобы открыть окно настроек композиции - используйте комбинацию клавиш{" "}
+              <mark className="key">Ctrl + K</mark>.
+            </AdditionInfo>
+          </li>
+          <li>
+            <mark className="word">Превью</mark> или{" "}
+            <mark className="word">предпросмотр</mark> - то, что вы видите на вашем экране
+            в окне, где отображается предварительный вывод вашей композиций.
+          </li>
+          <li>
+            <mark className="word">Плейхед</mark> - вертикальная временная метка,
+            показывающая где находится точка текущего кадра в предпросмотре.
+          </li>
+          <li>
+            <mark className="word">Ромбик</mark>, <mark className="word">ключ</mark> или{" "}
+            <mark className="word">кейфрейм</mark> - ключевые кадры или же метки, на
+            основе которых создаётся движения того или иного параметра слоя. Данные метки
+            указывают на то, как будет выглядеть анимированный элемент в конкретный момент
+            времени.
+          </li>
+          <li>
+            <mark className="word">Часы</mark> или{" "}
+            <mark className="word">секундомер</mark> - элемент интерфейса на таймлайне или
+            в панели управления эффектом для добавления ключевых кадров.
+            <AdditionInfo>
+              Если нажать на секундомер с зажатым <mark className="key">Alt</mark> -
+              включится режим работы с выражениями. Выключается аналогичным образом.
+            </AdditionInfo>
+          </li>
+          <li>
+            <mark className="word">Хоткей</mark> - сокращение от &quot;горячие
+            клавиши&quot;, означает некую комбинацию клавиш, которые должен знать
+            пользователь для выполнения нужного действия.
+          </li>
+          <li>
+            <mark className="word">Ракета</mark> - окно{" "}
+            <mark className="ui">Project Settings</mark> в котором обычно меняется
+            цветовое пространство проекта или настраивается использование GPU.
+            <AdditionInfo>
+              Данное окно открывается с помощью комбинации клавиш{" "}
+              <mark className="key">Ctrl + Alt + Shift + K</mark>.
+            </AdditionInfo>
+          </li>
+          <li>
+            <mark className="word">Разрешение</mark> или{" "}
+            <mark className="word">резолюшен</mark> - количество пикселей в ширину и
+            высоту. Иногда используется в контексте выбора качества предпросмотра{" "}
+            <mark className="ui">Full</mark>, <mark className="ui">Half</mark>,{" "}
+            <mark className="ui">Third</mark> или <mark className="ui">Quarter</mark>
+            <AdditionInfo>
+              Если у вас есть композиция с разрешением 1280 на 720, а в настройках рендера
+              вы поставили <mark className="ui">Resize</mark> до 3840 на 2160 - вы просто
+              растянете 720p композицию до 4K без фактического улучшения качества,
+              композиция не будет рендериться сразу в 4K.
+            </AdditionInfo>
+          </li>
+          <li>
+            <mark className="word">Прокси</mark> - урезанная в качестве (зависит от того,
+            в каком кодеке и разрешении пользователь создаст прокси) и более
+            производительная копия исходника для монтажа за счёт использования монтажного
+            кодека. Его нужно создавать, если вы имеете проблемы с производительностью
+            проекта из-за большого разрешения или когда нужна более стабильная работа с
+            проектом. Прокси можно создать прямо в{" "}
+            <mark className="app">Adobe After Effects</mark> или с помощью сторонних
+            программ, например <mark className="app">Adobe Media Encoder</mark>,{" "}
+            <mark className="app">Shutter Encoder</mark> или{" "}
+            <mark className="app">Handbrake</mark>. Также прокси можно создавать и для
+            композиций с целью уменьшения времени повторного рендера, если вы не
+            собираетесь его редактировать дальше.
+            <AdditionInfo>
+              <ul>
+                <li>
+                  Использование прокси вместо композиций или исходников можно переключать
+                  в окне <mark className="ui">Project</mark>, нажав на квадратный чекбокс
+                  слева от нужного файла.
+                </li>
+                <li>
+                  Если вы создали прокси в другой программе, то указать их в{" "}
+                  <mark className="app">Adobe After Effects</mark> можно в окне{" "}
+                  <mark className="ui">Project</mark>, выбрав нужный файл, нажав по нему{" "}
+                  <mark className="key">ПКМ</mark> и выбрав{" "}
+                  <mark className="ui">Set Proxy &gt; File</mark>.
+                </li>
+                <li>
+                  По умолчанию, если у исходника или композиции имеется прокси, то в
+                  финальный рендер попадает оригинальный файл. Это поведение можно
+                  изменить в окне <mark className="ui">Render Settings</mark>, выбрав в
+                  параметре <mark className="ui">Proxy Use</mark> значение{" "}
+                  <mark className="ui">Use All Proxies</mark>.
+                </li>
+              </ul>
+            </AdditionInfo>
+          </li>
+          <li>
+            <mark className="word">Рендер</mark> - процесс генерации кадров и дальнейшей
+            их упаковки в нужный контейнер и кодек. Часто используется в контексте вывода
+            композиции в видео или изображение.
+          </li>
+          <li>
+            <p>
+              <mark className="word">Редьюс</mark> - функция{" "}
+              <mark className="ui">Reduce Project</mark> которая облегчает ваш проект за
+              счёт удаления всех объектов, кроме выбранной композиции в окне{" "}
+              <mark className="ui">Project</mark>. Сделать это можно с помощью{" "}
+              <mark className="ui">File &gt; Dependencies &gt; Reduce Project</mark>.
+            </p>
+            <AdditionWarning>
+              Если вы первый раз пользуетесь этой функцией - создайте на крайний случай
+              копию файла вашего проекта, вдруг эта функция удалит не те файлы, как
+              планировалось.
+            </AdditionWarning>
+            <p>
+              Также существует кнопка <mark className="ui">Remove Unused Footage</mark>{" "}
+              для удаления неиспользованных исходников в вашем проекте.
+            </p>
+          </li>
+          <li>
+            <mark className="word">Коллект файл</mark> - функция{" "}
+            <mark className="ui">Collect Files</mark> для сборки всех файлов, используемые
+            в вашем проекте <mark className="app">Adobe After Effects</mark> в одну папку.
+            Эту папку вы можете заархивировать и отправить другому человеку или перенести
+            в другое место, например на внешний жёсткий диск.
+            <AdditionInfo>
+              Данная функция находится в{" "}
+              <mark className="ui">File &gt; Dependencies &gt; Collect Files</mark>.
+            </AdditionInfo>
+          </li>
+          <li>
+            <mark className="word">Перелинкуй исходники</mark> - переподключение
+            потерянных файлов в вашем проекте. Это делается с помощью{" "}
+            <mark className="key">ПКМ</mark> по потерянным исходникам в окне{" "}
+            <mark className="ui">Project</mark> и нажатию кнопки{" "}
+            <mark className="ui">Replace Footage</mark> у исходников.
+            <AdditionInfo>
+              Если остальные потерянные исходники находятся в одной папке, то они
+              автоматически подключатся после указания первого потерянного файла.
+            </AdditionInfo>
+          </li>
+          <li>
+            <mark className="word">Зайди в окно превью</mark> - вам предлагают открыть
+            окно с настройками предварительного просмотра с помощью{" "}
+            <mark className="ui">Window &gt; Preview</mark>. Обычно в таких случаях у
+            пользователя стоят кривые настройки FPS (видео из-за этого идёт слишком быстро
+            или медленно) или плохое качество предпросмотра (Auto или Quarter вместо
+            Full).
+          </li>
+        </ul>
+        <Divider>Работа со слоями и эффектами</Divider>
+        <ul>
+          <li>
+            <mark className="word">Аджастмент леер</mark> - корректирующий слой, который в
             английской версии программы называется{" "}
             <mark className="word">Adjustment Layer</mark>. Этот слой позволяет
             накладывать эффекты на другие слои, находящиеся ниже него в иерархии на
@@ -142,19 +299,359 @@ const AEFromNewbies: React.FC = () => {
             </AdditionInfo>
           </li>
           <li>
+            <mark className="word">Солид</mark> - слой с заданным цветом. Часто
+            применяется как фон или как инициализатор 3D-эффектов, например{" "}
+            <mark className="plugin">Trapcode Particular</mark>.
+          </li>
+          <li>
+            <mark className="word">Шейп</mark> - от английского{" "}
+            <mark className="word">shape</mark>, означает слой с фигурой.
+          </li>
+          <li>
+            <mark className="word">Маска</mark> - область на изображении или видео, через
+            которую проявляется эффект или видимость. По сути - ограничитель. Монтёры
+            маскируют не только дефекты, но и реальность.
+          </li>
+          <li>
+            <mark className="word">Патч</mark> или <mark className="word">путь</mark> -
+            своеобразная линия или кривая, которая применяется для создания фигуры или
+            маски у слоя.
+            <AdditionInfo>
+              Path маски и фигурного слоя взаимозаменяемые, поэтому вы можете превратить
+              слой-фигуру в маску и наоборот с помощью копирования и вставки этих
+              аттрибутов.
+            </AdditionInfo>
+          </li>
+          <li>
+            <mark className="word">Прекомпоз</mark> - обычно это дочерняя композиция
+            созданная за счёт выделенных объектов из родительской композиции. Создаётся с
+            помощью комбинации клавиш <mark className="key">Ctrl + Shift + C</mark>. Чаще
+            всего такую композицию создают для группировки кучи объектов, чтобы получился
+            в итоге один слой на таймлайне. Новая композиция появится в панели проекта и
+            её можно будет использовать в любой другой композиции.
+            <AdditionInfo>
+              В любой непонятной ситуации - используйте прекомпоз, часто помогает.
+            </AdditionInfo>
+          </li>
+          <li>
+            <mark className="word">Трансформ</mark> - настройка или анимация базовых
+            свойств слоя, например положение или размер. Иногда означает встроенный эффект{" "}
+            <mark className="plugin">Transform</mark>.
+          </li>
+          <li>
+            <mark className="word">Овершут</mark> - специфический эффект в анимации, при
+            котором объект временно превышает целевую позицию перед возвратом к конечному
+            значению. Этот приём широко используется для создания реалистичных
+            &quot;пружинящих&quot; движений, имитирующих инерцию физических объектов.
+            Техническая реализация овершута основана на модификации параметров кривой
+            Безье, выходящей за стандартный диапазон.
+            <AdditionWarning>
+              Некоторые свойства, например положение, которое не разделено через{" "}
+              <mark>Separate Dimensions</mark>, не поддерживают овершутинг.
+            </AdditionWarning>
+          </li>
+          <li>
+            <mark className="word">Моушен блюр</mark> - размытие в движении. С помощью
+            него можно сделать плавное движение объекта. Это можно сделать с помощью
+            включения <mark className="ui">Motion Blur</mark> у слоя или применив эффект{" "}
+            <mark className="plugin">CC Force Motion Blur</mark>.
+          </li>
+          <li>
+            <mark className="word">Стесняшка</mark>, <mark className="word">шляпка</mark>{" "}
+            или <mark className="word">медуза</mark> - функция{" "}
+            <mark className="ui">Shy</mark>. Если у слоя помечен такой аттрибут, то такие
+            слои можно легко скрыть на таймлайне, при этом такие слои будут видимыми в
+            предпросмотре композиции.
+          </li>
+          <li>
+            <mark className="word">Решётка</mark> - индикация у слоя{" "}
+            <mark className="ui">Guide Layer</mark>, которая рендерится только в
+            предпросмотре композиции и не будет рендериться в финальном файле. Такие файлы
+            используются для описания &quot;как работать с данной композицией&quot;.
+          </li>
+          <li>
+            <mark className="word">Кубик</mark> - индикация у слоя, отвечающая на вопрос
+            &quot;слой или эффект находится в трёхмерном пространстве?&quot;. С такими
+            слоями можно взаимодействовать в 3D пространстве, например управлять камерой
+            или положение по одной из трёх осей.
+          </li>
+          <li>
+            <mark className="word">Солнышко</mark> или{" "}
+            <mark className="word">звёздочка</mark> - иконка, которая выполняет два разных
+            действия в зависимости от того какой у вас тип слоя -{" "}
+            <mark className="ui">Continuously Rasterize</mark> для уменьшения
+            &quot;пикселей&quot; у векторных объектов или{" "}
+            <mark className="ui">Collapse Transformation</mark> для слоёв композиций.
+            <AdditionInfo>
+              При включенной опции <mark className="ui">Continuously Rasterize</mark> у
+              слоя - при увеличении предпросмотра вы никогда не добьётесь &quot;векторного
+              предпросмотра&quot;. Это происходит потому, что{" "}
+              <mark className="app">Adobe After Effects</mark> всегда растрирует
+              предпросмотр в соответствии с заданным в настройках разрешением композиции.
+            </AdditionInfo>
+          </li>
+          <li>
+            <mark className="word">Тайлинг</mark> - зеркальная плитка, которую можно
+            использовать для заполнения пустоты при использования эффекта &quot;пьяного
+            оператора с трясущимися руками&quot;. Обычно такая плитка делается с помощью
+            эффектов <mark className="plugin">CC Repetile</mark> или{" "}
+            <mark className="plugin">Motion Tile</mark>.
+          </li>
+          <li>
+            <mark className="word">Тайм-ремапинг</mark> - принцип изменения скорости видео
+            в определённых промежутках времени. Делается это с помощью встроенной функции{" "}
+            <mark className="ui">Time Remapping</mark>, которая включается с помощью
+            комбинации клавиш <mark className="key">Ctrl + Alt + T</mark> или с помощью
+            сторонних плагинов, например <mark className="plugin">Twixtor</mark> или{" "}
+            <mark className="plugin">BCC Retimer ML</mark>.
+          </li>
+          <li>
+            <mark className="word">Улитка</mark>, <mark className="word">спираль</mark>{" "}
+            или <mark className="word">лассо</mark> - инструмент для привязки слоя или его
+            параметров к другому слою.
+            <AdditionInfo>
+              Если вы не видите инструмента для привязки на вашем таймлайне - включите его
+              видимость с помощью <mark className="key">ПКМ</mark> по столбцам и выберите{" "}
+              <mark className="ui">Columns &gt; Parent & Link</mark>.
+            </AdditionInfo>
+          </li>
+          <li>
+            <mark className="word">Усики</mark> - манипуляторы графика скорости в{" "}
+            <mark className="ui">Graph Editor</mark>, пути движения в предпросмотре или
+            угла у фигуры.
+          </li>
+          <li>
+            <mark className="word">Выражения</mark>,{" "}
+            <mark className="word">экспрешен</mark> или{" "}
+            <mark className="word">expression</mark> - некая инструкция для движения
+            объекта или расчёты некоторых формул. Часто используется для привязки
+            контроллера к объекту, значения аттрибутов из одного слоя и другому или просто
+            фиксации определённого значения в массиве.
+            <AdditionInfo>
+              Чтобы активировать режим написания выражений - нажмите на иконку{" "}
+              <mark className="ui">секундомера</mark> у нужного параметра с зажатой
+              клавишей <mark className="key">Alt</mark>. После этого на таймлайне появится
+              текстовое поле куда вы сможете ввести своё выражение.
+            </AdditionInfo>
+          </li>
+          <li>
+            <mark className="word">Шейк</mark> или <mark className="word">вигл</mark> -
+            обычно случайное движение слоя или же тряска по позиции X и Y. Этот эффект
+            часто встречается в <mark className="word">эдитах</mark> и различных видео.
+            Под <mark className="word">виглом</mark> обычно подразумевает тоже самое, но
+            только в качестве встроенной функции выражения{" "}
+            <mark className="code">wiggle(freq, amp)</mark> для задания случайной анимации
+            от исходного значения.
+          </li>
+          <li>
+            <mark className="word">Автотрейс</mark> - функция, которая помогает
+            автоматически создавать маски для слоя, основываясь на его краях. Чтобы
+            воспользоваться этой функцией, просто перейдите в{" "}
+            <mark className="ui">Layer &gt; Auto-Trace</mark>, предварительно выделив
+            нужный слой.
+          </li>
+          <li>
+            <mark className="word">Морфинг</mark> - название техники для плавного
+            превращения одной фигуры в другую, часто применяется с фигурными слоями.
+          </li>
+          <li>
+            <mark className="word">Кеинг</mark> - процедура удаления однородного или
+            однотонного фона из видео или изображения. Часто применяется в контексте
+            удаления зелёного или синего фона или отделения объекта от фона.
+          </li>
+          <li>
+            <mark className="word">Клинап</mark> - процедура удаления ненужных объектов на
+            видео. Сделать это можно встроенным{" "}
+            <mark className="plugin">Content-Aware Fill</mark> или через плагин{" "}
+            <mark className="plugin">Mocha Pro</mark>.
+          </li>
+          <li>
+            <mark className="word">Нулевой объект</mark> или{" "}
+            <mark className="word">нуль</mark> - пустой объект, который используется для
+            расположения контроллеров или манипуляторов. Полезен при привязке нескольких
+            объектов в одно целое.{" "}
+          </li>
+          <li>
+            <mark className="word">Ротобраш</mark> - стандартный инструмент в{" "}
+            <mark className="app">Adobe After Effects</mark> для выделения движущегося
+            объекта в кадре. Часто используется для создания обводки вокруг объекта или
+            отделения от фона.
+          </li>
+          <li>
+            <mark className="word">Ротоскоп</mark> - процесс разделения сцены или кадра на
+            несколько слоёв.
+          </li>
+          <li>
+            <mark className="word">Трекинг</mark> - механизм определения местоположения
+            движущегося объекта для дальнейшей его привязки к другому объекту. Часто
+            применяется для замены экранов мониторов или биллбордов на видео.
+          </li>
+        </ul>
+        <Divider>Инструменты</Divider>
+        <ul>
+          <li>
+            <mark className="word">Борисовский</mark>,{" "}
+            <mark className="word">сапфировский</mark> или{" "}
+            <mark className="word">континуумовский</mark>, то обычно собеседник имеет в
+            виду плагины от компании Boris FX, в частности из пакетов{" "}
+            <mark className="plugin">Sapphire</mark> и{" "}
+            <mark className="plugin">Continuum</mark>. Эти прилагательные часто
+            используются вместе с названиями эффектов. Например,{" "}
+            <mark className="word">сапфировский шейк</mark> обозначает эффект{" "}
+            <mark className="plugin">S_Shake</mark>, а{" "}
+            <mark className="word">континуумовский блюр</mark> - это{" "}
+            <mark className="plugin">BCC Lens Blur</mark>.
+          </li>
+          <li>
+            <mark className="word">Максоновский</mark> или{" "}
+            <mark className="word">редгиантовский</mark> - в таком случае подразумеваются
+            плагины от Maxon и Red Giant, например{" "}
+            <mark className="plugin">Trapcode Particular</mark> или{" "}
+            <mark className="plugin">Universe</mark>.
+          </li>
+          <li>
+            <mark className="word">Могрт</mark> или <mark className="word">Mogrt</mark> -
+            шаблон анимационного дизайна, который создаётся в{" "}
+            <mark className="app">Adobe After Effects</mark>, чтобы использовать в
+            дальнейшем в проектах, созданные в{" "}
+            <mark className="app">Adobe Premiere Pro</mark>.
+          </li>
+          <li>
+            <mark className="word">Мокка</mark> или <mark className="word">моча</mark> -
+            плагин <mark className="plugin">Boris FX Mocha</mark>, которая используется
+            для трекинга и привязки объектов. Данный плагин включён в базовую поставку{" "}
+            <mark className="app">Adobe After Effects</mark>, но в урезанном виде. Для
+            разблокировки некоторых функций требуется полная версия{" "}
+            <mark className="plugin">Boris FX Mocha Pro</mark>.{" "}
+            <a href="https://support.Boris FX.com/hc/en-us/articles/10232625711117-I-use-Mocha-AE-what-is-the-difference-between-Mocha-AE-and-Mocha-Pro-Do-I-need-Mocha-Pro">
+              О различиях между AE и Pro...
+            </a>
+          </li>
+          <li>
+            <mark className="word">Элемент 3Д</mark> - сторонний плагин{" "}
+            <mark className="plugin">Element 3D</mark> от VideoCopilot, позволяющий
+            создавать 3D-сцены в композициях{" "}
+            <mark className="app">Adobe After Effects</mark>.
+          </li>
+          <li>
+            <mark className="word">Инфлюкс</mark> - сторонний плагин{" "}
+            <mark className="plugin">Autokroma Influx</mark>, позволяющий импортировать в{" "}
+            <mark className="app">Adobe After Effects</mark> неподдерживаемые типы файлов,
+            например <mark className="file">MKV</mark> или{" "}
+            <mark className="file">FLV</mark>.
+          </li>
+          <li>
+            <mark className="word">Плагин</mark> - подключаемые, обычно встроенные или
+            сторонние эффекты с расширением <mark className="file">AEX</mark> для{" "}
+            <mark>Windows</mark> или <mark className="file">PLUGIN</mark> для{" "}
+            <mark>macOS</mark>. Часто применяется с выражением &quot;где скачать?&quot;.
+          </li>
+          <li>
+            <mark className="word">Пресет</mark> - заготовленный набор эффектов формата{" "}
+            <mark className="file">FFX</mark> для дальнейшего применения. Может
+            сохраняться вместе с анимацией по ключам.
+            <AdditionWarning>
+              Не все пресеты, созданные сторонними пользователями могут корректно работать
+              с вашим проектом, иногда их надо отредактировать под свои нужды.
+            </AdditionWarning>
+          </li>
+          <li>
+            <mark className="word">Скрипт</mark> - файлы формата{" "}
+            <mark className="file">JSX</mark> или
+            <mark className="file">JSXBIN</mark>, выполняющее определённые инструкции или
+            действия. Могут быть встроенными или сторонними. Если у вас есть навыки в
+            программировании скриптов - вы можете создать свой скрипт, выполняющую нужную
+            вам задачу. <a href="#2.1">Как установить сторонние скрипты?</a>
+          </li>
+          <li>
+            <mark className="word">Экстеншен</mark> - расширения, часто запакованные в{" "}
+            <mark className="file">ZXP</mark>. После установки таких расширений - они
+            появятся в <mark className="ui">Window &gt; Extensions</mark>.
+            <AdditionInfo>
+              Если такие расширения не открываются - убедитесь в том, что вы применили{" "}
+              <a
+                download
+                href="files/Enable Extensions Adobe.reg"
+              >
+                REG-патч
+              </a>{" "}
+              для <mark>Windows</mark> или ввели нужные команды для их активации в
+              терминале для <mark>macOS</mark>.
+            </AdditionInfo>
+          </li>
+          <li>
+            <mark className="word">Дупликатор</mark> - обычно используется в качестве
+            обозначения бесплатного стороннего скрипта{" "}
+            <a href="https://aescripts.com/true-comp-duplicator/">True Comp Duplicator</a>
+            . Он используется для того чтобы дублировать композиции так, чтобы они не были
+            зависимы друг от друга.
+            <AdditionInfo>
+              Чтобы его скачать, вам нужно зарегистрироваться на сайте{" "}
+              <a href="https://aescripts.com">aescripts</a> и на странице с плагином
+              указать цену <mark>0</mark>. После этого данный плагин появится в ваших
+              заказах и вы можете оттуда его скачать.
+            </AdditionInfo>
+          </li>
+          <li>
+            <mark className="word">Компсеттер</mark> - бесплатный сторонний JSX-скрипт{" "}
+            <a href="https://github.com/msongz/rd_CompSetter">rd_CompSetter</a> для
+            одновременного изменения параметров нескольких композиций.
+            <AdditionInfo>
+              Инструкцию по установке сторонних плагинов и скриптов вы можете найти в{" "}
+              <a href="#2.1">статье 2.1</a>.
+            </AdditionInfo>
+          </li>
+        </ul>
+        <Divider>Сокращения и сленг</Divider>
+        <ul>
+          <li>
+            <mark className="word">ЕМНИП</mark> - сокращение от выражения{" "}
+            <mark className="word">Если мне не изменяет память</mark>.
+          </li>
+          <li>
+            <mark className="word">КТТС</mark> - сокращение от выражения{" "}
+            <mark className="word">Как только, так сразу</mark>.
+          </li>
+          <li>
+            <mark className="word">ASAP</mark> или <mark className="word">АСАП</mark> -
+            сокращение от выражения <mark className="word">As soon as possible</mark>, что
+            в переводе означает <mark className="word">Как можно скорее</mark>.
+          </li>
+          <li>
+            <mark className="word">Топик стартер</mark> - человек, который изначально
+            задал вопрос или поднял определённую тему в чате.
+          </li>
+          <li>
+            <mark className="word">Одинаковый год</mark> - часто встречается в контексте
+            вопроса &quot;у тебя точно одинаковые версии программ от Adobe стоят?&quot;.
+            Данный вопрос задаётся в случае когда пользователь, например, не может
+            подсоединить <mark className="app">Adobe After Effects</mark> и{" "}
+            <mark className="app">Adobe Media Encoder</mark> между собой.
+            <AdditionWarning>
+              Программы <mark className="app">Adobe After Effects</mark>,
+              <mark className="app">Adobe Premiere Pro</mark> и
+              <mark className="app">Adobe Media Encoder</mark> разных годов, например{" "}
+              <mark>2020</mark>, <mark>2018</mark>и <mark>2022</mark> не совместимы друг с
+              другом.
+            </AdditionWarning>
+          </li>
+        </ul>
+        <Divider>Технические термины и форматы</Divider>
+        <ul>
+          <li>
             <mark className="word">Альфа-канал</mark> - это четвёртый канал в цветовой
             модели RGBA. Когда мы говорим об альфа-канале, чаще всего имеем в виду
             прозрачность, которую можно наложить на изображение. Например,{" "}
-            <mark className="file">.png</mark> поддерживает множество уровней
-            прозрачности, позволяя создавать изображения с плавными переходами от
-            полностью прозрачного до полностью непрозрачного. В отличие от этого,{" "}
+            <mark className="file">PNG</mark> поддерживает множество уровней прозрачности,
+            позволяя создавать изображения с плавными переходами от полностью прозрачного
+            до полностью непрозрачного. В отличие от этого,{" "}
             <mark className="image">GIF</mark> поддерживает только бинарную прозрачность,
             что означает, что изображение может быть либо полностью прозрачным, либо
             полностью непрозрачным, без плавных затуханий. Если вы хотите сохранить видео
-            с прозрачностью, вам подойдут контейнеры <mark className="file">.mov</mark>,{" "}
-            <mark className="file">.avi</mark> или <mark className="file">.webm</mark>, в
+            с прозрачностью, вам подойдут контейнеры <mark className="file">MOV</mark>,{" "}
+            <mark className="file">AVI</mark> или <mark className="file">WEBM</mark>, в
             которые вы можете закодировать видео с кодеком, который поддерживает
-            альфа-канал. Однако, будьте осторожны с <mark className="file">.mp4</mark>: в
+            альфа-канал. Однако, будьте осторожны с <mark className="file">MP4</mark>: в
             него нельзя запаковать альфа-канал, кроме как через устройство на{" "}
             <mark>macOS</mark>, но это уже другая история.
             <AdditionInfo>
@@ -164,13 +661,6 @@ const AEFromNewbies: React.FC = () => {
               </a>
               .
             </AdditionInfo>
-          </li>
-          <li>
-            <mark className="word">Автотрейс</mark> - функция, которая помогает
-            автоматически создавать маски для слоя, основываясь на его краях. Чтобы
-            воспользоваться этой функцией, просто перейдите в{" "}
-            <mark className="ui">Layer &gt; Auto-Trace</mark>, предварительно выделив
-            нужный слой.
           </li>
           <li>
             <mark className="word">Битрейт</mark> - это скорость, с которой информация
@@ -227,99 +717,6 @@ const AEFromNewbies: React.FC = () => {
                 </AdditionWarning>
               </li>
             </ul>
-          </li>
-          <li>
-            Когда говорят о чём-то <mark className="word">борисовском</mark>,{" "}
-            <mark className="word">сапфировском</mark> или{" "}
-            <mark className="word">континуумовском</mark>, то обычно собеседник имеет в
-            виду плагины от компании Boris FX, в частности из пакетов{" "}
-            <mark className="plugin">Sapphire</mark> и{" "}
-            <mark className="plugin">Continuum</mark>. Эти прилагательные часто
-            используются вместе с названиями эффектов. Например,{" "}
-            <mark className="word">сапфировский шейк</mark> обозначает эффект{" "}
-            <mark className="plugin">S_Shake</mark>, а{" "}
-            <mark className="word">континуумовский блюр</mark> - это{" "}
-            <mark className="plugin">BCC Lens Blur</mark>.
-          </li>
-          <li>
-            <mark className="word">Максоновский</mark> или{" "}
-            <mark className="word">редгиантовский</mark> - в таком случае подразумеваются
-            плагины от Maxon и Red Giant, например{" "}
-            <mark className="plugin">Trapcode Particular</mark> или{" "}
-            <mark className="plugin">Universe</mark>.
-          </li>
-          <li>
-            <mark className="word">Векторная графика</mark> или{" "}
-            <mark className="word">вектор</mark> - форма представления изображения с
-            помощью математических формул и геометрических объектов (линии, кривые,
-            многоугольники). Отличительная особенность такого типа изображений -
-            детализация не падает при увеличении масштаба холста.
-            <AdditionInfo>
-              Если вы нажмёте на <mark className="ui">Continuously Rasterize</mark> у слоя
-              - при увеличении предпросмотра вы никогда не добьётесь &quot;векторного
-              предпросмотра&quot;. Это происходит потому, что{" "}
-              <mark className="app">Adobe After Effects</mark> всегда растрирует
-              предпросмотр в соответствии с заданным в настройках разрешением композиции.
-            </AdditionInfo>
-          </li>
-          <li>
-            <mark className="word">Растровая графика</mark> - файл изображения или видео
-            состоящее из цветных пикселей. Чем выше разрешение, тем лучше качество.
-          </li>
-          <li>
-            <mark className="word">Ватермарк</mark>, <mark className="word">вотерка</mark>{" "}
-            или <mark className="word">водяной знак</mark> - некая защита от копирования
-            недобросовестными заказчиками. Чаще всего лепится полупрозрачным текстовым
-            слоем с ником или именем исполнителя.
-          </li>
-          <li>
-            <mark className="word">Выражения</mark>,{" "}
-            <mark className="word">экспрешен</mark> или{" "}
-            <mark className="word">expression</mark> - некая инструкция для движения
-            объекта или расчёты некоторых формул. Часто используется для привязки
-            контроллера к объекту, значения аттрибутов из одного слоя и другому или просто
-            фиксации определённого значения в массиве.
-            <AdditionInfo>
-              Чтобы активировать режим написания выражений - нажмите на иконку{" "}
-              <mark className="ui">секундомера</mark> у нужного параметра с зажатой
-              клавишей <mark className="key">Alt</mark>. После этого на таймлайне появится
-              текстовое поле куда вы сможете ввести своё выражение.
-            </AdditionInfo>
-          </li>
-          <li>
-            <mark className="word">Говорящая голова</mark> - формат видео в котором, как
-            правило, присутствует только диктор, снятый крупным планом.
-          </li>
-          <li>
-            <mark className="word">ЕМНИП</mark> - сокращение от выражения{" "}
-            <mark className="word">Если мне не изменяет память</mark>.
-          </li>
-          <li>
-            <mark className="word">КТТС</mark> - сокращение от выражения{" "}
-            <mark className="word">Как только, так сразу</mark>.
-          </li>
-          <li>
-            <mark className="word">ASAP</mark> или <mark className="word">АСАП</mark> -
-            сокращение от выражения <mark className="word">As soon as possible</mark>, что
-            в переводе означает <mark className="word">Как можно скорее</mark>.
-          </li>
-          <li>
-            <mark className="word">Инфлюкс</mark> - сторонний плагин{" "}
-            <mark className="plugin">Autokroma Influx</mark>, позволяющий импортировать в{" "}
-            <mark className="app">Adobe After Effects</mark> неподдерживаемые типы файлов,
-            например <mark className="file">.mkv</mark> или{" "}
-            <mark className="file">.flv</mark>.
-          </li>
-          <li>
-            <mark className="word">Кеинг</mark> - процедура удаления однородного или
-            однотонного фона из видео или изображения. Часто применяется в контексте
-            удаления зелёного или синего фона или отделения объекта от фона.
-          </li>
-          <li>
-            <mark className="word">Клинап</mark> - процедура удаления ненужных объектов на
-            видео. Сделать это можно встроенным{" "}
-            <mark className="plugin">Content-Aware Fill</mark> или через плагин{" "}
-            <mark className="plugin">Mocha Pro</mark>.
           </li>
           <li>
             <mark className="word">Кодек</mark> - программа или библиотека, которая
@@ -415,7 +812,7 @@ const AEFromNewbies: React.FC = () => {
               </li>
               <li>
                 <mark className="video">VP9</mark> и <mark className="video">AV1</mark> -
-                кодеки от Google в контейнере <mark className="file">.webm</mark> с
+                кодеки от Google в контейнере <mark className="file">WEBM</mark> с
                 возможностью вывода с альфа-каналом. Видео с таким кодеком обычно
                 используются для размещения на веб-страницах. За счёт своих алгоритмов
                 сжатия видео с кодеком <mark className="video">VP9</mark> или{" "}
@@ -440,86 +837,31 @@ const AEFromNewbies: React.FC = () => {
           <li>
             <mark className="word">Контейнер</mark> - расширение видео файла, в котором
             содержится само видео в определённом кодеке, например{" "}
-            <mark className="file">.mp4</mark>, <mark className="file">.mov</mark> или{" "}
-            <mark className="file">.mkv</mark>.
+            <mark className="file">MP4</mark>, <mark className="file">MOV</mark> или{" "}
+            <mark className="file">MKV</mark>.
           </li>
           <li>
-            <mark className="word">Коллект файл</mark> - функция{" "}
-            <mark className="ui">Collect Files</mark> для сборки всех файлов, используемые
-            в вашем проекте <mark className="app">Adobe After Effects</mark> в одну папку.
-            Эту папку вы можете заархивировать и отправить другому человеку или перенести
-            в другое место, например на внешний жёсткий диск.
+            <mark className="word">Векторная графика</mark> или{" "}
+            <mark className="word">вектор</mark> - форма представления изображения с
+            помощью математических формул и геометрических объектов (линии, кривые,
+            многоугольники). Отличительная особенность такого типа изображений -
+            детализация не падает при увеличении масштаба холста.
             <AdditionInfo>
-              Данная функция находится в{" "}
-              <mark className="ui">File &gt; Dependencies &gt; Collect Files</mark>.
+              Если вы нажмёте на <mark className="ui">Continuously Rasterize</mark> у слоя
+              - при увеличении предпросмотра вы никогда не добьётесь &quot;векторного
+              предпросмотра&quot;. Это происходит потому, что{" "}
+              <mark className="app">Adobe After Effects</mark> всегда растрирует
+              предпросмотр в соответствии с заданным в настройках разрешением композиции.
             </AdditionInfo>
           </li>
           <li>
-            <mark className="word">Композиция</mark> или{" "}
-            <mark className="word">композ</mark> - некая сцена вашего проекта в{" "}
-            <mark className="app">Adobe After Effects</mark>. В композиции обычно собирают
-            некую сцену с слоями, фигурами, эффектами или видео-файлами. У каждой
-            композиции есть частота кадров, разрешение и соотношение пикселя.
-            <AdditionInfo>
-              Чтобы открыть окно настроек композиции - используйте комбинацию клавиш{" "}
-              <mark className="key">Ctrl + K</mark>.
-            </AdditionInfo>
+            <mark className="word">Растровая графика</mark> - файл изображения или видео
+            состоящее из цветных пикселей. Чем выше разрешение, тем лучше качество.
           </li>
           <li>
-            <mark className="word">Компсеттер</mark> - бесплатный сторонний JSX-скрипт{" "}
-            <a href="https://github.com/msongz/rd_CompSetter">rd_CompSetter</a> для
-            одновременного изменения параметров нескольких композиций.
-            <AdditionInfo>
-              Инструкцию по установке сторонних плагинов и скриптов вы можете найти в{" "}
-              <a href="#2.1">статье 2.1</a>.
-            </AdditionInfo>
-          </li>
-          <li>
-            <mark className="word">Кубик</mark> - индикация у слоя, отвечающая на вопрос
-            &quot;слой или эффект находится в трёхмерном пространстве?&quot;. С такими
-            слоями можно взаимодействовать в 3D пространстве, например управлять камерой
-            или положение по одной из трёх осей.
-          </li>
-          <li>
-            <mark className="word">Могрт</mark> или <mark className="word">Mogrt</mark> -
-            шаблон анимационного дизайна, который создаётся в{" "}
-            <mark className="app">Adobe After Effects</mark>, чтобы использовать в
-            дальнейшем в проектах, созданные в{" "}
-            <mark className="app">Adobe Premiere Pro</mark>.
-          </li>
-          <li>
-            <mark className="word">Мокка</mark> или <mark className="word">моча</mark> -
-            плагин <mark className="plugin">Boris FX Mocha</mark>, которая используется
-            для трекинга и привязки объектов. Данный плагин включён в базовую поставку{" "}
-            <mark className="app">Adobe After Effects</mark>, но в урезанном виде. Для
-            разблокировки некоторых функций требуется полная версия{" "}
-            <mark className="plugin">Boris FX Mocha Pro</mark>.{" "}
-            <a href="https://support.Boris FX.com/hc/en-us/articles/10232625711117-I-use-Mocha-AE-what-is-the-difference-between-Mocha-AE-and-Mocha-Pro-Do-I-need-Mocha-Pro">
-              О различиях между AE и Pro...
-            </a>
-          </li>
-          <li>
-            <mark className="word">Морфинг</mark> - название техники для плавного
-            превращения одной фигуры в другую, часто применяется с фигурными слоями.
-          </li>
-          <li>
-            <mark className="word">Стесняшка</mark>, <mark className="word">шляпка</mark>{" "}
-            или <mark className="word">медуза</mark> - функция{" "}
-            <mark className="ui">Shy</mark>. Если у слоя помечен такой аттрибут, то такие
-            слои можно легко скрыть на таймлайне, при этом такие слои будут видимыми в
-            предпросмотре композиции.
-          </li>
-          <li>
-            <mark className="word">Решётка</mark> - индикация у слоя{" "}
-            <mark className="ui">Guide Layer</mark>, которая рендерится только в
-            предпросмотре композиции и не будет рендериться в финальном файле. Такие файлы
-            используются для описания &quot;как работать с данной композицией&quot;.
-          </li>
-          <li>
-            <mark className="word">Моушен блюр</mark> - размытие в движении. С помощью
-            него можно сделать плавное движение объекта. Это можно сделать с помощью
-            включения <mark className="ui">Motion Blur</mark> у слоя или применив эффект{" "}
-            <mark className="plugin">CC Force Motion Blur</mark>.
+            <mark className="word">Семплы</mark> - часто применяется в 3D-плагинах или в
+            настройке размытия в движении. Чем больше семплов, тем лучше картинка, но хуже
+            производительность.
           </li>
           <li>
             <mark className="word">Мультифрейм рендер</mark> или{" "}
@@ -529,331 +871,73 @@ const AEFromNewbies: React.FC = () => {
             время рендера за счёт рендера несколько кадров одновременно. Для раскрытия
             потенциала этой функции требуется многоядерный процессор.
           </li>
+        </ul>
+        <Divider>Производственные термины</Divider>
+        <ul>
           <li>
-            <mark className="word">Нулевой объект</mark> или{" "}
-            <mark className="word">нуль</mark> - пустой объект, который используется для
-            расположения контроллеров или манипуляторов. Полезен при привязке нескольких
-            объектов в одно целое.{" "}
+            <mark className="word">Ватермарк</mark>, <mark className="word">вотерка</mark>{" "}
+            или <mark className="word">водяной знак</mark> - некая защита от копирования
+            недобросовестными заказчиками. Чаще всего лепится полупрозрачным текстовым
+            слоем с ником или именем исполнителя.
           </li>
           <li>
-            <mark className="word">Одинаковый год</mark> - часто встречается в контексте
-            вопроса &quot;у тебя точно одинаковые версии программ от Adobe стоят?&quot;.
-            Данный вопрос задаётся в случае когда пользователь, например, не может
-            подсоединить <mark className="app">Adobe After Effects</mark> и{" "}
-            <mark className="app">Adobe Media Encoder</mark> между собой.
-            <AdditionWarning>
-              Программы <mark className="app">Adobe After Effects</mark>,
-              <mark className="app">Adobe Premiere Pro</mark> и
-              <mark className="app">Adobe Media Encoder</mark> разных годов, например{" "}
-              <mark>2020</mark>, <mark>2018</mark>и <mark>2022</mark> не совместимы друг с
-              другом.
-            </AdditionWarning>
+            <mark className="word">Говорящая голова</mark> - формат видео в котором, как
+            правило, присутствует только диктор, снятый крупным планом.
           </li>
           <li>
-            <mark className="word">Патч</mark> или <mark className="word">путь</mark> -
-            своеобразная линия или кривая, которая применяется для создания фигуры или
-            маски у слоя.
-            <AdditionInfo>
-              Path маски и фигурного слоя взаимозаменяемые, поэтому вы можете превратить
-              слой-фигуру в маску и наоборот с помощью копирования и вставки этих
-              аттрибутов.
-            </AdditionInfo>
+            <mark className="word">Грейд</mark> - цветокоррекция. Часто делится на
+            базовый, где <mark className="word">шоты</mark> выравниваются по яркости и
+            цвету или применяют на них <mark className="file">Input LUT</mark> для
+            интерпретации <mark className="word">футажа</mark>, и финальный, где стилизуют
+            или вносят более точечные правки по цвету.
           </li>
           <li>
-            <mark className="word">Перекодируй видос</mark> - призыв к процессу
-            конвертации исходников в <mark className="word">монтажный кодек</mark>, чаще
-            всего через <mark className="app">Adobe Media Encoder</mark> или{" "}
-            <mark className="app">Shutter Encoder</mark>.
+            <mark className="word">Глич</mark> или <mark className="word">глитч</mark> - в
+            переводе от визуальный эффект, имитирующий цифровой сбой или артефакт. Часто
+            используется для стилизации под &quot;хакерское&quot; видео или просто чтобы
+            выглядело дерзко.
           </li>
           <li>
-            <mark className="word">Перелинкуй исходники</mark> - переподключение
-            потерянных файлов в вашем проекте. Это делается с помощью{" "}
-            <mark className="key">ПКМ</mark> по потерянным исходникам в окне{" "}
-            <mark className="ui">Project</mark> и нажатию кнопки{" "}
-            <mark className="ui">Replace Footage</mark> у исходников.
-            <AdditionInfo>
-              Если остальные потерянные исходники находятся в одной папке, то они
-              автоматически подключатся после указания первого потерянного файла.
-            </AdditionInfo>
+            <mark className="word">Плашка</mark> - графический элемент, поверх которого
+            размещают текст. Например, имя спикера или заголовок темы.
           </li>
           <li>
-            <mark className="word">Плагин</mark> - подключаемые, обычно встроенные или
-            сторонние эффекты с расширением <mark className="file">.aex</mark> для{" "}
-            <mark>Windows</mark> или <mark className="file">.plugin</mark> для{" "}
-            <mark>macOS</mark>. Часто применяется с выражением &quot;где скачать?&quot;.
+            <mark className="word">Рыба</mark> - временный черновой ролик с примерным
+            монтажом, без финальной цветокоррекции, звука и эффектов. Делается для оценки
+            темпа, ритма и общей структуры. Иногда <mark className="word">рыбу</mark>{" "}
+            показывают клиенту, но лучше не рисковать.
           </li>
           <li>
-            <mark className="word">Плейхед</mark> - вертикальная временная метка,
-            показывающая где находится точка текущего кадра в предпросмотре.
+            <mark className="word">Шот</mark> или <mark className="word">футаж</mark> -
+            отдельный фрагмент видео или сцены.
           </li>
           <li>
-            <mark className="word">Превью</mark> или{" "}
-            <mark className="word">предпросмотр</mark> - то, что вы видите на вашем экране
-            в окне, где отображается предварительный вывод вашей композиций.
+            <mark className="word">Референс</mark> или <mark className="word">реф</mark> -
+            синоним к словам <mark className="word">пример</mark> и{" "}
+            <mark className="word">образец</mark>. Используется для иллюстрации анимации,
+            вдохновения или согласования своего видения с заказчиком.
           </li>
           <li>
-            <mark className="word">Зайди в окно превью</mark> - вам предлагают открыть
-            окно с настройками предварительного просмотра с помощью{" "}
-            <mark className="ui">Window &gt; Preview</mark>. Обычно в таких случаях у
-            пользователя стоят кривые настройки FPS (видео из-за этого идёт слишком быстро
-            или медленно) или плохое качество предпросмотра (Auto или Quarter вместо
-            Full).
+            <mark className="word">Шаблон</mark> - заготовка проекта или пресета, которая
+            помогает сократить время на создание композиций и может служить отправной
+            точкой для вдохновения. Некоторые шаблоны могут быть слишком требовательны к
+            ресурсам вашего устройства, поэтому иногда проще сделать{" "}
+            <mark className="word">самоделку</mark>.{" "}
+            <mark className="word">Самоделка</mark> - это шаблон, созданный кем-то для
+            личного пользования, который не публиковался в общий доступ.
           </li>
           <li>
-            <mark className="word">Прекомпоз</mark> - обычно это дочерняя композиция
-            созданная за счёт выделенных объектов из родительской композиции. Создаётся с
-            помощью комбинации клавиш <mark className="key">Ctrl + Shift + C</mark>. Чаще
-            всего такую композицию создают для группировки кучи объектов, чтобы получился
-            в итоге один слой на таймлайне. Новая композиция появится в панели проекта и
-            её можно будет использовать в любой другой композиции.
-            <AdditionInfo>
-              В любой непонятной ситуации - используйте прекомпоз, часто помогает.
-            </AdditionInfo>
-          </li>
-          <li>
-            <mark className="word">Дупликатор</mark> - обычно используется в качестве
-            обозначения бесплатного стороннего скрипта{" "}
-            <a href="https://aescripts.com/true-comp-duplicator/">True Comp Duplicator</a>
-            . Он используется для того чтобы дублировать композиции так, чтобы они не были
-            зависимы друг от друга.
-            <AdditionInfo>
-              Чтобы его скачать, вам нужно зарегистрироваться на сайте{" "}
-              <a href="https://aescripts.com">aescripts</a> и на странице с плагином
-              указать цену <mark>0</mark>. После этого данный плагин появится в ваших
-              заказах и вы можете оттуда его скачать.
-            </AdditionInfo>
-          </li>
-          <li>
-            <mark className="word">Пресет</mark> - заготовленный набор эффектов формата{" "}
-            <mark className="file">.ffx</mark> для дальнейшего применения. Может
-            сохраняться вместе с анимацией по ключам.
-            <AdditionWarning>
-              Не все пресеты, созданные сторонними пользователями могут корректно работать
-              с вашим проектом, иногда их надо отредактировать под свои нужды.
-            </AdditionWarning>
-          </li>
-          <li>
-            <mark className="word">Прокси</mark> - урезанная в качестве (зависит от того,
-            в каком кодеке и разрешении пользователь создаст прокси) и более
-            производительная копия исходника для монтажа за счёт использования монтажного
-            кодека. Его нужно создавать, если вы имеете проблемы с производительностью
-            проекта из-за большого разрешения или когда нужна более стабильная работа с
-            проектом. Прокси можно создать прямо в{" "}
-            <mark className="app">Adobe After Effects</mark> или с помощью сторонних
-            программ, например <mark className="app">Adobe Media Encoder</mark>,{" "}
-            <mark className="app">Shutter Encoder</mark> или{" "}
-            <mark className="app">Handbrake</mark>. Также прокси можно создавать и для
-            композиций с целью уменьшения времени повторного рендера, если вы не
-            собираетесь его редактировать дальше.
-            <AdditionInfo>
-              <ul>
-                <li>
-                  Использование прокси вместо композиций или исходников можно переключать
-                  в окне <mark className="ui">Project</mark>, нажав на квадратный чекбокс
-                  слева от нужного файла.
-                </li>
-                <li>
-                  Если вы создали прокси в другой программе, то указать их в{" "}
-                  <mark className="app">Adobe After Effects</mark> можно в окне{" "}
-                  <mark className="ui">Project</mark>, выбрав нужный файл, нажав по нему{" "}
-                  <mark className="key">ПКМ</mark> и выбрав{" "}
-                  <mark className="ui">Set Proxy &gt; File</mark>.
-                </li>
-                <li>
-                  По умолчанию, если у исходника или композиции имеется прокси, то в
-                  финальный рендер попадает оригинальный файл. Это поведение можно
-                  изменить в окне <mark className="ui">Render Settings</mark>, выбрав в
-                  параметре <mark className="ui">Proxy Use</mark> значение{" "}
-                  <mark className="ui">Use All Proxies</mark>.
-                </li>
-              </ul>
-            </AdditionInfo>
-          </li>
-          <li>
-            <mark className="word">Разрешение</mark> или{" "}
-            <mark className="word">резолюшен</mark> - количество пикселей в ширину и
-            высоту. Иногда используется в контексте выбора качества предпросмотра{" "}
-            <mark className="ui">Full</mark>, <mark className="ui">Half</mark>,{" "}
-            <mark className="ui">Third</mark> или <mark className="ui">Quarter</mark>
-            <AdditionInfo>
-              Если у вас есть композиция с разрешением 1280 на 720, а в настройках рендера
-              вы поставили <mark className="ui">Resize</mark> до 3840 на 2160 - вы просто
-              растянете 720p композицию до 4K без фактического улучшения качества,
-              композиция не будет рендериться сразу в 4K.
-            </AdditionInfo>
-          </li>
-          <li>
-            <mark className="word">Ракета</mark> - окно{" "}
-            <mark className="ui">Project Settings</mark> в котором обычно меняется
-            цветовое пространство проекта или настраивается использование GPU.
-            <AdditionInfo>
-              Данное окно открывается с помощью комбинации клавиш{" "}
-              <mark className="key">Ctrl + Alt + Shift + K</mark>.
-            </AdditionInfo>
-          </li>
-          <li>
-            <p>
-              <mark className="word">Редьюс</mark> - функция{" "}
-              <mark className="ui">Reduce Project</mark> которая облегчает ваш проект за
-              счёт удаления всех объектов, кроме выбранной композиции в окне{" "}
-              <mark className="ui">Project</mark>. Сделать это можно с помощью{" "}
-              <mark className="ui">File &gt; Dependencies &gt; Reduce Project</mark>.
-            </p>
-            <AdditionWarning>
-              Если вы первый раз пользуетесь этой функцией - создайте на крайний случай
-              копию файла вашего проекта, вдруг эта функция удалит не те файлы, как
-              планировалось.
-            </AdditionWarning>
-            <p>
-              Также существует кнопка <mark className="ui">Remove Unused Footage</mark>{" "}
-              для удаления неиспользованных исходников в вашем проекте.
-            </p>
-          </li>
-          <li>
-            <mark className="word">Рендер</mark> - процесс генерации кадров и дальнейшей
-            их упаковки в нужный контейнер и кодек. Часто используется в контексте вывода
-            композиции в видео или изображение.
-          </li>
-          <li>
-            <mark className="word">Референс</mark> - синоним к словам{" "}
-            <mark className="word">пример</mark> и <mark className="word">образец</mark>.
-            Используется для иллюстрации анимации, вдохновения или согласования своего
-            видения с заказчиком.
-          </li>
-          <li>
-            <mark className="word">Ромбик</mark>, <mark className="word">ключ</mark> или{" "}
-            <mark className="word">кейфрейм</mark> - ключевые кадры или же метки, на
-            основе которых создаётся движения того или иного параметра слоя. Данные метки
-            указывают на то, как будет выглядеть анимированный элемент в конкретный момент
-            времени.
-          </li>
-          <li>
-            <mark className="word">Ротобраш</mark> - стандартный инструмент в{" "}
-            <mark className="app">Adobe After Effects</mark> для выделения движущегося
-            объекта в кадре. Часто используется для создания обводки вокруг объекта или
-            отделения от фона.
-          </li>
-          <li>
-            <mark className="word">Ротоскоп</mark> - процесс разделения сцены или кадра на
-            несколько слоёв.
-          </li>
-          <li>
-            <mark className="word">Семплы</mark> - часто применяется в 3D-плагинах или в
-            настройке размытия в движении. Чем больше семплов, тем лучше картинка, но хуже
-            производительность.
-          </li>
-          <li>
-            <mark className="word">Скрипт</mark> - файлы формата{" "}
-            <mark className="file">.jsx</mark> или
-            <mark className="file">.jsxbin</mark>, выполняющее определённые инструкции или
-            действия. Могут быть встроенными или сторонними. Если у вас есть навыки в
-            программировании скриптов - вы можете создать свой скрипт, выполняющую нужную
-            вам задачу. <a href="#2.1">Как установить сторонние скрипты?</a>
-          </li>
-          <li>
-            <mark className="word">Солид</mark> - слой с заданным цветом. Часто
-            применяется как фон или как инициализатор 3D-эффектов, например{" "}
-            <mark className="plugin">Trapcode Particular</mark>.
-          </li>
-          <li>
-            <mark className="word">Солнышко</mark> или{" "}
-            <mark className="word">звёздочка</mark> - параметр{" "}
-            <mark className="ui">Continuously Rasterize</mark> для уменьшения
-            &quot;пикселей&quot; у векторных объектов.
-            <AdditionInfo>
-              При включенной опции <mark className="ui">Continuously Rasterize</mark> у
-              слоя - при увеличении предпросмотра вы никогда не добьётесь &quot;векторного
-              предпросмотра&quot;. Это происходит потому, что{" "}
-              <mark className="app">Adobe After Effects</mark> всегда растрирует
-              предпросмотр в соответствии с заданным в настройках разрешением композиции.
-            </AdditionInfo>
-          </li>
-          <li>
-            <mark className="word">Тайлинг</mark> - зеркальная плитка, которую можно
-            использовать для заполнения пустоты при использования эффекта &quot;пьяного
-            оператора с трясущимися руками&quot;. Обычно такая плитка делается с помощью
-            эффектов <mark className="plugin">CC Repetile</mark> или{" "}
-            <mark className="plugin">Motion Tile</mark>.
-          </li>
-          <li>
-            <mark className="word">Тайм-ремапинг</mark> - принцип изменения скорости видео
-            в определённых промежутках времени. Делается это с помощью встроенной функции{" "}
-            <mark className="ui">Time Remapping</mark>, которая включается с помощью
-            комбинации клавиш <mark className="key">Ctrl + Alt + T</mark> или с помощью
-            сторонних плагинов, например <mark className="plugin">Twixtor</mark> или{" "}
-            <mark className="plugin">BCC Retimer ML</mark>.
-          </li>
-          <li>
-            <mark className="word">Топик стартер</mark> - человек, который изначально
-            задал вопрос или поднял определённую тему в чате.
-          </li>
-          <li>
-            <mark className="word">Трансформ</mark> - настройка или анимация базовых
-            свойств слоя, например положение или размер. Иногда означает встроенный эффект{" "}
-            <mark className="plugin">Transform</mark>.
-          </li>
-          <li>
-            <mark className="word">Элемент 3Д</mark> - сторонний плагин{" "}
-            <mark className="plugin">Element 3D</mark> от VideoCopilot, позволяющий
-            создавать 3D-сцены в композициях{" "}
-            <mark className="app">Adobe After Effects</mark>.
-          </li>
-          <li>
-            <mark className="word">Трекинг</mark> - механизм определения местоположения
-            движущегося объекта для дальнейшей его привязки к другому объекту. Часто
-            применяется для замены экранов мониторов или биллбордов на видео.
+            <mark className="word">Переходы</mark> или{" "}
+            <mark className="word">транзишены</mark> - визуальные эффекты, используемые
+            для соединения двух клипов. Они могут быть простыми, например{" "}
+            <mark className="plugin">Linear Wipe</mark>, так и более сложными и
+            стилизованными.
           </li>
           <li>
             <mark className="word">Туториал</mark> - обучающее видео о том, как
             пользоваться программой или как использовать определённый эффект или плагин.
             Такие видео помогают новичку ориентироваться в интерфейсе программы и иногда
             раскрывают некоторые хитрости при создании эффектов.
-          </li>
-          <li>
-            <mark className="word">Улитка</mark>, <mark className="word">спираль</mark>{" "}
-            или <mark className="word">лассо</mark> - инструмент для привязки слоя или его
-            параметров к другому слою.
-            <AdditionInfo>
-              Если вы не видите инструмента для привязки на вашем таймлайне - включите его
-              видимость с помощью <mark className="key">ПКМ</mark> по столбцам и выберите{" "}
-              <mark className="ui">Columns &gt; Parent & Link</mark>.
-            </AdditionInfo>
-          </li>
-          <li>
-            <mark className="word">Усики</mark> - манипуляторы графика скорости в{" "}
-            <mark className="ui">Graph Editor</mark>, пути движения в предпросмотре или
-            угла у фигуры.
-          </li>
-          <li>
-            <mark className="word">Хоткей</mark> - сокращение от &quot;горячие
-            клавиши&quot;, означает некую комбинацию клавиш, которые должен знать
-            пользователь для выполнения нужного действия.
-          </li>
-          <li>
-            <mark className="word">Часы</mark> или{" "}
-            <mark className="word">секундомер</mark> - элемент интерфейса на таймлайне или
-            в панели управления эффектом для добавления ключевых кадров.
-            <AdditionInfo>
-              Если нажать на секундомер с зажатым <mark className="key">Alt</mark> -
-              включится режим работы с выражениями. Выключается аналогичным образом.
-            </AdditionInfo>
-          </li>
-          <li>
-            <mark className="word">Шаблон</mark> - некий заготовок проекта или пресета для
-            уменьшения времени создания композиций или поиска вдохновения.
-          </li>
-          <li>
-            <mark className="word">Шейп</mark> - от английского{" "}
-            <mark className="word">shape</mark>, означает слой с фигурой.
-          </li>
-          <li>
-            <mark className="word">Шейк</mark> или <mark className="word">вигл</mark> -
-            обычно случайное движение слоя или же тряска по позиции X и Y. Этот эффект
-            часто встречается в <mark className="word">эдитах</mark> и различных видео.
-            Под <mark className="word">виглом</mark> обычно подразумевает тоже самое, но
-            только в качестве встроенной функции выражения{" "}
-            <mark className="code">wiggle(freq, amp)</mark> для задания случайной анимации
-            от исходного значения.
           </li>
           <li>
             <mark className="word">Эдиты</mark> - обычно это видео под музыку, за основу
@@ -863,20 +947,30 @@ const AEFromNewbies: React.FC = () => {
             абсурдно.
           </li>
           <li>
-            <mark className="word">Экстеншен</mark> - расширения, часто запакованные в{" "}
-            <mark className="file">.zxp</mark>. После установки таких расширений - они
-            появятся в <mark className="ui">Window &gt; Extensions</mark>.
-            <AdditionInfo>
-              Если такие расширения не открываются - убедитесь в том, что вы применили{" "}
-              <a
-                download
-                href="files/Enable Extensions Adobe.reg"
-              >
-                REG-патч
-              </a>{" "}
-              для <mark>Windows</mark> или ввели нужные команды для их активации в
-              терминале для <mark>macOS</mark>.
-            </AdditionInfo>
+            <mark className="word">Рилсы</mark> или <mark className="word">шорты</mark> -
+            короткие видеоролики, публикуемые в социальных сетях{" "}
+            <mark className="app">
+              Instagram<sup>1</sup>
+            </mark>{" "}
+            и <mark className="app">YouTube</mark> соответственно. Чаще всего такие видео
+            - вертикальные, с хронометражем до одной минуты, хотя бывают и исключения. Это
+            формат максимально быстрой подачи: за пару секунд нужно зацепить, удержать и
+            донести мысль. Вокруг этого формата регулярно возникает обсуждение цен -
+            особенно, когда речь идёт о <mark className="word">рилсах за 300</mark>
+            или даже меньше. Это вызывает волну негодования среди тех, кто делает такие
+            ролики профессионально: дешёвка обесценивает труд, а заказчики всё чаще ждут{" "}
+            <mark className="word">шедевр за копейки</mark>.
+            <AdditionDanger>
+              <sup>1</sup> <mark className="app">Instagram</mark> и <mark>Meta</mark> всё
+              ещё признаны экстремистскими организациями и запрещены на территории
+              Российской Федерации.
+            </AdditionDanger>
+          </li>
+          <li>
+            <mark className="word">Перекодируй видос</mark> - призыв к процессу
+            конвертации исходников в <mark className="word">монтажный кодек</mark>, чаще
+            всего через <mark className="app">Adobe Media Encoder</mark> или{" "}
+            <mark className="app">Shutter Encoder</mark>.
           </li>
         </ul>
       </DetailsSummary>
