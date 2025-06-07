@@ -357,6 +357,11 @@ const AEInstallProblems: React.FC = () => {
                   <AdditionInfo>
                     <ul>
                       <li>
+                        Расширения формата <mark className="file">.zxp</mark> обычно
+                        появляются в окне{" "}
+                        <mark className="ui">Window &gt; Extensions</mark>.
+                      </li>
+                      <li>
                         Если вы не хотите устанавливать стороннее ПО для установки{" "}
                         <mark className="file">.zxp</mark>, то вы можете переименовать
                         файл <mark className="file">.zxp</mark> в{" "}
