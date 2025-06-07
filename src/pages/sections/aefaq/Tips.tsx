@@ -92,7 +92,7 @@ const AETips: React.FC = () => {
               </p>
               <AdditionWarning>
                 Для работы данной функции нужен внешний накопитель, желательно с объёмом
-                от <mark>512 Гб</mark> и более.
+                от <mark>512 ГБ</mark> и более.
               </AdditionWarning>
               <YouTubeVideo
                 caption="How to Set up & Use Time Machine to Backup your Mac"
