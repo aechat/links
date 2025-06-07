@@ -2193,6 +2193,23 @@ const AEFromNewbies: React.FC = () => {
           </ul>
         </AdditionInfo>
       </DetailsSummary>
+      <DetailsSummary
+        tag="adjustment layer, camera, image sequence, light layer, null object, shape layer, solid layer, text layer, источник освещения, камера, корректирующий слой, нулевой объект, нуль, секвенция изображений, сплошная заливка, слои, слой фигура, текст"
+        title="Какие виды слоёв существуют в программе, для чего они используются и как их настроить?"
+      >
+        <AdditionDanger>
+          Данная статья находится на ранней стадии разработки. Следите за обновлениями.
+        </AdditionDanger>
+      </DetailsSummary>
+      <DetailsSummary
+        tag="replace footage"
+        title="Как заменить футаж другим файлом?"
+      >
+        <AdditionDanger>
+          Данная статья находится на ранней стадии разработки. Следите за обновлениями.
+        </AdditionDanger>
+        <p>{/* TODO: написать и исправить*/}</p>
+      </DetailsSummary>
       <DetailsSummary title="Почему у меня предпросмотр проигрывается в плохом качестве?">
         <Divider>Проверяем разрешение предпросмотра</Divider>
         <p>
@@ -2682,6 +2699,12 @@ const AEFromNewbies: React.FC = () => {
           styleClass="figure_windows-dark"
           videoSrc="images/aftereffects/move_layers_around_playhead.mp4"
         />
+      </DetailsSummary>
+      <DetailsSummary title="Как обрезать композицию по краям слоёв, находящиеся в нём?">
+        <AdditionDanger>
+          Данная статья находится на ранней стадии разработки. Следите за обновлениями.
+        </AdditionDanger>
+        <p>{/* FIXME: */}</p>
       </DetailsSummary>
       <DetailsSummary title="Почему первый кадр в композиции начинается не с нулевой секунды?">
         <p>
