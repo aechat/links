@@ -1619,13 +1619,8 @@ const AEInstallProblems: React.FC = () => {
         </AdditionInfo>
         <AdditionDanger>
           Суббреддит <mark>r/genp</mark> был заблокирован по просьбе <mark>Adobe</mark>.
-          Чтобы скачать <mark className="app">GenP</mark> - пользуйтесь альтернативными
-          источниками распространения, например{" "}
-          <a href="https://discord.gg/UDypEJjW4V">Discord</a> или{" "}
-          <a href="https://github.com/wangzhenjjcn/AdobeGenp/releases">
-            репозиторием на GitHub
-          </a>
-          .
+          Будьте осторожны при скачивании <mark className="app">GenP</mark> не из
+          проверенных источников.
         </AdditionDanger>
         <div style={{opacity: "0.5"}}>
           <p>
