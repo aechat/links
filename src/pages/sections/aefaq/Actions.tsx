@@ -59,9 +59,9 @@ const AEActions: React.FC = () => {
           <mark className="app">Topaz Gigapixel AI</mark>. По своей задаче эти программы
           похожи, а результаты могут сильно отличаться, поэтому время от времени
           приходится использовать обе программы. Для{" "}
-          <mark className="app">Topaz Photo AI</mark> вам понадобится около 15 Гб на
+          <mark className="app">Topaz Photo AI</mark> вам понадобится около 15 ГБ на
           жестком диске, а для <mark className="app">Topaz Gigapixel AI</mark> - около 25
-          Гб. И это без учета будущих обновлений.
+          ГБ. И это без учета будущих обновлений.
         </p>
         <AdditionInfo>
           Про различия <mark className="app">Topaz Photo AI</mark> и{" "}

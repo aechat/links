@@ -1509,7 +1509,7 @@ const AEInstallProblems: React.FC = () => {
       </DetailsSummary>
       <DetailsSummary
         tag="trapcode, mbl, magic bullet, vfx suite, universe, юниверс, трапкод, партикуляр, мбл"
-        title='При установке любого пакета Red Giant выскакивает "This installer application has been moved. It must be run from its original folder containing a packages directory. The installer will now exit."'
+        title='При установке любого пакета Red Giant появляется ошибка "This installer application has been moved. It must be run from its original folder containing a packages directory. The installer will now exit."'
       >
         <p>
           Скорее всего пытаетесь установить плагины от{" "}

@@ -2252,7 +2252,7 @@ const AEFromNewbies: React.FC = () => {
       >
         <p>
           Регулярная очистка кэша может помочь вам избавиться от случаев, когда в процессе
-          работы над проектом появляются непонятные артефакты и нежелательные кадры в
+          работы над проектом появляются непонятные артефакты или нежелательные кадры в
           предпросмотре, а также может помочь решить проблему появления предупреждения{" "}
           <mark>Out of Memory</mark>. Чтобы быстро очистить кэш предпросмотра и дисковый
           кэш - перейдите в <mark className="ui">Edit &gt; Purge</mark>, нажмите на{" "}
@@ -2260,7 +2260,6 @@ const AEFromNewbies: React.FC = () => {
           на <mark className="ui">OK</mark>. После очистки кэша - предпросмотр нужно
           закэшировать заново.
         </p>
-
         <ImageFigure
           caption="Очистка кэша и освобождение оперативной памяти"
           imgSrc="images/aftereffects/edit_purge_all-memory-and-disk-cache.png"
@@ -2271,7 +2270,7 @@ const AEFromNewbies: React.FC = () => {
           <ul>
             <li>
               Если очистка кэша не помогает от появления <mark>Out of Memory</mark> -
-              попробуйте <a href="#4.7">настроить файл подкачки</a>, если у вас устройство
+              попробуйте <a href="#4.5">настроить файл подкачки</a>, если у вас устройство
               на <mark>Windows</mark>.
             </li>
             <li>
@@ -2361,16 +2360,18 @@ const AEFromNewbies: React.FC = () => {
           <mark className="app">Adobe After Effects</mark> есть возможность отображения
           предпросмотра без потери качества при приближении, как в{" "}
           <mark className="app">Adobe Illustrator</mark>, если в композиции есть векторные
-          слои. Нет, это так не работает, <mark className="app">Adobe After Effects</mark>{" "}
-          не является векторным редактором графики. Он показывает и растрирует все ваши
-          слои под то разрешение, которое указано в настройках вашей композиции.
+          слои. Нет, это так не работает, так как{" "}
+          <mark className="app">Adobe After Effects</mark> является растровым редактором
+          графики, а не векторным. Он показывает и растрирует все ваши слои под то
+          разрешение, которое указано в настройках вашей композиции.
         </p>
         <AdditionInfo>
           Исключение, где вы можете увеличить предпросмотр без потери качества больше чем
           на <mark>100%</mark> - это включение <mark className="plugin">Draft 3D</mark> с
           опцией <mark className="ui">Extended Preview</mark>. Такой способ будет работать
           только тогда, когда в композиции есть векторные слои или 3D-модели. При экспорте
-          вы получите файл с разрешением, которая указана в настройках композиции.
+          вы в любом случае получите файл с разрешением, которая указана в настройках
+          композиции.
         </AdditionInfo>
       </DetailsSummary>
       <DetailsSummary
@@ -2466,7 +2467,7 @@ const AEFromNewbies: React.FC = () => {
           Если вы используете в проекте видео-исходники, скачанные из интернета, то скорее
           всего они были закодированы в неприятный для{" "}
           <mark className="app">Adobe After Effects</mark> кодек и плохо проигрываются
-          программой. Для решения проблемы - достаточно перекодировать ваши исходники в
+          программой. Для решения проблемы - достаточно перекодировать ваши исходники в{" "}
           <mark className="word">монтажный кодек</mark>, например{" "}
           <mark className="video">Apple Prores 422</mark> через конвертер, например{" "}
           <mark className="app">Shutter Encoder</mark>. После конвертации - импортируйте
@@ -2475,7 +2476,7 @@ const AEFromNewbies: React.FC = () => {
         <p>
           Если ваши видео-исходники играются плавно, но вы испытываете проблемы только со
           звуком - стоит попробовать экспортировать аудио из видео отдельным файлом и
-          перекодировать его в <mark className="file">.wav</mark>, а затем импортировать
+          перекодировать его в <mark className="audio">WAV</mark>, а затем импортировать
           его в программу заново.
         </p>
       </DetailsSummary>
@@ -2527,7 +2528,7 @@ const AEFromNewbies: React.FC = () => {
         <p>
           В редких случаях баги с проигрыванием звука могут возникнуть из-за самого
           исходника звука. Чтобы исключить различные проблемы с воспроизведением аудио -
-          переконвертируйте его в формат <mark className="file">.wav</mark>, а затем
+          переконвертируйте его в формат <mark className="audio">WAV</mark>, а затем
           замените аудио в проекте. Если аудио запаковано вместе с видео файлом -
           переконвертируйте его в <mark className="word">монтажный кодек</mark>, например,
           через <mark className="app">Shutter Encoder</mark>.
@@ -2608,9 +2609,9 @@ const AEFromNewbies: React.FC = () => {
               параметра <mark className="ui">Only Show Third-Party Effects</mark>.
             </li>
             <li>
-          Также вы можете отключить или включить все эффекты в этом списке с помощью
-          кнопок <mark className="ui">Disable All</mark> или{" "}
-          <mark className="ui">Enable All</mark>.
+              Также вы можете отключить или включить все эффекты в этом списке с помощью
+              кнопок <mark className="ui">Disable All</mark> или{" "}
+              <mark className="ui">Enable All</mark>.
             </li>
           </ul>
         </AdditionInfo>
@@ -2840,7 +2841,7 @@ const AEFromNewbies: React.FC = () => {
         <VideoFigure
           caption="Конвертация текстового слоя в Paragraph Text"
           styleClass="figure_windows-dark"
-          videoSrc={"images/aftereffects/convert_to_paragraph_text.mp4"}
+          videoSrc="images/aftereffects/convert_to_paragraph_text.mp4"
         />
       </DetailsSummary>
       <DetailsSummary title="Чем отличается Mocha AE от Mocha Pro?">
@@ -2985,6 +2986,7 @@ const AEFromNewbies: React.FC = () => {
             e.preventDefault();
 
             const target = document.getElementById("interface");
+
             if (target) {
               const headerHeight = document.querySelector("header")?.offsetHeight ?? 0;
 
@@ -3009,4 +3011,5 @@ const AEFromNewbies: React.FC = () => {
     </div>
   );
 };
+
 export default AEFromNewbies;
