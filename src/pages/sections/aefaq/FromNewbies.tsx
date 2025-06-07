@@ -2501,9 +2501,17 @@ const AEFromNewbies: React.FC = () => {
           окна и перезапустите <mark className="app">Adobe After Effects</mark>.
         </p>
         <AdditionInfo>
+          <ul>
+            <li>
+              Чтобы включить отображение стандартных эффектов - уберите чекбокс у
+              параметра <mark className="ui">Only Show Third-Party Effects</mark>.
+            </li>
+            <li>
           Также вы можете отключить или включить все эффекты в этом списке с помощью
           кнопок <mark className="ui">Disable All</mark> или{" "}
           <mark className="ui">Enable All</mark>.
+            </li>
+          </ul>
         </AdditionInfo>
         <ImageFigure
           caption="Effect Manager"
