@@ -1536,6 +1536,31 @@ const AEInstallProblems: React.FC = () => {
         </p>
       </DetailsSummary>
       <DetailsSummary
+        tag="Select action - an error occurred while trying to replace the existing file: DeleteFile failed; code 5. Access denied"
+        title='При применении активатора от Team V.R. для пакетов Red Giant появляется ошибка "Виберiть дiю - виникла помилка при спробi замiни iснуючого файлу: DeleteFile збiй; код 5. Отказано в доступе"'
+      >
+        <p>
+          В данной ошибке показывается, что активатор не может перезаписать какой-то файл
+          из-за того что он у вас открыт в фоне. В вашем окне ошибки должен отобразиться
+          полный путь до виновника торжества - скорее всего это будет висящий в фоне{" "}
+          <mark className="app">Red Giant Service</mark>.
+        </p>
+        <p>
+          Чтобы корректно применить активатор - закройте его с помощью{" "}
+          <mark className="app">Диспетчера задач</mark>, завершив процесс{" "}
+          <mark className="app">Red Giant Service.exe</mark> во вкладке{" "}
+          <mark className="ui">Подробности (Windows 10 или 11 21H2)</mark> или{" "}
+          <mark className="ui">Сведения (Windows 11 22H2+)</mark>. После завершения
+          проблемного процесса - повторите попытку активации, он должен пройти нормально.
+        </p>
+        <ImageFigure
+          caption="Диспетчер задач"
+          imgSrc="images/kill_redgiantservice.png"
+          imgTitle="Завершаем процесс Red Giant Service.exe"
+          styleClass="figure_windows-dark"
+        />
+      </DetailsSummary>
+      <DetailsSummary
         tag="генп, genp, ручная активация"
         title="Я не доверяю репакам и автоматическим установщикам, но установить программы от Adobe хочется. Какие есть ещё варианты?"
       >
