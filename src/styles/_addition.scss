@@ -121,6 +121,18 @@ li > .addition-danger,
         margin-bottom: 0;
       }
     }
+
+    li > ul {
+      margin-block: 5px;
+    }
+
+    li > ul > li {
+      padding-inline: 0;
+
+      &::before {
+        left: -12px;
+      }
+    }
   }
 
   &-info {
