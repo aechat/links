@@ -72,6 +72,13 @@ const PRExportProblems: React.FC = () => {
         </ul>
         {/* TODO: написать при возможности ещё варианты решения */}
       </DetailsSummary>
+      <DetailsSummary title="An unknown error (-1609629695) occurred during the Project Manager operation">
+        <p>
+          Для решения проблемы - попробуйте выключить чекбокс напротив параметра{" "}
+          <mark className="ui">Include Preview Files</mark>, а затем повторить попытку
+          сбора материалов в нужную папку.
+        </p>
+      </DetailsSummary>
       <DetailsSummary
         tag="конвертировать текст кэпшонов в графику, upgrade captions to graphics, convert subtitles to text"
         title="Почему созданные субтитры не отображаются на экспортированной секвенции?"
