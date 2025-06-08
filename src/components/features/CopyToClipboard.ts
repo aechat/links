@@ -58,11 +58,13 @@ const copyToClipboard = (event?: MouseEvent): void => {
   }
 
   const elementToCopy = event.target as HTMLElement;
+
   if (isExcludedElement(elementToCopy)) {
     return;
   }
 
   const textContent = cleanHtml(elementToCopy.innerHTML);
+
   if (navigator.clipboard) {
     copyWithClipboardApi(textContent);
   } else {
@@ -80,4 +82,5 @@ const enableAutoCopy = (): void => {
     }
   });
 };
+
 export default {copyToClipboard, enableAutoCopy};

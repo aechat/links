@@ -1,5 +1,4 @@
 @use "mixins" as *;
-
 li > .addition-info,
 li > .addition-warning,
 li > .addition-danger,
@@ -25,7 +24,6 @@ li > .addition-danger,
   margin-left: 0;
   margin-inline: 0;
 }
-
 .addition {
   &-info,
   &-warning,
@@ -41,93 +39,75 @@ li > .addition-danger,
     font-weight: 425;
     font-size: 0.9375rem;
     line-height: 1.65;
-
     &:first-child {
       margin-top: 10px;
     }
-
     &:last-child {
       margin-bottom: 10px;
     }
-
     p {
       margin-inline: 0;
       margin-block: 10px;
-
       &:first-child {
         margin-block-start: 0;
       }
-
       &:last-child {
         margin-block-end: 0;
       }
-
       &:not(:first-child) {
         margin-block-start: 10px;
       }
-
       &:not(:last-child) {
         margin-block-end: 10px;
       }
     }
-
     a {
       font-weight: 700;
       text-decoration: underline;
     }
-
     mark {
       outline: none;
-      padding: 2px 3px 2px 3px;
-
+      padding: 2px 3px;
       &::before {
         width: min(calc(12px + (14 - 12) * ((100vw - 320px) / (768 - 320))), 14px);
         height: min(calc(12px + (14 - 12) * ((100vw - 320px) / (768 - 320))), 14px);
       }
     }
-
     ul {
       margin: 0;
     }
-
     li {
       position: relative;
       margin-inline-start: 20px;
       margin-block: 5px;
       padding-inline-start: 2px;
       padding-block: 4px;
-
       &:not(:last-child) {
         border-bottom: 1px solid;
       }
-
       &::before {
         display: inline-block;
         position: absolute;
         top: 6px;
         bottom: 6px;
         left: -12px;
-        opacity: 50%;
+        opacity: 0.5;
         border-radius: $roundness;
         width: 2px;
         content: "";
       }
-
       &:first-child {
         margin-top: 0;
       }
-
       &:last-child {
         margin-bottom: 0;
       }
     }
   }
-
   &-info {
     outline: 1px solid var(--addition_info-border);
     background-color: var(--addition_info-background);
     color: var(--addition_info-text);
-
     .change_os {
       margin-inline: 5px;
       outline: 1px solid var(--addition_info-border);
@@ -138,102 +118,81 @@ li > .addition-danger,
       line-height: 1.25;
       text-align: center;
     }
-
     a {
       color: var(--addition_info-text);
-
       &::before {
         background-color: var(--addition_info-text);
       }
     }
-
     li {
       &::before {
         background-color: var(--addition_info-text);
       }
-
       &:not(:last-child) {
         border-bottom-color: var(--addition_info-mark);
       }
     }
-
     mark {
       background-color: var(--addition_info-mark);
       color: var(--addition_info-text);
-
       &::before {
         background-color: var(--addition_info-text) !important;
       }
     }
   }
-
   &-warning {
     outline: 1px solid var(--addition_warning-border);
     background-color: var(--addition_warning-background);
     color: var(--addition_warning-text);
-
     a {
       color: var(--addition_warning-text);
-
       &::before {
         background-color: var(--addition_warning-text);
       }
     }
-
     li {
       &::before {
         background-color: var(--addition_warning-text);
       }
-
       &:not(:last-child) {
         border-bottom-color: var(--addition_warning-mark);
       }
     }
-
     mark {
       background-color: var(--addition_warning-mark);
       color: var(--addition_warning-text);
-
       &::before {
         background-color: var(--addition_warning-text) !important;
       }
     }
   }
-
   &-danger {
     outline: 1px solid var(--addition_danger-border);
     background-color: var(--addition_danger-background);
     color: var(--addition_danger-text);
-
     a {
       color: var(--addition_danger-text);
-
       &::before {
         background-color: var(--addition_danger-text);
       }
     }
-
     li {
       &::before {
         background-color: var(--addition_danger-text);
       }
-
       &:not(:last-child) {
         border-bottom: 1px solid var(--addition_danger-mark);
       }
     }
-
     mark {
       background-color: var(--addition_danger-mark);
       color: var(--addition_danger-text);
-
       &::before {
         background-color: var(--addition_danger-text) !important;
       }
     }
   }
 }
-
 .change_os {
   display: flex;
   flex-direction: row;
@@ -250,7 +209,6 @@ li > .addition-danger,
   color: var(--summary-text);
   font-size: 0.9375rem;
   line-height: 1.5;
-
   button {
     opacity: 0.75;
     transition: opacity 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
@@ -263,25 +221,20 @@ li > .addition-danger,
     font-size: 0.85rem;
     line-height: 1.25;
     text-align: center;
-
     &:hover {
       opacity: 0.8;
     }
-
     &:active {
       opacity: 0.5;
     }
   }
-
   a {
     color: var(--addition_warning-text);
   }
-
   mark {
     outline: 1px solid var(--addition_warning-border);
     background-color: var(--addition_warning-mark);
     color: var(--addition_warning-text);
-
     &::before {
       background-color: var(--addition_warning-text) !important;
     }

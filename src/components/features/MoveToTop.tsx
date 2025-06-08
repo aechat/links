@@ -1,4 +1,5 @@
 import React from "react";
+
 import {SwipeUpRounded} from "@mui/icons-material";
 
 export const MoveToTop: React.FC = () => {

@@ -1,7 +1,11 @@
 import React, {useState} from "react";
+
 import {Modal} from "antd";
+
 import {motion} from "framer-motion";
+
 import {CloseRounded, CoffeeRounded, EditRounded} from "@mui/icons-material";
+
 import {AdditionInfo} from "../Additions";
 
 const SupportDonut: React.FC = () => {
@@ -133,7 +137,10 @@ const SupportDonut: React.FC = () => {
                       style={{marginInline: "10px"}}
                       whileHover={{
                         scale: 0.975,
-                        transition: {duration: 0.5, ease: [0.075, 0.82, 0.165, 1]},
+                        transition: {
+                          duration: 0.5,
+                          ease: [0.075, 0.82, 0.165, 1],
+                        },
                       }}
                       whileTap={{scale: 0.95, opacity: 0.5}}
                     >
@@ -202,7 +209,10 @@ const SupportDonut: React.FC = () => {
                           className="yoomoney"
                           whileHover={{
                             scale: 0.975,
-                            transition: {duration: 0.5, ease: [0.075, 0.82, 0.165, 1]},
+                            transition: {
+                              duration: 0.5,
+                              ease: [0.075, 0.82, 0.165, 1],
+                            },
                           }}
                           whileTap={{scale: 0.95, opacity: 0.5}}
                         >
@@ -294,7 +304,7 @@ const SupportDonut: React.FC = () => {
             <p>
               Файлы контента внутри секций находятся по пути{" "}
               <mark className="path">src/pages/sections</mark>, где лежат файлы формата{" "}
-              <mark className="file">.tsx</mark>. Более подробно о форматировании и
+              <mark className="file">TSX</mark>. Более подробно о форматировании и
               редактировании указано в файле{" "}
               <a
                 href="https://github.com/aechat/links/blob/main/README.md"
@@ -316,4 +326,5 @@ const SupportDonut: React.FC = () => {
     </>
   );
 };
+
 export default SupportDonut;

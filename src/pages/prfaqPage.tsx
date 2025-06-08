@@ -1,15 +1,27 @@
 import React, {Suspense, lazy, useEffect, useState} from "react";
+
 import {Breadcrumb, Divider} from "antd";
+
 import {motion} from "framer-motion";
+
 import {Link} from "react-router-dom";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
+
 import {Helmet} from "react-helmet-async";
-import {SearchInPage, SearchProvider} from "../components/search";
-import SupportDonut from "../components/modal/SupportDonut";
-import CopyToClipboard from "../components/features/CopyToClipboard";
+
 import {CircularProgress} from "@mui/material";
+
+import Header from "../components/Header";
+
+import Footer from "../components/Footer";
+
+import {SearchInPage, SearchProvider} from "../components/search";
+
+import SupportDonut from "../components/modal/SupportDonut";
+
+import CopyToClipboard from "../components/features/CopyToClipboard";
+
 import {generateAnchorId} from "../components/DetailsSummary";
+
 import {AdditionDanger} from "../components/Additions";
 
 const PRActions = lazy(() => import("./sections/prfaq/Actions"));
@@ -40,7 +52,12 @@ const PRFAQ = () => {
   }, []);
 
   const sections = [
-    {key: "1", title: "Ищем полезности", id: "where-find", component: PRWhereFind},
+    {
+      key: "1",
+      title: "Ищем полезности",
+      id: "where-find",
+      component: PRWhereFind,
+    },
     {
       key: "2",
       title: "Проблемы с установкой",
@@ -53,7 +70,7 @@ const PRFAQ = () => {
       id: "from-newbies",
       component: PRFromNewbies,
     },
-    {key: "4", title: "Вопросы на засыпку", id: "tips", component: PRTips},
+    {key: "4", title: "Неотсортированное", id: "tips", component: PRTips},
     {key: "5", title: "Импорт", id: "import", component: PRImport},
     {key: "6", title: "Интерфейс", id: "interface", component: PRInterface},
     {
@@ -63,8 +80,13 @@ const PRFAQ = () => {
       component: PRPerformance,
     },
     {key: "8", title: "Как и чем?", id: "actions", component: PRActions},
-    {key: "9", title: "Ошибки и предупреждения", id: "errors", component: PRErrors},
-    {key: "10", title: "Экспорт", id: "export", component: PRExport},
+    {
+      key: "9",
+      title: "Ошибки и предупреждения",
+      id: "errors",
+      component: PRErrors,
+    },
+    {key: "10", title: "Рендер и экспорт", id: "export", component: PRExport},
     {
       key: "11",
       title: "Проблемы при экспорте",
@@ -148,8 +170,12 @@ const PRFAQ = () => {
                       title: <Link to="/prfaq">FAQ по Adobe Premiere Pro</Link>,
                       menu: {
                         items: [
-                          {title: <Link to="/aefaq">FAQ по Adobe After Effects</Link>},
-                          {title: <Link to="/psfaq">FAQ по Adobe Photoshop</Link>},
+                          {
+                            title: <Link to="/aefaq">FAQ по Adobe After Effects</Link>,
+                          },
+                          {
+                            title: <Link to="/psfaq">FAQ по Adobe Photoshop</Link>,
+                          },
                         ],
                       },
                     },
@@ -201,6 +227,7 @@ const PRFAQ = () => {
                   >
                     {visibleSections.map((key) => {
                       const section = sections.find((s) => s.key === key);
+
                       if (!section) {
                         return null;
                       }
@@ -239,4 +266,5 @@ const PRFAQ = () => {
     </div>
   );
 };
+
 export default PRFAQ;

@@ -1,5 +1,7 @@
 import React from "react";
+
 import {GitHub} from "@mui/icons-material";
+
 import {motion} from "framer-motion";
 
 interface FooterProps {
@@ -71,4 +73,5 @@ const Footer: React.FC<FooterProps> = ({title, initialYear}) => {
     </motion.footer>
   );
 };
+
 export default Footer;

@@ -1,15 +1,27 @@
 import React, {Suspense, lazy, useEffect, useState} from "react";
+
 import {Breadcrumb, Divider} from "antd";
+
 import {motion} from "framer-motion";
+
 import {Link} from "react-router-dom";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
+
 import {Helmet} from "react-helmet-async";
-import {SearchInPage, SearchProvider} from "../components/search";
-import SupportDonut from "../components/modal/SupportDonut";
-import CopyToClipboard from "../components/features/CopyToClipboard";
+
 import {CircularProgress} from "@mui/material";
+
+import Header from "../components/Header";
+
+import Footer from "../components/Footer";
+
+import {SearchInPage, SearchProvider} from "../components/search";
+
+import SupportDonut from "../components/modal/SupportDonut";
+
+import CopyToClipboard from "../components/features/CopyToClipboard";
+
 import {generateAnchorId} from "../components/DetailsSummary";
+
 import {AdditionDanger} from "../components/Additions";
 
 const PSActions = lazy(() => import("./sections/psfaq/Actions"));
@@ -38,7 +50,12 @@ const PSFAQ = () => {
   }, []);
 
   const sections = [
-    {key: "1", title: "Ищем полезности", id: "where-find", component: PSWhereFind},
+    {
+      key: "1",
+      title: "Ищем полезности",
+      id: "where-find",
+      component: PSWhereFind,
+    },
     {
       key: "2",
       title: "Проблемы с установкой",
@@ -65,8 +82,13 @@ const PSFAQ = () => {
       id: "actions",
       component: PSActions,
     },
-    {key: "8", title: "Ошибки и предупреждения", id: "errors", component: PSErrors},
-    {key: "9", title: "Экспорт", id: "export", component: PSExport},
+    {
+      key: "8",
+      title: "Ошибки и предупреждения",
+      id: "errors",
+      component: PSErrors,
+    },
+    {key: "9", title: "Рендер и экспорт", id: "export", component: PSExport},
     {
       key: "10",
       title: "Проблемы при экспорте",
@@ -150,8 +172,12 @@ const PSFAQ = () => {
                       title: <Link to="/psfaq">FAQ по Adobe Photoshop</Link>,
                       menu: {
                         items: [
-                          {title: <Link to="/aefaq">FAQ по Adobe After Effects</Link>},
-                          {title: <Link to="/prfaq">FAQ по Adobe Premiere Pro</Link>},
+                          {
+                            title: <Link to="/aefaq">FAQ по Adobe After Effects</Link>,
+                          },
+                          {
+                            title: <Link to="/prfaq">FAQ по Adobe Premiere Pro</Link>,
+                          },
                         ],
                       },
                     },
@@ -203,6 +229,7 @@ const PSFAQ = () => {
                   >
                     {visibleSections.map((key) => {
                       const section = sections.find((s) => s.key === key);
+
                       if (!section) {
                         return null;
                       }
@@ -241,4 +268,5 @@ const PSFAQ = () => {
     </div>
   );
 };
+
 export default PSFAQ;

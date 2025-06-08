@@ -1,6 +1,9 @@
 import React from "react";
+
 import GithubUpdateInfo from "../../../components/features/GithubUpdateInfo";
+
 import DetailsSummary from "../../../components/DetailsSummary";
+
 import {VideoFigure} from "../../../components/ContentFigure";
 
 const AEExprStart: React.FC = () => (
@@ -13,13 +16,12 @@ const AEExprStart: React.FC = () => (
         <mark className="app">Adobe After Effects</mark>, с помощью которой можно задать
         анимацию или трансформацию свойств через <mark>JavaScript</mark> или{" "}
         <mark>ExtendScript (устаревший)</mark>. В отличие от скриптов формата{" "}
-        <mark className="file">.jsx</mark> и <mark className="file">.jsxbin</mark>,
-        которые управляют всем проектом, выражения работают с конкретным свойством.
-        Например, если вы хотите, чтобы яркость изображения плавно мерцала, то вам
-        достаточно прописать выражение{" "}
-        <mark className="code">wiggle(ЗначениеЧастоты, ЗначениеАмплитуды)</mark>, и{" "}
-        <mark className="app">Adobe After Effects</mark> сам будет менять значение яркости
-        по заданной формуле.
+        <mark className="file">JSX</mark> и <mark className="file">JSXBIN</mark>, которые
+        управляют всем проектом, выражения работают с конкретным свойством. Например, если
+        вы хотите, чтобы яркость изображения плавно мерцала, то вам достаточно прописать
+        выражение <mark className="code">wiggle(ЗначениеЧастоты, ЗначениеАмплитуды)</mark>
+        , и <mark className="app">Adobe After Effects</mark> сам будет менять значение
+        яркости по заданной формуле.
       </p>
       <p>
         Отчасти синтаксис <mark>JavaScript</mark>, используемый в{" "}
@@ -32,10 +34,10 @@ const AEExprStart: React.FC = () => (
       <p>
         Также помимо <mark className="word">выражений</mark> - для{" "}
         <mark className="app">Adobe After Effects</mark> можно писать{" "}
-        <mark className="word">скрипты</mark> форматов <mark className="file">.jsx</mark>{" "}
-        и <mark className="file">.jsxbin</mark>, однако их принцип работы немного
-        отличается от обычных выражений, которые применяются в определенному свойству слоя
-        в композиции.
+        <mark className="word">скрипты</mark> форматов <mark className="file">JSX</mark> и{" "}
+        <mark className="file">JSXBIN</mark>, однако их принцип работы немного отличается
+        от обычных выражений, которые применяются в определенному свойству слоя в
+        композиции.
       </p>
     </DetailsSummary>
     <DetailsSummary title="Как включить режим выражения для нужного параметра слоя?">
@@ -78,4 +80,5 @@ const AEExprStart: React.FC = () => (
     </DetailsSummary>
   </div>
 );
+
 export default AEExprStart;

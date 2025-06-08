@@ -1,8 +1,13 @@
 import React from "react";
-import GithubUpdateInfo from "../../../components/features/GithubUpdateInfo";
-import DetailsSummary from "../../../components/DetailsSummary";
+
 import {Divider} from "antd";
+
+import GithubUpdateInfo from "../../../components/features/GithubUpdateInfo";
+
+import DetailsSummary from "../../../components/DetailsSummary";
+
 import {AdditionInfo} from "../../../components/Additions";
+
 import {VideoFigure, YouTubeVideo} from "../../../components/ContentFigure";
 
 const PSActions: React.FC = () => {

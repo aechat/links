@@ -1,4 +1,5 @@
 import React, {useCallback, useEffect, useState} from "react";
+
 import {useSpoiler} from "./DetailsSummary";
 
 interface ImageFigureProps {
@@ -73,6 +74,7 @@ const ImageFigure: React.FC<ImageFigureProps> = ({
       document.removeEventListener("keydown", handleEscKey);
     };
   }, [isFullscreen, handleClose]);
+
   if (!isOpen) {
     return null;
   }
@@ -252,6 +254,7 @@ const VideoFigure: React.FC<VideoFigureProps> = ({styleClass, videoSrc, caption}
       document.removeEventListener("keydown", handleEscKey);
     };
   }, [isFullscreen, handleClose]);
+
   if (!isOpen) {
     return null;
   }

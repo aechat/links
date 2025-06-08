@@ -1,15 +1,22 @@
 import React from "react";
+
+import {Divider} from "antd";
+
 import DetailsSummary from "../../../components/DetailsSummary";
+
 import {
   AdditionDanger,
   AdditionInfo,
   AdditionWarning,
 } from "../../../components/Additions";
+
 import {ImageFigure, VideoFigure, YouTubeVideo} from "../../../components/ContentFigure";
+
 import GithubUpdateInfo from "../../../components/features/GithubUpdateInfo";
+
 import ContentSwitcher from "../../../components/features/ContentFilter";
+
 import HostsAdobeModal from "../../../components/features/HostsAdobe";
-import {Divider} from "antd";
 
 const AEErrors: React.FC = () => {
   return (
@@ -668,8 +675,8 @@ const AEErrors: React.FC = () => {
           current frame (XXXX x XXXX @ X bpc)&quot;
         </Divider>
         <p>
-          В описании этой ошибки указано, что проблема связана с чрезмерными требования и
-          программа не может выделить ресурсы при генерации кадра. Чаще всего это
+          В описании этой ошибки указано, что проблема связана с чрезмерными требованиями
+          к рендеру нужного кадра и программа не может выделить ресурсы. Чаще всего это
           происходит из-за использования ресурсоёмких эффектов или из-за большой глубины
           цвета, указанная в настройках проекта.
         </p>
@@ -863,7 +870,8 @@ const AEErrors: React.FC = () => {
                 <mark className="app">командной строке Windows</mark>.
               </p>
               <code>
-                echo.{">"}&quot;%USERPROFILE%\Documents\ae_force_english.txt&quot;
+                echo.{">"}
+                &quot;%USERPROFILE%\Documents\ae_force_english.txt&quot;
               </code>
               <AdditionWarning>
                 Через <mark className="app">PowerShell</mark> эта команда не будет
@@ -1003,14 +1011,13 @@ const AEErrors: React.FC = () => {
           дистрибутивах c версий <mark>2020</mark> и выше не поставляется{" "}
           <mark className="plugin">Cinema 4D Lite</mark>. Это было сделано для уменьшения
           веса программы, но из-за такого подхода отваливается возможность импорта
-          проектов формата <mark className="file">.c4d</mark>, не работает корректно
-          плагин <mark className="plugin">Cineware</mark> и нельзя включить
-          соответствующий движок 3D-рендера. Чтобы решить эту проблему - достаточно
-          установить полноценную <mark className="app">Maxon Cinema 4D</mark> нужной
-          версии на ваше устройство, которую просит ваша версия{" "}
-          <mark className="app">Adobe After Effects</mark>. Обычно в такой ошибке
-          указывается, какую версию <mark className="app">Cinema 4D</mark> нужно
-          установить.
+          проектов формата <mark className="file">C4D</mark>, не работает корректно плагин{" "}
+          <mark className="plugin">Cineware</mark> и нельзя включить соответствующий
+          движок 3D-рендера. Чтобы решить эту проблему - достаточно установить полноценную{" "}
+          <mark className="app">Maxon Cinema 4D</mark> нужной версии на ваше устройство,
+          которую просит ваша версия <mark className="app">Adobe After Effects</mark>.
+          Обычно в такой ошибке указывается, какую версию{" "}
+          <mark className="app">Cinema 4D</mark> нужно установить.
         </p>
         <AdditionWarning>
           <ul>
@@ -1222,7 +1229,6 @@ const AEErrors: React.FC = () => {
           imgTitle="Отключаем планирование GPU"
           styleClass="figure_windows-dark"
         />
-        {/* TODO: найти ещё решения, если найдутся */}
       </DetailsSummary>
       <DetailsSummary
         tag="сапфир"
@@ -1526,7 +1532,7 @@ const AEErrors: React.FC = () => {
       >
         <p>
           Данная ошибка может вылезти по совершенно разным причинам. Одна из них -
-          кириллица в пути к <mark className="file">.aep</mark> файлу, в названии
+          кириллица в пути к <mark className="file">AEP</mark> файлу, в названии
           файла-исходника или в названии композиции. Для решения постарайтесь отказаться
           от кириллицы в путях и названиях, а также попробуйте перенести файлы проекта из
           внешнего жёсткого диска на внутренний вашего устройства, если они там
@@ -1754,8 +1760,8 @@ const AEErrors: React.FC = () => {
             D3DCompiler_47.zip
           </a>
           , откройте папку с архитектурой и возьмите оттуда{" "}
-          <mark className="file">.dll</mark> файл. Затем этот файл переместите в
-          директорию где установлена программа, по умолчанию это{" "}
+          <mark className="file">DLL</mark> файл. Затем этот файл переместите в директорию
+          где установлена программа, по умолчанию это{" "}
           <mark className="path">C:\Program Files\Adobe\Adobe After Effects 20XX</mark>.
         </p>
       </DetailsSummary>
@@ -1867,4 +1873,5 @@ const AEErrors: React.FC = () => {
     </div>
   );
 };
+
 export default AEErrors;

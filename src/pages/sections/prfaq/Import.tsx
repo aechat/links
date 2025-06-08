@@ -1,12 +1,17 @@
 import React from "react";
+
+import {Divider} from "antd";
+
 import GithubUpdateInfo from "../../../components/features/GithubUpdateInfo";
+
 import DetailsSummary from "../../../components/DetailsSummary";
+
 import {
   AdditionDanger,
   AdditionInfo,
   AdditionWarning,
 } from "../../../components/Additions";
-import {Divider} from "antd";
+
 import {ImageFigure, VideoFigure} from "../../../components/ContentFigure";
 
 const PRImport: React.FC = () => {
@@ -385,7 +390,7 @@ const PRImport: React.FC = () => {
           <mark className="app">Adobe Premiere Pro</mark> может не поддерживать некоторые
           кодеки, например <mark className="video">VP9</mark>,{" "}
           <mark className="video">AV1</mark>, а также контейнеры по типу{" "}
-          <mark className="file">.flv</mark>, <mark className="file">.mkv</mark> и прочие.
+          <mark className="file">FLV</mark>, <mark className="file">MKV</mark> и прочие.
         </p>
         <p>
           Любая программа для монтажа и композитинга чего-угодно была изначально
@@ -465,14 +470,14 @@ const PRImport: React.FC = () => {
         />
         <p>
           После вставки ссылки и нажатия на кнопку <mark className="ui">OK</mark>, нажмите
-          на файл с форматом <mark className="file">.appxbundle</mark> для его скачивания.
+          на файл с форматом <mark className="file">APPXBUNDLE</mark> для его скачивания.
         </p>
         <AdditionWarning>
           Если браузер жалуется, мол вы скачиваете редкий файл или некий вирус, то
           проигнорируйте и продолжите скачивание дальше.
         </AdditionWarning>
         <p>
-          Для установки пакетов с расширением <mark className="file">.appxbundle</mark> -
+          Для установки пакетов с расширением <mark className="file">APPXBUNDLE</mark> -
           достаточно их открыть двойным кликом. Если вам предлагают открыть файл с помощью{" "}
           <mark className="app">Обработчика команд Windows</mark> или{" "}
           <mark className="app">Установщика приложений</mark>, то выберите то, что вам
@@ -481,8 +486,8 @@ const PRImport: React.FC = () => {
         </p>
         <p>
           После успешной установки кодеков вы теперь сможете открыть файлы форматов{" "}
-          <mark className="file">.heif</mark>, <mark className="file">.heic</mark> и{" "}
-          <mark className="file">.hevc</mark> в различных видеоплеерах и просмотрщиков
+          <mark className="file">HEIF</mark>, <mark className="file">HEIC</mark> и{" "}
+          <mark className="file">HEVC</mark> в различных видеоплеерах и просмотрщиков
           фото, например в <mark className="app">MPC-HC</mark> и{" "}
           <mark className="app">FastStone Image Viewer</mark>.
         </p>
@@ -502,10 +507,10 @@ const PRImport: React.FC = () => {
           <mark className="app">Adobe Premiere Pro</mark> через{" "}
           <mark className="plugin">Dynamic Link</mark> - достаточно открыть окно импорта
           через комбинацию клавиш <mark className="key">Ctrl + I</mark> и указать там
-          нужный <mark className="file">.aep</mark> файл.
+          нужный <mark className="file">AEP</mark> файл.
         </p>
         <p>
-          После выбора нужного <mark className="file">.aep</mark> файла - у вас откроется
+          После выбора нужного <mark className="file">AEP</mark> файла - у вас откроется
           окно, в котором <mark className="app">Adobe Premiere Pro</mark> подключится к{" "}
           <mark className="app">Adobe After Effects</mark> и через некоторое время выдаст
           вам список композиций. Вы можете выбрать одну или несколько композиций для

@@ -1,13 +1,18 @@
 import React from "react";
+
+import {Divider} from "antd";
+
 import {
   AdditionDanger,
   AdditionInfo,
   AdditionWarning,
 } from "../../../components/Additions";
+
 import DetailsSummary from "../../../components/DetailsSummary";
+
 import {ImageFigure} from "../../../components/ContentFigure";
+
 import GithubUpdateInfo from "../../../components/features/GithubUpdateInfo";
-import {Divider} from "antd";
 
 const AEWhereFind: React.FC = () => {
   return (
@@ -7327,4 +7332,5 @@ const AEWhereFind: React.FC = () => {
     </div>
   );
 };
+
 export default AEWhereFind;

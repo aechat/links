@@ -1,12 +1,16 @@
 import React from "react";
-import GithubUpdateInfo from "../../../components/features/GithubUpdateInfo";
-import DetailsSummary from "../../../components/DetailsSummary";
+
 import {
   AdditionDanger,
   AdditionInfo,
   AdditionWarning,
 } from "../../../components/Additions";
+
 import {ImageFigure} from "../../../components/ContentFigure";
+
+import DetailsSummary from "../../../components/DetailsSummary";
+
+import GithubUpdateInfo from "../../../components/features/GithubUpdateInfo";
 
 const PRInterface: React.FC = () => {
   return (
@@ -47,7 +51,7 @@ const PRInterface: React.FC = () => {
         </p>
         <p>
           Из нового окна <mark className="ui">Graphics Templates</mark> вы до сих пор
-          можете импортировать <mark className="file">.mogrt</mark> файлы прямиком в ваш
+          можете импортировать <mark className="file">MOGRT</mark> файлы прямиком в ваш
           проект и редактировать их в новом окне <mark className="ui">Properties</mark>.
         </p>
       </DetailsSummary>
@@ -112,7 +116,7 @@ const PRInterface: React.FC = () => {
         <p>
           Это довольно частый и неприятный баг, возникающий при использовании{" "}
           <mark className="app">Adobe Premiere Pro</mark>. Обычно это лечится очисткой
-          кэша <mark className="file">.peak</mark> файлов.
+          кэша <mark className="file">PEAK</mark> файлов.
         </p>
         <p>
           Для очистки кэша и файлов предпросмотра перейдите в{" "}

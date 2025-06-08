@@ -1,11 +1,18 @@
 import React from "react";
-import GithubUpdateInfo from "../../../components/features/GithubUpdateInfo";
-import {AdditionInfo, AdditionWarning} from "../../../components/Additions";
-import DetailsSummary from "../../../components/DetailsSummary";
-import {ImageFigure, VideoFigure, YouTubeVideo} from "../../../components/ContentFigure";
-import ContentSwitcher from "../../../components/features/ContentFilter";
-import HostsAdobeModal from "../../../components/features/HostsAdobe";
+
 import {Divider} from "antd";
+
+import GithubUpdateInfo from "../../../components/features/GithubUpdateInfo";
+
+import {AdditionInfo, AdditionWarning} from "../../../components/Additions";
+
+import DetailsSummary from "../../../components/DetailsSummary";
+
+import {ImageFigure, VideoFigure, YouTubeVideo} from "../../../components/ContentFigure";
+
+import ContentSwitcher from "../../../components/features/ContentFilter";
+
+import HostsAdobeModal from "../../../components/features/HostsAdobe";
 
 const PRErrors: React.FC = () => {
   return (

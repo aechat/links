@@ -1,9 +1,14 @@
 import {ConfigProvider} from "antd";
+
 import {AnimatePresence, motion} from "framer-motion";
+
 import React, {Suspense, lazy, useEffect} from "react";
+
 import {Navigate, Route, Routes, useLocation} from "react-router-dom";
-import themeConfig from "./styles/ant_theme";
+
 import {LinearProgress} from "@mui/material";
+
+import themeConfig from "./styles/ant_theme";
 
 const Links = lazy(() => import("./pages/linksPage"));
 
@@ -23,6 +28,7 @@ const RedirectHtml = () => {
   const location = useLocation();
 
   const path = location.pathname;
+
   if (path.endsWith(".html")) {
     return (
       <Navigate
@@ -92,6 +98,7 @@ const ErrorFallback = ({error}: {error: Error}) => (
     </div>
   </div>
 );
+
 class ErrorBoundary extends React.Component<
   {children: React.ReactNode},
   {hasError: boolean; error: Error | null}
@@ -111,10 +118,12 @@ class ErrorBoundary extends React.Component<
     return this.props.children;
   }
 }
+
 export const App = () => {
   const location = useLocation();
   useEffect(() => {
     const path = window.location.pathname;
+
     if (path.endsWith("/index.html")) {
       window.location.replace("/");
     } else if (path.endsWith(".html")) {

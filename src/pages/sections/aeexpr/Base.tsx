@@ -1,7 +1,11 @@
 import React from "react";
+
 import GithubUpdateInfo from "../../../components/features/GithubUpdateInfo";
+
 import DetailsSummary from "../../../components/DetailsSummary";
+
 import CodeSnippet from "../../../components/features/CodeSnippet";
+
 import {
   commentExample,
   formatExample,
@@ -87,4 +91,5 @@ const AEExprBase: React.FC = () => {
     </div>
   );
 };
+
 export default AEExprBase;

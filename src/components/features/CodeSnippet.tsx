@@ -1,6 +1,9 @@
 import React, {useEffect, useRef} from "react";
+
 import hljs from "highlight.js";
+
 import "highlight.js/styles/github-dark.css";
+
 import {message} from "antd";
 
 interface CodeSnippetProps {
@@ -47,4 +50,5 @@ const CodeSnippet: React.FC<CodeSnippetProps> = ({language = "javascript", child
     </pre>
   );
 };
+
 export default CodeSnippet;

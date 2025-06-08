@@ -1,14 +1,20 @@
 import React from "react";
+
+import {Divider} from "antd";
+
 import DetailsSummary from "../../../components/DetailsSummary";
+
 import GithubUpdateInfo from "../../../components/features/GithubUpdateInfo";
+
 import {
   AdditionDanger,
   AdditionInfo,
   AdditionWarning,
 } from "../../../components/Additions";
+
 import ContentSwitcher from "../../../components/features/ContentFilter";
+
 import {VideoFigure, YouTubeVideo} from "../../../components/ContentFigure";
-import {Divider} from "antd";
 
 const AETips: React.FC = () => {
   return (
@@ -21,7 +27,7 @@ const AETips: React.FC = () => {
         <p>
           Бывают ситуации, когда после внесённых изменений клиенту результат не подходит,
           и требуется вернуться к предыдущей версии проекта. Или, например,{" "}
-          <mark className="file">.aep</mark> файл неожиданно сломался и перестал корректно
+          <mark className="file">AEP</mark> файл неожиданно сломался и перестал корректно
           открываться, выбивая ошибку{" "}
           <mark className="ui">Bad format or not readable</mark> или{" "}
           <mark className="ui">File is damaged</mark>. Если заранее позаботиться о
@@ -889,4 +895,5 @@ const AETips: React.FC = () => {
     </div>
   );
 };
+
 export default AETips;

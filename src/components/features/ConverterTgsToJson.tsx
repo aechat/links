@@ -1,8 +1,13 @@
 import React, {useState} from "react";
+
 import {Upload, message} from "antd";
+
 import {saveAs} from "file-saver";
+
 import {inflate} from "pako";
+
 import {motion} from "framer-motion";
+
 import {UploadFileRounded} from "@mui/icons-material";
 
 
@@ -118,4 +123,5 @@ const TgsToJsonConverter: React.FC = () => {
     </div>
   );
 };
+
 export default TgsToJsonConverter;

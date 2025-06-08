@@ -1,6 +1,9 @@
 import {ShareRounded} from "@mui/icons-material";
+
 import {Tooltip, message} from "antd";
+
 import {motion} from "framer-motion";
+
 import React, {
   ReactNode,
   createContext,
@@ -40,12 +43,14 @@ export const generateAnchorId = () => {
     const summaries = Array.from(container.querySelectorAll(".faq-summary"));
     summaries.forEach((summary, summaryIndex) => {
       generatedAnchor = `${blockIndex + 1}.${summaryIndex + 1}`;
+
       if (!summary.hasAttribute("id")) {
         summary.setAttribute("id", generatedAnchor);
       }
 
       if (window.location.hash === `#${generatedAnchor}`) {
         const details = summary.closest("details");
+
         if (details && !details.hasAttribute("data-anchor-processed")) {
           details.setAttribute("open", "true");
           details.setAttribute("data-anchor-processed", "true");
@@ -61,6 +66,7 @@ export const generateAnchorId = () => {
           );
 
           const content = details.querySelector(".faq-section");
+
           if (content) {
             setTimeout(() => {
               const y =
@@ -75,10 +81,12 @@ export const generateAnchorId = () => {
       }
     });
   });
+
   if (window.location.hash) {
     const anchorId = window.location.hash.slice(1);
 
     const section = document.getElementById(anchorId);
+
     if (section) {
       const headerHeight = document.querySelector("header")?.offsetHeight ?? 0;
 
@@ -120,7 +128,10 @@ const DetailsSummary: React.FC<DetailsSummaryProps> = ({title, children, tag}) =
       const observer = new MutationObserver(() => {
         setIsOpen(detailsRef.current?.open || false);
       });
-      observer.observe(detailsRef.current, {attributes: true, attributeFilter: ["open"]});
+      observer.observe(detailsRef.current, {
+        attributes: true,
+        attributeFilter: ["open"],
+      });
 
       return () => observer.disconnect();
     }
@@ -165,11 +176,13 @@ const DetailsSummary: React.FC<DetailsSummaryProps> = ({title, children, tag}) =
     if (!sectionRef.current) {
       return;
     }
+
     let timeoutId: NodeJS.Timeout;
 
     const handleMouseEnter = () => {
       timeoutId = setTimeout(() => {
         const summaryId = detailsRef.current?.querySelector(".faq-summary")?.id;
+
         if (summaryId) {
           history.replaceState(
             null,
@@ -197,6 +210,7 @@ const DetailsSummary: React.FC<DetailsSummaryProps> = ({title, children, tag}) =
     const details = event.currentTarget as HTMLDetailsElement;
 
     const summaryId = detailsRef.current?.querySelector(".faq-summary")?.id;
+
     if (details.open && summaryId) {
       history.replaceState(
         null,
@@ -215,6 +229,7 @@ const DetailsSummary: React.FC<DetailsSummaryProps> = ({title, children, tag}) =
       );
 
       const summary = detailsRef.current?.querySelector(".faq-summary");
+
       if (summary) {
         const y =
           summary.getBoundingClientRect().top +
@@ -230,6 +245,7 @@ const DetailsSummary: React.FC<DetailsSummaryProps> = ({title, children, tag}) =
 
   const handleCopyAnchor = () => {
     const anchorId = detailsRef.current?.querySelector(".faq-summary")?.id ?? "";
+
     if (!anchorId) {
       message.warning(
         "Прежде чем копировать ссылку - дождитесь полной загрузки страницы"
@@ -305,4 +321,5 @@ const DetailsSummary: React.FC<DetailsSummaryProps> = ({title, children, tag}) =
     </details>
   );
 };
+
 export default DetailsSummary;

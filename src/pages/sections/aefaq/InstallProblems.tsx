@@ -1,14 +1,20 @@
 import React from "react";
+
+import {Divider} from "antd";
+
 import {
   AdditionDanger,
   AdditionInfo,
   AdditionWarning,
 } from "../../../components/Additions";
+
 import DetailsSummary from "../../../components/DetailsSummary";
+
 import ContentSwitcher from "../../../components/features/ContentFilter";
+
 import GithubUpdateInfo from "../../../components/features/GithubUpdateInfo";
+
 import {ImageFigure, YouTubeVideo} from "../../../components/ContentFigure";
-import {Divider} from "antd";
 
 const AEInstallProblems: React.FC = () => {
   return (
@@ -25,7 +31,7 @@ const AEInstallProblems: React.FC = () => {
           <mark className="app">Adobe After Effects</mark>.
         </p>
         <AdditionWarning>
-          Прежде чем использовать проекты формата <mark className="file">.aep</mark> или
+          Прежде чем использовать проекты формата <mark className="file">AEP</mark> или
           пакеты для <mark className="plugin">AtomX</mark>,{" "}
           <mark className="plugin">Motion Bro</mark> или подобных расширений - убедитесь,
           что архив с проектом или пакетом полностью распакован и его содержимое
@@ -34,20 +40,20 @@ const AEInstallProblems: React.FC = () => {
         </AdditionWarning>
         <ul>
           <li>
-            Если в архиве находится файл <mark className="file">.aep</mark>, то такие
-            файлы просто импортируются в ваш проект с помощью{" "}
+            Если в архиве находится файл <mark className="file">AEP</mark>, то такие файлы
+            просто импортируются в ваш проект с помощью{" "}
             <mark className="ui">File &gt; Import</mark> или{" "}
-            <mark className="key">Ctrl+I</mark> и никуда не устанавливаются.
+            <mark className="key">Ctrl + I</mark> и никуда не устанавливаются.
             <AdditionInfo>
               <ul>
                 <li>
-                  Прежде чем открывать проект формата <mark className="file">.aep</mark> -
+                  Прежде чем открывать проект формата <mark className="file">AEP</mark> -
                   полностью распакуйте архив, с помощью архиватора, а затем открывайте
                   проект из уже распакованной папки. Таким образом вы убережёте себя от
                   разноцветного экрана, как при технических работах на телевидении.
                 </li>
                 <li>
-                  Если вы попытаетесь открыть лишь один <mark className="file">.aep</mark>{" "}
+                  Если вы попытаетесь открыть лишь один <mark className="file">AEP</mark>{" "}
                   файл из архива без его полной распаковки, то вы столкнетесь с тем, что{" "}
                   <mark className="app">Adobe After Effects</mark> не сможет найти все
                   необходимые файлы для проекта.
@@ -56,7 +62,7 @@ const AEInstallProblems: React.FC = () => {
             </AdditionInfo>
           </li>
           <li>
-            Если в архиве находится <mark className="file">.atom</mark>, то такие файлы
+            Если в архиве находится <mark className="file">ATOM</mark>, то такие файлы
             устанавливаются путём <mark>drag&apos;n&apos;drop</mark> в окно расширения{" "}
             <mark className="plugin">AtomX</mark>.
             <AdditionWarning>
@@ -67,7 +73,7 @@ const AEInstallProblems: React.FC = () => {
             </AdditionWarning>
           </li>
           <li>
-            Если в архиве находится <mark className="file">.mbr</mark>, то такие файлы
+            Если в архиве находится <mark className="file">MBR</mark>, то такие файлы
             устанавливаются путём <mark>drag&apos;n&apos;drop</mark> в окно расширения{" "}
             <mark className="plugin">Motion Bro</mark>.
           </li>
@@ -85,8 +91,8 @@ const AEInstallProblems: React.FC = () => {
               </AdditionDanger>
               <ul>
                 <li>
-                  Если вы скачали архив формата <mark className="file">.zip</mark> или{" "}
-                  <mark className="file">.rar</mark>, то вам необходимо его распаковать с
+                  Если вы скачали архив формата <mark className="file">ZIP</mark> или{" "}
+                  <mark className="file">RAR</mark>, то вам необходимо его распаковать с
                   помощью архиватора для дальнейшей работы с ним. Это можно сделать с
                   помощью <mark className="app">keka</mark> или{" "}
                   <mark className="app">The Unarchiver</mark>.
@@ -131,8 +137,8 @@ const AEInstallProblems: React.FC = () => {
                 </li>
                 <li>
                   Если в архиве или в записи находится файл{" "}
-                  <mark className="file">.dmg</mark>, <mark className="file">.app</mark>{" "}
-                  или <mark className="file">.pkg</mark>, то обычно в нём содержится
+                  <mark className="file">DMG</mark>, <mark className="file">APP</mark> или{" "}
+                  <mark className="file">PKG</mark>, то обычно в нём содержится
                   автоматический установщик плагина. Для установки таких файлов нужно
                   следовать инструкциям установщика, например перенести файл из одного
                   места в другое и так далее.
@@ -151,18 +157,16 @@ const AEInstallProblems: React.FC = () => {
                         .
                       </li>
                       <li>
-                        Не все установщики могут открыться на вашей версии{" "}
-                        <mark>macOS</mark> и вы можете столкнуться с ошибкой{" "}
-                        <mark className="ui">Не удаётся открыть программу AppName</mark>.
-                        Для решения проблемы достаточно найти более свежий установщик или
-                        откатить при желании и возможности ваше устройство на более старую
-                        версию <mark>macOS</mark>.
+                        Если вы сталкиваетесь с ошибкой{" "}
+                        <mark className="ui">Не удаётся открыть программу AppName</mark> -
+                        попробуйте открыть его через <mark className="key">ПКМ</mark>,
+                        выбрав в контекстном меню <mark className="ui">Открыть</mark>.
                       </li>
                     </ul>
                   </AdditionInfo>
                 </li>
                 <li>
-                  Если в архиве находится файл <mark className="file">.plugin</mark>, то
+                  Если в архиве находится файл <mark className="file">PLUGIN</mark>, то
                   такие плагины обычно распаковываются в общую папку плагинов{" "}
                   <mark className="path">
                     ~/Library/Application Support/Adobe/Common/Plug-ins/7.0/MediaCore
@@ -187,14 +191,14 @@ const AEInstallProblems: React.FC = () => {
                     </ul>
                   </AdditionInfo>
                   <AdditionDanger>
-                    Плагины формата <mark className="file">.aex</mark> не подходят для
+                    Плагины формата <mark className="file">AEX</mark> не подходят для
                     устройств на <mark>macOS</mark>, так как такие файлы предназначены для
                     устройств на <mark>Windows</mark>.
                   </AdditionDanger>
                 </li>
                 <li>
-                  Если в архиве находится файл <mark className="file">.ffx</mark>, то
-                  такие пресеты обычно распаковываются в стандартную папку пресетов -{" "}
+                  Если в архиве находится файл <mark className="file">FFX</mark>, то такие
+                  пресеты обычно распаковываются в стандартную папку пресетов -{" "}
                   <mark className="path">
                     ~/Library/Applications/Adobe After Effects 20XX/Presets
                   </mark>
@@ -223,8 +227,8 @@ const AEInstallProblems: React.FC = () => {
                   </AdditionInfo>
                 </li>
                 <li>
-                  Если в архиве находится файл <mark className="file">.jsx</mark>, то
-                  такие скрипты распаковываются в стандартную папку скриптов -{" "}
+                  Если в архиве находится файл <mark className="file">JSX</mark>, то такие
+                  скрипты распаковываются в стандартную папку скриптов -{" "}
                   <mark className="path">
                     ~/Library/Applications/Adobe After Effects 20XX/Scripts
                   </mark>
@@ -232,7 +236,7 @@ const AEInstallProblems: React.FC = () => {
                   <AdditionInfo>
                     <ul>
                       <li>
-                        <mark className="file">.jsx</mark> скрипты обычно появляются в
+                        <mark className="file">JSX</mark> скрипты обычно появляются в
                         контекстном меню <mark className="ui">File &gt; Scripts</mark>.
                       </li>
                       <li>
@@ -251,7 +255,7 @@ const AEInstallProblems: React.FC = () => {
                         перезапуска программы или действия закрытия окна пользователем.
                       </li>
                       <li>
-                        Если вы хотите закрепить окно <mark className="file">.jsx</mark>{" "}
+                        Если вы хотите закрепить окно <mark className="file">JSX</mark>{" "}
                         скрипта в рабочее пространство, то вы можете перенести его в
                         дочернюю папку <mark className="ui">Scripts UI Panels</mark>.
                         Таким образом полный путь должен быть{" "}
@@ -266,13 +270,13 @@ const AEInstallProblems: React.FC = () => {
                         <AdditionWarning>
                           Для прикрепления окна в рабочее пространство программы -
                           держитесь за заголовок с названием скрипта, создаваемый
-                          программой, а не вашей операционной системы, то есть чуть ниже{" "}
+                          программой, а не вашей операционной системы, то есть чуть ниже
                           фрейма, создаваемого <mark>macOS</mark>.
                         </AdditionWarning>
                       </li>
                       <li>
                         При желании, вы можете назначить комбинацию клавиш для открытия
-                        нужного <mark className="file">.jsx</mark> скрипта в{" "}
+                        нужного <mark className="file">JSX</mark> скрипта в{" "}
                         <mark className="ui">Keyboard Shortcuts</mark>.
                         <AdditionWarning>
                           При перемещении <mark className="ui">.jsx</mark> скрипта в
@@ -286,7 +290,7 @@ const AEInstallProblems: React.FC = () => {
                   </AdditionInfo>
                 </li>
                 <li>
-                  Если в архиве находится <mark className="file">.jsxbin</mark> файл, то
+                  Если в архиве находится <mark className="file">JSXBIN</mark> файл, то
                   такие скрипты распаковываются в стандартную папку Script UI Panels -{" "}
                   <mark className="path">
                     ~/Library/Applications/Adobe After Effects 20XX/Scripts/Script UI
@@ -296,7 +300,7 @@ const AEInstallProblems: React.FC = () => {
                   <AdditionInfo>
                     <ul>
                       <li>
-                        <mark className="file">.jsxbin</mark> скрипты обычно появляются в
+                        <mark className="file">JSXBIN</mark> скрипты обычно появляются в
                         контекстном меню <mark className="ui">Window</mark> в самом конце
                         списка.
                       </li>
@@ -325,8 +329,8 @@ const AEInstallProblems: React.FC = () => {
                   </AdditionInfo>
                 </li>
                 <li>
-                  Если в архиве находится файл <mark className="file">.zxp</mark>, то
-                  такие расширения обычно устанавливаются через{" "}
+                  Если в архиве находится файл <mark className="file">ZXP</mark>, то такие
+                  расширения обычно устанавливаются через{" "}
                   <a href="https://aescripts.com/learn/zxp-installer/">
                     ZXP Installer от aescripts
                   </a>
@@ -358,9 +362,9 @@ const AEInstallProblems: React.FC = () => {
                     <ul>
                       <li>
                         Если вы не хотите устанавливать стороннее ПО для установки{" "}
-                        <mark className="file">.zxp</mark>, то вы можете переименовать
-                        файл <mark className="file">.zxp</mark> в{" "}
-                        <mark className="file">.zip</mark> и распаковать его как обычный
+                        <mark className="file">ZXP</mark>, то вы можете переименовать файл{" "}
+                        <mark className="file">ZXP</mark> в{" "}
+                        <mark className="file">ZIP</mark> и распаковать его как обычный
                         архив. Содержимое свежераспакованного файла нужно поместить в
                         папку{" "}
                         <mark className="path">
@@ -369,32 +373,58 @@ const AEInstallProblems: React.FC = () => {
                         и после этого ввести команды, которые были расположены чуть ниже в
                         терминал.
                         <code style={{fontSize: "0.8em"}}>
-                          defaults write com.adobe.CSXS.5 PlayerDebugMode 1<br />
-                          defaults write com.adobe.CSXS.6 PlayerDebugMode 1<br />
-                          defaults write com.adobe.CSXS.7 PlayerDebugMode 1<br />
-                          defaults write com.adobe.CSXS.8 PlayerDebugMode 1<br />
-                          defaults write com.adobe.CSXS.9 PlayerDebugMode 1<br />
-                          defaults write com.adobe.CSXS.10 PlayerDebugMode 1<br />
-                          defaults write com.adobe.CSXS.11 PlayerDebugMode 1<br />
-                          defaults write com.adobe.CSXS.12 PlayerDebugMode 1<br />
-                          defaults write com.adobe.CSXS.13 PlayerDebugMode 1<br />
-                          defaults write com.adobe.CSXS.14 PlayerDebugMode 1<br />
-                          defaults write com.adobe.CSXS.15 PlayerDebugMode 1<br />
-                          defaults write com.adobe.CSXS.16 PlayerDebugMode 1<br />
-                          defaults write com.adobe.CSXS.17 PlayerDebugMode 1<br />
-                          defaults write com.adobe.CSXS.18 PlayerDebugMode 1<br />
-                          defaults write com.adobe.CSXS.19 PlayerDebugMode 1<br />
-                          defaults write com.adobe.CSXS.20 PlayerDebugMode 1<br />
-                          defaults write com.adobe.CSXS.21 PlayerDebugMode 1<br />
-                          defaults write com.adobe.CSXS.22 PlayerDebugMode 1<br />
-                          defaults write com.adobe.CSXS.23 PlayerDebugMode 1<br />
-                          defaults write com.adobe.CSXS.24 PlayerDebugMode 1<br />
-                          defaults write com.adobe.CSXS.25 PlayerDebugMode 1<br />
-                          defaults write com.adobe.CSXS.26 PlayerDebugMode 1<br />
-                          defaults write com.adobe.CSXS.27 PlayerDebugMode 1<br />
-                          defaults write com.adobe.CSXS.28 PlayerDebugMode 1<br />
-                          defaults write com.adobe.CSXS.29 PlayerDebugMode 1<br />
-                          defaults write com.adobe.CSXS.30 PlayerDebugMode 1<br />
+                          defaults write com.adobe.CSXS.5 PlayerDebugMode 1
+                          <br />
+                          defaults write com.adobe.CSXS.6 PlayerDebugMode 1
+                          <br />
+                          defaults write com.adobe.CSXS.7 PlayerDebugMode 1
+                          <br />
+                          defaults write com.adobe.CSXS.8 PlayerDebugMode 1
+                          <br />
+                          defaults write com.adobe.CSXS.9 PlayerDebugMode 1
+                          <br />
+                          defaults write com.adobe.CSXS.10 PlayerDebugMode 1
+                          <br />
+                          defaults write com.adobe.CSXS.11 PlayerDebugMode 1
+                          <br />
+                          defaults write com.adobe.CSXS.12 PlayerDebugMode 1
+                          <br />
+                          defaults write com.adobe.CSXS.13 PlayerDebugMode 1
+                          <br />
+                          defaults write com.adobe.CSXS.14 PlayerDebugMode 1
+                          <br />
+                          defaults write com.adobe.CSXS.15 PlayerDebugMode 1
+                          <br />
+                          defaults write com.adobe.CSXS.16 PlayerDebugMode 1
+                          <br />
+                          defaults write com.adobe.CSXS.17 PlayerDebugMode 1
+                          <br />
+                          defaults write com.adobe.CSXS.18 PlayerDebugMode 1
+                          <br />
+                          defaults write com.adobe.CSXS.19 PlayerDebugMode 1
+                          <br />
+                          defaults write com.adobe.CSXS.20 PlayerDebugMode 1
+                          <br />
+                          defaults write com.adobe.CSXS.21 PlayerDebugMode 1
+                          <br />
+                          defaults write com.adobe.CSXS.22 PlayerDebugMode 1
+                          <br />
+                          defaults write com.adobe.CSXS.23 PlayerDebugMode 1
+                          <br />
+                          defaults write com.adobe.CSXS.24 PlayerDebugMode 1
+                          <br />
+                          defaults write com.adobe.CSXS.25 PlayerDebugMode 1
+                          <br />
+                          defaults write com.adobe.CSXS.26 PlayerDebugMode 1
+                          <br />
+                          defaults write com.adobe.CSXS.27 PlayerDebugMode 1
+                          <br />
+                          defaults write com.adobe.CSXS.28 PlayerDebugMode 1
+                          <br />
+                          defaults write com.adobe.CSXS.29 PlayerDebugMode 1
+                          <br />
+                          defaults write com.adobe.CSXS.30 PlayerDebugMode 1
+                          <br />
                         </code>
                       </li>
                       <li>
@@ -407,7 +437,7 @@ const AEInstallProblems: React.FC = () => {
                       </li>
                       <li>
                         Иногда в архиве может быть уже распакованный{" "}
-                        <mark className="file">.zxp</mark> архив. Это можно понять по
+                        <mark className="file">ZXP</mark> архив. Это можно понять по
                         наличию папок <mark className="path">META-INF</mark> и{" "}
                         <mark className="path">CSXS</mark> внутри папки с названием
                         расширения.
@@ -428,9 +458,9 @@ const AEInstallProblems: React.FC = () => {
                   </AdditionInfo>
                 </li>
                 <li>
-                  Если в архиве находится файл <mark className="file">.cube</mark>,{" "}
-                  <mark className="file">.itx</mark>, <mark className="file">.look</mark>{" "}
-                  или <mark className="file">.lut</mark>, то для распаковки таких файлов
+                  Если в архиве находится файл <mark className="file">CUBE</mark>,{" "}
+                  <mark className="file">ITX</mark>, <mark className="file">LOOK</mark>{" "}
+                  или <mark className="file">LUT</mark>, то для распаковки таких файлов
                   вам нужно перейти в{" "}
                   <mark className="path">~/Library/Applications/After Effects 20XX</mark>,
                   затем нажать <mark className="key">ПКМ</mark> по{" "}
@@ -443,11 +473,10 @@ const AEInstallProblems: React.FC = () => {
                   вкладке <mark className="ui">Creative</mark>.
                 </li>
                 <li>
-                  Если в архиве находятся шрифты формата{" "}
-                  <mark className="file">.ttf</mark> или{" "}
-                  <mark className="file">.otf</mark>, то такие шрифты не распаковываются в
-                  папку с программой. Их нужно установить в систему, это можно сделать
-                  двумя способами.
+                  Если в архиве находятся шрифты формата <mark className="file">TTF</mark>{" "}
+                  или <mark className="file">OTF</mark>, то такие шрифты не
+                  распаковываются в папку с программой. Их нужно установить в систему, это
+                  можно сделать двумя способами.
                   <ul>
                     <li>
                       Запустите приложение <mark className="app">Шрифты</mark>, затем
@@ -473,8 +502,8 @@ const AEInstallProblems: React.FC = () => {
             <div>
               <ul>
                 <li>
-                  Если вы скачали архив формата <mark className="file">.zip</mark> или{" "}
-                  <mark className="file">.rar</mark>, то вам необходимо его распаковать с
+                  Если вы скачали архив формата <mark className="file">ZIP</mark> или{" "}
+                  <mark className="file">RAR</mark>, то вам необходимо его распаковать с
                   помощью архиватора для дальнейшей работы с ним. Это можно сделать с
                   помощью <mark className="app">WinRAR</mark>.
                   <AdditionInfo>
@@ -512,7 +541,7 @@ const AEInstallProblems: React.FC = () => {
                 </li>
                 <li>
                   Если в архиве или в записи находится файл{" "}
-                  <mark className="file">.exe</mark>, то обычно в нём содержится
+                  <mark className="file">EXE</mark>, то обычно в нём содержится
                   автоматический установщик плагина. Если в записи указано, что данный
                   установщик является репаком - в таком случае после его установки плагин
                   будет уже активирован, никаких лишних телодвижений после установки
@@ -538,8 +567,8 @@ const AEInstallProblems: React.FC = () => {
                   </AdditionWarning>
                 </li>
                 <li>
-                  Если в архиве находится файл <mark className="file">.aex</mark>, то
-                  такие плагины обычно распаковываются в общую папку плагинов -{" "}
+                  Если в архиве находится файл <mark className="file">AEX</mark>, то такие
+                  плагины обычно распаковываются в общую папку плагинов -{" "}
                   <mark className="path">
                     C:\Program Files\Adobe\Common\Plug-ins\7.0\MediaCore
                   </mark>
@@ -563,14 +592,14 @@ const AEInstallProblems: React.FC = () => {
                     </ul>
                   </AdditionInfo>
                   <AdditionDanger>
-                    Плагины формата <mark className="file">.plugin</mark> не подходят для
+                    Плагины формата <mark className="file">PLUGIN</mark> не подходят для
                     устройств на <mark>Windows</mark>, так как такие файлы предназначены
                     для устройств на <mark>macOS</mark>.
                   </AdditionDanger>
                 </li>
                 <li>
-                  Если в архиве находится файл <mark className="file">.ffx</mark>, то
-                  такие пресеты обычно распаковываются в стандартную папку пресетов -{" "}
+                  Если в архиве находится файл <mark className="file">FFX</mark>, то такие
+                  пресеты обычно распаковываются в стандартную папку пресетов -{" "}
                   <mark className="path">
                     C:\Program Files\Adobe\Adobe After Effects 20XX\Support Files\Presets
                   </mark>
@@ -600,8 +629,8 @@ const AEInstallProblems: React.FC = () => {
                   </AdditionInfo>
                 </li>
                 <li>
-                  Если в архиве находится файл <mark className="file">.jsx</mark>, то
-                  такие скрипты распаковываются в стандартную папку скриптов -{" "}
+                  Если в архиве находится файл <mark className="file">JSX</mark>, то такие
+                  скрипты распаковываются в стандартную папку скриптов -{" "}
                   <mark className="path">
                     C:\Program Files\Adobe\Adobe After Effects 20XX\Support Files\Scripts
                   </mark>
@@ -609,7 +638,7 @@ const AEInstallProblems: React.FC = () => {
                   <AdditionInfo>
                     <ul>
                       <li>
-                        <mark className="file">.jsx</mark> скрипты обычно появляются в
+                        <mark className="file">JSX</mark> скрипты обычно появляются в
                         контекстном меню <mark className="ui">File &gt; Scripts</mark>.
                       </li>
                       <li>
@@ -628,7 +657,7 @@ const AEInstallProblems: React.FC = () => {
                         перезапуска программы или действия закрытия окна пользователем.
                       </li>
                       <li>
-                        Если вы хотите закрепить окно <mark className="file">.jsx</mark>{" "}
+                        Если вы хотите закрепить окно <mark className="file">JSX</mark>{" "}
                         скрипта в рабочее пространство, то вы можете перенести его в
                         дочернюю папку <mark className="ui">Scripts UI Panels</mark>.
                         Таким образом полный путь должен быть{" "}
@@ -649,7 +678,7 @@ const AEInstallProblems: React.FC = () => {
                       </li>
                       <li>
                         При желании, вы можете назначить комбинацию клавиш для открытия
-                        нужного <mark className="file">.jsx</mark> скрипта в{" "}
+                        нужного <mark className="file">JSX</mark> скрипта в{" "}
                         <mark className="ui">Keyboard Shortcuts</mark>.
                         <AdditionWarning>
                           При перемещении <mark className="ui">.jsx</mark> скрипта в
@@ -663,7 +692,7 @@ const AEInstallProblems: React.FC = () => {
                   </AdditionInfo>
                 </li>
                 <li>
-                  Если в архиве находится <mark className="file">.jsxbin</mark> файл, то
+                  Если в архиве находится <mark className="file">JSXBIN</mark> файл, то
                   такие скрипты распаковываются в стандартную папку Script UI Panels -{" "}
                   <mark className="path">
                     C:\Program Files\Adobe\Adobe After Effects 20XX\Support
@@ -673,7 +702,7 @@ const AEInstallProblems: React.FC = () => {
                   <AdditionInfo>
                     <ul>
                       <li>
-                        <mark className="file">.jsxbin</mark> скрипты обычно появляются в
+                        <mark className="file">JSXBIN</mark> скрипты обычно появляются в
                         контекстном меню <mark className="ui">Window</mark> в самом конце
                         списка.
                       </li>
@@ -702,13 +731,13 @@ const AEInstallProblems: React.FC = () => {
                   </AdditionInfo>
                 </li>
                 <li>
-                  Если в архиве находится файл <mark className="file">.zxp</mark>, то
-                  такие расширения обычно устанавливаются через{" "}
+                  Если в архиве находится файл <mark className="file">ZXP</mark>, то такие
+                  расширения обычно устанавливаются через{" "}
                   <a href="https://aescripts.com/learn/zxp-installer/">
                     ZXP Installer от aescripts
                   </a>
                   . Для установки требуется просто перенести{" "}
-                  <mark className="file">.zxp</mark> файл в окно{" "}
+                  <mark className="file">ZXP</mark> файл в окно{" "}
                   <mark className="app">ZXP Installer</mark> для установки и следовать
                   указаниям программы. Прежде чем устанавливать расширение такого формата,
                   убедитесь в том, что ваша версия{" "}
@@ -734,9 +763,9 @@ const AEInstallProblems: React.FC = () => {
                     <ul>
                       <li>
                         Если вы не хотите устанавливать стороннее ПО для установки{" "}
-                        <mark className="file">.zxp</mark>, то вы можете переименовать
-                        файл <mark className="file">.zxp</mark> в{" "}
-                        <mark className="file">.zip</mark> и распаковать его как обычный
+                        <mark className="file">ZXP</mark>, то вы можете переименовать файл{" "}
+                        <mark className="file">ZXP</mark> в{" "}
+                        <mark className="file">ZIP</mark> и распаковать его как обычный
                         архив. Содержимое свежераспакованного файла нужно поместить в
                         папку{" "}
                         <mark className="path">
@@ -759,7 +788,7 @@ const AEInstallProblems: React.FC = () => {
                           REG-патч
                         </a>{" "}
                         нужно применить лишь один раз, он универсален для всех расширений
-                        формата <mark className="file">.zxp</mark>. В дальнейшем при
+                        формата <mark className="file">ZXP</mark>. В дальнейшем при
                         установке подобных расширений файл для внесений записей в реестр
                         системы не нужно снова открывать.{" "}
                         <a
@@ -775,7 +804,7 @@ const AEInstallProblems: React.FC = () => {
                       </li>
                       <li>
                         Иногда в архиве может быть уже распакованный{" "}
-                        <mark className="file">.zxp</mark> архив. Это можно понять по
+                        <mark className="file">ZXP</mark> архив. Это можно понять по
                         наличию папок <mark className="path">META-INF</mark> и{" "}
                         <mark className="path">CSXS</mark> внутри папки с названием
                         расширения.
@@ -796,9 +825,9 @@ const AEInstallProblems: React.FC = () => {
                   </AdditionInfo>
                 </li>
                 <li>
-                  Если в архиве находится файл <mark className="file">.cube</mark>,{" "}
-                  <mark className="file">.itx</mark>, <mark className="file">.look</mark>{" "}
-                  или <mark className="file">.lut</mark>, то такие файлы распаковываются в{" "}
+                  Если в архиве находится файл <mark className="file">CUBE</mark>,{" "}
+                  <mark className="file">ITX</mark>, <mark className="file">LOOK</mark>{" "}
+                  или <mark className="file">LUT</mark>, то такие файлы распаковываются в{" "}
                   <mark className="path">
                     C:\Program Files\Adobe\Adobe After Effects 20XX\Support
                     Files\Lumetri\LUTs\Creative
@@ -808,11 +837,10 @@ const AEInstallProblems: React.FC = () => {
                   <mark className="ui">Creative</mark>.
                 </li>
                 <li>
-                  Если в архиве находятся шрифты формата{" "}
-                  <mark className="file">.ttf</mark> или{" "}
-                  <mark className="file">.otf</mark>, то такие шрифты не распаковываются в
-                  папку с программой. Их нужно установить в саму систему, это можно
-                  сделать тремя способами.
+                  Если в архиве находятся шрифты формата <mark className="file">TTF</mark>{" "}
+                  или <mark className="file">OTF</mark>, то такие шрифты не
+                  распаковываются в папку с программой. Их нужно установить в саму
+                  систему, это можно сделать тремя способами.
                   <ul>
                     <li>
                       Откройте файл шрифта двойным нажатием и в открывшемся окне нажмите в
@@ -955,7 +983,7 @@ const AEInstallProblems: React.FC = () => {
           <mark className="ui">Система Windows защитила ваш компьютер</mark> по центру
           экрана. Его обычно вызывает <mark className="app">Windows Smartscreen</mark> -
           фильтр файлов от <mark>Microsoft</mark>, скачанных с интернета и он часто
-          помечает <mark className="file">.exe</mark> файлы как подозрительные. Поэтому и
+          помечает <mark className="file">EXE</mark> файлы как подозрительные. Поэтому и
           приостанавливает запуск исполняемых файлов. Чтобы запустить такой файл, вам
           нужно нажать на <mark className="ui">Подробнее</mark> и на{" "}
           <mark className="ui">Выполнить в любом случае</mark>. Но иногда бывают такие
@@ -971,7 +999,7 @@ const AEInstallProblems: React.FC = () => {
       </DetailsSummary>
       <DetailsSummary title='Выскакивает "Некоторые установочные файлы были повреждены. Загрузите свежую копию и повторите установку" при открытии репака от KpoJluK'>
         <p>
-          Вы не докачали <mark className="file">.exe</mark> файл до конца или прервали его
+          Вы не докачали <mark className="file">EXE</mark> файл до конца или прервали его
           скачивание. В таком случае перекачайте файл и попробуйте открыть его еще раз.
           Иногда при скачивании репака или при распаковке архива ваш антивирус может
           вставить палки в колёса. Поэтому при скачивании, распаковки или открытии репака
@@ -988,7 +1016,7 @@ const AEInstallProblems: React.FC = () => {
           Такое бывает, если в вашей системе отсутствует файл{" "}
           <mark className="file">hosts</mark>. Для этого вам нужно создать пустой
           текстовый документ с названием <mark className="file">hosts</mark> без
-          расширения <mark className="file">.txt</mark>. Затем нужно открыть этот файл и
+          расширения <mark className="file">TXT</mark>. Затем нужно открыть этот файл и
           вписать строки, в зависимости от вашей системы{" "}
           <a href="https://support.microsoft.com/ru-ru/topic/%D0%BA%D0%B0%D0%BA-%D0%B2%D0%BE%D1%81%D1%81%D1%82%D0%B0%D0%BD%D0%BE%D0%B2%D0%B8%D1%82%D1%8C-%D1%81%D0%BE%D0%B4%D0%B5%D1%80%D0%B6%D0%B8%D0%BC%D0%BE%D0%B5-%D1%84%D0%B0%D0%B9%D0%BB%D0%B0-hosts-%D0%BF%D0%BE-%D1%83%D0%BC%D0%BE%D0%BB%D1%87%D0%B0%D0%BD%D0%B8%D1%8E-c2a43f9d-e176-c6f3-e4ef-3500277a6dae">
             (подробнее на сайте Microsoft)
@@ -1396,7 +1424,7 @@ const AEInstallProblems: React.FC = () => {
         <p>
           Данная ошибка прямым указывает на то, что на вашем устройстве отсутствует
           программа <mark className="app">Adobe Creative Cloud</mark>. Если вы пытаетесь
-          установить какое-либо <mark className="file">.zxp</mark> расширение с помощью{" "}
+          установить какое-либо <mark className="file">ZXP</mark> расширение с помощью{" "}
           <a href="https://zxpinstaller.com/">ZXP Installer от ELEMENTS Storage Media</a>,
           то откажитесь от него в пользу{" "}
           <a href="https://aescripts.com/learn/zxp-installer/">
@@ -1511,7 +1539,7 @@ const AEInstallProblems: React.FC = () => {
           <mark className="plugin">Red Giant</mark>, предварительно не распаковав архив
           полностью. При использовании стандартного просмотрщика архивов в{" "}
           <mark>Windows 10 или 11</mark> и при открытии в нём любого{" "}
-          <mark className="file">.exe</mark> файла - остальные файлы-зависимости не будут
+          <mark className="file">EXE</mark> файла - остальные файлы-зависимости не будут
           распакованы. Поэтому установщик не видит файлы для распаковки и выдаёт данную
           ошибку.
         </p>
@@ -1524,10 +1552,10 @@ const AEInstallProblems: React.FC = () => {
           >
             WinRAR
           </a>{" "}
-          при открытии <mark className="file">.exe</mark> файла из под нераспакованного
+          при открытии <mark className="file">EXE</mark> файла из под нераспакованного
           архива. Он умеет распаковывать весь архив в временную папку при открытии{" "}
-          <mark className="file">.exe</mark>, <mark className="file">.msi</mark> и
-          подобных установочных файлов.
+          <mark className="file">EXE</mark>, <mark className="file">MSI</mark> и подобных
+          установочных файлов.
         </p>
       </DetailsSummary>
       <DetailsSummary
@@ -1701,7 +1729,7 @@ const AEInstallProblems: React.FC = () => {
           <li>
             Если вы недавно установили плагины и не можете их применить в своем проекте:
             убедитесь в том, что установщик плагинов или сами{" "}
-            <mark className="file">.aex</mark> файлы были загружены полностью и не
+            <mark className="file">AEX</mark> файлы были загружены полностью и не
             возникали проблемы при скачивании.
           </li>
           <li>
@@ -1734,7 +1762,7 @@ const AEInstallProblems: React.FC = () => {
             командной строке.
             <AdditionInfo>
               Если ваша система не может восстановиться после выполнения этих команд, то
-              вы можете скачать <mark className="file">.iso</mark> образ системы и
+              вы можете скачать <mark className="file">ISO</mark> образ системы и
               обновиться до неё поверх существующей. Текущий билд вашей системы можно
               узнать с помощью <mark className="app">winver</mark>.
             </AdditionInfo>
@@ -1875,6 +1903,7 @@ const AEInstallProblems: React.FC = () => {
             e.preventDefault();
 
             const target = document.getElementById("errors");
+
             if (target) {
               const headerHeight = document.querySelector("header")?.offsetHeight ?? 0;
 
@@ -1899,4 +1928,5 @@ const AEInstallProblems: React.FC = () => {
     </div>
   );
 };
+
 export default AEInstallProblems;

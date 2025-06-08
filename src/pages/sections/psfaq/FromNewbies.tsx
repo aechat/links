@@ -1,9 +1,14 @@
 import React from "react";
-import GithubUpdateInfo from "../../../components/features/GithubUpdateInfo";
-import DetailsSummary from "../../../components/DetailsSummary";
-import {ImageFigure, VideoFigure, YouTubeVideo} from "../../../components/ContentFigure";
+
 import {Divider} from "antd";
-import {AdditionInfo} from "../../../components/Additions";
+
+import GithubUpdateInfo from "../../../components/features/GithubUpdateInfo";
+
+import DetailsSummary from "../../../components/DetailsSummary";
+
+import {ImageFigure, VideoFigure, YouTubeVideo} from "../../../components/ContentFigure";
+
+import {AdditionInfo, AdditionWarning} from "../../../components/Additions";
 
 const PSFromNewbies: React.FC = () => {
   return (
@@ -51,7 +56,7 @@ const PSFromNewbies: React.FC = () => {
       </DetailsSummary>
       <DetailsSummary
         tag="сленг, жаргон, сокращения, словосочетания, говор"
-        title="Не понимаю термины от других пользователей Photoshop, проясните!"
+        title="Не понимаю термины от других пользователей Adobe Photoshop, проясните!"
       >
         <p>{/* FIXME: написать!! по аналогии как с терминами в аефаке */}</p>
       </DetailsSummary>

@@ -1,13 +1,11 @@
 @use "mixins" as *;
-
 .support {
   &-title {
     font-weight: 700;
     font-size: 1.75rem;
     line-height: 1.25;
-    font-family: "Onest", sans-serif;
+    font-family: Onest, sans-serif;
   }
-
   &-modal {
     padding: 5px;
     p {
@@ -19,18 +17,16 @@
       padding-inline-start: 30px;
       padding-block: 10px;
       list-style-type: none;
-
       &:not(:last-child) {
         border-bottom: 1px solid var(--content-background-border);
       }
-
       &::before {
         display: inline-block;
         position: absolute;
         top: 50%;
         left: 15px;
         transform: translateY(-50%);
-        opacity: 50%;
+        opacity: 0.5;
         border-radius: $roundness;
         background-color: var(--accent);
         width: 3px;
@@ -39,53 +35,45 @@
       }
     }
   }
-
   &-button {
     border-radius: $roundness;
     padding: 10px;
     font-weight: 700;
     font-size: 0.8125rem;
-
     &-sber {
       border: solid 1px var(--sber-border);
       background-color: var(--sber-background);
       color: var(--sber-text);
       font-size: 17px;
       text-align: center;
-
       &:hover {
         background-color: var(--sber-hover);
       }
     }
-
     &-yoomoney {
       border: solid 1px var(--yoomoney-border);
       background-color: var(--yoomoney-background);
       color: var(--yoomoney-text);
       font-size: 17px;
       text-align: center;
-
       &:hover {
         background-color: var(--yoomoney-hover);
       }
     }
-
     &-donut {
-      border: 1px solid hsl(45, 90%, 75%);
+      border: 1px solid hsl(45deg 90% 75%);
       border-radius: $roundness;
-      background-color: hsl(45, 75%, 90%);
+      background-color: hsl(45deg 75% 90%);
       padding-inline: 10px;
       padding-block: 5px;
       color: black;
       font-weight: 700;
     }
-
     &-share {
       color: var(--accent);
     }
   }
 }
-
 .copy-cardnumber {
   display: block;
   filter: saturate(75%);
@@ -102,32 +90,26 @@
   font-weight: 700;
   font-size: 1.125rem;
   text-align: center;
-
   &:hover {
     cursor: pointer;
   }
-
   &:active {
     filter: brightness(0.85);
   }
-
   &-sber {
     border: solid 1px var(--sber-border);
     background-color: var(--sber-background);
     color: var(--sber-text);
     text-align: center;
-
     &:hover {
       background-color: var(--sber-hover);
     }
   }
-
   &-yoomoney {
     border: solid 1px var(--yoomoney-border);
     background-color: var(--yoomoney-background);
     color: var(--yoomoney-text);
     text-align: center;
-
     &:hover {
       background-color: var(--yoomoney-hover);
     }

@@ -1,8 +1,13 @@
 import React, {useEffect, useState} from "react";
+
 import {Radio, Spin, Upload, message} from "antd";
+
 import {saveAs} from "file-saver";
+
 import {gzip} from "pako";
+
 import {motion} from "framer-motion";
+
 import {UploadFileRounded} from "@mui/icons-material";
 
 interface Pyodide {
@@ -34,10 +39,12 @@ const TgsToJsonConverter: React.FC = () => {
 
   const loadPyodideInline = async (): Promise<void> => {
     setLoading(true);
+
     try {
       const script = document.createElement("script");
       script.src = "https://cdn.jsdelivr.net/pyodide/v0.22.1/full/pyodide.js";
       script.onload = async () => {
+
         // @ts-expect-error, чтобы не втыкал
 
         const py: Pyodide = await (window as unknown).loadPyodide();
@@ -78,10 +85,12 @@ const TgsToJsonConverter: React.FC = () => {
     if (!jsonData) {
       return;
     }
+
     setLoading(true);
 
     const jsonString = JSON.stringify(jsonData, null, 2);
     let blob;
+
     if (compressionMode === "js") {
       const compressed = gzip(jsonString);
       blob = new Blob([compressed], {type: "application/gzip"});
@@ -112,6 +121,7 @@ with open("input.json", "rb") as f_in:
 
       return;
     }
+
     saveAs(blob, `${originalFileName.replace(/\.json$/, "")}.tgs`);
     setLoading(false);
   };
@@ -204,4 +214,5 @@ with open("input.json", "rb") as f_in:
     </div>
   );
 };
+
 export default TgsToJsonConverter;

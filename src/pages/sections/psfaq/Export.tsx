@@ -1,7 +1,11 @@
 import React from "react";
+
 import GithubUpdateInfo from "../../../components/features/GithubUpdateInfo";
+
 import DetailsSummary from "../../../components/DetailsSummary";
+
 import {AdditionInfo} from "../../../components/Additions";
+
 import {ImageFigure} from "../../../components/ContentFigure";
 
 const PSExport: React.FC = () => {
@@ -88,13 +92,13 @@ const PSExport: React.FC = () => {
           </mark>
           .
         </p>
-        {/* TODO: приложить фото*/}
+        {/* TODO: приложить фото */}
         <p>
           Также при желании вы можете включить параметр{" "}
           <mark className="ui">Use Legacy &quot;Export As&quot;</mark> во вкладке{" "}
           <mark className="ui">Export</mark>.
         </p>
-        {/* TODO: приложить фото*/}
+        {/* TODO: приложить фото */}
       </DetailsSummary>
     </div>
   );

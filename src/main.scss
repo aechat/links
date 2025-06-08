@@ -10,11 +10,9 @@
 @use "styles/ant";
 @use "styles/modal";
 @use "styles/addition";
-
 :root {
   --header-height: 55px;
 }
-
 html,
 body {
   margin: 0;
@@ -25,47 +23,38 @@ body {
   scrollbar-width: thin;
   color: var(--text-color);
   user-select: none;
-
   &::-webkit-scrollbar {
     width: 5px;
   }
-
   &::-webkit-scrollbar-thumb {
     border-radius: $roundness;
     background-color: var(--summary-background);
   }
-
   &::-webkit-scrollbar-track {
     margin: 5px;
     background: var(--content-background-color);
   }
 }
-
 html {
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-tap-highlight-color: rgb(0 0 0 / 0%);
   scrollbar-width: none;
   font-weight: 350;
   font-size: 14px;
-  font-family: "Inter", sans-serif;
-
-  @media (min-width: 320px) {
+  font-family: Inter, sans-serif;
+  @media (width >= 320px) {
     font-size: calc(14px + (16 - 14) * ((100vw - 320px) / (768 - 320)));
   }
-
-  @media (min-width: 768px) {
+  @media (width >= 768px) {
     font-size: 16px;
   }
 }
-
 .main {
   margin-top: 56px;
   overflow: hidden;
 }
-
 .footer {
   margin-inline: auto;
-  margin-block-start: 30px;
-  margin-block-end: 40px;
+  margin-block: 30px 40px;
   outline: 1px solid var(--content-background-border);
   border-radius: $roundness;
   background-color: var(--content-background-color);
@@ -75,28 +64,23 @@ html {
   max-width: 500px;
   font-weight: 600;
   font-size: 0.85rem;
-  font-family: "Onest", sans-serif;
-
+  font-family: Onest, sans-serif;
   p {
     text-wrap: balance;
     margin-block: 2px;
   }
 }
-
 .hidden {
   visibility: hidden;
   opacity: 0;
 }
-
 .visible {
   visibility: visible;
   opacity: 1;
 }
-
 .visual-hidden {
   display: none;
 }
-
 .not-found {
   display: flex;
   justify-content: center;
@@ -105,68 +89,58 @@ html {
   height: 100vh;
   color: var(--text-color);
   line-height: 1.5;
-
   &-container {
     display: inline-flex;
     flex-direction: column;
     gap: 10px;
-    box-shadow: 0 10px 25px 10px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 10px 25px 10px rgb(0 0 0 / 15%);
     border-radius: $roundness * 1.5;
     background-color: var(--content-background-color);
     padding: 15px;
     max-width: 400px;
   }
-
   &-title {
     margin-inline: 10px;
     color: var(--accent);
     font-weight: 800;
     font-size: 2rem;
-    font-family: "Onest", sans-serif;
+    font-family: Onest, sans-serif;
     hyphens: auto;
     text-align: left;
     text-transform: uppercase;
   }
-
   &-description {
     margin-inline: 5px;
     font-size: 0.9375rem;
     hyphens: auto;
   }
-
   &-small-description {
     opacity: 0.5;
     margin-inline: 5px;
     font-size: 0.75rem;
     hyphens: auto;
   }
-
   &-button {
     display: inline-flex;
     gap: 10px;
     border-radius: $roundness;
     padding: 10px 15px;
     font-weight: 500;
-
     &:hover {
       opacity: 0.75;
     }
-
     &:active {
       opacity: 1;
       filter: brightness(90%);
     }
-
     img {
       width: 24px;
       height: 24px;
     }
-
     p {
       margin-inline-start: 5px;
     }
   }
-
   .to-main {
     background-color: var(--accent);
     color: #fff;

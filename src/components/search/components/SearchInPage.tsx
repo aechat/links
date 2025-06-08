@@ -1,10 +1,17 @@
 import {BackspaceOutlined, CloseRounded} from "@mui/icons-material";
+
 import {Modal} from "antd";
+
 import {motion} from "framer-motion";
+
 import React, {useCallback, useEffect, useRef, useState} from "react";
+
 import {useSearch} from "../context";
+
 import {useSearchLogic} from "../hooks";
+
 import {SearchSection} from "../types";
+
 import {getFoundWord, getResultWord} from "../utils";
 
 
@@ -202,7 +209,6 @@ export const SearchInPage: React.FC<{sections: SearchSection[]}> = ({sections}) 
       setIsResultsProcessed(false);
     }
   }, [isPageLoaded, results]);
-
   useEffect(() => {
     if (isOpen) {
       const timeout = setTimeout(() => {
@@ -215,6 +221,7 @@ export const SearchInPage: React.FC<{sections: SearchSection[]}> = ({sections}) 
 
   const handleQueryChange = (value: string) => {
     setQuery(value);
+
     if (value.trim() === "") {
       setIsSearching(false);
       setIsResultsProcessed(false);
@@ -227,11 +234,13 @@ export const SearchInPage: React.FC<{sections: SearchSection[]}> = ({sections}) 
   const handleLinkClick = useCallback(
     (id: string) => {
       const summaryElement = document.getElementById(id);
+
       if (!summaryElement) {
         return;
       }
 
       const detailsElement = summaryElement.closest("details");
+
       if (detailsElement && !detailsElement.hasAttribute("open")) {
         detailsElement.setAttribute("open", "true");
       }
@@ -245,7 +254,6 @@ export const SearchInPage: React.FC<{sections: SearchSection[]}> = ({sections}) 
         window.pageYOffset -
         headerHeight -
         padding;
-
       window.history.pushState({}, "", `#${id}`);
       window.scrollTo({
         top: y,
@@ -255,7 +263,6 @@ export const SearchInPage: React.FC<{sections: SearchSection[]}> = ({sections}) 
     },
     [closeModal]
   );
-
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (!isOpen || results.length === 0) {
@@ -268,18 +275,24 @@ export const SearchInPage: React.FC<{sections: SearchSection[]}> = ({sections}) 
           setSelectedResultIndex((prevIndex) =>
             prevIndex < results.length - 1 ? prevIndex + 1 : prevIndex
           );
+
           break;
+
         case "ArrowUp":
           e.preventDefault();
           setSelectedResultIndex((prevIndex) =>
             prevIndex > 0 ? prevIndex - 1 : prevIndex
           );
+
           break;
+
         case "Enter":
           e.preventDefault();
+
           if (selectedResultIndex >= 0 && selectedResultIndex < results.length) {
             handleLinkClick(results[selectedResultIndex].id);
           }
+
           break;
       }
     };
@@ -290,12 +303,12 @@ export const SearchInPage: React.FC<{sections: SearchSection[]}> = ({sections}) 
       return () => document.removeEventListener("keydown", handleKeyDown);
     }
   }, [isOpen, results, selectedResultIndex, handleLinkClick]);
-
   useEffect(() => {
     if (selectedResultIndex >= 0) {
       const resultContainer = document.querySelector(".search-results");
 
       const selectedResultElements = resultContainer?.querySelectorAll(".search-link");
+
       if (selectedResultElements && selectedResultElements[selectedResultIndex]) {
         (selectedResultElements[selectedResultIndex] as HTMLElement).scrollIntoView({
           behavior: "smooth",
@@ -319,9 +332,9 @@ export const SearchInPage: React.FC<{sections: SearchSection[]}> = ({sections}) 
       return (
         <>
           <SearchResults
+            resultRefs={resultRefs}
             results={results}
             selectedResultIndex={selectedResultIndex}
-            resultRefs={resultRefs}
             onLinkClick={handleLinkClick}
           />
           <ExternalSearch query={query} />
@@ -381,14 +394,22 @@ export const SearchInPage: React.FC<{sections: SearchSection[]}> = ({sections}) 
             <CloseRounded />
           </button>
         </div>
-        <div>
-          {renderContent()}
-          {!isPageLoaded && (
-            <p style={{textAlign: "center", fontSize: "1rem", margin: "20px"}}>
-              Страница ещё загружается, а поиск всё ещё недоступен. Пожалуйста,
-              подождите...
-            </p>
-          )}
+        <div className="modal-content">
+          <div className="search-results">
+            {renderContent()}
+            {!isPageLoaded && (
+              <p
+                style={{
+                  textAlign: "center",
+                  fontSize: "1rem",
+                  margin: "20px",
+                }}
+              >
+                Страница ещё загружается, а поиск всё ещё недоступен. Пожалуйста,
+                подождите...
+              </p>
+            )}
+          </div>
         </div>
       </div>
     </Modal>

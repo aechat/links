@@ -27,8 +27,10 @@ const GithubUpdateInfo: React.FC<GithubUpdateInfoProps> = ({filePath}) => {
 
   const getLastCommitDate = async (): Promise<void> => {
     const url = `https://api.github.com/repos/${OWNER}/${REPO}/commits?path=${filePath}&sha=${BRANCH}`;
+
     try {
       const response = await fetch(url);
+
       if (!response.ok) {
         throw new Error(`${response.status}`);
       }
@@ -38,6 +40,7 @@ const GithubUpdateInfo: React.FC<GithubUpdateInfoProps> = ({filePath}) => {
       const filteredCommits = commits.filter(
         (commit) => !commit.commit.message.startsWith("Merge")
       );
+
       if (filteredCommits.length === 0) {
         setCommitInfo("Индикатор свежести информации временно недоступен");
 
@@ -98,4 +101,5 @@ const GithubUpdateInfo: React.FC<GithubUpdateInfoProps> = ({filePath}) => {
     />
   );
 };
+
 export default GithubUpdateInfo;

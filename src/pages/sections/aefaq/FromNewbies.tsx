@@ -1,14 +1,20 @@
 import React from "react";
+
+import {Divider} from "antd";
+
 import DetailsSummary from "../../../components/DetailsSummary";
+
 import {
   AdditionDanger,
   AdditionInfo,
   AdditionWarning,
 } from "../../../components/Additions";
+
 import ContentSwitcher from "../../../components/features/ContentFilter";
+
 import {ImageFigure, VideoFigure, YouTubeVideo} from "../../../components/ContentFigure";
+
 import GithubUpdateInfo from "../../../components/features/GithubUpdateInfo";
-import {Divider} from "antd";
 
 const AEFromNewbies: React.FC = () => {
   return (
@@ -113,7 +119,13 @@ const AEFromNewbies: React.FC = () => {
             &quot;After Effects базового уровня&quot; от Никиты Чеснокова
           </a>
         </div>
-        <p style={{textAlign: "center", fontSize: "0.95rem", fontWeight: "700"}}>
+        <p
+          style={{
+            textAlign: "center",
+            fontSize: "0.95rem",
+            fontWeight: "700",
+          }}
+        >
           Надеюсь, вы найдёте что-то полезное для себя. Удачи в ваших начинаниях!
         </p>
       </DetailsSummary>
@@ -2253,7 +2265,6 @@ const AEFromNewbies: React.FC = () => {
           на <mark className="ui">OK</mark>. После очистки кэша - предпросмотр нужно
           закэшировать заново.
         </p>
-
         <ImageFigure
           caption="Очистка кэша и освобождение оперативной памяти"
           imgSrc="images/aftereffects/edit_purge_all-memory-and-disk-cache.png"
@@ -2993,6 +3004,7 @@ const AEFromNewbies: React.FC = () => {
             e.preventDefault();
 
             const target = document.getElementById("interface");
+
             if (target) {
               const headerHeight = document.querySelector("header")?.offsetHeight ?? 0;
 
@@ -3017,4 +3029,5 @@ const AEFromNewbies: React.FC = () => {
     </div>
   );
 };
+
 export default AEFromNewbies;

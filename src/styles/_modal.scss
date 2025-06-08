@@ -1,10 +1,8 @@
 @use "mixins" as *;
-
 .modal {
   display: flex;
   flex-direction: column;
   gap: 10px;
-
   &-header {
     text-wrap: balance;
     display: flex;
@@ -19,20 +17,17 @@
     padding-inline-end: 10px;
     padding-block: 10px;
     line-height: 1.25;
-    font-family: "Onest", sans-serif;
+    font-family: Onest, sans-serif;
     text-transform: uppercase;
-
     &-title {
       color: var(--summary-text);
       font-weight: 700;
       font-size: 1.2rem;
     }
-
     &-close {
       color: var(--summary-text);
     }
   }
-
   &-content {
     filter: drop-shadow(0 3px 5px var(--shadow));
     outline: 1px solid var(--content-background-border);
@@ -40,7 +35,6 @@
     background-color: var(--content-background-color);
     width: 100%;
   }
-
   .sber {
     display: flex;
     justify-content: center;
@@ -56,12 +50,10 @@
     color: var(--sber-text) !important;
     font-weight: 700;
     font-size: 1.05rem;
-
     &:hover {
       background-color: var(--sber-hover);
     }
   }
-
   .yoomoney {
     display: flex;
     justify-content: center;
@@ -77,29 +69,24 @@
     color: var(--yoomoney-text) !important;
     font-weight: 700;
     font-size: 1.05rem;
-
     &:hover {
       background-color: var(--yoomoney-hover);
     }
   }
-
   p {
     margin-inline: 15px;
     margin-block: 10px;
     font-size: 0.95rem;
     line-height: 1.5;
   }
-
   a {
     color: var(--accent);
     font-weight: 700;
     text-decoration: underline;
   }
-
   ul {
     margin-block: 10px;
   }
-
   li {
     position: relative;
     flex-direction: column;
@@ -110,18 +97,16 @@
     font-size: 0.95rem;
     line-height: 1.75;
     list-style-type: none;
-
     &:not(:last-child) {
       border-bottom: 1px solid var(--content-background-border);
     }
-
     &::before {
       display: inline-block;
       position: absolute;
       top: 50%;
       left: 15px;
       transform: translateY(-50%);
-      opacity: 50%;
+      opacity: 0.5;
       border-radius: $roundness;
       background-color: var(--accent);
       width: 3px;
@@ -129,13 +114,11 @@
       content: "";
     }
   }
-
   &-message {
     opacity: 0.5;
     font-weight: 600;
     font-size: 0.875rem !important;
   }
-
   &-page-button {
     display: flex;
     flex: 1 1 150px;
@@ -150,10 +133,9 @@
     color: var(--summary-text);
     font-weight: 700;
     font-size: 0.875rem;
-    font-family: "Onest", sans-serif;
+    font-family: Onest, sans-serif;
     text-align: center;
   }
-
   &-open-button {
     display: flex;
     justify-content: center;
@@ -169,11 +151,10 @@
     color: var(--summary-text);
     font-weight: 700;
     font-size: 0.95rem;
-    font-family: "Onest", sans-serif;
+    font-family: Onest, sans-serif;
     text-align: center;
   }
 }
-
 .error {
   &-container {
     display: flex;
@@ -184,7 +165,6 @@
     height: 100dvh;
     overflow: hidden;
   }
-
   &-backtitle {
     position: absolute;
     opacity: 0.1;
@@ -192,15 +172,12 @@
     font-style: italic;
     font-weight: 900;
     font-size: 384px;
-    font-family: "Onest", sans-serif;
+    font-family: Onest, sans-serif;
     text-transform: uppercase;
     white-space: nowrap;
   }
 }
-
 .search {
-
-
   &-input {
     padding-inline-start: 16px;
     padding-block: 8px;
@@ -208,17 +185,13 @@
     color: var(--summary-text);
     font-weight: 600;
     font-size: 0.9rem;
-
     &::placeholder {
       opacity: 1;
       font-size: 0.875rem;
     }
-
     &-wrapper {
-      
       display: flex;
-      flex-direction: row;
-      flex-wrap: nowrap;
+      flex-flow: row nowrap;
       justify-content: space-between;
       // gap: 10px;
       outline: 1px solid var(--summary-border);
@@ -227,7 +200,6 @@
       background-color: var(--summary-background);
       margin-bottom: 10px;
     }
-
     &-close,
     &-clear {
       display: flex;
@@ -237,21 +209,18 @@
       align-items: center;
       width: 40px;
       color: var(--summary-text);
-
       svg {
         width: 17px;
         height: 17px;
       }
     }
   }
-
   &-results {
     outline: 1px solid var(--content-background-border);
     border-radius: $roundness * 1.5;
     max-height: 70dvh;
     overflow-y: auto;
   }
-
   &-link {
     display: block;
     margin-inline: 10px;
@@ -259,7 +228,6 @@
     border-radius: $roundness;
     width: calc(100% - 20px);
   }
-
   &-header {
     display: flex;
     position: relative;
@@ -275,22 +243,19 @@
     background-image: linear-gradient(to bottom, var(--summary-background), transparent);
     background-color: var(--summary-background);
     padding: 10px 15px;
-
     &:hover {
       background-color: var(--links-hover);
     }
   }
-
   &-title {
     position: relative;
     color: var(--summary-text);
     font-weight: 800;
     font-size: 1.1rem;
     line-height: 1.25;
-    font-family: "Onest", sans-serif;
+    font-family: Onest, sans-serif;
     text-transform: uppercase;
   }
-
   &-content {
     margin-block-start: -10px;
     border: solid 1px var(--content-background-border);
@@ -300,7 +265,6 @@
     background-color: var(--content-background-color);
     overflow: hidden;
     font-size: 0.9rem;
-
     .addition {
       &-info,
       &-warning,
@@ -308,42 +272,34 @@
         font-size: 0.875rem;
       }
     }
-
     &.faq-content {
       margin-block-start: -16px;
       padding: 0;
       padding-block-start: 16px;
-
       p {
         margin-inline: 10px;
         margin-block: 10px;
       }
-
       mark:hover,
       a:hover {
         opacity: 1;
       }
     }
   }
-
   &-selected {
     transition:
       background-color,
       outline 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
     outline: 1px solid var(--accent);
-
     .search-header {
       background-color: var(--links-hover);
     }
-
     .search-content {
       background-color: var(--links-background);
     }
   }
-
   &-no-results {
     width: 100%;
-
     &-title {
       text-wrap: balance;
       opacity: 0.9;
@@ -353,10 +309,9 @@
       font-weight: 550;
       font-size: 1.5rem;
       line-height: 1.25;
-      font-family: "Onest", sans-serif;
+      font-family: Onest, sans-serif;
       text-align: center;
     }
-
     &-message {
       text-wrap: balance;
       opacity: 0.75;
@@ -367,40 +322,33 @@
       line-height: 1.25;
       text-align: center;
     }
-
     &-tip {
       text-wrap: balance;
       opacity: 0.5;
       margin-inline-start: auto;
-      margin-block-start: 5px;
-      margin-block-end: 15px;
+      margin-block: 5px 15px;
       padding-inline: 15px;
       font-size: 0.6rem;
       line-height: 1.25;
       text-align: right;
     }
   }
-
   &-category {
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
+    flex-flow: row wrap;
+    justify-content: flex-start;
     gap: 8px;
     margin: 0;
     width: 100%;
-
     &-tip {
       text-wrap: balance;
       opacity: 0.4;
-      margin-block-start: 2px;
-      margin-block-end: 15px;
+      margin-block: 2px 15px;
       padding-inline: 15px;
       font-size: 0.75rem;
       line-height: 1.25;
       text-align: center;
     }
-
     button,
     a {
       text-wrap: wrap;
@@ -413,22 +361,19 @@
       padding-inline: 10px;
       padding-block: 5px;
       color: var(--summary-text);
-      font-weight: 675;
-      font-size: 0.875rem;
-      font-family: "Onest", serif;
+      font-weight: 700;
+      font-size: 0.9rem;
+      font-family: Onest, serif;
       text-align: center;
       text-decoration: none;
-
-      @media (max-width: 545px) {
+      @media (width <= 545px) {
         flex: 1 0 125px;
       }
-
       &:hover {
         opacity: 0.65;
       }
     }
   }
-
   &-modal-title {
     opacity: 0.75;
     padding-inline: 15px;
@@ -438,7 +383,6 @@
     line-height: 1.25;
     text-align: center;
   }
-
   &-modal-tip {
     text-wrap: balance;
     opacity: 0.5;
@@ -450,20 +394,17 @@
     text-align: right;
   }
 }
-
 .support {
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-end;
   gap: 8px;
   margin-block: 15px;
-
   svg {
     width: 20px;
     height: 20px;
   }
 }
-
 .theme {
   &-slider {
     display: flex;
@@ -475,20 +416,16 @@
     margin-inline: 10px;
     margin-block-end: 8px;
     line-height: 1.35;
-
     button {
       flex-shrink: 0;
     }
   }
-
   &-title {
     margin-inline: 15px;
-    margin-block-start: 10px;
-    margin-block-end: 2px;
+    margin-block: 10px 2px;
     font-weight: 600;
     font-size: 0.9rem;
   }
-
   &-selector {
     display: flex;
     flex-shrink: 0;
@@ -498,7 +435,6 @@
     margin-block: 5px;
     width: 100%;
   }
-
   &-button {
     display: flex;
     flex: 1 0 120px;
@@ -515,14 +451,12 @@
     overflow-y: hidden;
     font-weight: 600;
     font-size: 0.875rem;
-    font-family: "Onest", sans-serif;
-
+    font-family: Onest, sans-serif;
     svg {
       fill: var(--text-color);
       width: 20px;
       height: 20px;
     }
-
     &-selected {
       background-color: var(--links-hover);
     }

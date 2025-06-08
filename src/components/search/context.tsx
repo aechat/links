@@ -1,5 +1,7 @@
 import {message} from "antd";
+
 import React, {createContext, useContext, useEffect, useMemo, useState} from "react";
+
 import {SearchContextType} from "./types";
 
 const SearchContext = createContext<SearchContextType | undefined>(undefined);
@@ -22,6 +24,7 @@ export const SearchProvider: React.FC<{
     const handleKeyDown = (event: KeyboardEvent) => {
       if ((event.ctrlKey && event.key === "f") || (event.ctrlKey && event.key === "а")) {
         event.preventDefault();
+
         if (isPageLoaded) {
           openModal();
         } else {
@@ -48,6 +51,7 @@ export const SearchProvider: React.FC<{
 
 export const useSearch = () => {
   const context = useContext(SearchContext);
+
   if (!context) {
     throw new Error("useSearch must use with SearchProvider.");
   }

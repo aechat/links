@@ -1,14 +1,20 @@
 import React from "react";
+
+import {Divider} from "antd";
+
 import GithubUpdateInfo from "../../../components/features/GithubUpdateInfo";
+
 import {
   AdditionDanger,
   AdditionInfo,
   AdditionWarning,
 } from "../../../components/Additions";
+
 import {ImageFigure, YouTubeVideo} from "../../../components/ContentFigure";
+
 import DetailsSummary from "../../../components/DetailsSummary";
+
 import ContentSwitcher from "../../../components/features/ContentFilter";
-import {Divider} from "antd";
 
 const PRInstallProblems: React.FC = () => {
   return (
@@ -23,32 +29,32 @@ const PRInstallProblems: React.FC = () => {
           следуйте инструкциям ниже.
         </p>
         <AdditionWarning>
-          Прежде чем использовать <mark className="file">.prproj</mark>,{" "}
-          <mark className="file">.aep</mark> и <mark className="file">.mogrt</mark>{" "}
-          шаблоны или пакеты для <mark className="plugin">AtomX</mark>,{" "}
+          Прежде чем использовать <mark className="file">PRPROJ</mark>,{" "}
+          <mark className="file">AEP</mark> и <mark className="file">MOGRT</mark> шаблоны
+          или пакеты для <mark className="plugin">AtomX</mark>,{" "}
           <mark className="plugin">Motion Bro</mark> или подобных расширений - убедитесь,
           что они полностью распакованы и расположены в пути не длиннее 256 символов без
           кириллицы!
         </AdditionWarning>
         <ul>
           <li>
-            Если в архиве находится файл <mark className="file">.prproj</mark>, то такой
+            Если в архиве находится файл <mark className="file">PRPROJ</mark>, то такой
             файл проект просто импортируются в ваш проект с помощью{" "}
             <mark className="ui">File &gt; Import</mark> или{" "}
-            <mark className="key">Ctrl+I</mark> и никуда не устанавливаются.
+            <mark className="key">Ctrl + I</mark> и никуда не устанавливаются.
           </li>
           <li>
-            Если в архиве находится файл <mark className="file">.aep</mark>, то для
-            импорта таких проектов требуется установленный{" "}
+            Если в архиве находится файл <mark className="file">AEP</mark>, то для импорта
+            таких проектов требуется установленный{" "}
             <mark className="app">Adobe After Effects</mark>. Их можно импортировать в ваш
             проект с помощью <mark className="ui">File &gt; Import</mark> или{" "}
-            <mark className="key">Ctrl+I</mark>. Композиция из{" "}
+            <mark className="key">Ctrl + I</mark>. Композиция из{" "}
             <mark className="app">Adobe After Effects</mark> в{" "}
             <mark className="app">Adobe Premiere Pro</mark> будет работать через{" "}
             <mark className="plugin">Dynamic Link</mark>.
           </li>
           <li>
-            Если в архиве находится <mark className="file">.atom</mark>, то такие файлы
+            Если в архиве находится <mark className="file">ATOM</mark>, то такие файлы
             устанавливаются путём <mark>drag&apos;n&apos;drop</mark> в окно расширения{" "}
             <mark className="plugin">AtomX</mark>.
             <AdditionWarning>
@@ -59,7 +65,7 @@ const PRInstallProblems: React.FC = () => {
             </AdditionWarning>
           </li>
           <li>
-            Если в архиве находится <mark className="file">.mbr</mark>, то такие файлы
+            Если в архиве находится <mark className="file">MBR</mark>, то такие файлы
             устанавливаются путём <mark>drag&apos;n&apos;drop</mark> в окно расширения{" "}
             <mark className="plugin">Motion Bro</mark>.
           </li>
@@ -77,8 +83,8 @@ const PRInstallProblems: React.FC = () => {
               </AdditionDanger>
               <ul>
                 <li>
-                  Если вы скачали архив формата <mark className="file">.zip</mark> или{" "}
-                  <mark className="file">.rar</mark>, то вам необходимо его распаковать с
+                  Если вы скачали архив формата <mark className="file">ZIP</mark> или{" "}
+                  <mark className="file">RAR</mark>, то вам необходимо его распаковать с
                   помощью архиватора для дальнейшей работы с ним. Это можно сделать с
                   помощью <mark className="app">keka</mark> или{" "}
                   <mark className="app">The Unarchiver</mark>.
@@ -123,8 +129,8 @@ const PRInstallProblems: React.FC = () => {
                 </li>
                 <li>
                   Если в архиве или в записи находится файл{" "}
-                  <mark className="file">.dmg</mark>, <mark className="file">.app</mark>{" "}
-                  или <mark className="file">.pkg</mark>, то обычно в нём содержится
+                  <mark className="file">DMG</mark>, <mark className="file">APP</mark> или{" "}
+                  <mark className="file">PKG</mark>, то обычно в нём содержится
                   автоматический установщик плагина. Для установки таких файлов нужно
                   следовать инструкциям установщика, например перенести файл из одного
                   места в другое и так далее.
@@ -154,7 +160,7 @@ const PRInstallProblems: React.FC = () => {
                   </AdditionInfo>
                 </li>
                 {/* <li>
-                  Если в архиве находится файл <mark className="file">.plugin</mark>, то
+                  Если в архиве находится файл <mark className="file">PLUGIN</mark>, то
                   такие плагины обычно распаковываются в общую папку плагинов{" "}
                   <mark className="path">
                     ~/Library/Application Support/Adobe/Common/Plug-ins/7.0/MediaCore
@@ -171,25 +177,25 @@ const PRInstallProblems: React.FC = () => {
                       </li>
                       <li>
                         Не всегда новые версии плагинов могут работать со старыми версиями{" "}
-                        <mark className="app">Premiere Pro</mark> и наоборот. Уточняйте в
+                        <mark className="app">Adobe Premiere Pro</mark> и наоборот. Уточняйте в
                         документации устанавливаемого плагина, для каких версий{" "}
-                        <mark className="app">Premiere Pro</mark> он предназначен.
+                        <mark className="app">Adobe Premiere Pro</mark> он предназначен.
                       </li>
                     </ul>
                   </AdditionInfo>
                   <AdditionDanger>
-                    Плагины формата <mark className="file">.aex</mark> не подходят для
+                    Плагины формата <mark className="file">AEX</mark> не подходят для
                     устройств на <mark>macOS</mark>, так как такие файлы предназначены для
                     устройств на <mark>Windows</mark>.
                   </AdditionDanger>
                 </li> */}
                 <li>
                   <p>
-                    Если в архиве находится файл <mark className="file">.mogrt</mark>, то
+                    Если в архиве находится файл <mark className="file">MOGRT</mark>, то
                     такие шаблоны устанавливаются в панели{" "}
                     <mark className="ui">Graphics Templates</mark> с помощью кнопки{" "}
                     <mark className="ui">Install Motion Graphics template</mark>. Либо
-                    можно перенести файлы формата <mark className="file">.mogrt</mark>{" "}
+                    можно перенести файлы формата <mark className="file">MOGRT</mark>{" "}
                     прямо в окно <mark className="ui">Graphics Templates</mark> с помощью{" "}
                     <mark className="word">Drag-n-Drop</mark>.
                   </p>
@@ -201,7 +207,7 @@ const PRInstallProblems: React.FC = () => {
                   />{" "}
                   <AdditionInfo>
                     <p>
-                      <mark className="file">.mogrt</mark> файл по своей сути - архив,
+                      <mark className="file">MOGRT</mark> файл по своей сути - архив,
                       внутри которого обычно находятся два-три файла, которые формируют
                       сам анимационный шаблон. Такие шаблоны можно создавать в{" "}
                       <mark className="app">Adobe After Effects</mark> и{" "}
@@ -220,7 +226,7 @@ const PRInstallProblems: React.FC = () => {
                         отредактировать, но такой проект можно открыть в{" "}
                         <mark className="app">Adobe After Effects</mark> и при
                         необходимости внести свои правки там, а затем конвертировать
-                        обратно в <mark className="file">.mogrt</mark>.
+                        обратно в <mark className="file">MOGRT</mark>.
                       </li>
                       <li>
                         <mark className="file">thumb.jpg</mark> - статичная обложка для
@@ -235,7 +241,6 @@ const PRInstallProblems: React.FC = () => {
                 <li></li>
                 <li></li>
               </ul>
-
               {/* TODO: дописать */}
             </div>
           }
@@ -244,7 +249,7 @@ const PRInstallProblems: React.FC = () => {
               <ul>
                 <li>
                   Если в архиве или в записи находится файл{" "}
-                  <mark className="file">.exe</mark>, то обычно в нём содержится
+                  <mark className="file">EXE</mark>, то обычно в нём содержится
                   установщик. Если в записи указано, что данный установщик является
                   репаком - в таком случае после его установки плагин будет уже
                   активирован, никаких лишних телодвижений после установки делать не надо.
@@ -259,30 +264,29 @@ const PRInstallProblems: React.FC = () => {
                   </AdditionWarning>
                 </li>
                 {/* <li>
-                  Если в архиве находится файл <mark className="file">.prm</mark> или{" "}
-                  <mark className="file">.aex</mark>, то такие плагины обычно
+                  Если в архиве находится файл <mark className="file">PRM</mark> или{" "}
+                  <mark className="file">AEX</mark>, то такие плагины обычно
                   распаковываются в общую папку плагинов -{" "}
                   <mark className="path">
                     C:\Program Files\Adobe\Common\Plug-ins\7.0\MediaCore
                   </mark>
                   .
                   <AdditionWarning>
-                    Учтите, что не все плагины формата <mark className="file">.aex</mark>{" "}
-                    поддерживаются в <mark className="app">Premiere Pro</mark>, так как по
+                    Учтите, что не все плагины формата <mark className="file">AEX</mark>{" "}
+                    поддерживаются в <mark className="app">Adobe Premiere Pro</mark>, так как по
                     большей части плагины такого формата были предназначены для{" "}
-                    <mark className="app">After Effects</mark> и не всегда имеет
+                    <mark className="app">Adobe After Effects</mark> и не всегда имеет
                     &quot;обратную совместимость&quot; с{" "}
-                    <mark className="app">Premiere Pro</mark>.
+                    <mark className="app">Adobe Premiere Pro</mark>.
                   </AdditionWarning>
                 </li> */}
-
                 <li>
                   <p>
-                    Если в архиве находится файл <mark className="file">.mogrt</mark>, то
+                    Если в архиве находится файл <mark className="file">MOGRT</mark>, то
                     такие шаблоны устанавливаются в панели{" "}
                     <mark className="ui">Graphics Templates</mark> с помощью кнопки{" "}
                     <mark className="ui">Install Motion Graphics template</mark>. Либо
-                    можно перенести файлы формата <mark className="file">.mogrt</mark>{" "}
+                    можно перенести файлы формата <mark className="file">MOGRT</mark>{" "}
                     прямо в окно <mark className="ui">Graphics Templates</mark> с помощью{" "}
                     <mark className="word">Drag-n-Drop</mark>.
                   </p>
@@ -293,7 +297,7 @@ const PRInstallProblems: React.FC = () => {
                     styleClass="figure_windows-dark"
                   />
                   <p>
-                    Также файлы <mark className="file">.mogrt</mark> можно расположить в
+                    Также файлы <mark className="file">MOGRT</mark> можно расположить в
                     стандартную папку локальных шаблонов, которая находится по пути{" "}
                     <mark className="path">
                       %AppData%/Adobe/Common/Motion Graphics Templates/
@@ -302,7 +306,7 @@ const PRInstallProblems: React.FC = () => {
                   </p>
                   <AdditionInfo>
                     <p>
-                      <mark className="file">.mogrt</mark> файл по своей сути - архив,
+                      <mark className="file">MOGRT</mark> файл по своей сути - архив,
                       внутри которого обычно находятся два-три файла, которые формируют
                       сам анимационный шаблон. Такие шаблоны можно создавать в{" "}
                       <mark className="app">Adobe After Effects</mark> и{" "}
@@ -321,7 +325,7 @@ const PRInstallProblems: React.FC = () => {
                         отредактировать, но такой проект можно открыть в{" "}
                         <mark className="app">Adobe After Effects</mark> и при
                         необходимости внести свои правки там, а затем конвертировать
-                        обратно в <mark className="file">.mogrt</mark>.
+                        обратно в <mark className="file">MOGRT</mark>.
                       </li>
                       <li>
                         <mark className="file">thumb.jpg</mark> - статичная обложка для
@@ -332,9 +336,9 @@ const PRInstallProblems: React.FC = () => {
                     <p>
                       Часто пользователи, которые пользуются стандартным проводником{" "}
                       <mark>Windows</mark> как основным средством работы с архивами
-                      зачем-то заходят внутрь <mark className="file">.mogrt</mark> файла и
+                      зачем-то заходят внутрь <mark className="file">MOGRT</mark> файла и
                       не могут понять, что с этими файлами делать. Содержимое{" "}
-                      <mark className="file">.mogrt</mark> без острой необходимости не
+                      <mark className="file">MOGRT</mark> без острой необходимости не
                       нужно открывать. Архив с такими файлами нужно распаковать через{" "}
                       <mark className="app">WinRAR</mark> или{" "}
                       <mark className="app">7-zip</mark>, чтобы их спокойно можно было
@@ -344,7 +348,7 @@ const PRInstallProblems: React.FC = () => {
                   </AdditionInfo>
                   <AdditionWarning>
                     При использовании некоторых шаблонов формата{" "}
-                    <mark className="file">.mogrt</mark> может потребоваться установленный
+                    <mark className="file">MOGRT</mark> может потребоваться установленный
                     в системе <mark className="app">Adobe After Effects</mark>. Если эта
                     программа у вас уже установлена, но{" "}
                     <mark className="app">Adobe Premiere Pro</mark> выбивает ошибку о том,
@@ -355,7 +359,7 @@ const PRInstallProblems: React.FC = () => {
                   </AdditionWarning>
                 </li>
                 <li>
-                  Если в архива находится файл <mark className="file">.prfpset</mark>, то
+                  Если в архива находится файл <mark className="file">PRFPSET</mark>, то
                   такие файлы пресетов устанавливается следующим образом.
                   <ul>
                     <li>
@@ -377,7 +381,7 @@ const PRInstallProblems: React.FC = () => {
                     </li>
                     <li>
                       В открывшемся окне выберите файл пресетов формата{" "}
-                      <mark className="file">.prfpset</mark>.
+                      <mark className="file">PRFPSET</mark>.
                     </li>
                     <li>
                       После выбора файла с пресетами ваши импортированные пресеты появятся
@@ -403,9 +407,9 @@ const PRInstallProblems: React.FC = () => {
                   </ul>
                 </li>
                 <li>
-                  Если в архиве находится файл <mark className="file">.cube</mark>,{" "}
-                  <mark className="file">.itx</mark>, <mark className="file">.look</mark>{" "}
-                  или <mark className="file">.lut</mark>, то такие файлы распаковываются в{" "}
+                  Если в архиве находится файл <mark className="file">CUBE</mark>,{" "}
+                  <mark className="file">ITX</mark>, <mark className="file">LOOK</mark>{" "}
+                  или <mark className="file">LUT</mark>, то такие файлы распаковываются в{" "}
                   <mark className="path">
                     C:\Program Files\Adobe\Adobe Premiere Pro 20XX\Support
                     Files\Lumetri\LUTs\Creative
@@ -432,8 +436,8 @@ const PRInstallProblems: React.FC = () => {
                   </AdditionInfo>
                 </li>
                 <li>
-                  Если в архиве находится файл <mark className="file">.zxp</mark>, то
-                  такие расширения обычно устанавливаются через{" "}
+                  Если в архиве находится файл <mark className="file">ZXP</mark>, то такие
+                  расширения обычно устанавливаются через{" "}
                   <a href="https://aescripts.com/learn/zxp-installer/">
                     ZXP Installer от aescripts
                   </a>
@@ -451,10 +455,10 @@ const PRInstallProblems: React.FC = () => {
                     же может вам поломать уже установленные программы.
                   </AdditionDanger>
                   Если вы не хотите устанавливать стороннее ПО для установки{" "}
-                  <mark className="file">.zxp</mark>, то вы можете переименовать файл{" "}
-                  <mark className="file">.zxp</mark> в <mark className="file">.zip</mark>{" "}
-                  и распаковать его как обычный архив. Содержимое свежераспакованного
-                  файла нужно поместить в папку{" "}
+                  <mark className="file">ZXP</mark>, то вы можете переименовать файл{" "}
+                  <mark className="file">ZXP</mark> в <mark className="file">ZIP</mark> и
+                  распаковать его как обычный архив. Содержимое свежераспакованного файла
+                  нужно поместить в папку{" "}
                   <mark className="path">
                     C:\Program Files (x86)\Common Files\Adobe\CEP\extensions
                   </mark>{" "}
@@ -491,7 +495,7 @@ const PRInstallProblems: React.FC = () => {
                       </li>
                       <li>
                         Иногда в архиве может быть уже распакованный{" "}
-                        <mark className="file">.zxp</mark> архив. Это можно понять по
+                        <mark className="file">ZXP</mark> архив. Это можно понять по
                         наличию папок <mark className="path">META-INF</mark> и{" "}
                         <mark className="path">CSXS</mark> внутри папки с названием
                         расширения.
@@ -500,11 +504,10 @@ const PRInstallProblems: React.FC = () => {
                   </AdditionInfo>
                 </li>
                 <li>
-                  Если в архиве находятся шрифты формата{" "}
-                  <mark className="file">.ttf</mark> или{" "}
-                  <mark className="file">.otf</mark>, то такие шрифты не распаковываются в
-                  папку с программой. Их нужно установить в саму систему, это можно
-                  сделать тремя способами.
+                  Если в архиве находятся шрифты формата <mark className="file">TTF</mark>{" "}
+                  или <mark className="file">OTF</mark>, то такие шрифты не
+                  распаковываются в папку с программой. Их нужно установить в саму
+                  систему, это можно сделать тремя способами.
                   <ul>
                     <li>
                       Откройте файл шрифта двойным нажатием и в открывшемся окне нажмите в
@@ -642,7 +645,7 @@ const PRInstallProblems: React.FC = () => {
           <mark className="ui">Система Windows защитила ваш компьютер</mark> по центру
           экрана. Его обычно вызывает <mark className="app">Windows Smartscreen</mark> -
           фильтр файлов от <mark>Microsoft</mark>, скачанных с интернета и он часто
-          помечает <mark className="file">.exe</mark> файлы как подозрительные. Поэтому и
+          помечает <mark className="file">EXE</mark> файлы как подозрительные. Поэтому и
           приостанавливает запуск исполняемых файлов. Чтобы запустить такой файл, вам
           нужно нажать на <mark className="ui">Подробнее</mark> и на{" "}
           <mark className="ui">Выполнить в любом случае</mark>. Но иногда бывают такие
@@ -658,7 +661,7 @@ const PRInstallProblems: React.FC = () => {
       </DetailsSummary>
       <DetailsSummary title='Выскакивает "Некоторые установочные файлы были повреждены. Загрузите свежую копию и повторите установку" при открытии репака от KpoJluK'>
         <p>
-          Вы не докачали <mark className="file">.exe</mark> файл до конца или прервали его
+          Вы не докачали <mark className="file">EXE</mark> файл до конца или прервали его
           скачивание. В таком случае перекачайте файл и попробуйте открыть его еще раз.
           Иногда при скачивании репака или при распаковке архива ваш антивирус может
           вставить палки в колёса. Поэтому при скачивании, распаковки или открытии репака
@@ -675,7 +678,7 @@ const PRInstallProblems: React.FC = () => {
           Такое бывает, если в вашей системе отсутствует файл{" "}
           <mark className="file">hosts</mark>. Для этого вам нужно создать пустой
           текстовый документ с названием <mark className="file">hosts</mark> без
-          расширения <mark className="file">.txt</mark>. Затем нужно открыть этот файл и
+          расширения <mark className="file">TXT</mark>. Затем нужно открыть этот файл и
           вписать строки, в зависимости от вашей системы{" "}
           <a href="https://support.microsoft.com/ru-ru/topic/%D0%BA%D0%B0%D0%BA-%D0%B2%D0%BE%D1%81%D1%81%D1%82%D0%B0%D0%BD%D0%BE%D0%B2%D0%B8%D1%82%D1%8C-%D1%81%D0%BE%D0%B4%D0%B5%D1%80%D0%B6%D0%B8%D0%BC%D0%BE%D0%B5-%D1%84%D0%B0%D0%B9%D0%BB%D0%B0-hosts-%D0%BF%D0%BE-%D1%83%D0%BC%D0%BE%D0%BB%D1%87%D0%B0%D0%BD%D0%B8%D1%8E-c2a43f9d-e176-c6f3-e4ef-3500277a6dae">
             (подробнее на сайте Microsoft)
@@ -841,7 +844,7 @@ const PRInstallProblems: React.FC = () => {
           <a href="https://aescripts.com/learn/zxp-installer/">
             ZXP Installer от aescripts
           </a>{" "}
-          или ручной распаковки <mark className="file">.zxp</mark> файла в нужное место.
+          или ручной распаковки <mark className="file">ZXP</mark> файла в нужное место.
         </p>
         <AdditionInfo>
           Более подробную информацию про установку дополнительных материалов вы можете
@@ -994,6 +997,7 @@ const PRInstallProblems: React.FC = () => {
             e.preventDefault();
 
             const target = document.getElementById("errors");
+
             if (target) {
               const headerHeight = document.querySelector("header")?.offsetHeight ?? 0;
 

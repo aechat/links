@@ -1,6 +1,9 @@
 import {motion} from "framer-motion";
+
 import React, {useEffect, useRef, useState} from "react";
+
 import {Helmet} from "react-helmet-async";
+
 interface Subtitle {
   start: number;
   end: number;
@@ -42,6 +45,7 @@ const NotFound = () => {
         audioRef.current.pause();
         audioRef.current.currentTime = 0;
       }
+
       window.removeEventListener("click", handlePlayAudio);
     };
   }, []);
@@ -56,6 +60,7 @@ const NotFound = () => {
       const current = subtitles.find(
         (sub) => currentTime >= sub.start && currentTime <= sub.end
       );
+
       if (current && current.text !== currentSubtitle) {
         setCurrentSubtitle(current.text);
       } else if (!current && currentSubtitle !== "404") {
@@ -116,4 +121,5 @@ const NotFound = () => {
     </motion.main>
   );
 };
+
 export default NotFound;

@@ -1,5 +1,4 @@
 @use "mixins" as *;
-
 table {
   filter: drop-shadow(0 5px 10px var(--shadow));
   box-sizing: border-box;
@@ -11,16 +10,13 @@ table {
   overflow: hidden;
   font-size: 0.875rem;
 }
-
-@media (max-width: 400px) {
+@media (width <= 400px) {
   table {
     word-wrap: break-word;
-
     td,
     th {
       padding: 4px 2px;
       font-size: 0.75rem;
-
       .addition-info,
       .addition-warning,
       .addition-danger {
@@ -29,14 +25,12 @@ table {
     }
   }
 }
-
 td,
 th {
   vertical-align: middle;
   outline: 1px solid var(--table-background-border);
   padding: 5px 10px;
   text-align: center;
-
   .addition-info,
   .addition-warning,
   .addition-danger {
@@ -44,7 +38,6 @@ th {
     font-size: 0.875rem;
   }
 }
-
 thead {
   background-color: var(--mark-background);
   color: var(--mark-text);

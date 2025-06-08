@@ -1,4 +1,5 @@
 import React from "react";
+
 import GithubUpdateInfo from "../../../components/features/GithubUpdateInfo";
 
 const AEExprErrors: React.FC = () => {
@@ -8,4 +9,5 @@ const AEExprErrors: React.FC = () => {
     </div>
   );
 };
+
 export default AEExprErrors;

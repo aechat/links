@@ -1,14 +1,20 @@
 import React from "react";
+
+import {Divider} from "antd";
+
 import GithubUpdateInfo from "../../../components/features/GithubUpdateInfo";
+
 import {
   AdditionDanger,
   AdditionInfo,
   AdditionWarning,
 } from "../../../components/Additions";
+
 import {YouTubeVideo} from "../../../components/ContentFigure";
+
 import DetailsSummary from "../../../components/DetailsSummary";
+
 import ContentSwitcher from "../../../components/features/ContentFilter";
-import {Divider} from "antd";
 
 const PRTips: React.FC = () => {
   return (
@@ -21,7 +27,7 @@ const PRTips: React.FC = () => {
         <p>
           Бывают ситуации, когда после внесённых изменений клиенту результат не подходит,
           и требуется вернуться к предыдущей версии проекта. Или, например,{" "}
-          <mark className="file">.prproj</mark> файл неожиданно сломался и перестал
+          <mark className="file">PRPROJ</mark> файл неожиданно сломался и перестал
           корректно открываться. Если заранее позаботиться о резервном копировании ваших
           файлов - подобных проблем можно было бы избежать, сэкономив время и усилия на
           восстановление данных. Есть два варианта создания резервного копирования - на
@@ -294,7 +300,7 @@ const PRTips: React.FC = () => {
           <li>
             <mark className="plugin">Captioneer</mark> - аналог предыдущего в списке
             плагина, с помощью него тоже можно создавать анимированные субтитры и
-            применять на них стили из <mark className="file">.mogrt</mark> файлов.
+            применять на них стили из <mark className="file">MOGRT</mark> файлов.
           </li>
         </ul>
         <Divider>Обработка звука</Divider>
@@ -491,7 +497,7 @@ const PRTips: React.FC = () => {
           Список обновлений и исправлений в версиях{" "}
           <mark className="app">Adobe Premiere Pro</mark> вы всегда можете посмотреть на
           официальном сайте Adobe.
-        </p>{" "}
+        </p>
         <div className="flexible-links">
           <a href="https://helpx.adobe.com/ru/premiere-pro/using/whats-new.html">
             Что нового в Premiere Pro последних выпусков

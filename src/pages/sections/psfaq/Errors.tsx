@@ -1,11 +1,18 @@
 import React from "react";
-import GithubUpdateInfo from "../../../components/features/GithubUpdateInfo";
-import {AdditionInfo, AdditionWarning} from "../../../components/Additions";
-import {ImageFigure, YouTubeVideo} from "../../../components/ContentFigure";
-import DetailsSummary from "../../../components/DetailsSummary";
-import ContentSwitcher from "../../../components/features/ContentFilter";
-import HostsAdobeModal from "../../../components/features/HostsAdobe";
+
 import {Divider} from "antd";
+
+import GithubUpdateInfo from "../../../components/features/GithubUpdateInfo";
+
+import {AdditionInfo, AdditionWarning} from "../../../components/Additions";
+
+import {ImageFigure, YouTubeVideo} from "../../../components/ContentFigure";
+
+import DetailsSummary from "../../../components/DetailsSummary";
+
+import ContentSwitcher from "../../../components/features/ContentFilter";
+
+import HostsAdobeModal from "../../../components/features/HostsAdobe";
 
 const PSErrors: React.FC = () => (
   <div className="faq-content">

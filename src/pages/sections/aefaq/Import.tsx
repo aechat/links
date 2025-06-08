@@ -1,14 +1,21 @@
 import React from "react";
+
+import {Divider} from "antd";
+
 import DetailsSummary from "../../../components/DetailsSummary";
+
 import GithubUpdateInfo from "../../../components/features/GithubUpdateInfo";
+
 import {
   AdditionDanger,
   AdditionInfo,
   AdditionWarning,
 } from "../../../components/Additions";
+
 import {ImageFigure, VideoFigure, YouTubeVideo} from "../../../components/ContentFigure";
+
 import TgsToJsonConverter from "../../../components/features/ConverterTgsToJson";
-import {Divider} from "antd";
+
 import ContentSwitcher from "../../../components/features/ContentFilter";
 
 const AEImport: React.FC = () => {
@@ -402,7 +409,7 @@ const AEImport: React.FC = () => {
           сильно измениться.
         </AdditionWarning>
         <p>
-          После изменения цветового режима сохраните <mark className="file">.psd</mark>{" "}
+          После изменения цветового режима сохраните <mark className="file">PSD</mark>{" "}
           файл и попробуйте снова импортировать его в{" "}
           <mark className="app">Adobe After Effects</mark>.
         </p>
@@ -517,7 +524,7 @@ const AEImport: React.FC = () => {
           Давайте представим, что вы смонтировали видеоролик в{" "}
           <mark className="app">Adobe Premiere Pro</mark> и теперь хотите перенести его в{" "}
           <mark className="app">Adobe After Effects</mark>. Если вы просто импортируете{" "}
-          <mark className="file">.prproj</mark> с помощью комбинации клавиш{" "}
+          <mark className="file">PRPROJ</mark> с помощью комбинации клавиш{" "}
           <mark className="key">Ctrl + I</mark>, то получите секвенцию, которую нельзя
           редактировать в <mark className="app">Adobe After Effects</mark>. Но мы же
           хотим, чтобы её можно было редактировать, как будто мы действительно
@@ -565,16 +572,16 @@ const AEImport: React.FC = () => {
           новее появился новый движок рендеринга{" "}
           <mark className="plugin">Advanced 3D</mark>, который позволяет импортировать
           3D-объекты без использования сторонних плагинов. На момент написания этой статьи
-          в последней версии можно импортировать <mark className="file">.obj</mark>,{" "}
-          <mark className="file">.fbx</mark>, <mark className="file">.gtlf</mark> и{" "}
-          <mark className="file">.glb</mark>. Такие модели можно создать в любом
-          популярном 3D-редакторе, например <mark className="app">Blender</mark>,{" "}
+          в последней версии можно импортировать <mark className="file">OBJ</mark>,{" "}
+          <mark className="file">FBX</mark>, <mark className="file">GTLF</mark> и{" "}
+          <mark className="file">GLB</mark>. Такие модели можно создать в любом популярном
+          3D-редакторе, например <mark className="app">Blender</mark>,{" "}
           <mark className="app">Cinema 4D</mark> или{" "}
           <mark className="app">Substance Painter 3D</mark>.
         </p>
         <AdditionInfo>
           <mark>Adobe</mark> рекомендует использовать формат моделей{" "}
-          <mark className="file">.glb</mark>, так как в один файл обычно уже запакованы
+          <mark className="file">GLB</mark>, так как в один файл обычно уже запакованы
           нужные материалы и текстуры.
         </AdditionInfo>
         <YouTubeVideo
@@ -582,7 +589,7 @@ const AEImport: React.FC = () => {
           link="qPOkGR7Ek2I"
         />
         <p>
-          Чтобы импортировать проект формата <mark className="file">.c4d</mark> в{" "}
+          Чтобы импортировать проект формата <mark className="file">C4D</mark> в{" "}
           <mark className="app">Adobe After Effects</mark>, на устройстве должна быть
           установлена полноценная <mark className="app">Cinema 4D</mark>. В противном
           случае программа будет выдавать ошибку и требовать установленную версию{" "}
@@ -596,11 +603,11 @@ const AEImport: React.FC = () => {
           Если вы используете <mark className="app">Adobe After Effects</mark> версии ниже{" "}
           <mark>24.0</mark>, то вам придется использовать сторонний плагин{" "}
           <mark className="plugin">Element 3D</mark>. Он поддерживает импорт файлов
-          формата <mark className="file">.c4d</mark>, <mark className="file">.obj</mark> и{" "}
-          <mark className="file">.e3d</mark>.
+          формата <mark className="file">C4D</mark>, <mark className="file">OBJ</mark> и{" "}
+          <mark className="file">E3D</mark>.
         </p>
         <AdditionWarning>
-          Для импорта <mark className="file">.c4d</mark> файлов требуется установленная
+          Для импорта <mark className="file">C4D</mark> файлов требуется установленная
           полноценная версия <mark className="app">Cinema 4D</mark> на вашем устройстве.
         </AdditionWarning>
         <YouTubeVideo
@@ -617,8 +624,8 @@ const AEImport: React.FC = () => {
           <mark className="app">Adobe Media Encoder</mark> изначально не поддерживают
           большое количество кодеков, например <mark className="video">VP9</mark>,{" "}
           <mark className="video">AV1</mark>, а также контейнеры{" "}
-          <mark className="file">.webm</mark>, <mark className="file">.flv</mark>,{" "}
-          <mark className="file">.mkv</mark> и прочие. Если у вас небольшой проект и нет
+          <mark className="file">WEBM</mark>, <mark className="file">FLV</mark>,{" "}
+          <mark className="file">MKV</mark> и прочие. Если у вас небольшой проект и нет
           желания заниматься перекодированием исходников, то вы можете попробовать плагин{" "}
           <a href="https://www.autokroma.com/Influx">Autokroma Influx</a>. Он облегчает
           импорт некоторых файлов которые не поддерживаются в{" "}
@@ -696,14 +703,14 @@ const AEImport: React.FC = () => {
         />
         <p>
           После вставки ссылки и нажатия на кнопку <mark className="ui">OK</mark>, нажмите
-          на файл с форматом <mark className="file">.appxbundle</mark> для его скачивания.
+          на файл с форматом <mark className="file">APPXBUNDLE</mark> для его скачивания.
         </p>
         <AdditionWarning>
           Если браузер жалуется, мол вы скачиваете редкий файл или некий вирус, то
           проигнорируйте и продолжите скачивание дальше.
         </AdditionWarning>
         <p>
-          Для установки пакетов с расширением <mark className="file">.appxbundle</mark> -
+          Для установки пакетов с расширением <mark className="file">APPXBUNDLE</mark> -
           достаточно их открыть двойным кликом. Если вам предлагают открыть файл с помощью{" "}
           <mark className="app">Обработчика команд Windows</mark> или{" "}
           <mark className="app">Установщика приложений</mark>, то выберите то, что вам
@@ -712,34 +719,34 @@ const AEImport: React.FC = () => {
         </p>
         <p>
           После успешной установки кодеков вы теперь сможете открыть файлы форматов{" "}
-          <mark className="file">.heif</mark>, <mark className="file">.heic</mark> и{" "}
-          <mark className="file">.hevc</mark> в различных видеоплеерах и просмотрщиков
+          <mark className="file">HEIF</mark>, <mark className="file">HEIC</mark> и{" "}
+          <mark className="file">HEVC</mark> в различных видеоплеерах и просмотрщиков
           фото, например в <mark className="app">MPC-HC</mark> и{" "}
           <mark className="app">FastStone Image Viewer</mark>.
         </p>
       </DetailsSummary>
       <DetailsSummary
         tag="открыть могрт, import mogrt, aeproject"
-        title="Как открыть анимационный шаблон формата .mogrt и импортировать в свой проект?"
+        title="Как открыть анимационный шаблон формата MOGRT и импортировать в свой проект?"
       >
         <p>
-          Шаблоны анимации в формате <mark className="file">.mogrt</mark> обычно создаются
+          Шаблоны анимации в формате <mark className="file">MOGRT</mark> обычно создаются
           в <mark className="app">Adobe After Effects</mark> и используется позже в
           проектах <mark className="app">Adobe Premiere Pro</mark>. Но при необходимости
           такие файлы можно распаковать обратно и использовать в своих композициях{" "}
           <mark className="app">Adobe After Effects</mark>.
         </p>
-        <Divider>Открываем .mogrt как проект</Divider>
+        <Divider>Открываем MOGRT как проект</Divider>
         <p>
-          Чтобы открыть шаблон формата <mark className="file">.mogrt</mark> - нужно
-          открыть окно открытия проекта с помощью{" "}
+          Чтобы открыть шаблон формата <mark className="file">MOGRT</mark> - нужно открыть
+          окно открытия проекта с помощью{" "}
           <mark className="ui">File &gt; Open Project</mark> или{" "}
           <mark className="key">Ctrl + O</mark>. В открывшемся окне проводника выберите
-          нужный файл <mark className="file">.mogrt</mark>, а затем укажите папку, куда
+          нужный файл <mark className="file">MOGRT</mark>, а затем укажите папку, куда
           нужно распаковать этот проект и нажмите на <mark className="ui">Extract</mark>.
           После этого <mark className="app">Adobe After Effects</mark> конвертирует{" "}
-          <mark className="file">.mogrt</mark> шаблон как отдельный проект и сохранит его
-          в указанной папке.
+          <mark className="file">MOGRT</mark> шаблон как отдельный проект и сохранит его в
+          указанной папке.
         </p>
         <AdditionWarning>
           Через <mark className="ui">File &gt; Import</mark> такие шаблоны импортировать в
@@ -751,19 +758,19 @@ const AEImport: React.FC = () => {
           <mark className="ui">Essential Graphics</mark> с помощью{" "}
           <mark className="ui">Composition &gt; Open in Essential Graphics</mark>. В этом
           же окне вы можете обратно запаковать проект в{" "}
-          <mark className="file">.mogrt</mark> после нужных правок.
+          <mark className="file">MOGRT</mark> после нужных правок.
         </p>
         {/* TODO: приложить скриншот */}
-        <Divider>Используем .mogrt в другом проекте</Divider>
+        <Divider>Используем MOGRT в другом проекте</Divider>
         <p>
           Так как с помощью <mark className="ui">Open Project</mark> мы конвертировали
-          анимацию формата <mark className="file">.mogrt</mark> в{" "}
-          <mark className="file">.aep</mark> - его можно будет спокойно применять в своих
+          анимацию формата <mark className="file">MOGRT</mark> в{" "}
+          <mark className="file">AEP</mark> - его можно будет спокойно применять в своих
           проектах с помощью импорта композиций через{" "}
           <mark className="ui">File &gt; Import</mark> или комбинации клавиш{" "}
           <mark className="key">Ctrl + I</mark>. В открывшемся окне импорта нужно указать{" "}
-          <mark className="file">.aep</mark> файл в директории, в которую изначально был
-          распакован <mark className="ui">.mogrt</mark> файл из предыдущих действий.
+          <mark className="file">AEP</mark> файл в директории, в которую изначально был
+          распакован <mark className="ui">MOGRT</mark> файл из предыдущих действий.
           Импортированные композиции появятся в окне <mark className="ui">Project</mark> и
           редактировать такие анимационные шаблоны можно также через{" "}
           <mark className="ui">Composition &gt; Open in Essential Graphics</mark> или
@@ -798,16 +805,16 @@ const AEImport: React.FC = () => {
           <a href="https://t.me/addstickers/AnimatedEmojies">тут</a>.
         </AdditionInfo>
         <p>
-          После того как вы получили <mark className="file">.tgs</mark> - его нужно
-          переконвертировать в <mark className="file">.json</mark>. Сделать это вы можете
-          с помощью конвертера ниже, предоставив ему файл. После успешной конвертации не
+          После того как вы получили <mark className="file">TGS</mark> - его нужно
+          переконвертировать в <mark className="file">JSON</mark>. Сделать это вы можете с
+          помощью конвертера ниже, предоставив ему файл. После успешной конвертации не
           забудьте скачать файл, а затем выберите один из способов импорта в{" "}
           <mark className="app">Adobe After Effects</mark> - через{" "}
           <mark className="plugin">LottieFiles</mark> или{" "}
           <mark className="plugin">Bodymovin</mark>.
         </p>
         <AdditionDanger>
-          Учтите, что в силу особенностей импорта <mark className="file">.json</mark>{" "}
+          Учтите, что в силу особенностей импорта <mark className="file">JSON</mark>{" "}
           файлов - некоторые элементы анимации могут импортироваться некорректно.
         </AdditionDanger>
         <Divider>Конвертер TGS в JSON</Divider>
@@ -817,7 +824,7 @@ const AEImport: React.FC = () => {
           <mark className="plugin">LottieFiles for After Effects</mark> - официальное
           бесплатное<sup>*</sup> расширение от{" "}
           <a href="https://lottiefiles.com/">LottieFiles</a>, с помощью которого вы можете
-          импортировать <mark className="file">.json</mark> анимацию в композицию{" "}
+          импортировать <mark className="file">JSON</mark> анимацию в композицию{" "}
           <mark className="app">Adobe After Effects</mark>. Скачать его можно на из{" "}
           <a href="https://aescripts.com/lottiefiles/">aescripts</a>. После установки
           расширение появится в <mark className="ui">Window &gt; Extensions</mark>. При
@@ -855,7 +862,7 @@ const AEImport: React.FC = () => {
           После успешного входа в аккаунт - перейдите во вкладку{" "}
           <mark className="ui">Import</mark> в расширении и нажмите на кнопку{" "}
           <mark className="ui">Browse</mark> для выбора вашего{" "}
-          <mark className="file">.json</mark> файла. Расширение начнёт конвертацию и
+          <mark className="file">JSON</mark> файла. Расширение начнёт конвертацию и
           создаст новую композицию с вашей анимацией, которую вы можете использовать
           дальше в своих проектах.
         </p>
@@ -907,7 +914,7 @@ const AEImport: React.FC = () => {
           После открытия расширения <mark className="plugin">Bodymovin</mark> - перейдите
           во вкладку <mark className="ui">Import Lottie Animation</mark> и нажмите на
           кнопку <mark className="ui">Import Local File</mark>. В открытом окне проводника
-          выберите нужный файл формата <mark className="file">.json</mark>, который был
+          выберите нужный файл формата <mark className="file">JSON</mark>, который был
           конвертирован ранее.
         </p>
         <ImageFigure
@@ -917,7 +924,7 @@ const AEImport: React.FC = () => {
           styleClass="figure_windows-dark"
         />
         <p>
-          Импорт <mark className="file">.json</mark> в{" "}
+          Импорт <mark className="file">JSON</mark> в{" "}
           <mark className="app">Adobe After Effects</mark> может занять некоторое время.
           После импорта у вас появится новая композиция в окне{" "}
           <mark className="ui">Project</mark>. В некоторых случаях импортирование может
@@ -1041,7 +1048,7 @@ const AEImport: React.FC = () => {
               <p>
                 Для корректного открытия чужого проекта - распакуйте полностью архив, а
                 затем зайдите в распакованную директорию и откройте{" "}
-                <mark className="file">.aep</mark> проект оттуда.
+                <mark className="file">AEP</mark> проект оттуда.
               </p>
               <ImageFigure
                 caption="Распаковка через контекстное меню"
@@ -1056,7 +1063,7 @@ const AEImport: React.FC = () => {
               <p>
                 Для корректного открытия чужого проекта - распакуйте полностью архив, а
                 затем зайдите в распакованную директорию и откройте{" "}
-                <mark className="file">.aep</mark> проект оттуда.
+                <mark className="file">AEP</mark> проект оттуда.
               </p>
               <YouTubeVideo
                 caption="Распаковка многотомного архива"
@@ -1069,8 +1076,8 @@ const AEImport: React.FC = () => {
           Восстанавливаем путь к исходникам после перемещения или переименования файлов
         </Divider>
         <p>
-          Если вы переместили <mark className="file">.aep</mark> файл, а исходники
-          оставили в другом, то вы можете их переподключить вручную. Для этого в окне{" "}
+          Если вы переместили <mark className="file">AEP</mark> файл, а исходники оставили
+          в другом, то вы можете их переподключить вручную. Для этого в окне{" "}
           <mark className="ui">Project</mark> в поиске напишите{" "}
           <mark className="copy">Missing Footage</mark>. В результатах поиска будут
           выведены файлы проекта, которые потеряли связь с исходниками. Для того, чтобы
@@ -1090,7 +1097,7 @@ const AEImport: React.FC = () => {
       >
         <p>
           Предположим, что у вас возникла необходимость перенести файл формата{" "}
-          <mark className="file">.ai</mark>. Да,{" "}
+          <mark className="file">AI</mark>. Да,{" "}
           <mark className="app">Adobe After Effects</mark> предоставляет такую
           возможность. Однако, стоит отметить, что при работе с большинством проектов,
           созданных в <mark className="app">Adobe Illustrator</mark>, вы можете
@@ -1115,8 +1122,8 @@ const AEImport: React.FC = () => {
         <p>
           Затем после разбивки слоёв, сохраните проект в{" "}
           <mark className="app">Adobe Illustrator</mark> как{" "}
-          <mark className="file">.ai</mark>. После этого, начните импорт{" "}
-          <mark className="file">.ai</mark> файла в{" "}
+          <mark className="file">AI</mark>. После этого, начните импорт{" "}
+          <mark className="file">AI</mark> файла в{" "}
           <mark className="app">Adobe After Effects</mark> как обычно и выберите тип
           импорта как композиция. Также вы можете выбрать размер слоёв в{" "}
           <mark className="ui">Footage Dimensions</mark>:{" "}
@@ -1197,7 +1204,7 @@ const AEImport: React.FC = () => {
         </AdditionInfo>
         <p>
           Плагин для <mark className="app">Adobe After Effects</mark> распространяется в
-          формате <mark className="file">.zxp</mark>, поэтому можно его установить как
+          формате <mark className="file">ZXP</mark>, поэтому можно его установить как
           через <a href="https://updates.aescripts.com/zxp-installer/">ZXP Installer</a>,
           так и через ручную установку.
         </p>
@@ -1260,4 +1267,5 @@ const AEImport: React.FC = () => {
     </div>
   );
 };
+
 export default AEImport;

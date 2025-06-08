@@ -1,9 +1,14 @@
 import React from "react";
-import GithubUpdateInfo from "../../../components/features/GithubUpdateInfo";
-import DetailsSummary from "../../../components/DetailsSummary";
-import {ImageFigure, YouTubeVideo} from "../../../components/ContentFigure";
-import {AdditionInfo, AdditionWarning} from "../../../components/Additions";
+
 import {Divider} from "antd";
+
+import GithubUpdateInfo from "../../../components/features/GithubUpdateInfo";
+
+import DetailsSummary from "../../../components/DetailsSummary";
+
+import {ImageFigure, YouTubeVideo} from "../../../components/ContentFigure";
+
+import {AdditionInfo, AdditionWarning} from "../../../components/Additions";
 
 const PRActions: React.FC = () => {
   return (
@@ -449,11 +454,11 @@ const PRActions: React.FC = () => {
         <p>
           После генерации вы можете отредактировать сгенерированные субтитры в{" "}
           <mark className="app">Subtitle Edit</mark> или сразу сохранить их в формате{" "}
-          <mark className="file">.srt</mark> для дальнейшей обработки в{" "}
+          <mark className="file">SRT</mark> для дальнейшей обработки в{" "}
           <mark className="app">Adobe After Effects</mark>. Сохранить ваши субтитры можно
           с помощью комбинации клавиш <mark className="key">Ctrl + S</mark>. В открывшемся
           окне для сохранения файла - укажите название файла, путь для сохранения и, при
-          необходимости, формат файла <mark className="file">.srt</mark>.
+          необходимости, формат файла <mark className="file">SRT</mark>.
         </p>
         <Divider>Импортируем файл субтитров в секвенцию</Divider>
         <p>

@@ -1,4 +1,5 @@
 import {InfoOutlined, ReportOutlined, WarningAmberOutlined} from "@mui/icons-material";
+
 import React from "react";
 
 interface AdditionProps {
@@ -25,4 +26,5 @@ const AdditionDanger: React.FC<AdditionProps> = ({children}) => (
     <div>{children}</div>
   </div>
 );
+
 export {AdditionDanger, AdditionInfo, AdditionWarning};

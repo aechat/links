@@ -1,17 +1,25 @@
 import React from "react";
-import Header from "../components/Header";
+
 import {Breadcrumb} from "antd";
+
 import {Link, useLocation} from "react-router-dom";
-import {AdditionDanger, AdditionInfo, AdditionWarning} from "../components/Additions";
+
 import {motion} from "framer-motion";
-import Footer from "../components/Footer";
+
 import {Helmet} from "react-helmet-async";
+
+import {AdditionDanger, AdditionInfo, AdditionWarning} from "../components/Additions";
+
+import Footer from "../components/Footer";
+
+import Header from "../components/Header";
 
 const ChatRules = () => {
   const {hash} = useLocation();
   React.useEffect(() => {
     if (hash) {
       const element = document.querySelector(hash);
+
       if (element) {
         element.scrollIntoView({
           behavior: "smooth",
@@ -615,4 +623,5 @@ const ChatRules = () => {
     </div>
   );
 };
+
 export default ChatRules;

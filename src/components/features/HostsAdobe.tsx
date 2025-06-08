@@ -1,5 +1,7 @@
 import React, {useState} from "react";
+
 import {motion} from "framer-motion";
+
 import {Modal} from "antd";
 import {CloseRounded} from "@mui/icons-material";
 import {AdditionInfo} from "../Additions";
@@ -4340,4 +4342,5 @@ const HostsAdobeModal: React.FC = () => {
     </div>
   );
 };
+
 export default HostsAdobeModal;

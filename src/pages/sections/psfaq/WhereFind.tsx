@@ -1,12 +1,17 @@
 import React from "react";
+
+import {Divider} from "antd";
+
 import GithubUpdateInfo from "../../../components/features/GithubUpdateInfo";
+
 import {
   AdditionDanger,
   AdditionInfo,
   AdditionWarning,
 } from "../../../components/Additions";
+
 import DetailsSummary from "../../../components/DetailsSummary";
-import {Divider} from "antd";
+
 import {ImageFigure, VideoFigure, YouTubeVideo} from "../../../components/ContentFigure";
 
 const PSWhereFind: React.FC = () => {
@@ -532,8 +537,8 @@ const PSWhereFind: React.FC = () => {
             страницу релизов плагина на GitHub
           </a>{" "}
           и выбираем любой удобный вам способ установки плагина. Я же выберу вариант
-          установки плагина через распаковку <mark className="file">.zip</mark> архива и
-          скачиваю именно <mark className="file">.zip</mark> файл. Его нужно распаковать в
+          установки плагина через распаковку <mark className="file">ZIP</mark> архива и
+          скачиваю именно <mark className="file">ZIP</mark> файл. Его нужно распаковать в
           папку{" "}
           <mark className="path">
             C:\Program Files\Adobe\Adobe Photoshop 20XX\Plug-ins

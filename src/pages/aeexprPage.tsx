@@ -1,15 +1,27 @@
 import React, {Suspense, lazy, useEffect, useState} from "react";
+
 import {Breadcrumb, Divider} from "antd";
+
 import {motion} from "framer-motion";
+
 import {Link} from "react-router-dom";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
+
 import {Helmet} from "react-helmet-async";
-import {SearchInPage, SearchProvider} from "../components/search";
-import SupportDonut from "../components/modal/SupportDonut";
-import CopyToClipboard from "../components/features/CopyToClipboard";
+
 import {CircularProgress} from "@mui/material";
+
+import Header from "../components/Header";
+
+import Footer from "../components/Footer";
+
+import {SearchInPage, SearchProvider} from "../components/search";
+
+import SupportDonut from "../components/modal/SupportDonut";
+
+import CopyToClipboard from "../components/features/CopyToClipboard";
+
 import {generateAnchorId} from "../components/DetailsSummary";
+
 import {AdditionDanger, AdditionWarning} from "../components/Additions";
 
 const AEExprStart = lazy(() => import("./sections/aeexpr/Start"));
@@ -28,11 +40,31 @@ const AEExpressionPage = () => {
   }, []);
 
   const sections = [
-    {key: "1", title: "Начинаем выражать выражения", id: "start", component: AEExprStart},
+    {
+      key: "1",
+      title: "Начинаем выражать выражения",
+      id: "start",
+      component: AEExprStart,
+    },
     {key: "2", title: "Основы синтаксиса", id: "base", component: AEExprBase},
-    {key: "3", title: "Ссылки и привязки", id: "linking", component: AEExprLinking},
-    {key: "4", title: "Примеры выражений", id: "actions", component: AEExprActions},
-    {key: "5", title: "Ошибки и предупреждения", id: "errors", component: AEExprErrors},
+    {
+      key: "3",
+      title: "Ссылки и привязки",
+      id: "linking",
+      component: AEExprLinking,
+    },
+    {
+      key: "4",
+      title: "Примеры выражений",
+      id: "actions",
+      component: AEExprActions,
+    },
+    {
+      key: "5",
+      title: "Ошибки и предупреждения",
+      id: "errors",
+      component: AEExprErrors,
+    },
   ];
 
   const [visibleSections, setVisibleSections] = useState<string[]>([]);
@@ -110,7 +142,9 @@ const AEExpressionPage = () => {
                       title: <Link to="/aeexpr">FAQ по выражениям в After Effects</Link>,
                       menu: {
                         items: [
-                          {title: <Link to="/aefaq">FAQ по Adobe After Effects</Link>},
+                          {
+                            title: <Link to="/aefaq">FAQ по Adobe After Effects</Link>,
+                          },
                           {
                             title: <Link to="/prfaq">FAQ по Adobe Premiere Pro</Link>,
                           },
@@ -137,9 +171,9 @@ const AEExpressionPage = () => {
                 полноценным курсом по написанию выражений в{" "}
                 <mark className="app">Adobe After Effects</mark>, а также здесь не будут
                 разбираться случаи с написанием скриптов формата{" "}
-                <mark className="file">.jsx</mark> и <mark className="file">.jsxbin</mark>
-                . Примеры выражений выполняются на движке <mark>JavaScript</mark>, его
-                можно изменить во вкладке <mark className="ui">Expression</mark> окна{" "}
+                <mark className="file">JSX</mark> и <mark className="file">JSXBIN</mark>.
+                Примеры выражений выполняются на движке <mark>JavaScript</mark>, его можно
+                изменить во вкладке <mark className="ui">Expression</mark> окна{" "}
                 <mark className="ui">Project Manager</mark>, который открывается с помощью
                 комбинации клавиш <mark className="key">Ctrl + Alt + Shift + K</mark>.
               </AdditionWarning>
@@ -183,6 +217,7 @@ const AEExpressionPage = () => {
                   >
                     {visibleSections.map((key) => {
                       const section = sections.find((s) => s.key === key);
+
                       if (!section) {
                         return null;
                       }
@@ -221,4 +256,5 @@ const AEExpressionPage = () => {
     </div>
   );
 };
+
 export default AEExpressionPage;

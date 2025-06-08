@@ -1,14 +1,20 @@
 import React from "react";
+
+import {Divider} from "antd";
+
 import DetailsSummary from "../../../components/DetailsSummary";
+
 import GithubUpdateInfo from "../../../components/features/GithubUpdateInfo";
+
 import {
   AdditionDanger,
   AdditionInfo,
   AdditionWarning,
 } from "../../../components/Additions";
+
 import {ImageFigure, VideoFigure, YouTubeVideo} from "../../../components/ContentFigure";
+
 import ContentSwitcher from "../../../components/features/ContentFilter";
-import {Divider} from "antd";
 
 const AEInterface: React.FC = () => {
   return (
@@ -309,8 +315,8 @@ const AEInterface: React.FC = () => {
       </DetailsSummary>
       <DetailsSummary title="Почему я не могу прикрепить окно скрипта. Есть какие-то способы закрепить его?">
         <p>
-          Скрипты формата <mark className="file">.jsx</mark> или{" "}
-          <mark className="file">.jsxbin</mark>, которые содержат интерфейс, не могут быть
+          Скрипты формата <mark className="file">JSX</mark> или{" "}
+          <mark className="file">JSXBIN</mark>, которые содержат интерфейс, не могут быть
           прикреплены, если они находятся в директории{" "}
           <mark className="path">...\Adobe After Effects 20XX\Support Files\Scripts</mark>
           , минуя папку <mark className="path">ScriptUI Panels</mark>.
@@ -322,7 +328,7 @@ const AEInterface: React.FC = () => {
         />
         <p>
           Для возможности прикрепления таких окон в рабочее пространство скрипты формата{" "}
-          <mark className="file">.jsx</mark> или <mark className="file">.jsxbin</mark>{" "}
+          <mark className="file">JSX</mark> или <mark className="file">JSXBIN</mark>{" "}
           необходимо переместить в папку <mark className="path">ScriptUI Panels</mark>.
           После этого требуется перезагрузка{" "}
           <mark className="app">Adobe After Effects</mark>, если приложение уже было
@@ -979,15 +985,14 @@ const AEInterface: React.FC = () => {
           <b>
             <u>вы делаете на свой страх и риск!</u>
           </b>{" "}
-          А лучше не занимайтесь такой бесполезной х&$%й. После обновления программы ваша
-          картинка перезапишется на исходную. Инструкция действительна только для
-          устройств на <mark>Windows</mark>.
+          После обновления программы ваша картинка перезапишется на исходную. Инструкция
+          действительна только для устройств на <mark>Windows</mark>.
         </AdditionDanger>
         <p>
           При запуске <mark className="app">Adobe After Effects</mark> вы часто видите
-          какую-либо картинку, задуманной Adobe и наверное задумывались, что неплохо бы её
-          заменить на свою. Да, такое можно сделать с помощью махинаций с{" "}
-          <mark className="file">.dll</mark> файлами. Для этого нам пригодится программа{" "}
+          какую-либо картинку, задуманной <mark>Adobe</mark> и наверное задумывались, что
+          неплохо бы её заменить на свою. Да, такое можно сделать с помощью махинаций с{" "}
+          <mark className="file">DLL</mark> файлами. Для этого нам пригодится программа{" "}
           <mark className="app">Resource Hacker</mark>, которую можно загрузить{" "}
           <a href="https://angusj.com/resourcehacker/#download">по этой ссылке</a>.
         </p>
@@ -1020,13 +1025,13 @@ const AEInterface: React.FC = () => {
           - укажите любое удобное вам место сохранения изображения.
         </p>
         <AdditionInfo>
-          Всего есть три изображения, каждое из которых адаптировано под определённый
-          масштаб дисплея. Вы можете заменить один, два или все три файла в зависимости от
+          Всего есть три файла, каждое из которых адаптировано под определённый масштаб
+          дисплея. Вы можете заменить одно, два или все три изображения в зависимости от
           ваших личных предпочтений, если часто меняете масштабирование системы. По
           аналогии вы можете изменить плашку для окна <mark className="ui">About</mark>,
-          заменив файлы <mark className="file">AE_ABOUT</mark>,{" "}
-          <mark className="file">AE_ABOUT_AT_2X</mark> и{" "}
-          <mark className="file">AE_ABOUT_AT_3TO2X</mark>
+          заменив файлы <mark className="image">AE_ABOUT</mark>,{" "}
+          <mark className="image">AE_ABOUT_AT_2X</mark> и{" "}
+          <mark className="image">AE_ABOUT_AT_3TO2X</mark>.
         </AdditionInfo>
         <ImageFigure
           caption="Resource Hacker"
@@ -1040,12 +1045,12 @@ const AEInterface: React.FC = () => {
           <mark className="app">GIMP</mark>,{" "}
           <mark className="app">Adobe Illustrator</mark> и даже в самом{" "}
           <mark className="app">Adobe After Effects</mark>. Нужно просто не менять размер
-          изображения и сохранить его также в <mark className="file">.png</mark>.
+          изображения и сохранить его также в <mark className="image">PNG</mark>.
         </p>
         <p>
           Я же просто заменю в <mark className="app">Adobe Photoshop</mark> стандартное
           изображение на изображение автомобиля <mark>Ford Focus</mark> и сохраню его в{" "}
-          <mark className="file">.png</mark>.
+          <mark className="image">PNG</mark>.
         </p>
         <ImageFigure
           caption="Пример модификации изображения при загрузке Adobe After Effects"
@@ -1086,4 +1091,5 @@ const AEInterface: React.FC = () => {
     </div>
   );
 };
+
 export default AEInterface;

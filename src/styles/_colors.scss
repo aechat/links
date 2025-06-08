@@ -1,19 +1,16 @@
 @use "dark-colors" as *;
 @use "light-colors" as *;
-
 :root {
   --accent-hue: 210;
-  --header-shadow: hsla(0, 0%, 0%, 0.05);
-  --shadow: hsla(0, 0%, 0%, 0.075);
+  --header-shadow: hsl(0deg 0% 0% / 5%);
+  --shadow: hsl(0deg 0% 0% / 7.5%);
   --saturate-ratio: 1;
 }
-
 .light {
   @each $key, $value in $light {
     --#{$key}: #{$value};
   }
 }
-
 .dark {
   @each $key, $value in $dark {
     --#{$key}: #{$value};

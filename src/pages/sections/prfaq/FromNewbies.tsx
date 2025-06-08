@@ -1,13 +1,18 @@
 import React from "react";
+
+import {Divider} from "antd";
+
 import GithubUpdateInfo from "../../../components/features/GithubUpdateInfo";
+
 import DetailsSummary from "../../../components/DetailsSummary";
+
 import {ImageFigure, VideoFigure, YouTubeVideo} from "../../../components/ContentFigure";
+
 import {
   AdditionDanger,
   AdditionInfo,
   AdditionWarning,
 } from "../../../components/Additions";
-import {Divider} from "antd";
 
 const PRFromNewbies: React.FC = () => {
   return (
@@ -15,14 +20,14 @@ const PRFromNewbies: React.FC = () => {
       <GithubUpdateInfo filePath="src/pages/sections/prfaq/FromNewbies.tsx" />
       <DetailsSummary
         tag="для новичка, первый раз, только открыл"
-        title="Первый раз установил Premiere Pro, с чего бы мне начать обучение?"
+        title="Первый раз установил Adobe Premiere Pro, с чего бы мне начать обучение?"
       >
         <p>
           Если вы только начинаете свой путь в монтаже или никогда не использовали{" "}
           <mark className="app">Adobe Premiere Pro</mark> как основной инструмент и хотите
           разобраться в интерфейсе и его возможностях, то посмотрите плейлист{" "}
           <a href="https://www.youtube.com/watch?v=Wi-AalXwilg&list=PLcN7xY5E2wrmIlv6SNF2xacsryFtGIfXK&pp=iAQB">
-            Азбука Premiere Pro
+            Азбука Adobe Premiere Pro
           </a>{" "}
           от{" "}
           <a href="https://www.youtube.com/channel/UCmLY17yagzLy6GRiI1nVBow">
@@ -64,20 +69,26 @@ const PRFromNewbies: React.FC = () => {
           </a>
           <a href="https://www.youtube.com/@VIDEODIM/videos">Как монтировать видео</a>
         </div>
-        <p style={{textAlign: "center", fontSize: "0.95rem", fontWeight: "700"}}>
+        <p
+          style={{
+            textAlign: "center",
+            fontSize: "0.95rem",
+            fontWeight: "700",
+          }}
+        >
           Надеюсь, вы найдёте что-то полезное для себя. Удачи в ваших начинаниях!
         </p>
       </DetailsSummary>
       <DetailsSummary
         tag="сленг, жаргон, сокращения, словосочетания, говор"
-        title="Не понимаю термины от других пользователей Premiere Pro, проясните!"
+        title="Не понимаю термины от других пользователей Adobe Premiere Pro, проясните!"
       >
         <p></p>
         {/* FIXME: написать!! по аналогии как с терминами в аефаке */}
       </DetailsSummary>
       <DetailsSummary
         tag="хоткеи, горячие клавиши, шорткаты, ускорение работы"
-        title="А есть список популярных комбинаций клавиш для работы в Premiere Pro?"
+        title="А есть список популярных комбинаций клавиш для работы в Adobe Premiere Pro?"
       >
         <p>
           Шорткаты могут помочь ускорить ваш рутинный процесс нахождения нужной функции
@@ -959,7 +970,7 @@ const PRFromNewbies: React.FC = () => {
       </DetailsSummary>
       <DetailsSummary
         tag="что нового, фишки, обновления, апдейт"
-        title="Где я могу узнать об нововведениях в обновлениях Premiere Pro?"
+        title="Где я могу узнать об нововведениях в обновлениях Adobe Premiere Pro?"
       >
         <p>
           Обычно на сайте Adobe в день выхода публичной стабильной версии выкладываются
@@ -970,13 +981,13 @@ const PRFromNewbies: React.FC = () => {
         </p>
         <div className="flexible-links">
           <a href="https://helpx.adobe.com/ru/premiere-pro/using/whats-new.html">
-            Что нового в Premiere Pro последних выпусков
+            Что нового в Adobe Premiere Pro последних выпусков
           </a>
           <a href="https://helpx.adobe.com/ru/premiere-pro/kb/fixed-issues.html">
             Список исправленных ошибок
           </a>
           <a href="https://helpx.adobe.com/ru/premiere-pro/kb/known-issues.html">
-            Выявленные неполадки в Premiere Pro
+            Выявленные неполадки в Adobe Premiere Pro
           </a>
         </div>
         <p>
@@ -993,7 +1004,7 @@ const PRFromNewbies: React.FC = () => {
           В <mark className="app">Adobe Premiere Pro</mark>, аналогично как и с{" "}
           <mark className="app">Adobe After Effects</mark>, вы можете наткнуться на
           различные баги и приколы при использовании сторонних шаблонов,{" "}
-          <mark className="file">.mogrt</mark> или пресетов. Создатели подобного рода
+          <mark className="file">MOGRT</mark> или пресетов. Создатели подобного рода
           контента не рассчитывают на то, что вы будете использовать другую локализацию{" "}
           <mark className="app">Adobe Premiere Pro</mark>, отличную от английского.
         </p>
@@ -1023,7 +1034,7 @@ const PRFromNewbies: React.FC = () => {
         <p>
           После ввода значения - перезагрузите программу и вы сможете насладиться
           англоязычным интерфейсом программы.
-        </p>{" "}
+        </p>
         <AdditionInfo>
           Чтобы вернуть язык, который был установлен по умолчанию - достаточно убрать
           значение из этого параметра и снова перезапустить{" "}
@@ -1102,7 +1113,7 @@ const PRFromNewbies: React.FC = () => {
           вставку видео и аудиодорожек на таймлайн.
         </p>
         <YouTubeVideo
-          caption="Shortcuts for the timeline in Premiere Pro - track targeting"
+          caption="Shortcuts for the timeline in Adobe Premiere Pro - track targeting"
           link="pzQnzaRm2OY"
         />
       </DetailsSummary>
@@ -1207,9 +1218,9 @@ const PRFromNewbies: React.FC = () => {
           Устанавливая языковой пакет - смотрите, для какой версии{" "}
           <mark className="app">Adobe Premiere Pro</mark> он предназначен! Версию{" "}
           <mark className="app">Adobe Premiere Pro</mark> вы можете узнать в{" "}
-          <mark className="ui">Help &gt; About Premiere Pro</mark>. Если вы установите
-          языковой пакет для другой версии, отличной от вашей - вы не сможете использовать
-          функцию транскрибации речи в текст.
+          <mark className="ui">Help &gt; About Adobe Premiere Pro</mark>. Если вы
+          установите языковой пакет для другой версии, отличной от вашей - вы не сможете
+          использовать функцию транскрибации речи в текст.
         </AdditionDanger>
       </DetailsSummary>
       <DetailsSummary title="Почему у меня отсутствует звук при проигрывании предпросмотра?">
@@ -1245,6 +1256,7 @@ const PRFromNewbies: React.FC = () => {
             e.preventDefault();
 
             const target = document.getElementById("interface");
+
             if (target) {
               const headerHeight = document.querySelector("header")?.offsetHeight ?? 0;
 
@@ -1269,4 +1281,5 @@ const PRFromNewbies: React.FC = () => {
     </div>
   );
 };
+
 export default PRFromNewbies;

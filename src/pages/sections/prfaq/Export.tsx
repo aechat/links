@@ -1,13 +1,19 @@
 import React from "react";
+
+import {Divider} from "antd";
+
 import GithubUpdateInfo from "../../../components/features/GithubUpdateInfo";
+
 import DetailsSummary from "../../../components/DetailsSummary";
+
 import {
   AdditionDanger,
   AdditionInfo,
   AdditionWarning,
 } from "../../../components/Additions";
+
 import {ImageFigure, VideoFigure, YouTubeVideo} from "../../../components/ContentFigure";
-import {Divider} from "antd";
+
 import ContentSwitcher from "../../../components/features/ContentFilter";
 
 const PRExport: React.FC = () => {
@@ -74,7 +80,7 @@ const PRExport: React.FC = () => {
         </p>
         <ul>
           <li>
-            Контейнер у видео должен быть <mark className="file">.mp4</mark>.
+            Контейнер у видео должен быть <mark className="file">MP4</mark>.
           </li>
           <li>
             Видеокодек должен быть <mark className="video">H.264</mark>.
@@ -195,7 +201,7 @@ const PRExport: React.FC = () => {
             <mark>iOS</mark>.
           </li>
           <li>
-            Контейнер у видео должен быть <mark className="file">.mp4</mark>.
+            Контейнер у видео должен быть <mark className="file">MP4</mark>.
           </li>
           <li>
             Видеокодек должен быть <mark className="video">H.264</mark>.
@@ -210,8 +216,9 @@ const PRExport: React.FC = () => {
           Экспортируем для Instagram<sup>*</sup>
         </Divider>
         <AdditionDanger>
-          <sup>*</sup>Instagram и Meta всё ещё признаны экстремистскими организациями и
-          запрещены на территории Российской Федерации.
+          <sup>*</sup>
+          <mark className="app">Instagram</mark> и <mark>Meta</mark> всё ещё признаны
+          экстремистскими организациями и запрещены на территории Российской Федерации.
         </AdditionDanger>
         <p>
           На этой площадке можно выложить видео как отдельный пост, так и вертикальные
@@ -505,9 +512,9 @@ const PRExport: React.FC = () => {
         </p>
         <AdditionInfo>
           По умолчанию в <mark className="plugin">AfterCodecs</mark> стоит контейнер{" "}
-          <mark className="file">.mov</mark>. Так как мы в этой статье экспортируем видео
-          в <mark className="file">.mp4</mark>, то и указать нужно соответствующий
-          контейнер для вывода.
+          <mark className="file">MOV</mark>. Так как мы в этой статье экспортируем видео в{" "}
+          <mark className="file">MP4</mark>, то и указать нужно соответствующий контейнер
+          для вывода.
         </AdditionInfo>
         <ImageFigure
           caption="Export"
@@ -562,7 +569,7 @@ const PRExport: React.FC = () => {
         <p>
           Стандартными средствами из <mark className="app">Adobe Premiere Pro</mark> и{" "}
           <mark className="app">Adobe Media Encoder</mark> нельзя вывести композицию в{" "}
-          <mark className="file">.webm</mark>, но можно вывести в другом формате и
+          <mark className="file">WEBM</mark>, но можно вывести в другом формате и
           переконвертировать его.
         </p>
         <AdditionDanger>
@@ -643,7 +650,7 @@ const PRExport: React.FC = () => {
         </p>
         <p>
           После экспорта вы получите видео в кодеке <mark className="video">VP9</mark> и
-          контейнере <mark className="file">.webm</mark>, которое можно использовать в
+          контейнере <mark className="file">WEBM</mark>, которое можно использовать в
           веб-проектах или где-нибудь ещё.
         </p>
         <AdditionWarning>
@@ -824,7 +831,7 @@ const PRExport: React.FC = () => {
       </DetailsSummary>
       <DetailsSummary title="Как вывести секвенцию с альфа-каналом, то есть с прозрачностью?">
         <AdditionWarning>
-          В <mark className="video">H.264</mark> и <mark className="file">.mp4</mark>{" "}
+          В <mark className="video">H.264</mark> и <mark className="file">MP4</mark>{" "}
           нельзя вывести композицию с альфа-каналом. Это можно сделать только на
           устройствах с <mark>macOS</mark> и при использовании кодека{" "}
           <mark className="video">H.265 (HEVC)</mark>.
@@ -1112,8 +1119,8 @@ const PRExport: React.FC = () => {
       <DetailsSummary title="Я нарезал видео в Premiere Pro, но хочу переместить таймлайн в другую монтажную программу. Как это сделать?">
         <p>
           В <mark className="app">Adobe Premiere Pro</mark> есть функция для экспорта{" "}
-          <mark className="file">.xml</mark> файла. В этом файле хранится вся информация
-          об используемых клипах, точках их входа и выхода, а также другие параметры.
+          <mark className="file">XML</mark> файла. В этом файле хранится вся информация об
+          используемых клипах, точках их входа и выхода, а также другие параметры.
         </p>
       </DetailsSummary>
     </div>

@@ -1,14 +1,21 @@
 import React from "react";
+
+import {Divider} from "antd";
+
 import DetailsSummary from "../../../components/DetailsSummary";
+
 import {ImageFigure, VideoFigure, YouTubeVideo} from "../../../components/ContentFigure";
+
 import {
   AdditionDanger,
   AdditionInfo,
   AdditionWarning,
 } from "../../../components/Additions";
+
 import GithubUpdateInfo from "../../../components/features/GithubUpdateInfo";
-import {Divider} from "antd";
+
 import ContentSwitcher from "../../../components/features/ContentFilter";
+
 import CodeSnippet from "../../../components/features/CodeSnippet";
 
 const AEActions: React.FC = () => {
@@ -465,7 +472,7 @@ const AEActions: React.FC = () => {
           </mark>
           . В <mark className="app">Adobe After Effects</mark>, к сожалению, нет нативной
           возможности генерировать текст из речи, а также нельзя импортировать{" "}
-          <mark className="file">.srt</mark> файлы без танцев с бубнами. В этой статье мы
+          <mark className="file">SRT</mark> файлы без танцев с бубнами. В этой статье мы
           воспользуемся сторонними средствами для решения этой задачи.
         </p>
         <Divider>Генерируем речь в текст с помощью Subtitle Edit</Divider>
@@ -569,22 +576,22 @@ const AEActions: React.FC = () => {
         <p>
           После генерации вы можете отредактировать сгенерированные субтитры в{" "}
           <mark className="app">Subtitle Edit</mark> или сразу сохранить их в формате{" "}
-          <mark className="file">.srt</mark> для дальнейшей обработки в{" "}
+          <mark className="file">SRT</mark> для дальнейшей обработки в{" "}
           <mark className="app">Adobe After Effects</mark>. Сохранить ваши субтитры можно
           с помощью комбинации клавиш <mark className="key">Ctrl + S</mark>. В открывшемся
           окне для сохранения файла - укажите название файла, путь для сохранения и, при
-          необходимости, формат файла <mark className="file">.srt</mark>.
+          необходимости, формат файла <mark className="file">SRT</mark>.
         </p>
         <Divider>Импортируем файл субтитров в композицию</Divider>
         <p>
-          После того как вы сохранили и получили <mark className="file">.srt</mark> файл -
+          После того как вы сохранили и получили <mark className="file">SRT</mark> файл -
           его нужно импортировать в <mark className="app">Adobe After Effects</mark>. Как
           сказано в начале - стандартными средствами{" "}
           <mark className="app">Adobe After Effects</mark> такой файл субтитров вы не
           сможете импортировать, но никто не запрещал использовать сторонние способы. Для
           этого понадобится стороннее расширение{" "}
           <a href="https://aescripts.com/subtitle-pro/">Subtitle Pro</a>, с помощью
-          которого можно импортировать <mark className="file">.srt</mark> файлы как
+          которого можно импортировать <mark className="file">SRT</mark> файлы как
           текстовые слои в композицию <mark className="app">Adobe After Effects</mark>.
           Если вы корректно установили <mark className="plugin">Subtitle Pro</mark>, то он
           должен появиться в <mark className="ui">Window &gt; Extensions</mark>.
@@ -604,7 +611,7 @@ const AEActions: React.FC = () => {
         <p>
           В открывшемся окне расширения <mark className="plugin">Subtitle Pro</mark>{" "}
           нажмите на <mark className="ui">Import</mark> и выберите{" "}
-          <mark className="file">.srt</mark>, который вы ранее сохранили. Затем откройте
+          <mark className="file">SRT</mark>, который вы ранее сохранили. Затем откройте
           или выберите в <mark className="ui">Project</mark> нужную композицию, куда вы
           хотите применить субтитры и нажмите на <mark className="ui">Apply</mark>.
         </p>
@@ -1462,4 +1469,5 @@ const AEActions: React.FC = () => {
     </div>
   );
 };
+
 export default AEActions;

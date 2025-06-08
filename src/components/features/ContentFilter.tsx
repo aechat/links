@@ -1,4 +1,5 @@
 import {Apple, WindowSharp} from "@mui/icons-material";
+
 import React, {ReactNode, useEffect, useState} from "react";
 
 interface ContentSwitcherProps {
@@ -66,4 +67,5 @@ const ContentSwitcher: React.FC<ContentSwitcherProps> = ({
     </div>
   );
 };
+
 export default ContentSwitcher;

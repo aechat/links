@@ -1,13 +1,18 @@
 import React from "react";
+
+import {Divider} from "antd";
+
 import DetailsSummary from "../../../components/DetailsSummary";
+
 import GithubUpdateInfo from "../../../components/features/GithubUpdateInfo";
+
 import {ImageFigure, VideoFigure, YouTubeVideo} from "../../../components/ContentFigure";
+
 import {
   AdditionDanger,
   AdditionInfo,
   AdditionWarning,
 } from "../../../components/Additions";
-import {Divider} from "antd";
 
 const AEExportProblems: React.FC = () => {
   return (
@@ -129,7 +134,7 @@ const AEExportProblems: React.FC = () => {
         </AdditionInfo>
       </DetailsSummary>
       <DetailsSummary
-        tag="растянулось, соотношения пикселя, стандарт пикселя"
+        tag="растянулось, соотношения пикселя, стандарт пикселя, pixel aspect ratio"
         title="Почему моя композиция плющится в предпросмотре и после экспорта?"
       >
         <p>
@@ -407,7 +412,7 @@ const AEExportProblems: React.FC = () => {
         />
         <p>
           Если это не помогло, то попробуйте экспортировать звук из вашей композиции
-          отдельно в формате <mark className="file">.wav</mark> и заменить её в
+          отдельно в формате <mark className="audio">WAV</mark> и заменить её в
           композиции, а затем повторить попытку экспорта ещё раз.
         </p>
       </DetailsSummary>
@@ -426,7 +431,7 @@ const AEExportProblems: React.FC = () => {
           В ранних версиях <mark className="app">Adobe After Effects</mark>, до
           возвращения нативного экспорта в <mark className="video">H.264</mark>, по
           умолчанию стоял не очень оптимальный пресет для повседневного экспорта. Поэтому,
-          если новичок случайно сохранит композицию в <mark className="file">.avi</mark> с
+          если новичок случайно сохранит композицию в <mark className="file">AVI</mark> с
           кодеком <mark className="file">Animation</mark>, то он быстро столкнётся с тем,
           что размер файла у полученного ролика уйдет в небеса. В таких случаях без сжатия
           и конвертации видео не обойтись.{" "}
@@ -587,4 +592,5 @@ const AEExportProblems: React.FC = () => {
     </div>
   );
 };
+
 export default AEExportProblems;

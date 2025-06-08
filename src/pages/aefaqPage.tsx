@@ -1,15 +1,27 @@
 import React, {Suspense, lazy, useEffect, useState} from "react";
+
 import {Breadcrumb, Divider} from "antd";
+
 import {motion} from "framer-motion";
+
 import {Link} from "react-router-dom";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
+
 import {Helmet} from "react-helmet-async";
-import {SearchInPage, SearchProvider} from "../components/search";
-import SupportDonut from "../components/modal/SupportDonut";
-import CopyToClipboard from "../components/features/CopyToClipboard";
+
 import {CircularProgress} from "@mui/material";
+
+import Header from "../components/Header";
+
+import Footer from "../components/Footer";
+
+import {SearchInPage, SearchProvider} from "../components/search";
+
+import SupportDonut from "../components/modal/SupportDonut";
+
+import CopyToClipboard from "../components/features/CopyToClipboard";
+
 import {generateAnchorId} from "../components/DetailsSummary";
+
 import {AdditionDanger} from "../components/Additions";
 
 const AEWhereFind = lazy(() => import("./sections/aefaq/WhereFind"));
@@ -40,7 +52,12 @@ const AEFAQ = () => {
   }, []);
 
   const sections = [
-    {key: "1", title: "Ищем полезности", id: "where-find", component: AEWhereFind},
+    {
+      key: "1",
+      title: "Ищем полезности",
+      id: "where-find",
+      component: AEWhereFind,
+    },
     {
       key: "2",
       title: "Проблемы с установкой",
@@ -53,13 +70,23 @@ const AEFAQ = () => {
       id: "from-newbies",
       component: AEFromNewbies,
     },
-    {key: "4", title: "Вопросы на засыпку", id: "tips", component: AETips},
+    {key: "4", title: "Неотсортированное", id: "tips", component: AETips},
     {key: "5", title: "Импорт", id: "import", component: AEImport},
     {key: "6", title: "Интерфейс", id: "interface", component: AEInterface},
-    {key: "7", title: "Производительность", id: "performance", component: AEPerformance},
+    {
+      key: "7",
+      title: "Производительность",
+      id: "performance",
+      component: AEPerformance,
+    },
     {key: "8", title: "Как и чем?", id: "actions", component: AEActions},
-    {key: "9", title: "Ошибки и предупреждения", id: "errors", component: AEErrors},
-    {key: "10", title: "Экспорт", id: "export", component: AEExport},
+    {
+      key: "9",
+      title: "Ошибки и предупреждения",
+      id: "errors",
+      component: AEErrors,
+    },
+    {key: "10", title: "Рендер и экспорт", id: "export", component: AEExport},
     {
       key: "11",
       title: "Проблемы при экспорте",
@@ -209,6 +236,7 @@ const AEFAQ = () => {
                   >
                     {visibleSections.map((key) => {
                       const section = sections.find((s) => s.key === key);
+
                       if (!section) {
                         return null;
                       }
@@ -247,4 +275,5 @@ const AEFAQ = () => {
     </div>
   );
 };
+
 export default AEFAQ;

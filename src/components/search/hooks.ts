@@ -1,6 +1,9 @@
 import {useCallback, useEffect, useMemo, useState} from "react";
+
 import debounce from "lodash/debounce";
+
 import {SearchResult} from "./types";
+
 import {decodeHtmlEntities} from "./utils";
 
 const KEY_MODIFIERS = ["ctrl", "alt", "shift", "win", "cmd"] as const;
@@ -65,6 +68,7 @@ const normalizeKeyCombination = (text: string): string => {
 
 const extractKeyCombinationText = (element: Element): string => {
   const keyElements = element.querySelectorAll("mark.key");
+
   if (keyElements.length > 0) {
     return Array.from(keyElements)
       .map((el) => el.textContent?.toLowerCase() || "")
@@ -109,9 +113,11 @@ const processElement = (
 ): SearchMatch => {
   if (element.tagName === "LI" || element.tagName === "P") {
     const fullText = element.textContent || "";
+
     if (hasMatch(fullText, searchWords, isKeyCombination)) {
       if (element.tagName === "LI" && element.querySelector("ul")) {
         const ul = element.querySelector("ul");
+
         if (ul) {
           const nestedItems = Array.from(ul.querySelectorAll("li"));
 
@@ -128,6 +134,7 @@ const processElement = (
             const clone = element.cloneNode(true) as Element;
 
             const oldUl = clone.querySelector("ul");
+
             if (oldUl) {
               oldUl.replaceWith(newUl);
             }
@@ -155,6 +162,7 @@ const processElement = (
   Array.from(element.childNodes).forEach((node) => {
     if (node.nodeType === Node.TEXT_NODE) {
       const textResult = processTextNode(node as Text, searchWords, isKeyCombination);
+
       if (textResult) {
         result += textResult;
         matchCount += 1;
@@ -165,6 +173,7 @@ const processElement = (
         searchWords,
         isKeyCombination
       );
+
       if (elementResult.result) {
         result += elementResult.result;
         matchCount += elementResult.matchCount;
@@ -196,6 +205,7 @@ const processTable = (
     const newTable = document.createElement("table");
 
     const thead = table.querySelector("thead");
+
     if (thead) {
       newTable.appendChild(thead.cloneNode(true));
     }
@@ -232,11 +242,13 @@ const formatSearchResult = (text: string, searchWords: string[]): string => {
     (titleMatch && hasMatch(titleMatch, searchWords, isKeyCombination))
   ) {
     const firstParagraph = tempDiv.querySelector("details > p, details > div > p");
+
     if (firstParagraph) {
       return firstParagraph.outerHTML;
     }
 
     const firstElement = tempDiv.firstElementChild;
+
     if (firstElement) {
       return firstElement.outerHTML;
     }
@@ -251,6 +263,7 @@ const formatSearchResult = (text: string, searchWords: string[]): string => {
 
   listItems.forEach((item) => {
     const itemResult = processElement(item, searchWords, isKeyCombination);
+
     if (itemResult.matchCount > bestResult.matchCount) {
       bestResult = itemResult;
     }
@@ -262,6 +275,7 @@ const formatSearchResult = (text: string, searchWords: string[]): string => {
     const paragraphs = tempDiv.querySelectorAll("p");
     paragraphs.forEach((p) => {
       const pResult = processElement(p, searchWords, isKeyCombination);
+
       if (pResult.matchCount > bestResult.matchCount) {
         bestResult = pResult;
       }
@@ -272,7 +286,9 @@ const formatSearchResult = (text: string, searchWords: string[]): string => {
 
   if (!bestResult.result) {
     const tables = tempDiv.querySelectorAll("table");
+
     if (tables.length > 0) {
+
       // проверяем, является ли это таблицей с комбинациями клавиш
 
       const isKeyCombinationTable = Array.from(tables).some((table) => {
@@ -288,14 +304,17 @@ const formatSearchResult = (text: string, searchWords: string[]): string => {
       if (isKeyCombinationTable) {
         for (const table of Array.from(tables)) {
           const tableResult = processTable(table, searchWords, isKeyCombination);
+
           if (tableResult) {
             return tableResult;
           }
         }
       }
 
-      // если не нашли совпадений в таблицах с комбинациями клавиш,
-      // возвращаем первую таблицу
+      /*
+       * если не нашли совпадений в таблицах с комбинациями клавиш,
+       * возвращаем первую таблицу
+       */
 
       return tables[0].outerHTML;
     }
@@ -303,6 +322,7 @@ const formatSearchResult = (text: string, searchWords: string[]): string => {
     // если таблиц нет, возвращаем первый параграф
 
     const firstParagraph = tempDiv.querySelector("details > p, details > div > p");
+
     if (firstParagraph) {
       return firstParagraph.outerHTML;
     }
@@ -310,6 +330,7 @@ const formatSearchResult = (text: string, searchWords: string[]): string => {
     // если не нашли параграф, возвращаем первый элемент
 
     const firstElement = tempDiv.firstElementChild;
+
     if (firstElement) {
       return firstElement.outerHTML;
     }
@@ -343,14 +364,15 @@ export const useSearchLogic = (query: string, isPageLoaded: boolean) => {
         SearchResult,
         "isSingleParagraphMatch" | "hasTitleMatch" | "hasTagMatch"
       >[] = [];
-
       cachedDetails.forEach((detail) => {
         const summary = detail.querySelector("summary");
+
         if (!summary) {
           return;
         }
 
         const id = summary.getAttribute("id");
+
         if (!id) {
           return;
         }
@@ -379,10 +401,12 @@ export const useSearchLogic = (query: string, isPageLoaded: boolean) => {
 
             const allRows = Array.from(table.querySelectorAll("tr")).filter((row) => {
               let parent = row.parentElement;
+
               while (parent) {
                 if (parent.tagName.toLowerCase() === "thead") {
                   return false;
                 }
+
                 parent = parent.parentElement;
               }
 
@@ -403,6 +427,7 @@ export const useSearchLogic = (query: string, isPageLoaded: boolean) => {
                     cell.remove();
                   }
                 });
+
                 if (clonedRow.cells.length === 0) {
                   return null;
                 }
@@ -419,18 +444,21 @@ export const useSearchLogic = (query: string, isPageLoaded: boolean) => {
                     word.includes("win") ||
                     word.includes("cmd")
                 );
-
                 let hasMatch;
+
                 if (isKeyCombination) {
+
                   // для комбинаций клавиш используем новую функцию нормализации
 
                   const searchPattern = normalizeKeyCombination(searchWords.join(" "));
 
                   const rowText = Array.from(clonedRow.cells)
                     .map((cell) => {
+
                       // проверяем наличие mark.key элементов
 
                       const keyElements = cell.querySelectorAll("mark.key");
+
                       if (keyElements.length > 0) {
                         return Array.from(keyElements)
                           .map((el) => el.textContent?.toLowerCase() || "")
@@ -444,6 +472,7 @@ export const useSearchLogic = (query: string, isPageLoaded: boolean) => {
                   const normalizedRowText = normalizeKeyCombination(rowText);
                   hasMatch = normalizedRowText.includes(searchPattern);
                 } else {
+
                   // для обычного поиска проверяем каждое слово
 
                   hasMatch = searchWords.every((word) =>
@@ -477,6 +506,7 @@ export const useSearchLogic = (query: string, isPageLoaded: boolean) => {
 
         const listContent = Array.from(detail.querySelectorAll<HTMLUListElement>("ul"))
           .map((ul) => {
+
             // используем stripHtml только для поиска
 
             const ulText = stripHtml(ul.outerHTML);
@@ -495,6 +525,7 @@ export const useSearchLogic = (query: string, isPageLoaded: boolean) => {
           .join("\n");
 
         const text = [content, tableContent, listContent].join("\n");
+
         if (title || text) {
           data.push({title, content: text.trim(), id, tag: tag.trim()});
         }
@@ -539,6 +570,7 @@ export const useSearchLogic = (query: string, isPageLoaded: boolean) => {
           text.toLowerCase().includes("cmd");
 
         if (isKeyCombination) {
+
           // для комбинаций клавиш используем новую функцию нормализации
 
           const searchPattern = normalizeKeyCombination(text);
@@ -613,18 +645,15 @@ export const useSearchLogic = (query: string, isPageLoaded: boolean) => {
 
           return 0;
         });
-
       setResults(results);
     }, 300),
     [isPageLoaded, extractDetailsData]
   );
-
   useEffect(() => {
     debouncedSearch(query);
 
     return () => handleSearch.cancel();
   }, [query, handleSearch]);
-
   useEffect(() => {
     setSelectedResultIndex(results.length > 0 ? 0 : -1);
   }, [results]);

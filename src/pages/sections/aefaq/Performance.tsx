@@ -1,9 +1,15 @@
 import React from "react";
+
 import DetailsSummary from "../../../components/DetailsSummary";
+
 import GithubUpdateInfo from "../../../components/features/GithubUpdateInfo";
+
 import {AdditionInfo, AdditionWarning} from "../../../components/Additions";
+
 import {ImageFigure} from "../../../components/ContentFigure";
+
 import ContentSwitcher from "../../../components/features/ContentFilter";
+
 import {Divider} from "antd";
 
 const AEPerformance: React.FC = () => {
@@ -602,4 +608,5 @@ const AEPerformance: React.FC = () => {
     </div>
   );
 };
+
 export default AEPerformance;

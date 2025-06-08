@@ -1,5 +1,7 @@
 import React from "react";
+
 import GithubUpdateInfo from "../../../components/features/GithubUpdateInfo";
+
 import DetailsSummary from "../../../components/DetailsSummary";
 
 /* FIXME: Еще вопрос, как остановить действие выражения wiggle на определенном кадре? */
@@ -26,4 +28,5 @@ const AEExprActions: React.FC = () => {
     </div>
   );
 };
+
 export default AEExprActions;

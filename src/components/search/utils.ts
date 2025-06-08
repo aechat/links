@@ -48,6 +48,7 @@ export const extractMatchingLine = (content: string, query: string): string => {
 
       return searchWords.every((word) => liText.includes(word));
     });
+
     if (firstMatch) {
       const newUl = document.createElement("ul");
       newUl.appendChild(firstMatch.cloneNode(true));
@@ -59,16 +60,20 @@ export const extractMatchingLine = (content: string, query: string): string => {
   };
 
   const ulElements = Array.from(tempDiv.querySelectorAll("ul"));
+
   for (const ul of ulElements) {
     const matchedList = findFirstListMatch(ul);
+
     if (matchedList) {
       return matchedList;
     }
   }
 
   const allElements = Array.from(tempDiv.querySelectorAll("*"));
+
   for (const element of allElements) {
     const elementHTML = element.innerHTML.toLowerCase();
+
     if (searchWords.every((word) => elementHTML.includes(word))) {
       return element.outerHTML;
     }

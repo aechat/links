@@ -1,5 +1,7 @@
 import React, {createContext, useContext, useEffect, useMemo, useState} from "react";
+
 import {Modal, Slider, Tooltip} from "antd";
+
 import {
   CloseRounded,
   DarkModeRounded,
@@ -8,6 +10,7 @@ import {
   LightModeRounded,
   RestartAlt,
 } from "@mui/icons-material";
+
 import {motion} from "framer-motion";
 
 type Theme = "light" | "dark" | "system";
@@ -94,6 +97,7 @@ export const ThemeProvider: React.FC<{children: React.ReactNode}> = ({children})
 
 export const useTheme = (): ThemeContextProps => {
   const context = useContext(ThemeContext);
+
   if (!context) {
     throw new Error("useTheme must be used within a ThemeProvider");
   }
@@ -259,4 +263,5 @@ const ThemeModal: React.FC<ThemeModalProps> = ({isModalOpen, closeModal}) => {
     </Modal>
   );
 };
+
 export {ThemeModal};

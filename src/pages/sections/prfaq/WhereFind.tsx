@@ -1,13 +1,18 @@
 import React from "react";
+
+import {Divider} from "antd";
+
 import GithubUpdateInfo from "../../../components/features/GithubUpdateInfo";
+
 import DetailsSummary from "../../../components/DetailsSummary";
+
 import {
   AdditionDanger,
   AdditionInfo,
   AdditionWarning,
 } from "../../../components/Additions";
+
 import {ImageFigure} from "../../../components/ContentFigure";
-import {Divider} from "antd";
 
 const PRWhereFind: React.FC = () => {
   return (

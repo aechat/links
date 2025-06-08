@@ -1,14 +1,20 @@
 import React from "react";
+
+import {Divider} from "antd";
+
 import GithubUpdateInfo from "../../../components/features/GithubUpdateInfo";
+
 import {
   AdditionDanger,
   AdditionInfo,
   AdditionWarning,
 } from "../../../components/Additions";
+
 import {ImageFigure, YouTubeVideo} from "../../../components/ContentFigure";
+
 import DetailsSummary from "../../../components/DetailsSummary";
+
 import ContentSwitcher from "../../../components/features/ContentFilter";
-import {Divider} from "antd";
 
 const PSInstallProblems: React.FC = () => {
   return (
@@ -22,7 +28,7 @@ const PSInstallProblems: React.FC = () => {
         </p>
         <ul>
           <li>
-            Если в архиве находится файл <mark className="file">.atn</mark>, то для
+            Если в архиве находится файл <mark className="file">ATN</mark>, то для
             установки вам нужно открыть окно <mark className="ui">Actions</mark> с помощью
             комбинации клавиш <mark className="key">Alt + F9</mark>, нажать на три полоски
             в углу открывшегося окна и нажать на кнопку{" "}
@@ -32,7 +38,7 @@ const PSInstallProblems: React.FC = () => {
             проектах.
           </li>
           <li>
-            Если в архиве находится файл <mark className="file">.abr</mark>, то для
+            Если в архиве находится файл <mark className="file">ABR</mark>, то для
             установки кистей нужно открыть окно кистей в{" "}
             <mark className="ui">Window &gt; Brushes</mark>. В открывшемся окне нажмите на
             три полоски в углу и выберите <mark className="ui">Import Brushes</mark>. В
@@ -40,10 +46,10 @@ const PSInstallProblems: React.FC = () => {
             {/* FIXME: */}
           </li>
           <li>
-            Если в архиве находится файл <mark className="file">.psd</mark>, то такие
-            файлы открываются как обычный проект в{" "}
-            <mark className="app">Adobe Photoshop</mark>. Их также можно импортировать в
-            уже существующий проект через <mark className="ui">File &gt; Import</mark>.
+            Если в архиве находится файл <mark className="file">PSD</mark>, то такие файлы
+            открываются как обычный проект в <mark className="app">Adobe Photoshop</mark>.
+            Их также можно импортировать в уже существующий проект через{" "}
+            <mark className="ui">File &gt; Import</mark>.
           </li>
           <li>
             Если в архиве находится AI, EPS, JPG, PNG, PDF, SVG, то...
@@ -58,8 +64,8 @@ const PSInstallProblems: React.FC = () => {
                 <li></li>
                 <li></li>
                 <li>
-                  Если в архиве находится файл <mark className="file">.zxp</mark>, то
-                  такие расширения обычно устанавливаются через{" "}
+                  Если в архиве находится файл <mark className="file">ZXP</mark>, то такие
+                  расширения обычно устанавливаются через{" "}
                   <a href="https://aescripts.com/learn/zxp-installer/">
                     ZXP Installer от aescripts
                   </a>
@@ -91,9 +97,9 @@ const PSInstallProblems: React.FC = () => {
                     <ul>
                       <li>
                         Если вы не хотите устанавливать стороннее ПО для установки{" "}
-                        <mark className="file">.zxp</mark>, то вы можете переименовать
-                        файл <mark className="file">.zxp</mark> в{" "}
-                        <mark className="file">.zip</mark> и распаковать его как обычный
+                        <mark className="file">ZXP</mark>, то вы можете переименовать файл{" "}
+                        <mark className="file">ZXP</mark> в{" "}
+                        <mark className="file">ZIP</mark> и распаковать его как обычный
                         архив. Содержимое свежераспакованного файла нужно поместить в
                         папку{" "}
                         <mark className="path">
@@ -102,32 +108,58 @@ const PSInstallProblems: React.FC = () => {
                         и после этого ввести команды, которые были расположены чуть ниже в
                         терминал.
                         <code style={{fontSize: "0.8em"}}>
-                          defaults write com.adobe.CSXS.5 PlayerDebugMode 1<br />
-                          defaults write com.adobe.CSXS.6 PlayerDebugMode 1<br />
-                          defaults write com.adobe.CSXS.7 PlayerDebugMode 1<br />
-                          defaults write com.adobe.CSXS.8 PlayerDebugMode 1<br />
-                          defaults write com.adobe.CSXS.9 PlayerDebugMode 1<br />
-                          defaults write com.adobe.CSXS.10 PlayerDebugMode 1<br />
-                          defaults write com.adobe.CSXS.11 PlayerDebugMode 1<br />
-                          defaults write com.adobe.CSXS.12 PlayerDebugMode 1<br />
-                          defaults write com.adobe.CSXS.13 PlayerDebugMode 1<br />
-                          defaults write com.adobe.CSXS.14 PlayerDebugMode 1<br />
-                          defaults write com.adobe.CSXS.15 PlayerDebugMode 1<br />
-                          defaults write com.adobe.CSXS.16 PlayerDebugMode 1<br />
-                          defaults write com.adobe.CSXS.17 PlayerDebugMode 1<br />
-                          defaults write com.adobe.CSXS.18 PlayerDebugMode 1<br />
-                          defaults write com.adobe.CSXS.19 PlayerDebugMode 1<br />
-                          defaults write com.adobe.CSXS.20 PlayerDebugMode 1<br />
-                          defaults write com.adobe.CSXS.21 PlayerDebugMode 1<br />
-                          defaults write com.adobe.CSXS.22 PlayerDebugMode 1<br />
-                          defaults write com.adobe.CSXS.23 PlayerDebugMode 1<br />
-                          defaults write com.adobe.CSXS.24 PlayerDebugMode 1<br />
-                          defaults write com.adobe.CSXS.25 PlayerDebugMode 1<br />
-                          defaults write com.adobe.CSXS.26 PlayerDebugMode 1<br />
-                          defaults write com.adobe.CSXS.27 PlayerDebugMode 1<br />
-                          defaults write com.adobe.CSXS.28 PlayerDebugMode 1<br />
-                          defaults write com.adobe.CSXS.29 PlayerDebugMode 1<br />
-                          defaults write com.adobe.CSXS.30 PlayerDebugMode 1<br />
+                          defaults write com.adobe.CSXS.5 PlayerDebugMode 1
+                          <br />
+                          defaults write com.adobe.CSXS.6 PlayerDebugMode 1
+                          <br />
+                          defaults write com.adobe.CSXS.7 PlayerDebugMode 1
+                          <br />
+                          defaults write com.adobe.CSXS.8 PlayerDebugMode 1
+                          <br />
+                          defaults write com.adobe.CSXS.9 PlayerDebugMode 1
+                          <br />
+                          defaults write com.adobe.CSXS.10 PlayerDebugMode 1
+                          <br />
+                          defaults write com.adobe.CSXS.11 PlayerDebugMode 1
+                          <br />
+                          defaults write com.adobe.CSXS.12 PlayerDebugMode 1
+                          <br />
+                          defaults write com.adobe.CSXS.13 PlayerDebugMode 1
+                          <br />
+                          defaults write com.adobe.CSXS.14 PlayerDebugMode 1
+                          <br />
+                          defaults write com.adobe.CSXS.15 PlayerDebugMode 1
+                          <br />
+                          defaults write com.adobe.CSXS.16 PlayerDebugMode 1
+                          <br />
+                          defaults write com.adobe.CSXS.17 PlayerDebugMode 1
+                          <br />
+                          defaults write com.adobe.CSXS.18 PlayerDebugMode 1
+                          <br />
+                          defaults write com.adobe.CSXS.19 PlayerDebugMode 1
+                          <br />
+                          defaults write com.adobe.CSXS.20 PlayerDebugMode 1
+                          <br />
+                          defaults write com.adobe.CSXS.21 PlayerDebugMode 1
+                          <br />
+                          defaults write com.adobe.CSXS.22 PlayerDebugMode 1
+                          <br />
+                          defaults write com.adobe.CSXS.23 PlayerDebugMode 1
+                          <br />
+                          defaults write com.adobe.CSXS.24 PlayerDebugMode 1
+                          <br />
+                          defaults write com.adobe.CSXS.25 PlayerDebugMode 1
+                          <br />
+                          defaults write com.adobe.CSXS.26 PlayerDebugMode 1
+                          <br />
+                          defaults write com.adobe.CSXS.27 PlayerDebugMode 1
+                          <br />
+                          defaults write com.adobe.CSXS.28 PlayerDebugMode 1
+                          <br />
+                          defaults write com.adobe.CSXS.29 PlayerDebugMode 1
+                          <br />
+                          defaults write com.adobe.CSXS.30 PlayerDebugMode 1
+                          <br />
                         </code>
                       </li>
                       <li>
@@ -140,7 +172,7 @@ const PSInstallProblems: React.FC = () => {
                       </li>
                       <li>
                         Иногда в архиве может быть уже распакованный{" "}
-                        <mark className="file">.zxp</mark> архив. Это можно понять по
+                        <mark className="file">ZXP</mark> архив. Это можно понять по
                         наличию папок <mark className="path">META-INF</mark> и{" "}
                         <mark className="path">CSXS</mark> внутри папки с названием
                         расширения.
@@ -167,13 +199,13 @@ const PSInstallProblems: React.FC = () => {
                 <li></li>
                 <li></li>
                 <li>
-                  Если в архиве находится файл <mark className="file">.zxp</mark>, то
-                  такие расширения обычно устанавливаются через{" "}
+                  Если в архиве находится файл <mark className="file">ZXP</mark>, то такие
+                  расширения обычно устанавливаются через{" "}
                   <a href="https://aescripts.com/learn/zxp-installer/">
                     ZXP Installer от aescripts
                   </a>
                   . Для установки требуется просто перенести{" "}
-                  <mark className="file">.zxp</mark> файл в окно{" "}
+                  <mark className="file">ZXP</mark> файл в окно{" "}
                   <mark className="app">ZXP Installer</mark> для установки и следовать
                   указаниям программы. Прежде чем устанавливать расширение такого формата,
                   убедитесь в том, что ваша версия{" "}
@@ -199,9 +231,9 @@ const PSInstallProblems: React.FC = () => {
                     <ul>
                       <li>
                         Если вы не хотите устанавливать стороннее ПО для установки{" "}
-                        <mark className="file">.zxp</mark>, то вы можете переименовать
-                        файл <mark className="file">.zxp</mark> в{" "}
-                        <mark className="file">.zip</mark> и распаковать его как обычный
+                        <mark className="file">ZXP</mark>, то вы можете переименовать файл{" "}
+                        <mark className="file">ZXP</mark> в{" "}
+                        <mark className="file">ZIP</mark> и распаковать его как обычный
                         архив. Содержимое свежераспакованного файла нужно поместить в
                         папку{" "}
                         <mark className="path">
@@ -224,7 +256,7 @@ const PSInstallProblems: React.FC = () => {
                           REG-патч
                         </a>{" "}
                         нужно применить лишь один раз, он универсален для всех расширений
-                        формата <mark className="file">.zxp</mark>. В дальнейшем при
+                        формата <mark className="file">ZXP</mark>. В дальнейшем при
                         установке подобных расширений файл для внесений записей в реестр
                         системы не нужно снова открывать.{" "}
                         <a
@@ -240,7 +272,7 @@ const PSInstallProblems: React.FC = () => {
                       </li>
                       <li>
                         Иногда в архиве может быть уже распакованный{" "}
-                        <mark className="file">.zxp</mark> архив. Это можно понять по
+                        <mark className="file">ZXP</mark> архив. Это можно понять по
                         наличию папок <mark className="path">META-INF</mark> и{" "}
                         <mark className="path">CSXS</mark> внутри папки с названием
                         расширения.
@@ -281,9 +313,9 @@ const PSInstallProblems: React.FC = () => {
                   keka
                 </a>
                 . Он поддерживает кучу различных форматов архивов для распаковки, например{" "}
-                <mark className="file">.zip</mark> <mark className="file">.7z</mark>,{" "}
-                <mark className="file">.rar</mark>, <mark className="file">.tar</mark> и{" "}
-                <mark className="file">.iso</mark>. После установки этой программы вы
+                <mark className="file">ZIP</mark> <mark className="file">7Z</mark>,{" "}
+                <mark className="file">RAR</mark>, <mark className="file">TAR</mark> и{" "}
+                <mark className="file">ISO</mark>. После установки этой программы вы
                 можете распаковать скачанный архив различными способами, как на{" "}
                 <a href="https://github.com/aonez/Keka/wiki/Extracting-with-Keka#how-to-extract-supported-files">
                   примерах
@@ -347,7 +379,7 @@ const PSInstallProblems: React.FC = () => {
                 >
                   7-Zip
                 </a>
-                . Но для <mark className="file">.rar</mark> файлов всё-таки лучше подойдёт{" "}
+                . Но для <mark className="file">RAR</mark> файлов всё-таки лучше подойдёт{" "}
                 <a
                   href="https://www.rarlab.com/download.htm"
                   title="Официальный сайт WinRAR"
@@ -464,7 +496,7 @@ const PSInstallProblems: React.FC = () => {
           <mark className="ui">Система Windows защитила ваш компьютер</mark> по центру
           экрана. Его обычно вызывает <mark className="app">Windows Smartscreen</mark> -
           фильтр файлов от <mark>Microsoft</mark>, скачанных с интернета и он часто
-          помечает <mark className="file">.exe</mark> файлы как подозрительные. Поэтому и
+          помечает <mark className="file">EXE</mark> файлы как подозрительные. Поэтому и
           приостанавливает запуск исполняемых файлов. Чтобы запустить такой файл, вам
           нужно нажать на <mark className="ui">Подробнее</mark> и на{" "}
           <mark className="ui">Выполнить в любом случае</mark>. Но иногда бывают такие
@@ -480,7 +512,7 @@ const PSInstallProblems: React.FC = () => {
       </DetailsSummary>
       <DetailsSummary title='Выскакивает "Некоторые установочные файлы были повреждены. Загрузите свежую копию и повторите установку" при открытии репака от KpoJluK'>
         <p>
-          Вы не докачали <mark className="file">.exe</mark> файл до конца или прервали его
+          Вы не докачали <mark className="file">EXE</mark> файл до конца или прервали его
           скачивание. В таком случае перекачайте файл и попробуйте открыть его еще раз.
           Иногда при скачивании репака или при распаковке архива ваш антивирус может
           вставить палки в колёса. Поэтому при скачивании, распаковки или открытии репака
@@ -497,7 +529,7 @@ const PSInstallProblems: React.FC = () => {
           Такое бывает, если в вашей системе отсутствует файл{" "}
           <mark className="file">hosts</mark>. Для этого вам нужно создать пустой
           текстовый документ с названием <mark className="file">hosts</mark> без
-          расширения <mark className="file">.txt</mark>. Затем нужно открыть этот файл и
+          расширения <mark className="file">TXT</mark>. Затем нужно открыть этот файл и
           вписать строки, в зависимости от вашей системы{" "}
           <a href="https://support.microsoft.com/ru-ru/topic/%D0%BA%D0%B0%D0%BA-%D0%B2%D0%BE%D1%81%D1%81%D1%82%D0%B0%D0%BD%D0%BE%D0%B2%D0%B8%D1%82%D1%8C-%D1%81%D0%BE%D0%B4%D0%B5%D1%80%D0%B6%D0%B8%D0%BC%D0%BE%D0%B5-%D1%84%D0%B0%D0%B9%D0%BB%D0%B0-hosts-%D0%BF%D0%BE-%D1%83%D0%BC%D0%BE%D0%BB%D1%87%D0%B0%D0%BD%D0%B8%D1%8E-c2a43f9d-e176-c6f3-e4ef-3500277a6dae">
             (подробнее на сайте Microsoft)
@@ -633,7 +665,7 @@ const PSInstallProblems: React.FC = () => {
         <p>
           Данная ошибка прямым указывает на то, что на вашем устройстве отсутствует
           программа <mark className="app">Adobe Creative Cloud</mark>. Если вы пытаетесь
-          установить какое-либо <mark className="file">.zxp</mark> расширение с помощью{" "}
+          установить какое-либо <mark className="file">ZXP</mark> расширение с помощью{" "}
           <a href="https://zxpinstaller.com/">ZXP Installer от ELEMENTS Storage Media</a>,
           то откажитесь от него в пользу{" "}
           <a href="https://aescripts.com/learn/zxp-installer/">
@@ -707,6 +739,7 @@ const PSInstallProblems: React.FC = () => {
             e.preventDefault();
 
             const target = document.getElementById("errors");
+
             if (target) {
               const headerHeight = document.querySelector("header")?.offsetHeight ?? 0;
 
