@@ -39,7 +39,7 @@ import {motion} from "framer-motion";
 import React from "react";
 import Header from "../components/Header";
 import {LinkCard, LinkCardNoDescription, LinkInAppCard} from "../components/LinkCards";
-import {AdditionDanger, AdditionWarning} from "../components/Additions";
+import {AdditionDanger, AdditionInfo, AdditionWarning} from "../components/Additions";
 import Footer from "../components/Footer";
 import {Helmet} from "react-helmet-async";
 import {AEExprIcon, AEIcon, PRIcon, PSIcon} from "./faqIcon";
@@ -102,6 +102,59 @@ const Links = () => {
             />
           </div>
           <Divider>Наши каналы</Divider>
+          <AdditionInfo>
+            {(() => {
+              const userAgent = navigator.userAgent.toLowerCase();
+
+              const isIOS = /iphone|ipad/.test(userAgent);
+
+              const isAndroid = /android/.test(userAgent);
+
+              const isMacOS = /macintosh|mac os x/.test(userAgent);
+
+              if (isIOS) {
+                return (
+                  <>
+                    Для скачивания материалов из каналов ниже - рекомендую использовать
+                    официальное приложение <mark className="app">Telegram</mark> вместо
+                    веб-версии, которое можно установить из{" "}
+                    <a href="https://telegram.org/dl/ios">App Store</a>.
+                  </>
+                );
+              }
+
+              if (isAndroid) {
+                return (
+                  <>
+                    Для скачивания материалов из каналов ниже - рекомендую использовать
+                    официальное приложение <mark className="app">Telegram</mark> вместо
+                    веб-версии, которое можно установить по{" "}
+                    <a href="https://telegram.org/android">этой ссылке</a>.
+                  </>
+                );
+              }
+
+              if (isMacOS) {
+                return (
+                  <>
+                    Для скачивания материалов из каналов ниже - рекомендую воспользоваться
+                    десктопной версией <mark className="app">Telegram</mark> вместо
+                    веб-версии, которую можно скачать по{" "}
+                    <a href="https://macos.telegram.org/">этой ссылке</a>.
+                  </>
+                );
+              }
+
+              return (
+                <>
+                  Для скачивания материалов из каналов ниже - рекомендую воспользоваться
+                  десктопной версией <mark className="app">Telegram</mark> вместо
+                  веб-версии, которую можно скачать по{" "}
+                  <a href="https://desktop.telegram.org/">этой ссылке</a>.
+                </>
+              );
+            })()}
+          </AdditionInfo>
           <div className="links-grid">
             <LinkCard
               description="Шаблоны и плагины для Adobe After Effects со всего интернета"
