@@ -2293,6 +2293,15 @@ const AEFromNewbies: React.FC = () => {
           </ul>
         </AdditionInfo>
       </DetailsSummary>
+      <DetailsSummary
+        tag="replace footage"
+        title="Как заменить футаж другим файлом?"
+      >
+        <AdditionDanger>
+          Данная статья находится на ранней стадии разработки. Следите за обновлениями.
+        </AdditionDanger>
+        <p>{/* TODO: написать и исправить*/}</p>
+      </DetailsSummary>
       <DetailsSummary title="Почему у меня предпросмотр проигрывается в плохом качестве?">
         <Divider>Проверяем разрешение предпросмотра</Divider>
         <p>
