@@ -669,23 +669,38 @@ const AEPerformance: React.FC = () => {
           styleClass="figure_windows-dark"
         />
       </DetailsSummary>
-      <DetailsSummary title="Зачем люди переключают рендер на процессор, если есть видеокарта? Как мне переключить рендер на процессор?">
+      <DetailsSummary
+        tag="mercury gpu acceleration, software only, video rendering, ракета"
+        title='Для чего пользователи иногда настраивают рендеринг "только через процессор", а не с использованием видеокарты и как это сделать?'
+      >
         <p>
-          Несмотря на то, что в окне менеджера проекта можно включить видеокарту,
-          программа не будет использовать его во многих случаях, особенно когда вы
-          применяете CPU-эффекты вместе с GPU-эффектами. Рендер на процессоре, или же
-          включенный пункт <mark className="ui">Mercury Software Only</mark> в менеджере
-          проекта, может уменьшить количество возможных артефактов и багов после экспорта
-          вашего проекта, нежели при использовании <mark>псевдо-GPU-ускорения</mark>.
+          В <mark className="app">Adobe After Effects</mark> существует два типа ускорения
+          - аппаратное и программное, и каждый работает с конкретным проектом по разному.
+          В некоторых случаях пользователю может пригодиться изменение аппаратного
+          ускорения на программное, чтобы избавиться от некоторых проблем при
+          использовании <mark className="word">Mercury GPU Acceleration</mark>. Например,
+          переполнение видеопамяти процессора, различные артефакты или остановка рендера
+          без внятной причины. Или наоборот, когда стандартный эффект, например{" "}
+          <mark className="plugin">VR Chromatic Abberation</mark>, просит включить
+          аппаратное ускорение, если у вас включено{" "}
+          <mark className="word">Mercury Software Only</mark>.
         </p>
         <p>
-          Для изменения, на чём выполнять рендеринг, нужно перейти в{" "}
-          <mark className="ui">Project Manager</mark>. Его можно открыть комбинацией
-          клавиш <mark className="key">Ctrl + Alt + Shift + K</mark>. В вкладке{" "}
-          <mark className="ui">Video Rendering and Effects</mark> можно выбрать то, что
-          нам нужно, а именно <mark className="ui">Mercury Software Only</mark> для
-          включения рендера на процессоре.
+          Чтобы изменить тип ускорения - откройте окно{" "}
+          <mark className="ui">Project Manager</mark> c помощью комбинации клавиш{" "}
+          <mark className="key">Ctrl + Alt + Shift + K</mark> или{" "}
+          <mark className="ui">File &gt; Project Manager</mark>. По умолчанию при открытии
+          данного окна вы попадаете во вкладку{" "}
+          <mark className="ui">Video Rendering and Effects</mark>, в котором есть один
+          изменяемый параметр <mark className="ui">Use</mark>, который и отвечает за
+          изменение типа ускорения рендера.
         </p>
+        <AdditionInfo>
+          Окно <mark className="ui">Project Manager</mark> часто называют{" "}
+          <mark className="word">ракетой</mark>, так как{" "}
+          <mark className="ui">иконка космической ракеты</mark> в окне{" "}
+          <mark className="ui">Project</mark> открывает это окно.
+        </AdditionInfo>
         <ImageFigure
           caption="Project Manager"
           imgSrc="images/aftereffects/project_manager_mercury.png"
@@ -694,44 +709,89 @@ const AEPerformance: React.FC = () => {
         />
         <ul>
           <li>
-            <mark className="ui">Mercury Software Only</mark> позволяет{" "}
-            <mark className="app">After Effects</mark> реже прибегать к использованию
-            видеокарты и использовать в большинстве случаев рендеринг на процессоре. Также
-            при использовании рендеринга на процессоре качество изображения может быть
-            лучше в некоторых мелочах.
+            <mark className="ui">Mercury Software Only</mark> или{" "}
+            <mark className="word">программное ускорение</mark> позволит{" "}
+            <mark className="app">Adobe After Effects</mark> реже прибегать к
+            использованию видеокарты и использовать в большинстве случаев рендеринг на
+            процессоре. Рендеринг на процессоре обычно стабильнее, нежели при рендеринге с
+            использованием видеокарты.
             <AdditionInfo>
-              При включенном <mark className="ui">Mercury Software Only</mark>{" "}
-              какой-нибудь сторонний эффект всё же может просчитаться через{" "}
-              <mark>GPU</mark> при необходимости, например{" "}
-              <mark className="plugin">Depth Scanner</mark>. Обычно это поведение можно
-              изменить в настройках стороннего плагина.
+              <ul>
+                <li>
+                  Если у вас включен данный параметр рендеринга, то какой-нибудь сторонний
+                  эффект всё же может просчитаться через видеокарту при необходимости,
+                  например <mark className="plugin">Depth Scanner</mark>. Обычно это
+                  поведение можно изменить в настройках плагина.
+                </li>
+                <li>
+                  С данным параметром рендеринга время просчёта композиций может
+                  измениться в худшую или лучшую сторону - зависит от железа, но в сложных
+                  композициях зачастую время остаётся неизменным. Иногда при рендеринге на
+                  процессоре просчёт может пройти быстрее, чем при использовании{" "}
+                  <mark className="ui">Mercury GPU Acceleration</mark>.
+                </li>
+              </ul>
             </AdditionInfo>
           </li>
           <li>
-            <mark className="ui">Mercury GPU Acceleration (CUDA или OpenCL)</mark>{" "}
-            использует процессор и видеокарту, но видеокарта никогда не будет
-            гарантированна использоваться во всех случаях, она будет использоваться только
-            при необходимости самой программой.
+            <mark className="ui">Mercury GPU Acceleration</mark> или{" "}
+            <mark className="word">аппаратное ускорение</mark> позволит программе
+            использовать при рендеринге и процессор, и видеокарту. Видеокарта будет
+            использоваться в тех случаях, если применённый эффект поддерживает его. Иногда
+            данное значение может быть продублировано. Обычно рядом с ним находится ещё
+            технология ваших видеокарт, например <mark>CUDA (NVIDIA)</mark>,{" "}
+            <mark>OpenСL (AMD)</mark>, <mark>OpenGL (Intel)</mark> или{" "}
+            <mark>Metal (Apple Silicon)</mark>.
             <AdditionWarning>
-              На видеокартах с малым объёмом <mark>VRAM</mark> лучше не использовать
-              данный вариант рендеринга, так как вы можете часто сталкиваться с ошибкой{" "}
+              На видеокартах с малым объёмом <mark>VRAM</mark> вы можете часто
+              сталкиваться с ошибкой{" "}
               <mark>
                 After Effects has encountered a failure related to GPU-enabled effects
                 from this frame
               </mark>
-              .
+              . Это происходит из-за переполнения видеопамяти. В таком случае{" "}
+              <mark className="app">Adobe After Effects</mark> предложит переключиться
+              обратно на <mark>Mercury Software Only</mark>.
             </AdditionWarning>
+            <AdditionDanger>
+              <ul>
+                <li>
+                  Если смешать на одном слое эффект, который поддерживает{" "}
+                  <mark>GPU-ускорение</mark> и который не поддерживает, то скорость
+                  рендера слоя упрётся в скорость обработки эффекта, который выполняется с
+                  помощью процессора.
+                </li>
+                <li>
+                  Часто бытует мнение, что при включенном{" "}
+                  <mark className="ui">Mercury GPU Acceleration</mark> видеокарта якобы
+                  обязана использоваться во всех случаях рендера. Это так не работает -{" "}
+                  программа будет его использовать только при необходимости, а не по вашей
+                  прихоти. <mark className="app">Adobe After Effects</mark> по большей
+                  части использует процессор для обработки большинства действий, но
+                  разработчики стандартных и сторонних эффектов в последнее время все чаще
+                  и чаще добавляют поддержку ускорения с помощью видеокарты.
+                </li>
+              </ul>
+            </AdditionDanger>
           </li>
         </ul>
+        <Divider>Какие эффекты поддерживают GPU-ускорение?</Divider>
         <p>
-          При включенном пункте <mark className="ui">Mercury Software Only</mark>, то есть
-          при рендере на процессоре, время просчёта композиций может измениться в худшую
-          или лучшую сторону, но зачастую остаётся неизменным. Иногда при рендеринге на
-          процессоре просчёт может пройти быстрее, чем при использовании{" "}
-          <mark className="ui">Mercury GPU Acceleration</mark>.
+          Для того чтобы посмотреть список тех эффектов, которые поддерживают{" "}
+          <mark>GPU-ускорение</mark> - откройте окно{" "}
+          <mark className="ui">Effects & Presets</mark> и в его контекстном меню включите
+          параметр <mark className="ui">Show GPU Capable Effects Only</mark>. После его
+          включения вы заметите, насколько сильно сократится список ваших эффектов.
         </p>
+        <ImageFigure
+          caption="Adobe After Effects"
+          imgSrc="images/aftereffects/show_gpu_capable_effects_only.png"
+          imgTitle="Включение отображение только тех эффектов, которые поддерживают GPU-ускорение"
+          styleClass="figure_windows-dark"
+        />
       </DetailsSummary>
     </div>
   );
 };
+
 export default AEPerformance;
