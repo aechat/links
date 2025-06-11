@@ -1195,8 +1195,7 @@ const AEErrors: React.FC = () => {
           <mark>NVIDIA</mark> исправила драйвера и видеокарта больше не сбоила - в{" "}
           <mark className="app">Adobe After Effects</mark> вернулись <mark>Draft 3D</mark>{" "}
           и даже завёлся <mark className="plugin">Advanced 3D</mark>, который, как я
-          думал, работает только на видеокартах с <mark>4 гигабайтами</mark> видеопамяти и
-          выше.
+          думал, работает только на видеокартах с <mark>4 ГБ</mark> видеопамяти и выше.
         </AdditionInfo>
       </DetailsSummary>
       <DetailsSummary
@@ -1372,8 +1371,8 @@ const AEErrors: React.FC = () => {
           styleClass="figure_windows-dark"
         />
         <p>
-          Вы можете уменьшить максимальное количество гигабайт для дискового кэша или
-          изменить местоположение хранения в настройках{" "}
+          Вы можете уменьшить максимальное количество ГБ для дискового кэша или изменить
+          местоположение хранения в настройках{" "}
           <mark className="app">Adobe After Effects</mark>. Для этого перейдите в{" "}
           <mark className="ui">Edit &gt; Preferences &gt; Media & Disk Cache</mark> и
           уменьшите максимальный размер дискового кэша или укажите другое расположение,

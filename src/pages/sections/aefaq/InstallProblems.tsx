@@ -1165,7 +1165,7 @@ const AEInstallProblems: React.FC = () => {
           <li>
             Чтобы сжать только операционную систему, воспользуйтесь командой{" "}
             <mark className="code">compact /compactos:always</mark> и дождитесь окончания
-            операции. Обычно сжатие системы освобождает примерно <mark>3-5 гигабайт</mark>{" "}
+            операции. Обычно сжатие системы освобождает примерно <mark>3-5 ГБ</mark>{" "}
             дискового пространства, которое можно занять установкой{" "}
             <mark className="app">Adobe After Effects</mark>.
             <AdditionInfo>
