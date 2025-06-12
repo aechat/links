@@ -193,6 +193,16 @@ li > .addition-danger,
     }
   }
 }
+
+li {
+  .change_os,
+  .addition-info,
+  .addition-warning,
+  .addition-danger {
+    margin-inline: 0;
+  }
+}
+
 .change_os {
   display: flex;
   flex-direction: row;

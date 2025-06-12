@@ -169,7 +169,7 @@
         justify-content: space-between;
         align-items: center;
         gap: 15px;
-        margin: 10px;
+        margin-block: 10px;
       }
       &-left {
         position: relative;
@@ -186,7 +186,7 @@
         max-width: 70%;
         color: var(--mark-text);
         font-size: 0.875rem;
-        line-height: 1.15;
+        line-height: 1.5;
         text-align: left;
       }
       &-right {
@@ -201,7 +201,7 @@
         max-width: 70%;
         color: var(--mark-text);
         font-size: 0.875rem;
-        line-height: 1.15;
+        line-height: 1.5;
         text-align: right;
       }
     }
