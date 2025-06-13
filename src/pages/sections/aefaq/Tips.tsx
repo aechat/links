@@ -7,7 +7,7 @@ import {
   AdditionWarning,
 } from "../../../components/Additions";
 import ContentSwitcher from "../../../components/features/ContentFilter";
-import {VideoFigure, YouTubeVideo} from "../../../components/ContentFigure";
+import {ImageFigure, VideoFigure, YouTubeVideo} from "../../../components/ContentFigure";
 import {Divider} from "antd";
 
 const AETips: React.FC = () => {
@@ -314,6 +314,12 @@ const AETips: React.FC = () => {
           <mark className="app">Adobe After Effects</mark> вам предложат перенести
           настройки пользователя со старой версии программы в новую.
         </p>
+        <ImageFigure
+          caption="Adobe After Effects"
+          imgSrc="images/aftereffects/migrate_settings.png"
+          imgTitle="Диалог переноса настроек со старой версии в более новую"
+          styleClass="figure_windows-dark"
+        />
         <AdditionInfo>
           Если вы случайно закрыли окно с вопросом про перенос настроек из старой версии,
           то вы его можете открыть снова в{" "}
