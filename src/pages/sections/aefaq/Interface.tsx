@@ -539,14 +539,39 @@ const AEInterface: React.FC = () => {
       </DetailsSummary>
       <DetailsSummary title="Как установить свой процент масштабирования предпросмотра?">
         <p>
-          Многих пользователей бесит, что по умолчанию в{" "}
-          <mark className="app">Adobe After Effects</mark> в предпросмотре нельзя
-          установить свой процент масштабирования, доступны только жалкие фиксированные
-          значения: <mark>25%</mark>, <mark>33.3%</mark>, <mark>50%</mark>,{" "}
-          <mark>100%</mark> и прочие. К счастью, есть сторонний плагин{" "}
+          В <mark className="app">Adobe After Effects</mark> версии <mark>25.3</mark> и
+          новее добавили функцию плавного масштабирования, а также возможность указания в
+          нём нужного коэффициента прямо в окне предпросмотра. Он больше не ограничивается
+          фиксированными значениями, такими как <mark>33%</mark>, <mark>50%</mark> или{" "}
+          <mark>100%</mark>, поэтому можно масштабировать даже до любого десятичного
+          значения с помощью изменения значения интерактивного текста или колесика
+          прокрутки для более плавных коррекций.
+        </p>
+        <VideoFigure
+          caption="Adobe After Effects"
+          styleClass="figure_windows-dark"
+          videoSrc="images/aftereffects/smooth_zoom_demonstration.mp4"
+        />
+        <p>
+          Если вам не нравится новая функция увеличения предпросмотра - вы можете
+          отключить его и вернуть старый вариант. Для этого откройте{" "}
+          <mark className="ui">Edit &gt; Preferences &gt; Previews</mark> и измените в
+          разделе <mark className="ui">Magnification</mark> значение параметра{" "}
+          <mark className="ui">Type</mark> на <mark className="ui">Legacy</mark>. Также в
+          этом разделе вы можете настроить, с какого места увеличивать предпросмотр - от
+          центра композиции или от положения вашего курсора.
+        </p>
+        <ImageFigure
+          caption="Preferences"
+          imgSrc="images/aftereffects/magnification_settings.png"
+          imgTitle="Настройка увеличения предпросмотра"
+          styleClass="figure_windows-dark"
+        />
+        <p>
+          Если вы используете более старую версию программы - используйте сторонний плагин{" "}
           <mark className="plugin">ae-zoom</mark>, который создаёт окно с регулировкой
-          своего процента масштабирования в предпросмотре и решает проблему. Скачать его
-          можно на{" "}
+          своего процента масштабирования в предпросмотре и плавным масштабированием.
+          Скачать его можно на{" "}
           <a href="https://github.com/QuisPic/ae-zoom/releases">
             странице релизов в GitHub
           </a>
