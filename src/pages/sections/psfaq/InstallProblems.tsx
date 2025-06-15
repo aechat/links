@@ -544,7 +544,7 @@ const PSInstallProblems: React.FC = () => {
           повреждено приложение <mark className="app">Adobe Creative Cloud Cleaner</mark>{" "}
           или были криво удалены предыдущие программы от <mark>Adobe</mark>. Чтобы
           исправить это - очистите остатки предыдущих установок с помощью{" "}
-          <a href="https://helpx.adobe.com/ru/creative-cloud/kb/cc-cleaner-tool-installation-problems.html">
+          <a href="https://helpx.adobe.com/creative-cloud/kb/cc-cleaner-tool-installation-problems.html">
             Adobe Creative Cloud Cleaner
           </a>{" "}
           или <mark className="app">Revo Uninstaller</mark>.
@@ -592,7 +592,7 @@ const PSInstallProblems: React.FC = () => {
             <mark className="app">Adobe Photoshop</mark>, то вам нужно обновить вашу
             систему до <mark>Windows 10</mark> сборки <mark>22H2</mark> или установить{" "}
             <mark>Windows 11</mark>. Обычно в{" "}
-            <a href="https://helpx.adobe.com/ru/after-effects/system-requirements.html">
+            <a href="https://helpx.adobe.com/after-effects/system-requirements.html">
               системных требованиях Photoshop
             </a>{" "}
             указывается минимальная версия операционной системы.
@@ -623,7 +623,7 @@ const PSInstallProblems: React.FC = () => {
         </ul>
         <AdditionInfo>
           Остальные решения по кодам ошибок при установке вы можете найти на{" "}
-          <a href="https://helpx.adobe.com/ru/creative-cloud/kb/troubleshoot-download-install-logs.html">
+          <a href="https://helpx.adobe.com/creative-cloud/kb/troubleshoot-download-install-logs.html">
             сайте Adobe
           </a>{" "}
           или на различных форумах в интернете.
@@ -662,7 +662,7 @@ const PSInstallProblems: React.FC = () => {
           лишние зависимости программ от <mark className="app">Creative Cloud</mark>{" "}
           почистились. Да, вы не ослышались. Для очистки системы от некоторых или всех
           программ от Adobe можно воспользоваться консольной утилитой{" "}
-          <a href="https://helpx.adobe.com/ru/creative-cloud/kb/cc-cleaner-tool-installation-problems.html">
+          <a href="https://helpx.adobe.com/creative-cloud/kb/cc-cleaner-tool-installation-problems.html">
             Adobe Creative Cloud Cleaner
           </a>
           .
@@ -680,7 +680,7 @@ const PSInstallProblems: React.FC = () => {
           <li>
             Через <mark className="app">Adobe Creative Cloud Cleaner Tool</mark>, который
             можно скачать{" "}
-            <a href="https://helpx.adobe.com/ru/creative-cloud/kb/cc-cleaner-tool-installation-problems.html">
+            <a href="https://helpx.adobe.com/creative-cloud/kb/cc-cleaner-tool-installation-problems.html">
               по этой ссылке
             </a>
             . Это консольная утилита, не требующая установки и не требует дополнительной

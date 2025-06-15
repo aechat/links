@@ -404,7 +404,7 @@ const PRTips: React.FC = () => {
         <AdditionInfo>
           Перед установкой <mark className="app">Adobe Premiere Pro</mark> обратите
           внимание на{" "}
-          <a href="https://helpx.adobe.com/ru/premiere-pro/system-requirements.html">
+          <a href="https://helpx.adobe.com/premiere-pro/system-requirements.html">
             рекомендуемые системные требования к программе
           </a>
           !
@@ -493,13 +493,13 @@ const PRTips: React.FC = () => {
           официальном сайте Adobe.
         </p>{" "}
         <div className="flexible-links">
-          <a href="https://helpx.adobe.com/ru/premiere-pro/using/whats-new.html">
+          <a href="https://helpx.adobe.com/premiere-pro/using/whats-new.html">
             Что нового в Premiere Pro последних выпусков
           </a>
-          <a href="https://helpx.adobe.com/ru/premiere-pro/kb/fixed-issues.html">
+          <a href="https://helpx.adobe.com/premiere-pro/kb/fixed-issues.html">
             Список исправленных ошибок
           </a>
-          <a href="https://helpx.adobe.com/ru/premiere-pro/kb/known-issues.html">
+          <a href="https://helpx.adobe.com/premiere-pro/kb/known-issues.html">
             Выявленные неполадки в Premiere Pro
           </a>
         </div>

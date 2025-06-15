@@ -345,7 +345,7 @@ const AETips: React.FC = () => {
           способом на свой страх и риск. Если после такого способа обновления вы
           столкнулись с трудностями в работе - переустановите программу начисто,
           предварительно удалив предыдущие версии с помощью{" "}
-          <a href="https://helpx.adobe.com/ru/creative-cloud/kb/cc-cleaner-tool-installation-problems.html">
+          <a href="https://helpx.adobe.com/creative-cloud/kb/cc-cleaner-tool-installation-problems.html">
             Adobe Creative Cloud Cleaner
           </a>{" "}
           или любой другой программы по удалению программ, например{" "}

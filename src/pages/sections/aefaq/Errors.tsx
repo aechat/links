@@ -549,7 +549,7 @@ const AEErrors: React.FC = () => {
                 </a>{" "}
                 этот сервис в <mark className="app">services.msc</mark> или очистить
                 систему от программ <mark>Adobe</mark> с помощью{" "}
-                <a href="https://helpx.adobe.com/ru/creative-cloud/kb/cc-cleaner-tool-installation-problems.html">
+                <a href="https://helpx.adobe.com/creative-cloud/kb/cc-cleaner-tool-installation-problems.html">
                   Adobe Creative Cloud Cleaner
                 </a>
                 .
@@ -946,7 +946,7 @@ const AEErrors: React.FC = () => {
           драйверами и простым багом, заканчивая отсутствием поддержки вашей видеокарты
           для корректной работы нового движка рендера. Если ваш графический процессор
           находится в{" "}
-          <a href="https://helpx.adobe.com/ru/after-effects/using/advanced-3d-renderer.html">
+          <a href="https://helpx.adobe.com/after-effects/using/advanced-3d-renderer.html">
             списке поддерживаемых видеокарт
           </a>
           , но при попытке использования <mark className="plugin">Advanced 3D</mark> -{" "}
@@ -985,7 +985,7 @@ const AEErrors: React.FC = () => {
           помогло, то скорее всего ваша видеокарта не соответствует требованиям и не
           поддерживает функцию <mark className="plugin">Advanced 3D</mark>. Проверьте на
           наличие и соответствие вашей видеокарты в{" "}
-          <a href="https://helpx.adobe.com/ru/after-effects/using/advanced-3d-renderer.html">
+          <a href="https://helpx.adobe.com/after-effects/using/advanced-3d-renderer.html">
             системных требованиях для Advanced 3D
           </a>
           , начните копить на новый графический ускоритель и переключите 3D-движок на{" "}
@@ -1662,7 +1662,7 @@ const AEErrors: React.FC = () => {
         <p>
           Скорее всего вы пытаетесь запустить приложение на устройстве с процессором без
           поддержки инструкций <mark>AVX2</mark>. В{" "}
-          <a href="https://helpx.adobe.com/ru/after-effects/system-requirements.html">
+          <a href="https://helpx.adobe.com/after-effects/system-requirements.html">
             нынешних системных требованиях для After Effects
           </a>{" "}
           указано, что требуется процессор от Intel минимум 6 поколения, например, i7-6700
@@ -1723,7 +1723,7 @@ const AEErrors: React.FC = () => {
           операционной системе. Такое бывает, когда <mark>Windows 10</mark> слишком старой
           сборки или вы пытаетесь запустить свежую версию программы на{" "}
           <mark>Windows 7</mark> или <mark>Windows 8.1</mark>. В следующий раз прочтите{" "}
-          <a href="https://helpx.adobe.com/ru/after-effects/system-requirements.html">
+          <a href="https://helpx.adobe.com/after-effects/system-requirements.html">
             системные требования
           </a>{" "}
           по нужной версии <mark className="app">Adobe After Effects</mark> и постарайтесь

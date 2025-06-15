@@ -1000,7 +1000,7 @@ const AEFromNewbies: React.FC = () => {
             </li>
             <li>
               Более подробный список комбинаций клавиш вы можете прочесть{" "}
-              <a href="https://helpx.adobe.com/ru/after-effects/using/keyboard-shortcuts-reference.html">
+              <a href="https://helpx.adobe.com/after-effects/using/keyboard-shortcuts-reference.html">
                 на официальном сайте Adobe
               </a>
               , посмотреть в{" "}
@@ -1985,13 +1985,13 @@ const AEFromNewbies: React.FC = () => {
           неполадок и старается приложить к ним временное решение.
         </p>
         <div className="flexible-links">
-          <a href="https://helpx.adobe.com/ru/after-effects/using/whats-new.html">
+          <a href="https://helpx.adobe.com/after-effects/using/whats-new.html">
             Что нового в After Effects последних выпусков
           </a>
-          <a href="https://helpx.adobe.com/ru/after-effects/kb/fixed-issues.html">
+          <a href="https://helpx.adobe.com/after-effects/kb/fixed-issues.html">
             Список исправленных ошибок
           </a>
-          <a href="https://helpx.adobe.com/ru/after-effects/kb/known-issues-after-effects.html">
+          <a href="https://helpx.adobe.com/after-effects/kb/known-issues-after-effects.html">
             Выявленные неполадки в After Effects
           </a>
         </div>
