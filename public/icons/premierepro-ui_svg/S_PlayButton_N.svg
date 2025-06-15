@@ -1,0 +1,18 @@
+<svg id="S_Play22_64_N_D_2x" data-name="S_Play22_64_N_D@2x" xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #1473e6;
+      }
+
+      .cls-2 {
+        fill: #fff;
+      }
+
+      
+    </style>
+  </defs>
+  <title>S_Play22_64_N_D@2x</title>
+  <circle class="cls-1" cx="32" cy="32" r="32"/>
+  <path class="cls-2" d="M24.785,18H21.977a.937.937,0,0,0-.937.937h0V47.063a.938.938,0,0,0,.937.937h2.808a2,2,0,0,0,1.007-.272l23.678-13.8a1.071,1.071,0,0,0,0-1.848l-23.678-13.8A2,2,0,0,0,24.785,18Z"/>
+  </svg>

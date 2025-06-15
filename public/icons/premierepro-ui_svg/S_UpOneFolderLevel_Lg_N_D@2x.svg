@@ -1,0 +1,16 @@
+<svg id="S_UpOneFolderLevel_Lg_N_D_2x" data-name="S_UpOneFolderLevel_Lg_N_D@2x" xmlns="http://www.w3.org/2000/svg" width="44" height="36" viewBox="0 0 44 36">
+  <defs>
+    <style>
+      .fill {
+        fill: #fff;
+        fill-rule: evenodd;
+        opacity: 0.65;
+      }
+
+      
+    </style>
+  </defs>
+  <title>S_UpOneFolderLevel_Lg_N_D@2x</title>
+  <path class="fill" d="M17.3,6.4A1,1,0,0,0,16.5,6H7A1,1,0,0,0,6,7V8H18.4Z"/>
+  <path class="fill" d="M37,10H6V29a1,1,0,0,0,1,1H37a1,1,0,0,0,1-1V11A1,1,0,0,0,37,10ZM28,25.5a0.5,0.5,0,0,1-.5.5H17.906A1.9,1.9,0,0,1,16,24V20H12.9a0.5,0.5,0,0,1-.424-0.765L17,14l4.522,5.235A0.5,0.5,0,0,1,21.1,20H18v4h9.5a0.5,0.5,0,0,1,.5.5v1Z"/>
+  </svg>

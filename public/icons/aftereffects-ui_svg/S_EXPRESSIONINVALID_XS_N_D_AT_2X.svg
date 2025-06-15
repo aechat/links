@@ -1,0 +1,15 @@
+<svg id="S_ExpressionInvalid_Xs_N_D_2x" data-name="S_ExpressionInvalid_Xs_N_D@2x" xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 26 26">
+  <defs>
+    <style>
+      .fill {
+        fill: #fff;
+        fill-rule: evenodd;
+        opacity: 0.65;
+      }
+
+      
+    </style>
+  </defs>
+  <title>S_ExpressionInvalid_Xs_N_D@2x</title>
+  <path class="fill" d="M5,10H8.927L5.784,6H5A1,1,0,0,0,4,7V9A1,1,0,0,0,5,10ZM22,9V7a1,1,0,0,0-1-1H10.384L7.108,1.83a0.522,0.522,0,0,0-.733-0.088l-0.752.591a0.522,0.522,0,0,0-.088.733L20.316,21.879a0.522,0.522,0,0,0,.733.088l0.752-.591a0.522,0.522,0,0,0,.088-0.733L19.812,18H21a1,1,0,0,0,1-1V15a1,1,0,0,0-1-1H16.669l-3.142-4H21A1,1,0,0,0,22,9ZM5,14a1,1,0,0,0-1,1v2a1,1,0,0,0,1,1H15.212l-3.142-4H5Z"/>
+  </svg>

@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" data-name="S_ProtectMarkerLeft_4x12_N_D@2x" height="24" id="S_ProtectMarkerLeft_4x12_N_D_2x" viewBox="0 0 8 24" width="8">
+  <defs>
+    <style>
+      .fill {
+        fill: #fff;
+        fill-rule: evenodd;
+      }
+
+      .background, .fill {
+        opacity: 0.65;
+      }
+
+      
+    </style>
+  </defs>
+  <title>S_ProtectMarkerLeft_4x12_N_D@2x</title>
+  <path class="fill" d="M0,1V23a1,1,0,0,0,1,1H8V1A1,1,0,0,0,7,0H1A1,1,0,0,0,0,1ZM6,22H2V2H6Z" />
+  <rect class="background" height="20" width="4" x="2" y="2" />
+  </svg>

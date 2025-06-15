@@ -1,0 +1,16 @@
+<svg id="S_LoolPlay_Md_D_2x" data-name="S_LoolPlay_Md_D@2x" xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36">
+  <defs>
+    <style>
+      .fill {
+        fill: #fff;
+        fill-rule: evenodd;
+        opacity: 0.65;
+      }
+
+      
+    </style>
+  </defs>
+  <title>S_LoolPlay_Md_D@2x</title>
+  <path class="fill" d="M16,17.5a.5.5,0,0,0,.5.5h1.382a.5.5,0,0,0,.224-.053L30,12,18.106,6.053A.5.5,0,0,0,17.882,6H16.5a.5.5,0,0,0-.5.5Z"/>
+  <path class="fill" d="M31.276,16.362l-3,1.5a.5.5,0,0,0-.276.447V24H8V14h4V10H4.5a.5.5,0,0,0-.5.5v17a.5.5,0,0,0,.5.5h27a.5.5,0,0,0,.5-.5V16.809a.5.5,0,0,0-.724-.447Z"/>
+  </svg>

@@ -1,0 +1,26 @@
+<svg id="S_PreviousEditPoint_54x54_N_D_2x" data-name="S_PreviousEditPoint_54x54_N_D@2x" xmlns="http://www.w3.org/2000/svg" width="108" height="108" viewBox="0 0 108 108">
+  <defs>
+    <style>
+      .cls-1 {
+        opacity: 0.3;
+      }
+
+      .background, .fill {
+        opacity: 0.65;
+      }
+
+      .fill {
+        fill: #fff;
+        fill-rule: evenodd;
+      }
+
+      
+    </style>
+  </defs>
+  <title>S_PreviousEditPoint_54x54_N_D@2x</title>
+  <circle class="cls-1" cx="54" cy="54" r="45"/>
+  <path id="Fill" class="background" d="M37,38a1,1,0,0,1,1,1V69a1,1,0,0,1-1,1H33a1,1,0,0,1-1-1V39a1,1,0,0,1,1-1h4Zm0-2H33a3,3,0,0,0-3,3V69a3,3,0,0,0,3,3h4a3,3,0,0,0,3-3V39A3,3,0,0,0,37,36Z"/>
+  <path id="Fill2" class="background" d="M73,38.665a1,1,0,0,1,1,1V68.333a1,1,0,0,1-1.471.882L44,54,72.529,38.784A0.993,0.993,0,0,1,73,38.665Zm0-2a3.01,3.01,0,0,0-1.411.354L43.059,52.235,39.75,54l3.309,1.765L71.588,70.98A3,3,0,0,0,76,68.333V39.667A3,3,0,0,0,73,36.665Z"/>
+  <path id="Fill-2" data-name="Fill" class="fill" d="M37,38H33a1,1,0,0,0-1,1V69a1,1,0,0,0,1,1h4a1,1,0,0,0,1-1V39A1,1,0,0,0,37,38Z"/>
+  <path id="Fill2-2" data-name="Fill2" class="fill" d="M72.529,38.784L44,54,72.529,69.216A1,1,0,0,0,74,68.333V39.667A1,1,0,0,0,72.529,38.784Z"/>
+  </svg>

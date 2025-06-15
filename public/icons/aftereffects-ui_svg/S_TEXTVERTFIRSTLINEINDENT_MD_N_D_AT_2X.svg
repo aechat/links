@@ -1,0 +1,19 @@
+<svg id="S_TextVertFirstLineIndent_Md_N_D_2x" data-name="S_TextVertFirstLineIndent_Md_N_D@2x" xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36">
+  <defs>
+    <style>
+      .fill {
+        fill: #fff;
+        opacity: 0.65;
+      }
+
+      
+    </style>
+  </defs>
+  <title>S_TextVertFirstLineIndent_Md_N_D@2x</title>
+  <path class="fill" d="M35.836,8.82A0.5,0.5,0,0,0,35.452,8H32V2.5A0.5,0.5,0,0,0,31.5,2h-1a0.5,0.5,0,0,0-.5.5V8H26.516a0.5,0.5,0,0,0-.384.82L31,14Z"/>
+  <rect class="fill" x="30" y="22" width="2" height="10" rx="0.5" ry="0.5"/>
+  <rect class="fill" x="24" y="14" width="2" height="20" rx="0.5" ry="0.5"/>
+  <rect class="fill" x="12" y="14" width="2" height="20" rx="0.5" ry="0.5"/>
+  <rect class="fill" x="18" y="14" width="2" height="18" rx="0.5" ry="0.5"/>
+  <rect class="fill" x="6" y="14" width="2" height="18" rx="0.5" ry="0.5"/>
+  </svg>

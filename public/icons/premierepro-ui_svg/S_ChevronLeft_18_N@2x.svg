@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" data-name="S_ChevronLeft_18_N@2x" height="36" id="S_ChevronLeft_18_N_2x" viewBox="0 0 36 36" width="36">
+  <defs>
+    <style>
+	.fill {
+        fill: #707070;
+      }</style>
+  </defs>
+  <title>S_ChevronLeft_18_N@2x</title>
+  <path class="fill" d="M12,18v0a1.988,1.988,0,0,0,.585,1.409l7.983,7.98a2,2,0,1,0,2.871-2.772l-.049-.049L16.819,18l6.572-6.57a2,2,0,0,0-2.773-2.87l-.049.049-7.983,7.98A1.988,1.988,0,0,0,12,18Z" id="S_MillerColumnsChevronPrevious" />
+  </svg>

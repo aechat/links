@@ -1,0 +1,16 @@
+<svg id="S_ReversePathOff_Md_N_D_2x" data-name="S_ReversePathOff_Md_N_D@2x" xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36">
+  <defs>
+    <style>
+      .fill {
+        fill: #fff;
+        fill-rule: evenodd;
+        opacity: 0.65;
+      }
+
+      
+    </style>
+  </defs>
+  <title>S_ReversePathOff_Md_N_D@2x</title>
+  <path class="fill" d="M28,10h2v2H28ZM6,10H8v2H6ZM4,9v4a1,1,0,0,0,1,1H9a1,1,0,0,0,1-1V12H26v1a1,1,0,0,0,1,1h4a1,1,0,0,0,1-1V9a1,1,0,0,0-1-1H27a1,1,0,0,0-1,1v1H10V9A1,1,0,0,0,9,8H5A1,1,0,0,0,4,9Z"/>
+  <path id="Fill" class="fill" d="M29.5,22H12V18.5a.5.5,0,0,0-.82-.384L6,23l5.18,4.883A.5.5,0,0,0,12,27.5V24H29.5a.5.5,0,0,0,.5-.5v-1A.5.5,0,0,0,29.5,22Z"/>
+  </svg>

@@ -1,0 +1,20 @@
+<svg id="S_TransVideoDefault_Sm_N_D_2x" data-name="S_TransVideoDefault_Sm_N_D@2x" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+  <defs>
+    <style>
+      .blue {
+        fill: #2d8ceb;
+      }
+
+      .fill {
+        fill: #fff;
+        fill-rule: evenodd;
+        opacity: 0.65;
+      }
+
+      
+    </style>
+  </defs>
+  <title>S_TransVideoDefault_Sm_N_D@2x</title>
+  <path class="blue" d="M2,2H30V30H2ZM0,1V31a1,1,0,0,0,1,1H31a1,1,0,0,0,1-1V1a1,1,0,0,0-1-1H1A1,1,0,0,0,0,1Z"/>
+  <path class="fill" d="M27,4H5A1,1,0,0,0,4,5V27a1,1,0,0,0,1,1H27a1,1,0,0,0,1-1V5A1,1,0,0,0,27,4ZM26,6V26H6Z"/>
+  </svg>

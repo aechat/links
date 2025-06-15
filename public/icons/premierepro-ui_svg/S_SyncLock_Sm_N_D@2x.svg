@@ -1,0 +1,15 @@
+<svg id="S_SyncLock_Sm_N_D_2x" data-name="S_SyncLock_Sm_N_D@2x" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+  <defs>
+    <style>
+      .fill {
+        fill: #fff;
+        fill-rule: evenodd;
+        opacity: 0.65;
+      }
+
+      
+    </style>
+  </defs>
+  <title>S_SyncLock_Sm_N_D@2x</title>
+  <path id="Fill" class="fill" d="M6,18H18v4H6V18ZM6,8H18v4H6V8ZM4,6.5v7a0.5,0.5,0,0,0,.5.5h15a0.5,0.5,0,0,0,.5-0.5V12h4v6H20V16.5a0.5,0.5,0,0,0-.5-0.5H4.5a0.5,0.5,0,0,0-.5.5v7a0.5,0.5,0,0,0,.5.5h15a0.5,0.5,0,0,0,.5-0.5V22h7a1,1,0,0,0,1-1V9a1,1,0,0,0-1-1H20V6.5A0.5,0.5,0,0,0,19.5,6H4.5A0.5,0.5,0,0,0,4,6.5Z"/>
+  </svg>

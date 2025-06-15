@@ -1,0 +1,15 @@
+<svg id="SP_SpeedKeyframeLeft_6x16_N_D_2x" data-name="SP_SpeedKeyframeLeft_6x16_N_D@2x" xmlns="http://www.w3.org/2000/svg" width="12" height="32" viewBox="0 0 12 32">
+  <defs>
+    <style>
+      .fill {
+        fill: #fff;
+        fill-rule: evenodd;
+        opacity: 0.65;
+      }
+
+      
+    </style>
+  </defs>
+  <title>SP_SpeedKeyframeLeft_6x16_N_D@2x</title>
+  <path class="fill" d="M3,6H9a1,1,0,0,1,1,1V26H9L2.293,19.293A1,1,0,0,1,2,18.586V7A1,1,0,0,1,3,6Z"/>
+  </svg>

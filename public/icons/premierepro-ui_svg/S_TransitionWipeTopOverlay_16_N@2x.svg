@@ -1,0 +1,22 @@
+<svg id="S_TransitionWipeTopOverlay_16_N_2x" data-name="S_TransitionWipeTopOverlay_16_N@2x" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+  <defs>
+    <style>
+      .cls-1 {
+        opacity: 0.5;
+      }
+
+      .cls-2 {
+        fill: #fff;
+        opacity: 0.8;
+      }
+
+      .cls-3 {
+        fill: #ff13dc;
+        opacity: 0;
+      }
+    </style>
+  </defs>
+  <rect class="cls-1" x="2" y="2" width="28" height="28" rx="0.5" transform="translate(32 32) rotate(-180)"/>
+  <path class="cls-2" d="M4,5V27a1,1,0,0,0,1,1H27a1,1,0,0,0,1-1V5a1,1,0,0,0-1-1H5A1,1,0,0,0,4,5ZM26,20H6V18H26Zm0-4H6V14H26ZM26,6v6.4H6V6Z"/>
+  <rect id="ToDelete" class="cls-3" width="32" height="32"/>
+</svg>

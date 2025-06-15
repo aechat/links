@@ -1,0 +1,16 @@
+<svg id="S_Info_Sm_N_2x" data-name="S_Info_Sm_N@2x" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+  <defs>
+    <style>
+      .fill {
+        fill-rule: evenodd;
+        opacity: 0.65;
+      }
+
+      
+    </style>
+  </defs>
+  <title>S_Info_Sm_N@2x</title>
+  <path class="fill" d="M16,4.4A11.6,11.6,0,1,1,4.4,16,11.613,11.613,0,0,1,16,4.4ZM16,2A14,14,0,1,0,30,16,14,14,0,0,0,16,2Z"/>
+  <circle class="fill" cx="16" cy="10" r="2.15"/>
+  <path class="fill" d="M18.333,22H18V14.4a0.4,0.4,0,0,0-.4-0.4H13.667A1.132,1.132,0,0,0,12.5,15a1.133,1.133,0,0,0,1.167,1H14v6H13.667A1.132,1.132,0,0,0,12.5,23a1.133,1.133,0,0,0,1.167,1h4.667A1.133,1.133,0,0,0,19.5,23,1.132,1.132,0,0,0,18.333,22Z"/>
+  </svg>

@@ -1,0 +1,15 @@
+<svg id="S_Accelerated_Sm_N_D_2x" data-name="S_Accelerated_Sm_N_D@2x" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+  <defs>
+    <style>
+      .fill {
+        fill: #fff;
+        fill-rule: evenodd;
+        opacity: 0.65;
+      }
+
+      
+    </style>
+  </defs>
+  <title>S_Accelerated_Sm_N_D@2x</title>
+  <path class="fill" d="M27,10H26V7a1,1,0,0,0-1-1H19a1,1,0,0,0-1,1v3H14V7a1,1,0,0,0-1-1H7A1,1,0,0,0,6,7v3H5a1,1,0,0,0-1,1V27a1,1,0,0,0,1,1H27a1,1,0,0,0,1-1V11A1,1,0,0,0,27,10ZM12,23.5a.5.5,0,0,1-.5.5h-5a.5.5,0,0,1-.5-.5v-1a.5.5,0,0,1,.5-.5h5a.5.5,0,0,1,.5.5Zm2-4a.5.5,0,0,1-.5.5h-5a.5.5,0,0,1-.5-.5v-1a.5.5,0,0,1,.5-.5h5a.5.5,0,0,1,.5.5Zm2-4a.5.5,0,0,1-.5.5h-5a.5.5,0,0,1-.5-.5v-1a.5.5,0,0,1,.5-.5h5a.5.5,0,0,1,.5.5Zm2.82,8.383A.5.5,0,0,1,18,23.5v-9a.5.5,0,0,1,.82-.384L25,19Z"/>
+  </svg>

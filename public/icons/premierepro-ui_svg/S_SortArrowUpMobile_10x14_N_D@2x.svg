@@ -1,0 +1,14 @@
+<svg id="S_SortArrowUpMobile_10x14_N_D_2x" data-name="S_SortArrowUpMobile_10x14_N_D@2x" xmlns="http://www.w3.org/2000/svg" width="20" height="28" viewBox="0 0 20 28">
+  <defs>
+    <style>
+      .fill {
+        fill: #fff;
+        fill-rule: evenodd;
+      }
+
+      
+    </style>
+  </defs>
+  <title>S_SortArrowUpMobile_10x14_N_D@2x</title>
+  <path class="fill" d="M19.414,11.414a2,2,0,0,1-2.828,0L12,6.828V26a2,2,0,0,1-4,0V6.828L3.414,11.414A2,2,0,0,1,.586,8.586l8-8a2,2,0,0,1,2.828,0l8,8A2,2,0,0,1,19.414,11.414Z"/>
+  </svg>

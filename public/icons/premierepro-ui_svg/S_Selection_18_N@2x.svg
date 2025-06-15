@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" data-name="S_Selection_18_N@2x" height="36" id="S_Selection_18_N_2x" viewBox="0 0 36 36" width="36">
+  <defs>
+    <style>
+      .fill {
+        fill: #6e6e6e;
+      }
+
+      
+    </style>
+  </defs>
+  <rect class="fill" height="5" width="2" x="4" y="20" />
+  <rect class="fill" height="5" width="2" x="4" y="12" />
+  <path class="fill" d="M6,30V28H4v3.111A.889.889,0,0,0,4.89,32H9V30Z" />
+  <rect class="fill" height="2" width="5" x="12" y="30" />
+  <rect class="fill" height="2" width="5" x="20" y="30" />
+  <rect class="fill" height="5" width="2" x="30" y="11" />
+  <rect class="fill" height="5" width="2" x="30" y="19" />
+  <path class="fill" d="M30,27v3H28v2h3a1,1,0,0,0,1-1V27Z" />
+  <path class="fill" d="M31.112,4H27V6h3V8h2V4.889A.889.889,0,0,0,31.112,4Z" />
+  <rect class="fill" height="2" width="5.001" x="19" y="4" />
+  <rect class="fill" height="2" width="5.001" x="11" y="4" />
+  <path class="fill" d="M8,4H5A1,1,0,0,0,4,5V9H6V6H8Z" />
+  </svg>

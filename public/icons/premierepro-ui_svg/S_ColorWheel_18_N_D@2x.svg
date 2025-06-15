@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="a" data-name="ICONS" xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36">
+  <path d="M32,18c.00174-3.71618-1.47902-7.27952-4.114-9.9l-9.886,9.9h14Z" fill="var(--iconFill, #b9b9b9)" isolation="isolate" opacity=".2" stroke-width="0"/>
+  <path d="M18,18l9.919,9.869c2.61498-2.61849,4.08292-6.16837,4.081-9.869h-14Z" fill="var(--iconFill, #b9b9b9)" isolation="isolate" opacity=".33" stroke-width="0"/>
+  <path d="M18,18v14c3.70324.00177,7.25533-1.4685,9.874-4.087l-9.874-9.913Z" fill="var(--iconFill, #b9b9b9)" isolation="isolate" opacity=".47" stroke-width="0"/>
+  <path d="M18,32v-14l-9.9,9.889c2.62141,2.63322,6.18441,4.11276,9.9,4.111Z" fill="var(--iconFill, #b9b9b9)" isolation="isolate" opacity=".6" stroke-width="0"/>
+  <path d="M18,18H4c-.00186,3.71022,1.47342,7.26854,4.1,9.889l9.9-9.889Z" fill="var(--iconFill, #b9b9b9)" isolation="isolate" opacity=".7" stroke-width="0"/>
+  <path d="M18,18l-9.91-9.878c-2.62077,2.61904-4.09225,6.1729-4.09,9.878h14Z" fill="var(--iconFill, #b9b9b9)" isolation="isolate" opacity=".8" stroke-width="0"/>
+  <path d="M18,2C9.16344,2,2,9.16344,2,18s7.16344,16,16,16,16-7.16344,16-16S26.83656,2,18,2ZM18,32c-7.72701.00487-13.99495-6.25516-13.99982-13.98218-.00233-3.69993,1.46101-7.25015,4.06982-9.87382l9.869,9.856V4h.061c7.73199,0,14,6.26801,14,14s-6.26801,14-14,14Z" fill="var(--iconFill, #b9b9b9)" stroke-width="0"/>
+</svg>

@@ -1,0 +1,16 @@
+<svg id="S_DistributeVerticalCenter_Md_N_2x" data-name="S_DistributeVerticalCenter_Md_N@2x" xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36">
+  <defs>
+    <style>
+      .fill {
+        fill: #fff;
+        fill-rule: evenodd;
+        opacity: 0.65;
+      }
+
+      
+    </style>
+  </defs>
+  <title>S_DistributeVerticalCenter_Md_N@2x</title>
+  <path class="fill" d="M35.5,8H26V5a1,1,0,0,0-1-1H11a1,1,0,0,0-1,1V8H0.5a0.5,0.5,0,0,0-.5.5v1a0.5,0.5,0,0,0,.5.5H10v3a1,1,0,0,0,1,1H25a1,1,0,0,0,1-1V10h9.5A0.5,0.5,0,0,0,36,9.5v-1A0.5,0.5,0,0,0,35.5,8Z"/>
+  <path class="fill" d="M35.5,26H30V23a1,1,0,0,0-1-1H7a1,1,0,0,0-1,1v3H0.5a0.5,0.5,0,0,0-.5.5v1a0.5,0.5,0,0,0,.5.5H6v3a1,1,0,0,0,1,1H29a1,1,0,0,0,1-1V28h5.5a0.5,0.5,0,0,0,.5-0.5v-1A0.5,0.5,0,0,0,35.5,26Z"/>
+  </svg>

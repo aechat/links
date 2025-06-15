@@ -1,0 +1,16 @@
+<svg id="S_KeyframeMenu_Lg_N_D_2x" data-name="S_KeyframeMenu_Lg_N_D@2x" xmlns="http://www.w3.org/2000/svg" width="44" height="36" viewBox="0 0 44 36">
+  <defs>
+    <style>
+      .fill {
+        fill: #fff;
+        fill-rule: evenodd;
+        opacity: 0.65;
+      }
+
+      
+    </style>
+  </defs>
+  <title>S_KeyframeMenu_Lg_N_D@2x</title>
+  <path class="fill" d="M31.4,30H40.6a0.5,0.5,0,0,1,.354.854L36,36l-4.97-5.16A0.5,0.5,0,0,1,31.4,30Z"/>
+  <path class="fill" d="M22.293,5.238L11.238,16.293a1,1,0,0,0,0,1.414L22.293,28.762a1,1,0,0,0,1.414,0L34.762,17.707a1,1,0,0,0,0-1.414L23.707,5.238A1,1,0,0,0,22.293,5.238Z"/>
+  </svg>

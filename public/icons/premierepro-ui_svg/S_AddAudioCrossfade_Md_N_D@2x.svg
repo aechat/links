@@ -1,0 +1,16 @@
+<svg id="S_AddAudioCrossfade_Md_N_D_2x" data-name="S_AddAudioCrossfade_Md_N_D@2x" xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36">
+  <defs>
+    <style>
+      .fill {
+        fill: #fff;
+        fill-rule: evenodd;
+        opacity: 0.65;
+      }
+
+      
+    </style>
+  </defs>
+  <title>S_AddAudioCrossfade_Md_N_D@2x</title>
+  <path class="fill" d="M11,14h4.98L22.4,9.176a1,1,0,0,1,1.6.8V24a1,1,0,0,1-1.6.8L15.98,20H11a1,1,0,0,1-1-1V15A1,1,0,0,1,11,14Z"/>
+  <path class="fill" d="M31,4H5A1,1,0,0,0,4,5V31a1,1,0,0,0,1,1H31a1,1,0,0,0,1-1V5A1,1,0,0,0,31,4ZM30,30H6l8-8H11a3,3,0,0,1-3-3V15a3,3,0,0,1,3-3h4.312L21.2,7.578a2.972,2.972,0,0,1,1.8-.6h0a3.006,3.006,0,0,1,3,3V10l4-4V30Z"/>
+  </svg>

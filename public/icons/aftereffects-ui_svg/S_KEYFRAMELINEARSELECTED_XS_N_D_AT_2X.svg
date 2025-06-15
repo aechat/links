@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30">
+  <defs>
+    <style>
+      .fill {
+        fill: #fff;
+        opacity: 0.65;
+      }
+    </style>
+  </defs>
+  <g id="Icons">
+    <rect class="fill" x="8.777" y="8.777" width="12.445" height="12.445" rx="0.5" transform="translate(15 -6.213) rotate(45)"/>
+  </g>
+</svg>

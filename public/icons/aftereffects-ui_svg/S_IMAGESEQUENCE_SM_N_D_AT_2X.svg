@@ -1,0 +1,21 @@
+<svg id="S_ImageSequence_Sm_N_D_2x" data-name="S_ImageSequence_Sm_N_D@2x" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+  <defs>
+    <style>
+      .fill {
+        fill: #fff;
+        fill-rule: evenodd;
+        opacity: 0.65;
+      }
+
+      .blue {
+        fill: #2d8ceb;
+      }
+
+      
+    </style>
+  </defs>
+  <title>S_ImageSequence_Sm_N_D@2x</title>
+  <circle class="fill" cx="17.833" cy="16.167" r="2.167"/>
+  <path class="fill" d="M31,2H9A1,1,0,0,0,8,3V6H5A1,1,0,0,0,4,7v3H1a1,1,0,0,0-1,1V29a1,1,0,0,0,1,1H23a1,1,0,0,0,1-1V26h3a1,1,0,0,0,1-1V22h3a1,1,0,0,0,1-1V3A1,1,0,0,0,31,2ZM22,28H2V12H22V28Zm4-4H24V11a1,1,0,0,0-1-1H6V8H26V24Zm4-4H28V7a1,1,0,0,0-1-1H10V4H30V20Z"/>
+  <path class="blue" d="M12.909,25.667C11,25.667,8.58,19,6.675,19,4.944,19,2,25.667,2,25.667V28H22V24.151c-1.161-.881-2.625-1.818-3.636-1.818C16.459,22.333,14.814,25.667,12.909,25.667Z"/>
+  </svg>

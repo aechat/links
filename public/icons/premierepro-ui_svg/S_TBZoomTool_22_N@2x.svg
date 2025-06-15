@@ -1,0 +1,13 @@
+<svg id="S_TBZoomTool_22_N_2x" data-name="S_TBZoomTool_22_N@2x" xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 44 44">
+  <defs>
+    <style>
+      .cls-1 {
+        fill-rule: evenodd;
+      }
+
+      
+    </style>
+  </defs>
+  <title>S_TBZoomTool_22_N@2x</title>
+  <path class="cls-1" d="M26,18v1a1,1,0,0,1-1,1H20v5a1,1,0,0,1-1,1H18a1,1,0,0,1-1-1V20H12a1,1,0,0,1-1-1V18a1,1,0,0,1,1-1h5V12a1,1,0,0,1,1-1h1a1,1,0,0,1,1,1v5h5A1,1,0,0,1,26,18ZM39.121,39.121a3,3,0,0,1-4.243,0L26.4,30.647A14.52,14.52,0,1,1,30.647,26.4l8.474,8.474A3,3,0,0,1,39.121,39.121ZM18.5,30A11.5,11.5,0,1,0,7,18.5,11.5,11.5,0,0,0,18.5,30Z"/>
+  </svg>

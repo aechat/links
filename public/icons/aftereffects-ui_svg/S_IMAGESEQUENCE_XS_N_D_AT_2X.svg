@@ -1,0 +1,15 @@
+<svg id="S_ImageSequence_Xs_N_D_2x" data-name="S_ImageSequence_Xs_N_D@2x" xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 26 26">
+  <defs>
+    <style>
+      .fill {
+        fill: #fff;
+        opacity: 0.65;
+      }
+
+      
+    </style>
+  </defs>
+  <title>S_ImageSequence_Xs_N_D@2x</title>
+  <path class="fill" d="M25,2H9A1,1,0,0,0,8,3V6H5A1,1,0,0,0,4,7v3H1a1,1,0,0,0-1,1V23a1,1,0,0,0,1,1H17a1,1,0,0,0,1-1V20h3a1,1,0,0,0,1-1V16h3a1,1,0,0,0,1-1V3A1,1,0,0,0,25,2ZM16,19.539a5.392,5.392,0,0,0-2.545-1.272c-1.333,0-2.485,2.333-3.818,2.333s-3.03-4.667-4.364-4.667C4.061,15.933,2,20.6,2,20.6V12H16v7.539ZM20,18H18V11a1,1,0,0,0-1-1H6V8H20V18Zm4-4H22V7a1,1,0,0,0-1-1H10V4H24V14Z"/>
+  <circle class="fill" cx="13.483" cy="14.517" r="1.517"/>
+  </svg>

@@ -1,0 +1,15 @@
+<svg id="S_CaptureOutPoint_6x18_N_D_2x" data-name="S_CaptureOutPoint_6x18_N_D@2x" xmlns="http://www.w3.org/2000/svg" width="12" height="36" viewBox="0 0 12 36">
+  <defs>
+    <style>
+      .fill {
+        fill: #fff;
+        fill-rule: evenodd;
+        opacity: 0.65;
+      }
+
+      
+    </style>
+  </defs>
+  <title>S_CaptureOutPoint_6x18_N_D@2x</title>
+  <path id="Fill" class="fill" d="M2,5V16l4,3L2,22V33a1,1,0,0,0,1,1H5a1,1,0,0,0,1-1V22l4-3L6,16V5A1,1,0,0,0,5,4H3A1,1,0,0,0,2,5Z"/>
+  </svg>

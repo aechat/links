@@ -1,0 +1,17 @@
+<svg id="S_OptionFlyout_15x9_N_2x" data-name="S_OptionFlyout_15x9_N@2x" xmlns="http://www.w3.org/2000/svg" width="30" height="18" viewBox="0 0 30 18">
+  <defs>
+    <style>
+      .fill {
+        fill-rule: evenodd;
+        opacity: 0.65;
+      }
+
+      
+    </style>
+  </defs>
+  <title>S_OptionFlyout_15x9_N@2x</title>
+  <rect class="fill" x="10" y="2" width="16" height="2" rx="0.5" ry="0.5"/>
+  <rect class="fill" x="10" y="8" width="16" height="2" rx="0.5" ry="0.5"/>
+  <rect class="fill" x="10" y="14" width="16" height="2" rx="0.5" ry="0.5"/>
+  <path id="Fill5" class="fill" d="M4,12.5v3a0.5,0.5,0,0,0,.5.5h3A0.5,0.5,0,0,0,8,15.5v-3A0.5,0.5,0,0,0,7.5,12h-3A0.5,0.5,0,0,0,4,12.5Zm0-6v3a0.5,0.5,0,0,0,.5.5h3A0.5,0.5,0,0,0,8,9.5v-3A0.5,0.5,0,0,0,7.5,6h-3A0.5,0.5,0,0,0,4,6.5Zm0-6v3a0.5,0.5,0,0,0,.5.5h3A0.5,0.5,0,0,0,8,3.5v-3A0.5,0.5,0,0,0,7.5,0h-3A0.5,0.5,0,0,0,4,.5Z"/>
+  </svg>

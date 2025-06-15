@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="ICONS" xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36">
+  <defs>
+    <style>
+      .fill {
+        fill: #fff;
+        opacity: .65;
+      }
+    </style>
+  </defs>
+  <path class="fill" d="M20,2h-6c-.55228,0-1,.44772-1,1v4.625s3,0,3,2.25v-4.5h2v4.5c0-2.25,3-2.25,3-2.25V3c0-.55228-.44772-1-1-1Z"/>
+  <path class="fill" d="M16,10h2v23.5c0,.27596-.22404.5-.5.5h-1c-.27596,0-.5-.22404-.5-.5V10h0Z"/>
+  <path class="fill" d="M20,12h13c.55192,0,1,.44808,1,1v3c0,.55192-.44808,1-1,1h-13v-5h0Z"/>
+  <path class="fill" d="M20,26h13c.55192,0,1,.44808,1,1v3c0,.55192-.44808,1-1,1h-13v-5h0Z"/>
+  <path class="fill" d="M20,19h6c.55192,0,1,.44808,1,1v3c0,.55192-.44808,1-1,1h-6v-5h0Z"/>
+  <path class="fill" d="M7,12h6c.55192,0,1,.44808,1,1v3c0,.55192-.44808,1-1,1h-6v-5h0Z" transform="translate(21 29) rotate(-180)"/>
+  <path class="fill" d="M5,26h8c.55192,0,1,.44808,1,1v3c0,.55192-.44808,1-1,1H5v-5h0Z" transform="translate(19 57) rotate(-180)"/>
+  <path class="fill" d="M2,19h11c.55192,0,1,.44808,1,1v3c0,.55192-.44808,1-1,1H2v-5h0Z" transform="translate(16 43) rotate(-180)"/>
+</svg>

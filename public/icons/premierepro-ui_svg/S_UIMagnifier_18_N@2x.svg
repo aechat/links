@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36">
+  <defs>
+    <style>
+      .fill {
+        fill: #6e6e6e;
+        fill-rule: evenodd;
+      }
+    </style>
+  </defs>
+  <g id="ImportedIcons-3" data-name="ImportedIcons">
+    <path class="fill" d="M33.54,31.41884l-9.06862-9.06862a12.02786,12.02786,0,1,0-2.1211,2.1211L31.41884,33.54A1.49989,1.49989,0,0,0,33.54,31.41884ZM15,24a9,9,0,1,1,9-9A9,9,0,0,1,15,24Z"/>
+  </g>
+</svg>

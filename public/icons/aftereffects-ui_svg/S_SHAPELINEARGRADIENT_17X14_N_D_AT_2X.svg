@@ -1,0 +1,83 @@
+<svg id="S_ShapeLinearGradient_17x14_N_D_2x" data-name="S_ShapeLinearGradient_17x14_N_D@2x" xmlns="http://www.w3.org/2000/svg" width="34" height="28" viewBox="0 0 34 28">
+  <defs>
+    <style>
+      .cls-1, .cls-10, .cls-11, .cls-12, .cls-13, .cls-2, .cls-3, .cls-4, .cls-5, .cls-6, .cls-7, .cls-8, .cls-9, .fill {
+        fill: #fff;
+      }
+
+      .fill {
+        fill-rule: evenodd;
+        opacity: 0.65;
+      }
+
+      .cls-1 {
+        opacity: 0.1;
+      }
+
+      .cls-2 {
+        opacity: 0.133;
+      }
+
+      .cls-3 {
+        opacity: 0.167;
+      }
+
+      .cls-4 {
+        opacity: 0.2;
+      }
+
+      .cls-5 {
+        opacity: 0.233;
+      }
+
+      .cls-6 {
+        opacity: 0.267;
+      }
+
+      .cls-7 {
+        opacity: 0.3;
+      }
+
+      .cls-8 {
+        opacity: 0.333;
+      }
+
+      .cls-9 {
+        opacity: 0.367;
+      }
+
+      .cls-10 {
+        opacity: 0.4;
+      }
+
+      .cls-11 {
+        opacity: 0.433;
+      }
+
+      .cls-12 {
+        opacity: 0.467;
+      }
+
+      .cls-13 {
+        opacity: 0.5;
+      }
+
+      
+    </style>
+  </defs>
+  <title>S_ShapeLinearGradient_17x14_N_D@2x</title>
+  <path class="fill" d="M2,3V23a1,1,0,0,0,1,1H31a1,1,0,0,0,1-1V3a1,1,0,0,0-1-1H3A1,1,0,0,0,2,3ZM30,22H4V4H30Z"/>
+  <rect class="cls-1" x="4" y="4" width="2" height="18"/>
+  <rect class="cls-2" x="6" y="4" width="2" height="18"/>
+  <rect class="cls-3" x="8" y="4" width="2" height="18"/>
+  <rect class="cls-4" x="10" y="4" width="2" height="18"/>
+  <rect class="cls-5" x="12" y="4" width="2" height="18"/>
+  <rect class="cls-6" x="14" y="4" width="2" height="18"/>
+  <rect class="cls-7" x="16" y="4" width="2" height="18"/>
+  <rect class="cls-8" x="18" y="4" width="2" height="18"/>
+  <rect class="cls-9" x="20" y="4" width="2" height="18"/>
+  <rect class="cls-10" x="22" y="4" width="2" height="18"/>
+  <rect class="cls-11" x="24" y="4" width="2" height="18"/>
+  <rect class="cls-12" x="26" y="4" width="2" height="18"/>
+  <rect class="cls-13" x="28" y="4" width="2" height="18"/>
+  </svg>

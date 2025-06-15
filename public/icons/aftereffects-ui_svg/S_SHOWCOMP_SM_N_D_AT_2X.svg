@@ -1,0 +1,15 @@
+<svg id="S_ShowComp_Sm_N_D_2x" data-name="S_ShowComp_Sm_N_D@2x" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+  <defs>
+    <style>
+      .fill {
+        fill: #fff;
+        fill-rule: evenodd;
+        opacity: 0.65;
+      }
+
+      
+    </style>
+  </defs>
+  <title>S_ShowComp_Sm_N_D@2x</title>
+  <path class="fill" d="M29,8H18V3.51a1,1,0,0,0-1.008-1,.979.979,0,0,0-.718.314L1.6,18.312A1,1,0,0,0,2.325,20H8.071A7,7,0,0,0,15,28a7.09,7.09,0,0,0,6.709-6H29a1,1,0,0,0,1-1V9A1,1,0,0,0,29,8ZM4.65,18,16,6.019v8.052A7.072,7.072,0,0,0,15,14a7,7,0,0,0-6.326,4ZM15,26a5,5,0,1,1,5-5A5.006,5.006,0,0,1,15,26Z"/>
+  </svg>

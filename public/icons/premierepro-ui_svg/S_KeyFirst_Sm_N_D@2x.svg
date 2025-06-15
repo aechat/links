@@ -1,0 +1,23 @@
+<svg id="SP_KeyFirst_Sm_N_D_2x" data-name="SP_KeyFirst_Sm_N_D@2x" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+  <defs>
+    <style>
+      .fill, .fillPale {
+        fill: #fff;
+      }
+
+      .fillPale {
+        opacity: 0.15;
+      }
+
+      .fill {
+        fill-rule: evenodd;
+        opacity: 0.65;
+      }
+
+      
+    </style>
+  </defs>
+  <title>SP_KeyFirst_Sm_N_D@2x</title>
+  <path class="fillPale" d="M15,6V24L6,15Z"/>
+  <path class="fill" d="M25.293,14.293L15.707,4.707a1,1,0,0,0-1.414,0L4.707,14.293a1,1,0,0,0,0,1.414l9.586,9.586a1,1,0,0,0,1.414,0l9.586-9.586A1,1,0,0,0,25.293,14.293ZM15,24L6,15l9-9V24Z"/>
+  </svg>

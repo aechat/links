@@ -1,0 +1,16 @@
+<svg id="S_Info_Md_N_2x" data-name="S_Info_Md_N@2x" xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36">
+  <defs>
+    <style>
+      .fill {
+        fill-rule: evenodd;
+        opacity: 0.65;
+      }
+
+      
+    </style>
+  </defs>
+  <title>S_Info_Md_N@2x</title>
+  <path class="fill" d="M18,2A16,16,0,1,0,34,18,16,16,0,0,0,18,2Zm0,29.5A13.5,13.5,0,1,1,31.5,18,13.5,13.5,0,0,1,18,31.5Z"/>
+  <circle class="fill" cx="18" cy="12" r="2.15"/>
+  <path class="fill" d="M20.333,24H20V16.4a0.4,0.4,0,0,0-.4-0.4H15.667A1.132,1.132,0,0,0,14.5,17a1.133,1.133,0,0,0,1.167,1H16v6H15.667A1.132,1.132,0,0,0,14.5,25a1.133,1.133,0,0,0,1.167,1h4.667A1.133,1.133,0,0,0,21.5,25,1.132,1.132,0,0,0,20.333,24Z"/>
+  </svg>

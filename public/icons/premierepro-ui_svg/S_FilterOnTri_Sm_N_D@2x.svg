@@ -1,0 +1,21 @@
+<svg id="S_FilterOnTri_Sm_N_D_2x" data-name="S_FilterOnTri_Sm_N_D@2x" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+  <defs>
+    <style>
+      .fill {
+        fill: #fff;
+        fill-rule: evenodd;
+        opacity: 0.65;
+      }
+        
+    .blue {
+        fill: #2d8ceb;
+      }
+
+      
+    </style>
+  </defs>
+  <title>S_FilterOnTri_Sm_N_D@2x</title>
+  <path id="Fill" class="fill" d="M22.683,26.82L27,32l4.317-5.18A0.5,0.5,0,0,0,30.932,26H23.068A0.5,0.5,0,0,0,22.683,26.82Z"/>
+  <path class="blue" d="M26.616,4H5.384a0.787,0.787,0,0,0-.62,1.273L14,17V30l4-4V17L27.236,5.273A0.787,0.787,0,0,0,26.616,4Z"/>
+  <circle class="blue" cx="4" cy="22" r="4"/>
+  </svg>

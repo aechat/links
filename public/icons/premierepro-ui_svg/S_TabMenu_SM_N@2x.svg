@@ -1,0 +1,15 @@
+<svg id="S_TabMenu_SM_N" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+  <defs>
+    <style>
+      .fill {
+        opacity: 0.65;
+      }
+
+      
+    </style>
+  </defs>
+  <title>S_TabMenu_SM_N</title>
+  <rect class="fill" x="8" y="8" width="16" height="2" rx="0.5" ry="0.5"/>
+  <rect class="fill" x="8" y="14" width="16" height="2" rx="0.5" ry="0.5"/>
+  <rect class="fill" x="8" y="20" width="16" height="2" rx="0.5" ry="0.5"/>
+  </svg>

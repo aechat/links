@@ -1,0 +1,26 @@
+<svg id="S_TouchOverlayFastBackward_54x54_N_D_2x" data-name="S_TouchOverlayFastBackward_54x54_N_D@2x" xmlns="http://www.w3.org/2000/svg" width="108" height="108" viewBox="0 0 108 108">
+  <defs>
+    <style>
+      .cls-1 {
+        opacity: 0.3;
+      }
+
+      .background, .fill {
+        opacity: 0.65;
+      }
+
+      .fill {
+        fill: #fff;
+        fill-rule: evenodd;
+      }
+
+      
+    </style>
+  </defs>
+  <title>S_TouchOverlayFastBackward_54x54_N_D@2x</title>
+  <circle class="cls-1" cx="54" cy="54" r="45"/>
+  <path class="background" d="M49,40.617a1,1,0,0,1,1,1V64.382a1,1,0,0,1-1.447.894L24,53,48.553,40.724A1,1,0,0,1,49,40.617Zm0-2a3.018,3.018,0,0,0-1.342.318L23.106,51.211,19.528,53l3.578,1.789L47.658,67.065A3,3,0,0,0,52,64.382V41.618A3,3,0,0,0,49,38.617Z"/>
+  <path class="background" d="M77,40.617a1,1,0,0,1,1,1V64.382a1,1,0,0,1-1.447.894L52,53,76.553,40.724A1,1,0,0,1,77,40.617Zm0-2a3.018,3.018,0,0,0-1.342.318L51.106,51.211,47.528,53l3.578,1.789L75.658,67.065A3,3,0,0,0,80,64.382V41.618A3,3,0,0,0,77,38.617Z"/>
+  <path id="Fill" class="fill" d="M76.553,40.724L52,53,76.553,65.276A1,1,0,0,0,78,64.382V41.618A1,1,0,0,0,76.553,40.724Z"/>
+  <path id="Fill2" class="fill" d="M48.553,40.724L24,53,48.553,65.276A1,1,0,0,0,50,64.382V41.618A1,1,0,0,0,48.553,40.724Z"/>
+  </svg>

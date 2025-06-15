@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" data-name="S_ClassicGridView_18_N@2x" height="36" id="S_ClassicGridView_18_N_2x" viewBox="0 0 36 36" width="36">
+  <defs>
+    <style>
+	.fill {
+		fill: #000000;
+		
+        opacity: 0.65;
+      }</style>
+  </defs>
+  <title>S_ClassicGridView_18_N@2x</title>
+  <rect class="fill" height="14" rx="1" ry="1" width="14" x="2" y="2" />
+  <rect class="fill" height="14" rx="1" ry="1" width="14" x="20" y="2" />
+  <rect class="fill" height="14" rx="1" ry="1" width="14" x="2" y="20" />
+  <rect class="fill" height="14" rx="1" ry="1" width="14" x="20" y="20" />
+  </svg>

@@ -1,0 +1,16 @@
+<svg id="S_TextVertScale_Md_N_D2x" data-name="S_TextVertScale_Md_N_D@2x" xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36">
+  <defs>
+    <style>
+      .fill {
+        fill: #fff;
+        fill-rule: evenodd;
+        opacity: 0.65;
+      }
+
+      
+    </style>
+  </defs>
+  <title>S_TextVertScale_Md_N_D@2x</title>
+  <path class="fill" d="M5,32l4.805-5.146A0.5,0.5,0,0,0,9.452,26H6V10H9.484a0.5,0.5,0,0,0,.384-0.82L5,4,0.164,9.18A0.5,0.5,0,0,0,.548,10H4V26H0.516a0.5,0.5,0,0,0-.354.854Z"/>
+  <path class="fill" d="M13,4a1,1,0,0,0-1,1v6a1,1,0,0,0,1,1h2a1,1,0,0,0,1-1V8h6V28H19a1,1,0,0,0-1,1v2a1,1,0,0,0,1,1H29a1,1,0,0,0,1-1V29a1,1,0,0,0-1-1H26V8h6v3a1,1,0,0,0,1,1h2a1,1,0,0,0,1-1V5a1,1,0,0,0-1-1H13Z"/>
+  </svg>

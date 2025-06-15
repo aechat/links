@@ -1,0 +1,15 @@
+<svg id="S_Close_Xs_N_D_2x" data-name="S_Close_Xs_N_D@2x" xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 26 26">
+  <defs>
+    <style>
+      .fill {
+        fill: #fff;
+        fill-rule: evenodd;
+        opacity: 0.65;
+      }
+
+      
+    </style>
+  </defs>
+  <title>S_Close_Xs_N_D@2x</title>
+  <path class="fill" d="M20.354,4.232l1.414,1.414a1,1,0,0,1,0,1.414L15.96,12.99l5.808,5.95a1,1,0,0,1,0,1.414l-1.414,1.414a1,1,0,0,1-1.414,0l-5.808-5.95-6.071,5.95a1,1,0,0,1-1.414,0L4.232,20.354a1,1,0,0,1,0-1.414L10.3,12.99,4.232,7.061a1,1,0,0,1,0-1.414L5.646,4.232a1,1,0,0,1,1.414,0l6.071,5.929,5.808-5.929A1,1,0,0,1,20.354,4.232Z"/>
+  </svg>

@@ -1,0 +1,18 @@
+<svg id="S_InterpretFootage_Wi_N_D_2x" data-name="S_InterpretFootage_Wi_N_D@2x" xmlns="http://www.w3.org/2000/svg" width="40" height="26" viewBox="0 0 40 26">
+  <defs>
+    <style>
+      .fill {
+        fill: #fff;
+        fill-rule: evenodd;
+        opacity: 0.65;
+      }
+
+      
+    </style>
+  </defs>
+  <title>S_InterpretFootage_Wi_N_D@2x</title>
+  <rect class="fill" x="16" y="10" width="4" height="4" rx="0.5" ry="0.5"/>
+  <rect class="fill" x="22" y="10" width="10" height="2" rx="0.5" ry="0.5"/>
+  <path class="fill" d="M35,4H13a1,1,0,0,0-1,1V18H35a1,1,0,0,0,1-1V5A1,1,0,0,0,35,4ZM34,16H14V8H34v8Z"/>
+  <path class="fill" d="M10,20V8H3A1,1,0,0,0,2,9V26H4V23.794a0.5,0.5,0,0,1,.5-0.5h1a0.5,0.5,0,0,1,.5.5V26H24V23.794a0.5,0.5,0,0,1,.5-0.5h1a0.5,0.5,0,0,1,.5.5V26h2V20H10Zm-4,.206a0.5,0.5,0,0,1-.5.5h-1a0.5,0.5,0,0,1-.5-0.5v-3a0.5,0.5,0,0,1,.5-0.5h1a0.5,0.5,0,0,1,.5.5v3ZM6,13.5a0.5,0.5,0,0,1-.5.5h-1A0.5,0.5,0,0,1,4,13.5v-3A0.5,0.5,0,0,1,4.5,10h1a0.5,0.5,0,0,1,.5.5v3Z"/>
+  </svg>

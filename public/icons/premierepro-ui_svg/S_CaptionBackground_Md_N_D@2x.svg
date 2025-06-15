@@ -1,0 +1,23 @@
+<svg id="S_CaptionBackground_Md_N_D_2x" data-name="S_CaptionBackground_Md_N_D@2x" xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36">
+  <defs>
+    <style>
+      .fill, .fillPale {
+        fill: #fff;
+      }
+
+      .fill {
+        fill-rule: evenodd;
+        opacity: 0.65;
+      }
+
+      .fillPale {
+        opacity: 0.15;
+      }
+
+      
+    </style>
+  </defs>
+  <title>S_CaptionBackground_Md_N_D@2x</title>
+  <path class="fill" d="M8,8H28V28H8V8ZM6,7V29a1,1,0,0,0,1,1H29a1,1,0,0,0,1-1V7a1,1,0,0,0-1-1H7A1,1,0,0,0,6,7Z"/>
+  <path class="fillPale" d="M8,8H28V28H8V8Z"/>
+  </svg>

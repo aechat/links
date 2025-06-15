@@ -1,0 +1,16 @@
+<svg id="S_AlwaysPreview_Sm_N_D_2x" data-name="S_AlwaysPreview_Sm_N_D@2x" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+  <defs>
+    <style>
+      .fill {
+        fill: #fff;
+        fill-rule: evenodd;
+        opacity: 0.65;
+      }
+
+      
+    </style>
+  </defs>
+  <title>S_AlwaysPreview_Sm_N_D@2x</title>
+  <path class="fill" d="M29,4H3A1,1,0,0,0,2,5V27a1,1,0,0,0,1,1H29a1,1,0,0,0,1-1V5A1,1,0,0,0,29,4ZM28,26H4V6H28V26Z"/>
+  <path class="fill" d="M25,12H18V7.615a0.5,0.5,0,0,0-.5-0.5,0.491,0.491,0,0,0-.315.114L4.934,17.146A0.5,0.5,0,0,0,5.287,18H12.1A5,5,0,0,0,21,22h4a1,1,0,0,0,1-1V13A1,1,0,0,0,25,12ZM16.325,22.233A3.3,3.3,0,0,1,14.543,16.8a0.484,0.484,0,0,0-.371-0.8H9.337L16,10.881v4.362a0.49,0.49,0,0,0,.557.487,3.362,3.362,0,0,1,1.1.034A3.3,3.3,0,1,1,16.325,22.233Z"/>
+  </svg>

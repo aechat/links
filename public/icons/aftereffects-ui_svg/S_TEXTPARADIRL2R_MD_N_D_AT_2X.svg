@@ -1,0 +1,16 @@
+<svg id="S_TextParaDirL2R_Md_N_D_2x" data-name="S_TextParaDirL2R_Md_N_D@2x" xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36">
+  <defs>
+    <style>
+      .fill {
+        fill: #fff;
+        fill-rule: evenodd;
+        opacity: 0.65;
+      }
+
+      
+    </style>
+  </defs>
+  <title>S_TextParaDirL2R_Md_N_D@2x</title>
+  <path class="fill" d="M23,6a7,7,0,0,0-7,7.215A7.194,7.194,0,0,0,23.294,20H26v9a1,1,0,0,0,2,0V8h4V29a1,1,0,0,0,2,0V7a1,1,0,0,0-1-1H23Z"/>
+  <path class="fill" d="M2,25V9a1,1,0,0,1,1.669-.743L12,17,3.669,25.741A1,1,0,0,1,2,25Z"/>
+  </svg>

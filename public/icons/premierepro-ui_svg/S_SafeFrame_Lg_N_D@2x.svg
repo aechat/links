@@ -1,0 +1,15 @@
+<svg id="S_SafeFrame_Lg_N_D_2x" data-name="S_SafeFrame_Lg_N_D@2x" xmlns="http://www.w3.org/2000/svg" width="44" height="36" viewBox="0 0 44 36">
+  <defs>
+    <style>
+      .fill {
+        fill: #fff;
+        fill-rule: evenodd;
+        opacity: 0.65;
+      }
+
+      
+    </style>
+  </defs>
+  <title>S_SafeFrame_Lg_N_D@2x</title>
+  <path id="Fill" class="fill" d="M6,6H38V30H6V6ZM4,5V31a1,1,0,0,0,1,1H39a1,1,0,0,0,1-1V5a1,1,0,0,0-1-1H5A1,1,0,0,0,4,5Zm6,5H34V26H10V10ZM8,9V27a1,1,0,0,0,1,1H35a1,1,0,0,0,1-1V9a1,1,0,0,0-1-1H9A1,1,0,0,0,8,9Z"/>
+  </svg>

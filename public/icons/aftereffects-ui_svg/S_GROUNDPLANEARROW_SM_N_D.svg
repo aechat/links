@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" height="16" id="S_GroundPlaneArrow_Sm_N_D" viewBox="0 0 16 16" width="16">
+  <defs>
+    <style>
+      .fill {
+        fill: #fff;
+        fill-rule: evenodd;
+        opacity: 0.65;
+      }
+
+      
+    </style>
+  </defs>
+  <path class="fill" d="M14.3,13H9.7a.25.25,0,0,0-.183.42L12,16l2.479-2.573A.25.25,0,0,0,14.3,13Z" />
+  <path class="fill" d="M11.64,2H4.36a.5.5,0,0,0-.474.342l-2.667,8A.5.5,0,0,0,1.694,11H14.306a.5.5,0,0,0,.475-.658l-2.667-8A.5.5,0,0,0,11.64,2Zm1.973,8H8.687L8.612,7h4ZM12.279,6H8.587L8.512,3h2.767ZM4.721,3H7.487L7.412,6H3.721ZM3.387,7h4l-.074,3H2.387Z" />
+  </svg>

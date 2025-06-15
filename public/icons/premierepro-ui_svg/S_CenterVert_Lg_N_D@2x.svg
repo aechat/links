@@ -1,0 +1,15 @@
+<svg id="S_CenterVert_Lg_N_D_2x" data-name="S_CenterVert_Lg_N_D@2x" xmlns="http://www.w3.org/2000/svg" width="44" height="36" viewBox="0 0 44 36">
+  <defs>
+    <style>
+      .fill {
+        fill: #fff;
+        fill-rule: evenodd;
+        opacity: 0.65;
+      }
+
+      
+    </style>
+  </defs>
+  <title>S_CenterVert_Lg_N_D@2x</title>
+  <path class="fill" d="M4,5V29a1,1,0,0,0,1,1H37a1,1,0,0,0,1-1V5a1,1,0,0,0-1-1H5A1,1,0,0,0,4,5ZM36,28H6V18h8v5a1,1,0,0,0,1,1H27a1,1,0,0,0,1-1V18h8V28ZM16,22V12H26V22H16Zm20-6H28V11a1,1,0,0,0-1-1H15a1,1,0,0,0-1,1v5H6V6H36V16Z"/>
+  </svg>

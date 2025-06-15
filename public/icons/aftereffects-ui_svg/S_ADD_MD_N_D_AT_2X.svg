@@ -1,0 +1,15 @@
+<svg id="S_Add_Md_N_D_2x" data-name="S_Add_Md_N_D@2x" xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36">
+  <defs>
+    <style>
+      .fill {
+        fill: #fff;
+        fill-rule: evenodd;
+        opacity: 0.65;
+      }
+
+      
+    </style>
+  </defs>
+  <title>S_Add_Md_N_D@2x</title>
+  <path class="fill" d="M27,16H20V9a1,1,0,0,0-1-1H17a1,1,0,0,0-1,1v7H9a1,1,0,0,0-1,1v2a1,1,0,0,0,1,1h7v7a1,1,0,0,0,1,1h2a1,1,0,0,0,1-1V20h7a1,1,0,0,0,1-1V17A1,1,0,0,0,27,16Z"/>
+  </svg>

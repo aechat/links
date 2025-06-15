@@ -1,0 +1,19 @@
+<svg id="S_PluginVideoPreset_Sm_N_D_2x" data-name="S_PluginVideoPreset_Sm_N_D@2x" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+  <defs>
+    <style>
+      .fill {
+        fill: #fff;
+        opacity: 0.65;
+      }
+
+      
+    </style>
+  </defs>
+  <title>S_PluginVideoPreset_Sm_N_D@2x</title>
+  <path class="fill" d="M26.5,9.793l2.921,1.89a.412.412,0,0,0,.622-.452l-.9-3.362,2.7-2.194a.412.412,0,0,0-.237-.731l-3.474-.187L26.884,1.513a.412.412,0,0,0-.768,0L24.864,4.759l-3.474.187a.412.412,0,0,0-.237.731l2.7,2.194-.9,3.362a.412.412,0,0,0,.622.452Z"/>
+  <rect class="fill" x="20" y="14" width="2" height="2" rx="0.5" ry="0.5"/>
+  <rect class="fill" x="20" y="18" width="2" height="2" rx="0.5" ry="0.5"/>
+  <rect class="fill" x="10" y="14" width="2" height="2" rx="0.5" ry="0.5"/>
+  <path class="fill" d="M26.5,12.176l-1.834,1.187a2.416,2.416,0,0,1-.666.3V24H21.5a.5.5,0,0,0,.5-.5v-1a.5.5,0,0,0-.5-.5h-1a.5.5,0,0,0-.5.5v1a.5.5,0,0,0,.5.5h-9a.5.5,0,0,0,.5-.5v-1a.5.5,0,0,0-.5-.5h-1a.5.5,0,0,0-.5.5v1a.5.5,0,0,0,.5.5H8V13a1,1,0,0,1,1-1H21.049a2.388,2.388,0,0,1-.024-1.283L21.216,10H14V7a1,1,0,0,0-1-1H7A1,1,0,0,0,6,7v3H5a1,1,0,0,0-1,1V27a1,1,0,0,0,1,1H27a1,1,0,0,0,1-1V13.146Z"/>
+  <rect class="fill" x="10" y="18" width="2" height="2" rx="0.5" ry="0.5"/>
+  </svg>

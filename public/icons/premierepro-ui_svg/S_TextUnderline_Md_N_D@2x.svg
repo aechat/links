@@ -1,0 +1,15 @@
+<svg id="S_TextUnderline_Md_N_D_2x" data-name="S_TextUnderline_Md_N_D@2x" xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36">
+  <defs>
+    <style>
+      .fill {
+        fill: #fff;
+        opacity: 0.65;
+      }
+
+      
+    </style>
+  </defs>
+  <title>S_TextUnderline_Md_N_D@2x</title>
+  <path class="fill" d="M27.5,8a0.5,0.5,0,0,1,.5.5v3a0.5,0.5,0,0,1-.5.5h-1a0.5,0.5,0,0,1-.5-0.5V10H20V26h1.5a0.5,0.5,0,0,1,.5.5v1a0.5,0.5,0,0,1-.5.5h-7a0.5,0.5,0,0,1-.5-0.5v-1a0.5,0.5,0,0,1,.5-0.5H16V10H10v1.473a0.5,0.5,0,0,1-.5.5h-1a0.5,0.5,0,0,1-.5-0.5V8.5A0.5,0.5,0,0,1,8.5,8h19Z"/>
+  <rect class="fill" x="8" y="30" width="20" height="2" rx="0.5" ry="0.5"/>
+  </svg>

@@ -1,0 +1,32 @@
+<svg id="S_Sequence_64x64_N_D_2x" data-name="S_Sequence_64x64_N_D@2x" xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128">
+  <defs>
+    <style>
+      .cls-1, .cls-2 {
+        fill: #729acc;
+      }
+
+      .cls-2, .cls-3, .fill {
+        fill-rule: evenodd;
+      }
+
+      .cls-3 {
+        fill: #29d698;
+      }
+
+      .fill {
+        fill: #fff;
+        opacity: 0.65;
+      }
+
+      
+    </style>
+  </defs>
+  <title>S_Sequence_64x64_N_D@2x</title>
+  <path class="cls-1" d="M52,44H26a2,2,0,0,0-2,2V62a2,2,0,0,0,2,2H52V44Z"/>
+  <path class="cls-2" d="M52,68H10a2,2,0,0,0-2,2V86a2,2,0,0,0,2,2H52V68Z"/>
+  <path class="cls-3" d="M52,92H22a2,2,0,0,0-2,2v16a2,2,0,0,0,2,2H52V92Z"/>
+  <path class="cls-3" d="M66,92v20h50a2,2,0,0,0,2-2V94a2,2,0,0,0-2-2H66Z"/>
+  <path class="cls-2" d="M66,68V88H92a2,2,0,0,0,2-2V70a2,2,0,0,0-2-2H66Z"/>
+  <path class="cls-1" d="M66,44V64h50a2,2,0,0,0,2-2V46a2,2,0,0,0-2-2H66Z"/>
+  <path class="fill" d="M68,8H50a2,2,0,0,0-2,2V28s8,0,8,8v82a2,2,0,0,0,2,2h2a2,2,0,0,0,2-2V36c0-8,8-8,8-8V10A2,2,0,0,0,68,8ZM62,36H56V20h6V36Z"/>
+  </svg>

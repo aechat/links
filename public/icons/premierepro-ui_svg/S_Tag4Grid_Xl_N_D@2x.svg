@@ -1,0 +1,34 @@
+<svg id="S_Tag4Grid_Xl_N_D_2x" data-name="S_Tag4Grid_Xl_N_D@2x" xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64">
+  <defs>
+    <style>
+      .cls-1, .fill, .fillMedium {
+        fill: #fff;
+      }
+
+      .cls-1, .fill {
+        fill-rule: evenodd;
+      }
+
+      .fill {
+        opacity: 0.65;
+      }
+
+      .fillMedium {
+        opacity: 0.3;
+      }
+
+      .cls-1 {
+        opacity: 0.15;
+      }
+
+      
+    </style>
+  </defs>
+  <title>S_Tag4Grid_Xl_N_D@2x</title>
+  <path class="fill" d="M55,8H9A1,1,0,0,0,8,9V55a1,1,0,0,0,1,1H55a1,1,0,0,0,1-1V9A1,1,0,0,0,55,8ZM54,54H10V10H54Z"/>
+  <rect class="fillMedium" x="10" y="10" width="21" height="21"/>
+  <rect class="fillMedium" x="10" y="33" width="21" height="21"/>
+  <rect class="fillMedium" x="33" y="10" width="21" height="21"/>
+  <rect class="fillMedium" x="33" y="33" width="21" height="21"/>
+  <polygon class="cls-1" points="54 31 33 31 33 10 31 10 31 31 10 31 10 33 31 33 31 54 33 54 33 33 54 33 54 31"/>
+  </svg>

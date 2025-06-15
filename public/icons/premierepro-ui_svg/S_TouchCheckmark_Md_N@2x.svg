@@ -1,0 +1,21 @@
+<svg id="S_TouchCheckmark_Md_N_2x" data-name="S_TouchCheckmark_Md_N@2x" xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36">
+  <defs>
+    <style>
+      .Background {
+        fill: #fff;
+        opacity: 0.3;
+      }
+
+      .fill {
+        fill-rule: evenodd;
+        opacity: 0.65;
+      }
+
+      
+    </style>
+  </defs>
+  <title>S_TouchCheckmark_Md_N@2x</title>
+  <rect class="Background" x="3" y="3" width="30" height="30" rx="1" ry="1"/>
+  <path class="fill" d="M7,7H29V29H7V7ZM5,6V30a1,1,0,0,0,1,1H30a1,1,0,0,0,1-1V6a1,1,0,0,0-1-1H6A1,1,0,0,0,5,6Z"/>
+  <path id="Fill" class="fill" d="M10.881,19.544l4.674,5.072a0.5,0.5,0,0,0,.776-0.05L24.5,13.039a0.5,0.5,0,0,0-.061-0.649l-1.013-.978a0.5,0.5,0,0,0-.761.079L16.03,21.274l-3.265-3.553a0.5,0.5,0,0,0-.706-0.03l-0.015.014L10.9,18.851A0.5,0.5,0,0,0,10.881,19.544Z"/>
+  </svg>

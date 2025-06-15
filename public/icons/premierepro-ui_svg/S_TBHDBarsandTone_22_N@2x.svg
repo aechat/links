@@ -1,0 +1,133 @@
+<svg id="S_TBHDBarsandTone_22_N_2x" data-name="S_TBHDBarsandTone_22_N@2x" xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 44 44">
+  <defs>
+    <style>
+      .cls-1 {
+        fill-rule: evenodd;
+      }
+
+      .cls-2 {
+        fill: #676769;
+      }
+
+      .cls-3 {
+        fill: #27272a;
+      }
+
+      .cls-4 {
+        fill: #010101;
+      }
+
+      .cls-5 {
+        fill: #00fefd;
+      }
+
+      .cls-6 {
+        fill: #023e6b;
+      }
+
+      .cls-7 {
+        fill: #0301ff;
+      }
+
+      .cls-8 {
+        fill: #f2040f;
+      }
+
+      .cls-9 {
+        fill: #bfbfbf;
+      }
+
+      .cls-10 {
+        fill: #1a1a1a;
+      }
+
+      .cls-11 {
+        fill: #333;
+      }
+
+      .cls-12 {
+        fill: #4d4d4d;
+      }
+
+      .cls-13 {
+        fill: #666;
+      }
+
+      .cls-14 {
+        fill: #808080;
+      }
+
+      .cls-15 {
+        fill: #999;
+      }
+
+      .cls-16 {
+        fill: #b2b2b2;
+      }
+
+      .cls-17 {
+        fill: #ccc;
+      }
+
+      .cls-18 {
+        fill: #e5e5e5;
+      }
+
+      .cls-19 {
+        fill: #f8ff0a;
+      }
+
+      .cls-20 {
+        fill: #44007b;
+      }
+
+      .cls-21 {
+        fill: #ff0;
+      }
+
+      .cls-22 {
+        fill: #00d900;
+      }
+
+      .cls-23 {
+        fill: #ff00ab;
+      }
+
+      
+    </style>
+  </defs>
+  <title>S_TBHDBarsandTone_22_N@2x</title>
+  <path class="cls-1" d="M2,8V36a1,1,0,0,0,1,1H41a1,1,0,0,0,1-1V8a1,1,0,0,0-1-1H3A1,1,0,0,0,2,8ZM39,34H5V10H39Z"/>
+  <rect class="cls-2" x="5" y="10" width="4" height="16"/>
+  <rect class="cls-3" x="5" y="30" width="4" height="4"/>
+  <rect class="cls-4" x="9" y="30" width="6" height="4"/>
+  <rect x="15" y="30" width="6" height="4"/>
+  <rect class="cls-4" x="21" y="30" width="14" height="4"/>
+  <rect class="cls-5" x="5" y="26" width="4" height="2"/>
+  <rect class="cls-6" x="9" y="26" width="4" height="2"/>
+  <rect class="cls-7" x="35" y="26" width="4" height="2"/>
+  <rect class="cls-8" x="35" y="28" width="4" height="2"/>
+  <rect class="cls-3" x="35" y="30" width="4" height="4"/>
+  <rect class="cls-9" x="13" y="26" width="22" height="2"/>
+  <rect x="13" y="28" width="2" height="2"/>
+  <rect class="cls-10" x="15" y="28" width="2" height="2"/>
+  <rect class="cls-11" x="17" y="28" width="2" height="2"/>
+  <rect class="cls-12" x="19" y="28" width="2" height="2"/>
+  <rect class="cls-13" x="21" y="28" width="2" height="2"/>
+  <rect class="cls-14" x="23" y="28" width="2" height="2"/>
+  <rect class="cls-15" x="25" y="28" width="2" height="2"/>
+  <rect class="cls-16" x="27" y="28" width="2" height="2"/>
+  <rect class="cls-17" x="29" y="28" width="2" height="2"/>
+  <rect class="cls-18" x="31" y="28" width="2" height="2"/>
+  <rect x="33" y="28" width="2" height="2"/>
+  <rect class="cls-19" x="5" y="28" width="4" height="2"/>
+  <rect class="cls-20" x="9" y="28" width="4" height="2"/>
+  <rect class="cls-9" x="9" y="10" width="4" height="16"/>
+  <rect class="cls-21" x="13" y="10" width="3" height="16"/>
+  <rect class="cls-5" x="16" y="10" width="4" height="16"/>
+  <rect class="cls-22" x="20" y="10" width="4" height="16"/>
+  <rect class="cls-23" x="24" y="10" width="4" height="16"/>
+  <rect class="cls-8" x="28" y="10" width="3" height="16"/>
+  <rect class="cls-7" x="31" y="10" width="4" height="16"/>
+  <rect class="cls-2" x="35" y="10" width="4" height="16"/>
+  </svg>

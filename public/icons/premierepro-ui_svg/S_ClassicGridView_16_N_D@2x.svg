@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Icons" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+  <defs>
+    <style>
+      .fill {
+        fill: #fff;
+        opacity: .65;
+      }
+    </style>
+  </defs>
+  <rect class="fill" x="4.09" y="4" width="10" height="10" rx="1" ry="1"/>
+  <path class="fill" d="m19.001,4h8c.552,0,1,.448,1,1v8c0,.552-.448,1-1,1h-8c-.552,0-1-.448-1-1V5c0-.552.448-1,1-1Z"/>
+  <rect class="fill" x="4.09" y="18" width="10" height="10" rx="1" ry="1"/>
+  <path class="fill" d="m19.001,18h8c.552,0,1,.448,1,1v8c0,.552-.448,1-1,1h-8c-.552,0-1-.448-1-1v-8c0-.552.448-1,1-1Z"/>
+</svg>

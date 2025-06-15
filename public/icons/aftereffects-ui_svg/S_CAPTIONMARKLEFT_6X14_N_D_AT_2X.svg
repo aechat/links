@@ -1,0 +1,20 @@
+<svg id="S_CaptionMarkLeft_6x14_N_D_2x" data-name="S_CaptionMarkLeft_6x14_N_D@2x" xmlns="http://www.w3.org/2000/svg" width="12" height="28" viewBox="0 0 12 28">
+  <defs>
+    <style>
+      .background {
+        opacity: 0.3;
+      }
+
+      .fill {
+        fill: #fff;
+        fill-rule: evenodd;
+        opacity: 0.65;
+      }
+
+      
+    </style>
+  </defs>
+  <title>S_CaptionMarkLeft_6x14_N_D@2x</title>
+  <path class="background" d="M0,12V27a1,1,0,0,0,1,1H11a1,1,0,0,0,1-1V0Z"/>
+  <path class="fill" d="M2,12.828V26h8V4.828ZM6,24.25A2.25,2.25,0,1,1,8.25,22,2.25,2.25,0,0,1,6,24.25Z"/>
+  </svg>

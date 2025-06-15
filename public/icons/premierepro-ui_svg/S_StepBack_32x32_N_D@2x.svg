@@ -1,0 +1,26 @@
+<svg id="S_StepBack_32x32_N_D_2x" data-name="S_StepBack_32x32_N_D@2x" xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64">
+  <defs>
+    <style>
+      .cls-1 {
+        opacity: 0.3;
+      }
+
+      .background, .fill {
+        opacity: 0.65;
+      }
+
+      .fill {
+        fill: #fff;
+        fill-rule: evenodd;
+      }
+
+      
+    </style>
+  </defs>
+  <title>S_StepBack_32x32_N_D@2x</title>
+  <circle class="cls-1" cx="32" cy="32" r="28"/>
+  <path id="Fill" class="background" d="M41,22a1,1,0,0,1,1,1V41a1,1,0,0,1-1,1H39a1,1,0,0,1-1-1V23a1,1,0,0,1,1-1h2Zm0-2H39a3,3,0,0,0-3,3V41a3,3,0,0,0,3,3h2a3,3,0,0,0,3-3V23A3,3,0,0,0,41,20Z"/>
+  <path id="Fill2" class="background" d="M33,22.5a1,1,0,0,1,1,1V40.339a1,1,0,0,1-1.468.884L14.96,31.92l17.572-9.3A0.993,0.993,0,0,1,33,22.5Zm0-2a3.01,3.01,0,0,0-1.4.35l-17.572,9.3L10.685,31.92l3.339,1.768,17.572,9.3A3,3,0,0,0,36,40.339V23.5A3,3,0,0,0,33,20.5Z"/>
+  <path id="Fill-2" data-name="Fill" class="fill" d="M41,22H39a1,1,0,0,0-1,1V41a1,1,0,0,0,1,1h2a1,1,0,0,0,1-1V23A1,1,0,0,0,41,22Z"/>
+  <path id="Fill2-2" data-name="Fill2" class="fill" d="M32.532,22.617L14.96,31.92l17.572,9.3A1,1,0,0,0,34,40.339V23.5A1,1,0,0,0,32.532,22.617Z"/>
+  </svg>

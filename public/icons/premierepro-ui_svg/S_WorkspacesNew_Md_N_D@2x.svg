@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36">
+  <defs>
+    <style>
+      .blue {
+        fill: #1473e6;
+      }
+
+      .fill {
+        fill: #fff;
+        fill-rule: evenodd;
+        opacity: 0.65;
+      }
+    </style>
+  </defs>
+  <g id="icons">
+    <circle class="blue" cx="28" cy="10.471" r="6.4"/>
+    <path class="fill" d="M32,18.965V30H4V10H18.623a9.33,9.33,0,0,1,1.11-4H3A1,1,0,0,0,2,7V31a1,1,0,0,0,1,1H33a1,1,0,0,0,1-1V17.7A9.393,9.393,0,0,1,32,18.965Z"/>
+    <path class="fill" d="M8,14h2v2H8Zm0,4h2v2H8Zm0,4h2v2H8ZM7,12a1,1,0,0,0-1,1V25a1,1,0,0,0,1,1h4a1,1,0,0,0,1-1V13a1,1,0,0,0-1-1Z"/>
+  </g>
+</svg>

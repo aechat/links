@@ -1,0 +1,17 @@
+<svg id="S_TBCaptions_22_N_2x" data-name="S_TBCaptions_22_N@2x" xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 44 44">
+  <defs>
+    <style>
+      .cls-1 {
+        fill-rule: evenodd;
+      }
+
+      
+    </style>
+  </defs>
+  <title>S_TBCaptions_22_N@2x</title>
+  <path class="cls-1" d="M2,8V36a1,1,0,0,0,1,1H41a1,1,0,0,0,1-1V8a1,1,0,0,0-1-1H3A1,1,0,0,0,2,8ZM39,34H5V10H39Z"/>
+  <rect x="8" y="27" width="8" height="4" rx="0.5" ry="0.5"/>
+  <rect x="19" y="27" width="4" height="4" rx="0.5" ry="0.5"/>
+  <rect x="31" y="27" width="5" height="4" rx="0.5" ry="0.5"/>
+  <rect x="26" y="27" width="2" height="4" rx="0.5" ry="0.5"/>
+  </svg>

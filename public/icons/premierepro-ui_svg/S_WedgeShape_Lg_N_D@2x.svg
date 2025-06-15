@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="44" height="36" viewBox="0 0 44 36">
+  <defs>
+    <style>
+      .fill, .fillPale {
+        fill: #fff;
+      }
+
+      .fill {
+        fill-rule: evenodd;
+        opacity: 0.65;
+      }
+
+      .fillPale {
+        opacity: 0.15;
+      }
+    </style>
+  </defs>
+  <g id="ImportedIcons-15" data-name="ImportedIcons">
+    <path class="fill" d="M10,7.588,32.412,30H10ZM8,5V31a1,1,0,0,0,1,1H35a1,1,0,0,0,.707-1.707l-26-26A1,1,0,0,0,8,5Z"/>
+    <path class="fillPale" d="M10,7.588,32.412,30H10Z"/>
+  </g>
+</svg>

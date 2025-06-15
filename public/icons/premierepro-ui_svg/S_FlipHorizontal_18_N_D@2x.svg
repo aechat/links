@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36">
+  <defs>
+    <style>
+      .fill {
+        fill: #fff;
+        opacity: 0.65;
+        fill-rule: evenodd;
+      }
+    </style>
+  </defs>
+  <g id="i_c_o_n_s" data-name="i c o n s">
+    <rect class="fill" x="16" y="2.00007" width="2" height="2" rx="0.5"/>
+    <rect class="fill" x="16" y="6.00007" width="2" height="2" rx="0.5"/>
+    <rect class="fill" x="16" y="10.00007" width="2" height="2" rx="0.5"/>
+    <rect class="fill" x="16" y="14.00007" width="2" height="2" rx="0.5"/>
+    <rect class="fill" x="16" y="18.00007" width="2" height="2" rx="0.5"/>
+    <rect class="fill" x="16" y="22.00007" width="2" height="2" rx="0.5"/>
+    <rect class="fill" x="16" y="26.00007" width="2" height="2" rx="0.5"/>
+    <rect class="fill" x="16" y="30.00007" width="2" height="2" rx="0.5"/>
+    <path class="fill" d="M30.27594,28.70225,20.204,17.795a1.00994,1.00994,0,0,1,0-1.42826L30.27594,5.2979A1.00993,1.00993,0,0,1,32,6.012V27.98812A1.00993,1.00993,0,0,1,30.27594,28.70225Z"/>
+    <path class="fill" d="M3.845,8.07867l8.16754,8.84324L3.845,25.90077Zm-.80084-3.0786A1.009,1.009,0,0,0,2.0271,6.012V27.98768a1.00956,1.00956,0,0,0,1.01744,1.01239.98919.98919,0,0,0,.70666-.29784L13.82307,17.633a1.00977,1.00977,0,0,0,0-1.42809L3.7512,5.29792A.98962.98962,0,0,0,3.04417,5.00007Z"/>
+  </g>
+</svg>

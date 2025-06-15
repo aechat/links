@@ -1,0 +1,15 @@
+<svg id="S_Angle_Sm_N_2x" data-name="S_Angle_Sm_N@2x" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+  <defs>
+    <style>
+      .fill {
+        fill-rule: evenodd;
+        opacity: 0.65;
+        fill: #fff;
+      }
+
+      
+    </style>
+  </defs>
+  <title>S_Angle_Sm_N@2x</title>
+  <path class="fill" d="M29,22H23.837c0.028-.332.063-0.661,0.063-1a12.857,12.857,0,0,0-4.7-9.938l4.682-4.694a1,1,0,0,0,0-1.414l-1.1-1.1a1,1,0,0,0-1.413,0L2.586,22.586A2,2,0,0,0,4,26H29a1,1,0,0,0,1-1V23A1,1,0,0,0,29,22ZM17.913,12.349A11.056,11.056,0,0,1,22.1,21c0,0.338-.022.67-0.053,1H8.286Z"/>
+  </svg>

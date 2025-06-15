@@ -1,0 +1,15 @@
+<svg id="S_PostExpressionGraph_Xs_N_D_2x" data-name="S_PostExpressionGraph_Xs_N_D@2x" xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 26 26">
+  <defs>
+    <style>
+      .fill {
+        fill: #fff;
+        fill-rule: evenodd;
+        opacity: 0.65;
+      }
+
+      
+    </style>
+  </defs>
+  <title>S_PostExpressionGraph_Xs_N_D@2x</title>
+  <path class="fill" d="M23.5,22H4V16.745l3.662-6.591A0.367,0.367,0,0,1,7.991,9.96a0.316,0.316,0,0,1,.331.2l4.031,7.39a1.877,1.877,0,0,0,3.295,0L21,8H19.308l-4.977,8.827a0.377,0.377,0,0,1-.662,0l-4.03-7.39A1.875,1.875,0,0,0,8,8.46H7.991a1.877,1.877,0,0,0-1.641.965L4,13.655V2.5A0.5,0.5,0,0,0,3.5,2h-1a0.5,0.5,0,0,0-.5.5V24H23.5a0.5,0.5,0,0,0,.5-0.5v-1A0.5,0.5,0,0,0,23.5,22Z"/>
+  </svg>

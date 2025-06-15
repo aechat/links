@@ -1,0 +1,18 @@
+<svg id="S_Record_Md_S_D_2x" data-name="S_Record_Md_S_D@2x" xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36">
+  <defs>
+    <style>
+      .red {
+        fill: #f53c3c;
+      }
+
+      .blue {
+        fill: #2d8ceb;
+      }
+
+      
+    </style>
+  </defs>
+  <title>S_Record_Md_S_D@2x</title>
+  <circle class="red" cx="18" cy="18" r="10"/>
+  <path class="blue" d="M18,4A14,14,0,1,0,32,18,14,14,0,0,0,18,4Zm0,26A12,12,0,1,1,30,18,12,12,0,0,1,18,30Z"/>
+  </svg>

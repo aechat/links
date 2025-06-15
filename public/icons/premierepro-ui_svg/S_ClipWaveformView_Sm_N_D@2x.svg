@@ -1,0 +1,20 @@
+<svg id="SP_ClipWaveformView_Sm_N_D_2x" data-name="SP_ClipWaveformView_Sm_N_D@2x" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+  <defs>
+    <style>
+      .background, .fill {
+        opacity: 0.65;
+      }
+
+      .fill {
+        fill: #fff;
+        fill-rule: evenodd;
+      }
+
+      
+    </style>
+  </defs>
+  <title>SP_ClipWaveformView_Sm_N_D@2x</title>
+  <path class="fill" d="M4,14H6V10s2.187,4,4,4h0c2.437,0,3-7,3-7s1,7,5,7h0V8.875C19.062,11.75,19.437,14,22,14c0.062,0.063,4,0,4,0v1.75L22,16c-3.25,0-3.063,2.063-4,5.313V16H16c-1.25,0-2.656,2.688-3.906,6C12.125,21.969,12,16,12,16H10c-1.313,0-3.813,4-3.813,4L6,16H4V14Z"/>
+  <path id="Fill" class="fill" d="M4,6H26V22H4V6ZM2,5V23a1,1,0,0,0,1,1H27a1,1,0,0,0,1-1V5a1,1,0,0,0-1-1H3A1,1,0,0,0,2,5Z"/>
+  <path id="Fill2" class="fill" d="M32,23.207V30H25.207a0.5,0.5,0,0,1-.354-0.854l6.293-6.293A0.5,0.5,0,0,1,32,23.207Z"/>
+  </svg>

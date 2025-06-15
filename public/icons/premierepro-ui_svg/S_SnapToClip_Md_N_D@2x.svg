@@ -1,0 +1,24 @@
+<svg id="S_SnapToClip_Md_N_D_2x" data-name="S_SnapToClip_Md_N_D@2x" xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36">
+  <defs>
+    <style>
+      .fill, .fillMedium {
+        fill: #fff;
+      }
+
+      .fill {
+        fill-rule: evenodd;
+        opacity: 0.65;
+      }
+
+      .fillMedium {
+        opacity: 0.3;
+      }
+
+      
+    </style>
+  </defs>
+  <title>S_SnapToClip_Md_N_D@2x</title>
+  <path class="fill" d="M7,17v6h6V17a5,5,0,0,1,5-5h0a5,5,0,0,1,5,5v6h6V17A11,11,0,0,0,18,6h0A11,11,0,0,0,7,17Z"/>
+  <path class="fillMedium" d="M7,23h6a0,0,0,0,1,0,0v6a1,1,0,0,1-1,1H8a1,1,0,0,1-1-1V23A0,0,0,0,1,7,23Z"/>
+  <path class="fillMedium" d="M23,23h6a0,0,0,0,1,0,0v6a1,1,0,0,1-1,1H24a1,1,0,0,1-1-1V23A0,0,0,0,1,23,23Z"/>
+  </svg>

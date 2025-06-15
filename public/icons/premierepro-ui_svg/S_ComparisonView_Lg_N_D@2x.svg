@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" data-name="S_ComparisonView_Lg_N_D@2x" height="36" id="S_ComparisonView_Lg_N_D_2x" viewBox="0 0 44 36" width="44">
+  <defs>
+    <style>
+      .fill {
+        fill: #fff;
+        fill-rule: evenodd;
+        opacity: 0.65;
+      }
+
+      
+    </style>
+  </defs>
+  <title>S_ComparisonView_Lg_N_D@2x</title>
+  <path class="fill" d="M24,19V3a1,1,0,0,0-1-1H3A1,1,0,0,0,2,3V19a1,1,0,0,0,1,1H23A1,1,0,0,0,24,19ZM6,18H4V16H6Zm0-4H4V12H6Zm0-4H4V8H6ZM6,6H4V4H6ZM22,18H20V16h2Zm0-4H20V12h2Zm0-4H20V8h2Zm0-4H20V4h2Z" />
+  <path class="fill" d="M39,14H26v2h8V30H24V22H18v9a1,1,0,0,0,1,1H39a1,1,0,0,0,1-1V15A1,1,0,0,0,39,14ZM22,30H20V28h2Zm0-4H20V24h2Zm16,4H36V28h2Zm0-4H36V24h2Zm0-4H36V20h2Zm0-4H36V16h2Z" />
+  </svg>

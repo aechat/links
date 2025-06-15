@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" data-name="S_StopRecord_18_N_D@2x" height="36" id="S_StopRecord_18_N_D_2x" viewBox="0 0 36 36" width="36">
+  <defs>
+    <style>
+	.fill {
+        fill: #fff;
+        fill-rule: evenodd;
+        opacity: 0.65;
+      }
+	.red {
+        fill: #f53c3c;
+      }</style>
+  </defs>
+  <title>S_StopRecord_18_N_D@2x</title>
+  <path class="fill" d="M18,2A16,16,0,1,0,34,18,16,16,0,0,0,18,2Zm8,22a2,2,0,0,1-2,2H12.667A2.667,2.667,0,0,1,10,23.333V12a2,2,0,0,1,2-2H24a2,2,0,0,1,2,2Z" />
+  <rect class="red" height="12" rx="1" ry="1" width="12" x="12" y="12" />
+  </svg>

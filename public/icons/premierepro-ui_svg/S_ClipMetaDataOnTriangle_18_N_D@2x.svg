@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36">
+  <defs>
+    <style>
+      .fill {
+        fill: #fff;
+        opacity: .65;
+      }
+    </style>
+  </defs>
+  <rect class="fill" x="4" y="30" width="18" height="4" rx="1" ry="1"/>
+  <rect class="fill" x="4" y="22" width="22" height="4" rx="1" ry="1"/>
+  <rect class="fill" x="4" y="4" width="28" height="14" rx="1" ry="1"/>
+  <path id="Shape" class="fill" d="M36,26.9v8.7c0,.22091-.17909.4-.4.4h-8.7c-.22084-.00571-.39523-.18937-.38952-.41021.00256-.09876.04157-.19308.10952-.26479l8.703-8.709c.15936-.153.41257-.14784.56557.01152.07043.07336.11028.17079.11143.27248Z"/>
+</svg>

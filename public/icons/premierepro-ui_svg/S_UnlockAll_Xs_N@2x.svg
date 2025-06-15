@@ -1,0 +1,14 @@
+<svg id="S_UnlockAll_Xs_N_2x" data-name="S_UnlockAll_Xs_N@2x" xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 26 26">
+  <defs>
+    <style>
+      .fill {
+        fill-rule: evenodd;
+        opacity: 0.65;
+      }
+
+      
+    </style>
+  </defs>
+  <title>S_UnlockAll_Xs_N@2x</title>
+  <path class="fill" d="M21.155,10.031H12V10H10V8a4,4,0,0,1,4-4,3.959,3.959,0,0,1,1.67.377l1.469-1.469A5.974,5.974,0,0,0,8,8v2H7a1,1,0,0,0-1,1V21a1,1,0,0,0,1,1H21a1,1,0,0,0,1-1V11A0.987,0.987,0,0,0,21.155,10.031Zm-5.579,7.06V19a1,1,0,0,1-1,1H13.394a1,1,0,0,1-1-1V17.091a2.763,2.763,0,0,1-.994-2.029,2.6,2.6,0,1,1,5.2,0A2.573,2.573,0,0,1,15.576,17.091Z"/>
+  </svg>

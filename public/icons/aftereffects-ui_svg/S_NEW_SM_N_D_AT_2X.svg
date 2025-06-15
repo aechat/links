@@ -1,0 +1,16 @@
+<svg id="S_NewItem_Sm_N_D2x" data-name="S_NewItem_Sm_N_D@2x" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+  <defs>
+    <style>
+      .fill {
+        fill: #fff;
+        fill-rule: evenodd;
+        opacity: 0.65;
+      }
+
+      
+    </style>
+  </defs>
+  <title>S_NewItem_Sm_N_D@2x</title>
+  <path class="fill" d="M14,28V19a1,1,0,0,0-1-1H4a1.159,1.159,0,0,0,.254.854l8.893,8.893A1.159,1.159,0,0,0,14,28Z" transform="translate(0)"/>
+  <path class="fill" d="M4,5V16H14a2,2,0,0,1,2,2V28H27a1,1,0,0,0,1-1V5a1,1,0,0,0-1-1H5A1,1,0,0,0,4,5Z" transform="translate(0)"/>
+  </svg>

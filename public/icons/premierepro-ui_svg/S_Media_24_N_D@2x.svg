@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" data-name="S_Media_24_N_D@2x" height="48" id="S_Media_24_N_D_2x" viewBox="0 0 48 48" width="48">
+  <defs>
+    <style>
+      .fill {
+        fill: #fff;
+      }
+
+      
+    </style>
+  </defs>
+  <title>S_Media_24_N_D@2x</title>
+  <circle fill="#fff" cx="26.5" cy="9.5" r="2.5" />
+  <path fill="#fff" d="M16,17.619c-1.778-2.067-3.614-4.729-5.189-4.729C8.473,12.89,4,20,4,20V4H32V16h2V2.93A.966.966,0,0,0,33,2H3A.965.965,0,0,0,2,2.93V27.07A.965.965,0,0,0,3,28H16Z" />
+  <path fill="#fff" d="M44.073,18H19.927A1.927,1.927,0,0,0,18,19.927V42.073A1.927,1.927,0,0,0,19.927,44H44.073A1.927,1.927,0,0,0,46,42.073V19.927A1.927,1.927,0,0,0,44.073,18ZM22,42H20V40h2Zm0-4H20V36h2Zm0-4H20V32h2Zm0-4H20V28h2Zm0-4H20V24h2Zm0-4H20V20h2ZM40,32H24V30H40Zm4,10H42V40h2Zm0-4H42V36h2Zm0-4H42V32h2Zm0-4H42V28h2Zm0-4H42V24h2Zm0-4H42V20h2Z" />
+  </svg>

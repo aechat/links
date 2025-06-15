@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" data-name="S_MasterMotionblur_Md_N_D@2x" height="36" id="S_MasterMotionblur_Md_N_D_2x" viewBox="0 0 36 36" width="36">
+  <defs>
+    <style>
+      .fill{
+		fill: #FFF;
+		opacity: 0.65;
+		fill-rule: evenodd;
+		}
+
+      .fillPale{
+		fill: #FFF;
+		opacity: 0.15;
+		fill-rule: evenodd;
+		}        
+         
+    </style>
+  </defs>
+  <path class="fill" d="M32,14A9.968,9.968,0,0,0,13.27,9.216a10.013,10.013,0,0,0-4.036,4.019A9.984,9.984,0,1,0,22.749,26.794a10.027,10.027,0,0,0,4.04-4.067A9.957,9.957,0,0,0,32,14ZM14.5,30A8.484,8.484,0,0,1,8.289,15.719a9.891,9.891,0,0,0,12,11.985A8.456,8.456,0,0,1,14.5,30Zm4-4a8.484,8.484,0,0,1-6.216-14.276,9.918,9.918,0,0,0,12,11.991A8.458,8.458,0,0,1,18.5,26ZM22,22a8,8,0,1,1,8-8A8,8,0,0,1,22,22Z" />
+  <circle class="fillPale" cx="22" cy="14" r="8" />
+  </svg>

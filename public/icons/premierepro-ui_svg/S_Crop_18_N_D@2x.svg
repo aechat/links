@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36">
+  <defs>
+    <style>
+      .fill {
+        fill: #fff;
+        fill-rule: evenodd;
+        opacity: 0.65;
+      }
+    </style>
+  </defs>
+  <g id="i_c_o_n_s" data-name="i c o n s">
+    <path class="fill" d="M24,22h4V9a1,1,0,0,0-1-1H14v4H24Z"/>
+    <path class="fill" d="M12,24V3a1,1,0,0,0-1-1H9A1,1,0,0,0,8,3V8H3A1,1,0,0,0,2,9v2a1,1,0,0,0,1,1H8V27a1,1,0,0,0,1,1H24v5a1,1,0,0,0,1,1h2a1,1,0,0,0,1-1V28h5a1,1,0,0,0,1-1V25a1,1,0,0,0-1-1Z"/>
+  </g>
+</svg>

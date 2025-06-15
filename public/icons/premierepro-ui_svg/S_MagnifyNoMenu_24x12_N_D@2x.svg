@@ -1,0 +1,15 @@
+<svg id="S_MagnifyNoMenu_24x12_N_D_2x" data-name="S_MagnifyNoMenu_24x12_N_D@2x" xmlns="http://www.w3.org/2000/svg" width="48" height="24" viewBox="0 0 48 24">
+  <defs>
+    <style>
+      .fill {
+        fill: #fff;
+        fill-rule: evenodd;
+        opacity: 0.65;
+      }
+
+      
+    </style>
+  </defs>
+  <title>S_MagnifyNoMenu_24x12_N_D@2x</title>
+  <path class="fill" d="M25,3a7,7,0,0,0-6.145,10.354L13,19.19a1.831,1.831,0,0,0,2.583,2.583l5.782-5.8A7,7,0,1,0,25,3Zm0,12.25A5.25,5.25,0,1,1,30.25,10,5.25,5.25,0,0,1,25,15.25Z"/>
+  </svg>

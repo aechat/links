@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="ICONS" xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36">
+  <defs>
+    <style>
+      .fill {
+        fill: #fff;
+        opacity: .65;
+        stroke-width: 0px;
+      }
+    </style>
+  </defs>
+  <path class="fill" d="M8,2h-3c-.55228,0-1,.44772-1,1v3h2v-2h2v-2Z"/>
+  <rect class="fill" x="11" y="2" width="5" height="2"/>
+  <rect class="fill" x="19" y="2" width="5" height="2"/>
+  <path class="fill" d="M31,2h-4v2h3v2h2v-3c0-.55228-.44772-1-1-1Z"/>
+  <rect class="fill" x="4" y="17" width="2" height="5"/>
+  <rect class="fill" x="4" y="9" width="2" height="5"/>
+  <polygon class="fill" points="30 17 30 20 32 22 32 17 30 17"/>
+  <rect class="fill" x="30" y="9" width="2" height="5"/>
+  <rect class="fill" x="13" y="28" width="5" height="2"/>
+  <path class="fill" d="M6,28v-2h-2v3.112c0,.49043.39757.888.888.888h5.112v-2h-4Z"/>
+  <path class="fill" d="M22.846,18c-.19671-.19223-.512-.1886-.70423.00811-.09282.09498-.14386.2231-.14177.35589v16.618c-.00221.23637.18761.42978.42398.43198.00201.00002.00401.00002.00602.00002.11356.00056.22251-.0449.302-.126l5.268-5.36h6.926c.386,0,.414-.63.2-.85-.19-.184-9.406-8.196-12.28-11.078Z"/>
+  <path class="fill" d="M20.846,13.186c.75335.0254,3.56608,1.65523,5.154,2.814v-8H10v16h8v-7.814c-.17315-1.47663.88353-2.81405,2.36016-2.9872.16123-.01891.32384-.02319.48584-.0128Z"/>
+</svg>

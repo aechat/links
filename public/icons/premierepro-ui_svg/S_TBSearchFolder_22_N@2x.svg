@@ -1,0 +1,14 @@
+<svg id="S_TBSearchFolder_22_N_2x" data-name="S TBSearchFolder 22 N 2x" xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 44 44">
+  <defs>
+    <style>
+      .cls-1 {
+        fill-rule: evenodd;
+      }
+    </style>
+  </defs>
+  <title>S_TBSearchFolder_22_N@2x</title>
+  <path d="M19,11H4V7A1,1,0,0,1,5,6h8.172a2,2,0,0,1,1.414.586Z"/>
+  
+    <path class="cls-1" d="M20.968,20.542h0a3.882,3.882,0,1,0,5.49,0A3.882,3.882,0,0,0,20.968,20.543Z"/>
+    <path class="cls-1" d="M39,14H4V36a1,1,0,0,0,1,1H39a1,1,0,0,0,1-1V15A1,1,0,0,0,39,14ZM29.114,26.856a6.473,6.473,0,0,1-8.969,1.83l-5.124,5.125a.647.647,0,0,1-.915,0L13.19,32.9a.647.647,0,0,1,0-.915l5.124-5.124h0a6.473,6.473,0,1,1,10.8,0Z"/>
+</svg>

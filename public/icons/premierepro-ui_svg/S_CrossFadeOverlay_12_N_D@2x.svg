@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" data-name="S_CrossFadeOverlay_12_N_D@2x" height="24" id="S_CrossFadeOverlay_12_N_D_2x" viewBox="0 0 24 24" width="24">
+  <defs>
+    <style>
+	.background, .fill {
+		fill: #000000;
+		
+        opacity: 0.65;
+      }
+	.fill {
+        fill: #fff;
+      }</style>
+  </defs>
+  <title>S_CrossFadeOverlay_12_N_D@2x</title>
+  <rect class="background" height="24" rx="2" ry="2" width="24" />
+  <path class="fill" d="M2,3.207V20.793a.5.5,0,0,0,.854.354l8.793-8.793a.5.5,0,0,0,0-.707L2.854,2.853A.5.5,0,0,0,2,3.207Z" />
+  <path class="fill" d="M21.146,2.853l-8.793,8.793a.5.5,0,0,0,0,.707l8.793,8.793A.5.5,0,0,0,22,20.793V3.207A.5.5,0,0,0,21.146,2.853Z" />
+  </svg>

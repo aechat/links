@@ -1,0 +1,23 @@
+<svg id="S_LabelComment_Md_N_2x" data-name="S_LabelComment_Md_N@2x" xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36">
+  <defs>
+    <style>
+      .cls-1, .fillMedium {
+        fill: #fff;
+      }
+
+      .fillMedium {
+        opacity: 0.3;
+      }
+
+      .cls-1 {
+        fill-rule: evenodd;
+        opacity: 0.65;
+      }
+
+      
+    </style>
+  </defs>
+  <title>S_LabelComment_Md_N@2x</title>
+  <path class="fillMedium" d="M18,0A18,18,0,0,0,0,18C0,30.608,8.059,36,18,36A18,18,0,0,0,18,0ZM30,23a3,3,0,0,1-3,3H18l-5.146,5.146A.5.5,0,0,1,12,30.793V26H9a3,3,0,0,1-3-3V11.053A3.045,3.045,0,0,1,9,8H27a3.045,3.045,0,0,1,3,3.053Z"/>
+  <path class="cls-1" d="M30,23a3,3,0,0,1-3,3H18l-5.146,5.147A.5.5,0,0,1,12,30.793V26H9a3,3,0,0,1-3-3V11.053A3.045,3.045,0,0,1,9,8H27a3.045,3.045,0,0,1,3,3.053Z"/>
+  </svg>

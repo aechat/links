@@ -1,0 +1,18 @@
+<svg id="S_MinimizeItem_Lg_N_D_2x" data-name="S_MinimizeItem_Lg_N_D@2x" xmlns="http://www.w3.org/2000/svg" width="44" height="36" viewBox="0 0 44 36">
+  <defs>
+    <style>
+      .fill {
+        fill: #fff;
+        fill-rule: evenodd;
+        opacity: 0.65;
+      }
+
+      
+    </style>
+  </defs>
+  <title>S_MinimizeItem_Lg_N_D@2x</title>
+  <path class="fill" d="M6.5,22H18v7.5a0.5,0.5,0,0,0,.5.5h1a0.5,0.5,0,0,0,.5-0.5V20H6.5a0.5,0.5,0,0,0-.5.5v1A0.5,0.5,0,0,0,6.5,22Z"/>
+  <path class="fill" d="M26,29.5V22H37.5a0.5,0.5,0,0,0,.5-0.5v-1a0.5,0.5,0,0,0-.5-0.5H24v9.5a0.5,0.5,0,0,0,.5.5h1A0.5,0.5,0,0,0,26,29.5Z"/>
+  <path class="fill" d="M37.5,14H26V4.5A0.5,0.5,0,0,0,25.5,4h-1a0.5,0.5,0,0,0-.5.5V16H37.5a0.5,0.5,0,0,0,.5-0.5v-1A0.5,0.5,0,0,0,37.5,14Z"/>
+  <path class="fill" d="M18,4.5V14H6.5a0.5,0.5,0,0,0-.5.5v1a0.5,0.5,0,0,0,.5.5H20V4.5A0.5,0.5,0,0,0,19.5,4h-1A0.5,0.5,0,0,0,18,4.5Z"/>
+  </svg>

@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" data-name="S_SceneExtensionOpacity02_Sm_N_D@2x" height="32" id="S_SceneExtensionOpacity02_Sm_N_D_2x" viewBox="0 0 32 32" width="32">
+  <defs>
+    <style>
+      .fill {
+        fill: #fff;
+        fill-rule: evenodd;
+        opacity: 0.65;
+      }
+
+      
+    </style>
+  </defs>
+  <path class="fill" d="M28.6,26H19.4a.5.5,0,0,0-.367.84L24,32l4.957-5.146A.5.5,0,0,0,28.6,26Z" />
+  <path class="fill" d="M2,5V21a1,1,0,0,0,1,1H29a1,1,0,0,0,1-1V5a1,1,0,0,0-1-1H3A1,1,0,0,0,2,5ZM26,20H6V6H26Z" />
+  <polygon class="fill" points="24 12 20 8 24 8 24 12" />
+  <polygon class="fill" points="20 18 24 14 24 18 20 18" />
+  <polygon class="fill" points="8 14 12 18 8 18 8 14" />
+  <polygon class="fill" points="12 8 8 12 8 8 12 8" />
+  </svg>

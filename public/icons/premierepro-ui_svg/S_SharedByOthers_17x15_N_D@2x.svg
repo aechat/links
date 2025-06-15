@@ -1,0 +1,19 @@
+<svg id="S_SharedByOthers_17x15_N_D_2x" data-name="S_SharedByOthers_17x15_N_D@2x" xmlns="http://www.w3.org/2000/svg" width="34" height="30" viewBox="0 0 34 30">
+  <defs>
+    <style>
+      .background {
+        opacity: 0.65;
+      }
+
+      .yellow {
+        fill: #f4c500;
+      }
+
+      
+    </style>
+  </defs>
+  <title>S_SharedByOthers_17x15_N_D@2x</title>
+  <path class="background" d="M1,0H33a1,1,0,0,1,1,1V29a1,1,0,0,1-1,1H1a1,1,0,0,1-1-1V1A1,1,0,0,1,1,0Z"/>
+  <path class="yellow" d="M4,4H30V26H4ZM2,3V27a1,1,0,0,0,1,1H31a1,1,0,0,0,1-1V3a1,1,0,0,0-1-1H3A1,1,0,0,0,2,3Z"/>
+  <path class="yellow" d="M24.779,15.625,17,24,9.221,15.625A1,1,0,0,1,10,14h3V7a1,1,0,0,1,1-1h6a1,1,0,0,1,1,1v7h3A1,1,0,0,1,24.779,15.625Z"/>
+  </svg>

@@ -1,0 +1,16 @@
+<svg id="S_FilterTri_Sm_N_D_2x" data-name="S_FilterTri_Sm_N_D@2x" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+  <defs>
+    <style>
+      .fill {
+        fill: #fff;
+        fill-rule: evenodd;
+        opacity: 0.65;
+      }
+
+      
+    </style>
+  </defs>
+  <title>S_FilterTri_Sm_N_D@2x</title>
+  <path id="Fill" class="fill" d="M22.683,26.866L27,32l4.317-5.134a0.5,0.5,0,0,0-.384-0.82H23.068A0.5,0.5,0,0,0,22.683,26.866Z"/>
+  <path class="fill" d="M26.616,4.046H5.384a0.787,0.787,0,0,0-.62,1.273L14,17.046v13l4-4v-9L27.236,5.319A0.787,0.787,0,0,0,26.616,4.046Z"/>
+  </svg>

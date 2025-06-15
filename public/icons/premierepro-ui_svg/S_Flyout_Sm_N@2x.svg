@@ -1,0 +1,15 @@
+<svg id="S_Flyout_Sm_N_2x" data-name="S_Flyout_Sm_N@2x" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+  <defs>
+    <style>
+      .fill {
+        opacity: 0.65;
+      }
+
+      
+    </style>
+  </defs>
+  <title>S_Flyout_Sm_N@2x</title>
+  <rect class="fill" x="4" y="8" width="24" height="2" rx="0.5" ry="0.5"/>
+  <rect class="fill" x="4" y="14" width="24" height="2" rx="0.5" ry="0.5"/>
+  <rect class="fill" x="4" y="20" width="24" height="2" rx="0.5" ry="0.5"/>
+  </svg>

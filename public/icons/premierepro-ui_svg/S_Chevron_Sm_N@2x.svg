@@ -1,0 +1,15 @@
+<svg id="S_Chevron_Sm_N_2x" data-name="S_Chevron_Sm_N@2x" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+  <defs>
+    <style>
+      .fill {
+        fill-rule: evenodd;
+        opacity: 0.65;
+      }
+
+      
+    </style>
+  </defs>
+  <title>S_Chevron_Sm_N@2x</title>
+  <path class="fill" d="M20,23.8a1.8,1.8,0,0,1-1.272-3.072L23.454,16l-4.727-4.728a1.8,1.8,0,0,1,2.545-2.545l6,6a1.8,1.8,0,0,1,0,2.545l-6,6A1.793,1.793,0,0,1,20,23.8Z"/>
+  <path class="fill" d="M10,23.8a1.8,1.8,0,0,1-1.272-3.072L13.454,16,8.728,11.272a1.8,1.8,0,0,1,2.545-2.545l6,6a1.8,1.8,0,0,1,0,2.545l-6,6A1.793,1.793,0,0,1,10,23.8Z"/>
+  </svg>

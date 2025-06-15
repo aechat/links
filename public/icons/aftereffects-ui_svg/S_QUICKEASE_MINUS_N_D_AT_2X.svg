@@ -1,0 +1,14 @@
+<svg id="QuickEase_Minus_2x" data-name="QuickEase_Minus@2x" xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36">
+  <defs>
+    <style>
+      .fill {
+        fill: #fff;
+        opacity: 0.65;
+      }
+
+      
+    </style>
+  </defs>
+  <title>QuickEase_Minus@2x</title>
+  <path class="fill" d="M9,16h18c0.6,0,1,0.4,1,1v2c0,0.6-0.4,1-1,1H9c-0.6,0-1-0.4-1-1v-2C8,16.4,8.4,16,9,16z"/>
+  </svg>

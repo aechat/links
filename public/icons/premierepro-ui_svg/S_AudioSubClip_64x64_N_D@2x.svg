@@ -1,0 +1,26 @@
+<svg id="S_AudioSubClip_64x64_N_D_2x" data-name="S_AudioSubClip_64x64_N_D@2x" xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128">
+  <defs>
+    <style>
+      .fill {
+        fill: #fff;
+        opacity: 0.65;
+      }
+
+      .cls-1, .fill {
+        fill-rule: evenodd;
+      }
+
+      .cls-1, .cls-2 {
+        fill: #29d698;
+      }
+
+      
+    </style>
+  </defs>
+  <title>S_AudioSubClip_64x64_N_D@2x</title>
+  <path class="fill" d="M112,49.021V10a2,2,0,0,0-2-2h-2a2,2,0,0,0-2,2V51.921l12,12-12,11V118a2,2,0,0,0,2,2h2a2,2,0,0,0,2-2V78l15.119-13.859Z"/>
+  <path class="fill" d="M18,120h2a2,2,0,0,0,2-2V74.921l-12-11,12-12V10a2,2,0,0,0-2-2H18a2,2,0,0,0-2,2V49.021L0.881,64.141,16,78v40A2,2,0,0,0,18,120Z"/>
+  <path class="cls-1" d="M104,67v4h-2V67h-2v2H98v8H96v4H94V75H92v8H90v8H88V77H86V67H80v6H78V68.69c-0.595.65-1.277,1.456-2,2.372V79H74V73H72v7.35a40.127,40.127,0,0,0-4,7.564V77H66V89.46L64,91V87H62v16H60V93H58v6H56V83H54V73H52V66.93l-4-.03V81H46V66.86l-2-.031V77H42V68.27c-1.544,2.084-3.092,10.075-4.8,13.59L36,85.914V91H34V85l-4-2.857V70.6H28V66.829H24V63h4V59.171h2L32,43h2V39h2v8h2c1.11,3.1,2.471,10.444,4,12.81V53h2v9.18A3.207,3.207,0,0,0,46,63V49h2V63h4V57h2V47h2V31h2v2h2V27h2V37h2V27l2,5V49h2V37h2v6l2,4v4.514l2,2.027V51h2v6c0.658,0.65,1.341,1.358,2,2.05V55h2v6.16A9.239,9.239,0,0,0,82,63c-0.144-.072,2.811-0.089,4-0.08V51h2V37h2v6h2V55h2V47h2v6h2v8h2v2h2V59h2v4h2v4h-2Z"/>
+  <rect class="cls-2" x="26" y="14" width="76" height="5"/>
+  <rect class="cls-2" x="26" y="109" width="76" height="5"/>
+  </svg>

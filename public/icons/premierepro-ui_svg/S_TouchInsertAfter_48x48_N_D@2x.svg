@@ -1,0 +1,30 @@
+<svg id="S_TouchInsertAfter_48x48_N_D_2x" data-name="S_TouchInsertAfter_48x48_N_D@2x" xmlns="http://www.w3.org/2000/svg" width="96" height="96" viewBox="0 0 96 96">
+  <defs>
+    <style>
+      .background, .fill {
+        opacity: 0.65;
+      }
+
+      .fill, .fillMedium {
+        fill: #fff;
+      }
+
+      .fill {
+        fill-rule: evenodd;
+      }
+
+      .fillMedium {
+        opacity: 0.3;
+      }
+
+      
+    </style>
+  </defs>
+  <title>S_TouchInsertAfter_48x48_N_D@2x</title>
+  <path id="Fill" class="background" d="M79,20a1,1,0,0,1,1,1V32h4a1,1,0,0,1,.736,1.677L75,44,65.262,33.675A1,1,0,0,1,66,32h4V21a1,1,0,0,1,1-1h8Zm0-2H71a3,3,0,0,0-3,3v9H66a3,3,0,0,0-2.214,5.024l9.759,10.348L75,46.915l1.455-1.543,9.736-10.323A3,3,0,0,0,84,30H82V21A3,3,0,0,0,79,18Z"/>
+  <path class="background" d="M55,50a1,1,0,0,1,1,1V69a1,1,0,0,1-1,1H7a1,1,0,0,1-1-1V51a1,1,0,0,1,1-1H55Zm0-2H7a3,3,0,0,0-3,3V69a3,3,0,0,0,3,3H55a3,3,0,0,0,3-3V51A3,3,0,0,0,55,48Z"/>
+  <path class="background" d="M87,50a1,1,0,0,1,1,1V69a1,1,0,0,1-1,1H63a1,1,0,0,1-1-1V51a1,1,0,0,1,1-1H87Zm0-2H63a3,3,0,0,0-3,3V69a3,3,0,0,0,3,3H87a3,3,0,0,0,3-3V51A3,3,0,0,0,87,48Z"/>
+  <path id="Fill-2" data-name="Fill" class="fill" d="M80,21V32h4a1,1,0,0,1,.736,1.677L75,44,65.262,33.675A1,1,0,0,1,66,32h4V21a1,1,0,0,1,1-1h8A1,1,0,0,1,80,21Z"/>
+  <path id="Fill2" class="fillMedium" d="M55,50H7a1,1,0,0,0-1,1V69a1,1,0,0,0,1,1H55a1,1,0,0,0,1-1V51A1,1,0,0,0,55,50Z"/>
+  <path class="fill" d="M88,51V69a1,1,0,0,1-1,1H63a1,1,0,0,1-1-1V51a1,1,0,0,1,1-1H87A1,1,0,0,1,88,51Z"/>
+  </svg>

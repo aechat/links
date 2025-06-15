@@ -1,0 +1,16 @@
+<svg id="S_TextSize_Md_N_D_2x" data-name="S_TextSize_Md_N_D@2x" xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36">
+  <defs>
+    <style>
+      .fill {
+        fill: #fff;
+        fill-rule: evenodd;
+        opacity: 0.65;
+      }
+
+      
+    </style>
+  </defs>
+  <title>S_TextSize_Md_N_D@2x</title>
+  <path class="fill" d="M35,4a1,1,0,0,1,1,1v6a1,1,0,0,1-1,1H33a1,1,0,0,1-1-1V8H26V28h3a1,1,0,0,1,1,1v2a1,1,0,0,1-1,1H17a1,1,0,0,1-1-1V29a1,1,0,0,1,1-1h3V8H14v2.973a1,1,0,0,1-1,1H11a1,1,0,0,1-1-1V5a1,1,0,0,1,1-1H35Z"/>
+  <path class="fill" d="M15.5,16a0.5,0.5,0,0,1,.5.5v3a0.5,0.5,0,0,1-.5.5h-1a0.5,0.5,0,0,1-.5-0.5V18H10V30h1.5a0.5,0.5,0,0,1,.5.5v1a0.5,0.5,0,0,1-.5.5h-7A0.5,0.5,0,0,1,4,31.5v-1A0.5,0.5,0,0,1,4.5,30H6V18H2v1.473a0.5,0.5,0,0,1-.5.5h-1a0.5,0.5,0,0,1-.5-0.5V16.5A0.5,0.5,0,0,1,.5,16h15Z"/>
+  </svg>

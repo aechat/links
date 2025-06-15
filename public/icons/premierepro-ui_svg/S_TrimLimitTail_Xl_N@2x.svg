@@ -1,0 +1,19 @@
+<svg id="S_TrimLimitTail_Xl_N_2x" data-name="S_TrimLimitTail_Xl_N@2x" xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64">
+  <defs>
+    <style>
+      .fill {
+        fill-rule: evenodd;
+        opacity: 0.65;
+      }
+
+      .red {
+        fill: #f53c3c;
+      }
+
+      
+    </style>
+  </defs>
+  <title>S_TrimLimitTail_Xl_N@2x</title>
+  <polygon class="fill" points="50 50 50 2 62 2 62 62 2 62 2 50 50 50"/>
+  <polygon class="red" points="52 52 52 4 60 4 60 60 4 60 4 52 52 52"/>
+  </svg>

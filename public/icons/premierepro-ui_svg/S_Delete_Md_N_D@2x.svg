@@ -1,0 +1,17 @@
+<svg id="S_Delete_Md_N_D_2x" data-name="S_Delete_Md_N_D@2x" xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36">
+  <defs>
+    <style>
+      .fill {
+        fill: #fff;
+        opacity: 0.65;
+      }
+
+      
+    </style>
+  </defs>
+  <title>S_Delete_Md_N_D@2x</title>
+  <rect class="fill" x="16" y="11" width="2" height="18" rx="0.5" ry="0.5"/>
+  <rect class="fill" x="12" y="11" width="2" height="18" rx="0.5" ry="0.5"/>
+  <path class="fill" d="M29.5,6H22a4,4,0,0,0-4-4H16a4,4,0,0,0-4,4H4.5a0.5,0.5,0,0,0-.5.5v1a0.5,0.5,0,0,0,.5.5H6V32a2,2,0,0,0,2,2H26a2,2,0,0,0,2-2V8h1.5A0.5,0.5,0,0,0,30,7.5v-1A0.5,0.5,0,0,0,29.5,6ZM14,5a1,1,0,0,1,1-1h4a1,1,0,0,1,1,1V6H14V5ZM26,32H8V8H26V32Z"/>
+  <rect class="fill" x="20" y="11" width="2" height="18" rx="0.5" ry="0.5"/>
+  </svg>

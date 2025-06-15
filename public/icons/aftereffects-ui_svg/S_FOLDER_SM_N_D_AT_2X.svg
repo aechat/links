@@ -1,0 +1,16 @@
+<svg id="S_Folder_Sm_N_D2x" data-name="S_Folder_Sm_N_D@2x" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+  <defs>
+    <style>
+      .fill {
+        fill: #fff;
+        fill-rule: evenodd;
+        opacity: 0.65;
+      }
+
+      
+    </style>
+  </defs>
+  <title>S_Folder_Sm_N_D@2x</title>
+  <path class="fill" d="M11.3,4.4A1,1,0,0,0,10.5,4H3A1,1,0,0,0,2,5V6H12.4Z"/>
+  <path class="fill" d="M2,8V25a1,1,0,0,0,1,1H29a1,1,0,0,0,1-1V9a1,1,0,0,0-1-1H2Z"/>
+  </svg>

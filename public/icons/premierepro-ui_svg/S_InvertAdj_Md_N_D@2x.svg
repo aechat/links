@@ -1,0 +1,15 @@
+<svg id="S_InvertAdj_Md_N_D_2x" data-name="S_InvertAdj_Md_N_D@2x" xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36">
+  <defs>
+    <style>
+      .fill {
+        fill: #fff;
+        fill-rule: evenodd;
+        opacity: 0.65;
+      }
+
+      
+    </style>
+  </defs>
+  <title>S_InvertAdj_Md_N_D@2x</title>
+  <path id="Fill" class="fill" d="M4,30V8H32l-8,6.315c1.379,1.438,2.918,3.536,2.918,5.685,0,4.419-4.392,8.206-8.918,8-3.067-.139-4.6-1.533-6-4,1.566-1.6,12.19-9.454,12.19-9.454A7.446,7.446,0,0,0,18.786,12a8.16,8.16,0,0,0-8.16,8.16A7.194,7.194,0,0,0,12,24L6.811,28.661Zm30,1V7a1,1,0,0,0-1-1H3A1,1,0,0,0,2,7V31a1,1,0,0,0,1,1H33A1,1,0,0,0,34,31Z"/>
+  </svg>

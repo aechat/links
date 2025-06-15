@@ -1,0 +1,18 @@
+<svg id="S_Still_64x64_N_D_2x" data-name="S_Still_64x64_N_D@2x" xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128">
+  <defs>
+    <style>
+      .fill {
+        fill: #fff;
+        fill-rule: evenodd;
+        opacity: 0.65;
+      }
+
+      
+    </style>
+  </defs>
+  <title>S_Still_64x64_N_D@2x</title>
+  <polygon class="fill" points="80 12 80 40 108 40 80 12"/>
+  <path class="fill" d="M76,48a4,4,0,0,1-4-4V8H20a4,4,0,0,0-4,4V116a4,4,0,0,0,4,4h88a4,4,0,0,0,4-4V48H76ZM93,87H80a19,19,0,1,1-37.57-4H25L65,43V59H93V87Z"/>
+  <circle class="fill" cx="61" cy="87" r="14.5"/>
+  <path class="fill" d="M61,68V53L35,79h8.784A18.985,18.985,0,0,1,61,68Z"/>
+  </svg>

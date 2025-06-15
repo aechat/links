@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" data-name="S_ExpandAudio_18_N_D@2x" height="36" id="S_ExpandAudio_18_N_D_2x" viewBox="0 0 36 36" width="36">
+  <defs>
+    <style>
+	.fill {
+        fill: #fff;
+        fill-rule: evenodd;
+        opacity: 0.65;
+      }</style>
+  </defs>
+  <title>S_ExpandAudio_18_N_D@2x</title>
+  <path class="fill" d="M32,16v8H4V16Zm1-2H3a1,1,0,0,0-1,1V25a1,1,0,0,0,1,1H33a1,1,0,0,0,1-1V15A1,1,0,0,0,33,14Z" />
+  <path class="fill" d="M33,8H3A1,1,0,0,0,2,9v2a1,1,0,0,0,1,1H33a1,1,0,0,0,1-1V9A1,1,0,0,0,33,8Z" />
+  <path class="fill" d="M14.5,18h7a.5.5,0,0,1,.416.777L18,24l-3.915-5.223A.5.5,0,0,1,14.5,18Z" />
+  </svg>

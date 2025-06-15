@@ -1,0 +1,16 @@
+<svg id="S_PixelAspectRatio_Sm_N_D_2x" data-name="S_PixelAspectRatio_Sm_N_D@2x" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+  <defs>
+    <style>
+      .fill {
+        fill: #fff;
+        fill-rule: evenodd;
+        opacity: 0.65;
+      }
+
+      
+    </style>
+  </defs>
+  <title>S_PixelAspectRatio_Sm_N_D@2x</title>
+  <path class="fill" d="M26.82,4.683a0.5,0.5,0,0,0-.82.384V8H6V5.068a0.5,0.5,0,0,0-.82-0.384L0,9l5.18,4.317A0.5,0.5,0,0,0,6,12.932V10H26v2.932a0.5,0.5,0,0,0,.82.384L32,9Z"/>
+  <path class="fill" d="M23,16H9a1,1,0,0,0-1,1V27a1,1,0,0,0,1,1H23a1,1,0,0,0,1-1V17A1,1,0,0,0,23,16ZM22,26H10V18H22v8Z"/>
+  </svg>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 40.1 (33804) - http://www.bohemiancoding.com/sketch -->
+    <title>anchor_point@2x</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <circle id="path-1" cx="7" cy="7" r="6.22222222"></circle>
+        <mask id="mask-2" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="12.4444444" height="12.4444444" fill="white">
+            <use xlink:href="#path-1"></use>
+        </mask>
+        <circle id="path-3" cx="7" cy="7" r="2.33333333"></circle>
+        <mask id="mask-4" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="4.66666667" height="4.66666667" fill="white">
+            <use xlink:href="#path-3"></use>
+        </mask>
+    </defs>
+    <g id="Inspector-&amp;-Layers-Spec-04" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="square">
+        <g id="Graphics-Panel-Current" transform="translate(-1750.000000, -419.000000)" stroke="#696969" stroke-width="1.6">
+            <g id="Current-Master-" transform="translate(1551.000000, 280.000000)">
+                <g id="Graphic-Inspector-Panel" transform="translate(1.000000, 99.000000)">
+                    <g id="Position-and-allignment" transform="translate(15.000000, 39.000000)">
+                        <g id="size-and-position">
+                            <g>
+                                <g id="Anchor-Point" transform="translate(184.000000, 0.000000)">
+                                    <g id="Group-12">
+                                        <g id="anchor_point" transform="translate(0.000000, 2.000000)">
+                                            <use id="Oval-3" mask="url(#mask-2)" xlink:href="#path-1"></use>
+                                            <use id="Oval-3" mask="url(#mask-4)" fill="#696969" xlink:href="#path-3"></use>
+                                            <path d="M7,11.6666667 L7,14" id="Line"></path>
+                                            <path d="M7,0 L7,2.33333333" id="Line-Copy-2"></path>
+                                            <path d="M13.978565,6.91358025 L11.6666667,6.91358025" id="Line-Copy-2"></path>
+                                            <path d="M2.31189838,6.91358025 L0,6.91358025" id="Line-Copy-3"></path>
+                                        </g>
+                                    </g>
+                                </g>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

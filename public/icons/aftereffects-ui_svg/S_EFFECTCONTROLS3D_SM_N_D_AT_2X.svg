@@ -1,0 +1,15 @@
+<svg id="S_EffectControls3d_Sm_N_D_2x" data-name="S_EffectControls3d_Sm_N_D@2x" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+  <defs>
+    <style>
+      .fill {
+        fill: #fff;
+        fill-rule: evenodd;
+        opacity: 0.65;
+      }
+
+      
+    </style>
+  </defs>
+  <title>S_EffectControls3d_Sm_N_D@2x</title>
+  <path class="fill" d="M28.992,7.728,16.992.87a2,2,0,0,0-1.984,0l-12,6.857A2,2,0,0,0,2,9.464V23.143a2,2,0,0,0,1.008,1.736l12,6.857a2,2,0,0,0,1.984,0l12-6.857A2,2,0,0,0,30,23.143V9.464A2,2,0,0,0,28.992,7.728ZM14,27.251,5.378,22.324V12.64l8.635,4.991Zm1.974-12.631L6.809,9.348,16,4.124l9.18,5.219Zm10.645,7.7L18,27.251l-.011-9.621,8.635-4.991Z"/>
+  </svg>

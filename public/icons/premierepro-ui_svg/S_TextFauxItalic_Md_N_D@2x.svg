@@ -1,0 +1,15 @@
+<svg id="S_TextFauxItalic_Md_N_D_2x" data-name="S_TextFauxItalic_Md_N_D@2x" xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36">
+  <defs>
+    <style>
+      .fill {
+        fill: #fff;
+        fill-rule: evenodd;
+        opacity: 0.65;
+      }
+
+      
+    </style>
+  </defs>
+  <title>S_TextFauxItalic_Md_N_D@2x</title>
+  <path class="fill" d="M28.321,8a0.366,0.366,0,0,1,.359.5l-0.846,3a0.712,0.712,0,0,1-.641.5h-1a0.366,0.366,0,0,1-.359-0.5L26.256,10h-6L15.744,26h1.5a0.366,0.366,0,0,1,.359.5l-0.282,1a0.712,0.712,0,0,1-.641.5h-7a0.366,0.366,0,0,1-.359-0.5l0.282-1a0.712,0.712,0,0,1,.641-0.5h1.5l4.513-16h-6L9.841,11.473a0.712,0.712,0,0,1-.641.5h-1a0.366,0.366,0,0,1-.359-0.5L8.679,8.5A0.715,0.715,0,0,1,9.321,8h19Z"/>
+  </svg>

@@ -1,0 +1,16 @@
+<svg id="S_ProjectAlias_Xl_N_D_2x" data-name="S_ProjectAlias_Xl_N_D@2x" xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64">
+  <defs>
+    <style>
+      .fill {
+        fill: #fff;
+        fill-rule: evenodd;
+        opacity: 0.65;
+      }
+
+      
+    </style>
+  </defs>
+  <title>S_ProjectAlias_Xl_N_D@2x</title>
+  <path class="fill" d="M22.6,9.8A2,2,0,0,0,21,9H6a2,2,0,0,0-2,2v2H24.8Z"/>
+  <path class="fill" d="M58,16H4V50a2,2,0,0,0,2,2H58a2,2,0,0,0,2-2V18A2,2,0,0,0,58,16ZM32,36.232a.327.327,0,0,1-.086.213.323.323,0,0,1-.457.016l-5.285-5.166A27.252,27.252,0,0,0,15,42.794c-1.159,2.414-.4,4.56-2.173,4.636-.618.026-1.69-6.484,1.4-13.136a34.979,34.979,0,0,1,6.057-8.75l-5.1-4.991a.319.319,0,0,1-.1-.229A.323.323,0,0,1,15.408,20H32Z"/>
+  </svg>

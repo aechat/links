@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" data-name="S_TrackHeaders_18_N_D@2x" height="36" id="S_TrackHeaders_18_N_D_2x" viewBox="0 0 36 36" width="36">
+  <defs>
+    <style>
+	.fill {
+        fill: #fff;
+        opacity: 0.65;
+      }</style>
+  </defs>
+  <title>S_TrackHeaders_18_N_D@2x</title>
+  <rect class="fill" height="32" rx="1" ry="1" width="8" x="2" y="2" />
+  <rect class="fill" height="4" rx="0.5" ry="0.5" width="22" x="12" y="8" />
+  <rect class="fill" height="4" rx="0.5" ry="0.5" width="22" x="12" y="16" />
+  <rect class="fill" height="4" rx="0.5" ry="0.5" width="22" x="12" y="24" />
+  </svg>

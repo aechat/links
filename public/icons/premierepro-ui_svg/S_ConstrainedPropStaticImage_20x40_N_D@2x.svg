@@ -1,0 +1,15 @@
+<svg id="SP_ConstrainedPropStaticImage_20x40_N_D_2x" data-name="SP_ConstrainedPropStaticImage_20x40_N_D@2x" xmlns="http://www.w3.org/2000/svg" width="40" height="80" viewBox="0 0 40 80">
+  <defs>
+    <style>
+      .fill {
+        fill: #fff;
+        fill-rule: evenodd;
+        opacity: 0.65;
+      }
+
+      
+    </style>
+  </defs>
+  <title>SP_ConstrainedPropStaticImage_20x40_N_D@2x</title>
+  <path id="Fill" class="fill" d="M11,12H31a1,1,0,0,1,1,1V67a1,1,0,0,1-1,1H11a1,1,0,0,1-1-1V65a1,1,0,0,1,1-1H28V16H11a1,1,0,0,1-1-1V13A1,1,0,0,1,11,12Z"/>
+  </svg>

@@ -1,0 +1,17 @@
+<svg id="S_ViewTri_Sm_N_D_2x" data-name="S_ViewTri_Sm_N_D@2x" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+  <defs>
+    <style>
+      .fill {
+        fill: #fff;
+        fill-rule: evenodd;
+        opacity: 0.65;
+      }
+
+      
+    </style>
+  </defs>
+  <title>S_ViewTri_Sm_N_D@2x</title>
+  <path id="Fill" class="fill" d="M22.683,26.82,27,32l4.317-5.18a.5.5,0,0,0-.385-.82H23.068a.5.5,0,0,0-.385.82Z"/>
+  <path class="fill" d="M15.98,15a1.05,1.05,0,0,1,1.04-1.06h0A1.067,1.067,0,0,1,18.08,15a1.054,1.054,0,0,1-1.048,1.06H17.02a1.037,1.037,0,0,1-1.04-1.034Q15.98,15.013,15.98,15Z"/>
+  <path class="fill" d="M2,16.54S7.06,24,15.06,24,28,16.54,28,16.54,23.06,8,15.06,8C7.12,8,2,16.54,2,16.54ZM9.28,16A5.722,5.722,0,1,1,15,21.86,5.788,5.788,0,0,1,9.28,16Z" />
+  </svg>

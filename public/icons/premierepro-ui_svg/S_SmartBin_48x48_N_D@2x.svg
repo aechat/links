@@ -1,0 +1,17 @@
+<svg id="S_SmartBin_48x48_N_D_2x" data-name="S_SmartBin_48x48_N_D@2x" xmlns="http://www.w3.org/2000/svg" width="96" height="96" viewBox="0 0 96 96">
+  <defs>
+    <style>
+      .fill {
+        fill: #fff;
+        fill-rule: evenodd;
+        opacity: 0.65;
+      }
+
+      
+    </style>
+  </defs>
+  <title>S_SmartBin_48x48_N_D@2x</title>
+  <path class="fill" d="M36.133,16.733A3.836,3.836,0,0,0,34,16H8.667A2.667,2.667,0,0,0,6,18.667V22H39.753S36.8,17.4,36.133,16.733Z"/>
+  <circle class="fill" cx="51.246" cy="49.905" r="8.5"/>
+  <path class="fill" d="M87.333,26H6V77.333A2.667,2.667,0,0,0,8.667,80H87.333A2.667,2.667,0,0,0,90,77.333V28.667A2.667,2.667,0,0,0,87.333,26ZM51.246,61.436a11.463,11.463,0,0,1-6.886-2.3l-9.217,9.217a2.479,2.479,0,0,1-3.5-3.5l9.475-9.433A11.532,11.532,0,1,1,51.246,61.436Z"/>
+  </svg>

@@ -1,0 +1,19 @@
+<svg id="S_TBOverlays_22_N_2x" data-name="S_TBOverlays_22_N@2x" xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 44 44">
+  <defs>
+    <style>
+      .cls-1 {
+        fill-rule: evenodd;
+      }
+
+      
+    </style>
+  </defs>
+  <title>S_TBOverlays_22_N@2x</title>
+  <path class="cls-1" d="M2,7V35a1,1,0,0,0,1,1H41a1,1,0,0,0,1-1V7a1,1,0,0,0-1-1H3A1,1,0,0,0,2,7ZM39,33H5V9H39Z"/>
+  <rect x="14" y="25" width="8" height="4" rx="0.5" ry="0.5"/>
+  <rect x="14" y="19" width="8" height="4" rx="0.5" ry="0.5"/>
+  <rect x="14" y="13" width="8" height="4" rx="0.5" ry="0.5"/>
+  <rect x="8" y="13" width="3" height="4" rx="0.5" ry="0.5"/>
+  <rect x="8" y="19" width="3" height="4" rx="0.5" ry="0.5"/>
+  <rect x="8" y="25" width="3" height="4" rx="0.5" ry="0.5"/>
+  </svg>

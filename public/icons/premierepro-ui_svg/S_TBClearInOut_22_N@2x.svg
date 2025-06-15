@@ -1,0 +1,15 @@
+<svg id="S_TBClearInOut_22_N_2x" data-name="S_TBClearInOut_22_N@2x" xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 44 44">
+  <defs>
+    <style>
+      .cls-1 {
+        fill-rule: evenodd;
+      }
+
+      
+    </style>
+  </defs>
+  <title>S_TBClearInOut_22_N@2x</title>
+  <rect x="29" y="7" width="10" height="3" rx="0.5" ry="0.5"/>
+  <path class="cls-1" d="M13,2H10A1,1,0,0,0,9,3V16L2.886,21.241a1,1,0,0,0,0,1.519L9,28V41a1,1,0,0,0,1,1h3a1,1,0,0,0,1-1V27L8,22l6-5V3A1,1,0,0,0,13,2Z"/>
+  <path class="cls-1" d="M20,2h3a1,1,0,0,1,1,1V16l6.114,5.241a1,1,0,0,1,0,1.519L24,28V41a1,1,0,0,1-1,1H20a1,1,0,0,1-1-1V27l6-5-6-5V3A1,1,0,0,1,20,2Z"/>
+  </svg>

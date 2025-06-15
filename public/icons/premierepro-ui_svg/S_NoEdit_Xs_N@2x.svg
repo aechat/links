@@ -1,0 +1,16 @@
+<svg id="S_NoEdit_Xs_N_2x" data-name="S_NoEdit_Xs_N@2x" xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 26 26">
+  <defs>
+    <style>
+      .fill {
+        fill-rule: evenodd;
+        opacity: 0.65;
+      }
+
+      
+    </style>
+  </defs>
+  <title>S_NoEdit_Xs_N@2x</title>
+  <rect class="fill" x="12.007" y="-2.114" width="2" height="30.241" rx="0.5" ry="0.5" transform="translate(-5.388 13.007) rotate(-45)"/>
+  <path class="fill" d="M17.593,13.375,23.766,7.2a1,1,0,0,0,0-1.414L20.181,2.2a1,1,0,0,0-1.414,0L12.593,8.375Z"/>
+  <path class="fill" d="M8.375,12.593l-4.6,4.6L2.02,23.331a.5.5,0,0,0,.618.618L8.773,22.2l4.6-4.6ZM2.964,23l1.855-5.35L8.314,21.15Z"/>
+  </svg>

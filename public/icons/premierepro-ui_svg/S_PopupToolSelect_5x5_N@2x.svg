@@ -1,0 +1,14 @@
+<svg id="S_PopupToolSelect_5x5_N_2x" data-name="S_PopupToolSelect_5x5_N@2x" xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 10 10">
+  <defs>
+    <style>
+      .fill {
+        fill-rule: evenodd;
+        opacity: 0.65;
+      }
+
+      
+    </style>
+  </defs>
+  <title>S_PopupToolSelect_5x5_N@2x</title>
+  <path id="Fill" class="fill" d="M0,1V9a1,1,0,0,0,1,1H9a1,1,0,0,0,1-1V1A1,1,0,0,0,9,0H1A1,1,0,0,0,0,1Z"/>
+  </svg>

@@ -1,0 +1,13 @@
+<svg id="S_CheckMark_Xs_N_D_2x" data-name="S_CheckMark_Xs_N_D@2x" xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 26 26">
+  <defs>
+    <style>
+      .blue {
+        fill: #2680eb;
+      }
+
+      
+    </style>
+  </defs>
+  <title>S_CheckMark_Xs_N_D@2x</title>
+  <path class="blue" d="M22.476,6.211L21.021,5.079a1,1,0,0,0-1.4.175L10.782,16.679l-3.75-3.811a1,1,0,0,0-1.414,0L4.293,14.192a1,1,0,0,0,0,1.415l6.029,6.1a1,1,0,0,0,1.5-.093l10.833-14A1,1,0,0,0,22.476,6.211Z"/>
+  </svg>

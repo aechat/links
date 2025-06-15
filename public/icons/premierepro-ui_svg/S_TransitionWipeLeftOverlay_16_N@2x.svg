@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" data-name="S_TransitionWipeLeftOverlay_16_N@2x" height="32" id="S_TransitionWipeLeftOverlay_16_N_2x" viewBox="0 0 32 32" width="32">
+  <defs>
+    <style>
+      .cls-1 {
+        opacity: 0.5;
+      }
+
+      .cls-2 {
+        fill: #fff;
+        opacity: 0.8;
+      }
+
+      
+    </style>
+  </defs>
+  <rect class="cls-1" height="28" rx="0.5" transform="translate(32 0) rotate(90)" width="28" x="2" y="2" />
+  <path class="cls-2" d="M4,5V27a1,1,0,0,0,1,1H27a1,1,0,0,0,1-1V5a1,1,0,0,0-1-1H5A1,1,0,0,0,4,5ZM18,26V6h2V26Zm-4,0V6h2V26ZM6,6h6.4V26H6Z" />
+  </svg>

@@ -1,0 +1,17 @@
+<svg id="S_PlayInOut_Lg_N_D_2x" data-name="S_PlayInOut_Lg_N_D@2x" xmlns="http://www.w3.org/2000/svg" width="44" height="36" viewBox="0 0 44 36">
+  <defs>
+    <style>
+      .fill {
+        fill: #fff;
+        fill-rule: evenodd;
+        opacity: 0.65;
+      }
+
+      
+    </style>
+  </defs>
+  <title>S_PlayInOut_Lg_N_D@2x</title>
+  <path id="Fill2" class="fill" d="M16.724,10.362L30,17,16.724,23.638A0.5,0.5,0,0,1,16,23.191V10.809A0.5,0.5,0,0,1,16.724,10.362Z"/>
+  <path id="Fill" class="fill" d="M12,5v9L8,17l4,3v9a1,1,0,0,1-1,1H9a1,1,0,0,1-1-1V20L4,17l4-3V5A1,1,0,0,1,9,4h2A1,1,0,0,1,12,5Z"/>
+  <path id="Fill-2" data-name="Fill" class="fill" d="M32,5v9l4,3-4,3v9a1,1,0,0,0,1,1h2a1,1,0,0,0,1-1V20l4-3-4-3V5a1,1,0,0,0-1-1H33A1,1,0,0,0,32,5Z"/>
+  </svg>

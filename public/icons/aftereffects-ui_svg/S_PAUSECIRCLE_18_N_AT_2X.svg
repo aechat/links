@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" data-name="S_PauseCircle_18_N@2x" height="36" id="S_PauseCircle_18_N_2x" viewBox="0 0 36 36" width="36">
+  <defs>
+    <style>
+      .fill {
+        fill: #707070;
+      }
+
+      
+    </style>
+  </defs>
+  <path class="fill" d="M18,2A16,16,0,1,0,34,18,16,16,0,0,0,18,2ZM16,25a1,1,0,0,1-1,1H13a1,1,0,0,1-1-1V11a1,1,0,0,1,1-1h2a1,1,0,0,1,1,1Zm8,0a1,1,0,0,1-1,1H21a1,1,0,0,1-1-1V11a1,1,0,0,1,1-1h2a1,1,0,0,1,1,1Z" />
+  </svg>

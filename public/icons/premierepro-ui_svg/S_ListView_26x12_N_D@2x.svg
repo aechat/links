@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" data-name="S_ListView_26x12_N_D@2x" height="24" id="S_ListView_26x12_N_D_2x" viewBox="0 0 52 24" width="52">
+  <defs>
+    <style>
+      .fill {
+        fill: #fff;
+        opacity: 0.65;
+      }
+
+      
+    </style>
+  </defs>
+  <title>S_ListView_26x12_N_D@2x</title>
+  <path class="fill" d="M19,14H11a1,1,0,0,0-1,1v6a1,1,0,0,0,1,1h8a1,1,0,0,0,1-1V15A1,1,0,0,0,19,14Z" />
+  <path class="fill" d="M19,2H11a1,1,0,0,0-1,1V9a1,1,0,0,0,1,1h8a1,1,0,0,0,1-1V3A1,1,0,0,0,19,2Z" />
+  <rect class="fill" height="2" rx="0.5" ry="0.5" width="18" x="24" y="6" />
+  <rect class="fill" height="2" rx="0.5" ry="0.5" width="18" x="24" y="18" />
+  </svg>

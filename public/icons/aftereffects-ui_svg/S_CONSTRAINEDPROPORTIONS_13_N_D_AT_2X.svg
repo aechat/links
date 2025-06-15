@@ -1,0 +1,18 @@
+<svg id="S_ConstrainedProportions_13_N_2x" data-name="S_ConstrainedProportions_13_N@2x" xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 26 26">
+  <defs>
+    <style>
+      .fill {
+        fill: #fff;
+        fill-rule: evenodd;
+        opacity: 0.65;
+      }
+
+      .cls-1 {
+        fill: #ff13dc;
+        opacity: 0;
+      }
+    </style>
+  </defs>
+  <path class="fill" d="M17.91,14A5.967,5.967,0,0,0,12,7H6A6,6,0,0,0,6,19H8.726a8.03,8.03,0,0,1-2.137-3H6a3,3,0,0,1,0-6h6a3,3,0,0,1,3,3,2.97,2.97,0,0,1-.184,1ZM20,19H14a5.967,5.967,0,0,1-5.91-7h3.094A2.97,2.97,0,0,0,11,13a3,3,0,0,0,3,3h6a3,3,0,0,0,0-6h-.589a8.03,8.03,0,0,0-2.137-3H20a6,6,0,0,1,0,12Z"/>
+  <rect id="ToDelete" class="cls-1" width="26" height="26"/>
+</svg>

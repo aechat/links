@@ -1,0 +1,18 @@
+<svg id="S_TBListView_22_N_2x" data-name="S_TBListView_22_N@2x" xmlns="http://www.w3.org/2000/svg" width="44" height="44" viewBox="0 0 44 44">
+  <defs>
+    <style>
+      .cls-1 {
+        fill-rule: evenodd;
+      }
+
+      
+    </style>
+  </defs>
+  <title>S_TBListView_22_N@2x</title>
+  <path class="cls-1" d="M7,12h4v4H7ZM4,10v8a1,1,0,0,0,1,1h8a1,1,0,0,0,1-1V10a1,1,0,0,0-1-1H5A1,1,0,0,0,4,10Z"/>
+  <path class="cls-1" d="M7,26h4v4H7ZM4,24v8a1,1,0,0,0,1,1h8a1,1,0,0,0,1-1V24a1,1,0,0,0-1-1H5A1,1,0,0,0,4,24Z"/>
+  <rect x="18" y="30" width="22" height="3" rx="0.5" ry="0.5"/>
+  <rect x="18" y="23" width="22" height="3" rx="0.5" ry="0.5"/>
+  <rect x="18" y="16" width="22" height="3" rx="0.5" ry="0.5"/>
+  <rect x="18" y="9" width="22" height="3" rx="0.5" ry="0.5"/>
+  </svg>

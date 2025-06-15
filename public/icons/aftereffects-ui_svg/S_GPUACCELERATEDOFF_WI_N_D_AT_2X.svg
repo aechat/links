@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" data-name="S_GPUAcceleratedOff_Wi_N_D@2x" height="26" id="S_GPUAcceleratedOff_Wi_N_D_2x" viewBox="0 0 40 26" width="40">
+  <defs>
+    <style>
+      .fill, .fillMedium {
+        fill: #fff;
+      }
+
+      .fillMedium {
+        opacity: 0.3;
+      }
+
+      .fill {
+        opacity: 0.65;
+      }
+
+      
+    </style>
+  </defs>
+  <title>S_GPUAcceleratedOff_Wi_N_D@2x</title>
+  <path class="fillMedium" d="M26.807,9.035A25.36,25.36,0,0,0,29.867.744a.533.533,0,0,0-.611-.611C19.661,1.97,14.039,7.752,11.3,15.3l3.4,3.4a24.49,24.49,0,0,0,7.725-4.435A9.027,9.027,0,0,1,26.807,9.035Z" />
+  <path class="fillMedium" d="M15.264,5.149q-6.979.957-10.869,8.094A.517.517,0,0,0,4.842,14H9.654A25.632,25.632,0,0,1,15.264,5.149Z" />
+  <path class="fill" d="M34,10.674V13a5,5,0,1,1-6,0V10.674a7,7,0,1,0,6,0Z" />
+  <rect class="fill" height="10" rx="1" ry="1" width="2" x="30" y="8" />
+  <path class="fillMedium" d="M22,17.133a26.994,26.994,0,0,1-6,3.213v4.748a.513.513,0,0,0,.782.426A21.063,21.063,0,0,0,22.625,20.3,8.973,8.973,0,0,1,22,17.133Z" />
+  </svg>

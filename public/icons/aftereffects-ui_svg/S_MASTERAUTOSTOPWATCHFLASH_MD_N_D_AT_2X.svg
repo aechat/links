@@ -1,0 +1,19 @@
+<svg id="S_MasterAutoStopwatchFlash_Md_N_D_2x" data-name="S_MasterAutoStopwatchFlash_Md_N_D@2x" xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36">
+  <defs>
+    <style>
+      .fill {
+        fill: #2d8ceb;
+        fill-rule: evenodd;
+      }
+
+      .yellow {
+        fill: #f4c500;
+      }
+
+      
+    </style>
+  </defs>
+  <title>S_MasterAutoStopwatchFlash_Md_N_D@2x</title>
+  <path class="fill" d="M25.5,10.96a10.992,10.992,0,0,0-6.5-2.9V6.009h2.5a0.5,0.5,0,0,0,.5-0.5v-1a0.5,0.5,0,0,0-.5-0.5h-7a0.5,0.5,0,0,0-.5.5v1a0.5,0.5,0,0,0,.5.5H17V8.058a10.951,10.951,0,0,0-5.546,2.125L10.28,8.971l0.4-.4a0.5,0.5,0,0,0,0-.707L9.975,7.155a0.5,0.5,0,0,0-.707,0L7.146,9.277a0.5,0.5,0,0,0,0,.707l0.708,0.707a0.5,0.5,0,0,0,.707,0l0.3-.305,1.095,1.132A10.993,10.993,0,1,0,25.5,10.96ZM18,28a9,9,0,1,1,9-9A9,9,0,0,1,18,28Z"/>
+  <circle class="yellow" cx="18" cy="19" r="9"/>
+  </svg>

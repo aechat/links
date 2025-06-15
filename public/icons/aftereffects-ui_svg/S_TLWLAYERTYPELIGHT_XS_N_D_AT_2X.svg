@@ -1,0 +1,16 @@
+<svg id="S_TLWLayerTypeLight_Xs_N_D_2x" data-name="S_TLWLayerTypeLight_Xs_N_D@2x" xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 26 26">
+  <defs>
+    <style>
+      .fill {
+        fill: #fff;
+        fill-rule: evenodd;
+        opacity: 0.65;
+      }
+
+      
+    </style>
+  </defs>
+  <title>S_TLWLayerTypeLight_Xs_N_D@2x</title>
+  <path class="fill" d="M9,19v1.245a1,1,0,0,0,.239.649l2.35,2.756A1,1,0,0,0,12.35,24h1.3a1,1,0,0,0,.761-0.351l2.349-2.756A1,1,0,0,0,17,20.244V19H9Z"/>
+  <path class="fill" d="M17,17c0-3.336,3.2-5.366,3.2-8.925A7.049,7.049,0,0,0,12.99,1.2a7.532,7.532,0,0,0-1.445.14A7.355,7.355,0,0,0,5.8,8.126C5.8,11.766,9,13.7,9,17h8Z"/>
+  </svg>

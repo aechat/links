@@ -1,0 +1,24 @@
+<svg id="S_TouchPreviousClip_32x32_N_D_2x" data-name="S_TouchPreviousClip_32x32_N_D@2x" xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64">
+  <defs>
+    <style>
+      .cls-1 {
+        opacity: 0.3;
+      }
+
+      .background, .fill {
+        opacity: 0.65;
+      }
+
+      .fill {
+        fill: #fff;
+        fill-rule: evenodd;
+      }
+
+      
+    </style>
+  </defs>
+  <title>S_TouchPreviousClip_32x32_N_D@2x</title>
+  <circle class="cls-1" cx="32" cy="32" r="28"/>
+  <path class="background" d="M36.993,15.412a1,1,0,0,1,1.007,1V47.586a1,1,0,0,1-1.007,1,0.98,0.98,0,0,1-.7-0.295L20,32,36.293,15.707A0.98,0.98,0,0,1,36.993,15.412Zm0-2a2.973,2.973,0,0,0-2.114.881L18.586,30.586,17.172,32l1.414,1.414L34.879,49.707a2.973,2.973,0,0,0,2.114.881,3.008,3.008,0,0,0,3.007-3V16.414A3.008,3.008,0,0,0,36.993,13.412Z"/>
+  <path class="fill" d="M36.293,15.707L20,32,36.293,48.293A1,1,0,0,0,38,47.586V16.414A1,1,0,0,0,36.293,15.707Z"/>
+  </svg>

@@ -1,0 +1,15 @@
+<svg id="S_CenterHor_Lg_N_D_2x" data-name="S_CenterHor_Lg_N_D@2x" xmlns="http://www.w3.org/2000/svg" width="44" height="36" viewBox="0 0 44 36">
+  <defs>
+    <style>
+      .fill {
+        fill: #fff;
+        fill-rule: evenodd;
+        opacity: 0.65;
+      }
+
+      
+    </style>
+  </defs>
+  <title>S_CenterHor_Lg_N_D@2x</title>
+  <path class="fill" d="M37,4H5A1,1,0,0,0,4,5V29a1,1,0,0,0,1,1H37a1,1,0,0,0,1-1V5A1,1,0,0,0,37,4ZM20,28H6V6H20v4H15a1,1,0,0,0-1,1V23a1,1,0,0,0,1,1h5v4Zm6-16V22H16V12H26ZM36,28H22V24h5a1,1,0,0,0,1-1V11a1,1,0,0,0-1-1H22V6H36V28Z"/>
+  </svg>

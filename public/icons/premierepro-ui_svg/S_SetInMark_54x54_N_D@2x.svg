@@ -1,0 +1,24 @@
+<svg id="S_SetInMark_54x54_N_D_2x" data-name="S_SetInMark_54x54_N_D@2x" xmlns="http://www.w3.org/2000/svg" width="108" height="108" viewBox="0 0 108 108">
+  <defs>
+    <style>
+      .cls-1 {
+        opacity: 0.3;
+      }
+
+      .background, .fill {
+        opacity: 0.65;
+      }
+
+      .fill {
+        fill: #fff;
+        fill-rule: evenodd;
+      }
+
+      
+    </style>
+  </defs>
+  <title>S_SetInMark_54x54_N_D@2x</title>
+  <circle class="cls-1" cx="54" cy="54" r="45"/>
+  <path id="Fill" class="background" d="M57,26a1,1,0,0,1,1,1V43.857L50,52l8,8.357V79a1,1,0,0,1-1,1H55a1,1,0,0,1-1-1V60.357l-7.756-8.436L54,43.857V27a1,1,0,0,1,1-1h2Zm0-2H55a3,3,0,0,0-3,3V43.051l-7.2,7.483L43.5,51.89l1.273,1.385L52,61.137V79a3,3,0,0,0,3,3h2a3,3,0,0,0,3-3V59.554l-0.555-.58-6.659-6.956,6.641-6.759L60,44.675V27A3,3,0,0,0,57,24Z"/>
+  <path id="Fill-2" data-name="Fill" class="fill" d="M46.244,51.921L54,60.357V79a1,1,0,0,0,1,1h2a1,1,0,0,0,1-1V60.357L50,52l8-8.143V27a1,1,0,0,0-1-1H55a1,1,0,0,0-1,1V43.857Z"/>
+  </svg>

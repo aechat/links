@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" data-name="S_AddMOGRT_18_N_D@2x" height="36" id="S_AddMOGRT_18_N_D_2x" viewBox="0 0 36 36" width="36">
+  <defs>
+    <style>
+      .fill {
+        fill: #fff;
+        opacity: 0.65;
+      }
+
+      
+    </style>
+  </defs>
+  <title>S_AddMOGRT_18_N_D@2x</title>
+  <path class="fill" d="M26,16A10,10,0,1,0,36,26,10,10,0,0,0,26,16Zm6,11.5a.5.5,0,0,1-.5.5H28v3.5a.5.5,0,0,1-.5.5h-3a.5.5,0,0,1-.5-.5V28H20.5a.5.5,0,0,1-.5-.5v-3a.5.5,0,0,1,.5-.5H24V20.5a.5.5,0,0,1,.5-.5h3a.5.5,0,0,1,.5.5V24h3.5a.5.5,0,0,1,.5.5Z" />
+  <path class="fill" d="M14,26H4V6H30v8.7a12.015,12.015,0,0,1,2,.921V5a1,1,0,0,0-1-1H3A1,1,0,0,0,2,5V27a1,1,0,0,0,1,1H14.18A11.986,11.986,0,0,1,14,26Z" />
+  </svg>

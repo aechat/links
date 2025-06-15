@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" data-name="S_Loop_Md_N_D@2x" height="36" id="S_Loop_Md_N_D_2x" viewBox="0 0 36 36" width="36">
+  <defs>
+    <style>
+	.fill {
+        fill: #fff;
+        fill-rule: evenodd;
+        opacity: 0.65;
+      }</style>
+  </defs>
+  <title>S_Loop_Md_N_D@2x</title>
+  <path class="fill" d="M30,18.309V24H6V12H16V8H6a4,4,0,0,0-4,4V24a4,4,0,0,0,4,4H30a4,4,0,0,0,4-4V16.809a.5.5,0,0,0-.724-.447l-3,1.5A.5.5,0,0,0,30,18.309Z" id="PrefillD1" />
+  <path class="fill" d="M17,4h1.851l.263.064,10.625,5.5a.5.5,0,0,1,0,.878l-10.631,5.5L18.858,16H17a1,1,0,0,1-1-1V5A1,1,0,0,1,17,4Z" id="Fill" />
+  </svg>

@@ -1,0 +1,18 @@
+<svg id="S_Dialog_Md_N_D_2x" data-name="S_Dialog_Md_N_D@2x" xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36">
+  <defs>
+    <style>
+      .fill {
+        fill: #fff;
+        opacity: 0.65;
+      }
+
+      
+    </style>
+  </defs>
+  <title>S_Dialog_Md_N_D@2x</title>
+  <path class="fill" d="M4,5V31a1,1,0,0,0,1,1H31a1,1,0,0,0,1-1V5a1,1,0,0,0-1-1H5A1,1,0,0,0,4,5ZM30,30H6V12H30V30Z"/>
+  <rect class="fill" x="10" y="16" width="4" height="4" rx="0.5" ry="0.5"/>
+  <rect class="fill" x="10" y="22" width="4" height="4" rx="0.5" ry="0.5"/>
+  <rect class="fill" x="16" y="18" width="10" height="2" rx="0.5" ry="0.5"/>
+  <rect class="fill" x="16" y="24" width="10" height="2" rx="0.5" ry="0.5"/>
+  </svg>

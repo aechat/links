@@ -1,0 +1,17 @@
+<svg id="SP_History_Trim_Sm_N_D_2x" data-name="SP_History_Trim_Sm_N_D@2x" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+  <defs>
+    <style>
+      .fill {
+        fill: #fff;
+        fill-rule: evenodd;
+        opacity: 0.65;
+      }
+
+      
+    </style>
+  </defs>
+  <title>SP_History_Trim_Sm_N_D@2x</title>
+  <path id="Fill" class="fill" d="M2,7H2A1,1,0,0,0,3,8H20v6h4V7a1,1,0,0,0-1-1H3A1,1,0,0,0,2,7Z"/>
+  <path id="Fill2" class="fill" d="M7.18,12.117L2,17l5.18,4.883A0.5,0.5,0,0,0,8,21.5V18H26v3.5a0.5,0.5,0,0,0,.82.384L32,17l-5.18-4.883A0.5,0.5,0,0,0,26,12.5V16H8V12.5A0.5,0.5,0,0,0,7.18,12.117Z"/>
+  <path id="Fill3" class="fill" d="M20,20h4v7a1,1,0,0,1-1,1H3a1,1,0,0,1-1-1H2a1,1,0,0,1,1-1H20V20Z"/>
+  </svg>

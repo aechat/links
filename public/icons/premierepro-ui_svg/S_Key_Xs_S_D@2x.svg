@@ -1,0 +1,18 @@
+<svg id="S_Key_Xs_S_D_2x" data-name="S_Key_Xs_S_D@2x" xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 26 26">
+  <defs>
+    <style>
+      .cls-1 {
+        opacity: 0.8;
+      }
+
+      .blue {
+        fill: #2d8ceb;
+      }
+
+      
+    </style>
+  </defs>
+  <title>S_Key_Xs_S_D@2x</title>
+  <path class="cls-1" d="M13,6.634l5,4.286v4.16l-5,4.286L8,15.08V10.92Zm0-2.317a1,1,0,0,0-.651.241l-6,5.143A1,1,0,0,0,6,10.46v5.08a1,1,0,0,0,.349.759l6,5.143a1,1,0,0,0,1.3,0l6-5.143A1,1,0,0,0,20,15.54V10.46a1,1,0,0,0-.349-.759l-6-5.143A1,1,0,0,0,13,4.317Z" transform="translate(0)"/>
+  <polygon class="blue" points="8 10.92 8 15.08 13 19.366 18 15.08 18 10.92 13 6.634 8 10.92"/>
+  </svg>

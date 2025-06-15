@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<svg width="36px" height="8px" viewBox="0 0 36 8" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+
+    <!-- Generator: Sketch 47.1 (45422) - http://www.bohemiancoding.com/sketch -->
+
+    <title>Shot Comparison button icon OFF@2x</title>
+
+    <desc>Created with Sketch.</desc>
+
+    <defs>
+    	<style>
+      	.fill {
+        	fill: #fff;
+        	fill-rule: evenodd;
+        	opacity: 0.65;
+     	 }
+      
+    	</style>
+    </defs>
+
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+
+        <g id="Color-workspace-LUT-Split-Screen-side-by-side" transform="translate(-979.000000, -498.000000)">
+
+            <g id="Shot-Comparison-button-icon-OFF" transform="translate(997.000000, 500.000000) scale(-1, 1) translate(-997.000000, -500.000000) translate(979.000000, 498.000000)">
+
+                <rect id="Rectangle-Copy-1" class="fill" x="0" y="0" width="10" height="8"></rect>
+
+                <rect id="Rectangle-Copy-2" class="fill" x="13" y="0" width="10" height="8"></rect>
+
+                <rect id="Rectangle-Copy-3" class="fill" x="26" y="0" width="10" height="8"></rect>
+
+            </g>
+
+        </g>
+
+    </g>
+
+</svg>

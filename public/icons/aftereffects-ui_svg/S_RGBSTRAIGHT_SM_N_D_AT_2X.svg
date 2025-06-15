@@ -1,0 +1,30 @@
+<svg id="S_RGBStraight_Sm_N_D_2x" data-name="S_RGBStraight_Sm_N_D@2x" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #ff0000;
+      }
+
+      .cls-2 {
+        fill: #1ac605;
+      }
+
+      .cls-3 {
+        fill: #3f69ff;
+      }
+
+      .fill {
+        fill: #fff;
+        fill-rule: evenodd;
+        opacity: 0.65;
+      }
+
+      
+    </style>
+  </defs>
+  <title>S_RGBStraight_Sm_N_D@2x</title>
+  <path class="cls-1" d="M29.684,4.271A1,1,0,0,0,29,4H3a1,1,0,0,0-.684.271L16,16Z"/>
+  <path class="cls-2" d="M2.316,4.271A1,1,0,0,0,2,5V27a1,1,0,0,0,1,1H16V16Z"/>
+  <path class="cls-3" d="M17.105,25.5A2.5,2.5,0,0,1,19.4,24H28.6a2.5,2.5,0,0,1,1.4.425V5a1,1,0,0,0-.316-0.729L16,16V28h1.4A2.5,2.5,0,0,1,17.105,25.5Z"/>
+  <path class="fill" d="M19.4,26H28.6a0.5,0.5,0,0,1,.354.854L24,32l-4.97-5.16A0.5,0.5,0,0,1,19.4,26Z"/>
+  </svg>

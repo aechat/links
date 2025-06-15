@@ -1,0 +1,29 @@
+<svg id="S_Tag2GridHor_Xl_N_D_2x" data-name="S_Tag2GridHor_Xl_N_D@2x" xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64">
+  <defs>
+    <style>
+      .cls-1, .fill, .fillMedium {
+        fill: #fff;
+      }
+
+      .fill {
+        fill-rule: evenodd;
+        opacity: 0.65;
+      }
+
+      .fillMedium {
+        opacity: 0.3;
+      }
+
+      .cls-1 {
+        opacity: 0.15;
+      }
+
+      
+    </style>
+  </defs>
+  <title>S_Tag2GridHor_Xl_N_D@2x</title>
+  <path class="fill" d="M55,20H9a1,1,0,0,0-1,1V43a1,1,0,0,0,1,1H55a1,1,0,0,0,1-1V21A1,1,0,0,0,55,20ZM54,42H10V22H54Z"/>
+  <rect class="fillMedium" x="10" y="22" width="21" height="20"/>
+  <rect class="fillMedium" x="33" y="22" width="21" height="20"/>
+  <rect class="cls-1" x="31" y="22" width="2" height="20"/>
+  </svg>

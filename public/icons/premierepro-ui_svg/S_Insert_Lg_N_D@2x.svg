@@ -1,0 +1,15 @@
+<svg id="S_Insert_Lg_N_D_2x" data-name="S_Insert_Lg_N_D@2x" xmlns="http://www.w3.org/2000/svg" width="44" height="36" viewBox="0 0 44 36">
+  <defs>
+    <style>
+      .fill {
+        fill: #fff;
+        fill-rule: evenodd;
+        opacity: 0.65;
+      }
+
+      
+    </style>
+  </defs>
+  <title>S_Insert_Lg_N_D@2x</title>
+  <path id="Fill" class="fill" d="M32,24.928V17.063a0.5,0.5,0,0,1,.819-0.385L38,20.969l-5.179,4.343A0.5,0.5,0,0,1,32,24.928ZM14,18V6H28V18H14ZM2,15V27a1,1,0,0,0,1,1H15a1,1,0,0,0,1-1V20H26v7a1,1,0,0,0,1,1H39a1,1,0,0,0,1-1V15a1,1,0,0,0-1-1H30V5a1,1,0,0,0-1-1H13a1,1,0,0,0-1,1v9H3A1,1,0,0,0,2,15Zm19,1.031,4.321-5.212A0.5,0.5,0,0,0,24.936,10H17.064a0.5,0.5,0,0,0-.385.819Z"/>
+  </svg>

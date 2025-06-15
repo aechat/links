@@ -1,0 +1,24 @@
+<svg id="S_CaptionMarkRight_12x46_N_D_2x" data-name="S_CaptionMarkRight_12x46_N_D@2x" xmlns="http://www.w3.org/2000/svg" width="12" height="46" viewBox="0 0 12 46">
+  <defs>
+    <style>
+      .background {
+        opacity: 0.3;
+      }
+
+      .fill {
+        fill: #fff;
+        fill-rule: evenodd;
+        opacity: 0.65;
+      }
+
+      .cls-1 {
+        fill: #ff13dc;
+        opacity: 0;
+      }
+    </style>
+  </defs>
+  <title>S_CaptionMarkRight_12x46_N_D@2x</title>
+  <path class="background" d="M12,12V45a1,1,0,0,1-1,1H1a1,1,0,0,1-1-1V0Z"/>
+  <path class="fill" d="M10,12.828V44H2V4.828ZM6,42.25A2.25,2.25,0,1,0,3.75,40,2.25,2.25,0,0,0,6,42.25Z"/>
+  <rect id="ToDelete" class="cls-1" width="12" height="46"/>
+</svg>

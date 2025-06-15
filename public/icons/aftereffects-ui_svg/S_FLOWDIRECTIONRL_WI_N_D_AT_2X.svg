@@ -1,0 +1,19 @@
+<svg id="S_FlowDirectionRL_Wi_N_D_2x" data-name="S_FlowDirectionRL_Wi_N_D@2x" xmlns="http://www.w3.org/2000/svg" width="40" height="26" viewBox="0 0 40 26">
+  <defs>
+    <style>
+      .fill {
+        fill: #fff;
+        fill-rule: evenodd;
+        opacity: 0.65;
+      }
+
+      .cls-1 {
+        fill: #ff13dc;
+        opacity: 0;
+      }
+    </style>
+  </defs>
+  <title>S_FlowDirectionRL_Wi_N_D@2x</title>
+  <path class="fill" d="M24,11H18V6.113a0.5,0.5,0,0,0-.832-0.374L9,13l8.168,7.26A0.5,0.5,0,0,0,18,19.887V15h6v8a1,1,0,0,0,1,1h2a1,1,0,0,0,1-1V3a1,1,0,0,0-1-1H25a1,1,0,0,0-1,1v8Z"/>
+  <rect id="ToDelete" class="cls-1" width="40" height="26"/>
+</svg>

@@ -1,0 +1,15 @@
+<svg id="S_ConstrainedProportions_Sm_N_2x" data-name="S_ConstrainedProportions_Sm_N@2x" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+  <defs>
+    <style>
+      .fill {
+        fill-rule: evenodd;
+        opacity: 0.65;
+      }
+
+      
+    </style>
+  </defs>
+  <title>S_ConstrainedProportions_Sm_N@2x</title>
+  <path class="fill" d="M24,10H20.274a8.025,8.025,0,0,1,2.137,3H24a3,3,0,0,1,0,6H17a3,3,0,0,1-3-3,2.965,2.965,0,0,1,.184-1H11.09A5.967,5.967,0,0,0,17,22h7A6,6,0,0,0,24,10Z"/>
+  <path class="fill" d="M9.589,19H8a3,3,0,0,1,0-6h7a3,3,0,0,1,3,3,2.965,2.965,0,0,1-.184,1H20.91A5.967,5.967,0,0,0,15,10H8A6,6,0,0,0,8,22h3.726A8.025,8.025,0,0,1,9.589,19Z"/>
+  </svg>

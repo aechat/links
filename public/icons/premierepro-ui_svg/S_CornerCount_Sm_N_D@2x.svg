@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+  <defs>
+    <style>
+      .fill, .fillMedium {
+        fill: #fff;
+      }
+
+      .fill {
+        opacity: 0.65;
+      }
+
+      .fillMedium {
+        opacity: 0.3;
+      }
+    </style>
+  </defs>
+  <g id="ImportedIcons-8" data-name="ImportedIcons">
+    <circle class="fill" cx="16" cy="5" r="2.7"/>
+    <circle class="fill" cx="23" cy="27" r="2.7"/>
+    <circle class="fill" cx="27" cy="14" r="2.7"/>
+    <circle class="fill" cx="5" cy="14" r="2.7"/>
+    <circle class="fill" cx="9" cy="27" r="2.7"/>
+  </g>
+  <g id="ImportedIcons-9" data-name="ImportedIcons">
+    <path class="fillMedium" d="M6.65472,16.11914a2.5996,2.5996,0,0,1-2.14025.53186l2.70721,8.33191A2.678,2.678,0,0,1,9,24.30005a2.64423,2.64423,0,0,1,.32355.03271Z"/>
+    <path class="fillMedium" d="M7.47021,12.9165l7.475-5.43078A2.69878,2.69878,0,0,1,13.4505,5.85229l-7.67322,5.575A2.69621,2.69621,0,0,1,7.47021,12.9165Z"/>
+    <path class="fillMedium" d="M26.2226,11.42725l-7.6731-5.575A2.69817,2.69817,0,0,1,17.05487,7.4856l7.47492,5.4309A2.6963,2.6963,0,0,1,26.2226,11.42725Z"/>
+    <path class="fillMedium" d="M23,24.30005a2.6782,2.6782,0,0,1,1.77844.68286L27.4856,16.651a2.59976,2.59976,0,0,1-2.14032-.53186l-2.66883,8.21362A2.64423,2.64423,0,0,1,23,24.30005Z"/>
+    <path class="fillMedium" d="M11.5061,26.00781A2.64,2.64,0,0,1,11.50366,28h8.99268a2.64,2.64,0,0,1-.00244-1.99219Z"/>
+  </g>
+</svg>

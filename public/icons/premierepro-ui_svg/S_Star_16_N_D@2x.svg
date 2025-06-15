@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" data-name="S_Star_16_N_D@2x" height="32" id="S_Star_16_N_D_2x" viewBox="0 0 32 32" width="32">
+  <defs>
+    <style>
+      .fill {
+        fill: #fff;
+        opacity: 0.65;
+      }
+
+      
+    </style>
+  </defs>
+  <title>S_Star_16_N_D@2x</title>
+  <path class="fill" d="M16.371,2.461l3.363,8.9,9.5.45a.4.4,0,0,1,.229.705l-7.42,5.947,2.507,9.173a.4.4,0,0,1-.6.436L16,22.848,8.051,28.067a.4.4,0,0,1-.6-.436l2.507-9.173-7.42-5.947a.4.4,0,0,1,.229-.7l9.5-.45,3.363-8.895A.4.4,0,0,1,16.371,2.461Z" />
+  </svg>

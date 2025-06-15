@@ -1,0 +1,15 @@
+<svg id="S_RevertTrim_Md_N_D_2x" data-name="S_RevertTrim_Md_N_D@2x" xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36">
+  <defs>
+    <style>
+      .fill {
+        fill: #fff;
+        opacity: 0.65;
+      }
+
+      
+    </style>
+  </defs>
+  <title>S_RevertTrim_Md_N_D@2x</title>
+  <path class="fill" d="M18.043,11.585A14.166,14.166,0,0,0,7.486,16.41L4.652,13.575a0.382,0.382,0,0,0-.652.27V23.97H14.026a0.383,0.383,0,0,0,.27-0.653l-3.607-3.7a9.694,9.694,0,0,1,7.354-3.542,9.037,9.037,0,0,1,8.806,7.443,0.571,0.571,0,0,0,.559.488H30.8a0.581,0.581,0,0,0,.577-0.647A13.514,13.514,0,0,0,18.043,11.585Z"/>
+  <rect class="fill" x="4" y="26" width="28" height="4" rx="0.626" ry="0.626"/>
+  </svg>

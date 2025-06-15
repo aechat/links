@@ -1,0 +1,24 @@
+<svg id="S_SetOutMark_32x32_N_D_2x" data-name="S_SetOutMark_32x32_N_D@2x" xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64">
+  <defs>
+    <style>
+      .cls-1 {
+        opacity: 0.3;
+      }
+
+      .background, .fill {
+        opacity: 0.65;
+      }
+
+      .fill {
+        fill: #fff;
+        fill-rule: evenodd;
+      }
+
+      
+    </style>
+  </defs>
+  <title>S_SetOutMark_32x32_N_D@2x</title>
+  <circle class="cls-1" cx="32" cy="32" r="28"/>
+  <path id="Fill" class="background" d="M33,14a1,1,0,0,1,1,1V26l5,5-5,5V49a1,1,0,0,1-1,1H31a1,1,0,0,1-1-1V35.525L35,31l-5-4.486V15a1,1,0,0,1,1-1h2Zm0-2H31a3,3,0,0,0-3,3V27.407L28.664,28l3.348,3-3.354,3.035-0.658.6V49a3,3,0,0,0,3,3h2a3,3,0,0,0,3-3V36.828l4.414-4.414L41.828,31l-1.414-1.414L36,25.171V15A3,3,0,0,0,33,12Z"/>
+  <path id="Fill-2" data-name="Fill" class="fill" d="M39,31l-5,5V49a1,1,0,0,1-1,1H31a1,1,0,0,1-1-1V35.525L35,31l-5-4.486V15a1,1,0,0,1,1-1h2a1,1,0,0,1,1,1V26Z"/>
+  </svg>

@@ -1,0 +1,16 @@
+<svg id="S_Snapshot_Md_N_D_2x" data-name="S_Snapshot_Md_N_D@2x" xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36">
+  <defs>
+    <style>
+      .fill {
+        fill: #fff;
+        fill-rule: evenodd;
+        opacity: 0.65;
+      }
+
+      
+    </style>
+  </defs>
+  <title>S_Snapshot_Md_N_D@2x</title>
+  <circle class="fill" cx="18" cy="18" r="3.9"/>
+  <path class="fill" d="M31,10H25.418a1,1,0,0,1-.768-0.36L21.916,6.36A1,1,0,0,0,21.148,6H14.723a1,1,0,0,0-.768.36L11.221,9.64a1,1,0,0,1-.768.36H5a1,1,0,0,0-1,1V27a1,1,0,0,0,1,1H31a1,1,0,0,0,1-1V11A1,1,0,0,0,31,10ZM18,24.1A6.1,6.1,0,1,1,24.1,18,6.1,6.1,0,0,1,18,24.1Z"/>
+  </svg>

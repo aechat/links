@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36">
+  <defs>
+    <style>
+      .fill {
+        fill: #fff;
+        fill-rule: evenodd;
+        opacity: 0.65;
+      }
+    </style>
+  </defs>
+  <title>S_GoToBeginning_18_N_D@2x</title>
+  <g id="ImportedIcons-2" data-name="ImportedIcons">
+    <path id="Fill" class="fill" d="M8,5V29a1,1,0,0,1-1,1H5a1,1,0,0,1-1-1V5A1,1,0,0,1,5,4H7A1,1,0,0,1,8,5Z"/>
+    <path id="Fill2" class="fill" d="M31,14H22V9.123a.5.5,0,0,0-.834-.372L12,17l9.166,8.249A.5.5,0,0,0,22,24.877V20h9a1,1,0,0,0,1-1V15A1,1,0,0,0,31,14Z"/>
+  </g>
+</svg>

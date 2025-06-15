@@ -1,0 +1,19 @@
+<svg id="SP_Setup_Wi_N_D_2x" data-name="SP_Setup_Wi_N_D@2x" xmlns="http://www.w3.org/2000/svg" width="40" height="26" viewBox="0 0 40 26">
+  <defs>
+    <style>
+      .fill {
+        fill: #fff;
+        fill-rule: evenodd;
+        opacity: 0.65;
+      }
+
+      
+    </style>
+  </defs>
+  <title>SP_Setup_Wi_N_D@2x</title>
+  <path class="fill" d="M22,14.5v1a0.5,0.5,0,0,0,.5.5h1a0.5,0.5,0,0,0,.5-0.5v-1a0.5,0.5,0,0,0-.5-0.5h-1A0.5,0.5,0,0,0,22,14.5Zm4,0v1a0.5,0.5,0,0,0,.5.5h7a0.5,0.5,0,0,0,.5-0.5v-1a0.5,0.5,0,0,0-.5-0.5h-7A0.5,0.5,0,0,0,26,14.5Z"/>
+  <path class="fill" d="M20,6H36V20H20V6ZM18,3V21a1,1,0,0,0,1,1H37a1,1,0,0,0,1-1V3a1,1,0,0,0-1-1H19A1,1,0,0,0,18,3Z"/>
+  <path class="fill" d="M22,10.5v1a0.5,0.5,0,0,0,.5.5h1a0.5,0.5,0,0,0,.5-0.5v-1a0.5,0.5,0,0,0-.5-0.5h-1A0.5,0.5,0,0,0,22,10.5Zm4,0v1a0.5,0.5,0,0,0,.5.5h7a0.5,0.5,0,0,0,.5-0.5v-1a0.5,0.5,0,0,0-.5-0.5h-7A0.5,0.5,0,0,0,26,10.5Z"/>
+  <path id="Fill" class="fill" d="M6,12h4V8.5a0.5,0.5,0,0,1,.82-0.384L16,13l-5.18,4.883A0.5,0.5,0,0,1,10,17.5V14H6V12Z"/>
+  <path id="Fill2" class="fill" d="M2,12H4v2H2V12Z"/>
+  </svg>

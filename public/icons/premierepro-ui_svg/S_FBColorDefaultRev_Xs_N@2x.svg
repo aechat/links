@@ -1,0 +1,21 @@
+<svg id="S_FBColorDefaultRev_Xs_N_2x" data-name="S_FBColorDefaultRev_Xs_N@2x" xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 26 26">
+  <defs>
+    <style>
+      .fill {
+        fill-rule: evenodd;
+        opacity: 0.65;
+      }
+
+      .cls-1 {
+        fill: #fff;
+        opacity: 0.749;
+        isolation: isolate;
+      }
+
+      
+    </style>
+  </defs>
+  <title>S_FBColorDefaultRev_Xs_N@2x</title>
+  <path class="fill" d="M21,8H16V3a1,1,0,0,0-1-1H3A1,1,0,0,0,2,3V15a1,1,0,0,0,1,1H8v5a1,1,0,0,0,1,1H21a1,1,0,0,0,1-1V9A1,1,0,0,0,21,8ZM4,14V4H14V14H4Z"/>
+  <path class="cls-1" d="M4,14H14V4H4V14Z"/>
+  </svg>

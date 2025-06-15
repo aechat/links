@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36">
+  <defs>
+    <style>
+      .fill, .fillMedium, .fillPale {
+        fill: #fff;
+      }
+
+      .fill, .fillMedium {
+        fill-rule: evenodd;
+      }
+
+      .fillMedium {
+        opacity: 0.3;
+      }
+
+      .fill {
+        opacity: 0.65;
+      }
+
+
+      .fillPale {
+        opacity: 0.15;
+      }
+    </style>
+  </defs>
+  <g id="icons">
+    <path class="fillMedium" d="M20,16H32v2H19a1,1,0,0,1-1-1V4h2Z"/>
+    <path class="fill" d="M8,30V28.5a.5.5,0,0,0-.5-.5H6V4H4V28H2.5a.5.5,0,0,0-.5.5v5a.5.5,0,0,0,.5.5h5a.5.5,0,0,0,.5-.5V32H32V30Z"/>
+    <path class="fillPale" d="M19,18a1,1,0,0,1-1-1V4H6V28H7.5a.5.5,0,0,1,.5.5V30H32V18Z"/>
+  </g>
+</svg>

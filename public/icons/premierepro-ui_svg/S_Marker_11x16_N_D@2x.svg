@@ -1,0 +1,15 @@
+<svg id="S_Marker_11x16_N_D_2x" data-name="S_Marker_11x16_N_D@2x" xmlns="http://www.w3.org/2000/svg" width="22" height="32" viewBox="0 0 22 32">
+  <defs>
+    <style>
+      .fill {
+        fill: #fff;
+        fill-rule: evenodd;
+        opacity: 0.65;
+      }
+
+      
+    </style>
+  </defs>
+  <title>S_Marker_11x16_N_D@2x</title>
+  <path id="Fill" class="fill" d="M4,9v8.624a1,1,0,0,0,.247.659L11,26l6.753-7.717A1,1,0,0,0,18,17.624V9a1,1,0,0,0-1-1H5A1,1,0,0,0,4,9Z"/>
+  </svg>

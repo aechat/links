@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" data-name="S_AssetCardsFolder_96_N_D@2x" height="192" id="S_AssetCardsFolder_96_N_D_2x" viewBox="0 0 192 192" width="192">
+  <defs>
+    <style>
+      .fillMedium, .fillPale {
+        fill: #fff;
+      }
+
+      .fillMedium {
+        opacity: 0.3;
+      }
+
+      .fillPale {
+        opacity: 0.15;
+      }
+
+      
+    </style>
+  </defs>
+  <title>S_AssetCardsFolder_96_N_D@2x</title>
+  <path class="fillMedium" d="M161,44H107.625a2.468,2.468,0,0,1-1.75-.75L90.25,27.625A12.372,12.372,0,0,0,81.375,24H31A15.044,15.044,0,0,0,16,39V149a15.044,15.044,0,0,0,15,15H161a15.044,15.044,0,0,0,15-15V59A15.044,15.044,0,0,0,161,44Zm10,105a10.029,10.029,0,0,1-10,10H31a10.029,10.029,0,0,1-10-10V49H161a10.029,10.029,0,0,1,10,10Z" />
+  <path class="fillPale" d="M171,149a10.029,10.029,0,0,1-10,10H31a10.029,10.029,0,0,1-10-10V49H161a10.029,10.029,0,0,1,10,10Z" />
+  </svg>

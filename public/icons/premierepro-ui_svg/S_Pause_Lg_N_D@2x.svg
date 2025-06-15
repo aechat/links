@@ -1,0 +1,16 @@
+<svg id="S_Pause_Lg_N_D_2x" data-name="S_Pause_Lg_N_D@2x" xmlns="http://www.w3.org/2000/svg" width="44" height="36" viewBox="0 0 44 36">
+  <defs>
+    <style>
+      .fill {
+        fill: #fff;
+        fill-rule: evenodd;
+        opacity: 0.65;
+      }
+
+      
+    </style>
+  </defs>
+  <title>S_Pause_Lg_N_D@2x</title>
+  <path id="Fill" class="fill" d="M13,6h6a1,1,0,0,1,1,1V27a1,1,0,0,1-1,1H13a1,1,0,0,1-1-1V7A1,1,0,0,1,13,6Z"/>
+  <path id="Fill2" class="fill" d="M25,6h6a1,1,0,0,1,1,1V27a1,1,0,0,1-1,1H25a1,1,0,0,1-1-1V7A1,1,0,0,1,25,6Z"/>
+  </svg>

@@ -1,0 +1,24 @@
+<svg id="S_SetInMark_32x32_N_D_2x" data-name="S_SetInMark_32x32_N_D@2x" xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64">
+  <defs>
+    <style>
+      .cls-1 {
+        opacity: 0.3;
+      }
+
+      .background, .fill {
+        opacity: 0.65;
+      }
+
+      .fill {
+        fill: #fff;
+        fill-rule: evenodd;
+      }
+
+      
+    </style>
+  </defs>
+  <title>S_SetInMark_32x32_N_D@2x</title>
+  <circle class="cls-1" cx="32" cy="32" r="28"/>
+  <path id="Fill" class="background" d="M33,14a1,1,0,0,1,1,1V26.514L29,31l5,4.525V49a1,1,0,0,1-1,1H31a1,1,0,0,1-1-1V36l-5-5,5-5V15a1,1,0,0,1,1-1h2Zm0-2H31a3,3,0,0,0-3,3V25.171l-4.414,4.414L22.172,31l1.414,1.414L28,36.828V49a3,3,0,0,0,3,3h2a3,3,0,0,0,3-3V34.637l-0.658-.6-3.354-3.035,3.348-3,0.664-.6V15A3,3,0,0,0,33,12Z"/>
+  <path id="Fill-2" data-name="Fill" class="fill" d="M25,31l5,5V49a1,1,0,0,0,1,1h2a1,1,0,0,0,1-1V35.525L29,31l5-4.486V15a1,1,0,0,0-1-1H31a1,1,0,0,0-1,1V26Z"/>
+  </svg>

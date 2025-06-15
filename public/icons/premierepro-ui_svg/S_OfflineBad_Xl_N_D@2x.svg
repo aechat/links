@@ -1,0 +1,21 @@
+<svg id="S_OfflineBad_Xl_N_D_2x" data-name="S_OfflineBad_Xl_N_D@2x" xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64">
+  <defs>
+    <style>
+      .fill {
+        fill: #fff;
+        fill-rule: evenodd;
+        opacity: 0.65;
+      }
+
+      .red {
+        fill: #f53c3c;
+      }
+
+      
+    </style>
+  </defs>
+  <title>S_OfflineBad_Xl_N_D@2x</title>
+  <polygon class="fill" points="40 6 40 20 54 20 40 6"/>
+  <path class="fill" d="M38,24a2,2,0,0,1-2-2V4H10A2,2,0,0,0,8,6V58a2,2,0,0,0,2,2H54a2,2,0,0,0,2-2V24H38Zm7.9,32H18.15a2.1,2.1,0,0,1-1.825-3.133L30.184,28.589a2.1,2.1,0,0,1,3.67-.02l13.887,24.32A2.1,2.1,0,0,1,45.9,56Z"/>
+  <path class="red" d="M46.4,53.611l-13.874-24.3a0.6,0.6,0,0,0-1.052,0L17.6,53.611a0.6,0.6,0,0,0,.526.889h27.75A0.6,0.6,0,0,0,46.4,53.611ZM34,51a1,1,0,0,1-1,1H31a1,1,0,0,1-1-1V49a1,1,0,0,1,1-1h2a1,1,0,0,1,1,1v2Zm0-6a1,1,0,0,1-1,1H31a1,1,0,0,1-1-1V37a1,1,0,0,1,1-1h2a1,1,0,0,1,1,1v8Z"/>
+  </svg>

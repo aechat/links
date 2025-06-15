@@ -1,0 +1,23 @@
+<svg id="S_KeyframeAutobezier_Xs_D_D_2x" data-name="S_KeyframeAutobezier_Xs_D_D@2x" xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 26 26">
+  <defs>
+    <style>
+      .fill, .fillPale {
+        fill: #fff;
+      }
+
+      .fill {
+        fill-rule: evenodd;
+        opacity: 0.65;
+      }
+
+      .fillPale {
+        opacity: 0.15;
+      }
+
+      
+    </style>
+  </defs>
+  <title>S_KeyframeAutobezier_Xs_D_D@2x</title>
+  <path class="fill" d="M13,4a9,9,0,1,0,9,9A9,9,0,0,0,13,4Zm0,16a7,7,0,1,1,7-7A7,7,0,0,1,13,20Z"/>
+  <circle class="fillPale" cx="13" cy="13" r="7"/>
+  </svg>

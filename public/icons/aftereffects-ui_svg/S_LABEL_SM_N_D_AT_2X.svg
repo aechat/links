@@ -1,0 +1,15 @@
+<svg id="S_Label_Sm_N_D_2x" data-name="S_Label_Sm_N_D@2x" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+  <defs>
+    <style>
+      .fill {
+        fill: #fff;
+        fill-rule: evenodd;
+        opacity: 0.65;
+      }
+
+      
+    </style>
+  </defs>
+  <title>S_Label_Sm_N_D@2x</title>
+  <path class="fill" d="M28.293,17.093L16.434,5.234A0.8,0.8,0,0,0,15.869,5H6A1,1,0,0,0,5,6v9.869a0.8,0.8,0,0,0,.234.566L17.093,28.293a1,1,0,0,0,1.414,0l9.786-9.786A1,1,0,0,0,28.293,17.093ZM9.8,12.794A2.994,2.994,0,1,1,12.793,9.8,2.994,2.994,0,0,1,9.8,12.794Z"/>
+  </svg>

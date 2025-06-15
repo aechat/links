@@ -1,0 +1,11 @@
+<svg id="Ui_Icons" data-name="Ui Icons" xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28">
+  <defs>
+    <style>
+      .fill {
+        fill-rule: evenodd;
+        opacity: 0.65;
+      }
+    </style>
+  </defs>
+  <path id="Dash" class="fill" d="M20,12H8a2,2,0,0,0,0,4H20a2,2,0,0,0,0-4Z"/>
+</svg>

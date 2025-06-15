@@ -1,0 +1,15 @@
+<svg id="S_ArrowDown_Sm_N_D_2x" data-name="S_ArrowDown_Sm_N_D@2x" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+  <defs>
+    <style>
+      .fill {
+        fill: #fff;
+        fill-rule: evenodd;
+        opacity: 0.65;
+      }
+
+      
+    </style>
+  </defs>
+  <title>S_ArrowDown_Sm_N_D@2x</title>
+  <path class="fill" d="M20,16V5a1,1,0,0,0-1-1H13a1,1,0,0,0-1,1V16H5.007a0.5,0.5,0,0,0-.354.854L16,28,27.346,16.854A0.5,0.5,0,0,0,26.993,16H20Z"/>
+  </svg>

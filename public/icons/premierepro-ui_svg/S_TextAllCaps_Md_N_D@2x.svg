@@ -1,0 +1,16 @@
+<svg id="S_TextAllCaps_Md_N_D2x" data-name="S_TextAllCaps_Md_N_D@2x" xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36">
+  <defs>
+    <style>
+      .fill {
+        fill: #fff;
+        fill-rule: evenodd;
+        opacity: 0.65;
+      }
+
+      
+    </style>
+  </defs>
+  <title>S_TextAllCaps_Md_N_D@2x</title>
+  <path class="fill" d="M35.5,8a0.5,0.5,0,0,1,.5.5v3a0.5,0.5,0,0,1-.5.5h-1a0.5,0.5,0,0,1-.5-0.5V10H30V26h1.5a0.5,0.5,0,0,1,.5.5v1a0.5,0.5,0,0,1-.5.5h-7a0.5,0.5,0,0,1-.5-0.5v-1a0.5,0.5,0,0,1,.5-0.5H26V10H22v1.473a0.5,0.5,0,0,1-.5.5h-1a0.5,0.5,0,0,1-.5-0.5V8.5A0.5,0.5,0,0,1,20.5,8h15Z" transform="translate(0)"/>
+  <path class="fill" d="M15.5,8a0.5,0.5,0,0,1,.5.5v3a0.5,0.5,0,0,1-.5.5h-1a0.5,0.5,0,0,1-.5-0.5V10H10V26h1.5a0.5,0.5,0,0,1,.5.5v1a0.5,0.5,0,0,1-.5.5h-7A0.5,0.5,0,0,1,4,27.5v-1A0.5,0.5,0,0,1,4.5,26H6V10H2v1.473a0.5,0.5,0,0,1-.5.5h-1a0.5,0.5,0,0,1-.5-0.5V8.5A0.5,0.5,0,0,1,.5,8h15Z" transform="translate(0)"/>
+  </svg>

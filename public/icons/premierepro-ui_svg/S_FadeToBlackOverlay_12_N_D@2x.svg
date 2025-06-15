@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" data-name="S_FadeToBlackOverlay_12_N_D@2x" height="24" id="S_FadeToBlackOverlay_12_N_D_2x" viewBox="0 0 24 24" width="24">
+  <defs>
+    <style>
+	.background, .fill {
+		fill: #000000;
+		
+        opacity: 0.65;
+      }
+	.fill {
+        fill: #fff;
+      }</style>
+  </defs>
+  <title>S_FadeToBlackOverlay_12_N_D@2x</title>
+  <rect class="background" height="24" rx="2" ry="2" width="24" />
+  <path class="fill" d="M21,2H3A1,1,0,0,0,2,3V21a1,1,0,0,0,1,1H21a1,1,0,0,0,1-1V3A1,1,0,0,0,21,2ZM20,20H4V19L19,4h1Z" />
+  </svg>

@@ -1,0 +1,30 @@
+<svg id="S_TouchOverlay_48x48_N_D_2x" data-name="S_TouchOverlay_48x48_N_D@2x" xmlns="http://www.w3.org/2000/svg" width="96" height="96" viewBox="0 0 96 96">
+  <defs>
+    <style>
+      .background, .fill {
+        opacity: 0.65;
+      }
+
+      .fill, .fillMedium {
+        fill: #fff;
+      }
+
+      .fill {
+        fill-rule: evenodd;
+      }
+
+      .fillMedium {
+        opacity: 0.3;
+      }
+
+      
+    </style>
+  </defs>
+  <title>S_TouchOverlay_48x48_N_D@2x</title>
+  <path id="Fill" class="background" d="M8,31a1,1,0,0,1,1-1H20V26a1,1,0,0,1,1.677-.736L32,35,21.675,44.738A1,1,0,0,1,20,44V40H9a1,1,0,0,1-1-1V31ZM6,31v8a3,3,0,0,0,3,3h9v2a3,3,0,0,0,5.024,2.214l10.348-9.759L34.915,35l-1.543-1.455L23.049,23.809A3,3,0,0,0,18,26v2H9A3,3,0,0,0,6,31Z"/>
+  <path class="background" d="M85,50a1,1,0,0,1,1,1V69a1,1,0,0,1-1,1H37a1,1,0,0,1-1-1V51a1,1,0,0,1,1-1H85Zm0-2H37a3,3,0,0,0-3,3V69a3,3,0,0,0,3,3H85a3,3,0,0,0,3-3V51A3,3,0,0,0,85,48Z"/>
+  <path class="background" d="M61,26a1,1,0,0,1,1,1V45a1,1,0,0,1-1,1H37a1,1,0,0,1-1-1V27a1,1,0,0,1,1-1H61Zm0-2H37a3,3,0,0,0-3,3V45a3,3,0,0,0,3,3H61a3,3,0,0,0,3-3V27A3,3,0,0,0,61,24Z"/>
+  <path id="Fill-2" data-name="Fill" class="fill" d="M9,30H20V26a1,1,0,0,1,1.677-.736L32,35,21.675,44.738A1,1,0,0,1,20,44V40H9a1,1,0,0,1-1-1V31A1,1,0,0,1,9,30Z"/>
+  <path id="Fill2" class="fillMedium" d="M85,50H37a1,1,0,0,0-1,1V69a1,1,0,0,0,1,1H85a1,1,0,0,0,1-1V51A1,1,0,0,0,85,50Z"/>
+  <path class="fill" d="M62,27V45a1,1,0,0,1-1,1H37a1,1,0,0,1-1-1V27a1,1,0,0,1,1-1H61A1,1,0,0,1,62,27Z"/>
+  </svg>

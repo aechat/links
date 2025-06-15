@@ -1,0 +1,18 @@
+<svg id="S_UnresolvedConflict_17x15_N_D_2x" data-name="S_UnresolvedConflict_17x15_N_D@2x" xmlns="http://www.w3.org/2000/svg" width="34" height="30" viewBox="0 0 34 30">
+  <defs>
+    <style>
+      .background {
+        opacity: 0.65;
+      }
+
+      .red {
+        fill: #f53c3c;
+      }
+
+      
+    </style>
+  </defs>
+  <title>S_UnresolvedConflict_17x15_N_D@2x</title>
+  <path class="background" d="M33,0a1,1,0,0,1,1,1V29a1,1,0,0,1-1,1H1a1,1,0,0,1-1-1V1A1,1,0,0,1,1,0Z"/>
+  <path class="red" d="M31,2H3A1,1,0,0,0,2,3V27a1,1,0,0,0,1,1H31a1,1,0,0,0,1-1V3A1,1,0,0,0,31,2Zm-1,8H23V6l-7.2,6L23,18V14h7V26H4V20h7v4l7.2-6L11,12v4H4V4H30Z"/>
+  </svg>

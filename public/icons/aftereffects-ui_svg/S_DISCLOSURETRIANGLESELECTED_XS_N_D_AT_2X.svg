@@ -1,0 +1,15 @@
+<svg id="S_DisclosureTriangleSelected_Xs_N_D_2x" data-name="S_DisclosureTriangleSelected_Xs_N_D@2x" xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 26 26">
+  <defs>
+    <style>
+      .fill {
+        fill: #fff;
+        fill-rule: evenodd;
+        opacity: 0.65;
+      }
+
+      
+    </style>
+  </defs>
+  <title>S_DisclosureTriangleSelected_Xs_N_D@2x</title>
+  <path class="fill" d="M6,10H20a1,1,0,0,1,.8,1.6L13,22,5.2,11.6A1,1,0,0,1,6,10Z"/>
+  </svg>

@@ -1,0 +1,15 @@
+<svg id="S_GraphEdEasyEaseOut_Lg_N_D_2x" data-name="S_GraphEdEasyEaseOut_Lg_N_D@2x" xmlns="http://www.w3.org/2000/svg" width="44" height="36" viewBox="0 0 44 36">
+  <defs>
+    <style>
+      .fill {
+        fill: #fff;
+        fill-rule: evenodd;
+        opacity: 0.65;
+      }
+
+      
+    </style>
+  </defs>
+  <title>S_GraphEdEasyEaseOut_Lg_N_D@2x</title>
+  <path class="fill" d="M39.5,28H37c-4.863,0-6.923-3.731-9.309-8.052C25.96,16.814,24.074,12.495,20.838,10H28v1a1,1,0,0,0,1,1h4a1,1,0,0,0,1-1V7a1,1,0,0,0-1-1H29a1,1,0,0,0-1,1V8H14V5a1,1,0,0,0-1-1H5A1,1,0,0,0,4,5v8a1,1,0,0,0,1,1h8a1,1,0,0,0,1-1V10h1c6.017,0,8.408,6.331,10.94,10.915C28.407,25.381,30.957,30,37,30h2.5a0.5,0.5,0,0,0,.5-0.5v-1A0.5,0.5,0,0,0,39.5,28Z"/>
+  </svg>

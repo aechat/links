@@ -1,0 +1,17 @@
+<svg id="S_Gripper_3x10_N_2x" data-name="S_Gripper_3x10_N@2x" xmlns="http://www.w3.org/2000/svg" width="6" height="20" viewBox="0 0 6 20">
+  <defs>
+    <style>
+      .fillPale {
+        opacity: 0.15;
+      }
+
+      
+    </style>
+  </defs>
+  <title>S_Gripper_3x10_N@2x</title>
+  <rect class="fillPale" y="12" width="6" height="2" rx="0.5" ry="0.5"/>
+  <rect class="fillPale" y="16" width="6" height="2" rx="0.5" ry="0.5"/>
+  <rect class="fillPale" y="8" width="6" height="2" rx="0.5" ry="0.5"/>
+  <rect class="fillPale" y="4" width="6" height="2" rx="0.5" ry="0.5"/>
+  <rect class="fillPale" width="6" height="2" rx="0.5" ry="0.5"/>
+  </svg>

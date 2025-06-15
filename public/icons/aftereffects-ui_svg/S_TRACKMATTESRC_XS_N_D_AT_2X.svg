@@ -1,0 +1,23 @@
+<svg id="S_TrackMatteSrc_Xs_N_D_2x" data-name="S_TrackMatteSrc_Xs_N_D@2x" xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 26 26">
+  <defs>
+    <style>
+      .fill, .fillMedium {
+        fill: #fff;
+      }
+
+      .fill {
+        fill-rule: evenodd;
+        opacity: 0.65;
+      }
+
+      .fillMedium {
+        opacity: 0.3;
+      }
+
+      
+    </style>
+  </defs>
+  <title>S_TrackMatteSrc_Xs_N_D@2x</title>
+  <path class="fill" d="M23,2H3A1,1,0,0,0,2,3V23a1,1,0,0,0,1,1H23a1,1,0,0,0,1-1V3A1,1,0,0,0,23,2ZM22,22H4V4H22V22Z"/>
+  <path class="fillMedium" d="M19,22V19h3v3H19Zm0-8v5H14v3H9V19h4a5.977,5.977,0,0,1-4-1.528V19H4V14H7.083A6.039,6.039,0,0,1,7,13,5.977,5.977,0,0,1,8.528,9H4V4H9V8.528a6,6,0,0,1,5-1.445V4h5V9H17.472A5.977,5.977,0,0,1,19,13V9h3v5H19Zm-1.625-1A4.375,4.375,0,1,0,13,17.375,4.375,4.375,0,0,0,17.375,13Z"/>
+  </svg>

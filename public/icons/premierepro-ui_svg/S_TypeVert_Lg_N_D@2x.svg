@@ -1,0 +1,16 @@
+<svg id="S_TypeVert_Lg_N_2x" data-name="S_TypeVert_Lg_N@2x" xmlns="http://www.w3.org/2000/svg" width="44" height="36" viewBox="0 0 44 36">
+  <defs>
+    <style>
+      .fill {
+        fill: #fff;
+        fill-rule: evenodd;
+        opacity: 0.65;
+      }
+
+      
+    </style>
+  </defs>
+  <title>S_TypeVert_Lg_N@2x</title>
+  <path class="fill" d="M6,4.5V26H2.637a0.5,0.5,0,0,0-.369.838L7,32l4.732-5.162A0.5,0.5,0,0,0,11.363,26H8V4.5A0.5,0.5,0,0,0,7.5,4h-1A0.5,0.5,0,0,0,6,4.5Z"/>
+  <path class="fill" d="M15,4a1,1,0,0,0-1,1v6a1,1,0,0,0,1,1h2a1,1,0,0,0,1-1V8h6V28H21a1,1,0,0,0-1,1v2a1,1,0,0,0,1,1H31a1,1,0,0,0,1-1V29a1,1,0,0,0-1-1H28V8h6v3a1,1,0,0,0,1,1h2a1,1,0,0,0,1-1V5a1,1,0,0,0-1-1H15Z"/>
+  </svg>

@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" data-name="S_Folder_18_N@2x" height="36" id="S_Folder_18_N_2x" viewBox="0 0 36 36" width="36">
+  <defs>
+    <style>
+	.fill {
+		fill: #000000;
+		
+        fill-rule: evenodd;
+        opacity: 0.65;
+      }</style>
+  </defs>
+  <title>S_Folder_18_N@2x</title>
+  <path class="fill" d="M2,10H33a1,1,0,0,1,1,1V31a1,1,0,0,1-1,1H3a1,1,0,0,1-1-1V10A0,0,0,0,1,2,10Z" />
+  <path class="fill" d="M14,8H2V5A1,1,0,0,1,3,4H9.586a1,1,0,0,1,.707.293Z" />
+  </svg>

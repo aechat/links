@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" data-name="S_NextFrame_Lg_N@2x" height="36" id="S_NextFrame_Lg_N_2x" viewBox="0 0 44 36" width="44">
+	<defs>
+		<style>
+			.fill {
+				opacity: 0.65;
+				fill: #FFFFFF;
+			}
+		</style>
+	</defs>
+	<path class="fill" transform="translate(14.000000, 11.000000)" d="M-7-7h6c0.6,0,1,0.4,1,1v26c0,0.6-0.4,1-1,1h-6c-0.6,0-1-0.4-1-1V-6C-8-6.6-7.6-7-7-7z"/>
+	<path class="fill" transform="translate(14.000000, 11.000000)" d="M6,19.9V-5.9c0-0.4,0.2-0.7,0.6-0.9C6.9-7,7.3-6.9,7.6-6.7L23.7,6.2C24,6.4,24.1,6.7,24.1,7 c0,0.3-0.1,0.6-0.4,0.8L7.6,20.7c-0.3,0.2-0.7,0.3-1.1,0.1C6.2,20.7,6,20.3,6,19.9L6,19.9z"/>
+</svg>

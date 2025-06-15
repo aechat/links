@@ -1,0 +1,19 @@
+<svg id="S_SpaceAfter_Md_N_D2x" data-name="S_SpaceAfter_Md_N_D@2x" xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36">
+  <defs>
+    <style>
+      .fill {
+        fill: #fff;
+        fill-rule: evenodd;
+        opacity: 0.65;
+      }
+
+      
+    </style>
+  </defs>
+  <title>S_SpaceAfter_Md_N_D@2x</title>
+  <rect class="fill" x="16" y="4" width="14" height="2" rx="0.5" ry="0.5"/>
+  <rect class="fill" x="16" y="10" width="18" height="2" rx="0.5" ry="0.5"/>
+  <rect class="fill" x="16" y="16" width="14" height="2" rx="0.5" ry="0.5"/>
+  <path class="fill" d="M8.82,22.164a0.5,0.5,0,0,0-.82.384V26H2.5a0.5,0.5,0,0,0-.5.5v1a0.5,0.5,0,0,0,.5.5H8v3.484a0.5,0.5,0,0,0,.82.384L14,27Z"/>
+  <path class="fill" d="M16,22.5v9a0.5,0.5,0,0,0,.5.5h17a0.5,0.5,0,0,0,.5-0.5v-9a0.5,0.5,0,0,0-.5-0.5h-17A0.5,0.5,0,0,0,16,22.5ZM32,30H18V24H32v6Z"/>
+  </svg>

@@ -1,0 +1,16 @@
+<svg id="SP_OverlayIn_15x15_N_D_2x" data-name="SP_OverlayIn_15x15_N_D@2x" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30">
+  <defs>
+    <style>
+      .fill {
+        fill: #fff;
+        fill-rule: evenodd;
+        opacity: 0.65;
+      }
+
+      
+    </style>
+  </defs>
+  <title>SP_OverlayIn_15x15_N_D@2x</title>
+  <path id="Fill" class="fill" d="M14.5,6h1a0.5,0.5,0,0,1,.5.5V13l-3,2,3,2v6.5a0.5,0.5,0,0,1-.5.5h-1a0.5,0.5,0,0,1-.5-0.5V18l-4-2.969L14,12V6.5A0.5,0.5,0,0,1,14.5,6Z"/>
+  <path id="Fill2" class="fill" d="M6,2A4,4,0,0,0,2,6V24a4,4,0,0,0,4,4H24a4,4,0,0,0,4-4V6a4,4,0,0,0-4-4H6ZM4,6A2,2,0,0,1,6,4H24a2,2,0,0,1,2,2V24a2,2,0,0,1-2,2H6a2,2,0,0,1-2-2V6Z"/>
+  </svg>

@@ -1,0 +1,24 @@
+<svg id="S_Magnet_Lg_N_D_2x" data-name="S_Magnet_Lg_N_D@2x" xmlns="http://www.w3.org/2000/svg" width="44" height="36" viewBox="0 0 44 36">
+  <defs>
+    <style>
+      .fill, .fillMedium {
+        fill: #fff;
+      }
+
+      .fill {
+        fill-rule: evenodd;
+        opacity: 0.65;
+      }
+
+      .fillMedium {
+        opacity: 0.3;
+      }
+
+      
+    </style>
+  </defs>
+  <title>S_Magnet_Lg_N_D@2x</title>
+  <path class="fill" d="M9,16.833V25h7.091V16.833A5.872,5.872,0,0,1,22,11h0a5.872,5.872,0,0,1,5.909,5.833V25H35V16.833A12.917,12.917,0,0,0,22,4h0A12.917,12.917,0,0,0,9,16.833Z"/>
+  <path class="fillMedium" d="M9,25h7.091a0,0,0,0,1,0,0v5.994A1.006,1.006,0,0,1,15.084,32H10.006A1.006,1.006,0,0,1,9,30.994V25A0,0,0,0,1,9,25Z"/>
+  <path class="fillMedium" d="M27.909,25H35a0,0,0,0,1,0,0v5.994A1.006,1.006,0,0,1,33.994,32H28.916a1.006,1.006,0,0,1-1.006-1.006V25A0,0,0,0,1,27.909,25Z"/>
+  </svg>

@@ -1,0 +1,15 @@
+<svg id="S_TLWLayerTypeCamera_Xs_N_D_2x" data-name="S_TLWLayerTypeCamera_Xs_N_D@2x" xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 26 26">
+  <defs>
+    <style>
+      .fill {
+        fill: #fff;
+        fill-rule: evenodd;
+        opacity: 0.65;
+      }
+
+      
+    </style>
+  </defs>
+  <title>S_TLWLayerTypeCamera_Xs_N_D@2x</title>
+  <path class="fill" d="M22.991,4l-3,3h-2a1,1,0,0,0-1,1V9h-3V6a2,2,0,0,0-2-2h-10a2,2,0,0,0-2,2V18a2,2,0,0,0,2,2h10a2,2,0,0,0,2-2V15h3v1a1,1,0,0,0,1,1h2l3,3h1V4h-1Z" transform="translate(0.009)"/>
+  </svg>

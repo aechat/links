@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" data-name="S_Folder_64x64_N_D@2x" height="128" id="S_Folder_64x64_N_D_2x" viewBox="0 0 128 128" width="128">
+  <defs>
+    <style>
+	.fill {
+        fill: #fff;
+        fill-rule: evenodd;
+        opacity: 0.65;
+      }</style>
+  </defs>
+  <title>S_Folder_64x64_N_D@2x</title>
+  <path class="fill" d="M37,16H11.5A3.5,3.5,0,0,0,8,19.5V30H51Z" />
+  <path class="fill" d="M8,36v68.5a3.5,3.5,0,0,0,3.5,3.5h105a3.5,3.5,0,0,0,3.5-3.5v-65a3.5,3.5,0,0,0-3.5-3.5Z" />
+  </svg>

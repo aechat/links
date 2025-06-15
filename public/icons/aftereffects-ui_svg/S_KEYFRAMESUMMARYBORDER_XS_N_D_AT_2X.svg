@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30">
+  <defs>
+    <style>
+      .fillPale, .fill {
+        opacity: 0.65;
+      }
+
+      .fill {
+        fill: #fff;
+      }
+    </style>
+  </defs>
+  <g id="Icons">
+    <path class="fillPale" d="M15,23.894A8.894,8.894,0,1,1,23.894,15,8.9,8.9,0,0,1,15,23.894Z"/>
+    <path class="fill" d="M15,3.306A11.694,11.694,0,1,0,26.694,15,11.707,11.707,0,0,0,15,3.306Zm0,20.588A8.894,8.894,0,1,1,23.894,15,8.9,8.9,0,0,1,15,23.894Z"/>
+  </g>
+</svg>

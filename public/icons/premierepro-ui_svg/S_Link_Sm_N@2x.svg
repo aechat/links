@@ -1,0 +1,14 @@
+<svg id="SP_Link_Sm_N_2x" data-name="SP_Link_Sm_N@2x" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+  <defs>
+    <style>
+      .fill {
+        fill-rule: evenodd;
+        opacity: 0.65;
+      }
+
+      
+    </style>
+  </defs>
+  <title>SP_Link_Sm_N@2x</title>
+  <path class="fill" d="M15,17.816A2.965,2.965,0,0,0,16,18a3,3,0,0,0,3-3V8a3,3,0,0,0-6,0V9.589a8.025,8.025,0,0,0-3,2.137V8A6,6,0,0,1,22,8v7a5.967,5.967,0,0,1-7,5.91V17.816ZM10,17v7a6,6,0,0,0,12,0V20.274a8.025,8.025,0,0,1-3,2.137V24a3,3,0,0,1-6,0V17a3,3,0,0,1,3-3,2.965,2.965,0,0,1,1,.184V11.09A5.967,5.967,0,0,0,10,17Z" transform="translate(0)"/>
+  </svg>

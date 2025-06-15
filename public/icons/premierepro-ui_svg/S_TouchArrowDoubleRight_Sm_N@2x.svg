@@ -1,0 +1,15 @@
+<svg id="S_TouchArrowDoubleRight_Sm_N_2x" data-name="S_TouchArrowDoubleRight_Sm_N@2x" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+  <defs>
+    <style>
+      .fill {
+        fill-rule: evenodd;
+        opacity: 0.65;
+      }
+
+      
+    </style>
+  </defs>
+  <title>S_TouchArrowDoubleRight_Sm_N@2x</title>
+  <path class="fill" d="M18,25.8a1.8,1.8,0,0,1-1.272-3.072L23.454,16,16.728,9.272a1.8,1.8,0,0,1,2.545-2.545l8,8a1.8,1.8,0,0,1,0,2.545l-8,8A1.793,1.793,0,0,1,18,25.8Z"/>
+  <path class="fill" d="M8,25.8a1.8,1.8,0,0,1-1.272-3.072L13.454,16,6.728,9.272A1.8,1.8,0,0,1,9.272,6.728l8,8a1.8,1.8,0,0,1,0,2.545l-8,8A1.793,1.793,0,0,1,8,25.8Z"/>
+  </svg>

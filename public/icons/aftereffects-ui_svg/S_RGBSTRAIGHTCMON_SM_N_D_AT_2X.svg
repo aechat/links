@@ -1,0 +1,31 @@
+<svg id="S_RGBStraightCMOn_Sm_N_D_2x" data-name="S_RGBStraightCMOn_Sm_N_D@2x" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #1ac605;
+      }
+
+      .cls-2 {
+        fill: #ff0000;
+      }
+
+      .fill {
+        fill: #fff;
+        fill-rule: evenodd;
+        opacity: 0.65;
+      }
+
+      .cls-3 {
+        fill: #3f69ff;
+      }
+
+      
+    </style>
+  </defs>
+  <title>S_RGBStraightCMOn_Sm_N_D@2x</title>
+  <path class="cls-1" d="M2.316,4.271A1,1,0,0,0,2,5V27a1,1,0,0,0,1,1H16V16Z"/>
+  <path class="cls-2" d="M22,10H20.5A2.5,2.5,0,0,1,18,7.5v-1A2.5,2.5,0,0,1,20.5,4H3a1,1,0,0,0-.684.271L16,16l6-5.143V10Z"/>
+  <path class="fill" d="M19.4,26H28.6a0.5,0.5,0,0,1,.354.854L24,32l-4.97-5.16A0.5,0.5,0,0,1,19.4,26Z"/>
+  <path class="cls-3" d="M29.5,10H28v1.5A2.5,2.5,0,0,1,25.5,14h-1A2.5,2.5,0,0,1,22,11.5V10.857L16,16V28h1.4A2.495,2.495,0,0,1,19.4,24H28.6a2.5,2.5,0,0,1,1.4.425V9.9A2.382,2.382,0,0,1,29.5,10Z"/>
+  <path class="fill" d="M29.5,6H26V2.5A0.5,0.5,0,0,0,25.5,2h-1a0.5,0.5,0,0,0-.5.5V6H20.5a0.5,0.5,0,0,0-.5.5v1a0.5,0.5,0,0,0,.5.5H24v3.5a0.5,0.5,0,0,0,.5.5h1a0.5,0.5,0,0,0,.5-0.5V8h3.5A0.5,0.5,0,0,0,30,7.5v-1A0.5,0.5,0,0,0,29.5,6Z"/>
+  </svg>

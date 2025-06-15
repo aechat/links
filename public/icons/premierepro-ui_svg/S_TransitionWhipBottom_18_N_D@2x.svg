@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" data-name="S_TransitionWhipBottom_18_N_D@2x" height="36" id="S_TransitionWhipBottom_18_N_D_2x" viewBox="0 0 36 36" width="36">
+  <defs>
+    <style>
+      .cls-1, .cls-2, .cls-3, .cls-4, .cls-5, .cls-6 {
+        fill: #fff;
+      }
+
+      .fill {
+        opacity: 0.65;
+        fill: #fff;
+      }
+
+      .cls-1 {
+        opacity: 0.55;
+      }
+
+      .cls-2 {
+        opacity: 0.45;
+      }
+
+      .cls-3 {
+        opacity: 0.35;
+      }
+
+      .cls-4 {
+        opacity: 0.25;
+      }
+
+      .cls-5 {
+        opacity: 0.15;
+      }
+
+      .cls-6 {
+        opacity: 0.05;
+      }
+
+      
+    </style>
+  </defs>
+  <path class="fill" d="M3,34H33a1,1,0,0,0,1-1V3a1,1,0,0,0-1-1H3A1,1,0,0,0,2,3V33A1,1,0,0,0,3,34Zm1-2V4L18,16,32,4V32Z" />
+  <polygon class="cls-1" points="32 4 18 16 4 4 4 6 18 18 32 6 32 4" />
+  <polygon class="cls-2" points="32 6 18 18 4 6 4 8 18 20 32 8 32 6" />
+  <polygon class="cls-3" points="32 8 18 20 4 8 4 10 18 22 32 10 32 8" />
+  <polygon class="cls-4" points="32 10 18 22 4 10 4 12 18 24 32 12 32 10" />
+  <polygon class="cls-5" points="32 12 18 24 4 12 4 14 18 26 32 14 32 12" />
+  <polygon class="cls-6" points="32 14 18 26 4 14 4 16 18 28 32 16 32 14" />
+  </svg>

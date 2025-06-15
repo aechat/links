@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Icons" xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 26 26">
+  <defs>
+    <style>
+      .fill {
+        fill: #fff;
+        opacity: .65;
+      }
+    </style>
+  </defs>
+  <path class="fill" d="M23,2H3c-.552,0-1,.448-1,1V23c0,.552,.448,1,1,1H23c.552,0,1-.448,1-1V3c0-.552-.448-1-1-1ZM12.944,20c-3.866,0-7-3.134-7-7s3.134-7,7-7,7,3.134,7,7-3.134,7-7,7Z"/>
+</svg>

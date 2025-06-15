@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" data-name="S_TransitionWhipBottomOverlay_16_N@2x" height="32" id="S_TransitionWhipBottomOverlay_16_N_2x" viewBox="0 0 32 32" width="32">
+  <defs>
+    <style>
+      .cls-1, .cls-5 {
+        opacity: 0.5;
+      }
+
+      .cls-2, .cls-3, .cls-4, .cls-5, .cls-6, .cls-7 {
+        fill: #fff;
+      }
+
+      .cls-2 {
+        opacity: 0.8;
+      }
+
+      .cls-3 {
+        opacity: 0.7;
+      }
+
+      .cls-4 {
+        opacity: 0.6;
+      }
+
+      .cls-6 {
+        opacity: 0.4;
+      }
+
+      .cls-7 {
+        opacity: 0.3;
+      }
+
+      
+    </style>
+  </defs>
+  <g>
+    <rect class="cls-1" height="28" rx="0.5" transform="translate(32 0) rotate(90)" width="28" x="2" y="2" />
+    <path class="cls-2" d="M6,26V6l10,8L26,6V26ZM4,27a1,1,0,0,0,1,1H27a1,1,0,0,0,1-1V5a1,1,0,0,0-1-1H5A1,1,0,0,0,4,5Z" />
+    <polygon class="cls-3" points="26 8 16 16 6 8 6 6 16 14 26 6 26 8" />
+    <polygon class="cls-4" points="26 10 16 18 6 10 6 8 16 16 26 8 26 10" />
+    <polygon class="cls-5" points="26 12 16 20 6 12 6 10 16 18 26 10 26 12" />
+    <polygon class="cls-6" points="26 14 16 22 6 14 6 12 16 20 26 12 26 14" />
+    <polygon class="cls-7" points="26 16 16 24 6 16 6 14 16 22 26 14 26 16" />
+  </g>
+  </svg>

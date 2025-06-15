@@ -1,0 +1,15 @@
+<svg id="S_SwitchQualityBicubic_Xs_N_D_2x" data-name="S_SwitchQualityBicubic_Xs_N_D@2x" xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 26 26">
+  <defs>
+    <style>
+      .fill {
+        fill: #fff;
+        fill-rule: evenodd;
+        opacity: 0.65;
+      }
+
+      
+    </style>
+  </defs>
+  <title>S_SwitchQualityBicubic_Xs_N_D@2x</title>
+  <path class="fill" d="M2,23.481V22.489a1,1,0,0,1,.988-1c7.645-.177,17.124-2.625,17.5-18.5a1,1,0,0,1,1-.99h1a1.009,1.009,0,0,1,1.006,1.024c-0.319,13.9-7.2,21.113-20.463,21.463A1.008,1.008,0,0,1,2,23.481Z"/>
+  </svg>

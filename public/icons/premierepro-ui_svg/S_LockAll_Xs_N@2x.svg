@@ -1,0 +1,14 @@
+<svg id="S_LockAll_Xs_N_2x" data-name="S_LockAll_Xs_N@2x" xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 26 26">
+  <defs>
+    <style>
+      .fill {
+        fill-rule: evenodd;
+        opacity: 0.65;
+      }
+
+      
+    </style>
+  </defs>
+  <title>S_LockAll_Xs_N@2x</title>
+  <path class="fill" d="M21,10H20V8A6,6,0,0,0,8,8v2H7a1,1,0,0,0-1,1V21a1,1,0,0,0,1,1H21a1,1,0,0,0,1-1V11A1,1,0,0,0,21,10Zm-5.424,9a1,1,0,0,1-1,1H13.394a1,1,0,0,1-1-1V17.091a2.764,2.764,0,0,1-.994-2.029,2.6,2.6,0,0,1,5.2,0,2.573,2.573,0,0,1-1.024,2.029V19ZM18,10H10V8a4,4,0,0,1,8,0v2Z"/>
+  </svg>

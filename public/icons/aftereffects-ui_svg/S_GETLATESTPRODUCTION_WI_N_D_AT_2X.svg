@@ -1,0 +1,16 @@
+<svg id="S_ShareProduction_Wi_N_D_2x" data-name="S_ShareProduction_Wi_N_D@2x" xmlns="http://www.w3.org/2000/svg" width="40" height="26" viewBox="0 0 40 26">
+  <defs>
+    <style>
+      .fill {
+        fill: #fff;
+        fill-rule: evenodd;
+        opacity: 0.65;
+      }
+
+      
+    </style>
+  </defs>
+  <title>S_ShareProduction_Wi_N_D@2x</title>
+  <circle class="fill" cx="21" cy="20" r="4"/>
+  <path class="fill" d="M16.067,5.28a.5.5,0,0,0-.853-.354L11.981,8.159,6.121,2.293a1,1,0,0,0-1.414,0L3.293,3.707a1,1,0,0,0,0,1.414l5.86,5.866L5.921,14.219a.5.5,0,0,0,.354.854h9.793Z"/>
+  </svg>

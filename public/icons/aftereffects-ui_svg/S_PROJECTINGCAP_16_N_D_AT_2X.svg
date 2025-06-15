@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="ImportedIcons-3" data-name="ImportedIcons" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+  <defs>
+    <style>
+      .fill {
+        fill: #fff;
+        opacity: .65;
+      }
+    </style>
+  </defs>
+  <path class="fill" d="M26,14V7c0-.55228-.44772-1-1-1H7c-.55228,0-1,.44772-1,1V25c0,.55228,.44772,1,1,1H25c.55228,0,1-.44772,1-1v-7h-6v1c0,.55228-.44772,1-1,1h-6c-.55228,0-1-.44772-1-1v-6c0-.55228,.44772-1,1-1h6c.55228,0,1,.44772,1,1v1h6Z"/>
+</svg>

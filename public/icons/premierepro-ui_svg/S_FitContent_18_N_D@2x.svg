@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" data-name="S_FitContent_18_N_D@2x" height="36" id="S_FitContent_18_N_D_2x" viewBox="0 0 36 36" width="36">
+  <defs>
+    <style>
+      .fill {
+        fill: #fff;
+        opacity: 0.65;
+        fill-rule: evenodd;
+      }
+
+      
+    </style>
+  </defs>
+  <rect class="fill" height="16" width="16" x="10" y="10" />
+  <path class="fill" d="M33,6H3A1,1,0,0,0,2,7V29a1,1,0,0,0,1,1H33a1,1,0,0,0,1-1V7A1,1,0,0,0,33,6ZM32,28H4V8H32Z" />
+  </svg>
