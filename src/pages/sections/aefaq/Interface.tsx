@@ -457,7 +457,7 @@ const AEInterface: React.FC = () => {
         />
         <AdditionInfo>
           Дополнительную информацию об обновлении работы с масками можно{" "}
-          <a href="https://helpx.adobe.com/ru/after-effects/using/track-mattes-and-traveling-mattes.html">
+          <a href="https://helpx.adobe.com/after-effects/using/track-mattes-and-traveling-mattes.html">
             прочитать на сайте Adobe
           </a>
           .
@@ -477,7 +477,7 @@ const AEInterface: React.FC = () => {
         </p>
         <AdditionInfo>
           Подробности о работе этой функции вы можете{" "}
-          <a href="https://helpx.adobe.com/ru/after-effects/using/properties-panel.html">
+          <a href="https://helpx.adobe.com/after-effects/using/properties-panel.html">
             прочитать на официальном сайте Adobe
           </a>
           .

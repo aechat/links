@@ -278,7 +278,7 @@ const PSWhereFind: React.FC = () => {
             UIDownload
           </a>
           <a
-            href="https://stock.adobe.com/ru/free"
+            href="https://stock.adobe.com/free"
             title="Adobe Stock"
           >
             Adobe Stock

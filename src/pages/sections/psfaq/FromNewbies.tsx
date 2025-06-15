@@ -67,13 +67,13 @@ const PSFromNewbies: React.FC = () => {
           приложить к ним временное решение.
         </p>
         <div className="flexible-links">
-          <a href="https://helpx.adobe.com/ru/photoshop/using/whats-new.html">
+          <a href="https://helpx.adobe.com/photoshop/using/whats-new.html">
             Что нового в Photoshop последних выпусков
           </a>
-          <a href="https://helpx.adobe.com/ru/photoshop/kb/fixed-issues.html">
+          <a href="https://helpx.adobe.com/photoshop/kb/fixed-issues.html">
             Список исправленных ошибок
           </a>
-          <a href="https://helpx.adobe.com/ru/photoshop/kb/known-issues.html">
+          <a href="https://helpx.adobe.com/photoshop/kb/known-issues.html">
             Выявленные неполадки в Photoshop
           </a>
         </div>
@@ -94,7 +94,7 @@ const PSFromNewbies: React.FC = () => {
             </li>
             <li>
               Более подробный список комбинаций клавиш вы можете прочесть на{" "}
-              <a href="https://helpx.adobe.com/ru/photoshop/using/default-keyboard-shortcuts.html">
+              <a href="https://helpx.adobe.com/photoshop/using/default-keyboard-shortcuts.html">
                 официальном сайте Adobe
               </a>{" "}
               или в <mark className="ui">Edit &gt; Keyboard Shortcuts</mark>.

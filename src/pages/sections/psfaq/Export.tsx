@@ -72,7 +72,7 @@ const PSExport: React.FC = () => {
         </p>
         <AdditionInfo>
           Подробнее о командах для сохранения файлов вы можете прочитать на{" "}
-          <a href="https://helpx.adobe.com/ru/photoshop/using/saving-images.html">
+          <a href="https://helpx.adobe.com/photoshop/using/saving-images.html">
             сайте Adobe
           </a>
           .
