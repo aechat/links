@@ -278,25 +278,48 @@ const AEExport: React.FC = () => {
         </p>
       </DetailsSummary>
       <DetailsSummary
-        tag="медиаенкодер, медиаэнкодер, adobe media encoder"
-        title="Почему из каждого угла советуют не использовать Adobe Media Encoder для экспорта композиций из Adobe After Effects?"
+        tag="медиаенкодер, медиаэнкодер"
+        title="Почему из каждого угла не советуют использовать Adobe Media Encoder для экспорта композиций?"
       >
         <p>
-          <mark className="app">Adobe Media Encoder</mark> часто становится источником
-          проблем при экспорте композиций из{" "}
-          <mark className="app">Adobe After Effects</mark>. Его используют либо по
-          привычке, либо потому, что в старых версиях{" "}
-          <mark className="app">Adobe After Effects</mark> нельзя было напрямую
-          экспортировать в <mark className="video">H.264</mark>. Сейчас в нём такой
-          необходимости уже нет, так как в{" "}
-          <mark className="app">Adobe After Effects</mark> версий <mark>23.0</mark> и выше
-          экспорт в <mark className="video">H.264</mark> вернули, а для старых версий
-          программы при желании можно поставить{" "}
-          <mark className="plugin">AfterCodecs</mark> или{" "}
-          <mark className="plugin">Voukoder</mark>. А теперь перечислим, какие палки в
-          колёса вставляет <mark className="app">Adobe Media Encoder</mark> при
-          повседневном использовании.
+          Долгие годы <mark className="app">Adobe Media Encoder</mark> считался
+          практически безальтернативным решением для экспорта из{" "}
+          <mark className="app">Adobe After Effects</mark> в популярный кодек{" "}
+          <mark className="video">H.264</mark>. Это было связано с тем, что в ранних
+          версиях <mark className="app">Adobe After Effects</mark> попросту отсутствовала
+          возможность напрямую выводить композиции в этом формате.
         </p>
+        <p>
+          Изначально <mark className="app">Adobe Media Encoder</mark> был создан для
+          перекодирования исходников из одного формата в другой и для создания прокси,
+          чтобы в дальнейшем их подключать в{" "}
+          <mark className="app">Adobe Premiere Pro</mark>. Но со временем{" "}
+          <mark>Adobe</mark> решил добавить туда функцию экспорта композиций из{" "}
+          <mark className="app">Adobe After Effects</mark> и понеслась. Тем не менее,
+          некоторые пользователи по привычке или из-за незнания альтернатив продолжают
+          полагаться исключительно на <mark className="app">Adobe Media Encoder</mark>. В
+          этой статье мы рассмотрим, с какими &quot;сюрпризами&quot; и неудобствами можно
+          столкнуться при его использовании{" "}
+          <mark className="app">Adobe Media Encoder</mark> для экспорта композиций.
+        </p>
+        <p>
+          С выходом версии <mark>23.0</mark>, необходимость прибегать к{" "}
+          <mark className="app">Adobe Media Encoder</mark> для экспорта в{" "}
+          <mark className="video">H.264</mark> заметно уменьшилась, поскольку в{" "}
+          <mark className="app">Adobe After Effects</mark> была возвращена функция
+          нативного экспорта в этот популярный кодек. Если вы используете старые версии{" "}
+          <mark className="app">Adobe After Effects</mark> - воспользуйтесь альтернативами
+          в виде плагинов, таких как <mark className="plugin">AfterCodecs</mark> или{" "}
+          <mark className="plugin">Voukoder</mark>. <a href="#10.3">Подробнее...</a>
+        </p>
+        <AdditionInfo>
+          Если вам нужно поставить на очередь просчёта сразу несколько композиций -
+          создайте проект-болванку в <mark className="app">Adobe After Effects</mark> и
+          импортируйте туда несколько своих проектов. Затем вы сможете закинуть в очередь
+          экспорта все нужные композиции и начать его, предварительно указав нужный формат
+          и расположение.
+        </AdditionInfo>
+        <Divider>Возможные проблемы при использовании Adobe Media Encoder</Divider>
         <ul>
           <li>
             <mark className="app">Adobe Media Encoder</mark> при экспорте сложных сцен
@@ -338,8 +361,8 @@ const AEExport: React.FC = () => {
               Для исправления бага со смещением изображения - проверьте установленные
               версии <mark className="app">Adobe After Effects</mark> и{" "}
               <mark className="app">Adobe Media Encoder</mark>. Если их версии попадают в
-              промежуток от <mark>23.1</mark> до <mark>23.5</mark> включительно, то вам
-              нужно будет обновить обе программы до <mark>23.6</mark>.
+              промежуток от <mark>23.1</mark> до <mark>23.5</mark> включительно - обновите
+              обе программы до версии <mark>23.6</mark>.
             </AdditionInfo>
           </li>
           <li>
@@ -376,46 +399,6 @@ const AEExport: React.FC = () => {
             минуту, когда надо экспортировать короткое видео.
           </li>
         </ul>
-        <p>
-          Изначально <mark className="app">Adobe Media Encoder</mark> был создан для
-          перекодирования исходников из одного формата в другой и для создания прокси,
-          чтобы в дальнейшем их подключить в{" "}
-          <mark className="app">Adobe Premiere Pro</mark>. Но со временем{" "}
-          <mark>Adobe</mark> решил добавить туда функцию экспорта из{" "}
-          <mark className="app">Adobe After Effects</mark> и понеслась. Большинство
-          пользователей экспортом в этой программе занимались по причине того, что в{" "}
-          <mark className="app">Adobe After Effects</mark> по стандарту в старых версиях
-          не было возможности экспортировать в кодек <mark className="video">H.264</mark>.
-        </p>
-        <p>
-          После обновления <mark className="app">Adobe After Effects</mark> на версию{" "}
-          <mark>23.X</mark> и новее - нужда в выводе через{" "}
-          <mark className="app">Adobe Media Encoder</mark> пропадает, так как в{" "}
-          <mark className="app">Adobe After Effects</mark> добавили нативный экспорт в{" "}
-          <mark className="video">H.264</mark>. Также никто не запрещал устанавливать
-          сторонние плагины, например{" "}
-          <mark className="plugin">Autokroma AfterCodecs</mark> или{" "}
-          <mark className="plugin">Voukoder</mark> для экспорта в различные кодеки
-          напрямую из <mark className="app">Adobe After Effects</mark>.
-        </p>
-        <AdditionInfo>
-          Если вам нужно поставить на очередь просчёта сразу несколько композиций -
-          создайте проект-болванку в <mark className="app">Adobe After Effects</mark> и
-          импортируйте туда несколько своих проектов. Затем вы сможете все нужные
-          композиции закинуть в очередь просчёта и начать его, предварительно указав
-          нужный формат и расположение.
-        </AdditionInfo>
-        <p>
-          Вывод из перечисления популярных проблем довольно простой - при экспорте
-          напрямую из <mark className="app">Adobe After Effects</mark> вы можете уберечь
-          себя от проблем, которые создаёт{" "}
-          <mark className="app">Adobe Media Encoder</mark>. Надеюсь, что мы убедили вас
-          его не использовать.
-        </p>
-        <AdditionInfo>
-          О том, как экспортировать в различные популярные форматы - вы можете прочитать в
-          следующих статьях на этой странице.
-        </AdditionInfo>
       </DetailsSummary>
       <DetailsSummary
         tag="H.265, мп4, ш264, ш265, h264, h265, вывести видео, avc1, вукодер, афтеркодекс"
