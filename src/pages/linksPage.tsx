@@ -354,6 +354,12 @@ const Links = () => {
               name="Blender 3D Chat"
             />
             <LinkCard
+              description="Чат в формате вопрос-ответ по Blender"
+              href="https://t.me/blender_ru"
+              icon={<ViewInArRounded />}
+              name="Blender_ru: вопрос-ответ"
+            />
+            <LinkCard
               description="Обсуждаем Maxon Cinema 4D и всё что с ним связано"
               href="https://t.me/cinema4dchat"
               icon={<AnimationRounded />}
