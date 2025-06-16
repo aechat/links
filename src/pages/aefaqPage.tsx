@@ -17,8 +17,6 @@ const AEInstallProblems = lazy(() => import("./sections/aefaq/InstallProblems"))
 
 const AEFromNewbies = lazy(() => import("./sections/aefaq/FromNewbies"));
 
-const AETips = lazy(() => import("./sections/aefaq/Tips"));
-
 const AEImport = lazy(() => import("./sections/aefaq/Import"));
 
 const AEInterface = lazy(() => import("./sections/aefaq/Interface"));
@@ -52,15 +50,14 @@ const AEFAQ = () => {
       id: "from-newbies",
       component: AEFromNewbies,
     },
-    {key: "4", title: "Вопросы на засыпку", id: "tips", component: AETips},
-    {key: "5", title: "Импорт", id: "import", component: AEImport},
-    {key: "6", title: "Интерфейс", id: "interface", component: AEInterface},
-    {key: "7", title: "Производительность", id: "performance", component: AEPerformance},
-    {key: "8", title: "Как и чем?", id: "actions", component: AEActions},
-    {key: "9", title: "Ошибки и предупреждения", id: "errors", component: AEErrors},
-    {key: "10", title: "Рендер и экспорт", id: "export", component: AEExport},
+    {key: "4", title: "Импорт", id: "import", component: AEImport},
+    {key: "5", title: "Интерфейс", id: "interface", component: AEInterface},
+    {key: "6", title: "Производительность", id: "performance", component: AEPerformance},
+    {key: "7", title: "Как и чем?", id: "actions", component: AEActions},
+    {key: "8", title: "Ошибки и предупреждения", id: "errors", component: AEErrors},
+    {key: "9", title: "Рендер и экспорт", id: "export", component: AEExport},
     {
-      key: "11",
+      key: "10",
       title: "Проблемы при экспорте",
       id: "export-problems",
       component: AEExportProblems,
