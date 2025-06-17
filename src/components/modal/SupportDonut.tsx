@@ -4,14 +4,12 @@ import {Modal} from "antd";
 
 import {motion} from "framer-motion";
 
-import {CloseRounded, CoffeeRounded, EditRounded} from "@mui/icons-material";
+import {CloseRounded, CoffeeRounded} from "@mui/icons-material";
 
 import {AdditionInfo} from "../Additions";
 
 const SupportDonut: React.FC = () => {
   const [isDonateModalOpen, setIsDonateModalOpen] = useState(false);
-
-  const [isEditModalOpen, setIsEditModalOpen] = useState(false);
 
   const [isSberModalOpen, setIsSberModalOpen] = useState(false);
 
@@ -21,16 +19,8 @@ const SupportDonut: React.FC = () => {
     setIsDonateModalOpen(true);
   };
 
-  const showEditModal = () => {
-    setIsEditModalOpen(true);
-  };
-
   const handleCloseDonateModal = () => {
     setIsDonateModalOpen(false);
-  };
-
-  const handleCloseEditModal = () => {
-    setIsEditModalOpen(false);
   };
 
   const handleCloseSberModal = () => {
@@ -44,21 +34,6 @@ const SupportDonut: React.FC = () => {
   return (
     <>
       <div className="support">
-        <motion.button
-          className="modal-page-button"
-          style={{
-            filter: "saturate(0.5) drop-shadow(0 3px 5px var(--shadow))",
-          }}
-          whileHover={{
-            scale: 0.975,
-            transition: {duration: 0.5, ease: [0.075, 0.82, 0.165, 1]},
-          }}
-          whileTap={{scale: 0.95, opacity: 0.5}}
-          onClick={showEditModal}
-        >
-          <EditRounded />
-          Помочь с редактированием
-        </motion.button>
         <motion.button
           className="modal-page-button"
           style={{
@@ -247,82 +222,20 @@ const SupportDonut: React.FC = () => {
           </div>
         </div>
       </Modal>
-      <Modal
-        centered
-        closeIcon={null}
-        footer={null}
-        open={isEditModalOpen}
-        onCancel={handleCloseEditModal}
-      >
-        <div className="modal">
-          <div className="modal-header">
-            <div className="modal-header-title">Помочь с редактированием</div>
-            <button
-              className="modal-header-close"
-              onClick={handleCloseEditModal}
-            >
-              <CloseRounded />
-            </button>
-          </div>
-          <div className="modal-content">
-            <p>
-              Если вы хотите помочь с наполнением данной страницы и вы имеете
-              какой-никакой опыт работы с{" "}
-              <a
-                href="https://git-scm.com/"
-                rel="noreferrer"
-                target="_blank"
-              >
-                Git
-              </a>{" "}
-              и{" "}
-              <a
-                href="https://github.com/git-guides"
-                rel="noreferrer"
-                target="_blank"
-              >
-                GitHub
-              </a>
-              , то вы можете{" "}
-              <a
-                href="https://github.com/aechat/links/fork"
-                rel="noreferrer"
-                target="_blank"
-              >
-                создать форк проекта сайта
-              </a>{" "}
-              и внести свои изменения с помощью{" "}
-              <a
-                href="https://arduinoplus.ru/git-course/chuzhoi-repozitorii/"
-                rel="noreferrer"
-                target="_blank"
-              >
-                Pull Request
-              </a>
-              .
-            </p>
-            <p>
-              Файлы контента внутри секций находятся по пути{" "}
-              <mark className="path">src/pages/sections</mark>, где лежат файлы формата{" "}
-              <mark className="file">TSX</mark>. Более подробно о форматировании и
-              редактировании указано в файле{" "}
-              <a
-                href="https://github.com/aechat/links/blob/main/README.md"
-                rel="noreferrer"
-                target="_blank"
-              >
-                README.md
-              </a>
-              .
-            </p>
-            <AdditionInfo>
-              Разделы с частыми вопросами находятся в разработке и иногда обновляются,
-              поэтому могут быть неточности в действиях, выводах и тексте. Мнение авторов
-              и мнение читателя могут отличаться.
-            </AdditionInfo>
-          </div>
-        </div>
-      </Modal>
+      <AdditionInfo>
+        <ul>
+          <li>
+            Содержание этой страницы периодически обновляется и предоставляется &quot;как
+            есть&quot;. Информация в статьях может оказаться неполной, устаревшей или
+            содержать неточности. Мнение автора и читателя может не совпадать.
+          </li>
+          <li>
+            Ваша помощь в наполнении статей и исправлении ошибок на этой странице очень
+            важна. Чтобы сделать ресурс еще лучше - поделитесь своими сообщениями и идеями
+            через бота <a href="https://t.me/aechatru_bot">@aechatru_bot</a>.
+          </li>
+        </ul>
+      </AdditionInfo>
     </>
   );
 };

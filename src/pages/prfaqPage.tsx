@@ -22,8 +22,6 @@ import CopyToClipboard from "../components/features/CopyToClipboard";
 
 import {generateAnchorId} from "../components/DetailsSummary";
 
-import {AdditionDanger} from "../components/Additions";
-
 const PRActions = lazy(() => import("./sections/prfaq/Actions"));
 
 const PRErrors = lazy(() => import("./sections/prfaq/Errors"));
@@ -183,10 +181,6 @@ const PRFAQ = () => {
                 />
               </div>
               <SupportDonut />
-              <AdditionDanger>
-                Эта страница ещё не проходила полную проверку на точность. В статьях могут
-                быть ошибки или неполная информация. Следите за обновлениями!
-              </AdditionDanger>
               <Suspense
                 fallback={
                   <motion.div
