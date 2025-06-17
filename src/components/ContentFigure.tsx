@@ -8,7 +8,6 @@ interface ImageFigureProps {
   imgTitle: string;
   caption: string;
 }
-
 interface VideoFigureProps {
   styleClass: string;
   videoSrc: string;
@@ -379,7 +378,6 @@ const VideoFigure: React.FC<VideoFigureProps> = ({styleClass, videoSrc, caption}
     </>
   );
 };
-
 interface YouTubeVideoProps {
   link: string;
   caption: string;

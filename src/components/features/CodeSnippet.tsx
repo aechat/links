@@ -13,7 +13,6 @@ interface CodeSnippetProps {
 
 const CodeSnippet: React.FC<CodeSnippetProps> = ({language = "javascript", children}) => {
   const codeRef = useRef<HTMLElement | null>(null);
-
   useEffect(() => {
     if (codeRef.current) {
       hljs.highlightBlock(codeRef.current);

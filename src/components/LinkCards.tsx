@@ -8,12 +8,10 @@ interface BaseLinkCardProps {
   icon: JSX.Element;
   name: string;
 }
-
 interface LinkCardProps extends BaseLinkCardProps {
   href: string;
   description: string;
 }
-
 interface LinkCardPropsNoDescription extends BaseLinkCardProps {
   href: string;
 }

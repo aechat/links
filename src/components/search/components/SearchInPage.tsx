@@ -14,7 +14,6 @@ import {SearchSection} from "../types";
 
 import {getFoundWord, getResultWord} from "../utils";
 
-
 const SearchCategories: React.FC<{
   onLinkClick: (id: string) => void;
   sections: SearchSection[];
@@ -32,7 +31,6 @@ const SearchCategories: React.FC<{
     </div>
   </div>
 );
-
 
 const SearchResults: React.FC<{
   onLinkClick: (id: string) => void;
@@ -101,7 +99,6 @@ const SearchResults: React.FC<{
   </div>
 );
 
-
 const ExternalSearch: React.FC<{query: string}> = ({query}) => {
   const getSearchQuery = () => {
     const path = window.location.pathname;
@@ -152,8 +149,6 @@ const ExternalSearch: React.FC<{query: string}> = ({query}) => {
   );
 };
 
-
-
 const NoResults: React.FC<{query: string}> = ({query}) => (
   <div>
     <div className="search-no-results">
@@ -196,8 +191,6 @@ export const SearchInPage: React.FC<{sections: SearchSection[]}> = ({sections}) 
     query,
     isPageLoaded
   );
-
-
   useEffect(() => {
     if (isPageLoaded) {
       const timeout = setTimeout(() => {

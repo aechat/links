@@ -5,20 +5,16 @@ const OWNER = "aechat";
 const REPO = "links";
 
 const BRANCH = "main";
-
 interface GithubUpdateInfoProps {
   filePath: string;
 }
-
 interface Commit {
   commit: {
     message: string;
-
     author: {
       date: string;
     };
   };
-
   html_url: string;
 }
 
@@ -76,7 +72,6 @@ const GithubUpdateInfo: React.FC<GithubUpdateInfoProps> = ({filePath}) => {
       setCommitInfo(`Индикатор свежести информации временно недоступен - ${err}`);
     }
   };
-
   useEffect(() => {
     getLastCommitDate();
   }, [filePath]);

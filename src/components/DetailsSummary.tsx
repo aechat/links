@@ -122,7 +122,6 @@ const DetailsSummary: React.FC<DetailsSummaryProps> = ({title, children, tag}) =
   const detailsRef = useRef<HTMLDetailsElement>(null);
 
   const sectionRef = useRef<HTMLElement>(null);
-
   useEffect(() => {
     if (detailsRef.current) {
       const observer = new MutationObserver(() => {
@@ -136,7 +135,6 @@ const DetailsSummary: React.FC<DetailsSummaryProps> = ({title, children, tag}) =
       return () => observer.disconnect();
     }
   }, []);
-
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
       if (
@@ -156,7 +154,6 @@ const DetailsSummary: React.FC<DetailsSummaryProps> = ({title, children, tag}) =
       window.removeEventListener("keydown", handleKeyDown);
     };
   }, []);
-
   useEffect(() => {
     if (sectionRef.current) {
       const links = sectionRef.current.querySelectorAll("a");
@@ -171,7 +168,6 @@ const DetailsSummary: React.FC<DetailsSummaryProps> = ({title, children, tag}) =
       });
     }
   }, [children]);
-
   useEffect(() => {
     if (!sectionRef.current) {
       return;

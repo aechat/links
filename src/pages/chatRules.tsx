@@ -30,7 +30,6 @@ const constants = {
 
 const ChatRules = () => {
   const {hash} = useLocation();
-
   React.useEffect(() => {
     if (hash) {
       setTimeout(() => {
@@ -53,7 +52,6 @@ const ChatRules = () => {
             headerHeight -
             padding;
           window.scrollTo({top: y, behavior: "smooth"});
-
           setTimeout(() => {
             history.replaceState(
               null,

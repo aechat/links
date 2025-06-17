@@ -10,17 +10,10 @@ import {motion} from "framer-motion";
 
 import {UploadFileRounded} from "@mui/icons-material";
 
-
 const TgsToJsonConverter: React.FC = () => {
-
-
   const [jsonData, setJsonData] = useState<unknown>(null);
 
-
-
   const [originalFileName, setOriginalFileName] = useState<string>("");
-
-
 
   const handleFileUpload = async (file: File): Promise<boolean> => {
     try {
@@ -39,8 +32,6 @@ const TgsToJsonConverter: React.FC = () => {
 
     return false;
   };
-
-
 
   const downloadJson = (): void => {
     if (jsonData) {

@@ -19,7 +19,6 @@ export const SearchProvider: React.FC<{
   };
 
   const closeModal = () => setIsOpen(false);
-
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
       if ((event.ctrlKey && event.key === "f") || (event.ctrlKey && event.key === "а")) {

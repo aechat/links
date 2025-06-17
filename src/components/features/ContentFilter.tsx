@@ -15,6 +15,7 @@ const ContentSwitcher: React.FC<ContentSwitcherProps> = ({
 
   const detectOperatingSystem = (): boolean => {
     const userAgent = window.navigator.userAgent.toLowerCase();
+
     return !(
       userAgent.includes("mac") ||
       userAgent.includes("iphone") ||
@@ -25,7 +26,6 @@ const ContentSwitcher: React.FC<ContentSwitcherProps> = ({
   const toggleContent = (): void => {
     setIsWindows(!isWindows);
   };
-
   useEffect(() => {
     setIsWindows(detectOperatingSystem());
   }, []);

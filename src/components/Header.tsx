@@ -47,7 +47,6 @@ const Header: React.FC<HeaderProps> = ({title}) => {
   const checkScrollPosition = (): void => {
     setIsVisible(window.scrollY > constants.SCROLL_THRESHOLD);
   };
-
   useEffect(() => {
     window.addEventListener("scroll", checkScrollPosition);
 
@@ -55,7 +54,6 @@ const Header: React.FC<HeaderProps> = ({title}) => {
       window.removeEventListener("scroll", checkScrollPosition);
     };
   }, []);
-
   useEffect(() => {
     const resizeHandler = (): void => {
       setIsWide(window.innerWidth > constants.WIDE_SCREEN_WIDTH);

@@ -13,10 +13,8 @@ import {UploadFileRounded} from "@mui/icons-material";
 interface Pyodide {
   FS: {
     writeFile: (filename: string, data: Uint8Array) => void;
-
     readFile: (filename: string) => Uint8Array;
   };
-
   runPythonAsync: (code: string) => Promise<void>;
 }
 
@@ -30,7 +28,6 @@ const TgsToJsonConverter: React.FC = () => {
   const [pyodide, setPyodide] = useState<Pyodide | null>(null);
 
   const [loading, setLoading] = useState(false);
-
   useEffect(() => {
     if (compressionMode === "python" && !pyodide) {
       loadPyodideInline();
@@ -44,9 +41,7 @@ const TgsToJsonConverter: React.FC = () => {
       const script = document.createElement("script");
       script.src = "https://cdn.jsdelivr.net/pyodide/v0.22.1/full/pyodide.js";
       script.onload = async () => {
-
         // @ts-expect-error, чтобы не втыкал
-
         const py: Pyodide = await (window as unknown).loadPyodide();
         setPyodide(py);
         setLoading(false);

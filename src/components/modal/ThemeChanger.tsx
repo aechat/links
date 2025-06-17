@@ -14,18 +14,12 @@ import {
 import {motion} from "framer-motion";
 
 type Theme = "light" | "dark" | "system";
-
 interface ThemeContextProps {
   theme: Theme;
-
   setTheme: (theme: Theme) => void;
-
   accentHue: number;
-
   setAccentHue: (hue: number) => void;
-
   saturateRatio: number;
-
   setSaturateRatio: (ratio: number) => void;
 }
 
@@ -124,10 +118,8 @@ export const ThemeToggleButton: React.FC = () => {
     </>
   );
 };
-
 interface ThemeModalProps {
   isModalOpen: boolean;
-
   closeModal: () => void;
 }
 
