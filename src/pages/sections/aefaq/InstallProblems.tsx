@@ -1246,8 +1246,8 @@ const AEInstallProblems: React.FC = () => {
         />
       </DetailsSummary>
       <DetailsSummary
-        tag="dynamic link, динамик линк, adobe media encoder is not installed, please download and install it to use this feature, медиа енкодер"
-        title="Установил After Effects и Media Encoder, но они не видят друг друга и не подключаются. Как это исправить?"
+        tag="не подключается dynamic link, динамик линк, aegp plugin aedynamiclinkserver: adobe media encoder is not installed, please download and install it to use this feature, failed to connect to adobe media encoder, медиа енкодер"
+        title="Установил Adobe After Effects и Adobe Media Encoder, но они почему-то не видят друг друга"
       >
         <p>
           Функция <mark className="plugin">Dynamic Link</mark> позволяет синхронизировать
