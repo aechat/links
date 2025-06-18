@@ -1,16 +1,0 @@
-<svg id="S_FXWindowTarget_Sm_N_D_2x_" data-name="S_FXWindowTarget_Sm_N_D@2x" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
-  <defs>
-    <style>
-      .fill {
-        fill: #fff;
-        fill-rule: evenodd;
-        opacity: 0.65;
-      }
-
-      
-    </style>
-  </defs>
-  <title>S_FXWindowTarget_Sm_N_D@2x</title>
-  <rect class="fill" x="4" y="6" width="24" height="2" rx="0.5" ry="0.5"/>
-  <path class="fill" d="M27,10H5a1,1,0,0,0-1,1V25a1,1,0,0,0,1,1H27a1,1,0,0,0,1-1V11A1,1,0,0,0,27,10ZM21.609,22.195a0.5,0.5,0,0,1,0,.707l-0.707.707a0.5,0.5,0,0,1-.707,0L16,19.414l-4.195,4.194a0.5,0.5,0,0,1-.707,0L10.391,22.9a0.5,0.5,0,0,1,0-.707L14.586,18l-4.195-4.195a0.5,0.5,0,0,1,0-.707l0.707-.707a0.5,0.5,0,0,1,.707,0L16,16.586l4.195-4.194a0.5,0.5,0,0,1,.707,0L21.609,13.1a0.5,0.5,0,0,1,0,.707L17.414,18Z"/>
-  </svg>
