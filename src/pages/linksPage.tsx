@@ -327,6 +327,12 @@ const Links = () => {
               name="DaVinci Resolve RU"
             />
             <LinkCard
+              description="Сообщество от @TimesaverVFX, где обсуждают Davinci Resolve и Fusion"
+              href="https://t.me/timesaverchat"
+              icon={<MovieRounded />}
+              name="Чат Таймсейвера"
+            />
+            <LinkCard
               description="Обсуждаем цветокоррекцию в видео"
               href="https://t.me/ExitLight_Chat"
               icon={<GradientRounded />}
@@ -355,6 +361,12 @@ const Links = () => {
               href="https://t.me/blender3dchat"
               icon={<ViewInArRounded />}
               name="Blender 3D Chat"
+            />
+            <LinkCard
+              description="Чат в формате вопрос-ответ по Blender"
+              href="https://t.me/blender_ru"
+              icon={<ViewInArRounded />}
+              name="Blender_ru: вопрос-ответ"
             />
             <LinkCard
               description="Обсуждаем Maxon Cinema 4D и всё что с ним связано"

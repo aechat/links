@@ -283,7 +283,7 @@ const PSWhereFind: React.FC = () => {
             UIDownload
           </a>
           <a
-            href="https://stock.adobe.com/ru/free"
+            href="https://stock.adobe.com/free"
             title="Adobe Stock"
           >
             Adobe Stock
@@ -418,9 +418,9 @@ const PSWhereFind: React.FC = () => {
               моделей для генерации изображений.
             </li>
             <li>
-              Рекомендуется иметь не менее <mark>20-30 гигабайт</mark> свободного места на
+              Рекомендуется иметь не менее <mark>20-30 ГБ</mark> свободного места на
               накопителе, так как среднестатистическая модель Stable Diffusion занимает
-              около <mark>4-8 гигабайт</mark> в зависимости от типа модели.
+              около <mark>4-8 ГБ</mark> в зависимости от типа модели.
             </li>
             <li>
               {" "}

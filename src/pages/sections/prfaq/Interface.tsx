@@ -6,11 +6,13 @@ import {
   AdditionWarning,
 } from "../../../components/Additions";
 
-import {ImageFigure} from "../../../components/ContentFigure";
+import {ImageFigure, VideoFigure} from "../../../components/ContentFigure";
 
 import DetailsSummary from "../../../components/DetailsSummary";
 
 import GithubUpdateInfo from "../../../components/features/GithubUpdateInfo";
+
+import {Divider} from "antd";
 
 const PRInterface: React.FC = () => {
   return (
@@ -212,6 +214,84 @@ const PRInterface: React.FC = () => {
           плохо различать некоторые элементы интерфейса.
         </AdditionWarning>
         {/* TODO: показать цветовую палитру при настройке */}
+      </DetailsSummary>
+      <DetailsSummary title="Как изменить картинку во время запуска программы?">
+        <AdditionDanger>
+          Действия с заменой файлов программы{" "}
+          <b>
+            <u>вы делаете на свой страх и риск!</u>
+          </b>{" "}
+          После обновления программы ваша картинка перезапишется на исходную. Инструкция
+          действительна только для устройств на <mark>Windows</mark>.
+        </AdditionDanger>
+        <p>
+          При запуске <mark className="app">Adobe Premiere Pro</mark> вы часто видите
+          какую-либо картинку, задуманной <mark>Adobe</mark> и наверное задумывались, что
+          неплохо бы её заменить на свою. К счастью, <mark>Adobe</mark> оставила нам
+          возможность замены картинки при запуске без ковыряния с{" "}
+          <mark className="file">DLL</mark> файлов, как это было в статье про замену в{" "}
+          <mark className="app">Adobe After Effects</mark> в <a href="/aefaq">aefaq</a>.
+        </p>
+        <Divider>Ищем изображение, которое появляется при запуске</Divider>
+        <p>
+          Картинка, которую вы видите при запуске{" "}
+          <mark className="app">Adobe Premiere Pro</mark>, хранится в директории с
+          установленной програмой, обычно это{" "}
+          <mark className="path">C:\Program Files\Adobe\Adobe Premiere Pro 20XX</mark> в
+          подпапке <mark className="path">PNG</mark>.
+        </p>
+        <ImageFigure
+          caption="Проводник"
+          imgSrc="images/premierepro/exploring_png_in_installation_folder.png"
+          imgTitle="Исследуем картинки в папке с ресурсами программы"
+          styleClass="figure_windows-dark"
+        />
+        <p>
+          В случае, как и с <mark className="app">Adobe After Effects</mark> - там
+          хранятся три почти одинаковые картинки -{" "}
+          <mark className="image">pr_splash.png</mark>,{" "}
+          <mark className="image">pr_splash@2x.png</mark> и{" "}
+          <mark className="image">pr_splash@3to2x.png</mark>, каждое из которых
+          адаптировано под определённый масштаб дисплея. Вы можете отредактировать их в
+          любимом графическом редакторе, например{" "}
+          <mark className="app">Adobe Photoshop</mark> и заменить одно, два или все три
+          изображения в зависимости от ваших личных предпочтений, если часто меняете
+          масштабирование системы. При редактировании изображения не нужно менять его
+          разрешение и нужно сохранить файл также в <mark className="image">PNG</mark>. По
+          аналогии вы можете изменить плашку для окна <mark className="ui">About</mark>,
+          заменив файлы <mark className="image">pr_about.png</mark>,{" "}
+          <mark className="image">pr_about@2x.png</mark> и{" "}
+          <mark className="image">pr_about@3to2x.png</mark>.
+        </p>
+        <AdditionWarning>
+          Для изменения файлов в директории с установкой{" "}
+          <mark className="app">Adobe Premiere Pro</mark> могут потребоваться права
+          администратора. Чтобы изменять картинки - лучше перенесите их в другое место,
+          например на <mark className="path">Рабочий стол</mark>, отредактируйте, а потом
+          переместите их обратно с заменой в папке с программой.
+        </AdditionWarning>
+        <p>
+          В качестве примера я заменю стандартное изображение на изображение автомобиля{" "}
+          <mark>Ford Focus</mark> и сохраню его в <mark className="image">PNG</mark>.
+        </p>
+        <ImageFigure
+          caption="Пример модификации изображения при загрузке Adobe Premiere Pro"
+          imgSrc="images/premierepro/custom_splash_example.png"
+          imgTitle="Изменённое изображение при открытии программы"
+          styleClass="figure_windows-light"
+        />
+        <Divider>Заменяем изображение</Divider>
+        <p>
+          После изменения исходого изображения - перенесите его с заменой в папку{" "}
+          <mark className="path">PNG</mark> в директорию с установленной программой. После
+          успешной замены - можно запустить программу и наслаждаться своим шедевром,
+          который вы сотворили.
+        </p>
+        <VideoFigure
+          caption="Замена изображения и открытие программы с уже изменённой плашкой"
+          styleClass="figure_windows-dark"
+          videoSrc="images/premierepro/replace_splash_screen.mp4"
+        />
       </DetailsSummary>
     </div>
   );

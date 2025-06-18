@@ -341,7 +341,7 @@ const PRErrors: React.FC = () => {
                 </a>{" "}
                 этот сервис в <mark className="app">services.msc</mark> или очистить
                 систему от программ <mark>Adobe</mark> с помощью{" "}
-                <a href="https://helpx.adobe.com/ru/creative-cloud/kb/cc-cleaner-tool-installation-problems.html">
+                <a href="https://helpx.adobe.com/creative-cloud/kb/cc-cleaner-tool-installation-problems.html">
                   Adobe Creative Cloud Cleaner
                 </a>
                 .
@@ -368,7 +368,7 @@ const PRErrors: React.FC = () => {
         <p>
           Скорее всего вы пытаетесь запустить приложение на устройстве с процессором без
           поддержки инструкций <mark>AVX2</mark>. В{" "}
-          <a href="https://helpx.adobe.com/ru/premiere-pro/system-requirements.html">
+          <a href="https://helpx.adobe.com/premiere-pro/system-requirements.html">
             нынешних системных требованиях для Premiere Pro
           </a>{" "}
           указано, что требуется процессор от Intel минимум 6 поколения, например, i7-6700

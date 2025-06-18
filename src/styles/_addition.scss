@@ -37,7 +37,7 @@ li > .addition-danger,
     border-radius: $roundness * 0.75;
     padding: 12px 10px 12px 18px;
     font-weight: 425;
-    font-size: 0.9375rem;
+    font-size: 0.925rem;
     line-height: 1.65;
     &:first-child {
       margin-top: 10px;
@@ -101,6 +101,18 @@ li > .addition-danger,
       }
       &:last-child {
         margin-bottom: 0;
+      }
+    }
+
+    li > ul {
+      margin-block: 5px;
+    }
+
+    li > ul > li {
+      padding-inline: 0;
+
+      &::before {
+        left: -12px;
       }
     }
   }

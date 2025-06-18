@@ -168,7 +168,7 @@ const PRWhereFind: React.FC = () => {
       </DetailsSummary>
       <DetailsSummary title="Где я могу найти и скачать стоковые видео для своих проектов?">
         <p>
-          Существует множество видео-стоков онлайн, среди которых многие предоставляют
+          Существует множество видеостоков онлайн, среди которых многие предоставляют
           материалы с лицензией <mark>Creative Commons Zero (CC0)</mark>, что означает
           возможность использования их в своих коммерческих проектах, не указывая
           авторство.
@@ -413,7 +413,7 @@ const PRWhereFind: React.FC = () => {
             UIDownload
           </a>
           <a
-            href="https://stock.adobe.com/ru/free"
+            href="https://stock.adobe.com/free"
             title="Adobe Stock"
           >
             Adobe Stock

@@ -975,7 +975,7 @@ const PRInstallProblems: React.FC = () => {
         </AdditionInfo>
         <p>
           Для решения этой проблемы прочтите{" "}
-          <a href="https://helpx.adobe.com/ru/premiere-pro/system-requirements.html">
+          <a href="https://helpx.adobe.com/premiere-pro/system-requirements.html">
             системные требования Premiere Pro
           </a>{" "}
           и найдите раздел про минимальную требуемую операционную систему. На момент

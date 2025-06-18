@@ -361,6 +361,11 @@ const AEInstallProblems: React.FC = () => {
                   <AdditionInfo>
                     <ul>
                       <li>
+                        Расширения формата <mark className="file">.zxp</mark> обычно
+                        появляются в окне{" "}
+                        <mark className="ui">Window &gt; Extensions</mark>.
+                      </li>
+                      <li>
                         Если вы не хотите устанавливать стороннее ПО для установки{" "}
                         <mark className="file">ZXP</mark>, то вы можете переименовать файл{" "}
                         <mark className="file">ZXP</mark> в{" "}
@@ -1188,7 +1193,7 @@ const AEInstallProblems: React.FC = () => {
           <li>
             Чтобы сжать только операционную систему, воспользуйтесь командой{" "}
             <mark className="code">compact /compactos:always</mark> и дождитесь окончания
-            операции. Обычно сжатие системы освобождает примерно <mark>3-5 гигабайт</mark>{" "}
+            операции. Обычно сжатие системы освобождает примерно <mark>3-5 ГБ</mark>{" "}
             дискового пространства, которое можно занять установкой{" "}
             <mark className="app">Adobe After Effects</mark>.
             <AdditionInfo>
@@ -1334,7 +1339,7 @@ const AEInstallProblems: React.FC = () => {
           повреждено приложение <mark className="app">Adobe Creative Cloud Cleaner</mark>{" "}
           или были криво удалены предыдущие программы от <mark>Adobe</mark>. Чтобы
           исправить это - очистите остатки предыдущих установок с помощью{" "}
-          <a href="https://helpx.adobe.com/ru/creative-cloud/kb/cc-cleaner-tool-installation-problems.html">
+          <a href="https://helpx.adobe.com/creative-cloud/kb/cc-cleaner-tool-installation-problems.html">
             Adobe Creative Cloud Cleaner
           </a>{" "}
           или <mark className="app">Revo Uninstaller</mark>.
@@ -1382,7 +1387,7 @@ const AEInstallProblems: React.FC = () => {
             <mark className="app">Adobe After Effects</mark>, то вам нужно обновить вашу
             систему до <mark>Windows 10</mark> сборки <mark>22H2</mark> или установить{" "}
             <mark>Windows 11</mark>. Обычно в{" "}
-            <a href="https://helpx.adobe.com/ru/after-effects/system-requirements.html">
+            <a href="https://helpx.adobe.com/after-effects/system-requirements.html">
               системных требованиях After Effects
             </a>{" "}
             указывается минимальная версия операционной системы.
@@ -1414,7 +1419,7 @@ const AEInstallProblems: React.FC = () => {
         </ul>
         <AdditionInfo>
           Остальные решения по кодам ошибок при установке вы можете найти на{" "}
-          <a href="https://helpx.adobe.com/ru/creative-cloud/kb/troubleshoot-download-install-logs.html">
+          <a href="https://helpx.adobe.com/creative-cloud/kb/troubleshoot-download-install-logs.html">
             сайте Adobe
           </a>{" "}
           или на различных форумах в интернете.
@@ -1532,7 +1537,7 @@ const AEInstallProblems: React.FC = () => {
       </DetailsSummary>
       <DetailsSummary
         tag="trapcode, mbl, magic bullet, vfx suite, universe, юниверс, трапкод, партикуляр, мбл"
-        title='При установке любого пакета Red Giant выскакивает "This installer application has been moved. It must be run from its original folder containing a packages directory. The installer will now exit."'
+        title='При установке любого пакета Red Giant появляется ошибка "This installer application has been moved. It must be run from its original folder containing a packages directory. The installer will now exit."'
       >
         <p>
           Скорее всего пытаетесь установить плагины от{" "}
@@ -1557,6 +1562,31 @@ const AEInstallProblems: React.FC = () => {
           <mark className="file">EXE</mark>, <mark className="file">MSI</mark> и подобных
           установочных файлов.
         </p>
+      </DetailsSummary>
+      <DetailsSummary
+        tag="Select action - an error occurred while trying to replace the existing file: DeleteFile failed; code 5. Access denied"
+        title='При применении активатора от Team V.R. для пакетов Red Giant появляется ошибка "Виберiть дiю - виникла помилка при спробi замiни iснуючого файлу: DeleteFile збiй; код 5. Отказано в доступе"'
+      >
+        <p>
+          В данной ошибке показывается, что активатор не может перезаписать какой-то файл
+          из-за того что он у вас открыт в фоне. В вашем окне ошибки должен отобразиться
+          полный путь до виновника торжества - скорее всего это будет висящий в фоне{" "}
+          <mark className="app">Red Giant Service</mark>.
+        </p>
+        <p>
+          Чтобы корректно применить активатор - закройте его с помощью{" "}
+          <mark className="app">Диспетчера задач</mark>, завершив процесс{" "}
+          <mark className="app">Red Giant Service.exe</mark> во вкладке{" "}
+          <mark className="ui">Подробности (Windows 10 или 11 21H2)</mark> или{" "}
+          <mark className="ui">Сведения (Windows 11 22H2+)</mark>. После завершения
+          проблемного процесса - повторите попытку активации, он должен пройти нормально.
+        </p>
+        <ImageFigure
+          caption="Диспетчер задач"
+          imgSrc="images/kill_redgiantservice.png"
+          imgTitle="Завершаем процесс Red Giant Service.exe"
+          styleClass="figure_windows-dark"
+        />
       </DetailsSummary>
       <DetailsSummary
         tag="генп, genp, ручная активация"
@@ -1590,7 +1620,7 @@ const AEInstallProblems: React.FC = () => {
           <mark className="app">GenP</mark> лучше удалите все приложения от Adobe во
           избежание различных проблем при активации. Удалить приложения от Adobe вы можете
           через{" "}
-          <a href="https://helpx.adobe.com/ru/creative-cloud/kb/cc-cleaner-tool-installation-problems">
+          <a href="https://helpx.adobe.com/creative-cloud/kb/cc-cleaner-tool-installation-problems">
             Adobe Creative Cloud Cleaner Tool
           </a>{" "}
           или с помощью любой другой программы для удаления программ, например{" "}
@@ -1642,13 +1672,8 @@ const AEInstallProblems: React.FC = () => {
         </AdditionInfo>
         <AdditionDanger>
           Суббреддит <mark>r/genp</mark> был заблокирован по просьбе <mark>Adobe</mark>.
-          Чтобы скачать <mark className="app">GenP</mark> - пользуйтесь альтернативными
-          источниками распространения, например{" "}
-          <a href="https://discord.gg/UDypEJjW4V">Discord</a> или{" "}
-          <a href="https://github.com/wangzhenjjcn/AdobeGenp/releases">
-            репозиторием на GitHub
-          </a>
-          .
+          Будьте осторожны при скачивании <mark className="app">GenP</mark> не из
+          проверенных источников.
         </AdditionDanger>
         <div style={{opacity: "0.5"}}>
           <p>
@@ -1779,7 +1804,7 @@ const AEInstallProblems: React.FC = () => {
             то пришла пора переустанавливать{" "}
             <mark className="app">Adobe After Effects</mark> с нуля. Перед переустановкой
             - не забудьте почистить систему от хвостов установленной программы с помощью{" "}
-            <a href="https://helpx.adobe.com/ru/creative-cloud/kb/cc-cleaner-tool-installation-problems.html">
+            <a href="https://helpx.adobe.com/creative-cloud/kb/cc-cleaner-tool-installation-problems.html">
               Adobe Creative Cloud Cleaner
             </a>
             .
@@ -1808,6 +1833,205 @@ const AEInstallProblems: React.FC = () => {
           После удаления плагина вы больше не будете сталкиваться с данным предупреждением
           при открытии программы.
         </p>
+      </DetailsSummary>
+      <DetailsSummary
+        tag="rosetta, розетта, старые плагины на новом маке, to use these plugins run on an intel-based mac computer, to run in a compatible mode choose get info in the application context menu and enable open using rosetta"
+        title='"The following plugins are installed, but not yet compatible with this version of After Effects. They will show as missing in existing projects and cannot be applied" после установки плагинов на устройство Mac с Apple Silicon'
+      >
+        <p>
+          В данном окне вам пишут, что вы установили плагин, но он не поддерживает вашу
+          версию <mark className="app">Adobe After Effects</mark>. Чаще всего это
+          происходит из-за того, что вы установили на устройство <mark>Mac</mark> с новыми
+          процессорами <mark>Apple Silicon</mark> старый плагин, который был адаптирован
+          для <mark>Mac</mark> на <mark>Intel</mark>. У новых процессоров новая
+          архитектура, поэтому старые программы и плагины не совместимы без прослойки{" "}
+          <mark className="app">Rosetta</mark>. У данного предупреждения есть две
+          вариации, в зависимости от того, какая версия программы у вас установлена.
+        </p>
+        <AdditionWarning>
+          При использовании <mark className="app">Adobe After Effects</mark> через слой
+          эмуляции <mark className="app">Rosetta</mark> - производительность программы
+          может упасть.
+        </AdditionWarning>
+        <AdditionInfo>
+          <ul>
+            <li>
+              <mark className="app">Rosetta</mark> - слой эмуляции, которая позволяет
+              запускать программы на <mark>Mac</mark> с <mark>Apple Silicon</mark>,
+              которые предназначены для <mark>Mac</mark> на <mark>Intel</mark>
+            </li>
+            <li>
+              Под <mark>Apple Silicon</mark> имеются ввиду все <mark>Mac</mark> с
+              процессорами <mark>M-серии</mark>, будь то <mark>M1</mark>,{" "}
+              <mark>M2 Pro</mark> и прочие.
+            </li>
+          </ul>
+        </AdditionInfo>
+        <Divider>
+          To run After Effects in a compatible mode, choose &quot;Get Info&quot; in the
+          application context menu and enable &quot;Open using Rosetta&quot;
+        </Divider>
+        <p>
+          В данном случаем вам чуть повезло, вы можете открыть<sup>1</sup> программу со
+          старыми плагинами в режиме совместимости с помощью{" "}
+          <mark className="app">Rosetta</mark>. Для этого перейдите в{" "}
+          <mark className="ui">Help</mark> и выберите в нём{" "}
+          <mark className="ui">Open using Rosetta</mark>. После этого{" "}
+          <mark className="app">Adobe After Effects</mark> перезагрузится в режим
+          совместимости и старые плагины должны быть доступны для использования в ваших
+          проектах.
+        </p>
+        <AdditionDanger>
+          <ul>
+            <li>
+              <sup>1</sup> Запустить программу в режиме совместимости вы сможете лишь с
+              оговоркой - <mark className="app">Adobe After Effects</mark>, начиная с
+              версии <mark>24.0</mark> и новее, больше не поддерживает эмуляцию через{" "}
+              <mark className="app">Rosetta</mark>. То есть в этих версиях вы не можете
+              открыть версию программы для <mark>Intel</mark> на процессорах{" "}
+              <mark>Apple Silicon</mark>. Если вы видите этот текст в вашем
+              предупреждении, но в контекстном меню <mark className="ui">Help</mark> у вас
+              отсутствует кнопка <mark className="ui">Open using Rosetta</mark>, то,
+              скорее всего, <mark>Adobe</mark> забыли убрать этот текст в вашей версии
+              программы. Последняя версия, где ещё возможно открыть{" "}
+              <mark className="app">Adobe After Effects</mark> в режиме эмуляции через{" "}
+              <mark className="app">Rosetta</mark> - это <mark>23.6</mark>.
+            </li>
+            <li>
+              Плагины, которые адаптированы только под <mark>Apple Silicon</mark> могут не
+              работать в режиме совместимости с помощью{" "}
+              <mark className="app">Rosetta</mark>.
+            </li>
+          </ul>
+        </AdditionDanger>
+        <Divider>
+          To use these plugins, run After Effects on an Intel-based Mac computer
+        </Divider>
+        <p>
+          В данном случае ситуация ещё плачевнее - <mark>Adobe</mark> убрал поддержку{" "}
+          <mark>Rosetta</mark> в последних версиях{" "}
+          <mark className="app">Adobe After Effects</mark>, начиная с <mark>24.0</mark>.
+          Поэтому плагины, которые были созданы для <mark>Mac</mark> на <mark>Intel</mark>{" "}
+          уже не смогут запуститься в режиме совместимости. В таком случае у вас есть три
+          варианта.
+        </p>
+        <ul>
+          <li>
+            В вашем окне с данным предупреждением будет отображён список с плагинами,
+            которые сейчас недоступны. Попробуйте найти более свежие версии перечисленных
+            плагинов на просторах интернета, установить их, а затем открыть{" "}
+            <mark className="app">Adobe After Effects</mark> заново.
+          </li>
+          <li>
+            Если нужные вам плагины не давно обновлялись или недоступны для{" "}
+            <mark>Mac</mark> на <mark>Apple Silicon</mark> - откатите{" "}
+            <mark className="app">Adobe After Effects</mark> до версии <mark>23.6</mark>,
+            в котором ещё была возможность запуска программы в режиме совместимости со
+            старыми <mark>Mac</mark> на <mark>Intel</mark>.
+          </li>
+          <li>
+            Найти у себя среди запылившихся девайсов <mark>Mac</mark> на{" "}
+            <mark>Intel</mark> и работать на нём.
+          </li>
+        </ul>
+      </DetailsSummary>
+      <DetailsSummary
+        tag="обновление, перенос плагинов и пресетов, новая версия афтера, хочу обновить программу с одной версии на другую"
+        title="Как обновить программу, не потеряв при этом плагины и прочий установленный контент?"
+      >
+        <p>
+          <mark className="word">Обновления программы</mark> - это вещь хорошая, так как
+          разработчики добавляют различные новые функции и местами исправляют старые баги.
+          У некоторых пользователей часто возникает вопрос про то, как правильно
+          обновляться и нужно ли что-то делать из дополнительных действий после обновления{" "}
+          <mark className="app">Adobe After Effects</mark>. На данный момент есть два вида
+          обновлений - между <mark className="word">одним годом</mark> и между{" "}
+          <mark className="word">разными годами</mark>.
+        </p>
+        <AdditionInfo>
+          Под <mark className="word">годом</mark> обычно подразумевается годовое число в
+          названии версии программы, например{" "}
+          <mark className="app">Adobe After Effects 2023</mark> или{" "}
+          <mark className="app">Adobe Media Encoder 2025</mark>.
+        </AdditionInfo>
+        <Divider>Переход между версиями одного года</Divider>
+        <p>
+          При переходе с одной версии <mark className="app">Adobe After Effects</mark> на
+          другую в пределах <mark className="word">одного года</mark>, например из{" "}
+          <mark>24.1</mark> в <mark>24.6</mark> - ничего из файлов плагинов и пресетов
+          переносить не нужно. Установщик в таком случае перезапишет старые файлы
+          программы в том расположении, где она была установлена и не затронет
+          пользовательские файлы. При запуске новой версии{" "}
+          <mark className="app">Adobe After Effects</mark> вам предложат перенести
+          настройки пользователя со старой версии программы в новую.
+        </p>
+        <ImageFigure
+          caption="Adobe After Effects"
+          imgSrc="images/aftereffects/migrate_settings.png"
+          imgTitle="Диалог переноса настроек со старой версии в более новую"
+          styleClass="figure_windows-dark"
+        />
+        <AdditionInfo>
+          Если вы случайно закрыли окно с вопросом про перенос настроек из старой версии,
+          то вы его можете открыть снова в{" "}
+          <mark className="ui">
+            Edit &gt; Preferences &gt; Startup & Repair &gt; Migrate Previous Version
+            Preferences
+          </mark>
+          . В старых версиях <mark className="app">Adobe After Effects</mark> данная
+          кнопка находится в разделе <mark className="ui">General</mark>.
+        </AdditionInfo>
+        <Divider>Обновление с одного года на другой</Divider>
+        <p>
+          Если вы решили обновить программу с <mark className="word">одного года</mark> на
+          другой, например с <mark>23.6</mark> на <mark>25.2</mark>, то в таком случае уже
+          потребуется ручной перенос плагинов и пресетов в новую версию программы. При
+          установке <mark className="word">другого года</mark> - старая версия программы
+          останется на вашем устройстве и не будет автоматически удалена.
+        </p>
+        <AdditionDanger>
+          Способ обновления программы, описанный ниже, не гарантирует <mark>100%</mark>{" "}
+          стабильность работы новой версии{" "}
+          <mark className="app">Adobe After Effects</mark>, поэтому обновляйтесь таким
+          способом на свой страх и риск. Если после такого способа обновления вы
+          столкнулись с трудностями в работе - переустановите программу начисто,
+          предварительно удалив предыдущие версии с помощью{" "}
+          <a href="https://helpx.adobe.com/creative-cloud/kb/cc-cleaner-tool-installation-problems.html">
+            Adobe Creative Cloud Cleaner
+          </a>{" "}
+          или любой другой программы по удалению программ, например{" "}
+          <mark className="app">Revo Uninstaller</mark>.
+        </AdditionDanger>
+        <p>
+          Прежде чем обновить программу с сохранением установленных плагинов и пресетов -
+          вам нужно переименовать папку старой версии программы так, чтобы установщик
+          новой версии думал, что новая версия уже установлена на устройстве и предложит
+          перезаписать файлы программы. Для нужно открыть директорию с установленными
+          программами от <mark>Adobe</mark>, обычно это{" "}
+          <mark className="path">C:\Program Files\Adobe</mark>. Затем нужно продублировать
+          папку с старой версией программы, убрать приставку <mark>- копия</mark> в
+          названии клона папки и изменить номер года на нужный. Например, если вы
+          обновляетесь с <mark>23.6</mark> на <mark>25.2</mark>, то вам нужно будет
+          переименовать <mark className="path">Adobe After Effects 2023</mark> в{" "}
+          <mark className="path">Adobe After Effects 2025</mark>.
+        </p>
+        <p>
+          После переименования откройте установщик новой версии программы и убедитесь в
+          том, что установщик увидел продублированную папку и предлагает установить в неё.
+          Далее выбираем нужный язык программы, то есть английский и нажимаем на{" "}
+          <mark className="ui">Продолжить</mark>. После установки новая версия{" "}
+          <mark className="app">Adobe After Effects</mark> предложит вам перенести
+          настройки со старой версии программы, с чем мы и соглашаемся.
+        </p>
+        <AdditionInfo>
+          После обновления <mark className="app">Adobe After Effects</mark> не забудьте
+          обновить <mark className="app">Adobe Premiere Pro</mark> и{" "}
+          <mark className="app">Adobe Media Encoder</mark> для корректной работы связи
+          между этими программы. Если у вас были установлены слишком старые версии
+          определённых плагинов и они перестали работать в новой версии{" "}
+          <mark className="app">Adobe After Effects</mark> - найдите и установите более
+          свежие версии нужных плагинов, предварительно удалив старые версии.
+        </AdditionInfo>
       </DetailsSummary>
       <DetailsSummary title="Чую, что у меня программа работает неправильно, но переустанавливать программу я не хочу. Как сбросить все настройки?">
         <p>
@@ -1858,7 +2082,7 @@ const AEInstallProblems: React.FC = () => {
           лишние зависимости программ от <mark className="app">Creative Cloud</mark>{" "}
           почистились. Да, вы не ослышались. Для очистки системы от некоторых или всех
           программ от Adobe можно воспользоваться консольной утилитой{" "}
-          <a href="https://helpx.adobe.com/ru/creative-cloud/kb/cc-cleaner-tool-installation-problems.html">
+          <a href="https://helpx.adobe.com/creative-cloud/kb/cc-cleaner-tool-installation-problems.html">
             Adobe Creative Cloud Cleaner
           </a>
           .
@@ -1876,7 +2100,7 @@ const AEInstallProblems: React.FC = () => {
           <li>
             Через <mark className="app">Adobe Creative Cloud Cleaner Tool</mark>, который
             можно скачать{" "}
-            <a href="https://helpx.adobe.com/ru/creative-cloud/kb/cc-cleaner-tool-installation-problems.html">
+            <a href="https://helpx.adobe.com/creative-cloud/kb/cc-cleaner-tool-installation-problems.html">
               по этой ссылке
             </a>
             . Это консольная утилита, не требующая установки и не требует дополнительной

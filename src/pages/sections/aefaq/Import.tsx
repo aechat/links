@@ -70,7 +70,7 @@ const AEImport: React.FC = () => {
           Если же у вас видео записано в <mark>Variable FPS</mark>, цветовое пространство
           является <mark>Rec.2020</mark>, так ещё и на снят <mark>iPhone</mark>, то вам
           нужно в обязательном порядке перекодировать исходники. Также это касается видео,
-          полученных из видеоплощадок по типу <mark>YouTube</mark>, <mark>VK Видео</mark>{" "}
+          полученных из видеохостингах по типу <mark>YouTube</mark>, <mark>VK Видео</mark>{" "}
           и аналогичные. После корректной перекодировки видео вы избавите себя от проблем
           с цветами и неправильной интерпретации частоты кадров, а также от различных
           артефактов от последствий кривого кодирования до вас.
@@ -485,7 +485,7 @@ const AEImport: React.FC = () => {
       </DetailsSummary>
       <DetailsSummary
         tag="переменный фпс, пропуски кадров"
-        title="Импортировал исходник с переменным FPS. Почему длина исходника в After Effects короче, чем в видео-проигрывателе?"
+        title="Импортировал исходник с переменным FPS. Почему длина исходника в композиции короче, чем в видеопроигрывателе?"
       >
         <p>
           <mark className="app">Adobe After Effects</mark> при импорте преобразует все
@@ -493,7 +493,7 @@ const AEImport: React.FC = () => {
           получается так, что при импорте такого исходника некоторые дублирующие кадры
           пропускаются и длина исходника в{" "}
           <mark className="app">Adobe After Effects</mark> становится короче, чем в
-          видео-проигрывателе.
+          видеопроигрывателе.
         </p>
         <p>
           Чтобы исправить эту проблему измените FPS с помощью интерпретации. Для этого
@@ -822,7 +822,7 @@ const AEImport: React.FC = () => {
         <Divider>Импортируем через LottieFiles</Divider>
         <p>
           <mark className="plugin">LottieFiles for After Effects</mark> - официальное
-          бесплатное<sup>*</sup> расширение от{" "}
+          бесплатное<sup>1</sup> расширение от{" "}
           <a href="https://lottiefiles.com/">LottieFiles</a>, с помощью которого вы можете
           импортировать <mark className="file">JSON</mark> анимацию в композицию{" "}
           <mark className="app">Adobe After Effects</mark>. Скачать его можно на из{" "}
@@ -848,7 +848,7 @@ const AEImport: React.FC = () => {
               .
             </li>
             <li>
-              <sup>*</sup>Чтобы скачать расширение - зарегистрируйтесь на сайте{" "}
+              <sup>1</sup> Чтобы скачать расширение - зарегистрируйтесь на сайте{" "}
               <a href="https://aescripts.com">aescripts</a>, добавьте расширение в корзину
               и подтвердите заказ. Нужный плагин появится{" "}
               <a href="https://aescripts.com/downloadable/customer/products/">
@@ -880,7 +880,7 @@ const AEImport: React.FC = () => {
         </AdditionWarning>
         <p>
           <mark className="plugin">Bodymovin</mark> - альтернативное бесплатное
-          <sup>*</sup> расширение из{" "}
+          <sup>1</sup> расширение из{" "}
           <a href="https://aescripts.com/bodymovin/">aescripts</a>, которое можно
           установить его в <mark className="app">Adobe After Effects</mark>. После
           установки он будет находиться в{" "}
@@ -889,7 +889,7 @@ const AEImport: React.FC = () => {
         <AdditionInfo>
           <ul>
             <li>
-              <sup>*</sup>Чтобы скачать расширение - зарегистрируйтесь на сайте{" "}
+              <sup>1</sup> Чтобы скачать расширение - зарегистрируйтесь на сайте{" "}
               <a href="https://aescripts.com">aescripts</a>, вернитесь на страницу с
               плагином, установите цену <mark>0</mark> в{" "}
               <mark className="ui">Name Your Own Price</mark>, добавьте его в корзину и

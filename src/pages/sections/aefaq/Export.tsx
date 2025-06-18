@@ -285,25 +285,48 @@ const AEExport: React.FC = () => {
         </p>
       </DetailsSummary>
       <DetailsSummary
-        tag="медиаенкодер, медиаэнкодер, adobe media encoder"
-        title="Почему из каждого угла советуют не использовать Adobe Media Encoder для экспорта композиций из Adobe After Effects?"
+        tag="медиаенкодер, медиаэнкодер"
+        title="Почему из каждого угла не советуют использовать Adobe Media Encoder для экспорта композиций?"
       >
         <p>
-          <mark className="app">Adobe Media Encoder</mark> часто становится источником
-          проблем при экспорте композиций из{" "}
-          <mark className="app">Adobe After Effects</mark>. Его используют либо по
-          привычке, либо потому, что в старых версиях{" "}
-          <mark className="app">Adobe After Effects</mark> нельзя было напрямую
-          экспортировать в <mark className="video">H.264</mark>. Сейчас в нём такой
-          необходимости уже нет, так как в{" "}
-          <mark className="app">Adobe After Effects</mark> версий <mark>23.0</mark> и выше
-          экспорт в <mark className="video">H.264</mark> вернули, а для старых версий
-          программы при желании можно поставить{" "}
-          <mark className="plugin">AfterCodecs</mark> или{" "}
-          <mark className="plugin">Voukoder</mark>. А теперь перечислим, какие палки в
-          колёса вставляет <mark className="app">Adobe Media Encoder</mark> при
-          повседневном использовании.
+          Долгие годы <mark className="app">Adobe Media Encoder</mark> считался
+          практически безальтернативным решением для экспорта из{" "}
+          <mark className="app">Adobe After Effects</mark> в популярный кодек{" "}
+          <mark className="video">H.264</mark>. Это было связано с тем, что в ранних
+          версиях <mark className="app">Adobe After Effects</mark> попросту отсутствовала
+          возможность напрямую выводить композиции в этом формате.
         </p>
+        <p>
+          Изначально <mark className="app">Adobe Media Encoder</mark> был создан для
+          перекодирования исходников из одного формата в другой и для создания прокси,
+          чтобы в дальнейшем их подключать в{" "}
+          <mark className="app">Adobe Premiere Pro</mark>. Но со временем{" "}
+          <mark>Adobe</mark> решил добавить туда функцию экспорта композиций из{" "}
+          <mark className="app">Adobe After Effects</mark> и понеслась. Тем не менее,
+          некоторые пользователи по привычке или из-за незнания альтернатив продолжают
+          полагаться исключительно на <mark className="app">Adobe Media Encoder</mark>. В
+          этой статье мы рассмотрим, с какими &quot;сюрпризами&quot; и неудобствами можно
+          столкнуться при его использовании{" "}
+          <mark className="app">Adobe Media Encoder</mark> для экспорта композиций.
+        </p>
+        <p>
+          С выходом версии <mark>23.0</mark>, необходимость прибегать к{" "}
+          <mark className="app">Adobe Media Encoder</mark> для экспорта в{" "}
+          <mark className="video">H.264</mark> заметно уменьшилась, поскольку в{" "}
+          <mark className="app">Adobe After Effects</mark> была возвращена функция
+          нативного экспорта в этот популярный кодек. Если вы используете старые версии{" "}
+          <mark className="app">Adobe After Effects</mark> - воспользуйтесь альтернативами
+          в виде плагинов, таких как <mark className="plugin">AfterCodecs</mark> или{" "}
+          <mark className="plugin">Voukoder</mark>. <a href="#10.3">Подробнее...</a>
+        </p>
+        <AdditionInfo>
+          Если вам нужно поставить на очередь просчёта сразу несколько композиций -
+          создайте проект-болванку в <mark className="app">Adobe After Effects</mark> и
+          импортируйте туда несколько своих проектов. Затем вы сможете закинуть в очередь
+          экспорта все нужные композиции и начать его, предварительно указав нужный формат
+          и расположение.
+        </AdditionInfo>
+        <Divider>Возможные проблемы при использовании Adobe Media Encoder</Divider>
         <ul>
           <li>
             <mark className="app">Adobe Media Encoder</mark> при экспорте сложных сцен
@@ -345,8 +368,8 @@ const AEExport: React.FC = () => {
               Для исправления бага со смещением изображения - проверьте установленные
               версии <mark className="app">Adobe After Effects</mark> и{" "}
               <mark className="app">Adobe Media Encoder</mark>. Если их версии попадают в
-              промежуток от <mark>23.1</mark> до <mark>23.5</mark> включительно, то вам
-              нужно будет обновить обе программы до <mark>23.6</mark>.
+              промежуток от <mark>23.1</mark> до <mark>23.5</mark> включительно - обновите
+              обе программы до версии <mark>23.6</mark>.
             </AdditionInfo>
           </li>
           <li>
@@ -383,54 +406,14 @@ const AEExport: React.FC = () => {
             минуту, когда надо экспортировать короткое видео.
           </li>
         </ul>
-        <p>
-          Изначально <mark className="app">Adobe Media Encoder</mark> был создан для
-          перекодирования исходников из одного формата в другой и для создания прокси,
-          чтобы в дальнейшем их подключить в{" "}
-          <mark className="app">Adobe Premiere Pro</mark>. Но со временем{" "}
-          <mark>Adobe</mark> решил добавить туда функцию экспорта из{" "}
-          <mark className="app">Adobe After Effects</mark> и понеслась. Большинство
-          пользователей экспортом в этой программе занимались по причине того, что в{" "}
-          <mark className="app">Adobe After Effects</mark> по стандарту в старых версиях
-          не было возможности экспортировать в кодек <mark className="video">H.264</mark>.
-        </p>
-        <p>
-          После обновления <mark className="app">Adobe After Effects</mark> на версию{" "}
-          <mark>23.X</mark> и новее - нужда в выводе через{" "}
-          <mark className="app">Adobe Media Encoder</mark> пропадает, так как в{" "}
-          <mark className="app">Adobe After Effects</mark> добавили нативный экспорт в{" "}
-          <mark className="video">H.264</mark>. Также никто не запрещал устанавливать
-          сторонние плагины, например{" "}
-          <mark className="plugin">Autokroma AfterCodecs</mark> или{" "}
-          <mark className="plugin">Voukoder</mark> для экспорта в различные кодеки
-          напрямую из <mark className="app">Adobe After Effects</mark>.
-        </p>
-        <AdditionInfo>
-          Если вам нужно поставить на очередь просчёта сразу несколько композиций -
-          создайте проект-болванку в <mark className="app">Adobe After Effects</mark> и
-          импортируйте туда несколько своих проектов. Затем вы сможете все нужные
-          композиции закинуть в очередь просчёта и начать его, предварительно указав
-          нужный формат и расположение.
-        </AdditionInfo>
-        <p>
-          Вывод из перечисления популярных проблем довольно простой - при экспорте
-          напрямую из <mark className="app">Adobe After Effects</mark> вы можете уберечь
-          себя от проблем, которые создаёт{" "}
-          <mark className="app">Adobe Media Encoder</mark>. Надеюсь, что мы убедили вас
-          его не использовать.
-        </p>
-        <AdditionInfo>
-          О том, как экспортировать в различные популярные форматы - вы можете прочитать в
-          следующих статьях на этой странице.
-        </AdditionInfo>
       </DetailsSummary>
       <DetailsSummary
         tag="H.265, мп4, ш264, ш265, h264, h265, вывести видео, avc1, вукодер, афтеркодекс"
-        title="Как экспортировать композицию в .mp4 и H.264?"
+        title="Как экспортировать композицию в MP4 и H.264?"
       >
         <p>
           <mark className="video">H.264</mark> - это популярный кодек видео, с которым мы
-          встречаемся каждый день - в социальных сетях, видеоплощадках, на сайтах и даже в
+          встречаемся каждый день - в социальных сетях, видеохостингах, на сайтах и даже в
           телевидении. Первая версия этого кодека появилась в 2003 году и с тех пор его
           распространение продолжается до сих пор. Сейчас, конечно, есть более эффективные
           наследники <mark className="video">H.264</mark>, такие как{" "}
@@ -480,9 +463,9 @@ const AEExport: React.FC = () => {
           <li>
             С помощью стороннего плагина <mark className="plugin">Voukoder</mark>.
             Доступен для устройств на <mark>Windows</mark> и <mark>macOS</mark>
-            <sup>*</sup>.
+            <sup>1</sup>.
             <AdditionWarning>
-              <sup>*</sup>Поддержка устройств на <mark>macOS</mark> появилась в{" "}
+              <sup>1</sup> Поддержка устройств на <mark>macOS</mark> появилась в{" "}
               <mark className="plugin">Voukoder</mark> версий <mark>Pro 2.0</mark> и
               новее. <mark className="plugin">Voukoder Classic</mark>, который
               рассматривается в данной статье - не поддерживается на устройствах с{" "}
@@ -781,7 +764,7 @@ const AEExport: React.FC = () => {
       </DetailsSummary>
       <DetailsSummary
         tag="вебм, вп9, ав1"
-        title="Как экспортировать композицию в .webm и VP9/AV1?"
+        title="Как экспортировать композицию в WEBM и VP9/AV1?"
       >
         <p>
           <mark className="video">VP9</mark> и <mark className="video">AV1</mark> -
@@ -878,7 +861,7 @@ const AEExport: React.FC = () => {
           <mark className="key">Ctrl + Enter</mark> для начала конвертации. Готовый файл
           будет закодирован в <mark className="video">VP9</mark> или{" "}
           <mark className="video">AV1</mark>, в зависимости от того что вы указали, и
-          упакован в контейнер <mark className="file">.webm</mark>, который можно будет
+          упакован в контейнер <mark className="file">WEBM</mark>, который можно будет
           использовать в своих веб-проектах или где-нибудь ещё.
         </p>
         <AdditionWarning>
@@ -890,7 +873,7 @@ const AEExport: React.FC = () => {
       </DetailsSummary>
       <DetailsSummary
         tag="создать гифку"
-        title="Как экспортировать композицию в .gif?"
+        title="Как экспортировать композицию в GIF?"
       >
         <p>
           <mark className="image">GIF</mark> - старый, но ещё популярный формат для обмена
@@ -1141,7 +1124,7 @@ const AEExport: React.FC = () => {
             например <mark className="app">Adobe Photoshop</mark> или{" "}
             <mark className="app">GIMP</mark>, или экспортировать из{" "}
             <mark className="app">Adobe After Effects</mark> как{" "}
-            <a href="#10.9">один кадр</a>, главное соблюдать некоторые требования.
+            <a href="#10.10">один кадр</a>, главное соблюдать некоторые требования.
             <ul>
               <li>
                 Для создания принимаются изображения формата{" "}
@@ -1167,7 +1150,7 @@ const AEExport: React.FC = () => {
             <AdditionDanger>
               <p>
                 Для корректной вывода анимации в файл формата{" "}
-                <mark className="file">.tgs</mark>, в вашей композиции не должно быть
+                <mark className="file">TGS</mark>, в вашей композиции не должно быть
                 нижеперечисленных эффектов и свойств.
               </p>
               <ul>
@@ -1244,10 +1227,10 @@ const AEExport: React.FC = () => {
             </ul>
           </li>
           <li>
-            <mark className="word">Видео-стикер</mark> - стикер, по сути являющийся
-            обычным видео, который хранится в формате <mark className="video">WebM</mark>{" "}
-            и кодеке <mark className="video">VP9</mark>s. Разрешение такого стикера должно
-            быть максимум <mark>512</mark> на <mark>512</mark> пикселей.
+            <mark className="word">Видеостикер</mark> - стикер, по сути являющийся обычным
+            видео, который хранится в формате <mark className="video">WebM</mark> и кодеке{" "}
+            <mark className="video">VP9</mark>s. Разрешение такого стикера должно быть
+            максимум <mark>512</mark> на <mark>512</mark> пикселей.
           </li>
         </ul>
         <AdditionInfo>
@@ -1257,7 +1240,7 @@ const AEExport: React.FC = () => {
         <Divider>Экспортируем анимированный стикер через Bodymovin-Telegram</Divider>
         <p>
           Для вывода из <mark className="app">Adobe After Effects</mark> в стикеры формата{" "}
-          <mark className="file">.tgs</mark> нам нужно использовать бесплатное стороннее
+          <mark className="file">TGS</mark> нам нужно использовать бесплатное стороннее
           расширение{" "}
           <a href="https://github.com/TelegramMessenger/bodymovin-extension">
             Bodymovin-TG
@@ -1310,15 +1293,15 @@ const AEExport: React.FC = () => {
           файл через <i style={{opacity: 0.5}}>самодельный</i> конвертер в этой статье.
         </p>
         <p>
-          Прежде чем начать экспорт анимации в <mark className="file">.json</mark> нам
+          Прежде чем начать экспорт анимации в <mark className="file">JSON</mark> нам
           нужно установить стороннее бесплатное
-          <sup>*</sup> расширение <mark className="plugin">Bodymovin</mark>, который можно
+          <sup>1</sup> расширение <mark className="plugin">Bodymovin</mark>, который можно
           загрузить из <a href="https://aescripts.com/bodymovin/">aescripts</a>. После
           установки он появится в{" "}
           <mark className="ui">Window &gt; Extensions &gt; Bodymovin</mark>.
         </p>
         <AdditionInfo>
-          <sup>*</sup>Чтобы скачать расширение - зарегистрируйтесь на сайте{" "}
+          <sup>1</sup> Чтобы скачать расширение - зарегистрируйтесь на сайте{" "}
           <a href="https://aescripts.com">aescripts</a>, вернитесь на страницу с
           расширением, установите цену <mark>0</mark> в{" "}
           <mark className="ui">Name Your Own Price</mark>, добавьте его в корзину и
@@ -1351,7 +1334,7 @@ const AEExport: React.FC = () => {
           </ul>
         </AdditionWarning>
         <p>
-          Для вывода векторной анимации в <mark className="file">.json</mark> откройте
+          Для вывода векторной анимации в <mark className="file">JSON</mark> откройте
           вкладку <mark className="ui">Compositions</mark> расширения{" "}
           <mark className="plugin">Bodymovin</mark>, выделите в этом окне нужную
           композицию, укажите путь для сохранения и нажмите на кнопку{" "}
@@ -1370,16 +1353,16 @@ const AEExport: React.FC = () => {
           <a href="https://www.svgsprite.com/tools/lottie-player/">Lottie Player</a>.
         </AdditionInfo>
         <p>
-          После успешного вывода анимации в <mark className="file">.json</mark> -
-          поместите его в блок с конвертером чуть ниже, а затем нажмите на{" "}
+          После успешного вывода анимации в <mark className="file">JSON</mark> - поместите
+          его в блок с конвертером чуть ниже, а затем нажмите на{" "}
           <mark className="ui">Скачать преобразованный TGS</mark>.
         </p>
         <AdditionInfo>
-          По небольшим тестам после конвертации <mark className="file">.tgs</mark> в{" "}
-          <mark className="file">.json</mark> из статьи про импорт{" "}
-          <mark className="file">.tgs</mark> в{" "}
+          По небольшим тестам после конвертации <mark className="file">TGS</mark> в{" "}
+          <mark className="file">JSON</mark> из статьи про импорт{" "}
+          <mark className="file">TGS</mark> в{" "}
           <mark className="app">Adobe After Effects</mark> на этой странице и обратной
-          конвертации в <mark className="file">.tgs</mark> с помощью блока ниже,
+          конвертации в <mark className="file">TGS</mark> с помощью блока ниже,
           выяснилось, что метод <mark>python-gzip</mark> чуть лучше сжимает файл, нежели{" "}
           <mark>js-pako-gzip</mark>.
         </AdditionInfo>
@@ -1394,9 +1377,9 @@ const AEExport: React.FC = () => {
           этом сообщит и скажет, что не так с вашим файлом. Часто ошибки могут появиться
           из-за слишком большого размера файла или неподдерживаемой анимации.
         </p>
-        <Divider>Экспортируем видео-стикер</Divider>
+        <Divider>Экспортируем видеостикер</Divider>
         <p>
-          Видео-стикер по своей сути - обычный короткий видеоролик, который запакован в{" "}
+          Видеостикер по своей сути - обычный короткий видеоролик, который запакован в{" "}
           <mark className="file">WebM</mark> в кодеке <mark className="video">VP9</mark>.
           Требования от <mark className="app">Telegram</mark> по такому формату следующие.
         </p>
@@ -1405,26 +1388,26 @@ const AEExport: React.FC = () => {
             Для обоих типов требуется экспортировать видео в формате{" "}
             <mark className="video">WebM</mark> и в кодеке{" "}
             <mark className="video">VP9</mark>.{" "}
-            <a href="#10.4">На этой странице уже обсуждался вывод в WebM/VP9</a> из{" "}
+            <a href="#10.4">На этой странице уже обсуждался вывод в VP9</a> из{" "}
             <mark className="app">Adobe After Effects</mark> с помощью конвертации
             полученного видео.
           </li>
           <li>
-            Если вы собираетесь создавать видео-
+            Если вы собираетесь создавать{" "}
             <b>
-              <u>стикеры</u>
+              <u>видеостикеры</u>
             </b>
             , то максимальное разрешение такого файла должно быть не больше, чем{" "}
             <mark>512</mark> на <mark>512</mark> пикселей.
           </li>
           <li>
-            Если вы собираетесь создавать видео-
+            Если вы собираетесь создавать{" "}
             <b>
-              <u>смайлики</u>
+              <u>видеосмайлики</u>
             </b>{" "}
-            или видео-
+            или{" "}
             <b>
-              <u>эмодзи</u>
+              <u>видеоэмодзи</u>
             </b>
             , то максимальное разрешение такого файла должно быть <mark>100</mark> на{" "}
             <mark>100</mark> пикселей. Ни больше, ни меньше.
@@ -1442,14 +1425,14 @@ const AEExport: React.FC = () => {
         <p>
           После конвертации перейдите в{" "}
           <a href="https://t.me/Stickers">бот для создания стикеров</a> и начните процесс
-          создания видео-стикеров с помощью команд <mark className="code">/newvideo</mark>{" "}
+          создания видеостикеров с помощью команд <mark className="code">/newvideo</mark>{" "}
           или <mark className="code">/newemojipack</mark>. Если что-то пойдет не так, бот
           об этом сообщит и скажет, что не так с вашим файлом.
         </p>
       </DetailsSummary>
       <DetailsSummary
-        tag="экспорт в могрт, create mogrt"
-        title="Как экспортировать мою композицию как анимационный шаблон для дальнейшего использования в Premiere Pro?"
+        tag="создание могрт, анимационный шаблон для дальнейшего использования в Premiere Pro"
+        title="Как сохранить проект в формате MOGRT?"
       >
         <p>
           В <mark className="app">Adobe After Effects</mark> есть возможность создать
@@ -1471,7 +1454,7 @@ const AEExport: React.FC = () => {
         />
         <AdditionInfo>
           <p>
-            <mark className="file">.mogrt</mark> файл по своей сути обычный архив, в
+            <mark className="file">MOGRT</mark> файл по своей сути обычный архив, в
             котором хранятся два-три файла, которые формируют сам анимационный шаблон.
           </p>
           <ul>
@@ -1487,7 +1470,7 @@ const AEExport: React.FC = () => {
               отредактировать, но такой проект можно открыть в{" "}
               <mark className="app">Adobe After Effects</mark> и при необходимости внести
               свои правки там, а затем конвертировать обратно в{" "}
-              <mark className="file">.mogrt</mark>.
+              <mark className="file">MOGRT</mark>.
             </li>
             <li>
               <mark className="file">thumb.jpg</mark> - статичная обложка для
@@ -1515,7 +1498,7 @@ const AEExport: React.FC = () => {
         <AdditionDanger>
           <p>
             Не все эффекты, созданными вами, будут поддерживаться в анимационном шаблоне,
-            если вы решите использовать <mark className="file">.mogrt</mark> в{" "}
+            если вы решите использовать <mark className="file">MOGRT</mark> в{" "}
             <mark className="app">Adobe Premiere Pro</mark> без установленного{" "}
             <mark className="app">Adobe After Effects</mark> на устройстве. Ниже вы можете
             посмотреть условия для корректной работы вашего анимационного шаблона в{" "}
@@ -1551,7 +1534,7 @@ const AEExport: React.FC = () => {
           на таймлайн секвенции.
         </p>
         <YouTubeVideo
-          caption="How to export .mogrt templates"
+          caption="How to export MOGRT templates"
           link="tHDnFgW9NpQ"
         />
       </DetailsSummary>
@@ -1669,7 +1652,7 @@ const AEExport: React.FC = () => {
         />
         <p>
           После этого у вас откроется <mark className="ui">Render Queue</mark>, который
-          предложит экспортировать <mark className="file">.psd</mark> файл в путь, который
+          предложит экспортировать <mark className="file">PSD</mark> файл в путь, который
           вы укажете в графе <mark className="ui">Output To</mark>. Формат можно изменить
           на свой, нажав на название пресета или на стрелочку рядом с ним.
         </p>
@@ -1728,7 +1711,7 @@ const AEExport: React.FC = () => {
       </DetailsSummary>
       <DetailsSummary
         tag="вывести секвенцию фото"
-        title="Как экспортировать все кадры композиции как отдельные файлы изображений?"
+        title="Как экспортировать все кадры композиции отдельными изображениями?"
       >
         <p>
           Если вы хотите экспортировать все кадры из композиции в отдельные файлы, то вам
@@ -1779,7 +1762,7 @@ const AEExport: React.FC = () => {
           композиции сохранятся в нужную папку.
         </p>
       </DetailsSummary>
-      <DetailsSummary title="Как экспортировать только часть моей композиции? Можно ли сделать так, чтобы композиция всегда экспортировалась по всей длине вне зависимости от указанной рабочей области?">
+      <DetailsSummary title="Как экспортировать всю композицию или только его часть?">
         <p>
           По умолчанию <mark className="app">Adobe After Effects</mark> выводит композицию
           длиной, соответствующей вашей рабочей области, которую вы указали с помощью
@@ -1894,8 +1877,8 @@ const AEExport: React.FC = () => {
         </p>
       </DetailsSummary>
       <DetailsSummary
-        tag="коллект файлс, collect tiles"
-        title="Я сделал работу в After Effects, но мне нужно передать .aep файл вместе с исходниками другому человеку. Возможно ли это сделать без танцев с бубном?"
+        tag="коллект файлс, collect files"
+        title="Как передать проект вместе с исходниками другому человеку?"
       >
         <p>
           В <mark className="app">Adobe After Effects</mark> есть функция для сохранения

@@ -1,8 +1,9 @@
 @use "mixins" as *;
 .ant-divider-inner-text {
   opacity: 0.8;
-  font-weight: 700;
+  font-weight: 600 !important;
   font-size: 0.785rem;
+  font-family: "Onest", sans-serif !important;
   text-transform: uppercase;
 }
 .ant-slider:hover .ant-slider-handle::after {

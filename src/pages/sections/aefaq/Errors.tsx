@@ -49,7 +49,7 @@ const AEErrors: React.FC = () => {
           <mark className="app">Adobe After Effects</mark>. Эти ошибки и предупреждения
           возникают из-за того, что у вас банально не хватает оперативной памяти для
           реализации ваших проектов. Часто это происходит из-за того что вы используете
-          слишком нагруженные эффекты, не монтажный кодек у видео-исходников или
+          слишком нагруженные эффекты, не монтажный кодек у используемых видео или
           неправильно настроили программу и операционную систему.
         </p>
         <AdditionWarning>
@@ -108,8 +108,8 @@ const AEErrors: React.FC = () => {
             вы можете установить значение от <mark className="copy">2048</mark> до{" "}
             <mark className="copy">65536</mark> или <mark className="copy">131072</mark>.
             В таком случае система создаст файл подкачки с изначальным размером в{" "}
-            <mark>2 Гб</mark>, который динамически может расширяться до <mark>64 Гб</mark>{" "}
-            или <mark>128 Гб</mark>.
+            <mark>2 ГБ</mark>, который динамически может расширяться до <mark>64 ГБ</mark>{" "}
+            или <mark>128 ГБ</mark>.
             <AdditionWarning>
               Нередко можно встретить мнение в интернете, а также от горе-сборщиков
               самодельных образов <mark>Windows</mark>, что файл подкачки лучше отключить,
@@ -164,7 +164,7 @@ const AEErrors: React.FC = () => {
             Проверьте настройки в{" "}
             <mark className="ui">Edit &gt; Preferences &gt; Memory & Performance</mark>.
             Если вы туда лезли и что-то настраивали, то есть шанс, что вы неправильно
-            прочитали описание настройки и оставили программам <mark>Adobe</mark> 1 Гб
+            прочитали описание настройки и оставили программам <mark>Adobe</mark> 1 ГБ
             ОЗУ, а оставшуюся часть памяти - на другие программы. Для того чтобы выделить
             всю возможную память для программ Adobe, установите значение <mark>0</mark> в
             параметре <mark className="ui">RAM reserved for other applications</mark>.
@@ -191,7 +191,7 @@ const AEErrors: React.FC = () => {
             Если у вас мало оперативной памяти на вашем устройстве - докупите ещё и
             установите в материнскую плату, если возможно. В нынешних реалиях для
             комфортной работы в <mark className="app">Adobe After Effects</mark> требуется
-            минимум <mark>32 Гб</mark> оперативной памяти.
+            минимум <mark>32 ГБ</mark> оперативной памяти.
             <AdditionInfo>
               В <mark className="app">Adobe After Effects</mark> версии <mark>25.2</mark>{" "}
               и новее была добавлена функция проигрывания предпросмотра напрямую из
@@ -216,7 +216,7 @@ const AEErrors: React.FC = () => {
         <p>
           Данная ошибка указывает на то, что видеопамять вашей видеокарты заполнена и
           эффект, использующий <mark>GPU-ускорение</mark>, задыхается. Такое часто
-          происходит, если у вас видеокарта с объёмом видеопамяти меньше чем 4 Гб.
+          происходит, если у вас видеокарта с объёмом видеопамяти меньше чем 4 ГБ.
         </p>
         <p>
           В таком случае пользователю надо освободить видеопамять любым способом -
@@ -556,7 +556,7 @@ const AEErrors: React.FC = () => {
                 </a>{" "}
                 этот сервис в <mark className="app">services.msc</mark> или очистить
                 систему от программ <mark>Adobe</mark> с помощью{" "}
-                <a href="https://helpx.adobe.com/ru/creative-cloud/kb/cc-cleaner-tool-installation-problems.html">
+                <a href="https://helpx.adobe.com/creative-cloud/kb/cc-cleaner-tool-installation-problems.html">
                   Adobe Creative Cloud Cleaner
                 </a>
                 .
@@ -954,7 +954,7 @@ const AEErrors: React.FC = () => {
           драйверами и простым багом, заканчивая отсутствием поддержки вашей видеокарты
           для корректной работы нового движка рендера. Если ваш графический процессор
           находится в{" "}
-          <a href="https://helpx.adobe.com/ru/after-effects/using/advanced-3d-renderer.html">
+          <a href="https://helpx.adobe.com/after-effects/using/advanced-3d-renderer.html">
             списке поддерживаемых видеокарт
           </a>
           , но при попытке использования <mark className="plugin">Advanced 3D</mark> -{" "}
@@ -993,7 +993,7 @@ const AEErrors: React.FC = () => {
           помогло, то скорее всего ваша видеокарта не соответствует требованиям и не
           поддерживает функцию <mark className="plugin">Advanced 3D</mark>. Проверьте на
           наличие и соответствие вашей видеокарты в{" "}
-          <a href="https://helpx.adobe.com/ru/after-effects/using/advanced-3d-renderer.html">
+          <a href="https://helpx.adobe.com/after-effects/using/advanced-3d-renderer.html">
             системных требованиях для Advanced 3D
           </a>
           , начните копить на новый графический ускоритель и переключите 3D-движок на{" "}
@@ -1202,8 +1202,7 @@ const AEErrors: React.FC = () => {
           <mark>NVIDIA</mark> исправила драйвера и видеокарта больше не сбоила - в{" "}
           <mark className="app">Adobe After Effects</mark> вернулись <mark>Draft 3D</mark>{" "}
           и даже завёлся <mark className="plugin">Advanced 3D</mark>, который, как я
-          думал, работает только на видеокартах с <mark>4 гигабайтами</mark> видеопамяти и
-          выше.
+          думал, работает только на видеокартах с <mark>4 ГБ</mark> видеопамяти и выше.
         </AdditionInfo>
       </DetailsSummary>
       <DetailsSummary
@@ -1378,8 +1377,8 @@ const AEErrors: React.FC = () => {
           styleClass="figure_windows-dark"
         />
         <p>
-          Вы можете уменьшить максимальное количество гигабайт для дискового кэша или
-          изменить местоположение хранения в настройках{" "}
+          Вы можете уменьшить максимальное количество ГБ для дискового кэша или изменить
+          местоположение хранения в настройках{" "}
           <mark className="app">Adobe After Effects</mark>. Для этого перейдите в{" "}
           <mark className="ui">Edit &gt; Preferences &gt; Media & Disk Cache</mark> и
           уменьшите максимальный размер дискового кэша или укажите другое расположение,
@@ -1669,7 +1668,7 @@ const AEErrors: React.FC = () => {
         <p>
           Скорее всего вы пытаетесь запустить приложение на устройстве с процессором без
           поддержки инструкций <mark>AVX2</mark>. В{" "}
-          <a href="https://helpx.adobe.com/ru/after-effects/system-requirements.html">
+          <a href="https://helpx.adobe.com/after-effects/system-requirements.html">
             нынешних системных требованиях для After Effects
           </a>{" "}
           указано, что требуется процессор от Intel минимум 6 поколения, например, i7-6700
@@ -1730,7 +1729,7 @@ const AEErrors: React.FC = () => {
           операционной системе. Такое бывает, когда <mark>Windows 10</mark> слишком старой
           сборки или вы пытаетесь запустить свежую версию программы на{" "}
           <mark>Windows 7</mark> или <mark>Windows 8.1</mark>. В следующий раз прочтите{" "}
-          <a href="https://helpx.adobe.com/ru/after-effects/system-requirements.html">
+          <a href="https://helpx.adobe.com/after-effects/system-requirements.html">
             системные требования
           </a>{" "}
           по нужной версии <mark className="app">Adobe After Effects</mark> и постарайтесь

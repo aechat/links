@@ -101,7 +101,7 @@ const PRFromNewbies: React.FC = () => {
           <mark className="ui">Edit &gt; Keyboard Shortcuts</mark> и открывается с помощью{" "}
           <mark className="key">Ctrl + Alt + K</mark>. Более подробный список комбинаций
           клавиш вы можете прочесть{" "}
-          <a href="https://helpx.adobe.com/ru/premiere-pro/using/keyboard-shortcuts.html">
+          <a href="https://helpx.adobe.com/premiere-pro/using/keyboard-shortcuts.html">
             на официальном сайте Adobe
           </a>
           .
@@ -437,7 +437,7 @@ const PRFromNewbies: React.FC = () => {
                 <AdditionInfo>
                   Открытие выделенного файла в сторонней программе зависит от настроенных
                   зависимостей для каждого расширения в настройках вашей системы. Это
-                  может быть видео-проигрыватель или графический редактор.
+                  может быть видеопроигрыватель или графический редактор.
                 </AdditionInfo>
               </td>
               <td>
@@ -983,7 +983,7 @@ const PRFromNewbies: React.FC = () => {
           <a href="https://helpx.adobe.com/ru/premiere-pro/using/whats-new.html">
             Что нового в Adobe Premiere Pro последних выпусков
           </a>
-          <a href="https://helpx.adobe.com/ru/premiere-pro/kb/fixed-issues.html">
+          <a href="https://helpx.adobe.com/premiere-pro/kb/fixed-issues.html">
             Список исправленных ошибок
           </a>
           <a href="https://helpx.adobe.com/ru/premiere-pro/kb/known-issues.html">

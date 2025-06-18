@@ -344,7 +344,7 @@ const PSErrors: React.FC = () => (
               </a>{" "}
               этот сервис в <mark className="app">services.msc</mark> или очистить систему
               от программ <mark>Adobe</mark> с помощью{" "}
-              <a href="https://helpx.adobe.com/ru/creative-cloud/kb/cc-cleaner-tool-installation-problems.html">
+              <a href="https://helpx.adobe.com/creative-cloud/kb/cc-cleaner-tool-installation-problems.html">
                 Adobe Creative Cloud Cleaner
               </a>
               .
@@ -371,7 +371,7 @@ const PSErrors: React.FC = () => (
       <p>
         Скорее всего вы пытаетесь запустить приложение на устройстве с процессором без
         поддержки инструкций <mark>AVX2</mark>. В{" "}
-        <a href="https://helpx.adobe.com/ru/photoshop/system-requirements.html">
+        <a href="https://helpx.adobe.com/photoshop/system-requirements.html">
           нынешних системных требованиях для Photoshop
         </a>{" "}
         указано, что требуется любой процессор, в котором обязательно должна быть
@@ -414,7 +414,7 @@ const PSErrors: React.FC = () => (
         зависимости программ от <mark className="app">Creative Cloud</mark> почистились.
         Да, вы не ослышались. Для очистки системы от некоторых или всех программ от Adobe
         можно воспользоваться консольной утилитой{" "}
-        <a href="https://helpx.adobe.com/ru/creative-cloud/kb/cc-cleaner-tool-installation-problems.html">
+        <a href="https://helpx.adobe.com/creative-cloud/kb/cc-cleaner-tool-installation-problems.html">
           Adobe Creative Cloud Cleaner
         </a>
         .

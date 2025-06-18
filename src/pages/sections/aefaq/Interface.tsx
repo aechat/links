@@ -99,10 +99,10 @@ const AEInterface: React.FC = () => {
             <mark className="ui">Синяя линия</mark> означает промежуток кадров, которые
             были записаны в дисковый кэш. Они остаются доступными даже после перезапуска
             программы, если кэш не был очищен. При попытке проиграть из дискового кэша -
-            кадры обратно перемещаются<sup>*</sup> в оперативную память и проигрываются
+            кадры обратно перемещаются<sup>1</sup> в оперативную память и проигрываются
             оттуда. При отключенном дисковом кэше - этот цвет на таймлайне не появится.
             <AdditionInfo>
-              <sup>*</sup>В <mark className="app">Adobe After Effects</mark> версии{" "}
+              <sup>1</sup> В <mark className="app">Adobe After Effects</mark> версии{" "}
               <mark>25.2</mark> и новее была добавлена функция проигрывания предпросмотра
               напрямую из дискового кэша, минуя оперативную память, как будто вы смотрите
               видео в видеопроигрывателе. В таком случае зелёная полоса будет означать
@@ -463,7 +463,7 @@ const AEInterface: React.FC = () => {
         />
         <AdditionInfo>
           Дополнительную информацию об обновлении работы с масками можно{" "}
-          <a href="https://helpx.adobe.com/ru/after-effects/using/track-mattes-and-traveling-mattes.html">
+          <a href="https://helpx.adobe.com/after-effects/using/track-mattes-and-traveling-mattes.html">
             прочитать на сайте Adobe
           </a>
           .
@@ -483,7 +483,7 @@ const AEInterface: React.FC = () => {
         </p>
         <AdditionInfo>
           Подробности о работе этой функции вы можете{" "}
-          <a href="https://helpx.adobe.com/ru/after-effects/using/properties-panel.html">
+          <a href="https://helpx.adobe.com/after-effects/using/properties-panel.html">
             прочитать на официальном сайте Adobe
           </a>
           .
@@ -545,14 +545,39 @@ const AEInterface: React.FC = () => {
       </DetailsSummary>
       <DetailsSummary title="Как установить свой процент масштабирования предпросмотра?">
         <p>
-          Многих пользователей бесит, что по умолчанию в{" "}
-          <mark className="app">Adobe After Effects</mark> в предпросмотре нельзя
-          установить свой процент масштабирования, доступны только жалкие фиксированные
-          значения: <mark>25%</mark>, <mark>33.3%</mark>, <mark>50%</mark>,{" "}
-          <mark>100%</mark> и прочие. К счастью, есть сторонний плагин{" "}
+          В <mark className="app">Adobe After Effects</mark> версии <mark>25.3</mark> и
+          новее добавили функцию плавного масштабирования, а также возможность указания в
+          нём нужного коэффициента прямо в окне предпросмотра. Он больше не ограничивается
+          фиксированными значениями, такими как <mark>33%</mark>, <mark>50%</mark> или{" "}
+          <mark>100%</mark>, поэтому можно масштабировать даже до любого десятичного
+          значения с помощью изменения значения интерактивного текста или колесика
+          прокрутки для более плавных коррекций.
+        </p>
+        <VideoFigure
+          caption="Adobe After Effects"
+          styleClass="figure_windows-dark"
+          videoSrc="images/aftereffects/smooth_zoom_demonstration.mp4"
+        />
+        <p>
+          Если вам не нравится новая функция увеличения предпросмотра - вы можете
+          отключить его и вернуть старый вариант. Для этого откройте{" "}
+          <mark className="ui">Edit &gt; Preferences &gt; Previews</mark> и измените в
+          разделе <mark className="ui">Magnification</mark> значение параметра{" "}
+          <mark className="ui">Type</mark> на <mark className="ui">Legacy</mark>. Также в
+          этом разделе вы можете настроить, с какого места увеличивать предпросмотр - от
+          центра композиции или от положения вашего курсора.
+        </p>
+        <ImageFigure
+          caption="Preferences"
+          imgSrc="images/aftereffects/magnification_settings.png"
+          imgTitle="Настройка увеличения предпросмотра"
+          styleClass="figure_windows-dark"
+        />
+        <p>
+          Если вы используете более старую версию программы - используйте сторонний плагин{" "}
           <mark className="plugin">ae-zoom</mark>, который создаёт окно с регулировкой
-          своего процента масштабирования в предпросмотре и решает проблему. Скачать его
-          можно на{" "}
+          своего процента масштабирования в предпросмотре и плавным масштабированием.
+          Скачать его можно на{" "}
           <a href="https://github.com/QuisPic/ae-zoom/releases">
             странице релизов в GitHub
           </a>
