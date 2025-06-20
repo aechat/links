@@ -399,7 +399,7 @@ const AEWhereFind: React.FC = () => {
             UIDownload
           </a>
           <a
-            href="https://stock.adobe.com/ru/free"
+            href="https://stock.adobe.com/free"
             title="Adobe Stock"
           >
             Adobe Stock
@@ -697,8 +697,12 @@ const AEWhereFind: React.FC = () => {
           </thead>
           <tbody>
             <tr>
-              <td>Извлечение канала 3D</td>
-              <td>3D Channel Extract</td>
+              <td>
+                <mark className="plugin">Извлечение канала 3D</mark>
+              </td>
+              <td>
+                <mark className="plugin">3D Channel Extract</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/qAKdcIeku3Q&t=6"
@@ -710,7 +714,9 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>-</td>
-              <td>Cryptomatte</td>
+              <td>
+                <mark className="plugin">Cryptomatte</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/_cOG53NWJj4&t=6"
@@ -721,8 +727,12 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>Подложка глубины</td>
-              <td>Depth Matte</td>
+              <td>
+                <mark className="plugin">Подложка глубины</mark>
+              </td>
+              <td>
+                <mark className="plugin">Depth Matte</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/qAKdcIeku3Q&t=278"
@@ -733,8 +743,12 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>Глубина поля</td>
-              <td>Depth of Field</td>
+              <td>
+                <mark className="plugin">Глубина поля</mark>
+              </td>
+              <td>
+                <mark className="plugin">Depth of Field</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/qAKdcIeku3Q&t=216"
@@ -746,7 +760,9 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>-</td>
-              <td>EXtractoR</td>
+              <td>
+                <mark className="plugin">EXtractoR</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/7DW84Vt5gvQ&t=6"
@@ -757,8 +773,12 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>3D туман</td>
-              <td>Fog 3D</td>
+              <td>
+                <mark className="plugin">3D туман</mark>
+              </td>
+              <td>
+                <mark className="plugin">Fog 3D</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/qAKdcIeku3Q&t=318"
@@ -769,8 +789,12 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>Подложка идентификатора</td>
-              <td>ID Matte</td>
+              <td>
+                <mark className="plugin">Подложка идентификатора</mark>
+              </td>
+              <td>
+                <mark className="plugin">ID Matte</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/qAKdcIeku3Q&t=457"
@@ -781,8 +805,12 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>IDentifier</td>
-              <td>IDentifier</td>
+              <td>
+                <mark className="plugin">IDentifier</mark>
+              </td>
+              <td>
+                <mark className="plugin">IDentifier</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/7DW84Vt5gvQ&t=195"
@@ -811,8 +839,12 @@ const AEWhereFind: React.FC = () => {
           </thead>
           <tbody>
             <tr>
-              <td>Назад</td>
-              <td>Backwards</td>
+              <td>
+                <mark className="plugin">Назад</mark>
+              </td>
+              <td>
+                <mark className="plugin">Backwards</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/lNYgKQPU2Pk&t=46"
@@ -823,8 +855,12 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>ВЧ и НЧ</td>
-              <td>Bass &amp; Treble</td>
+              <td>
+                <mark className="plugin">ВЧ и НЧ</mark>
+              </td>
+              <td>
+                <mark className="plugin">Bass &amp; Treble</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/lNYgKQPU2Pk&t=79"
@@ -835,8 +871,12 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>Задержка</td>
-              <td>Delay</td>
+              <td>
+                <mark className="plugin">Задержка</mark>
+              </td>
+              <td>
+                <mark className="plugin">Delay</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/lNYgKQPU2Pk&t=101"
@@ -847,8 +887,12 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>Фланджер и хор</td>
-              <td>Flange &amp; Chorus</td>
+              <td>
+                <mark className="plugin">Фланджер и хор</mark>
+              </td>
+              <td>
+                <mark className="plugin">Flange &amp; Chorus</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/lNYgKQPU2Pk&t=139"
@@ -859,8 +903,12 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>Фильтр НЧ и ВЧ</td>
-              <td>High-Low Pass</td>
+              <td>
+                <mark className="plugin">Фильтр НЧ и ВЧ</mark>
+              </td>
+              <td>
+                <mark className="plugin">High-Low Pass</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/lNYgKQPU2Pk&t=158"
@@ -871,8 +919,12 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>Модулятор</td>
-              <td>Modulator</td>
+              <td>
+                <mark className="plugin">Модулятор</mark>
+              </td>
+              <td>
+                <mark className="plugin">Modulator</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/lNYgKQPU2Pk&t=177"
@@ -883,8 +935,12 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>Параметрическая коррекция</td>
-              <td>Parametric EQ</td>
+              <td>
+                <mark className="plugin">Параметрическая коррекция</mark>
+              </td>
+              <td>
+                <mark className="plugin">Parametric EQ</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/lNYgKQPU2Pk&t=191"
@@ -895,8 +951,12 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>Реверберация</td>
-              <td>Reverb</td>
+              <td>
+                <mark className="plugin">Реверберация</mark>
+              </td>
+              <td>
+                <mark className="plugin">Reverb</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/lNYgKQPU2Pk&t=211"
@@ -907,8 +967,12 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>Стереомикшер</td>
-              <td>Stereo Mixer</td>
+              <td>
+                <mark className="plugin">Стереомикшер</mark>
+              </td>
+              <td>
+                <mark className="plugin">Stereo Mixer</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/lNYgKQPU2Pk&t=224"
@@ -919,8 +983,12 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>Тон</td>
-              <td>Tone</td>
+              <td>
+                <mark className="plugin">Тон</mark>
+              </td>
+              <td>
+                <mark className="plugin">Tone</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/lNYgKQPU2Pk&t=242"
@@ -949,8 +1017,12 @@ const AEWhereFind: React.FC = () => {
           </thead>
           <tbody>
             <tr>
-              <td>Двухстороннее размытие</td>
-              <td>Bilateral Blur</td>
+              <td>
+                <mark className="plugin">Двухстороннее размытие</mark>
+              </td>
+              <td>
+                <mark className="plugin">Bilateral Blur</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/oq0FC5UuE7M&t=6"
@@ -961,8 +1033,12 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>Размытие при малой глубине резкости камеры</td>
-              <td>Camera Lens Blur</td>
+              <td>
+                <mark className="plugin">Размытие при малой глубине резкости камеры</mark>
+              </td>
+              <td>
+                <mark className="plugin">Camera Lens Blur</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/EPw0nMrhP8E&t=6"
@@ -973,8 +1049,14 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>Восстановление резкости при дрожании камеры</td>
-              <td>Camera-Shake Deblur</td>
+              <td>
+                <mark className="plugin">
+                  Восстановление резкости при дрожании камеры
+                </mark>
+              </td>
+              <td>
+                <mark className="plugin">Camera-Shake Deblur</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/28L2XalNr5A&t=1178"
@@ -986,7 +1068,9 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>-</td>
-              <td>CC Cross Blur</td>
+              <td>
+                <mark className="plugin">CC Cross Blur</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/UOEFos3tyHs&t=6"
@@ -998,7 +1082,9 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>-</td>
-              <td>CC Radial Blur</td>
+              <td>
+                <mark className="plugin">CC Radial Blur</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/4hpvPSexGOg&t=161"
@@ -1010,7 +1096,9 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>-</td>
-              <td>CC Radial Fast Blur</td>
+              <td>
+                <mark className="plugin">CC Radial Fast Blur</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/4hpvPSexGOg&t=248"
@@ -1022,7 +1110,9 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>-</td>
-              <td>CC Vector Blur</td>
+              <td>
+                <mark className="plugin">CC Vector Blur</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/tWF41oySk3U&t=6"
@@ -1033,8 +1123,12 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>Размытие каналов</td>
-              <td>Channel Blur</td>
+              <td>
+                <mark className="plugin">Размытие каналов</mark>
+              </td>
+              <td>
+                <mark className="plugin">Channel Blur</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/x4jHZoUk2uc&t=6"
@@ -1045,8 +1139,12 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>Сложное размытие</td>
-              <td>Compound Blur</td>
+              <td>
+                <mark className="plugin">Сложное размытие</mark>
+              </td>
+              <td>
+                <mark className="plugin">Compound Blur</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/JGkoDPa1XEw&t=6"
@@ -1057,8 +1155,12 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>Направл. разм.</td>
-              <td>Directonal Blur</td>
+              <td>
+                <mark className="plugin">Направл. разм.</mark>
+              </td>
+              <td>
+                <mark className="plugin">Directonal Blur</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/7BUnCtU9ARY&t=6"
@@ -1069,8 +1171,12 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>Быстрое размытие по рамке</td>
-              <td>Fast Box Blur</td>
+              <td>
+                <mark className="plugin">Быстрое размытие по рамке</mark>
+              </td>
+              <td>
+                <mark className="plugin">Fast Box Blur</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/MyEZcFBwloY&t=6"
@@ -1081,8 +1187,12 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>Размытие по Гауссу</td>
-              <td>Gaussian Blur</td>
+              <td>
+                <mark className="plugin">Размытие по Гауссу</mark>
+              </td>
+              <td>
+                <mark className="plugin">Gaussian Blur</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/MyEZcFBwloY&t=76"
@@ -1093,8 +1203,12 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>Радиальное размытие</td>
-              <td>Radial Blur</td>
+              <td>
+                <mark className="plugin">Радиальное размытие</mark>
+              </td>
+              <td>
+                <mark className="plugin">Radial Blur</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/4hpvPSexGOg&t=6"
@@ -1105,8 +1219,12 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>Увеличить резкость</td>
-              <td>Sharpen</td>
+              <td>
+                <mark className="plugin">Увеличить резкость</mark>
+              </td>
+              <td>
+                <mark className="plugin">Sharpen</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/2HwYIQWSQb8&t=6"
@@ -1117,8 +1235,12 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>Умное размытие</td>
-              <td>Smart Blur</td>
+              <td>
+                <mark className="plugin">Умное размытие</mark>
+              </td>
+              <td>
+                <mark className="plugin">Smart Blur</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/oq0FC5UuE7M&t=104"
@@ -1129,8 +1251,12 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>Контурная резкость</td>
-              <td>Unsharp Mask</td>
+              <td>
+                <mark className="plugin">Контурная резкость</mark>
+              </td>
+              <td>
+                <mark className="plugin">Unsharp Mask</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/QhKqU1ZHUJ4&t=6"
@@ -1159,8 +1285,12 @@ const AEWhereFind: React.FC = () => {
           </thead>
           <tbody>
             <tr>
-              <td>Арифметический</td>
-              <td>Arithmetic</td>
+              <td>
+                <mark className="plugin">Арифметический</mark>
+              </td>
+              <td>
+                <mark className="plugin">Arithmetic</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/fV_6S9hF3as&t=6"
@@ -1171,8 +1301,12 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>Смешение</td>
-              <td>Blend</td>
+              <td>
+                <mark className="plugin">Смешение</mark>
+              </td>
+              <td>
+                <mark className="plugin">Blend</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/fV_6S9hF3as&t=176"
@@ -1183,8 +1317,12 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>Вычисления</td>
-              <td>Calculations</td>
+              <td>
+                <mark className="plugin">Вычисления</mark>
+              </td>
+              <td>
+                <mark className="plugin">Calculations</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/fV_6S9hF3as&t=223"
@@ -1196,7 +1334,9 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>-</td>
-              <td>CC Composite</td>
+              <td>
+                <mark className="plugin">CC Composite</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/trNkh341o6s&t=6"
@@ -1207,8 +1347,12 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>Инструмент комбинирования каналов</td>
-              <td>Channel Combiner</td>
+              <td>
+                <mark className="plugin">Инструмент комбинирования каналов</mark>
+              </td>
+              <td>
+                <mark className="plugin">Channel Combiner</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/fV_6S9hF3as&t=310"
@@ -1219,8 +1363,12 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>Сложный арифметический</td>
-              <td>Compound Arithmetic</td>
+              <td>
+                <mark className="plugin">Сложный арифметический</mark>
+              </td>
+              <td>
+                <mark className="plugin">Compound Arithmetic</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/fV_6S9hF3as&t=116"
@@ -1231,8 +1379,12 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>Обратить</td>
-              <td>Invert</td>
+              <td>
+                <mark className="plugin">Обратить</mark>
+              </td>
+              <td>
+                <mark className="plugin">Invert</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/1hhA-21q8Xw&t=6"
@@ -1243,8 +1395,12 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>Минимакс</td>
-              <td>Minimax</td>
+              <td>
+                <mark className="plugin">Минимакс</mark>
+              </td>
+              <td>
+                <mark className="plugin">Minimax</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/ibfYiy--9Hs&t=6"
@@ -1255,8 +1411,12 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>Удалить обработку краев цветом</td>
-              <td>Remove Color Matting</td>
+              <td>
+                <mark className="plugin">Удалить обработку краев цветом</mark>
+              </td>
+              <td>
+                <mark className="plugin">Remove Color Matting</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/8u8uJkSl9Uw&t=6"
@@ -1267,8 +1427,12 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>Задать каналы</td>
-              <td>Set Channels</td>
+              <td>
+                <mark className="plugin">Задать каналы</mark>
+              </td>
+              <td>
+                <mark className="plugin">Set Channels</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/IKah5aJHwmg&t=6"
@@ -1279,8 +1443,12 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>Настроить подложку</td>
-              <td>Set Matte</td>
+              <td>
+                <mark className="plugin">Настроить подложку</mark>
+              </td>
+              <td>
+                <mark className="plugin">Set Matte</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/zfmuXUgATpo&t=6"
@@ -1291,8 +1459,12 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>Сдвинуть каналы</td>
-              <td>Shift Channels</td>
+              <td>
+                <mark className="plugin">Сдвинуть каналы</mark>
+              </td>
+              <td>
+                <mark className="plugin">Shift Channels</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/-pqGYehO-4s&t=6"
@@ -1303,8 +1475,12 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>Сплошной совмещенный</td>
-              <td>Solid Composite</td>
+              <td>
+                <mark className="plugin">Сплошной совмещенный</mark>
+              </td>
+              <td>
+                <mark className="plugin">Solid Composite</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/ZZiabVb-OEg&t=6"
@@ -1333,8 +1509,12 @@ const AEWhereFind: React.FC = () => {
           </thead>
           <tbody>
             <tr>
-              <td>Автоцвет</td>
-              <td>Auto Color</td>
+              <td>
+                <mark className="plugin">Автоцвет</mark>
+              </td>
+              <td>
+                <mark className="plugin">Auto Color</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/NW4VGAt5x4g&t=198"
@@ -1345,8 +1525,12 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>Автоконтраст</td>
-              <td>Auto Contrast</td>
+              <td>
+                <mark className="plugin">Автоконтраст</mark>
+              </td>
+              <td>
+                <mark className="plugin">Auto Contrast</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/NW4VGAt5x4g&t=166"
@@ -1357,8 +1541,12 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>Автоуровни</td>
-              <td>Auto Levels</td>
+              <td>
+                <mark className="plugin">Автоуровни</mark>
+              </td>
+              <td>
+                <mark className="plugin">Auto Levels</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/NW4VGAt5x4g&t=6"
@@ -1369,8 +1557,12 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>Черное и белое</td>
-              <td>Black &amp; White</td>
+              <td>
+                <mark className="plugin">Черное и белое</mark>
+              </td>
+              <td>
+                <mark className="plugin">Black &amp; White</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/fmN2-L0NG6o&t=6"
@@ -1381,8 +1573,12 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>Яркость и контрастность</td>
-              <td>Brightness &amp; Contrast</td>
+              <td>
+                <mark className="plugin">Яркость и контрастность</mark>
+              </td>
+              <td>
+                <mark className="plugin">Brightness &amp; Contrast</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/s4bAXwpcj-0&t=6"
@@ -1393,8 +1589,12 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>Цвета телетрансляции</td>
-              <td>Broadcast Colors</td>
+              <td>
+                <mark className="plugin">Цвета телетрансляции</mark>
+              </td>
+              <td>
+                <mark className="plugin">Broadcast Colors</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/pE58Xz1wXxI&t=6"
@@ -1406,7 +1606,9 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>-</td>
-              <td>CC Color Neutralizer</td>
+              <td>
+                <mark className="plugin">CC Color Neutralizer</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/earDDwlY5IE&t=6"
@@ -1418,7 +1620,9 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>-</td>
-              <td>CC Color Offset</td>
+              <td>
+                <mark className="plugin">CC Color Offset</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/1-vGTVngKRw&t=10"
@@ -1430,7 +1634,9 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>-</td>
-              <td>СС Kernel</td>
+              <td>
+                <mark className="plugin">СС Kernel</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/H1cXvYYM_0U&t=6"
@@ -1442,7 +1648,9 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>-</td>
-              <td>CC Toner</td>
+              <td>
+                <mark className="plugin">CC Toner</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/euIDwp4bsi0&t=186"
@@ -1453,8 +1661,12 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>Изменить цвет</td>
-              <td>Change Color</td>
+              <td>
+                <mark className="plugin">Изменить цвет</mark>
+              </td>
+              <td>
+                <mark className="plugin">Change Color</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/LfbBtfbRFo8&t=6"
@@ -1465,8 +1677,12 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>Заменить на цвет</td>
-              <td>Change to Color</td>
+              <td>
+                <mark className="plugin">Заменить на цвет</mark>
+              </td>
+              <td>
+                <mark className="plugin">Change to Color</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/LfbBtfbRFo8&t=154"
@@ -1477,8 +1693,12 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>Микширование каналов</td>
-              <td>Channel Mixer</td>
+              <td>
+                <mark className="plugin">Микширование каналов</mark>
+              </td>
+              <td>
+                <mark className="plugin">Channel Mixer</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/pkPBKtVumaQ&t=6"
@@ -1489,8 +1709,12 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>Цветовой баланс</td>
-              <td>Color Balance</td>
+              <td>
+                <mark className="plugin">Цветовой баланс</mark>
+              </td>
+              <td>
+                <mark className="plugin">Color Balance</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/pkPBKtVumaQ&t=139"
@@ -1501,8 +1725,12 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>Цветовой баланс (HLS)</td>
-              <td>Color Balance (HLS)</td>
+              <td>
+                <mark className="plugin">Цветовой баланс (HLS)</mark>
+              </td>
+              <td>
+                <mark className="plugin">Color Balance (HLS)</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/pkPBKtVumaQ&t=180"
@@ -1513,8 +1741,12 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>Привязка цвета</td>
-              <td>Color Link</td>
+              <td>
+                <mark className="plugin">Привязка цвета</mark>
+              </td>
+              <td>
+                <mark className="plugin">Color Link</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/Vq6FpcCtSd0&t=6"
@@ -1525,8 +1757,12 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>Стабилизатор цвета</td>
-              <td>Color Stabilizer</td>
+              <td>
+                <mark className="plugin">Стабилизатор цвета</mark>
+              </td>
+              <td>
+                <mark className="plugin">Color Stabilizer</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/8-16s24iBy8&t=6"
@@ -1538,7 +1774,9 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>-</td>
-              <td>Colorama</td>
+              <td>
+                <mark className="plugin">Colorama</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/85XJHcAydVU&t=6"
@@ -1549,8 +1787,12 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>Кривые</td>
-              <td>Curves</td>
+              <td>
+                <mark className="plugin">Кривые</mark>
+              </td>
+              <td>
+                <mark className="plugin">Curves</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/nP47ynBc3B8&t=398"
@@ -1561,8 +1803,12 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>Выровнять</td>
-              <td>Equalize</td>
+              <td>
+                <mark className="plugin">Выровнять</mark>
+              </td>
+              <td>
+                <mark className="plugin">Equalize</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/_S4N3PEvaws&t=6"
@@ -1573,8 +1819,12 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>Экспозиция</td>
-              <td>Exposure</td>
+              <td>
+                <mark className="plugin">Экспозиция</mark>
+              </td>
+              <td>
+                <mark className="plugin">Exposure</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/PciM7SLWu40&t=6"
@@ -1585,8 +1835,12 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>Гамма/Основа/Усиление</td>
-              <td>Gamma/Pedestal/Gain</td>
+              <td>
+                <mark className="plugin">Гамма/Основа/Усиление</mark>
+              </td>
+              <td>
+                <mark className="plugin">Gamma/Pedestal/Gain</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/yJyHkxTTlc4&t=6"
@@ -1597,8 +1851,12 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>Цветовой тон/Насыщенность</td>
-              <td>Hue/Saturation</td>
+              <td>
+                <mark className="plugin">Цветовой тон/Насыщенность</mark>
+              </td>
+              <td>
+                <mark className="plugin">Hue/Saturation</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/76LQhG-nl_0&t=6"
@@ -1609,8 +1867,12 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>Оставить цвет</td>
-              <td>Leave Color</td>
+              <td>
+                <mark className="plugin">Оставить цвет</mark>
+              </td>
+              <td>
+                <mark className="plugin">Leave Color</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/LfbBtfbRFo8&t=314"
@@ -1621,8 +1883,12 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>Уровни</td>
-              <td>Levels</td>
+              <td>
+                <mark className="plugin">Уровни</mark>
+              </td>
+              <td>
+                <mark className="plugin">Levels</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/nP47ynBc3B8&t=6"
@@ -1633,8 +1899,12 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>Уровни (отдельные элементы управления)</td>
-              <td>Levels (Individual Controls)</td>
+              <td>
+                <mark className="plugin">Уровни (отдельные элементы управления)</mark>
+              </td>
+              <td>
+                <mark className="plugin">Levels (Individual Controls)</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/nP47ynBc3B8&t=372"
@@ -1645,8 +1915,12 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>Цвет Lumetri</td>
-              <td>Lumetri Color</td>
+              <td>
+                <mark className="plugin">Цвет Lumetri</mark>
+              </td>
+              <td>
+                <mark className="plugin">Lumetri Color</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/y4fuhIPxmJg&t=6"
@@ -1657,8 +1931,12 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>Фотофильтр</td>
-              <td>Photo Filter</td>
+              <td>
+                <mark className="plugin">Фотофильтр</mark>
+              </td>
+              <td>
+                <mark className="plugin">Photo Filter</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/LwdOCzlVHe4&t=6"
@@ -1669,8 +1947,12 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>Произвольная карта PS</td>
-              <td>PS Arbitrary Map</td>
+              <td>
+                <mark className="plugin">Произвольная карта PS</mark>
+              </td>
+              <td>
+                <mark className="plugin">PS Arbitrary Map</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/POK5dgZh6zQ&t=6"
@@ -1681,8 +1963,12 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>Выборочная коррекция цвета</td>
-              <td>Selective Color</td>
+              <td>
+                <mark className="plugin">Выборочная коррекция цвета</mark>
+              </td>
+              <td>
+                <mark className="plugin">Selective Color</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/R__aeOjw2Ms&t=6"
@@ -1693,8 +1979,12 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>Тень/подсветка</td>
-              <td>Shadow/Highlight</td>
+              <td>
+                <mark className="plugin">Тень/подсветка</mark>
+              </td>
+              <td>
+                <mark className="plugin">Shadow/Highlight</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/D8FOw8fUbSg&t=6"
@@ -1705,8 +1995,12 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>Оттенок</td>
-              <td>Tint</td>
+              <td>
+                <mark className="plugin">Оттенок</mark>
+              </td>
+              <td>
+                <mark className="plugin">Tint</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/euIDwp4bsi0&t=87"
@@ -1717,8 +2011,12 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>Трехкрасочный</td>
-              <td>Tritone</td>
+              <td>
+                <mark className="plugin">Трехкрасочный</mark>
+              </td>
+              <td>
+                <mark className="plugin">Tritone</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/euIDwp4bsi0&t=134"
@@ -1729,8 +2027,12 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>Красочность</td>
-              <td>Vibrance</td>
+              <td>
+                <mark className="plugin">Красочность</mark>
+              </td>
+              <td>
+                <mark className="plugin">Vibrance</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/o9O-SK4j5yc&t=6"
@@ -1741,8 +2043,12 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>Видеоограничитель</td>
-              <td>Video Limiter</td>
+              <td>
+                <mark className="plugin">Видеоограничитель</mark>
+              </td>
+              <td>
+                <mark className="plugin">Video Limiter</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/iuNNcEmuJI8&t=6"
@@ -1771,8 +2077,12 @@ const AEWhereFind: React.FC = () => {
           </thead>
           <tbody>
             <tr>
-              <td>Деформация по Безье</td>
-              <td>Bezier Warp</td>
+              <td>
+                <mark className="plugin">Деформация по Безье</mark>
+              </td>
+              <td>
+                <mark className="plugin">Bezier Warp</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/J77LkU-aiIM&t=6"
@@ -1783,8 +2093,12 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>Выпуклость</td>
-              <td>Bulge</td>
+              <td>
+                <mark className="plugin">Выпуклость</mark>
+              </td>
+              <td>
+                <mark className="plugin">Bulge</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/03JF-PxF1gE&t=6"
@@ -1796,7 +2110,9 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>-</td>
-              <td>CC Bend It</td>
+              <td>
+                <mark className="plugin">CC Bend It</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/L46aRRGkb58&t=6"
@@ -1808,7 +2124,9 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>-</td>
-              <td>CC Bender</td>
+              <td>
+                <mark className="plugin">CC Bender</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/L46aRRGkb58&t=440"
@@ -1820,7 +2138,9 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>-</td>
-              <td>CC Blobbylize</td>
+              <td>
+                <mark className="plugin">CC Blobbylize</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/WPo-dkPiynI&t=470"
@@ -1832,7 +2152,9 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>-</td>
-              <td>CC Flo Motion</td>
+              <td>
+                <mark className="plugin">CC Flo Motion</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/8prrshDN0eo&t=6"
@@ -1844,7 +2166,9 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>-</td>
-              <td>CC Griddler</td>
+              <td>
+                <mark className="plugin">CC Griddler</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/SN6yteIc88k&t=6"
@@ -1856,7 +2180,9 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>-</td>
-              <td>CC Lens</td>
+              <td>
+                <mark className="plugin">CC Lens</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/HhY6NqWRU_M&t=228"
@@ -1868,7 +2194,9 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>-</td>
-              <td>CC Page Turn</td>
+              <td>
+                <mark className="plugin">CC Page Turn</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/fybg41bOoLE&t=6"
@@ -1880,7 +2208,9 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>-</td>
-              <td>CC Power Pin</td>
+              <td>
+                <mark className="plugin">CC Power Pin</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/NeUrbL0oadc&t=146"
@@ -1892,7 +2222,9 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>-</td>
-              <td>CC Ripple Pulse</td>
+              <td>
+                <mark className="plugin">CC Ripple Pulse</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/k5b_kRqgky8&t=369"
@@ -1904,7 +2236,9 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>-</td>
-              <td>CC Slant</td>
+              <td>
+                <mark className="plugin">CC Slant</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/wxOL7Cjm-is&t=6"
@@ -1916,7 +2250,9 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>-</td>
-              <td>CC Smear</td>
+              <td>
+                <mark className="plugin">CC Smear</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/w6PkkWRpZpQ&t=84"
@@ -1928,7 +2264,9 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>-</td>
-              <td>CC Split</td>
+              <td>
+                <mark className="plugin">CC Split</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/sZjtBJX_Its&t=6"
@@ -1940,7 +2278,9 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>-</td>
-              <td>CC Split 2</td>
+              <td>
+                <mark className="plugin">CC Split 2</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/sZjtBJX_Its&t=62"
@@ -1952,7 +2292,9 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>-</td>
-              <td>CC Tiler</td>
+              <td>
+                <mark className="plugin">CC Tiler</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/uAc5sToN5DM&t=6"
@@ -1963,8 +2305,12 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>Привязка по углам</td>
-              <td>Corner Pin</td>
+              <td>
+                <mark className="plugin">Привязка по углам</mark>
+              </td>
+              <td>
+                <mark className="plugin">Corner Pin</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/NeUrbL0oadc&t=6"
@@ -1975,8 +2321,14 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>Увеличение с сохранением уровня детализации</td>
-              <td>Detail-preserving Upscale</td>
+              <td>
+                <mark className="plugin">
+                  Увеличение с сохранением уровня детализации
+                </mark>
+              </td>
+              <td>
+                <mark className="plugin">Detail-preserving Upscale</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/njLTViB1dTk&t=6"
@@ -1987,8 +2339,12 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>Карта смещения</td>
-              <td>Displacement Map</td>
+              <td>
+                <mark className="plugin">Карта смещения</mark>
+              </td>
+              <td>
+                <mark className="plugin">Displacement Map</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/4N2xvjYoLTM&t=6"
@@ -1999,8 +2355,12 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>Пластика</td>
-              <td>Liquify</td>
+              <td>
+                <mark className="plugin">Пластика</mark>
+              </td>
+              <td>
+                <mark className="plugin">Liquify</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/EHlmVsp-JPs&t=6"
@@ -2011,8 +2371,12 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>Увеличение</td>
-              <td>Magnify</td>
+              <td>
+                <mark className="plugin">Увеличение</mark>
+              </td>
+              <td>
+                <mark className="plugin">Magnify</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/c_dn9kPHmhA&t=6"
@@ -2023,8 +2387,12 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>Деформация сетки</td>
-              <td>Mesh Warp</td>
+              <td>
+                <mark className="plugin">Деформация сетки</mark>
+              </td>
+              <td>
+                <mark className="plugin">Mesh Warp</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/2_nRHBNmCuQ&t=6"
@@ -2035,8 +2403,12 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>Зеркало</td>
-              <td>Mirror</td>
+              <td>
+                <mark className="plugin">Зеркало</mark>
+              </td>
+              <td>
+                <mark className="plugin">Mirror</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/9XMohV-HL-0&t=6"
@@ -2047,8 +2419,12 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>Смещение</td>
-              <td>Offset</td>
+              <td>
+                <mark className="plugin">Смещение</mark>
+              </td>
+              <td>
+                <mark className="plugin">Offset</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/3DYJQO70B7M&t=6"
@@ -2059,8 +2435,12 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>Компенсация оптики</td>
-              <td>Optics Compensation</td>
+              <td>
+                <mark className="plugin">Компенсация оптики</mark>
+              </td>
+              <td>
+                <mark className="plugin">Optics Compensation</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/HhY6NqWRU_M&t=6"
@@ -2071,8 +2451,12 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>Полярные координаты</td>
-              <td>Polar Coordinates</td>
+              <td>
+                <mark className="plugin">Полярные координаты</mark>
+              </td>
+              <td>
+                <mark className="plugin">Polar Coordinates</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/9do6TuDBYEQ&t=6"
@@ -2083,8 +2467,12 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>Изменить форму</td>
-              <td>Reshape</td>
+              <td>
+                <mark className="plugin">Изменить форму</mark>
+              </td>
+              <td>
+                <mark className="plugin">Reshape</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/Rp6iKBfOfgg&t=6"
@@ -2095,8 +2483,12 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>Рябь</td>
-              <td>Ripple</td>
+              <td>
+                <mark className="plugin">Рябь</mark>
+              </td>
+              <td>
+                <mark className="plugin">Ripple</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/k5b_kRqgky8&t=6"
@@ -2107,8 +2499,12 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>Устранение эффекта плавающего затвора</td>
-              <td>Rolling Shutter Repair</td>
+              <td>
+                <mark className="plugin">Устранение эффекта плавающего затвора</mark>
+              </td>
+              <td>
+                <mark className="plugin">Rolling Shutter Repair</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/28L2XalNr5A&t=1363"
@@ -2119,8 +2515,12 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>Пятно</td>
-              <td>Smear</td>
+              <td>
+                <mark className="plugin">Пятно</mark>
+              </td>
+              <td>
+                <mark className="plugin">Smear</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/w6PkkWRpZpQ&t=6"
@@ -2131,8 +2531,12 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>Сферизация</td>
-              <td>Spherize</td>
+              <td>
+                <mark className="plugin">Сферизация</mark>
+              </td>
+              <td>
+                <mark className="plugin">Spherize</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/MUAStb2uULc&t=6"
@@ -2143,8 +2547,12 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>Преобразовать</td>
-              <td>Transform</td>
+              <td>
+                <mark className="plugin">Преобразовать</mark>
+              </td>
+              <td>
+                <mark className="plugin">Transform</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/JChsjyYSA2A&t=6"
@@ -2155,8 +2563,12 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>Вихревое смещение</td>
-              <td>Turbulent Displace</td>
+              <td>
+                <mark className="plugin">Вихревое смещение</mark>
+              </td>
+              <td>
+                <mark className="plugin">Turbulent Displace</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/HiKTFo-PYAg&t=6"
@@ -2167,8 +2579,12 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>Скручивание</td>
-              <td>Twirl</td>
+              <td>
+                <mark className="plugin">Скручивание</mark>
+              </td>
+              <td>
+                <mark className="plugin">Twirl</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/Jb9YMWrVHLk&t=6"
@@ -2179,8 +2595,12 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>Деформация</td>
-              <td>Warp</td>
+              <td>
+                <mark className="plugin">Деформация</mark>
+              </td>
+              <td>
+                <mark className="plugin">Warp</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/Qg9eeziEpJo&t=6"
@@ -2191,8 +2611,12 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>Стабилизатор деформации</td>
-              <td>Warp Stabilizer</td>
+              <td>
+                <mark className="plugin">Стабилизатор деформации</mark>
+              </td>
+              <td>
+                <mark className="plugin">Warp Stabilizer</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/28L2XalNr5A&t=6"
@@ -2203,8 +2627,12 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>Волнообразная деформация</td>
-              <td>Wave Warp</td>
+              <td>
+                <mark className="plugin">Волнообразная деформация</mark>
+              </td>
+              <td>
+                <mark className="plugin">Wave Warp</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/AbY7V6bJITA&t=6"
@@ -2233,8 +2661,12 @@ const AEWhereFind: React.FC = () => {
           </thead>
           <tbody>
             <tr>
-              <td>Элемент управления 3D-точки</td>
-              <td>3D Point Control</td>
+              <td>
+                <mark className="plugin">Элемент управления 3D-точки</mark>
+              </td>
+              <td>
+                <mark className="plugin">3D Point Control</mark>
+              </td>
               <td rowSpan={8}>
                 <a
                   href="https://youtu.be/zW3Oj2X9oEY&t=6"
@@ -2245,32 +2677,60 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>Элемент управления углами</td>
-              <td>Angle Control</td>
+              <td>
+                <mark className="plugin">Элемент управления углами</mark>
+              </td>
+              <td>
+                <mark className="plugin">Angle Control</mark>
+              </td>
             </tr>
             <tr>
-              <td>Элемент управления &quot;Флажок&quot;</td>
-              <td>Checkbox Control</td>
+              <td>
+                <mark className="plugin">Элемент управления &quot;Флажок&quot;</mark>
+              </td>
+              <td>
+                <mark className="plugin">Checkbox Control</mark>
+              </td>
             </tr>
             <tr>
-              <td>Элемент управления цветом</td>
-              <td>Color Control</td>
+              <td>
+                <mark className="plugin">Элемент управления цветом</mark>
+              </td>
+              <td>
+                <mark className="plugin">Color Control</mark>
+              </td>
             </tr>
             <tr>
-              <td>Управление раскрывающимся меню</td>
-              <td>Dropdown Menu Control</td>
+              <td>
+                <mark className="plugin">Управление раскрывающимся меню</mark>
+              </td>
+              <td>
+                <mark className="plugin">Dropdown Menu Control</mark>
+              </td>
             </tr>
             <tr>
-              <td>Элемент управления слоями</td>
-              <td>Layer Control</td>
+              <td>
+                <mark className="plugin">Элемент управления слоями</mark>
+              </td>
+              <td>
+                <mark className="plugin">Layer Control</mark>
+              </td>
             </tr>
             <tr>
-              <td>Элемент управления точкой</td>
-              <td>Point Control</td>
+              <td>
+                <mark className="plugin">Элемент управления точкой</mark>
+              </td>
+              <td>
+                <mark className="plugin">Point Control</mark>
+              </td>
             </tr>
             <tr>
-              <td>Элемент управления &quot;Ползунок&quot;</td>
-              <td>Slider Control</td>
+              <td>
+                <mark className="plugin">Элемент управления &quot;Ползунок&quot;</mark>
+              </td>
+              <td>
+                <mark className="plugin">Slider Control</mark>
+              </td>
             </tr>
           </tbody>
         </table>
@@ -2291,8 +2751,12 @@ const AEWhereFind: React.FC = () => {
           </thead>
           <tbody>
             <tr>
-              <td>4-цветный градиент</td>
-              <td>4-Color Gradient</td>
+              <td>
+                <mark className="plugin">4-цветный градиент</mark>
+              </td>
+              <td>
+                <mark className="plugin">4-Color Gradient</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/MfyN1bBe8rE&t=6"
@@ -2303,8 +2767,12 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>Расширенное освещение</td>
-              <td>Advanced Lightning</td>
+              <td>
+                <mark className="plugin">Расширенное освещение</mark>
+              </td>
+              <td>
+                <mark className="plugin">Advanced Lightning</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/YJ8jXYU9lYs&t=6"
@@ -2315,8 +2783,12 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>Спектр аудио</td>
-              <td>Audio Spectrum</td>
+              <td>
+                <mark className="plugin">Спектр аудио</mark>
+              </td>
+              <td>
+                <mark className="plugin">Audio Spectrum</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/1MCQ2JvExyE&t=510"
@@ -2327,8 +2799,12 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>Форма звуковой волны</td>
-              <td>Audio Waveform</td>
+              <td>
+                <mark className="plugin">Форма звуковой волны</mark>
+              </td>
+              <td>
+                <mark className="plugin">Audio Waveform</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/1MCQ2JvExyE&t=6"
@@ -2339,8 +2815,12 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>Луч</td>
-              <td>Beam</td>
+              <td>
+                <mark className="plugin">Луч</mark>
+              </td>
+              <td>
+                <mark className="plugin">Beam</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/ESaxBxvt6Us&t=6"
@@ -2352,7 +2832,9 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>-</td>
-              <td>CC Glue Gun</td>
+              <td>
+                <mark className="plugin">CC Glue Gun</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/RjClIwbbV04&t=6"
@@ -2364,7 +2846,9 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>-</td>
-              <td>CC Light Burst 2.5</td>
+              <td>
+                <mark className="plugin">CC Light Burst 2.5</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/rNJ5SRrWqyo&t=6"
@@ -2376,7 +2860,9 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>-</td>
-              <td>CC Light Rays</td>
+              <td>
+                <mark className="plugin">CC Light Rays</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/lUyIpM4aRwU&t=6"
@@ -2388,7 +2874,9 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>-</td>
-              <td>CC Light Sweep</td>
+              <td>
+                <mark className="plugin">CC Light Sweep</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/0n0pZp_BA2w&t=6"
@@ -2400,7 +2888,9 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>-</td>
-              <td>CC Threads</td>
+              <td>
+                <mark className="plugin">CC Threads</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/fn2Yx3YjlS0&t=6"
@@ -2411,8 +2901,12 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>Мозаичная текстура</td>
-              <td>Cell Pattern</td>
+              <td>
+                <mark className="plugin">Мозаичная текстура</mark>
+              </td>
+              <td>
+                <mark className="plugin">Cell Pattern</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/y6R1_9E0tPo&t=6"
@@ -2423,8 +2917,12 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>Шахматная доска</td>
-              <td>Checkerboard</td>
+              <td>
+                <mark className="plugin">Шахматная доска</mark>
+              </td>
+              <td>
+                <mark className="plugin">Checkerboard</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/xhIJdj_dA7U&t=6"
@@ -2435,8 +2933,12 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>Круг</td>
-              <td>Circle</td>
+              <td>
+                <mark className="plugin">Круг</mark>
+              </td>
+              <td>
+                <mark className="plugin">Circle</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/yb-wbWtJnng&t=6"
@@ -2447,8 +2949,12 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>Эллипс</td>
-              <td>Ellipse</td>
+              <td>
+                <mark className="plugin">Эллипс</mark>
+              </td>
+              <td>
+                <mark className="plugin">Ellipse</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/yb-wbWtJnng&t=312"
@@ -2459,8 +2965,12 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>Заливка пипеткой</td>
-              <td>Eyedropper Fill</td>
+              <td>
+                <mark className="plugin">Заливка пипеткой</mark>
+              </td>
+              <td>
+                <mark className="plugin">Eyedropper Fill</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/bNsQ0RCT2l4&t=6"
@@ -2471,8 +2981,12 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>Заливка</td>
-              <td>Fill</td>
+              <td>
+                <mark className="plugin">Заливка</mark>
+              </td>
+              <td>
+                <mark className="plugin">Fill</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/euIDwp4bsi0&t=6"
@@ -2483,8 +2997,12 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>Фрактал</td>
-              <td>Fractal</td>
+              <td>
+                <mark className="plugin">Фрактал</mark>
+              </td>
+              <td>
+                <mark className="plugin">Fractal</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/Rl2CpXgDgok&t=6"
@@ -2495,8 +3013,12 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>Цветовая шкала градиента</td>
-              <td>Gradient Ramp</td>
+              <td>
+                <mark className="plugin">Цветовая шкала градиента</mark>
+              </td>
+              <td>
+                <mark className="plugin">Gradient Ramp</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/JhdhSF2ibgQ&t=6"
@@ -2507,8 +3029,12 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>Сетка</td>
-              <td>Grid</td>
+              <td>
+                <mark className="plugin">Сетка</mark>
+              </td>
+              <td>
+                <mark className="plugin">Grid</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/5Ug1sVc7uYE&t=6"
@@ -2519,8 +3045,12 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>Блики</td>
-              <td>Lens Flare</td>
+              <td>
+                <mark className="plugin">Блики</mark>
+              </td>
+              <td>
+                <mark className="plugin">Lens Flare</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/bgiA3_-9abw&t=6"
@@ -2531,8 +3061,12 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>Заливка</td>
-              <td>Paint Bucket</td>
+              <td>
+                <mark className="plugin">Заливка</mark>
+              </td>
+              <td>
+                <mark className="plugin">Paint Bucket</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/bNsQ0RCT2l4&t=192"
@@ -2543,8 +3077,12 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>Радиоволны</td>
-              <td>Radio Waves</td>
+              <td>
+                <mark className="plugin">Радиоволны</mark>
+              </td>
+              <td>
+                <mark className="plugin">Radio Waves</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/wf8XFPvUptc&t=6"
@@ -2555,8 +3093,12 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>Каракули</td>
-              <td>Scribble</td>
+              <td>
+                <mark className="plugin">Каракули</mark>
+              </td>
+              <td>
+                <mark className="plugin">Scribble</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/2l4ao-cXlxM&t=6"
@@ -2567,8 +3109,12 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>Обводка</td>
-              <td>Stroke</td>
+              <td>
+                <mark className="plugin">Обводка</mark>
+              </td>
+              <td>
+                <mark className="plugin">Stroke</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/NZAcHdOaUH4&t=6"
@@ -2580,7 +3126,9 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>-</td>
-              <td>Vegas</td>
+              <td>
+                <mark className="plugin">Vegas</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/FQ0oTGpHbBs&t=6"
@@ -2591,8 +3139,12 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>Надпись</td>
-              <td>Write-on</td>
+              <td>
+                <mark className="plugin">Надпись</mark>
+              </td>
+              <td>
+                <mark className="plugin">Write-on</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/NZAcHdOaUH4&t=179"
@@ -2621,8 +3173,12 @@ const AEWhereFind: React.FC = () => {
           </thead>
           <tbody>
             <tr>
-              <td>Размытие VR</td>
-              <td>VR Blur</td>
+              <td>
+                <mark className="plugin">Размытие VR</mark>
+              </td>
+              <td>
+                <mark className="plugin">VR Blur</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/cXv70dpIQJw&t=320"
@@ -2633,8 +3189,12 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>Хроматические аберрации VR</td>
-              <td>VR Chromatic Abberations</td>
+              <td>
+                <mark className="plugin">Хроматические аберрации VR</mark>
+              </td>
+              <td>
+                <mark className="plugin">VR Chromatic Abberations</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/cXv70dpIQJw&t=435"
@@ -2645,8 +3205,12 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>Градиенты цвета VR</td>
-              <td>VR Color Gradients</td>
+              <td>
+                <mark className="plugin">Градиенты цвета VR</mark>
+              </td>
+              <td>
+                <mark className="plugin">VR Color Gradients</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/cXv70dpIQJw&t=538"
@@ -2657,8 +3221,12 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>Конвертер VR</td>
-              <td>VR Converter</td>
+              <td>
+                <mark className="plugin">Конвертер VR</mark>
+              </td>
+              <td>
+                <mark className="plugin">VR Converter</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/cXv70dpIQJw&t=621"
@@ -2669,8 +3237,12 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>Понижение уровня шума VR</td>
-              <td>VR De-Noise</td>
+              <td>
+                <mark className="plugin">Понижение уровня шума VR</mark>
+              </td>
+              <td>
+                <mark className="plugin">VR De-Noise</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/cXv70dpIQJw&t=648"
@@ -2681,8 +3253,12 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>Цифровое сбой VR</td>
-              <td>VR Digital Glitch</td>
+              <td>
+                <mark className="plugin">Цифровое сбой VR</mark>
+              </td>
+              <td>
+                <mark className="plugin">VR Digital Glitch</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/cXv70dpIQJw&t=680"
@@ -2693,8 +3269,12 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>Фрактальный шум VR</td>
-              <td>VR Fractal Noise</td>
+              <td>
+                <mark className="plugin">Фрактальный шум VR</mark>
+              </td>
+              <td>
+                <mark className="plugin">VR Fractal Noise</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/cXv70dpIQJw&t=927"
@@ -2705,8 +3285,12 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>Свечение VR</td>
-              <td>VR Glow</td>
+              <td>
+                <mark className="plugin">Свечение VR</mark>
+              </td>
+              <td>
+                <mark className="plugin">VR Glow</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/cXv70dpIQJw&t=1011"
@@ -2717,8 +3301,12 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>Плоскость VR в сферу</td>
-              <td>VR Plane to Sphere</td>
+              <td>
+                <mark className="plugin">Плоскость VR в сферу</mark>
+              </td>
+              <td>
+                <mark className="plugin">VR Plane to Sphere</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/cXv70dpIQJw&t=1037"
@@ -2729,8 +3317,12 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>Повернуть сферу VR</td>
-              <td>VR Rotate Sphere</td>
+              <td>
+                <mark className="plugin">Повернуть сферу VR</mark>
+              </td>
+              <td>
+                <mark className="plugin">VR Rotate Sphere</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/cXv70dpIQJw&t=1131"
@@ -2741,8 +3333,12 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>Увеличить четкость VR</td>
-              <td>VR Sharpen</td>
+              <td>
+                <mark className="plugin">Увеличить четкость VR</mark>
+              </td>
+              <td>
+                <mark className="plugin">VR Sharpen</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/cXv70dpIQJw&t=1153"
@@ -2753,8 +3349,12 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>Сфера VR в плоскость</td>
-              <td>VR Sphere to Plane</td>
+              <td>
+                <mark className="plugin">Сфера VR в плоскость</mark>
+              </td>
+              <td>
+                <mark className="plugin">VR Sphere to Plane</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/cXv70dpIQJw&t=1167"
@@ -2784,7 +3384,9 @@ const AEWhereFind: React.FC = () => {
           <tbody>
             <tr>
               <td>-</td>
-              <td>Advanced Spill Suppressor</td>
+              <td>
+                <mark className="plugin">Advanced Spill Suppressor</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/tK_Z1dYgtxs&t=112"
@@ -2796,7 +3398,9 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>-</td>
-              <td>CC Simple Wire Removal</td>
+              <td>
+                <mark className="plugin">CC Simple Wire Removal</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/ALAoNGXvLC4&t=6"
@@ -2807,8 +3411,12 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>Ключ разности цвета</td>
-              <td>Color Difference Key</td>
+              <td>
+                <mark className="plugin">Ключ разности цвета</mark>
+              </td>
+              <td>
+                <mark className="plugin">Color Difference Key</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/kO-HrJ1su-0&t=6"
@@ -2819,8 +3427,12 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>Цветовой диапазон</td>
-              <td>Color Range</td>
+              <td>
+                <mark className="plugin">Цветовой диапазон</mark>
+              </td>
+              <td>
+                <mark className="plugin">Color Range</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/W6vIw8_bZHM&t=6"
@@ -2831,8 +3443,12 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>Подложка разницы</td>
-              <td>Difference Matte</td>
+              <td>
+                <mark className="plugin">Подложка разницы</mark>
+              </td>
+              <td>
+                <mark className="plugin">Difference Matte</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/ciX-roxC4oQ&t=6"
@@ -2843,8 +3459,12 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>Извлечь</td>
-              <td>Extract</td>
+              <td>
+                <mark className="plugin">Извлечь</mark>
+              </td>
+              <td>
+                <mark className="plugin">Extract</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/v7pqZ9gtn8I&t=6"
@@ -2855,8 +3475,12 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>Внутренний/внешний ключ</td>
-              <td>Inner/Outer Key</td>
+              <td>
+                <mark className="plugin">Внутренний/внешний ключ</mark>
+              </td>
+              <td>
+                <mark className="plugin">Inner/Outer Key</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/z1Ji43Sg5bk&t=6"
@@ -2868,7 +3492,9 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>-</td>
-              <td>Key Cleaner</td>
+              <td>
+                <mark className="plugin">Key Cleaner</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/tK_Z1dYgtxs&t=334"
@@ -2880,7 +3506,9 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>-</td>
-              <td>Keylight (1.2)</td>
+              <td>
+                <mark className="plugin">Keylight (1.2)</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/tK_Z1dYgtxs&t=443"
@@ -2891,8 +3519,12 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>Линейный цветовой ключ</td>
-              <td>Linear Color Key</td>
+              <td>
+                <mark className="plugin">Линейный цветовой ключ</mark>
+              </td>
+              <td>
+                <mark className="plugin">Linear Color Key</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/8RjOe6cO-cY&t=6"
@@ -2921,8 +3553,12 @@ const AEWhereFind: React.FC = () => {
           </thead>
           <tbody>
             <tr>
-              <td>Подавление подложки</td>
-              <td>Matte Choker</td>
+              <td>
+                <mark className="plugin">Подавление подложки</mark>
+              </td>
+              <td>
+                <mark className="plugin">Matte Choker</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/rGmc9rrf5pc&t=6"
@@ -2933,8 +3569,12 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>Форма Mocha</td>
-              <td>Mocha shape</td>
+              <td>
+                <mark className="plugin">Форма Mocha</mark>
+              </td>
+              <td>
+                <mark className="plugin">Mocha shape</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/wmV2p5DprI8&t=6"
@@ -2945,8 +3585,12 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>Уточнить жесткую подложку</td>
-              <td>Refine Hard Matte</td>
+              <td>
+                <mark className="plugin">Уточнить жесткую подложку</mark>
+              </td>
+              <td>
+                <mark className="plugin">Refine Hard Matte</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/0m5b7Qs6Ido&t=423"
@@ -2957,8 +3601,12 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>Уточнить мягкую подложку</td>
-              <td>Refine Soft Matte</td>
+              <td>
+                <mark className="plugin">Уточнить мягкую подложку</mark>
+              </td>
+              <td>
+                <mark className="plugin">Refine Soft Matte</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/0m5b7Qs6Ido&t=6"
@@ -2969,8 +3617,12 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>Упрощенное подавление</td>
-              <td>Simple Choker</td>
+              <td>
+                <mark className="plugin">Упрощенное подавление</mark>
+              </td>
+              <td>
+                <mark className="plugin">Simple Choker</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/8lCEc-H3JJU&t=6"
@@ -2999,8 +3651,12 @@ const AEWhereFind: React.FC = () => {
           </thead>
           <tbody>
             <tr>
-              <td>Добавить зернистость</td>
-              <td>Add Grain</td>
+              <td>
+                <mark className="plugin">Добавить зернистость</mark>
+              </td>
+              <td>
+                <mark className="plugin">Add Grain</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/FmSTOXu2V6I&t=6"
@@ -3011,8 +3667,12 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>Пыль и царапины</td>
-              <td>Dust &amp; Scratches</td>
+              <td>
+                <mark className="plugin">Пыль и царапины</mark>
+              </td>
+              <td>
+                <mark className="plugin">Dust &amp; Scratches</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/Q1BBpMxmbXU&t=6"
@@ -3023,8 +3683,12 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>Фрактальный шум</td>
-              <td>Fractal Noise</td>
+              <td>
+                <mark className="plugin">Фрактальный шум</mark>
+              </td>
+              <td>
+                <mark className="plugin">Fractal Noise</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/kdttSozSLG4&t=6"
@@ -3035,8 +3699,12 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>Соответствие зернистости</td>
-              <td>Match Grain</td>
+              <td>
+                <mark className="plugin">Соответствие зернистости</mark>
+              </td>
+              <td>
+                <mark className="plugin">Match Grain</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/FmSTOXu2V6I&t=621"
@@ -3047,8 +3715,12 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>Медиана</td>
-              <td>Median</td>
+              <td>
+                <mark className="plugin">Медиана</mark>
+              </td>
+              <td>
+                <mark className="plugin">Median</mark>
+              </td>
               <td rowSpan={2}>
                 <a
                   href="https://youtu.be/x-m_B8qThhI&t=6"
@@ -3059,12 +3731,20 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>Median (предыдущая версия)</td>
-              <td>Median (Legacy)</td>
+              <td>
+                <mark className="plugin">Median (предыдущая версия)</mark>
+              </td>
+              <td>
+                <mark className="plugin">Median (Legacy)</mark>
+              </td>
             </tr>
             <tr>
-              <td>Шум</td>
-              <td>Noise</td>
+              <td>
+                <mark className="plugin">Шум</mark>
+              </td>
+              <td>
+                <mark className="plugin">Noise</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/pWSNY7XvN-A&t=6"
@@ -3075,8 +3755,12 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>Альфа-канал шума</td>
-              <td>Noise Alpha</td>
+              <td>
+                <mark className="plugin">Альфа-канал шума</mark>
+              </td>
+              <td>
+                <mark className="plugin">Noise Alpha</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/jZj0hioZYoM&t=6"
@@ -3087,8 +3771,12 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>Шум HLS</td>
-              <td>Noise HLS</td>
+              <td>
+                <mark className="plugin">Шум HLS</mark>
+              </td>
+              <td>
+                <mark className="plugin">Noise HLS</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/pWSNY7XvN-A&t=55"
@@ -3099,8 +3787,12 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>Автошум HLS</td>
-              <td>Noise HLS Auto</td>
+              <td>
+                <mark className="plugin">Автошум HLS</mark>
+              </td>
+              <td>
+                <mark className="plugin">Noise HLS Auto</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/pWSNY7XvN-A&t=165"
@@ -3111,8 +3803,12 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>Удалить зернистость</td>
-              <td>Remove Grain</td>
+              <td>
+                <mark className="plugin">Удалить зернистость</mark>
+              </td>
+              <td>
+                <mark className="plugin">Remove Grain</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/FmSTOXu2V6I&t=835"
@@ -3123,8 +3819,12 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>Турбулентный шум</td>
-              <td>Turbulent Noise</td>
+              <td>
+                <mark className="plugin">Турбулентный шум</mark>
+              </td>
+              <td>
+                <mark className="plugin">Turbulent Noise</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/kdttSozSLG4&t=262"
@@ -3153,8 +3853,12 @@ const AEWhereFind: React.FC = () => {
           </thead>
           <tbody>
             <tr>
-              <td>Базовый 3D</td>
-              <td>Basic 3D</td>
+              <td>
+                <mark className="plugin">Базовый 3D</mark>
+              </td>
+              <td>
+                <mark className="plugin">Basic 3D</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/sQFUGX_Of84&t=45"
@@ -3165,8 +3869,12 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>Основной текст</td>
-              <td>Basic Text</td>
+              <td>
+                <mark className="plugin">Основной текст</mark>
+              </td>
+              <td>
+                <mark className="plugin">Basic Text</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/sQFUGX_Of84&t=85"
@@ -3177,8 +3885,12 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>Цветовой ключ</td>
-              <td>Color Key</td>
+              <td>
+                <mark className="plugin">Цветовой ключ</mark>
+              </td>
+              <td>
+                <mark className="plugin">Color Key</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/sQFUGX_Of84&t=249"
@@ -3189,8 +3901,12 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>Размытие по Гауссу (из прежней версии)</td>
-              <td>Gaussian Blur (Legacy)</td>
+              <td>
+                <mark className="plugin">Размытие по Гауссу (из прежней версии)</mark>
+              </td>
+              <td>
+                <mark className="plugin">Gaussian Blur (Legacy)</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/sQFUGX_Of84&t=167"
@@ -3201,8 +3917,12 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>Молния</td>
-              <td>Lightning</td>
+              <td>
+                <mark className="plugin">Молния</mark>
+              </td>
+              <td>
+                <mark className="plugin">Lightning</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/sQFUGX_Of84&t=135"
@@ -3213,8 +3933,12 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>Ключ яркости</td>
-              <td>Luma Key</td>
+              <td>
+                <mark className="plugin">Ключ яркости</mark>
+              </td>
+              <td>
+                <mark className="plugin">Luma Key</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/sQFUGX_Of84&t=339"
@@ -3225,8 +3949,12 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>Текст по контуру</td>
-              <td>Path Text</td>
+              <td>
+                <mark className="plugin">Текст по контуру</mark>
+              </td>
+              <td>
+                <mark className="plugin">Path Text</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/sQFUGX_Of84&t=112"
@@ -3237,8 +3965,14 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>Уменьшить мерцание в чересстрочной развертке</td>
-              <td>Reduce Interlace Flicker</td>
+              <td>
+                <mark className="plugin">
+                  Уменьшить мерцание в чересстрочной развертке
+                </mark>
+              </td>
+              <td>
+                <mark className="plugin">Reduce Interlace Flicker</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/sQFUGX_Of84&t=205"
@@ -3249,8 +3983,12 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>Подавление разлития</td>
-              <td>Spill Suppressor</td>
+              <td>
+                <mark className="plugin">Подавление разлития</mark>
+              </td>
+              <td>
+                <mark className="plugin">Spill Suppressor</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/sQFUGX_Of84&t=403"
@@ -3279,8 +4017,12 @@ const AEWhereFind: React.FC = () => {
           </thead>
           <tbody>
             <tr>
-              <td>Функция 3D Camera Tracker</td>
-              <td>3D Camera Tracker</td>
+              <td>
+                <mark className="plugin">Функция 3D Camera Tracker</mark>
+              </td>
+              <td>
+                <mark className="plugin">3D Camera Tracker</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/yaT3YwIK-BI&t=6"
@@ -3291,8 +4033,12 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>3D-очки</td>
-              <td>3D Glasses</td>
+              <td>
+                <mark className="plugin">3D-очки</mark>
+              </td>
+              <td>
+                <mark className="plugin">3D Glasses</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/hLLcg1xE7Mo&t=6"
@@ -3303,8 +4049,12 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>Скос альфа-канала</td>
-              <td>Bevel Alpha</td>
+              <td>
+                <mark className="plugin">Скос альфа-канала</mark>
+              </td>
+              <td>
+                <mark className="plugin">Bevel Alpha</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/Y217431eGeM&t=6"
@@ -3315,8 +4065,12 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>Скошенные края</td>
-              <td>Bevel Edges</td>
+              <td>
+                <mark className="plugin">Скошенные края</mark>
+              </td>
+              <td>
+                <mark className="plugin">Bevel Edges</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/Y217431eGeM&t=36"
@@ -3328,7 +4082,9 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>-</td>
-              <td>CC Cylinder</td>
+              <td>
+                <mark className="plugin">CC Cylinder</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/Y205itPnJCc&t=627"
@@ -3340,7 +4096,9 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>-</td>
-              <td>CC Environment</td>
+              <td>
+                <mark className="plugin">CC Environment</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/WFwbm0kOzRQ&t=6"
@@ -3352,7 +4110,9 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>-</td>
-              <td>CC Sphere</td>
+              <td>
+                <mark className="plugin">CC Sphere</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/Y205itPnJCc&t=6"
@@ -3364,7 +4124,9 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>-</td>
-              <td>CC Spotlight</td>
+              <td>
+                <mark className="plugin">CC Spotlight</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/vagmclmkMU4&t=6"
@@ -3375,8 +4137,12 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>Тень</td>
-              <td>Drop Shadow</td>
+              <td>
+                <mark className="plugin">Тень</mark>
+              </td>
+              <td>
+                <mark className="plugin">Drop Shadow</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/nzapxMlX74A&t=6"
@@ -3387,8 +4153,12 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>Радиальная тень</td>
-              <td>Radial Shadow</td>
+              <td>
+                <mark className="plugin">Радиальная тень</mark>
+              </td>
+              <td>
+                <mark className="plugin">Radial Shadow</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/Bx-T-8Vjm2k&t=6"
@@ -3417,8 +4187,12 @@ const AEWhereFind: React.FC = () => {
           </thead>
           <tbody>
             <tr>
-              <td>Танец карт</td>
-              <td>Card Dance</td>
+              <td>
+                <mark className="plugin">Танец карт</mark>
+              </td>
+              <td>
+                <mark className="plugin">Card Dance</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/XC-Pd_wNbbM&t=695"
@@ -3429,8 +4203,12 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>Каустические кривые</td>
-              <td>Caustics</td>
+              <td>
+                <mark className="plugin">Каустические кривые</mark>
+              </td>
+              <td>
+                <mark className="plugin">Caustics</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/20keMi3bDqc&t=440"
@@ -3442,7 +4220,9 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>-</td>
-              <td>CC Ball Action</td>
+              <td>
+                <mark className="plugin">CC Ball Action</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/uV83WKGQw8Q&t=6"
@@ -3454,7 +4234,9 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>-</td>
-              <td>CC Bubbles</td>
+              <td>
+                <mark className="plugin">CC Bubbles</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/B-6XRRtxdSE&t=6"
@@ -3466,7 +4248,9 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>-</td>
-              <td>CC Drizzle</td>
+              <td>
+                <mark className="plugin">CC Drizzle</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/jJ5MJoL2X_I&t=6"
@@ -3478,7 +4262,9 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>-</td>
-              <td>CC Hair</td>
+              <td>
+                <mark className="plugin">CC Hair</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/Jw6P4lnFT6I&t=6"
@@ -3490,7 +4276,9 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>-</td>
-              <td>CC Mr. Mercury</td>
+              <td>
+                <mark className="plugin">CC Mr. Mercury</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/QwzDqLmIKSI&t=6"
@@ -3502,7 +4290,9 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>-</td>
-              <td>CC Particle Systems II</td>
+              <td>
+                <mark className="plugin">CC Particle Systems II</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/7Fp9207Ds5I&t=6"
@@ -3514,7 +4304,9 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>-</td>
-              <td>CC Particle World</td>
+              <td>
+                <mark className="plugin">CC Particle World</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/7Fp9207Ds5I&t=2503"
@@ -3526,7 +4318,9 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>-</td>
-              <td>CC Pixel Polly</td>
+              <td>
+                <mark className="plugin">CC Pixel Polly</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/Wtsws9nN4jM&t=6"
@@ -3538,7 +4332,9 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>-</td>
-              <td>CC Rainfall</td>
+              <td>
+                <mark className="plugin">CC Rainfall</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/c2TT33Vn0OU&t=6"
@@ -3550,7 +4346,9 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>-</td>
-              <td>CC Scatterize</td>
+              <td>
+                <mark className="plugin">CC Scatterize</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/2XrcDJI8dhc&t=6"
@@ -3562,7 +4360,9 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>-</td>
-              <td>CC Snowfall</td>
+              <td>
+                <mark className="plugin">CC Snowfall</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/c2TT33Vn0OU&t=483"
@@ -3574,7 +4374,9 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>-</td>
-              <td>CC Star Burst</td>
+              <td>
+                <mark className="plugin">CC Star Burst</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/G9qbU1ifWWc&t=6"
@@ -3585,8 +4387,12 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>Пена</td>
-              <td>Foam</td>
+              <td>
+                <mark className="plugin">Пена</mark>
+              </td>
+              <td>
+                <mark className="plugin">Foam</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/74iePAKBQrg&t=6"
@@ -3597,8 +4403,12 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>Площадка для частиц</td>
-              <td>Particle Playground</td>
+              <td>
+                <mark className="plugin">Площадка для частиц</mark>
+              </td>
+              <td>
+                <mark className="plugin">Particle Playground</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/qzzEy76cCXo&t=6"
@@ -3609,8 +4419,12 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>Разброс</td>
-              <td>Shatter</td>
+              <td>
+                <mark className="plugin">Разброс</mark>
+              </td>
+              <td>
+                <mark className="plugin">Shatter</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/UJI7cbilZYA&t=6"
@@ -3621,8 +4435,12 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>Мир волн</td>
-              <td>Wave World</td>
+              <td>
+                <mark className="plugin">Мир волн</mark>
+              </td>
+              <td>
+                <mark className="plugin">Wave World</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/20keMi3bDqc&t=6"
@@ -3651,8 +4469,12 @@ const AEWhereFind: React.FC = () => {
           </thead>
           <tbody>
             <tr>
-              <td>Мазки кисти</td>
-              <td>Brush Strokes</td>
+              <td>
+                <mark className="plugin">Мазки кисти</mark>
+              </td>
+              <td>
+                <mark className="plugin">Brush Strokes</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/2sQ0R6zQeYY&t=6"
@@ -3663,8 +4485,12 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>Мультипликация</td>
-              <td>Cartoon</td>
+              <td>
+                <mark className="plugin">Мультипликация</mark>
+              </td>
+              <td>
+                <mark className="plugin">Cartoon</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/QS9QFYnvRi4&t=6"
@@ -3676,7 +4502,9 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>-</td>
-              <td>CC Block Load</td>
+              <td>
+                <mark className="plugin">CC Block Load</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/YQRdM_hus4k&t=6"
@@ -3688,7 +4516,9 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>-</td>
-              <td>CC Burn Film</td>
+              <td>
+                <mark className="plugin">CC Burn Film</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/HNu77TCadtE&t=6"
@@ -3700,7 +4530,9 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>-</td>
-              <td>CC Glass</td>
+              <td>
+                <mark className="plugin">CC Glass</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/WPo-dkPiynI&t=6"
@@ -3712,7 +4544,9 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>-</td>
-              <td>CC HexTile</td>
+              <td>
+                <mark className="plugin">CC HexTile</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/oqwCF_U3fBo&t=6"
@@ -3724,7 +4558,9 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>-</td>
-              <td>CC Kaleida</td>
+              <td>
+                <mark className="plugin">CC Kaleida</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/TwiP0uHa4WI&t=6"
@@ -3736,7 +4572,9 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>-</td>
-              <td>CC Mr. Shoothie</td>
+              <td>
+                <mark className="plugin">CC Mr. Shoothie</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/8hk95dMWk4k&t=6"
@@ -3748,7 +4586,9 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>-</td>
-              <td>CC Plastic</td>
+              <td>
+                <mark className="plugin">CC Plastic</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/WPo-dkPiynI&t=335"
@@ -3760,7 +4600,9 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>-</td>
-              <td>CC RepeTile</td>
+              <td>
+                <mark className="plugin">CC RepeTile</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/UptUlJdoS0M&t=161"
@@ -3772,7 +4614,9 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>-</td>
-              <td>CC Threshold</td>
+              <td>
+                <mark className="plugin">CC Threshold</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/OGEENhaGDL8&t=79"
@@ -3784,7 +4628,9 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>-</td>
-              <td>CC Threshold RGB</td>
+              <td>
+                <mark className="plugin">CC Threshold RGB</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/OGEENhaGDL8&t=186"
@@ -3796,7 +4642,9 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>-</td>
-              <td>CC Vignette</td>
+              <td>
+                <mark className="plugin">CC Vignette</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/eBtk3tN_91o&t=6"
@@ -3807,8 +4655,12 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>Цветовое тиснение</td>
-              <td>Color Emboss</td>
+              <td>
+                <mark className="plugin">Цветовое тиснение</mark>
+              </td>
+              <td>
+                <mark className="plugin">Color Emboss</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/X-SpnyETdEA&t=143"
@@ -3819,8 +4671,12 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>Тиснение</td>
-              <td>Emboss</td>
+              <td>
+                <mark className="plugin">Тиснение</mark>
+              </td>
+              <td>
+                <mark className="plugin">Emboss</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/X-SpnyETdEA&t=6"
@@ -3831,8 +4687,12 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>Выделение краев</td>
-              <td>Find Edges</td>
+              <td>
+                <mark className="plugin">Выделение краев</mark>
+              </td>
+              <td>
+                <mark className="plugin">Find Edges</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/gEWfYGCejsU&t=6"
@@ -3843,8 +4703,12 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>Свечение</td>
-              <td>Glow</td>
+              <td>
+                <mark className="plugin">Свечение</mark>
+              </td>
+              <td>
+                <mark className="plugin">Glow</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/t40ZTEBr_M0&t=6"
@@ -3855,8 +4719,12 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>Мозаика</td>
-              <td>Mosaic</td>
+              <td>
+                <mark className="plugin">Мозаика</mark>
+              </td>
+              <td>
+                <mark className="plugin">Mosaic</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/luVfpqT_rYg&t=6"
@@ -3867,8 +4735,12 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>Мозаика движения</td>
-              <td>Motion Tile</td>
+              <td>
+                <mark className="plugin">Мозаика движения</mark>
+              </td>
+              <td>
+                <mark className="plugin">Motion Tile</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/UptUlJdoS0M&t=6"
@@ -3879,8 +4751,12 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>Постеризация</td>
-              <td>Posterize</td>
+              <td>
+                <mark className="plugin">Постеризация</mark>
+              </td>
+              <td>
+                <mark className="plugin">Posterize</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/vNWMxYpv6js&t=6"
@@ -3891,8 +4767,12 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>Шероховатые края</td>
-              <td>Roughen Edges</td>
+              <td>
+                <mark className="plugin">Шероховатые края</mark>
+              </td>
+              <td>
+                <mark className="plugin">Roughen Edges</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/DbMCkyMg0sw&t=6"
@@ -3903,8 +4783,12 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>Рассеивание</td>
-              <td>Scatter</td>
+              <td>
+                <mark className="plugin">Рассеивание</mark>
+              </td>
+              <td>
+                <mark className="plugin">Scatter</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/oGw-o6eMbgI&t=6"
@@ -3915,8 +4799,12 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>Проблесковый цвет</td>
-              <td>Strobe Light</td>
+              <td>
+                <mark className="plugin">Проблесковый цвет</mark>
+              </td>
+              <td>
+                <mark className="plugin">Strobe Light</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/N1to_8jgnjQ&t=6"
@@ -3927,8 +4815,12 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>Текстуризация</td>
-              <td>Texturize</td>
+              <td>
+                <mark className="plugin">Текстуризация</mark>
+              </td>
+              <td>
+                <mark className="plugin">Texturize</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/u9KJs9q-6es&t=6"
@@ -3939,8 +4831,12 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>Пороговое значение</td>
-              <td>Threshold</td>
+              <td>
+                <mark className="plugin">Пороговое значение</mark>
+              </td>
+              <td>
+                <mark className="plugin">Threshold</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/OGEENhaGDL8&t=6"
@@ -3969,8 +4865,12 @@ const AEWhereFind: React.FC = () => {
           </thead>
           <tbody>
             <tr>
-              <td>Нумерация</td>
-              <td>Numbers</td>
+              <td>
+                <mark className="plugin">Нумерация</mark>
+              </td>
+              <td>
+                <mark className="plugin">Numbers</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/EMHcq7YOhfQ&t=6"
@@ -3981,8 +4881,12 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>Тайм-код</td>
-              <td>Timecode</td>
+              <td>
+                <mark className="plugin">Тайм-код</mark>
+              </td>
+              <td>
+                <mark className="plugin">Timecode</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/EMHcq7YOhfQ&t=360"
@@ -4012,7 +4916,9 @@ const AEWhereFind: React.FC = () => {
           <tbody>
             <tr>
               <td>-</td>
-              <td>CC Force Motion Blur</td>
+              <td>
+                <mark className="plugin">CC Force Motion Blur</mark>
+              </td>
               <td>
                 <a
                   href="https://www.youtube.com/watch?v=ANG3iMQVHVo"
@@ -4024,7 +4930,9 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>-</td>
-              <td>CC Wide Time</td>
+              <td>
+                <mark className="plugin">CC Wide Time</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/IQxvw91sOB4&t=6"
@@ -4035,8 +4943,12 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>Эхо</td>
-              <td>Echo</td>
+              <td>
+                <mark className="plugin">Эхо</mark>
+              </td>
+              <td>
+                <mark className="plugin">Echo</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/N2qxF8V57FE&t=6"
@@ -4047,8 +4959,12 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>Размытие пикселей в движении</td>
-              <td>Pixel Motion Blur</td>
+              <td>
+                <mark className="plugin">Размытие пикселей в движении</mark>
+              </td>
+              <td>
+                <mark className="plugin">Pixel Motion Blur</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/DZAakVlJoGU&t=6"
@@ -4059,8 +4975,12 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>Время постеризации</td>
-              <td>Posterize Time</td>
+              <td>
+                <mark className="plugin">Время постеризации</mark>
+              </td>
+              <td>
+                <mark className="plugin">Posterize Time</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/Iu1E9M1EDHY&t=6"
@@ -4071,8 +4991,12 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>Разница во времени</td>
-              <td>Time Difference</td>
+              <td>
+                <mark className="plugin">Разница во времени</mark>
+              </td>
+              <td>
+                <mark className="plugin">Time Difference</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/AzKAVI6KT18&t=6"
@@ -4083,8 +5007,12 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>Смещение по времени</td>
-              <td>Time Displacement</td>
+              <td>
+                <mark className="plugin">Смещение по времени</mark>
+              </td>
+              <td>
+                <mark className="plugin">Time Displacement</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/vjXP8Hyj4XE&t=6"
@@ -4095,8 +5023,12 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>Искажение времени</td>
-              <td>Timewarp</td>
+              <td>
+                <mark className="plugin">Искажение времени</mark>
+              </td>
+              <td>
+                <mark className="plugin">Timewarp</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/JsyuG98HZMo&t=6"
@@ -4125,8 +5057,12 @@ const AEWhereFind: React.FC = () => {
           </thead>
           <tbody>
             <tr>
-              <td>Растворение блоков</td>
-              <td>Block Dissolve</td>
+              <td>
+                <mark className="plugin">Растворение блоков</mark>
+              </td>
+              <td>
+                <mark className="plugin">Block Dissolve</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/6O2I2oLgw4E&t=6"
@@ -4137,8 +5073,12 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>Вытеснение карт</td>
-              <td>Card Wipe</td>
+              <td>
+                <mark className="plugin">Вытеснение карт</mark>
+              </td>
+              <td>
+                <mark className="plugin">Card Wipe</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/XC-Pd_wNbbM&t=6"
@@ -4150,7 +5090,9 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>-</td>
-              <td>CC Glass Wipe</td>
+              <td>
+                <mark className="plugin">CC Glass Wipe</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/QcLSKGk7G4s&t=6"
@@ -4162,7 +5104,9 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>-</td>
-              <td>CC Grid Wipe</td>
+              <td>
+                <mark className="plugin">CC Grid Wipe</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/BC30h50BHqo&t=6"
@@ -4174,7 +5118,9 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>-</td>
-              <td>CC Image Wipe</td>
+              <td>
+                <mark className="plugin">CC Image Wipe</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/QcLSKGk7G4s&t=195"
@@ -4186,7 +5132,9 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>-</td>
-              <td>CC Jaws</td>
+              <td>
+                <mark className="plugin">CC Jaws</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/BC30h50BHqo&t=119"
@@ -4198,7 +5146,9 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>-</td>
-              <td>CC Light Wipe</td>
+              <td>
+                <mark className="plugin">CC Light Wipe</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/YEiAz-BddNs&t=6"
@@ -4210,7 +5160,9 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>-</td>
-              <td>CC Line Sweep</td>
+              <td>
+                <mark className="plugin">CC Line Sweep</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/BC30h50BHqo&t=97"
@@ -4222,7 +5174,9 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>-</td>
-              <td>CC Radial ScaleWipe</td>
+              <td>
+                <mark className="plugin">CC Radial ScaleWipe</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/u0Eru4q2qek&t=132"
@@ -4234,7 +5188,9 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>-</td>
-              <td>CC Scale Wipe</td>
+              <td>
+                <mark className="plugin">CC Scale Wipe</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/u0Eru4q2qek&t=6"
@@ -4246,7 +5202,9 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>-</td>
-              <td>CC Twister</td>
+              <td>
+                <mark className="plugin">CC Twister</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/F0FRc-oORS0&t=6"
@@ -4258,7 +5216,9 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>-</td>
-              <td>CC WarpoMatic</td>
+              <td>
+                <mark className="plugin">CC WarpoMatic</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/QcLSKGk7G4s&t=292"
@@ -4269,8 +5229,12 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>Градиентное вытеснение</td>
-              <td>Gradient Wipe</td>
+              <td>
+                <mark className="plugin">Градиентное вытеснение</mark>
+              </td>
+              <td>
+                <mark className="plugin">Gradient Wipe</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/acYRLZGEYmc&t=6"
@@ -4281,8 +5245,12 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>Вытеснение диафрагмы</td>
-              <td>Iris Wipe</td>
+              <td>
+                <mark className="plugin">Вытеснение диафрагмы</mark>
+              </td>
+              <td>
+                <mark className="plugin">Iris Wipe</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/VoyS7UsjZTY&t=68"
@@ -4293,8 +5261,12 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>Линейное стирание</td>
-              <td>Linear Wipe</td>
+              <td>
+                <mark className="plugin">Линейное стирание</mark>
+              </td>
+              <td>
+                <mark className="plugin">Linear Wipe</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/VoyS7UsjZTY&t=6"
@@ -4305,8 +5277,12 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>Радиальное вытеснение</td>
-              <td>Radial Wipe</td>
+              <td>
+                <mark className="plugin">Радиальное вытеснение</mark>
+              </td>
+              <td>
+                <mark className="plugin">Radial Wipe</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/VoyS7UsjZTY&t=36"
@@ -4317,8 +5293,12 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>Жалюзи</td>
-              <td>Venetian Blinds</td>
+              <td>
+                <mark className="plugin">Жалюзи</mark>
+              </td>
+              <td>
+                <mark className="plugin">Venetian Blinds</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/1Bcq4j69RBg&t=6"
@@ -4347,8 +5327,12 @@ const AEWhereFind: React.FC = () => {
           </thead>
           <tbody>
             <tr>
-              <td>Применить цвета LUT</td>
-              <td>Apply Color LUT</td>
+              <td>
+                <mark className="plugin">Применить цвета LUT</mark>
+              </td>
+              <td>
+                <mark className="plugin">Apply Color LUT</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/S1GUo46T2H8&t=6"
@@ -4360,7 +5344,9 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>-</td>
-              <td>CC Overbrights</td>
+              <td>
+                <mark className="plugin">CC Overbrights</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/2Akn5zdDMgM&t=6"
@@ -4371,8 +5357,12 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>Конвертер Cineon</td>
-              <td>Cineon Converter</td>
+              <td>
+                <mark className="plugin">Конвертер Cineon</mark>
+              </td>
+              <td>
+                <mark className="plugin">Cineon Converter</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/EPxpRkz5Q1Y&t=6"
@@ -4383,8 +5373,12 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>Конвертер профиля цвета</td>
-              <td>Color Profile Converter</td>
+              <td>
+                <mark className="plugin">Конвертер профиля цвета</mark>
+              </td>
+              <td>
+                <mark className="plugin">Color Profile Converter</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/xJ8JFqNW07Q&t=8"
@@ -4395,8 +5389,12 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>Нарастить границы</td>
-              <td>Grow Bounds</td>
+              <td>
+                <mark className="plugin">Нарастить границы</mark>
+              </td>
+              <td>
+                <mark className="plugin">Grow Bounds</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/-JzYpi6Uyb4&t=6"
@@ -4407,8 +5405,12 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>Расширитель HDR</td>
-              <td>HDR Compander</td>
+              <td>
+                <mark className="plugin">Расширитель HDR</mark>
+              </td>
+              <td>
+                <mark className="plugin">HDR Compander</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/VvH1JOdd_Cw&t=6"
@@ -4419,8 +5421,12 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>Сжатие подсветки HDR</td>
-              <td>HDR Highlight Compression</td>
+              <td>
+                <mark className="plugin">Сжатие подсветки HDR</mark>
+              </td>
+              <td>
+                <mark className="plugin">HDR Highlight Compression</mark>
+              </td>
               <td>
                 <a
                   href="https://youtu.be/npeUQbpaZbA&t=6"
@@ -4457,40 +5463,76 @@ const AEWhereFind: React.FC = () => {
           </thead>
           <tbody>
             <tr>
-              <td>Возникновение возгоранием</td>
-              <td>Flicker In</td>
+              <td>
+                <mark className="copy">Возникновение возгоранием</mark>
+              </td>
+              <td>
+                <mark className="copy">Flicker In</mark>
+              </td>
             </tr>
             <tr>
-              <td>Возникновение вскакиванием</td>
-              <td>Pop In</td>
+              <td>
+                <mark className="copy">Возникновение вскакиванием</mark>
+              </td>
+              <td>
+                <mark className="copy">Pop In</mark>
+              </td>
             </tr>
             <tr>
-              <td>Возникновение вырастанием</td>
-              <td>Grow In</td>
+              <td>
+                <mark className="copy">Возникновение вырастанием</mark>
+              </td>
+              <td>
+                <mark className="copy">Grow In</mark>
+              </td>
             </tr>
             <tr>
-              <td>Возникновение кручением</td>
-              <td>Spin In</td>
+              <td>
+                <mark className="copy">Возникновение кручением</mark>
+              </td>
+              <td>
+                <mark className="copy">Spin In</mark>
+              </td>
             </tr>
             <tr>
-              <td>Возникновение прыжками</td>
-              <td>Tumble In</td>
+              <td>
+                <mark className="copy">Возникновение прыжками</mark>
+              </td>
+              <td>
+                <mark className="copy">Tumble In</mark>
+              </td>
             </tr>
             <tr>
-              <td>Возникновение сдвигом</td>
-              <td>Slide In</td>
+              <td>
+                <mark className="copy">Возникновение сдвигом</mark>
+              </td>
+              <td>
+                <mark className="copy">Slide In</mark>
+              </td>
             </tr>
             <tr>
-              <td>Возникновение тряской</td>
-              <td>Bungee In</td>
+              <td>
+                <mark className="copy">Возникновение тряской</mark>
+              </td>
+              <td>
+                <mark className="copy">Bungee In</mark>
+              </td>
             </tr>
             <tr>
-              <td>Возникновение уменьшением</td>
-              <td>Shrink In</td>
+              <td>
+                <mark className="copy">Возникновение уменьшением</mark>
+              </td>
+              <td>
+                <mark className="copy">Shrink In</mark>
+              </td>
             </tr>
             <tr>
-              <td>Постепенное возникновение</td>
-              <td>Fade In</td>
+              <td>
+                <mark className="copy">Постепенное возникновение</mark>
+              </td>
+              <td>
+                <mark className="copy">Fade In</mark>
+              </td>
             </tr>
           </tbody>
         </table>{" "}
@@ -4504,40 +5546,76 @@ const AEWhereFind: React.FC = () => {
           </thead>
           <tbody>
             <tr>
-              <td>Цикл вращения</td>
-              <td>Spin Loop</td>
+              <td>
+                <mark className="copy">Цикл вращения</mark>
+              </td>
+              <td>
+                <mark className="copy">Spin Loop</mark>
+              </td>
             </tr>
             <tr>
-              <td>Цикл дрожания</td>
-              <td>Jitter Loop</td>
+              <td>
+                <mark className="copy">Цикл дрожания</mark>
+              </td>
+              <td>
+                <mark className="copy">Jitter Loop</mark>
+              </td>
             </tr>
             <tr>
-              <td>Цикл дыхания</td>
-              <td>Breathe Loop</td>
+              <td>
+                <mark className="copy">Цикл дыхания</mark>
+              </td>
+              <td>
+                <mark className="copy">Breathe Loop</mark>
+              </td>
             </tr>
             <tr>
-              <td>Цикл извивания</td>
-              <td>Wiggle Loop</td>
+              <td>
+                <mark className="copy">Цикл извивания</mark>
+              </td>
+              <td>
+                <mark className="copy">Wiggle Loop</mark>
+              </td>
             </tr>
             <tr>
-              <td>Цикл качания</td>
-              <td>Bob Loop</td>
+              <td>
+                <mark className="copy">Цикл качания</mark>
+              </td>
+              <td>
+                <mark className="copy">Bob Loop</mark>
+              </td>
             </tr>
             <tr>
-              <td>Цикл мерцания</td>
-              <td>Flicker Loop</td>
+              <td>
+                <mark className="copy">Цикл мерцания</mark>
+              </td>
+              <td>
+                <mark className="copy">Flicker Loop</mark>
+              </td>
             </tr>
             <tr>
-              <td>Цикл мигания</td>
-              <td>Blinking Loop</td>
+              <td>
+                <mark className="copy">Цикл мигания</mark>
+              </td>
+              <td>
+                <mark className="copy">Blinking Loop</mark>
+              </td>
             </tr>
             <tr>
-              <td>Цикл подпрыгивания</td>
-              <td>Yoyo Loop</td>
+              <td>
+                <mark className="copy">Цикл подпрыгивания</mark>
+              </td>
+              <td>
+                <mark className="copy">Yoyo Loop</mark>
+              </td>
             </tr>
             <tr>
-              <td>Цикл пульса</td>
-              <td>Pulse Loop</td>
+              <td>
+                <mark className="copy">Цикл пульса</mark>
+              </td>
+              <td>
+                <mark className="copy">Pulse Loop</mark>
+              </td>
             </tr>
           </tbody>
         </table>
@@ -4551,40 +5629,76 @@ const AEWhereFind: React.FC = () => {
           </thead>
           <tbody>
             <tr>
-              <td>Исчезновение вырастанием</td>
-              <td>Grow Out</td>
+              <td>
+                <mark className="copy">Исчезновение вырастанием</mark>
+              </td>
+              <td>
+                <mark className="copy">Grow Out</mark>
+              </td>
             </tr>
             <tr>
-              <td>Исчезновение выскакиванием</td>
-              <td>Pop Out</td>
+              <td>
+                <mark className="copy">Исчезновение выскакиванием</mark>
+              </td>
+              <td>
+                <mark className="copy">Pop Out</mark>
+              </td>
             </tr>
             <tr>
-              <td>Исчезновение кручением</td>
-              <td>Spin Out</td>
+              <td>
+                <mark className="copy">Исчезновение кручением</mark>
+              </td>
+              <td>
+                <mark className="copy">Spin Out</mark>
+              </td>
             </tr>
             <tr>
-              <td>Исчезновение прыжками</td>
-              <td>Tumble Out</td>
+              <td>
+                <mark className="copy">Исчезновение прыжками</mark>
+              </td>
+              <td>
+                <mark className="copy">Tumble Out</mark>
+              </td>
             </tr>
             <tr>
-              <td>Исчезновение сдвигом</td>
-              <td>Slide Out</td>
+              <td>
+                <mark className="copy">Исчезновение сдвигом</mark>
+              </td>
+              <td>
+                <mark className="copy">Slide Out</mark>
+              </td>
             </tr>
             <tr>
-              <td>Исчезновение тряской</td>
-              <td>Bungee Out</td>
+              <td>
+                <mark className="copy">Исчезновение тряской</mark>
+              </td>
+              <td>
+                <mark className="copy">Bungee Out</mark>
+              </td>
             </tr>
             <tr>
-              <td>Исчезновение угасанием</td>
-              <td>Flicker Out</td>
+              <td>
+                <mark className="copy">Исчезновение угасанием</mark>
+              </td>
+              <td>
+                <mark className="copy">Flicker Out</mark>
+              </td>
             </tr>
             <tr>
-              <td>Исчезновение уменьшением</td>
-              <td>Shrink Out</td>
+              <td>
+                <mark className="copy">Исчезновение уменьшением</mark>
+              </td>
+              <td>
+                <mark className="copy">Shrink Out</mark>
+              </td>
             </tr>
             <tr>
-              <td>Постепенное исчезновение</td>
-              <td>Fade Out</td>
+              <td>
+                <mark className="copy">Постепенное исчезновение</mark>
+              </td>
+              <td>
+                <mark className="copy">Fade Out</mark>
+              </td>
             </tr>
           </tbody>
         </table>
@@ -4598,100 +5712,196 @@ const AEWhereFind: React.FC = () => {
           </thead>
           <tbody>
             <tr>
-              <td>Аниме - быстрые линии</td>
-              <td>Anime Speed Lines</td>
+              <td>
+                <mark className="copy">Аниме - быстрые линии</mark>
+              </td>
+              <td>
+                <mark className="copy">Anime Speed Lines</mark>
+              </td>
             </tr>
             <tr>
-              <td>Аниме - радиальные линии</td>
-              <td>Anime Radial</td>
+              <td>
+                <mark className="copy">Аниме - радиальные линии</mark>
+              </td>
+              <td>
+                <mark className="copy">Anime Radial</mark>
+              </td>
             </tr>
             <tr>
-              <td>Видение</td>
-              <td>Apparition</td>
+              <td>
+                <mark className="copy">Видение</mark>
+              </td>
+              <td>
+                <mark className="copy">Apparition</mark>
+              </td>
             </tr>
             <tr>
-              <td>Глубокие ткани</td>
-              <td>Deep Tissue</td>
+              <td>
+                <mark className="copy">Глубокие ткани</mark>
+              </td>
+              <td>
+                <mark className="copy">Deep Tissue</mark>
+              </td>
             </tr>
             <tr>
-              <td>Гонки прямоугольников</td>
-              <td>Racing Rectangles</td>
+              <td>
+                <mark className="copy">Гонки прямоугольников</mark>
+              </td>
+              <td>
+                <mark className="copy">Racing Rectangles</mark>
+              </td>
             </tr>
             <tr>
-              <td>Жуть</td>
-              <td>Creepy</td>
+              <td>
+                <mark className="copy">Жуть</mark>
+              </td>
+              <td>
+                <mark className="copy">Creepy</mark>
+              </td>
             </tr>
             <tr>
-              <td>Занавес</td>
-              <td>Curtain</td>
+              <td>
+                <mark className="copy">Занавес</mark>
+              </td>
+              <td>
+                <mark className="copy">Curtain</mark>
+              </td>
             </tr>
             <tr>
-              <td>Зеленые кристалы</td>
-              <td>Green Crystals</td>
+              <td>
+                <mark className="copy">Зеленые кристалы</mark>
+              </td>
+              <td>
+                <mark className="copy">Green Crystals</mark>
+              </td>
             </tr>
             <tr>
-              <td>Зигзаг молнии</td>
-              <td>Lightning Bend</td>
+              <td>
+                <mark className="copy">Зигзаг молнии</mark>
+              </td>
+              <td>
+                <mark className="copy">Lightning Bend</mark>
+              </td>
             </tr>
             <tr>
-              <td>Инфекция</td>
-              <td>Infection</td>
+              <td>
+                <mark className="copy">Инфекция</mark>
+              </td>
+              <td>
+                <mark className="copy">Infection</mark>
+              </td>
             </tr>
             <tr>
-              <td>Кирпичи</td>
-              <td>Blocks</td>
+              <td>
+                <mark className="copy">Кирпичи</mark>
+              </td>
+              <td>
+                <mark className="copy">Blocks</mark>
+              </td>
             </tr>
             <tr>
-              <td>Космическая мощь</td>
-              <td>Cosmic Power</td>
+              <td>
+                <mark className="copy">Космическая мощь</mark>
+              </td>
+              <td>
+                <mark className="copy">Cosmic Power</mark>
+              </td>
             </tr>
             <tr>
-              <td>Красная скорость</td>
-              <td>Red Speed</td>
+              <td>
+                <mark className="copy">Красная скорость</mark>
+              </td>
+              <td>
+                <mark className="copy">Red Speed</mark>
+              </td>
             </tr>
             <tr>
-              <td>Магма</td>
-              <td>Magma</td>
+              <td>
+                <mark className="copy">Магма</mark>
+              </td>
+              <td>
+                <mark className="copy">Magma</mark>
+              </td>
             </tr>
             <tr>
-              <td>Несварение</td>
-              <td>Indigestion</td>
+              <td>
+                <mark className="copy">Несварение</mark>
+              </td>
+              <td>
+                <mark className="copy">Indigestion</mark>
+              </td>
             </tr>
             <tr>
-              <td>Огни в тумане</td>
-              <td>Fog Lights</td>
+              <td>
+                <mark className="copy">Огни в тумане</mark>
+              </td>
+              <td>
+                <mark className="copy">Fog Lights</mark>
+              </td>
             </tr>
             <tr>
-              <td>Поднимающийся дым</td>
-              <td>Smoke Rising</td>
+              <td>
+                <mark className="copy">Поднимающийся дым</mark>
+              </td>
+              <td>
+                <mark className="copy">Smoke Rising</mark>
+              </td>
             </tr>
             <tr>
-              <td>Река</td>
-              <td>River</td>
+              <td>
+                <mark className="copy">Река</mark>
+              </td>
+              <td>
+                <mark className="copy">River</mark>
+              </td>
             </tr>
             <tr>
-              <td>Розовый свет</td>
-              <td>Rose Light</td>
+              <td>
+                <mark className="copy">Розовый свет</mark>
+              </td>
+              <td>
+                <mark className="copy">Rose Light</mark>
+              </td>
             </tr>
             <tr>
-              <td>Стремительные изгибы</td>
-              <td>Sweeping Curves</td>
+              <td>
+                <mark className="copy">Стремительные изгибы</mark>
+              </td>
+              <td>
+                <mark className="copy">Sweeping Curves</mark>
+              </td>
             </tr>
             <tr>
-              <td>Сфера</td>
-              <td>Orb</td>
+              <td>
+                <mark className="copy">Сфера</mark>
+              </td>
+              <td>
+                <mark className="copy">Orb</mark>
+              </td>
             </tr>
             <tr>
-              <td>Угольки</td>
-              <td>Cinders</td>
+              <td>
+                <mark className="copy">Угольки</mark>
+              </td>
+              <td>
+                <mark className="copy">Cinders</mark>
+              </td>
             </tr>
             <tr>
-              <td>Шелк</td>
-              <td>Silk</td>
+              <td>
+                <mark className="copy">Шелк</mark>
+              </td>
+              <td>
+                <mark className="copy">Silk</mark>
+              </td>
             </tr>
             <tr>
-              <td>Электрическая цепь</td>
-              <td>Circuit</td>
+              <td>
+                <mark className="copy">Электрическая цепь</mark>
+              </td>
+              <td>
+                <mark className="copy">Circuit</mark>
+              </td>
             </tr>
           </tbody>
         </table>
@@ -4705,112 +5915,224 @@ const AEWhereFind: React.FC = () => {
           </thead>
           <tbody>
             <tr>
-              <td>Автопрокрутка - по вертикали</td>
-              <td>Autoscroll - vertical</td>
+              <td>
+                <mark className="copy">Автопрокрутка - по вертикали</mark>
+              </td>
+              <td>
+                <mark className="copy">Autoscroll - vertical</mark>
+              </td>
             </tr>
             <tr>
-              <td>Автопрокрутка - по горизонтали</td>
-              <td>Autoscroll - horizontal</td>
+              <td>
+                <mark className="copy">Автопрокрутка - по горизонтали</mark>
+              </td>
+              <td>
+                <mark className="copy">Autoscroll - horizontal</mark>
+              </td>
             </tr>
             <tr>
-              <td>Генерация значения волны</td>
-              <td>Wave Value Generator</td>
+              <td>
+                <mark className="copy">Генерация значения волны</mark>
+              </td>
+              <td>
+                <mark className="copy">Wave Value Generator</mark>
+              </td>
             </tr>
             <tr>
-              <td>Затухание поверх нижнего слоя</td>
-              <td>Fade Out Over Layer Below</td>
+              <td>
+                <mark className="copy">Затухание поверх нижнего слоя</mark>
+              </td>
+              <td>
+                <mark className="copy">Fade Out Over Layer Below</mark>
+              </td>
             </tr>
             <tr>
-              <td>Колебания</td>
-              <td>Wigglerama</td>
+              <td>
+                <mark className="copy">Колебания</mark>
+              </td>
+              <td>
+                <mark className="copy">Wigglerama</mark>
+              </td>
             </tr>
             <tr>
-              <td>Масштаб по осям XYZ</td>
-              <td>Separate XYZ Scale</td>
+              <td>
+                <mark className="copy">Масштаб по осям XYZ</mark>
+              </td>
+              <td>
+                <mark className="copy">Separate XYZ Scale</mark>
+              </td>
             </tr>
             <tr>
-              <td>Масштабирование одиночного отражения сигнала - по маркерам слоя</td>
-              <td>Scale Bounce - layer markers</td>
+              <td>
+                <mark className="copy">
+                  Масштабирование одиночного отражения сигнала - по маркерам слоя
+                </mark>
+              </td>
+              <td>
+                <mark className="copy">Scale Bounce - layer markers</mark>
+              </td>
             </tr>
             <tr>
-              <td>Масштабирование одиночного отражения сигнала - произвольно</td>
-              <td>Scale Bounce - random</td>
+              <td>
+                <mark className="copy">
+                  Масштабирование одиночного отражения сигнала - произвольно
+                </mark>
+              </td>
+              <td>
+                <mark className="copy">Scale Bounce - random</mark>
+              </td>
             </tr>
             <tr>
-              <td>Мигание непрозрачности - по маркерам слоя</td>
-              <td>Opacity Flash - layer markers</td>
+              <td>
+                <mark className="copy">Мигание непрозрачности - по маркерам слоя</mark>
+              </td>
+              <td>
+                <mark className="copy">Opacity Flash - layer markers</mark>
+              </td>
             </tr>
             <tr>
-              <td>Мигание непрозрачности - произвольно</td>
-              <td>Opacity Flash - random</td>
+              <td>
+                <mark className="copy">Мигание непрозрачности - произвольно</mark>
+              </td>
+              <td>
+                <mark className="copy">Opacity Flash - random</mark>
+              </td>
             </tr>
             <tr>
-              <td>Моргание непрозрачности</td>
-              <td>Blinking Opacity</td>
+              <td>
+                <mark className="copy">Моргание непрозрачности</mark>
+              </td>
+              <td>
+                <mark className="copy">Blinking Opacity</mark>
+              </td>
             </tr>
             <tr>
-              <td>Нарастание + затухание - кадры</td>
-              <td>Fade In+Out - frames</td>
+              <td>
+                <mark className="copy">Нарастание + затухание - кадры</mark>
+              </td>
+              <td>
+                <mark className="copy">Fade In+Out - frames</mark>
+              </td>
             </tr>
             <tr>
-              <td>Нарастание + затухание - мс</td>
-              <td>Fade In+Out - msec</td>
+              <td>
+                <mark className="copy">Нарастание + затухание - мс</mark>
+              </td>
+              <td>
+                <mark className="copy">Fade In+Out - msec</mark>
+              </td>
             </tr>
             <tr>
-              <td>Нарастание поверх нижнего слоя</td>
-              <td>Fade In Over Layer Below</td>
+              <td>
+                <mark className="copy">Нарастание поверх нижнего слоя</mark>
+              </td>
+              <td>
+                <mark className="copy">Fade In Over Layer Below</mark>
+              </td>
             </tr>
             <tr>
-              <td>Обрезать контуры - на слой в кадр</td>
-              <td>Trim Paths - at layer in</td>
+              <td>
+                <mark className="copy">Обрезать контуры - на слой в кадр</mark>
+              </td>
+              <td>
+                <mark className="copy">Trim Paths - at layer in</mark>
+              </td>
             </tr>
             <tr>
-              <td>Обрезать контуры - на слой из кадра</td>
-              <td>Trim Paths - at layer out</td>
+              <td>
+                <mark className="copy">Обрезать контуры - на слой из кадра</mark>
+              </td>
+              <td>
+                <mark className="copy">Trim Paths - at layer out</mark>
+              </td>
             </tr>
             <tr>
-              <td>Поворот со временем</td>
-              <td>Rotate Over Time</td>
+              <td>
+                <mark className="copy">Поворот со временем</mark>
+              </td>
+              <td>
+                <mark className="copy">Rotate Over Time</mark>
+              </td>
             </tr>
             <tr>
-              <td>Покачивания - желе</td>
-              <td>Wiggle - gelatin</td>
+              <td>
+                <mark className="copy">Покачивания - желе</mark>
+              </td>
+              <td>
+                <mark className="copy">Wiggle - gelatin</mark>
+              </td>
             </tr>
             <tr>
-              <td>Покачивания - наклон</td>
-              <td>Wiggle - shear</td>
+              <td>
+                <mark className="copy">Покачивания - наклон</mark>
+              </td>
+              <td>
+                <mark className="copy">Wiggle - shear</mark>
+              </td>
             </tr>
             <tr>
-              <td>Покачивания - поворот</td>
-              <td>Wiggle - rotation</td>
+              <td>
+                <mark className="copy">Покачивания - поворот</mark>
+              </td>
+              <td>
+                <mark className="copy">Wiggle - rotation</mark>
+              </td>
             </tr>
             <tr>
-              <td>Покачивания - позиция</td>
-              <td>Wiggle - position</td>
+              <td>
+                <mark className="copy">Покачивания - позиция</mark>
+              </td>
+              <td>
+                <mark className="copy">Wiggle - position</mark>
+              </td>
             </tr>
             <tr>
-              <td>Покачивания - шкала</td>
-              <td>Wiggle - scale</td>
+              <td>
+                <mark className="copy">Покачивания - шкала</mark>
+              </td>
+              <td>
+                <mark className="copy">Wiggle - scale</mark>
+              </td>
             </tr>
             <tr>
-              <td>Принудительное использование опорной точки</td>
-              <td>Lock Anchor Point</td>
+              <td>
+                <mark className="copy">Принудительное использование опорной точки</mark>
+              </td>
+              <td>
+                <mark className="copy">Lock Anchor Point</mark>
+              </td>
             </tr>
             <tr>
-              <td>Случайное вкл.-выкл.</td>
-              <td>Random On-Off</td>
+              <td>
+                <mark className="copy">Случайное вкл.-выкл.</mark>
+              </td>
+              <td>
+                <mark className="copy">Random On-Off</mark>
+              </td>
             </tr>
             <tr>
-              <td>Случайные цвета</td>
-              <td>Random Colors</td>
+              <td>
+                <mark className="copy">Случайные цвета</mark>
+              </td>
+              <td>
+                <mark className="copy">Random Colors</mark>
+              </td>
             </tr>
             <tr>
-              <td>Случайные целые числа</td>
-              <td>Random Whole Numbers</td>
+              <td>
+                <mark className="copy">Случайные целые числа</mark>
+              </td>
+              <td>
+                <mark className="copy">Random Whole Numbers</mark>
+              </td>
             </tr>
             <tr>
-              <td>Смещение со временем</td>
-              <td>Drift Over Time</td>
+              <td>
+                <mark className="copy">Смещение со временем</mark>
+              </td>
+              <td>
+                <mark className="copy">Drift Over Time</mark>
+              </td>
             </tr>
           </tbody>
         </table>
@@ -4824,124 +6146,244 @@ const AEWhereFind: React.FC = () => {
           </thead>
           <tbody>
             <tr>
-              <td>Виньетированная подсветка</td>
-              <td>Vignette Lighting</td>
+              <td>
+                <mark className="copy">Виньетированная подсветка</mark>
+              </td>
+              <td>
+                <mark className="copy">Vignette Lighting</mark>
+              </td>
             </tr>
             <tr>
-              <td>Декоративная подсветка - аморфная</td>
-              <td>Mood Lighting - amorphous</td>
+              <td>
+                <mark className="copy">Декоративная подсветка - аморфная</mark>
+              </td>
+              <td>
+                <mark className="copy">Mood Lighting - amorphous</mark>
+              </td>
             </tr>
             <tr>
-              <td>Декоративная подсветка - полосы</td>
-              <td>Mood Lighting - streaks</td>
+              <td>
+                <mark className="copy">Декоративная подсветка - полосы</mark>
+              </td>
+              <td>
+                <mark className="copy">Mood Lighting - streaks</mark>
+              </td>
             </tr>
             <tr>
-              <td>Декоративная подсветка - цифровая</td>
-              <td>Mood Lighting - digital</td>
+              <td>
+                <mark className="copy">Декоративная подсветка - цифровая</mark>
+              </td>
+              <td>
+                <mark className="copy">Mood Lighting - digital</mark>
+              </td>
             </tr>
             <tr>
-              <td>Зашумленное виньетирование</td>
-              <td>Noisy Vignette</td>
+              <td>
+                <mark className="copy">Зашумленное виньетирование</mark>
+              </td>
+              <td>
+                <mark className="copy">Noisy Vignette</mark>
+              </td>
             </tr>
             <tr>
-              <td>Контрастность - насыщенность</td>
-              <td>Contrast - saturation</td>
+              <td>
+                <mark className="copy">Контрастность - насыщенность</mark>
+              </td>
+              <td>
+                <mark className="copy">Contrast - saturation</mark>
+              </td>
             </tr>
             <tr>
-              <td>Контрастность - яркость</td>
-              <td>Contrast - luminance</td>
+              <td>
+                <mark className="copy">Контрастность - яркость</mark>
+              </td>
+              <td>
+                <mark className="copy">Contrast - luminance</mark>
+              </td>
             </tr>
             <tr>
-              <td>Наложенные тени</td>
-              <td>Stacked Drop Shadows</td>
+              <td>
+                <mark className="copy">Наложенные тени</mark>
+              </td>
+              <td>
+                <mark className="copy">Stacked Drop Shadows</mark>
+              </td>
             </tr>
             <tr>
-              <td>Оттенки серого 1</td>
-              <td>Grayscale 1</td>
+              <td>
+                <mark className="copy">Оттенки серого 1</mark>
+              </td>
+              <td>
+                <mark className="copy">Grayscale 1</mark>
+              </td>
             </tr>
             <tr>
-              <td>Оттенки серого 2</td>
-              <td>Grayscale 2</td>
+              <td>
+                <mark className="copy">Оттенки серого 2</mark>
+              </td>
+              <td>
+                <mark className="copy">Grayscale 2</mark>
+              </td>
             </tr>
             <tr>
-              <td>Оттенки серого 3</td>
-              <td>Grayscale 3</td>
+              <td>
+                <mark className="copy">Оттенки серого 3</mark>
+              </td>
+              <td>
+                <mark className="copy">Grayscale 3</mark>
+              </td>
             </tr>
             <tr>
-              <td>Оттенки серого 4</td>
-              <td>Grayscale 4</td>
+              <td>
+                <mark className="copy">Оттенки серого 4</mark>
+              </td>
+              <td>
+                <mark className="copy">Grayscale 4</mark>
+              </td>
             </tr>
             <tr>
-              <td>Размер - свечение+тень</td>
-              <td>Dimension - glow+shadow</td>
+              <td>
+                <mark className="copy">Размер - свечение+тень</mark>
+              </td>
+              <td>
+                <mark className="copy">Dimension - glow+shadow</mark>
+              </td>
             </tr>
             <tr>
-              <td>Размер - фаска+тень</td>
-              <td>Dimension - bevel+shadow</td>
+              <td>
+                <mark className="copy">Размер - фаска+тень</mark>
+              </td>
+              <td>
+                <mark className="copy">Dimension - bevel+shadow</mark>
+              </td>
             </tr>
             <tr>
-              <td>Тонирование - голубое небо</td>
-              <td>Colorize - sky blue</td>
+              <td>
+                <mark className="copy">Тонирование - голубое небо</mark>
+              </td>
+              <td>
+                <mark className="copy">Colorize - sky blue</mark>
+              </td>
             </tr>
             <tr>
-              <td>Тонирование - градиент заката</td>
-              <td>Colorize - sunset gradient</td>
+              <td>
+                <mark className="copy">Тонирование - градиент заката</mark>
+              </td>
+              <td>
+                <mark className="copy">Colorize - sunset gradient</mark>
+              </td>
             </tr>
             <tr>
-              <td>Тонирование - инфракрасный</td>
-              <td>Colorize - infrared</td>
+              <td>
+                <mark className="copy">Тонирование - инфракрасный</mark>
+              </td>
+              <td>
+                <mark className="copy">Colorize - infrared</mark>
+              </td>
             </tr>
             <tr>
-              <td>Тонирование - королевский пурпур</td>
-              <td>Colorize - royal purple</td>
+              <td>
+                <mark className="copy">Тонирование - королевский пурпур</mark>
+              </td>
+              <td>
+                <mark className="copy">Colorize - royal purple</mark>
+              </td>
             </tr>
             <tr>
-              <td>Тонирование - красный отпечаток руки</td>
-              <td>Colorize - red hand tint</td>
+              <td>
+                <mark className="copy">Тонирование - красный отпечаток руки</mark>
+              </td>
+              <td>
+                <mark className="copy">Colorize - red hand tint</mark>
+              </td>
             </tr>
             <tr>
-              <td>Тонирование - лунные тени</td>
-              <td>Colorize - moonshadows</td>
+              <td>
+                <mark className="copy">Тонирование - лунные тени</mark>
+              </td>
+              <td>
+                <mark className="copy">Colorize - moonshadows</mark>
+              </td>
             </tr>
             <tr>
-              <td>Тонирование - оранжевое небо</td>
-              <td>Colorize - sky orange</td>
+              <td>
+                <mark className="copy">Тонирование - оранжевое небо</mark>
+              </td>
+              <td>
+                <mark className="copy">Colorize - sky orange</mark>
+              </td>
             </tr>
             <tr>
-              <td>Тонирование - погружение в золото</td>
-              <td>Colorize - gold dip</td>
+              <td>
+                <mark className="copy">Тонирование - погружение в золото</mark>
+              </td>
+              <td>
+                <mark className="copy">Colorize - gold dip</mark>
+              </td>
             </tr>
             <tr>
-              <td>Тонирование - сепия</td>
-              <td>Colorize - sepia</td>
+              <td>
+                <mark className="copy">Тонирование - сепия</mark>
+              </td>
+              <td>
+                <mark className="copy">Colorize - sepia</mark>
+              </td>
             </tr>
             <tr>
-              <td>Тонирование - синяя акварель</td>
-              <td>Colorize - blue wash</td>
+              <td>
+                <mark className="copy">Тонирование - синяя акварель</mark>
+              </td>
+              <td>
+                <mark className="copy">Colorize - blue wash</mark>
+              </td>
             </tr>
             <tr>
-              <td>Цветение - кристаллизация 1</td>
-              <td>Bloom - crystallize 1</td>
+              <td>
+                <mark className="copy">Цветение - кристаллизация 1</mark>
+              </td>
+              <td>
+                <mark className="copy">Bloom - crystallize 1</mark>
+              </td>
             </tr>
             <tr>
-              <td>Цветение - кристаллизация 2</td>
-              <td>Bloom - crystallize 2</td>
+              <td>
+                <mark className="copy">Цветение - кристаллизация 2</mark>
+              </td>
+              <td>
+                <mark className="copy">Bloom - crystallize 2</mark>
+              </td>
             </tr>
             <tr>
-              <td>Цветение - светлые+темные</td>
-              <td>Bloom - brights+darks</td>
+              <td>
+                <mark className="copy">Цветение - светлые+темные</mark>
+              </td>
+              <td>
+                <mark className="copy">Bloom - brights+darks</mark>
+              </td>
             </tr>
             <tr>
-              <td>Цветение - яркие краски</td>
-              <td>Bloom - brights</td>
+              <td>
+                <mark className="copy">Цветение - яркие краски</mark>
+              </td>
+              <td>
+                <mark className="copy">Bloom - brights</mark>
+              </td>
             </tr>
             <tr>
-              <td>Эффект мерцания VHS</td>
-              <td>VHS Flicker Effect</td>
+              <td>
+                <mark className="copy">Эффект мерцания VHS</mark>
+              </td>
+              <td>
+                <mark className="copy">VHS Flicker Effect</mark>
+              </td>
             </tr>
             <tr>
-              <td>Эффект отрисовки вручную</td>
-              <td>Hand Drawn Effect</td>
+              <td>
+                <mark className="copy">Эффект отрисовки вручную</mark>
+              </td>
+              <td>
+                <mark className="copy">Hand Drawn Effect</mark>
+              </td>
             </tr>
           </tbody>
         </table>
@@ -4955,36 +6397,68 @@ const AEWhereFind: React.FC = () => {
           </thead>
           <tbody>
             <tr>
-              <td>Ночное видение</td>
-              <td>Night Vision</td>
+              <td>
+                <mark className="copy">Ночное видение</mark>
+              </td>
+              <td>
+                <mark className="copy">Night Vision</mark>
+              </td>
             </tr>
             <tr>
-              <td>Ошибки регистрации движения</td>
-              <td>Motion Registration Errors</td>
+              <td>
+                <mark className="copy">Ошибки регистрации движения</mark>
+              </td>
+              <td>
+                <mark className="copy">Motion Registration Errors</mark>
+              </td>
             </tr>
             <tr>
-              <td>Плохой телевизор 1 - деформация</td>
-              <td>Bad TV 1 - warp</td>
+              <td>
+                <mark className="copy">Плохой телевизор 1 - деформация</mark>
+              </td>
+              <td>
+                <mark className="copy">Bad TV 1 - warp</mark>
+              </td>
             </tr>
             <tr>
-              <td>Плохой телевизор 2 - старый</td>
-              <td>Bad TV 2 - old</td>
+              <td>
+                <mark className="copy">Плохой телевизор 2 - старый</mark>
+              </td>
+              <td>
+                <mark className="copy">Bad TV 2 - old</mark>
+              </td>
             </tr>
             <tr>
-              <td>Плохой телевизор 3 - слабый</td>
-              <td>Bad TV 3 - weak</td>
+              <td>
+                <mark className="copy">Плохой телевизор 3 - слабый</mark>
+              </td>
+              <td>
+                <mark className="copy">Bad TV 3 - weak</mark>
+              </td>
             </tr>
             <tr>
-              <td>Треснутый кафель</td>
-              <td>Cracked Tiles</td>
+              <td>
+                <mark className="copy">Треснутый кафель</mark>
+              </td>
+              <td>
+                <mark className="copy">Cracked Tiles</mark>
+              </td>
             </tr>
             <tr>
-              <td>Утечки света - по маркерам слоя</td>
-              <td>Light Leaks - layer markers</td>
+              <td>
+                <mark className="copy">Утечки света - по маркерам слоя</mark>
+              </td>
+              <td>
+                <mark className="copy">Light Leaks - layer markers</mark>
+              </td>
             </tr>
             <tr>
-              <td>Утечки света - произвольно</td>
-              <td>Light Leaks - random</td>
+              <td>
+                <mark className="copy">Утечки света - произвольно</mark>
+              </td>
+              <td>
+                <mark className="copy">Light Leaks - random</mark>
+              </td>
             </tr>
           </tbody>
         </table>
@@ -4998,60 +6472,120 @@ const AEWhereFind: React.FC = () => {
           </thead>
           <tbody>
             <tr>
-              <td>Keylight + Ключевая очистка + Расширенное подавление пропуска цвета</td>
-              <td>Keylight + Key Cleaner + Advanced Spill Suppressor</td>
+              <td>
+                <mark className="copy">
+                  Keylight + Ключевая очистка + Расширенное подавление пропуска цвета
+                </mark>
+              </td>
+              <td>
+                <mark className="copy">
+                  Keylight + Key Cleaner + Advanced Spill Suppressor
+                </mark>
+              </td>
             </tr>
             <tr>
-              <td>Альфа-каналы из освещенности (Unmult)</td>
-              <td>Alpha From Lightness (Unmult)</td>
+              <td>
+                <mark className="copy">Альфа-каналы из освещенности (Unmult)</mark>
+              </td>
+              <td>
+                <mark className="copy">Alpha From Lightness (Unmult)</mark>
+              </td>
             </tr>
             <tr>
-              <td>Альфа-увеличение и выделение</td>
-              <td>Magnify & Preserve Alpha</td>
+              <td>
+                <mark className="copy">Альфа-увеличение и выделение</mark>
+              </td>
+              <td>
+                <mark className="copy">Magnify & Preserve Alpha</mark>
+              </td>
             </tr>
             <tr>
-              <td>Динамический диапазон сжатия-расширения</td>
-              <td>Compress-Expand Dynamic Range</td>
+              <td>
+                <mark className="copy">Динамический диапазон сжатия-расширения</mark>
+              </td>
+              <td>
+                <mark className="copy">Compress-Expand Dynamic Range</mark>
+              </td>
             </tr>
             <tr>
-              <td>Инверсия альфа-канала</td>
-              <td>Invert Alpha</td>
+              <td>
+                <mark className="copy">Инверсия альфа-канала</mark>
+              </td>
+              <td>
+                <mark className="copy">Invert Alpha</mark>
+              </td>
             </tr>
             <tr>
-              <td>Обрезка краев</td>
-              <td>Crop Edges</td>
+              <td>
+                <mark className="copy">Обрезка краев</mark>
+              </td>
+              <td>
+                <mark className="copy">Crop Edges</mark>
+              </td>
             </tr>
             <tr>
-              <td>Отражение + переворот</td>
-              <td>Flip + Flop</td>
+              <td>
+                <mark className="copy">Отражение + переворот</mark>
+              </td>
+              <td>
+                <mark className="copy">Flip + Flop</mark>
+              </td>
             </tr>
             <tr>
-              <td>Отражение</td>
-              <td>Flip</td>
+              <td>
+                <mark className="copy">Отражение</mark>
+              </td>
+              <td>
+                <mark className="copy">Flip</mark>
+              </td>
             </tr>
             <tr>
-              <td>Переворот</td>
-              <td>Flop</td>
+              <td>
+                <mark className="copy">Переворот</mark>
+              </td>
+              <td>
+                <mark className="copy">Flop</mark>
+              </td>
             </tr>
             <tr>
-              <td>Пример выражения образа</td>
-              <td>Sample Image Expression</td>
+              <td>
+                <mark className="copy">Пример выражения образа</mark>
+              </td>
+              <td>
+                <mark className="copy">Sample Image Expression</mark>
+              </td>
             </tr>
             <tr>
-              <td>Прозрачное наложение - размытие зеленого</td>
-              <td>Keying - green blur</td>
+              <td>
+                <mark className="copy">Прозрачное наложение - размытие зеленого</mark>
+              </td>
+              <td>
+                <mark className="copy">Keying - green blur</mark>
+              </td>
             </tr>
             <tr>
-              <td>Прозрачное наложение - размытие синего</td>
-              <td>Keying - blue blur</td>
+              <td>
+                <mark className="copy">Прозрачное наложение - размытие синего</mark>
+              </td>
+              <td>
+                <mark className="copy">Keying - blue blur</mark>
+              </td>
             </tr>
             <tr>
-              <td>Уровни - из видео на компьютер</td>
-              <td>Levels - Video to Computer</td>
+              <td>
+                <mark className="copy">Уровни - из видео на компьютер</mark>
+              </td>
+              <td>
+                <mark className="copy">Levels - Video to Computer</mark>
+              </td>
             </tr>
             <tr>
-              <td>Уровни - с компьютера в видео</td>
-              <td>Levels - computer to video</td>
+              <td>
+                <mark className="copy">Уровни - с компьютера в видео</mark>
+              </td>
+              <td>
+                <mark className="copy">Levels - computer to video</mark>
+              </td>
             </tr>
           </tbody>
         </table>
@@ -5065,264 +6599,524 @@ const AEWhereFind: React.FC = () => {
           </thead>
           <tbody>
             <tr>
-              <td>3D - поворот по окружности</td>
-              <td>3D Rotate around Circle</td>
+              <td>
+                <mark className="copy">3D - поворот по окружности</mark>
+              </td>
+              <td>
+                <mark className="copy">3D Rotate around Circle</mark>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <mark className="copy">3D - увеличение масштаба строк</mark>
+              </td>
+              <td>
+                <mark className="copy">3D Lines Zoom In</mark>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <mark className="copy">Вертишка</mark>
+              </td>
+              <td>
+                <mark className="copy">Pinwheel</mark>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <mark className="copy">Возгорание</mark>
+              </td>
+              <td>
+                <mark className="copy">Inflammation</mark>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <mark className="copy">Вспыхивающие слова</mark>
+              </td>
+              <td>
+                <mark className="copy">Word Flash</mark>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <mark className="copy">Вставка видео - рваные края</mark>
+              </td>
+              <td>
+                <mark className="copy">Inset Video - torn edges</mark>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <mark className="copy">Вставка видео - с рамкой</mark>
+              </td>
+              <td>
+                <mark className="copy">Inset Video - framed</mark>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <mark className="copy">Входящие</mark>
+              </td>
+              <td>
+                <mark className="copy">Incoming</mark>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <mark className="copy">Вьющиеся ленты 2</mark>
+              </td>
+              <td>
+                <mark className="copy">Twisty Ribbons 2</mark>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <mark className="copy">Вьющиеся ленты</mark>
+              </td>
+              <td>
+                <mark className="copy">Twisty Ribbons</mark>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <mark className="copy">Голубые вспышки</mark>
+              </td>
+              <td>
+                <mark className="copy">Blue Flash</mark>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <mark className="copy">Замещение</mark>
+              </td>
+              <td>
+                <mark className="copy">Outgoing - Incoming</mark>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <mark className="copy">Звездная дорожка</mark>
+              </td>
+              <td>
+                <mark className="copy">Walk Of Stars</mark>
+              </td>
             </tr>
             <tr>
-              <td>3D - увеличение масштаба строк</td>
-              <td>3D Lines Zoom In</td>
+              <td>
+                <mark className="copy">Зеленые точки</mark>
+              </td>
+              <td>
+                <mark className="copy">Green Dots</mark>
+              </td>
             </tr>
             <tr>
-              <td>Вертишка</td>
-              <td>Pinwheel</td>
+              <td>
+                <mark className="copy">Зумер-США</mark>
+              </td>
+              <td>
+                <mark className="copy">DialTone-US</mark>
+              </td>
             </tr>
             <tr>
-              <td>Возгорание</td>
-              <td>Inflammation</td>
+              <td>
+                <mark className="copy">Изменчивость</mark>
+              </td>
+              <td>
+                <mark className="copy">Fluctuate</mark>
+              </td>
             </tr>
             <tr>
-              <td>Вспыхивающие слова</td>
-              <td>Word Flash</td>
+              <td>
+                <mark className="copy">Иступление</mark>
+              </td>
+              <td>
+                <mark className="copy">Frenzy</mark>
+              </td>
             </tr>
             <tr>
-              <td>Вставка видео - рваные края</td>
-              <td>Inset Video - torn edges</td>
+              <td>
+                <mark className="copy">Капли</mark>
+              </td>
+              <td>
+                <mark className="copy">Drop Bounce</mark>
+              </td>
             </tr>
             <tr>
-              <td>Вставка видео - с рамкой</td>
-              <td>Inset Video - framed</td>
+              <td>
+                <mark className="copy">Левая треть - маска ковша NTSC</mark>
+              </td>
+              <td>
+                <mark className="copy">Left Third - scoop mask NTSC</mark>
+              </td>
             </tr>
             <tr>
-              <td>Входящие</td>
-              <td>Incoming</td>
+              <td>
+                <mark className="copy">Левая треть - маска ковша PAL</mark>
+              </td>
+              <td>
+                <mark className="copy">Left Third - scoop mask PAL</mark>
+              </td>
             </tr>
             <tr>
-              <td>Вьющиеся ленты 2</td>
-              <td>Twisty Ribbons 2</td>
+              <td>
+                <mark className="copy">Мигающие полосы</mark>
+              </td>
+              <td>
+                <mark className="copy">Bars Blinky</mark>
+              </td>
             </tr>
             <tr>
-              <td>Вьющиеся ленты</td>
-              <td>Twisty Ribbons</td>
+              <td>
+                <mark className="copy">Многократная экспозиция с тиснением</mark>
+              </td>
+              <td>
+                <mark className="copy">Embossed Multiple Exposure</mark>
+              </td>
             </tr>
             <tr>
-              <td>Голубые вспышки</td>
-              <td>Blue Flash</td>
+              <td>
+                <mark className="copy">Многоножка</mark>
+              </td>
+              <td>
+                <mark className="copy">Centipede</mark>
+              </td>
             </tr>
             <tr>
-              <td>Замещение</td>
-              <td>Outgoing - Incoming</td>
+              <td>
+                <mark className="copy">Молния - по вертикали</mark>
+              </td>
+              <td>
+                <mark className="copy">Lightning - Vertical</mark>
+              </td>
             </tr>
             <tr>
-              <td>Звездная дорожка</td>
-              <td>Walk Of Stars</td>
+              <td>
+                <mark className="copy">Молния - по горизонтали</mark>
+              </td>
+              <td>
+                <mark className="copy">Lightning - Horizontal</mark>
+              </td>
             </tr>
             <tr>
-              <td>Зеленые точки</td>
-              <td>Green Dots</td>
+              <td>
+                <mark className="copy">Нижняя треть - маска ковша NTSC</mark>
+              </td>
+              <td>
+                <mark className="copy">Lower Third - scoop mask NTSC</mark>
+              </td>
             </tr>
             <tr>
-              <td>Зумер-США</td>
-              <td>DialTone-US</td>
+              <td>
+                <mark className="copy">Нижняя треть - маска ковша PAL</mark>
+              </td>
+              <td>
+                <mark className="copy">Lower Third - scoop mask PAL</mark>
+              </td>
             </tr>
             <tr>
-              <td>Изменчивость</td>
-              <td>Fluctuate</td>
+              <td>
+                <mark className="copy">Обрезка белого</mark>
+              </td>
+              <td>
+                <mark className="copy">White Trim</mark>
+              </td>
             </tr>
             <tr>
-              <td>Иступление</td>
-              <td>Frenzy</td>
+              <td>
+                <mark className="copy">Овалы - концентрические NTSC</mark>
+              </td>
+              <td>
+                <mark className="copy">Ovals - concentric NTSC</mark>
+              </td>
             </tr>
             <tr>
-              <td>Капли</td>
-              <td>Drop Bounce</td>
+              <td>
+                <mark className="copy">Овалы - концентрические PAL</mark>
+              </td>
+              <td>
+                <mark className="copy">Ovals - concentric PAL</mark>
+              </td>
             </tr>
             <tr>
-              <td>Левая треть - маска ковша NTSC</td>
-              <td>Left Third - scoop mask NTSC</td>
+              <td>
+                <mark className="copy">Овалы - произвольно 1 NTSC</mark>
+              </td>
+              <td>
+                <mark className="copy">Ovals - random 1 NTSC</mark>
+              </td>
             </tr>
             <tr>
-              <td>Левая треть - маска ковша PAL</td>
-              <td>Left Third - scoop mask PAL</td>
+              <td>
+                <mark className="copy">Овалы - произвольно 1 PAL</mark>
+              </td>
+              <td>
+                <mark className="copy">Ovals - random 1 PAL</mark>
+              </td>
             </tr>
             <tr>
-              <td>Мигающие полосы</td>
-              <td>Bars Blinky</td>
+              <td>
+                <mark className="copy">Овалы - произвольно 2 NTSC</mark>
+              </td>
+              <td>
+                <mark className="copy">Ovals - random 2 NTSC</mark>
+              </td>
             </tr>
             <tr>
-              <td>Многократная экспозиция с тиснением</td>
-              <td>Embossed Multiple Exposure</td>
+              <td>
+                <mark className="copy">Овалы - произвольно 2 PAL</mark>
+              </td>
+              <td>
+                <mark className="copy">Ovals - random 2 PAL</mark>
+              </td>
             </tr>
             <tr>
-              <td>Многоножка</td>
-              <td>Centipede</td>
+              <td>
+                <mark className="copy">Окна - заштрихованные NTSC</mark>
+              </td>
+              <td>
+                <mark className="copy">Boxes - stroked NTSC</mark>
+              </td>
             </tr>
             <tr>
-              <td>Молния - по вертикали</td>
-              <td>Lightning - Vertical</td>
+              <td>
+                <mark className="copy">Окна - заштрихованные PAL</mark>
+              </td>
+              <td>
+                <mark className="copy">Boxes - stroked PAL</mark>
+              </td>
             </tr>
             <tr>
-              <td>Молния - по горизонтали</td>
-              <td>Lightning - Horizontal</td>
+              <td>
+                <mark className="copy">Окна - концентрические NTSC</mark>
+              </td>
+              <td>
+                <mark className="copy">Boxes - concentric NTSC</mark>
+              </td>
             </tr>
             <tr>
-              <td>Нижняя треть - маска ковша NTSC</td>
-              <td>Lower Third - scoop mask NTSC</td>
+              <td>
+                <mark className="copy">Окна - концентрические PAL</mark>
+              </td>
+              <td>
+                <mark className="copy">Boxes - concentric PAL</mark>
+              </td>
             </tr>
             <tr>
-              <td>Нижняя треть - маска ковша PAL</td>
-              <td>Lower Third - scoop mask PAL</td>
+              <td>
+                <mark className="copy">Окна - произвольные 1 NTSC</mark>
+              </td>
+              <td>
+                <mark className="copy">Boxes - random 1 NTSC</mark>
+              </td>
             </tr>
             <tr>
-              <td>Обрезка белого</td>
-              <td>White Trim</td>
+              <td>
+                <mark className="copy">Окна - произвольные 1 PAL</mark>
+              </td>
+              <td>
+                <mark className="copy">Boxes - random 1 PAL</mark>
+              </td>
             </tr>
             <tr>
-              <td>Овалы - концентрические NTSC</td>
-              <td>Ovals - concentric NTSC</td>
+              <td>
+                <mark className="copy">Окна - произвольные 2 NTSC</mark>
+              </td>
+              <td>
+                <mark className="copy">Boxes - random 2 NTSC</mark>
+              </td>
             </tr>
             <tr>
-              <td>Овалы - концентрические PAL</td>
-              <td>Ovals - concentric PAL</td>
+              <td>
+                <mark className="copy">Окна - произвольные 2 PAL</mark>
+              </td>
+              <td>
+                <mark className="copy">Boxes - random 2 PAL</mark>
+              </td>
             </tr>
             <tr>
-              <td>Овалы - произвольно 1 NTSC</td>
-              <td>Ovals - random 1 NTSC</td>
+              <td>
+                <mark className="copy">Окна - произвольные 3 NTSC</mark>
+              </td>
+              <td>
+                <mark className="copy">Boxes - random 3 NTSC</mark>
+              </td>
             </tr>
             <tr>
-              <td>Овалы - произвольно 1 PAL</td>
-              <td>Ovals - random 1 PAL</td>
+              <td>
+                <mark className="copy">Окна - произвольные 3 PAL</mark>
+              </td>
+              <td>
+                <mark className="copy">Boxes - random 3 PAL</mark>
+              </td>
             </tr>
             <tr>
-              <td>Овалы - произвольно 2 NTSC</td>
-              <td>Ovals - random 2 NTSC</td>
+              <td>
+                <mark className="copy">Организм</mark>
+              </td>
+              <td>
+                <mark className="copy">Organism</mark>
+              </td>
             </tr>
             <tr>
-              <td>Овалы - произвольно 2 PAL</td>
-              <td>Ovals - random 2 PAL</td>
+              <td>
+                <mark className="copy">Отдельная позиция XYZ</mark>
+              </td>
+              <td>
+                <mark className="copy">Separate XYZ Position</mark>
+              </td>
             </tr>
             <tr>
-              <td>Окна - заштрихованные NTSC</td>
-              <td>Boxes - stroked NTSC</td>
+              <td>
+                <mark className="copy">Отражение по нескольким линиям</mark>
+              </td>
+              <td>
+                <mark className="copy">Multi-Line Flip</mark>
+              </td>
             </tr>
             <tr>
-              <td>Окна - заштрихованные PAL</td>
-              <td>Boxes - stroked PAL</td>
+              <td>
+                <mark className="copy">Оттягивание нижней трети - затемнение</mark>
+              </td>
+              <td>
+                <mark className="copy">Lower Third Holldout - darken</mark>
+              </td>
             </tr>
             <tr>
-              <td>Окна - концентрические NTSC</td>
-              <td>Boxes - concentric NTSC</td>
+              <td>
+                <mark className="copy">Оттягивание нижней трети - насыщение</mark>
+              </td>
+              <td>
+                <mark className="copy">Lower Third Holddout - saturate</mark>
+              </td>
             </tr>
             <tr>
-              <td>Окна - концентрические PAL</td>
-              <td>Boxes - concentric PAL</td>
+              <td>
+                <mark className="copy">Передний план - задний план</mark>
+              </td>
+              <td>
+                <mark className="copy">Front - Back</mark>
+              </td>
             </tr>
             <tr>
-              <td>Окна - произвольные 1 NTSC</td>
-              <td>Boxes - random 1 NTSC</td>
+              <td>
+                <mark className="copy">Переход к вставке</mark>
+              </td>
+              <td>
+                <mark className="copy">Fly to Inset</mark>
+              </td>
             </tr>
             <tr>
-              <td>Окна - произвольные 1 PAL</td>
-              <td>Boxes - random 1 PAL</td>
+              <td>
+                <mark className="copy">Петарды</mark>
+              </td>
+              <td>
+                <mark className="copy">Spin Flash</mark>
+              </td>
             </tr>
             <tr>
-              <td>Окна - произвольные 2 NTSC</td>
-              <td>Boxes - random 2 NTSC</td>
-            </tr>
-            <tr>
-              <td>Окна - произвольные 2 PAL</td>
-              <td>Boxes - random 2 PAL</td>
-            </tr>
-            <tr>
-              <td>Окна - произвольные 3 NTSC</td>
-              <td>Boxes - random 3 NTSC</td>
-            </tr>
-            <tr>
-              <td>Окна - произвольные 3 PAL</td>
-              <td>Boxes - random 3 PAL</td>
-            </tr>
-            <tr>
-              <td>Организм</td>
-              <td>Organism</td>
-            </tr>
-            <tr>
-              <td>Отдельная позиция XYZ</td>
-              <td>Separate XYZ Position</td>
-            </tr>
-            <tr>
-              <td>Отражение по нескольким линиям</td>
-              <td>Multi-Line Flip</td>
-            </tr>
-            <tr>
-              <td>Оттягивание нижней трети - затемнение</td>
-              <td>Lower Third Holldout - darken</td>
-            </tr>
-            <tr>
-              <td>Оттягивание нижней трети - насыщение</td>
-              <td>Lower Third Holddout - saturate</td>
-            </tr>
-            <tr>
-              <td>Передний план - задний план</td>
-              <td>Front - Back</td>
-            </tr>
-            <tr>
-              <td>Переход к вставке</td>
-              <td>Fly to Inset</td>
-            </tr>
-            <tr>
-              <td>Петарды</td>
-              <td>Spin Flash</td>
-            </tr>
-            <tr>
-              <td>Появление</td>
-              <td>Emerge</td>
-            </tr>
-            <tr>
-              <td>Пульсация</td>
-              <td>Pulse Exposure</td>
-            </tr>
-            <tr>
-              <td>С обеих сторон</td>
-              <td>Frontside - Backside</td>
-            </tr>
-            <tr>
-              <td>Сжатие - расширение</td>
-              <td>Contract - Expand</td>
-            </tr>
-            <tr>
-              <td>Силуэты</td>
-              <td>Silhouettes</td>
-            </tr>
-            <tr>
-              <td>Скрепка</td>
-              <td>Paper Clip</td>
-            </tr>
-            <tr>
-              <td>Спирограф</td>
-              <td>Spirograph</td>
-            </tr>
-            <tr>
-              <td>Тени</td>
-              <td>Shadows</td>
-            </tr>
-            <tr>
-              <td>Уменьшение блочности DV</td>
-              <td>Reduce DV blockiness</td>
-            </tr>
-            <tr>
-              <td>Цифровой</td>
-              <td>Digital</td>
-            </tr>
-            <tr>
-              <td>Элегия</td>
-              <td>Lyrical</td>
-            </tr>
-            <tr>
-              <td>Эфирный</td>
-              <td>Ethereal</td>
-            </tr>
-            <tr>
-              <td>Эхо-локация</td>
-              <td>Sonar Ping</td>
+              <td>
+                <mark className="copy">Появление</mark>
+              </td>
+              <td>
+                <mark className="copy">Emerge</mark>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <mark className="copy">Пульсация</mark>
+              </td>
+              <td>
+                <mark className="copy">Pulse Exposure</mark>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <mark className="copy">С обеих сторон</mark>
+              </td>
+              <td>
+                <mark className="copy">Frontside - Backside</mark>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <mark className="copy">Сжатие - расширение</mark>
+              </td>
+              <td>
+                <mark className="copy">Contract - Expand</mark>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <mark className="copy">Силуэты</mark>
+              </td>
+              <td>
+                <mark className="copy">Silhouettes</mark>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <mark className="copy">Скрепка</mark>
+              </td>
+              <td>
+                <mark className="copy">Paper Clip</mark>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <mark className="copy">Спирограф</mark>
+              </td>
+              <td>
+                <mark className="copy">Spirograph</mark>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <mark className="copy">Тени</mark>
+              </td>
+              <td>
+                <mark className="copy">Shadows</mark>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <mark className="copy">Уменьшение блочности DV</mark>
+              </td>
+              <td>
+                <mark className="copy">Reduce DV blockiness</mark>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <mark className="copy">Цифровой</mark>
+              </td>
+              <td>
+                <mark className="copy">Digital</mark>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <mark className="copy">Элегия</mark>
+              </td>
+              <td>
+                <mark className="copy">Lyrical</mark>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <mark className="copy">Эфирный</mark>
+              </td>
+              <td>
+                <mark className="copy">Ethereal</mark>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <mark className="copy">Эхо-локация</mark>
+              </td>
+              <td>
+                <mark className="copy">Sonar Ping</mark>
+              </td>
             </tr>
           </tbody>
         </table>
@@ -5336,28 +7130,52 @@ const AEWhereFind: React.FC = () => {
           </thead>
           <tbody>
             <tr>
-              <td>Граница композиции</td>
-              <td>Composition Border</td>
+              <td>
+                <mark className="copy">Граница композиции</mark>
+              </td>
+              <td>
+                <mark className="copy">Composition Border</mark>
+              </td>
             </tr>
             <tr>
-              <td>Калейдоскоп</td>
-              <td>Kaleidoscopic</td>
+              <td>
+                <mark className="copy">Калейдоскоп</mark>
+              </td>
+              <td>
+                <mark className="copy">Kaleidoscopic</mark>
+              </td>
             </tr>
             <tr>
-              <td>Нейронная сеть - круговая</td>
-              <td>Nerve Net - Circular</td>
+              <td>
+                <mark className="copy">Нейронная сеть - круговая</mark>
+              </td>
+              <td>
+                <mark className="copy">Nerve Net - Circular</mark>
+              </td>
             </tr>
             <tr>
-              <td>Нейронная сеть - пента</td>
-              <td>Nerve Net - Penta</td>
+              <td>
+                <mark className="copy">Нейронная сеть - пента</mark>
+              </td>
+              <td>
+                <mark className="copy">Nerve Net - Penta</mark>
+              </td>
             </tr>
             <tr>
-              <td>Скопление рамок</td>
-              <td>Box Swarm</td>
+              <td>
+                <mark className="copy">Скопление рамок</mark>
+              </td>
+              <td>
+                <mark className="copy">Box Swarm</mark>
+              </td>
             </tr>
             <tr>
-              <td>Солнечные лучи</td>
-              <td>Sunburst</td>
+              <td>
+                <mark className="copy">Солнечные лучи</mark>
+              </td>
+              <td>
+                <mark className="copy">Sunburst</mark>
+              </td>
             </tr>
           </tbody>
         </table>
@@ -5371,92 +7189,180 @@ const AEWhereFind: React.FC = () => {
           </thead>
           <tbody>
             <tr>
-              <td>Аналоговые часы</td>
-              <td>Analogue Clock</td>
+              <td>
+                <mark className="copy">Аналоговые часы</mark>
+              </td>
+              <td>
+                <mark className="copy">Analogue Clock</mark>
+              </td>
             </tr>
             <tr>
-              <td>Бегущая строка - рамки</td>
-              <td>Chasing Line - Boxes</td>
+              <td>
+                <mark className="copy">Бегущая строка - рамки</mark>
+              </td>
+              <td>
+                <mark className="copy">Chasing Line - Boxes</mark>
+              </td>
             </tr>
             <tr>
-              <td>Булавка для карты</td>
-              <td>Popping Map Pin</td>
+              <td>
+                <mark className="copy">Булавка для карты</mark>
+              </td>
+              <td>
+                <mark className="copy">Popping Map Pin</mark>
+              </td>
             </tr>
             <tr>
-              <td>Всплеск</td>
-              <td>Burst Pop</td>
+              <td>
+                <mark className="copy">Всплеск</mark>
+              </td>
+              <td>
+                <mark className="copy">Burst Pop</mark>
+              </td>
             </tr>
             <tr>
-              <td>Гистограмма</td>
-              <td>Bar Graph</td>
+              <td>
+                <mark className="copy">Гистограмма</mark>
+              </td>
+              <td>
+                <mark className="copy">Bar Graph</mark>
+              </td>
             </tr>
             <tr>
-              <td>Двумерное текстовое окно (форма)</td>
-              <td>2D Text Box (Shape)</td>
+              <td>
+                <mark className="copy">Двумерное текстовое окно (форма)</mark>
+              </td>
+              <td>
+                <mark className="copy">2D Text Box (Shape)</mark>
+              </td>
             </tr>
             <tr>
-              <td>Значки карты колебаний</td>
-              <td>Bouncing Map Icons</td>
+              <td>
+                <mark className="copy">Значки карты колебаний</mark>
+              </td>
+              <td>
+                <mark className="copy">Bouncing Map Icons</mark>
+              </td>
             </tr>
             <tr>
-              <td>Изменяемый курсор</td>
-              <td>Switchable Cursor Element</td>
+              <td>
+                <mark className="copy">Изменяемый курсор</mark>
+              </td>
+              <td>
+                <mark className="copy">Switchable Cursor Element</mark>
+              </td>
             </tr>
             <tr>
-              <td>Инструменты отслеживания области</td>
-              <td>Marquee Chasers</td>
+              <td>
+                <mark className="copy">Инструменты отслеживания области</mark>
+              </td>
+              <td>
+                <mark className="copy">Marquee Chasers</mark>
+              </td>
             </tr>
             <tr>
-              <td>Каркасный червь</td>
-              <td>Wireframe Worm</td>
+              <td>
+                <mark className="copy">Каркасный червь</mark>
+              </td>
+              <td>
+                <mark className="copy">Wireframe Worm</mark>
+              </td>
             </tr>
             <tr>
-              <td>Кольцевая диаграмма</td>
-              <td>Ring Chart</td>
+              <td>
+                <mark className="copy">Кольцевая диаграмма</mark>
+              </td>
+              <td>
+                <mark className="copy">Ring Chart</mark>
+              </td>
             </tr>
             <tr>
-              <td>Линейная диаграмма</td>
-              <td>Line Graph</td>
+              <td>
+                <mark className="copy">Линейная диаграмма</mark>
+              </td>
+              <td>
+                <mark className="copy">Line Graph</mark>
+              </td>
             </tr>
             <tr>
-              <td>Надпись на стрелке</td>
-              <td>Write On Arrow</td>
+              <td>
+                <mark className="copy">Надпись на стрелке</mark>
+              </td>
+              <td>
+                <mark className="copy">Write On Arrow</mark>
+              </td>
             </tr>
             <tr>
-              <td>Наклейка с вырубкой</td>
-              <td>Crinkle Cut Sticker</td>
+              <td>
+                <mark className="copy">Наклейка с вырубкой</mark>
+              </td>
+              <td>
+                <mark className="copy">Crinkle Cut Sticker</mark>
+              </td>
             </tr>
             <tr>
-              <td>Ограничительная рамка</td>
-              <td>Bounding Box</td>
+              <td>
+                <mark className="copy">Ограничительная рамка</mark>
+              </td>
+              <td>
+                <mark className="copy">Bounding Box</mark>
+              </td>
             </tr>
             <tr>
-              <td>Повторяющиеся линии</td>
-              <td>Repeating Lines</td>
+              <td>
+                <mark className="copy">Повторяющиеся линии</mark>
+              </td>
+              <td>
+                <mark className="copy">Repeating Lines</mark>
+              </td>
             </tr>
             <tr>
-              <td>Почтовая марка</td>
-              <td>Postage Stamp</td>
+              <td>
+                <mark className="copy">Почтовая марка</mark>
+              </td>
+              <td>
+                <mark className="copy">Postage Stamp</mark>
+              </td>
             </tr>
             <tr>
-              <td>Простой маркер для карты</td>
-              <td>Simple Map Marker</td>
+              <td>
+                <mark className="copy">Простой маркер для карты</mark>
+              </td>
+              <td>
+                <mark className="copy">Simple Map Marker</mark>
+              </td>
             </tr>
             <tr>
-              <td>Радиальная диаграмма</td>
-              <td>Radial Graph</td>
+              <td>
+                <mark className="copy">Радиальная диаграмма</mark>
+              </td>
+              <td>
+                <mark className="copy">Radial Graph</mark>
+              </td>
             </tr>
             <tr>
-              <td>Рамка с зубчиками</td>
-              <td>Scalloped Frame</td>
+              <td>
+                <mark className="copy">Рамка с зубчиками</mark>
+              </td>
+              <td>
+                <mark className="copy">Scalloped Frame</mark>
+              </td>
             </tr>
             <tr>
-              <td>Решетка из крестов</td>
-              <td>Grid of Crosses</td>
+              <td>
+                <mark className="copy">Решетка из крестов</mark>
+              </td>
+              <td>
+                <mark className="copy">Grid of Crosses</mark>
+              </td>
             </tr>
             <tr>
-              <td>Спираль ДНК</td>
-              <td>DNA Helix</td>
+              <td>
+                <mark className="copy">Спираль ДНК</mark>
+              </td>
+              <td>
+                <mark className="copy">DNA Helix</mark>
+              </td>
             </tr>
           </tbody>
         </table>
@@ -5470,36 +7376,68 @@ const AEWhereFind: React.FC = () => {
           </thead>
           <tbody>
             <tr>
-              <td>Винтажная звездочка</td>
-              <td>Vintage Star</td>
+              <td>
+                <mark className="copy">Винтажная звездочка</mark>
+              </td>
+              <td>
+                <mark className="copy">Vintage Star</mark>
+              </td>
             </tr>
             <tr>
-              <td>Круговой - ячеистое разделение</td>
-              <td>Circular - cellular divvision</td>
+              <td>
+                <mark className="copy">Круговой - ячеистое разделение</mark>
+              </td>
+              <td>
+                <mark className="copy">Circular - cellular divvision</mark>
+              </td>
             </tr>
             <tr>
-              <td>Лицо пришельца - с анимацией</td>
-              <td>Alien Face - animated</td>
+              <td>
+                <mark className="copy">Лицо пришельца - с анимацией</mark>
+              </td>
+              <td>
+                <mark className="copy">Alien Face - animated</mark>
+              </td>
             </tr>
             <tr>
-              <td>Мандала - с анимацией</td>
-              <td>Mandala - animated</td>
+              <td>
+                <mark className="copy">Мандала - с анимацией</mark>
+              </td>
+              <td>
+                <mark className="copy">Mandala - animated</mark>
+              </td>
             </tr>
             <tr>
-              <td>Область стадии</td>
-              <td>Phase Scope</td>
+              <td>
+                <mark className="copy">Область стадии</mark>
+              </td>
+              <td>
+                <mark className="copy">Phase Scope</mark>
+              </td>
             </tr>
             <tr>
-              <td>Сверкающая_звезда</td>
-              <td>TwinkleStar</td>
+              <td>
+                <mark className="copy">Сверкающая_звезда</mark>
+              </td>
+              <td>
+                <mark className="copy">TwinkleStar</mark>
+              </td>
             </tr>
             <tr>
-              <td>Спирограф_мандала</td>
-              <td>SpiroMandala</td>
+              <td>
+                <mark className="copy">Спирограф_мандала</mark>
+              </td>
+              <td>
+                <mark className="copy">SpiroMandala</mark>
+              </td>
             </tr>
             <tr>
-              <td>Танцевальный узел</td>
-              <td>Dancing Knot</td>
+              <td>
+                <mark className="copy">Танцевальный узел</mark>
+              </td>
+              <td>
+                <mark className="copy">Dancing Knot</mark>
+              </td>
             </tr>
           </tbody>
         </table>
@@ -5513,92 +7451,180 @@ const AEWhereFind: React.FC = () => {
           </thead>
           <tbody>
             <tr>
-              <td>Благодатный огонь</td>
-              <td>Holy Light</td>
+              <td>
+                <mark className="copy">Благодатный огонь</mark>
+              </td>
+              <td>
+                <mark className="copy">Holy Light</mark>
+              </td>
             </tr>
             <tr>
-              <td>Власть цветам</td>
-              <td>Flower Power</td>
+              <td>
+                <mark className="copy">Власть цветам</mark>
+              </td>
+              <td>
+                <mark className="copy">Flower Power</mark>
+              </td>
             </tr>
             <tr>
-              <td>Индейское солнце</td>
-              <td>Indian Sun</td>
+              <td>
+                <mark className="copy">Индейское солнце</mark>
+              </td>
+              <td>
+                <mark className="copy">Indian Sun</mark>
+              </td>
             </tr>
             <tr>
-              <td>Иноземные письмена</td>
-              <td>Alien Calligraphy</td>
+              <td>
+                <mark className="copy">Иноземные письмена</mark>
+              </td>
+              <td>
+                <mark className="copy">Alien Calligraphy</mark>
+              </td>
             </tr>
             <tr>
-              <td>Круговой - полукруг</td>
-              <td>Circular - half round</td>
+              <td>
+                <mark className="copy">Круговой - полукруг</mark>
+              </td>
+              <td>
+                <mark className="copy">Circular - half round</mark>
+              </td>
             </tr>
             <tr>
-              <td>Кругovoй - тройной пунктир</td>
-              <td>Circular - tri dash</td>
+              <td>
+                <mark className="copy">Кругovoй - тройной пунктир</mark>
+              </td>
+              <td>
+                <mark className="copy">Circular - tri dash</mark>
+              </td>
             </tr>
             <tr>
-              <td>Лицо пришельца</td>
-              <td>Alien Face</td>
+              <td>
+                <mark className="copy">Лицо пришельца</mark>
+              </td>
+              <td>
+                <mark className="copy">Alien Face</mark>
+              </td>
             </tr>
             <tr>
-              <td>Лопасти вентилятора</td>
-              <td>Fan Blades</td>
+              <td>
+                <mark className="copy">Лопасти вентилятора</mark>
+              </td>
+              <td>
+                <mark className="copy">Fan Blades</mark>
+              </td>
             </tr>
             <tr>
-              <td>Лучистая звезда-4</td>
-              <td>RayStar-4</td>
+              <td>
+                <mark className="copy">Лучистая звезда-4</mark>
+              </td>
+              <td>
+                <mark className="copy">RayStar-4</mark>
+              </td>
             </tr>
             <tr>
-              <td>Лучистая звезда-8</td>
-              <td>RayStar-8</td>
+              <td>
+                <mark className="copy">Лучистая звезда-8</mark>
+              </td>
+              <td>
+                <mark className="copy">RayStar-8</mark>
+              </td>
             </tr>
             <tr>
-              <td>Мандала</td>
-              <td>Mandala</td>
+              <td>
+                <mark className="copy">Мандала</mark>
+              </td>
+              <td>
+                <mark className="copy">Mandala</mark>
+              </td>
             </tr>
             <tr>
-              <td>Мишень</td>
-              <td>Bullseye</td>
+              <td>
+                <mark className="copy">Мишень</mark>
+              </td>
+              <td>
+                <mark className="copy">Bullseye</mark>
+              </td>
             </tr>
             <tr>
-              <td>Перекрестие - квадратное</td>
-              <td>Crosshair - square</td>
+              <td>
+                <mark className="copy">Перекрестие - квадратное</mark>
+              </td>
+              <td>
+                <mark className="copy">Crosshair - square</mark>
+              </td>
             </tr>
             <tr>
-              <td>Перекрестие - квадратные скобки</td>
-              <td>Crosshair - brackets</td>
+              <td>
+                <mark className="copy">Перекрестие - квадратные скобки</mark>
+              </td>
+              <td>
+                <mark className="copy">Crosshair - brackets</mark>
+              </td>
             </tr>
             <tr>
-              <td>Перекрестие - круглое</td>
-              <td>Crosshair - round</td>
+              <td>
+                <mark className="copy">Перекрестие - круглое</mark>
+              </td>
+              <td>
+                <mark className="copy">Crosshair - round</mark>
+              </td>
             </tr>
             <tr>
-              <td>Рамка - пунктирные линии</td>
-              <td>Box - dashed lines</td>
+              <td>
+                <mark className="copy">Рамка - пунктирные линии</mark>
+              </td>
+              <td>
+                <mark className="copy">Box - dashed lines</mark>
+              </td>
             </tr>
             <tr>
-              <td>Скругленная скобка - двойная</td>
-              <td>Rounded Bracket - double</td>
+              <td>
+                <mark className="copy">Скругленная скобка - двойная</mark>
+              </td>
+              <td>
+                <mark className="copy">Rounded Bracket - double</mark>
+              </td>
             </tr>
             <tr>
-              <td>Скругленная скобка - с фаской</td>
-              <td>Rounded Bracket - bevelled</td>
+              <td>
+                <mark className="copy">Скругленная скобка - с фаской</mark>
+              </td>
+              <td>
+                <mark className="copy">Rounded Bracket - bevelled</mark>
+              </td>
             </tr>
             <tr>
-              <td>Тризуб</td>
-              <td>Tri Cog</td>
+              <td>
+                <mark className="copy">Тризуб</mark>
+              </td>
+              <td>
+                <mark className="copy">Tri Cog</mark>
+              </td>
             </tr>
             <tr>
-              <td>Шестеренка 1</td>
-              <td>Gear 1</td>
+              <td>
+                <mark className="copy">Шестеренка 1</mark>
+              </td>
+              <td>
+                <mark className="copy">Gear 1</mark>
+              </td>
             </tr>
             <tr>
-              <td>Шестеренка 2</td>
-              <td>Gear 2</td>
+              <td>
+                <mark className="copy">Шестеренка 2</mark>
+              </td>
+              <td>
+                <mark className="copy">Gear 2</mark>
+              </td>
             </tr>
             <tr>
-              <td>Эригерон</td>
-              <td>Seaside Daisy</td>
+              <td>
+                <mark className="copy">Эригерон</mark>
+              </td>
+              <td>
+                <mark className="copy">Seaside Daisy</mark>
+              </td>
             </tr>
           </tbody>
         </table>
@@ -5612,28 +7638,52 @@ const AEWhereFind: React.FC = () => {
           </thead>
           <tbody>
             <tr>
-              <td>Бластер</td>
-              <td>Blaster</td>
+              <td>
+                <mark className="copy">Бластер</mark>
+              </td>
+              <td>
+                <mark className="copy">Blaster</mark>
+              </td>
             </tr>
             <tr>
-              <td>Занят</td>
-              <td>Busy</td>
+              <td>
+                <mark className="copy">Занят</mark>
+              </td>
+              <td>
+                <mark className="copy">Busy</mark>
+              </td>
             </tr>
             <tr>
-              <td>Звонок телефона-США</td>
-              <td>Phone-US</td>
+              <td>
+                <mark className="copy">Звонок телефона-США</mark>
+              </td>
+              <td>
+                <mark className="copy">Phone-US</mark>
+              </td>
             </tr>
             <tr>
-              <td>Позвонить в Adobe</td>
-              <td>CallAdobe</td>
+              <td>
+                <mark className="copy">Позвонить в Adobe</mark>
+              </td>
+              <td>
+                <mark className="copy">CallAdobe</mark>
+              </td>
             </tr>
             <tr>
-              <td>Телефонная компания</td>
-              <td>PhoneCompany</td>
+              <td>
+                <mark className="copy">Телефонная компания</mark>
+              </td>
+              <td>
+                <mark className="copy">PhoneCompany</mark>
+              </td>
             </tr>
             <tr>
-              <td>Тональный набор</td>
-              <td>DTMF</td>
+              <td>
+                <mark className="copy">Тональный набор</mark>
+              </td>
+              <td>
+                <mark className="copy">DTMF</mark>
+              </td>
             </tr>
           </tbody>
         </table>
@@ -5647,48 +7697,92 @@ const AEWhereFind: React.FC = () => {
           </thead>
           <tbody>
             <tr>
-              <td>Голографическая пленка</td>
-              <td>Holographic Foil</td>
+              <td>
+                <mark className="copy">Голографическая пленка</mark>
+              </td>
+              <td>
+                <mark className="copy">Holographic Foil</mark>
+              </td>
             </tr>
             <tr>
-              <td>Дым - сносимый ветром</td>
-              <td>Smoke - Drifting</td>
+              <td>
+                <mark className="copy">Дым - сносимый ветром</mark>
+              </td>
+              <td>
+                <mark className="copy">Smoke - Drifting</mark>
+              </td>
             </tr>
             <tr>
-              <td>Звездная спираль</td>
-              <td>Starburst Spin</td>
+              <td>
+                <mark className="copy">Звездная спираль</mark>
+              </td>
+              <td>
+                <mark className="copy">Starburst Spin</mark>
+              </td>
             </tr>
             <tr>
-              <td>Золотая атмосфера</td>
-              <td>Gold Ambiance</td>
+              <td>
+                <mark className="copy">Золотая атмосфера</mark>
+              </td>
+              <td>
+                <mark className="copy">Gold Ambiance</mark>
+              </td>
             </tr>
             <tr>
-              <td>Мозаика</td>
-              <td>Mosaic</td>
+              <td>
+                <mark className="copy">Мозаика</mark>
+              </td>
+              <td>
+                <mark className="copy">Mosaic</mark>
+              </td>
             </tr>
             <tr>
-              <td>Мозаичная пленка</td>
-              <td>Chip Foil</td>
+              <td>
+                <mark className="copy">Мозаичная пленка</mark>
+              </td>
+              <td>
+                <mark className="copy">Chip Foil</mark>
+              </td>
             </tr>
             <tr>
-              <td>Оборотная сторона компакт-диска</td>
-              <td>CD Back</td>
+              <td>
+                <mark className="copy">Оборотная сторона компакт-диска</mark>
+              </td>
+              <td>
+                <mark className="copy">CD Back</mark>
+              </td>
             </tr>
             <tr>
-              <td>Оранжевые прожилки</td>
-              <td>Orange Streaks</td>
+              <td>
+                <mark className="copy">Оранжевые прожилки</mark>
+              </td>
+              <td>
+                <mark className="copy">Orange Streaks</mark>
+              </td>
             </tr>
             <tr>
-              <td>Синие полосы</td>
-              <td>Blue Bars</td>
+              <td>
+                <mark className="copy">Синие полосы</mark>
+              </td>
+              <td>
+                <mark className="copy">Blue Bars</mark>
+              </td>
             </tr>
             <tr>
-              <td>Топографические линии</td>
-              <td>Topographic Lines</td>
+              <td>
+                <mark className="copy">Топографические линии</mark>
+              </td>
+              <td>
+                <mark className="copy">Topographic Lines</mark>
+              </td>
             </tr>
             <tr>
-              <td>Ячейки</td>
-              <td>Cells</td>
+              <td>
+                <mark className="copy">Ячейки</mark>
+              </td>
+              <td>
+                <mark className="copy">Cells</mark>
+              </td>
             </tr>
           </tbody>
         </table>
@@ -5702,124 +7796,250 @@ const AEWhereFind: React.FC = () => {
           </thead>
           <tbody>
             <tr>
-              <td>3D база, вращение вокруг оси X, каскад (возн.)</td>
-              <td>3D Basic Rotate X Cascade In</td>
+              <td>
+                <mark className="copy">
+                  3D база, вращение вокруг оси X, каскад (возн.)
+                </mark>
+              </td>
+              <td>
+                <mark className="copy">3D Basic Rotate X Cascade In</mark>
+              </td>
             </tr>
             <tr>
-              <td>3D база, вращение вокруг оси Y, каскад (возн.)</td>
-              <td>3D Basic Rotate Y Cascade In</td>
+              <td>
+                <mark className="copy">
+                  3D база, вращение вокруг оси Y, каскад (возн.)
+                </mark>
+              </td>
+              <td>
+                <mark className="copy">3D Basic Rotate Y Cascade In</mark>
+              </td>
             </tr>
             <tr>
-              <td>3D база, позиция по оси Z, каскад (возн.)</td>
-              <td>3D Basic Position Z Cascade In</td>
+              <td>
+                <mark className="copy">3D база, позиция по оси Z, каскад (возн.)</mark>
+              </td>
+              <td>
+                <mark className="copy">3D Basic Position Z Cascade In</mark>
+              </td>
             </tr>
             <tr>
-              <td>3D база, позиция по оси Z, печать (возн.)</td>
-              <td>3D Basic Position Z Type In</td>
+              <td>
+                <mark className="copy">3D база, позиция по оси Z, печать (возн.)</mark>
+              </td>
+              <td>
+                <mark className="copy">3D Basic Position Z Type In</mark>
+              </td>
             </tr>
             <tr>
-              <td>3D волна на дорожке (возн.)</td>
-              <td>3D Swing In On Path</td>
+              <td>
+                <mark className="copy">3D волна на дорожке (возн.)</mark>
+              </td>
+              <td>
+                <mark className="copy">3D Swing In On Path</mark>
+              </td>
             </tr>
             <tr>
-              <td>3D дождь по словам (возн.)</td>
-              <td>3D Rain In By Word</td>
+              <td>
+                <mark className="copy">3D дождь по словам (возн.)</mark>
+              </td>
+              <td>
+                <mark className="copy">3D Rain In By Word</mark>
+              </td>
             </tr>
             <tr>
-              <td>3D опускание по спирали и развертывание</td>
-              <td>3D Spiral Down & Unfold</td>
+              <td>
+                <mark className="copy">3D опускание по спирали и развертывание</mark>
+              </td>
+              <td>
+                <mark className="copy">3D Spiral Down & Unfold</mark>
+              </td>
             </tr>
             <tr>
-              <td>3D падение, масштаб и наклон (возн.)</td>
-              <td>3D Fall Back Scale & Skew In</td>
+              <td>
+                <mark className="copy">3D падение, масштаб и наклон (возн.)</mark>
+              </td>
+              <td>
+                <mark className="copy">3D Fall Back Scale & Skew In</mark>
+              </td>
             </tr>
             <tr>
-              <td>3D падение, перемешивание и размытие (возн.)</td>
-              <td>3D Fall Back Scramble & Blur In</td>
+              <td>
+                <mark className="copy">3D падение, перемешивание и размытие (возн.)</mark>
+              </td>
+              <td>
+                <mark className="copy">3D Fall Back Scramble & Blur In</mark>
+              </td>
             </tr>
             <tr>
-              <td>3D полет и развертывание (возн.)</td>
-              <td>3D Fly In & Unfold</td>
+              <td>
+                <mark className="copy">3D полет и развертывание (возн.)</mark>
+              </td>
+              <td>
+                <mark className="copy">3D Fly In & Unfold</mark>
+              </td>
             </tr>
             <tr>
-              <td>3D полет из-за камеры (возн.)</td>
-              <td>3D Fly In From Behind Camera</td>
+              <td>
+                <mark className="copy">3D полет из-за камеры (возн.)</mark>
+              </td>
+              <td>
+                <mark className="copy">3D Fly In From Behind Camera</mark>
+              </td>
             </tr>
             <tr>
-              <td>3D полет, случайный порядок, вращение вокруг оси Y (возн.)</td>
-              <td>3D Fly In Random & Rotate Y</td>
+              <td>
+                <mark className="copy">
+                  3D полет, случайный порядок, вращение вокруг оси Y (возн.)
+                </mark>
+              </td>
+              <td>
+                <mark className="copy">3D Fly In Random & Rotate Y</mark>
+              </td>
             </tr>
             <tr>
-              <td>3D разворот и цветные символы</td>
-              <td>3D Twist & color characters</td>
+              <td>
+                <mark className="copy">3D разворот и цветные символы</mark>
+              </td>
+              <td>
+                <mark className="copy">3D Twist & color characters</mark>
+              </td>
             </tr>
             <tr>
-              <td>3D случайные символы, кувыркание (возн.)</td>
-              <td>3D Random Spike Tumble In</td>
+              <td>
+                <mark className="copy">3D случайные символы, кувыркание (возн.)</mark>
+              </td>
+              <td>
+                <mark className="copy">3D Random Spike Tumble In</mark>
+              </td>
             </tr>
             <tr>
-              <td>3D случайные слова, кувыркание (возн.)</td>
-              <td>3D Random Tumble In By Word</td>
+              <td>
+                <mark className="copy">3D случайные слова, кувыркание (возн.)</mark>
+              </td>
+              <td>
+                <mark className="copy">3D Random Tumble In By Word</mark>
+              </td>
             </tr>
             <tr>
-              <td>3D установка на позиции (возн.)</td>
-              <td>3D Resolve Position In</td>
+              <td>
+                <mark className="copy">3D установка на позиции (возн.)</mark>
+              </td>
+              <td>
+                <mark className="copy">3D Resolve Position In</mark>
+              </td>
             </tr>
             <tr>
-              <td>3D - колебание внутрь - в случайном порядке</td>
-              <td>3D Flutter In Random Order</td>
+              <td>
+                <mark className="copy">3D - колебание внутрь - в случайном порядке</mark>
+              </td>
+              <td>
+                <mark className="copy">3D Flutter In Random Order</mark>
+              </td>
             </tr>
             <tr>
-              <td>3D - колебание внутрь - слева</td>
-              <td>3D Flutter In From Left</td>
+              <td>
+                <mark className="copy">3D - колебание внутрь - слева</mark>
+              </td>
+              <td>
+                <mark className="copy">3D Flutter In From Left</mark>
+              </td>
             </tr>
             <tr>
-              <td>3D - колебание наружу - справа</td>
-              <td>3D Flutter Out From Right</td>
+              <td>
+                <mark className="copy">3D - колебание наружу - справа</mark>
+              </td>
+              <td>
+                <mark className="copy">3D Flutter Out From Right</mark>
+              </td>
             </tr>
             <tr>
-              <td>3D - колебание - по центру</td>
-              <td>3D Bouncing In Centered</td>
+              <td>
+                <mark className="copy">3D - колебание - по центру</mark>
+              </td>
+              <td>
+                <mark className="copy">3D Bouncing In Centered</mark>
+              </td>
             </tr>
             <tr>
-              <td>3D - отразить вверх - отражение</td>
-              <td>3D Flip Up Reflection</td>
+              <td>
+                <mark className="copy">3D - отразить вверх - отражение</mark>
+              </td>
+              <td>
+                <mark className="copy">3D Flip Up Reflection</mark>
+              </td>
             </tr>
             <tr>
-              <td>3D - отразить внутрь - поворот по оси X</td>
-              <td>3D Flip In Rotate X</td>
+              <td>
+                <mark className="copy">3D - отразить внутрь - поворот по оси X</mark>
+              </td>
+              <td>
+                <mark className="copy">3D Flip In Rotate X</mark>
+              </td>
             </tr>
             <tr>
-              <td>3D - отразить наружу - поворот по оси X</td>
-              <td>3D Flip Out Rotate X</td>
+              <td>
+                <mark className="copy">3D - отразить наружу - поворот по оси X</mark>
+              </td>
+              <td>
+                <mark className="copy">3D Flip Out Rotate X</mark>
+              </td>
             </tr>
             <tr>
-              <td>3D - поворот внутрь по символу X</td>
-              <td>3D Rotate in by Character X</td>
+              <td>
+                <mark className="copy">3D - поворот внутрь по символу X</mark>
+              </td>
+              <td>
+                <mark className="copy">3D Rotate in by Character X</mark>
+              </td>
             </tr>
             <tr>
-              <td>3D - поворот внутрь по символу</td>
-              <td>3D Rotate in by Character</td>
+              <td>
+                <mark className="copy">3D - поворот внутрь по символу</mark>
+              </td>
+              <td>
+                <mark className="copy">3D Rotate in by Character</mark>
+              </td>
             </tr>
             <tr>
-              <td>3D - поворот наружу по символу X</td>
-              <td>3D Rotate out by Character X</td>
+              <td>
+                <mark className="copy">3D - поворот наружу по символу X</mark>
+              </td>
+              <td>
+                <mark className="copy">3D Rotate out by Character X</mark>
+              </td>
             </tr>
             <tr>
-              <td>3D - поворот наружу по слову</td>
-              <td>3D Rotate out by Word</td>
+              <td>
+                <mark className="copy">3D - поворот наружу по слову</mark>
+              </td>
+              <td>
+                <mark className="copy">3D Rotate out by Word</mark>
+              </td>
             </tr>
             <tr>
-              <td>3D - скремблирование в положении по оси Z</td>
-              <td>3D Scramble in Position Z</td>
+              <td>
+                <mark className="copy">3D - скремблирование в положении по оси Z</mark>
+              </td>
+              <td>
+                <mark className="copy">3D Scramble in Position Z</mark>
+              </td>
             </tr>
             <tr>
-              <td>3D - спиральный поворот внутри по строке</td>
-              <td>3D Spiral Rotate In by Line</td>
+              <td>
+                <mark className="copy">3D - спиральный поворот внутри по строке</mark>
+              </td>
+              <td>
+                <mark className="copy">3D Spiral Rotate In by Line</mark>
+              </td>
             </tr>
             <tr>
-              <td>3D - спиральный поворот наружу по строке</td>
-              <td>3D Spiral Rotate Out by Line</td>
+              <td>
+                <mark className="copy">3D - спиральный поворот наружу по строке</mark>
+              </td>
+              <td>
+                <mark className="copy">3D Spiral Rotate Out by Line</mark>
+              </td>
             </tr>
           </tbody>
         </table>
@@ -5833,164 +8053,324 @@ const AEWhereFind: React.FC = () => {
           </thead>
           <tbody>
             <tr>
-              <td>Вброс с прокруткой</td>
-              <td>Fly In With A Twist</td>
+              <td>
+                <mark className="copy">Вброс с прокруткой</mark>
+              </td>
+              <td>
+                <mark className="copy">Fly In With A Twist</mark>
+              </td>
             </tr>
             <tr>
-              <td>Вброс снизу</td>
-              <td>Fly In From Bottom</td>
+              <td>
+                <mark className="copy">Вброс снизу</mark>
+              </td>
+              <td>
+                <mark className="copy">Fly In From Bottom</mark>
+              </td>
             </tr>
             <tr>
-              <td>Всплывающие словечки</td>
-              <td>Pop Buzz Words</td>
+              <td>
+                <mark className="copy">Всплывающие словечки</mark>
+              </td>
+              <td>
+                <mark className="copy">Pop Buzz Words</mark>
+              </td>
             </tr>
             <tr>
-              <td>Выезд в случайном порядке</td>
-              <td>Random Shuffle In</td>
+              <td>
+                <mark className="copy">Выезд в случайном порядке</mark>
+              </td>
+              <td>
+                <mark className="copy">Random Shuffle In</mark>
+              </td>
             </tr>
             <tr>
-              <td>Высыпание символов</td>
-              <td>Raining Characters In</td>
+              <td>
+                <mark className="copy">Высыпание символов</mark>
+              </td>
+              <td>
+                <mark className="copy">Raining Characters In</mark>
+              </td>
             </tr>
             <tr>
-              <td>Вытеснение к центру</td>
-              <td>Wipe In To Center</td>
+              <td>
+                <mark className="copy">Вытеснение к центру</mark>
+              </td>
+              <td>
+                <mark className="copy">Wipe In To Center</mark>
+              </td>
             </tr>
             <tr>
-              <td>Генерирующая таблица</td>
-              <td>Espresso Eye Chart</td>
+              <td>
+                <mark className="copy">Генерирующая таблица</mark>
+              </td>
+              <td>
+                <mark className="copy">Espresso Eye Chart</mark>
+              </td>
             </tr>
             <tr>
-              <td>Декодирование в кадр по случайным символам</td>
-              <td>Decode In By Random Character</td>
+              <td>
+                <mark className="copy">Декодирование в кадр по случайным символам</mark>
+              </td>
+              <td>
+                <mark className="copy">Decode In By Random Character</mark>
+              </td>
             </tr>
             <tr>
-              <td>Закручивание пословно</td>
-              <td>Spin In By Word</td>
+              <td>
+                <mark className="copy">Закручивание пословно</mark>
+              </td>
+              <td>
+                <mark className="copy">Spin In By Word</mark>
+              </td>
             </tr>
             <tr>
-              <td>Медленное затухание - вкл</td>
-              <td>Slow Fade On</td>
+              <td>
+                <mark className="copy">Медленное затухание - вкл</mark>
+              </td>
+              <td>
+                <mark className="copy">Slow Fade On</mark>
+              </td>
             </tr>
             <tr>
-              <td>Мерцание непрозрачности в кадр</td>
-              <td>Opacity Flicker In</td>
+              <td>
+                <mark className="copy">Мерцание непрозрачности в кадр</mark>
+              </td>
+              <td>
+                <mark className="copy">Opacity Flicker In</mark>
+              </td>
             </tr>
             <tr>
-              <td>Мигающий курсор телетайпа</td>
-              <td>Blinking Cursor Typewriter Console</td>
+              <td>
+                <mark className="copy">Мигающий курсор телетайпа</mark>
+              </td>
+              <td>
+                <mark className="copy">Blinking Cursor Typewriter Console</mark>
+              </td>
             </tr>
             <tr>
-              <td>Печатная машинка</td>
-              <td>Typewriter</td>
+              <td>
+                <mark className="copy">Печатная машинка</mark>
+              </td>
+              <td>
+                <mark className="copy">Typewriter</mark>
+              </td>
             </tr>
             <tr>
-              <td>Плавный выезд</td>
-              <td>Smooth Move In</td>
+              <td>
+                <mark className="copy">Плавный выезд</mark>
+              </td>
+              <td>
+                <mark className="copy">Smooth Move In</mark>
+              </td>
             </tr>
             <tr>
-              <td>Посимвольное вбрасывание</td>
-              <td>Drop In By Character</td>
+              <td>
+                <mark className="copy">Посимвольное вбрасывание</mark>
+              </td>
+              <td>
+                <mark className="copy">Drop In By Character</mark>
+              </td>
             </tr>
             <tr>
-              <td>Посимвольное всплывание</td>
-              <td>Fade Up Characters</td>
+              <td>
+                <mark className="copy">Посимвольное всплывание</mark>
+              </td>
+              <td>
+                <mark className="copy">Fade Up Characters</mark>
+              </td>
             </tr>
             <tr>
-              <td>Посимвольный ввод с прокруткой</td>
-              <td>Spin In By Character</td>
+              <td>
+                <mark className="copy">Посимвольный ввод с прокруткой</mark>
+              </td>
+              <td>
+                <mark className="copy">Spin In By Character</mark>
+              </td>
             </tr>
             <tr>
-              <td>Посимвольный выезд</td>
-              <td>Characters Shuffle In</td>
+              <td>
+                <mark className="copy">Посимвольный выезд</mark>
+              </td>
+              <td>
+                <mark className="copy">Characters Shuffle In</mark>
+              </td>
             </tr>
             <tr>
-              <td>Последовательно посимвольно</td>
-              <td>Straight In By Character</td>
+              <td>
+                <mark className="copy">Последовательно посимвольно</mark>
+              </td>
+              <td>
+                <mark className="copy">Straight In By Character</mark>
+              </td>
             </tr>
             <tr>
-              <td>Последовательно пословно</td>
-              <td>Straight In By Word</td>
+              <td>
+                <mark className="copy">Последовательно пословно</mark>
+              </td>
+              <td>
+                <mark className="copy">Straight In By Word</mark>
+              </td>
             </tr>
             <tr>
-              <td>Последовательный многострочный ввод 2</td>
-              <td>Straight In Multi-Line 2</td>
+              <td>
+                <mark className="copy">Последовательный многострочный ввод 2</mark>
+              </td>
+              <td>
+                <mark className="copy">Straight In Multi-Line 2</mark>
+              </td>
             </tr>
             <tr>
-              <td>Пословное проявление</td>
-              <td>Fade Up Words</td>
+              <td>
+                <mark className="copy">Пословное проявление</mark>
+              </td>
+              <td>
+                <mark className="copy">Fade Up Words</mark>
+              </td>
             </tr>
             <tr>
-              <td>Пословный выезд в случайном порядке</td>
-              <td>Random Word Shuffle In</td>
+              <td>
+                <mark className="copy">Пословный выезд в случайном порядке</mark>
+              </td>
+              <td>
+                <mark className="copy">Random Word Shuffle In</mark>
+              </td>
             </tr>
             <tr>
-              <td>Построчное растяжение</td>
-              <td>Stretch In Each Line</td>
+              <td>
+                <mark className="copy">Построчное растяжение</mark>
+              </td>
+              <td>
+                <mark className="copy">Stretch In Each Line</mark>
+              </td>
             </tr>
             <tr>
-              <td>Построчный ввод</td>
-              <td>Straight In Multi-Line</td>
+              <td>
+                <mark className="copy">Построчный ввод</mark>
+              </td>
+              <td>
+                <mark className="copy">Straight In Multi-Line</mark>
+              </td>
             </tr>
             <tr>
-              <td>Прокрутка каждого слова</td>
-              <td>Twirl On Each Word</td>
+              <td>
+                <mark className="copy">Прокрутка каждого слова</mark>
+              </td>
+              <td>
+                <mark className="copy">Twirl On Each Word</mark>
+              </td>
             </tr>
             <tr>
-              <td>Прокрутка каждой строки</td>
-              <td>Twirl On Each Line</td>
+              <td>
+                <mark className="copy">Прокрутка каждой строки</mark>
+              </td>
+              <td>
+                <mark className="copy">Twirl On Each Line</mark>
+              </td>
             </tr>
             <tr>
-              <td>Проявление с отражением</td>
-              <td>Fade Up And Flip</td>
+              <td>
+                <mark className="copy">Проявление с отражением</mark>
+              </td>
+              <td>
+                <mark className="copy">Fade Up And Flip</mark>
+              </td>
             </tr>
             <tr>
-              <td>Проявление с эффектом декодирования</td>
-              <td>Decoder Fade In</td>
+              <td>
+                <mark className="copy">Проявление с эффектом декодирования</mark>
+              </td>
+              <td>
+                <mark className="copy">Decoder Fade In</mark>
+              </td>
             </tr>
             <tr>
-              <td>Проявляющиеся строки</td>
-              <td>Fade Up Lines</td>
+              <td>
+                <mark className="copy">Проявляющиеся строки</mark>
+              </td>
+              <td>
+                <mark className="copy">Fade Up Lines</mark>
+              </td>
             </tr>
             <tr>
-              <td>Растяжение каждого слова</td>
-              <td>Stretch In Each Word</td>
+              <td>
+                <mark className="copy">Растяжение каждого слова</mark>
+              </td>
+              <td>
+                <mark className="copy">Stretch In Each Word</mark>
+              </td>
             </tr>
             <tr>
-              <td>Скольжение в кадр по границе композиции</td>
-              <td>Slide In From Comp Edge</td>
+              <td>
+                <mark className="copy">Скольжение в кадр по границе композиции</mark>
+              </td>
+              <td>
+                <mark className="copy">Slide In From Comp Edge</mark>
+              </td>
             </tr>
             <tr>
-              <td>Скольжение в кадр по линии</td>
-              <td>Slide In By Line</td>
+              <td>
+                <mark className="copy">Скольжение в кадр по линии</mark>
+              </td>
+              <td>
+                <mark className="copy">Slide In By Line</mark>
+              </td>
             </tr>
             <tr>
-              <td>Скольжение вверх по символу</td>
-              <td>Slide Up By Character</td>
+              <td>
+                <mark className="copy">Скольжение вверх по символу</mark>
+              </td>
+              <td>
+                <mark className="copy">Slide Up By Character</mark>
+              </td>
             </tr>
             <tr>
-              <td>Скольжение вверх по слову</td>
-              <td>Slide Up By Word</td>
+              <td>
+                <mark className="copy">Скольжение вверх по слову</mark>
+              </td>
+              <td>
+                <mark className="copy">Slide Up By Word</mark>
+              </td>
             </tr>
             <tr>
-              <td>Скольжение вниз по символу</td>
-              <td>Slide Down By Character</td>
+              <td>
+                <mark className="copy">Скольжение вниз по символу</mark>
+              </td>
+              <td>
+                <mark className="copy">Slide Down By Character</mark>
+              </td>
             </tr>
             <tr>
-              <td>Скольжение и всплывание в кадр</td>
-              <td>Slide and Pop In</td>
+              <td>
+                <mark className="copy">Скольжение и всплывание в кадр</mark>
+              </td>
+              <td>
+                <mark className="copy">Slide and Pop In</mark>
+              </td>
             </tr>
             <tr>
-              <td>Случайное появление (возн.)</td>
-              <td>Random Fade In</td>
+              <td>
+                <mark className="copy">Случайное появление (возн.)</mark>
+              </td>
+              <td>
+                <mark className="copy">Random Fade In</mark>
+              </td>
             </tr>
             <tr>
-              <td>Спираль в центр (возн.)</td>
-              <td>Center Spiral In</td>
+              <td>
+                <mark className="copy">Спираль в центр (возн.)</mark>
+              </td>
+              <td>
+                <mark className="copy">Center Spiral In</mark>
+              </td>
             </tr>
             <tr>
-              <td>Чередующиеся символы в кадр</td>
-              <td>Alternating Characters In</td>
+              <td>
+                <mark className="copy">Чередующиеся символы в кадр</mark>
+              </td>
+              <td>
+                <mark className="copy">Alternating Characters In</mark>
+              </td>
             </tr>
           </tbody>
         </table>
@@ -6004,76 +8384,148 @@ const AEWhereFind: React.FC = () => {
           </thead>
           <tbody>
             <tr>
-              <td>Декодирование из кадра по случайным символам</td>
-              <td>Decode Out By Random Character</td>
+              <td>
+                <mark className="copy">Декодирование из кадра по случайным символам</mark>
+              </td>
+              <td>
+                <mark className="copy">Decode Out By Random Character</mark>
+              </td>
             </tr>
             <tr>
-              <td>Затухание с эффектом кодирования</td>
-              <td>Encoder Fade Out</td>
+              <td>
+                <mark className="copy">Затухание с эффектом кодирования</mark>
+              </td>
+              <td>
+                <mark className="copy">Encoder Fade Out</mark>
+              </td>
             </tr>
             <tr>
-              <td>Медленное затухание</td>
-              <td>Fade Out Slow</td>
+              <td>
+                <mark className="copy">Медленное затухание</mark>
+              </td>
+              <td>
+                <mark className="copy">Fade Out Slow</mark>
+              </td>
             </tr>
             <tr>
-              <td>Мерцание непрозрачности из кадра</td>
-              <td>Opacity Flicker Out</td>
+              <td>
+                <mark className="copy">Мерцание непрозрачности из кадра</mark>
+              </td>
+              <td>
+                <mark className="copy">Opacity Flicker Out</mark>
+              </td>
             </tr>
             <tr>
-              <td>Посимвольное затухание</td>
-              <td>Fade Out By Character</td>
+              <td>
+                <mark className="copy">Посимвольное затухание</mark>
+              </td>
+              <td>
+                <mark className="copy">Fade Out By Character</mark>
+              </td>
             </tr>
             <tr>
-              <td>Посимвольное осыпание</td>
-              <td>Raining Characters Out</td>
+              <td>
+                <mark className="copy">Посимвольное осыпание</mark>
+              </td>
+              <td>
+                <mark className="copy">Raining Characters Out</mark>
+              </td>
             </tr>
             <tr>
-              <td>Посимвольное стирание со скольжением вправо</td>
-              <td>Slide Off Right By Character</td>
+              <td>
+                <mark className="copy">Посимвольное стирание со скольжением вправо</mark>
+              </td>
+              <td>
+                <mark className="copy">Slide Off Right By Character</mark>
+              </td>
             </tr>
             <tr>
-              <td>Пословная скрутка</td>
-              <td>Twirl Off Each Word</td>
+              <td>
+                <mark className="copy">Пословная скрутка</mark>
+              </td>
+              <td>
+                <mark className="copy">Twirl Off Each Word</mark>
+              </td>
             </tr>
             <tr>
-              <td>Пословное рассыпание в случайном порядке</td>
-              <td>Random Word Fly Off</td>
+              <td>
+                <mark className="copy">Пословное рассыпание в случайном порядке</mark>
+              </td>
+              <td>
+                <mark className="copy">Random Word Fly Off</mark>
+              </td>
             </tr>
             <tr>
-              <td>Пословное убегание вправо</td>
-              <td>Slide Off Right By Word</td>
+              <td>
+                <mark className="copy">Пословное убегание вправо</mark>
+              </td>
+              <td>
+                <mark className="copy">Slide Off Right By Word</mark>
+              </td>
             </tr>
             <tr>
-              <td>Построчное растяжение</td>
-              <td>Stretch Out Each Line</td>
+              <td>
+                <mark className="copy">Построчное растяжение</mark>
+              </td>
+              <td>
+                <mark className="copy">Stretch Out Each Line</mark>
+              </td>
             </tr>
             <tr>
-              <td>Рассыпание в случайном порядке</td>
-              <td>Random Fly Off</td>
+              <td>
+                <mark className="copy">Рассыпание в случайном порядке</mark>
+              </td>
+              <td>
+                <mark className="copy">Random Fly Off</mark>
+              </td>
             </tr>
             <tr>
-              <td>Растяжение каждого слова</td>
-              <td>Stretch Out Each Word</td>
+              <td>
+                <mark className="copy">Растяжение каждого слова</mark>
+              </td>
+              <td>
+                <mark className="copy">Stretch Out Each Word</mark>
+              </td>
             </tr>
             <tr>
-              <td>Скольжение и всплывание из кадра</td>
-              <td>Slide and Pop Out</td>
+              <td>
+                <mark className="copy">Скольжение и всплывание из кадра</mark>
+              </td>
+              <td>
+                <mark className="copy">Slide and Pop Out</mark>
+              </td>
             </tr>
             <tr>
-              <td>Скольжение из кадра по границе композиции</td>
-              <td>Slide Out To Comp Edge</td>
+              <td>
+                <mark className="copy">Скольжение из кадра по границе композиции</mark>
+              </td>
+              <td>
+                <mark className="copy">Slide Out To Comp Edge</mark>
+              </td>
             </tr>
             <tr>
-              <td>Скольжение из кадра по линии</td>
-              <td>Slide Out By Line</td>
+              <td>
+                <mark className="copy">Скольжение из кадра по линии</mark>
+              </td>
+              <td>
+                <mark className="copy">Slide Out By Line</mark>
+              </td>
             </tr>
             <tr>
-              <td>Скрутка по линиям</td>
-              <td>Twirl Off Each Line</td>
+              <td>
+                <mark className="copy">Скрутка по линиям</mark>
+              </td>
+              <td>
+                <mark className="copy">Twirl Off Each Line</mark>
+              </td>
             </tr>
             <tr>
-              <td>Чередующиеся символы из кадра</td>
-              <td>Alternating Characters Out</td>
+              <td>
+                <mark className="copy">Чередующиеся символы из кадра</mark>
+              </td>
+              <td>
+                <mark className="copy">Alternating Characters Out</mark>
+              </td>
             </tr>
           </tbody>
         </table>
@@ -6087,44 +8539,84 @@ const AEWhereFind: React.FC = () => {
           </thead>
           <tbody>
             <tr>
-              <td>Испарение (исч.)</td>
-              <td>Evaporate Out</td>
+              <td>
+                <mark className="copy">Испарение (исч.)</mark>
+              </td>
+              <td>
+                <mark className="copy">Evaporate Out</mark>
+              </td>
             </tr>
             <tr>
-              <td>Каретка (возн.)</td>
-              <td>Transporter In</td>
+              <td>
+                <mark className="copy">Каретка (возн.)</mark>
+              </td>
+              <td>
+                <mark className="copy">Transporter In</mark>
+              </td>
             </tr>
             <tr>
-              <td>Размытие и наплывание в кадр</td>
-              <td>Blur and Fade In</td>
+              <td>
+                <mark className="copy">Размытие и наплывание в кадр</mark>
+              </td>
+              <td>
+                <mark className="copy">Blur and Fade In</mark>
+              </td>
             </tr>
             <tr>
-              <td>Размытие и наплывание из кадра</td>
-              <td>Blur and Fade Out</td>
+              <td>
+                <mark className="copy">Размытие и наплывание из кадра</mark>
+              </td>
+              <td>
+                <mark className="copy">Blur and Fade Out</mark>
+              </td>
             </tr>
             <tr>
-              <td>Размытие по словам (возн.)</td>
-              <td>Blur In By Word</td>
+              <td>
+                <mark className="copy">Размытие по словам (возн.)</mark>
+              </td>
+              <td>
+                <mark className="copy">Blur In By Word</mark>
+              </td>
             </tr>
             <tr>
-              <td>Размытие с помехами</td>
-              <td>Blur Glitch</td>
+              <td>
+                <mark className="copy">Размытие с помехами</mark>
+              </td>
+              <td>
+                <mark className="copy">Blur Glitch</mark>
+              </td>
             </tr>
             <tr>
-              <td>Резкое размытие в кадр по символу</td>
-              <td>Harsh Blur In By Character</td>
+              <td>
+                <mark className="copy">Резкое размытие в кадр по символу</mark>
+              </td>
+              <td>
+                <mark className="copy">Harsh Blur In By Character</mark>
+              </td>
             </tr>
             <tr>
-              <td>Резкое размытие из кадра по символу</td>
-              <td>Harsh Blur Out By Character</td>
+              <td>
+                <mark className="copy">Резкое размытие из кадра по символу</mark>
+              </td>
+              <td>
+                <mark className="copy">Harsh Blur Out By Character</mark>
+              </td>
             </tr>
             <tr>
-              <td>Скоростной поезд (возн.)</td>
-              <td>Bullet Train In</td>
+              <td>
+                <mark className="copy">Скоростной поезд (возн.)</mark>
+              </td>
+              <td>
+                <mark className="copy">Bullet Train In</mark>
+              </td>
             </tr>
             <tr>
-              <td>Туман (возн.)</td>
-              <td>Foggy In</td>
+              <td>
+                <mark className="copy">Туман (возн.)</mark>
+              </td>
+              <td>
+                <mark className="copy">Foggy In</mark>
+              </td>
             </tr>
           </tbody>
         </table>
@@ -6138,80 +8630,156 @@ const AEWhereFind: React.FC = () => {
           </thead>
           <tbody>
             <tr>
-              <td>Быстрое вращение (возн.)</td>
-              <td>Spin Fast In</td>
+              <td>
+                <mark className="copy">Быстрое вращение (возн.)</mark>
+              </td>
+              <td>
+                <mark className="copy">Spin Fast In</mark>
+              </td>
             </tr>
             <tr>
-              <td>Вброс с прокруткой по часовой стрелке</td>
-              <td> Clockwise Entry</td>
+              <td>
+                <mark className="copy">Вброс с прокруткой по часовой стрелке</mark>
+              </td>
+              <td>
+                <mark className="copy"> Clockwise Entry</mark>
+              </td>
             </tr>
             <tr>
-              <td>Ввод спиралью</td>
-              <td>Spiral In</td>
+              <td>
+                <mark className="copy">Ввод спиралью</mark>
+              </td>
+              <td>
+                <mark className="copy">Spiral In</mark>
+              </td>
             </tr>
             <tr>
-              <td>Кто успел</td>
-              <td>Musical Chairs</td>
+              <td>
+                <mark className="copy">Кто успел</mark>
+              </td>
+              <td>
+                <mark className="copy">Musical Chairs</mark>
+              </td>
             </tr>
             <tr>
-              <td>Лассо (возн.)</td>
-              <td>Lasso In</td>
+              <td>
+                <mark className="copy">Лассо (возн.)</mark>
+              </td>
+              <td>
+                <mark className="copy">Lasso In</mark>
+              </td>
             </tr>
             <tr>
-              <td>Лассо по словам (возн.)</td>
-              <td>Lasso Tumble In</td>
+              <td>
+                <mark className="copy">Лассо по словам (возн.)</mark>
+              </td>
+              <td>
+                <mark className="copy">Lasso Tumble In</mark>
+              </td>
             </tr>
             <tr>
-              <td>Ньютон</td>
-              <td>Newton</td>
+              <td>
+                <mark className="copy">Ньютон</mark>
+              </td>
+              <td>
+                <mark className="copy">Newton</mark>
+              </td>
             </tr>
             <tr>
-              <td>Обод колеса (возн.)</td>
-              <td>Tire Rim In</td>
+              <td>
+                <mark className="copy">Обод колеса (возн.)</mark>
+              </td>
+              <td>
+                <mark className="copy">Tire Rim In</mark>
+              </td>
             </tr>
             <tr>
-              <td>Обратное вращение</td>
-              <td>Retrograde</td>
+              <td>
+                <mark className="copy">Обратное вращение</mark>
+              </td>
+              <td>
+                <mark className="copy">Retrograde</mark>
+              </td>
             </tr>
             <tr>
-              <td>Пикирование (возн.)</td>
-              <td>Swoop In</td>
+              <td>
+                <mark className="copy">Пикирование (возн.)</mark>
+              </td>
+              <td>
+                <mark className="copy">Swoop In</mark>
+              </td>
             </tr>
             <tr>
-              <td>Поворот против часовой стрелки</td>
-              <td>Counter Rotate</td>
+              <td>
+                <mark className="copy">Поворот против часовой стрелки</mark>
+              </td>
+              <td>
+                <mark className="copy">Counter Rotate</mark>
+              </td>
             </tr>
             <tr>
-              <td>Поворот</td>
-              <td>Rotate</td>
+              <td>
+                <mark className="copy">Поворот</mark>
+              </td>
+              <td>
+                <mark className="copy">Rotate</mark>
+              </td>
             </tr>
             <tr>
-              <td>Появление с прокруткой</td>
-              <td>Whirl In</td>
+              <td>
+                <mark className="copy">Появление с прокруткой</mark>
+              </td>
+              <td>
+                <mark className="copy">Whirl In</mark>
+              </td>
             </tr>
             <tr>
-              <td>Пылевой дьявол (исч.)</td>
-              <td>Dust Devil Out</td>
+              <td>
+                <mark className="copy">Пылевой дьявол (исч.)</mark>
+              </td>
+              <td>
+                <mark className="copy">Dust Devil Out</mark>
+              </td>
             </tr>
             <tr>
-              <td>Радиальное сверкание (возн.)</td>
-              <td>Radial Flare In</td>
+              <td>
+                <mark className="copy">Радиальное сверкание (возн.)</mark>
+              </td>
+              <td>
+                <mark className="copy">Radial Flare In</mark>
+              </td>
             </tr>
             <tr>
-              <td>Раскрывающийся цветок (возн.)</td>
-              <td>Bloom Flower In</td>
+              <td>
+                <mark className="copy">Раскрывающийся цветок (возн.)</mark>
+              </td>
+              <td>
+                <mark className="copy">Bloom Flower In</mark>
+              </td>
             </tr>
             <tr>
-              <td>Сальто (возн.)</td>
-              <td>Somersault In</td>
+              <td>
+                <mark className="copy">Сальто (возн.)</mark>
+              </td>
+              <td>
+                <mark className="copy">Somersault In</mark>
+              </td>
             </tr>
             <tr>
-              <td>Спираль (исч.)</td>
-              <td>Spiral Out</td>
+              <td>
+                <mark className="copy">Спираль (исч.)</mark>
+              </td>
+              <td>
+                <mark className="copy">Spiral Out</mark>
+              </td>
             </tr>
             <tr>
-              <td>Чаинки (возн.)</td>
-              <td>Tea Leaves In</td>
+              <td>
+                <mark className="copy">Чаинки (возн.)</mark>
+              </td>
+              <td>
+                <mark className="copy">Tea Leaves In</mark>
+              </td>
             </tr>
           </tbody>
         </table>
@@ -6225,32 +8793,60 @@ const AEWhereFind: React.FC = () => {
           </thead>
           <tbody>
             <tr>
-              <td>Выделение списка слов</td>
-              <td>Word List Highlight</td>
+              <td>
+                <mark className="copy">Выделение списка слов</mark>
+              </td>
+              <td>
+                <mark className="copy">Word List Highlight</mark>
+              </td>
             </tr>
             <tr>
-              <td>Двумерное текстовое окно (маска и эффекты)</td>
-              <td>2D Text Box (Mask &amp; Effects)</td>
+              <td>
+                <mark className="copy">Двумерное текстовое окно (маска и эффекты)</mark>
+              </td>
+              <td>
+                <mark className="copy">2D Text Box (Mask &amp; Effects)</mark>
+              </td>
             </tr>
             <tr>
-              <td>Номер кадра</td>
-              <td>Frame Number</td>
+              <td>
+                <mark className="copy">Номер кадра</mark>
+              </td>
+              <td>
+                <mark className="copy">Frame Number</mark>
+              </td>
             </tr>
             <tr>
-              <td>Отображение компьютерного времени</td>
-              <td>Display Comp Time</td>
+              <td>
+                <mark className="copy">Отображение компьютерного времени</mark>
+              </td>
+              <td>
+                <mark className="copy">Display Comp Time</mark>
+              </td>
             </tr>
             <tr>
-              <td>Скачущий текст</td>
-              <td>Text Bounce</td>
+              <td>
+                <mark className="copy">Скачущий текст</mark>
+              </td>
+              <td>
+                <mark className="copy">Text Bounce</mark>
+              </td>
             </tr>
             <tr>
-              <td>Цикл списка слов</td>
-              <td>Cycle Word List</td>
+              <td>
+                <mark className="copy">Цикл списка слов</mark>
+              </td>
+              <td>
+                <mark className="copy">Cycle Word List</mark>
+              </td>
             </tr>
             <tr>
-              <td>Червячок</td>
-              <td>Inch Worm</td>
+              <td>
+                <mark className="copy">Червячок</mark>
+              </td>
+              <td>
+                <mark className="copy">Inch Worm</mark>
+              </td>
             </tr>
           </tbody>
         </table>
@@ -6264,48 +8860,92 @@ const AEWhereFind: React.FC = () => {
           </thead>
           <tbody>
             <tr>
-              <td>Вымывание цвета</td>
-              <td>Color Wash Behavior</td>
+              <td>
+                <mark className="copy">Вымывание цвета</mark>
+              </td>
+              <td>
+                <mark className="copy">Color Wash Behavior</mark>
+              </td>
             </tr>
             <tr>
-              <td>Вытеснение заливки</td>
-              <td>Fill Color Wipe</td>
+              <td>
+                <mark className="copy">Вытеснение заливки</mark>
+              </td>
+              <td>
+                <mark className="copy">Fill Color Wipe</mark>
+              </td>
             </tr>
             <tr>
-              <td>Мигающая обводка - построчно по ширине</td>
-              <td>Wiggly Stroke Width By Line</td>
+              <td>
+                <mark className="copy">Мигающая обводка - построчно по ширине</mark>
+              </td>
+              <td>
+                <mark className="copy">Wiggly Stroke Width By Line</mark>
+              </td>
             </tr>
             <tr>
-              <td>Ниспадающая дорожка</td>
-              <td>Stroke Ease Down</td>
+              <td>
+                <mark className="copy">Ниспадающая дорожка</mark>
+              </td>
+              <td>
+                <mark className="copy">Stroke Ease Down</mark>
+              </td>
             </tr>
             <tr>
-              <td>Оранжевая пульсация</td>
-              <td>Pulse Orange</td>
+              <td>
+                <mark className="copy">Оранжевая пульсация</mark>
+              </td>
+              <td>
+                <mark className="copy">Pulse Orange</mark>
+              </td>
             </tr>
             <tr>
-              <td>Последовательное выделение</td>
-              <td>Chasing Stroke</td>
+              <td>
+                <mark className="copy">Последовательное выделение</mark>
+              </td>
+              <td>
+                <mark className="copy">Chasing Stroke</mark>
+              </td>
             </tr>
             <tr>
-              <td>Пульсирующие дорожки</td>
-              <td>Pulsing Strokes</td>
+              <td>
+                <mark className="copy">Пульсирующие дорожки</mark>
+              </td>
+              <td>
+                <mark className="copy">Pulsing Strokes</mark>
+              </td>
             </tr>
             <tr>
-              <td>Скользящее мерцание цвета</td>
-              <td>Sliding Color Flicker</td>
+              <td>
+                <mark className="copy">Скользящее мерцание цвета</mark>
+              </td>
+              <td>
+                <mark className="copy">Sliding Color Flicker</mark>
+              </td>
             </tr>
             <tr>
-              <td>Смещение в холодный оттенок</td>
-              <td>Chill Hue Shift</td>
+              <td>
+                <mark className="copy">Смещение в холодный оттенок</mark>
+              </td>
+              <td>
+                <mark className="copy">Chill Hue Shift</mark>
+              </td>
             </tr>
             <tr>
-              <td>Цветное мигание</td>
-              <td>Flicker Color</td>
+              <td>
+                <mark className="copy">Цветное мигание</mark>
+              </td>
+              <td>
+                <mark className="copy">Flicker Color</mark>
+              </td>
             </tr>
             <tr>
-              <td>Циклическая заливка оттенка</td>
-              <td>Cycle Fill Hue</td>
+              <td>
+                <mark className="copy">Циклическая заливка оттенка</mark>
+              </td>
+              <td>
+                <mark className="copy">Cycle Fill Hue</mark>
+              </td>
             </tr>
           </tbody>
         </table>
@@ -6319,36 +8959,68 @@ const AEWhereFind: React.FC = () => {
           </thead>
           <tbody>
             <tr>
-              <td>Голубой фон</td>
-              <td>Blue Note</td>
+              <td>
+                <mark className="copy">Голубой фон</mark>
+              </td>
+              <td>
+                <mark className="copy">Blue Note</mark>
+              </td>
             </tr>
             <tr>
-              <td>Желтые кубики</td>
-              <td>Yellow Boxes</td>
+              <td>
+                <mark className="copy">Желтые кубики</mark>
+              </td>
+              <td>
+                <mark className="copy">Yellow Boxes</mark>
+              </td>
             </tr>
             <tr>
-              <td>Красные круги</td>
-              <td>Red Circles</td>
+              <td>
+                <mark className="copy">Красные круги</mark>
+              </td>
+              <td>
+                <mark className="copy">Red Circles</mark>
+              </td>
             </tr>
             <tr>
-              <td>Нарезка</td>
-              <td>Cut Shapes</td>
+              <td>
+                <mark className="copy">Нарезка</mark>
+              </td>
+              <td>
+                <mark className="copy">Cut Shapes</mark>
+              </td>
             </tr>
             <tr>
-              <td>Опасность</td>
-              <td>Hazard</td>
+              <td>
+                <mark className="copy">Опасность</mark>
+              </td>
+              <td>
+                <mark className="copy">Hazard</mark>
+              </td>
             </tr>
             <tr>
-              <td>Поцарапанная пленка</td>
-              <td>Scratchy Film</td>
+              <td>
+                <mark className="copy">Поцарапанная пленка</mark>
+              </td>
+              <td>
+                <mark className="copy">Scratchy Film</mark>
+              </td>
             </tr>
             <tr>
-              <td>Размен</td>
-              <td>Exchange</td>
+              <td>
+                <mark className="copy">Размен</mark>
+              </td>
+              <td>
+                <mark className="copy">Exchange</mark>
+              </td>
             </tr>
             <tr>
-              <td>Снежинки</td>
-              <td>Snowflakes</td>
+              <td>
+                <mark className="copy">Снежинки</mark>
+              </td>
+              <td>
+                <mark className="copy">Snowflakes</mark>
+              </td>
             </tr>
           </tbody>
         </table>
@@ -6362,32 +9034,60 @@ const AEWhereFind: React.FC = () => {
           </thead>
           <tbody>
             <tr>
-              <td>Бродвей</td>
-              <td>Broadway</td>
+              <td>
+                <mark className="copy">Бродвей</mark>
+              </td>
+              <td>
+                <mark className="copy">Broadway</mark>
+              </td>
             </tr>
             <tr>
-              <td>Вспышки</td>
-              <td>Flash</td>
+              <td>
+                <mark className="copy">Вспышки</mark>
+              </td>
+              <td>
+                <mark className="copy">Flash</mark>
+              </td>
             </tr>
             <tr>
-              <td>Лампа дневного света</td>
-              <td>Fluorescent Light</td>
+              <td>
+                <mark className="copy">Лампа дневного света</mark>
+              </td>
+              <td>
+                <mark className="copy">Fluorescent Light</mark>
+              </td>
             </tr>
             <tr>
-              <td>Легкое мигание</td>
-              <td>Office Light</td>
+              <td>
+                <mark className="copy">Легкое мигание</mark>
+              </td>
+              <td>
+                <mark className="copy">Office Light</mark>
+              </td>
             </tr>
             <tr>
-              <td>Наложение</td>
-              <td>Overlay</td>
+              <td>
+                <mark className="copy">Наложение</mark>
+              </td>
+              <td>
+                <mark className="copy">Overlay</mark>
+              </td>
             </tr>
             <tr>
-              <td>Проявление с мерцанием</td>
-              <td>Flicker Exposure</td>
+              <td>
+                <mark className="copy">Проявление с мерцанием</mark>
+              </td>
+              <td>
+                <mark className="copy">Flicker Exposure</mark>
+              </td>
             </tr>
             <tr>
-              <td>Пульсирующие пузырьки</td>
-              <td>Bubble Pulse</td>
+              <td>
+                <mark className="copy">Пульсирующие пузырьки</mark>
+              </td>
+              <td>
+                <mark className="copy">Bubble Pulse</mark>
+              </td>
             </tr>
           </tbody>
         </table>
@@ -6401,84 +9101,164 @@ const AEWhereFind: React.FC = () => {
           </thead>
           <tbody>
             <tr>
-              <td>Автоматика</td>
-              <td>Automation</td>
+              <td>
+                <mark className="copy">Автоматика</mark>
+              </td>
+              <td>
+                <mark className="copy">Automation</mark>
+              </td>
             </tr>
             <tr>
-              <td>Автомобильная поездка 2</td>
-              <td>Roadtrip 2</td>
+              <td>
+                <mark className="copy">Автомобильная поездка 2</mark>
+              </td>
+              <td>
+                <mark className="copy">Roadtrip 2</mark>
+              </td>
             </tr>
             <tr>
-              <td>Автомобильная поездка</td>
-              <td>Roadtrip</td>
+              <td>
+                <mark className="copy">Автомобильная поездка</mark>
+              </td>
+              <td>
+                <mark className="copy">Roadtrip</mark>
+              </td>
             </tr>
             <tr>
-              <td>Алгоритм (возн.)</td>
-              <td>Algorithm In</td>
+              <td>
+                <mark className="copy">Алгоритм (возн.)</mark>
+              </td>
+              <td>
+                <mark className="copy">Algorithm In</mark>
+              </td>
             </tr>
             <tr>
-              <td>Вертолет (возн.)</td>
-              <td>Helicopter In</td>
+              <td>
+                <mark className="copy">Вертолет (возн.)</mark>
+              </td>
+              <td>
+                <mark className="copy">Helicopter In</mark>
+              </td>
             </tr>
             <tr>
-              <td>Вставка текста (возн.)</td>
-              <td>Insert Text In</td>
+              <td>
+                <mark className="copy">Вставка текста (возн.)</mark>
+              </td>
+              <td>
+                <mark className="copy">Insert Text In</mark>
+              </td>
             </tr>
             <tr>
-              <td>Гиперпространственный двигатель 9.8</td>
-              <td>Warp 9.8</td>
+              <td>
+                <mark className="copy">Гиперпространственный двигатель 9.8</mark>
+              </td>
+              <td>
+                <mark className="copy">Warp 9.8</mark>
+              </td>
             </tr>
             <tr>
-              <td>Кинематика (возн.)</td>
-              <td>Kinematic In</td>
+              <td>
+                <mark className="copy">Кинематика (возн.)</mark>
+              </td>
+              <td>
+                <mark className="copy">Kinematic In</mark>
+              </td>
             </tr>
             <tr>
-              <td>Кольцевой алгоритм</td>
-              <td>Algorithm Loop</td>
+              <td>
+                <mark className="copy">Кольцевой алгоритм</mark>
+              </td>
+              <td>
+                <mark className="copy">Algorithm Loop</mark>
+              </td>
             </tr>
             <tr>
-              <td>Лестница</td>
-              <td>Stairstep</td>
+              <td>
+                <mark className="copy">Лестница</mark>
+              </td>
+              <td>
+                <mark className="copy">Stairstep</mark>
+              </td>
             </tr>
             <tr>
-              <td>Механика (возн.)</td>
-              <td>Mechanical In</td>
+              <td>
+                <mark className="copy">Механика (возн.)</mark>
+              </td>
+              <td>
+                <mark className="copy">Mechanical In</mark>
+              </td>
             </tr>
             <tr>
-              <td>Поворот экрана</td>
-              <td>Screen Roll</td>
+              <td>
+                <mark className="copy">Поворот экрана</mark>
+              </td>
+              <td>
+                <mark className="copy">Screen Roll</mark>
+              </td>
             </tr>
             <tr>
-              <td>Подлодка</td>
-              <td>Submarine</td>
+              <td>
+                <mark className="copy">Подлодка</mark>
+              </td>
+              <td>
+                <mark className="copy">Submarine</mark>
+              </td>
             </tr>
             <tr>
-              <td>Подчеркивание (возн.)</td>
-              <td>Underscore In</td>
+              <td>
+                <mark className="copy">Подчеркивание (возн.)</mark>
+              </td>
+              <td>
+                <mark className="copy">Underscore In</mark>
+              </td>
             </tr>
             <tr>
-              <td>Поршни</td>
-              <td>Pistons</td>
+              <td>
+                <mark className="copy">Поршни</mark>
+              </td>
+              <td>
+                <mark className="copy">Pistons</mark>
+              </td>
             </tr>
             <tr>
-              <td>Прыжки с увеличением</td>
-              <td>Scale Bounce</td>
+              <td>
+                <mark className="copy">Прыжки с увеличением</mark>
+              </td>
+              <td>
+                <mark className="copy">Scale Bounce</mark>
+              </td>
             </tr>
             <tr>
-              <td>Сбой сигнала</td>
-              <td>Bad Reception</td>
+              <td>
+                <mark className="copy">Сбой сигнала</mark>
+              </td>
+              <td>
+                <mark className="copy">Bad Reception</mark>
+              </td>
             </tr>
             <tr>
-              <td>Стеллаж и перо</td>
-              <td>Rack & Pinion</td>
+              <td>
+                <mark className="copy">Стеллаж и перо</mark>
+              </td>
+              <td>
+                <mark className="copy">Rack & Pinion</mark>
+              </td>
             </tr>
             <tr>
-              <td>Электромагнит (возн.)</td>
-              <td>Electro Magnet In</td>
+              <td>
+                <mark className="copy">Электромагнит (возн.)</mark>
+              </td>
+              <td>
+                <mark className="copy">Electro Magnet In</mark>
+              </td>
             </tr>
             <tr>
-              <td>Эффект Доплера</td>
-              <td>Doppler</td>
+              <td>
+                <mark className="copy">Эффект Доплера</mark>
+              </td>
+              <td>
+                <mark className="copy">Doppler</mark>
+              </td>
             </tr>
           </tbody>
         </table>
@@ -6492,96 +9272,188 @@ const AEWhereFind: React.FC = () => {
           </thead>
           <tbody>
             <tr>
-              <td>Вброс углом</td>
-              <td>Angle Fly-In</td>
+              <td>
+                <mark className="copy">Вброс углом</mark>
+              </td>
+              <td>
+                <mark className="copy">Angle Fly-In</mark>
+              </td>
             </tr>
             <tr>
-              <td>Взрыв (исч.)</td>
-              <td>Explode Out</td>
+              <td>
+                <mark className="copy">Взрыв (исч.)</mark>
+              </td>
+              <td>
+                <mark className="copy">Explode Out</mark>
+              </td>
             </tr>
             <tr>
-              <td>Волнистые линии (возн.)</td>
-              <td>Wiggly Lines In</td>
+              <td>
+                <mark className="copy">Волнистые линии (возн.)</mark>
+              </td>
+              <td>
+                <mark className="copy">Wiggly Lines In</mark>
+              </td>
             </tr>
             <tr>
-              <td>Вопрос</td>
-              <td>Question</td>
+              <td>
+                <mark className="copy">Вопрос</mark>
+              </td>
+              <td>
+                <mark className="copy">Question</mark>
+              </td>
             </tr>
             <tr>
-              <td>Впрыгивание</td>
-              <td>Bounce In</td>
+              <td>
+                <mark className="copy">Впрыгивание</mark>
+              </td>
+              <td>
+                <mark className="copy">Bounce In</mark>
+              </td>
             </tr>
             <tr>
-              <td>Выдувание (исч.)</td>
-              <td>Blow Away Out</td>
+              <td>
+                <mark className="copy">Выдувание (исч.)</mark>
+              </td>
+              <td>
+                <mark className="copy">Blow Away Out</mark>
+              </td>
             </tr>
             <tr>
-              <td>Выжимка</td>
-              <td>Squeeze</td>
+              <td>
+                <mark className="copy">Выжимка</mark>
+              </td>
+              <td>
+                <mark className="copy">Squeeze</mark>
+              </td>
             </tr>
             <tr>
-              <td>Декодер текста со сбоями</td>
-              <td>Glitchy Text Decoder</td>
+              <td>
+                <mark className="copy">Декодер текста со сбоями</mark>
+              </td>
+              <td>
+                <mark className="copy">Glitchy Text Decoder</mark>
+              </td>
             </tr>
             <tr>
-              <td>Дымок</td>
-              <td>Smokey</td>
+              <td>
+                <mark className="copy">Дымок</mark>
+              </td>
+              <td>
+                <mark className="copy">Smokey</mark>
+              </td>
             </tr>
             <tr>
-              <td>Йо-йо</td>
-              <td>Yo-Yo</td>
+              <td>
+                <mark className="copy">Йо-йо</mark>
+              </td>
+              <td>
+                <mark className="copy">Yo-Yo</mark>
+              </td>
             </tr>
             <tr>
-              <td>Качение и прыжок (возн.)</td>
-              <td>Roll Bounce In</td>
+              <td>
+                <mark className="copy">Качение и прыжок (возн.)</mark>
+              </td>
+              <td>
+                <mark className="copy">Roll Bounce In</mark>
+              </td>
             </tr>
             <tr>
-              <td>Маятник (возн.)</td>
-              <td>Pendulum In</td>
+              <td>
+                <mark className="copy">Маятник (возн.)</mark>
+              </td>
+              <td>
+                <mark className="copy">Pendulum In</mark>
+              </td>
             </tr>
             <tr>
-              <td>Прыжки на веревке</td>
-              <td>Bungee</td>
+              <td>
+                <mark className="copy">Прыжки на веревке</mark>
+              </td>
+              <td>
+                <mark className="copy">Bungee</mark>
+              </td>
             </tr>
             <tr>
-              <td>Равномерные скачки</td>
-              <td>Sequential Jump</td>
+              <td>
+                <mark className="copy">Равномерные скачки</mark>
+              </td>
+              <td>
+                <mark className="copy">Sequential Jump</mark>
+              </td>
             </tr>
             <tr>
-              <td>Сальто назад</td>
-              <td>Back Flip</td>
+              <td>
+                <mark className="copy">Сальто назад</mark>
+              </td>
+              <td>
+                <mark className="copy">Back Flip</mark>
+              </td>
             </tr>
             <tr>
-              <td>Скольжение и прыжок (возн.)</td>
-              <td>Slide Bounce In</td>
+              <td>
+                <mark className="copy">Скольжение и прыжок (возн.)</mark>
+              </td>
+              <td>
+                <mark className="copy">Slide Bounce In</mark>
+              </td>
             </tr>
             <tr>
-              <td>Смывающаяся точка (возн.)</td>
-              <td>Vanishing Point In</td>
+              <td>
+                <mark className="copy">Смывающаяся точка (возн.)</mark>
+              </td>
+              <td>
+                <mark className="copy">Vanishing Point In</mark>
+              </td>
             </tr>
             <tr>
-              <td>Соскальзывание (возн.)</td>
-              <td>Slip In</td>
+              <td>
+                <mark className="copy">Соскальзывание (возн.)</mark>
+              </td>
+              <td>
+                <mark className="copy">Slip In</mark>
+              </td>
             </tr>
             <tr>
-              <td>Суматоха</td>
-              <td>Rattle</td>
+              <td>
+                <mark className="copy">Суматоха</mark>
+              </td>
+              <td>
+                <mark className="copy">Rattle</mark>
+              </td>
             </tr>
             <tr>
-              <td>Супергерой (возн.)</td>
-              <td>Superhero In</td>
+              <td>
+                <mark className="copy">Супергерой (возн.)</mark>
+              </td>
+              <td>
+                <mark className="copy">Superhero In</mark>
+              </td>
             </tr>
             <tr>
-              <td>Хаос (возн.)</td>
-              <td>Chaotic In</td>
+              <td>
+                <mark className="copy">Хаос (возн.)</mark>
+              </td>
+              <td>
+                <mark className="copy">Chaotic In</mark>
+              </td>
             </tr>
             <tr>
-              <td>Швырок (исч.)</td>
-              <td>Clay Pigeons Out</td>
+              <td>
+                <mark className="copy">Швырок (исч.)</mark>
+              </td>
+              <td>
+                <mark className="copy">Clay Pigeons Out</mark>
+              </td>
             </tr>
             <tr>
-              <td>Шестизарядный револьвер (возн.)</td>
-              <td>Six-Shooter in</td>
+              <td>
+                <mark className="copy">Шестизарядный револьвер (возн.)</mark>
+              </td>
+              <td>
+                <mark className="copy">Six-Shooter in</mark>
+              </td>
             </tr>
           </tbody>
         </table>
@@ -6595,60 +9467,116 @@ const AEWhereFind: React.FC = () => {
           </thead>
           <tbody>
             <tr>
-              <td>Вброс по символам</td>
-              <td>Fly In By Characters</td>
+              <td>
+                <mark className="copy">Вброс по символам</mark>
+              </td>
+              <td>
+                <mark className="copy">Fly In By Characters</mark>
+              </td>
             </tr>
             <tr>
-              <td>Вброс по словам</td>
-              <td>Fly In By Words</td>
+              <td>
+                <mark className="copy">Вброс по словам</mark>
+              </td>
+              <td>
+                <mark className="copy">Fly In By Words</mark>
+              </td>
             </tr>
             <tr>
-              <td>Договор (возн.)</td>
-              <td>Deal In</td>
+              <td>
+                <mark className="copy">Договор (возн.)</mark>
+              </td>
+              <td>
+                <mark className="copy">Deal In</mark>
+              </td>
             </tr>
             <tr>
-              <td>Живчик (возн.)</td>
-              <td>Zippy In</td>
+              <td>
+                <mark className="copy">Живчик (возн.)</mark>
+              </td>
+              <td>
+                <mark className="copy">Zippy In</mark>
+              </td>
             </tr>
             <tr>
-              <td>Идеи</td>
-              <td>Ideas</td>
+              <td>
+                <mark className="copy">Идеи</mark>
+              </td>
+              <td>
+                <mark className="copy">Ideas</mark>
+              </td>
             </tr>
             <tr>
-              <td>Пакет данных</td>
-              <td>Data Packet</td>
+              <td>
+                <mark className="copy">Пакет данных</mark>
+              </td>
+              <td>
+                <mark className="copy">Data Packet</mark>
+              </td>
             </tr>
             <tr>
-              <td>Пневматика (возн.)</td>
-              <td>Pneumatic In</td>
+              <td>
+                <mark className="copy">Пневматика (возн.)</mark>
+              </td>
+              <td>
+                <mark className="copy">Pneumatic In</mark>
+              </td>
             </tr>
             <tr>
-              <td>Поток данных (возн.)</td>
-              <td>Data Stream In</td>
+              <td>
+                <mark className="copy">Поток данных (возн.)</mark>
+              </td>
+              <td>
+                <mark className="copy">Data Stream In</mark>
+              </td>
             </tr>
             <tr>
-              <td>Реактивная струя (возн.)</td>
-              <td>Jetstream In</td>
+              <td>
+                <mark className="copy">Реактивная струя (возн.)</mark>
+              </td>
+              <td>
+                <mark className="copy">Jetstream In</mark>
+              </td>
             </tr>
             <tr>
-              <td>Сбор стопки (возн.)</td>
-              <td>Alternating Stack In</td>
+              <td>
+                <mark className="copy">Сбор стопки (возн.)</mark>
+              </td>
+              <td>
+                <mark className="copy">Alternating Stack In</mark>
+              </td>
             </tr>
             <tr>
-              <td>Суп из букв</td>
-              <td>Alphabet Soup</td>
+              <td>
+                <mark className="copy">Суп из букв</mark>
+              </td>
+              <td>
+                <mark className="copy">Alphabet Soup</mark>
+              </td>
             </tr>
             <tr>
-              <td>Текстовый редактор (возн.)</td>
-              <td>Word Processor In</td>
+              <td>
+                <mark className="copy">Текстовый редактор (возн.)</mark>
+              </td>
+              <td>
+                <mark className="copy">Word Processor In</mark>
+              </td>
             </tr>
             <tr>
-              <td>Течения (возн.)</td>
-              <td>Currents In</td>
+              <td>
+                <mark className="copy">Течения (возн.)</mark>
+              </td>
+              <td>
+                <mark className="copy">Currents In</mark>
+              </td>
             </tr>
             <tr>
-              <td>Шифрование (возн.)</td>
-              <td>Encryption In</td>
+              <td>
+                <mark className="copy">Шифрование (возн.)</mark>
+              </td>
+              <td>
+                <mark className="copy">Encryption In</mark>
+              </td>
             </tr>
           </tbody>
         </table>
@@ -6662,20 +9590,36 @@ const AEWhereFind: React.FC = () => {
           </thead>
           <tbody>
             <tr>
-              <td>Обратный отсчет с фиксированной шириной</td>
-              <td>Counter Countdown Monospaced</td>
+              <td>
+                <mark className="copy">Обратный отсчет с фиксированной шириной</mark>
+              </td>
+              <td>
+                <mark className="copy">Counter Countdown Monospaced</mark>
+              </td>
             </tr>
             <tr>
-              <td>Отсчет времени с фиксированной шириной</td>
-              <td>Timer Countdown Monospaced</td>
+              <td>
+                <mark className="copy">Отсчет времени с фиксированной шириной</mark>
+              </td>
+              <td>
+                <mark className="copy">Timer Countdown Monospaced</mark>
+              </td>
             </tr>
             <tr>
-              <td>Счетчик валюты с фиксированной шириной</td>
-              <td>Currency Counter Monospaced</td>
+              <td>
+                <mark className="copy">Счетчик валюты с фиксированной шириной</mark>
+              </td>
+              <td>
+                <mark className="copy">Currency Counter Monospaced</mark>
+              </td>
             </tr>
             <tr>
-              <td>Счетчик процентов с фиксированной шириной</td>
-              <td>Percentage Counter Monospaced</td>
+              <td>
+                <mark className="copy">Счетчик процентов с фиксированной шириной</mark>
+              </td>
+              <td>
+                <mark className="copy">Percentage Counter Monospaced</mark>
+              </td>
             </tr>
           </tbody>
         </table>
@@ -6689,128 +9633,252 @@ const AEWhereFind: React.FC = () => {
           </thead>
           <tbody>
             <tr>
-              <td>Амплитудные прыжки</td>
-              <td>Dip-Bounce</td>
+              <td>
+                <mark className="copy">Амплитудные прыжки</mark>
+              </td>
+              <td>
+                <mark className="copy">Dip-Bounce</mark>
+              </td>
             </tr>
             <tr>
-              <td>Бумеранг (возн.)</td>
-              <td>Boomerang In</td>
+              <td>
+                <mark className="copy">Бумеранг (возн.)</mark>
+              </td>
+              <td>
+                <mark className="copy">Boomerang In</mark>
+              </td>
             </tr>
             <tr>
-              <td>Вдоль и поперек (возн.)</td>
-              <td>Slice and Dice In</td>
+              <td>
+                <mark className="copy">Вдоль и поперек (возн.)</mark>
+              </td>
+              <td>
+                <mark className="copy">Slice and Dice In</mark>
+              </td>
             </tr>
             <tr>
-              <td>Выезд</td>
-              <td>Shuffle</td>
+              <td>
+                <mark className="copy">Выезд</mark>
+              </td>
+              <td>
+                <mark className="copy">Shuffle</mark>
+              </td>
             </tr>
             <tr>
-              <td>Двойная спираль</td>
-              <td>Double-Helix</td>
+              <td>
+                <mark className="copy">Двойная спираль</mark>
+              </td>
+              <td>
+                <mark className="copy">Double-Helix</mark>
+              </td>
             </tr>
             <tr>
-              <td>Диагональный прыжок (возн.)</td>
-              <td>Diagonal Bounce In</td>
+              <td>
+                <mark className="copy">Диагональный прыжок (возн.)</mark>
+              </td>
+              <td>
+                <mark className="copy">Diagonal Bounce In</mark>
+              </td>
             </tr>
             <tr>
-              <td>Дрожание</td>
-              <td>Quiver</td>
+              <td>
+                <mark className="copy">Дрожание</mark>
+              </td>
+              <td>
+                <mark className="copy">Quiver</mark>
+              </td>
             </tr>
             <tr>
-              <td>Жвачка (возн.)</td>
-              <td>Chewing Gum In</td>
+              <td>
+                <mark className="copy">Жвачка (возн.)</mark>
+              </td>
+              <td>
+                <mark className="copy">Chewing Gum In</mark>
+              </td>
             </tr>
             <tr>
-              <td>Кипяток</td>
-              <td>Boiling</td>
+              <td>
+                <mark className="copy">Кипяток</mark>
+              </td>
+              <td>
+                <mark className="copy">Boiling</mark>
+              </td>
             </tr>
             <tr>
-              <td>Колебание (возн.)</td>
-              <td>Wobble In</td>
+              <td>
+                <mark className="copy">Колебание (возн.)</mark>
+              </td>
+              <td>
+                <mark className="copy">Wobble In</mark>
+              </td>
             </tr>
             <tr>
-              <td>Колибри (возн.)</td>
-              <td>Hummingbird In</td>
+              <td>
+                <mark className="copy">Колибри (возн.)</mark>
+              </td>
+              <td>
+                <mark className="copy">Hummingbird In</mark>
+              </td>
             </tr>
             <tr>
-              <td>Командная борьба</td>
-              <td>Tag Team</td>
+              <td>
+                <mark className="copy">Командная борьба</mark>
+              </td>
+              <td>
+                <mark className="copy">Tag Team</mark>
+              </td>
             </tr>
             <tr>
-              <td>Лабрадор (возн.)</td>
-              <td>Labrador In</td>
+              <td>
+                <mark className="copy">Лабрадор (возн.)</mark>
+              </td>
+              <td>
+                <mark className="copy">Labrador In</mark>
+              </td>
             </tr>
             <tr>
-              <td>Летающие формы</td>
-              <td>Flying Formation</td>
+              <td>
+                <mark className="copy">Летающие формы</mark>
+              </td>
+              <td>
+                <mark className="copy">Flying Formation</mark>
+              </td>
             </tr>
             <tr>
-              <td>Медленное кипение</td>
-              <td>Simmer</td>
+              <td>
+                <mark className="copy">Медленное кипение</mark>
+              </td>
+              <td>
+                <mark className="copy">Simmer</mark>
+              </td>
             </tr>
             <tr>
-              <td>Морская болезнь</td>
-              <td>Sea-Sick</td>
+              <td>
+                <mark className="copy">Морская болезнь</mark>
+              </td>
+              <td>
+                <mark className="copy">Sea-Sick</mark>
+              </td>
             </tr>
             <tr>
-              <td>Насекомые (возн.)</td>
-              <td>Insects In</td>
+              <td>
+                <mark className="copy">Насекомые (возн.)</mark>
+              </td>
+              <td>
+                <mark className="copy">Insects In</mark>
+              </td>
             </tr>
             <tr>
-              <td>Океанский прилив</td>
-              <td>Ocean Tide</td>
+              <td>
+                <mark className="copy">Океанский прилив</mark>
+              </td>
+              <td>
+                <mark className="copy">Ocean Tide</mark>
+              </td>
             </tr>
             <tr>
-              <td>Осень</td>
-              <td>Autumn</td>
+              <td>
+                <mark className="copy">Осень</mark>
+              </td>
+              <td>
+                <mark className="copy">Autumn</mark>
+              </td>
             </tr>
             <tr>
-              <td>Подъем (возн.)</td>
-              <td>Climb In</td>
+              <td>
+                <mark className="copy">Подъем (возн.)</mark>
+              </td>
+              <td>
+                <mark className="copy">Climb In</mark>
+              </td>
             </tr>
             <tr>
-              <td>Поток ветра</td>
-              <td>Wind Current</td>
+              <td>
+                <mark className="copy">Поток ветра</mark>
+              </td>
+              <td>
+                <mark className="copy">Wind Current</mark>
+              </td>
             </tr>
             <tr>
-              <td>Приманка</td>
-              <td>Fish Bait</td>
+              <td>
+                <mark className="copy">Приманка</mark>
+              </td>
+              <td>
+                <mark className="copy">Fish Bait</mark>
+              </td>
             </tr>
             <tr>
-              <td>Прорастание (возн.)</td>
-              <td>Sprouts In</td>
+              <td>
+                <mark className="copy">Прорастание (возн.)</mark>
+              </td>
+              <td>
+                <mark className="copy">Sprouts In</mark>
+              </td>
             </tr>
             <tr>
-              <td>Пульсация (возн.)</td>
-              <td>Ripple In</td>
+              <td>
+                <mark className="copy">Пульсация (возн.)</mark>
+              </td>
+              <td>
+                <mark className="copy">Ripple In</mark>
+              </td>
             </tr>
             <tr>
-              <td>Пшеничное поле</td>
-              <td>Wheatfield</td>
+              <td>
+                <mark className="copy">Пшеничное поле</mark>
+              </td>
+              <td>
+                <mark className="copy">Wheatfield</mark>
+              </td>
             </tr>
             <tr>
-              <td>Разреженная строка</td>
-              <td>Loose Line</td>
+              <td>
+                <mark className="copy">Разреженная строка</mark>
+              </td>
+              <td>
+                <mark className="copy">Loose Line</mark>
+              </td>
             </tr>
             <tr>
-              <td>Резинка</td>
-              <td>Rubber</td>
+              <td>
+                <mark className="copy">Резинка</mark>
+              </td>
+              <td>
+                <mark className="copy">Rubber</mark>
+              </td>
             </tr>
             <tr>
-              <td>Резиновый пол</td>
-              <td>Rubber Floor</td>
+              <td>
+                <mark className="copy">Резиновый пол</mark>
+              </td>
+              <td>
+                <mark className="copy">Rubber Floor</mark>
+              </td>
             </tr>
             <tr>
-              <td>Салфетка от насекомых</td>
-              <td>Insect Wipe</td>
+              <td>
+                <mark className="copy">Салфетка от насекомых</mark>
+              </td>
+              <td>
+                <mark className="copy">Insect Wipe</mark>
+              </td>
             </tr>
             <tr>
-              <td>Слепень (возн.)</td>
-              <td>Horsefly In</td>
+              <td>
+                <mark className="copy">Слепень (возн.)</mark>
+              </td>
+              <td>
+                <mark className="copy">Horsefly In</mark>
+              </td>
             </tr>
             <tr>
-              <td>Чехарда</td>
-              <td>Leapfrog</td>
+              <td>
+                <mark className="copy">Чехарда</mark>
+              </td>
+              <td>
+                <mark className="copy">Leapfrog</mark>
+              </td>
             </tr>
           </tbody>
         </table>
@@ -6824,112 +9892,220 @@ const AEWhereFind: React.FC = () => {
           </thead>
           <tbody>
             <tr>
-              <td>Антилопа</td>
-              <td>Antelope</td>
+              <td>
+                <mark className="copy">Антилопа</mark>
+              </td>
+              <td>
+                <mark className="copy">Antelope</mark>
+              </td>
             </tr>
             <tr>
-              <td>Барьеры</td>
-              <td>Hurdles</td>
+              <td>
+                <mark className="copy">Барьеры</mark>
+              </td>
+              <td>
+                <mark className="copy">Hurdles</mark>
+              </td>
             </tr>
             <tr>
-              <td>Безделушка</td>
-              <td>Tchotchke</td>
+              <td>
+                <mark className="copy">Безделушка</mark>
+              </td>
+              <td>
+                <mark className="copy">Tchotchke</mark>
+              </td>
             </tr>
             <tr>
-              <td>В объезд</td>
-              <td>Bump And Slide On</td>
+              <td>
+                <mark className="copy">В объезд</mark>
+              </td>
+              <td>
+                <mark className="copy">Bump And Slide On</mark>
+              </td>
             </tr>
             <tr>
-              <td>Вниз и наружу</td>
-              <td>Down And Out</td>
+              <td>
+                <mark className="copy">Вниз и наружу</mark>
+              </td>
+              <td>
+                <mark className="copy">Down And Out</mark>
+              </td>
             </tr>
             <tr>
-              <td>Воздушный шар</td>
-              <td>Balloon</td>
+              <td>
+                <mark className="copy">Воздушный шар</mark>
+              </td>
+              <td>
+                <mark className="copy">Balloon</mark>
+              </td>
             </tr>
             <tr>
-              <td>Всплывание пузыря (исч.)</td>
-              <td>Bubble Pop Out</td>
+              <td>
+                <mark className="copy">Всплывание пузыря (исч.)</mark>
+              </td>
+              <td>
+                <mark className="copy">Bubble Pop Out</mark>
+              </td>
             </tr>
             <tr>
-              <td>Двойная спираль</td>
-              <td>Double Spiral</td>
+              <td>
+                <mark className="copy">Двойная спираль</mark>
+              </td>
+              <td>
+                <mark className="copy">Double Spiral</mark>
+              </td>
             </tr>
             <tr>
-              <td>Длинная спираль (исч.)</td>
-              <td>Long Spiral Out</td>
+              <td>
+                <mark className="copy">Длинная спираль (исч.)</mark>
+              </td>
+              <td>
+                <mark className="copy">Long Spiral Out</mark>
+              </td>
             </tr>
             <tr>
-              <td>Зигзаг</td>
-              <td>Zig-Zag</td>
+              <td>
+                <mark className="copy">Зигзаг</mark>
+              </td>
+              <td>
+                <mark className="copy">Zig-Zag</mark>
+              </td>
             </tr>
             <tr>
-              <td>Змейка</td>
-              <td>Serpent</td>
+              <td>
+                <mark className="copy">Змейка</mark>
+              </td>
+              <td>
+                <mark className="copy">Serpent</mark>
+              </td>
             </tr>
             <tr>
-              <td>Канатный мост</td>
-              <td>Rope Bridge</td>
+              <td>
+                <mark className="copy">Канатный мост</mark>
+              </td>
+              <td>
+                <mark className="copy">Rope Bridge</mark>
+              </td>
             </tr>
             <tr>
-              <td>Катушки 2</td>
-              <td>Reel-To-Reel 2</td>
+              <td>
+                <mark className="copy">Катушки 2</mark>
+              </td>
+              <td>
+                <mark className="copy">Reel-To-Reel 2</mark>
+              </td>
             </tr>
             <tr>
-              <td>Катушки</td>
-              <td>Reel To Reel</td>
+              <td>
+                <mark className="copy">Катушки</mark>
+              </td>
+              <td>
+                <mark className="copy">Reel To Reel</mark>
+              </td>
             </tr>
             <tr>
-              <td>Колебание</td>
-              <td>Bouncing</td>
+              <td>
+                <mark className="copy">Колебание</mark>
+              </td>
+              <td>
+                <mark className="copy">Bouncing</mark>
+              </td>
             </tr>
             <tr>
-              <td>Конвейер</td>
-              <td>Conveyor Belt</td>
+              <td>
+                <mark className="copy">Конвейер</mark>
+              </td>
+              <td>
+                <mark className="copy">Conveyor Belt</mark>
+              </td>
             </tr>
             <tr>
-              <td>Крысиное гнездо</td>
-              <td>Rat Nest</td>
+              <td>
+                <mark className="copy">Крысиное гнездо</mark>
+              </td>
+              <td>
+                <mark className="copy">Rat Nest</mark>
+              </td>
             </tr>
             <tr>
-              <td>Муравьи</td>
-              <td>Ants</td>
+              <td>
+                <mark className="copy">Муравьи</mark>
+              </td>
+              <td>
+                <mark className="copy">Ants</mark>
+              </td>
             </tr>
             <tr>
-              <td>Оборот на 360</td>
-              <td>360 Loop</td>
+              <td>
+                <mark className="copy">Оборот на 360</mark>
+              </td>
+              <td>
+                <mark className="copy">360 Loop</mark>
+              </td>
             </tr>
             <tr>
-              <td>Печатная плата (исч.)</td>
-              <td>Circuit Board Out</td>
+              <td>
+                <mark className="copy">Печатная плата (исч.)</mark>
+              </td>
+              <td>
+                <mark className="copy">Circuit Board Out</mark>
+              </td>
             </tr>
             <tr>
-              <td>Равновесие</td>
-              <td>Balance</td>
+              <td>
+                <mark className="copy">Равновесие</mark>
+              </td>
+              <td>
+                <mark className="copy">Balance</mark>
+              </td>
             </tr>
             <tr>
-              <td>Симметрия</td>
-              <td>Symmetry</td>
+              <td>
+                <mark className="copy">Симметрия</mark>
+              </td>
+              <td>
+                <mark className="copy">Symmetry</mark>
+              </td>
             </tr>
             <tr>
-              <td>Скольжение под гору - выкл</td>
-              <td>Downhill Slide Off</td>
+              <td>
+                <mark className="copy">Скольжение под гору - выкл</mark>
+              </td>
+              <td>
+                <mark className="copy">Downhill Slide Off</mark>
+              </td>
             </tr>
             <tr>
-              <td>Трубы</td>
-              <td>Pipes</td>
+              <td>
+                <mark className="copy">Трубы</mark>
+              </td>
+              <td>
+                <mark className="copy">Pipes</mark>
+              </td>
             </tr>
             <tr>
-              <td>Удар каратиста</td>
-              <td>Karate Chop</td>
+              <td>
+                <mark className="copy">Удар каратиста</mark>
+              </td>
+              <td>
+                <mark className="copy">Karate Chop</mark>
+              </td>
             </tr>
             <tr>
-              <td>Цикл возникновения-исчезновения</td>
-              <td>Loop In and Out</td>
+              <td>
+                <mark className="copy">Цикл возникновения-исчезновения</mark>
+              </td>
+              <td>
+                <mark className="copy">Loop In and Out</mark>
+              </td>
             </tr>
             <tr>
-              <td>Эластичный</td>
-              <td>Springy</td>
+              <td>
+                <mark className="copy">Эластичный</mark>
+              </td>
+              <td>
+                <mark className="copy">Springy</mark>
+              </td>
             </tr>
           </tbody>
         </table>
@@ -6943,44 +10119,84 @@ const AEWhereFind: React.FC = () => {
           </thead>
           <tbody>
             <tr>
-              <td>Водоворот</td>
-              <td>Swirly Rotation</td>
+              <td>
+                <mark className="copy">Водоворот</mark>
+              </td>
+              <td>
+                <mark className="copy">Swirly Rotation</mark>
+              </td>
             </tr>
             <tr>
-              <td>Вращение каждого символа</td>
-              <td>Rotate Per Character</td>
+              <td>
+                <mark className="copy">Вращение каждого символа</mark>
+              </td>
+              <td>
+                <mark className="copy">Rotate Per Character</mark>
+              </td>
             </tr>
             <tr>
-              <td>Закручивание</td>
-              <td>Spin In</td>
+              <td>
+                <mark className="copy">Закручивание</mark>
+              </td>
+              <td>
+                <mark className="copy">Spin In</mark>
+              </td>
             </tr>
             <tr>
-              <td>Огромная петля</td>
-              <td>Loopy Loop</td>
+              <td>
+                <mark className="copy">Огромная петля</mark>
+              </td>
+              <td>
+                <mark className="copy">Loopy Loop</mark>
+              </td>
             </tr>
             <tr>
-              <td>Отразить вверх</td>
-              <td>Flip Up</td>
+              <td>
+                <mark className="copy">Отразить вверх</mark>
+              </td>
+              <td>
+                <mark className="copy">Flip Up</mark>
+              </td>
             </tr>
             <tr>
-              <td>Поворот по словам</td>
-              <td>Rotate Per Word</td>
+              <td>
+                <mark className="copy">Поворот по словам</mark>
+              </td>
+              <td>
+                <mark className="copy">Rotate Per Word</mark>
+              </td>
             </tr>
             <tr>
-              <td>Полный оборот</td>
-              <td>Full Rotation</td>
+              <td>
+                <mark className="copy">Полный оборот</mark>
+              </td>
+              <td>
+                <mark className="copy">Full Rotation</mark>
+              </td>
             </tr>
             <tr>
-              <td>Случайные вращения</td>
-              <td>Random Rotation</td>
+              <td>
+                <mark className="copy">Случайные вращения</mark>
+              </td>
+              <td>
+                <mark className="copy">Random Rotation</mark>
+              </td>
             </tr>
             <tr>
-              <td>Смерч</td>
-              <td>Whirlwind</td>
+              <td>
+                <mark className="copy">Смерч</mark>
+              </td>
+              <td>
+                <mark className="copy">Whirlwind</mark>
+              </td>
             </tr>
             <tr>
-              <td>Стекание</td>
-              <td>Drip Down</td>
+              <td>
+                <mark className="copy">Стекание</mark>
+              </td>
+              <td>
+                <mark className="copy">Drip Down</mark>
+              </td>
             </tr>
           </tbody>
         </table>
@@ -6994,48 +10210,92 @@ const AEWhereFind: React.FC = () => {
           </thead>
           <tbody>
             <tr>
-              <td>Давайте танцевать</td>
-              <td>Lets Dance</td>
+              <td>
+                <mark className="copy">Давайте танцевать</mark>
+              </td>
+              <td>
+                <mark className="copy">Lets Dance</mark>
+              </td>
             </tr>
             <tr>
-              <td>Масштаб (возн.)</td>
-              <td>Scale In</td>
+              <td>
+                <mark className="copy">Масштаб (возн.)</mark>
+              </td>
+              <td>
+                <mark className="copy">Scale In</mark>
+              </td>
             </tr>
             <tr>
-              <td>Масштаб (исч.)</td>
-              <td>Scale Out</td>
+              <td>
+                <mark className="copy">Масштаб (исч.)</mark>
+              </td>
+              <td>
+                <mark className="copy">Scale Out</mark>
+              </td>
             </tr>
             <tr>
-              <td>Масштаб по словам (возн.)</td>
-              <td>Scale In By Word</td>
+              <td>
+                <mark className="copy">Масштаб по словам (возн.)</mark>
+              </td>
+              <td>
+                <mark className="copy">Scale In By Word</mark>
+              </td>
             </tr>
             <tr>
-              <td>Масштаб по словам (исч.)</td>
-              <td>Scale Out By Word</td>
+              <td>
+                <mark className="copy">Масштаб по словам (исч.)</mark>
+              </td>
+              <td>
+                <mark className="copy">Scale Out By Word</mark>
+              </td>
             </tr>
             <tr>
-              <td>Масштабирование в кадр от точки</td>
-              <td>Scale In From Point</td>
+              <td>
+                <mark className="copy">Масштабирование в кадр от точки</mark>
+              </td>
+              <td>
+                <mark className="copy">Scale In From Point</mark>
+              </td>
             </tr>
             <tr>
-              <td>Масштабирование из кадра от точки</td>
-              <td>Scale Out From Point</td>
+              <td>
+                <mark className="copy">Масштабирование из кадра от точки</mark>
+              </td>
+              <td>
+                <mark className="copy">Scale Out From Point</mark>
+              </td>
             </tr>
             <tr>
-              <td>Мигающее вытеснение с масштабированием</td>
-              <td>Wiggly Scale Wipe</td>
+              <td>
+                <mark className="copy">Мигающее вытеснение с масштабированием</mark>
+              </td>
+              <td>
+                <mark className="copy">Wiggly Scale Wipe</mark>
+              </td>
             </tr>
             <tr>
-              <td>Произвольное масштабирование (возн.)</td>
-              <td>Random Scale In</td>
+              <td>
+                <mark className="copy">Произвольное масштабирование (возн.)</mark>
+              </td>
+              <td>
+                <mark className="copy">Random Scale In</mark>
+              </td>
             </tr>
             <tr>
-              <td>Увеличение вперед</td>
-              <td>Zoom Forward</td>
+              <td>
+                <mark className="copy">Увеличение вперед</mark>
+              </td>
+              <td>
+                <mark className="copy">Zoom Forward</mark>
+              </td>
             </tr>
             <tr>
-              <td>Удаление с уменьшением</td>
-              <td>Zoom Away</td>
+              <td>
+                <mark className="copy">Удаление с уменьшением</mark>
+              </td>
+              <td>
+                <mark className="copy">Zoom Away</mark>
+              </td>
             </tr>
           </tbody>
         </table>
@@ -7049,40 +10309,76 @@ const AEWhereFind: React.FC = () => {
           </thead>
           <tbody>
             <tr>
-              <td>Растяжение</td>
-              <td>Increase Tracking</td>
+              <td>
+                <mark className="copy">Растяжение</mark>
+              </td>
+              <td>
+                <mark className="copy">Increase Tracking</mark>
+              </td>
             </tr>
             <tr>
-              <td>Растянутый</td>
-              <td>Stretchy</td>
+              <td>
+                <mark className="copy">Растянутый</mark>
+              </td>
+              <td>
+                <mark className="copy">Stretchy</mark>
+              </td>
             </tr>
             <tr>
-              <td>Расширение</td>
-              <td>Extend</td>
+              <td>
+                <mark className="copy">Расширение</mark>
+              </td>
+              <td>
+                <mark className="copy">Extend</mark>
+              </td>
             </tr>
             <tr>
-              <td>Сжатие</td>
-              <td>Contract</td>
+              <td>
+                <mark className="copy">Сжатие</mark>
+              </td>
+              <td>
+                <mark className="copy">Contract</mark>
+              </td>
             </tr>
             <tr>
-              <td>Смещение в кадр по трекингу</td>
-              <td>Shift In By Tracking</td>
+              <td>
+                <mark className="copy">Смещение в кадр по трекингу</mark>
+              </td>
+              <td>
+                <mark className="copy">Shift In By Tracking</mark>
+              </td>
             </tr>
             <tr>
-              <td>Смещение из кадра по трекингу</td>
-              <td>Shift Out By Tracking</td>
+              <td>
+                <mark className="copy">Смещение из кадра по трекингу</mark>
+              </td>
+              <td>
+                <mark className="copy">Shift Out By Tracking</mark>
+              </td>
             </tr>
             <tr>
-              <td>Судорога</td>
-              <td>Spasm</td>
+              <td>
+                <mark className="copy">Судорога</mark>
+              </td>
+              <td>
+                <mark className="copy">Spasm</mark>
+              </td>
             </tr>
             <tr>
-              <td>Сужение</td>
-              <td>Decrease Tracking</td>
+              <td>
+                <mark className="copy">Сужение</mark>
+              </td>
+              <td>
+                <mark className="copy">Decrease Tracking</mark>
+              </td>
             </tr>
             <tr>
-              <td>Увеличение</td>
-              <td>Magnify</td>
+              <td>
+                <mark className="copy">Увеличение</mark>
+              </td>
+              <td>
+                <mark className="copy">Magnify</mark>
+              </td>
             </tr>
           </tbody>
         </table>
@@ -7096,68 +10392,132 @@ const AEWhereFind: React.FC = () => {
           </thead>
           <tbody>
             <tr>
-              <td>Затухание блока - построчное</td>
-              <td>Block Dissolve - scanlines</td>
+              <td>
+                <mark className="copy">Затухание блока - построчное</mark>
+              </td>
+              <td>
+                <mark className="copy">Block Dissolve - scanlines</mark>
+              </td>
             </tr>
             <tr>
-              <td>Затухание блока - цифровое</td>
-              <td>Block Dissolve - digital</td>
+              <td>
+                <mark className="copy">Затухание блока - цифровое</mark>
+              </td>
+              <td>
+                <mark className="copy">Block Dissolve - digital</mark>
+              </td>
             </tr>
             <tr>
-              <td>Затухание - мигание в белый</td>
-              <td>Fade - flash to white</td>
+              <td>
+                <mark className="copy">Затухание - мигание в белый</mark>
+              </td>
+              <td>
+                <mark className="copy">Fade - flash to white</mark>
+              </td>
             </tr>
             <tr>
-              <td>Затухание - погружение в черный</td>
-              <td>Fade - dip to black</td>
+              <td>
+                <mark className="copy">Затухание - погружение в черный</mark>
+              </td>
+              <td>
+                <mark className="copy">Fade - dip to black</mark>
+              </td>
             </tr>
             <tr>
-              <td>Мерцающая непрозрачность - на слой в кадр</td>
-              <td>Flickering Opacity - at layer in</td>
+              <td>
+                <mark className="copy">Мерцающая непрозрачность - на слой в кадр</mark>
+              </td>
+              <td>
+                <mark className="copy">Flickering Opacity - at layer in</mark>
+              </td>
             </tr>
             <tr>
-              <td>Мерцающая непрозрачность - на слой из кадра</td>
-              <td>Flickering Opacity - at layer out</td>
+              <td>
+                <mark className="copy">Мерцающая непрозрачность - на слой из кадра</mark>
+              </td>
+              <td>
+                <mark className="copy">Flickering Opacity - at layer out</mark>
+              </td>
             </tr>
             <tr>
-              <td>Нарастание - переэкспонированное</td>
-              <td>Fade - overexposed</td>
+              <td>
+                <mark className="copy">Нарастание - переэкспонированное</mark>
+              </td>
+              <td>
+                <mark className="copy">Fade - overexposed</mark>
+              </td>
             </tr>
             <tr>
-              <td>Пиксельное растворение</td>
-              <td>Pixelated Dissolve</td>
+              <td>
+                <mark className="copy">Пиксельное растворение</mark>
+              </td>
+              <td>
+                <mark className="copy">Pixelated Dissolve</mark>
+              </td>
             </tr>
             <tr>
-              <td>Растворение блока - произвольно</td>
-              <td>Block Dissolve - random</td>
+              <td>
+                <mark className="copy">Растворение блока - произвольно</mark>
+              </td>
+              <td>
+                <mark className="copy">Block Dissolve - random</mark>
+              </td>
             </tr>
             <tr>
-              <td>Растворение - большие двоичные объекты</td>
-              <td>Dissolve - blobs</td>
+              <td>
+                <mark className="copy">Растворение - большие двоичные объекты</mark>
+              </td>
+              <td>
+                <mark className="copy">Dissolve - blobs</mark>
+              </td>
             </tr>
             <tr>
-              <td>Растворение - дизеринг</td>
-              <td>Dissolve - dither</td>
+              <td>
+                <mark className="copy">Растворение - дизеринг</mark>
+              </td>
+              <td>
+                <mark className="copy">Dissolve - dither</mark>
+              </td>
             </tr>
             <tr>
-              <td>Растворение - нерастаявший</td>
-              <td>Dissolve - unmelt</td>
+              <td>
+                <mark className="copy">Растворение - нерастаявший</mark>
+              </td>
+              <td>
+                <mark className="copy">Dissolve - unmelt</mark>
+              </td>
             </tr>
             <tr>
-              <td>Растворение - пар</td>
-              <td>Dissolve - vapor</td>
+              <td>
+                <mark className="copy">Растворение - пар</mark>
+              </td>
+              <td>
+                <mark className="copy">Dissolve - vapor</mark>
+              </td>
             </tr>
             <tr>
-              <td>Растворение - песок</td>
-              <td>Dissolve - sand</td>
+              <td>
+                <mark className="copy">Растворение - песок</mark>
+              </td>
+              <td>
+                <mark className="copy">Dissolve - sand</mark>
+              </td>
             </tr>
             <tr>
-              <td>Растворение - рябь</td>
-              <td>Dissolve - ripple</td>
+              <td>
+                <mark className="copy">Растворение - рябь</mark>
+              </td>
+              <td>
+                <mark className="copy">Dissolve - ripple</mark>
+              </td>
             </tr>
             <tr>
-              <td>Чернильное растворение</td>
-              <td>Inky Dissolve</td>
+              <td>
+                <mark className="copy">Чернильное растворение</mark>
+              </td>
+              <td>
+                <mark className="copy">Inky Dissolve</mark>
+              </td>
             </tr>
           </tbody>
         </table>
@@ -7171,76 +10531,148 @@ const AEWhereFind: React.FC = () => {
           </thead>
           <tbody>
             <tr>
-              <td>Всплывание и отражение в кадр</td>
-              <td>Pop and Wobble In</td>
+              <td>
+                <mark className="copy">Всплывание и отражение в кадр</mark>
+              </td>
+              <td>
+                <mark className="copy">Pop and Wobble In</mark>
+              </td>
             </tr>
             <tr>
-              <td>Вытеснение карт - 2D дробные</td>
-              <td>Card Wipe - 2D fractured</td>
+              <td>
+                <mark className="copy">Вытеснение карт - 2D дробные</mark>
+              </td>
+              <td>
+                <mark className="copy">Card Wipe - 2D fractured</mark>
+              </td>
             </tr>
             <tr>
-              <td>Вытеснение карт - 3D качание</td>
-              <td>Card Wipe - 3D swing</td>
+              <td>
+                <mark className="copy">Вытеснение карт - 3D качание</mark>
+              </td>
+              <td>
+                <mark className="copy">Card Wipe - 3D swing</mark>
+              </td>
             </tr>
             <tr>
-              <td>Вытеснение карт - 3D пиксельная буря</td>
-              <td>Card Wipe - 3D pixelstorm</td>
+              <td>
+                <mark className="copy">Вытеснение карт - 3D пиксельная буря</mark>
+              </td>
+              <td>
+                <mark className="copy">Card Wipe - 3D pixelstorm</mark>
+              </td>
             </tr>
             <tr>
-              <td>Масштаб полный</td>
-              <td>Scale - Cardinal</td>
+              <td>
+                <mark className="copy">Масштаб полный</mark>
+              </td>
+              <td>
+                <mark className="copy">Scale - Cardinal</mark>
+              </td>
             </tr>
             <tr>
-              <td>Масштаб - 2D-вращение</td>
-              <td>Zoom - 2D spin</td>
+              <td>
+                <mark className="copy">Масштаб - 2D-вращение</mark>
+              </td>
+              <td>
+                <mark className="copy">Zoom - 2D spin</mark>
+              </td>
             </tr>
             <tr>
-              <td>Масштаб - 3D-переворот</td>
-              <td>Zoom - 3D tumble</td>
+              <td>
+                <mark className="copy">Масштаб - 3D-переворот</mark>
+              </td>
+              <td>
+                <mark className="copy">Zoom - 3D tumble</mark>
+              </td>
             </tr>
             <tr>
-              <td>Масштаб - пузырь</td>
-              <td>Zoom - bubble</td>
+              <td>
+                <mark className="copy">Масштаб - пузырь</mark>
+              </td>
+              <td>
+                <mark className="copy">Zoom - bubble</mark>
+              </td>
             </tr>
             <tr>
-              <td>Масштаб - раскачивание</td>
-              <td>Zoom - wobbling</td>
+              <td>
+                <mark className="copy">Масштаб - раскачивание</mark>
+              </td>
+              <td>
+                <mark className="copy">Zoom - wobbling</mark>
+              </td>
             </tr>
             <tr>
-              <td>Масштаб - спираль</td>
-              <td>Zoom - spiral</td>
+              <td>
+                <mark className="copy">Масштаб - спираль</mark>
+              </td>
+              <td>
+                <mark className="copy">Zoom - spiral</mark>
+              </td>
             </tr>
             <tr>
-              <td>Растягивание из линии - по горизонтали</td>
-              <td>Stretch Over - horizontal</td>
+              <td>
+                <mark className="copy">Растягивание из линии - по горизонтали</mark>
+              </td>
+              <td>
+                <mark className="copy">Stretch Over - horizontal</mark>
+              </td>
             </tr>
             <tr>
-              <td>Растягивание по вертикали</td>
-              <td>Stretch Over - vertical</td>
+              <td>
+                <mark className="copy">Растягивание по вертикали</mark>
+              </td>
+              <td>
+                <mark className="copy">Stretch Over - vertical</mark>
+              </td>
             </tr>
             <tr>
-              <td>Растяжение и размытие</td>
-              <td>Stretch & Blur</td>
+              <td>
+                <mark className="copy">Растяжение и размытие</mark>
+              </td>
+              <td>
+                <mark className="copy">Stretch & Blur</mark>
+              </td>
             </tr>
             <tr>
-              <td>Растяжение и скольжение</td>
-              <td>Stretch & Slide</td>
+              <td>
+                <mark className="copy">Растяжение и скольжение</mark>
+              </td>
+              <td>
+                <mark className="copy">Stretch & Slide</mark>
+              </td>
             </tr>
             <tr>
-              <td>Растяжение с края</td>
-              <td>Stretch - Edge</td>
+              <td>
+                <mark className="copy">Растяжение с края</mark>
+              </td>
+              <td>
+                <mark className="copy">Stretch - Edge</mark>
+              </td>
             </tr>
             <tr>
-              <td>Слайд - обвал</td>
-              <td>Slide - swoop</td>
+              <td>
+                <mark className="copy">Слайд - обвал</mark>
+              </td>
+              <td>
+                <mark className="copy">Slide - swoop</mark>
+              </td>
             </tr>
             <tr>
-              <td>Слайд - падение</td>
-              <td>Slide - drop</td>
+              <td>
+                <mark className="copy">Слайд - падение</mark>
+              </td>
+              <td>
+                <mark className="copy">Slide - drop</mark>
+              </td>
             </tr>
             <tr>
-              <td>Слайд - прямо</td>
-              <td>Slide - straight</td>
+              <td>
+                <mark className="copy">Слайд - прямо</mark>
+              </td>
+              <td>
+                <mark className="copy">Slide - straight</mark>
+              </td>
             </tr>
           </tbody>
         </table>
@@ -7254,72 +10686,140 @@ const AEWhereFind: React.FC = () => {
           </thead>
           <tbody>
             <tr>
-              <td>Двери сарая</td>
-              <td>Barn Doors</td>
+              <td>
+                <mark className="copy">Двери сарая</mark>
+              </td>
+              <td>
+                <mark className="copy">Barn Doors</mark>
+              </td>
             </tr>
             <tr>
-              <td>Жалюзи</td>
-              <td>Venetian Blinds</td>
+              <td>
+                <mark className="copy">Жалюзи</mark>
+              </td>
+              <td>
+                <mark className="copy">Venetian Blinds</mark>
+              </td>
             </tr>
             <tr>
-              <td>Закрашивание сверху</td>
-              <td>Paint On</td>
+              <td>
+                <mark className="copy">Закрашивание сверху</mark>
+              </td>
+              <td>
+                <mark className="copy">Paint On</mark>
+              </td>
             </tr>
             <tr>
-              <td>Заполнение - шашки HD</td>
-              <td>Checker Wipe HD</td>
+              <td>
+                <mark className="copy">Заполнение - шашки HD</mark>
+              </td>
+              <td>
+                <mark className="copy">Checker Wipe HD</mark>
+              </td>
             </tr>
             <tr>
-              <td>Ленты - встречное заполнение HD</td>
-              <td>Band Wipe - crossing HD</td>
+              <td>
+                <mark className="copy">Ленты - встречное заполнение HD</mark>
+              </td>
+              <td>
+                <mark className="copy">Band Wipe - crossing HD</mark>
+              </td>
             </tr>
             <tr>
-              <td>Ленты - заклеивание HD</td>
-              <td>Band Wipe - Build HD</td>
+              <td>
+                <mark className="copy">Ленты - заклеивание HD</mark>
+              </td>
+              <td>
+                <mark className="copy">Band Wipe - Build HD</mark>
+              </td>
             </tr>
             <tr>
-              <td>Ленты - зигзаг HD</td>
-              <td>Band Wipe - Zig Zag HD</td>
+              <td>
+                <mark className="copy">Ленты - зигзаг HD</mark>
+              </td>
+              <td>
+                <mark className="copy">Band Wipe - Zig Zag HD</mark>
+              </td>
             </tr>
             <tr>
-              <td>Линейное вытеснение</td>
-              <td>Linear Wipe</td>
+              <td>
+                <mark className="copy">Линейное вытеснение</mark>
+              </td>
+              <td>
+                <mark className="copy">Linear Wipe</mark>
+              </td>
             </tr>
             <tr>
-              <td>Пиксельное вытеснение из центра</td>
-              <td>Pixelated Iris Wipe</td>
+              <td>
+                <mark className="copy">Пиксельное вытеснение из центра</mark>
+              </td>
+              <td>
+                <mark className="copy">Pixelated Iris Wipe</mark>
+              </td>
             </tr>
             <tr>
-              <td>Пиксельное линейное вытеснение</td>
-              <td>Pixelated Linear Wipe</td>
+              <td>
+                <mark className="copy">Пиксельное линейное вытеснение</mark>
+              </td>
+              <td>
+                <mark className="copy">Pixelated Linear Wipe</mark>
+              </td>
             </tr>
             <tr>
-              <td>Раскладушка</td>
-              <td>Clam Shell</td>
+              <td>
+                <mark className="copy">Раскладушка</mark>
+              </td>
+              <td>
+                <mark className="copy">Clam Shell</mark>
+              </td>
             </tr>
             <tr>
-              <td>Сетка_Вытеснение</td>
-              <td>Grid Wipe</td>
+              <td>
+                <mark className="copy">Сетка_Вытеснение</mark>
+              </td>
+              <td>
+                <mark className="copy">Grid Wipe</mark>
+              </td>
             </tr>
             <tr>
-              <td>Стирание - радиальное полное</td>
-              <td>Radial Wipe - Cardinal</td>
+              <td>
+                <mark className="copy">Стирание - радиальное полное</mark>
+              </td>
+              <td>
+                <mark className="copy">Radial Wipe - Cardinal</mark>
+              </td>
             </tr>
             <tr>
-              <td>Угол_Отображение</td>
-              <td>Corner Reveal</td>
+              <td>
+                <mark className="copy">Угол_Отображение</mark>
+              </td>
+              <td>
+                <mark className="copy">Corner Reveal</mark>
+              </td>
             </tr>
             <tr>
-              <td>Часы_Вытеснение</td>
-              <td> Clock Wipe</td>
+              <td>
+                <mark className="copy">Часы_Вытеснение</mark>
+              </td>
+              <td>
+                <mark className="copy"> Clock Wipe</mark>
+              </td>
             </tr>
             <tr>
-              <td>Чернильное вытеснение из центра</td>
-              <td>Inky Iris Wipe</td>
+              <td>
+                <mark className="copy">Чернильное вытеснение из центра</mark>
+              </td>
+              <td>
+                <mark className="copy">Inky Iris Wipe</mark>
+              </td>
             </tr>
             <tr>
-              <td>Чернильное линейное вытеснение</td>
-              <td>Inky Linear Wipe</td>
+              <td>
+                <mark className="copy">Чернильное линейное вытеснение</mark>
+              </td>
+              <td>
+                <mark className="copy">Inky Linear Wipe</mark>
+              </td>
             </tr>
           </tbody>
         </table>

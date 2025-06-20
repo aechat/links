@@ -2906,6 +2906,42 @@ const AEFromNewbies: React.FC = () => {
           styleClass="figure_windows-dark"
         />
       </DetailsSummary>
+      <DetailsSummary title="У меня есть два ключа с одинаковым значением, но между ними всё равно идёт какая-то анимация. Как её убрать?">
+        <Divider>Проверяем график скорости</Divider>
+        <p>
+          Скорее всего вы ни разу не смотрели на график скорости между двумя ключами,
+          особенно после того, как вы изменили длительность между кадрами. Чтобы
+          посмотреть на график скорости выделенного параметра - нажмите на комбинацию
+          клавиш <mark className="key">Shift + F3</mark>. В этом же графике скорости вы
+          сможете подстроить скорость вашей анимации с помощью манипуляторов. В моем
+          примере у первого и второго ключа стоит одинаковое значение <mark>100%</mark>,
+          но между ними всё равно будет идти анимация из-за изменённого графика скорости.
+        </p>
+        <ImageFigure
+          caption="Speed Graph"
+          imgSrc="images/aftereffects/problematic_interpolation.png"
+          imgTitle="Пример с проблемной интерполяцией"
+          styleClass="figure_windows-dark"
+        />
+        <Divider>Меняем интерполяцию между кадрами</Divider>
+        <p>
+          Чтобы убрать анимацию между двумя кадрами - воспользуйтесь манипуляторами для
+          изменения скорости в <mark className="ui">Speed Editor</mark> или измените режим
+          интерполяции ключевых кадров. Для изменения режима интерполяции - выделите все
+          ключи, которые вам нужны и нажмите на комбинацию клавиш{" "}
+          <mark className="key">Ctrl + Alt + K</mark> для открытия окна{" "}
+          <mark className="ui">Keyframe Interpolation</mark>. В открывшемся окне в
+          параметре <mark className="ui">Temporal Interpolation</mark> выберите значение{" "}
+          <mark className="ui">Linear</mark> или <mark className="ui">Hold</mark>. После
+          этого у вас между выделенными ключами не должно быть лишней анимации.
+        </p>
+        <ImageFigure
+          caption="Keyframe Interpolation"
+          imgSrc="images/aftereffects/change_keyframe_interpolation.png"
+          imgTitle="Изменение интерполяции ключевых кадров"
+          styleClass="figure_windows-dark"
+        />
+      </DetailsSummary>
       <DetailsSummary title="Применяю эффект, например Glow, но он обрезается по границе слоя. Как расширить действие эффекта?">
         <Divider>Расширяем края с помощью Grow Bounds</Divider>
         <p>
