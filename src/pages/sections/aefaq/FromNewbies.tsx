@@ -84,13 +84,18 @@ const AEFromNewbies: React.FC = () => {
           прокачать свои навыки.
         </p>
         <div className="flexible-links">
-          <a href="https://www.youtube.com/@TutoView">Tutorial View+</a>
-          <a href="https://www.youtube.com/@BenMarriott">Ben Marriott</a>
-          <a href="https://www.youtube.com/@AEPlug">AEPlug</a>
-          <a href="https://www.youtube.com/@JakeInMotion">Jake In Motion</a>
+          <a href="https://www.youtube.com/@TutoView/videos">Tutorials View+</a>
+          <a href="https://www.youtube.com/@BenMarriott/videos">Ben Marriott</a>
+          <a href="https://www.youtube.com/@AEPlug/videos">AEPlug</a>
+          <a href="https://www.youtube.com/@JakeInMotion/videos">Jake In Motion</a>
           <a href="https://www.youtube.com/@SmertimbaGraphics/videos">
             Smertimba Graphics
           </a>
+          <a href="https://www.youtube.com/@SonduckFilm/videos">SonduckFilm</a>
+          <a href="https://youtube.com/@ollyspin/videos">olly</a>
+          <a href="https://youtube.com/@mapal/videos">Mapal</a>
+          <a href="https://www.youtube.com/@motionbyscott/videos">Motion By Scott</a>
+          <a href="https://www.youtube.com/@MotionXP/videos">MotionXP</a>
         </div>
         <p>
           Ну и не забываем про дополнительный список как бесплатных, так и платных курсов
