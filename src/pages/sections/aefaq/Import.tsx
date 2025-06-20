@@ -25,8 +25,8 @@ const AEImport: React.FC = () => {
           <mark className="app">Adobe After Effects</mark>, вам стоит расположить все ваши
           исходники в отдельный диск, раздел или папку, чтобы иметь быстрый доступ к
           исходникам, а не на рабочем столе или в системных папках. Так вам будет проще
-          работать с кучей материала, особенно когда начинаете работу постепенно.{" "}
-          <mark className="word">Структурирование</mark> - это{" "}
+          работать с большим количеством материала, особенно когда начинаете работу
+          постепенно. <mark className="word">Структурирование</mark> - это{" "}
           <b>
             <u>основа</u>
           </b>{" "}
@@ -34,7 +34,7 @@ const AEImport: React.FC = () => {
         </p>
         <Divider>Проверяем и, при необходимости, конвертируем исходники</Divider>
         <p>
-          После первичной сортировки исходников, стоит узнать о них получше: в каком
+          После первичной сортировки исходников, стоит узнать о них подробнее: в каком
           кодеке и контейнере они запакованы, в каком цветовом пространстве записаны,
           сколько FPS у видеоисходника и прочие технические свойства. Для этого вы можете
           воспользоваться онлайн-сервисом{" "}
@@ -360,7 +360,7 @@ const AEImport: React.FC = () => {
       </DetailsSummary>
       <DetailsSummary
         tag="фотошоп, не появляется окно импорта, не предлагает выбор типа псд"
-        title="Почему у меня не получается импортировать .psd по слоям?"
+        title="Почему у меня не получается импортировать PSD по слоям?"
       >
         <p>
           Такое бывает, когда вы сохраняете в <mark className="app">Adobe Photoshop</mark>{" "}
@@ -510,7 +510,7 @@ const AEImport: React.FC = () => {
         </p>
       </DetailsSummary>
       <DetailsSummary
-        tag="import premiere pro sequence"
+        tag="import prproj sequence, импорт из премьер про"
         title="Как импортировать секвенцию из Premiere Pro в композицию After Effects?"
       >
         <p>
@@ -557,8 +557,8 @@ const AEImport: React.FC = () => {
         </p>
       </DetailsSummary>
       <DetailsSummary
-        tag="3д, элемент 3д, блендер, объемные модели, расширенный 3д, адвансед 3д"
-        title="Как я могу импортировать 3D-объекты формата .c4d, .obj или .fbx, .gtlf или .glb в мой проект?"
+        tag="3д, элемент 3д, блендер, объемные модели, расширенный 3д, адвансед 3д, с4д, обж, фбх, гтлф, глб"
+        title="Как я могу импортировать 3D-объекты формата C4D, OBJ или FBX, GTLF или GLB в мой проект?"
       >
         <p>
           В <mark className="app">Adobe After Effects</mark> версиях <mark>24.1</mark> и
@@ -610,7 +610,7 @@ const AEImport: React.FC = () => {
       </DetailsSummary>
       <DetailsSummary
         tag="инфлюкс, без кодирования"
-        title="Прислали исходники в формате .mkv, .flv или что-то не поддерживаемое программой, но перекодировать я их не хочу. Как мне их импортировать?"
+        title="Прислали исходники в формате MKV, FLV или что-то не поддерживаемое программой, но перекодировать я их не хочу. Как мне их импортировать?"
       >
         <p>
           <mark className="app">Adobe After Effects</mark> и{" "}
@@ -649,7 +649,7 @@ const AEImport: React.FC = () => {
       </DetailsSummary>
       <DetailsSummary
         tag="исходники видео фото с айфона"
-        title="Прислали исходники в формате .heic, .heif или .hevc, но выбивает ошибку. Как их мне открыть и импортировать в проект?"
+        title="Прислали исходники в формате HEIC, HEIF или HEVC, но выбивает ошибку. Как их мне открыть и импортировать в проект?"
       >
         <p>
           Некоторые пользователи, использующие{" "}
@@ -720,7 +720,7 @@ const AEImport: React.FC = () => {
       </DetailsSummary>
       <DetailsSummary
         tag="открыть могрт, import mogrt, aeproject"
-        title="Как открыть анимационный шаблон формата .mogrt и импортировать в свой проект?"
+        title="Как открыть анимационный шаблон формата MOGRT и импортировать в свой проект?"
       >
         <p>
           Шаблоны анимации в формате <mark className="file">.mogrt</mark> обычно создаются
@@ -729,7 +729,7 @@ const AEImport: React.FC = () => {
           такие файлы можно распаковать обратно и использовать в своих композициях{" "}
           <mark className="app">Adobe After Effects</mark>.
         </p>
-        <Divider>Открываем .mogrt как проект</Divider>
+        <Divider>Открываем MOGRT как проект</Divider>
         <p>
           Чтобы открыть шаблон формата <mark className="file">.mogrt</mark> - нужно
           открыть окно открытия проекта с помощью{" "}
@@ -751,10 +751,16 @@ const AEImport: React.FC = () => {
           <mark className="ui">Essential Graphics</mark> с помощью{" "}
           <mark className="ui">Composition &gt; Open in Essential Graphics</mark>. В этом
           же окне вы можете обратно запаковать проект в{" "}
-          <mark className="file">.mogrt</mark> после нужных правок.
+          <mark className="file">.mogrt</mark> после нужных правок с помощью{" "}
+          <mark className="ui">Export Motion Graphics Template</mark>.
         </p>
-        {/* TODO: приложить скриншот */}
-        <Divider>Используем .mogrt в другом проекте</Divider>
+        <ImageFigure
+          caption="Essential Graphics"
+          imgSrc="images/aftereffects/essential_graphics.png"
+          imgTitle="Демонстрация окна Essential Graphics"
+          styleClass="figure_windows-dark"
+        />
+        <Divider>Используем MOGRT в другом проекте</Divider>
         <p>
           Так как с помощью <mark className="ui">Open Project</mark> мы конвертировали
           анимацию формата <mark className="file">.mogrt</mark> в{" "}
@@ -1098,7 +1104,7 @@ const AEImport: React.FC = () => {
           Предположим, что у вас возникла необходимость перенести файл формата{" "}
           <mark className="file">.ai</mark>. Да,{" "}
           <mark className="app">Adobe After Effects</mark> предоставляет такую
-          возможность. Однако, стоит отметить, что при работе с большинством проектов,
+          возможность. Однако стоит отметить, что при работе с большинством проектов,
           созданных в <mark className="app">Adobe Illustrator</mark>, вы можете
           столкнуться с тем, что количество доступных слоёв будет ограничено. Это связано
           с тем, что в процессе создания макета несколько шейпов часто объединяются в один
@@ -1107,7 +1113,7 @@ const AEImport: React.FC = () => {
         <p>
           Если вы не собираетесь редактировать импортированные фигуры в{" "}
           <mark className="app">Adobe After Effects</mark> для более детальной анимации,
-          то вручную пересоздавать градиенты не нужно. Но, как сказано ранее - в некоторых
+          то вручную пересоздавать градиенты не нужно. Но, как сказано ранее, в некоторых
           проектах из <mark className="app">Adobe Illustrator</mark> фигуры могут
           объединяться. Для этого нам нужно в самом{" "}
           <mark className="app">Adobe Illustrator</mark> разбить все или только
