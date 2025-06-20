@@ -1079,6 +1079,12 @@ const AEImport: React.FC = () => {
           окне проводника вашей операционной системы вы можете указать путь до вашего
           исходника и вы сможете продолжить работу дальше.
         </p>
+        <ImageFigure
+          caption="Adobe After Effects"
+          imgSrc="images/aftereffects/replace_footage.png"
+          imgTitle="Замена исходника в проекте"
+          styleClass="figure_windows-dark"
+        />
         <AdditionInfo>
           Если вы потеряли 10 исходников, но все они лежали в одной папке или в подпапках
           одной папки, то при присоединении одного - подключатся и остальные.
