@@ -1062,7 +1062,7 @@ const AEFromNewbies: React.FC = () => {
             </tr>
             <tr>
               <td>
-                Открыть <mark className="file">.aep</mark> проект, с которым вы в
+                Открыть <mark className="file">AEP</mark> проект, с которым вы в
                 последний раз работали
               </td>
               <td>
@@ -1072,8 +1072,8 @@ const AEFromNewbies: React.FC = () => {
             <tr>
               <td>
                 Открыть или выполнить недавно использованный скрипт формата{" "}
-                <mark className="file">.jsx</mark> или{" "}
-                <mark className="file">.jsxbin</mark>
+                <mark className="file">JSX</mark> или{" "}
+                <mark className="file">JSXBIN</mark>
               </td>
               <td>
                 <mark className="key">Ctrl + Alt + Shift + D</mark>
@@ -1549,7 +1549,7 @@ const AEFromNewbies: React.FC = () => {
             <tr>
               <td>
                 Применить недавно использованный пресет формата{" "}
-                <mark className="file">.ffx</mark> на выделенный слой
+                <mark className="file">FFX</mark> на выделенный слой
               </td>
               <td>
                 <mark className="key">Ctrl + Alt + Shift + F</mark>
@@ -1847,7 +1847,7 @@ const AEFromNewbies: React.FC = () => {
             <tr>
               <td>Увеличить или уменьшить размер таймлайна</td>
               <td>
-                <mark className="key">+</mark> или <mark className="key">-</mark>
+                <mark className="key"> + </mark> или <mark className="key">-</mark>
               </td>
             </tr>
             <tr>
@@ -2288,7 +2288,7 @@ const AEFromNewbies: React.FC = () => {
         <p>
           Бывают ситуации, когда после внесённых изменений клиенту результат не подходит,
           и требуется вернуться к предыдущей версии проекта. Или, например,{" "}
-          <mark className="file">.aep</mark> файл неожиданно сломался и перестал корректно
+          <mark className="file">AEP</mark> файл неожиданно сломался и перестал корректно
           открываться, выбивая ошибку{" "}
           <mark className="ui">Bad format or not readable</mark> или{" "}
           <mark className="ui">File is damaged</mark>. Если заранее позаботиться о
@@ -2614,7 +2614,7 @@ const AEFromNewbies: React.FC = () => {
         />
         <Divider>Включаем Continuously Rasterize для нужных слоёв</Divider>
         <p>
-          Если вы импортировали векторный файл, например <mark className="file">.ai</mark>{" "}
+          Если вы импортировали векторный файл, например <mark className="file">AI</mark>{" "}
           из <mark className="app">Adobe Illustrator</mark>, то вам нужно включить{" "}
           <mark className="ui">Continuously Rasterize</mark>. Это позволит программе при
           любом взаимодействии с слоем уменьшить эффект пикселизации за счёт того, что
@@ -2846,7 +2846,7 @@ const AEFromNewbies: React.FC = () => {
       </DetailsSummary>
       <DetailsSummary title="Я работал над проектом, но его ни разу не сохранял. Если программа аварийно завершила работу, возможно ли в таком случае восстановить проект?">
         <p>
-          Нет, <mark className="app">Adobe After Effects</mark> не создаёт авто-сохранения
+          Нет, <mark className="app">Adobe After Effects</mark> не создаёт автосохранения
           или какие-нибудь файлы проекта, если изначально проект не был сохранён. В
           следующий раз перед началом работы - сразу сохраните файл проекта и периодически
           нажимайте на <mark className="key">Ctrl + S</mark> для сохранения ваших
@@ -3199,8 +3199,8 @@ const AEFromNewbies: React.FC = () => {
         <ul>
           <li>
             Для попытки устранения проблемы попробуйте переконвертировать ваш шрифт в
-            другой формат, например из <mark className="file">.ttf</mark> в{" "}
-            <mark className="file">.otf</mark> или наоборот. Вполне возможно, что тот, кто
+            другой формат, например из <mark className="file">TTF</mark> в{" "}
+            <mark className="file">OTF</mark> или наоборот. Вполне возможно, что тот, кто
             опубликовал шрифт, срукожопил и файл оказался непригоден для использования в
             некоторых программах. Ну или просто скачайте нужный шрифт из другого
             источника, например <a href="https://fonts.google.com/">Google Fonts</a>.

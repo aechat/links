@@ -82,7 +82,7 @@ const AEExport: React.FC = () => {
         </p>
         <ul>
           <li>
-            Контейнер у видео должен быть <mark className="file">.mp4</mark>.
+            Контейнер у видео должен быть <mark className="file">MP4</mark>.
           </li>
           <li>
             Видеокодек должен быть <mark className="video">H.264</mark>.
@@ -204,7 +204,7 @@ const AEExport: React.FC = () => {
             <mark>iOS</mark>.
           </li>
           <li>
-            Контейнер у видео должен быть <mark className="file">.mp4</mark>.
+            Контейнер у видео должен быть <mark className="file">MP4</mark>.
           </li>
           <li>
             Видеокодек должен быть <mark className="video">H.264</mark>.
@@ -1049,7 +1049,7 @@ const AEExport: React.FC = () => {
         title="Как экспортировать композицию с альфа-каналом, то есть с прозрачностью?"
       >
         <AdditionWarning>
-          В <mark className="video">H.264</mark> и <mark className="file">.mp4</mark>{" "}
+          В <mark className="video">H.264</mark> и <mark className="file">MP4</mark>{" "}
           нельзя экспортировать композицию с альфа-каналом. Это можно сделать только на
           устройствах с <mark>macOS</mark> и при использовании кодека{" "}
           <mark className="video">H.265 (HEVC)</mark>.
