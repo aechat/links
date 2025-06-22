@@ -90,13 +90,18 @@ const AEFromNewbies: React.FC = () => {
           прокачать свои навыки.
         </p>
         <div className="flexible-links">
-          <a href="https://www.youtube.com/@TutoView">Tutorial View+</a>
-          <a href="https://www.youtube.com/@BenMarriott">Ben Marriott</a>
-          <a href="https://www.youtube.com/@AEPlug">AEPlug</a>
-          <a href="https://www.youtube.com/@JakeInMotion">Jake In Motion</a>
+          <a href="https://www.youtube.com/@TutoView/videos">Tutorials View+</a>
+          <a href="https://www.youtube.com/@BenMarriott/videos">Ben Marriott</a>
+          <a href="https://www.youtube.com/@AEPlug/videos">AEPlug</a>
+          <a href="https://www.youtube.com/@JakeInMotion/videos">Jake In Motion</a>
           <a href="https://www.youtube.com/@SmertimbaGraphics/videos">
             Smertimba Graphics
           </a>
+          <a href="https://www.youtube.com/@SonduckFilm/videos">SonduckFilm</a>
+          <a href="https://youtube.com/@ollyspin/videos">olly</a>
+          <a href="https://youtube.com/@mapal/videos">Mapal</a>
+          <a href="https://www.youtube.com/@motionbyscott/videos">Motion By Scott</a>
+          <a href="https://www.youtube.com/@MotionXP/videos">MotionXP</a>
         </div>
         <p>
           Ну и не забываем про дополнительный список как бесплатных, так и платных курсов
@@ -891,6 +896,31 @@ const AEFromNewbies: React.FC = () => {
             или <mark className="word">водяной знак</mark> - некая защита от копирования
             недобросовестными заказчиками. Чаще всего лепится полупрозрачным текстовым
             слоем с ником или именем исполнителя.
+          </li>
+          <li>
+            <mark className="word">Сейвзона</mark> или{" "}
+            <mark className="word">безопасная зона</mark> - накладываемые рамки внутри
+            кадра, которые помогают пользователю размещать ключевые элементы так, чтобы
+            они гарантированно были видны на большинстве экранов, независимо от их типа
+            или настроек. Раньше такие зоны использовались на телевидении, когда края
+            изобрежния могли обрезаться за рамкой экрана. Безопасные зоны сейчас стали
+            использоваться для создания контента в социальных сетях, например для{" "}
+            <mark className="video">Reels</mark>, <mark className="video">Shorts</mark> и
+            прочих вертикальных видео, так как интерфейс социальной сети может перекрывать
+            контент на вашей композиции. Размещение важной информации с учетом безопасных
+            зон помогает избежать таких накладок.
+            <AdditionInfo>
+              Чтобы включить отображение безопасных зон - нажмите на иконку{" "}
+              <mark className="ui">Choose grid and guide options</mark> в окне
+              предпросмотра и выберите <mark className="ui">Title / Action Safe</mark> или
+              нажмите по этой иконке с зажатым <mark className="key">Alt</mark>.
+              <ImageFigure
+                caption="Composition"
+                imgSrc="images/aftereffects/enable_action_safe.png"
+                imgTitle="Включение безопасных зон в предпросмотре"
+                styleClass="figure_windows-dark"
+              />
+            </AdditionInfo>
           </li>
           <li>
             <mark className="word">Говорящая голова</mark> - формат видео в котором, как
@@ -2910,6 +2940,42 @@ const AEFromNewbies: React.FC = () => {
           caption="Effect Manager"
           imgSrc="images/aftereffects/effect_manager.png"
           imgTitle="Менеджер эффектов"
+          styleClass="figure_windows-dark"
+        />
+      </DetailsSummary>
+      <DetailsSummary title="У меня есть два ключа с одинаковым значением, но между ними всё равно идёт какая-то анимация. Как её убрать?">
+        <Divider>Проверяем график скорости</Divider>
+        <p>
+          Скорее всего вы ни разу не смотрели на график скорости между двумя ключами,
+          особенно после того, как вы изменили длительность между кадрами. Чтобы
+          посмотреть на график скорости выделенного параметра - нажмите на комбинацию
+          клавиш <mark className="key">Shift + F3</mark>. В этом же графике скорости вы
+          сможете подстроить скорость вашей анимации с помощью манипуляторов. В моем
+          примере у первого и второго ключа стоит одинаковое значение <mark>100%</mark>,
+          но между ними всё равно будет идти анимация из-за изменённого графика скорости.
+        </p>
+        <ImageFigure
+          caption="Speed Graph"
+          imgSrc="images/aftereffects/problematic_interpolation.png"
+          imgTitle="Пример с проблемной интерполяцией"
+          styleClass="figure_windows-dark"
+        />
+        <Divider>Меняем интерполяцию между кадрами</Divider>
+        <p>
+          Чтобы убрать анимацию между двумя кадрами - воспользуйтесь манипуляторами для
+          изменения скорости в <mark className="ui">Speed Editor</mark> или измените режим
+          интерполяции ключевых кадров. Для изменения режима интерполяции - выделите все
+          ключи, которые вам нужны и нажмите на комбинацию клавиш{" "}
+          <mark className="key">Ctrl + Alt + K</mark> для открытия окна{" "}
+          <mark className="ui">Keyframe Interpolation</mark>. В открывшемся окне в
+          параметре <mark className="ui">Temporal Interpolation</mark> выберите значение{" "}
+          <mark className="ui">Linear</mark> или <mark className="ui">Hold</mark>. После
+          этого у вас между выделенными ключами не должно быть лишней анимации.
+        </p>
+        <ImageFigure
+          caption="Keyframe Interpolation"
+          imgSrc="images/aftereffects/change_keyframe_interpolation.png"
+          imgTitle="Изменение интерполяции ключевых кадров"
           styleClass="figure_windows-dark"
         />
       </DetailsSummary>

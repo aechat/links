@@ -228,8 +228,8 @@ const AEInterface: React.FC = () => {
         />
       </DetailsSummary>
       <DetailsSummary
-        tag="отобразить переключатели, включить кнопки"
-        title="Пропали нужные переключатели и колонки на таймлайне. Как мне их вернуть?"
+        tag="отобразить переключатели, включить кнопки, пропали нужные свитчи"
+        title="Как вернуть пропавшие переключатели и колонки на таймлайне?"
       >
         <p>
           Если вы случайным образом дотыкались до такой степени, что у вас нужные
@@ -246,7 +246,10 @@ const AEInterface: React.FC = () => {
           videoSrc="images/aftereffects/enable_timeline_columns.mp4"
         />
       </DetailsSummary>
-      <DetailsSummary title="Я случайно закрыл окно в интерфейсе. Как его вернуть обратно?">
+      <DetailsSummary
+        tag="открыть окно интерфейса"
+        title="Как вернуть случайно закрытое окно рабочего пространства?"
+      >
         <p>
           Для восстановления случайно закрытого окна перейдите в{" "}
           <mark className="ui">Window</mark> и выберите нужное вам окно. Также в этом
@@ -264,7 +267,10 @@ const AEInterface: React.FC = () => {
           заголовка окна и выберите <mark className="ui">Close Panel</mark>.
         </p>
       </DetailsSummary>
-      <DetailsSummary title="Как прикрепить нужное окно в рабочее пространство программы?">
+      <DetailsSummary
+        tag="не могу закрепить окно скрипта"
+        title="Как прикрепить нужное окно в рабочее пространство программы?"
+      >
         <p>
           Для того, чтобы прикрепить окно к рабочему пространству программы - нужно зажать
           курсор в районе названия окна и перетащить его в нужное место. Программа сама
@@ -284,36 +290,7 @@ const AEInterface: React.FC = () => {
           Чтобы отцепить окно - нажмите на три полоски возле заголовка окна и нажмите на{" "}
           <mark className="ui">Undock Panel</mark>.
         </p>
-      </DetailsSummary>
-      <DetailsSummary title="Как сделать так, чтобы мое рабочее пространство не переключалось на другое при открытии чужих проектов?">
-        <AdditionWarning>
-          В старых версиях <mark className="app">Adobe After Effects</mark> такой опции
-          нет. Чтобы она появилась - обновитесь до более свежей версии.
-        </AdditionWarning>
-        <p>
-          В <mark className="app">Adobe After Effects</mark> версии <mark>25.2</mark> и
-          новее появилась новая функция в настройках, предотвращающая смену
-          пользовательского рабочего пространства на стандартное или иное. При частой
-          работе с чужими проектами изначальная особенность программы бесило многих
-          пользователей и <mark>Adobe</mark> добавила для этого{" "}
-          <a href="https://helpx.adobe.com/after-effects/using/whats-new/2025-2.html#maintain-workspace-when-opening-projects">
-            решение
-          </a>
-          . Для предотвращения переключения рабочих пространств нужно перейти в{" "}
-          <mark className="ui">Edit &gt; Preferences &gt; General</mark> и включить
-          параметр{" "}
-          <mark className="ui">Maintain current workspace when opening projects</mark>.
-          При включенной опции рабочие пространства перестанут переключаться сами по себе,
-          если пользователь явно не хочет их переключать.
-        </p>
-        <ImageFigure
-          caption="Preferences"
-          imgSrc="images/aftereffects/enable_maintain_current_workspace.png"
-          imgTitle="Настройка предотвращения переключения рабочих пространств"
-          styleClass="figure_windows-dark"
-        />
-      </DetailsSummary>
-      <DetailsSummary title="Почему я не могу прикрепить окно скрипта. Есть какие-то способы закрепить его?">
+        <Divider>А со скриптами как?</Divider>
         <p>
           Скрипты формата <mark className="file">JSX</mark> или{" "}
           <mark className="file">JSXBIN</mark>, которые содержат интерфейс, не могут быть
@@ -330,10 +307,11 @@ const AEInterface: React.FC = () => {
           Для возможности прикрепления таких окон в рабочее пространство скрипты формата{" "}
           <mark className="file">JSX</mark> или <mark className="file">JSXBIN</mark>{" "}
           необходимо переместить в папку <mark className="path">ScriptUI Panels</mark>.
-          После этого требуется перезагрузка{" "}
-          <mark className="app">Adobe After Effects</mark>, если приложение уже было
-          запущено.
         </p>
+        <AdditionInfo>
+          Если <mark className="app">Adobe After Effects</mark> уже был запущен во время
+          переноса скрипта - перезапустите его.
+        </AdditionInfo>
         <VideoFigure
           caption="Проводник"
           styleClass="figure_windows-dark"
@@ -374,6 +352,34 @@ const AEInterface: React.FC = () => {
           caption="Управление окнами в рабочем пространстве"
           styleClass="figure_windows-dark"
           videoSrc="images/aftereffects/manage_windows.mp4"
+        />
+      </DetailsSummary>
+      <DetailsSummary title="Как сделать так, чтобы мое рабочее пространство не переключалось на другое при открытии чужих проектов?">
+        <AdditionWarning>
+          В старых версиях <mark className="app">Adobe After Effects</mark> такой опции
+          нет. Чтобы она появилась - обновитесь до более свежей версии.
+        </AdditionWarning>
+        <p>
+          В <mark className="app">Adobe After Effects</mark> версии <mark>25.2</mark> и
+          новее появилась новая функция в настройках, предотвращающая смену
+          пользовательского рабочего пространства на стандартное или иное. При частой
+          работе с чужими проектами изначальная особенность программы бесило многих
+          пользователей и <mark>Adobe</mark> добавила для этого{" "}
+          <a href="https://helpx.adobe.com/after-effects/using/whats-new/2025-2.html#maintain-workspace-when-opening-projects">
+            решение
+          </a>
+          . Для предотвращения переключения рабочих пространств нужно перейти в{" "}
+          <mark className="ui">Edit &gt; Preferences &gt; General</mark> и включить
+          параметр{" "}
+          <mark className="ui">Maintain current workspace when opening projects</mark>.
+          При включенной опции рабочие пространства перестанут переключаться сами по себе,
+          если пользователь явно не хочет их переключать.
+        </p>
+        <ImageFigure
+          caption="Preferences"
+          imgSrc="images/aftereffects/enable_maintain_current_workspace.png"
+          imgTitle="Настройка предотвращения переключения рабочих пространств"
+          styleClass="figure_windows-dark"
         />
       </DetailsSummary>
       <DetailsSummary
@@ -446,16 +452,15 @@ const AEInterface: React.FC = () => {
       </DetailsSummary>
       <DetailsSummary
         tag="track matte, альфа люма мейт, трекмейт, trkmat"
-        title="Установил After Effects 2023 или новее и не могу понять, что случилось с Alpha и Luma Matte?"
+        title="Что случилось с Alpha и Luma Matte в новых версиях программы?"
       >
         <p>
-          В версиях <mark>2023</mark> и новее пришла новая эпоха работы с масками. После
-          обновления работа с слоями-масками стала проще. Но после этого обновления
-          появилась другая проблема - старые обучающие видео вводят новичков с новыми
-          версиями в заблуждение, а новые видео - пользователей с старыми версиями{" "}
-          <mark className="app">Adobe After Effects</mark>. Поэтому постарайтесь найти
-          более актуальное видео для объяснения решения вашей задачи или приспособьтесь к
-          немного другой реализации работы с масками.
+          В <mark className="app">Adobe After Effects</mark> версиях <mark>2023</mark> и
+          новее работа с масками была переосмыслена, что упростило процесс, но создало
+          диссонанс с обучающими материалами. Старые уроки теперь могут запутать
+          пользователей новых версий, а новые - тех, кто остался на старых. Если вы
+          обучаетесь по какому-то туториалу - приспособьтесь к новому способу работы с
+          масками или поищите более актуальные видео по вашей теме.
         </p>
         <YouTubeVideo
           caption="Обновление вкладки Track Matte"
@@ -751,42 +756,6 @@ const AEInterface: React.FC = () => {
           образом в предпросмотре вы не увидите ровным счётом ничего, потому что
           композиция закончилась раньше, чем <mark className="word">плейхед</mark>.
         </AdditionInfo>
-      </DetailsSummary>
-      <DetailsSummary title="У меня есть два ключа с одинаковым значением, но между ними всё равно идёт какая-то анимация. Как её убрать?">
-        <Divider>Проверяем график скорости</Divider>
-        <p>
-          Скорее всего вы ни разу не смотрели на график скорости между двумя ключами,
-          особенно после того, как вы изменили длительность между кадрами. Чтобы
-          посмотреть на график скорости выделенного параметра - нажмите на комбинацию
-          клавиш <mark className="key">Shift + F3</mark>. В этом же графике скорости вы
-          сможете подстроить скорость вашей анимации с помощью манипуляторов. В моем
-          примере у первого и второго ключа стоит одинаковое значение <mark>100%</mark>,
-          но между ними всё равно будет идти анимация из-за изменённого графика скорости.
-        </p>
-        <ImageFigure
-          caption="Speed Graph"
-          imgSrc="images/aftereffects/problematic_interpolation.png"
-          imgTitle="Пример с проблемной интерполяцией"
-          styleClass="figure_windows-dark"
-        />
-        <Divider>Меняем интерполяцию между кадрами</Divider>
-        <p>
-          Чтобы убрать анимацию между двумя кадрами - воспользуйтесь манипуляторами для
-          изменения скорости в <mark className="ui">Speed Editor</mark> или измените режим
-          интерполяции ключевых кадров. Для изменения режима интерполяции - выделите все
-          ключи, которые вам нужны и нажмите на комбинацию клавиш{" "}
-          <mark className="key">Ctrl + Alt + K</mark> для открытия окна{" "}
-          <mark className="ui">Keyframe Interpolation</mark>. В открывшемся окне в
-          параметре <mark className="ui">Temporal Interpolation</mark> выберите значение{" "}
-          <mark className="ui">Linear</mark> или <mark className="ui">Hold</mark>. После
-          этого у вас между выделенными ключами не должно быть лишней анимации.
-        </p>
-        <ImageFigure
-          caption="Keyframe Interpolation"
-          imgSrc="images/aftereffects/change_keyframe_interpolation.png"
-          imgTitle="Изменение интерполяции ключевых кадров"
-          styleClass="figure_windows-dark"
-        />
       </DetailsSummary>
       <DetailsSummary
         tag="вейвформ, аудио, увидеть волну"

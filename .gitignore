@@ -26,3 +26,4 @@ TODO.md
 .vs
 .cursor
 public/legacy/css/styles.css
+*.code-workspace

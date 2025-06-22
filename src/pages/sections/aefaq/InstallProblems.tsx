@@ -1274,8 +1274,8 @@ const AEInstallProblems: React.FC = () => {
         />
       </DetailsSummary>
       <DetailsSummary
-        tag="dynamic link, динамик линк, adobe media encoder is not installed, please download and install it to use this feature, медиа енкодер"
-        title="Установил After Effects и Media Encoder, но они не видят друг друга и не подключаются. Как это исправить?"
+        tag="не подключается dynamic link, динамик линк, aegp plugin aedynamiclinkserver: adobe media encoder is not installed, please download and install it to use this feature, failed to connect to adobe media encoder, медиа енкодер"
+        title="Установил Adobe After Effects и Adobe Media Encoder, но они почему-то не видят друг друга"
       >
         <p>
           Функция <mark className="plugin">Dynamic Link</mark> позволяет синхронизировать
@@ -1331,7 +1331,7 @@ const AEInstallProblems: React.FC = () => {
       </DetailsSummary>
       <DetailsSummary
         tag="в настоящее время невозможно установить, операционная система не соответствует минимальным требованиям для этой программы установки"
-        title="Код ошибки 1, 501, 176, 21 или другие при установке Adobe After Effects"
+        title="Код ошибки 1, 501, 176, 195, 21 или другие при установке Adobe After Effects"
       >
         <Divider>Исправляем ошибку 1 или 501</Divider>
         <p>
@@ -1371,6 +1371,17 @@ const AEInstallProblems: React.FC = () => {
             </div>
           }
         />
+        <Divider>
+          Исправляем ошибку 195 - &quot;Требуется процессор, поддерживающий инструкции
+          Advanced Vector Extensions 2 (AVX2)&quot;
+        </Divider>
+        <p>
+          Если вы столкнулись с этой ошибкой при установке, это означает, что ваш
+          процессор не поддерживает инструкции <mark>AVX2</mark>, необходимые для
+          последних версий <mark className="app">Adobe After Effects</mark>. Для решения
+          проблемы обновите процессор или установите более старую версию программы,
+          например <mark>23.6</mark> или <mark>24.0</mark>.
+        </p>
         <Divider>
           Исправляем ошибку 21 - &quot;Операционная система не соответствует минимальным
           требованиям для этой программы установки&quot;
@@ -1936,7 +1947,7 @@ const AEInstallProblems: React.FC = () => {
         </ul>
       </DetailsSummary>
       <DetailsSummary
-        tag="обновление, перенос плагинов и пресетов, новая версия афтера, хочу обновить программу с одной версии на другую"
+        tag="обновление и перенос, перенести плагины и пресеты, новая версия афтера, хочу обновить программу с одной версии на другую"
         title="Как обновить программу, не потеряв при этом плагины и прочий установленный контент?"
       >
         <p>
@@ -1944,8 +1955,8 @@ const AEInstallProblems: React.FC = () => {
           разработчики добавляют различные новые функции и местами исправляют старые баги.
           У некоторых пользователей часто возникает вопрос про то, как правильно
           обновляться и нужно ли что-то делать из дополнительных действий после обновления{" "}
-          <mark className="app">Adobe After Effects</mark>. На данный момент есть два вида
-          обновлений - между <mark className="word">одним годом</mark> и между{" "}
+          <mark className="app">Adobe After Effects</mark>. Существует два вида обновлений
+          - между <mark className="word">одним годом</mark> и между{" "}
           <mark className="word">разными годами</mark>.
         </p>
         <AdditionInfo>
@@ -1958,7 +1969,7 @@ const AEInstallProblems: React.FC = () => {
         <p>
           При переходе с одной версии <mark className="app">Adobe After Effects</mark> на
           другую в пределах <mark className="word">одного года</mark>, например из{" "}
-          <mark>24.1</mark> в <mark>24.6</mark> - ничего из файлов плагинов и пресетов
+          <mark>24.0</mark> в <mark>24.6</mark> - ничего из файлов плагинов и пресетов
           переносить не нужно. Установщик в таком случае перезапишет старые файлы
           программы в том расположении, где она была установлена и не затронет
           пользовательские файлы. При запуске новой версии{" "}
@@ -1985,10 +1996,32 @@ const AEInstallProblems: React.FC = () => {
         <p>
           Если вы решили обновить программу с <mark className="word">одного года</mark> на
           другой, например с <mark>23.6</mark> на <mark>25.2</mark>, то в таком случае уже
-          потребуется ручной перенос плагинов и пресетов в новую версию программы. При
-          установке <mark className="word">другого года</mark> - старая версия программы
-          останется на вашем устройстве и не будет автоматически удалена.
+          потребуется ручной перенос плагинов и пресетов в новую версию программы.
         </p>
+        <AdditionInfo>
+          <ul>
+            <li>
+              При установке программы версии <mark className="word">другого года</mark> -
+              старая версия программы останется на вашем устройстве и не будет удалена
+              автоматически.
+            </li>
+            <li>
+              Плагины формата <mark className="file">.aex</mark>, установленные в{" "}
+              <mark className="path">../Common/7.0/MediaCore</mark> тоже не нужно никуда
+              переносить. Там находятся плагины, которые устанавливаются и отображаются
+              для всех установленных версий{" "}
+              <mark className="app">Adobe After Effects</mark>. При желании вы можете
+              сразу устанавливать или перенести большинство сторонних плагинов в эту общую
+              папку.
+            </li>
+            <li>
+              Расширения формата <mark className="file">.zxp</mark> не нужно никуда
+              переносить - они устанавливаются в общую папку расширений и отображаются во
+              всех поддерживаемых расширением версиях{" "}
+              <mark className="app">Adobe After Effects</mark>.
+            </li>
+          </ul>
+        </AdditionInfo>
         <AdditionDanger>
           Способ обновления программы, описанный ниже, не гарантирует <mark>100%</mark>{" "}
           стабильность работы новой версии{" "}

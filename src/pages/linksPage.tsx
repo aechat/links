@@ -235,7 +235,7 @@ const Links = () => {
               name="Shutter Encoder"
             />
             <LinkCard
-              description="Кросс-платформенная утилита для работы с видеоконтейнерами .mkv и .webm"
+              description="Кросс-платформенная утилита для работы с видеоконтейнерами MKV и WEBM"
               href="https://mkvtoolnix.download/downloads.html"
               icon={<VideoSettingsRounded />}
               name="MKVToolNix"
