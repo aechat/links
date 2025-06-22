@@ -30,8 +30,6 @@ const PRInterface = lazy(() => import("./sections/prfaq/Interface"));
 
 const PRPerformance = lazy(() => import("./sections/prfaq/Performance"));
 
-const PRTips = lazy(() => import("./sections/prfaq/Tips"));
-
 const PRWhereFind = lazy(() => import("./sections/prfaq/WhereFind"));
 
 const PRFAQ = () => {
@@ -53,20 +51,24 @@ const PRFAQ = () => {
       id: "from-newbies",
       component: PRFromNewbies,
     },
-    {key: "4", title: "Вопросы на засыпку", id: "tips", component: PRTips},
-    {key: "5", title: "Импорт", id: "import", component: PRImport},
-    {key: "6", title: "Интерфейс", id: "interface", component: PRInterface},
+    {key: "4", title: "Импорт", id: "import", component: PRImport},
+    {key: "5", title: "Интерфейс", id: "interface", component: PRInterface},
     {
-      key: "7",
+      key: "6",
       title: "Производительность",
       id: "performance",
       component: PRPerformance,
     },
-    {key: "8", title: "Как и чем?", id: "actions", component: PRActions},
-    {key: "9", title: "Ошибки и предупреждения", id: "errors", component: PRErrors},
-    {key: "10", title: "Рендер и экспорт", id: "export", component: PRExport},
+    {key: "7", title: "Как и чем?", id: "actions", component: PRActions},
     {
-      key: "11",
+      key: "8",
+      title: "Ошибки и предупреждения",
+      id: "errors",
+      component: PRErrors,
+    },
+    {key: "9", title: "Рендер и экспорт", id: "export", component: PRExport},
+    {
+      key: "10",
       title: "Проблемы при экспорте",
       id: "export-problems",
       component: PRExportProblems,
