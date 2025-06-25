@@ -72,12 +72,19 @@ const PRExportProblems: React.FC = () => {
         </ul>
         {/* TODO: написать при возможности ещё варианты решения */}
       </DetailsSummary>
-      <DetailsSummary title="An unknown error (-1609629695) occurred during the Project Manager operation">
+      <DetailsSummary title='"An unknown error (-1609629695) occurred during the Project Manager operation"'>
         <p>
-          Для решения проблемы - попробуйте выключить чекбокс напротив параметра{" "}
+          Попробуйте выключить чекбокс напротив параметра{" "}
           <mark className="ui">Include Preview Files</mark>, а затем повторить попытку
           сбора материалов в нужную папку.
         </p>
+        <ImageFigure
+          caption="Project Manager"
+          imgSrc="images/premierepro/disable_include_preview_files.png"
+          imgTitle="Отключаем Include Preview Files в менеджере проекта"
+          styleClass="figure_windows-dark"
+        />
+      </DetailsSummary>
       </DetailsSummary>
       <DetailsSummary
         tag="конвертировать текст кэпшонов в графику, upgrade captions to graphics, convert subtitles to text"
