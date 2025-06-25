@@ -1372,6 +1372,24 @@ const AEActions: React.FC = () => {
           эффектов и внутри выражений, например ссылка на слой в{" "}
           <mark className="plugin">Displacement Map</mark>, могут слететь.
         </AdditionWarning>
+        <Divider>Используем AEUX</Divider>
+        <p>
+          Несмотря на то, что главное предназначение <mark className="plugin">AEUX</mark>{" "}
+          - переносить макеты из <mark className="app">Figma</mark> в{" "}
+          <mark className="app">Adobe After Effects</mark>, в нём есть и несколько
+          инструментов для работы с композициями. Через него можно распаковать выделенные
+          композиции на таймлайне с помощью кнопки <mark className="ui">Un-Precomp</mark>.
+        </p>
+        <ImageFigure
+          caption="AEUX"
+          imgSrc="images/aftereffects/aeux_un-precomp.png"
+          imgTitle="Un-Precomp в AEUX"
+          styleClass="figure_windows-dark"
+        />
+        <AdditionInfo>
+          Скачать <mark className="plugin">AEUX</mark> вы можете на странице релизов в{" "}
+          <a href="https://github.com/google/AEUX/releases">GitHub</a>.
+        </AdditionInfo>
       </DetailsSummary>
       <DetailsSummary
         tag="декомпозить текст, текст в слои"
