@@ -6,7 +6,7 @@ import GithubUpdateInfo from "../../../components/features/GithubUpdateInfo";
 
 import DetailsSummary from "../../../components/DetailsSummary";
 
-import {ImageFigure, YouTubeVideo} from "../../../components/ContentFigure";
+import {ImageFigure, VideoFigure} from "../../../components/ContentFigure";
 
 import {AdditionInfo, AdditionWarning} from "../../../components/Additions";
 
@@ -85,25 +85,20 @@ const PRExportProblems: React.FC = () => {
           styleClass="figure_windows-dark"
         />
       </DetailsSummary>
-      </DetailsSummary>
-      <DetailsSummary
-        tag="конвертировать текст кэпшонов в графику, upgrade captions to graphics, convert subtitles to text"
-        title="Почему созданные субтитры не отображаются на экспортированной секвенции?"
-      >
+      <DetailsSummary title="Экспортировал секвенцию в H.264 и отправил пользователю iPhone, а он не может открыть видео. Почему это происходит и как это исправить?">
         <p>
-          По умолчанию в <mark className="app">Premiere Pro</mark> отключен параметр{" "}
-          <mark className="ui">Captions</mark> при экспорте, поэтому вы не экспортируете
-          видео вместе с наложенными субтитрами. Чтобы включить наложение созданных
-          субтитров - включите <mark className="ui">Captions</mark> в настройках экспорта,
-          а затем начните экспорт вашей секвенции. При желании, вы можете сохранить свой
-          пресет настроек, в котором <mark className="ui">Captions</mark> будет уже
-          включен.
+          <mark className="app">Adobe Premiere Pro</mark> поднимает значение{" "}
+          <mark className="ui">Level</mark> для секвенций с большим разрешением, например{" "}
+          <mark>3840 на 2160</mark>, а <mark>iPhone</mark> не может понять такие файлы.
+          Для решения проблемы - попробуйте в настройках экспорта опустить{" "}
+          <mark className="ui">Level</mark> до значения <mark>4.1</mark>, предварительно
+          убрав чекбоксы напротив <mark className="ui">Profile</mark> и{" "}
+          <mark className="ui">Level</mark> для разблокировки настроек.
         </p>
-        <ImageFigure
+        <VideoFigure
           caption="Export"
-          imgSrc="images/premierepro/enable_captions_export.png"
-          imgTitle="Включение наложения субтитров"
           styleClass="figure_windows-dark"
+          videoSrc="images/premierepro/set_level_4-1.mp4"
         />
       </DetailsSummary>
       <DetailsSummary title="Что делать, если экспорт зависает на определённом моменте?">
