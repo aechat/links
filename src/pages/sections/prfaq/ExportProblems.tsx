@@ -32,8 +32,11 @@ const PRExportProblems: React.FC = () => {
         </AdditionWarning>
         <ul>
           <li>
-            Попробуйте отключить <mark>GPU-ускорение</mark> в настройках проекта на время.
-            Для этого перейдите в{" "}
+            Если у вас в логах пишется{" "}
+            <mark className="ui">Accelerated Renderer Error</mark> или{" "}
+            <mark className="ui">Ошибка рендеринга с ускорением</mark> - попробуйте
+            отключить <mark>GPU-ускорение</mark> в настройках проекта на время. Для этого
+            перейдите в{" "}
             <mark className="ui">File &gt; Project Settings &gt; General</mark> и выберите
             в параметре <mark className="ui">Renderer</mark> значение{" "}
             <mark className="ui">Mercury Playback Engine Software Only</mark>.
@@ -43,17 +46,35 @@ const PRExportProblems: React.FC = () => {
             </AdditionWarning>
           </li>
           <li>
-            Убедитесь в том, что вы не используете кириллицу в путях исходников, а также в
-            пути для вывода файла. Программы от Adobe с давних пор не любят кириллицу в
-            путях и эта проблема тянется и до последних версий.
+            Попробуйте экспортировать вашу секвенцию в другой формат видео, например в{" "}
+            <mark className="video">QuickTime</mark> в кодеке{" "}
+            <mark className="video">Apple Prores 422</mark> или использовать сторонние
+            плагины <mark className="plugin">Voukoder</mark> или{" "}
+            <mark className="plugin">AfterCodecs</mark> для экспорта. Если экспорт
+            произойдет успешно, то полученный файл, при необходимости, вы можете позже
+            переконвертировать в нужный вам формат.
           </li>
           <li>
-            Если вы выводите в формате <mark className="video">H.264</mark> напрямую из{" "}
-            <mark className="app">Adobe Premiere Pro</mark> - попробуйте выбрать кодек{" "}
-            <mark className="video">Apple Prores 442</mark> для экспорта. Полученное видео
-            вы можете переконвертировать любым способом, например через{" "}
-            <mark className="app">Shutter Encoder</mark> или{" "}
-            <mark className="app">Handbrake</mark>.
+            Попробуйте заменить и перекодировать все ваши исходники в монтажный кодек,
+            например <mark className="video">Apple Prores 422</mark>.
+          </li>
+          <li>
+            Если у вас указвыается таймкод, где происходит ошибка - перейдите на это место
+            и проанализируйте ваши действия. Скорее всего там был применён эффект, который
+            может ломать ваш экспорт. Попробуйте его отключить на время или заменить на
+            другой эффект, а затем повторить экспорт.
+          </li>
+          <li>
+            Перед экспортом рекомендуется очистить кэш. Для этого перейдите в{" "}
+            <mark className="ui">Edit &gt; Preferences &gt; Media Cache</mark>, найдите
+            раздел <mark className="ui">Media Cache Files</mark> и нажмите кнопку{" "}
+            <mark className="ui">Delete</mark>. В этой же вкладке настроек можно настроить
+            автоматическую очистку или изменить место хранения кэша.
+          </li>
+          <li>
+            Убедитесь в том, что вы не используете кириллицу в путях исходников, а также в
+            пути для вывода файла. Программы от <mark>Adobe</mark> с давних пор не любят
+            кириллицу в путях и эта проблема тянется и до последних версий.
           </li>
           <li>
             Если вы выводите через <mark className="app">Adobe Media Encoder</mark>, то
@@ -61,16 +82,35 @@ const PRExportProblems: React.FC = () => {
             <mark className="app">Adobe Premiere Pro</mark>.
           </li>
           <li>
-            Перед импортом чужих исходников в проект, рекомендуется их перекодировать в
-            монтажный кодек, например в <mark className="video">Apple Prores 422</mark>,
-            чтобы исключить различные проблемы при экспорте.
-          </li>
-          <li>
-            При экспорте вы можете попробовать использовать <mark>Previews</mark>, если
-            приведённые выше способы не помогают.
+            Если предыдущие методы не помогли - попробуйте включить опцию{" "}
+            <mark>Use Previews</mark> в настройках экспорта, чтобы использовать файлы
+            пререндера.
+            <AdditionInfo>
+              <ul>
+                <li>
+                  Чтобы создать файлы пререндера - используйте{" "}
+                  <mark className="ui">Sequence &gt; Render In to Out</mark>,
+                  предварительно установив точки входа и выхода на таймлайне с помощью{" "}
+                  <mark className="key">I</mark> и <mark className="key">O</mark>.
+                </li>
+                <li>
+                  Рекомендуется установить кодек{" "}
+                  <mark className="video">Apple Prores 422</mark> для файлов пререндера в
+                  настройках секвенции. По умолчанию там установлено{" "}
+                  <mark className="video">Apple Prores 422 LT</mark>, а нужен -{" "}
+                  <mark className="video">Apple Prores 422</mark>.
+                </li>
+                <li>
+                  Экспортировать секвенцию с файлами пререндера нужно в том же кодеке, что
+                  указано в настройках секвенции в разделе{" "}
+                  <mark className="ui">Video Previews</mark>. Если указали{" "}
+                  <mark className="video">Apple Prores 422</mark> - экспортируйте своё
+                  видео именно в нём, иначе файлы пререндера не подтянутся автоматически.
+                </li>
+              </ul>
+            </AdditionInfo>
           </li>
         </ul>
-        {/* TODO: написать при возможности ещё варианты решения */}
       </DetailsSummary>
       <DetailsSummary title='"An unknown error (-1609629695) occurred during the Project Manager operation"'>
         <p>
