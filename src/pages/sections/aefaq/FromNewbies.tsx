@@ -21,8 +21,8 @@ const AEFromNewbies: React.FC = () => {
     <div className="faq-content">
       <GithubUpdateInfo filePath="src/pages/sections/aefaq/FromNewbies.tsx" />
       <DetailsSummary
-        tag="для новичка, первый раз, только открыл афтер"
-        title="Я первый раз установил и открыл After Effects, с чего бы мне начать обучение?"
+        tag="для новичка, курсы, туториалы, только открыл афтер"
+        title="Я первый раз установил и открыл программу, с чего бы мне начать обучение?"
       >
         <AdditionDanger>
           <ul>
@@ -36,7 +36,8 @@ const AEFromNewbies: React.FC = () => {
             </li>
             <li>
               Если вы всё же наотрез отказываетесь от перехода на английскую локализацию -
-              вам могут пригодиться таблицы <a href="#1.6">перевода эффектов</a> и{" "}
+              при работе с <mark className="app">Adobe After Effects</mark> вам могут
+              пригодиться таблицы перевода <a href="#1.6">эффектов</a> и{" "}
               <a href="#1.7">пресетов</a>.
             </li>
           </ul>
@@ -136,7 +137,7 @@ const AEFromNewbies: React.FC = () => {
       </DetailsSummary>
       <DetailsSummary
         tag="сленг, жаргон, сокращения, словосочетания, говор"
-        title="Не понимаю термины от других пользователей After Effects, проясните!"
+        title="Какие популярные термины есть у пользователей программы?"
       >
         <p>
           Когда пользователь только начинает изучать{" "}
@@ -555,7 +556,7 @@ const AEFromNewbies: React.FC = () => {
             <mark className="plugin">Autokroma Influx</mark>, позволяющий импортировать в{" "}
             <mark className="app">Adobe After Effects</mark> неподдерживаемые типы файлов,
             например <mark className="file">MKV</mark> или{" "}
-            <mark className="file">FLV</mark>.
+            <mark className="video">FLV</mark>.
           </li>
           <li>
             <mark className="word">Плагин</mark> - подключаемые, обычно встроенные или
@@ -665,10 +666,10 @@ const AEFromNewbies: React.FC = () => {
             <mark className="image">GIF</mark> поддерживает только бинарную прозрачность,
             что означает, что изображение может быть либо полностью прозрачным, либо
             полностью непрозрачным, без плавных затуханий. Если вы хотите сохранить видео
-            с прозрачностью, вам подойдут контейнеры <mark className="file">MOV</mark>,{" "}
-            <mark className="file">AVI</mark> или <mark className="file">WEBM</mark>, в
+            с прозрачностью, вам подойдут контейнеры <mark className="video">MOV</mark>,{" "}
+            <mark className="video">AVI</mark> или <mark className="video">WEBM</mark>, в
             которые вы можете закодировать видео с кодеком, который поддерживает
-            альфа-канал. Однако, будьте осторожны с <mark className="file">MP4</mark>: в
+            альфа-канал. Однако, будьте осторожны с <mark className="video">MP4</mark>: в
             него нельзя запаковать альфа-канал, кроме как через устройство на{" "}
             <mark>macOS</mark>, но это уже другая история.
             <AdditionInfo>
@@ -829,7 +830,7 @@ const AEFromNewbies: React.FC = () => {
               </li>
               <li>
                 <mark className="video">VP9</mark> и <mark className="video">AV1</mark> -
-                кодеки от Google в контейнере <mark className="file">WEBM</mark> с
+                кодеки от Google в контейнере <mark className="video">WEBM</mark> с
                 возможностью вывода с альфа-каналом. Видео с таким кодеком обычно
                 используются для размещения на веб-страницах. За счёт своих алгоритмов
                 сжатия видео с кодеком <mark className="video">VP9</mark> или{" "}
@@ -854,7 +855,7 @@ const AEFromNewbies: React.FC = () => {
           <li>
             <mark className="word">Контейнер</mark> - расширение видео файла, в котором
             содержится само видео в определённом кодеке, например{" "}
-            <mark className="file">MP4</mark>, <mark className="file">MOV</mark> или{" "}
+            <mark className="video">MP4</mark>, <mark className="video">MOV</mark> или{" "}
             <mark className="file">MKV</mark>.
           </li>
           <li>
@@ -1010,9 +1011,9 @@ const AEFromNewbies: React.FC = () => {
             ролики профессионально: дешёвка обесценивает труд, а заказчики всё чаще ждут{" "}
             <mark className="word">шедевр за копейки</mark>.
             <AdditionDanger>
-              <sup>1</sup> <mark className="app">Instagram</mark> и <mark>Meta</mark> всё
-              ещё признаны экстремистскими организациями и запрещены на территории
-              Российской Федерации.
+              <sup>1</sup> <mark className="app">Instagram</mark> и <mark>Meta</mark>{" "}
+              признаны экстремистскими организациями и запрещены на территории Российской
+              Федерации.
             </AdditionDanger>
           </li>
           <li>
@@ -1025,7 +1026,7 @@ const AEFromNewbies: React.FC = () => {
       </DetailsSummary>
       <DetailsSummary
         tag="хоткеи, горячие клавиши, шорткаты, ускорение работы"
-        title="А есть список популярных комбинаций клавиш для работы в After Effects?"
+        title="А есть список популярных комбинаций клавиш?"
       >
         <p>
           Горячие клавиши могут помочь ускорить рутинный процесс нахождения нужной функции
@@ -1092,8 +1093,8 @@ const AEFromNewbies: React.FC = () => {
             </tr>
             <tr>
               <td>
-                Открыть <mark className="file">AEP</mark> проект, с которым вы в
-                последний раз работали
+                Открыть <mark className="file">AEP</mark> проект, с которым вы в последний
+                раз работали
               </td>
               <td>
                 <mark className="key">Ctrl + Alt + Shift + P</mark>
@@ -1102,8 +1103,7 @@ const AEFromNewbies: React.FC = () => {
             <tr>
               <td>
                 Открыть или выполнить недавно использованный скрипт формата{" "}
-                <mark className="file">JSX</mark> или{" "}
-                <mark className="file">JSXBIN</mark>
+                <mark className="file">JSX</mark> или <mark className="file">JSXBIN</mark>
               </td>
               <td>
                 <mark className="key">Ctrl + Alt + Shift + D</mark>
@@ -2017,7 +2017,7 @@ const AEFromNewbies: React.FC = () => {
       </DetailsSummary>
       <DetailsSummary
         tag="рекомендация, топ, твикстор, рсмб, мбл, борисфх, трапкод, флоу, тру комп дупликатор, юниверс, mbl"
-        title="Какие плагины мне стоит поставить в первую очередь для программы?"
+        title="Какие плагины стоит установить в первую очередь?"
       >
         <AdditionWarning>
           Сразу хочу{" "}
@@ -2041,14 +2041,14 @@ const AEFromNewbies: React.FC = () => {
           <li>
             <mark className="plugin">Boris FX Sapphire</mark> и{" "}
             <mark className="plugin">Boris FX Continuum</mark> - база из всех баз.
-            Особенно популярен у <del>мамкиных</del> эдиторов, они без него жить не могут.
           </li>
           <li>
             <mark className="plugin">Boris FX Mocha Pro</mark> - расширенная версия
             стандартного плагина <mark className="plugin">Mocha AE</mark>.
           </li>
           <li>
-            Плагины от Red Giant: <mark className="plugin">Magic Bullet Suite</mark>,{" "}
+            Плагины <mark className="plugin">Red Giant</mark>:{" "}
+            <mark className="plugin">Magic Bullet Suite (включает в себя Looks)</mark>,{" "}
             <mark className="plugin">Trapcode Suite</mark>,{" "}
             <mark className="plugin">VFX Suite</mark> и{" "}
             <mark className="plugin">Universe</mark> - сборник плагинов для цветокора,
@@ -2058,9 +2058,9 @@ const AEFromNewbies: React.FC = () => {
             композингу.
           </li>
           <li>
-            <mark className="plugin">Element 3D от VideoCopilot</mark> - даже после выхода
-            Advanced 3D - этот плагин не теряет актуальности в плане импорта 3D-моделей в
-            вашу композицию.
+            <mark className="plugin">Element 3D от VideoCopilot</mark> - даже после выхода{" "}
+            <mark className="plugin">Advanced 3D</mark> - этот плагин не теряет
+            актуальности в плане импорта трёхмерных моделей в вашу композицию.
           </li>
           <li>
             <mark className="plugin">Deep Glow</mark> - даёт хорошее свечение, но неплохо
@@ -2126,8 +2126,8 @@ const AEFromNewbies: React.FC = () => {
         </ul>
       </DetailsSummary>
       <DetailsSummary
-        tag="что нового, фишки, обновления, апдейты"
-        title="Где я могу узнать об нововведениях в обновлениях After Effects?"
+        tag="что нового, фишки, обновления, апдейты, патчноуты"
+        title="Где я могу узнать о нововведениях в обновлениях программы?"
       >
         <p>
           Обычно на сайте <mark>Adobe</mark> в день выхода публичной стабильной версии
@@ -2200,9 +2200,9 @@ const AEFromNewbies: React.FC = () => {
             <div>
               <Divider>Меняем язык с помощью консоли программы</Divider>
               <AdditionWarning>
-                Этот способ смены языка работает только с{" "}
-                <mark className="app">Adobe After Effects</mark> версии <mark>24.x</mark>{" "}
-                и новее.
+                Данный способ изменения языка интерфейса работает только в{" "}
+                <mark className="app">Adobe After Effects</mark> версии <mark>2024</mark>{" "}
+                или новее.
               </AdditionWarning>
               <p>
                 В новых версиях <mark className="app">Adobe After Effects</mark>{" "}
@@ -2273,9 +2273,9 @@ const AEFromNewbies: React.FC = () => {
               </AdditionWarning>
               <Divider>Меняем язык с помощью консоли программы</Divider>
               <AdditionWarning>
-                Этот способ смены языка работает только с{" "}
-                <mark className="app">Adobe After Effects</mark> версии <mark>24.x</mark>{" "}
-                и новее.
+                Данный способ изменения языка интерфейса работает только в{" "}
+                <mark className="app">Adobe After Effects</mark> версии <mark>2024</mark>{" "}
+                или новее.
               </AdditionWarning>
               <p>
                 В новых версиях <mark className="app">Adobe After Effects</mark>{" "}
@@ -2801,7 +2801,7 @@ const AEFromNewbies: React.FC = () => {
           его в программу заново.
         </p>
       </DetailsSummary>
-      <DetailsSummary title="Почему у меня отсутствует звук при проигрывании предпросмотра?">
+      <DetailsSummary title="Из-за чего отсутствует звук при проигрывании предпросмотра?">
         <Divider>Проверяем аудиовыход</Divider>
         <p>
           Если вы недавно меняли аудиовыход, например подключили беспроводные наушники или
@@ -3104,8 +3104,9 @@ const AEFromNewbies: React.FC = () => {
         />
         <p>
           Если вам нужно клонировать одну и ту же композицию с указанием нужного
-          количества копий, обновлением выражений, дублированием футажей или группировкой
-          в одну папку - воспользуйтесь бесплатным<sup>1</sup> скриптом{" "}
+          количества копий, обновлением выражений, дублированием футажей и вложенных
+          композиций или группировкой в одну папку - воспользуйтесь бесплатным<sup>1</sup>{" "}
+          скриптом{" "}
           <a href="https://aescripts.com/true-comp-duplicator/">True Comp Duplicator</a>{" "}
           на aescripts.
         </p>

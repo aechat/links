@@ -15,10 +15,41 @@ const PSInterface: React.FC = () => {
     <div className="faq-content">
       <GithubUpdateInfo filePath="src/pages/sections/psfaq/Interface.tsx" />
       <DetailsSummary title="Как отключить стартовое окно с последними открытыми проектами при запуске?">
-        <p>{/* FIXME: написать!! */}</p>
+        <p>
+          Если вас раздражает окно с недавними открытыми проектами или оно у вас грузится
+          достаточно долго - его можно отключить в настройках. Для этого перейдите в
+          настройки <mark className="ui">Edit &gt; Preferences &gt; General</mark> и
+          уберите чекбокс напротив параметра{" "}
+          <mark className="ui">Auto show the Home Screen</mark>, а затем нажмите на{" "}
+          <mark className="ui">OK</mark> в правой части окна.
+        </p>
+        <ImageFigure
+          caption="Preferences"
+          imgSrc="images/photoshop/disable_show_home_screen.png"
+          imgTitle="Отключаем домашний экран при запуске программы"
+          styleClass="figure_windows-light"
+        />
       </DetailsSummary>
       <DetailsSummary title="Как сделать фон программы светлее или темнее?">
-        <p>{/* FIXME: */}</p>
+        <p>
+          В <mark className="app">Adobe Photoshop</mark> с давних пор доступна возможность
+          сделать фон всего интерфейса более тёмным или светлым. Для изменения цветовой
+          схемы - перейдите в настройки{" "}
+          <mark className="ui">Edit &gt; Preferences &gt; Interface</mark> и в{" "}
+          <mark className="ui">Color Theme</mark> выберите нужное вам значение. После
+          выбора новой цветовой схемы - не забудьте нажать на{" "}
+          <mark className="ui">OK</mark>.
+        </p>
+        <ImageFigure
+          caption="Preferences"
+          imgSrc="images/photoshop/change_color_theme.png"
+          imgTitle="Выбор цветовой схемы"
+          styleClass="figure_windows-light"
+        />
+      </DetailsSummary>
+      <DetailsSummary title="Как прикрепить нужное окно в рабочее пространство?">
+        {/* TODO: написать ещё отдельную статью по аналогии как расположить по списку или поставить несколько окон во вкладки  */}
+        <p>{/* FIXME:  */}</p>
       </DetailsSummary>
       <DetailsSummary title="Как изменить акцентный цвет интерфейса программы?">
         <p>{/* FIXME: */}</p>

@@ -16,7 +16,7 @@ const PRPerformance: React.FC = () => {
       <GithubUpdateInfo filePath="src/pages/sections/prfaq/Performance.tsx" />
       <DetailsSummary
         tag="тормозит, лаги, медленно, скорость работы, оптимизация, производительность"
-        title="Почему у меня, б%@#ь, лагает е&#!%й Premiere Pro, с$%а?"
+        title="Почему у меня, б%@#ь, лагает е&#!%й Adobe Premiere Pro, с$%а?"
       >
         <p>{/* FIXME: написать!! */}</p>
       </DetailsSummary>

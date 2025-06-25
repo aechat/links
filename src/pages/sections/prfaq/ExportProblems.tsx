@@ -14,7 +14,7 @@ const PRExportProblems: React.FC = () => {
   return (
     <div className="faq-content">
       <GithubUpdateInfo filePath="src/pages/sections/prfaq/ExportProblems.tsx" />
-      <DetailsSummary title='"Error compiling movie" и в конце лога - "Код ошибки: -1609629695" при попытке экспорта'>
+      <DetailsSummary title='При попытке экспорта появляется "Error compiling movie", а в конце лога - "Error code: -1609629695"'>
         <p>
           Данная ошибка может появиться по самым разным причинам - универсального способа
           устранить его нет. Чаще всего она связана с применёнными эффектами, кривыми
@@ -112,7 +112,7 @@ const PRExportProblems: React.FC = () => {
       </DetailsSummary>
       <DetailsSummary
         tag="не экспортируется, битый файл"
-        title="Почему при экспорте в .mp4 через встроенный кодек H.264 сохраняется файл с размером в 1 Кб?"
+        title="Почему при экспорте в MP4 через встроенный кодек H.264 сохраняется файл с размером в 1 Кб?"
       >
         <p>{/* FIXME: написать!! */}</p>
       </DetailsSummary>
@@ -133,11 +133,8 @@ const PRExportProblems: React.FC = () => {
           кадра. Оно может возникнуть при использовании композиций из{" "}
           <mark className="app">Adobe After Effects</mark> через{" "}
           <mark className="plugin">Dynamic Link</mark> или при экспорте секвенции через{" "}
-          <mark className="app">Adobe Media Encoder</mark>.
-        </p>
-        <p>
-          Для решения данного бага просто обновите все программы от Adobe до{" "}
-          <mark>23.6</mark> или свежее.
+          <mark className="app">Adobe Media Encoder</mark>. Для решения данного бага
+          просто обновите все программы от Adobe до <mark>23.6</mark> или свежее.
         </p>
       </DetailsSummary>
       <DetailsSummary

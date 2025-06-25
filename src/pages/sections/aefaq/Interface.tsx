@@ -918,16 +918,17 @@ const AEInterface: React.FC = () => {
       </DetailsSummary>
       <DetailsSummary title="Как изменить акцентный цвет интерфейса программы?">
         <AdditionDanger>
-          Для <mark className="app">Adobe After Effects</mark> версий <mark>25.X</mark>{" "}
-          данная инструкция неактуальна, после включения параметра в консоли - в
+          Для <mark className="app">Adobe After Effects</mark> версии <mark>25.0</mark>{" "}
+          или новее данная инструкция неактуальна, после включения параметра в консоли - в
           настройках ничего не будет.
         </AdditionDanger>
         <p>
           Вы, наверное, не раз натыкались на различные скриншоты, где у пользователей
-          изменён цветовой акцент в интерфейсе программы. В версиях от 2017 до 2024 можно
-          включить возможность изменения акцента через консоль. Для этого нажмите на
-          комбинацию клавиш <mark className="key">Ctrl + F12</mark>. Затем введите команду
-          ниже в консоль в режиме <mark className="ui">Console View</mark> и нажмите на{" "}
+          изменён цветовой акцент в интерфейсе программы. В версиях от <mark>2017</mark>{" "}
+          до <mark>2024</mark> можно включить возможность изменения акцента через консоль.
+          Для этого нажмите на комбинацию клавиш <mark className="key">Ctrl + F12</mark>.
+          Затем введите команду ниже в консоль в режиме{" "}
+          <mark className="ui">Console View</mark> и нажмите на{" "}
           <mark className="key">Enter</mark>.
         </p>
         <code>debug.set Enable_Theme_Colorizing=true</code>

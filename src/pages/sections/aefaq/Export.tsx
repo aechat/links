@@ -1229,7 +1229,7 @@ const AEExport: React.FC = () => {
           <li>
             <mark className="word">Видеостикер</mark> - стикер, по сути являющийся обычным
             видео, который хранится в формате <mark className="video">WebM</mark> и кодеке{" "}
-            <mark className="video">VP9</mark>s. Разрешение такого стикера должно быть
+            <mark className="video">VP9</mark>. Разрешение такого стикера должно быть
             максимум <mark>512</mark> на <mark>512</mark> пикселей.
           </li>
         </ul>

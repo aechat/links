@@ -220,8 +220,8 @@ const AEErrors: React.FC = () => {
         </p>
         <p>
           В таком случае пользователю надо освободить видеопамять любым способом -
-          перезагрузка устройства или &quot;перезагрузка&quot; драйверов видеокарты с
-          помощью комбинации клавиш <mark className="key">Ctrl + Win + Shift + B</mark>.
+          перезагрузка устройства или перезагрузка драйверов видеокарты с помощью
+          комбинации клавиш <mark className="key">Ctrl + Win + Shift + B</mark>.
         </p>
         <p>
           В данной ошибке вам прямо советуют переключить рендер с видеокарты на процессор.
@@ -272,8 +272,8 @@ const AEErrors: React.FC = () => {
           сопровождается небольшим окном на белом фоне и с красной полосой сверху, а текст
           внутри окна обычно написан на английском языке. Иногда встречаются варианты
           отображения окна об отсутствии лицензии и на другом языке, например на немецком
-          или на голландском. Причин для такого поведения &quot;слетевшей&quot; лицензии
-          может быть несколько.
+          или на голландском. Причин для такого поведения{" "}
+          <mark className="word">слетевшей лицензии</mark> может быть несколько.
         </p>
         <ImageFigure
           caption="Adobe"
@@ -455,7 +455,7 @@ const AEErrors: React.FC = () => {
               </p>
               <AdditionInfo>
                 При установке приложений <mark>Adobe</mark> в формате репака от{" "}
-                <mark>Kp0JluK</mark> правила в брандмауэре автоматически прописываются при
+                <mark>KpoJluK</mark> правила в брандмауэре автоматически прописываются при
                 установке.
               </AdditionInfo>
               <p>
@@ -820,7 +820,8 @@ const AEErrors: React.FC = () => {
               или удалить, а затем поставить поверх дистрибутив{" "}
               <mark className="app">Adobe After Effects</mark> с указанием английского
               языка в установщике. Или достаточно просто переустановить программу сразу на
-              английском языке, предварительно почистив все &quot;хвосты&quot;.
+              английском языке, предварительно почистив все{" "}
+              <mark className="word">хвосты</mark>.
             </li>
           </ul>
         </AdditionDanger>
@@ -829,9 +830,9 @@ const AEErrors: React.FC = () => {
             <div>
               <Divider>Меняем язык с помощью консоли программы</Divider>
               <AdditionWarning>
-                Этот способ смены языка работает только с{" "}
-                <mark className="app">Adobe After Effects</mark> версии <mark>24.x</mark>{" "}
-                и новее.
+                Данный способ изменения языка интерфейса работает только в{" "}
+                <mark className="app">Adobe After Effects</mark> версии <mark>2024</mark>{" "}
+                или новее.
               </AdditionWarning>
               <p>
                 В новых версиях <mark className="app">Adobe After Effects</mark>{" "}
@@ -903,9 +904,9 @@ const AEErrors: React.FC = () => {
               </AdditionWarning>
               <Divider>Меняем язык с помощью консоли программы</Divider>
               <AdditionWarning>
-                Этот способ смены языка работает только с{" "}
-                <mark className="app">Adobe After Effects</mark> версии <mark>24.X</mark>{" "}
-                и новее.
+                Данный способ изменения языка интерфейса работает только в{" "}
+                <mark className="app">Adobe After Effects</mark> версии <mark>2024</mark>{" "}
+                или новее.
               </AdditionWarning>
               <p>
                 В новых версиях <mark className="app">Adobe After Effects</mark>{" "}
@@ -1889,8 +1890,9 @@ const AEErrors: React.FC = () => {
           и поставляются компанией <mark>Boris FX</mark> в пакетах{" "}
           <mark className="plugin">Sapphire</mark> и{" "}
           <mark className="plugin">Continuum</mark>. Их нужно установить отдельно на ваше
-          устройство. Аналогично касается и остальных &quot;ненаходов&quot; от{" "}
-          <mark>Red Giant</mark> и прочих компаний.
+          устройство. Аналогично касается и остальных{" "}
+          <mark className="word">ненаходов</mark> от <mark>Red Giant</mark> и прочих
+          компаний.
         </p>
       </DetailsSummary>
     </div>

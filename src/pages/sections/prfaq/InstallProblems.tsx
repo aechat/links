@@ -28,6 +28,13 @@ const PRInstallProblems: React.FC = () => {
           Обычно установка большинства дополнительных материалов универсальна, поэтому
           следуйте инструкциям ниже.
         </p>
+        <AdditionInfo>
+          Сторонние плагины и расширения, будь то лицензионные или{" "}
+          <mark className="word">народные</mark>, в большинстве случаев устанавливаются
+          без проблем как в официальную, так и в нелегальную версию{" "}
+          <mark className="app">Adobe Premiere Pro</mark>. Методы проверки лицензии
+          программы и сторонних дополнений обычно не пересекаются между собой.
+        </AdditionInfo>
         <AdditionWarning>
           Прежде чем использовать <mark className="file">PRPROJ</mark>,{" "}
           <mark className="file">AEP</mark> и <mark className="file">MOGRT</mark> шаблоны

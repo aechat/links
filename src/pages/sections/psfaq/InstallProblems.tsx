@@ -70,20 +70,20 @@ const PSInstallProblems: React.FC = () => {
                     ZXP Installer от aescripts
                   </a>
                   . Прежде чем устанавливать расширение такого формата, убедитесь в том,
-                  что ваша версия <mark className="app">Adobe After Effects</mark> его
+                  что ваша версия <mark className="app">Adobe Photoshop</mark> его
                   поддерживает. После того как вы установите расширение, откройте терминал
                   и введите команды ниже, их можно скопировать одним нажатием. Если
                   терминал не выдал никакие ошибки, то вы можете спокойно открыть{" "}
-                  <mark className="app">Adobe After Effects</mark> и проверить
+                  <mark className="app">Adobe Photoshop</mark> и проверить
                   работоспособность установленного расширения.
                   <AdditionDanger>
                     Пожалуйста, не используйте{" "}
                     <a href="https://zxpinstaller.com/">
                       ZXP Installer от ELEMENTS Storage Media
                     </a>
-                    , если вы используете версии программ Adobe, которые отвязаны от
-                    приложения <mark className="app">Creative Cloud</mark>. Данный{" "}
-                    <a href="https://zxpinstaller.com/">ZXP Installer</a> будет вам
+                    , если вы используете версии программ <mark>Adobe</mark>, которые
+                    отвязаны от приложения <mark className="app">Creative Cloud</mark>.
+                    Данный <a href="https://zxpinstaller.com/">ZXP Installer</a> будет вам
                     выдавать ошибку <strong>-193</strong> до тех пор, пока вы не
                     установите программу <mark className="app">Creative Cloud</mark>, а он
                     же может вам поломать уже установленные программы. Для решения
@@ -166,7 +166,7 @@ const PSInstallProblems: React.FC = () => {
                         Команды выше достаточно ввести один раз, в дальнейшем при
                         установке подобных расширений команды для терминала вводить не
                         нужно. Эти команды включают debug-режим в{" "}
-                        <mark className="app">Adobe After Effects</mark> для корректного
+                        <mark className="app">Adobe Photoshop</mark> для корректного
                         открытия и работы сторонних расширений, установленные из просторов
                         интернета.
                       </li>
@@ -209,15 +209,15 @@ const PSInstallProblems: React.FC = () => {
                   <mark className="app">ZXP Installer</mark> для установки и следовать
                   указаниям программы. Прежде чем устанавливать расширение такого формата,
                   убедитесь в том, что ваша версия{" "}
-                  <mark className="app">Adobe After Effects</mark> его поддерживает.
+                  <mark className="app">Adobe Photoshop</mark> его поддерживает.
                   <AdditionDanger>
                     Пожалуйста, не используйте{" "}
                     <a href="https://zxpinstaller.com/">
                       ZXP Installer от ELEMENTS Storage Media
                     </a>
-                    , если вы используете версии программ Adobe, которые отвязаны от
-                    приложения <mark className="app">Creative Cloud</mark>. Данный{" "}
-                    <a href="https://zxpinstaller.com/">ZXP Installer</a> будет вам
+                    , если вы используете версии программ <mark>Adobe</mark>, которые
+                    отвязаны от приложения <mark className="app">Creative Cloud</mark>.
+                    Данный <a href="https://zxpinstaller.com/">ZXP Installer</a> будет вам
                     выдавать ошибку <strong>-193</strong> до тех пор, пока вы не
                     установите программу <mark className="app">Creative Cloud</mark>, а он
                     же может вам поломать уже установленные программы. Для решения
@@ -266,7 +266,7 @@ const PSInstallProblems: React.FC = () => {
                           REG-патч
                         </a>{" "}
                         включает debug-режим в{" "}
-                        <mark className="app">Adobe After Effects</mark> для корректного
+                        <mark className="app">Adobe Photoshop</mark> для корректного
                         открытия и работы сторонних расширений, установленные из просторов
                         интернета.
                       </li>
@@ -284,155 +284,23 @@ const PSInstallProblems: React.FC = () => {
             </div>
           }
         />
-        <p>{/* FIXME: написать!! */}</p>
       </DetailsSummary>
       <DetailsSummary
-        tag="части архива, парт, распаковка, rar, zip"
-        title="В Telegram-записи лежат файлы .part1, .part2 и дальше по списку. Что это такое и как такие файлы корректно распаковать?"
+        tag="репак от кролика, выключить дефендер, отрубить антивирус, ложное срабатывание, хелпер, ошибка 24, проверьте правильно ли указано имя и повторите попытку, windows не удается получить доступ к указанному устройству пути или файлу, возможно у вас нет нужных разрешений для доступа к этому объекту, некоторые файлы не были созданы, операция не была успешно завершена так как файл содержит вирус или потенциально нежелательную программу, обнаружены угрозы, куда-то пропадают файлы плагинов и программ, operation did not complete successfully because the file contains a virus or potentially unwanted software, 0x800700E1"
+        title='"Не удаётся найти "..\install\helper.exe" или как отключить Windows Defender и Windows Smartscreen?'
       >
         <p>
-          Данные файлы с пометкой <mark>.part1</mark>, <mark>.part2</mark> и далее по
-          списку - это лишь части одного и того же архива. Архивы поделены на 2 или на 4
-          ГБ из-за ограничений <mark className="app">Telegram</mark> на размер загружаемых
-          файлов. Чтобы корректно распаковать нужный архив - нужно загрузить все файлы на
-          ваш компьютер, а затем распаковать с помощью программ-архиваторов.
-        </p>
-        <AdditionWarning>
-          Если вы не распакуете архив полностью, то у вас могут быть проблемы с установкой
-          или использованием в программах.
-        </AdditionWarning>
-        <ContentSwitcher
-          macContent={
-            <div>
-              <p>
-                Для распаковки архивов, в том числе и многотомных, вы можете использовать{" "}
-                <a
-                  href="https://www.keka.io/ru/"
-                  title="Официальный сайт keka"
-                >
-                  keka
-                </a>
-                . Он поддерживает кучу различных форматов архивов для распаковки, например{" "}
-                <mark className="file">ZIP</mark> <mark className="file">7Z</mark>,{" "}
-                <mark className="file">RAR</mark>, <mark className="file">TAR</mark> и{" "}
-                <mark className="file">ISO</mark>. После установки этой программы вы
-                можете распаковать скачанный архив различными способами, как на{" "}
-                <a href="https://github.com/aonez/Keka/wiki/Extracting-with-Keka#how-to-extract-supported-files">
-                  примерах
-                </a>{" "}
-                ниже.
-              </p>
-              <div
-                style={{
-                  display: "grid",
-                  gap: "10px",
-                  gridTemplateColumns: "repeat(auto-fit, minmax(275px, 1fr))",
-                  alignItems: "center",
-                }}
-              >
-                <ImageFigure
-                  caption="Распаковка через контекстное меню"
-                  imgSrc="https://github.com/aonez/Keka/raw/master/Wiki/Images/Animated/extract-context-menu.gif"
-                  imgTitle="Распаковка через контекстное меню"
-                  styleClass="figure_macos-light"
-                />
-                <ImageFigure
-                  caption="Распаковка с помощью открытого окна keka"
-                  imgSrc="https://github.com/aonez/Keka/raw/master/Wiki/Images/Animated/extract-window.gif"
-                  imgTitle="Распаковка с помощью открытого окна keka"
-                  styleClass="figure_macos-light"
-                />
-                <ImageFigure
-                  caption="Распаковка через иконку keka в Dock-меню"
-                  imgSrc="https://github.com/aonez/Keka/raw/master/Wiki/Images/Animated/extract-dock.gif"
-                  imgTitle="Распаковка через иконку keka в Dock-меню"
-                  styleClass="figure_macos-light"
-                />
-              </div>
-              <p>
-                Также вы можете установить данную утилиту как программу для распаковки
-                архивов по умолчанию, установив{" "}
-                <a href="https://www.keka.io/defaultapp/">kekaExternalHelper</a>.
-                Подробная инструкция расположена в{" "}
-                <a href="https://github.com/aonez/Keka/wiki/Default-application">
-                  Wiki на GitHub
-                </a>
-                .
-              </p>
-            </div>
-          }
-          windowsContent={
-            <div>
-              <p>
-                Для устройств на <mark>Windows</mark> есть два популярных архиватора,
-                которые умеют работать с многотомными архивами. Это{" "}
-                <a
-                  href="https://www.rarlab.com/download.htm"
-                  title="Официальный сайт WinRAR"
-                >
-                  WinRAR
-                </a>{" "}
-                и{" "}
-                <a
-                  href="https://www.7-zip.org/"
-                  title="Официальный сайт 7-Zip"
-                >
-                  7-Zip
-                </a>
-                . Но для <mark className="file">RAR</mark> файлов всё-таки лучше подойдёт{" "}
-                <a
-                  href="https://www.rarlab.com/download.htm"
-                  title="Официальный сайт WinRAR"
-                >
-                  WinRAR
-                </a>
-                . Для распаковки многотомного архива достаточно лишь открыть первую часть
-                и начать распаковку, например с помощью <mark>drag&apos;n&apos;drop</mark>{" "}
-                в нужное место или кнопки <mark className="ui">Распаковать</mark>.
-              </p>
-              <YouTubeVideo
-                caption="Распаковка многотомного архива"
-                link="1OVwQS0uHhk"
-              />
-            </div>
-          }
-        />
-      </DetailsSummary>
-      <DetailsSummary
-        tag="выключить дефендер, отрубить антивирус, ложное срабатывание, хелпер, ошибка 24, windows не удается получить доступ к указанному устройству пути или файлу, возможно у вас нет нужных разрешений для доступа к этому объекту, некоторые файлы не были созданы, операция не была успешно завершена так как файл содержит вирус или потенциально нежелательную программу, operation did not complete successfully because the file contains a virus or potentially unwanted software, 0x800700E1"
-        title='"Не удаётся найти "..\install\helper.exe". Проверьте, правильно ли указано имя и повторите попытку", "Обнаружены угрозы", куда-то пропадают файлы плагинов и программ или как отключить Windows Defender и Windows Smartscreen?'
-      >
-        <p>
-          Когда вы устанавливаете пиратские версии программ, часто можно услышать жалобы
-          на то, что встроенный <mark className="app">антивирус Windows</mark> удаляет
-          файлы, утверждая, что они содержат вирусы и приводят смешные скриншоты про
-          реакцию антивируса. Если вы уж встали на путь пиратства - то ложные срабатывания
-          встроенного <mark className="app">Windows Defender</mark> должны стать нормой
-          для вас.
-        </p>
-        <AdditionDanger>
-          Устанавливая содержимое на ваше устройство из каналов{" "}
-          <a href="https://t.me/s/aetemp">AETemp</a>,{" "}
-          <a href="https://t.me/+Qd9xu7A4TeIwNzY6">склад стройматериалов (Windows)</a> или{" "}
-          <a href="https://t.me/+ZqiaMfQRFgM4YmEy">Яблоневый сад (macOS)</a> - вы
-          принимаете на себя все риски и берёте ответственность за использование
-          нелегальных материалов. Мы не можем принимать вбросы по типу{" "}
-          <mark className="quote">ой в складе, саду или аетемпе одни вирусы водятся</mark>{" "}
-          на полном серьёзе без внятных доказательств. Ложное срабатывание антивируса
-          также не является доказательством действительного наличия зловредов в том или
-          ином архиве или программе. Если вы доверяете нашим источникам - отключайте
-          антивирусное ПО при установке программ и плагинов, либо не предъявляйте
-          претензии на основе вашей паранои и оформляйте покупку софта за свои кровные.
-        </AdditionDanger>
-        <p>
-          Обычно антивирусы ложно срабатывают на замену оригинальных файлов, чтобы
-          подсунуть псевдо-лицензию и помечают такое действие как{" "}
-          <mark>HackTool:Win32/Crack!MTB</mark> или иначе. Ещё антивирус может сожрать
-          файл <mark className="file">helper.exe</mark> в репаках от <mark>KpoJluk</mark>,
-          который распаковывает дистрибутивы Adobe из-за того, что в нём находится галочка{" "}
-          <mark className="ui">реклама</mark> и помечает это как{" "}
-          <mark>Contrebrew.A!ml</mark>, <mark>Adware</mark> или иначе. Такое иногда может
-          быть и на дистрибутивах от <mark>m0nkrus</mark> или аналогичных репакеров.
+          Обычно антивирусы срабатывают на модификацию оригинальных файлов, удаляя{" "}
+          <mark className="word">пролеченные файлы</mark> и классифицирует их как{" "}
+          <mark>HackTool:Win32/Crack!MTB</mark> или другими обозначениями. Ещё антивирус
+          может удалить файл <mark className="file">helper.exe</mark> в репаках от{" "}
+          <mark>KpoJluk</mark>, который распаковывает дистрибутивы <mark>Adobe</mark>{" "}
+          из-за того, что в нём находится галочка <mark className="ui">Реклама</mark> и
+          помечает это как <mark>Contrebrew.A!ml</mark>, <mark>Adware</mark> или иначе.
+          Иногда файлы могут удаляться и из дистрибутивов от <mark>m0nkrus</mark> или
+          аналогичных репакеров, а также при распаковке различных плагинов и файлов из
+          интернета, даже если они действительно не содержат{" "}
+          <mark className="app">вредоносного ПО</mark>.
         </p>
         <Divider>Отключаем стандартный антивирус на время</Divider>
         <p>
@@ -446,23 +314,51 @@ const PSInstallProblems: React.FC = () => {
           caption="Как отключить Защитник Windows 11"
           link="blwRAOQUjsM"
         />
+        <AdditionDanger>
+          <ul>
+            <li>
+              Скачиваая и устанавливая содержимое на ваше устройство из каналов{" "}
+              <a href="https://t.me/s/designworld">Design World</a>,{" "}
+              <a href="https://t.me/+Qd9xu7A4TeIwNzY6">склад стройматериалов (Windows)</a>{" "}
+              или <a href="https://t.me/+ZqiaMfQRFgM4YmEy">Яблоневый сад (macOS)</a> - вы
+              принимаете все риски и берёте на себя ответственность за использование
+              нелегальных материалов.
+            </li>
+            <li>
+              Администрация вышеупомянутых каналов не может принимать на полном серьёзе
+              вбросы по типу{" "}
+              <mark className="quote">
+                ой в складе, саду или аетемпе одни вирусы водятся
+              </mark>{" "}
+              без внятных доказательств. Ложное срабатывание антивируса или{" "}
+              <mark className="app">VirusTotal</mark> не является доказательством
+              действительного наличия зловредов в том или ином архиве или программе.
+            </li>
+            <li>
+              Если вы доверяете нашим источникам - отключайте{" "}
+              <mark className="app">антивирусное ПО</mark> при установке программ и
+              плагинов, либо не предъявляйте претензии на основе вашей паранои и
+              оформляйте покупку софта за свои кровные.
+            </li>
+          </ul>
+        </AdditionDanger>
         <Divider>Вносим исключения для Windows Defender</Divider>
         <p>
           Если вы не хотите отключать или удалять{" "}
           <mark className="app">Windows Defender</mark> с вашего устройства, то вы можете
           добавить папку <mark className="path">C:\Program Files\Adobe</mark>, а также
           добавить <mark className="path">%Temp%</mark> в список исключений вашего
-          антивируса. После настроек исключений - начните установку программы как обычно.
+          антивируса. После настройки исключений - начните установку программы как обычно.
         </p>
         <AdditionInfo>
           Если директория <mark className="path">C:\Program Files\Adobe</mark> отсутствует
-          - создайте его сами.
+          - создайте его самостоятельно.
         </AdditionInfo>
         <YouTubeVideo
           caption="Windows Defender - как восстановить файлы и запретить их удаление"
           link="ET94_dv3f8c"
         />
-        <Divider>...или удаляем Windows Defender с корнями</Divider>
+        <Divider>Или удаляем Windows Defender с корнями</Divider>
         <p>
           Если вы доверяете источникам, откуда вы скачиваете и устанавливаете программы,
           или вас бесят ложные срабатывания от{" "}
@@ -471,7 +367,15 @@ const PSInstallProblems: React.FC = () => {
         </p>
         <ul>
           <li>
-            С помощью <mark className="app">Defender Remover</mark>, доступный на{" "}
+            С помощью <mark className="app">DefenderKiller</mark>, который можно загрузить
+            из{" "}
+            <a href="https://win10tweaker.ru/forum/topic/defenderkiller">
+              форума Win10Tweaker
+            </a>
+            .
+          </li>
+          <li>
+            С помощью <mark className="app">Defender Remover</mark> на{" "}
             <a href="https://github.com/ionuttbara/windows-defender-remover/releases">
               GitHub
             </a>
@@ -488,7 +392,7 @@ const PSInstallProblems: React.FC = () => {
           <mark className="app">Windows Defender</mark> может вернуться к вам после
           установки крупного обновления, например при переходе с <mark>Windows 11</mark>{" "}
           версии <mark>24H2</mark> на <mark>Windows 11</mark> версии <mark>25H2</mark>.
-          Для его удаления и отключения в системе - просто повторите процесс сноса заново.
+          Для того чтобы от него избавиться - просто повторите процесс удаления.
         </AdditionWarning>
         <Divider>Вынимаем палки из колёс от Windows Smartscreen</Divider>
         <p>
@@ -510,65 +414,9 @@ const PSInstallProblems: React.FC = () => {
           link="HxlxS1Mdyp0"
         />
       </DetailsSummary>
-      <DetailsSummary title='Выскакивает "Некоторые установочные файлы были повреждены. Загрузите свежую копию и повторите установку" при открытии репака от KpoJluK'>
-        <p>
-          Вы не докачали <mark className="file">EXE</mark> файл до конца или прервали его
-          скачивание. В таком случае перекачайте файл и попробуйте открыть его еще раз.
-          Иногда при скачивании репака или при распаковке архива ваш антивирус может
-          вставить палки в колёса. Поэтому при скачивании, распаковки или открытии репака
-          вам нужно отключить на время ваш антивирус.
-        </p>
-        <AdditionInfo>
-          Если вы полностью скачали файл с канала{" "}
-          <a href="https://t.me/+Qd9xu7A4TeIwNzY6">склад стройматериалов</a> и вы уверены,
-          что проблема не на вашей стороне - сообщите об этом в комментариях под постом.
-        </AdditionInfo>
-      </DetailsSummary>
-      <DetailsSummary title='Выскакивает "rsload.net заблокирован в hosts" при открытии репака от KpoJluK'>
-        <p>
-          Такое бывает, если в вашей системе отсутствует файл{" "}
-          <mark className="file">hosts</mark>. Для этого вам нужно создать пустой
-          текстовый документ с названием <mark className="file">hosts</mark> без
-          расширения <mark className="file">TXT</mark>. Затем нужно открыть этот файл и
-          вписать строки, в зависимости от вашей системы{" "}
-          <a href="https://support.microsoft.com/ru-ru/topic/%D0%BA%D0%B0%D0%BA-%D0%B2%D0%BE%D1%81%D1%81%D1%82%D0%B0%D0%BD%D0%BE%D0%B2%D0%B8%D1%82%D1%8C-%D1%81%D0%BE%D0%B4%D0%B5%D1%80%D0%B6%D0%B8%D0%BC%D0%BE%D0%B5-%D1%84%D0%B0%D0%B9%D0%BB%D0%B0-hosts-%D0%BF%D0%BE-%D1%83%D0%BC%D0%BE%D0%BB%D1%87%D0%B0%D0%BD%D0%B8%D1%8E-c2a43f9d-e176-c6f3-e4ef-3500277a6dae">
-            (подробнее на сайте Microsoft)
-          </a>
-          .
-        </p>
-        <p>
-          Как только вы создали файл <mark className="file">hosts</mark> и внесли нужные
-          строки - вам нужно переместить этот файл в путь{" "}
-          <mark className="path">%WinDir%\System32\Drivers\etc</mark>. После перемещения
-          попробуйте открыть репак снова и начать установку. Такая ошибка должна
-          исчезнуть.
-        </p>
-      </DetailsSummary>
-      <DetailsSummary title='Перед установкой репака от KpoJluK, я забыл убрать галочку "Реклама". Как избавиться от последствий?'>
-        <p>
-          По умолчанию в репаках от <mark>KpoJluk</mark> включена галочка
-          &quot;Реклама&quot;, поэтому можно случайно нарваться на установку{" "}
-          <mark>me.fo</mark> или <mark>hi.ru</mark> в качестве стартовой страницы браузера
-          или на установку <mark className="app">Яндекс.Браузера</mark>. К счастью все эти
-          &quot;нововведения&quot; можно удалить через{" "}
-          <mark className="app">Панель управления</mark>.
-        </p>
-        <p>
-          В следующий раз не забывайте убирать галочку с параметра &quot;Реклама&quot;.
-          Если вы хотите поставить себе автоматический &quot;убиратель галочек&quot; при
-          установке, воспользуйтесь программой{" "}
-          <a href="https://unchecky.com/">Unchecky</a>.
-        </p>
-      </DetailsSummary>
-      <DetailsSummary
-        tag="символьные ссылки, symlink, нестандартное расположение программы, установил на диск D:\, some products require host applications which are not installed on this computer"
-        title="Я установил плагин с помощью установщика, но в программе он не появился. Да и зачем люди из каждого угла советуют не менять путь для установки Adobe Photoshop? А если у меня нет места на жёстком диске?"
-      >
-        <p>{/* FIXME: */}</p>
-      </DetailsSummary>
       <DetailsSummary
         tag="в настоящее время невозможно установить, операционная система не соответствует минимальным требованиям для этой программы установки"
-        title="Код ошибки 1, 501, 176, 21 или другие при установке Adobe Photoshop"
+        title="Код ошибки 1, 501, 176, 195, 21 или другие при установке Adobe Photoshop"
       >
         <Divider>Исправляем ошибку 1 или 501</Divider>
         <p>
@@ -576,7 +424,7 @@ const PSInstallProblems: React.FC = () => {
           повреждено приложение <mark className="app">Adobe Creative Cloud Cleaner</mark>{" "}
           или были криво удалены предыдущие программы от <mark>Adobe</mark>. Чтобы
           исправить это - очистите остатки предыдущих установок с помощью{" "}
-          <a href="https://helpx.adobe.com/ru/creative-cloud/kb/cc-cleaner-tool-installation-problems.html">
+          <a href="https://helpx.adobe.com/creative-cloud/kb/cc-cleaner-tool-installation-problems.html">
             Adobe Creative Cloud Cleaner
           </a>{" "}
           или <mark className="app">Revo Uninstaller</mark>.
@@ -609,6 +457,17 @@ const PSInstallProblems: React.FC = () => {
           }
         />
         <Divider>
+          Исправляем ошибку 195 - &quot;Требуется процессор, поддерживающий инструкции
+          Advanced Vector Extensions 2 (AVX2)&quot;
+        </Divider>
+        <p>
+          Если вы столкнулись с этой ошибкой при установке, это означает, что ваш
+          процессор не поддерживает инструкции <mark>AVX2</mark>, необходимые для
+          последних версий <mark className="app">Adobe Photoshop</mark>. Для решения
+          проблемы обновите процессор или установите более старую версию программы,
+          например <mark>23.6</mark> или <mark>24.0</mark>.
+        </p>
+        <Divider>
           Исправляем ошибку 21 - &quot;Операционная система не соответствует минимальным
           требованиям для этой программы установки&quot;
         </Divider>
@@ -624,8 +483,8 @@ const PSInstallProblems: React.FC = () => {
             <mark className="app">Adobe Photoshop</mark>, то вам нужно обновить вашу
             систему до <mark>Windows 10</mark> сборки <mark>22H2</mark> или установить{" "}
             <mark>Windows 11</mark>. Обычно в{" "}
-            <a href="https://helpx.adobe.com/ru/after-effects/system-requirements.html">
-              системных требованиях Photoshop
+            <a href="https://helpx.adobe.com/photoshop/system-requirements.html">
+              системных требованиях Adobe Photoshop
             </a>{" "}
             указывается минимальная версия операционной системы.
             <AdditionInfo>
@@ -655,54 +514,167 @@ const PSInstallProblems: React.FC = () => {
         </ul>
         <AdditionInfo>
           Остальные решения по кодам ошибок при установке вы можете найти на{" "}
-          <a href="https://helpx.adobe.com/ru/creative-cloud/kb/troubleshoot-download-install-logs.html">
+          <a href="https://helpx.adobe.com/creative-cloud/kb/troubleshoot-download-install-logs.html">
             сайте Adobe
           </a>{" "}
           или на различных форумах в интернете.
         </AdditionInfo>
       </DetailsSummary>
-      <DetailsSummary title="Error: Extension Manager init failed, status = -193! A required resource is missing. Please relaunch the Creative Cloud app and try again">
+      <DetailsSummary
+        tag="репак от кролика"
+        title='"Некоторые установочные файлы были повреждены. Загрузите свежую копию и повторите установку"'
+      >
         <p>
-          Данная ошибка прямым указывает на то, что на вашем устройстве отсутствует
-          программа <mark className="app">Adobe Creative Cloud</mark>. Если вы пытаетесь
-          установить какое-либо <mark className="file">ZXP</mark> расширение с помощью{" "}
+          Данная ошибка возникает когда вы пытаетесь открыть установщик репака от{" "}
+          <mark>KpoJIuK</mark>, а он оказывается битым и не может корректно распаковаться.
+          Часто это происходит из-за некорректных действий пользователя или срабатывания
+          антивирусной программы на вашем устройстве с <mark>Windows</mark>.
+        </p>
+        <Divider>Как избавиться от этой ошибки?</Divider>
+        <ul>
+          <li>
+            Убедитесь в том, что вы полностью скачали файл. Довольно часто веб-версия{" "}
+            <mark className="app">Telegram</mark> загружает установочные файлы с ошибками.{" "}
+            {(() => {
+              const userAgent = navigator.userAgent.toLowerCase();
+
+              const isIOS = /iphone|ipad/.test(userAgent);
+
+              const isAndroid = /android/.test(userAgent);
+
+              const isMacOS = /macintosh|mac os x/.test(userAgent);
+
+              if (isIOS) {
+                return (
+                  <>
+                    Чтобы корректно скачивать подобные файлы - рекомендую использовать
+                    официальное приложение <mark className="app">Telegram</mark> вместо
+                    веб-версии, которое можно установить из{" "}
+                    <a href="https://telegram.org/dl/ios">App Store</a>.
+                  </>
+                );
+              }
+
+              if (isAndroid) {
+                return (
+                  <>
+                    Чтобы корректно скачивать подобные файлы - рекомендую использовать
+                    официальное приложение <mark className="app">Telegram</mark> вместо
+                    веб-версии, которое можно установить по{" "}
+                    <a href="https://telegram.org/android">этой ссылке</a>.
+                  </>
+                );
+              }
+
+              if (isMacOS) {
+                return (
+                  <>
+                    Чтобы корректно скачивать подобные файлы - рекомендую воспользоваться
+                    десктопной версией <mark className="app">Telegram</mark> вместо
+                    веб-версии, которую можно скачать по{" "}
+                    <a href="https://macos.telegram.org/">этой ссылке</a>.
+                  </>
+                );
+              }
+
+              return (
+                <>
+                  Чтобы корректно скачивать подобные файлы - рекомендую воспользоваться
+                  десктопной версией <mark className="app">Telegram</mark> вместо
+                  веб-версии, которую можно скачать по{" "}
+                  <a href="https://desktop.telegram.org/">этой ссылке</a>.
+                </>
+              );
+            })()}
+            <AdditionInfo>
+              Если вы полностью скачали файл с канала{" "}
+              <a href="https://t.me/+Qd9xu7A4TeIwNzY6">склад стройматериалов</a> и вы
+              уверены, что проблема не на вашей стороне - сообщите об этом в комментариях
+              под постом.
+            </AdditionInfo>
+          </li>
+          <li>
+            Если вы скачали репак, запакованный в многотомный архив, которые обычно
+            помечаются как <mark className="file">PART1</mark>,{" "}
+            <mark className="file">PART2</mark> и так далее по порядку - убедитесь в том,
+            что вы скачали все части архива, а также его корректно распаковали.
+            <AdditionInfo>
+              Чтобы распаковать такой архив - достаточно начать распаковку первой части
+              архива, остальные части подхватятся автоматически. Для распаковки таких
+              архивов рекомендую воспользоваться <mark className="app">WinRAR</mark>.
+            </AdditionInfo>
+          </li>
+          <li>
+            Иногда корректному открытию установщика может мешать включенное{" "}
+            <mark className="app">антивирусное ПО</mark>, которое вставляет палки в
+            колёса, считая файлы, распаковывающиеся во временную директорию как за вирус.
+            В таком случае рекомендуется отключить его, конечно же на свой страх и риск.
+          </li>
+        </ul>
+      </DetailsSummary>
+      <DetailsSummary
+        tag="репак от кролика"
+        title='"rsload.net заблокирован в hosts" или "The hosts file does not exist or is not accessible"'
+      >
+        <p>
+          Данная ошибка чаще всего возникает из-за того, что в вашей системе по какой-то
+          неведомой причине отсутствует файл <mark className="file">hosts</mark>. Чтобы
+          решить эту проблему - для начала посмотрите содержимое{" "}
+          <mark className="path">%WinDir%\System32\Drivers\etc</mark>.
+        </p>
+        <p>
+          Если в этой директории нет файла <mark className="file">hosts</mark> - создайте
+          его самостоятельно, например, с помощью <mark className="app">Блокнота</mark> и
+          переместите созданный файл без расширения в папку{" "}
+          <mark className="path">%WinDir%\System32\Drivers\etc</mark>.{" "}
+          <a href="https://support.microsoft.com/ru-ru/topic/%D0%BA%D0%B0%D0%BA-%D0%B2%D0%BE%D1%81%D1%81%D1%82%D0%B0%D0%BD%D0%BE%D0%B2%D0%B8%D1%82%D1%8C-%D1%81%D0%BE%D0%B4%D0%B5%D1%80%D0%B6%D0%B8%D0%BC%D0%BE%D0%B5-%D1%84%D0%B0%D0%B9%D0%BB%D0%B0-hosts-%D0%BF%D0%BE-%D1%83%D0%BC%D0%BE%D0%BB%D1%87%D0%B0%D0%BD%D0%B8%D1%8E-c2a43f9d-e176-c6f3-e4ef-3500277a6dae">
+            Подробнее на сайте Microsoft...
+          </a>
+        </p>
+      </DetailsSummary>
+      <DetailsSummary
+        tag="репак от кролика"
+        title="Забыл убрать галочку с рекламой при установке репака от KpoJIuK. Как избавиться от последствий?"
+      >
+        <p>
+          По умолчанию в репаках от <mark>KpoJluk</mark> включена галочка{" "}
+          <mark className="ui">Реклама</mark>, поэтому можно случайно нарваться на
+          установку <mark>me.fo</mark> или <mark>hi.ru</mark> в качестве стартовой
+          страницы браузера или на установку <mark className="app">Яндекс.Браузера</mark>.
+          К счастью все эти нововведения можно удалить через{" "}
+          <mark className="app">Панель управления</mark> или любым удобным для вас
+          способом.
+        </p>
+        <p>
+          В следующий раз не забывайте убирать галочку <mark className="ui">Реклама</mark>
+          . Если вы хотите сделать так, чтобы у вас автоматически убирались рекламные
+          чекбоксы при установке - попробуйте воспользоваться программой{" "}
+          <a href="https://unchecky.com/">Unchecky</a>.
+        </p>
+      </DetailsSummary>
+      <DetailsSummary title='"Error: Extension Manager init failed, status = -193! A required resource is missing. Please relaunch the Creative Cloud app and try again" при использовании ZXP Installer'>
+        <p>
+          Данная ошибка прямым текстом указывает на то, что на вашем устройстве
+          отсутствует программа <mark className="app">Adobe Creative Cloud</mark>. Если вы
+          пытаетесь установить какое-либо расширение формата{" "}
+          <mark className="file">ZXP</mark> с помощью{" "}
           <a href="https://zxpinstaller.com/">ZXP Installer от ELEMENTS Storage Media</a>,
           то откажитесь от него в пользу{" "}
           <a href="https://aescripts.com/learn/zxp-installer/">
             ZXP Installer от aescripts
           </a>{" "}
-          или ручной распаковки файла в нужное место. И{" "}
-          <mark className="app">Adobe Creative Cloud</mark> устанавливать не нужно,
-          особенно если вы используете репаки от <mark>KpoJluK</mark> или{" "}
-          <mark>m0nkrus</mark>.
+          или ручной распаковки расширения в нужное место. И даже{" "}
+          <mark className="app">Adobe Creative Cloud</mark> устанавливать не нужно, если
+          вы используете репаки от <mark>KpoJluK</mark> или <mark>m0nkrus</mark>.
         </p>
         <AdditionInfo>
           Более подробную информацию про установку дополнительных материалов вы можете
           прочитать в <a href="#2.1">статье 2.1</a>.
         </AdditionInfo>
       </DetailsSummary>
-      <DetailsSummary title='"Приложение Adobe Creative Cloud, необходимое для устранения проблемы отсутствует или повреждено..." при запуске программы'>
-        <p>
-          Вы зачем-то установили приложение <mark className="app">Creative Cloud</mark>{" "}
-          рядом с пиратскими программами, у которых вырезан модуль{" "}
-          <mark className="app">Creative Cloud</mark>. А потом само приложение{" "}
-          <mark className="app">Creative Cloud</mark> удалили, оставив за собой
-          нежелательные хвосты.
-        </p>
-        <p>
-          Решение довольно простое - снесите приложения и поставьте их заново, чтобы
-          лишние зависимости программ от <mark className="app">Creative Cloud</mark>{" "}
-          почистились. Да, вы не ослышались. Для очистки системы от некоторых или всех
-          программ от Adobe можно воспользоваться консольной утилитой{" "}
-          <a href="https://helpx.adobe.com/ru/creative-cloud/kb/cc-cleaner-tool-installation-problems.html">
-            Adobe Creative Cloud Cleaner
-          </a>
-          .
-        </p>
-      </DetailsSummary>
       <DetailsSummary
         tag="креатив клауд клинер, удаление адоба, очистка от хвостов"
-        title="Как я могу полностью удалить Adobe Photoshop и остальные продукты от Adobe на моем устройстве?"
+        title="Как полностью удалить Adobe Photoshop и остальные продукты от Adobe на моем устройстве?"
       >
         <p>
           Если вы хотите переустановить или забыть о программах <mark>Adobe</mark> раз и
@@ -712,7 +684,7 @@ const PSInstallProblems: React.FC = () => {
           <li>
             Через <mark className="app">Adobe Creative Cloud Cleaner Tool</mark>, который
             можно скачать{" "}
-            <a href="https://helpx.adobe.com/ru/creative-cloud/kb/cc-cleaner-tool-installation-problems.html">
+            <a href="https://helpx.adobe.com/creative-cloud/kb/cc-cleaner-tool-installation-problems.html">
               по этой ссылке
             </a>
             . Это консольная утилита, не требующая установки и не требует дополнительной

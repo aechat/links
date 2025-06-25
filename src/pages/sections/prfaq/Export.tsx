@@ -80,7 +80,7 @@ const PRExport: React.FC = () => {
         </p>
         <ul>
           <li>
-            Контейнер у видео должен быть <mark className="file">MP4</mark>.
+            Контейнер у видео должен быть <mark className="video">MP4</mark>.
           </li>
           <li>
             Видеокодек должен быть <mark className="video">H.264</mark>.
@@ -195,13 +195,13 @@ const PRExport: React.FC = () => {
         </p>
         <ul>
           <li>
-            Вес полученного файла не должен превышать <mark>75 Мб</mark>, если вы
+            Вес полученного файла не должен превышать <mark>75 МБ</mark>, если вы
             собираетесь выкладывать видео с устройства на Android. Или не превышать{" "}
-            <mark>250 Мб</mark>, если вы собираетесь выкладывать видео с устройства на
+            <mark>250 МБ</mark>, если вы собираетесь выкладывать видео с устройства на
             <mark>iOS</mark>.
           </li>
           <li>
-            Контейнер у видео должен быть <mark className="file">MP4</mark>.
+            Контейнер у видео должен быть <mark className="video">MP4</mark>.
           </li>
           <li>
             Видеокодек должен быть <mark className="video">H.264</mark>.
@@ -216,9 +216,8 @@ const PRExport: React.FC = () => {
           Экспортируем для Instagram<sup>1</sup>
         </Divider>
         <AdditionDanger>
-          <sup>1</sup> <mark className="app">Instagram</mark> и <mark>Meta</mark> всё ещё
-          признаны экстремистскими организациями и запрещены на территории Российской
-          Федерации.
+          <sup>1</sup> <mark className="app">Instagram</mark> и <mark>Meta</mark> признаны
+          экстремистскими организациями и запрещены на территории Российской Федерации.
         </AdditionDanger>
         <p>
           На этой площадке можно выложить видео как отдельный пост, так и вертикальные
@@ -250,8 +249,8 @@ const PRExport: React.FC = () => {
           отправится без сжатия и не пережмёт ваше видео. Это хорошо, если нужно отдать
           клиенту видео в оригинальном качестве, но не очень, если собираетесь выкладывать
           видео в пост, так как не все смогут скачать полностью видео. Поэтому просто
-          постарайтесь любыми способами обойтись в <mark>50 Мб</mark> для коротких видео
-          или <mark>300 Мб</mark> для длинных. Желательно тоже в кодеке{" "}
+          постарайтесь любыми способами обойтись в <mark>50 МБ</mark> для коротких видео
+          или <mark>300 МБ</mark> для длинных. Желательно тоже в кодеке{" "}
           <mark className="video">H.264</mark>.
         </p>
         <p>
@@ -281,7 +280,7 @@ const PRExport: React.FC = () => {
           <mark>800 x 800</mark> и с битрейтом до <mark>2 Мбит/с</mark>.
         </p>
       </DetailsSummary>
-      <DetailsSummary title="Как вывести секвенцию в .mp4 и H.264/H.265?">
+      <DetailsSummary title="Как вывести секвенцию в MP4 и H.264/H.265?">
         <p>
           Предположим, что вы хотите вывести качественное видео с минимальным весом в
           кодеке
@@ -340,8 +339,9 @@ const PRExport: React.FC = () => {
           вкладку <mark className="ui">Video</mark> и измените нужные вам параметры. Из
           доступных параметров нам доступно изменение битрейта, кадров в секунду,
           цветового профиля, включение эффектов и переключение между Software- или
-          Hardware-кодированием. Чтобы изменять &quot;заблокированные&quot; параметры -
-          просто уберите чекбокс справа от параметров.
+          Hardware-кодированием. Чтобы изменить{" "}
+          <mark className="ui">заблокированные настройки</mark> - просто уберите чекбокс
+          справа от нужного параметра.
         </p>
         <VideoFigure
           caption="Настройки экспорта видео"
@@ -512,9 +512,9 @@ const PRExport: React.FC = () => {
         </p>
         <AdditionInfo>
           По умолчанию в <mark className="plugin">AfterCodecs</mark> стоит контейнер{" "}
-          <mark className="file">MOV</mark>. Так как мы в этой статье экспортируем видео в{" "}
-          <mark className="file">MP4</mark>, то и указать нужно соответствующий контейнер
-          для вывода.
+          <mark className="video">MOV</mark>. Так как мы в этой статье экспортируем видео
+          в <mark className="video">MP4</mark>, то и указать нужно соответствующий
+          контейнер для вывода.
         </AdditionInfo>
         <ImageFigure
           caption="Export"
@@ -565,11 +565,11 @@ const PRExport: React.FC = () => {
           рендер как обычно, через кнопку <mark className="ui">Export</mark>.
         </p>
       </DetailsSummary>
-      <DetailsSummary title="Как вывести секвенцию в .WebM и VP9?">
+      <DetailsSummary title="Как вывести секвенцию в WEBM и VP9?">
         <p>
           Стандартными средствами из <mark className="app">Adobe Premiere Pro</mark> и{" "}
           <mark className="app">Adobe Media Encoder</mark> нельзя вывести композицию в{" "}
-          <mark className="file">WEBM</mark>, но можно вывести в другом формате и
+          <mark className="video">WEBM</mark>, но можно вывести в другом формате и
           переконвертировать его.
         </p>
         <AdditionDanger>
@@ -650,7 +650,7 @@ const PRExport: React.FC = () => {
         </p>
         <p>
           После экспорта вы получите видео в кодеке <mark className="video">VP9</mark> и
-          контейнере <mark className="file">WEBM</mark>, которое можно использовать в
+          контейнере <mark className="video">WEBM</mark>, которое можно использовать в
           веб-проектах или где-нибудь ещё.
         </p>
         <AdditionWarning>
@@ -660,7 +660,7 @@ const PRExport: React.FC = () => {
           отсутствует, там будет отображаться чёрный фон вместо прозрачности.
         </AdditionWarning>
       </DetailsSummary>
-      <DetailsSummary title="Как вывести секвенцию в .gif?">
+      <DetailsSummary title="Как вывести секвенцию в GIF?">
         <p>
           Из <mark className="app">Adobe Premiere Pro</mark> вывести ваш ролик в формат{" "}
           <mark className="image">GIF</mark> можно тремя способами.
@@ -805,7 +805,7 @@ const PRExport: React.FC = () => {
         />
         <AdditionWarning>
           Максимальный размер файла, который можно загрузить в сервис, не должен превышать{" "}
-          <mark>200 Мб</mark>. Максимальная длина не должна превышать 60 секунд для
+          <mark>200 МБ</mark>. Максимальная длина не должна превышать 60 секунд для
           конвертации в <mark>5 FPS</mark>
           или 15 секунд для конвертации в <mark>20 FPS</mark>.
         </AdditionWarning>
@@ -831,7 +831,7 @@ const PRExport: React.FC = () => {
       </DetailsSummary>
       <DetailsSummary title="Как вывести секвенцию с альфа-каналом, то есть с прозрачностью?">
         <AdditionWarning>
-          В <mark className="video">H.264</mark> и <mark className="file">MP4</mark>{" "}
+          В <mark className="video">H.264</mark> и <mark className="video">MP4</mark>{" "}
           нельзя вывести композицию с альфа-каналом. Это можно сделать только на
           устройствах с <mark>macOS</mark> и при использовании кодека{" "}
           <mark className="video">H.265 (HEVC)</mark>.

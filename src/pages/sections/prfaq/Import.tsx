@@ -226,8 +226,9 @@ const PRImport: React.FC = () => {
         title="Импортировал видео, а оно слишком засвеченное. Как исправить?"
       >
         <p>
-          Скорее всего вы импортировали видео, записанное на iPhone или на камеру в
-          цветовом пространстве HLG. Для решения цветовых проблем есть два способа.
+          Скорее всего вы импортировали видео, записанное на <mark>iPhone</mark> или на
+          камеру в цветовом пространстве <mark>HLG</mark>. Для решения цветовых проблем
+          есть два способа.
         </p>
         <Divider>Включаем Auto Tone Map Media</Divider>
         <p>
@@ -385,12 +386,12 @@ const PRImport: React.FC = () => {
           styleClass="figure_windows-dark"
         />
       </DetailsSummary>
-      <DetailsSummary title="Прислали исходники в формате .mkv, .flv или что-то не поддерживаемое программой. Как мне их импортировать?">
+      <DetailsSummary title="Прислали исходники в формате MKV, FLV или что-то не поддерживаемое программой. Как мне их импортировать?">
         <p>
           <mark className="app">Adobe Premiere Pro</mark> может не поддерживать некоторые
           кодеки, например <mark className="video">VP9</mark>,{" "}
           <mark className="video">AV1</mark>, а также контейнеры по типу{" "}
-          <mark className="file">FLV</mark>, <mark className="file">MKV</mark> и прочие.
+          <mark className="video">FLV</mark>, <mark className="video">MKV</mark> и прочие.
         </p>
         <p>
           Любая программа для монтажа и композитинга чего-угодно была изначально
@@ -423,7 +424,7 @@ const PRImport: React.FC = () => {
       </DetailsSummary>
       <DetailsSummary
         tag="исходники видео фото с айфона"
-        title="Прислали исходники в формате .heic, .heif или .hevc, но выбивает ошибку. Как их мне открыть и импортировать в проект?"
+        title="Прислали исходники в формате HEIC, HEIF или HEVC, но выбивает ошибку. Как их мне открыть и импортировать в проект?"
       >
         <p>
           Некоторые пользователи, использующие{" "}
@@ -454,11 +455,10 @@ const PRImport: React.FC = () => {
               <mark className="app">Adobe Premiere Pro</mark> после установки кодеков все
               ещё не будет импортировать видео с контейнером{" "}
               <mark className="video">HEVC</mark>. То есть если вы попробуете
-              импортировать <mark className="video">.hevc</mark> в проект - вам скажут,
-              что такой файл не поддерживается. Чтобы это исправить - попробуйте
-              переименовать ваше видео в <mark className="video">.mp4</mark> или
-              перекодируйте видео в другой кодек через{" "}
-              <mark className="app">Shutter Encoder</mark>.
+              импортировать <mark className="video">HEVC</mark> в проект - вам скажут, что
+              такой файл не поддерживается. Чтобы это исправить - попробуйте переименовать
+              ваше видео в <mark className="video">MP4</mark> или перекодируйте видео в
+              другой кодек через <mark className="app">Shutter Encoder</mark>.
             </AdditionDanger>
           </li>
         </ul>

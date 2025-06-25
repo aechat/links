@@ -45,6 +45,9 @@ const PSFromNewbies: React.FC = () => {
             Фишки и лайфхаки от VideoSmile
           </a>
           <a href="https://www.youtube.com/@grafon/videos">GRAFON Уроки фотошопа</a>
+          <a href="https://www.youtube.com/@ps-master/videos">
+            Фотошопер - уроки фотошопа
+          </a>
           <a href="https://www.youtube.com/@IntuitiveDesigns/videos">Intuitive Designs</a>
           <a href="https://www.youtube.com/@Texturelabs/videos">Texturelabs</a>
           <a href="https://www.youtube.com/@PANTERvision/videos">P A N T E R</a>
@@ -56,34 +59,19 @@ const PSFromNewbies: React.FC = () => {
       </DetailsSummary>
       <DetailsSummary
         tag="сленг, жаргон, сокращения, словосочетания, говор"
-        title="Не понимаю термины от других пользователей Adobe Photoshop, проясните!"
+        title="Какие популярные термины есть у пользователей программы?"
       >
         <p>{/* FIXME: написать!! по аналогии как с терминами в аефаке */}</p>
       </DetailsSummary>
-      <DetailsSummary
-        tag="что нового, фишки, обновления, апдейт"
-        title="Где я могу узнать об нововведениях в обновлениях Photoshop?"
       >
         <p>
-          Обычно на сайте Adobe в день выхода публичной стабильной версии выкладываются
-          основные нововведения. Это сделано для того, чтобы каждый прохожий не спрашивал
-          из каждого угла <mark className="quote">А что обновилось то?</mark>. Ещё время
-          от времени Adobe выкладывает на сайт список выявленных неполадок и старается
-          приложить к ним временное решение.
         </p>
-        <div className="flexible-links">
-          <a href="https://helpx.adobe.com/photoshop/using/whats-new.html">
-            Что нового в Photoshop последних выпусков
-          </a>
-          <a href="https://helpx.adobe.com/photoshop/kb/fixed-issues.html">
-            Список исправленных ошибок
-          </a>
-          <a href="https://helpx.adobe.com/photoshop/kb/known-issues.html">
-            Выявленные неполадки в Photoshop
-          </a>
-        </div>
       </DetailsSummary>
       <DetailsSummary title="А есть список популярных комбинаций клавиш для работы в Photoshop?">
+      <DetailsSummary
+        tag="хоткеи, горячие клавиши, шорткаты, ускорение работы"
+        title="А есть список популярных комбинаций клавиш?"
+      >
         <p>
           Горячие клавиши могут помочь ускорить рутинный процесс нахождения нужной функции
           программы, поэтому в этой статье в таблицах собраны популярные у многих
@@ -107,6 +95,29 @@ const PSFromNewbies: React.FC = () => {
           </ul>
         </AdditionInfo>
         <p>{/* FIXME: написать!! */}</p>
+      </DetailsSummary>
+      <DetailsSummary
+        tag="что нового, фишки, обновления, апдейты, патчноуты"
+        title="Где я могу узнать о нововведениях в обновлениях программы?"
+      >
+        <p>
+          Обычно на сайте <mark>Adobe</mark> в день выхода публичной стабильной версии
+          выкладываются основные нововведения. Это сделано для того, чтобы каждый прохожий
+          не спрашивал из каждого угла <mark className="quote">А что обновилось то?</mark>
+          . Ещё время от времени <mark>Adobe</mark> выкладывает на сайт список выявленных
+          неполадок и старается приложить к ним временное решение.
+        </p>
+        <div className="flexible-links">
+          <a href="https://helpx.adobe.com/photoshop/using/whats-new.html">
+            Что нового в Photoshop последних выпусков
+          </a>
+          <a href="https://helpx.adobe.com/photoshop/kb/fixed-issues.html">
+            Список исправленных ошибок
+          </a>
+          <a href="https://helpx.adobe.com/photoshop/kb/known-issues.html">
+            Выявленные неполадки в Photoshop
+          </a>
+        </div>
       </DetailsSummary>
       <DetailsSummary
         tag="изменить язык, смена языка, установка английской версии"

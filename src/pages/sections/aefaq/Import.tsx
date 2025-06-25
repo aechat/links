@@ -371,7 +371,7 @@ const AEImport: React.FC = () => {
       >
         <p>
           Такое бывает, когда вы сохраняете в <mark className="app">Adobe Photoshop</mark>{" "}
-          файл в формате <mark className="file">PSD</mark> в цветовом режиме, отличном от{" "}
+          файл в формате <mark className="image">PSD</mark> в цветовом режиме, отличном от{" "}
           <mark>RGB</mark>. <mark className="app">Adobe After Effects</mark> не понимает
           файлы в <mark>CMYK</mark> или аналогичных режимах, поэтому импортирует файл как
           целый холст без возможности разделения по слоям. Чтобы проверить, в каком режиме
@@ -409,7 +409,7 @@ const AEImport: React.FC = () => {
           сильно измениться.
         </AdditionWarning>
         <p>
-          После изменения цветового режима сохраните <mark className="file">PSD</mark>{" "}
+          После изменения цветового режима сохраните <mark className="image">PSD</mark>{" "}
           файл и попробуйте снова импортировать его в{" "}
           <mark className="app">Adobe After Effects</mark>.
         </p>
@@ -548,7 +548,7 @@ const AEImport: React.FC = () => {
           Далее <mark className="app">Adobe After Effects</mark> спросит, какие секвенции
           нужно импортировать. По умолчанию стоит параметр{" "}
           <mark className="ui">All Sequences</mark>, но вы можете указать конкретную
-          секвенцию. Также при желании вы можете отключить импорт аудио-файлов.
+          секвенцию. Также при желании вы можете отключить импорт аудиофайлов.
         </p>
         <ImageFigure
           caption="Premiere Pro Importer"
@@ -624,8 +624,8 @@ const AEImport: React.FC = () => {
           <mark className="app">Adobe Media Encoder</mark> изначально не поддерживают
           большое количество кодеков, например <mark className="video">VP9</mark>,{" "}
           <mark className="video">AV1</mark>, а также контейнеры{" "}
-          <mark className="file">WEBM</mark>, <mark className="file">FLV</mark>,{" "}
-          <mark className="file">MKV</mark> и прочие. Если у вас небольшой проект и нет
+          <mark className="video">WEBM</mark>, <mark className="video">FLV</mark>,{" "}
+          <mark className="video">MKV</mark> и прочие. Если у вас небольшой проект и нет
           желания заниматься перекодированием исходников, то вы можете попробовать плагин{" "}
           <a href="https://www.autokroma.com/Influx">Autokroma Influx</a>. Он облегчает
           импорт некоторых файлов которые не поддерживаются в{" "}
@@ -687,11 +687,10 @@ const AEImport: React.FC = () => {
               <mark className="app">Adobe After Effects</mark> после установки кодеков все
               ещё не будет импортировать видео с контейнером{" "}
               <mark className="video">HEVC</mark>. То есть если вы попробуете
-              импортировать <mark className="video">.hevc</mark> в проект - вам скажут,
-              что такой файл не поддерживается. Чтобы это исправить - попробуйте
-              переименовать ваше видео в <mark className="video">.mp4</mark> или
-              перекодируйте видео в другой кодек через{" "}
-              <mark className="app">Shutter Encoder</mark>.
+              импортировать <mark className="video">HEVC</mark> в проект - вам скажут, что
+              такой файл не поддерживается. Чтобы это исправить - попробуйте переименовать
+              ваше видео в <mark className="video">MP4</mark> или перекодируйте видео в
+              другой кодек через <mark className="app">Shutter Encoder</mark>.
             </AdditionDanger>
           </li>
         </ul>
@@ -758,7 +757,8 @@ const AEImport: React.FC = () => {
           <mark className="ui">Essential Graphics</mark> с помощью{" "}
           <mark className="ui">Composition &gt; Open in Essential Graphics</mark>. В этом
           же окне вы можете обратно запаковать проект в{" "}
-          <mark className="file">MOGRT</mark> после нужных правок.
+          <mark className="file">MOGRT</mark> после нужных правок с помощью{" "}
+          <mark className="ui">Export Motion Graphics Template</mark>.
         </p>
         <ImageFigure
           caption="Essential Graphics"
@@ -775,7 +775,7 @@ const AEImport: React.FC = () => {
           <mark className="ui">File &gt; Import</mark> или комбинации клавиш{" "}
           <mark className="key">Ctrl + I</mark>. В открывшемся окне импорта нужно указать{" "}
           <mark className="file">AEP</mark> файл в директории, в которую изначально был
-          распакован <mark className="ui">MOGRT</mark> файл из предыдущих действий.
+          распакован <mark className="file">MOGRT</mark> файл из предыдущих действий.
           Импортированные композиции появятся в окне <mark className="ui">Project</mark> и
           редактировать такие анимационные шаблоны можно также через{" "}
           <mark className="ui">Composition &gt; Open in Essential Graphics</mark> или

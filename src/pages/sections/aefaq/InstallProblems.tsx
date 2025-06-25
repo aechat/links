@@ -106,10 +106,11 @@ const AEInstallProblems: React.FC = () => {
                       </li>
                       <li>
                         Для распаковки многотомного архива, то есть если в названии
-                        архивов есть <mark>.part1</mark>, <mark>.part2</mark> и так далее
-                        - нужно запустить распаковку только первой части архива, остальные
-                        части подхватятся сами. Остальные части архива не нужно трогать
-                        без острой необходимости, если вы не знаете что с ними делать.
+                        архивов есть <mark className="file">PART1</mark>,{" "}
+                        <mark className="file">PART2</mark> и так далее - нужно запустить
+                        распаковку только первой части архива, остальные части подхватятся
+                        автоматически. Остальные части архива не нужно трогать без острой
+                        необходимости, если вы не знаете что с ними делать.
                       </li>
                       <li>
                         Многотомные архивы создаются для того, чтобы файл можно было
@@ -525,12 +526,13 @@ const AEInstallProblems: React.FC = () => {
                       </li>
                       <li>
                         Для распаковки многотомного архива, то есть если в названии
-                        архивов есть <mark>.part1</mark>, <mark>.part2</mark> и так далее
-                        - нужно запустить распаковку только первой части архива, нажав{" "}
+                        архивов есть <mark className="file">PART1</mark>,{" "}
+                        <mark className="file">PART2</mark> и так далее - нужно запустить
+                        распаковку только первой части архива, нажав{" "}
                         <mark className="key">ПКМ</mark> по файлу и выбрать в контекстном
                         меню <mark className="ui">WinRAR &gt; Распаковать в...</mark>.
-                        Остальные части подхватятся сами и их не нужно трогать без острой
-                        необходимости, если вы не знаете что с ними делать.
+                        Остальные части подхватятся автоматически и их не нужно трогать
+                        без острой необходимости, если вы не знаете что с ними делать.
                       </li>
                       <li>
                         Многотомные архивы создаются для того, чтобы файл можно было
@@ -891,40 +893,21 @@ const AEInstallProblems: React.FC = () => {
         </AdditionInfo>
       </DetailsSummary>
       <DetailsSummary
-        tag="выключить дефендер, отрубить антивирус, ложное срабатывание, хелпер, ошибка 24, windows не удается получить доступ к указанному устройству пути или файлу, возможно у вас нет нужных разрешений для доступа к этому объекту, некоторые файлы не были созданы, операция не была успешно завершена так как файл содержит вирус или потенциально нежелательную программу, operation did not complete successfully because the file contains a virus or potentially unwanted software, 0x800700E1"
-        title='"Не удаётся найти "..\install\helper.exe". Проверьте, правильно ли указано имя и повторите попытку", "Обнаружены угрозы", куда-то пропадают файлы плагинов и программ или как отключить Windows Defender и Windows Smartscreen?'
+        tag="репак от кролика, выключить дефендер, отрубить антивирус, ложное срабатывание, хелпер, ошибка 24, проверьте правильно ли указано имя и повторите попытку, windows не удается получить доступ к указанному устройству пути или файлу, возможно у вас нет нужных разрешений для доступа к этому объекту, некоторые файлы не были созданы, операция не была успешно завершена так как файл содержит вирус или потенциально нежелательную программу, обнаружены угрозы, куда-то пропадают файлы плагинов и программ, operation did not complete successfully because the file contains a virus or potentially unwanted software, 0x800700E1"
+        title='"Не удаётся найти "..\install\helper.exe" или как отключить Windows Defender и Windows Smartscreen?'
       >
         <p>
-          Когда вы устанавливаете пиратские версии программ, часто можно услышать жалобы
-          на то, что встроенный <mark className="app">антивирус Windows</mark> удаляет
-          файлы, утверждая, что они содержат вирусы и приводят смешные скриншоты про
-          реакцию антивируса. Если вы уж встали на путь пиратства - то ложные срабатывания
-          встроенного <mark className="app">Windows Defender</mark> должны стать нормой
-          для вас.
-        </p>
-        <AdditionDanger>
-          Устанавливая содержимое на ваше устройство из каналов{" "}
-          <a href="https://t.me/s/aetemp">AETemp</a>,{" "}
-          <a href="https://t.me/+Qd9xu7A4TeIwNzY6">склад стройматериалов (Windows)</a> или{" "}
-          <a href="https://t.me/+ZqiaMfQRFgM4YmEy">Яблоневый сад (macOS)</a> - вы
-          принимаете на себя все риски и берёте ответственность за использование
-          нелегальных материалов. Мы не можем принимать вбросы по типу{" "}
-          <mark className="quote">ой в складе, саду или аетемпе одни вирусы водятся</mark>{" "}
-          на полном серьёзе без внятных доказательств. Ложное срабатывание антивируса
-          также не является доказательством действительного наличия зловредов в том или
-          ином архиве или программе. Если вы доверяете нашим источникам - отключайте
-          антивирусное ПО при установке программ и плагинов, либо не предъявляйте
-          претензии на основе вашей паранои и оформляйте покупку софта за свои кровные.
-        </AdditionDanger>
-        <p>
-          Обычно антивирусы ложно срабатывают на замену оригинальных файлов, чтобы
-          подсунуть псевдо-лицензию и помечают такое действие как{" "}
-          <mark>HackTool:Win32/Crack!MTB</mark> или иначе. Ещё антивирус может сожрать
-          файл <mark className="file">helper.exe</mark> в репаках от <mark>KpoJluk</mark>,
-          который распаковывает дистрибутивы Adobe из-за того, что в нём находится галочка{" "}
-          <mark className="ui">реклама</mark> и помечает это как{" "}
-          <mark>Contrebrew.A!ml</mark>, <mark>Adware</mark> или иначе. Такое иногда может
-          быть и на дистрибутивах от <mark>m0nkrus</mark> или аналогичных репакеров.
+          Обычно антивирусы срабатывают на модификацию оригинальных файлов, удаляя{" "}
+          <mark className="word">пролеченные файлы</mark> и классифицирует их как{" "}
+          <mark>HackTool:Win32/Crack!MTB</mark> или другими обозначениями. Ещё антивирус
+          может удалить файл <mark className="file">helper.exe</mark> в репаках от{" "}
+          <mark>KpoJluk</mark>, который распаковывает дистрибутивы <mark>Adobe</mark>{" "}
+          из-за того, что в нём находится галочка <mark className="ui">Реклама</mark> и
+          помечает это как <mark>Contrebrew.A!ml</mark>, <mark>Adware</mark> или иначе.
+          Иногда файлы могут удаляться и из дистрибутивов от <mark>m0nkrus</mark> или
+          аналогичных репакеров, а также при распаковке различных плагинов и файлов из
+          интернета, даже если они действительно не содержат{" "}
+          <mark className="app">вредоносного ПО</mark>.
         </p>
         <Divider>Отключаем стандартный антивирус на время</Divider>
         <p>
@@ -938,23 +921,51 @@ const AEInstallProblems: React.FC = () => {
           caption="Как отключить Защитник Windows 11"
           link="blwRAOQUjsM"
         />
+        <AdditionDanger>
+          <ul>
+            <li>
+              Скачивая и устанавливая содержимое на ваше устройство из каналов{" "}
+              <a href="https://t.me/s/aetemp">AETemp</a>,{" "}
+              <a href="https://t.me/+Qd9xu7A4TeIwNzY6">склад стройматериалов (Windows)</a>{" "}
+              или <a href="https://t.me/+ZqiaMfQRFgM4YmEy">Яблоневый сад (macOS)</a> - вы
+              принимаете все риски и берёте на себя ответственность за использование
+              нелегальных материалов.
+            </li>
+            <li>
+              Администрация вышеупомянутых каналов не может принимать на полном серьёзе
+              вбросы по типу{" "}
+              <mark className="quote">
+                ой в складе, саду или аетемпе одни вирусы водятся
+              </mark>{" "}
+              без внятных доказательств. Ложное срабатывание антивируса или{" "}
+              <mark className="app">VirusTotal</mark> не является доказательством
+              действительного наличия зловредов в том или ином архиве или программе.
+            </li>
+            <li>
+              Если вы доверяете нашим источникам - отключайте{" "}
+              <mark className="app">антивирусное ПО</mark> при установке программ и
+              плагинов, либо не предъявляйте претензии на основе вашей паранои и
+              оформляйте покупку софта за свои кровные.
+            </li>
+          </ul>
+        </AdditionDanger>
         <Divider>Вносим исключения для Windows Defender</Divider>
         <p>
           Если вы не хотите отключать или удалять{" "}
           <mark className="app">Windows Defender</mark> с вашего устройства, то вы можете
           добавить папку <mark className="path">C:\Program Files\Adobe</mark>, а также
           добавить <mark className="path">%Temp%</mark> в список исключений вашего
-          антивируса. После настроек исключений - начните установку программы как обычно.
+          антивируса. После настройки исключений - начните установку программы как обычно.
         </p>
         <AdditionInfo>
           Если директория <mark className="path">C:\Program Files\Adobe</mark> отсутствует
-          - создайте его сами.
+          - создайте его самостоятельно.
         </AdditionInfo>
         <YouTubeVideo
           caption="Windows Defender - как восстановить файлы и запретить их удаление"
           link="ET94_dv3f8c"
         />
-        <Divider>...или удаляем Windows Defender с корнями</Divider>
+        <Divider>Или удаляем Windows Defender с корнями</Divider>
         <p>
           Если вы доверяете источникам, откуда вы скачиваете и устанавливаете программы,
           или вас бесят ложные срабатывания от{" "}
@@ -963,7 +974,15 @@ const AEInstallProblems: React.FC = () => {
         </p>
         <ul>
           <li>
-            С помощью <mark className="app">Defender Remover</mark>, доступный на{" "}
+            С помощью <mark className="app">DefenderKiller</mark>, который можно загрузить
+            из{" "}
+            <a href="https://win10tweaker.ru/forum/topic/defenderkiller">
+              форума Win10Tweaker
+            </a>
+            .
+          </li>
+          <li>
+            С помощью <mark className="app">Defender Remover</mark> на{" "}
             <a href="https://github.com/ionuttbara/windows-defender-remover/releases">
               GitHub
             </a>
@@ -980,7 +999,7 @@ const AEInstallProblems: React.FC = () => {
           <mark className="app">Windows Defender</mark> может вернуться к вам после
           установки крупного обновления, например при переходе с <mark>Windows 11</mark>{" "}
           версии <mark>24H2</mark> на <mark>Windows 11</mark> версии <mark>25H2</mark>.
-          Для его удаления и отключения в системе - просто повторите процесс сноса заново.
+          Для того чтобы от него избавиться - просто повторите процесс удаления.
         </AdditionWarning>
         <Divider>Вынимаем палки из колёс от Windows Smartscreen</Divider>
         <p>
@@ -1002,59 +1021,325 @@ const AEInstallProblems: React.FC = () => {
           link="HxlxS1Mdyp0"
         />
       </DetailsSummary>
-      <DetailsSummary title='Выскакивает "Некоторые установочные файлы были повреждены. Загрузите свежую копию и повторите установку" при открытии репака от KpoJluK'>
+      <DetailsSummary
+        tag="в настоящее время невозможно установить, операционная система не соответствует минимальным требованиям для этой программы установки"
+        title="Код ошибки 1, 501, 176, 195, 21 или другие при установке Adobe After Effects"
+      >
+        <Divider>Исправляем ошибку 1 или 501</Divider>
         <p>
-          Вы не докачали <mark className="file">EXE</mark> файл до конца или прервали его
-          скачивание. В таком случае перекачайте файл и попробуйте открыть его еще раз.
-          Иногда при скачивании репака или при распаковке архива ваш антивирус может
-          вставить палки в колёса. Поэтому при скачивании, распаковки или открытии репака
-          вам нужно отключить на время ваш антивирус.
+          Обычно ошибка <mark>1</mark> и <mark>501</mark> возникает из-за того, что у вас
+          повреждено приложение <mark className="app">Adobe Creative Cloud Cleaner</mark>{" "}
+          или были криво удалены предыдущие программы от <mark>Adobe</mark>. Чтобы
+          исправить это - очистите остатки предыдущих установок с помощью{" "}
+          <a href="https://helpx.adobe.com/creative-cloud/kb/cc-cleaner-tool-installation-problems.html">
+            Adobe Creative Cloud Cleaner
+          </a>{" "}
+          или <mark className="app">Revo Uninstaller</mark>.
         </p>
+        <Divider>Исправляем ошибку 176</Divider>
+        <ContentSwitcher
+          macContent={
+            <div>
+              <p>
+                Скорее всего вы до установки более новых версий{" "}
+                <mark className="app">Adobe After Effects</mark> пользовались другими
+                программами <mark>Adobe</mark>. Для решения - попробуйте удалить папку{" "}
+                <mark className="path">~/Library/Application Support/Adobe/caps</mark>, а
+                затем повторить попытку установки нужной программы.
+              </p>
+            </div>
+          }
+          windowsContent={
+            <div>
+              <p>
+                Скорее всего вы до установки более новых версий{" "}
+                <mark className="app">Adobe After Effects</mark> пользовались другими
+                программами <mark>Adobe</mark>. Для решения - попробуйте удалить папку{" "}
+                <mark className="path">
+                  C:\Program Files (x86)\Common Files\Adobe\caps
+                </mark>
+                , а затем повторить попытку установки нужной программы.
+              </p>
+            </div>
+          }
+        />
+        <Divider>
+          Исправляем ошибку 195 - &quot;Требуется процессор, поддерживающий инструкции
+          Advanced Vector Extensions 2 (AVX2)&quot;
+        </Divider>
+        <p>
+          Если вы столкнулись с этой ошибкой при установке, это означает, что ваш
+          процессор не поддерживает инструкции <mark>AVX2</mark>, необходимые для
+          последних версий <mark className="app">Adobe After Effects</mark>. Для решения
+          проблемы обновите процессор или установите более старую версию программы,
+          например <mark>23.6</mark> или <mark>24.0</mark>.
+        </p>
+        <Divider>
+          Исправляем ошибку 21 - &quot;Операционная система не соответствует минимальным
+          требованиям для этой программы установки&quot;
+        </Divider>
+        <p>
+          Скорее всего вы пытаетесь установить{" "}
+          <mark className="app">Adobe After Effects</mark> версии <mark>2024</mark> или
+          новее на несвежую сборку <mark>Windows</mark>. В таком случае у вас есть только
+          два выхода, по какому пути идти - решать только вам.
+        </p>
+        <ul>
+          <li>
+            Если вы хотите установить свежую версию{" "}
+            <mark className="app">Adobe After Effects</mark>, то вам нужно обновить вашу
+            систему до <mark>Windows 10</mark> сборки <mark>22H2</mark> или установить{" "}
+            <mark>Windows 11</mark>. Обычно в{" "}
+            <a href="https://helpx.adobe.com/after-effects/system-requirements.html">
+              системных требованиях After Effects
+            </a>{" "}
+            указывается минимальная версия операционной системы.
+            <AdditionInfo>
+              <ul>
+                <li>
+                  Текущую сборку <mark>Windows</mark> вы можете посмотреть в{" "}
+                  <mark className="app">winver</mark>.
+                </li>
+                <li>
+                  Если у вас стоит <mark>Windows 10</mark> редакции <mark>LTSC</mark>, то
+                  сборку новее <mark>21H2</mark> вы не сможете установить. Вам нужно будет
+                  переустановить систему на редакцию <mark>Home</mark> или{" "}
+                  <mark>Pro</mark>.{" "}
+                  <i style={{opacity: "0.5"}}>
+                    Или поэкспериментировать с редакцией <mark>LTSC для IoT</mark>.
+                  </i>
+                </li>
+              </ul>
+            </AdditionInfo>
+          </li>
+          <li>
+            Если вы не желаете обновлять или переустанавливать систему, то вы можете
+            установить более старую версию{" "}
+            <mark className="app">Adobe After Effects</mark>, например <mark>23.6</mark>{" "}
+            (2023) или <mark>15.1</mark> (2018). В таком случае установщик выполнит
+            установку корректно.
+          </li>
+        </ul>
         <AdditionInfo>
-          Если вы полностью скачали файл с канала{" "}
-          <a href="https://t.me/+Qd9xu7A4TeIwNzY6">склад стройматериалов</a> и вы уверены,
-          что проблема не на вашей стороне - сообщите об этом в комментариях под постом.
+          Остальные решения по кодам ошибок при установке вы можете найти на{" "}
+          <a href="https://helpx.adobe.com/creative-cloud/kb/troubleshoot-download-install-logs.html">
+            сайте Adobe
+          </a>{" "}
+          или на различных форумах в интернете.
         </AdditionInfo>
       </DetailsSummary>
-      <DetailsSummary title='Выскакивает "rsload.net заблокирован в hosts" при открытии репака от KpoJluK'>
+      <DetailsSummary
+        tag="репак от кролика"
+        title='"Некоторые установочные файлы были повреждены. Загрузите свежую копию и повторите установку"'
+      >
         <p>
-          Такое бывает, если в вашей системе отсутствует файл{" "}
-          <mark className="file">hosts</mark>. Для этого вам нужно создать пустой
-          текстовый документ с названием <mark className="file">hosts</mark> без
-          расширения <mark className="file">TXT</mark>. Затем нужно открыть этот файл и
-          вписать строки, в зависимости от вашей системы{" "}
-          <a href="https://support.microsoft.com/ru-ru/topic/%D0%BA%D0%B0%D0%BA-%D0%B2%D0%BE%D1%81%D1%81%D1%82%D0%B0%D0%BD%D0%BE%D0%B2%D0%B8%D1%82%D1%8C-%D1%81%D0%BE%D0%B4%D0%B5%D1%80%D0%B6%D0%B8%D0%BC%D0%BE%D0%B5-%D1%84%D0%B0%D0%B9%D0%BB%D0%B0-hosts-%D0%BF%D0%BE-%D1%83%D0%BC%D0%BE%D0%BB%D1%87%D0%B0%D0%BD%D0%B8%D1%8E-c2a43f9d-e176-c6f3-e4ef-3500277a6dae">
-            (подробнее на сайте Microsoft)
-          </a>
-          .
+          Данная ошибка возникает когда вы пытаетесь открыть установщик репака от{" "}
+          <mark>KpoJIuK</mark>, а он оказывается битым и не может корректно распаковаться.
+          Часто это происходит из-за некорректных действий пользователя или срабатывания
+          антивирусной программы на вашем устройстве с <mark>Windows</mark>.
+        </p>
+        <Divider>Как избавиться от этой ошибки?</Divider>
+        <ul>
+          <li>
+            Убедитесь в том, что вы полностью скачали файл. Довольно часто веб-версия{" "}
+            <mark className="app">Telegram</mark> загружает установочные файлы с ошибками.{" "}
+            {(() => {
+              const userAgent = navigator.userAgent.toLowerCase();
+
+              const isIOS = /iphone|ipad/.test(userAgent);
+
+              const isAndroid = /android/.test(userAgent);
+
+              const isMacOS = /macintosh|mac os x/.test(userAgent);
+
+              if (isIOS) {
+                return (
+                  <>
+                    Чтобы корректно скачивать подобные файлы - рекомендую использовать
+                    официальное приложение <mark className="app">Telegram</mark> вместо
+                    веб-версии, которое можно установить из{" "}
+                    <a href="https://telegram.org/dl/ios">App Store</a>.
+                  </>
+                );
+              }
+
+              if (isAndroid) {
+                return (
+                  <>
+                    Чтобы корректно скачивать подобные файлы - рекомендую использовать
+                    официальное приложение <mark className="app">Telegram</mark> вместо
+                    веб-версии, которое можно установить по{" "}
+                    <a href="https://telegram.org/android">этой ссылке</a>.
+                  </>
+                );
+              }
+
+              if (isMacOS) {
+                return (
+                  <>
+                    Чтобы корректно скачивать подобные файлы - рекомендую воспользоваться
+                    десктопной версией <mark className="app">Telegram</mark> вместо
+                    веб-версии, которую можно скачать по{" "}
+                    <a href="https://macos.telegram.org/">этой ссылке</a>.
+                  </>
+                );
+              }
+
+              return (
+                <>
+                  Чтобы корректно скачивать подобные файлы - рекомендую воспользоваться
+                  десктопной версией <mark className="app">Telegram</mark> вместо
+                  веб-версии, которую можно скачать по{" "}
+                  <a href="https://desktop.telegram.org/">этой ссылке</a>.
+                </>
+              );
+            })()}
+            <AdditionInfo>
+              Если вы полностью скачали файл с канала{" "}
+              <a href="https://t.me/+Qd9xu7A4TeIwNzY6">склад стройматериалов</a> и вы
+              уверены, что проблема не на вашей стороне - сообщите об этом в комментариях
+              под постом.
+            </AdditionInfo>
+          </li>
+          <li>
+            Если вы скачали репак, запакованный в многотомный архив, которые обычно
+            помечаются как <mark className="file">PART1</mark>,{" "}
+            <mark className="file">PART2</mark> и так далее по порядку - убедитесь в том,
+            что вы скачали все части архива, а также его корректно распаковали.
+            <AdditionInfo>
+              Чтобы распаковать такой архив - достаточно начать распаковку первой части
+              архива, остальные части подхватятся автоматически. Для распаковки таких
+              архивов рекомендую воспользоваться <mark className="app">WinRAR</mark>.
+            </AdditionInfo>
+          </li>
+          <li>
+            Иногда корректному открытию установщика может мешать включенное{" "}
+            <mark className="app">антивирусное ПО</mark>, которое вставляет палки в
+            колёса, считая файлы, распаковывающиеся во временную директорию как за вирус.
+            В таком случае рекомендуется отключить его, конечно же на свой страх и риск.
+          </li>
+        </ul>
+      </DetailsSummary>
+      <DetailsSummary
+        tag="репак от кролика"
+        title='"rsload.net заблокирован в hosts" или "The hosts file does not exist or is not accessible"'
+      >
+        <p>
+          Данная ошибка чаще всего возникает из-за того, что в вашей системе по какой-то
+          неведомой причине отсутствует файл <mark className="file">hosts</mark>. Чтобы
+          решить эту проблему - для начала посмотрите содержимое{" "}
+          <mark className="path">%WinDir%\System32\Drivers\etc</mark>.
         </p>
         <p>
-          Как только вы создали файл <mark className="file">hosts</mark> и внесли нужные
-          строки - вам нужно переместить этот файл в путь{" "}
-          <mark className="path">%WinDir%\System32\Drivers\etc</mark>. После перемещения
-          попробуйте открыть репак снова и начать установку. Такая ошибка должна
-          исчезнуть.
+          Если в этой директории нет файла <mark className="file">hosts</mark> - создайте
+          его самостоятельно, например, с помощью <mark className="app">Блокнота</mark> и
+          переместите созданный файл без расширения в папку{" "}
+          <mark className="path">%WinDir%\System32\Drivers\etc</mark>.{" "}
+          <a href="https://support.microsoft.com/ru-ru/topic/%D0%BA%D0%B0%D0%BA-%D0%B2%D0%BE%D1%81%D1%81%D1%82%D0%B0%D0%BD%D0%BE%D0%B2%D0%B8%D1%82%D1%8C-%D1%81%D0%BE%D0%B4%D0%B5%D1%80%D0%B6%D0%B8%D0%BC%D0%BE%D0%B5-%D1%84%D0%B0%D0%B9%D0%BB%D0%B0-hosts-%D0%BF%D0%BE-%D1%83%D0%BC%D0%BE%D0%BB%D1%87%D0%B0%D0%BD%D0%B8%D1%8E-c2a43f9d-e176-c6f3-e4ef-3500277a6dae">
+            Подробнее на сайте Microsoft...
+          </a>
         </p>
       </DetailsSummary>
-      <DetailsSummary title='Перед установкой репака от KpoJluK, я забыл убрать галочку "Реклама". Как избавиться от последствий?'>
+      <DetailsSummary
+        tag="репак от кролика"
+        title="Забыл убрать галочку с рекламой при установке репака от KpoJIuK. Как избавиться от последствий?"
+      >
         <p>
-          По умолчанию в репаках от <mark>KpoJluk</mark> включена галочка
-          &quot;Реклама&quot;, поэтому можно случайно нарваться на установку{" "}
-          <mark>me.fo</mark> или <mark>hi.ru</mark> в качестве стартовой страницы браузера
-          или на установку <mark className="app">Яндекс.Браузера</mark>. К счастью все эти
-          &quot;нововведения&quot; можно удалить через{" "}
-          <mark className="app">Панель управления</mark>.
+          По умолчанию в репаках от <mark>KpoJluk</mark> включена галочка{" "}
+          <mark className="ui">Реклама</mark>, поэтому можно случайно нарваться на
+          установку <mark>me.fo</mark> или <mark>hi.ru</mark> в качестве стартовой
+          страницы браузера или на установку <mark className="app">Яндекс.Браузера</mark>.
+          К счастью все эти нововведения можно удалить через{" "}
+          <mark className="app">Панель управления</mark> или любым удобным для вас
+          способом.
         </p>
         <p>
-          В следующий раз не забывайте убирать галочку с параметра &quot;Реклама&quot;.
-          Если вы хотите поставить себе автоматический &quot;убиратель галочек&quot; при
-          установке, воспользуйтесь программой{" "}
+          В следующий раз не забывайте убирать галочку <mark className="ui">Реклама</mark>
+          . Если вы хотите сделать так, чтобы у вас автоматически убирались рекламные
+          чекбоксы при установке - попробуйте воспользоваться программой{" "}
           <a href="https://unchecky.com/">Unchecky</a>.
         </p>
       </DetailsSummary>
       <DetailsSummary
-        tag="символьные ссылки, symlink, нестандартное расположение программы, установил на диск D:\, some products require host applications which are not installed on this computer"
-        title="Я установил плагин с помощью установщика, но в программе он не появился. Да и зачем люди из каждого угла советуют не менять путь для установки Adobe After Effects? А если у меня нет места на жёстком диске?"
+        tag="непонятные обозначения, adobe, ae, pr, ps, lr, ofx, ce, davinci, vegas, repack, standalone, офх, адоб, репак, стандалон"
+        title="Как понять для какой программы предназначен установщик плагина?"
+      >
+        <p>
+          Обычно в названии установочных файлов указывается для каких программ
+          устанавливается плагин. Это сделано для того, чтобы не перепутать файлы для
+          нужных вам программ и установить как надо и куда надо.
+        </p>
+        <ul>
+          <li>
+            <mark className="word">AE</mark>, <mark className="word">PR</mark>,{" "}
+            <mark className="word">PS</mark>, <mark className="word">LR</mark> или{" "}
+            <mark className="word">Adobe</mark> - такие плагины устанавливаются в разные
+            программы от Adobe, например <mark className="app">Adobe After Effects</mark>{" "}
+            и <mark className="app">Adobe Premiere Pro</mark>,{" "}
+            <mark className="app">Adobe Photoshop</mark> и{" "}
+            <mark className="app">Adobe Lightroom</mark>.
+            <AdditionInfo>
+              <ul>
+                <li>
+                  Иногда плагины с припиской <mark className="word">AE</mark> могут
+                  устанавливаться и в <mark className="app">Adobe After Effects</mark>, и
+                  в <mark className="app">Adobe Premiere Pro</mark>.
+                </li>
+                <li>
+                  Плагины, распространяющиеся в установщиках будут устанавливаться в
+                  стандартные папки программ. Прежде чем устанавливать плагины с помощью
+                  установщиков - убедитесь в том, что вы изначально установили программы
+                  от <mark>Adobe</mark> в стандартное расположение, не меняя его, чтобы не
+                  ныть о том, что плагин не появился в нужной программе.
+                </li>
+              </ul>
+            </AdditionInfo>
+          </li>
+          <li>
+            <mark className="word">OFX</mark> - плагин установится для программ, которые
+            поддерживают стандарт формата <mark>OpenFX</mark>. К ним относятся{" "}
+            <mark className="app">Davinci Resolve</mark>,{" "}
+            <mark className="app">Vegas Pro</mark>, <mark className="app">Nuke</mark> и{" "}
+            <a href="https://ru.wikipedia.org/wiki/OpenFX#%D0%A5%D0%BE%D1%81%D1%82%D1%8B">
+              остальные
+            </a>
+            .
+            <AdditionWarning>
+              Такие плагины не подойдут для{" "}
+              <mark className="app">Adobe After Effects</mark> и для{" "}
+              <mark className="app">Adobe Premiere Pro</mark>, так как они не поддерживают
+              стандарт плагинов <mark>OpenFX</mark>.
+            </AdditionWarning>
+          </li>
+          <li>
+            <mark className="word">Standalone</mark> - плагин, работающий как обычная
+            программа и может ни от кого не зависеть, например{" "}
+            <mark className="plugin">BorisFX Mocha Pro</mark> или{" "}
+            <mark className="plugin">BorisFX Optics</mark>.
+          </li>
+          <li>
+            <mark className="word">Репак от ...</mark> или{" "}
+            <mark className="word">Repack by ...</mark> - перепакованный установщик
+            плагина, который устанавливает плагин куда надо. Обычно такие плагины
+            предварительно активированы, если не указано иное.
+            <AdditionWarning>
+              При открытии таких установщиков стоит быть внимательным с чекбоксами, так
+              как есть риск того, что вы можете установить в свою систему явно что-то
+              лишнее.
+            </AdditionWarning>
+          </li>
+          <li>
+            <mark className="word">CE</mark> - маркировка от группы релизеров{" "}
+            <mark>Team V.R.</mark>, которая расшифровывается как{" "}
+            <mark>Corporate Edition</mark>. Таким образом они помечают, что такие
+            дистрибутивы достаточно просто установить без всяких лишних действий по
+            активации плагинов. То есть это для них как синоним к слову &quot;репак&quot;.
+          </li>
+        </ul>
+      </DetailsSummary>
+      <DetailsSummary
+        tag="символьные ссылки, symlink, нет места на жёстком диске, установил плагин с помощью установщика, зачем люди из каждого угла советуют не менять путь для установки, нестандартное расположение программы, установил на диск D:\, some products require host applications which are not installed on this computer"
+        title="Почему недавно установленный плагин не появился в моей программе?"
       >
         <AdditionInfo>
           Вся информация в этой статье относится к устройствам с установленной
@@ -1075,11 +1360,12 @@ const AEInstallProblems: React.FC = () => {
             установочных пакетов, таких как <mark className="plugin">Red Giant</mark> или{" "}
             <mark className="plugin">FX Console</mark>, не смогут корректно установиться в
             нужное место. Это происходит из-за того, что большинство установщиков плагинов
-            запрограммированы на распаковку в стандартные директории Adobe и не проверяют
-            действительное расположение <mark className="app">Adobe After Effects</mark> в
-            системе. Когда <mark className="app">Adobe After Effects</mark> находится в
-            нестандартном месте, плагины не могут быть установлены корректно или
-            обнаружены установщиком, даже если программа установлена в системе.
+            запрограммированы на распаковку в стандартные директории <mark>Adobe</mark> и
+            не проверяют действительное расположение{" "}
+            <mark className="app">Adobe After Effects</mark> в системе. Когда{" "}
+            <mark className="app">Adobe After Effects</mark> находится в нестандартном
+            месте, плагины не могут быть установлены корректно или обнаружены
+            установщиком, даже если программа установлена в системе.
             <AdditionInfo>
               Особенно это касается комплексных плагинов вроде{" "}
               <mark className="plugin">Red Giant</mark> и{" "}
@@ -1091,7 +1377,7 @@ const AEInstallProblems: React.FC = () => {
               <mark className="app">Adobe After Effects</mark> стоит на другой, то
               установщик распакует файлы только для <mark>OFX-хоста</mark>, а для{" "}
               <mark className="app">Adobe After Effects</mark> - ничего, потому что он не
-              обнаружил с <mark className="app">Adobe After Effects</mark> в стандартной
+              обнаружил <mark className="app">Adobe After Effects</mark> в стандартной
               директории.
             </AdditionInfo>
           </li>
@@ -1274,8 +1560,159 @@ const AEInstallProblems: React.FC = () => {
         />
       </DetailsSummary>
       <DetailsSummary
-        tag="не подключается dynamic link, динамик линк, aegp plugin aedynamiclinkserver: adobe media encoder is not installed, please download and install it to use this feature, failed to connect to adobe media encoder, медиа енкодер"
-        title="Установил Adobe After Effects и Adobe Media Encoder, но они почему-то не видят друг друга"
+        tag="плагин не активирован, license failed, красный крест, почему при его применении появляются красные кресты, непонятные наложения, надписи про отсутствие лицензии"
+        title="Почему эффект, который я хочу применить на слой, накладывает какие-то кресты или надписи про активацию?"
+      >
+        <p>
+          Чаще всего такие наложения твердят об одном - у вас отстутвует действительная
+          активация для применённого плагина. Скорее всего вы проигнорировали инструкцию
+          по установке <mark className="word">народной</mark> версии того или иного
+          стороннего плагина или неправильно ею воспользовались.
+        </p>
+        <p>
+          В редких случаях источник, откуда вы скачали плагин, может дать нерабочий
+          вариант. Для этого найдите нужный плагин из другого источника, например из{" "}
+          <a href="#1.1">самой первой статьи</a> на этой странице.
+        </p>
+      </DetailsSummary>
+      <DetailsSummary
+        tag="trapcode, mbl, magic bullet, vfx suite, universe, юниверс, трапкод, партикуляр, мбл"
+        title='"This installer application has been moved. It must be run from its original folder containing a packages directory. The installer will now exit." при установке любого пакета от Red Giant'
+      >
+        <p>
+          Скорее всего пытаетесь установить плагины от{" "}
+          <mark className="plugin">Red Giant</mark>, предварительно не распаковав архив
+          полностью. При использовании стандартного просмотрщика архивов в{" "}
+          <mark>Windows 10 или 11</mark> и при открытии в нём любого{" "}
+          <mark className="file">EXE</mark> файла - остальные файлы-зависимости не будут
+          распакованы. Поэтому установщик не видит файлы для распаковки и выдаёт данную
+          ошибку.
+        </p>
+        <p>
+          Чтобы установить плагины от <mark className="plugin">Red Giant</mark> корректно
+          - вы должны распаковать полностью архив или использовать{" "}
+          <a
+            href="https://www.rarlab.com/download.htm"
+            title="Официальный сайт WinRAR"
+          >
+            WinRAR
+          </a>{" "}
+          при открытии <mark className="file">EXE</mark> файла из под нераспакованного
+          архива. Он умеет распаковывать весь архив в временную папку при открытии{" "}
+          <mark className="file">EXE</mark>, <mark className="file">MSI</mark> и подобных
+          установочных файлов.
+        </p>
+      </DetailsSummary>
+      <DetailsSummary
+        tag="please launch the maxon app and sign in to your account, in order to keep using this product without interruption, please activate a license, trapcode particular, magic bullet looks, vfx suite, universe"
+        title='"Red Giant is unlicensed" при применении любого плагина от Maxon'
+      >
+        <p>
+          Данная ошибка возникает из-за того что у вас не активированы плагины от{" "}
+          <mark>Red Giant</mark>. Если вы недавно установили{" "}
+          <mark className="word">народную</mark> версию программы - скорее всего вы не
+          прочитали инструкцию по установке полностью и пропустили важный пункт. Дело в
+          том, что пользователи часто забывают открывать{" "}
+          <mark className="app">RedGiant Activation Service Unlocker.exe</mark> после
+          установки плагинов, а потом натыкаются на ошибку об отсутствии лицензии.
+        </p>
+        <p>
+          Чтобы исправить ошибку об отсутствии лицензии - откройте вышеупомянутый файл из
+          записи или архива, или перечитайте инструкцию приложенную к релизу ещё раз. Если
+          данное предупреждение появляется снова через время - примените{" "}
+          <mark className="app">патч</mark> повторно или установите старые версии
+          плагинов, например <mark>2024.1</mark> или старше.
+        </p>
+      </DetailsSummary>
+      <DetailsSummary
+        tag="Select action - an error occurred while trying to replace the existing file: DeleteFile failed; code 5. Access denied"
+        title='"Виберiть дiю - виникла помилка при спробi замiни iснуючого файлу: DeleteFile збiй; код 5. Отказано в доступе" при применении активатора для пакетов Red Giant от Team V.R.'
+      >
+        <p>
+          В данной ошибке показывается, что активатор не может перезаписать какой-то файл
+          из-за того что он у вас открыт в фоне. В вашем окне ошибки должен отобразиться
+          полный путь до виновника торжества - скорее всего это будет висящий в фоне{" "}
+          <mark className="app">Red Giant Service</mark>.
+        </p>
+        <p>
+          Чтобы корректно применить активатор - закройте проблемный сервис с помощью{" "}
+          <mark className="app">Диспетчера задач</mark>, завершив процесс{" "}
+          <mark className="app">Red Giant Service.exe</mark> во вкладке{" "}
+          <mark className="ui">Подробности (Windows 10 или 11 21H2)</mark> или{" "}
+          <mark className="ui">Сведения (Windows 11 22H2+)</mark>. После завершения
+          проблемного процесса - повторите попытку активации, он должен пройти нормально.
+        </p>
+        <ImageFigure
+          caption="Диспетчер задач"
+          imgSrc="images/kill_redgiantservice.png"
+          imgTitle="Завершаем процесс Red Giant Service.exe"
+          styleClass="figure_windows-dark"
+        />
+      </DetailsSummary>
+      <DetailsSummary
+        tag="element license, use your vc download account to generate a license for this computer"
+        title='"Generate License" при применении Element 3D'
+      >
+        <p>
+          В данном окне вам нужно предоставить файл лицензии с расширением{" "}
+          <mark className="file">LICENSE</mark> с помощью кнопки{" "}
+          <mark className="ui">Install License File</mark>. Если файл лицензии не
+          принимается, то скорее всего вы не прочли полностью инструкцию по активации{" "}
+          <mark className="word">народной</mark> версии этого плагина. Там указано, что
+          для корректного принятия файла с лицензией нужно подменить файл плагина на тот
+          что, предоставлен в записи, откуда вы скачали плагин. И тогда файл с активацией
+          применится корректно и вы сможете наконец-то начать работу с данным плагином.
+        </p>
+        <ImageFigure
+          caption="Element License"
+          imgSrc="images/aftereffects/generate_license_element3d.png"
+          imgTitle="Окно для установки лицензии"
+          styleClass="figure_windows-dark"
+        />
+      </DetailsSummary>
+      <DetailsSummary
+        tag="мокка про"
+        title='"No interactive license in use" при открытии Mocha Pro'
+      >
+        <p>
+          Данная ошибка об отсутствии лицензии может появиться на последних релизах{" "}
+          <mark className="plugin">Mocha Pro</mark>, поставляющийся в формате репаков от{" "}
+          <mark>Team V.R.</mark>. Для быстрого решения этой проблемы - нажмите на{" "}
+          <mark className="ui">License</mark> возле применённого эффекта{" "}
+          <mark className="plugin">Mocha Pro</mark> в окне{" "}
+          <mark className="ui">Effects Controls</mark>. После открытия окна о
+          лицензировании - закройте его и запустите основное окно плагина повторно.
+        </p>
+        <ImageFigure
+          caption="Effects Controls"
+          imgSrc="images/aftereffects/select_license_in_mocha_pro.png"
+          imgTitle="Открытие окна лицензирования Mocha Pro"
+          styleClass="figure_windows-dark"
+        />
+      </DetailsSummary>
+      <DetailsSummary title='"Error: Extension Manager init failed, status = -193! A required resource is missing. Please relaunch the Creative Cloud app and try again" при использовании ZXP Installer'>
+        <p>
+          Данная ошибка прямым текстом указывает на то, что на вашем устройстве
+          отсутствует программа <mark className="app">Adobe Creative Cloud</mark>. Если вы
+          пытаетесь установить какое-либо расширение формата{" "}
+          <mark className="file">ZXP</mark> с помощью{" "}
+          <a href="https://zxpinstaller.com/">ZXP Installer от ELEMENTS Storage Media</a>,
+          то откажитесь от него в пользу{" "}
+          <a href="https://aescripts.com/learn/zxp-installer/">
+            ZXP Installer от aescripts
+          </a>{" "}
+          или ручной распаковки расширения в нужное место. И даже{" "}
+          <mark className="app">Adobe Creative Cloud</mark> устанавливать не нужно, если
+          вы используете репаки от <mark>KpoJluK</mark> или <mark>m0nkrus</mark>.
+        </p>
+        <AdditionInfo>
+          Более подробную информацию про установку дополнительных материалов вы можете
+          прочитать в <a href="#2.1">статье 2.1</a>.
+        </AdditionInfo>
+      </DetailsSummary>
+      <DetailsSummary
+        tag="не подключается dynamic link, программы не видят друг друга, динамик линк, aegp plugin aedynamiclinkserver: adobe media encoder is not installed, please download and install it to use this feature, failed to connect to adobe media encoder, медиа енкодер"
+        title="Установил Adobe Media Encoder, но Adobe After Effects почему-то не видит его"
       >
         <p>
           Функция <mark className="plugin">Dynamic Link</mark> позволяет синхронизировать
@@ -1330,291 +1767,211 @@ const AEInstallProblems: React.FC = () => {
         </ul>
       </DetailsSummary>
       <DetailsSummary
-        tag="в настоящее время невозможно установить, операционная система не соответствует минимальным требованиям для этой программы установки"
-        title="Код ошибки 1, 501, 176, 195, 21 или другие при установке Adobe After Effects"
+        tag="предупреждение, сбой загрузки следующих подключаемых модулей, переустановите эти модули, ошибка, невозможно применить эффект, не удалось выполнить его инициализацию, попытайтесь переустановить подключаемый модуль или обратитесь к его разработчику, plug-in generated an unexpected exception"
+        title='"Warning: The following plugins have failed to load. Please reinstall these plugins" при запуске программы или "Error: This effect cannot be applied because it cannot be initialized. Try reinstalling or contacting the plug-in developer (25::3)" при применении какого-нибудь эффекта'
       >
-        <Divider>Исправляем ошибку 1 или 501</Divider>
         <p>
-          Обычно ошибка <mark>1</mark> и <mark>501</mark> возникает из-за того, что у вас
-          повреждено приложение <mark className="app">Adobe Creative Cloud Cleaner</mark>{" "}
-          или были криво удалены предыдущие программы от <mark>Adobe</mark>. Чтобы
-          исправить это - очистите остатки предыдущих установок с помощью{" "}
-          <a href="https://helpx.adobe.com/creative-cloud/kb/cc-cleaner-tool-installation-problems.html">
-            Adobe Creative Cloud Cleaner
-          </a>{" "}
-          или <mark className="app">Revo Uninstaller</mark>.
-        </p>
-        <Divider>Исправляем ошибку 176</Divider>
-        <ContentSwitcher
-          macContent={
-            <div>
-              <p>
-                Скорее всего вы до установки более новых версий{" "}
-                <mark className="app">Adobe After Effects</mark> пользовались другими
-                программами <mark>Adobe</mark>. Для решения - попробуйте удалить папку{" "}
-                <mark className="path">~/Library/Application Support/Adobe/caps</mark>, а
-                затем повторить попытку установки нужной программы.
-              </p>
-            </div>
-          }
-          windowsContent={
-            <div>
-              <p>
-                Скорее всего вы до установки более новых версий{" "}
-                <mark className="app">Adobe After Effects</mark> пользовались другими
-                программами <mark>Adobe</mark>. Для решения - попробуйте удалить папку{" "}
-                <mark className="path">
-                  C:\Program Files (x86)\Common Files\Adobe\caps
-                </mark>
-                , а затем повторить попытку установки нужной программы.
-              </p>
-            </div>
-          }
-        />
-        <Divider>
-          Исправляем ошибку 195 - &quot;Требуется процессор, поддерживающий инструкции
-          Advanced Vector Extensions 2 (AVX2)&quot;
-        </Divider>
-        <p>
-          Если вы столкнулись с этой ошибкой при установке, это означает, что ваш
-          процессор не поддерживает инструкции <mark>AVX2</mark>, необходимые для
-          последних версий <mark className="app">Adobe After Effects</mark>. Для решения
-          проблемы обновите процессор или установите более старую версию программы,
-          например <mark>23.6</mark> или <mark>24.0</mark>.
-        </p>
-        <Divider>
-          Исправляем ошибку 21 - &quot;Операционная система не соответствует минимальным
-          требованиям для этой программы установки&quot;
-        </Divider>
-        <p>
-          Скорее всего вы пытаетесь установить{" "}
-          <mark className="app">Adobe After Effects</mark> версии <mark>2024</mark> или
-          новее на несвежую сборку <mark>Windows</mark>. В таком случае у вас есть только
-          два выхода, по какому пути идти - решать только вам.
+          Данные предупреждения и ошибки могут появиться по разным причинам: битые пакеты
+          файлов, несвежая система или отсутствие текущей поддержки плагинов программой.
         </p>
         <ul>
           <li>
-            Если вы хотите установить свежую версию{" "}
-            <mark className="app">Adobe After Effects</mark>, то вам нужно обновить вашу
-            систему до <mark>Windows 10</mark> сборки <mark>22H2</mark> или установить{" "}
-            <mark>Windows 11</mark>. Обычно в{" "}
-            <a href="https://helpx.adobe.com/after-effects/system-requirements.html">
-              системных требованиях After Effects
-            </a>{" "}
-            указывается минимальная версия операционной системы.
+            Если вы недавно установили плагины и не можете их применить в своем проекте:
+            убедитесь в том, что установщик плагинов или сами{" "}
+            <mark className="file">AEX</mark> файлы были загружены полностью и не
+            возникали проблемы при скачивании.
+          </li>
+          <li>
+            Некоторые плагины могут не загрузиться из-за недостающих пакетов{" "}
+            <mark className="app">Microsoft C++ Visual Redistributable</mark>. Для решения
+            проблемы попробуйте обновить все пакеты или установить недостающие с помощью{" "}
+            <a href="https://github.com/abbodi1406/vcredist/releases/">
+              репака от abbodi1406
+            </a>
+            , перезагрузите компьютер и попробуйте запустить проект с плагинами, которые
+            до этого не могли загрузиться.
+          </li>
+          <li>
+            Проверьте версию вашей установленной операционной системы - она должна
+            соответствовать системным требованиям для корректного запуска. Если вы
+            попытаетесь запустить свежую версию{" "}
+            <mark className="app">Adobe After Effects</mark>, например <mark>2024</mark>,
+            на старую версию операционной системы, например <mark>Windows 10</mark> билда{" "}
+            <mark>1809</mark>, то можете столкнуться с различными ошибками инициализации
+            сторонних и даже встроенных эффектов. В таком случае обновите вашу
+            операционную систему до последней на момент чтения статьи версию. Текущий билд
+            вашей системы можно узнать с помощью <mark className="app">winver</mark>.
+          </li>
+          <li>
+            В редких случаях в <mark>Windows</mark> могут сломаться какие-либо системные
+            файлы. Для быстрого лечения системы вы можете выполнить команды{" "}
+            <mark className="code">sfc /scannow</mark> и{" "}
+            <mark className="code">dism /Online /Cleanup-Image /RestoreHealth</mark>, а
+            также <mark className="code">chkdsk /f /r</mark> для проверки вашего диска в
+            командной строке.
             <AdditionInfo>
-              <ul>
-                <li>
-                  Текущую сборку <mark>Windows</mark> вы можете посмотреть в{" "}
-                  <mark className="app">winver</mark>.
-                </li>
-                <li>
-                  Если у вас стоит <mark>Windows 10</mark> редакции <mark>LTSC</mark>, то
-                  сборку новее <mark>21H2</mark> вы не сможете установить. Вам нужно будет
-                  переустановить систему на редакцию <mark>Home</mark> или{" "}
-                  <mark>Pro</mark>.{" "}
-                  <i style={{opacity: "0.5"}}>
-                    Или поэкспериментировать с редакцией <mark>LTSC для IoT</mark>.
-                  </i>
-                </li>
-              </ul>
+              Если ваша система не может восстановиться после выполнения этих команд, то
+              вы можете скачать <mark className="file">ISO</mark> образ системы и
+              обновиться до неё поверх существующей. Текущий билд вашей системы можно
+              узнать с помощью <mark className="app">winver</mark>.
             </AdditionInfo>
           </li>
           <li>
-            Если вы не желаете обновлять или переустанавливать систему, то вы можете
-            установить более старую версию{" "}
-            <mark className="app">Adobe After Effects</mark>, например <mark>23.6</mark>{" "}
-            (2023) или <mark>15.1</mark> (2018). В таком случае установщик выполнит
-            установку корректно.
-          </li>
-        </ul>
-        <AdditionInfo>
-          Остальные решения по кодам ошибок при установке вы можете найти на{" "}
-          <a href="https://helpx.adobe.com/creative-cloud/kb/troubleshoot-download-install-logs.html">
-            сайте Adobe
-          </a>{" "}
-          или на различных форумах в интернете.
-        </AdditionInfo>
-      </DetailsSummary>
-      <DetailsSummary title="Error: Extension Manager init failed, status = -193! A required resource is missing. Please relaunch the Creative Cloud app and try again">
-        <p>
-          Данная ошибка прямым указывает на то, что на вашем устройстве отсутствует
-          программа <mark className="app">Adobe Creative Cloud</mark>. Если вы пытаетесь
-          установить какое-либо <mark className="file">ZXP</mark> расширение с помощью{" "}
-          <a href="https://zxpinstaller.com/">ZXP Installer от ELEMENTS Storage Media</a>,
-          то откажитесь от него в пользу{" "}
-          <a href="https://aescripts.com/learn/zxp-installer/">
-            ZXP Installer от aescripts
-          </a>{" "}
-          или ручной распаковки файла в нужное место. И{" "}
-          <mark className="app">Adobe Creative Cloud</mark> устанавливать не нужно,
-          особенно если вы используете репаки от <mark>KpoJluK</mark> или{" "}
-          <mark>m0nkrus</mark>.
-        </p>
-        <AdditionInfo>
-          Более подробную информацию про установку дополнительных материалов вы можете
-          прочитать в <a href="#2.1">статье 2.1</a>.
-        </AdditionInfo>
-      </DetailsSummary>
-      <DetailsSummary title="В названиях установщиков плагинов увидел обозначения Adobe, OFX или другое. Я запутался - для каких программ предназначены такие плагины?">
-        <p>
-          Обычно в названии установочных файлов указывается для каких программ
-          устанавливается плагин. Это сделано для того, чтобы не перепутать файлы для
-          нужных вам программ и установить как надо и куда надо.
-        </p>
-        <ul>
-          <li>
-            <mark className="word">AE</mark>, <mark className="word">PR</mark>,{" "}
-            <mark className="word">PS</mark>, <mark className="word">LR</mark> или{" "}
-            <mark className="word">Adobe</mark> - такие плагины устанавливаются в разные
-            программы от Adobe, например <mark className="app">Adobe After Effects</mark>{" "}
-            и <mark className="app">Adobe Premiere Pro</mark>,{" "}
-            <mark className="app">Adobe Photoshop</mark> и{" "}
-            <mark className="app">Adobe Lightroom</mark>.
-            <AdditionInfo>
-              <ul>
-                <li>
-                  Иногда плагины с припиской <mark className="word">AE</mark> могут
-                  устанавливаться и в <mark className="app">Adobe After Effects</mark>, и
-                  в <mark className="app">Adobe Premiere Pro</mark>.
-                </li>
-                <li>
-                  Плагины, распространяющиеся в установщиках будут устанавливаться в
-                  стандартные папки программ. Прежде чем устанавливать плагины с помощью
-                  установщиков - убедитесь в том, что вы изначально установили программы
-                  от <mark>Adobe</mark> в стандартное расположение, не меняя его, чтобы не
-                  ныть о том, что плагин не появился в нужной программе.
-                </li>
-              </ul>
-            </AdditionInfo>
+            Также сторонние плагины могут не загрузиться из-за того, что они не подходят
+            под вашу текущую версию <mark className="app">Adobe After Effects</mark>.
+            Плагины либо слишком свежие, либо слишком старые по отношению к вашей версии{" "}
+            <mark className="app">Adobe After Effects</mark>.
           </li>
           <li>
-            <mark className="word">OFX</mark> - плагин установится для программ, которые
-            поддерживают стандарт формата <mark>OpenFX</mark>. К ним относятся{" "}
-            <mark className="app">Davinci Resolve</mark>,{" "}
-            <mark className="app">Vegas Pro</mark>, <mark className="app">Nuke</mark> и{" "}
-            <a href="https://ru.wikipedia.org/wiki/OpenFX#%D0%A5%D0%BE%D1%81%D1%82%D1%8B">
-              остальные
+            Если стандартные плагины не работают и не применяются, а обновление пакетов{" "}
+            <mark className="app">Microsoft C++ Visual Redistributable</mark> не помогает,
+            то пришла пора переустанавливать{" "}
+            <mark className="app">Adobe After Effects</mark> с нуля. Перед переустановкой
+            - не забудьте почистить систему от хвостов установленной программы с помощью{" "}
+            <a href="https://helpx.adobe.com/creative-cloud/kb/cc-cleaner-tool-installation-problems.html">
+              Adobe Creative Cloud Cleaner
             </a>
             .
-            <AdditionWarning>
-              Такие плагины не подойдут для{" "}
-              <mark className="app">Adobe After Effects</mark> и для{" "}
-              <mark className="app">Adobe Premiere Pro</mark>, так как они не поддерживают
-              стандарт плагинов <mark>OpenFX</mark>.
-            </AdditionWarning>
-          </li>
-          <li>
-            <mark className="word">Standalone</mark> - плагин, работающий как обычная
-            программа и может ни от кого не зависеть, например{" "}
-            <mark className="plugin">BorisFX Mocha Pro</mark> или{" "}
-            <mark className="plugin">BorisFX Optics</mark>.
-          </li>
-          <li>
-            <mark className="word">Репак от ...</mark> или{" "}
-            <mark className="word">Repack by ...</mark> - перепакованный установщик
-            плагина, который устанавливает плагин куда надо. Обычно такие плагины
-            предварительно активированы, если не указано иное.
-            <AdditionWarning>
-              При открытии таких установщиков стоит быть внимательным с чекбоксами, так
-              как есть риск того, что вы можете установить в свою систему явно что-то
-              лишнее.
-            </AdditionWarning>
-          </li>
-          <li>
-            <mark className="word">CE</mark> - маркировка от группы релизеров{" "}
-            <mark>Team V.R.</mark>, которая расшифровывается как{" "}
-            <mark>Corporate Edition</mark>. Таким образом они помечают, что такие
-            дистрибутивы достаточно просто установить без всяких лишних действий по
-            активации плагинов. То есть это для них как синоним к слову &quot;репак&quot;.
           </li>
         </ul>
       </DetailsSummary>
       <DetailsSummary
-        tag="плагин не активирован, license failed, красный крест"
-        title="Установил плагин, но почему при его применении появляются красные кресты, непонятные наложения или надписи про отсутствие лицензии?"
+        tag="предупреждение, на диске существует копия подключаемого модуля эффекта, во избежание конфликтов закройте After Effects после чего удалите или переместите более раннюю или ненужную версию"
+        title='"Warning: there are duplicated effect plug-ins installed on your drive. To avoid problems, quit After Effects and move or delete the older or unneeded version"'
       >
         <p>
-          При применении эффектов из различных сторонних плагинов вы можете столкнуться с
-          ошибкой отсутствия лицензии. Она обычно может сопровождаться разными видами,
-          будь то красный крест, надпись или какой-нибудь &quot;красивый&quot; водяной
-          знак. Данные ограничения связаны с тем, что скорее всего вы проигнорировали
-          инструкцию по установке <mark className="word">народной</mark> версии того или
-          иного стороннего плагина или неправильно ею воспользовались. В редких случаях
-          источник, откуда вы скачали плагин, может дать нерабочий вариант. Для этого
-          найдите нужный плагин из другого источника, например из{" "}
-          <a href="#1.1">самой первой статьи</a> на этой странице.
-        </p>
-      </DetailsSummary>
-      <DetailsSummary
-        tag="trapcode, mbl, magic bullet, vfx suite, universe, юниверс, трапкод, партикуляр, мбл"
-        title='При установке любого пакета Red Giant появляется ошибка "This installer application has been moved. It must be run from its original folder containing a packages directory. The installer will now exit."'
-      >
-        <p>
-          Скорее всего пытаетесь установить плагины от{" "}
-          <mark className="plugin">Red Giant</mark>, предварительно не распаковав архив
-          полностью. При использовании стандартного просмотрщика архивов в{" "}
-          <mark>Windows 10 или 11</mark> и при открытии в нём любого{" "}
-          <mark className="file">EXE</mark> файла - остальные файлы-зависимости не будут
-          распакованы. Поэтому установщик не видит файлы для распаковки и выдаёт данную
-          ошибку.
-        </p>
-        <p>
-          Чтобы установить плагины от <mark>Red Giant</mark> корректно - вы должны
-          распаковать полностью архив или использовать{" "}
-          <a
-            href="https://www.rarlab.com/download.htm"
-            title="Официальный сайт WinRAR"
-          >
-            WinRAR
-          </a>{" "}
-          при открытии <mark className="file">EXE</mark> файла из под нераспакованного
-          архива. Он умеет распаковывать весь архив в временную папку при открытии{" "}
-          <mark className="file">EXE</mark>, <mark className="file">MSI</mark> и подобных
-          установочных файлов.
-        </p>
-      </DetailsSummary>
-      <DetailsSummary
-        tag="Select action - an error occurred while trying to replace the existing file: DeleteFile failed; code 5. Access denied"
-        title='При применении активатора от Team V.R. для пакетов Red Giant появляется ошибка "Виберiть дiю - виникла помилка при спробi замiни iснуючого файлу: DeleteFile збiй; код 5. Отказано в доступе"'
-      >
-        <p>
-          В данной ошибке показывается, что активатор не может перезаписать какой-то файл
-          из-за того что он у вас открыт в фоне. В вашем окне ошибки должен отобразиться
-          полный путь до виновника торжества - скорее всего это будет висящий в фоне{" "}
-          <mark className="app">Red Giant Service</mark>.
-        </p>
-        <p>
-          Чтобы корректно применить активатор - закройте его с помощью{" "}
-          <mark className="app">Диспетчера задач</mark>, завершив процесс{" "}
-          <mark className="app">Red Giant Service.exe</mark> во вкладке{" "}
-          <mark className="ui">Подробности (Windows 10 или 11 21H2)</mark> или{" "}
-          <mark className="ui">Сведения (Windows 11 22H2+)</mark>. После завершения
-          проблемного процесса - повторите попытку активации, он должен пройти нормально.
+          Данное предупреждение показывает, что вы установили одинаковые плагины, но в
+          разных местах. <mark className="app">Adobe After Effects</mark> рекомендует
+          удалить дублирующиеся плагины, чтобы избежать каких-либо проблем и указывает
+          путь к ним. Для решения проблемы достаточно перейти по любой директории из
+          предупреждения и удалить оттуда файл, предварительно закрыв{" "}
+          <mark className="app">Adobe After Effects</mark>.
         </p>
         <ImageFigure
-          caption="Диспетчер задач"
-          imgSrc="images/kill_redgiantservice.png"
-          imgTitle="Завершаем процесс Red Giant Service.exe"
+          caption="Adobe After Effects"
+          imgSrc="images/aftereffects/duplicated_effect_plug-ins_installed.png"
+          imgTitle="Предупреждение о дублирующихся плагинах"
           styleClass="figure_windows-dark"
         />
       </DetailsSummary>
       <DetailsSummary
-        tag="генп, genp, ручная активация"
-        title="Я не доверяю репакам и автоматическим установщикам, но установить программы от Adobe хочется. Какие есть ещё варианты?"
+        tag="rosetta, розетта, старые плагины на новом маке, to use these plugins run on an intel-based mac computer, to run in a compatible mode choose get info in the application context menu and enable open using rosetta"
+        title='"The following plugins are installed, but not yet compatible with this version of After Effects. They will show as missing in existing projects and cannot be applied" после установки плагинов на устройство Mac с Apple Silicon'
       >
         <p>
-          Если вы параноик и боитесь, что при установке репаков в ваш компьютер ворвётся
-          &quot;барабашка&quot; с троянами и прочей бякой, то вы можете активировать
-          программы от Adobe вручную через <mark className="app">GenP</mark>.
+          В данном окне вам пишут, что вы установили плагин, но он не поддерживает вашу
+          версию <mark className="app">Adobe After Effects</mark>. Чаще всего это
+          происходит из-за того, что вы установили на устройство <mark>Mac</mark> с новыми
+          процессорами <mark>Apple Silicon</mark> старый плагин, который был адаптирован
+          для <mark>Mac</mark> на <mark>Intel</mark>. У новых процессоров новая
+          архитектура, поэтому старые программы и плагины не совместимы без прослойки{" "}
+          <mark className="app">Rosetta</mark>. У данного предупреждения есть две
+          вариации, в зависимости от того, какая версия программы у вас установлена.
+        </p>
+        <AdditionWarning>
+          При использовании <mark className="app">Adobe After Effects</mark> через слой
+          эмуляции <mark className="app">Rosetta</mark> - производительность программы
+          может упасть.
+        </AdditionWarning>
+        <AdditionInfo>
+          <ul>
+            <li>
+              <mark className="app">Rosetta</mark> - слой эмуляции, которая позволяет
+              запускать программы на <mark>Mac</mark> с <mark>Apple Silicon</mark>,
+              которые предназначены для <mark>Mac</mark> на <mark>Intel</mark>
+            </li>
+            <li>
+              Под <mark>Apple Silicon</mark> имеются ввиду все <mark>Mac</mark> с
+              процессорами <mark>M-серии</mark>, будь то <mark>M1</mark>,{" "}
+              <mark>M2 Pro</mark> и прочие.
+            </li>
+          </ul>
+        </AdditionInfo>
+        <Divider>
+          To run After Effects in a compatible mode, choose &quot;Get Info&quot; in the
+          application context menu and enable &quot;Open using Rosetta&quot;
+        </Divider>
+        <p>
+          В данном случаем вам чуть повезло, вы можете открыть<sup>1</sup> программу со
+          старыми плагинами в режиме совместимости с помощью{" "}
+          <mark className="app">Rosetta</mark>. Для этого перейдите в{" "}
+          <mark className="ui">Help</mark> и выберите в нём{" "}
+          <mark className="ui">Open using Rosetta</mark>. После этого{" "}
+          <mark className="app">Adobe After Effects</mark> перезагрузится в режим
+          совместимости и старые плагины должны быть доступны для использования в ваших
+          проектах.
+        </p>
+        <AdditionDanger>
+          <ul>
+            <li>
+              <sup>1</sup> Запустить программу в режиме совместимости вы сможете лишь с
+              оговоркой - <mark className="app">Adobe After Effects</mark>, начиная с
+              версии <mark>24.0</mark> и новее, больше не поддерживает эмуляцию через{" "}
+              <mark className="app">Rosetta</mark>. То есть в этих версиях вы не можете
+              открыть версию программы для <mark>Intel</mark> на процессорах{" "}
+              <mark>Apple Silicon</mark>. Если вы видите этот текст в вашем
+              предупреждении, но в контекстном меню <mark className="ui">Help</mark> у вас
+              отсутствует кнопка <mark className="ui">Open using Rosetta</mark>, то,
+              скорее всего, <mark>Adobe</mark> забыли убрать этот текст в вашей версии
+              программы. Последняя версия, где ещё возможно открыть{" "}
+              <mark className="app">Adobe After Effects</mark> в режиме эмуляции через{" "}
+              <mark className="app">Rosetta</mark> - это <mark>23.6</mark>.
+            </li>
+            <li>
+              Плагины, которые адаптированы только под <mark>Apple Silicon</mark> могут не
+              работать в режиме совместимости с помощью{" "}
+              <mark className="app">Rosetta</mark>.
+            </li>
+          </ul>
+        </AdditionDanger>
+        <Divider>
+          To use these plugins, run After Effects on an Intel-based Mac computer
+        </Divider>
+        <p>
+          В данном случае ситуация ещё плачевнее - <mark>Adobe</mark> убрал поддержку{" "}
+          <mark>Rosetta</mark> в последних версиях{" "}
+          <mark className="app">Adobe After Effects</mark>, начиная с <mark>24.0</mark>.
+          Поэтому плагины, которые были созданы для <mark>Mac</mark> на <mark>Intel</mark>{" "}
+          уже не смогут запуститься в режиме совместимости. В таком случае у вас есть три
+          варианта.
+        </p>
+        <ul>
+          <li>
+            В вашем окне с данным предупреждением будет отображён список с плагинами,
+            которые сейчас недоступны. Попробуйте найти более свежие версии перечисленных
+            плагинов на просторах интернета, установить их, а затем открыть{" "}
+            <mark className="app">Adobe After Effects</mark> заново.
+          </li>
+          <li>
+            Если нужные вам плагины не давно обновлялись или недоступны для{" "}
+            <mark>Mac</mark> на <mark>Apple Silicon</mark> - откатите{" "}
+            <mark className="app">Adobe After Effects</mark> до версии <mark>23.6</mark>,
+            в котором ещё была возможность запуска программы в режиме совместимости со
+            старыми <mark>Mac</mark> на <mark>Intel</mark>.
+          </li>
+          <li>
+            Найти у себя среди запылившихся девайсов <mark>Mac</mark> на{" "}
+            <mark>Intel</mark> и работать на нём.
+          </li>
+        </ul>
+      </DetailsSummary>
+      <DetailsSummary
+        tag="генп, genp, ручная активация"
+        title="Я не доверяю репакам, но установить программы от Adobe хочется. Какие есть ещё варианты?"
+      >
+        <p>
+          Если вы параноик и боитесь, что при установке репаков в ваш компьютер ворвётся{" "}
+          <mark className="word">барабашка</mark> с троянами и прочей бякой, то вы можете
+          активировать программы от Adobe вручную через <mark className="app">GenP</mark>.
         </p>
         <ul>
           <li>
             Из плюсов этого способа: активируя Adobe через{" "}
             <mark className="app">GenP</mark>, вы можете устанавливать, обновлять
-            программы, а также устанавливать бесплатные плагины напрямую из Creative
-            Cloud. Также вы можете устанавливать бета-версии, если вы хотите потыкать
-            нововведения, которые ещё не выкатили в публичный релиз.
+            программы, а также устанавливать бесплатные плагины напрямую из{" "}
+            <mark className="app">Creative Cloud</mark>. Также вы можете устанавливать
+            бета-версии, если вы хотите потыкать нововведения, которые ещё не выкатили в
+            публичный релиз.
           </li>
           <li>
             Из минусов: пользователи часто жалуются на проблемы при использовании{" "}
@@ -1754,199 +2111,6 @@ const AEInstallProblems: React.FC = () => {
         </p>
       </DetailsSummary>
       <DetailsSummary
-        tag="предупреждение, сбой загрузки следующих подключаемых модулей, переустановите эти модули, ошибка, невозможно применить эффект, не удалось выполнить его инициализацию, попытайтесь переустановить подключаемый модуль или обратитесь к его разработчику, plug-in generated an unexpected exception"
-        title='"Warning: The following plugins have failed to load. Please reinstall these plugins" при запуске программы или "Error: This effect cannot be applied because it cannot be initialized. Try reinstalling or contacting the plug-in developer (25::3)" при применении эффекта'
-      >
-        <p>
-          Данные предупреждения и ошибки могут появиться по разным причинам: битые пакеты
-          файлов, несвежая система или отсутствие текущей поддержки плагинов программой.
-        </p>
-        <ul>
-          <li>
-            Если вы недавно установили плагины и не можете их применить в своем проекте:
-            убедитесь в том, что установщик плагинов или сами{" "}
-            <mark className="file">AEX</mark> файлы были загружены полностью и не
-            возникали проблемы при скачивании.
-          </li>
-          <li>
-            Некоторые плагины могут не загрузиться из-за недостающих пакетов{" "}
-            <mark className="app">Microsoft C++ Visual Redistributable</mark>. Для решения
-            проблемы попробуйте обновить все пакеты или установить недостающие с помощью{" "}
-            <a href="https://github.com/abbodi1406/vcredist/releases/">
-              репака от abbodi1406
-            </a>
-            , перезагрузите компьютер и попробуйте запустить проект с плагинами, которые
-            до этого не могли загрузиться.
-          </li>
-          <li>
-            Проверьте версию вашей установленной операционной системы - она должна
-            соответствовать системным требованиям для корректного запуска. Если вы
-            попытаетесь запустить свежую версию{" "}
-            <mark className="app">Adobe After Effects</mark>, например <mark>2024</mark>,
-            на старую версию операционной системы, например <mark>Windows 10</mark> билда{" "}
-            <mark>1809</mark>, то можете столкнуться с различными ошибками инициализации
-            сторонних и даже встроенных эффектов. В таком случае обновите вашу
-            операционную систему до последней на момент чтения статьи версию. Текущий билд
-            вашей системы можно узнать с помощью <mark className="app">winver</mark>.
-          </li>
-          <li>
-            В редких случаях в <mark>Windows</mark> могут сломаться какие-либо системные
-            файлы. Для быстрого лечения системы вы можете выполнить команды{" "}
-            <mark className="code">sfc /scannow</mark> и{" "}
-            <mark className="code">dism /Online /Cleanup-Image /RestoreHealth</mark>, а
-            также <mark className="code">chkdsk /f /r</mark> для проверки вашего диска в
-            командной строке.
-            <AdditionInfo>
-              Если ваша система не может восстановиться после выполнения этих команд, то
-              вы можете скачать <mark className="file">ISO</mark> образ системы и
-              обновиться до неё поверх существующей. Текущий билд вашей системы можно
-              узнать с помощью <mark className="app">winver</mark>.
-            </AdditionInfo>
-          </li>
-          <li>
-            Также сторонние плагины могут не загрузиться из-за того, что они не подходят
-            под вашу текущую версию <mark className="app">Adobe After Effects</mark>.
-            Плагины либо слишком свежие, либо слишком старые по отношению к вашей версии{" "}
-            <mark className="app">Adobe After Effects</mark>.
-          </li>
-          <li>
-            Если стандартные плагины не работают и не применяются, а обновление пакетов{" "}
-            <mark className="app">Microsoft C++ Visual Redistributable</mark> не помогает,
-            то пришла пора переустанавливать{" "}
-            <mark className="app">Adobe After Effects</mark> с нуля. Перед переустановкой
-            - не забудьте почистить систему от хвостов установленной программы с помощью{" "}
-            <a href="https://helpx.adobe.com/creative-cloud/kb/cc-cleaner-tool-installation-problems.html">
-              Adobe Creative Cloud Cleaner
-            </a>
-            .
-          </li>
-        </ul>
-      </DetailsSummary>
-      <DetailsSummary
-        tag="предупреждение, на диске существует копия подключаемого модуля эффекта, во избежание конфликтов закройте After Effects после чего удалите или переместите более раннюю или ненужную версию"
-        title="Warning: there are duplicated effect plug-ins installed on your drive. To avoid problems, quit After Effects and move or delete the older or unneeded version"
-      >
-        <p>
-          Данное предупреждение показывает, что вы установили одинаковые плагины, но в
-          разных местах. <mark className="app">Adobe After Effects</mark> рекомендует
-          удалить дублирующиеся плагины, чтобы избежать каких-либо проблем и указывает
-          путь к ним.
-        </p>
-        <ImageFigure
-          caption="Adobe After Effects"
-          imgSrc="images/aftereffects/duplicated_effect_plug-ins_installed.png"
-          imgTitle="Предупреждение о дублирующихся плагинах"
-          styleClass="figure_windows-dark"
-        />
-        <p>
-          Для решения проблемы достаточно перейти по одному из путей и удалить оттуда
-          файл, предварительно закрыв <mark className="app">Adobe After Effects</mark>.
-          После удаления плагина вы больше не будете сталкиваться с данным предупреждением
-          при открытии программы.
-        </p>
-      </DetailsSummary>
-      <DetailsSummary
-        tag="rosetta, розетта, старые плагины на новом маке, to use these plugins run on an intel-based mac computer, to run in a compatible mode choose get info in the application context menu and enable open using rosetta"
-        title='"The following plugins are installed, but not yet compatible with this version of After Effects. They will show as missing in existing projects and cannot be applied" после установки плагинов на устройство Mac с Apple Silicon'
-      >
-        <p>
-          В данном окне вам пишут, что вы установили плагин, но он не поддерживает вашу
-          версию <mark className="app">Adobe After Effects</mark>. Чаще всего это
-          происходит из-за того, что вы установили на устройство <mark>Mac</mark> с новыми
-          процессорами <mark>Apple Silicon</mark> старый плагин, который был адаптирован
-          для <mark>Mac</mark> на <mark>Intel</mark>. У новых процессоров новая
-          архитектура, поэтому старые программы и плагины не совместимы без прослойки{" "}
-          <mark className="app">Rosetta</mark>. У данного предупреждения есть две
-          вариации, в зависимости от того, какая версия программы у вас установлена.
-        </p>
-        <AdditionWarning>
-          При использовании <mark className="app">Adobe After Effects</mark> через слой
-          эмуляции <mark className="app">Rosetta</mark> - производительность программы
-          может упасть.
-        </AdditionWarning>
-        <AdditionInfo>
-          <ul>
-            <li>
-              <mark className="app">Rosetta</mark> - слой эмуляции, которая позволяет
-              запускать программы на <mark>Mac</mark> с <mark>Apple Silicon</mark>,
-              которые предназначены для <mark>Mac</mark> на <mark>Intel</mark>
-            </li>
-            <li>
-              Под <mark>Apple Silicon</mark> имеются ввиду все <mark>Mac</mark> с
-              процессорами <mark>M-серии</mark>, будь то <mark>M1</mark>,{" "}
-              <mark>M2 Pro</mark> и прочие.
-            </li>
-          </ul>
-        </AdditionInfo>
-        <Divider>
-          To run After Effects in a compatible mode, choose &quot;Get Info&quot; in the
-          application context menu and enable &quot;Open using Rosetta&quot;
-        </Divider>
-        <p>
-          В данном случаем вам чуть повезло, вы можете открыть<sup>1</sup> программу со
-          старыми плагинами в режиме совместимости с помощью{" "}
-          <mark className="app">Rosetta</mark>. Для этого перейдите в{" "}
-          <mark className="ui">Help</mark> и выберите в нём{" "}
-          <mark className="ui">Open using Rosetta</mark>. После этого{" "}
-          <mark className="app">Adobe After Effects</mark> перезагрузится в режим
-          совместимости и старые плагины должны быть доступны для использования в ваших
-          проектах.
-        </p>
-        <AdditionDanger>
-          <ul>
-            <li>
-              <sup>1</sup> Запустить программу в режиме совместимости вы сможете лишь с
-              оговоркой - <mark className="app">Adobe After Effects</mark>, начиная с
-              версии <mark>24.0</mark> и новее, больше не поддерживает эмуляцию через{" "}
-              <mark className="app">Rosetta</mark>. То есть в этих версиях вы не можете
-              открыть версию программы для <mark>Intel</mark> на процессорах{" "}
-              <mark>Apple Silicon</mark>. Если вы видите этот текст в вашем
-              предупреждении, но в контекстном меню <mark className="ui">Help</mark> у вас
-              отсутствует кнопка <mark className="ui">Open using Rosetta</mark>, то,
-              скорее всего, <mark>Adobe</mark> забыли убрать этот текст в вашей версии
-              программы. Последняя версия, где ещё возможно открыть{" "}
-              <mark className="app">Adobe After Effects</mark> в режиме эмуляции через{" "}
-              <mark className="app">Rosetta</mark> - это <mark>23.6</mark>.
-            </li>
-            <li>
-              Плагины, которые адаптированы только под <mark>Apple Silicon</mark> могут не
-              работать в режиме совместимости с помощью{" "}
-              <mark className="app">Rosetta</mark>.
-            </li>
-          </ul>
-        </AdditionDanger>
-        <Divider>
-          To use these plugins, run After Effects on an Intel-based Mac computer
-        </Divider>
-        <p>
-          В данном случае ситуация ещё плачевнее - <mark>Adobe</mark> убрал поддержку{" "}
-          <mark>Rosetta</mark> в последних версиях{" "}
-          <mark className="app">Adobe After Effects</mark>, начиная с <mark>24.0</mark>.
-          Поэтому плагины, которые были созданы для <mark>Mac</mark> на <mark>Intel</mark>{" "}
-          уже не смогут запуститься в режиме совместимости. В таком случае у вас есть три
-          варианта.
-        </p>
-        <ul>
-          <li>
-            В вашем окне с данным предупреждением будет отображён список с плагинами,
-            которые сейчас недоступны. Попробуйте найти более свежие версии перечисленных
-            плагинов на просторах интернета, установить их, а затем открыть{" "}
-            <mark className="app">Adobe After Effects</mark> заново.
-          </li>
-          <li>
-            Если нужные вам плагины не давно обновлялись или недоступны для{" "}
-            <mark>Mac</mark> на <mark>Apple Silicon</mark> - откатите{" "}
-            <mark className="app">Adobe After Effects</mark> до версии <mark>23.6</mark>,
-            в котором ещё была возможность запуска программы в режиме совместимости со
-            старыми <mark>Mac</mark> на <mark>Intel</mark>.
-          </li>
-          <li>
-            Найти у себя среди запылившихся девайсов <mark>Mac</mark> на{" "}
-            <mark>Intel</mark> и работать на нём.
-          </li>
-        </ul>
-      </DetailsSummary>
-      <DetailsSummary
         tag="обновление и перенос, перенести плагины и пресеты, новая версия афтера, хочу обновить программу с одной версии на другую"
         title="Как обновить программу, не потеряв при этом плагины и прочий установленный контент?"
       >
@@ -2006,7 +2170,7 @@ const AEInstallProblems: React.FC = () => {
               автоматически.
             </li>
             <li>
-              Плагины формата <mark className="file">.aex</mark>, установленные в{" "}
+              Плагины формата <mark className="file">AEX</mark>, установленные в{" "}
               <mark className="path">../Common/7.0/MediaCore</mark> тоже не нужно никуда
               переносить. Там находятся плагины, которые устанавливаются и отображаются
               для всех установленных версий{" "}
@@ -2015,7 +2179,7 @@ const AEInstallProblems: React.FC = () => {
               папку.
             </li>
             <li>
-              Расширения формата <mark className="file">.zxp</mark> не нужно никуда
+              Расширения формата <mark className="file">ZXP</mark> не нужно никуда
               переносить - они устанавливаются в общую папку расширений и отображаются во
               всех поддерживаемых расширением версиях{" "}
               <mark className="app">Adobe After Effects</mark>.
@@ -2066,7 +2230,10 @@ const AEInstallProblems: React.FC = () => {
           свежие версии нужных плагинов, предварительно удалив старые версии.
         </AdditionInfo>
       </DetailsSummary>
-      <DetailsSummary title="Чую, что у меня программа работает неправильно, но переустанавливать программу я не хочу. Как сбросить все настройки?">
+      <DetailsSummary
+        tag="безопасный режим, reset preferences, safe mode"
+        title="Чую, что программа работает неправильно, но переустанавливать всё я не хочу. Как сбросить все настройки?"
+      >
         <p>
           Для сброса настроек программы вам нужно открыть ярлык программы как обычно, но с
           зажатыми модификаторами <mark className="key">Ctrl + Alt + Shift</mark> на
@@ -2123,7 +2290,7 @@ const AEInstallProblems: React.FC = () => {
       </DetailsSummary>
       <DetailsSummary
         tag="креатив клауд клинер, удаление адоба, очистка от хвостов"
-        title="Как я могу полностью удалить Adobe After Effects и остальные продукты от Adobe на моем устройстве?"
+        title="Как полностью удалить Adobe After Effects и остальные продукты от Adobe на моем устройстве?"
       >
         <p>
           Если вы хотите переустановить или забыть о программах <mark>Adobe</mark> раз и
