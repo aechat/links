@@ -180,7 +180,8 @@ const PRErrors: React.FC = () => {
                 <mark className="app">VPN</mark>, то скорее всего адреса для проверки
                 лицензии от <mark>Adobe</mark> обновились и не были вписаны в ваши правила
                 блокировки соединения. Это исправляется правкой файла{" "}
-                <mark className="file">hosts</mark> или внесением новых правил в{" "}
+                <mark className="file">hosts</mark>, использованием{" "}
+                <mark className="app">OneClickFirewall</mark> или внесением новых правил в{" "}
                 <mark className="app">брандмауэре</mark> вашей операционной системы.
               </p>
               <Divider>Правим файл hosts</Divider>
@@ -326,6 +327,29 @@ const PRErrors: React.FC = () => {
                 Возможно подобные действия нужно провернуть и к{" "}
                 <mark>правилам для исходящего подключения</mark> по аналогичной схеме.
               </AdditionInfo>
+              <Divider>
+                Используем OneClickFirewall для быстрой блокировки интернета программе
+              </Divider>
+              <p>
+                Если вы не хотите морочиться с созданием правил в{" "}
+                <mark className="app">Брандмауэре Windows</mark> - попробуйте утилиту{" "}
+                <mark className="app">OneClickFirewall</mark>. С помощью него вы сможете
+                блокировать доступ в интернет нужной программе кнопкой{" "}
+                <mark className="ui">Block Internet Access</mark> в контекстном меню
+                ярлыка или наоборот, разрешить кнопкой{" "}
+                <mark className="ui">Restore Internet Access</mark>. Загрузить утилиту
+                можно на{" "}
+                <a href="https://winaero.com/download-oneclickfirewall/">
+                  официальном сайте WinAero
+                </a>
+                .
+              </p>
+              <ImageFigure
+                caption="Рабочий стол"
+                imgSrc="images/oneclickfirewall_premierepro.png"
+                imgTitle="Блокируем доступ в интернет через OneClickFirewall"
+                styleClass="figure_windows-dark"
+              />
               <Divider>Проверяем установленные сервисы на устройстве</Divider>
               <p>
                 Если вы переходили с лицензионных версий на{" "}
