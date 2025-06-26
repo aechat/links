@@ -311,7 +311,11 @@ const formatSearchResult = (text: string, searchWords: string[]): string => {
 export const useSearchLogic = (query: string, isPageLoaded: boolean) => {
   const [results, setResults] = useState<SearchResult[]>([]);
 
-  const [selectedResultIndex, setSelectedResultIndex] = useState(-1);
+  const [selectedResultIndex, setSelectedResultIndex] = useState(0);
+
+  const [debouncedQuery, setDebouncedQuery] = useState(query);
+
+  const [resultsQuery, setResultsQuery] = useState("");
 
   const cachedDetails = useMemo(() => {
     if (!isPageLoaded) {
@@ -489,6 +493,7 @@ export const useSearchLogic = (query: string, isPageLoaded: boolean) => {
     debounce((text: string) => {
       if (!isPageLoaded || !text.trim()) {
         setResults([]);
+        setResultsQuery("");
 
         return;
       }
@@ -586,13 +591,18 @@ export const useSearchLogic = (query: string, isPageLoaded: boolean) => {
           return 0;
         });
       setResults(results);
+      setResultsQuery(text);
     }, 300),
     [isPageLoaded, extractDetailsData]
   );
   useEffect(() => {
+    const handler = setTimeout(() => setDebouncedQuery(query), 100);
     handleSearch(query);
 
-    return () => handleSearch.cancel();
+    return () => {
+      clearTimeout(handler);
+      handleSearch.cancel();
+    };
   }, [query, handleSearch]);
   useEffect(() => {
     setSelectedResultIndex(results.length > 0 ? 0 : -1);
@@ -602,5 +612,7 @@ export const useSearchLogic = (query: string, isPageLoaded: boolean) => {
     results,
     selectedResultIndex,
     setSelectedResultIndex,
+    debouncedQuery,
+    resultsQuery,
   };
 };

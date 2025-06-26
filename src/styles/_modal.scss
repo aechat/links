@@ -184,7 +184,7 @@
     width: 100%;
     color: var(--summary-text);
     font-weight: 600;
-    font-size: 0.9rem;
+    font-size: clamp(0.9rem, 2.5vw, 1.1rem);
     &::placeholder {
       opacity: 1;
       font-size: 0.875rem;
@@ -193,12 +193,12 @@
       display: flex;
       flex-flow: row nowrap;
       justify-content: space-between;
+      margin-bottom: 10px;
       // gap: 10px;
       outline: 1px solid var(--summary-border);
       box-shadow: 0 3px 5px var(--shadow);
       border-radius: $roundness;
       background-color: var(--summary-background);
-      margin-bottom: 10px;
     }
     &-close,
     &-clear {
@@ -216,17 +216,23 @@
     }
   }
   &-results {
-    outline: 1px solid var(--content-background-border);
-    border-radius: $roundness * 1.5;
-    max-height: 70dvh;
+    max-height: clamp(50svh, calc(70svh + 20 * (100vw - 400px) / 800), 90svh);
     overflow-y: auto;
+    scrollbar-width: none;
+    &.show-fade {
+      mask-image: linear-gradient( to bottom,
+       transparent 0%,
+      black 0%,
+      transparent 100%);
+      -webkit-mask-image: linear-gradient(to bottom, black 85%, transparent 100%);
+    }
   }
   &-link {
     display: block;
-    margin-inline: 10px;
-    margin-block: 10px;
+    margin-inline: 2px;
+    margin-block: 15px;
     border-radius: $roundness;
-    width: calc(100% - 20px);
+    width: calc(100% - 4px);
   }
   &-header {
     display: flex;
@@ -264,12 +270,12 @@
     border-bottom-left-radius: $roundness;
     background-color: var(--content-background-color);
     overflow: hidden;
-    font-size: 0.9rem;
+    font-size: 0.95rem;
     .addition {
       &-info,
       &-warning,
       &-danger {
-        font-size: 0.875rem;
+        font-size: 0.9rem;
       }
     }
     &.faq-content {
@@ -279,6 +285,9 @@
       p {
         margin-inline: 10px;
         margin-block: 10px;
+      }
+      li > p {
+        margin: 0;
       }
       mark:hover,
       a:hover {
@@ -354,9 +363,9 @@
       text-wrap: wrap;
       flex: 1 0 165px;
       transition: opacity 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+      box-shadow: 0 3px 5px var(--shadow);
       border: 1px solid var(--summary-border);
       border-radius: $roundness;
-      box-shadow: 0 3px 5px var(--shadow);
       background-color: var(--summary-background);
       padding-inline: 10px;
       padding-block: 5px;

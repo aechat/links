@@ -38,71 +38,102 @@ const SearchCategories: React.FC<{
 );
 
 const SearchResults: React.FC<{
+  query: string;
   onLinkClick: (id: string) => void;
   resultRefs: React.RefObject<(HTMLButtonElement | null)[]>;
   results: Array<{content: string; id: string; tag?: string; title: string}>;
   selectedResultIndex: number;
-}> = ({onLinkClick, resultRefs, results, selectedResultIndex}) => (
-  <div className="search-results">
-    <p className="search-modal-title">
-      {getFoundWord(results.length)}{" "}
-      <span
-        style={{
-          color: "var(--summary-text)",
-          fontWeight: 800,
-          fontSize: "1.05em",
-        }}
-      >
-        {results.length}
-      </span>{" "}
-      {getResultWord(results.length)}
-    </p>
-    {results.map(({title, content, id, tag}, index) => (
-      <div key={id}>
-        <motion.button
-          ref={(el) => {
-            if (resultRefs.current) {
-              resultRefs.current[index] = el;
-            }
-          }}
-          animate={{
-            scale: index === selectedResultIndex ? 1 : 0.98,
-          }}
-          className={`search-link ${index === selectedResultIndex ? "search-selected" : ""}`}
-          initial={{scale: 1}}
-          tabIndex={0}
-          transition={{duration: 0.5, ease: [0.075, 0.82, 0.165, 1]}}
-          onClick={(e) => {
-            e.preventDefault();
-            onLinkClick(id);
+}> = ({query, onLinkClick, resultRefs, results, selectedResultIndex}) => {
+  const getMatchingTags = (tag: string | undefined, query: string) => {
+    if (!tag || tag.trim() === "") {
+      return [];
+    }
+
+    const allTags = tag.split(", ");
+
+    const lowerCaseQuery = query.toLowerCase().trim();
+
+    return allTags.filter((t) => t.toLowerCase().includes(lowerCaseQuery));
+  };
+
+  const isMobile = typeof window !== "undefined" && window.innerWidth <= 768;
+
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+
+  return (
+    <>
+      <p className="search-modal-title">
+        {getFoundWord(results.length)}{" "}
+        <span
+          style={{
+            color: "var(--summary-text)",
+            fontWeight: 800,
+            fontSize: "1.05em",
           }}
         >
-          <div
-            className={`search-header ${index === selectedResultIndex ? "search-selected" : ""}`}
-          >
-            <p className="search-title">{title.replace(/^[+-]+/, "").trim()}</p>
-            {tag && tag.trim() !== "" && (
-              <span className="faq-tags">
-                {tag.split(", ").map((t, index) => (
-                  <mark
-                    key={index}
-                    className="tag"
-                  >
-                    {t}
-                  </mark>
-                ))}
-              </span>
-            )}
+          {results.length}
+        </span>{" "}
+        {getResultWord(results.length)}
+      </p>
+      {results.map(({title, content, id, tag}, index) => {
+        const tagsToDisplay = getMatchingTags(tag, query);
+
+        const isSelected = index === selectedResultIndex;
+
+        const isHovered = hoveredIndex === index;
+
+        return (
+          <div key={id}>
+            <motion.button
+              ref={(el) => {
+                if (resultRefs.current) {
+                  resultRefs.current[index] = el;
+                }
+              }}
+              className={`search-link ${isSelected ? "search-selected" : ""}`}
+              initial={{scale: 1}}
+              style={
+                isMobile
+                  ? {opacity: 1, filter: "none"}
+                  : isSelected || isHovered
+                    ? {opacity: 1, filter: "none"}
+                    : {opacity: 0.65, filter: "saturate(0.5)"}
+              }
+              tabIndex={0}
+              transition={{duration: 0.5, ease: [0.075, 0.82, 0.165, 1]}}
+              onClick={(e) => {
+                e.preventDefault();
+                onLinkClick(id);
+              }}
+              onMouseEnter={() => setHoveredIndex(index)}
+              onMouseLeave={() => setHoveredIndex(null)}
+            >
+              <div className={`search-header ${isSelected ? "search-selected" : ""}`}>
+                <p className="search-title">{title.replace(/^[+-]+/, "").trim()}</p>
+                {tagsToDisplay.length > 0 && (
+                  <span className="faq-tags">
+                    {tagsToDisplay.map((t, i) => (
+                      <mark
+                        key={i}
+                        className="tag"
+                      >
+                        {t}
+                      </mark>
+                    ))}
+                  </span>
+                )}
+              </div>
+              <div
+                className="search-content faq-content"
+                dangerouslySetInnerHTML={{__html: content}}
+              />
+            </motion.button>
           </div>
-          <div
-            className="search-content faq-content"
-            dangerouslySetInnerHTML={{__html: content}}
-          />
-        </motion.button>
-      </div>
-    ))}
-  </div>
-);
+        );
+      })}
+    </>
+  );
+};
 
 const ExternalSearch: React.FC<{query: string}> = ({query}) => {
   const getSearchQuery = () => {
@@ -194,10 +225,17 @@ export const SearchInPage: React.FC<{sections: SearchSection[]}> = ({sections}) 
 
   const [alertShown, setAlertShown] = useState(false);
 
-  const {results, selectedResultIndex, setSelectedResultIndex} = useSearchLogic(
-    query,
-    isPageLoaded
-  );
+  const resultsContainerRef = useRef<HTMLDivElement>(null);
+
+  const [showFade, setShowFade] = useState(false);
+
+  const {
+    results,
+    selectedResultIndex,
+    setSelectedResultIndex,
+    debouncedQuery,
+    resultsQuery,
+  } = useSearchLogic(query, isPageLoaded);
   useEffect(() => {
     if (isPageLoaded) {
       const timeout = setTimeout(() => {
@@ -213,12 +251,12 @@ export const SearchInPage: React.FC<{sections: SearchSection[]}> = ({sections}) 
     if (isOpen) {
       const timeout = setTimeout(() => {
         inputRef.current?.focus();
+        inputRef.current?.select();
       }, 0);
 
       return () => clearTimeout(timeout);
     }
   }, [isOpen]);
-
   useEffect(() => {
     if (isOpen && isWebKit && !alertShown) {
       alert(
@@ -227,6 +265,29 @@ export const SearchInPage: React.FC<{sections: SearchSection[]}> = ({sections}) 
       setAlertShown(true);
     }
   }, [isOpen, alertShown]);
+
+  useEffect(() => {
+    const el = resultsContainerRef.current;
+
+    if (!el) {
+      return;
+    }
+
+    const checkFade = () => {
+      setShowFade(
+        el.scrollHeight > el.clientHeight &&
+          el.scrollTop + el.clientHeight < el.scrollHeight - 1
+      );
+    };
+    checkFade();
+    el.addEventListener("scroll", checkFade);
+    window.addEventListener("resize", checkFade);
+
+    return () => {
+      el.removeEventListener("scroll", checkFade);
+      window.removeEventListener("resize", checkFade);
+    };
+  }, [results]);
 
   const handleQueryChange = (value: string) => {
     setQuery(value);
@@ -314,6 +375,12 @@ export const SearchInPage: React.FC<{sections: SearchSection[]}> = ({sections}) 
   }, [isOpen, results, selectedResultIndex, handleLinkClick]);
   useEffect(() => {
     if (selectedResultIndex >= 0) {
+      const isMobile = window.innerWidth <= 768;
+
+      if (isMobile) {
+        return;
+      }
+
       const resultContainer = document.querySelector(".search-results");
 
       const selectedResultElements = resultContainer?.querySelectorAll(".search-link");
@@ -321,7 +388,7 @@ export const SearchInPage: React.FC<{sections: SearchSection[]}> = ({sections}) 
       if (selectedResultElements && selectedResultElements[selectedResultIndex]) {
         (selectedResultElements[selectedResultIndex] as HTMLElement).scrollIntoView({
           behavior: "smooth",
-          block: "nearest",
+          block: "center",
         });
       }
     }
@@ -341,12 +408,13 @@ export const SearchInPage: React.FC<{sections: SearchSection[]}> = ({sections}) 
       return (
         <>
           <SearchResults
+            query={resultsQuery}
             resultRefs={resultRefs}
             results={results}
             selectedResultIndex={selectedResultIndex}
             onLinkClick={handleLinkClick}
           />
-          <ExternalSearch query={query} />
+          <ExternalSearch query={debouncedQuery} />
         </>
       );
     }
@@ -403,22 +471,24 @@ export const SearchInPage: React.FC<{sections: SearchSection[]}> = ({sections}) 
             <CloseRounded />
           </button>
         </div>
-        <div className="modal-content">
-          <div className="search-results">
-            {renderContent()}
-            {!isPageLoaded && (
-              <p
-                style={{
-                  textAlign: "center",
-                  fontSize: "1rem",
-                  margin: "20px",
-                }}
-              >
-                Страница ещё загружается, а поиск всё ещё недоступен. Пожалуйста,
-                подождите...
-              </p>
-            )}
-          </div>
+        <div
+          ref={resultsContainerRef}
+          className={`search-results${showFade ? " show-fade" : ""}`}
+        >
+          {renderContent()}
+          {showFade}
+          {!isPageLoaded && (
+            <p
+              style={{
+                textAlign: "center",
+                fontSize: "1rem",
+                margin: "20px",
+              }}
+            >
+              Страница ещё загружается, а поиск всё ещё недоступен. Пожалуйста,
+              подождите...
+            </p>
+          )}
         </div>
       </div>
     </Modal>
