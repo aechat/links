@@ -22,8 +22,6 @@ import CopyToClipboard from "../components/features/CopyToClipboard";
 
 import {generateAnchorId} from "../components/DetailsSummary";
 
-import {AdditionDanger} from "../components/Additions";
-
 const AEWhereFind = lazy(() => import("./sections/aefaq/WhereFind"));
 
 const AEInstallProblems = lazy(() => import("./sections/aefaq/InstallProblems"));
@@ -174,14 +172,6 @@ const AEFAQ = () => {
                   ]}
                 />
               </div>
-              {navigator.userAgent.toLowerCase().includes("iphone") && (
-                <AdditionDanger>
-                  На некоторых <mark>iPhone</mark> эта страница может упасть с ошибкой{" "}
-                  <mark className="ui">На этой странице произошла ошибка</mark>. Советуем
-                  открыть этот сайт с устройства, на котором вы работаете в{" "}
-                  <mark className="app">Adobe After Effects</mark>.
-                </AdditionDanger>
-              )}
               <SupportDonut />
               <Suspense
                 fallback={

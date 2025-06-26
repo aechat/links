@@ -122,6 +122,7 @@ const DetailsSummary: React.FC<DetailsSummaryProps> = ({title, children, tag}) =
   const detailsRef = useRef<HTMLDetailsElement>(null);
 
   const sectionRef = useRef<HTMLElement>(null);
+
   useEffect(() => {
     if (detailsRef.current) {
       const observer = new MutationObserver(() => {
@@ -257,6 +258,11 @@ const DetailsSummary: React.FC<DetailsSummaryProps> = ({title, children, tag}) =
 
   const anchorId = detailsRef.current?.querySelector(".faq-summary")?.id ?? "";
 
+  const isWebKit =
+    typeof navigator !== "undefined" &&
+    /AppleWebKit|Epiphany|Safari/i.test(navigator.userAgent) &&
+    !/Chrome|Chromium|Edg|OPR|Brave/i.test(navigator.userAgent);
+
   return (
     <details
       ref={detailsRef}
@@ -307,12 +313,23 @@ const DetailsSummary: React.FC<DetailsSummaryProps> = ({title, children, tag}) =
         </Tooltip>
       </motion.summary>
       <SpoilerContext.Provider value={isOpen}>
-        <section
-          ref={sectionRef}
-          className="faq-section"
-        >
-          {children}
-        </section>
+        {isWebKit ? (
+          isOpen && (
+            <section
+              ref={sectionRef}
+              className="faq-section"
+            >
+              {children}
+            </section>
+          )
+        ) : (
+          <section
+            ref={sectionRef}
+            className="faq-section"
+          >
+            {children}
+          </section>
+        )}
       </SpoilerContext.Provider>
     </details>
   );
