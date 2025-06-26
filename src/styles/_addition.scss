@@ -23,6 +23,8 @@ li > .addition-danger,
   margin-right: 0;
   margin-left: 0;
   margin-inline: 0;
+  font-size: 0.9rem;
+  line-height: 1.6;
 }
 .addition {
   &-info,
@@ -32,8 +34,8 @@ li > .addition-danger,
     flex-direction: row;
     align-items: center;
     gap: 12px;
-    margin: 10px;
     filter: drop-shadow(0 5px 10px var(--shadow));
+    margin: 10px;
     border-radius: $roundness * 0.75;
     padding: 12px 10px 12px 18px;
     font-weight: 425;
