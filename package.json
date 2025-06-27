@@ -44,7 +44,6 @@
     "eslint-plugin-sorting": "^0.4.1",
     "globals": "16.2.0",
     "highlight.js": "^11.11.1",
-    "postcss": "8.5.4",
     "prettier": "3.5.3",
     "sass": "1.89.1",
     "stylelint": "^16.20.0",
