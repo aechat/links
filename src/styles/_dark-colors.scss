@@ -3,7 +3,7 @@ $dark: (
   background-color: hsl(0, 0%, 0%),
   background-color-alpha: hsla(0, 0%, 0%, 0.7),
   text-color: hsl(0, 0%, 100%),
-  content-background-color: hsl(0, 0%, 7.5%),
+  content-background-color: hsl(0, 0%, 6%),
   content-background-border: hsl(0, 0%, 15%),
   header-background: hsla(0, 0%, 8%, 0.8),
   // ~: банковские цвета:
@@ -18,7 +18,7 @@ $dark: (
   // ~: с применением акцентного цвета:
   accent: hsl(var(--accent-hue), calc(100% * var(--saturate-ratio)), 73%),
   mark-background: hsl(var(--accent-hue), calc(20% * var(--saturate-ratio)), 12.5%),
-  mark-border: hsl(var(--accent-hue), calc(50% * var(--saturate-ratio)), 50%),
+  mark-border: hsl(var(--accent-hue), calc(40% * var(--saturate-ratio)), 35%),
   mark-text: hsl(var(--accent-hue), calc(75% * var(--saturate-ratio)), 90%),
   button-background: hsl(var(--accent-hue), calc(25% * var(--saturate-ratio)), 12.5%),
   button-border: hsl(var(--accent-hue), calc(35% * var(--saturate-ratio)), 25%),
@@ -28,26 +28,26 @@ $dark: (
   summary-border: hsl(var(--accent-hue), calc(35% * var(--saturate-ratio)), 20%),
   summary-text: hsl(var(--accent-hue), calc(100% * var(--saturate-ratio)), 80%),
   // *: стили кнопок главной страницы
-  links-background: hsl(var(--accent-hue), calc(25% * var(--saturate-ratio)), 7%),
-  links-gradient: hsl(var(--accent-hue), calc(15% * var(--saturate-ratio)), 10%),
+  links-background: hsl(var(--accent-hue), calc(25% * var(--saturate-ratio)), 6%),
+  links-gradient: hsl(var(--accent-hue), calc(15% * var(--saturate-ratio)), 9%),
   links-border: hsl(var(--accent-hue), calc(15% * var(--saturate-ratio)), 12.5%),
   links-hover: hsl(var(--accent-hue), calc(20% * var(--saturate-ratio)), 11%),
   links-text: hsl(var(--accent-hue), calc(100% * var(--saturate-ratio)), 80%),
   // ~: информационные блоки:
-  addition_info-background: hsl(200, calc(50% * var(--saturate-ratio)), 10%),
-  addition_info-border: hsl(200, calc(40% * var(--saturate-ratio)), 25%),
-  addition_info-text: hsl(200, calc(75% * var(--saturate-ratio)), 90%),
-  addition_info-mark: hsl(200, calc(60% * var(--saturate-ratio)), 25%),
+  addition_info-background: hsl(190, calc(35% * var(--saturate-ratio)), 10%),
+  addition_info-border: hsl(190, calc(30% * var(--saturate-ratio)), 20%),
+  addition_info-text: hsl(190, calc(75% * var(--saturate-ratio)), 90%),
+  addition_info-mark: hsl(190, calc(45% * var(--saturate-ratio)), 22%),
   // ~: предупреждающие блоки:
-  addition_warning-background: hsl(50, calc(40% * var(--saturate-ratio)), 13%),
-  addition_warning-border: hsl(50, calc(50% * var(--saturate-ratio)), 25%),
+  addition_warning-background: hsl(50, calc(35% * var(--saturate-ratio)), 11%),
+  addition_warning-border: hsl(50, calc(25% * var(--saturate-ratio)), 20%),
   addition_warning-text: hsl(50, calc(75% * var(--saturate-ratio)), 92.5%),
-  addition_warning-mark: hsl(50, calc(95% * var(--saturate-ratio)), 22.5%),
+  addition_warning-mark: hsl(50, calc(95% * var(--saturate-ratio)), 18%),
   // ~: остерегающие блоки:
-  addition_danger-background: hsl(0, calc(45% * var(--saturate-ratio)), 15%),
-  addition_danger-border: hsl(0, calc(50% * var(--saturate-ratio)), 27.5%),
+  addition_danger-background: hsl(0, calc(35% * var(--saturate-ratio)), 11%),
+  addition_danger-border: hsl(0, calc(30% * var(--saturate-ratio)), 20%),
   addition_danger-text: hsl(0, calc(100% * var(--saturate-ratio)), 90%),
-  addition_danger-mark: hsl(0, calc(60% * var(--saturate-ratio)), 30%),
+  addition_danger-mark: hsl(0, calc(45% * var(--saturate-ratio)), 25%),
   // *: стили таблицы
   table-background: hsl(0, calc(0% * var(--saturate-ratio)), 10%),
   table-background-border: hsl(0, calc(0% * var(--saturate-ratio)), 15%)

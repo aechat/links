@@ -143,7 +143,7 @@ li > .addition-danger,
         background-color: var(--addition_info-text);
       }
       &:not(:last-child) {
-        border-bottom-color: var(--addition_info-mark);
+        border-bottom-color: var(--addition_info-border);
       }
     }
     mark {
@@ -169,7 +169,7 @@ li > .addition-danger,
         background-color: var(--addition_warning-text);
       }
       &:not(:last-child) {
-        border-bottom-color: var(--addition_warning-mark);
+        border-bottom-color: var(--addition_warning-border);
       }
     }
     mark {
@@ -195,7 +195,7 @@ li > .addition-danger,
         background-color: var(--addition_danger-text);
       }
       &:not(:last-child) {
-        border-bottom: 1px solid var(--addition_danger-mark);
+        border-bottom: 1px solid var(--addition_danger-border);
       }
     }
     mark {

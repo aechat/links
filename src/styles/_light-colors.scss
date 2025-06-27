@@ -34,20 +34,20 @@ $light: (
   links-hover: hsl(var(--accent-hue), calc(50% * var(--saturate-ratio)), 95%),
   links-text: hsl(var(--accent-hue), calc(85% * var(--saturate-ratio)), 40%),
   // ~: информационные блоки:
-  addition_info-background: hsl(200, calc(100% * var(--saturate-ratio)), 96.5%),
-  addition_info-border: hsl(200, calc(70% * var(--saturate-ratio)), 87.5%),
-  addition_info-text: hsl(200, calc(75% * var(--saturate-ratio)), 25%),
-  addition_info-mark: hsl(200, calc(70% * var(--saturate-ratio)), 87.5%),
+  addition_info-background: hsl(190, calc(50% * var(--saturate-ratio)), 95%),
+  addition_info-border: hsl(190, calc(35% * var(--saturate-ratio)), 85%),
+  addition_info-text: hsl(190, calc(75% * var(--saturate-ratio)), 25%),
+  addition_info-mark: hsl(190, calc(70% * var(--saturate-ratio)), 87.5%),
   // ~: предупреждающие блоки:
-  addition_warning-background: hsl(50, calc(100% * var(--saturate-ratio)), 96%),
-  addition_warning-border: hsl(50, calc(70% * var(--saturate-ratio)), 80%),
+  addition_warning-background: hsl(50, calc(75% * var(--saturate-ratio)), 95%),
+  addition_warning-border: hsl(50, calc(50% * var(--saturate-ratio)), 85%),
   addition_warning-text: hsl(50, calc(100% * var(--saturate-ratio)), 20%),
-  addition_warning-mark: hsl(50, calc(75% * var(--saturate-ratio)), 85%),
+  addition_warning-mark: hsl(50, calc(60% * var(--saturate-ratio)), 86%),
   // ~: остерегающие блоки:
-  addition_danger-background: hsl(0, calc(100% * var(--saturate-ratio)), 96%),
-  addition_danger-border: hsl(0, calc(70% * var(--saturate-ratio)), 87.5%),
+  addition_danger-background: hsl(0, calc(50% * var(--saturate-ratio)), 95%),
+  addition_danger-border: hsl(0, calc(30% * var(--saturate-ratio)), 87.5%),
   addition_danger-text: hsl(0, calc(75% * var(--saturate-ratio)), 25%),
-  addition_danger-mark: hsl(0, calc(80% * var(--saturate-ratio)), 87.5%),
+  addition_danger-mark: hsl(0, calc(75% * var(--saturate-ratio)), 89%),
   // *: стили таблицы
   table-background: hsl(0, calc(0% * var(--saturate-ratio)), 95%),
   table-background-border: hsl(0, calc(0% * var(--saturate-ratio)), 87.5%)
