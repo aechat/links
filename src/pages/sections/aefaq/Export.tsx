@@ -23,196 +23,166 @@ const AEExport: React.FC = () => {
     <div className="faq-content">
       <GithubUpdateInfo filePath="src/pages/sections/aefaq/Export.tsx" />
       <DetailsSummary
-        tag="тикток, ютуб, максимальное качество, разрешение, битрейт"
-        title="Какие настройки экспорта стоит установить для вывода в социальные сети?"
+        tag="render queue, как настроить экспорт, куда нажимать для сохранения композиции, свой шаблон с настройками для экспорта композиций"
+        title="Что такое очередь рендера?"
       >
         <p>
-          Каждая социальная сеть или видео площадка, увы, пережимают загружаемое
-          пользователем видео так, чтобы уместить у себя на серверах с меньшим объёмом
-          файла. Если вы установите слишком высокое значение битрейта и разрешение,
-          например для <mark className="app">TikTok</mark>, то площадка с радостью всё
-          пережмёт до <mark>1080p/60fps</mark> и около <mark>10 Мбит/с</mark>, поэтому
-          разрешение <mark>4K</mark> и битрейт условно <mark>100 Мбит/с</mark> смысла
-          ставить нет. Также установка слишком низкого битрейта или других неверных
-          параметров могут испортить ваше прекрасное видео.
+          <mark className="ui">Render Queue</mark> - главное окно с помощью которого
+          пользователь может экспортировать композиции прямо из{" "}
+          <mark className="app">Adobe After Effects</mark>. В очередь можно добавить одну
+          или несколько композиций, включая варианты с разными параметрами вывода.
+          Отправить текущую или выделенную в <mark className="ui">Project</mark>{" "}
+          композицию можно сочетанием клавиш <mark className="key">Ctrl + M</mark> или
+          через <mark className="ui">File &gt; Export &gt; Add to Render Queue</mark>.
         </p>
         <p>
-          А теперь в целом про качество: оно будет зависеть от того, что происходит на
-          вашем экране. Если вы монтируете спокойные видео, то есть подкасты или ролики
-          без редких движений, то вам спокойно хватит <mark>5-10 Мбит/с</mark> в{" "}
-          <mark>1080p</mark> для сохранения всех деталей на видео.
+          Для каждой композиции вы можете изменить{" "}
+          <mark className="ui">Render Settings</mark>,{" "}
+          <mark className="ui">Output Module</mark> и{" "}
+          <mark className="ui">Output To</mark>. К ним можно применять или создавать
+          пресеты. Выбор пресета выполняется нажатием на иконку{" "}
+          <mark className="ui">стрелки</mark> слева от его названия, изменение параметров
+          на основе текущей конфигурации - по нажатию на текст акцентного цвета. Запуск
+          экспорта выбранных композиций осуществляется кнопкой{" "}
+          <mark className="ui">Render</mark> в правом верхнем углу окна или клавишей{" "}
+          <mark className="key">Enter</mark>.
+        </p>
+        <ImageFigure
+          caption="Render Queue"
+          imgSrc="images/aftereffects/render_queue.png"
+          imgTitle="Окно очереди экспорта"
+          styleClass="figure_windows-dark"
+        />
+        <Divider>Разбираемся с Output Module</Divider>
+        <p>
+          В окне <mark className="ui">Output Module</mark> вы можете задать формат вывода
+          и при необходимости изменить его настройки через{" "}
+          <mark className="ui">Format Options</mark>. В последних версиях{" "}
+          <mark className="app">Adobe After Effects</mark> доступны видеоформаты{" "}
+          <mark className="video">H.264 (MP4)</mark>,{" "}
+          <mark className="video">QuickTime</mark> и <mark className="video">AVI</mark>, а
+          также аудиоформаты <mark className="audio">AIFF</mark>,{" "}
+          <mark className="audio">MP3</mark> и <mark className="audio">WAV</mark>. Также
+          вы можете экспортировать композицию по кадрам в форматах{" "}
+          <mark className="image">TIFF</mark>, <mark className="image">JPEG</mark>,{" "}
+          <mark className="image">PNG</mark>, <mark className="image">PSD</mark> и прочие.
         </p>
         <p>
-          Если видео было закодировано условно в <mark>1 Мбит/с</mark>, то вернуть
-          качество установкой более высокого битрейта, которое пережали до вас, нельзя.
-          Это вам не архив, из которого можно распаковать несжатое видео с исходным
-          качеством.
+          В этом окне присутствуют необязательные настройки изменения размеры и
+          кадрирования изображения композиций. В разделе с настройкой аудио можно задать
+          частоту дискретизации, битовую глубину и выбрать между{" "}
+          <mark className="ui">Mono</mark> и <mark className="ui">Stereo</mark>.
         </p>
-        <YouTubeVideo
-          caption="Почему снег и конфетти паршивят картинку"
-          link="r6Rp-uo6HmI"
+        <AdditionInfo>
+          При включённой опции <mark className="ui">Audio Output Auto</mark> аудио может
+          не попасть в итоговый файл из-за бага в{" "}
+          <mark className="app">Adobe After Effects</mark>. Чтобы избежать этого,
+          установите <mark className="ui">Audio Output On</mark>.
+        </AdditionInfo>
+        <ImageFigure
+          caption="Output Module Settings"
+          imgSrc="images/aftereffects/output_module_settings.png"
+          imgTitle="Настройка модуля вывода"
+          styleClass="figure_windows-dark"
+        />
+        <Divider>Разбираемся с Output To</Divider>
+        <p>
+          В <mark className="ui">Output To</mark> указывается путь файловой системы для
+          сохранения композиции. В зависимости от выбранного формата - к названию файла
+          добавляется расширение файла. Для названий файлов можно задать стандартный
+          шаблон или создать собственный.
+        </p>
+        <ImageFigure
+          caption="Render Queue"
+          imgSrc="images/aftereffects/filename_preset_render_queue.png"
+          imgTitle="Указание шаблона для названия файла"
+          styleClass="figure_windows-dark"
         />
         <p>
-          Теперь поговорим о правилах хорошего тона для FPS. Если вы импортируете видео в
-          монтажную программу в 30 кадров/сек, то и выводить нужно точно с такой же
-          частотой, не больше. Вывести с меньшим фреймрейтом допустимо, если у вас такая
-          творческая задумка, но с большим - нет смысла, кадры не появятся из воздуха.
-          Если вы импортируете видео с разным фреймрейтом, например <mark>24</mark>,{" "}
-          <mark>30</mark> и <mark>60</mark>, то лучше создавать композицию с наименьшим
-          FPS, то есть в <mark>24</mark> кадра/сек в данном примере. Не всем понравится
-          ваш трюк с комбинацией различных фреймрейтов в одном видео.
-        </p>
-        <YouTubeVideo
-          caption="Как несовпадение частоты кадров портят ваше видео"
-          link="p3Jb3UPAw-w"
-        />
-        <p>
-          И прежде чем загрузить куда-нибудь контент с чересстрочной разверткой - сделайте
-          её прогрессивной. Например, если у вас контент в <mark>1080i60</mark>, то его
-          следует перевести в <mark>1080p30</mark>, то есть 60 чересстрочных полукадров в
-          секунду следует заменить 30 прогрессивными кадрами в секунду.
-        </p>
-        <Divider>Экспортируем для YouTube</Divider>
-        <p>
-          Для публикации видео на <mark className="app">YouTube</mark> нужно соблюдать{" "}
-          <a href="https://support.google.com/youtube/answer/1722171?hl=ru#zippy=%2C%D0%B2%D0%B8%D0%B4%D0%B5%D0%BE%D0%BA%D0%BE%D0%B4%D0%B5%D0%BA-h%2C%D0%B1%D0%B8%D1%82%D1%80%D0%B5%D0%B9%D1%82">
-            несколько рекомендаций
-          </a>
-          .
+          Если в этом списке выбрать <mark className="ui">Custom</mark> - откроется окно{" "}
+          <mark className="ui">File Name and Location Template</mark>, где вы можете
+          изменить шаблон названия, создать свой и даже сделать его по умолчанию. Имеется
+          поддержка относительных путей, что позволяет гибко управлять размещением
+          экспортируемых файлов. Кнопка <mark className="ui">Add Property</mark> позволяет
+          добавить дополнительные параметры в структуру имени.
         </p>
         <ul>
           <li>
-            Контейнер у видео должен быть <mark className="file">MP4</mark>.
+            Если вы хотите сохранить композицию на уровень выше папки с проектом -
+            используйте конструкцию{" "}
+            <mark className="code">[projectFolder]\..\[compName].[fileExtension]</mark>.
           </li>
           <li>
-            Видеокодек должен быть <mark className="video">H.264</mark>.
-          </li>
-          <li>
-            Аудиокодек должен быть <mark className="audio">AAC</mark> с частотой
-            дискретизации <mark>48 кГц</mark> или <mark>96 кГц</mark>.
-          </li>
-          <li>
-            Видео должно быть в переменном или постоянном битрейте. Ограничений на него
-            нет, но лучше соблюдать таблицу битрейтов из официального сайта{" "}
-            <mark className="app">YouTube</mark>.
+            Если вы хотите сохранить в подпапку с проектом - используйте конструкцию{" "}
+            <mark className="code">
+              [projectFolder]\renders\[compName].[fileExtension]
+            </mark>
+            , где вместо <mark className="path">renders</mark> вы можете указать своё
+            название подпапки.
           </li>
         </ul>
-        <Divider>Таблица рекомендуемого битрейта при использовании SDR</Divider>
-        <table>
-          <thead>
-            <tr>
-              <th>Разрешение</th>
-              <th>Битрейт (24, 25, 30 FPS)</th>
-              <th>Битрейт (48, 50, 60 FPS)</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>8K</td>
-              <td>80-160 Мбит/с</td>
-              <td>120-240 Мбит/с</td>
-            </tr>
-            <tr>
-              <td>2160p (4K)</td>
-              <td>35-45 Мбит/с</td>
-              <td>53-68 Мбит/с</td>
-            </tr>
-            <tr>
-              <td>1440p (2К)</td>
-              <td>16 Мбит/c</td>
-              <td>24 Мбит/c</td>
-            </tr>
-            <tr>
-              <td>1080p</td>
-              <td>8 Мбит/c</td>
-              <td>12 Мбит/c</td>
-            </tr>
-            <tr>
-              <td>720p</td>
-              <td>5 Мбит/c</td>
-              <td>7,5 Мбит/c</td>
-            </tr>
-            <tr>
-              <td>480p</td>
-              <td>2,5 Мбит/c</td>
-              <td>4 Мбит/c</td>
-            </tr>
-            <tr>
-              <td>360p</td>
-              <td>1 Мбит/c</td>
-              <td>1,5 Мбит/c</td>
-            </tr>
-          </tbody>
-        </table>
-        <Divider>Таблица рекомендуемого битрейта при использовании HDR</Divider>
-        <table>
-          <thead>
-            <tr>
-              <th>Разрешение</th>
-              <th>Битрейт (24, 25, 30 FPS)</th>
-              <th>Битрейт (48, 50, 60 FPS)</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>8K</td>
-              <td>100-200 Мбит/с</td>
-              <td>150-300 Мбит/с</td>
-            </tr>
-            <tr>
-              <td>2160p (4K)</td>
-              <td>44-56 Мбит/с</td>
-              <td>66-85 Мбит/с</td>
-            </tr>
-            <tr>
-              <td>1440p (2К)</td>
-              <td>20 Мбит/с</td>
-              <td>30 Мбит/с</td>
-            </tr>
-            <tr>
-              <td>1080p</td>
-              <td>10 Мбит/c</td>
-              <td>15 Мбит/с</td>
-            </tr>
-            <tr>
-              <td>720p</td>
-              <td>6,5 Мбит/с</td>
-              <td>9,5 Мбит/с</td>
-            </tr>
-            <tr>
-              <td>480p</td>
-              <td>Не поддерживается</td>
-              <td>Не поддерживается</td>
-            </tr>
-            <tr>
-              <td>360p</td>
-              <td>Не поддерживается</td>
-              <td>Не поддерживается</td>
-            </tr>
-          </tbody>
-        </table>
-        <Divider>Экспортируем для TikTok</Divider>
+        <ImageFigure
+          caption="File Name and Location Template"
+          imgSrc="images/aftereffects/filename_and_location_template.png"
+          imgTitle="Окно создания собственного шаблона имени"
+          styleClass="figure_windows-dark"
+        />
+        <Divider>Разбираемся с Render Settings</Divider>
         <p>
-          Данная площадка с вертикальными видео тоже имеет свои ограничения и рекомендации
-          по кодированию видео.
+          <mark className="ui">Render Settings</mark> - необязательный, но тоже полезный
+          раздел настроек экспорта. В нём можно задать разрешение рендера, настроить
+          использование тех или иных свойств у слоёв или использовать прокси в финальном
+          экспорте.
         </p>
+        <ImageFigure
+          caption="Output Module Settings"
+          imgSrc="images/aftereffects/render_settings.png"
+          imgTitle="Настройка настроек рендера"
+          styleClass="figure_windows-dark"
+        />
+        <Divider>Как управлять очередью рендера?</Divider>
         <ul>
           <li>
-            Вес полученного файла не должен превышать <mark>75 Мб</mark>, если вы
-            собираетесь выкладывать видео с устройства на Android. Или не превышать{" "}
-            <mark>250 Мб</mark>, если вы собираетесь выкладывать видео с устройства на
-            <mark>iOS</mark>.
+            Если вы отправили несколько композиций в очередь рендера, но вам нужно
+            экспортировать лишь некоторые из них - уберите или установите чекбоксы
+            напротив нужных композиций.
+            <ImageFigure
+              caption="Render Queue"
+              imgSrc="images/aftereffects/select_comp_queue.png"
+              imgTitle="Выбор композиций для экспорта"
+              styleClass="figure_windows-dark"
+            />
           </li>
           <li>
-            Контейнер у видео должен быть <mark className="file">MP4</mark>.
+            Если вы хотите убрать композицию из очереди рендера - выделите его и нажмите
+            на <mark className="key">Delete</mark>.
           </li>
           <li>
-            Видеокодек должен быть <mark className="video">H.264</mark>.
+            Если вы хотите экспортировать нужную композицию в разных форматах - нажмите на
+            кнопку <mark className="ui">плюс</mark> рядом с{" "}
+            <mark className="ui">Output Module</mark>, а затем укажите нужный формат.
+            Данный подход рекомендуется для экспорта сложных композиций за счёт того, что{" "}
+            <mark className="app">Adobe After Effects</mark> рендерит композицию один раз,
+            но при этом одновременно пакует кадры в нужный вам формат.
+            <ImageFigure
+              caption="Render Queue"
+              imgSrc="images/aftereffects/multiple_formats_render_queue.png"
+              imgTitle="Указываем несколько форматов для композиции в очереди рендера"
+              styleClass="figure_windows-dark"
+            />
           </li>
           <li>
-            Рекомендуется установить битрейт <mark>5-8 Мбит/с</mark> для видео в
-            разрешении <mark>1080p</mark> или <mark>3-5 Мбит/с</mark> для видео в
-            разрешении <mark>720p</mark>.
+            Если вы хотите повторить экспорт уже отрендеренной или случайно отменённой для
+            рендера композиции - нажмите <mark className="key">ПКМ</mark> по нужному
+            элементу очереди и выберите <mark className="ui">Duplicate</mark> или{" "}
+            <mark className="ui">Duplicate with File Name</mark>, если вы хотите
+            перезаписать исходный файл.
+            <ImageFigure
+              caption="Render Queue"
+              imgSrc="images/aftereffects/duplicate_with_filename_render_queue.png"
+              imgTitle="Дублируем элемент очереди рендера"
+              styleClass="figure_windows-dark"
+            />
           </li>
         </ul>
         <Divider>
