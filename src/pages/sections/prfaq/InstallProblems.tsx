@@ -25,8 +25,10 @@ const PRInstallProblems: React.FC = () => {
         title="В архив или под записью забыли положить инструкцию для установки. Куда что кидать?"
       >
         <p>
-          Обычно установка большинства дополнительных материалов универсальна, поэтому
-          следуйте инструкциям ниже.
+          Обычно установка большинства дополнительных материалов универсальна, но может
+          отличаться в зависимости от вашей операционной системы. В этой статье указано
+          как установить тот или иной тип файла для{" "}
+          <mark className="app">Adobe Premiere Pro</mark>.
         </p>
         <AdditionInfo>
           Сторонние плагины и расширения, будь то лицензионные или{" "}
@@ -43,12 +45,36 @@ const PRInstallProblems: React.FC = () => {
           что они полностью распакованы и расположены в пути не длиннее 256 символов без
           кириллицы!
         </AdditionWarning>
+        <Divider>Универсальные инструкции для разных типов файлов</Divider>
         <ul>
           <li>
             Если в архиве находится файл <mark className="file">PRPROJ</mark>, то такой
             файл проект просто импортируются в ваш проект с помощью{" "}
             <mark className="ui">File &gt; Import</mark> или{" "}
             <mark className="key">Ctrl + I</mark> и никуда не устанавливаются.
+            <AdditionInfo>
+              <ul>
+                <li>
+                  Прежде чем открывать проект формата <mark className="file">PRPROJ</mark>{" "}
+                  - полностью распакуйте архив, с помощью архиватора, а затем открывайте
+                  проект из уже распакованной папки. Таким образом вы убережёте себя от
+                  разноцветного экрана, как при технических работах на телевидении.
+                </li>
+                <li>
+                  Если вы попытаетесь открыть лишь один{" "}
+                  <mark className="file">PRPROJ</mark> файл из архива без его полной
+                  распаковки, то вы столкнетесь с тем, что{" "}
+                  <mark className="app">Adobe Premiere Pro</mark> не сможет найти все
+                  необходимые файлы для проекта.
+                </li>
+                <li>
+                  В большинстве случаев рядом с файлом шаблона может располагаться{" "}
+                  <mark className="video">туториал</mark>, объясняющий как им
+                  пользоваться. Он может находиться в папке{" "}
+                  <mark className="path">Help</mark> или в корне архива.
+                </li>
+              </ul>
+            </AdditionInfo>
           </li>
           <li>
             Если в архиве находится файл <mark className="file">AEP</mark>, то для импорта
@@ -59,11 +85,17 @@ const PRInstallProblems: React.FC = () => {
             <mark className="app">Adobe After Effects</mark> в{" "}
             <mark className="app">Adobe Premiere Pro</mark> будет работать через{" "}
             <mark className="plugin">Dynamic Link</mark>.
+            <AdditionInfo>
+              Если вы попытаетесь импортировать в проект лишь один{" "}
+              <mark className="file">AEP</mark> файл без полной распаковки архива, то
+              можете столкнуться с тем, что программа не сможет найти все необходимые
+              файлы для проекта.
+            </AdditionInfo>
           </li>
           <li>
             Если в архиве находится <mark className="file">ATOM</mark>, то такие файлы
-            устанавливаются путём <mark>drag&apos;n&apos;drop</mark> в окно расширения{" "}
-            <mark className="plugin">AtomX</mark>.
+            устанавливаются путём <mark className="ui">drag&apos;n&apos;drop</mark> в окно
+            расширения <mark className="plugin">AtomX</mark>.
             <AdditionWarning>
               <mark className="plugin">AtomX</mark> версии <mark>3.0.9</mark> может не
               импортировать пакеты, выдавая ошибку <mark>Connection Failure</mark>. Для
@@ -73,8 +105,8 @@ const PRInstallProblems: React.FC = () => {
           </li>
           <li>
             Если в архиве находится <mark className="file">MBR</mark>, то такие файлы
-            устанавливаются путём <mark>drag&apos;n&apos;drop</mark> в окно расширения{" "}
-            <mark className="plugin">Motion Bro</mark>.
+            устанавливаются путём <mark className="ui">drag&apos;n&apos;drop</mark> в окно
+            расширения <mark className="plugin">Motion Bro</mark>.
           </li>
         </ul>
         <ContentSwitcher
@@ -105,10 +137,11 @@ const PRInstallProblems: React.FC = () => {
                       </li>
                       <li>
                         Для распаковки многотомного архива, то есть если в названии
-                        архивов есть <mark>.part1</mark>, <mark>.part2</mark> и так далее
-                        - нужно запустить распаковку только первой части архива, остальные
-                        части подхватятся сами. Остальные части архива не нужно трогать
-                        без острой необходимости, если вы не знаете что с ними делать.
+                        архивов есть <mark className="file">PART1</mark>,{" "}
+                        <mark className="file">PART2</mark> и так далее - нужно запустить
+                        распаковку только первой части архива, остальные части подхватятся
+                        автоматически. Остальные части архива не нужно трогать без острой
+                        необходимости, если вы не знаете что с ними делать.
                       </li>
                       <li>
                         Многотомные архивы создаются для того, чтобы файл можно было
@@ -166,9 +199,10 @@ const PRInstallProblems: React.FC = () => {
                     </ul>
                   </AdditionInfo>
                 </li>
-                {/* <li>
-                  Если в архиве находится файл <mark className="file">PLUGIN</mark>, то
-                  такие плагины обычно распаковываются в общую папку плагинов{" "}
+                <li>
+                  Если в архиве находится файл <mark className="file">PLUGIN</mark> или{" "}
+                  <mark className="file">BUNDLE</mark>, то такие плагины обычно
+                  распаковываются в общую папку плагинов{" "}
                   <mark className="path">
                     ~/Library/Application Support/Adobe/Common/Plug-ins/7.0/MediaCore
                   </mark>
@@ -177,25 +211,36 @@ const PRInstallProblems: React.FC = () => {
                     <ul>
                       <li>
                         Обычно установленные плагины находятся в окне{" "}
-                        <mark className="ui">Effects</mark> и могут вызываться с
-                        помощью <mark className="plugin">FX Console</mark>. В редких
-                        случаях плагин может в программе вызываться из другого места -
-                        читайте приложенную документацию к устанавливаемому плагину.
+                        <mark className="ui">Effects</mark> и могут вызываться с помощью{" "}
+                        <mark className="plugin">Excalibur</mark>. В редких случаях плагин
+                        может в программе вызываться из другого места - читайте
+                        приложенную документацию к устанавливаемому плагину.
                       </li>
                       <li>
                         Не всегда новые версии плагинов могут работать со старыми версиями{" "}
-                        <mark className="app">Adobe Premiere Pro</mark> и наоборот. Уточняйте в
-                        документации устанавливаемого плагина, для каких версий{" "}
-                        <mark className="app">Adobe Premiere Pro</mark> он предназначен.
+                        <mark className="app">Adobe Premiere Pro</mark> и наоборот.
+                        Уточняйте в документации устанавливаемого плагина, для каких
+                        версий <mark className="app">Adobe Premiere Pro</mark> он
+                        предназначен.
                       </li>
                     </ul>
                   </AdditionInfo>
+                  <AdditionWarning>
+                    Учтите, что не все плагины формата{" "}
+                    <mark className="file">PLUGIN</mark> поддерживаются в{" "}
+                    <mark className="app">Adobe Premiere Pro</mark>, так как по большей
+                    части плагины такого формата предназначены для{" "}
+                    <mark className="app">Adobe After Effects</mark> и не всегда имеет
+                    &quot;обратную совместимость&quot; с{" "}
+                    <mark className="app">Adobe Premiere Pro</mark>.
+                  </AdditionWarning>
                   <AdditionDanger>
-                    Плагины формата <mark className="file">AEX</mark> не подходят для
-                    устройств на <mark>macOS</mark>, так как такие файлы предназначены для
-                    устройств на <mark>Windows</mark>.
+                    Плагины форматов <mark className="file">PRM</mark> и{" "}
+                    <mark className="file">AEX</mark> не подходят для устройств на{" "}
+                    <mark>macOS</mark>, так как такие файлы предназначены для устройств на{" "}
+                    <mark>Windows</mark>.
                   </AdditionDanger>
-                </li> */}
+                </li>
                 <li>
                   <p>
                     Если в архиве находится файл <mark className="file">MOGRT</mark>, то
@@ -211,7 +256,15 @@ const PRInstallProblems: React.FC = () => {
                     imgSrc="images/premierepro/install_mogrt.png"
                     imgTitle="Установка mogrt-шаблонов"
                     styleClass="figure_macos-dark"
-                  />{" "}
+                  />
+                  <p>
+                    Также файлы <mark className="file">MOGRT</mark> можно расположить в
+                    стандартную папку локальных шаблонов, которая находится по пути{" "}
+                    <mark className="path">
+                      ~/Library/Application Support/Adobe/Common/Motion Graphics Templates
+                    </mark>{" "}
+                    и они появятся в окне <mark className="ui">Graphics Templates</mark>.
+                  </p>
                   <AdditionInfo>
                     <p>
                       <mark className="file">MOGRT</mark> файл по своей сути - архив,
@@ -242,18 +295,315 @@ const PRInstallProblems: React.FC = () => {
                       </li>
                     </ul>
                   </AdditionInfo>
+                  <AdditionWarning>
+                    При использовании некоторых шаблонов формата{" "}
+                    <mark className="file">MOGRT</mark> может потребоваться установленный
+                    в системе <mark className="app">Adobe After Effects</mark>. Если эта
+                    программа у вас уже установлена, но{" "}
+                    <mark className="app">Adobe Premiere Pro</mark> выбивает ошибку о том,
+                    что программу нужно установить - возможно для связки двух программ
+                    потребуется установленный <mark className="app">Creative Cloud</mark>.
+                  </AdditionWarning>
                 </li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
+                <li>
+                  Если в архива находится файл <mark className="file">PRFPSET</mark>, то
+                  такие файлы пресетов устанавливается следующим образом.
+                  <ul>
+                    <li>
+                      Откройте окно <mark className="ui">Effects</mark> и нажмите на три
+                      полоски в заголовке этого окна, а затем нажмите на кнопку{" "}
+                      <mark className="ui">Import Presets</mark>.
+                      <AdditionInfo>
+                        При необходимости вы можете создать новую папку для ваших новых
+                        пресетов, нажав на кнопку{" "}
+                        <mark className="ui">New Presets Bin</mark> и назвать её как вашей
+                        душе удобно.
+                      </AdditionInfo>
+                      <ImageFigure
+                        caption="Adobe Premiere Pro"
+                        imgSrc="images/premierepro/import_presets.png"
+                        imgTitle="Установка пресетов в Adobe Premiere Pro"
+                        styleClass="figure_windows-dark"
+                      />
+                    </li>
+                    <li>
+                      В открывшемся окне выберите файл пресетов формата{" "}
+                      <mark className="file">PRFPSET</mark>.
+                    </li>
+                    <li>
+                      После выбора файла с пресетами ваши импортированные пресеты появятся
+                      в окне <mark className="ui">Effects</mark> в папке{" "}
+                      <mark className="path">Presets</mark>.
+                      <AdditionInfo>
+                        Все ваши пресеты хранятся в одном общем файле пресетов под
+                        названием{" "}
+                        <mark className="file">
+                          Effect Presets and Custom Items.prfpset
+                        </mark>
+                        , которая находится в{" "}
+                        <mark className="path">
+                          ~/Documents/Adobe/Premiere Pro/XX.X/Profile-XXXXXX
+                        </mark>
+                        . Этот файл редактировать вне{" "}
+                        <mark className="app">Adobe Premiere Pro</mark> не стоит, но его
+                        можно скопировать и перенести в другое место, чтобы в случае
+                        необходимости восстановить пресеты из файла.
+                      </AdditionInfo>
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  Если в архиве находится файл <mark className="file">ZXP</mark>, то такие
+                  расширения обычно устанавливаются через{" "}
+                  <a href="https://aescripts.com/learn/zxp-installer/">
+                    ZXP Installer от aescripts
+                  </a>
+                  . Прежде чем устанавливать расширение такого формата, убедитесь в том,
+                  что ваша версия <mark className="app">Adobe Premiere Pro</mark> его
+                  поддерживает. После того как вы установите расширение, откройте терминал
+                  и введите команды ниже, их можно скопировать одним нажатием. Если
+                  терминал не выдал никакие ошибки, то вы можете спокойно открыть{" "}
+                  <mark className="app">Adobe Premiere Pro</mark> и проверить
+                  работоспособность установленного расширения.
+                  <AdditionDanger>
+                    Пожалуйста, не используйте{" "}
+                    <a href="https://zxpinstaller.com/">
+                      ZXP Installer от ELEMENTS Storage Media
+                    </a>
+                    , если вы используете версии программ <mark>Adobe</mark>, которые
+                    отвязаны от приложения <mark className="app">Creative Cloud</mark>.
+                    Данный <a href="https://zxpinstaller.com/">ZXP Installer</a> будет вам
+                    выдавать ошибку <strong>-193</strong> до тех пор, пока вы не
+                    установите программу <mark className="app">Creative Cloud</mark>, а он
+                    же может вам поломать уже установленные программы. Для решения
+                    проблемы воспользуйтесь{" "}
+                    <a href="https://aescripts.com/learn/zxp-installer/">
+                      ZXP Installer от aescripts
+                    </a>{" "}
+                    или ручной установкой расширений.
+                  </AdditionDanger>
+                  <AdditionInfo>
+                    <ul>
+                      <li>
+                        Расширения формата <mark className="file">ZXP</mark> обычно
+                        появляются в окне{" "}
+                        <mark className="ui">Window &gt; Extensions</mark>.
+                      </li>
+                      <li>
+                        Если вы не хотите устанавливать стороннее ПО для установки{" "}
+                        <mark className="file">ZXP</mark>, то вы можете переименовать файл{" "}
+                        <mark className="file">ZXP</mark> в{" "}
+                        <mark className="file">ZIP</mark> и распаковать его как обычный
+                        архив. Содержимое свежераспакованного файла нужно поместить в
+                        папку{" "}
+                        <mark className="path">
+                          ~/Library/Application Support/Adobe/CEP/extensions
+                        </mark>{" "}
+                        и после этого ввести команды, которые были расположены чуть ниже в
+                        терминал.
+                        <code style={{fontSize: "0.8em"}}>
+                          defaults write com.adobe.CSXS.5 PlayerDebugMode 1
+                          <br />
+                          defaults write com.adobe.CSXS.6 PlayerDebugMode 1
+                          <br />
+                          defaults write com.adobe.CSXS.7 PlayerDebugMode 1
+                          <br />
+                          defaults write com.adobe.CSXS.8 PlayerDebugMode 1
+                          <br />
+                          defaults write com.adobe.CSXS.9 PlayerDebugMode 1
+                          <br />
+                          defaults write com.adobe.CSXS.10 PlayerDebugMode 1
+                          <br />
+                          defaults write com.adobe.CSXS.11 PlayerDebugMode 1
+                          <br />
+                          defaults write com.adobe.CSXS.12 PlayerDebugMode 1
+                          <br />
+                          defaults write com.adobe.CSXS.13 PlayerDebugMode 1
+                          <br />
+                          defaults write com.adobe.CSXS.14 PlayerDebugMode 1
+                          <br />
+                          defaults write com.adobe.CSXS.15 PlayerDebugMode 1
+                          <br />
+                          defaults write com.adobe.CSXS.16 PlayerDebugMode 1
+                          <br />
+                          defaults write com.adobe.CSXS.17 PlayerDebugMode 1
+                          <br />
+                          defaults write com.adobe.CSXS.18 PlayerDebugMode 1
+                          <br />
+                          defaults write com.adobe.CSXS.19 PlayerDebugMode 1
+                          <br />
+                          defaults write com.adobe.CSXS.20 PlayerDebugMode 1
+                          <br />
+                          defaults write com.adobe.CSXS.21 PlayerDebugMode 1
+                          <br />
+                          defaults write com.adobe.CSXS.22 PlayerDebugMode 1
+                          <br />
+                          defaults write com.adobe.CSXS.23 PlayerDebugMode 1
+                          <br />
+                          defaults write com.adobe.CSXS.24 PlayerDebugMode 1
+                          <br />
+                          defaults write com.adobe.CSXS.25 PlayerDebugMode 1
+                          <br />
+                          defaults write com.adobe.CSXS.26 PlayerDebugMode 1
+                          <br />
+                          defaults write com.adobe.CSXS.27 PlayerDebugMode 1
+                          <br />
+                          defaults write com.adobe.CSXS.28 PlayerDebugMode 1
+                          <br />
+                          defaults write com.adobe.CSXS.29 PlayerDebugMode 1
+                          <br />
+                          defaults write com.adobe.CSXS.30 PlayerDebugMode 1
+                          <br />
+                        </code>
+                      </li>
+                      <li>
+                        Команды выше достаточно ввести один раз, в дальнейшем при
+                        установке подобных расширений команды для терминала вводить не
+                        нужно. Эти команды включают debug-режим в{" "}
+                        <mark className="app">Adobe Premiere Pro</mark> для корректного
+                        открытия и работы сторонних расширений, установленные из просторов
+                        интернета.
+                      </li>
+                      <li>
+                        Иногда в архиве может быть уже распакованный{" "}
+                        <mark className="file">ZXP</mark> архив. Это можно понять по
+                        наличию папок <mark className="path">META-INF</mark> и{" "}
+                        <mark className="path">CSXS</mark> внутри папки с названием
+                        расширения.
+                      </li>
+                    </ul>
+                  </AdditionInfo>
+                </li>
+                <li>
+                  Если в архиве находится файл <mark className="file">CUBE</mark>,{" "}
+                  <mark className="file">ITX</mark>, <mark className="file">LOOK</mark>{" "}
+                  или <mark className="file">LUT</mark>, то для распаковки таких файлов
+                  вам нужно перейти в{" "}
+                  <mark className="path">
+                    ~/Library/Applications/Adobe Premiere Pro 20XX
+                  </mark>
+                  , затем нажать <mark className="key">ПКМ</mark> по{" "}
+                  <mark className="app">Adobe Premiere Pro 20XX</mark> и выбрать{" "}
+                  <mark className="ui">Показать содержимое пакета</mark>. После открытия
+                  содержимого перейдите в{" "}
+                  <mark className="path">Contents/Lumetri/LUTs</mark>. В данной директории
+                  есть три папки - <mark className="path">Technical</mark>,{" "}
+                  <mark className="path">Creative</mark> и{" "}
+                  <mark className="path">Legacy</mark>.
+                  <ul>
+                    <li>
+                      Если вы распакуете файлы в <mark className="path">Technical</mark>,
+                      где обычно располагаются входные <mark className="file">LUT</mark>{" "}
+                      для проявки изображения с камеры, например для преобразования между
+                      цветовыми пространствами, то они появятся в параметре{" "}
+                      <mark className="ui">Input LUT</mark> во вкладке{" "}
+                      <mark className="ui">Basic Correction</mark>.
+                    </li>
+                    <li>
+                      Если вы распакуете файлы в <mark className="path">Creative</mark>,
+                      где располагаются файлы для стилизации изображения уже после базовой
+                      цветокоррекции, то они появятся в параметре{" "}
+                      <mark className="ui">Look</mark> во вкладке{" "}
+                      <mark className="ui">Creative</mark>.
+                    </li>
+                    <li>
+                      В <mark className="path">Legacy</mark> располагаются устаревшие
+                      файлы для цветокоррекции для совместимости со старыми проектами в{" "}
+                      <mark className="app">Adobe Premiere Pro</mark> и не используются
+                      программой в последних версиях. При необходимости вы можете
+                      скопировать нужные файлы цветокоррекции оттуда в{" "}
+                      <mark className="path">Creative</mark> или{" "}
+                      <mark className="path">Technical</mark>.
+                    </li>
+                  </ul>
+                  <AdditionInfo>
+                    <ul>
+                      <li>
+                        Чтобы открыть окно для цветокоррекции через Lumetri - перейдите в{" "}
+                        <mark className="ui">Window</mark> и выберите{" "}
+                        <mark className="ui">Lumetri Color</mark>.
+                      </li>
+                      <li>
+                        Если вы хотите использовать файл для цветокоррекции один раз -
+                        выберите в <mark className="ui">Input LUT</mark> или{" "}
+                        <mark className="ui">Look</mark> значение{" "}
+                        <mark className="ui">Browse</mark> и выберите нужный файл.
+                      </li>
+                    </ul>
+                  </AdditionInfo>
+                  <YouTubeVideo
+                    caption="Как использовать файлы цветокоррекции в Adobe Premiere Pro"
+                    link="yrrW-V8bO_I"
+                  />
+                </li>
+                <li>
+                  Если в архиве находятся шрифты формата <mark className="file">TTF</mark>{" "}
+                  или <mark className="file">OTF</mark>, то такие шрифты не
+                  распаковываются в папку с программой. Их нужно установить в систему, это
+                  можно сделать двумя способами.
+                  <ul>
+                    <li>
+                      Запустите приложение <mark className="app">Шрифты</mark>, затем
+                      выберите нужные файлы шрифтов в <mark className="app">Finder</mark>{" "}
+                      и просто перетащите их в открытое окно программы.
+                    </li>
+                    <li>
+                      Дважды кликните на файл шрифта в <mark className="app">Finder</mark>{" "}
+                      и в появившемся окне нажмите кнопку{" "}
+                      <mark className="ui">Установить</mark>.
+                    </li>
+                  </ul>
+                  Также при необходимости вы можете воспользоваться шрифтовыми менеджерами
+                  для организации и активации нужных шрифтов только при необходимости,
+                  например <mark className="app">FontBase</mark>,{" "}
+                  <mark className="app">Typeface</mark> или{" "}
+                  <mark className="app">RightFont</mark>.
+                </li>
               </ul>
-              {/* TODO: дописать */}
             </div>
           }
           windowsContent={
             <div>
               <ul>
+                <li>
+                  Если вы скачали архив формата <mark className="file">ZIP</mark> или{" "}
+                  <mark className="file">RAR</mark>, то вам необходимо его распаковать с
+                  помощью архиватора для дальнейшей работы с ним. Это можно сделать с
+                  помощью <mark className="app">WinRAR</mark>.
+                  <AdditionInfo>
+                    <ul>
+                      <li>
+                        <mark className="app">WinRAR</mark> для устройств на{" "}
+                        <mark>Windows</mark> можно загрузить по{" "}
+                        <a href="https://www.rarlab.com/download.htm">этой ссылке</a>.{" "}
+                        <i style={{opacity: 0.5, fontSize: "0.85em"}}>
+                          Надеюсь, что вы в курсе как обойти 40-дневное
+                          &quot;ограничение&quot;
+                        </i>
+                        .
+                      </li>
+                      <li>
+                        Для распаковки многотомного архива, то есть если в названии
+                        архивов есть <mark className="file">PART1</mark>,{" "}
+                        <mark className="file">PART2</mark> и так далее - нужно запустить
+                        распаковку только первой части архива, нажав{" "}
+                        <mark className="key">ПКМ</mark> по файлу и выбрать в контекстном
+                        меню <mark className="ui">WinRAR &gt; Распаковать в...</mark>.
+                        Остальные части подхватятся автоматически и их не нужно трогать
+                        без острой необходимости, если вы не знаете что с ними делать.
+                      </li>
+                      <li>
+                        Многотомные архивы создаются для того, чтобы файл можно было
+                        спокойно передать, обойдя ограничения максимального размера в{" "}
+                        <mark className="app">Telegram</mark> или другого ресурса.
+                      </li>
+                    </ul>
+                  </AdditionInfo>
+                  <YouTubeVideo
+                    caption="Распаковка многотомного архива"
+                    link="1OVwQS0uHhk"
+                  />
+                </li>
                 <li>
                   Если в архиве или в записи находится файл{" "}
                   <mark className="file">EXE</mark>, то обычно в нём содержится
@@ -261,16 +611,25 @@ const PRInstallProblems: React.FC = () => {
                   репаком - в таком случае после его установки плагин будет уже
                   активирован, никаких лишних телодвижений после установки делать не надо.
                   <AdditionWarning>
-                    При использовании установщиков убедитесь в том, что у вас{" "}
-                    <mark className="app">Adobe Premiere Pro</mark> установлен в
-                    стандартном расположении{" "}
-                    <mark className="path">C:\Program Files\Adobe\</mark>, не на другом
-                    месте или разделе. В противном случае устанавливаемый плагин
-                    установится в другом месте и не будет отображаться в вашем{" "}
-                    <mark className="app">Adobe Premiere Pro</mark>.
+                    <ul>
+                      <li>
+                        При использовании установщиков убедитесь в том, что у вас{" "}
+                        <mark className="app">Adobe Premiere Pro</mark> установлен в
+                        стандартном расположении{" "}
+                        <mark className="path">C:\Program Files\Adobe\</mark>, не на
+                        другом месте или разделе. В противном случае устанавливаемый
+                        плагин установится в другом месте и не будет отображаться в вашем{" "}
+                        <mark className="app">Adobe Premiere Pro</mark>.
+                      </li>
+                      <li>
+                        Перед установкой плагинов с помощью установщика - закройте{" "}
+                        <mark className="app">Adobe Premiere Pro</mark> для корректной
+                        установки.
+                      </li>
+                    </ul>
                   </AdditionWarning>
                 </li>
-                {/* <li>
+                <li>
                   Если в архиве находится файл <mark className="file">PRM</mark> или{" "}
                   <mark className="file">AEX</mark>, то такие плагины обычно
                   распаковываются в общую папку плагинов -{" "}
@@ -278,15 +637,33 @@ const PRInstallProblems: React.FC = () => {
                     C:\Program Files\Adobe\Common\Plug-ins\7.0\MediaCore
                   </mark>
                   .
+                  <AdditionInfo>
+                    <ul>
+                      <li>
+                        Обычно установленные плагины находятся в окне{" "}
+                        <mark className="ui">Effects</mark> и могут вызываться с помощью{" "}
+                        <mark className="plugin">Excalibur</mark>. В редких случаях плагин
+                        может в программе вызываться из другого места - читайте
+                        приложенную документацию к устанавливаемому плагину.
+                      </li>
+                      <li>
+                        Не всегда новые версии плагинов могут работать со старыми версиями{" "}
+                        <mark className="app">Adobe Premiere Pro</mark> и наоборот.
+                        Уточняйте в документации устанавливаемого плагина, для каких
+                        версий <mark className="app">Adobe Premiere Pro</mark> он
+                        предназначен.
+                      </li>
+                    </ul>
+                  </AdditionInfo>
                   <AdditionWarning>
                     Учтите, что не все плагины формата <mark className="file">AEX</mark>{" "}
-                    поддерживаются в <mark className="app">Adobe Premiere Pro</mark>, так как по
-                    большей части плагины такого формата были предназначены для{" "}
+                    поддерживаются в <mark className="app">Adobe Premiere Pro</mark>, так
+                    как по большей части плагины такого формата предназначены для{" "}
                     <mark className="app">Adobe After Effects</mark> и не всегда имеет
                     &quot;обратную совместимость&quot; с{" "}
                     <mark className="app">Adobe Premiere Pro</mark>.
                   </AdditionWarning>
-                </li> */}
+                </li>
                 <li>
                   <p>
                     Если в архиве находится файл <mark className="file">MOGRT</mark>, то
@@ -311,6 +688,13 @@ const PRInstallProblems: React.FC = () => {
                     </mark>{" "}
                     и они появятся в окне <mark className="ui">Graphics Templates</mark>.
                   </p>
+                  <AdditionWarning>
+                    Стандартный <mark className="app">проводник Windows</mark> криво
+                    воспринимает архивы, в которых лежит файлы{" "}
+                    <mark className="file">MOGRT</mark>. Для корректного открытия и
+                    распаковки таких архивов - используйте{" "}
+                    <mark className="app">WinRAR</mark>.
+                  </AdditionWarning>
                   <AdditionInfo>
                     <p>
                       <mark className="file">MOGRT</mark> файл по своей сути - архив,
@@ -348,7 +732,7 @@ const PRInstallProblems: React.FC = () => {
                       <mark className="file">MOGRT</mark> без острой необходимости не
                       нужно открывать. Архив с такими файлами нужно распаковать через{" "}
                       <mark className="app">WinRAR</mark> или{" "}
-                      <mark className="app">7-zip</mark>, чтобы их спокойно можно было
+                      <mark className="app">7-Zip</mark>, чтобы их спокойно можно было
                       импортировать в <mark className="app">Adobe Premiere Pro</mark>,
                       согласно инструкции выше.
                     </p>
@@ -370,9 +754,9 @@ const PRInstallProblems: React.FC = () => {
                   такие файлы пресетов устанавливается следующим образом.
                   <ul>
                     <li>
-                      Откройте окно <mark className="ui">Effects & Presets</mark> и
-                      нажмите на три полоски в заголовке этого окна, а затем нажмите на
-                      кнопку <mark className="ui">Import Presets</mark>.
+                      Откройте окно <mark className="ui">Effects</mark> и нажмите на три
+                      полоски в заголовке этого окна, а затем нажмите на кнопку{" "}
+                      <mark className="ui">Import Presets</mark>.
                       <AdditionInfo>
                         При необходимости вы можете создать новую папку для ваших новых
                         пресетов, нажав на кнопку{" "}
@@ -414,71 +798,60 @@ const PRInstallProblems: React.FC = () => {
                   </ul>
                 </li>
                 <li>
-                  Если в архиве находится файл <mark className="file">CUBE</mark>,{" "}
-                  <mark className="file">ITX</mark>, <mark className="file">LOOK</mark>{" "}
-                  или <mark className="file">LUT</mark>, то такие файлы распаковываются в{" "}
-                  <mark className="path">
-                    C:\Program Files\Adobe\Adobe Premiere Pro 20XX\Support
-                    Files\Lumetri\LUTs\Creative
-                  </mark>
-                  , а затем используются в окне{" "}
-                  <mark className="plugin">Lumetri Color</mark> в вкладке{" "}
-                  <mark className="ui">Creative</mark>.
-                  <AdditionInfo>
-                    <ul>
-                      <li>
-                        Чтобы открыть окно для цветокоррекции через Lumetri, то перейдите
-                        в <mark className="ui">Window</mark> и выберите{" "}
-                        <mark className="ui">Lumetri Color</mark>.
-                      </li>
-                      <li>
-                        {/* FIXME: дописать */}
-                        Если вы не хотите перемещать данный файл в директорию с различными
-                        LUT, то откройте список выбора LUT в{" "}
-                        <mark className="app">Adobe Premiere Pro</mark> и нажмите на{" "}
-                        <mark className="ui">Browse</mark>. В открывшемся окне выберите
-                        нужный файл для цветокоррекции.
-                      </li>
-                    </ul>
-                  </AdditionInfo>
-                </li>
-                <li>
                   Если в архиве находится файл <mark className="file">ZXP</mark>, то такие
                   расширения обычно устанавливаются через{" "}
                   <a href="https://aescripts.com/learn/zxp-installer/">
                     ZXP Installer от aescripts
                   </a>
-                  .
+                  . Для установки требуется просто перенести{" "}
+                  <mark className="file">ZXP</mark> файл в окно{" "}
+                  <mark className="app">ZXP Installer</mark> для установки и следовать
+                  указаниям программы. Прежде чем устанавливать расширение такого формата,
+                  убедитесь в том, что ваша версия{" "}
+                  <mark className="app">Adobe Premiere Pro</mark> его поддерживает.
                   <AdditionDanger>
                     Пожалуйста, не используйте{" "}
                     <a href="https://zxpinstaller.com/">
                       ZXP Installer от ELEMENTS Storage Media
                     </a>
-                    , если вы используете версии программ от Adobe, отвязанные от
-                    приложения <mark className="app">Creative Cloud</mark>. Данный{" "}
-                    <a href="https://zxpinstaller.com/">ZXP Installer</a> будет вам
+                    , если вы используете версии программ <mark>Adobe</mark>, которые
+                    отвязаны от приложения <mark className="app">Creative Cloud</mark>.
+                    Данный <a href="https://zxpinstaller.com/">ZXP Installer</a> будет вам
                     выдавать ошибку <strong>-193</strong> до тех пор, пока вы не
                     установите программу <mark className="app">Creative Cloud</mark>, а он
-                    же может вам поломать уже установленные программы.
+                    же может вам поломать уже установленные программы. Для решения
+                    проблемы воспользуйтесь{" "}
+                    <a href="https://aescripts.com/learn/zxp-installer/">
+                      ZXP Installer от aescripts
+                    </a>{" "}
+                    или ручной установкой расширений.
                   </AdditionDanger>
-                  Если вы не хотите устанавливать стороннее ПО для установки{" "}
-                  <mark className="file">ZXP</mark>, то вы можете переименовать файл{" "}
-                  <mark className="file">ZXP</mark> в <mark className="file">ZIP</mark> и
-                  распаковать его как обычный архив. Содержимое свежераспакованного файла
-                  нужно поместить в папку{" "}
-                  <mark className="path">
-                    C:\Program Files (x86)\Common Files\Adobe\CEP\extensions
-                  </mark>{" "}
-                  (если такой папки нет - создайте) и после этого нужно применить{" "}
-                  <a
-                    download
-                    href="files/Enable Extensions Adobe.reg"
-                  >
-                    REG-патч
-                  </a>
-                  , если вы его не применяли.
                   <AdditionInfo>
                     <ul>
+                      <li>
+                        Если вы не хотите устанавливать стороннее ПО для установки{" "}
+                        <mark className="file">ZXP</mark>, то вы можете переименовать файл{" "}
+                        <mark className="file">ZXP</mark> в{" "}
+                        <mark className="file">ZIP</mark> и распаковать его как обычный
+                        архив. Содержимое свежераспакованного файла нужно поместить в
+                        папку{" "}
+                        <mark className="path">
+                          C:\Program Files (x86)\Common Files\Adobe\CEP\extensions
+                        </mark>{" "}
+                        (если такой папки нет - создайте, например через{" "}
+                        <mark className="code">
+                          mkdir &quot;C:\Program Files (x86)\Common
+                          Files\Adobe\CEP\extensions&quot;
+                        </mark>
+                        ) и после этого нужно применить{" "}
+                        <a
+                          download
+                          href="files/Enable Extensions Adobe.reg"
+                        >
+                          REG-патч
+                        </a>
+                        , открыв его и подтвердив слияние записей реестра.
+                      </li>
                       <li>
                         <a
                           download
@@ -486,7 +859,8 @@ const PRInstallProblems: React.FC = () => {
                         >
                           REG-патч
                         </a>{" "}
-                        нужно применить лишь один раз, он универсален. В дальнейшем при
+                        нужно применить лишь один раз, он универсален для всех расширений
+                        формата <mark className="file">ZXP</mark>. В дальнейшем при
                         установке подобных расширений файл для внесений записей в реестр
                         системы не нужно снова открывать.{" "}
                         <a
@@ -509,6 +883,65 @@ const PRInstallProblems: React.FC = () => {
                       </li>
                     </ul>
                   </AdditionInfo>
+                </li>
+                <li>
+                  Если в архиве находится файл <mark className="file">CUBE</mark>,{" "}
+                  <mark className="file">ITX</mark>, <mark className="file">LOOK</mark>{" "}
+                  или <mark className="file">LUT</mark>, то такие файлы распаковываются в{" "}
+                  <mark className="path">
+                    C:\Program Files\Adobe\Adobe Premiere Pro 20XX\Support
+                    Files\Lumetri\LUTs
+                  </mark>
+                  , а затем используются в окне{" "}
+                  <mark className="plugin">Lumetri Color</mark>. В данной директории есть
+                  три папки - <mark className="path">Technical</mark>,{" "}
+                  <mark className="path">Creative</mark> и{" "}
+                  <mark className="path">Legacy</mark>.
+                  <ul>
+                    <li>
+                      Если вы распакуете файлы в <mark className="path">Technical</mark>,
+                      где обычно располагаются входные <mark className="file">LUT</mark>{" "}
+                      для проявки изображения с камеры, например для преобразования между
+                      цветовыми пространствами, то они появятся в параметре{" "}
+                      <mark className="ui">Input LUT</mark> во вкладке{" "}
+                      <mark className="ui">Basic Correction</mark>.
+                    </li>
+                    <li>
+                      Если вы распакуете файлы в <mark className="path">Creative</mark>,
+                      где располагаются файлы для стилизации изображения уже после базовой
+                      цветокоррекции, то они появятся в параметре{" "}
+                      <mark className="ui">Look</mark> во вкладке{" "}
+                      <mark className="ui">Creative</mark>.
+                    </li>
+                    <li>
+                      В <mark className="path">Legacy</mark> располагаются устаревшие
+                      файлы для цветокоррекции для совместимости со старыми проектами в{" "}
+                      <mark className="app">Adobe Premiere Pro</mark> и не используются
+                      программой в последних версиях. При необходимости вы можете
+                      скопировать нужные файлы цветокоррекции оттуда в{" "}
+                      <mark className="path">Creative</mark> или{" "}
+                      <mark className="path">Technical</mark>.
+                    </li>
+                  </ul>
+                  <AdditionInfo>
+                    <ul>
+                      <li>
+                        Чтобы открыть окно для цветокоррекции через Lumetri - перейдите в{" "}
+                        <mark className="ui">Window</mark> и выберите{" "}
+                        <mark className="ui">Lumetri Color</mark>.
+                      </li>
+                      <li>
+                        Если вы хотите использовать файл для цветокоррекции один раз -
+                        выберите в <mark className="ui">Input LUT</mark> или{" "}
+                        <mark className="ui">Look</mark> значение{" "}
+                        <mark className="ui">Browse</mark> и выберите нужный файл.
+                      </li>
+                    </ul>
+                  </AdditionInfo>
+                  <YouTubeVideo
+                    caption="Как использовать файлы цветокоррекции в Adobe Premiere Pro"
+                    link="yrrW-V8bO_I"
+                  />
                 </li>
                 <li>
                   Если в архиве находятся шрифты формата <mark className="file">TTF</mark>{" "}
@@ -553,6 +986,11 @@ const PRInstallProblems: React.FC = () => {
             </div>
           }
         />
+        <AdditionInfo>
+          Если у вас остались вопросы или до сих пор сталкиваетесь с проблемами при
+          установке - обратитесь к нам в{" "}
+          <a href="https://t.me/joinchat/F1DdXtG9LephYWUy">AEChat</a>.
+        </AdditionInfo>
       </DetailsSummary>
       <DetailsSummary
         tag="выключить дефендер, отрубить антивирус, ложное срабатывание, хелпер, ошибка 24, windows не удается получить доступ к указанному устройству пути или файлу, возможно у вас нет нужных разрешений для доступа к этому объекту, некоторые файлы не были созданы, операция не была успешно завершена так как файл содержит вирус или потенциально нежелательную программу, operation did not complete successfully because the file contains a virus or potentially unwanted software, 0x800700E1"
