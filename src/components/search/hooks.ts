@@ -111,6 +111,11 @@ const processElement = (
     const fullText = element.textContent || "";
 
     if (hasMatch(fullText, searchWords, isKeyCombination)) {
+      const clone = element.cloneNode(true) as Element;
+
+      const elementsToRemove = clone.querySelectorAll(".figure_container");
+      elementsToRemove.forEach((el) => el.remove());
+
       if (element.tagName === "LI" && element.querySelector("ul")) {
         const ul = element.querySelector("ul");
 
@@ -124,10 +129,13 @@ const processElement = (
           if (matchingNestedItems.length > 0) {
             const newUl = document.createElement("ul");
             matchingNestedItems.forEach((item) => {
-              newUl.appendChild(item.cloneNode(true));
-            });
+              const nestedItemClone = item.cloneNode(true) as Element;
 
-            const clone = element.cloneNode(true) as Element;
+              const nestedElementsToRemove =
+                nestedItemClone.querySelectorAll(".figure_container");
+              nestedElementsToRemove.forEach((el) => el.remove());
+              newUl.appendChild(nestedItemClone);
+            });
 
             const oldUl = clone.querySelector("ul");
 
@@ -144,7 +152,7 @@ const processElement = (
       }
 
       return {
-        result: element.outerHTML,
+        result: clone.outerHTML,
         matchCount: 1,
       };
     }
@@ -163,11 +171,13 @@ const processElement = (
         matchCount += 1;
       }
     } else if (node.nodeType === Node.ELEMENT_NODE) {
-      const elementResult = processElement(
-        node as Element,
-        searchWords,
-        isKeyCombination
-      );
+      const elNode = node as Element;
+
+      if (elNode.classList.contains("figure_container")) {
+        return;
+      }
+
+      const elementResult = processElement(elNode, searchWords, isKeyCombination);
 
       if (elementResult.result) {
         result += elementResult.result;
@@ -232,13 +242,19 @@ const formatSearchResult = (text: string, searchWords: string[]): string => {
     const firstParagraph = tempDiv.querySelector("details > p, details > div > p");
 
     if (firstParagraph) {
-      return firstParagraph.outerHTML;
+      const cleanedParagraph = firstParagraph.cloneNode(true) as Element;
+      cleanedParagraph.querySelectorAll(".figure_container").forEach((el) => el.remove());
+
+      return cleanedParagraph.outerHTML;
     }
 
     const firstElement = tempDiv.firstElementChild;
 
     if (firstElement) {
-      return firstElement.outerHTML;
+      const cleanedElement = firstElement.cloneNode(true) as Element;
+      cleanedElement.querySelectorAll(".figure_container").forEach((el) => el.remove());
+
+      return cleanedElement.outerHTML;
     }
   }
 
@@ -293,13 +309,19 @@ const formatSearchResult = (text: string, searchWords: string[]): string => {
     const firstParagraph = tempDiv.querySelector("details > p, details > div > p");
 
     if (firstParagraph) {
-      return firstParagraph.outerHTML;
+      const cleanedParagraph = firstParagraph.cloneNode(true) as Element;
+      cleanedParagraph.querySelectorAll(".figure_container").forEach((el) => el.remove());
+
+      return cleanedParagraph.outerHTML;
     }
 
     const firstElement = tempDiv.firstElementChild;
 
     if (firstElement) {
-      return firstElement.outerHTML;
+      const cleanedElement = firstElement.cloneNode(true) as Element;
+      cleanedElement.querySelectorAll(".figure_container").forEach((el) => el.remove());
+
+      return cleanedElement.outerHTML;
     }
 
     return "";
@@ -355,7 +377,14 @@ export const useSearchLogic = (query: string, isPageLoaded: boolean) => {
         const tag = detail.getAttribute("data-tags") ?? "";
 
         const content = Array.from(detail.querySelectorAll<HTMLParagraphElement>("p"))
-          .map((el) => el.outerHTML)
+          .map((el) => {
+            const clone = el.cloneNode(true) as Element;
+            clone
+              .querySelectorAll(".figure_container")
+              .forEach((elToRemove) => elToRemove.remove());
+
+            return clone.outerHTML;
+          })
           .filter(Boolean)
           .join("\n");
 
@@ -464,7 +493,12 @@ export const useSearchLogic = (query: string, isPageLoaded: boolean) => {
 
         const listContent = Array.from(detail.querySelectorAll<HTMLUListElement>("ul"))
           .map((ul) => {
-            const ulText = stripHtml(ul.outerHTML);
+            const ulClone = ul.cloneNode(true) as Element;
+            ulClone
+              .querySelectorAll(".figure_container")
+              .forEach((elToRemove) => elToRemove.remove());
+
+            const ulText = stripHtml(ulClone.outerHTML);
 
             const normalizedUlText = normalizeText(ulText);
 
@@ -472,7 +506,7 @@ export const useSearchLogic = (query: string, isPageLoaded: boolean) => {
               searchWords.length === 0 ||
               searchWords.some((word) => normalizedUlText.includes(normalizeText(word)));
 
-            return hasMatch ? ul.outerHTML : "";
+            return hasMatch ? ulClone.outerHTML : "";
           })
           .filter(Boolean)
           .join("\n");
