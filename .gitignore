@@ -27,3 +27,4 @@ TODO.md
 .cursor
 public/legacy/css/styles.css
 *.code-workspace
+.husky
