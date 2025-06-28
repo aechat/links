@@ -715,24 +715,44 @@ const PRWhereFind: React.FC = () => {
           </thead>
           <tbody>
             <tr>
-              <td>Баланс</td>
-              <td>Balance</td>
+              <td>
+                <mark className="plugin">Баланс</mark>
+              </td>
+              <td>
+                <mark className="plugin">Balance</mark>
+              </td>
             </tr>
             <tr>
-              <td>Без звука</td>
-              <td>Mute</td>
+              <td>
+                <mark className="plugin">Без звука</mark>
+              </td>
+              <td>
+                <mark className="plugin">Mute</mark>
+              </td>
             </tr>
             <tr>
-              <td>Бинауральный - Ambisonics</td>
-              <td>Binauralizer - Ambisonics</td>
+              <td>
+                <mark className="plugin">Бинауральный - Ambisonics</mark>
+              </td>
+              <td>
+                <mark className="plugin">Binauralizer - Ambisonics</mark>
+              </td>
             </tr>
             <tr>
-              <td>Громкость</td>
-              <td>Volume</td>
+              <td>
+                <mark className="plugin">Громкость</mark>
+              </td>
+              <td>
+                <mark className="plugin">Volume</mark>
+              </td>
             </tr>
             <tr>
-              <td>Панорамирование - Ambisonics</td>
-              <td>Panner - Ambisonics</td>
+              <td>
+                <mark className="plugin">Панорамирование - Ambisonics</mark>
+              </td>
+              <td>
+                <mark className="plugin">Panner - Ambisonics</mark>
+              </td>
             </tr>
           </tbody>
         </table>
@@ -747,43 +767,81 @@ const PRWhereFind: React.FC = () => {
           <tbody>
             <tr>
               <td>-</td>
-              <td>DeEsser</td>
+              <td>
+                <mark className="plugin">DeEsser</mark>
+              </td>
             </tr>
             <tr>
-              <td>Громкость канала</td>
-              <td>Channel Volume</td>
+              <td>
+                <mark className="plugin">Громкость канала</mark>
+              </td>
+              <td>
+                <mark className="plugin">Channel Volume</mark>
+              </td>
             </tr>
             <tr>
-              <td>Динамика</td>
-              <td>Dynamics</td>
+              <td>
+                <mark className="plugin">Динамика</mark>
+              </td>
+              <td>
+                <mark className="plugin">Dynamics</mark>
+              </td>
             </tr>
             <tr>
-              <td>Жесткий Ограничитель</td>
-              <td>Hard Limiter</td>
+              <td>
+                <mark className="plugin">Жесткий Ограничитель</mark>
+              </td>
+              <td>
+                <mark className="plugin">Hard Limiter</mark>
+              </td>
             </tr>
             <tr>
-              <td>Компрессор с трубчатым моделированием</td>
-              <td>Tube-modeled Compressor</td>
+              <td>
+                <mark className="plugin">Компрессор с трубчатым моделированием</mark>
+              </td>
+              <td>
+                <mark className="plugin">Tube-modeled Compressor</mark>
+              </td>
             </tr>
             <tr>
-              <td>Микширование каналов</td>
-              <td>Channel Mixer</td>
+              <td>
+                <mark className="plugin">Микширование каналов</mark>
+              </td>
+              <td>
+                <mark className="plugin">Channel Mixer</mark>
+              </td>
             </tr>
             <tr>
-              <td>Многополосный компрессор</td>
-              <td>Multiband Compressor</td>
+              <td>
+                <mark className="plugin">Многополосный компрессор</mark>
+              </td>
+              <td>
+                <mark className="plugin">Multiband Compressor</mark>
+              </td>
             </tr>
             <tr>
-              <td>Обработка динамических характеристик</td>
-              <td>Dynamic Processing</td>
+              <td>
+                <mark className="plugin">Обработка динамических характеристик</mark>
+              </td>
+              <td>
+                <mark className="plugin">Dynamic Processing</mark>
+              </td>
             </tr>
             <tr>
-              <td>Однополосый компрессор</td>
-              <td>Single-band Compressor</td>
+              <td>
+                <mark className="plugin">Однополосый компрессор</mark>
+              </td>
+              <td>
+                <mark className="plugin">Single-band Compressor</mark>
+              </td>
             </tr>
             <tr>
-              <td>Усилить</td>
-              <td>Amplify</td>
+              <td>
+                <mark className="plugin">Усилить</mark>
+              </td>
+              <td>
+                <mark className="plugin">Amplify</mark>
+              </td>
             </tr>
           </tbody>
         </table>
@@ -797,16 +855,28 @@ const PRWhereFind: React.FC = () => {
           </thead>
           <tbody>
             <tr>
-              <td>Аналоговая задержка</td>
-              <td>Analog Delay</td>
+              <td>
+                <mark className="plugin">Аналоговая задержка</mark>
+              </td>
+              <td>
+                <mark className="plugin">Analog Delay</mark>
+              </td>
             </tr>
             <tr>
-              <td>Задержка</td>
-              <td>Delay</td>
+              <td>
+                <mark className="plugin">Задержка</mark>
+              </td>
+              <td>
+                <mark className="plugin">Delay</mark>
+              </td>
             </tr>
             <tr>
-              <td>Многократное эхо</td>
-              <td>Multitap Delay</td>
+              <td>
+                <mark className="plugin">Многократное эхо</mark>
+              </td>
+              <td>
+                <mark className="plugin">Multitap Delay</mark>
+              </td>
             </tr>
           </tbody>
         </table>
@@ -820,60 +890,116 @@ const PRWhereFind: React.FC = () => {
           </thead>
           <tbody>
             <tr>
-              <td>Бас</td>
-              <td>Bass</td>
+              <td>
+                <mark className="plugin">Бас</mark>
+              </td>
+              <td>
+                <mark className="plugin">Bass</mark>
+              </td>
             </tr>
             <tr>
-              <td>Верхние частоты</td>
-              <td>Treble</td>
+              <td>
+                <mark className="plugin">Верхние частоты</mark>
+              </td>
+              <td>
+                <mark className="plugin">Treble</mark>
+              </td>
             </tr>
             <tr>
-              <td>Графический эквалайзер (10 полос)</td>
-              <td>Graphic Equalizer (10 Bands)</td>
+              <td>
+                <mark className="plugin">Графический эквалайзер (10 полос)</mark>
+              </td>
+              <td>
+                <mark className="plugin">Graphic Equalizer (10 Bands)</mark>
+              </td>
             </tr>
             <tr>
-              <td>Графический эквалайзер (20 полос)</td>
-              <td>Graphic Equalizer (20 Bands)</td>
+              <td>
+                <mark className="plugin">Графический эквалайзер (20 полос)</mark>
+              </td>
+              <td>
+                <mark className="plugin">Graphic Equalizer (20 Bands)</mark>
+              </td>
             </tr>
             <tr>
-              <td>Графический эквалайзер (30 полос)</td>
-              <td>Graphic Equalizer (30 Bands)</td>
+              <td>
+                <mark className="plugin">Графический эквалайзер (30 полос)</mark>
+              </td>
+              <td>
+                <mark className="plugin">Graphic Equalizer (30 Bands)</mark>
+              </td>
             </tr>
             <tr>
-              <td>Научный фильтр</td>
-              <td>Scientific Filter</td>
+              <td>
+                <mark className="plugin">Научный фильтр</mark>
+              </td>
+              <td>
+                <mark className="plugin">Scientific Filter</mark>
+              </td>
             </tr>
             <tr>
-              <td>Параметрический эквалайзер</td>
-              <td>Parametric Equalizer</td>
+              <td>
+                <mark className="plugin">Параметрический эквалайзер</mark>
+              </td>
+              <td>
+                <mark className="plugin">Parametric Equalizer</mark>
+              </td>
             </tr>
             <tr>
-              <td>Полоса пропускания</td>
-              <td>Bandpass</td>
+              <td>
+                <mark className="plugin">Полоса пропускания</mark>
+              </td>
+              <td>
+                <mark className="plugin">Bandpass</mark>
+              </td>
             </tr>
             <tr>
-              <td>Простой параметрический эквалайзер</td>
-              <td>Simple Parametric EQ</td>
+              <td>
+                <mark className="plugin">Простой параметрический эквалайзер</mark>
+              </td>
+              <td>
+                <mark className="plugin">Simple Parametric EQ</mark>
+              </td>
             </tr>
             <tr>
-              <td>Простой узкополосный блокирующий фильтр</td>
-              <td>Simple Notch Filter</td>
+              <td>
+                <mark className="plugin">Простой узкополосный блокирующий фильтр</mark>
+              </td>
+              <td>
+                <mark className="plugin">Simple Notch Filter</mark>
+              </td>
             </tr>
             <tr>
-              <td>Узкополосный блокирующий фильтр</td>
-              <td>Notch Filter</td>
+              <td>
+                <mark className="plugin">Узкополосный блокирующий фильтр</mark>
+              </td>
+              <td>
+                <mark className="plugin">Notch Filter</mark>
+              </td>
             </tr>
             <tr>
-              <td>Фильтр FFT</td>
-              <td>FFT Filter</td>
+              <td>
+                <mark className="plugin">Фильтр FFT</mark>
+              </td>
+              <td>
+                <mark className="plugin">FFT Filter</mark>
+              </td>
             </tr>
             <tr>
-              <td>Фильтр высоких частот</td>
-              <td>Lowpass</td>
+              <td>
+                <mark className="plugin">Фильтр высоких частот</mark>
+              </td>
+              <td>
+                <mark className="plugin">Lowpass</mark>
+              </td>
             </tr>
             <tr>
-              <td>Фильтр низких частот</td>
-              <td>Highpass</td>
+              <td>
+                <mark className="plugin">Фильтр низких частот</mark>
+              </td>
+              <td>
+                <mark className="plugin">Highpass</mark>
+              </td>
             </tr>
           </tbody>
         </table>
@@ -888,15 +1014,25 @@ const PRWhereFind: React.FC = () => {
           <tbody>
             <tr>
               <td>-</td>
-              <td>Phaser</td>
+              <td>
+                <mark className="plugin">Phaser</mark>
+              </td>
             </tr>
             <tr>
-              <td>Флэнжер</td>
-              <td>Flanger</td>
+              <td>
+                <mark className="plugin">Флэнжер</mark>
+              </td>
+              <td>
+                <mark className="plugin">Flanger</mark>
+              </td>
             </tr>
             <tr>
-              <td>Хор/флэнжер</td>
-              <td>Chorus/Flanger</td>
+              <td>
+                <mark className="plugin">Хор/флэнжер</mark>
+              </td>
+              <td>
+                <mark className="plugin">Chorus/Flanger</mark>
+              </td>
             </tr>
           </tbody>
         </table>
@@ -911,19 +1047,33 @@ const PRWhereFind: React.FC = () => {
           <tbody>
             <tr>
               <td>-</td>
-              <td>DeHummer</td>
+              <td>
+                <mark className="plugin">DeHummer</mark>
+              </td>
             </tr>
             <tr>
-              <td>Автоматическое удаление щелчков</td>
-              <td>Automatic Click Remover</td>
+              <td>
+                <mark className="plugin">Автоматическое удаление щелчков</mark>
+              </td>
+              <td>
+                <mark className="plugin">Automatic Click Remover</mark>
+              </td>
             </tr>
             <tr>
-              <td>Удалить эхо</td>
-              <td>DeReverb</td>
+              <td>
+                <mark className="plugin">Удалить эхо</mark>
+              </td>
+              <td>
+                <mark className="plugin">DeReverb</mark>
+              </td>
             </tr>
             <tr>
-              <td>Уменьшение шума</td>
-              <td>DeNoise</td>
+              <td>
+                <mark className="plugin">Уменьшение шума</mark>
+              </td>
+              <td>
+                <mark className="plugin">DeNoise</mark>
+              </td>
             </tr>
           </tbody>
         </table>
@@ -937,16 +1087,28 @@ const PRWhereFind: React.FC = () => {
           </thead>
           <tbody>
             <tr>
-              <td>Реверберация витка</td>
-              <td>Convolution Reverb</td>
+              <td>
+                <mark className="plugin">Реверберация витка</mark>
+              </td>
+              <td>
+                <mark className="plugin">Convolution Reverb</mark>
+              </td>
             </tr>
             <tr>
-              <td>Реверберация окружающего звучания</td>
-              <td>Surround Reverb</td>
+              <td>
+                <mark className="plugin">Реверберация окружающего звучания</mark>
+              </td>
+              <td>
+                <mark className="plugin">Surround Reverb</mark>
+              </td>
             </tr>
             <tr>
-              <td>Студийная реверберация</td>
-              <td>Studio Reverb</td>
+              <td>
+                <mark className="plugin">Студийная реверберация</mark>
+              </td>
+              <td>
+                <mark className="plugin">Studio Reverb</mark>
+              </td>
             </tr>
           </tbody>
         </table>
@@ -961,43 +1123,81 @@ const PRWhereFind: React.FC = () => {
           <tbody>
             <tr>
               <td>-</td>
-              <td>Loudness Radar</td>
+              <td>
+                <mark className="plugin">Loudness Radar</mark>
+              </td>
             </tr>
             <tr>
-              <td>Заполнить левый правым</td>
-              <td>Fill Left with Right</td>
+              <td>
+                <mark className="plugin">Заполнить левый правым</mark>
+              </td>
+              <td>
+                <mark className="plugin">Fill Left with Right</mark>
+              </td>
             </tr>
             <tr>
-              <td>Заполнить правый левым</td>
-              <td>Fill Right with Left</td>
+              <td>
+                <mark className="plugin">Заполнить правый левым</mark>
+              </td>
+              <td>
+                <mark className="plugin">Fill Right with Left</mark>
+              </td>
             </tr>
             <tr>
-              <td>Измеритель громкости</td>
-              <td>Loudness Meter</td>
+              <td>
+                <mark className="plugin">Измеритель громкости</mark>
+              </td>
+              <td>
+                <mark className="plugin">Loudness Meter</mark>
+              </td>
             </tr>
             <tr>
-              <td>Искажение</td>
-              <td>Distortion</td>
+              <td>
+                <mark className="plugin">Искажение</mark>
+              </td>
+              <td>
+                <mark className="plugin">Distortion</mark>
+              </td>
             </tr>
             <tr>
-              <td>Мастеринг</td>
-              <td>Mastering</td>
+              <td>
+                <mark className="plugin">Мастеринг</mark>
+              </td>
+              <td>
+                <mark className="plugin">Mastering</mark>
+              </td>
             </tr>
             <tr>
-              <td>Набор для гитары</td>
-              <td>GuitarSuite</td>
+              <td>
+                <mark className="plugin">Набор для гитары</mark>
+              </td>
+              <td>
+                <mark className="plugin">GuitarSuite</mark>
+              </td>
             </tr>
             <tr>
-              <td>Обратить</td>
-              <td>Invert</td>
+              <td>
+                <mark className="plugin">Обратить</mark>
+              </td>
+              <td>
+                <mark className="plugin">Invert</mark>
+              </td>
             </tr>
             <tr>
-              <td>Поменять каналы</td>
-              <td>Swap Channels</td>
+              <td>
+                <mark className="plugin">Поменять каналы</mark>
+              </td>
+              <td>
+                <mark className="plugin">Swap Channels</mark>
+              </td>
             </tr>
             <tr>
-              <td>Расширитель вокала</td>
-              <td>Vocal Enhancer</td>
+              <td>
+                <mark className="plugin">Расширитель вокала</mark>
+              </td>
+              <td>
+                <mark className="plugin">Vocal Enhancer</mark>
+              </td>
             </tr>
           </tbody>
         </table>
@@ -1011,8 +1211,12 @@ const PRWhereFind: React.FC = () => {
           </thead>
           <tbody>
             <tr>
-              <td>Расширение стерео</td>
-              <td>Stereo Expander</td>
+              <td>
+                <mark className="plugin">Расширение стерео</mark>
+              </td>
+              <td>
+                <mark className="plugin">Stereo Expander</mark>
+              </td>
             </tr>
           </tbody>
         </table>
@@ -1026,8 +1230,12 @@ const PRWhereFind: React.FC = () => {
           </thead>
           <tbody>
             <tr>
-              <td>Изменение высоты звука</td>
-              <td>Pitch Shifter</td>
+              <td>
+                <mark className="plugin">Изменение высоты звука</mark>
+              </td>
+              <td>
+                <mark className="plugin">Pitch Shifter</mark>
+              </td>
             </tr>
           </tbody>
         </table>
@@ -1042,16 +1250,28 @@ const PRWhereFind: React.FC = () => {
           </thead>
           <tbody>
             <tr>
-              <td>Постоянная мощность</td>
-              <td>Constant Power</td>
+              <td>
+                <mark className="plugin">Постоянная мощность</mark>
+              </td>
+              <td>
+                <mark className="plugin">Constant Power</mark>
+              </td>
             </tr>
             <tr>
-              <td>Постоянное усиление</td>
-              <td>Constant Gain</td>
+              <td>
+                <mark className="plugin">Постоянное усиление</mark>
+              </td>
+              <td>
+                <mark className="plugin">Constant Gain</mark>
+              </td>
             </tr>
             <tr>
-              <td>Экспоненциальное затухание</td>
-              <td>Exponential Fade</td>
+              <td>
+                <mark className="plugin">Экспоненциальное затухание</mark>
+              </td>
+              <td>
+                <mark className="plugin">Exponential Fade</mark>
+              </td>
             </tr>
           </tbody>
         </table>
@@ -1066,16 +1286,28 @@ const PRWhereFind: React.FC = () => {
           </thead>
           <tbody>
             <tr>
-              <td>Метаданные и вставка временного кода</td>
-              <td>Metadata & Timecode Burn-in</td>
+              <td>
+                <mark className="plugin">Метаданные и вставка временного кода</mark>
+              </td>
+              <td>
+                <mark className="plugin">Metadata & Timecode Burn-in</mark>
+              </td>
             </tr>
             <tr>
-              <td>Простой текст</td>
-              <td>Simple Text</td>
+              <td>
+                <mark className="plugin">Простой текст</mark>
+              </td>
+              <td>
+                <mark className="plugin">Simple Text</mark>
+              </td>
             </tr>
             <tr>
-              <td>Согласование SDR</td>
-              <td>SDR Conform</td>
+              <td>
+                <mark className="plugin">Согласование SDR</mark>
+              </td>
+              <td>
+                <mark className="plugin">SDR Conform</mark>
+              </td>
             </tr>
           </tbody>
         </table>
@@ -1089,48 +1321,92 @@ const PRWhereFind: React.FC = () => {
           </thead>
           <tbody>
             <tr>
-              <td>Градиенты цвета VR</td>
-              <td>VR Color Gradients</td>
+              <td>
+                <mark className="plugin">Градиенты цвета VR</mark>
+              </td>
+              <td>
+                <mark className="plugin">VR Color Gradients</mark>
+              </td>
             </tr>
             <tr>
-              <td>Повернуть сферу VR</td>
-              <td>VR Rotate Sphere</td>
+              <td>
+                <mark className="plugin">Повернуть сферу VR</mark>
+              </td>
+              <td>
+                <mark className="plugin">VR Rotate Sphere</mark>
+              </td>
             </tr>
             <tr>
-              <td>Плоскость в сферу VR</td>
-              <td>VR Plate to Sphere</td>
+              <td>
+                <mark className="plugin">Плоскость в сферу VR</mark>
+              </td>
+              <td>
+                <mark className="plugin">VR Plate to Sphere</mark>
+              </td>
             </tr>
             <tr>
-              <td>Понижение уровня шума VR</td>
-              <td>VR De-Noise</td>
+              <td>
+                <mark className="plugin">Понижение уровня шума VR</mark>
+              </td>
+              <td>
+                <mark className="plugin">VR De-Noise</mark>
+              </td>
             </tr>
             <tr>
-              <td>Проекция VR</td>
-              <td>VR Projection</td>
+              <td>
+                <mark className="plugin">Проекция VR</mark>
+              </td>
+              <td>
+                <mark className="plugin">VR Projection</mark>
+              </td>
             </tr>
             <tr>
-              <td>Размытие VR</td>
-              <td>VR Blur</td>
+              <td>
+                <mark className="plugin">Размытие VR</mark>
+              </td>
+              <td>
+                <mark className="plugin">VR Blur</mark>
+              </td>
             </tr>
             <tr>
-              <td>Свечение VR</td>
-              <td>VR Glow</td>
+              <td>
+                <mark className="plugin">Свечение VR</mark>
+              </td>
+              <td>
+                <mark className="plugin">VR Glow</mark>
+              </td>
             </tr>
             <tr>
-              <td>Увеличить четкость VR</td>
-              <td>VR Sharpen</td>
+              <td>
+                <mark className="plugin">Увеличить четкость VR</mark>
+              </td>
+              <td>
+                <mark className="plugin">VR Sharpen</mark>
+              </td>
             </tr>
             <tr>
-              <td>Фрактальный шум VR</td>
-              <td>VR Fractal Noise</td>
+              <td>
+                <mark className="plugin">Фрактальный шум VR</mark>
+              </td>
+              <td>
+                <mark className="plugin">VR Fractal Noise</mark>
+              </td>
             </tr>
             <tr>
-              <td>Хроматические абберации VR</td>
-              <td>VR Chromatic Aberrations</td>
+              <td>
+                <mark className="plugin">Хроматические абберации VR</mark>
+              </td>
+              <td>
+                <mark className="plugin">VR Chromatic Aberrations</mark>
+              </td>
             </tr>
             <tr>
-              <td>Цифровой сбой VR</td>
-              <td>VR Digital Glitch</td>
+              <td>
+                <mark className="plugin">Цифровой сбой VR</mark>
+              </td>
+              <td>
+                <mark className="plugin">VR Digital Glitch</mark>
+              </td>
             </tr>
           </tbody>
         </table>
@@ -1144,12 +1420,20 @@ const PRWhereFind: React.FC = () => {
           </thead>
           <tbody>
             <tr>
-              <td>Время постеризации</td>
-              <td>Posterize Time</td>
+              <td>
+                <mark className="plugin">Время постеризации</mark>
+              </td>
+              <td>
+                <mark className="plugin">Posterize Time</mark>
+              </td>
             </tr>
             <tr>
-              <td>Эхо</td>
-              <td>Echo</td>
+              <td>
+                <mark className="plugin">Эхо</mark>
+              </td>
+              <td>
+                <mark className="plugin">Echo</mark>
+              </td>
             </tr>
           </tbody>
         </table>
@@ -1163,20 +1447,36 @@ const PRWhereFind: React.FC = () => {
           </thead>
           <tbody>
             <tr>
-              <td>4-цветный градиент</td>
-              <td>4-Color Gradient</td>
+              <td>
+                <mark className="plugin">4-цветный градиент</mark>
+              </td>
+              <td>
+                <mark className="plugin">4-Color Gradient</mark>
+              </td>
             </tr>
             <tr>
-              <td>Блики</td>
-              <td>Lens Flare</td>
+              <td>
+                <mark className="plugin">Блики</mark>
+              </td>
+              <td>
+                <mark className="plugin">Lens Flare</mark>
+              </td>
             </tr>
             <tr>
-              <td>Градиент</td>
-              <td>Ramp</td>
+              <td>
+                <mark className="plugin">Градиент</mark>
+              </td>
+              <td>
+                <mark className="plugin">Ramp</mark>
+              </td>
             </tr>
             <tr>
-              <td>Молния</td>
-              <td>Lightning</td>
+              <td>
+                <mark className="plugin">Молния</mark>
+              </td>
+              <td>
+                <mark className="plugin">Lightning</mark>
+              </td>
             </tr>
           </tbody>
         </table>
@@ -1191,19 +1491,33 @@ const PRWhereFind: React.FC = () => {
           <tbody>
             <tr>
               <td>-</td>
-              <td>ProcAmp</td>
+              <td>
+                <mark className="plugin">ProcAmp</mark>
+              </td>
             </tr>
             <tr>
-              <td>Извлечь</td>
-              <td>Extract</td>
+              <td>
+                <mark className="plugin">Извлечь</mark>
+              </td>
+              <td>
+                <mark className="plugin">Extract</mark>
+              </td>
             </tr>
             <tr>
-              <td>Уровни</td>
-              <td>Levels</td>
+              <td>
+                <mark className="plugin">Уровни</mark>
+              </td>
+              <td>
+                <mark className="plugin">Levels</mark>
+              </td>
             </tr>
             <tr>
-              <td>Эффекты освещения</td>
-              <td>Lighting Effects</td>
+              <td>
+                <mark className="plugin">Эффекты освещения</mark>
+              </td>
+              <td>
+                <mark className="plugin">Lighting Effects</mark>
+              </td>
             </tr>
           </tbody>
         </table>
@@ -1217,48 +1531,92 @@ const PRWhereFind: React.FC = () => {
           </thead>
           <tbody>
             <tr>
-              <td>Вихревое смещение</td>
-              <td>Turbulent Displace</td>
+              <td>
+                <mark className="plugin">Вихревое смещение</mark>
+              </td>
+              <td>
+                <mark className="plugin">Turbulent Displace</mark>
+              </td>
             </tr>
             <tr>
-              <td>Волнообразная деформация</td>
-              <td>Wave Warp</td>
+              <td>
+                <mark className="plugin">Волнообразная деформация</mark>
+              </td>
+              <td>
+                <mark className="plugin">Wave Warp</mark>
+              </td>
             </tr>
             <tr>
-              <td>Зеркало</td>
-              <td>Mirror</td>
+              <td>
+                <mark className="plugin">Зеркало</mark>
+              </td>
+              <td>
+                <mark className="plugin">Mirror</mark>
+              </td>
             </tr>
             <tr>
-              <td>Искажение линзы</td>
-              <td>Lens Distortion</td>
+              <td>
+                <mark className="plugin">Искажение линзы</mark>
+              </td>
+              <td>
+                <mark className="plugin">Lens Distortion</mark>
+              </td>
             </tr>
             <tr>
-              <td>Привязка по углам</td>
-              <td>Corner Pin</td>
+              <td>
+                <mark className="plugin">Привязка по углам</mark>
+              </td>
+              <td>
+                <mark className="plugin">Corner Pin</mark>
+              </td>
             </tr>
             <tr>
-              <td>Скручивание</td>
-              <td>Twirl</td>
+              <td>
+                <mark className="plugin">Скручивание</mark>
+              </td>
+              <td>
+                <mark className="plugin">Twirl</mark>
+              </td>
             </tr>
             <tr>
-              <td>Смещение</td>
-              <td>Offset</td>
+              <td>
+                <mark className="plugin">Смещение</mark>
+              </td>
+              <td>
+                <mark className="plugin">Offset</mark>
+              </td>
             </tr>
             <tr>
-              <td>Стабилизатор деформации</td>
-              <td>Warp Stabilizer</td>
+              <td>
+                <mark className="plugin">Стабилизатор деформации</mark>
+              </td>
+              <td>
+                <mark className="plugin">Warp Stabilizer</mark>
+              </td>
             </tr>
             <tr>
-              <td>Сферизация</td>
-              <td>Spherize</td>
+              <td>
+                <mark className="plugin">Сферизация</mark>
+              </td>
+              <td>
+                <mark className="plugin">Spherize</mark>
+              </td>
             </tr>
             <tr>
-              <td>Увеличение</td>
-              <td>Magnify</td>
+              <td>
+                <mark className="plugin">Увеличение</mark>
+              </td>
+              <td>
+                <mark className="plugin">Magnify</mark>
+              </td>
             </tr>
             <tr>
-              <td>Устранение эффекта плавающего затвора</td>
-              <td>Rolling Shutter Repair</td>
+              <td>
+                <mark className="plugin">Устранение эффекта плавающего затвора</mark>
+              </td>
+              <td>
+                <mark className="plugin">Rolling Shutter Repair</mark>
+              </td>
             </tr>
           </tbody>
         </table>
@@ -1272,8 +1630,12 @@ const PRWhereFind: React.FC = () => {
           </thead>
           <tbody>
             <tr>
-              <td>Обратить</td>
-              <td>Invert</td>
+              <td>
+                <mark className="plugin">Обратить</mark>
+              </td>
+              <td>
+                <mark className="plugin">Invert</mark>
+              </td>
             </tr>
           </tbody>
         </table>
@@ -1287,20 +1649,36 @@ const PRWhereFind: React.FC = () => {
           </thead>
           <tbody>
             <tr>
-              <td>Гамма-коррекция</td>
-              <td>Gamma Correction</td>
+              <td>
+                <mark className="plugin">Гамма-коррекция</mark>
+              </td>
+              <td>
+                <mark className="plugin">Gamma Correction</mark>
+              </td>
             </tr>
             <tr>
-              <td>Замена цвета</td>
-              <td>Color Replace</td>
+              <td>
+                <mark className="plugin">Замена цвета</mark>
+              </td>
+              <td>
+                <mark className="plugin">Color Replace</mark>
+              </td>
             </tr>
             <tr>
-              <td>Фильтр цвета</td>
-              <td>Color Pass</td>
+              <td>
+                <mark className="plugin">Фильтр цвета</mark>
+              </td>
+              <td>
+                <mark className="plugin">Color Pass</mark>
+              </td>
             </tr>
             <tr>
-              <td>Черное и белое</td>
-              <td>Black & White</td>
+              <td>
+                <mark className="plugin">Черное и белое</mark>
+              </td>
+              <td>
+                <mark className="plugin">Black & White</mark>
+              </td>
             </tr>
           </tbody>
         </table>
@@ -1315,27 +1693,49 @@ const PRWhereFind: React.FC = () => {
           <tbody>
             <tr>
               <td>-</td>
-              <td>ASC CDL</td>
+              <td>
+                <mark className="plugin">ASC CDL</mark>
+              </td>
             </tr>
             <tr>
-              <td>Яркость и контрастность</td>
-              <td>Brightness & Contrast</td>
+              <td>
+                <mark className="plugin">Яркость и контрастность</mark>
+              </td>
+              <td>
+                <mark className="plugin">Brightness & Contrast</mark>
+              </td>
             </tr>
             <tr>
-              <td>Ограничитель видео</td>
-              <td>Video Limiter</td>
+              <td>
+                <mark className="plugin">Ограничитель видео</mark>
+              </td>
+              <td>
+                <mark className="plugin">Video Limiter</mark>
+              </td>
             </tr>
             <tr>
-              <td>Оттенок</td>
-              <td>Tint</td>
+              <td>
+                <mark className="plugin">Оттенок</mark>
+              </td>
+              <td>
+                <mark className="plugin">Tint</mark>
+              </td>
             </tr>
             <tr>
-              <td>Цвет Lumetri</td>
-              <td>Lumetri Color</td>
+              <td>
+                <mark className="plugin">Цвет Lumetri</mark>
+              </td>
+              <td>
+                <mark className="plugin">Lumetri Color</mark>
+              </td>
             </tr>
             <tr>
-              <td>Цветовой баланс</td>
-              <td>Color Balance</td>
+              <td>
+                <mark className="plugin">Цветовой баланс</mark>
+              </td>
+              <td>
+                <mark className="plugin">Color Balance</mark>
+              </td>
             </tr>
           </tbody>
         </table>
@@ -1349,16 +1749,28 @@ const PRWhereFind: React.FC = () => {
           </thead>
           <tbody>
             <tr>
-              <td>Градиентное вытеснение</td>
-              <td>Gradient Wipe</td>
+              <td>
+                <mark className="plugin">Градиентное вытеснение</mark>
+              </td>
+              <td>
+                <mark className="plugin">Gradient Wipe</mark>
+              </td>
             </tr>
             <tr>
-              <td>Линейное вытеснение</td>
-              <td>Linear Wipe</td>
+              <td>
+                <mark className="plugin">Линейное вытеснение</mark>
+              </td>
+              <td>
+                <mark className="plugin">Linear Wipe</mark>
+              </td>
             </tr>
             <tr>
-              <td>Растворение блоков</td>
-              <td>Block Dissolve</td>
+              <td>
+                <mark className="plugin">Растворение блоков</mark>
+              </td>
+              <td>
+                <mark className="plugin">Block Dissolve</mark>
+              </td>
             </tr>
           </tbody>
         </table>
@@ -1372,12 +1784,20 @@ const PRWhereFind: React.FC = () => {
           </thead>
           <tbody>
             <tr>
-              <td>Базовый 3D</td>
-              <td>Basic 3D</td>
+              <td>
+                <mark className="plugin">Базовый 3D</mark>
+              </td>
+              <td>
+                <mark className="plugin">Basic 3D</mark>
+              </td>
             </tr>
             <tr>
-              <td>Тень</td>
-              <td>Drop Shadow</td>
+              <td>
+                <mark className="plugin">Тень</mark>
+              </td>
+              <td>
+                <mark className="plugin">Drop Shadow</mark>
+              </td>
             </tr>
           </tbody>
         </table>
@@ -1391,28 +1811,52 @@ const PRWhereFind: React.FC = () => {
           </thead>
           <tbody>
             <tr>
-              <td>Автоматическое центрирование</td>
-              <td>Auto Reframe</td>
+              <td>
+                <mark className="plugin">Автоматическое центрирование</mark>
+              </td>
+              <td>
+                <mark className="plugin">Auto Reframe</mark>
+              </td>
             </tr>
             <tr>
-              <td>Зеркальное отражение по вертикали</td>
-              <td>Vertical Flip</td>
+              <td>
+                <mark className="plugin">Зеркальное отражение по вертикали</mark>
+              </td>
+              <td>
+                <mark className="plugin">Vertical Flip</mark>
+              </td>
             </tr>
             <tr>
-              <td>Зеркальное отражение по горизонтали</td>
-              <td>Horizontal Flip</td>
+              <td>
+                <mark className="plugin">Зеркальное отражение по горизонтали</mark>
+              </td>
+              <td>
+                <mark className="plugin">Horizontal Flip</mark>
+              </td>
             </tr>
             <tr>
-              <td>Обрезать</td>
-              <td>Crop</td>
+              <td>
+                <mark className="plugin">Обрезать</mark>
+              </td>
+              <td>
+                <mark className="plugin">Crop</mark>
+              </td>
             </tr>
             <tr>
-              <td>Преобразовать</td>
-              <td>Transform</td>
+              <td>
+                <mark className="plugin">Преобразовать</mark>
+              </td>
+              <td>
+                <mark className="plugin">Transform</mark>
+              </td>
             </tr>
             <tr>
-              <td>Растушевка границ</td>
-              <td>Edge Feather</td>
+              <td>
+                <mark className="plugin">Растушевка границ</mark>
+              </td>
+              <td>
+                <mark className="plugin">Edge Feather</mark>
+              </td>
             </tr>
           </tbody>
         </table>
@@ -1426,24 +1870,44 @@ const PRWhereFind: React.FC = () => {
           </thead>
           <tbody>
             <tr>
-              <td>Изменение альфа-канала</td>
-              <td>Alpha Adjust</td>
+              <td>
+                <mark className="plugin">Изменение альфа-канала</mark>
+              </td>
+              <td>
+                <mark className="plugin">Alpha Adjust</mark>
+              </td>
             </tr>
             <tr>
-              <td>Ключ Ultra</td>
-              <td>Ultra Key</td>
+              <td>
+                <mark className="plugin">Ключ Ultra</mark>
+              </td>
+              <td>
+                <mark className="plugin">Ultra Key</mark>
+              </td>
             </tr>
             <tr>
-              <td>Ключ маски дорожки</td>
-              <td>Track Matte Key</td>
+              <td>
+                <mark className="plugin">Ключ маски дорожки</mark>
+              </td>
+              <td>
+                <mark className="plugin">Track Matte Key</mark>
+              </td>
             </tr>
             <tr>
-              <td>Ключ яркости</td>
-              <td>Luma Key</td>
+              <td>
+                <mark className="plugin">Ключ яркости</mark>
+              </td>
+              <td>
+                <mark className="plugin">Luma Key</mark>
+              </td>
             </tr>
             <tr>
-              <td>Цветовой ключ</td>
-              <td>Color Key</td>
+              <td>
+                <mark className="plugin">Цветовой ключ</mark>
+              </td>
+              <td>
+                <mark className="plugin">Color Key</mark>
+              </td>
             </tr>
           </tbody>
         </table>
@@ -1457,28 +1921,54 @@ const PRWhereFind: React.FC = () => {
           </thead>
           <tbody>
             <tr>
-              <td>Контурная резкость</td>
-              <td>Unsharp Mask</td>
+              <td>
+                <mark className="plugin">Контурная резкость</mark>
+              </td>
+              <td>
+                <mark className="plugin">Unsharp Mask</mark>
+              </td>
             </tr>
             <tr>
-              <td>Направленное размытие</td>
-              <td>Directional Blur</td>
+              <td>
+                <mark className="plugin">Направленное размытие</mark>
+              </td>
+              <td>
+                <mark className="plugin">Directional Blur</mark>
+              </td>
             </tr>
             <tr>
-              <td>Размытие камеры</td>
-              <td>Camera Blur</td>
+              <td>
+                <mark className="plugin">Размытие камеры</mark>
+              </td>
+              <td>
+                <mark className="plugin">Camera Blur</mark>
+              </td>
             </tr>
             <tr>
-              <td>Размытие по Гауссу</td>
-              <td>Gaussian Blur</td>
+              <td>
+                <mark className="plugin">Размытие по Гауссу</mark>
+              </td>
+              <td>
+                <mark className="plugin">Gaussian Blur</mark>
+              </td>
             </tr>
             <tr>
-              <td>Увеличить четкость</td>
-              <td>Sharpen</td>
+              <td>
+                <mark className="plugin">Увеличить четкость</mark>
+              </td>
+              <td>
+                <mark className="plugin">Sharpen</mark>
+              </td>
             </tr>
             <tr>
-              <td>Уменьшить мерцание в чересстрочной развертке</td>
-              <td>Reduce Interlace Flicker</td>
+              <td>
+                <mark className="plugin">
+                  Уменьшить мерцание в чересстрочной развертке
+                </mark>
+              </td>
+              <td>
+                <mark className="plugin">Reduce Interlace Flicker</mark>
+              </td>
             </tr>
           </tbody>
         </table>
@@ -1492,40 +1982,76 @@ const PRWhereFind: React.FC = () => {
           </thead>
           <tbody>
             <tr>
-              <td>Выделение краев</td>
-              <td>Find Edges</td>
+              <td>
+                <mark className="plugin">Выделение краев</mark>
+              </td>
+              <td>
+                <mark className="plugin">Find Edges</mark>
+              </td>
             </tr>
             <tr>
-              <td>Мазки кистью</td>
-              <td>Brush Strokes</td>
+              <td>
+                <mark className="plugin">Мазки кистью</mark>
+              </td>
+              <td>
+                <mark className="plugin">Brush Strokes</mark>
+              </td>
             </tr>
             <tr>
-              <td>Мозаика</td>
-              <td>Mosaic</td>
+              <td>
+                <mark className="plugin">Мозаика</mark>
+              </td>
+              <td>
+                <mark className="plugin">Mosaic</mark>
+              </td>
             </tr>
             <tr>
-              <td>Постеризация</td>
-              <td>Posterize</td>
+              <td>
+                <mark className="plugin">Постеризация</mark>
+              </td>
+              <td>
+                <mark className="plugin">Posterize</mark>
+              </td>
             </tr>
             <tr>
-              <td>Проблесковый свет</td>
-              <td>Strobe Light</td>
+              <td>
+                <mark className="plugin">Проблесковый свет</mark>
+              </td>
+              <td>
+                <mark className="plugin">Strobe Light</mark>
+              </td>
             </tr>
             <tr>
-              <td>Репликация</td>
-              <td>Replicate</td>
+              <td>
+                <mark className="plugin">Репликация</mark>
+              </td>
+              <td>
+                <mark className="plugin">Replicate</mark>
+              </td>
             </tr>
             <tr>
-              <td>Свечение альфа-канала</td>
-              <td>Alpha Glow</td>
+              <td>
+                <mark className="plugin">Свечение альфа-канала</mark>
+              </td>
+              <td>
+                <mark className="plugin">Alpha Glow</mark>
+              </td>
             </tr>
             <tr>
-              <td>Цветовое тиснение</td>
-              <td>Color Emboss</td>
+              <td>
+                <mark className="plugin">Цветовое тиснение</mark>
+              </td>
+              <td>
+                <mark className="plugin">Color Emboss</mark>
+              </td>
             </tr>
             <tr>
-              <td>Шерховатые края</td>
-              <td>Roughen Edges</td>
+              <td>
+                <mark className="plugin">Шерховатые края</mark>
+              </td>
+              <td>
+                <mark className="plugin">Roughen Edges</mark>
+              </td>
             </tr>
           </tbody>
         </table>
@@ -1540,11 +2066,17 @@ const PRWhereFind: React.FC = () => {
           <tbody>
             <tr>
               <td>-</td>
-              <td>ToneMapper</td>
+              <td>
+                <mark className="plugin">ToneMapper</mark>
+              </td>
             </tr>
             <tr>
-              <td>Конвертер Cineon</td>
-              <td>Cineon Converter</td>
+              <td>
+                <mark className="plugin">Конвертер Cineon</mark>
+              </td>
+              <td>
+                <mark className="plugin">Cineon Converter</mark>
+              </td>
             </tr>
           </tbody>
         </table>
@@ -1558,8 +2090,12 @@ const PRWhereFind: React.FC = () => {
           </thead>
           <tbody>
             <tr>
-              <td>Шум</td>
-              <td>Noise</td>
+              <td>
+                <mark className="plugin">Шум</mark>
+              </td>
+              <td>
+                <mark className="plugin">Noise</mark>
+              </td>
             </tr>
           </tbody>
         </table>
@@ -1574,36 +2110,68 @@ const PRWhereFind: React.FC = () => {
           </thead>
           <tbody>
             <tr>
-              <td>Вытеснение диафрагмы VR</td>
-              <td>VR Iris Wipe</td>
+              <td>
+                <mark className="plugin">Вытеснение диафрагмы VR</mark>
+              </td>
+              <td>
+                <mark className="plugin">VR Iris Wipe</mark>
+              </td>
             </tr>
             <tr>
-              <td>Градиентное вытеснение VR</td>
-              <td>VR Gradient Wipe</td>
+              <td>
+                <mark className="plugin">Градиентное вытеснение VR</mark>
+              </td>
+              <td>
+                <mark className="plugin">VR Gradient Wipe</mark>
+              </td>
             </tr>
             <tr>
-              <td>Масштабирование Мебиуса VR</td>
-              <td>VR Mobius Zoom</td>
+              <td>
+                <mark className="plugin">Масштабирование Мебиуса VR</mark>
+              </td>
+              <td>
+                <mark className="plugin">VR Mobius Zoom</mark>
+              </td>
             </tr>
             <tr>
-              <td>Световые лучи VR</td>
-              <td>VR Light Rays</td>
+              <td>
+                <mark className="plugin">Световые лучи VR</mark>
+              </td>
+              <td>
+                <mark className="plugin">VR Light Rays</mark>
+              </td>
             </tr>
             <tr>
-              <td>Случайные прямоугольники VR</td>
-              <td>VR Random Blocks</td>
+              <td>
+                <mark className="plugin">Случайные прямоугольники VR</mark>
+              </td>
+              <td>
+                <mark className="plugin">VR Random Blocks</mark>
+              </td>
             </tr>
             <tr>
-              <td>Сферическое размытие VR</td>
-              <td>VR Spherical Blur</td>
+              <td>
+                <mark className="plugin">Сферическое размытие VR</mark>
+              </td>
+              <td>
+                <mark className="plugin">VR Spherical Blur</mark>
+              </td>
             </tr>
             <tr>
-              <td>Утечки света VR</td>
-              <td>VR Light Leaks</td>
+              <td>
+                <mark className="plugin">Утечки света VR</mark>
+              </td>
+              <td>
+                <mark className="plugin">VR Light Leaks</mark>
+              </td>
             </tr>
             <tr>
-              <td>Утечки цветности VR</td>
-              <td>VR Chroma Leaks</td>
+              <td>
+                <mark className="plugin">Утечки цветности VR</mark>
+              </td>
+              <td>
+                <mark className="plugin">VR Chroma Leaks</mark>
+              </td>
             </tr>
           </tbody>
         </table>
@@ -1618,67 +2186,127 @@ const PRWhereFind: React.FC = () => {
           <tbody>
             <tr>
               <td>-</td>
-              <td>Barn Doors</td>
+              <td>
+                <mark className="plugin">Barn Doors</mark>
+              </td>
             </tr>
             <tr>
               <td>-</td>
-              <td>Inset</td>
+              <td>
+                <mark className="plugin">Inset</mark>
+              </td>
             </tr>
             <tr>
-              <td>Вытеснение</td>
-              <td>Wipe</td>
+              <td>
+                <mark className="plugin">Вытеснение</mark>
+              </td>
+              <td>
+                <mark className="plugin">Wipe</mark>
+              </td>
             </tr>
             <tr>
-              <td>Вытеснение в шахматном порядке</td>
-              <td>Checker Wipe</td>
+              <td>
+                <mark className="plugin">Вытеснение в шахматном порядке</mark>
+              </td>
+              <td>
+                <mark className="plugin">Checker Wipe</mark>
+              </td>
             </tr>
             <tr>
-              <td>Вытеснение полосами</td>
-              <td>Band Wipe</td>
+              <td>
+                <mark className="plugin">Вытеснение полосами</mark>
+              </td>
+              <td>
+                <mark className="plugin">Band Wipe</mark>
+              </td>
             </tr>
             <tr>
-              <td>Жалюзи</td>
-              <td>Venetian Blinds</td>
+              <td>
+                <mark className="plugin">Жалюзи</mark>
+              </td>
+              <td>
+                <mark className="plugin">Venetian Blinds</mark>
+              </td>
             </tr>
             <tr>
-              <td>Зигзагообразные блоки</td>
-              <td>Zig-Zag Blocks</td>
+              <td>
+                <mark className="plugin">Зигзагообразные блоки</mark>
+              </td>
+              <td>
+                <mark className="plugin">Zig-Zag Blocks</mark>
+              </td>
             </tr>
             <tr>
-              <td>Квадраты по спирали</td>
-              <td>Spiral Boxes</td>
+              <td>
+                <mark className="plugin">Квадраты по спирали</mark>
+              </td>
+              <td>
+                <mark className="plugin">Spiral Boxes</mark>
+              </td>
             </tr>
             <tr>
-              <td>Клиновидное вытеснение</td>
-              <td>Wedge Wipe</td>
+              <td>
+                <mark className="plugin">Клиновидное вытеснение</mark>
+              </td>
+              <td>
+                <mark className="plugin">Wedge Wipe</mark>
+              </td>
             </tr>
             <tr>
-              <td>Колесо</td>
-              <td>Pinwheel</td>
+              <td>
+                <mark className="plugin">Колесо</mark>
+              </td>
+              <td>
+                <mark className="plugin">Pinwheel</mark>
+              </td>
             </tr>
             <tr>
-              <td>Радиальное вытеснение</td>
-              <td>Radial Wipe</td>
+              <td>
+                <mark className="plugin">Радиальное вытеснение</mark>
+              </td>
+              <td>
+                <mark className="plugin">Radial Wipe</mark>
+              </td>
             </tr>
             <tr>
-              <td>Разбрызгивание краски</td>
-              <td>Paint Splatter</td>
+              <td>
+                <mark className="plugin">Разбрызгивание краски</mark>
+              </td>
+              <td>
+                <mark className="plugin">Paint Splatter</mark>
+              </td>
             </tr>
             <tr>
-              <td>Случайное вытеснение</td>
-              <td>Random Wipe</td>
+              <td>
+                <mark className="plugin">Случайное вытеснение</mark>
+              </td>
+              <td>
+                <mark className="plugin">Random Wipe</mark>
+              </td>
             </tr>
             <tr>
-              <td>Случайные прямоугольники</td>
-              <td>Random Blocks</td>
+              <td>
+                <mark className="plugin">Случайные прямоугольники</mark>
+              </td>
+              <td>
+                <mark className="plugin">Random Blocks</mark>
+              </td>
             </tr>
             <tr>
-              <td>Циферблат</td>
-              <td>Clock Wipe</td>
+              <td>
+                <mark className="plugin">Циферблат</mark>
+              </td>
+              <td>
+                <mark className="plugin">Clock Wipe</mark>
+              </td>
             </tr>
             <tr>
-              <td>Шахматная доска</td>
-              <td>CheckerBoard</td>
+              <td>
+                <mark className="plugin">Шахматная доска</mark>
+              </td>
+              <td>
+                <mark className="plugin">CheckerBoard</mark>
+              </td>
             </tr>
           </tbody>
         </table>
@@ -1692,20 +2320,36 @@ const PRWhereFind: React.FC = () => {
           </thead>
           <tbody>
             <tr>
-              <td>Диафрагма в виде квадрата</td>
-              <td>Iris Box</td>
+              <td>
+                <mark className="plugin">Диафрагма в виде квадрата</mark>
+              </td>
+              <td>
+                <mark className="plugin">Iris Box</mark>
+              </td>
             </tr>
             <tr>
-              <td>Диафрагма в виде креста</td>
-              <td>Iris Cross</td>
+              <td>
+                <mark className="plugin">Диафрагма в виде креста</mark>
+              </td>
+              <td>
+                <mark className="plugin">Iris Cross</mark>
+              </td>
             </tr>
             <tr>
-              <td>Диафрагма в виде круга</td>
-              <td>Iris Round</td>
+              <td>
+                <mark className="plugin">Диафрагма в виде круга</mark>
+              </td>
+              <td>
+                <mark className="plugin">Iris Round</mark>
+              </td>
             </tr>
             <tr>
-              <td>Диафрагма в виде ромба</td>
-              <td>Iris Diamond</td>
+              <td>
+                <mark className="plugin">Диафрагма в виде ромба</mark>
+              </td>
+              <td>
+                <mark className="plugin">Iris Diamond</mark>
+              </td>
             </tr>
           </tbody>
         </table>
@@ -1719,12 +2363,20 @@ const PRWhereFind: React.FC = () => {
           </thead>
           <tbody>
             <tr>
-              <td>Листание страницы</td>
-              <td>Page Peel</td>
+              <td>
+                <mark className="plugin">Листание страницы</mark>
+              </td>
+              <td>
+                <mark className="plugin">Page Peel</mark>
+              </td>
             </tr>
             <tr>
-              <td>Переворачивание страницы</td>
-              <td>Page Turn</td>
+              <td>
+                <mark className="plugin">Переворачивание страницы</mark>
+              </td>
+              <td>
+                <mark className="plugin">Page Turn</mark>
+              </td>
             </tr>
           </tbody>
         </table>
@@ -1738,8 +2390,12 @@ const PRWhereFind: React.FC = () => {
           </thead>
           <tbody>
             <tr>
-              <td>Взаимное масштабирование</td>
-              <td>Cross Zoom</td>
+              <td>
+                <mark className="plugin">Взаимное масштабирование</mark>
+              </td>
+              <td>
+                <mark className="plugin">Cross Zoom</mark>
+              </td>
             </tr>
           </tbody>
         </table>
@@ -1753,32 +2409,60 @@ const PRWhereFind: React.FC = () => {
           </thead>
           <tbody>
             <tr>
-              <td>Аддитивный наплыв</td>
-              <td>Additive Dissolve</td>
+              <td>
+                <mark className="plugin">Аддитивный наплыв</mark>
+              </td>
+              <td>
+                <mark className="plugin">Additive Dissolve</mark>
+              </td>
             </tr>
             <tr>
-              <td>Монтаж морфа</td>
-              <td>Morph Cut</td>
+              <td>
+                <mark className="plugin">Монтаж морфа</mark>
+              </td>
+              <td>
+                <mark className="plugin">Morph Cut</mark>
+              </td>
             </tr>
             <tr>
-              <td>Неаддитивное растворение</td>
-              <td>Non-Additive Dissolve</td>
+              <td>
+                <mark className="plugin">Неаддитивное растворение</mark>
+              </td>
+              <td>
+                <mark className="plugin">Non-Additive Dissolve</mark>
+              </td>
             </tr>
             <tr>
-              <td>Перекрестный наплыв</td>
-              <td>Cross Dissolve</td>
+              <td>
+                <mark className="plugin">Перекрестный наплыв</mark>
+              </td>
+              <td>
+                <mark className="plugin">Cross Dissolve</mark>
+              </td>
             </tr>
             <tr>
-              <td>Погружение в белый</td>
-              <td>Dip to White</td>
+              <td>
+                <mark className="plugin">Погружение в белый</mark>
+              </td>
+              <td>
+                <mark className="plugin">Dip to White</mark>
+              </td>
             </tr>
             <tr>
-              <td>Погружение в черный</td>
-              <td>Dip to Black</td>
+              <td>
+                <mark className="plugin">Погружение в черный</mark>
+              </td>
+              <td>
+                <mark className="plugin">Dip to Black</mark>
+              </td>
             </tr>
             <tr>
-              <td>Растворение пленки</td>
-              <td>Film Dissolve</td>
+              <td>
+                <mark className="plugin">Растворение пленки</mark>
+              </td>
+              <td>
+                <mark className="plugin">Film Dissolve</mark>
+              </td>
             </tr>
           </tbody>
         </table>
@@ -1793,27 +2477,47 @@ const PRWhereFind: React.FC = () => {
           <tbody>
             <tr>
               <td>-</td>
-              <td>Center Split</td>
+              <td>
+                <mark className="plugin">Center Split</mark>
+              </td>
             </tr>
             <tr>
               <td>-</td>
-              <td>Split</td>
+              <td>
+                <mark className="plugin">Split</mark>
+              </td>
             </tr>
             <tr>
-              <td>Выталкивание</td>
-              <td>Push</td>
+              <td>
+                <mark className="plugin">Выталкивание</mark>
+              </td>
+              <td>
+                <mark className="plugin">Push</mark>
+              </td>
             </tr>
             <tr>
-              <td>Лассо</td>
-              <td>Whip</td>
+              <td>
+                <mark className="plugin">Лассо</mark>
+              </td>
+              <td>
+                <mark className="plugin">Whip</mark>
+              </td>
             </tr>
             <tr>
-              <td>Скольжение</td>
-              <td>Slide</td>
+              <td>
+                <mark className="plugin">Скольжение</mark>
+              </td>
+              <td>
+                <mark className="plugin">Slide</mark>
+              </td>
             </tr>
             <tr>
-              <td>Слайд-шоу по полосам</td>
-              <td>Band Slide</td>
+              <td>
+                <mark className="plugin">Слайд-шоу по полосам</mark>
+              </td>
+              <td>
+                <mark className="plugin">Band Slide</mark>
+              </td>
             </tr>
           </tbody>
         </table>
