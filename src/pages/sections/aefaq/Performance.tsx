@@ -1,8 +1,8 @@
 import React from "react";
 import DetailsSummary from "../../../components/DetailsSummary";
 import GithubUpdateInfo from "../../../components/features/GithubUpdateInfo";
-import {AdditionInfo, AdditionWarning} from "../../../components/Additions";
-import {ImageFigure} from "../../../components/ContentFigure";
+import {AdditionDanger, AdditionInfo, AdditionWarning} from "../../../components/Additions";
+import {ImageFigure, YouTubeVideo} from "../../../components/ContentFigure";
 import ContentSwitcher from "../../../components/features/ContentFilter";
 import {Divider} from "antd";
 

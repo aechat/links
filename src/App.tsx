@@ -96,14 +96,14 @@ class ErrorBoundary extends React.Component<
   {children: React.ReactNode},
   {hasError: boolean; error: Error | null}
 > {
-  constructor(props: {children: React.ReactNode}) {
+  constructor (props: {children: React.ReactNode}) {
     super(props);
     this.state = {hasError: false, error: null};
   }
-  static getDerivedStateFromError(error: Error) {
+  static getDerivedStateFromError (error: Error) {
     return {hasError: true, error};
   }
-  render() {
+  render () {
     if (this.state.hasError && this.state.error) {
       return <ErrorFallback error={this.state.error} />;
     }
