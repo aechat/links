@@ -52,6 +52,7 @@ const AEFromNewbies: React.FC = () => {
           . Данный курс поможет вам освоить интерфейс программы и научиться работать с
           ключевыми кадрами, титрами и эффектами.
         </p>
+        <Divider>Курсы для начинающих</Divider>
         <YouTubeVideo
           caption="Основы After Effects от Ильи Зернова"
           link="https://www.youtube.com/embed/nogR7eyhYug"
@@ -125,6 +126,90 @@ const AEFromNewbies: React.FC = () => {
             &quot;After Effects базового уровня&quot; от Никиты Чеснокова
           </a>
         </div>
+        <Divider>Подборка туториалов на разные темы</Divider>
+        <p>
+          Если вы сталкиваетесь с трудностями при работе с графиками скорости - посмотрите
+          подробное объяснение работы с данным инструментом от{" "}
+          <a href="https://www.youtube.com/@JakeInMotion">Jake In Motion</a>.{" "}
+        </p>
+        <YouTubeVideo
+          caption="Туториал по графикам скорости который вам может пригодиться"
+          link="7pOCtlrrE3Y"
+        />
+        <p>
+          Также вы могли видеть трендовые ролики с плавным ускорением и замедлением, так
+          называемым <mark className="word">speed ramp</mark>. Данный эффект делается с
+          помощью изменения скорости в параметре <mark>Time Remapping</mark>.
+        </p>
+        <AdditionInfo>
+          Чтобы включить <mark>Time Remapping</mark> у выделенного слоя - нажмите на
+          комбинацию клавиш <mark className="key">Ctrl + Alt + T</mark>.
+        </AdditionInfo>
+        <YouTubeVideo
+          caption="Плавно изменяющаяся скорость"
+          link="_kcfkuNwd3M"
+        />
+        <p>
+          Ну и куда же без основ по цветокоррекции, с помощью которого можно создать
+          определённый вид или настроение для слоёв в композиции.
+        </p>
+        <div className="flexible-links">
+          <a href="https://helpx.adobe.com/after-effects/using/color-correction-effects.html">
+            Эффекты для цветокоррекции
+          </a>
+          <a href="https://helpx.adobe.com/after-effects/using/color-basics.html">
+            Основы цветокоррекции от Adobe
+          </a>
+        </div>
+        <YouTubeVideo
+          caption="Цветокоррекция с помощью Lumetri Color"
+          link="y4fuhIPxmJg"
+        />
+        <Divider>Подборка туториалов для &quot;тикток-эдиторства&quot;</Divider>
+        <AdditionWarning>
+          <ul>
+            <li>
+              Прежде чем лезть в <mark className="word">эдиторство</mark> и учиться
+              применять различные эффекты - рекомендуется всё же пройти какой-нибудь
+              базовый курс по <mark className="app">Adobe After Effects</mark>. Без
+              фундаментальных знаний многие тонкости работы с различными инструментами
+              программы могут быть вам не понятны, ведь не все{" "}
+              <mark className="word">эдиторы</mark> просто демонстрируют процесс создания
+              различных эффектов и не рассказывают как работает их проект.
+            </li>
+            <li>
+              <i style={{opacity: "0.5"}}>
+                И, пожалуйста, не лепите в свои композиции{" "}
+                <mark className="plugin">Unsharpen Mask</mark> и{" "}
+                <mark className="plugin">Sharpen</mark> с выкрученными до максимума
+                значениями ради &quot;качества&quot;, ужасно же выглядит. Используйте
+                эффекты для цветокоррекции в меру.
+              </i>
+            </li>
+          </ul>
+        </AdditionWarning>
+        <p>
+          Если вы часто видите <mark className="word">эдиты</mark> по какой-нибудь
+          тематике в <mark className="app">TikTok</mark>,{" "}
+          <mark className="app">YouTube Shorts</mark> или{" "}
+          <mark className="app">
+            Instagram<sup>1</sup> Reels
+          </mark>{" "}
+          и вы хотите научиться делать что-то похожее - изучите различные обучающие видео
+          из приведённых каналов ниже.
+        </p>
+        <div className="flexible-links">
+          <a href="https://www.youtube.com/@Tozel./videos">Tozel</a>
+          <a href="https://www.youtube.com/@rdylt09/videos">rdylt09</a>
+          <a href="https://www.youtube.com/@theayzedit/videos">The Ayz Edit</a>
+          <a href="https://www.youtube.com/@yaniksksks/videos">Yaniksksks</a>
+          <a href="https://www.youtube.com/@imduong2k6/videos">imduong2k6</a>
+          <a href="https://www.youtube.com/@Victoriaaep/videos">Victoria.aep</a>
+        </div>
+        <AdditionDanger>
+          <sup>1</sup> <mark className="app">Instagram</mark> и <mark>Meta</mark> признаны
+          экстремистскими организациями и запрещены на территории Российской Федерации.
+        </AdditionDanger>
         <p
           style={{
             textAlign: "center",
