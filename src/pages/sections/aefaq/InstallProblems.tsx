@@ -30,6 +30,13 @@ const AEInstallProblems: React.FC = () => {
           как установить тот или иной тип файла для{" "}
           <mark className="app">Adobe After Effects</mark>.
         </p>
+        <AdditionInfo>
+          Сторонние плагины и расширения, будь то лицензионные или{" "}
+          <mark className="word">народные</mark>, в большинстве случаев устанавливаются
+          без проблем как в официальную, так и в нелегальную версию{" "}
+          <mark className="app">Adobe After Effects</mark>. Методы проверки лицензии
+          программы и сторонних дополнений обычно не пересекаются между собой.
+        </AdditionInfo>
         <AdditionWarning>
           Прежде чем использовать проекты формата <mark className="file">AEP</mark> или
           пакеты для <mark className="plugin">AtomX</mark>,{" "}
@@ -38,6 +45,7 @@ const AEInstallProblems: React.FC = () => {
           расположено в директории, путь до которой не превышает 256 символов без
           кириллицы!
         </AdditionWarning>
+        <Divider>Универсальные инструкции для разных типов файлов</Divider>
         <ul>
           <li>
             Если в архиве находится файл <mark className="file">AEP</mark>, то такие файлы
@@ -54,17 +62,23 @@ const AEInstallProblems: React.FC = () => {
                 </li>
                 <li>
                   Если вы попытаетесь открыть лишь один <mark className="file">AEP</mark>{" "}
-                  файл из архива без его полной распаковки, то вы столкнетесь с тем, что{" "}
+                  файл без полной распаковки архива, то можете столкнуться с тем, что{" "}
                   <mark className="app">Adobe After Effects</mark> не сможет найти все
                   необходимые файлы для проекта.
+                </li>
+                <li>
+                  В большинстве случаев рядом с файлом шаблона может располагаться{" "}
+                  <mark className="video">туториал</mark>, объясняющий как им
+                  пользоваться. Он может находиться в папке{" "}
+                  <mark className="path">Help</mark> или в корне архива.
                 </li>
               </ul>
             </AdditionInfo>
           </li>
           <li>
             Если в архиве находится <mark className="file">ATOM</mark>, то такие файлы
-            устанавливаются путём <mark>drag&apos;n&apos;drop</mark> в окно расширения{" "}
-            <mark className="plugin">AtomX</mark>.
+            устанавливаются путём <mark className="ui">drag&apos;n&apos;drop</mark> в окно
+            расширения <mark className="plugin">AtomX</mark>.
             <AdditionWarning>
               <mark className="plugin">AtomX</mark> версии <mark>3.0.9</mark> может не
               импортировать пакеты, выдавая ошибку <mark>Connection Failure</mark>. Для
@@ -74,8 +88,8 @@ const AEInstallProblems: React.FC = () => {
           </li>
           <li>
             Если в архиве находится <mark className="file">MBR</mark>, то такие файлы
-            устанавливаются путём <mark>drag&apos;n&apos;drop</mark> в окно расширения{" "}
-            <mark className="plugin">Motion Bro</mark>.
+            устанавливаются путём <mark className="ui">drag&apos;n&apos;drop</mark> в окно
+            расширения <mark className="plugin">Motion Bro</mark>.
           </li>
         </ul>
         <ContentSwitcher
@@ -347,9 +361,9 @@ const AEInstallProblems: React.FC = () => {
                     <a href="https://zxpinstaller.com/">
                       ZXP Installer от ELEMENTS Storage Media
                     </a>
-                    , если вы используете версии программ Adobe, которые отвязаны от
-                    приложения <mark className="app">Creative Cloud</mark>. Данный{" "}
-                    <a href="https://zxpinstaller.com/">ZXP Installer</a> будет вам
+                    , если вы используете версии программ <mark>Adobe</mark>, которые
+                    отвязаны от приложения <mark className="app">Creative Cloud</mark>.
+                    Данный <a href="https://zxpinstaller.com/">ZXP Installer</a> будет вам
                     выдавать ошибку <strong>-193</strong> до тех пор, пока вы не
                     установите программу <mark className="app">Creative Cloud</mark>, а он
                     же может вам поломать уже установленные программы. Для решения
@@ -468,8 +482,10 @@ const AEInstallProblems: React.FC = () => {
                   <mark className="file">ITX</mark>, <mark className="file">LOOK</mark>{" "}
                   или <mark className="file">LUT</mark>, то для распаковки таких файлов
                   вам нужно перейти в{" "}
-                  <mark className="path">~/Library/Applications/After Effects 20XX</mark>,
-                  затем нажать <mark className="key">ПКМ</mark> по{" "}
+                  <mark className="path">
+                    ~/Library/Applications/Adobe After Effects 20XX
+                  </mark>
+                  , затем нажать <mark className="key">ПКМ</mark> по{" "}
                   <mark className="app">Adobe After Effects 20XX</mark> и выбрать{" "}
                   <mark className="ui">Показать содержимое пакета</mark>. После открытия
                   содержимого перейдите в{" "}
@@ -565,8 +581,7 @@ const AEInstallProblems: React.FC = () => {
                         корректно работать в программе.
                       </li>
                       <li>
-                        Перед установкой плагинов с помощью установщика - закройте все
-                        открытые инстанции{" "}
+                        Перед установкой плагинов с помощью установщика - закройте{" "}
                         <mark className="app">Adobe After Effects</mark> для корректной
                         установки.
                       </li>
@@ -754,9 +769,9 @@ const AEInstallProblems: React.FC = () => {
                     <a href="https://zxpinstaller.com/">
                       ZXP Installer от ELEMENTS Storage Media
                     </a>
-                    , если вы используете версии программ Adobe, которые отвязаны от
-                    приложения <mark className="app">Creative Cloud</mark>. Данный{" "}
-                    <a href="https://zxpinstaller.com/">ZXP Installer</a> будет вам
+                    , если вы используете версии программ <mark>Adobe</mark>, которые
+                    отвязаны от приложения <mark className="app">Creative Cloud</mark>.
+                    Данный <a href="https://zxpinstaller.com/">ZXP Installer</a> будет вам
                     выдавать ошибку <strong>-193</strong> до тех пор, пока вы не
                     установите программу <mark className="app">Creative Cloud</mark>, а он
                     же может вам поломать уже установленные программы. Для решения
@@ -778,7 +793,12 @@ const AEInstallProblems: React.FC = () => {
                         <mark className="path">
                           C:\Program Files (x86)\Common Files\Adobe\CEP\extensions
                         </mark>{" "}
-                        (если такой папки нет - создайте) и после этого нужно применить{" "}
+                        (если такой папки нет - создайте, например через{" "}
+                        <mark className="code">
+                          mkdir &quot;C:\Program Files (x86)\Common
+                          Files\Adobe\CEP\extensions&quot;
+                        </mark>
+                        ) и после этого нужно применить{" "}
                         <a
                           download
                           href="files/Enable Extensions Adobe.reg"
