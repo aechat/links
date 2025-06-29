@@ -1340,7 +1340,7 @@ const AEErrors: React.FC = () => {
         </ul>
       </DetailsSummary>
       <DetailsSummary
-        tag="файл поврежден, невозможно импортировать файл, ошибка с файлом, не читается"
+        tag="файл поврежден, невозможно импортировать файл как проект, недопустимый формат или чтение невозможно, ошибка с файлом, не читается"
         title='"File is damaged", "Unable to import file as project (bad format or not readable)" или "Error with file"'
       >
         <p>
