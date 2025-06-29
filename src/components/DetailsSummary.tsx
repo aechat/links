@@ -19,6 +19,8 @@ interface DetailsSummaryProps {
   tag?: string;
 }
 
+// TODO: сделать необязательный флаг для отображения иконки, мол информация только для винды или для мака
+
 const SpoilerContext = createContext(false);
 
 export const useSpoiler = () => useContext(SpoilerContext);
@@ -288,12 +290,7 @@ const DetailsSummary: React.FC<DetailsSummaryProps> = ({title, children, tag}) =
             {tag && (
               <span className="faq-tags">
                 {tag.split(", ").map((t, index) => (
-                  <mark
-                    key={index}
-                    className="tag"
-                  >
-                    {t}
-                  </mark>
+                  <mark key={index}>{t}</mark>
                 ))}
               </span>
             )}
