@@ -594,6 +594,7 @@ const AEPerformance: React.FC = () => {
           imgTitle="Отключение автоматического кэширования предпросмотра при бездействии"
           styleClass="figure_windows-light"
         />
+      </DetailsSummary>
         <p>
         </p>
         <AdditionInfo>
@@ -745,6 +746,10 @@ const AEPerformance: React.FC = () => {
           </li>
         </ul>
       </DetailsSummary>
+      <DetailsSummary
+        tag="выбор версии для старых устройств"
+        title="Какая версия программы считается наиболее стабильной, наименее лагучей и какую лучше всего установить?"
+      >
         <p>
           Этот вопрос останется предметом вечных дебатов в различных чатах и форумах по{" "}
           <mark className="app">Adobe After Effects</mark> без единого верного ответа.
@@ -768,13 +773,13 @@ const AEPerformance: React.FC = () => {
           официальном сайте Adobe.
         </p>
         <div className="flexible-links">
-          <a href="https://helpx.adobe.com/ru/after-effects/using/whats-new.html">
+          <a href="https://helpx.adobe.com/after-effects/using/whats-new.html">
             Что нового в After Effects последних выпусков
           </a>
-          <a href="https://helpx.adobe.com/ru/after-effects/kb/fixed-issues.html">
+          <a href="https://helpx.adobe.com/after-effects/kb/fixed-issues.html">
             Список исправленных ошибок
           </a>
-          <a href="https://helpx.adobe.com/ru/after-effects/kb/known-issues-after-effects.html">
+          <a href="https://helpx.adobe.com/after-effects/kb/known-issues-after-effects.html">
             Выявленные неполадки в After Effects
           </a>
         </div>
@@ -783,7 +788,7 @@ const AEPerformance: React.FC = () => {
           <li>
             Если вы не часто работаете в программе, любите новые функции или стабильность
             для вас не в приоритете - попробуйте установить и попользоваться{" "}
-            <a href="https://helpx.adobe.com/ru/after-effects/using/whats-new.html">
+            <a href="https://helpx.adobe.com/after-effects/using/whats-new.html">
               последней
             </a>{" "}
             версией <mark className="app">Adobe After Effects</mark> на момент чтения этой
