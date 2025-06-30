@@ -2693,90 +2693,84 @@ const AEFromNewbies: React.FC = () => {
           link="G4f9OH4IQE8"
         />
       </DetailsSummary>
-      <DetailsSummary title="В каком случае нужно использовать After Effects, а в каком - Premiere Pro?">
+      <DetailsSummary title="В каких случаях нужно использовать Adobe After Effects и Adobe Premiere Pro?">
         <p>
-          Начнём сразу с того, что эти две программы используются для совершенно разных
-          целей. В <mark className="app">Adobe After Effects</mark> конечно можно
-          смонтировать двухчасовой ролик, а в{" "}
-          <mark className="app">Adobe Premiere Pro</mark> - сделать всю работу по
-          композингу. Но это всё звучит как полнейший бред до такой степени, что некоторые
-          пользователи до сих пор почему-то используют программы не для того, для чего они
-          созданы. Давайте разъясним, для чего нужно использовать{" "}
-          <mark className="app">Adobe After Effects</mark>, а для чего{" "}
+          Эти две программы предназначены для разных задач. В{" "}
+          <mark className="app">Adobe After Effects</mark> теоретически можно смонтировать
+          двухчасовой ролик, а в <mark className="app">Adobe Premiere Pro</mark> -
+          заняться композитингом. Однако подобный подход нецелесообразен, хотя некоторые
+          пользователи всё ещё применяют программы не по назначению. В этой статье
+          разберёмся, в каких случаях стоит использовать{" "}
+          <mark className="app">Adobe After Effects</mark>, а в каких -{" "}
           <mark className="app">Adobe Premiere Pro</mark>.
         </p>
         <ul>
           <li>
-            В <mark className="app">Adobe After Effects</mark> и{" "}
-            <mark className="app">Adobe Premiere Pro</mark> можно делать короткие
-            видеоролики до одной минуты, а также вешать на них различные эффекты. Обе
-            программы отлично подойдут для создания <mark className="word">рилсов</mark> и{" "}
-            <mark className="word">тиктоков</mark>, а также создания различных анонсов,
-            анимированных афиш, баннеров и коротких <mark className="word">эдитов</mark>.
+            Обе программы подходят для создания коротких видеороликов до одной минуты с
+            применением различных эффектов, например <mark className="word">рилсов</mark>,{" "}
+            <mark className="word">тиктоков</mark>, анимационных афиш, баннеров или
+            коротких <mark className="word">эдитов</mark>.
           </li>
           <li>
-            В <mark className="app">Adobe Premiere Pro</mark> можно создавать видеоролики
-            с использованием моушен-дизайна с нуля, но работа с анимацией в этой программе
-            реализована настолько неудобно, что уж проще сделать моушен-дизайн в{" "}
-            <mark className="app">Adobe After Effects</mark>, а затем экспортировать
-            оттуда композиции и импортировать их в{" "}
+            Хоть и в <mark className="app">Adobe Premiere Pro</mark> в теории можно
+            сделать моушен-дизайн, реализация анимации в ней максимально неудобна. Проще
+            создать нужную анимацию в <mark className="app">Adobe After Effects</mark>,
+            экспортировать композицию и импортировать его в{" "}
             <mark className="app">Adobe Premiere Pro</mark>.
           </li>
           <li>
-            <mark className="app">Adobe After Effects</mark> - программа не для создания
-            очень длинных видеороликов, так как работает с памятью и исходниками
-            совершенно по другому, в отличие от{" "}
-            <mark className="app">Adobe Premiere Pro</mark>. Даже если вы и выполните всю
-            работу по созданию длинного видеоролика в{" "}
-            <mark className="app">Adobe After Effects</mark> (представлю, сколько нервов
-            уйдет из-за <mark>Out of Memory</mark>), то время и скорость рендера вас явно
-            не впечатлит. Лучше соберите проект изначально в{" "}
-            <mark className="app">Adobe Premiere Pro</mark> и выдёргивайте только нужные
-            кусочки для дальнейшего редактирования в{" "}
-            <mark className="app">Adobe After Effects</mark> или создавайте короткие
-            композиции и выводите их частями, а потом склеивайте их в{" "}
-            <mark className="app">Adobe Premiere Pro</mark>.
-            <AdditionDanger>
-              В <mark className="app">Adobe After Effects</mark> можно делать композиции
-              длиной максимум до трёх часов, но крайне не рекомендуется делать их с такой
-              длиной.
-            </AdditionDanger>
-          </li>
-          <li>
-            <mark className="app">Adobe After Effects</mark> не годится для обработки
-            звука и голоса, несмотря на наличие нескольких встроенных эффектов, например{" "}
-            <mark className="plugin">Echo</mark> или{" "}
-            <mark className="plugin">Reverb</mark>. Для этого хорошо подходит{" "}
-            <mark className="app">Adobe Premiere Pro</mark> или{" "}
-            <mark className="app">Audition</mark> за счёт удобной работы с несколькими
-            аудиодорожками и поддержкой VST-плагинов.
-          </li>
-          <li>
-            В <mark className="app">Adobe Premiere Pro</mark> можно и нужно делать длинные
-            видеоролики, например подкасты, фильмы, короткометражки или сериалы. Если вы
-            хотите использовать <mark className="app">Adobe After Effects</mark> в длинном
-            видео - импортируйте кусочек вашего видео, например с помощью{" "}
-            <mark className="ui">Replace with After Effects Composition</mark> и после
-            редактирования экспортируйте оттуда композиции в{" "}
-            <mark className="word">монтажный кодек</mark>, например в{" "}
-            <mark className="video">Apple Prores 4444</mark>. Затем замените нужный кусок
-            на то, что вы экспортировали из{" "}
-            <mark className="app">Adobe After Effects</mark> и продолжайте работу дальше в{" "}
-            <mark className="app">Adobe Premiere Pro</mark>.
+            <mark className="app">Adobe After Effects</mark> не предназначен для создания
+            длинных видеороликов, так как иначе работает с памятью и файлами по сравнению
+            с <mark className="app">Adobe Premiere Pro</mark>. Даже при полной сборке
+            проекта в <mark className="app">Adobe After Effects</mark> вы можете
+            столкнуться с ошибками по типу <mark>Out of Memory</mark> и продолжительным
+            временем рендера. Если вы хотите собрать длинный проект, подкаст, фильм или
+            сериал - лучше используйте <mark className="app">Adobe Premiere Pro</mark> или
+            другую программу для нелинейного монтажа, например{" "}
+            <mark className="app">Davinci Resolve</mark>.
+            <AdditionInfo>
+              При необходимости вы можете импортировать нужный фрагмент из секвенции в{" "}
+              <mark className="app">Adobe After Effects</mark> с помощью{" "}
+              <mark className="ui">Replace with After Effects Composition</mark>, затем
+              экспортировать его в <mark className="video">Apple Prores 4444</mark> и
+              заменить исходный участок в <mark className="app">Adobe Premiere Pro</mark>.
+            </AdditionInfo>
             <AdditionWarning>
-              Не рекомендуется частое использование функции <mark>Dynamic Link</mark>, так
-              как на больших проектах его работа может быть крайне нестабильна и может
-              вызывать проблемы при финальном экспорте.
+              <ul>
+                <li>
+                  Не рекомендуется часто применять{" "}
+                  <mark className="plugin">Dynamic Link</mark>, особенно в крупных
+                  проектах - вы можете столкнуться с непонятными проблемами на стадии
+                  финального экспорта.
+                </li>
+                <li>
+                  {" "}
+                  В <mark className="app">Adobe After Effects</mark> вы можете создавать
+                  композиции до трёх часов, но делать это крайне не рекомендуется. Только
+                  себе кучу проблем создадите из-за неправильного{" "}
+                  <mark className="word">пайплайна</mark>.
+                </li>
+              </ul>
             </AdditionWarning>
           </li>
           <li>
-            <mark className="app">Adobe Premiere Pro</mark> не очень подходит для
-            композитинга и создания эффектов уровня фильмов от Marvel.{" "}
-            <mark className="app">Adobe After Effects</mark> лучше подходит для
-            редактирования сложных сцен и применения различных спецэффектов, так как он
-            даёт гораздо больший простор воображению для создания 3D-сцен и поддерживает
-            больше сторонних эффектов и плагинов для генерации эффектов с нуля, например{" "}
-            <mark className="plugin">Trapcode Particular</mark>.
+            <mark className="app">Adobe After Effects</mark> не подходит для обработки
+            аудио, несмотря на наличие аудиоэффектов, например{" "}
+            <mark className="plugin">Echo</mark> или{" "}
+            <mark className="plugin">Reverb</mark>. Для работы со звуком лучше
+            использовать <mark className="app">Adobe Premiere Pro</mark> или{" "}
+            <mark className="app">Adobe Audition</mark>, которые поддерживают
+            многодорожечную обработку и <mark className="plugin">VST-плагины</mark>, а
+            затем при необходимости экспортировать звук из этих программ и импортировать
+            обратно в композицию <mark className="app">Adobe After Effects</mark>.
+          </li>
+          <li>
+            <mark className="app">Adobe Premiere Pro</mark> не предназначен для сложного
+            композитинга и создания визуальных эффектов с нуля.{" "}
+            <mark className="app">Adobe After Effects</mark> в этом случае предоставляет
+            больше возможностей: поддержка трёхмерных сцен, сторонних эффектов и плагинов,
+            таких как <mark className="plugin">Trapcode Particular</mark>, делает его
+            более подходящим для таких задач.
           </li>
         </ul>
       </DetailsSummary>
