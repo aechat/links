@@ -5,7 +5,7 @@ import React from "react";
 import {Link} from "react-router-dom";
 
 interface BaseLinkCardProps {
-  icon: JSX.Element;
+  icon: React.ReactNode;
   name: string;
 }
 interface LinkCardProps extends BaseLinkCardProps {

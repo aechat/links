@@ -17,6 +17,7 @@ import {
   GavelRounded,
   GradientRounded,
   HandymanRounded,
+  ImageRounded,
   MmsRounded,
   MovieFilterRounded,
   MovieRounded,
@@ -228,6 +229,12 @@ const Links = () => {
               href="https://www.svgsprite.com/tools/lottie-player/"
               icon={<AnimationRounded />}
               name="Lottie Player"
+            />
+            <LinkCard
+              description="Просмотрщик и конвертер изображений для Windows"
+              href="https://www.faststone.org/FSIVDownload.htm"
+              icon={<ImageRounded />}
+              name="FastStone Image Viewer"
             />
             <LinkCard
               description="Оффлайн конвертер видео файлов в различные кодеки, в том числе монтажные"
