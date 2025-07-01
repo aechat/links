@@ -210,7 +210,7 @@ const AEErrors: React.FC = () => {
         </ul>
       </DetailsSummary>
       <DetailsSummary
-        tag="видеокарта, гпу, нехватает видеопамяти, врам, vram, This is likely because your GPU is out of memory"
+        tag="видеокарта, гпу, нехватает видеопамяти, врам, vram, this is likely because your gpu is out of memory, ошибка эффектов гп, обнаружена ошибка которая связана с эффектами на этом кадре использующими графический процессор, вероятно это вызвано нехваткой памяти графического процессора"
         title='Из-за чего появляется "After Effects has encountered a failure related to GPU-enabled effects from this frame"?'
       >
         <p>
@@ -219,17 +219,19 @@ const AEErrors: React.FC = () => {
           происходит, если у вас видеокарта с объёмом видеопамяти меньше чем 4 ГБ.
         </p>
         <p>
-          В таком случае пользователю надо освободить видеопамять любым способом -
-          перезагрузка устройства или перезагрузка драйверов видеокарты с помощью
+          В таком случае проанализируйте свой проект и попробуйте выключить постепенно
+          эффекты, которые могут вызывать сбой или освободить видеопамять любым способом -
+          перезагрузить устройства или перезагрузить драйверов видеокарты с помощью
           комбинации клавиш <mark className="key">Ctrl + Win + Shift + B</mark>.
         </p>
         <p>
-          В данной ошибке вам прямо советуют переключить рендер с видеокарты на процессор.
-          Это можно сделать через окно <mark className="ui">Project Manager</mark>, открыв
-          его с помощью комбинации клавиш{" "}
-          <mark className="key">Ctrl + Alt + Shift + K</mark> и указав{" "}
+          Также в данной ошибке вам прямо советуют переключить рендер с видеокарты на
+          процессор. Это можно сделать через окно{" "}
+          <mark className="ui">Project Manager</mark>, открыв его с помощью комбинации
+          клавиш <mark className="key">Ctrl + Alt + Shift + K</mark> и указав{" "}
           <mark className="ui">Mercury Software Only</mark> в вкладке{" "}
-          <mark className="ui">Video Rendering and Effects</mark>.
+          <mark className="ui">Video Rendering and Effects</mark>. После изменения
+          значения - рекомендуется перезапустить программу, а затем снова открыть проект.
         </p>
         <ImageFigure
           caption="Project Settings"
