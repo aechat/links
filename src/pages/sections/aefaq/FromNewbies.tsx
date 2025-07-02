@@ -2534,6 +2534,53 @@ const AEFromNewbies: React.FC = () => {
         />
       </DetailsSummary>
       <DetailsSummary
+        tag="очистить всю память и кэш диска"
+        title="Как очистить кэш предпросмотра и зачем это надо делать?"
+      >
+        <p>
+          Регулярная очистка кэша может помочь вам избавиться от случаев, когда в процессе
+          работы над проектом появляются непонятные артефакты или нежелательные кадры в
+          предпросмотре, а также может помочь решить проблему появления предупреждения{" "}
+          <mark>Out of Memory</mark>. Чтобы быстро очистить кэш предпросмотра и дисковый
+          кэш - перейдите в <mark className="ui">Edit &gt; Purge</mark>, нажмите на{" "}
+          <mark className="ui">All Memory & Disk Cache</mark> и в открывшемся окне нажмите
+          на <mark className="ui">OK</mark>. После очистки кэша - предпросмотр нужно
+          закэшировать заново.
+        </p>
+        <ImageFigure
+          caption="Очистка кэша и освобождение оперативной памяти"
+          imgSrc="images/aftereffects/edit_purge_all-memory-and-disk-cache.png"
+          imgTitle="Очистка кэша и освобождение оперативной памяти"
+          styleClass="figure_windows-light"
+        />
+        <AdditionInfo>
+          <ul>
+            <li>
+              Если очистка кэша не помогает от появления <mark>Out of Memory</mark> -
+              попробуйте <a href="#4.5">настроить файл подкачки</a>, если у вас устройство
+              на <mark>Windows</mark>.
+            </li>
+            <li>
+              При желании вы можете создать свою комбинацию клавиш для быстрой очистки
+              оперативной памяти и дискового кэша в{" "}
+              <mark className="ui">Edit &gt; Keyboard Shortcuts</mark>. По умолчанию в{" "}
+              <mark className="app">Adobe After Effects</mark> предусмотрена комбинация
+              только для очистки оперативной памяти -{" "}
+              <mark className="key">Ctrl + Alt + / (на Numpad)</mark>.
+            </li>
+            <li>
+              Если у вас достаточно много оперативной памяти на вашем устройстве и
+              производительный процессор, который быстро обрабатывает ваши композиции, то
+              вы можете отключить дисковый кэш в настройках программы. Для этого перейдите
+              в <mark className="ui">Edit &gt; Preferences &gt; Media & Disk Cache</mark>{" "}
+              и уберите галочку с параметра <mark className="ui">Enable Disk Cache</mark>.
+              Это позволит программе меньше обращаться к дисковому накопителю и меньше
+              сталкиваться с багами работы дискового кэша.
+            </li>
+          </ul>
+        </AdditionInfo>
+      </DetailsSummary>
+      <DetailsSummary
         tag="бекап, резервное копирование, возврат, вернуть, восстановить, облачное хранилище, облако, яндекс диск, журнал файлов, бэкап, история изменений файлов, откат проекта"
         title="Чем я могу сделать резервные копии файлов и, при необходимости, возвращаться к предыдущим версиям проекта?"
       >
@@ -2693,6 +2740,75 @@ const AEFromNewbies: React.FC = () => {
           link="G4f9OH4IQE8"
         />
       </DetailsSummary>
+      <DetailsSummary title="Я работал над проектом, но его ни разу не сохранял. Если программа аварийно завершила работу, возможно ли в таком случае восстановить проект?">
+        <p>
+          Нет, <mark className="app">Adobe After Effects</mark> не создаёт автосохранения
+          или какие-нибудь файлы проекта, если изначально проект не был сохранён. В
+          следующий раз перед началом работы - сразу сохраните файл проекта и периодически
+          нажимайте на <mark className="key">Ctrl + S</mark> для сохранения ваших
+          изменений.
+        </p>
+        <AdditionInfo>
+          Чтобы не попасть в просак, если при работе файл проекта повредится - заранее{" "}
+          <a href="#4.1">настройте бэкап файлов в облачном хранилище или локально</a>.
+        </AdditionInfo>
+      </DetailsSummary>
+      <DetailsSummary
+        tag="менеджер эффектов, effect may have caused to quit, if you want you can disable this effect now, to re-enable it later select manager effects from effects menu options"
+        title="Программа аварийно завершила работу и предложила отключить эффект, который вызывает сбой. Я его отключил, но при последующих запусках он не возвращается обратно. Как его активировать снова?"
+      >
+        <p>
+          В <mark className="app">Adobe After Effects</mark> версии <mark>23.4</mark> и
+          новее была добавлена возможность отключения эффектов, если программа
+          подозревает, что именно он вызывает сбой и вылеты. Только вот при отключении
+          эффекта через диалоговое окно - он будет отключен до тех пор, пока он не будет
+          активирован вручную в <mark className="ui">менеджере эффектов</mark>. То есть
+          при следующем запуске <mark className="app">Adobe After Effects</mark> он до сих
+          пор будет отключен.
+        </p>
+        <Divider>Включаем отключенные эффекты</Divider>
+        <p>
+          Для включения отключенных эффектов - перейдите в{" "}
+          <mark className="ui">менеджер эффектов</mark>. В него можно попасть двумя
+          способами - из <mark className="ui">Effects Controls</mark> или из{" "}
+          <mark className="ui">Effects & Presets</mark>. Для этого нужно открыть
+          контекстное меню одного из этих двух окон и выбрать{" "}
+          <mark className="ui">Manage Effects</mark>.
+        </p>
+        <ImageFigure
+          caption="Adobe After Effects"
+          imgSrc="images/aftereffects/effects_presets_manage_effects.png"
+          imgTitle="Открытие менеджера эффектов"
+          styleClass="figure_windows-dark"
+        />
+        <p>
+          После этого у вас откроется список с установленными эффектами. По умолчанию в
+          этом окне отображаются только сторонние эффекты, а также отсортированы по
+          &quot;включено/выключено&quot;, то есть выключенный эффект у вас должен
+          отобразиться первым в списке. Чтобы его включить - нажмите на чекбокс возле
+          нужного эффекта, нажмите на <mark className="ui">OK</mark> в правом нижнем углу
+          окна и перезапустите <mark className="app">Adobe After Effects</mark>.
+        </p>
+        <AdditionInfo>
+          <ul>
+            <li>
+              Чтобы включить отображение стандартных эффектов - уберите чекбокс у
+              параметра <mark className="ui">Only Show Third-Party Effects</mark>.
+            </li>
+            <li>
+              Также вы можете отключить или включить все эффекты в этом списке с помощью
+              кнопок <mark className="ui">Disable All</mark> или{" "}
+              <mark className="ui">Enable All</mark>.
+            </li>
+          </ul>
+        </AdditionInfo>
+        <ImageFigure
+          caption="Effect Manager"
+          imgSrc="images/aftereffects/effect_manager.png"
+          imgTitle="Менеджер эффектов"
+          styleClass="figure_windows-dark"
+        />
+      </DetailsSummary>
       <DetailsSummary title="В каких случаях нужно использовать Adobe After Effects и Adobe Premiere Pro?">
         <p>
           Эти две программы предназначены для разных задач. В{" "}
@@ -2773,53 +2889,6 @@ const AEFromNewbies: React.FC = () => {
             более подходящим для таких задач.
           </li>
         </ul>
-      </DetailsSummary>
-      <DetailsSummary
-        tag="очистить всю память и кэш диска"
-        title="Как очистить кэш предпросмотра и зачем это надо делать?"
-      >
-        <p>
-          Регулярная очистка кэша может помочь вам избавиться от случаев, когда в процессе
-          работы над проектом появляются непонятные артефакты или нежелательные кадры в
-          предпросмотре, а также может помочь решить проблему появления предупреждения{" "}
-          <mark>Out of Memory</mark>. Чтобы быстро очистить кэш предпросмотра и дисковый
-          кэш - перейдите в <mark className="ui">Edit &gt; Purge</mark>, нажмите на{" "}
-          <mark className="ui">All Memory & Disk Cache</mark> и в открывшемся окне нажмите
-          на <mark className="ui">OK</mark>. После очистки кэша - предпросмотр нужно
-          закэшировать заново.
-        </p>
-        <ImageFigure
-          caption="Очистка кэша и освобождение оперативной памяти"
-          imgSrc="images/aftereffects/edit_purge_all-memory-and-disk-cache.png"
-          imgTitle="Очистка кэша и освобождение оперативной памяти"
-          styleClass="figure_windows-light"
-        />
-        <AdditionInfo>
-          <ul>
-            <li>
-              Если очистка кэша не помогает от появления <mark>Out of Memory</mark> -
-              попробуйте <a href="#4.5">настроить файл подкачки</a>, если у вас устройство
-              на <mark>Windows</mark>.
-            </li>
-            <li>
-              При желании вы можете создать свою комбинацию клавиш для быстрой очистки
-              оперативной памяти и дискового кэша в{" "}
-              <mark className="ui">Edit &gt; Keyboard Shortcuts</mark>. По умолчанию в{" "}
-              <mark className="app">Adobe After Effects</mark> предусмотрена комбинация
-              только для очистки оперативной памяти -{" "}
-              <mark className="key">Ctrl + Alt + / (на Numpad)</mark>.
-            </li>
-            <li>
-              Если у вас достаточно много оперативной памяти на вашем устройстве и
-              производительный процессор, который быстро обрабатывает ваши композиции, то
-              вы можете отключить дисковый кэш в настройках программы. Для этого перейдите
-              в <mark className="ui">Edit &gt; Preferences &gt; Media & Disk Cache</mark>{" "}
-              и уберите галочку с параметра <mark className="ui">Enable Disk Cache</mark>.
-              Это позволит программе меньше обращаться к дисковому накопителю и меньше
-              сталкиваться с багами работы дискового кэша.
-            </li>
-          </ul>
-        </AdditionInfo>
       </DetailsSummary>
       <DetailsSummary
         tag="adjustment layer, camera, image sequence, light layer, null object, shape layer, solid layer, text layer, источник освещения, камера, корректирующий слой, нулевой объект, нуль, секвенция изображений, сплошная заливка, слои, слой фигура, текст"
@@ -4221,75 +4290,6 @@ const AEFromNewbies: React.FC = () => {
           caption="Timeline"
           imgSrc="images/aftereffects/disable_adaptive_resolution.png"
           imgTitle="Отключение адаптивного разрешения"
-          styleClass="figure_windows-dark"
-        />
-      </DetailsSummary>
-      <DetailsSummary title="Я работал над проектом, но его ни разу не сохранял. Если программа аварийно завершила работу, возможно ли в таком случае восстановить проект?">
-        <p>
-          Нет, <mark className="app">Adobe After Effects</mark> не создаёт автосохранения
-          или какие-нибудь файлы проекта, если изначально проект не был сохранён. В
-          следующий раз перед началом работы - сразу сохраните файл проекта и периодически
-          нажимайте на <mark className="key">Ctrl + S</mark> для сохранения ваших
-          изменений.
-        </p>
-        <AdditionInfo>
-          Чтобы не попасть в просак, если при работе файл проекта повредится - заранее{" "}
-          <a href="#4.1">настройте бэкап файлов в облачном хранилище или локально</a>.
-        </AdditionInfo>
-      </DetailsSummary>
-      <DetailsSummary
-        tag="менеджер эффектов, effect may have caused to quit, if you want you can disable this effect now, to re-enable it later select manager effects from effects menu options"
-        title="Программа аварийно завершила работу и предложила отключить эффект, который вызывает сбой. Я его отключил, но при последующих запусках он не возвращается обратно. Как его активировать снова?"
-      >
-        <p>
-          В <mark className="app">Adobe After Effects</mark> версии <mark>23.4</mark> и
-          новее была добавлена возможность отключения эффектов, если программа
-          подозревает, что именно он вызывает сбой и вылеты. Только вот при отключении
-          эффекта через диалоговое окно - он будет отключен до тех пор, пока он не будет
-          активирован вручную в <mark className="ui">менеджере эффектов</mark>. То есть
-          при следующем запуске <mark className="app">Adobe After Effects</mark> он до сих
-          пор будет отключен.
-        </p>
-        <Divider>Включаем отключенные эффекты</Divider>
-        <p>
-          Для включения отключенных эффектов - перейдите в{" "}
-          <mark className="ui">менеджер эффектов</mark>. В него можно попасть двумя
-          способами - из <mark className="ui">Effects Controls</mark> или из{" "}
-          <mark className="ui">Effects & Presets</mark>. Для этого нужно открыть
-          контекстное меню одного из этих двух окон и выбрать{" "}
-          <mark className="ui">Manage Effects</mark>.
-        </p>
-        <ImageFigure
-          caption="Adobe After Effects"
-          imgSrc="images/aftereffects/effects_presets_manage_effects.png"
-          imgTitle="Открытие менеджера эффектов"
-          styleClass="figure_windows-dark"
-        />
-        <p>
-          После этого у вас откроется список с установленными эффектами. По умолчанию в
-          этом окне отображаются только сторонние эффекты, а также отсортированы по
-          &quot;включено/выключено&quot;, то есть выключенный эффект у вас должен
-          отобразиться первым в списке. Чтобы его включить - нажмите на чекбокс возле
-          нужного эффекта, нажмите на <mark className="ui">OK</mark> в правом нижнем углу
-          окна и перезапустите <mark className="app">Adobe After Effects</mark>.
-        </p>
-        <AdditionInfo>
-          <ul>
-            <li>
-              Чтобы включить отображение стандартных эффектов - уберите чекбокс у
-              параметра <mark className="ui">Only Show Third-Party Effects</mark>.
-            </li>
-            <li>
-              Также вы можете отключить или включить все эффекты в этом списке с помощью
-              кнопок <mark className="ui">Disable All</mark> или{" "}
-              <mark className="ui">Enable All</mark>.
-            </li>
-          </ul>
-        </AdditionInfo>
-        <ImageFigure
-          caption="Effect Manager"
-          imgSrc="images/aftereffects/effect_manager.png"
-          imgTitle="Менеджер эффектов"
           styleClass="figure_windows-dark"
         />
       </DetailsSummary>
