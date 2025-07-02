@@ -889,7 +889,7 @@ const AEInstallProblems: React.FC = () => {
                         Если у вас нет прав администратора, то вы можете распаковать файлы
                         шрифтов в папку{" "}
                         <mark className="path">
-                          %LocalAppData%\Microsoft\Windows\Fonts
+                          %LOCALAPPDATA%\Microsoft\Windows\Fonts
                         </mark>
                         . В таком случае шрифты будут установлены только для вашей учётной
                         записи.
@@ -2311,8 +2311,8 @@ const AEInstallProblems: React.FC = () => {
         <p>
           Для сброса всех настроек нужно нажать на прекрасную кнопочку{" "}
           <mark className="ui">Reset Preferences</mark>. Диалога подтверждения удаления
-          настроек не будет, поэтому заранее сохраните ваши настройки. Обычно они
-          находятся в <mark className="path">%AppData%\Adobe\After Effects\XX.X</mark>.
+          настроек не будет, поэтому заранее сохраните ваши настройки, обычно они
+          находятся в <mark className="path">%APPDATA%\Adobe\After Effects\XX.X</mark>.
         </p>
         <AdditionInfo>
           В старых версиях <mark className="app">Adobe After Effects</mark> при запуске
@@ -2341,7 +2341,7 @@ const AEInstallProblems: React.FC = () => {
           Решение довольно простое - снесите приложения и поставьте их заново, чтобы
           лишние зависимости программ от <mark className="app">Creative Cloud</mark>{" "}
           почистились. Да, вы не ослышались. Для очистки системы от некоторых или всех
-          программ от Adobe можно воспользоваться консольной утилитой{" "}
+          программ от <mark>Adobe</mark> можно воспользоваться консольной утилитой{" "}
           <a href="https://helpx.adobe.com/creative-cloud/kb/cc-cleaner-tool-installation-problems.html">
             Adobe Creative Cloud Cleaner
           </a>
@@ -2370,10 +2370,15 @@ const AEInstallProblems: React.FC = () => {
           <li>
             В качестве альтернативы вы можете удалить программы через{" "}
             <mark className="app">Revo Uninstaller</mark> или подобный софт, который
-            чистит хвосты после удаления. Не все подобные программы могут полностью
-            удалить <mark>Adobe</mark>, но смогут удалить большую часть зависимостей. По
-            желанию вы можете почистить реестр <mark>Windows</mark> после удаления,
-            например с помощью <mark className="app">Vit Registry Fix</mark>.
+            чистит хвосты после удаления. Но, к сожалению, подобные программы могут
+            удалить <mark>Adobe</mark>, но не смогут удалить большую часть зависимостей и
+            некоторые оставшиеся хвосты. По желанию после удаления программы вы можете
+            почистить реестр <mark>Windows</mark> после удаления, например с помощью{" "}
+            <mark className="app">Vit Registry Fix</mark> или проанализировать оставшиеся
+            директории с помощью <mark className="app">WizTree</mark>, например{" "}
+            <mark className="path">%APPDATA%</mark>,{" "}
+            <mark className="path">Program Files</mark> или{" "}
+            <mark className="path">%USERPROFILE%/Documents</mark>.
           </li>
         </ul>
       </DetailsSummary>
