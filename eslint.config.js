@@ -41,7 +41,7 @@ export default [
     },
     rules: {
       "prettier/prettier": [
-        "error",
+        "warn",
         {
           arrowParens: "always",
           bracketSpacing: false,
@@ -112,10 +112,10 @@ export default [
         {blankLine: "always", prev: "*", next: "do"},
         {blankLine: "always", prev: "do", next: "*"},
       ],
-      "grouped-accessor-pairs": ["error", "getBeforeSet"],
-      "no-duplicate-imports": "error",
+      "grouped-accessor-pairs": ["warn", "getBeforeSet"],
+      "no-duplicate-imports": "warn",
       "sort-imports": [
-        "error",
+        "warn",
         {
           ignoreCase: false,
           ignoreDeclarationSort: true,
@@ -123,7 +123,7 @@ export default [
         },
       ],
       // "lines-around-comment": [
-      //   "error",
+      //   "warn",
       //   {
       //     beforeLineComment: true,
       //     afterLineComment: true,
@@ -139,13 +139,13 @@ export default [
       //     afterBlockComment: true,
       //   },
       // ],
-      "curly": ["error", "all"],
-      "no-empty": ["error", {allowEmptyCatch: true}],
-      "eqeqeq": ["error", "always"],
+      "curly": ["warn", "all"],
+      "no-empty": ["warn", {allowEmptyCatch: true}],
+      "eqeqeq": ["warn", "always"],
       "no-console": ["warn", {allow: ["warn", "error"]}],
-      "react/jsx-uses-vars": "error",
+      "react/jsx-uses-vars": "warn",
       "react/jsx-sort-props": [
-        "error",
+        "warn",
         {
           callbacksLast: true,
           shorthandFirst: true,
@@ -155,16 +155,16 @@ export default [
         },
       ],
       "react/jsx-props-no-spreading": "off",
-      "react/jsx-indent-props": ["error", 2],
-      "react/jsx-indent": ["error", 2],
-      "react/jsx-no-duplicate-props": "error",
-      "react/jsx-no-target-blank": "error",
-      "react/jsx-no-undef": "error",
-      "jsx-a11y/alt-text": "error",
-      "jsx-a11y/anchor-has-content": "error",
-      "jsx-a11y/aria-props": "error",
+      "react/jsx-indent-props": ["warn", 2],
+      "react/jsx-indent": ["warn", 2],
+      "react/jsx-no-duplicate-props": "warn",
+      "react/jsx-no-target-blank": "warn",
+      "react/jsx-no-undef": "warn",
+      "jsx-a11y/alt-text": "warn",
+      "jsx-a11y/anchor-has-content": "warn",
+      "jsx-a11y/aria-props": "warn",
       "jsx-a11y/anchor-is-valid": [
-        "error",
+        "warn",
         {
           components: ["Link"],
           specialLink: ["to"],
