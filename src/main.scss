@@ -39,10 +39,10 @@ html {
   -webkit-tap-highlight-color: rgb(0 0 0 / 0%);
   scrollbar-width: none;
   font-weight: 350;
-  font-size: 14px;
+  font-size: 13px;
   font-family: Inter, sans-serif;
   @media (width >= 320px) {
-    font-size: calc(14px + (16 - 14) * ((100vw - 320px) / (768 - 320)));
+    font-size: calc(13px + (15 - 13) * ((100vw - 320px) / (768 - 320)));
   }
   @media (width >= 768px) {
     font-size: 16px;
