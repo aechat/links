@@ -122,6 +122,14 @@ li > .addition-danger,
     outline: 1px solid var(--addition_info-border);
     background-color: var(--addition_info-background);
     color: var(--addition_info-text);
+    .figure {
+      &_windows {
+        &-dark {
+          outline: 1px solid var(--addition_info-border);
+          box-shadow: inset 0 0 50px 0 var(--addition_info-background);
+        }
+      }
+    }
     .change_os {
       margin-inline: 5px;
       outline: 1px solid var(--addition_info-border);
@@ -158,6 +166,14 @@ li > .addition-danger,
     outline: 1px solid var(--addition_warning-border);
     background-color: var(--addition_warning-background);
     color: var(--addition_warning-text);
+    .figure {
+      &_windows {
+        &-dark {
+          outline: 1px solid var(--addition_warning-border);
+          box-shadow: inset 0 0 50px 0 var(--addition_warning-background);
+        }
+      }
+    }
     a {
       color: var(--addition_warning-text);
       &::before {
@@ -184,6 +200,14 @@ li > .addition-danger,
     outline: 1px solid var(--addition_danger-border);
     background-color: var(--addition_danger-background);
     color: var(--addition_danger-text);
+    .figure {
+      &_windows {
+        &-dark {
+          outline: 1px solid var(--addition_danger-border);
+          box-shadow: inset 0 0 50px 0 var(--addition_danger-background);
+        }
+      }
+    }
     a {
       color: var(--addition_danger-text);
       &::before {
