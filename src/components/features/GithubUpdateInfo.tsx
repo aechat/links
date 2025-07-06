@@ -5,6 +5,12 @@ const OWNER = "aechat";
 const REPO = "links";
 
 const BRANCH = "main";
+
+const isWebKit =
+  typeof navigator !== "undefined" &&
+  /AppleWebKit|Epiphany|Safari/i.test(navigator.userAgent) &&
+  !/Chrome|Chromium|Edg|OPR|Brave/i.test(navigator.userAgent);
+
 interface GithubUpdateInfoProps {
   filePath: string;
 }
@@ -68,6 +74,10 @@ const GithubUpdateInfo: React.FC<GithubUpdateInfoProps> = ({filePath}) => {
   useEffect(() => {
     getLastCommitDate();
   }, [filePath]);
+
+  if (isWebKit) {
+    return null;
+  }
 
   return (
     <p

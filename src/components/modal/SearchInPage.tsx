@@ -147,6 +147,11 @@ const getFoundWord = (count: number) => {
   }
 };
 
+const isWebKit =
+  typeof navigator !== "undefined" &&
+  /AppleWebKit|Epiphany|Safari/i.test(navigator.userAgent) &&
+  !/Chrome|Chromium|Edg|OPR|Brave/i.test(navigator.userAgent);
+
 export const SearchInPage: React.FC<{sections: Array<{id: string; title: string}>}> = ({
   sections,
 }) => {
@@ -171,6 +176,9 @@ export const SearchInPage: React.FC<{sections: Array<{id: string; title: string}
   const inputRef = useRef<HTMLInputElement>(null);
 
   const resultRefs = useRef<(HTMLButtonElement | null)[]>([]);
+
+  const [alertShown, setAlertShown] = useState(false);
+
   useEffect(() => {
     if (isOpen) {
       setQuery("");
@@ -183,6 +191,16 @@ export const SearchInPage: React.FC<{sections: Array<{id: string; title: string}
       return () => clearTimeout(timeout);
     }
   }, [isOpen]);
+
+  useEffect(() => {
+    if (isOpen && isWebKit && !alertShown) {
+      alert(
+        "⚠ Поиск по странице ограничен в Safari. В результаты попадают только заголовки спойлеров и содержимое открытых статей."
+      );
+      setAlertShown(true);
+    }
+  }, [isOpen, alertShown]);
+
   useEffect(() => {
     setSelectedResultIndex(results.length > 0 ? 0 : -1);
   }, [results]);
@@ -627,12 +645,7 @@ export const SearchInPage: React.FC<{sections: Array<{id: string; title: string}
                       {tag && tag.trim() !== "" && (
                         <span className="faq-tags">
                           {tag.split(", ").map((t, index) => (
-                            <mark
-                              key={index}
-                              className="tag"
-                            >
-                              {t}
-                            </mark>
+                            <mark key={index}>{t}</mark>
                           ))}
                         </span>
                       )}

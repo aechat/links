@@ -114,6 +114,27 @@ class ErrorBoundary extends React.Component<
 export const App = () => {
   const location = useLocation();
   useEffect(() => {
+    const isWebKit =
+      typeof navigator !== "undefined" &&
+      /AppleWebKit|Epiphany|Safari/i.test(navigator.userAgent) &&
+      !/Chrome|Chromium|Edg|OPR|Brave/i.test(navigator.userAgent);
+
+    const path = window.location.pathname;
+
+    const isFaqPage =
+      path.startsWith("/aefaq") ||
+      path.startsWith("/prfaq") ||
+      path.startsWith("/psfaq") ||
+      path.startsWith("/aeexpr");
+
+    if (isWebKit && isFaqPage) {
+      alert(
+        '⚠ В браузере Safari эта страница может упасть в "На этой странице произошла ошибка" из-за переполнения памяти. Лучше откройте данную страницу с Mac или ПК не через Safari - рекомендуется использовать Chrome или Firefox.'
+      );
+    }
+  }, [location.pathname]);
+
+  useEffect(() => {
     const path = window.location.pathname;
     if (path.endsWith("/index.html")) {
       window.location.replace("/");

@@ -10,7 +10,6 @@ import SupportDonut from "../components/modal/SupportDonut";
 import CopyToClipboard from "../components/features/CopyToClipboard";
 import {CircularProgress} from "@mui/material";
 import {generateAnchorId} from "../components/DetailsSummary";
-import {AdditionDanger} from "../components/Additions";
 
 const AEWhereFind = lazy(() => import("./sections/aefaq/WhereFind"));
 
@@ -160,14 +159,6 @@ const AEFAQ = () => {
                   ]}
                 />
               </div>
-              {navigator.userAgent.toLowerCase().includes("iphone") && (
-                <AdditionDanger>
-                  На некоторых <mark>iPhone</mark> эта страница может упасть с ошибкой{" "}
-                  <mark className="ui">На этой странице произошла ошибка</mark> по
-                  неизвестной автору причине. Лучше откройте этот сайт с устройства, на
-                  котором вы работаете в <mark className="app">Adobe After Effects</mark>.
-                </AdditionDanger>
-              )}
               <SupportDonut />
               <Suspense
                 fallback={
