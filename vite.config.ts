@@ -31,7 +31,6 @@ export default defineConfig({
         try {
           const indexContent = await readFile(indexPath, "utf-8");
           await writeFile(notFoundPath, indexContent, "utf-8");
-          console.log("404.html успешно создан.");
         } catch (err) {
           console.error("Ошибка при создании 404.html:", err);
         }
