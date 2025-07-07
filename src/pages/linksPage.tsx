@@ -600,7 +600,7 @@ const Links = () => {
             <LinkCardNoDescription
               href="https://t.me/s/job_2dfa"
               icon={<WorkRounded />}
-              name="Вакансии для 2D-аниматоров"
+              name="Вакансии для аниматоров"
             />
             <LinkCardNoDescription
               href="https://t.me/s/fordesigner"
