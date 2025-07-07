@@ -275,6 +275,9 @@
     }
     li > ul {
       margin-block: 5px;
+      &:last-child {
+        margin-block-end: 0;
+      }
     }
     li > ul > li {
       padding-inline: 20px;
