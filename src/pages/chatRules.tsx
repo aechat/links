@@ -334,11 +334,11 @@ const ChatRules = () => {
                                     <mark className="video">MP4</mark>. Это можно сделать
                                     в настройках программы:{" "}
                                     <mark className="ui">
-                                      Файл &gt; Настройки &gt; Вывод &gt; Формат записи
+                                      Файл → Настройки → Вывод → Формат записи
                                     </mark>{" "}
                                     или{" "}
                                     <mark className="ui">
-                                      File &gt; Settings &gt; Output &gt; Recording Format
+                                      File → Settings → Output → Recording Format
                                     </mark>
                                     .
                                   </li>

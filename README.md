@@ -137,7 +137,7 @@ import DetailsSummary from "../../../components/DetailsSummary";
   <p>
     Конечно. Я могу рассказать об <mark className="app">Adobe After Effects</mark>, указывая на
     интерфейс с помощью тегов. Например я могу указать кнопку в интерфейсе: очистка
-    кэша находится в <mark className="ui">Edit &gt; Purge &gt; All Memory and Cache</mark>
+    кэша находится в <mark className="ui">Edit → Purge → All Memory and Cache</mark>
     . Также могу сказать, что используя сторонние эффекты, например{" "}
     <mark className="plugin">Trapcode Particular</mark> вы можете замедлить
     производительность вашего проекта.
