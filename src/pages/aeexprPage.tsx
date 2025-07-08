@@ -24,15 +24,15 @@ import {generateAnchorId} from "../components/DetailsSummary";
 
 import {AdditionDanger, AdditionWarning} from "../components/Additions";
 
-const AEExprStart = lazy(() => import("./sections/aeexpr/Start"));
+const AEExprStart = lazy(() => import("./sections/aeexpr/ExprStart"));
 
-const AEExprBase = lazy(() => import("./sections/aeexpr/Base"));
+const AEExprBase = lazy(() => import("./sections/aeexpr/ExprBase"));
 
-const AEExprLinking = lazy(() => import("./sections/aeexpr/Linking"));
+const AEExprLinking = lazy(() => import("./sections/aeexpr/ExprLinking"));
 
-const AEExprActions = lazy(() => import("./sections/aeexpr/Actions"));
+const AEExprActions = lazy(() => import("./sections/aeexpr/ExprActions"));
 
-const AEExprErrors = lazy(() => import("./sections/aeexpr/Errors"));
+const AEExprErrors = lazy(() => import("./sections/aeexpr/ExprErrors"));
 
 const AEExpressionPage = () => {
   useEffect(() => {

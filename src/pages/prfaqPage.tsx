@@ -22,25 +22,25 @@ import CopyToClipboard from "../components/features/CopyToClipboard";
 
 import {generateAnchorId} from "../components/DetailsSummary";
 
-const PRActions = lazy(() => import("./sections/prfaq/Actions"));
+const PRActions = lazy(() => import("./sections/prfaq/PRActions"));
 
-const PRErrors = lazy(() => import("./sections/prfaq/Errors"));
+const PRErrors = lazy(() => import("./sections/prfaq/PRErrors"));
 
-const PRExport = lazy(() => import("./sections/prfaq/Export"));
+const PRExport = lazy(() => import("./sections/prfaq/PRExport"));
 
-const PRExportProblems = lazy(() => import("./sections/prfaq/ExportProblems"));
+const PRExportProblems = lazy(() => import("./sections/prfaq/PRExportProblems"));
 
-const PRFromNewbies = lazy(() => import("./sections/prfaq/FromNewbies"));
+const PRFromNewbies = lazy(() => import("./sections/prfaq/PRFromNewbies"));
 
-const PRImport = lazy(() => import("./sections/prfaq/Import"));
+const PRImport = lazy(() => import("./sections/prfaq/PRImport"));
 
-const PRInstallProblems = lazy(() => import("./sections/prfaq/InstallProblems"));
+const PRInstallProblems = lazy(() => import("./sections/prfaq/PRInstallProblems"));
 
-const PRInterface = lazy(() => import("./sections/prfaq/Interface"));
+const PRInterface = lazy(() => import("./sections/prfaq/PRInterface"));
 
-const PRPerformance = lazy(() => import("./sections/prfaq/Performance"));
+const PRPerformance = lazy(() => import("./sections/prfaq/PRPerformance"));
 
-const PRWhereFind = lazy(() => import("./sections/prfaq/WhereFind"));
+const PRWhereFind = lazy(() => import("./sections/prfaq/PRWhereFind"));
 
 const PRFAQ = () => {
   useEffect(() => {

@@ -22,25 +22,25 @@ import CopyToClipboard from "../components/features/CopyToClipboard";
 
 import {generateAnchorId} from "../components/DetailsSummary";
 
-const PSActions = lazy(() => import("./sections/psfaq/Actions"));
+const PSActions = lazy(() => import("./sections/psfaq/PSActions"));
 
-const PSErrors = lazy(() => import("./sections/psfaq/Errors"));
+const PSErrors = lazy(() => import("./sections/psfaq/PSErrors"));
 
-const PSExport = lazy(() => import("./sections/psfaq/Export"));
+const PSExport = lazy(() => import("./sections/psfaq/PSExport"));
 
-const PSExportProblems = lazy(() => import("./sections/psfaq/ExportProblems"));
+const PSExportProblems = lazy(() => import("./sections/psfaq/PSExportProblems"));
 
-const PSFromNewbies = lazy(() => import("./sections/psfaq/FromNewbies"));
+const PSFromNewbies = lazy(() => import("./sections/psfaq/PSFromNewbies"));
 
-const PSImport = lazy(() => import("./sections/psfaq/Import"));
+const PSImport = lazy(() => import("./sections/psfaq/PSImport"));
 
-const PSInstallProblems = lazy(() => import("./sections/psfaq/InstallProblems"));
+const PSInstallProblems = lazy(() => import("./sections/psfaq/PSInstallProblems"));
 
-const PSInterface = lazy(() => import("./sections/psfaq/Interface"));
+const PSInterface = lazy(() => import("./sections/psfaq/PSInterface"));
 
-const PSPerformance = lazy(() => import("./sections/psfaq/Performance"));
+const PSPerformance = lazy(() => import("./sections/psfaq/PSPerformance"));
 
-const PSWhereFind = lazy(() => import("./sections/psfaq/WhereFind"));
+const PSWhereFind = lazy(() => import("./sections/psfaq/PSWhereFind"));
 
 const PSFAQ = () => {
   useEffect(() => {

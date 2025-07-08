@@ -22,25 +22,25 @@ import CopyToClipboard from "../components/features/CopyToClipboard";
 
 import {generateAnchorId} from "../components/DetailsSummary";
 
-const AEWhereFind = lazy(() => import("./sections/aefaq/WhereFind"));
+const AEWhereFind = lazy(() => import("./sections/aefaq/AEWhereFind"));
 
-const AEInstallProblems = lazy(() => import("./sections/aefaq/InstallProblems"));
+const AEInstallProblems = lazy(() => import("./sections/aefaq/AEInstallProblems"));
 
-const AEFromNewbies = lazy(() => import("./sections/aefaq/FromNewbies"));
+const AEFromNewbies = lazy(() => import("./sections/aefaq/AEFromNewbies"));
 
-const AEImport = lazy(() => import("./sections/aefaq/Import"));
+const AEImport = lazy(() => import("./sections/aefaq/AEImport"));
 
-const AEInterface = lazy(() => import("./sections/aefaq/Interface"));
+const AEInterface = lazy(() => import("./sections/aefaq/AEInterface"));
 
-const AEPerformance = lazy(() => import("./sections/aefaq/Performance"));
+const AEPerformance = lazy(() => import("./sections/aefaq/AEPerformance"));
 
-const AEActions = lazy(() => import("./sections/aefaq/Actions"));
+const AEActions = lazy(() => import("./sections/aefaq/AEActions"));
 
-const AEErrors = lazy(() => import("./sections/aefaq/Errors"));
+const AEErrors = lazy(() => import("./sections/aefaq/AEErrors"));
 
-const AEExport = lazy(() => import("./sections/aefaq/Export"));
+const AEExport = lazy(() => import("./sections/aefaq/AEExport"));
 
-const AEExportProblems = lazy(() => import("./sections/aefaq/ExportProblems"));
+const AEExportProblems = lazy(() => import("./sections/aefaq/AEExportProblems"));
 
 const AEFAQ = () => {
   useEffect(() => {
