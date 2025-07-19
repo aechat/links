@@ -1,30 +1,46 @@
 import {InfoOutlined, ReportOutlined, WarningAmberOutlined} from "@mui/icons-material";
 
-import React from "react";
+import React, {ReactNode} from "react";
 
 interface AdditionProps {
-  children: React.ReactNode;
+  children: ReactNode;
+  type: "info" | "warning" | "danger";
 }
 
-const AdditionInfo: React.FC<AdditionProps> = ({children}) => (
-  <div className="addition-info">
-    <InfoOutlined />
-    <div>{children}</div>
-  </div>
-);
+const Addition: React.FC<AdditionProps> = ({children, type}) => {
+  let icon: ReactNode;
+  let className: string;
 
-const AdditionWarning: React.FC<AdditionProps> = ({children}) => (
-  <div className="addition-warning">
-    <WarningAmberOutlined />
-    <div>{children}</div>
-  </div>
-);
+  switch (type) {
+    case "info":
+      icon = <InfoOutlined />;
+      className = "addition-info";
 
-const AdditionDanger: React.FC<AdditionProps> = ({children}) => (
-  <div className="addition-danger">
-    <ReportOutlined />
-    <div>{children}</div>
-  </div>
-);
+      break;
 
-export {AdditionDanger, AdditionInfo, AdditionWarning};
+    case "warning":
+      icon = <WarningAmberOutlined />;
+      className = "addition-warning";
+
+      break;
+
+    case "danger":
+      icon = <ReportOutlined />;
+      className = "addition-danger";
+
+      break;
+  }
+
+  if (!icon || !className) {
+    throw new Error("Не указан тип для компонента Addition");
+  }
+
+  return (
+    <div className={className}>
+      {icon}
+      <div>{children}</div>
+    </div>
+  );
+};
+
+export default Addition;
