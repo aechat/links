@@ -1,12 +1,12 @@
-import React, {useState} from "react";
-
-import {motion} from "framer-motion";
+import {CloseRounded} from "@mui/icons-material";
 
 import {Modal} from "antd";
 
-import {CloseRounded} from "@mui/icons-material";
+import {motion} from "framer-motion";
 
-import {AdditionInfo} from "../Additions";
+import React, {useState} from "react";
+
+import Addition from "../Addition";
 
 const HostsAdobeModal: React.FC = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);

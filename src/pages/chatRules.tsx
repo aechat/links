@@ -1,20 +1,20 @@
-import React from "react";
-
 import {Breadcrumb, Divider} from "antd";
-
-import {Link, useLocation} from "react-router-dom";
 
 import {motion} from "framer-motion";
 
+import React from "react";
+
 import {Helmet} from "react-helmet-async";
 
-import {AdditionDanger, AdditionInfo, AdditionWarning} from "../components/Additions";
+import {Link, useLocation} from "react-router-dom";
+
+import Addition from "../components/Addition";
+
+import ContentSwitcher from "../components/features/ContentFilter";
 
 import Footer from "../components/Footer";
 
 import Header from "../components/Header";
-
-import ContentSwitcher from "../components/features/ContentFilter";
 
 const constants = {
   SCROLL_DELAY: 300,

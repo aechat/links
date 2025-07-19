@@ -1,10 +1,10 @@
 import React from "react";
 
-import GithubUpdateInfo from "../../../components/features/GithubUpdateInfo";
-
 import DetailsSummary from "../../../components/DetailsSummary";
 
 import CodeSnippet from "../../../components/features/CodeSnippet";
+
+import GithubUpdateInfo from "../../../components/features/GithubUpdateInfo";
 
 import {
   commentExample,

@@ -1,14 +1,14 @@
-import React from "react";
-
 import {Divider} from "antd";
 
-import GithubUpdateInfo from "../../../components/features/GithubUpdateInfo";
+import React from "react";
 
-import DetailsSummary from "../../../components/DetailsSummary";
+import Addition from "../../../components/Addition";
 
 import {ImageFigure, VideoFigure, YouTubeVideo} from "../../../components/ContentFigure";
 
-import {AdditionInfo, AdditionWarning} from "../../../components/Additions";
+import DetailsSummary from "../../../components/DetailsSummary";
+
+import GithubUpdateInfo from "../../../components/features/GithubUpdateInfo";
 
 const PSFromNewbies: React.FC = () => {
   return (

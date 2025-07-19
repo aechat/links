@@ -1,10 +1,10 @@
 import React from "react";
 
-import GithubUpdateInfo from "../../../components/features/GithubUpdateInfo";
+import {VideoFigure} from "../../../components/ContentFigure";
 
 import DetailsSummary from "../../../components/DetailsSummary";
 
-import {VideoFigure} from "../../../components/ContentFigure";
+import GithubUpdateInfo from "../../../components/features/GithubUpdateInfo";
 
 const AEExprStart: React.FC = () => (
   <div className="faq-content">

@@ -1,8 +1,8 @@
-import React from "react";
-
 import {GitHub} from "@mui/icons-material";
 
 import {motion} from "framer-motion";
+
+import React from "react";
 
 interface FooterProps {
   title: string;

@@ -1,18 +1,14 @@
+import {Divider} from "antd";
+
 import React from "react";
 
-import {
-  AdditionDanger,
-  AdditionInfo,
-  AdditionWarning,
-} from "../../../components/Additions";
+import Addition from "../../../components/Addition";
 
 import {ImageFigure, VideoFigure} from "../../../components/ContentFigure";
 
 import DetailsSummary from "../../../components/DetailsSummary";
 
 import GithubUpdateInfo from "../../../components/features/GithubUpdateInfo";
-
-import {Divider} from "antd";
 
 const PRInterface: React.FC = () => {
   return (

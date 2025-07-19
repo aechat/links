@@ -1,16 +1,12 @@
-import React from "react";
-
 import {Divider} from "antd";
 
-import {
-  AdditionDanger,
-  AdditionInfo,
-  AdditionWarning,
-} from "../../../components/Additions";
+import React from "react";
 
-import DetailsSummary from "../../../components/DetailsSummary";
+import Addition from "../../../components/Addition";
 
 import {ImageFigure} from "../../../components/ContentFigure";
+
+import DetailsSummary from "../../../components/DetailsSummary";
 
 import GithubUpdateInfo from "../../../components/features/GithubUpdateInfo";
 

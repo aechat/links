@@ -1,18 +1,14 @@
+import {Divider} from "antd";
+
 import React from "react";
 
-import {Divider} from "antd";
+import Addition from "../../../components/Addition";
+
+import {ImageFigure, VideoFigure, YouTubeVideo} from "../../../components/ContentFigure";
 
 import DetailsSummary from "../../../components/DetailsSummary";
 
 import GithubUpdateInfo from "../../../components/features/GithubUpdateInfo";
-
-import {ImageFigure, VideoFigure, YouTubeVideo} from "../../../components/ContentFigure";
-
-import {
-  AdditionDanger,
-  AdditionInfo,
-  AdditionWarning,
-} from "../../../components/Additions";
 
 const AEExportProblems: React.FC = () => {
   return (

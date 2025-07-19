@@ -1,3 +1,5 @@
+import {LinearProgress} from "@mui/material";
+
 import {ConfigProvider} from "antd";
 
 import {AnimatePresence, motion} from "framer-motion";
@@ -5,8 +7,6 @@ import {AnimatePresence, motion} from "framer-motion";
 import React, {Suspense, lazy, useEffect} from "react";
 
 import {Navigate, Route, Routes, useLocation} from "react-router-dom";
-
-import {LinearProgress} from "@mui/material";
 
 import themeConfig from "./styles/ant_theme";
 

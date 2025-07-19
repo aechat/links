@@ -1,18 +1,14 @@
-import React from "react";
-
 import {Divider} from "antd";
 
-import GithubUpdateInfo from "../../../components/features/GithubUpdateInfo";
+import React from "react";
+
+import Addition from "../../../components/Addition";
+
+import {ImageFigure} from "../../../components/ContentFigure";
 
 import DetailsSummary from "../../../components/DetailsSummary";
 
-import {
-  AdditionDanger,
-  AdditionInfo,
-  AdditionWarning,
-} from "../../../components/Additions";
-
-import {ImageFigure} from "../../../components/ContentFigure";
+import GithubUpdateInfo from "../../../components/features/GithubUpdateInfo";
 
 const PRWhereFind: React.FC = () => {
   return (

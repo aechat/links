@@ -1,7 +1,3 @@
-import React, {createContext, useContext, useEffect, useMemo, useState} from "react";
-
-import {Modal, Slider, Tooltip} from "antd";
-
 import {
   CloseRounded,
   DarkModeRounded,
@@ -11,7 +7,11 @@ import {
   RestartAlt,
 } from "@mui/icons-material";
 
+import {Modal, Slider, Tooltip} from "antd";
+
 import {motion} from "framer-motion";
+
+import React, {createContext, useContext, useEffect, useMemo, useState} from "react";
 
 type Theme = "light" | "dark" | "system";
 interface ThemeContextProps {

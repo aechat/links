@@ -1,22 +1,18 @@
-import React from "react";
-
 import {Divider} from "antd";
 
-import DetailsSummary from "../../../components/DetailsSummary";
+import React from "react";
 
-import GithubUpdateInfo from "../../../components/features/GithubUpdateInfo";
-
-import {
-  AdditionDanger,
-  AdditionInfo,
-  AdditionWarning,
-} from "../../../components/Additions";
+import Addition from "../../../components/Addition";
 
 import {ImageFigure, VideoFigure, YouTubeVideo} from "../../../components/ContentFigure";
 
-import TgsToJsonConverter from "../../../components/features/ConverterTgsToJson";
+import DetailsSummary from "../../../components/DetailsSummary";
 
 import ContentSwitcher from "../../../components/features/ContentFilter";
+
+import TgsToJsonConverter from "../../../components/features/ConverterTgsToJson";
+
+import GithubUpdateInfo from "../../../components/features/GithubUpdateInfo";
 
 const AEImport: React.FC = () => {
   return (

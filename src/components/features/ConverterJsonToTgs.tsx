@@ -1,14 +1,14 @@
-import React, {useEffect, useState} from "react";
+import {UploadFileRounded} from "@mui/icons-material";
 
 import {Radio, Spin, Upload, message} from "antd";
 
 import {saveAs} from "file-saver";
 
-import {gzip} from "pako";
-
 import {motion} from "framer-motion";
 
-import {UploadFileRounded} from "@mui/icons-material";
+import {gzip} from "pako";
+
+import React, {useEffect, useState} from "react";
 
 interface Pyodide {
   FS: {

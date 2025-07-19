@@ -1,20 +1,16 @@
-import React from "react";
-
 import {Divider} from "antd";
 
-import GithubUpdateInfo from "../../../components/features/GithubUpdateInfo";
+import React from "react";
 
-import {
-  AdditionDanger,
-  AdditionInfo,
-  AdditionWarning,
-} from "../../../components/Additions";
+import Addition from "../../../components/Addition";
 
 import {ImageFigure, YouTubeVideo} from "../../../components/ContentFigure";
 
 import DetailsSummary from "../../../components/DetailsSummary";
 
 import ContentSwitcher from "../../../components/features/ContentFilter";
+
+import GithubUpdateInfo from "../../../components/features/GithubUpdateInfo";
 
 const PRInstallProblems: React.FC = () => {
   return (

@@ -1,18 +1,14 @@
-import React from "react";
-
 import {Divider} from "antd";
 
-import GithubUpdateInfo from "../../../components/features/GithubUpdateInfo";
+import React from "react";
 
-import {
-  AdditionDanger,
-  AdditionInfo,
-  AdditionWarning,
-} from "../../../components/Additions";
+import Addition from "../../../components/Addition";
+
+import {ImageFigure, VideoFigure, YouTubeVideo} from "../../../components/ContentFigure";
 
 import DetailsSummary from "../../../components/DetailsSummary";
 
-import {ImageFigure, VideoFigure, YouTubeVideo} from "../../../components/ContentFigure";
+import GithubUpdateInfo from "../../../components/features/GithubUpdateInfo";
 
 const PSWhereFind: React.FC = () => {
   return (

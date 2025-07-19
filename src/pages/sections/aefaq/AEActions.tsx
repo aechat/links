@@ -1,22 +1,18 @@
-import React from "react";
-
 import {Divider} from "antd";
 
-import DetailsSummary from "../../../components/DetailsSummary";
+import React from "react";
+
+import Addition from "../../../components/Addition";
 
 import {ImageFigure, VideoFigure, YouTubeVideo} from "../../../components/ContentFigure";
 
-import {
-  AdditionDanger,
-  AdditionInfo,
-  AdditionWarning,
-} from "../../../components/Additions";
+import DetailsSummary from "../../../components/DetailsSummary";
 
-import GithubUpdateInfo from "../../../components/features/GithubUpdateInfo";
+import CodeSnippet from "../../../components/features/CodeSnippet";
 
 import ContentSwitcher from "../../../components/features/ContentFilter";
 
-import CodeSnippet from "../../../components/features/CodeSnippet";
+import GithubUpdateInfo from "../../../components/features/GithubUpdateInfo";
 
 const AEActions: React.FC = () => {
   return (

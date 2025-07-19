@@ -1,14 +1,14 @@
-import React, {useState} from "react";
+import {UploadFileRounded} from "@mui/icons-material";
 
 import {Upload, message} from "antd";
 
 import {saveAs} from "file-saver";
 
-import {inflate} from "pako";
-
 import {motion} from "framer-motion";
 
-import {UploadFileRounded} from "@mui/icons-material";
+import {inflate} from "pako";
+
+import React, {useState} from "react";
 
 const TgsToJsonConverter: React.FC = () => {
   const [jsonData, setJsonData] = useState<unknown>(null);

@@ -1,26 +1,26 @@
-import React, {Suspense, lazy, useEffect, useState} from "react";
+import {CircularProgress} from "@mui/material";
 
 import {Breadcrumb, Divider} from "antd";
 
 import {motion} from "framer-motion";
 
-import {Link} from "react-router-dom";
+import React, {Suspense, lazy, useEffect, useState} from "react";
 
 import {Helmet} from "react-helmet-async";
 
-import {CircularProgress} from "@mui/material";
+import {Link} from "react-router-dom";
 
-import Header from "../components/Header";
-
-import Footer from "../components/Footer";
-
-import {SearchInPage, SearchProvider} from "../components/search";
-
-import SupportDonut from "../components/modal/SupportDonut";
+import {generateAnchorId} from "../components/DetailsSummary";
 
 import CopyToClipboard from "../components/features/CopyToClipboard";
 
-import {generateAnchorId} from "../components/DetailsSummary";
+import Footer from "../components/Footer";
+
+import Header from "../components/Header";
+
+import SupportDonut from "../components/modal/SupportDonut";
+
+import {SearchInPage, SearchProvider} from "../components/search";
 
 const PRActions = lazy(() => import("./sections/prfaq/PRActions"));
 

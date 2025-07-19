@@ -1,18 +1,14 @@
+import {Divider} from "antd";
+
 import React from "react";
 
-import {Divider} from "antd";
+import Addition from "../../../components/Addition";
+
+import {ImageFigure, VideoFigure, YouTubeVideo} from "../../../components/ContentFigure";
 
 import DetailsSummary from "../../../components/DetailsSummary";
 
-import {
-  AdditionDanger,
-  AdditionInfo,
-  AdditionWarning,
-} from "../../../components/Additions";
-
 import ContentSwitcher from "../../../components/features/ContentFilter";
-
-import {ImageFigure, VideoFigure, YouTubeVideo} from "../../../components/ContentFigure";
 
 import GithubUpdateInfo from "../../../components/features/GithubUpdateInfo";
 

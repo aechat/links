@@ -1,14 +1,14 @@
-import React from "react";
-
 import {Divider} from "antd";
 
-import GithubUpdateInfo from "../../../components/features/GithubUpdateInfo";
+import React from "react";
+
+import Addition from "../../../components/Addition";
 
 import DetailsSummary from "../../../components/DetailsSummary";
 
 import ContentSwitcher from "../../../components/features/ContentFilter";
 
-import {AdditionInfo, AdditionWarning} from "../../../components/Additions";
+import GithubUpdateInfo from "../../../components/features/GithubUpdateInfo";
 
 const PRPerformance: React.FC = () => {
   return (

@@ -1,20 +1,16 @@
+import {Divider} from "antd";
+
 import React from "react";
 
-import DetailsSummary from "../../../components/DetailsSummary";
-
-import GithubUpdateInfo from "../../../components/features/GithubUpdateInfo";
-
-import {
-  AdditionDanger,
-  AdditionInfo,
-  AdditionWarning,
-} from "../../../components/Additions";
+import Addition from "../../../components/Addition";
 
 import {ImageFigure, YouTubeVideo} from "../../../components/ContentFigure";
 
+import DetailsSummary from "../../../components/DetailsSummary";
+
 import ContentSwitcher from "../../../components/features/ContentFilter";
 
-import {Divider} from "antd";
+import GithubUpdateInfo from "../../../components/features/GithubUpdateInfo";
 
 const AEPerformance: React.FC = () => {
   return (

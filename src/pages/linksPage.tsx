@@ -45,13 +45,13 @@ import React from "react";
 
 import {Helmet} from "react-helmet-async";
 
+import Addition from "../components/Addition";
+
+import Footer from "../components/Footer";
+
 import Header from "../components/Header";
 
 import {LinkCard, LinkCardNoDescription, LinkInAppCard} from "../components/LinkCards";
-
-import {AdditionDanger, AdditionInfo, AdditionWarning} from "../components/Additions";
-
-import Footer from "../components/Footer";
 
 import {AEExprIcon, AEIcon, PRIcon, PSIcon} from "./faqIcon";
 

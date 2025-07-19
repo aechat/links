@@ -1,6 +1,6 @@
-import {useCallback, useEffect, useMemo, useState} from "react";
-
 import debounce from "lodash/debounce";
+
+import {useCallback, useEffect, useMemo, useState} from "react";
 
 import {SearchResult} from "./types";
 

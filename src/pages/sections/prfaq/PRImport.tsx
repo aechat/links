@@ -1,18 +1,15 @@
-import React from "react";
-
 import {Divider} from "antd";
 
-import GithubUpdateInfo from "../../../components/features/GithubUpdateInfo";
+import React from "react";
+
+import Addition from "../../../components/Addition";
+
+import {ImageFigure, VideoFigure} from "../../../components/ContentFigure";
 
 import DetailsSummary from "../../../components/DetailsSummary";
 
-import {
-  AdditionDanger,
-  AdditionInfo,
-  AdditionWarning,
-} from "../../../components/Additions";
+import GithubUpdateInfo from "../../../components/features/GithubUpdateInfo";
 
-import {ImageFigure, VideoFigure} from "../../../components/ContentFigure";
 
 const PRImport: React.FC = () => {
   return (

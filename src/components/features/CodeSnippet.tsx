@@ -1,10 +1,10 @@
-import React, {useEffect, useRef} from "react";
+import {message} from "antd";
 
 import hljs from "highlight.js";
 
 import "highlight.js/styles/github-dark.css";
 
-import {message} from "antd";
+import React, {useEffect, useRef} from "react";
 
 interface CodeSnippetProps {
   language?: string;

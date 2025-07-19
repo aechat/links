@@ -1,8 +1,14 @@
+import {Divider} from "antd";
+
 import React from "react";
 
-import GithubUpdateInfo from "../../../components/features/GithubUpdateInfo";
+import Addition from "../../../components/Addition";
+
+import {ImageFigure} from "../../../components/ContentFigure";
 
 import DetailsSummary from "../../../components/DetailsSummary";
+
+import GithubUpdateInfo from "../../../components/features/GithubUpdateInfo";
 
 const PSImport: React.FC = () => {
   return (

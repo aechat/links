@@ -1,8 +1,8 @@
 import React from "react";
 
-import GithubUpdateInfo from "../../../components/features/GithubUpdateInfo";
-
 import DetailsSummary from "../../../components/DetailsSummary";
+
+import GithubUpdateInfo from "../../../components/features/GithubUpdateInfo";
 
 const AEExprLinking: React.FC = () => {
   return (

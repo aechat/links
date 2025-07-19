@@ -1,12 +1,12 @@
 import React from "react";
 
-import GithubUpdateInfo from "../../../components/features/GithubUpdateInfo";
+import Addition from "../../../components/Addition";
+
+import {ImageFigure} from "../../../components/ContentFigure";
 
 import DetailsSummary from "../../../components/DetailsSummary";
 
-import {AdditionInfo} from "../../../components/Additions";
-
-import {ImageFigure} from "../../../components/ContentFigure";
+import GithubUpdateInfo from "../../../components/features/GithubUpdateInfo";
 
 const PSExport: React.FC = () => {
   return (

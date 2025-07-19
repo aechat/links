@@ -1,12 +1,12 @@
-import path from "path";
+import react from "@vitejs/plugin-react";
+
+import autoprefixer from "autoprefixer";
 
 import {readFile, writeFile} from "fs/promises";
 
-import react from "@vitejs/plugin-react";
+import path from "path";
 
 import {defineConfig} from "vite";
-
-import autoprefixer from "autoprefixer";
 
 export default defineConfig({
   resolve: {

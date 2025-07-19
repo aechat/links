@@ -1,12 +1,12 @@
-import React, {useState} from "react";
+import {CloseRounded, CoffeeRounded} from "@mui/icons-material";
 
 import {Modal} from "antd";
 
 import {motion} from "framer-motion";
 
-import {CloseRounded, CoffeeRounded} from "@mui/icons-material";
+import React, {useState} from "react";
 
-import {AdditionInfo} from "../Additions";
+import Addition from "../Addition";
 
 const SupportDonut: React.FC = () => {
   const [isDonateModalOpen, setIsDonateModalOpen] = useState(false);

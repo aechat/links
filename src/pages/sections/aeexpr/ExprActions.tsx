@@ -1,8 +1,8 @@
 import React from "react";
 
-import GithubUpdateInfo from "../../../components/features/GithubUpdateInfo";
-
 import DetailsSummary from "../../../components/DetailsSummary";
+
+import GithubUpdateInfo from "../../../components/features/GithubUpdateInfo";
 
 /* FIXME: Еще вопрос, как остановить действие выражения wiggle на определенном кадре? */
 

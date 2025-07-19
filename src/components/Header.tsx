@@ -1,16 +1,16 @@
 import {ArrowBackRounded} from "@mui/icons-material";
 
+import {motion} from "framer-motion";
+
 import React, {useEffect, useState} from "react";
 
 import {Link} from "react-router-dom";
 
-import {motion} from "framer-motion";
-
-import {SearchButton, WideSearchButton} from "./search";
-
 import {MoveToTop} from "./features/MoveToTop";
 
 import {ThemeToggleButton} from "./modal/ThemeChanger";
+
+import {SearchButton, WideSearchButton} from "./search";
 
 interface HeaderProps {
   title: string;
