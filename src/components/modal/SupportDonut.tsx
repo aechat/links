@@ -37,7 +37,7 @@ const SupportDonut: React.FC = () => {
         <motion.button
           className="modal-page-button"
           style={{
-            filter: "saturate(1.25) drop-shadow(0 3px 5px var(--shadow))",
+            filter: "saturate(1.25)",
           }}
           whileHover={{
             scale: 0.975,
@@ -74,7 +74,7 @@ const SupportDonut: React.FC = () => {
             </p>
             <div className="flexible-links">
               <motion.button
-                className="sber"
+                className="support-button-sber"
                 whileHover={{
                   scale: 0.975,
                   transition: {duration: 0.5, ease: [0.075, 0.82, 0.165, 1]},
@@ -108,7 +108,7 @@ const SupportDonut: React.FC = () => {
                       сумму.
                     </p>
                     <motion.mark
-                      className="sber"
+                      className="copy-cardnumber-sber"
                       style={{marginInline: "10px"}}
                       whileHover={{
                         scale: 0.975,
@@ -136,7 +136,7 @@ const SupportDonut: React.FC = () => {
                 </div>
               </Modal>
               <motion.button
-                className="yoomoney"
+                className="support-button-yoomoney"
                 whileHover={{
                   scale: 0.975,
                   transition: {duration: 0.5, ease: [0.075, 0.82, 0.165, 1]},
@@ -169,19 +169,20 @@ const SupportDonut: React.FC = () => {
                     <ul>
                       <li>Зайдите в приложение своего банка.</li>
                       <li>
-                        Откройте раздел <mark className="ui">Платежи</mark> и найдите в
-                        нём категорию <mark className="ui">Электронные кошельки</mark> или{" "}
-                        <mark className="ui">Финансы</mark>. Обычно в этих разделах можно
-                        найти <mark>ЮMoney</mark>. Также вы можете воспользоваться поиском
-                        вашего банка.
+                        Откройте раздел <mark className="select">Платежи</mark> и найдите
+                        в нём категорию{" "}
+                        <mark className="select">Электронные кошельки</mark> или{" "}
+                        <mark className="select">Финансы</mark>. Обычно в этих разделах
+                        можно найти <mark>ЮMoney</mark>. Также вы можете воспользоваться
+                        поиском вашего банка.
                       </li>
                       <li>
                         Нажмите на номер кошелька снизу, он скопируется в буфер обмена.
                         Вставьте этот номер в поле{" "}
-                        <mark className="ui">Номер кошелька</mark> приложения вашего банка
-                        и введите любую сумму. После этого - подтвердите перевод.
+                        <mark className="select">Номер кошелька</mark> приложения вашего
+                        банка и введите любую сумму. После этого - подтвердите перевод.
                         <motion.mark
-                          className="yoomoney"
+                          className="copy-cardnumber-yoomoney"
                           whileHover={{
                             scale: 0.975,
                             transition: {
@@ -222,20 +223,13 @@ const SupportDonut: React.FC = () => {
           </div>
         </div>
       </Modal>
-      <AdditionInfo>
-        <ul>
-          <li>
-            Содержание этой страницы периодически обновляется и предоставляется &quot;как
-            есть&quot;. Информация в статьях может оказаться неполной, устаревшей или
-            содержать неточности. Мнение автора и читателя может не совпадать.
-          </li>
-          <li>
-            Ваша помощь в наполнении статей и исправлении ошибок на этой странице очень
-            важна. Чтобы сделать ресурс еще лучше - поделитесь своими сообщениями и идеями
-            через бота <a href="https://t.me/aechatru_bot">@aechatru_bot</a>.
-          </li>
-        </ul>
-      </AdditionInfo>
+      <Addition type="info">
+        Содержание этой страницы периодически обновляется и предоставляется «как есть».
+        Информация в статьях может быть неполной, устаревшей или неточной. Мнение автора и
+        читателя может не совпадать. Если вы хотите сделать ресурс ещё лучше — поделитесь
+        своими замечаниями и идеями через бота{" "}
+        <a href="https://t.me/aechatru_bot">@aechatru_bot</a>.
+      </Addition>
     </>
   );
 };

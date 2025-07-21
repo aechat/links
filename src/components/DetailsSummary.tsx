@@ -258,11 +258,6 @@ const DetailsSummary: React.FC<DetailsSummaryProps> = ({title, children, tag}) =
 
   const anchorId = detailsRef.current?.querySelector(".faq-summary")?.id ?? "";
 
-  const isWebKit =
-    typeof navigator !== "undefined" &&
-    /AppleWebKit|Epiphany|Safari/i.test(navigator.userAgent) &&
-    !/Chrome|Chromium|Edg|OPR|Brave/i.test(navigator.userAgent);
-
   return (
     <details
       ref={detailsRef}
@@ -308,23 +303,12 @@ const DetailsSummary: React.FC<DetailsSummaryProps> = ({title, children, tag}) =
         </Tooltip>
       </motion.summary>
       <SpoilerContext.Provider value={isOpen}>
-        {isWebKit ? (
-          isOpen && (
-            <section
-              ref={sectionRef}
-              className="faq-section"
-            >
-              {children}
-            </section>
-          )
-        ) : (
-          <section
-            ref={sectionRef}
-            className="faq-section"
-          >
-            {children}
-          </section>
-        )}
+        <section
+          ref={sectionRef}
+          className="faq-section"
+        >
+          {children}
+        </section>
       </SpoilerContext.Provider>
     </details>
   );

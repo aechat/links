@@ -14,11 +14,6 @@ import {SearchSection} from "../types";
 
 import {getFoundWord, getResultWord} from "../utils";
 
-const isWebKit =
-  typeof navigator !== "undefined" &&
-  /AppleWebKit|Epiphany|Safari/i.test(navigator.userAgent) &&
-  !/Chrome|Chromium|Edg|OPR|Brave/i.test(navigator.userAgent);
-
 const SearchCategories: React.FC<{
   onLinkClick: (id: string) => void;
   sections: SearchSection[];
@@ -223,8 +218,6 @@ export const SearchInPage: React.FC<{sections: SearchSection[]}> = ({sections}) 
 
   const inputRef = useRef<HTMLInputElement>(null);
 
-  const [alertShown, setAlertShown] = useState(false);
-
   const resultsContainerRef = useRef<HTMLDivElement>(null);
 
   const [showFade, setShowFade] = useState(false);
@@ -257,14 +250,6 @@ export const SearchInPage: React.FC<{sections: SearchSection[]}> = ({sections}) 
       return () => clearTimeout(timeout);
     }
   }, [isOpen]);
-  useEffect(() => {
-    if (isOpen && isWebKit && !alertShown) {
-      alert(
-        "⚠ Поиск по странице ограничен в Safari. В результаты попадают только заголовки спойлеров и содержимое открытых статей."
-      );
-      setAlertShown(true);
-    }
-  }, [isOpen, alertShown]);
 
   useEffect(() => {
     const el = resultsContainerRef.current;
