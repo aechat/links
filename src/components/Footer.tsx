@@ -9,26 +9,6 @@ interface FooterProps {
   initialYear: number;
 }
 
-const styles = {
-  container: {
-    display: "flex",
-    justifyContent: "space-between",
-    alignItems: "center",
-  },
-  faqText: {
-    opacity: 0.5,
-    fontSize: "0.9em",
-    fontWeight: 400,
-  },
-  githubLink: {
-    textDecoration: "none",
-    display: "flex",
-    alignItems: "center",
-    gap: "5px",
-    flexShrink: 0,
-  },
-} as const;
-
 const FAQ_PATHS = ["/aefaq", "/prfaq", "/psfaq", "/aeexpr"] as const;
 
 const Footer: React.FC<FooterProps> = ({title, initialYear}) => {
@@ -42,21 +22,33 @@ const Footer: React.FC<FooterProps> = ({title, initialYear}) => {
 
   return (
     <motion.footer
-      animate={{opacity: 0.5}}
+      animate={{opacity: 0.65}}
       className="footer"
       initial={{opacity: 0}}
-      transition={{duration: 0.5, delay: 1}}
+      transition={{duration: 0.65, delay: 1}}
     >
-      <div style={styles.container}>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+        }}
+      >
         <div>
           <p>
             m1sh3r {"// "}
             {title} &copy; {initialYear} - {currentYear}
           </p>
           {isFaqPage() && (
-            <p style={styles.faqText}>
+            <p
+              style={{
+                opacity: 0.5,
+                fontSize: "0.9em",
+                fontWeight: 400,
+              }}
+            >
               Контент на этой странице обновляется благодаря вопросам участников наших
-              чатов.
+              чатов. Информация для статей взята с открытых источников сети Интернет.
             </p>
           )}
         </div>
@@ -64,7 +56,13 @@ const Footer: React.FC<FooterProps> = ({title, initialYear}) => {
           aria-label="перейти на GitHub"
           href="https://github.com/aechat/links"
           rel="noreferrer"
-          style={styles.githubLink}
+          style={{
+            textDecoration: "none",
+            display: "flex",
+            alignItems: "center",
+            gap: "5px",
+            flexShrink: 0,
+          }}
           target="_blank"
         >
           <GitHub />
