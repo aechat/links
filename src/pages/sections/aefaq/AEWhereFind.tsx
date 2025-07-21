@@ -4,7 +4,7 @@ import React from "react";
 
 import Addition from "../../../components/Addition";
 
-import {ImageFigure} from "../../../components/ContentFigure";
+import {ContentFigure} from "../../../components/ContentFigure";
 
 import DetailsSummary from "../../../components/DetailsSummary";
 
@@ -27,27 +27,26 @@ const AEWhereFind: React.FC = () => {
             AEChat
           </a>{" "}
           и в списке ниже вы всегда сможете найти ссылки на наши каналы в{" "}
-          <mark className="app">Telegram</mark> с различным полезным контентом.
+          <mark className="app">Telegram</mark> с полезным контентом.
         </p>
         <Divider>Скачать шаблоны и различные материалы</Divider>
         <ul>
           <li>
-            <a href="https://t.me/s/aetemp">AETemp</a> - канал с переходами, шаблонами,
+            <a href="https://t.me/s/aetemp">AETemp</a> — канал с переходами, шаблонами,
             расширениями и прочими полезными материалами для ваших композиций в{" "}
             <mark className="app">Adobe After Effects</mark>.
           </li>
           <li>
-            <a href="https://t.me/s/designworld">Design World</a> - канал с статичной
+            <a href="https://t.me/s/designworld">Design World</a> — канал со статичной
             графикой, эффектами и кистями для <mark className="app">Adobe Photoshop</mark>
-            , которые в дальнейшем можно использовать для ваших композиций{" "}
+            , которые в дальнейшем можно использовать для ваших композиций в{" "}
             <mark className="app">Adobe After Effects</mark>.
           </li>
         </ul>
-        <AdditionInfo>
-          Если вы не нашли нужный шаблон из каналов{" "}
-          <a href="https://t.me/s/aetemp">AETemp</a> и{" "}
-          <a href="https://t.me/s/designworld">Design World</a>, но у вас есть на него
-          ссылка - воспользуйтесь нашим ботом{" "}
+        <Addition type="info">
+          Если вы не нашли в каналах <a href="https://t.me/s/aetemp">AETemp</a> и{" "}
+          <a href="https://t.me/s/designworld">Design World</a> нужный шаблон, но у вас
+          есть на него ссылка — воспользуйтесь нашим ботом{" "}
           <a
             href="https://t.me/HiStockBot?start=509060394"
             title="Бот HiStock для покупки шаблонов в Telegram"
@@ -83,82 +82,83 @@ const AEWhereFind: React.FC = () => {
             Artlist
           </a>{" "}
           по выгодным ценам.
-          <AdditionDanger>
-            Файлы из <mark>Videohive</mark>, <mark>Shutter Stock</mark> и других сервисов,
-            которые не используют подписочную модель распространения файлов -{" "}
-            <b>
-              <u>не поддерживаются ботом</u>
-            </b>{" "}
-            по понятной причине.
-          </AdditionDanger>
-        </AdditionInfo>
-        <AdditionWarning>
+        </Addition>
+        <Addition type="danger">
+          Файлы из <mark>Videohive</mark>, <mark>Shutterstock</mark> и других сервисов,
+          которые не используют подписочную модель распространения, —{" "}
+          <b>
+            <u>не поддерживаются</u>
+          </b>
+          .
+        </Addition>
+        <Addition type="warning">
           Контент, предоставленный в <a href="https://t.me/s/aetemp">AETemp</a> и{" "}
-          <a href="https://t.me/s/designworld">Design World</a> не должен использоваться в
-          коммерческих целях. Если вы планируете использовать какой-либо материал в
-          коммерческих целях, то вам нужно будет приобрести нужный шаблон во избежание
-          различных проблем с правообладателями.
-        </AdditionWarning>
+          <a href="https://t.me/s/designworld">Design World</a>, не должен использоваться
+          в коммерческих целях. Если вы планируете использовать какой-либо материал в
+          коммерческих целях, вам нужно будет приобрести нужный шаблон во избежание
+          проблем с правообладателями.
+        </Addition>
         <Divider>Скачать программы и плагины</Divider>
         <ul>
           <li>
-            <a href="https://t.me/+Qd9xu7A4TeIwNzY6">склад стройматериалов</a> - канал с
+            <a href="https://t.me/+Qd9xu7A4TeIwNzY6">склад стройматериалов</a> — канал с
             творческими программами, утилитами и плагинами к различным программам по
             демократичным ценам для пользователей устройств на операционной системе{" "}
             <mark>Windows</mark>.
           </li>
           <li>
-            <a href="https://t.me/+ZqiaMfQRFgM4YmEy">Яблоневый сад</a> - аналогичный канал
-            с программами, как <mark>склад стройматериалов</mark>, но для пользователей
+            <a href="https://t.me/+ZqiaMfQRFgM4YmEy">Яблоневый сад</a> — такой же канал с
+            программами, как и <mark>склад стройматериалов</mark>, но для пользователей
             устройств на <mark>macOS</mark>.
           </li>
         </ul>
-        <AdditionInfo>
-          Если у вас возникли проблемы с установкой программ или плагинов - прочтите
-          раздел <mark>Проблемы с установкой</mark> или обратитесь к нам в{" "}
-          <a href="https://t.me/joinchat/F1DdXtG9LephYWUy">AEChat</a>.
-        </AdditionInfo>
-        <AdditionWarning>
-          При установке программ с пометкой <mark>репак от кролика</mark> из{" "}
+        <Addition type="info">
+          Если у вас возникли проблемы с установкой программ или плагинов — прочтите
+          раздел <a href="#install-problems">«Проблемы с установкой»</a> или обратитесь к
+          нам в <a href="https://t.me/joinchat/F1DdXtG9LephYWUy">AEChat</a>.
+        </Addition>
+        <Addition type="warning">
+          При установке программ с пометкой <mark>«репак от кролика»</mark> из{" "}
           <a href="https://t.me/+Qd9xu7A4TeIwNzY6">склада стройматериалов (Windows)</a> не
-          забывайте убирать галочку <mark className="ui">Реклама</mark> и отключать
-          антивирус перед установкой, иначе можете наткнуться на проблему{" "}
-          <mark className="ui">helper.exe не найден</mark>.
-        </AdditionWarning>
-        <AdditionDanger>
-          Устанавливая содержимое на ваше устройство из каналов{" "}
-          <a href="https://t.me/s/aetemp">AETemp</a>,{" "}
+          забывайте убирать галочку <mark className="select">«Реклама»</mark> и отключать
+          антивирус перед установкой, иначе можете столкнуться с ошибкой{" "}
+          <mark className="select">«helper.exe не найден»</mark>.
+        </Addition>
+        <Addition type="danger">
+          Файлы из каналов <a href="https://t.me/s/aetemp">AETemp</a>,{" "}
           <a href="https://t.me/+Qd9xu7A4TeIwNzY6">склад стройматериалов (Windows)</a> или{" "}
-          <a href="https://t.me/+ZqiaMfQRFgM4YmEy">Яблоневый сад (macOS)</a> - вы
-          принимаете на себя все риски и берёте ответственность за использование
-          нелегальных материалов.
+          <a href="https://t.me/+ZqiaMfQRFgM4YmEy">Яблоневый сад (macOS)</a>{" "}
+          предоставляются «как есть» из открытых источников. Устанавливая или распаковывая
+          содержимое из данных каналов — вы принимаете на себя все риски и берёте
+          ответственность за использование «народных» материалов.
           <ul>
             <li>
-              Мы не можем принимать вбросы по типу{" "}
+              Администрация этих каналов не может всерьёз воспринимать вбросы вроде{" "}
               <mark className="quote">
-                ой в складе, саду или аетемпе одни вирусы водятся
+                «В „складе“, „саду“ или „аетемпе“ одни вирусы водятся!»
               </mark>{" "}
-              на полном серьёзе без внятных доказательств наличия того или иного{" "}
-              <mark className="app">вредоносного ПО</mark>. Ложное срабатывание антивируса
-              также не является доказательством действительного наличия{" "}
-              <mark className="app">зловредов</mark> в том или ином архиве или программе.
+              без внятных доказательств наличия{" "}
+              <mark className="app">вредоносного ПО</mark>. Ложное срабатывание вашего{" "}
+              <mark className="app">антивируса</mark> и{" "}
+              <mark className="app">Virustotal</mark> также не является доказательством
+              наличия <mark className="app">зловредов</mark> в архиве или программе.
             </li>
             <li>
-              Если вы доверяете нашим источникам - отключайте{" "}
-              <mark className="app">антивирусное ПО</mark>, установленное на вашем
-              устройстве, при установке программ и плагинов во избежание проблем с
-              активацией, либо не предъявляйте претензии на основе вашей паранои и
-              оформляйте покупку софта за свои кровные деньги.
+              Если вы доверяете нашим источникам — отключайте{" "}
+              <mark className="app">антивирусное ПО</mark> на вашем устройстве при
+              установке программ и плагинов во избежание проблем с активацией. В противном
+              случае не предъявляйте администраторам претензии, основанные на вашей
+              паранойе, и покупайте программы за свои деньги.
             </li>
           </ul>
-        </AdditionDanger>
+        </Addition>
       </DetailsSummary>
-      <DetailsSummary title="Где я могу найти и скачать стоковые видео для своих проектов?">
+      <DetailsSummary title="Где найти и скачать стоковые видео для своих проектов?">
         <p>
-          Существует множество видеостоков онлайн, среди которых многие предоставляют
-          материалы с лицензией <mark>Creative Commons Zero (CC0)</mark>, что означает
-          возможность использования их в своих коммерческих проектах, не указывая
-          авторство.
+          В Интернете существует множество онлайн-видеостоков, среди которых многие
+          предоставляют материалы с лицензией <mark>Creative Commons Zero (CC0)</mark>.
+          Это означает, что вы можете использовать их в своих коммерческих проектах, не
+          указывая авторство.
         </p>
         <div className="flexible-links">
           <a
@@ -264,31 +264,31 @@ const AEWhereFind: React.FC = () => {
             Storyblocks
           </a>
         </div>
-        <AdditionWarning>
+        <Addition type="warning">
           <ul>
             <li>
-              Перед использованием материалов, внимательно ознакомьтесь с условиями
-              использования на каждом конкретном ресурсе. Некоторые ресурсы из списка
-              могут потребовать оформить подписку на использование некоторых материалов.
+              Перед использованием материалов внимательно ознакомьтесь с условиями
+              использования на каждом конкретном ресурсе. Некоторые из них могут
+              потребовать оформить подписку.
             </li>
             <li>
               Некоторые ресурсы могут быть заблокированы на территории Российской
-              Федерации или других стран, используйте <mark className="app">VPN</mark> для
-              доступа на данные ресурсы.
+              Федерации или других стран. Используйте <mark className="app">VPN</mark> для
+              доступа к этим ресурсам.
             </li>
           </ul>
-        </AdditionWarning>
+        </Addition>
       </DetailsSummary>
-      <DetailsSummary title="Где я могу найти и скачать различную графику для своих проектов?">
+      <DetailsSummary title="Где найти и скачать графику для своих проектов?">
         <p>
-          Для таких случаев был создан канал{" "}
+          В канале{" "}
           <a
             href="https://t.me/s/DesignWorld"
             title="Канал Design World в Telegram"
           >
             Design World
           </a>{" "}
-          в <mark className="app">Telegram</mark> с полезными материалами для
+          в <mark className="app">Telegram</mark> вы можете найти полезные материалы для
           использования в различных графических редакторах, например{" "}
           <mark className="app">Adobe Photoshop</mark> и{" "}
           <mark className="app">Adobe Illustrator</mark>. В{" "}
@@ -296,9 +296,9 @@ const AEWhereFind: React.FC = () => {
             href="https://t.me/s/DesignWorld"
             title="Канал Design World в Telegram"
           >
-            данном канале
+            этом канале
           </a>{" "}
-          есть навигация по каналу для нахождения всякой всячины, например:{" "}
+          есть навигация для поиска всевозможных материалов, например по тегам:{" "}
           <mark className="tag">#текстуры</mark>, <mark className="tag">#шрифты</mark>,{" "}
           <mark className="tag">#кисти</mark>, <mark className="tag">#паттерны</mark>.
         </p>
@@ -310,8 +310,7 @@ const AEWhereFind: React.FC = () => {
           >
             Design World
           </a>
-          , то вы можете воспользоваться списком различных сайтов с различными
-          графическими материалами.
+          , можете воспользоваться списком сайтов с различными графическими материалами.
         </p>
         <div className="flexible-links">
           {" "}
@@ -424,30 +423,30 @@ const AEWhereFind: React.FC = () => {
             Texture Box
           </a>
         </div>
-        <AdditionWarning>
+        <Addition type="warning">
           <ul>
             <li>
-              Перед использованием материалов, внимательно ознакомьтесь с условиями
-              использования на каждом конкретном ресурсе. Некоторые ресурсы из списка
-              могут потребовать оформить подписку на использование некоторых материалов.
+              Перед использованием материалов внимательно ознакомьтесь с условиями
+              использования на каждом конкретном ресурсе. Некоторые из них могут
+              потребовать оформить подписку.
             </li>
             <li>
               Некоторые ресурсы могут быть заблокированы на территории Российской
-              Федерации или других стран, используйте <mark className="app">VPN</mark> для
-              доступа на данные ресурсы.
+              Федерации или других стран. Используйте <mark className="app">VPN</mark> для
+              доступа к этим ресурсам.
             </li>
           </ul>
-        </AdditionWarning>
+        </Addition>
       </DetailsSummary>
       <DetailsSummary
         tag="sfx"
-        title="Где я могу найти и скачать звуки и различные звуковые эффекты для своих композиций?"
+        title="Где найти и скачать звуковые эффекты для своих композиций?"
       >
         <p>
           В канале <a href="https://t.me/s/aetemp">AETemp</a> вы можете найти звуковые
-          эффекты в поиске по хештегу <mark className="tag">#звуки</mark>. Если же вам не
-          хватает ассортимента из <a href="https://t.me/s/aetemp">данного канала</a>, то
-          ниже предоставлен список сайтов, откуда вы можете достать звуковые эффекты и
+          эффекты по хештегу <mark className="tag">#звуки</mark>. Если же вам не хватит
+          ассортимента из <a href="https://t.me/s/aetemp">этого канала</a>, то ниже
+          приведён список сайтов, откуда можно скачать другие звуковые эффекты и
           использовать их в своих проектах.
         </p>
         <div className="flexible-links">
@@ -548,41 +547,39 @@ const AEWhereFind: React.FC = () => {
             Musopen
           </a>{" "}
         </div>
-        <AdditionWarning>
+        <Addition type="warning">
           <ul>
             <li>
-              Перед использованием материалов, внимательно ознакомьтесь с условиями
-              использования на каждом конкретном ресурсе. Некоторые ресурсы из списка
-              могут потребовать оформить подписку на использование некоторых материалов.
+              Перед использованием материалов внимательно ознакомьтесь с условиями
+              использования на каждом конкретном ресурсе. Некоторые из них могут
+              потребовать оформить подписку.
             </li>
             <li>
               Некоторые ресурсы могут быть заблокированы на территории Российской
-              Федерации или других стран, используйте <mark className="app">VPN</mark> для
-              доступа на данные ресурсы.
+              Федерации или других стран. Используйте <mark className="app">VPN</mark> для
+              доступа к этим ресурсам.
             </li>
           </ul>
-        </AdditionWarning>
+        </Addition>
       </DetailsSummary>
       <DetailsSummary
         tag="идентификация шрифта, найти нужное начертание, find font, likefont"
-        title="Как я могу распознать шрифт по имеющемуся фото?"
+        title="Как распознать шрифт по картинке?"
       >
         <p>
-          Для распознавания нужного начертания из изображения вы можете воспользоваться
-          сервисом{" "}
+          Для распознавания шрифта на изображении вы можете воспользоваться сервисом{" "}
           <a
             href="https://en.likefont.com"
             title="Сервис по нахождению шрифтов LikeFont"
           >
             LikeFont
           </a>
-          . Данный сервис может распознавать шрифты как на латинице, так и на кириллице.
-          Как начать им пользоваться? Всё просто.
+          . Этот сервис может распознавать шрифты как на латинице, так и на кириллице.
         </p>
         <ul>
           <li>
             <p>
-              Для начала перейдите на сайт{" "}
+              Чтобы начать поиск нужного начертания, сначала перейдите на сайт{" "}
               <a
                 href="https://en.likefont.com"
                 title="Сервис по нахождению шрифтов LikeFont"
@@ -592,75 +589,90 @@ const AEWhereFind: React.FC = () => {
               и загрузите туда своё изображение с помощью проводника или{" "}
               <mark className="key">Ctrl + V</mark>.
             </p>
-            <AdditionDanger>
-              Учтите, что по умолчанию на странице стоит чекбокс напротив{" "}
-              <mark className="ui">I agree to post it in Identification Community</mark>,
-              которая выкладывает ваш скриншот на общее обозрение. Если не хотите
-              выкладывать скриншот в сеть - уберите галочку.
-            </AdditionDanger>
-            <ImageFigure
+            <Addition type="danger">
+              Учтите, что по умолчанию на странице установлен флажок{" "}
+              <mark className="select">
+                «I agree to post it in Identification Community»
+              </mark>
+              , который разрешает публикацию вашего скриншота в сообществе. Если вы не
+              хотите выкладывать скриншот в сеть — уберите галочку.
+            </Addition>
+            <ContentFigure
               caption="Главная страница LikeFont"
-              imgSrc="images/likefont/likefont_mainpage.png"
               imgTitle="Главная страница LikeFont"
-              styleClass="figure_windows-light"
+              src="images/likefont/likefont_mainpage.png"
+              theme="light"
+              type="image"
+              variant="windows"
             />
           </li>
           <li>
             <p>
-              Предположим, что на вход вы дали скриншот, но с одной проблемой - он
+              Предположим, что на вход вы дали скриншот, но с одной проблемой — он
               неконтрастный и весь контент сливается. Что же делать? Для этого нужно
               предварительно обработать изображение.
             </p>
-            <ImageFigure
+            <ContentFigure
               caption="Пример плохого исходника"
-              imgSrc="images/likefont/aefaq_likefont_example.png"
               imgTitle="Пример плохого исходника"
-              styleClass="figure_windows-light"
+              src="images/likefont/aefaq_likefont_example.png"
+              theme="light"
+              type="image"
+              variant="windows"
             />
           </li>
           <li>
             <p>
-              После загрузки изображения сайт предлагает инструменты для обработки
-              изображения, например <mark className="ui">Threshold</mark>. Мы его повышаем
-              до максимально возможного значения, чтобы отделить текст от фона. Также есть
-              инструменты для поворота, отзеркаливания и наклона изображения при
-              необходимости.
+              После загрузки сайт предлагает инструменты для обработки изображения,
+              например <mark className="select">Threshold</mark>. Его нужно повысить до
+              максимально возможного значения, чтобы отделить текст от фона. При
+              необходимости вы можете воспользоваться инструментами для поворота,
+              отзеркаливания и наклона изображения.
             </p>
-            <ImageFigure
+            <ContentFigure
               caption="Изображение после обработки средствами сайта"
-              imgSrc="images/likefont/aefaq_likefont_fixed.png"
               imgTitle="Изображение после обработки средствами сайта"
-              styleClass="figure_windows-light"
+              src="images/likefont/aefaq_likefont_fixed.png"
+              theme="light"
+              type="image"
+              variant="windows"
             />
           </li>
           <li>
             <p>
-              После этого пролистайте страницу ниже и вы увидите несколько изображений,
-              поделённых на буквы. К каждому такому изображению нужно вписать нужную букву
-              для точности распознавания. Если на таких изображениях нет букв или символа,
-              то такие ячейки можно пропустить. После того как вы вписали буквы, нажмите
-              на <mark className="ui">Identify Now</mark> и сервис начнёт распознавать
+              После этого пролистайте страницу ниже, и вы увидите несколько изображений,
+              разделённых на распознанные сервисом буквы. К каждому такому изображению
+              нужно вписать соответствующую букву для точности распознавания. Если на
+              изображении нет буквы или символа, то такую ячейку можно пропустить. После
+              того как вы впишете буквы, нажмите на{" "}
+              <mark className="select">Identify Now</mark>, и сервис начнёт распознавать
               шрифт, а затем выдаст результат.
             </p>
-            <AdditionInfo>
-              Чем больше вы впишете букв, тем лучше будет результат распознавания шрифта!
-            </AdditionInfo>
-            <ImageFigure
-              caption="Изображения к которым нужно вписать букву"
-              imgSrc="images/likefont/aefaq_likefont_recognition.png"
-              imgTitle="Изображения к которым нужно вписать букву"
-              styleClass="figure_windows-light"
+            <Addition type="info">
+              Чем больше букв вы впишете, тем точнее будет результат распознавания шрифта.
+            </Addition>
+            <ContentFigure
+              caption="Изображения, к которым нужно вписать букву"
+              imgTitle="Изображения, к которым нужно вписать букву"
+              src="images/likefont/aefaq_likefont_recognition.png"
+              theme="light"
+              type="image"
+              variant="windows"
             />
           </li>
           <li>
-            После обработки изображения ниже у вас появится список возможных шрифтов. В
-            моём примере был использован шрифт <mark>JetBrains Mono</mark> и с его
-            нахождением сервис справился прекрасно.
-            <ImageFigure
+            <p>
+              После обработки изображения ниже у вас появится список возможных шрифтов. В
+              моём примере был использован шрифт <mark>JetBrains Mono</mark>, и с его
+              нахождением сервис отлично справился.
+            </p>
+            <ContentFigure
               caption="Результат распознавания"
-              imgSrc="images/likefont/aefaq_likefont_result.png"
               imgTitle="Результат распознавания"
-              styleClass="figure_windows-light"
+              src="images/likefont/aefaq_likefont_result.png"
+              theme="light"
+              type="image"
+              variant="windows"
             />
           </li>
         </ul>
@@ -669,19 +681,19 @@ const AEWhereFind: React.FC = () => {
         tag="русский афтер, английский"
         title="Где найти таблицу перевода стандартных эффектов?"
       >
-        <AdditionWarning>
-          Перевод и наличие эффектов, а также способ их работы может отличаться в
+        <Addition type="warning">
+          Перевод и наличие эффектов, а также способ их работы могут отличаться в
           зависимости от версии <mark className="app">Adobe After Effects</mark>. Также
           рекомендуем переключить интерфейс на английский язык, чтобы не возвращаться к
           этой таблице снова и снова.
-        </AdditionWarning>
+        </Addition>
         <p>
-          Пользователям, использующие русскоязычный интерфейс{" "}
+          Пользователям, использующим русскоязычный интерфейс{" "}
           <mark className="app">Adobe After Effects</mark>, иногда бывает трудно найти
           эффект, который обозначен на английском языке. В таких случаях можно обратиться
           к таблице перевода.
         </p>
-        <Divider>Эффекты для работы с 3D-каналами (3D Channel Effects)</Divider>
+        <Divider>Эффекты для работы с 3D каналами (3D Channel Effects)</Divider>
         <table>
           <thead>
             <tr>
@@ -937,7 +949,8 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>
-                <mark className="plugin">Параметрическая коррекция</mark>
+                <mark className="plugin">Параметрическая коррекция</mark> или{" "}
+                <mark className="plugin">Параметр. коррекция</mark>
               </td>
               <td>
                 <mark className="plugin">Parametric EQ</mark>
@@ -1035,7 +1048,8 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>
-                <mark className="plugin">Размытие при малой глубине резкости камеры</mark>
+                <mark className="plugin">Размытие при малой глубине резкости камеры</mark>{" "}
+                или <mark className="plugin">Разм.мал.гл.рез.</mark>
               </td>
               <td>
                 <mark className="plugin">Camera Lens Blur</mark>
@@ -1053,7 +1067,8 @@ const AEWhereFind: React.FC = () => {
               <td>
                 <mark className="plugin">
                   Восстановление резкости при дрожании камеры
-                </mark>
+                </mark>{" "}
+                или <mark className="plugin">Дрож. камеры: восст. резк.</mark>
               </td>
               <td>
                 <mark className="plugin">Camera-Shake Deblur</mark>
@@ -1157,10 +1172,11 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>
+                <mark className="plugin">Направленное размытие</mark> или{" "}
                 <mark className="plugin">Направл. разм.</mark>
               </td>
               <td>
-                <mark className="plugin">Directonal Blur</mark>
+                <mark className="plugin">Directional Blur</mark>
               </td>
               <td>
                 <a
@@ -1221,7 +1237,8 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>
-                <mark className="plugin">Увеличить резкость</mark>
+                <mark className="plugin">Увеличить резкость</mark> или{" "}
+                <mark className="plugin">Увел. четкость</mark>
               </td>
               <td>
                 <mark className="plugin">Sharpen</mark>
@@ -1253,7 +1270,8 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>
-                <mark className="plugin">Контурная резкость</mark>
+                <mark className="plugin">Контурная резкость</mark> или{" "}
+                <mark className="plugin">Контур. резкость</mark>
               </td>
               <td>
                 <mark className="plugin">Unsharp Mask</mark>
@@ -1349,7 +1367,8 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>
-                <mark className="plugin">Инструмент комбинирования каналов</mark>
+                <mark className="plugin">Инструмент комбинирования каналов</mark> или{" "}
+                <mark className="plugin">Инстр.комбинир.каналов</mark>
               </td>
               <td>
                 <mark className="plugin">Channel Combiner</mark>
@@ -1413,7 +1432,8 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>
-                <mark className="plugin">Удалить обработку краев цветом</mark>
+                <mark className="plugin">Удалить обработку краев цветом</mark> или{" "}
+                <mark className="plugin">Удал. обр. краев цветов</mark>
               </td>
               <td>
                 <mark className="plugin">Remove Color Matting</mark>
@@ -1636,7 +1656,7 @@ const AEWhereFind: React.FC = () => {
             <tr>
               <td>-</td>
               <td>
-                <mark className="plugin">СС Kernel</mark>
+                <mark className="plugin">CC Kernel</mark>
               </td>
               <td>
                 <a
@@ -1853,7 +1873,8 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>
-                <mark className="plugin">Цветовой тон/Насыщенность</mark>
+                <mark className="plugin">Цветовой тон/Насыщенность</mark> или{" "}
+                <mark className="plugin">Цв. тон/Насыщенность</mark>
               </td>
               <td>
                 <mark className="plugin">Hue/Saturation</mark>
@@ -1901,7 +1922,8 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>
-                <mark className="plugin">Уровни (отдельные элементы управления)</mark>
+                <mark className="plugin">Уровни (отдельные элементы управления)</mark> или{" "}
+                <mark className="plugin">Уровни (отд.эл.управ.)</mark>
               </td>
               <td>
                 <mark className="plugin">Levels (Individual Controls)</mark>
@@ -1965,7 +1987,8 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>
-                <mark className="plugin">Выборочная коррекция цвета</mark>
+                <mark className="plugin">Выборочная коррекция цвета</mark> или{" "}
+                <mark className="plugin">Выб. коррекция цвета</mark>
               </td>
               <td>
                 <mark className="plugin">Selective Color</mark>
@@ -2057,6 +2080,46 @@ const AEWhereFind: React.FC = () => {
                 >
                   Видео
                 </a>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <mark className="plugin">Преобраз.отображ.OCIO</mark>
+              </td>
+              <td>
+                <mark className="plugin">OCIO Display Transform</mark>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <mark className="plugin">Преобразование CDL OCIO</mark>
+              </td>
+              <td>
+                <mark className="plugin">OCIO CDL Transform</mark>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <mark className="plugin">Преобраз.цв.пр-ва OCIO</mark>
+              </td>
+              <td>
+                <mark className="plugin">OCIO Color Space Transform</mark>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <mark className="plugin">Преобразование файла OCIO</mark>
+              </td>
+              <td>
+                <mark className="plugin">OCIO File Transform</mark>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <mark className="plugin">Преобразование вида OCIO</mark>
+              </td>
+              <td>
+                <mark className="plugin">OCIO Look Transform</mark>
               </td>
             </tr>
           </tbody>
@@ -2307,7 +2370,8 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>
-                <mark className="plugin">Привязка по углам</mark>
+                <mark className="plugin">Привязка по углам</mark> или{" "}
+                <mark className="plugin">Прив. по углам</mark>
               </td>
               <td>
                 <mark className="plugin">Corner Pin</mark>
@@ -2325,7 +2389,8 @@ const AEWhereFind: React.FC = () => {
               <td>
                 <mark className="plugin">
                   Увеличение с сохранением уровня детализации
-                </mark>
+                </mark>{" "}
+                или <mark className="plugin">Увел.с сохран.ур.детализ.</mark>
               </td>
               <td>
                 <mark className="plugin">Detail-preserving Upscale</mark>
@@ -2501,7 +2566,8 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>
-                <mark className="plugin">Устранение эффекта плавающего затвора</mark>
+                <mark className="plugin">Устранение эффекта плавающего затвора</mark> или{" "}
+                <mark className="plugin">Устр.эфф.плав.затвора</mark>
               </td>
               <td>
                 <mark className="plugin">Rolling Shutter Repair</mark>
@@ -2663,7 +2729,8 @@ const AEWhereFind: React.FC = () => {
           <tbody>
             <tr>
               <td>
-                <mark className="plugin">Элемент управления 3D-точки</mark>
+                <mark className="plugin">Элемент управления 3D точкой</mark> или{" "}
+                <mark className="plugin">Эле.упр.3D точки</mark>
               </td>
               <td>
                 <mark className="plugin">3D Point Control</mark>
@@ -2679,7 +2746,8 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>
-                <mark className="plugin">Элемент управления углами</mark>
+                <mark className="plugin">Элемент управления углами</mark> или{" "}
+                <mark className="plugin">Эл.упр.углами</mark>
               </td>
               <td>
                 <mark className="plugin">Angle Control</mark>
@@ -2687,7 +2755,8 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>
-                <mark className="plugin">Элемент управления &quot;Флажок&quot;</mark>
+                <mark className="plugin">Элемент управления «Флажок»</mark> или{" "}
+                <mark className="plugin">Эл.упр.«Флажок»</mark>
               </td>
               <td>
                 <mark className="plugin">Checkbox Control</mark>
@@ -2695,7 +2764,8 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>
-                <mark className="plugin">Элемент управления цветом</mark>
+                <mark className="plugin">Элемент управления цветом</mark> или{" "}
+                <mark className="plugin">Эл.упр.цветом</mark>
               </td>
               <td>
                 <mark className="plugin">Color Control</mark>
@@ -2703,7 +2773,8 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>
-                <mark className="plugin">Управление раскрывающимся меню</mark>
+                <mark className="plugin">Управление раскрывающимся меню</mark> или{" "}
+                <mark className="plguin">Управ. раскр. меню</mark>
               </td>
               <td>
                 <mark className="plugin">Dropdown Menu Control</mark>
@@ -2711,7 +2782,8 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>
-                <mark className="plugin">Элемент управления слоями</mark>
+                <mark className="plugin">Элемент управления слоями</mark> или{" "}
+                <mark className="plugin">Эл.упр.слоями</mark>
               </td>
               <td>
                 <mark className="plugin">Layer Control</mark>
@@ -2719,7 +2791,8 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>
-                <mark className="plugin">Элемент управления точкой</mark>
+                <mark className="plugin">Элемент управления точкой</mark> или{" "}
+                <mark className="plugin">Эл.упр.точкой</mark>
               </td>
               <td>
                 <mark className="plugin">Point Control</mark>
@@ -2727,7 +2800,8 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>
-                <mark className="plugin">Элемент управления &quot;Ползунок&quot;</mark>
+                <mark className="plugin">Элемент управления «Ползунок»</mark> или{" "}
+                <mark className="plugin">Эл.упр.«Ползунок»</mark>
               </td>
               <td>
                 <mark className="plugin">Slider Control</mark>
@@ -2903,7 +2977,8 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>
-                <mark className="plugin">Мозаичная текстура</mark>
+                <mark className="plugin">Мозаичная текстура</mark> или{" "}
+                <mark className="plugin">Мозаич.текстура</mark>
               </td>
               <td>
                 <mark className="plugin">Cell Pattern</mark>
@@ -3191,10 +3266,11 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>
-                <mark className="plugin">Хроматические аберрации VR</mark>
+                <mark className="plugin">Хроматические аберрации VR</mark> или{" "}
+                <mark className="plugin">Хроматич. аберрации</mark>
               </td>
               <td>
-                <mark className="plugin">VR Chromatic Abberations</mark>
+                <mark className="plugin">VR Chromatic Aberrations</mark>
               </td>
               <td>
                 <a
@@ -3255,7 +3331,7 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>
-                <mark className="plugin">Цифровое сбой VR</mark>
+                <mark className="plugin">Цифровой сбой VR</mark>
               </td>
               <td>
                 <mark className="plugin">VR Digital Glitch</mark>
@@ -3903,7 +3979,8 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>
-                <mark className="plugin">Размытие по Гауссу (из прежней версии)</mark>
+                <mark className="plugin">Размытие по Гауссу (из прежней версии)</mark> или{" "}
+                <mark className="plugin">Разм.по Гауссу (преж. вер.)</mark>
               </td>
               <td>
                 <mark className="plugin">Gaussian Blur (Legacy)</mark>
@@ -3969,7 +4046,8 @@ const AEWhereFind: React.FC = () => {
               <td>
                 <mark className="plugin">
                   Уменьшить мерцание в чересстрочной развертке
-                </mark>
+                </mark>{" "}
+                или <mark className="plugin">Умен.мерц.в чересстр.разв.</mark>
               </td>
               <td>
                 <mark className="plugin">Reduce Interlace Flicker</mark>
@@ -4035,7 +4113,7 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>
-                <mark className="plugin">3D-очки</mark>
+                <mark className="plugin">3D очки</mark>
               </td>
               <td>
                 <mark className="plugin">3D Glasses</mark>
@@ -4833,7 +4911,8 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>
-                <mark className="plugin">Пороговое значение</mark>
+                <mark className="plugin">Пороговое значение</mark> или{" "}
+                <mark className="plugin">порог. значение</mark>
               </td>
               <td>
                 <mark className="plugin">Threshold</mark>
@@ -4961,7 +5040,8 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>
-                <mark className="plugin">Размытие пикселей в движении</mark>
+                <mark className="plugin">Размытие пикселей в движении</mark> или{" "}
+                <mark className="plugin">Разм. пикселей в движ.</mark>
               </td>
               <td>
                 <mark className="plugin">Pixel Motion Blur</mark>
@@ -5009,7 +5089,8 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>
-                <mark className="plugin">Смещение по времени</mark>
+                <mark className="plugin">Смещение по времени</mark> или{" "}
+                <mark className="plugin">Смещ. по вр.</mark>
               </td>
               <td>
                 <mark className="plugin">Time Displacement</mark>
@@ -5444,15 +5525,15 @@ const AEWhereFind: React.FC = () => {
         tag="русский афтер, английский"
         title="Где найти таблицу перевода стандартных пресетов?"
       >
-        <AdditionWarning>
-          Перевод и наличие пресетов, а также способ их работы может отличаться в
+        <Addition type="warning">
+          Перевод и наличие пресетов, а также способ их работы могут отличаться в
           зависимости от версии <mark className="app">Adobe After Effects</mark>. Также
-          рекомендуем переустановить программу сразу на английском языке, чтобы не
-          возвращаться к этой таблице снова и снова.
-        </AdditionWarning>
+          рекомендуем переустановить программу на английском языке, чтобы не возвращаться
+          к этой таблице снова и снова.
+        </Addition>
         <p>
-          Порой иногда пользователю требуется перевод и стандартных пресетов, так как их
-          названия тоже зависят от локализации программы при первой установке.
+          Иногда пользователю требуется перевод стандартных пресетов, так как их названия
+          тоже зависят от локализации программы при установке.
         </p>
         <Divider>Adobe Express - In</Divider>
         <table>
@@ -5714,7 +5795,7 @@ const AEWhereFind: React.FC = () => {
           <tbody>
             <tr>
               <td>
-                <mark className="copy">Аниме - быстрые линии</mark>
+                <mark className="copy">Аниме — быстрые линии</mark>
               </td>
               <td>
                 <mark className="copy">Anime Speed Lines</mark>
@@ -5722,7 +5803,7 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>
-                <mark className="copy">Аниме - радиальные линии</mark>
+                <mark className="copy">Аниме — радиальные линии</mark>
               </td>
               <td>
                 <mark className="copy">Anime Radial</mark>
@@ -5770,7 +5851,7 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>
-                <mark className="copy">Зеленые кристалы</mark>
+                <mark className="copy">Зеленые кристаллы</mark>
               </td>
               <td>
                 <mark className="copy">Green Crystals</mark>
@@ -5917,7 +5998,7 @@ const AEWhereFind: React.FC = () => {
           <tbody>
             <tr>
               <td>
-                <mark className="copy">Автопрокрутка - по вертикали</mark>
+                <mark className="copy">Автопрокрутка — по вертикали</mark>
               </td>
               <td>
                 <mark className="copy">Autoscroll - vertical</mark>
@@ -5925,7 +6006,7 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>
-                <mark className="copy">Автопрокрутка - по горизонтали</mark>
+                <mark className="copy">Автопрокрутка — по горизонтали</mark>
               </td>
               <td>
                 <mark className="copy">Autoscroll - horizontal</mark>
@@ -5966,7 +6047,7 @@ const AEWhereFind: React.FC = () => {
             <tr>
               <td>
                 <mark className="copy">
-                  Масштабирование одиночного отражения сигнала - по маркерам слоя
+                  Масштабирование одиночного отражения сигнала — по маркерам слоя
                 </mark>
               </td>
               <td>
@@ -5976,7 +6057,7 @@ const AEWhereFind: React.FC = () => {
             <tr>
               <td>
                 <mark className="copy">
-                  Масштабирование одиночного отражения сигнала - произвольно
+                  Масштабирование одиночного отражения сигнала — произвольно
                 </mark>
               </td>
               <td>
@@ -5985,7 +6066,7 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>
-                <mark className="copy">Мигание непрозрачности - по маркерам слоя</mark>
+                <mark className="copy">Мигание непрозрачности — по маркерам слоя</mark>
               </td>
               <td>
                 <mark className="copy">Opacity Flash - layer markers</mark>
@@ -5993,7 +6074,7 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>
-                <mark className="copy">Мигание непрозрачности - произвольно</mark>
+                <mark className="copy">Мигание непрозрачности — произвольно</mark>
               </td>
               <td>
                 <mark className="copy">Opacity Flash - random</mark>
@@ -6009,7 +6090,7 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>
-                <mark className="copy">Нарастание + затухание - кадры</mark>
+                <mark className="copy">Нарастание + затухание — кадры</mark>
               </td>
               <td>
                 <mark className="copy">Fade In+Out - frames</mark>
@@ -6017,7 +6098,7 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>
-                <mark className="copy">Нарастание + затухание - мс</mark>
+                <mark className="copy">Нарастание + затухание — мс</mark>
               </td>
               <td>
                 <mark className="copy">Fade In+Out - msec</mark>
@@ -6033,7 +6114,7 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>
-                <mark className="copy">Обрезать контуры - на слой в кадр</mark>
+                <mark className="copy">Обрезать контуры — на слой в кадр</mark>
               </td>
               <td>
                 <mark className="copy">Trim Paths - at layer in</mark>
@@ -6041,7 +6122,7 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>
-                <mark className="copy">Обрезать контуры - на слой из кадра</mark>
+                <mark className="copy">Обрезать контуры — на слой из кадра</mark>
               </td>
               <td>
                 <mark className="copy">Trim Paths - at layer out</mark>
@@ -6057,7 +6138,7 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>
-                <mark className="copy">Покачивания - желе</mark>
+                <mark className="copy">Покачивания — желе</mark>
               </td>
               <td>
                 <mark className="copy">Wiggle - gelatin</mark>
@@ -6065,7 +6146,7 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>
-                <mark className="copy">Покачивания - наклон</mark>
+                <mark className="copy">Покачивания — наклон</mark>
               </td>
               <td>
                 <mark className="copy">Wiggle - shear</mark>
@@ -6073,7 +6154,7 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>
-                <mark className="copy">Покачивания - поворот</mark>
+                <mark className="copy">Покачивания — поворот</mark>
               </td>
               <td>
                 <mark className="copy">Wiggle - rotation</mark>
@@ -6081,7 +6162,7 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>
-                <mark className="copy">Покачивания - позиция</mark>
+                <mark className="copy">Покачивания — позиция</mark>
               </td>
               <td>
                 <mark className="copy">Wiggle - position</mark>
@@ -6089,7 +6170,7 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>
-                <mark className="copy">Покачивания - шкала</mark>
+                <mark className="copy">Покачивания — шкала</mark>
               </td>
               <td>
                 <mark className="copy">Wiggle - scale</mark>
@@ -6156,7 +6237,7 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>
-                <mark className="copy">Декоративная подсветка - аморфная</mark>
+                <mark className="copy">Декоративная подсветка — аморфная</mark>
               </td>
               <td>
                 <mark className="copy">Mood Lighting - amorphous</mark>
@@ -6164,7 +6245,7 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>
-                <mark className="copy">Декоративная подсветка - полосы</mark>
+                <mark className="copy">Декоративная подсветка — полосы</mark>
               </td>
               <td>
                 <mark className="copy">Mood Lighting - streaks</mark>
@@ -6172,7 +6253,7 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>
-                <mark className="copy">Декоративная подсветка - цифровая</mark>
+                <mark className="copy">Декоративная подсветка — цифровая</mark>
               </td>
               <td>
                 <mark className="copy">Mood Lighting - digital</mark>
@@ -6188,7 +6269,7 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>
-                <mark className="copy">Контрастность - насыщенность</mark>
+                <mark className="copy">Контрастность — насыщенность</mark>
               </td>
               <td>
                 <mark className="copy">Contrast - saturation</mark>
@@ -6196,7 +6277,7 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>
-                <mark className="copy">Контрастность - яркость</mark>
+                <mark className="copy">Контрастность — яркость</mark>
               </td>
               <td>
                 <mark className="copy">Contrast - luminance</mark>
@@ -6244,7 +6325,7 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>
-                <mark className="copy">Размер - свечение+тень</mark>
+                <mark className="copy">Размер — свечение + тень</mark>
               </td>
               <td>
                 <mark className="copy">Dimension - glow+shadow</mark>
@@ -6252,7 +6333,7 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>
-                <mark className="copy">Размер - фаска+тень</mark>
+                <mark className="copy">Размер — фаска + тень</mark>
               </td>
               <td>
                 <mark className="copy">Dimension - bevel+shadow</mark>
@@ -6260,7 +6341,7 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>
-                <mark className="copy">Тонирование - голубое небо</mark>
+                <mark className="copy">Тонирование — голубое небо</mark>
               </td>
               <td>
                 <mark className="copy">Colorize - sky blue</mark>
@@ -6268,7 +6349,7 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>
-                <mark className="copy">Тонирование - градиент заката</mark>
+                <mark className="copy">Тонирование — градиент заката</mark>
               </td>
               <td>
                 <mark className="copy">Colorize - sunset gradient</mark>
@@ -6276,7 +6357,7 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>
-                <mark className="copy">Тонирование - инфракрасный</mark>
+                <mark className="copy">Тонирование — инфракрасный</mark>
               </td>
               <td>
                 <mark className="copy">Colorize - infrared</mark>
@@ -6284,7 +6365,7 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>
-                <mark className="copy">Тонирование - королевский пурпур</mark>
+                <mark className="copy">Тонирование — королевский пурпур</mark>
               </td>
               <td>
                 <mark className="copy">Colorize - royal purple</mark>
@@ -6292,7 +6373,7 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>
-                <mark className="copy">Тонирование - красный отпечаток руки</mark>
+                <mark className="copy">Тонирование — красный отпечаток руки</mark>
               </td>
               <td>
                 <mark className="copy">Colorize - red hand tint</mark>
@@ -6300,7 +6381,7 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>
-                <mark className="copy">Тонирование - лунные тени</mark>
+                <mark className="copy">Тонирование — лунные тени</mark>
               </td>
               <td>
                 <mark className="copy">Colorize - moonshadows</mark>
@@ -6308,7 +6389,7 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>
-                <mark className="copy">Тонирование - оранжевое небо</mark>
+                <mark className="copy">Тонирование — оранжевое небо</mark>
               </td>
               <td>
                 <mark className="copy">Colorize - sky orange</mark>
@@ -6316,7 +6397,7 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>
-                <mark className="copy">Тонирование - погружение в золото</mark>
+                <mark className="copy">Тонирование — погружение в золото</mark>
               </td>
               <td>
                 <mark className="copy">Colorize - gold dip</mark>
@@ -6324,7 +6405,7 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>
-                <mark className="copy">Тонирование - сепия</mark>
+                <mark className="copy">Тонирование — сепия</mark>
               </td>
               <td>
                 <mark className="copy">Colorize - sepia</mark>
@@ -6332,7 +6413,7 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>
-                <mark className="copy">Тонирование - синяя акварель</mark>
+                <mark className="copy">Тонирование — синяя акварель</mark>
               </td>
               <td>
                 <mark className="copy">Colorize - blue wash</mark>
@@ -6340,7 +6421,7 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>
-                <mark className="copy">Цветение - кристаллизация 1</mark>
+                <mark className="copy">Цветение — кристаллизация 1</mark>
               </td>
               <td>
                 <mark className="copy">Bloom - crystallize 1</mark>
@@ -6348,7 +6429,7 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>
-                <mark className="copy">Цветение - кристаллизация 2</mark>
+                <mark className="copy">Цветение — кристаллизация 2</mark>
               </td>
               <td>
                 <mark className="copy">Bloom - crystallize 2</mark>
@@ -6356,7 +6437,7 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>
-                <mark className="copy">Цветение - светлые+темные</mark>
+                <mark className="copy">Цветение — светлые + темные</mark>
               </td>
               <td>
                 <mark className="copy">Bloom - brights+darks</mark>
@@ -6364,7 +6445,7 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>
-                <mark className="copy">Цветение - яркие краски</mark>
+                <mark className="copy">Цветение — яркие краски</mark>
               </td>
               <td>
                 <mark className="copy">Bloom - brights</mark>
@@ -6415,7 +6496,7 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>
-                <mark className="copy">Плохой телевизор 1 - деформация</mark>
+                <mark className="copy">Плохой телевизор 1 — деформация</mark>
               </td>
               <td>
                 <mark className="copy">Bad TV 1 - warp</mark>
@@ -6423,7 +6504,7 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>
-                <mark className="copy">Плохой телевизор 2 - старый</mark>
+                <mark className="copy">Плохой телевизор 2 — старый</mark>
               </td>
               <td>
                 <mark className="copy">Bad TV 2 - old</mark>
@@ -6431,7 +6512,7 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>
-                <mark className="copy">Плохой телевизор 3 - слабый</mark>
+                <mark className="copy">Плохой телевизор 3 — слабый</mark>
               </td>
               <td>
                 <mark className="copy">Bad TV 3 - weak</mark>
@@ -6439,7 +6520,7 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>
-                <mark className="copy">Треснутый кафель</mark>
+                <mark className="copy">Треснутый кафель</mark>
               </td>
               <td>
                 <mark className="copy">Cracked Tiles</mark>
@@ -6447,7 +6528,7 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>
-                <mark className="copy">Утечки света - по маркерам слоя</mark>
+                <mark className="copy">Утечки света — по маркерам слоя</mark>
               </td>
               <td>
                 <mark className="copy">Light Leaks - layer markers</mark>
@@ -6455,7 +6536,7 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>
-                <mark className="copy">Утечки света - произвольно</mark>
+                <mark className="copy">Утечки света — произвольно</mark>
               </td>
               <td>
                 <mark className="copy">Light Leaks - random</mark>
@@ -6502,7 +6583,7 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>
-                <mark className="copy">Динамический диапазон сжатия-расширения</mark>
+                <mark className="copy">Динамический диапазон сжатия-расширения</mark>
               </td>
               <td>
                 <mark className="copy">Compress-Expand Dynamic Range</mark>
@@ -6558,7 +6639,7 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>
-                <mark className="copy">Прозрачное наложение - размытие зеленого</mark>
+                <mark className="copy">Прозрачное наложение — размытие зеленого</mark>
               </td>
               <td>
                 <mark className="copy">Keying - green blur</mark>
@@ -6566,7 +6647,7 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>
-                <mark className="copy">Прозрачное наложение - размытие синего</mark>
+                <mark className="copy">Прозрачное наложение — размытие синего</mark>
               </td>
               <td>
                 <mark className="copy">Keying - blue blur</mark>
@@ -6574,7 +6655,7 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>
-                <mark className="copy">Уровни - из видео на компьютер</mark>
+                <mark className="copy">Уровни — из видео на компьютер</mark>
               </td>
               <td>
                 <mark className="copy">Levels - Video to Computer</mark>
@@ -6582,7 +6663,7 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>
-                <mark className="copy">Уровни - с компьютера в видео</mark>
+                <mark className="copy">Уровни — с компьютера в видео</mark>
               </td>
               <td>
                 <mark className="copy">Levels - computer to video</mark>
@@ -6601,7 +6682,7 @@ const AEWhereFind: React.FC = () => {
           <tbody>
             <tr>
               <td>
-                <mark className="copy">3D - поворот по окружности</mark>
+                <mark className="copy">3D — поворот по окружности</mark>
               </td>
               <td>
                 <mark className="copy">3D Rotate around Circle</mark>
@@ -6609,7 +6690,7 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>
-                <mark className="copy">3D - увеличение масштаба строк</mark>
+                <mark className="copy">3D — увеличение масштаба строк</mark>
               </td>
               <td>
                 <mark className="copy">3D Lines Zoom In</mark>
@@ -6617,7 +6698,7 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>
-                <mark className="copy">Вертишка</mark>
+                <mark className="copy">Вертушка</mark>
               </td>
               <td>
                 <mark className="copy">Pinwheel</mark>
@@ -6641,7 +6722,7 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>
-                <mark className="copy">Вставка видео - рваные края</mark>
+                <mark className="copy">Вставка видео — рваные края</mark>
               </td>
               <td>
                 <mark className="copy">Inset Video - torn edges</mark>
@@ -6649,7 +6730,7 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>
-                <mark className="copy">Вставка видео - с рамкой</mark>
+                <mark className="copy">Вставка видео — с рамкой</mark>
               </td>
               <td>
                 <mark className="copy">Inset Video - framed</mark>
@@ -6707,13 +6788,14 @@ const AEWhereFind: React.FC = () => {
               <td>
                 <mark className="copy">Зеленые точки</mark>
               </td>
+
               <td>
                 <mark className="copy">Green Dots</mark>
               </td>
             </tr>
             <tr>
               <td>
-                <mark className="copy">Зумер-США</mark>
+                <mark className="copy">Зумер — США</mark>
               </td>
               <td>
                 <mark className="copy">DialTone-US</mark>
@@ -6745,7 +6827,7 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>
-                <mark className="copy">Левая треть - маска ковша NTSC</mark>
+                <mark className="copy">Левая треть — маска ковша NTSC</mark>
               </td>
               <td>
                 <mark className="copy">Left Third - scoop mask NTSC</mark>
@@ -6753,7 +6835,7 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>
-                <mark className="copy">Левая треть - маска ковша PAL</mark>
+                <mark className="copy">Левая треть — маска ковша PAL</mark>
               </td>
               <td>
                 <mark className="copy">Left Third - scoop mask PAL</mark>
@@ -6785,7 +6867,7 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>
-                <mark className="copy">Молния - по вертикали</mark>
+                <mark className="copy">Молния — по вертикали</mark>
               </td>
               <td>
                 <mark className="copy">Lightning - Vertical</mark>
@@ -6793,7 +6875,7 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>
-                <mark className="copy">Молния - по горизонтали</mark>
+                <mark className="copy">Молния — по горизонтали</mark>
               </td>
               <td>
                 <mark className="copy">Lightning - Horizontal</mark>
@@ -6801,7 +6883,7 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>
-                <mark className="copy">Нижняя треть - маска ковша NTSC</mark>
+                <mark className="copy">Нижняя треть — маска ковша NTSC</mark>
               </td>
               <td>
                 <mark className="copy">Lower Third - scoop mask NTSC</mark>
@@ -6809,7 +6891,7 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>
-                <mark className="copy">Нижняя треть - маска ковша PAL</mark>
+                <mark className="copy">Нижняя треть — маска ковша PAL</mark>
               </td>
               <td>
                 <mark className="copy">Lower Third - scoop mask PAL</mark>
@@ -6825,7 +6907,7 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>
-                <mark className="copy">Овалы - концентрические NTSC</mark>
+                <mark className="copy">Овалы — концентрические NTSC</mark>
               </td>
               <td>
                 <mark className="copy">Ovals - concentric NTSC</mark>
@@ -6833,7 +6915,7 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>
-                <mark className="copy">Овалы - концентрические PAL</mark>
+                <mark className="copy">Овалы — концентрические PAL</mark>
               </td>
               <td>
                 <mark className="copy">Ovals - concentric PAL</mark>
@@ -6841,7 +6923,7 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>
-                <mark className="copy">Овалы - произвольно 1 NTSC</mark>
+                <mark className="copy">Овалы — произвольно 1 NTSC</mark>
               </td>
               <td>
                 <mark className="copy">Ovals - random 1 NTSC</mark>
@@ -6849,7 +6931,7 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>
-                <mark className="copy">Овалы - произвольно 1 PAL</mark>
+                <mark className="copy">Овалы — произвольно 1 PAL</mark>
               </td>
               <td>
                 <mark className="copy">Ovals - random 1 PAL</mark>
@@ -6857,7 +6939,7 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>
-                <mark className="copy">Овалы - произвольно 2 NTSC</mark>
+                <mark className="copy">Овалы — произвольно 2 NTSC</mark>
               </td>
               <td>
                 <mark className="copy">Ovals - random 2 NTSC</mark>
@@ -6865,7 +6947,7 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>
-                <mark className="copy">Овалы - произвольно 2 PAL</mark>
+                <mark className="copy">Овалы — произвольно 2 PAL</mark>
               </td>
               <td>
                 <mark className="copy">Ovals - random 2 PAL</mark>
@@ -6873,7 +6955,7 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>
-                <mark className="copy">Окна - заштрихованные NTSC</mark>
+                <mark className="copy">Окна — заштрихованные NTSC</mark>
               </td>
               <td>
                 <mark className="copy">Boxes - stroked NTSC</mark>
@@ -6881,7 +6963,7 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>
-                <mark className="copy">Окна - заштрихованные PAL</mark>
+                <mark className="copy">Окна — заштрихованные PAL</mark>
               </td>
               <td>
                 <mark className="copy">Boxes - stroked PAL</mark>
@@ -6889,7 +6971,7 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>
-                <mark className="copy">Окна - концентрические NTSC</mark>
+                <mark className="copy">Окна — концентрические NTSC</mark>
               </td>
               <td>
                 <mark className="copy">Boxes - concentric NTSC</mark>
@@ -6897,7 +6979,7 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>
-                <mark className="copy">Окна - концентрические PAL</mark>
+                <mark className="copy">Окна — концентрические PAL</mark>
               </td>
               <td>
                 <mark className="copy">Boxes - concentric PAL</mark>
@@ -6905,7 +6987,7 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>
-                <mark className="copy">Окна - произвольные 1 NTSC</mark>
+                <mark className="copy">Окна — произвольные 1 NTSC</mark>
               </td>
               <td>
                 <mark className="copy">Boxes - random 1 NTSC</mark>
@@ -6913,7 +6995,7 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>
-                <mark className="copy">Окна - произвольные 1 PAL</mark>
+                <mark className="copy">Окна — произвольные 1 PAL</mark>
               </td>
               <td>
                 <mark className="copy">Boxes - random 1 PAL</mark>
@@ -6921,7 +7003,7 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>
-                <mark className="copy">Окна - произвольные 2 NTSC</mark>
+                <mark className="copy">Окна — произвольные 2 NTSC</mark>
               </td>
               <td>
                 <mark className="copy">Boxes - random 2 NTSC</mark>
@@ -6929,7 +7011,7 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>
-                <mark className="copy">Окна - произвольные 2 PAL</mark>
+                <mark className="copy">Окна — произвольные 2 PAL</mark>
               </td>
               <td>
                 <mark className="copy">Boxes - random 2 PAL</mark>
@@ -6937,7 +7019,7 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>
-                <mark className="copy">Окна - произвольные 3 NTSC</mark>
+                <mark className="copy">Окна — произвольные 3 NTSC</mark>
               </td>
               <td>
                 <mark className="copy">Boxes - random 3 NTSC</mark>
@@ -6945,7 +7027,7 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>
-                <mark className="copy">Окна - произвольные 3 PAL</mark>
+                <mark className="copy">Окна — произвольные 3 PAL</mark>
               </td>
               <td>
                 <mark className="copy">Boxes - random 3 PAL</mark>
@@ -6977,7 +7059,7 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>
-                <mark className="copy">Оттягивание нижней трети - затемнение</mark>
+                <mark className="copy">Оттягивание нижней трети — затемнение</mark>
               </td>
               <td>
                 <mark className="copy">Lower Third Holldout - darken</mark>
@@ -6985,7 +7067,7 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>
-                <mark className="copy">Оттягивание нижней трети - насыщение</mark>
+                <mark className="copy">Оттягивание нижней трети — насыщение</mark>
               </td>
               <td>
                 <mark className="copy">Lower Third Holddout - saturate</mark>
@@ -6993,7 +7075,7 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>
-                <mark className="copy">Передний план - задний план</mark>
+                <mark className="copy">Передний план — задний план</mark>
               </td>
               <td>
                 <mark className="copy">Front - Back</mark>
@@ -7041,7 +7123,7 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>
-                <mark className="copy">Сжатие - расширение</mark>
+                <mark className="copy">Сжатие — расширение</mark>
               </td>
               <td>
                 <mark className="copy">Contract - Expand</mark>
@@ -7089,7 +7171,7 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>
-                <mark className="copy">Цифровой</mark>
+                <mark className="copy">Цифровой</mark>
               </td>
               <td>
                 <mark className="copy">Digital</mark>
@@ -7105,7 +7187,7 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>
-                <mark className="copy">Эфирный</mark>
+                <mark className="copy">Эфирный</mark>
               </td>
               <td>
                 <mark className="copy">Ethereal</mark>
@@ -7140,7 +7222,7 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>
-                <mark className="copy">Калейдоскоп</mark>
+                <mark className="copy">Калейдоскоп</mark>
               </td>
               <td>
                 <mark className="copy">Kaleidoscopic</mark>
@@ -7148,7 +7230,7 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>
-                <mark className="copy">Нейронная сеть - круговая</mark>
+                <mark className="copy">Нейронная сеть — круговая</mark>
               </td>
               <td>
                 <mark className="copy">Nerve Net - Circular</mark>
@@ -7156,7 +7238,7 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>
-                <mark className="copy">Нейронная сеть - пента</mark>
+                <mark className="copy">Нейронная сеть — пента</mark>
               </td>
               <td>
                 <mark className="copy">Nerve Net - Penta</mark>
@@ -7199,7 +7281,7 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>
-                <mark className="copy">Бегущая строка - рамки</mark>
+                <mark className="copy">Бегущая строка — рамки</mark>
               </td>
               <td>
                 <mark className="copy">Chasing Line - Boxes</mark>
@@ -7263,7 +7345,7 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>
-                <mark className="copy">Каркасный червь</mark>
+                <mark className="copy">Каркасный червь</mark>
               </td>
               <td>
                 <mark className="copy">Wireframe Worm</mark>
@@ -7386,7 +7468,7 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>
-                <mark className="copy">Круговой - ячеистое разделение</mark>
+                <mark className="copy">Круговой — ячеистое разделение</mark>
               </td>
               <td>
                 <mark className="copy">Circular - cellular divvision</mark>
@@ -7394,7 +7476,7 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>
-                <mark className="copy">Лицо пришельца - с анимацией</mark>
+                <mark className="copy">Лицо пришельца — с анимацией</mark>
               </td>
               <td>
                 <mark className="copy">Alien Face - animated</mark>
@@ -7402,7 +7484,7 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>
-                <mark className="copy">Мандала - с анимацией</mark>
+                <mark className="copy">Мандала — с анимацией</mark>
               </td>
               <td>
                 <mark className="copy">Mandala - animated</mark>
@@ -7418,7 +7500,7 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>
-                <mark className="copy">Сверкающая_звезда</mark>
+                <mark className="copy">Сверкающая звезда</mark>
               </td>
               <td>
                 <mark className="copy">TwinkleStar</mark>
@@ -7426,7 +7508,7 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>
-                <mark className="copy">Спирограф_мандала</mark>
+                <mark className="copy">Спиро-мандала</mark>
               </td>
               <td>
                 <mark className="copy">SpiroMandala</mark>
@@ -7434,7 +7516,7 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>
-                <mark className="copy">Танцевальный узел</mark>
+                <mark className="copy">Танцевальный узел</mark>
               </td>
               <td>
                 <mark className="copy">Dancing Knot</mark>
@@ -7453,7 +7535,7 @@ const AEWhereFind: React.FC = () => {
           <tbody>
             <tr>
               <td>
-                <mark className="copy">Благодатный огонь</mark>
+                <mark className="copy">Благодатный огонь</mark>
               </td>
               <td>
                 <mark className="copy">Holy Light</mark>
@@ -7485,7 +7567,7 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>
-                <mark className="copy">Круговой - полукруг</mark>
+                <mark className="copy">Круговой — полукруг</mark>
               </td>
               <td>
                 <mark className="copy">Circular - half round</mark>
@@ -7493,7 +7575,7 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>
-                <mark className="copy">Кругovoй - тройной пунктир</mark>
+                <mark className="copy">Круговой — тройной пунктир</mark>
               </td>
               <td>
                 <mark className="copy">Circular - tri dash</mark>
@@ -7549,7 +7631,7 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>
-                <mark className="copy">Перекрестие - квадратное</mark>
+                <mark className="copy">Перекрестие — квадратное</mark>
               </td>
               <td>
                 <mark className="copy">Crosshair - square</mark>
@@ -7557,7 +7639,7 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>
-                <mark className="copy">Перекрестие - квадратные скобки</mark>
+                <mark className="copy">Перекрестие — квадратные скобки</mark>
               </td>
               <td>
                 <mark className="copy">Crosshair - brackets</mark>
@@ -7565,7 +7647,7 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>
-                <mark className="copy">Перекрестие - круглое</mark>
+                <mark className="copy">Перекрестие — круглое</mark>
               </td>
               <td>
                 <mark className="copy">Crosshair - round</mark>
@@ -7573,7 +7655,7 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>
-                <mark className="copy">Рамка - пунктирные линии</mark>
+                <mark className="copy">Рамка — пунктирные линии</mark>
               </td>
               <td>
                 <mark className="copy">Box - dashed lines</mark>
@@ -7581,7 +7663,7 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>
-                <mark className="copy">Скругленная скобка - двойная</mark>
+                <mark className="copy">Скругленная скобка — двойная</mark>
               </td>
               <td>
                 <mark className="copy">Rounded Bracket - double</mark>
@@ -7589,7 +7671,7 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>
-                <mark className="copy">Скругленная скобка - с фаской</mark>
+                <mark className="copy">Скругленная скобка — с фаской</mark>
               </td>
               <td>
                 <mark className="copy">Rounded Bracket - bevelled</mark>
@@ -7680,7 +7762,7 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>
-                <mark className="copy">Тональный набор</mark>
+                <mark className="copy">Тональный набор</mark>
               </td>
               <td>
                 <mark className="copy">DTMF</mark>
@@ -7707,7 +7789,7 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>
-                <mark className="copy">Дым - сносимый ветром</mark>
+                <mark className="copy">Дым — сносимый ветром</mark>
               </td>
               <td>
                 <mark className="copy">Smoke - Drifting</mark>
@@ -7779,7 +7861,7 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>
-                <mark className="copy">Ячейки</mark>
+                <mark className="copy">Ячейки</mark>
               </td>
               <td>
                 <mark className="copy">Cells</mark>
@@ -7932,7 +8014,7 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>
-                <mark className="copy">3D - колебание внутрь - в случайном порядке</mark>
+                <mark className="copy">3D — колебание внутрь — в случайном порядке</mark>
               </td>
               <td>
                 <mark className="copy">3D Flutter In Random Order</mark>
@@ -7940,7 +8022,7 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>
-                <mark className="copy">3D - колебание внутрь - слева</mark>
+                <mark className="copy">3D — колебание внутрь — слева</mark>
               </td>
               <td>
                 <mark className="copy">3D Flutter In From Left</mark>
@@ -7948,7 +8030,7 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>
-                <mark className="copy">3D - колебание наружу - справа</mark>
+                <mark className="copy">3D — колебание наружу — справа</mark>
               </td>
               <td>
                 <mark className="copy">3D Flutter Out From Right</mark>
@@ -7956,7 +8038,7 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>
-                <mark className="copy">3D - колебание - по центру</mark>
+                <mark className="copy">3D — колебание — по центру</mark>
               </td>
               <td>
                 <mark className="copy">3D Bouncing In Centered</mark>
@@ -7964,7 +8046,7 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>
-                <mark className="copy">3D - отразить вверх - отражение</mark>
+                <mark className="copy">3D — отразить вверх — отражение</mark>
               </td>
               <td>
                 <mark className="copy">3D Flip Up Reflection</mark>
@@ -7972,7 +8054,7 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>
-                <mark className="copy">3D - отразить внутрь - поворот по оси X</mark>
+                <mark className="copy">3D — отразить внутрь — поворот по оси X</mark>
               </td>
               <td>
                 <mark className="copy">3D Flip In Rotate X</mark>
@@ -7980,7 +8062,7 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>
-                <mark className="copy">3D - отразить наружу - поворот по оси X</mark>
+                <mark className="copy">3D — отразить наружу — поворот по оси X</mark>
               </td>
               <td>
                 <mark className="copy">3D Flip Out Rotate X</mark>
@@ -7988,7 +8070,7 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>
-                <mark className="copy">3D - поворот внутрь по символу X</mark>
+                <mark className="copy">3D — поворот внутрь по символу X</mark>
               </td>
               <td>
                 <mark className="copy">3D Rotate in by Character X</mark>
@@ -7996,7 +8078,7 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>
-                <mark className="copy">3D - поворот внутрь по символу</mark>
+                <mark className="copy">3D — поворот внутрь по символу</mark>
               </td>
               <td>
                 <mark className="copy">3D Rotate in by Character</mark>
@@ -8004,7 +8086,7 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>
-                <mark className="copy">3D - поворот наружу по символу X</mark>
+                <mark className="copy">3D — поворот наружу по символу X</mark>
               </td>
               <td>
                 <mark className="copy">3D Rotate out by Character X</mark>
@@ -8012,7 +8094,7 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>
-                <mark className="copy">3D - поворот наружу по слову</mark>
+                <mark className="copy">3D — поворот наружу по слову</mark>
               </td>
               <td>
                 <mark className="copy">3D Rotate out by Word</mark>
@@ -8020,7 +8102,7 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>
-                <mark className="copy">3D - скремблирование в положении по оси Z</mark>
+                <mark className="copy">3D — скремблирование в положении по оси Z</mark>
               </td>
               <td>
                 <mark className="copy">3D Scramble in Position Z</mark>
@@ -8028,7 +8110,7 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>
-                <mark className="copy">3D - спиральный поворот внутри по строке</mark>
+                <mark className="copy">3D — спиральный поворот внутри по строке</mark>
               </td>
               <td>
                 <mark className="copy">3D Spiral Rotate In by Line</mark>
@@ -8036,7 +8118,7 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>
-                <mark className="copy">3D - спиральный поворот наружу по строке</mark>
+                <mark className="copy">3D — спиральный поворот наружу по строке</mark>
               </td>
               <td>
                 <mark className="copy">3D Spiral Rotate Out by Line</mark>
@@ -10581,7 +10663,7 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>
-                <mark className="copy">Масштаб - 3D-переворот</mark>
+                <mark className="copy">Масштаб - 3D переворот</mark>
               </td>
               <td>
                 <mark className="copy">Zoom - 3D tumble</mark>
