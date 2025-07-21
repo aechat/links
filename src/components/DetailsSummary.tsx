@@ -7,6 +7,7 @@ import {motion} from "framer-motion";
 import React, {
   ReactNode,
   createContext,
+  useCallback,
   useContext,
   useEffect,
   useRef,
@@ -24,7 +25,7 @@ const SpoilerContext = createContext(false);
 export const useSpoiler = () => useContext(SpoilerContext);
 
 const constants = {
-  SCROLL_DELAY: 300,
+  SCROLL_DELAY: 150,
   MOUSE_ENTER_DELAY: 1000,
   PADDING: {
     MIN: 10,
@@ -35,6 +36,29 @@ const constants = {
     },
   },
 } as const;
+
+const getScrollOffsets = () => {
+  const headerHeight = document.querySelector("header")?.offsetHeight ?? 0;
+
+  const padding = Math.min(
+    constants.PADDING.MIN +
+      (constants.PADDING.MAX - constants.PADDING.MIN) *
+        ((window.innerWidth - constants.PADDING.SCREEN.MIN) /
+          (constants.PADDING.SCREEN.MAX - constants.PADDING.SCREEN.MIN)),
+    constants.PADDING.MAX
+  );
+
+  return {headerHeight, padding};
+};
+
+const debounce = (func: (hash: string) => void, delay: number) => {
+  let timeout: NodeJS.Timeout;
+
+  return (hash: string) => {
+    clearTimeout(timeout);
+    timeout = setTimeout(() => func(hash), delay);
+  };
+};
 
 export const generateAnchorId = () => {
   const containers = Array.from(document.querySelectorAll(".faq-content"));
@@ -54,29 +78,6 @@ export const generateAnchorId = () => {
         if (details && !details.hasAttribute("data-anchor-processed")) {
           details.setAttribute("open", "true");
           details.setAttribute("data-anchor-processed", "true");
-
-          const headerHeight = document.querySelector("header")?.offsetHeight ?? 0;
-
-          const padding = Math.min(
-            constants.PADDING.MIN +
-              (constants.PADDING.MAX - constants.PADDING.MIN) *
-                ((window.innerWidth - constants.PADDING.SCREEN.MIN) /
-                  (constants.PADDING.SCREEN.MAX - constants.PADDING.SCREEN.MIN)),
-            constants.PADDING.MAX
-          );
-
-          const content = details.querySelector(".faq-section");
-
-          if (content) {
-            setTimeout(() => {
-              const y =
-                summary.getBoundingClientRect().top +
-                window.pageYOffset -
-                headerHeight -
-                padding;
-              window.scrollTo({top: y, behavior: "smooth"});
-            }, constants.SCROLL_DELAY);
-          }
         }
       }
     });
@@ -85,27 +86,9 @@ export const generateAnchorId = () => {
   if (window.location.hash) {
     const anchorId = window.location.hash.slice(1);
 
-    const section = document.getElementById(anchorId);
+    const existingAnchor = document.getElementById(anchorId);
 
-    if (section) {
-      const headerHeight = document.querySelector("header")?.offsetHeight ?? 0;
-
-      const padding = Math.min(
-        constants.PADDING.MIN +
-          (constants.PADDING.MAX - constants.PADDING.MIN) *
-            ((window.innerWidth - constants.PADDING.SCREEN.MIN) /
-              (constants.PADDING.SCREEN.MAX - constants.PADDING.SCREEN.MIN)),
-        constants.PADDING.MAX
-      );
-      setTimeout(() => {
-        const y =
-          section.getBoundingClientRect().top +
-          window.pageYOffset -
-          headerHeight -
-          padding;
-        window.scrollTo({top: y, behavior: "smooth"});
-      }, constants.SCROLL_DELAY);
-    } else if (/^\d+\.\d+$/.test(anchorId)) {
+    if (!existingAnchor && /^\d+\.\d+$/.test(anchorId)) {
       message.error(
         "Не удалось найти статью по ссылке, возможно он был перемещён или удалён"
       );
@@ -119,23 +102,76 @@ export const generateAnchorId = () => {
 const DetailsSummary: React.FC<DetailsSummaryProps> = ({title, children, tag}) => {
   const [isOpen, setIsOpen] = useState(false);
 
+  const [displayAnchorId, setDisplayAnchorId] = useState("");
+
   const detailsRef = useRef<HTMLDetailsElement>(null);
 
   const sectionRef = useRef<HTMLElement>(null);
+
+  const scrollToAnchor = (targetElement: HTMLElement) => {
+    const {headerHeight, padding} = getScrollOffsets();
+    setTimeout(() => {
+      const y =
+        targetElement.getBoundingClientRect().top +
+        window.pageYOffset -
+        headerHeight -
+        padding;
+      window.scrollTo({top: y, behavior: "smooth"});
+    }, constants.SCROLL_DELAY);
+  };
 
   useEffect(() => {
     if (detailsRef.current) {
       const observer = new MutationObserver(() => {
         setIsOpen(detailsRef.current?.open || false);
+
+        const summaryId = detailsRef.current?.querySelector(".faq-summary")?.id;
+
+        if (summaryId) {
+          setDisplayAnchorId(summaryId);
+        }
       });
-      observer.observe(detailsRef.current, {
-        attributes: true,
-        attributeFilter: ["open"],
-      });
+      observer.observe(detailsRef.current, {attributes: true, attributeFilter: ["open"]});
 
       return () => observer.disconnect();
     }
   }, []);
+
+  useEffect(() => {
+    if (detailsRef.current) {
+      const summaryElement = detailsRef.current.querySelector(".faq-summary");
+
+      if (summaryElement) {
+        const initialSummaryId = summaryElement.id;
+
+        if (initialSummaryId) {
+          setDisplayAnchorId(initialSummaryId);
+        } else {
+          const checkIdInterval = setInterval(() => {
+            const currentSummaryId = summaryElement.id;
+
+            if (currentSummaryId) {
+              setDisplayAnchorId(currentSummaryId);
+              clearInterval(checkIdInterval);
+            }
+          }, 100);
+
+          return () => clearInterval(checkIdInterval);
+        }
+      }
+    }
+  }, []);
+
+  useEffect(() => {
+    const anchorId = window.location.hash.slice(1);
+
+    const summaryElement = detailsRef.current?.querySelector(".faq-summary");
+
+    if (anchorId && summaryElement && summaryElement.id === anchorId && isOpen) {
+      scrollToAnchor(summaryElement as HTMLElement);
+    }
+  }, [isOpen]);
+
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
       if (
@@ -203,27 +239,26 @@ const DetailsSummary: React.FC<DetailsSummaryProps> = ({title, children, tag}) =
     };
   }, []);
 
+  const debouncedReplaceState = useCallback(
+    debounce((hash: string) => {
+      history.replaceState(
+        null,
+        "",
+        window.location.pathname + window.location.search + hash
+      );
+    }, 50),
+    []
+  );
+
   const handleToggle = (event: React.SyntheticEvent) => {
     const details = event.currentTarget as HTMLDetailsElement;
 
     const summaryId = detailsRef.current?.querySelector(".faq-summary")?.id;
 
     if (details.open && summaryId) {
-      history.replaceState(
-        null,
-        "",
-        window.location.pathname + window.location.search + `#${summaryId}`
-      );
+      debouncedReplaceState(`#${summaryId}`);
 
-      const headerHeight = document.querySelector("header")?.offsetHeight ?? 0;
-
-      const padding = Math.min(
-        constants.PADDING.MIN +
-          (constants.PADDING.MAX - constants.PADDING.MIN) *
-            ((window.innerWidth - constants.PADDING.SCREEN.MIN) /
-              (constants.PADDING.SCREEN.MAX - constants.PADDING.SCREEN.MIN)),
-        constants.PADDING.MAX
-      );
+      const {headerHeight, padding} = getScrollOffsets();
 
       const summary = detailsRef.current?.querySelector(".faq-summary");
 
@@ -236,7 +271,7 @@ const DetailsSummary: React.FC<DetailsSummaryProps> = ({title, children, tag}) =
         window.scrollTo({top: y, behavior: "smooth"});
       }
     } else if (window.location.hash) {
-      history.replaceState(null, "", window.location.pathname + window.location.search);
+      debouncedReplaceState("");
     }
   };
 
@@ -278,8 +313,8 @@ const DetailsSummary: React.FC<DetailsSummaryProps> = ({title, children, tag}) =
           <span style={{fontFamily: "JetBrains Mono, monospace"}}>
             {isOpen ? "-" : "+"}
           </span>
-          <div>
-            <h3>{`${anchorId ? `${anchorId}. ` : ""}${title}`}</h3>
+          <div style={{display: "flex", flexDirection: "column", gap: "5px"}}>
+            <h3>{`${displayAnchorId ? `${displayAnchorId}. ` : ""}${title}`}</h3>
             {tag && (
               <span className="faq-tags">
                 {tag.split(", ").map((t, index) => (
@@ -291,7 +326,7 @@ const DetailsSummary: React.FC<DetailsSummaryProps> = ({title, children, tag}) =
         </div>
         <Tooltip title="Скопировать ссылку в буфер обмена">
           <button
-            className="copy_button"
+            className="copy-button"
             style={{
               flex: "none",
               filter: anchorId ? "none" : "saturate(0) opacity(0.25)",
