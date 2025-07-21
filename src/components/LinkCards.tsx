@@ -60,7 +60,7 @@ export const LinkCard: React.FC<LinkCardProps> = ({href, icon, name, description
       style={styles.link}
       target="_blank"
     >
-      <div className="name_container">
+      <div className="name-container">
         <p className="name">{name}</p>
         <span className="icon">{icon}</span>
       </div>
@@ -82,7 +82,7 @@ export const LinkCardNoDescription: React.FC<LinkCardPropsNoDescription> = ({
       target="_blank"
     >
       <div
-        className="name_container"
+        className="name-container"
         style={styles.nameContainer}
       >
         <p className="name">{name}</p>
@@ -103,7 +103,7 @@ export const LinkInAppCard: React.FC<LinkCardProps> = ({
       style={styles.link}
       to={href}
     >
-      <div className="name_container">
+      <div className="name-container">
         <p className="name">{name}</p>
         <span className="icon">{icon}</span>
       </div>

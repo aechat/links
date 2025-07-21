@@ -113,7 +113,7 @@ const processElement = (
     if (hasMatch(fullText, searchWords, isKeyCombination)) {
       const clone = element.cloneNode(true) as Element;
 
-      const elementsToRemove = clone.querySelectorAll(".figure_container");
+      const elementsToRemove = clone.querySelectorAll(".figure-container");
       elementsToRemove.forEach((el) => el.remove());
 
       if (element.tagName === "LI" && element.querySelector("ul")) {
@@ -132,7 +132,7 @@ const processElement = (
               const nestedItemClone = item.cloneNode(true) as Element;
 
               const nestedElementsToRemove =
-                nestedItemClone.querySelectorAll(".figure_container");
+                nestedItemClone.querySelectorAll(".figure-container");
               nestedElementsToRemove.forEach((el) => el.remove());
               newUl.appendChild(nestedItemClone);
             });
@@ -173,7 +173,7 @@ const processElement = (
     } else if (node.nodeType === Node.ELEMENT_NODE) {
       const elNode = node as Element;
 
-      if (elNode.classList.contains("figure_container")) {
+      if (elNode.classList.contains("figure-container")) {
         return;
       }
 
@@ -243,7 +243,7 @@ const formatSearchResult = (text: string, searchWords: string[]): string => {
 
     if (firstParagraph) {
       const cleanedParagraph = firstParagraph.cloneNode(true) as Element;
-      cleanedParagraph.querySelectorAll(".figure_container").forEach((el) => el.remove());
+      cleanedParagraph.querySelectorAll(".figure-container").forEach((el) => el.remove());
 
       return cleanedParagraph.outerHTML;
     }
@@ -252,7 +252,7 @@ const formatSearchResult = (text: string, searchWords: string[]): string => {
 
     if (firstElement) {
       const cleanedElement = firstElement.cloneNode(true) as Element;
-      cleanedElement.querySelectorAll(".figure_container").forEach((el) => el.remove());
+      cleanedElement.querySelectorAll(".figure-container").forEach((el) => el.remove());
 
       return cleanedElement.outerHTML;
     }
@@ -310,7 +310,7 @@ const formatSearchResult = (text: string, searchWords: string[]): string => {
 
     if (firstParagraph) {
       const cleanedParagraph = firstParagraph.cloneNode(true) as Element;
-      cleanedParagraph.querySelectorAll(".figure_container").forEach((el) => el.remove());
+      cleanedParagraph.querySelectorAll(".figure-container").forEach((el) => el.remove());
 
       return cleanedParagraph.outerHTML;
     }
@@ -319,7 +319,7 @@ const formatSearchResult = (text: string, searchWords: string[]): string => {
 
     if (firstElement) {
       const cleanedElement = firstElement.cloneNode(true) as Element;
-      cleanedElement.querySelectorAll(".figure_container").forEach((el) => el.remove());
+      cleanedElement.querySelectorAll(".figure-container").forEach((el) => el.remove());
 
       return cleanedElement.outerHTML;
     }
@@ -380,7 +380,7 @@ export const useSearchLogic = (query: string, isPageLoaded: boolean) => {
           .map((el) => {
             const clone = el.cloneNode(true) as Element;
             clone
-              .querySelectorAll(".figure_container")
+              .querySelectorAll(".figure-container")
               .forEach((elToRemove) => elToRemove.remove());
 
             return clone.outerHTML;
@@ -495,7 +495,7 @@ export const useSearchLogic = (query: string, isPageLoaded: boolean) => {
           .map((ul) => {
             const ulClone = ul.cloneNode(true) as Element;
             ulClone
-              .querySelectorAll(".figure_container")
+              .querySelectorAll(".figure-container")
               .forEach((elToRemove) => elToRemove.remove());
 
             const ulText = stripHtml(ulClone.outerHTML);
