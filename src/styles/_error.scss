@@ -1,0 +1,38 @@
+.error-container {
+  display: flex;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100dvh;
+  overflow: hidden;
+}
+
+.error-backtitle {
+  position: absolute;
+  opacity: 0.1;
+  pointer-events: none;
+  font-style: italic;
+  font-weight: 900;
+  font-size: 18rem;
+  font-family: Onest, sans-serif;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.error-title {
+  font-weight: 600;
+  font-size: 1.1rem;
+  font-family: Onest, Inter, sans-serif;
+  text-transform: uppercase;
+  color: var(--summary-text);
+}
+
+.error-message {
+  p {
+    margin: 0;
+  }
+}
+
+.error-button {
+}

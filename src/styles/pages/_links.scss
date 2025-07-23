@@ -1,94 +1,110 @@
 @use "../mixins" as *;
+
 .links {
   margin-top: 0;
   margin-inline: auto;
   width: calc(100% - 16px);
   max-width: 1300px;
-  &-button {
+}
+
+.links-button {
+  display: flex;
+  flex: 1 1 275px;
+  flex-direction: column;
+  align-items: flex-start;
+  transition: background-color 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+  outline: 1px solid var(--links-border);
+  box-shadow: 0 3px 8px 0 var(--shadow);
+  border-radius: $roundness * 0.75;
+  background-image: linear-gradient(to bottom, var(--links-gradient), transparent 50%);
+  background-color: var(--content-background-color);
+
+  @media (width <= 525px) {
+    flex: 1 1 165px;
+  }
+
+  @media (width >= 526px) and (width <= 575px) {
+    flex: 1 1 200px;
+  }
+
+  a {
+    width: 100%;
+  }
+
+  &:hover {
+    z-index: 25;
+    cursor: pointer;
+    outline-color: var(--links-border);
+    background-color: var(--links-hover);
+  }
+
+  .name-container {
     display: flex;
-    flex: 1 1 275px;
-    flex-direction: column;
-    align-items: flex-start;
-    transition: background-color 1s cubic-bezier(0.075, 0.82, 0.165, 1);
-    outline: 1px solid var(--links-border);
-    box-shadow: 0 3px 8px 0 var(--shadow);
-    border-radius: $roundness * 0.75;
-    background-image: linear-gradient(to bottom, var(--links-gradient), transparent 50%);
-    background-color: var(--content-background-color);
-    @media (width <= 525px) {
-      flex: 1 1 165px;
-    }
-    @media (width >= 526px) and (width <= 575px) {
-      flex: 1 1 200px;
-    }
-    a {
-      width: 100%;
-    }
-    &:hover {
-      z-index: 25;
-      cursor: pointer;
-      outline-color: var(--links-border);
-      background-color: var(--links-hover);
-    }
-    .name_container {
-      display: flex;
-      position: relative;
-      justify-content: space-between;
-      align-items: center;
-      vertical-align: middle;
-      gap: 8px;
-      box-sizing: border-box;
-      border-radius: $roundness;
-      padding-inline: 12px;
-      padding-block: 5px;
-      .icon {
-        flex-shrink: 0;
-        margin-block: 3px;
-        width: min(calc(17px + (20 - 17) * ((100vw - 320px) / (768 - 320))), 20px);
-        height: min(calc(17px + (20 - 17) * ((100vw - 320px) / (768 - 320))), 20px);
-        color: var(--links-text);
-        path {
-          margin-block: auto;
-        }
-      }
-      .name {
-        text-wrap: balance;
-        margin-block: 3px;
-        color: var(--links-text);
-        font-weight: 675;
-        font-size: 0.975rem;
-        font-family: Onest, sans-serif;
-        text-align: left;
-        @media (width >= 320px) {
-          font-size: calc(1.05rem + (1.075 - 1.05) * ((100vw - 320px) / (768 - 320)));
-        }
-        @media (width >= 768px) {
-          font-size: 1.075rem;
-        }
+    position: relative;
+    justify-content: space-between;
+    align-items: center;
+    vertical-align: middle;
+    gap: 8px;
+    box-sizing: border-box;
+    border-radius: $roundness;
+    padding-inline: 12px;
+    padding-block: 5px;
+
+    .icon {
+      flex-shrink: 0;
+      margin-block: 3px;
+      width: min(calc(17px + (20 - 17) * ((100vw - 320px) / (768 - 320))), 20px);
+      height: min(calc(17px + (20 - 17) * ((100vw - 320px) / (768 - 320))), 20px);
+      color: var(--links-text);
+
+      path {
+        margin-block: auto;
       }
     }
-    .description {
+
+    .name {
       text-wrap: balance;
-      vertical-align: middle;
-      opacity: 0.7;
-      padding-inline: 12px;
-      padding-block: 8px;
-      padding-block-start: 2px;
-      height: fit-content;
-      font-weight: 375;
-      font-size: 0.8rem;
+      margin-block: 3px;
+      color: var(--links-text);
+      font-weight: 675;
+      font-size: 0.975rem;
+      font-family: Onest, sans-serif;
       text-align: left;
+
       @media (width >= 320px) {
-        font-size: calc(0.825rem + (0.875 - 0.825) * ((100vw - 320px) / (768 - 320)));
+        font-size: calc(1.05rem + (1.075 - 1.05) * ((100vw - 320px) / (768 - 320)));
       }
+
       @media (width >= 768px) {
-        font-size: 0.875rem;
+        font-size: 1.075rem;
       }
     }
   }
-  &-grid {
-    display: flex;
-    flex-flow: row wrap;
-    gap: 10px;
+
+  .description {
+    text-wrap: balance;
+    vertical-align: middle;
+    opacity: 0.7;
+    padding-inline: 12px;
+    padding-block: 8px;
+    padding-block-start: 2px;
+    height: fit-content;
+    font-weight: 375;
+    font-size: 0.8rem;
+    text-align: left;
+
+    @media (width >= 320px) {
+      font-size: calc(0.825rem + (0.875 - 0.825) * ((100vw - 320px) / (768 - 320)));
+    }
+
+    @media (width >= 768px) {
+      font-size: 0.875rem;
+    }
   }
+}
+
+.links-grid {
+  display: flex;
+  flex-flow: row wrap;
+  gap: 10px;
 }

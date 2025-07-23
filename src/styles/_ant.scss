@@ -1,52 +1,68 @@
 @use "mixins" as *;
+
 .ant-divider-inner-text {
   opacity: 0.8;
   font-weight: 600 !important;
   font-size: 0.785rem;
-  font-family: "Onest", sans-serif !important;
+  font-family: Onest, sans-serif !important;
   text-transform: uppercase;
 }
+
 .ant-slider:hover .ant-slider-handle::after {
   box-shadow: 0 0 0 2px var(--accent);
 }
+
 .ant-message {
   color: var(--text-color);
-  font-family: Inter, sans-serif;
+  font-family: Onest, Inter, sans-serif;
 }
+
 .ant-message .ant-message-notice-wrapper .ant-message-notice-content {
   outline: 1px solid var(--content-background-border);
   background: var(--content-background-color);
+  font-size: 0.9rem !important;
+  font-weight: 400;
 }
+
 .ant-modal-root .ant-modal-mask {
   backdrop-filter: blur(25px);
   background-color: var(--background-color-alpha);
 }
+
 .ant-breadcrumb {
   font-size: 0.875rem;
 }
+
 .ant-message .ant-message-notice-wrapper .ant-message-notice-content {
   font-size: 0.875rem;
 }
+
 .ant-modal {
   top: 8px;
+
   @media (width >= 768px) {
     top: 64px;
   }
 }
+
 .ant-spin .ant-spin-dot-holder {
   color: var(--accent);
 }
+
 .ant-radio-wrapper .ant-radio-inner {
   border-color: var(--content-background-border);
   background-color: var(--content-background-border);
 }
+
 .ant-radio-wrapper .ant-radio-checked .ant-radio-inner {
   border-color: var(--accent);
   background-color: var(--accent);
 }
+
 .ant-radio-wrapper:hover .ant-radio-inner {
   border-color: var(--accent);
 }
+
 .ant-modal .ant-modal-content {
   box-shadow: none;
   border: none;
@@ -54,28 +70,36 @@
   background: none;
   padding: 0;
 }
+
 .ant-upload-wrapper .ant-upload-drag:not(.ant-upload-disabled):hover {
   border-color: var(--accent);
 }
+
 .ant-dropdown-menu-item {
   outline: 1px solid transparent;
   border-radius: $roundness;
 }
+
 .ant-dropdown-menu-submenu {
   border-radius: $roundness;
 }
+
 .ant-dropdown-menu-item .ant-dropdown-menu-item-only-child {
   border-radius: $roundness;
 }
+
 .ant-dropdown-menu-submenu .ant-dropdown-menu .ant-dropdown-menu-submenu-title-content {
   border-radius: $roundness;
 }
+
 .ant-dropdown-menu-item:hover {
   outline: 1px solid var(--summary-border);
 }
+
 .ant-dropdown-menu-title-content {
   font-size: 0.875rem;
 }
+
 .ant-dropdown {
   border: 1px solid var(--content-background-border);
   border-radius: $roundness;

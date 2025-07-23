@@ -1,4 +1,5 @@
 @use "mixins" as *;
+
 .header {
   display: flex;
   position: fixed;
@@ -16,22 +17,26 @@
   padding-inline: 15px;
   width: 100%;
   max-width: 1075px;
+
   @media (width <= 768px) {
     z-index: 100;
   }
+
   @media (width >= 1075px) {
     transform: translateX(calc(-50% - 0.5px));
     border-bottom-right-radius: $roundness * 1.5;
     border-bottom-left-radius: $roundness * 1.5;
     width: calc(100% - 8px);
   }
+
   svg {
     fill: var(--accent);
     width: min(calc(18px + (20 - 18) * ((100vw - 320px) / (768 - 320))), 20px);
     height: min(calc(18px + (20 - 18) * ((100vw - 320px) / (768 - 320))), 20px);
   }
-  &-left,
-  &-right {
+
+  .header-left,
+  .header-right {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -41,6 +46,7 @@
       opacity 0.5s cubic-bezier(0.075, 0.82, 0.165, 1),
       visibility 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
     max-height: max-content;
+
     .icon {
       align-items: center;
       align-self: center;
@@ -49,6 +55,7 @@
       width: 20px;
       height: 20px;
     }
+
     .logo {
       margin-inline: 3px;
       margin-block: 8px 10px;
@@ -58,19 +65,23 @@
       font-weight: 800;
       font-size: 1.35rem;
       font-family: "Red Hat Display", monospace;
+
       sub {
         font-weight: 500;
       }
     }
   }
-  &-left {
+
+  .header-left {
     gap: 8px;
   }
-  &-right {
+
+  .header-right {
     gap: 15px;
     margin-block: 0;
   }
 }
+
 .wide-search-button {
   display: flex;
   align-items: center;
@@ -78,17 +89,21 @@
   outline: 1px solid var(--summary-border);
   border-radius: $roundness * 0.75;
   background: var(--header-background);
-  padding: 5px;
+  padding-inline-start: 5px;
   color: var(--mark-text);
-  font-weight: 300;
-  font-size: 0.825rem;
+  font-weight: 400;
+  font-family: Onest, Inter, sans-serif;
+  font-size: 0.85rem;
+
   svg {
     fill: var(--accent);
-    padding-inline-start: 2px;
     width: 17px;
     height: 17px;
   }
+
   mark {
+    margin-inline-end: -1px;
+    padding: 5px;
     margin-block: 0;
   }
 }
