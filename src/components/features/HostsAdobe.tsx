@@ -4934,7 +4934,7 @@ const HostsAdobeModal: React.FC = () => {
               0.0.0.0 yzpjxjne5o.adobestats.io
               <br />
             </code>
-            <AdditionInfo>
+            <Addition type="info">
               Нажмите на адреса, чтобы скопировать их в буфер обмена. Самые свежие адреса
               для блокировки в hosts находятся{" "}
               <a
@@ -4945,7 +4945,7 @@ const HostsAdobeModal: React.FC = () => {
                 по этой ссылке
               </a>
               .
-            </AdditionInfo>
+            </Addition>
           </div>
         </div>
       </Modal>
