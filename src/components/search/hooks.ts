@@ -30,7 +30,7 @@ const normalizeText = (text: string): string => {
     .toLowerCase()
     .replace(/ё/g, "е")
     .replace(/\s+/g, " ")
-    .replace(/[.,!?;:()[\]{}"'`]/g, (match) => {
+    .replace(/[.,!?;:()[\]{}"'`«»”“‘’‚‛‟‹›「」『』…—–/_|&@#$%^~=<>]/g, (match) => {
       if (
         match === "+" ||
         match === "-" ||
