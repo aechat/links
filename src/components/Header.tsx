@@ -10,7 +10,7 @@ import {MoveToTop} from "./features/MoveToTop";
 
 import {ThemeToggleButton} from "./modal/ThemeChanger";
 
-import {SearchButton, WideSearchButton} from "./search";
+import {SearchButton} from "./search";
 
 interface HeaderProps {
   title: string;
@@ -99,7 +99,7 @@ const Header: React.FC<HeaderProps> = ({title}) => {
           <MoveToTop />
         </div>
         {shouldShowSearch() && (
-          <div>{isWide ? <WideSearchButton /> : <SearchButton />}</div>
+          <div>{isWide ? <SearchButton wide /> : <SearchButton />}</div>
         )}
         <ThemeToggleButton />
       </div>
