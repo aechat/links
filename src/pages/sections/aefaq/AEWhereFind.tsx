@@ -552,7 +552,43 @@ const AEWhereFind: React.FC = () => {
             title="Musopen"
           >
             Musopen
-          </a>{" "}
+          </a>
+          <a
+            href="https://mobygratis.com/"
+            title="mobygratis"
+          >
+            mobygratis
+          </a>
+          <a
+            href="https://tunetank.com/"
+            title="tunetank"
+          >
+            tunetank
+          </a>
+          <a
+            href="https://app.hellothematic.com/"
+            title="Thematic"
+          >
+            Thematic
+          </a>
+          <a
+            href="https://taketones.com/"
+            title="TakeTones"
+          >
+            TakeTones
+          </a>
+          <a
+            href="https://audiokaif.ru/"
+            title="Аудио Кайф"
+          >
+            Аудио Кайф
+          </a>
+          <a
+            href="https://www.chosic.com/free-music/all/"
+            title="Chosic"
+          >
+            Chosic
+          </a>
         </div>
         <Addition type="warning">
           <ul>
