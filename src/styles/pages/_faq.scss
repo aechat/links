@@ -38,7 +38,7 @@
   margin-inline-end: 10px;
   // margin-block-start: 5px;
   max-width: fit-content;
-  line-height: 1.2;
+  line-height: 1.1;
   text-transform: uppercase;
 
   mark {
@@ -49,7 +49,10 @@
     padding: 0;
     color: var(--summary-text);
     font-weight: 500;
-    font-size: 0.6rem;
+    font-size: min(
+    calc(0.575rem + (0.675 - 0.575) * ((100vw - 320px) / (768 - 320))),
+    0.675rem
+  );
 
     &.tag::before {
       flex-shrink: 0;
@@ -85,7 +88,7 @@
   color: var(--summary-text);
   font-weight: 650;
   font-size: min(
-    calc(1.125rem + (1.225 - 1.125) * ((100vw - 320px) / (768 - 320))),
+    calc(1.15rem + (1.225 - 1.15) * ((100vw - 320px) / (768 - 320))),
     1.225rem
   );
   line-height: 1.3;
