@@ -1085,7 +1085,7 @@ const AEInstallProblems: React.FC = () => {
       </DetailsSummary>
       <DetailsSummary
         tag="репак от кролика, выключить дефендер, отрубить антивирус, ложное срабатывание, хелпер, ошибка 24, проверьте правильно ли указано имя и повторите попытку, windows не удается получить доступ к указанному устройству пути или файлу, возможно у вас нет нужных разрешений для доступа к этому объекту, некоторые файлы не были созданы, операция не была успешно завершена так как файл содержит вирус или потенциально нежелательную программу, обнаружены угрозы, куда-то пропадают файлы плагинов и программ, operation did not complete successfully because the file contains a virus or potentially unwanted software, 0x800700E1"
-        title='«Не удаётся найти "..\install\helper.exe"» или как отключить Windows Defender и Windows Smartscreen?'
+        title="«Не удаётся найти „..\install\helper.exe“» или как отключить Windows Defender и Windows Smartscreen?"
       >
         <ContentFilter
           windowsContent={
@@ -1473,7 +1473,7 @@ const AEInstallProblems: React.FC = () => {
         />
       </DetailsSummary>
       <DetailsSummary
-        tag="в настоящее время невозможно установить, операционная система не соответствует минимальным требованиям для этой программы установки, требуется процессор поддерживающий инструкции advanced vector extensions 2, avx2, операционная система не соответствует минимальным требованиям для этой программы установки"
+        tag="ошибка установки, системные требования, installation error, error code, в настоящее время невозможно установить, операционная система не соответствует минимальным требованиям для этой программы установки, требуется процессор поддерживающий инструкции advanced vector extensions 2, avx2"
         title="Код ошибки 1, 501, 176, 195, 21 или другие при установке Adobe After Effects"
       >
         <Divider>Исправляем ошибку 1 или 501</Divider>
@@ -1596,7 +1596,7 @@ const AEInstallProblems: React.FC = () => {
         </Addition>
       </DetailsSummary>
       <DetailsSummary
-        tag="репак от кролика"
+        tag="репак от кролика, повреждённые файлы, ошибка установки, corrupted files, installation error, многотомный архив"
         title="«Некоторые установочные файлы были повреждены. Загрузите свежую копию и повторите установку»"
       >
         <p>
@@ -1689,7 +1689,7 @@ const AEInstallProblems: React.FC = () => {
         </ul>
       </DetailsSummary>
       <DetailsSummary
-        tag="репак от кролика"
+        tag="репак от кролика, файл хостс, hosts, нет доступа"
         title="«rsload.net заблокирован в hosts» или «The hosts file does not exist or is not accessible»"
       >
         <p>
@@ -1706,7 +1706,7 @@ const AEInstallProblems: React.FC = () => {
         </p>
       </DetailsSummary>
       <DetailsSummary
-        tag="репак от кролика"
+        tag="репак от кролика, реклама, adware, нежелательные изменения"
         title="Забыл убрать галочку с рекламой при установке репака от KpoJIuK. Как избавиться от последствий?"
       >
         <p>
@@ -1727,7 +1727,10 @@ const AEInstallProblems: React.FC = () => {
           <a href="https://unchecky.com/">Unchecky</a>.
         </p>
       </DetailsSummary>
-      <DetailsSummary title="«Приложение Adobe Creative Cloud, необходимое для устранения проблемы, отсутствует или повреждено...» при запуске программы">
+      <DetailsSummary
+        tag="ошибка при запуске, хвосты, удаление, переустановка"
+        title="«Приложение Adobe Creative Cloud, необходимое для устранения проблемы, отсутствует или повреждено...» при запуске программы"
+      >
         <ContentFilter
           windowsContent={
             <div>
@@ -1757,7 +1760,7 @@ const AEInstallProblems: React.FC = () => {
         />
       </DetailsSummary>
       <DetailsSummary
-        tag="генп, genp, ручная активация"
+        tag="генп, genp, ручная активация, активация, патч, patch"
         title="Я не доверяю репакам, но установить программы от Adobe хочется. Какие есть ещё варианты?"
       >
         <ContentFilter
@@ -1942,7 +1945,7 @@ const AEInstallProblems: React.FC = () => {
         />
       </DetailsSummary>
       <DetailsSummary
-        tag="какую версию надо качать для связки"
+        tag="какую версию надо скачать для связки, совместимость версий, dynamic link, premiere pro, media encoder, мажорная версия, релиз"
         title="Обязательно ли точное совпадение версий смежных программ от Adobe для их совместной работы?"
       >
         <p>
@@ -1983,7 +1986,7 @@ const AEInstallProblems: React.FC = () => {
       </DetailsSummary>
       <DetailsSummary
         tag="не подключается dynamic link, программы не видят друг друга, динамик линк, aegp plugin aedynamiclinkserver: adobe media encoder is not installed, please download and install it to use this feature, failed to connect to adobe media encoder, медиа енкодер"
-        title="Установил Adobe Media Encoder и Adobe Premiere Pro, но Adobe After Effects почему-то его не видит"
+        title="Установил Adobe Media Encoder и Adobe Premiere Pro, но Adobe After Effects почему-то их не видит"
       >
         <ContentFilter
           windowsContent={
@@ -2180,7 +2183,7 @@ const AEInstallProblems: React.FC = () => {
         </p>
       </DetailsSummary>
       <DetailsSummary
-        tag="предупреждение, сбой загрузки следующих подключаемых модулей, переустановите эти модули, ошибка, невозможно применить эффект, не удалось выполнить его инициализацию, попытайтесь переустановить подключаемый модуль или обратитесь к его разработчику, plug-in generated an unexpected exception"
+        tag="предупреждение, сбой загрузки, плагин не загружается, ошибка 25::3, visual c++, сбой загрузки следующих подключаемых модулей, переустановите эти модули, ошибка, невозможно применить эффект, не удалось выполнить его инициализацию, попытайтесь переустановить подключаемый модуль или обратитесь к его разработчику, plug-in generated an unexpected exception"
         title="«Warning: The following plugins have failed to load. Please reinstall these plugins» при запуске программы или «Error: This effect cannot be applied because it cannot be initialized. Try reinstalling or contacting the plug-in developer (25::3)» при применении какого-нибудь эффекта"
       >
         <p>
@@ -2251,7 +2254,7 @@ const AEInstallProblems: React.FC = () => {
         />
       </DetailsSummary>
       <DetailsSummary
-        tag="предупреждение, на диске существует копия подключаемого модуля эффекта, во избежание конфликтов закройте After Effects после чего удалите или переместите более раннюю или ненужную версию"
+        tag="дубликаты плагинов, конфликт эффектов, удалить дубликаты, предупреждение, на диске существует копия подключаемого модуля эффекта, во избежание конфликтов закройте After Effects после чего удалите или переместите более раннюю или ненужную версию"
         title="«Warning: there are duplicated effect plug-ins installed on your drive. To avoid problems, quit After Effects and move or delete the older or unneeded version»"
       >
         <p>
@@ -2382,8 +2385,8 @@ const AEInstallProblems: React.FC = () => {
         />
       </DetailsSummary>
       <DetailsSummary
-        tag="trapcode, mbl, magic bullet, vfx suite, universe, юниверс, трапкод, партикуляр, мбл"
-        title='"This installer application has been moved. It must be run from its original folder containing a packages directory. The installer will now exit." при установке любого пакета от Red Giant'
+        tag="trapcode, mbl, magic bullet, vfx suite, universe, юниверс, трапкод, партикуляр, мбл, red giant, packages directory, ошибка установки, распаковать архив"
+        title="«This installer application has been moved. It must be run from its original folder containing a packages directory. The installer will now exit.» при установке любого пакета от Red Giant"
       >
         <p>
           Скорее всего, вы пытаетесь установить плагины от{" "}
@@ -2407,7 +2410,7 @@ const AEInstallProblems: React.FC = () => {
         </p>
       </DetailsSummary>
       <DetailsSummary
-        tag="please launch the maxon app and sign in to your account, in order to keep using this product without interruption, please activate a license, trapcode particular, magic bullet looks, vfx suite, universe"
+        tag="red giant, maxon, активация, unlicensed, нет лицензии, redgiant activation service unlocker, please launch the maxon app and sign in to your account, in order to keep using this product without interruption, please activate a license, trapcode particular, magic bullet looks, vfx suite, universe"
         title="«Red Giant is unlicensed» при применении любого плагина от Maxon"
       >
         <p>
@@ -2426,8 +2429,8 @@ const AEInstallProblems: React.FC = () => {
         </p>
       </DetailsSummary>
       <DetailsSummary
-        tag="Select action - an error occurred while trying to replace the existing file: DeleteFile failed; code 5. Access denied"
-        title="«Виберiть дiю - виникла помилка при спробi замiни iснуючого файлу: DeleteFile збiй; код 5. Отказано в доступi» при применении активатора для пакетов Red Giant от Team V.R."
+        tag="red giant, team v.r., активатор, ошибка 5, отказано в доступе, access denied, deletefile, red giant service, select action - an error occurred while trying to replace the existing file: deletefile failed; code 5. access denied"
+        title="«Виберiть дiю — виникла помилка при спробi замiни iснуючого файлу: DeleteFile збiй; код 5. Отказано в доступi» при применении активатора для пакетов Red Giant от Team V.R."
       >
         <p>
           Эта ошибка означает, что активатор не может перезаписать какой-то файл, потому
@@ -2453,7 +2456,7 @@ const AEInstallProblems: React.FC = () => {
         />
       </DetailsSummary>
       <DetailsSummary
-        tag="element license, use your vc download account to generate a license for this computer"
+        tag="element 3d, video copilot, vc, лицензия, активация, install license file, use your vc download account to generate a license for this computer"
         title="«Generate License» при применении Element 3D"
       >
         <p>
@@ -2476,7 +2479,7 @@ const AEInstallProblems: React.FC = () => {
         />
       </DetailsSummary>
       <DetailsSummary
-        tag="мокка про"
+        tag="мокка про, mocha pro, boris fx, team v.r., лицензия, license, активация"
         title="«No interactive license in use» при открытии Mocha Pro"
       >
         <p>
@@ -2499,7 +2502,10 @@ const AEInstallProblems: React.FC = () => {
           variant="windows"
         />
       </DetailsSummary>
-      <DetailsSummary title="«Error: Extension Manager init failed, status = -193! A required resource is missing. Please relaunch the Creative Cloud app and try again» при использовании ZXP Installer">
+      <DetailsSummary
+        tag="zxp, zxp installer, ошибка -193, error -193, creative cloud, extension manager, расширения, aescripts"
+        title="«Error: Extension Manager init failed, status = -193! A required resource is missing. Please relaunch the Creative Cloud app and try again» при использовании ZXP Installer"
+      >
         <p>
           Эта ошибка прямо указывает на то, что на вашем устройстве отсутствует программа{" "}
           <mark className="app">Adobe Creative Cloud</mark>. Если вы пытаетесь установить
@@ -2520,7 +2526,7 @@ const AEInstallProblems: React.FC = () => {
         </Addition>
       </DetailsSummary>
       <DetailsSummary
-        tag="обновление и перенос, перенести плагины расширения пресеты, новая версия афтера, хочу обновить программу с одной версии на другую"
+        tag="обновление и перенос, перенести плагины расширения и пресеты, новая версия афтера, хочу обновить программу, update, плагины, скрипты, настройки, сохранить настройки"
         title="Как обновить программу, не потеряв при этом плагины и прочий установленный контент?"
       >
         <p>
@@ -2667,7 +2673,7 @@ const AEInstallProblems: React.FC = () => {
         </Addition>
       </DetailsSummary>
       <DetailsSummary
-        tag="безопасный режим, reset preferences, safe mode, установка поверх существующей версии"
+        tag="безопасный режим, reset preferences, safe mode, установка поверх, нестабильно, сброс настроек, startup repair options, переустановка поверх, чистая установка"
         title="Что делать, если программа начала работать нестабильно, а переустанавливать с нуля не хочется?"
       >
         <p>
