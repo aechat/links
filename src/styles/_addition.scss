@@ -72,8 +72,8 @@ li > .addition-danger,
     background: none;
     padding: 2px 2.5px 2px 2px;
     &::before {
-      width: min(calc(12px + (14 - 12) * ((100vw - 320px) / (768 - 320))), 14px);
-      height: min(calc(12px + (14 - 12) * ((100vw - 320px) / (768 - 320))), 14px);
+      width: min(calc(11px + (13 - 11) * ((100vw - 320px) / (768 - 320))), 13px);
+      height: min(calc(11px + (13 - 11) * ((100vw - 320px) / (768 - 320))), 13px);
     }
   }
 
