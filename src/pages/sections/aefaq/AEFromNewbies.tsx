@@ -201,6 +201,8 @@ const AEFromNewbies: React.FC = () => {
           <a href="https://www.youtube.com/@yaniksksks/videos">Yaniksksks</a>
           <a href="https://www.youtube.com/@imduong2k6/videos">imduong2k6</a>
           <a href="https://www.youtube.com/@Victoriaaep/videos">Victoria.aep</a>
+          <a href="https://www.youtube.com/@creativegraphicz/videos">Creative Graphicz</a>
+          <a href="https://www.youtube.com/@ReverseStark/videos">ReverseStark</a>
         </div>
         <AdditionDanger>
           <sup>1</sup> <mark className="app">Instagram</mark> и <mark>Meta</mark> признаны
