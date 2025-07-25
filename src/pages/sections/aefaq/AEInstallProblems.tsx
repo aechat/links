@@ -1983,6 +1983,15 @@ const AEInstallProblems: React.FC = () => {
           «увидеть» друг друга: мажорные версии не совпадают, обратной совместимости нет,
           и <mark className="plugin">Dynamic Link</mark> просто не сработает.
         </p>
+        <p>
+          Что касается плагинов от сторонних разработчиков, в названии которых указана
+          «версия-год» — они не всегда обязаны строго соответствовать версии{" "}
+          <mark className="app">Adobe After Effects</mark>. Чаще всего такие плагины
+          работают и в релизах старше двух лет, например, если установить{" "}
+          <mark className="plugin">BorisFX Sapphire 2025</mark> на{" "}
+          <mark className="app">Adobe After Effects 2023</mark>, всё будет функционировать
+          без особых проблем.
+        </p>
       </DetailsSummary>
       <DetailsSummary
         tag="не подключается dynamic link, программы не видят друг друга, динамик линк, aegp plugin aedynamiclinkserver: adobe media encoder is not installed, please download and install it to use this feature, failed to connect to adobe media encoder, медиа енкодер"
