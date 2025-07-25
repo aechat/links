@@ -15,8 +15,8 @@ const isExcludedElement = (element: HTMLElement): boolean => {
   );
 };
 
-const cleanHtml = (html: string): string => {
-  return html.replace(/<br\s*\/?>/gi, "\n").replace(/<\/?[^>]+(>|$)/g, "");
+const cleanHtml = (text: string): string => {
+  return text.replace(/<br\s*\/?>(\n)?/gi, "\n");
 };
 
 const copyWithClipboardApi = async (text: string): Promise<void> => {
@@ -63,7 +63,7 @@ const copyToClipboard = (event?: MouseEvent): void => {
     return;
   }
 
-  const textContent = cleanHtml(elementToCopy.innerHTML);
+  const textContent = cleanHtml(elementToCopy.textContent || "");
 
   if (navigator.clipboard) {
     copyWithClipboardApi(textContent);
