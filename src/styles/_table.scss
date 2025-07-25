@@ -44,6 +44,16 @@ th {
   mark {
     outline: none;
     background: none;
+    &::before {
+      width: min(
+        calc(10px + (12 - 10) * ((100vw - 320px) / (768 - 320))),
+        12px
+      ) !important;
+      height: min(
+        calc(10px + (12 - 10) * ((100vw - 320px) / (768 - 320))),
+        12px
+      ) !important;
+    }
   }
 }
 
