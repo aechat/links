@@ -71,6 +71,7 @@ li > .addition-danger,
   mark {
     background: none;
     padding: 2px 2.5px 2px 2px;
+
     &::before {
       width: min(calc(11px + (13 - 11) * ((100vw - 320px) / (768 - 320))), 13px);
       height: min(calc(11px + (13 - 11) * ((100vw - 320px) / (768 - 320))), 13px);

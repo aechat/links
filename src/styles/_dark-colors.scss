@@ -27,12 +27,7 @@ $dark: (
   summary-background: hsl(var(--accent-hue), calc(25% * var(--saturate-ratio)), 7%),
   summary-border: hsl(var(--accent-hue), calc(35% * var(--saturate-ratio)), 17.5%),
   summary-text: hsl(var(--accent-hue), calc(100% * var(--saturate-ratio)), 80%),
-  // *: стили кнопок главной страницы
-  links-background: hsl(var(--accent-hue), calc(25% * var(--saturate-ratio)), 6%),
-  links-gradient: hsl(var(--accent-hue), calc(15% * var(--saturate-ratio)), 9%),
-  links-border: hsl(var(--accent-hue), calc(15% * var(--saturate-ratio)), 12.5%),
-  links-hover: hsl(var(--accent-hue), calc(20% * var(--saturate-ratio)), 11%),
-  links-text: hsl(var(--accent-hue), calc(100% * var(--saturate-ratio)), 80%),
+  summary-hover: hsl(var(--accent-hue), calc(20% * var(--saturate-ratio)), 11%),
   // ~: информационные блоки:
   addition-info-background: hsl(190, calc(35% * var(--saturate-ratio)), 10%),
   addition-info-border: hsl(190, calc(30% * var(--saturate-ratio)), 20%),

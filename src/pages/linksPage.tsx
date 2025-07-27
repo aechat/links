@@ -113,7 +113,7 @@ const Links = () => {
             />
           </div>
           <Divider>Наши каналы</Divider>
-          <AdditionInfo>
+          <Addition type="info">
             {(() => {
               const userAgent = navigator.userAgent.toLowerCase();
 
@@ -126,7 +126,7 @@ const Links = () => {
               if (isIOS) {
                 return (
                   <>
-                    Для скачивания материалов из каналов ниже - рекомендую использовать
+                    Для скачивания материалов из каналов ниже рекомендуется использовать
                     официальное приложение <mark className="app">Telegram</mark> вместо
                     веб-версии, которое можно установить из{" "}
                     <a href="https://telegram.org/dl/ios">App Store</a>.
@@ -137,7 +137,7 @@ const Links = () => {
               if (isAndroid) {
                 return (
                   <>
-                    Для скачивания материалов из каналов ниже - рекомендую использовать
+                    Для скачивания материалов из каналов ниже рекомендуется использовать
                     официальное приложение <mark className="app">Telegram</mark> вместо
                     веб-версии, которое можно установить по{" "}
                     <a href="https://telegram.org/android">этой ссылке</a>.
@@ -148,8 +148,8 @@ const Links = () => {
               if (isMacOS) {
                 return (
                   <>
-                    Для скачивания материалов из каналов ниже - рекомендую воспользоваться
-                    десктопной версией <mark className="app">Telegram</mark> вместо
+                    Для скачивания материалов из каналов ниже рекомендуется использовать
+                    десктопную версию <mark className="app">Telegram</mark> вместо
                     веб-версии, которую можно скачать по{" "}
                     <a href="https://macos.telegram.org/">этой ссылке</a>.
                   </>
@@ -158,14 +158,14 @@ const Links = () => {
 
               return (
                 <>
-                  Для скачивания материалов из каналов ниже - рекомендую воспользоваться
-                  десктопной версией <mark className="app">Telegram</mark> вместо
+                  Для скачивания материалов из каналов ниже рекомендуется использовать
+                  десктопную версию <mark className="app">Telegram</mark> вместо
                   веб-версии, которую можно скачать по{" "}
                   <a href="https://desktop.telegram.org/">этой ссылке</a>.
                 </>
               );
             })()}
-          </AdditionInfo>
+          </Addition>
           <div className="links-grid">
             <LinkCard
               description="Шаблоны и плагины для Adobe After Effects со всего интернета"
@@ -292,11 +292,11 @@ const Links = () => {
             />
           </div>
           <Divider>Чаты в Telegram</Divider>
-          <AdditionWarning>
+          <Addition type="warning">
             Перед вступлением в какой-либо чат - прочитайте его правила, чтобы избежать
             недоразумений или внезапных блокировок и ограничений. Обычно правила чатов
             находятся в закреплённом сообщении или в описании чата.
-          </AdditionWarning>
+          </Addition>
           <div className="links-grid">
             <LinkCard
               description="Обсуждаем Adobe After Effects и Adobe Premiere Pro"
@@ -341,7 +341,7 @@ const Links = () => {
               name="DaVinci Resolve RU"
             />
             <LinkCard
-              description="Сообщество от @TimesaverVFX, где обсуждают Davinci Resolve и Fusion"
+              description="Сообщество от @TimesaverVFX, где обсуждают DaVinci Resolve и Fusion"
               href="https://t.me/timesaverchat"
               icon={<MovieRounded />}
               name="Чат Таймсейвера"
@@ -444,7 +444,7 @@ const Links = () => {
             />
           </div>
           <Divider>Вакансии и работа</Divider>
-          <AdditionDanger>
+          <Addition type="danger">
             <p>
               Пожалуйста, будьте внимательны при выполнении заказов на фрилансе - вы
               можете нарваться на недобросовестного заказчика или ловкую схему
@@ -534,13 +534,13 @@ const Links = () => {
                 Цель таких аккаунтов - развести вас на деньги или втереться в доверие.
               </li>
             </ul>
-          </AdditionDanger>
-          <AdditionWarning>
+          </Addition>
+          <Addition type="warning">
             Если вы передали данные карты или совершили перевод мошеннику - обратитесь в
             ваш банк и сообщите о факте мошенничества, а также немедленно заблокируйте
             банковскую карту и перевыпустите её в банковском приложении. Чем раньше вы
             свяжетесь с банком - тем лучше.
-          </AdditionWarning>
+          </Addition>
           <div className="links-grid">
             <LinkCardNoDescription
               href="https://t.me/ru_montage_pins"

@@ -29,14 +29,12 @@
 
 .faq-tags {
   display: flex;
-  column-gap: 5px;
-  row-gap: 1px;
   flex-wrap: wrap;
   justify-content: flex-start;
   align-items: center;
+  gap: 1px 5px;
   opacity: 0.6;
   margin-inline-end: 10px;
-  // margin-block-start: 5px;
   max-width: fit-content;
   line-height: 1.1;
   text-transform: uppercase;
@@ -50,9 +48,9 @@
     color: var(--summary-text);
     font-weight: 500;
     font-size: min(
-    calc(0.575rem + (0.675 - 0.575) * ((100vw - 320px) / (768 - 320))),
-    0.675rem
-  );
+      calc(0.575rem + (0.675 - 0.575) * ((100vw - 320px) / (768 - 320))),
+      0.675rem
+    );
 
     &.tag::before {
       flex-shrink: 0;
@@ -75,14 +73,7 @@
   align-items: center;
   transition: background-color 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
   cursor: pointer;
-  // margin-block: min(calc(5px + (8 - 5) * ((100vw - 320px) / (768 - 320))), 8px);
-
   border: 1px solid var(--summary-border);
-
-  // border-bottom-width: 4px;
-
-  // border-radius: $roundness;
-
   background-color: var(--summary-background);
   padding: 12px 15px;
   color: var(--summary-text);
@@ -106,7 +97,7 @@
   }
 
   &:hover {
-    background-color: var(--links-hover);
+    background-color: var(--summary-hover);
   }
 
   details[open] & {
@@ -133,13 +124,8 @@
 }
 
 .faq-section {
-  // margin-block: 15px;
   margin-block: -1px;
   border: solid 1px var(--content-background-border);
-  // border-top: none;
-  // border-radius: $roundness;
-  // border-bottom-right-radius: $roundness;
-  // border-bottom-left-radius: $roundness;
   background-color: var(--content-background-color);
   padding-block: 1px;
 }
@@ -417,12 +403,12 @@ code {
   user-select: text;
 
   &:hover {
-    opacity: 0.75;
+    opacity: 0.8;
     cursor: pointer;
   }
 
   &:active {
-    opacity: 0.5;
+    opacity: 0.6;
   }
 
   &::-webkit-scrollbar {
@@ -475,12 +461,12 @@ mark {
     transition: opacity 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
 
     &:hover {
-      opacity: 0.75;
+      opacity: 0.8;
       cursor: pointer;
     }
 
     &:active {
-      opacity: 0.5;
+      opacity: 0.6;
     }
 
     &::before {

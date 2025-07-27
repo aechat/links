@@ -53,9 +53,9 @@
   align-items: center;
   gap: 8px;
   cursor: pointer;
-  border: 1px solid var(--links-border);
+  border: 1px solid var(--summary-border);
   border-radius: $roundness;
-  background-color: var(--links-background);
+  background-color: var(--summary-background);
   padding: 10px 20px;
   color: var(--summary-text);
   font-weight: 700;
@@ -70,9 +70,9 @@
   align-items: center;
   cursor: pointer;
   margin: 0 auto;
-  border: 1px solid var(--links-border);
+  border: 1px solid var(--summary-border);
   border-radius: $roundness;
-  background-color: var(--links-background);
+  background-color: var(--summary-background);
   padding: 10px 20px;
   width: calc(100% - 20px);
   color: var(--summary-text);
@@ -249,7 +249,7 @@
 }
 
 .search-header:hover {
-  background-color: var(--links-hover);
+  background-color: var(--summary-hover);
 }
 
 .search-title {
@@ -307,11 +307,11 @@
 }
 
 .search-selected .search-header {
-  background-color: var(--links-hover);
+  background-color: var(--summary-hover);
 }
 
 .search-selected .search-content {
-  background-color: var(--links-background);
+  background-color: var(--summary-background);
 }
 
 .search-no-results {
@@ -475,9 +475,9 @@
   align-items: center;
   gap: 10px;
   box-shadow: 0 3px 5px var(--shadow);
-  border: 1px solid var(--links-border);
+  border: 1px solid var(--summary-border);
   border-radius: $roundness;
-  background-color: var(--links-background);
+  background-color: var(--summary-background);
   padding: 10px;
   max-width: 100%;
   overflow-y: hidden;
@@ -493,5 +493,5 @@
 }
 
 .theme-button-selected {
-  background-color: var(--links-hover);
+  background-color: var(--summary-hover);
 }

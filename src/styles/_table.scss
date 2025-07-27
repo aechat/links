@@ -4,7 +4,6 @@ table {
   margin: 10px;
   border-collapse: separate;
   border-spacing: 5px;
-
   width: calc(100% - 20px);
   overflow: hidden;
   font-size: 0.925rem;
@@ -42,9 +41,11 @@ th {
     margin-inline: auto;
     font-size: 0.875rem;
   }
+
   mark {
     outline: none;
     background: none;
+
     &::before {
       width: min(
         calc(10px + (12 - 10) * ((100vw - 320px) / (768 - 320))),
@@ -67,6 +68,7 @@ thead {
   z-index: 10;
   color: var(--mark-text);
   font-family: Onest, Inter, sans-serif;
+
   th {
     text-wrap: balance;
     border: 1px solid var(--summary-border);
