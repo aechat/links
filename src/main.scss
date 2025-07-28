@@ -10,11 +10,13 @@
 @use "styles/ant";
 @use "styles/modal";
 @use "styles/error";
+@use "styles/bezier";
 @use "styles/addition";
 
 :root {
   --header-height: 55px;
 }
+
 
 html,
 body {

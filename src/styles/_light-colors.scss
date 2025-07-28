@@ -42,5 +42,20 @@ $light: (
   addition-danger-text: hsl(0, calc(75% * var(--saturate-ratio)), 25%),
   // *: стили таблицы
   table-background: hsl(0, calc(0% * var(--saturate-ratio)), 98%),
-  table-background-border: hsl(0, calc(0% * var(--saturate-ratio)), 90%)
+  table-background-border: hsl(0, calc(0% * var(--saturate-ratio)), 90%),
+  // ~: редактор easing: (ДОБАВЛЕННЫЕ ЦВЕТА)
+  easing-selection-color: hsl(45, 85%, 40%),
+  easing-text-primary: hsl(0, 0%, 20%),
+  easing-text-muted: hsl(0, 0%, 45%),
+  easing-control-background: hsl(var(--accent-hue), 8%, 98%),
+  easing-control-background-hover: hsl(var(--accent-hue), 8%, 95%),
+  easing-control-border: hsl(var(--accent-hue), 5%, 85%),
+  easing-control-border-hover: hsl(var(--accent-hue), 5%, 75%),
+  easing-display-background: hsl(var(--accent-hue), 5%, 93%),
+  easing-graph-area-background: hsl(0, 0%, 100%),
+  easing-graph-area-border: hsl(0, 0%, 92%),
+  easing-graph-grid-major: hsl(0, 0%, 85%),
+  easing-graph-grid-minor: hsl(0, 0%, 92%),
+  easing-graph-curve-line: hsl(0, 0%, 30%),
+  easing-track-line-background: hsl(var(--accent-hue), 5%, 85%)
 );

@@ -1,3 +1,4 @@
+/* Общая обертка для компонента */
 .easing-editor-wrapper {
   display: flex;
   flex-direction: column;
@@ -5,184 +6,24 @@
   gap: 15px;
   padding: 10px;
   width: 100%;
-  color: #e0e0e0;
+  color: var(--easing-text-primary);
+  box-sizing: border-box;
 }
 
-.animation-controls {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 16px 24px;
-  border-radius: 8px;
-  padding: 16px 20px;
-  width: 100%;
-  max-width: 1000px;
-}
-
-.control-item {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-.control-item-label {
-  display: flex;
-  justify-content: space-between;
-  color: #a0a0a0;
-  font-size: 14px;
-}
-
-.control-item-input {
-  margin: 0;
-  width: 100%;
-}
-
-.control-item-button,
-.control-item-select {
-  cursor: pointer;
-  border: 1px solid #4a4a50;
-  border-radius: 4px;
-  background: #2a2a2e;
-  padding: 8px;
-  height: 36px;
-  color: #e0e0e0;
-  font-size: 14px;
-  text-align: center;
-  transition: border-color 0.2s;
-}
-
-.control-item-button:hover,
-.control-item-select:hover {
-  border-color: #666;
-}
-
-.control-item-checkbox-label {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  cursor: pointer;
-  height: 36px;
-  color: #a0a0a0;
-  font-size: 14px;
-}
-
-.control-item-checkbox {
-  cursor: pointer;
-}
-
-.control-item-display {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: 1px solid #4a4a50;
-  border-radius: 4px;
-  background: #202023;
-  padding: 8px;
-  height: 36px;
-  color: #e0e0e0;
-  font-size: 14px;
-  text-align: center;
-}
-
-.control-item-span-2 {
-  grid-column: span 2;
-}
-
-.action-buttons-group {
-  display: flex;
-  gap: 10px;
-}
-
-.action-buttons-group > * {
-  flex: 1;
-}
-
-.action-buttons-group .control-item-checkbox-label {
-  border: 1px solid #4a4a50;
-  border-radius: 4px;
-  background: #2a2a2e;
-}
-
-.action-buttons-group .control-item-checkbox-label:hover {
-  border-color: #666;
-}
-
-.graph-container {
-  border: 1px solid #444;
-  border-radius: 8px;
-  background: #303030;
-  padding: 10px;
-  width: 100%;
-  max-width: 1000px;
-}
-
-.graph-svg {
-  width: 100%;
-  height: auto;
-  overflow: visible;
-}
-
-.graph-background {
-  fill: #303030;
-  stroke: #1d1d1d;
-}
-
-.grid-line-major {
-  stroke: #4a4a4a;
-}
-
-.grid-line-minor {
-  stroke: #3a3a3a;
-}
-
-.grid-text {
-  fill: #a0a0a0;
-  font-size: 12px;
-}
-
-.grid-text-x {
-  text-anchor: middle;
-}
-
-.grid-text-y {
-  text-anchor: start;
-}
-
-.graph-curve {
-  stroke: #b0b0b0;
-  stroke-width: 2.5px;
-  fill: none;
-}
-
-.control-line {
-  stroke: #d8b500;
-  stroke-width: 2px;
-}
-
-.animated-dot {
-  fill: var(--accent, #ff4747);
-  stroke: #fff;
-  stroke-width: 1.5px;
-}
-
-.keyframe-point {
-  fill: #d8b500;
-}
-
-.handle {
-  fill: #d8b500;
-  cursor: grab;
-}
-
+/* Контейнер для превью анимации */
 .animation-preview {
   padding: 30px 0;
   width: 100%;
+  min-height: 75px;
+  display: flex;
+  align-items: center;
 }
 
+/* Трек, по которому движется кубик */
 .animation-track {
   position: relative;
-  min-height: 15px;
-  margin: 0 25px;
+  width: 90%;
+  margin: 0 5%;
 }
 
 .track-line {
@@ -192,7 +33,7 @@
   right: 0;
   left: 0;
   border-radius: 5px;
-  background: #4a4a4a;
+  background: var(--easing-track-line-background);
   height: 5px;
 }
 
@@ -206,12 +47,161 @@
 }
 
 .animated-cube {
-  background: #d8b500;
+  background: var(--easing-selection-color);
   z-index: 2;
 }
 
 .animated-cube-trail {
-  border: 1px solid var(--accent, #ff4747);
+  border: 1px solid var(--accent);
   background: transparent;
   transition: opacity 0.5s ease-out;
 }
+
+/* NEW: Общая обертка для графиков */
+.graphs-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 100%;
+}
+
+/* Контейнер для SVG-графика */
+.graph-container {
+  border: 1px solid var(--easing-graph-area-border);
+  border-radius: 8px;
+  background: var(--easing-graph-area-background);
+  padding: 10px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.graph-svg {
+  width: 100%;
+  height: 350px;
+  display: block;
+  overflow: visible;
+}
+
+/* Панель с элементами управления */
+.animation-controls {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px 24px;
+  border-radius: 8px;
+  padding: 16px 20px;
+  width: 100%;
+  min-width: 280px;
+  box-sizing: border-box;
+}
+
+.control-item {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+}
+
+.control-item-label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--easing-text-muted);
+  font-size: 14px;
+}
+
+.control-item-input {
+  margin: 0;
+  width: 100%;
+}
+
+.control-item-button,
+.control-item-select {
+  cursor: pointer;
+  border: 1px solid var(--easing-control-border);
+  border-radius: 4px;
+  background: var(--easing-control-background);
+  padding: 8px;
+  height: 36px;
+  color: var(--easing-text-primary);
+  font-size: 14px;
+  text-align: center;
+  transition: border-color 0.2s, background-color 0.2s;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.control-item-button:hover,
+.control-item-select:hover {
+  border-color: var(--easing-control-border-hover);
+  background: var(--easing-control-background-hover);
+}
+
+.control-item-checkbox-label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+  height: 36px;
+  color: var(--easing-text-muted);
+  font-size: 14px;
+}
+
+.control-item-checkbox {
+  cursor: pointer;
+}
+
+.control-item-display {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--easing-control-border);
+  border-radius: 4px;
+  background: var(--easing-display-background);
+  padding: 8px;
+  height: 36px;
+  color: var(--easing-text-primary);
+  font-size: 14px;
+  text-align: center;
+}
+
+.control-item-span-2 {
+  grid-column: span 2;
+}
+
+.action-buttons-group {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.action-buttons-group > * {
+  flex: 1 0 150px;
+}
+
+.action-buttons-group .control-item-checkbox-label {
+  border: 1px solid var(--easing-control-border);
+  border-radius: 4px;
+  background: var(--easing-control-background);
+  color: var(--easing-text-primary);
+}
+
+.action-buttons-group .control-item-checkbox-label:hover {
+  border-color: var(--easing-control-border-hover);
+  background: var(--easing-control-background-hover);
+}
+
+/* Стили графика */
+.graph-background { fill: var(--easing-graph-area-background); stroke: var(--easing-graph-grid-major); }
+.grid-line-major { stroke: var(--easing-graph-grid-major); }
+.grid-line-minor { stroke: var(--easing-graph-grid-minor); }
+.grid-text { fill: var(--easing-text-muted); font-size: 12px; }
+.grid-text-x { text-anchor: middle; }
+.grid-text-y { text-anchor: start; }
+.graph-curve { stroke: var(--easing-graph-curve-line); stroke-width: 2.5px; fill: none; }
+.control-line { stroke: var(--easing-selection-color); stroke-width: 2px; }
+.animated-dot { fill: var(--accent); stroke: var(--text-color); stroke-width: 1.5px; }
+.keyframe-point { fill: var(--easing-selection-color); }
+.handle { fill: var(--easing-selection-color); cursor: grab; }

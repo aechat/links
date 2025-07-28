@@ -3,13 +3,13 @@ import React, {useCallback, useEffect, useMemo, useRef, useState} from "react";
 type AnimationMode = "ping-pong" | "loop" | "once";
 
 const MODES: AnimationMode[] = ["ping-pong", "loop", "once"];
-
 interface Point {
   x: number;
   y: number;
 }
 interface DragInfo {
   handle: "p1" | "p2";
+  graphType: "value" | "speed";
 }
 interface KeyframeParams {
   influence: number;
@@ -20,25 +20,23 @@ interface TimeMapEntry {
   t: number;
 }
 
-const SVG_WIDTH = 1000;
-
-const SVG_HEIGHT = 400;
-
-const PADDING = 10;
-
-const GRAPH_WIDTH = SVG_WIDTH - PADDING * 2;
-
-const GRAPH_HEIGHT = SVG_HEIGHT - PADDING * 2;
+const PADDING = 20;
 
 const SAMPLES = 100;
-
-const VALUE_Y_MIN_FACTOR = -0.5;
-
-const VALUE_Y_MAX_FACTOR = 1.5;
 
 const INFINITE_SPEED = 99999;
 
 const MAX_TRAIL_COUNT = 15;
+
+const MIN_SPEED_LIMIT = -500;
+
+const MAX_SPEED_LIMIT = 10000;
+
+const SPEED_AXIS_PADDING_FACTOR = 0.2;
+
+const VALUE_Y_MIN_FACTOR = -0.5;
+
+const VALUE_Y_MAX_FACTOR = 1.5;
 
 function usePrevious<T>(value: T): T | undefined {
   const ref = useRef<T | undefined>(undefined);
@@ -71,7 +69,408 @@ const getPointOnCubicBezier = (
   return {x, y};
 };
 
-const EasingEditor: React.FC = () => {
+interface AnimationDemoProps {
+  trackRef: React.RefObject<HTMLDivElement>;
+  showTrails: boolean;
+  cubeTrail: number[];
+  animatedPoint: Point;
+}
+
+const AnimationDemo: React.FC<AnimationDemoProps> = ({
+  trackRef,
+  showTrails,
+  cubeTrail,
+  animatedPoint,
+}) => (
+  <div className="animation-preview">
+    <div
+      ref={trackRef}
+      className="animation-track"
+    >
+      <div className="track-line" />
+      {showTrails &&
+        cubeTrail.map((progress, index) => (
+          <div
+            key={index}
+            className="animated-cube-trail"
+            style={{
+              left: `${progress}px`,
+              opacity: 1 - (index + 1) / (MAX_TRAIL_COUNT + 1),
+            }}
+          />
+        ))}
+      <div
+        className="animated-cube"
+        style={{left: `${animatedPoint.y}px`}}
+      />
+    </div>
+  </div>
+);
+
+interface ValueGraphProps {
+  svgRef: React.RefObject<SVGSVGElement>;
+  dimensions: {width: number; height: number};
+  p0: Point;
+  p1: Point;
+  p2: Point;
+  p3: Point;
+  animatedPoint: Point;
+  duration: number;
+  trackWidth: number;
+  mapToSvg: (p: Point) => Point;
+  onMouseDown: (e: React.MouseEvent | React.TouchEvent, handle: "p1" | "p2") => void;
+}
+
+const ValueGraph: React.FC<ValueGraphProps> = ({
+  svgRef,
+  dimensions,
+  p0,
+  p1,
+  p2,
+  p3,
+  animatedPoint,
+  duration,
+  trackWidth,
+  mapToSvg,
+  onMouseDown,
+}) => {
+  const svgP0 = mapToSvg(p0),
+    svgP1 = mapToSvg(p1),
+    svgP2 = mapToSvg(p2),
+    svgP3 = mapToSvg(p3);
+
+  const valueCurvePath = `M ${svgP0.x},${svgP0.y} C ${svgP1.x},${svgP1.y} ${svgP2.x},${svgP2.y} ${svgP3.x},${svgP3.y}`;
+
+  const xTicks = useMemo(() => {
+    const ticks = [0];
+
+    const step = duration >= 1.5 ? 0.5 : 0.25;
+
+    for (let i = step; i < duration; i += step) {
+      ticks.push(i);
+    }
+
+    ticks.push(duration);
+
+    return ticks;
+  }, [duration]);
+
+  const yTicks = useMemo(() => {
+    if (trackWidth === 0) {
+      return [];
+    }
+
+    return [
+      trackWidth * VALUE_Y_MIN_FACTOR,
+      0,
+      trackWidth * 0.5,
+      trackWidth,
+      trackWidth * VALUE_Y_MAX_FACTOR,
+    ];
+  }, [trackWidth]);
+
+  return (
+    <div className="graph-container">
+      <svg
+        ref={svgRef}
+        className="graph-svg"
+      >
+        {dimensions.width > 0 && (
+          <>
+            <rect
+              className="graph-background"
+              height={dimensions.height - PADDING * 2}
+              width={dimensions.width - PADDING * 2}
+              x={PADDING}
+              y={PADDING}
+            />
+            {yTicks.map((tick) => (
+              <g key={`y-${tick}`}>
+                <line
+                  className={
+                    tick === 0 || tick === trackWidth
+                      ? "grid-line-major"
+                      : "grid-line-minor"
+                  }
+                  x1={PADDING}
+                  x2={dimensions.width - PADDING}
+                  y1={mapToSvg({x: 0, y: tick}).y}
+                  y2={mapToSvg({x: 0, y: tick}).y}
+                />
+                <text
+                  className="grid-text grid-text-y"
+                  x={PADDING + 8}
+                  y={mapToSvg({x: 0, y: tick}).y + 4}
+                >{`${Math.round(tick)}px`}</text>
+              </g>
+            ))}
+            {xTicks.map((tick) => (
+              <g key={`x-${tick}`}>
+                <line
+                  className={
+                    tick === 0 || tick === duration
+                      ? "grid-line-major"
+                      : "grid-line-minor"
+                  }
+                  x1={mapToSvg({x: tick, y: 0}).x}
+                  x2={mapToSvg({x: tick, y: 0}).x}
+                  y1={PADDING}
+                  y2={dimensions.height - PADDING}
+                />
+                <text
+                  className="grid-text grid-text-x"
+                  x={mapToSvg({x: tick, y: 0}).x}
+                  y={dimensions.height - 8}
+                >{`${tick.toFixed(2)}s`}</text>
+              </g>
+            ))}
+            <path
+              className="graph-curve"
+              d={valueCurvePath}
+            />
+            <line
+              className="control-line"
+              x1={svgP0.x}
+              x2={svgP1.x}
+              y1={svgP0.y}
+              y2={svgP1.y}
+            />
+            <line
+              className="control-line"
+              x1={svgP3.x}
+              x2={svgP2.x}
+              y1={svgP3.y}
+              y2={svgP2.y}
+            />
+            <circle
+              className="animated-dot"
+              cx={mapToSvg(animatedPoint).x}
+              cy={mapToSvg(animatedPoint).y}
+              r="5"
+            />
+            <rect
+              className="keyframe-point"
+              height="8"
+              width="8"
+              x={svgP0.x - 4}
+              y={svgP0.y - 4}
+            />
+            <rect
+              className="keyframe-point"
+              height="8"
+              width="8"
+              x={svgP3.x - 4}
+              y={svgP3.y - 4}
+            />
+            <circle
+              className="handle"
+              cx={svgP1.x}
+              cy={svgP1.y}
+              r="6"
+              style={{pointerEvents: "none"}}
+            />
+            <circle
+              className="handle"
+              cx={svgP2.x}
+              cy={svgP2.y}
+              r="6"
+              style={{pointerEvents: "none"}}
+            />
+            <circle
+              cx={svgP1.x}
+              cy={svgP1.y}
+              fill="transparent"
+              r="20"
+              style={{cursor: "grab"}}
+              onMouseDown={(e) => onMouseDown(e, "p1")}
+              onTouchStart={(e) => onMouseDown(e, "p1")}
+            />
+            <circle
+              cx={svgP2.x}
+              cy={svgP2.y}
+              fill="transparent"
+              r="20"
+              style={{cursor: "grab"}}
+              onMouseDown={(e) => onMouseDown(e, "p2")}
+              onTouchStart={(e) => onMouseDown(e, "p2")}
+            />
+          </>
+        )}
+      </svg>
+    </div>
+  );
+};
+
+interface SpeedGraphProps {
+  svgRef: React.RefObject<SVGSVGElement>;
+  dimensions: {width: number; height: number};
+  duration: number;
+  curvePath: string;
+  handle1: Point;
+  handle2: Point;
+  yTicks: number[];
+  mapTimeToSvg: (time: number) => number;
+  mapSpeedToSvg: (speed: number) => number;
+  onMouseDown: (e: React.MouseEvent | React.TouchEvent, handle: "p1" | "p2") => void;
+}
+
+const SpeedGraph: React.FC<SpeedGraphProps> = ({
+  svgRef,
+  dimensions,
+  duration,
+  curvePath,
+  handle1,
+  handle2,
+  yTicks,
+  mapTimeToSvg,
+  mapSpeedToSvg,
+  onMouseDown,
+}) => {
+  const svgH1 = {x: mapTimeToSvg(handle1.x), y: mapSpeedToSvg(handle1.y)};
+
+  const svgH2 = {x: mapTimeToSvg(handle2.x), y: mapSpeedToSvg(handle2.y)};
+
+  const svgP0 = {x: mapTimeToSvg(0), y: mapSpeedToSvg(handle1.y)};
+
+  const svgP3 = {x: mapTimeToSvg(duration), y: mapSpeedToSvg(handle2.y)};
+
+  const xTicks = useMemo(() => {
+    const ticks = [0];
+
+    const step = duration >= 1.5 ? 0.5 : 0.25;
+
+    for (let i = step; i < duration; i += step) {
+      ticks.push(i);
+    }
+
+    ticks.push(duration);
+
+    return ticks;
+  }, [duration]);
+
+  return (
+    <div className="graph-container">
+      <svg
+        ref={svgRef}
+        className="graph-svg"
+      >
+        {dimensions.width > 0 && (
+          <>
+            <rect
+              className="graph-background"
+              height={dimensions.height - PADDING * 2}
+              width={dimensions.width - PADDING * 2}
+              x={PADDING}
+              y={PADDING}
+            />
+            {yTicks.map((tick) => (
+              <g key={`y-speed-${tick}`}>
+                <line
+                  className={tick === 0 ? "grid-line-major" : "grid-line-minor"}
+                  x1={PADDING}
+                  x2={dimensions.width - PADDING}
+                  y1={mapSpeedToSvg(tick)}
+                  y2={mapSpeedToSvg(tick)}
+                />
+                <text
+                  className="grid-text grid-text-y"
+                  x={PADDING + 8}
+                  y={mapSpeedToSvg(tick) + 4}
+                >{`${Math.round(tick)} px/s`}</text>
+              </g>
+            ))}
+            {xTicks.map((tick) => (
+              <g key={`x-speed-${tick}`}>
+                <line
+                  className={
+                    tick === 0 || tick === duration
+                      ? "grid-line-major"
+                      : "grid-line-minor"
+                  }
+                  x1={mapTimeToSvg(tick)}
+                  x2={mapTimeToSvg(tick)}
+                  y1={PADDING}
+                  y2={dimensions.height - PADDING}
+                />
+                <text
+                  className="grid-text grid-text-x"
+                  x={mapTimeToSvg(tick)}
+                  y={dimensions.height - 8}
+                >{`${tick.toFixed(2)}s`}</text>
+              </g>
+            ))}
+            <path
+              className="graph-curve"
+              d={curvePath}
+            />
+            <line
+              className="control-line"
+              x1={svgP0.x}
+              x2={svgH1.x}
+              y1={svgP0.y}
+              y2={svgH1.y}
+            />
+            <line
+              className="control-line"
+              x1={svgP3.x}
+              x2={svgH2.x}
+              y1={svgP3.y}
+              y2={svgH2.y}
+            />
+            <rect
+              className="keyframe-point"
+              height="8"
+              width="8"
+              x={svgP0.x - 4}
+              y={svgP0.y - 4}
+            />
+            <rect
+              className="keyframe-point"
+              height="8"
+              width="8"
+              x={svgP3.x - 4}
+              y={svgP3.y - 4}
+            />
+            <circle
+              className="handle"
+              cx={svgH1.x}
+              cy={svgH1.y}
+              r="6"
+              style={{pointerEvents: "none"}}
+            />
+            <circle
+              className="handle"
+              cx={svgH2.x}
+              cy={svgH2.y}
+              r="6"
+              style={{pointerEvents: "none"}}
+            />
+            <circle
+              cx={svgH1.x}
+              cy={svgH1.y}
+              fill="transparent"
+              r="20"
+              style={{cursor: "grab"}}
+              onMouseDown={(e) => onMouseDown(e, "p1")}
+              onTouchStart={(e) => onMouseDown(e, "p1")}
+            />
+            <circle
+              cx={svgH2.x}
+              cy={svgH2.y}
+              fill="transparent"
+              r="20"
+              style={{cursor: "grab"}}
+              onMouseDown={(e) => onMouseDown(e, "p2")}
+              onTouchStart={(e) => onMouseDown(e, "p2")}
+            />
+          </>
+        )}
+      </svg>
+    </div>
+  );
+};
+
+const EasingEditorSuite: React.FC = () => {
   const [keyframeOut, setKeyframeOut] = useState<KeyframeParams>({
     influence: 33.33,
     speed: 0,
@@ -92,21 +491,27 @@ const EasingEditor: React.FC = () => {
 
   const [showTrails, setShowTrails] = useState(false);
 
-  const [cubeTrail, setCubeTrail] = useState<number[]>([]);
-
-  const [elapsedTime, setElapsedTime] = useState(0);
-
-  const [trackWidth, setTrackWidth] = useState(0);
-
   const [isPaused, setIsPaused] = useState(false);
 
   const [actualFps, setActualFps] = useState(fps);
 
+  const [trackWidth, setTrackWidth] = useState(0);
+
+  const [cubeTrail, setCubeTrail] = useState<number[]>([]);
+
+  const [elapsedTime, setElapsedTime] = useState(0);
+
+  const [valueGraphDims, setValueGraphDims] = useState({width: 0, height: 0});
+
+  const [speedGraphDims, setSpeedGraphDims] = useState({width: 0, height: 0});
+
   const trackRef = useRef<HTMLDivElement>(null);
 
-  const animationFrameRef = useRef<number | undefined>(undefined);
+  const valueGraphSvgRef = useRef<SVGSVGElement>(null);
 
-  const svgValueRef = useRef<SVGSVGElement>(null);
+  const speedGraphSvgRef = useRef<SVGSVGElement>(null);
+
+  const animationFrameRef = useRef<number | undefined>(undefined);
 
   const startTimeRef = useRef<number>(0);
 
@@ -121,48 +526,62 @@ const EasingEditor: React.FC = () => {
   const lastFpsUpdateTimeRef = useRef(0);
 
   useEffect(() => {
-    if (prevDuration === undefined || prevDuration === duration) {
+    if (prevDuration === undefined || prevDuration === duration || prevDuration === 0) {
       return;
     }
 
-    setKeyframeOut((currentOut) => {
-      const p1x_abs = (currentOut.influence / 100) * prevDuration;
+    setKeyframeOut((current) => ({
+      ...current,
+      influence: (((current.influence / 100) * prevDuration) / duration) * 100,
+    }));
+    setKeyframeIn((current) => {
+      const oldOffset = (current.influence / 100) * prevDuration;
 
-      const newInfluence = (p1x_abs / duration) * 100;
+      const oldHandleX = prevDuration - oldOffset;
 
-      return {...currentOut, influence: newInfluence};
-    });
-    setKeyframeIn((currentIn) => {
-      const p2x_offset_abs = (currentIn.influence / 100) * prevDuration;
+      const newOffset = duration - oldHandleX;
 
-      const p2y_offset_abs = currentIn.speed * p2x_offset_abs;
-
-      const p2x_abs = prevDuration - p2x_offset_abs;
-
-      const new_p2x_offset_abs = duration - p2x_abs;
-
-      if (new_p2x_offset_abs <= 0) {
-        return currentIn;
-      }
-
-      const newInfluence = (new_p2x_offset_abs / duration) * 100;
-
-      const newSpeed = p2y_offset_abs / new_p2x_offset_abs;
-
-      return {influence: newInfluence, speed: newSpeed};
+      return newOffset > 0
+        ? {...current, influence: (newOffset / duration) * 100}
+        : current;
     });
   }, [duration, prevDuration]);
 
   useEffect(() => {
-    const handleResize = () => {
-      if (trackRef.current) {
-        setTrackWidth(trackRef.current.clientWidth);
-      }
-    };
-    handleResize();
-    window.addEventListener("resize", handleResize);
+    const elementsToObserve = [
+      trackRef.current,
+      valueGraphSvgRef.current,
+      speedGraphSvgRef.current,
+    ].filter(Boolean) as Element[];
 
-    return () => window.removeEventListener("resize", handleResize);
+    if (elementsToObserve.length === 0) {
+      return;
+    }
+
+    const observer = new ResizeObserver((entries) => {
+      for (const entry of entries) {
+        if (entry.target === trackRef.current) {
+          setTrackWidth(entry.contentRect.width);
+        }
+
+        if (entry.target === valueGraphSvgRef.current) {
+          setValueGraphDims({
+            width: entry.contentRect.width,
+            height: entry.contentRect.height,
+          });
+        }
+
+        if (entry.target === speedGraphSvgRef.current) {
+          setSpeedGraphDims({
+            width: entry.contentRect.width,
+            height: entry.contentRect.height,
+          });
+        }
+      }
+    });
+    elementsToObserve.forEach((el) => observer.observe(el));
+
+    return () => observer.disconnect();
   }, []);
 
   const {p0, p1, p2, p3} = useMemo(() => {
@@ -188,6 +607,467 @@ const EasingEditor: React.FC = () => {
     return {p0, p1, p2, p3};
   }, [keyframeIn, keyframeOut, duration, trackWidth]);
 
+  const getTforX = useGetTforX(p0, p1, p2, p3);
+
+  const linearTime = useLinearTime(elapsedTime, duration, animationMode);
+
+  const animatedPoint = useMemo(
+    () => getPointOnCubicBezier(getTforX(linearTime), p0, p1, p2, p3),
+    [linearTime, getTforX, p0, p1, p2, p3]
+  );
+
+  const {speedYMin, speedYMax, speedYTicks} = useMemo(() => {
+    if (duration <= 0 || trackWidth <= 0) {
+      return {speedYMin: -500, speedYMax: 500, speedYTicks: [-500, 0, 500]};
+    }
+
+    const speedSamples: number[] = [];
+
+    for (let i = 0; i <= SAMPLES; i++) {
+      const t = i / SAMPLES;
+
+      const dx_dt =
+        3 * (1 - t) ** 2 * (p1.x - p0.x) +
+        6 * (1 - t) * t * (p2.x - p1.x) +
+        3 * t ** 2 * (p3.x - p2.x);
+
+      const dy_dt =
+        3 * (1 - t) ** 2 * (p1.y - p0.y) +
+        6 * (1 - t) * t * (p2.y - p1.y) +
+        3 * t ** 2 * (p3.y - p2.y);
+
+      if (Math.abs(dx_dt) < 1e-6) {
+        continue;
+      }
+
+      speedSamples.push(dy_dt / dx_dt);
+    }
+
+    if (speedSamples.length === 0) {
+      speedSamples.push(keyframeOut.speed, keyframeIn.speed);
+    }
+
+    const minVal = Math.min(...speedSamples, keyframeOut.speed, keyframeIn.speed);
+
+    const maxVal = Math.max(...speedSamples, keyframeOut.speed, keyframeIn.speed);
+
+    const range = Math.max(maxVal - minVal, 200);
+
+    const padding = range * SPEED_AXIS_PADDING_FACTOR;
+
+    let finalMin = minVal - padding;
+    let finalMax = maxVal + padding;
+
+    if (finalMin > -100 && finalMin <= 0) {
+      finalMin = -100;
+    }
+
+    if (finalMax < 100 && finalMax >= 0) {
+      finalMax = 100;
+    }
+
+    const tickStepOptions = [5000, 2000, 1000, 500, 250, 100, 50, 25, 10, 5, 1];
+
+    const targetTickCount = 5;
+
+    const roughStep = (finalMax - finalMin) / targetTickCount;
+
+    const step = tickStepOptions.find((s) => s < roughStep) || 10;
+
+    const ticks: number[] = [];
+
+    if (step > 0) {
+      const firstTick = Math.ceil(finalMin / step) * step;
+
+      for (let currentTick = firstTick; currentTick <= finalMax; currentTick += step) {
+        ticks.push(currentTick);
+      }
+    }
+
+    return {speedYMin: finalMin, speedYMax: finalMax, speedYTicks: ticks};
+  }, [p0, p1, p2, p3, duration, trackWidth, keyframeOut.speed, keyframeIn.speed]);
+
+  const {mapValueToSvg, mapValueFromSvg} = useValueGraphMapping(
+    duration,
+    trackWidth,
+    valueGraphDims,
+    valueGraphSvgRef
+  );
+
+  const {
+    mapSpeedToSvg,
+    mapTimeToSvg,
+    mapSpeedFromSvg,
+    speedCurvePath,
+    speedGraphHandles,
+  } = useSpeedGraphMapping(
+    duration,
+    speedGraphDims,
+    speedGraphSvgRef,
+    keyframeOut,
+    keyframeIn,
+    p0,
+    p1,
+    p2,
+    p3,
+    speedYMin,
+    speedYMax
+  );
+
+  useEffect(() => {
+    if (isPaused) {
+      elapsedOnPauseRef.current = elapsedTime;
+
+      return;
+    }
+
+    startTimeRef.current = performance.now() - elapsedOnPauseRef.current;
+    lastFrameRenderTimeRef.current = performance.now();
+    lastFpsUpdateTimeRef.current = 0;
+    frameCountRef.current = 0;
+
+    const animate = (timestamp: number) => {
+      if (lastFpsUpdateTimeRef.current === 0) {
+        lastFpsUpdateTimeRef.current = timestamp;
+      }
+
+      frameCountRef.current++;
+
+      const timeSinceFpsUpdate = timestamp - lastFpsUpdateTimeRef.current;
+
+      if (timeSinceFpsUpdate > 500) {
+        setActualFps(frameCountRef.current / (timeSinceFpsUpdate / 1000));
+        frameCountRef.current = 0;
+        lastFpsUpdateTimeRef.current = timestamp;
+      }
+
+      const frameInterval = 1000 / fps;
+
+      const timeSinceLastRender = timestamp - lastFrameRenderTimeRef.current;
+
+      if (timeSinceLastRender < frameInterval) {
+        animationFrameRef.current = requestAnimationFrame(animate);
+
+        return;
+      }
+
+      lastFrameRenderTimeRef.current = timestamp - (timeSinceLastRender % frameInterval);
+
+      const totalElapsedTime = timestamp - startTimeRef.current;
+
+      if (animationMode === "once" && totalElapsedTime >= duration * 1000) {
+        setElapsedTime(duration * 1000);
+        setIsPaused(true);
+      } else {
+        setElapsedTime(totalElapsedTime);
+        animationFrameRef.current = requestAnimationFrame(animate);
+      }
+    };
+    animationFrameRef.current = requestAnimationFrame(animate);
+
+    return () => {
+      if (animationFrameRef.current) {
+        cancelAnimationFrame(animationFrameRef.current);
+      }
+    };
+  }, [isPaused, duration, animationMode, fps]);
+
+  useEffect(() => {
+    if (showTrails) {
+      setCubeTrail((prev) => [animatedPoint.y, ...prev].slice(0, MAX_TRAIL_COUNT));
+    } else if (cubeTrail.length > 0) {
+      setCubeTrail([]);
+    }
+  }, [animatedPoint, showTrails]);
+
+  const handleMouseDown = useCallback(
+    (
+      e: React.MouseEvent | React.TouchEvent,
+      handle: "p1" | "p2",
+      graphType: "value" | "speed"
+    ) => {
+      e.preventDefault();
+      document.body.style.cursor = "grabbing";
+      setDragInfo({handle, graphType});
+    },
+    []
+  );
+
+  const handleMouseUp = useCallback(() => {
+    document.body.style.cursor = "default";
+    setDragInfo(null);
+  }, []);
+
+  const handleMouseMove = useCallback(
+    (e: MouseEvent | TouchEvent) => {
+      if (!dragInfo || trackWidth === 0) {
+        return;
+      }
+
+      if (e.cancelable) {
+        e.preventDefault();
+      }
+
+      const touch = "touches" in e ? e.touches[0] : e;
+
+      const isShiftPressed = "shiftKey" in e && e.shiftKey;
+
+      const newParams: Partial<KeyframeParams> = {};
+
+      if (dragInfo.graphType === "value") {
+        const normP = mapValueFromSvg({x: touch.clientX, y: touch.clientY});
+
+        if (!normP) {
+          return;
+        }
+
+        const yMax = trackWidth * VALUE_Y_MAX_FACTOR;
+
+        const yMin = trackWidth * VALUE_Y_MIN_FACTOR;
+        normP.y = Math.max(yMin, Math.min(yMax, normP.y));
+
+        const finalP = {...normP};
+
+        if (isShiftPressed) {
+          finalP.y = dragInfo.handle === "p1" ? 0 : trackWidth;
+        }
+
+        const handleX = Math.max(0, Math.min(duration, finalP.x));
+        newParams.influence =
+          ((dragInfo.handle === "p1" ? handleX : duration - handleX) / duration) * 100;
+
+        if (dragInfo.handle === "p1") {
+          newParams.speed =
+            handleX > 1e-6
+              ? finalP.y / handleX
+              : finalP.y > 0
+                ? INFINITE_SPEED
+                : -INFINITE_SPEED;
+        } else {
+          const influenceX = duration - handleX;
+          newParams.speed =
+            influenceX > 1e-6
+              ? (trackWidth - finalP.y) / influenceX
+              : trackWidth - finalP.y > 0
+                ? INFINITE_SPEED
+                : -INFINITE_SPEED;
+        }
+      } else {
+        const normP = mapSpeedFromSvg({x: touch.clientX, y: touch.clientY});
+
+        if (!normP) {
+          return;
+        }
+
+        const handleX = Math.max(0, Math.min(duration, normP.x));
+        newParams.influence =
+          ((dragInfo.handle === "p1" ? handleX : duration - handleX) / duration) * 100;
+
+        if (isShiftPressed) {
+          newParams.speed = 0;
+        } else {
+          const visuallyClampedSpeed = Math.min(speedYMax, Math.max(speedYMin, normP.y));
+          newParams.speed = Math.max(
+            MIN_SPEED_LIMIT,
+            Math.min(MAX_SPEED_LIMIT, visuallyClampedSpeed)
+          );
+        }
+      }
+
+      if (dragInfo.handle === "p1") {
+        setKeyframeOut((current) => ({...current, ...newParams}));
+      } else {
+        setKeyframeIn((current) => ({...current, ...newParams}));
+      }
+    },
+    [
+      dragInfo,
+      trackWidth,
+      duration,
+      mapValueFromSvg,
+      mapSpeedFromSvg,
+      speedYMin,
+      speedYMax,
+    ]
+  );
+
+  useEffect(() => {
+    if (dragInfo) {
+      window.addEventListener("mousemove", handleMouseMove);
+      window.addEventListener("touchmove", handleMouseMove, {passive: false});
+      window.addEventListener("mouseup", handleMouseUp);
+      window.addEventListener("touchend", handleMouseUp);
+    }
+
+    return () => {
+      window.removeEventListener("mousemove", handleMouseMove);
+      window.removeEventListener("touchmove", handleMouseMove);
+      window.removeEventListener("mouseup", handleMouseUp);
+      window.removeEventListener("touchend", handleMouseUp);
+    };
+  }, [dragInfo, handleMouseMove, handleMouseUp]);
+
+  const timecode = useTimecode(linearTime, fps, duration);
+
+  const resetTimer = () => {
+    elapsedOnPauseRef.current = 0;
+    setElapsedTime(0);
+  };
+
+  const handleResetAnimation = () => {
+    resetTimer();
+    setCubeTrail([]);
+    setDuration(2);
+    setFps(30);
+    setKeyframeOut({influence: 33.33, speed: 0});
+    setKeyframeIn({influence: 33.33, speed: 0});
+    setIsPaused(false);
+  };
+
+  const handleTogglePlayPause = () => {
+    if (animationMode === "once" && elapsedTime >= duration * 1000) {
+      resetTimer();
+      setIsPaused(false);
+    } else {
+      setIsPaused((prev) => !prev);
+    }
+  };
+
+  const handleModeChange = () => {
+    const currentIndex = MODES.indexOf(animationMode);
+    setAnimationMode(MODES[(currentIndex + 1) % MODES.length]);
+    resetTimer();
+    setIsPaused(false);
+  };
+
+  const modeTextMap: Record<AnimationMode, string> = {
+    "ping-pong": "Пинг-понг",
+    loop: "Цикл",
+    once: "Один раз",
+  };
+
+  return (
+    <div className="easing-editor-wrapper">
+      <AnimationDemo
+        animatedPoint={animatedPoint}
+        cubeTrail={cubeTrail}
+        showTrails={showTrails}
+        trackRef={trackRef}
+      />
+
+      <div className="graphs-wrapper">
+        <ValueGraph
+          animatedPoint={animatedPoint}
+          dimensions={valueGraphDims}
+          duration={duration}
+          mapToSvg={mapValueToSvg}
+          p0={p0}
+          p1={p1}
+          p2={p2}
+          p3={p3}
+          svgRef={valueGraphSvgRef}
+          trackWidth={trackWidth}
+          onMouseDown={(e, handle) => handleMouseDown(e, handle, "value")}
+        />
+        <SpeedGraph
+          curvePath={speedCurvePath}
+          dimensions={speedGraphDims}
+          duration={duration}
+          handle1={speedGraphHandles.h1}
+          handle2={speedGraphHandles.h2}
+          mapSpeedToSvg={mapSpeedToSvg}
+          mapTimeToSvg={mapTimeToSvg}
+          svgRef={speedGraphSvgRef}
+          yTicks={speedYTicks}
+          onMouseDown={(e, handle) => handleMouseDown(e, handle, "speed")}
+        />
+      </div>
+
+      <div className="animation-controls">
+        <div className="control-item">
+          <label className="control-item-label">
+            <span>Длительность</span>
+            <span>{duration.toFixed(2)}s</span>
+          </label>
+          <input
+            className="control-item-input"
+            max="5"
+            min="1"
+            step="0.25"
+            type="range"
+            value={duration}
+            onChange={(e) => setDuration(parseFloat(e.target.value))}
+          />
+        </div>
+        <div className="control-item">
+          <label className="control-item-label">Таймкод</label>
+          <div className="control-item-display">
+            <span>{timecode}</span>
+          </div>
+        </div>
+        <div className="control-item">
+          <label className="control-item-label">
+            <span>Частота кадров</span>
+            {actualFps < fps - 0.5 && (
+              <span className="fps-warning">({Math.round(actualFps)})</span>
+            )}
+          </label>
+          <select
+            className="control-item-select"
+            value={fps}
+            onChange={(e) => setFps(parseInt(e.target.value))}
+          >
+            {[8, 15, 24, 30, 60].map((f) => (
+              <option
+                key={f}
+                value={f}
+              >
+                {f}
+              </option>
+            ))}
+          </select>
+        </div>
+        <div className="control-item">
+          <label className="control-item-label">Режим</label>
+          <button
+            className="control-item-button"
+            onClick={handleModeChange}
+          >
+            {modeTextMap[animationMode]}
+          </button>
+        </div>
+        <div className="control-item control-item-span-2">
+          <label className="control-item-label">Управление</label>
+          <div className="action-buttons-group">
+            <button
+              className="control-item-button"
+              onClick={handleTogglePlayPause}
+            >
+              {isPaused ? "▶ Воспроизвести" : "❚❚ Пауза"}
+            </button>
+            <button
+              className="control-item-button"
+              onClick={handleResetAnimation}
+            >
+              Сбросить
+            </button>
+            <label className="control-item-checkbox-label">
+              <input
+                checked={showTrails}
+                className="control-item-checkbox"
+                type="checkbox"
+                onChange={(e) => setShowTrails(e.target.checked)}
+              />
+              Показать след
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+function useGetTforX(p0: Point, p1: Point, p2: Point, p3: Point) {
   const timeToTMap = useMemo<TimeMapEntry[]>(() => {
     const map: TimeMapEntry[] = [];
 
@@ -205,8 +1085,10 @@ const EasingEditor: React.FC = () => {
     return map;
   }, [p0, p1, p2, p3]);
 
-  const getTforX = useCallback(
+  return useCallback(
     (xTarget: number): number => {
+      const duration = p3.x;
+
       if (xTarget <= 0) {
         return 0;
       }
@@ -254,11 +1136,21 @@ const EasingEditor: React.FC = () => {
 
       return lower.t + xRatio * (upper.t - lower.t);
     },
-    [timeToTMap, duration]
+    [timeToTMap, p3.x]
   );
+}
 
-  const linearTime = useMemo(() => {
+function useLinearTime(
+  elapsedTime: number,
+  duration: number,
+  animationMode: AnimationMode
+) {
+  return useMemo(() => {
     const durationMs = duration * 1000;
+
+    if (durationMs === 0) {
+      return 0;
+    }
 
     if (animationMode === "loop") {
       return (elapsedTime % durationMs) / 1000;
@@ -276,559 +1168,218 @@ const EasingEditor: React.FC = () => {
       ? timeInCycle / 1000
       : (cycleTime - timeInCycle) / 1000;
   }, [elapsedTime, duration, animationMode]);
+}
 
-  const timecode = useMemo(() => {
-    const totalSeconds = linearTime;
-    let seconds = Math.floor(totalSeconds);
-    let frames = Math.round((totalSeconds - seconds) * fps);
+function useTimecode(linearTime: number, fps: number, duration: number) {
+  return useMemo(() => {
+    const epsilon = 1e-9;
 
-    if (frames === fps && totalSeconds > 0) {
-      seconds += 1;
-      frames = 0;
+    if (linearTime >= duration - epsilon) {
+      let endSeconds = Math.floor(duration);
+      let endFrames = Math.round((duration - endSeconds) * fps);
+
+      if (endFrames >= fps) {
+        endSeconds += 1;
+        endFrames = 0;
+      }
+
+      return `${String(endSeconds).padStart(2, "0")}:${String(endFrames).padStart(2, "0")}`;
     }
+
+    const totalFrames = Math.floor(linearTime * fps);
+
+    const seconds = Math.floor(totalFrames / fps);
+
+    const frames = totalFrames % fps;
 
     return `${String(seconds).padStart(2, "0")}:${String(frames).padStart(2, "0")}`;
-  }, [linearTime, fps]);
+  }, [linearTime, fps, duration]);
+}
 
-  const animatedPoint = useMemo(() => {
-    if (!p3) {
-      return {x: 0, y: 0};
-    }
+function useValueGraphMapping(
+  duration: number,
+  trackWidth: number,
+  dimensions: {width: number; height: number},
+  svgRef: React.RefObject<SVGSVGElement>
+) {
+  const {width, height} = dimensions;
 
-    return getPointOnCubicBezier(getTforX(linearTime), p0, p1, p2, p3);
-  }, [linearTime, getTforX, p0, p1, p2, p3]);
+  const graphWidth = width - PADDING * 2;
 
-  useEffect(() => {
-    if (isPaused) {
-      elapsedOnPauseRef.current = elapsedTime;
+  const graphHeight = height - PADDING * 2;
 
-      return;
-    }
+  const yMax = trackWidth * VALUE_Y_MAX_FACTOR;
 
-    startTimeRef.current = 0;
-    lastFrameRenderTimeRef.current = 0;
+  const yMin = trackWidth * VALUE_Y_MIN_FACTOR;
 
-    const animate = (timestamp: number) => {
-      if (startTimeRef.current === 0) {
-        startTimeRef.current = timestamp;
-      }
+  const yRange = yMax - yMin;
 
-      if (lastFrameRenderTimeRef.current === 0) {
-        lastFrameRenderTimeRef.current = timestamp;
-      }
-
-      if (lastFpsUpdateTimeRef.current === 0) {
-        lastFpsUpdateTimeRef.current = timestamp;
-      }
-
-      frameCountRef.current++;
-
-      const timeSinceFpsUpdate = timestamp - lastFpsUpdateTimeRef.current;
-
-      if (timeSinceFpsUpdate > 500) {
-        const calculatedFps = frameCountRef.current / (timeSinceFpsUpdate / 1000);
-        setActualFps(calculatedFps);
-        frameCountRef.current = 0;
-        lastFpsUpdateTimeRef.current = timestamp;
-      }
-
-      const frameInterval = 1000 / fps;
-
-      const timeSinceLastRender = timestamp - lastFrameRenderTimeRef.current;
-
-      if (timeSinceLastRender < frameInterval) {
-        animationFrameRef.current = requestAnimationFrame(animate);
-
-        return;
-      }
-
-      lastFrameRenderTimeRef.current = timestamp - (timeSinceLastRender % frameInterval);
-
-      const totalElapsedTime =
-        elapsedOnPauseRef.current + (timestamp - startTimeRef.current);
-
-      if (animationMode === "once" && totalElapsedTime >= duration * 1000) {
-        setElapsedTime(duration * 1000);
-        setIsPaused(true);
-      } else {
-        setElapsedTime(totalElapsedTime);
-        animationFrameRef.current = requestAnimationFrame(animate);
-      }
-    };
-    animationFrameRef.current = requestAnimationFrame(animate);
-
-    return () => {
-      if (animationFrameRef.current) {
-        cancelAnimationFrame(animationFrameRef.current);
-      }
-    };
-  }, [isPaused, duration, animationMode, fps]);
-
-  useEffect(() => {
-    if (showTrails) {
-      setCubeTrail((prev) => [animatedPoint.y, ...prev].slice(0, MAX_TRAIL_COUNT));
-    } else if (cubeTrail.length > 0) {
-      setCubeTrail([]);
-    }
-  }, [animatedPoint, showTrails, cubeTrail.length]);
-
-  const mapToSvg = useCallback(
+  const mapValueToSvg = useCallback(
     (p: Point): Point => {
-      const yMax = trackWidth * VALUE_Y_MAX_FACTOR;
-
-      const yMin = trackWidth * VALUE_Y_MIN_FACTOR;
-
-      const yRange = yMax - yMin;
-
-      if (yRange === 0) {
-        return {x: PADDING, y: SVG_HEIGHT - PADDING};
+      if (graphWidth <= 0 || graphHeight <= 0 || yRange === 0) {
+        return {x: PADDING, y: PADDING};
       }
 
       const xRatio = duration === 0 ? 0 : p.x / duration;
 
-      return {
-        x: PADDING + xRatio * GRAPH_WIDTH,
-        y: SVG_HEIGHT - PADDING - ((p.y - yMin) / yRange) * GRAPH_HEIGHT,
-      };
+      const yRatio = (p.y - yMin) / yRange;
+
+      return {x: PADDING + xRatio * graphWidth, y: PADDING + (1 - yRatio) * graphHeight};
     },
-    [duration, trackWidth]
+    [duration, graphWidth, graphHeight, yMin, yRange]
   );
 
-  const mapFromSvg = useCallback(
+  const mapValueFromSvg = useCallback(
     (svgP: Point): Point | null => {
-      if (!svgValueRef.current || trackWidth === 0) {
+      if (!svgRef.current || trackWidth === 0 || graphWidth <= 0) {
         return null;
       }
 
-      const svgRect = svgValueRef.current.getBoundingClientRect();
+      const svgRect = svgRef.current.getBoundingClientRect();
 
-      const xRatio =
-        (svgP.x - svgRect.left - PADDING * (svgRect.width / SVG_WIDTH)) /
-        (GRAPH_WIDTH * (svgRect.width / SVG_WIDTH));
+      const mouseX = svgP.x - svgRect.left;
+
+      const mouseY = svgP.y - svgRect.top;
+
+      const xRatio = (mouseX - PADDING) / graphWidth;
+
+      const yRatio = 1 - (mouseY - PADDING) / graphHeight;
 
       const x = xRatio * duration;
-
-      const yMax = trackWidth * VALUE_Y_MAX_FACTOR;
-
-      const yMin = trackWidth * VALUE_Y_MIN_FACTOR;
-
-      const yRange = yMax - yMin;
-
-      const yRatio =
-        (svgRect.bottom - PADDING * (svgRect.height / SVG_HEIGHT) - svgP.y) /
-        (GRAPH_HEIGHT * (svgRect.height / SVG_HEIGHT));
 
       const y = yRatio * yRange + yMin;
 
       return {x, y};
     },
-    [duration, trackWidth]
+    [duration, trackWidth, graphWidth, graphHeight, yMin, yRange]
   );
 
-  const resetTimer = () => {
-    setElapsedTime(0);
-    elapsedOnPauseRef.current = 0;
-    startTimeRef.current = 0;
-    lastFrameRenderTimeRef.current = 0;
-  };
+  return {mapValueToSvg, mapValueFromSvg};
+}
 
-  const handleResetAnimation = () => {
-    resetTimer();
-    setCubeTrail([]);
-    setDuration(2);
-    setFps(30);
-    setKeyframeOut({influence: 33.33, speed: 0});
-    setKeyframeIn({influence: 33.33, speed: 0});
-    setIsPaused(false);
-  };
+function useSpeedGraphMapping(
+  duration: number,
+  dimensions: {width: number; height: number},
+  svgRef: React.RefObject<SVGSVGElement>,
+  keyframeOut: KeyframeParams,
+  keyframeIn: KeyframeParams,
+  p0: Point,
+  p1: Point,
+  p2: Point,
+  p3: Point,
+  speedYMin: number,
+  speedYMax: number
+) {
+  const {width, height} = dimensions;
 
-  const handleTogglePlayPause = () => {
-    if (animationMode === "once" && elapsedTime >= duration * 1000) {
-      resetTimer();
-      setIsPaused(false);
-    } else {
-      setIsPaused((prev) => !prev);
-    }
-  };
+  const graphWidth = width - PADDING * 2;
 
-  const handleModeChange = () => {
-    const currentIndex = MODES.indexOf(animationMode);
+  const graphHeight = height - PADDING * 2;
 
-    const nextIndex = (currentIndex + 1) % MODES.length;
-    setAnimationMode(MODES[nextIndex]);
-    resetTimer();
-    setIsPaused(false);
-  };
+  const speedYRange = speedYMax - speedYMin;
 
-  const handleMouseDown = useCallback(
-    (e: React.MouseEvent | React.TouchEvent, handle: "p1" | "p2") => {
-      e.preventDefault();
-      document.body.style.cursor = "grabbing";
-      setDragInfo({handle});
+  const mapTimeToSvg = useCallback(
+    (time: number) => {
+      if (duration === 0) {
+        return PADDING;
+      }
+
+      return PADDING + (time / duration) * graphWidth;
     },
-    []
+    [duration, graphWidth]
   );
 
-  const handleMouseUp = useCallback(() => {
-    document.body.style.cursor = "default";
-    setDragInfo(null);
-  }, []);
-
-  const handleMouseMove = useCallback(
-    (e: MouseEvent | TouchEvent) => {
-      if (!dragInfo || trackWidth === 0) {
-        return;
+  const mapSpeedToSvg = useCallback(
+    (speed: number) => {
+      if (speedYRange === 0) {
+        return PADDING + graphHeight / 2;
       }
 
-      if (e.cancelable) {
-        e.preventDefault();
-      }
-
-      const touch = "touches" in e ? e.touches[0] : e;
-
-      const normP = mapFromSvg({x: touch.clientX, y: touch.clientY});
-
-      if (!normP) {
-        return;
-      }
-
-      normP.y = Math.max(
-        trackWidth * VALUE_Y_MIN_FACTOR,
-        Math.min(trackWidth * VALUE_Y_MAX_FACTOR, normP.y)
-      );
-
-      const finalP = {...normP};
-
-      const isShiftPressed = "shiftKey" in e ? e.shiftKey : false;
-
-      if (isShiftPressed) {
-        finalP.y = dragInfo.handle === "p1" ? 0 : trackWidth;
-      }
-
-      const handleX = Math.max(0, Math.min(duration, finalP.x));
-
-      if (dragInfo.handle === "p1") {
-        const influence = (handleX / duration) * 100;
-
-        const speed =
-          handleX > 1e-6
-            ? finalP.y / handleX
-            : finalP.y > 0
-              ? INFINITE_SPEED
-              : -INFINITE_SPEED;
-        setKeyframeOut({influence, speed});
-      } else {
-        const influenceX = duration - handleX;
-
-        const influence = (influenceX / duration) * 100;
-
-        const speed =
-          influenceX > 1e-6
-            ? (trackWidth - finalP.y) / influenceX
-            : trackWidth - finalP.y > 0
-              ? INFINITE_SPEED
-              : -INFINITE_SPEED;
-        setKeyframeIn({influence, speed});
-      }
+      return PADDING + (1 - (speed - speedYMin) / speedYRange) * graphHeight;
     },
-    [dragInfo, mapFromSvg, duration, trackWidth]
+    [speedYMin, speedYRange, graphHeight]
   );
 
-  useEffect(() => {
-    if (dragInfo) {
-      window.addEventListener("mousemove", handleMouseMove);
-      window.addEventListener("touchmove", handleMouseMove, {passive: false});
-      window.addEventListener("mouseup", handleMouseUp);
-      window.addEventListener("touchend", handleMouseUp);
+  const mapSpeedFromSvg = useCallback(
+    (svgP: Point): Point | null => {
+      if (!svgRef.current || graphWidth <= 0 || speedYRange === 0) {
+        return null;
+      }
+
+      const svgRect = svgRef.current.getBoundingClientRect();
+
+      const mouseX = svgP.x - svgRect.left;
+
+      const mouseY = svgP.y - svgRect.top;
+
+      const xRatio = (mouseX - PADDING) / graphWidth;
+
+      const yRatio = 1 - (mouseY - PADDING) / graphHeight;
+
+      const x = xRatio * duration;
+
+      const y = yRatio * speedYRange + speedYMin;
+
+      return {x, y};
+    },
+    [duration, graphWidth, graphHeight, speedYMin, speedYRange]
+  );
+
+  const speedCurvePath = useMemo(() => {
+    if (width <= 0 || speedYRange === 0) {
+      return "";
     }
 
-    return () => {
-      window.removeEventListener("mousemove", handleMouseMove);
-      window.removeEventListener("touchmove", handleMouseMove);
-      window.removeEventListener("mouseup", handleMouseUp);
-      window.removeEventListener("touchend", handleMouseUp);
+    let path = `M ${mapTimeToSvg(0)},${mapSpeedToSvg(keyframeOut.speed)}`;
+
+    for (let i = 1; i <= SAMPLES; i++) {
+      const t = i / SAMPLES;
+
+      const x_t = getPointOnCubicBezier(t, p0, p1, p2, p3).x;
+
+      const dx_dt =
+        3 * (1 - t) ** 2 * (p1.x - p0.x) +
+        6 * (1 - t) * t * (p2.x - p1.x) +
+        3 * t ** 2 * (p3.x - p2.x);
+
+      const dy_dt =
+        3 * (1 - t) ** 2 * (p1.y - p0.y) +
+        6 * (1 - t) * t * (p2.y - p1.y) +
+        3 * t ** 2 * (p3.y - p2.y);
+
+      const speed =
+        dx_dt < 1e-6 ? (dy_dt > 0 ? INFINITE_SPEED : -INFINITE_SPEED) : dy_dt / dx_dt;
+      path += ` L ${mapTimeToSvg(x_t)},${mapSpeedToSvg(speed)}`;
+    }
+
+    return path;
+  }, [
+    width,
+    duration,
+    keyframeOut.speed,
+    p0,
+    p1,
+    p2,
+    p3,
+    mapTimeToSvg,
+    mapSpeedToSvg,
+    speedYRange,
+  ]);
+
+  const speedGraphHandles = useMemo(() => {
+    return {
+      h1: {x: (keyframeOut.influence / 100) * duration, y: keyframeOut.speed},
+      h2: {x: duration - (keyframeIn.influence / 100) * duration, y: keyframeIn.speed},
     };
-  }, [dragInfo, handleMouseMove, handleMouseUp]);
+  }, [keyframeOut, keyframeIn, duration]);
 
-  const svgP0 = mapToSvg(p0),
-    svgP1 = mapToSvg(p1),
-    svgP2 = mapToSvg(p2),
-    svgP3 = mapToSvg(p3);
-
-  const valueCurvePath = `M ${svgP0.x},${svgP0.y} C ${svgP1.x},${svgP1.y} ${svgP2.x},${svgP2.y} ${svgP3.x},${svgP3.y}`;
-
-  const xTicks = useMemo(() => {
-    const ticks = [0];
-
-    const step = duration >= 1.5 ? 0.5 : 0.25;
-
-    for (let i = step; i < duration; i += step) {
-      ticks.push(i);
-    }
-
-    ticks.push(duration);
-
-    return ticks;
-  }, [duration]);
-
-  const yTicks = useMemo(() => {
-    if (trackWidth === 0) {
-      return [];
-    }
-
-    return [
-      trackWidth * VALUE_Y_MIN_FACTOR,
-      0,
-      trackWidth * 0.5,
-      trackWidth,
-      trackWidth * VALUE_Y_MAX_FACTOR,
-    ];
-  }, [trackWidth]);
-
-  const modeTextMap: Record<AnimationMode, string> = {
-    "ping-pong": "Пинг-понг",
-    loop: "Цикл",
-    once: "Один раз",
+  return {
+    mapTimeToSvg,
+    mapSpeedToSvg,
+    mapSpeedFromSvg,
+    speedCurvePath,
+    speedGraphHandles,
   };
+}
 
-  const showActualFps = actualFps < fps - 0.5;
-
-  return (
-    <div className="easing-editor-wrapper">
-      <div className="animation-preview">
-        <div
-          ref={trackRef}
-          className="animation-track"
-        >
-          <div className="track-line" />
-          {showTrails &&
-            cubeTrail.map((progress, index) => (
-              <div
-                key={index}
-                className="animated-cube-trail"
-                style={{
-                  left: `${progress}px`,
-                  transform: `translate(-50%, -50%)`,
-                  opacity: 1 - (index + 1) / (MAX_TRAIL_COUNT + 1),
-                }}
-              />
-            ))}
-          <div
-            className="animated-cube"
-            style={{left: `${animatedPoint.y}px`, transform: `translate(-50%, -50%)`}}
-          />
-        </div>
-      </div>
-      <div className="graph-container">
-        <svg
-          ref={svgValueRef}
-          className="graph-svg"
-          viewBox={`0 0 ${SVG_WIDTH} ${SVG_HEIGHT}`}
-        >
-          <rect
-            className="graph-background"
-            height={GRAPH_HEIGHT}
-            width={GRAPH_WIDTH}
-            x={PADDING}
-            y={PADDING}
-          />
-          {yTicks.map((tick) => (
-            <g key={`y-${tick}`}>
-              <line
-                className={
-                  tick === 0 || tick === trackWidth
-                    ? "grid-line-major"
-                    : "grid-line-minor"
-                }
-                x1={PADDING}
-                x2={PADDING + GRAPH_WIDTH}
-                y1={mapToSvg({x: 0, y: tick}).y}
-                y2={mapToSvg({x: 0, y: tick}).y}
-              />
-              <text
-                className="grid-text grid-text-y"
-                x={PADDING + 8}
-                y={mapToSvg({x: 0, y: tick}).y + 4}
-              >{`${Math.round(tick)}px`}</text>
-            </g>
-          ))}
-          {xTicks.map((tick) => (
-            <g key={`x-${tick}`}>
-              <line
-                className={
-                  tick === 0 || tick === duration ? "grid-line-major" : "grid-line-minor"
-                }
-                x1={mapToSvg({x: tick, y: 0}).x}
-                x2={mapToSvg({x: tick, y: 0}).x}
-                y1={PADDING}
-                y2={PADDING + GRAPH_HEIGHT}
-              />
-              <text
-                className="grid-text grid-text-x"
-                x={mapToSvg({x: tick, y: 0}).x}
-                y={PADDING + GRAPH_HEIGHT + 18}
-              >{`${tick.toFixed(2)}s`}</text>
-            </g>
-          ))}
-          <path
-            className="graph-curve"
-            d={valueCurvePath}
-          />
-          <line
-            className="control-line"
-            x1={svgP0.x}
-            x2={svgP1.x}
-            y1={svgP0.y}
-            y2={svgP1.y}
-          />
-          <line
-            className="control-line"
-            x1={svgP3.x}
-            x2={svgP2.x}
-            y1={svgP3.y}
-            y2={svgP2.y}
-          />
-          <circle
-            className="animated-dot"
-            cx={mapToSvg(animatedPoint).x}
-            cy={mapToSvg(animatedPoint).y}
-            r="5"
-          />
-          <rect
-            className="keyframe-point"
-            height="8"
-            width="8"
-            x={svgP0.x - 4}
-            y={svgP0.y - 4}
-          />
-          <rect
-            className="keyframe-point"
-            height="8"
-            width="8"
-            x={svgP3.x - 4}
-            y={svgP3.y - 4}
-          />
-          <circle
-            className="handle"
-            cx={svgP1.x}
-            cy={svgP1.y}
-            r="6"
-            style={{pointerEvents: "none"}}
-          />
-          <circle
-            className="handle"
-            cx={svgP2.x}
-            cy={svgP2.y}
-            r="6"
-            style={{pointerEvents: "none"}}
-          />
-          <circle
-            cx={svgP1.x}
-            cy={svgP1.y}
-            fill="transparent"
-            r="20"
-            style={{cursor: "grab"}}
-            onMouseDown={(e) => handleMouseDown(e, "p1")}
-            onTouchStart={(e) => handleMouseDown(e, "p1")}
-          />
-          <circle
-            cx={svgP2.x}
-            cy={svgP2.y}
-            fill="transparent"
-            r="20"
-            style={{cursor: "grab"}}
-            onMouseDown={(e) => handleMouseDown(e, "p2")}
-            onTouchStart={(e) => handleMouseDown(e, "p2")}
-          />
-        </svg>
-      </div>
-      <div className="animation-controls">
-        <div className="control-item">
-          <label className="control-item-label">
-            <span>Длительность</span>
-            <span>{duration.toFixed(2)}s</span>
-          </label>
-          <input
-            className="control-item-input"
-            max="5"
-            min="1"
-            step="0.25"
-            type="range"
-            value={duration}
-            onChange={(e) => setDuration(parseFloat(e.target.value))}
-          />
-        </div>
-        <div className="control-item">
-          <label className="control-item-label">Таймкод</label>
-          <div className="control-item-display">
-            <span>{timecode}</span>
-          </div>
-        </div>
-        <div className="control-item">
-          <label className="control-item-label">
-            <span>Частота кадров</span>
-            {showActualFps && (
-              <span className="fps-warning">({Math.round(actualFps)})</span>
-            )}
-          </label>
-          <select
-            className="control-item-select"
-            value={fps}
-            onChange={(e) => setFps(parseInt(e.target.value))}
-          >
-            {[8, 15, 24, 30, 60].map((f) => (
-              <option
-                key={f}
-                value={f}
-              >
-                {f}
-              </option>
-            ))}
-          </select>
-        </div>
-        <div className="control-item">
-          <label className="control-item-label">Режим</label>
-          <button
-            className="control-item-button"
-            onClick={handleModeChange}
-          >
-            {modeTextMap[animationMode]}
-          </button>
-        </div>
-        <div className="control-item control-item-span-2">
-          <label className="control-item-label">Управление</label>
-          <div className="action-buttons-group">
-            <button
-              className="control-item-button"
-              style={{flex: 1.5}}
-              onClick={handleTogglePlayPause}
-            >
-              {isPaused ? "▶ Воспроизвести" : "❚❚ Пауза"}
-            </button>
-            <button
-              className="control-item-button"
-              style={{flex: 1}}
-              onClick={handleResetAnimation}
-            >
-              Сбросить
-            </button>
-            <label
-              className="control-item-checkbox-label"
-              style={{flex: 1.5, justifyContent: "center"}}
-            >
-              <input
-                checked={showTrails}
-                className="control-item-checkbox"
-                type="checkbox"
-                onChange={(e) => setShowTrails(e.target.checked)}
-              />{" "}
-              Показать след
-            </label>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-};
-
-export default EasingEditor;
+export default EasingEditorSuite;

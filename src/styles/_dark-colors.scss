@@ -42,5 +42,33 @@ $dark: (
   addition-danger-text: hsl(0, calc(100% * var(--saturate-ratio)), 90%),
   // *: стили таблицы
   table-background: hsl(0, calc(0% * var(--saturate-ratio)), 8%),
-  table-background-border: hsl(0, calc(0% * var(--saturate-ratio)), 13%)
+  table-background-border: hsl(0, calc(0% * var(--saturate-ratio)), 13%),
+  // ~: редактор easing: (ДОБАВЛЕННЫЕ ЦВЕТА)
+  easing-selection-color: hsl(50, 100%, 50%),
+  // для ручек, кубика, ключевых точек
+  easing-text-primary: hsl(0, 0%, 90%),
+  // основной текст
+  easing-text-muted: hsl(0, 0%, 65%),
+  // приглушенный текст (подписи)
+  easing-control-background: hsl(var(--accent-hue), 4%, 17%),
+  // фон кнопок и селекторов
+  easing-control-background-hover: hsl(var(--accent-hue), 4%, 20%),
+  // фон при наведении
+  easing-control-border: hsl(var(--accent-hue), 3%, 29%),
+  // рамка кнопок
+  easing-control-border-hover: hsl(0, 0%, 40%),
+  // рамка при наведении
+  easing-display-background: hsl(var(--accent-hue), 4%, 13%),
+  // фон для таймкода
+  easing-graph-area-background: hsl(0, 0%, 19%),
+  // фон самого графика
+  easing-graph-area-border: hsl(0, 0%, 27%),
+  // рамка контейнера графика
+  easing-graph-grid-major: hsl(0, 0%, 15%),
+  // основные линии сетки
+  easing-graph-grid-minor: hsl(0, 0%, 12%),
+  // второстепенные линии сетки
+  easing-graph-curve-line: hsl(0, 0%, 75%),
+  // цвет кривой
+  easing-track-line-background: hsl(var(--accent-hue), 3%, 29%) // фон трека анимации
 );
