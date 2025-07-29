@@ -490,6 +490,127 @@ const SpeedGraph: React.FC<SpeedGraphProps> = ({
   );
 };
 
+interface AnimationControlsProps {
+  duration: number;
+  setDuration: (value: number) => void;
+  timecode: string;
+  fps: number;
+  actualFps: number;
+  setFps: (value: number) => void;
+  animationMode: AnimationMode;
+  handleModeChange: () => void;
+  isPaused: boolean;
+  handleTogglePlayPause: () => void;
+  handleResetAnimation: () => void;
+  showTrails: boolean;
+  setShowTrails: (value: boolean) => void;
+}
+
+const AnimationControls: React.FC<AnimationControlsProps> = ({
+  duration,
+  setDuration,
+  timecode,
+  fps,
+  actualFps,
+  setFps,
+  animationMode,
+  handleModeChange,
+  isPaused,
+  handleTogglePlayPause,
+  handleResetAnimation,
+  showTrails,
+  setShowTrails,
+}) => {
+  const modeTextMap: Record<AnimationMode, string> = {
+    "ping-pong": "Пинг-понг",
+    loop: "Цикл",
+    once: "Один раз",
+  };
+
+  return (
+    <div className="animation-controls">
+      <div className="control-item">
+        <label className="control-item-label">
+          <span>Длительность</span>
+          <span>{duration.toFixed(2)}s</span>
+        </label>
+        <input
+          className="control-item-input"
+          max="5"
+          min="1"
+          step="0.25"
+          type="range"
+          value={duration}
+          onChange={(e) => setDuration(parseFloat(e.target.value))}
+        />
+      </div>
+      <div className="control-item">
+        <label className="control-item-label">Таймкод</label>
+        <div className="control-item-display">
+          <span>{timecode}</span>
+        </div>
+      </div>
+      <div className="control-item">
+        <label className="control-item-label">
+          <span>Частота кадров</span>
+          {actualFps < fps - 0.5 && (
+            <span className="fps-warning">({Math.round(actualFps)})</span>
+          )}
+        </label>
+        <select
+          className="control-item-select"
+          value={fps}
+          onChange={(e) => setFps(parseInt(e.target.value, 10))}
+        >
+          {[8, 15, 24, 30, 60].map((f) => (
+            <option
+              key={f}
+              value={f}
+            >
+              {f}
+            </option>
+          ))}
+        </select>
+      </div>
+      <div className="control-item">
+        <label className="control-item-label">Режим</label>
+        <button
+          className="control-item-button"
+          onClick={handleModeChange}
+        >
+          {modeTextMap[animationMode]}
+        </button>
+      </div>
+      <div className="control-item control-item-span-2">
+        <label className="control-item-label">Управление</label>
+        <div className="action-buttons-group">
+          <button
+            className="control-item-button"
+            onClick={handleTogglePlayPause}
+          >
+            {isPaused ? "▶ Воспроизвести" : "❚❚ Пауза"}
+          </button>
+          <button
+            className="control-item-button"
+            onClick={handleResetAnimation}
+          >
+            Сбросить
+          </button>
+          <label className="control-item-checkbox-label">
+            <input
+              checked={showTrails}
+              className="control-item-checkbox"
+              type="checkbox"
+              onChange={(e) => setShowTrails(e.target.checked)}
+            />
+            Показать след
+          </label>
+        </div>
+      </div>
+    </div>
+  );
+};
+
 const EasingEditorSuite: React.FC = () => {
   const [keyframeOut, setKeyframeOut] = useState<KeyframeParams>({
     influence: 33.33,
@@ -891,7 +1012,6 @@ const EasingEditorSuite: React.FC = () => {
         const speedYMinOnDrag = dragSpeedAxisRange ? dragSpeedAxisRange.min : speedYMin;
 
         const speedYMaxOnDrag = dragSpeedAxisRange ? dragSpeedAxisRange.max : speedYMax;
-
         let targetSpeed = normP.y;
 
         if (isShiftPressed) {
@@ -1003,12 +1123,6 @@ const EasingEditorSuite: React.FC = () => {
     setIsPaused(false);
   };
 
-  const modeTextMap: Record<AnimationMode, string> = {
-    "ping-pong": "Пинг-понг",
-    "loop": "Цикл",
-    "once": "Один раз",
-  };
-
   return (
     <div className="easing-editor-wrapper">
       <AnimationDemo
@@ -1046,86 +1160,21 @@ const EasingEditorSuite: React.FC = () => {
         />
       </div>
 
-      <div className="animation-controls">
-        <div className="control-item">
-          <label className="control-item-label">
-            <span>Длительность</span>
-            <span>{duration.toFixed(2)}s</span>
-          </label>
-          <input
-            className="control-item-input"
-            max="5"
-            min="1"
-            step="0.25"
-            type="range"
-            value={duration}
-            onChange={(e) => setDuration(parseFloat(e.target.value))}
-          />
-        </div>
-        <div className="control-item">
-          <label className="control-item-label">Таймкод</label>
-          <div className="control-item-display">
-            <span>{timecode}</span>
-          </div>
-        </div>
-        <div className="control-item">
-          <label className="control-item-label">
-            <span>Частота кадров</span>
-            {actualFps < fps - 0.5 && (
-              <span className="fps-warning">({Math.round(actualFps)})</span>
-            )}
-          </label>
-          <select
-            className="control-item-select"
-            value={fps}
-            onChange={(e) => setFps(parseInt(e.target.value))}
-          >
-            {[8, 15, 24, 30, 60].map((f) => (
-              <option
-                key={f}
-                value={f}
-              >
-                {f}
-              </option>
-            ))}
-          </select>
-        </div>
-        <div className="control-item">
-          <label className="control-item-label">Режим</label>
-          <button
-            className="control-item-button"
-            onClick={handleModeChange}
-          >
-            {modeTextMap[animationMode]}
-          </button>
-        </div>
-        <div className="control-item control-item-span-2">
-          <label className="control-item-label">Управление</label>
-          <div className="action-buttons-group">
-            <button
-              className="control-item-button"
-              onClick={handleTogglePlayPause}
-            >
-              {isPaused ? "▶ Воспроизвести" : "❚❚ Пауза"}
-            </button>
-            <button
-              className="control-item-button"
-              onClick={handleResetAnimation}
-            >
-              Сбросить
-            </button>
-            <label className="control-item-checkbox-label">
-              <input
-                checked={showTrails}
-                className="control-item-checkbox"
-                type="checkbox"
-                onChange={(e) => setShowTrails(e.target.checked)}
-              />
-              Показать след
-            </label>
-          </div>
-        </div>
-      </div>
+      <AnimationControls
+        actualFps={actualFps}
+        animationMode={animationMode}
+        duration={duration}
+        fps={fps}
+        handleModeChange={handleModeChange}
+        handleResetAnimation={handleResetAnimation}
+        handleTogglePlayPause={handleTogglePlayPause}
+        isPaused={isPaused}
+        setDuration={setDuration}
+        setFps={setFps}
+        setShowTrails={setShowTrails}
+        showTrails={showTrails}
+        timecode={timecode}
+      />
     </div>
   );
 };
