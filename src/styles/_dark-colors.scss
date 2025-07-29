@@ -5,7 +5,7 @@ $dark: (
   text-color: hsl(0, 0%, 100%),
   content-background-color: hsl(0, 0%, 6%),
   content-background-border: hsl(0, 0%, 15%),
-  header-background: hsla(0, 0%, 8%, 0.8),
+  header-background: hsla(var(--accent-hue), 25%, 7%, 0.8),
   // ~: банковские цвета:
   sber-background: hsl(130, calc(30% * var(--saturate-ratio)), 13%),
   sber-text: hsl(130, calc(60% * var(--saturate-ratio)), 85%),
