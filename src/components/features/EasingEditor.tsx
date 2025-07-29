@@ -28,10 +28,6 @@ const INFINITE_SPEED = 99999;
 
 const MAX_TRAIL_COUNT = 15;
 
-const MIN_SPEED_LIMIT = -500;
-
-const MAX_SPEED_LIMIT = 10000;
-
 const SPEED_AXIS_PADDING_FACTOR = 0.2;
 
 const VALUE_Y_MIN_FACTOR = -0.5;
@@ -69,8 +65,32 @@ const getPointOnCubicBezier = (
   return {x, y};
 };
 
+const getNiceTickStep = (range: number, maxTicks: number): number => {
+  if (range === 0) {
+    return 1;
+  }
+
+  const roughStep = range / (maxTicks - 1);
+
+  const power = Math.floor(Math.log10(roughStep));
+
+  const magnitude = 10 ** power;
+
+  const residual = roughStep / magnitude;
+
+  if (residual > 5) {
+    return 10 * magnitude;
+  } else if (residual > 2) {
+    return 5 * magnitude;
+  } else if (residual > 1) {
+    return 2 * magnitude;
+  } else {
+    return magnitude;
+  }
+};
+
 interface AnimationDemoProps {
-  trackRef: React.RefObject<HTMLDivElement>;
+  trackRef: React.RefObject<HTMLDivElement | null>;
   showTrails: boolean;
   cubeTrail: number[];
   animatedPoint: Point;
@@ -108,7 +128,7 @@ const AnimationDemo: React.FC<AnimationDemoProps> = ({
 );
 
 interface ValueGraphProps {
-  svgRef: React.RefObject<SVGSVGElement>;
+  svgRef: React.RefObject<SVGSVGElement | null>;
   dimensions: {width: number; height: number};
   p0: Point;
   p1: Point;
@@ -302,7 +322,7 @@ const ValueGraph: React.FC<ValueGraphProps> = ({
 };
 
 interface SpeedGraphProps {
-  svgRef: React.RefObject<SVGSVGElement>;
+  svgRef: React.RefObject<SVGSVGElement | null>;
   dimensions: {width: number; height: number};
   duration: number;
   curvePath: string;
@@ -483,6 +503,11 @@ const EasingEditorSuite: React.FC = () => {
 
   const [dragInfo, setDragInfo] = useState<DragInfo | null>(null);
 
+  const [dragSpeedAxisRange, setDragSpeedAxisRange] = useState<{
+    min: number;
+    max: number;
+  } | null>(null);
+
   const [duration, setDuration] = useState(2);
 
   const [animationMode, setAnimationMode] = useState<AnimationMode>("ping-pong");
@@ -654,7 +679,6 @@ const EasingEditorSuite: React.FC = () => {
     const range = Math.max(maxVal - minVal, 200);
 
     const padding = range * SPEED_AXIS_PADDING_FACTOR;
-
     let finalMin = minVal - padding;
     let finalMax = maxVal + padding;
 
@@ -666,13 +690,9 @@ const EasingEditorSuite: React.FC = () => {
       finalMax = 100;
     }
 
-    const tickStepOptions = [5000, 2000, 1000, 500, 250, 100, 50, 25, 10, 5, 1];
-
     const targetTickCount = 5;
 
-    const roughStep = (finalMax - finalMin) / targetTickCount;
-
-    const step = tickStepOptions.find((s) => s < roughStep) || 10;
+    const step = getNiceTickStep(finalMax - finalMin, targetTickCount);
 
     const ticks: number[] = [];
 
@@ -778,7 +798,7 @@ const EasingEditorSuite: React.FC = () => {
     } else if (cubeTrail.length > 0) {
       setCubeTrail([]);
     }
-  }, [animatedPoint, showTrails]);
+  }, [animatedPoint, showTrails, cubeTrail.length]);
 
   const handleMouseDown = useCallback(
     (
@@ -789,13 +809,18 @@ const EasingEditorSuite: React.FC = () => {
       e.preventDefault();
       document.body.style.cursor = "grabbing";
       setDragInfo({handle, graphType});
+
+      if (graphType === "speed") {
+        setDragSpeedAxisRange({min: speedYMin, max: speedYMax});
+      }
     },
-    []
+    [speedYMin, speedYMax]
   );
 
   const handleMouseUp = useCallback(() => {
     document.body.style.cursor = "default";
     setDragInfo(null);
+    setDragSpeedAxisRange(null);
   }, []);
 
   const handleMouseMove = useCallback(
@@ -863,15 +888,52 @@ const EasingEditorSuite: React.FC = () => {
         newParams.influence =
           ((dragInfo.handle === "p1" ? handleX : duration - handleX) / duration) * 100;
 
+        const speedYMinOnDrag = dragSpeedAxisRange ? dragSpeedAxisRange.min : speedYMin;
+
+        const speedYMaxOnDrag = dragSpeedAxisRange ? dragSpeedAxisRange.max : speedYMax;
+
+        let targetSpeed = normP.y;
+
         if (isShiftPressed) {
-          newParams.speed = 0;
-        } else {
-          const visuallyClampedSpeed = Math.min(speedYMax, Math.max(speedYMin, normP.y));
-          newParams.speed = Math.max(
-            MIN_SPEED_LIMIT,
-            Math.min(MAX_SPEED_LIMIT, visuallyClampedSpeed)
-          );
+          targetSpeed = 0;
         }
+
+        let finalSpeed = Math.max(
+          speedYMinOnDrag,
+          Math.min(speedYMaxOnDrag, targetSpeed)
+        );
+
+        const valueYMin = trackWidth * VALUE_Y_MIN_FACTOR;
+
+        const valueYMax = trackWidth * VALUE_Y_MAX_FACTOR;
+
+        if (dragInfo.handle === "p1") {
+          const p1x = (newParams.influence / 100) * duration;
+
+          if (p1x > 1e-6) {
+            const minSpeedFromValueBounds = valueYMin / p1x;
+
+            const maxSpeedFromValueBounds = valueYMax / p1x;
+            finalSpeed = Math.max(
+              minSpeedFromValueBounds,
+              Math.min(maxSpeedFromValueBounds, finalSpeed)
+            );
+          }
+        } else {
+          const p2xRelative = (newParams.influence / 100) * duration;
+
+          if (p2xRelative > 1e-6) {
+            const minSpeedFromValueBounds = (trackWidth - valueYMax) / p2xRelative;
+
+            const maxSpeedFromValueBounds = (trackWidth - valueYMin) / p2xRelative;
+            finalSpeed = Math.max(
+              minSpeedFromValueBounds,
+              Math.min(maxSpeedFromValueBounds, finalSpeed)
+            );
+          }
+        }
+
+        newParams.speed = finalSpeed;
       }
 
       if (dragInfo.handle === "p1") {
@@ -888,6 +950,7 @@ const EasingEditorSuite: React.FC = () => {
       mapSpeedFromSvg,
       speedYMin,
       speedYMax,
+      dragSpeedAxisRange,
     ]
   );
 
@@ -942,8 +1005,8 @@ const EasingEditorSuite: React.FC = () => {
 
   const modeTextMap: Record<AnimationMode, string> = {
     "ping-pong": "Пинг-понг",
-    loop: "Цикл",
-    once: "Один раз",
+    "loop": "Цикл",
+    "once": "Один раз",
   };
 
   return (
@@ -1200,7 +1263,7 @@ function useValueGraphMapping(
   duration: number,
   trackWidth: number,
   dimensions: {width: number; height: number},
-  svgRef: React.RefObject<SVGSVGElement>
+  svgRef: React.RefObject<SVGSVGElement | null>
 ) {
   const {width, height} = dimensions;
 
@@ -1251,7 +1314,7 @@ function useValueGraphMapping(
 
       return {x, y};
     },
-    [duration, trackWidth, graphWidth, graphHeight, yMin, yRange]
+    [duration, trackWidth, graphWidth, graphHeight, yMin, yRange, svgRef]
   );
 
   return {mapValueToSvg, mapValueFromSvg};
@@ -1260,7 +1323,7 @@ function useValueGraphMapping(
 function useSpeedGraphMapping(
   duration: number,
   dimensions: {width: number; height: number},
-  svgRef: React.RefObject<SVGSVGElement>,
+  svgRef: React.RefObject<SVGSVGElement | null>,
   keyframeOut: KeyframeParams,
   keyframeIn: KeyframeParams,
   p0: Point,
@@ -1322,7 +1385,7 @@ function useSpeedGraphMapping(
 
       return {x, y};
     },
-    [duration, graphWidth, graphHeight, speedYMin, speedYRange]
+    [duration, graphWidth, graphHeight, speedYMin, speedYRange, svgRef]
   );
 
   const speedCurvePath = useMemo(() => {
@@ -1355,7 +1418,6 @@ function useSpeedGraphMapping(
     return path;
   }, [
     width,
-    duration,
     keyframeOut.speed,
     p0,
     p1,
