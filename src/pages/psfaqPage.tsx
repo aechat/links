@@ -22,6 +22,8 @@ import SupportDonut from "../components/modal/SupportDonut";
 
 import {SearchInPage, SearchProvider} from "../components/search";
 
+import GithubUpdateInfo from "../components/features/GithubUpdateInfo";
+
 const PSActions = lazy(() => import("./sections/psfaq/PSActions"));
 
 const PSErrors = lazy(() => import("./sections/psfaq/PSErrors"));
@@ -183,6 +185,7 @@ const PSFAQ = () => {
                 />
               </div>
               <SupportDonut />
+              <GithubUpdateInfo folderPath="src/pages/sections/prfaq" />
               <Suspense
                 fallback={
                   <motion.div

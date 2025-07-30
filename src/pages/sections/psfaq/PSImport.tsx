@@ -8,12 +8,9 @@ import {ImageFigure} from "../../../components/ContentFigure";
 
 import DetailsSummary from "../../../components/DetailsSummary";
 
-import GithubUpdateInfo from "../../../components/features/GithubUpdateInfo";
-
 const PSImport: React.FC = () => {
   return (
     <div className="faq-content">
-      <GithubUpdateInfo filePath="src/pages/sections/psfaq/PSImport.tsx" />
       <DetailsSummary title="Как правильно импортировать RAW изображения?">
         <p>{/* FIXME: написать!! */}</p>
       </DetailsSummary>

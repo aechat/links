@@ -10,12 +10,9 @@ import DetailsSummary from "../../../components/DetailsSummary";
 
 import ContentFilter from "../../../components/features/ContentFilter";
 
-import GithubUpdateInfo from "../../../components/features/GithubUpdateInfo";
-
 const AEInstallProblems: React.FC = () => {
   return (
     <div className="faq-content">
-      <GithubUpdateInfo filePath="src/pages/sections/aefaq/AEInstallProblems.tsx" />
       <DetailsSummary
         tag="как установить, куда устанавливать, установка, распаковка, инструкция, плагины, шаблоны, пресеты, скрипты, расширения, пакеты, луты, архивы, zip, rar"
         title="В архиве или под записью забыли положить инструкцию по установке. Куда что кидать?"

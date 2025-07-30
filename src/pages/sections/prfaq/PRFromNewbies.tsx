@@ -10,12 +10,10 @@ import DetailsSummary from "../../../components/DetailsSummary";
 
 import ContentSwitcher from "../../../components/features/ContentFilter";
 
-import GithubUpdateInfo from "../../../components/features/GithubUpdateInfo";
 
 const PRFromNewbies: React.FC = () => {
   return (
     <div className="faq-content">
-      <GithubUpdateInfo filePath="src/pages/sections/prfaq/PRFromNewbies.tsx" />
       <DetailsSummary
         tag="для новичка, курсы, туториалы, только открыл премьер"
         title="Я первый раз установил и открыл программу, с чего бы мне начать обучение?"

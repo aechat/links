@@ -24,6 +24,8 @@ import SupportDonut from "../components/modal/SupportDonut";
 
 import {SearchInPage, SearchProvider} from "../components/search";
 
+import GithubUpdateInfo from "../components/features/GithubUpdateInfo";
+
 const AEExprStart = lazy(() => import("./sections/aeexpr/ExprStart"));
 
 const AEExprBase = lazy(() => import("./sections/aeexpr/ExprBase"));
@@ -158,12 +160,13 @@ const AEExpressionPage = () => {
                 />
               </div>
               <SupportDonut />
-              <AdditionDanger>
+              <GithubUpdateInfo folderPath="src/pages/sections/aeexpr" />
+              <Addition type="danger">
                 На текущий момент данная страница ещё не полностью готова. В статьях могут
                 быть ошибки, неполная или непроверенная информация касательно работы
                 выражений. Следите за обновлениями!
-              </AdditionDanger>
-              <AdditionWarning>
+              </Addition>
+              <Addition type="warning">
                 Данная страница{" "}
                 <b>
                   <u>не является</u>
@@ -173,10 +176,11 @@ const AEExpressionPage = () => {
                 разбираться случаи с написанием скриптов формата{" "}
                 <mark className="file">JSX</mark> и <mark className="file">JSXBIN</mark>.
                 Примеры выражений выполняются на движке <mark>JavaScript</mark>, его можно
-                изменить во вкладке <mark className="ui">Expression</mark> окна{" "}
-                <mark className="ui">Project Manager</mark>, который открывается с помощью
-                комбинации клавиш <mark className="key">Ctrl + Alt + Shift + K</mark>.
-              </AdditionWarning>
+                изменить во вкладке <mark className="select">Expression</mark> окна{" "}
+                <mark className="select">Project Manager</mark>, который открывается с
+                помощью комбинации клавиш{" "}
+                <mark className="key">Ctrl + Alt + Shift + K</mark>.
+              </Addition>
               <Suspense
                 fallback={
                   <motion.div

@@ -8,12 +8,9 @@ import {VideoFigure, YouTubeVideo} from "../../../components/ContentFigure";
 
 import DetailsSummary from "../../../components/DetailsSummary";
 
-import GithubUpdateInfo from "../../../components/features/GithubUpdateInfo";
-
 const PSActions: React.FC = () => {
   return (
     <div className="faq-content">
-      <GithubUpdateInfo filePath="src/pages/sections/psfaq/PSActions.tsx" />
       <DetailsSummary
         tag="апскейл, топаз, качество, 4к, резкость, восстановить четкость"
         title="Какими средствами я могу улучшить качество изображений?"

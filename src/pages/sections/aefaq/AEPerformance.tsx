@@ -10,12 +10,10 @@ import DetailsSummary from "../../../components/DetailsSummary";
 
 import ContentSwitcher from "../../../components/features/ContentFilter";
 
-import GithubUpdateInfo from "../../../components/features/GithubUpdateInfo";
 
 const AEPerformance: React.FC = () => {
   return (
     <div className="faq-content">
-      <GithubUpdateInfo filePath="src/pages/sections/aefaq/AEPerformance.tsx" />
       <DetailsSummary
         tag="тормозит, жуткие лаги, медленно работает, низкая скорость работы программы, оптимизация, производительность, применение эффектов, системные требования, артефакты, искажения"
         title="Почему у меня, б%@#ь, лагает е&#!%й Adobe After Effects, с$%а?"

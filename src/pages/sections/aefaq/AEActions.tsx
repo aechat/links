@@ -12,12 +12,10 @@ import CodeSnippet from "../../../components/features/CodeSnippet";
 
 import ContentSwitcher from "../../../components/features/ContentFilter";
 
-import GithubUpdateInfo from "../../../components/features/GithubUpdateInfo";
 
 const AEActions: React.FC = () => {
   return (
     <div className="faq-content">
-      <GithubUpdateInfo filePath="src/pages/sections/aefaq/AEActions.tsx" />
       <DetailsSummary
         tag="апскейл, топаз, качество, 4к, резкость, восстановить четкость"
         title="Какими средствами я могу улучшить качество изображений и видео?"

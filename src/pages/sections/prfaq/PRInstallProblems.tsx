@@ -10,12 +10,10 @@ import DetailsSummary from "../../../components/DetailsSummary";
 
 import ContentSwitcher from "../../../components/features/ContentFilter";
 
-import GithubUpdateInfo from "../../../components/features/GithubUpdateInfo";
 
 const PRInstallProblems: React.FC = () => {
   return (
     <div className="faq-content">
-      <GithubUpdateInfo filePath="src/pages/sections/prfaq/PRInstallProblems.tsx" />
       <DetailsSummary
         tag="как установить, куда устанавливать, установка, распаковка, инструкция, плагины, шаблоны, пресеты, скрипты, расширения, пакеты, луты, архивы, zip, rar"
         title="В архив или под записью забыли положить инструкцию для установки. Куда что кидать?"

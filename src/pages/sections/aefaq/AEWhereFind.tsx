@@ -8,12 +8,9 @@ import {ContentFigure} from "../../../components/ContentFigure";
 
 import DetailsSummary from "../../../components/DetailsSummary";
 
-import GithubUpdateInfo from "../../../components/features/GithubUpdateInfo";
-
 const AEWhereFind: React.FC = () => {
   return (
     <div className="faq-content">
-      <GithubUpdateInfo filePath="src/pages/sections/aefaq/AEWhereFind.tsx" />
       <DetailsSummary
         tag="адоб, афтер эффектс, фотошоп, премьер, загрузить, установить, бесплатно, скрипты, расширения, плагины"
         title="Где я могу найти и скачать шаблоны, плагины и различные программы?"

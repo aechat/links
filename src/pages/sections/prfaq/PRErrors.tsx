@@ -10,14 +10,12 @@ import DetailsSummary from "../../../components/DetailsSummary";
 
 import ContentSwitcher from "../../../components/features/ContentFilter";
 
-import GithubUpdateInfo from "../../../components/features/GithubUpdateInfo";
 
 import HostsAdobeModal from "../../../components/features/HostsAdobe";
 
 const PRErrors: React.FC = () => {
   return (
     <div className="faq-content">
-      <GithubUpdateInfo filePath="src/pages/sections/prfaq/PRErrors.tsx" />
       <DetailsSummary title='"This effect requires GPU Acceleration" при применении эффекта'>
         <p>
           Скорее всего у вас отключено ускорение на основе видеокарты в настройках

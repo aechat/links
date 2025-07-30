@@ -8,12 +8,9 @@ import {ImageFigure, VideoFigure, YouTubeVideo} from "../../../components/Conten
 
 import DetailsSummary from "../../../components/DetailsSummary";
 
-import GithubUpdateInfo from "../../../components/features/GithubUpdateInfo";
-
 const AEExportProblems: React.FC = () => {
   return (
     <div className="faq-content">
-      <GithubUpdateInfo filePath="src/pages/sections/aefaq/AEExportProblems.tsx" />
       <DetailsSummary
         tag="не экспортируется, битый файл"
         title="Почему при экспорте в MP4 через встроенный кодек H.264 сохраняется файл с размером в 1 Кб?"

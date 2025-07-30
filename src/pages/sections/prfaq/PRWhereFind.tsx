@@ -8,12 +8,9 @@ import {ImageFigure} from "../../../components/ContentFigure";
 
 import DetailsSummary from "../../../components/DetailsSummary";
 
-import GithubUpdateInfo from "../../../components/features/GithubUpdateInfo";
-
 const PRWhereFind: React.FC = () => {
   return (
     <div className="faq-content">
-      <GithubUpdateInfo filePath="src/pages/sections/prfaq/PRWhereFind.tsx" />
       <DetailsSummary
         tag="адоб, download, афтер эффектс, фотошоп, премьер, загрузить, установить, бесплатно, free"
         title="Где я могу найти и скачать шаблоны, плагины и различные программы?"

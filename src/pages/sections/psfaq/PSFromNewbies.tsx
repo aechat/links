@@ -8,12 +8,9 @@ import {ImageFigure, VideoFigure, YouTubeVideo} from "../../../components/Conten
 
 import DetailsSummary from "../../../components/DetailsSummary";
 
-import GithubUpdateInfo from "../../../components/features/GithubUpdateInfo";
-
 const PSFromNewbies: React.FC = () => {
   return (
     <div className="faq-content">
-      <GithubUpdateInfo filePath="src/pages/sections/psfaq/PSFromNewbies.tsx" />
       <DetailsSummary
         tag="для новичка, первый раз, только открыл"
         title="Первый раз установил Photoshop, с чего бы мне начать обучение?"

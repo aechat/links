@@ -8,12 +8,9 @@ import {ImageFigure, VideoFigure} from "../../../components/ContentFigure";
 
 import DetailsSummary from "../../../components/DetailsSummary";
 
-import GithubUpdateInfo from "../../../components/features/GithubUpdateInfo";
-
 const PRInterface: React.FC = () => {
   return (
     <div className="faq-content">
-      <GithubUpdateInfo filePath="src/pages/sections/prfaq/PRInterface.tsx" />
       <DetailsSummary title="Как сделать двойной язык интерфейса?">
         <p>
           Если вы не хотите кардинально менять язык программы, то вы можете установить

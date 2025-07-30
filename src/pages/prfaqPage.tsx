@@ -22,6 +22,8 @@ import SupportDonut from "../components/modal/SupportDonut";
 
 import {SearchInPage, SearchProvider} from "../components/search";
 
+import GithubUpdateInfo from "../components/features/GithubUpdateInfo";
+
 const PRActions = lazy(() => import("./sections/prfaq/PRActions"));
 
 const PRErrors = lazy(() => import("./sections/prfaq/PRErrors"));
@@ -178,6 +180,7 @@ const PRFAQ = () => {
                 />
               </div>
               <SupportDonut />
+              <GithubUpdateInfo folderPath="src/pages/sections/prfaq" />
               <Suspense
                 fallback={
                   <motion.div

@@ -10,13 +10,11 @@ import DetailsSummary from "../../../components/DetailsSummary";
 
 import ContentSwitcher from "../../../components/features/ContentFilter";
 
-import GithubUpdateInfo from "../../../components/features/GithubUpdateInfo";
 
 import HostsAdobeModal from "../../../components/features/HostsAdobe";
 
 const PSErrors: React.FC = () => (
   <div className="faq-content">
-    <GithubUpdateInfo filePath="src/pages/sections/psfaq/PSErrors.tsx" />
     <DetailsSummary title="Рабочий диск заполнен или Scratch Disk Full">
       <p>
         В основном данная ошибка возникает по причине нехватки дискового пространства в

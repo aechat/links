@@ -6,12 +6,9 @@ import {ImageFigure} from "../../../components/ContentFigure";
 
 import DetailsSummary from "../../../components/DetailsSummary";
 
-import GithubUpdateInfo from "../../../components/features/GithubUpdateInfo";
-
 const PSExport: React.FC = () => {
   return (
     <div className="faq-content">
-      <GithubUpdateInfo filePath="src/pages/sections/psfaq/PSExport.tsx" />
       <DetailsSummary title="Какие параметры экспорта нужно установить для загрузки в социальные сети?">
         <p>{/* FIXME: */}</p>
       </DetailsSummary>

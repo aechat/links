@@ -8,12 +8,9 @@ import {ImageFigure, YouTubeVideo} from "../../../components/ContentFigure";
 
 import DetailsSummary from "../../../components/DetailsSummary";
 
-import GithubUpdateInfo from "../../../components/features/GithubUpdateInfo";
-
 const PRActions: React.FC = () => {
   return (
     <div className="faq-content">
-      <GithubUpdateInfo filePath="src/pages/sections/prfaq/PRActions.tsx" />
       <DetailsSummary title="Чем бы мне улучшить качество исходников?">
         <p>
           В наше время существует множество различных способов для улучшения качества

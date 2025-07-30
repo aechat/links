@@ -10,12 +10,10 @@ import DetailsSummary from "../../../components/DetailsSummary";
 
 import ContentSwitcher from "../../../components/features/ContentFilter";
 
-import GithubUpdateInfo from "../../../components/features/GithubUpdateInfo";
 
 const PRExport: React.FC = () => {
   return (
     <div className="faq-content">
-      <GithubUpdateInfo filePath="src/pages/sections/prfaq/PRExport.tsx" />
       <DetailsSummary
         tag="тикток, ютуб, максимальное качество, разрешение, битрейт"
         title="Какие настройки экспорта стоит установить для вывода в социальные сети?"

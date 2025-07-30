@@ -10,7 +10,6 @@ import DetailsSummary from "../../../components/DetailsSummary";
 
 import ContentSwitcher from "../../../components/features/ContentFilter";
 
-import GithubUpdateInfo from "../../../components/features/GithubUpdateInfo";
 
 import HostsAdobeModal from "../../../components/features/HostsAdobe";
 
@@ -35,7 +34,6 @@ const AEErrors: React.FC = () => {
           </li>
         </ul>
       </AdditionDanger>
-      <GithubUpdateInfo filePath="src/pages/sections/aefaq/AEErrors.tsx" />
       <DetailsSummary
         tag="предупреждение о нехватке памяти, оперативная память, не проигрывается предпросмотр, зацикливается превью, 23::40, after effects has unexpectedly run out of memory and cannot complete this export"
         title='Из-за чего появляется "Out of Memory" или "Low memory warning. RAM use has been extended for previews" и как это исправить?'

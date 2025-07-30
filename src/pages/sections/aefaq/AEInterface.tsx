@@ -10,12 +10,10 @@ import DetailsSummary from "../../../components/DetailsSummary";
 
 import ContentSwitcher from "../../../components/features/ContentFilter";
 
-import GithubUpdateInfo from "../../../components/features/GithubUpdateInfo";
 
 const AEInterface: React.FC = () => {
   return (
     <div className="faq-content">
-      <GithubUpdateInfo filePath="src/pages/sections/aefaq/AEInterface.tsx" />
       <DetailsSummary title="Как включить отображение границ слоёв?">
         <p>
           Для включения отображения границ слоёв и их манипуляторов в окне предпросмотра,

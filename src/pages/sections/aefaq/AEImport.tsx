@@ -12,12 +12,9 @@ import ContentSwitcher from "../../../components/features/ContentFilter";
 
 import TgsToJsonConverter from "../../../components/features/ConverterTgsToJson";
 
-import GithubUpdateInfo from "../../../components/features/GithubUpdateInfo";
-
 const AEImport: React.FC = () => {
   return (
     <div className="faq-content">
-      <GithubUpdateInfo filePath="src/pages/sections/aefaq/AEImport.tsx" />
       <DetailsSummary
         tag="пайплайн, импорт, конвертация, внятный кодек, шаттер енкодер, видео из айфона"
         title="Какие действия нужно совершить с чужими исходниками, прежде чем начать работу?"

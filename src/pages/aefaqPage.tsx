@@ -22,6 +22,8 @@ import SupportDonut from "../components/modal/SupportDonut";
 
 import {SearchInPage, SearchProvider} from "../components/search";
 
+import GithubUpdateInfo from "../components/features/GithubUpdateInfo";
+
 const AEWhereFind = lazy(() => import("./sections/aefaq/AEWhereFind"));
 
 const AEInstallProblems = lazy(() => import("./sections/aefaq/AEInstallProblems"));
@@ -149,6 +151,7 @@ const AEFAQ = () => {
             <div className="faq-container">
               <div className="faq-title">
                 <h1>aefaq</h1>
+            
                 <Breadcrumb
                   items={[
                     {
@@ -171,7 +174,7 @@ const AEFAQ = () => {
                     },
                   ]}
                 />
-              </div>
+              </div><GithubUpdateInfo folderPath="src/pages/sections/aefaq" />
               <SupportDonut />
               <Suspense
                 fallback={

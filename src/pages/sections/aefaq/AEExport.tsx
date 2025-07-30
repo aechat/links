@@ -12,12 +12,9 @@ import ContentSwitcher from "../../../components/features/ContentFilter";
 
 import JsonToTgsConverter from "../../../components/features/ConverterJsonToTgs";
 
-import GithubUpdateInfo from "../../../components/features/GithubUpdateInfo";
-
 const AEExport: React.FC = () => {
   return (
     <div className="faq-content">
-      <GithubUpdateInfo filePath="src/pages/sections/aefaq/AEExport.tsx" />
       <DetailsSummary
         tag="render queue, как настроить экспорт, куда нажимать для сохранения композиции, свой шаблон с настройками для экспорта композиций"
         title="Что такое очередь рендера?"

@@ -8,12 +8,9 @@ import {ImageFigure, VideoFigure} from "../../../components/ContentFigure";
 
 import DetailsSummary from "../../../components/DetailsSummary";
 
-import GithubUpdateInfo from "../../../components/features/GithubUpdateInfo";
-
 const PRExportProblems: React.FC = () => {
   return (
     <div className="faq-content">
-      <GithubUpdateInfo filePath="src/pages/sections/prfaq/PRExportProblems.tsx" />
       <DetailsSummary title='При попытке экспорта появляется "Error compiling movie", а в конце лога - "Error code: -1609629695"'>
         <p>
           Данная ошибка может появиться по самым разным причинам - универсального способа

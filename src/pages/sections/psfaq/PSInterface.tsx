@@ -8,12 +8,9 @@ import {ImageFigure, VideoFigure} from "../../../components/ContentFigure";
 
 import DetailsSummary from "../../../components/DetailsSummary";
 
-import GithubUpdateInfo from "../../../components/features/GithubUpdateInfo";
-
 const PSInterface: React.FC = () => {
   return (
     <div className="faq-content">
-      <GithubUpdateInfo filePath="src/pages/sections/psfaq/PSInterface.tsx" />
       <DetailsSummary title="Как отключить стартовое окно с последними открытыми проектами при запуске?">
         <p>
           Если вас раздражает окно с недавними открытыми проектами или оно у вас грузится
