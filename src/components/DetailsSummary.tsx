@@ -192,20 +192,6 @@ const DetailsSummary: React.FC<DetailsSummaryProps> = ({title, children, tag}) =
     };
   }, []);
   useEffect(() => {
-    if (sectionRef.current) {
-      const links = sectionRef.current.querySelectorAll("a");
-      links.forEach((link) => {
-        if (!link.hasAttribute("target")) {
-          link.setAttribute("target", "_blank");
-        }
-
-        if (link.host !== window.location.host) {
-          link.setAttribute("rel", "noopener noreferrer");
-        }
-      });
-    }
-  }, [children]);
-  useEffect(() => {
     if (!sectionRef.current) {
       return;
     }
