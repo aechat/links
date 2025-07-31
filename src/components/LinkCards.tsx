@@ -1,4 +1,5 @@
 import React from "react";
+
 import {Link} from "react-router-dom";
 
 interface BaseLinkCardProps {
@@ -24,11 +25,7 @@ const styles = {
 
 const BaseLinkCard: React.FC<{
   children: React.ReactNode;
-}> = ({children}) => (
-  <div className="links-button">
-    {children}
-  </div>
-);
+}> = ({children}) => <div className="links-button">{children}</div>;
 
 export const LinkCard: React.FC<LinkCardProps> = ({href, icon, name, description}) => (
   <BaseLinkCard>

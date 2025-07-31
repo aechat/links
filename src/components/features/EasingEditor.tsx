@@ -523,8 +523,8 @@ const AnimationControls: React.FC<AnimationControlsProps> = ({
 }) => {
   const modeTextMap: Record<AnimationMode, string> = {
     "ping-pong": "Пинг-понг",
-    loop: "Цикл",
-    once: "Один раз",
+    "loop": "Цикл",
+    "once": "Один раз",
   };
 
   return (
