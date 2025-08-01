@@ -53,7 +53,7 @@ import Header from "../components/Header";
 
 import {LinkCard, LinkCardNoDescription, LinkInAppCard} from "../components/LinkCards";
 
-import {AEExprIcon, AEIcon, PRIcon, PSIcon} from "./faqIcon";
+import {/* AEExprIcon, */ AEIcon, PRIcon, PSIcon} from "./faqIcon";
 
 const Links = () => {
   return (
@@ -105,12 +105,14 @@ const Links = () => {
               icon={<PSIcon />}
               name="psfaq (WIP)"
             />
-            <LinkInAppCard
+            {/* <LinkInAppCard
               description="Шпаргалка по использованию выражений в Adobe After Effects"
               href="/aeexpr"
               icon={<AEExprIcon />}
               name="aeexpr (WIP)"
-            />
+            /> 
+            // aeexpr скоро будет возвращён, ссылка временно скрыта из-за пустоты этого раздела
+            */}
           </div>
           <Divider>Наши каналы</Divider>
           <Addition type="info">
