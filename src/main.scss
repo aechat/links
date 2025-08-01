@@ -65,7 +65,8 @@ html {
   overflow: hidden;
 }
 
-.footer {
+footer {
+  opacity: 0.75;
   margin-inline: auto;
   margin-block: 30px 40px;
   outline: 1px solid var(--content-background-border);
