@@ -1,14 +1,10 @@
-import {CircularProgress} from "@mui/material";
-
-import {Breadcrumb, Divider} from "antd";
+import {Divider} from "antd";
 
 import {motion} from "framer-motion";
 
-import React, {Suspense, lazy, useEffect, useState} from "react";
+import React, {useEffect, useState} from "react";
 
 import {Helmet} from "react-helmet-async";
-
-import {Link} from "react-router-dom";
 
 import {generateAnchorId} from "../components/DetailsSummary";
 
@@ -24,25 +20,27 @@ import {SearchInPage, SearchProvider} from "../components/search";
 
 import GithubUpdateInfo from "../components/features/GithubUpdateInfo";
 
-const PSActions = lazy(() => import("./sections/psfaq/PSActions"));
+import Addition from "../components/Addition";
 
-const PSErrors = lazy(() => import("./sections/psfaq/PSErrors"));
+import PSActions from "./sections/psfaq/PSActions";
 
-const PSExport = lazy(() => import("./sections/psfaq/PSExport"));
+import PSErrors from "./sections/psfaq/PSErrors";
 
-const PSExportProblems = lazy(() => import("./sections/psfaq/PSExportProblems"));
+import PSExport from "./sections/psfaq/PSExport";
 
-const PSFromNewbies = lazy(() => import("./sections/psfaq/PSFromNewbies"));
+import PSExportProblems from "./sections/psfaq/PSExportProblems";
 
-const PSImport = lazy(() => import("./sections/psfaq/PSImport"));
+import PSFromNewbies from "./sections/psfaq/PSFromNewbies";
 
-const PSInstallProblems = lazy(() => import("./sections/psfaq/PSInstallProblems"));
+import PSImport from "./sections/psfaq/PSImport";
 
-const PSInterface = lazy(() => import("./sections/psfaq/PSInterface"));
+import PSInstallProblems from "./sections/psfaq/PSInstallProblems";
 
-const PSPerformance = lazy(() => import("./sections/psfaq/PSPerformance"));
+import PSInterface from "./sections/psfaq/PSInterface";
 
-const PSWhereFind = lazy(() => import("./sections/psfaq/PSWhereFind"));
+import PSPerformance from "./sections/psfaq/PSPerformance";
+
+import PSWhereFind from "./sections/psfaq/PSWhereFind";
 
 const PSFAQ = () => {
   useEffect(() => {
@@ -97,24 +95,7 @@ const PSFAQ = () => {
     },
   ];
 
-  const [visibleSections, setVisibleSections] = useState<string[]>([]);
-
   const [isPageLoaded, setIsPageLoaded] = useState(false);
-
-  const [isSectionsLoaded, setIsSectionsLoaded] = useState(false);
-  useEffect(() => {}, [visibleSections.length]);
-
-  const loadSection = async (section: {key: string}) => {
-    setVisibleSections((prev) => [...prev, section.key]);
-  };
-
-  const loadSections = async () => {
-    await Promise.all(sections.map(loadSection));
-    setIsSectionsLoaded(true);
-  };
-  useEffect(() => {
-    loadSections();
-  }, []);
 
   return (
     <div className="page">
@@ -161,98 +142,40 @@ const PSFAQ = () => {
             duration: 0.3,
             ease: [0.25, 0, 0, 1],
           }}
+          onAnimationComplete={() => {
+            setIsPageLoaded(true);
+            generateAnchorId();
+          }}
         >
           <div className="faq-container-flex">
             <div className="faq-container">
               <div className="faq-title">
                 <h1>psfaq</h1>
-                <Breadcrumb
-                  items={[
-                    {
-                      title: <Link to="/psfaq">FAQ по Adobe Photoshop</Link>,
-                      menu: {
-                        items: [
-                          {
-                            title: <Link to="/aefaq">FAQ по Adobe After Effects</Link>,
-                          },
-                          {
-                            title: <Link to="/prfaq">FAQ по Adobe Premiere Pro</Link>,
-                          },
-                        ],
-                      },
-                    },
-                  ]}
-                />
               </div>
+              <GithubUpdateInfo folderPath="src/pages/sections/psfaq" />
               <SupportDonut />
-              <GithubUpdateInfo folderPath="src/pages/sections/prfaq" />
-              <Suspense
-                fallback={
-                  <motion.div
-                    animate={{opacity: 1}}
-                    initial={{opacity: 0}}
+              <Addition type="danger">
+                Эта страница всё ещё находится в процессе разработки. Следите за
+                обновлениями!
+              </Addition>
+              {sections.map((section) => (
+                <div
+                  key={section.key}
+                  id={section.id}
+                >
+                  <Divider
+                    orientation="right"
                     style={{
-                      padding: "20px",
-                      display: "flex",
-                      marginBlock: "20px",
-                      flexDirection: "row",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      height: "90dvh",
-                      width: "100%",
-                    }}
-                    transition={{
-                      duration: 0.5,
-                      ease: [0.25, 0, 0, 1],
-                      delay: 1,
+                      color: "var(--text-color)",
+                      textTransform: "uppercase",
+                      fontWeight: "600",
                     }}
                   >
-                    <CircularProgress sx={{color: "var(--accent)"}} />
-                  </motion.div>
-                }
-              >
-                {visibleSections.length > 0 && (
-                  <motion.div
-                    animate={isSectionsLoaded ? {opacity: 1} : {}}
-                    initial={{opacity: 0}}
-                    transition={{
-                      duration: 0.3,
-                      ease: [0.25, 0, 0, 1],
-                    }}
-                    onAnimationStart={() => {
-                      setIsPageLoaded(true);
-                      generateAnchorId();
-                    }}
-                  >
-                    {visibleSections.map((key) => {
-                      const section = sections.find((s) => s.key === key);
-
-                      if (!section) {
-                        return null;
-                      }
-
-                      return (
-                        <div
-                          key={key}
-                          id={section.id}
-                        >
-                          <Divider
-                            orientation="right"
-                            style={{
-                              color: "var(--text-color)",
-                              textTransform: "uppercase",
-                              fontWeight: "800",
-                            }}
-                          >
-                            {section.title}
-                          </Divider>
-                          <section.component />
-                        </div>
-                      );
-                    })}
-                  </motion.div>
-                )}
-              </Suspense>
+                    {section.title}
+                  </Divider>
+                  <section.component />
+                </div>
+              ))}
               <Footer
                 initialYear={2023}
                 title="aechat & dwchat"

@@ -1,14 +1,10 @@
-import {CircularProgress} from "@mui/material";
-
-import {Breadcrumb, Divider} from "antd";
+import {Divider} from "antd";
 
 import {motion} from "framer-motion";
 
-import React, {Suspense, lazy, useEffect, useState} from "react";
+import React, {useEffect, useState} from "react";
 
 import {Helmet} from "react-helmet-async";
-
-import {Link} from "react-router-dom";
 
 import Addition from "../components/Addition";
 
@@ -26,15 +22,15 @@ import {SearchInPage, SearchProvider} from "../components/search";
 
 import GithubUpdateInfo from "../components/features/GithubUpdateInfo";
 
-const AEExprStart = lazy(() => import("./sections/aeexpr/ExprStart"));
+import AEExprStart from "./sections/aeexpr/ExprStart";
 
-const AEExprBase = lazy(() => import("./sections/aeexpr/ExprBase"));
+import AEExprBase from "./sections/aeexpr/ExprBase";
 
-const AEExprLinking = lazy(() => import("./sections/aeexpr/ExprLinking"));
+import AEExprLinking from "./sections/aeexpr/ExprLinking";
 
-const AEExprActions = lazy(() => import("./sections/aeexpr/ExprActions"));
+import AEExprActions from "./sections/aeexpr/ExprActions";
 
-const AEExprErrors = lazy(() => import("./sections/aeexpr/ExprErrors"));
+import AEExprErrors from "./sections/aeexpr/ExprErrors";
 
 const AEExpressionPage = () => {
   useEffect(() => {
@@ -69,24 +65,7 @@ const AEExpressionPage = () => {
     },
   ];
 
-  const [visibleSections, setVisibleSections] = useState<string[]>([]);
-
   const [isPageLoaded, setIsPageLoaded] = useState(false);
-
-  const [isSectionsLoaded, setIsSectionsLoaded] = useState(false);
-  useEffect(() => {}, [visibleSections.length]);
-
-  const loadSection = async (section: {key: string}) => {
-    setVisibleSections((prev) => [...prev, section.key]);
-  };
-
-  const loadSections = async () => {
-    await Promise.all(sections.map(loadSection));
-    setIsSectionsLoaded(true);
-  };
-  useEffect(() => {
-    loadSections();
-  }, []);
 
   return (
     <div className="page">
@@ -133,33 +112,16 @@ const AEExpressionPage = () => {
             duration: 0.3,
             ease: [0.25, 0, 0, 1],
           }}
+          onAnimationComplete={() => {
+            setIsPageLoaded(true);
+            generateAnchorId();
+          }}
         >
           <div className="faq-container-flex">
             <div className="faq-container">
               <div className="faq-title">
                 <h1>aeexpr</h1>
-                <Breadcrumb
-                  items={[
-                    {
-                      title: <Link to="/aeexpr">FAQ по выражениям в After Effects</Link>,
-                      menu: {
-                        items: [
-                          {
-                            title: <Link to="/aefaq">FAQ по Adobe After Effects</Link>,
-                          },
-                          {
-                            title: <Link to="/prfaq">FAQ по Adobe Premiere Pro</Link>,
-                          },
-                          {
-                            title: <Link to="/psfaq">FAQ по Adobe Photoshop</Link>,
-                          },
-                        ],
-                      },
-                    },
-                  ]}
-                />
               </div>
-              <SupportDonut />
               <GithubUpdateInfo folderPath="src/pages/sections/aeexpr" />
               <Addition type="danger">
                 На текущий момент данная страница ещё не полностью готова. В статьях могут
@@ -175,79 +137,32 @@ const AEExpressionPage = () => {
                 <mark className="app">Adobe After Effects</mark>, а также здесь не будут
                 разбираться случаи с написанием скриптов формата{" "}
                 <mark className="file">JSX</mark> и <mark className="file">JSXBIN</mark>.
-                Примеры выражений выполняются на движке <mark>JavaScript</mark>, его можно
-                изменить во вкладке <mark className="select">Expression</mark> окна{" "}
+                Примеры выражений выполняются на движке{" "}
+                <mark className="plugin">JavaScript</mark>, его можно изменить во вкладке{" "}
+                <mark className="select">Expression</mark> окна{" "}
                 <mark className="select">Project Manager</mark>, который открывается с
                 помощью комбинации клавиш{" "}
                 <mark className="key">Ctrl + Alt + Shift + K</mark>.
               </Addition>
-              <Suspense
-                fallback={
-                  <motion.div
-                    animate={{opacity: 1}}
-                    initial={{opacity: 0}}
+              <SupportDonut />
+              {sections.map((section) => (
+                <div
+                  key={section.key}
+                  id={section.id}
+                >
+                  <Divider
+                    orientation="right"
                     style={{
-                      padding: "20px",
-                      display: "flex",
-                      marginBlock: "20px",
-                      flexDirection: "row",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      height: "90dvh",
-                      width: "100%",
-                    }}
-                    transition={{
-                      duration: 0.5,
-                      ease: [0.25, 0, 0, 1],
-                      delay: 1,
+                      color: "var(--text-color)",
+                      textTransform: "uppercase",
+                      fontWeight: "600",
                     }}
                   >
-                    <CircularProgress sx={{color: "var(--accent)"}} />
-                  </motion.div>
-                }
-              >
-                {visibleSections.length > 0 && (
-                  <motion.div
-                    animate={isSectionsLoaded ? {opacity: 1} : {}}
-                    initial={{opacity: 0}}
-                    transition={{
-                      duration: 0.3,
-                      ease: [0.25, 0, 0, 1],
-                    }}
-                    onAnimationStart={() => {
-                      setIsPageLoaded(true);
-                      generateAnchorId();
-                    }}
-                  >
-                    {visibleSections.map((key) => {
-                      const section = sections.find((s) => s.key === key);
-
-                      if (!section) {
-                        return null;
-                      }
-
-                      return (
-                        <div
-                          key={key}
-                          id={section.id}
-                        >
-                          <Divider
-                            orientation="right"
-                            style={{
-                              color: "var(--text-color)",
-                              textTransform: "uppercase",
-                              fontWeight: "800",
-                            }}
-                          >
-                            {section.title}
-                          </Divider>
-                          <section.component />
-                        </div>
-                      );
-                    })}
-                  </motion.div>
-                )}
-              </Suspense>
+                    {section.title}
+                  </Divider>
+                  <section.component />
+                </div>
+              ))}
               <Footer
                 initialYear={2023}
                 title="aechat"
