@@ -4,8 +4,6 @@ import {Upload, message} from "antd";
 
 import {saveAs} from "file-saver";
 
-import {motion} from "framer-motion";
-
 import {inflate} from "pako";
 
 import React, {useState} from "react";
@@ -69,7 +67,7 @@ const TgsToJsonConverter: React.FC = () => {
         >
           <UploadFileRounded />
           <span style={{fontSize: "0.9rem"}}>
-            Перетащите файл формата .tgs в это поле или нажмите для выбора файла
+            Перетащите файл формата TGS в это поле или нажмите для выбора файла
           </span>
         </div>
       </Upload.Dragger>
@@ -82,33 +80,23 @@ const TgsToJsonConverter: React.FC = () => {
             marginBlock: "10px",
           }}
         >
-          <motion.button
+          <button
             className="modal-open-button"
             style={{filter: "saturate(0)", flexGrow: 1}}
-            whileHover={{
-              scale: 0.975,
-              transition: {duration: 0.5, ease: [0.075, 0.82, 0.165, 1]},
-            }}
-            whileTap={{scale: 0.95, opacity: 0.5}}
             onClick={() => {
               setJsonData(null);
               setOriginalFileName("");
             }}
           >
             Сбросить
-          </motion.button>
-          <motion.button
+          </button>
+          <button
             className="modal-open-button"
             style={{flexGrow: 3}}
-            whileHover={{
-              scale: 0.975,
-              transition: {duration: 0.5, ease: [0.075, 0.82, 0.165, 1]},
-            }}
-            whileTap={{scale: 0.95, opacity: 0.5}}
             onClick={downloadJson}
           >
             Скачать преобразованный JSON
-          </motion.button>
+          </button>
         </div>
       ) : null}
     </div>

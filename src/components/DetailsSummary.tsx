@@ -2,8 +2,6 @@ import {ShareRounded} from "@mui/icons-material";
 
 import {Tooltip, message} from "antd";
 
-import {motion} from "framer-motion";
-
 import React, {
   ReactNode,
   createContext,
@@ -286,15 +284,7 @@ const DetailsSummary: React.FC<DetailsSummaryProps> = ({title, children, tag}) =
       open={isOpen}
       onToggle={handleToggle}
     >
-      <motion.summary
-        className="faq-summary"
-        whileHover={{
-          transition: {duration: 0.5, ease: [0.075, 0.82, 0.165, 1]},
-        }}
-        whileTap={{
-          opacity: 0.75,
-        }}
-      >
+      <summary className="faq-summary">
         <div className="faq-summary-left">
           <span style={{fontFamily: "JetBrains Mono, monospace"}}>
             {isOpen ? "-" : "+"}
@@ -322,7 +312,7 @@ const DetailsSummary: React.FC<DetailsSummaryProps> = ({title, children, tag}) =
             <ShareRounded />
           </button>
         </Tooltip>
-      </motion.summary>
+      </summary>
       <SpoilerContext.Provider value={isOpen}>
         <section
           ref={sectionRef}

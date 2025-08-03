@@ -2,8 +2,6 @@ import {BackspaceOutlined, CloseRounded} from "@mui/icons-material";
 
 import {Modal} from "antd";
 
-import {motion} from "framer-motion";
-
 import React, {useCallback, useEffect, useRef, useState} from "react";
 
 import {useSearch} from "../context";
@@ -18,17 +16,15 @@ const SearchCategories: React.FC<{
   onLinkClick: (id: string) => void;
   sections: SearchSection[];
 }> = ({onLinkClick, sections}) => (
-  <div>
-    <div className="search-category">
-      {sections.map((section) => (
-        <button
-          key={section.id}
-          onClick={() => onLinkClick(section.id)}
-        >
-          {section.title}
-        </button>
-      ))}
-    </div>
+  <div className="search-category">
+    {sections.map((section) => (
+      <button
+        key={section.id}
+        onClick={() => onLinkClick(section.id)}
+      >
+        {section.title}
+      </button>
+    ))}
   </div>
 );
 
@@ -79,14 +75,13 @@ const SearchResults: React.FC<{
 
         return (
           <div key={id}>
-            <motion.button
+            <button
               ref={(el) => {
                 if (resultRefs.current) {
                   resultRefs.current[index] = el;
                 }
               }}
               className={`search-link ${isSelected ? "search-selected" : ""}`}
-              initial={{scale: 1}}
               style={
                 isMobile
                   ? {opacity: 1, filter: "none"}
@@ -95,7 +90,6 @@ const SearchResults: React.FC<{
                     : {opacity: 0.65, filter: "saturate(0.5)"}
               }
               tabIndex={0}
-              transition={{duration: 0.5, ease: [0.075, 0.82, 0.165, 1]}}
               onClick={(e) => {
                 e.preventDefault();
                 onLinkClick(id);
@@ -108,12 +102,7 @@ const SearchResults: React.FC<{
                 {tagsToDisplay.length > 0 && (
                   <span className="faq-tags">
                     {tagsToDisplay.map((t, i) => (
-                      <mark
-                        key={i}
-                        className="tag"
-                      >
-                        {t}
-                      </mark>
+                      <mark key={i}>{t}</mark>
                     ))}
                   </span>
                 )}
@@ -122,7 +111,7 @@ const SearchResults: React.FC<{
                 className="search-content faq-content"
                 dangerouslySetInnerHTML={{__html: content}}
               />
-            </motion.button>
+            </button>
           </div>
         );
       })}
@@ -149,7 +138,7 @@ const ExternalSearch: React.FC<{query: string}> = ({query}) => {
   };
 
   return (
-    <div style={{paddingInline: "10px"}}>
+    <div>
       <div className="search-category">
         <button
           onClick={() => {
@@ -230,17 +219,6 @@ export const SearchInPage: React.FC<{sections: SearchSection[]}> = ({sections}) 
     resultsQuery,
   } = useSearchLogic(query, isPageLoaded);
   useEffect(() => {
-    if (isPageLoaded) {
-      const timeout = setTimeout(() => {
-        setIsResultsProcessed(true);
-      }, 100);
-
-      return () => clearTimeout(timeout);
-    } else {
-      setIsResultsProcessed(false);
-    }
-  }, [isPageLoaded, results]);
-  useEffect(() => {
     if (isOpen) {
       const timeout = setTimeout(() => {
         inputRef.current?.focus();
@@ -250,7 +228,6 @@ export const SearchInPage: React.FC<{sections: SearchSection[]}> = ({sections}) 
       return () => clearTimeout(timeout);
     }
   }, [isOpen]);
-
   useEffect(() => {
     const el = resultsContainerRef.current;
 
@@ -273,6 +250,17 @@ export const SearchInPage: React.FC<{sections: SearchSection[]}> = ({sections}) 
       window.removeEventListener("resize", checkFade);
     };
   }, [results]);
+  useEffect(() => {
+    if (isPageLoaded) {
+      const timeout = setTimeout(() => {
+        setIsResultsProcessed(true);
+      }, 100);
+
+      return () => clearTimeout(timeout);
+    } else {
+      setIsResultsProcessed(false);
+    }
+  }, [isPageLoaded, results]);
 
   const handleQueryChange = (value: string) => {
     setQuery(value);
@@ -310,10 +298,7 @@ export const SearchInPage: React.FC<{sections: SearchSection[]}> = ({sections}) 
         headerHeight -
         padding;
       window.history.pushState({}, "", `#${id}`);
-      window.scrollTo({
-        top: y,
-        behavior: "smooth",
-      });
+      window.scrollTo({top: y, behavior: "smooth"});
       closeModal();
     },
     [closeModal]

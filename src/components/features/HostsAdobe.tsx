@@ -2,8 +2,6 @@ import {CloseRounded} from "@mui/icons-material";
 
 import {Modal} from "antd";
 
-import {motion} from "framer-motion";
-
 import React, {useState} from "react";
 
 import Addition from "../Addition";
@@ -13,18 +11,13 @@ const HostsAdobeModal: React.FC = () => {
 
   return (
     <div>
-      <motion.button
+      <button
         className="modal-open-button"
         style={{marginInline: "auto"}}
-        whileHover={{
-          scale: 0.975,
-          transition: {duration: 0.5, ease: [0.075, 0.82, 0.165, 1]},
-        }}
-        whileTap={{scale: 0.95, opacity: 0.5}}
         onClick={() => setIsModalOpen(true)}
       >
         Открыть адреса для внесения в hosts
-      </motion.button>
+      </button>
       <Modal
         centered
         closeIcon={null}

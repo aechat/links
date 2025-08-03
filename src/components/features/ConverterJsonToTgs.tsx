@@ -4,8 +4,6 @@ import {Radio, Spin, Upload, message} from "antd";
 
 import {saveAs} from "file-saver";
 
-import {motion} from "framer-motion";
-
 import {gzip} from "pako";
 
 import React, {useEffect, useState} from "react";
@@ -148,7 +146,7 @@ with open("input.json", "rb") as f_in:
         >
           <UploadFileRounded />
           <span style={{fontSize: "0.9rem"}}>
-            Перетащите файл формата .json в это поле или нажмите для выбора файла
+            Перетащите файл формата JSON в это поле или нажмите для выбора файла
           </span>
         </div>
       </Upload.Dragger>
@@ -176,34 +174,24 @@ with open("input.json", "rb") as f_in:
             marginBlock: "10px",
           }}
         >
-          <motion.button
+          <button
             className="modal-open-button"
             style={{filter: "saturate(0)", flexGrow: 1}}
-            whileHover={{
-              scale: 0.975,
-              transition: {duration: 0.5, ease: [0.075, 0.82, 0.165, 1]},
-            }}
-            whileTap={{scale: 0.95, opacity: 0.5}}
             onClick={() => {
               setJsonData(null);
               setOriginalFileName("");
             }}
           >
             Сбросить
-          </motion.button>
-          <motion.button
+          </button>
+          <button
             className="modal-open-button"
             disabled={loading}
             style={{flexGrow: 3}}
-            whileHover={{
-              scale: 0.975,
-              transition: {duration: 0.5, ease: [0.075, 0.82, 0.165, 1]},
-            }}
-            whileTap={{scale: 0.95, opacity: 0.5}}
             onClick={downloadTgs}
           >
             {loading ? <Spin size="small" /> : "Скачать преобразованный TGS"}
-          </motion.button>
+          </button>
         </div>
       )}
     </div>

@@ -34,21 +34,16 @@ const SupportDonut: React.FC = () => {
   return (
     <>
       <div className="support">
-        <motion.button
+        <button
           className="modal-page-button"
           style={{
             filter: "saturate(1.25)",
           }}
-          whileHover={{
-            scale: 0.975,
-            transition: {duration: 0.5, ease: [0.075, 0.82, 0.165, 1]},
-          }}
-          whileTap={{scale: 0.95, opacity: 0.5}}
           onClick={showDonateModal}
         >
           <CoffeeRounded />
           Поддержать сайт
-        </motion.button>
+        </button>
       </div>
       <Modal
         centered
@@ -73,17 +68,12 @@ const SupportDonut: React.FC = () => {
               его, то вы можете поддержать меня любой суммой и любым удобным вам способом.
             </p>
             <div className="flexible-links">
-              <motion.button
+              <button
                 className="support-button-sber"
-                whileHover={{
-                  scale: 0.975,
-                  transition: {duration: 0.5, ease: [0.075, 0.82, 0.165, 1]},
-                }}
-                whileTap={{scale: 0.95, opacity: 0.5}}
                 onClick={() => setIsSberModalOpen(true)}
               >
                 Сбербанк
-              </motion.button>
+              </button>
               <Modal
                 centered
                 className="support-modal"
@@ -110,14 +100,6 @@ const SupportDonut: React.FC = () => {
                     <motion.mark
                       className="copy-cardnumber-sber"
                       style={{marginInline: "10px"}}
-                      whileHover={{
-                        scale: 0.975,
-                        transition: {
-                          duration: 0.5,
-                          ease: [0.075, 0.82, 0.165, 1],
-                        },
-                      }}
-                      whileTap={{scale: 0.95, opacity: 0.5}}
                     >
                       2202202357342488
                     </motion.mark>
@@ -135,17 +117,12 @@ const SupportDonut: React.FC = () => {
                   </div>
                 </div>
               </Modal>
-              <motion.button
+              <button
                 className="support-button-yoomoney"
-                whileHover={{
-                  scale: 0.975,
-                  transition: {duration: 0.5, ease: [0.075, 0.82, 0.165, 1]},
-                }}
-                whileTap={{scale: 0.95, opacity: 0.5}}
                 onClick={() => setIsYoomoneyModalOpen(true)}
               >
                 ЮMoney
-              </motion.button>
+              </button>
               <Modal
                 centered
                 className="support-modal"
@@ -181,17 +158,7 @@ const SupportDonut: React.FC = () => {
                         Вставьте этот номер в поле{" "}
                         <mark className="select">Номер кошелька</mark> приложения вашего
                         банка и введите любую сумму. После этого - подтвердите перевод.
-                        <motion.mark
-                          className="copy-cardnumber-yoomoney"
-                          whileHover={{
-                            scale: 0.975,
-                            transition: {
-                              duration: 0.5,
-                              ease: [0.075, 0.82, 0.165, 1],
-                            },
-                          }}
-                          whileTap={{scale: 0.95, opacity: 0.5}}
-                        >
+                        <motion.mark className="copy-cardnumber-yoomoney">
                           410016763684808
                         </motion.mark>
                         <p

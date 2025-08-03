@@ -100,21 +100,16 @@ const NotFound = () => {
             <div className="modal-header-title">Страница не найдена</div>
           </div>
           <div className="modal-content">
-            <motion.button
+            <button
               className="modal-open-button"
               style={{marginBlock: "10px"}}
-              whileHover={{
-                scale: 0.975,
-                transition: {duration: 0.5, ease: [0.25, 0, 0, 1]},
-              }}
-              whileTap={{scale: 0.95, opacity: 0.5}}
               onClick={() => {
                 window.location.reload();
                 window.location.href = "/";
               }}
             >
               На главную
-            </motion.button>
+            </button>
           </div>
         </div>
       </div>

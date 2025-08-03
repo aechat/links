@@ -9,8 +9,6 @@ import {
 
 import {Modal, Slider, Tooltip} from "antd";
 
-import {motion} from "framer-motion";
-
 import React, {createContext, useContext, useEffect, useMemo, useState} from "react";
 
 type Theme = "light" | "dark" | "system";
@@ -152,48 +150,33 @@ const ThemeModal: React.FC<ThemeModalProps> = ({isModalOpen, closeModal}) => {
           }}
         >
           <div className="theme-selector">
-            <motion.button
+            <button
               className={
                 theme === "light" ? "theme-button theme-button-selected" : "theme-button"
               }
-              whileHover={{
-                scale: 0.975,
-                transition: {duration: 0.5, ease: [0.075, 0.82, 0.165, 1]},
-              }}
-              whileTap={{scale: 0.95, opacity: 0.5}}
               onClick={() => setTheme("light")}
             >
               <LightModeRounded />
               Светлая
-            </motion.button>
-            <motion.button
+            </button>
+            <button
               className={
                 theme === "dark" ? "theme-button theme-button-selected" : "theme-button"
               }
-              whileHover={{
-                scale: 0.975,
-                transition: {duration: 0.5, ease: [0.075, 0.82, 0.165, 1]},
-              }}
-              whileTap={{scale: 0.95, opacity: 0.5}}
               onClick={() => setTheme("dark")}
             >
               <DarkModeRounded />
               Тёмная
-            </motion.button>
-            <motion.button
+            </button>
+            <button
               className={
                 theme === "system" ? "theme-button theme-button-selected" : "theme-button"
               }
-              whileHover={{
-                scale: 0.975,
-                transition: {duration: 0.5, ease: [0.075, 0.82, 0.165, 1]},
-              }}
-              whileTap={{scale: 0.95, opacity: 0.5}}
               onClick={() => setTheme("system")}
             >
               <HideSourceRounded />
               Системная
-            </motion.button>
+            </button>
           </div>
         </div>
         <div className="modal-content">
