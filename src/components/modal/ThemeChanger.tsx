@@ -205,8 +205,6 @@ const ThemeModal: React.FC<ThemeModalProps> = ({isModalOpen, closeModal}) => {
               </button>
             </Tooltip>
           </div>
-        </div>
-        <div className="modal-content">
           <div className="theme-title">Насыщенность акцентного цвета</div>
           <div className="theme-slider">
             <Slider

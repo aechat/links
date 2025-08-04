@@ -1,0 +1,60 @@
+@use "mixins" as *;
+
+.theme-slider {
+  display: flex;
+  flex-grow: 1;
+  flex-shrink: 0;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  margin-inline: 10px;
+  margin-block-end: 8px;
+  line-height: 1.35;
+}
+
+.theme-slider button {
+  flex-shrink: 0;
+}
+
+.theme-title {
+  margin-inline: 15px;
+  margin-block: 10px 2px;
+  font-weight: 400;
+  font-size: 0.9rem;
+}
+
+.theme-selector {
+  display: flex;
+  flex-shrink: 0;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.theme-button {
+  display: flex;
+  flex: 1 0 120px;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  outline: 1px solid var(--summary-border);
+  // border-radius: $roundness;
+  background-color: var(--summary-background);
+  padding: 10px;
+  max-width: 100%;
+  overflow-y: hidden;
+  font-weight: 600;
+  font-size: 0.875rem;
+  font-family: Onest, sans-serif;
+}
+
+.theme-button svg {
+  fill: var(--text-color);
+  width: 20px;
+  height: 20px;
+}
+
+.theme-button-selected {
+  background-color: var(--summary-hover);
+}

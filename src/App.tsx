@@ -59,40 +59,25 @@ const ErrorFallback = ({error}: {error: Error}) => (
       className="modal"
       style={{maxWidth: "450px", margin: "15px"}}
     >
-      <div className="modal-header">
-        <div className="modal-header-title">Error: {error.message}</div>
-      </div>
-      <div className="modal-content">
-        <p>
-          Скорее всего некоторые файлы изменились на сервере. Обновите страницу, чтобы
-          загрузить актуальные данные.
-        </p>
+      <div className="error-title">Ошибка: {error.message}</div>
+      <div className="error-message">
+        <p>Попробуйте перезагрузить страницу для обновления свежих данных.</p>
         <div style={{display: "flex", gap: "10px", margin: "10px"}}>
-          <motion.button
-            className="modal-open-button"
-            whileHover={{
-              scale: 0.95,
-              transition: {duration: 0.3, ease: [0.25, 0, 0, 1]},
-            }}
-            whileTap={{scale: 0.95, opacity: 0.5}}
+          <button
+            className="error-button"
             onClick={() => {
               window.location.reload();
               window.location.href = "/";
             }}
           >
             На главную
-          </motion.button>
-          <motion.button
-            className="modal-open-button"
-            whileHover={{
-              scale: 0.95,
-              transition: {duration: 0.3, ease: [0.25, 0, 0, 1]},
-            }}
-            whileTap={{scale: 0.95, opacity: 0.5}}
+          </button>
+          <button
+            className="error-button"
             onClick={() => window.location.reload()}
           >
             Обновить страницу
-          </motion.button>
+          </button>
         </div>
       </div>
     </div>
@@ -165,7 +150,7 @@ export const App = () => {
               transition={{
                 duration: 0.3,
                 ease: [0.25, 0, 0, 1],
-                delay: 3,
+                delay: 1,
               }}
             >
               <LinearProgress color="inherit" />
@@ -175,8 +160,8 @@ export const App = () => {
                   initial={{opacity: 0}}
                   style={{
                     margin: "10px",
-                    marginTop: "20px",
-                    fontSize: "0.75rem",
+                    marginTop: "25px",
+                    fontSize: "0.875rem",
                     marginInline: "20px",
                   }}
                   transition={{
@@ -193,7 +178,7 @@ export const App = () => {
                   initial={{opacity: 0}}
                   style={{
                     margin: "10px",
-                    fontSize: "0.625rem",
+                    fontSize: "0.8rem",
                     textAlign: "right",
                     marginInline: "20px",
                   }}

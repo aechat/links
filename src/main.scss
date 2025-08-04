@@ -9,6 +9,8 @@
 @use "styles/colors";
 @use "styles/ant";
 @use "styles/modal";
+@use "styles/search";
+@use "styles/theme-selector";
 @use "styles/error";
 @use "styles/bezier";
 @use "styles/addition";
@@ -16,7 +18,6 @@
 :root {
   --header-height: 55px;
 }
-
 
 html,
 body {

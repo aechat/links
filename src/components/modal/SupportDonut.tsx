@@ -42,7 +42,7 @@ const SupportDonut: React.FC = () => {
           onClick={showDonateModal}
         >
           <CoffeeRounded />
-          Поддержать сайт
+          Поддержать проект
         </button>
       </div>
       <Modal
@@ -54,7 +54,7 @@ const SupportDonut: React.FC = () => {
       >
         <div className="modal">
           <div className="modal-header">
-            <div className="modal-header-title">Поддержать сайт</div>
+            <div className="modal-header-title">Поддержать проект</div>
             <button
               className="modal-header-close"
               onClick={handleCloseDonateModal}

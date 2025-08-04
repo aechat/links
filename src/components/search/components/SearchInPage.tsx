@@ -86,8 +86,8 @@ const SearchResults: React.FC<{
                 isMobile
                   ? {opacity: 1, filter: "none"}
                   : isSelected || isHovered
-                    ? {opacity: 1, filter: "none"}
-                    : {opacity: 0.65, filter: "saturate(0.5)"}
+                    ? { filter: "none"}
+                    : { filter: "saturate(0.25)"}
               }
               tabIndex={0}
               onClick={(e) => {

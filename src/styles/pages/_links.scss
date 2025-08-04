@@ -11,17 +11,16 @@
   display: flex;
   flex-wrap: wrap;
   border: 1px solid var(--summary-border);
-  border-radius: $roundness * 1;
+  border-radius: $roundness;
   width: 100%;
   overflow: hidden;
 }
 
 .links-button {
   flex: 1 1 225px;
-  transition:
-    background-color 0.5s,
-    opacity 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+  transition: background-color 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
   box-sizing: border-box;
+  outline: 1px solid var(--summary-border);
   box-shadow: none;
   border-radius: 0;
   background-color: var(--summary-background);
@@ -31,8 +30,6 @@
   @media (width <= 525px) {
     flex: 1 1 165px;
   }
-
-  outline: 1px solid var(--summary-border);
 
   a {
     width: 100%;

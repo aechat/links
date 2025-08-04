@@ -14,14 +14,6 @@
 }
 
 .faq-title {
-  margin-inline: 15px;
-  margin-block: 10px;
-  color: var(--summary-text);
-  font-weight: 700;
-  font-size: 1.275rem;
-  font-family: Onest, sans-serif;
-  text-transform: uppercase;
-
   h1 {
     display: none;
   }
@@ -51,17 +43,6 @@
       calc(0.575rem + (0.675 - 0.575) * ((100vw - 320px) / (768 - 320))),
       0.675rem
     );
-
-    &.tag::before {
-      flex-shrink: 0;
-      background-color: var(--summary-text);
-      width: min(calc(8px + (10 - 8) * ((100vw - 320px) / (768 - 320))), 10px);
-      height: min(calc(8px + (10 - 8) * ((100vw - 320px) / (768 - 320))), 10px);
-    }
-
-    &.tag:hover {
-      opacity: 1;
-    }
   }
 }
 
@@ -348,8 +329,10 @@
   display: flex;
   flex-flow: row wrap;
   justify-content: flex-start;
-  gap: 5px;
   margin: 10px;
+  outline: 1px solid var(--summary-border);
+  border-radius: $roundness;
+  overflow: hidden;
 
   button,
   a {
@@ -360,14 +343,14 @@
     vertical-align: middle;
     transition: opacity 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
     margin-block: 0;
-    border: 1px solid var(--summary-border);
-    border-radius: $roundness * 0.75;
+    outline: 1px solid var(--summary-border);
+    border-radius: 0;
     background-color: var(--summary-background);
     padding-inline: 10px;
     padding-block: 5px;
     color: var(--summary-text);
     font-weight: 600;
-    font-size: 0.95rem;
+    font-size: 0.975rem;
     line-height: 1.5;
     font-family: Onest, serif;
     text-align: center;
@@ -375,6 +358,10 @@
 
     &::before {
       display: none;
+    }
+
+    &:hover {
+      opacity: 1;
     }
   }
 }
