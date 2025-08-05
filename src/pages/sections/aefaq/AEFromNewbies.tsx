@@ -4,86 +4,94 @@ import React from "react";
 
 import Addition from "../../../components/Addition";
 
-import {ImageFigure, VideoFigure, YouTubeVideo} from "../../../components/ContentFigure";
+import {ContentFigure} from "../../../components/ContentFigure";
 
 import DetailsSummary from "../../../components/DetailsSummary";
 
-import ContentSwitcher from "../../../components/features/ContentFilter";
+import ContentFilter from "../../../components/features/ContentFilter";
 
+import EasingEditor from "../../../components/features/EasingEditor";
 
 const AEFromNewbies: React.FC = () => {
   return (
     <div className="faq-content">
       <DetailsSummary
-        tag="для новичка, курсы, туториалы, только открыл афтер"
-        title="Я первый раз установил и открыл программу, с чего бы мне начать обучение?"
+        tag="для новичка, курсы, туториалы, уроки, базовый курс, только открыл афтер"
+        title="Я первый раз открыл программу. С чего бы мне начать обучение?"
       >
-        <AdditionDanger>
+        <Addition type="warning">
           <ul>
             <li>
-              Будьте готовы к тому, что большинство авторов курсов и каналов на{" "}
-              <mark className="app">YouTube</mark> выполняют свои действия в английской
-              версии программы, поэтому рекомендую{" "}
-              <a href="#3.5">изменить язык на английский</a>, если у вас установлена
-              русская локализация во избежание проблем и вопросов про перевод эффектов или
-              частей интерфейса.
+              Учтите, что большинство авторов курсов и каналов на{" "}
+              <mark className="app">YouTube</mark> работают в английской версии программы.
+              Чтобы избежать проблем с локализацией, рекомендуется{" "}
+              {/* TODO: проверить и исправить при необходимости якорь!!1! */}
+              <a href="#3.5">изменить язык программы на английский</a>, если у вас
+              установлена русская версия. Это поможет избежать путаницы с переводом
+              названий эффектов или элементов интерфейса.
             </li>
             <li>
-              Если вы всё же наотрез отказываетесь от перехода на английскую локализацию -
-              при работе с <mark className="app">Adobe After Effects</mark> вам могут
-              пригодиться таблицы перевода <a href="#1.6">эффектов</a> и{" "}
-              <a href="#1.7">пресетов</a>.
+              Если вы предпочитаете работать с русской локализацией{" "}
+              <mark className="app">Adobe After Effects</mark>, вам могут пригодиться
+              таблицы перевода <a href="#1.6">эффектов</a> и <a href="#1.7">пресетов</a>.
+            </li>
+            <li>
+              Не стоит всерьёз полагаться на <mark className="app">ChatGPT</mark>,{" "}
+              <mark className="app">DeepSeek</mark> или другие текстовые нейросети при
+              обучении работе в <mark className="app">Adobe After Effects</mark>. Они
+              часто придумывают несуществующие функции программы или указывают не на те
+              элементы интерфейса.
             </li>
           </ul>
-        </AdditionDanger>
+        </Addition>
+        <Divider>Курсы для начинающих</Divider>
         <p>
           Если вы только начинаете свой путь в мире композитинга и никогда не работали с
-          программами, такими как <mark className="app">Adobe After Effects</mark> -
-          рекомендую пройти вам курс{" "}
+          программами вроде <mark className="app">Adobe After Effects</mark>, рекомендую
+          пройти курс{" "}
           <a href="https://www.youtube.com/playlist?list=PLcN7xY5E2wrmIU__8uNIHglZTyZ29RMIM">
-            Основы After Effects от Ильи Зернова
+            «Основы After Effects» от Ильи Зернова
           </a>
-          . Данный курс поможет вам освоить интерфейс программы и научиться работать с
+          . Этот курс поможет вам освоить интерфейс программы и научиться работать с
           ключевыми кадрами, титрами и эффектами.
         </p>
-        <Divider>Курсы для начинающих</Divider>
-        <YouTubeVideo
+        <ContentFigure
           caption="Основы After Effects от Ильи Зернова"
-          link="https://www.youtube.com/embed/nogR7eyhYug"
+          src="nogR7eyhYug"
+          type="youtube"
         />
         <p>
           В качестве альтернативы вы можете пройти{" "}
           <a href="https://www.youtube.com/playlist?list=PLrsq-o51mMFE4ez9Q4qmkyoXZ_lYsyZNi">
-            мини-курс от VideoSmile для начинающих
+            мини-курс «After Effects для начинающих» от VideoSmile
           </a>
-          . В данном курсе вы научитесь работать с различными эффектами, создавать
-          анимацию текста, а также использовать маски и инструмент{" "}
+          . При прохождении этого курсы вы научитесь работать с различными эффектами,
+          создавать анимацию текста, а также использовать маски и инструмент{" "}
           <mark className="plugin">Rotobrush</mark> для вырезания объектов в кадре.
         </p>
-        <YouTubeVideo
+        <ContentFigure
           caption="After Effects для начинающих"
-          link="ZTrELWgEtUI"
+          src="ZTrELWgEtUI"
+          type="youtube"
         />
         <p>
-          Если вы обладаете английским языком на уровне комфортного прослушивания и
-          понимания речи или у вас есть возможность перевести видео на нужный вам язык -
-          рекомендую к просмотру плейлист{" "}
+          Если вы владеете английским на уровне комфортного понимания речи, рекомендую к
+          просмотру плейлист{" "}
           <a href="https://www.youtube.com/playlist?list=PLYfCBK8IplO77FDDLnS06qEMoVLD7Qyib">
-            Learn Adobe After Effects от Gareth David Studio
+            «Learn Adobe After Effects» от Gareth David Studio
           </a>
-          . Автор в своём курсе подробно разбирает основные функции программы и
-          демонстрирует различные примеры работы с{" "}
-          <mark className="app">Adobe After Effects</mark>.
+          . Автор подробно разбирает основные функции программы и демонстрирует различные
+          примеры работы.
         </p>
-        <YouTubeVideo
+        <ContentFigure
           caption="What is Adobe After Effects?"
-          link="FuJMHF510mc"
+          src="FuJMHF510mc"
+          type="youtube"
         />
         <p>
-          Если вы уже знакомы с интерфейсом программы, но вы всё ещё чувствуете себя
-          неуверенно - вы можете попробовать изучить каналы на{" "}
-          <mark className="app">YouTube</mark> из списка ниже, которые помогут вам
-          прокачать свои навыки.
+          Если вы уже знакомы с интерфейсом, но всё ещё чувствуете себя неуверенно,
+          попробуйте изучить каналы на <mark className="app">YouTube</mark> из списка ниже
+          — они помогут прокачать ваши навыки.
         </p>
         <div className="flexible-links">
           <a href="https://www.youtube.com/@TutoView/videos">Tutorials View+</a>
@@ -100,51 +108,51 @@ const AEFromNewbies: React.FC = () => {
           <a href="https://www.youtube.com/@MotionXP/videos">MotionXP</a>
         </div>
         <p>
-          Ну и не забываем про дополнительный список как бесплатных, так и платных курсов
-          по <mark className="app">Adobe After Effects</mark>.
+          И не забываем про дополнительный список как бесплатных, так и платных курсов по{" "}
+          <mark className="app">Adobe After Effects</mark>.
         </p>
         <div className="flexible-links">
-          <a href="https://cloudlessons.ru/v/410/">
-            &quot;Супер After Effects&quot; от VideoSmile
-          </a>
+          <a href="https://cloudlessons.ru/v/410/">«Супер After Effects» от VideoSmile</a>
           <a href="https://volnitsa.zenclass.ru/public/course/4b9a6429-5c06-4f91-a73b-312bc57b9e35">
-            &quot;Быстрый вход в After Effects&quot; от Вольница
+            «Быстрый вход в After Effects» от Вольницы
           </a>
           <a href="https://volnitsa.zenclass.ru/public/course/9221df49-3262-444e-b269-8b3bfd496de2">
-            &quot;SUPER SILA FOREVER&quot; от Вольница
+            «SUPER SILA FOREVER» от Вольницы
           </a>
           <a href="https://sabatovsky.com/after">
-            &quot;After Effects от новичка до специалиста&quot; от Сабатовского
+            «After Effects от новичка до специалиста» от Сабатовского
           </a>
           <a href="https://www.profileschool.ru/category/video/course_adobe_after_effects_base">
-            &quot;After Effects базового уровня&quot; от Никиты Чеснокова
+            «After Effects базового уровня» от Никиты Чеснокова
           </a>
         </div>
         <Divider>Подборка туториалов на разные темы</Divider>
         <p>
-          Если вы сталкиваетесь с трудностями при работе с графиками скорости - посмотрите
-          подробное объяснение работы с данным инструментом от{" "}
-          <a href="https://www.youtube.com/@JakeInMotion">Jake In Motion</a>.{" "}
+          Если вы сталкиваетесь с трудностями при работе с графиками скорости, посмотрите
+          подробное объяснение этого инструмента от{" "}
+          <a href="https://www.youtube.com/@JakeInMotion">Jake In Motion</a>.
         </p>
-        <YouTubeVideo
-          caption="Туториал по графикам скорости который вам может пригодиться"
-          link="7pOCtlrrE3Y"
+        <ContentFigure
+          caption="Туториал по графикам скорости, который вам может пригодиться"
+          src="7pOCtlrrE3Y"
+          type="youtube"
         />
         <p>
-          Также вы могли видеть трендовые ролики с плавным ускорением и замедлением, так
-          называемым <mark className="word">speed ramp</mark>. Данный эффект делается с
+          Также вы могли видеть трендовые ролики с плавным ускорением и замедлением — так
+          называемым <mark className="word">speed ramp</mark>. Этот эффект делается с
           помощью изменения скорости в параметре <mark>Time Remapping</mark>.
         </p>
-        <AdditionInfo>
-          Чтобы включить <mark>Time Remapping</mark> у выделенного слоя - нажмите на
+        <Addition type="info">
+          Чтобы включить <mark>Time Remapping</mark> у выделенного слоя, нажмите
           комбинацию клавиш <mark className="key">Ctrl + Alt + T</mark>.
-        </AdditionInfo>
-        <YouTubeVideo
+        </Addition>
+        <ContentFigure
           caption="Плавно изменяющаяся скорость"
-          link="_kcfkuNwd3M"
+          src="_kcfkuNwd3M"
+          type="youtube"
         />
         <p>
-          Ну и куда же без основ по цветокоррекции, с помощью которого можно создать
+          Ну и куда же без основ цветокоррекции, с помощью которой можно создать
           определённый вид или настроение для слоёв в композиции.
         </p>
         <div className="flexible-links">
@@ -155,42 +163,35 @@ const AEFromNewbies: React.FC = () => {
             Основы цветокоррекции от Adobe
           </a>
         </div>
-        <YouTubeVideo
+        <ContentFigure
           caption="Цветокоррекция с помощью Lumetri Color"
-          link="y4fuhIPxmJg"
+          src="y4fuhIPxmJg"
+          type="youtube"
         />
-        <Divider>Подборка туториалов для &quot;тикток-эдиторства&quot;</Divider>
-        <AdditionWarning>
-          <ul>
-            <li>
-              Прежде чем лезть в <mark className="word">эдиторство</mark> и учиться
-              применять различные эффекты - рекомендуется всё же пройти какой-нибудь
-              базовый курс по <mark className="app">Adobe After Effects</mark>. Без
-              фундаментальных знаний многие тонкости работы с различными инструментами
-              программы могут быть вам не понятны, ведь не все{" "}
-              <mark className="word">эдиторы</mark> просто демонстрируют процесс создания
-              различных эффектов и не рассказывают как работает их проект.
-            </li>
-            <li>
-              <i style={{opacity: "0.5"}}>
-                И, пожалуйста, не лепите в свои композиции{" "}
-                <mark className="plugin">Unsharpen Mask</mark> и{" "}
-                <mark className="plugin">Sharpen</mark> с выкрученными до максимума
-                значениями ради &quot;качества&quot;, ужасно же выглядит. Используйте
-                эффекты для цветокоррекции в меру.
-              </i>
-            </li>
-          </ul>
-        </AdditionWarning>
+        <Divider>Подборка туториалов для «тикток-эдитов»</Divider>
+        <Addition type="warning">
+          Прежде чем лезть в <mark className="word">эдиторство</mark> и учиться применять
+          разные эффекты, рекомендуется всё же пройти базовый курс по{" "}
+          <mark className="app">Adobe After Effects</mark>. Без фундаментальных знаний
+          многие тонкости работы с инструментами могут быть вам непонятны, ведь не все
+          «эдиторы» подробно объясняют процесс, а просто демонстрируют его.{" "}
+          <i style={{opacity: "0.5"}}>
+            И пожалуйста, не лепите в свои композиции эффекты{" "}
+            <mark className="plugin">Unsharpen Mask</mark> и{" "}
+            <mark className="plugin">Sharpen</mark> с выкрученными до максимума значениями
+            ради «качества» — выглядит ужасно. Используйте эффекты для цветокоррекции в
+            умеренной дозировке.
+          </i>
+        </Addition>
         <p>
-          Если вы часто видите <mark className="word">эдиты</mark> по какой-нибудь
-          тематике в <mark className="app">TikTok</mark>,{" "}
+          Если вы часто видите <mark className="word">эдиты</mark> на какую-нибудь
+          тематику в <mark className="app">TikTok</mark>,{" "}
           <mark className="app">YouTube Shorts</mark> или{" "}
           <mark className="app">
             Instagram<sup>1</sup> Reels
           </mark>{" "}
-          и вы хотите научиться делать что-то похожее - изучите различные обучающие видео
-          из приведённых каналов ниже.
+          и хотите научиться делать что-то похожее — изучите обучающие видео на
+          приведённых ниже каналах.
         </p>
         <div className="flexible-links">
           <a href="https://www.youtube.com/@Tozel./videos">Tozel</a>
@@ -202,937 +203,866 @@ const AEFromNewbies: React.FC = () => {
           <a href="https://www.youtube.com/@creativegraphicz/videos">Creative Graphicz</a>
           <a href="https://www.youtube.com/@ReverseStark/videos">ReverseStark</a>
         </div>
-        <AdditionDanger>
+        <Addition type="danger">
           <sup>1</sup> <mark className="app">Instagram</mark> и <mark>Meta</mark> признаны
           экстремистскими организациями и запрещены на территории Российской Федерации.
-        </AdditionDanger>
+        </Addition>
         <p
           style={{
             textAlign: "center",
             fontSize: "0.95rem",
-            fontWeight: "700",
+            fontWeight: "600",
           }}
         >
           Надеюсь, вы найдёте что-то полезное для себя. Удачи в ваших начинаниях!
         </p>
       </DetailsSummary>
       <DetailsSummary
-        tag="сленг, жаргон, сокращения, словосочетания, говор"
+        tag="сленг, жаргон, терминология, понятия, сокращения, словосочетания, говор"
         title="Какие популярные термины есть у пользователей программы?"
       >
         <p>
           Когда пользователь только начинает изучать{" "}
-          <mark className="app">Adobe After Effects</mark> - у него может возникнуть
-          недопонимания в процессе общения с другими пользователями программы. Это
-          нормально, у каждой сферы есть свой сленг и местные понятия. В этом списке мы
-          собрали часто используемые термины и слова.
+          <mark className="app">Adobe After Effects</mark>, у него может возникнуть
+          недопонимание в процессе общения с другими людьми. Это нормально, у каждой сферы
+          есть свой сленг. В этой статье собраны часто используемые термины и слова.
         </p>
         <Divider>Базовые понятия и интерфейс</Divider>
         <ul>
           <li>
             <mark className="word">Композиция</mark> или{" "}
-            <mark className="word">композ</mark> - некая сцена вашего проекта в{" "}
-            <mark className="app">Adobe After Effects</mark>. В композиции обычно собирают
-            некую сцену с слоями, фигурами, эффектами или видеофайлами. У каждой
-            композиции есть частота кадров, разрешение и соотношение пикселя.
-            <AdditionInfo>
-              Чтобы открыть окно настроек композиции - используйте комбинацию клавиш{" "}
+            <mark className="word">композ</mark> — сцена вашего проекта. В композиции
+            обычно собирают слои, фигуры и видеофайлы, а также применяют к ним эффекты. У
+            каждой композиции есть своя частота кадров, разрешение, длительность и другие
+            параметры.
+            <Addition type="info">
+              Чтобы открыть настройки композиции, используйте комбинацию клавиш{" "}
               <mark className="key">Ctrl + K</mark>.
-            </AdditionInfo>
+            </Addition>
           </li>
           <li>
             <mark className="word">Превью</mark> или{" "}
-            <mark className="word">предпросмотр</mark> - то, что вы видите на вашем экране
-            в окне, где отображается предварительный вывод вашей композиций.
+            <mark className="word">предпросмотр</mark> — то, что вы видите в окне, где
+            отображается ваша композиция.
           </li>
           <li>
-            <mark className="word">Плейхед</mark> - вертикальная временная метка,
-            показывающая где находится точка текущего кадра в предпросмотре.
+            <mark className="word">Зайди в окно превью</mark> — вам предлагают открыть
+            окно с настройками проигрывания предпросмотра (
+            <mark className="select">«Window» → «Preview»</mark>), чтобы убедиться, что
+            всё настроено корректно. Бывает, что у пользователя выставлены неправильные
+            значения <mark className="select">«FPS»</mark>, из-за чего предпросмотр
+            воспроизводится слишком быстро или медленно. Либо выбрано низкое качество
+            предпросмотра — <mark className="select">«Auto»</mark> или{" "}
+            <mark className="select">«Quarter»</mark> вместо{" "}
+            <mark className="select">«Full»</mark>.
+          </li>
+          <li>
+            <mark className="word">Плейхед</mark> или{" "}
+            <mark className="word">CTI (Current Time Indicator)</mark> — вертикальная
+            временная метка, показывающая, на каком кадре вы находитесь в предпросмотре.
           </li>
           <li>
             <mark className="word">Ромбик</mark>, <mark className="word">ключ</mark> или{" "}
-            <mark className="word">кейфрейм</mark> - ключевые кадры или же метки, на
-            основе которых создаётся движения того или иного параметра слоя. Данные метки
-            указывают на то, как будет выглядеть анимированный элемент в конкретный момент
-            времени.
+            <mark className="word">кейфрейм</mark> — ключевые кадры, то есть метки, на
+            основе которых создаётся движение параметра. Они указывают, как должен
+            выглядеть анимированный элемент в конкретный момент времени.
           </li>
           <li>
             <mark className="word">Часы</mark> или{" "}
-            <mark className="word">секундомер</mark> - элемент интерфейса на таймлайне или
-            в панели управления эффектом для добавления ключевых кадров.
-            <AdditionInfo>
-              Если нажать на секундомер с зажатым <mark className="key">Alt</mark> -
-              включится режим работы с выражениями. Выключается аналогичным образом.
-            </AdditionInfo>
+            <mark className="word">секундомер</mark> — элемент интерфейса на таймлайне или
+            в панели управления эффектом, с помощью которого добавляются ключевые кадры.
+            <Addition type="info">
+              Если нажать на секундомер с зажатым <mark className="key">Alt</mark>,
+              включится режим работы с выражениями. Выключается он так же.
+            </Addition>
           </li>
           <li>
-            <mark className="word">Хоткей</mark> - сокращение от &quot;горячие
-            клавиши&quot;, означает некую комбинацию клавиш, которые должен знать
-            пользователь для выполнения нужного действия.
+            <mark className="word">Хоткей</mark> или{" "}
+            <mark className="word">горячие клавиши</mark> — комбинация клавиш для быстрого
+            выполнения определённого действия.
           </li>
           <li>
-            <mark className="word">Ракета</mark> - окно{" "}
-            <mark className="ui">Project Settings</mark> в котором обычно меняется
-            цветовое пространство проекта или настраивается использование GPU.
-            <AdditionInfo>
-              Данное окно открывается с помощью комбинации клавиш{" "}
+            <mark className="word">Ракета</mark> — окно{" "}
+            <mark className="select">«Project Settings»</mark>, в котором обычно меняют
+            цветовое пространство проекта или настраивают использование видеокарты.
+            <Addition type="info">
+              Это окно открывается комбинацией клавиш{" "}
               <mark className="key">Ctrl + Alt + Shift + K</mark>.
-            </AdditionInfo>
+            </Addition>
           </li>
           <li>
             <mark className="word">Разрешение</mark> или{" "}
-            <mark className="word">резолюшен</mark> - количество пикселей в ширину и
-            высоту. Иногда используется в контексте выбора качества предпросмотра{" "}
-            <mark className="ui">Full</mark>, <mark className="ui">Half</mark>,{" "}
-            <mark className="ui">Third</mark> или <mark className="ui">Quarter</mark>
-            <AdditionInfo>
-              Если у вас есть композиция с разрешением 1280 на 720, а в настройках рендера
-              вы поставили <mark className="ui">Resize</mark> до 3840 на 2160 - вы просто
-              растянете 720p композицию до 4K без фактического улучшения качества,
-              композиция не будет рендериться сразу в 4K.
-            </AdditionInfo>
+            <mark className="word">резолюшен</mark> — количество пикселей по ширине и
+            высоте. Иногда используется в контексте качества предпросмотра:{" "}
+            <mark className="select">«Full»</mark>, <mark className="select">«Half»</mark>
+            , <mark className="select">«Third»</mark> или{" "}
+            <mark className="select">«Quarter»</mark>.
+            <Addition type="info">
+              Если у вас есть композиция с разрешением <mark>1280×720</mark>, а в{" "}
+              <mark className="select">«Render Settings»</mark> вы указали{" "}
+              <mark className="select">«Resize»</mark> до <mark>3840×2160</mark> — вы
+              просто растянете видео с <mark>720p</mark> до <mark>4K</mark> без
+              фактического улучшения качества. Композиция не будет рендериться сразу в{" "}
+              <mark>4K</mark>.
+            </Addition>
           </li>
           <li>
-            <mark className="word">Прокси</mark> - урезанная в качестве (зависит от того,
-            в каком кодеке и разрешении пользователь создаст прокси) и более
-            производительная копия исходника для монтажа за счёт использования монтажного
-            кодека. Его нужно создавать, если вы имеете проблемы с производительностью
-            проекта из-за большого разрешения или когда нужна более стабильная работа с
-            проектом. Прокси можно создать прямо в{" "}
-            <mark className="app">Adobe After Effects</mark> или с помощью сторонних
-            программ, например <mark className="app">Adobe Media Encoder</mark>,{" "}
-            <mark className="app">Shutter Encoder</mark> или{" "}
-            <mark className="app">Handbrake</mark>. Также прокси можно создавать и для
-            композиций с целью уменьшения времени повторного рендера, если вы не
-            собираетесь его редактировать дальше.
-            <AdditionInfo>
+            <mark className="word">Прокси</mark> — копия исходника, созданная для
+            повышения производительности. Её качество зависит от кодека и разрешения.
+            Прокси стоит использовать, если возникают проблемы с производительностью из-за
+            высокого разрешения исходников или требуется более стабильная работа. Прокси
+            можно создать прямо в <mark className="app">Adobe After Effects</mark> или с
+            помощью сторонних программ, например{" "}
+            <mark className="app">Adobe Media Encoder</mark> или{" "}
+            <mark className="app">Shutter Encoder</mark>. Также прокси можно применять к
+            композициям, чтобы сократить время повторного рендеринга, если вы не
+            планируете вносить в них изменения.
+            <Addition type="info">
               <ul>
                 <li>
-                  Использование прокси вместо композиций или исходников можно переключать
-                  в окне <mark className="ui">Project</mark>, нажав на квадратный чекбокс
-                  слева от нужного файла.
+                  Переключаться между прокси и оригиналом можно в окне{" "}
+                  <mark className="select">«Project»</mark>, нажав на квадратный флажок
+                  слева от имени файла.
                 </li>
                 <li>
-                  Если вы создали прокси в другой программе, то указать их в{" "}
-                  <mark className="app">Adobe After Effects</mark> можно в окне{" "}
-                  <mark className="ui">Project</mark>, выбрав нужный файл, нажав по нему{" "}
-                  <mark className="key">ПКМ</mark> и выбрав{" "}
-                  <mark className="ui">Set Proxy &gt; File</mark>.
+                  Если вы создали прокси в другой программе, назначить его можно так: в
+                  окне <mark className="select">«Project»</mark> выберите файл, нажмите{" "}
+                  <mark className="key">ПКМ</mark> и выберите{" "}
+                  <mark className="select">«Set Proxy» → «File»</mark>.
                 </li>
                 <li>
-                  По умолчанию, если у исходника или композиции имеется прокси, то в
-                  финальный рендер попадает оригинальный файл. Это поведение можно
-                  изменить в окне <mark className="ui">Render Settings</mark>, выбрав в
-                  параметре <mark className="ui">Proxy Use</mark> значение{" "}
-                  <mark className="ui">Use All Proxies</mark>.
+                  По умолчанию в финальный рендеринг попадает оригинальный файл. Это
+                  поведение можно изменить в{" "}
+                  <mark className="select">«Render Settings»</mark>, указав в параметре{" "}
+                  <mark className="select">«Proxy Use»</mark> значение{" "}
+                  <mark className="select">«Use All Proxies»</mark>.
                 </li>
               </ul>
-            </AdditionInfo>
+            </Addition>
           </li>
           <li>
-            <mark className="word">Рендер</mark> - процесс генерации кадров и дальнейшей
-            их упаковки в нужный контейнер и кодек. Часто используется в контексте вывода
-            композиции в видео или изображение.
+            <mark className="word">Рендер</mark> — процесс обработки кадров и, при
+            необходимости, их упаковки в нужный контейнер с выбранным кодеком. Обычно
+            используется в контексте экспорта композиции в видеофайл или изображение.
           </li>
           <li>
             <p>
-              <mark className="word">Редьюс</mark> - функция{" "}
-              <mark className="ui">Reduce Project</mark> которая облегчает ваш проект за
-              счёт удаления всех объектов, кроме выбранной композиции в окне{" "}
-              <mark className="ui">Project</mark>. Сделать это можно с помощью{" "}
-              <mark className="ui">File &gt; Dependencies &gt; Reduce Project</mark>.
+              <mark className="word">Редьюс</mark> — функция{" "}
+              <mark className="select">«Reduce Project»</mark>, которая облегчает проект
+              за счёт удаления всех объектов, кроме выбранной композиции. Находится в{" "}
+              <mark className="select">«File» → «Dependencies» → «Reduce Project»</mark>.
+              Также существует кнопка{" "}
+              <mark className="select">«Remove Unused Footage»</mark> — она удаляет
+              неиспользуемые исходники.
             </p>
-            <AdditionWarning>
-              Если вы первый раз пользуетесь этой функцией - создайте на крайний случай
-              копию файла вашего проекта, вдруг эта функция удалит не те файлы, как
-              планировалось.
-            </AdditionWarning>
-            <p>
-              Также существует кнопка <mark className="ui">Remove Unused Footage</mark>{" "}
-              для удаления неиспользованных исходников в вашем проекте.
-            </p>
+            <Addition type="warning">
+              Если вы пользуетесь этой функцией впервые, на всякий случай создайте копию
+              проекта — вдруг она удалит что-то лишнее.
+            </Addition>
           </li>
           <li>
-            <mark className="word">Коллект файл</mark> - функция{" "}
-            <mark className="ui">Collect Files</mark> для сборки всех файлов, используемые
-            в вашем проекте <mark className="app">Adobe After Effects</mark> в одну папку.
-            Эту папку вы можете заархивировать и отправить другому человеку или перенести
-            в другое место, например на внешний жёсткий диск.
-            <AdditionInfo>
-              Данная функция находится в{" "}
-              <mark className="ui">File &gt; Dependencies &gt; Collect Files</mark>.
-            </AdditionInfo>
+            <mark className="word">Коллект</mark> — функция{" "}
+            <mark className="select">«Collect Files»</mark>, которая собирает все файлы,
+            используемые в проекте, в одну папку. Эту папку можно заархивировать и
+            отправить другому человеку или перенести на другой диск.
+            <Addition type="info">
+              Функция находится в{" "}
+              <mark className="select">«File» → «Dependencies» → «Collect Files»</mark>.
+            </Addition>
           </li>
           <li>
-            <mark className="word">Перелинкуй исходники</mark> - переподключение
-            потерянных файлов в вашем проекте. Это делается с помощью{" "}
-            <mark className="key">ПКМ</mark> по потерянным исходникам в окне{" "}
-            <mark className="ui">Project</mark> и нажатию кнопки{" "}
-            <mark className="ui">Replace Footage</mark> у исходников.
-            <AdditionInfo>
-              Если остальные потерянные исходники находятся в одной папке, то они
-              автоматически подключатся после указания первого потерянного файла.
-            </AdditionInfo>
+            <mark className="word">Перелинкуй исходники</mark> — призыв переподключить
+            потерянные файлы. Для этого нажмите <mark className="key">ПКМ</mark> по
+            потерянному исходнику в окне <mark className="select">«Project»</mark> и
+            выберите <mark className="select">«Replace Footage» → «File»</mark> или
+            нажмите <mark className="key">Ctrl + H</mark>.
+            <Addition type="info">
+              <ul>
+                <li>
+                  Чтобы отобразить только потерянные файлы в окне{" "}
+                  <mark className="select">«Project»</mark> — введите в поиск ключевое
+                  слово <mark className="copy">Missing Footage</mark>.
+                </li>
+                <li>
+                  Если остальные потерянные исходники находятся в той же папке, они
+                  подключатся автоматически после указания первого файла.
+                </li>
+              </ul>
+            </Addition>
           </li>
           <li>
-            <mark className="word">Зайди в окно превью</mark> - вам предлагают открыть
-            окно с настройками предварительного просмотра с помощью{" "}
-            <mark className="ui">Window &gt; Preview</mark>. Обычно в таких случаях у
-            пользователя стоят кривые настройки FPS (видео из-за этого идёт слишком быстро
-            или медленно) или плохое качество предпросмотра (Auto или Quarter вместо
-            Full).
+            <mark className="word">Перекодируй видос</mark> — призыв конвертировать
+            исходники в монтажный кодек, например{" "}
+            <mark className="video">Apple Prores 422</mark> через{" "}
+            <mark className="app">Shutter Encoder</mark> или{" "}
+            <mark className="app">Adobe Media Encoder</mark>.
           </li>
         </ul>
         <Divider>Работа со слоями и эффектами</Divider>
         <ul>
           <li>
-            <mark className="word">Аджастмент леер</mark> - корректирующий слой, который в
-            английской версии программы называется{" "}
-            <mark className="word">Adjustment Layer</mark>. Этот слой позволяет
-            накладывать эффекты на другие слои, находящиеся ниже него в иерархии на
-            таймлайне. Это очень удобно, если вы хотите применить эффект поверх всех
-            слоёв, например, для цветокоррекции или добавления различных искажений.
-            <AdditionInfo>
-              Чтобы создать такой слой в проекте - просто нажмите комбинацию клавиш{" "}
+            <mark className="word">Аджастмент</mark> — корректирующий слой,{" "}
+            <mark className="select">«Adjustment Layer»</mark>. Он позволяет применять
+            эффекты ко всем слоям, расположенным ниже на таймлайне. Такой слой часто
+            используют для общей цветокоррекции или других эффектов, влияющих на всю
+            сцену.
+            <Addition type="info">
+              Чтобы создать такой слой, нажмите{" "}
               <mark className="key">Ctrl + Alt + Y</mark>.
-            </AdditionInfo>
+            </Addition>
           </li>
           <li>
-            <mark className="word">Солид</mark> - слой с заданным цветом. Часто
-            применяется как фон или как инициализатор 3D-эффектов, например{" "}
-            <mark className="plugin">Trapcode Particular</mark>.
+            <mark className="word">Солид</mark> — слой сплошной заливки заданного цвета,{" "}
+            <mark className="select">«Solid Layer»</mark>. Часто применяется как фон или
+            как «инициатор» для трёхмерных эффектов вроде{" "}
+            <mark className="plugin">Trapcode Particular</mark> или{" "}
+            <mark className="plugin">Mettle Flux</mark>.
           </li>
           <li>
-            <mark className="word">Шейп</mark> - от английского{" "}
-            <mark className="word">shape</mark>, означает слой с фигурой.
+            <mark className="word">Шейп</mark> — слой с фигурой,{" "}
+            <mark className="select">«Shape Layer»</mark>. Это может быть как произвольная
+            форма, так и стандартная: квадрат, эллипс или «звезда».
           </li>
           <li>
-            <mark className="word">Маска</mark> - область на изображении или видео, через
-            которую проявляется эффект или видимость. По сути - ограничитель. Монтёры
-            маскируют не только дефекты, но и реальность.
+            <mark className="word">Маска</mark> — ограничивающая область на слое, через
+            которую проявляется эффект или сам слой.
           </li>
           <li>
-            <mark className="word">Патч</mark> или <mark className="word">путь</mark> -
-            своеобразная линия или кривая, которая применяется для создания фигуры или
-            маски у слоя.
-            <AdditionInfo>
-              Path маски и фигурного слоя взаимозаменяемые, поэтому вы можете превратить
-              слой-фигуру в маску и наоборот с помощью копирования и вставки этих
-              аттрибутов.
-            </AdditionInfo>
+            <mark className="word">Патч</mark>, <mark className="word">path</mark> или{" "}
+            <mark className="word">путь</mark> — линия или кривая, которая образует фигуру
+            или маску.
+            <Addition type="info">
+              Путь маски и фигурного слоя взаимозаменяемы: их можно копировать и вставлять
+              друг в друга.
+            </Addition>
           </li>
           <li>
-            <mark className="word">Прекомпоз</mark> - обычно это дочерняя композиция
-            созданная за счёт выделенных объектов из родительской композиции. Создаётся с
-            помощью комбинации клавиш <mark className="key">Ctrl + Shift + C</mark>. Чаще
-            всего такую композицию создают для группировки кучи объектов, чтобы получился
-            в итоге один слой на таймлайне. Новая композиция появится в панели проекта и
-            её можно будет использовать в любой другой композиции.
-            <AdditionInfo>
-              В любой непонятной ситуации - используйте прекомпоз, часто помогает.
-            </AdditionInfo>
+            <mark className="word">Прекомпоз</mark> — дочерняя композиция, созданная из
+            выделенных слоёв родительской. Создаётся с помощью{" "}
+            <mark className="key">Ctrl + Shift + C</mark>. Чаще всего используется для
+            группировки объектов в один слой.
+            <Addition type="info">
+              В любой непонятной ситуации — используйте прекомпоз. Часто помогает.
+            </Addition>
           </li>
           <li>
-            <mark className="word">Трансформ</mark> - настройка или анимация базовых
-            свойств слоя, например положение или размер. Иногда означает встроенный эффект{" "}
+            <mark className="word">Трансформ</mark> — базовые свойства слоя: положение,
+            масштаб, поворот и прочие. Иногда означает встроенный эффект{" "}
             <mark className="plugin">Transform</mark>.
           </li>
           <li>
-            <mark className="word">Овершут</mark> - специфический эффект в анимации, при
-            котором объект временно превышает целевую позицию перед возвратом к конечному
-            значению. Этот приём широко используется для создания реалистичных
-            &quot;пружинящих&quot; движений, имитирующих инерцию физических объектов.
-            Техническая реализация овершута основана на модификации параметров кривой
-            Безье, выходящей за стандартный диапазон.
-            <AdditionWarning>
-              Некоторые свойства, например положение, которое не разделено через{" "}
-              <mark>Separate Dimensions</mark>, не поддерживают овершутинг.
-            </AdditionWarning>
+            <mark className="word">Овершут</mark> — приём в анимации, при котором объект
+            слегка «проскакивает» свою конечную точку, а затем возвращается назад. Такой
+            эффект создаёт реалистичное, «пружинящее» движение и имитирует инерцию.
+            <Addition type="warning">
+              Некоторые свойства, например положение (если не разделено через{" "}
+              <mark className="select">«Separate Dimensions»</mark>), не поддерживают{" "}
+              <mark className="word">овершут</mark>.
+            </Addition>
           </li>
           <li>
-            <mark className="word">Моушен блюр</mark> - размытие в движении. С помощью
-            него можно сделать плавное движение объекта. Это можно сделать с помощью
-            включения <mark className="ui">Motion Blur</mark> у слоя или применив эффект{" "}
-            <mark className="plugin">CC Force Motion Blur</mark>.
+            <mark className="word">Моушн-блюр</mark> — размытие в движении. С его помощью
+            можно сделать движение объекта более плавным и естественным. Включается
+            переключателем <mark className="select">«Motion Blur»</mark> у слоя или
+            применяется как эффект <mark className="plugin">CC Force Motion Blur</mark>.
           </li>
           <li>
             <mark className="word">Стесняшка</mark>, <mark className="word">шляпка</mark>{" "}
-            или <mark className="word">медуза</mark> - функция{" "}
-            <mark className="ui">Shy</mark>. Если у слоя помечен такой аттрибут, то такие
-            слои можно легко скрыть на таймлайне, при этом такие слои будут видимыми в
-            предпросмотре композиции.
+            или <mark className="word">медуза</mark> — иконка и функция{" "}
+            <mark className="select">«Shy»</mark>. Если у слоя отмечен этот атрибут, его
+            можно легко скрыть на таймлайне, но он останется видимым в композиции.
           </li>
           <li>
-            <mark className="word">Решётка</mark> - индикация у слоя{" "}
-            <mark className="ui">Guide Layer</mark>, которая рендерится только в
-            предпросмотре композиции и не будет рендериться в финальном файле. Такие файлы
-            используются для описания &quot;как работать с данной композицией&quot;.
+            <mark className="word">Решётка</mark> — индикатор{" "}
+            <mark className="select">«Guide Layer»</mark>. Такой слой виден только в
+            предпросмотре и не попадает в финальный рендеринг. Используется для заметок
+            или технических разметок.
           </li>
           <li>
-            <mark className="word">Кубик</mark> - индикация у слоя, отвечающая на вопрос
-            &quot;слой или эффект находится в трёхмерном пространстве?&quot;. С такими
-            слоями можно взаимодействовать в 3D пространстве, например управлять камерой
-            или положение по одной из трёх осей.
+            <mark className="word">Кубик</mark> — индикатор, который переводит слой в
+            трёхмерное пространство. С такими слоями можно работать в 3D: менять положение
+            по трём осям, поворачивать объект в пространстве или управлять камерой.
           </li>
           <li>
             <mark className="word">Солнышко</mark> или{" "}
-            <mark className="word">звёздочка</mark> - иконка, которая выполняет два разных
-            действия в зависимости от того какой у вас тип слоя -{" "}
-            <mark className="ui">Continuously Rasterize</mark> для уменьшения
-            &quot;пикселей&quot; у векторных объектов или{" "}
-            <mark className="ui">Collapse Transformation</mark> для слоёв композиций.
-            <AdditionInfo>
-              При включенной опции <mark className="ui">Continuously Rasterize</mark> у
-              слоя - при увеличении предпросмотра вы никогда не добьётесь &quot;векторного
-              предпросмотра&quot;. Это происходит потому, что{" "}
+            <mark className="word">звёздочка</mark> — иконка, которая выполняет два разных
+            действия в зависимости от типа слоя:{" "}
+            <mark className="select">«Continuously Rasterize»</mark> для сглаживания
+            векторных объектов или{" "}
+            <mark className="select">«Collapse Transformation»</mark> для
+            слоёв-композиций.
+            <Addition type="info">
+              При включённой опции{" "}
+              <mark className="select">«Continuously Rasterize»</mark> увеличение масштаба
+              предпросмотра не даст «векторной» чёткости, так как{" "}
               <mark className="app">Adobe After Effects</mark> всегда растрирует
-              предпросмотр в соответствии с заданным в настройках разрешением композиции.
-            </AdditionInfo>
+              изображение под разрешение композиции.
+            </Addition>
           </li>
           <li>
-            <mark className="word">Тайлинг</mark> - зеркальная плитка, которую можно
-            использовать для заполнения пустоты при использования эффекта &quot;пьяного
-            оператора с трясущимися руками&quot;. Обычно такая плитка делается с помощью
-            эффектов <mark className="plugin">CC Repetile</mark> или{" "}
-            <mark className="plugin">Motion Tile</mark>.
+            <mark className="word">Тайлинг</mark> — эффект бесшовной плитки, который можно
+            использовать для заполнения пустоты, например при имитации тряски камеры.
+            Обычно делается с помощью эффектов <mark className="plugin">CC Repetile</mark>{" "}
+            или <mark className="plugin">Motion Tile</mark>.
           </li>
           <li>
-            <mark className="word">Тайм-ремапинг</mark> - принцип изменения скорости видео
-            в определённых промежутках времени. Делается это с помощью встроенной функции{" "}
-            <mark className="ui">Time Remapping</mark>, которая включается с помощью
-            комбинации клавиш <mark className="key">Ctrl + Alt + T</mark> или с помощью
-            сторонних плагинов, например <mark className="plugin">Twixtor</mark> или{" "}
-            <mark className="plugin">BCC Retimer ML</mark>.
+            <mark className="word">Тайм-ремапинг</mark> — изменение скорости видео в
+            определённых промежутках времени. Делается с помощью встроенной функции{" "}
+            <mark className="select">«Time Remapping»</mark>, который включается
+            комбинацией клавиш <mark className="key">Ctrl + Alt + T</mark> или сторонних
+            плагинов вроде <mark className="plugin">Twixtor</mark>.
           </li>
           <li>
             <mark className="word">Улитка</mark>, <mark className="word">спираль</mark>{" "}
-            или <mark className="word">лассо</mark> - инструмент для привязки слоя или его
-            параметров к другому слою.
-            <AdditionInfo>
-              Если вы не видите инструмента для привязки на вашем таймлайне - включите его
-              видимость с помощью <mark className="key">ПКМ</mark> по столбцам и выберите{" "}
-              <mark className="ui">Columns &gt; Parent & Link</mark>.
-            </AdditionInfo>
+            или <mark className="word">лассо</mark> — инструмент для привязки свойства
+            одного слоя к другому.
+            <Addition type="info">
+              Если этого инструмента нет на таймлайне, включите его:{" "}
+              <mark className="key">ПКМ</mark> по заголовкам столбцов →{" "}
+              <mark className="select">«Columns» → «Parent & Link»</mark>.
+            </Addition>
           </li>
           <li>
-            <mark className="word">Усики</mark> - манипуляторы графика скорости в{" "}
-            <mark className="ui">Graph Editor</mark>, пути движения в предпросмотре или
-            угла у фигуры.
+            <mark className="word">Усики</mark> — манипуляторы для управления кривыми в
+            редакторе графиков <mark className="select">«Graph Editor»</mark>, траекторией
+            движения объекта в окне предпросмотра композиции или углами фигуры.
           </li>
           <li>
             <mark className="word">Выражения</mark>,{" "}
-            <mark className="word">экспрешен</mark> или{" "}
-            <mark className="word">expression</mark> - некая инструкция для движения
-            объекта или расчёты некоторых формул. Часто используется для привязки
-            контроллера к объекту, значения аттрибутов из одного слоя и другому или просто
-            фиксации определённого значения в массиве.
-            <AdditionInfo>
-              Чтобы активировать режим написания выражений - нажмите на иконку{" "}
-              <mark className="ui">секундомера</mark> у нужного параметра с зажатой
-              клавишей <mark className="key">Alt</mark>. После этого на таймлайне появится
-              текстовое поле куда вы сможете ввести своё выражение.
-            </AdditionInfo>
+            <mark className="word">expressions</mark> или{" "}
+            <mark className="word">экспрешены</mark> — код на языке, похожем на{" "}
+            <mark>JavaScript</mark>, который используется для управления параметрами или
+            вычисления значений. Часто применяется для создания сложных анимаций или
+            привязки свойств друг к другу.
+            <Addition type="info">
+              Чтобы активировать режим редактирования выражения, нажмите на{" "}
+              <mark className="select">«секундомер»</mark> нужного параметра, зажав{" "}
+              <mark className="key">Alt</mark>.
+            </Addition>
           </li>
           <li>
-            <mark className="word">Шейк</mark> или <mark className="word">вигл</mark> -
-            обычно случайное движение слоя или же тряска по позиции X и Y. Этот эффект
-            часто встречается в <mark className="word">эдитах</mark> и различных видео.
-            Под <mark className="word">виглом</mark> обычно подразумевает тоже самое, но
-            только в качестве встроенной функции выражения{" "}
-            <mark className="code">wiggle(freq, amp)</mark> для задания случайной анимации
-            от исходного значения.
+            <mark className="word">Шейк</mark> или <mark className="word">вигл</mark> —
+            случайное движение или тряска слоя, часто по осям X и Y. Этот эффект популярен
+            в <mark className="word">эдитах</mark>. Под «виглом» обычно подразумевают
+            встроенную функцию выражения <mark className="code">wiggle(freq, amp)</mark>.
           </li>
           <li>
-            <mark className="word">Автотрейс</mark> - функция, которая помогает
-            автоматически создавать маски для слоя, основываясь на его краях. Чтобы
-            воспользоваться этой функцией, просто перейдите в{" "}
-            <mark className="ui">Layer &gt; Auto-Trace</mark>, предварительно выделив
-            нужный слой.
+            <mark className="word">Автотрейс</mark> — функция, которая автоматически
+            создаёт маски по контурам объекта. Вызывается через{" "}
+            <mark className="select">«Layer» → «Auto-Trace»</mark>.
           </li>
           <li>
-            <mark className="word">Морфинг</mark> - название техники для плавного
-            превращения одной фигуры в другую, часто применяется с фигурными слоями.
+            <mark className="word">Морфинг</mark> — приём плавного превращения одной
+            фигуры в другую.
           </li>
           <li>
-            <mark className="word">Кеинг</mark> - процедура удаления однородного или
-            однотонного фона из видео или изображения. Часто применяется в контексте
-            удаления зелёного или синего фона или отделения объекта от фона.
+            <mark className="word">Кеинг</mark> — процедура удаления однородного фона (как
+            правило, зелёного или синего) из видео или изображения.
           </li>
           <li>
-            <mark className="word">Клинап</mark> - процедура удаления ненужных объектов на
-            видео. Сделать это можно встроенным{" "}
-            <mark className="plugin">Content-Aware Fill</mark> или через плагин{" "}
-            <mark className="plugin">Mocha Pro</mark>.
+            <mark className="word">Клинап</mark> — процедура удаления ненужных объектов в
+            кадре. Делается встроенным инструментом{" "}
+            <mark className="plugin">Content-Aware Fill</mark>, сторонним плагином{" "}
+            <mark className="plugin">Mocha Pro</mark> или другими методами.
           </li>
           <li>
-            <mark className="word">Нулевой объект</mark> или{" "}
-            <mark className="word">нуль</mark> - пустой объект, который используется для
-            расположения контроллеров или манипуляторов. Полезен при привязке нескольких
-            объектов в одно целое.{" "}
+            <mark className="word">Нулевой объект</mark>,{" "}
+            <mark className="word">Null Object</mark> или{" "}
+            <mark className="word">нуль</mark> — невидимый вспомогательный слой, который
+            используется для управления другими слоями или в качестве «носителя»
+            контроллеров.
           </li>
           <li>
-            <mark className="word">Ротобраш</mark> - стандартный инструмент в{" "}
-            <mark className="app">Adobe After Effects</mark> для выделения движущегося
-            объекта в кадре. Часто используется для создания обводки вокруг объекта или
-            отделения от фона.
+            <mark className="word">Ротобраш</mark> или{" "}
+            <mark className="word">Rotobrush</mark> — стандартный инструмент программы для
+            выделения движущегося объекта в кадре.
           </li>
           <li>
-            <mark className="word">Ротоскоп</mark> - процесс разделения сцены или кадра на
-            несколько слоёв.
+            <mark className="word">Ротоскопинг</mark> — процесс покадрового отделения
+            объекта от фона.
           </li>
           <li>
-            <mark className="word">Трекинг</mark> - механизм определения местоположения
-            движущегося объекта для дальнейшей его привязки к другому объекту. Часто
-            применяется для замены экранов мониторов или биллбордов на видео.
+            <mark className="word">Трекинг</mark> — отслеживание движения объекта для
+            последующей привязки к нему другого объекта. Часто применяется для замены
+            экранов на видео.
           </li>
         </ul>
         <Divider>Инструменты</Divider>
         <ul>
           <li>
-            <mark className="word">Борисовский</mark>,{" "}
-            <mark className="word">сапфировский</mark> или{" "}
-            <mark className="word">континуумовский</mark>, то обычно собеседник имеет в
-            виду плагины от компании Boris FX, в частности из пакетов{" "}
-            <mark className="plugin">Sapphire</mark> и{" "}
-            <mark className="plugin">Continuum</mark>. Эти прилагательные часто
-            используются вместе с названиями эффектов. Например,{" "}
-            <mark className="word">сапфировский шейк</mark> обозначает эффект{" "}
+            Если вы слышите <mark className="word">«борисовский»</mark>,{" "}
+            <mark className="word">«сапфировский»</mark> или{" "}
+            <mark className="word">«континуумовский»</mark>, то обычно собеседник имеет в
+            виду плагины от компании <mark className="company">Boris FX</mark>, в
+            частности пакеты <mark className="plugin">Sapphire</mark> и{" "}
+            <mark className="plugin">Continuum</mark>. Например,{" "}
+            <mark className="word">«сапфировский шейк»</mark> — это эффект{" "}
             <mark className="plugin">S_Shake</mark>, а{" "}
-            <mark className="word">континуумовский блюр</mark> - это{" "}
+            <mark className="word">«континуумовский блюр»</mark> —{" "}
             <mark className="plugin">BCC Lens Blur</mark>.
           </li>
           <li>
-            <mark className="word">Максоновский</mark> или{" "}
-            <mark className="word">редгиантовский</mark> - в таком случае подразумеваются
-            плагины от Maxon и Red Giant, например{" "}
+            <mark className="word">«Максоновский»</mark> или{" "}
+            <mark className="word">«редгиантовский»</mark> — подразумеваются плагины от
+            компаний <mark className="company">Maxon</mark> и{" "}
+            <mark className="company">Red Giant</mark>, например{" "}
             <mark className="plugin">Trapcode Particular</mark> или{" "}
             <mark className="plugin">Universe</mark>.
           </li>
           <li>
-            <mark className="word">Могрт</mark> или <mark className="word">Mogrt</mark> -
+            <mark className="word">Могрт</mark> или <mark className="word">MOGRT</mark> —
             шаблон анимационного дизайна, который создаётся в{" "}
-            <mark className="app">Adobe After Effects</mark>, чтобы использовать в
-            дальнейшем в проектах, созданные в{" "}
-            <mark className="app">Adobe Premiere Pro</mark>.
+            <mark className="app">Adobe After Effects</mark> для дальнейшего использования
+            в <mark className="app">Adobe Premiere Pro</mark>.
           </li>
           <li>
-            <mark className="word">Мокка</mark> или <mark className="word">моча</mark> -
-            плагин <mark className="plugin">Boris FX Mocha</mark>, которая используется
-            для трекинга и привязки объектов. Данный плагин включён в базовую поставку{" "}
-            <mark className="app">Adobe After Effects</mark>, но в урезанном виде. Для
-            разблокировки некоторых функций требуется полная версия{" "}
-            <mark className="plugin">Boris FX Mocha Pro</mark>.{" "}
-            <a href="https://support.Boris FX.com/hc/en-us/articles/10232625711117-I-use-Mocha-AE-what-is-the-difference-between-Mocha-AE-and-Mocha-Pro-Do-I-need-Mocha-Pro">
-              О различиях между AE и Pro...
-            </a>
+            <mark className="word">Мокка</mark> или <mark className="word">моча</mark> —
+            плагин <mark className="plugin">Boris FX Mocha</mark> для трекинга. В{" "}
+            <mark className="app">Adobe After Effects</mark> поставляется урезанная версия{" "}
+            <mark className="plugin">Mocha AE</mark>; полная называется{" "}
+            <mark className="plugin">Mocha Pro</mark>.{" "}
+            <Addition type="info">
+              О различиях <mark className="plugin">Mocha AE</mark> и{" "}
+              <mark className="plugin">Mocha Pro</mark> вы можете прочитать на
+              <a href="https://support.borisfx.com/hc/en-us/articles/10232625711117-I-use-Mocha-AE-what-is-the-difference-between-Mocha-AE-and-Mocha-Pro-Do-I-need-Mocha-Pro">
+                официальном сайте Boris FX
+              </a>
+              .
+            </Addition>
           </li>
           <li>
-            <mark className="word">Элемент 3Д</mark> - сторонний плагин{" "}
-            <mark className="plugin">Element 3D</mark> от VideoCopilot, позволяющий
-            создавать 3D-сцены в композициях{" "}
-            <mark className="app">Adobe After Effects</mark>.
+            <mark className="word">Элемент 3D</mark> — сторонний плагин{" "}
+            <mark className="plugin">Element 3D</mark> от{" "}
+            <mark className="company">VideoCopilot</mark> для работы с трёхмерными
+            моделями.
           </li>
           <li>
-            <mark className="word">Инфлюкс</mark> - сторонний плагин{" "}
+            <mark className="word">Инфлюкс</mark> — сторонний плагин{" "}
             <mark className="plugin">Autokroma Influx</mark>, позволяющий импортировать в{" "}
-            <mark className="app">Adobe After Effects</mark> неподдерживаемые типы файлов,
-            например <mark className="file">MKV</mark> или{" "}
-            <mark className="video">FLV</mark>.
+            проект неподдерживаемые форматы файлов, например{" "}
+            <mark className="video">MKV</mark> или <mark className="video">FLV</mark>.
           </li>
           <li>
-            <mark className="word">Плагин</mark> - подключаемые, обычно встроенные или
-            сторонние эффекты с расширением <mark className="file">AEX</mark> для{" "}
+            <mark className="word">Плагин</mark> — подключаемый эффект в виде файла,
+            обычно с расширением <mark className="file">AEX</mark> для{" "}
             <mark>Windows</mark> или <mark className="file">PLUGIN</mark> для{" "}
-            <mark>macOS</mark>. Часто применяется с выражением &quot;где скачать?&quot;.
-          </li>
-          <li>
-            <mark className="word">Пресет</mark> - заготовленный набор эффектов формата{" "}
-            <mark className="file">FFX</mark> для дальнейшего применения. Может
-            сохраняться вместе с анимацией по ключам.
-            <AdditionWarning>
-              Не все пресеты, созданные сторонними пользователями могут корректно работать
-              с вашим проектом, иногда их надо отредактировать под свои нужды.
-            </AdditionWarning>
-          </li>
-          <li>
-            <mark className="word">Скрипт</mark> - файлы формата{" "}
-            <mark className="file">JSX</mark> или
-            <mark className="file">JSXBIN</mark>, выполняющее определённые инструкции или
-            действия. Могут быть встроенными или сторонними. Если у вас есть навыки в
-            программировании скриптов - вы можете создать свой скрипт, выполняющую нужную
-            вам задачу. <a href="#2.1">Как установить сторонние скрипты?</a>
-          </li>
-          <li>
-            <mark className="word">Экстеншен</mark> - расширения, часто запакованные в{" "}
-            <mark className="file">ZXP</mark>. После установки таких расширений - они
-            появятся в <mark className="ui">Window &gt; Extensions</mark>.
-            <AdditionInfo>
-              Если такие расширения не открываются - убедитесь в том, что вы применили{" "}
-              <a
-                download
-                href="files/Enable Extensions Adobe.reg"
-              >
-                REG-патч
-              </a>{" "}
-              для <mark>Windows</mark> или ввели нужные команды для их активации в
-              терминале для <mark>macOS</mark>.
-            </AdditionInfo>
-          </li>
-          <li>
-            <mark className="word">Дупликатор</mark> - обычно используется в качестве
-            обозначения бесплатного стороннего скрипта{" "}
-            <a href="https://aescripts.com/true-comp-duplicator/">True Comp Duplicator</a>
-            . Он используется для того чтобы дублировать композиции так, чтобы они не были
-            зависимы друг от друга.
-            <AdditionInfo>
-              Чтобы его скачать, вам нужно зарегистрироваться на сайте{" "}
-              <a href="https://aescripts.com">aescripts</a> и на странице с плагином
-              указать цену <mark>0</mark>. После этого данный плагин появится в ваших
-              заказах и вы можете оттуда его скачать.
-            </AdditionInfo>
-          </li>
-          <li>
-            <mark className="word">Компсеттер</mark> - бесплатный сторонний JSX-скрипт{" "}
-            <a href="https://github.com/msongz/rd_CompSetter">rd_CompSetter</a> для
-            одновременного изменения параметров нескольких композиций.
-            <AdditionInfo>
-              Инструкцию по установке сторонних плагинов и скриптов вы можете найти в{" "}
+            <mark>macOS</mark>. Часто используется с вопросом «где скачать?».
+            <Addition type="info">
+              Инструкцию по установке плагинов вы можете найти в{" "}
               <a href="#2.1">статье 2.1</a>.
-            </AdditionInfo>
+            </Addition>
+          </li>
+          <li>
+            <mark className="word">Пресет</mark> — готовый набор эффектов в формате{" "}
+            <mark className="file">FFX</mark>. Может сохраняться вместе с анимацией.
+            <Addition type="info">
+              Инструкцию по установке пресетов вы можете найти в{" "}
+              <a href="#2.1">статье 2.1</a>.
+            </Addition>
+            <Addition type="warning">
+              Не все сторонние пресеты будут корректно работать в вашем проекте; иногда их
+              нужно адаптировать.
+            </Addition>
+          </li>
+          <li>
+            <mark className="word">Скрипт</mark> — файл формата{" "}
+            <mark className="file">JSX</mark> или <mark className="file">JSXBIN</mark>,
+            выполняющий определённые действия.{" "}
+            <Addition type="info">
+              Инструкцию по установке скриптов вы можете найти в{" "}
+              <a href="#2.1">статье 2.1</a>.
+            </Addition>
+          </li>
+          <li>
+            <mark className="word">Экстеншен</mark> или{" "}
+            <mark className="word">extension</mark> — расширение, упакованное в формате{" "}
+            <mark className="file">ZXP</mark>. После установки появляется в меню{" "}
+            <mark className="select">«Window» → «Extensions»</mark>.
+            <Addition type="info">
+              Инструкцию по установке расширений вы можете найти в{" "}
+              <a href="#2.1">статье 2.1</a>.
+            </Addition>
+          </li>
+          <li>
+            <mark className="word">Дупликатор</mark> — обычно имеется в виду бесплатный
+            скрипт{" "}
+            <a href="https://aescripts.com/true-comp-duplicator/">True Comp Duplicator</a>
+            . Он используется для создания независимых дубликатов композиций.
+            <Addition type="info">
+              Чтобы скачать его, нужно зарегистрироваться на сайте{" "}
+              <a href="https://aescripts.com">aescripts</a>, на странице плагина указать
+              цену <mark>0</mark> и оформить заказ.
+            </Addition>
+          </li>
+          <li>
+            <mark className="word">Компсеттер</mark> — бесплатный скрипт{" "}
+            <a href="https://aescripts.com/rd-compsetter/">rd: CompSetter</a> для
+            пакетного изменения параметров нескольких композиций.
           </li>
         </ul>
         <Divider>Сокращения и сленг</Divider>
         <ul>
           <li>
-            <mark className="word">ЕМНИП</mark> - сокращение от выражения{" "}
-            <mark className="word">Если мне не изменяет память</mark>.
+            <mark className="word">ЕМНИП</mark> — сокращение от «если мне не изменяет
+            память».
           </li>
           <li>
-            <mark className="word">КТТС</mark> - сокращение от выражения{" "}
-            <mark className="word">Как только, так сразу</mark>.
+            <mark className="word">КТТС</mark> — сокращение от «как только, так сразу».
           </li>
           <li>
-            <mark className="word">ASAP</mark> или <mark className="word">АСАП</mark> -
-            сокращение от выражения <mark className="word">As soon as possible</mark>, что
-            в переводе означает <mark className="word">Как можно скорее</mark>.
+            <mark className="word">ASAP</mark> или <mark className="word">АСАП</mark> —
+            сокращение от «as soon as possible» или «как можно скорее».
           </li>
           <li>
-            <mark className="word">Топик стартер</mark> - человек, который изначально
-            задал вопрос или поднял определённую тему в чате.
-          </li>
-          <li>
-            <mark className="word">Одинаковый год</mark> - часто встречается в контексте
-            вопроса &quot;у тебя точно одинаковые версии программ от Adobe стоят?&quot;.
-            Данный вопрос задаётся в случае когда пользователь, например, не может
-            подсоединить <mark className="app">Adobe After Effects</mark> и{" "}
-            <mark className="app">Adobe Media Encoder</mark> между собой.
-            <AdditionWarning>
-              Программы <mark className="app">Adobe After Effects</mark>,
-              <mark className="app">Adobe Premiere Pro</mark> и
-              <mark className="app">Adobe Media Encoder</mark> разных годов, например{" "}
-              <mark>2020</mark>, <mark>2018</mark>и <mark>2022</mark> не совместимы друг с
-              другом.
-            </AdditionWarning>
+            <mark className="word">Топикстартер</mark> или{" "}
+            <mark className="word">ТС</mark> — пользователь, который задал вопрос или
+            начал обсуждение.
           </li>
         </ul>
         <Divider>Технические термины и форматы</Divider>
         <ul>
           <li>
-            <mark className="word">Альфа-канал</mark> - это четвёртый канал в цветовой
-            модели RGBA. Когда мы говорим об альфа-канале, чаще всего имеем в виду
-            прозрачность, которую можно наложить на изображение. Например,{" "}
+            <mark className="word">Альфа-канал</mark> — четвёртый канал в цветовой модели{" "}
+            <mark>RGBA</mark>, отвечающий за прозрачность. Например,{" "}
             <mark className="file">PNG</mark> поддерживает множество уровней прозрачности,
-            позволяя создавать изображения с плавными переходами от полностью прозрачного
-            до полностью непрозрачного. В отличие от этого,{" "}
-            <mark className="image">GIF</mark> поддерживает только бинарную прозрачность,
-            что означает, что изображение может быть либо полностью прозрачным, либо
-            полностью непрозрачным, без плавных затуханий. Если вы хотите сохранить видео
-            с прозрачностью, вам подойдут контейнеры <mark className="video">MOV</mark>,{" "}
-            <mark className="video">AVI</mark> или <mark className="video">WEBM</mark>, в
-            которые вы можете закодировать видео с кодеком, который поддерживает
-            альфа-канал. Однако, будьте осторожны с <mark className="video">MP4</mark>: в
-            него нельзя запаковать альфа-канал, кроме как через устройство на{" "}
-            <mark>macOS</mark>, но это уже другая история.
-            <AdditionInfo>
-              Если хотите узнать больше об альфа-канале, то{" "}
+            а <mark className="image">GIF</mark> — только полную прозрачность или её
+            отсутствие. Чтобы сохранить видео с прозрачностью, подойдут контейнеры{" "}
+            <mark className="video">MOV</mark>, <mark className="video">AVI</mark> или{" "}
+            <mark className="video">WEBM</mark> с кодеком, поддерживающим альфа-канал.
+            <Addition type="info">
+              Если хотите узнать больше об альфа-канале,{" "}
               <a href="https://ru.wikipedia.org/wiki/%D0%90%D0%BB%D1%8C%D1%84%D0%B0-%D0%BA%D0%B0%D0%BD%D0%B0%D0%BB">
                 загляните на Википедию
               </a>
               .
-            </AdditionInfo>
+            </Addition>
           </li>
           <li>
-            <mark className="word">Битрейт</mark> - это скорость, с которой информация
-            передается и обрабатывается в видео файле. Обычно его измеряют в{" "}
-            <mark>Кбит/с</mark> или <mark>Мбит/с</mark>. Битрейт в аудио и видео
-            показывает, насколько сильно сжат поток данных и определяет, какой размер
-            канала нужен для его передачи. Чем выше битрейт, тем лучше качество видео,
-            особенно когда на экране быстро движутся объекты.{" "}
-            <AdditionInfo>
-              Если у вашего исходного видео битрейт составляет <mark>10 Мбит/с</mark>, а
-              при экспорте вы укажете <mark>50 Мбит/с</mark>, то качество изображения не
-              улучшится. Вы просто увеличите размер файла без реальной пользы.
-            </AdditionInfo>
+            <mark className="word">Битрейт</mark> — скорость передачи данных в видеофайле,
+            обычно измеряется в <mark>Мбит/с</mark>. Он определяет, насколько сильно сжат
+            поток данных. Чем выше битрейт, тем лучше качество видео, особенно в
+            динамичных сценах.
+            <Addition type="info">
+              Если у исходного видео битрейт <mark>10 Мбит/с</mark>, а при экспорте вы
+              укажете <mark>50 Мбит/с</mark> — качество не улучшится. Вы просто увеличите
+              размер файла.
+            </Addition>
             <Divider>Виды битрейта</Divider>
             <ul>
               <li>
                 <mark className="word">CBR (Constant Bitrate)</mark> или{" "}
-                <mark className="word">Постоянный битрейт</mark> - вариант кодирования
-                данных, когда пользователь выбирает значение битрейта и он сохраняется для
-                всего файла. В таком типе кодирования размер получаемого файла будет
-                предсказуемым. Хорошо подходит для монтажа, но не очень уместен для
-                социальных сетей из-за большого веса по сравнению с кодированием через
-                VBR.
+                <mark className="word">постоянный битрейт</mark> — кодирование, при
+                котором битрейт остаётся неизменным на протяжении всего файла. Размер
+                файла легко предсказать. Подходит для монтажа, но неэффективен для
+                соцсетей из-за большого размера.
               </li>
               <li>
                 <mark className="word">VBR (Variable Bitrate)</mark> или{" "}
-                <mark className="word">Переменный битрейт</mark> - вариант кодирования
-                данных в котором кодек сам выбирает значение битрейта исходя из уровня
-                желаемого качества. На разных временных промежутках битрейт может
-                изменяться. Плохо подходит для монтажа, но хорошо подходит для передачи
-                видео или публикации в социальные сети.
+                <mark className="word">переменный битрейт</mark> — кодирование, при
+                котором кодек сам регулирует битрейт в зависимости от сложности сцены.
+                Плохо подходит для монтажа, но хорошо — для финального экспорта и
+                публикации в интернете.
               </li>
               <li>
-                <mark className="word">ABR (Adaptive Bitrate)</mark> или{" "}
-                <mark className="word">Усреднённый битрейт</mark> - похож по своей сути
-                как гибрид CBR и VBR, используется редко.
+                <mark className="word">Квантование (Constant Quality)</mark> — метод
+                сжатия, при котором уровень качества остаётся постоянным на протяжении
+                всего видео. Чем меньше значение <mark className="word">CQ</mark>, тем
+                лучше качество, но больше размер. Обычно значения <mark>23</mark> хватает
+                для большинства случаев.
+                <Addition type="info">
+                  Чтобы экспортировать композицию с использованием{" "}
+                  <mark className="word">CQ</mark> — используйте сторонний плагин{" "}
+                  <mark className="plugin">Voukoder Classic</mark> или конвертируйте видео
+                  через <mark className="app">Shutter Encoder</mark>.
+                </Addition>
               </li>
               <li>
-                <mark className="word">Квантование</mark> или{" "}
-                <mark className="word">Constant Quantization</mark> - это метод сжатия
-                видео, с помощью которого уровень качества изображения сохраняется
-                постоянным на протяжении всего видео, независимо от его сложности. Чем
-                меньше значение <mark>CQ</mark>, тем лучше качество изображения, но больше
-                вес. Обычно хватает значения <mark>23</mark> для большинства случаев.
-              </li>
-              <li>
-                <mark className="word">Lossless</mark> - кодирование данных без потерь. В
-                повседневных задачах требуется очень редко и используется этот вариант с
-                осторожностью. Сжатие без потерь используется, когда важна идентичность
-                сжатых данных в сравнении с оригиналом.
-                <AdditionWarning>
-                  Учтите, что после такого кодирования полученный файл может занять у вас
-                  чуть ли не всё дисковое пространство на вашем устройстве.
-                </AdditionWarning>
+                <mark className="word">Lossless</mark> — кодирование без потерь.
+                Используется редко, когда важна полная идентичность с оригиналом.
+                <Addition type="warning">
+                  Длинная композиция, закодированная без потерь, может занять почти всё
+                  дисковое пространство.
+                </Addition>
               </li>
             </ul>
           </li>
           <li>
-            <mark className="word">Кодек</mark> - программа или библиотека, которая
-            кодирует или декодирует данные видео. С помощью кодеков компьютер понимает как
-            ему работать с различными форматами видеофайлов. Существует несколько типов
-            кодеков, в основном их делят на <mark className="word">монтажные</mark> и{" "}
-            <mark className="word">не монтажные (delivery) кодеки</mark>. Видео с не
-            монтажными кодеками для монтажа ваших композиций использовать не
-            рекомендуется, так как они могут плохо крутиться программой.
+            <mark className="word">Кодек</mark> — программа или библиотека, которая
+            кодирует и декодирует видеоданные. Кодеки делят на{" "}
+            <mark className="word">монтажные</mark> и{" "}
+            <mark className="word">потоковые (delivery)</mark>. Использовать видео с
+            потоковые кодеками для монтажа не рекомендуется во избежание различных проблем
+            и артефактов при работе с ними.
+            <Divider>Монтажные кодеки</Divider>
             <ul>
-              <Divider>Монтажные кодеки</Divider>
               <li>
-                <mark className="video">Apple Prores</mark> или в простонародье{" "}
-                <mark className="video">прорес</mark> - высококачественный кодек, который
-                широко используется в качестве формата получения, производства и доставки
-                и имеет различные шаблоны кодирования. Некоторых может расстроить большой
-                вес файлов с таким кодеком. <mark className="video">Prores 422</mark> чаще
-                всего используется в монтаже как исходники или прокси, а{" "}
-                <mark className="video">Prores 4444</mark> используется для того чтобы
-                импортировать видео с прозрачным фоном без сильной потери качества. Чтобы
-                экспортировать такой файл из{" "}
-                <mark className="app">Adobe After Effects</mark>, вам нужно выбрать{" "}
-                <mark className="file">Quicktime</mark> из списка доступных кодеков для
-                вывода.
-                <AdditionInfo>
-                  В кодеках <mark className="video">Apple Prores</mark> вы не можете
-                  настроить битрейт, так как у каждого типа, например <mark>422</mark>,{" "}
-                  <mark>422 (LT)</mark> или <mark>4444</mark> имеют различные битрейты по
-                  умолчанию.{" "}
+                <mark className="video">Apple ProRes</mark> или{" "}
+                <mark className="video">прорес</mark> — индустриальный стандарт для
+                монтажа. <mark className="video">Apple ProRes 422</mark> чаще всего
+                применяют на этапе редактирования, а{" "}
+                <mark className="video">Apple ProRes 4444</mark> — для экспорта с
+                альфа-каналом.
+                <Addition type="info">
+                  У каждого варианта данного кодека — <mark>422</mark>,{" "}
+                  <mark>422 LT</mark> или <mark>4444</mark> — свой фиксированный битрейт.
+                  Ручная настройка не предусмотрена.{" "}
                   <a href="https://ru.wikipedia.org/wiki/Apple_ProRes#%D0%A1%D1%80%D0%B0%D0%B2%D0%BD%D0%B5%D0%BD%D0%B8%D0%B5_%D1%84%D0%BE%D1%80%D0%BC%D0%B0%D1%82%D0%BE%D0%B2_%D1%81%D0%B5%D0%BC%D0%B5%D0%B9%D1%81%D1%82%D0%B2%D0%B0_ProRes">
                     Подробнее...
                   </a>
-                </AdditionInfo>
+                </Addition>
               </li>
               <li>
-                <mark className="video">DNxHD</mark> или{" "}
-                <mark className="video">DNxHR</mark> - монтажные кодеки от Avid, были
-                создан с акцентом на меньший вес после создания такого файла. По своей
-                сути похожи как <mark className="video">Apple Prores</mark>.
+                <mark className="video">DNxHD</mark> /{" "}
+                <mark className="video">DNxHR</mark> — монтажные кодеки от{" "}
+                <mark className="company">Avid</mark>, аналог{" "}
+                <mark className="video">Apple ProRes</mark>.
               </li>
               <li>
-                <mark className="video">GoPro Cineform</mark> - также популярен в
-                индустрии кино и на телевидении, поддерживает вывод видео с альфа-каналом
-                и также имеет меньший вес по сравнению с{" "}
-                <mark className="video">Apple Prores 4444</mark>.
+                <mark className="video">GoPro CineForm</mark> — ещё один популярный
+                монтажный кодек, поддерживает альфа-канал.
               </li>
             </ul>
+            <Divider>Потоковые (delivery) кодеки</Divider>
             <ul>
-              <Divider>Не монтажные (delivery) кодеки</Divider>
               <li>
-                <mark className="video">H.264</mark>, <mark className="video">H.265</mark>{" "}
-                или <mark className="file">HEVC</mark> - популярный кодек для
-                распространения видео и публикаций в интернете, для воспроизведения видео
-                на различных устройствах. При должном кодировании вы можете получить
-                хорошее соотношение качества, веса и совместимости с другими устройствами.{" "}
-                <AdditionDanger>
-                  <p>
-                    <b>
-                      <u>Крайне не рекомендуется</u>
-                    </b>{" "}
-                    использовать для монтажа видео из интернета с данными кодеками!
-                  </p>
+                <mark className="video">H.264</mark> /{" "}
+                <mark className="video">H.265 (HEVC)</mark> — самые популярные кодеки для
+                распространения видео в интернете. Обеспечивают хорошее соотношение
+                качества и размера.
+                <Addition type="danger">
                   <ul>
                     <li>
-                      Такие кодеки предназначены только для вывода. Определённая площадка,
-                      например YouTube, может переконвертировать видео по своим
-                      алгоритмам, чтобы уместить у себя на своих серверах, но не
-                      рассчитывает на то, что пользователь скачает видео из этой площадки
-                      и начнёт с ним работать в монтажной программе. Из-за этого при
-                      монтаже вы можете получить неожиданные результаты в виде непонятных
-                      артефактов или{" "}
-                      <mark className="word">проблемы зелёного экрана</mark>, так как
-                      монтажная программа не понимает, как с таким файлом работать.
+                      <b>
+                        <u>Крайне не рекомендуется</u>
+                      </b>{" "}
+                      использовать для монтажа видео из интернета, закодированные этими
+                      кодеками. Такие кодеки предназначены только для финального вывода.
+                      При монтаже скачанных с <mark className="app">YouTube</mark> видео
+                      вы можете получить артефакты или «зелёный экран», так как монтажная
+                      программа не всегда может корректно с ними работать.
                     </li>
                     <li>
-                      Прежде чем использовать видео из популярных площадок для монтажа -
-                      стоит их перекодировать в{" "}
-                      <mark className="word">монтажный кодек</mark>, например в{" "}
-                      <mark className="video">Apple Prores 422</mark>, чтобы не заработать
-                      себе головные боли в дальнейшем. <a href="#5.1">Подробнее...</a>
+                      Прежде чем использовать видео из интернета для монтажа, их стоит
+                      перекодировать в монтажный кодек, например{" "}
+                      <mark className="video">Apple ProRes 422</mark>.{" "}
+                      <a href="#4.1">Подробнее...</a>
+                    </li>
+                    <li>
+                      «Проблема зелёного экрана» часто встречается при работе с «кривыми»
+                      исходниками в <mark className="video">H.264</mark> или при
+                      использовании видеокарт от <mark className="company">AMD</mark>.
+                      Иногда для решения проблемы достаточно отключить аппаратное
+                      ускорение декодирования в{" "}
+                      <mark className="select">«Edit» → «Preferences» → «Import»</mark>,
+                      если вы не хотите перекодировать исходники.
                     </li>
                   </ul>
-                </AdditionDanger>
-                <AdditionInfo>
-                  <mark className="word">Проблема зелёного экрана</mark> часто встречается
-                  при использовании кривых исходников в{" "}
-                  <mark className="video">H.264</mark> или при использовании видеокарт от
-                  AMD. Иногда в таком случае перекодировка не требуется и достаточно
-                  отключить{" "}
-                  <mark className="ui">Enable hardware accelerated decoding</mark> в{" "}
-                  <mark className="ui">Edit &gt; Preferences &gt; Import</mark>
-                </AdditionInfo>
+                </Addition>
               </li>
               <li>
-                <mark className="video">VP9</mark> и <mark className="video">AV1</mark> -
-                кодеки от Google в контейнере <mark className="video">WEBM</mark> с
-                возможностью вывода с альфа-каналом. Видео с таким кодеком обычно
-                используются для размещения на веб-страницах. За счёт своих алгоритмов
-                сжатия видео с кодеком <mark className="video">VP9</mark> или{" "}
-                <mark className="video">AV1</mark> имеют гораздо меньший вес по сравнению
-                с видео в кодеке <mark className="video">H.264</mark> или{" "}
-                <mark className="video">H.265</mark>.
-                <AdditionInfo>
-                  Из <mark className="app">Adobe After Effects</mark> файлы с таким
-                  кодеком стандартными средствами экспортировать не получится, для этого
-                  нужно перегнать ваше видео через конвертер, например{" "}
-                  <a href="https://www.shutterencoder.com/">Shutter Encoder</a>.
-                </AdditionInfo>
+                <mark className="video">VP9</mark> / <mark className="video">AV1</mark> —
+                кодеки от Google в контейнере <mark className="video">WebM</mark>, часто
+                используются для веб-страниц. Поддерживают альфа-канал.
+                <Addition type="info">
+                  Экспортировать в эти кодеки из{" "}
+                  <mark className="app">Adobe After Effects</mark> можно только с
+                  использованием сторонних конвертеров, например{" "}
+                  <mark className="app">Shutter Encoder</mark>.
+                </Addition>
               </li>
               <li>
-                <mark className="video">MPEG</mark> - устаревший кодек в нынешних реалиях.
-                Раньше его использовали для записи фильма или домашних видео на{" "}
-                <mark>DVD</mark> или <mark>Blu-ray</mark> диск, чтобы воспроизвести это
-                видео с помощью видео проигрывателя или дисковода.
+                <mark className="video">MPEG</mark> — устаревший кодек. Раньше его
+                использовали для записи видео на <mark>DVD</mark> и <mark>Blu-ray</mark>.
               </li>
             </ul>
           </li>
           <li>
-            <mark className="word">Контейнер</mark> - расширение видео файла, в котором
-            содержится само видео в определённом кодеке, например{" "}
-            <mark className="video">MP4</mark>, <mark className="video">MOV</mark> или{" "}
-            <mark className="file">MKV</mark>.
+            <mark className="word">Контейнер</mark> — формат файла, в котором содержатся
+            видео- и аудиодорожки, например <mark className="video">MP4</mark>,{" "}
+            <mark className="video">MOV</mark> или <mark className="file">MKV</mark>.
+          </li>
+          <li>
+            <mark className="word">Абсолютный путь</mark> — это полный путь до файла,
+            начиная с корневого диска. Пример:{" "}
+            <mark className="path">C:/Users/aechat/Downloads/your_video.mp4</mark>.
+          </li>
+          <li>
+            <mark className="word">Относительный путь</mark> — это путь от текущей
+            директории, в которой вы находитесь. Если вы сейчас в{" "}
+            <mark className="path">C:/Users/aechat</mark>, а файл находится в папке{" "}
+            <mark className="path">Downloads</mark>, относительный путь будет таким:{" "}
+            <mark className="path">Downloads/your_video.mp4</mark>.
           </li>
           <li>
             <mark className="word">Векторная графика</mark> или{" "}
-            <mark className="word">вектор</mark> - форма представления изображения с
-            помощью математических формул и геометрических объектов (линии, кривые,
-            многоугольники). Отличительная особенность такого типа изображений -
-            детализация не падает при увеличении масштаба холста.
-            <AdditionInfo>
-              Если вы нажмёте на <mark className="ui">Continuously Rasterize</mark> у слоя
-              - при увеличении предпросмотра вы никогда не добьётесь &quot;векторного
-              предпросмотра&quot;. Это происходит потому, что{" "}
-              <mark className="app">Adobe After Effects</mark> всегда растрирует
-              предпросмотр в соответствии с заданным в настройках разрешением композиции.
-            </AdditionInfo>
+            <mark className="word">вектор</mark> — изображение, описанное с помощью
+            математических формул. Его отличительная особенность — возможность
+            масштабирования без потери качества.
+            <Addition type="info">
+              В <mark className="app">Adobe After Effects</mark> даже при включённом{" "}
+              <mark className="select">«Continuously Rasterize»</mark> вы не сможете
+              бесконечно приближать предпросмотр без пикселизации, так как программа
+              всегда растрирует изображение под разрешение композиции.
+            </Addition>
           </li>
           <li>
-            <mark className="word">Растровая графика</mark> - файл изображения или видео
+            <mark className="word">Растровая графика</mark> — изображение или видео,
             состоящее из цветных пикселей. Чем выше разрешение, тем лучше качество.
           </li>
           <li>
-            <mark className="word">Семплы</mark> - часто применяется в 3D-плагинах или в
-            настройке размытия в движении. Чем больше семплов, тем лучше картинка, но хуже
-            производительность.
+            <mark className="word">Семплы</mark> — количество выборок. Часто применяется в
+            плагинах, использующие трёхмерное пространство или в настройках размытия в
+            движении. Чем больше семплов, тем лучше картинка, но ниже производительность.
           </li>
           <li>
-            <mark className="word">Мультифрейм рендер</mark> или{" "}
-            <mark className="word">MFR</mark> - относительно свежая функция{" "}
-            <mark className="ui">Multi Frame Render</mark>, добавленная в{" "}
-            <mark className="app">Adobe After Effects 2022</mark>, призванная ускорить
-            время рендера за счёт рендера несколько кадров одновременно. Для раскрытия
-            потенциала этой функции требуется многоядерный процессор.
+            <mark className="word">Мультифрейм-рендер</mark> или{" "}
+            <mark className="word">MFR</mark> — функция{" "}
+            <mark className="select">«Multi-Frame Rendering»</mark>, появившаяся в{" "}
+            <mark className="app">Adobe After Effects</mark> версии <mark>2022</mark> и
+            новее. Она ускоряет финальный рендер, обрабатывая сразу несколько кадров
+            параллельно.
+            <Addition type="warning">
+              Использование <mark className="select">«Multi-Frame Rendering»</mark> может
+              привести к увеличению потребления оперативной памяти и есть риск чаще видеть
+              ошибку <mark className="warning">«Out of Memory»</mark>.
+            </Addition>
           </li>
         </ul>
         <Divider>Производственные термины</Divider>
         <ul>
           <li>
             <mark className="word">Ватермарк</mark>, <mark className="word">вотерка</mark>{" "}
-            или <mark className="word">водяной знак</mark> - некая защита от копирования
-            недобросовестными заказчиками. Чаще всего лепится полупрозрачным текстовым
-            слоем с ником или именем исполнителя.
+            или <mark className="word">водяной знак</mark> — полупрозрачная надпись или
+            логотип, которую ставят с целью указать первоисточник и защитить от
+            копирования.
           </li>
           <li>
-            <mark className="word">Сейвзона</mark> или{" "}
-            <mark className="word">безопасная зона</mark> - накладываемые рамки внутри
-            кадра, которые помогают пользователю размещать ключевые элементы так, чтобы
-            они гарантированно были видны на большинстве экранов, независимо от их типа
-            или настроек. Раньше такие зоны использовались на телевидении, когда края
-            изобрежния могли обрезаться за рамкой экрана. Безопасные зоны сейчас стали
-            использоваться для создания контента в социальных сетях, например для{" "}
-            <mark className="video">Reels</mark>, <mark className="video">Shorts</mark> и
-            прочих вертикальных видео, так как интерфейс социальной сети может перекрывать
-            контент на вашей композиции. Размещение важной информации с учетом безопасных
-            зон помогает избежать таких накладок.
-            <AdditionInfo>
-              Чтобы включить отображение безопасных зон - нажмите на иконку{" "}
-              <mark className="ui">Choose grid and guide options</mark> в окне
-              предпросмотра и выберите <mark className="ui">Title / Action Safe</mark> или
-              нажмите по этой иконке с зажатым <mark className="key">Alt</mark>.
-              <ImageFigure
+            <mark className="word">Сейф-зона</mark>,{" "}
+            <mark className="word">Safe Area</mark> или{" "}
+            <mark className="word">безопасная зона</mark> — рамки внутри кадра, которые
+            помогают размещать ключевые элементы так, чтобы они были видны на большинстве
+            экранов. Такие зоны актуальны для вертикальных видео, так как интерфейс
+            соцсети может перекрывать часть контента.
+            <Addition type="info">
+              Чтобы включить отображение безопасных зон, нажмите на иконку{" "}
+              <mark className="select">«Choose grid and guide options»</mark> под окном
+              предпросмотра и выберите{" "}
+              <mark className="select">«Title / Action Safe»</mark>
+              .
+              <ContentFigure
                 caption="Composition"
-                imgSrc="images/aftereffects/enable_action_safe.png"
                 imgTitle="Включение безопасных зон в предпросмотре"
-                styleClass="figure_windows-dark"
+                src="images/aftereffects/enable_action_safe.png"
+                theme="dark"
+                type="image"
+                variant="windows"
               />
-            </AdditionInfo>
+            </Addition>
           </li>
           <li>
-            <mark className="word">Говорящая голова</mark> - формат видео в котором, как
-            правило, присутствует только диктор, снятый крупным планом.
+            <mark className="word">Говорящая голова</mark> — формат видео, в котором
+            присутствует только диктор, снятый крупным планом.
           </li>
           <li>
-            <mark className="word">Грейд</mark> - цветокоррекция. Часто делится на
-            базовый, где <mark className="word">шоты</mark> выравниваются по яркости и
-            цвету или применяют на них <mark className="file">Input LUT</mark> для
-            интерпретации <mark className="word">футажа</mark>, и финальный, где стилизуют
-            или вносят более точечные правки по цвету.
+            <mark className="word">Грейдинг</mark> — цветокоррекция. Делится на базовую
+            (выравнивание по цвету и яркости) и финальную (стилизация, точечные правки).
           </li>
           <li>
-            <mark className="word">Глич</mark> или <mark className="word">глитч</mark> - в
-            переводе от визуальный эффект, имитирующий цифровой сбой или артефакт. Часто
-            используется для стилизации под &quot;хакерское&quot; видео или просто чтобы
-            выглядело дерзко.
+            <mark className="word">Глитч</mark> или <mark className="word">glitch</mark> —
+            визуальный эффект, имитирующий цифровой сбой или артефакт.
           </li>
           <li>
-            <mark className="word">Ванфреймовый эффект</mark> - эффект, который часто
-            применяется всего лишь на один кадр с помощью{" "}
-            <mark className="word">Adjustment Layer</mark>. Употребляется в контексте
-            применения <mark className="word">глитчей</mark> или яркостных эффектов на
-            вашу композицию.
+            <mark className="word">Ванфрейм-эффект</mark> — эффект, который применяется
+            всего на один кадр, обычно с использованием{" "}
+            <mark className="select">«Adjustment Layer»</mark>. Часто используется для{" "}
+            <mark className="word">глитчей</mark> или вспышек.
           </li>
           <li>
-            <mark className="word">Плашка</mark> - графический элемент, поверх которого
-            размещают текст. Например, имя спикера или заголовок темы.
+            <mark className="word">Плашка</mark> — графический элемент, поверх которого
+            размещают текст.
           </li>
           <li>
-            <mark className="word">Рыба</mark> - временный черновой ролик с примерным
-            монтажом, без финальной цветокоррекции, звука и эффектов. Делается для оценки
-            темпа, ритма и общей структуры. Иногда <mark className="word">рыбу</mark>{" "}
-            показывают клиенту, но лучше не рисковать.
+            <mark className="word">Рыба</mark> — черновой вариант видео с примерным
+            монтажом, без финальной цветокоррекции и звука. Делается для оценки темпа и
+            общей структуры.
           </li>
           <li>
-            <mark className="word">Шот</mark> или <mark className="word">футаж</mark> -
+            <mark className="word">Шот</mark> или <mark className="word">футаж</mark> —
             отдельный фрагмент видео или сцены.
           </li>
           <li>
-            <mark className="word">Референс</mark> или <mark className="word">реф</mark> -
-            синоним к словам <mark className="word">пример</mark> и{" "}
-            <mark className="word">образец</mark>. Используется для иллюстрации анимации,
-            вдохновения или согласования своего видения с заказчиком.
+            <mark className="word">Референс</mark> или <mark className="word">реф</mark> —
+            синоним слов «пример» и «образец». Используется для иллюстрации анимации или
+            согласования видения с заказчиком.
           </li>
           <li>
-            <mark className="word">Шаблон</mark> - заготовка проекта или пресета, которая
-            помогает сократить время на создание композиций и может служить отправной
-            точкой для вдохновения. Некоторые шаблоны могут быть слишком требовательны к
-            ресурсам вашего устройства, поэтому иногда проще сделать{" "}
-            <mark className="word">самоделку</mark>.{" "}
-            <mark className="word">Самоделка</mark> - это шаблон, созданный кем-то для
-            личного пользования, который не публиковался в общий доступ.
+            <mark className="word">Шаблон</mark> — готовый проект или пресет, который
+            ускоряет работу. Некоторые сторонние шаблоны могут быть слишком требовательны
+            к ресурсам; в таких случаях проще сделать «самоделку», то есть собственный
+            шаблон для личного пользования.
           </li>
           <li>
             <mark className="word">Переходы</mark> или{" "}
-            <mark className="word">транзишены</mark> - визуальные эффекты, используемые
-            для соединения двух клипов. Они могут быть простыми, например{" "}
-            <mark className="plugin">Linear Wipe</mark>, так и более сложными и
-            стилизованными.
+            <mark className="word">транзишены</mark> — визуальные эффекты для стилизации
+            соединения двух клипов.
           </li>
           <li>
-            <mark className="word">Туториал</mark> - обучающее видео о том, как
+            <mark className="word">Туториал</mark> — обучающее видео о том, как
             пользоваться программой или как использовать определённый эффект или плагин.
             Такие видео помогают новичку ориентироваться в интерфейсе программы и иногда
             раскрывают некоторые хитрости при создании эффектов.
           </li>
           <li>
-            <mark className="word">Эдиты</mark> - обычно это видео под музыку, за основу
-            которого берутся кадры из фильмов, аниме или игр. Часто распространён на
-            YouTube и TikTok с очень сильным разбросом по качеству изготовления таких
-            видео. И иногда порой нарезку со вспышками тоже называют эдитами, что
-            абсурдно.
+            <mark className="word">Эдиты</mark> — как правило, видео под музыку на основе
+            кадров из фильмов, аниме или игр. Часто встречаются на{" "}
+            <mark className="app">YouTube</mark> и <mark className="app">TikTok</mark>.
           </li>
           <li>
-            <mark className="word">Рилсы</mark> или <mark className="word">шорты</mark> -
-            короткие видеоролики, публикуемые в социальных сетях{" "}
+            <mark className="word">Рилсы</mark> или <mark className="word">шортсы</mark> —
+            короткие вертикальные видеоролики формата <mark>9:16</mark>, публикующиеся в{" "}
             <mark className="app">
               Instagram<sup>1</sup>
             </mark>{" "}
-            и <mark className="app">YouTube</mark> соответственно. Чаще всего такие видео
-            - вертикальные, с хронометражем до одной минуты, хотя бывают и исключения. Это
-            формат максимально быстрой подачи: за пару секунд нужно зацепить, удержать и
-            донести мысль. Вокруг этого формата регулярно возникает обсуждение цен -
-            особенно, когда речь идёт о <mark className="word">рилсах за 300</mark>
-            или даже меньше. Это вызывает волну негодования среди тех, кто делает такие
-            ролики профессионально: дешёвка обесценивает труд, а заказчики всё чаще ждут{" "}
-            <mark className="word">шедевр за копейки</mark>.
-            <AdditionDanger>
+            или <mark className="app">YouTube</mark>. Вокруг этого формата регулярно кипят
+            споры о ценах, особенно когда речь заходит о «рилсах за 300 рублей». Это
+            вызывает негодование у профессионалов, так как дешёвые предложения
+            обесценивают труд, а заказчики всё чаще ждут шедевр за копейки.
+            <Addition type="danger">
               <sup>1</sup> <mark className="app">Instagram</mark> и <mark>Meta</mark>{" "}
               признаны экстремистскими организациями и запрещены на территории Российской
               Федерации.
-            </AdditionDanger>
-          </li>
-          <li>
-            <mark className="word">Перекодируй видос</mark> - призыв к процессу
-            конвертации исходников в <mark className="word">монтажный кодек</mark>, чаще
-            всего через <mark className="app">Adobe Media Encoder</mark> или{" "}
-            <mark className="app">Shutter Encoder</mark>.
+            </Addition>
           </li>
         </ul>
       </DetailsSummary>
       <DetailsSummary
         tag="хоткеи, горячие клавиши, шорткаты, ускорение работы"
-        title="А есть список популярных комбинаций клавиш?"
+        title="Есть ли список популярных комбинаций клавиш?"
       >
         <p>
-          Горячие клавиши могут помочь ускорить рутинный процесс нахождения нужной функции
-          программы, поэтому в этой статье в таблицах собраны популярные у многих
-          пользователей комбинации.
+          Горячие клавиши помогают ускорить рутинные процессы. В таблицах ниже собраны
+          популярные комбинации.
         </p>
-        <AdditionInfo>
+        <Addition type="info">
           <ul>
             <li>
-              В таблице приведены комбинации для устройств на <mark>Windows</mark>. На{" "}
-              <mark>macOS</mark> <mark className="key">Ctrl</mark> равен{" "}
-              <mark className="key">Command</mark>, а <mark className="key">Alt</mark>{" "}
-              равен <mark className="key">Option</mark>.
+              В таблицах приведены комбинации для <mark>Windows</mark>. На{" "}
+              <mark>macOS</mark> <mark className="key">Ctrl</mark> соответствует{" "}
+              <mark className="key">Command</mark>, а <mark className="key">Alt</mark> —{" "}
+              <mark className="key">Option</mark>.
             </li>
             <li>
-              Более подробный список комбинаций клавиш вы можете прочесть{" "}
+              Более подробный список комбинаций клавиш можно найти{" "}
               <a href="https://helpx.adobe.com/after-effects/using/keyboard-shortcuts-reference.html">
                 на официальном сайте Adobe
               </a>
               , посмотреть в{" "}
               <a href="https://www.youtube.com/watch?v=i6eFTDS2rvI">видео от AEPlug</a>{" "}
-              или изучить в <mark className="ui">Edit &gt; Keyboard Shortcuts</mark>.
+              или изучить в меню{" "}
+              <mark className="select">«Edit» → «Keyboard Shortcuts»</mark>.
             </li>
           </ul>
-        </AdditionInfo>
+        </Addition>
         <Divider>Работа с файлами и проектом</Divider>
         <table>
           <thead>
@@ -1144,11 +1074,10 @@ const AEFromNewbies: React.FC = () => {
           <tbody>
             <tr>
               <td>
-                Создать новый проект и закрыть уже открытый
-                <AdditionInfo>
-                  Если открытый проект перед созданием нового не был сохранён, то
-                  программа предложит сохранить изменения
-                </AdditionInfo>
+                Создать новый проект и закрыть текущий
+                <Addition type="info">
+                  Если открытый проект не был сохранён, программа предложит это сделать.
+                </Addition>
               </td>
               <td>
                 <mark className="key">Ctrl + Alt + N</mark>
@@ -1161,31 +1090,25 @@ const AEFromNewbies: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>Открыть окно системное импорта файлов в ваш проект</td>
+              <td>Открыть системное окно импорта файлов</td>
               <td>
                 <mark className="key">Ctrl + I</mark>
               </td>
             </tr>
             <tr>
-              <td>Открыть окно для открытия проекта из проводника</td>
+              <td>Открыть проект</td>
               <td>
                 <mark className="key">Ctrl + O</mark>
               </td>
             </tr>
             <tr>
-              <td>
-                Открыть <mark className="file">AEP</mark> проект, с которым вы в последний
-                раз работали
-              </td>
+              <td>Открыть последний проект, с которым вы работали</td>
               <td>
                 <mark className="key">Ctrl + Alt + Shift + P</mark>
               </td>
             </tr>
             <tr>
-              <td>
-                Открыть или выполнить недавно использованный скрипт формата{" "}
-                <mark className="file">JSX</mark> или <mark className="file">JSXBIN</mark>
-              </td>
+              <td>Открыть или выполнить недавно использованный скрипт</td>
               <td>
                 <mark className="key">Ctrl + Alt + Shift + D</mark>
               </td>
@@ -1197,19 +1120,18 @@ const AEFromNewbies: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>Сохранить файл отдельным файлом</td>
+              <td>Сохранить проект как...</td>
               <td>
                 <mark className="key">Ctrl + Shift + S</mark>
               </td>
             </tr>
             <tr>
               <td>
-                Сохранить проект с тем же названием с добавлением числа по иерархии.
-                <AdditionInfo>
-                  Если вы 25 раз выполните эту комбинацию клавиш, то у вас создадутся 25
-                  файлов с разными числами по возрастанию в папке, где был изначально
-                  создан проект
-                </AdditionInfo>
+                Инкрементное сохранение (сохранить копию с новым номером)
+                <Addition type="info">
+                  При каждом нажатии в папке проекта будет создаваться новая копия с
+                  возрастающим числом в названии.
+                </Addition>
               </td>
               <td>
                 <mark className="key">Ctrl + Alt + Shift + S</mark>
@@ -1227,18 +1149,18 @@ const AEFromNewbies: React.FC = () => {
           </thead>
           <tbody>
             <tr>
-              <td>Инструмент выделения объектов</td>
+              <td>Инструмент выделения (Selection Tool)</td>
               <td>
                 <mark className="key">V</mark>
               </td>
             </tr>
             <tr>
               <td>
-                Инструмент руки
-                <AdditionInfo>
-                  Если зажать <mark className="key">Space</mark>, то у вас временно
-                  активируется инструмент руки, пока вы не отпустите клавишу
-                </AdditionInfo>
+                Инструмент «Рука» (Hand Tool)
+                <Addition type="info">
+                  Зажмите <mark className="key">Пробел</mark>, чтобы временно активировать
+                  инструмент.
+                </Addition>
               </td>
               <td>
                 <mark className="key">H</mark>
@@ -1246,18 +1168,13 @@ const AEFromNewbies: React.FC = () => {
             </tr>
             <tr>
               <td>
-                Инструмент пера
-                <AdditionInfo>
+                Инструмент «Перо» (Pen Tool)
+                <Addition type="info">
                   <ul>
-                    <li>
-                      Если выделен не шейповый слой, то инструмент будет рисовать маску
-                    </li>
-                    <li>
-                      Если выделен шейповый слой - будет рисовать фигуру, изменить
-                      поведение на рисование маски можно в верхней панели
-                    </li>
+                    <li>Если выделен обычный слой, инструмент будет рисовать маску.</li>
+                    <li>Если выделен слой-фигура, он будет рисовать фигуру.</li>
                   </ul>
-                </AdditionInfo>
+                </Addition>
               </td>
               <td>
                 <mark className="key">G</mark>
@@ -1265,43 +1182,33 @@ const AEFromNewbies: React.FC = () => {
             </tr>
             <tr>
               <td>
-                Инструмент создания и редактирования текста
-                <AdditionInfo>
-                  Многократное нажатие на <mark className="key">Ctrl + T</mark> программа
-                  будет переключать инструмент между горизонтальным или вертикальным
-                  правописанием текста
-                </AdditionInfo>
+                Инструмент «Текст» (Text Tool)
+                <Addition type="info">
+                  Многократное нажатие переключает между горизонтальным и вертикальным
+                  написанием.
+                </Addition>
               </td>
               <td>
                 <mark className="key">Ctrl + T</mark>
               </td>
             </tr>
             <tr>
-              <td>Инструмент для выбора положения якорной точки</td>
+              <td>Инструмент «Опорная точка» (Pan Behind / Anchor Point Tool)</td>
               <td>
                 <mark className="key">Y</mark>
               </td>
             </tr>
             <tr>
               <td>
-                Инструмент для создания фигуры и масок
-                <AdditionInfo>
+                Инструмент для создания фигур и масок
+                <Addition type="info">
                   <ul>
                     <li>
-                      Многократное нажатие на <mark className="key">Q</mark> программа
-                      будет переключать инструмент между созданием прямоугольника,
-                      прямоугольника со скругленными углами, эллипсом, многоугольником и
-                      звездой
-                    </li>
-                    <li>
-                      Если выделен не шейповый слой, то инструмент будет рисовать маску
-                    </li>
-                    <li>
-                      Если выделен шейповый слой - будет рисовать фигуру, изменить
-                      поведение на рисование маски можно в верхней панели
+                      Многократное нажатие на <mark className="key">Q</mark> переключает
+                      между прямоугольником, эллипсом, многоугольником и звездой.
                     </li>
                   </ul>
-                </AdditionInfo>
+                </Addition>
               </td>
               <td>
                 <mark className="key">Q</mark>
@@ -1309,11 +1216,10 @@ const AEFromNewbies: React.FC = () => {
             </tr>
             <tr>
               <td>
-                Инструмент кисти
-                <AdditionInfo>
-                  Многократное нажатие на <mark className="key">Ctrl + B</mark> программа
-                  будет переключать инструмент между кистью, штампом или ластиком
-                </AdditionInfo>
+                Инструмент «Кисть» (Brush Tool)
+                <Addition type="info">
+                  Многократное нажатие переключает между кистью, штампом и ластиком.
+                </Addition>
               </td>
               <td>
                 <mark className="key">Ctrl + B</mark>
@@ -1321,53 +1227,44 @@ const AEFromNewbies: React.FC = () => {
             </tr>
             <tr>
               <td>
-                Инструмент лупы
-                <AdditionInfo>
-                  С модификатором <mark className="key">Alt</mark> будет выполняться
-                  уменьшение предпросмотра
-                </AdditionInfo>
+                Инструмент «Лупа» (Zoom Tool)
+                <Addition type="info">
+                  С зажатым <mark className="key">Alt</mark> выполняется уменьшение.
+                </Addition>
               </td>
               <td>
                 <mark className="key">Z</mark>
               </td>
             </tr>
             <tr>
-              <td>Инструмент поворота слоя</td>
+              <td>Инструмент поворота (Rotation Tool)</td>
               <td>
                 <mark className="key">W</mark>
               </td>
             </tr>
             <tr>
-              <td>Инструмент кисти для Rotobrush или уточнения краёв</td>
+              <td>Инструмент «Кисть для ротоскопии» (Roto Brush Tool)</td>
               <td>
                 <mark className="key">Alt + W</mark>
               </td>
             </tr>
             <tr>
               <td>
-                Инструмент камеры
-                <AdditionInfo>
-                  Многократное нажатие переключает между режимами работы с камерой
-                </AdditionInfo>
+                Инструмент «Камера» (Camera Tool)
+                <Addition type="info">
+                  Многократное нажатие переключает между режимами работы камеры.
+                </Addition>
               </td>
               <td>
                 <mark className="key">C</mark>
               </td>
             </tr>
             <tr>
-              <td>Инструмент изменения якорной точки</td>
               <td>
-                <mark className="key">Y</mark>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                Инструмент <mark className="ui">Puppet Tool</mark>
-                <AdditionInfo>
-                  Многократное нажатие на <mark className="key">Ctrl + P</mark> программа
-                  будет переключаться между инструментами{" "}
-                  <mark className="ui">Puppet Tool</mark>
-                </AdditionInfo>
+                Инструмент «Марионетка» (Puppet Pin Tool)
+                <Addition type="info">
+                  Многократное нажатие переключает между разными инструментами марионетки.
+                </Addition>
               </td>
               <td>
                 <mark className="key">Ctrl + P</mark>
@@ -1385,90 +1282,86 @@ const AEFromNewbies: React.FC = () => {
           </thead>
           <tbody>
             <tr>
-              <td>Раскрыть добавленные эффекты у выделенного слоя</td>
+              <td>Показать/скрыть применённые эффекты</td>
               <td>
                 <mark className="key">E</mark>
               </td>
             </tr>
             <tr>
-              <td>Раскрыть параметры у выделенного слоя с применёнными выражениями</td>
+              <td>Показать/скрыть свойства с выражениями</td>
               <td>
                 Дважды <mark className="key">E</mark>
               </td>
             </tr>
             <tr>
-              <td>Раскрыть параметр громкости у выделенного слоя с аудиодорожкой</td>
+              <td>Показать/скрыть уровень громкости (Audio Levels)</td>
               <td>
                 <mark className="key">L</mark>
               </td>
             </tr>
             <tr>
-              <td>Раскрыть звуковую волну у выделенного слоя с аудиодорожкой</td>
+              <td>Показать/скрыть форму волны (Waveform)</td>
               <td>
                 Дважды <mark className="key">L</mark>
               </td>
             </tr>
             <tr>
-              <td>Раскрыть положение якорной точки у выделенного слоя</td>
+              <td>Показать/скрыть опорную точку (Anchor Point)</td>
               <td>
                 <mark className="key">A</mark>
               </td>
             </tr>
             <tr>
-              <td>Раскрыть список масок у выделенного слоя, если они созданы</td>
+              <td>Показать/скрыть маски (Masks)</td>
               <td>
                 <mark className="key">M</mark>
               </td>
             </tr>
             <tr>
-              <td>Раскрыть положение объекта у выделенного слоя</td>
+              <td>Показать/скрыть положение (Position)</td>
               <td>
                 <mark className="key">P</mark>
               </td>
             </tr>
             <tr>
-              <td>Раскрыть поворот объекта у выделенного слоя</td>
+              <td>Показать/скрыть поворот (Rotation)</td>
               <td>
                 <mark className="key">R</mark>
               </td>
             </tr>
             <tr>
-              <td>Раскрыть масштаб объекта у выделенного слоя</td>
+              <td>Показать/скрыть масштаб (Scale)</td>
               <td>
                 <mark className="key">S</mark>
               </td>
             </tr>
             <tr>
-              <td>Раскрыть процент прозрачности у выделенного слоя</td>
+              <td>Показать/скрыть прозрачность (Opacity)</td>
               <td>
                 <mark className="key">T</mark>
               </td>
             </tr>
             <tr>
-              <td>Раскрыть аттрибуты с ключевыми кадрами у выделенного слоя</td>
+              <td>Показать/скрыть все свойства с ключевыми кадрами</td>
               <td>
                 <mark className="key">U</mark>
               </td>
             </tr>
             <tr>
-              <td>
-                Раскрыть изменённые аттрибуты эффектов без анимации и аттрибуты с
-                ключевыми кадрами у выделенного слоя
-              </td>
+              <td>Показать/скрыть все изменённые свойства (даже без ключей)</td>
               <td>
                 Дважды <mark className="key">U</mark>
               </td>
             </tr>
             <tr>
               <td>
-                Раскрыть нужное свойство, не скрывая предыдущее
-                <AdditionInfo>
-                  Например, нажав на <mark className="key">S</mark>,{" "}
-                  <mark className="key">Shift + P</mark> и{" "}
-                  <mark className="key">Shift + R</mark> на выделенном слое, то у вас
-                  отобразится одновременно свойство масштаба, положения и поворота. Это
-                  будет работать если хотя бы одно свойство будет открыто
-                </AdditionInfo>
+                Добавить свойство к уже открытым, не скрывая их
+                <Addition type="info">
+                  Например, <mark className="key">S</mark>, затем{" "}
+                  <mark className="key">Shift + P</mark>, затем{" "}
+                  <mark className="key">Shift + R</mark> покажут одновременно масштаб,
+                  положение и поворот.
+                </Addition>
               </td>
               <td>
                 Модификатор <mark className="key">Shift</mark>
@@ -1476,11 +1369,11 @@ const AEFromNewbies: React.FC = () => {
             </tr>
             <tr>
               <td>
-                Добавление ключевого кадра для нужного свойства
-                <AdditionInfo>
-                  Например, нажав на <mark className="key">Alt + Shift + P</mark> вы
-                  добавите ключевой кадр для аттрибута положения
-                </AdditionInfo>
+                Добавить ключевой кадр для свойства, не открывая его
+                <Addition type="info">
+                  Например, <mark className="key">Alt + Shift + P</mark> добавит ключ для
+                  положения.
+                </Addition>
               </td>
               <td>
                 Модификатор <mark className="key">Alt + Shift</mark>
@@ -1498,114 +1391,92 @@ const AEFromNewbies: React.FC = () => {
           </thead>
           <tbody>
             <tr>
-              <td>Убрать выделение у ключевых кадров и их параметров, но не у слоя</td>
+              <td>Снять выделение со всех ключевых кадров</td>
               <td>
-                <mark className="key">Shift + F2</mark> или{" "}
-                <mark className="key">Ctrl + Alt + Shift + A</mark>
+                <mark className="key">Shift + F2</mark>
               </td>
             </tr>
             <tr>
-              <td>
-                Открыть <mark className="ui">Graph Editor</mark> для редактирования
-                графиков скорости
-              </td>
+              <td>Открыть/закрыть редактор графика скорости</td>
               <td>
                 <mark className="key">Shift + F3</mark>
               </td>
             </tr>
             <tr>
-              <td>Переместить плейхед к ближайшему ключевому кадру слева</td>
+              <td>Перейти к предыдущему ключевому кадру/маркеру</td>
               <td>
                 <mark className="key">J</mark>
               </td>
             </tr>
             <tr>
-              <td>Переместить плейхед к ближайшему ключевому кадру справа</td>
+              <td>Перейти к следующему ключевому кадру/маркеру</td>
               <td>
                 <mark className="key">K</mark>
               </td>
             </tr>
             <tr>
-              <td>
-                Задать выделенным ключевым кадрам интерполяцию вида{" "}
-                <mark className="word">Easy Ease</mark>
-              </td>
+              <td>Применить интерполяцию «Easy Ease»</td>
               <td>
                 <mark className="key">F9</mark>
               </td>
             </tr>
             <tr>
-              <td>
-                Задать выделенным ключевым кадрам интерполяцию вида{" "}
-                <mark className="word">Easy Ease In</mark>
-              </td>
+              <td>Применить интерполяцию «Easy Ease In»</td>
               <td>
                 <mark className="key">Shift + F9</mark>
               </td>
             </tr>
             <tr>
-              <td>
-                Задать выделенным ключевым кадрам интерполяцию вида{" "}
-                <mark className="word">Easy Ease Out</mark>
-              </td>
+              <td>Применить интерполяцию «Easy Ease Out»</td>
               <td>
                 <mark className="key">Ctrl + Shift + F9</mark>
               </td>
             </tr>
             <tr>
-              <td>
-                Задать выделенным ключевым кадрам интерполяцию вида{" "}
-                <mark className="word">Hold</mark>
-              </td>
+              <td>Применить интерполяцию «Hold»</td>
               <td>
                 <mark className="key">Ctrl + Alt + H</mark>
               </td>
             </tr>
             <tr>
-              <td>Переместить выделенные ключевые кадры на один кадр левее</td>
+              <td>Сдвинуть выделенные ключи на 1 кадр влево</td>
               <td>
                 <mark className="key">Alt + стрелка влево</mark>
               </td>
             </tr>
             <tr>
-              <td>Переместить выделенные ключевые кадры на один кадр правее</td>
+              <td>Сдвинуть выделенные ключи на 1 кадр вправо</td>
               <td>
                 <mark className="key">Alt + стрелка вправо</mark>
               </td>
             </tr>
             <tr>
-              <td>Переместить выделенные ключевые кадры на десять кадров левее</td>
+              <td>Сдвинуть выделенные ключи на 10 кадров влево</td>
               <td>
                 <mark className="key">Alt + Shift + стрелка влево</mark>
               </td>
             </tr>
             <tr>
-              <td>Переместить выделенные ключевые кадры на десять кадров правее</td>
+              <td>Сдвинуть выделенные ключи на 10 кадров вправо</td>
               <td>
                 <mark className="key">Alt + Shift + стрелка вправо</mark>
               </td>
             </tr>
             <tr>
-              <td>
-                Открыть диалог <mark className="ui">Keyframe Interpolation</mark> для
-                изменения интерполяции выделенных ключевых кадров
-              </td>
+              <td>Открыть диалог «Keyframe Interpolation»</td>
               <td>
                 <mark className="key">Ctrl + Alt + K</mark>
               </td>
             </tr>
             <tr>
-              <td>
-                Открыть диалог <mark className="ui">Keyframe Velocity</mark> для изменения
-                скорости выделенных ключевых кадров
-              </td>
+              <td>Открыть диалог «Keyframe Velocity»</td>
               <td>
                 <mark className="key">Ctrl + Shift + K</mark>
               </td>
             </tr>
           </tbody>
         </table>
-        <Divider>Работа с слоями на таймлайне</Divider>
+        <Divider>Работа со слоями на таймлайне</Divider>
         <table>
           <thead>
             <tr>
@@ -1615,13 +1486,13 @@ const AEFromNewbies: React.FC = () => {
           </thead>
           <tbody>
             <tr>
-              <td>Перенести плейхед к началу выделенного слоя</td>
+              <td>Переместить плейхед к началу выделенного слоя</td>
               <td>
                 <mark className="key">I</mark>
               </td>
             </tr>
             <tr>
-              <td>Перенести плейхед к концу выделенного слоя</td>
+              <td>Переместить плейхед к концу выделенного слоя</td>
               <td>
                 <mark className="key">O</mark>
               </td>
@@ -1633,10 +1504,10 @@ const AEFromNewbies: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>Убрать выделение со всех слоёв</td>
+              <td>Снять выделение со всех слоёв</td>
               <td>
-                <mark className="key">Ctrl + Shift + A</mark> или{" "}
-                <mark className="key">F2</mark>
+                <mark className="key">F2</mark> или{" "}
+                <mark className="key">Ctrl + Shift + A</mark>
               </td>
             </tr>
             <tr>
@@ -1646,7 +1517,7 @@ const AEFromNewbies: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>Создать дубликат слоя или ссылку на композицию</td>
+              <td>Дублировать слой</td>
               <td>
                 <mark className="key">Ctrl + D</mark>
               </td>
@@ -1658,150 +1529,137 @@ const AEFromNewbies: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>
-                Применить недавно использованный пресет формата{" "}
-                <mark className="file">FFX</mark> на выделенный слой
-              </td>
+              <td>Применить последний использованный пресет</td>
               <td>
                 <mark className="key">Ctrl + Alt + Shift + F</mark>
               </td>
             </tr>
             <tr>
-              <td>
-                Разделить выделенный слой на две части, выделение останется у правой части
-                слоя, которая пойдёт по иерархии наверх
-              </td>
+              <td>Разделить выделенный слой на две части</td>
               <td>
                 <mark className="key">Ctrl + Shift + D</mark>
               </td>
             </tr>
             <tr>
+              <td>Открыть/скрыть панель «Effect Controls»</td>
               <td>
-                Открыть или скрыть панель <mark className="ui">Effect Controls</mark> для
-                выделенного слоя
-              </td>
-              <td>
-                <mark className="key">Ctrl + Shift + T</mark> или{" "}
                 <mark className="key">F3</mark>
               </td>
             </tr>
             <tr>
-              <td>Расположить слой в центр композиции</td>
+              <td>Расположить слой в центре композиции</td>
               <td>
                 <mark className="key">Ctrl + Home</mark>
               </td>
             </tr>
             <tr>
-              <td>Установить якорную точку по центру слоя</td>
+              <td>Установить опорную точку по центру слоя</td>
               <td>
                 <mark className="key">Ctrl + Alt + Home</mark>
               </td>
             </tr>
             <tr>
-              <td>Растянуть слой и подогнать его положение по под высоту композиции</td>
+              <td>Растянуть слой под высоту композиции</td>
               <td>
                 <mark className="key">Ctrl + Alt + Shift + G</mark>
               </td>
             </tr>
             <tr>
-              <td>Растянуть слой и подогнать его положение по под ширину композиции</td>
+              <td>Растянуть слой под ширину композиции</td>
               <td>
                 <mark className="key">Ctrl + Alt + Shift + H</mark>
               </td>
             </tr>
             <tr>
-              <td>
-                Включить <mark className="ui">Time-Remap</mark> у выделенного слоя
-              </td>
+              <td>Включить/выключить «Time Remapping»</td>
               <td>
                 <mark className="key">Ctrl + Alt + T</mark>
               </td>
             </tr>
             <tr>
-              <td>
-                Выполнить команду <mark className="ui">Time-Reverse Layer</mark> для
-                выделенного слоя
-              </td>
+              <td>Обратить проигрывание слоя (Time-Reverse Layer)</td>
               <td>
                 <mark className="key">Ctrl + Alt + R</mark>
               </td>
             </tr>
             <tr>
               <td>
-                Открыть настройки выделенного слоя для изменения некоторых параметров.
-                Работает для <mark className="ui">Null Object</mark>,{" "}
-                <mark className="ui">Light Layer</mark>,{" "}
-                <mark className="ui">Solid Layer</mark> и{" "}
-                <mark className="ui">Adjustment Layer</mark>
+                Открыть настройки выделенного слоя
+                <Addition type="info">
+                  Работает для <mark className="select">«Null Object»</mark>,{" "}
+                  <mark className="select">«Light Layer»</mark>,{" "}
+                  <mark className="select">«Solid Layer»</mark> и{" "}
+                  <mark className="select">«Adjustment Layer»</mark>
+                </Addition>
               </td>
               <td>
                 <mark className="key">Ctrl + Shift + Y</mark>
               </td>
             </tr>
             <tr>
-              <td>Передвинуть слой к плейхеду справа</td>
+              <td>Переместить начало слоя к плейхеду</td>
               <td>
                 <mark className="key">[</mark>
               </td>
             </tr>
             <tr>
-              <td>Передвинуть слой к плейхеду слева</td>
+              <td>Переместить конец слоя к плейхеду</td>
               <td>
                 <mark className="key">]</mark>
               </td>
             </tr>
             <tr>
-              <td>Сдвинуть слой на 1 кадр назад</td>
+              <td>Сдвинуть слой на 1 кадр влево</td>
               <td>
                 <mark className="key">Alt + PgUp</mark>
               </td>
             </tr>
             <tr>
-              <td>Сдвинуть слой на 10 кадров назад</td>
+              <td>Сдвинуть слой на 10 кадров влево</td>
               <td>
                 <mark className="key">Alt + Shift + PgUp</mark>
               </td>
             </tr>
             <tr>
-              <td>Сдвинуть слой на 1 кадр вперёд</td>
+              <td>Сдвинуть слой на 1 кадр вправо</td>
               <td>
                 <mark className="key">Alt + PgDown</mark>
               </td>
             </tr>
             <tr>
-              <td>Сдвинуть слой на 10 кадров вперёд</td>
+              <td>Сдвинуть слой на 10 кадров вправо</td>
               <td>
                 <mark className="key">Alt + Shift + PgDown</mark>
               </td>
             </tr>
             <tr>
-              <td>Обрезать или продлить слой от плейхеда</td>
+              <td>Обрезать начало слоя до плейхеда</td>
               <td>
                 <mark className="key">Alt + [</mark>
               </td>
             </tr>
             <tr>
-              <td>Обрезать или продлить слой до плейхеда</td>
+              <td>Обрезать конец слоя до плейхеда</td>
               <td>
                 <mark className="key">Alt + ]</mark>
               </td>
             </tr>
             <tr>
-              <td>Опустить слой ниже по иерархии на таймлайне</td>
+              <td>Опустить слой ниже по иерархии</td>
               <td>
                 <mark className="key">Ctrl + [</mark>
               </td>
             </tr>
             <tr>
-              <td>Поднять слой выше по иерархии на таймлайне</td>
+              <td>Поднять слой выше по иерархии</td>
               <td>
                 <mark className="key">Ctrl + ]</mark>
               </td>
             </tr>
             <tr>
-              <td>Изменить режим наложения слоя</td>
+              <td>Переключить режим наложения слоя</td>
               <td>
-                <mark className="key">Shift и +</mark> или{" "}
+                <mark className="key">Shift и + </mark> или{" "}
                 <mark className="key">Shift и -</mark>
               </td>
             </tr>
@@ -1817,19 +1675,19 @@ const AEFromNewbies: React.FC = () => {
           </thead>
           <tbody>
             <tr>
-              <td>Создать Solid Layer</td>
+              <td>Создать слой-заливку «Solid Layer»</td>
               <td>
                 <mark className="key">Ctrl + Y</mark>
               </td>
             </tr>
             <tr>
-              <td>Создать Adjustment Layer</td>
+              <td>Создать корректирующий слой «Adjustment Layer»</td>
               <td>
                 <mark className="key">Ctrl + Alt + Y</mark>
               </td>
             </tr>
             <tr>
-              <td>Создать Null Object</td>
+              <td>Создать нулевой объект «Null Object»</td>
               <td>
                 <mark className="key">Ctrl + Alt + Shift + Y</mark>
               </td>
@@ -1864,41 +1722,39 @@ const AEFromNewbies: React.FC = () => {
           </thead>
           <tbody>
             <tr>
-              <td>Установить начало рабочей области для предпросмотра</td>
+              <td>Установить начало рабочей области</td>
               <td>
                 <mark className="key">B</mark>
               </td>
             </tr>
             <tr>
-              <td>Установить конец рабочей области для предпросмотра</td>
+              <td>Установить конец рабочей области</td>
               <td>
                 <mark className="key">N</mark>
               </td>
             </tr>
             <tr>
-              <td>Переместить плейхед к началу рабочей области</td>
+              <td>Перейти к началу рабочей области</td>
               <td>
                 <mark className="key">Shift + Home</mark>
               </td>
             </tr>
             <tr>
-              <td>Переместить плейхед к концу рабочей области</td>
+              <td>Перейти к концу рабочей области</td>
               <td>
                 <mark className="key">Shift + End</mark>
               </td>
             </tr>
             <tr>
-              <td>Переместить плейхед к началу композиции</td>
+              <td>Перейти к началу композиции</td>
               <td>
-                <mark className="key">Home</mark> или{" "}
-                <mark className="key">Ctrl + Alt + стрелка влево</mark>
+                <mark className="key">Home</mark>
               </td>
             </tr>
             <tr>
-              <td>Переместить плейхед к концу композиции</td>
+              <td>Перейти к концу композиции</td>
               <td>
-                <mark className="key">End</mark> или{" "}
-                <mark className="key">Ctrl + Alt + стрелка вправо</mark>
+                <mark className="key">End</mark>
               </td>
             </tr>
             <tr>
@@ -1918,15 +1774,13 @@ const AEFromNewbies: React.FC = () => {
             <tr>
               <td>Перейти на 10 кадров назад</td>
               <td>
-                <mark className="key">Shift + PgUp</mark> или{" "}
-                <mark className="key">Ctrl + Shift + стрелка влево</mark>
+                <mark className="key">Shift + PgUp</mark>
               </td>
             </tr>
             <tr>
               <td>Перейти на 10 кадров вперёд</td>
               <td>
-                <mark className="key">Shift + PgDown</mark> или{" "}
-                <mark className="key">Ctrl + Shift + стрелка вправо</mark>
+                <mark className="key">Shift + PgDown</mark>
               </td>
             </tr>
             <tr>
@@ -1936,52 +1790,43 @@ const AEFromNewbies: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>
-                Открыть окно <mark className="ui">Project Settings</mark>
-              </td>
+              <td>Открыть окно «Project Settings»</td>
               <td>
                 <mark className="key">Ctrl + Alt + Shift + K</mark>
               </td>
             </tr>
             <tr>
-              <td>Включить отображение линейки</td>
+              <td>Показать/скрыть линейки</td>
               <td>
                 <mark className="key">Ctrl + R</mark>
               </td>
             </tr>
             <tr>
-              <td>Обрезать композицию до начала и конца рабочей области</td>
+              <td>Обрезать композицию по рабочей области</td>
               <td>
                 <mark className="key">Ctrl + Shift + X</mark>
               </td>
             </tr>
             <tr>
-              <td>Увеличить или уменьшить размер таймлайна</td>
+              <td>Увеличить/уменьшить масштаб таймлайна</td>
               <td>
                 <mark className="key"> + </mark> или <mark className="key">-</mark>
               </td>
             </tr>
             <tr>
-              <td>Поставить маркер на таймлайне в месте, где стоит временная метка</td>
+              <td>Перейти к определённому времени на таймлайне</td>
+              <td>
+                <mark className="key">Alt + Shift + J</mark>
+              </td>
+            </tr>
+            <tr>
+              <td>Поставить маркер на таймлайне</td>
               <td>
                 <mark className="key">* (на Numpad)</mark>
-                <AdditionInfo>
-                  Если у вас клавиатура без цифрового блока справа, то вы можете
-                  переназначить эту клавишу на любую другую в{" "}
-                  <mark className="ui">Edit &gt; Keyboard Shortcuts</mark>
-                </AdditionInfo>
-              </td>
-            </tr>
-            <tr>
-              <td>Перейти на предыдущий кадр</td>
-              <td>
-                <mark className="key">Page Up</mark>
-              </td>
-            </tr>
-            <tr>
-              <td>Перейти на следующий кадр</td>
-              <td>
-                <mark className="key">Page Down</mark>
+                <Addition type="info">
+                  Если у вас клавиатура без цифрового блока, можно переназначить эту
+                  клавишу в <mark className="select">«Edit» → «Keyboard Shortcuts»</mark>.
+                </Addition>
               </td>
             </tr>
           </tbody>
@@ -1997,15 +1842,11 @@ const AEFromNewbies: React.FC = () => {
           <tbody>
             <tr>
               <td>
-                Отображение границы и выделение слоёв, контролёров и путей движения
-                объектов
-                <AdditionInfo>
-                  Убрать или добавить отображение определённых типов слоёв можно в View
-                  Options, которое можно вызвать с помощью{" "}
-                  <mark className="key">Ctrl + Alt + U</mark>. Следы от движения объектов
-                  можно сократить или удлинить в{" "}
-                  <mark className="ui">Edit &gt; Preferences &gt; Display</mark>
-                </AdditionInfo>
+                Показать/скрыть границы слоёв, контроллеры и пути движения
+                <Addition type="info">
+                  Настроить отображение можно в View Options (
+                  <mark className="key">Ctrl + Alt + U</mark>).
+                </Addition>
               </td>
               <td>
                 <mark className="key">Ctrl + Shift + H</mark>
@@ -2013,52 +1854,50 @@ const AEFromNewbies: React.FC = () => {
             </tr>
             <tr>
               <td>
-                Включить отображение сетки
-                <AdditionInfo>
-                  Цвет и размер сетки можно настроить в{" "}
-                  <mark className="ui">Edit &gt; Preferences &gt; Grid & Guides</mark>
-                </AdditionInfo>
+                Показать/скрыть сетку
+                <Addition type="info">
+                  Настроить сетку можно в{" "}
+                  <mark className="select">
+                    «Edit» → «Preferences» → «Grids & Guides»
+                  </mark>
+                  .
+                </Addition>
               </td>
               <td>
                 <mark className="key">Ctrl + &apos;</mark>
               </td>
             </tr>
             <tr>
-              <td>Включить отображение направляющих</td>
+              <td>Показать/скрыть направляющие</td>
               <td>
                 <mark className="key">Ctrl + ;</mark>
               </td>
             </tr>
             <tr>
-              <td>Включить привязку объектов к направляющим</td>
+              <td>Включить/выключить привязку к направляющим</td>
               <td>
                 <mark className="key">Ctrl + Shift + ;</mark>
               </td>
             </tr>
             <tr>
-              <td>Включить отображение сетки безопасных зон для телевидения</td>
+              <td>Показать/скрыть безопасные зоны</td>
               <td>
                 <mark className="key">&apos;</mark>
               </td>
             </tr>
             <tr>
-              <td>Увеличение или уменьшение масштаба предпросмотра</td>
+              <td>Увеличить/уменьшить масштаб предпросмотра</td>
               <td>
-                <mark className="key">,</mark> и <mark className="key">.</mark>
+                <mark className="key">.</mark> или <mark className="key">,</mark>
               </td>
             </tr>
             <tr>
               <td>
-                Начать воспроизведение предпросмотра
-                <AdditionInfo>
-                  При установленных параметрах{" "}
-                  <mark className="ui">Cache Before Playback</mark> и{" "}
-                  <mark className="ui">If Caching, play cached frames</mark> в окне{" "}
-                  <mark className="ui">Preview</mark> после нажатия на{" "}
-                  <mark className="key">Пробел</mark> начнётся кэширование предпросмотра
-                  композиции. Чтобы его прервать и начать воспроизведение предпросмотра
-                  принудительно, нажмите на <mark className="key">Пробел</mark> ещё раз
-                </AdditionInfo>
+                Начать/остановить воспроизведение предпросмотра
+                <Addition type="info">
+                  При включённом кэшировании первое нажатие запускает просчёт, второе —
+                  принудительно начинает воспроизведение уже просчитанных кадров.
+                </Addition>
               </td>
               <td>
                 <mark className="key">Пробел</mark>
@@ -2076,967 +1915,1180 @@ const AEFromNewbies: React.FC = () => {
           </thead>
           <tbody>
             <tr>
-              <td>Открыть окно настроек программы</td>
+              <td>Открыть окно «Preferences»</td>
               <td>
                 <mark className="key">Ctrl + Alt + ;</mark>
               </td>
             </tr>
             <tr>
-              <td>Открыть окно настроек комбинаций клавиш</td>
+              <td>Открыть редактор горячих клавиш</td>
               <td>
                 <mark className="key">Ctrl + Alt + &apos;</mark>
-              </td>
-            </tr>
-            <tr>
-              <td>Открыть окно для перемещения плейхеда к нужному отрезку времени</td>
-              <td>
-                <mark className="key">Alt + Shift + J</mark>
               </td>
             </tr>
           </tbody>
         </table>
       </DetailsSummary>
       <DetailsSummary
-        tag="рекомендация, топ, твикстор, рсмб, мбл, борисфх, трапкод, флоу, тру комп дупликатор, юниверс, mbl"
+        tag="рекомендация, топ, твикстор, рсмб, мбл, борисфх, трапкод, флоу, тру комп дупликатор, юниверс, mbl, plugins, скрипты, расширения, установка"
         title="Какие плагины стоит установить в первую очередь?"
       >
         <p>
-          <mark className="plugin">Плагины</mark> - это компонент формата{" "}
-          <mark className="file">AEX</mark> или <mark className="file">PLUGIN</mark> в
-          зависимости от операционной системы, который подсоединяется к{" "}
-          <mark className="app">Adobe After Effects</mark>. Нередко к ним ошибочно относят
-          файлы расширений <mark className="file">ZXP</mark>, а также скрипты форматов{" "}
+          <mark className="plugin">Плагины</mark> — это компоненты формата{" "}
+          <mark className="file">AEX</mark> или <mark className="file">PLUGIN</mark>,
+          которые расширяют возможности <mark className="app">Adobe After Effects</mark>.
+          Нередко к ним ошибочно относят расширения формата{" "}
+          <mark className="file">ZXP</mark> и скрипты форматов{" "}
           <mark className="file">JSX</mark> и <mark className="file">JSXBIN</mark>,
-          которые также будут разобраны в этой статье.
+          которые мы также разберём.
         </p>
-        <AdditionWarning>
+        <Addition type="warning">
           <ul>
             <li>
-              Пожалуйста, не надо скачивать и устанавливать в{" "}
-              <mark className="app">Adobe After Effects</mark> все плагины мира подряд,
-              так как это может привести к снижению производительности программы. Прежде
-              чем устанавливать тот или иной инструмент - подумайте, точно ли он вам нужен
-              будет в дальнейшем?
+              Плагины формата <mark className="file">AEX</mark> устанавливаются на
+              устройства с <mark>Windows</mark>, а <mark className="file">PLUGIN</mark> —
+              на устройства с <mark>macOS</mark>. Данные форматы не являются
+              кроссплатформенными.
             </li>
             <li>
-              Рекомендации автора по списку сторонних плагинов может не совпадать с вашим
-              мнением.
+              Пожалуйста, не устанавливайте все плагины и скрипты со всего мира в
+              программу: это может снизить производительность программы. Прежде чем
+              ставить тот или иной инструмент — подумайте, действительно ли он вам
+              понадобится в работе.
             </li>
+            <li>Рекомендации автора статьи могут не совпадать с вашим мнением.</li>
           </ul>
-        </AdditionWarning>
-        <AdditionInfo>
-          Большинство плагинов из статьи вы можете найти в каналах{" "}
+        </Addition>
+        <Addition type="info">
+          Большинство плагинов из статьи можно найти в каналах{" "}
           <a href="https://t.me/s/aetemp">AETemp</a>,{" "}
           <a href="https://t.me/+Qd9xu7A4TeIwNzY6">склад стройматериалов (Windows)</a> или{" "}
-          <a href="https://t.me/+ZqiaMfQRFgM4YmEy">Яблоневый сад (macOS)</a>{" "}
-        </AdditionInfo>
+          <a href="https://t.me/+ZqiaMfQRFgM4YmEy">«Яблоневый сад» (macOS)</a>.
+        </Addition>
         <Divider>Для совместимости с чужими проектами</Divider>
         <ul>
           <li>
             <mark className="plugin">Boris FX Sapphire</mark> и{" "}
-            <mark className="plugin">Boris FX Continuum</mark> - пакет популярных эффектов
-            от <mark>Boris FX</mark>, которые дополняют ассортимент к скудному набору в
-            стандартной поставке <mark className="app">Adobe After Effects</mark>.
+            <mark className="plugin">Boris FX Continuum</mark> — пакеты популярных
+            эффектов от <mark className="company">Boris FX</mark>, которые дополняют
+            скудный стандартный набор инструментов.
           </li>
           <li>
-            <mark className="plugin">Boris FX Mocha Pro</mark> - расширенная версия
-            стандартного плагина <mark className="plugin">Mocha AE</mark> без всяких
+            <mark className="plugin">Boris FX Mocha Pro</mark> — расширенная версия
+            стандартного плагина для трекинга <mark className="plugin">Mocha AE</mark> без
             ограничений.
           </li>
           <li>
-            <mark className="plugin">
-              Magic Bullet Suite (включает в себя Looks, который полюбился многим)
-            </mark>
-            , <mark className="plugin">Trapcode Suite</mark>,{" "}
+            Пакеты от <mark className="plugin">Red Giant</mark>:{" "}
+            <mark className="plugin">Magic Bullet Suite</mark> (включает в себя
+            полюбившийся многим <mark className="plugin">Looks</mark>),{" "}
+            <mark className="plugin">Trapcode Suite</mark>,{" "}
             <mark className="plugin">VFX Suite</mark> и{" "}
-            <mark className="plugin">Universe</mark> - сборник плагинов от{" "}
-            <mark className="plugin">Red Giant</mark> для цветокоррекции и создания
-            различных эффектов. Из отличных инструментов в этих пакетах могу выделить{" "}
+            <mark className="plugin">Universe</mark>. Из них можно выделить{" "}
             <mark className="plugin">Primatte Keyer</mark> и{" "}
-            <mark className="plugin">Supercomp</mark> для решения повседневных задач по
-            композингу, а также <mark className="plugin">Trapcode Particular</mark> для
-            создания частиц в трёхмерном пространстве и{" "}
-            <mark className="plugin">Trapcode Sound Keys</mark> для создания ключевых
-            кадров на основе аудио.
+            <mark className="plugin">Supercomp</mark> для композитинга, а также{" "}
+            <mark className="plugin">Trapcode Particular</mark> для создания частиц и{" "}
+            <mark className="plugin">Sound Keys</mark> для генерации ключей из аудио.
           </li>
           <li>
-            <mark className="plugin">Element 3D от VideoCopilot</mark>, использующийся для
-            импорта трёхмерных моделей форматов <mark className="file">OBJ</mark>,{" "}
-            <mark className="file">
-              C4D<sup>1</sup>
-            </mark>{" "}
-            и <mark className="file">E3D</mark>. Несмотря на то, что существует{" "}
-            <mark className="plugin">Advanced 3D</mark> - данный плагин всё ещё
-            используется в старых и новых проектах.
-            <AdditionWarning>
-              <sup>1</sup> Для корректного импорта моделей формата{" "}
-              <mark className="file">C4D</mark> требуется установленная полноценная версия{" "}
-              <mark className="app">Maxon Cinema 4D</mark>, если модуль{" "}
-              <mark className="plugin">Cineware</mark> был вырезан из вашей сборки{" "}
-              <mark className="app">Adobe After Effects</mark>.
-            </AdditionWarning>
+            <mark className="plugin">Element 3D от VideoCopilot</mark> — используется для
+            импорта трёхмерных моделей в форматах <mark className="file">OBJ</mark>,{" "}
+            <mark className="file">C4D</mark>
+            <sup>1</sup> и <mark className="file">E3D</mark>.
+            <Addition type="warning">
+              <sup>1</sup> Для импорта моделей <mark className="file">C4D</mark> требуется
+              установленная <mark className="app">Maxon Cinema 4D</mark>.
+            </Addition>
           </li>
           <li>
             <mark className="plugin">Twixtor</mark> и <mark className="plugin">RSMB</mark>{" "}
-            - плагины от <mark className="plugin">RE:Vision</mark> для плавного замедления
-            и интерполяции соседних кадров слоя.
+            от <mark className="plugin">RE:VisionFX</mark> — для плавного замедления и
+            создания размытия в движении.
           </li>
           <li>
-            <mark className="plugin">Deep Glow</mark> - создаёт красивое свечение, но
-            может сильно замедлить скорость экспорта композиции. Если производительность
-            проекта вам очень важна - замените его на более простые решения.
-            <AdditionWarning>
-              Первая и вторая версия <mark className="plugin">Deep Glow</mark> не имеет
-              обратную совместимость в проектах. Если вы не хотите держать две версии
-              плагина - перенесите значения старой версии эффекта в новую.
-            </AdditionWarning>
+            <mark className="plugin">Deep Glow</mark> — создаёт красивое свечение, но
+            может сильно замедлить рендеринг.
+            <Addition type="warning">
+              <ul>
+                <li>
+                  Первая и вторая версии <mark className="plugin">Deep Glow</mark>{" "}
+                  несовместимы между собой, поскольку{" "}
+                  <mark className="plugin">Deep Glow</mark> и{" "}
+                  <mark className="plugin">Deep Glow 2</mark> считаются отдельными
+                  плагинами. При этом обе версии можно установить одновременно.
+                </li>
+                <li>
+                  Если вы не планируете использовать обе версии — перенесите параметры из
+                  старой версии эффекта в новую в старых проектах. Начиная с{" "}
+                  <mark className="plugin">Deep Glow 2</mark> версии <mark>1.1</mark>, в
+                  комплект поставляется скрипт{" "}
+                  <mark className="file">Deep Glow Upgrader.jsx</mark>, который находит в
+                  проекте первую версию <mark className="plugin">Deep Glow</mark> и
+                  заменяет её на <mark className="plugin">Deep Glow 2</mark>.
+                </li>
+              </ul>
+            </Addition>
           </li>
           <li>
-            <mark className="plugin">Saber от VideoCopilot</mark> - бесплатный плагин для
+            <mark className="plugin">Saber от VideoCopilot</mark> — бесплатный плагин для
             создания неоновой обводки.
           </li>
           <li>
-            <mark className="plugin">loopFlow</mark> - оживляет неподвижные изображения
-            текущей воды, клубящегося дыма, летящих частиц или огня с помощью двух масок.
+            <mark className="plugin">loopFlow</mark> — оживляет статичные изображения:
+            текущую воду, клубящийся дым или огонь.
           </li>
           <li>
-            <mark className="plugin">AutoFill</mark> - плагин для создания эффекта
-            проявления объекта.
-            <AdditionWarning>
-              Первая и вторая версия <mark className="plugin">AutoFill</mark> не имеет
-              обратную совместимость в проектах. Если вы не хотите держать две версии
-              плагина - перенесите значения старой версии эффекта в новую.
-            </AdditionWarning>
+            <mark className="plugin">AutoFill</mark> — плагин для создания эффекта
+            «проявления» объекта.
+            <Addition type="warning">
+              Первая и вторая версии <mark className="plugin">AutoFill</mark> также
+              несовместимы между собой.
+            </Addition>
           </li>
           <li>
-            <mark className="plugin">Twitch от VideoCopilot</mark> - устаревший плагин для
-            создания эффекта тряски, в прошлом был очень популярен в композициях у{" "}
-            <mark className="word">эдиторов</mark>.
-            <AdditionWarning>
-              Автор статьи не рекомендует использовать данный эффект в новых проектах, так
-              как он устарел и не поддерживает мультикадровый рендер. В качестве его
-              замены лучше всего подходит <mark className="plugin">S_Shake</mark> из
-              пакета <mark className="plugin">BorisFX Sapphire</mark> со значением{" "}
-              <mark className="ui">Twitchy</mark> в параметре{" "}
-              <mark className="ui">Style</mark>.
-            </AdditionWarning>
+            <mark className="plugin">Twitch от VideoCopilot</mark> — устаревший плагин для
+            создания эффекта тряски, в прошлом был очень популярен у «эдиторов».
+            <Addition type="warning">
+              Автор статьи не рекомендует использовать этот эффект в новых проектах, так
+              как он устарел и не поддерживает мультифрейм-рендер. В качестве замены лучше
+              подходит <mark className="plugin">S_Shake</mark> из пакета{" "}
+              <mark className="plugin">Boris FX Sapphire</mark> со стилем{" "}
+              <mark className="select">«Twitchy»</mark>.
+            </Addition>
           </li>
           <li>
-            <mark className="plugin">Displacer Pro</mark> - бесплатный плагин для создания
-            искажений и переходов, дополняет функционал стандартного{" "}
-            <mark className="plugin">Displacement Map</mark>.
+            <mark className="plugin">Displacer Pro</mark> — бесплатный плагин для создания
+            искажений и переходов.
           </li>
           <li>
-            <mark className="plugin">Pixel Sorter 2 / 3</mark> - плагин для создания
-            эффектов перемешивания пикселей и различных искажений.
+            <mark className="plugin">Pixel Sorter 2 / 3</mark> — плагин для создания
+            эффектов «сортировки пикселей» и различных искажений.
           </li>
           <li>
             <mark className="plugin">Mettle Flux</mark>,{" "}
             <mark className="plugin">Mettle FreeForm Pro</mark> и{" "}
-            <mark className="plugin">Mettle Mantra</mark> - инструменты для создания
-            красивых фрактальных волн, искажений слоёв и работы с композициями в формате
-            360 градусов.
-          </li>
-          <li>
-            <mark className="plugin">FXHome Ignite Pro</mark> - устаревший пакет плагинов
-            для применения различных эффектов и переходов. Если данный пакет не установлен
-            - некоторые пользователи могут запутаться при открытии проекта с
-            использованием эффектов из этого пакета из-за того что названия похожи на
-            стандартные и не всегда понятно - относится ли они к{" "}
-            <mark className="plugin">Ignite Pro</mark> или нет.
-          </li>
-          <li>
-            <mark className="plugin">omino suite</mark> - устаревшие плагины, содержит в
-            себя <mark className="plugin">omino diffusion</mark> и{" "}
-            <mark className="plugin">omino snake</mark> и другие, использующиеся в
-            некоторых проектах для создания различных эффектов.
-          </li>
-          <li>
-            <mark className="plugin">Crates Light Wrap</mark> - создаёт контурный свет для
-            объекта за счёт размытия указанного фонового слоя в параметрах плагина.
+            <mark className="plugin">Mettle Mantra</mark> — инструменты для создания
+            фрактальных волн, искажений и работы с 360-градусным видео.
           </li>
         </ul>
         <Divider>Полезные инструменты</Divider>
         <ul>
           <li>
-            <mark className="plugin">Auto Crop 3</mark> - плагин для кадрирования
-            композиции под размеры слоя или его анимации.
+            <mark className="plugin">Auto Crop 3</mark> — плагин для кадрирования
+            композиции по размеру слоёв.
           </li>
           <li>
-            <mark className="plugin">Flow</mark> - расширение для быстрого применения
-            интерполяции ключей. Если создать свои пресеты, которыми вы часто пользуетесь
-            в анимации - сможете ускорить свою рутинную работу в несколько раз.
+            <mark className="plugin">Flow</mark> — расширение для быстрого применения
+            готовых кривых анимации. Позволяет ускорить рутинную работу в несколько раз.
           </li>
           <li>
-            <mark className="plugin">FXConsole от VideoCopilot</mark> - всплывающая панель
-            для быстрого поиска эффектов и пресетов, а также для их применения на слой.
+            <mark className="plugin">FX Console от VideoCopilot</mark> — всплывающая
+            панель для быстрого поиска и применения эффектов.
           </li>
           <li>
-            <mark className="plugin">Guides от Rendertom</mark> - добавляет больше
-            возможностей для создания и работы с сетками-направляющими.
+            <mark className="plugin">Guides от Rendertom</mark> — расширяет возможности
+            работы с направляющими.
           </li>
           <li>
-            <mark className="plugin">kBar</mark> - полностью настраиваемая панель для
-            прикрепления различных действий на кнопки, например: применение готовых
-            выражений, применение пресетов и эффектов, открытие различных меню в программе
-            и многое другое.
+            <mark className="plugin">kBar</mark> — настраиваемая панель, на кнопки которой
+            можно назначить любые действия: применение эффектов, выражений, запуск
+            скриптов и т. д.
           </li>
           <li>
-            <mark className="plugin">Keystone</mark> - инструмент для манипуляций над
-            ключевыми кадрами и слоями на таймлайне: растягивание, смещение, выравнивание
-            и много чего другого.
+            <mark className="plugin">Keystone</mark> — инструмент для манипуляций с
+            ключевыми кадрами: растягивание, смещение, выравнивание.
           </li>
           <li>
-            <mark className="plugin">Motion Tools Pro</mark> - набор инструментов для
-            анимации. Полностью настраиваемый.
+            <mark className="plugin">Motion Tools Pro</mark> — настраиваемый набор
+            инструментов для анимации.
           </li>
           <li>
-            <mark className="plugin">Newton</mark> - плагин для создания физического
-            поведения 2D-объектов.
+            <mark className="plugin">Newton</mark> — плагин для симуляции физики двумерных
+            объектов.
           </li>
           <li>
-            <mark className="plugin">rd_compsetter</mark> - скрипт для одновременного
+            <mark className="plugin">rd: CompSetter</mark> — скрипт для пакетного
             изменения параметров нескольких композиций.
           </li>
           <li>
-            <mark className="plugin">True Comp Duplicator</mark> - скрипт для дублирования
-            композиций и вложенных прекомпозиций с нужными параметрами.
+            <mark className="plugin">True Comp Duplicator</mark> — скрипт для создания
+            независимых дубликатов композиций.
           </li>
           <li>
-            <mark className="plugin">Workflower</mark> - плагин для организации слоёв на
-            таймлайне, позволяет делать папки со слоями без создания предварительной
-            композиции.
-            <AdditionDanger>
-              Не рекомендуется передавать проект с использованием этого плагина другим
-              лицам, у которых не установлен этот плагин, иначе другой пользователь может
-              столкнуться с неожиданными результатами.
-            </AdditionDanger>
+            <mark className="plugin">Workflower</mark> — плагин для организации слоёв на
+            таймлайне. Позволяет создавать папки со слоями без прекомпозиции.
+            <Addition type="danger">
+              Не рекомендуется передавать проект с{" "}
+              <mark className="plugin">Workflower</mark> тем, у кого этот плагин не
+              установлен, — это может привести к непредсказуемым результатам.
+            </Addition>
           </li>
         </ul>
         <Divider>Технические плагины</Divider>
         <ul>
           <li>
-            <mark className="plugin">Autokroma Influx</mark> - плагин для импорта в проект
-            неподдерживаемых форматов видео и аудио, например{" "}
-            <mark className="video">WEBM</mark>, <mark className="video">MKV</mark> или{" "}
-            <mark className="video">FLV</mark>.
+            <mark className="plugin">Autokroma Influx</mark> — плагин для импорта
+            неподдерживаемых форматов, например <mark className="video">WebM</mark>,{" "}
+            <mark className="video">MKV</mark> или <mark className="video">FLV</mark>.
           </li>
           <li>
-            <mark className="plugin">Cyclops</mark> - позволяет экспортировать композицию
-            со всеми границами слоёв, как в предпросмотре программы.
+            <mark className="plugin">Cyclops</mark> — плагин для экспорта композиции
+            вместе со всеми границами слоёв и направляющими, как в предпросмотре.
           </li>
           <li>
-            <mark className="plugin">Paint Link</mark> - связывает композицию{" "}
+            <mark className="plugin">Paint & Stick</mark> — связывает{" "}
             <mark className="app">Adobe After Effects</mark> с{" "}
-            <mark className="app">Adobe Photoshop</mark> для дальнейшей обработки кадров.
+            <mark className="app">Adobe Photoshop</mark> для покадровой обработки слоя.
           </li>
           <li>
-            <mark className="plugin">Pseudo Effect Maker</mark> - инструмент для создания
-            контроллеров для ваших эффектов или выражений.
+            <mark className="plugin">Pseudo Effect Maker</mark> — инструмент для создания
+            удобных контроллеров для ваших эффектов или выражений.
           </li>
           <li>
             <mark className="plugin">Voukoder</mark> и{" "}
-            <mark className="plugin">Autokroma AfterCodecs</mark> - плагины для экспорта
-            композиций в <mark className="video">H.264</mark>, которые работают лучше
-            стандартного <mark className="plugin">H.264</mark>. Имеют дополнительные
-            настройки по качеству и скорости обработки, что из них лучше - решать вам.
+            <mark className="plugin">Autokroma AfterCodecs</mark> — плагины для экспорта
+            композиций в <mark className="video">H.264</mark> и другие форматы, которые
+            работают лучше стандартного экспортёра. Что из них лучше, решать вам.
           </li>
         </ul>
       </DetailsSummary>
       <DetailsSummary
-        tag="что нового, фишки, обновления, апдейты, патчноуты"
+        tag="что нового, фишки, обновления, апдейты, патчноуты, changelog, список изменений"
         title="Где я могу узнать о нововведениях в обновлениях программы?"
       >
         <p>
-          Обычно на сайте <mark>Adobe</mark> в день выхода публичной стабильной версии
-          выкладываются основные нововведения. Это сделано для того, чтобы каждый прохожий
-          не спрашивал из каждого угла <mark className="quote">А что обновилось то?</mark>
-          . Ещё время от времени <mark>Adobe</mark> выкладывает на сайт список выявленных
-          неполадок и старается приложить к ним временное решение.
+          Обычно в день выхода новой стабильной версии{" "}
+          <mark className="app">Adobe After Effects</mark>, разработчики публикуют на
+          своём сайте список нововведений. Это делается для того, чтобы каждый не
+          спрашивал из-за каждого угла:{" "}
+          <mark className="quote">«А что обновилось-то?»</mark>. Также{" "}
+          <mark className="company">Adobe</mark> время от времени выкладывает списки
+          выявленных неполадок и временные решения для них.
         </p>
         <div className="flexible-links">
           <a href="https://helpx.adobe.com/after-effects/using/whats-new.html">
-            Что нового в After Effects последних выпусков
+            Что нового в After Effects
           </a>
           <a href="https://helpx.adobe.com/after-effects/kb/fixed-issues.html">
             Список исправленных ошибок
           </a>
           <a href="https://helpx.adobe.com/after-effects/kb/known-issues-after-effects.html">
-            Выявленные неполадки в After Effects
+            Известные проблемы в After Effects
           </a>
         </div>
         <p>
-          Мы советуем время от времени обновлять{" "}
-          <mark className="app">Adobe After Effects</mark>, а также сторонние плагины,
-          чтобы исключить возможные проблемы при дальнейшем использовании программы.
-          Многие баги старых версий исправляются в более новых, например утечка ОЗУ или
-          смещение кадра при экспорте.
+          А вообще, рекомендуется время от времени обновлять{" "}
+          <mark className="app">Adobe After Effects</mark> и сторонние плагины. Многие
+          баги старых версий (например, утечка оперативной памяти или смещение кадра при
+          экспорте) исправляются в более новых.
         </p>
       </DetailsSummary>
       <DetailsSummary
-        tag="изменить язык, смена языка, установка английской версии"
-        title="Почему мне с каждого угла советуют поставить английский язык программы и как это сделать без переустановки?"
+        tag="изменить язык программы, смена языка, установка английской версии, english version, локализация"
+        title="Почему все советуют ставить английскую версию программы и как это сделать?"
       >
         <p>
-          Установив английскую версию программы - вы обережёте себя от возможных ошибок с
-          выражениями или кривой работы сторонних плагинов. Почему? Потому что не все
-          выражения и плагины спокойно дружат с языками интерфейса, отличными от
-          английского.
+          Установив английскую версию программы, вы убережёте себя от возможных ошибок с
+          выражениями или некорректной работы сторонних плагинов. Многие из них просто не
+          «дружат» с языками интерфейса, отличными от английского.
         </p>
         <p>
-          Также в начале своего пути вам будет гораздо легче найти нужный{" "}
-          <mark className="word">туториал</mark> по определённому эффекту на английском
-          языке в котором будет продемонстрирована работа английской версии, потому что
-          таких видео больше, чем на русском языке. Ещё вам будет легче находить различные
-          эффекты в программе без использования таблицы перевода, потому что на русской
-          локализации некоторые эффекты максимально нелогично переведены.
+          Кроме того, искать обучающие материалы станет проще: почти все туториалы
+          записаны именно с использованием английской локализацией программы. А ещё вы
+          быстрее будете находить нужные эффекты в самой программе — в русской локализации
+          названия некоторых из них переведены порой нелогично.
         </p>
-        <AdditionDanger>
+        <Addition type="danger">
           <ul>
             <li>
-              При смене языка программы программа{" "}
-              <b>
-                <u>сбросит</u>
-              </b>{" "}
-              пользовательские настройки, так как они привязаны к используемому вами
-              языку. Вам надо будет заново настроить рабочие области и некоторые параметры
-              программы. После смены языка сторонние плагины останутся и никуда не
-              пропадут, не переживайте.
+              При смене языка <mark className="app">Adobe After Effects</mark> сбросит
+              пользовательские настройки, так как они привязаны к языку интерфейса. При
+              этом сторонние плагины, скрипты и пресеты останутся на месте.
             </li>
             <li>
-              После такого способа смены языка, названия стандартных пресетов и рабочих
-              областей останутся на русском языке. Их можно будет переименовать вручную
-              или удалить, а затем поставить поверх дистрибутив{" "}
-              <mark className="app">Adobe After Effects</mark> с указанием английского
-              языка в установщике. Или достаточно просто переустановить программу сразу на
-              английском языке, предварительно почистив все &quot;хвосты&quot;.
+              После смены языка описанным ниже способом названия стандартных пресетов и
+              рабочих областей могут остаться на русском языке. Чтобы это исправить —
+              лучше переустановите программу «с нуля», выбрав английский язык в
+              установщике.
             </li>
           </ul>
-        </AdditionDanger>
-        <ContentSwitcher
+        </Addition>
+        <ContentFilter
           macContent={
             <div>
-              <Divider>Меняем язык с помощью консоли программы</Divider>
-              <AdditionWarning>
-                Данный способ изменения языка интерфейса работает только в{" "}
+              <Divider>Меняем язык с помощью консоли</Divider>
+              <Addition type="warning">
+                Этот способ работает только в{" "}
                 <mark className="app">Adobe After Effects</mark> версии <mark>2024</mark>{" "}
-                или новее.
-              </AdditionWarning>
+                и новее.
+              </Addition>
               <p>
                 В новых версиях <mark className="app">Adobe After Effects</mark>{" "}
-                разработчики добавили возможность быстро поменять язык через консоль. Для
-                этого нажмите на комбинацию клавиш{" "}
-                <mark className="key">Command + F12</mark>. В открывшемся окне у заголовка
-                нажимаем три полоски и переключаемся в режим{" "}
-                <mark className="ui">Debug Database View</mark>.
+                разработчики добавили возможность быстро менять язык через{" "}
+                <mark className="select">«Console»</mark>. Чтобы это сделать — сначала
+                нажмите <mark className="key">Command + F12</mark>. В открывшемся окне
+                нажмите на иконку открытия контекстного меню и переключитесь в режим{" "}
+                <mark className="select">«Debug Database View»</mark>.
               </p>
-              <ImageFigure
-                caption="Включение вида Debug Database View"
-                imgSrc="images/aftereffects/console_debug-database-view.png"
-                imgTitle="Включение вида Debug Database View"
-                styleClass="figure_windows-dark"
+              <ContentFigure
+                caption="Включение Debug Database View"
+                imgTitle="Включение Debug Database View"
+                src="images/aftereffects/console_debug-database-view.png"
+                theme="dark"
+                type="image"
+                variant="windows"
               />
               <p>
-                Затем в строке поиска нам нужно писать{" "}
-                <mark className="copy">ApplicationLanguage</mark>. В строке с одноимённым
-                параметром пишем <mark className="copy">en_US</mark>. После ввода значения
-                - перезапускаем <mark className="app">Adobe After Effects</mark>.
+                Затем в строке поиска введите{" "}
+                <mark className="copy">ApplicationLanguage</mark> и в строке с этим
+                параметром напишите <mark className="copy">en_US</mark>. После этого
+                перезапустите <mark className="app">Adobe After Effects</mark>.
               </p>
-              <ImageFigure
+              <ContentFigure
                 caption="Установка английского языка в консоли"
-                imgSrc="images/aftereffects/set_language_console.png"
                 imgTitle="Установка английского языка в консоли"
-                styleClass="figure_windows-dark"
+                src="images/aftereffects/set_language_console.png"
+                theme="dark"
+                type="image"
+                variant="windows"
               />
-              <AdditionInfo>
-                Чтобы вернуть язык, который был установлен по умолчанию - достаточно
-                убрать значение из этого параметра и снова перезапустить{" "}
-                <mark className="app">Adobe After Effects</mark>.
-              </AdditionInfo>
+              <Addition type="info">
+                Чтобы вернуть язык по умолчанию, просто удалите значение из этого
+                параметра и снова перезапустите программу.
+              </Addition>
             </div>
           }
           windowsContent={
             <div>
-              <Divider>Меняем язык с помощью пустого текстового документа</Divider>
+              <Divider>Меняем язык с помощью текстового файла</Divider>
               <p>
-                Для быстрой смены языка программы на английский достаточно создать пустой
-                текстовый документ <mark className="file">ae_force_english.txt</mark> и
-                переместить его в папку документов пользователя, обычно это{" "}
-                <mark className="path">%USERPROFILE%/Documents</mark>. В сам текстовый
-                файл ничего писать не нужно. После того, как вы поместили текстовый файл в
-                нужное место - перезапустите{" "}
-                <mark className="app">Adobe After Effects</mark>, если он у вас был
-                запущен. Теперь программа должна запустится на английском языке и ошибка в
-                проекте должна пропасть.
+                Для быстрой смены языка на английский достаточно создать пустой текстовый
+                файл с названием <mark className="file">ae_force_english.txt</mark> и
+                поместить его в папку «Документы», находящийся в директории{" "}
+                <mark className="path">%USERPROFILE%\Documents</mark>. В сам файл ничего
+                писать не нужно. После этого перезапустите{" "}
+                <mark className="app">Adobe After Effects</mark>, если он был открыт.
               </p>
-              <AdditionInfo>
-                Чтобы быстро открыть папку документов текущего пользователя в{" "}
-                <mark className="app">Проводнике</mark> - откройте окно{" "}
-                <mark className="app">Выполнить</mark> с помощью комбинации клавиш{" "}
-                <mark className="key">Win + R</mark> и введите в него{" "}
-                <mark className="path">%USERPROFILE%/Documents</mark>, а затем нажмите на{" "}
-                <mark className="key">Enter</mark>.
-              </AdditionInfo>
-              <p>
-                Если вам лень создавать и вручную перемещать файл, то можно создать пустой
-                текстовый документ сразу в нужном месте с помощью команды ниже в{" "}
-                <mark className="app">командной строке Windows</mark>.
-              </p>
-              <code>
-                echo.{">"}&quot;%USERPROFILE%\Documents\ae_force_english.txt&quot;
-              </code>
-              <AdditionWarning>
-                Через <mark className="app">PowerShell</mark> эта команда не будет
-                работать, используйте <mark className="app">cmd</mark>.
-              </AdditionWarning>
-              <Divider>Меняем язык с помощью консоли программы</Divider>
-              <AdditionWarning>
-                Данный способ изменения языка интерфейса работает только в{" "}
+              <Addition type="info">
+                <ul>
+                  <li>
+                    Чтобы быстро открыть папку «Документы», нажмите{" "}
+                    <mark className="key">Win + R</mark>, введите{" "}
+                    <mark className="path">%USERPROFILE%\Documents</mark> и нажмите{" "}
+                    <mark className="key">Enter</mark>.
+                  </li>
+                  <li>
+                    Если лень создавать файл вручную, можно сделать это командой{" "}
+                    <mark className="code">
+                      echo.&gt;&quot;%USERPROFILE%\Documents\ae_force_english.txt&quot;
+                    </mark>{" "}
+                    в <mark className="app">cmd</mark>. Учтите, что при использовании{" "}
+                    <mark className="app">PowerShell</mark> эта команда не сработает.
+                  </li>
+                </ul>
+              </Addition>
+              <Divider>Меняем язык с помощью консоли</Divider>
+              <Addition type="warning">
+                Этот способ работает только в{" "}
                 <mark className="app">Adobe After Effects</mark> версии <mark>2024</mark>{" "}
-                или новее.
-              </AdditionWarning>
+                и новее.
+              </Addition>
               <p>
                 В новых версиях <mark className="app">Adobe After Effects</mark>{" "}
-                разработчики добавили возможность быстро поменять язык через консоль. Для
-                этого нажмите на комбинацию клавиш <mark className="key">Ctrl + F12</mark>
-                . В открывшемся окне у заголовка нажимаем три полоски и переключаемся в
-                режим <mark className="ui">Debug Database View</mark>.
+                разработчики добавили возможность быстро менять язык через{" "}
+                <mark className="select">«Console»</mark>. Чтобы это сделать — сначала
+                нажмите <mark className="key">Ctrl + F12</mark>. В открывшемся окне
+                нажмите на иконку открытия контекстного меню и переключитесь в режим{" "}
+                <mark className="select">«Debug Database View»</mark>.
               </p>
-              <ImageFigure
-                caption="Включение вида Debug Database View"
-                imgSrc="images/aftereffects/console_debug-database-view.png"
-                imgTitle="Включение вида Debug Database View"
-                styleClass="figure_windows-dark"
+              <ContentFigure
+                caption="Включение Debug Database View"
+                imgTitle="Включение Debug Database View"
+                src="images/aftereffects/console_debug-database-view.png"
+                theme="dark"
+                type="image"
+                variant="windows"
               />
               <p>
-                Затем в строке поиска нам нужно писать{" "}
-                <mark className="copy">ApplicationLanguage</mark>. В строке с одноимённым
-                параметром пишем <mark className="copy">en_US</mark>. После ввода значения
-                - перезапускаем <mark className="app">Adobe After Effects</mark>.
+                Затем в строке поиска введите{" "}
+                <mark className="copy">ApplicationLanguage</mark> и в строке с этим
+                параметром напишите <mark className="copy">en_US</mark>. После этого
+                перезапустите <mark className="app">Adobe After Effects</mark>.
               </p>
-              <ImageFigure
+              <ContentFigure
                 caption="Установка английского языка в консоли"
-                imgSrc="images/aftereffects/set_language_console.png"
                 imgTitle="Установка английского языка в консоли"
-                styleClass="figure_windows-dark"
+                src="images/aftereffects/set_language_console.png"
+                theme="dark"
+                type="image"
+                variant="windows"
               />
-              <AdditionInfo>
-                Чтобы вернуть язык, который был установлен по умолчанию - достаточно
-                убрать значение из этого параметра и снова перезапустить{" "}
-                <mark className="app">Adobe After Effects</mark>.
-              </AdditionInfo>
+              <Addition type="info">
+                Чтобы вернуть язык по умолчанию, просто удалите значение из этого
+                параметра и снова перезапустите программу.
+              </Addition>
             </div>
           }
         />
       </DetailsSummary>
       <DetailsSummary
-        tag="очистить всю память и кэш диска"
-        title="Как очистить кэш предпросмотра и зачем это надо делать?"
+        tag="очистка кэша, purge, disk cache, память"
+        title="Как очистить кэш и зачем это нужно делать?"
       >
         <p>
-          Регулярная очистка кэша может помочь вам избавиться от случаев, когда в процессе
-          работы над проектом появляются непонятные артефакты или нежелательные кадры в
-          предпросмотре, а также может помочь решить проблему появления предупреждения{" "}
-          <mark>Out of Memory</mark>. Чтобы быстро очистить кэш предпросмотра и дисковый
-          кэш - перейдите в <mark className="ui">Edit &gt; Purge</mark>, нажмите на{" "}
-          <mark className="ui">All Memory & Disk Cache</mark> и в открывшемся окне нажмите
-          на <mark className="ui">OK</mark>. После очистки кэша - предпросмотр нужно
-          закэшировать заново.
+          Регулярная очистка кэша помогает избавиться от артефактов в предпросмотре, а
+          также может решить проблему с ошибкой{" "}
+          <mark className="warning">«Out of Memory»</mark>. Чтобы быстро очистить кэш,
+          перейдите в{" "}
+          <mark className="select">«Edit» → «Purge» → «All Memory & Disk Cache»</mark> и
+          нажмите <mark className="select">«OK»</mark>. После этого предпросмотр нужно
+          будет кэшировать заново.
         </p>
-        <ImageFigure
-          caption="Очистка кэша и освобождение оперативной памяти"
-          imgSrc="images/aftereffects/edit_purge_all-memory-and-disk-cache.png"
-          imgTitle="Очистка кэша и освобождение оперативной памяти"
-          styleClass="figure_windows-light"
+        <ContentFigure
+          caption="Очистка кэша и оперативной памяти"
+          imgTitle="Очистка кэша и оперативной памяти"
+          src="images/aftereffects/edit_purge_all-memory-and-disk-cache.png"
+          theme="light"
+          type="image"
+          variant="windows"
         />
-        <AdditionInfo>
-          <ul>
-            <li>
-              Если очистка кэша не помогает от появления <mark>Out of Memory</mark> -
-              попробуйте <a href="#4.5">настроить файл подкачки</a>, если у вас устройство
-              на <mark>Windows</mark>.
-            </li>
-            <li>
-              При желании вы можете создать свою комбинацию клавиш для быстрой очистки
-              оперативной памяти и дискового кэша в{" "}
-              <mark className="ui">Edit &gt; Keyboard Shortcuts</mark>. По умолчанию в{" "}
-              <mark className="app">Adobe After Effects</mark> предусмотрена комбинация
-              только для очистки оперативной памяти -{" "}
-              <mark className="key">Ctrl + Alt + / (на Numpad)</mark>.
-            </li>
-            <li>
-              Если у вас достаточно много оперативной памяти на вашем устройстве и
-              производительный процессор, который быстро обрабатывает ваши композиции, то
-              вы можете отключить дисковый кэш в настройках программы. Для этого перейдите
-              в <mark className="ui">Edit &gt; Preferences &gt; Media & Disk Cache</mark>{" "}
-              и уберите галочку с параметра <mark className="ui">Enable Disk Cache</mark>.
-              Это позволит программе меньше обращаться к дисковому накопителю и меньше
-              сталкиваться с багами работы дискового кэша.
-            </li>
-          </ul>
-        </AdditionInfo>
+        <ContentFilter
+          windowsContent={
+            <div>
+              <Addition type="info">
+                <ul>
+                  <li>
+                    Если очистка кэша не помогает избавиться от ошибки{" "}
+                    <mark className="warning">«Out of Memory»</mark>, попробуйте{" "}
+                    <a href="#4.5">настроить файл подкачки</a>.
+                  </li>
+                  <li>
+                    Вы можете назначить горячую клавишу для очистки кэша в{" "}
+                    <mark className="select">«Edit» → «Keyboard Shortcuts»</mark>. По
+                    умолчанию есть комбинация только для очистки оперативной памяти:{" "}
+                    <mark className="key">Ctrl + Alt + / (Num)</mark>.
+                  </li>
+                  <li>
+                    Если у вас много оперативной памяти и производительный процессор —
+                    отключите дисковый кэш в{" "}
+                    <mark className="select">
+                      «Edit» → «Preferences» → «Media & Disk Cache»
+                    </mark>
+                    , сняв галочку <mark className="select">«Enable Disk Cache»</mark>.
+                    Это позволит программе реже обращаться к накопителю.
+                  </li>
+                </ul>
+              </Addition>
+            </div>
+          }
+        />
       </DetailsSummary>
       <DetailsSummary
-        tag="бекап, резервное копирование, возврат, вернуть, восстановить, облачное хранилище, облако, яндекс диск, журнал файлов, бэкап, история изменений файлов, откат проекта"
-        title="Чем я могу сделать резервные копии файлов и, при необходимости, возвращаться к предыдущим версиям проекта?"
+        tag="бекап, возврат, вернуть, восстановить, облачное хранилище, облако, яндекс диск, журнал файлов, история изменений, откат проекта"
+        title="Как настроить резервное копирование, чтобы возвращаться к предыдущим версиям проекта?"
       >
         <p>
-          Бывают ситуации, когда после внесённых изменений клиенту результат не подходит,
-          и требуется вернуться к предыдущей версии проекта. Или, например,{" "}
-          <mark className="file">AEP</mark> файл неожиданно сломался и перестал корректно
-          открываться, выбивая ошибку{" "}
-          <mark className="ui">Bad format or not readable</mark> или{" "}
-          <mark className="ui">File is damaged</mark>. Если заранее позаботиться о
-          резервном копировании ваших файлов - подобных проблем можно было бы избежать,
-          сэкономив время и усилия на восстановление данных. Есть два варианта создания
-          резервного копирования - на облачном хранилище или локально на вашем устройстве
-          или сервере.
+          Бывают ситуации, когда после внесённых изменений клиенту результат не нравится и
+          нужно вернуться к предыдущей версии. Или, например, файл проекта{" "}
+          <mark className="file">AEP</mark> неожиданно повредился после сбоя. Если заранее
+          позаботиться о резервном копировании, таких проблем можно избежать. Есть два два
+          варианта: в облачном хранилище или локально.
         </p>
-        <AdditionInfo>
-          Если вы хотите быстро сохранить открытый проект под другим названием -
-          воспользуйтесь комбинацией клавиш{" "}
-          <mark className="key">Ctrl + Alt + Shift + S</mark>. Данная команда сохранит
-          проект с тем же названием и добавит число в конце по возрастанию.
-        </AdditionInfo>
-        <Divider>Создаём резервные копии на облачном хранилище</Divider>
+        <Addition type="info">
+          Чтобы быстро сохранить копию открытого проекта под новым именем — воспользуйтесь
+          комбинацией <mark className="key">Ctrl + Alt + Shift + S</mark>. Эта команда
+          сохранит проект с тем же названием, добавив в конец порядковый номер.
+        </Addition>
+        <Divider>Создаём резервные копии в облачном хранилище</Divider>
         <p>
-          Самый простой способ организовать резервное копирование различных файлов
-          проектов - воспользоваться услугами облачного хранилища и настроить
-          автоматическую синхронизацию файлов на вашем компьютере с сервером. У популярных
-          облачных хранилищ, например <mark>Яндекс.Диск</mark>, <mark>Google Drive</mark>{" "}
-          или <mark>Dropbox</mark>, есть собственные клиенты для <mark>Windows</mark> и{" "}
-          <mark>macOS</mark> для того, чтобы настроить автоматическую синхронизацию
-          указанных вами папок.
+          Один из самых простых способов резервного копирования — использовать облачное
+          хранилище с включённой автоматической синхронизацией. У популярных сервисов,
+          например <mark className="app">Яндекс.Диск</mark>,{" "}
+          <mark className="app">Google Drive</mark>, <mark className="app">Dropbox</mark>{" "}
+          есть клиенты для <mark>Windows</mark> и <mark>macOS</mark>, которые
+          синхронизируют указанные вами папки автоматически.
         </p>
         <p>
-          Также у многих популярных облачных хранилищ есть функция восстановления файлов
-          при их изменении на сервере или случайном удалении на вашем устройстве. Это
-          бывает очень полезно, если вы случайно перезаписали нужный файл проекта другим
-          файлом с одинаковым названием. С помощью истории файлов можно быстро выкачать
-          предыдущую версию. Учтите, что у каждого сервиса свой срок хранения истории
-          файлов и корзины - уточняйте это в вашем тарифном плане.
+          Во многих таких сервисах доступна история версий — она позволяет вернуть старую
+          копию файла, если вы что-то случайно удалили или перезаписали. Учтите, что у
+          каждого сервиса есть свой срок хранения истории версий файлов — уточняйте это в
+          вашем тарифном плане.
         </p>
         <div className="flexible-links">
           <a href="https://yandex.ru/support/yandex-360/customers/disk/desktop/windows/ru/version-control">
-            История изменения файла в Яндекс.Диск
+            История изменений файла в Яндекс.Диске
           </a>
           <a href="https://support.google.com/drive/answer/2409045?hl=ru&co=GENIE.Platform%3DDesktop">
-            Журнал файлов в Google Drive
+            Журнал версий в Google Диске
           </a>
           <a href="https://help.dropbox.com/ru-ru/delete-restore/version-history-overview">
             Журнал версий файлов в Dropbox
           </a>
           <a href="https://help.mega.io/ru/files-folders/restore-delete/file-version-history">
-            Как управлять версиями файлов в Mega?
+            Как управлять версиями файлов в Mega
           </a>
           <a href="https://support.microsoft.com/ru-ru/office/%D0%B2%D0%BE%D1%81%D1%81%D1%82%D0%B0%D0%BD%D0%BE%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5-%D0%BF%D1%80%D0%B5%D0%B4%D1%8B%D0%B4%D1%83%D1%89%D0%B5%D0%B9-%D0%B2%D0%B5%D1%80%D1%81%D0%B8%D0%B8-%D1%84%D0%B0%D0%B9%D0%BB%D0%B0-%D1%85%D1%80%D0%B0%D0%BD%D1%8F%D1%89%D0%B5%D0%B3%D0%BE%D1%81%D1%8F-%D0%B2-onedrive-159cad6d-d76e-4981-88ef-de6e96c93893">
             Восстановление предыдущей версии файла в OneDrive
           </a>
         </div>
-        <Divider>
-          Создаём локальные резервные копии файлов стандартными функциями операционной
-          системы
-        </Divider>
+        <Divider>Создаём локальные резервные копии стандартными средствами ОС</Divider>
         <p>
-          Если вам вариант с облачным хранилищем не подходит по каким-то причинам, то вы
-          можете организовать свою локальную систему резервного копирования. В{" "}
-          <mark>Windows</mark> и <mark>macOS</mark> есть функция локального резервного
-          копирования файлов, которую необходимо включить. Обычно для работы этой функции
-          требуется внешний или отдельный накопитель.
+          Если вариант с облачным хранилищем не подходит, можно организовать систему
+          резервного копирования локально. И в <mark>Windows</mark>, и в{" "}
+          <mark>macOS</mark> есть встроенные функции для этого. Обычно для их работы
+          требуется отдельный накопитель.
         </p>
-        <ContentSwitcher
+        <ContentFilter
           macContent={
             <div>
               <p>
-                В <mark>macOS</mark> функция бэкапа файлов называется{" "}
-                <mark className="app">Time Machine</mark>, которая создаёт снапшот вашей
-                системы и файлов каждый час или по нажатию кнопки создания бэкапа.
+                В <mark>macOS</mark> эта функция называется{" "}
+                <mark className="app">Time Machine</mark>. Она создаёт «снимки» вашей
+                системы и файлов каждый час или по нажатию кнопки.
               </p>
-              <AdditionWarning>
-                Для работы данной функции нужен внешний накопитель, желательно с объёмом
-                от <mark>512 ГБ</mark> и более.
-              </AdditionWarning>
-              <YouTubeVideo
+              <Addition type="warning">
+                Для работы Time Machine нужен внешний накопитель, желательно объёмом от{" "}
+                <mark>512 ГБ</mark>.
+              </Addition>
+              <ContentFigure
                 caption="How to Set up & Use Time Machine to Backup your Mac"
-                link="Gx76i28c150"
+                src="Gx76i28c150"
+                type="youtube"
               />
             </div>
           }
           windowsContent={
             <div>
               <p>
-                В <mark>Windows</mark> стандартная функция бэкапа файлов называется{" "}
-                <mark className="app">История файлов</mark>, которая создаёт копии файлов
-                на другую директорию. С помощью него вы можете восстановить удалённый файл
-                или вернуть предыдущую версию файла в свойствах файла.
+                В <mark>Windows</mark> эта функция называется{" "}
+                <mark className="app">«История файлов»</mark>. Она создаёт копии файлов в
+                другой папке или на другом диске. С её помощью можно восстановить
+                удалённый или предыдущую версию файла.
               </p>
-              <AdditionInfo>
-                Для работы данной функции заранее укажите диск, на который вы планируете
-                сохранять копии файлов в разделе <mark className="ui">Смена диска</mark>.
-              </AdditionInfo>
-              <YouTubeVideo
+              <Addition type="info">
+                Для работы этой функции нужно заранее указать диск для сохранения копий.
+              </Addition>
+              <ContentFigure
                 caption="История файлов в Windows 11 и Windows 10"
-                link="xDFQEx9gylc"
+                src="xDFQEx9gylc"
+                type="youtube"
               />
               <p>
-                В настройках этой функции можно установить интервал сохранения от{" "}
-                <mark>10 минут</mark> до <mark>одного раза в день</mark>. Также можно
-                задать срок хранения от <mark>одного месяца</mark> до{" "}
-                <mark>двух лет</mark>, по истечении которого система автоматически удалит
-                старые резервные копии из указанной директории.
+                В параметрах можно задать, как часто сохраняются резервные копии — от
+                каждых 10 минут до одного раза в день — и сколько они будут храниться: от
+                месяца до двух лет. По истечении этого срока старые версии файлов
+                удаляются автоматически.
               </p>
-              <AdditionInfo>
+              <Addition type="info">
                 <p>
-                  По умолчанию функция <mark className="app">История файлов</mark>{" "}
-                  копирует только из стандартных папок{" "}
-                  <mark className="path">Библиотеки</mark>,{" "}
-                  <mark className="path">Рабочий стол</mark>,{" "}
-                  <mark className="path">Контакты</mark> и{" "}
-                  <mark className="path">Избранное</mark>. Если вам нужно установить свои
-                  папки, откуда нужно копировать файлы - зайдите в параметры и создайте
-                  свою библиотеку.
+                  По умолчанию <mark className="app">«История файлов»</mark> копирует
+                  только стандартные папки <mark className="path">«Библиотеки»</mark>,{" "}
+                  <mark className="path">«Рабочий стол»</mark> и прочие. Чтобы добавить
+                  свои папки, их нужно добавить в библиотеку.
                 </p>
-                <ul>
-                  <li>
-                    На <mark>Windows 11</mark> - откройте проводник, выберите нужную папку
-                    и нажмите на <mark className="key">ПКМ</mark>. Затем в контекстном
-                    меню нажмите на <mark className="ui">Добавить в библиотеку</mark>. Вы
-                    можете выбрать уже существующую библиотеку или создать новую.
-                    <AdditionWarning>
-                      Если у вас нет кнопки{" "}
-                      <mark className="ui">Добавить в библиотеку</mark> в контекстном меню
-                      - включите их отображение в параметрах папок.{" "}
-                      <a href="https://remontka.pro/manage-libraries-windows/">
-                        Подробнее...
-                      </a>
-                    </AdditionWarning>
-                  </li>
-                </ul>
-              </AdditionInfo>
+              </Addition>
             </div>
           }
         />
-        <Divider>
-          Альтернативные варианты контроля версий файлов и их резервного копирования
-        </Divider>
+        <Divider>Альтернативные варианты контроля версий</Divider>
         <p>
-          В качестве альтернативных вариантов контроля версий и резервного копирования вы
-          можете воспользоваться <mark className="app">Git</mark>, который доступен для{" "}
+          В качестве альтернативы можно воспользоваться системой контроля версий{" "}
+          <mark className="app">Git</mark> (доступен для{" "}
           <a href="https://git-scm.com/downloads/win">Windows</a> и{" "}
-          <a href="https://git-scm.com/downloads/mac">macOS</a>, или создать свой сервер с
-          помощью любого устройства, будь то <mark>Raspberry Pi</mark> или старый
-          компьютер. Здесь особо об этом расписывать не буду, но при всём желании - некую
-          часть информации вы можете найти в интернете. Если вы решили контролировать свои
-          файлы с помощью <mark className="app">Git</mark>, то советую клиенты{" "}
-          <mark className="app">SourceGit</mark> или{" "}
-          <mark className="app">SourceTree</mark>.
+          <a href="https://git-scm.com/downloads/mac">macOS</a>). Если решите использовать{" "}
+          <mark className="app">Git</mark> для отслеживания изменений в проекте,
+          рекомендую графические клиенты <mark className="app">SourceGit</mark> или{" "}
+          <mark className="app">SourceTree</mark>. Вы сможете вручную фиксировать
+          состояние папки проекта и при необходимости возвращаться к предыдущим версиям.
+          Однако такой инструмент не слишком удобен в сфере видеопроизводства, так как{" "}
+          <mark className="app">Git</mark> изначально создавался для работы с кодом.
         </p>
-        <YouTubeVideo
+        <ContentFigure
           caption="Объясняем на пальцах про Git"
-          link="G4f9OH4IQE8"
+          src="G4f9OH4IQE8"
+          type="youtube"
         />
-      </DetailsSummary>
-      <DetailsSummary title="Я работал над проектом, но его ни разу не сохранял. Если программа аварийно завершила работу, возможно ли в таком случае восстановить проект?">
-        <p>
-          Нет, <mark className="app">Adobe After Effects</mark> не создаёт автосохранения
-          или какие-нибудь файлы проекта, если изначально проект не был сохранён. В
-          следующий раз перед началом работы - сразу сохраните файл проекта и периодически
-          нажимайте на <mark className="key">Ctrl + S</mark> для сохранения ваших
-          изменений.
-        </p>
-        <AdditionInfo>
-          Чтобы не попасть в просак, если при работе файл проекта повредится - заранее{" "}
-          <a href="#4.1">настройте бэкап файлов в облачном хранилище или локально</a>.
-        </AdditionInfo>
       </DetailsSummary>
       <DetailsSummary
-        tag="менеджер эффектов, effect may have caused to quit, if you want you can disable this effect now, to re-enable it later select manager effects from effects menu options"
-        title="Программа аварийно завершила работу и предложила отключить эффект, который вызывает сбой. Я его отключил, но при последующих запусках он не возвращается обратно. Как его активировать снова?"
+        tag="вылет, краш, восстановление, не сохранил, автосохранение, autosave"
+        title="Я работал над проектом, но ни разу его не сохранял. Программа «вылетела». Можно ли восстановить проект?"
       >
         <p>
-          В <mark className="app">Adobe After Effects</mark> версии <mark>23.4</mark> и
-          новее была добавлена возможность отключения эффектов, если программа
-          подозревает, что именно он вызывает сбой и вылеты. Только вот при отключении
-          эффекта через диалоговое окно - он будет отключен до тех пор, пока он не будет
-          активирован вручную в <mark className="ui">менеджере эффектов</mark>. То есть
-          при следующем запуске <mark className="app">Adobe After Effects</mark> он до сих
-          пор будет отключен.
+          Нет. <mark className="app">Adobe After Effects</mark> не создаёт автосохранения,
+          если проект изначально не был сохранён. В следующий раз перед началом работы
+          сразу сохраните файл проекта и периодически нажимайте{" "}
+          <mark className="key">Ctrl + S</mark>.
         </p>
-        <Divider>Включаем отключенные эффекты</Divider>
-        <p>
-          Для включения отключенных эффектов - перейдите в{" "}
-          <mark className="ui">менеджер эффектов</mark>. В него можно попасть двумя
-          способами - из <mark className="ui">Effects Controls</mark> или из{" "}
-          <mark className="ui">Effects & Presets</mark>. Для этого нужно открыть
-          контекстное меню одного из этих двух окон и выбрать{" "}
-          <mark className="ui">Manage Effects</mark>.
-        </p>
-        <ImageFigure
-          caption="Adobe After Effects"
-          imgSrc="images/aftereffects/effects_presets_manage_effects.png"
-          imgTitle="Открытие менеджера эффектов"
-          styleClass="figure_windows-dark"
-        />
-        <p>
-          После этого у вас откроется список с установленными эффектами. По умолчанию в
-          этом окне отображаются только сторонние эффекты, а также отсортированы по
-          &quot;включено/выключено&quot;, то есть выключенный эффект у вас должен
-          отобразиться первым в списке. Чтобы его включить - нажмите на чекбокс возле
-          нужного эффекта, нажмите на <mark className="ui">OK</mark> в правом нижнем углу
-          окна и перезапустите <mark className="app">Adobe After Effects</mark>.
-        </p>
-        <AdditionInfo>
-          <ul>
-            <li>
-              Чтобы включить отображение стандартных эффектов - уберите чекбокс у
-              параметра <mark className="ui">Only Show Third-Party Effects</mark>.
-            </li>
-            <li>
-              Также вы можете отключить или включить все эффекты в этом списке с помощью
-              кнопок <mark className="ui">Disable All</mark> или{" "}
-              <mark className="ui">Enable All</mark>.
-            </li>
-          </ul>
-        </AdditionInfo>
-        <ImageFigure
-          caption="Effect Manager"
-          imgSrc="images/aftereffects/effect_manager.png"
-          imgTitle="Менеджер эффектов"
-          styleClass="figure_windows-dark"
-        />
+        <Addition type="info">
+          Чтобы не попасть впросак, если файл проекта повредится — заранее{" "}
+          <a href="#3.8">настройте резервное копирование проектов</a>.
+        </Addition>
       </DetailsSummary>
-      <DetailsSummary title="В каких случаях нужно использовать Adobe After Effects и Adobe Premiere Pro?">
+      <DetailsSummary
+        tag="разница, сравнение, after effects vs premiere pro, пайплайн, выбор программы"
+        title="В каких случаях нужно использовать Adobe After Effects, а в каких — Adobe Premiere Pro?"
+      >
         <p>
           Эти две программы предназначены для разных задач. В{" "}
           <mark className="app">Adobe After Effects</mark> теоретически можно смонтировать
-          двухчасовой ролик, а в <mark className="app">Adobe Premiere Pro</mark> -
-          заняться композитингом. Однако подобный подход нецелесообразен, хотя некоторые
-          пользователи всё ещё применяют программы не по назначению. В этой статье
-          разберёмся, в каких случаях стоит использовать{" "}
-          <mark className="app">Adobe After Effects</mark>, а в каких -{" "}
-          <mark className="app">Adobe Premiere Pro</mark>.
+          двухчасовой фильм, а в <mark className="app">Adobe Premiere Pro</mark> —
+          заняться композитингом. Однако такой подход неэффективен. Разберёмся, когда
+          какую программу использовать.
         </p>
         <ul>
           <li>
             Обе программы подходят для создания коротких видеороликов до одной минуты с
-            применением различных эффектов, например <mark className="word">рилсов</mark>,{" "}
-            <mark className="word">тиктоков</mark>, анимационных афиш, баннеров или
-            коротких <mark className="word">эдитов</mark>.
+            применением различных эффектов — например,{" "}
+            <mark className="video">«рилсов»</mark>,{" "}
+            <mark className="video">«тиктоков»</mark>, анимационных афиш, баннеров или
+            коротких <mark className="video">«эдитов»</mark>.
           </li>
           <li>
-            Хоть и в <mark className="app">Adobe Premiere Pro</mark> в теории можно
-            сделать моушен-дизайн, реализация анимации в ней максимально неудобна. Проще
+            Теоретически <mark className="app">Adobe Premiere Pro</mark> позволяет делать
+            моушен-дизайн, но реализация создании анимации там крайне неудобна. Проще
             создать нужную анимацию в <mark className="app">Adobe After Effects</mark>,
-            экспортировать композицию и импортировать его в{" "}
+            экспортировать композицию и импортировать её в{" "}
             <mark className="app">Adobe Premiere Pro</mark>.
           </li>
           <li>
-            <mark className="app">Adobe After Effects</mark> не предназначен для создания
-            длинных видеороликов, так как иначе работает с памятью и файлами по сравнению
-            с <mark className="app">Adobe Premiere Pro</mark>. Даже при полной сборке
+            <mark className="app">Adobe After Effects</mark> не рассчитан на сборку
+            длинных видеороликов — он иначе работает с памятью и файлами по сравнению с{" "}
+            <mark className="app">Adobe Premiere Pro</mark>. Даже при полной сборке
             проекта в <mark className="app">Adobe After Effects</mark> вы можете
-            столкнуться с ошибками по типу <mark>Out of Memory</mark> и продолжительным
-            временем рендера. Если вы хотите собрать длинный проект, подкаст, фильм или
-            сериал - лучше используйте <mark className="app">Adobe Premiere Pro</mark> или
-            другую программу для нелинейного монтажа, например{" "}
-            <mark className="app">Davinci Resolve</mark>.
-            <AdditionInfo>
+            столкнуться с ошибками вроде <mark className="warning">«Out of Memory»</mark>{" "}
+            и долгим рендером. Для длинных проектов, подкастов, фильмов или сериалов лучше
+            использовать <mark className="app">Adobe Premiere Pro</mark> или другую
+            программу для нелинейного монтажа — например,{" "}
+            <mark className="app">DaVinci Resolve</mark>.
+            <Addition type="info">
               При необходимости вы можете импортировать нужный фрагмент из секвенции в{" "}
               <mark className="app">Adobe After Effects</mark> с помощью{" "}
-              <mark className="ui">Replace with After Effects Composition</mark>, затем
-              экспортировать его в <mark className="video">Apple Prores 4444</mark> и
-              заменить исходный участок в <mark className="app">Adobe Premiere Pro</mark>.
-            </AdditionInfo>
-            <AdditionWarning>
+              <mark className="select">«Replace with After Effects Composition»</mark>,
+              затем экспортировать его в <mark className="video">Apple ProRes 4444</mark>{" "}
+              и заменить исходный участок в{" "}
+              <mark className="app">Adobe Premiere Pro</mark>.
+            </Addition>
+            <Addition type="warning">
               <ul>
                 <li>
-                  Не рекомендуется часто применять{" "}
+                  Не рекомендуется часто использовать{" "}
                   <mark className="plugin">Dynamic Link</mark>, особенно в крупных
-                  проектах - вы можете столкнуться с непонятными проблемами на стадии
+                  проектах — это может привести к неожиданным проблемам на этапе
                   финального экспорта.
                 </li>
                 <li>
-                  {" "}
-                  В <mark className="app">Adobe After Effects</mark> вы можете создавать
-                  композиции до трёх часов, но делать это крайне не рекомендуется. Только
-                  себе кучу проблем создадите из-за неправильного{" "}
-                  <mark className="word">пайплайна</mark>.
+                  В <mark className="app">Adobe After Effects</mark> можно создавать
+                  композиции до трёх часов, но этого стоит избегать. Вы только усложните
+                  себе работу из-за неправильно выстроенного пайплайна.
                 </li>
               </ul>
-            </AdditionWarning>
+            </Addition>
           </li>
           <li>
-            <mark className="app">Adobe After Effects</mark> не подходит для обработки
-            аудио, несмотря на наличие аудиоэффектов, например{" "}
+            <mark className="app">Adobe After Effects</mark> не предназначен для
+            полноценной обработки аудио. Несмотря на наличие эффектов вроде{" "}
             <mark className="plugin">Echo</mark> или{" "}
-            <mark className="plugin">Reverb</mark>. Для работы со звуком лучше
-            использовать <mark className="app">Adobe Premiere Pro</mark> или{" "}
-            <mark className="app">Adobe Audition</mark>, которые поддерживают
-            многодорожечную обработку и <mark className="plugin">VST-плагины</mark>, а
-            затем при необходимости экспортировать звук из этих программ и импортировать
-            обратно в композицию <mark className="app">Adobe After Effects</mark>.
+            <mark className="plugin">Reverb</mark>, работать со звуком удобнее в{" "}
+            <mark className="app">Adobe Premiere Pro</mark> или{" "}
+            <mark className="app">Adobe Audition</mark>. Эти программы поддерживают
+            многодорожечную обработку и <mark className="plugin">VST-плагины</mark>. При
+            необходимости звук можно экспортировать из них и импортировать обратно в
+            композицию <mark className="app">Adobe After Effects</mark>.
           </li>
           <li>
-            <mark className="app">Adobe Premiere Pro</mark> не предназначен для сложного
-            композитинга и создания визуальных эффектов с нуля.{" "}
-            <mark className="app">Adobe After Effects</mark> в этом случае предоставляет
-            больше возможностей: поддержка трёхмерных сцен, сторонних эффектов и плагинов,
-            таких как <mark className="plugin">Trapcode Particular</mark>, делает его
-            более подходящим для таких задач.
+            <mark className="app">Adobe Premiere Pro</mark> не подходит для сложного
+            композитинга и создания визуальных эффектов с нуля. В этом плане{" "}
+            <mark className="app">Adobe After Effects</mark> предлагает больше
+            возможностей: поддержка трёхмерных сцен, работа со сторонними эффектами и
+            плагинами (например, <mark className="plugin">Trapcode Particular</mark>)
+            делают его более подходящим для таких задач.
           </li>
         </ul>
       </DetailsSummary>
       <DetailsSummary
-        tag="adjustment layer, camera, image sequence, light layer, null object, shape layer, solid layer, text layer, источник освещения, камера, корректирующий слой, нулевой объект, нуль, секвенция изображений, сплошная заливка, слои, слой фигура, текст"
-        title="Какие виды слоёв существуют в программе, для чего они используются и как их настроить?"
+        tag="adjustment layer, camera, image sequence, light layer, null object, shape layer, solid layer, text layer, источник освещения, камера, корректирующий слой, нулевой объект, нуль, секвенция изображений, сплошная заливка, слой фигура, текст"
+        title="Какие виды слоёв существуют, для чего они нужны и как их настроить?"
       >
-        <AdditionDanger>
-          Данная статья находится на ранней стадии разработки. Следите за обновлениями.
-          {/* TODO: исправить и дописать */}
-        </AdditionDanger>
         <p>
-          <mark className="word">Слой</mark> - отдельная дорожка на таймлайне, которая
-          может быть определённого типа, будь то текст, видео или фигура. В{" "}
+          <mark className="word">Слой</mark> — это отдельная дорожка на таймлайне, которая
+          может быть определённого типа: текст, видео или фигура. В{" "}
           <mark className="app">Adobe After Effects</mark>, в отличие от программ для
-          нелинейного монтажа, таких как <mark className="app">Adobe Premiere Pro</mark>,
-          каждый слой занимает отдельную дорожку.
+          нелинейного монтажа вроде <mark className="app">Adobe Premiere Pro</mark>,
+          каждый слой занимает отдельную дорожку. Каждому слою вы можете задать свой цвет
+          метки для лучшего ориентирования в таймлайне.
         </p>
+        <ContentFigure
+          caption="Timeline"
+          imgTitle="Пример таймлайна композиции в Adobe After Effects"
+          src="images/aftereffects/timeline_example.png"
+          theme="dark"
+          type="image"
+          variant="windows"
+        />
         <p>
-          Порядок слоёв на таймлайне определяет их наложение - верхний слой отображается
-          поверх нижнего. Если слой переведён в трёхмерном пространство, то обычно
-          наложение зависит от оси Z, кроме случаев, когда эффект для трёхмерного
-          пространства применён на 2D-слой, например если на{" "}
-          <mark className="word">Solid Layer</mark> применён{" "}
+          Порядок слоёв на таймлайне влияет на то, как они перекрываются: верхний слой
+          всегда отображается поверх нижнего. Для трёхмерных слоёв это правило отличается
+          — наложение определяется положением по оси Z, кроме случаев когда на обычный
+          двумерный слой применили эффект, работающий в трёхмерном пространстве (например,{" "}
           <mark className="plugin">Trapcode Particular</mark> или{" "}
-          <mark className="plugin">Element 3D</mark>.
+          <mark className="plugin">Element 3D</mark>).
         </p>
-        <Divider>Создаём слои</Divider>
+        <Divider>Создание слоёв</Divider>
         <p>
-          Чтобы создать какой-нибудь слой - перейдите в{" "}
-          <mark className="ui">Layer &gt; New</mark> или нажмите{" "}
-          <mark className="key">ПКМ</mark> по пустому месту на таймлайне и выберите{" "}
-          <mark className="ui">New</mark>. В выпадающем меню вы можете выбрать нужный вам
-          тип слоя. Для каждого типа слоя в статье будут прилагаться при возможности
-          комбинация клавиш для их создания. Также вы можете создать слой с изображением
-          или видео, переместив его на таймлайн из окна{" "}
-          <mark className="ui">Project</mark>, предварительно импортировав их с помощью{" "}
-          <mark className="ui">File &gt; Import</mark> или комбинации клавиш{" "}
-          <mark className="key">Ctrl + I</mark>.
+          Чтобы создать слой, перейдите в <mark className="select">«Layer» → «New»</mark>{" "}
+          или нажмите <mark className="key">ПКМ</mark> по пустому месту на таймлайне и
+          выберите <mark className="select">«New»</mark>. В выпадающем меню выберите
+          нужный тип слоя. Также можно создать слой из изображения или видео, перетащив
+          его на таймлайн из окна <mark className="select">«Project»</mark>.
         </p>
-        <ImageFigure
+        <ContentFigure
           caption="Adobe After Effects"
-          imgSrc="images/aftereffects/create_layers.png"
           imgTitle="Создание слоёв"
-          styleClass="figure_windows-dark"
+          src="images/aftereffects/create_layers.png"
+          theme="dark"
+          type="image"
+          variant="windows"
         />
         <Divider>Какие виды слоёв существуют?</Divider>
         <p>
-          По мнению <mark>Adobe</mark> - слои делятся на несколько типов. У каждого слоя
-          есть свои функции, свойства, настройки и способы применения в вашей композиции,
-          а также аттрибуты, которые к ним можно применить, например{" "}
-          <mark className="ui">Guide Layer</mark> или <mark className="ui">Shy</mark>. Для
-          большинства свойств можно использовать <mark className="word">выражения</mark>,
-          нажав на иконку <mark className="word">секундомера</mark> с зажатой клавишей{" "}
+          В <mark className="app">Adobe After Effects</mark> слои делятся на несколько
+          типов. У каждого свои функции, свойства и настройки. Для большинства свойств
+          можно использовать выражения, нажав на иконку{" "}
+          <mark className="select">«секундомера»</mark> с зажатой клавишей{" "}
           <mark className="key">Alt</mark>.
         </p>
         <ul>
           <li>
-            <mark className="word">Футажи</mark> - импортированные в проект фото, аудио,
-            секвенция изображений и видео.
+            <mark className="select">«Слои-исходники»</mark> — импортированные в проект{" "}
+            <mark className="image">фото</mark>, <mark className="audio">аудио</mark>,{" "}
+            <mark className="video">видео</mark> и{" "}
+            <mark className="image">секвенции изображений</mark>.
           </li>
           <li>
-            <mark className="word">Функциональные слои</mark> - к ним относится камера,
-            источник освещения и нулевые объекты.
+            <mark className="select">«Функциональные слои»</mark> — к ним относятся{" "}
+            <mark className="select">«Camera»</mark>,{" "}
+            <mark className="select">«Light Layer»</mark> и{" "}
+            <mark className="select">«Null Object»</mark>.
           </li>
           <li>
-            <mark className="word">Слой сплошной заливки</mark> и{" "}
-            <mark className="word">корректирующий слой</mark>, на которые можно применять
-            различные эффекты и генераторы. При создании таких слоёв они появляются в окне{" "}
-            <mark className="ui">Project</mark> в отдельной папке{" "}
-            <mark className="path">Solids</mark> как футаж.
-            <AdditionInfo>
-              Вы можете задать своё название папки, где будут создаваться{" "}
-              <mark>Adjustment Layer</mark> и <mark>Solid Layer</mark> в настройках
-              программы -{" "}
-              <mark className="ui">Edit &gt; Preferences &gt; New Project</mark>.
-            </AdditionInfo>
+            <mark className="select">«Solid Layer»</mark> и{" "}
+            <mark className="select">«Adjustment Layer»</mark>, на которые можно применять
+            эффекты. При создании они появляются в окне{" "}
+            <mark className="select">«Project»</mark> в папке{" "}
+            <mark className="path">Solids</mark>.
           </li>
           <li>
-            <mark className="word">Синтетические слои</mark>, которые содержат какой-либо
-            визуальный элемент и которые не основаны на элементе исходного видеоряда. К
-            таким относятся <mark className="word">текстовый слой</mark>,{" "}
-            <mark className="word">камера</mark>,{" "}
-            <mark className="word">источник освещения</mark> и{" "}
-            <mark className="word">слой-фигура</mark>. Такие слои нельзя открыть в окне{" "}
-            <mark className="ui">Layer</mark> с помощью{" "}
-            <mark className="ui">Open Layer</mark> и{" "}
-            <mark className="ui">Open Layer Source</mark>, но никто не запрещал их{" "}
-            <mark className="word">прекомпозить</mark>.
+            <mark className="select">«Синтетические слои»</mark> — слои, которые содержат
+            визуальные элементы, не основанные на импортированных файлах. К ним относятся{" "}
+            <mark className="select">«Text Layer»</mark>,{" "}
+            <mark className="select">«Camera»</mark>,{" "}
+            <mark className="select">«Light Layer»</mark> и{" "}
+            <mark className="select">«Shape Layer»</mark>.
           </li>
           <li>
-            Слои <mark className="word">композиций</mark> и{" "}
-            <mark className="word">прекомпозиций</mark>, которые можно расположить на
-            таймлайне.
+            Слои <mark className="select">«композиций»</mark> и{" "}
+            <mark className="select">«прекомпозиций»</mark>.
           </li>
           <li>
-            Слои с <mark className="word">трёхмерными моделями</mark>, нативный импорт
-            которых стал доступен с версии <mark>24.1</mark> и новее с помощью{" "}
-            <mark className="plugin">Advanced 3D</mark>.
-            <AdditionInfo>
-              Для импорта <mark className="word">трёхмерных моделей</mark> в старых
-              версиях <mark className="app">Adobe After Effects</mark> ниже{" "}
-              <mark>24.0</mark> включительно - воспользуйтесь сторонними плагинами,
-              например <mark className="plugin">Element 3D</mark>.
-            </AdditionInfo>
+            <mark className="select">«Трёхмерные объекты»</mark>, нативный импорт которых
+            стал доступен с помощью <mark className="plugin">Advanced 3D</mark> в{" "}
+            <mark className="app">Adobe After Effects</mark> версии <mark>24.1</mark> и
+            новее.
+            <Addition type="info">
+              Для импорта <mark className="select">«трёхмерных объектов»</mark> в старых
+              версиях <mark className="app">Adobe After Effects</mark> используйте
+              сторонние плагины, например <mark className="plugin">Element 3D</mark>.
+            </Addition>
           </li>
         </ul>
-        <p>{/* TODO:  */}</p>
-        <Divider>
-          Видео, аудио, изображения, и секвенция изображений (Video, Audio, Image и Image
-          Sequence)
-        </Divider>
+        <Divider>Композиция</Divider>
         <p>
-          Слои с видео, аудио и картинками в основном относятся к категории импортируемых
-          объектов, которые пользователь добавляет в проект через{" "}
-          <mark className="ui">File &gt; Import</mark> или комбинации клавиш{" "}
-          <mark className="key">Ctrl + I</mark>.
+          <mark className="select">«Composition»</mark> — это ваш рабочий холст, а также
+          своего рода контейнер, в котором вы можете расположить свои слои. Каждая
+          композиция имеет собственный таймлайн. Чтобы создать новую пустую композицию —
+          нажмите на комбинацию клавиш <mark className="key">Ctrl + N</mark>.
+        </p>
+        <p>
+          Для того чтобы изменить настройки открытой композиции на таймлайне — нажмите{" "}
+          <mark className="key">Ctrl + K</mark> или перейдите в{" "}
+          <mark className="select">«Composition» → «Composition Settings»</mark>. Изменить
+          настройки композиции можно и в окне <mark className="select">«Project»</mark>:
+          выделите нужную композицию, нажмите <mark className="key">ПКМ</mark> по ней и
+          выберите <mark className="select">«Composition Settings»</mark>.
+        </p>
+        <p>
+          После открытия настроек композиции нас встречает вкладка{" "}
+          <mark className="select">«Basic»</mark>. В ней можно задать имя композиции,
+          настроить её размер — ширину и высоту в пикселях, а также зафиксировать
+          соотношение сторон<sup>1</sup>. Ещё можно настроить частоту кадров<sup>2</sup>,
+          соотношение сторон пикселя<sup>3</sup>, стартовый таймкод<sup>4</sup>,
+          продолжительность<sup>5</sup>, разрешение<sup>6</sup> и фон композиции
+          <sup>7</sup>.
+        </p>
+        <ContentFigure
+          caption="Composition Settings"
+          imgTitle="Вкладка Basic в настройках композиции"
+          src="images/aftereffects/composition_settings_basic.png"
+          theme="dark"
+          type="image"
+          variant="windows"
+        />
+        <Addition type="warning">
+          Учтите, что при экспорте не все кодеки поддерживают нечётное количество пикселей
+          в размере той композиции, которую вы хотите экспортировать.
+        </Addition>
+        <Addition type="info">
+          <ul>
+            <li>
+              <sup>1</sup> При включённом{" "}
+              <mark className="select">«Lock Aspect Ratio»</mark> изменение одной стороны
+              будет автоматически менять и вторую — в соответствии с соотношением сторон.
+            </li>
+            <li>
+              <sup>2</sup> Настройка <mark className="select">«Drop Frame»</mark> и{" "}
+              <mark className="select">«Non-Drop Frame»</mark> доступна только при
+              некоторых значениях частоты кадров с плавающей точкой, например{" "}
+              <mark>29,97</mark> или <mark>59,94</mark>.
+              <ul>
+                <li>
+                  <mark className="select">«Drop Frame»</mark> — это способ нумерации, при
+                  котором иногда пропускаются номера кадров, но сами кадры при этом не
+                  теряются. Это делается для того, чтобы таймкод точно совпадал с реальным
+                  временем. Потому что, например, <mark>29,97</mark> кадров в секунду —
+                  это не ровно <mark>30</mark>, и со временем смещение накапливается.
+                  Чтобы избежать расхождений, через определённые интервалы пропускают
+                  несколько номеров кадров в счётчике — включают пропуск кадров.
+                </li>
+                <li>
+                  <mark className="select">«Non-Drop Frame»</mark> — нумерация кадров идёт
+                  без пропусков. В таком случае со временем таймкод может расходиться с
+                  реальным временем видео.
+                </li>
+              </ul>
+            </li>
+            <li>
+              <sup>3</sup> <mark className="select">«Pixel Aspect Ratio»</mark> отвечает
+              за соотношение сторон пикселя. В большинстве современных видео пиксели
+              квадратные — их ширина равна высоте, и изменение этого соотношения сейчас
+              встречается редко. Однако в некоторых видеоформатах, например{" "}
+              <mark className="video">DV PAL</mark>, пиксели прямоугольные — то есть
+              ширина и высота не равны. При необходимости вы можете включить предпросмотр
+              с коррекцией под неквадратный пиксель: откройте контекстное меню окна
+              предпросмотра композиции и включите{" "}
+              <mark className="select">«Pixel Aspect Ratio Correction»</mark>.
+            </li>
+            <li>
+              <sup>4</sup> При создании прекомпозиции, если включить{" "}
+              <mark className="select">
+                «Adjust composition duration to the time span of the selected layers»
+              </mark>
+              , новая композиция начнёт отсчёт с момента появления самого раннего слоя и
+              обрежет ненужную длину, которая не попала в диапазон длительности выделенных
+              слоёв. Например, если вы выделили три слоя: первый начинается на второй
+              секунде, второй — на четвёртой, а третий заканчивается на седьмой, то новая
+              прекомпозиция будет иметь длину ровно 5 секунд и начнётся не с{" "}
+              <mark>00:00:00:00</mark>, а с <mark>00:00:02:00</mark> — с момента появления
+              самого раннего слоя в родительской композиции.
+            </li>
+            <li>
+              <sup>5</sup> По умолчанию в <mark className="app">Adobe After Effects</mark>{" "}
+              продолжительность выражается в формате <mark>ЧЧ:ММ:СС:КК</mark>, где{" "}
+              <mark>Ч</mark> — часы, <mark>М</mark> — минуты, <mark>С</mark> — секунды,{" "}
+              <mark>К</mark> — кадры. При желании вы можете изменить формат времени на
+              отображение количества кадров, нажав <mark className="key">ЛКМ</mark> по
+              таймкоду на таймлайне с зажатым <mark className="key">Ctrl</mark>.
+            </li>
+            <li>
+              <sup>6</sup> Параметр <mark className="select">«Resolution»</mark> влияет
+              только на разрешение рендеринга — так же, как если бы вы изменяли значение
+              качества в окне предпросмотра. В этом параметре доступны привычные значения:{" "}
+              <mark className="select">«Full»</mark>,{" "}
+              <mark className="select">«Half»</mark>,{" "}
+              <mark className="select">«Third»</mark>,{" "}
+              <mark className="select">«Quarter»</mark> и{" "}
+              <mark className="select">«Custom»</mark>, в котором можно указать значение
+              каждого пикселя по горизонтали и вертикали, который нужно отрендерить для
+              предпросмотра.
+            </li>
+            <li>
+              <sup>7</sup> Настройка цвета фона в настройках композиции влияет только на
+              цвет подложки в окне предпросмотра. Чтобы действительно добавить фон в
+              композицию — создайте <mark className="select">«Solid Layer»</mark>, задайте
+              ему нужный цвет и расположите его самым последним слоем по иерархии
+              наложения.
+            </li>
+          </ul>
+        </Addition>
+        <p>
+          Во вкладке <mark className="select">«Advanced»</mark> вы можете настроить
+          размытие в движении более детально, указав значения угла<sup>1</sup> и фазы
+          затвора<sup>2</sup>, количества семплов<sup>3</sup>, а также якорную точку
+          <sup>4</sup> самой композиции при изменении её размера. В этом разделе также
+          есть два полезных параметра, связанные с{" "}
+          <mark className="select">«Preserve»</mark>
+          <sup>5</sup>.
+        </p>
+        <ContentFigure
+          caption="Composition Settings"
+          imgTitle="Вкладка Advanced в настройках композиции"
+          src="images/aftereffects/composition_settings_advanced.png"
+          theme="dark"
+          type="image"
+          variant="windows"
+        />
+        <Addition type="info">
+          <ul>
+            <li>
+              <sup>1</sup> <mark className="select">«Shutter Angle»</mark> или{" "}
+              <mark className="select">«угол затвора»</mark> — степень размытия движущихся
+              объектов. Чем больше <mark className="select">«угол затвора»</mark>, тем
+              сильнее размывается изображение при движении.
+            </li>
+            <li>
+              <sup>2</sup> <mark className="select">«Shutter Phase»</mark> или{" "}
+              <mark className="select">«фаза затвора»</mark> — параметр, который задаёт
+              смещение момента начала «виртуального затвора» по времени относительно
+              текущего кадра при создании размытия движения.
+            </li>
+            <li>
+              <sup>3</sup> <mark className="select">«Samples Per Frame»</mark> или{" "}
+              <mark className="select">«количество семплов размытия на кадр»</mark> — чем
+              больше значение, тем меньше будет «лесенок» у следов движущегося объекта.
+            </li>
+            <li>
+              <sup>4</sup> Изменение <mark className="select">«Anchor»</mark> влияет на
+              положение ваших слоёв при изменении размера ширины или высоты композиции.
+              Если, например, указать левый нижний угол, то композиция начнёт изменять
+              размер относительно этой точки, а все ваши слои будут стоять относительно
+              этой якорной точки. По умолчанию все слои при изменении размера композиции
+              остаются в центре.
+            </li>
+            <li>
+              <sup>5</sup>{" "}
+              <mark className="select">
+                «Preserve frame rate when nested or in render queue
+              </mark>{" "}
+              сохраняет заданную частоту кадров композиции при вложении в другую.{" "}
+              <mark className="select">«Preserve resolution when nested»</mark> сохраняет
+              разрешение (<mark className="select">«Full»</mark>
+              <mark className="select">«Half»</mark>,{" "}
+              <mark className="select">«Third»</mark>,{" "}
+              <mark className="select">«Quarter»</mark> или{" "}
+              <mark className="select">«Custom»</mark>), указанное в окне предпросмотра
+              или настройках композиции, при вложении в другую композицию.{" "}
+              <a href="https://www.youtube.com/watch?v=ko1Uua-2znU">Подробнее...</a>
+            </li>
+          </ul>
+        </Addition>
+        <p>
+          Во вкладке <mark className="select">«3D Renderer»</mark> вы можете изменить
+          движок для рендера трёхмерных слоёв и, при возможности, настроить его параметры.
+          Учтите, что <mark className="plugin">Advanced 3D</mark> и{" "}
+          <mark className="plugin">Cinema 4D</mark> многое не поддерживают из привычных
+          действий, как <mark className="plugin">Classic 3D</mark>. Например — отсутствует
+          поддержка режимов наложения, размытия в движении, невозможность применения
+          некоторых эффектов и прочее.
+        </p>
+        <ContentFigure
+          caption="Composition Settings"
+          imgTitle="Вкладка 3D Renderer в настройках композиции"
+          src="images/aftereffects/composition_settings_3d_renderer.png"
+          theme="dark"
+          type="image"
+          variant="windows"
+        />
+        <p>
+          При необходимости композицию можно «зафиксировать и отрендерить», чтобы не
+          просчитывать её заново каждый раз, если вы не планируете больше её
+          редактировать. Для этого выделите нужную композицию в окне{" "}
+          <mark className="select">«Project»</mark>, нажмите по ней{" "}
+          <mark className="key">ПКМ</mark> и выберите в контекстном меню{" "}
+          <mark className="select">«Create Proxy» → «Movie»</mark>. После этого программа
+          отправит вас в <mark className="select">«Render Queue»</mark>, где можно задать
+          нужные настройки рендера. Чтобы сохранить качество, рекомендую выбрать{" "}
+          <mark className="select">«QuickTime»</mark> с кодеком{" "}
+          <mark className="video">Apple ProRes 422</mark> или{" "}
+          <mark className="video">Apple ProRes 4444</mark>.
+        </p>
+        <Addition type="info">
+          <ul>
+            <li>
+              Если вы хотите, чтобы при финальном рендере использовались прокси-файлы
+              вместо повторного просчёта оригинальной композиции, в параметре{" "}
+              <mark className="select">«Proxy Use»</mark> настроек{" "}
+              <mark className="select">«Render Settings»</mark> установите значение{" "}
+              <mark className="select">«Use All Proxies»</mark>.
+            </li>
+            <li>
+              Чтобы временно отключить прокси, нажмите на иконку квадрата слева от
+              названия композиции в окне <mark className="select">«Project»</mark>. А
+              чтобы полностью отвязать прокси-файл — нажмите{" "}
+              <mark className="key">ПКМ</mark> по композиции и выберите{" "}
+              <mark className="select">«Set Proxy» → «None»</mark>.
+            </li>
+          </ul>
+        </Addition>
+        <ContentFigure
+          caption="Создание прокси для композиции"
+          src="images/aftereffects/create_comp_proxy.mp4"
+          theme="dark"
+          type="video"
+          variant="windows"
+        />
+        <Divider>Предварительная композиция</Divider>
+        <p>
+          <mark className="select">«Pre-comp»</mark> — это дочерняя композиция, которая
+          создаётся на основе выделенных слоёв родительской композиции. Чтобы её создать,
+          выделите нужные слои на таймлайне и нажмите{" "}
+          <mark className="key">Ctrl + Shift + C</mark>. В появившемся окне можно выбрать
+          один из двух способов вложения.
+        </p>
+        <ContentFigure
+          caption="Pre-compose"
+          imgTitle="Диалог при создании предварительной композиции"
+          src="images/aftereffects/pre-compose.png"
+          theme="dark"
+          type="image"
+          variant="windows"
+        />
+        <ul>
+          <li>
+            <mark className="select">
+              «Leave all attributes in &apos;Composition Name&apos;»
+            </mark>{" "}
+            — создать прекомпозицию точно по исходным параметрам выделенного слоя, вплоть
+            до размера, и оставить все свойства, атрибуты и эффекты в родительской
+            композиции, а сам слой запаковать в новую композицию. Например, если вы
+            пытаетесь запрекомпозить <mark className="select">«Solid Layer»</mark> с
+            анимированными свойствами положения — они останутся на временной шкале текущей
+            композиции, а внутри новой прекомпозиции слой будет без анимации.
+            <Addition type="warning">
+              Данная опция доступна только тогда, когда выделен один слой, а также если
+              этот слой имеет <mark className="select">«Source»</mark>, например слой с{" "}
+              <mark className="video">видео</mark>, <mark className="image">фото</mark>{" "}
+              или <mark className="audio">аудио</mark>.
+            </Addition>
+          </li>
+          <li>
+            <mark className="select">«Move all attributes into the new composition»</mark>{" "}
+            — перемещает выделенный слой или слои со всеми свойствами, атрибутами и
+            эффектами в своего рода новый «контейнер».
+            <ul>
+              <li>
+                <mark className="select">
+                  «Adjust composition duration to the time span of the selected layers»
+                </mark>{" "}
+                — обрезает новую композицию под общую длительность выделенных слоёв.
+                <Addition type="warning">
+                  Учтите: при включённом параметре значение стартового таймкода будет
+                  изменено на таймкод начала первого выделенного слоя. При необходимости
+                  вы можете позже изменить стартовый таймкод в настройках созданной
+                  композиции.
+                </Addition>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <mark className="select">«Open New Composition»</mark> — откроет созданную
+            прекомпозицию на таймлайне.
+          </li>
+        </ul>
+        <Addition type="info">
+          Для прекомпозиций иногда бывает полезно включать{" "}
+          <mark className="select">«Collapse Transformation»</mark>. Эта опция позволяет
+          предварительной композиции вести себя как набор слоёв с сохранением всей их
+          чёткости, трёхмерных параметров и анимаций, как будто вы слои вовсе не
+          «прекомпозили».{" "}
+          <a href="https://www.youtube.com/watch?v=Ns41v75th_I&t=358s">Подробнее...</a>
+        </Addition>
+        <Divider>Сплошная заливка</Divider>
+        <p>
+          <mark className="select">«Solid Layer»</mark> — объект с однотонным цветом,
+          обычно соответствующий размерам композиции. Он часто используется как фон или
+          как «инициатор» для трёхмерных эффектов, таких как{" "}
+          <mark className="plugin">Element 3D</mark>,{" "}
+          <mark className="plugin">Trapcode Particular</mark>,{" "}
+          <mark className="plugin">Trapcode Form</mark> или{" "}
+          <mark className="plugin">CC Particle World</mark>. Кроме того,{" "}
+          <mark className="select">«Solid Layer»</mark> может служить простым фоном — это
+          особенно полезно, когда некоторые эффекты, например переходы из{" "}
+          <mark className="plugin">AtomX</mark> или{" "}
+          <mark className="plugin">Motion Bro</mark>, работают некорректно с
+          прозрачностью.
+        </p>
+        <Addition type="info">
+          <ul>
+            <li>
+              Чтобы создать <mark className="select">«Solid Layer»</mark> — нажмите
+              комбинацию клавиш <mark className="key">Ctrl + Y</mark>.
+            </li>
+            <li>
+              Чтобы настроить размер, цвет и другие параметры такого слоя — нажмите
+              комбинацию клавиш <mark className="key">Ctrl + Shift + Y</mark>.
+            </li>
+          </ul>
+        </Addition>
+        <ContentFigure
+          caption="Как создать фон и изменить цвет заливки"
+          src="e-g1y4p8Jc0"
+          type="youtube"
+        />
+        <Addition type="warning">
+          <ul>
+            <li>
+              Если применённый вами эффект работает в собственном трёхмерном пространстве
+              — не стоит преобразовывать слой-«инициатор» в{" "}
+              <mark className="select">«3D Layer»</mark>. Чтобы изменить его вид или
+              положение, используйте <mark className="select">«Camera»</mark> или, если
+              возможно, создавайте <mark className="select">«Null Object»</mark> для
+              параметров положения объекта.
+            </li>
+            <li>
+              Чтобы определить, использует ли эффект своё трёхмерное пространство,
+              обратите внимание на его название в{" "}
+              <mark className="select">«Effects & Controls»</mark> — рядом должна
+              отображаться иконка <mark className="select">«кубика»</mark>.
+            </li>
+          </ul>
+        </Addition>
+        <Divider>Видео, аудио, изображения и секвенции изображений</Divider>
+        <p>
+          Слои с <mark className="video">видео</mark>,{" "}
+          <mark className="audio">аудио</mark> и{" "}
+          <mark className="image">изображениями</mark> относятся к импортируемым объектам.
+          Их добавляют в проект через <mark className="select">«File» → «Import»</mark>{" "}
+          или с помощью <mark className="key">Ctrl + I</mark>.
         </p>
         <ul>
           <li>
-            <mark className="word">Видео</mark> - естественно любой футаж с видеофайлом,
-            будь то <mark className="video">MP4</mark>, <mark className="video">MOV</mark>
-            , <mark className="video">AVI</mark> и прочие. Такие файлы могут идти как со
-            звуковой дорожкой, так и без него.
-            <AdditionWarning>
+            <mark className="select">«Video»</mark> — слой, содержащий футаж с
+            видеодорожкой в формате <mark className="video">MP4</mark>,{" "}
+            <mark className="video">MOV</mark>, <mark className="video">AVI</mark> и
+            прочие. Такие файлы могут содержать звуковую дорожку или быть без неё.
+            <Addition type="warning">
               <ul>
                 <li>
-                  Учтите, что <mark className="app">Adobe After Effects</mark>{" "}
-                  поддерживает не все кодеки и контейнеры. То есть, если вы получили файл{" "}
-                  <mark className="video">MP4</mark> в кодеке{" "}
-                  <mark className="video">VP9</mark> или{" "}
-                  <mark className="video">MKV</mark> в{" "}
-                  <mark className="video">H.264</mark> - вы его импортировать в программу
-                  без танцев с бубнами не сможете. В таком случае вам нужно будет либо
-                  перекодировать видео в другой кодек с помощью специального софта,
-                  например <mark className="app">Shutter Encoder</mark> или{" "}
-                  <mark className="app">Adobe Media Encoder</mark>, либо использовать{" "}
-                  <mark className="plugin">Autokroma Influx</mark> для импорта
-                  неподдерживаемых кодеков.
+                  <mark className="app">Adobe After Effects</mark> поддерживает не все
+                  кодеки и контейнеры. Если видео не импортируется — его нужно
+                  перекодировать в подходящий формат, например{" "}
+                  <mark className="video">Apple ProRes 422</mark> с помощью{" "}
+                  <mark className="app">Shutter Encoder</mark> или использовать сторонний
+                  плагин <mark className="plugin">Autokroma Influx</mark>.
                 </li>
                 <li>
-                  <mark className="app">Adobe After Effects</mark> не поддерживает работу
-                  с несколькими звуковыми дорожками и будет работать с первым попавшимся
-                  из видео. Для того чтобы работать с несколькими звуковыми дорожками - их
-                  нужно извлечь, например через <mark className="app">Handbrake</mark> или{" "}
-                  <mark className="app">MKVToolNix</mark>, а затем импортировать как
-                  отдельное аудио в проект.
+                  <mark className="app">Adobe After Effects</mark> не работает с
+                  несколькими звуковыми дорожками в одном файле — он «увидит» только
+                  первую. Остальные нужно извлечь, например, с помощью{" "}
+                  <mark className="app">Handbrake</mark> или{" "}
+                  <mark className="app">MKVToolNix</mark>, и импортировать в композицию
+                  отдельно.
                 </li>
               </ul>
-            </AdditionWarning>
+            </Addition>
           </li>
           <li>
-            <mark className="word">Изображения</mark>, которые могут быть как растровыми,
-            так и векторными<sup>4</sup> - <mark className="image">JPEG</mark>,{" "}
+            <mark className="select">«Still»</mark> — слой, содержащее растровое или
+            векторное<sup>4</sup> изображение: <mark className="image">JPEG</mark>,{" "}
             <mark className="image">PNG</mark>,{" "}
             <mark className="image">
               HEIF<sup>1</sup>
@@ -3057,1750 +3109,1857 @@ const AEFromNewbies: React.FC = () => {
             <mark className="image">
               EPS<sup>4</sup>
             </mark>
-            , <mark className="image">EXR</mark> и прочие.
-            <AdditionWarning>
-              <sup>1</sup> На устройствах с <mark>Windows 10 или 11</mark> для импорта и
-              открытия таких изображений потребуется установить{" "}
+            , <mark className="image">EXR</mark> и другие.
+            <Addition type="warning">
+              <sup>1</sup> В <mark>Windows</mark> для импорта файлов{" "}
+              <mark className="image">HEIF/HEIC</mark> необходимо установить{" "}
               <a href="#5.9">соответствующие кодеки</a>.
-            </AdditionWarning>
-            <AdditionInfo>
+            </Addition>
+            <Addition type="info">
               <ul>
                 <li>
-                  <sup>2</sup> Под <mark className="image">RAW</mark> подразуемвается
-                  необработанное изображение, создаваемое фотоаппаратом или телефоном,
-                  снятый в режиме <mark>RAW</mark>. Часто такие изображения имеют разные
-                  форматы в зависимости от производителя устройства, с помощью которого
-                  было создано изображение, например <mark className="image">DNG</mark>,{" "}
-                  <mark className="image">CR3</mark>, <mark className="image">NEF</mark>,{" "}
-                  <mark className="image">ARW</mark> или{" "}
-                  <mark className="image">RAF</mark>.
+                  <sup>2</sup> <mark className="image">RAW</mark> — необработанные
+                  изображения, создаваемые камерой или смартфоном в режиме{" "}
+                  <mark>RAW</mark>. Формат зависит от производителя:{" "}
+                  <mark className="image">DNG</mark>, <mark className="image">CR3</mark>,{" "}
+                  <mark className="image">NEF</mark>, <mark className="image">ARW</mark>,{" "}
+                  <mark className="image">RAF</mark> и т. д.
                 </li>
                 <li>
-                  При импорте таких изображений в{" "}
-                  <mark className="app">Adobe After Effects</mark>, если они не были
-                  предварительно обработаны в другой программе и конвертированы, может
-                  открыться <mark className="plugin">Camera RAW</mark> - некий аналог{" "}
-                  <mark className="app">Adobe Lightroom</mark>, который предназначен для
-                  обработки сырых изображений. Старые версии{" "}
+                  При импорте <mark className="image">RAW</mark> может открыться модуль{" "}
+                  <mark className="plugin">Camera RAW</mark> — аналог{" "}
+                  <mark className="app">Adobe Lightroom</mark> внутри{" "}
+                  <mark className="app">Adobe After Effects</mark>. Старые версии{" "}
                   <mark className="plugin">Camera RAW</mark> могут не поддерживать новые
                   камеры.
                 </li>
                 <li>
-                  Чтобы открыть <mark className="plugin">Camera RAW</mark> повторно уже
-                  после импорта изображения - выделите нужное изображение в окне{" "}
-                  <mark className="ui">Project</mark>, откройте окно{" "}
-                  <mark className="ui">Interpret Footage</mark> с помощью комбинации
-                  клавиш <mark className="key">Ctrl + Alt + G</mark> и нажмите на{" "}
-                  <mark className="ui">More Options</mark>.
+                  Чтобы повторно открыть <mark className="plugin">Camera RAW</mark> после
+                  импорта, выделите нужный файл в окне{" "}
+                  <mark className="select">«Project»</mark>, нажмите{" "}
+                  <mark className="key">Ctrl + Alt + G</mark>, чтобы открыть окно{" "}
+                  <mark className="select">«Interpret Footage»</mark>, и кликните{" "}
+                  <mark className="select">«More Options»</mark>.
                 </li>
                 <li>
-                  Так как <mark className="image">RAW</mark> изображения часто создаются в
-                  довольно большом разрешении - их не очень рекомендуется их использовать
-                  в своих композициях, если у вас слабое железо или хотите использовать
-                  кучу эффектов. Лучше всё же обработать ваше изображение через условный{" "}
+                  <mark className="image">RAW</mark> часто бывает в высоком разрешении,
+                  что может серьёзно нагрузить проект — особенно при применении эффектов.
+                  Лучше предварительно обработать такие изображения в{" "}
                   <mark className="app">Adobe Photoshop</mark> или{" "}
-                  <mark className="app">Adobe Lightroom</mark>, конвертировать в{" "}
-                  <mark className="image">TIFF</mark> с меньшим разрешением, а затем
-                  работать с ним уже в <mark className="app">Adobe After Effects</mark>.
+                  <mark className="app">Adobe Lightroom</mark>, сохранить в{" "}
+                  <mark className="image">TIFF</mark> с меньшим разрешением и только потом
+                  использовать в <mark className="app">After Effects</mark>.
                 </li>
               </ul>
-            </AdditionInfo>
-            <AdditionInfo>
+            </Addition>
+            <Addition type="info">
+              <sup>3</sup> <mark className="image">PSD</mark> из{" "}
+              <mark className="app">Adobe Photoshop</mark> можно импортировать как целое{" "}
+              <mark className="image">изображение</mark> или послойно.
+              <Addition type="warning">
+                Если <mark className="image">PSD</mark> сохранён в цветовом режиме,
+                отличном от <mark>RGB</mark>, — послойный импорт в{" "}
+                <mark className="app">Adobe After Effects</mark> будет недоступен.{" "}
+                <a href="#4.3">Подробнее…</a>
+              </Addition>
+            </Addition>
+            <Addition type="info">
               <ul>
                 <li>
-                  <sup>3</sup> Проекты из <mark className="app">Adobe Photoshop</mark> в
-                  формате <mark className="image">PSD</mark> могут импортироваться в двух
-                  вариантах - как обычное изображение, так и послойно.
-                </li>
-                <li>
-                  Если <mark className="image">PSD</mark> был сохранён в цветовом режиме,
-                  отличном от <mark>RGB</mark>, то послойный импорт проекта в{" "}
-                  <mark className="app">Adobe After Effects</mark> будет недоступен. Чтобы
-                  это исправить - нужно обратно пересохранить проект в режиме{" "}
-                  <mark>RGB</mark>. <a href="#5.3">Подробнее...</a>
-                </li>
-              </ul>
-            </AdditionInfo>
-            <AdditionWarning>
-              <ul>
-                <li>
-                  <sup>4</sup> При импорте векторных изображений стоит включить{" "}
-                  <mark className="ui">Continuously Rasterize</mark>. Эта функция
-                  позволяет каждый раз растрировать векторную графику при увеличении её
-                  масштаба или трансформации в соответствии с разрешением композиции.
-                  Учтите, что при его использовании могут возникать побочные явления,
-                  например разрывы слоёв при использовании{" "}
+                  <sup>4</sup> При импорте векторных изображений включите параметр{" "}
+                  <mark className="select">«Continuously Rasterize»</mark> у слоя. Эта
+                  функция позволяет масштабировать графику без потери качества, адаптируя
+                  её под разрешение композиции. Однако при её использовании возможны
+                  побочные эффекты — например, разрывы при применении{" "}
                   <mark className="plugin">Puppet Tool</mark>.
                 </li>
                 <li>
-                  Есть отдельная категория лиц, которая считает, что при включённом{" "}
-                  <mark className="ui">Continuously Rasterize</mark> программа даст
-                  пользователю возможность увеличения предпросмотра без потери качества,
-                  как в <mark className="app">Adobe Illustrator</mark>. К сожалению,{" "}
-                  <mark className="app">Adobe After Effects</mark> так не работает из-за
-                  того что это растровый редактор графики и не может отобразить больше
-                  пикселей, чем то, что указано в настройках композиции.
+                  Некоторые считают, что включённый{" "}
+                  <mark className="select">«Continuously Rasterize»</mark> позволяет
+                  увеличивать предпросмотр без потери качества, как в{" "}
+                  <mark className="app">Adobe Illustrator</mark>. На деле это не так:{" "}
+                  <mark className="app">Adobe After Effects</mark> — растровый редактор,
+                  он не может отобразить больше пикселей, чем указано в настройках
+                  композиции.
                 </li>
               </ul>
-            </AdditionWarning>
+            </Addition>
           </li>
           <li>
-            <mark className="word">Секвенция изображений</mark> - стопка кадров из
-            изображений поддерживаемых форматов, импортируемый как покадровое видео без
+            <mark className="select">«Image Sequence»</mark> — стопка кадров из
+            изображений поддерживаемых форматов, импортируемая как покадровое видео без
             звука. Такой тип слоя полезен для импорта покадрово отрендеренных проектов из
-            какого-нибудь 3D-софта, например <mark className="app">Blender</mark> или{" "}
+            какого-нибудь 3D-софта, например, <mark className="app">Blender</mark> или{" "}
             <mark className="app">Cinema 4D</mark>.
-            <AdditionInfo>
+            <ContentFigure
+              caption="Импорт секвенции изображений"
+              src="efHrVdCsX-4"
+              type="youtube"
+            />
+            <Addition type="info">
               <ul>
                 <li>
-                  Чтобы импортировать нужные вам изображения как секвенцию - откройте окно{" "}
-                  <mark className="ui">Import</mark> с помощью комбинации клавиш{" "}
+                  Чтобы импортировать нужные изображения как секвенцию, откройте окно{" "}
+                  <mark className="select">«Import»</mark> с помощью комбинации клавиш{" "}
                   <mark className="key">Ctrl + I</mark>, выделите первый кадр в папке с
-                  отрендеренными кадрами, и выберите внизу опцию{" "}
-                  <mark className="ui">PNG Sequence</mark> в разделе{" "}
-                  <mark className="ui">Sequence Settings</mark>, где вместо{" "}
-                  <mark>PNG</mark> - ваш формат изображений.
+                  отрендеренными кадрами и выберите внизу опцию{" "}
+                  <mark className="select">«PNG Sequence»</mark> в разделе{" "}
+                  <mark className="select">«Sequence Settings»</mark>, где вместо{" "}
+                  <mark>PNG</mark> — ваш формат изображений.
                 </li>
                 <li>
-                  Чтобы изменить <mark>FPS</mark> после импорта секвенции - воспользуйтесь
-                  функцией <mark className="ui">Interpret Footage</mark>. Чтобы его
-                  открыть - выделите нужную секвенцию в окне{" "}
-                  <mark className="ui">Project</mark> и нажмите на комбинацию клавиш{" "}
+                  Чтобы изменить <mark>FPS</mark> после импорта секвенции, воспользуйтесь
+                  функцией <mark className="select">«Interpret Footage»</mark>. Чтобы её
+                  открыть — выделите нужную секвенцию в окне{" "}
+                  <mark className="select">«Project»</mark> и нажмите комбинацию клавиш{" "}
                   <mark className="key">Ctrl + Alt + G</mark>. В открывшемся окне вы
-                  можете изменить значение параметра{" "}
-                  <mark className="ui">Frame Rate</mark> на нужное.
+                  можете изменить параметр <mark className="select">«Frame Rate»</mark>.
                 </li>
                 <li>
-                  Для того чтобы изменить значение <mark>Frame Rate</mark> по умолчанию
-                  при импорте секвенции изображений - откройте настройки программы{" "}
-                  <mark className="ui">Edit &gt; Preferences &gt; Import</mark> и в
-                  разделе <mark className="ui">Sequence Footage</mark> измените значение{" "}
-                  <mark className="ui">Frames per second</mark>. После изменения все новые
-                  импортированные секвенции будут интерпретированы в соответствии с
-                  заданным вами числом кадров в секунду. Секвенции, которые были
-                  импортированы до изменения этого значения не будут как-либо изменены.
+                  Чтобы задать значение <mark className="select">«Frame Rate»</mark> по
+                  умолчанию при импорте секвенций — откройте настройки программы{" "}
+                  <mark className="select">«Edit» → «Preferences» → «Import»</mark> и в
+                  разделе <mark className="select">«Sequence Footage»</mark> задайте
+                  нужное значение <mark className="select">«Frames per second»</mark>. Оно
+                  будет применяться ко всем новым секвенциям. Уже импортированные это не
+                  затронет.
                 </li>
                 <li>
-                  Если вы хотите импортировать секвенцию с разными сценами или ракурсами -
-                  лучше их разделить в отдельные папки, а затем импортировать как
-                  отдельные <mark className="word">шоты</mark>.
+                  Если вы хотите импортировать секвенции с разными сценами или ракурсами —
+                  лучше разделить их по папкам и импортировать как отдельные{" "}
+                  <mark className="word">«шоты»</mark>.
                 </li>
               </ul>
-            </AdditionInfo>
-            <YouTubeVideo
-              caption="Импорт секвенции изображений"
-              link="efHrVdCsX-4"
-            />
+            </Addition>
           </li>
           <li>
-            <mark className="word">Аудио</mark> - файл со звуковой дорожкой, будь то
-            музыка или звуковые эффекты. Для изменения громкости используется параметр{" "}
-            <mark className="ui">Audio Levels</mark>, который можно раскрыть с помощью
-            клавиши <mark className="key">L</mark> по выделенному слою. Чтобы быстро
-            раскрыть визуализацию звуковой волны у слоя - нажмите два раза на{" "}
-            <mark className="key">L</mark>.
-            <AdditionWarning>
+            <mark className="select">«Audio»</mark> — слой, содержащий только
+            аудиодорожку. Для изменения громкости используется параметр{" "}
+            <mark className="select">«Audio Levels»</mark>. Чтобы увидеть форму волны —
+            нажмите дважды <mark className="key">L</mark>.
+            <Addition type="warning">
               <ul>
                 <li>
-                  Некоторые форматы аудио, например <mark className="audio">OGG</mark>, не
-                  поддерживаются программой. Чтобы такие файлы импортировать в ваш проект
-                  - их нужно конвертировать в другой формат, например{" "}
+                  Некоторые форматы аудио, например <mark className="audio">OGG</mark> —
+                  не поддерживаются. Их нужно конвертировать в{" "}
                   <mark className="audio">WAV</mark> или{" "}
                   <mark className="audio">MP3</mark>.
                 </li>
                 <li>
                   <mark className="app">Adobe After Effects</mark> не предназначен для
-                  работы со звуком, возможности здесь ограничены лишь измененеим громкости
-                  и применением нескольких стандартных фильтров, например{" "}
-                  <mark className="plugin">Bass & Treble</mark>. Если нужно использовать
-                  что-то посерьёзнее - например, <mark>VST-плагины</mark> вроде{" "}
-                  <mark className="plugin">iZotope RX</mark> для шумоподавления,
-                  реставрации или пространственной обработки - лучше перейдите в другой
-                  софт, например <mark className="app">Adobe Audition</mark> или{" "}
+                  серьёзной работы со звуком, не смотря на наличие эффектов в разделе{" "}
+                  <mark className="path">Audio Effects</mark>. Для этого лучше
+                  использовать <mark className="app">Adobe Audition</mark> или{" "}
                   <mark className="app">Adobe Premiere Pro</mark>.
                 </li>
               </ul>
-            </AdditionWarning>
+            </Addition>
           </li>
         </ul>
-        <Divider>Композиция (Composition)</Divider>
+        <Divider>Текст</Divider>
         <p>
-          <mark className="word">Композиция</mark> - это ваш рабочий холст для слоёв, а
-          также своего рода контейнер, в котором вы можете расположить свои слои. Каждая
-          композиция имеет собственный таймлайн. Чтобы создать новую пустую композицию -
-          нажмите на комбинацию клавиш <mark className="key">Ctrl + N</mark>.
-        </p>
-        <p>
-          Для того чтобы изменить настройки открытой композиции на таймлайне - нажмите на
-          комбинацию клавиш <mark className="key">Ctrl + K</mark> или перейдите в{" "}
-          <mark className="ui">Composition &gt; Composition Settings</mark>. Также
-          изменить настройки композиции вы можете и в окне{" "}
-          <mark className="ui">Project</mark> - для этого выделите нужную композицию,
-          нажмите <mark className="key">ПКМ</mark> по ней и выберите{" "}
-          <mark className="ui">Composition Settings</mark>.
-        </p>
-        <p>
-          При открытии настроек композиции нас встречает вкладка{" "}
-          <mark className="ui">Basic</mark>. В нём можно задать имя композиции, настроить
-          его размер - ширину и высоту в пикселях, а также зафиксировать соотношение
-          сторон<sup>1</sup>. Ещё можно настроить частоту кадров<sup>2</sup>, соотношение
-          квадратного пикселя<sup>3</sup>, стартовый таймкод<sup>4</sup>,
-          продолжительность<sup>5</sup>, разрешение<sup>6</sup> и фон композиции
-          <sup>7</sup>.
-        </p>
-        <ImageFigure
-          caption="Composition Settings"
-          imgSrc="images/aftereffects/composition_settings_basic.png"
-          imgTitle="Вкладка Basic в настройках композиции"
-          styleClass="figure_windows-dark"
-        />
-        <AdditionWarning>
-          Учтите, что для экспорта не все кодеки поддерживают нечётное количество пикселей
-          в размере той композиции, которую вы хотите экспортировать.
-        </AdditionWarning>
-        <AdditionInfo>
-          <ul>
-            <li>
-              <sup>1</sup> При включенном <mark className="ui">Lock Aspect Ratio</mark> -
-              изменение одной стороны будет автоматически менять и вторую в соответствии с
-              соотношением сторон.
-            </li>
-            <li>
-              <sup>2</sup> Настройка <mark className="ui">Drop Frame</mark> и{" "}
-              <mark className="ui">Non-Drop Frame</mark> доступна только при некоторых
-              значениях частоты кадров с плавающим значением, например <mark>29,97</mark>{" "}
-              или <mark>59,94</mark>.
-              <ul>
-                <li>
-                  <mark className="ui">Drop Frame</mark> - это способ нумерации, при
-                  котором иногда пропускаются номера кадров, но сами кадры при этом не
-                  теряются. Это делается для того, чтобы таймкод точно совпадал с реальным
-                  временем. Потому что, например, <mark>29,97</mark> кадров в секунду -
-                  это не ровно <mark>30</mark>, и со временем смещение копится. Чтобы
-                  избежать расхождений, через определённые интервалы пропускают несколько
-                  номеров кадров в счётчике - включают пропуск кадров.
-                </li>
-                <li>
-                  <mark className="ui">Non-Drop Frame</mark> - нумерация кадров идёт без
-                  пропусков. В таком случае со временем таймкод может расходиться с
-                  реальным временем видео.
-                </li>
-              </ul>
-            </li>
-            <li>
-              <sup>3</sup> <mark className="ui">Pixel Aspect Ratio</mark> отвечает за
-              соотношение сторон пикселя. В большинстве современных видео пиксели
-              квадратные - их ширина равна высоте, и изменение соотношения сейчас редко
-              где встречается. Однако в некоторых форматах видео, например{" "}
-              <mark className="video">DV PAL</mark>, пиксели прямоугольные, то есть ширина
-              и высота не равны.
-              {/* TODO: пересмотреть и добавить про предпросмотр с коррекцией */}
-            </li>
-            <li>
-              <sup>4</sup> При создании прекомпозиции, если включить{" "}
-              <mark className="ui">
-                Adjust composition duration to the time span of the selected layers
-              </mark>{" "}
-              - новая композиция начнёт отсчёт с момента появления самого раннего слоя и
-              обрежет ненужную длину, которая не попала в диапазон длительности выделенных
-              слоёв. Например, если вы выделили три слоя: первый начинается на второй
-              секунде, второй - на четвертой, а третий заканчивается на седьмой, то новая
-              прекомпозиция будет иметь длину ровно 5 секунд и начнётся не с{" "}
-              <mark>00:00:00:00</mark>, а с <mark>00:00:02:00</mark>, то есть с момента
-              появления самого раннего слоя в родительской композиции.
-            </li>
-            <li>
-              <sup>5</sup> По умолчанию в <mark className="app">Adobe After Effects</mark>{" "}
-              продолжительность выражается в формате <mark>ЧЧ:ММ:СС:КК</mark>, где{" "}
-              <mark>Ч</mark> - часы, <mark>М</mark> - минуты, <mark>С</mark> - секунды,{" "}
-              <mark>К</mark> - кадры. При желании вы можете изменить формат времени на
-              отображение количества кадров, нажав <mark className="key">ЛКМ</mark> по
-              таймкоду на таймлайне с зажатым <mark className="key">Ctrl</mark>.
-            </li>
-            <li>
-              <sup>6</sup> Параметр <mark className="ui">Resolution</mark> влияет только
-              на разрешение рендеринга, как если вы бы изменяли значение качества в окне
-              предпросмотра. В этом параметре доступны те же привычные для пользователя
-              значения - <mark className="ui">Full</mark>,{" "}
-              <mark className="ui">Half</mark>, <mark className="ui">Third</mark>,{" "}
-              <mark className="ui">Quarter</mark> и <mark className="ui">Custom</mark>, в
-              котором можно указать значение каждого пикселя по горизонтали и вертикали,
-              который нужно отрендерить для предпросмотра.
-              {/* TODO: ПРОВЕРИТЬ ЭТОТ ФАКТ С PRESERVE RESOLUTION!!! */}
-            </li>
-            <li>
-              <sup>7</sup> Настройка цвета фона в настройках композиции влияет только на
-              цвет подложки в окне предпросмотра. Для того чтобы действительно добавить
-              фон в композицию - созадйте <mark className="word">Solid Layer</mark>,
-              задайте ему нужный цвет и расположите его самым последним слоем по иерархии
-              наложения.
-            </li>
-          </ul>
-        </AdditionInfo>
-        <p>
-          Во вкладке <mark className="ui">Advanced</mark> вы можете настроить размытие в
-          движении более детально, указав значения угла<sup>1</sup> и фазы затвора
-          <sup>2</sup>, количества семплов<sup>3</sup>, а также якорную точку<sup>4</sup>{" "}
-          самой композиции при его изменении размера. В этом разделе также есть два
-          полезных параметра, связанные с{" "}
-          <mark className="ui">
-            Preserve<sup>5</sup>
-          </mark>
-          .
-        </p>
-        <ImageFigure
-          caption="Composition Settings"
-          imgSrc="images/aftereffects/composition_settings_advanced.png"
-          imgTitle="Вкладка Advanced в настройках композиции"
-          styleClass="figure_windows-dark"
-        />
-        <AdditionInfo>
-          <ul>
-            <li>
-              <sup>1</sup> <mark className="ui">Shutter Angle</mark> или{" "}
-              <mark className="ui">угол затвора</mark> -{" "}
-            </li>
-            <li>
-              <sup>2</sup> <mark className="ui">Shutter Phase</mark> или{" "}
-              <mark className="ui">фаза затвора</mark> -{" "}
-            </li>
-            <li>
-              <sup>3</sup> <mark className="ui">Samples Per Frame</mark> или{" "}
-              <mark className="ui">количество семплов размытия на кадр</mark> -{" "}
-            </li>{" "}
-            {/* TODO: дописать до конца!1! */}
-            <li>
-              <sup>4</sup> Изменение <mark className="ui">Anchor</mark> влияет на
-              положение ваших слоёв при изменении размера ширины или высоты композиции.
-              Если, например, указать левый нижний угол, то композиция начнёт изменять
-              размер относительно этой точки, а все ваши слои будут стоять относительно
-              этой якорной точки. По умолчанию все слои, при изменении размера композиции,
-              остаются в центре.
-            </li>
-            <li>
-              <sup>5</sup>{" "}
-              <mark className="ui">
-                Preserve frame rate when nested or in render queue
-              </mark>{" "}
-              - сохраняет частоту кадров из другой композиции, если она используется в ней
-              или при изменении <mark>FPS</mark> в очереди рендера.{" "}
-              <mark className="ui">Preserve resolution when nested</mark> - подгоняет
-              разрешение под увеличение, похож на{" "}
-              <mark className="ui">Continuously Rasterize</mark>.
-            </li>
-          </ul>
-        </AdditionInfo>
-        <p>
-          Во вкладке <mark className="ui">3D Renderer</mark> вы можете изменить движок для
-          рендера трёхмерных слоёв и, при возможности, настроить его параметры.
-        </p>
-        <ImageFigure
-          caption="Composition Settings"
-          imgSrc="images/aftereffects/composition_settings_3d_renderer.png"
-          imgTitle="Вкладка 3D Renderer в настройках композиции"
-          styleClass="figure_windows-dark"
-        />
-        <AdditionWarning>
-          Учтите, что <mark className="plugin">Advanced 3D</mark> и{" "}
-          <mark className="plugin">Cinema 4D</mark> много чего не поддерживает из
-          привычных действий, как в <mark className="plugin">Classic 3D</mark>. Например -
-          отсутствует поддержка режимов наложений и поддержки размытия в движении,
-          невозможность применения некоторых эффектов и прочего.
-        </AdditionWarning>
-        <Divider>Предварительная композиция (Pre-compose)</Divider>
-        <p>
-          <mark className="word">Прекомпозиция</mark>,{" "}
-          <mark className="word">промежуточная композиция</mark> или{" "}
-          <mark className="word">предварительная композиция</mark> - композиция, созданная
-          на основе выделенных слоёв на таймлайне. Для того чтобы создать такую композицию
-          - выделите нужные слои и нажмите на комбинацию клавиш{" "}
-          <mark className="key">Ctrl + Shift + C</mark>. В диалоговом окне вам предложат
-          два варианта для создания, а ещё пару дополнительных параметров.
-        </p>
-        <ul>
-          <li>
-            <mark className="ui">
-              Leave all attributes in &quot;Composition Name&quot;
-            </mark>{" "}
-            - создать прекомпозицию точно по исходным параметрам выделенного слоя, вплоть
-            до размера и оставить все свойства, аттрибуты и эффекты в родительской
-            композиции, а сам слой запаковать в новую композицию. Например, если вы
-            пытаетесь запрекомпозить <mark className="word">Solid Layer</mark> с
-            анимированными свойствами положения - они останутся на временной шкале текущей
-            композиции, а внутри новой прекомпозиции слой будет без анимации.
-            <AdditionWarning>
-              Данная опция доступна только тогда, когда выделен один слой, а также если
-              этот слой имеет <mark className="ui">Source</mark>, например слой с видео,
-              фото или аудио.
-            </AdditionWarning>
-          </li>
-          <li>
-            <mark className="ui">Move all attributes into the new composition</mark> -
-            перемещает выделенный слой или слои со всеми свойствами, аттрибутами и
-            эффектами в своего рода новый &quot;контейнер&quot;.
-            <ul>
-              <li>
-                <mark className="ui">
-                  Adjust composition duration to the time span of the selected layers
-                </mark>{" "}
-                - обрезает новую композицию под общую длительность выделенных слоёв.
-                <AdditionWarning>
-                  Учтите, при включенном параметре значение стартового таймкода будет
-                  изменено на таймкод начала первого выделенного слоя. При необходимости
-                  вы можете позже изменить стартовый таймкод в настройках созданной
-                  композиции.
-                </AdditionWarning>
-              </li>
-            </ul>
-          </li>
-          <li>
-            <mark className="ui">Open New Composition</mark> - естественно откроет
-            созданную прекомпозицию на таймлайне.
-          </li>
-        </ul>
-        {/* TODO: рассказать про collapse transformation  */}
-        <Divider>Текст (Text)</Divider>
-        <p>
-          <mark className="word">Text Layer</mark> - это слой, который содержит
-          редактируемый текст. У текстовых слоёв есть два типа - <mark>Point Text</mark> и{" "}
-          <mark>Paragraph Text</mark>. Каждый из этих типов используется для разных целей.
-          Вы можете{" "}
+          <mark className="select">«Text Layer»</mark> — это слой с редактируемым текстом.
+          У него есть два типа: <mark className="select">«Point Text»</mark> и{" "}
+          <mark className="select">«Paragraph Text»</mark>. Каждый из них используется для
+          разных целей. Вы можете{" "}
           <a href="https://www.youtube.com/watch?v=-PS2Yl-IzTQ">
             анимировать Source Text
           </a>{" "}
-          для изменения самого текста на разных ключевых кадрах,{" "}
-          <a href="https://www.youtube.com/watch?v=_CEpgznn-XU">пустить текст по Path</a>{" "}
-          с помощью маски, а также использовать различные{" "}
-          <a href="https://www.youtube.com/watch?v=IJ3QHNQSJg8">текстовые аниматоры</a>.
+          — менять сам текст на ключевых кадрах,{" "}
+          <a href="https://www.youtube.com/watch?v=_CEpgznn-XU">
+            запустить текст по Path
+          </a>{" "}
+          с помощью маски или{" "}
+          <a href="https://www.youtube.com/watch?v=IJ3QHNQSJg8">
+            использовать текстовые аниматоры
+          </a>
+          .
         </p>
         <p>
-          Изменение шрифта, его размера, применение обводки, настройка межстрочного и
-          межбуквенного интервала, включение поддержки лигатуров, а также прочие
-          параметры, касающиеся внешнего вида текста, настраиваются в окне{" "}
-          <mark className="ui">Character</mark>. Выравнивание и выключка, а также
-          установка отступа и расстояния между абзацами настраиваются в окне{" "}
-          <mark className="ui">Paragraph</mark>.
+          Шрифт, его размер, обводка, межстрочные и межбуквенные интервалы, лигатуры и
+          другие параметры внешнего вида настраиваются в окне{" "}
+          <mark className="select">«Character»</mark>. Выравнивание, отступы и расстояние
+          между абзацами — в окне <mark className="select">«Paragraph»</mark>.
         </p>
-        <AdditionInfo>
+        <Addition type="info">
           Начиная с <mark className="app">Adobe After Effects</mark> версии{" "}
-          <mark>23.4</mark> и новее, большинство этих параметров можно регулировать и в
-          окне <mark className="ui">Properties</mark>.
-        </AdditionInfo>
+          <mark>23.4</mark>, большинство этих параметров доступно в окне{" "}
+          <mark className="select">«Properties»</mark>.
+        </Addition>
         <ul>
           <li>
-            <mark>Point Text</mark> используется тогда, когда неважны ограничения по
-            ширине или высоте. Поэтому он и переводится дословно - точечный текст, который
-            располагается чаще всего с текстом в одну строку. Такой тип текста чаще всего
-            используется для заголовков, примечаний и других коротких вставок в одну
-            строку. Поддерживает выравнивание только по левому, правому краю и по центру,
-            в зависимости от того как вы написали свой текст. Выравнивание по ширине не
-            поддерживается, потому что у текста просто нет фиксированных границ.
-            <VideoFigure
+            <mark className="select">«Point Text»</mark> — используется, когда не важны
+            ограничения по ширине или высоте. Его название говорит само за себя: текст
+            задаётся от одной точки и чаще всего идёт в одну строку. Подходит для
+            заголовков, коротких примечаний и вставок. Поддерживает только выравнивание по
+            левому, правому краю и по центру — выравнивание по ширине невозможно, так как
+            у такого текста нет фиксированной рамки.
+            <ContentFigure
               caption="Создание Point Text"
-              styleClass="figure_windows-dark"
-              videoSrc="images/aftereffects/create_point_text.mp4"
+              src="images/aftereffects/create_point_text.mp4"
+              theme="dark"
+              type="video"
+              variant="windows"
             />
           </li>
           <li>
-            <mark>Paragraph Text</mark> используется тогда, когда нужно вместить текст в
-            определённую &quot;коробку&quot;, то есть ограничить ширину и высоту. Такой
-            тип часто используется для внедрения текста в фигуру, будь то прямоугольник
-            или квадрат. Такой тип поддерживает все варианты выравнивания текста, включая
-            выравнивание по ширине в окне <mark className="ui">Paragraph</mark>.
-            <VideoFigure
+            <mark className="select">«Paragraph Text»</mark> — подходит, когда нужно
+            вписать текст в конкретную «коробку» (ограничить ширину и/или высоту). Часто
+            используется для встраивания текста в фигуры, например прямоугольники.
+            Поддерживает все типы выравнивания, включая выравнивание по ширине —
+            настраивается в <mark className="select">«Paragraph»</mark>.
+            <ContentFigure
               caption="Создание Paragraph Text"
-              styleClass="figure_windows-dark"
-              videoSrc="images/aftereffects/create_paragraph_text.mp4"
+              src="images/aftereffects/create_paragraph_text.mp4"
+              theme="dark"
+              type="video"
+              variant="windows"
             />
           </li>
         </ul>
         <p>
-          Текстовый слой одного типа можно преобразовать в другой. Для этого нужно
-          обязательно выбрать инструмент <mark className="ui">Text</mark>, выделить нужный
-          текстовый слой с помощью <mark className="key">ПКМ</mark> и выбрать{" "}
-          <mark className="ui">Convert to Point Text</mark> или{" "}
-          <mark className="ui">Convert to Paragraph Text</mark>, в зависимости от того,
-          какой у вас сейчас текущий тип текста.
+          Один тип текстового слоя можно преобразовать в другой. Для этого выберите
+          инструмент <mark className="select">«Text»</mark>, затем — нужный слой, кликните
+          по нему <mark className="key">ПКМ</mark> и выберите{" "}
+          <mark className="select">«Convert to Point Text»</mark> или{" "}
+          <mark className="select">«Convert to Paragraph Text»</mark> — в зависимости от
+          того, что у вас сейчас.
         </p>
-        <VideoFigure
+        <ContentFigure
           caption="Конвертация Point Text в Paragraph Text"
-          styleClass="figure_windows-dark"
-          videoSrc="images/aftereffects/convert_to_paragraph_text.mp4"
+          src="images/aftereffects/convert_to_paragraph_text.mp4"
+          theme="dark"
+          type="video"
+          variant="windows"
         />
         <p>
-          Также текст может писаться горизонтально и вертикально с помощью инструментов{" "}
-          <mark className="ui">Horizontal Text Tool</mark>, который используется по
-          умолчанию и <mark className="ui">Vertical Text Tool</mark>. Вертикальное
-          написание текста больше актуально для языков азиатских стран, но он может вам
-          пригодиться и с привычной латиницей или кириллицей, если вы хотите сделать{" "}
-          <mark>monospace-like</mark> шрифт, чтобы при анимации различных счётчиков текст
-          не прыгал.
+          Также текст можно писать горизонтально и вертикально. Для этого есть инструменты{" "}
+          <mark className="select">«Horizontal Text Tool»</mark> (по умолчанию) и{" "}
+          <mark className="select">«Vertical Text Tool»</mark>. Вертикальный текст чаще
+          используется в азиатских языках, но может пригодиться и для латиницы или
+          кириллицы — например, для создания <mark>monospace-like</mark> шрифта. Это
+          полезно для анимации счётчиков, чтобы текст не прыгал.
         </p>
-        <YouTubeVideo
+        <ContentFigure
           caption="Как сделать текст моноширинным"
-          link="__-rPlFfRow"
+          src="__-rPlFfRow"
+          type="youtube"
         />
-        <Divider>Сплошная заливка (Solid Layer)</Divider>
-        <p>{/* FIXME:  */}</p>
+        <Divider>Слой-фигура</Divider>
         <p>
-          <mark className="word">Solid Layer</mark> или{" "}
-          <mark className="word">слой-заливка</mark> часто используется как фон или как
-          инициализатор различных эффектов, например{" "}
-          <mark className="plugin">CC Particle World</mark>,{" "}
-          <mark className="plugin">Element 3D</mark>,{" "}
-          <mark className="plugin">Trapcode Particular</mark> и прочие.
+          <mark className="select">«Shape Layer»</mark> — слой, содержащий какую-либо
+          форму. Фигуры могут быть разных типов:{" "}
+          <mark className="select">«Rectangle»</mark>,{" "}
+          <mark className="select">«Rounded Rectangle»</mark>,{" "}
+          <mark className="select">«Ellipse»</mark>,{" "}
+          <mark className="select">«Polygon»</mark> или{" "}
+          <mark className="select">«Star»</mark>.
         </p>
-        <AdditionInfo>
+        <Addition type="info">
           <ul>
             <li>
-              Чтобы создать <mark className="word">Solid Layer</mark> - нажмите на
-              комбинацию клавиш <mark className="key">Ctrl + Y</mark>.
+              Фигуры можно создавать инструментом для создания фигур{" "}
+              <mark className="key">Q</mark> или с помощью{" "}
+              <mark className="select">«Pen Tool»</mark>.
             </li>
             <li>
-              Чтобы настроить размер, цвет и другие параметры такого слоя - нажмите на
-              комбинацию клавиш <mark className="key">Ctrl + Shift + Y</mark>.
+              Путь маски и фигурного слоя взаимозаменяемы: их можно копировать и вставлять
+              друг в друга.
             </li>
           </ul>
-        </AdditionInfo>
-        <YouTubeVideo
-          caption="Как создать фон и изменить цвет заливки"
-          link="e-g1y4p8Jc0"
+        </Addition>
+        <ContentFigure
+          caption="Слои-фигуры для начинающих"
+          src="98ro7x3kl8A"
+          type="youtube"
         />
-        <AdditionWarning>
-          <ul>
-            <li>
-              Если примененный вами эффект работает в своём трёхмерном пространстве - не
-              стоит преобразовывать ваш слой-инициализатор как 3D-слой. Чтобы изменить вид
-              или положение слоя - пользуйтесь камерой или, при возможности, создавайте
-              манипуляторы для параметров положения объекта.
-            </li>
-            <li>
-              Чтобы понять, использует ли эффект своё трёхмерное пространство - посмотрите
-              на его название в <mark className="ui">Effects & Controls</mark>. Рядом с
-              ним должна отображаться иконка <mark className="ui">кубика</mark>.
-            </li>
-          </ul>
-          {/* <p>
-        <mark className="word">Solid Layer</mark> - слой с однотонным цветом, чаще всего
-        чёрного цвета. Обычно он создаётся по размеру композиции и может служить для
-        различных целей.
-      </p>
-      
-      <p>
-        <mark className="word">Solid Layer</mark> может использоваться как инициализатор
-        различных эффектов, созданные для 3D пространства, например{" "}
-        <mark className="plugin">Element 3D</mark>,{" "}
-        <mark className="plugin">Trapcode Form</mark> или{" "}
-        <mark className="plugin">CC Particle World</mark>. Для перемещения в
-        пространстве 3D-эффектов обычно используется камера или настройка положения в
-        настройках эффекта.
-      </p>
-      <p>
-        <mark className="word">Solid Layer</mark> также может служить обычным однотонным
-        фоном. Это бывает полезно, когда некоторые эффекты могут не работать корректно с
-        прозрачностью, например переходы из <mark className="plugin">AtomX</mark> или{" "}
-        <mark className="ui">Motion Bro</mark>.
-      </p>
-      <YouTubeVideo
-        caption="Solid Layers - Explained"
-        link="MCJxSEj2BL4"
-      />
-      <AdditionWarning>
-        Однотонный слой, на котором применены эффекты, работающие в 3D пространстве,
-        должен оставаться как 2D-слой, иначе вы получите непонятные искажения
-        перспективы. Также не стоит двигать такой слой без острой необходимости.
-      </AdditionWarning> */}
-        </AdditionWarning>
-        <Divider>Источник освещения (Light Layer)</Divider>
+        <Divider>Маска</Divider>
         <p>
-          <mark className="word">Источник освещения</mark> - это слой, который служит
-          источником света для трёхмерных объектов в композиции. Он позволяет освещать
-          слои и создавать тени<sup>1</sup>, отбрасываемые слоями.{" "}
-          <mark className="word">Light Layer</mark> не распространяется на двумерные слои.
-          Чтобы создать такой слой - нажмите на комбинацию клавиш{" "}
-          <mark className="key">Ctrl + Alt + Shift + L</mark>.
+          <mark className="select">«Mask»</mark> — область, в которой слой будет виден или
+          не виден, в зависимости от типа маски и её настроек. Маска ограничена только
+          этим слоем и перемещается вместе с ним. Её часто используют для выделения или
+          скрытия частей изображения, а также для создания эффектов с плавной анимацией
+          появления или исчезновения объектов.
+        </p>
+        <Addition type="info">
+          Маски можно создавать инструментом для создания фигур{" "}
+          <mark className="key">Q</mark> или с помощью{" "}
+          <mark className="select">«Pen Tool»</mark>, предварительно выделив слой.
+        </Addition>
+        <ContentFigure
+          caption="Полное руководство для начинающих по созданию масок"
+          src="WMmWIc88HDA"
+          type="youtube"
+        />
+        <p>
+          Также в качестве масок могут выступать сами слои. В{" "}
+          <mark className="app">Adobe After Effects</mark> есть полезная функция{" "}
+          <mark className="select">«Track Matte»</mark>, реализацию которого{" "}
+          <a href="https://helpx.adobe.com/after-effects/using/track-mattes-and-traveling-mattes.html">
+            обновили
+          </a>{" "}
+          в версии <mark>2023</mark> и новее.
+        </p>
+        <ContentFigure
+          caption="Почему тебе нужны Mattes в After Effects"
+          src="VWkS1vcs0Wk"
+          type="youtube"
+        />
+        <Divider>Корректирующий слой</Divider>
+        <p>
+          <mark className="select">«Adjustment Layer»</mark> — довольно мощный инструмент.
+          С его помощью можно выполнить цветокоррекцию, добавить цифровой шум, заставить
+          трястись всю композицию или внести различные искажения. Эффекты, применённые к
+          такому слою, будут влиять только на те слои, которые расположены ниже него на
+          таймлайне.
+        </p>
+        <Addition type="warning">
+          Не все эффекты могут корректно применяться на{" "}
+          <mark className="select">«Adjustment Layer»</mark>, если в композиции
+          отсутствует фон, созданный через <mark className="select">«Solid Layer»</mark> и
+          размещённый под <mark className="select">«Adjustment Layer»</mark>.
+        </Addition>
+        <ContentFigure
+          caption="Используем корректирующие слои в Adobe After Effects"
+          src="rgMKGFWWqjA"
+          type="youtube"
+        />
+        <p>
+          По сути, роль <mark className="select">«Adjustment Layer»</mark> может выполнять
+          почти любой объект на таймлайне — достаточно включить для него соответствующую
+          через контекстное меню в <mark className="select">«Layer»</mark>,{" "}
+          <mark className="key">ПКМ</mark> или с помощью соответствующего переключателя на
+          таймлайне.
+        </p>
+        <ContentFigure
+          caption="Демонстрация работы корректирующего слоя"
+          src="images/aftereffects/enable_adjustment_layer_mode.mp4"
+          theme="dark"
+          type="video"
+          variant="windows"
+        />
+        <Divider>Нулевой объект</Divider>
+        <p>
+          <mark className="select">«Null Object»</mark> — невидимый манипулятор для
+          объектов, слоёв или параметров эффекта. Он часто применяется для создания
+          зависимости между управляющими и управляемыми элементами. К нулевому объекту
+          можно привязать сразу несколько слоёв — например, для их вращения вокруг
+          определённой оси. Для этого можно воспользоваться лассо в столбце{" "}
+          <mark className="select">«Parent & Link»</mark>
+          <sup>1</sup> или <mark className="word">выражениями</mark>.
+        </p>
+        <Addition type="info">
+          <sup>1</sup> Если вы скрыли отображение этого столбца на таймлайне — нажмите{" "}
+          <mark className="key">F4</mark> или <mark className="key">ПКМ</mark> по
+          заголовкам столбцов и выберите{" "}
+          <mark className="select">«Columns» → «Parent & Link»</mark>.
+        </Addition>
+        <ContentFigure
+          caption="Тебе НУЖНО использовать нулевые слои в Adobe After Effects"
+          src="8ei_cj6A2Gg"
+          type="youtube"
+        />
+        <Addition type="warning">
+          Не стоит путать колонки <mark className="select">«Parent & Link»</mark> с{" "}
+          <mark className="select">«Track Matte»</mark>, несмотря на то, что у обоих
+          столбцов есть лассо для указания ссылки на нужный слой. Часто новички не смотрят
+          на название нужной колонки, а потом удивляются, почему у них программа работает
+          не так, как они хотят.
+        </Addition>
+        <Divider>Трёхмерный слой</Divider>
+        <p>
+          <mark className="select">«3D Layer»</mark> — это двумерный слой, который может
+          перемещаться и вращаться в трёхмерном пространстве. Он взаимодействует с
+          камерами и источниками света, но сам остаётся плоским. В роли трёхмерного слоя
+          может выступать картинка, фигура, текст, слой-заливка и другие типы слоёв. Не
+          стоит путать с <mark className="select">«3D Object»</mark>.
         </p>
         <p>
-          Чтобы настроить размер, цвет и другие параметры такого слоя - нажмите на
-          комбинацию клавиш <mark className="key">Ctrl + Shift + Y</mark>.
+          Трёхмерные слои могут пересекаться и отбрасывать тени — но только если между
+          ними нет ничего, что мешает этому взаимодействию. Препятствием может быть не
+          только обычный двумерный слой, но и некоторые другие, даже если они сами
+          трёхмерные: <mark className="select">«Adjustment Layer»</mark>; слой с
+          применённым <mark className="select">«Layer Styles»</mark>; прекомпозиция с
+          эффектом, маской (в любом режиме, кроме <mark className="select">«None»</mark>)
+          или <mark className="select">«Track Matte»</mark>; а также трёхмерная
+          прекомпозиция без включённого{" "}
+          <mark className="select">«Collapse Transformations»</mark>.
         </p>
-        <p>{/* TODO: термин источника света  */}</p>
-        <ImageFigure
-          caption="Light Settings"
-          imgSrc="images/aftereffects/light_settings.png"
-          imgTitle="Настройка источника света"
-          styleClass="figure_windows-dark"
+        <ContentFigure
+          caption="Трёхмерные слои в Adobe After Effects"
+          src="7NFsxeG-sWY"
+          type="youtube"
         />
-        <Divider>Камера (Camera)</Divider>
-        <p>{/* FIXME:  */}</p>
+        <Addition type="warning">
+          Слои, расположенные на одном уровне по оси Z, могут конфликтовать между собой и
+          вызывать артефакты — например, мерцание или разрывы изображения. Чтобы избежать
+          этого, старайтесь смещать их хотя бы на один пиксель друг от друга.
+        </Addition>
+        <Divider>Трёхмерные модели</Divider>
         <p>
-          <mark className="word">Камера</mark> - это слой, который служит виртуальным
+          <mark className="select">«3D Object»</mark> — объёмные модели форматов{" "}
+          <mark className="file">FBX</mark>, <mark className="file">OBJ</mark>,{" "}
+          <mark className="file">GLB</mark> или <mark className="file">GLTF</mark>, импорт
+          которых стал возможен в <mark className="app">Adobe After Effects</mark> версии{" "}
+          <mark>24.1</mark> и новее с помощью <mark className="plugin">Advanced 3D</mark>.
+          Такие модели можно создать в любом популярном 3D-редакторе, например{" "}
+          <mark className="app">Blender</mark>, <mark className="app">Cinema 4D</mark> или{" "}
+          <mark className="app">Substance 3D Painter</mark>.
+        </p>
+        <ContentFigure
+          caption="Работаем с 3D-моделями из Substance Painter в Adobe After Effects"
+          src="qPOkGR7Ek2I"
+          type="youtube"
+        />
+        <Addition type="info">
+          Если вы используете <mark className="app">Adobe After Effects</mark> версии ниже{" "}
+          <mark>24.0</mark> — используйте сторонний плагин{" "}
+          <mark className="plugin">Element 3D</mark> для импорта моделей формата{" "}
+          <mark className="file">OBJ</mark> и <mark className="file">E3D</mark>.
+        </Addition>
+        <Divider>Камера</Divider>
+        <p>
+          <mark className="select">«Camera»</mark> — слой, который служит виртуальным
           объективом для вашей сцены, определяя ракурс, глубину резкости и поле зрения для
-          всех слоев, работающих в трёхмерном пространстве. Камера не будет работать с
-          двумерными слоями.
+          всех слоёв, работающих в трёхмерном пространстве. Камера не будет работать с
+          двумерными слоями, если на нём не применён эффект работающий в трёхмерном
+          пространстве.
         </p>
-        <YouTubeVideo
-          caption="Техники с 3D камерами в Adobe After Effects"
-          link="zgMHWFolli8"
+        <ContentFigure
+          caption="Техники с камерой в Adobe After Effects"
+          src="zgMHWFolli8"
+          type="youtube"
         />
         <p>
-          Для камеры в окне <mark className="ui">Camera Settings</mark> вы можете
-          настроить тип<sup>1</sup>, задать имя и свой пресет, изменить значение угла
-          обзора<sup>2</sup> и размера плёнки<sup>3</sup>. Если включить{" "}
-          <mark className="ui">Enable Depth of Field</mark>, то вы сможете настроить
-          расстояние до точки фокуса<sup>4</sup>, настроить апертуру<sup>5</sup>,
-          диафрагму<sup>6</sup> и процент размытия<sup>7</sup>. Также вы можете при
-          необходимости изменить метрическую систему<sup>8</sup>. Чтобы открыть параметры
-          данного слоя - выделите слой с камерой и нажмите на комбинацию клавиш{" "}
-          <mark className="key">Ctrl + Shift + Y</mark>. Также свойства камеры вы можете
-          анимировать на таймлайне, раскрыв вкладку{" "}
-          <mark className="ui">Camera Options</mark> у слоя.
+          В окне <mark className="select">«Camera Settings»</mark> для камеры можно
+          выбрать тип<sup>1</sup>, задать имя и пресет, изменить значения угла обзора
+          <sup>2</sup> и размера плёнки<sup>3</sup>. Если включить{" "}
+          <mark className="select">«Enable Depth of Field»</mark>, станет доступна
+          настройка расстояния до точки фокусировки<sup>4</sup>, апертуры<sup>5</sup>,
+          диафрагмы
+          <sup>6</sup> и уровня размытия<sup>7</sup>. При необходимости можно также
+          изменить метрическую систему<sup>8</sup>.
         </p>
-        <ImageFigure
+        <Addition type="info">
+          <ul>
+            <li>
+              Чтобы открыть параметры этого слоя — выделите слой с камерой и нажмите{" "}
+              <mark className="key">Ctrl + Shift + Y</mark>.
+            </li>
+            <li>
+              Также свойства камеры можно анимировать на таймлайне, раскрыв вкладку{" "}
+              <mark className="select">«Camera Options»</mark> у слоя.
+            </li>
+          </ul>
+        </Addition>
+        <ContentFigure
           caption="Camera Settings"
-          imgSrc="images/aftereffects/camera_settings.png"
           imgTitle="Настройки камеры"
-          styleClass="figure_windows-dark"
+          src="images/aftereffects/camera_settings.png"
+          theme="dark"
+          type="image"
+          variant="windows"
         />
-        <AdditionWarning>
+        <Addition type="warning">
           Учтите, что не все параметры камеры доступны в движках рендера{" "}
           <mark className="plugin">Advanced 3D</mark> и{" "}
-          <mark className="plugin">Cinema 4D</mark>, например{" "}
-          <mark className="ui">Depth of Field</mark>.
-        </AdditionWarning>
-        <AdditionInfo>
+          <mark className="plugin">Cinema 4D</mark>, например,{" "}
+          <mark className="select">«Depth of Field»</mark>.
+        </Addition>
+        <Addition type="info">
           <ul>
             <li>
-              <sup>1</sup> У камеры может быть два типа - <mark>One-Node</mark> и{" "}
-              <mark>Two-Node</mark>.
+              <sup>1</sup> У камеры может быть два типа:{" "}
+              <mark className="select">«One-Node»</mark> и{" "}
+              <mark className="select">«Two-Node»</mark>.
               <ul>
                 <li>
-                  <mark className="word">One-Node Camera</mark> или{" "}
-                  <mark className="word">одноузловая камера</mark> работает как физическая
-                  камера, которая перемещается независимо от выбранной точки и
-                  ориентируется вокруг себя.
+                  <mark className="select">«One-Node Camera»</mark> или{" "}
+                  <mark className="select">«одноузловая камера»</mark> работает как
+                  физическая камера: перемещается независимо от точки фокуса и вращается
+                  вокруг себя.
                 </li>
                 <li>
-                  <mark className="word">Two-Node Camera</mark> или{" "}
-                  <mark className="word">двухузловая камера</mark> имеет точку обзора и
-                  ориентируется вокруг <mark>Point of Interest</mark>. Данный тип камер
-                  полезен для создания параллакс-эффекта.
+                  <mark className="select">«Two-Node Camera»</mark> или{" "}
+                  <mark className="select">«двухузловая камера»</mark> имеет точку обзора
+                  и ориентируется относительно{" "}
+                  <mark className="select">«Point of Interest»</mark>. Такой тип полезен
+                  при создании параллакс-эффекта.
                 </li>
                 <li>
-                  При этом каждому типу камеры можно включить свой тип{" "}
-                  <a href="https://helpx.adobe.com/after-effects/using/selecting-arranging-layers.html#auto_orientation_options">
-                    автоориентации
-                  </a>{" "}
-                  - для этого нужно выделить камеру, нажать на комбинацию клавиш{" "}
-                  <mark className="key">Ctrl + Alt + O</mark> и выбрать нужный параметр.
-                  Если выбрать{" "}
-                  <mark className="ui">Orient Towards Point of Interest</mark> -{" "}
-                  <mark className="word">одноузловая камера</mark> превратится в{" "}
-                  <mark className="word">двухузловую</mark>, а если выбрать{" "}
-                  <mark className="ui">Off</mark> или{" "}
-                  <mark className="ui">Orient Along Path</mark> -{" "}
-                  <mark className="word">двухузловая камера</mark> превратится в{" "}
-                  <mark className="word">одноузловую</mark>.
+                  Для любого типа камеры можно включить автоориентацию: выделите камеру,
+                  нажмите <mark className="key">Ctrl + Alt + O</mark> и выберите нужный
+                  параметр. Если выбрать{" "}
+                  <mark className="select">«Orient Towards Point of Interest»</mark> —{" "}
+                  <mark className="select">«одноузловая камера»</mark> превратится в{" "}
+                  <mark className="select">«двухузловую»</mark>. Если выбрать{" "}
+                  <mark className="select">«Off»</mark> или{" "}
+                  <mark className="select">«Orient Along Path»</mark>, наоборот —{" "}
+                  <mark className="select">«двухузловая»</mark> станет{" "}
+                  <mark className="select">«одноузловой»</mark>.
                 </li>
               </ul>
             </li>
             <li>
-              <sup>2</sup> Параметры <mark className="ui">Zoom</mark>,{" "}
-              <mark className="ui">Angle of View</mark> и{" "}
-              <mark className="ui">Focal Length</mark> неразрывно связаны.{" "}
-              <mark className="ui">Focal Length</mark> - это как фокусное расстояние
+              <sup>2</sup> Параметры <mark className="select">«Zoom»</mark>,{" "}
+              <mark className="select">«Angle of View»</mark> и{" "}
+              <mark className="select">«Focal Length»</mark> связаны между собой.{" "}
+              <mark className="select">«Focal Length»</mark> — это фокусное расстояние
               объектива: чем оно меньше, тем шире{" "}
-              <mark className="ui">Angle of View</mark> и больше объектов попадает в кадр
-              с выраженной перспективой. Чем больше фокусное расстояние, тем уже угол
-              обзора, объекты кажутся ближе, а перспектива сжимается.{" "}
-              <mark className="ui">Zoom</mark> же является общим увеличением, которое
-              напрямую зависит от этих двух настроек. По сути, настраивая один из этих
-              трёх параметров - вы корректируете оптику виртуальной камеры.
+              <mark className="select">«Angle of View»</mark> и больше объектов попадает в
+              кадр. Чем больше фокусное расстояние, тем меньше угол обзора, объекты
+              кажутся ближе, а перспектива сжимается.{" "}
+              <mark className="select">«Zoom»</mark> — это итоговое увеличение, напрямую
+              зависящее от этих двух параметров. Настраивая один из них, вы влияете на
+              оптику всей виртуальной камеры.
             </li>
             <li>
-              <sup>3</sup> <mark className="ui">Film Size</mark> - отвечает за размер
-              вообращаемой матрицы или плёнки. Изменение этого значение будет влиять на
-              значение <mark className="ui">Zoom</mark> и{" "}
-              <mark className="ui">Angle of View</mark>.
+              <sup>3</sup> <mark className="select">«Film Size»</mark> — размер условной
+              плёнки. Изменение этого параметра влияет на{" "}
+              <mark className="select">«Zoom»</mark> и{" "}
+              <mark className="select">«Angle of View»</mark>.
             </li>
             <li>
-              <sup>4</sup> <mark className="ui">Focus Distance</mark> отвечает за точку
-              фокусирования. Фокус камеры можно присоединить к нужному слою с помощью{" "}
-              <mark className="key">ПКМ</mark> по нужному слою и выбрать в контекстном
-              меню <mark className="ui">Camera &gt; Link Focus Distance to Layer</mark>.
+              <sup>4</sup> <mark className="select">«Focus Distance»</mark> — расстояние
+              до точки фокусировки. Его можно привязать к нужному слою: кликните по нему{" "}
+              <mark className="key">ПКМ</mark> и выберите{" "}
+              <mark className="select">«Camera» → «Link Focus Distance to Layer»</mark>.
             </li>
             <li>
-              <sup>5</sup> <mark className="ui">Aperture</mark> отвечает за размытие. Чем
-              больше значение апертуры, тем больше будет размытым план, который находится
-              не в фокусе. Если изменить это значение, то{" "}
-              <mark className="ui">F-Stop</mark> будет вслед меняться, но в
-              противоположную сторону.
+              <sup>5</sup> <mark className="select">«Aperture»</mark> — отвечает за
+              размытие: чем больше апертура, тем сильнее размываются объекты вне фокуса.
+              Изменение этого значения автоматически скорректирует{" "}
+              <mark className="select">«F-Stop»</mark> в противоположную сторону.
             </li>
             <li>
-              <sup>6</sup> <mark className="ui">F-Stop</mark> отвечает за размытие. Чем
-              меньше значение диафрагмы, тем больше будет размытым план. Если изменить это
-              значение, то <mark className="ui">Aperture</mark> будет вслед меняться, но в
-              противоположную сторону.
+              <sup>6</sup> <mark className="select">«F-Stop»</mark> — также отвечает за
+              размытие: чем меньше значение, тем сильнее эффект. При его изменении{" "}
+              <mark className="select">«Aperture»</mark> тоже изменится — обратно
+              пропорционально.
             </li>
             <li>
-              <sup>7</sup> <mark className="ui">Blur Level</mark> отвечает, как ни
-              странно, за степень размытия. Выполняет в качестве роли коэффициента
-              действия <mark className="ui">Aperture</mark> и{" "}
-              <mark className="ui">F-Stop</mark>.
+              <sup>7</sup> <mark className="select">«Blur Level»</mark> регулирует степень
+              размытия. Фактически это дополнительный коэффициент действия параметров{" "}
+              <mark className="select">«Aperture»</mark> и{" "}
+              <mark className="select">«F-Stop»</mark>.
             </li>
             <li>
-              <sup>8</sup> В <mark className="ui">Units</mark> вы можете изменить
-              метрическую систему с милиметров на дюймы или пиксели. В{" "}
-              <mark className="ui">Measure Film Size</mark> вы можете изменить как будет
-              мериться размер плёнки - горизонтально, вертикально или по диагонали.
+              <sup>8</sup> В <mark className="select">«Units»</mark> можно изменить
+              метрическую систему — на миллиметры, дюймы или пиксели. В{" "}
+              <mark className="select">«Measure Film Size»</mark> задаётся, по какой оси
+              измерять размер плёнки: горизонтально, вертикально или по диагонали.
             </li>
-            {/* TODO: дописать до конца!1! */}
           </ul>
-        </AdditionInfo>
+        </Addition>
         <p>
-          Если раскрыть слой камеры на таймлайне, то вы можете обнаружить ещё несколько
-          свойств этого объекта, связанные с визуальными настройками диафрагмы<sup>1</sup>{" "}
-          и пересветами<sup>2</sup>.
+          Если раскрыть слой камеры на таймлайне, вы увидите дополнительные параметры,
+          связанные с визуальными эффектами диафрагмы<sup>1</sup> и пересветами
+          <sup>2</sup>.
         </p>
-        <ImageFigure
+        <ContentFigure
           caption="Timeline"
-          imgSrc="images/aftereffects/camera_options_on_timeline.png"
           imgTitle="Свойства камеры на таймлайне"
-          styleClass="figure_windows-dark"
+          src="images/aftereffects/camera_options_on_timeline.png"
+          theme="dark"
+          type="image"
+          variant="windows"
         />
-        <AdditionInfo>
+        <Addition type="info">
           <ul>
             <li>
-              <sup>1</sup> Свойства камеры, начинающиеся на{" "}
-              <mark className="ui">Iris</mark> отвечают за визуальные настройки боке,
-              создаваемое камерой. Не все эффекты, работающие в трёхмерном пространстве
-              реагируют на изменения этих параметров.
+              <sup>1</sup> Параметры, начинающиеся с{" "}
+              <mark className="select">«Iris»</mark>, задают форму и поведение боке. Но не
+              все эффекты, работающие в трёхмерном пространстве отзываются на эти
+              настройки.
               <ul>
                 <li>
-                  <mark className="ui">Iris Shape</mark> определяет количество лепестков у
-                  диафрагмы, которые будут видны на ярких бликах вне фокуса.
+                  <mark className="select">«Iris Shape»</mark> — форма лепестков
+                  диафрагмы, видимых в ярких бликах. Значения, отличные от{" "}
+                  <mark className="select">«Fast Rectangle»</mark>, требуют больше
+                  ресурсов и могут замедлить рендер, зато обеспечивают более реалистичное
+                  размытие. При использовании{" "}
+                  <mark className="select">«Fast Rectangle»</mark> некоторые параметры
+                  ниже не работают.
                 </li>
                 <li>
-                  <mark className="ui">Iris Rotation</mark> вращает форму диафрагмы.
+                  <mark className="select">«Iris Rotation»</mark> — поворот лепестков
+                  относительно центра.
                 </li>
                 <li>
-                  <mark className="ui">Iris Roundness</mark> сглаживает углы у лепестков
-                  диафрагмы.
+                  <mark className="select">«Iris Roundness»</mark> — сглаженность углов
+                  лепестков: от почти треугольных до идеально округлых.
                 </li>
                 <li>
-                  <mark className="ui">Iris Aspect Ratio</mark> изменяет соотношение
-                  сторон фигуры диафрагмы, то есть позволяет растянуть или сплющить его.
+                  <mark className="select">«Iris Aspect Ratio»</mark> — соотношение сторон
+                  фигуры диафрагмы. Можно растянуть или сплющить форму.
                 </li>
                 <li>
-                  <mark className="ui">Iris Diffraction Fringe</mark> добавляет ореол по
-                  краям ярких бликов в боке, имитируя эффект дифракции света. Данное
-                  значение изменяется редко, так как мало кто видит разницу при его
-                  изменении, и его можно установить до <mark>500</mark>.
+                  <mark className="select">«Iris Diffraction Fringe»</mark> — имитация
+                  световой дифракции на бликах. До значения <mark>200</mark> эффект почти
+                  незаметен, но при <mark>500</mark> становится выраженным.
                 </li>
               </ul>
             </li>
             <li>
-              <sup>2</sup> {/* TODO: дописать до конца!1! */}
+              <sup>2</sup> Параметры, начинающиеся с{" "}
+              <mark className="select">«Highlight»</mark>, отвечают за усиление яркости и
+              насыщенности светлых участков изображения. Работают только при включённом{" "}
+              <mark className="select">«Depth of Field»</mark>, но при этом значение
+              размытия может оставаться нулевым.
+              <ul>
+                <li>
+                  <mark className="select">«Highlight Gain»</mark> — усиливает яркость
+                  самых светлых участков размытия.
+                </li>
+                <li>
+                  <mark className="select">«Highlight Threshold»</mark> — определяет порог
+                  яркости, с которого начинают работать{" "}
+                  <mark className="select">«Highlight Gain»</mark> и{" "}
+                  <mark className="select">«Highlight Saturation»</mark>. По умолчанию
+                  установлено значение <mark>255</mark>; пока вы не снизите этот порог,
+                  остальные два параметра не окажут никакого эффекта.
+                </li>
+                <li>
+                  <mark className="select">«Highlight Saturation»</mark> — регулирует
+                  насыщенность самых ярких размытых участков.
+                </li>
+              </ul>
             </li>
           </ul>
-        </AdditionInfo>
+        </Addition>
         <p>
-          В настройках <mark className="app">Adobe After Effects</mark> вы можете включить
-          возможность манипулирования камерой с помощью мыши и зажатой{" "}
-          <mark className="key">Alt</mark>, а также включить,{" "}
-          <i>хотя они и так по умолчанию включены</i>, цифровые клавиши{" "}
-          <mark className="key">1</mark>, <mark className="key">2</mark> и{" "}
-          <mark className="key">3</mark> для выбора инструмента перемещения камеры и{" "}
-          <mark className="key">4</mark>, <mark className="key">5</mark> и{" "}
-          <mark className="key">6</mark> для выбора типа манипулятора выделенных слоёв в
-          окне предпросмотра.
+          В настройках <mark className="app">Adobe After Effects</mark> можно включить
+          управление камерой с помощью мыши при зажатой <mark className="key">Alt</mark>,
+          а также использовать клавиши <mark className="key">1</mark>,{" "}
+          <mark className="key">2</mark> и <mark className="key">3</mark> для выбора
+          инструментов навигации камеры, и <mark className="key">4</mark>,{" "}
+          <mark className="key">5</mark> и <mark className="key">6</mark> — для
+          переключения типов инструментов для трёхмерных объектов в окне предпросмотра.
         </p>
-        <ImageFigure
+        <ContentFigure
           caption="Preferences"
-          imgSrc="images/aftereffects/edit_preferences_3d.png"
           imgTitle="Настройки в 3D"
-          styleClass="figure_windows-dark"
+          src="images/aftereffects/edit_preferences_3d.png"
+          theme="dark"
+          type="image"
+          variant="windows"
         />
         <ul>
-          {/* <mark className="key">1</mark> для выбора инструмента навигации по орбите, <mark className="key">2</mark> для навигации по осям X и Y и{" "}
-          <mark className="key">3</mark> для навигации по оси Z и <mark className="key">4</mark>,{" "}
-          <mark className="key">5</mark> и <mark className="key">6</mark> для */}
           <li>
-            <mark className="key">1</mark> - выбирает инструмент вращения по орбите вокруг
-            курсора, сцены или <mark>Point of Interest</mark>.
+            <mark className="key">1</mark> — инструмент вращения по орбите вокруг курсора,
+            сцены или <mark className="select">«Point of Interest»</mark>.
           </li>
           <li>
-            <mark className="key">2</mark> - выбирает инструмент панорамирования от
-            курсора или инструмент для поворота <mark>Point of Interest</mark>.
+            <mark className="key">2</mark> — инструмент панорамирования от курсора или
+            поворота <mark className="select">«Point of Interest»</mark>.
           </li>
           <li>
-            <mark className="key">3</mark> -
+            <mark className="key">3</mark> — инструмент панорамирования по оси Z
+            относительно курсора, от вида камеры или от{" "}
+            <mark className="select">«Point of Interest»</mark>.
           </li>
-          {/* TODO:  дописать обозначение каждой кнопочки */}
         </ul>
-        <AdditionInfo>
-          <mark className="key">Shift + 1 / 2 / 3</mark> быстро переключает инструмент
-          между описанными вариантами.
-        </AdditionInfo>
+        <Addition type="info">
+          <mark className="key">Shift + 1 / 2 / 3</mark> — быстро переключает инструменты
+          между указанными режимами.
+        </Addition>
         <ul>
           <li>
-            <mark className="key">4</mark> -
+            <mark className="key">4</mark> — инструмент перемещения трёхмерного объекта.
           </li>
           <li>
-            <mark className="key">5</mark> -
+            <mark className="key">5</mark> — инструмент масштабирования трёхмерного
+            объекта.
           </li>
           <li>
-            <mark className="key">6</mark> -
+            <mark className="key">6</mark> — инструмент поворота трёхмерного объекта.
           </li>
         </ul>
-        <AdditionInfo>
-          Чтобы обратно вернуть стандартный универсальный манипулятор - выберите его в{" "}
-          <mark className="ui">панели инструментов</mark> или с помощью{" "}
-          <mark className="key">Shift + V</mark>, который быстро переключает манипулятор
-          между описанными вариантами.
-          <ImageFigure
+        <Addition type="info">
+          Чтобы вернуть универсальный манипулятор, выберите его на{" "}
+          <mark className="select">панели инструментов</mark> или нажмите{" "}
+          <mark className="key">Shift + V</mark>.
+          <ContentFigure
             caption="Tools"
-            imgSrc="images/aftereffects/select_universal_transform_gizmo.png"
             imgTitle="Выбор универсального манипулятора"
-            styleClass="figure_windows-dark"
+            src="images/aftereffects/select_universal_transform_gizmo.png"
+            theme="dark"
+            type="image"
+            variant="windows"
           />
-        </AdditionInfo>
-        <Divider>3D-слой (3D Layer)</Divider>
-        <p>{/* FIXME: */}</p>
-        {/* слои находящиеся на одном положении по оси Z могут конфликтовать друг с другом и выдавать различные артефакты, например моргание или рваное изображение.  */}
-        <Divider>Трёхмерные модели (3D Objects)</Divider>
-        <Divider>Нулевой объект (Null Object)</Divider>
+        </Addition>
+        <Divider>Источник освещения</Divider>
         <p>
-          <mark className="word">Нулевой объект</mark>,{" "}
-          <mark className="word">слой-пустышка</mark> или же{" "}
-          <mark className="word">Null Object</mark> - это невидимый манипулятор для
-          объектов, слоёв или параметров эффекта. Он часто применяется для создания
-          зависимости между управляющими и управляемыми элементами.
+          <mark className="select">«Light Layer»</mark> — слой, который используется для
+          создания света в композиции и влияет на трёхмерные объекты. Он позволяет
+          освещать слои и отбрасывать от них тени, но не влияет на двумерные слои. Для
+          источника света можно настроить его тип<sup>1</sup>, цвет<sup>2</sup>,
+          интенсивность<sup>3</sup>, угол освещения<sup>4</sup> и плавность затухания
+          конуса<sup>5</sup>, дальность действия<sup>6</sup>, а также работу с тенями
+          <sup>7</sup>.
         </p>
-        <p>
-          К нулевому объекту можно прилинковать сразу несколько слоёв, например, для их
-          вращения по определённой оси. Для этого можно воспользоваться лассо в столбце{" "}
-          <mark className="ui">Parent & Link</mark>.
-        </p>
-        <AdditionInfo>
-          Если вы скрыли отображение столбца на таймлайне, нажмите{" "}
-          <mark className="key">F4</mark> или <mark className="key">ПКМ</mark> по
-          столбцам, и выбрать <mark className="ui">Columns &gt; Parent & Link</mark>.
-        </AdditionInfo>
-        <YouTubeVideo
-          caption="Тебе НУЖНО использовать нулевые слои в Adobe After Effects"
-          link="8ei_cj6A2Gg"
+        <Addition type="info">
+          <ul>
+            <li>
+              Чтобы создать источник освещения — нажмите комбинацию клавиш{" "}
+              <mark className="key">Ctrl + Alt + Shift + L</mark>.
+            </li>
+            <li>
+              Для настройки цвета, интенсивности и других параметров — используйте{" "}
+              <mark className="key">Ctrl + Shift + Y</mark>.
+            </li>
+          </ul>
+        </Addition>
+        <ContentFigure
+          caption="Light Settings"
+          imgTitle="Настройка источника света"
+          src="images/aftereffects/light_settings.png"
+          theme="dark"
+          type="image"
+          variant="windows"
         />
-        <AdditionWarning>
-          Не стоит путать <mark className="ui">Parent & Link</mark> с{" "}
-          <mark className="ui">Track Matte</mark>, несмотря на то, что у обоих столбцов
-          есть лассо для указания ссылки на нужный слой. Часто новички не смотрят на
-          название нужной колонки, а потом удивляются, почему у них программа работает не
-          так, как они хотят.
-        </AdditionWarning>
-        <Divider>Слой-фигура (Shape Layer)</Divider>
-        <p>{/* FIXME:  */}</p>
-        <YouTubeVideo
-          caption="Слои-фигуры для начинающих"
-          link="98ro7x3kl8A"
-        />
-        <Divider>Корректирующий слой (Adjustment Layer)</Divider>
+        <Addition type="info">
+          <ul>
+            <li>
+              <sup>1</sup> <mark className="select">«Light Type»</mark> — тип источника
+              освещения.{" "}
+              <ul>
+                <li>
+                  <mark className="select">«Parallel»</mark> — направленный,
+                  неограниченный источник света, имитирующий солнце: лучи идут строго
+                  параллельно и словно приходят «из бесконечности».
+                </li>
+                <li>
+                  <mark className="select">«Spot»</mark> (по умолчанию) — свет от
+                  источника в виде конуса, как у фонарика или сценического прожектора. Для
+                  такого типа доступны настройки угла конуса<sup>4</sup> и плавного
+                  рассеивания<sup>5</sup>.
+                </li>
+                <li>
+                  <mark className="select">«Point»</mark> — всенаправленный точечный свет,
+                  как от обычной лампочки.
+                </li>
+                <li>
+                  <mark className="select">«Ambient»</mark> — заполняющий свет, не
+                  создающий теней.
+                </li>
+                <li>
+                  <mark className="select">«Environment»</mark> — создаёт освещение,
+                  отражения и тени за счёт карты <mark className="image">HDRI</mark>.
+                  <Addition type="warning">
+                    Этот тип освещения доступен только при работе с движком{" "}
+                    <mark className="plugin">Advanced 3D</mark>.
+                  </Addition>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <sup>2</sup> <mark className="select">«Color»</mark> — настройка цвета
+              источника освещения. Чем темнее цвет, тем ниже будет яркость самого
+              источника — вполне логично.
+            </li>
+            <li>
+              <sup>3</sup> <mark className="select">«Intensity»</mark> — мощность
+              источника освещения. Значения могут быть практически любыми. Отрицательные
+              значения «вычитают» свет других источников.
+            </li>
+            <li>
+              <sup>4</sup> <mark className="select">«Cone Angle»</mark> — угол вершины
+              конуса. Чем больше значение, тем шире распространяется свет.
+            </li>
+            <li>
+              <sup>5</sup> <mark className="select">«Cone Feather»</mark> — сглаживает
+              края светового конуса. При больших значениях{" "}
+              <mark className="select">«Intensity»</mark> эффект может быть незаметен.
+            </li>
+            <li>
+              <sup>6</sup> <mark className="select">«Falloff»</mark> — параметр,
+              отвечающий за постепенное снижение{" "}
+              <mark className="select">«Intensity»</mark> в зависимости от расстояния.{" "}
+              <mark className="select">«Radius»</mark> задаёт область, в пределах которой
+              свет остаётся постоянным, а{" "}
+              <mark className="select">«Falloff Distance»</mark> — длину, после которой
+              свет начинает постепенно затухать.
+              <ul>
+                <li>
+                  <mark className="select">«None»</mark> — интенсивность света не зависит
+                  от расстояния.
+                </li>
+                <li>
+                  <mark className="select">«Smooth»</mark> — плавное уменьшение яркости в
+                  пределах заданных дистанции и радиуса.
+                </li>
+                <li>
+                  <mark className="select">«Inverse Square Clamped»</mark> — интенсивность
+                  убывает обратно пропорционально квадрату расстояния до источника.
+                </li>
+              </ul>
+            </li>
+            <li>
+              <sup>7</sup> <mark className="select">«Casts Shadows»</mark> — включает
+              возможность для источника света отбрасывать тени. Чтобы слой принимал тень,
+              у него должен быть активен параметр{" "}
+              <mark className="select">«Accepts Shadows»</mark> (включён по умолчанию).
+              Чтобы слой сам отбрасывал тень, у него должен быть включён параметр{" "}
+              <mark className="select">«Casts Shadows»</mark> (по умолчанию отключён).
+            </li>
+          </ul>
+        </Addition>
+        <Divider>Файлы Photoshop</Divider>
         <p>
-          <mark className="word">Корректирующий слой</mark> или же{" "}
-          <mark className="word">Adjustment Layer</mark> - довольно мощный инструмент.
-          Технически - это <mark className="word">Solid Layer</mark> с принудительно
-          включенным атрибутом <mark className="ui">Adjustment</mark> С помощью него можно
-          сделать цветокоррекцию, накинуть цифровой шум, заставить трястись всю композицию
-          или просто добавить различные искажения. Эффекты, применённые на таком слое,
-          будут работать только поверх слоёв, которые расположены ниже него по порядку на
-          таймлайне. Также не все эффекты могут корректно применяться на{" "}
-          <mark className="word">Adjustment Layer</mark>, если в композиции нет фона,
-          созданного через <mark className="word">Solid Layer</mark>.
+          <mark className="file">PSD</mark> — файлы изображений, создаваемые и
+          редактируемые в <mark className="app">Adobe Photoshop</mark>.{" "}
+          <mark className="app">Adobe After Effects</mark> поддерживает импорт таких
+          файлов в проект как целое изображение, так и послойно<sup>1</sup>. При этом
+          наличие установленного <mark className="app">Adobe Photoshop</mark> в системе не
+          требуется.
         </p>
-        <YouTubeVideo
-          caption="Используем корректирующие слои в Adobe After Effects"
-          link="rgMKGFWWqjA"
+        <Addition type="warning">
+          <sup>1</sup> <mark className="image">PSD</mark>, сохранённые в режиме{" "}
+          <mark>CMYK</mark>, не поддерживают послойный импорт слоёв в проект. Чтобы это
+          исправить — измените цветовой режим файла на <mark>RGB</mark>.{" "}
+          <a href="#4.3">Как?</a>
+        </Addition>
+        <ContentFigure
+          caption="Импорт и анимация PSD в Adobe After Effects"
+          src="e1ZJfivOloM"
+          type="youtube"
         />
+        <Addition type="info">
+          Чтобы быстро открыть программу для редактирования{" "}
+          <mark className="image">PSD</mark>, выделите слой и нажмите комбинацию клавиш{" "}
+          <mark className="key">Ctrl + E</mark>. Какая программа откроется — зависит от
+          настроек ассоциаций файлов в вашей операционной системе. Если вы не меняли эти
+          настройки вручную, с большой долей вероятности откроется{" "}
+          <mark className="app">Adobe Photoshop</mark>, если он установлен.
+        </Addition>
+        <Divider>Файлы Maxon Cinema 4D</Divider>
         <p>
-          По сути, в качестве <mark className="word">корректирующего слоя</mark> может
-          выступать почти любой объект на таймлайне - достаточно включить опцию{" "}
-          <mark className="ui">Adjustment Layer</mark> для нужного слоя с помощью
-          контекстного меню или переключателя на таймлайне.
+          В <mark className="app">Adobe After Effects</mark> можно импортировать проекты
+          формата <mark className="file">C4D</mark>, созданные в{" "}
+          <mark className="app">Maxon Cinema 4D</mark>, с помощью{" "}
+          <mark className="plugin">Cineware</mark> — эффекта и технологии интеграции,
+          обеспечивающей связь между этими двумя программами.
         </p>
-        <VideoFigure
-          caption="Демонстрация работы корректирующего слоя"
-          styleClass="figure_windows-dark"
-          videoSrc="images/aftereffects/enable_adjustment_layer_mode.mp4"
+        <Addition type="warning">
+          Если вы используете репак <mark className="app">Adobe After Effects</mark> от{" "}
+          <mark className="user">KpoJluK</mark> или версию с вырезанным модулем{" "}
+          <mark className="plugin">Cinema 4D Lite</mark> — установите полноценную{" "}
+          <mark className="app">Maxon Cinema 4D</mark>, иначе вы столкнетесь с тем, что вы
+          не сможете импортировать проекты формата <mark className="file">C4D</mark>.{" "}
+          <a href="#8.10">Подробнее...</a>
+        </Addition>
+        <ContentFigure
+          caption="Cineware"
+          src="qFVQrxWvOjw"
+          type="youtube"
         />
-        <p>{/* FIXME:  */}</p>
-        <Divider>Файлы Photoshop и Maxon Cinema 4D</Divider>
-        <p>{/* FIXME:  */}</p>
-        <Divider>Слой направляющей (Guide Layer)</Divider>
+        <Divider>Слой направляющей</Divider>
         <p>
-          <mark className="word">Guide Layer</mark> работает как слой-комментарий, который
-          виден только в предпросмотре и не рендерится при экспорте<sup>1</sup>. Его можно
-          использовать для технических оверлеев, например для отображения границ
-          перекрытий интерфейса <mark>TikTok</mark>, <mark>YouTube Shorts</mark> или для
-          послания другому пользователю, чтобы он исправил что-то в дальнейшем. Чтобы
-          включить этот атрибут - перейдите в <mark className="ui">Layer</mark> или
-          нажмите <mark className="key">ПКМ</mark> по слою и выберите в контекстном меню{" "}
-          <mark className="ui">Guide Layer</mark>.
+          <mark className="select">«Guide Layer»</mark> — атрибут, который превращает слой
+          в «комментарий», видимый только в предпросмотре и не рендерящийся при экспорте
+          <sup>1</sup>. Его можно использовать для технических оверлеев — например, для
+          отображения границ перекрытий интерфейса <mark className="app">TikTok</mark>,{" "}
+          <mark className="app">YouTube Shorts</mark>, или для передачи нужной информации
+          другому пользователю проекта, чтобы тот мог внести правки позже.
         </p>
-        <YouTubeVideo
+        <Addition type="info">
+          <ul>
+            <li>
+              <sup>1</sup> Данное поведение можно изменить в{" "}
+              <mark className="select">«Render Settings»</mark>, изменив значение
+              параметра <mark className="select">«Guide Layers»</mark> на{" "}
+              <mark className="select">«Current Settings»</mark>.
+            </li>
+            <li>
+              Чтобы включить этот атрибут — откройте{" "}
+              <mark className="select">«Layer»</mark> или нажмите{" "}
+              <mark className="key">ПКМ</mark> по слою и выберите в контекстном меню{" "}
+              <mark className="select">«Guide Layer»</mark>.
+            </li>
+          </ul>
+        </Addition>
+        <ContentFigure
           caption="Как использовать Guide Layers"
-          link="_rxq8Pa9WdQ"
+          src="_rxq8Pa9WdQ"
+          type="youtube"
         />
-        <AdditionInfo>
-          <sup>1</sup> Данное поведение можно изменить в{" "}
-          <mark className="ui">Render Settings</mark>, изменив значение параметра{" "}
-          <mark className="ui">Guide Layers</mark> на{" "}
-          <mark className="ui">Current Settings</mark>.
-        </AdditionInfo>
-        {/* FIXME: */}
-        <Divider>Скрытые слои (Shy Layer)</Divider>
-        <p>{/* FIXME: */}</p>
-        <YouTubeVideo
-          caption="Как спрятать слои?"
-          link="Bw3snjRq2kE"
-        />
+        <Divider>Скрытые слои</Divider>
         <p>
-          {/* FIXME: сделать так со всеми слоями, которые можно создать по пкм > new  */}
-          {/*
-    </DetailsSummary>
-    <DetailsSummary title="Что такое Adjustment Layer и для чего он нужен?">
-    </DetailsSummary>
-    </DetailsSummary> */}{" "}
-          {/* <DetailsSummary title="Что за решётка у слоя на таймлайне и для чего нужен Guides Layer?">
-      <p>
-        
-      </p>
-      <ImageFigure
-        caption="Timeline"
-        imgSrc="images/aftereffects/guide_layer_example.png"
-        imgTitle="Пример использования Guide Layer"
-        styleClass="figure_windows-dark"
-      />
-      <p>
-        <mark className="word">Guide Layer</mark> можно включить как для текстовых
-        слоёв, так и для композиций, изображений или видео.
-      </p>
-    </DetailsSummary> */}
+          <mark className="select">«Shy Layer»</mark> — атрибут, который задаётся слою,
+          если его нужно скрыть из таймлайна. При этом сам слой из композиции не исчезает
+          и отображается, как и прежде. Такой атрибут полезен для организации слоёв и при
+          создании шаблонов — он помогает скрыть некоторые слои от лишних глаз, но при
+          этом никак не защищает их от удаления.
         </p>
+        <ContentFigure
+          caption="Как спрятать слои?"
+          src="Bw3snjRq2kE"
+          type="youtube"
+        />
         <Divider>Статьи о слоях от Adobe</Divider>
         <div className="flexible-links">
-          <a href="https://helpx.adobe.com/after-effects/using/selecting-arranging-layers.html">
-            Выделение и упорядочивание слоев
-          </a>
-          <a href="https://helpx.adobe.com/after-effects/using/blending-modes-layer-styles.html">
-            Режимы наложения
-          </a>
-          <a href="https://helpx.adobe.com/after-effects/using/3d-layers.html">
-            Трёхмерные слои
-          </a>
-          <a href="https://helpx.adobe.com/after-effects/using/layer-properties.html">
-            Свойства слоя
-          </a>
           <a href="https://helpx.adobe.com/after-effects/using/creating-layers.html">
             Создание слоев
           </a>
           <a href="https://helpx.adobe.com/after-effects/using/layers.html">
             Управление слоями
           </a>
+          <a href="https://helpx.adobe.com/after-effects/using/selecting-arranging-layers.html">
+            Выделение и упорядочивание слоев
+          </a>
+          <a href="https://helpx.adobe.com/after-effects/using/layer-properties.html">
+            Свойства слоя
+          </a>
+          <a href="https://helpx.adobe.com/after-effects/using/creating-editing-text-layers.html">
+            Создание и работа с текстовыми слоями
+          </a>
+          <a href="https://helpx.adobe.com/after-effects/using/creating-shapes-masks.html">
+            Создание фигур и масок
+          </a>
+          <a href="https://helpx.adobe.com/after-effects/using/preparing-importing-still-images.html">
+            Подготовка и импорт статичных изображений
+          </a>
+          <a href="https://helpx.adobe.com/after-effects/using/effects-animation-presets-overview.html">
+            Применение эффектов и пресетов на слои
+          </a>
+          <a href="https://helpx.adobe.com/after-effects/using/blending-modes-layer-styles.html">
+            Режимы наложения
+          </a>
+          <a href="https://helpx.adobe.com/after-effects/using/overview-shape-layers-paths-vector.html">
+            Растровые и векторные изображения
+          </a>
           <a href="https://helpx.adobe.com/after-effects/using/layer-markers-composition-markers.html">
             Маркеры слоя и маркеры композиции
+          </a>
+          <a href="https://helpx.adobe.com/after-effects/using/precomposing-nesting-pre-rendering.html">
+            Создание прекомпозиций и пререндеринг
+          </a>
+          <a href="https://helpx.adobe.com/after-effects/using/3d-layers.html">
+            Трёхмерные слои и модели
           </a>
           <a href="https://helpx.adobe.com/after-effects/using/cameras-lights-points-interest.html">
             Камеры, освещение и точки обзора
           </a>
         </div>
-        <AdditionInfo>
+        <Addition type="info">
           Чтобы открыть нужную статью на русском языке - добавьте{" "}
           <mark className="copy">/ru</mark> в ссылку после <mark>helpx.adobe.com</mark>.
-          Учтите, что статьи, переведённые на другие языки, могут быть криво переведены
-          или иметь устаревшую информацию.
-        </AdditionInfo>
+          Учтите, что статьи, переведённые на другие языки, могут быть переведены
+          некорректно или иметь устаревшую информацию.
+        </Addition>
       </DetailsSummary>
       <DetailsSummary
-        tag="replace footage"
-        title="Как заменить футаж другим файлом?"
+        tag="replace footage, замена файла, перелинковать"
+        title="Как заменить один исходник другим?"
       >
-        <AdditionDanger>
-          Данная статья находится на ранней стадии разработки. Следите за обновлениями.
-        </AdditionDanger>
-        <p>{/* TODO: написать и исправить*/}</p>
+        <p>
+          Иногда при работе с проектом в <mark className="app">Adobe After Effects</mark>{" "}
+          возникает необходимость заменить импортированный исходник другим файлом —
+          например, версией, перекодированной в монтажный кодек, или просто другим видео.
+          Это можно сделать несколькими способами.
+        </p>
+        <Divider>Замена через Replace Footage</Divider>
+        <p>
+          Найдите в окне <mark className="select">«Project»</mark> исходник, который нужно
+          заменить. Нажмите на него <mark className="key">ПКМ</mark> и выберите{" "}
+          <mark className="select">«Replace Footage» → «File»</mark>. В открывшемся окне
+          укажите новый файл. Старый исходник будет заменён на новый во всех композициях,
+          где он использовался.
+        </p>
+        <ContentFigure
+          caption="Project"
+          imgTitle="Замена исходника в проекте"
+          src="images/aftereffects/replace_footage.png"
+          theme="dark"
+          type="image"
+          variant="windows"
+        />
+        <Divider>Замена с зажатым Alt</Divider>
+        <p>
+          Чтобы заменить исходник с помощью <mark className="key">Alt</mark>, сначала
+          импортируйте футаж, которым планируете выполнить замену. Затем выделите нужный
+          слой на таймлайне и перетащите новый футаж из{" "}
+          <mark className="select">«Project»</mark> на него, удерживая{" "}
+          <mark className="key">Alt</mark>. Исходник будет заменён только для выделенного
+          файла.
+        </p>
+        <ContentFigure
+          caption="Замена футажей с помощью клавиши Alt"
+          src="images/aftereffects/replace_footage_alt.mp4"
+          theme="dark"
+          type="video"
+          variant="windows"
+        />
       </DetailsSummary>
       <DetailsSummary
-        tag="плохое качество предпросмотра, низкое разрешение, пиксели, лагает превью, векторные изображения, замедленное, ускоренное, тормозит, слоумо, растянутое аудио"
-        title="Почему предпросмотр проигрывается как-то странно?"
+        tag="graph editor, speed graph, value graph, интерполяция, анимация, кривые скорости"
+        title="Что такое графики скорости и для чего они нужны?"
       >
         <p>
-          Часто у пользователей есть два вида проблем с проигрыванием предпросмотра - его
-          плохое качество или странная скорость воспроизведения. В этой статье разберем
-          эти две категории проблем и решим их.
+          <mark className="select">«Graph Editor»</mark> — это инструмент для детальной
+          настройки анимации, который открывается комбинацией клавиш{" "}
+          <mark className="key">Shift + F3</mark>. Он позволяет управлять скоростью
+          изменения значения параметров между ключевыми кадрами. По умолчанию при создании
+          ключевых кадров задаётся линейная анимация, чтобы включить возможность изменения
+          графика скорости — выделите нужные ключи и нажмите на{" "}
+          <mark className="key">F9</mark> для применения{" "}
+          <mark className="select">«Easy Ease»</mark> или нажмите на{" "}
+          <mark className="key">Ctrl + Alt + K</mark> для открытия окна{" "}
+          <mark className="select">«Keyframe Interpolation»</mark>, в котором вы можете
+          выбрать тип интерполяции для выделенных ключевых кадров. Вместо линейного
+          движения можно задать плавные ускорения и замедления — анимация получится живее
+          и динамичнее.
         </p>
-        <Divider>Разбираемся с плохим качеством предпросмотра</Divider>
+        <Divider>Типы графиков для анимации</Divider>
         <p>
-          Первым делом стоит проверить разрешение в окне{" "}
-          <mark className="ui">Composition</mark>. Список с выбором разрешения
-          отображается в нижней границе окна предпросмотра.
+          В <mark className="app">Adobe After Effects</mark> есть два типа графика, на
+          основе которых строится анимация того или иного параметра —{" "}
+          <mark className="select">«Value Graph»</mark> и{" "}
+          <mark className="select">«Speed Graph»</mark>.
         </p>
-        <VideoFigure
-          caption="Adobe After Effects"
-          styleClass="figure_windows-dark"
-          videoSrc="images/aftereffects/change_resolution_comppreview.mp4"
-        />
+        <ul>
+          <li>
+            <mark className="select">«Value Graph»</mark> — график значения параметра. По
+            оси X — время, по оси Y — значение параметра: снизу вверх от меньшего к
+            большему. Например, для <mark className="select">«Position»</mark>
+            <sup>1</sup> — это координаты в пикселях в каждый момент времени. Уклон кривой
+            отражает скорость изменения: чем круче наклон, тем быстрее меняется значение.
+            <Addition type="info">
+              <sup>1</sup> С помощью <mark className="select">«Value Graph»</mark> нельзя
+              редактировать график параметрам, представленные массивом из нескольких
+              значений, например <mark className="select">«Anchor Point»</mark> или{" "}
+              <mark className="select">«Position»</mark>. Чтобы отредактировать график для{" "}
+              <mark className="select">«Position»</mark> по отдельности — нажмите{" "}
+              <mark className="key">ПКМ</mark> по параметру{" "}
+              <mark className="select">«Position»</mark> и выберите{" "}
+              <mark className="select">«Separate Dimensions»</mark> в контекстном меню.
+              Если вы не хотите делить оси — используйте{" "}
+              <mark className="select">«Speed Graph»</mark>.
+            </Addition>
+          </li>
+          <li>
+            <mark className="select">«Speed Graph»</mark> — график скорости изменения
+            параметра. По оси Y отображается скорость в пикселях в секунду. Он показывает,
+            насколько быстро меняется значение между ключевыми кадрами. Редактируя{" "}
+            <mark className="select">«Speed Graph»</mark>, вы управляете именно темпом и
+            плавностью анимации, не затрагивая сами значения свойства.
+          </li>
+        </ul>
         <p>
-          Если там всё хорошо, но при воспроизведении предпросмотра качество начинает
-          проседать - скорее всего вы забыли переключить качество предпросмотра в окне{" "}
-          <mark className="ui">Preview</mark>. Для изменения качества выставьте значение{" "}
-          <mark className="ui">Resolution</mark> на <mark className="ui">Full</mark> или
-          на удобное вам значение.
+          Ниже — интерактивный пример работы <mark className="select">«Value Graph»</mark>{" "}
+          и <mark className="select">«Speed Graph»</mark>, имитирующий поведение редактора
+          графиков, как в <mark className="app">Adobe After Effects</mark>. Его можно
+          настраивать, двигать манипуляторы и смотреть, как меняется анимация.
         </p>
-        <AdditionInfo>
-          Если в <mark className="ui">Resolution</mark> стоит значение{" "}
-          <mark className="ui">Auto</mark> - предпросмотр будет проигрываться в том
-          разрешении, которое вы указали в окне, где отображается ваша композиция.
-        </AdditionInfo>
-        <ImageFigure
-          caption="Preview"
-          imgSrc="images/aftereffects/change_resolution_preview.png"
-          imgTitle="Изменение предпросмотра в окне Preview"
-          styleClass="figure_windows-dark"
-        />
-        <Divider>Как убрать пикселизацию у векторных слоёв?</Divider>
+        <EasingEditor />
+        <Divider>Настраиваем вид в «Graph Editor»</Divider>
         <p>
-          Если вы импортировали векторный файл, например <mark className="file">AI</mark>{" "}
-          из <mark className="app">Adobe Illustrator</mark> - для слоя нужно включить{" "}
-          <mark className="ui">Continuously Rasterize</mark>. Это позволит программе при
-          любом взаимодействии с слоем уменьшить эффект пикселизации за счёт того, что
-          программа будет каждый раз растрировать этот слой до нужного разрешения в
-          композиции, но не сделает слой полностью векторным.
+          Чтобы изменить настройки отображения редактора графика — нажмите на иконку{" "}
+          <mark className="select">«Choose graph type and options»</mark> в нижней части
+          окна с открытым <mark className="select">«Graph Editor»</mark>. При
+          необходимости вы можете включить параметр{" "}
+          <mark className="select">«Auto-Select Graph Type»</mark> для автоматического
+          выбора типа графика: если с помощью{" "}
+          <mark className="select">«Value Graph»</mark> нельзя будет отредактировать
+          скорость — будет автоматически выбираться{" "}
+          <mark className="select">«Speed Graph»</mark>. Параметр{" "}
+          <mark className="select">«Show Reference Graph»</mark> отобразит альтернативный
+          вид графика позади текущего вида отображения для наглядности.
         </p>
-        <AdditionWarning>
-          При включенной опции <mark className="ui">Continuously Rasterize</mark> могут
-          возникнуть побочные явления, например разрывы слоя при использовании{" "}
-          <mark className="plugin">Puppet Tool</mark>.
-        </AdditionWarning>
-        <ImageFigure
-          caption="Timeline"
-          imgSrc="images/aftereffects/enable_continuously_rasterize.png"
-          imgTitle="Включаем Continuously Rasterize"
-          styleClass="figure_windows-dark"
-        />
-        <Divider>
-          Остальные случаи невнимательности пользователя с качеством предпросмотра
-        </Divider>
-        <p>
-          А вообще, часто бывают случаи, когда пользователь сам устанавливает для
-          композиции низкое разрешение в его настройках, например <mark>256x128</mark>, а
-          потом удивляется, почему он видит пиксели. Чтобы изменить разрешение вашей
-          композиции, откройте окно настроек композиции с помощью комбинации клавиш{" "}
-          <mark className="key">Ctrl + K</mark> и в значениях{" "}
-          <mark className="ui">Width</mark> и <mark className="ui">Height</mark> укажите
-          большее значение, чем было до этого.{" "}
-          <i style={{opacity: "0.5"}}>
-            Или воспользуйтесь стандартным скриптом{" "}
-            <mark className="file">Scale Composition.jsx</mark>, который находится в{" "}
-            <mark className="ui">File &gt; Scripts</mark>.
-          </i>
-        </p>
-        <p>
-          Есть ещё отдельная категория лиц, которая увеличивает предпросмотр, больше чем
-          на <mark>100%</mark> и видит пиксели, забывая о том, что пользователь работает в
-          программе для растровой графики. Чтобы быстро уменьшить предпросмотр до{" "}
-          <mark>100%</mark> - используйте комбинацию клавиш{" "}
-          <mark className="key">Alt + /</mark> для выполнения действия{" "}
-          <mark className="ui">Fit up to 100%</mark> или <mark className="key">/</mark>{" "}
-          для установки значения увеличения в <mark>100%</mark>.
-        </p>
-        <p>
-          Вдобавок к этому некоторые пользователи думают, что в{" "}
-          <mark className="app">Adobe After Effects</mark> есть возможность отображения
-          предпросмотра без потери качества при приближении, как в{" "}
-          <mark className="app">Adobe Illustrator</mark>, если в композиции есть векторные
-          слои. Нет, это так не работает, так как{" "}
-          <mark className="app">Adobe After Effects</mark> всё ещё является растровым
-          редактором графики, а не векторным. Он показывает и растрирует все ваши слои под
-          то разрешение, которое указано в настройках вашей композиции.
-        </p>
-
-        <AdditionInfo>
-          Исключение, где вы можете увеличить предпросмотр без потери качества больше чем
-          на <mark>100%</mark> - это включение <mark className="plugin">Draft 3D</mark> с
-          опцией <mark className="ui">Extended Preview</mark>. Такой способ будет работать
-          только тогда, когда в композиции есть векторные слои или трёхмерные модели. При
-          экспорте вы в любом случае получите файл с разрешением, которая указана в
-          настройках композиции.
-        </AdditionInfo>
-        <Divider>
-          Выясняем причины нестандартной скорости воспроизведения предпросмотра
-        </Divider>
-        <p>
-          Первая причина воспроизведения предпросмотра с тормозами - стандартные настройки{" "}
-          <mark className="app">Adobe After Effects</mark>, которые позволяют пользователю
-          зачем-то проиграть предпросмотр в реальном времени, предварительно не
-          закэшировав кадры для воспроизведения. В таком случае эффекты и исходники видео
-          вряд ли смогут так быстро обрабатывать кадры на лету, чтобы предпросмотр игрался
-          спокойно и без запинок.
-        </p>
-        <AdditionInfo>
-          Для отображения количества <mark>FPS</mark> в предпросмотре можно
-          воспользоваться окном <mark className="ui">Info</mark>. В нём отображается
-          текущий <mark>FPS</mark> предпросмотра и дополнительная информация о рендеринге
-          и проигрывании кадров из памяти.
-          <ImageFigure
-            caption="Info"
-            imgSrc="images/aftereffects/info_non-realtime.png"
-            imgTitle="Предпросмотр не в реальном времени"
-            styleClass="figure_windows-dark"
-          />
-        </AdditionInfo>
-        <p>
-          Чтобы устранить такое стандартное поведение программы - нужно включить
-          кэширование предпросмотра перед его воспроизведением. Для этого откройте окно{" "}
-          <mark className="ui">Window &gt; Preview</mark> и включите в ней две опции -{" "}
-          <mark className="ui">Cache Before Playback</mark> и{" "}
-          <mark className="ui">If caching, play caching frames</mark>.
-        </p>
-        <ImageFigure
-          caption="Preview"
-          imgSrc="images/aftereffects/preview_caching.png"
-          imgTitle="Включение кэширования предпросмотра"
-          styleClass="figure_windows-dark"
-        />
-        <AdditionInfo>
-          <ul>
-            <li>
-              Включение чекбокса у <mark className="ui">Cache Before Playback</mark>{" "}
-              позволит программе закэшировать предпросмотр, прежде чем воспроизвести его.
-              Повторное нажатие на кнопку воспроизведения остановит кэширование.
-            </li>
-            <li>
-              Включение чекбокса у{" "}
-              <mark className="ui">If caching, play caching frames</mark> позволит
-              остановить кэширование предпросмотра и проиграть те кадры, которые уже
-              закэшировались при повторном нажатии на кнопку воспроизведения.
-            </li>
-          </ul>
-        </AdditionInfo>
-        <Divider>Проверяем значение FPS для воспроизведения предпросмотра</Divider>
-        <p>
-          Иногда бывают случаи, когда предпросмотр проигрывается ускоренно или замедленно
-          из-за неверного значения кадров в секунду в окне{" "}
-          <mark className="ui">Preview</mark>. Чтобы это исправить - откройте окно{" "}
-          <mark className="ui">Window &gt; Preview</mark> и укажите в <mark>FPS</mark>{" "}
-          значение <mark className="ui">Auto</mark>. Это позволит воспроизвести
-          предпросмотр в соответствии с заданным значением кадров в секунду в настройках
-          композиции.
-        </p>
-        <ImageFigure
-          caption="Preview"
-          imgSrc="images/aftereffects/change_preview_fps.png"
-          imgTitle="Изменение предпросмотра в окне Preview"
-          styleClass="figure_windows-dark"
-        />
-        <AdditionInfo>
-          Скорость воспроизведения зависит от заданного значения в окне{" "}
-          <mark className="ui">Preview</mark> и значения количества кадров в настройках
-          композиции. Если, например, у вас композиция в <mark>30 FPS</mark>, то при
-          установке значения <mark className="ui">60</mark> - предпросмотр будет
-          проигрываться в два раза быстрее обычного, а если <mark className="ui">15</mark>{" "}
-          - в два раза меньше обычного.
-        </AdditionInfo>
-        <Divider>Проверяем аудиовыход</Divider>
-        <p>
-          Если вы недавно меняли аудиовыход, например подключили беспроводные наушники, то{" "}
-          <mark className="app">Adobe After Effects</mark> не может нормально
-          синхронизировать картинку и звук, и из-за этого предпросмотр идёт как-бы с
-          замедлением или заиканиями. В таких случаях попробуйте изменить аудиовыход на
-          другой в <mark className="ui">Default Output</mark>, уменьшить значение{" "}
-          <mark className="ui">Latency</mark> до минимального в{" "}
-          <mark className="ui">Edit &gt; Preferences &gt; Audio Hardware</mark>. В крайнем
-          случае можно попробовать обновить звуковые драйвера для вашего устройства.
-        </p>
-        <ImageFigure
-          caption="Preferences"
-          imgSrc="images/aftereffects/audio_hardware_settings.png"
-          imgTitle="Настройки звукового выхода"
-          styleClass="figure_windows-dark"
-        />
-        <Divider>Разбираемся с кривыми исходниками</Divider>
-        <p>
-          Если вы используете в проекте видео, скачанный из просторов интернета, то скорее
-          всего они были закодированы в неприятный для{" "}
-          <mark className="app">Adobe After Effects</mark> кодек и плохо проигрываются
-          программой. Для решения проблемы - достаточно перекодировать ваши исходники в{" "}
-          <mark className="word">монтажный кодек</mark>, например{" "}
-          <mark className="video">Apple Prores 422</mark> через конвертер, например{" "}
-          <mark className="app">Shutter Encoder</mark>. После конвертации - импортируйте
-          исходники снова и попытайтесь воспроизвести предпросмотр снова.
-        </p>
-        <p>
-          Если ваши исходники играются плавно, но вы испытываете проблемы только со звуком
-          - стоит попробовать экспортировать аудио из видео отдельным файлом и
-          перекодировать его в <mark className="audio">WAV</mark>, а затем импортировать
-          его в программу заново.
-        </p>
-      </DetailsSummary>
-      <DetailsSummary title="Из-за чего отсутствует звук при проигрывании предпросмотра?">
-        <Divider>Проверяем аудиовыход</Divider>
-        <p>
-          Если вы недавно меняли аудиовыход, например подключили беспроводные наушники или
-          внешний монитор с колонками, то вполне вероятно что у вас сбились настройки
-          звука. Вам следует проверить настройки аудиовыхода в настройках программы, для
-          этого нужно перейти в{" "}
-          <mark className="ui">Edit &gt; Preferences &gt; Audio Hardware</mark> и указать
-          в параметре <mark className="ui">Default Output</mark> нужный вам аудиовыход.
-        </p>
-        <ImageFigure
-          caption="Preferences"
-          imgSrc="images/aftereffects/set_audio_output.png"
-          imgTitle="Установка аудиовыхода"
-          styleClass="figure_windows-dark"
-        />
-        <Divider>
-          Включаем проигрывание звука при предпросмотре не в реальном времени
-        </Divider>
-        <p>
-          Если вы проигрываете видео не в реальном времени и звук отсутствует (даже если
-          он вам и нужен запинающийся и растянутый), то вам в настройках{" "}
-          <mark className="app">Adobe After Effects</mark> нужно включить галочку{" "}
-          <mark className="ui">Mute Audio When Preview Is Not Real-time</mark> в{" "}
-          <mark className="ui">Edit &gt; Preferences &gt; Previews</mark>.
-        </p>
-        <ImageFigure
-          caption="Preferences"
-          imgSrc="images/aftereffects/mute_audio_when_preview_is_not_real-time.png"
-          imgTitle="Выключение Mute Audio When Preview Is Not Real-time"
-          styleClass="figure_windows-dark"
-        />
-        <Divider>Проверяем окно Preview</Divider>
-        <p>
-          Если советы выше не помогли - проверьте окно <mark className="ui">Preview</mark>
-          , включен ли там вывод звука? Если нет, то включите и проиграйте предпросмотр
-          снова.
-        </p>
-        <ImageFigure
-          caption="Preview"
-          imgSrc="images/aftereffects/toggle_audio_preview.png"
-          imgTitle="Включение звука в окне Preview"
-          styleClass="figure_windows-dark"
-        />
-        <Divider>Разбираемся с исходниками звука</Divider>
-        <p>
-          В редких случаях баги с проигрыванием звука могут возникнуть из-за самого
-          исходника звука. Чтобы исключить различные проблемы с воспроизведением аудио -
-          переконвертируйте его в формат <mark className="audio">WAV</mark>, а затем
-          замените аудио в проекте. Если аудио запаковано вместе с видео файлом -
-          переконвертируйте его в <mark className="word">монтажный кодек</mark>, например,
-          через <mark className="app">Shutter Encoder</mark>.
-        </p>
-      </DetailsSummary>
-      <DetailsSummary title="Как убрать пикселизацию предпросмотра при перемещении временной метки или объекта?">
-        <p>
-          По умолчанию в <mark className="app">Adobe After Effects</mark> включена функция
-          адаптивного разрешения, которая изменяет качество предпросмотра при перемещении{" "}
-          <mark className="word">плейхеда</mark> или какого-нибудь слоя. Если вас эта
-          функция раздражает - его можно отключить. Для этого нажмите на иконку молнии{" "}
-          <mark className="ui">Fast Previews</mark> в окне предпросмотра и выберите там
-          значение <mark className="ui">Off (Final Quality)</mark>. После отключения{" "}
-          <mark className="ui">Adaptive Resolution</mark> - качество предпросмотра при
-          перемещении временной метки не должно ухудшаться и будет соответствовать
-          выбранному параметру разрешения внизу окна предпросмотра.
-        </p>
-        <ImageFigure
-          caption="Timeline"
-          imgSrc="images/aftereffects/disable_adaptive_resolution.png"
-          imgTitle="Отключение адаптивного разрешения"
-          styleClass="figure_windows-dark"
+        <ContentFigure
+          caption="Graph Editor"
+          src="images/aftereffects/choose_graph_type_and_options.png"
+          theme="dark"
+          type="image"
+          variant="windows"
         />
       </DetailsSummary>
-      <DetailsSummary title="У меня есть два ключа с одинаковым значением, но между ними всё равно идёт какая-то анимация. Как её убрать?">
+      <DetailsSummary
+        tag="интерполяция, лишнее движение, одинаковые ключи, graph editor, keyframe interpolation"
+        title="Почему между ключевыми кадрами с одинаковым значением всё равно есть анимация?"
+      >
         <Divider>Проверяем график скорости</Divider>
         <p>
-          Скорее всего вы ни разу не смотрели на график скорости между двумя ключами,
-          особенно после того, как вы изменили длительность между кадрами. Чтобы
-          посмотреть на график скорости выделенного параметра - нажмите на комбинацию
-          клавиш <mark className="key">Shift + F3</mark>. В этом же графике скорости вы
-          сможете подстроить скорость вашей анимации с помощью манипуляторов. В моем
-          примере у первого и второго ключа стоит одинаковое значение <mark>100%</mark>,
-          но между ними всё равно будет идти анимация из-за изменённого графика скорости.
+          Скорее всего, вы меняли расстояние между ключами, и график скорости «сломался».
+          Чтобы посмотреть график, выделите свойство и нажмите{" "}
+          <mark className="key">Shift + F3</mark>. В моём примере у первого и второго
+          ключа одинаковое значение, но между ними всё равно идёт анимация из-за изгиба
+          кривой скорости.
         </p>
-        <ImageFigure
+        <ContentFigure
           caption="Speed Graph"
-          imgSrc="images/aftereffects/problematic_interpolation.png"
           imgTitle="Пример с проблемной интерполяцией"
-          styleClass="figure_windows-dark"
+          src="images/aftereffects/problematic_interpolation.png"
+          theme="dark"
+          type="image"
+          variant="windows"
         />
-        <Divider>Меняем интерполяцию между кадрами</Divider>
+        <Divider>Меняем интерполяцию ключевых кадров</Divider>
         <p>
-          Чтобы убрать анимацию между двумя кадрами - воспользуйтесь манипуляторами для
-          изменения скорости в <mark className="ui">Speed Editor</mark> или измените режим
-          интерполяции ключевых кадров. Для изменения режима интерполяции - выделите все
-          ключи, которые вам нужны и нажмите на комбинацию клавиш{" "}
-          <mark className="key">Ctrl + Alt + K</mark> для открытия окна{" "}
-          <mark className="ui">Keyframe Interpolation</mark>. В открывшемся окне в
-          параметре <mark className="ui">Temporal Interpolation</mark> выберите значение{" "}
-          <mark className="ui">Linear</mark> или <mark className="ui">Hold</mark>. После
-          этого у вас между выделенными ключами не должно быть лишней анимации.
+          Чтобы убрать нежелательную анимацию, отредактируйте график скорости или измените
+          тип интерполяции. Чтобы задать линейную скорость, выделите ключевые кадры и
+          нажмите <mark className="key">Ctrl + Alt + K</mark>. В открывшемся окне{" "}
+          <mark className="select">«Keyframe Interpolation»</mark> в параметре{" "}
+          <mark className="select">«Temporal Interpolation»</mark> выберите{" "}
+          <mark className="select">«Linear»</mark> или{" "}
+          <mark className="select">«Hold»</mark>. После этого лишняя анимация между
+          ключами должна исчезнуть.
         </p>
-        <ImageFigure
+        <ContentFigure
           caption="Keyframe Interpolation"
-          imgSrc="images/aftereffects/change_keyframe_interpolation.png"
           imgTitle="Изменение интерполяции ключевых кадров"
-          styleClass="figure_windows-dark"
+          src="images/aftereffects/change_keyframe_interpolation.png"
+          theme="dark"
+          type="image"
+          variant="windows"
         />
       </DetailsSummary>
-      <DetailsSummary title="Применяю эффект, например Glow, но он обрезается по границе слоя. Как расширить действие эффекта?">
-        <Divider>Расширяем края с помощью Grow Bounds</Divider>
+      <DetailsSummary
+        tag="плохое качество, низкое разрешение, пиксели, лагает превью, векторные изображения, замедленное, ускоренное, тормозит, слоумо, растянутое аудио, идёт по кругу, зацикливается, adaptive resolution, fast previews, адаптивное разрешение, качество предпросмотра, пиксели, Почему пропал звук при проигрывании предпросмотра, нет звука, аудио, отсутствует, audio hardware"
+        title="Почему предпросмотр может воспроизводиться странно?"
+      >
         <p>
-          Некоторые эффекты могут работать только в пределах размера слоя, вследствие чего
-          они обрезаются по бокам. Если у вас есть изначальная композиция размером{" "}
-          <mark>1920 x 1080</mark>, а слой или вложенная композиция, на который вы
-          пытаетесь применить эффект - меньшего размера, то он и будет работать в его
-          пределах. Если вы хотите устранить этот неприятный эффект, то вам нужно
-          применить стандартный эффект <mark className="plugin">Grow Bounds</mark> до всех
-          эффектов. После применения нужно указать количество пикселей, на которое нужно
-          фиктивно расширить слой.
+          Часто пользователи <mark className="app">Adobe After Effects</mark> под
+          «странным» воспроизведением предпросмотра имеют в виду потерю качества, дёргание
+          кадров, артефакты, замедленное воспроизведение или зацикливание. Чтобы не
+          дробить материал на несколько статей, разберём все популярные проблемы в одном
+          месте.
         </p>
-        <VideoFigure
-          caption="Применяем Grow Bounds"
-          styleClass="figure_windows-dark"
-          videoSrc="images/aftereffects/apply_grow_bounds.mp4"
+        <Divider>Разбираемся с плохим качеством</Divider>
+        <p>
+          Чтобы устранить проблемы с качеством предпросмотра, для начала проверьте
+          разрешение в окне <mark className="select">«Composition»</mark> и установите
+          значение <mark className="select">«Full»</mark>. Список с выбором качества
+          находится под окном предпросмотра или в настройках композиции.
+        </p>
+        <ContentFigure
+          caption="Adobe After Effects"
+          src="images/aftereffects/change_resolution_comppreview.mp4"
+          theme="dark"
+          type="video"
+          variant="windows"
         />
-        <AdditionWarning>
-          Иногда стандартный <mark className="plugin">Grow Bounds</mark> может криво
-          работать или не помочь вовсе. Вместо него можно применить{" "}
-          <mark className="plugin">Grow Bounds</mark> от <mark>Red Giant</mark>,
-          находящийся в пакете <mark className="plugin">Trapcode Suite</mark>. Инструкция
-          по его использованию не нужна, он работает аналогично как и встроенный{" "}
-          <mark className="plugin">Grow Bounds</mark>.
-        </AdditionWarning>
-        <Divider>Разбираемся с краями у Saber</Divider>
         <p>
-          Если вы зачем-то применили эффект <mark className="plugin">Saber</mark> на слой,
-          размер которого отличается от размера композиции, например на слой-фигуру или
-          прекомпозицию, то вам придётся всё переделывать. В таком случае{" "}
-          <mark className="plugin">Grow Bounds</mark> не поможет.
+          Если там всё в порядке, но при воспроизведении качество всё равно падает — стоит
+          проверить настройки разрешения в окне <mark className="select">«Preview»</mark>.
+          Выставьте в этом окне для параметра <mark className="select">«Resolution»</mark>{" "}
+          значение <mark className="select">«Full»</mark>.
         </p>
+        <Addition type="info">
+          Если в <mark className="select">«Resolution»</mark> стоит{" "}
+          <mark className="select">«Auto»</mark>, качество предпросмотра будет меняться в
+          зависимости от значения, указанное в окне композиции или в настройках
+          композиции.
+        </Addition>
+        <ContentFigure
+          caption="Preview"
+          imgTitle="Изменение качества в окне Preview"
+          src="images/aftereffects/change_resolution_preview.png"
+          theme="dark"
+          type="image"
+          variant="windows"
+        />
+        <Divider>Как убрать «пикселизацию» при перемещении объектов?</Divider>
         <p>
-          Для решения проблемы вам нужно создать <mark>Solid Layer</mark>, размер которого
-          должен совпадать с размером композиции, и применить{" "}
-          <mark className="plugin">Saber</mark> на него. Затем нужно синхронизировать
-          маски - из слоя, из которого вы хотели изначально сделать обводку маской нужно
-          прилинковать маску в <mark>Solid Layer</mark>, на котором применён{" "}
-          <mark className="plugin">Saber</mark> нужного размера.
+          По умолчанию в <mark className="app">Adobe After Effects</mark> включена функция
+          адаптивного разрешения: при перемещении плейхеда или слоя качество предпросмотра
+          временно снижается для быстрого рендера кадра. Если эта функция вас раздражает,
+          её можно отключить — для этого нажмите на{" "}
+          <mark className="select">«Fast Previews»</mark> под окном предпросмотра и
+          выберите <mark className="select">«Off (Final Quality)»</mark>.
         </p>
-        <ImageFigure
+        <ContentFigure
           caption="Timeline"
-          imgSrc="images/aftereffects/linking_masks_for_saber.png"
-          imgTitle="Соединяем маски для Saber"
-          styleClass="figure_windows-dark"
+          imgTitle="Отключение адаптивного разрешения"
+          src="images/aftereffects/disable_adaptive_resolution.png"
+          theme="dark"
+          type="image"
+          variant="windows"
+        />
+        <Divider>Как избавиться от зацикливания предпросмотра?</Divider>
+        <p>
+          Часто зацикливание предпросмотра, даже если он не до конца закэширован, означает
+          лишь одно — программе попросту не хватает оперативной памяти для корректного
+          просмотра, особенно если вы пытаетесь воспроизвести тяжёлую сцену. Чтобы
+          минимизировать последствия такого поведения, стоит подумать об оптимизации
+          проекта или изменить настройки программы и системы. Учтите, что приведённые в
+          этом разделе способы решения схожи со способами решения проблемы{" "}
+          <mark className="warning">«Out of Memory»</mark> и{" "}
+          <mark className="warning">
+            «Cached preview needs 2 or more frames for playback»
+          </mark>
+          .
+        </p>
+        <p>
+          В <mark className="app">Adobe After Effects</mark> версии <mark>25.2</mark> и
+          новее была добавлена новая функция воспроизведения предпросмотра напрямую из
+          дискового кеша. Она позволяет проигрывать предпросмотр напрямую с диска, не
+          загружая кадры в оперативную память, что может помочь в ситуациях, когда ни файл
+          подкачки, ни увеличение оперативной памяти не помогает. Для этого перейдите в{" "}
+          <mark className="select">«Edit» → «Preferences» → «Media & Disk Cache»</mark>,
+          включите дисковый кэш включением чекбокса{" "}
+          <mark className="select">«Enable Disk Cache»</mark> и активируйте параметр{" "}
+          <mark className="select">«Enable Preview from Disk Cache»</mark>. Какое значение
+          устанавливать для параметра{" "}
+          <mark className="select">«Maximum Disk Cache Size»</mark> — решать только вам.
+        </p>
+        <Addition type="info">
+          Для комфортной работы в программе с включенной опцией дискового кэша
+          рекомендуется использовать быстрый накопитель. При необходимости вы можете
+          приобрести дешёвый <mark>SSD</mark>, который будет не жалко использовать, на{" "}
+          <mark>256-512 ГБ</mark> из популярных маркетплейсов и использовать его в
+          качестве накопителя для дискового кэша.
+        </Addition>
+        <ContentFigure
+          caption="Preferences"
+          imgTitle="Включение воспроизведения предпросмотра из дискового кеша"
+          src="images/aftereffects/enable_preview_from_disk_cache.png"
+          theme="dark"
+          type="image"
+          variant="windows"
+        />
+        <ContentFilter
+          windowsContent={
+            <div>
+              <p>
+                Если вы используете старую версию{" "}
+                <mark className="app">Adobe After Effects</mark> или вы не хотите
+                использовать дисковый кэш — попробуйте настроить{" "}
+                <a href="#6.7">файл подкачки</a>.
+              </p>
+            </div>
+          }
+        />
+        <Divider>Как убрать «пикселизацию» у векторных слоёв?</Divider>
+        <p>
+          Если вы импортировали векторный файл (например, <mark className="file">AI</mark>
+          ), включите для этого слоя опцию{" "}
+          <mark className="select">«Continuously Rasterize»</mark>. Это заставит программу
+          перерисовывать вектор при каждом изменении масштаба, сглаживая пикселизацию.
+        </p>
+        <ContentFigure
+          caption="Timeline"
+          imgTitle="Включение Continuously Rasterize"
+          src="images/aftereffects/enable_continuously_rasterize.png"
+          theme="dark"
+          type="image"
+          variant="windows"
+        />
+        <Addition type="warning">
+          При включённой опции <mark className="select">«Continuously Rasterize»</mark>{" "}
+          могут возникнуть артефакты, например разрывы слоя при использовании{" "}
+          <mark className="plugin">Puppet Tool</mark>.
+        </Addition>
+        <Divider>Устраняем причины «странной» скорости предпросмотра</Divider>
+        <p>
+          Часто предпросмотр тормозит, потому что{" "}
+          <mark className="app">Adobe After Effects</mark> по умолчанию пытается
+          воспроизводить видео в реальном времени, не успевая просчитывать эффекты.
+          Текущий <mark>FPS</mark> предпросмотра отображается в окне{" "}
+          <mark className="select">«Info»</mark>. Если он ниже, чем <mark>FPS</mark>{" "}
+          композиции (например, <mark>22,787/25</mark>), значит, предпросмотр идёт не в
+          реальном времени.
+          <ContentFigure
+            caption="Info"
+            imgTitle="Предпросмотр не в реальном времени"
+            src="images/aftereffects/info_non-realtime.png"
+            theme="dark"
+            type="image"
+            variant="windows"
+          />
+        </p>
+        <p>
+          Чтобы это исправить, включите кэширование перед воспроизведением. Для этого
+          откройте окно <mark className="select">«Window» → «Preview»</mark> и установите
+          флажки <mark className="select">«Cache Before Playback»</mark> и{" "}
+          <mark className="select">«If caching, play cached frames»</mark>. Теперь при
+          первом нажатии на <mark className="key">Space</mark> программа сначала
+          просчитает кадры, а затем воспроизведёт их из кэша. Повторное нажатие на{" "}
+          <mark className="key">Space</mark> прервёт процесс кэширования и сразу начнёт
+          воспроизводить те кадры, которые уже были закэшированы.
+        </p>
+        <ContentFigure
+          caption="Preview"
+          imgTitle="Включение кэширования предпросмотра"
+          src="images/aftereffects/preview_caching.png"
+          theme="dark"
+          type="image"
+          variant="windows"
+        />
+        <p>
+          Иногда предпросмотр воспроизводится ускоренно или замедленно из-за неверной
+          настройки частоты кадров в окне <mark className="select">«Preview»</mark>, так
+          как значение <mark className="select">«Frame Rate»</mark> можно довольно легко
+          случайно изменить колёсиком мыши. Убедитесь, что для параметра{" "}
+          <mark className="select">«Frame Rate»</mark> установлено значение{" "}
+          <mark className="select">«Auto»</mark>.
+        </p>
+        <Addition type="info">
+          Значение <mark className="select">«Frame Rate»</mark> работает следующим
+          образом: если вы установили значение <mark>30</mark> для{" "}
+          <mark className="select">«Frame Rate»</mark> и сама композиция тоже в{" "}
+          <mark>30 FPS</mark>, то изменений в скорости вы не заметите. Однако если
+          изменить частоту кадров у композиции, например на <mark>60</mark>, а{" "}
+          <mark className="select">«Frame Rate»</mark> в{" "}
+          <mark className="select">«Preview»</mark> оставить прежним, то воспроизведение
+          будет идти в два раза медленнее. Установив значение{" "}
+          <mark className="select">«Auto»</mark>, скорость будет автоматически
+          подстраиваться под <mark>FPS</mark> композиции.
+        </Addition>
+        <ContentFigure
+          caption="Preview"
+          imgTitle="Изменение FPS предпросмотра"
+          src="images/aftereffects/change_preview_fps.png"
+          theme="dark"
+          type="image"
+          variant="windows"
+        />
+        <p>
+          Если вы недавно меняли устройство вывода звука, например, подключили наушники,
+          то программа может не справляться с синхронизацией аудио, из-за чего
+          предпросмотр «заикается». Попробуйте изменить аудиовыход или уменьшить значение{" "}
+          <mark className="select">«Latency»</mark> в{" "}
+          <mark className="select">«Edit» → «Preferences» → «Audio Hardware»</mark>.
+        </p>
+        <ContentFigure
+          caption="Preferences"
+          imgTitle="Настройки звукового выхода"
+          src="images/aftereffects/audio_hardware_settings.png"
+          theme="dark"
+          type="image"
+          variant="windows"
+        />
+        <Divider>Разбираемся с «кривыми» исходниками</Divider>
+        <p>
+          Если вы работаете с видео, скачанным из интернета, есть шанс, что оно
+          закодировано в «неудобный» для <mark className="app">Adobe After Effects</mark>{" "}
+          формат. <mark className="file">MP4</mark> часто содержит нестабильные свойства —
+          вроде переменной частоты кадров или непредсказуемых алгоритмов сжатия, которые
+          нередко встречаются в геймплейных записях или видео, скачанных с{" "}
+          <mark className="app">YouTube</mark>. Особенно это касается{" "}
+          <mark className="video">H.264</mark> и <mark className="video">H.265</mark> —
+          они отлично подходят для просмотра видео, но плохо ведут себя при монтаже. Эти
+          кодеки требуют постоянной декомпрессии, из-за чего превью «артефачит», эффекты
+          работают с тормозами, а сам <mark className="app">Adobe After Effects</mark>{" "}
+          «задыхается».
+        </p>
+        <p>
+          Чтобы избавиться от таких проблем: рекомендуется заранее перекодировать такие
+          файлы в монтажный формат — например, в{" "}
+          <mark className="video">Apple ProRes 422</mark> или{" "}
+          <mark className="video">Apple ProRes 4444</mark>, а потом импортировать их в
+          проект или заменять уже позже. Сделать это можно через{" "}
+          <mark className="app">Shutter Encoder</mark> — бесплатную программу для
+          конвертации видео на основе <mark className="app">FFmpeg</mark>.{" "}
+          <a href="#4.1">Подробнее…</a>
+        </p>
+        <Divider>Разбираемся с проблемами со звуком</Divider>
+        <p>
+          По умолчанию <mark className="app">Adobe After Effects</mark> отключает звук,
+          если предпросмотр идёт не в реальном времени. Чтобы это исправить, снимите
+          галочку{" "}
+          <mark className="select">«Mute Audio When Preview Is Not Real-time»</mark> в
+          настройках <mark className="select">«Edit» → «Preferences» → «Previews»</mark>.
+        </p>
+        <ContentFigure
+          caption="Preferences"
+          imgTitle="Настройка звука для предпросмотра"
+          src="images/aftereffects/mute_audio_when_preview_is_not_real-time.png"
+          theme="dark"
+          type="image"
+          variant="windows"
+        />
+        <p>
+          Иногда звук при предпросмотре может внезапно пропасть, если вы что-то случайно
+          «натыкали». Первым делом проверьте окно{" "}
+          <mark className="select">«Preview»</mark> — возможно вы случайно отключили там
+          звук с помощью соответствующей кнопки.
+        </p>
+        <ContentFigure
+          caption="Preview"
+          imgTitle="Включение звука в окне Preview"
+          src="images/aftereffects/toggle_audio_preview.png"
+          theme="dark"
+          type="image"
+          variant="windows"
+        />
+        <p>Также стоит проверить переключатель аудио у слоя, а также его аудиодорожку.</p>
+        {/* TODO: показать переключатель аудио  */}
+        <p>
+          В редких случаях проблемы могут быть вызваны самим аудиофайлом. Перекодируйте
+          его в формат <mark className="audio">WAV</mark> и замените в проекте.
+        </p>
+      </DetailsSummary>
+      <DetailsSummary
+        tag="grow bounds, нарастить границы, обрезается эффект, края слоя"
+        title="Применяю эффект, например Glow, но он обрезается по границе слоя. Как это исправить?"
+      >
+        <p>
+          Некоторые эффекты работают только в пределах размера слоя, из-за чего их
+          действие может обрезаться по краям. Например: если ваша основная композиция
+          имеет размер <mark>1920×1080</mark>, а слой, на который вы применяете эффект,
+          меньше, то эффект будет ограничен размером этого слоя.
+        </p>
+        <Divider>Расширяем границы с помощью Grow Bounds</Divider>
+        <p>
+          Чтобы это исправить, попробуйте применить стандартный эффект{" "}
+          <mark className="plugin">Grow Bounds</mark> перед всеми остальными эффектами и
+          укажите, на сколько пикселей нужно «нарастить» границы.
+        </p>
+        <ContentFigure
+          caption="Применение Grow Bounds"
+          src="images/aftereffects/apply_grow_bounds.mp4"
+          theme="dark"
+          type="video"
+          variant="windows"
+        />
+        <Addition type="warning">
+          Иногда стандартный <mark className="plugin">Grow Bounds</mark> может не помочь.
+          В таком случае попробуйте использовать{" "}
+          <mark className="plugin">Grow Bounds</mark> из пакета{" "}
+          <mark className="plugin">Red Giant Trapcode Suite</mark>.
+        </Addition>
+        <Divider>Разбираемся с краями у эффекта Saber</Divider>
+        <p>
+          Если вы применили <mark className="plugin">Saber</mark> на слой, размер которого
+          меньше размера композиции (например, на слой-фигуру), то{" "}
+          <mark className="plugin">Grow Bounds</mark> впринципе не поможет. Для решения
+          проблемы создайте <mark className="select">«Solid Layer»</mark> размером с
+          композицию и примените <mark className="plugin">Saber</mark> на него. Затем в
+          настройках эффекта в разделе <mark className="select">«Customize Core»</mark>{" "}
+          выберите <mark className="select">«Layer Masks»</mark> и привяжите маску с
+          вашего исходного слоя к маске на слое с <mark className="plugin">Saber</mark>.
+        </p>
+        <ContentFigure
+          caption="Timeline"
+          imgTitle="Привязка масок для Saber"
+          src="images/aftereffects/linking_masks_for_saber.png"
+          theme="dark"
+          type="image"
+          variant="windows"
         />
       </DetailsSummary>
-      <DetailsSummary title="Почему пропадают режимы наложения в Mode и Track Matte, когда я перевожу слой в 3D?">
+      <DetailsSummary
+        tag="blending modes, classic 3d, cinema 4d, 3d renderer, 3д рендер, track matte"
+        title="Почему пропадают режимы наложения и Track Matte, когда я перевожу слой в 3D?"
+      >
         <p>
-          Скорее всего у вас включен движок рендера{" "}
-          <mark className="plugin">Advanced 3D</mark> или{" "}
-          <mark className="plugin">Cinema 4D</mark>. В них, к сожалению, не поддерживаются
-          режимы наложения, как вы бы ни хотели их применить. Для возвращения
-          работоспособности функции режимов наложения нужно вернуть движок рендера на{" "}
+          Скорее всего, у вас включён рендер-движок{" "}
+          <mark className="plugin">Advanced 3D</mark>, который стал использоваться по
+          умолчанию, начиная с <mark className="app">Adobe After Effects</mark> версии{" "}
+          <mark>24.1</mark>, или <mark className="plugin">Cinema 4D</mark>. При
+          использовании таких движков режимы наложения, эффекты и прочие функции могут
+          быть недоступны. Чтобы вернуть их работу, нужно переключиться на рендер{" "}
           <mark className="plugin">Classic 3D</mark>.
         </p>
         <p>
-          Для возвращения классического движка рендера - откройте настройки композиции с
-          помощью комбинации клавиш <mark className="key">Ctrl + K</mark>, перейдите во
-          вкладку <mark className="ui">3D Renderer</mark> и установите в параметре{" "}
-          <mark className="ui">Renderer</mark> значение{" "}
-          <mark className="plugin">Classic 3D</mark>.
+          Для этого откройте настройки композиции с помощью комбинации клавиш{" "}
+          <mark className="key">Ctrl + K</mark>, перейдите во вкладку{" "}
+          <mark className="select">«3D Renderer»</mark> и установите для параметра{" "}
+          <mark className="select">«Renderer»</mark> значение{" "}
+          <mark className="plugin">Classic 3D</mark>. В этой же вкладке можно найти список
+          поддерживаемых функций для каждого движка и ознакомиться с ним.
         </p>
-        <ImageFigure
+        <ContentFigure
           caption="Composition Settings"
-          imgSrc="images/aftereffects/change_3d_renderer.png"
-          imgTitle="Изменяем движок для рендера 3D-слоёв"
-          styleClass="figure_windows-dark"
+          imgTitle="Изменение 3D-рендерера"
+          src="images/aftereffects/change_3d_renderer.png"
+          theme="dark"
+          type="image"
+          variant="windows"
         />
       </DetailsSummary>
-      <DetailsSummary title="Почему у слоя не исчезает фон при использовании режимов наложения?">
+      <DetailsSummary
+        tag="прозрачность, чёрный фон, unmult, extract, blending modes"
+        title="Почему у слоя не исчезает фон при использовании режимов наложения?"
+      >
         <p>
-          Убедитесь в том, что по иерархии слой, на котором вы хотите применить режим
-          наложения - находится выше, чем слои с фоном или остальными объектами. Режимы
-          наложения не будут работать, если под слоем, на котором вы выбрали режим
-          наложения, ничего не находится.
+          Убедитесь, что слой, к которому вы применяете режим наложения, расположен выше
+          тех слоёв, с которыми он должен взаимодействовать. Режимы наложения у слоя не
+          будут работать, если под ним в иерархии таймлайна ничего нет.
         </p>
         <p>
-          Если вы хотите убрать фон из слоя - воспользуйтесь{" "}
-          <mark className="plugin">Extract</mark> или{" "}
-          <mark className="plugin">uni.unmult</mark> из пакета плагинов{" "}
+          Если вы хотите просто убрать чёрный фон у слоя, воспользуйтесь стандартным
+          эффектом <mark className="plugin">Extract</mark> или сторонним{" "}
+          <mark className="plugin">uni.unmult</mark> из пакета{" "}
           <mark className="plugin">Red Giant Universe</mark>.
         </p>
-        <YouTubeVideo
+        <ContentFigure
           caption="Red Giant Universe Unmult"
-          link="GGjIu0CZ1M4"
+          src="GGjIu0CZ1M4"
+          type="youtube"
         />
       </DetailsSummary>
-      <DetailsSummary title="Как сделать прозрачный фон у слоя с эффектом Saber?">
+      <DetailsSummary
+        tag="прозрачность, saber, альфа-канал, composite settings, transparent"
+        title="Как сделать прозрачный фон у слоя с эффектом Saber?"
+      >
         <p>
-          По умолчанию <mark className="plugin">Saber</mark> рендерится на чёрном фоне, но
-          в параметрах эффекта можно включить прозрачность. Для этого найдите параметр{" "}
-          <mark className="ui">Render Settings</mark> и раскройте его. Затем найдите
-          параметр <mark className="ui">Composite Settings</mark> и выберите в нём
-          значение <mark className="ui">Transparent</mark>. После этого слой с{" "}
-          <mark className="plugin">Saber</mark> станет прозрачным и вы сможете применять
-          его поверх своей композиции или слоёв.{" "}
-          <i style={{opacity: "0.5"}}>И режимы наложения не понадобятся.</i>
+          По умолчанию <mark className="plugin">Saber</mark> рендерится на чёрном фоне.
+          Чтобы сделать фон прозрачным — в настройках эффекта раскройте раздел{" "}
+          <mark className="select">«Render Settings»</mark>, найдите параметр{" "}
+          <mark className="select">«Composite Settings»</mark> и выберите значение{" "}
+          <mark className="select">«Transparent»</mark>.{" "}
+          <i style={{opacity: "0.5"}}>И режимы наложения больше не понадобятся.</i>
         </p>
-        <ImageFigure
+        <Addition type="info">
+          Чтобы включить сетку прозрачности — нажмите на кнопку{" "}
+          <mark className="select">«Toggle Transparency Grid»</mark> в окне предпросмотра.
+        </Addition>
+        <ContentFigure
           caption="Включение прозрачности в Saber"
-          imgSrc="images/aftereffects/transparent_saber.png"
           imgTitle="Включение прозрачности в Saber"
-          styleClass="figure_windows-dark"
+          src="images/aftereffects/transparent_saber.png"
+          theme="dark"
+          type="image"
+          variant="windows"
         />
       </DetailsSummary>
       <DetailsSummary
-        tag="тру комп дупликатор, композиция, прекомпоз, копирование, независимость"
-        title="Продублировал композицию на таймлайне, но копия зависит от оригинала. Как сделать композиции независимыми друг от друга?"
+        tag="true comp duplicator, прекомпоз, копирование, независимость, дубликат, продублировал композицию на таймлайне но копия зависит от оригинала"
+        title="Как сделать дубликаты композиций независимыми друг от друга?"
       >
         <p>
-          Копируя композицию с помощью комбинации клавиш{" "}
-          <mark className="key">Ctrl + D</mark> на таймлайне - вы копируете ссылку на одну
-          и ту же композицию, а не создаёте новую. Таким образом изменения в
-          &quot;продублированной композиции&quot; будут отражаться и в оригинале. Для
-          того, чтобы сделать композиции действительно независимыми - нужно клонировать
-          нужную вам композицию в окне <mark className="ui">Project</mark>.
+          Копируя композицию на таймлайне с помощью комбинации клавиш{" "}
+          <mark className="key">Ctrl + D</mark>, вы создаёте лишь ещё одну ссылку на ту же
+          самую композицию, а не создаёте новую за счёт другой. Поэтому изменения в
+          «дубликате» отражаются и в оригинале. Чтобы сделать композиции действительно
+          независимыми, их нужно дублировать в окне{" "}
+          <mark className="select">«Project»</mark>.
         </p>
-        <VideoFigure
-          caption="Правильное клонирование композиции"
-          styleClass="figure_windows-dark"
-          videoSrc={"images/aftereffects/duplicate_composition.mp4"}
+
+        <ContentFigure
+          caption="Правильное дублирование композиции"
+          src={"images/aftereffects/duplicate_composition.mp4"}
+          theme="dark"
+          type="video"
+          variant="windows"
         />
-        <p>
-          Если вам нужно клонировать одну и ту же композицию с указанием нужного
-          количества копий, обновлением выражений, дублированием футажей и вложенных
-          композиций или группировкой в одну папку - воспользуйтесь бесплатным<sup>1</sup>{" "}
-          скриптом{" "}
-          <a href="https://aescripts.com/true-comp-duplicator/">True Comp Duplicator</a>{" "}
-          на aescripts.
-        </p>
-        <AdditionInfo>
-          <sup>1</sup> Чтобы скачать скрипт - зарегистрируйтесь на сайте{" "}
-          <a href="https://aescripts.com">aescripts</a>, вернитесь на страницу с плагином,
-          установите цену <mark>0</mark> в <mark className="ui">Name Your Own Price</mark>
-          , добавьте его в корзину и подтвердите заказ. Нужный плагин появится{" "}
-          <a href="https://aescripts.com/downloadable/customer/products/">
-            в вашем профиле
-          </a>{" "}
-          и вы можете его скачать абсолютно бесплатно.
-        </AdditionInfo>
+        <Addition type="info">
+          Если вам нужно сделать несколько копий с вложенными композициями, обновить
+          выражения или сгруппировать их в одну папку, воспользуйтесь бесплатным
+          <sup>1</sup> скриптом{" "}
+          <a href="https://aescripts.com/true-comp-duplicator/">True Comp Duplicator</a>.
+          <ul>
+            <li>
+              <sup>1</sup> Чтобы скачать скрипт, зарегистрируйтесь на{" "}
+              <a href="https://aescripts.com">aescripts</a>, на странице плагина
+              установите цену <mark>0</mark> и оформите заказ. Ссылка на скачивание
+              появится{" "}
+              <a href="https://aescripts.com/downloadable/customer/products/">
+                в вашем профиле
+              </a>
+              .
+            </li>
+          </ul>
+        </Addition>
       </DetailsSummary>
       <DetailsSummary
-        tag="перевернуть очерёдность слоёв"
-        title="Как сделать последний слой первым на таймлайне?"
+        tag="перевернуть очерёдность, обратный порядок, инверсия, нумерация"
+        title="Как инвертировать порядок слоёв на таймлайне?"
       >
         <p>
-          Если вы хотите поменять очерёдность слоёв так, чтобы последний слой стал первый,
-          а остальные перевернулись по очерёдности - вам нужно будет выделить первый слой
-          от нужной точки и выделить с зажатым <mark className="key">Shift</mark>{" "}
-          последний слой до нужной точки, а затем нажать на{" "}
-          <mark className="key">Ctrl + X</mark> и потом{" "}
+          Если нужно изменить порядок слоёв так, чтобы последний стал первым, а остальные
+          развернулись в обратной последовательности — выделите первый слой, затем,
+          удерживая <mark className="key">Shift</mark>, кликните по последнему слою. После
+          этого нажмите <mark className="key">Ctrl + X</mark>, а затем{" "}
           <mark className="key">Ctrl + V</mark>.
         </p>
-        <VideoFigure
-          caption="Переворачиваем очерёдность слоёв"
-          styleClass="figure_windows-dark"
-          videoSrc="images/aftereffects/invert_layer_numeration.mp4"
+        <ContentFigure
+          caption="Инвертирование порядка слоёв"
+          src="images/aftereffects/invert_layer_numeration.mp4"
+          theme="dark"
+          type="video"
+          variant="windows"
         />
       </DetailsSummary>
-      <DetailsSummary title="Переместил слой из одной композиции в другую, но оно ушло за пределы моей композиции. Как его вернуть на своё место?">
+      <DetailsSummary
+        tag="не видно слой, за кадром, перемещение, плейхед, скобки"
+        title="Переместил слой из одной композиции в другую, но он оказался за пределами видимости. Как его вернуть?"
+      >
         <p>
-          Чтобы вернуть слой на место после временной метки, нажмите на{" "}
-          <mark className="key">[</mark>. Если нужно расположить слой до временной метки -
-          нажмите на <mark className="key">]</mark>.
+          Чтобы переместить начало слоя к текущему положению плейхеда, нажмите{" "}
+          <mark className="key">[</mark>. Чтобы переместить конец слоя к плейхеду, нажмите{" "}
+          <mark className="key">]</mark>.
         </p>
-        <VideoFigure
-          caption="Перемещаем слои по времени вокруг временной метки"
-          styleClass="figure_windows-dark"
-          videoSrc="images/aftereffects/move_layers_around_playhead.mp4"
+        <ContentFigure
+          caption="Перемещение слоёв к плейхеду"
+          src="images/aftereffects/move_layers_around_playhead.mp4"
+          theme="dark"
+          type="video"
+          variant="windows"
         />
       </DetailsSummary>
-      <DetailsSummary title="Как обрезать композицию по краям слоёв, находящиеся в нём?">
-        <AdditionDanger>
-          Данная статья находится на ранней стадии разработки. Следите за обновлениями.
-        </AdditionDanger>
+      <DetailsSummary
+        tag="обрезка, auto crop, region of interest, размер композиции"
+        title="Как кадрировать композицию по краям находящихся в ней слоёв?"
+      >
+        <Addition type="danger">
+          Эта статья находится на ранней стадии разработки. Следите за обновлениями.
+        </Addition>
+        <p>
+          Для автоматического кадрирования композиции по границам её содержимого можно
+          воспользоваться плагином <mark className="plugin">Auto Crop 3</mark>.
+        </p>
         <p>{/* FIXME: */}</p>
       </DetailsSummary>
-      <DetailsSummary title="Почему первый кадр в композиции начинается не с нулевой секунды?">
+      <DetailsSummary
+        tag="start timecode, начальный таймкод, начало композиции, ноль, 00:00:00:00"
+        title="Почему первый кадр в композиции начинается не с нулевой секунды?"
+      >
         <p>
-          Скорее всего вы при создании прекомпозиции указали галочку в параметре{" "}
-          <mark className="ui">
-            Adjust composition duration to the time span of the selected layers
+          Скорее всего, при создании прекомпозиции вы оставили включённой опцию{" "}
+          <mark className="select">
+            «Adjust composition duration to the time span of the selected layers»
           </mark>
-          . Данная опция делает отсчёт кадров с времени начала самого раннего слоя в
-          родительской композиции. То есть, если вы выделили три слоя, первый из них
-          начинающийся на второй секунде, а последний на седьмой. А родительская
-          композиция длится 10 секунд. Соответственно новая композиция начнёт отсчёт в
-          первом кадре со второй секунды.
+          . Эта опция устанавливает начальный таймкод новой композиции равным времени
+          появления самого раннего из выделенных слоёв.
         </p>
         <p>
-          Для установки верного стартового таймкода вам нужно открыть настройки композиции
-          с помощью комбинации клавиш <mark className="key">Ctrl + K</mark> и в поле{" "}
-          <mark className="ui">Start Timecode</mark> указать нужное значение, например{" "}
-          <mark>00:00:00:00</mark>, чтобы отсчёт вёлся с нуля.
+          Чтобы это исправить, откройте настройки композиции (
+          <mark className="key">Ctrl + K</mark>) и в поле{" "}
+          <mark className="select">«Start Timecode»</mark> укажите{" "}
+          <mark>00:00:00:00</mark>.
         </p>
-        <VideoFigure
+        <ContentFigure
           caption="Composition Settings"
-          styleClass="figure_windows-dark"
-          videoSrc="images/aftereffects/change_start_timecode.mp4"
+          src="images/aftereffects/change_start_timecode.mp4"
+          theme="dark"
+          type="video"
+          variant="windows"
         />
       </DetailsSummary>
-      <DetailsSummary title="Почему не все параметры выравнивания текста доступны в окне Paragraph?">
+      <DetailsSummary
+        tag="point text, paragraph text, точечный текст, блочный текст, justify"
+        title="Почему не все параметры выравнивания текста доступны в окне Paragraph?"
+      >
         <p>
-          Если вы создаёте текстовый слой простым нажатием на композицию, то вы создаёте
-          слой без ограничений на высоту и ширину. В таком случае как вы представляете
-          работу выравнивания текста по ширине, если оно явно не задано? Чтобы
-          &quot;активировать&quot; оставшиеся четыре параметра выравнивания текста - вам
-          нужно изначально создать слой в формате{" "}
-          <mark className="ui">Paragraph Text</mark>, зажав{" "}
-          <mark className="key">ЛКМ</mark> и нарисовав поле.
+          Если вы создаёте текстовый слой простым кликом по композиции, вы создаёте{" "}
+          <mark className="select">«Point Text»</mark> без фиксированных границ. В этом
+          случае выравнивание по ширине не имеет смысла. Чтобы стали доступны все
+          параметры выравнивания, нужно создать текстовый блок типа{" "}
+          <mark className="select">«Paragraph Text»</mark>, «рисуя» рамку с зажатой{" "}
+          <mark className="key">ЛКМ</mark>.
         </p>
-        <VideoFigure
+        <ContentFigure
           caption="Создание Paragraph Text"
-          styleClass="figure_windows-dark"
-          videoSrc="images/aftereffects/create_paragraph_text.mp4"
+          src="images/aftereffects/create_paragraph_text.mp4"
+          theme="dark"
+          type="video"
+          variant="windows"
         />
         <p>
-          Вы также можете переконвертировать уже существующий текст в нужный формат с
-          помощью <mark className="ui">Convert to Paragraph Text</mark>, предварительно
-          выбрав инструмент <mark className="ui">Text</mark>. После конвертации вы можете
-          задать нужную ширину и высоту текстового слоя.
+          Вы также можете преобразовать уже существующий точечный текст в блочный — для
+          этого выберите инструмент <mark className="select">«Text»</mark>, нажмите{" "}
+          <mark className="key">ПКМ</mark> по слою и выберите в контекстном меню{" "}
+          <mark className="select">«Convert to Paragraph Text»</mark>.
         </p>
-        <VideoFigure
-          caption="Конвертация текстового слоя в Paragraph Text"
-          styleClass="figure_windows-dark"
-          videoSrc="images/aftereffects/convert_to_paragraph_text.mp4"
+        <ContentFigure
+          caption="Преобразование точечного текста в блочный"
+          src="images/aftereffects/convert_to_paragraph_text.mp4"
+          theme="dark"
+          type="video"
+          variant="windows"
         />
       </DetailsSummary>
-      <DetailsSummary title="Чем отличается Mocha AE от Mocha Pro?">
+      <DetailsSummary
+        tag="сравнение, разница, трекинг, mocha, мока, моча"
+        title="Чем отличается Mocha AE от Mocha Pro?"
+      >
         <p>
           В стандартную поставку <mark className="app">Adobe After Effects</mark> входит
-          встроенный плагин для трекинга различных объектов{" "}
-          <mark className="plugin">Mocha AE</mark>. Но у него функционал, по сравнению с
-          Pro-версией, несколько урезан.
+          встроенный плагин для трекинга <mark className="plugin">Mocha AE</mark>. Его
+          функциональность, по сравнению с <mark className="plugin">Mocha Pro</mark>,
+          урезана. В <mark className="plugin">Mocha AE</mark> нельзя стабилизировать
+          видео, удалять объекты, использовать магнитное лассо и другие продвинутые
+          инструменты. <mark className="plugin">Mocha Pro</mark> лишена этих ограничений.
         </p>
-        <p>
-          В встроенной <mark className="plugin">Mocha AE</mark> вы не сможете
-          стабилизировать видео, делать клин-ап (удалять объекты), использовать магнитное
-          лассо и прочее. <mark className="plugin">Mocha Pro</mark> же лишена этих
-          ограничений, а также можно вставить в{" "}
-          <mark className="app">Adobe Premiere Pro</mark> и другие программы.
-        </p>
-        <AdditionInfo>
-          Подробнее о различиях между этими версиями вы можете прочитать на{" "}
-          <a href="https://support.Boris FX.com/hc/en-us/articles/10232625711117-I-use-Mocha-AE-what-is-the-difference-between-Mocha-AE-and-Mocha-Pro-Do-I-need-Mocha-Pro">
+        <Addition type="info">
+          Подробнее о различиях можно прочитать на{" "}
+          <a href="https://borisfx.com/blog/mocha-ae-vs-mocha-pro-what-are-the-differences">
             официальном сайте Boris FX
           </a>
           .
-        </AdditionInfo>
+        </Addition>
       </DetailsSummary>
-      <DetailsSummary title="Почему After Effects иногда сам меняет начертание шрифта?">
+      <DetailsSummary
+        tag="font, баг, слетает шрифт, неправильный стиль"
+        title="Почему начертание шрифта иногда само меняется?"
+      >
         <p>
-          Предположим, что вы решили написать какой-нибудь текст определённым шрифтом. Но
-          вот незадача, шрифт при написании какого-то хрена меняется. Если вы уверены, что
-          с шрифтом всё в порядке, например в <mark className="app">Adobe Photoshop</mark>{" "}
-          всё работает отлично, то скорее всего вы столкнулись с редким багом, который
-          может встретиться на абсолютно любой версии{" "}
-          <mark className="app">Adobe After Effects</mark>. К сожалению, не все шрифты,
-          прекрасно работающие в <mark className="app">Adobe Photoshop</mark> и{" "}
-          <mark className="app">Adobe Illustrator</mark> будут прекрасно работать и в{" "}
-          <mark className="app">Adobe After Effects</mark>.
+          Предположим, вы решили написать какой-нибудь текст определённым шрифтом. Но вот
+          незадача — шрифт при наборе почему-то меняется. Если вы уверены, что с самим
+          шрифтом всё в порядке (например, в <mark className="app">Adobe Photoshop</mark>{" "}
+          он работает без проблем), скорее всего вы столкнулись с редким багом, который
+          может проявиться в любой версии <mark className="app">Adobe After Effects</mark>
+          . К сожалению, не все шрифты, отлично работающие в{" "}
+          <mark className="app">Adobe Photoshop</mark> и{" "}
+          <mark className="app">Adobe Illustrator</mark>, будут так же корректно работать
+          в <mark className="app">Adobe After Effects</mark> — из-за его особенностей.
         </p>
+
         <p>
-          Суть бага заключается в том, что при смене начертания шрифта,{" "}
-          <mark className="app">Adobe After Effects</mark> почему-то оставляет на
-          некоторых буквах предыдущий вариант шрифта. Или просто сбрасывает стиль до{" "}
-          <mark className="app">Times New Roman</mark>. Также такой багованный шрифт не
-          реагирует на кнопки <mark className="ui">Bold</mark> и{" "}
-          <mark className="ui">Italic</mark>.
+          Суть бага в том, что при смене начертания программа почему-то сохраняет для
+          некоторых букв старый стиль или вовсе сбрасывает шрифт на{" "}
+          <mark className="select">«Times New Roman»</mark>. Такой «багованный» шрифт
+          также не реагирует на кнопки <mark className="select">«Bold»</mark> и{" "}
+          <mark className="select">«Italic»</mark>.
         </p>
-        <VideoFigure
-          caption="Проблема кривого начертания на примере Cascadia Mono"
-          styleClass="figure_windows-dark"
-          videoSrc="images/aftereffects/font-reset_bug.mp4"
+
+        <ContentFigure
+          caption="Проблема некорректного начертания на примере Cascadia Mono"
+          src="images/aftereffects/font-reset_bug.mp4"
+          theme="dark"
+          type="video"
+          variant="windows"
         />
-        <AdditionWarning>
+
+        <Addition type="warning">
           Приведённые ниже способы{" "}
           <u>
             <b>не являются панацеей</b>
           </u>{" "}
-          для решения этой проблемы и позволяют лишь исключить часть проблем при
-          использовании конкретного шрифта.
-        </AdditionWarning>
+          и лишь помогают исключить некоторые проблемы.
+        </Addition>
+
         <ul>
           <li>
-            Для попытки устранения проблемы попробуйте переконвертировать ваш шрифт в
-            другой формат, например из <mark className="file">TTF</mark> в{" "}
-            <mark className="file">OTF</mark> или наоборот. Вполне возможно, что тот, кто
-            опубликовал шрифт, срукожопил и файл оказался непригоден для использования в
-            некоторых программах. Ну или просто скачайте нужный шрифт из другого
-            источника, например <a href="https://fonts.google.com/">Google Fonts</a>.
+            Попробуйте переконвертировать шрифт в другой формат (например, из{" "}
+            <mark className="file">TTF</mark> в <mark className="file">OTF</mark> или
+            наоборот). Возможно, файл шрифта был создан с ошибками.
           </li>
           <li>
-            Если совет выше не помог, то попробуйте переключить рендер на процессор в{" "}
-            <mark className="ui">Project Manager</mark> и почистить кэши программы в{" "}
-            <mark className="ui">Edit &gt; Purge &gt; All Memory</mark>.
+            Скачайте нужный шрифт из другого источника — например, с{" "}
+            <a href="https://fonts.google.com/">Google Fonts</a>, предварительно удалив
+            старый.
           </li>
           <li>
-            Если ваш шрифт работает прекрасно, но при попытке написать что-то на кириллице
-            - сбрасывается, то убедитесь в том, что шрифт действительно поддерживает
-            кириллицу. Если шрифт не поддерживает кириллицу, то попробуйте найти на
-            просторах интернета ваш шрифт с поддержкой кириллицы или договоритесь с
-            заказчиком о смене шрифта в проекте, если это возможно.
+            Если это не помогло, попробуйте переключить рендер на процессор в{" "}
+            <mark className="select">«Project Settings»</mark> и очистить кэш через{" "}
+            <mark className="select">«Edit» → «Purge» → «All Memory & Disk Cache»</mark>,
+            а потом написать текст заново.
+          </li>
+          <li>
+            Если шрифт работает нормально, но сбрасывается при попытке написать на
+            кириллице — убедитесь, что он действительно поддерживает кириллицу. В
+            противном случае найдите похожий шрифт с поддержкой кириллицы.
           </li>
         </ul>
       </DetailsSummary>
-      <DetailsSummary title="Как открыть несколько экземпляров программы и работать в разных проектах?">
-        <AdditionDanger>
-          Использование нескольких открытых экземпляров{" "}
-          <mark className="app">Adobe After Effects</mark> может привести к увеличению
-          потребления оперативной памяти и остальных ресурсов вашего устройства.
-          Используйте эту опцию с умом!
-        </AdditionDanger>
+      <DetailsSummary
+        tag="несколько экземпляров, multiple instances, два окна, запуск, одновременно"
+        title="Как открыть несколько копий программы и работать в разных проектах одновременно?"
+      >
+        <Addition type="danger">
+          Запуск нескольких копий <mark className="app">Adobe After Effects</mark> может
+          существенно увеличить нагрузку на ресурсы компьютера.
+        </Addition>
+
         <p>
-          Иногда возникает ситуация, когда вы закончили работу и поставили свой проект на
-          рендер, но в это время нужно открыть другой проект и внести в него правки. А
-          сделать вы это не можете, потому что программа занята экспортом другой
-          композиции. По умолчанию <mark className="app">Adobe After Effects</mark> не
-          позволяет открывать больше одного экземпляра, но разработчики оставили
-          возможность запуска нескольких инстанций программы.
+          Иногда возникает ситуация: один проект рендерится, а в это время нужно открыть
+          другой и внести правки. По умолчанию{" "}
+          <mark className="app">Adobe After Effects</mark> не позволяет запускать
+          несколько экземпляров, но это ограничение можно обойти.
         </p>
-        <ContentSwitcher
+
+        <ContentFilter
           macContent={
             <div>
               <p>
-                Чтобы открыть ещё один экземпляр - нужно перейти в директорию{" "}
-                <mark className="path">~/Library/Applications/After Effects 20XX</mark>,
-                затем нажать <mark className="key">ПКМ</mark> по{" "}
-                <mark className="app">Adobe After Effects 20XX</mark> и выбрать{" "}
-                <mark className="ui">Показать содержимое пакета</mark>. После открытия
-                содержимого перейдите в <mark className="ui">Contents/MacOS</mark> и
-                нажмите два раза по файлу <mark className="app">Adobe After Effects</mark>
-                . У вас должна открыться консоль и открыться ещё один экземпляр программы.
+                Чтобы открыть ещё один экземпляр, перейдите в папку с программой, нажмите{" "}
+                <mark className="key">ПКМ</mark> по иконке{" "}
+                <mark className="app">Adobe After Effects</mark> и выберите{" "}
+                <mark className="select">«Показать содержимое пакета»</mark>. Затем
+                откройте <mark className="path">Contents/MacOS</mark> и дважды щёлкните по
+                исполняемому файлу <mark className="app">Adobe After Effects</mark>.
+                Откроется терминал, а вместе с ним — ещё одна копия программы, в которой
+                вы можете открыть другой проект и работать с ними.
               </p>
-              <YouTubeVideo
-                caption="Как открыть несколько инстанций Adobe After Effects"
-                link="k1x1goE2F10"
+              <ContentFigure
+                caption="Как открыть несколько экземпляров Adobe After Effects"
+                src="k1x1goE2F10"
+                type="youtube"
               />
             </div>
           }
           windowsContent={
             <div>
               <p>
-                Чтобы убрать данное ограничение - установите ключ{" "}
-                <mark className="code">-m</mark> в конец ярлыка с программой. Для этого
-                откройте свойства ярлыка с{" "}
-                <mark className="app">Adobe After Effects</mark> и переместите курсор до
-                конца в поле <mark className="ui">Объект</mark>. Затем напишите{" "}
-                <mark className="code">-m</mark> и нажмите на{" "}
-                <mark className="ui">Применить</mark> в правом нижем углу окна. После
-                этого вы сможете запускать несколько экземпляров{" "}
-                <mark className="app">Adobe After Effects</mark> с помощью этого ярлыка и
-                работать с программами как обычно.
+                Чтобы снять это ограничение, добавьте ключ{" "}
+                <mark className="code">-m</mark> в свойства ярлыка. Для этого откройте
+                свойства ярлыка <mark className="app">Adobe After Effects</mark>,
+                перейдите в конец строки <mark className="select">«Объект»</mark>,
+                поставьте пробел и допишите <mark className="code">-m</mark>. После этого
+                нажмите <mark className="select">«Применить»</mark> и закройте свойства
+                ярлыка. Теперь этот ярлык позволит запускать несколько копий программы, в
+                которых вы можете открыть разные проекты и работать с ними.
               </p>
-              <VideoFigure
-                caption="Включение возможности открытия нескольких экземпляров Adobe After Effects"
-                styleClass="figure_windows-dark"
-                videoSrc="images/aftereffects/enable_multiple_ae_instances.mp4"
+              <ContentFigure
+                caption="Включение возможности открытия нескольких экземпляров"
+                src="images/aftereffects/enable_multiple_ae_instances.mp4"
+                theme="dark"
+                type="video"
+                variant="windows"
               />
             </div>
           }
         />
       </DetailsSummary>
-      <DetailsSummary title="Я где-то слышал про секретные настройки программы. Как их открыть и полезны ли они?">
+      <DetailsSummary
+        tag="secret, preferences, отладка, скрытые настройки, disable layer cache"
+        title="Что такое «секретные» настройки и как их открыть?"
+      >
         <p>
-          Разработчики из <mark>Adobe</mark> оставили некоторые функции от любопытных лиц
-          и поместила их в отдельную категорию <mark className="ui">Secret</mark>, только
-          вот не учли одно &quot;но&quot;. Они не оставили там ничего интересного, прям
-          совсем.
+          Разработчики оставили некоторые функции, спрятав их в «секретном» разделе{" "}
+          <mark className="select">«Secret»</mark>. Правда, ничего особенно интересного
+          для обычного пользователя там нет. Чтобы открыть секретные настройки, откройте
+          любой раздел настроек <mark className="select">«Edit» → «Preferences»</mark>,
+          удерживая клавишу <mark className="key">Shift</mark>. В появившемся окне слева
+          появится раздел <mark className="select">«Secret»</mark>.
         </p>
-        <p>
-          Для того, чтобы открыть &quot;секретные настройки&quot; в{" "}
-          <mark className="app">Adobe After Effects</mark> - нужно открыть любой раздел
-          настроек в <mark className="ui">Edit &gt; Preferences</mark> с зажатой клавишей{" "}
-          <mark className="key">Shift</mark>. После этого у вас откроется окно{" "}
-          <mark className="ui">Preferences</mark>, в котором появится раздел{" "}
-          <mark className="ui">Secret</mark>, куда вы можете перейти.
-        </p>
-        <AdditionWarning>
-          Учтите, что клавиша <mark className="key">Shift</mark> должна быть зажата до тех
-          пор, пока окно с настройками не откроется.
-        </AdditionWarning>
-        <ImageFigure
+        <Addition type="warning">
+          Клавиша <mark className="key">Shift</mark> должна быть зажата до тех пор, пока
+          окно с настройками не откроется.
+        </Addition>
+        <ContentFigure
           caption="Preferences"
-          imgSrc="images/aftereffects/secret_settings.png"
           imgTitle="Секретные настройки"
-          styleClass="figure_windows-dark"
+          src="images/aftereffects/secret_settings.png"
+          theme="dark"
+          type="image"
+          variant="windows"
         />
         <p>
           В последних версиях <mark className="app">Adobe After Effects</mark> там
-          находятся всего лишь три настройки. Иногда отключение кэширование слоя и
-          автоматическая очистка кадров может вам помочь, если вы испытываете проблемы с
-          переполнением оперативной памяти при экспорте композиции.
+          находится всего три настройки. Иногда отключение кэширования слоёв и
+          автоматическая очистка кадров могут помочь, если вы сталкиваетесь с
+          переполнением оперативной памяти при рендеринге.
         </p>
-        <AdditionWarning>
-          Изменение этих параметров может серьёзно сказаться на стабильности программы.{" "}
-          <b>
-            <u>Выполняйте действия на свой страх и риск.</u>
-          </b>
-        </AdditionWarning>
+        <Addition type="danger">
+          Изменение этих параметров может повлиять на стабильность программы. Настраивайте
+          эти параметры на свой страх и риск.
+        </Addition>
         <ul>
           <li>
-            <mark className="ui">Disable Layer Cache</mark> - ожидаемо отключает
-            кэширование слоёв.
+            <mark className="select">«Disable Layer Cache»</mark> — отключает кэширование
+            слоёв.
           </li>
           <li>
-            <mark className="ui">Purge Every X Frames During Make Movie</mark>, где вместо{" "}
-            <mark>X</mark> любое число от <mark>0</mark> до <mark>99999</mark> -
-            автоматически очищать каждый выбранный кадр при рендере последовательности
-            изображений.
+            <mark className="select">«Purge Every X Frames During Make Movie»</mark> —
+            автоматически очищает память через каждый заданный параметр кадров при
+            рендеринге.
           </li>
           <li>
-            <mark className="ui">Ignore Sequence Rendering Errors</mark> позволяет
-            программе забить болт на ошибки при рендере последовательности изображений. В
-            повседневной практике параметр бесполезен, имхо.
+            <mark className="select">«Ignore Sequence Rendering Errors»</mark> — позволяет
+            программе игнорировать ошибки при рендеринге секвенций.
           </li>
         </ul>
       </DetailsSummary>
-      <AdditionInfo>
-        Ответы на некоторые возникающие вопросы, связанные с интерфейсом, находятся в
-        другом разделе -{" "}
-        <a
-          href="#interface"
-          onClick={(e) => {
-            e.preventDefault();
-
-            const target = document.getElementById("interface");
-
-            if (target) {
-              const headerHeight = document.querySelector("header")?.offsetHeight ?? 0;
-
-              const padding = Math.min(
-                10 + (14 - 10) * ((window.innerWidth - 320) / (768 - 320)),
-                14
-              );
-
-              const y =
-                target.getBoundingClientRect().top +
-                window.pageYOffset -
-                headerHeight -
-                padding;
-              window.scrollTo({top: y, behavior: "smooth"});
-            }
-          }}
-        >
-          Интерфейс
-        </a>
-        .
-      </AdditionInfo>
+      <Addition type="info">
+        Ответы на некоторые вопросы, связанные с интерфейсом, находятся в разделе{" "}
+        <a href="#interface">«Интерфейс»</a>.
+      </Addition>
     </div>
   );
 };
