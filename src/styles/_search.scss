@@ -51,7 +51,7 @@
 .search-results {
   max-height: clamp(50svh, calc(50svh + 20 * (100vw - 400px) / 800), 90svh);
   overflow-y: auto;
-  scrollbar-width: none;
+  scrollbar-width: 3px;
 }
 
 .search-results.show-fade {
