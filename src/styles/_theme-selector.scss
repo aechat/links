@@ -29,6 +29,13 @@
   flex-wrap: wrap;
   justify-content: space-between;
   width: 100%;
+
+  button:focus,
+  button:active,
+  button:hover {
+    outline: 1px solid var(--summary-border);
+    background-color: var(--summary-hover);
+  }
 }
 
 .theme-button {
@@ -38,14 +45,15 @@
   justify-content: center;
   align-items: center;
   gap: 10px;
+  z-index: 1;
+  transition: background-color 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
   outline: 1px solid var(--summary-border);
-  // border-radius: $roundness;
   background-color: var(--summary-background);
   padding: 10px;
   max-width: 100%;
   overflow-y: hidden;
-  font-weight: 600;
-  font-size: 0.875rem;
+  font-weight: 500;
+  font-size: 0.95rem;
   font-family: Onest, sans-serif;
 }
 
@@ -56,5 +64,6 @@
 }
 
 .theme-button-selected {
+  outline: 1px solid var(--summary-border);
   background-color: var(--summary-hover);
 }
