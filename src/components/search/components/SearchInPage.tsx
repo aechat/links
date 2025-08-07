@@ -86,8 +86,8 @@ const SearchResults: React.FC<{
                 isMobile
                   ? {opacity: 1, filter: "none"}
                   : isSelected || isHovered
-                    ? { filter: "none"}
-                    : { filter: "saturate(0.25)"}
+                    ? {filter: "none"}
+                    : {filter: "saturate(0.25)"}
               }
               tabIndex={0}
               onClick={(e) => {
@@ -418,7 +418,7 @@ export const SearchInPage: React.FC<{sections: SearchSection[]}> = ({sections}) 
             className="search-input"
             placeholder="Введите что-нибудь для поиска..."
             style={{cursor: "text"}}
-            type="text"
+            type="search"
             value={query}
             onChange={(e) => handleQueryChange(e.target.value)}
           />
