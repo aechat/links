@@ -243,7 +243,7 @@
       margin: 0;
     }
 
-    .figure-macos,
+    .figure-mac,
     .figure-windows {
       &-light,
       &-dark {
@@ -253,6 +253,18 @@
 
     .figure-browser-youtube {
       width: 100%;
+    }
+
+    .addition-info,
+    .addition-warning,
+    .addition-danger {
+      &:first-child {
+        margin-block-start: 5px;
+      }
+
+      &:last-child {
+        margin-block-end: 5px;
+      }
     }
 
     code {
@@ -292,7 +304,6 @@
   li > ul > li {
     padding-inline: 20px;
     padding-inline-end: 0;
-
     &::before {
       left: 6px;
     }
