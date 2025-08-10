@@ -4,598 +4,572 @@ import React from "react";
 
 import Addition from "../../../components/Addition";
 
-import {ImageFigure, VideoFigure, YouTubeVideo} from "../../../components/ContentFigure";
+import {ContentFigure} from "../../../components/ContentFigure";
 
 import DetailsSummary from "../../../components/DetailsSummary";
 
-import ContentSwitcher from "../../../components/features/ContentFilter";
-
+import ContentFilter from "../../../components/features/ContentFilter";
 
 const AEInterface: React.FC = () => {
   return (
     <div className="faq-content">
-      <DetailsSummary title="Как включить отображение границ слоёв?">
+      <DetailsSummary
+        tag="стартовая страница, домашний экран, окно с проектами, home screen"
+        title="Почему у меня не работает окно с недавними проектами и как его отключить?"
+      >
         <p>
-          Для включения отображения границ слоёв и их манипуляторов в окне предпросмотра,
-          нажмите на комбинацию клавиш <mark className="key">Ctrl + Shift + H</mark> или
-          нажмите на соответствующую иконку в окне предпросмотра.
+          По умолчанию при запуске <mark className="app">Adobe After Effects</mark>{" "}
+          открывается домашний экран с приветствием и списком недавних проектов. На
+          некоторых «народных» версиях программы стартовый экран может не загружаться и
+          оставаться пустым. Для решения этой проблемы достаточно войти в аккаунт{" "}
+          <mark className="company">Adobe</mark> через{" "}
+          <mark className="select">«Help» → «Sign In»</mark>.
         </p>
-        <ImageFigure
-          caption="Composition"
-          imgSrc="images/aftereffects/view_layer_bounds.png"
-          imgTitle="Включение отображение границ масок и слоёв"
-          styleClass="figure_windows-dark"
-        />
+        <Addition type="warning">
+          <ul>
+            <li>
+              Если при попытке входа вы столкнулись с окном{" "}
+              <mark className="select">«Sorry, something went wrong»</mark> и надписью{" "}
+              <mark className="select">«Are you connected to the internet?»</mark>, то,
+              скорее всего, программа не может выйти в интернет. Для решения этой проблемы
+              временно включите <mark className="app">VPN</mark> или разрешите программе
+              доступ в сеть в настройках <mark className="app">брандмауэра</mark>.
+            </li>
+            <li>
+              Чтобы открыть <mark className="app">брандмауэр</mark>, запустите{" "}
+              <mark className="app">«Выполнить»</mark> с помощью комбинации клавиш{" "}
+              <mark className="key">Win + R</mark>, введите{" "}
+              <mark className="code">wf.msc</mark> и нажмите{" "}
+              <mark className="key">Enter</mark>. Затем перейдите в{" "}
+              <mark className="select">«Правила для входящих подключений»</mark>, найдите
+              правила, связанные с блокировкой <mark className="company">Adobe</mark>,
+              нажмите на них <mark className="key">ПКМ</mark> и выберите{" "}
+              <mark className="select">«Отключить правило»</mark>. После этого
+              перезапустите <mark className="app">Adobe After Effects</mark>, войдите в
+              аккаунт и снова включите правила <mark className="app">брандмауэра</mark>.
+            </li>
+          </ul>
+        </Addition>
+        <Divider>Отключаем домашний экран при запуске программы</Divider>
         <p>
-          Если вы всё ещё не видите то, что вам нужно с этой включённой опцией - проверьте
-          настройки <mark className="ui">View Options</mark>, нажав на комбинацию клавиш{" "}
-          <mark className="key">Ctrl + Alt + U</mark> и выставьте галочки рядом со всеми
-          параметрами.
+          Если вход в аккаунт вас не устраивает или это окно просто мешает, его можно
+          отключить. Для этого перейдите в{" "}
+          <mark className="select">«Edit» → «Preferences» → «Startup & Repair»</mark> и
+          снимите галочку с параметра <mark className="select">«Enable Home Screen»</mark>
+          .
         </p>
-        <ImageFigure
-          caption="View Options"
-          imgSrc="images/aftereffects/view_options.png"
-          imgTitle="Настройка отображения параметров слоя"
-          styleClass="figure_windows-dark"
-        />
-        <p>
-          Если вы не видите путь движения анимации вашего объекта или оно слишком короткое
-          - измените область времени отображения пути движения, открыв{" "}
-          <mark className="ui">Edit &gt; Preferences &gt; Display</mark>. В разделе{" "}
-          <mark className="ui">Motion Graph</mark> по умолчанию стоит отображение длины
-          пути движения анимации не более 15 секунд. Если вы хотите включить отображение
-          траектории по всей длине вашей анимации, то установите значение{" "}
-          <mark className="ui">All Keyframes</mark>. Ну или можете вовсе отключить
-          траекторию пути.
-        </p>
-        <ImageFigure
+        <Addition type="info">
+          В старых версиях <mark className="app">Adobe After Effects</mark> этот параметр
+          находится в разделе <mark className="select">«General»</mark>.
+        </Addition>
+        <ContentFigure
           caption="Preferences"
-          imgSrc="images/aftereffects/change_motion_path_range.png"
-          imgTitle="Изменение области времени отображения пути движения"
-          styleClass="figure_windows-dark"
+          imgTitle="Переключаем отображение домашнего экрана"
+          src="images/aftereffects/enable_home_screen.png"
+          theme="dark"
+          type="image"
+          variant="windows"
         />
       </DetailsSummary>
-      <DetailsSummary title="Что означает зелёная и синяя полоса сверху на таймлайне?">
+      <DetailsSummary
+        tag="интерфейс, панель, восстановить, окна, рабочее пространство, восстановление окон, закрытая панель"
+        title="Как вернуть случайно закрытое окно рабочего пространства?"
+      >
+        <p>
+          Чтобы вернуть случайно закрытое окно, откройте меню{" "}
+          <mark className="select">«Window»</mark> и выберите в списке его название. В
+          этом же меню можно открыть окна расширений или переключиться на другое рабочее
+          пространство. Чтобы закрыть панель в рабочем пространстве, нажмите на крестик
+          слева от её заголовка или кликните по трём полоскам рядом и выберите{" "}
+          <mark className="select">«Close Panel»</mark>.
+        </p>
+        <ContentFigure
+          caption="Восстановление закрытого окна"
+          src="images/aftereffects/open_window.mp4"
+          theme="light"
+          type="video"
+          variant="windows"
+        />
+      </DetailsSummary>
+      <DetailsSummary
+        tag="закрепить, прикрепить, панель, скрипт, ScriptUI Panels, закрепление окон, открепление окон, окна скриптов, установка скриптов, рабочее пространство"
+        title="Как прикрепить нужное окно к рабочему пространству программы?"
+      >
+        <p>
+          Чтобы прикрепить окно к рабочему пространству, зажмите левую кнопку мыши на его
+          названии и перетащите в нужное место. Программа предложит варианты закрепления —
+          внутри другой панели или рядом с ней. Чтобы открепить окно, нажмите на три
+          полоски рядом с его заголовком и выберите{" "}
+          <mark className="select">«Undock Panel»</mark>.
+        </p>
+        <Addition type="info">
+          Перетаскивайте именно вкладку панели в интерфейсе{" "}
+          <mark className="app">Adobe After Effects</mark>, а не заголовок окна, который
+          создаёт операционная система.
+        </Addition>
+        <ContentFigure
+          caption="Прикрепление окна в рабочее пространство"
+          src="images/aftereffects/attach_window.mp4"
+          theme="dark"
+          type="video"
+          variant="windows"
+        />
+        <Divider>А как закрепить окно скрипта?</Divider>
+        <ContentFilter
+          macContent={
+            <div>
+              <p>
+                Скрипты формата <mark className="file">JSX</mark> или{" "}
+                <mark className="file">JSXBIN</mark> с интерфейсом нельзя прикрепить, если
+                они лежат прямо в папке <mark className="path">../Scripts</mark>, а не в
+                специальной подпапке <mark className="path">ScriptUI Panels</mark>.
+              </p>
+              <ContentFigure
+                caption="Adobe After Effects"
+                src="images/aftereffects/i_cant_attach_script.mp4"
+                theme="light"
+                type="video"
+                variant="windows"
+              />
+              <p>
+                Чтобы сделать такие окна прикрепляемыми, переместите нужные скрипты в{" "}
+                <mark className="path">ScriptUI Panels</mark>. Полный путь к ним должен
+                выглядеть так:{" "}
+                <mark className="path">
+                  /Applications/Adobe After Effects 20XX/Scripts/ScriptUI Panels
+                </mark>
+                .
+              </p>
+              <Addition type="info">
+                Если <mark className="app">Adobe After Effects</mark> был запущен во время
+                переноса скрипта, перезапустите программу.
+              </Addition>
+              <ContentFigure
+                caption="Проводник"
+                src="images/aftereffects/move_from_scripts_to_scriptuipanels.mp4"
+                theme="dark"
+                type="video"
+                variant="windows"
+              />
+            </div>
+          }
+          windowsContent={
+            <div>
+              <p>
+                Скрипты формата <mark className="file">JSX</mark> или{" "}
+                <mark className="file">JSXBIN</mark> с интерфейсом нельзя прикрепить, если
+                они лежат прямо в папке{" "}
+                <mark className="path">
+                  C:\Program Files\Adobe After Effects 20XX\Support Files\Scripts
+                </mark>
+                , а не в специальной подпапке{" "}
+                <mark className="path">ScriptUI Panels</mark>.
+              </p>
+              <ContentFigure
+                caption="Adobe After Effects"
+                src="images/aftereffects/i_cant_attach_script.mp4"
+                theme="light"
+                type="video"
+                variant="windows"
+              />
+              <p>
+                Чтобы сделать такие окна прикрепляемыми, переместите нужные скрипты в{" "}
+                <mark className="path">ScriptUI Panels</mark>. Полный путь к ним должен
+                выглядеть так:{" "}
+                <mark className="path">
+                  C:\Program Files\Adobe After Effects 20XX\Support Files\Scripts\ScriptUI
+                  Panels
+                </mark>
+                .
+              </p>
+              <Addition type="info">
+                Если <mark className="app">Adobe After Effects</mark> был запущен во время
+                переноса скрипта, перезапустите программу.
+              </Addition>
+              <ContentFigure
+                caption="Проводник"
+                src="images/aftereffects/move_from_scripts_to_scriptuipanels.mp4"
+                theme="dark"
+                type="video"
+                variant="windows"
+              />
+            </div>
+          }
+        />
+        <p>
+          После переноса скрипт переместится из меню{" "}
+          <mark className="select">«File» → «Scripts»</mark> в конец списка меню{" "}
+          <mark className="select">«Window»</mark>. Открыв скрипт оттуда, вы сможете
+          прикрепить его окно в любой части рабочего пространства.
+        </p>
+        <ContentFigure
+          caption="Прикрепление скрипта True Comp Duplicator"
+          src="images/aftereffects/attaching_jsx_script.mp4"
+          theme="light"
+          type="video"
+          variant="windows"
+        />
+      </DetailsSummary>
+      <DetailsSummary
+        tag="окна, вкладки, список панелей, рабочее пространство, организация интерфейса"
+        title="Как разместить несколько окон во вкладках или расположить их списком?"
+      >
+        <p>
+          Чтобы сэкономить место в своём рабочем пространстве, несколько окон можно
+          объединить в одну панель с вкладками. Для этого перенесите нужное окно в центр
+          другого — они соберутся в общий блок, между вкладками которого можно будет легко
+          переключаться.
+        </p>
+        <p>
+          Есть и другой вариант — организация в виде списка. В этом режиме свёрнутые окна
+          отображаются строками, а при клике на название нужное окно разворачивается.
+          Чтобы включить такой вид, откройте контекстное меню окна и выберите{" "}
+          <mark className="select">«Panel Group Settings» → «Stacked Panel Group»</mark>.
+        </p>
+        <Addition type="info">
+          Если хотите, чтобы из списка одновременно было открыто только одно окно,
+          активируйте опцию <mark className="select">«Solo Panels in Stack»</mark> в том
+          же контекстном меню.
+        </Addition>
+        <ContentFigure
+          caption="Управление окнами в рабочем пространстве"
+          src="images/aftereffects/manage_windows.mp4"
+          theme="dark"
+          type="video"
+          variant="windows"
+        />
+      </DetailsSummary>
+      <DetailsSummary
+        tag="workspaces, сохранить воркспейс, открытие проектов"
+        title="Как зафиксировать текущее рабочее пространство при открытии проектов?"
+      >
+        <p>
+          В <mark className="app">Adobe After Effects</mark> версии <mark>25.2</mark> и
+          новее появилась настройка, которая предотвращает смену рабочего пространства при
+          открытии своих или чужих проектов. Раньше эта особенность раздражала многих
+          пользователей, поэтому <mark className="company">Adobe</mark> добавила{" "}
+          <a href="https://helpx.adobe.com/after-effects/using/whats-new/2025-2.html#maintain-workspace-when-opening-projects">
+            отдельный параметр
+          </a>{" "}
+          для решения этой проблемы. Чтобы его включить, откройте{" "}
+          <mark className="select">«Edit» → «Preferences» → «General»</mark> и активируйте{" "}
+          <mark className="select">
+            «Maintain current workspace when opening projects»
+          </mark>
+          . После этого рабочее пространство будет оставаться неизменным, пока вы не
+          измените его вручную.
+        </p>
+        <Addition type="info">
+          В старых версиях <mark className="app">Adobe After Effects</mark> такой опции
+          нет. Чтобы она появилась, обновитесь до более свежей версии программы.
+        </Addition>
+        <ContentFigure
+          caption="Preferences"
+          imgTitle="Настройка предотвращения переключения рабочих пространств"
+          src="images/aftereffects/enable_maintain_current_workspace.png"
+          theme="dark"
+          type="image"
+          variant="windows"
+        />
+      </DetailsSummary>
+      <DetailsSummary
+        tag="отобразить переключатели, включить кнопки, пропали нужные свитчи, колонки, таймлайн, столбцы, контекстное меню, интерфейс таймлайна, переключатели столбцов"
+        title="Как вернуть пропавшие переключатели и столбцы на таймлайне?"
+      >
+        <p>
+          Если вы случайно скрыли нужные стоблцы на таймлайне, не паникуйте. Чтобы вернуть
+          их, нажмите <mark className="key">ПКМ</mark> по их заголовкам и в разделе{" "}
+          <mark className="select">«Columns»</mark> контекстного меню отметьте нужные
+          пункты.
+        </p>
+        <p>
+          В качестве альтернативы вы можете воспользоваться четырьмя кнопками в левом
+          нижнем углу таймлайна: они позволяют быстро включать и отключать определенные
+          столбцы.
+        </p>
+        <ContentFigure
+          caption="Включение столбцов на таймлайне"
+          src="images/aftereffects/enable_timeline_columns.mp4"
+          theme="dark"
+          type="video"
+          variant="windows"
+        />
+      </DetailsSummary>
+      <DetailsSummary
+        tag="таймлайн, предпросмотр, кэширование, оперативная память, дисковый кэш, воспроизведение"
+        title="Что означают зелёная и синяя полосы на таймлайне?"
+      >
         <p>
           Каждый, кто хоть раз работал в <mark className="app">Adobe After Effects</mark>,
-          замечал на своём таймлайне зелёные или синие полосы, которые в каких-то случаях
-          появляются и пропадают. Эти индикаторы показывают состояние кадров - отрендерены
-          ли они и где расположены - в оперативной памяти или в дисковом кэше.
+          замечал на таймлайне зелёные или синие полосы, которые то появляются, то
+          пропадают. Эти индикаторы показывают состояние кадров: отрендерены ли они и где
+          находятся — в оперативной памяти или в дисковом кэше.
         </p>
-        <ImageFigure
+        <ContentFigure
           caption="Timeline"
-          imgSrc="images/aftereffects/green-blue_lines.png"
           imgTitle="Демонстрация таймлайна"
-          styleClass="figure_windows-dark"
+          src="images/aftereffects/green-blue_lines.png"
+          theme="dark"
+          type="image"
+          variant="windows"
         />
         <ul>
           <li>
-            <mark className="ui">Зелёная линия</mark> показывает кадры композиции, которые
-            были закэшированы в оперативную память и готовы для дальнейшего
-            воспроизведения. Этот промежуток может расширяться в зависимости от того,
-            сколько кадров вы отрендерили, так и сужаться от нехватки оперативной памяти,
-            так как программа может выгрузить эти кадры в дисковый кэш или выкинуть их
-            далеко и надолго.
-            <AdditionWarning>
+            <mark className="select">Зелёная линия</mark> показывает кадры композиции,
+            которые были кэшированы в оперативную память и готовы к воспроизведению. Этот
+            промежуток может как расширяться в зависимости от количества отрендеренных
+            кадров, так и сужаться из-за нехватки оперативной памяти, поскольку программа
+            может выгрузить эти кадры в дисковый кэш или удалить их.
+            <Addition type="warning">
               В отличие от классических нелинейных редакторов, например{" "}
               <mark className="app">Adobe Premiere Pro</mark> или{" "}
-              <mark className="app">Davinci Resolve</mark> -{" "}
-              <mark className="app">Adobe After Effects</mark> не рассчитан на отображение
-              предпросмотра в реальном времени, поэтому кадры всегда стоит предварительно
-              прокэшировать, прежде чем его просмотреть. Для этого я рекомендую включить в
-              окне <mark className="ui">Preview</mark> два параметра -{" "}
-              <mark className="ui">Cache Before Playback</mark> и{" "}
-              <mark className="ui">If Caching, play cached frames</mark>.{" "}
+              <mark className="app">DaVinci Resolve</mark>,{" "}
+              <mark className="app">Adobe After Effects</mark> не рассчитан на
+              предпросмотр в реальном времени, поэтому кадры всегда стоит предварительно
+              кэшировать. Для этого включите в окне{" "}
+              <mark className="select">«Preview»</mark> два параметра:{" "}
+              <mark className="select">«Cache Before Playback»</mark> и{" "}
+              <mark className="select">«If Caching, play cached frames»</mark>.{" "}
               <a href="#3.10">Подробнее...</a>
-            </AdditionWarning>
+            </Addition>
           </li>
           <li>
-            <mark className="ui">Синяя линия</mark> означает промежуток кадров, которые
-            были записаны в дисковый кэш. Они остаются доступными даже после перезапуска
-            программы, если кэш не был очищен. При попытке проиграть из дискового кэша -
-            кадры обратно перемещаются<sup>1</sup> в оперативную память и проигрываются
-            оттуда. При отключенном дисковом кэше - этот цвет на таймлайне не появится.
-            <AdditionInfo>
+            <mark className="select">Синяя линия</mark> означает промежуток кадров,
+            записанных в дисковый кэш. Они остаются доступными даже после перезапуска
+            программы, если кэш не был очищен. При попытке воспроизвести их из дискового
+            кэша кадры перемещаются<sup>1</sup> обратно в оперативную память и
+            проигрываются оттуда. Если дисковый кэш отключён, этот цвет на таймлайне не
+            появляется.
+            <Addition type="info">
               <sup>1</sup> В <mark className="app">Adobe After Effects</mark> версии{" "}
-              <mark>25.2</mark> и новее была добавлена функция проигрывания предпросмотра
-              напрямую из дискового кэша, минуя оперативную память, как будто вы смотрите
-              видео в видеопроигрывателе. В таком случае зелёная полоса будет означать
-              промежуток, который готов для дальнейшего воспроизведения предпросмотра.
-              Если у вас не отключен дисковый кэш, то эта опция уже включена по умолчанию,
-              а включить или выключить его можно в{" "}
-              <mark className="ui">
-                Edit &gt; Preferences &gt; Media & Disk Cache &gt; Enable Preview from
-                Disk Cache
+              <mark>25.2</mark> и новее добавили функцию воспроизведения предпросмотра
+              напрямую из дискового кэша, минуя оперативную память, — как в обычном
+              видеопроигрывателе. В таком случае зелёная полоса будет означать промежуток,
+              готовый к воспроизведению. Если дисковый кэш включён, эта опция активна по
+              умолчанию. Включить или выключить её можно в{" "}
+              <mark className="select">
+                «Edit» → «Preferences» → «Media & Disk Cache» → «Enable Preview from Disk
+                Cache»
               </mark>
-              . При использовании данной опции желательно использовать быстрый
-              твердотельный накопитель.
-            </AdditionInfo>
+              . При использовании данной опции желательно иметь быстрый накопитель.
+            </Addition>
           </li>
         </ul>
       </DetailsSummary>
       <DetailsSummary
-        tag="разделить оси, не могу изменить плавность, не редактируется график скорости, separate dimensions, усики, сосочки, манипуляторы, value speed graph"
-        title="Почему у меня пропали направляющие Безье?"
-      >
-        <p>
-          Часто новичок, который недавно открыл программу, может натыкать так, что у него
-          может пропасть некоторые важные элементы для создания различной анимации или
-          фигур.
-        </p>
-        <Divider>
-          Куда пропала возможность изменения плавности в графике скорости?
-        </Divider>
-        <p>
-          Если вы пытаетесь отредактировать график скорости значения у аттрибута, имеющий
-          более одного значения в массиве, например <mark className="ui">Position</mark>{" "}
-          или <mark className="ui">Anchor Point</mark>, то в таком случае в режиме графика{" "}
-          <mark className="ui">Value Graph</mark> вы не можете отредактировать скорость. В
-          таком случае у вас есть два выхода: либо разделить значения через{" "}
-          <mark className="ui">Separate Dimensions</mark>, если это возможно, либо
-          переключиться на вид графика скорости <mark className="ui">Speed Graph</mark>.
-        </p>
-        <Divider>Делим значения положения</Divider>
-        <p>
-          Для того, чтобы разделить значения, например положения, вам нужно нажать правой
-          кнопкой мыши по аттрибуту и нажать на{" "}
-          <mark className="ui">Separate Dimensions</mark>. Если разделить значения у
-          нужного параметра не получается - придётся переключиться на другой вид графика.
-        </p>
-        <VideoFigure
-          caption="Разделение аттрибутов положения на X и Y"
-          styleClass="figure_windows-dark"
-          videoSrc="images/aftereffects/separate_dimensions.mp4"
-        />
-        <Divider>Изменение вида графика скорости</Divider>
-        <p>
-          Для того, чтобы изменить вид графика с <mark className="ui">Value Graph</mark>{" "}
-          на <mark className="ui">Speed Graph</mark>, вам нужно открыть{" "}
-          <mark className="ui">Graph Editor</mark> с помощью комбинации клавиш{" "}
-          <mark className="key">Shift + F3</mark> или соответствующей кнопки на таймлайне,
-          открыть контекстное меню и выбрать то, что нам нужно.
-        </p>
-        <VideoFigure
-          caption="Изменение вида графика скорости"
-          styleClass="figure_windows-dark"
-          videoSrc="images/aftereffects/change_graph_view.mp4"
-        />
-        <Divider>Куда пропали &quot;усики&quot; в пространстве?</Divider>
-        <p>
-          Если вы хотите изменять плавность траектории движения объекта прямо в
-          предпросмотре, то вам нужно изменить тип пространственной интерполяции для
-          ключей. Для этого выделите нужные ключевые кадры и нажмите на комбинацию клавиш{" "}
-          <mark className="key">Ctrl + Alt + K</mark>. В открывшемся окне выберите в
-          параметре <mark className="ui">Spatial Interpolation</mark> значение{" "}
-          <mark className="ui">Bezier</mark> или любой другой тип безье. После этого вы
-          сможете изменять траекторию движения в предпросмотре без всяких проблем.
-        </p>
-        <VideoFigure
-          caption="Изменение типа пространственной интерполяции"
-          styleClass="figure_windows-dark"
-          videoSrc="images/aftereffects/change_spatial_interpolation.mp4"
-        />
-        <AdditionInfo>
-          Если вы не видите путь движения анимации вашего объекта или оно слишком короткое
-          - измените область времени отображения пути движения, открыв{" "}
-          <mark className="ui">Edit &gt; Preferences &gt; Display</mark> и установив
-          значение <mark className="ui">All Keyframes</mark>. Также убедитесь в том, что
-          вы включили отображение границ слоёв с помощью комбинации клавиш{" "}
-          <mark className="key">Ctrl + Shift + H</mark>.
-        </AdditionInfo>
-        <Divider>Почему у меня пропали манипуляторы при создании шейпов?</Divider>
-        <p>
-          При создании различных фигур с помощью пера иногда у вас может пропасть функция
-          изменения изгиба при зажатии <mark className="key">ПКМ</mark> и перемещении
-          курсора в сторону. Скорее всего вы случайно включили функцию{" "}
-          <mark className="ui">Rotobeizer</mark>, которая автоматически искривляет линию
-          под расположение точек. Данную функцию можно отключить в панели инструментов,
-          убрав соответствующую галочку.
-        </p>
-        <AdditionInfo>
-          Для конвертирования типа вертекса - воспользуйтесь инструментом{" "}
-          <mark className="ui">Convert Vertex Tool</mark>. Она активирует{" "}
-          <mark className="word">усики</mark> у созданных фигур, которые были созданы не с
-          помощью <mark className="ui">Rotobeizer</mark>.
-        </AdditionInfo>
-        <VideoFigure
-          caption="Adobe After Effects"
-          styleClass="figure_windows-dark"
-          videoSrc="images/aftereffects/rotobezier_demo.mp4"
-        />
-      </DetailsSummary>
-      <DetailsSummary
-        tag="стиль графов, другой вид, отображение скорости, как сделать нормальный вид графика, speed value graph выглядит по другому"
-        title="Почему мой график скорости не похож на тот, что показывают в уроках?"
-      >
-        <p>
-          Скорее всего у вас включен другой вид отображения графика скорости. Попробуйте
-          изменить вид на <mark className="ui">Value Graph</mark> или на{" "}
-          <mark className="ui">Speed Graph</mark>, в зависимости от того, что вам нужно.
-          Для этого откройте <mark className="ui">Graph Editor</mark> с помощью комбинации
-          клавиш <mark className="key">Shift + F3</mark> или соответствующей кнопки на
-          таймлайне, откройте контекстное меню и выберите то, что вам нужно.
-        </p>
-        <VideoFigure
-          caption="Изменение вида графика скорости"
-          styleClass="figure_windows-dark"
-          videoSrc="images/aftereffects/change_graph_view.mp4"
-        />
-      </DetailsSummary>
-      <DetailsSummary
-        tag="отобразить переключатели, включить кнопки, пропали нужные свитчи"
-        title="Как вернуть пропавшие переключатели и колонки на таймлайне?"
-      >
-        <p>
-          Если вы случайным образом дотыкались до такой степени, что у вас нужные
-          параметры на таймлайне пропали, то не время паниковать. Вы можете вернуть
-          отображение нужных переключателей - для этого нажмите на{" "}
-          <mark className="key">ПКМ</mark> по столбцам и выберите в разделе{" "}
-          <mark className="ui">Columns</mark> контекстного меню то, что вам нужно. Также в
-          левом нижнем углу окна таймлайна вы можете воспользоваться четырьмя кнопками для
-          быстрого переключения отображения некоторых колонок.
-        </p>
-        <VideoFigure
-          caption="Включение колонок на таймлайне"
-          styleClass="figure_windows-dark"
-          videoSrc="images/aftereffects/enable_timeline_columns.mp4"
-        />
-      </DetailsSummary>
-      <DetailsSummary
-        tag="открыть окно интерфейса"
-        title="Как вернуть случайно закрытое окно рабочего пространства?"
-      >
-        <p>
-          Для восстановления случайно закрытого окна перейдите в{" "}
-          <mark className="ui">Window</mark> и выберите нужное вам окно. Также в этом
-          контекстном меню можно открыть окна расширений или переключиться между рабочими
-          пространствами.
-        </p>
-        <VideoFigure
-          caption="Восстановление закрытого окна"
-          styleClass="figure_windows-light"
-          videoSrc="images/aftereffects/open_window.mp4"
-        />
-        <p>
-          Чтобы закрыть окно в интерфейсе рабочего пространства программы - нажмите на
-          крестик слева от выбранного заголовка окна или нажмите на три полоски возле
-          заголовка окна и выберите <mark className="ui">Close Panel</mark>.
-        </p>
-      </DetailsSummary>
-      <DetailsSummary
-        tag="не могу закрепить окно скрипта"
-        title="Как прикрепить нужное окно в рабочее пространство программы?"
-      >
-        <p>
-          Для того, чтобы прикрепить окно к рабочему пространству программы - нужно зажать
-          курсор в районе названия окна и перетащить его в нужное место. Программа сама
-          предложит вам прицепить его внутрь окна или в сторону.
-        </p>
-        <AdditionWarning>
-          Цепляться нужно именно за название вкладки в интерфейсе самого{" "}
-          <mark className="app">Adobe After Effects</mark>, а не за заголовок окна,
-          создаваемый вашей операционной системой.
-        </AdditionWarning>
-        <VideoFigure
-          caption="Прикрепление окна в рабочее пространство"
-          styleClass="figure_windows-dark"
-          videoSrc="images/aftereffects/attach_window.mp4"
-        />
-        <p>
-          Чтобы отцепить окно - нажмите на три полоски возле заголовка окна и нажмите на{" "}
-          <mark className="ui">Undock Panel</mark>.
-        </p>
-        <Divider>А со скриптами как?</Divider>
-        <p>
-          Скрипты формата <mark className="file">JSX</mark> или{" "}
-          <mark className="file">JSXBIN</mark>, которые содержат интерфейс, не могут быть
-          прикреплены, если они находятся в директории{" "}
-          <mark className="path">...\Adobe After Effects 20XX\Support Files\Scripts</mark>
-          , минуя папку <mark className="path">ScriptUI Panels</mark>.
-        </p>
-        <VideoFigure
-          caption="Adobe After Effects"
-          styleClass="figure_windows-light"
-          videoSrc="images/aftereffects/i_cant_attach_script.mp4"
-        />
-        <p>
-          Для возможности прикрепления таких окон в рабочее пространство скрипты формата{" "}
-          <mark className="file">JSX</mark> или <mark className="file">JSXBIN</mark>{" "}
-          необходимо переместить в папку <mark className="path">ScriptUI Panels</mark>.
-        </p>
-        <AdditionInfo>
-          Если <mark className="app">Adobe After Effects</mark> уже был запущен во время
-          переноса скрипта - перезапустите его.
-        </AdditionInfo>
-        <VideoFigure
-          caption="Проводник"
-          styleClass="figure_windows-dark"
-          videoSrc="images/aftereffects/move_from_scripts_to_scriptuipanels.mp4"
-        />
-        <p>
-          После переноса из одной папки в другую - скрипт переместится из меню{" "}
-          <mark className="ui">File &gt; Scripts</mark> в конец списка меню{" "}
-          <mark className="ui">Window</mark>. После открытия скрипта оттуда, у вас
-          появится возможность прикреплять окно скрипта в любой части рабочего
-          пространства.
-        </p>
-        <VideoFigure
-          caption="Прикрепление скрипта True Comp Duplicator"
-          styleClass="figure_windows-light"
-          videoSrc="images/aftereffects/attaching_jsx_script.mp4"
-        />
-      </DetailsSummary>
-      <DetailsSummary title="Как поставить несколько окон во вкладки или расположить их по списку?">
-        <p>
-          Чтобы организовать несколько окон в одном интерфейсе, их можно объединить в виде
-          вкладок внутри существующего окна, переместив их в одно окно. Это позволяет
-          легко переключаться между ними, экономя пространство экрана и обеспечивая доступ
-          ко всем инструментам в одном месте. Такой подход особенно удобен для работы на
-          небольших экранах, где важна компактность и функциональность.
-        </p>
-        <p>
-          Вкладки окон ещё можно организовать в формате списка, при нажатии на его
-          элементы - свёрнутые окна будут раскрываться. Для этого откройте меню, нажав на
-          три полоски в нужном окне, и выберите{" "}
-          <mark className="ui">Panel Group Settings &gt; Stacked Panel Group</mark>.
-        </p>
-        <AdditionInfo>
-          Чтобы одновременно открывалось только одно окно из списка, активируйте опцию{" "}
-          <mark className="ui">Solo Panels in Stack</mark> в тех же настройках.
-        </AdditionInfo>
-        <VideoFigure
-          caption="Управление окнами в рабочем пространстве"
-          styleClass="figure_windows-dark"
-          videoSrc="images/aftereffects/manage_windows.mp4"
-        />
-      </DetailsSummary>
-      <DetailsSummary title="Как сделать так, чтобы мое рабочее пространство не переключалось на другое при открытии чужих проектов?">
-        <AdditionWarning>
-          В старых версиях <mark className="app">Adobe After Effects</mark> такой опции
-          нет. Чтобы она появилась - обновитесь до более свежей версии.
-        </AdditionWarning>
-        <p>
-          В <mark className="app">Adobe After Effects</mark> версии <mark>25.2</mark> и
-          новее появилась новая функция в настройках, предотвращающая смену
-          пользовательского рабочего пространства на стандартное или иное. При частой
-          работе с чужими проектами изначальная особенность программы бесило многих
-          пользователей и <mark>Adobe</mark> добавила для этого{" "}
-          <a href="https://helpx.adobe.com/after-effects/using/whats-new/2025-2.html#maintain-workspace-when-opening-projects">
-            решение
-          </a>
-          . Для предотвращения переключения рабочих пространств нужно перейти в{" "}
-          <mark className="ui">Edit &gt; Preferences &gt; General</mark> и включить
-          параметр{" "}
-          <mark className="ui">Maintain current workspace when opening projects</mark>.
-          При включенной опции рабочие пространства перестанут переключаться сами по себе,
-          если пользователь явно не хочет их переключать.
-        </p>
-        <ImageFigure
-          caption="Preferences"
-          imgSrc="images/aftereffects/enable_maintain_current_workspace.png"
-          imgTitle="Настройка предотвращения переключения рабочих пространств"
-          styleClass="figure_windows-dark"
-        />
-      </DetailsSummary>
-      <DetailsSummary
-        tag="шляпка, стесняшка, медуза, shy layer, тихий, скрытые слои"
-        title="Почему я не вижу некоторые слои на таймлайне, хотя они видны в композиции и спокойно отображаются в окне предпросмотра?"
-      >
-        <p>
-          Обычно таким вопросом вы можете задаться, когда открываете шаблон или чужой
-          проект, в котором вы не оставили ни одного отпечатка. Автор проекта может скрыть
-          некоторые слои на таймлайне с помощью функции <mark className="ui">Shy</mark>{" "}
-          для того, чтобы шаловливые ручки не лезли не туда, куда нужно.
-        </p>
-        <p>
-          Включить или выключить отображение скрытых слоёв вы можете в панели инструментов
-          на таймлайне с помощью соответствующей иконки. Также задать параметр скрытого
-          слоя вы можете с помощью нужного переключателя.
-        </p>
-        <VideoFigure
-          caption="Работа со скрытыми слоями"
-          styleClass="figure_windows-dark"
-          videoSrc="images/aftereffects/toggle_shy.mp4"
-        />
-        <AdditionInfo>
-          Если вы не видите нужные переключатели у слоя, то включите колонку{" "}
-          <mark className="ui">Switches</mark>, нажав на первую иконку в левом нижнем
-          углу.
-        </AdditionInfo>
-      </DetailsSummary>
-      <DetailsSummary
-        tag="сбросились настройки, восстановить параметры"
-        title="Компьютер во время работы упал в BSOD и испортил мне настройки. Как мне их восстановить?"
-      >
-        <p>
-          В редких случаях при обычной работе с{" "}
-          <mark className="app">Adobe After Effects</mark> ваше устройство может упасть в
-          &quot;синий экран смерти&quot;, и в это время по несчастливому стечению
-          обстоятельств программа перезаписывала файл ваших настроек. Соответственно{" "}
-          <mark className="app">Adobe After Effects</mark> может побить файл настроек и,
-          скорее всего, в таком случае вы увидите при следующем запуске программы ошибку
-          чтения пользовательских настроек и сбросит их до &quot;заводских&quot;.
-        </p>
-        <p>
-          Если вы обновлялись с предыдущих версий{" "}
-          <mark className="app">Adobe After Effects</mark>, то вы можете импортировать
-          настройки со старых версий. Для этого перейдите в{" "}
-          <mark className="ui">Edit &gt; Preferences &gt; Startup & Repair</mark> найдите
-          и нажмите на кнопку{" "}
-          <mark className="ui">Migrate Previous Version Preferences</mark>. В открывшемся
-          окне вы можете выбрать из какой версии{" "}
-          <mark className="app">Adobe After Effects</mark> перенести настройки.
-        </p>
-        <ImageFigure
-          caption="Preferences"
-          imgSrc="images/aftereffects/migrate_previous_version_preferences.png"
-          imgTitle="Переносим настройки из старых версий программы"
-          styleClass="figure_windows-dark"
-        />
-        <p>
-          Если у вас предыдущих настроек нет, то переименовывать файл настроек, убрав
-          суффикс <mark>-old</mark> особого смысла нет, так как файл может быть поврежден.
-          Советую периодически сохранять настройки пользователя в какую-нибудь отдельную
-          папку или{" "}
-          <a href="#4.1">
-            настроить синхронизацию файлов конфигураций в облачном хранилище
-          </a>
-          . Открыть папку с настройками пользователя можно, нажав на кнопку{" "}
-          <mark className="ui">Reveal Preferences in Explorer</mark> в{" "}
-          <mark className="ui">Edit &gt; Preferences &gt; Startup & Repair</mark>.
-        </p>
-      </DetailsSummary>
-      <DetailsSummary
-        tag="track matte, альфа люма мейт, трекмейт, trkmat"
-        title="Что случилось с Alpha и Luma Matte в новых версиях программы?"
-      >
-        <p>
-          В <mark className="app">Adobe After Effects</mark> версиях <mark>2023</mark> и
-          новее работа с масками была переосмыслена, что упростило процесс, но создало
-          диссонанс с обучающими материалами. Старые уроки теперь могут запутать
-          пользователей новых версий, а новые - тех, кто остался на старых. Если вы
-          обучаетесь по какому-то туториалу - приспособьтесь к новому способу работы с
-          масками или поищите более актуальные видео по вашей теме.
-        </p>
-        <YouTubeVideo
-          caption="Обновление вкладки Track Matte"
-          link="2Fi57LLJrUE"
-        />
-        <AdditionInfo>
-          Дополнительную информацию об обновлении работы с масками можно{" "}
-          <a href="https://helpx.adobe.com/after-effects/using/track-mattes-and-traveling-mattes.html">
-            прочитать на сайте Adobe
-          </a>
-          .
-        </AdditionInfo>
-      </DetailsSummary>
-      <DetailsSummary
-        tag="properties window"
-        title="Как отключить автоматическое открытие окна свойств слоя?"
-      >
-        <p>
-          Отдельное окно <mark className="ui">Свойства</mark> или же{" "}
-          <mark className="ui">Properties</mark> была добавлена в{" "}
-          <mark className="app">Adobe After Effects 23.4</mark> и новее. После выхода
-          этого обновления не все приняли положительно такое окно свойств слоя, а кого-то
-          и выбешивало то, что это окно открывается автоматически при выборе некоторых
-          инструментов.
-        </p>
-        <AdditionInfo>
-          Подробности о работе этой функции вы можете{" "}
-          <a href="https://helpx.adobe.com/after-effects/using/properties-panel.html">
-            прочитать на официальном сайте Adobe
-          </a>
-          .
-        </AdditionInfo>
-        <p>
-          К счастью, автоматическое открытие окна свойств можно отключить, убрав галочку
-          из <mark className="ui">Auto-Open Panel</mark>. Эту процедуру нужно выполнить
-          пару раз, потому что эта галочка не отключает авто-открытие у всех инструментов.
-        </p>
-        <ImageFigure
-          caption="Adobe After Effects"
-          imgSrc="images/aftereffects/toggle_auto-open_panel.png"
-          imgTitle="Отключение автоматического открытия окна свойств"
-          styleClass="figure_windows-dark"
-        />
-      </DetailsSummary>
-      <DetailsSummary
-        tag="ктрл пробел, быстрое применение эффектов, фх консоль"
-        title="Как включить всплывающую панель для применения эффектов, которая открывается с помощью Ctrl+Space?"
-      >
-        <p>
-          То, что описано в этом вопросе - не является встроенной функцией{" "}
-          <mark className="app">Adobe After Effects</mark>. Здесь идёт речь о стороннем
-          плагине{" "}
-          <a href="https://www.videocopilot.net/blog/?s=fx%20console">FX Console</a>. С
-          помощью него действительно можно быстро применить эффект на выделенный слой,
-          нажав на комбинацию клавиш <mark className="key">Ctrl + Space</mark>. Также с
-          помощью данного плагина можно быстро создать скриншот текущего кадра в файл или
-          в буфер обмена.
-        </p>
-        <AdditionInfo>
-          Для создания скриншотов с полным разрешением - включите параметр{" "}
-          <mark className="ui">Full Resolution Screenshots</mark> в настройках плагина.
-          Там же можно и переназначить комбинацию клавиш для открытия окна плагина.
-        </AdditionInfo>
-        <VideoFigure
-          caption="Демонстрация плагина FX Console"
-          styleClass="figure_windows-dark"
-          videoSrc="images/aftereffects/fx_console_demonstration.mp4"
-        />
-      </DetailsSummary>
-      <DetailsSummary
-        tag="другой вид, альтернативный таймкод, отображение кадров"
+        tag="другой вид, альтернативный таймкод, отображение кадров, таймкод, формат времени, таймлайн, переключение режима"
         title="Как изменить вид отсчёта времени на таймлайне?"
       >
         <p>
           В <mark className="app">Adobe After Effects</mark> доступно два вида отображения
-          текущего времени на таймлайне: в формате <mark>ЧЧ:ММ:СС:КК</mark>, где{" "}
-          <mark>Ч</mark> - часы, <mark>М</mark> - минуты, <mark>С</mark> - секунды и{" "}
-          <mark>К</mark> - кадры или отображение текущего положения по кадрам. Между этими
-          режимами вы можете переключиться, нажав по таймкоду с зажатым{" "}
-          <mark className="ui">Ctrl</mark>.
+          времени на таймлайне: в формате <mark>ЧЧ:ММ:СС:КК</mark> (где <mark>Ч</mark> —
+          часы, <mark>М</mark> — минуты, <mark>С</mark> — секунды и <mark>К</mark> —
+          кадры) или просто по номерам кадров. Переключиться между этими режимами можно,
+          кликнув по таймкоду с зажатой клавишей <mark className="key">Ctrl</mark>.
         </p>
-        <VideoFigure
+        <ContentFigure
           caption="Изменение вида отображения времени на таймлайне"
-          styleClass="figure_windows-dark"
-          videoSrc="images/aftereffects/alternate_timecode_style.mp4"
+          src="images/aftereffects/alternate_timecode_style.mp4"
+          theme="dark"
+          type="video"
+          variant="windows"
         />
       </DetailsSummary>
-      <DetailsSummary title="Как установить свой процент масштабирования предпросмотра?">
+      <DetailsSummary
+        tag="шляпка, стесняшка, медуза, shy layer, тихий, скрытые слои, слои, таймлайн, видимость слоёв, переключатели, композиция"
+        title="Почему я не вижу некоторые слои на таймлайне, хотя они есть в композиции?"
+      >
+        <p>
+          Таким вопросом можно задаться при работе с чужим проектом или шаблоном. Автор
+          мог скрыть некоторые слои на таймлайне с помощью функции{" "}
+          <mark className="select">«Shy»</mark>, чтобы они не мешали.
+        </p>
+        <p>
+          Включить или выключить отображение скрытых слоёв можно на панели инструментов
+          таймлайна с помощью соответствующей иконки. Сделать слой скрытым можно с помощью
+          переключателя на самом слое.
+        </p>
+        <ContentFigure
+          caption="Работа со скрытыми слоями"
+          src="images/aftereffects/toggle_shy.mp4"
+          theme="dark"
+          type="video"
+          variant="windows"
+        />
+        <Addition type="info">
+          Если вы не видите нужные переключатели у слоя, включите столбец{" "}
+          <mark className="select">«Switches»</mark>, нажав первую иконку в левом нижнем
+          углу таймлайна.
+        </Addition>
+      </DetailsSummary>
+      <DetailsSummary
+        tag="плейхед, cti, последний кадр, индикатор времени, конец композиции, таймкод, кадры, таймлайн"
+        title="Почему я не могу поставить метку текущего времени в самый конец композиции?"
+      >
+        <p>
+          <mark className="select">«Current Time Indicator»</mark>, или{" "}
+          <mark className="select">«индикатор текущего времени»</mark>, показывает
+          содержимое, расположенное справа от него.
+          <mark className="app">Adobe After Effects</mark> выделяет кадр, который в данный
+          момент отображается в предпросмотре, тонкой подсветкой по всей высоте таймлайна.
+          Переместив <mark className="select">«CTI»</mark> максимально вправо или нажав
+          клавишу <mark className="key">End</mark>, вы перейдёте в конец композиции —
+          дальше перемещать его уже некуда.
+        </p>
+        <ContentFigure
+          caption="Timeline"
+          imgTitle="Проблема последнего кадра"
+          src="images/aftereffects/last_frame_problem.png"
+          theme="dark"
+          type="image"
+          variant="windows"
+        />
+        <p>
+          Композиция из примера на скриншоте длится 30 секунд с частотой{" "}
+          <mark>25 к/с</mark>. Последний кадр для этой композиции — это{" "}
+          <mark>00:29:24</mark>, или <mark>749-й кадр</mark>. На <mark>750-м кадре</mark>{" "}
+          вы ничего не увидите, так как отсчёт кадров, как и в массивах многих языков
+          программирования, идёт с нуля, а не с единицы. Всего в композиции действительно{" "}
+          <mark>750</mark> кадров, но они нумеруются от <mark>0</mark> до <mark>749</mark>
+          . Вы, конечно, можете вручную установить{" "}
+          <mark className="select">«индикатор времени»</mark> на один кадр после конца
+          композиции. Только в предпросмотре вы ничего не увидите, потому что композиция
+          закончилась раньше.
+        </p>
+      </DetailsSummary>
+      <DetailsSummary
+        tag="границы слоёв, предпросмотр, траектория движения, путь движения, настройки отображения"
+        title="Как включить отображение манипуляторов слоёв в предпросмотре?"
+      >
+        <Divider>Включаем «Show Layer Controls»</Divider>
+        <p>
+          В предпросмотре композиции у слоёв отображаются их манипуляторы, но при
+          случайном нажатии каких-нибудь клавиш они могут исчезнуть. Чтобы вернуть
+          отображение границ и манипуляторов слоёв, откройте меню{" "}
+          <mark className="select">«View»</mark> и включите опцию{" "}
+          <mark className="select">«Show Layer Controls»</mark> или воспользуйтесь
+          комбинацией клавиш <mark className="key">Ctrl + Shift + H</mark>.
+        </p>
+        <ContentFigure
+          caption="Composition"
+          imgTitle="Включение манипуляторов слоя"
+          src="images/aftereffects/show_layer_controls.png"
+          theme="light"
+          type="image"
+          variant="windows"
+        />
+        <Divider>Включаем видимость границ фигур</Divider>
+        <p>
+          Если вы не видите выделение фигуры маски или фигуры — нажмите на иконку{" "}
+          <mark className="select">«Toggle Mask and Shape Path Visibility»</mark>,
+          находящуюся внизу окна предпросмотра или включите параметр{" "}
+          <mark className="select">«Masks»</mark> в{" "}
+          <mark className="select">«View Options»</mark>.
+        </p>
+        <ContentFigure
+          caption="Composition"
+          imgTitle="Включение отображения границ масок и слоёв"
+          src="images/aftereffects/toggle_mask_and_shape_path_visibility.png"
+          theme="dark"
+          type="image"
+          variant="windows"
+        />
+        <Divider>Проверяем окно «View Options»</Divider>
+        <p>
+          Если с включёнными опциями выше вы всё ещё не видите то, что вам нужно, —
+          проверьте настройки <mark className="select">«View Options»</mark>, которые
+          открываются комбинацией клавиш <mark className="key">Ctrl + Alt + U</mark>. В
+          этом окне установите флажки рядом со всеми параметрами или только нужными.
+        </p>
+        <ContentFigure
+          caption="View Options"
+          imgTitle="Настройка отображения параметров слоя"
+          src="images/aftereffects/view_options.png"
+          theme="dark"
+          type="image"
+          variant="windows"
+        />
+        <Divider>Увеличиваем промежуток отображения анимации движения</Divider>
+        <p>
+          Если вы не видите путь движения объекта или он слишком короткий — измените
+          область времени его отображения, открыв{" "}
+          <mark className="select">«Edit» → «Preferences» → «Display»</mark>. В разделе{" "}
+          <mark className="select">«Motion Path»</mark> по умолчанию длина пути ограничена
+          15 секундами. Если вы хотите отобразить траекторию по всей длине анимации,
+          установите значение <mark className="select">«All Keyframes»</mark>. Также вы
+          можете вовсе отключить показ траектории.
+        </p>
+        <ContentFigure
+          caption="Preferences"
+          imgTitle="Изменение области времени отображения пути движения"
+          src="images/aftereffects/change_motion_path_range.png"
+          theme="dark"
+          type="image"
+          variant="windows"
+        />
+      </DetailsSummary>
+      <DetailsSummary
+        tag="масштаб, предпросмотр, зум, плавное масштабирование, настройки увеличения, плагин"
+        title="Как установить свой процент масштабирования в окне предпросмотра?"
+      >
         <p>
           В <mark className="app">Adobe After Effects</mark> версии <mark>25.3</mark> и
-          новее добавили функцию плавного масштабирования, а также возможность указания в
-          нём нужного коэффициента прямо в окне предпросмотра. Он больше не ограничивается
+          новее добавили функцию плавного масштабирования, а также возможность указывать
+          нужный коэффициент прямо в окне предпросмотра. Он больше не ограничивается
           фиксированными значениями, такими как <mark>33%</mark>, <mark>50%</mark> или{" "}
-          <mark>100%</mark>, поэтому можно масштабировать даже до любого десятичного
-          значения с помощью изменения значения интерактивного текста или колесика
-          прокрутки для более плавных коррекций.
+          <mark>100%</mark>, поэтому можно масштабировать до любого десятичного значения —
+          с помощью «интерактивного» текста или колёсика прокрутки.
         </p>
-        <VideoFigure
+        <ContentFigure
           caption="Adobe After Effects"
-          styleClass="figure_windows-dark"
-          videoSrc="images/aftereffects/smooth_zoom_demonstration.mp4"
+          src="images/aftereffects/smooth_zoom_demonstration.mp4"
+          theme="dark"
+          type="video"
+          variant="windows"
         />
         <p>
-          Если вам не нравится новая функция увеличения предпросмотра - вы можете
-          отключить его и вернуть старый вариант. Для этого откройте{" "}
-          <mark className="ui">Edit &gt; Preferences &gt; Previews</mark> и измените в
-          разделе <mark className="ui">Magnification</mark> значение параметра{" "}
-          <mark className="ui">Type</mark> на <mark className="ui">Legacy</mark>. Также в
-          этом разделе вы можете настроить, с какого места увеличивать предпросмотр - от
-          центра композиции или от положения вашего курсора.
+          Если вам не нравится, как работает новый механизм увеличения предпросмотра, — вы
+          можете его отключить и вернуть старый вариант. Для этого откройте{" "}
+          <mark className="select">«Edit» → «Preferences» → «Previews»</mark> и в разделе{" "}
+          <mark className="select">«Magnification»</mark> измените значение параметра{" "}
+          <mark className="select">«Type»</mark> на{" "}
+          <mark className="select">«Legacy»</mark>. Также в этом разделе можно настроить,
+          с какого места увеличивать предпросмотр — от центра композиции или от точки
+          положения курсора.
         </p>
-        <ImageFigure
+        <ContentFigure
           caption="Preferences"
-          imgSrc="images/aftereffects/magnification_settings.png"
           imgTitle="Настройка увеличения предпросмотра"
-          styleClass="figure_windows-dark"
+          src="images/aftereffects/magnification_settings.png"
+          theme="dark"
+          type="image"
+          variant="windows"
         />
+        <Divider>Увеличиваем предпросмотр через ae-zoom</Divider>
         <p>
-          Если вы используете более старую версию программы - используйте сторонний плагин{" "}
-          <mark className="plugin">ae-zoom</mark>, который создаёт окно с регулировкой
-          своего процента масштабирования в предпросмотре и плавным масштабированием.
-          Скачать его можно на{" "}
+          Если вы используете более старую версию программы, воспользуйтесь сторонним
+          плагином <mark className="plugin">ae-zoom</mark>, который добавляет окно с
+          плавной регулировкой масштаба в предпросмотре. Скачать его можно на{" "}
           <a href="https://github.com/QuisPic/ae-zoom/releases">
             странице релизов в GitHub
           </a>
           .
         </p>
-        <VideoFigure
+        <ContentFigure
           caption="Демонстрация плагина ae-zoom"
-          styleClass="figure_windows-dark"
-          videoSrc="images/ae-zoom_demonstration.webm"
+          src="images/ae-zoom_demonstration.webm"
+          theme="dark"
+          type="video"
+          variant="windows"
         />
-        <ContentSwitcher
+        <ContentFilter
           macContent={
             <div>
               <ul>
                 <li>
-                  Чтобы установить это расширение для изменения масштабирования
-                  предпросмотра, вам нужно перенести файл{" "}
+                  Чтобы установить это расширение, перенесите файл{" "}
                   <mark className="file">Zoom.jsx</mark> из архива в стандартную папку для
-                  скриптов -{" "}
+                  скриптов —{" "}
                   <mark className="path">
                     ~/Library/Applications/Adobe After Effects 20XX/Scripts/
                   </mark>
@@ -604,28 +578,22 @@ const AEInterface: React.FC = () => {
                 <li>
                   Затем перенесите <mark className="file">Zoom.plugin</mark> из папки
                   архива <mark className="path">Plug-in/macOS</mark> в общую папку для
-                  плагинов -{" "}
+                  плагинов —{" "}
                   <mark className="path">
                     /Library/Application Support/Adobe/Common/Plug-ins/7.0/MediaCore
                   </mark>
                   .
                 </li>
               </ul>
-              <p>
-                После установки расширения вы сможете его открыть в{" "}
-                <mark className="ui">File &gt; Scripts</mark> и регулировать
-                масштабирование как вашей душе угодно.
-              </p>
             </div>
           }
           windowsContent={
             <div>
               <ul>
                 <li>
-                  Чтобы установить это расширение для изменения масштабирования
-                  предпросмотра, вам нужно перенести файл{" "}
+                  Чтобы установить это расширение, перенесите файл{" "}
                   <mark className="file">Zoom.jsx</mark> из архива в стандартную папку для
-                  скриптов -{" "}
+                  скриптов —{" "}
                   <mark className="path">
                     C:\Program Files\Adobe\Adobe After Effects 20XX\Support Files\Scripts\
                   </mark>
@@ -634,447 +602,661 @@ const AEInterface: React.FC = () => {
                 <li>
                   Затем перенесите <mark className="file">Zoom.aex</mark> из папки архива{" "}
                   <mark className="path">Plug-in/Windows</mark> в общую папку для плагинов
-                  -{" "}
+                  —{" "}
                   <mark className="path">
                     C:\Program Files\Adobe\Common\Plug-ins\7.0\MediaCore
                   </mark>
                   .
                 </li>
               </ul>
-              <p>
-                После установки расширения вы сможете его открыть в{" "}
-                <mark className="ui">File &gt; Scripts</mark> и регулировать
-                масштабирование как вашей душе угодно.
-              </p>
             </div>
           }
         />
-        <AdditionInfo>
-          Если вы хотите сделать прикрепляемое окно для масштабирования, то переместите{" "}
+        <p>
+          После установки вы сможете открыть окно для увеличения в{" "}
+          <mark className="select">«File» → «Scripts»</mark> и регулировать масштаб. Если
+          вы хотите, чтобы окно для масштабирования можно было прикрепить, переместите{" "}
           <mark className="file">Zoom.jsx</mark> в дочернюю папку{" "}
-          <mark className="path">Script UI Panels</mark>. Тогда скрипт будет открываться
-          из контекстного меню <mark className="ui">Window</mark>.
-        </AdditionInfo>
+          <mark className="path">ScriptUI Panels</mark>. Тогда скрипт будет открываться из
+          меню <mark className="select">«Window»</mark>.
+        </p>
       </DetailsSummary>
-      <DetailsSummary title="Где найти Front View, Current Camera и прочие варианты отображения камеры?">
+      <DetailsSummary
+        tag="3d, другой вид проекции, предпросмотр"
+        title="Где найти «Front View», «Current Camera» и другие варианты отображения камеры?"
+      >
         <p>
-          Если в вашей композиции отсутствует камера или не включено трёхмерное
-          пространство у какого-либо слоя, то данные кнопки будут скрыты по причине
-          ненадобности в текущем понимании. Чтобы &quot;включить&quot; эти кнопки - в
-          вашей композиции должна быть создана камера, применён любой эффект, который
-          работает в 3D-пространстве, например{" "}
+          Если в вашей композиции нет камеры и ни один слой не преобразован в трёхмерный,
+          эти кнопки будут скрыты из-за ненадобности. Чтобы они появились, в композиции
+          должно быть соблюдено хотя бы одно из условий: создана камера, применён любой
+          эффект, работающий в трёхмерном пространстве, например{" "}
           <mark className="plugin">CC Particle World</mark> или{" "}
-          <mark className="plugin">Trapcode Particular</mark>, или хотя бы один слой
-          должен быть переведён в режим 3D-слоя.
+          <mark className="plugin">Trapcode Particular</mark>, либо хотя бы один слой
+          должен быть преобразован в трёхмерный.
         </p>
-        <ImageFigure
+        <ContentFigure
           caption="Timeline"
-          imgSrc="images/aftereffects/toggle_3d_layer.png"
           imgTitle="Включение режима 3D для слоя"
-          styleClass="figure_windows-dark"
+          src="images/aftereffects/toggle_3d_layer.png"
+          theme="dark"
+          type="image"
+          variant="windows"
         />
         <p>
-          Если одно из условий соблюдено, то вы увидите кнопки для переключения видов в
-          окне предпросмотра. Рядом же вы можете переключить движок 3D-рендера, включить{" "}
-          <mark>Draft 3D</mark> или разделить предпросмотр на несколько видов.
+          Если одно из условий соблюдено, то в окне предпросмотра появятся кнопки для
+          переключения видов. Рядом вы можете переключить движок трёхмерного рендера,
+          включить <mark className="select">«Draft 3D»</mark> или разделить предпросмотр
+          на несколько видов.
         </p>
-        <ImageFigure
+        <ContentFigure
           caption="Composition"
-          imgSrc="images/aftereffects/change_view.png"
           imgTitle="Переключение видов в окне предпросмотра"
-          styleClass="figure_windows-dark"
-        />
-      </DetailsSummary>
-      <DetailsSummary title="Почему точки, для того чтобы прицепить объект, не отображаются в 3D Camera Tracker?">
-        <p>
-          Скорее всего вы скрыли отображение границ слоёв и их манипуляторов в окне
-          предпросмотра. Для того чтобы их вернуть - нажмите на комбинацию клавиш{" "}
-          <mark className="key">Ctrl + Shift + H</mark> или нажмите на соответствующую
-          иконку в окне предпросмотра и продолжайте работу.
-        </p>
-        <AdditionInfo>
-          Точки будут отображаться если выделен сам эффект{" "}
-          <mark className="plugin">3D Camera Tracker</mark>
-        </AdditionInfo>
-        <ImageFigure
-          caption="Composition"
-          imgSrc="images/aftereffects/view_layer_bounds.png"
-          imgTitle="Включение отображение границ масок и слоёв"
-          styleClass="figure_windows-dark"
-        />
-        <p>
-          Если вам нужно принудительно отобразить точки трекинга, то включите функцию{" "}
-          <mark className="ui">Render Track Points</mark>. В таком случае вы не сможете
-          выделять точки для трекинга.
-        </p>
-        <ImageFigure
-          caption="Effects Controls"
-          imgSrc="images/aftereffects/render_track_points.png"
-          imgTitle="Включение точек трекинга"
-          styleClass="figure_windows-dark"
+          src="images/aftereffects/change_view.png"
+          theme="dark"
+          type="image"
+          variant="windows"
         />
       </DetailsSummary>
       <DetailsSummary
-        tag="плейхед, cti"
-        title="Почему я не могу поставить метку текущего времени в самый конец композиции?"
+        tag="разделить оси, не могу изменить плавность, не редактируется график скорости, separate dimensions, усики, сосочки, манипуляторы, value speed graph, граф-редактор, интерполяция, кривые безье, анимация, редактор графиков"
+        title="Почему у меня пропали направляющие Безье?"
       >
         <p>
-          <mark className="word">Плейхед</mark>,{" "}
-          <mark className="word">временная метка воспроизведения</mark> или{" "}
-          <mark className="word">CTI (Current Time Indicator)</mark> показывает то, что
-          находится <u>впереди</u> его пути.{" "}
-          <mark className="app">Adobe After Effects</mark> выделяет кадр, который вы
-          видите в предпросмотре небольшой подсветкой по всей высоте вашего таймлайна.
-          Переместив плейхед максимально вправо или нажав на кнопку{" "}
-          <mark className="key">End</mark> вы действительно попадёте в самый конец
-          композиции, дальше перемещать его смысла нет.
+          Новичок, недавно открывший программу, может случайно нажать что-то не то, из-за
+          чего могут пропасть важные элементы для создания анимации или фигур.
         </p>
-        <ImageFigure
-          caption="Timeline"
-          imgSrc="images/aftereffects/last_frame_problem.png"
-          imgTitle="Проблема последнего кадра"
-          styleClass="figure_windows-dark"
+        <Divider>Разбираемся с графиками скорости</Divider>
+        <p>
+          Если вы пытаетесь отредактировать график скорости какого-либо атрибута, сначала
+          убедитесь, что вы выделили нужные ключевые кадры и нажали клавишу{" "}
+          <mark className="key">F9</mark> для применения{" "}
+          <mark className="select">«Easy Ease»</mark>.
+        </p>
+        <p>
+          Также вы можете проверить значение{" "}
+          <mark className="select">«Temporal Interpolation»</mark> для выделенных ключевых
+          кадров в окне <mark className="select">«Keyframe Interpolation»</mark>, которое
+          открывается комбинацией клавиш <mark className="key">Ctrl + Alt + K</mark>.
+          Убедитесь, что там установлено <mark className="select">«Bezier»</mark>. В
+          режимах <mark className="select">«Linear»</mark> или{" "}
+          <mark className="select">«Hold»</mark> изменить график значения нельзя.
+        </p>
+        <ContentFigure
+          caption="Keyframe Interpolation"
+          src="images/aftereffects/temporal_interpolation_bezier.png"
+          theme="dark"
+          type="image"
+          variant="windows"
         />
         <p>
-          Композиция из примера на скриншоте имеет параметры длины композиции в 30 секунд
-          с частотой кадров 25 к/с, последняя секунда для этой композиции это{" "}
-          <mark>00:29:24</mark> или же <mark>749-ый кадр</mark>. На{" "}
-          <mark>750-м кадре</mark> вы ничего не увидите, так как отсчёт кадров идёт с
-          нуля, а не с единицы, как у индексов массива в популярных языках
-          программирования. Всего у композиции будет действительно <mark>750</mark>{" "}
-          кадров, но они будут нумероваться от <mark>0</mark> до <mark>749</mark>.
+          Если вы попытаетесь отредактировать график скорости параметра с несколькими
+          значениями в массиве, например <mark className="select">«Position»</mark> или{" "}
+          <mark className="select">«Anchor Point»</mark>, в режиме{" "}
+          <mark className="select">«Value Graph»</mark>, то у вас попросту не получится
+          это сделать. В таком случае есть два варианта решения этой проблемы: придётся
+          либо разделить значения через{" "}
+          <mark className="select">«Separate Dimensions»</mark>, если это возможно, либо
+          переключиться на вид графика <mark className="select">«Speed Graph»</mark>.
         </p>
-        <AdditionInfo>
-          Вы, конечно, можете поставить <mark className="word">временную метку</mark> в
-          самый конец композиции, прибавив ещё один кадр в таймкоде вручную. Только таким
-          образом в предпросмотре вы не увидите ровным счётом ничего, потому что
-          композиция закончилась раньше, чем <mark className="word">плейхед</mark>.
-        </AdditionInfo>
-      </DetailsSummary>
-      <DetailsSummary
-        tag="вейвформ, аудио, увидеть волну"
-        title="Как включить отображение звуковой волны у слоя со звуком?"
-      >
+        <Divider>Делим значения положения</Divider>
         <p>
-          Если вам нужно отобразить звуковую волну у слоя со звуком для того, чтобы
-          расставить маркеры или что-нибудь ещё, то просто выделите нужный слой со звуком
-          и два раза нажмите на кнопку <mark className="key">L</mark>.
+          Чтобы разделить значения у <mark className="select">«Position»</mark> — нажмите{" "}
+          <mark className="key">ПКМ</mark> по атрибуту и выберите{" "}
+          <mark className="select">«Separate Dimensions»</mark>.
         </p>
-        <ImageFigure
-          caption="Timeline"
-          imgSrc="images/aftereffects/show_waveform.png"
-          imgTitle="Отображение звуковой волны у слоя со звуком"
-          styleClass="figure_windows-dark"
+        <ContentFigure
+          caption="Разделение атрибутов положения на X и Y"
+          src="images/aftereffects/separate_dimensions.mp4"
+          theme="dark"
+          type="video"
+          variant="windows"
         />
-        <AdditionInfo>
-          При желании вы можете растянуть звуковую волну по высоте, потянув за нижний край
-          волны.
-        </AdditionInfo>
-      </DetailsSummary>
-      <DetailsSummary
-        tag="ротобраш"
-        title="Я использую After Effects 2019 и в нём не выделяется объект в Rotobrush, что делать?"
-      >
+        <Divider>Изменение вида графика скорости</Divider>
         <p>
-          Скорее всего вы столкнулись с багом этой версии, если вы используете репак от{" "}
-          <mark>KpoJluk</mark>. Проблема решается откатом программы до версии{" "}
-          <mark>CC 2018</mark>, установкой{" "}
-          <mark className="app">Adobe After Effects 2019</mark> сборки от{" "}
-          <mark>m0nkrus</mark> или установкой более свежей версии программы от кого
-          угодно.
+          Если разделить значения нужного параметра не получается или вы не хотите этого
+          делать, придётся переключиться на другой вид графика: с{" "}
+          <mark className="select">«Value Graph»</mark> на{" "}
+          <mark className="select">«Speed Graph»</mark>. Чтобы это сделать — откройте{" "}
+          <mark className="select">«Graph Editor»</mark> с помощью комбинации клавиш{" "}
+          <mark className="key">Shift + F3</mark> или соответствующей кнопки на таймлайне,
+          вызовите контекстное меню и выберите нужный вариант.
         </p>
-      </DetailsSummary>
-      <DetailsSummary
-        tag="стартовая страница, домашний экран, окно с проектами"
-        title="Почему у меня не работает окно с недавними проектами и как отключить его?"
-      >
-        <p>
-          По умолчанию, при запуске <mark className="app">Adobe After Effects</mark>{" "}
-          открывается домашнее окно с приветствием и списком недавних проектов. На
-          некоторых <mark className="word">народных</mark> версиях{" "}
-          <mark className="app">Adobe After Effects</mark> стартовый экран может не
-          грузиться и выдавать пустоту. Для быстрого решения этой проблемы - достаточно
-          войти в аккаунт <mark>Adobe</mark> с помощью{" "}
-          <mark className="ui">Help &gt; Sign In</mark>.
-        </p>
-        <AdditionWarning>
-          <ul>
-            <li>
-              Если при попытке входа вы столкнулись с окном{" "}
-              <mark className="ui">Sorry, something went wrong</mark> и надписью{" "}
-              <mark className="ui">Are you connected to the internet?</mark>, то, скорее
-              всего, программа не может выйти в интернет. Для решения этой проблемы -
-              включите на время <mark className="app">VPN</mark> или разрешите программе
-              доступ в интернет с помощью <mark className="app">брандмауэра</mark>.{" "}
-            </li>
-            <li>
-              Чтобы открыть брандмауэр - откройте окно{" "}
-              <mark className="app">Выполнить</mark> с помощью комбинации клавиш{" "}
-              <mark className="key">Win + R</mark>, введите в него{" "}
-              <mark className="code">wf.msc</mark> и нажмите на{" "}
-              <mark className="key">Enter</mark>. После этого перейдите в{" "}
-              <mark className="ui">Правила для входящих подключений</mark> и у правил,
-              связанных с блокировкой <mark>Adobe</mark>, нажмите на{" "}
-              <mark className="key">ПКМ</mark> и выберите{" "}
-              <mark className="ui">Отключить правило</mark>. После отключения правил -
-              перезапустите <mark className="app">Adobe After Effects</mark>, выполните
-              процедуру входа в аккаунт и снова включите правила{" "}
-              <mark className="app">брандмауэра</mark>.
-            </li>
-          </ul>
-        </AdditionWarning>
-        <Divider>Отключаем домашний экран при запуске программы</Divider>
-        <p>
-          Если вариант со входом в аккаунт вас не устраивает или вас бесит это окно, то к
-          счастью, это окно можно отключить. Для отключения стартового окна со списком
-          недавних проектов откройте настройки{" "}
-          <mark className="app">Adobe After Effects</mark> с помощью{" "}
-          <mark className="ui">Edit &gt; Preferences &gt; Startup & Repair</mark>, а затем
-          в открывшемся окне выключите параметр{" "}
-          <mark className="ui">Enable Home Screen</mark>.
-        </p>
-        <AdditionInfo>
-          В старых версиях <mark className="app">Adobe After Effects</mark> параметр с
-          выключением домашнего экрана находится в разделе{" "}
-          <mark className="ui">General</mark>.
-        </AdditionInfo>
-        <ImageFigure
-          caption="Preferences"
-          imgSrc="images/aftereffects/enable_home_screen.png"
-          imgTitle="Переключаем отображение домашнего экрана"
-          styleClass="figure_windows-dark"
+        <ContentFigure
+          caption="Изменение вида графика скорости"
+          src="images/aftereffects/change_graph_view.mp4"
+          theme="dark"
+          type="video"
+          variant="windows"
         />
-      </DetailsSummary>
-      <DetailsSummary
-        tag="cti stuck, плейхед зависает, не работает зум"
-        title="Почему красная линия воспроизведения на таймлайне иногда останавливается?"
-      >
+        <Divider>Куда пропали «усики» в пространстве?</Divider>
         <p>
-          Предположим, что вы начали кэширование предпросмотра и в какой-то момент у вас
-          полоса текущего времени предпросмотра внезапно останавливается. Дополнительно
-          при этом может зависнуть сам предпросмотр, то есть не реагировать на увеличение
-          или на перемещение плейхеда. Данный баг относительно новый и может появиться на
-          любой версии программы, даже на чистой и лицензионной.
+          Если вы хотите изменять плавность траектории движения объекта в окне
+          предпросмотра, нужно изменить тип пространственной интерполяции для ключей. Для
+          этого выделите нужные ключевые кадры и нажмите комбинацию клавиш{" "}
+          <mark className="key">Ctrl + Alt + K</mark>. В открывшемся окне в параметре{" "}
+          <mark className="select">«Spatial Interpolation»</mark> выберите значение{" "}
+          <mark className="select">«Bezier»</mark> или другой тип кривой Безье. После
+          этого вы сможете изменять траекторию движения в предпросмотре.
         </p>
+        <ContentFigure
+          caption="Изменение типа пространственной интерполяции"
+          src="images/aftereffects/change_spatial_interpolation.mp4"
+          theme="dark"
+          type="video"
+          variant="windows"
+        />
+        <Addition type="info">
+          Если вы не видите путь движения объекта или он слишком короткий, измените
+          область времени его отображения, открыв{" "}
+          <mark className="select">«Edit» → «Preferences» → «Display»</mark> и установив
+          значение <mark className="select">«All Keyframes»</mark>. Также убедитесь, что у
+          вас включено отображение манипуляторов слоя с помощью комбинации клавиш{" "}
+          <mark className="key">Ctrl + Shift + H</mark>.
+        </Addition>
+        <Divider>Почему у меня пропали манипуляторы при создании шейпов?</Divider>
         <p>
-          Баг <u>может</u> возникнуть из-за одновременно открытых{" "}
-          <mark className="app">Adobe After Effects</mark> и{" "}
-          <mark className="app">Adobe Premiere Pro</mark>, а также при использовании{" "}
-          <mark className="plugin">Dynamic Link</mark>. Также баг может возникнуть на
-          совершенно чистой установке <mark className="app">Adobe After Effects</mark> без
-          сторонних плагинов и скриптов.
+          При создании фигур с помощью пера может пропасть возможность изменения изгиба
+          при зажатии <mark className="key">ЛКМ</mark> и перемещении курсора. Скорее
+          всего, вы случайно включили функцию{" "}
+          <mark className="select">«Roto Bezier»</mark>, которая автоматически искривляет
+          линию в зависимости от расположения точек. Эту функцию можно отключить на панели
+          инструментов, сняв соответствующий флажок.
         </p>
-        <AdditionWarning>
-          Приведённый ниже способ{" "}
-          <u>
-            <b>не является панацеей</b>
-          </u>{" "}
-          для решения проблемы зависания красной полосы проигрывания предпросмотра.
-        </AdditionWarning>
-        <p>
-          Для возможного решения проблемы попробуйте установить значение{" "}
-          <mark>false</mark> рядом с параметром{" "}
-          <mark className="ui">PreviewPlaybackOptimization</mark> в консоли. Чтобы это
-          сделать - откройте консоль с помощью комбинации клавиш{" "}
-          <mark className="key">Ctrl + F12</mark>, установите вид отображения{" "}
-          <mark className="ui">Debug Database View</mark> и уберите чекбокс напротив{" "}
-          <mark className="ui">PreviewPlaybackOptimization</mark>. После этого
-          перезагрузите программу и попробуйте закэшировать и проиграть предпросмотр
-          заново.
-        </p>
-        <ImageFigure
+        <Addition type="info">
+          Для конвертирования типа вершины воспользуйтесь инструментом{" "}
+          <mark className="select">«Convert Vertex Tool»</mark>. Он активирует «усики» у
+          фигур, созданных без помощи <mark className="select">«Roto Bezier»</mark>.
+        </Addition>
+        <ContentFigure
           caption="Adobe After Effects"
-          imgSrc="images/aftereffects/disable_previewplaybackoptimization.png"
-          imgTitle="Отключение оптимизации предпросмотра"
-          styleClass="figure_windows-dark"
+          src="images/aftereffects/rotobezier_demo.mp4"
+          theme="dark"
+          type="video"
+          variant="windows"
         />
       </DetailsSummary>
-      <DetailsSummary title="Как изменить стандартные цвета меток для различных типов слоёв?">
+      <DetailsSummary
+        tag="стиль графов, другой вид, отображение скорости, как сделать нормальный вид графика, speed value graph выглядит по-другому, отображение графика, анимация, кривые"
+        title="Почему мой редактор графика скорости не похож на тот, что показывают в уроках?"
+      >
         <p>
-          В <mark className="app">Adobe After Effects</mark> всем типам слоев
-          присваивается тот или иной цвет. Иногда пользователю хочется сделать цвета слоёв
-          более насыщенными или изменить на свои. Чтобы это сделать - перейдите в
-          настройки программы{" "}
-          <mark className="ui">Edit &gt; Preferences &gt; Labels</mark>.
+          Скорее всего, у вас включён другой вид отображения графика скорости. Попробуйте
+          изменить его на <mark className="select">«Value Graph»</mark> или{" "}
+          <mark className="select">«Speed Graph»</mark> в зависимости от задачи. Для этого
+          откройте <mark className="select">«Graph Editor»</mark> (клавиши{" "}
+          <mark className="key">Shift + F3</mark> или кнопка на таймлайне), вызовите
+          контекстное меню и выберите нужный вид графика.
         </p>
-        <ImageFigure
+        <ContentFigure
+          caption="Изменение вида графика скорости"
+          src="images/aftereffects/change_graph_view.mp4"
+          theme="dark"
+          type="video"
+          variant="windows"
+        />
+      </DetailsSummary>
+      <DetailsSummary
+        tag="trkmat, track matte, альфа люма мейт, трекмейт, trkmat, подтравочные маски, маска по альфе, маска по яркости, таймлайн, обновление интерфейса"
+        title="Что случилось с «Alpha Matte» и «Luma Matte» в новых версиях программы?"
+      >
+        <p>
+          В <mark className="app">Adobe After Effects</mark> версии <mark>2023</mark> и
+          новее работа с подложками была переделана. Это упростило процесс, но создало
+          расхождение с обучающими материалами: старые уроки могут запутать пользователей
+          новых версий, а новые — тех, кто остался на старых. Если вы учитесь по старому
+          уроку, попробуйте адаптироваться к новому способу работы с масками или поищите
+          более актуальные видео по вашей теме. Дополнительную информацию об этом
+          обновлении можно{" "}
+          <a href="https://helpx.adobe.com/after-effects/using/track-mattes-and-traveling-mattes.html">
+            прочитать на сайте Adobe
+          </a>
+          .
+        </p>
+        <ContentFigure
+          caption="Обновление вкладки Track Matte"
+          src="2Fi57LLJrUE"
+          type="youtube"
+        />
+      </DetailsSummary>
+      <DetailsSummary
+        tag="трекер камеры, 3d трекинг, точки трекинга, границы слоёв, предпросмотр, эффекты"
+        title="Почему точки для прикрепления объекта не отображаются в 3D Camera Tracker?"
+      >
+        <p>
+          Скорее всего, вы скрыли отображение границ слоёв и их манипуляторов в окне
+          предпросмотра. Чтобы их вернуть, нажмите комбинацию клавиш{" "}
+          <mark className="key">Ctrl + Shift + H</mark> или включите{" "}
+          <mark className="select">«Show Layer Controls»</mark> в{" "}
+          <mark className="select">«View»</mark>. Точки будут отображаться и выделяеться,
+          если на панели <mark className="select">«Effect Controls»</mark> выделен сам
+          эффект <mark className="plugin">3D Camera Tracker</mark>.
+        </p>
+        <Addition type="info">
+          Если вам нужно принудительно отобразить точки трекинга, включите функцию{" "}
+          <mark className="select">«Render Track Points»</mark> в настройках эффекта.
+          <ContentFigure
+            caption="Effects Controls"
+            imgTitle="Включение точек трекинга"
+            src="images/aftereffects/render_track_points.png"
+            theme="dark"
+            type="image"
+            variant="windows"
+          />
+        </Addition>
+      </DetailsSummary>
+      <DetailsSummary
+        tag="вейвформ, аудио, увидеть волну, звуковая волна, аудиослой, таймлайн, маркеры, предпросмотр звука"
+        title="Как включить отображение звуковой волны у аудиослоя?"
+      >
+        <p>
+          Если вам нужно отобразить звуковую волну у слоя, чтобы расставить маркеры или
+          для других целей — просто выделите нужный слой со звуком и дважды нажмите
+          клавишу <mark className="key">L</mark>. Это раскроет параметр{" "}
+          <mark className="select">«Waveform»</mark>, который вы можете растянуть по
+          высоте, потянув за его нижний край.
+        </p>
+        <ContentFigure
+          caption="Timeline"
+          imgTitle="Отображение звуковой волны у слоя со звуком"
+          src="images/aftereffects/show_waveform.png"
+          theme="dark"
+          type="image"
+          variant="windows"
+        />
+      </DetailsSummary>
+      <DetailsSummary
+        tag="ротобраш, баг версии, ротоскопинг, выделение объекта"
+        title="Почему в версии 2019 не выделяется объект при использовании Roto Brush?"
+      >
+        <p>
+          Скорее всего, вы столкнулись с багом этой версии, если используете репак от{" "}
+          <mark className="user">KpoJluK</mark>. Проблема решается откатом программы до
+          версии <mark>CC 2018</mark>, установкой{" "}
+          <mark className="app">Adobe After Effects 2019</mark> сборки от{" "}
+          <mark className="user">m0nkrus</mark> или установкой более свежей версии
+          программы от любого репакера.
+        </p>
+      </DetailsSummary>
+      <DetailsSummary
+        tag="ктрл пробел, быстрое применение эффектов, фх консоль, плагин, эффекты, горячие клавиши, панель эффектов"
+        title="Как включить всплывающую панель для применения эффектов по Ctrl + Space?"
+      >
+        <p>
+          <mark className="key">Ctrl + Space</mark> для открытия панели применения
+          эффектов — это не встроенная функция{" "}
+          <mark className="app">Adobe After Effects</mark>, а сторонний плагин{" "}
+          <a href="https://www.videocopilot.net/blog/?s=fx%20console">FX Console</a>. С
+          его помощью действительно можно быстро применить эффект к выделенному слою,
+          нажав указанную комбинацию клавиш. Кроме того, плагин позволяет быстро создавать
+          скриншоты текущего кадра в файл или в буфер обмена.
+        </p>
+        <Addition type="info">
+          Для создания скриншотов в полном разрешении включите параметр{" "}
+          <mark className="select">«Full Resolution Screenshots»</mark> в настройках
+          плагина. Там же можно переназначить комбинацию клавиш для его вызова.
+        </Addition>
+        <Addition type="warning">
+          В сети встречаются жалобы на то, что при открытом окне{" "}
+          <mark className="select">«Properties»</mark> панель{" "}
+          <mark className="plugin">FX Console</mark> может открываться не с первого раза.
+          Чтобы решить эту проблему — просто закройте или скройте это окно.
+        </Addition>
+        <ContentFigure
+          caption="Демонстрация плагина FX Console"
+          src="images/aftereffects/fx_console_demonstration.mp4"
+          theme="dark"
+          type="video"
+          variant="windows"
+        />
+      </DetailsSummary>
+      <DetailsSummary
+        tag="properties window, свойства, окно свойств слоя, инструменты, автооткрытие, интерфейс, настройки"
+        title="Как отключить автоматическое открытие окна «Properties»?"
+      >
+        <p>
+          Окно <mark className="select">«Properties»</mark> появилось в{" "}
+          <mark className="app">Adobe After Effects</mark> версии <mark>23.4</mark> и
+          новее. Однако не всем пользователям понравилось это нововведение, а некоторых
+          раздражало, что окно открывается автоматически при выборе определённых
+          инструментов.
+        </p>
+        <p>
+          К счастью, автоматическое открытие окна свойств можно отключить, сняв флажок{" "}
+          <mark className="select">«Auto-Open Panel»</mark> при выбранном инструменте,
+          например <mark className="select">«Text»</mark> или{" "}
+          <mark className="select">«Pen Tool»</mark>. При этом процедуру, возможно,
+          придётся повторить для разных инструментов, так как один флажок не отключает
+          автооткрытие окна во всех случаях.
+        </p>
+        <Addition type="info">
+          Подробности о работе этого окна вы можете{" "}
+          <a href="https://helpx.adobe.com/after-effects/using/properties-panel.html">
+            прочитать на официальном сайте Adobe
+          </a>
+          .
+        </Addition>
+        <ContentFigure
+          caption="Adobe After Effects"
+          imgTitle="Отключение автоматического открытия окна свойств"
+          src="images/aftereffects/toggle_auto-open_panel.png"
+          theme="dark"
+          type="image"
+          variant="windows"
+        />
+      </DetailsSummary>
+      <DetailsSummary
+        tag="цвет меток, слои, интерфейс, настройки, маркировка слоёв"
+        title="Как изменить стандартные цвета меток для различных типов слоёв?"
+      >
+        <p>
+          В <mark className="app">Adobe After Effects</mark> всем типам слоёв
+          присваивается определённый цвет. Иногда пользователю хочется сделать цвета слоёв
+          более насыщенными или заменить их на свои. Чтобы это сделать, перейдите в
+          настройки программы:{" "}
+          <mark className="select">«Edit» → «Preferences» → «Labels»</mark>.
+        </p>
+        <p>
+          Перед вами появятся две категории —{" "}
+          <mark className="select">«Label Defaults»</mark> и{" "}
+          <mark className="select">«Label Colors»</mark>. В первой вы можете задать для
+          нужного типа слоя или маркера любой цвет из второй категории. Во второй
+          категории можно изменить цвет и даже задать ему своё имя.
+        </p>
+        <ContentFigure
           caption="Preferences"
-          imgSrc="images/aftereffects/preferences_labels.png"
           imgTitle="Настройки меток"
-          styleClass="figure_windows-dark"
+          src="images/aftereffects/preferences_labels.png"
+          theme="dark"
+          type="image"
+          variant="windows"
         />
-        <p>
-          Перед вами появятся две категории - <mark className="ui">Label Defaults</mark> и{" "}
-          <mark className="ui">Label Colors</mark>. В первой категории вы можете задать
-          для нужного типа слоя или маркера любой цвет из второй категории. Во второй
-          категории вы можете изменить цвет и даже задать ему своё имя.
-        </p>
       </DetailsSummary>
-      <DetailsSummary title="Как изменить акцентный цвет интерфейса программы?">
-        <AdditionDanger>
-          Для <mark className="app">Adobe After Effects</mark> версии <mark>25.0</mark>{" "}
-          или новее данная инструкция неактуальна, после включения параметра в консоли - в
-          настройках ничего не будет.
-        </AdditionDanger>
+      <DetailsSummary
+        tag="color picker, вернуть палитру, системный выбор цвета, интерфейс, выбор цвета, палитра, системный диалог, внешний вид"
+        title="Почему у меня изменился интерфейс выбора цвета и как его вернуть?"
+      >
         <p>
-          Вы, наверное, не раз натыкались на различные скриншоты, где у пользователей
-          изменён цветовой акцент в интерфейсе программы. В версиях от <mark>2017</mark>{" "}
-          до <mark>2024</mark> можно включить возможность изменения акцента через консоль.
-          Для этого нажмите на комбинацию клавиш <mark className="key">Ctrl + F12</mark>.
-          Затем введите команду ниже в консоль в режиме{" "}
-          <mark className="ui">Console View</mark> и нажмите на{" "}
+          Скорее всего, вы случайно установили флажок возле параметра, который позволяет
+          программе использовать системное диалоговое окно выбора цвета. Чтобы вернуть
+          стандартный для <mark className="app">Adobe After Effects</mark> вид, перейдите
+          в <mark className="select">«Edit» → «Preferences» → «General»</mark> и уберите
+          флажок возле параметра <mark className="select">«Use System Color Picker»</mark>
+          . После этого при выборе цвета вернётся привычное окно.
+        </p>
+        <ContentFigure
+          caption="Preferences"
+          imgTitle="Настройка использования системного выбора цвета"
+          src="images/aftereffects/use_system_color_picker.png"
+          theme="dark"
+          type="image"
+          variant="windows"
+        />
+      </DetailsSummary>
+      <DetailsSummary
+        tag="интерфейс, акцентный цвет, консоль, отладка, тема, внешний вид"
+        title="Как изменить акцентный цвет интерфейса программы?"
+      >
+        <Addition type="danger">
+          После редизайна интерфейса в <mark className="app">Adobe After Effects</mark>{" "}
+          версии <mark>25.0</mark> и новее эта инструкция больше неактуальна: при
+          включении параметра в консоли в настройках ничего не появится. Она применяется
+          только для версий <mark className="app">Adobe After Effects</mark> от{" "}
+          <mark>2017</mark> до <mark>2024</mark>.
+        </Addition>
+        <p>
+          Возможно, вы видели скриншоты, где у пользователей изменён акцентный цвет
+          интерфейса. В версиях <mark>2017</mark>–<mark>2024</mark> функцию изменения
+          цвета интерфейса можно активировать через консоль. Для этого нажмите{" "}
+          <mark className="key">Ctrl + F12</mark>, введите приведённую ниже команду в
+          режиме <mark className="select">«Console View»</mark> и нажмите{" "}
           <mark className="key">Enter</mark>.
         </p>
         <code>debug.set Enable_Theme_Colorizing=true</code>
-        <AdditionInfo>
-          Режимы отображения консоли можно изменить нажав на три полоски в заголовке окна.
-          Также этот параметр можно найти и в режиме отображения{" "}
-          <mark className="ui">Debug Database View</mark>.
-        </AdditionInfo>
-        <ImageFigure
+        <Addition type="info">
+          Переключать режимы консоли можно через контекстное меню в заголовке окна. Этот
+          параметр доступен и в режиме{" "}
+          <mark className="select">«Debug Database View»</mark>.
+        </Addition>
+        <ContentFigure
           caption="Console"
-          imgSrc="images/aftereffects/console_theme_colorizing.png"
           imgTitle="Включение возможности изменения акцента интерфейса"
-          styleClass="figure_windows-dark"
+          src="images/aftereffects/console_theme_colorizing.png"
+          theme="dark"
+          type="image"
+          variant="windows"
         />
         <p>
-          После успешного включения опции, перейдите в настройки программы:{" "}
-          <mark className="ui">Edit &gt; Preferences &gt; Appearance</mark> и нажмите на
-          кнопку <mark className="ui">Change Color</mark>.
+          После успешного включения опции перейдите в настройки программы:{" "}
+          <mark className="select">«Edit» → «Preferences» → «Appearance»</mark> и нажмите
+          на кнопку <mark className="select">«Change Color»</mark>.
         </p>
-        <ImageFigure
+        <ContentFigure
           caption="Preferences"
-          imgSrc="images/aftereffects/select_theme_color.png"
           imgTitle="Находим кнопку для смены цвета интерфейса"
-          styleClass="figure_windows-dark"
+          src="images/aftereffects/select_theme_color.png"
+          theme="dark"
+          type="image"
+          variant="windows"
         />
         <p>
-          В открывшейся цветовой палитре вы можете указать любой цвет, какой захотите.
-          Желательно выбрать тот цвет, который будет хорошо выделяться на фоне остального
-          интерфейса.
+          В открывшейся цветовой палитре вы можете указать любой цвет. Желательно выбрать
+          тот, который будет хорошо выделяться на фоне остального интерфейса. После выбора
+          нужного цвета нажмите <mark className="select">«OK»</mark> — теперь вы можете
+          наслаждаться «афтером не как у всех».
         </p>
-        <AdditionWarning>
-          Не рекомендую ставить тёмные, а также слишком насыщенные оттенки, ибо вы можете
-          плохо различать некоторые элементы интерфейса.
-        </AdditionWarning>
-        <ImageFigure
+        <Addition type="warning">
+          Не рекомендуется выбирать слишком тёмные или чрезмерно насыщенные оттенки — это
+          может затруднить восприятие некоторых элементов интерфейса.
+        </Addition>
+        <ContentFigure
           caption="Change Color"
-          imgSrc="images/aftereffects/theme_colorizing.png"
           imgTitle="Выбор акцентного цвета для интерфейса"
-          styleClass="figure_windows-dark"
+          src="images/aftereffects/theme_colorizing.png"
+          theme="dark"
+          type="image"
+          variant="windows"
         />
-        <p>
-          После выбора нужного вам цвета, нажмите на <mark className="ui">OK</mark> и
-          теперь вы можете наслаждаться &quot;афтером не как у всех&quot;.
-        </p>
       </DetailsSummary>
-      <DetailsSummary title="Как изменить картинку во время запуска программы?">
-        <AdditionDanger>
-          Действия с заменой файлов программы{" "}
-          <b>
-            <u>вы делаете на свой страх и риск!</u>
-          </b>{" "}
-          После обновления программы ваша картинка перезапишется на исходную. Инструкция
-          действительна только для устройств на <mark>Windows</mark>.
-        </AdditionDanger>
-        <p>
-          При запуске <mark className="app">Adobe After Effects</mark> вы часто видите
-          какую-либо картинку, задуманной <mark>Adobe</mark> и наверное задумывались, что
-          неплохо бы её заменить на свою. Да, такое можно сделать с помощью махинаций с{" "}
-          <mark className="file">DLL</mark> файлами. Для этого нам пригодится программа{" "}
-          <mark className="app">Resource Hacker</mark>, которую можно загрузить{" "}
-          <a href="https://angusj.com/resourcehacker/#download">по этой ссылке</a>.
-        </p>
-        <Divider>Извлекаем изображения из .dll</Divider>
-        <p>
-          После открытия <mark className="app">Resource Hacker</mark> мы видим такой
-          интерфейс. Что нам от него нужно - просто открыть{" "}
-          <mark className="file">AfterFXLib.dll</mark>, находящийся по пути{" "}
-          <mark className="path">
-            C:\Program Files\Adobe\Adobe After Effects 20XX\Support Files
-          </mark>{" "}
-          в этой программе, нажав на комбинацию клавиш{" "}
-          <mark className="key">Ctrl + O</mark> или нажав на соответствующую иконку.
-        </p>
-        <ImageFigure
-          caption="Resource Hacker"
-          imgSrc="images/aftereffects/resource_hacker_open_file.png"
-          imgTitle="Открываем файл в Resource Hacker"
-          styleClass="figure_windows-light"
+      <DetailsSummary
+        tag="заставка, изображение запуска, resource hacker, dll, png, замена"
+        title="Как изменить картинку при запуске программы?"
+      >
+        <ContentFilter
+          windowsContent={
+            <div>
+              <Addition type="danger">
+                Действия с заменой файлов программы вы совершаете на свой страх и риск!
+                После обновления программы ваша картинка перезапишется на исходную.
+                Стабильность работы программы после замены изображения не гарантируется.
+              </Addition>
+              <p>
+                При запуске <mark className="app">Adobe After Effects</mark> вы видите
+                картинку, созданную <mark className="company">Adobe</mark>, и, возможно,
+                задумывались, что неплохо бы заменить её на свою. Такое можно сделать с
+                помощью махинаций с файлами <mark className="file">DLL</mark>. Для этого
+                нам пригодится программа <mark className="app">Resource Hacker</mark>,
+                которую можно загрузить{" "}
+                <a href="https://angusj.com/resourcehacker/#download">по этой ссылке</a>.
+              </p>
+              <Divider>Извлекаем изображения из DLL</Divider>
+              <p>
+                После открытия <mark className="app">Resource Hacker</mark> откройте в
+                программе файл <mark className="file">AfterFXLib.dll</mark>, находящийся
+                по пути{" "}
+                <mark className="path">
+                  C:\Program Files\Adobe\Adobe After Effects 20XX\Support Files
+                </mark>
+                .
+              </p>
+              <ContentFigure
+                caption="Resource Hacker"
+                imgTitle="Открываем файл в Resource Hacker"
+                src="images/aftereffects/resource_hacker_open_file.png"
+                theme="light"
+                type="image"
+                variant="windows"
+              />
+              <p>
+                После открытия файла в левой части окна{" "}
+                <mark className="app">Resource Hacker</mark> появятся папки. Откройте
+                папку <mark className="path">PNG</mark>, найдите изображения с названиями{" "}
+                <mark className="image">AE_SPLASH</mark>,{" "}
+                <mark className="image">AE_SPLASH_AT_2X</mark> и{" "}
+                <mark className="image">AE_SPLASH_AT_3TO2X</mark>, а затем извлеките их,
+                нажав на каждом <mark className="key">ПКМ</mark> и выбрав{" "}
+                <mark className="select">«Save *.png resource»</mark>. Укажите удобное вам
+                место для сохранения.
+              </p>
+              <Addition type="info">
+                Всего есть три файла, каждый из которых адаптирован под определённый
+                масштаб дисплея. Вы можете заменить одно, два или все три изображения. По
+                аналогии можно изменить изображение для окна{" "}
+                <mark className="select">«About»</mark>, заменив файлы{" "}
+                <mark className="image">AE_ABOUT</mark>,{" "}
+                <mark className="image">AE_ABOUT_AT_2X</mark> и{" "}
+                <mark className="image">AE_ABOUT_AT_3TO2X</mark>.
+              </Addition>
+              <ContentFigure
+                caption="Resource Hacker"
+                imgTitle="Извлекаем изображения из .dll"
+                src="images/aftereffects/resource_hacker_extract_file.png"
+                theme="light"
+                type="image"
+                variant="windows"
+              />
+              <p>
+                Отредактировать извлечённый файл можно в любом редакторе изображений,
+                например <mark className="app">Adobe Photoshop</mark>,{" "}
+                <mark className="app">GIMP</mark> или{" "}
+                <mark className="app">Adobe Illustrator</mark>. Главное — не менять размер
+                изображения и сохранить его также в формате{" "}
+                <mark className="image">PNG</mark>. Я же просто заменю в{" "}
+                <mark className="app">Adobe Photoshop</mark> стандартное изображение на
+                картинку с автомобилем <mark>Ford Focus</mark> и сохраню его в{" "}
+                <mark className="image">PNG</mark>.
+              </p>
+              <ContentFigure
+                caption="Пример модификации изображения при загрузке Adobe After Effects"
+                imgTitle="Изменённое изображение при открытии программы"
+                src="images/aftereffects/custom_splash_example.png"
+                theme="light"
+                type="image"
+                variant="windows"
+              />
+              <Divider>Заменяем изображения в DLL</Divider>
+              <p>
+                После редактирования изображения вернитесь в{" "}
+                <mark className="app">Resource Hacker</mark>, выберите файл, который нужно
+                заменить, и нажмите <mark className="key">Ctrl + R</mark>. В открывшемся
+                окне нажмите на кнопку <mark className="select">«Select File»</mark>,
+                выберите свой файл, а затем нажмите{" "}
+                <mark className="select">«Replace»</mark>.
+              </p>
+              <ContentFigure
+                caption="Resource Hacker"
+                imgTitle="Заменяем изображение в .dll"
+                src="images/aftereffects/resource_hacker_replace.png"
+                theme="light"
+                type="image"
+                variant="windows"
+              />
+              <p>
+                После успешной замены сохраните изменения, нажав{" "}
+                <mark className="key">Ctrl + S</mark>. Теперь при каждом запуске программы
+                вы будете видеть свой шедевр.
+              </p>
+              <ContentFigure
+                caption="Пример изменённой плашки при открытии программы"
+                src="images/aftereffects/custom_splash_opening.mp4"
+                theme="light"
+                type="video"
+                variant="windows"
+              />
+            </div>
+          }
         />
+      </DetailsSummary>
+      <DetailsSummary
+        tag="сбросились настройки, испортились параметры, bsod, восстановить, миграция настроек, настройки, запуск и восстановление"
+        title="Как восстановить настройки программы после сбоя системы?"
+      >
+        <div>
+          <p>
+            В редких случаях во время работы с{" "}
+            <mark className="app">Adobe After Effects</mark> может произойти сбой системы.
+            Если это случится в момент перезаписи файла настроек, он может повредиться.
+            При следующем запуске <mark className="app">Adobe After Effects</mark>{" "}
+            программа, скорее всего, выдаст ошибку чтения пользовательских настроек и
+            сбросит их до заводских.
+          </p>
+          <p>
+            Если вы обновлялись с предыдущих версий{" "}
+            <mark className="app">Adobe After Effects</mark> — попробуйте импортировать
+            старые настройки. Для этого перейдите в{" "}
+            <mark className="select">«Edit» → «Preferences» → «Startup & Repair»</mark> и
+            нажмите кнопку{" "}
+            <mark className="select">«Migrate Previous Version Preferences»</mark>. В
+            открывшемся окне вы сможете выбрать, из какой версии{" "}
+            <mark className="app">Adobe After Effects</mark> перенести настройки.
+          </p>
+          <ContentFigure
+            caption="Preferences"
+            imgTitle="Переносим настройки из старых версий программы"
+            src="images/aftereffects/migrate_previous_version_preferences.png"
+            theme="dark"
+            type="image"
+            variant="windows"
+          />
+          <p>
+            Если предыдущих настроек нет, переименовывать файл, убирая суффикс{" "}
+            <mark>-old</mark>, бессмысленно, так как и он может быть повреждён. Советую
+            периодически сохранять пользовательские настройки в отдельную папку или{" "}
+            <a href="#4.1">настроить их синхронизацию с облачным хранилищем</a>. Чтобы
+            открыть папку с настройками — нажмите на кнопку{" "}
+            <mark className="select">«Reveal Preferences in Explorer»</mark> в{" "}
+            <mark className="select">«Edit» → «Preferences» → «Startup & Repair»</mark>.
+          </p>
+        </div>
+      </DetailsSummary>
+      <DetailsSummary
+        tag="cti stuck, плейхед зависает, не работает зум, предпросмотр, оптимизация предпросмотра, консоль, воспроизведение, кэширование, баг"
+        title="Почему красная линия воспроизведения на таймлайне иногда останавливается?"
+      >
         <p>
-          После открытия файла, в левой части окна{" "}
-          <mark className="app">Resource Hacker</mark> появятся папки с изображениями и
-          другими файлами. Нам нужно в ней открыть папку <mark className="path">PNG</mark>{" "}
-          и найти изображения с названиями <mark className="image">AE_SPLASH</mark>,{" "}
-          <mark className="image">AE_SPLASH_AT_2X</mark> и{" "}
-          <mark className="image">AE_SPLASH_AT_3TO2X</mark>, а затем извлечь эти
-          изображения, выделив их <mark className="key">ПКМ</mark> и выбрав{" "}
-          <mark className="ui">Save *.png resource</mark>. После открытия системного окна
-          - укажите любое удобное вам место сохранения изображения.
-        </p>
-        <AdditionInfo>
-          Всего есть три файла, каждое из которых адаптировано под определённый масштаб
-          дисплея. Вы можете заменить одно, два или все три изображения в зависимости от
-          ваших личных предпочтений, если часто меняете масштабирование системы. По
-          аналогии вы можете изменить плашку для окна <mark className="ui">About</mark>,
-          заменив файлы <mark className="image">AE_ABOUT</mark>,{" "}
-          <mark className="image">AE_ABOUT_AT_2X</mark> и{" "}
-          <mark className="image">AE_ABOUT_AT_3TO2X</mark>.
-        </AdditionInfo>
-        <ImageFigure
-          caption="Resource Hacker"
-          imgSrc="images/aftereffects/resource_hacker_extract_file.png"
-          imgTitle="Извлекаем изображения из .dll"
-          styleClass="figure_windows-light"
-        />
-        <p>
-          Отредактировать извлечённый файл вы можете в любом редакторе изображений,
-          например <mark className="app">Adobe Photoshop</mark>,{" "}
-          <mark className="app">GIMP</mark>,{" "}
-          <mark className="app">Adobe Illustrator</mark> и даже в самом{" "}
-          <mark className="app">Adobe After Effects</mark>. Нужно просто не менять размер
-          изображения и сохранить его также в <mark className="image">PNG</mark>.
+          Предположим, вы начали кэширование предпросмотра, и в какой-то момент индикатор
+          текущего времени внезапно останавливается. При этом может зависнуть сам
+          предпросмотр — он перестаёт реагировать на его увеличение или перемещение{" "}
+          <mark className="select">«Current Time Indicator»</mark>.
         </p>
         <p>
-          Я же просто заменю в <mark className="app">Adobe Photoshop</mark> стандартное
-          изображение на изображение автомобиля <mark>Ford Focus</mark> и сохраню его в{" "}
-          <mark className="image">PNG</mark>.
+          Этот баг может появиться в любой версии программы, даже на чистой и лицензионной
+          без сторонних плагинов и скриптов. Он может возникать при одновременной работе{" "}
+          <mark className="app">Adobe After Effects</mark> и{" "}
+          <mark className="app">Adobe Premiere Pro</mark>, а также при использовании{" "}
+          <mark className="plugin">Dynamic Link</mark>.
         </p>
-        <ImageFigure
-          caption="Пример модификации изображения при загрузке Adobe After Effects"
-          imgSrc="images/aftereffects/custom_splash_example.png"
-          imgTitle="Изменённое изображение при открытии программы"
-          styleClass="figure_windows-light"
-        />
-        <Divider>Заменяем изображения в .dll</Divider>
+        <Addition type="warning">
+          Приведённый ниже способ не всегда может помочь и не гарантирует устранение
+          зависания индикатора предпросмотра.
+        </Addition>
         <p>
-          После изменения изображения, возвращаемся к{" "}
-          <mark className="app">Resource Hacker</mark>, выбираем изображение которое нам
-          нужно заменить, нажав по ней <mark className="key">ЛКМ</mark> и нажимаем
-          комбинацию клавиш <mark className="key">Ctrl + R</mark>. В открывшемся окне
-          нажимаем на кнопку <mark className="ui">Select File</mark>, после которого
-          откроется системное окно для выбора нужного файла, где мы собственно и выбираем
-          изображение. После выбора нажимаем на кнопку <mark className="ui">Replace</mark>{" "}
-          и считай пол дела сделано.
+          Чтобы попытаться решить проблему, попробуйте установить значение{" "}
+          <mark className="select">«false»</mark> для параметра{" "}
+          <mark className="select">«PreviewPlaybackOptimization»</mark> в консоли. Для
+          этого откройте консоль с помощью комбинации клавиш{" "}
+          <mark className="key">Ctrl + F12</mark>, переключитесь на вид{" "}
+          <mark className="select">«Debug Database View»</mark> и снимите флажок напротив{" "}
+          <mark className="select">«PreviewPlaybackOptimization»</mark>. После этого
+          перезагрузите программу и попробуйте снова закэшировать и проиграть
+          предпросмотр.
         </p>
-        <ImageFigure
-          caption="Resource Hacker"
-          imgSrc="images/aftereffects/resource_hacker_replace.png"
-          imgTitle="Заменяем изображение в .dll"
-          styleClass="figure_windows-light"
-        />
-        <p>
-          После успешной замены нам достаточно сохранить изменения, нажав на{" "}
-          <mark className="key">Ctrl + S</mark>. Теперь при каждом запуске программы вы
-          будете видеть свой шедевр, который вы сотворили. В теории надпись{" "}
-          <mark>Artwork by Name Surname</mark> тоже можно изменить, но я не вглублялся в
-          такие подробности.
-        </p>
-        <VideoFigure
-          caption="Пример изменённой плашки при открытии программы"
-          styleClass="figure_windows-light"
-          videoSrc="images/aftereffects/custom_splash_opening.mp4"
+        <ContentFigure
+          caption="Adobe After Effects"
+          imgTitle="Отключение оптимизации предпросмотра"
+          src="images/aftereffects/disable_previewplaybackoptimization.png"
+          theme="dark"
+          type="image"
+          variant="windows"
         />
       </DetailsSummary>
     </div>
