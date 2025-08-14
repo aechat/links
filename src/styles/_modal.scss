@@ -12,10 +12,7 @@
   align-items: center;
   gap: 10px;
   outline: 1px solid var(--summary-border);
-  @media (width >= 768px) {
-    border-top-right-radius: $roundness;
-    border-top-left-radius: $roundness;
-  }
+  border-radius: $roundness;
   background-color: var(--summary-background);
   padding-inline: 15px;
   padding-inline-end: 10px;
@@ -37,13 +34,11 @@
 
 .modal-content {
   outline: 1px solid var(--modal-background-border);
-  border-bottom-left-radius: $roundness;
-  border-bottom-right-radius: $roundness;
+  border-radius: $roundness;
   background-color: var(--modal-background-color);
   width: 100%;
-
   .flexible-links {
-    margin: 0;
+    border-radius: $roundness * 0.5;
   }
 }
 

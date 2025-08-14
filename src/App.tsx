@@ -59,25 +59,21 @@ const ErrorFallback = ({error}: {error: Error}) => (
       className="modal"
       style={{maxWidth: "450px", margin: "15px"}}
     >
-      <div className="error-title">Ошибка: {error.message}</div>
-      <div className="error-message">
-        <p>Попробуйте перезагрузить страницу для обновления свежих данных.</p>
-        <div style={{display: "flex", gap: "10px", margin: "10px"}}>
-          <button
-            className="error-button"
-            onClick={() => {
-              window.location.reload();
-              window.location.href = "/";
-            }}
-          >
-            На главную
-          </button>
-          <button
-            className="error-button"
-            onClick={() => window.location.reload()}
-          >
-            Обновить страницу
-          </button>
+      <div className="error-content">
+        <div className="error-title">Ошибка: {error.message}</div>
+        <div className="error-message">
+          <p>Попробуйте перезагрузить страницу для обновления свежих данных.</p>
+          <div className="flexible-links">
+            <button
+              onClick={() => {
+                window.location.reload();
+                window.location.href = "/";
+              }}
+            >
+              На главную
+            </button>
+            <button onClick={() => window.location.reload()}>Обновить страницу</button>
+          </div>
         </div>
       </div>
     </div>

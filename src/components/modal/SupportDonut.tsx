@@ -53,16 +53,16 @@ const SupportDonut: React.FC = () => {
         onCancel={handleCloseDonateModal}
       >
         <div className="modal">
-          <div className="modal-header">
-            <div className="modal-header-title">Поддержать проект</div>
-            <button
-              className="modal-header-close"
-              onClick={handleCloseDonateModal}
-            >
-              <CloseRounded />
-            </button>
-          </div>
           <div className="modal-content">
+            <div className="modal-header">
+              <div className="modal-header-title">Поддержать проект</div>
+              <button
+                className="modal-header-close"
+                onClick={handleCloseDonateModal}
+              >
+                <CloseRounded />
+              </button>
+            </div>
             <p>
               Если вам понравился этот сайт и вы хотели бы, чтобы я продолжил развивать
               его, то вы можете поддержать меня любой суммой и любым удобным вам способом.

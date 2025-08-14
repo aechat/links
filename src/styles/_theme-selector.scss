@@ -28,23 +28,27 @@
   flex-shrink: 0;
   flex-wrap: wrap;
   justify-content: space-between;
+  margin: 10px;
+  outline: 1px solid var(--summary-border);
+  border-radius: $roundness*0.75;
   width: 100%;
+  width: calc(100% - 20px);
+  overflow: hidden;
 
   button:focus,
   button:active,
-  button:hover {
-    outline: 1px solid var(--summary-border);
+  button:hover {outline: 1px solid var(--summary-border);
     background-color: var(--summary-hover);
   }
 }
 
 .theme-button {
   display: flex;
-  flex: 1 0 120px;
+  flex: 1 0 100px;
   flex-wrap: nowrap;
   justify-content: center;
   align-items: center;
-  gap: 10px;
+  gap: 6px;
   z-index: 1;
   transition: background-color 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
   outline: 1px solid var(--summary-border);
@@ -59,8 +63,8 @@
 
 .theme-button svg {
   fill: var(--text-color);
-  width: 20px;
-  height: 20px;
+  width: min(calc(17px + (19 - 17) * ((100vw - 320px) / (768 - 320))), 19px);
+    height: min(calc(17px + (19 - 17) * ((100vw - 320px) / (768 - 320))), 19px);
 }
 
 .theme-button-selected {

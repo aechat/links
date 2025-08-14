@@ -94,22 +94,22 @@ const NotFound = () => {
         <div className="error-backtitle">{currentSubtitle}</div>
         <div
           className="modal"
-          style={{maxWidth: "250px", margin: "15px"}}
+          style={{maxWidth: "450px", margin: "15px"}}
         >
-          <div className="modal-header">
-            <div className="modal-header-title">Страница не найдена</div>
-          </div>
-          <div className="modal-content">
-            <button
-              className="modal-open-button"
-              style={{marginBlock: "10px"}}
-              onClick={() => {
-                window.location.reload();
-                window.location.href = "/";
-              }}
-            >
-              На главную
-            </button>
+          <div className="error-content">
+            <div className="error-title">Страница не найдена</div>
+            <div className="error-message">
+              <div className="flexible-links">
+                <button
+                  onClick={() => {
+                    window.location.reload();
+                    window.location.href = "/";
+                  }}
+                >
+                  На главную
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       </div>

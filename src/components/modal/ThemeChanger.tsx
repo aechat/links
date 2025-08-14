@@ -135,51 +135,55 @@ const ThemeModal: React.FC<ThemeModalProps> = ({isModalOpen, closeModal}) => {
       onCancel={closeModal}
     >
       <div className="modal">
-        <div className="modal-header">
-          <div className="modal-header-title">Оформление</div>
-          <button
-            className="modal-header-close"
-            onClick={closeModal}
-          >
-            <CloseRounded />
-          </button>
-        </div>
-        <div
-          style={{
-            display: "flex",
-          }}
-        >
-          <div className="theme-selector">
+        <div className="modal-content">
+          <div className="modal-header">
+            <div className="modal-header-title">Оформление</div>
             <button
-              className={
-                theme === "light" ? "theme-button theme-button-selected" : "theme-button"
-              }
-              onClick={() => setTheme("light")}
+              className="modal-header-close"
+              onClick={closeModal}
             >
-              <LightModeRounded />
-              Светлая
-            </button>
-            <button
-              className={
-                theme === "dark" ? "theme-button theme-button-selected" : "theme-button"
-              }
-              onClick={() => setTheme("dark")}
-            >
-              <DarkModeRounded />
-              Тёмная
-            </button>
-            <button
-              className={
-                theme === "system" ? "theme-button theme-button-selected" : "theme-button"
-              }
-              onClick={() => setTheme("system")}
-            >
-              <HideSourceRounded />
-              Системная
+              <CloseRounded />
             </button>
           </div>
-        </div>
-        <div className="modal-content">
+          <div
+            style={{
+              display: "flex",
+            }}
+          >
+            <div className="theme-selector">
+              <button
+                className={
+                  theme === "light"
+                    ? "theme-button theme-button-selected"
+                    : "theme-button"
+                }
+                onClick={() => setTheme("light")}
+              >
+                <LightModeRounded />
+                Светлая
+              </button>
+              <button
+                className={
+                  theme === "dark" ? "theme-button theme-button-selected" : "theme-button"
+                }
+                onClick={() => setTheme("dark")}
+              >
+                <DarkModeRounded />
+                Тёмная
+              </button>
+              <button
+                className={
+                  theme === "system"
+                    ? "theme-button theme-button-selected"
+                    : "theme-button"
+                }
+                onClick={() => setTheme("system")}
+              >
+                <HideSourceRounded />
+                Системная
+              </button>
+            </div>
+          </div>
           <div className="theme-title">Оттенок акцентного цвета</div>
           <div className="theme-slider">
             <Slider

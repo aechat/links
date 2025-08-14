@@ -10,7 +10,7 @@ import {useSearchLogic} from "../hooks";
 
 import {SearchSection} from "../types";
 
-import {getFoundWord, getResultWord} from "../utils";
+import {getResultWord} from "../utils";
 
 const SearchCategories: React.FC<{
   onLinkClick: (id: string) => void;
@@ -53,19 +53,6 @@ const SearchResults: React.FC<{
 
   return (
     <>
-      <p className="search-modal-title">
-        {getFoundWord(results.length)}{" "}
-        <span
-          style={{
-            color: "var(--summary-text)",
-            fontWeight: 800,
-            fontSize: "1.05em",
-          }}
-        >
-          {results.length}
-        </span>{" "}
-        {getResultWord(results.length)}
-      </p>
       {results.map(({title, content, id, tag}, index) => {
         const tagsToDisplay = getMatchingTags(tag, query);
 
@@ -162,8 +149,8 @@ const ExternalSearch: React.FC<{query: string}> = ({query}) => {
         </button>
       </div>
       <p className="search-no-results-tip">
-        <sup>*</sup>Perplexity может выдавать недостоверную информацию, не используйте его
-        в качестве самоучителя
+        <sup>*</sup>Perplexity и другие чат-боты на основе ИИ могут выдавать недостоверную
+        информацию
       </p>
     </div>
   );
@@ -411,54 +398,56 @@ export const SearchInPage: React.FC<{sections: SearchSection[]}> = ({sections}) 
       width={850}
       onCancel={closeModal}
     >
-      <div>
-        <div className="search-input-wrapper">
-          <input
-            ref={inputRef}
-            className="search-input"
-            placeholder="Введите что-нибудь для поиска..."
-            style={{cursor: "text"}}
-            type="search"
-            value={query}
-            onChange={(e) => handleQueryChange(e.target.value)}
-          />
-          {query.trim() !== "" && (
-            <button
-              className="search-input-clear"
-              style={{cursor: "pointer"}}
-              onClick={() => {
-                setQuery("");
-                setIsSearching(false);
-              }}
-            >
-              <BackspaceOutlined fontSize="small" />
-            </button>
-          )}
-          <button
-            className="search-input-close"
-            onClick={closeModal}
-          >
-            <CloseRounded />
-          </button>
-        </div>
-        <div
-          ref={resultsContainerRef}
-          className={`search-results${showFade ? " show-fade" : ""}`}
-        >
-          {renderContent()}
-          {showFade}
-          {!isPageLoaded && (
-            <p
-              style={{
-                textAlign: "center",
-                fontSize: "1rem",
-                margin: "20px",
-              }}
-            >
-              Страница ещё загружается, а поиск всё ещё недоступен. Пожалуйста,
-              подождите...
+      <div className="search">
+        <div className="modal-content">
+          <div className="search-input-wrapper">
+            <input
+              ref={inputRef}
+              className="search-input"
+              placeholder="Введите что-нибудь для поиска..."
+              style={{cursor: "text"}}
+              type="search"
+              value={query}
+              onChange={(e) => handleQueryChange(e.target.value)}
+            />
+            <p className="search-counter">
+              <span
+                style={{
+                  color: "var(--summary-text)",
+                  fontWeight: 500,
+                  fontSize: "1.05em",
+                }}
+              >
+                {results.length}
+              </span>{" "}
+              {getResultWord(results.length)}
             </p>
-          )}
+            {query.trim() !== "" && (
+              <button
+                className="search-input-clear"
+                style={{cursor: "pointer"}}
+                onClick={() => {
+                  setQuery("");
+                  setIsSearching(false);
+                }}
+              >
+                <BackspaceOutlined fontSize="small" />
+              </button>
+            )}
+            <button
+              className="search-input-close"
+              onClick={closeModal}
+            >
+              <CloseRounded />
+            </button>
+          </div>
+          <div
+            ref={resultsContainerRef}
+            className={`search-results${showFade ? " show-fade" : ""}`}
+          >
+            {renderContent()}
+            {showFade}
+          </div>
         </div>
       </div>
     </Modal>

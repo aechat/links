@@ -7,15 +7,14 @@
 
 .figure-browser-youtube {
   margin-inline: auto;
-  box-shadow: inset 0 0 20px 0 hsl(0deg 0% 15%);
   border: 1px solid hsl(0deg 0% 20%);
   border-radius: $roundness * 0.75;
   background: hsl(0deg 0% 5%);
   width: calc(100% - 20px);
 
   iframe {
+    outline: 1px solid hsl(0deg 0% 15%);
     box-shadow: 0 5 10px 0 hsl(0deg 0% 20%);
-    border-top: 1px solid hsl(0deg 0% 15%);
   }
 
   .window-header {
@@ -101,7 +100,6 @@
 .figure-windows-light {
   fill: black;
   outline: 1px solid hsl(0deg 0% 90%);
-  box-shadow: inset 0 0 50px 0 hsl(0deg 0% 95%);
   background-image: linear-gradient(
     to bottom,
     hsl(var(--accent-hue) 50% 97.5%),
@@ -112,23 +110,28 @@
   img,
   video {
     cursor: pointer;
+    outline: 1px solid hsl(0deg 0% 93%);
     box-shadow: 0 5 10px 0 hsl(0deg 0% 80%);
-    border-top: 1px solid hsl(0deg 0% 93%);
+    background-color: hsl(0deg 0% 90%);
   }
 }
 
 .figure-windows-dark {
   fill: white;
   outline: 1px solid hsl(var(--accent-hue) 20% 15%);
-  box-shadow: inset 0 0 50px 0 hsl(var(--accent-hue) 25% 10%);
-  background-image: linear-gradient(to bottom, hsl(0deg 0% 10%), hsl(0deg 0% 5%));
+  background-image: linear-gradient(
+    to bottom,
+    hsl(var(--accent-hue) 20% 10%),
+    hsl(var(--accent-hue) 20% 5%)
+  );
   color: white;
 
   img,
   video {
     cursor: pointer;
+    outline: 1px solid hsl(0deg 0% 15%);
     box-shadow: 0 5 10px 0 hsl(0deg 0% 20%);
-    border-top: 1px solid hsl(0deg 0% 15%);
+    background-color: hsl(0deg 0% 10%);
   }
 }
 
@@ -195,29 +198,28 @@
 
 .figure-mac-light {
   outline: 1px solid hsl(0deg 0% 85%);
-  box-shadow: inset 0 0 50px 0 hsl(0deg 0% 90%);
   background: hsl(0deg 0% 97%);
   color: hsl(0deg 0% 20%);
 
   img,
   video {
     cursor: pointer;
+    outline: 1px solid hsl(0deg 0% 90%);
     box-shadow: 0 5 10px 0 hsl(0deg 0% 80%);
-    border-top: 1px solid hsl(0deg 0% 90%);
+    background: hsl(0deg 0% 97%);
   }
 }
 
 .figure-mac-dark {
   outline: 1px solid hsl(0deg 0% 25%);
-  box-shadow: inset 0 0 50px 0 hsl(0deg 0% 15%);
   background-image: linear-gradient(to bottom, hsl(0deg 0% 12.5%), hsl(0deg 0% 5%));
   color: hsl(0deg 0% 80%);
 
   img,
   video {
     cursor: pointer;
+    outline: 1px solid hsl(0deg 0% 25%);
     box-shadow: 0 5 10px 0 hsl(0deg 0% 20%);
-    border-top: 1px solid hsl(0deg 0% 25%);
   }
 }
 
@@ -299,7 +301,6 @@ img {
   max-width: 95vw;
   height: fit-content;
   max-height: 95vh;
-  overflow: hidden;
 
   &.closing {
     animation: scaleDown 0.5s cubic-bezier(0.075, 0.82, 0.165, 1) forwards;

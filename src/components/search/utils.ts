@@ -17,18 +17,6 @@ export const getResultWord = (count: number): string => {
   return "результатов";
 };
 
-export const getFoundWord = (count: number): string => {
-  if (count % 10 === 1 && count % 100 !== 11) {
-    return "Найден";
-  }
-
-  if (count % 10 >= 2 && count % 10 <= 4 && (count % 100 < 10 || count % 100 >= 20)) {
-    return "Найдены";
-  }
-
-  return "Найдено";
-};
-
 export const extractMatchingLine = (content: string, query: string): string => {
   if (!content || !query.trim()) {
     return content;
