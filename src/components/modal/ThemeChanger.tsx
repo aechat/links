@@ -208,7 +208,7 @@ const ThemeModal: React.FC<ThemeModalProps> = ({isModalOpen, closeModal}) => {
           <div className="theme-title">Насыщенность акцентного цвета</div>
           <div className="theme-slider">
             <Slider
-              max={1.25}
+              max={1.5}
               min={0}
               step={0.025}
               style={{flex: "1 1 auto", width: "100%"}}
