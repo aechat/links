@@ -40,7 +40,7 @@ const AEExpressionPage = () => {
   const sections = [
     {
       key: "1",
-      title: "Начинаем выражать выражения",
+      title: "Начинаем «выражаться»",
       id: "start",
       component: AEExprStart,
     },
@@ -123,25 +123,13 @@ const AEExpressionPage = () => {
                 <h1>aeexpr</h1>
               </div>
               <GithubUpdateInfo folderPath="src/pages/sections/aeexpr" />
-              <Addition type="danger">
-                На текущий момент данная страница ещё не полностью готова. В статьях могут
-                быть ошибки, неполная или непроверенная информация касательно работы
-                выражений. Следите за обновлениями!
-              </Addition>
               <Addition type="warning">
-                Данная страница{" "}
-                <b>
-                  <u>не является</u>
-                </b>{" "}
-                полноценным курсом по написанию выражений в{" "}
-                <mark className="app">Adobe After Effects</mark>, а также здесь не будут
-                разбираться случаи с написанием скриптов формата{" "}
-                <mark className="file">JSX</mark> и <mark className="file">JSXBIN</mark>.
-                Примеры выражений выполняются на движке{" "}
-                <mark className="plugin">JavaScript</mark>, его можно изменить во вкладке{" "}
-                <mark className="select">Expression</mark> окна{" "}
-                <mark className="select">Project Manager</mark>, который открывается с
-                помощью комбинации клавиш{" "}
+                Эта страница не является полноценным курсом по написанию выражений в{" "}
+                <mark className="app">Adobe After Effects</mark>. Примеры выражений
+                выполняются на движке <mark className="plugin">JavaScript</mark>. Его
+                можно изменить во вкладке <mark className="select">«Expression»</mark>{" "}
+                окна <mark className="select">«Project Manager»</mark>, которое
+                открывается комбинацией клавиш{" "}
                 <mark className="key">Ctrl + Alt + Shift + K</mark>.
               </Addition>
               <SupportDonut />
