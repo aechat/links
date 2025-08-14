@@ -3,9 +3,11 @@ $dark: (
   background-color: hsl(0, 0%, 0%),
   background-color-alpha: hsla(0, 0%, 0%, 0.7),
   text-color: hsl(0, 0%, 100%),
+  modal-background-color: hsla(var(--accent-hue), calc(8% * var(--saturate-ratio)), 5%, 0.75),
+  modal-background-border: hsla(var(--accent-hue), calc(20% * var(--saturate-ratio)), 15%, 0.5),
   content-background-color: hsl(0, 0%, 6%),
   content-background-border: hsl(0, 0%, 15%),
-  header-background: hsla(var(--accent-hue), 25%, 7%, 0.8),
+  header-background: hsla(var(--accent-hue), calc(30% * var(--saturate-ratio)), 7%, 0.8),
   // ~: банковские цвета:
   sber-background: hsl(130, calc(30% * var(--saturate-ratio)), 13%),
   sber-text: hsl(130, calc(60% * var(--saturate-ratio)), 85%),
@@ -24,8 +26,8 @@ $dark: (
   button-border: hsl(var(--accent-hue), calc(35% * var(--saturate-ratio)), 25%),
   header-border: hsla(var(--accent-hue), calc(10% * var(--saturate-ratio)), 25%, 0.5),
   // *: стили summary
-  summary-background: hsl(var(--accent-hue), calc(25% * var(--saturate-ratio)), 7%),
-  summary-border: hsl(var(--accent-hue), calc(35% * var(--saturate-ratio)), 17.5%),
+  summary-background: hsl(var(--accent-hue), calc(20% * var(--saturate-ratio)), 7%),
+  summary-border: hsl(var(--accent-hue), calc(15% * var(--saturate-ratio)), 17.5%),
   summary-text: hsl(var(--accent-hue), calc(100% * var(--saturate-ratio)), 80%),
   summary-hover: hsl(var(--accent-hue), calc(20% * var(--saturate-ratio)), 11%),
   // ~: информационные блоки:

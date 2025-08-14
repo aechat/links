@@ -36,10 +36,10 @@
 }
 
 .modal-content {
-  outline: 1px solid var(--content-background-border);
+  outline: 1px solid var(--modal-background-border);
   border-bottom-left-radius: $roundness;
   border-bottom-right-radius: $roundness;
-  background-color: var(--content-background-color);
+  background-color: var(--modal-background-color);
   width: 100%;
 
   .flexible-links {
