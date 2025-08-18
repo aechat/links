@@ -65,10 +65,8 @@
     -webkit-mask-position 0.5s ease,
     mask-position 0.5s ease;
 
-  margin-block-start: -10px;
   border-bottom-left-radius: $roundness;
   border-bottom-right-radius: $roundness;
-  padding-block-start: 10px;
   max-height: clamp(
     47.5svh,
     calc(47.5svh + (100 - 47.5) * ((100vw - 400px) / (1200 - 400))),
@@ -76,7 +74,10 @@
   );
 
   overflow-y: auto;
-  scrollbar-width: 3px;
+  scrollbar-width: none; 
+  &::-webkit-scrollbar {
+    display: none;
+  }
 }
 
 .search-results.show-fade {

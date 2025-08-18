@@ -66,7 +66,6 @@
   line-height: 1.3;
   font-family: Onest, sans-serif;
   text-transform: uppercase;
-
   &:not(:last-child) {
     border-top: 1px solid var(--summary-border);
     border-bottom: none;
@@ -140,66 +139,6 @@
     white-space: wrap;
   }
 
-  .message-correct,
-  .message-incorrect {
-    flex: 1 1 300px;
-    border-radius: $roundness;
-    padding-bottom: 10px;
-  }
-
-  .message-incorrect {
-    border: 1px solid hsl(0deg 100% 50% / 25%);
-    background: hsl(0deg 100% 50% / 10%);
-  }
-
-  .message-correct {
-    border: 1px solid hsl(120deg 100% 50% / 25%);
-    background: hsl(120deg 100% 50% / 10%);
-  }
-
-  .message-flex {
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: space-between;
-    align-items: center;
-    gap: 15px;
-    margin-block: 10px;
-  }
-
-  .message-left {
-    position: relative;
-    top: 0;
-    left: 0;
-    filter: saturate(0%);
-    margin-right: auto;
-    margin-left: 10px;
-    margin-block: 10px;
-    border: 1px solid var(--mark-border);
-    border-radius: $roundness * 0.75;
-    background-color: var(--mark-background);
-    padding: 10px;
-    max-width: 70%;
-    color: var(--mark-text);
-    font-size: 0.875rem;
-    line-height: 1.5;
-    text-align: left;
-  }
-
-  .message-right {
-    filter: saturate(100%);
-    margin-right: 10px;
-    margin-left: auto;
-    margin-block: 10px;
-    border: 1px solid var(--mark-border);
-    border-radius: $roundness * 0.75;
-    background-color: var(--mark-background);
-    padding: 10px;
-    max-width: 70%;
-    color: var(--mark-text);
-    font-size: 0.875rem;
-    line-height: 1.5;
-    text-align: right;
-  }
 
   a {
     transition: opacity 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);

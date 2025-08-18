@@ -24,22 +24,28 @@ li > .addition-danger,
   margin-right: 0;
   margin-left: 0;
   margin-inline: 0;
-  font-size: 0.925rem;
+  font-size: 0.935rem;
+}
+
+.rules-section > .addition-info,
+.rules-section > .addition-warning,
+.rules-section > .addition-danger{
+  margin: 10px;
 }
 
 .addition-info,
 .addition-warning,
 .addition-danger {
   display: flex;
-  box-sizing: content-box;
   flex-direction: row;
   align-items: center;
   gap: 10px;
+  box-sizing: content-box;
   margin: 10px;
   border-radius: $roundness * 0.75;
   padding: 10px 10px 12px 12px;
   font-weight: 425;
-  font-size: 0.925rem;
+  font-size: 0.935rem;
   line-height: 1.6;
 
   p {
@@ -163,7 +169,6 @@ li > .addition-danger,
     &-windows {
       &-dark {
         outline: 1px solid var(--addition-info-border);
-        box-shadow: inset 0 0 50px 0 var(--addition-info-background);
       }
     }
   }

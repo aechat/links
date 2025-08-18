@@ -3,6 +3,7 @@
 @use "styles/fonts";
 @use "styles/pages/links";
 @use "styles/pages/faq";
+@use "styles/pages/rules";
 @use "styles/figure";
 @use "styles/header";
 @use "styles/table";
@@ -48,7 +49,7 @@ body {
 html {
   -webkit-tap-highlight-color: rgb(0 0 0 / 0%);
   scrollbar-width: none;
-  font-weight: 350;
+  font-weight: 375;
   font-size: 13px;
   font-family: Inter, sans-serif;
 
