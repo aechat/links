@@ -598,19 +598,15 @@ export const useSearchLogic = (query: string, isPageLoaded: boolean) => {
           };
         })
         .sort((a, b) => {
-          if (a.hasTagMatch && !b.hasTagMatch) {
+          const aTagOrTitle = a.hasTagMatch || a.hasTitleMatch;
+
+          const bTagOrTitle = b.hasTagMatch || b.hasTitleMatch;
+
+          if (aTagOrTitle && !bTagOrTitle) {
             return -1;
           }
 
-          if (!a.hasTagMatch && b.hasTagMatch) {
-            return 1;
-          }
-
-          if (a.hasTitleMatch && !b.hasTitleMatch) {
-            return -1;
-          }
-
-          if (!a.hasTitleMatch && b.hasTitleMatch) {
+          if (!aTagOrTitle && bTagOrTitle) {
             return 1;
           }
 
