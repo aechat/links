@@ -611,7 +611,7 @@ const AnimationControls: React.FC<AnimationControlsProps> = ({
   );
 };
 
-const EasingEditorSuite: React.FC = () => {
+const EasingEditor: React.FC = () => {
   const [keyframeOut, setKeyframeOut] = useState<KeyframeParams>({
     influence: 33.33,
     speed: 0,
@@ -1493,4 +1493,4 @@ function useSpeedGraphMapping(
   };
 }
 
-export default EasingEditorSuite;
+export default EasingEditor;
