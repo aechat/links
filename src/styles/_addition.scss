@@ -29,7 +29,7 @@ li > .addition-danger,
 
 .rules-section > .addition-info,
 .rules-section > .addition-warning,
-.rules-section > .addition-danger{
+.rules-section > .addition-danger {
   margin: 10px;
 }
 
@@ -311,10 +311,10 @@ li {
   justify-content: space-between;
   align-items: center;
   gap: 10px;
-  margin: 10px;
-  margin-block: 15px;
+  // FIXME: добавить отдельный цвет для фильтрации контента
+  filter: saturate(0.5);
+  margin-block-start: -1px;
   outline: 1px solid var(--summary-border);
-  border-radius: $roundness;
   background-color: var(--summary-background);
   padding: 10px 15px;
   color: var(--summary-text);
