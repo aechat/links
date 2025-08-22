@@ -438,6 +438,47 @@ const AEInterface: React.FC = () => {
         </p>
       </DetailsSummary>
       <DetailsSummary
+        tag="cti stuck, плейхед зависает, не работает зум, предпросмотр, оптимизация предпросмотра, консоль, воспроизведение, кэширование, баг"
+        title="Почему красная линия воспроизведения на таймлайне иногда останавливается?"
+      >
+        <p>
+          Предположим, вы начали кэширование предпросмотра, и в какой-то момент индикатор
+          текущего времени внезапно останавливается. При этом может зависнуть сам
+          предпросмотр — он перестаёт реагировать на его увеличение или перемещение{" "}
+          <mark className="select">«Current Time Indicator»</mark>.
+        </p>
+        <p>
+          Этот баг может появиться в любой версии программы, даже на чистой и лицензионной
+          без сторонних плагинов и скриптов. Он может возникать при одновременной работе{" "}
+          <mark className="app">Adobe After Effects</mark> и{" "}
+          <mark className="app">Adobe Premiere Pro</mark>, а также при использовании{" "}
+          <mark className="plugin">Dynamic Link</mark>.
+        </p>
+        <Addition type="warning">
+          Приведённый ниже способ не всегда может помочь и не гарантирует устранение
+          зависания индикатора предпросмотра.
+        </Addition>
+        <p>
+          Чтобы попытаться решить проблему, попробуйте установить значение{" "}
+          <mark className="select">«false»</mark> для параметра{" "}
+          <mark className="select">«PreviewPlaybackOptimization»</mark> в консоли. Для
+          этого откройте консоль с помощью комбинации клавиш{" "}
+          <mark className="key">Ctrl + F12</mark>, переключитесь на вид{" "}
+          <mark className="select">«Debug Database View»</mark> и снимите флажок напротив{" "}
+          <mark className="select">«PreviewPlaybackOptimization»</mark>. После этого
+          перезагрузите программу и попробуйте снова закэшировать и проиграть
+          предпросмотр.
+        </p>
+        <ContentFigure
+          caption="Adobe After Effects"
+          imgTitle="Отключение оптимизации предпросмотра"
+          src="images/aftereffects/disable_previewplaybackoptimization.png"
+          theme="dark"
+          type="image"
+          variant="windows"
+        />
+      </DetailsSummary>
+      <DetailsSummary
         tag="границы слоёв, предпросмотр, траектория движения, путь движения, настройки отображения"
         title="Как включить отображение манипуляторов слоёв в предпросмотре?"
       >
@@ -1435,47 +1476,6 @@ const AEInterface: React.FC = () => {
             <mark className="select">«Edit» → «Preferences» → «Startup & Repair»</mark>.
           </p>
         </div>
-      </DetailsSummary>
-      <DetailsSummary
-        tag="cti stuck, плейхед зависает, не работает зум, предпросмотр, оптимизация предпросмотра, консоль, воспроизведение, кэширование, баг"
-        title="Почему красная линия воспроизведения на таймлайне иногда останавливается?"
-      >
-        <p>
-          Предположим, вы начали кэширование предпросмотра, и в какой-то момент индикатор
-          текущего времени внезапно останавливается. При этом может зависнуть сам
-          предпросмотр — он перестаёт реагировать на его увеличение или перемещение{" "}
-          <mark className="select">«Current Time Indicator»</mark>.
-        </p>
-        <p>
-          Этот баг может появиться в любой версии программы, даже на чистой и лицензионной
-          без сторонних плагинов и скриптов. Он может возникать при одновременной работе{" "}
-          <mark className="app">Adobe After Effects</mark> и{" "}
-          <mark className="app">Adobe Premiere Pro</mark>, а также при использовании{" "}
-          <mark className="plugin">Dynamic Link</mark>.
-        </p>
-        <Addition type="warning">
-          Приведённый ниже способ не всегда может помочь и не гарантирует устранение
-          зависания индикатора предпросмотра.
-        </Addition>
-        <p>
-          Чтобы попытаться решить проблему, попробуйте установить значение{" "}
-          <mark className="select">«false»</mark> для параметра{" "}
-          <mark className="select">«PreviewPlaybackOptimization»</mark> в консоли. Для
-          этого откройте консоль с помощью комбинации клавиш{" "}
-          <mark className="key">Ctrl + F12</mark>, переключитесь на вид{" "}
-          <mark className="select">«Debug Database View»</mark> и снимите флажок напротив{" "}
-          <mark className="select">«PreviewPlaybackOptimization»</mark>. После этого
-          перезагрузите программу и попробуйте снова закэшировать и проиграть
-          предпросмотр.
-        </p>
-        <ContentFigure
-          caption="Adobe After Effects"
-          imgTitle="Отключение оптимизации предпросмотра"
-          src="images/aftereffects/disable_previewplaybackoptimization.png"
-          theme="dark"
-          type="image"
-          variant="windows"
-        />
       </DetailsSummary>
     </div>
   );
