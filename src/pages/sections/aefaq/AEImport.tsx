@@ -299,12 +299,14 @@ const AEImport: React.FC = () => {
                 Если вы выбрали <mark className="video">H.264</mark> или{" "}
                 <mark className="video">H.265</mark>, то для этого формата потребуется
                 выполнить ещё несколько действий.
-                <Addition type="warning">
+                <Addition type="danger">
                   Учтите, что <mark className="video">H.264</mark> и{" "}
                   <mark className="video">H.265</mark> не являются{" "}
                   <mark className="video">монтажными кодеками</mark>, и использовать их в
                   работе в <mark className="app">Adobe After Effects</mark> не
-                  рекомендуется из-за их непредсказуемого поведения.
+                  рекомендуется из-за их непредсказуемого поведения, особенно если вы
+                  собираетесь делать трекинг или использовать{" "}
+                  <mark className="plugin">Roto Brush</mark>.
                 </Addition>
                 <ul>
                   <li>
@@ -437,17 +439,38 @@ const AEImport: React.FC = () => {
             </Addition>
           </li>
         </ul>
+        <Divider>Используем шаблоны для конвертации</Divider>
         <p>
-          <mark className="app">Shutter Encoder</mark> поддерживает шаблоны настроек для
-          повторного использования. Если не хочется каждый раз вручную выбирать параметры,
-          можно создать собственный шаблон или взять готовые из{" "}
+          <mark className="app">Shutter Encoder</mark> поддерживает пресеты для быстрого
+          применения настроек конвертации к импортированным в программу файлам, чтобы
+          каждый раз не выбирать нужные параметры. Чтобы открыть окно с шаблонами
+          настроек, нажмите на значок звезды, расположенный правее кнопки{" "}
+          <mark className="select">«Start function»</mark>.
+        </p>
+        <ContentFigure
+          caption="Shutter Encoder"
+          imgTitle="Начало конвертации в Shutter Encoder"
+          src="images/shutter_encoder_my_functions.png"
+          theme="dark"
+          type="image"
+          variant="mac"
+        />
+        <p>
+          Если вы ни разу не сохраняли шаблон конвертации, окно сохранённых функций будет
+          пустым. Чтобы сохранить свои настройки конвертации, нажмите комбинацию клавиш{" "}
+          <mark className="key">Ctrl + S</mark> и в открывшемся окне сохранения введите
+          название шаблона. Также вы можете воспользоваться готовыми шаблонами конвертации
+          в популярные форматы из{" "}
           <a href="https://github.com/aechat/links/tree/main/public/files/shutterencoder_templates">
             репозитория этого сайта на GitHub
           </a>{" "}
-          и импортировать его через окно <mark className="select">«My functions»</mark>.
+          и импортировать их в программу простым перетаскиванием{" "}
+          <mark className="file">ENC</mark> в окно{" "}
+          <mark className="select">«My functions»</mark> или переместить файлы в папку{" "}
+          <mark className="path">Shutter Encoder</mark> в директории текущего пользователя
+          операционной системы.
         </p>
-        {/* TODO: написать про шаблоны кодирования в shutter encoder, как их применять и импортировать а также как их сохранять (да они есть такие вроде как) */}
-        <Divider>Импортируем материалы в программу</Divider>
+        <Divider>Импортируем материалы в проект</Divider>
         <p>
           После импорта подготовленных материалов в программу вы можете отсортировать их
           вручную в окне <mark className="select">«Project»</mark>, создав папки и
@@ -475,9 +498,8 @@ const AEImport: React.FC = () => {
           />
         </Addition>
         <p>
-          После успешного перекодирования исходников вы можете их заменить, если они уже
-          были импортированы в ваш проект, в окне{" "}
-          <mark className="select">«Project»</mark>. Для этого нажмите{" "}
+          Если вы уже импортировали исходники, а затем переконвертировали их — замените
+          файлы в окне <mark className="select">«Project»</mark>. Для этого нажмите{" "}
           <mark className="key">ПКМ</mark> по нужному исходнику и выберите{" "}
           <mark className="select">«Replace Footage» → «File»</mark> или нажмите на
           комбинацию клавиш <mark className="key">Ctrl + H</mark>, выделив исходник,
@@ -634,6 +656,24 @@ const AEImport: React.FC = () => {
           variant="mac"
         />
         <p>
+          В некоторых случаях <mark className="app">Adobe After Effects</mark> может
+          некорректно воспроизводить аудиодорожку: пропускать фрагменты звука,
+          воспроизводить её растянутой или с искажениями при использовании{" "}
+          <mark className="audio">MP3</mark> или других форматов. Чаще всего это решается
+          конвертацией в <mark className="audio">WAV</mark> через{" "}
+          <mark className="app">Shutter Encoder</mark>,{" "}
+          <mark className="app">Adobe Audition</mark> или{" "}
+          <mark className="app">EZ CD Audio Converter</mark> и заменой файла в проекте.
+        </p>
+        <ContentFigure
+          caption="Пример артефактов проблемного аудио"
+          src="images/aftereffects/audio_artifacts.mp4"
+          theme="dark"
+          type="video"
+          variant="windows"
+        />
+        <Divider>Заменяем проблемные исходники</Divider>
+        <p>
           После конвертации перейдите в окно <mark className="select">«Project»</mark>,
           выделите исходник, файл которого вы хотите заменить, нажмите{" "}
           <mark className="key">ПКМ</mark> и выберите{" "}
@@ -703,7 +743,6 @@ const AEImport: React.FC = () => {
                 выбрать в <mark className="select">«Download Type»</mark> значение{" "}
                 <mark className="select">«Studio Driver»</mark>.
               </Addition>
-
               <Divider>
                 Работаем с импортёром Autokroma Influx вместо стандартного
               </Divider>
@@ -921,13 +960,8 @@ const AEImport: React.FC = () => {
                 Пользователи <mark>Windows</mark> могут столкнуться с проблемой открытия и
                 импорта в <mark className="app">Adobe After Effects</mark> таких файлов,
                 если в системе отсутствуют кодеки для работы с соответствующими форматами
-                изображений и видео. Казалось бы, достаточно установить их из{" "}
-                <mark className="app">Microsoft Store</mark>, но, увы, не всё так просто:
-                один из кодеков платный, а другой устанавливается неочевидным образом.
-              </p>
-              <p>
-                Чтобы корректно открывать такие изображения и видео, вам нужно установить
-                нужные кодеки. Для их загрузки посетите{" "}
+                изображений и видео. Чтобы корректно открывать такие изображения и видео,
+                вам нужно установить нужные кодеки. Для их загрузки посетите{" "}
                 <a href="https://store.rg-adguard.net/">
                   онлайн-генератор ссылок из Microsoft Store
                 </a>
@@ -950,34 +984,51 @@ const AEImport: React.FC = () => {
                   Ссылка для скачивания кодека <mark className="video">HEVC</mark>:{" "}
                   <code>https://apps.microsoft.com/9n4wgh0z6vhq</code>
                   <Addition type="danger">
-                    <mark className="app">Adobe After Effects</mark> после установки
-                    кодеков всё равно не сможет импортировать видео с контейнером{" "}
-                    <mark className="video">HEVC</mark>. Если вы попробуете импортировать
-                    такой файл, программа сообщит, что он не поддерживается. Чтобы это
-                    исправить, переименовуйте ваше видео в{" "}
+                    Учтите, что <mark className="app">Adobe After Effects</mark> после
+                    установки кодеков всё равно не сможет импортировать видео с
+                    контейнером <mark className="video">HEVC</mark>. Если вы попробуете
+                    импортировать такой файл, программа сообщит, что он не поддерживается.
+                    Чтобы это исправить, переименуйте ваше видео в{" "}
                     <mark className="video">MP4</mark> или перекодируйте его в другой
                     кодек через <mark className="app">Shutter Encoder</mark>.
                   </Addition>
                 </li>
               </ul>
               <p>
-                После вставки ссылки и нажатия на кнопку{" "}
-                <mark className="select">«OK»</mark>, нажмите на файл с расширением{" "}
-                <mark className="file">APPXBUNDLE</mark> для его скачивания.
+                После вставки ссылки в поле ввода и нажатия кнопки{" "}
+                <mark className="select">«Generate temporary links»</mark> в виде
+                «галочки», нажмите на ссылку с названием файла и расширением{" "}
+                <mark className="file">APPXBUNDLE</mark>, чтобы скачать его. Для установки
+                пакетов с расширением <mark className="file">APPXBUNDLE</mark> достаточно
+                открыть их двойным кликом<sup>1</sup>.
               </p>
               <Addition type="warning">
                 Если браузер предупреждает, что вы скачиваете редкий файл или вирус,
                 проигнорируйте предупреждение и продолжите скачивание.
               </Addition>
-              <p>
-                Для установки пакетов с расширением{" "}
-                <mark className="file">APPXBUNDLE</mark> достаточно открыть их двойным
-                кликом. Если вам предлагают открыть файл с помощью{" "}
-                <mark className="app">Обработчика команд Windows</mark> или{" "}
-                <mark className="app">Установщика приложений</mark>, выбирайте любой
-                вариант. Я предпочту установку через{" "}
-                <mark className="app">Обработчик команд Windows</mark>.
-              </p>
+              <Addition type="info">
+                <ul>
+                  <li>
+                    <sup>1</sup> «Быстрая» установка будет работать в том случае, если вы
+                    не используете слишком урезанную сборку <mark>Windows</mark>, в
+                    которой отсутствуют
+                    <mark className="app">WinGet</mark> или{" "}
+                    <mark className="app">Microsoft Store</mark>. Если система предлагает
+                    открыть файл с помощью{" "}
+                    <mark className="app">Обработчика команд Windows</mark> или{" "}
+                    <mark className="app">Установщика приложений</mark>, выберите любой
+                    вариант.
+                  </li>
+                  <li>
+                    Если вы не хотите или не можете установить{" "}
+                    <mark className="app">Microsoft Store</mark>, пакеты формата{" "}
+                    <mark className="file">APPXBUNDLE</mark> можно добавить через{" "}
+                    <mark className="app">PowerShell</mark> командой{" "}
+                    <mark className="code">Add-AppxPackage ПУТЬ/ДО/ФАЙЛА.APPXBUNDLE</mark>
+                    .
+                  </li>
+                </ul>
+              </Addition>
               <p>
                 После успешной установки кодеков вы сможете открывать файлы форматов{" "}
                 <mark className="file">HEIF</mark>, <mark className="file">HEIC</mark> и{" "}
@@ -1000,7 +1051,7 @@ const AEImport: React.FC = () => {
           <mark className="video">AV1</mark>, — а также некоторых контейнеров, таких как{" "}
           <mark className="video">WEBM</mark>, <mark className="video">FLV</mark>,{" "}
           <mark className="video">MKV</mark> и других. Если у вас небольшой проект и нет
-          желания перекодировать исходники, можно использовать плагин{" "}
+          желания конвертировать исходники — попробуйте воспользоваться плагином{" "}
           <a href="https://www.autokroma.com/Influx">Autokroma Influx</a>. Он упрощает
           импорт файлов, которые не поддерживаются в{" "}
           <mark className="app">Adobe After Effects</mark>,{" "}
@@ -1045,12 +1096,12 @@ const AEImport: React.FC = () => {
         />
         <p>
           Если вам нужно преобразовать частоту кадров уже импортированной секвенции,
-          воспользуйтесь интерпретацией футажа. Для этого выделите секвенцию в окне{" "}
-          <mark className="select">«Project»</mark> и нажмите комбинацию клавиш{" "}
-          <mark className="key">Ctrl + Alt + G</mark>. В открывшемся окне в разделе{" "}
-          <mark className="select">«Frame Rate»</mark> установите для{" "}
-          <mark className="select">«Conform to frame rate»</mark> ожидаемое количество
-          кадров в секунду.
+          воспользуйтесь окном <mark className="select">«Interpret Footage»</mark>. Для
+          этого выделите секвенцию в окне <mark className="select">«Project»</mark> и
+          нажмите комбинацию клавиш <mark className="key">Ctrl + Alt + G</mark>. В
+          открывшемся окне в разделе <mark className="select">«Frame Rate»</mark>{" "}
+          установите для <mark className="select">«Conform to frame rate»</mark> нужное
+          количество кадров в секунду.
         </p>
         <ContentFigure
           caption="Interpret Footage"
@@ -1066,13 +1117,13 @@ const AEImport: React.FC = () => {
         title="Почему я не могу импортировать PSD по слоям?"
       >
         <p>
-          Такое бывает, когда вы сохраняете в <mark className="app">Adobe Photoshop</mark>{" "}
-          файл в формате <mark className="image">PSD</mark> в цветовом режиме, отличном от{" "}
-          <mark>RGB</mark>. <mark className="app">Adobe After Effects</mark> не распознаёт
-          файлы в <mark>CMYK</mark> или аналогичных режимах, поэтому импортирует их как
-          целый холст без возможности разделения по слоям. Чтобы проверить, в каком режиме
-          сохранён ваш файл, откройте его в <mark className="app">Adobe Photoshop</mark> и
-          посмотрите на заголовок окна.
+          Чтобы в <mark className="app">Adobe After Effects</mark> можно было корректно
+          импортировать многослойные изображения <mark className="file">PSD</mark>, они
+          должны быть сохранены в режимах <mark className="select">«RGB»</mark> или{" "}
+          <mark className="select">«Grayscale»</mark>. В противном случае файлы,
+          сохранённые в режимах <mark className="select">«CMYK»</mark>,{" "}
+          <mark className="select">«LAB»</mark> и других, будут импортироваться как единое
+          изображение без возможности разделения на слои.
         </p>
         <ContentFigure
           caption="Adobe Photoshop"
@@ -1083,10 +1134,15 @@ const AEImport: React.FC = () => {
           variant="windows"
         />
         <p>
-          Если в заголовке написано <mark>CMYK</mark>, <mark>Grayscale</mark> или что-то
-          другое, отличное от <mark>RGB</mark>, вам нужно преобразовать файл в{" "}
-          <mark>RGB</mark>. Для этого в <mark className="select">«Image» → «Mode»</mark>{" "}
-          выберите режим <mark className="select">«RGB Color»</mark>.
+          Чтобы проверить цветовой режим, откройте файл <mark className="image">PSD</mark>{" "}
+          в <mark className="app">Adobe Photoshop</mark> и посмотрите заголовок вкладки
+          открытого проекта. Если там указано <mark className="select">«CMYK»</mark> или
+          любой другой режим, кроме <mark className="select">«RGB»</mark> и{" "}
+          <mark className="select">«Grayscale»</mark>, файл необходимо преобразовать в
+          правильный цветовой режим. Для этого в меню{" "}
+          <mark className="select">«Image» → «Mode»</mark> выберите{" "}
+          <mark className="select">«RGB Color»</mark> или{" "}
+          <mark className="select">«Grayscale»</mark>.
         </p>
         <ContentFigure
           caption="Adobe Photoshop"
@@ -1098,19 +1154,19 @@ const AEImport: React.FC = () => {
         />
         <Addition type="warning">
           Если появится окно с вопросом{" "}
-          <mark>
+          <mark className="select">
             «Change modes can affect the appearance of layers. Flatten image before mode
             change?»
           </mark>
-          , смело нажимайте на кнопку <mark className="select">«Don&apos;t Flatten»</mark>
-          . Иначе ваши слои объединятся в один, если вы нажмёте на{" "}
-          <mark className="select">«Flatten»</mark>. После смены цветового режима цвета
-          могут сильно измениться.
+          , нажмите <mark className="select">«Don&apos;t Flatten»</mark> — иначе слои
+          объединятся в один. После смены режима цвета могут заметно измениться.
         </Addition>
         <p>
-          После изменения цветового режима сохраните <mark className="image">PSD</mark>{" "}
-          файл и попробуйте снова импортировать его в{" "}
-          <mark className="app">Adobe After Effects</mark>.
+          После изменения цветового режима сохраните проект в{" "}
+          <mark className="app">Adobe Photoshop</mark> и попробуйте снова импортировать
+          его в <mark className="app">Adobe After Effects</mark> перетаскиванием файла в
+          проект или выбрав файл с помощью <mark className="key">Ctrl + I</mark>. Теперь
+          при импорте появится возможность типа импорта.
         </p>
         <ContentFigure
           caption="filename.psd"
@@ -1120,11 +1176,12 @@ const AEImport: React.FC = () => {
           type="image"
           variant="windows"
         />
+        <Divider>Экспортируем слои в отдельные файлы</Divider>
         <p>
-          Если этот способ вам не помог или вас не устраивают цвета после изменения
-          цветового режима, экспортируйте все слои из{" "}
+          Если этот способ не помог или цвета после смены режима вас не устраивают,
+          попробуйте экспортировать все слои из{" "}
           <mark className="app">Adobe Photoshop</mark> отдельными файлами. Для этого
-          перейдите в <mark className="select">«File» → «Export»</mark> и нажмите на{" "}
+          перейдите в <mark className="select">«File» → «Export»</mark> и выберите{" "}
           <mark className="select">«Layers to Files»</mark>.
         </p>
         <ContentFigure
@@ -1136,10 +1193,10 @@ const AEImport: React.FC = () => {
           variant="windows"
         />
         <p>
-          В открывшемся окне вы можете указать путь для сохранения, название и тип файла,
-          в который хотите экспортировать слои. После настроек нажмите на{" "}
-          <mark className="select">«OK»</mark>, и ваши слои сохранятся как отдельные
-          файлы.
+          В открывшемся окне укажите путь для сохранения, имя и формат файлов. Нажмите{" "}
+          <mark className="select">«OK»</mark> — и слои будут сохранены по отдельности.
+          После этого их можно импортировать в{" "}
+          <mark className="app">Adobe After Effects</mark> и работать с ними как обычно.
         </p>
         <ContentFigure
           caption="Adobe Photoshop"
@@ -1149,51 +1206,76 @@ const AEImport: React.FC = () => {
           type="image"
           variant="windows"
         />
-        <p>
-          После экспорта слоёв в виде отдельных файлов вы сможете импортировать их в{" "}
-          <mark className="app">Adobe After Effects</mark> и работать с ними как обычно.
-        </p>
       </DetailsSummary>
       <DetailsSummary
-        tag="импорт из иллюстратора, градиенты"
-        title="Как перенести макет, созданный в Illustrator, по слоям и с градиентами?"
+        tag="ai, перенести макет из иллюстратора, градиенты"
+        title="Как импортировать векторное изображение, созданное в Adobe Illustrator?"
       >
         <p>
-          Предположим, у вас возникла необходимость перенести файл формата{" "}
-          <mark className="file">AI</mark>.{" "}
-          <mark className="app">Adobe After Effects</mark> предоставляет такую
-          возможность. Однако при работе с большинством проектов, созданных в{" "}
-          <mark className="app">Adobe Illustrator</mark>, вы можете столкнуться с тем, что
-          количество доступных слоёв будет ограничено. Это связано с тем, что в процессе
-          создания макета несколько фигур часто объединяются в один слой.
+          Чтобы импортировать файл <mark className="image">AI</mark>, созданный в{" "}
+          <mark className="app">Adobe Illustrator</mark>, послойно в{" "}
+          <mark className="app">Adobe After Effects</mark> без потери градиентов и других
+          деталей, его нужно предварительно подготовить к импорту. Дело в том, что многие
+          проекты, особенно скачанные с <mark>Envato Elements</mark> и других стоков, в{" "}
+          <mark className="app">Adobe Illustrator</mark> выполняются в одном слое, внутри
+          которого находятся объекты. Однако при попытке импорта в{" "}
+          <mark className="app">Adobe After Effects</mark> с выбранным режимом{" "}
+          <mark className="select">
+            «Import As» → «Composition» или «Composition - Retain Layer Sizes»
+          </mark>{" "}
+          вы получите лишь тот самый слой без возможности послойного взаимодействия с
+          объектами, которые были внутри него.
         </p>
+        <Divider>Импортируем без конвертации в фигуры</Divider>
         <p>
-          Если вы не собираетесь редактировать импортированные фигуры в{" "}
-          <mark className="app">Adobe After Effects</mark> для детальной анимации, то
-          вручную пересоздавать градиенты не нужно. Но, как сказано ранее, в некоторых
-          проектах из <mark className="app">Adobe Illustrator</mark> фигуры могут быть
-          объединены. Для этого в самом <mark className="app">Adobe Illustrator</mark>{" "}
-          нужно разбить все или только необходимые фигуры на отдельные слои.
+          Чтобы послойно импортировать объекты из{" "}
+          <mark className="app">Adobe Illustrator</mark> в{" "}
+          <mark className="app">Adobe After Effects</mark> — их нужно разделить на
+          несколько слоёв. Для этого в самом <mark className="app">Adobe Illstrator</mark>{" "}
+          раскройте список объектов, выделите группу и в контекстном меню окна{" "}
+          <mark className="select">«Layers»</mark> выберите{" "}
+          <mark className="select">«Release to Layers (Sequence)»</mark>.
         </p>
+        <Addition type="info">
+          Структура слоёв в <mark className="app">Adobe Illustrator</mark> может
+          отличаться в зависимости от вашего открытого проекта.
+        </Addition>
         <ContentFigure
-          caption="Разбиваем слои в Illustrator"
-          src="images/manual_explode_layer_illustrator.mp4"
+          caption="Adobe Illustrator"
+          src="images/illustrator_release_to_layers.mp4"
           theme="light"
           type="video"
           variant="windows"
         />
         <p>
-          После разбивки слоёв сохраните проект в{" "}
-          <mark className="app">Adobe Illustrator</mark> как{" "}
-          <mark className="file">AI</mark>-файл. Затем импортируйте его в{" "}
-          <mark className="app">Adobe After Effects</mark>, выбрав тип импорта
-          «композиция». Также вы можете выбрать размер слоёв в{" "}
-          <mark className="select">«Footage Dimensions»</mark>:{" "}
-          <mark className="select">«Layer Size»</mark> или{" "}
-          <mark className="select">«Document Size»</mark>.
+          После того как вы вынесли слои из группы, сохраните проект через{" "}
+          <mark className="select">«File» → «Save As»</mark>, выбрав в качестве типа файла{" "}
+          <mark className="select">«Adobe Illustrator (*.AI)»</mark>. При сохранении файла{" "}
+          <mark className="image">AI</mark> в{" "}
+          <mark className="app">Adobe Illustrator</mark> не забудьте активировать опцию{" "}
+          <mark className="select">«Create PDF Compatible File»</mark>. Если этого не
+          сделать, <mark className="app">Adobe After Effects</mark> не предложит
+          импортировать <mark className="image">AI</mark> послойно, и при импорте такого
+          файла вы получите пустоту.
         </p>
         <ContentFigure
-          caption="File.ai"
+          caption="Illustrator Options"
+          src="images/illustrator_create_pdf_compatible_file.png"
+          theme="light"
+          type="image"
+          variant="windows"
+        />
+        <p>
+          Затем перейдите в <mark className="app">Adobe After Effects</mark> и
+          импортируйте файл через <mark className="select">«Ctrl + I»</mark> или
+          перетаскиванием в окно <mark className="select">«Project»</mark> либо на
+          таймлайн. Не забудьте импортировать файл как композицию, выбрав в{" "}
+          <mark className="select">«Import Kind»</mark> или{" "}
+          <mark className="select">«Import As»</mark> значение{" "}
+          <mark className="select">«Composition»</mark>.
+        </p>
+        <ContentFigure
+          caption="filename.ai"
           imgTitle="Импортируем файл Illustrator"
           src="images/aftereffects/import_ai_file.png"
           theme="dark"
@@ -1201,10 +1283,12 @@ const AEImport: React.FC = () => {
           variant="windows"
         />
         <p>
-          После импорта вы получите в <mark className="app">Adobe After Effects</mark>{" "}
-          слои с градиентами. Их нельзя редактировать как обычную фигуру, но их можно
-          сделать «как бы векторными», включив для слоёв опцию{" "}
-          <mark className="select">«Continuously Rasterize»</mark>.
+          Теперь после импорта <mark className="image">AI</mark> вы получите в{" "}
+          <mark className="app">Adobe After Effects</mark> слои с градиентами и прочими
+          деталями. Их нельзя редактировать как обычную фигуру, но их можно сделать
+          «псевдо-векторными», включив для слоёв опцию{" "}
+          <mark className="select">«Continuously Rasterize»</mark>
+          <sup>1</sup>, которая позволяет не терять качество слоя при его увеличении.
         </p>
         <ContentFigure
           caption="Импортированные нередактируемые фигуры"
@@ -1213,83 +1297,76 @@ const AEImport: React.FC = () => {
           type="video"
           variant="windows"
         />
-        <Addition type="warning">
-          <ul>
-            <li>
-              Некоторые ошибочно полагают, что в{" "}
-              <mark className="app">Adobe After Effects</mark>, как и в{" "}
-              <mark className="app">Adobe Illustrator</mark>, можно приближать изображение
-              в предпросмотре без потери качества, если в композиции используются
-              векторные слои. Это не так. <mark className="app">Adobe After Effects</mark>{" "}
-              — растровый, а не векторный редактор. Он отображает и растрирует все слои до
-              разрешения, установленного в настройках композиции. Единственное исключение,
-              позволяющее увеличить предпросмотр более чем на <mark>100%</mark> без потери
-              качества, — это использование <mark className="plugin">Draft 3D</mark> с
-              включённой опцией <mark className="select">«Extended Preview»</mark>. Но это
-              работает только при наличии в композиции векторных слоёв или 3D-моделей, а
-              также если в композиции есть камера, включён режим 3D для слоя или применён
-              эффект, работающий в 3D-пространстве. В любом случае, на выходе вы получите
-              файл с разрешением, заданным в настройках композиции.
-            </li>
-            <li>
-              При включённой опции{" "}
-              <mark className="select">«Continuously Rasterize»</mark> могут быть побочные
-              эффекты, например разрывы слоя при использовании{" "}
-              <mark className="plugin">Puppet Tool</mark>.
-            </li>
-          </ul>
+        <Addition type="info">
+          <sup>1</sup> Некоторые ошибочно полагают, что в{" "}
+          <mark className="app">Adobe After Effects</mark>, как и в{" "}
+          <mark className="app">Adobe Illustrator</mark>, можно приближать изображение в
+          предпросмотре без потери качества, если в композиции используются векторные
+          слои, однако это не так. <mark className="app">Adobe After Effects</mark> —
+          прежде всего растровый, а не векторный редактор. Он отображает и растрирует все
+          слои до разрешения, установленного в настройках композиции.
         </Addition>
+        <Addition type="warning">
+          При включённой опции <mark className="select">«Continuously Rasterize»</mark>{" "}
+          могут появиться побочные эффекты, например разрывы слоя при использовании{" "}
+          <mark className="plugin">Puppet Tool</mark>.
+        </Addition>
+        <Divider>А если я хочу конвертировать в фигуры?</Divider>
         <p>
-          Если вам всё же потребуется преобразовать слой в редактируемую фигуру, то, увы,
-          придётся попрощаться с градиентами. Градиенты из{" "}
-          <mark className="app">Adobe Illustrator</mark> и{" "}
-          <mark className="app">Adobe After Effects</mark> обычно невзаимозаменяемы, и их
-          нужно будет пересоздать вручную.
+          Вот здесь и кроется основная проблема импорта фигур из{" "}
+          <mark className="app">Adobe Illustrator</mark> в{" "}
+          <mark className="app">Adobe After Effects</mark>. Если у объекта есть градиенты,
+          то при выполнении{" "}
+          <mark className="select">«Create Shapes from Vector Layer»</mark> они пропадут:
+          изображение окрасится в серый цвет, поскольку градиенты, созданные в{" "}
+          <mark className="app">Adobe Illustrator</mark>, несовместимы с{" "}
+          <mark className="app">Adobe After Effects</mark>. В таком случае вам придётся
+          пересоздавать градиенты самостоятельно.
         </p>
       </DetailsSummary>
-
       <DetailsSummary
-        tag="импорт из фигмы, фигма"
-        title="Как перенести макет из Figma?"
+        tag="перенести из фигмы, фигма"
+        title="Как импортировать макет из Figma?"
       >
         <p>
-          Макет из онлайн-сервиса <mark className="app">Figma</mark> можно перенести с
-          помощью двух плагинов: <mark className="plugin">AEUX</mark> и{" "}
-          <mark className="plugin">Overlord 2</mark>. Прежде чем что-либо импортировать,
-          вам нужно сохранить макет локально в <mark className="app">Figma</mark> через{" "}
-          <mark className="select">«Иконка Figma» → «File» → «Save local copy»</mark> и
-          открыть его в{" "}
-          <b>
-            <u>десктопной версии</u>
-          </b>{" "}
-          <mark className="app">Figma</mark>. Это необходимо, если вы собираетесь
-          импортировать чужой проект, так как зачастую их нельзя редактировать и работать
-          с ними через плагины.
+          Макет, созданный в <mark className="app">Figma</mark> можно перенести в{" "}
+          <mark className="app">Adobe After Effects</mark> с помощью двух сторонних
+          расширений: <mark className="plugin">AEUX</mark> и{" "}
+          <mark className="plugin">Overlord 2</mark>. В этой статье, из-за отсутствия
+          «народной» версии <mark className="plugin">Overlord 2</mark>, для демонстрации
+          импорта макета из <mark className="app">Figma</mark> в{" "}
+          <mark className="app">Adobe After Effects</mark> будет использоваться расширение{" "}
+          <mark className="plugin">AEUX</mark>.
         </p>
-        <Addition type="info">
-          Плагин <mark className="plugin">Overlord</mark> второй версии с поддержкой
-          импорта макетов из <mark className="app">Figma</mark> отсутствует в свободном
-          доступе у автора, поэтому в этой статье ограничимся плагином
-          <mark className="plugin">AEUX</mark>, который можно загрузить на странице
-          релизов в <a href="https://github.com/google/AEUX/releases">GitHub</a>. Плагин
-          нужно установить в <mark className="app">Adobe After Effects</mark> и в{" "}
-          <b>
-            <u>десктопную версию</u>
-          </b>{" "}
-          <mark className="app">Figma</mark>.
+        <Divider>Готовимся к импорту из Figma</Divider>
+        <p>
+          Прежде чем начать импорт макета, вам нужно установить десктопную версию{" "}
+          <mark className="app">Figma</mark>, так как поддержка сторонних расширений в
+          веб-версии <mark className="app">Figma</mark> отсутствует из-за технических
+          ограничений. Его можно скачать из{" "}
+          <a href="https://www.figma.com/downloads/">официального сайта сервиса</a>.
+        </p>
+        <p>
+          Далее нужно загрузить сам плагин <mark className="plugin">AEUX</mark>, который
+          можно загрузить на странице релизов в{" "}
+          <a href="https://github.com/google/AEUX/releases">GitHub</a>. Внутри архива есть
+          три папки: <mark className="path">Figma</mark>, <mark className="path">AE</mark>{" "}
+          и <mark className="path">Sketch</mark>. Последную папку не нужно трогать, если
+          вы не используете сервис <mark className="app">Sketch</mark>, поэтому распакуем
+          из архива лишь две папки — <mark className="path">Figma</mark> и{" "}
+          <mark className="path">AE</mark>.
+        </p>
+        <Addition type="warning">
+          Учтите, что <mark className="plugin">AEUX</mark> давно не обновляется, поэтому
+          некоторые элементы, использующие новые функции из{" "}
+          <mark className="app">Figma</mark>, возможно, не удастся перенести без ручного
+          воссоздания элемента с нуля.
         </Addition>
         <p>
-          Плагин для <mark className="app">Adobe After Effects</mark> распространяется в
-          формате <mark className="file">ZXP</mark>, поэтому его можно установить как
-          через <a href="https://updates.aescripts.com/zxp-installer/">ZXP Installer</a>,
-          так и вручную.
-        </p>
-        <p>
           Для установки плагина в десктопную версию <mark className="app">Figma</mark>{" "}
-          нужно распаковать папку <mark className="path">Figma</mark> из архива{" "}
-          <mark className="file">AEUX_0_X_X.zip</mark> и указать путь к{" "}
-          <mark className="file">manifest.json</mark> в распакованной папке. Это делается
-          через{" "}
+          нужно указать путь к файлу <mark className="file">manifest.json</mark> из
+          распакованной папки <mark className="path">Figma</mark> в архиве. Сделать это
+          можно через меню{" "}
           <mark className="select">
             «Иконка Figma» → «Plugins» → «Development» → «Import plugin from manifest»
           </mark>
@@ -1304,12 +1381,42 @@ const AEImport: React.FC = () => {
           variant="windows"
         />
         <p>
-          После успешной установки плагина в <mark className="app">Figma</mark> его можно
-          запустить с помощью{" "}
-          <mark className="select">
-            «Иконка Figma» → «Plugins» → «Development» → «AEUX»
-          </mark>
-          .
+          Далее нужно установить расширение <mark className="plugin">AEUX</mark> для{" "}
+          <mark className="app">Adobe After Effects</mark>, чтобы отправлять макеты из{" "}
+          <mark className="app">Figma</mark>. Для этого перейдите в распакованную папку{" "}
+          <mark className="path">AE</mark> и выберите удобный для вас способ установки{" "}
+          <mark className="file">ZXP</mark>: через{" "}
+          <a href="https://updates.aescripts.com/zxp-installer/">ZXP Installer</a> или
+          вручную. <a href="#2.1">Подробнее...</a>
+        </p>
+        <Divider>Отправляем макет в Adobe After Effects</Divider>
+        <p>
+          После успешной установки <mark className="plugin">AEUX</mark> в{" "}
+          <mark className="app">Figma</mark> и{" "}
+          <mark className="app">Adobe After Effects</mark> можно переходить к переносу
+          макета.
+        </p>
+        <p>
+          Сразу хочется отметить, что вы не сможете использовать плагины в{" "}
+          <mark className="app">Figma</mark>, если вы открыли макет по ссылке и не
+          сохранили его в вашем профиле или локально. Чтобы сохранить макет локально —
+          нажмите на иконку <mark className="select">«Figma»</mark> и выберите{" "}
+          <mark className="select">«File» → «Save local copy»</mark>. В открывшемся окне
+          укажите путь до нужной директории для сохранения.
+        </p>
+        <ContentFigure
+          caption="Figma"
+          imgTitle="Сохранение локальной копии макета"
+          src="images/figma_save_local_copy.png"
+          theme="dark"
+          type="image"
+          variant="windows"
+        />
+        <p>
+          Затем откройте в <mark className="app">Figma</mark> только что сохранённый
+          проект формата <mark className="file">FIG</mark>. Теперь вы можете запускать
+          сторонние плагины, в том числе и <mark className="plugin">AEUX</mark> с помощью{" "}
+          <mark className="select">«Иконка Figma» → «Plugins» → «Development»</mark>.
         </p>
         <ContentFigure
           caption="Figma"
@@ -1320,161 +1427,186 @@ const AEImport: React.FC = () => {
           variant="windows"
         />
         <p>
-          Чтобы отправить проект в <mark className="app">Adobe After Effects</mark>, нужно
-          выделить нужные слои в макете и нажать на кнопку{" "}
-          <mark className="select">«Send selection to AE»</mark>.
+          Чтобы отправить проект в <mark className="app">Adobe After Effects</mark> —
+          выделите нужные слои в макете и нажмите на кнопку{" "}
+          <mark className="select">«Send selection to AE»</mark> в окне плагина{" "}
+          <mark className="plugin">AEUX</mark>.
         </p>
-        <Addition type="warning">
-          <mark className="app">Adobe After Effects</mark> перед нажатием на кнопку
-          переноса макета из <mark className="app">Figma</mark> должен быть запущен, иначе
-          появится ошибка.
+        <Addition type="info">
+          Учтите, что <mark className="app">Adobe After Effects</mark> должен быть запущен
+          до нажатия кнопки переноса макета из <mark className="app">Figma</mark>.
         </Addition>
         <ContentFigure
           caption="Figma"
           src="images/aftereffects/send_figma_to_ae.mp4"
-          theme="dark"
+          theme="light"
           type="video"
           variant="windows"
         />
         <p>
           После нажатия на кнопку переноса у вас откроется{" "}
-          <mark className="app">Adobe After Effects</mark>, и программа предложит, куда
-          сохранить изображения для проекта. После выбора папки вы получите новую
-          композицию с макетом из <mark className="app">Figma</mark>.
+          <mark className="app">Adobe After Effects</mark>, и программа предложит указать,
+          куда сохранить изображения для проекта. После выбора папки вы получите новую
+          композицию с макетом из <mark className="app">Figma</mark>. Учтите, что перенос
+          макета часто проходит неидеально, поэтому некоторые элементы придётся создавать
+          или редактировать для соответствия с оригиналом. Иногда повторный импорт может
+          дать результат получше.
         </p>
-        <Addition type="warning">
-          Импорт часто проходит неидеально, поэтому некоторые элементы макета всё же
-          придётся отредактировать в соответствии с оригиналом. Иногда повторный импорт
-          выделенных слоёв проходит лучше.
-        </Addition>
       </DetailsSummary>
       <DetailsSummary
-        tag="3д, элемент 3д, блендер, объемные модели, расширенный 3д, адвансед 3д, с4д, обж, фбх, гтлф, глб"
-        title="Как импортировать трёхмерные объекты форматов C4D, OBJ, FBX, GLTF или GLB?"
+        tag="obj, fbx, gltf, glb, c4d, e3d, элемент 3д, блендер, объемные модели, расширенный 3д, адвансед 3д, с4д, обж, фбх, глтф, глб, е3д"
+        title="Как импортировать трёхмерные объекты?"
       >
+        <p>
+          В <mark className="app">Adobe After Effects</mark> есть несколько способов
+          импорта трёхмерных моделей. Стоит отметить, что{" "}
+          <mark className="app">Adobe After Effects</mark> не рассчитан на полноценное
+          редактирование моделей, как в <mark className="app">Blender</mark> и{" "}
+          <mark className="app">Cinema 4D</mark>. Зато можно их крутить, вертеть и
+          загружать уже анимированные<sup>1</sup> модели.
+        </p>
+        <Addition type="warning">
+          <sup>1</sup> Импорт файлов <mark className="file">FBX</mark>,{" "}
+          <mark className="file">GLB</mark> и <mark className="file">GLTF</mark> с
+          анимацией возможен только при работе с{" "}
+          <mark className="plugin">Advanced 3D</mark>.
+        </Addition>
+        <Divider>Импортируем популярные форматы с помощью Advanced 3D</Divider>
         <p>
           В <mark className="app">Adobe After Effects</mark> версии <mark>24.1</mark> и
           новее появился новый движок рендеринга{" "}
           <mark className="plugin">Advanced 3D</mark>, который позволяет импортировать
-          трёхмерные объекты без использования сторонних плагинов. На момент написания
-          этой статьи поддерживается импорт <mark className="file">OBJ</mark>,{" "}
+          трёхмерные объекты без использования сторонних плагинов. В последней версии{" "}
+          <mark className="app">Adobe After Effects</mark> на момент написания статьи
+          поддерживается импорт <mark className="file">OBJ</mark>,{" "}
           <mark className="file">FBX</mark>, <mark className="file">GLTF</mark> и{" "}
-          <mark className="file">GLB</mark>. Такие модели можно создать в любом популярном
-          3D-редакторе, например <mark className="app">Blender</mark>,{" "}
+          <mark className="file">GLB</mark> без использования сторонних инструментов.
+          Такие модели можно создавать и редактировать в любом популярном трёхмерном
+          редакторе, например <mark className="app">Blender</mark>,{" "}
           <mark className="app">Cinema 4D</mark> или{" "}
           <mark className="app">Substance 3D Painter</mark>.
         </p>
         <Addition type="info">
-          <mark className="company">Adobe</mark> рекомендует использовать формат{" "}
-          <mark className="file">GLB</mark>, так как в один файл обычно уже запакованы
-          нужные материалы и текстуры.
+          <mark className="company">Adobe</mark> рекомендует использовать трёхмерные
+          объекты в формате <mark className="file">GLB</mark>, так как в них, как правило,
+          уже содержатся все необходимые материалы и текстуры.
         </Addition>
+        <p>
+          Импортировать перечисленные форматы трёхмерных объектов можно привычным способом
+          — через <mark className="key">Ctrl + I</mark> или простым перетаскиванием файла
+          на таймлайн либо в окно <mark className="select">«Project»</mark>. Программа при
+          вставке таких объектов в таймлайн композиции автоматически переключит текущий
+          движок на <mark className="plugin">Advanced 3D</mark>, если используется другой.
+        </p>
         <ContentFigure
           caption="Работаем с 3D-моделями из Substance Painter в Adobe After Effects"
           src="qPOkGR7Ek2I"
           type="youtube"
         />
         <p>
-          Чтобы импортировать проект формата <mark className="file">C4D</mark> в{" "}
+          Однако при работе с <mark className="plugin">Advanced 3D</mark> некоторые
+          привычные функции, доступные в <mark className="plugin">Classic 3D</mark>, могут
+          быть недоступны — например, некоторые эффекты, режимы наложения, размытие в
+          движении и настройка глубины резкости. Это связано с техническими особенностями
+          модулей рендеринга. Если вам нужно использовать в проекте и{" "}
+          <mark className="plugin">Advanced 3D</mark>, и{" "}
+          <mark className="plugin">Classic 3D</mark> — создайте две композиции и выберите
+          каждому из них свой движок рендеринга. Подробнее об ограничениях вы можете
+          прочесть в{" "}
+          <mark className="select">«Composition Settings» → «3D Renderer»</mark>.
+        </p>
+        <Divider>Импортируем OBJ, E3D и C4D с помощью Element 3D</Divider>
+        <p>
+          Если вы работаете в старой версии{" "}
+          <mark className="app">Adobe After Effects</mark> или хотите импортировать модель
+          формата <mark className="file">E3D</mark>, <mark className="file">C4D</mark>
+          <sup>1</sup> или <mark className="file">OBJ</mark> — можно воспользоваться
+          сторонним плагином <mark className="plugin">Element 3D</mark> от{" "}
+          <mark className="company">VideoCopilot</mark>. Плагин также совместим с более
+          новыми версиями <mark className="app">Adobe After Effects</mark>.
+        </p>
+        <Addition type="warning">
+          <sup>1</sup> Для импорта файлов <mark className="file">C4D</mark> требуется
+          установленная полноценная версия <mark className="app">Cinema 4D</mark> на вашем
+          устройстве.
+        </Addition>
+        <p>
+          Чтобы импортировать трёхмерный объект с помощью{" "}
+          <mark className="plugin">Element 3D</mark>, создайте{" "}
+          <mark className="select">«Solid Layer»</mark> размером с композицию и примените
+          к нему эффект <mark className="plugin">Element 3D</mark>. Обратите внимание, что
+          слои с применёнными эффектами, работающие в своём трёхмерном пространстве или
+          использующие камеру и освещение, должны оставаться двумерными.
+        </p>
+        <p>
+          В <mark className="select">«Effect Controls»</mark> нажмите{" "}
+          <mark className="select">«Scene Setup»</mark> у эффекта{" "}
+          <mark className="plugin">Element 3D</mark>. В открывшемся окне плагина кликните{" "}
+          <mark className="select">«Import»</mark> и выберите модель через файловый
+          менеджер. При импорте объектов формата <mark className="file">OBJ</mark> скорее
+          всего вам потребуется вручную создавать материалы и назначать им текстуры и
+          свойства.
+        </p>
+        <ContentFigure
+          caption="Import 3D Models to Element 3D in After Effects"
+          src="Qu9eCU9Ge54"
+          type="youtube"
+        />
+        <Divider>Импортируем C4D с помощью Cineware</Divider>
+        <p>
+          Прежде чем импортировать проект формата <mark className="file">C4D</mark> в{" "}
           <mark className="app">Adobe After Effects</mark>, на устройстве должна быть
-          установлена полноценная версия <mark className="app">Cinema 4D</mark>. В
-          противном случае программа выдаст ошибку и потребует установить{" "}
+          установлена полноценная версия <mark className="app">Maxon Cinema 4D</mark>,
+          если вы используете репак от <mark className="user">KpoJluK</mark>, или
+          установлен плагин <mark className="plugin">Cinema 4D Lite</mark> из{" "}
+          <mark className="app">Adobe Creative Cloud</mark>. В противном случае программа
+          выдаст ошибку <mark className="warning">5027::12</mark> и потребует установить{" "}
           <mark className="app">Cinema 4D</mark>.
+        </p>
+        <p>
+          Чтобы импортировать <mark className="file">C4D</mark> с использованием{" "}
+          <mark className="plugin">Cineware</mark> — достаточно импортировать файл в
+          проект удобным вам способом и поместить его на таймлайн.
         </p>
         <ContentFigure
           caption="Cineware"
           src="qFVQrxWvOjw"
           type="youtube"
         />
-        <p>
-          Если вы используете <mark className="app">Adobe After Effects</mark> версии ниже{" "}
-          <mark>24.0</mark>, вам придётся использовать сторонний плагин{" "}
-          <mark className="plugin">Element 3D</mark>. Он поддерживает импорт файлов
-          формата <mark className="file">C4D</mark>, <mark className="file">OBJ</mark> и{" "}
-          <mark className="file">E3D</mark>.
-        </p>
-        <Addition type="warning">
-          Для импорта файлов <mark className="file">C4D</mark> требуется установленная
-          полноценная версия <mark className="app">Cinema 4D</mark> на вашем устройстве.
-        </Addition>
-        <ContentFigure
-          caption="Element 3D V2 First Look!"
-          src="z5nBA45DvRo"
-          type="youtube"
-        />
       </DetailsSummary>
       <DetailsSummary
-        tag="телеграм, стикеры, тгс"
-        title="Как импортировать анимированный стикер из Telegram?"
+        tag="json, svg, телеграм, анимированные стикеры из telegram, стикеры, жсон, свг, тгс, лотти"
+        title="Как импортировать Lottie и TGS?"
       >
         <p>
-          С ростом популярности стикеров в мессенджере{" "}
-          <mark className="app">Telegram</mark> у пользователей возникает желание
-          импортировать их в <mark className="app">Adobe After Effects</mark> и
-          использовать в своих проектах. Особенно это заметно у рилсмейкеров, которые
-          применяют стандартные анимированные эмодзи. Стикеры из{" "}
-          <mark className="app">Telegram</mark> можно загрузить на устройство с помощью
-          десктопного клиента (веб-версия не подойдёт), нажав{" "}
-          <mark className="key">ПКМ</mark> по отправленному стикеру и выбрав в контекстном
-          меню <mark className="select">«Сохранить как»</mark>.
-        </p>
-        <ContentFigure
-          caption="Telegram"
-          imgTitle="Сохранить стикер как TGS"
-          src="images/download_tgs_from_telegram.png"
-          theme="dark"
-          type="image"
-          variant="windows"
-        />
-        <Addition type="info">
-          Большинство стандартных анимированных эмодзи можно найти в различных
-          стикер-паках, например{" "}
-          <a href="https://t.me/addstickers/AnimatedEmojies">здесь</a>.
-        </Addition>
-        <p>
-          После того как вы получили <mark className="file">TGS</mark>-файл, его нужно
-          переконвертировать в <mark className="file">JSON</mark>. Сделать это можно с
-          помощью конвертера ниже, загрузив в него файл. После успешной конвертации не
-          забудьте скачать результат и выберите один из способов импорта в{" "}
-          <mark className="app">Adobe After Effects</mark>: через{" "}
-          <mark className="plugin">LottieFiles</mark> или{" "}
-          <mark className="plugin">Bodymovin</mark>.
+          <mark className="file">LOTTIE</mark> — популярный формат анимации для
+          встраивания на сайты и в мобильные приложения в виде{" "}
+          <mark className="file">JSON</mark>. По схожему принципу работает и{" "}
+          <mark className="file">TGS</mark> — формат анимированных стикеров в мессенджере{" "}
+          <mark className="app">Telegram</mark>. В стандартной поставке{" "}
+          <mark className="app">Adobe After Effects</mark> отсутствует возможность для
+          импорта анимации в этих форматах, но это можно решить с помощью сторонних
+          инструментов.
         </p>
         <Addition type="danger">
-          Учтите, что из-за особенностей импорта <mark className="file">JSON</mark>-файлов
-          некоторые элементы анимации могут импортироваться некорректно.
+          Учтите, что из-за особенностей импорта <mark className="file">JSON</mark> и{" "}
+          <mark className="file">LOTTIE</mark> некоторые элементы анимации могут
+          импортироваться некорректно.
         </Addition>
-        <Divider>Конвертер TGS в JSON</Divider>
-        <TgsToJsonConverter />
-        <Divider>Импортируем через LottieFiles</Divider>
+        <Divider>Импортируем файлы Lottie</Divider>
         <p>
-          <mark className="plugin">LottieFiles for After Effects</mark> — официальное
-          бесплатное<sup>1</sup> расширение от{" "}
-          <a href="https://lottiefiles.com/">LottieFiles</a>, с помощью которого можно
-          импортировать <mark className="file">JSON</mark>-анимацию в композицию{" "}
-          <mark className="app">Adobe After Effects</mark>. Скачать его можно с{" "}
+          Прежде чем начать импорт <mark className="file">LOTTIE</mark> или{" "}
+          <mark className="file">JSON</mark>, вам нужно загрузить и установить{" "}
+          <mark className="plugin">LottieFiles for Adobe After Effects</mark> —
+          официальное бесплатное<sup>1</sup> расширение от{" "}
+          <a href="https://lottiefiles.com/">LottieFiles</a>. Скачать его можно с{" "}
           <a href="https://aescripts.com/lottiefiles/">aescripts.com</a>. После установки
           расширение появится в <mark className="select">«Window» → «Extensions»</mark>.
-          При первом открытии потребуется войти в аккаунт <mark>LottieFiles</mark>.
+          При первом открытии потребуется войти<sup>2</sup> в аккаунт{" "}
+          <mark>LottieFiles</mark>.
         </p>
         <Addition type="info">
           <ul>
-            <li>
-              Пользователям из Российской Федерации для входа в аккаунт может
-              потребоваться <mark className="app">VPN</mark>. После авторизации его можно
-              отключить.
-            </li>
-            <li>
-              Для корректной работы расширения требуется установить флажок для параметра{" "}
-              <mark className="select">
-                «Allow Scripts to Write Files and Access Network»
-              </mark>{" "}
-              в настройках <mark className="app">Adobe After Effects</mark>:{" "}
-              <mark className="select">
-                «Edit» → «Preferences» → «Scripting & Expressions»
-              </mark>
-              .
-            </li>
             <li>
               <sup>1</sup> Чтобы скачать расширение, зарегистрируйтесь на сайте{" "}
               <a href="https://aescripts.com">aescripts.com</a>, добавьте его в корзину и
@@ -1484,15 +1616,32 @@ const AEImport: React.FC = () => {
               </a>
               , и вы сможете скачать его абсолютно бесплатно.
             </li>
+            <li>
+              Инструкцию по установке расширений формата <mark className="file">ZXP</mark>{" "}
+              вы можете найти в <a href="#2.1">статье 2.1</a>. Для корректной работы
+              расширения потребуется установить флажок для параметра{" "}
+              <mark className="select">
+                «Allow Scripts to Write Files and Access Network»
+              </mark>{" "}
+              в{" "}
+              <mark className="select">
+                «Edit» → «Preferences» → «Scripting & Expressions»
+              </mark>
+              .
+            </li>
+            <li>
+              <sup>2</sup> Пользователям из Российской Федерации для входа в аккаунт может
+              потребоваться использование <mark className="app">VPN</mark>. После
+              авторизации его можно отключить.
+            </li>
           </ul>
         </Addition>
         <p>
-          После успешного входа в аккаунт перейдите во вкладку{" "}
-          <mark className="select">«Import»</mark> в расширении и нажмите на кнопку{" "}
-          <mark className="select">«Browse»</mark> для выбора вашего{" "}
-          <mark className="file">JSON</mark>-файла. Расширение начнёт конвертацию и
-          создаст новую композицию с вашей анимацией, которую можно использовать дальше в
-          своих проектах.
+          После успешного входа в аккаунт <mark>LottieFiles</mark> перейдите во вкладку{" "}
+          <mark className="select">«Import»</mark> в расширении и нажмите кнопку{" "}
+          <mark className="select">«Browse»</mark> для выбора файла формата{" "}
+          <mark className="file">JSON</mark>, <mark className="file">SVG</mark> или{" "}
+          <mark className="file">LOTTIE</mark>.
         </p>
         <ContentFigure
           caption="LottieFiles"
@@ -1502,18 +1651,63 @@ const AEImport: React.FC = () => {
           type="image"
           variant="windows"
         />
-        <Divider>Импортируем через Bodymovin</Divider>
-        <Addition type="warning">
-          При импорте стикеров через <mark className="plugin">Bodymovin</mark> в некоторых
-          случаях вам придётся пересоздавать градиенты вручную. Обычно в окне плагина
-          появляется информация о том, какие градиенты и с какими данными нужно
-          воссоздать.
+        <p>
+          После выбора файла{" "}
+          <mark className="plugin">LottieFiles for Adobe After Effects</mark> выполнит
+          конвертацию и создаст новую композицию с вашей анимацией, которую затем можно
+          использовать в проектах.
+        </p>
+        <Divider>Импортируем стикеры из Telegram</Divider>
+        <p>
+          Прежде чем импортировать анимированный стикер формата{" "}
+          <mark className="file">TGS</mark>, его нужно скачать. Для этого откройте
+          десктопную версию <mark className="app">Telegram</mark>, отправьте любой стикер
+          в чат, например в <mark className="select">«Избранное»</mark>, затем нажмите{" "}
+          <mark className="key">ПКМ</mark> по стикеру и выберите в контекстном меню{" "}
+          <mark className="select">«Сохранить как»</mark>. В открывшемся окне файлового
+          менеджера укажите место для сохранения файла.
+        </p>
+        <Addition type="info">
+          Большинство стандартных анимированных эмодзи можно найти в различных
+          стикер-паках, например{" "}
+          <a href="https://t.me/addstickers/AnimatedEmojies">здесь</a>.
         </Addition>
+        <ContentFigure
+          caption="Telegram"
+          imgTitle="Сохранить стикер как TGS"
+          src="images/download_tgs_from_telegram.png"
+          theme="dark"
+          type="image"
+          variant="windows"
+        />
+        <p>
+          После того как вы скачали <mark className="file">TGS</mark>, его нужно
+          переконвертировать в <mark className="file">JSON</mark>. Сделать это можно с
+          помощью конвертера ниже, загрузив в него файл.
+        </p>
+        <Divider>Конвертер TGS в JSON</Divider>
+        <TgsToJsonConverter />
+        <Divider />
+        <p>
+          После успешной конвертации скачайте результат и выберите один из способов
+          импорта в <mark className="app">Adobe After Effects</mark>: через{" "}
+          <mark className="plugin">LottieFiles</mark> или{" "}
+          <mark className="plugin">Bodymovin</mark>.
+        </p>
+        <p>
+          В статье уже рассматривался импорт через{" "}
+          <mark className="plugin">LottieFiles</mark>, который также поддерживает работу с{" "}
+          <mark className="file">JSON</mark>, поэтому далее речь пойдёт о способе импорта
+          анимаций с помощью <mark className="plugin">Bodymovin</mark>.{" "}
+          <i style={{opacity: "0.5"}}>Ну не повторяться же?</i>
+        </p>
         <p>
           <mark className="plugin">Bodymovin</mark> — альтернативное бесплатное
           <sup>1</sup> расширение с{" "}
-          <a href="https://aescripts.com/bodymovin/">aescripts.com</a>. После установки
-          оно будет находиться в <mark className="select">«Window» → «Extensions»</mark>.
+          <a href="https://aescripts.com/bodymovin/">aescripts.com</a>, с помощью которого
+          можно импортировать анимацию в формате <mark className="file">JSON</mark>. После
+          установки оно будет находиться в{" "}
+          <mark className="select">«Window» → «Extensions»</mark>.
         </p>
         <Addition type="info">
           <ul>
@@ -1529,11 +1723,13 @@ const AEImport: React.FC = () => {
               , и вы сможете скачать его абсолютно бесплатно.
             </li>
             <li>
-              Для корректной работы расширения требуется установить флажок для параметра{" "}
+              Инструкцию по установке расширений формата <mark className="file">ZXP</mark>{" "}
+              вы можете найти в <a href="#2.1">статье 2.1</a>. Для корректной работы
+              расширения потребуется установить флажок для параметра{" "}
               <mark className="select">
                 «Allow Scripts to Write Files and Access Network»
               </mark>{" "}
-              в настройках <mark className="app">Adobe After Effects</mark>:{" "}
+              в{" "}
               <mark className="select">
                 «Edit» → «Preferences» → «Scripting & Expressions»
               </mark>
@@ -1545,39 +1741,32 @@ const AEImport: React.FC = () => {
           После открытия расширения <mark className="plugin">Bodymovin</mark> перейдите во
           вкладку <mark className="select">«Import Lottie Animation»</mark> и нажмите на
           кнопку <mark className="select">«Import Local File»</mark>. В открывшемся окне
-          проводника выберите нужный <mark className="file">JSON</mark>-файл, который вы
-          конвертировали ранее.
+          проводника выберите нужный файл формата <mark className="file">JSON</mark>,
+          который вы конвертировали ранее.
         </p>
         <ContentFigure
           caption="Bodymovin"
-          imgTitle="Импортируем .json в Adobe After Effects через Bodymovin"
+          imgTitle="Импортируем JSON в Adobe After Effects через Bodymovin"
           src="images/aftereffects/bodymovin_import_json.png"
           theme="dark"
           type="image"
           variant="windows"
         />
         <p>
-          Импорт <mark className="file">JSON</mark> в{" "}
-          <mark className="app">Adobe After Effects</mark> может занять некоторое время.
-          После импорта у вас появится новая композиция в окне{" "}
-          <mark className="select">«Project»</mark>. В некоторых случаях импорт может
-          пройти с нюансами, например, градиенты могут быть перенесены некорректно. К
-          счастью, плагин предоставляет информацию о том, что и с какими данными нужно
-          вставить, но сам процесс может занять много времени.
+          После импорта в окне <mark className="select">«Project»</mark> появится новая
+          композиция. Если при импорте возникнут проблемы, например с градиентами,{" "}
+          <mark className="plugin">Bodymovin</mark> укажет, какие данные требуют замены
+          или доработки. При необходимости градиенты можно заменить обычной заливкой или
+          восстановить вручную — их количество зависит от конкретного стикера.
         </p>
         <ContentFigure
           caption="Adobe After Effects"
-          imgTitle="Неперенесенные градиенты в Adobe After Effects через Bodymovin"
+          imgTitle="Неперенесённые градиенты в Adobe After Effects через Bodymovin"
           src="images/aftereffects/gradient_data_bodymovin.png"
           theme="dark"
           type="image"
           variant="windows"
         />
-        <p>
-          Градиенты можно заменить на обычную заливку, если это допустимо, или же
-          постарайтесь уделить немного времени на их восстановление. Количество градиентов
-          будет зависеть от самого стикера.
-        </p>
       </DetailsSummary>
       <DetailsSummary
         tag="импорт из премьер про, import prproj sequence"
@@ -1589,18 +1778,18 @@ const AEImport: React.FC = () => {
           <mark className="app">Adobe After Effects</mark>. Если вы просто импортируете{" "}
           <mark className="file">PRPROJ</mark> с помощью комбинации клавиш{" "}
           <mark className="key">Ctrl + I</mark>, то получите секвенцию, которую нельзя
-          редактировать. Чтобы её можно было редактировать, словно таймлайн был
+          полноценно редактировать. Чтобы её можно было редактировать, словно таймлайн был
           конвертирован из <mark className="app">Adobe Premiere Pro</mark> в{" "}
           <mark className="app">Adobe After Effects</mark>, нужно использовать другой
           способ.
         </p>
         <p>
-          Для импорта секвенций из <mark className="app">Adobe Premiere Pro</mark> как
-          полноценных композиций, в программе нужно выбрать{" "}
+          Чтобы импортировать секвенции из <mark className="app">Adobe Premiere Pro</mark>{" "}
+          как полноценные композиции, выберите{" "}
           <mark className="select">
             «File» → «Import» → «Import Premiere Pro Project»
           </mark>{" "}
-          и указать нужный файл проекта <mark className="app">Adobe Premiere Pro</mark>.
+          и укажите нужный проект <mark className="file">PRPROJ</mark>.
         </p>
         <ContentFigure
           caption="Adobe After Effects"
@@ -1614,7 +1803,7 @@ const AEImport: React.FC = () => {
           Далее <mark className="app">Adobe After Effects</mark> спросит, какие секвенции
           нужно импортировать. По умолчанию стоит параметр{" "}
           <mark className="select">«All Sequences»</mark>, но вы можете указать конкретную
-          секвенцию. Также при желании можно отключить импорт аудиофайлов.
+          секвенцию. Также при необходимости можно отключить импорт аудиофайлов.
         </p>
         <ContentFigure
           caption="Premiere Pro Importer"
@@ -1628,8 +1817,8 @@ const AEImport: React.FC = () => {
           После этого в окне <mark className="select">«Project»</mark> появится новая
           папка с названием вашего проекта из{" "}
           <mark className="app">Adobe Premiere Pro</mark>, импортированные файлы и новые
-          композиции с нарезками. Некоторые эффекты в силу различий двух программ могут не
-          примениться, и их придётся применить повторно.
+          композиции с нарезками. Учтите, что из-за технических различий между программами
+          некоторые эффекты могут не примениться, и их придётся добавить вручную.
         </p>
       </DetailsSummary>
       <DetailsSummary
@@ -1678,22 +1867,22 @@ const AEImport: React.FC = () => {
         />
         <Divider>Используем MOGRT в другом проекте</Divider>
         <p>
-          Поскольку с помощью <mark className="select">«Open Project»</mark> мы
-          конвертировали анимацию формата <mark className="file">MOGRT</mark> в{" "}
+          Поскольку с помощью <mark className="select">«Open Project»</mark> анимация
+          формата <mark className="file">MOGRT</mark> конвертируется в{" "}
           <mark className="file">AEP</mark>, её можно применять в своих проектах,
           импортируя композиции через <mark className="select">«File» → «Import»</mark>{" "}
-          (комбинация клавиш <mark className="key">Ctrl + I</mark>). В окне импорта нужно
-          указать <mark className="file">AEP</mark>-файл в директории, в которую
+          или используя комбинацию клавиш <mark className="key">Ctrl + I</mark>. В окне
+          импорта нужно указать <mark className="file">AEP</mark> в директории, в которую
           изначально был распакован <mark className="file">MOGRT</mark>. Импортированные
           композиции появятся в окне <mark className="select">«Project»</mark>.
           Редактировать такие шаблоны можно также через{" "}
           <mark className="select">«Composition» → «Open in Essential Graphics»</mark> или
-          вручную изменяя слои.
+          вручную редактируя слои.
         </p>
       </DetailsSummary>
       <DetailsSummary
-        tag="требуется преобразовать данный проект из версии XX.X.X (Windows/macOS). исходный файл останется без изменений"
-        title="Что такое «This project must be converted from version XX.X.X (Windows/macOS). The original file will be unchanged» при открытии проекта?"
+        tag="the original file will be unchanged, требуется преобразовать данный проект из версии, исходный файл останется без изменений"
+        title="Что означает «This project must be converted from version XX.X.X» при открытии проекта?"
       >
         <p>
           Это сообщение означает, что вы открыли проект, созданный в более старой версии{" "}
@@ -1709,55 +1898,50 @@ const AEImport: React.FC = () => {
           type="image"
           variant="windows"
         />
-        <Addition type="warning">
+        <p>
           После конвертации и открытия проекта обязательно сохраните его — нажмите{" "}
           <mark className="key">Ctrl + S</mark> или выберите{" "}
-          <mark className="select">«File» → «Save»</mark>, иначе изменения не сохранятся.
-        </Addition>
+          <mark className="select">«File» → «Save»</mark>. В противном случае изменения не
+          сохранятся, а также функция автоматического сохранения не будет работать.
+        </p>
       </DetailsSummary>
       <DetailsSummary
-        tag="несовместимость версий, открыть в старой версии, конвертация проекта, сохранить как, save as"
-        title="«The file you are attempting to open was created with After Effects version XX.X.X (Windows/macOS) and cannot be opened with this version» или как открыть проект, созданный в более новой версии программы, если я не хочу обновляться?"
+        tag="обратная совместимость, как открыть проект созданный в более новой версии, я не хочу обновляться,  несовместимость версий, открыть в старой версии, конвертация проекта, сохранить как, save as"
+        title="Что делать с «The file you are attempting to open was created with version XX.X.X and cannot be opened with this version»?"
       >
         <p>
-          Скорее всего, вы пытаетесь открыть проект, который был создан в более новой
-          версии <mark className="app">Adobe After Effects</mark>, чем та, что у вас
-          установлена. В этом случае есть два варианта решения проблемы: попросить
-          пользователя с более новой версией программы сохранить проект в старом формате
-          или обновить <mark className="app">Adobe After Effects</mark> до актуальной
-          версии. Второй способ проще и быстрее — не поленитесь потратить час на установку
-          новой версии <mark className="app">Adobe After Effects</mark> и{" "}
+          Это сообщение информирует вас о том, что проект, созданный в новой версии{" "}
+          <mark className="app">Adobe After Effects</mark>, нельзя открыть в старой
+          версии. В программе отсутствует автоматическая обратная совместимость — для
+          открытия таких проектов в старых версиях потребуются дополнительные действия.
+        </p>
+        <p>
+          При возникновении этой проблемы у вас есть два варианта решения: попросить
+          пользователя с более новой версией программы сохранить проект для старой версии
+          или всё же обновить <mark className="app">Adobe After Effects</mark> до
+          актуальной версии. Второй способ проще и быстрее — не поленитесь потратить
+          полчаса на установку новой версии{" "}
+          <mark className="app">Adobe After Effects</mark> и{" "}
           <a href="#4.3">перенос настроек с плагинами</a>.{" "}
           <i style={{opacity: "0.5"}}>
-            Это сэкономит вам время в будущем, если вы часто работаете с чужими проектами.
+            Это значительно сэкономит время в будущем, если вы часто работаете с чужими
+            проектами.
           </i>
         </p>
         <Addition type="info">
-          Проекты, созданные в <mark>Windows</mark>, без проблем откроются в версии для{" "}
-          <mark>macOS</mark> и наоборот.
-        </Addition>
-        <Addition type="warning">
-          <ul>
-            <li>
-              Обратите внимание, что новые версии{" "}
-              <mark className="app">Adobe After Effects</mark> уже не позволяют сохранять
-              проекты для версий <mark>18.X</mark> или <mark>22.X</mark>. В таком случае
-              потребуется установить несколько версий программы и поочерёдно
-              конвертировать проект через каждую.
-            </li>
-            <li>
-              После сохранения проекта в старом формате часть функций или эффектов,
-              добавленных в более новой версии{" "}
-              <mark className="app">Adobe After Effects</mark>, могут работать некорректно
-              или вовсе не поддерживаться в вашей старой версии программы.
-            </li>
-          </ul>
+          Проекты, созданные в одной версии{" "}
+          <mark className="app">Adobe After Effects</mark> на <mark>Windows</mark>, без
+          проблем откроются в версии для <mark>macOS</mark> и наоборот.
         </Addition>
         <Divider>Конвертируем проект для старой версии Adobe After Effects</Divider>
         <p>
-          Чтобы сохранить проект в формате более старой версии программы, перейдите в{" "}
-          <mark className="select">«File» → «Save As»</mark> и выберите нужную версию из
-          списка. Программа предложит указать папку для сохранения копии проекта.
+          Если у вас установлено две версии{" "}
+          <mark className="app">Adobe After Effects</mark> и вы по какой-то причине не
+          хотите работать в новой — вы можете конвертировать файл проекта самостоятельно.
+          Для этого перейдите в <mark className="select">«File» → «Save As»</mark> и
+          выберите нужную версию из списка. Программа предложит указать папку для
+          сохранения копии проекта. Рекомендуется сохранять копию проекта в той же папке,
+          где находится оригинал, чтобы избежать проблем с ссылками на исходники.
         </p>
         <ContentFigure
           caption="Adobe After Effects"
@@ -1768,11 +1952,23 @@ const AEImport: React.FC = () => {
           variant="windows"
         />
         <p>
-          После конвертации откройте сохранённый файл в нужной старой версии{" "}
-          <mark className="app">Adobe After Effects</mark>. Рекомендуется сохранять копию
-          проекта в той же папке, где находится оригинал, чтобы избежать проблем с путями
-          к исходникам.
+          Обратите внимание, что новые версии{" "}
+          <mark className="app">Adobe After Effects</mark> уже не позволяют сохранять
+          проекты для версий <mark>18.X</mark> или <mark>22.X</mark>. В таком случае
+          придётся установить несколько версий программы и последовательно конвертировать
+          проект через каждую. Лучше выполнять этот процесс в виртуальной машине, чтобы
+          избежать возможных проблем в основной системе.
         </p>
+        <p>
+          После конвертации до нужной версии откройте сохранённый файл в вашей версии{" "}
+          <mark className="app">Adobe After Effects</mark>.
+        </p>
+        <Addition type="warning">
+          После сохранения проекта для старой версии часть функций или эффектов,
+          добавленных в более новой версии{" "}
+          <mark className="app">Adobe After Effects</mark>, могут работать некорректно или
+          вовсе не поддерживаться в вашей старой версии программы.
+        </Addition>
       </DetailsSummary>
     </div>
   );
