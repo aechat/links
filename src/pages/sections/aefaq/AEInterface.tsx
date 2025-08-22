@@ -1058,16 +1058,234 @@ const AEInterface: React.FC = () => {
         />
       </DetailsSummary>
       <DetailsSummary
-        tag="заставка, изображение запуска, resource hacker, dll, png, замена"
-        title="Как изменить картинку при запуске программы?"
+        tag="кастомная тема, secureuxtheme, цвет интерфейса, внешний вид"
+        title="Как изменить светлые участки интерфейса тёмными?"
       >
         <ContentFilter
           windowsContent={
             <div>
               <Addition type="danger">
-                Действия с заменой файлов программы вы совершаете на свой страх и риск!
-                После обновления программы ваша картинка перезапишется на исходную.
-                Стабильность работы программы после замены изображения не гарантируется.
+                <ul>
+                  <li>
+                    Данная инструкция ориентирована на опытных пользователей{" "}
+                    <mark>Windows</mark>, которые понимают что делают. Прежде чем ставить
+                    сторонние темы — создайте{" "}
+                    <a href="https://remontka.pro/system-restore-points-windows-10/">
+                      точку восстановления системы
+                    </a>
+                    . Все действия в статье были выполнены на <mark>Windows 11</mark>{" "}
+                    версии <mark>24H2</mark>.
+                  </li>
+                  <li>
+                    Стабильность работы системы и{" "}
+                    <mark className="app">Adobe After Effects</mark> после установки
+                    сторонних тем не гарантируется.
+                  </li>
+                </ul>
+              </Addition>
+            </div>
+          }
+        />
+        <p>
+          Некоторых пользователей раздражает, что{" "}
+          <mark className="app">Adobe After Effects</mark> использует системные элементы
+          интерфейса <mark>Windows</mark>, которые не всегда гармонируют с интерфейсом
+          программы — например, белая полоса меню, контекстное меню и рамка окна.
+        </p>
+        <ContentFigure
+          caption="«Проблемный» интерфейс Adobe After Effects на Windows"
+          imgTitle="«Проблемный» интерфейс Adobe After Effects на Windows"
+          src="images/aftereffects/problem_windows_interface.png"
+          theme="light"
+          type="image"
+          variant="windows"
+        />
+        <p>
+          К счастью, это можно частично исправить сторонними утилитами и темами:{" "}
+          <mark className="app">Mica For Everyone</mark> для изменения рамки окна,{" "}
+          <mark className="app">SecureUxTheme</mark> для включения возможности применять
+          сторонние темы в <mark>Windows</mark> и темой{" "}
+          <a href="https://www.deviantart.com/niivu/art/Windows-12-for-Windows-11-1139654666">
+            Windows 11 Redux от niivu
+          </a>
+          .
+        </p>
+        <Addition type="info">
+          Вместо темы{" "}
+          <a href="https://github.com/niivu/Windows-11-themes/tree/main/Windows%2011%20redux">
+            Windows 11 Redux от niivu
+          </a>{" "}
+          можно выбрать любую другую, которая вам понравится. Перед скачиванием и
+          установкой убедитесь, для какой версии <mark>Windows 11</mark> предназначена
+          выбранная тема. Текущую версию <mark>Windows</mark> вы можете узнать с помощью{" "}
+          <mark className="app">winver</mark>.
+        </Addition>
+        <Divider>Разбираемся с Mica For Everyone</Divider>
+        <p>
+          <mark className="app">Mica For Everyone</mark> — утилита для принудительного
+          изменения цвета рамок, типа скругления окон и эффекта размытия фона заголовка
+          окна. Скачать и установить её можно с{" "}
+          <a href="https://github.com/MicaForEveryone/MicaForEveryone/releases">
+            страницы релизов на GitHub
+          </a>
+          .
+        </p>
+        <p>
+          После запуска утилиты откроется окно с настройками стилей окон, где нужно
+          добавить правило для <mark className="app">Adobe After Effects</mark>. Для этого
+          в левом нижнем углу нажмите{" "}
+          <mark className="select">«Add new rule» → «Add process rule»</mark>.
+        </p>
+        <Addition type="info">
+          Рекомендую сразу убрать лишние встроенные правила, оставив только{" "}
+          <mark className="select">«Global»</mark>. Для этого перейдите в каждое правило,
+          нажмите <mark className="select">«Remove rule»</mark>.
+        </Addition>
+        <ContentFigure
+          caption="Mica For Everyone"
+          imgTitle="Добавление правила в Mica For Everyone"
+          src="images/micaforeveryone_add_process_rule.png"
+          theme="dark"
+          type="image"
+          variant="windows"
+        />
+        <p>
+          Затем в текстовом поле окна добавления правила введите{" "}
+          <mark className="copy">AfterFX</mark> и нажмите{" "}
+          <mark className="select">«Add rule»</mark>.
+        </p>
+        <ContentFigure
+          caption="Mica For Everyone"
+          imgTitle="Добавляем правило для Adobe After Effects в Mica For Everyone"
+          src="images/micaforeveryone_add_afterfx.png"
+          theme="dark"
+          type="image"
+          variant="windows"
+        />
+        <p>
+          Далее откройте правило <mark className="select">«AfterFX»</mark> и установите
+          следующие параметры: для <mark className="select">«Title bar color»</mark>{" "}
+          выберите <mark className="select">«Dark»</mark>, а для{" "}
+          <mark className="select">«Backdrop type»</mark> —{" "}
+          <mark className="select">«Mica»</mark> или{" "}
+          <mark className="select">«None»</mark> в зависимости от предпочтений. При
+          желании закругления окна можно убрать, установив в{" "}
+          <mark className="select">«Corner preference»</mark> значение{" "}
+          <mark className="select">«Squared»</mark>.
+        </p>
+        <ContentFigure
+          caption="Mica For Everyone"
+          imgTitle="Настраиваем стили для Mica For Everyone"
+          src="images/micaforeveryone_afterfx_settings.png"
+          theme="dark"
+          type="image"
+          variant="windows"
+        />
+        <p>
+          После настройки стилей — не забудьте включить автоматический запуск утилиты при
+          каждой перезагрузке <mark>Windows</mark> в{" "}
+          <mark className="select">«App settings» → «Launch on startup»</mark>.
+        </p>
+        <ContentFigure
+          caption="Mica For Everyone"
+          imgTitle="Включаем автозапуск Mica For Everyone"
+          src="images/micaforeveryone_launch_on_startup.png"
+          theme="dark"
+          type="image"
+          variant="windows"
+        />
+        <Divider>Устанавливаем сторонние темы с помощью SecureUxTheme</Divider>
+        <p>
+          Следующий шаг — установка сторонней темы. Перед её применением необходимо
+          установить <mark className="app">SecureUxTheme</mark>, который можно скачать с{" "}
+          <a href="https://github.com/namazso/SecureUxTheme/releases">
+            страницы релизов на GitHub
+          </a>
+          . После установки утилиты обязательно перезагрузите устройство.
+        </p>
+        <Addition type="info">
+          Если после установки <mark className="app">SecureUXTheme</mark> у вас всё
+          зависло на этапе загрузки системы —{" "}
+          <a href="https://github.com/namazso/SecureUxTheme/wiki/Help:-Login-loop-after-installing-SecureUxTheme">
+            удалите некоторые ключи в реестре из средства восстановления системы
+          </a>
+          .
+        </Addition>
+        <p>
+          Далее скачайте и распакуйте стороннюю тему, например{" "}
+          <a href="https://github.com/niivu/Windows-11-themes/tree/main/Windows%2011%20redux">
+            Windows 11 Redux
+          </a>
+          , в системную директорию{" "}
+          <mark className="path">C:\Windows\Resources\Themes</mark>.
+        </p>
+        <Addition type="warning">
+          Для распаковки файлов в системные директории понадобятся права администратора.
+        </Addition>
+        <ContentFigure
+          caption="Импорт сторонних тем"
+          src="images/import_custom_windows_theme.mp4"
+          theme="dark"
+          type="video"
+          variant="windows"
+        />
+        <p>
+          Затем откройте <mark className="app">Параметры</mark> с помощью{" "}
+          <mark className="key">Win + I</mark>, перейдите в{" "}
+          <mark className="select">«Персонализация» → «Темы»</mark> и примените тему{" "}
+          <mark className="select">«Windows 11 aero - Night»</mark> или{" "}
+          <mark className="select">«Windows 11 redux - Night»</mark>.
+        </p>
+        <ContentFigure
+          caption="Применение сторонней темы"
+          src="images/change_windows_theme.mp4"
+          theme="dark"
+          type="video"
+          variant="windows"
+        />
+        <Addition type="info">
+          Если у вас всё зависло на этапе применения применения темы —{" "}
+          <a href="https://remontka.pro/windows-10-safe-mode/">
+            перезагрузитесь в безопасный режим
+          </a>{" "}
+          и установите стандартную тему.
+        </Addition>
+        <p>
+          После всех изменений и применения темы, откройте{" "}
+          <mark className="app">Adobe After Effects</mark> и наслаждайтесь по настоящему
+          тёмной темой программы.
+        </p>
+        <ContentFigure
+          caption="«Решённый» интерфейс Adobe After Effects на Windows"
+          imgTitle="«Решённый» интерфейс Adobe After Effects на Windows"
+          src="images/aftereffects/solved_windows_interface.png"
+          theme="dark"
+          type="image"
+          variant="windows"
+        />
+      </DetailsSummary>
+      <DetailsSummary
+        tag="заставка, изображение запуска, resource hacker, dll, замена, внешний вид"
+        title="Как изменить картинку во время запуска программы?"
+      >
+        <ContentFilter
+          windowsContent={
+            <div>
+              <Addition type="danger">
+                <ul>
+                  <li>
+                    Данная инструкция ориентирована на опытных пользователей, которые
+                    понимают что делают. Действия с заменой файлов программы вы совершаете
+                    на свой страх и риск!
+                  </li>
+                  <li>
+                    Стабильность работы <mark className="app">Adobe After Effects</mark>{" "}
+                    после замены изображения не гарантируется.
+                  </li>
+                  <li>
+                    После обновления программы ваша картинка перезапишется на исходную.
+                  </li>
+                </ul>
               </Addition>
               <p>
                 При запуске <mark className="app">Adobe After Effects</mark> вы видите
