@@ -66,6 +66,7 @@
   line-height: 1.3;
   font-family: Onest, sans-serif;
   text-transform: uppercase;
+
   &:not(:last-child) {
     border-top: 1px solid var(--summary-border);
     border-bottom: none;
@@ -178,7 +179,16 @@
     list-style-type: none;
 
     p {
-      margin: 0;
+      margin-inline: 0;
+      margin-block: 15px;
+
+      &:first-child {
+        margin-block-start: 0;
+      }
+
+      &:last-child {
+        margin-block-end: 0;
+      }
     }
 
     .figure-mac,
@@ -242,6 +252,7 @@
   li > ul > li {
     padding-inline: 20px;
     padding-inline-end: 0;
+
     &::before {
       left: 6px;
     }
