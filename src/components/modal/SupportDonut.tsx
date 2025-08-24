@@ -83,16 +83,16 @@ const SupportDonut: React.FC = () => {
                 onCancel={handleCloseSberModal}
               >
                 <div className="modal">
-                  <div className="modal-header">
-                    <div className="modal-header-title">Поддержать на Сбербанк</div>
-                    <button
-                      className="modal-header-close"
-                      onClick={handleCloseSberModal}
-                    >
-                      <CloseRounded />
-                    </button>
-                  </div>
                   <div className="modal-content">
+                    <div className="modal-header">
+                      <div className="modal-header-title">Поддержать на Сбербанк</div>
+                      <button
+                        className="modal-header-close"
+                        onClick={handleCloseSberModal}
+                      >
+                        <CloseRounded />
+                      </button>
+                    </div>
                     <p>
                       Вы можете перевести из любого банка по номеру банковской карты любую
                       сумму.
@@ -132,31 +132,31 @@ const SupportDonut: React.FC = () => {
                 onCancel={handleCloseYoomoneyModal}
               >
                 <div className="modal">
-                  <div className="modal-header">
-                    <div className="modal-header-title">Поддержать на ЮMoney</div>
-                    <button
-                      className="modal-header-close"
-                      onClick={handleCloseYoomoneyModal}
-                    >
-                      <CloseRounded />
-                    </button>
-                  </div>
                   <div className="modal-content">
+                    <div className="modal-header">
+                      <div className="modal-header-title">Поддержать на ЮMoney</div>
+                      <button
+                        className="modal-header-close"
+                        onClick={handleCloseYoomoneyModal}
+                      >
+                        <CloseRounded />
+                      </button>
+                    </div>
                     <p>Для пополнения кошелька вам нужно проделать несколько действий:</p>
                     <ul>
                       <li>Зайдите в приложение своего банка.</li>
                       <li>
-                        Откройте раздел <mark className="select">Платежи</mark> и найдите
-                        в нём категорию{" "}
-                        <mark className="select">Электронные кошельки</mark> или{" "}
-                        <mark className="select">Финансы</mark>. Обычно в этих разделах
+                        Откройте раздел <mark className="select">«Платежи»</mark> и
+                        найдите в нём категорию{" "}
+                        <mark className="select">«Электронные кошельки»</mark> или{" "}
+                        <mark className="select">«Финансы»</mark>. Обычно в этих разделах
                         можно найти <mark>ЮMoney</mark>. Также вы можете воспользоваться
                         поиском вашего банка.
                       </li>
                       <li>
                         Нажмите на номер кошелька снизу, он скопируется в буфер обмена.
                         Вставьте этот номер в поле{" "}
-                        <mark className="select">Номер кошелька</mark> приложения вашего
+                        <mark className="select">«Номер кошелька»</mark> приложения вашего
                         банка и введите любую сумму. После этого - подтвердите перевод.
                         <motion.mark className="copy-cardnumber-yoomoney">
                           410016763684808
