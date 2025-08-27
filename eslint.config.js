@@ -18,18 +18,33 @@ import tseslint from "typescript-eslint";
 
 export default [
   {
-    ignores: ["**/node_modules/*", "**/dist/*", "**/@typescript-eslint/*"],
+    ignores: [
+      "**/node_modules/*",
+      "**/dist/*",
+      "**/@typescript-eslint/*",
+      ".yarn/**",
+      ".pnp.*",
+      "eslint.config.js",
+      "vite.config.ts",
+      "scripts/**",
+    ],
   },
   {
+    files: ["src/**/*.{ts,tsx,js,jsx}"],
     languageOptions: {
       globals: globals.browser,
+      parser: tseslint.parser,
+      parserOptions: {
+        project: "./tsconfig.json",
+        tsconfigRootDir: import.meta.dirname,
+      },
     },
-  },
-  {
     plugins: {
       perfectionist,
       "jsx-a11y": pluginJsxA11y,
-      "prettier": pluginPrettier,
+      prettier: pluginPrettier,
+      "@typescript-eslint": tseslint.plugin,
+      react: pluginReact,
     },
   },
   pluginJs.configs.recommended,
@@ -125,26 +140,9 @@ export default [
           ignoreMemberSort: false,
         },
       ],
-      // "lines-around-comment": [
-      //   "warn",
-      //   {
-      //     beforeLineComment: true,
-      //     afterLineComment: true,
-      //     allowBlockStart: false,
-      //     allowBlockEnd: false,
-      //     allowClassStart: false,
-      //     allowClassEnd: false,
-      //     allowObjectStart: false,
-      //     allowObjectEnd: false,
-      //     allowArrayStart: false,
-      //     allowArrayEnd: false,
-      //     beforeBlockComment: true,
-      //     afterBlockComment: true,
-      //   },
-      // ],
-      "curly": ["warn", "all"],
+      curly: ["warn", "all"],
       "no-empty": ["warn", {allowEmptyCatch: true}],
-      "eqeqeq": ["warn", "always"],
+      eqeqeq: ["warn", "always"],
       "no-console": ["warn", {allow: ["warn", "error"]}],
       "react/jsx-uses-vars": "warn",
       "react/jsx-sort-props": [
