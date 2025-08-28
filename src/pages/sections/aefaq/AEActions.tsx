@@ -4,242 +4,257 @@ import React from "react";
 
 import Addition from "../../../components/Addition";
 
-import {ImageFigure, VideoFigure, YouTubeVideo} from "../../../components/ContentFigure";
+import {ContentFigure} from "../../../components/ContentFigure";
 
 import DetailsSummary from "../../../components/DetailsSummary";
 
 import CodeSnippet from "../../../components/features/CodeSnippet";
 
-import ContentSwitcher from "../../../components/features/ContentFilter";
-
+import ContentFilter from "../../../components/features/ContentFilter";
 
 const AEActions: React.FC = () => {
   return (
     <div className="faq-content">
       <DetailsSummary
-        tag="апскейл, топаз, качество, 4к, резкость, восстановить четкость"
-        title="Какими средствами я могу улучшить качество изображений и видео?"
+        tag="апскейл, топаз, качество, 4к, резкость, восстановить четкость, шарпен, цветокоррекция"
+        title="Какими средствами можно улучшить качество исходников?"
       >
         <p>
-          В настоящее время существует множество способов улучшить качество видео или фото
-          с помощью нейросетей. Описанные здесь методы работают локально на вашем
-          компьютере, поэтому для начала запаситесь производительной видеокартой и
-          процессором.
+          В последнее время появилось множество инструментов с использованием
+          искусственного интеллекта, которые могут помочь вам улучшить качество фото и
+          видео. Все описанные методы работают локально на вашем устройстве, поэтому для
+          их корректной работы потребуется производительная видеокарта и мощный процессор.
         </p>
+        <Addition type="info">
+          Интерфейс и действия в приведённых ниже видео могут отличаться в зависимости от
+          версии программы или плагина.
+        </Addition>
         <Divider>Улучшаем качество видео</Divider>
         <p>
-          Для улучшения качества видео можно использовать программу{" "}
-          <mark className="app">Topaz Video AI</mark>. Данная программа может подключаться
-          к <mark className="app">Adobe After Effects</mark> и{" "}
-          <mark className="app">Davinci Resolve</mark>, но я бы посоветовал использовать
-          Standalone-версию - так будет стабильнее и проще работать с исходниками. С
-          помощью него можно вытянуть из плохого качества - относительно хорошее, а также
-          увеличить плавность видео. С первого раза хороший результат из вашего исходника
-          может и не выйти, поэтому пробуйте экспериментировать с настройками для
-          получения хорошего результата.
+          Начнём с самого популярного запроса — улучшения качества видео. Для этого чаще
+          всего используют <mark className="app">Topaz Video AI</mark>, который может
+          интегрироваться с <mark className="app">Adobe After Effects</mark> и{" "}
+          <mark className="app">DaVinci Resolve</mark>. Однако я бы всё же рекомендовал
+          запускать эту программу отдельно, без монтажных программ — так работа с
+          исходниками будет стабильнее и удобнее.
         </p>
-        <YouTubeVideo
-          caption="Topaz Video AI"
-          link="zbX7x8Oo_Uc"
+        <p>
+          С помощью <mark className="app">Topaz Video AI</mark> можно заметно повысить
+          качество исходного материала и даже сделать видео более плавным. Однако стоит
+          учесть, что хороший результат не всегда может получиться с первой попытки,
+          поэтому не стоит бояться экспериментировать с настройками.
+        </p>
+        <ContentFigure
+          caption="Topaz Video AI Tutorials Enhancing Low Quality Video"
+          src="XBEkVHd2tmw"
+          type="youtube"
         />
         <p>
-          Также существуют много плагинов для{" "}
-          <mark className="app">Adobe After Effects</mark>, которые помогают улучшить
-          качество видео и изображений. Из такого можно обратить внимание на{" "}
-          <mark className="plugin">BCC UpRes ML</mark> из набора сторонних плагинов{" "}
-          <mark className="plugin">Boris FX Continuum</mark>.
+          Если вы хотите повысить качество исходного материала прямо в{" "}
+          <mark className="app">Adobe After Effects</mark>, попробуйте применить к слою
+          эффект <mark className="plugin">BCC+UpRes ML</mark>, который входит в сторонний
+          пакет <mark className="plugin">Boris FX Continuum</mark>.
         </p>
-        <YouTubeVideo
+        <ContentFigure
           caption="BCC UpRes ML"
-          link="fTYcNP8ZdTE"
+          src="fTYcNP8ZdTE"
+          type="youtube"
+        />
+        <p>
+          Если вы не хотите использовать сторонние плагины, вы можете воспользоваться
+          стандартным в <mark className="app">Adobe After Effects</mark> эффектом{" "}
+          <mark className="plugin">Detail-preserving Upscale</mark>.
+        </p>
+        <ContentFigure
+          caption="How to UPSCALE VIDEO to 4K in Adobe After Effects"
+          src="PVPapPNciyQ"
+          type="youtube"
+        />
+        <Divider>«Наваливаем» эффекты для цветокоррекции</Divider>
+        <p>
+          На популярных видеоплощадках, вроде <mark className="app">TikTok</mark> и{" "}
+          <mark className="app">YouTube Shorts</mark>, часто применяют спорные методы
+          «улучшения» качества с помощью цветокоррекции: используют эффекты{" "}
+          <mark className="plugin">Sharpen</mark> и{" "}
+          <mark className="plugin">Unsharpen Mask</mark> с «задранными» значениями,
+          завышают контраст и насыщенность, а видео при этом называют <mark>4K</mark>,
+          хотя на деле оно опубликовано в меньшем разрешении.
+        </p>
+        <ContentFigure
+          caption="HOW TO: Make A 4K Color Correction"
+          src="d9ESpD7vc2Y"
+          type="youtube"
         />
         <Divider>Улучшаем качество фотографий</Divider>
         <p>
-          Если вы хотите улучшить качество ваших фотографий, то для этого подойдут
-          программы <mark className="app">Topaz Photo AI</mark> или{" "}
-          <mark className="app">Topaz Gigapixel AI</mark>. По своей задаче эти программы
-          похожи, а результаты могут сильно отличаться, поэтому время от времени
-          приходится использовать обе программы. Для{" "}
-          <mark className="app">Topaz Photo AI</mark> вам понадобится около 15 ГБ на
-          жестком диске, а для <mark className="app">Topaz Gigapixel AI</mark> - около 25
-          ГБ. И это без учета будущих обновлений.
+          Для улучшения качества изображений прямо в{" "}
+          <mark className="app">Adobe After Effects</mark> можно использовать способы,
+          ранее описанные в статье. Если вы хотите улучшить изображение без использования{" "}
+          <mark className="app">Adobe After Effects</mark> — попробуйте воспользоваться{" "}
+          <mark className="app">Topaz Photo AI</mark> или{" "}
+          <mark className="app">Topaz Gigapixel AI</mark>. Задачи у них похожи, но
+          результаты обработки могут сильно отличаться, поэтому иногда приходится
+          использовать обе программы.{" "}
+          <a href="https://www.topazlabs.com/pai-vs-gp">Чем эти программы отличаются?</a>
         </p>
-        <AdditionInfo>
-          Про различия <mark className="app">Topaz Photo AI</mark> и{" "}
-          <mark className="app">Topaz Gigapixel AI</mark> можно узнать{" "}
-          <a href="https://www.topazlabs.com/pai-vs-gp">на официальном сайте</a>.
-        </AdditionInfo>
-        <YouTubeVideo
-          caption="Topaz Gigapixel AI"
-          link="VMaYdjWqRRg"
+        <Addition type="warning">
+          Для <mark className="app">Topaz Photo AI</mark> понадобится около{" "}
+          <mark>15 ГБ</mark> свободного места на жёстком диске, а для{" "}
+          <mark className="app">Topaz Gigapixel AI</mark> — около <mark>25 ГБ</mark>. И
+          это без учёта будущих обновлений.
+        </Addition>
+        <ContentFigure
+          caption="Intro to Photo AI"
+          src="J6vDYRvjbGY"
+          type="youtube"
         />
         <p>
-          Если вы ищете бесплатный и open-source аналог{" "}
-          <mark className="app">Topaz Gigapixel AI</mark> для улучшения изображений, то
-          есть более простой вариант - <mark className="app">Upscayl</mark>. Скачать его
-          можно по <a href="https://upscayl.org/">этой ссылке</a>. Эта программа также
-          использует генеративные модели для улучшения качества изображений.
+          Если вы ищете бесплатный аналог <mark className="app">Topaz AI</mark> — обратите
+          внимание на <mark className="app">Upscayl</mark>. Эта программа также использует
+          нейросетевые модели для улучшения качества изображений. Скачать его можно{" "}
+          <a href="https://upscayl.org/">по этой ссылке</a>.
         </p>
-        <AdditionWarning>
-          Данная программа не поддерживает улучшение видеофайлов.
-        </AdditionWarning>
-        <VideoFigure
+        <ContentFigure
           caption="Upscayl"
-          styleClass="figure_macos-dark"
-          videoSrc="https://github.com/upscayl/upscayl/assets/25067102/ad2453b1-3c5a-4eb2-b992-4cf10e6a49f5"
+          src="https://github.com/upscayl/upscayl/assets/25067102/ad2453b1-3c5a-4eb2-b992-4cf10e6a49f5"
+          theme="dark"
+          type="video"
+          variant="mac"
         />
         <p>
-          В качестве альтернативы для улучшения качества изображений можно воспользоваться
-          программой <mark className="app">Benvista PhotoZoom</mark>, первая версия
-          которого вышла ещё в 2005 году. С относительно недавних пор в него также
-          добавили генеративные модели, но можно обойтись и без них. Благодаря своим
-          алгоритмам, результат в этой программе может быть даже лучше, чем в
-          вышеупомянутых программах. И занимает всего лишь <mark>110 МБ</mark> на жестком
-          диске.
+          В качестве альтернативы можно использовать{" "}
+          <mark className="app">Benvista PhotoZoom</mark>, первая версия которой вышла ещё
+          в 2005 году. В последних версиях в программу добавили нейросетевые модели, хотя
+          работать можно и без них. Благодаря собственным алгоритмам программа порой даёт
+          результат даже лучше, чем упомянутые выше инструменты, при этом занимает совсем
+          немного места на диске.
         </p>
-        <YouTubeVideo
+        <ContentFigure
           caption="Benvista Photozoom"
-          link="woDDQ0xnt84"
+          src="woDDQ0xnt84"
+          type="youtube"
         />
-        <AdditionInfo>
-          Скачать программы <mark className="app">Benvista PhotoZoom</mark>,{" "}
-          <mark className="app">Topaz Photo AI</mark>,{" "}
-          <mark className="app">Topaz Gigapixel AI</mark> и{" "}
-          <mark className="app">Topaz Video AI</mark>, а также пакет плагинов{" "}
-          <mark className="plugin">Boris FX Continuum</mark> можно в канале{" "}
-          <a href="https://t.me/+Qd9xu7A4TeIwNzY6">склад стройматериалов</a>.
-        </AdditionInfo>
       </DetailsSummary>
       <DetailsSummary
         tag="слоумо, твикстор, топаз, ретаймер, тайм ремапинг, плавное замедление, флоуфреймс, дайте мне больше фпс, fps interpolation"
-        title="Какими средствами я могу замедлить видео или сделать его более плавным?"
+        title="Какими средствами можно замедлить видео или сделать его более плавным?"
       >
         <p>
-          В какой-то момент у пользователя возникает задача замедлить видео так, чтобы оно
-          смотрелось плавно и без рывков, особенно если исходник имеет низкую частоту
-          кадров. Или просто сделать видео более плавным,{" "}
-          <i style={{opacity: "0.5"}}>
-            как это любят эдиторы, прибывшие из <mark className="app">TikTok</mark>
-          </i>
-          . Эту задачу можно решить с помощью интерполирования кадров или же добавлением
-          дополнительных кадров за счёт смешения существующих соседних.
+          Иногда возникает необходимость сделать видео максимально плавным, особенно если
+          исходник снят с низкой частотой кадров. С этой задачей отлично справляются
+          современные инструменты интерполяции, которые создают дополнительные кадры на
+          основе существующих, сглаживая движение и убирая рывки.
         </p>
-        <AdditionWarning>
-          Прежде чем замедлять аниме-клипы, скринкасты видеоигр или исходники, записанные
-          с переменным FPS - стоит <a href="#8.3">избавиться от повторяющихся кадров</a>.
-          Таким образом вы обеспечите более стабильную работу интерполяции и можете
-          добиться более плавного замедления.
-        </AdditionWarning>
-        <AdditionInfo>
-          <ul>
-            <li>
-              Действия на видео, приведённые ниже, могут отличаться в зависимости от
-              версии программы или плагина.
-            </li>
-            <li>
-              Некоторые плагины и программы вы можете скачать в канале{" "}
-              <a href="https://t.me/+Qd9xu7A4TeIwNzY6">склад стройматериалов</a> по
-              хештегам <mark className="tag">#twixtor</mark>,{" "}
-              <mark className="tag">#continuum</mark> или{" "}
-              <mark className="tag">#topaz</mark>.
-            </li>
-          </ul>
-        </AdditionInfo>
-        <Divider>Замедляем плавно прямо в After Effects</Divider>
+        <Addition type="warning">
+          Прежде чем замедлять аниме, записи игрового процесса или видео с переменной
+          частотой кадров, стоит <a href="#7.3">избавиться от дублирующихся кадров</a>.
+          Так вы обеспечите более стабильную работу алгоритмов интерполяции и добьётесь
+          более плавного замедления.
+        </Addition>
+        <Addition type="info">
+          Интерфейс и действия в приведённых ниже видео могут отличаться в зависимости от
+          версии программы или плагина.
+        </Addition>
+        <Divider>Плавно замедляем видео в Adobe After Effects</Divider>
         <p>
-          Первым в списке плагинов, с помощью которого можно плавно замедлить видео в{" "}
-          <mark className="app">Adobe After Effects</mark> идёт{" "}
-          <mark className="plugin">Twixtor</mark>. Этот плагин достаточно давно появился
-          на рынке и за это время он успел зарекомендовать себя как хороший инструмент для
-          интерполяции кадров и плавного изменения скорости видеоклипа. У него есть
-          множество настроек, что позволяет адаптировать его использование под различные
-          задачи.
+          Замедлить видео можно и стандартными средствами{" "}
+          <mark className="app">Adobe After Effects</mark>. Для этого включите{" "}
+          <mark className="select">«Time Remapping»</mark> с помощью{" "}
+          <mark className="key">Ctrl + Alt + T</mark>, а затем активируйте смешивание
+          кадров для слоя:
+          <mark className="key">ПКМ</mark> →{" "}
+          <mark className="select">
+            «Frame Blending» → «Frame Mix» или «Pixel Motion»
+          </mark>
+          .
         </p>
-        <YouTubeVideo
-          caption="Twixtor"
-          link="EGZCNcQyvrE"
-        />
-        <p>
-          Также в <mark className="plugin">Boris FX Continuum</mark> появился эффект{" "}
-          <mark className="plugin">BCC Retimer ML</mark> для интерполяции кадров и
-          плавного замедления видео, который использует искусственный интеллект. Этот
-          эффект порой показывает лучше результат, чем вышеупомянутый{" "}
-          <mark className="plugin">Twixtor</mark>.
-        </p>
-        <YouTubeVideo
-          caption="BCC Retimer ML"
-          link="YraSxOpy1Qg"
-        />
-        <p>
-          Стандартными средствами <mark className="app">Adobe After Effects</mark> тоже
-          можно плавно замедлить видео с помощью функции смешивания соседних кадров,
-          правда результат может получиться не таким хорошим, как хотелось бы. Для этого
-          вам нужно добавить видео на таймлайн и замедлить его с помощью{" "}
-          <mark>Time Remapping</mark>. Его можно включить с помощью комбинации клавиш{" "}
-          <mark className="key">Ctrl + Alt + T</mark>. После изменения длины видео с
-          помощью ремапинга - выделите нужный слой, нажмите на{" "}
-          <mark className="key">ПКМ</mark> и выберите в контекстном меню{" "}
-          <mark className="ui">Frame Blending &gt; Frame Mix или Pixel Motion</mark>.
-        </p>
-        <YouTubeVideo
+        <ContentFigure
           caption="Frame Blending и Pixel Motion в Adobe After Effects"
-          link="fNINAOwY2IY"
+          src="fNINAOwY2IY"
+          type="youtube"
         />
-        <Divider>Делаем видео более плавным вне After Effects</Divider>
         <p>
-          Если же у вас возникает задача превратить видео, например с{" "}
-          <mark>24 кадрами в секунду</mark> в <mark>60</mark> или даже в <mark>120</mark>{" "}
-          для дальнейшей обработки или воспроизведения контента,{" "}
-          <i style={{opacity: "0.5"}}>
-            правда н@#&я, если большинство видеохостингов всё равно примут видео максимум
-            с 60 кадрами в секунду
-          </i>
-          , то можно воспользоваться различными сторонними утилитами. Первым по списку
-          пойдет <mark className="app">Flowframes</mark>. У данной программы существует
-          как <a href="https://nmkd.itch.io/flowframes">бесплатная</a> версия, для
-          скачивания которого нужно нажать на странице{" "}
-          <mark className="ui">Download Now</mark> и в модальном окне нажать на{" "}
-          <mark className="ui">No thanks, just take me to the downloads</mark>, так и{" "}
-          <a href="https://www.patreon.com/n00mkrad">платная</a>, которая обновляется чаще
-          и имеет больше функций.
+          Если результат встроенных режимов кажется недостаточно плавным, можно прибегнуть
+          к сторонним эффектам. Самый известный среди них —{" "}
+          <mark className="plugin">RE:Vision Twixtor</mark>. Этот плагин хорошо
+          справляется с интерполяцией кадров как для целых видео, так и для отдельных
+          слоёв.
         </p>
-        <YouTubeVideo
-          caption="FlowFrames"
-          link="H8ISNjzDULw"
+        <ContentFigure
+          caption="Twixtor"
+          src="EGZCNcQyvrE"
+          type="youtube"
         />
         <p>
-          В качестве альтернативы можно воспользоваться чуть менее популярным{" "}
+          В качестве альтернативы можно попробовать эффект{" "}
+          <mark className="plugin">BCC+Retimer ML</mark> из пакета{" "}
+          <mark className="plugin">Boris FX Continuum</mark>. Он использует алгоритмы
+          искусственного интеллекта для создания дополнительных кадров и обеспечивает
+          более мягкое движение по сравнению с{" "}
+          <mark className="plugin">RE:Vision Twixtor</mark>.
+        </p>
+        <ContentFigure
+          caption="BCC Retimer ML"
+          src="YraSxOpy1Qg"
+          type="youtube"
+        />
+        <Divider>«Уплавняем» видео вне Adobe After Effects</Divider>
+        <p>
+          Если стоит задача увеличить частоту кадров, например, с <mark>24 к/с</mark> до{" "}
+          <mark>60 к/с</mark> или даже <mark>120 к/с</mark> для дальнейшей обработки или
+          более плавного воспроизведения видео, то можно обойтись без{" "}
+          <mark className="app">Adobe After Effects</mark> и воспользоваться программой{" "}
+          <mark className="app">Flowframes</mark>. У данной утилиты есть{" "}
+          <a href="https://nmkd.itch.io/flowframes">бесплатная версия</a>
+          <sup>1</sup> и <a href="https://www.patreon.com/n00mkrad">платная</a> с
+          расширенным функционалом.
+        </p>
+        <Addition type="info">
+          <sup>1</sup> Для бесплатного скачивания утилиты нажмите на странице{" "}
+          <mark className="select">«Download Now»</mark>, а в модальном окне —{" "}
+          <mark className="select">«No thanks, just take me to the downloads»</mark>.
+          После этого вас перенаправят на страницу загрузки, где вы можете скачать{" "}
+          <mark className="app">Flowframes</mark> бесплатно.
+        </Addition>
+        <ContentFigure
+          caption="FlowFrames"
+          src="H8ISNjzDULw"
+          type="youtube"
+        />
+        <p>
+          В качестве альтернативы можно попробовать менее популярную программу{" "}
           <mark className="app">FrameGUI</mark>.
         </p>
-        <YouTubeVideo
+        <ContentFigure
           caption="FrameGUI"
-          link="Axz_KwiqNmc"
+          src="Axz_KwiqNmc"
+          type="youtube"
         />
         <p>
-          Также в <mark className="app">Topaz Video AI</mark> есть функция для увеличения
-          количества кадров в секунду с выбором нескольких моделей для различных
-          экспериментов, чтобы выбрать более подходящий результат.
+          Также в <mark className="app">Topaz Video AI</mark> есть функция увеличения
+          частоты кадров с несколькими моделями на выбор, что позволяет экспериментировать
+          для получения наилучшего результата.
         </p>
-        <YouTubeVideo
+        <ContentFigure
           caption="Topaz Video AI"
-          link="591MqOooDAE"
+          src="591MqOooDAE"
+          type="youtube"
         />
-      </DetailsSummary>{" "}
+      </DetailsSummary>
       <DetailsSummary
         tag="дублирующиеся фреймы, аниме"
-        title="Как и чем можно удалить повторяющиеся кадры в видео?"
+        title="Как и чем можно удалить повторяющиеся кадры из видео?"
       >
         <p>
-          Когда вы обрабатываете запись видеоигры, аниме или контент с плавающим значением{" "}
-          <mark>FPS</mark>, то наверное вы сталкивались с тем, что кадры иногда
-          дублируются и это может мешать плавности вашей композиции. Для исправления этого
-          неприятного эффекта нужно удалить дублирующиеся кадры. Это можно сделать
-          несколькими способами.
+          При обработке записей игрового процесса, аниме или любого контента с переменной
+          частотой кадров вы, вероятно, сталкивались с дублированием кадров, что мешает
+          плавности движения видео. Чтобы это исправить, повторяющиеся кадры нужно
+          удалить. Это можно сделать несколькими способами.
         </p>
-        <Divider>Удаляем через Duplicate Frame Remover</Divider>
+        <Divider>Удаляем с помощью Duplicate Frame Remover</Divider>
         <p>
-          Из <mark className="app">Adobe After Effects</mark> дублирующиеся кадры можно
-          убрать с помощью стороннего плагина{" "}
+          В <mark className="app">Adobe After Effects</mark> дублирующиеся кадры можно
+          удалить с помощью скрипта{" "}
           <a href="https://aescripts.com/duplicate-frame-remover/">
             Duplicate Frame Remover
           </a>
@@ -247,68 +262,68 @@ const AEActions: React.FC = () => {
         </p>
         <ul>
           <li>
-            <mark className="ui">Threshold</mark> - чем больше его значение, тем чаще
-            будет удаляться дублирующиеся кадры.
+            <mark className="select">«Threshold»</mark> — чем выше значение, тем скрипт
+            будет агрессивнее искать и удалять похожие кадры.
           </li>
           <li>
-            <mark className="ui">Use Region of Interest</mark> - алгоритм обнаружения, в
-            зависимости от включенной опции, будет обрабатываться в пределах{" "}
-            <mark className="ui">Region of Interest</mark>, указанный вами, чтобы
-            исключить ложные срабатывания.
+            <mark className="select">«Use Region of Interest»</mark> — при включении этой
+            опции алгоритм будет работать только в пределах выделенной вами области
+            <mark className="select">«Region of Interest»</mark>, что помогает исключить
+            ложные срабатывания.
           </li>
           <li>
-            <mark className="ui">Retime to original length</mark> - возвращает исходную
-            длину слоя с включением встроенных режимов интерполяции кадров:{" "}
-            <mark className="ui">Pixel Motion</mark> или{" "}
-            <mark className="ui">Frame Mix</mark>.
+            <mark className="select">«Retime to original length»</mark> — возвращает слою
+            исходную длительность после удаления кадров, используя встроенные режимы
+            интерполяции <mark className="select">«Pixel Motion»</mark> или{" "}
+            <mark className="select">«Frame Mix»</mark>.
           </li>
         </ul>
-        <YouTubeVideo
+        <ContentFigure
           caption="Duplicate Frame Remover 3 - Quick Start Tutorial"
-          link="yg0vJmgCG5U"
+          src="yg0vJmgCG5U"
+          type="youtube"
         />
         <p>
-          Для удобства при дальнейшей работе рекомендую отрендерить обработанный через
-          плагин видео и заменить его в проекте. Таким образом вы избавите себя от
-          повторных рендеров слоя, из которого вы удалили повторяющиеся кадры.
+          Для удобства дальнейшей работы рекомендую отрендерить обработанное видео и
+          заменить им исходник в проекте. Так вы избавитесь от необходимости повторно
+          обрабатывать этот слой при каждом финальном рендеринге.
         </p>
-        <Divider>Используем Shutter Encoder для удаления дублирующихся кадров</Divider>
+        <Divider>Удаляем дубликаты через Shutter Encoder</Divider>
         <p>
-          В <mark className="app">Shutter Encoder</mark> есть опция, которая анализирует
-          повторяющиеся кадры и удаляет их при конвертации. После импорта вашего исходника
-          выберите формат для вывода и во вкладке{" "}
-          <mark className="ui">Advanced features</mark> включите параметр{" "}
-          <mark className="ui">Remove duplicate frames</mark>. Затем укажите нужный путь
-          для вывода файла и нажмите на <mark className="ui">Start function</mark>.
+          В <mark className="app">Shutter Encoder</mark> есть опция, которая позволяет
+          конвертеру анализировать и удалять повторяющиеся кадры у видео. После импорта
+          исходника выберите формат для вывода, а затем во вкладке{" "}
+          <mark className="select">«Advanced features»</mark> включите параметр{" "}
+          <mark className="select">«Remove duplicate frames»</mark>. После этого укажите
+          путь сохранения и нажмите <mark className="select">«Start function»</mark>.
         </p>
-        <ImageFigure
+        <ContentFigure
           caption="Shutter Encoder"
-          imgSrc="images/shutter_encoder_remove_duplicate_frames.png"
           imgTitle="Включение удаления дублирующихся кадров"
-          styleClass="figure_macos-dark"
+          src="images/shutter_encoder_remove_duplicate_frames.png"
+          theme="dark"
+          type="image"
+          variant="mac"
         />
-        <Divider>Удаляем дублирующиеся кадры через FFmpeg</Divider>
+        <Divider>Удаление дубликатов через FFmpeg</Divider>
         <p>
-          Если вы не боитесь командной строки и согласны воспользоваться им, чтобы
-          исправить ваш исходник, то вам нужно загрузить и установить{" "}
-          <mark className="app">FFmpeg</mark> на ваше устройство.{" "}
-          <mark className="app">FFmpeg</mark> - утилита командной строки для
-          конвертирования и преобразования различных видео файлов.
+          Если вы не боитесь командной строки и готовы ей воспользоваться, можно исправить
+          исходник с помощью <mark className="app">FFmpeg</mark> — мощной утилиты для
+          конвертации и обработки видео. Сначала её нужно установить на ваше устройство.
         </p>
-        <ContentSwitcher
+        <ContentFilter
           macContent={
             <div>
-              <AdditionWarning>
-                В этой инструкции <mark className="app">FFmpeg</mark> будет
-                устанавливаться через сторонний пакетный менеджер{" "}
-                <mark className="app">Homebrew</mark>. Прежде чем выполнять команду для
-                установки <mark className="app">FFmpeg</mark> - убедитесь в том, что{" "}
-                <mark className="app">Homebrew</mark> установлен в вашей системе.{" "}
+              <Addition type="warning">
+                В этой инструкции <mark className="app">FFmpeg</mark> устанавливается
+                через пакетный менеджер <mark className="app">Homebrew</mark>. Прежде чем
+                выполнять команду, убедитесь, что <mark className="app">Homebrew</mark>{" "}
+                установлен в вашей системе.{" "}
                 <a href="https://brew.sh/">Что ещё за Homebrew?</a>
-              </AdditionWarning>
+              </Addition>
               <p>
-                Для установки <mark className="app">FFmpeg</mark> на устройство с{" "}
-                <mark>macOS</mark> - достаточно выполнить команду{" "}
+                Для установки <mark className="app">FFmpeg</mark> на <mark>macOS</mark>{" "}
+                достаточно выполнить в терминале команду{" "}
                 <mark className="code">brew install ffmpeg</mark>.
               </p>
             </div>
@@ -317,41 +332,36 @@ const AEActions: React.FC = () => {
             <div>
               <p>
                 Для быстрой установки <mark className="app">FFmpeg</mark> выполните
-                команду <mark className="code">winget install Gyan.FFmpeg</mark>. Для
-                корректной установки, возможно, потребуются права администратора.
+                команду <mark className="code">winget install Gyan.FFmpeg</mark>. Для её
+                выполнения могут потребоваться права администратора.
               </p>
-              <AdditionWarning>
+              <Addition type="warning">
                 <ul>
                   <li>
-                    Если в вашей сборке <mark>Windows</mark> была вырезана утилита{" "}
-                    <mark className="app">winget</mark>, то{" "}
+                    Если в вашей сборке <mark>Windows</mark> утилита{" "}
+                    <mark className="app">winget</mark> отсутствует,{" "}
                     <a href="https://github.com/microsoft/winget-cli/releases">
-                      установите его вручную
+                      установите её вручную
                     </a>
                     .
                   </li>
                   <li>
-                    Если вы работаете из под ограниченной учётной записи, то вы можете
-                    распаковать <mark className="app">FFmpeg</mark> в удобную вам папку и
-                    работать из под неё, перейдя в нужный каталог с исполнительным файлом
-                    в командной строке. Скачать портативную версию{" "}
-                    <mark className="app">FFmpeg</mark> можно на сайте{" "}
-                    <a href="https://www.gyan.dev/ffmpeg/builds/">Gyan.Dev</a>.
+                    Если вы работаете под ограниченной учётной записью, можно скачать
+                    портативную версию <mark className="app">FFmpeg</mark> с сайта{" "}
+                    <a href="https://www.gyan.dev/ffmpeg/builds/">Gyan.Dev</a>,
+                    распаковать её в удобную папку и работать из неё, перейдя в нужный
+                    каталог в командной строке.
                   </li>
                 </ul>
-              </AdditionWarning>
+              </Addition>
             </div>
           }
         />
         <p>
-          После корректной установки и прописывания утилиты в переменную среду вы можете
-          воспользоваться им, не указывая полный путь до исполняемого файла{" "}
-          <mark className="app">FFmpeg</mark>. Чтобы убрать повторяющиеся кадры в вашем
-          видео - скопируйте в терминал команду ниже и выполните её.{" "}
-          <b>
-            <u>Не забудьте</u>
-          </b>{" "}
-          подменить значения на нужные.
+          После корректной установки <mark className="app">FFmpeg</mark> и добавления его
+          в системные переменные окружения вы сможете пользоваться утилитой, не указывая
+          полный путь к исполняемому файлу. Чтобы убрать повторяющиеся кадры, скопируйте в
+          терминал команду ниже, не забыв заменить значения на свои.
         </p>
         <code>
           ffmpeg -i INPUT_VIDEO_NAME.mp4 -vf &quot;mpdecimate,setpts=N/FRAME_RATE/TB&quot;
@@ -360,283 +370,303 @@ const AEActions: React.FC = () => {
         <ul>
           <li>
             Вместо <mark>INPUT_VIDEO_NAME.mp4</mark> введите абсолютный или относительный
-            путь до вашего видео.
-            <AdditionInfo>
+            путь к вашему видео.
+            <Addition type="info">
               <ul>
                 <li>
-                  <mark className="word">Абсолютный путь</mark> - полный путь до от
-                  корневого раздела файловой системы. Например:{" "}
+                  <mark className="word">Абсолютный путь</mark> — это полный путь от корня
+                  диска, например:{" "}
                   <mark className="path">C:/Users/aechat/Downloads/your_video.mp4</mark>.
                 </li>
                 <li>
-                  <mark className="word">Относительный путь</mark> - путь относительно
-                  раздела в котором вы сейчас находитесь. Например, если вы находитесь в{" "}
-                  <mark className="path">C:/Users/aechat</mark>, а ваш файл{" "}
-                  <mark className="file">your_video.mp4</mark> находится в папке{" "}
-                  <mark className="path">Downloads</mark>, то вам нужно указать{" "}
+                  <mark className="word">Относительный путь</mark> — это путь от текущей
+                  папки, в которой вы выполняете команду. Например, если вы находитесь в{" "}
+                  <mark className="path">C:/Users/aechat</mark>, а файл лежит в папке{" "}
+                  <mark className="path">Downloads</mark>, относительный путь будет{" "}
                   <mark className="path">Downloads/your_video.mp4</mark>.
                 </li>
               </ul>
-            </AdditionInfo>
+            </Addition>
           </li>
           <li>
-            Вместо <mark>FRAME_RATE</mark> введите нужное количество <mark>FPS</mark>.
+            Вместо <mark>FRAME_RATE</mark> введите целевую частоту кадров, например,{" "}
+            <mark>29.97</mark> или <mark>60</mark>.
           </li>
           <li>
-            Вместо <mark>OUTPUT_VIDEO_NAME.mp4</mark> введите любое название и контейнер
-            для результата конвертации.
+            Вместо <mark>OUTPUT_VIDEO_NAME.mp4</mark> введите директорию, имя и расширение
+            для итогового файла.
           </li>
         </ul>
       </DetailsSummary>
       <DetailsSummary
-        tag="антишум, denoiser, денойз, неат видео"
-        title="Чем я могу хорошо подавить шумы на видео?"
+        tag="уменьшить шум, denoiser, денойзер, неат видео"
+        title="Чем можно подавить шумы на видео?"
       >
         <p>
-          Если видео было снято в условиях плохой освещенности и с высоким значением{" "}
-          <mark>ISO</mark>, то скорее всего вы столкнётесь с цифровым шумом - дефектом
-          изображения, возникающий при съемке из-за несовершенства технологий сенсоров
-          камер фотоаппаратов, видеокамер и телефонов, а также из-за фотонной природы
-          света. Такой шум часто портит однотонные поверхности - небо, кожу и участки
-          теней. Полностью от такого шума избавиться сложно, но можно его существенно
-          подавить с помощью различных инструментов и плагинов.
+          Если видео было снято при плохом освещении и с высоким <mark>ISO</mark>, вы,
+          скорее всего, столкнётесь с цифровым шумом. Этот дефект возникает из-за
+          особенностей работы сенсоров камер и самой природы света. Шум особенно заметен
+          на однотонных поверхностях: небе, коже, стенах и в тенях. Полностью от него
+          избавиться сложно, но его можно существенно подавить с помощью специальных
+          инструментов.
         </p>
-        <Divider>Уменьшаем цифровой шум через сторонние плагины</Divider>
+        <Divider>Подавляем шумы стандартными средствами</Divider>
         <p>
-          Первым в списке из эффективных плагинов для уменьшения шума и мерцаний от
-          искусственного освещения находится <mark className="plugin">Neat Video</mark>.
-          Он довольно гибко настраивается, подстраивается под различный шум и даже
-          поддерживает <mark>GPU-ускорение</mark>.
+          В <mark className="app">Adobe After Effects</mark> есть встроенный эффект{" "}
+          <mark className="plugin">Remove Grain</mark>, с помощью которого можно подавить
+          шумы, не прибегая к сторонним плагинам.
         </p>
-        <YouTubeVideo
+        <ContentFigure
+          caption="Remove Grain"
+          src="FmSTOXu2V6I"
+          type="youtube"
+        />
+        <Divider>Подавляем шумы с помощью сторонних плагинов</Divider>
+        <p>
+          Если результат от стандартного <mark className="plugin">Remove Grain</mark> вас
+          не устраивает, попробуйте воспользоваться одним из самых эффективных плагинов
+          для уменьшения шума и мерцания от искусственного света —{" "}
+          <mark className="plugin">Neat Video</mark>. Он гибко настраивается, адаптируется
+          под разный тип шума и поддерживает аппаратное ускорение с помощью видеокарты.
+        </p>
+        <ContentFigure
           caption="Neat Video"
-          link="mwSqzxApy-E"
+          src="mwSqzxApy-E"
+          type="youtube"
         />
         <p>
-          В качестве альтернативы можно попробовать применить{" "}
-          <mark className="plugin">Denoiser III</mark>, который находится в пакете
-          плагинов <mark className="plugin">Magic Bullet Suite</mark> от{" "}
-          <mark>Red Giant</mark>.
+          В качестве альтернативы для подавления шумов можно попробовать{" "}
+          <mark className="plugin">Denoiser III</mark> из пакета{" "}
+          <mark className="plugin">Red Giant Magic Bullet Suite</mark>.
         </p>
-        <YouTubeVideo
+        <ContentFigure
           caption="Denoiser III"
-          link="PXCElU7HcX8"
+          src="PXCElU7HcX8"
+          type="youtube"
         />
         <p>
-          <mark>Boris FX</mark> тоже не отстаёт от инструментов для подавления цифрового
-          шума. В пакете плагинов <mark className="plugin">Boris FX Continuum</mark>
-          можно найти два де-нойзера: <mark className="plugin">BCC DeNoise OBS</mark> на
-          основе алгоритмов и более свежий <mark className="plugin">BCC+DeNoise ML</mark>,
-          основанный на машинном обучении.
+          Также в стороннем пакете <mark className="plugin">Boris FX Continuum</mark> есть
+          два денойзера: <mark className="plugin">BCC DeNoise OBS</mark> использует
+          «классические» алгоритмы подавления шума и отлично справляется с простыми
+          задачами, а более современный <mark className="plugin">BCC+DeNoise ML</mark>{" "}
+          применяет машинное обучение, что позволяет эффективно очищать более сложные
+          кадры.
         </p>
-        <YouTubeVideo
+        <ContentFigure
           caption="BCC DeNoise ML"
-          link="L1PeaTa13H4"
-        />
-        <p>
-          Этот список сторонних эффектов для шумоподавления заканчивает{" "}
-          <mark className="plugin">DE:Noise</mark> от <mark>Re:Vision Effects</mark>.
-        </p>
-        <YouTubeVideo
-          caption="DE:Noise"
-          link="tGIXeddCPQM"
-        />
-        <Divider>Подавляем шумы стандартными средствами After Effects</Divider>
-        <p>
-          Если вы не хотите использовать сторонние плагины в своём проекте - вы можете
-          воспользоваться встроенным эффектом <mark className="plugin">Reduce Grain</mark>
-          .
-        </p>
-        <YouTubeVideo
-          caption="Reduce Grain"
-          link="FmSTOXu2V6I"
+          src="L1PeaTa13H4"
+          type="youtube"
         />
       </DetailsSummary>
       <DetailsSummary
-        tag="транскрибация, виспер, whisper, speech to text, речь в текст, субтитры"
-        title="Как сгенерировать автоматические субтитры из речи и применить их в мою композицию?"
+        tag="транскрибация, виспер, whisper, speech to text, речь в текст, сгенерировать субтитры"
+        title="Как создать автоматические субтитры из речи и применить их в композиции?"
       >
         <p>
-          В наше время популярности вертикальных видео, таких как{" "}
-          <mark className="word">Reels</mark>, <mark className="word">Shorts</mark> или{" "}
-          <mark className="word">тиктоки</mark>, у пользователей{" "}
-          <mark className="app">Adobe After Effects</mark> часто возникает вопрос -{" "}
+          В эпоху вертикальных видео у пользователей{" "}
+          <mark className="app">Adobe After Effects</mark>, которым нужно добавлять
+          субтитры, часто возникает вопрос:{" "}
           <mark className="quote">
-            как сделать автоматические субтитры, если я не хочу лезть в Premiere Pro?
+            «Как сделать автоматические субтитры, не открывая Adobe Premiere Pro?»
           </mark>
-          . В <mark className="app">Adobe After Effects</mark>, к сожалению, нет нативной
-          возможности генерировать текст из речи, а также нельзя импортировать{" "}
-          <mark className="file">SRT</mark> файлы без танцев с бубнами. В этой статье мы
-          воспользуемся сторонними средствами для решения этой задачи.
+          . К сожалению, в <mark className="app">Adobe After Effects</mark> нет встроенной
+          функции генерации текста из речи и импорта субтитров в формате{" "}
+          <mark className="file">SRT</mark>, поэтому для создания субтитров в этой статье
+          будут использоваться сторонние инструменты.
         </p>
-        <Divider>Генерируем речь в текст с помощью Subtitle Edit</Divider>
-        <AdditionWarning>
-          Демонстрируемая программа <mark className="app">Subtitle Edit</mark> для
-          редактирования и генерации субтитров доступна только для устройств на{" "}
-          <mark>Windows</mark>. Пользователи устройств на <mark>macOS</mark> могут
-          воспользоваться альтернативами в виде <mark className="app">MacWhisper</mark>{" "}
-          или <mark className="app">Tero Subtitler</mark>.
-        </AdditionWarning>
-        <p>
-          Для начала вам необходимо загрузить <mark className="app">Subtitle Edit</mark>{" "}
-          из{" "}
-          <a href="https://github.com/SubtitleEdit/subtitleedit/releases">
-            страницы релизов на GitHub
-          </a>
-          , а затем установить программу как обычно. После открытия{" "}
-          <mark className="app">Whisper</mark> нам нужно открыть в ней видео или аудио -
-          для этого просто перетащите файл в правый нижний угол окна программы.
-        </p>
-        <ImageFigure
-          caption="Subtitle Edit"
-          imgSrc="images/subtitle_edit_import.png"
-          imgTitle="Импорт видео или аудио в Subtitle Edit"
-          styleClass="figure_windows-light"
-        />
-        <AdditionInfo>
-          Если у вас установлен <mark className="app">MPC-HC</mark> или{" "}
-          <mark className="app">VLC</mark>, то рекомендую установить этот проигрыватель в
-          программе <mark className="app">Subtitle Edit</mark> как стандартный. Это можно
-          сделать в <mark className="ui">Options &gt; Settings &gt; Video Player</mark>.
-        </AdditionInfo>
-        <p>
-          Затем перейдите в <mark className="ui">Video</mark> и нажмите на{" "}
-          <mark className="ui">Audio to text (Whisper)</mark> или{" "}
-          <mark className="ui">Audio to text (Vosk/Kaldi)</mark>. В этой статье будет
-          рассматриваться генерация через <mark>Whisper</mark>. После открытия окна вас
-          попросят установить <mark className="app">FFmpeg</mark>, а затем{" "}
-          <mark>Purfview&apos;s Faster Whisper XXL</mark>, с чем нужно согласиться.
-        </p>
-        <ImageFigure
-          caption="Subtitle Edit"
-          imgSrc="images/subtitle_edit_video_audio-to-text.png"
-          imgTitle="Функция для генерации субтитров"
-          styleClass="figure_windows-light"
-        />
-        <AdditionInfo>
-          <ul>
-            <li>
-              Если вы сталкиваетесь с проблемами при загрузке - попробуйте использовать{" "}
-              <mark className="app">VPN</mark>.
-            </li>
-            <li>
-              Если после установки программа предложит скачать{" "}
-              <mark className="ui">Whisper.cpp</mark> - лучше отказаться от его
-              скачивания, нажав <mark className="ui">No</mark> в диалоговом окне, так как
-              он кривовато работает. После отказа нужно загрузить альтернативный движок{" "}
-              <mark>Whisper</mark> для распознавания речи -{" "}
-              <mark>Purfview&apos;s Faster Whisper</mark>. Для этого в окне в параметре{" "}
-              <mark className="ui">Engine</mark> выберите параметр{" "}
-              <mark className="ui">Purfview&apos;s Faster Whisper</mark> и подтвердите
-              загрузку.
-              <ImageFigure
-                caption="Subtitle Edit"
-                imgSrc="images/subtitle_edit_change_engine.png"
-                imgTitle="Изменение движка распознавания речи"
-                styleClass="figure_windows-light"
+        <ContentFilter
+          macContent={
+            <div>
+              <Divider>Генерируем речь в текст с помощью сторонних инструментов</Divider>
+              <p>
+                Для генерации аудио в текст можно воспользоваться утилитами, такими как{" "}
+                <mark className="app">MacWhisper</mark> или{" "}
+                <mark className="app">Tero Subtitler</mark>. После преобразования речи,
+                сохраните файл в формате <mark className="file">SRT</mark>.
+              </p>
+              <ContentFigure
+                caption="Как превратить аудио в текст с помощью MacWhisper?"
+                src="strqSTYlIJg"
+                type="youtube"
               />
-            </li>
-          </ul>
-        </AdditionInfo>
-        <p>
-          Далее нам нужно скачать сам языковой пакет. Для этого рядом с{" "}
-          <mark className="ui">Choose Model</mark> нажмите на три точки. В открывшемся
-          окне вы можете выбрать любую модель, например <mark>large-v3</mark> или{" "}
-          <mark>large-v2</mark>, чтобы вы могли перевести русскоязычную речь в текст с
-          относительно хорошей точностью.
-        </p>
-        <AdditionInfo>
-          Чем меньше весит модель, тем быстрее она работает, но при этом может ухудшаться
-          точность распознавания речи. Также скорость работы транскрибации зависит от
-          мощности вашей видеокарты и скорости чтения жёсткого диска.
-        </AdditionInfo>
-        <ImageFigure
-          caption="Subtitle Edit"
-          imgSrc="images/subtitle_edit_download_models.png"
-          imgTitle="Загрузка моделей распознавания речи"
-          styleClass="figure_windows-light"
+            </div>
+          }
+          windowsContent={
+            <div>
+              <Divider>Генерируем речь в текст с помощью Subtitle Edit</Divider>
+              <p>
+                Для преобразования речи в текст можно воспользоваться утилитой{" "}
+                <mark className="app">Subtitle Edit</mark>, которая поддерживает генерацию
+                субтитров с помощью <mark className="app">Whisper</mark> и{" "}
+                <mark className="app">Vosk/Kaldi</mark>. Сначала скачайте программу со{" "}
+                <a href="https://github.com/SubtitleEdit/subtitleedit/releases">
+                  страницы релизов на GitHub
+                </a>{" "}
+                и установите её. После запуска перетащите видео или аудио в окно
+                программы.
+              </p>
+              <ContentFigure
+                caption="Subtitle Edit"
+                imgTitle="Импорт видео или аудио в Subtitle Edit"
+                src="images/subtitle_edit_import.png"
+                theme="light"
+                type="image"
+                variant="windows"
+              />
+              <Addition type="info">
+                Если у вас установлен плеер <mark className="app">MPC-HC</mark> или{" "}
+                <mark className="app">VLC</mark>, рекомендую назначить его стандартным для
+                проигрывания исходников в настройках:{" "}
+                <mark className="select">«Options» → «Settings» → «Video Player»</mark>.
+              </Addition>
+              <p>
+                Затем перейдите в меню <mark className="select">«Video»</mark> и выберите{" "}
+                <mark className="select">«Audio to text (Whisper)»</mark> или{" "}
+                <mark className="select">«Audio to text (Vosk/Kaldi)»</mark>. В этой
+                статье будет использоваться генерация через{" "}
+                <mark className="app">Whisper</mark>.
+              </p>
+              <ContentFigure
+                caption="Subtitle Edit"
+                imgTitle="Функция для генерации субтитров"
+                src="images/subtitle_edit_video_audio-to-text.png"
+                theme="light"
+                type="image"
+                variant="windows"
+              />
+              <p>
+                При первом запуске программа предложит установить{" "}
+                <mark className="app">FFmpeg</mark> и движок{" "}
+                <mark className="app">Purfview&apos;s Faster Whisper</mark>, с чем нужно
+                согласиться. Если программа предложит скачать{" "}
+                <mark className="app">Whisper.cpp</mark> — от него лучше отказаться, так
+                как он работает нестабильно. Вместо него следует установить{" "}
+                <mark className="app">Purfview&apos;s Faster Whisper</mark>. Для этого в
+                окне генерации в поле <mark className="select">«Engine»</mark> выберите{" "}
+                <mark className="select">«Purfview&apos;s Faster Whisper»</mark> и
+                подтвердите загрузку.
+              </p>
+              <ContentFigure
+                caption="Subtitle Edit"
+                imgTitle="Изменение движка распознавания речи"
+                src="images/subtitle_edit_change_engine.png"
+                theme="light"
+                type="image"
+                variant="windows"
+              />
+              <p>
+                Далее нужно скачать языковую модель. Для этого рядом с{" "}
+                <mark className="select">«Choose model»</mark> нажмите на три точки. В
+                открывшемся окне выберите подходящую модель, например{" "}
+                <mark className="select">«large-v3»</mark> или{" "}
+                <mark className="select">«large-v2»</mark> — они обеспечивают хорошую
+                точность для русского языка.
+              </p>
+              <Addition type="info">
+                Чем легче модель, тем быстрее она работает, но точность распознавания
+                может быть ниже. Скорость обработки также зависит от производительности
+                видеокарты и скорости диска.
+              </Addition>
+              <ContentFigure
+                caption="Subtitle Edit"
+                imgTitle="Загрузка моделей распознавания речи"
+                src="images/subtitle_edit_download_models.png"
+                theme="light"
+                type="image"
+                variant="windows"
+              />
+              <p>
+                Когда модель загрузится, выберите язык аудио и нажмите{" "}
+                <mark className="select">«Generate»</mark>, чтобы запустить процесс.
+              </p>
+              <ContentFigure
+                caption="Subtitle Edit"
+                imgTitle="Выбор языка и запуск генерации"
+                src="images/subtitle_edit_change_language_generate.png"
+                theme="light"
+                type="image"
+                variant="windows"
+              />
+              <p>
+                После генерации вы можете отредактировать субтитры прямо в{" "}
+                <mark className="app">Subtitle Edit</mark> или сразу сохранить их в
+                формате <mark className="file">SRT</mark> с помощью{" "}
+                <mark className="key">Ctrl + S</mark> для дальнейшего импорта в{" "}
+                <mark className="app">Adobe After Effects</mark>.
+              </p>
+            </div>
+          }
         />
-        <p>
-          Когда модель будет загружена, выберите язык вашего аудио и нажмите{" "}
-          <mark className="ui">Generate</mark> - это запустит процесс преобразования речи
-          в текст.
-        </p>
-        <ImageFigure
-          caption="Subtitle Edit"
-          imgSrc="images/subtitle_edit_change_language_generate.png"
-          imgTitle="Изменение языка и начало генерации текста из речи"
-          styleClass="figure_windows-light"
-        />
-        <p>
-          После генерации вы можете отредактировать сгенерированные субтитры в{" "}
-          <mark className="app">Subtitle Edit</mark> или сразу сохранить их в формате{" "}
-          <mark className="file">SRT</mark> для дальнейшей обработки в{" "}
-          <mark className="app">Adobe After Effects</mark>. Сохранить ваши субтитры можно
-          с помощью комбинации клавиш <mark className="key">Ctrl + S</mark>. В открывшемся
-          окне для сохранения файла - укажите название файла, путь для сохранения и, при
-          необходимости, формат файла <mark className="file">SRT</mark>.
-        </p>
         <Divider>Импортируем файл субтитров в композицию</Divider>
         <p>
-          После того как вы сохранили и получили <mark className="file">SRT</mark> файл -
-          его нужно импортировать в <mark className="app">Adobe After Effects</mark>. Как
-          сказано в начале - стандартными средствами{" "}
-          <mark className="app">Adobe After Effects</mark> такой файл субтитров вы не
-          сможете импортировать, но никто не запрещал использовать сторонние способы. Для
-          этого понадобится стороннее расширение{" "}
-          <a href="https://aescripts.com/subtitle-pro/">Subtitle Pro</a>, с помощью
-          которого можно импортировать <mark className="file">SRT</mark> файлы как
-          текстовые слои в композицию <mark className="app">Adobe After Effects</mark>.
-          Если вы корректно установили <mark className="plugin">Subtitle Pro</mark>, то он
-          должен появиться в <mark className="ui">Window &gt; Extensions</mark>.
+          После того как вы получили файл с субтитрами в формате{" "}
+          <mark className="file">SRT</mark>, его нужно импортировать в{" "}
+          <mark className="app">Adobe After Effects</mark>. Как уже было сказано ранее —
+          стандартными средствами это сделать нельзя, поэтому воспользуемся сторонним
+          расширением <a href="https://aescripts.com/subtitle-pro/">Subtitle Pro</a>. Оно
+          позволяет импортировать <mark className="file">SRT</mark> как текстовый слой.
+          Если вы корректно установили <mark className="plugin">Subtitle Pro</mark>, он
+          появится в меню <mark className="select">«Window» → «Extensions»</mark>.
         </p>
-        <AdditionWarning>
-          Для корректной работы расширения рекомендуется установить чекбокс у параметра{" "}
-          <mark className="ui">Allow Scripts to Write Files and Access Network</mark> в
-          настройках <mark className="app">Adobe After Effects</mark> -{" "}
-          <mark className="ui">Edit &gt; Preferences &gt; Scripting & Expressions</mark>.
-        </AdditionWarning>
-        <ImageFigure
+        <Addition type="info">
+          Для корректной работы расширения рекомендуется в настройках{" "}
+          <mark className="select">
+            «Edit» → «Preferences» → «Scripting & Expressions»
+          </mark>{" "}
+          установить флажок у параметра{" "}
+          <mark className="select">
+            «Allow Scripts to Write Files and Access Network»
+          </mark>
+          .
+        </Addition>
+        <ContentFigure
           caption="Adobe After Effects"
-          imgSrc="images/aftereffects/subtitlepro_opening.png"
           imgTitle="Открытие расширения Subtitle Pro"
-          styleClass="figure_windows-light"
+          src="images/aftereffects/subtitlepro_opening.png"
+          theme="light"
+          type="image"
+          variant="windows"
         />
         <p>
-          В открывшемся окне расширения <mark className="plugin">Subtitle Pro</mark>{" "}
-          нажмите на <mark className="ui">Import</mark> и выберите{" "}
-          <mark className="file">SRT</mark>, который вы ранее сохранили. Затем откройте
-          или выберите в <mark className="ui">Project</mark> нужную композицию, куда вы
-          хотите применить субтитры и нажмите на <mark className="ui">Apply</mark>.
+          В окне расширения <mark className="plugin">Subtitle Pro</mark> нажмите на{" "}
+          <mark className="select">«Import»</mark> и выберите сохранённый ранее файл{" "}
+          <mark className="file">SRT</mark>. Затем откройте нужную композицию, куда вы
+          хотите добавить субтитры, и нажмите <mark className="select">«Apply»</mark>.
         </p>
-        <ImageFigure
+        <ContentFigure
           caption="Subtitle Pro"
-          imgSrc="images/aftereffects/subtitlepro_import_apply.png"
-          imgTitle="Импорт и применение импортированных субтитров"
-          styleClass="figure_windows-dark"
+          imgTitle="Импорт и применение субтитров"
+          src="images/aftereffects/subtitlepro_import_apply.png"
+          theme="dark"
+          type="image"
+          variant="windows"
         />
         <p>
-          После нажатия на <mark className="ui">Apply</mark> вам предложат применить
-          различные стили для ваших субтитров. Но к сожалению - не все стили могут
-          работать корректно, поэтому рекомендую выбрать{" "}
-          <mark className="ui">Classic 01</mark>. В любом случае вы можете позже изменить
-          слой на свой лад.
+          После нажатия на <mark className="select">«Apply»</mark> расширение предложит
+          применить один из стилей для субтитров. К сожалению, не все они работают
+          корректно, поэтому рекомендую выбрать{" "}
+          <mark className="select">«Classic 01»</mark>. В любом случае вы сможете
+          настроить внешний вид текста позже.
         </p>
-        <ImageFigure
+        <ContentFigure
           caption="Subtitle Pro"
-          imgSrc="images/aftereffects/subtitlepro_select_style.png"
-          imgTitle="Выбор стиля субтитров"
-          styleClass="figure_windows-light"
+          imgTitle="Выбор стиля для субтитров"
+          src="images/aftereffects/subtitlepro_select_style.png"
+          theme="light"
+          type="image"
+          variant="windows"
         />
         <p>
-          После применения в вашей композиции появятся несколько новых слоёв. Контент для
-          субтитров хранится в маркерах, поэтому вы можете изменить текст, нажав два раза
-          по нему, а также передвинуть и указать точку начала и конца вашего текста.
+          После выбора стиля в вашей композиции появятся новые слои. Текст субтитров
+          хранится в маркерах на этих слоях, поэтому его можно легко редактировать двойным
+          кликом по маркеру, а также менять длительность и положение каждой фразы.
         </p>
-        <VideoFigure
+        <ContentFigure
           caption="Adobe After Effects"
-          styleClass="figure_windows-dark"
-          videoSrc="images/aftereffects/edit_subtitlepro_text.mp4"
+          src="images/aftereffects/edit_subtitlepro_text.mp4"
+          theme="dark"
+          type="video"
+          variant="windows"
         />
       </DetailsSummary>
       <DetailsSummary
@@ -644,528 +674,534 @@ const AEActions: React.FC = () => {
         title="Как и чем можно отделить объект от однотонного фона?"
       >
         <p>
-          Предположим, что вы получили или скачали исходники объекта или персонажа на
-          зелёном или синем фоне. Чтобы быстро убрать однотонный фон, нам нужно
-          воспользоваться инструментами для кенига. Пользоваться{" "}
-          <mark className="plugin">Rotobrush</mark> в контексте удаления однотонного фона
-          лучше не стоит, так как это только увеличит время работы и результат может в
-          принципе не понравиться.
+          Предположим, у вас есть исходники с объектом или персонажем на зелёном или синем
+          фоне. Чтобы быстро убрать такой фон, нужно воспользоваться инструментами для
+          кеинга. Использовать <mark className="plugin">Roto Brush</mark> в этом случае не
+          стоит: это может занять больше времени, а результат может оказаться хуже.
         </p>
-        <Divider>Удаляем однотонный фон стандартными средствами After Effects</Divider>
-        <AdditionInfo>
-          Если вы хотите потренироваться с кеингом зелёного фона - скачайте любое видео из{" "}
+        <Addition type="info">
+          Если вы хотите потренироваться в кеинге — скачайте любое видео из{" "}
           <a href="https://www.youtube.com/playlist?list=PLB62ktMZylCyHxubuonbeZ5VWIYPJMY9J">
             этого плейлиста
           </a>{" "}
           и экспериментируйте.
-        </AdditionInfo>
+        </Addition>
+        <Divider>Удаляем однотонный фон стандартными средствами</Divider>
         <p>
           В стандартной поставке <mark className="app">Adobe After Effects</mark> есть
           пресет{" "}
-          <mark className="file">Keylight + Key Cleaner + Advanced Spill Suppressor</mark>
-          , который закрывает большинство задач по быстрому удалению фона.
+          <mark className="plugin">
+            Keylight + Key Cleaner + Advanced Spill Suppressor
+          </mark>
+          , который решает большинство задач по быстрому удалению фона. Чтобы выбрать цвет
+          для кеинга, нажмите на иконку пипетки рядом со свойством{" "}
+          <mark className="select">«Screen Colour»</mark> в эффекте{" "}
+          <mark className="plugin">Keylight</mark>.
         </p>
-        <YouTubeVideo
+        <ContentFigure
           caption="Keylight + Key Cleaner + Advanced Spill Suppressor"
-          link="tK_Z1dYgtxs"
+          src="tK_Z1dYgtxs"
+          type="youtube"
         />
         <p>
-          Если у вашего слоя действительно полностью однотонный фон, то вы можете
-          воспользоваться эффектом <mark className="plugin">Linear Color Key</mark>, если
-          результат не сильно важен в пользу производительности сцены.
+          Если у вашего слоя действительно равномерный однотонный фон, можно
+          воспользоваться эффектом <mark className="plugin">Linear Color Key</mark> — он
+          проще и меньше нагружает систему, если высокое качество кеинга не критично.
         </p>
-        <YouTubeVideo
+        <ContentFigure
           caption="Linear Color Key"
-          link="8RjOe6cO-cY"
+          src="8RjOe6cO-cY"
+          type="youtube"
         />
         <p>
-          Если вы столкнулись с достаточно сложной ситуацией, когда у слоя имеется
-          однотонный фон, но объект, который нужно вырезать, почти сливается с ним.{" "}
-          <mark className="plugin">Extract</mark>, <mark className="key">Color Key</mark>{" "}
-          и подобные эффекты в таком случае вряд ли помогут, так как они забирают с собой
-          лишние детали, а прибегать к использованию{" "}
-          <mark className="plugin">Rotobrush</mark> не хочется. Поэтому в качестве
-          альтернативы вы можете попробовать встроенный эффект{" "}
-          <mark className="plugin">Paint Bucket</mark> для заливки однотонного фона в
-          более контрастный цвет, а затем прокеить слой любым способом, например
-          описанными выше.
+          В сложных ситуациях, когда объект почти сливается с фоном, простые эффекты вроде{" "}
+          <mark className="plugin">Extract</mark> или{" "}
+          <mark className="plugin">Color Key</mark> вряд ли могут помочь — они удалят
+          лишние детали. Да и прибегать к <mark className="plugin">Roto Brush</mark> тоже
+          не хочется. В качестве решения этой проблемы можно попробовать залить фон более
+          контрастным цветом с помощью встроенного эффекта{" "}
+          <mark className="plugin">Paint Bucket</mark>, а затем прокеить слой любым из
+          способов, описанных ранее.
         </p>
-        <YouTubeVideo
+        <ContentFigure
           caption="Paint Bucket Keying"
-          link="D7jueRoMt_Q"
+          src="D7jueRoMt_Q"
+          type="youtube"
         />
-        <Divider>Убираем однотонный фон сторонними плагинами</Divider>
+        <Divider>Удаляем однотонный фон сторонними плагинами</Divider>
         <p>
           Из сторонних инструментов для удаления цветного фона любой сложности можно
-          выделить <mark className="plugin">Primatte Keyer</mark>, поставляющийся в пакет
-          плагинов <mark className="plugin">Red Giant VFX Suite</mark>.
+          выделить <mark className="plugin">Primatte Keyer</mark> из пакета{" "}
+          <mark className="plugin">Red Giant VFX Suite</mark>.
         </p>
-        <YouTubeVideo
+        <ContentFigure
           caption="Getting Started with Primatte Keyer"
-          link="zYARqiWTArU"
+          src="zYARqiWTArU"
+          type="youtube"
         />
         <p>
-          Если вам результат от работы плагина выше не нравится, то попробуйте
-          воспользоваться <mark className="plugin">BCC Primatte Studio</mark>, который
-          поставляется в стороннем пакете{" "}
+          В качестве альтернативы можно попробовать{" "}
+          <mark className="plugin">BCC Primatte Studio</mark> из пакета{" "}
           <mark className="plugin">Boris FX Continuum</mark>.
         </p>
-        <YouTubeVideo
+        <ContentFigure
           caption="BCC Primatte Studio"
-          link="AaKTHKspAkQ"
+          src="AaKTHKspAkQ"
+          type="youtube"
         />
       </DetailsSummary>
       <DetailsSummary
-        tag="ротобраш, повермейт"
-        title="Как я могу отделить объект от фона, если фон не однотонный и сложен для кеинга?"
+        tag="ротобраш, ротоскопирование, повермейт"
+        title="Как отделить объект от неоднородного фона, сложного для кеинга?"
       >
         <p>
-          В век технологий существует много различных инструментов для отделения объекта
-          от фона в сложных ситуациях. Например, когда у оператора не было возможности
-          снять объект на однотонном фоне, а вырезать объект на пост-обработке нужно.
+          Существует много инструментов для отделения объекта от фона в сложных ситуациях,
+          например, когда у оператора не было возможности снять объект на хромакее, а
+          вырезать его на постобработке всё равно нужно.
         </p>
-        <Divider>Выделяем объект с помощью встроенного Rotobrush</Divider>
+        <Divider>Выделяем объект с помощью встроенного Roto Brush</Divider>
         <p>
-          В базовой поставке <mark className="app">Adobe After Effects</mark> давно
-          существует прекрасный инструмент <mark className="plugin">Rotobrush</mark>{" "}
-          <mark className="key">Alt + W</mark>, который позволяет вырезать объект от фона
-          любой сложности. С относительно недавних пор Adobe обновили этот инструмент до
-          версии 3.0, в которой улучшили работу ротоскопирования объектов с помощью
-          ИИ-моделей и выдаёт довольно хорошие результаты при правильном использовании
-          инструмента.
+          В базовой поставке <mark className="app">Adobe After Effects</mark> давно есть
+          удобный инструмент <mark className="plugin">Roto Brush</mark>, который
+          вызывается сочетанием клавиш <mark className="key">Alt + W</mark> и позволяет
+          отделять объект от фона практически любой сложности. В последних версиях{" "}
+          <mark className="app">Adobe After Effects</mark> он обновлён до версии{" "}
+          <mark>3.0</mark>, добавив алгоритмы с использованием искусственного интеллекта.
+          При грамотной работе этот инструмент способен дать действительно впечатляющий
+          результат.
         </p>
-        <YouTubeVideo
-          caption="Rotobrush"
-          link="eoOIrdb_0ko"
+        <ContentFigure
+          caption="Roto Brush"
+          src="eoOIrdb_0ko"
+          type="youtube"
         />
         <Divider>Используем сторонние инструменты для ротоскопирования</Divider>
         <p>
-          Если результат от <mark className="plugin">Rotobrush</mark> вам не нравится, то
-          вы можете воспользоваться сторонним плагином{" "}
-          <mark className="plugin">Boris FX Silhouette</mark> в котором есть инструмент{" "}
+          Если результат работы <mark className="plugin">Roto Brush</mark> вас не
+          устраивает, вы можете воспользоваться сторонним плагином{" "}
+          <mark className="plugin">Boris FX Silhouette</mark>, в котором есть инструмент{" "}
           <mark className="plugin">Power Matte</mark>.
         </p>
-        <YouTubeVideo
+        <ContentFigure
           caption="Power Matte in Silhouette"
-          link="3pdkJ1BPEg0"
+          src="3pdkJ1BPEg0"
+          type="youtube"
         />
       </DetailsSummary>
       <DetailsSummary
         tag="depth scanner, сканер глубины"
-        title="Как и чем я могу сгенерировать карту глубины из видео?"
+        title="Как и чем можно сгенерировать карту глубины из видео?"
       >
-        <AdditionDanger>
-          Все перечисленные способы в этой статье{" "}
-          <b>
-            <u>очень требовательны</u>
-          </b>{" "}
-          к мощности видеокарты, объёму видеопамяти и оперативной памяти. Также
-          рекомендуется использовать видеокарты от <mark>NVIDIA</mark> для работы, так как
-          все эти инструменты используют ядра <mark>CUDA</mark>.
-        </AdditionDanger>
-        <Divider>Генерируем карту глубины в Adobe After Effects</Divider>
         <p>
-          Иногда у вас может возникнуть задача сгенерировать карту глубины из видео,
-          например для размытия или затемнения фона, а также для применения различных
-          эффектов, которые требуют карту глубины. В{" "}
-          <mark className="app">Adobe After Effects</mark> сделать это можно с помощью
+          Иногда возникает задача сгенерировать карту глубины из видео, например, для
+          размытия фона или для применения эффектов, которые её требуют.
+        </p>
+        <Addition type="danger">
+          Все перечисленные в этой статье способы очень требовательны к мощности
+          видеокарты, объёму видеопамяти и оперативной памяти. Рекомендуется использовать
+          видеокарты от <mark className="company">NVIDIA</mark>, так как все эти
+          инструменты используют ядра <mark>CUDA</mark>.
+        </Addition>
+        <Divider>Генерация карты глубины в Adobe After Effects</Divider>
+        <p>
+          В <mark className="app">Adobe After Effects</mark> это можно сделать с помощью
           стороннего плагина <mark className="plugin">Depth Scanner</mark>. На выбор есть
-          множество настроек по качеству обработки, типу работы, а также выбор различных
-          моделей для анализа глубины у слоя.
+          множество настроек качества, типа обработки и различных моделей для анализа
+          глубины.
         </p>
-        <YouTubeVideo
+        <ContentFigure
           caption="Depth Scanner Plugin Tutorial"
-          link="OLV8Q93KKHQ"
+          src="OLV8Q93KKHQ"
+          type="youtube"
         />
         <p>
-          В качестве альтернативного плагина вы можете воспользоваться{" "}
-          <mark className="plugin">Quick Depth</mark>. Он работает похожим образом, как и
-          предыдущий плагин.
+          В качестве альтернативы можно воспользоваться плагином{" "}
+          <mark className="plugin">Quick Depth</mark>. Он работает похожим образом.
         </p>
-        <YouTubeVideo
+        <ContentFigure
           caption="Introduction Quick Depth 3"
-          link="2BvqTIPNVxY"
+          src="2BvqTIPNVxY"
+          type="youtube"
         />
         <p>
-          Также в <mark className="plugin">BorisFX Continuum</mark> с версии{" "}
-          <mark>2025.5</mark> и новее добавили{" "}
-          <mark className="plugin">BCC+ Depth Map ML</mark>. С его помощью тоже можно
-          генерировать карту глубины и делать с помощью этой карты различные эффекты.
+          Также в <mark className="plugin">Boris FX Continuum</mark> версии{" "}
+          <mark>2025.5</mark> и новее появился{" "}
+          <mark className="plugin">BCC+Depth Map ML</mark>. С его помощью тоже можно
+          генерировать карту глубины и использовать её для создания различных эффектов.
         </p>
-        <YouTubeVideo
+        <ContentFigure
           caption="Instant AI Depth Maps with Continuum"
-          link="OVLxRFsnqM8"
+          src="OVLxRFsnqM8"
+          type="youtube"
         />
-        <Divider>Генерируем карту глубины через Depth Anything V2</Divider>
+        <Divider>Генерация карты глубины через Depth Anything V2</Divider>
         <p>
-          Если вам неудобно работать с этими плагинами для создания карт глубины -
-          попробуйте <mark className="app">Depth Anything V2</mark>, который работает
-          отдельно от <mark className="app">Adobe After Effects</mark>. С помощью него
-          можно генерировать карту глубины как для картинок, так и для видео. Для
-          генерации карты глубины для видео больше подойдёт{" "}
-          <a href="https://github.com/DepthAnything/Video-Depth-Anything">
-            Video Depth Anything
-          </a>
-          , но в этой статье он рассматриваться не будет, так как{" "}
-          <mark className="app">Depth Anything V2</mark> более универсален.
+          Если вам неудобно работать с плагинами, попробуйте{" "}
+          <mark className="app">Depth Anything V2</mark> — отдельное приложение, которое
+          умеет генерировать карты глубины как для изображений, так и для видео.
         </p>
-        <AdditionWarning>
-          Все действия в статье проделываются в операционной системе <mark>Windows</mark>.
-          На <mark>macOS</mark> установка <mark className="app">Python</mark> и
-          зависимостей для работы <mark className="app">Depth Anything V2</mark> может
-          отличаться.
-        </AdditionWarning>
-        <p>
-          Прежде чем скачать и развернуть у себя{" "}
-          <mark className="app">Depth Anything V2</mark> - вам нужно установить{" "}
-          <mark className="app">Python</mark> версии <mark>3.11.9</mark>. Для того чтобы
-          скачать его - перейдите{" "}
-          <a href="https://www.python.org/ftp/python/3.11.9/python-3.11.9-amd64.exe">
-            по этой ссылке
-          </a>{" "}
-          и подтвердите при необходимости скачивание. Затем откройте установщик,
-          установите возле параметра <mark className="ui">Add python.exe to PATH</mark>{" "}
-          чекбокс, а потом нажмите на <mark className="ui">Install Now</mark> и ожидайте
-          успешной установки. После установки <mark className="app">Python</mark>{" "}
-          рекомендую перезагрузить устройство, чтобы переменная среда с{" "}
-          <mark className="app">Python</mark> применилась.
-        </p>
-        <ImageFigure
-          caption="Python 3.11.9 (64-bit) Setup"
-          imgSrc="images/install_python_3119.png"
-          imgTitle="Установка Python 3.11.9"
-          styleClass="figure_windows-light"
+        <ContentFilter
+          windowsContent={
+            <div>
+              <Addition type="warning">
+                На <mark>macOS</mark> процесс установки{" "}
+                <mark className="app">Python</mark> и зависимостей может отличаться.
+              </Addition>
+              <p>
+                Перед установкой <mark className="app">Depth Anything V2</mark> нужно
+                подготовить окружение, установив <mark className="app">Python</mark>{" "}
+                версии <mark>3.11</mark>. Скачать его можно{" "}
+                <a href="https://www.python.org/ftp/python/3.11.9/python-3.11.9-amd64.exe">
+                  по этой ссылке
+                </a>
+                .
+              </p>
+              <p>
+                В процессе установки не забудьте отметить галочку{" "}
+                <mark className="select">«Add python.exe to PATH»</mark> — это добавит{" "}
+                <mark className="app">Python</mark> в переменные среды, после чего нажмите{" "}
+                <mark className="select">«Install Now»</mark>. После окончания процесса
+                установки, рекомендуется перезагрузить устройство.
+              </p>
+              <ContentFigure
+                caption="Python 3.11.9 (64-bit) Setup"
+                imgTitle="Установка Python 3.11.9"
+                src="images/install_python_3119.png"
+                theme="light"
+                type="image"
+                variant="windows"
+              />
+              <p>
+                После установки <mark className="app">Python</mark> скачайте сам{" "}
+                <mark className="app">Depth Anything V2</mark>. Для этого на странице{" "}
+                <a href="https://github.com/DepthAnything/Depth-Anything-V2">
+                  репозитория на GitHub
+                </a>{" "}
+                нажмите <mark className="select">«Code» → «Download ZIP»</mark>.
+              </p>
+              <ContentFigure
+                caption="GitHub"
+                imgTitle="Клонирование репозитория Depth Anything"
+                src="images/depth_anything_clone_repo.png"
+                theme="dark"
+                type="image"
+                variant="windows"
+              />
+              <p>
+                После распаковки архива откройте командную строку{" "}
+                <mark className="app">cmd</mark> или{" "}
+                <mark className="app">PowerShell</mark> и перейдите в папку с проектом с
+                помощью команды <mark className="code">cd диск:\путь\к\папке</mark>. Далее
+                выполните <mark className="code">pip install -r requirements.txt</mark> —
+                эта команда подтянет все необходимые зависимости.
+              </p>
+              <Addition type="warning">
+                <ul>
+                  <li>
+                    На более свежих версиях <mark className="app">Python</mark>, например,
+                    <mark>3.12</mark> и новее, некоторые зависимости могут не установиться
+                    без «танцев с бубном».
+                  </li>
+                  <li>
+                    Учтите, что по умолчанию устанавливается{" "}
+                    <mark className="app">Torch</mark> без поддержки <mark>CUDA</mark>, и
+                    обработка будет выполняться на процессоре. Чтобы включить ускорение на
+                    видеокарте <mark className="company">NVIDIA</mark>, сначала удалите
+                    установленный <mark className="app">Torch</mark> с помощью команды{" "}
+                    <mark className="code">pip uninstall torch torchvision -y</mark>, а
+                    затем установите версию с поддержкой <mark>CUDA</mark> —{" "}
+                    <mark className="code">
+                      pip install torch torchvision --index-url
+                      https://download.pytorch.org/whl/cu121
+                    </mark>
+                    .
+                  </li>
+                  <li>
+                    Если у вас видеокарта <mark className="company">NVIDIA</mark> серии{" "}
+                    <mark>1000</mark> и предыдущая команда не сработала, попробуйте версию
+                    для <mark>CUDA 11.8</mark>:{" "}
+                    <mark className="code">
+                      pip install torch torchvision --index-url
+                      https://download.pytorch.org/whl/cu118
+                    </mark>
+                    .
+                  </li>
+                  <li>
+                    Если вы используете другие инструменты на{" "}
+                    <mark className="app">Python</mark> (например,{" "}
+                    <mark className="app">Stable Diffusion</mark>), советую устанавливать
+                    зависимости в отдельную виртуальную среду, чтобы избежать конфликтов.{" "}
+                    <a href="https://packaging.python.org/en/latest/guides/installing-using-pip-and-virtual-environments/">
+                      Подробнее...
+                    </a>
+                  </li>
+                </ul>
+              </Addition>
+            </div>
+          }
         />
         <p>
-          После установки <mark className="app">Python</mark> нужно скачать сам{" "}
-          <mark className="app">Depth Anything V2</mark>. Для этого откройте страницу с{" "}
-          <a href="https://github.com/DepthAnything/Depth-Anything-V2">
-            репозиторием на GitHub
-          </a>
-          , нажмите на <mark className="ui">Code</mark> и в контекстном меню нажмите на{" "}
-          <mark className="ui">Download ZIP</mark>.
-        </p>
-        <ImageFigure
-          caption="GitHub"
-          imgSrc="images/depth_anything_clone_repo.png"
-          imgTitle="Клонирование репозитория Depth Anything"
-          styleClass="figure_windows-dark"
-        />
-        <p>
-          После успешного скачивания архива с репозиторием - распакуйте его. Для
-          корректной распаковки архива рекомендую использовать{" "}
-          <mark className="app">WinRAR</mark>. После распаковки архива - откройте
-          командную строку и перейдите внутрь распакованной папки с помощью команды{" "}
-          <mark className="code">cd диск:/путь/до/файла</mark>. После открытия папки -
-          выполните команду <mark className="code">pip install -r requirements.txt</mark>.
-          Она установит нужные зависимости для корректной работы данной утилиты.
-        </p>
-        <AdditionWarning>
-          <ul>
-            <li>
-              На более свежих версиях <mark className="app">Python</mark> у вас могут не
-              установиться корректно некоторые нужные зависимости без танцев с бубнами. В
-              этой статье используется <mark className="app">Python</mark> версии{" "}
-              <mark>3.11</mark>, так как у автора на <mark>3.13</mark> не мог корректно
-              установиться <mark>gradio</mark>.
-            </li>
-            <li>
-              Учтите, что в зависимостях устанавливается <mark>Torch</mark> без поддержки{" "}
-              <mark>CUDA</mark>, поэтому обработка с помощью видеокарты может не работать
-              и будет выполняться на процессоре. Для того, чтобы генерация карты глубины
-              работала корректно с помощью вашей видеокарты - нужно удалить существующие
-              зависимости с помощью команды{" "}
-              <mark className="code">pip uninstall torch torchvision -y</mark>, а затем
-              установить те же зависимости, но из другого места -{" "}
-              <mark className="code">
-                pip install torch torchvision --index-url
-                https://download.pytorch.org/whl/cu121
-              </mark>
-              .
-              <li>
-                Если у вас видеокарта <mark>Geforce GTX 1000 серии</mark>, то попробуйте
-                выполнить{" "}
-                <mark className="code">
-                  pip install torch torchvision --index-url
-                  https://download.pytorch.org/whl/cu118
-                </mark>
-                , если у вас не заведется.
-              </li>
-            </li>
-            <li>
-              Если вы работаете с другими инструментами, работающие с{" "}
-              <mark className="app">Python</mark>, например{" "}
-              <mark className="app">Stable Diffusion</mark> - советую установить
-              зависимости в отдельную виртуальную среду внутри папки с{" "}
-              <mark className="app">Depth Anything V2</mark>.{" "}
-              <a href="https://packaging.python.org/en/latest/guides/installing-using-pip-and-virtual-environments/">
-                Подробнее...
-              </a>
-            </li>
-          </ul>
-        </AdditionWarning>
-        <p>
-          После успешной установки зависимостей, то есть если у вас не выбило никакую
-          ошибку при их загрузке и установке - вам нужно скачать модели для обработки. Их
-          несколько -{" "}
+          После установки зависимостей нужно скачать модели. Их несколько:{" "}
           <a href="https://huggingface.co/depth-anything/Depth-Anything-V2-Small/resolve/main/depth_anything_v2_vits.pth?download=true">
-            Depth-Anything-V2-Small
+            Small
           </a>
           ,{" "}
           <a href="https://huggingface.co/depth-anything/Depth-Anything-V2-Base/resolve/main/depth_anything_v2_vitb.pth?download=true">
-            Depth-Anything-V2-Base
+            Base
           </a>{" "}
           и{" "}
           <a href="https://huggingface.co/depth-anything/Depth-Anything-V2-Large/resolve/main/depth_anything_v2_vitl.pth?download=true">
-            Depth-Anything-V2-Large
+            Large
           </a>
-          . Вы можете скачать все или только определенную. После скачивания эти модели
-          нужно расположить внутри распакованной папки с репозиторием{" "}
-          <mark className="app">Depth Anything V2</mark> в подпапку{" "}
-          <mark className="path">checkpoints</mark>. По умолчанию её нет, поэтому его
-          нужно создать самостоятельно.
+          . Вы можете скачать все или только одну. Скачанные модели формата{" "}
+          <mark className="file">PTH</mark> нужно поместить в папку{" "}
+          <mark className="path">checkpoints</mark> внутри папки с репозиторием. Если этой
+          папки нет — создайте самостоятельно.
         </p>
         <p>
-          После установки моделей для работы с{" "}
-          <mark className="app">Depth Anything V2</mark> - вы можете начать пользоваться
-          им с помощью командной строки. Команда для начала генерации чем-то похожа на{" "}
-          <mark className="app">FFmpeg</mark>. В команде ниже нужно будет заменить
-          несколько параметров в зависимости от того, что вам нужно.
+          Теперь можно запускать генерацию с помощью командной строки. После выполнения
+          скрипта вы получите файл с картой глубины, который можно использовать в{" "}
+          <mark className="app">Adobe After Effects</mark> или других программах.
         </p>
         <ul>
           <li>
-            Для генерации карты глубины для <mark className="image">изображения</mark>{" "}
-            используется скрипт <mark className="file">run.py</mark>. Для его запуска
-            нужно передать несколько входных значений.
+            Для генерации карты глубины для изображения используется скрипт{" "}
+            <mark className="file">run.py</mark>.
             <CodeSnippet>
-              {`python .\\run.py --encoder МОДЕЛЬ --img-path ДИСК:\\ПУТЬ\\ДО\\ИСХОДНОГО_ФАЙЛА\\С.РАСШИРЕНИЕМ --outdir ДИСК:\\ПУТЬ\\ДЛЯ\\СОХРАНЕНИЯ\\ --grayscale --pred-only`}
+              {`python .\\run.py --encoder МОДЕЛЬ --img-path "ПУТЬ\\К\\ФАЙЛУ" --outdir "ПУТЬ\\ДЛЯ\\СОХРАНЕНИЯ" --grayscale --pred-only`}
             </CodeSnippet>
           </li>
           <li>
-            Для генерации карты глубины для <mark className="video">видео</mark>{" "}
-            используется скрипт <mark className="file">run_video.py</mark>. Для его
-            запуска нужно передать несколько входных значений.
+            Для генерации карты глубины для видео используется скрипт{" "}
+            <mark className="file">run_video.py</mark>.
             <CodeSnippet>
-              {`python .\\run_video.py --encoder МОДЕЛЬ --video-path ДИСК:\\ПУТЬ\\ДО\\ИСХОДНОГО_ФАЙЛА\\С.РАСШИРЕНИЕМ --outdir ДИСК:\\ПУТЬ\\ДЛЯ\\СОХРАНЕНИЯ\\ --grayscale --pred-only`}
+              {`python .\\run_video.py --encoder МОДЕЛЬ --video-path "ПУТЬ\\К\\ФАЙЛУ" --outdir "ПУТЬ\\ДЛЯ\\СОХРАНЕНИЯ" --grayscale --pred-only`}
             </CodeSnippet>
           </li>
           <li>
+            <p>
+              У скриптов есть параметры, которые нужно прописать для настройки обработки
+              карты глубины.
+            </p>
             <ul>
               <li>
-                Вместо <mark className="code">МОДЕЛЬ</mark> вам нужно будет вписать одно
-                из трёх значений.
-                <ul>
-                  <li>
-                    <mark className="code">vits</mark> - будет использоваться модель{" "}
-                    <mark className="file">Depth-Anything-V2-Small</mark> для генерации
-                    глубины.
-                  </li>
-                  <li>
-                    <mark className="code">vitb</mark> - будет использоваться модель{" "}
-                    <mark className="file">Depth-Anything-V2-Base</mark> для генерации
-                    глубины.
-                  </li>
-                  <li>
-                    <mark className="code">vitl</mark> - будет использоваться модель{" "}
-                    <mark className="file">Depth-Anything-V2-Large</mark> для генерации
-                    глубины.
-                  </li>
-                </ul>
+                Вместо <mark className="code">МОДЕЛЬ</mark> укажите{" "}
+                <mark className="code">vits</mark> (Small),{" "}
+                <mark className="code">vitb</mark> (Base) или{" "}
+                <mark className="code">vitl</mark> (Large).
               </li>
               <li>
-                Вместо{" "}
-                <mark className="code">ДИСК:\ПУТЬ\ДО\ИСХОДНОГО_ФАЙЛА\С.РАСШИРЕНИЕМ</mark>{" "}
-                вам нужно будет указать <mark className="word">полный</mark> или{" "}
-                <mark className="word">относительный</mark> путь до нужного вам видео.
+                Вместо <mark className="code">ПУТЬ\К\ФАЙЛУ</mark> и{" "}
+                <mark className="code">ПУТЬ\ДЛЯ\СОХРАНЕНИЯ</mark> укажите соответствующие
+                пути. Рекомендуется заключать пути в кавычки.
               </li>
               <li>
-                Вместо <mark className="code">ДИСК:\ПУТЬ\ДЛЯ\СОХРАНЕНИЯ\</mark> вам нужно
-                будет указать <mark className="word">полный</mark> или{" "}
-                <mark className="word">относительный</mark> путь для сохранения
-                полученного файла.
+                Аргумент <mark className="code">--grayscale</mark> создаёт чёрно-белую
+                карту глубины. Без него она будет цветной.
               </li>
               <li>
-                Вы можете указать необязательный аргумент{" "}
-                <mark className="code">--grayscale</mark>, который даёт вам карту глубины
-                в чёрно-белом варианте. Без этого аргумента вы получите файл с
-                сине-красным оттенком, будто тепловизор.
-              </li>
-              <li>
-                Вы можете указать необязательный аргумент{" "}
-                <mark className="code">--pred-only</mark>, который сохранит только карту
-                глубины. Без этого аргумента вы получите{" "}
-                <mark className="word">side-by-side</mark> видео, где слева будет карта
-                глубины, а справа - оригинальный файл.
+                Аргумент <mark className="code">--pred-only</mark> сохраняет только карту
+                глубины. Без него вы получите видео «бок о бок» (карта глубины слева,
+                оригинал справа).
               </li>
             </ul>
           </li>
         </ul>
-        <p>
-          После успешного выполнения скрипта вы получите в нужном месте файл с картой
-          глубины в соответствии с заданными вами параметрами. Его вы можете использовать
-          в <mark className="app">Adobe After Effects</mark> или где-нибудь ещё.
-        </p>
       </DetailsSummary>
       <DetailsSummary
-        tag="удалить цвет, убрать фон, кеинг, экстракт, анмульт, унмульт"
-        title="Как и чем можно вырезать белый или чёрный цвет у слоя?"
+        tag="extract, экстракт, удалить цвет, убрать фон, кеинг, экстракт, анмульт, унмульт"
+        title="Как и чем можно вырезать белый или чёрный цвет со слоя?"
       >
+        <Divider>Отделяем объект с помощью Extract</Divider>
         <p>
-          Для удаления чёрного и белого фона есть встроенный эффект{" "}
-          <mark className="plugin">Extract</mark>, который входит в стандартную поставку{" "}
-          <mark className="app">Adobe After Effects</mark>. С помощью него можно вырезать
-          светлые и тёмные тона по яркостной шкале. Этот эффект хорошо подходит для
-          отделения от фона простых объектов. Но! Если вы попытаетесь использовать его,
-          например, на композиции с эффектом взрыва или сложными частицами - вы получите
-          неприятную кашу.
+          Для удаления чёрного или белого фона используется эффект{" "}
+          <mark className="plugin">Extract</mark>, который доступен в стандартной поставке{" "}
+          <mark className="app">Adobe After Effects</mark>. Он позволяет вырезать светлые
+          и тёмные участки по их яркости и хорошо подходит для отделения простых объектов.
+          Но если вы попытаетесь применить его, например, к футажу со взрывом или сложными
+          частицами, рискуете получить неприятную «кашу».
         </p>
-        <YouTubeVideo
+        <ContentFigure
           caption="Extract"
-          link="v7pqZ9gtn8I"
+          src="v7pqZ9gtn8I"
+          type="youtube"
         />
+        <Divider>Используем сторонние эффекты</Divider>
         <p>
-          Если результат от стандартного эффекта не удовлетворяет вас (как раз из-за
-          каши), то можно воспользоваться сторонним эффектом{" "}
-          <mark className="plugin">uni.unmult</mark>, который поставляется в пакет
-          плагинов <mark className="plugin">Red Giant Universe</mark>. Он достаточно
-          хорошо убирает тёмные или светлые оттенки, если включен параметр{" "}
-          <mark className="ui">Invert</mark>. Плагин делает слой прозрачным, что позволяет
-          применить футаж поверх любой композиции.{" "}
+          Если результат работы стандартного эффекта вас не устраивает, можно
+          воспользоваться эффектом <mark className="plugin">Unmult</mark> из стороннего
+          пакета <mark className="plugin">Red Giant Universe</mark>. Он качественно
+          убирает тёмные оттенки, делая слой прозрачным. Для удаления светлых оттенков
+          нужно включить параметр <mark className="select">«Invert»</mark>.
         </p>
-        <AdditionWarning>
-          С некоторыми футажами может появиться ощущение, что слой слишком прозрачный, чем
-          хотелось бы. В качестве костыльного способа можно просто продублировать нужный
-          слой с применённым эффектом и привязать их друг к другу, если необходимо.
-        </AdditionWarning>
-        <YouTubeVideo
+        <Addition type="warning">
+          С некоторыми футажами может возникнуть ощущение, что слой стал слишком
+          прозрачным. В качестве «костыля» можно просто продублировать слой с эффектом.
+        </Addition>
+        <ContentFigure
           caption="Red Giant Universe Unmult"
-          link="GGjIu0CZ1M4"
+          src="GGjIu0CZ1M4"
+          type="youtube"
         />
+        <Divider>Используем режимы наложения</Divider>
         <p>
-          Если вы не хотите заморачиваться с эффектами и плагинами - просто добавьте видео
-          с чёрным фоном и примените режим наложения <mark className="ui">Screen</mark>.
+          Если вы не хотите возиться с эффектами — вы можете просто поместить видео с
+          чёрным фоном поверх других слоёв и применить к нему режим наложения{" "}
+          <mark className="select">«Screen»</mark>.
         </p>
-        <AdditionWarning>
-          Режимы наложения не будут работать, если под слоем по иерархии на таймлайне
-          ничего нет. И да, добавлять чёрный солид в таком случае будет бессмысленно.
-        </AdditionWarning>
+        <Addition type="warning">
+          Учтите, что режимы наложения работают, только если под слоем есть другие видимые
+          слои. Добавлять под него чёрный <mark className="select">«Solid Layer»</mark>{" "}
+          бессмысленно.
+        </Addition>
+        <Divider>Используем чёрно-белый слой как маску</Divider>
         <p>
-          Если у вас есть альфа-канал отдельным слоем, то вы можете применить его как
-          маску с помощью функции Track Matte.
+          Если альфа-канал исходника представлен отдельным чёрно-белым слоем, его можно
+          использовать как маску с помощью функции{" "}
+          <mark className="select">«Track Matte»</mark>.
         </p>
-        <YouTubeVideo
+        <ContentFigure
           caption="How to Use Luma Mattes"
-          link="ltrGC0kDFic"
+          src="ltrGC0kDFic"
+          type="youtube"
         />
       </DetailsSummary>
       <DetailsSummary
         tag="tracking, камера трекер, трекинг, мокка"
-        title="Как и чем можно прицепить слой к объекту на видео?"
+        title="Как и чем можно прикрепить слой к объекту на видео?"
       >
         <p>
-          Предположим, что у вас есть видео в котором вы хотите прицепить слой к объекту с
-          небольшими движениями. Для этого вам нужно открыть окно{" "}
-          <mark className="plugin">Tracker</mark>, которое можно вызвать из меню{" "}
-          <mark className="ui">Window</mark> в верхней части интерфейса программы. В этом
-          же окне вы можете выбрать четыре действия:
+          Предположим, что вам нужно прикрепить объект к другому или сделать трекинг. Это
+          можно сделать различными инструментами: как стандартными, так и сторонними.
         </p>
+        <Divider>Выполняем трекинг объекта стандартными средствами</Divider>
+        {/* один слой к движущемуся объекту на другом
+          слое */}
+        <p>
+          В <mark className="app">Adobe After Effects</mark> есть панель{" "}
+          <mark className="plugin">Tracker</mark>, отвечающая за функции, которые могут
+          быть полезны при трекинге объектов. Её можно открыть через меню{" "}
+          <mark className="select">«Window»</mark>. Панель содержит четыре основные
+          кнопки.
+        </p>
+        <ContentFigure
+          type="image"
+          src="images/aftereffects/tracker_window.png"
+          caption="Tracker"
+          imgTitle="Окно Tracker"
+          theme="dark"
+          variant="windows"
+        />
         <ul>
           <li>
-            <mark className="ui">Track Camera</mark> - применяет эффект{" "}
-            <mark className="plugin">3D Camera Tracking</mark>. Полезен если вам нужно
-            прицепить объект к поворачивающейся плоскости.
+            <mark className="select">«Track Camera»</mark> — применяет эффект{" "}
+            <mark className="plugin">3D Camera Tracker</mark>. Полезен, если нужно
+            прикрепить объект к плоскости в трёхмерном пространстве сцены.
+            <ContentFigure
+              caption="3D Camera Tracker"
+              src="yaT3YwIK-BI"
+              type="youtube"
+            />
           </li>
           <li>
-            <mark className="ui">Warp Stabilizer</mark> - применяет эффект{" "}
-            <mark className="plugin">Warp Stabilizer</mark>. Нужен для стабилизации
-            дёрганной камеры и устранения эффекта{" "}
-            <mark className="word">пьяного оператора</mark> с его трясущимися руками и
-            может помочь улучшить качество трекинга. В эффекте есть несколько методов для
-            стабилизации камеры на случай, если стандартный не нравится.{" "}
-            <AdditionWarning>
-              Эффект стабилизации может обрезать вашу картинку, для устранения этого -
-              раскройте <mark className="ui">Auto-Scale</mark> и установите приемлемое для
-              вас значение <mark className="ui">Maximum Scale</mark>. Слишком большие
-              значения в <mark className="ui">Smoothness</mark> могут превратить вашу
-              картинку в непонятное желе. Экспериментируйте с умом!
-            </AdditionWarning>
+            <mark className="select">«Warp Stabilizer»</mark> — применяет эффект
+            стабилизации. Он нужен для устранения тряски камеры и эффекта «пьяного
+            оператора».
+            <ContentFigure
+              type="youtube"
+              caption="Warp Stabilizer"
+              src="i-WuS2r8750"
+            />
+            <Addition type="warning">
+              Эффект стабилизации может сильно обрезать изображение. Чтобы это исправить,
+              в настройках эффекта раскройте <mark className="select">«Auto-scale»</mark>{" "}
+              и подберите приемлемое значение{" "}
+              <mark className="select">«Maximum Scale»</mark>. Слишком большие значения{" "}
+              <mark className="select">«Smoothness»</mark> могут превратить картинку в
+              «желе».
+            </Addition>
           </li>
           <li>
-            <mark className="ui">Track Motion</mark> - то, что нам нужно для трекинга
-            движения объекта. Благодаря этому мы сможем прицепить любой слой к движущемуся
-            объекту.
+            <mark className="select">«Track Motion»</mark> — то, что нужно для
+            отслеживания движения объекта. С его помощью можно прикрепить любой слой к
+            движущемуся объекту.
+            <Addition type="info">
+              Если объект движется слишком быстро, увеличьте область поиска трекера. Если
+              же, наоборот, объект движется медленно, а точка трекинга «уходит» в сторону,
+              уменьшите область и попробуйте повысить контрастность исходного видео.
+            </Addition>
+            <ContentFigure
+              caption="Track Motion Tutorial"
+              src="VGJOLjamPbQ"
+              type="youtube"
+            />
           </li>
           <li>
-            <mark className="ui">Stabilize Motion</mark> - функция, которая перемещает
-            исходное видео под движение трекаемого объекта. Может быть полезно, когда
-            нужно зафиксировать взгляд на нужный объект.
+            <mark className="select">«Stabilize Motion»</mark> — функция, которая смещает
+            само видео, чтобы отслеживаемый объект оставался в центре кадра.
+            <ContentFigure
+              type="youtube"
+              src="eyWclmjr94k"
+              caption="Object Tracking"
+            />
           </li>
         </ul>
-        <YouTubeVideo
-          caption="Motion Tracking"
-          link="tqWWhChc8RA"
-        />
-        <AdditionInfo>
-          Если ваш объект движется слишком быстро - увеличьте область действия работы
-          трекинга, так как за пределы области действия трекер не увидит объект. Если же
-          наоборот, медленно, но точку уводит непонятно куда - уменьшите область трекинга
-          и постарайтесь улучшить контраст любым способом у исходного видео.
-        </AdditionInfo>
+        <Divider>Выполняем трекинг с помощью Mocha</Divider>
         <p>
-          Если же вам надо оттречить плоскость, которая движется под разными углами
-          стандартными способами - сделайте это через{" "}
-          <mark className="plugin">3D Camera Tracker</mark>.
+          Если результаты стандартных инструментов вас не устроили, вы можете
+          воспользоваться <mark className="plugin">Mocha</mark> для планарного трекинга. В
+          базовую поставку <mark className="app">Adobe After Effects</mark> входит{" "}
+          <mark className="plugin">Mocha AE</mark>. Он несколько урезан по сравнению с
+          полной версией, <mark className="plugin">Mocha Pro</mark>, но его возможностей
+          достаточно для большинства задач.
         </p>
-        <YouTubeVideo
-          caption="3D Camera Tracker"
-          link="yaT3YwIK-BI"
-        />
-        <p>
-          Если результат от способов выше не понравился, то не время унывать. В
-          стандартной поставке <mark className="app">Adobe After Effects</mark> есть
-          прекрасный инструмент для планарного трекинга под названием{" "}
-          <mark className="plugin">Mocha AE</mark>. Он будет несколько урезанней, нежели
-          его полноценная версия под названием <mark className="plugin">Mocha Pro</mark>,
-          которую надо устанавливать отдельно, но базовые вещи для наложения слоя с
-          движением на исходное видео выполнить может.
-        </p>
-        <YouTubeVideo
+        <ContentFigure
           caption="Mocha AE For Beginners"
-          link="be_8uRcyiEs"
+          src="be_8uRcyiEs"
+          type="youtube"
         />
-        <AdditionInfo>
-          Если у вас слой после переноса трекинга из <mark className="plugin">Mocha</mark>{" "}
-          куда то улетает - проверьте разрешение слоя, который вы собираетесь разместить и
-          сравните его с разрешением вашей композиции. Если они отличаются - слой так и
-          будет улетать. Для исправления этого недочёта - примените{" "}
-          <a href="files/Mocha_data_rescale_import.ffx">пресет по этой ссылке</a> от{" "}
-          <a href="https://t.me/Pavelusha">@Pavelusha</a> на слой, на котором добавлен{" "}
-          <mark className="plugin">Corner Pin</mark>. В применённом пресете вам нужно
-          выбрать в <mark className="ui">Source Layer</mark> тот слой, на котором тречили
-          данные. При правильном использовании ваша вставляемая картинка переместится куда
-          надо.
-        </AdditionInfo>
+        <p>
+          Если после переноса данных из <mark className="plugin">Mocha</mark> слой
+          «улетает», проверьте его разрешение — оно должно совпадать с разрешением
+          композиции. Если разрешения отличаются, слой будет смещаться. Чтобы это
+          исправить, примените{" "}
+          <a href="files/Mocha_data_rescale_import.ffx">этот пресет</a> от{" "}
+          <a href="https://t.me/Pavelusha">@Pavelusha</a> на слой с эффектом{" "}
+          <mark className="plugin">Corner Pin</mark>. В настройках пресета в поле{" "}
+          <mark className="select">«Source Layer»</mark> выберите слой, с которого вы
+          тречили данные.
+        </p>
       </DetailsSummary>
       <DetailsSummary
-        tag="креате нульс фром патч, создание нулей из пути, create nulls from path"
-        title="Как мне сделать точки у шейпового слоя управляемыми с помощью 'нулевых слоёв'?"
+        tag="шейповые слои, создание нулей, креате нульс фром патч, создание нулей из пути, create nulls from path"
+        title="Как сделать точки контура управляемыми с помощью нуль-объектов?"
       >
         <p>
-          Предположим, что вы создали некий шейповый слой или маску и вы хотите
-          анимировать этот слой через Path. Но через некоторое время вы понимаете, что
-          дёргание Path порой бывает неудобным и муторным.
+          Представим, что у вас есть фигура или маска, и хочется анимировать её контур. В{" "}
+          <mark className="app">Adobe After Effects</mark> для этого есть встроенный
+          скрипт <mark className="file">Create Nulls From Path.jsx</mark>, который создаёт
+          отдельные <mark className="select">«Null Layers»</mark> для каждой точки,
+          облегчая дальнейшую анимацию. Найти его можно в меню{" "}
+          <mark className="select">«Window» → «Create Nulls From Path.jsx»</mark>.
         </p>
-        <p>
-          Для упрощения анимации масок и фигурных слоёв в базовой поставке{" "}
-          <mark className="app">Adobe After Effects</mark> добавлен разработчиками скрипт{" "}
-          <mark className="file">Create Nulls From Path.jsx</mark>, который создаёт нули
-          для контроля точек фигуры. Его можно открыть с помощью{" "}
-          <mark className="ui">Window &gt; Create Nulls From Path.jsx</mark> в конце
-          выпадающего меню.
-        </p>
-        <YouTubeVideo
+        <ContentFigure
           caption="Animating with Create Nulls From Path"
-          link="Unnvx0alhyw"
+          src="Unnvx0alhyw"
+          type="youtube"
+        />
+        <p>
+          Если после создания нулевых объектов они внезапно сместились относительно
+          фигуры, проверьте положение самой фигуры — его значение должно быть нулевым.{" "}
+          <i style={{opacity: "0.5"}}>
+            И не путайте позицию фигуры с позицией слоя, это разные вещи.
+          </i>
+        </p>
+        <ContentFigure
+          type="video"
+          src="images/aftereffects/fix_create_nulls_from_path.mp4"
+          caption="Adobe After Effects"
+          theme="dark"
+          variant="windows"
         />
       </DetailsSummary>
       <DetailsSummary
