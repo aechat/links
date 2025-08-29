@@ -56,10 +56,6 @@
   display: block;
   padding: 2px;
   margin: -2px;
-  mask-image: linear-gradient(to bottom, black 85%, transparent 100%);
-  mask-position: 0 50%;
-  mask-size: 100% 200%;
-  mask-repeat: no-repeat;
   transition:
     -webkit-mask-position 0.5s ease,
     mask-position 0.5s ease;
