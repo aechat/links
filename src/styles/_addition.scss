@@ -21,6 +21,7 @@ li > .addition-danger,
 .addition-danger > .addition-info,
 .addition-danger > .addition-warning,
 .addition-danger > .addition-danger {
+  gap: 10px;
   margin-right: 0;
   margin-left: 0;
   margin-inline: 0;
@@ -42,7 +43,8 @@ li > .addition-danger,
   display: flex;
   flex-direction: row;
   align-items: center;
-  gap: 10px;
+  gap: 15px;
+  
   box-sizing: content-box;
   margin-inline: 0;
   margin-block: 15px;
