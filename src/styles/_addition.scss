@@ -24,13 +24,16 @@ li > .addition-danger,
   margin-right: 0;
   margin-left: 0;
   margin-inline: 0;
+  border-radius: $roundness * 0.75;
+  padding-inline: 15px;
   font-size: 0.935rem;
 }
 
 .rules-section > .addition-info,
 .rules-section > .addition-warning,
 .rules-section > .addition-danger {
-  margin: 10px;
+  margin-inline: 0;
+  margin-block: 10px;
 }
 
 .addition-info,
@@ -41,11 +44,12 @@ li > .addition-danger,
   align-items: center;
   gap: 10px;
   box-sizing: content-box;
-  margin: 10px;
-  border-radius: $roundness * 0.75;
-  padding: 10px 10px 12px 12px;
+  margin-inline: 0;
+  margin-block: 15px;
+  padding-inline: 20px;
+  padding-block: 12px;
   font-weight: 425;
-  font-size: 0.935rem;
+  font-size: 0.95rem;
   line-height: 1.6;
 
   p {
