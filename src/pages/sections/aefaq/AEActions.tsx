@@ -1085,11 +1085,11 @@ const AEActions: React.FC = () => {
           кнопки.
         </p>
         <ContentFigure
-          type="image"
-          src="images/aftereffects/tracker_window.png"
           caption="Tracker"
           imgTitle="Окно Tracker"
+          src="images/aftereffects/tracker_window.png"
           theme="dark"
+          type="image"
           variant="windows"
         />
         <ul>
@@ -1108,9 +1108,9 @@ const AEActions: React.FC = () => {
             стабилизации. Он нужен для устранения тряски камеры и эффекта «пьяного
             оператора».
             <ContentFigure
-              type="youtube"
               caption="Warp Stabilizer"
               src="i-WuS2r8750"
+              type="youtube"
             />
             <Addition type="warning">
               Эффект стабилизации может сильно обрезать изображение. Чтобы это исправить,
@@ -1140,9 +1140,9 @@ const AEActions: React.FC = () => {
             <mark className="select">«Stabilize Motion»</mark> — функция, которая смещает
             само видео, чтобы отслеживаемый объект оставался в центре кадра.
             <ContentFigure
-              type="youtube"
-              src="eyWclmjr94k"
               caption="Object Tracking"
+              src="eyWclmjr94k"
+              type="youtube"
             />
           </li>
         </ul>
@@ -1197,10 +1197,10 @@ const AEActions: React.FC = () => {
           </i>
         </p>
         <ContentFigure
-          type="video"
-          src="images/aftereffects/fix_create_nulls_from_path.mp4"
           caption="Adobe After Effects"
+          src="images/aftereffects/fix_create_nulls_from_path.mp4"
           theme="dark"
+          type="video"
           variant="windows"
         />
       </DetailsSummary>
@@ -1259,260 +1259,223 @@ const AEActions: React.FC = () => {
         </p>
       </DetailsSummary>
       <DetailsSummary
-        tag="морфинг фигур"
-        title="Как и чем сделать анимацию толщины variable-шрифта?"
+        tag="морфинг фигур, variable font"
+        title="Как сделать анимацию толщины шрифта?"
       >
         <p>
-          Для анимации шрифта от тонкого начертания до жирного используется техника
-          морфинга фигур. В видео ниже создаются два текстовых слоя, расположенных друг на
-          друге, из которых создают шейповый слой и делают анимацию движения Path. За счёт
-          этого получается красивая и быстрая анимация смены толщины текста.
+          Для анимации перехода от тонкого начертания шрифта к жирному используется
+          техника морфинга фигур. В видео ниже показано, как создать два текстовых слоя с
+          разной толщиной, преобразовать их в слои-фигуры и анимировать свойство контура,
+          чтобы получить плавную и красивую анимацию смены толщины текста.
         </p>
-        <YouTubeVideo
+        <ContentFigure
           caption="Smooth Typo Transition from Bold Text to Thin Text"
-          link="yyDAFSC2qDo"
+          src="yyDAFSC2qDo"
+          type="youtube"
         />
       </DetailsSummary>
       <DetailsSummary
         tag="персонажная анимация, дюик, паппет тулс, рабберхос, лимбер, чарактер тул"
-        title="Какими средствами и плагинами обычно делают анимацию 2D-персонажей?"
+        title="Какими средствами обычно делают анимацию персонажей?"
       >
         <p>
-          Существуют множество способов для создания персонажной анимаций. Каждый
-          инструмент выполняет определённую или общую задачу по анимации персонажей
-          разного качества.
+          Для персонажной анимации в <mark className="app">Adobe After Effects</mark>{" "}
+          используются как встроенные инструменты, так и сторонние решения.
         </p>
         <ul>
           <li>
-            Через <mark className="plugin">Puppet Tool</mark>. Просто, встроенно и
-            сердито. С помощью него можно двигать слой как марионетку, на что отсылает
-            название инструмента.{" "}
-            <a href="https://www.youtube.com/watch?v=Vu3RHRnoRM4">Как?</a>
+            <mark className="plugin">Puppet Tool</mark> — простой и удобный инструмент,
+            который уже есть в стандартной поставке программы. Он позволяет деформировать
+            слой, расставляя «булавки», словно управляя марионеткой.{" "}
+            <a href="https://www.youtube.com/watch?v=Vu3RHRnoRM4">Как им пользоваться?</a>
+            <Addition type="warning">
+              При использовании <mark className="select">«Continuously Rasterize»</mark>{" "}
+              возможны разрывы слоя при использования этого инструмента.
+            </Addition>
           </li>
           <li>
-            Через сторонний плагин <mark className="plugin">Duik</mark>. Он поставляется{" "}
+            <mark className="plugin">Duik</mark> — один из самых известных сторонних
+            инструментов для создания персонажной анимации. Распространяется{" "}
             <a href="https://rxlaboratory.org/duik-angela-download/">
               бесплатно на официальном сайте
             </a>
-            .
-          </li>
-          <li>
-            Через кучу тематических плагинов, например{" "}
+            . В качестве альтернативы можно рассмотреть{" "}
             <mark className="plugin">Rubberhose</mark>,{" "}
             <mark className="plugin">Limber</mark>,{" "}
-            <mark className="plugin">Character Tool</mark> и подобные.
+            <mark className="plugin">Character Tool</mark> и другие.
+            <Addition type="warning">
+              <mark className="plugin">Duik</mark> на момент написания этой статьи может
+              работать нестабильно в <mark className="app">Adobe After Effects</mark>{" "}
+              версии <mark>2025</mark>.
+            </Addition>
+            <ContentFigure
+              caption="Сравнение популярных плагинов для персонажной анимации"
+              src="AcEIT03Mrzk"
+              type="youtube"
+            />
           </li>
         </ul>
-        <YouTubeVideo
-          caption="Сравнение популярных плагинов для персонажной анимации"
-          link="AcEIT03Mrzk"
-        />
       </DetailsSummary>
       <DetailsSummary
         tag="биты, create audio from keyframes, ключи из аудио"
-        title="Как мне быстро расставить ключи и маркеры под бит, желательно автоматически?"
+        title="Как быстро расставить ключевые кадры и маркеры под бит?"
       >
         <p>
-          Если у вас имеется аудиофайл, особенно с чётко выраженными битами - вам будет
-          довольно легко сгенерировать ключи на основе звуковой волны.
+          Иногда возникает необходимость анимировать свойство эффекта под звук, и,
+          конечно, хочется сделать это автоматически. Если у вас есть аудиофайл, особенно
+          с хорошо выраженными битами, его будет довольно легко использовать для генерации
+          ключевых кадров на основе звуковой волны.
         </p>
-        <AdditionInfo>
-          Если вам нужно вытащить биты и отделить их от остальной музыки - воспользуйтесь
-          программой{" "}
+        <Addition type="info">
+          Если вам нужно извлечь биты или отделить вокал от остальной музыки —
+          воспользуйтесь бесплатной программой{" "}
           <a href="https://github.com/stemrollerapp/stemroller/releases">StemRoller</a>.
-        </AdditionInfo>
+          Для быстрой обработки аудио требуется хорошая видеокарта.
+        </Addition>
+        <Divider>Генерируем ключи стандартными средствами</Divider>
         <p>
-          В <mark className="app">Adobe After Effects</mark> вы можете сгенерировать ключи
-          с помощью <mark className="key">ПКМ</mark> по слою с аудиофайлом и нажатия на{" "}
-          <mark className="ui">Keyframe Assistant &gt; Convert Audio to Keyframes</mark>.
+          В <mark className="app">Adobe After Effects</mark> можно превратить аудио в
+          ключевые кадры стандартным способом: <mark className="key">ПКМ</mark> по
+          аудиослою →{" "}
+          <mark className="select">
+            «Keyframe Assistant» → «Convert Audio to Keyframes»
+          </mark>
+          . Однако у этого метода есть недостаток: чувствительность изменить нельзя, и
+          программа создаёт ключевой кадр буквально на каждом кадре слоя.
         </p>
-        <ImageFigure
-          caption="Генерация ключей из аудиодорожки"
-          imgSrc="images/aftereffects/convert_audio_to_keyframes.png"
-          imgTitle="Генерация ключей из аудиодорожки"
-          styleClass="figure_windows-dark"
+        <ContentFigure
+          caption="Генерация ключевых кадров из аудиодорожки"
+          imgTitle="Генерация ключевых кадров из аудиодорожки"
+          src="images/aftereffects/convert_audio_to_keyframes.png"
+          theme="dark"
+          type="image"
+          variant="windows"
         />
+        <Divider>Генерируем ключи на основе аудио сторонними инструментами</Divider>
         <p>
-          Минус этого способа заключается в том, что вы не можете настроить интерполяцию
-          между ключами, не удаляя лишние ключевые кадры. Да и в принципе чистить такое -
-          будет не очень удобно.
+          Если результат конвертации аудио в ключи стандартными средствами вам не
+          понравился — лучше использовать сторонние инструменты, например,{" "}
+          <mark className="plugin">Sound Keys</mark> из пакета{" "}
+          <mark className="plugin">Red Giant Trapcode Suite</mark>. Он даёт хороший
+          результат за счёт гибкой настройки, но не умеет ставить маркеры.
         </p>
-        <p>
-          Но никто не запрещал использовать сторонние методы для расстановки ключевых
-          кадров. Например, через <mark className="plugin">Sound Keys</mark>, поставляемый
-          в пакет плагинов <mark className="plugin">Red Giant Trapcode Suite</mark>.
-        </p>
-        <YouTubeVideo
+        <ContentFigure
           caption="Как пользоваться Sound Keys в Adobe After Effects"
-          link="uqKFsIHu-DA"
+          src="uqKFsIHu-DA"
+          type="youtube"
         />
+        <Divider>Расставляем маркеры</Divider>
         <p>
-          Хоть <mark className="plugin">Sound Keys</mark> и даёт хороший результат за счёт
-          возможности гибкой настройки, но с помощью него нельзя автоматически поставить
-          маркеры на композиции под биты. На помощь приходит ещё один сторонний плагин -{" "}
-          <mark className="plugin">Beat Edit</mark>, который как раз и выполняет эту
-          задачу.
+          Для создания ключей, а самое главное маркеров, на помощь приходит ещё один
+          сторонний плагин — <mark className="plugin">Beat Edit</mark>. Он создаёт меньше
+          ключевых кадров, что позволяет в дальнейшем легче адаптировать ключи под аудио.
         </p>
-        <YouTubeVideo
+        <ContentFigure
           caption="Как создавать маркеры с помощью Beat Edit"
-          link="JGVLRcjp7ss"
+          src="JGVLRcjp7ss"
+          type="youtube"
         />
-        <AdditionInfo>
-          Плагины, приведённые в этой статье можно скачать из канала{" "}
-          <a href="https://t.me/+Qd9xu7A4TeIwNzY6">склад стройматериалов</a> или из канала{" "}
-          <a href="https://t.me/s/aetemp">AETemp</a>.
-        </AdditionInfo>
-      </DetailsSummary>
-      <DetailsSummary
-        tag="unprecompose, распрекомпозить, раскомпозить"
-        title="Как распаковать созданную прекомпозицию?"
-      >
-        <p>
-          Бывают случаи, когда вы сделали несколько прекомпозиций, а потом внезапно вам
-          понадобилось их распаковать. И порой не хочется заходить в каждую композицию,
-          прожимать <mark className="key">Ctrl + A</mark> для выделения всех слоёв,{" "}
-          <mark className="key">Ctrl + C</mark> для копирования слоёв, переходить в
-          родительскую композицию и нажимать на <mark className="key">Ctrl + V</mark>,
-          особенно когда надо сделать так с большой кучей композиций.
-        </p>
-        <Divider>Используем Un-PreCompose</Divider>
-        <p>
-          Для решения этой нудной проблемы был создан бесплатный<sup>1</sup> плагин{" "}
-          <a href="https://aescripts.com/un-precompose/">Un-PreCompose</a>. После его
-          установки он появится в <mark className="ui">Layer &gt; Un-PreCompose</mark>.
-          Чтобы эта кнопка работала - нужно выделить композиции, которые вы хотите
-          распаковать.
-        </p>
-        <AdditionInfo>
-          <sup>1</sup> Чтобы скачать скрипт - зарегистрируйтесь на сайте{" "}
-          <a href="https://aescripts.com">aescripts</a>, вернитесь на страницу с плагином,
-          установите цену <mark>0</mark> в <mark className="ui">Name Your Own Price</mark>
-          , добавьте его в корзину и подтвердите заказ. Нужный плагин появится{" "}
-          <a href="https://aescripts.com/downloadable/customer/products/">
-            в вашем профиле
-          </a>{" "}
-          и вы можете его скачать абсолютно бесплатно.
-        </AdditionInfo>
-        <VideoFigure
-          caption="Распаковка нескольких прекомпозиций с помощью Un-precompose"
-          styleClass="figure_windows-light"
-          videoSrc="images/aftereffects/unprecompose_demonstration.mp4"
-        />
-        <AdditionWarning>
-          Прежде чем распаковывать таким образом композиции, учтите, что ссылки внутри
-          эффектов и внутри выражений, например ссылка на слой в{" "}
-          <mark className="plugin">Displacement Map</mark>, могут слететь.
-        </AdditionWarning>
-        <Divider>Используем AEUX</Divider>
-        <p>
-          Несмотря на то, что главное предназначение <mark className="plugin">AEUX</mark>{" "}
-          - переносить макеты из <mark className="app">Figma</mark> в{" "}
-          <mark className="app">Adobe After Effects</mark>, в нём есть и несколько
-          инструментов для работы с композициями. Через него можно распаковать выделенные
-          композиции на таймлайне с помощью кнопки <mark className="ui">Un-Precomp</mark>.
-        </p>
-        <ImageFigure
-          caption="AEUX"
-          imgSrc="images/aftereffects/aeux_un-precomp.png"
-          imgTitle="Un-Precomp в AEUX"
-          styleClass="figure_windows-dark"
-        />
-        <AdditionInfo>
-          Скачать <mark className="plugin">AEUX</mark> вы можете на странице релизов в{" "}
-          <a href="https://github.com/google/AEUX/releases">GitHub</a>.
-        </AdditionInfo>
       </DetailsSummary>
       <DetailsSummary
         tag="декомпозить текст, текст в слои"
-        title="Как разбить текстовый слой на отдельные слои с буквами, словами или строками?"
+        title="Как разбить текстовый слой на отдельные слои по буквам, словам или строкам?"
       >
         <p>
-          Для быстрого разделения текстового слоя на буквы или строки существует сторонний
-          скрипт <a href="https://aescripts.com/decomposetext/">DecomposeText</a>
-          <sup>1</sup>. С помощью него можно сгенерировать из одного текстового слоя сразу
-          несколько слоёв с отдельными буквами для более точной анимации текста.
+          Для быстрого разделения текстового слоя на буквы, слова или строки существует
+          сторонний скрипт{" "}
+          <a href="https://aescripts.com/decomposetext/">DecomposeText</a>
+          <sup>1</sup>. С его помощью из одного текстового слоя можно сгенерировать
+          несколько, что позволяет анимировать каждую часть текста отдельно.
         </p>
-        <AdditionInfo>
-          <sup>1</sup> Чтобы скачать скрипт - зарегистрируйтесь на сайте{" "}
-          <a href="https://aescripts.com">aescripts</a>, вернитесь на страницу с плагином,
-          установите цену <mark>0</mark> в <mark className="ui">Name Your Own Price</mark>
-          , добавьте его в корзину и подтвердите заказ. Нужный плагин появится{" "}
+        <Addition type="info">
+          <sup>1</sup> Чтобы скачать скрипт бесплатно, зарегистрируйтесь на{" "}
+          <a href="https://aescripts.com">aescripts</a>, на странице плагина установите
+          цену <mark>0</mark> в поле <mark className="select">«Name Your Own Price»</mark>
+          , добавьте его в корзину и оформите заказ. Ссылка на скачивание появится{" "}
           <a href="https://aescripts.com/downloadable/customer/products/">
             в вашем профиле
-          </a>{" "}
-          и вы можете его скачать абсолютно бесплатно.
-        </AdditionInfo>
-        <VideoFigure
-          caption="Разделяем текстовый слой на слова с помощью DecomposeText"
-          styleClass="figure_windows-dark"
-          videoSrc="images/aftereffects/decomposetext.mp4"
+          </a>
+          .
+        </Addition>
+        <Addition type="warning">
+          Скрипт не работает с <mark className="select">«Paragraph Text»</mark>, текстовый
+          слой нужно перевести в <mark className="select">«Point Text»</mark>. Для этого
+          выберите инструмент <mark className="select">«Text»</mark>, кликните{" "}
+          <mark className="key">ПКМ</mark> по текстовому блоку в окне предпросмотра и в
+          контекстном меню выберите{" "}
+          <mark className="select">«Convert to Point Text»</mark>.
+        </Addition>
+        <ContentFigure
+          caption="Разделение текстового слоя на слова с помощью DecomposeText"
+          src="images/aftereffects/decomposetext.mp4"
+          theme="dark"
+          type="video"
+          variant="windows"
         />
-        <AdditionWarning>
-          Скрипт не поддерживает текст, созданный как <mark>Paragraph Text</mark>. Для
-          этого вам нужно будет его конвертировать в <mark>Point Text</mark>, выбрав
-          инструмент <mark className="ui">Text</mark> и нажав на{" "}
-          <mark className="key">ПКМ</mark> по текстовому слою в предпросмотре. В
-          открывшемся контекстном меню нужно выбрать{" "}
-          <mark className="ui">Convert to Point Text</mark>.
-        </AdditionWarning>
       </DetailsSummary>
       <DetailsSummary
         tag="компсеттер, rd:compsetter"
-        title="Как изменить параметры у нескольких композиций одновременно?"
+        title="Как изменить параметры сразу у нескольких композиций?"
       >
         <p>
-          Изменить разрешение, частоту кадров или другие параметры сразу в нескольких
-          композициях стандартными способами программы не получится - вам нужно
-          воспользоваться сторонним плагином{" "}
-          <a href="https://aescripts.com/rd-compsetter/">rd: Comp Setter</a>.
+          Изменить разрешение, частоту кадров или другие параметры сразу у нескольких
+          композиций стандартными средствами нельзя. Для этого придётся воспользоваться
+          сторонним скриптом, например{" "}
+          <a href="https://aescripts.com/rd-compsetter/">rd: Comp Setter</a>. После
+          открытия скрипта, выделите нужные композиции в окне{" "}
+          <mark className="select">«Project»</mark>, укажите новые параметры и нажмите{" "}
+          <mark className="select">«Apply»</mark>.
         </p>
-        <p>
-          Для этого достаточно выделить нужные вам композиции в окне{" "}
-          <mark className="ui">Project</mark>, указать нужные настройки в скрипте и нажать
-          на <mark className="ui">Apply</mark>.
-        </p>
-        <VideoFigure
+        <ContentFigure
           caption="Демонстрация работы rd: Comp Setter"
-          styleClass="figure_windows-dark"
-          videoSrc="images/aftereffects/rd_compsetter_demonstration.mp4"
+          src="images/aftereffects/rd_compsetter_demonstration.mp4"
+          theme="dark"
+          type="video"
+          variant="windows"
         />
-        <p>Вот и всё, теперь ваши выделенные композиции приведены к общему виду.</p>
       </DetailsSummary>
       <DetailsSummary
-        tag="аджастмент леер, корректирующий слой не для всех слоёв"
-        title="Как применить Adjustment Layer только на конкретные слои?"
+        tag="аджастмент леер, adjustment layer не для всех слоёв"
+        title="Как применить корректирующий слой только к определённым слоям?"
       >
         <p>
-          Изначально в <mark className="app">Adobe After Effects</mark>, к сожалению, нет
-          возможности применить корректирующий слой только на определённые слои под ним. В
-          таком случае нужные слои надо переносить на другое место по иерархии в таймлайне
-          или городить костыли в виде масок.
+          В <mark className="app">Adobe After Effects</mark> нельзя применить действие
+          корректирующего слоя только на определённые слои — он влияет на все, что
+          расположены ниже по таймлайну. Обычно проблему решают перестановкой слоёв или
+          используют обходные методы вроде создания предварительных композиций или
+          использования масок.
         </p>
+        <Divider>Используем Red Giant Supercomp</Divider>
         <p>
-          В этой статье мы будем <mark className="word">костылить</mark> с помощью масок.
-          Для этого нам понадобится сторонний эффект{" "}
-          <mark className="plugin">Supercomp</mark>, поставляемый в пакете плагинов{" "}
-          <mark className="plugin">VFX Suite</mark> от <mark>Red Giant</mark>. В нём нам
-          нужно обесцветить наши слои и сделать их супер яркими, чтобы сделать из них
-          маску.
+          Для реализации первого «костыля» с помощью маски, понадобится эффект{" "}
+          <mark className="plugin">Supercomp</mark> из пакета{" "}
+          <mark className="plugin">Red Giant VFX Suite</mark>. С его помощью нужно создать
+          чёрно-белую маску из нужных слоёв, как показано на видео.
         </p>
-        <VideoFigure
-          caption="Демонстрация работы Supercomp для создания маски"
-          styleClass="figure_windows-dark"
-          videoSrc="images/aftereffects/supercomp_demonstration.mp4"
+        <ContentFigure
+          caption="Демонстрация создания маски с помощью Supercomp"
+          src="images/aftereffects/supercomp_demonstration.mp4"
+          theme="dark"
+          type="video"
+          variant="windows"
         />
+        <Divider>Работаем с масками</Divider>
         <p>
-          Если вы не хотите ставить <mark className="plugin">VFX Suite</mark>, то вы
-          можете создать маску просто создав прекомпозицию из нужных слоёв и накинуть на
-          них <mark className="plugin">Fill</mark> или обесцветить и сделать их ярче.
+          Если вы не хотите устанавливать <mark className="plugin">VFX Suite</mark>, можно
+          создать маску и без него: для этого сделайте прекомпозицию из нужных слоёв, а
+          затем примените к ней эффект <mark className="plugin">Fill</mark> или просто
+          обесцветьте её и доведите до максимальной яркости.
         </p>
-        <AdditionWarning>
-          Со сложными слоями такой способ может не прокатить, экспериментируйте с умом.
-        </AdditionWarning>
-        <VideoFigure
-          caption="Создание самодельных масок для дальнейшей работы"
-          styleClass="figure_windows-dark"
-          videoSrc="images/aftereffects/supercomp_without_plugins.mp4"
+        <Addition type="warning">
+          Учтите, что со сложными слоями этот способ может не сработать. Однако вам никто
+          не запрещал экспериментировать с масками на основе яркости или альфа-канала.
+        </Addition>
+        <ContentFigure
+          caption="Создание маски для корректирующего слоя без плагинов"
+          src="images/aftereffects/supercomp_without_plugins.mp4"
+          theme="dark"
+          type="video"
+          variant="windows"
         />
       </DetailsSummary>
     </div>
