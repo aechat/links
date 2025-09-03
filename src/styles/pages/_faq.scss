@@ -326,6 +326,10 @@
   }
 }
 
+li > .flexible-links {
+  margin-inline: 0;
+}
+
 details > summary::-webkit-details-marker {
   display: none;
 }
