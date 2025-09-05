@@ -1,1118 +1,1104 @@
-import {Divider} from "antd";
-
 import React from "react";
 
-import Addition from "../../../components/Addition";
-
-import {ImageFigure, VideoFigure, YouTubeVideo} from "../../../components/ContentFigure";
+import {Divider} from "antd";
 
 import DetailsSummary from "../../../components/DetailsSummary";
 
-import ContentSwitcher from "../../../components/features/ContentFilter";
+import Addition from "../../../components/Addition";
 
+import {ContentFigure} from "../../../components/ContentFigure";
+
+import ContentFilter from "../../../components/features/ContentFilter";
 
 import HostsAdobeModal from "../../../components/features/HostsAdobe";
 
 const AEErrors: React.FC = () => {
   return (
     <div className="faq-content">
-      <AdditionDanger>
-        <p>
-          Пожалуйста, не ленитесь и внимательно читайте ошибку, которую выдаёт программа.
-          Обычно в большинстве случаев в описании ошибки уже содержится причина и
-          возможное решение проблемы.
-        </p>
+      <Addition type="danger">
         <ul>
           <li>
-            Если у вас возникают трудности с чтением ошибки или предупреждения в
-            английском интерфейсе программы -{" "}
+            Пожалуйста, не ленитесь и внимательно читайте текст ошибки, которую вам выдаёт
+            программа. В большинстве случаев в её описании уже содержится причина и
+            возможное решение проблемы.
+          </li>
+          <li>
+            Если у вас возникают трудности с чтением текста на английском языке —{" "}
             <a href="https://translate.yandex.ru/">воспользуйтесь переводчиком</a>.
           </li>
           <li>
-            Если в данном разделе нет вашей ошибки, то воспользуйтесь поисковиком для
-            поиска сообщений на различных форумах.
+            Если в этом разделе нет вашей ошибки — попробуйте найти решение в интернете,
+            например на профильных форумах.
           </li>
         </ul>
-      </AdditionDanger>
+      </Addition>
       <DetailsSummary
-        tag="предупреждение о нехватке памяти, оперативная память, не проигрывается предпросмотр, зацикливается превью, 23::40, after effects has unexpectedly run out of memory and cannot complete this export"
-        title='Из-за чего появляется "Out of Memory" или "Low memory warning. RAM use has been extended for previews" и как это исправить?'
+        tag="bitte lies und akzeptiere die nutzungsbedingungen von adobe, door niet-gelicentieerde adobe-apps kan je apparaat worden blootgesteld aan extra beveilligingsrisico's, deze app is gedeactiveerd, deze app wordt over dagen gedeactiveerd, deze niet-gelicentieerde adobe-app is degeactiveerd, dieses nicht lizenzierte adobe-programm wurde deaktiviert, dieses produkt wurde deaktiviert, cette application a ete desactivee, cette application adobe asns license a ete desactivee, profitez de sur les applications adobe authentiques, start your free trial of app, take advantage of discounts up to 40% off on genuine adobe replacement apps, this app has been disabled, this app will disable in days, this unlicensed adobe app is not genuine and will be disabled soon, unlicensed adobe apps may expose your device to increased security risks, vpn, white and red window, white screen, блокировка доступа в интернет, впн, виртуальная частная сеть, файл хостс, не запускается, начните использовать бесплатную пробную версию, окно с красной полоской при запуске, пустое окно, слетела лицензия, белое и красное окно, белый экран"
+        title="Как избавиться от «The unlicensed Adobe app has been disabled»?"
       >
         <p>
-          Поздравляю, вы встретились с первым боссом в{" "}
-          <mark className="app">Adobe After Effects</mark>. Эти ошибки и предупреждения
-          возникают из-за того, что у вас банально не хватает оперативной памяти для
-          реализации ваших проектов. Часто это происходит из-за того что вы используете
-          слишком нагруженные эффекты, не монтажный кодек у используемых видео или
-          неправильно настроили программу и операционную систему.
+          Пользователи «народных» версий программ <mark className="company">Adobe</mark>{" "}
+          иногда могут столкнуться с ошибкой проверки лицензии. Она проявляется как
+          небольшое окно на белом фоне с красной полосой сверху, а в редких случаях
+          сопровождается полностью пустым белым окном. В этой статье разберём несколько
+          способов, как избавиться от такого окна, при этом стоит учитывать, что
+          эффективность каждого метода может различаться для разных пользователей.
         </p>
-        <AdditionWarning>
-          <p>
-            При появлении данных ошибок убедитесь в том, вы соблюдаете условия ниже. Если
-            хотя бы одно условие будет нарушено - постарайтесь исправить это в своём
-            проекте.
-          </p>
-          <ul>
-            <li>
-              Убедитесь в том, что вы не используете исходники с большим разрешением,
-              например, больше чем <mark>1080p</mark> или <mark>4K</mark>. Чем выше
-              разрешение слоя, тем больше требуется оперативной памяти.
-            </li>
-            <li>
-              Проверьте, что в настройках проекта не установлено значение{" "}
-              <mark>16 бит</mark> или <mark>32 бит</mark> в параметрах проекта. Для этого
-              откройте <mark className="ui">Project Manager</mark> с помощью комбинации
-              клавиш <mark className="key">Ctrl + Alt + Shift + K</mark> и выберите там
-              вкладку <mark className="ui">Color</mark>. В параметре{" "}
-              <mark className="ui">Depth</mark> вы можете снизить битность проекта, чтобы
-              облегчить работу с проектом.
-            </li>
-            <li>
-              Убедитесь в том, что вы не накидали в свой проект различные нагруженные
-              эффекты, например от <mark className="plugin">Red Giant</mark> или{" "}
-              <mark className="plugin">Boris FX</mark>. Некоторые эффекты могут
-              конфликтовать друг с другом и потреблять слишком много оперативной памяти.
-            </li>
-          </ul>
-        </AdditionWarning>
-        <p>
-          Обычно для решения этой проблемы могут быть полезны некоторые советы,
-          перечисленные ниже. Они помогут устранить типичные проблемы с нехваткой
-          оперативной памяти и лагами программы, но полностью не исключат их.
-        </p>
-        <ul>
-          <li>
-            Очистите кэш программы и оперативную память через{" "}
-            <mark className="ui">Edit &gt; Purge &gt; All Memory & Disk Cache</mark>.
-          </li>
-          <li>
-            Если вы используете исходники из интернета, в частности из видео площадок -
-            перекодируйте их через программу{" "}
-            <a href="https://www.shutterencoder.com/">Shutter Encoder</a> в монтажный
-            кодек <mark className="video">Apple Prores 422</mark> или повторно в{" "}
-            <mark className="video">H.264</mark>. Таким образом вы ещё можете оградить
-            себя от различных багов во время использования подобных исходников.
-          </li>
-          <li>
-            <a href="#4.7">Попробуйте настроить файл подкачки</a>, если у вас устройство
-            на <mark>Windows</mark>. В качестве{" "}
-            <mark className="word">
-              минимального и максимального размера файла подкачки
-            </mark>{" "}
-            вы можете установить значение от <mark className="copy">2048</mark> до{" "}
-            <mark className="copy">65536</mark> или <mark className="copy">131072</mark>.
-            В таком случае система создаст файл подкачки с изначальным размером в{" "}
-            <mark>2 ГБ</mark>, который динамически может расширяться до <mark>64 ГБ</mark>{" "}
-            или <mark>128 ГБ</mark>.
-            <AdditionWarning>
-              Нередко можно встретить мнение в интернете, а также от горе-сборщиков
-              самодельных образов <mark>Windows</mark>, что файл подкачки лучше отключить,
-              мол он вредит вашему жёсткому диску. Отчасти это верно, но при использовании
-              приложений от <mark>Adobe</mark> мы{" "}
-              <b>
-                <u>не рекомендуем</u>
-              </b>{" "}
-              вам следовать этому вредному совету, так как вы можете заработать себе кучу
-              проблем. При отключенном файле подкачки вы можете в{" "}
-              <mark className="app">Adobe After Effects</mark> столкнуться с различными
-              ошибками, например{" "}
-              <mark className="ui">
-                After Effects has unexpectedly run out of memory and cannot complete this
-                export
-              </mark>
-              , <mark className="ui">Out of Memory</mark> или{" "}
-              <mark className="ui">
-                Low memory warning. RAM use has been extended for previews
-              </mark>
-              . Кроме того, при нехватке оперативной памяти и отсутствии файла подкачки
-              возможны вылеты приложений, появление сообщения об ошибке{" "}
-              <mark className="ui">В системе недостаточно памяти</mark>, различные
-              подвисания системы или даже чёрный экран, который лечится только
-              перезагрузкой устройства.
-            </AdditionWarning>
-          </li>
-          <li>
-            Установите программу{" "}
-            <a href="https://github.com/henrypp/memreduct/releases">Mem Reduct</a> для
-            периодической очистки оперативной памяти, если у вас устройство на{" "}
-            <mark>Windows</mark>, и настройте очистку оперативной памяти при достижении{" "}
-            <mark>90%</mark> заполненной памяти.
-            <AdditionInfo>
-              Программа будет полезна, если у вас включено использование файла подкачки.
-            </AdditionInfo>
-          </li>
-          <li>
-            Если у вас включен файл подкачки и вы уверены, что дело не в программе -
-            попробуйте проверить ваши плашки оперативной памяти, например проверив их
-            через <a href="https://www.memtest86.com/">MemTest86</a> или поменяв их
-            местами на материнской плате.
-          </li>
-          <li>
-            Если у вас включена функция <mark>Multi-Frame Render</mark> - попробуйте его
-            временно отключить. Для этого перейдите в{" "}
-            <mark className="ui">Edit &gt; Preferences &gt; Memory & Performance</mark> и
-            уберите галочку с <mark className="ui">Enable Multi-frame Render</mark>, а
-            затем повторите попытку рендера предпросмотра.
-          </li>
-          <li>
-            Проверьте настройки в{" "}
-            <mark className="ui">Edit &gt; Preferences &gt; Memory & Performance</mark>.
-            Если вы туда лезли и что-то настраивали, то есть шанс, что вы неправильно
-            прочитали описание настройки и оставили программам <mark>Adobe</mark> 1 ГБ
-            ОЗУ, а оставшуюся часть памяти - на другие программы. Для того чтобы выделить
-            всю возможную память для программ Adobe, установите значение <mark>0</mark> в
-            параметре <mark className="ui">RAM reserved for other applications</mark>.
-            После нажатия на <mark className="key">Enter</mark> программа сама установит
-            нужное значение.
-          </li>
-          <li>
-            Если вы используете несколько композиций с различными эффектами - попробуйте
-            создать прокси для них и использовать их в дальнейшем. Заодно таким образом вы
-            уменьшите временные затраты на перепросчёт кадров, если вы не планируете
-            дальше изменять эти композиции.
-            <AdditionInfo>
-              Создать прокси для композиций можно в окне{" "}
-              <mark className="ui">Project</mark>, найдя нужную композицию и нажав на{" "}
-              <mark className="key">ПКМ</mark>. В контекстном меню нужно выбрать{" "}
-              <mark className="ui">Create Proxy &gt; Movie</mark>. В окне очереди рендера
-              вы можете выбрать любой удобный вам формат для создания прокси и начать его
-              генерацию. После успешного рендера - прокси автоматически подключится к
-              композиции. Отсоединить композицию от прокси можно через контекстное меню у
-              нужной композиции - <mark className="ui">Set Proxy &gt; None</mark>.
-            </AdditionInfo>
-          </li>
-          <li>
-            Если у вас мало оперативной памяти на вашем устройстве - докупите ещё и
-            установите в материнскую плату, если возможно. В нынешних реалиях для
-            комфортной работы в <mark className="app">Adobe After Effects</mark> требуется
-            минимум <mark>32 ГБ</mark> оперативной памяти.
-            <AdditionInfo>
-              В <mark className="app">Adobe After Effects</mark> версии <mark>25.2</mark>{" "}
-              и новее была добавлена функция проигрывания предпросмотра напрямую из
-              дискового кэша, не перемещая кадры в оперативную память. Это может быть
-              полезно, если у вас малое количество оперативной памяти. Если у вас не
-              отключен дисковый кэш, то эта опция уже включена по умолчанию, а включить
-              или выключить его можно в{" "}
-              <mark className="ui">
-                Edit &gt; Preferences &gt; Media & Disk Cache &gt; Enable Preview from
-                Disk Cache
-              </mark>
-              . При использовании данной опции желательно использовать быстрый
-              твердотельный накопитель.
-            </AdditionInfo>
-          </li>
-        </ul>
-      </DetailsSummary>
-      <DetailsSummary
-        tag="видеокарта, гпу, нехватает видеопамяти, врам, vram, this is likely because your gpu is out of memory, ошибка эффектов гп, обнаружена ошибка которая связана с эффектами на этом кадре использующими графический процессор, вероятно это вызвано нехваткой памяти графического процессора"
-        title='Из-за чего появляется "After Effects has encountered a failure related to GPU-enabled effects from this frame"?'
-      >
-        <p>
-          Данная ошибка указывает на то, что видеопамять вашей видеокарты заполнена и
-          эффект, использующий <mark>GPU-ускорение</mark>, задыхается. Такое часто
-          происходит, если у вас видеокарта с объёмом видеопамяти меньше чем 4 ГБ.
-        </p>
-        <p>
-          В таком случае проанализируйте свой проект и попробуйте выключить постепенно
-          эффекты, которые могут вызывать сбой или освободить видеопамять любым способом -
-          перезагрузить устройства или перезагрузить драйверов видеокарты с помощью
-          комбинации клавиш <mark className="key">Ctrl + Win + Shift + B</mark>.
-        </p>
-        <p>
-          Также в данной ошибке вам прямо советуют переключить рендер с видеокарты на
-          процессор. Это можно сделать через окно{" "}
-          <mark className="ui">Project Manager</mark>, открыв его с помощью комбинации
-          клавиш <mark className="key">Ctrl + Alt + Shift + K</mark> и указав{" "}
-          <mark className="ui">Mercury Software Only</mark> в вкладке{" "}
-          <mark className="ui">Video Rendering and Effects</mark>. После изменения
-          значения - рекомендуется перезапустить программу, а затем снова открыть проект.
-        </p>
-        <ImageFigure
-          caption="Project Settings"
-          imgSrc="images/aftereffects/set_render_on_cpu.png"
-          imgTitle="Установка рендера на процессор"
-          styleClass="figure_windows-dark"
-        />
-        <AdditionInfo>
-          Подробнее о каждом параметре на примере использования устройства на связке
-          &quot;процессор AMD и видеокарта NVIDIA&quot;:
-          <ul>
-            <li>
-              <mark className="ui">Mercury GPU Acceleration (CUDA)</mark> - программа{" "}
-              <u>возможно</u> будет использовать видеокарту вместе с процессором для
-              обработки композиций. Но видеокарта не всегда и не во всех случаях будет
-              использоваться, так как не все эффекты программы оптимизированы под работу с
-              ним.
-            </li>
-            <li>
-              <mark className="ui">Mercury GPU Acceleration (OpenCL или OpenGL)</mark> -
-              аналогично предыдущему параметру, но на встроенном видеочипе процессора.
-            </li>
-            <li>
-              <mark className="ui">Mercury Software only</mark> - программа будет
-              преимущественно обрабатывать композиции через процессор, но может
-              использовать видеокарту принудительно, если какому-то эффекту будет
-              необходимо это сделать.{" "}
-            </li>
-          </ul>
-        </AdditionInfo>
-      </DetailsSummary>
-      <DetailsSummary
-        tag="слетела лицензия, красное окно, окно с красной полоской при запуске, не запускается, впн, файл хостс, блокировка доступа в интернет, This unlicensed Adobe app is not genuine and will be disabled soon, Unlicensed Adobe apps may expose your device to increased security risks, This app will disable in days, this app has been disabled"
-        title='Как избавиться от "The unlicensed Adobe app has been disabled"?'
-      >
-        <p>
-          Пользователь, работающий в <mark className="word">народной</mark> версии{" "}
-          <mark className="app">Adobe After Effects</mark> или в любой другой программе от{" "}
-          <mark>Adobe</mark> может столкнуться ошибкой проверки лицензии. Оно
-          сопровождается небольшим окном на белом фоне и с красной полосой сверху, а текст
-          внутри окна обычно написан на английском языке. Иногда встречаются варианты
-          отображения окна об отсутствии лицензии и на другом языке, например на немецком
-          или на голландском. Причин для такого поведения{" "}
-          <mark className="word">слетевшей лицензии</mark> может быть несколько.
-        </p>
-        <ImageFigure
+        <ContentFigure
           caption="Adobe"
-          imgSrc="images/adobe_the_unlicensed_app.png"
           imgTitle="Сообщение об отсутствии лицензии"
-          styleClass="figure_windows-light"
+          src="images/adobe_the_unlicensed_app.png"
+          theme="light"
+          type="image"
+          variant="windows"
         />
-        <Divider>Проверяем устройство на наличие VPN-соединения</Divider>
+        <Divider>Проверяем наличие VPN-соединения</Divider>
         <p>
-          В связи с наплывом блокировок различных интернет-ресурсов на территории СНГ -
-          большинство пользователей стали пользоваться различными способами обхода,
-          например, с помощью <mark className="app">VPN</mark>. И именно из-за
-          использования <mark className="word">VPN-соединения</mark> - программа от{" "}
-          <mark>Adobe</mark> смогла достучаться в интернет и вывела окно об отсутствии
-          лицензии на языке той страны, к которой вы подключились. Почему так происходит?
-          При использовании вашего <mark className="app">VPN-клиента</mark> - он
-          игнорирует ваши правила соединения, созданные в вашей операционной системе, то
-          есть игнорирует стандартный <mark className="app">брандмауэр</mark> и адреса в{" "}
-          <mark className="file">hosts</mark>. Для быстрого решения проблемы с активацией
-          достаточно отключить текущее <mark className="word">VPN-соединение</mark> и
-          пользоваться программами от <mark>Adobe</mark> без него.
+          Для начала проверьте, не используете ли вы виртуальную частную сеть. С ростом
+          популярности подключений через <mark className="app">VPN</mark>, пользователи
+          всё чаще сталкиваются с ошибкой отсутствия лицензии, так как{" "}
+          <mark className="app">Adobe After Effects</mark> после подключения к частной
+          сети может получить доступ в сеть. В результате окно с сообщением о проблеме с
+          лицензией может появиться внезапно и отображаться на языке той страны, к которой
+          вы подключены.
         </p>
-        <AdditionInfo>
-          <ul>
-            <li>
-              Если вы не хотите отключать себя от{" "}
-              <mark className="word">VPN-соединения</mark>, то вы можете проверить
-              настройки своего <mark className="app">VPN-клиента</mark>. Возможно, в нём
-              есть возможность внести программы от <mark>Adobe</mark> или его адреса в
-              список исключений соединений для того, чтобы соединение для{" "}
-              <mark className="app">Adobe After Effects</mark> проходило с учетом ваших
-              настроек брандмауэра или вовсе блокировались.
-            </li>
-            <li>
-              Если вы наоборот используете лицензионную версию{" "}
-              <mark className="app">Adobe After Effects</mark>, то вам нужно будет
-              поддерживать <mark className="word">VPN-соединение</mark> к другой стране во
-              время использования программы, так как <mark>Adobe</mark> блокирует доступ к
-              своим ресурсам пользователям РФ и из-за этого может выскакивать данная
-              ошибка, так как не может сверить лицензии.
-            </li>
-          </ul>
-        </AdditionInfo>
-        <ContentSwitcher
+        <p>
+          Проблема в том, что многие клиенты для подключения к виртуальной частной сети
+          заставляют систему игнорировать правила брандмауэра и изменения в{" "}
+          <mark className="file">hosts</mark>, из-за чего программы, которым ранее был
+          заблокирован доступ к интернету, начинают снова получать доступ к нему. Если вы
+          подключены к частной сети — разорвите соединение с ним и запустите{" "}
+          <mark className="app">Adobe After Effects</mark> снова, окно должно перестать
+          появляться.
+        </p>
+        <p>
+          Если окно с отсутствием лицензии всё продолжает появляться — попробуйте
+          полностью отключить интернет. Если при полном отключении интернета сообщение
+          больше не появляется, стоит проверить настройки соединений на устройстве.
+        </p>
+        <ContentFilter
           macContent={
             <div>
-              <Divider>Блокируем программе доступ в интернет</Divider>
-              <p>
-                Если вы не используете различные средства обхода блокировок или{" "}
-                <mark className="app">VPN</mark>, то вы можете попробовать отредактировать
-                файл <mark className="file">hosts</mark> для блокировки соединения вашего
-                устройства к серверам <mark>Adobe</mark>.
-              </p>
               <Divider>Правим файл hosts</Divider>
               <p>
-                Для редактирования файла <mark className="file">hosts</mark> - вам нужно
-                перейти в директорию <mark className="path">/private/etc</mark>, найти и
-                скопировать файл <mark className="file">hosts</mark> в любое удобное
-                место, открыть любой текстовый редактор, например{" "}
-                <mark className="app">TextEdit</mark> или{" "}
-                <mark className="app">VS Code</mark>, и внести строки из кнопки для
-                открытия модального окна чуть ниже в конец файла. Затем сохраните
-                отредактированный файл и перенесите его обратно в{" "}
-                <mark className="path">/private/etc</mark> с заменой.
+                Один из способов «лечения» этого окна — редактирование файла{" "}
+                <mark className="file">hosts</mark>. Для этого перейдите в директорию{" "}
+                <mark className="path">/private/etc</mark>, скопируйте файл{" "}
+                <mark className="file">hosts</mark> в любое удобное место, откройте его в
+                текстовом редакторе, например, <mark className="app">TextEdit</mark> или{" "}
+                <mark className="app">nano</mark>, и добавьте в конец файла строки из
+                блока ниже. Затем сохраните файл и перенесите его обратно с заменой.
               </p>
               <HostsAdobeModal />
-              <AdditionInfo>
-                <ul>
-                  <li>
-                    Если файл <mark className="file">hosts</mark> в этой директории по
-                    какой-то причине отсутствует - создайте его самостоятельно без
-                    указания расширения файла.
-                  </li>
-                  <li>
-                    Если вы не хотите перемещать туда-сюда файл{" "}
-                    <mark className="file">hosts</mark> для редактирования, то вы можете
-                    открыть ваш текстовый редактор от имени администратора и спокойно
-                    сохранять изменения.
-                  </li>
-                </ul>
-              </AdditionInfo>
-              <Divider>Блокируем доступ в интернет с помощью Radio Silence</Divider>
-              <p>
-                Если внесение адресов в <mark className="file">hosts</mark> вам не
-                помогло, то попробуйте воспользоваться программой{" "}
-                <a href="https://radiosilenceapp.com/">Radio Silence</a> для блокировки
-                доступа в интернет нужным приложениям. После установки и активации этой
-                программы перейдите во вкладку <mark className="ui">Network Monitor</mark>{" "}
-                и в ней запретите программам от <mark>Adobe</mark>, которые лезут в сеть,
-                доступ в интернет, нажав на кнопку <mark className="ui">Block</mark> рядом
-                с названием программы.
-              </p>
-              <ImageFigure
-                caption="Radio Silence"
-                imgSrc="images/network_radio_silence.png"
-                imgTitle="Блокируем доступ в интернет программам на примере Adobe Premiere Pro"
-                styleClass="figure_macos-dark"
+              <ContentFigure
+                caption="Как отредактировать файл Hosts на Mac"
+                src="VcDYAbH6U_c"
+                type="youtube"
               />
+              <Divider>Блокируем доступ с помощью Radio Silence</Divider>
               <p>
-                После проделанных действий, указанные вами программы от <mark>Adobe</mark>{" "}
-                не должны стучаться в сеть и выдавать ошибку об отсутствии лицензии. Ниже
-                показано, как в итоге примерно должна выглядеть вкладка{" "}
-                <mark className="ui">Firewall</mark> после отлова процессов Adobe, лезущие
-                в интернет.
+                Если редактирование <mark className="file">hosts</mark> не помогло,
+                попробуйте воспользоваться программой{" "}
+                <a href="https://radiosilenceapp.com/">Radio Silence</a>.
               </p>
-              <ImageFigure
-                caption="Radio Silence"
-                imgSrc="images/firewall_radio_silence.png"
-                imgTitle="Окно Firewall после блокировки доступа в интернет программам"
-                styleClass="figure_macos-dark"
-              />
+              <ul>
+                <li>
+                  После её установки перейдите во вкладку{" "}
+                  <mark className="select">«Network Monitor»</mark> и запретите доступ в
+                  интернет всем процессам <mark className="company">Adobe</mark>, нажимая
+                  кнопку <mark className="select">«Block»</mark> рядом с их названиями.
+                  <ContentFigure
+                    caption="Radio Silence"
+                    imgTitle="Блокировка доступа в интернет на примере Adobe Premiere Pro"
+                    src="images/network_radio_silence.png"
+                    theme="dark"
+                    type="image"
+                    variant="mac"
+                  />
+                </li>
+                <li>
+                  После этого заблокированные приложения появятся во вкладке{" "}
+                  <mark className="select">«Firewall»</mark> и больше не должны
+                  подключаться к сети.
+                  <ContentFigure
+                    caption="Radio Silence"
+                    imgTitle="Список заблокированных приложений во вкладке Firewall"
+                    src="images/firewall_radio_silence.png"
+                    theme="dark"
+                    type="image"
+                    variant="mac"
+                  />
+                </li>
+              </ul>
+              <Divider>Используем альтернативный способ активации</Divider>
+              <p>
+                Если вы используете релизы от <mark className="user">MONTER GROUP</mark> —
+                попробуйте перейти на метод активации программ с помощью{" "}
+                <mark className="app">Adobe Activation Tool</mark>, предварительно удалив
+                предыдущие установки программы.
+              </p>
             </div>
           }
           windowsContent={
             <div>
-              <Divider>Блокируем программе доступ в интернет</Divider>
+              <Divider>Проверяем настройки вашего VPN-клиента</Divider>
               <p>
-                Если вы не используете различные средства обхода блокировок или{" "}
-                <mark className="app">VPN</mark>, то скорее всего адреса для проверки
-                лицензии от <mark>Adobe</mark> обновились и не были вписаны в ваши правила
-                блокировки соединения. Это исправляется правкой файла{" "}
-                <mark className="file">hosts</mark>, использованием{" "}
-                <mark className="app">OneClickFirewall</mark> или внесением новых правил в{" "}
-                <mark className="app">брандмауэре</mark> вашей операционной системы.
+                Если вы не хотите отключать себя от виртуальной частной сети, проверьте
+                настройки вашего клиента: возможно в нём есть возможность включить
+                раздельное туннелирование или внести программы от{" "}
+                <mark className="company">Adobe</mark> в список исключений, чтобы
+                соединение для программы проходило с учётом ваших настроек брандмауэра или
+                вовсе блокировалось.
               </p>
+              <Divider>Проверяем настройки прокси в системе</Divider>
+              <p>
+                Некоторые клиенты для подключения к виртуальной частной сети изменяют
+                настройку адреса прокси-сервера на собственный, что может мешать
+                корректной работе правил в брандмауэре. Чтобы проверить состояние прокси —
+                откройте <mark className="app">Параметры</mark> с помощью комбинации
+                клавиш <mark className="key">Win + I</mark>, перейдите в{" "}
+                <mark className="select">«Сеть и Интернет» → «Прокси-сервер»</mark> и
+                проверьте настройку{" "}
+                <mark className="select">«Использовать прокси-сервер»</mark>.
+              </p>
+              <ContentFigure
+                caption="Параметры"
+                imgTitle="Проверяем прокси"
+                src="images/check_windows_proxy.png"
+                theme="dark"
+                type="image"
+                variant="windows"
+              />
+              <p>
+                Если прокси включен — нажмите на{" "}
+                <mark className="select">«Изменить»</mark> и отключите настройку адреса
+                собственного сервера.
+              </p>
+              <ContentFigure
+                caption="Параметры"
+                imgTitle="Отключаем прокси"
+                src="images/disable_windows_proxy.png"
+                theme="dark"
+                type="image"
+                variant="windows"
+              />
               <Divider>Правим файл hosts</Divider>
               <p>
-                Для редактирования файла <mark className="file">hosts</mark> - вам нужно
-                перейти в папку{" "}
-                <mark className="path">C:\Windows\System32\drivers\etc</mark>, скопировать
-                файл <mark className="path">hosts</mark> в любое удобное место, открыть
-                любой текстовый редактор, например <mark className="app">Notepad++</mark>{" "}
-                или <mark className="app">VS Code</mark>, и внести строки из кнопки для
-                открытия модального окна чуть ниже в конец файла. Затем сохраните
-                отредактированный файл и перенесите его обратно в{" "}
-                <mark className="path">C:\Windows\System32\drivers\etc\hosts</mark> с
-                заменой.
+                Если вы не используете клиенты для подключения к виртуальным частным
+                сетям, то стоит перейти к другим способам «лечения» проблемы с активацией
+                с помощью блокировки доступа программе в интернет. Первым из них —
+                редактирование файла <mark className="file">hosts</mark>. Для этого
+                перейдите в папку{" "}
+                <mark className="path">C:\Windows\System32\drivers\etc</mark>, скопируйте
+                файл <mark className="file">hosts</mark> в удобное место, откройте его в
+                текстовом редакторе, например, <mark className="app">Notepad++</mark>, и
+                добавьте в конец файла строки из блока ниже. Затем сохраните файл и
+                перенесите его обратно с заменой.
               </p>
               <HostsAdobeModal />
-              <AdditionInfo>
-                <ul>
-                  <li>
-                    Если файл <mark className="file">hosts</mark> в этой директории по
-                    какой-то причине отсутствует - создайте его самостоятельно без
-                    указания расширения файла.
-                  </li>
-                  <li>
-                    Если вы не хотите перемещать туда-сюда файл{" "}
-                    <mark className="file">hosts</mark> для редактирования, то вы можете
-                    открыть ваш текстовый редактор от имени администратора и спокойно
-                    сохранять изменения.
-                  </li>
-                </ul>
-              </AdditionInfo>
-              <YouTubeVideo
+              <ContentFigure
                 caption="Как редактировать файл hosts"
-                link="wHhay41ocsc"
+                src="wHhay41ocsc"
+                type="youtube"
               />
-              <AdditionWarning>
-                <ul>
-                  <li>Для изменения системных файлов требуются права администратора.</li>
-                  <li>
-                    После изменения файла <mark className="file">hosts</mark> желательно
-                    перезагрузить ваше устройство.
-                  </li>
-                </ul>
-              </AdditionWarning>
-              <Divider>Создаём новые правила в брандмауэре</Divider>
+              <Divider>Создаём новые правила в брандмауэре Защитника Windows</Divider>
+              <Addition type="warning">
+                Прежде чем вносить правила в брандмауэр — убедитесь, что он включён. При
+                отключённом брандмауэре правила блокировки входящих и исходящих соединений
+                не будут применяться.{" "}
+                <a href="https://www.youtube.com/watch?v=goqsVsTMeRU">
+                  Как его включить?
+                </a>
+              </Addition>
+              <Addition type="info">
+                Если вы устанавливали репаки от <mark className="user">KpoJluK</mark> и{" "}
+                <mark className="user">m0nkrus</mark>, то правила для блокировки доступа в
+                интернет программам в брандмауэре могут быть уже созданы.
+              </Addition>
               <p>
-                Если правка файла <mark className="file">hosts</mark> вам не помогла и вы
-                всё ещё сталкиваетесь с сбоем лицензии, то попробуйте настроить правила
-                брандмауэра. Для этого откройте окно{" "}
-                <mark className="app">Выполнить</mark> с помощью комбинации клавиш{" "}
-                <mark className="key">Win + R</mark>, введите в него{" "}
-                <mark className="code">wf.msc</mark> и нажмите на{" "}
-                <mark className="key">Enter</mark>. Таким образом вы откроете{" "}
-                <mark className="app">монитор брандмауэра</mark>, в котором вы можете
-                настроить правила для блокировки доступа в интернет нужной программе.
+                Если правка файла <mark className="file">hosts</mark> не помогла,
+                попробуйте настроить правила соединений в брандмауэре.
               </p>
-              <AdditionInfo>
-                При установке приложений <mark>Adobe</mark> в формате репака от{" "}
-                <mark>KpoJluK</mark> правила в брандмауэре автоматически прописываются при
-                установке.
-              </AdditionInfo>
+              <ul>
+                <li>
+                  Чтобы быстро открыть брандмауэр — откройте окно{" "}
+                  <mark className="app">«Выполнить»</mark> с помощью комбинации клавиш{" "}
+                  <mark className="key">Win + R</mark>, введите в поле{" "}
+                  <mark className="select">«Открыть»</mark> значение{" "}
+                  <mark className="code">wf.msc</mark> и нажмите{" "}
+                  <mark className="key">Enter</mark>.
+                  <ContentFigure
+                    caption="Выполнить"
+                    imgTitle="Открываем брандмауэр"
+                    src="images/open_wf_msc.png"
+                    theme="dark"
+                    type="image"
+                    variant="windows"
+                  />
+                </li>
+                <li>
+                  Перед вами откроется{" "}
+                  <mark className="app">Монитор брандмауэра Защитника Windows</mark>. В
+                  левой части окна перейдите в раздел{" "}
+                  <mark className="select">«Правила для входящих подключений»</mark>.
+                  <ContentFigure
+                    caption="Монитор брандмауэра Защитника Windows"
+                    imgTitle="Список правил брандмауэра"
+                    src="images/firewall_main_page.png"
+                    theme="light"
+                    type="image"
+                    variant="windows"
+                  />
+                </li>
+                <li>
+                  В правой части интерфейса нажмите кнопку{" "}
+                  <mark className="select">«Создать правило»</mark>.
+                  <ContentFigure
+                    caption="Монитор брандмауэра Защитника Windows"
+                    imgTitle="Окно создания правила брандмауэра"
+                    src="images/firewall_creating_rule.png"
+                    theme="light"
+                    type="image"
+                    variant="windows"
+                  />
+                </li>
+                <li>
+                  В открывшемся мастере создания правил на первой вкладке оставьте
+                  выбранным <mark className="select">«Для программы»</mark> и нажмите{" "}
+                  <mark className="select">«Далее»</mark>.
+                  <ContentFigure
+                    caption="Мастер создания правила для нового входящего подключения"
+                    imgTitle="Выбор типа правила брандмауэра"
+                    src="images/firewall_rule_type.png"
+                    theme="light"
+                    type="image"
+                    variant="windows"
+                  />
+                </li>
+                <li>
+                  На второй вкладке укажите путь к исполняемому файлу программы —{" "}
+                  <mark className="path">
+                    C:\Program Files\Adobe\Adobe After Effects 20XX\Support
+                    Files\AfterFX.exe
+                  </mark>{" "}
+                  и снова нажмите <mark className="select">«Далее»</mark>.
+                  <ContentFigure
+                    caption="Мастер создания правила для нового входящего подключения"
+                    imgTitle="Выбор программы для блокировки"
+                    src="images/firewall_select_app.png"
+                    theme="light"
+                    type="image"
+                    variant="windows"
+                  />
+                </li>
+                <li>
+                  В качестве действия выберите{" "}
+                  <mark className="select">«Блокировать подключение»</mark>.
+                  <ContentFigure
+                    caption="Мастер создания правила для нового входящего подключения"
+                    imgTitle="Окно настроек брандмауэра"
+                    src="images/firewall_blocking.png"
+                    theme="light"
+                    type="image"
+                    variant="windows"
+                  />
+                </li>
+                <li>
+                  Во вкладке <mark className="select">«Профиль»</mark> оставьте все три
+                  флажка включёнными и нажмите <mark className="select">«Далее»</mark>.
+                  <ContentFigure
+                    caption="Мастер создания правила для нового входящего подключения"
+                    imgTitle="Выбор профиля брандмауэра"
+                    src="images/firewall_select_profile.png"
+                    theme="light"
+                    type="image"
+                    variant="windows"
+                  />
+                </li>
+                <li>
+                  <p>
+                    Задайте новому правилу любое имя, например, название программы и
+                    нажмите <mark className="select">«Готово»</mark>. После этого
+                    указанная программа больше не должна подключаться к интернету.
+                  </p>
+                  <ContentFigure
+                    caption="Мастер создания правила для нового входящего подключения"
+                    imgTitle="Выбор имени для правила брандмауэра"
+                    src="images/firewall_naming.png"
+                    theme="light"
+                    type="image"
+                    variant="windows"
+                  />
+                </li>
+                <li>
+                  Проделайте аналогичные действия и для{" "}
+                  <mark className="select">«Правил для исходящего подключения»</mark>.
+                </li>
+              </ul>
+              <Divider>Используем OneClickFirewall для быстрой блокировки</Divider>
               <p>
-                После открытия монитора брандмауэра перейдите в раздел правил для входящих
-                подключений в левой части окна.
-              </p>
-              <ImageFigure
-                caption="Монитор брандмауэра Защитника Windows в режиме повышенной безопасности"
-                imgSrc="images/firewall_main_page.png"
-                imgTitle="Список правил брандмауэра"
-                styleClass="figure_windows-light"
-              />
-              <p>
-                Затем в правой части интерфейса найдите кнопку{" "}
-                <mark className="ui">Создать правило</mark> и нажмите на него.
-              </p>
-              <ImageFigure
-                caption="Монитор брандмауэра Защитника Windows в режиме повышенной безопасности"
-                imgSrc="images/firewall_creating_rule.png"
-                imgTitle="Окно создания правила брандмауэра"
-                styleClass="figure_windows-light"
-              />
-              <p>
-                После нажатия на кнопку создания нового правила в брандмауэре у вас
-                откроется новое окно с пятью вкладками. В первой вкладке оставьте значение{" "}
-                <mark className="ui">Для программы</mark> и нажмите на{" "}
-                <mark className="ui">Далее</mark>.
-              </p>
-              <ImageFigure
-                caption="Мастер создания правила для нового входящего подключения"
-                imgSrc="images/firewall_rule_type.png"
-                imgTitle="Выбор типа правила брандмауэра"
-                styleClass="figure_windows-light"
-              />
-              <p>
-                Во второй вкладке нужно указать путь до исполняемого файла программы
-                вручную или через кнопку <mark className="ui">Обзор</mark>, а затем снова
-                нажать на <mark className="ui">Далее</mark>. Путь должен выглядеть как{" "}
-                <mark className="path">
-                  C:\Program Files\Adobe\Adobe After Effects 20XX\Support
-                  Files\AfterFX.exe
-                </mark>
-                .
-              </p>
-              <ImageFigure
-                caption="Мастер создания правила для нового входящего подключения"
-                imgSrc="images/firewall_select_app.png"
-                imgTitle="Выбор программы для блокировки доступа"
-                styleClass="figure_windows-light"
-              />
-              <p>
-                Для действия нового правила нам, очевидно, нужно установить параметр{" "}
-                <mark className="ui">Блокировать подключение</mark>.
-              </p>
-              <ImageFigure
-                caption="Мастер создания правила для нового входящего подключения"
-                imgSrc="images/firewall_blocking.png"
-                imgTitle="Окно настроек брандмауэра"
-                styleClass="figure_windows-light"
-              />
-              <p>
-                Во вкладке <mark className="ui">Профили</mark> нужно оставить три чекбокса
-                включенными и опять нажать на <mark className="ui">Далее</mark>.
-              </p>
-              <ImageFigure
-                caption="Мастер создания правила для нового входящего подключения"
-                imgSrc="images/firewall_select_profile.png"
-                imgTitle="Выбор профиля брандмауэра"
-                styleClass="figure_windows-light"
-              />
-              <p>
-                Далее назовите своё новое правило любым именем. Можно просто написать
-                название программы и нажать на <mark className="ui">Готово</mark>. После
-                этого правило будет создано, а указанная программа теперь не должна
-                стучаться в интернет.
-              </p>
-              <ImageFigure
-                caption="Мастер создания правила для нового входящего подключения"
-                imgSrc="images/firewall_naming.png"
-                imgTitle="Выбор имени для правила брандмауэра"
-                styleClass="figure_windows-light"
-              />
-              <AdditionInfo>
-                Возможно подобные действия нужно провернуть и к{" "}
-                <mark>правилам для исходящего подключения</mark> по аналогичной схеме.
-              </AdditionInfo>
-              <Divider>
-                Используем OneClickFirewall для быстрой блокировки интернета программе
-              </Divider>
-              <p>
-                Если вы не хотите морочиться с созданием правил в{" "}
-                <mark className="app">Брандмауэре Windows</mark> - попробуйте утилиту{" "}
-                <mark className="app">OneClickFirewall</mark>. С помощью него вы сможете
-                блокировать доступ в интернет нужной программе кнопкой{" "}
-                <mark className="ui">Block Internet Access</mark> в контекстном меню
-                ярлыка или наоборот, разрешить кнопкой{" "}
-                <mark className="ui">Restore Internet Access</mark>. Загрузить утилиту
-                можно на{" "}
+                Если вы не хотите возиться с созданием правил вручную — попробуйте
+                воспользоваться утилитой <mark className="app">OneClickFirewall</mark>.
+                Она добавляет в контекстное меню ярлыков две кнопки:{" "}
+                <mark className="select">«Block Internet Access»</mark> для блокировки
+                доступа в интернет и{" "}
+                <mark className="select">«Restore Internet Access»</mark> для
+                восстановления. Загрузить утилиту можно на{" "}
                 <a href="https://winaero.com/download-oneclickfirewall/">
                   официальном сайте WinAero
                 </a>
                 .
               </p>
-              <ImageFigure
+              <ContentFigure
                 caption="Рабочий стол"
-                imgSrc="images/oneclickfirewall_aftereffects.png"
-                imgTitle="Блокируем доступ в интернет через OneClickFirewall"
-                styleClass="figure_windows-dark"
+                imgTitle="Блокировка доступа в интернет через OneClickFirewall"
+                src="images/oneclickfirewall_aftereffects.png"
+                theme="dark"
+                type="image"
+                variant="windows"
               />
-              <Divider>Проверяем установленные сервисы на устройстве</Divider>
+              <Divider>Проверяем, не «навредил» ли антивирус</Divider>
               <p>
-                Если вы переходили с лицензионных версий на{" "}
-                <mark className="word">народные</mark>, то скорее всего вы полностью не
-                очищали вашу систему от предыдущих установок программ от{" "}
-                <mark>Adobe</mark>. Среди не удалённых сервисов в вашей системе мог
-                затесаться{" "}
+                В редких случаях антивирус может удалить файлы, отвечающие за активацию,
+                посчитав их вредоносными. Если вы не хотите отключать или удалять{" "}
+                <mark className="app">Защитник Windows</mark>, добавьте папки с
+                программами <mark className="company">Adobe</mark> в список исключений
+                антивируса, а затем установите программу вашей версии поверх существующей.
+              </p>
+              <ContentFigure
+                caption="Windows Defender: как восстановить файлы и добавить их в исключения"
+                src="ET94_dv3f8c"
+                type="youtube"
+              />
+              <Divider>Проверяем установленные службы</Divider>
+              <p>
+                Если вы переходили с лицензионных версий на «народные», скорее всего, вы
+                могли не очистить полностью систему от предыдущих установок. Из-за этого
+                среди неудалённых служб могла остаться{" "}
                 <mark className="app">Adobe Genuine Software Integrity Service</mark>,
-                который проверяет программы на легальное использование и именно он может
-                вызвать окно об отсутствии лицензии. Для решения проблемы - достаточно{" "}
-                <a href="https://github.com/wangzhenjjcn/AdobeGenp/wiki/Disable-Adobe-Genuine-Software-Integrity-on-Windows">
-                  отключить
-                </a>{" "}
-                этот сервис в <mark className="app">services.msc</mark> или очистить
-                систему от программ <mark>Adobe</mark> с помощью{" "}
+                которая проверяет «легальность» использования программ и может вызывать
+                окно об отсутствии лицензии. Для решения проблемы достаточно{" "}
+                <a href="https://youtu.be/HDVvWyBKizo&t=75">отключить</a> эту службу или
+                полностью очистить систему от продуктов{" "}
+                <mark className="company">Adobe</mark> с помощью{" "}
                 <a href="https://helpx.adobe.com/creative-cloud/kb/cc-cleaner-tool-installation-problems.html">
-                  Adobe Creative Cloud Cleaner
+                  Adobe Creative Cloud Cleaner Tool
                 </a>
                 .
               </p>
-              <Divider>Проверяем, не натворил ли чего антивирус</Divider>
-              <p>
-                В редких случаях ваш антивирус мог удалить файлы для корректной подмены
-                активации, ссылаясь на то, что на вашем устройстве затесался якобы вирус.
-                Если вы не хотите отключать или удалять{" "}
-                <mark className="app">Windows Defender</mark> с вашего устройства, то вы
-                можете добавить нужные папки c программами от <mark>Adobe</mark> в список
-                исключений вашего антивируса, а затем установите программу вашей версии
-                поверх существующей.{" "}
-              </p>
-              <YouTubeVideo
-                caption="Windows Defender - как восстановить файлы и запретить их удаление"
-                link="ET94_dv3f8c"
-              />
             </div>
           }
         />
       </DetailsSummary>
       <DetailsSummary
-        tag="для воспроизведения кэшированного предпросмотра требуется 2 или более кадров, не проигрывается предпросмотр, зацикливается превью"
-        title='"Cached preview needs 2 or more frames for playback" или почему у меня рендер предпросмотра не завершается до конца и начинает идти по кругу?'
+        tag="23::40, after effects has unexpectedly run out of memory and cannot complete this export, either decrease the memory requirements for the rendering frame or install more ram, нехватка озу, выделенный объем памяти превышает внутреннее ограничение, рекомендуется снизить требования к памяти для рендеринга этого кадра, предупреждение о нехватке памяти, оперативная память, не проигрывается предпросмотр, зацикливается превью"
+        title="Как избавиться от «Out of Memory», «Unable to allocate enough memory to render the current frame», «Low memory warning. RAM use has been extended for previews» и похожих ошибок?"
       >
         <p>
-          Данная ошибка может выскочить по двум причинам: из-за банальной невнимательности
-          пользователя или из-за переполненного кэша программы и оперативной памяти.
+          Поздравляю, вы встретились с первым «боссом» в{" "}
+          <mark className="app">Adobe After Effects</mark>. Эти ошибки и предупреждения
+          возникают, когда программе банально не хватает оперативной памяти для работы над
+          вашими проектами. Часто это происходит из-за слишком «тяжёлых» эффектов,
+          использования видео с немонтажными кодеками или неверных настроек программы и
+          операционной системы.
         </p>
-        <Divider>Проверяем длину рабочей области</Divider>
         <p>
-          Первым делом - проверьте длину вашей рабочей области. Может вы упустили тот
-          факт, что вы случайным образом сократили его до одного кадра, поэтому и
-          отображается эта ошибка. Программе не может начать предпросмотр, если у вас
-          рабочая область обрамлена всего лишь одним кадром. Ну как вы себе представляете
-          проигрывание композиции всего лишь из одного кадра?
-        </p>
-        <ImageFigure
-          caption="Одна из причин ошибки - маленькая рабочая область"
-          imgSrc="images/aftereffects/low_work-area.png"
-          imgTitle="Маленькая рабочая область"
-          styleClass="figure_windows-dark"
-        />
-        <p>
-          Чтобы это исправить - удлините рабочую область до нужной длины с помощью{" "}
-          <mark className="key">B</mark> и <mark className="key">N</mark>. Если вы хотите
-          охватить всю композицию или выделенный слой, установите точки начала и конца
-          рабочей области с помощью комбинации клавиш{" "}
-          <mark className="key">Ctrl + Alt + B</mark>. Таким образом она будет
-          соответствовать длительности композиции или нужного слоя, и ошибка должна
-          исчезнуть.
-        </p>
-        <Divider>Очищаем кэш и пробуем начать рендер предпросмотра заново</Divider>
-        <p>
-          Если длина вашей рабочей области больше, чем два кадра, то скорее всего вы
-          столкнулись с переполненным кэшем или забитой оперативной памятью. Для
-          исправления этой проблемы - достаточно почистить кэш с помощью{" "}
-          <mark className="ui">Edit &gt; Purge &gt; All Memory & Disk Cache</mark> и
-          нажать на <mark className="ui">OK</mark>. После очистки кэша попробуйте начать
-          рендер предпросмотра заново, она должна пройти нормально.
-        </p>
-        <AdditionInfo>
-          <ul>
-            <li>
-              Если очистка кэша не помогает, но раньше всё работало нормально - попробуйте{" "}
-              <a href="#4.7">настроить файл подкачки</a>.
-            </li>
-            <li>
-              Иногда может быть такое, что какой-нибудь эффект может мешать корректному
-              рендеру, поэтому программа не может нормально обработать кадры для
-              предпросмотра. Попробуйте найти виновника из применённых эффектов на слоя
-              эффект, который мешает нормальному рендеру, уберите его или замените на
-              похожий.
-            </li>
-          </ul>
-        </AdditionInfo>
-        <ImageFigure
-          caption="Очистка кэша и освобождение оперативной памяти"
-          imgSrc="images/aftereffects/edit_purge_all-memory-and-disk-cache.png"
-          imgTitle="Очистка кэша и освобождение оперативной памяти"
-          styleClass="figure_windows-light"
-        />
-        <Divider>Включаем дисковый кэш и предпросмотр из него</Divider>
-        <p>
-          А если вы сталкиваетесь с тем, что ваш предпросмотр начинает идти по кругу, то
-          попробуйте включить новую функцию предпросмотра из дискового кэша. Она доступна
-          в <mark className="app">Adobe After Effects</mark> версии <mark>25.2</mark> и
-          новее и позволяет проиграть предпросмотр напрямую из дискового кэша, не
-          отправляя кадры из него в оперативную память. Чтобы эта функция была
-          активирована - вам нужно включить дисковый кэш, который настраивается в{" "}
-          <mark className="ui">Edit &gt; Preferences &gt; Media & Disk Cache</mark> и
-          включить параметр <mark className="ui">Enable Preview from Disk Cache</mark>.
-          После включения этой опции - попробуйте начать кэширование заново и проверьте,
-          насколько дольше оно станет проигрываться.
-        </p>
-        <ImageFigure
-          caption="Preferences"
-          imgSrc="images/aftereffects/enable_preview_from_disk_cache.png"
-          imgTitle="Включение проигрывания предпросмотра из дискового кэша"
-          styleClass="figure_windows-dark"
-        />
-      </DetailsSummary>
-      <DetailsSummary
-        tag="выделенный объем памяти превышает внутреннее ограничение, рекомендуется снизить требования к памяти для рендеринга этого кадра, невозможно выделить для эффекта буфер величиной более 30000 пикс. в любом направлении, нехватка озу, перекрутил, не проигрывается предпросмотр, зацикливается превью, motion tile, мозаика движения, Either decrease the memory requirements for the rendering frame or install more RAM"
-        title='"Unable to allocate enough memory to render the current frame" или "Effect cannot allocate a buffer larger than 30000 pixels in either dimension (25::56)"'
-      >
-        <p>
-          Эти две ошибки обычно возникают из-за неправильных действий пользователя или
-          неумения оптимизировать свой проект. В первой ошибке программе не хватает
-          ресурсов устройства для рендера кадра, а во второй - пользователь каким-то
-          образом создал слишком большой файл по разрешению и упёрся в лимит по пикселям.
-        </p>
-        <Divider>
-          Объясняем причину и решение &quot;Unable to allocate enough memory to render the
-          current frame (XXXX x XXXX @ X bpc)&quot;
-        </Divider>
-        <p>
-          В описании этой ошибки указано, что проблема связана с чрезмерными требованиями
-          к рендеру нужного кадра и программа не может выделить ресурсы. Чаще всего это
-          происходит из-за использования ресурсоёмких эффектов или из-за большой глубины
-          цвета, указанная в настройках проекта.
+          Советы в этой статье помогут вам минимизировать типичные проблемы с нехваткой
+          оперативной памяти и «тормозами» программы, однако не могут полностью исключить
+          их появление в будущем.
         </p>
         <ul>
           <li>
-            Попробуйте отключить все эффекты на время, а затем поочерёдно включить их,
-            чтобы определить, какой из них вызывает проблему при рендере кадра.
+            Для начала стоит закрыть другие ресурсоёмкие программы при работе в{" "}
+            <mark className="app">Adobe After Effects</mark>, например браузер или другую
+            монтажную программу.
           </li>
           <li>
-            Попробуйте очистить кэши в <mark className="ui">Edit &gt; Purge</mark>,
-            освободить оперативную память через <mark className="app">Mem Reduct</mark>{" "}
-            для <mark>Windows</mark> или <a href="#4.7">настроить файл подкачки</a>.
+            Убедитесь, что вы не используете исходники со слишком большим разрешением
+            например, <mark>4K</mark>. Чем выше разрешение слоя и композиции, тем больше
+            требуется оперативной памяти. Если вы используете исходники из интернета,
+            особенно с видеохостингов — стоит попробовать их конвертировать через{" "}
+            <a href="https://www.shutterencoder.com/">Shutter Encoder</a> в монтажный
+            кодек, например в <mark className="video">Apple ProRes 422</mark>, а затем
+            заменить в проекте. Так вы дополнительно обезопасите себя от различных багов.{" "}
+            <a href="#">Как это сделать?</a>
           </li>
           <li>
-            Попробуйте понизить цветовую глубину. Чтобы это сделать - откройте{" "}
-            <mark className="ui">Project Manager</mark> с помощью комбинации клавиш{" "}
+            Убедитесь, что вы не перегрузили проект множеством ресурсоёмких эффектов,
+            например <mark className="plugin">Deep Glow</mark>, эффектами из пакетов{" "}
+            <mark className="plugin">Red Giant</mark> или{" "}
+            <mark className="plugin">Boris FX</mark>. Некоторые эффекты могут
+            конфликтовать друг с другом и потреблять слишком много оперативной памяти.
+          </li>
+          <li>
+            Если вы используете несколько композиций с ресурсоёмкими эффектами, попробуйте
+            создать для них прокси. Это также сократит время на повторный рендеринг, если
+            вы не планируете вносить в эти композиции дальнейшие изменения.
+            <Addition type="info">
+              Чтобы создать прокси, найдите нужную композицию в окне{" "}
+              <mark className="select">«Project»</mark>, нажмите{" "}
+              <mark className="key">ПКМ</mark> и выберите{" "}
+              <mark className="select">«Create Proxy» → «Movie»</mark>. В очереди
+              рендеринга выберите подходящий формат и запустите генерацию. После успешного
+              рендеринга прокси автоматически подключится к композиции. Отключить его
+              можно через то же контекстное меню:{" "}
+              <mark className="select">«Set Proxy» → «None»</mark>.
+            </Addition>
+          </li>
+          <li>
+            Попробуйте очистить кэш и оперативную память с помощью{" "}
+            <mark className="select">«Edit» → «Purge» → «All Memory & Disk Cache»</mark>.
+            <ContentFigure
+              caption="Очистка кэша и оперативной памяти"
+              imgTitle="Очистка кэша и оперативной памяти"
+              src="images/aftereffects/edit_purge_all-memory-and-disk-cache.png"
+              theme="light"
+              type="image"
+              variant="windows"
+            />
+          </li>
+          <li>
+            Если у вас включена функция{" "}
+            <mark className="select">«Multi-Frame Rendering»</mark>, попробуйте временно
+            её отключить. Для этого перейдите в{" "}
+            <mark className="select">
+              «Edit» → «Preferences» → «Memory & Performance»
+            </mark>
+            , снимите флажок{" "}
+            <mark className="select">«Enable Multi-frame Rendering»</mark> и повторите
+            попытку рендеринга.
+            <ContentFigure
+              caption="Preferences"
+              imgTitle="Переключение функции Multi-Frame Rendering"
+              src="images/aftereffects/checkbox_multiframe-render.png"
+              theme="dark"
+              type="image"
+              variant="windows"
+            />
+          </li>
+          <li>
+            Проверьте параметр{" "}
+            <mark className="select">«RAM reserved for other applications»</mark> в{" "}
+            <mark className="select">
+              «Edit» → «Preferences» → «Memory & Performance»
+            </mark>
+            . Многие путают его назначение: он отвечает не за то, сколько памяти получат
+            программы <mark className="company">Adobe</mark>, а за то, сколько останется
+            для сторонних приложений. Если оставить слишком большое значение, для{" "}
+            <mark className="company">Adobe</mark> может не хватать оперативной памяти.
+            Чтобы выделить максимум для <mark className="company">Adobe</mark>, установите{" "}
+            <mark>0</mark> в этом параметре — программа сама подставит минимально
+            допустимое значение.
+            <ContentFigure
+              caption="Preferences"
+              imgTitle="Настройка параметра RAM reserved for other applications"
+              src="images/aftereffects/ram_reserved_for_other_applications.png"
+              theme="dark"
+              type="image"
+              variant="windows"
+            />
+          </li>
+          <li>
+            Проверьте, что в настройках проекта не установлена глубина цвета{" "}
+            <mark>16</mark> или <mark>32 бит на канал</mark>. Для этого откройте{" "}
+            <mark className="select">«Project Settings»</mark> с помощью комбинации клавиш{" "}
             <mark className="key">Ctrl + Alt + Shift + K</mark>, перейдите во вкладку{" "}
-            <mark className="ui">Color</mark> и в параметре{" "}
-            <mark className="ui">Bit Depth</mark> укажите меньшее значение цветовой
-            глубины, например <mark>8 bits per channel</mark>.
+            <mark className="select">«Color»</mark> и в параметре{" "}
+            <mark className="select">«Depth»</mark> снизьте битность проекта, чтобы
+            облегчить работу с ним.
+            <ContentFigure
+              caption="Project Settings"
+              imgTitle="Изменение битности в проекте"
+              src="images/aftereffects/change_bit_depth.png"
+              theme="dark"
+              type="image"
+              variant="windows"
+            />
+          </li>
+          <li>
+            Если у вас мало оперативной памяти, докупите её, если это возможно. В
+            сегодняшних реалиях для комфортной работы в{" "}
+            <mark className="app">Adobe After Effects</mark> требуется минимум{" "}
+            <mark>32 ГБ</mark> ОЗУ.
+            <Addition type="info">
+              В <mark className="app">Adobe After Effects</mark> версии <mark>25.2</mark>{" "}
+              и новее добавили функцию воспроизведения предпросмотра напрямую из дискового
+              кэша, без загрузки кадров в ОЗУ. Это может быть полезно, если у вас мало
+              оперативной памяти. Опция включена по умолчанию, если активен дисковый кэш.
+              Управлять ей можно в{" "}
+              <mark className="select">
+                «Edit» → «Preferences» → «Media & Disk Cache» → «Enable Preview from Disk
+                Cache»
+              </mark>
+              . Для этой функции желательно использовать быстрый SSD.
+            </Addition>
           </li>
         </ul>
-        <Divider>
-          Объясняем причину и решение &quot;Effect cannot allocate a buffer larger than
-          30000 pixels in either dimension&quot;
-        </Divider>
+        <ContentFilter
+          windowsContent={
+            <div>
+              <li>
+                <a href="#">Попробуйте настроить файл подкачки</a>. В качестве{" "}
+                <mark className="select">
+                  «минимального и максимального размера файла подкачки»
+                </mark>{" "}
+                установите значение от <mark className="copy">1024</mark> до{" "}
+                <mark className="copy">65536</mark>, <mark className="copy">131072</mark>{" "}
+                или больше. После настройки, система создаст файл подкачки с начальным
+                размером <mark>1 ГБ</mark>, который сможет динамически расширяться до{" "}
+                <mark>64-128 ГБ</mark>, в зависимости от заданных вами настроек.
+              </li>
+              <li>
+                Установите программу{" "}
+                <a href="https://github.com/henrypp/memreduct/releases">Mem Reduct</a> и
+                настройте автоматическую очистку оперативной памяти при достижении{" "}
+                <mark>90%</mark> заполнения. Данная утилита будет работать эффективнее,
+                если у вас включён файл подкачки.
+              </li>
+              <li>
+                Если файл подкачки включён и вы уверены, что проблема не в программе, —
+                проверьте планки оперативной памяти с помощью{" "}
+                <a href="https://www.memtest86.com/">MemTest86</a> или поменяйте их
+                местами в слотах материнской платы.
+              </li>
+            </div>
+          }
+        />
+      </DetailsSummary>
+      <DetailsSummary
+        tag="видеокарта, гпу, нехватает видеопамяти, врам, vram, this is likely because your gpu is out of memory, ошибка эффектов гп, обнаружена ошибка которая связана с эффектами на этом кадре использующими графический процессор, вероятно это вызвано нехваткой памяти графического процессора"
+        title="Что делать с ошибкой «After Effects has encountered a failure related to GPU-enabled effects»?"
+      >
         <p>
-          Ошибка{" "}
-          <mark>
-            Effect cannot allocate a buffer larger than 30000 pixels in either dimension
-          </mark>{" "}
-          чаще всего связана с эффектами вроде <mark className="plugin">Motion Tile</mark>{" "}
-          или <mark className="plugin">CC Repetile</mark>. Эти эффекты увеличивают
-          фактическое разрешение слоя за счёт расширения его границ. Если исходное
-          разрешение слоя уже большое, например, <mark>16384x16384</mark>, то любое
-          дополнительное расширение может привести к превышению этого лимита.
+          Эта ошибка указывает на то, что видеопамять вашей видеокарты заполнена и эффект,
+          использующий аппаратное ускорение, не может обработать кадр. Такое часто
+          происходит, если у вас видеокарта с объёмом видеопамяти менее <mark>4 ГБ</mark>.
+        </p>
+        <ul>
+          <li>
+            Для начала стоит проанализировать свой проект и попробуйте поочерёдно
+            отключать эффекты, которые могут вызывать сбой.
+          </li>
+          <li>
+            Попробуйте освободить видеопамять, перезагрузив компьютер или перезапустив
+            драйвер видеокарты с помощью комбинации клавиш{" "}
+            <mark className="key">Ctrl + Win + Shift + B</mark>.
+          </li>
+          <li>
+            Попробуйте настроить проект на программный рендеринг без аппаратного
+            ускорения, то есть с использованием только процессора. Для этого откройте
+            настройки проекта комбинацией клавиш{" "}
+            <mark className="key">Ctrl + Alt + Shift + K</mark>, во вкладке{" "}
+            <mark className="select">«Video Rendering and Effects»</mark> выберите{" "}
+            <mark className="select">«Mercury Software Only»</mark>. После изменения
+            настроек рекомендуется перезапустить программу.
+            <ContentFigure
+              caption="Project Settings"
+              imgTitle="Переключение рендеринга на процессор"
+              src="images/aftereffects/set_render_on_cpu.png"
+              theme="dark"
+              type="image"
+              variant="windows"
+            />
+            <Addition type="info">
+              Подробнее о параметрах рендеринга на примере связки «процессор AMD +
+              видеокарта NVIDIA»:
+              <ul>
+                <li>
+                  <mark className="select">«Mercury GPU Acceleration (CUDA)»</mark> —
+                  программа <u>по возможности</u> будет использовать видеокарту NVIDIA для
+                  обработки композиций. Однако это происходит не всегда, так как не все
+                  эффекты оптимизированы для работы с GPU.
+                </li>
+                <li>
+                  <mark className="select">«Mercury GPU Acceleration (OpenCL)»</mark> —
+                  аналогично предыдущему параметру, но для видеокарт AMD и встроенной
+                  графики Intel.
+                </li>
+                <li>
+                  <mark className="select">«Mercury Software Only»</mark> — программа
+                  будет обрабатывать композиции преимущественно с помощью процессора, но
+                  может принудительно задействовать видеокарту, если это потребуется для
+                  работы конкретного эффекта.
+                </li>
+              </ul>
+            </Addition>
+          </li>
+        </ul>
+      </DetailsSummary>
+      <DetailsSummary
+        tag="25::56, невозможно выделить для эффекта буфер величиной более 30000 пикселей в любом направлении, перекрутил, не проигрывается предпросмотр, motion tile, мозаика движения"
+        title="Что означает «Effect cannot allocate a buffer larger than 30000 pixels in either dimension»?"
+      >
+        <p>
+          В <mark className="app">Adobe After Effects</mark> размер слоя не может быть
+          больше <mark>30000</mark> пикселей по ширине или высоте, и это ограничение
+          обойти нельзя. Эта ошибка часто появляется из-за эффектов, которые увеличивают
+          фактическое разрешение слоя, — например,{" "}
+          <mark className="plugin">Motion Tile</mark> или{" "}
+          <mark className="plugin">CC Repetile</mark>. Если исходное разрешение и так
+          большое, например <mark>16384×16384</mark>, любое дополнительное расширение
+          может превысить лимит.
         </p>
         <p>
-          В <mark className="app">Adobe After Effects</mark> размер любого слоя не может
-          превышать <mark>30000</mark> пикселей по ширине или высоте и это ограничение
-          никак нельзя обойти. Для решения проблемы найдите эффект, который увеличивает
-          размеры изображения, и либо временно отключите его, либо уменьшите параметры
-          расширения, чтобы итоговое разрешение слоя оставалось в допустимых пределах.
+          Чтобы исправить эту ошибку, найдите эффект, который увеличивает изображение, и
+          либо временно отключите его, либо измените его параметры.
         </p>
       </DetailsSummary>
       <DetailsSummary
-        tag="этот эффект может замедлить предпросмотр и экспорт так как он не оптимизирован для мультикадрового рендера"
-        title='Почему появляется "This effect may slow down Preview and Export as it is optimized Multi-Frame Render" при применении эффекта?'
+        tag="менеджер эффектов, effect may have caused to quit, if you want you can disable this effect now, to re-enable it later select manager effects from effects menu options, приложение неожиданно завершило работу, эффект мог привести к неожиданному завершению работы приложения, если вы хотите этот эффект можно отключить сейчас, чтобы включить его позже выберите управление эффектами в пункте меню эффекты"
+        title="Программа «вылетела» и предложила отключить эффект. Как включить его обратно?"
       >
         <p>
-          Это предупреждение сообщает, что используемый вами плагин не поддерживает
-          технологию <mark>Multi-Frame Render</mark>, поскольку его версия ещё не
-          адаптирована для работы с ней. Рекомендуется проверить наличие обновлений у
-          разработчика. При этом вы можете спокойно работать с этим эффектом, однако при
-          рендеринге могут возникать ошибки.
+          С версии <mark>23.4</mark> в <mark className="app">Adobe After Effects</mark>{" "}
+          появилась возможность отключать эффекты с помощью{" "}
+          <mark className="select">«Effect Manager»</mark>. Когда какой-то эффект вызывает
+          сбой, программа предлагает его выключить. Многие не обращают внимания на этот
+          вопрос при запуске программы после «вылета», а потом удивляются, почему из
+          списка <mark className="select">«Effects & Presets»</mark> пропадают даже
+          стандартные эффекты. Дело в том, что после отключения плагинов они остаются
+          неактивными, пока их вручную не включить в менеджере эффектов.
+        </p>
+        <Divider>Включаем отключённые эффекты</Divider>
+        <p>
+          Для повторного включения эффекта откройте{" "}
+          <mark className="select">«Effect Manager»</mark>. Попасть туда можно через
+          панели <mark className="select">«Effect Controls»</mark> или{" "}
+          <mark className="select">«Effects & Presets»</mark>. Достаточно вызвать
+          контекстное меню на одной из панелей и выбрать{" "}
+          <mark className="select">«Manage Effects»</mark>.
+        </p>
+        <ContentFigure
+          caption="Adobe After Effects"
+          imgTitle="Открытие менеджера эффектов"
+          src="images/aftereffects/effects_presets_manage_effects.png"
+          theme="dark"
+          type="image"
+          variant="windows"
+        />
+        <p>
+          В открывшемся списке по умолчанию показываются только сторонние эффекты, а
+          отключённые отображаются вверху. Если нужно отобразить стандартные эффекты —
+          уберите чекбокс с{" "}
+          <mark className="select">«Only Show Third-Party Effects»</mark>. Чтобы снова
+          включить эффект, поставьте флажок рядом с ним, нажмите{" "}
+          <mark className="select">«OK»</mark> и перезапустите{" "}
+          <mark className="app">Adobe After Effects</mark>.
+        </p>
+        <ContentFigure
+          caption="Effect Manager"
+          imgTitle="Менеджер эффектов"
+          src="images/aftereffects/effect_manager.png"
+          theme="dark"
+          type="image"
+          variant="windows"
+        />
+      </DetailsSummary>
+      <DetailsSummary
+        tag="этот эффект может замедлить предпросмотр и экспорт так как он не оптимизирован для мультикадрового рендера"
+        title="Что означает «This effect may slow down Preview and Export as it is optimized Multi-Frame Render» при применении эффекта?"
+      >
+        <p>
+          Это предупреждение сообщает, что используемый эффект не поддерживает технологию{" "}
+          <mark className="select">«Multi-Frame Rendering»</mark>, так как его версия ещё
+          не адаптирована для работы с ней. Рекомендуется проверить наличие обновлений у
+          разработчика. Вы можете продолжить работать с этим эффектом, однако при
+          рендеринге могут возникать ошибки .
         </p>
         <p>
-          Если это предупреждение или треугольник рядом с названием эффекта в{" "}
-          <mark className="ui">Effect Controls</mark> вас раздражает или у вас нет
-          возможности или желания обновлять используемый плагин - вы можете отключить
-          предупреждение, отключив функцию многокадрового рендера в настройках{" "}
-          <mark className="app">Adobe After Effects</mark>. Для этого вам нужно перейти в{" "}
-          <mark className="ui">Edit &gt; Preferences &gt; Memory & Performance</mark> и
-          убрать галочку с <mark className="ui">Enable Multi-frame Render</mark>.
+          Если это предупреждение или жёлтый треугольник рядом с названием эффекта вас
+          раздражает, а обновлять плагин нет возможности или желания, вы можете отключить
+          предупреждение, отключив многокадровый рендеринг. Для этого перейдите в{" "}
+          <mark className="select">«Edit» → «Preferences» → «Memory & Performance»</mark>{" "}
+          и снимите флажок с{" "}
+          <mark className="select">«Enable Multi-frame Rendering»</mark>.
         </p>
-        <AdditionWarning>
-          Отключение многокадрового рендера может снизить скорость предпросмотра и
-          экспорта, так как программа будет обрабатывать кадры последовательно, а не
-          параллельно.
-        </AdditionWarning>
-        <ImageFigure
+        <Addition type="warning">
+          Отключение многокадрового рендеринга может снизить скорость обработки
+          предпросмотра и экспорта, так как программа будет рендерить кадры
+          последовательно, а не параллельно.
+        </Addition>
+        <ContentFigure
           caption="Preferences"
-          imgSrc="images/aftereffects/checkbox_multiframe-render.png"
-          imgTitle="Переключение работы функции Multi-Frame Render"
-          styleClass="figure_windows-dark"
+          imgTitle="Переключение функции Multi-Frame Rendering"
+          src="images/aftereffects/checkbox_multiframe-render.png"
+          theme="dark"
+          type="image"
+          variant="windows"
         />
       </DetailsSummary>
       <DetailsSummary
         tag="этот проект содержит ошибки выражений"
-        title='Из-за чего появляется "This project contains an expression error"?'
+        title="Что делать с ошибкой «This project contains an expression error»?"
       >
         <p>
-          Чаще всего данная ошибка возникает из-за двух факторов: язык самого{" "}
-          <mark className="app">Adobe After Effects</mark> и движок интерпретатора
-          выражений, указанный в настройках проекта. Иногда пользователи, использующие
-          русскоязычную локализацию <mark className="app">Adobe After Effects</mark>{" "}
-          сталкиваются с неожиданной проблемой: открывая чужой проект с выражениями или
-          применяя сторонний пресет, программа выдаёт ошибку{" "}
-          <mark className="ui">Этот проект содержит ошибки выражений</mark> в окне
-          предпросмотра. Причина кроется в языке интерфейса у пользователя - большинство
-          выражений пишутся под английскую локализацию или под тот язык, который
-          использовал автор проекта или пресета. Или в редких случаях выражение может быть
-          написано под старый или новый движок интерпретатора выражений. В этой статье мы
-          поговорим, как быстро эту проблему решить.
+          Чаще всего это предупреждение появляется по трём причинам. Первая — вы открыли
+          проект или применили пресет, созданный в английской локализации, в программе с
+          русской. Большинство выражений пишутся именно под английскую версию. Вторая —
+          выражение написано под старый или новый движок выражений, и проблему легко
+          решить, переключив движок в настройках проекта. Третья — само выражение содержит
+          ошибки из-за невнимательности автора. В этой статье разберём, как решить
+          проблему с первыми двумя случаями.
         </p>
         <Divider>Меняем язык программы</Divider>
         <p>
           Если у вас установлен <mark className="app">Adobe After Effects</mark> на языке,
-          отличном от английского - попробуйте сменить язык на английский. Делается это
-          достаточно просто.
+          отличном от английского, попробуйте сменить его на английский.
         </p>
-        <AdditionDanger>
+        <Addition type="danger">
           <ul>
             <li>
-              При смене языка программы программа{" "}
-              <b>
-                <u>сбросит</u>
-              </b>{" "}
-              пользовательские настройки, так как они привязаны к используемому вами
-              языку. Вам надо будет заново настроить рабочие области и некоторые параметры
-              программы. После смены языка сторонние плагины останутся и никуда не
-              пропадут, не переживайте.
+              При смене языка пользовательские настройки сбросятся, так как они привязаны
+              к языку интерфейса. Вам придётся заново настраивать рабочие области и
+              некоторые параметры. Сторонние плагины при этом останутся.
             </li>
             <li>
-              После такого способа смены языка, названия стандартных пресетов и рабочих
-              областей останутся на русском языке. Их можно будет переименовать вручную
-              или удалить, а затем поставить поверх дистрибутив{" "}
-              <mark className="app">Adobe After Effects</mark> с указанием английского
-              языка в установщике. Или достаточно просто переустановить программу сразу на
-              английском языке, предварительно почистив все{" "}
-              <mark className="word">хвосты</mark>.
+              После смены языка названия стандартных пресетов и рабочих областей могут
+              остаться на русском. Их можно переименовать вручную или переустановить
+              программу, сразу выбрав английский язык при установке.
             </li>
           </ul>
-        </AdditionDanger>
-        <ContentSwitcher
+        </Addition>
+        <ContentFilter
           macContent={
             <div>
-              <Divider>Меняем язык с помощью консоли программы</Divider>
-              <AdditionWarning>
-                Данный способ изменения языка интерфейса работает только в{" "}
+              <Divider>Меняем язык с помощью консоли</Divider>
+              <Addition type="warning">
+                Этот способ работает только в{" "}
                 <mark className="app">Adobe After Effects</mark> версии <mark>2024</mark>{" "}
-                или новее.
-              </AdditionWarning>
+                и новее.
+              </Addition>
               <p>
                 В новых версиях <mark className="app">Adobe After Effects</mark>{" "}
-                разработчики добавили возможность быстро поменять язык через консоль. Для
-                этого нажмите на комбинацию клавиш{" "}
-                <mark className="key">Command + F12</mark>. В открывшемся окне у заголовка
-                нажимаем три полоски и переключаемся в режим{" "}
-                <mark className="ui">Debug Database View</mark>.
+                разработчики добавили возможность быстро менять язык через{" "}
+                <mark className="select">«Console»</mark>. Чтобы это сделать — сначала
+                нажмите <mark className="key">Command + F12</mark>. В открывшемся окне
+                нажмите на иконку открытия контекстного меню и переключитесь в режим{" "}
+                <mark className="select">«Debug Database View»</mark>.
               </p>
-              <ImageFigure
-                caption="Включение вида Debug Database View"
-                imgSrc="images/aftereffects/console_debug-database-view.png"
-                imgTitle="Включение вида Debug Database View"
-                styleClass="figure_windows-dark"
+              <ContentFigure
+                caption="Включение Debug Database View"
+                imgTitle="Включение Debug Database View"
+                src="images/aftereffects/console_debug-database-view.png"
+                theme="dark"
+                type="image"
+                variant="windows"
               />
               <p>
-                Затем в строке поиска нам нужно писать{" "}
-                <mark className="copy">ApplicationLanguage</mark>. В строке с одноимённым
-                параметром пишем <mark className="copy">en_US</mark>. После ввода значения
-                - перезапускаем <mark className="app">Adobe After Effects</mark>.
+                Затем в строке поиска введите{" "}
+                <mark className="copy">ApplicationLanguage</mark> и в строке с этим
+                параметром напишите <mark className="copy">en_US</mark>. После этого
+                перезапустите <mark className="app">Adobe After Effects</mark>. Чтобы
+                вернуть язык по умолчанию, просто удалите значение из этого параметра и
+                снова перезапустите программу.
               </p>
-              <ImageFigure
+              <ContentFigure
                 caption="Установка английского языка в консоли"
-                imgSrc="images/aftereffects/set_language_console.png"
                 imgTitle="Установка английского языка в консоли"
-                styleClass="figure_windows-dark"
+                src="images/aftereffects/set_language_console.png"
+                theme="dark"
+                type="image"
+                variant="windows"
               />
-              <AdditionInfo>
-                Чтобы вернуть язык, который был установлен по умолчанию - достаточно
-                убрать значение из этого параметра и снова перезапустить{" "}
-                <mark className="app">Adobe After Effects</mark>.
-              </AdditionInfo>
             </div>
           }
           windowsContent={
             <div>
-              <Divider>Меняем язык с помощью пустого текстового документа</Divider>
+              <Divider>Меняем язык с помощью текстового файла</Divider>
               <p>
-                Для быстрой смены языка программы на английский достаточно создать пустой
-                текстовый документ <mark className="file">ae_force_english.txt</mark> и
-                переместить его в папку документов пользователя, обычно это{" "}
-                <mark className="path">%USERPROFILE%/Documents</mark>. В сам текстовый
-                файл ничего писать не нужно. После того, как вы поместили текстовый файл в
-                нужное место - перезапустите{" "}
-                <mark className="app">Adobe After Effects</mark>, если он у вас был
-                запущен. Теперь программа должна запустится на английском языке и ошибка в
-                проекте должна пропасть.
+                Для быстрой смены языка на английский достаточно создать пустой текстовый
+                файл с названием <mark className="file">ae_force_english.txt</mark> и
+                поместить его в папку «Документы», находящийся в директории{" "}
+                <mark className="path">%USERPROFILE%\Documents</mark>. В сам файл ничего
+                писать не нужно. После этого перезапустите{" "}
+                <mark className="app">Adobe After Effects</mark>, если он был открыт.
               </p>
-              <AdditionInfo>
-                Чтобы быстро открыть папку документов текущего пользователя в{" "}
-                <mark className="app">Проводнике</mark> - откройте окно{" "}
-                <mark className="app">Выполнить</mark> с помощью комбинации клавиш{" "}
-                <mark className="key">Win + R</mark> и введите в него{" "}
-                <mark className="path">%USERPROFILE%/Documents</mark>, а затем нажмите на{" "}
-                <mark className="key">Enter</mark>.
-              </AdditionInfo>
-              <p>
-                Если вам лень создавать и вручную перемещать файл, то можно создать пустой
-                текстовый документ сразу в нужном месте с помощью команды ниже в{" "}
-                <mark className="app">командной строке Windows</mark>.
-              </p>
-              <code>
-                echo.{">"}
-                &quot;%USERPROFILE%\Documents\ae_force_english.txt&quot;
-              </code>
-              <AdditionWarning>
-                Через <mark className="app">PowerShell</mark> эта команда не будет
-                работать, используйте <mark className="app">cmd</mark>.
-              </AdditionWarning>
-              <Divider>Меняем язык с помощью консоли программы</Divider>
-              <AdditionWarning>
-                Данный способ изменения языка интерфейса работает только в{" "}
+              <Addition type="info">
+                <ul>
+                  <li>
+                    Чтобы быстро открыть папку «Документы», нажмите{" "}
+                    <mark className="key">Win + R</mark>, введите{" "}
+                    <mark className="path">%USERPROFILE%\Documents</mark> и нажмите{" "}
+                    <mark className="key">Enter</mark>.
+                  </li>
+                  <li>
+                    Если лень создавать файл вручную, можно сделать это командой{" "}
+                    <mark className="code">
+                      echo.&gt;&quot;%USERPROFILE%\Documents\ae_force_english.txt&quot;
+                    </mark>{" "}
+                    в <mark className="app">cmd</mark>. Учтите, что при использовании{" "}
+                    <mark className="app">PowerShell</mark> эта команда не сработает.
+                  </li>
+                </ul>
+              </Addition>
+              <Divider>Меняем язык с помощью консоли</Divider>
+              <Addition type="warning">
+                Этот способ работает только в{" "}
                 <mark className="app">Adobe After Effects</mark> версии <mark>2024</mark>{" "}
-                или новее.
-              </AdditionWarning>
+                и новее.
+              </Addition>
               <p>
                 В новых версиях <mark className="app">Adobe After Effects</mark>{" "}
-                разработчики добавили возможность быстро поменять язык через консоль. Для
-                этого нажмите на комбинацию клавиш <mark className="key">Ctrl + F12</mark>
-                . В открывшемся окне у заголовка нажимаем три полоски и переключаемся в
-                режим <mark className="ui">Debug Database View</mark>.
+                разработчики добавили возможность быстро менять язык через{" "}
+                <mark className="select">«Console»</mark>. Чтобы это сделать — сначала
+                нажмите <mark className="key">Ctrl + F12</mark>. В открывшемся окне
+                нажмите на иконку открытия контекстного меню и переключитесь в режим{" "}
+                <mark className="select">«Debug Database View»</mark>.
               </p>
-              <ImageFigure
-                caption="Включение вида Debug Database View"
-                imgSrc="images/aftereffects/console_debug-database-view.png"
-                imgTitle="Включение вида Debug Database View"
-                styleClass="figure_windows-dark"
+              <ContentFigure
+                caption="Включение Debug Database View"
+                imgTitle="Включение Debug Database View"
+                src="images/aftereffects/console_debug-database-view.png"
+                theme="dark"
+                type="image"
+                variant="windows"
               />
               <p>
-                Затем в строке поиска нам нужно писать{" "}
-                <mark className="copy">ApplicationLanguage</mark>. В строке с одноимённым
-                параметром пишем <mark className="copy">en_US</mark>. После ввода значения
-                - перезапускаем <mark className="app">Adobe After Effects</mark>.
+                Затем в строке поиска введите{" "}
+                <mark className="copy">ApplicationLanguage</mark> и в строке с этим
+                параметром напишите <mark className="copy">en_US</mark>. После этого
+                перезапустите <mark className="app">Adobe After Effects</mark>. Чтобы
+                вернуть язык по умолчанию, просто удалите значение из этого параметра и
+                снова перезапустите программу.
               </p>
-              <ImageFigure
+              <ContentFigure
                 caption="Установка английского языка в консоли"
-                imgSrc="images/aftereffects/set_language_console.png"
                 imgTitle="Установка английского языка в консоли"
-                styleClass="figure_windows-dark"
+                src="images/aftereffects/set_language_console.png"
+                theme="dark"
+                type="image"
+                variant="windows"
               />
-              <AdditionInfo>
-                Чтобы вернуть язык, который был установлен по умолчанию - достаточно
-                убрать значение из этого параметра и снова перезапустить{" "}
-                <mark className="app">Adobe After Effects</mark>.
-              </AdditionInfo>
             </div>
           }
         />
-        <Divider>Меняем язык интерпретатора выражений</Divider>
+        <Divider>Меняем движок выражений</Divider>
         <p>
-          Если смена языка программы не помогла избавиться от этой ошибки, то попробуйте
-          сменить язык программирования для выражений. Для откройте окно{" "}
-          <mark className="ui">Project Manager</mark> с помощью комбинации клавиш{" "}
-          <mark className="key">Ctrl + Alt + Shift + K</mark> и в ней перейдите во вкладку{" "}
-          <mark className="ui">Expressions</mark>. В этой вкладке в параметре{" "}
-          <mark className="ui">Expressions Engine</mark> выберите другой движок, отличный
-          от текущего. Такое бывает, когда выражение в шаблоне создано для другого
-          синтаксиса интерпретатора.
+          Если смена языка не помогла, попробуйте сменить движок выражений. Откройте{" "}
+          <mark className="select">«Project Settings»</mark> с помощью комбинации клавиш
+          <mark className="key">Ctrl + Alt + Shift + K</mark> и перейдите во вкладку{" "}
+          <mark className="select">«Expressions»</mark>. В параметре{" "}
+          <mark className="select">«Expressions Engine»</mark> выберите другой движок. Это
+          может помочь, если выражение в проекте было создано для другого синтаксиса.
         </p>
-        <ImageFigure
+        <ContentFigure
           caption="Project Settings"
-          imgSrc="images/aftereffects/change_expression_language.png"
-          imgTitle="Изменяем движок выражений"
-          styleClass="figure_windows-dark"
+          imgTitle="Изменение движка выражений"
+          src="images/aftereffects/change_expression_language.png"
+          theme="dark"
+          type="image"
+          variant="windows"
         />
+        <Divider>Ищем проблемное выражение</Divider>
         <p>
-          Если вы применили чужой пресет с выражениями на свой слой, но все ещё
-          сталкиваетесь с ошибкой после советов выше, то желательно бы посмотреть, на что{" "}
-          <mark className="app">Adobe After Effects</mark> ругается. Часто это бывает
-          из-за ссылок, которые ведут к несуществующим значениям или параметрам. Чтобы
-          посмотреть, на что жалуется <mark className="app">Adobe After Effects</mark> при
-          исполнении выражения, нужно выделить слой и нажать два раза на клавишу{" "}
-          <mark className="key">E</mark>. Затем рядом с полем выражения нажмите на иконку
-          треугольника. В открывшемся окне программа покажет, обо что она споткнулась при
-          обработке выражения. Это может вам помочь при дальнейшем анализе проблемы.
+          Если ошибки с выражениями всё ещё остаются, посмотрите на что именно «ругается»
+          программа. Чаще всего это связано со ссылками на несуществующие слои или
+          параметры. В предупреждении, которое отображается в окне предпросмотра
+          композиции, есть несколько кнопок: они позволяют переключаться между проблемными
+          выражениями, выделить параметр с ним, открыть поле для редактирования, а также
+          показать текст ошибки.
         </p>
-      </DetailsSummary>
-      <DetailsSummary
-        tag="расширенный 3d, вылетает, адвансед 3д, advanced 3D is not supported by the current software"
-        title='"Advanced 3D plug-in generated an unexpected exception" или программа вылетает при попытке использовать новый движок 3D-рендера'
-      >
-        <p>
-          Вариантов возникновения данной ошибки может быть несколько, начиная устаревшими
-          драйверами и простым багом, заканчивая отсутствием поддержки вашей видеокарты
-          для корректной работы нового движка рендера. Если ваш графический процессор
-          находится в{" "}
-          <a href="https://helpx.adobe.com/after-effects/using/advanced-3d-renderer.html">
-            списке поддерживаемых видеокарт
-          </a>
-          , но при попытке использования <mark className="plugin">Advanced 3D</mark> -{" "}
-          программа вылетает или не даёт ею воспользоваться, то попробуйте запустить{" "}
-          <mark className="app">Adobe After Effects</mark> от имени администратора. Чтобы
-          каждый раз не прожимать кнопку{" "}
-          <mark className="ui">Запустить от имени администратора</mark> в контекстном меню
-          - установите чекбокс{" "}
-          <mark className="ui">Запускать от имени администратора</mark> в свойствах
-          ярлыка.
-        </p>
-        <VideoFigure
-          caption="Настройка ярлыка для дальнейшего запуска от имени администратора"
-          styleClass="figure_windows-dark"
-          videoSrc="images/aftereffects/open_ae_as_admin.mp4"
-        />
-        <p>
-          Если запуск от администратора вам не помог от вылетающего{" "}
-          <mark className="app">Adobe After Effects</mark> при попытке использовать{" "}
-          <mark className="plugin">Advanced 3D</mark>, то попробуйте просто обновить
-          драйвера на вашу видеокарту, желательно на редакцию{" "}
-          <mark>NVIDIA Studio Driver</mark> для более стабильной работы с монтажными
-          программами.
-        </p>
-        <AdditionInfo>
-          Загрузить драйвера <mark>NVIDIA Studio</mark> вы можете на{" "}
-          <a href="https://www.nvidia.com/en-us/geforce/drivers/">
-            официальной странице загрузки драйверов
-          </a>
-          . На странице укажите текущую модель вашей видеокарты, операционную систему и не
-          забудьте указать в <mark className="ui">Download Type</mark> значение{" "}
-          <mark>Studio Driver</mark>.
-        </AdditionInfo>
-        <p>
-          Если ни запуск от администратора, ни обновление драйверов на видеокарту не
-          помогло, то скорее всего ваша видеокарта не соответствует требованиям и не
-          поддерживает функцию <mark className="plugin">Advanced 3D</mark>. Проверьте на
-          наличие и соответствие вашей видеокарты в{" "}
-          <a href="https://helpx.adobe.com/after-effects/using/advanced-3d-renderer.html">
-            системных требованиях для Advanced 3D
-          </a>
-          , начните копить на новый графический ускоритель и переключите 3D-движок на{" "}
-          <mark className="plugin">Classic 3D</mark> в настройках композиции во вкладке{" "}
-          <mark className="ui">3D Renderer</mark>.
-        </p>
-      </DetailsSummary>
-      <DetailsSummary
-        tag="синема 4д не работает, c4d, с4д, cinema 4d: render failed, cineware server suite failed to acquire renderer port and path. server commands not available, чтобы использовать средство рендеринга cinema 4d - необходимо установить cinema 4d"
-        title='"Cinema 4D must be installed in order to use the Cinema 4D renderer" или ошибка 5027::12'
-      >
-        <p>
-          Если у вас установлен <mark className="app">Adobe After Effects</mark> от{" "}
-          <mark>KpoJluK</mark>, то эта ошибка возникает из-за того, что в его
-          дистрибутивах c версий <mark>2020</mark> и выше не поставляется{" "}
-          <mark className="plugin">Cinema 4D Lite</mark>. Это было сделано для уменьшения
-          веса программы, но из-за такого подхода отваливается возможность импорта
-          проектов формата <mark className="file">C4D</mark>, не работает корректно плагин{" "}
-          <mark className="plugin">Cineware</mark> и нельзя включить соответствующий
-          движок 3D-рендера. Чтобы решить эту проблему - достаточно установить полноценную{" "}
-          <mark className="app">Maxon Cinema 4D</mark> нужной версии на ваше устройство,
-          которую просит ваша версия <mark className="app">Adobe After Effects</mark>.
-          Обычно в такой ошибке указывается, какую версию{" "}
-          <mark className="app">Cinema 4D</mark> нужно установить.
-        </p>
-        <AdditionWarning>
+        <Addition type="info">
           <ul>
             <li>
-              Если в этой ошибке <mark className="app">Adobe After Effects</mark> пишет,
-              что нужно установить, например <mark className="app">Cinema 4D</mark> версии{" "}
-              <mark>2023</mark> - то нужно ставить именно любую версию{" "}
-              <mark>2023.X.X</mark>! Версии <mark>2024.X.X</mark> или <mark>25.X.X</mark>{" "}
-              в таком случае не подойдут.
+              Чтобы раскрыть только параметры со встроенными выражениями, выделите слой и
+              дважды нажмите <mark className="key">E</mark>. Если слой не будет выделен —
+              раскроются все параметры с выражениями у всех слоёв в композиции.
             </li>
             <li>
-              <mark className="app">Cinema 4D</mark> версий <mark>26.X.X</mark> не
-              подойдут для версий <mark className="app">Adobe After Effects</mark> ниже{" "}
-              <mark>23.1</mark>, так как Adobe не включала в поддержку эту версию.
-            </li>
-            <li>
-              Если вы установили <mark className="app">Cinema 4D</mark> для вашей версии{" "}
-              <mark className="app">Adobe After Effects</mark>, но программы всё ещё не
-              видят друг друга, то убедитесь в том, что обе программы установлены на
-              стандартном расположении установки и в разделе{" "}
-              <mark className="path">C:\</mark>, а не на другом.
+              Чтобы посмотреть полностью ошибку, нажмите на иконку треугольника в
+              раскрытом параметре с проблемным выражением.
             </li>
           </ul>
-        </AdditionWarning>
-        <AdditionInfo>
+        </Addition>
+        <ContentFigure
+          caption="Ищем проблемные выражения"
+          src="images/aftereffects/find_expressions_with_errors.mp4"
+          theme="dark"
+          type="video"
+          variant="windows"
+        />
+      </DetailsSummary>
+      <DetailsSummary
+        tag="расширенный 3d, вылетает при попытке использовать адвансед 3д, advanced 3D is not supported by the current software, баг"
+        title="Что делать с ошибкой «Advanced 3D plug-in generated an unexpected exception»?"
+      >
+        <ContentFilter
+          windowsContent={
+            <div>
+              <p>
+                В <mark className="app">Adobe After Effects</mark> версии{" "}
+                <mark>24.1</mark> и новее появился новый движок для трёхмерного рендера.
+                Иногда он может работать некорректно и выдавать ошибку при его
+                использовании. Причины такого поведения могут быть разными: от простого
+                бага, который решается запуском{" "}
+                <mark className="app">Adobe After Effects</mark> от имени администратора,
+                до отсутствия поддержки движка вашим устройством.
+              </p>
+              <ul>
+                <li>
+                  <p>
+                    Если ваш графический процессор есть в{" "}
+                    <a href="https://helpx.adobe.com/after-effects/using/advanced-3d-renderer.html">
+                      списке поддерживаемых
+                    </a>
+                    , но при попытке использовать{" "}
+                    <mark className="plugin">Advanced 3D</mark> программа вылетает,
+                    попробуйте запустить её от имени администратора с помощью контекстного
+                    меню ярлыка. Чтобы не делать это каждый раз вручную — установите
+                    флажок{" "}
+                    <mark className="select">
+                      «Запускать эту программу от имени администратора»
+                    </mark>{" "}
+                    в свойствах ярлыка.
+                  </p>
+                  <ContentFigure
+                    caption="Настройка запуска от имени администратора"
+                    src="images/aftereffects/open_ae_as_admin.mp4"
+                    theme="dark"
+                    type="video"
+                    variant="windows"
+                  />
+                </li>
+                <li>
+                  Если запуск от имени администратора не помог, обновите драйверы
+                  видеокарты — желательно до версии{" "}
+                  <mark className="app">NVIDIA Studio Driver</mark> для более стабильной
+                  работы в творческих приложениях.
+                  <Addition type="info">
+                    Загрузить драйверы <mark className="app">NVIDIA Studio</mark> можно на{" "}
+                    <a href="https://www.nvidia.com/en-eu/geforce/drivers/">
+                      официальном сайте NVIDIA
+                    </a>
+                    . На странице укажите модель видеокарты, операционную систему и в поле{" "}
+                    <mark className="select">«Download Type»</mark> выберите{" "}
+                    <mark className="select">«Studio Driver»</mark>.
+                  </Addition>
+                </li>
+                <li>
+                  Если и обновление драйверов не помогло, обновите программу до более
+                  свежей версии.
+                  <Addition type="info">
+                    У меня, автора статьи, на ранних сборках{" "}
+                    <mark className="app">Adobe After Effects</mark> версии{" "}
+                    <mark>2024</mark> движок <mark className="plugin">Advanced 3D</mark>{" "}
+                    не запускался, выдавая указанную в статье ошибку, однако после
+                    нескольких обновлений программы он начал работать корректно.
+                  </Addition>
+                </li>
+                <li>
+                  Если ни запуск от имени администратора, ни обновление драйверов и
+                  программы не дали результата — вероятно, ваша видеокарта не
+                  соответствует{" "}
+                  <a href="https://helpx.adobe.com/after-effects/using/advanced-3d-renderer.html">
+                    системным требованиям для Advanced 3D
+                  </a>
+                  . Если вам всё же нужно работать с трёхмерными слоями — переключите
+                  движок на <mark className="plugin">Classic 3D</mark> в окне
+                  предпросмотра или в настройках композиции во вкладке{" "}
+                  <mark className="select">«3D Renderer»</mark>.
+                  <ContentFigure
+                    caption="Composition Settings"
+                    imgTitle="Изменение 3D-рендерера"
+                    src="images/aftereffects/change_3d_renderer.png"
+                    theme="dark"
+                    type="image"
+                    variant="windows"
+                  />
+                </li>
+              </ul>
+            </div>
+          }
+        />
+      </DetailsSummary>
+      <DetailsSummary
+        tag="5027::12, синема 4д не работает, c4d, с4д, cinema 4d: render failed, cineware server suite failed to acquire renderer port and path. server commands not available, чтобы использовать средство рендеринга cinema 4d - необходимо установить cinema 4d"
+        title="Что делать с «Cinema 4D must be installed in order to use the Cinema 4D renderer»?"
+      >
+        <p>
+          Если вы используете репак <mark className="app">Adobe After Effects</mark> от{" "}
+          <mark className="user">KpoJluK</mark>, то эта ошибка возникает из-за того, что в
+          его дистрибутивах <mark className="app">Adobe After Effects</mark> версий{" "}
+          <mark>2020</mark> и выше отсутствует{" "}
+          <mark className="plugin">Cinema 4D Lite</mark>. Это сделано для уменьшения
+          размера установщика, но из-за этого теряется возможность импорта{" "}
+          <mark className="file">C4D</mark> файлов, некорректно работает плагин{" "}
+          <mark className="plugin">Cineware</mark> и нельзя включить соответствующий
+          движок рендера.
+        </p>
+        <p>
+          Чтобы это исправить, нужно установить полноценную{" "}
+          <mark className="app">Maxon Cinema 4D</mark> той версии, которую требует ваша
+          версия <mark className="app">Adobe After Effects</mark>. Обычно в тексте ошибки
+          указывается, какую версию <mark className="app">Cinema 4D</mark> нужно
+          установить.
+        </p>
+        <Addition type="warning">
           <ul>
             <li>
-              Если у вас установлен <mark className="app">Adobe After Effects</mark> из{" "}
-              <mark className="app">Creative Cloud</mark>, то вам достаточно установить{" "}
+              Например, если в ошибке указано, что нужна{" "}
+              <mark className="app">Cinema 4D 2023</mark>, то ставьте любую версию{" "}
+              <mark>2023.X.X</mark>. Версии <mark>2024.X.X</mark> в таком случае не
+              подойдут.
+            </li>
+            <li>
+              Если вы установили нужную версию <mark className="app">Cinema 4D</mark>, но
+              программы всё равно «не видят» друг друга — убедитесь, что они установлены в
+              стандартном расположении на диске <mark className="path">C:\</mark>.
+            </li>
+          </ul>
+        </Addition>
+        <Addition type="info">
+          <ul>
+            <li>
+              Если у вас установлен <mark className="app">Adobe After Effects</mark> через{" "}
+              <mark className="app">Adobe Creative Cloud</mark>, вам достаточно установить{" "}
               <mark className="plugin">Cinema 4D</mark> оттуда:{" "}
-              <mark className="ui">
-                Установленные приложения &gt; After Effects &gt; Подключаемые модули &gt;
-                Cinema 4D &gt; Установить
+              <mark className="select">
+                «Приложения» → «After Effects» → «Подключаемые модули» → «Cinema 4D» →
+                «Установить»
               </mark>
               .
             </li>
             <li>
-              В <mark className="app">Adobe After Effects</mark> от <mark>m0nkrus</mark> и
-              некоторых релизеров - <mark className="app">Cinema 4D Lite</mark> обычно не
-              вырезан, соответственно подобные манипуляции проводить не надо.
+              В репаках от <mark className="user">m0nkrus</mark> и некоторых других
+              релизеров <mark className="app">Cinema 4D Lite</mark> обычно не вырезан.
+              Уточняйте этот момент в описании сборки.
             </li>
           </ul>
-        </AdditionInfo>
+        </Addition>
         <Divider>
-          Список соответствия версий Maxon Cinema 4D с версиями After Effects для
-          корректной работы
+          Список совместимости версий Maxon Cinema 4D и Adobe After Effects
         </Divider>
-        <AdditionInfo>
+        <Addition type="info">
           Чтобы посмотреть текущую версию <mark className="app">Adobe After Effects</mark>
-          , установленная на вашем устройстве - перейдите в программе в{" "}
-          <mark className="ui">Help &gt; About After Effects</mark>.
-        </AdditionInfo>
+          , откройте <mark className="select">«Help» → «About After Effects»</mark>.
+        </Addition>
         <ul>
           <li>
-            <mark className="app">Adobe After Effects 25.1 и новее</mark> требует{" "}
+            <mark className="app">Adobe After Effects 25.1+</mark> требует{" "}
             <mark className="app">Cinema 4D 2025.X.X</mark>.
           </li>
           <li>
-            <mark className="app">Adobe After Effects 24.1 - 25.0</mark> требует{" "}
+            <mark className="app">Adobe After Effects 24.1-25.0</mark> требует{" "}
             <mark className="app">Cinema 4D 2024.X.X</mark>.
           </li>
           <li>
-            <mark className="app">Adobe After Effects 23.1 - 23.6</mark> требует{" "}
+            <mark className="app">Adobe After Effects 23.1-23.6</mark> требует{" "}
             <mark className="app">Cinema 4D 2023.X.X</mark>.
           </li>
           <li>
-            <mark className="app">Adobe After Effects 22.x - 23.0</mark> требует{" "}
-            <mark className="app">Cinema 4D 25.X.X</mark>.
+            <mark className="app">Adobe After Effects 22.X-23.0</mark> требует{" "}
+            <mark className="app">Cinema 4D R25.X.X</mark>.
+            <Addition type="warning">
+              <mark className="app">Cinema 4D R26.X.X</mark> и новее несовместимы с{" "}
+              <mark className="app">Adobe After Effects</mark> ниже <mark>23.1</mark>.
+            </Addition>
           </li>
           <li>
-            <mark className="app">Adobe After Effects 17.x (2020)</mark> и{" "}
-            <mark className="app">Adobe After Effects 18.x (2021)</mark> требует{" "}
-            <mark className="app">Cinema 4D R21.X.X.</mark>. Путь до установленных
-            программ вы можете настроить в настройках 3D-рендера.
+            <mark className="app">Adobe After Effects 17.X-18.X (2020-2021)</mark> требует{" "}
+            <mark className="app">Cinema 4D R21.X.X</mark>. Путь к установленной программе
+            можно указать в настройках движка <mark className="plugin">Cineware</mark>.
             <div
               style={{
                 display: "grid",
@@ -1121,387 +1107,383 @@ const AEErrors: React.FC = () => {
                 alignItems: "center",
               }}
             >
-              <ImageFigure
+              <ContentFigure
                 caption="Composition Settings"
-                imgSrc="images/aftereffects/composition_settings_3drenderer_cinema4d.png"
                 imgTitle="Composition Settings"
-                styleClass="figure_windows-dark"
+                src="images/aftereffects/composition_settings_3drenderer_cinema4d.png"
+                theme="dark"
+                type="image"
+                variant="windows"
               />
-              <ImageFigure
+              <ContentFigure
                 caption="Choose CINEMA 4D Installation"
-                imgSrc="images/aftereffects/cinema4d_renderer_options.png"
                 imgTitle="Choose CINEMA 4D Installation"
-                styleClass="figure_windows-dark"
+                src="images/aftereffects/cinema4d_renderer_options.png"
+                theme="dark"
+                type="image"
+                variant="windows"
               />
-              <ImageFigure
+              <ContentFigure
                 caption="Choose CINEMA 4D Installation"
-                imgSrc="images/aftereffects/choose_cinema4d_installation.png"
                 imgTitle="Choose CINEMA 4D Installation"
-                styleClass="figure_windows-dark"
+                src="images/aftereffects/choose_cinema4d_installation.png"
+                theme="dark"
+                type="image"
+                variant="windows"
               />
             </div>
           </li>
         </ul>
       </DetailsSummary>
       <DetailsSummary
-        tag="аппаратное ускорение, ускорение отображения отключено"
-        title='Вылезло "Display acceleration disabled" в углу окна предпросмотра'
+        tag="advanced 3d is not supported by the current hardware, расширенный 3d не поддерживается текущим оборудованием, аппаратное ускорение, ускорение отображения отключено"
+        title="Что означает «Display acceleration disabled» в правом верхнем углу предпросмотра?"
       >
         <p>
-          Данное предупреждение указывает на то, что программа по какой-то причине не
-          может использовать аппаратное ускорение с помощью дискретной видеокарты или
-          встроенного видеочипа в вашем процессоре. Если вы только недавно переустановили{" "}
-          <mark>Windows</mark> и установили с нуля{" "}
-          <mark className="app">Adobe After Effects</mark>, то скорее всего при настройке
-          вашей операционной системы вы забыли установить или обновить драйвера на
-          видеокарту вашего устройства.
+          Это предупреждение указывает, что программа по какой-то причине не может
+          использовать аппаратное ускорение видеокарты. Если вы недавно переустанавливали{" "}
+          <mark>Windows</mark> и ставили <mark className="app">Adobe After Effects</mark>{" "}
+          с нуля — скорее всего, вы просто забыли установить драйверы для видеокарты.
         </p>
-        <Divider>Устанавливаем или обновляем драйвера видеочипа</Divider>
+        <Divider>Устанавливаем или обновляем драйверы</Divider>
         <ul>
           <li>
-            Если вы используете дискретную видеокарту от <mark>NVIDIA</mark>, то
-            попробуйте установить драйвера редакции <mark>Studio</mark>. Загрузить
-            драйвера <mark>NVIDIA Studio</mark> вы можете из{" "}
-            <a href="https://www.nvidia.com/en-us/geforce/drivers/">
-              официальной страницы загрузки драйверов
-            </a>
-            . На странице укажите текущую модель вашей видеокарты, операционную систему и
-            не забудьте указать в <mark className="ui">Download Type</mark> значение{" "}
+            <mark className="company">NVIDIA</mark> - попробуйте установить драйверы
+            редакции <mark className="app">NVIDIA Studio</mark>. Загрузить их можно с{" "}
+            <a href="https://www.nvidia.com/en-eu/geforce/drivers/">официального сайта</a>
+            . На странице укажите модель видеокарты, ОС и в поле{" "}
+            <mark className="select">«Тип загрузки»</mark> выберите{" "}
             <mark>Studio Driver</mark>.
           </li>
           <li>
-            Если вы используете дискретную видеокарту или процессор со встроенным
-            видеоядром от <mark>Intel</mark>, то вы можете найти и загрузить подходящий
-            драйвер для своего ускорителя{" "}
+            <mark className="company">Intel</mark> - найдите и скачайте подходящий драйвер{" "}
             <a href="https://www.intel.com/content/www/us/en/search.html#sort=relevancy&f:@tabfilter=[Downloads]&f:@stm_10385_en=[Graphics]&f:downloadtype=[Drivers]">
               на официальном сайте
-            </a>
-            . Также вы можете воспользоваться{" "}
-            <a href="https://www.intel.com/content/www/us/en/support/detect.html">
-              автоматическим установщиков нужных драйверов
             </a>{" "}
-            в соответствии от того, что у вас установлено из комплектующих.
-            <AdditionWarning>
-              <mark>Intel</mark> не пускает на страницу пользователей из Российской
-              Федерации. Для того, чтобы загрузить драйвера - воспользуйтесь{" "}
-              <mark className="app">VPN</mark>.
-            </AdditionWarning>
+            или воспользуйтесь{" "}
+            <a href="https://www.intel.com/content/www/us/en/support/detect.html">
+              автоматическим установщиком
+            </a>
+            .
+            <Addition type="warning">
+              <mark className="company">Intel</mark> может блокировать доступ к сайту для
+              пользователей из Российской Федерации.
+            </Addition>
           </li>
           <li>
-            Если вы используете дискретную видеокарту или процессор со встроенным
-            видеоядром от <mark>AMD</mark>, то вы можете воспользоваться автоматическим
-            установщиком. Его можно{" "}
-            <a href="https://www.amd.com/en/support/download/drivers.html">
-              загрузить с официального сайта
+            <mark className="company">AMD</mark> - воспользуйтесь{" "}
+            <a href="https://www.amd.com/ru/support/download/drivers.html">
+              автоматическим установщиком с официального сайта
             </a>
             .
           </li>
         </ul>
         <p>
-          После установки драйверов на видеочип - перезагрузите устройство и откройте{" "}
-          <mark className="app">Adobe After Effects</mark> снова. При корректной установке
-          - данная надпись должна пропасть, а программа должна работать шустрее.
+          После установки драйверов перезагрузите компьютер и снова откройте{" "}
+          <mark className="app">Adobe After Effects</mark>. Если драйвера установились
+          корректно, надпись должна исчезнуть.
         </p>
-        <Divider>
-          Разбираемся с совместимостью вашего устройства с текущей версией программы
-        </Divider>
+        <Divider>Проверяем совместимость оборудования с программой</Divider>
         <p>
-          В более редких случаях вполне может быть такое, что новая версия{" "}
-          <mark className="app">Adobe After Effects</mark> не поддерживает вашу видеокарту
-          или драйвера, которые вы давно не обновляли. Или наоборот. Обычно проблемы
-          совместимости указываются в окне{" "}
-          <mark className="ui">System Compatibility Report</mark> при запуске, если оно
-          было вами не отключено в настройках программы.
+          В редких случаях новая версия <mark className="app">Adobe After Effects</mark>{" "}
+          может не поддерживать вашу видеокарту. Или наоборот — слишком свежие драйверы
+          могут вызывать проблемы. Обычно о проблемах с совместимостью сообщается в окне{" "}
+          <mark className="select">«System Compatibility Report»</mark> при запуске
+          программы, если оно не было выключено в настройках программы.
         </p>
-        <AdditionInfo>
-          По своему опыту скажу, что когда я использовал <mark>GTX 1060 3 GB</mark> -
-          специально сидел на старых версиях драйверов для видеокарты, так как более новые
-          на то время у меня вызывали сбои и не выводилась картинка. Соответственно после
-          обновлений <mark className="app">Adobe After Effects</mark> до версии{" "}
-          <mark>2023</mark> и новее - у меня отвалилась поддержка <mark>Draft 3D</mark> и
-          не работали некоторые функции ускорения. Спустя время, после того как{" "}
-          <mark>NVIDIA</mark> исправила драйвера и видеокарта больше не сбоила - в{" "}
-          <mark className="app">Adobe After Effects</mark> вернулись <mark>Draft 3D</mark>{" "}
-          и даже завёлся <mark className="plugin">Advanced 3D</mark>, который, как я
-          думал, работает только на видеокартах с <mark>4 ГБ</mark> видеопамяти и выше.
-        </AdditionInfo>
       </DetailsSummary>
       <DetailsSummary
         tag="отключение планирования аппаратного ускорения gpu"
-        title="При работе в программе у меня пропадает изображение на мониторе, как будто перезагружаются драйвера на видеокарту. Есть ли способы исправить это?"
+        title="При работе в программе пропадает изображение на мониторе, как будто перезагружается драйвер видеокарты. Как это исправить?"
       >
-        <Divider>Отключаем аппаратное ускорение на устройствах с Windows</Divider>
-        <p>
-          Попробуйте отключить аппаратное ускорение дисплея в{" "}
-          <mark className="app">параметрах Windows</mark>. Для этого откройте их с помощью
-          комбинации клавиш <mark className="key">Win + I</mark>. Затем нажмите в левом
-          углу раздел <mark className="ui">Система</mark>, далее перейдите в{" "}
-          <mark className="ui">Дисплей</mark>, затем <mark className="ui">Графика</mark>.
-          Раскройте <mark className="ui">Дополнительные графические параметры</mark> и
-          уберите чекбокс возле{" "}
-          <mark className="ui">Планирование GPU с аппаратным ускорением</mark>. После
-          отключения этого параметра - перезагрузите ваше устройство и продолжите работу
-          дальше.
-        </p>
-        <ImageFigure
-          caption="Параметры"
-          imgSrc="images/disable_gpu_planning.png"
-          imgTitle="Отключаем планирование GPU"
-          styleClass="figure_windows-dark"
+        <ContentFilter
+          windowsContent={
+            <div>
+              <Divider>Отключаем аппаратное ускорение</Divider>
+              <p>
+                Попробуйте отключить аппаратное ускорение в параметрах системы. Для этого
+                откройте <mark className="app">Параметры</mark> с помощью комбинации
+                клавиш <mark className="key">Win + I</mark>, перейдите в раздел{" "}
+                <mark className="select">«Система» → «Дисплей» → «Графика»</mark>.
+                Откройте{" "}
+                <mark className="select">«Дополнительные графические параметры»</mark> и
+                отключите опцию{" "}
+                <mark className="select">«Планирование GPU с аппаратным ускорением»</mark>
+                . После этого перезагрузите устройство и продолжите работу в программе.
+              </p>
+              <ContentFigure
+                caption="Параметры"
+                imgTitle="Отключение планирования GPU"
+                src="images/disable_gpu_planning.png"
+                theme="dark"
+                type="image"
+                variant="windows"
+              />
+            </div>
+          }
         />
       </DetailsSummary>
       <DetailsSummary
-        tag="сапфир"
-        title="Почему у меня появляется красный экран и пропадают параметры эффектов из BorisFX Sapphire?"
+        tag="сапфир, баг"
+        title="Почему появляется красный экран и пропадают параметры у эффектов из пакета Boris FX Sapphire?"
       >
         <p>
-          Скорее всего вы столкнулись с неприятным багом{" "}
-          <mark className="word">народной</mark> версии{" "}
-          <mark className="plugin">BorisFX Sapphire</mark> версии <mark>2024.5</mark> и{" "}
-          <mark>2024.51</mark> в виде репака от <mark>KpoJluK</mark>. Вместе с этим багом
-          вы не сможете настроить нужный эффект, так как атрибуты не отображаются.
+          Скорее всего, вы столкнулись с багом «народного»{" "}
+          <mark className="plugin">Boris FX Sapphire</mark> версии <mark>2024.5</mark> или{" "}
+          <mark>2024.51</mark> в виде репака от <mark className="user">KpoJluK</mark>.
+          Из-за него вы не можете настраивать эффекты, так как их параметры не
+          отображаются. Проблема решается откатом на версию <mark>2024.4</mark> от{" "}
+          <mark className="user">KpoJluK</mark> или установкой более свежих версий
+          плагинов в виде репаков от <mark className="user">Team V.R.</mark>.
         </p>
-        <p>
-          Данная проблема решается откатом версии до <mark>2024.4</mark> от{" "}
-          <mark>KpoJluk</mark> или установкой более свежих версий плагинов в виде репака
-          от <mark>Team V.R.</mark>.
-        </p>
-        <AdditionInfo>
-          <ul>
-            <li>
-              Скачать популярные плагины и различные программы для устройств на{" "}
-              <mark>Windows</mark> вы можете в канале{" "}
-              <a href="https://t.me/+Qd9xu7A4TeIwNzY6">склад стройматериалов</a>.
-            </li>
-            <li>
-              Если у вас устройство на <mark>macOS</mark>, то перейдите в{" "}
-              <a href="https://t.me/+ZqiaMfQRFgM4YmEy">Яблоневый сад</a>.
-            </li>
-          </ul>
-        </AdditionInfo>
       </DetailsSummary>
       <DetailsSummary
-        tag="сапфир"
-        title="Почему вылетает Adobe Media Encoder после установки плагинов Boris FX Sapphire?"
+        tag="сапфир, баг"
+        title="Как избавиться от вылетов Adobe Media Encoder после установки плагина Boris FX Sapphire?"
       >
-        <p>
-          Это довольно популярный баг, который мешает нормальному запуску{" "}
-          <mark className="app">Adobe Media Encoder</mark> при наличии установленных в
-          системе плагинов <mark className="plugin">Boris FX Sapphire</mark>. В более
-          поздних версиях плагинов и программ это исправили, но если вы с таким
-          столкнулись - вам достаточно просто указать{" "}
-          <mark className="ui">режим совместимости с Windows 8</mark> в свойствах ярлыка
-          программы.
-        </p>
-        <p>
-          Для этого открываем свойства ярлыка, переходим в вкладку{" "}
-          <mark className="ui">Совместимость</mark> и нажимаем галочку рядом с параметром{" "}
-          <mark className="ui">
-            Запускать программу в режиме совместимости с Windows 8
-          </mark>
-          .
-        </p>
-        <VideoFigure
-          caption="Настройка режима совместимости"
-          styleClass="figure_windows-dark"
-          videoSrc="images/compatibility_media_encoder.mp4"
+        <ContentFilter
+          windowsContent={
+            <div>
+              <p>
+                Это известный баг, который мешает запуску{" "}
+                <mark className="app">Adobe Media Encoder</mark> при наличии плагинов{" "}
+                <mark className="plugin">Boris FX Sapphire</mark>. В новых версиях его
+                исправили, но если вы столкнулись с этой проблемой, просто включите{" "}
+                <mark className="select">«режим совместимости с Windows 8»</mark> в
+                свойствах ярлыка <mark className="app">Adobe Media Encoder</mark>.
+              </p>
+              <p>
+                Для этого откройте свойства ярлыка, перейдите во вкладку{" "}
+                <mark className="select">«Совместимость»</mark> и поставьте галочку{" "}
+                <mark className="select">
+                  «Запускать программу в режиме совместимости с: Windows 8»
+                </mark>
+                . После этого программа не должна вылетать при запуске.
+              </p>
+              <ContentFigure
+                caption="Настройка режима совместимости"
+                src="images/compatibility_media_encoder.mp4"
+                theme="dark"
+                type="video"
+                variant="windows"
+              />
+            </div>
+          }
         />
-        <p>
-          После проделанных действий программа при запуске не должна вылетать. Если всё
-          ещё вылетает, обновите плагины <mark className="plugin">Boris FX Sapphire</mark>{" "}
-          до последних версий.
-        </p>
       </DetailsSummary>
       <DetailsSummary
-        tag="твикстор"
-        title="Почему появляется красный или синий экран при использовании Twixtor на слое?"
+        tag="твикстор, баг"
+        title="Как избавиться от красного или синего экрана при использовании Twixtor?"
       >
         <p>
-          Обычно заливка слоя красным или синим цветом может зависеть от кривых действий
-          пользователя при использовании <mark className="plugin">Twixtor</mark>.
+          Обычно заливка слоя красным или синим цветом обычно связана с ошибками при
+          работе с <mark className="plugin">Twixtor</mark>.
         </p>
         <ul>
           <li>
-            Синяя заливка по всему размеру слоя показывает, что вы каким-то образом ушли
-            за пределы вашего видео и плагин не понимает, что ему отобразить. Для решения
-            синего экрана - уменьшите скорость клипа или расширьте диапазон отображения
-            исходника.
+            «Синяя заливка» означает, что вы вышли за пределы длительности исходного
+            видео, и плагин не понимает, что отображать. Чтобы это исправить, увеличьте
+            скорость клипа или расширьте диапазон исходника на таймлайне.
           </li>
           <li>
-            Красная заливка показывает, что вы установили{" "}
-            <mark className="plugin">Twixtor</mark> по очередности не первым по списку
-            применённых эффектов. Для решения - просто поставьте эффект первым по списку
-            или примените <mark className="plugin">Twixtor</mark> на корректирующий слой.
+            «Красная заливка» может указывать на то, что эффект{" "}
+            <mark className="plugin">Twixtor</mark> применён не первым в списке эффектов.
+            Переместите его на самый верх или используйте на отдельном корректирующем
+            слое.
+          </li>
+          <li>
+            Если вы всё ещё сталкиваетесь с проблемой «красной заливки» и у вас установлен{" "}
+            <mark className="plugin">Twixtor</mark> версии <mark>8.X.X</mark>, попробуйте
+            установить <mark className="plugin">Twixtor</mark> версии <mark>7.X.X</mark>.
           </li>
         </ul>
       </DetailsSummary>
       <DetailsSummary
-        tag="файл поврежден, невозможно импортировать файл как проект, недопустимый формат или чтение невозможно, ошибка с файлом, не читается"
-        title='"File is damaged", "Unable to import file as project (bad format or not readable)" или "Error with file"'
+        tag="ротобраш, баг версии, ротоскопинг, выделение объекта"
+        title="Почему в версии 2019 не выделяется объект при использовании Roto Brush?"
       >
         <p>
-          Если вы открыли проект, прекрасно работавший вчера, но вдруг сегодня он перестал
-          открываться, то поздравляю. Возможно, вы экстренно завершили процесс с
-          программой или компьютер упал в <mark>BSOD</mark>. В таком случае восстановить
-          проект будет крайне проблематично.
+          Скорее всего, вы столкнулись с багом этой версии, если используете репак от{" "}
+          <mark className="user">KpoJluK</mark>. Проблема решается откатом программы до
+          версии <mark>CC 2018</mark>, установкой{" "}
+          <mark className="app">Adobe After Effects</mark> версии <mark>2019</mark> в виде
+          сборки от <mark className="user">m0nkrus</mark> или установкой более свежей
+          версии программы от любого репакера.
+        </p>
+      </DetailsSummary>
+      <DetailsSummary
+        tag="bad format or not readable, файл поврежден, невозможно импортировать файл как проект, недопустимый формат или чтение невозможно, ошибка с файлом, не читается"
+        title="Что делать с «File is damaged» или «Unable to import file as project»?"
+      >
+        <p>
+          Если вчера проект открывался, а сегодня — нет, возможно, программа была закрыта
+          экстренно или в системе произошёл сбой, например, упала в <mark>BSOD</mark>. В
+          таком случае восстановить проект будет крайне сложно, но шансы есть.
         </p>
         <ul>
           <li>
-            Попробуйте найти автосохранения проекта и открыть их, а затем продолжить
-            работу с них. Обычно файлы автосохранений находятся рядом с файлом проекта.
+            Попробуйте найти автосохранения проекта и открыть их. Обычно они находятся в
+            папке рядом с файлом проекта или в директории, указанной в настройках
+            автосохранения.
+            <Addition type="info">
+              <ul>
+                <li>
+                  Параметры автосохранения настраиваются в{" "}
+                  <mark className="select">«Edit» → «Preferences» → «Auto-Save»</mark>.
+                  Там можно задать расположение файлов и указать время, после которого
+                  будет выполнено автосохранение.
+                </li>
+                <li>
+                  Учтите, что при нажатии <mark className="key">Ctrl + S</mark> таймер
+                  автосохранения сбрасывается. Рекомендуется установить в параметре{" "}
+                  <mark className="select">«Save Every»</mark> значение от <mark>1</mark>{" "}
+                  до <mark>3</mark> минут.
+                </li>
+                <li>
+                  Автосохранение не сработает, если проект ни разу не был сохранён.
+                  Сохраняйте файл проекта сразу после его создания.
+                </li>
+              </ul>
+            </Addition>
           </li>
           <li>
-            Если файла автосохранения нет, или там находятся очень старые файлы, то снова
-            примите мои соболезнования. В следующий раз{" "}
-            <a href="#4.1">
-              позаботьтесь о своих нервах и создавайте резервные копии проекта или
-              настройте облачное хранилище с поддержкой отката файлов
+            Если файлов автосохранений нет или они слишком старые — примите
+            соболезнования. В следующий раз позаботьтесь о своих нервах и{" "}
+            <a href="#">
+              создавайте резервные копии или настройте облачное хранилище с поддержкой
+              отката файлов
             </a>
-            , например <a href="https://360.yandex.ru/">Яндекс.Диск</a>.
+            .
+          </li>
+          <li>
+            В редких случаях файл может оказаться не битым, но не может спокойно
+            открыться, если свободного места на дисковом разделе крайне мало. Так как
+            операционная система может не предупредить о малом объёме свободной дисковой
+            памяти на разделах, вы могли упустить такую мелочь и можете столкнуться с
+            невозможностью открытия проекта в{" "}
+            <mark className="app">Adobe After Effects</mark>. Для решения этой проблемы
+            вам достаточно почистить систему от накопившегося мусора, хотя бы почистив
+            кэши, и повторить попытку открытия проекта снова.
           </li>
         </ul>
-        <AdditionInfo>
-          При нажатии на <mark className="key">Ctrl + S</mark> - таймер автоматического
-          автосохранения сбрасывается. Также файлы автосохранений не создаются, если у вас
-          изначально не был сохранён проект. Поэтому рекомендуем выработать привычку
-          сохранять файл проекта сразу же после открытия{" "}
-          <mark className="app">Adobe After Effects</mark> и установить минимальное время
-          для автосохранений в настройках программы:{" "}
-          <mark className="ui">Edit &gt; Preferences &gt; Auto-Save</mark> и укажите
-          значение <mark className="ui">Save every</mark> от 1 до 3 минут.
-        </AdditionInfo>
-        <p>
-          В редких случаях файл может оказаться не битым, но не может спокойно открыться,
-          если свободного места на дисковом разделе крайне мало. Так как операционная
-          система <mark>Windows</mark> не всегда предупреждает о малом объёме свободной
-          дисковой памяти на разделах, вы могли упустить такую мелочь и можете столкнуться
-          с невозможностью открытия проекта в{" "}
-          <mark className="app">Adobe After Effects</mark>. Для решения этой проблемы вам
-          достаточно почистить систему от накопившегося мусора, хотя бы удалив файлы из
-          папки <mark className="path">%Temp%</mark> и повторить попытку открытия проекта
-          снова.
-        </p>
       </DetailsSummary>
       <DetailsSummary
-        tag="дисковый кэш, не хватает места"
-        title="Your disk cache folder is on a drive that does not have enough avaiable space to safely store the full amount specified in your preferences. Please make more space available or go to Media & Disk Cache preferences to change the folder or maximium disk cache size"
+        tag="дисковый кэш, не хватает места, please make more space available or go to media & disk cache preferences to change the folder or maximium disk cache size"
+        title="Что означает «Your disk cache folder is on a drive that does not have enough avaiable space to safely store the full amount specified in your preferences»?"
       >
         <p>
-          В данном предупреждении буквально написано, что не хватает места на разделе, где
-          указано хранение дискового кэша. Для решения этой проблемы просто освободите
-          место на разделе, где хранится дисковый кэш.
+          В этом предупреждении прямо говорится, что на диске, где хранится кэш, не
+          хватает места. Чтобы решить эту проблему — достаточно освободить место в
+          разделе, на котором у вас расположен кэш.
         </p>
-        <ImageFigure
+        <ContentFigure
           caption="Warning"
-          imgSrc="images/aftereffects/low_diskcache_space_warning.png"
           imgTitle="Предупреждение о недостаточном свободном месте на диске"
-          styleClass="figure_windows-dark"
+          src="images/aftereffects/low_diskcache_space_warning.png"
+          theme="dark"
+          type="image"
+          variant="windows"
         />
         <p>
-          Вы можете уменьшить максимальное количество ГБ для дискового кэша или изменить
-          местоположение хранения в настройках{" "}
-          <mark className="app">Adobe After Effects</mark>. Для этого перейдите в{" "}
-          <mark className="ui">Edit &gt; Preferences &gt; Media & Disk Cache</mark> и
-          уменьшите максимальный размер дискового кэша или укажите другое расположение,
-          например на другом диске или внешнем накопителе.
+          Если нет возможности освободить место, откройте{" "}
+          <mark className="select">«Edit» → «Preferences» → «Media & Disk Cache»</mark>. В
+          этом разделе настроек можно уменьшить максимальный размер кэша в{" "}
+          <mark className="select">«Maximum Disk Cache Size»</mark>, изменить его
+          расположение через <mark className="select">«Choose Folder»</mark> или полностью
+          отключить, сняв флажок с <mark className="select">«Enable Disk Cache»</mark>.
         </p>
-        <ImageFigure
+        <ContentFigure
           caption="Preferences"
-          imgSrc="images/aftereffects/preferences-media_and_disk_cache.png"
           imgTitle="Настройка дискового кэша"
-          styleClass="figure_windows-dark"
+          src="images/aftereffects/preferences-media_and_disk_cache.png"
+          theme="dark"
+          type="image"
+          variant="windows"
         />
-        <p style={{fontSize: "0.75rem", opacity: "0.5"}}>
-          Или просто отключите дисковый кэш, убрав галочку с{" "}
-          <mark className="ui">Enable Disk Cache</mark>.
+      </DetailsSummary>
+      <DetailsSummary
+        tag="дисковый кэш отсутствует, please check your settings in media and disk cache preferences"
+        title="Что делать с «Error: Disk Cache folder doesn't exist (or isn't a directory), so it will be reset to the system temporary directory»?"
+      >
+        <p>
+          Эта ошибка указывает, что путь к папке кэша, указанный в настройках, не найден.
+          Это предупреждение не является критической ошибкой — вы можете проигнорировать
+          его и продолжить работу. Обычно это происходит при переносе настроек с другого
+          компьютера или при отключении диска, на котором хранился кэш. В таком случае
+          программа сбрасывает путь на системную папку временных файлов.
+        </p>
+        <p>
+          Чтобы настроить расположение дискового кэша, перейдите в{" "}
+          <mark className="select">«Edit» → «Preferences» → «Media & Disk Cache»</mark> и
+          укажите нужную директорию.{" "}
+          <i style={{opacity: "0.5"}}>
+            Или просто отключите дисковый кэш, сняв флажок с{" "}
+            <mark className="select">«Enable Disk Cache»</mark>.
+          </i>
+        </p>
+        <ContentFigure
+          caption="Preferences"
+          imgTitle="Настройка дискового кэша"
+          src="images/aftereffects/preferences-media_and_disk_cache.png"
+          theme="dark"
+          type="image"
+          variant="windows"
+        />
+      </DetailsSummary>
+      <DetailsSummary
+        tag="баг версии, локализация, юникод, английская версия, пути к файлам, кириллица, сброс настроек"
+        title="Что делать с ошибками «Не удалось выполнить преобразование символов Unicode» или «Не удалось загрузить псевдоэффекты»?"
+      >
+        <p>
+          Если вы запускаете <mark className="app">Adobe After Effects</mark> с русской
+          локализацией, то можете столкнуться с этой проблемой. Она встречалась на старых
+          версиях и на версии <mark>24.4</mark> (позже её исправили). Решение —
+          переустановить <mark className="app">Adobe After Effects</mark> на английском
+          языке. Если не хотите менять язык, обновитесь до более свежей версии или
+          откатитесь на более старую.
+        </p>
+        <p>
+          Если вы используете другую версию{" "}
+          <mark className="app">Adobe After Effects</mark> или английскую локализацию, то
+          причин может быть много. Иногда может помочь{" "}
+          <a href="https://community.adobe.com/t5/after-effects-discussions/faq-how-to-reset-trash-preferences-in-after-effects/td-p/10634342">
+            сброс настроек
+          </a>
+          . Общий совет: старайтесь не использовать кириллицу в путях к файлам, их
+          названиях и названиях слоёв.
         </p>
       </DetailsSummary>
       <DetailsSummary
-        tag="дисковый кэш отсутствует"
-        title="Error: Disk Cache folder doesn't exist (or isn't a directory), so it will be reset to the system temporary directory. Please check your settings in Media and Disk Cache Preferences"
+        tag="17::19, 17::18, частота кадров, vfr, интерпретация футажа, маски, импорт"
+        title="Что делать с ошибкой «Error: overflow converting ratio denominators»?"
       >
-        <AdditionInfo>
-          Данное предупреждение не является критической ошибкой, вы можете проигнорировать
-          его и работать с программой как прежде.
-        </AdditionInfo>
         <p>
-          Данная ошибка указывает на то, что настройки кэша в программе ссылаются на
-          несуществующий раздел. Обычно это происходит при переносе настроек программы из
-          одного компьютера на другой или извлечением раздела, на который было назначено
-          дисковое кэширование. Программа в таком случае укажет на системную папку
-          временных файлов, ссылаясь на переменные среды операционной системы.
-        </p>
-        <p>
-          Для настройки расположения дискового кэша перейдите в{" "}
-          <mark className="ui">Edit &gt; Preferences &gt; Media & Disk Cache</mark> и
-          укажите свое местоположение. Также в этом разделе вы можете указать максимальный
-          размер для дискового кэша или очистить его.
-        </p>
-        <ImageFigure
-          caption="Preferences"
-          imgSrc="images/aftereffects/preferences-media_and_disk_cache.png"
-          imgTitle="Настройка дискового кэша"
-          styleClass="figure_windows-dark"
-        />
-        <p style={{fontSize: "0.75rem", opacity: "0.5"}}>
-          Или просто отключите дисковый кэш, убрав галочку с{" "}
-          <mark className="ui">Enable Disk Cache</mark>.
-        </p>
-      </DetailsSummary>
-      <DetailsSummary title='"Не удалось выполнить преобразование символов Unicode" или "Не удалось загрузить псевдоэффекты" при запуске After Effects'>
-        <p>
-          Если вы попытаетесь запустить <mark className="app">Adobe After Effects</mark> с
-          русской локализацией, то вы можете столкнуться с данной проблемой. Она
-          встречается на старых версиях и на версии <mark>24.4</mark>, которую позже
-          исправили. Для решения данной проблемы нужно переустановить{" "}
-          <mark className="app">Adobe After Effects</mark> на английский язык. Если вы не
-          хотите менять язык, то вам нужно обновиться до более свежей версии программы или
-          откатиться до более старой.
-        </p>
-        <p>
-          Если вы сидите на другой версии программы или на английской локализации, то
-          причин для появления этой ошибки может быть очень много. Поэтому просто дам
-          совет: постарайтесь меньше использовать кириллицу в директориях, файлах и
-          названиях слоёв. В некоторых случаях помогает{" "}
-          <a href="https://community.adobe.com/t5/after-effects-discussions/faq-how-to-reset-trash-preferences-in-after-effects/td-p/10634342">
-            сброс настроек After Effects
-          </a>{" "}
-          до стандартных, изменение локали в операционной системе или создание новой
-          учётной записи пользователя на самом устройстве.
-        </p>
-      </DetailsSummary>
-      <DetailsSummary title="Error: overflow converting ratio denominators (17::19) или (17::18)">
-        <p>
-          Данная ошибка может выскочить по совершенно разным причинам и чаще всего на
-          старых версиях <mark className="app">Adobe After Effects</mark>. Причин и
-          решений может быть множество, но универсального решения, к сожалению, нет.
+          Эта ошибка может появляться по разным причинам, чаще всего на старых версиях{" "}
+          <mark className="app">Adobe After Effects</mark>. Универсального решения, к
+          сожалению, нет, но можно попробовать минимизировать появление этой проблемы.
         </p>
         <ul>
           <li>
-            Ошибка может возникнуть из-за исходников, в частности из-за его кривого
-            фреймрейта. Если у вашего исходника в окне <mark className="ui">Project</mark>{" "}
-            значение кадров в секунду выглядит как{" "}
-            <mark>{(Math.random() * (40 - 30) + 30).toFixed(3)}</mark>, то вам нужно либо
-            интерпретировать, либо перекодировать футаж в <mark>30 к\с</mark> через{" "}
-            <mark className="app">Shutter Encoder</mark> или{" "}
-            <mark className="app">Handbrake</mark>.{" "}
-            <mark className="app">Adobe After Effects</mark> не очень любит нестандартные
-            значения кадров в секунду и криво их интерпретирует.
-            <AdditionInfo>
-              Для интерпретации нужного футажа, выделите его в{" "}
-              <mark className="ui">Project</mark> и нажмите на комбинацию клавиш{" "}
+            Ошибка может быть связана с исходниками, особенно с переменной частотой
+            кадров. Если в окне <mark className="select">«Project»</mark> значение частоты
+            кадров выглядит как <mark>29.841</mark> — стоит интерпретировать или
+            перекодировать футаж в «ровную» частоту кадров, например <mark>30 FPS</mark>,
+            через <mark className="app">Shutter Encoder</mark>.{" "}
+            <mark className="app">Adobe After Effects</mark> не любит плавающие значения
+            частоты кадров.
+            <Addition type="info">
+              Для интерпретации футажа выделите его в окне{" "}
+              <mark className="select">«Project»</mark> и нажмите{" "}
               <mark className="key">Ctrl + Alt + G</mark>.
-            </AdditionInfo>
+            </Addition>
           </li>
           <li>
-            Если после замены исходников вы всё ещё сталкиваетесь с проблемой, то
-            посмотрите, нет ли у вас масок для слоёв в проекте. Иногда может помочь их
-            пересоздание.
+            Если замена исходников не помогла, проверьте, нет ли на слоях масок. Иногда
+            помогает их пересоздание.
           </li>
           <li>
-            Если вы сталкиваетесь с трудностями при открытии и работе с проектами,
-            создайте новый проект и импортируйте туда композиции из проекта, где вылезает
-            данная ошибка.
+            Попробуйте создать новый проект и импортировать в него композиции из
+            проблемного файла, а затем продолжить работы.
           </li>
         </ul>
       </DetailsSummary>
@@ -1548,348 +1530,405 @@ const AEErrors: React.FC = () => {
       </DetailsSummary>
       <DetailsSummary
         tag="ошибка инициализации заливки с учетом содержимого"
-        title='"Content Aware Fill Error: Initialization Failed"'
+        title="Из-за чего может появляться «Content-Aware Fill Error: Initialization Failed»?"
       >
         <p>
-          Данная ошибка может вылезти по совершенно разным причинам. Одна из них -
-          кириллица в пути к <mark className="file">AEP</mark> файлу, в названии
-          файла-исходника или в названии композиции. Для решения постарайтесь отказаться
-          от кириллицы в путях и названиях, а также попробуйте перенести файлы проекта из
-          внешнего жёсткого диска на внутренний вашего устройства, если они там
-          расположены. После этого попробуйте воспользоваться{" "}
-          <mark className="plugin">Content Aware Fill</mark> заново.
-        </p>
-        <p>
-          Иногда ещё такое может произойти из-за неверно установленного цветового профиля
-          в настройках проекта. Для этого проверьте ваше цветовое пространство во вкладке{" "}
-          <mark className="ui">Color</mark> в <mark className="ui">Project Manager</mark>,
-          которое открывается комбинацией клавиш{" "}
-          <mark className="key">Ctrl + Alt + Shift + K</mark>. Затем укажите значение{" "}
-          <mark className="ui">None</mark> или любое другое в параметре{" "}
-          <mark className="ui">Working Color Space</mark>.
-        </p>
-        <ImageFigure
-          caption="Project Settings"
-          imgSrc="images/aftereffects/change_working_color_space.png"
-          imgTitle="Изменение цветового профиля"
-          styleClass="figure_windows-dark"
-        />
-      </DetailsSummary>
-      <DetailsSummary
-        tag="размер слоя должен соответствовать композиции и использовать значения трансформирования по умолчанию"
-        title='"Layer must match Composition and use default transform values" при использовании 3D Camera Tracker'
-      >
-        <p>
-          Данная ошибка прямым текстом указывает на то, что слой должен быть по размеру
-          композиции, а также не быть перемещённым, повёрнут или ещё каким-то образом
-          видоизменён.
-        </p>
-        <p>
-          Если вы не хотите или не можете изменить трансформацию и размер слоя, то
-          сделайте прекомпозицию через комбинацию клавиш{" "}
-          <mark className="key">Ctrl + Shift + C</mark> с переносом аттрибутов на новую
-          композицию, выбрав{" "}
-          <mark className="ui">Move all attributes into the new composition</mark>, а
-          затем на нём сделайте трекинг.
-        </p>
-      </DetailsSummary>
-      <DetailsSummary title='"Analysis Solve Failed" или "Unable to solve camera for this frame" при использовании 3D Camera Tracker'>
-        <p>
-          Представим, что вы хотите сделать 3D-трекинг с помощью встроенной функции{" "}
-          <mark className="plugin">3D Camera Tracker</mark>, но вам мешает либо первая
-          ошибка, либо вторая. Такое может выскочить по совершенно разным причинам.
+          Данная ошибка при использовании{" "}
+          <mark className="plugin">Content-Aware Fill</mark> может возникать по разным
+          причинам. Эту проблему можно минимизировать, попробовав проделать описанные в
+          статье способы.
         </p>
         <ul>
           <li>
-            Если у вас исходник c слабым контрастом - накрутите контрастности через{" "}
-            <mark className="plugin">Curves</mark> или{" "}
-            <mark className="plugin">Brightness & Contrast</mark>, а затем повторите
-            анализ заново.
+            Убедитесь, что путь к вашему проекту формата <mark className="file">AEP</mark>{" "}
+            или исходнику не содержит кириллицы и нестандартные символы. Используйте
+            только латиницу.
           </li>
           <li>
-            Если у оператора сильно трясутся руки, попробуйте сначала применить{" "}
-            <mark className="plugin">Warp Stabilizer</mark>, а только потом уже создавать
-            3D-трекинг.
-            <AdditionWarning>
-              Трекер может и проанализирует точки, но результат его работы может вас не
-              удовлетворить из-за качества самого исходника.
-            </AdditionWarning>
+            Если вы используете исходники, хранящиеся на внешнем жёстком диске —
+            попробуйте переместить их на внутренний диск вашего устройства, указать новый
+            путь через <mark className="select">«Replace Footage»</mark> и повторить
+            попытку заливки заново.
           </li>
           <li>
-            Если вы пытаетесь проанализировать слишком длинное видео, то попробуйте
-            обрезать по кусочкам. Вполне вероятно, что на какой-то секунде камера слишком
-            резко двигается и происходит ошибка анализа.
-          </li>
-          <li>
-            Иногда избавлению от ошибки может помочь изменение{" "}
-            <mark className="ui">Solve Method</mark> или установка галочки{" "}
-            <mark className="ui">Detailed Analysis</mark> в вкладке{" "}
-            <mark className="ui">Advanced</mark>.
-            <ImageFigure
-              caption="Effect Controls"
-              imgSrc="images/aftereffects/detailed_analysis-3d_camera_tracker.png"
-              imgTitle="Включение детального анализа исходника"
-              styleClass="figure_windows-dark"
+            <p>
+              Попробуйте открыть настройки{" "}
+              <mark className="plugin">Content-Aware Fill</mark>, поочерёдно включите и
+              выключите различные параметры, а затем попробуйте обработку заново. Для
+              этого откройте окно <mark className="select">«Content-Aware Fill»</mark>{" "}
+              через <mark className="select">«Window»</mark> и в контекстном меню выберите{" "}
+              <mark className="select">«Content-Aware Fill Settings»</mark>.
+            </p>
+            <ContentFigure
+              caption="Adobe After Effects"
+              imgTitle="Открываем настройки Content-Aware Fill"
+              src="images/aftereffects/open_content-aware_fill_settings.png"
+              theme="dark"
+              type="image"
+              variant="windows"
+            />
+            <p>
+              В окне настроек включите и отключите различные параметры, затем верните их
+              предыдущие значения. Этот приём иногда помогает модулю заработать корректно.
+            </p>
+            <ContentFigure
+              caption="Content-Aware Fill Settings"
+              imgTitle="Настройки Content-Aware Fill"
+              src="images/aftereffects/content-aware_fill_settings.png"
+              theme="dark"
+              type="image"
+              variant="windows"
             />
           </li>
           <li>
-            Если вы считаете, что с вашим исходником всё в порядке, то попробуйте
-            перекодировать его в монтажный кодек и заменить в проекте. Не всегда
-            исходники, полученные из интернета, будут хорошо дружить с{" "}
-            <mark className="app">Adobe After Effects</mark>.
+            Иногда проблема может быть в неверно установленном цветовом профиле проекта.
+            Проверьте настройки цветового пространства во вкладке{" "}
+            <mark className="select">«Color»</mark> в{" "}
+            <mark className="select">«Project Settings»</mark>, который открывается
+            комбинацией клавиш <mark className="key">Ctrl + Alt + Shift + K</mark>.
+            Попробуйте установить для{" "}
+            <mark className="select">«Working Color Space»</mark> значение{" "}
+            <mark className="select">«None»</mark>.
+            <ContentFigure
+              caption="Project Settings"
+              imgTitle="Изменение цветового профиля"
+              src="images/aftereffects/change_working_color_space.png"
+              theme="dark"
+              type="image"
+              variant="windows"
+            />
           </li>
         </ul>
       </DetailsSummary>
-      <DetailsSummary title='Вылезло "System Compatibility Report" при запуске After Effects'>
-        <AdditionInfo>
-          Когда вы видите это окно при запуске - не надо паниковать. Это не является
-          ошибкой или серьёзной проблемой, но исправлять причину её появления нам в любом
-          случае нужно. Запустить программу можно как обычно, нажав на{" "}
-          <mark className="ui">Continue with known issues</mark>.
-        </AdditionInfo>
-        <ImageFigure
+      <DetailsSummary
+        tag="3d camera tracker, размер слоя должен соответствовать композиции и использовать значения трансформирования по умолчанию"
+        title="Из-за чего появляется «Layer must match Composition and use default transform values»?"
+      >
+        <p>
+          При работе с <mark className="plugin">3D Camera Tracker</mark> слой, который вы
+          хотите проанализировать, не должен иметь изменений в позиции, масштабе, повороте
+          и других свойствах. Чтобы сбросить все изменения трансформации, нажмите{" "}
+          <mark className="key">ПКМ</mark> по слою, раскройте контекстное меню{" "}
+          <mark className="select">«Transform»</mark> и выберите{" "}
+          <mark className="key">«Reset»</mark>.
+        </p>
+        <ContentFigure
+          caption="Timeline"
+          imgTitle="Сбрасываем трансформацию у слоя"
+          src="images/aftereffects/reset_layer_transform.png"
+          theme="dark"
+          type="image"
+          variant="windows"
+        />
+        <p>
+          Если вы по какой-то причине не хотите сбрасывать трансформацию слоя — выделите
+          его и создайте прекомпозицию с помощью комбинации клавиш{" "}
+          <mark className="key">Ctrl + Shift + C</mark>. При создании предварительной
+          композиции выберите опцию{" "}
+          <mark className="select">«Move all attributes into the new composition»</mark>.
+          После этого применяйте <mark className="plugin">3D Camera Tracker</mark> уже к
+          новой композиции и начните анализ.
+        </p>
+      </DetailsSummary>
+      <DetailsSummary
+        tag="3d camera tracker, трекер камеры, анализ не удался, solve failed, трекинг, стабилизация, detailed analysis, прокси"
+        title="Что делать с ошибками «Analysis Solve Failed» или «Unable to solve camera for this frame»?"
+      >
+        <p>
+          Если при использовании <mark className="plugin">3D Camera Tracker</mark> вы
+          сталкиваетесь с этими ошибками, причины могут быть разными.
+        </p>
+        <ul>
+          <li>
+            Если у исходника слабый контраст, накрутите его с помощью{" "}
+            <mark className="plugin">Curves</mark> или{" "}
+            <mark className="plugin">Brightness & Contrast</mark> и повторите анализ.
+          </li>
+          <li>
+            Если исходник снят со статичной камерой, этот способ трекинга не подойдёт.{" "}
+            <mark className="plugin">3D Camera Tracker</mark> отслеживает движение камеры
+            в пространстве по изображению и не сможет построить трек, если камера не
+            движется.
+          </li>
+          <li>
+            Если у оператора на момент записи видео сильно тряслись руки, сначала
+            выполните стабилизацию исходника с помощью эффекта{" "}
+            <mark className="plugin">Warp Stabilizer</mark>, а уже потом запускайте анализ
+            камеры. Трекер может и проанализирует точки, но результат может вас не
+            удовлетворить из-за низкого качества самого исходника после стабилизации.
+          </li>
+          <li>
+            Если вы пытаетесь проанализировать длинное видео, попробуйте разбить его на
+            части. Возможно, на каком-то отрезке камера движется слишком резко, что и
+            вызывает ошибку.
+          </li>
+          <li>
+            Попробуйте изменить <mark className="select">«Solve Method»</mark> на другой
+            или включить опцию <mark className="select">«Detailed Analysis»</mark> во
+            вкладке <mark className="select">«Advanced»</mark> в настройках эффекта.
+            <ContentFigure
+              caption="Effect Controls"
+              imgTitle="Включение детального анализа"
+              src="images/aftereffects/detailed_analysis-3d_camera_tracker.png"
+              theme="dark"
+              type="image"
+              variant="windows"
+            />
+          </li>
+          <li>
+            Если вы уверены, что с исходником всё в порядке, попробуйте перекодировать его
+            в монтажный кодек и заменить в проекте с помощью{" "}
+            <mark className="select">«Replace Footage»</mark>.
+          </li>
+        </ul>
+      </DetailsSummary>
+      <DetailsSummary
+        tag="совместимость системы, драйверы, плагины, предупреждение, startup & repair, настройки"
+        title="Из-за чего появляется окно «System Compatibility Report» при запуске программы?"
+      >
+        <p>
+          В этом окне обычно отображаются возможные проблемы совместимости железа с
+          программой из-за устаревших или слишком новых версий драйверов, а также
+          критические баги плагинов. Не паникуйте — это не ошибка, а предупреждение. Чтобы
+          продолжить запуск программы, нажмите на{" "}
+          <mark className="select">«Continue with known issues»</mark>.
+        </p>
+        <ContentFigure
           caption="System Compatibility Report"
-          imgSrc="images/aftereffects/system_compatibility_report.png"
-          imgTitle="Предупреждение о несовместимости оборудования с программой"
-          styleClass="figure_windows-dark"
+          imgTitle="Окно с отчётом о совместимости"
+          src="images/aftereffects/system_compatibility_report.png"
+          theme="dark"
+          type="image"
+          variant="windows"
         />
         <p>
-          В данном окне обычно пишутся возможные проблемы с использованием программы,
-          например устаревшие или, наоборот, слишком свежие драйвера, а также плагины с
-          каким-то критическим багом.
+          Если вы знаете о причинах несовместимости и готовы работать с некоторыми
+          ограничениями, например отсутствие возможности включить{" "}
+          <mark className="select">«Draft 3D»</mark>, это окно можно отключить. Для этого
+          перейдите в{" "}
+          <mark className="select">«Edit» → «Preferences» → «Startup & Repair»</mark> и
+          снимите флажок{" "}
+          <mark className="select">«Show System Compatibility Issues»</mark>.
         </p>
-        <p>
-          Если вы в курсе о причинах некой несовместимости и вы согласны работать дальше с
-          ограничениями, например отсутствие <mark className="ui">Draft 3D</mark> или с{" "}
-          <mark className="ui">Display Acceleration Disabled</mark> в углу экрана, лишь бы
-          не видеть это окно при запуске - вы можете отключить это окно, программа даёт
-          это сделать.
-        </p>
-        <p>
-          Для отключения этого окна перейдите в настройки программы:{" "}
-          <mark className="ui">Edit &gt; Preferences &gt; Startup & Repair</mark>. Затем в
-          этом разделе отключите галочку с параметра{" "}
-          <mark className="ui">Show System Compatibility Issues</mark>.
-        </p>
-        <ImageFigure
-          caption="Preferences"
-          imgSrc="images/aftereffects/show_system_compatibility_issues.png"
-          imgTitle="Отключаем предупреждения о несовместимости оборудования с программой"
-          styleClass="figure_windows-dark"
-        />
-        <AdditionInfo>
+        <Addition type="info">
           В старых версиях <mark className="app">Adobe After Effects</mark> этот параметр
-          находится в разделе <mark className="ui">General</mark>.
-        </AdditionInfo>
+          находится в разделе <mark className="select">«General»</mark>.
+        </Addition>
+        <ContentFigure
+          caption="Preferences"
+          imgTitle="Отключение отчёта о совместимости"
+          src="images/aftereffects/show_system_compatibility_issues.png"
+          theme="dark"
+          type="image"
+          variant="windows"
+        />
       </DetailsSummary>
       <DetailsSummary
         tag="неподдерживаемое устройство, авх2"
-        title="Ошибка при запуске приложения 0xc0000142"
+        title="Что делать с ошибкой «0xc0000142» при запуске приложения?"
       >
         <p>
-          Скорее всего вы пытаетесь запустить приложение на устройстве с процессором без
-          поддержки инструкций <mark>AVX2</mark>. В{" "}
+          Данная ошибка возникает, если вы пытаетесь запустить{" "}
+          <mark className="app">Adobe After Effects</mark> версии <mark>24.1</mark> или
+          новее на процессоре без поддержки инструкций <mark>AVX2</mark>. В{" "}
           <a href="https://helpx.adobe.com/after-effects/system-requirements.html">
-            нынешних системных требованиях для After Effects
+            системных требованиях Adobe After Effects последних версий
           </a>{" "}
-          указано, что требуется процессор от Intel минимум 6 поколения, например, i7-6700
-          или свежее, или процессор от AMD серии минимум 1000, например, Ryzen 5 1600 или
-          свежее. У процессора, установленный в вашем устройстве, обязательно должна быть
-          поддержка инструкций <mark>AVX2</mark>.
-        </p>
-        <AdditionInfo>
-          На сайте Adobe пишется следующее: версии <mark>24.х</mark> и более поздние
-          нельзя установить в системах с процессорами Intel® 3-го поколения или более
-          ранних версий (а также в системах с более ранними процессорами AMD).
-        </AdditionInfo>
-        <p>
-          Решение достаточно простое: вы можете установить{" "}
-          <mark className="app">Adobe After Effects</mark> версии <mark>23.6</mark>. Это
-          будет последняя поддерживаемая для вас версия программы. Либо обновите процессор
-          на вашем устройстве.
+          указано, что нужен процессор <mark className="company">Intel</mark> не ниже 6-го
+          поколения или <mark className="company">AMD Ryzen</mark> серии 1000 и новее.
         </p>
         <p>
-          Бывают редкие случаи, когда процессор действительно поддерживает инструкции
-          <mark>AVX2</mark>, но он каким-то образом выключен в вашей системе. Для этого
-          вам нужно попробовать ввести команду ниже в командную строку от имени
-          администратора и перезагрузить устройство.
+          На практике программу можно установить на более старое железо, если процессор
+          поддерживает инструкции <mark>AVX2</mark>. Это значит, что{" "}
+          <mark className="app">Adobe After Effects</mark> не установится на системах с
+          процессорами <mark className="company">Intel</mark> 3-го поколения или старше, а
+          также на более ранних процессорах <mark className="company">AMD</mark>.
         </p>
-        <code>bcdedit /set xsavedisable 0</code>
-        <AdditionInfo>
-          Чтобы снова отключить <mark>AVX2</mark>, введите команду{" "}
-          <mark className="code">bcdedit /set xsavedisable 1</mark> и снова перезагрузите
+        <p>
+          Если ваше устройство не поддерживает <mark>AVX2</mark>, решение простое —
+          установите <mark className="app">Adobe After Effects</mark> версии{" "}
+          <mark>23.6</mark> или ниже. Либо обновите процессор, если это возможно.
+        </p>
+        <p>
+          В редких случаях процессор может поддерживать инструкции <mark>AVX2</mark>, но
+          могут быть каким-то образом отключены в системе. Посмотрите настройки вашего{" "}
+          <mark>BIOS</mark> или попробуйте ввести команду{" "}
+          <mark className="code">bcdedit /set xsavedisable 0</mark> в командной строке от
+          имени администратора и перезагрузить компьютер. Чтобы снова отключить{" "}
+          <mark>AVX2</mark>, введите команду{" "}
+          <mark className="code">bcdedit /set xsavedisable 1</mark> и перезагрузите
           устройство.
-        </AdditionInfo>
+        </p>
       </DetailsSummary>
       <DetailsSummary
         tag="отсутствует visual c++"
-        title="При запуске появляются ошибки про отсутствие MSVCP140.dll, api-ms-win-crt-runtime-l1-1-0.dll или похожие"
+        title="Что делать с ошибками об отсутствии «MSVCP140.dll», «api-ms-win-crt-runtime-l1-1-0.dll» и похожих?"
+      >
+        <ContentFilter
+          windowsContent={
+            <div>
+              <p>
+                Скорее всего, вы забыли установить или обновить пакеты{" "}
+                <a href="https://github.com/abbodi1406/vcredist/releases/">
+                  Microsoft Visual C++ Redistributable
+                </a>
+                . Если установка пакетов не помогла, попробуйте обновить вашу операционную
+                систему хотя бы до <mark>Windows 10</mark> версии <mark>22H2</mark> или
+                новее.
+              </p>
+            </div>
+          }
+        />
+      </DetailsSummary>
+      <DetailsSummary
+        tag="d3dcompiler_47.dll, библиотека, отсутствует dll, установка файла, директория программы"
+        title="Что делать с ошибкой «Не найден файл D3DCompiler_47.dll»?"
+      >
+        {" "}
+        <ContentFilter
+          windowsContent={
+            <div>
+              <p>
+                Распакуйте архив{" "}
+                <a
+                  download
+                  href="files/D3DCompiler_47.zip"
+                >
+                  D3DCompiler_47.zip
+                </a>
+                , откройте папку, соответствующую архитектуре вашей системы, и скопируйте
+                оттуда <mark className="file">DLL</mark> файл в директорию с установленной
+                программой, по умолчанию это{" "}
+                <mark className="path">
+                  C:\Program Files\Adobe\Adobe After Effects 20XX
+                </mark>
+                .
+              </p>
+            </div>
+          }
+        />
+      </DetailsSummary>
+      <DetailsSummary
+        tag="отсутствует рейтрейсед 3д, ray-traced 3d"
+        title="Из-за чего появляется «Warning: A rendering plug-in was not found. The default rendering plug-in will be substituted»?"
       >
         <p>
-          Скорее всего вы забыли установить или обновить пакеты{" "}
-          <a href="https://github.com/abbodi1406/vcredist/releases/">
-            Microsoft Visual C++ Redistributable
-          </a>
-          , которые можно установить перед установкой{" "}
-          <mark className="app">Adobe After Effects</mark> в репаке от{" "}
-          <mark>KpoJluk</mark> или вручную по{" "}
-          <a href="https://github.com/abbodi1406/vcredist/releases/">этой ссылке</a>.
+          Это предупреждение появляется при открытии старого проекта с использованием
+          трёхмерного движка <mark className="plugin">Ray-Traced 3D</mark> в новых версиях{" "}
+          <mark className="app">Adobe After Effects</mark>. Данный движок был удалён
+          начиная с версии <mark>2020</mark>, поэтому открыть такой проект без
+          дополнительных манипуляций не получится.
         </p>
         <p>
-          Если установка пакетов не помогла - попробуйте обновить вашу систему до
-          последней версии, хотя бы до <mark>Windows 10</mark> версии <mark>22H2</mark>.
+          <mark className="plugin">Ray-Traced 3D</mark> впервые появился в{" "}
+          <mark className="app">Adobe After Effects</mark> версии <mark>CS6</mark>. Чтобы
+          корректно открыть проект с этим устаревшим движком, используйте{" "}
+          <mark className="app">Adobe After Effects</mark> версии <mark>2019</mark> или
+          более раннюю, но не ниже <mark>CS6</mark>.
         </p>
       </DetailsSummary>
       <DetailsSummary
-        tag="запуск новых версий программ на старых версиях windows 7 и 8.1"
-        title='"Точка входа в процедуру не найдена в библиотеке Kernel32.dll", "Couldn not find entry point main entry point for XXXXX.aex (48::72)" или я не могу запустить программу, хотя пакеты Visual C++ Redistributable установлены'
+        tag="font substitution will occur until the originals become available, предупреждение, в данном проекте используются шрифты которые в настоящий момент недоступны на этом компьютере, замена шрифтов будет выполняться до тех пор пока не станут доступны исходные шрифты"
+        title="Что делать с «Warning: This project uses fonts that are not currently available on this computer»?"
       >
         <p>
-          Скорее всего пытаетесь запустить{" "}
-          <mark className="app">Adobe After Effects</mark> на неподдерживаемой
-          операционной системе. Такое бывает, когда <mark>Windows 10</mark> слишком старой
-          сборки или вы пытаетесь запустить свежую версию программы на{" "}
-          <mark>Windows 7</mark> или <mark>Windows 8.1</mark>. В следующий раз прочтите{" "}
-          <a href="https://helpx.adobe.com/after-effects/system-requirements.html">
-            системные требования
-          </a>{" "}
-          по нужной версии <mark className="app">Adobe After Effects</mark> и постарайтесь
-          их соблюдать.
+          Это предупреждение означает, что в проекте используются шрифты, отсутствующие в
+          вашей системе. В окне предупреждения обычно указывается список недостающих
+          шрифтов. Вы можете открыть проект и работать с ним без установки этих шрифтов,
+          однако они будут автоматически заменены на стандартный.
         </p>
-        <AdditionInfo>
-          <ul>
-            <li>
-              Посмотреть текущую сборку <mark>Windows</mark> можно с помощью{" "}
-              <mark className="app">winver</mark>.
-            </li>
-            <li>
-              Последняя поддерживаемая версия{" "}
-              <mark className="app">Adobe After Effects</mark> для <mark>Windows 7</mark>{" "}
-              или <mark>Windows 8.1</mark> - это <mark>After Effects 2019</mark> (16.X).
-            </li>
-          </ul>
-        </AdditionInfo>
-      </DetailsSummary>
-      <DetailsSummary title='"Не найден файл D3DCompiler_47.dll" при запуске программы'>
-        <p>
-          Для решения этой ошибки при запуске программы - распакуйте архив{" "}
-          <a
-            download
-            href="files/D3DCompiler_47.zip"
-          >
-            D3DCompiler_47.zip
-          </a>
-          , откройте папку с архитектурой и возьмите оттуда{" "}
-          <mark className="file">DLL</mark> файл. Затем этот файл переместите в директорию
-          где установлена программа, по умолчанию это{" "}
-          <mark className="path">C:\Program Files\Adobe\Adobe After Effects 20XX</mark>.
-        </p>
-      </DetailsSummary>
-      <DetailsSummary
-        tag="отсутствует рейтрейсед 3д"
-        title="Warning: A rendering plug-in was not found. The default rendering plug-in will be substituted. “Ray-Traced 3D”"
-      >
-        <p>
-          Данное предупреждение появляется, когда вы пытаетесь открыть очень старый проект
-          с использованием движка <mark className="plugin">Ray-Traced 3D</mark> в новых
-          версиях <mark className="app">Adobe After Effects</mark>. Его вырезали в{" "}
-          <mark className="app">Adobe After Effects 2020</mark> и новее, а это обозначает,
-          что вы не сможете там открыть проект без танцев с бубном.
-        </p>
-        <p>
-          Чтобы корректно открыть проект с использованием устаревшего{" "}
-          <mark className="plugin">Ray-Traced 3D</mark> - вам нужно открыть его в любой
-          версии 2019 года или старше, в котором этот движок доживал последние дни.
-        </p>
-      </DetailsSummary>
-      <DetailsSummary
-        tag="предупреждение, в данном проекте используются шрифты которые в настоящий момент недоступны на этом компьютере, замена шрифтов будет выполняться до тех пор пока не станут доступны исходные шрифты"
-        title='"Warning: This project uses fonts that are not currently available on this computer. Font substitution will occur until the originals become available" при открытии проекта'
-      >
-        <AdditionInfo>
-          <ul>
-            <li>Это окно является предупреждением, а не ошибкой.</li>
-            <li>
-              Вы можете запустить проект без установленных шрифтов и работать с ним
-              спокойно.
-            </li>
-            <li>
-              В композициях с отсутствующим шрифтом вы можете установить другой шрифт
-              самостоятельно.
-            </li>
-          </ul>
-        </AdditionInfo>
-        <p>
-          Данное окно при запуске предупреждает о том, что вы запустили проект с
-          использованием шрифта, который не установлен в вашей системе. Для этого
-          попросите у автора проекта файл с шрифтом и установите его в соответствии с
-          вашей операционной системой. Обычно в этом окне прилагается список отсутствующих
-          шрифтов.
-        </p>
-        <AdditionInfo>
-          Если автор проекта не может предоставить шрифт, вам нужно будет поискать его
-          вручную в сети Интернет.
-        </AdditionInfo>
-        <ImageFigure
-          caption="Предупреждение об отсутствующих шрифтах в системе"
-          imgSrc="images/aftereffects/missing_fonts_warning.png"
+        <ContentFigure
+          caption="Предупреждение об отсутствующих шрифтах"
           imgTitle="Предупреждение об отсутствующих шрифтах в системе"
-          styleClass="figure_windows-dark"
+          src="images/aftereffects/missing_fonts_warning.png"
+          theme="dark"
+          type="image"
+          variant="windows"
         />
         <p>
-          Если вы установили шрифт, а это сообщение никуда не пропало - просто
-          переназначьте шрифты на те, что вы недавно установили. Бывает такое, что один и
-          тот же шрифт распространяется под разными названиями и{" "}
-          <mark className="app">Adobe After Effects</mark> не понимает, как ему нужно
-          использовать.
+          Чтобы устранить проблему, попросите у автора проекта необходимые файлы шрифтов и
+          установите их. Если автор не может предоставить шрифт, попробуйте найти его в
+          интернете самостоятельно.
+        </p>
+        <p>
+          Если шрифт установлен, но предупреждение не исчезло, переназначьте его вручную
+          на текстовом слое. Иногда один и тот же шрифт может распространяться под разными
+          названиями, и <mark className="app">Adobe After Effects</mark> в таком случае не
+          распознает его автоматически.
         </p>
       </DetailsSummary>
       <DetailsSummary
-        tag="данный проект содержит ссылку на отсутствующий эффект, установите следующий эффект чтобы восстановить эту ссылку"
-        title='"This project contains references to missing effects. Please install the following effects to restore these references" при открытии проекта'
+        tag="please install the following effects to restore these references, данный проект содержит ссылку на отсутствующий эффект, установите следующий эффект чтобы восстановить эту ссылку"
+        title="Что делать с «This project contains references to missing effects»?"
       >
         <p>
-          Данное предупреждение указывает на то, что у вас не установлены какие-то
-          эффекты, которые используются в проекте. Вы можете продолжить работу с проектом,
-          только вы не сможете использовать эффекты, указанные в этом списке, и видеть их
-          в предпросмотре.
+          Это предупреждение означает, что в проекте используются эффекты, которые не
+          установлены на вашем устройстве. Вы можете продолжить работу с проектом, но не
+          сможете видеть, рендерить и настраивать эти эффекты.
         </p>
-        <ImageFigure
+        <ContentFigure
           caption="Warning"
-          imgSrc="images/aftereffects/missing_effects_warning.png"
           imgTitle="Предупреждение об отсутствующих эффектах"
-          styleClass="figure_windows-dark"
+          src="images/aftereffects/missing_effects_warning.png"
+          theme="dark"
+          type="image"
+          variant="windows"
         />
         <p>
-          Для решения этой проблемы просто установите эффекты и плагины из этого списка в{" "}
-          <mark className="app">Adobe After Effects</mark>, а затем перезапустите
-          программу, если она была открыта.
+          Для решения проблемы установите недостающие эффекты из списка и перезапустите{" "}
+          <mark className="app">Adobe After Effects</mark>. Иногда название эффекта может
+          отличаться в зависимости от версии плагина или программы, поэтому его придётся
+          заменить вручную.
         </p>
-        <AdditionInfo>
+        <Addition type="info">
           <ul>
             <li>
-              В редких случаях бывает такое, что эффект в зависимости от версии плагина
-              или <mark className="app">Adobe After Effects</mark> могут переименоваться,
-              поэтому вам нужно их будет заменить вручную.
+              Большинство популярных плагинов для{" "}
+              <mark className="app">Adobe After Effects</mark> вы можете найти в каналах{" "}
+              <a href="https://t.me/s/aetemp">AETemp</a>,{" "}
+              <a href="https://t.me/+Qd9xu7A4TeIwNzY6">склад стройматериалов (Windows)</a>{" "}
+              или <a href="https://t.me/+ZqiaMfQRFgM4YmEy">Яблоневый сад (macOS)</a>.
             </li>
             <li>
-              Прежде чем устанавливать сторонние плагины - убедитесь в том, что{" "}
-              <mark className="app">Adobe After Effects</mark> стоит на стандартном
-              расположении. Иначе плагины установятся в другое место, а в{" "}
-              <mark className="app">Adobe After Effects</mark> они не появятся.
+              Перед установкой сторонних плагинов, распространяемых через установщики,
+              убедитесь, что <mark className="app">Adobe After Effects</mark> установлена
+              по стандартному пути. Иначе плагины могут не отобразиться в программе.
             </li>
           </ul>
-        </AdditionInfo>
+        </Addition>
+        <Divider>Возвращаем случайно выключенные эффекты</Divider>
         <p>
-          Иногда многие спрашивают, что за эффекты с приставкой <mark>S_</mark> и{" "}
-          <mark>BCC</mark> перед названиями. Это эффекты, которые не являются встроенными
-          и поставляются компанией <mark>Boris FX</mark> в пакетах{" "}
-          <mark className="plugin">Sapphire</mark> и{" "}
-          <mark className="plugin">Continuum</mark>. Их нужно установить отдельно на ваше
-          устройство. Аналогично касается и остальных{" "}
-          <mark className="word">ненаходов</mark> от <mark>Red Giant</mark> и прочих
-          компаний.
+          В некоторых случаях вы могли случайно отключить эффект после сбоя программы.
+          Чтобы включить его снова, откройте{" "}
+          <mark className="select">«Effect Manager»</mark>. Попасть туда можно через
+          панели <mark className="select">«Effect Controls»</mark> или{" "}
+          <mark className="select">«Effects & Presets»</mark>, вызвав контекстное меню и
+          выбрав <mark className="select">«Manage Effects»</mark>.
         </p>
+        <ContentFigure
+          caption="Adobe After Effects"
+          imgTitle="Открытие менеджера эффектов"
+          src="images/aftereffects/effects_presets_manage_effects.png"
+          theme="dark"
+          type="image"
+          variant="windows"
+        />
+        <p>
+          В списке по умолчанию отображаются только сторонние эффекты, при этом
+          отключённые находятся вверху. Чтобы увидеть стандартные эффекты, снимите флажок
+          с <mark className="select">«Only Show Third-Party Effects»</mark>. Для
+          повторного включения нужного эффекта поставьте галочку рядом с ним, нажмите{" "}
+          <mark className="select">«OK»</mark> и перезапустите{" "}
+          <mark className="app">Adobe After Effects</mark>.
+        </p>
+        <ContentFigure
+          caption="Effect Manager"
+          imgTitle="Менеджер эффектов"
+          src="images/aftereffects/effect_manager.png"
+          theme="dark"
+          type="image"
+          variant="windows"
+        />
       </DetailsSummary>
     </div>
   );
