@@ -12,6 +12,8 @@ import {useCopyToClipboard} from "../hooks/useCopyToClipboard";
 
 import {useAnchorScroll} from "../hooks/useAnchorScroll";
 
+import {useExternalLinks} from "../hooks/useExternalLinks";
+
 import Footer from "../components/Footer";
 
 import Header from "../components/Header";
@@ -47,6 +49,7 @@ import PRWhereFind from "./sections/prfaq/PRWhereFind";
 const PRFAQ = () => {
   const [isPageLoaded, setIsPageLoaded] = useState(false);
   useAnchorScroll(isPageLoaded);
+  useExternalLinks();
 
   const {enableAutoCopy} = useCopyToClipboard();
 
