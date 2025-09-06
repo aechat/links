@@ -10,7 +10,9 @@ import Addition from "../components/Addition";
 
 import {generateAnchorId} from "../components/DetailsSummary";
 
-import CopyToClipboard from "../components/features/CopyToClipboard";
+import {useCopyToClipboard} from "../hooks/useCopyToClipboard";
+
+import {useAnchorScroll} from "../hooks/useAnchorScroll";
 
 import Footer from "../components/Footer";
 
@@ -33,9 +35,14 @@ import AEExprActions from "./sections/aeexpr/ExprActions";
 import AEExprErrors from "./sections/aeexpr/ExprErrors";
 
 const AEExpressionPage = () => {
+  const [isPageLoaded, setIsPageLoaded] = useState(false);
+  useAnchorScroll(isPageLoaded);
+
+  const {enableAutoCopy} = useCopyToClipboard();
+
   useEffect(() => {
-    CopyToClipboard.enableAutoCopy();
-  }, []);
+    enableAutoCopy();
+  }, [enableAutoCopy]);
 
   const sections = [
     {
@@ -64,8 +71,6 @@ const AEExpressionPage = () => {
       component: AEExprErrors,
     },
   ];
-
-  const [isPageLoaded, setIsPageLoaded] = useState(false);
 
   return (
     <div className="page">

@@ -8,7 +8,9 @@ import {Helmet} from "react-helmet-async";
 
 import {generateAnchorId} from "../components/DetailsSummary";
 
-import CopyToClipboard from "../components/features/CopyToClipboard";
+import {useCopyToClipboard} from "../hooks/useCopyToClipboard";
+
+import {useAnchorScroll} from "../hooks/useAnchorScroll";
 
 import Footer from "../components/Footer";
 
@@ -41,9 +43,14 @@ import AEExport from "./sections/aefaq/AEExport";
 import AEExportProblems from "./sections/aefaq/AEExportProblems";
 
 const AEFAQ = () => {
+  const [isPageLoaded, setIsPageLoaded] = useState(false);
+  useAnchorScroll(isPageLoaded);
+
+  const {enableAutoCopy} = useCopyToClipboard();
+
   useEffect(() => {
-    CopyToClipboard.enableAutoCopy();
-  }, []);
+    enableAutoCopy();
+  }, [enableAutoCopy]);
 
   const sections = [
     {
@@ -77,8 +84,6 @@ const AEFAQ = () => {
       component: AEExportProblems,
     },
   ];
-
-  const [isPageLoaded, setIsPageLoaded] = useState(false);
 
   return (
     <div className="page">

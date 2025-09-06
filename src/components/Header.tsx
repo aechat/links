@@ -1,12 +1,10 @@
-import {ArrowBackRounded} from "@mui/icons-material";
+import {ArrowBackRounded, SwipeUpRounded} from "@mui/icons-material";
 
 import {motion} from "framer-motion";
 
 import React, {useEffect, useState} from "react";
 
 import {Link} from "react-router-dom";
-
-import {MoveToTop} from "./features/MoveToTop";
 
 import {ThemeToggleButton} from "./modal/ThemeChanger";
 
@@ -43,6 +41,14 @@ const Header: React.FC<HeaderProps> = ({title}) => {
   const [isVisible, setIsVisible] = useState(false);
 
   const [isWide, setIsWide] = useState(window.innerWidth > constants.WIDE_SCREEN_WIDTH);
+
+  const scrollToTop = (): void => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+    window.history.replaceState({}, "", window.location.pathname);
+  };
 
   const checkScrollPosition = (): void => {
     setIsVisible(window.scrollY > constants.SCROLL_THRESHOLD);
@@ -96,7 +102,12 @@ const Header: React.FC<HeaderProps> = ({title}) => {
       </div>
       <div className="header-right">
         <div className={`header-right ${isVisible ? "visible" : "hidden"}`}>
-          <MoveToTop />
+          <button
+            aria-label="Прокрутить страницу вверх"
+            onClick={scrollToTop}
+          >
+            <SwipeUpRounded />
+          </button>
         </div>
         {shouldShowSearch() && (
           <div>{isWide ? <SearchButton wide /> : <SearchButton />}</div>

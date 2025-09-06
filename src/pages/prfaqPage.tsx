@@ -8,7 +8,9 @@ import {Helmet} from "react-helmet-async";
 
 import {generateAnchorId} from "../components/DetailsSummary";
 
-import CopyToClipboard from "../components/features/CopyToClipboard";
+import {useCopyToClipboard} from "../hooks/useCopyToClipboard";
+
+import {useAnchorScroll} from "../hooks/useAnchorScroll";
 
 import Footer from "../components/Footer";
 
@@ -43,9 +45,14 @@ import PRPerformance from "./sections/prfaq/PRPerformance";
 import PRWhereFind from "./sections/prfaq/PRWhereFind";
 
 const PRFAQ = () => {
+  const [isPageLoaded, setIsPageLoaded] = useState(false);
+  useAnchorScroll(isPageLoaded);
+
+  const {enableAutoCopy} = useCopyToClipboard();
+
   useEffect(() => {
-    CopyToClipboard.enableAutoCopy();
-  }, []);
+    enableAutoCopy();
+  }, [enableAutoCopy]);
 
   const sections = [
     {
@@ -89,8 +96,6 @@ const PRFAQ = () => {
       component: PRExportProblems,
     },
   ];
-
-  const [isPageLoaded, setIsPageLoaded] = useState(false);
 
   return (
     <div className="page">

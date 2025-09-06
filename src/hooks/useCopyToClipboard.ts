@@ -52,35 +52,37 @@ const copyWithFallback = (text: string): void => {
   document.body.removeChild(textArea);
 };
 
-const copyToClipboard = (event?: MouseEvent): void => {
-  if (!event?.target) {
-    return;
-  }
-
-  const elementToCopy = event.target as HTMLElement;
-
-  if (isExcludedElement(elementToCopy)) {
-    return;
-  }
-
-  const textContent = cleanHtml(elementToCopy.textContent || "");
-
-  if (navigator.clipboard) {
-    copyWithClipboardApi(textContent);
-  } else {
-    copyWithFallback(textContent);
-  }
-};
-
-const enableAutoCopy = (): void => {
-  document.addEventListener("click", (event) => {
-    if (
-      event.target instanceof HTMLElement &&
-      (event.target.tagName === "MARK" || event.target.tagName === "CODE")
-    ) {
-      copyToClipboard(event);
+export const useCopyToClipboard = () => {
+  const copyToClipboard = (event?: MouseEvent): void => {
+    if (!event?.target) {
+      return;
     }
-  });
-};
 
-export default {copyToClipboard, enableAutoCopy};
+    const elementToCopy = event.target as HTMLElement;
+
+    if (isExcludedElement(elementToCopy)) {
+      return;
+    }
+
+    const textContent = cleanHtml(elementToCopy.textContent || "");
+
+    if (navigator.clipboard) {
+      copyWithClipboardApi(textContent);
+    } else {
+      copyWithFallback(textContent);
+    }
+  };
+
+  const enableAutoCopy = (): void => {
+    document.addEventListener("click", (event) => {
+      if (
+        event.target instanceof HTMLElement &&
+        (event.target.tagName === "MARK" || event.target.tagName === "CODE")
+      ) {
+        copyToClipboard(event);
+      }
+    });
+  };
+
+  return {copyToClipboard, enableAutoCopy};
+};
