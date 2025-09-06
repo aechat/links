@@ -4,7 +4,7 @@ export const useExternalLinks = () => {
   useEffect(() => {
     const processLinks = () => {
       const containers = Array.from(
-        document.querySelectorAll(".faq-content, .rules-content, .ant-modal")
+        document.querySelectorAll(".faq-container, .ant-modal")
       );
       containers.forEach((container) => {
         const links = Array.from(container.querySelectorAll("a[href]"));
