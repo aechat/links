@@ -114,8 +114,8 @@
 .faq-content {
   p {
     text-wrap: stable;
-    margin-inline: 20px;
-    margin-block: 15px;
+    margin-inline: min(calc(15px + (20 - 15) * ((100vw - 320px) / (768 - 320))), 20px);
+    margin-block: min(calc(10px + (15 - 10) * ((100vw - 320px) / (768 - 320))), 15px);
     line-height: 1.75;
   }
 
@@ -173,7 +173,8 @@
   li {
     text-wrap: stable;
     position: relative;
-    padding-inline: 30px 15px;
+    padding-inline: min(calc(20px + (30 - 20) * ((100vw - 320px) / (768 - 320))), 30px)
+      15px;
     padding-block: 10px;
     line-height: 1.75;
     list-style-type: none;
@@ -232,7 +233,7 @@
       position: absolute;
       top: 12px;
       bottom: 12px;
-      left: 15px;
+      left: min(calc(10px + (15 - 10) * ((100vw - 320px) / (768 - 320))), 15px);
       opacity: 0.5;
       border-radius: $roundness;
       background-color: var(--accent);
@@ -250,11 +251,11 @@
   }
 
   li > ul > li {
-    padding-inline: 20px;
+    padding-inline: min(calc(12px + (20 - 12) * ((100vw - 320px) / (768 - 320))), 20px);
     padding-inline-end: 0;
 
     &::before {
-      left: 6px;
+      left: min(calc(4px + (6 - 4) * ((100vw - 320px) / (768 - 320))), 6px);
     }
   }
 }

@@ -44,12 +44,12 @@ li > .addition-danger,
   flex-direction: row;
   align-items: center;
   gap: 15px;
-  
+
   box-sizing: content-box;
   margin-inline: 0;
   margin-block: 15px;
-  padding-inline: 20px;
-  padding-block: 12px;
+  padding-inline: min(calc(15px + (20 - 15) * ((100vw - 320px) / (768 - 320))), 20px);
+  padding-block: min(calc(10px + (12 - 10) * ((100vw - 320px) / (768 - 320))), 12px);
   font-weight: 425;
   font-size: 0.95rem;
   line-height: 1.6;
