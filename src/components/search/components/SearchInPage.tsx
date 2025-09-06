@@ -286,6 +286,9 @@ export const SearchInPage: React.FC<{sections: SearchSection[]}> = ({sections}) 
         padding;
       window.history.pushState({}, "", `#${id}`);
       window.scrollTo({top: y, behavior: "smooth"});
+      setTimeout(() => {
+        history.replaceState(null, "", window.location.pathname + window.location.search);
+      }, 5000);
       closeModal();
     },
     [closeModal]
