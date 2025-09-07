@@ -88,7 +88,8 @@ const GithubUpdateInfo: React.FC<GithubUpdateInfoProps> = ({folderPath}) => {
     overflow: "hidden",
     textOverflow: "ellipsis",
     lineHeight: "1.5",
-    marginBlock: "20px",
+    marginBlockStart: "8px",
+    marginBlockEnd: "10px",
     marginInline: "15px",
   };
 
