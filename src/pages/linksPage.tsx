@@ -366,12 +366,12 @@ const Links = () => {
               icon={<VolumeUpRounded />}
               name="Sound Chat"
             />
-            <LinkCard
+            {/* <LinkCard
               description="Публикуем вакансии и обсуждаем рабочую жизнь"
-              href="https://t.me/upworktut"
+              href="https://t.me/"
               icon={<BusinessCenterRounded />}
               name="Work Chat"
-            />
+            /> */}
             <LinkCard
               description="Обсуждаем Blender и всё что с ним связано"
               href="https://t.me/blender3dchat"
