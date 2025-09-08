@@ -1488,43 +1488,83 @@ const AEErrors: React.FC = () => {
         </ul>
       </DetailsSummary>
       <DetailsSummary
-        tag='Несоответствие частоты кадров либо не найден видеоряд с полями. Для достижения оптимального результата операций "Кисть для ротоскопии" и "Уточнить края" необходимо задать частоту кадров композиции XX в соответствии с источником слоя'
-        title='"Frame rate mismatch, or footage with fields found. For best Roto Brush & Refine Edge results, set the composition to XX fps to match the layer source" при использовании Rotobrush'
+        tag='ротобраш, несоответствие частоты кадров либо не найден видеоряд с полями, для достижения оптимального результата операций "кисть для ротоскопии" и "уточнить края" необходимо задать частоту кадров композиции в соответствии с источником слоя, for best roto brush & refine edge results set the composition to fps to match the layer source, will not render correctly because the source frame rate changed from to fps'
+        title="Из-за чего появляется «Frame rate mismatch, or footage with fields found» при использовании Roto Brush?"
       >
         <p>
-          Данное предупреждение показывается при использовании инструмента{" "}
-          <mark className="plugin">Rotobrush</mark> и оповещает пользователя о том, что
-          количество кадров в секунду у исходника отличается от указанного количества
-          кадров в секунду в настройках композиции. Например, вы используете исходник с
-          частотой кадров 50 к/c, а композиция настроена на 30. Программа прямым текстом
-          скажет, что нужно поставить верный фреймрейт в настройках композиции и какое
-          именно значение, чтобы всё вырезалось верно.
+          Это предупреждение возникает по двум причинам: несоответствие частоты кадров
+          исходника и композиции или наличие чересстрочной развёртки у исходника. Работать
+          с такими файлами можно, но лучше устранить проблему для корректной работы{" "}
+          <mark className="plugin">Roto Brush</mark>.
         </p>
-        <AdditionInfo>
-          Чтобы открыть настройки композиции - нажмите на комбинацию клавиш{" "}
-          <mark className="key">Ctrl + K</mark>.
-        </AdditionInfo>
-        <p>
-          Если вы не хотите менять значение FPS в настройках композиции, то для вас есть
-          три способа псевдо-решения:
-        </p>
+        <Addition type="info">
+          Из-за ошибки в русской локализации{" "}
+          <mark className="app">Adobe After Effects</mark> предупреждение формулируется
+          как «не найден видеоряд с полями», тогда как в оригинале говорится, что поля как
+          раз найдены.
+        </Addition>
+        <Divider>Решаем проблемы с частотой кадров</Divider>
         <ul>
           <li>
-            Создайте прекомпозицию с нужным исходником, а затем прямо на слое с
-            свежесозданной прекомпозицией начинаем делать ротоскопинг через{" "}
-            <mark className="plugin">Rotobrush</mark>.
+            <p>
+              Обычно предупреждение о несоответствии частоты кадров подсказывает, какую
+              частоту нужно выставить для композиции. Например, если исходное видео имеет{" "}
+              <mark>50 FPS</mark>, а композиция — <mark>30</mark>, программа предложит
+              настроить её на <mark>50 FPS</mark>.
+            </p>
+            <p>
+              Чтобы изменить частоту кадров, откройте настройки композиции с помощью{" "}
+              <mark className="key">Ctrl + K</mark> или через меню{" "}
+              <mark className="select">«Composition» → «Composition Settings»</mark>. В
+              поле <mark className="select">«Frame Rate»</mark> укажите ту же частоту, что
+              у исходника, и нажмите <mark className="select">«OK»</mark>. После этого
+              предупреждение должно исчезнуть.
+            </p>
+            <ContentFigure
+              caption="Composition Settings"
+              imgTitle="Вкладка Basic в настройках композиции"
+              src="images/aftereffects/composition_settings_basic.png"
+              theme="dark"
+              type="image"
+              variant="windows"
+            />
           </li>
           <li>
-            Интерпретируйте FPS у исходника. Для этого перейдите в окно Project, найдите
-            там ваш исходник и нажмите на него <mark className="key">ПКМ</mark>. Затем в
-            контекстном меню выберите{" "}
-            <mark className="ui">Interpret Footage &gt; Conform to frame rate</mark>.
+            Если вы не хотите менять частоту кадров композиции, в которой используется
+            исходник, создайте на его основе прекомпозицию с той же частотой кадров.
           </li>
           <li>
-            Просто перекодировать исходник через{" "}
-            <a href="https://www.shutterencoder.com/">Shutter Encoder</a> с указанием
-            нужного FPS и заменить позже в проекте через{" "}
-            <mark className="ui">Replace Footage &gt; File</mark>.
+            Если вы не хотите менять частоту кадров композиции — перекодируйте исходник в
+            нужное значение через <mark className="app">Shutter Encoder</mark> и замените
+            его в проекте с помощью{" "}
+            <mark className="select">«Replace Footage» → «File»</mark>. Для изменения
+            частоты кадров используйте вкладку{" "}
+            <mark className="select">«Advanced features»</mark>.
+            <ContentFigure
+              caption="Shutter Encoder"
+              src="images/shutter_encoder_convert_to_constant_fps.mp4"
+              theme="dark"
+              type="video"
+              variant="mac"
+            />
+          </li>
+          <li>
+            Если вы не хотите конвертировать исходник — интерпретируйте его частоту
+            кадров. Для этого выделите файл в окне{" "}
+            <mark className="select">«Project»</mark>, нажмите{" "}
+            <mark className="key">Ctrl + Alt + G</mark>, чтобы открыть окно{" "}
+            <mark className="select">«Interpret Footage»</mark>, и в разделе{" "}
+            <mark className="select">«Frame Rate»</mark> выберите{" "}
+            <mark className="select">«Conform to frame rate»</mark> и задайте значение,
+            совпадающее с частотой кадров нужной композиции.
+            <ContentFigure
+              caption="Interpret Footage"
+              imgTitle="Интерпретация футажа"
+              src="images/aftereffects/interpret_footage_main.png"
+              theme="dark"
+              type="image"
+              variant="windows"
+            />
           </li>
         </ul>
       </DetailsSummary>
