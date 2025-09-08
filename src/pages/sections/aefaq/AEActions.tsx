@@ -1209,54 +1209,76 @@ const AEActions: React.FC = () => {
         title="Как сделать обводку слоя?"
       >
         <p>
-          Есть два быстрых способа для создания обводки: через{" "}
-          <mark className="ui">Auto-trace</mark> и через{" "}
-          <mark className="ui">Layer Style</mark>.
+          В <mark className="app">Adobe After Effects</mark> обводку вокруг слоя можно
+          сделать разными способами — какой использовать в проекте, решать только вам.
+          Обводка часто используется, чтобы выделить текст или изображение контрастным
+          контуром и подчеркнуть объект в кадре.
         </p>
-        <Divider>Создаём обводку с помощью Layer Style</Divider>
+        <Divider>Создаём обводку с помощью стилей слоя</Divider>
         <p>
-          Начнём с первого способа - через <mark className="ui">Layer Style</mark>. Для
-          этого вам нужно выделить ваш слой в окне предпросмотра или в таймлайне, нажать{" "}
-          <mark className="key">ПКМ</mark> и выбрать в контекстном меню{" "}
-          <mark className="ui">Layer Style &gt; Stroke</mark>. После этого вы можете
-          раскрыть свойства обводки и изменить ему цвет, прозрачность или размер.
+          Начнём с первого и быстрого способа создания обводки с помощью стилей слоя. Для
+          этого выделите слой, нажмите <mark className="key">ПКМ</mark> и в контекстном
+          меню выберите <mark className="select">«Layer Style» → «Stroke»</mark>. После
+          этого в свойствах слоя появятся настройки обводки, где можно изменить её цвет,
+          прозрачность и размер. Данный способ хорошо подходит, если у вашего слоя имеется
+          альфа-канал прозрачности, так как такой способ работает с его использованием.
         </p>
-        <VideoFigure
+        <ContentFigure
           caption="Создание обводки через Layer Style"
-          styleClass="figure_windows-dark"
-          videoSrc="images/aftereffects/stroke_layer-style.mp4"
+          src="images/aftereffects/stroke_layer-style.mp4"
+          theme="dark"
+          type="video"
+          variant="windows"
         />
-        <Divider>Создаём обводку с помощью авто-трассировки</Divider>
+        <Divider>Создаём обводку с помощью автоматической трассировки</Divider>
         <p>
-          Второй способ, через <mark className="ui">Auto-Trace</mark>, будет чуть
-          посложнее. Вам нужно будет создать маску с помощью функции авто-трассировки. Для
-          этого вам нужно выделить слой, перейти в{" "}
-          <mark className="ui">Layer &gt; Auto-Trace</mark>. В новом окне вы можете
-          выбрать диапазон работы авто-трассировки: создать маску только с текущего кадра
-          или в пределах рабочей области, то есть создать маску покадрово. Затем у нас
-          сгенерируется маска на новом слое. Также можно выбрать на основе чего создавать
-          трассировку: из альфа-канала, яркости или определённого цвета. Вы можете
-          применить маску сразу на выделенный слой, убрав в окне чекбокс с параметра{" "}
-          <mark className="ui">Apply to new layer</mark>. После настройки просто нажмите
-          на кнопку <mark className="ui">OK</mark> и примените эффект{" "}
-          <mark className="plugin">Stroke</mark> на слой с созданной маской.
+          Второй способ, через <mark className="select">«Auto-Trace»</mark>, немного
+          сложнее предыдущего. Для начала нужно создать маску с помощью функции
+          автотрассировки. Для этого выделите слой и выберите{" "}
+          <mark className="select">«Layer» → «Auto-Trace»</mark>.
         </p>
-        <VideoFigure
-          caption="Создание обводки через Auto-Trace и эффекта Stroke"
-          styleClass="figure_windows-dark"
-          videoSrc="images/aftereffects/stroke_auto-trace.mp4"
-        />
-        <AdditionInfo>
-          Эффект <mark className="plugin">Stroke</mark> автоматически сделает обводку из
-          созданной маски. Если на вашем слое есть несколько масок - эффект выберет первую
-          по списку. При желании вы можете изменить параметр{" "}
-          <mark>из какой маски делать обводку</mark>.
-        </AdditionInfo>
         <p>
-          Второй способ прекрасно подходит к многим сторонним эффектам для создания
-          обводки, например <mark className="plugin">Saber</mark> или{" "}
+          В появившемся окне можно указать, на основе чего строить контур: альфа-канал,
+          яркость или цвет, а также задать диапазон — один кадр или вся рабочая область.
+          Если нужно, чтобы маска применилась на текущий слой, снимите флажок{" "}
+          <mark className="select">«Apply to new layer»</mark>. После нажатия{" "}
+          <mark className="select">«OK»</mark> маска появится на слое, и к нему уже можно
+          добавить эффект <mark className="plugin">Stroke</mark> или альтернативы вроде{" "}
+          <mark className="plugin">Saber</mark> и{" "}
           <mark className="plugin">Thicc Stroke</mark>.
         </p>
+        <Addition type="info">
+          Эффект <mark className="plugin">Stroke</mark> автоматически создаст обводку по
+          первой маске на слое. Если масок несколько, можно выбрать нужную в настройках
+          эффекта.
+        </Addition>
+        <ContentFigure
+          caption="Создание обводки через Auto-Trace и эффект Stroke"
+          src="images/aftereffects/stroke_auto-trace.mp4"
+          theme="dark"
+          type="video"
+          variant="windows"
+        />
+        <Divider>Задаём обводку тексту в панели Character</Divider>
+        <p>
+          Если нужно добавить обводку только для текста, используйте окно{" "}
+          <mark className="select">«Character»</mark>. Обводка включается изменением
+          параметра <mark className="select">«Set the stroke width»</mark>, а в выпадающем
+          списке рядом можно выбрать способ обводки<sup>1</sup>. Цвет обводки задаётся
+          дополнительным цветом в палитре, он показывается за основным.
+        </p>
+        <Addition type="info">
+          <sup>1</sup> Значения <mark className="select">«Stroke Over Fill»</mark> и{" "}
+          <mark className="select">«Fill Over Stroke»</mark> отвечают за отображение
+          обводки поверх или под заливкой.
+        </Addition>
+        <ContentFigure
+          type="image"
+          theme="dark"
+          variant="windows"
+          src="images/aftereffects/character_stroke.png"
+          caption="Character"
+        />
       </DetailsSummary>
       <DetailsSummary
         tag="морфинг фигур, variable font"
@@ -1290,7 +1312,7 @@ const AEActions: React.FC = () => {
             <a href="https://www.youtube.com/watch?v=Vu3RHRnoRM4">Как им пользоваться?</a>
             <Addition type="warning">
               При использовании <mark className="select">«Continuously Rasterize»</mark>{" "}
-              возможны разрывы слоя при использования этого инструмента.
+              возможны разрывы слоя.
             </Addition>
           </li>
           <li>
