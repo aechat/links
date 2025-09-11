@@ -186,24 +186,16 @@ const AEFromNewbies: React.FC = () => {
           <mark className="app">Adobe After Effects</mark>. Без фундаментальных знаний
           многие тонкости работы с инструментами могут быть вам непонятны, ведь не все
           «эдиторы» подробно объясняют процесс, а просто демонстрируют его.{" "}
-          <i style={{opacity: "0.5"}}>
-            И пожалуйста, не лепите в свои композиции эффекты{" "}
-            <mark className="plugin">Unsharpen Mask</mark> и{" "}
-            <mark className="plugin">Sharpen</mark> с выкрученными до максимума значениями
-            ради «качества» — выглядит ужасно. Используйте эффекты для цветокоррекции в
-            умеренной дозировке.
-          </i>
         </Addition>
         <ul>
           <li>
-            Если вам часто попадаются <mark className="word">эдиты</mark> в{" "}
-            <mark className="app">TikTok</mark>,{" "}
+            Если вам регулярно попадаются «эдиты» в <mark className="app">TikTok</mark>,{" "}
             <mark className="app">YouTube Shorts</mark> или{" "}
             <mark className="app">
               Instagram<sup>1</sup> Reels
             </mark>{" "}
-            и хочется начать делать что-то похожее — обратите внимание на обучающие видео
-            в каналах ниже.
+            и хочется попробовать создать что-то подобное — обратите внимание на обучающие
+            видео на каналах ниже.
             <div className="flexible-links">
               <a href="https://www.youtube.com/@Tozel./videos">Tozel</a>
               <a href="https://www.youtube.com/@rdylt09/videos">rdylt09</a>
@@ -222,9 +214,88 @@ const AEFromNewbies: React.FC = () => {
               Федерации.
             </Addition>
           </li>
-          style={{
-            textAlign: "center",
-            fontSize: "0.95rem",
+          <li>
+            В «эдитах» нередко используют эффект тряски камеры. Его можно реализовать
+            разными способами — например, с помощью стандартного выражения{" "}
+            <mark className="code">wiggle(freq, amp)</mark> или сторонних эффектов{" "}
+            <mark className="plugin">S_Shake</mark> и{" "}
+            <mark className="plugin">Twitch</mark>
+            <sup>1</sup>.
+            <Addition type="danger">
+              <sup>1</sup> Автор статьи не рекомендует применять{" "}
+              <mark className="plugin">Twitch</mark> в новых проектах, так как он морально
+              устарел и не поддерживает{" "}
+              <mark className="select">«Multi-Frame Rendering»</mark>. В качестве замены
+              лучше подходит <mark className="plugin">S_Shake</mark> из пакета{" "}
+              <mark className="plugin">Boris FX Sapphire</mark> со стилем{" "}
+              <mark className="select">«Twitchy»</mark>.
+            </Addition>
+            <ContentFigure
+              type="youtube"
+              src="rT1rOj3BBCE"
+              caption="Как добавить эффект тряски камеры без сторонних эффектов"
+            />
+          </li>
+          <li>
+            Ещё один популярный эффект для динамичных сцен — частицы. Их можно создавать с
+            помощью стандартных генераторов, таких как{" "}
+            <mark className="plugin">CC Particle World</mark>, или через сторонние
+            инструменты, например <mark className="plugin">Trapcode Particular</mark>.
+            <ContentFigure
+              type="youtube"
+              src="GgIbELgZLLI"
+              caption="Создание частиц с помощью Trapcode Particular"
+            />
+          </li>
+          <li>
+            Для придания объектам свечения используют различные эффекты — от стандартного{" "}
+            <mark className="plugin">Glow</mark> до сторонних{" "}
+            <mark className="plugin">S_Glow</mark>,{" "}
+            <mark className="plugin">Deep Glow</mark> и других.
+            <Addition type="warning">
+              Учтите, что эффект свечения очень требователен к ресурсам и может серьёзно
+              снизить производительность проекта.
+            </Addition>
+            <ContentFigure
+              type="youtube"
+              src="t40ZTEBr_M0"
+              caption="Glow"
+            />
+          </li>
+          <li>
+            Блики от объектива применяются для усиления реалистичности сцены. В реальности
+            они возникают из-за отражения света от поверхностей объектов, диафрагмы или
+            многократных отражений между линзами. Повторить этот эффект можно стандартным{" "}
+            <mark className="plugin">Lens Flare</mark>, сторонними инструментами{" "}
+            <mark className="plugin">Optical Flares</mark>,{" "}
+            <mark className="plugin">S_LensFlare</mark> или даже комбинацией различных
+            эффектов размытия и искажения.
+            <ContentFigure
+              type="youtube"
+              src="-yD3MxlR78c"
+              caption="S_LensFlare"
+            />
+          </li>
+          <li>
+            На популярных видеоплощадках вроде <mark className="app">TikTok</mark> и{" "}
+            <mark className="app">YouTube Shorts</mark> нередко используют спорные приёмы
+            «улучшения» качества через цветокоррекцию: применяют эффекты{" "}
+            <mark className="plugin">Sharpen</mark> и{" "}
+            <mark className="plugin">Unsharpen Mask</mark> с чрезмерными значениями,
+            завышают контраст и насыщенность, а затем называют видео <mark>4K</mark>, хотя
+            фактическое разрешение меньше.{" "}
+            <i style={{opacity: "0.5"}}>
+              Пожалуйста, не доводите до максимума значения эффектов{" "}
+              <mark className="plugin">Unsharpen Mask</mark> и{" "}
+              <mark className="plugin">Sharpen</mark> в погоне за «качеством» — после
+              таких «улучшений» результат обычно выглядит так себе.
+            </i>
+            <ContentFigure
+              caption="HOW TO: Make A 4K Color Correction"
+              src="d9ESpD7vc2Y"
+              type="youtube"
+            />
+          </li>
         </ul>
         <p>
           Надеюсь, вы найдёте в этой статье что-то полезное для себя. Удачи в ваших
@@ -261,9 +332,9 @@ const AEFromNewbies: React.FC = () => {
           </li>
           <li>
             <mark className="word">Зайди в окно превью</mark> — вам предлагают открыть
-            окно с настройками проигрывания предпросмотра (
-            <mark className="select">«Window» → «Preview»</mark>), чтобы убедиться, что
-            всё настроено корректно. Бывает, что у пользователя выставлены неправильные
+            окно с настройками проигрывания предпросмотра
+            <mark className="select">«Window» → «Preview»</mark>, чтобы убедиться, что всё
+            настроено корректно. Бывает, что у пользователя выставлены неправильные
             значения <mark className="select">«FPS»</mark>, из-за чего предпросмотр
             воспроизводится слишком быстро или медленно. Либо выбрано низкое качество
             предпросмотра — <mark className="select">«Auto»</mark> или{" "}
@@ -588,8 +659,8 @@ const AEFromNewbies: React.FC = () => {
           </li>
           <li>
             <mark className="word">Ротобраш</mark> или{" "}
-            <mark className="word">Rotobrush</mark> — стандартный инструмент программы для
-            выделения движущегося объекта в кадре.
+            <mark className="word">Roto Brush</mark> — стандартный инструмент программы
+            для выделения движущегося объекта в кадре.
           </li>
           <li>
             <mark className="word">Ротоскопинг</mark> — процесс покадрового отделения
@@ -875,7 +946,7 @@ const AEFromNewbies: React.FC = () => {
               </li>
               <li>
                 <mark className="video">VP9</mark> / <mark className="video">AV1</mark> —
-                кодеки от Google в контейнере <mark className="video">WebM</mark>, часто
+                кодеки от Google в контейнере <mark className="video">WEBM</mark>, часто
                 используются для веб-страниц. Поддерживают альфа-канал.
                 <Addition type="info">
                   Экспортировать в эти кодеки из{" "}
@@ -1954,7 +2025,7 @@ const AEFromNewbies: React.FC = () => {
           Нередко к ним ошибочно относят расширения формата{" "}
           <mark className="file">ZXP</mark> и скрипты форматов{" "}
           <mark className="file">JSX</mark> и <mark className="file">JSXBIN</mark>,
-          которые мы также разберём.
+          которые также разберём в этой статье.
         </p>
         <Addition type="warning">
           <ul>
@@ -1966,9 +2037,9 @@ const AEFromNewbies: React.FC = () => {
             </li>
             <li>
               Пожалуйста, не устанавливайте все плагины и скрипты со всего мира в
-              программу: это может снизить производительность программы. Прежде чем
-              ставить тот или иной инструмент — подумайте, действительно ли он вам
-              понадобится в работе.
+              программу: это может снизить его производительность. Прежде чем ставить тот
+              или иной инструмент — подумайте, действительно ли он вам понадобится в
+              работе.
             </li>
             <li>Рекомендации автора статьи могут не совпадать с вашим мнением.</li>
           </ul>
@@ -2060,12 +2131,14 @@ const AEFromNewbies: React.FC = () => {
             </Addition>
           </li>
           <li>
-            <mark className="plugin">Twitch от VideoCopilot</mark> — устаревший плагин для
-            создания эффекта тряски, в прошлом был очень популярен у «эдиторов».
-            <Addition type="warning">
-              Автор статьи не рекомендует использовать этот эффект в новых проектах, так
-              как он устарел и не поддерживает мультифрейм-рендер. В качестве замены лучше
-              подходит <mark className="plugin">S_Shake</mark> из пакета{" "}
+            <mark className="plugin">Twitch от VideoCopilot</mark> — устаревший
+            <sup>1</sup> плагин для создания эффекта тряски, который до сих пор популярен
+            у «эдиторов».
+            <Addition type="danger">
+              <sup>1</sup> Автор статьи не рекомендует использовать этот эффект в новых
+              проектах, так как он «морально устарел» и не поддерживает{" "}
+              <mark className="select">«Multi-Frame Rendering»</mark>. В качестве замены
+              лучше подходит <mark className="plugin">S_Shake</mark> из пакета{" "}
               <mark className="plugin">Boris FX Sapphire</mark> со стилем{" "}
               <mark className="select">«Twitchy»</mark>.
             </Addition>
@@ -2142,7 +2215,7 @@ const AEFromNewbies: React.FC = () => {
         <ul>
           <li>
             <mark className="plugin">Autokroma Influx</mark> — плагин для импорта
-            неподдерживаемых форматов, например <mark className="video">WebM</mark>,{" "}
+            неподдерживаемых форматов, например <mark className="video">WEBM</mark>,{" "}
             <mark className="video">MKV</mark> или <mark className="video">FLV</mark>.
           </li>
           <li>
@@ -2193,8 +2266,8 @@ const AEFromNewbies: React.FC = () => {
         <p>
           А вообще, рекомендуется время от времени обновлять{" "}
           <mark className="app">Adobe After Effects</mark> и сторонние плагины. Многие
-          баги старых версий (например, утечка оперативной памяти или смещение кадра при
-          экспорте) исправляются в более новых.
+          баги старых версий, например утечка оперативной памяти или смещение кадра при
+          экспорте, исправляются в более новых.
         </p>
       </DetailsSummary>
       <DetailsSummary
@@ -2256,7 +2329,9 @@ const AEFromNewbies: React.FC = () => {
                 Затем в строке поиска введите{" "}
                 <mark className="copy">ApplicationLanguage</mark> и в строке с этим
                 параметром напишите <mark className="copy">en_US</mark>. После этого
-                перезапустите <mark className="app">Adobe After Effects</mark>.
+                перезапустите <mark className="app">Adobe After Effects</mark>. Чтобы
+                вернуть язык по умолчанию, просто удалите значение из этого параметра и
+                снова перезапустите программу.
               </p>
               <ContentFigure
                 caption="Установка английского языка в консоли"
@@ -2266,10 +2341,6 @@ const AEFromNewbies: React.FC = () => {
                 type="image"
                 variant="windows"
               />
-              <Addition type="info">
-                Чтобы вернуть язык по умолчанию, просто удалите значение из этого
-                параметра и снова перезапустите программу.
-              </Addition>
             </div>
           }
           windowsContent={
@@ -2327,7 +2398,9 @@ const AEFromNewbies: React.FC = () => {
                 Затем в строке поиска введите{" "}
                 <mark className="copy">ApplicationLanguage</mark> и в строке с этим
                 параметром напишите <mark className="copy">en_US</mark>. После этого
-                перезапустите <mark className="app">Adobe After Effects</mark>.
+                перезапустите <mark className="app">Adobe After Effects</mark>. Чтобы
+                вернуть язык по умолчанию, просто удалите значение из этого параметра и
+                снова перезапустите программу.
               </p>
               <ContentFigure
                 caption="Установка английского языка в консоли"
@@ -2337,10 +2410,6 @@ const AEFromNewbies: React.FC = () => {
                 type="image"
                 variant="windows"
               />
-              <Addition type="info">
-                Чтобы вернуть язык по умолчанию, просто удалите значение из этого
-                параметра и снова перезапустите программу.
-              </Addition>
             </div>
           }
         />
@@ -2374,7 +2443,7 @@ const AEFromNewbies: React.FC = () => {
                   <li>
                     Если очистка кэша не помогает избавиться от ошибки{" "}
                     <mark className="warning">«Out of Memory»</mark>, попробуйте{" "}
-                    <a href="#4.5">настроить файл подкачки</a>.
+                    <a href="#6.5">настроить файл подкачки</a>.
                   </li>
                   <li>
                     Вы можете назначить горячую клавишу для очистки кэша в{" "}
@@ -2395,6 +2464,61 @@ const AEFromNewbies: React.FC = () => {
               </Addition>
             </div>
           }
+        />
+      </DetailsSummary>
+      <DetailsSummary
+        tag="disable idle caching, выключить кэширование при простое, очень тормозит и зависает программа при выполнении какого-нибудь действия после небольшой паузы"
+        title="Как отключить автоматическое кэширование предпросмотра при бездействии?"
+      >
+        <p>
+          В <mark className="app">Adobe After Effects</mark> версии <mark>2022</mark> и
+          новее по умолчанию включено автоматическое кэширование кадров во время простоя.
+          На слабых компьютерах или при использовании ресурсоёмких эффектов это может
+          вызывать дискомфорт, излишне нагружая систему и заполняя оперативную память.
+          Неудивительно, что из-за такого поведения программы некоторые «староверы» до сих
+          пор ворчат, мол,{" "}
+          <mark className="quote">
+            «раньше было лучше, а сейчас всё лагает на ровном месте!!1!»
+          </mark>
+          . Благо, в <mark className="company">Adobe</mark> при внедрении этой функции
+          предусмотрели возможность её отключения.{" "}
+          <i style={{opacity: "0.5"}}>И не все об этом в курсе.</i>
+        </p>
+        <Divider>Отключаем кэширование в простое</Divider>
+        <p>
+          Для отключения автоматического кэширования при бездействии перейдите в{" "}
+          <mark className="select">«Composition» → «Preview»</mark> и снимите флажок{" "}
+          <mark className="select">«Cache Frames When Idle»</mark> или нажмите комбинацию
+          клавиш <mark className="key">Alt + Shift + I</mark>.
+        </p>
+        <ContentFigure
+          caption="Adobe After Effects"
+          imgTitle="Отключение автоматического кэширования предпросмотра при бездействии"
+          src="images/aftereffects/disable_idle_cache.png"
+          theme="light"
+          type="image"
+          variant="windows"
+        />
+        <Divider>Настраиваем функцию кэширования в простое</Divider>
+        <p>
+          Если вы не хотите отключать эту функцию, но хотите изменить время, после
+          которого начнётся автоматическое кэширование, — перейдите в{" "}
+          <mark className="select">«Edit» → «Preferences» → «Previews»</mark>. В параметре{" "}
+          <mark className="select">«Idle Delay Before Caching Starts»</mark> вы можете
+          указать любое число от <mark>2</mark> до <mark>15</mark> секунд.
+        </p>
+        <Addition type="info">
+          Чуть ниже этого параметра можно настроить область и направление кэширования:{" "}
+          <mark>«вокруг временной метки»</mark>, <mark>«от временной метки»</mark> или{" "}
+          <mark>«от начала рабочей области»</mark>.
+        </Addition>
+        <ContentFigure
+          caption="Preferences"
+          imgTitle="Изменение времени для автоматического кэширования при бездействии"
+          src="images/aftereffects/change_time_idle_cache.png"
+          theme="dark"
+          type="image"
+          variant="windows"
         />
       </DetailsSummary>
       <DetailsSummary
@@ -2461,8 +2585,8 @@ const AEFromNewbies: React.FC = () => {
                 системы и файлов каждый час или по нажатию кнопки.
               </p>
               <Addition type="warning">
-                Для работы Time Machine нужен внешний накопитель, желательно объёмом от{" "}
-                <mark>512 ГБ</mark>.
+                Для работы <mark className="app">Time Machine</mark> нужен внешний
+                накопитель, желательно объёмом от <mark>512 ГБ</mark>.
               </Addition>
               <ContentFigure
                 caption="How to Set up & Use Time Machine to Backup your Mac"
@@ -2535,7 +2659,7 @@ const AEFromNewbies: React.FC = () => {
         </p>
         <Addition type="info">
           Чтобы не попасть впросак, если файл проекта повредится — заранее{" "}
-          <a href="#3.8">настройте резервное копирование проектов</a>.
+          <a href="#">настройте резервное копирование проектов</a>.
         </Addition>
       </DetailsSummary>
       <DetailsSummary
@@ -2549,6 +2673,11 @@ const AEFromNewbies: React.FC = () => {
           заняться композитингом. Однако такой подход неэффективен. Разберёмся, когда
           какую программу использовать.
         </p>
+        <ContentFigure
+          caption="Когда нужно использовать Adobe Premiere Pro и Adobe After Effects"
+          src="xxDdL455rAo"
+          type="youtube"
+        />
         <ul>
           <li>
             Обе программы подходят для создания коротких видеороликов до одной минуты с
@@ -3127,7 +3256,7 @@ const AEFromNewbies: React.FC = () => {
             <Addition type="warning">
               <sup>1</sup> В <mark>Windows</mark> для импорта файлов{" "}
               <mark className="image">HEIF/HEIC</mark> необходимо установить{" "}
-              <a href="#5.9">соответствующие кодеки</a>.
+              <a href="#">соответствующие кодеки</a>.
             </Addition>
             <Addition type="info">
               <ul>
@@ -3174,7 +3303,7 @@ const AEFromNewbies: React.FC = () => {
                 Если <mark className="image">PSD</mark> сохранён в цветовом режиме,
                 отличном от <mark>RGB</mark>, — послойный импорт в{" "}
                 <mark className="app">Adobe After Effects</mark> будет недоступен.{" "}
-                <a href="#4.3">Подробнее…</a>
+                <a href="#">Подробнее...</a>
               </Addition>
             </Addition>
             <Addition type="info">
@@ -3696,8 +3825,8 @@ const AEFromNewbies: React.FC = () => {
                   ниже не работают.
                 </li>
                 <li>
-                  <mark className="select">«Iris Rotation»</mark> — поворот лепестков
-                  относительно центра.
+                  <mark className="select">«Iris Rotation»</mark> — угол поворота
+                  лепестков.
                 </li>
                 <li>
                   <mark className="select">«Iris Roundness»</mark> — сглаженность углов
@@ -3932,7 +4061,7 @@ const AEFromNewbies: React.FC = () => {
           <sup>1</sup> <mark className="image">PSD</mark>, сохранённые в режиме{" "}
           <mark>CMYK</mark>, не поддерживают послойный импорт слоёв в проект. Чтобы это
           исправить — измените цветовой режим файла на <mark>RGB</mark>.{" "}
-          <a href="#4.3">Как?</a>
+          <a href="#">Как?</a>
         </Addition>
         <ContentFigure
           caption="Импорт и анимация PSD в Adobe After Effects"
@@ -3961,7 +4090,7 @@ const AEFromNewbies: React.FC = () => {
           <mark className="plugin">Cinema 4D Lite</mark> — установите полноценную{" "}
           <mark className="app">Maxon Cinema 4D</mark>, иначе вы столкнетесь с тем, что вы
           не сможете импортировать проекты формата <mark className="file">C4D</mark>.{" "}
-          <a href="#8.10">Подробнее...</a>
+          <a href="#">Подробнее...</a>
         </Addition>
         <ContentFigure
           caption="Cineware"
@@ -4291,60 +4420,6 @@ const AEFromNewbies: React.FC = () => {
           type="image"
           variant="windows"
         />
-        <Divider>Как избавиться от зацикливания предпросмотра?</Divider>
-        <p>
-          Часто зацикливание предпросмотра, даже если он не до конца закэширован, означает
-          лишь одно — программе попросту не хватает оперативной памяти для корректного
-          просмотра, особенно если вы пытаетесь воспроизвести тяжёлую сцену. Чтобы
-          минимизировать последствия такого поведения, стоит подумать об оптимизации
-          проекта или изменить настройки программы и системы. Учтите, что приведённые в
-          этом разделе способы решения схожи со способами решения проблемы{" "}
-          <mark className="warning">«Out of Memory»</mark> и{" "}
-          <mark className="warning">
-            «Cached preview needs 2 or more frames for playback»
-          </mark>
-          .
-        </p>
-        <p>
-          В <mark className="app">Adobe After Effects</mark> версии <mark>25.2</mark> и
-          новее была добавлена новая функция воспроизведения предпросмотра напрямую из
-          дискового кеша. Она позволяет проигрывать предпросмотр напрямую с диска, не
-          загружая кадры в оперативную память, что может помочь в ситуациях, когда ни файл
-          подкачки, ни увеличение оперативной памяти не помогает. Для этого перейдите в{" "}
-          <mark className="select">«Edit» → «Preferences» → «Media & Disk Cache»</mark>,
-          включите дисковый кэш включением чекбокса{" "}
-          <mark className="select">«Enable Disk Cache»</mark> и активируйте параметр{" "}
-          <mark className="select">«Enable Preview from Disk Cache»</mark>. Какое значение
-          устанавливать для параметра{" "}
-          <mark className="select">«Maximum Disk Cache Size»</mark> — решать только вам.
-        </p>
-        <Addition type="info">
-          Для комфортной работы в программе с включенной опцией дискового кэша
-          рекомендуется использовать быстрый накопитель. При необходимости вы можете
-          приобрести дешёвый <mark>SSD</mark>, который будет не жалко использовать, на{" "}
-          <mark>256-512 ГБ</mark> из популярных маркетплейсов и использовать его в
-          качестве накопителя для дискового кэша.
-        </Addition>
-        <ContentFigure
-          caption="Preferences"
-          imgTitle="Включение воспроизведения предпросмотра из дискового кеша"
-          src="images/aftereffects/enable_preview_from_disk_cache.png"
-          theme="dark"
-          type="image"
-          variant="windows"
-        />
-        <ContentFilter
-          windowsContent={
-            <div>
-              <p>
-                Если вы используете старую версию{" "}
-                <mark className="app">Adobe After Effects</mark> или вы не хотите
-                использовать дисковый кэш — попробуйте настроить{" "}
-                <a href="#6.7">файл подкачки</a>.
-              </p>
-            </div>
-          }
-        />
         <Divider>Как убрать «пикселизацию» у векторных слоёв?</Divider>
         <p>
           Если вы импортировали векторный файл (например, <mark className="file">AI</mark>
@@ -4369,20 +4444,28 @@ const AEFromNewbies: React.FC = () => {
         <p>
           Часто предпросмотр тормозит, потому что{" "}
           <mark className="app">Adobe After Effects</mark> по умолчанию пытается
-          воспроизводить видео в реальном времени, не успевая просчитывать эффекты.
+          воспроизводить видео в реальном времени и не успевает просчитывать эффекты. В
+          отличие от классических нелинейных редакторов, таких как{" "}
+          <mark className="app">Adobe Premiere Pro</mark> или{" "}
+          <mark className="app">DaVinci Resolve</mark>,{" "}
+          <mark className="app">Adobe After Effects</mark> изначально не предназначен для
+          полноценного предпросмотра в реальном времени — поэтому кадры следует кэшировать
+          заранее.
+        </p>
+        <p>
           Текущий <mark>FPS</mark> предпросмотра отображается в окне{" "}
           <mark className="select">«Info»</mark>. Если он ниже, чем <mark>FPS</mark>{" "}
-          композиции (например, <mark>22,787/25</mark>), значит, предпросмотр идёт не в
+          композиции (например, <mark>22,787/25</mark>), значит, воспроизведение идёт не в
           реальном времени.
-          <ContentFigure
-            caption="Info"
-            imgTitle="Предпросмотр не в реальном времени"
-            src="images/aftereffects/info_non-realtime.png"
-            theme="dark"
-            type="image"
-            variant="windows"
-          />
         </p>
+        <ContentFigure
+          caption="Info"
+          imgTitle="Предпросмотр не в реальном времени"
+          src="images/aftereffects/info_non-realtime.png"
+          theme="dark"
+          type="image"
+          variant="windows"
+        />
         <p>
           Чтобы это исправить, включите кэширование перед воспроизведением. Для этого
           откройте окно <mark className="select">«Window» → «Preview»</mark> и установите
@@ -4466,9 +4549,23 @@ const AEFromNewbies: React.FC = () => {
           проект или заменять уже позже. Сделать это можно через{" "}
           <mark className="app">Shutter Encoder</mark> — бесплатную программу для
           конвертации видео на основе <mark className="app">FFmpeg</mark>.{" "}
-          <a href="#4.1">Подробнее…</a>
+          <a href="#">Подробнее...</a>
         </p>
         <Divider>Разбираемся с проблемами со звуком</Divider>
+        <p>
+          Иногда звук при предпросмотре может внезапно пропасть, если вы что-то случайно
+          «натыкали». Первым делом проверьте окно{" "}
+          <mark className="select">«Preview»</mark> — возможно вы случайно отключили там
+          звук с помощью соответствующей кнопки.
+        </p>
+        <ContentFigure
+          caption="Preview"
+          imgTitle="Включение звука в окне Preview"
+          src="images/aftereffects/toggle_audio_preview.png"
+          theme="dark"
+          type="image"
+          variant="windows"
+        />
         <p>
           По умолчанию <mark className="app">Adobe After Effects</mark> отключает звук,
           если предпросмотр идёт не в реальном времени. Чтобы это исправить, снимите
@@ -4484,26 +4581,89 @@ const AEFromNewbies: React.FC = () => {
           type="image"
           variant="windows"
         />
-        <p>
-          Иногда звук при предпросмотре может внезапно пропасть, если вы что-то случайно
-          «натыкали». Первым делом проверьте окно{" "}
-          <mark className="select">«Preview»</mark> — возможно вы случайно отключили там
-          звук с помощью соответствующей кнопки.
-        </p>
-        <ContentFigure
-          caption="Preview"
-          imgTitle="Включение звука в окне Preview"
-          src="images/aftereffects/toggle_audio_preview.png"
-          theme="dark"
-          type="image"
-          variant="windows"
-        />
+
         <p>Также стоит проверить переключатель аудио у слоя, а также его аудиодорожку.</p>
         {/* TODO: показать переключатель аудио  */}
         <p>
           В редких случаях проблемы могут быть вызваны самим аудиофайлом. Перекодируйте
           его в формат <mark className="audio">WAV</mark> и замените в проекте.
         </p>
+      </DetailsSummary>
+      <DetailsSummary
+        tag="для воспроизведения кэшированного предпросмотра требуется 2 или более кадров, не проигрывается предпросмотр, зацикливается превью, идёт по кругу"
+        title="«Cached preview needs 2 or more frames for playback» или как избавиться от зацикливания предпросмотра?"
+      >
+        <p>
+          Эта ошибка может возникнуть по двум причинам: из-за банальной невнимательности
+          или из-за переполнения кэша и оперативной памяти.
+        </p>
+        <Divider>Проверяем длину рабочей области</Divider>
+        <p>
+          Первым делом проверьте длину рабочей области на таймлайне. Возможно, вы случайно
+          сократили её до одного кадра — именно поэтому и возникает ошибка. Программа не
+          может запустить предпросмотр, если в рабочей области всего один кадр, что
+          логично: любая анимация должна содержать как минимум два кадра.
+        </p>
+        <ContentFigure
+          caption="Одна из причин ошибки — слишком короткая рабочая область"
+          imgTitle="Короткая рабочая область"
+          src="images/aftereffects/low_work-area.png"
+          theme="dark"
+          type="image"
+          variant="windows"
+        />
+        <p>
+          Чтобы это исправить, увеличьте рабочую область с помощью клавиш{" "}
+          <mark className="key">B</mark> (начало) и <mark className="key">N</mark>{" "}
+          (конец). Чтобы рабочая область охватила всю композицию или выделенный слой,
+          нажмите <mark className="key">Ctrl + Alt + B</mark>.
+        </p>
+        <Divider>Очищаем кэш и пробуем снова</Divider>
+        <p>
+          Если длина рабочей области больше двух кадров, скорее всего, проблема в
+          переполненном кэше или забитой оперативной памяти. Попробуйте очистить кэш через{" "}
+          <mark className="select">Edit → Purge → All Memory & Disk Cache</mark>. После
+          очистки рендеринг предпросмотра должен пройти нормально.
+        </p>
+        <Addition type="info">
+          <ul>
+            <li>
+              Если очистка кэша не помогает, а раньше всё работало, — попробуйте{" "}
+              <a href="#">настроить файл подкачки</a>.
+            </li>
+            <li>
+              Иногда корректному рендерингу мешает какой-нибудь эффект. Попробуйте найти
+              «виновника», поочерёдно отключая эффекты на слое.
+            </li>
+          </ul>
+        </Addition>
+        <ContentFigure
+          caption="Очистка кэша и оперативной памяти"
+          imgTitle="Очистка кэша и оперативной памяти"
+          src="images/aftereffects/edit_purge_all-memory-and-disk-cache.png"
+          theme="light"
+          type="image"
+          variant="windows"
+        />
+        <Divider>Включаем предпросмотр из дискового кэша</Divider>
+        <p>
+          Если вы сталкиваетесь с тем, что рендеринг предпросмотра зацикливается,
+          попробуйте включить новую функцию воспроизведения из дискового кэша (доступна в{" "}
+          <mark className="app">Adobe After Effects</mark> версии <mark>25.2</mark> и
+          новее). Она позволяет проигрывать предпросмотр напрямую с диска, не загружая
+          кадры в ОЗУ. Для этого в настройках (
+          <mark className="select">Edit → Preferences → Media & Disk Cache</mark>)
+          убедитесь, что дисковый кэш включён, и активируйте параметр{" "}
+          <mark className="select">Enable Preview from Disk Cache</mark>.
+        </p>
+        <ContentFigure
+          caption="Preferences"
+          imgTitle="Включение воспроизведения предпросмотра из дискового кэша"
+          src="images/aftereffects/enable_preview_from_disk_cache.png"
+          theme="dark"
+          type="image"
+          variant="windows"
+        />
       </DetailsSummary>
       <DetailsSummary
         tag="grow bounds, нарастить границы, обрезается эффект, края слоя"
@@ -4670,6 +4830,70 @@ const AEFromNewbies: React.FC = () => {
         </Addition>
       </DetailsSummary>
       <DetailsSummary
+        tag="unprecompose, распрекомпозить, раскомпозить"
+        title="Как распаковать прекомпозицию?"
+      >
+        <p>
+          Бывают случаи, когда вы создали несколько прекомпозиций, а затем вам внезапно
+          понадобилось их «распаковать» обратно. Заходить в каждую, выделять все слои (
+          <mark className="key">Ctrl + A</mark>), копировать (
+          <mark className="key">Ctrl + C</mark>), возвращаться в основную композицию и
+          вставлять (<mark className="key">Ctrl + V</mark>) — долго и муторно, особенно
+          если прекомпозиций много.
+        </p>
+        <Divider>Используем Un-PreCompose</Divider>
+        <p>
+          Для решения этой проблемы был создан бесплатный<sup>1</sup> скрипт{" "}
+          <a href="https://aescripts.com/un-precompose/">Un-PreCompose</a>. После
+          установки он появится в меню{" "}
+          <mark className="select">«Layer» → «Un-PreCompose»</mark>. Чтобы кнопка стала
+          активной, нужно выделить на таймлайне прекомпозиции, которые вы хотите
+          распаковать.
+        </p>
+        <Addition type="info">
+          <sup>1</sup> Чтобы скачать скрипт бесплатно, зарегистрируйтесь на сайте{" "}
+          <a href="https://aescripts.com">aescripts</a>, на странице плагина установите
+          цену <mark>0</mark> в поле <mark className="select">«Name Your Own Price»</mark>
+          , добавьте его в корзину и оформите заказ. Ссылка на скачивание появится{" "}
+          <a href="https://aescripts.com/downloadable/customer/products/">
+            в вашем профиле
+          </a>
+          .
+        </Addition>
+        <ContentFigure
+          caption="Распаковка нескольких прекомпозиций с помощью Un-precompose"
+          src="images/aftereffects/unprecompose_demonstration.mp4"
+          theme="light"
+          type="video"
+          variant="windows"
+        />
+        <Addition type="warning">
+          Учтите, что при распаковке могут «слететь» выражения и ссылки на слои в эффектах
+          (например, ссылка на слой в эффекте{" "}
+          <mark className="plugin">Displacement Map</mark>).
+        </Addition>
+        <Divider>Используем AEUX</Divider>
+        <p>
+          Хотя основное предназначение плагина <mark className="plugin">AEUX</mark> —
+          перенос макетов из <mark className="app">Figma</mark> в{" "}
+          <mark className="app">Adobe After Effects</mark>, в нём есть и другие полезные
+          инструменты. С его помощью тоже можно распаковать выделенные прекомпозиции,
+          нажав кнопку <mark className="select">«Un-Precomp»</mark>.
+        </p>
+        <ContentFigure
+          caption="AEUX"
+          imgTitle="Un-Precomp в AEUX"
+          src="images/aftereffects/aeux_un-precomp.png"
+          theme="dark"
+          type="image"
+          variant="windows"
+        />
+        <Addition type="info">
+          Скачать <mark className="plugin">AEUX</mark> можно на странице релизов в{" "}
+          <a href="https://github.com/google/AEUX/releases">GitHub</a>.
+        </Addition>
+      </DetailsSummary>
+      <DetailsSummary
         tag="перевернуть очерёдность, обратный порядок, инверсия, нумерация"
         title="Как инвертировать порядок слоёв на таймлайне?"
       >
@@ -4707,11 +4931,14 @@ const AEFromNewbies: React.FC = () => {
       </DetailsSummary>
       <DetailsSummary
         tag="обрезка, auto crop, region of interest, размер композиции"
-        title="Как кадрировать композицию по краям находящихся в ней слоёв?"
+        title="Как кадрировать композицию?"
       >
-        <Addition type="danger">
-          Эта статья находится на ранней стадии разработки. Следите за обновлениями.
-        </Addition>
+        {/* TODO: написать!! */}
+        <p>
+          Кадрировать композицию в <mark className="app">Adobe After Effects</mark> можно
+          разными способами — вручную или автоматически по краям находящихся в ней слоёв.
+        </p>
+        <Divider>Используем Auto Crop 3</Divider>
         <p>
           Для автоматического кадрирования композиции по границам её содержимого можно
           воспользоваться плагином <mark className="plugin">Auto Crop 3</mark>.
