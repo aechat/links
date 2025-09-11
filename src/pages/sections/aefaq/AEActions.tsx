@@ -1273,11 +1273,11 @@ const AEActions: React.FC = () => {
           обводки поверх или под заливкой.
         </Addition>
         <ContentFigure
-          type="image"
-          theme="dark"
-          variant="windows"
-          src="images/aftereffects/character_stroke.png"
           caption="Character"
+          src="images/aftereffects/character_stroke.png"
+          theme="dark"
+          type="image"
+          variant="windows"
         />
       </DetailsSummary>
       <DetailsSummary
