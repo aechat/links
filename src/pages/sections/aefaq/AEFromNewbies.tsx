@@ -25,15 +25,14 @@ const AEFromNewbies: React.FC = () => {
               Учтите, что большинство авторов курсов и каналов на{" "}
               <mark className="app">YouTube</mark> работают в английской версии программы.
               Чтобы избежать проблем с локализацией, рекомендуется{" "}
-              {/* TODO: проверить и исправить при необходимости якорь!!1! */}
-              <a href="#3.5">изменить язык программы на английский</a>, если у вас
+              <a href="#">изменить язык программы на английский</a>, если у вас
               установлена русская версия. Это поможет избежать путаницы с переводом
               названий эффектов или элементов интерфейса.
             </li>
             <li>
               Если вы предпочитаете работать с русской локализацией{" "}
               <mark className="app">Adobe After Effects</mark>, вам могут пригодиться
-              таблицы перевода <a href="#1.6">эффектов</a> и <a href="#1.7">пресетов</a>.
+              таблицы перевода <a href="#">эффектов</a> и <a href="#">пресетов</a>.
             </li>
             <li>
               Не стоит всерьёз полагаться на <mark className="app">ChatGPT</mark>,{" "}
@@ -45,133 +44,145 @@ const AEFromNewbies: React.FC = () => {
           </ul>
         </Addition>
         <Divider>Курсы для начинающих</Divider>
-        <p>
-          Если вы только начинаете свой путь в мире композитинга и никогда не работали с
-          программами вроде <mark className="app">Adobe After Effects</mark>, рекомендую
-          пройти курс{" "}
-          <a href="https://www.youtube.com/playlist?list=PLcN7xY5E2wrmIU__8uNIHglZTyZ29RMIM">
-            «Основы After Effects» от Ильи Зернова
-          </a>
-          . Этот курс поможет вам освоить интерфейс программы и научиться работать с
-          ключевыми кадрами, титрами и эффектами.
-        </p>
-        <ContentFigure
-          caption="Основы After Effects от Ильи Зернова"
-          src="nogR7eyhYug"
-          type="youtube"
-        />
-        <p>
-          В качестве альтернативы вы можете пройти{" "}
-          <a href="https://www.youtube.com/playlist?list=PLrsq-o51mMFE4ez9Q4qmkyoXZ_lYsyZNi">
-            мини-курс «After Effects для начинающих» от VideoSmile
-          </a>
-          . При прохождении этого курсы вы научитесь работать с различными эффектами,
-          создавать анимацию текста, а также использовать маски и инструмент{" "}
-          <mark className="plugin">Rotobrush</mark> для вырезания объектов в кадре.
-        </p>
-        <ContentFigure
-          caption="After Effects для начинающих"
-          src="ZTrELWgEtUI"
-          type="youtube"
-        />
-        <p>
-          Если вы владеете английским на уровне комфортного понимания речи, рекомендую к
-          просмотру плейлист{" "}
-          <a href="https://www.youtube.com/playlist?list=PLYfCBK8IplO77FDDLnS06qEMoVLD7Qyib">
-            «Learn Adobe After Effects» от Gareth David Studio
-          </a>
-          . Автор подробно разбирает основные функции программы и демонстрирует различные
-          примеры работы.
-        </p>
-        <ContentFigure
-          caption="What is Adobe After Effects?"
-          src="FuJMHF510mc"
-          type="youtube"
-        />
-        <p>
-          Если вы уже знакомы с интерфейсом, но всё ещё чувствуете себя неуверенно,
-          попробуйте изучить каналы на <mark className="app">YouTube</mark> из списка ниже
-          — они помогут прокачать ваши навыки.
-        </p>
-        <div className="flexible-links">
-          <a href="https://www.youtube.com/@TutoView/videos">Tutorials View+</a>
-          <a href="https://www.youtube.com/@BenMarriott/videos">Ben Marriott</a>
-          <a href="https://www.youtube.com/@AEPlug/videos">AEPlug</a>
-          <a href="https://www.youtube.com/@JakeInMotion/videos">Jake In Motion</a>
-          <a href="https://www.youtube.com/@SmertimbaGraphics/videos">
-            Smertimba Graphics
-          </a>
-          <a href="https://www.youtube.com/@SonduckFilm/videos">SonduckFilm</a>
-          <a href="https://youtube.com/@ollyspin/videos">olly</a>
-          <a href="https://youtube.com/@mapal/videos">Mapal</a>
-          <a href="https://www.youtube.com/@motionbyscott/videos">Motion By Scott</a>
-          <a href="https://www.youtube.com/@MotionXP/videos">MotionXP</a>
-        </div>
-        <p>
-          И не забываем про дополнительный список как бесплатных, так и платных курсов по{" "}
-          <mark className="app">Adobe After Effects</mark>.
-        </p>
-        <div className="flexible-links">
-          <a href="https://cloudlessons.ru/v/410/">«Супер After Effects» от VideoSmile</a>
-          <a href="https://volnitsa.zenclass.ru/public/course/4b9a6429-5c06-4f91-a73b-312bc57b9e35">
-            «Быстрый вход в After Effects» от Вольницы
-          </a>
-          <a href="https://volnitsa.zenclass.ru/public/course/9221df49-3262-444e-b269-8b3bfd496de2">
-            «SUPER SILA FOREVER» от Вольницы
-          </a>
-          <a href="https://sabatovsky.com/after">
-            «After Effects от новичка до специалиста» от Сабатовского
-          </a>
-          <a href="https://www.profileschool.ru/category/video/course_adobe_after_effects_base">
-            «After Effects базового уровня» от Никиты Чеснокова
-          </a>
-        </div>
+        <ul>
+          <li>
+            Если вы только начинаете свой путь в мире композитинга и никогда не работали с
+            программами вроде <mark className="app">Adobe After Effects</mark>, рекомендую
+            пройти курс{" "}
+            <a href="https://www.youtube.com/playlist?list=PLcN7xY5E2wrmIU__8uNIHglZTyZ29RMIM">
+              «Основы After Effects» от Ильи Зернова
+            </a>
+            . Этот курс поможет вам освоить интерфейс программы и научиться работать с
+            ключевыми кадрами, титрами и эффектами.
+            <ContentFigure
+              caption="Основы After Effects от Ильи Зернова"
+              src="nogR7eyhYug"
+              type="youtube"
+            />
+          </li>
+          <li>
+            В качестве альтернативы вы можете пройти{" "}
+            <a href="https://www.youtube.com/playlist?list=PLrsq-o51mMFE4ez9Q4qmkyoXZ_lYsyZNi">
+              мини-курс «After Effects для начинающих» от VideoSmile
+            </a>
+            . При прохождении этого курсы вы научитесь работать с различными эффектами,
+            создавать анимацию текста, а также использовать маски и инструмент{" "}
+            <mark className="plugin">Roto Brush</mark> для вырезания объектов в кадре.
+            <ContentFigure
+              caption="After Effects для начинающих"
+              src="ZTrELWgEtUI"
+              type="youtube"
+            />
+          </li>
+          <li>
+            Если вы владеете английским на уровне комфортного понимания речи, рекомендую к
+            просмотру плейлист{" "}
+            <a href="https://www.youtube.com/playlist?list=PLYfCBK8IplO77FDDLnS06qEMoVLD7Qyib">
+              «Learn Adobe After Effects» от Gareth David Studio
+            </a>
+            . Автор подробно разбирает основные функции программы и демонстрирует
+            различные примеры работы.
+            <ContentFigure
+              caption="What is Adobe After Effects?"
+              src="FuJMHF510mc"
+              type="youtube"
+            />
+          </li>
+          <li>
+            Если вы уже знакомы с интерфейсом программы, но всё ещё чувствуете себя
+            неуверенно, попробуйте изучить каналы на <mark className="app">YouTube</mark>{" "}
+            из списка ниже — они помогут прокачать ваши навыки.
+            <div className="flexible-links">
+              <a href="https://www.youtube.com/@TutoView/videos">Tutorials View+</a>
+              <a href="https://www.youtube.com/@BenMarriott/videos">Ben Marriott</a>
+              <a href="https://www.youtube.com/@AEPlug/videos">AEPlug</a>
+              <a href="https://www.youtube.com/@JakeInMotion/videos">Jake In Motion</a>
+              <a href="https://www.youtube.com/@SmertimbaGraphics/videos">
+                Smertimba Graphics
+              </a>
+              <a href="https://www.youtube.com/@SonduckFilm/videos">SonduckFilm</a>
+              <a href="https://youtube.com/@ollyspin/videos">olly</a>
+              <a href="https://youtube.com/@mapal/videos">Mapal</a>
+              <a href="https://www.youtube.com/@motionbyscott/videos">Motion By Scott</a>
+              <a href="https://www.youtube.com/@MotionXP/videos">MotionXP</a>
+            </div>
+          </li>
+          <li>
+            И не забываем про дополнительный список как бесплатных, так и платных
+            комплексных курсов по <mark className="app">Adobe After Effects</mark>,
+            затрагивающие разные области применения программы.
+            <div className="flexible-links">
+              <a href="https://cloudlessons.ru/v/410/">
+                «Супер After Effects» от VideoSmile
+              </a>
+              <a href="https://volnitsa.zenclass.ru/public/course/4b9a6429-5c06-4f91-a73b-312bc57b9e35">
+                «Быстрый вход в After Effects» от Вольницы
+              </a>
+              <a href="https://volnitsa.zenclass.ru/public/course/9221df49-3262-444e-b269-8b3bfd496de2">
+                «SUPER SILA FOREVER» от Вольницы
+              </a>
+              <a href="https://sabatovsky.com/after">
+                «After Effects от новичка до специалиста» от Сабатовского
+              </a>
+              <a href="https://www.profileschool.ru/category/video/course_adobe_after_effects_base">
+                «After Effects базового уровня» от Никиты Чеснокова
+              </a>
+            </div>
+          </li>
+        </ul>
         <Divider>Подборка туториалов на разные темы</Divider>
-        <p>
-          Если вы сталкиваетесь с трудностями при работе с графиками скорости, посмотрите
-          подробное объяснение этого инструмента от{" "}
-          <a href="https://www.youtube.com/@JakeInMotion">Jake In Motion</a>.
-        </p>
-        <ContentFigure
-          caption="Туториал по графикам скорости, который вам может пригодиться"
-          src="7pOCtlrrE3Y"
-          type="youtube"
-        />
-        <p>
-          Также вы могли видеть трендовые ролики с плавным ускорением и замедлением — так
-          называемым <mark className="word">speed ramp</mark>. Этот эффект делается с
-          помощью изменения скорости в параметре <mark>Time Remapping</mark>.
-        </p>
-        <Addition type="info">
-          Чтобы включить <mark>Time Remapping</mark> у выделенного слоя, нажмите
-          комбинацию клавиш <mark className="key">Ctrl + Alt + T</mark>.
-        </Addition>
-        <ContentFigure
-          caption="Плавно изменяющаяся скорость"
-          src="_kcfkuNwd3M"
-          type="youtube"
-        />
-        <p>
-          Ну и куда же без основ цветокоррекции, с помощью которой можно создать
-          определённый вид или настроение для слоёв в композиции.
-        </p>
-        <div className="flexible-links">
-          <a href="https://helpx.adobe.com/after-effects/using/color-correction-effects.html">
-            Эффекты для цветокоррекции
-          </a>
-          <a href="https://helpx.adobe.com/after-effects/using/color-basics.html">
-            Основы цветокоррекции от Adobe
-          </a>
-        </div>
-        <ContentFigure
-          caption="Цветокоррекция с помощью Lumetri Color"
-          src="y4fuhIPxmJg"
-          type="youtube"
-        />
+        <ul>
+          <li>
+            Если вы сталкиваетесь с трудностями при работе с графиками скорости и
+            значения, а также с <mark className="select">«Graph Editor»</mark>, посмотрите
+            подробное объяснение этого инструмента от{" "}
+            <a href="https://www.youtube.com/@JakeInMotion">Jake In Motion</a>.
+            <ContentFigure
+              caption="Туториал по графикам скорости, который вам может пригодиться"
+              src="7pOCtlrrE3Y"
+              type="youtube"
+            />
+          </li>
+          <li>
+            Если вы хотите повторить трендовые ролики с плавным ускорением и замедлением —
+            так называемым «speed ramp», то данный эффект делается с помощью изменения
+            скорости в параметре <mark className="select">«Time Remapping»</mark>.
+            <Addition type="info">
+              Чтобы включить <mark className="select">«Time Remapping»</mark> у
+              выделенного слоя, нажмите комбинацию клавиш{" "}
+              <mark className="key">Ctrl + Alt + T</mark>.
+            </Addition>
+            <ContentFigure
+              caption="Плавно изменяющаяся скорость"
+              src="_kcfkuNwd3M"
+              type="youtube"
+            />
+          </li>
+          <li>
+            Цветокоррекция помогает задать нужное настроение или стиль композиции. Для
+            этого можно использовать <mark className="plugin">Lumetri Color</mark> или
+            отдельные инструменты из раздела{" "}
+            <mark className="path">Color Correction</mark> из стандартной поставки
+            программы.
+            <div className="flexible-links">
+              <a href="https://helpx.adobe.com/after-effects/using/color-correction-effects.html">
+                Эффекты для цветокоррекции
+              </a>
+              <a href="https://helpx.adobe.com/after-effects/using/color-basics.html">
+                Основы цветокоррекции от Adobe
+              </a>
+            </div>
+            <ContentFigure
+              caption="Цветокоррекция с помощью Lumetri Color"
+              src="y4fuhIPxmJg"
+              type="youtube"
+            />
+          </li>
+        </ul>
         <Divider>Подборка туториалов для «тикток-эдитов»</Divider>
         <Addition type="warning">
-          Прежде чем лезть в <mark className="word">эдиторство</mark> и учиться применять
-          разные эффекты, рекомендуется всё же пройти базовый курс по{" "}
+          Прежде чем углубляться в <mark className="word">«эдиторство»</mark> и учиться
+          применять разные эффекты, рекомендуется всё же освоить базовый функционал{" "}
           <mark className="app">Adobe After Effects</mark>. Без фундаментальных знаний
           многие тонкости работы с инструментами могут быть вам непонятны, ведь не все
           «эдиторы» подробно объясняют процесс, а просто демонстрируют его.{" "}
@@ -183,38 +194,41 @@ const AEFromNewbies: React.FC = () => {
             умеренной дозировке.
           </i>
         </Addition>
-        <p>
-          Если вы часто видите <mark className="word">эдиты</mark> на какую-нибудь
-          тематику в <mark className="app">TikTok</mark>,{" "}
-          <mark className="app">YouTube Shorts</mark> или{" "}
-          <mark className="app">
-            Instagram<sup>1</sup> Reels
-          </mark>{" "}
-          и хотите научиться делать что-то похожее — изучите обучающие видео на
-          приведённых ниже каналах.
-        </p>
-        <div className="flexible-links">
-          <a href="https://www.youtube.com/@Tozel./videos">Tozel</a>
-          <a href="https://www.youtube.com/@rdylt09/videos">rdylt09</a>
-          <a href="https://www.youtube.com/@theayzedit/videos">The Ayz Edit</a>
-          <a href="https://www.youtube.com/@yaniksksks/videos">Yaniksksks</a>
-          <a href="https://www.youtube.com/@imduong2k6/videos">imduong2k6</a>
-          <a href="https://www.youtube.com/@Victoriaaep/videos">Victoria.aep</a>
-          <a href="https://www.youtube.com/@creativegraphicz/videos">Creative Graphicz</a>
-          <a href="https://www.youtube.com/@ReverseStark/videos">ReverseStark</a>
-        </div>
-        <Addition type="danger">
-          <sup>1</sup> <mark className="app">Instagram</mark> и <mark>Meta</mark> признаны
-          экстремистскими организациями и запрещены на территории Российской Федерации.
-        </Addition>
-        <p
+        <ul>
+          <li>
+            Если вам часто попадаются <mark className="word">эдиты</mark> в{" "}
+            <mark className="app">TikTok</mark>,{" "}
+            <mark className="app">YouTube Shorts</mark> или{" "}
+            <mark className="app">
+              Instagram<sup>1</sup> Reels
+            </mark>{" "}
+            и хочется начать делать что-то похожее — обратите внимание на обучающие видео
+            в каналах ниже.
+            <div className="flexible-links">
+              <a href="https://www.youtube.com/@Tozel./videos">Tozel</a>
+              <a href="https://www.youtube.com/@rdylt09/videos">rdylt09</a>
+              <a href="https://www.youtube.com/@theayzedit/videos">The Ayz Edit</a>
+              <a href="https://www.youtube.com/@yaniksksks/videos">Yaniksksks</a>
+              <a href="https://www.youtube.com/@imduong2k6/videos">imduong2k6</a>
+              <a href="https://www.youtube.com/@Victoriaaep/videos">Victoria.aep</a>
+              <a href="https://www.youtube.com/@creativegraphicz/videos">
+                Creative Graphicz
+              </a>
+              <a href="https://www.youtube.com/@ReverseStark/videos">ReverseStark</a>
+            </div>
+            <Addition type="danger">
+              <sup>1</sup> <mark className="app">Instagram</mark> и <mark>Meta</mark>{" "}
+              признаны экстремистскими организациями и запрещены на территории Российской
+              Федерации.
+            </Addition>
+          </li>
           style={{
             textAlign: "center",
             fontSize: "0.95rem",
-            fontWeight: "600",
-          }}
-        >
-          Надеюсь, вы найдёте что-то полезное для себя. Удачи в ваших начинаниях!
+        </ul>
+        <p>
+          Надеюсь, вы найдёте в этой статье что-то полезное для себя. Удачи в ваших
+          начинаниях!
         </p>
       </DetailsSummary>
       <DetailsSummary
