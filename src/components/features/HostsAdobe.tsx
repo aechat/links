@@ -1,14 +1,8 @@
-import {CloseRounded} from "@mui/icons-material";
-
-import {Modal} from "antd";
-
-import React, {useState} from "react";
+import React from "react";
 
 import Addition from "../Addition";
 
 const HostsAdobeModal: React.FC = () => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
   return (
     <div>
       <code
