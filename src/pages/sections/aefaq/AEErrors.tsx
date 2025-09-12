@@ -1209,12 +1209,30 @@ const AEErrors: React.FC = () => {
                 <mark className="select">«Дополнительные графические параметры»</mark> и
                 отключите опцию{" "}
                 <mark className="select">«Планирование GPU с аппаратным ускорением»</mark>
-                . После этого перезагрузите устройство и продолжите работу в программе.
+                . После этого перезагрузите устройство и продолжите работу.
               </p>
               <ContentFigure
                 caption="Параметры"
                 imgTitle="Отключение планирования GPU"
                 src="images/disable_gpu_planning.png"
+                theme="dark"
+                type="image"
+                variant="windows"
+              />
+              <Divider>Отключаем аппаратное декодирование исходников</Divider>
+              <p>
+                Если зависания встречаются только при работе с исходниками видео —
+                попробуйте отключить аппаратное декодирование в настройках программы. Для
+                этого перейдите в{" "}
+                <mark className="select">«Edit» → «Preferences» → «Import»</mark>, снимите
+                флажок{" "}
+                <mark className="select">«Enable hardware accelerated decoding»</mark> и
+                перезапустите программу.
+              </p>
+              <ContentFigure
+                caption="Preferences"
+                imgTitle="Отключение аппаратного декодирования в настройках"
+                src="images/aftereffects/disable_hardware_accelerated_decoding.png"
                 theme="dark"
                 type="image"
                 variant="windows"
