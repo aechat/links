@@ -4,12 +4,11 @@ import React from "react";
 
 import Addition from "../../../components/Addition";
 
-import {ImageFigure, YouTubeVideo} from "../../../components/ContentFigure";
+import {ContentFigure} from "../../../components/ContentFigure";
 
 import DetailsSummary from "../../../components/DetailsSummary";
 
-import ContentSwitcher from "../../../components/features/ContentFilter";
-
+import ContentFilter from "../../../components/features/ContentFilter";
 
 const AEPerformance: React.FC = () => {
   return (

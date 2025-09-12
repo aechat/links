@@ -4,7 +4,7 @@ import React from "react";
 
 import Addition from "../../../components/Addition";
 
-import {ImageFigure, VideoFigure, YouTubeVideo} from "../../../components/ContentFigure";
+import {ContentFigure} from "../../../components/ContentFigure";
 
 import DetailsSummary from "../../../components/DetailsSummary";
 
