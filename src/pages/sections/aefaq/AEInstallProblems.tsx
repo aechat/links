@@ -2262,6 +2262,71 @@ const AEInstallProblems: React.FC = () => {
         />
       </DetailsSummary>
       <DetailsSummary
+        tag="ошибка 48::72, запуск новых версий программ на старых версиях windows 7 и 8.1"
+        title="Что делать с ошибкой «Точка входа в процедуру не найдена в библиотеке Kernel32.dll» или «Couldn't not find entry point main entry point for .aex»?"
+      >
+        <ContentFilter
+          windowsContent={
+            <div>
+              <p>
+                Скорее всего, вы пытаетесь запустить{" "}
+                <mark className="app">Adobe After Effects</mark> или применить плагины на
+                неподдерживаемой операционной системе — например, на{" "}
+                <mark>Windows 7</mark> или на старой сборке <mark>Windows 10</mark>, такой
+                как <mark>1607</mark> или <mark>1809</mark>. Некоторые «репакеры» убирают
+                проверку требований к версии операционной системы, чтобы программа
+                установилась без ошибок. Однако они не учитывают, что при работе на
+                устаревшей системе могут возникнуть различные проблемы. В следующий раз
+                обязательно прочитайте{" "}
+                <a href="https://helpx.adobe.com/after-effects/system-requirements.html">
+                  системные требования
+                </a>{" "}
+                для нужной версии программы, прежде чем его устанавливать.
+              </p>
+              <Addition type="info">
+                Последняя версия <mark className="app">Adobe After Effects</mark>,
+                поддерживающая <mark>Windows 7</mark> и <mark>Windows 8.1</mark> —{" "}
+                <mark>2019 (16.X)</mark>.
+              </Addition>
+              <p>
+                Эти ошибки решаются обновлением операционной системы до последней
+                доступной версии. Посмотреть текущую сборку <mark>Windows</mark> можно с
+                помощью команды <mark className="app">winver</mark> в окне{" "}
+                <mark className="app">Выполнить</mark>, которое открывается комбинацией
+                клавиш <mark className="key">Win + R</mark>.
+              </p>
+              <div className="flexible-links">
+                <a href="https://www.microsoft.com/ru-ru/software-download/windows10">
+                  Обновить Windows 10
+                </a>
+                <a href="https://www.microsoft.com/ru-ru/software-download/windows11">
+                  Обновить Windows 11
+                </a>
+              </div>
+              <p>
+                Если скачивание с сайта <mark className="company">Microsoft</mark> не
+                работает или вам нужен образ <mark className="file">ISO</mark> для записи
+                на USB — воспользуйтесь ссылками ниже.
+              </p>
+              <div className="flexible-links">
+                <a href="https://files.rg-adguard.net/category">
+                  Скачать оригинальные файлы Microsoft на rg-adguard.net
+                </a>
+                <a href="https://www.comss.ru/download/page.php?id=2572">
+                  Скачать оригинальные образы Windows 10 на Comss
+                </a>
+                <a href="https://www.comss.ru/download/page.php?id=9234">
+                  Скачать оригинальные образы Windows 11 на Comss
+                </a>
+                <a href="https://nnmclub.to/forum/tracker.php?pid=10412851">
+                  Сборки Windows от SanLex на NNM-Club
+                </a>
+              </div>
+            </div>
+          }
+        />
+      </DetailsSummary>
+      <DetailsSummary
         tag="дубликаты плагинов, конфликт эффектов, удалить дубликаты, предупреждение, на диске существует копия подключаемого модуля эффекта, во избежание конфликтов закройте After Effects после чего удалите или переместите более раннюю или ненужную версию"
         title="«Warning: there are duplicated effect plug-ins installed on your drive. To avoid problems, quit After Effects and move or delete the older or unneeded version»"
       >
