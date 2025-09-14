@@ -281,8 +281,8 @@ const AEInstallProblems: React.FC = () => {
                         Если вы хотите закрепить окно скрипта{" "}
                         <mark className="file">JSX</mark> в рабочем пространстве —
                         перенесите его в дочернюю папку{" "}
-                        <mark className="path">Script UI Panels</mark>. Полный путь в
-                        таком случае должен быть таким:{" "}
+                        <mark className="path">ScriptUI Panels</mark>. Полный путь в таком
+                        случае должен быть таким:{" "}
                         <mark className="path">
                           /Applications/Adobe After Effects 20XX/Scripts/ScriptUI Panels
                         </mark>
@@ -302,7 +302,7 @@ const AEInstallProblems: React.FC = () => {
                         <mark className="select">«Keyboard Shortcuts»</mark>.
                         <Addition type="warning">
                           После перемещения скрипта <mark className="file">JSX</mark> в
-                          дочернюю папку <mark className="path">Script UI Panels</mark> —
+                          дочернюю папку <mark className="path">ScriptUI Panels</mark> —
                           вы не сможете открывать его с помощью комбинаций клавиш,
                           заданных в <mark className="select">«Keyboard Shortcuts»</mark>,
                           но сможете закрепить его в рабочем пространстве.
@@ -420,7 +420,7 @@ const AEInstallProblems: React.FC = () => {
                       нужно. Эти команды включают debug-режим в{" "}
                       <mark className="app">Adobe After Effects</mark> для корректной
                       работы сторонних расширений, установленных из интернета. Если вы эти
-                      комманды не выполните — в программе будут отображаться сторонние
+                      команды не выполните — в программе будут отображаться сторонние
                       расширения, но при попытке открыть их, ничего не произойдёт.
                       <code style={{fontSize: "0.875em"}}>
                         defaults write com.adobe.CSXS.5 PlayerDebugMode 1
@@ -733,7 +733,7 @@ const AEInstallProblems: React.FC = () => {
                   Пресеты форматов <mark className="file">GP</mark>,{" "}
                   <mark className="file">EFFECT</mark> или{" "}
                   <mark className="file">TRANSITION</mark> относятся к пакету сторонних
-                  плагинов <mark className="plugin">BorisFX Sapphire</mark> и
+                  плагинов <mark className="plugin">Boris FX Sapphire</mark> и
                   импортируются через браузер пресетов или с помощью ручной распаковки
                   пресетов в стандартную директорию. Импортированные пресеты можно будет
                   использовать с помощью <mark className="select">«Load Preset»</mark> в
@@ -742,7 +742,7 @@ const AEInstallProblems: React.FC = () => {
                     <li>
                       Чтобы импортировать файлы через браузер пресетов — примените на слой
                       любой эффект, относящийся к{" "}
-                      <mark className="app">BorisFX Sapphire</mark>. После применения —
+                      <mark className="app">Boris FX Sapphire</mark>. После применения —
                       нажмите на <mark className="select">«Load Preset»</mark> в
                       контроллере эффекта. В открывшемся окне перейдите в{" "}
                       <mark className="select">«File» → «Import Preset»</mark> и выберите
@@ -763,7 +763,7 @@ const AEInstallProblems: React.FC = () => {
                   Пресеты форматов <mark className="file">BSP</mark>,{" "}
                   <mark className="file">BAP</mark> или <mark className="file">BCP</mark>{" "}
                   относятся к пакету сторонних плагинов{" "}
-                  <mark className="plugin">BorisFX Continuum</mark>.
+                  <mark className="plugin">Boris FX Continuum</mark>.
                   <ul>
                     <li>
                       Чтобы применить пресет к эффекту из этого пакета — просто нажмите на{" "}
@@ -812,11 +812,11 @@ const AEInstallProblems: React.FC = () => {
                         Если вы хотите закрепить окно скрипта{" "}
                         <mark className="file">JSX</mark> в рабочем пространстве —
                         перенесите его в дочернюю папку{" "}
-                        <mark className="path">Script UI Panels</mark>. Полный путь в
-                        таком случае должен быть таким:{" "}
+                        <mark className="path">ScriptUI Panels</mark>. Полный путь в таком
+                        случае должен быть таким:{" "}
                         <mark className="path">
                           C:\Program Files\Adobe\Adobe After Effects 20XX\Support
-                          Files\Scripts\Script UI Panels
+                          Files\Scripts\ScriptUI Panels
                         </mark>
                         . После этого нужный вам скрипт переместится в меню{" "}
                         <mark className="select">«Window»</mark> и будет располагаться в
@@ -834,7 +834,7 @@ const AEInstallProblems: React.FC = () => {
                         <mark className="select">«Keyboard Shortcuts»</mark>.
                         <Addition type="warning">
                           После перемещения скрипта <mark className="file">JSX</mark> в
-                          дочернюю папку <mark className="path">Script UI Panels</mark> —
+                          дочернюю папку <mark className="path">ScriptUI Panels</mark> —
                           вы не сможете открывать его с помощью комбинаций клавиш,
                           заданных в <mark className="select">«Keyboard Shortcuts»</mark>,
                           но сможете закрепить его в рабочем пространстве.
@@ -845,10 +845,10 @@ const AEInstallProblems: React.FC = () => {
                 </li>
                 <li>
                   Скрипты формата <mark className="file">JSXBIN</mark> распаковываются в
-                  стандартную папку <mark className="path">Script UI Panels</mark> —{" "}
+                  стандартную папку <mark className="path">ScriptUI Panels</mark> —{" "}
                   <mark className="path">
                     C:\Program Files\Adobe\Adobe After Effects 20XX\Support
-                    Files\Scripts\Script UI Panels
+                    Files\Scripts\ScriptUI Panels
                   </mark>
                   . После установки они появятся в контекстном меню{" "}
                   <mark className="select">«Window»</mark> в самом конце списка.
@@ -1081,7 +1081,7 @@ const AEInstallProblems: React.FC = () => {
         </Addition>
       </DetailsSummary>
       <DetailsSummary
-        tag="репак от кролика, выключить дефендер, отрубить антивирус, ложное срабатывание, хелпер, ошибка 24, проверьте правильно ли указано имя и повторите попытку, windows не удается получить доступ к указанному устройству пути или файлу, возможно у вас нет нужных разрешений для доступа к этому объекту, некоторые файлы не были созданы, операция не была успешно завершена так как файл содержит вирус или потенциально нежелательную программу, обнаружены угрозы, куда-то пропадают файлы плагинов и программ, operation did not complete successfully because the file contains a virus or potentially unwanted software, 0x800700E1"
+        tag="репак от кролика, выключить дефендер, отрубить антивирус, ложное срабатывание, хелпер, ошибка 24, проверьте правильно ли указано имя и повторите попытку, windows не удается получить доступ к указанному устройству пути или файлу, возможно у вас нет нужных разрешений для доступа к этому объекту, некоторые файлы не были созданы, операция не была успешно завершена так как файл содержит вирус или потенциально нежелательную программу, обнаружены угрозы, куда-то пропадают файлы плагинов и программ, operation did not complete successfully because the file contains a virus or potentially unwanted software, windows cannot find helper.exe, make sure you typed the name correctly and then try again, 0x800700E1"
         title="«Не удаётся найти „..\install\helper.exe“» или как отключить Windows Defender и Windows Smartscreen?"
       >
         <ContentFilter
@@ -1091,8 +1091,8 @@ const AEInstallProblems: React.FC = () => {
                 При установке «народного» программного обеспечения{" "}
                 <mark className="app">антивирусное ПО</mark>, установленное на вашем
                 устройстве, может сработать на модификацию оригинальных файлов, удаляя{" "}
-                <mark className="word">пролеченные файлы</mark> и классифицируя их как{" "}
-                <mark className="warning">HackTool:Win32/Crack!MTB</mark> или присваивая
+                «пролеченные» файлы и классифицируя их как{" "}
+                <mark className="warning">«HackTool:Win32/Crack!MTB»</mark> или присваивая
                 другие обозначения — в том числе как «троян». Это нормально — в таком
                 случае паниковать не нужно.
               </p>
@@ -1173,7 +1173,7 @@ const AEInstallProblems: React.FC = () => {
                 Если вы не хотите отключать или удалять{" "}
                 <mark className="app">Windows Defender</mark> с вашего устройства, то
                 можете добавить папку <mark className="path">C:\Program Files\Adobe</mark>
-                , а также <mark className="path">%Temp%</mark> в список исключений вашего
+                , а также <mark className="path">%TEMP%</mark> в список исключений вашего
                 антивируса. После настройки исключений начните установку программы как
                 обычно.
               </p>
@@ -1354,8 +1354,8 @@ const AEInstallProblems: React.FC = () => {
               <Addition type="danger">
                 Используйте функцию сжатия файлов с осторожностью и только если у вашего
                 устройства имеется производительный процессор и быстрый накопитель.
-                Использование <mark className="word">NTFS-сжатия</mark> на медленном
-                накопителе может привести к замедлению работы системы в целом.
+                Использование <mark>NTFS-сжатия</mark> на медленном накопителе может
+                привести к замедлению работы системы в целом.
               </Addition>
               <ul>
                 <li>
@@ -1984,7 +1984,7 @@ const AEInstallProblems: React.FC = () => {
           «версия-год» — они не всегда обязаны строго соответствовать версии{" "}
           <mark className="app">Adobe After Effects</mark>. Чаще всего такие плагины
           работают и в релизах старше двух лет, например, если установить{" "}
-          <mark className="plugin">BorisFX Sapphire 2025</mark> на{" "}
+          <mark className="plugin">Boris FX Sapphire 2025</mark> на{" "}
           <mark className="app">Adobe After Effects 2023</mark>, всё будет функционировать
           без особых проблем.
         </p>
@@ -1993,23 +1993,26 @@ const AEInstallProblems: React.FC = () => {
         tag="не подключается dynamic link, программы не видят друг друга, динамик линк, aegp plugin aedynamiclinkserver: adobe media encoder is not installed, please download and install it to use this feature, failed to connect to adobe media encoder, медиа енкодер"
         title="Установил Adobe Media Encoder и Adobe Premiere Pro, но Adobe After Effects почему-то их не видит"
       >
+        <p>
+          Функция <mark className="plugin">Dynamic Link</mark> позволяет синхронизировать
+          композиции из <mark className="app">Adobe After Effects</mark> в{" "}
+          <mark className="app">Adobe Premiere Pro</mark> на таймлайне и отправлять их в
+          очередь рендера <mark className="app">Adobe Media Encoder</mark>. Но не всегда
+          удаётся их «подружить». Иногда <mark className="app">Adobe After Effects</mark>{" "}
+          при попытке отправить композицию в очередь рендера в{" "}
+          <mark className="app">Adobe Media Encoder</mark> может попросить установить{" "}
+          <mark className="app">Adobe Media Encoder</mark>, хотя эта программа вроде бы
+          уже есть в системе. Чтобы программы «видели» друг друга, необходимо соблюсти
+          несколько условий.
+        </p>
+        <ContentFigure
+          caption="Исправляем Dynamic Link"
+          src="LvvjQbY1jgw"
+          type="youtube"
+        />
         <ContentFilter
           windowsContent={
             <div>
-              <p>
-                Функция <mark className="plugin">Dynamic Link</mark> позволяет
-                синхронизировать композиции из{" "}
-                <mark className="app">Adobe After Effects</mark> в{" "}
-                <mark className="app">Adobe Premiere Pro</mark> на таймлайне и отправлять
-                их в очередь рендера <mark className="app">Adobe Media Encoder</mark>. Но
-                не всегда удаётся их «подружить». Иногда{" "}
-                <mark className="app">Adobe After Effects</mark> при попытке отправить
-                композицию в очередь рендера в{" "}
-                <mark className="app">Adobe Media Encoder</mark> может попросить
-                установить <mark className="app">Adobe Media Encoder</mark>, хотя эта
-                программа вроде бы уже есть в системе. Чтобы программы «видели» друг
-                друга, необходимо соблюсти несколько условий.
-              </p>
               <ul>
                 <li>
                   Убедитесь, что вы установили{" "}
@@ -2045,7 +2048,7 @@ const AEInstallProblems: React.FC = () => {
               <p>
                 Если условия соблюдены, программы должны увидеть друг друга. В редких
                 случаях, даже при выполнении всех требований, связь может не установиться
-                по следующим причинам:
+                по следующим причинам.
               </p>
               <ul>
                 <li>
@@ -2071,7 +2074,7 @@ const AEInstallProblems: React.FC = () => {
               </ul>
               <p>
                 Однако, если вам нужно только экспортировать композиции из{" "}
-                <mark className="app">Adobe After Effects</mark>, я всё же рекомендую не
+                <mark className="app">Adobe After Effects</mark>, всё же рекомендуется не
                 использовать <mark className="app">Adobe Media Encoder</mark> без острой
                 необходимости — в последних версиях{" "}
                 <mark className="app">Adobe After Effects</mark> уже есть вполне хороший
@@ -2124,7 +2127,7 @@ const AEInstallProblems: React.FC = () => {
           <li>
             <mark className="word">OFX</mark> — плагин установится для программ, которые
             поддерживают стандарт формата <mark>OpenFX</mark>. К ним относятся{" "}
-            <mark className="app">Davinci Resolve</mark>,{" "}
+            <mark className="app">DaVinci Resolve</mark>,{" "}
             <mark className="app">Vegas Pro</mark>, <mark className="app">Nuke</mark> и{" "}
             <a href="https://ru.wikipedia.org/wiki/OpenFX#%D0%A5%D0%BE%D1%81%D1%82%D1%8B">
               остальные
@@ -2140,8 +2143,8 @@ const AEInstallProblems: React.FC = () => {
           <li>
             <mark className="word">Standalone</mark> — плагин, работающий как обычная
             программа и не зависящий от других приложений, например{" "}
-            <mark className="plugin">BorisFX Mocha Pro</mark> или{" "}
-            <mark className="plugin">BorisFX Optics</mark>.
+            <mark className="plugin">Boris FX Mocha Pro</mark> или{" "}
+            <mark className="plugin">Boris FX Optics</mark>.
           </li>
           <li>
             <mark className="word">Репак от ...</mark> или{" "}
@@ -2173,8 +2176,8 @@ const AEInstallProblems: React.FC = () => {
         <p>
           Чаще всего такие наложения говорят об одном — у вас отсутствует действительная
           активация для применённого плагина. Скорее всего, вы проигнорировали инструкцию
-          по установке <mark className="word">«народной»</mark> версии того или иного
-          стороннего плагина или неправильно ею воспользовались.
+          по установке «народной» версии того или иного стороннего плагина или неправильно
+          ею воспользовались.
         </p>
         <p>
           В редких случаях источник, откуда вы скачали плагин, может предоставить
@@ -2188,8 +2191,8 @@ const AEInstallProblems: React.FC = () => {
         </p>
       </DetailsSummary>
       <DetailsSummary
-        tag="предупреждение, сбой загрузки, плагин не загружается, ошибка 25::3, visual c++, сбой загрузки следующих подключаемых модулей, переустановите эти модули, ошибка, невозможно применить эффект, не удалось выполнить его инициализацию, попытайтесь переустановить подключаемый модуль или обратитесь к его разработчику, plug-in generated an unexpected exception"
-        title="«Warning: The following plugins have failed to load. Please reinstall these plugins» при запуске программы или «Error: This effect cannot be applied because it cannot be initialized. Try reinstalling or contacting the plug-in developer (25::3)» при применении какого-нибудь эффекта"
+        tag="ошибка 25::3, try reinstalling or contacting the plug-in developer, предупреждение, сбой загрузки, плагин не загружается, visual c++, сбой загрузки следующих подключаемых модулей, переустановите эти модули, ошибка, невозможно применить эффект, не удалось выполнить его инициализацию, попытайтесь переустановить подключаемый модуль или обратитесь к его разработчику, plug-in generated an unexpected exception"
+        title="«Warning: The following plugins have failed to load. Please reinstall these plugins» при запуске программы или «Error: This effect cannot be applied because it cannot be initialized» при применении какого-нибудь эффекта"
       >
         <p>
           Эти предупреждения и ошибки могут появляться по разным причинам: повреждённые
@@ -2279,7 +2282,7 @@ const AEInstallProblems: React.FC = () => {
         />
       </DetailsSummary>
       <DetailsSummary
-        tag="rosetta, розетта, старые плагины на новом маке, Mac с Apple Silicon, to use these plugins run on an intel-based mac computer, to run in a compatible mode choose get info in the application context menu and enable open using rosetta"
+        tag="rosetta, розетта, старые плагины на новом маке, apple silicon, следующие установленные подключаемые модули не совместимы с используемой версией, в существующих проектах они будут отображаться как отсутствующие их применение невозможно, чтобы использовать эти подключаемые модули, запустите на компьютере mac с процессором intel, to use these plugins run on an intel-based mac computer, to run in a compatible mode choose get info in the application context menu and enable open using rosetta"
         title="«The following plugins are installed, but not yet compatible with this version of After Effects. They will show as missing in existing projects and cannot be applied» после установки плагинов"
       >
         <ContentFilter
@@ -2435,7 +2438,7 @@ const AEInstallProblems: React.FC = () => {
       </DetailsSummary>
       <DetailsSummary
         tag="red giant, team v.r., активатор, ошибка 5, отказано в доступе, access denied, deletefile, red giant service, select action - an error occurred while trying to replace the existing file: deletefile failed; code 5. access denied"
-        title="«Виберiть дiю — виникла помилка при спробi замiни iснуючого файлу: DeleteFile збiй; код 5. Отказано в доступi» при применении активатора для пакетов Red Giant от Team V.R."
+        title="«Виберiть дiю — виникла помилка при спробi замiни iснуючого файлу: DeleteFile збiй; код 5. Отказано в доступi» при применении активатора от Team V.R. для пакетов Red Giant"
       >
         <p>
           Эта ошибка означает, что активатор не может перезаписать какой-то файл, потому
@@ -2535,12 +2538,11 @@ const AEInstallProblems: React.FC = () => {
         title="Как обновить программу, не потеряв при этом плагины и прочий установленный контент?"
       >
         <p>
-          <mark className="word">Обновления программы</mark> — вещь хорошая: разработчики
-          добавляют новые функции и исправляют старые баги. У некоторых пользователей
-          часто возникает вопрос, как правильно обновляться и нужно ли что-то делать
-          дополнительно после обновления <mark className="app">Adobe After Effects</mark>.
-          Существует два вида обновлений — между версиями «одного года» и между «разными
-          годами».
+          Обновление программы — вещь хорошая: разработчики добавляют новые функции и
+          исправляют старые баги. У некоторых пользователей часто возникает вопрос, как
+          правильно обновляться и нужно ли что-то делать дополнительно после обновления{" "}
+          <mark className="app">Adobe After Effects</mark>. Существует два вида обновлений
+          — между версиями «одного года» и между «разными годами».
         </p>
         <Addition type="info">
           Под «годом» обычно подразумевается мажорная версия в названии программы,
@@ -2576,106 +2578,118 @@ const AEInstallProblems: React.FC = () => {
           находится в разделе <mark className="select">«General»</mark>.
         </Addition>
         <Divider>Обновление с одного года на другой</Divider>
-        <p>
-          Если вы обновляетесь с «одного года» на другой — например, с <mark>23.6</mark>{" "}
-          на <mark>25.2</mark> — потребуется ручной перенос плагинов и пресетов. При
-          установке версии «другого года» старая программа не будет удалена автоматически
-          и останется на вашем устройстве.
-        </p>
-        <Addition type="info">
-          <ul>
-            <li>
-              Плагины формата <mark className="file">AEX</mark>, установленные в{" "}
-              <mark className="path">../Common/7.0/MediaCore</mark>, переносить не нужно —
-              они автоматически отображаются во всех поддерживаемых версиях{" "}
-              <mark className="app">Adobe After Effects</mark>. При желании можно
-              перенести ваши сторонние плагины в эту общую папку.
-            </li>
-            <li>
-              Расширения формата <mark className="file">ZXP</mark> также не требуют
-              переноса — они размещаются в общей директории и доступны во всех
-              поддерживаемых версиях <mark className="app">Adobe After Effects</mark>.
-            </li>
-          </ul>
-        </Addition>
-        <Addition type="danger">
-          Способ обновления, описанный ниже, не гарантирует <mark>100%</mark> стабильной
-          работы новой версии <mark className="app">Adobe After Effects</mark>, поэтому
-          всё делается на ваш страх и риск. Если после такого обновления возникнут
-          проблемы — выполните чистую установку программы, предварительно удалив
-          предыдущие версии с помощью{" "}
-          <a href="https://helpx.adobe.com/creative-cloud/kb/cc-cleaner-tool-installation-problems.html">
-            Adobe Creative Cloud Cleaner Tool
-          </a>{" "}
-          или любого другого деинсталлятора, например{" "}
-          <mark className="app">Revo Uninstaller</mark>.
-        </Addition>
-        <p>
-          Перед обновлением с сохранением установленных плагинов и пресетов необходимо
-          переименовать папку старой версии программы — так, чтобы установщик новой версии
-          подумал, будто она уже установлена, и предложил перезаписать файлы. Для этого
-          откройте директорию с установленными программами от{" "}
-          <mark className="company">Adobe</mark>, обычно это{" "}
-          <mark className="path">C:\Program Files\Adobe</mark>. Далее продублируйте папку
-          старой версии, уберите из имени приставку <mark>«- копия»</mark> и измените
-          «год» на нужный. Например, при переходе с <mark>23.6</mark> на <mark>25.2</mark>{" "}
-          нужно переименовать <mark className="path">Adobe After Effects 2023</mark> в{" "}
-          <mark className="path">Adobe After Effects 2025</mark>.
-        </p>
-        <p>
-          После переименования запустите установщик новой версии и убедитесь, что он
-          «увидел» продублированную папку и предложил установить программу в неё. Выберите
-          нужный язык (например, английский) и нажмите{" "}
-          <mark className="select">«Продолжить»</mark>. После установки{" "}
-          <mark className="app">Adobe After Effects</mark> снова предложит перенести
-          настройки из предыдущих версий, с чем нужно согласиться.
-        </p>
-        <Addition type="info">
-          <ul>
-            <li>
-              После обновления <mark className="app">Adobe After Effects</mark> не
-              забудьте также обновить <mark className="app">Adobe Premiere Pro</mark> и{" "}
-              <mark className="app">Adobe Media Encoder</mark>, чтобы связь между
-              программами работала корректно.
-            </li>
-            <li>
-              Если некоторые старые версии плагинов или расширений перестали работать в
-              новой версии <mark className="app">Adobe After Effects</mark>, удалите их и
-              установите более свежие.
-            </li>
-          </ul>
-        </Addition>
-        <Divider>Если что-то пошло не так при таком обновлении</Divider>
-        <p>
-          Обычно пользователь, обновляющийся с «одного года» на другой, хочет сохранить
-          все плагины, расширения, скрипты и настройки. Но при установке новой версии
-          поверх старой что-то может пойти не так: программа может не запускаться или
-          работать нестабильно. В таком случае заранее создайте резервные копии нужных
-          директорий: <mark className="path">Plug-Ins</mark>,{" "}
-          <mark className="path">Scripts</mark>, <mark className="path">Presets</mark>,{" "}
-          <mark className="path">Lumetri</mark> и любых других, которые вам важны.
-          Поместите их, например, на <mark className="path">Рабочий стол</mark>.
-        </p>
-        <p>
-          После создания резервной копии удалите старые версии с помощью{" "}
-          <a href="https://helpx.adobe.com/creative-cloud/kb/cc-cleaner-tool-installation-problems.html">
-            Adobe Creative Cloud Cleaner Tool
-          </a>{" "}
-          или любого другого деинсталлятора — например,{" "}
-          <mark className="app">Revo Uninstaller</mark>. Затем установите новую версию и
-          постепенно возвращайте нужные вам дополнительные материалы в директорию{" "}
-          <mark className="app">Adobe After Effects</mark>, после чего можете начинать
-          работу.{" "}
-          <i style={{opacity: "0.5"}}>
-            Или просто запишите список нужных дополнений, а после чистой установки
-            скачайте и установите их вручную.
-          </i>
-        </p>
-        <Addition type="warning">
-          При копировании файлов из резервной копии в директорию программы не заменяйте
-          новые стандартные файлы старыми во избежание проблем со стабильностью работы
-          программы.
-        </Addition>
+        <ContentFilter
+          windowsContent={
+            <div>
+              <p>
+                Если вы обновляетесь с «одного года» на другой — например, с{" "}
+                <mark>23.6</mark> на <mark>25.2</mark> — потребуется ручной перенос
+                плагинов и пресетов. При установке версии «другого года» старая программа
+                не будет удалена автоматически и останется на вашем устройстве.
+              </p>
+              <Addition type="info">
+                <ul>
+                  <li>
+                    Плагины формата <mark className="file">AEX</mark>, установленные в{" "}
+                    <mark className="path">../Common/7.0/MediaCore</mark>, переносить не
+                    нужно — они автоматически отображаются во всех поддерживаемых версиях{" "}
+                    <mark className="app">Adobe After Effects</mark>. При желании можно
+                    перенести ваши сторонние плагины в эту общую папку.
+                  </li>
+                  <li>
+                    Расширения формата <mark className="file">ZXP</mark> также не требуют
+                    переноса — они размещаются в общей директории и доступны во всех
+                    поддерживаемых версиях{" "}
+                    <mark className="app">Adobe After Effects</mark>.
+                  </li>
+                </ul>
+              </Addition>
+              <Addition type="danger">
+                Способ обновления, описанный ниже, не гарантирует <mark>100%</mark>{" "}
+                стабильной работы новой версии{" "}
+                <mark className="app">Adobe After Effects</mark>, поэтому всё делается на
+                ваш страх и риск. Если после такого обновления возникнут проблемы —
+                выполните чистую установку программы, предварительно удалив предыдущие
+                версии с помощью{" "}
+                <a href="https://helpx.adobe.com/creative-cloud/kb/cc-cleaner-tool-installation-problems.html">
+                  Adobe Creative Cloud Cleaner Tool
+                </a>{" "}
+                или любого другого деинсталлятора, например{" "}
+                <mark className="app">Revo Uninstaller</mark>.
+              </Addition>
+              <p>
+                Перед обновлением с сохранением установленных плагинов и пресетов
+                необходимо переименовать папку старой версии программы — так, чтобы
+                установщик новой версии подумал, будто она уже установлена, и предложил
+                перезаписать файлы. Для этого откройте директорию с установленными
+                программами от <mark className="company">Adobe</mark>, обычно это{" "}
+                <mark className="path">C:\Program Files\Adobe</mark>. Далее продублируйте
+                папку старой версии, уберите из имени приставку <mark>«- копия»</mark> и
+                измените «год» на нужный. Например, при переходе с <mark>23.6</mark> на{" "}
+                <mark>25.2</mark> нужно переименовать{" "}
+                <mark className="path">Adobe After Effects 2023</mark> в{" "}
+                <mark className="path">Adobe After Effects 2025</mark>.
+              </p>
+              <p>
+                После переименования запустите установщик новой версии и убедитесь, что он
+                «увидел» продублированную папку и предложил установить программу в неё.
+                Выберите нужный язык (например, английский) и нажмите{" "}
+                <mark className="select">«Продолжить»</mark>. После установки{" "}
+                <mark className="app">Adobe After Effects</mark> снова предложит перенести
+                настройки из предыдущих версий, с чем нужно согласиться.
+              </p>
+              <Addition type="info">
+                <ul>
+                  <li>
+                    После обновления <mark className="app">Adobe After Effects</mark> не
+                    забудьте также обновить{" "}
+                    <mark className="app">Adobe Premiere Pro</mark> и{" "}
+                    <mark className="app">Adobe Media Encoder</mark>, чтобы связь между
+                    программами работала корректно.
+                  </li>
+                  <li>
+                    Если некоторые старые версии плагинов или расширений перестали
+                    работать в новой версии{" "}
+                    <mark className="app">Adobe After Effects</mark>, удалите их и
+                    установите более свежие.
+                  </li>
+                </ul>
+              </Addition>
+              <Divider>Если что-то пошло не так при таком обновлении</Divider>
+              <p>
+                Обычно пользователь, обновляющийся с «одного года» на другой, хочет
+                сохранить все плагины, расширения, скрипты и настройки. Но при установке
+                новой версии поверх старой что-то может пойти не так: программа может не
+                запускаться или работать нестабильно. В таком случае заранее создайте
+                резервные копии нужных директорий: <mark className="path">Plug-Ins</mark>,{" "}
+                <mark className="path">Scripts</mark>,{" "}
+                <mark className="path">Presets</mark>,{" "}
+                <mark className="path">Lumetri</mark> и любых других, которые вам важны.
+                Поместите их, например, на <mark className="path">Рабочий стол</mark>.
+              </p>
+              <p>
+                После создания резервной копии удалите старые версии с помощью{" "}
+                <a href="https://helpx.adobe.com/creative-cloud/kb/cc-cleaner-tool-installation-problems.html">
+                  Adobe Creative Cloud Cleaner Tool
+                </a>{" "}
+                или любого другого деинсталлятора — например,{" "}
+                <mark className="app">Revo Uninstaller</mark>. Затем установите новую
+                версию и постепенно возвращайте нужные вам дополнительные материалы в
+                директорию <mark className="app">Adobe After Effects</mark>, после чего
+                можете начинать работу.{" "}
+                <i style={{opacity: "0.5"}}>
+                  Или просто запишите список нужных дополнений, а после чистой установки
+                  скачайте и установите их вручную.
+                </i>
+              </p>
+              <Addition type="warning">
+                При копировании файлов из резервной копии в директорию программы не
+                заменяйте новые стандартные файлы старыми во избежание проблем со
+                стабильностью работы программы.
+              </Addition>
+            </div>
+          }
+        />
       </DetailsSummary>
       <DetailsSummary
         tag="безопасный режим, reset preferences, safe mode, установка поверх, нестабильно, сброс настроек, startup repair options, переустановка поверх, чистая установка"
