@@ -16,236 +16,277 @@ const AEExport: React.FC = () => {
   return (
     <div className="faq-content">
       <DetailsSummary
-        tag="render queue, как настроить экспорт, куда нажимать для сохранения композиции, свой шаблон с настройками для экспорта композиций"
-        title="Что такое очередь рендера?"
+        tag="очередь рендера, render queue, как настроить экспорт, куда нажимать для сохранения композиции, свой шаблон с настройками для экспорта композиций"
+        title="Что такое очередь рендеринга?"
       >
         <p>
-          <mark className="ui">Render Queue</mark> - главное окно с помощью которого
-          пользователь может экспортировать композиции прямо из{" "}
-          <mark className="app">Adobe After Effects</mark>. В очередь можно добавить одну
-          или несколько композиций, включая варианты с разными параметрами вывода.
-          Отправить текущую или выделенную в <mark className="ui">Project</mark>{" "}
-          композицию можно сочетанием клавиш <mark className="key">Ctrl + M</mark> или
-          через <mark className="ui">File &gt; Export &gt; Add to Render Queue</mark>.
+          <mark className="select">«Render Queue»</mark> — это основное окно для экспорта
+          композиций из <mark className="app">Adobe After Effects</mark> в форматах видео,
+          аудио или изображений. Она подразумевает под собой очередь композиций, которые
+          будут экспортироваться последовательно друг за другом сверху вниз.
+        </p>
+        <ContentFigure
+          caption="Render Queue"
+          imgTitle="Окно очереди экспорта"
+          src="images/aftereffects/render_queue.png"
+          theme="dark"
+          type="image"
+          variant="windows"
+        />
+        <p>
+          В очередь можно добавить одну или несколько композиций. Текущую или выделенную
+          композицию в окне <mark className="select">«Project»</mark> можно отправить на
+          экспорт с помощью сочетания клавиш <mark className="key">Ctrl + M</mark> или
+          через меню{" "}
+          <mark className="select">«File» → «Export» → «Add to Render Queue»</mark>.
         </p>
         <p>
-          Для каждой композиции вы можете изменить{" "}
-          <mark className="ui">Render Settings</mark>,{" "}
-          <mark className="ui">Output Module</mark> и{" "}
-          <mark className="ui">Output To</mark>. К ним можно применять или создавать
-          пресеты. Выбор пресета выполняется нажатием на иконку{" "}
-          <mark className="ui">стрелки</mark> слева от его названия, изменение параметров
-          на основе текущей конфигурации - по нажатию на текст акцентного цвета. Запуск
-          экспорта выбранных композиций осуществляется кнопкой{" "}
-          <mark className="ui">Render</mark> в правом верхнем углу окна или клавишей{" "}
+          Для каждой композиции в очереди можно задать параметры вывода. Есть три основных
+          параметра: <mark className="select">«Render Settings»</mark>,{" "}
+          <mark className="select">«Output Module»</mark> и{" "}
+          <mark className="select">«Output To»</mark>. Для каждого из них доступны готовые
+          или пользовательские пресеты: чтобы выбрать шаблон, нажмите на иконку стрелки
+          слева от названия, а для изменения параметров — на само название.
+        </p>
+        <p>
+          Экспорт выбранных композиций можно запустить кнопкой{" "}
+          <mark className="select">«Render»</mark> в правом верхнем углу или клавишей{" "}
           <mark className="key">Enter</mark>.
         </p>
-        <ImageFigure
-          caption="Render Queue"
-          imgSrc="images/aftereffects/render_queue.png"
-          imgTitle="Окно очереди экспорта"
-          styleClass="figure_windows-dark"
-        />
-        <Divider>Разбираемся с Output Module</Divider>
+        <Divider>Разбираемся с «Output Module»</Divider>
         <p>
-          В окне <mark className="ui">Output Module</mark> вы можете задать формат вывода
-          и при необходимости изменить его настройки через{" "}
-          <mark className="ui">Format Options</mark>. В последних версиях{" "}
-          <mark className="app">Adobe After Effects</mark> доступны видеоформаты{" "}
-          <mark className="video">H.264 (MP4)</mark>,{" "}
-          <mark className="video">QuickTime</mark> и <mark className="video">AVI</mark>, а
-          также аудиоформаты <mark className="audio">AIFF</mark>,{" "}
-          <mark className="audio">MP3</mark> и <mark className="audio">WAV</mark>. Также
-          вы можете экспортировать композицию по кадрам в форматах{" "}
+          <mark className="select">«Output Module»</mark> отвечает за изменение формата
+          вывода и, при необходимости, настройку его параметров через{" "}
+          <mark className="select">«Format Options»</mark>.
+        </p>
+        <p>
+          В последних версиях <mark className="app">Adobe After Effects</mark> доступны
+          для экспорта популярные видеоформаты <mark className="video">H.264 (MP4)</mark>,{" "}
+          <mark className="video">QuickTime</mark> и <mark className="video">AVI</mark>,
+          аудиоформаты <mark className="audio">AIFF</mark>,{" "}
+          <mark className="audio">MP3</mark> и <mark className="audio">WAV</mark>, а также
+          возможность экспортировать композицию покадрово в форматах{" "}
           <mark className="image">TIFF</mark>, <mark className="image">JPEG</mark>,{" "}
-          <mark className="image">PNG</mark>, <mark className="image">PSD</mark> и прочие.
+          <mark className="image">PNG</mark>, <mark className="image">PSD</mark> и других.
+          Чтобы выбрать формат экспорта, установите нужное значение в параметре{" "}
+          <mark className="select">«Format»</mark>.
         </p>
         <p>
-          В этом окне присутствуют необязательные настройки изменения размеры и
-          кадрирования изображения композиций. В разделе с настройкой аудио можно задать
-          частоту дискретизации, битовую глубину и выбрать между{" "}
-          <mark className="ui">Mono</mark> и <mark className="ui">Stereo</mark>.
+          В этом окне можно найти необязательные настройки для изменения размера и
+          кадрирования изображения. В разделе настроек аудио можно задать частоту
+          дискретизации, битовую глубину и выбрать режим между{" "}
+          <mark className="select">«Mono»</mark> и{" "}
+          <mark className="select">«Stereo»</mark>.
         </p>
-        <AdditionInfo>
-          При включённой опции <mark className="ui">Audio Output Auto</mark> аудио может
-          не попасть в итоговый файл из-за бага в{" "}
+        <Addition type="info">
+          При включённой опции <mark className="select">«Audio Output Auto»</mark> звук
+          может не попасть в итоговый файл из-за бага в{" "}
           <mark className="app">Adobe After Effects</mark>. Чтобы избежать этого,
-          установите <mark className="ui">Audio Output On</mark>.
-        </AdditionInfo>
-        <ImageFigure
+          установите значение <mark className="select">«Audio Output On»</mark>.
+        </Addition>
+        <ContentFigure
           caption="Output Module Settings"
-          imgSrc="images/aftereffects/output_module_settings.png"
           imgTitle="Настройка модуля вывода"
-          styleClass="figure_windows-dark"
+          src="images/aftereffects/output_module_settings.png"
+          theme="dark"
+          type="image"
+          variant="windows"
         />
-        <Divider>Разбираемся с Output To</Divider>
+        <Divider>Разбираемся с «Output To»</Divider>
         <p>
-          В <mark className="ui">Output To</mark> указывается путь файловой системы для
-          сохранения композиции. В зависимости от выбранного формата - к названию файла
-          добавляется расширение файла. Для названий файлов можно задать стандартный
-          шаблон или создать собственный.
+          <mark className="select">«Output To»</mark> задаёт путь для сохранения файла. В
+          зависимости от выбранного формата к названию автоматически добавляется
+          расширение. Для имён файлов можно использовать стандартный шаблон или создать
+          собственный.
         </p>
-        <ImageFigure
+        <ContentFigure
           caption="Render Queue"
-          imgSrc="images/aftereffects/filename_preset_render_queue.png"
           imgTitle="Указание шаблона для названия файла"
-          styleClass="figure_windows-dark"
+          src="images/aftereffects/filename_preset_render_queue.png"
+          theme="dark"
+          type="image"
+          variant="windows"
         />
         <p>
-          Если в этом списке выбрать <mark className="ui">Custom</mark> - откроется окно{" "}
-          <mark className="ui">File Name and Location Template</mark>, где вы можете
-          изменить шаблон названия, создать свой и даже сделать его по умолчанию. Имеется
-          поддержка относительных путей, что позволяет гибко управлять размещением
-          экспортируемых файлов. Кнопка <mark className="ui">Add Property</mark> позволяет
-          добавить дополнительные параметры в структуру имени.
+          Если в списке шаблонов для <mark className="select">«Output To»</mark> выбрать{" "}
+          <mark className="select">«Custom»</mark>, откроется окно{" "}
+          <mark className="select">«File Name and Location Template»</mark>, где можно
+          изменить шаблон названия, создать собственный или установить его как шаблон по
+          умолчанию.
         </p>
-        <ul>
-          <li>
-            Если вы хотите сохранить композицию на уровень выше папки с проектом -
-            используйте конструкцию{" "}
-            <mark className="code">[projectFolder]\..\[compName].[fileExtension]</mark>.
-          </li>
-          <li>
-            Если вы хотите сохранить в подпапку с проектом - используйте конструкцию{" "}
-            <mark className="code">
-              [projectFolder]\renders\[compName].[fileExtension]
-            </mark>
-            , где вместо <mark className="path">renders</mark> вы можете указать своё
-            название подпапки.
-          </li>
-        </ul>
-        <ImageFigure
+        <p>
+          Для шаблонов имени поддерживаются относительные пути, что даёт гибкость в
+          управлении расположением экспортируемых файлов. Кнопка{" "}
+          <mark className="select">«Add Property»</mark> позволяет добавить дополнительные
+          параметры в структуру имени.
+        </p>
+        <ContentFigure
           caption="File Name and Location Template"
-          imgSrc="images/aftereffects/filename_and_location_template.png"
           imgTitle="Окно создания собственного шаблона имени"
-          styleClass="figure_windows-dark"
+          src="images/aftereffects/filename_and_location_template.png"
+          theme="dark"
+          type="image"
+          variant="windows"
         />
-        <Divider>Разбираемся с Render Settings</Divider>
+        <Addition type="info">
+          <ul>
+            <li>
+              Чтобы сохранить композицию на уровень выше папки с проектом, используйте
+              конструкцию{" "}
+              <mark className="code">[projectFolder]\..\[compName].[fileExtension]</mark>.
+            </li>
+            <li>
+              Чтобы сохранить файл в подпапку внутри папки проекта, используйте
+              конструкцию{" "}
+              <mark className="code">
+                [projectFolder]\renders\[compName].[fileExtension]
+              </mark>
+              , где вместо <mark className="path">renders</mark> можно указать любое
+              другое название.
+            </li>
+          </ul>
+        </Addition>
+        <Divider>Разбираемся с «Render Settings»</Divider>
         <p>
-          <mark className="ui">Render Settings</mark> - необязательный, но тоже полезный
-          раздел настроек экспорта. В нём можно задать разрешение рендера, настроить
-          использование тех или иных свойств у слоёв или использовать прокси в финальном
-          экспорте.
+          <mark className="select">«Render Settings»</mark> — необязательный, но полезный
+          раздел настроек. В нём можно задать разрешение рендеринга, включить или
+          отключить определённые свойства слоёв или, например, указать, использовать ли
+          прокси в финальном экспорте.
         </p>
-        <ImageFigure
-          caption="Output Module Settings"
-          imgSrc="images/aftereffects/render_settings.png"
-          imgTitle="Настройка настроек рендера"
-          styleClass="figure_windows-dark"
+        <ContentFigure
+          caption="Render Settings"
+          imgTitle="Окно Render Settings"
+          src="images/aftereffects/render_settings.png"
+          theme="dark"
+          type="image"
+          variant="windows"
         />
-        <Divider>Как управлять очередью рендера?</Divider>
+        <Divider>Как управлять очередью рендеринга?</Divider>
         <ul>
           <li>
-            Если вы отправили несколько композиций в очередь рендера, но вам нужно
-            экспортировать лишь некоторые из них - уберите или установите чекбоксы
-            напротив нужных композиций.
-            <ImageFigure
+            Если вы отправили в очередь несколько композиций, но экспортировать нужно лишь
+            некоторые из них, установите или снимите флажки напротив нужных элементов.
+            <ContentFigure
               caption="Render Queue"
-              imgSrc="images/aftereffects/select_comp_queue.png"
               imgTitle="Выбор композиций для экспорта"
-              styleClass="figure_windows-dark"
+              src="images/aftereffects/select_comp_queue.png"
+              theme="dark"
+              type="image"
+              variant="windows"
             />
           </li>
           <li>
-            Если вы хотите убрать композицию из очереди рендера - выделите его и нажмите
-            на <mark className="key">Delete</mark>.
+            Чтобы убрать композицию из очереди, выделите её и нажмите{" "}
+            <mark className="key">Delete</mark>.
           </li>
           <li>
-            Если вы хотите экспортировать нужную композицию в разных форматах - нажмите на
-            кнопку <mark className="ui">плюс</mark> рядом с{" "}
-            <mark className="ui">Output Module</mark>, а затем укажите нужный формат.
-            Данный подход рекомендуется для экспорта сложных композиций за счёт того, что{" "}
-            <mark className="app">Adobe After Effects</mark> рендерит композицию один раз,
-            но при этом одновременно пакует кадры в нужный вам формат.
-            <ImageFigure
+            Чтобы экспортировать одну композицию в нескольких форматах, нажмите на кнопку{" "}
+            «плюса» рядом с <mark className="select">«Output Module»</mark> и укажите
+            нужные форматы. Этот подход экономит время при работе со сложными проектами,
+            так как <mark className="app">Adobe After Effects</mark> рендерит композицию
+            один раз, а затем упаковывает её в разные форматы.
+            <ContentFigure
               caption="Render Queue"
-              imgSrc="images/aftereffects/multiple_formats_render_queue.png"
-              imgTitle="Указываем несколько форматов для композиции в очереди рендера"
-              styleClass="figure_windows-dark"
+              imgTitle="Экспорт одной композиции в нескольких форматах"
+              src="images/aftereffects/multiple_formats_render_queue.png"
+              theme="dark"
+              type="image"
+              variant="windows"
             />
           </li>
           <li>
-            Если вы хотите повторить экспорт уже отрендеренной или случайно отменённой для
-            рендера композиции - нажмите <mark className="key">ПКМ</mark> по нужному
-            элементу очереди и выберите <mark className="ui">Duplicate</mark> или{" "}
-            <mark className="ui">Duplicate with File Name</mark>, если вы хотите
-            перезаписать исходный файл.
-            <ImageFigure
+            Чтобы повторить экспорт уже отрендеренной или случайно отменённой композиции,
+            нажмите <mark className="key">ПКМ</mark> по нужному элементу в очереди и
+            выберите <mark className="select">«Duplicate»</mark>. Если вы хотите
+            перезаписать исходный файл, выберите{" "}
+            <mark className="select">«Duplicate with File Name»</mark>.
+            <ContentFigure
               caption="Render Queue"
-              imgSrc="images/aftereffects/duplicate_with_filename_render_queue.png"
-              imgTitle="Дублируем элемент очереди рендера"
-              styleClass="figure_windows-dark"
+              imgTitle="Дублирование элемента в очереди рендеринга"
+              src="images/aftereffects/duplicate_with_filename_render_queue.png"
+              theme="dark"
+              type="image"
+              variant="windows"
             />
           </li>
         </ul>
         <Divider>
-          Экспортируем для Instagram<sup>*</sup>
+          Как создать свой шаблон для «Output Module» и сделать его шаблоном по умолчанию?
         </Divider>
-        <AdditionDanger>
-          <sup>*</sup>
-          <mark className="app">Instagram</mark> и <mark>Meta</mark> всё ещё признаны
-          экстремистскими организациями и запрещены на территории Российской Федерации.
-        </AdditionDanger>
         <p>
-          На этой площадке можно выложить видео как отдельный пост, так и вертикальные
-          Reels. Из-за того что это два разных типа публикаций, то и требования тоже
-          разные.
+          Чтобы не настраивать параметры экспорта каждый раз заново, их можно сохранить в
+          собственный шаблон. Для этого добавьте композицию в очередь с помощью{" "}
+          <mark className="key">Ctrl + M</mark> и нажмите на иконку стрелки рядом с{" "}
+          <mark className="select">«Output Module»</mark>. В контекстном меню выберите{" "}
+          <mark className="select">«Make Template»</mark> — откроется окно для создания и
+          настройки шаблонов. Это же окно можно вызвать через{" "}
+          <mark className="select">«Edit» → «Templates» → «Output Module»</mark>.
         </p>
-        <ul>
-          <li>
-            При создании обычного поста в него можно засунуть видео с соотношением сторон{" "}
-            <mark>4:5</mark>, <mark>16:9</mark> или <mark>4:3</mark>.
-          </li>
-          <li>
-            Если вы попытаетесь опубликовать видео с соотношением сторон <mark>9:16</mark>
-            , то оно превратится в Reels.
-          </li>
-          <li>
-            Желательно использовать фреймрейт <mark>24</mark>, <mark>25</mark> или{" "}
-            <mark>30</mark> FPS, а битрейт установить <mark>5 Мбит/с</mark>.
-            <AdditionInfo>
-              Из-за специфики алгоритмов сжатия на этой платформе видео с 60 FPS может
-              нещадно резаться в битрейте, соответственно и в качестве.
-            </AdditionInfo>
-          </li>
-        </ul>
-        <Divider>Экспортируем для Telegram</Divider>
-        <p>
-          Этот мессенджер более лоялен к видео файлам. Если выкладывать видео через{" "}
-          <mark className="app">Telegram Desktop</mark> в личные чаты или каналы, то он
-          отправится без сжатия и не пережмёт ваше видео. Это хорошо, если нужно отдать
-          клиенту видео в оригинальном качестве, но не очень, если собираетесь выкладывать
-          видео в пост, так как не все смогут скачать полностью видео. Поэтому просто
-          постарайтесь любыми способами обойтись в <mark>50 Мб</mark> для коротких видео
-          или <mark>300 Мб</mark> для длинных. Желательно тоже в кодеке{" "}
-          <mark className="video">H.264</mark>.
-        </p>
-        <p>
-          Публикация видео в каналы и через мобильные устройства может ухудшить ваше видео
-          из-за автоматической конвертации по умолчанию в чуть худшее качество, чем
-          оригинал. Для того чтобы отправить видео в максимальном качестве - нажмите на
-          кнопку выбора качества и потяните его максимально вправо.
-        </p>
-        <ImageFigure
-          caption="Telegram"
-          imgSrc="images/phone_telegram_videoquality.jpg"
-          imgTitle="Выбор качества видео в Telegram"
-          styleClass="figure_windows-dark"
+        <ContentFigure
+          caption="Make Template"
+          imgTitle="Создание шаблона для модуля вывода"
+          src="images/aftereffects/render_queue_make_template.png"
+          theme="dark"
+          type="image"
+          variant="windows"
         />
         <p>
-          Если вы хотите опубликовать историю в Telegram, то вам нужно экспортировать
-          видео в разрешении <mark>1280 x 720</mark> и указать перед экспортом битрейт до{" "}
-          <mark>5 Мбит/с</mark>.
+          В открывшемся окне появится пресет <mark>Untitled</mark>, который можно
+          переименовать. В разделе <mark className="select">«Defaults»</mark> можно
+          назначить созданный шаблон как стандартный для определённых типов задач.
         </p>
-        <AdditionWarning>
-          Если вы попробуете опубликовать историю с разрешением больше, чем{" "}
-          <mark>1280 x 720</mark>, то <mark className="app">Telegram</mark> обратно сожмёт
-          ваше видео до <mark>720p</mark>.
-        </AdditionWarning>
         <p>
-          Для анимированной аватарки вашего профиля нужно вывести видео в разрешении до{" "}
-          <mark>800 x 800</mark> и с битрейтом до <mark>2 Мбит/с</mark>.
+          Чтобы отредактировать шаблон, нажмите на <mark className="select">«Edit»</mark>,
+          что откроет окно <mark className="select">«Output Module Settings»</mark>. Окно
+          редактирования шаблона экспорта по сути не отличается от обычной настройки типа
+          вывода.
         </p>
+        <ContentFigure
+          caption="Output Module Templates"
+          imgTitle="Окно управления шаблонами модуля вывода"
+          src="images/aftereffects/output_module_templates.png"
+          theme="dark"
+          type="image"
+          variant="windows"
+        />
+        <Divider>
+          Как создать свой шаблон для «Render Settings» и сделать его шаблоном по
+          умолчанию?
+        </Divider>
+        <p>
+          Процесс создания пресета для <mark className="select">«Render Settings»</mark>{" "}
+          аналогичен созданию шаблона для модуля вывода. Для этого нажмите на иконку
+          стрелки рядом с <mark className="select">«Render Settings»</mark> и выберите{" "}
+          <mark className="select">«Make Template»</mark>. Это же окно можно вызвать через{" "}
+          <mark className="select">«Edit» → «Templates» → «Render Settings»</mark>.
+        </p>
+        <ContentFigure
+          caption="Render Queue"
+          imgTitle="Создание шаблона для Render Settings"
+          src="images/aftereffects/make_template_render_settings.png"
+          theme="dark"
+          type="image"
+          variant="windows"
+        />
+        <p>
+          В открывшемся окне будет создан пресет с названием <mark>Untitled</mark>,
+          которое можно заменить на любое другое. В разделе{" "}
+          <mark className="select">«Defaults»</mark> можно задать пресеты для других типов
+          файлов по умолчанию.
+        </p>
+        <p>
+          Чтобы отредактировать шаблон, нажмите на <mark className="select">«Edit»</mark>,
+          что откроет окно <mark className="key">Render Settings</mark>. Окно
+          редактирования шаблона ничем не отличается от обычной настройки рендеринга.
+        </p>
+        <ContentFigure
+          caption="Render Settings Templates"
+          imgTitle="Окно управления шаблонами Render Settings"
+          src="images/aftereffects/render_settings_templates.png"
+          theme="dark"
+          type="image"
+          variant="windows"
+        />
       </DetailsSummary>
       <DetailsSummary
         tag="медиаенкодер, медиаэнкодер"
