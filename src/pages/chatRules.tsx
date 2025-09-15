@@ -1,8 +1,8 @@
-import {Breadcrumb, Divider} from "antd";
+import {Divider, Tooltip, message} from "antd";
 
 import {motion} from "framer-motion";
 
-import React from "react";
+import React, {useCallback, useEffect} from "react";
 
 import {Helmet} from "react-helmet-async";
 
@@ -10,11 +10,17 @@ import {Link, useLocation} from "react-router-dom";
 
 import Addition from "../components/Addition";
 
-import ContentSwitcher from "../components/features/ContentFilter";
+import ContentFilter from "../components/features/ContentFilter";
+
+import {ShareRounded} from "@mui/icons-material";
 
 import Footer from "../components/Footer";
 
 import Header from "../components/Header";
+
+import {useExternalLinks} from "../hooks/useExternalLinks";
+
+import {useCopyToClipboard} from "../hooks/useCopyToClipboard";
 
 const constants = {
   SCROLL_DELAY: 300,
@@ -30,6 +36,30 @@ const constants = {
 
 const ChatRules = () => {
   const {hash} = useLocation();
+  useExternalLinks();
+
+  const {enableAutoCopy} = useCopyToClipboard();
+
+  const handleCopyAnchor = useCallback((anchorId: string) => {
+    const anchor = `${window.location.origin}${window.location.pathname}#${anchorId}`;
+    navigator.clipboard.writeText(anchor);
+    message.success(`Ссылка на раздел скопирована в буфер обмена`);
+  }, []);
+
+  const enableAnchorCopyButtons = useCallback(() => {
+    const copyButtons = document.querySelectorAll(".copy-button");
+    copyButtons.forEach((button) => {
+      const anchorId = button.getAttribute("data-anchor-id");
+
+      if (anchorId) {
+        button.addEventListener("click", () => handleCopyAnchor(anchorId));
+      }
+    });
+  }, [handleCopyAnchor]);
+  useEffect(() => {
+    enableAutoCopy();
+    enableAnchorCopyButtons();
+  }, [enableAutoCopy, enableAnchorCopyButtons]);
   React.useEffect(() => {
     if (hash) {
       setTimeout(() => {
@@ -81,7 +111,7 @@ const ChatRules = () => {
           property="og:url"
         />
         <meta
-          content="Правила AEChat & DWChat"
+          content="Правила AEChat и DWChat"
           property="og:title"
         />
         <meta
@@ -101,25 +131,32 @@ const ChatRules = () => {
         }}
       >
         <div className="faq-container-flex">
-          <div className="faq-container">
+          <div
+            className="faq-container"
+            style={{marginBlockStart: "20px"}}
+          >
             <div className="faq-title">
               <h1>Правила AEChat и DWChat</h1>
-              <Breadcrumb
-                items={[
-                  {
-                    title: <Link to="/rules">Правила AEChat и DWChat</Link>,
-                  },
-                ]}
-              />
             </div>
             <h2
-              className="faq-section-title"
+              className="rules-title"
               id="about"
             >
-              О наших чатах
+              Описание AEChat и DWChat
+              <Tooltip title="Скопировать ссылку в буфер обмена">
+                <button
+                  className="copy-button"
+                  data-anchor-id="about"
+                  style={{
+                    flex: "none",
+                  }}
+                >
+                  <ShareRounded />
+                </button>
+              </Tooltip>
             </h2>
-            <div className="faq-content">
-              <section className="faq-section">
+            <div className="rules-content">
+              <section className="rules-section faq-content">
                 <p>
                   В наших чатах{" "}
                   <a
@@ -137,7 +174,7 @@ const ChatRules = () => {
                   >
                     DWChat
                   </a>{" "}
-                  вы можете обсуждать вопросы, касающиеся тематики чата. В{" "}
+                  вы можете обсуждать вопросы, соответствующие их тематике. В{" "}
                   <a
                     href="https://t.me/joinchat/F1DdXtG9LephYWUy"
                     rel="noreferrer"
@@ -155,20 +192,20 @@ const ChatRules = () => {
                   >
                     DWChat
                   </a>{" "}
-                  - <mark className="app">Adobe Photoshop</mark>,{" "}
+                  — <mark className="app">Adobe Photoshop</mark>,{" "}
                   <mark className="app">Adobe Illustrator</mark>,{" "}
-                  <mark className="app">Figma</mark> и другие дизайнерские программы. В
-                  качестве основного языка общения используется русский язык.
+                  <mark className="app">Figma</mark> и другие дизайнерские программы.
+                  Основной язык общения — русский.
                 </p>
-                <AdditionInfo>
+                <Addition type="info">
                   Пожалуйста, старайтесь не выходить за рамки тематики чатов, обсуждая,
                   например, другое ПО или компьютерное железо. Для этого есть{" "}
                   <Link to="/">другие чаты</Link>.{" "}
                   <i style={{opacity: "0.5"}}>
-                    Могут быть исключения в зависимости от настроения администрации.
+                    Возможны исключения по усмотрению администрации.
                   </i>
-                </AdditionInfo>
-                <AdditionDanger>
+                </Addition>
+                <Addition type="danger">
                   <ul>
                     <li>
                       Предупреждение для иноязычных пользователей: In{" "}
@@ -205,126 +242,149 @@ const ChatRules = () => {
                       </b>{" "}
                       от ответственности.{" "}
                       <i style={{opacity: "0.5"}}>
-                        Для действующих членов администрации чата правила могут не
-                        применяться.
+                        Правила могут не распространяться на действующих членов
+                        администрации чата.
                       </i>
                     </li>
                   </ul>
-                </AdditionDanger>
+                </Addition>
               </section>
             </div>
             <h2
-              className="faq-section-title"
-              id="questions"
+              className="rules-title"
+              id="tone"
             >
-              О задаваемых вопросах в чате
+              Правила хорошего тона
+              <Tooltip title="Скопировать ссылку в буфер обмена">
+                <button
+                  className="copy-button"
+                  data-anchor-id="tone"
+                  style={{
+                    flex: "none",
+                  }}
+                >
+                  <ShareRounded />
+                </button>
+              </Tooltip>
             </h2>
-            <div className="faq-content">
-              <section className="faq-section">
-                <AdditionInfo>
-                  Прежде чем задать свой вопрос - убедитесь, что ответа на него нет в чате
+            <div className="rules-content">
+              <section className="rules-section faq-content">
+                <p>
+                  В наших чатах вы можете задавать различные вопросы, соответствующие
+                  тематике. Однако, чтобы не раздражать остальных участников, — просто
+                  соблюдайте простые правила хорошего тона.
+                </p>
+                <Addition type="info">
+                  Прежде чем задать свой вопрос, — убедитесь, что ответа на него нет в
+                  чате
                   <sup>1</sup> или в разделах FAQ по{" "}
                   <a href="#aefaq">Adobe After Effects</a>,{" "}
                   <a href="#prfaq">Adobe Premiere Pro</a> или{" "}
                   <a href="#psfaq">Adobe Photoshop</a>.
                   <li>
                     <sup>1</sup> Вы можете воспользоваться поиском по чату. На мобильных
-                    устройствах оно прячется в контекстном меню в правом углу экрана, а на
-                    десктопе - вызывается с помощью <mark className="key">Ctrl + F</mark>.
+                    устройствах он находится в контекстном меню в правом углу экрана, а на
+                    десктопе — вызывается с помощью <mark className="key">Ctrl + F</mark>.
                   </li>
-                </AdditionInfo>
+                </Addition>
                 <ul>
                   <li>
-                    В своем вопросе укажите используемую программу и его версию, а также
-                    расскажите о своём проекте - что используется из эффектов, какой
-                    формат исходников и прочие подробности. При необходимости вы можете
-                    приложить характеристики вашего устройства. Это поможет сузить область
-                    поиска проблемы.
+                    В своём вопросе укажите используемую программу и её версию, а также
+                    расскажите о проекте: что используется из эффектов, какой формат
+                    исходников и прочие подробности. При необходимости вы можете приложить
+                    характеристики вашего устройства. Это поможет сузить область поиска
+                    проблемы.
                   </li>
                   <li>
-                    Если у вас возникла ошибка или недопонимание с программой - опишите,
-                    что именно вы делали перед тем, как что-то пошло не так. Чем подробнее
-                    будет описание, тем быстрее можно понять проблему, решить её и
-                    исключить лишние догадки.
+                    Если у вас возникла ошибка или проблема с программой — опишите, что
+                    именно вы делали перед тем, как что-то пошло не так. Чем подробнее
+                    будет описание, тем быстрее получится понять и решить проблему,
+                    исключив лишние догадки.
                   </li>
                   <li>
-                    Если вы недавно установили программы от <mark>Adobe</mark> и хотите
-                    задать свои вопросы - пожалуйста, не нужно давить на жалость и делать
-                    акцент на том, что вы новичок и ничего не знаете. Это не ускорит
-                    получение ответа на вопросы. Большинство ответов на{" "}
-                    <mark className="word">ламерские вопросы</mark>, возникающие в начале
-                    пути изучения программ, находятся в закреплённом сообщении чата, в
+                    Если вы недавно установили программы от{" "}
+                    <mark className="company">Adobe</mark> и хотите задать свои вопросы —
+                    пожалуйста, не нужно давить на жалость и делать акцент на том, что вы
+                    новичок и ничего не знаете. Это не ускорит получение ответа.
+                    Большинство ответов на{" "}
+                    <mark className="word">«ламерские» вопросы</mark>, возникающие в
+                    начале изучения программ, находятся в закреплённом сообщении чата, в
                     разделах <mark>FAQ</mark> на этом сайте и в первых строках поисковой
                     выдачи условного <mark className="app">Яндекса</mark>.
                   </li>
                   <li>
-                    Если ваш вопрос остался незамеченным - не нужно жаловаться и ныть об
+                    Если ваш вопрос остался незамеченным — не нужно жаловаться и ныть об
                     этом. Достаточно удалить<sup>1</sup> старое сообщение и написать его
-                    снова.
-                    <AdditionWarning>
-                      <sup>1</sup> Пожалуйста, не пренебрегайте этим - слишком частое
+                    снова. Администрация следит за порядком и по мере возможности помогает
+                    участникам, но, к сожалению, мы не всесильны. Не стоит ожидать, что
+                    кто-то обязательно решит именно ваш вопрос, и не рассчитывайте на
+                    мгновенный ответ — ни от администраторов, ни от других участников
+                    чата.
+                    <Addition type="warning">
+                      <sup>1</sup> Пожалуйста, не пренебрегайте этим: слишком частое
                       повторение вопроса может привести к запрету на отправку сообщений по
                       усмотрению администрации чата.
-                    </AdditionWarning>
+                    </Addition>
                   </li>
                   <li>
-                    Показывая проблему - пожалуйста, не делайте{" "}
+                    Показывая проблему, пожалуйста, не делайте{" "}
                     <mark className="image">снимки экрана</mark> или видео вашего
-                    устройства с помощью камеры телефона. В них ничего толком не видно и
-                    захватывается не вся нужна область. Также публикуя{" "}
+                    устройства с помощью камеры телефона. На них ничего толком не видно и
+                    захватывается не вся нужная область. Также, публикуя{" "}
                     <mark className="image">скриншот</mark>,{" "}
                     <mark className="image">фото</mark> или{" "}
-                    <mark className="video">видео</mark> - стоит написать сам вопрос в
-                    поле для отправки сообщения, а не следующим сообщением.
-                    <AdditionWarning>
+                    <mark className="video">видео</mark>, стоит написать сам вопрос в
+                    одном сообщении с ними, а не в следующем. Не стоит публиковать и
+                    перевод окна ошибки через условный{" "}
+                    <mark className="app">Google Lens</mark> — это, наоборот, замедляет
+                    поиск решения из-за неточного перевода.
+                    <Addition type="warning">
                       Администрация может на первое время пропустить фото монитора с
-                      телефона, но если такое поведение повторяется - такие сообщения
-                      могут удаляться для того, чтобы участник научился создавать
-                      скриншоты.
-                    </AdditionWarning>
-                    <ContentSwitcher
+                      телефона, но если такое поведение повторяется — сообщения могут
+                      удаляться, чтобы участник научился делать скриншоты.
+                    </Addition>
+                    <ContentFilter
                       macContent={
                         <div>
                           <p>
                             Администраторы часто замечают, что пользователи устройств на{" "}
-                            <mark>macOS</mark> ещё более ленивы на{" "}
-                            <mark className="image">скриншоты</mark>, нежели те, кто сидит
-                            на <mark>Windows</mark>. Для решения этой проблемы
-                            купертиновцы оставили вам полезные комбинации клавиш, которые
-                            не раз пригодятся вам в жизни.
+                            <mark>macOS</mark> делают{" "}
+                            <mark className="image">скриншоты</mark> ещё неохотнее, чем
+                            те, кто сидит на <mark>Windows</mark>. Для решения этой
+                            проблемы Apple оставила вам полезные комбинации клавиш,
+                            которые не раз пригодятся в жизни.
                           </p>
-                          <ul>
+                          <ul style={{marginInline: "-15px"}}>
                             <li>
-                              <mark className="key">Ctrl + Command + Shift + 3</mark> -
+                              <mark className="key">Ctrl + Command + Shift + 3</mark> —
                               эта комбинация клавиш позволяет сделать{" "}
                               <mark className="image">скриншот</mark> всего экрана.
                               Изображение автоматически сохранится в буфере обмена, откуда
                               его можно вставить в <mark className="app">Telegram</mark>.
                             </li>
                             <li>
-                              <mark className="key">Ctrl + Command + Shift + 4</mark> -
+                              <mark className="key">Ctrl + Command + Shift + 4</mark> —
                               позволяет выделить и сделать{" "}
-                              <mark className="image">скриншот</mark> только определенной
+                              <mark className="image">скриншот</mark> только определённой
                               области экрана. Как и в предыдущем случае, изображение
-                              попадет в буфер обмена для дальнейшего использования.
+                              попадёт в буфер обмена для дальнейшего использования.
                             </li>
                             <li>
-                              <mark className="key">Command + Shift + 5</mark> откроет
+                              <mark className="key">Command + Shift + 5</mark> — откроет
                               утилиту<sup>1</sup> для записи всего экрана или только
                               выбранной его части.
-                              <AdditionWarning>
-                                <sup>1</sup> Стандартные средства <mark>macOS</mark>{" "}
-                                записывают видео так, что не у всех участников чата оно
-                                может открыться. Чтобы ваш полученный{" "}
+                              <Addition type="warning">
+                                <sup>1</sup> Стандартные средства <mark>macOS</mark> могут
+                                записывать видео так, что не у всех участников чата оно
+                                открывается корректно. Чтобы ваш полученный{" "}
                                 <mark className="video">скринкаст</mark> открылся у
-                                каждого - перекодируйте видео в{" "}
-                                <mark className="video">H.264</mark> через{" "}
+                                каждого — перекодируйте видео в{" "}
+                                <mark className="video">H.264</mark> и немного понизьте
+                                его разрешение через{" "}
                                 <mark className="app">Shutter Encoder</mark> или
-                                используйте сторонние утилиты, например{" "}
-                                <mark className="app">
-                                  OBS<sup>2</sup>
-                                </mark>
-                                .
+                                используйте сторонние утилиты для записи экрана, например{" "}
+                                <mark className="app">OBS</mark>
+                                <sup>2</sup>.
                                 <ul>
                                   <li>
                                     <sup>2</sup> В <mark className="app">OBS</mark>{" "}
@@ -333,20 +393,20 @@ const ChatRules = () => {
                                     используется по умолчанию, на{" "}
                                     <mark className="video">MP4</mark>. Это можно сделать
                                     в настройках программы:{" "}
-                                    <mark className="ui">
+                                    <mark className="select">
                                       Файл → Настройки → Вывод → Формат записи
                                     </mark>{" "}
                                     или{" "}
-                                    <mark className="ui">
+                                    <mark className="select">
                                       File → Settings → Output → Recording Format
                                     </mark>
                                     .
                                   </li>
                                 </ul>
-                              </AdditionWarning>
+                              </Addition>
                             </li>
                           </ul>
-                          <AdditionInfo>
+                          <Addition type="info">
                             Подробнее о стандартных средствах создания{" "}
                             <a href="https://support.apple.com/ru-ru/102646">
                               скриншотов
@@ -357,119 +417,198 @@ const ChatRules = () => {
                             </a>{" "}
                             на <mark>macOS</mark> вы можете прочитать на официальном сайте{" "}
                             <mark>Apple</mark>.
-                          </AdditionInfo>
+                          </Addition>
                         </div>
                       }
                       windowsContent={
                         <div>
                           <p>
-                            Для того чтобы сделать <mark className="image">скриншот</mark>{" "}
-                            - воспользуйтесь прекрасной клавишей{" "}
+                            Чтобы сделать <mark className="image">скриншот</mark>,
+                            воспользуйтесь клавишей{" "}
                             <mark className="key">Print Screen</mark> на вашей клавиатуре.
-                            Если вы не смогли найти эту клавишу на вашей клавиатуре - это
-                            не означает, что можно снимать экран камерой телефона. Если на
-                            вашей клавиатуре действительно нет этой клавиши - вы можете
-                            воспользоваться стандартным в <mark>Windows</mark>{" "}
-                            инструментом{" "}
+                            Если вы не смогли найти эту клавишу — это не означает, что
+                            можно снимать экран камерой телефона. Если на вашей клавиатуре
+                            действительно нет этой клавиши — воспользуйтесь стандартным
+                            для <mark>Windows</mark> инструментом{" "}
                             <mark className="app">
-                              Ножницы<sup>1</sup>
+                              «Ножницы»<sup>1</sup>
                             </mark>
-                            , которую можно вызвать с помощью комбинации клавиш{" "}
+                            , который можно вызвать комбинацией клавиш{" "}
                             <mark className="key">Win + Shift + S</mark>. Также с помощью
-                            этой программы в последних обновлениях вы можете записать{" "}
+                            этой программы в последних обновлениях можно записать{" "}
                             <mark className="video">скринкаст</mark> вашего экрана без
                             необходимости доставать мобильное устройство.
                           </p>
-                          <AdditionInfo>
-                            <sup>1</sup> Если <mark className="app">Ножницы</mark> были
-                            вырезаны из вашей сборки <mark>Windows</mark> - скачать их
+                          <Addition type="info">
+                            <sup>1</sup> Если <mark className="app">«Ножницы»</mark> были
+                            вырезаны из вашей сборки <mark>Windows</mark> — скачать их
                             обратно можно в <mark className="app">Microsoft Store</mark>{" "}
                             по{" "}
                             <a href="https://apps.microsoft.com/detail/9MZ95KL8MR0L">
                               этой ссылке
                             </a>
                             .
-                          </AdditionInfo>
+                          </Addition>
                           <p>
                             Если по каким-то причинам вы не можете или не хотите
-                            использовать <mark className="app">Ножницы</mark> - есть ряд
+                            использовать <mark className="app">«Ножницы»</mark> — есть ряд
                             сторонних утилит для съёмки экрана или создания{" "}
                             <mark className="image">скриншотов</mark>.
                           </p>
-                          <ul>
-                            <li>
-                              <a
-                                href="https://github.com/ShareX/ShareX/releases"
-                                rel="noreferrer"
-                                target="_blank"
-                              >
-                                ShareX
-                              </a>{" "}
-                              - популярная программа для создания скриншотов или записи
-                              экрана. Легко кастомизируется и настраивается.
-                            </li>
-                            <li>
-                              <a
-                                href="https://www.ntwind.com/software/wincam.html"
-                                rel="noreferrer"
-                                target="_blank"
-                              >
-                                WinCam
-                              </a>{" "}
-                              - простая и легковесная программа для записи экрана.
-                            </li>
-                            <li>
-                              <a
-                                href="https://www.nvidia.com/ru-ru/software/nvidia-app/"
-                                rel="noreferrer"
-                                target="_blank"
-                              >
-                                NVIDIA App
-                              </a>{" "}
-                              - программа для пользователей видеокарт <mark>NVIDIA</mark>.
-                            </li>
-                            <li>
-                              <a
-                                href="https://www.amd.com/en/products/software/adrenalin.html"
-                                rel="noreferrer"
-                                target="_blank"
-                              >
-                                AMD Software: Adrenalin Edition
-                              </a>{" "}
-                              - аналогичная программа для пользователей видеокарт{" "}
-                              <mark>AMD</mark>.
-                            </li>
-                          </ul>
+                          <div
+                            className="flexible-links"
+                            style={{marginInline: "0"}}
+                          >
+                            <a
+                              href="https://github.com/ShareX/ShareX/releases"
+                              rel="noreferrer"
+                              target="_blank"
+                            >
+                              ShareX
+                            </a>
+                            <a
+                              href="https://www.ntwind.com/software/wincam.html"
+                              rel="noreferrer"
+                              target="_blank"
+                            >
+                              WinCam
+                            </a>
+                            <a
+                              href="https://www.nvidia.com/en-eu/software/nvidia-app/"
+                              rel="noreferrer"
+                              target="_blank"
+                            >
+                              NVIDIA App
+                            </a>
+                            <a
+                              href="https://www.amd.com/en/products/software/adrenalin.html"
+                              rel="noreferrer"
+                              target="_blank"
+                            >
+                              AMD Software: Adrenalin Edition
+                            </a>
+                          </div>
                         </div>
                       }
                     />
                   </li>
                   <li>
-                    Если хотите приложить к вашему вопросу{" "}
-                    <mark className="image">скриншот</mark> или{" "}
-                    <mark className="video">скринкаст</mark> - не обрезайте его слишком
-                    сильно, особенно если речь идёт об интерфейсе. Иногда решение
-                    находится именно в той области, которую вы вырезали.
+                    Если ваш вопрос не касается работы чата, каналов{" "}
+                    <a
+                      href="https://t.me/s/aetemp"
+                      title="AETemp в Telegram"
+                    >
+                      AETemp
+                    </a>
+                    ,{" "}
+                    <a
+                      href="https://t.me/s/designworld"
+                      title="Design World в Telegram"
+                    >
+                      Design World
+                    </a>{" "}
+                    и бота{" "}
+                    <a
+                      href="https://t.me/HiStockBot?start=509060394"
+                      title="Бот HiStock в Telegram"
+                    >
+                      HiStock
+                    </a>
+                    , — не нужно писать администраторам в личные сообщения. Если не
+                    получается войти в чат или писать сообщения — убедитесь, что вы нажали
+                    на кнопку <mark className="select">«Перейти в чат»</mark> и не
+                    нарушали правила.
                   </li>
                   <li>
-                    Пожалуйста, воздержитесь от{" "}
-                    <a href="https://nometa.xyz/ru.html">мета-вопросов</a>. Чтобы
-                    сэкономить время - сразу формулируйте свой вопрос, а не начинайте с
-                    общих фраз:{" "}
-                    <mark className="quote">
-                      а есть ли здесь знатоки [название плагина]?
-                    </mark>
-                    , <mark className="quote">нужна помощь, пишите в ЛС</mark>,{" "}
-                    <mark className="quote">сложно описать проблему, помогите в ЛС</mark>,{" "}
-                    <mark className="quote">ау, что все молчат?</mark> и подобных.
-                    Вопросы, которые подразумевают дополнительные вопросы - не вызывают
-                    желания отвечать и затрудняют получение быстрого и конкретного ответа,
-                    пока вы не сформулируете свой вопрос полностью. В примере с зелёным
-                    фоном сразу задан четкий и понятный вопрос, на который любой участник
-                    чата может быстро ответить. В примере с красным фоном создается
-                    впечатление, что участники чата должны обладать экстрасенсорными
-                    способностями и угадывать, в чем именно заключается проблема или
-                    просьба о помощи.
+                    В чате разрешено делиться ссылками<sup>1</sup> на обучающие материалы,
+                    включая <mark className="app">YouTube</mark>, в качестве ответа на
+                    вопросы других пользователей. Приветствуется публикация собственных
+                    решений<sup>2</sup> различных проблем, в том числе нестандартных.
+                    <Addition type="info">
+                      <ul>
+                        <li>
+                          <sup>1</sup> Учтите, что бот может удалять некоторые ссылки на{" "}
+                          каналы в<mark className="app">Telegram</mark>, которых нет в
+                          закреплённом сообщении. Если вы хотите поделиться с кем-то
+                          каналом — перешлите его собеседнику в личные сообщения.
+                        </li>
+                        <li>
+                          <sup>2</sup> Если ваш ответ или решение содержит полезную
+                          информацию, релевантную популярному вопросу, — они могут быть
+                          добавлены в <mark>FAQ</mark> по{" "}
+                          <a href="#aefaq">Adobe After Effects</a>,{" "}
+                          <a href="#prfaq">Adobe Premiere Pro</a> или{" "}
+                          <a href="#psfaq">Adobe Photoshop</a>.
+                        </li>
+                      </ul>
+                    </Addition>
+                  </li>
+                  <li>
+                    <p>
+                      В связи с популярностью различных нейросетей, например{" "}
+                      <mark className="app">ChatGPT</mark>,{" "}
+                      <mark className="app">DeepSeek</mark> или{" "}
+                      <mark className="app">Qwen</mark>, не рекомендуется публиковать в
+                      чате ответ, полностью сгенерированный с помощью этих инструментов, а
+                      также верить их ответам. Как минимум, нейросети могут и любят давать
+                      неверную информацию о продуктах{" "}
+                      <mark className="company">Adobe</mark>, особенно если модуль для
+                      поиска при генерации ответа был отключён.
+                    </p>
+                    <Addition type="warning">
+                      Администрация чата оставляет за собой право удалять такие ответы без
+                      предупреждения, если они не несут практической ценности.
+                    </Addition>
+                    <p>
+                      Если вы не уверены в своём ответе на вопрос, лучше ничего не писать
+                      — это может ввести в заблуждение человека, задающего вопрос, а
+                      простой диалог может растянуться на множество сообщений из-за
+                      неверного ответа.
+                    </p>
+                    <p>
+                      Другое дело, если вопрос участника чата касается выражений для{" "}
+                      <mark className="app">Adobe After Effects</mark>, и вы хотите
+                      сгенерировать для него код — сначала проверьте его работоспособность
+                      в своей программе, объясните, как его использовать, и при
+                      необходимости доведите до рабочего состояния. После этого вы можете
+                      спокойно поделиться выражением или самодельным скриптом.
+                    </p>
+                  </li>
+                  <li>
+                    <p>
+                      Если вы только что зашли в чат и у вас есть вопрос, не нужно
+                      говорить <mark className="quote">«Привет!»</mark> или{" "}
+                      <mark className="quote">«У меня есть вопрос, помогите!!!!»</mark>, а
+                      сам вопрос умалчивать. Такое явление называется{" "}
+                      <mark className="word">«метавопрос»</mark>. Вопросы, которые требуют
+                      встречных вопросов, не вызывают желания отвечать и затрудняют
+                      получение быстрого и конкретного ответа, пока вы не сформулируете
+                      свою проблему полностью.
+                    </p>
+                    <Addition type="danger">
+                      <ul>
+                        <li>
+                          Если на ваш вопрос откликнулся участник чата — не надо сразу
+                          звать его в личные сообщения. Ему может быть неудобно, да и
+                          другим участникам будет полезно, если обсуждение продолжится в
+                          чате.
+                        </li>
+                        <li>
+                          Бот в чате может удалять сообщения с упоминанием пользователей,
+                          поэтому старайтесь при формулировке вопроса не использовать
+                          упоминания через <mark>@</mark>.
+                        </li>
+                      </ul>
+                    </Addition>
+                    <p>
+                      В примере с зелёным фоном сразу задан чёткий и понятный вопрос, на
+                      который любой участник чата может быстро ответить. Не нужно зазывать
+                      пользователей в личные сообщения, если вы по каким-то причинам не
+                      хотите задавать вопрос в чате. В примере с красным фоном создаётся
+                      впечатление, что участники чата должны обладать экстрасенсорными
+                      способностями и угадывать, в чём именно заключается проблема или
+                      просьба о помощи.
+                    </p>
                     <div className="message-flex">
                       <div className="message-incorrect">
                         <div className="message-left">всем плотнейший салам</div>
@@ -484,9 +623,10 @@ const ChatRules = () => {
                         </div>
                         <div className="message-left">бля але, кто живой есть?</div>
                         <div className="message-right">
-                          Привет, это не техподдержка <mark>Adobe</mark>. Если у вас есть
-                          вопрос - задайте его сразу. Для нетематических разговоров у нас
-                          есть флудилка.
+                          Привет, это не техподдержка{" "}
+                          <mark className="company">Adobe</mark>. Если у вас есть вопрос —
+                          задайте его сразу. Для нетематических разговоров у нас есть
+                          флудилка.
                         </div>
                         <div className="message-left">
                           есть кто шарит в интерфейсе афтера?
@@ -495,13 +635,13 @@ const ChatRules = () => {
                           Допустим, есть. Что конкретно вас интересует?
                         </div>
                         <div className="message-left">
-                          не могу объяснить норм, в лс плиз
+                          не могу объяснить норм, можете в лс плиз??
                         </div>
                         <div className="message-right">
-                          Нет, в личные сообщения не получится. Опишите свой вопрос здесь,
-                          в чате. Иначе, зачем вы здесь оказались? Просто привлечь
-                          внимание и отнимать чужое время?
+                          Опишите свой вопрос здесь, в чате. Иначе зачем вы здесь
+                          оказались? Просто привлечь внимание и отнимать чужое время?
                         </div>
+                        <div className="message-left">чел ебать ты токсик</div>
                         <div
                           style={{
                             opacity: 0.5,
@@ -512,16 +652,16 @@ const ChatRules = () => {
                           Прошло N минут
                         </div>
                         <div className="message-left">
-                          ок... поставил скрипт, а как его закрепить в рабочей области,
-                          чтоб как панель был?
+                          ладно, исправляюсь... поставил скрипт, а как его закрепить в
+                          рабочей области, чтобы как панель был?
                         </div>
                         <div className="message-right">
-                          Вот, другое дело. Нужно поместить .jsx скрипт в подпапку{" "}
+                          Вот, другое дело. Нужно поместить .jsx-скрипт в подпапку{" "}
                           <mark className="path">ScriptsUI Panels</mark> в папке с
                           программой, а не просто в папку{" "}
                           <mark className="path">Scripts</mark>. После этого скрипт
-                          появится в меню <mark className="ui">Window</mark>, где вы
-                          можете его открыть и закрепить, где вам будет удобно.
+                          появится в меню <mark className="select">Window</mark>, где вы
+                          можете его открыть и закрепить где вам удобно.
                         </div>
                         <div
                           style={{
@@ -530,7 +670,7 @@ const ChatRules = () => {
                             textAlign: "center",
                           }}
                         >
-                          Время переписки: ~5-30 минут с учетом времени ожидания ответа
+                          Время переписки: ~5–30 минут с учётом времени ожидания ответа
                         </div>
                       </div>
                       <div className="message-correct">
@@ -539,11 +679,11 @@ const ChatRules = () => {
                           он установлен в папку <mark className="path">Scripts</mark>?
                         </div>
                         <div className="message-right">
-                          Переместите .jsx скрипт в папку{" "}
+                          Переместите .jsx-скрипт в папку{" "}
                           <mark className="path">ScriptsUI Panels</mark>, расположенную
-                          внутри папки <mark className="path">Scripts</mark>. После этого
-                          скрипт появится в меню <mark className="ui">Window</mark>, где
-                          его можно будет открыть и закрепить.
+                          внутри папку <mark className="path">Scripts</mark>. После этого
+                          скрипт появится в меню <mark className="select">Window</mark>,
+                          где его можно будет открыть и закрепить.
                         </div>
                         <div className="message-left">Спасибо, всё получилось!</div>
                         <div
@@ -562,230 +702,134 @@ const ChatRules = () => {
               </section>
             </div>
             <h2
-              className="faq-section-title"
-              id="answers"
+              className="rules-title"
+              id="ban"
             >
-              Об ответах на вопросы
+              Что нельзя делать в чатах?
+              <Tooltip title="Скопировать ссылку в буфер обмена">
+                <button
+                  className="copy-button"
+                  data-anchor-id="ban"
+                  style={{
+                    flex: "none",
+                  }}
+                >
+                  <ShareRounded />
+                </button>
+              </Tooltip>
             </h2>
-            <div className="faq-content">
-              <section className="faq-section">
+            <div className="rules-content">
+              <section className="rules-section faq-content">
                 <ul>
                   <li>
-                    В чате разрешено делиться ссылками<sup>1</sup> на обучающие материалы,
-                    включая <mark className="app">YouTube</mark>, в качестве ответа на
-                    вопросы других пользователей. Приветствуется публикация собственных
-                    решений<sup>2</sup> различных проблем, в том числе нестандартных.
-                    <AdditionInfo>
-                      <ul>
-                        <li>
-                          <sup>1</sup> Учтите, что бот может удалять некоторые ссылки{" "}
-                          <mark className="app">Telegram</mark> в чате, которых нет в
-                          закреплённом сообщении. Если вы хотите поделиться с кем-то
-                          каналом - перешлите его собеседнику в личные сообщения.
-                        </li>
-                        <li>
-                          <sup>2</sup> Если ваш ответ или решение содержит полезную
-                          информацию, релевантную популярному вопросу - она может быть
-                          добавлена в <mark>FAQ</mark> по{" "}
-                          <a href="#aefaq">Adobe After Effects</a>,{" "}
-                          <a href="#prfaq">Adobe Premiere Pro</a> или{" "}
-                          <a href="#psfaq">Adobe Photoshop</a>.
-                        </li>
-                      </ul>
-                    </AdditionInfo>
-                  </li>
-                  <li>
-                    В связи с популярностью различных нейросетей, например{" "}
-                    <mark className="app">ChatGPT</mark>,{" "}
-                    <mark className="app">DeepSeek</mark> или{" "}
-                    <mark className="app">Qwen</mark>,{" "}
-                    <b>
-                      <u>не рекомендуется публиковать в чате ответ</u>
-                    </b>
-                    , полностью сгенерированный с помощью этих инструментов, а также
-                    верить их ответам. Как минимум, нейросети могут (и любят) давать
-                    неверную информацию о продуктах <mark>Adobe</mark>, особенно если
-                    модуль для поиска при генерации ответа был отключен. Если вы не
-                    уверены в своём ответе на вопрос, лучше ничего не писать - зто может
-                    ввести в заблуждение человека, задающего вопрос, а также простой
-                    диалог может растянуться на множество сообщений из-за неверного
-                    ответа.
-                    <AdditionWarning>
-                      Администрация чата может удалять такие ответы без предупреждения,
-                      если они не несут ценности.
-                    </AdditionWarning>
-                    Другое дело, если вопрос участника чата касается выражений для{" "}
-                    <mark className="app">Adobe After Effects</mark>, и вы хотите
-                    сгенерировать для него код - сначала проверьте его работоспособность в
-                    своей программе, объясните, как его использовать, и, при
-                    необходимости, доведите его до рабочего состояния. После этого вы
-                    можете спокойно поделиться выражением или самотельным скриптом.
-                  </li>
-                </ul>
-              </section>
-            </div>
-            <h2
-              className="faq-section-title"
-              id="admins"
-            >
-              Никто никому ничего не обязан
-            </h2>
-            <div className="faq-content">
-              <section className="faq-section">
-                <p>
-                  Администрация следит за порядком и по мере возможности помогает
-                  участникам, но, к сожалению, мы не всесильны. Не стоит ожидать, что
-                  кто-то обязательно решит именно ваш вопрос, и не рассчитывайте на
-                  мгновенный ответ - ни от администраторов, ни от других участников чата.
-                </p>
-                <AdditionDanger>
-                  <ul>
-                    <li>
-                      Если ваш вопрос не касается работы чата, каналов{" "}
-                      <a
-                        href="https://t.me/s/aetemp"
-                        title="AETemp в Telegram"
-                      >
-                        AETemp
-                      </a>
-                      ,{" "}
-                      <a
-                        href="https://t.me/s/designworld"
-                        title="Design World в Telegram"
-                      >
-                        Design World
-                      </a>{" "}
-                      и бота{" "}
-                      <a
-                        href="https://t.me/HiStockBot?start=509060394"
-                        title="Бот HiStock в Telegram"
-                      >
-                        HiStock
-                      </a>{" "}
-                      - не нужно писать администраторам в личные сообщения. Если не
-                      получается войти в чат или писать сообщения - убедитесь, что вы
-                      нажали на кнопку <mark className="ui">Перейти в чат</mark> и не
-                      нарушали правила.
-                    </li>
-                    <li>
-                      Если на ваш вопрос откликнулся участник чата - не надо сразу звать
-                      его в личные сообщения. Ему может быть неудобно, да и другим
-                      участникам будет полезно, если обсуждение продолжится в чате.
-                    </li>
-                    <li>
-                      Бот в чате может удалять сообщения с упоминанием пользователей,
-                      поэтому старайтесь при формулировке вопроса не использовать
-                      упоминание через <mark>@</mark>.
-                    </li>
-                  </ul>
-                </AdditionDanger>
-              </section>
-            </div>
-            <h2
-              className="faq-section-title"
-              id="discipline"
-            >
-              Ведём себя прилично, не гадим в чате и не злимся на других
-            </h2>
-            <div className="faq-content">
-              <section className="faq-section">
-                <ul>
-                  <li>
-                    В чате запрещены спам, флуд<sup>1</sup> и чрезмерное употребление
-                    нецензурной лексики. Также недопустимы оскорбления пользователей,
-                    упоминание родственников в негативном ключе и токсичное поведение.
-                    <AdditionInfo>
+                    В чатах запрещены спам, флуд<sup>1</sup> и чрезмерное употребление
+                    нецензурной лексики. Также недопустимы оскорбления, упоминание
+                    родственников в негативном ключе и токсичное поведение.
+                    <Addition type="info">
                       <sup>1</sup> Под флудом подразумевается отход от темы обсуждения,
-                      вопросы не по продуктам <mark>Adobe</mark> или много бессмысленных
-                      сообщений.
-                    </AdditionInfo>
+                      вопросы не по продуктам <mark className="company">Adobe</mark>,
+                      повторяющиеся вопросы или множество бессмысленных сообщений.
+                    </Addition>
                   </li>
                   <li>
-                    В чате не приветствуются политические дискуссии, а также публикация
-                    порнографии или любого другого NSFW-контента, вне зависимости от
-                    контекста.
+                    В чатах не приветствуются политические дискуссии, а также коверканье
+                    наций и стран. Также не стоит использовать в своем профиле
+                    провокационными никами и сомнительные аватарки, например, с
+                    изображением нацистской символики или расистскими высказываниями.
                   </li>
                   <li>
-                    Запрещены купля, продажа и перепродажа товаров, шаблонов,
-                    &quot;доступов&quot;, реферальных ссылок, а также реклама каких-либо
-                    ресурсов без согласования с администрацией.
+                    В чатах не место порнографии или любого другого NSFW-контента вне
+                    зависимости от контекста.
+                  </li>
+                  <li>
+                    Запрещены купля, продажа и перепродажа товаров, шаблонов, «доступов»,
+                    реферальных ссылок, а также реклама любых ресурсов без согласования с
+                    администрацией.
+                  </li>
+                  <li>
+                    Не рекомендуется отправлять в чат ссылки на опросы, созданные в{" "}
+                    <mark className="app">Google Forms</mark> или аналогах, особенно если
+                    вы только вошли в чат или мало участвуете в дискуссиях. Дело в том,
+                    что опросы часто воспринимаются участниками как спам и мало кому
+                    интересны.
                   </li>
                 </ul>
-                <AdditionWarning>
-                  <ul>
-                    <li>
-                      Администрация оставляет за собой право банить пользователей за
-                      провокационные ники и сомнительные аватарки, например, с
-                      изображением нацистской символики.
-                    </li>
-                    <li>
-                      Если после блокировки или запрета на отправку сообщений вы решите
-                      зайти с <mark className="word">твинка</mark> или же с другого
-                      аккаунта, чтобы поязвить дальше - в постоянный бан пойдут оба
-                      аккаунта вне зависимости от наказания.
-                    </li>
-                  </ul>
-                </AdditionWarning>
+                <Addition type="warning">
+                  Если после блокировки или запрета на отправку сообщений вы решите зайти
+                  с «твинка» или другого аккаунта, чтобы поязвить дальше, — в перманентный
+                  бан отправятся оба аккаунта вне зависимости от первоначального
+                  наказания.
+                </Addition>
               </section>
-            </div>
+            </div>{" "}
             <h2
-              className="faq-section-title"
+              className="rules-title"
               id="work"
             >
               О вакансиях и резюме
+              <Tooltip title="Скопировать ссылку в буфер обмена">
+                <button
+                  className="copy-button"
+                  data-anchor-id="work"
+                  style={{
+                    flex: "none",
+                  }}
+                >
+                  <ShareRounded />
+                </button>
+              </Tooltip>
             </h2>
-            <div className="faq-content">
-              <section className="faq-section">
+            <div className="rules-content">
+              <section className="rules-section faq-content">
                 <p>
-                  Если вы хотите опубликовать вакансию, заказ или резюме - соблюдайте
-                  простые требования по размещению. Это поможет сэкономить время как вам,
-                  так и вашему потенциальному клиенту или исполнителю.
+                  Если вы хотите опубликовать вакансию, заказ или резюме — соблюдайте
+                  простые требования к размещению. Это поможет сэкономить время и вам, и
+                  вашему потенциальному клиенту или исполнителю.
                 </p>
-                <AdditionWarning>
+                <Addition type="warning">
                   Администрация оставляет за собой право удалить ваше объявление, если в
-                  нём толком не указано ничего, кроме{" "}
-                  <mark className="quote">есть заказ пишите в лс</mark>. Большинству
-                  потенциальных исполнителей не интересно бегать в личные сообщения, чтобы
+                  нём толком ничего не указано, кроме{" "}
+                  <mark className="quote">«есть заказ, пишите в лс»</mark>. Большинству
+                  потенциальных исполнителей неинтересно бегать в личные сообщения, чтобы
                   узнать, какую задачу нужно выполнить.
-                </AdditionWarning>
+                </Addition>
                 <Divider>Правила для публикации вакансии</Divider>
                 <ul>
                   <li>
                     Укажите хештег <mark className="tag">#работа</mark> в начале вашего
                     объявления. Этого хватит, чтобы быстро найти ваш пост среди множества
-                    остальных вопросов в чате.
+                    других вопросов в чате.
                   </li>
                   <li>
                     Опишите подробно ваше техническое задание или что нужно сделать,
                     желательно с примерами, если они есть. Постарайтесь не отправлять
-                    людей в личные сообщения для его получения. Таким образом, вы сузите
+                    людей в личные сообщения для его получения. Таким образом вы сузите
                     круг слишком любопытных лиц и сможете найти хорошего исполнителя.
-                    <AdditionInfo>
+                    <Addition type="info">
                       Если вы по каким-то причинам не хотите разглашать техническое
-                      задание, хотя бы кратко опишите тему и примерно что нужно сделать.
-                    </AdditionInfo>
+                      задание, хотя бы кратко опишите тему и что примерно нужно сделать.
+                    </Addition>
                   </li>
                   <li>
                     Укажите в вашем объявлении бюджет, цену или ставку. Не удивляйтесь,
-                    если на ваше объявление люди отреагируют негативно, если вы не указали
-                    ставку или указали слишком низкую цену.
-                    <AdditionInfo>
-                      Если вы не знаете, сколько стоит выполнение вашего заказа - укажите
-                      в объявлении, сколько вы готовы потратить на заказ, и что
-                      исполнитель может сам предложить свою цену. Таким образом, скорее
-                      всего, вы сойдётесь на оптимальной сумме и для вас, и для
-                      исполнителя.
-                    </AdditionInfo>
+                    если на ваше объявление отреагируют негативно, если вы не указали
+                    ставку или предложили слишком низкую цену.
+                    <Addition type="info">
+                      Если вы не знаете, сколько стоит выполнение вашего заказа, — укажите
+                      в объявлении, сколько вы готовы потратить, и добавьте, что
+                      исполнитель может предложить свою цену. Скорее всего, так вы
+                      сойдётесь на оптимальной сумме и для вас, и для исполнителя.
+                    </Addition>
                   </li>
                   <li>
                     Также укажите, где вам будет удобнее общаться с потенциальным
-                    заказчиком. Если у вас в настройках конфиденциальности{" "}
-                    <mark className="ui">Кто может отправлять мне сообщения</mark>{" "}
+                    исполнителем. Если у вас в настройках конфиденциальности{" "}
+                    <mark className="select">«Кто может отправлять мне сообщения»</mark>{" "}
                     установлено значение{" "}
-                    <mark className="ui">Контакты и Premium-подписчики</mark>, установите
-                    на время значение <mark className="ui">Все</mark> или напишите
-                    потенциальному исполнителю личное сообщение первым, если он сам
-                    попросит это сделать.
+                    <mark className="select">«Контакты и Premium-подписчики»</mark>,
+                    установите на время значение <mark className="select">«Все»</mark> или
+                    напишите потенциальному исполнителю первым, если он сам об этом
+                    попросит.
                   </li>
                 </ul>
                 <Divider>Правила для самопиара или резюме</Divider>
@@ -793,29 +837,31 @@ const ChatRules = () => {
                   <li>
                     Укажите хештег <mark className="tag">#резюме</mark> в начале вашей
                     записи и приложите<sup>1</sup> несколько ваших работ в виде фото или
-                    видео для демонстрации ваших навыков.
-                    <AdditionInfo>
+                    видео для демонстрации своих навыков.
+                    <Addition type="info">
                       <p>
                         <sup>1</sup> Если вы по каким-то причинам не хотите перезаливать
-                        ваши видео - прикрепите ссылку на ваше портфолио<sup>2</sup>,
-                        например, на Behance, Яндекс.Диск, Kwork или других площадках.
+                        ваши видео — прикрепите ссылку на своё портфолио<sup>2</sup>,
+                        например, на <a href="https://www.behance.net/">Behance</a>,{" "}
+                        <a href="https://disk.yandex.ru/">Яндекс.Диск</a>,{" "}
+                        <a href="https://kwork.ru/">Kwork</a> или других площадках.
                       </p>
                       <ul>
                         <li>
                           <sup>2</sup> Ссылка на канал в{" "}
                           <mark className="app">Telegram</mark> с вашим портфолио может
-                          удаляться ботом в чате. Если портфолио находится только там - вы
-                          можете прикрепить его к вашему профилю и указать об этом в
-                          резюме. Чтобы прикрепить канал в ваш профиль - он должен быть
-                          публичным и доступен каждому пользователю.
+                          удаляться ботом. Если портфолио находится только там —
+                          прикрепите его к своему профилю и укажите это в резюме. Чтобы
+                          прикрепить канал к профилю — он должен быть публичным и доступен
+                          каждому пользователю.
                         </li>
                       </ul>
-                    </AdditionInfo>
+                    </Addition>
                   </li>
                   <li>
-                    Укажите ваше направление или с чем вы умеете работать. Также не
-                    забудьте указать софт, в котором вы можете работать свободно. Для
-                    самого минимума хватит уверенного знания базы{" "}
+                    Укажите ваше направление и с чем вы умеете работать. Также не забудьте
+                    указать софт, в котором вы работаете свободно. Для минимума хватит
+                    уверенного знания базы{" "}
                     <mark className="app">Adobe After Effects</mark>,{" "}
                     <mark className="app">Adobe Premiere Pro</mark> и{" "}
                     <mark className="app">Adobe Photoshop</mark>, а также поверхностных
@@ -825,30 +871,29 @@ const ChatRules = () => {
                   <li>
                     Укажите вашу минимальную ставку или стоимость определённых работ.
                     Учтите, что, указав слишком высокую цену при несоответствии качеству
-                    ваших работ, вы вряд ли сможете быстро найти заказчика.
-                    <AdditionInfo>
-                      Если вы не можете определиться со стоимостью ваших работ - укажите,
-                      что заказчик может сам установить цену для его заказа. Не обижайте
-                      себя, но и не переоценивайте. Вы можете при необходимости
-                      договориться с заказчиком, если посчитаете его цену слишком низкой
-                      или необоснованной. Возможно, вам повезёт взять за заказ больше
-                      денег, чем в среднем по рынку.
-                    </AdditionInfo>
+                    работ, вы вряд ли быстро найдёте заказчика.
+                    <Addition type="info">
+                      Если вы не можете определиться со стоимостью своих работ — укажите,
+                      что заказчик может сам установить цену. Не обижайте себя, но и не
+                      переоценивайте. При необходимости вы можете договориться с
+                      заказчиком, если посчитаете его цену слишком низкой. Возможно, вам
+                      повезёт взять за заказ больше денег, чем в среднем по рынку.
+                    </Addition>
                   </li>
                 </ul>
-                <AdditionDanger>
-                  Бывают случаи, когда заказчик или исполнитель может обмануть
-                  противоположную сторону и не заплатить за выполненную работу или не
-                  выполнить оплаченную работу. В таком случае, если проблема не решается
-                  лично - вы можете пожаловаться и придать огласке вашей ситуации в наших
-                  чатах или в каналах на <Link to="/">главной странице</Link> в разделе{" "}
-                  <mark className="ui">Черный список</mark>.
-                </AdditionDanger>
+                <Addition type="danger">
+                  Бывают случаи, когда заказчик или исполнитель обманывает другую сторону:
+                  не платит за выполненную работу или не выполняет оплаченную. В таком
+                  случае, если проблема не решается лично, — вы можете пожаловаться и
+                  придать ситуацию огласке в наших чатах или в каналах из раздела{" "}
+                  <mark className="select">«Чёрный список»</mark> на{" "}
+                  <Link to="/">главной странице</Link>.
+                </Addition>
               </section>
             </div>
             <Footer
               initialYear={2021}
-              title="aechat"
+              title="aechat + dwchat"
             />
           </div>
         </div>
