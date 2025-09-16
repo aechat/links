@@ -31,3 +31,4 @@ DOCS.md
 .yarn*
 pnpm*.yaml
 .pnp*
+.aider*
