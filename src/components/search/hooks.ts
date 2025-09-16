@@ -1,5 +1,7 @@
 import debounce from "lodash/debounce";
 
+import {escapeRegExp} from "./utils";
+
 import {useCallback, useEffect, useMemo, useState} from "react";
 
 import {SearchResult} from "./types";
@@ -25,24 +27,16 @@ const stripHtml = (html: string): string => {
   return tmp.textContent || tmp.innerText || "";
 };
 
+const normalizationRegex = /[^\p{L}\d+\-=()]/giu;
+
+const replaceCharsRegex = /ё/gi;
+
 const normalizeText = (text: string): string => {
   return text
     .toLowerCase()
-    .replace(/ё/g, "е")
+    .replace(replaceCharsRegex, "е")
+    .replace(normalizationRegex, " ")
     .replace(/\s+/g, " ")
-    .replace(/[.,!?;:()[\]{}"'`«»”“‘’‚‛‟‹›「」『』…—–/_|&@#$%^~=<>]/g, (match) => {
-      if (
-        match === "+" ||
-        match === "-" ||
-        match === "=" ||
-        match === "(" ||
-        match === ")"
-      ) {
-        return match;
-      }
-
-      return " ";
-    })
     .trim();
 };
 
@@ -74,6 +68,8 @@ const extractKeyCombinationText = (element: Element): string => {
   return element.textContent?.toLowerCase() || "";
 };
 
+const matchCache = new Map<string, RegExp>();
+
 const hasMatch = (
   text: string,
   searchWords: string[],
@@ -87,10 +83,21 @@ const hasMatch = (
     return normalizedText.includes(normalizedSearch);
   }
 
-  const normalizedText = normalizeText(text);
+  const cacheKey = searchWords.join("|");
 
-  return searchWords.every((word) => normalizedText.includes(normalizeText(word)));
+  if (!matchCache.has(cacheKey)) {
+    const pattern = searchWords
+      .map((word) => `(?=.*${escapeRegExp(normalizeText(word))})`)
+      .join("");
+    matchCache.set(cacheKey, new RegExp(`^${pattern}.*$`, "u"));
+  }
+
+  const regex = matchCache.get(cacheKey)!;
+
+  return regex.test(normalizeText(text));
 };
+
+const escapeRegExp = (str: string) => str.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 
 const processTextNode = (
   node: Text,
@@ -107,8 +114,10 @@ const processElement = (
   searchWords: string[],
   isKeyCombination: boolean
 ): SearchMatch => {
-  if (element.tagName === "LI" || element.tagName === "P") {
-    const fullText = element.textContent || "";
+  const tagName = element.tagName;
+
+  if (tagName === "LI" || tagName === "P") {
+    const fullText = element.innerText || "";
 
     if (hasMatch(fullText, searchWords, isKeyCombination)) {
       const clone = element.cloneNode(true) as Element;

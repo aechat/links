@@ -1,3 +1,5 @@
+export const escapeRegExp = (str: string) => str.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+
 export const decodeHtmlEntities = (text: string): string => {
   const textArea = document.createElement("textarea");
   textArea.innerHTML = text;
