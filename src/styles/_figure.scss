@@ -19,21 +19,39 @@
 
   .window-header {
     display: flex;
+    justify-content: space-between;
+    align-items: center;
     margin-top: 0;
 
     figcaption {
-      text-wrap: nowrap;
       display: block;
-      margin-inline: auto;
-      margin-block: 4px 6px;
-      border-radius: $roundness * 0.45;
-      padding: 2px 8px;
-      width: 100%;
+      padding: 2px 12px;
       overflow: hidden;
       color: #eee;
-      font-size: 0.8125rem;
+      font-size: 0.825rem;
+    }
+    .youtube-button {
+      opacity: 0.75;
+      transition: opacity 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+      margin: 5px;
+      margin-inline-start: 5px;
+      outline: 1px solid hsl(0deg 0% 20%);
+      border-radius: $roundness * 0.5;
+      background-color: hsl(0deg 0% 12.5%);
+      padding: 5px 8px;
+      color: hsl(0deg 0% 100%);
+      font-weight: 600;
+      font-size: 0.825rem;
+      line-height: 1.25;
       text-align: center;
-      text-overflow: ellipsis;
+
+      &:hover {
+        opacity: 0.8;
+      }
+
+      &:active {
+        opacity: 0.5;
+      }
     }
   }
 }

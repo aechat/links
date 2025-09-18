@@ -207,6 +207,14 @@ const ContentFigure: React.FC<ContentFigureProps> = ({
             <figcaption>
               <b>YouTube</b>: {caption}
             </figcaption>
+            <button
+              className="youtube-button"
+              onClick={() =>
+                window.open(`https://www.youtube.com/watch?v=${id}`, "_blank")
+              }
+            >
+              Открыть в новой вкладке
+            </button>
           </div>
           <iframe
             allowFullScreen
