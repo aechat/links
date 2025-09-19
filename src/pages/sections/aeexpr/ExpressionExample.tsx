@@ -65,10 +65,6 @@ export const wiggleOnlyZ = `// функция wiggle() будет применя
  * *: примеры использования loopOut/loopIn
  */
 
-export const loopOutTypes = ``;
-
-export const loopInTypes = ``;
-
 /*
  * *: автофокус к нужному слою
  * *: автофокус между двумя слоями

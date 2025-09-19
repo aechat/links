@@ -1,11 +1,13 @@
 import React from "react";
 
-import GithubUpdateInfo from "../../../components/features/GithubUpdateInfo";
+import DetailsSummary from "../../../components/DetailsSummary";
 
 const AEExprErrors: React.FC = () => {
   return (
     <div className="faq-content">
-      <GithubUpdateInfo filePath="src/pages/sections/aeexpr/ExprErrors.tsx" />
+      <DetailsSummary title="Плейсхолдер для будущих вопросов">
+        <p>Да, здесь пока что ничего интересного. Следите за обновлениями.</p>
+      </DetailsSummary>
     </div>
   );
 };

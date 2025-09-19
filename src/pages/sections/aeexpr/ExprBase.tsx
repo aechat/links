@@ -4,8 +4,6 @@ import DetailsSummary from "../../../components/DetailsSummary";
 
 import CodeSnippet from "../../../components/features/CodeSnippet";
 
-import GithubUpdateInfo from "../../../components/features/GithubUpdateInfo";
-
 import {
   commentExample,
   formatExample,
@@ -17,17 +15,25 @@ import {
 const AEExprBase: React.FC = () => {
   return (
     <div className="faq-content">
-      <GithubUpdateInfo filePath="src/pages/sections/aeexpr/ExprBase.tsx" />
       <DetailsSummary title="Что такое переменные и функции?">
         <p>{/* FIXME: */}</p>
       </DetailsSummary>
-      <DetailsSummary title="Как обратиться к нужному аттрибуту того или иного слоя?">
+      <DetailsSummary title="Как обратиться к нужному атрибуту того или иного слоя?">
         <p>{/* FIXME: */}</p>
       </DetailsSummary>
       <DetailsSummary title="Для чего нужны контроллеры, какие они бывают и как ими пользоваться?">
         <p>{/* FIXME: */}</p>
       </DetailsSummary>
       <DetailsSummary title="Для чего нужны условия и циклы?">
+        <p>{/* FIXME: */}</p>
+      </DetailsSummary>
+      <DetailsSummary title="Для чего нужен index?">
+        <p>{/* FIXME: */}</p>
+      </DetailsSummary>
+      <DetailsSummary title="Для чего нужен value?">
+        <p>{/* FIXME: */}</p>
+      </DetailsSummary>
+      <DetailsSummary title="Для чего нужен time?">
         <p>{/* FIXME: */}</p>
       </DetailsSummary>
       <DetailsSummary title="Для чего нужны комментарии в коде выражений? Код внутри комментариев может выполняться?">
@@ -48,14 +54,14 @@ const AEExprBase: React.FC = () => {
           Бывают случаи, когда вам нужно применить значение какой-либо переменной или
           функции только к одному элементу в массиве, например в положении или якорной
           точке. Обычно у положения, если их не делить через{" "}
-          <mark className="ui">Separate Dimensions</mark>, есть два или три элемента в
-          массиве. Они представлены как <mark>X и Y</mark>, если слой в 2D пространстве,
-          или <mark>X, Y и Z</mark>, если слой в 3D пространстве.
+          <mark className="select">Separate Dimensions</mark>, есть два или три элемента в
+          массиве. Они представлены как <mark>оси X и Y</mark>, если слой в двумерном
+          пространстве, или <mark>оси X, Y и Z</mark>, если слой - в трёхмерном.
         </p>
         <p>
           Например, если вам нужно применить <mark className="code">wiggle()</mark> только
-          для оси X, Y или Z, то вам достаточно написать одно из простых выражений в
-          последнюю строку редактора, где вместо значений <mark>freq</mark> и{" "}
+          для <mark>оси X, Y или Z</mark>, то вам достаточно написать одно из простых
+          выражений в последнюю строку редактора, где вместо значений <mark>freq</mark> и{" "}
           <mark>amp</mark> вы можете вставить свои или заменить{" "}
           <mark className="code">wiggle()</mark> на свою переменную. Значение{" "}
           <mark className="code">value[0]</mark>,<mark className="code">value[1]</mark>{" "}
