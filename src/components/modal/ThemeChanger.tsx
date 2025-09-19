@@ -7,7 +7,7 @@ import {
   RestartAlt,
 } from "@mui/icons-material";
 
-import {Modal, Slider, Tooltip} from "antd";
+import {Divider, Modal, Slider, Tooltip} from "antd";
 
 import React, {createContext, useContext, useEffect, useMemo, useState} from "react";
 
@@ -19,6 +19,8 @@ interface ThemeContextProps {
   setAccentHue: (hue: number) => void;
   saturateRatio: number;
   setSaturateRatio: (ratio: number) => void;
+  maxWidth: number;
+  setMaxWidth: (width: number) => void;
 }
 
 const ThemeContext = createContext<ThemeContextProps | undefined>(undefined);
@@ -34,6 +36,10 @@ export const ThemeProvider: React.FC<{children: React.ReactNode}> = ({children})
 
   const [saturateRatioState, setSaturateRatioState] = useState<number>(() =>
     parseFloat(localStorage.getItem("saturateRatio") ?? "1")
+  );
+
+  const [maxWidthState, setMaxWidthState] = useState<number>(() =>
+    parseInt(localStorage.getItem("maxWidth") ?? "1175", 10)
   );
 
   const setTheme = (newTheme: Theme) => {
@@ -55,6 +61,7 @@ export const ThemeProvider: React.FC<{children: React.ReactNode}> = ({children})
     const root = document.documentElement;
     root.style.setProperty("--accent-hue", accentHueState.toString());
     root.style.setProperty("--saturate-ratio", saturateRatioState.toString());
+    root.style.setProperty("--max-width", `${maxWidthState}px`);
 
     const isSystemDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
 
@@ -62,7 +69,10 @@ export const ThemeProvider: React.FC<{children: React.ReactNode}> = ({children})
     root.classList.toggle("dark", isDarkMode);
     root.classList.toggle("light", !isDarkMode);
   };
-  useEffect(() => updateTheme(), [themeState, accentHueState, saturateRatioState]);
+  useEffect(
+    () => updateTheme(),
+    [themeState, accentHueState, saturateRatioState, maxWidthState]
+  );
   useEffect(() => {
     const handleSystemThemeChange = () => themeState === "system" && updateTheme();
 
@@ -80,8 +90,13 @@ export const ThemeProvider: React.FC<{children: React.ReactNode}> = ({children})
       setAccentHue,
       saturateRatio: saturateRatioState,
       setSaturateRatio,
+      maxWidth: maxWidthState,
+      setMaxWidth: (width: number) => {
+        setMaxWidthState(width);
+        localStorage.setItem("maxWidth", width.toString());
+      },
     }),
-    [themeState, accentHueState, saturateRatioState]
+    [themeState, accentHueState, saturateRatioState, maxWidthState]
   );
 
   return <ThemeContext.Provider value={contextValue}>{children}</ThemeContext.Provider>;
@@ -122,8 +137,22 @@ interface ThemeModalProps {
 }
 
 const ThemeModal: React.FC<ThemeModalProps> = ({isModalOpen, closeModal}) => {
-  const {theme, setTheme, accentHue, setAccentHue, saturateRatio, setSaturateRatio} =
-    useTheme();
+  const {
+    theme,
+    setTheme,
+    accentHue,
+    setAccentHue,
+    saturateRatio,
+    setSaturateRatio,
+    maxWidth,
+    setMaxWidth,
+  } = useTheme();
+
+  const currentPath = window.location.pathname;
+
+  const allowedPaths = ["/aefaq", "/prfaq", "/psfaq", "/aeexpr", "/rules"];
+
+  const showWidthSelector = allowedPaths.some((path) => currentPath.startsWith(path));
 
   return (
     <Modal
@@ -145,54 +174,75 @@ const ThemeModal: React.FC<ThemeModalProps> = ({isModalOpen, closeModal}) => {
               <CloseRounded />
             </button>
           </div>
-          <div
-            style={{
-              display: "flex",
-            }}
-          >
-            <div className="theme-selector">
-              <button
-                className={
-                  theme === "light"
-                    ? "theme-button theme-button-selected"
-                    : "theme-button"
-                }
-                onClick={() => setTheme("light")}
-              >
-                <LightModeRounded />
-                Светлая
-              </button>
-              <button
-                className={
-                  theme === "dark" ? "theme-button theme-button-selected" : "theme-button"
-                }
-                onClick={() => setTheme("dark")}
-              >
-                <DarkModeRounded />
-                Тёмная
-              </button>
-              <button
-                className={
-                  theme === "system"
-                    ? "theme-button theme-button-selected"
-                    : "theme-button"
-                }
-                onClick={() => setTheme("system")}
-              >
-                <HideSourceRounded />
-                Системная
-              </button>
-            </div>
+          <div className="theme-title">Цветовая схема</div>
+          <div className="theme-selector">
+            <button
+              className={
+                theme === "light" ? "theme-button theme-button-selected" : "theme-button"
+              }
+              onClick={() => setTheme("light")}
+            >
+              <LightModeRounded />
+              Светлая
+            </button>
+            <button
+              className={
+                theme === "dark" ? "theme-button theme-button-selected" : "theme-button"
+              }
+              onClick={() => setTheme("dark")}
+            >
+              <DarkModeRounded />
+              Тёмная
+            </button>
+            <button
+              className={
+                theme === "system" ? "theme-button theme-button-selected" : "theme-button"
+              }
+              onClick={() => setTheme("system")}
+            >
+              <HideSourceRounded />
+              Системная
+            </button>
           </div>
-          <div className="theme-title">Оттенок акцентного цвета</div>
-          <div className="theme-slider">
-            <Slider
-              max={360}
-              min={0}
-              style={{flex: "1 1 auto", width: "100%"}}
-              value={accentHue}
-              onChange={(value) => setAccentHue(value)}
-            />
+          {showWidthSelector && (
+            <>
+              <div className="theme-title">Максимальная ширина контента</div>
+              <div className="theme-selector">
+                <button
+                  className={
+                    maxWidth === 1000
+                      ? "theme-button theme-button-selected"
+                      : "theme-button"
+                  }
+                  onClick={() => setMaxWidth(1000)}
+                >
+                  Маленькая<sup>1000px</sup>
+                </button>
+                <button
+                  className={
+                    maxWidth === 1175
+                      ? "theme-button theme-button-selected"
+                      : "theme-button"
+                  }
+                  onClick={() => setMaxWidth(1175)}
+                >
+                  Средняя<sup>1175px</sup>
+                </button>
+                <button
+                  className={
+                    maxWidth === 1400
+                      ? "theme-button theme-button-selected"
+                      : "theme-button"
+                  }
+                  onClick={() => setMaxWidth(1400)}
+                >
+                  Большая<sup>1400px</sup>
+                </button>
+              </div>
+            </>
+          )}
+          <div className="theme-title">
+            Оттенок акцентного цвета
             <Tooltip title="Сбросить оттенок">
               <button
                 style={{
@@ -209,16 +259,17 @@ const ThemeModal: React.FC<ThemeModalProps> = ({isModalOpen, closeModal}) => {
               </button>
             </Tooltip>
           </div>
-          <div className="theme-title">Насыщенность акцентного цвета</div>
           <div className="theme-slider">
             <Slider
-              max={1.5}
+              max={360}
               min={0}
-              step={0.025}
               style={{flex: "1 1 auto", width: "100%"}}
-              value={saturateRatio}
-              onChange={(value) => setSaturateRatio(value)}
+              value={accentHue}
+              onChange={(value) => setAccentHue(value)}
             />
+          </div>
+          <div className="theme-title">
+            Насыщенность акцентного цвета
             <Tooltip title="Сбросить насыщенность">
               <button
                 style={{
@@ -234,6 +285,16 @@ const ThemeModal: React.FC<ThemeModalProps> = ({isModalOpen, closeModal}) => {
                 <RestartAlt />
               </button>
             </Tooltip>
+          </div>
+          <div className="theme-slider">
+            <Slider
+              max={1.5}
+              min={0}
+              step={0.025}
+              style={{flex: "1 1 auto", width: "100%"}}
+              value={saturateRatio}
+              onChange={(value) => setSaturateRatio(value)}
+            />
           </div>
         </div>
       </div>

@@ -7,7 +7,7 @@
   justify-content: space-between;
   align-items: center;
   gap: 10px;
-  margin-inline: 10px;
+  margin-inline: 8px;
   margin-block-end: 8px;
   line-height: 1.35;
 }
@@ -16,8 +16,16 @@
   flex-shrink: 0;
 }
 
+.theme-title svg {
+  width: min(calc(16px + (18 - 16) * ((100vw - 320px) / (768 - 320))), 18px);
+  height: min(calc(16px + (18 - 16) * ((100vw - 320px) / (768 - 320))), 18px);
+}
+
 .theme-title {
-  margin-inline: 15px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-inline: 16px;
   margin-block: 10px 2px;
   font-weight: 400;
   font-size: 0.9rem;
@@ -30,14 +38,14 @@
   justify-content: space-between;
   margin: 10px;
   outline: 1px solid var(--summary-border);
-  border-radius: $roundness*0.75;
-  width: 100%;
+  border-radius: $roundness * 0.75;
   width: calc(100% - 20px);
   overflow: hidden;
-
+  color: var(--summary-text);
   button:focus,
   button:active,
-  button:hover {outline: 1px solid var(--summary-border);
+  button:hover {
+    outline: 1px solid var(--summary-border);
     background-color: var(--summary-hover);
   }
 }
@@ -59,12 +67,17 @@
   font-weight: 500;
   font-size: 0.95rem;
   font-family: Onest, sans-serif;
+
+  sup {
+    margin: -3px;
+    font-size: 0.6em;
+  }
 }
 
 .theme-button svg {
-  fill: var(--text-color);
+  fill: var(--summary-text);
   width: min(calc(17px + (19 - 17) * ((100vw - 320px) / (768 - 320))), 19px);
-    height: min(calc(17px + (19 - 17) * ((100vw - 320px) / (768 - 320))), 19px);
+  height: min(calc(17px + (19 - 17) * ((100vw - 320px) / (768 - 320))), 19px);
 }
 
 .theme-button-selected {
