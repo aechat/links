@@ -302,7 +302,9 @@
     justify-content: center;
     align-items: center;
     vertical-align: middle;
-    transition: opacity 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+    transition:
+      opacity,
+      background-color 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
     margin-block: 0;
     outline: 1px solid var(--summary-border);
     border-radius: 0;
@@ -323,7 +325,12 @@
 
     &:hover {
       opacity: 1;
+      background-color: var(--summary-hover);
     }
+  }
+  .selected {
+    outline: 1px solid var(--summary-border);
+    background-color: var(--summary-hover);
   }
 }
 

@@ -1,3 +1,5 @@
+import {Slider} from "antd";
+
 import React, {useCallback, useEffect, useMemo, useRef, useState} from "react";
 
 type AnimationMode = "ping-pong" | "loop" | "once";
@@ -498,7 +500,7 @@ interface AnimationControlsProps {
   actualFps: number;
   setFps: (value: number) => void;
   animationMode: AnimationMode;
-  handleModeChange: () => void;
+  setAnimationMode: (mode: AnimationMode) => void;
   isPaused: boolean;
   handleTogglePlayPause: () => void;
   handleResetAnimation: () => void;
@@ -514,7 +516,7 @@ const AnimationControls: React.FC<AnimationControlsProps> = ({
   actualFps,
   setFps,
   animationMode,
-  handleModeChange,
+  setAnimationMode,
   isPaused,
   handleTogglePlayPause,
   handleResetAnimation,
@@ -530,81 +532,61 @@ const AnimationControls: React.FC<AnimationControlsProps> = ({
   return (
     <div className="animation-controls">
       <div className="control-item">
-        <label className="control-item-label">
-          <span>Длительность</span>
-          <span>{duration.toFixed(2)}s</span>
+        <label>
+          <span>Длительность</span>: <span>{duration.toFixed(2)} сек.</span>
         </label>
-        <input
-          className="control-item-input"
-          max="5"
-          min="1"
-          step="0.25"
-          type="range"
+        <Slider
+          max={5}
+          min={1}
+          step={0.25}
           value={duration}
-          onChange={(e) => setDuration(parseFloat(e.target.value))}
+          onChange={setDuration}
         />
-      </div>
-      <div className="control-item">
-        <label className="control-item-label">Таймкод</label>
-        <div className="control-item-display">
-          <span>{timecode}</span>
-        </div>
-      </div>
-      <div className="control-item">
-        <label className="control-item-label">
-          <span>Частота кадров</span>
+        <label>
+          <span>Частота кадров</span>{" "}
           {actualFps < fps - 0.5 && (
             <span className="fps-warning">({Math.round(actualFps)})</span>
           )}
         </label>
-        <select
-          className="control-item-select"
-          value={fps}
-          onChange={(e) => setFps(parseInt(e.target.value, 10))}
-        >
+        <div className="flexible-links">
           {[8, 15, 24, 30, 60].map((f) => (
-            <option
+            <button
               key={f}
-              value={f}
+              className={fps === f ? "active selected" : ""}
+              style={{flexBasis: "15px"}}
+              onClick={() => setFps(f)}
             >
               {f}
-            </option>
+            </button>
           ))}
-        </select>
+        </div>
       </div>
       <div className="control-item">
-        <label className="control-item-label">Режим</label>
-        <button
-          className="control-item-button"
-          onClick={handleModeChange}
-        >
-          {modeTextMap[animationMode]}
-        </button>
-      </div>
-      <div className="control-item control-item-span-2">
-        <label className="control-item-label">Управление</label>
-        <div className="action-buttons-group">
-          <button
-            className="control-item-button"
-            onClick={handleTogglePlayPause}
-          >
+        <label>Режим</label>
+        <div className="flexible-links">
+          {MODES.map((mode) => (
+            <button
+              key={mode}
+              className={animationMode === mode ? "active selected" : ""}
+              onClick={() => setAnimationMode(mode)}
+            >
+              {modeTextMap[mode]}
+            </button>
+          ))}
+        </div>
+
+        <label>Управление</label>
+        <div className="flexible-links">
+          <button onClick={handleTogglePlayPause}>
             {isPaused ? "▶ Воспроизвести" : "❚❚ Пауза"}
           </button>
+          <button onClick={handleResetAnimation}>Сбросить</button>
           <button
-            className="control-item-button"
-            onClick={handleResetAnimation}
+            className={showTrails ? "active selected" : ""}
+            onClick={() => setShowTrails(!showTrails)}
           >
-            Сбросить
-          </button>
-          <label className="control-item-checkbox-label">
-            <input
-              checked={showTrails}
-              className="control-item-checkbox"
-              type="checkbox"
-              onChange={(e) => setShowTrails(e.target.checked)}
-            />
             Показать след
-          </label>
+          </button>
         </div>
       </div>
     </div>
@@ -1116,9 +1098,8 @@ const EasingEditor: React.FC = () => {
     }
   };
 
-  const handleModeChange = () => {
-    const currentIndex = MODES.indexOf(animationMode);
-    setAnimationMode(MODES[(currentIndex + 1) % MODES.length]);
+  const handleSetAnimationMode = (mode: AnimationMode) => {
+    setAnimationMode(mode);
     resetTimer();
     setIsPaused(false);
   };
@@ -1131,8 +1112,8 @@ const EasingEditor: React.FC = () => {
         showTrails={showTrails}
         trackRef={trackRef}
       />
-
-      <div className="graphs-wrapper">
+      <span className="timecode">{timecode}</span>
+      <div className="graphs-container">
         <ValueGraph
           animatedPoint={animatedPoint}
           dimensions={valueGraphDims}
@@ -1159,16 +1140,15 @@ const EasingEditor: React.FC = () => {
           onMouseDown={(e, handle) => handleMouseDown(e, handle, "speed")}
         />
       </div>
-
       <AnimationControls
         actualFps={actualFps}
         animationMode={animationMode}
         duration={duration}
         fps={fps}
-        handleModeChange={handleModeChange}
         handleResetAnimation={handleResetAnimation}
         handleTogglePlayPause={handleTogglePlayPause}
         isPaused={isPaused}
+        setAnimationMode={handleSetAnimationMode}
         setDuration={setDuration}
         setFps={setFps}
         setShowTrails={setShowTrails}
