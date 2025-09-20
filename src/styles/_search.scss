@@ -251,7 +251,7 @@
 .search-category {
   display: flex;
   flex-flow: wrap;
-  outline: 1px solid var(--summary-border);
+  margin-block-end: -2px;
   border-bottom-right-radius: $roundness;
   border-bottom-left-radius: $roundness;
   overflow: hidden;
@@ -262,7 +262,7 @@
     flex: 1 0 175px;
     transition: background-color 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
     box-sizing: border-box;
-    outline: 1px solid var(--summary-border);
+    outline: 1px solid var(--modal-background-border);
     border-radius: 0;
     background-color: var(--summary-background);
     padding-inline: 10px;
