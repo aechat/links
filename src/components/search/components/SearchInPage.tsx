@@ -126,7 +126,7 @@ const ExternalSearch: React.FC<{query: string}> = ({query}) => {
 
   return (
     <div>
-      <div className="search-category">
+      <div className="search-external-links">
         <button
           onClick={() => {
             window.open(
@@ -145,12 +145,12 @@ const ExternalSearch: React.FC<{query: string}> = ({query}) => {
             );
           }}
         >
-          Спросить у Perplexity*
+          Спросить у Perplexity<sup>1</sup>
         </button>
       </div>
       <p className="search-no-results-tip">
-        <sup>*</sup>Perplexity и другие чат-боты на основе ИИ могут выдавать недостоверную
-        информацию
+        <sup>1</sup> Perplexity и другие чат-боты с использованием нейросетевых моделей
+        могут выдавать недостоверную информацию
       </p>
     </div>
   );
@@ -164,9 +164,7 @@ const NoResults: React.FC<{query: string}> = ({query}) => (
         <span
           style={{
             color: "var(--summary-text)",
-            fontWeight: 800,
-            fontStyle: "italic",
-            marginInlineEnd: "3px",
+            fontWeight: 600,
           }}
         >
           ничего
@@ -174,7 +172,8 @@ const NoResults: React.FC<{query: string}> = ({query}) => (
         не нашлось
       </p>
       <p className="search-no-results-message">
-        Попробуйте перефразировать свой запрос или выполните поиск в другом месте
+        Попробуйте перефразировать свой запрос или выполните поиск в Яндексе или
+        Perplexity<sup>1</sup>
       </p>
     </div>
     <ExternalSearch query={query} />
