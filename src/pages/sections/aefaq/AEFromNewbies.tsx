@@ -231,9 +231,9 @@ const AEFromNewbies: React.FC = () => {
               <mark className="select">«Twitchy»</mark>.
             </Addition>
             <ContentFigure
-              type="youtube"
-              src="rT1rOj3BBCE"
               caption="Как добавить эффект тряски камеры без сторонних эффектов"
+              src="rT1rOj3BBCE"
+              type="youtube"
             />
           </li>
           <li>
@@ -242,9 +242,9 @@ const AEFromNewbies: React.FC = () => {
             <mark className="plugin">CC Particle World</mark>, или через сторонние
             инструменты, например <mark className="plugin">Trapcode Particular</mark>.
             <ContentFigure
-              type="youtube"
-              src="GgIbELgZLLI"
               caption="Создание частиц с помощью Trapcode Particular"
+              src="GgIbELgZLLI"
+              type="youtube"
             />
           </li>
           <li>
@@ -257,9 +257,9 @@ const AEFromNewbies: React.FC = () => {
               снизить производительность проекта.
             </Addition>
             <ContentFigure
-              type="youtube"
-              src="t40ZTEBr_M0"
               caption="Glow"
+              src="t40ZTEBr_M0"
+              type="youtube"
             />
           </li>
           <li>
@@ -271,9 +271,9 @@ const AEFromNewbies: React.FC = () => {
             <mark className="plugin">S_LensFlare</mark> или даже комбинацией различных
             эффектов размытия и искажения.
             <ContentFigure
-              type="youtube"
-              src="-yD3MxlR78c"
               caption="S_LensFlare"
+              src="-yD3MxlR78c"
+              type="youtube"
             />
           </li>
           <li>
@@ -4359,7 +4359,7 @@ const AEFromNewbies: React.FC = () => {
         />
       </DetailsSummary>
       <DetailsSummary
-        tag="плохое качество, низкое разрешение, пиксели, лагает превью, векторные изображения, замедленное, ускоренное, тормозит, слоумо, растянутое аудио, идёт по кругу, зацикливается, adaptive resolution, fast previews, адаптивное разрешение, качество предпросмотра, пиксели, Почему пропал звук при проигрывании предпросмотра, нет звука, аудио, отсутствует, audio hardware"
+        tag="плохое качество, низкое разрешение, пиксели, лагает превью, векторные изображения, замедленное, ускоренное, тормозит, слоумо, растянутое аудио, adaptive resolution, fast previews, адаптивное разрешение, качество предпросмотра, пиксели, почему пропал звук при проигрывании предпросмотра, нет звука, аудио, отсутствует, audio hardware"
         title="Почему предпросмотр может воспроизводиться странно?"
       >
         <p>
@@ -4613,12 +4613,13 @@ const AEFromNewbies: React.FC = () => {
           variant="windows"
         />
         <p>
-          Чтобы это исправить, увеличьте рабочую область с помощью клавиш{" "}
-          <mark className="key">B</mark> (начало) и <mark className="key">N</mark>{" "}
-          (конец). Чтобы рабочая область охватила всю композицию или выделенный слой,
-          нажмите <mark className="key">Ctrl + Alt + B</mark>.
+          Чтобы это исправить, расширьте рабочую область, переместив метку текущего
+          времени и установив её начало клавишей <mark className="key">B</mark>, а конец —
+          клавишей <mark className="key">N</mark>. Если требуется, чтобы рабочая область
+          охватывала всю композицию или выделенный слой, нажмите{" "}
+          <mark className="key">Ctrl + Alt + B</mark>.
         </p>
-        <Divider>Очищаем кэш и пробуем снова</Divider>
+        <Divider>Очищаем кэш и пробуем снова закэшировать</Divider>
         <p>
           Если длина рабочей области больше двух кадров, скорее всего, проблема в
           переполненном кэше или забитой оперативной памяти. Попробуйте очистить кэш через{" "}

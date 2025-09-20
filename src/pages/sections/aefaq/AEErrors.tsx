@@ -211,7 +211,7 @@ const AEErrors: React.FC = () => {
                 </a>
               </Addition>
               <Addition type="info">
-                Если вы устанавливали репаки от <mark className="user">KpoJluK</mark> и{" "}
+                Если вы устанавливали репаки от <mark className="user">KpoJluK</mark> или{" "}
                 <mark className="user">m0nkrus</mark>, то правила для блокировки доступа в
                 интернет программам в брандмауэре могут быть уже созданы.
               </Addition>
@@ -601,8 +601,9 @@ const AEErrors: React.FC = () => {
               variant="windows"
             />
             <Addition type="info">
-              Подробнее о параметрах рендеринга на примере связки «процессор AMD +
-              видеокарта NVIDIA»:
+              Параметры рендеринга показаны на примере связки «процессор{" "}
+              <mark className="company">AMD</mark> + видеокарта{" "}
+              <mark className="company">NVIDIA</mark>».
               <ul>
                 <li>
                   <mark className="select">«Mercury GPU Acceleration (CUDA)»</mark> —

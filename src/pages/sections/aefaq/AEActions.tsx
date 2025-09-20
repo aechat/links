@@ -200,8 +200,8 @@ const AEActions: React.FC = () => {
         />
         <Divider>«Уплавняем» видео вне Adobe After Effects</Divider>
         <p>
-          Если стоит задача увеличить частоту кадров, например, с <mark>24 к/с</mark> до{" "}
-          <mark>60 к/с</mark> или даже <mark>120 к/с</mark> для дальнейшей обработки или
+          Если стоит задача увеличить частоту кадров, например, с <mark>24 FPS</mark> до{" "}
+          <mark>60 FPS</mark> или даже <mark>120 FPS</mark> для дальнейшей обработки или
           более плавного воспроизведения видео, то можно обойтись без{" "}
           <mark className="app">Adobe After Effects</mark> и воспользоваться программой{" "}
           <mark className="app">Flowframes</mark>. У данной утилиты есть{" "}

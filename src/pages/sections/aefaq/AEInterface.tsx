@@ -330,7 +330,7 @@ const AEInterface: React.FC = () => {
               <mark className="select">«Preview»</mark> два параметра:{" "}
               <mark className="select">«Cache Before Playback»</mark> и{" "}
               <mark className="select">«If Caching, play cached frames»</mark>.{" "}
-              <a href="#3.10">Подробнее...</a>
+              <a href="#">Подробнее...</a>
             </Addition>
           </li>
           <li>
@@ -426,7 +426,7 @@ const AEInterface: React.FC = () => {
         />
         <p>
           Композиция из примера на скриншоте длится 30 секунд с частотой{" "}
-          <mark>25 к/с</mark>. Последний кадр для этой композиции — это{" "}
+          <mark>25 FPS</mark>. Последний кадр для этой композиции — это{" "}
           <mark>00:29:24</mark>, или <mark>749-й кадр</mark>. На <mark>750-м кадре</mark>{" "}
           вы ничего не увидите, так как отсчёт кадров, как и в массивах многих языков
           программирования, идёт с нуля, а не с единицы. Всего в композиции действительно{" "}
@@ -870,7 +870,7 @@ const AEInterface: React.FC = () => {
           предпросмотра. Чтобы их вернуть, нажмите комбинацию клавиш{" "}
           <mark className="key">Ctrl + Shift + H</mark> или включите{" "}
           <mark className="select">«Show Layer Controls»</mark> в{" "}
-          <mark className="select">«View»</mark>. Точки будут отображаться и выделяеться,
+          <mark className="select">«View»</mark>. Точки будут отображаться и выделяться,
           если на панели <mark className="select">«Effect Controls»</mark> выделен сам
           эффект <mark className="plugin">3D Camera Tracker</mark>.
         </p>
@@ -1467,7 +1467,7 @@ const AEInterface: React.FC = () => {
             Если предыдущих настроек нет, переименовывать файл, убирая суффикс{" "}
             <mark>-old</mark>, бессмысленно, так как и он может быть повреждён. Советую
             периодически сохранять пользовательские настройки в отдельную папку или{" "}
-            <a href="#4.1">настроить их синхронизацию с облачным хранилищем</a>. Чтобы
+            <a href="#">настроить их синхронизацию с облачным хранилищем</a>. Чтобы
             открыть папку с настройками — нажмите на кнопку{" "}
             <mark className="select">«Reveal Preferences in Explorer»</mark> в{" "}
             <mark className="select">«Edit» → «Preferences» → «Startup & Repair»</mark>.
