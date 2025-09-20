@@ -148,11 +148,21 @@ const ThemeModal: React.FC<ThemeModalProps> = ({isModalOpen, closeModal}) => {
     setMaxWidth,
   } = useTheme();
 
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
+  useEffect(() => {
+    const handleResize = () => setWindowWidth(window.innerWidth);
+    window.addEventListener("resize", handleResize);
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   const currentPath = window.location.pathname;
 
   const allowedPaths = ["/aefaq", "/prfaq", "/psfaq", "/aeexpr", "/rules"];
 
-  const showWidthSelector = allowedPaths.some((path) => currentPath.startsWith(path));
+  const showWidthSelector =
+    allowedPaths.some((path) => currentPath.startsWith(path)) && windowWidth >= 1000;
 
   return (
     <Modal
