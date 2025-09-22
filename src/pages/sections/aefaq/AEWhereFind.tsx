@@ -584,6 +584,30 @@ const AEWhereFind: React.FC = () => {
           >
             Chosic
           </a>
+          <a
+            href="https://freepd.com/"
+            title="freefd"
+          >
+            freepd
+          </a>
+          <a
+            href="https://blocsonic.com/"
+            title="blocSonic"
+          >
+            blocSonic
+          </a>
+          <a
+            href="https://audionautix.com/"
+            title="AudionautiX"
+          >
+            AudionautiX
+          </a>
+          <a
+            href="https://www.looperman.com/"
+            title="Looperman"
+          >
+            Looperman
+          </a>
         </div>
         <Addition type="warning">
           <ul>
