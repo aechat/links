@@ -237,6 +237,9 @@ const processTable = (
 const formatSearchResult = (text: string, searchWords: string[]): string => {
   const tempDiv = document.createElement("div");
   tempDiv.innerHTML = text;
+  tempDiv
+    .querySelectorAll(".ant-divider, .ant-divider-inner-text")
+    .forEach((el) => el.remove());
 
   const isKeyCombination = isKeyCombinationSearch(searchWords.join(" "));
 
@@ -385,6 +388,12 @@ export const useSearchLogic = (query: string, isPageLoaded: boolean) => {
 
         const tag = detail.getAttribute("data-tags") ?? "";
 
+        const dividerTexts = Array.from(
+          detail.querySelectorAll(".ant-divider-inner-text")
+        )
+          .map((el) => el.textContent?.trim() || "")
+          .filter(Boolean);
+
         const content = Array.from(detail.querySelectorAll<HTMLParagraphElement>("p"))
           .map((el) => {
             const clone = el.cloneNode(true) as Element;
@@ -520,7 +529,7 @@ export const useSearchLogic = (query: string, isPageLoaded: boolean) => {
           .filter(Boolean)
           .join("\n");
 
-        const text = [content, tableContent, listContent].join("\n");
+        const text = [content, tableContent, listContent, ...dividerTexts].join("\n");
 
         if (title || text) {
           data.push({title, content: text.trim(), id, tag: tag.trim()});
