@@ -5,18 +5,22 @@ import React, {useCallback, useEffect, useMemo, useRef, useState} from "react";
 type AnimationMode = "ping-pong" | "loop" | "once";
 
 const MODES: AnimationMode[] = ["ping-pong", "loop", "once"];
+
 interface Point {
   x: number;
   y: number;
 }
+
 interface DragInfo {
   handle: "p1" | "p2";
   graphType: "value" | "speed";
 }
+
 interface KeyframeParams {
   influence: number;
-  speed: number;
+  yFactor: number;
 }
+
 interface TimeMapEntry {
   x: number;
   t: number;
@@ -35,15 +39,6 @@ const SPEED_AXIS_PADDING_FACTOR = 0.2;
 const VALUE_Y_MIN_FACTOR = -0.5;
 
 const VALUE_Y_MAX_FACTOR = 1.5;
-
-function usePrevious<T>(value: T): T | undefined {
-  const ref = useRef<T | undefined>(undefined);
-  useEffect(() => {
-    ref.current = value;
-  }, [value]);
-
-  return ref.current;
-}
 
 const getPointOnCubicBezier = (
   t: number,
@@ -82,13 +77,17 @@ const getNiceTickStep = (range: number, maxTicks: number): number => {
 
   if (residual > 5) {
     return 10 * magnitude;
-  } else if (residual > 2) {
-    return 5 * magnitude;
-  } else if (residual > 1) {
-    return 2 * magnitude;
-  } else {
-    return magnitude;
   }
+
+  if (residual > 2) {
+    return 5 * magnitude;
+  }
+
+  if (residual > 1) {
+    return 2 * magnitude;
+  }
+
+  return magnitude;
 };
 
 interface AnimationDemoProps {
@@ -511,7 +510,6 @@ interface AnimationControlsProps {
 const AnimationControls: React.FC<AnimationControlsProps> = ({
   duration,
   setDuration,
-  timecode,
   fps,
   actualFps,
   setFps,
@@ -574,7 +572,6 @@ const AnimationControls: React.FC<AnimationControlsProps> = ({
             </button>
           ))}
         </div>
-
         <label>Управление</label>
         <div className="flexible-links">
           <button onClick={handleTogglePlayPause}>
@@ -596,12 +593,12 @@ const AnimationControls: React.FC<AnimationControlsProps> = ({
 const EasingEditor: React.FC = () => {
   const [keyframeOut, setKeyframeOut] = useState<KeyframeParams>({
     influence: 33.33,
-    speed: 0,
+    yFactor: 0,
   });
 
   const [keyframeIn, setKeyframeIn] = useState<KeyframeParams>({
     influence: 33.33,
-    speed: 0,
+    yFactor: 1,
   });
 
   const [dragInfo, setDragInfo] = useState<DragInfo | null>(null);
@@ -647,34 +644,14 @@ const EasingEditor: React.FC = () => {
 
   const lastFrameRenderTimeRef = useRef<number>(0);
 
-  const prevDuration = usePrevious(duration);
-
   const frameCountRef = useRef(0);
 
   const lastFpsUpdateTimeRef = useRef(0);
 
+  const fpsRef = useRef(fps);
   useEffect(() => {
-    if (prevDuration === undefined || prevDuration === duration || prevDuration === 0) {
-      return;
-    }
-
-    setKeyframeOut((current) => ({
-      ...current,
-      influence: (((current.influence / 100) * prevDuration) / duration) * 100,
-    }));
-    setKeyframeIn((current) => {
-      const oldOffset = (current.influence / 100) * prevDuration;
-
-      const oldHandleX = prevDuration - oldOffset;
-
-      const newOffset = duration - oldHandleX;
-
-      return newOffset > 0
-        ? {...current, influence: (newOffset / duration) * 100}
-        : current;
-    });
-  }, [duration, prevDuration]);
-
+    fpsRef.current = fps;
+  }, [fps]);
   useEffect(() => {
     const elementsToObserve = [
       trackRef.current,
@@ -712,9 +689,16 @@ const EasingEditor: React.FC = () => {
     return () => observer.disconnect();
   }, []);
 
-  const {p0, p1, p2, p3} = useMemo(() => {
+  const {p0, p1, p2, p3, speedOut, speedIn} = useMemo(() => {
     if (trackWidth === 0) {
-      return {p0: {x: 0, y: 0}, p1: {x: 0, y: 0}, p2: {x: 0, y: 0}, p3: {x: 0, y: 0}};
+      return {
+        p0: {x: 0, y: 0},
+        p1: {x: 0, y: 0},
+        p2: {x: 0, y: 0},
+        p3: {x: 0, y: 0},
+        speedOut: 0,
+        speedIn: 0,
+      };
     }
 
     const p0: Point = {x: 0, y: 0};
@@ -723,16 +707,23 @@ const EasingEditor: React.FC = () => {
 
     const p1x = (keyframeOut.influence / 100) * duration;
 
-    const p1: Point = {x: p1x, y: keyframeOut.speed * p1x};
+    const p1: Point = {x: p1x, y: keyframeOut.yFactor * trackWidth};
 
     const p2xRelative = (keyframeIn.influence / 100) * duration;
 
-    const p2: Point = {
-      x: duration - p2xRelative,
-      y: trackWidth - keyframeIn.speed * p2xRelative,
-    };
+    const p2: Point = {x: duration - p2xRelative, y: keyframeIn.yFactor * trackWidth};
 
-    return {p0, p1, p2, p3};
+    const currentSpeedOut =
+      p1x > 1e-6 ? p1.y / p1x : p1.y > 0 ? INFINITE_SPEED : -INFINITE_SPEED;
+
+    const currentSpeedIn =
+      p2xRelative > 1e-6
+        ? (trackWidth - p2.y) / p2xRelative
+        : trackWidth - p2.y > 0
+          ? INFINITE_SPEED
+          : -INFINITE_SPEED;
+
+    return {p0, p1, p2, p3, speedOut: currentSpeedOut, speedIn: currentSpeedIn};
   }, [keyframeIn, keyframeOut, duration, trackWidth]);
 
   const getTforX = useGetTforX(p0, p1, p2, p3);
@@ -772,12 +763,12 @@ const EasingEditor: React.FC = () => {
     }
 
     if (speedSamples.length === 0) {
-      speedSamples.push(keyframeOut.speed, keyframeIn.speed);
+      speedSamples.push(speedOut, speedIn);
     }
 
-    const minVal = Math.min(...speedSamples, keyframeOut.speed, keyframeIn.speed);
+    const minVal = Math.min(...speedSamples, speedOut, speedIn);
 
-    const maxVal = Math.max(...speedSamples, keyframeOut.speed, keyframeIn.speed);
+    const maxVal = Math.max(...speedSamples, speedOut, speedIn);
 
     const range = Math.max(maxVal - minVal, 200);
 
@@ -808,7 +799,7 @@ const EasingEditor: React.FC = () => {
     }
 
     return {speedYMin: finalMin, speedYMax: finalMax, speedYTicks: ticks};
-  }, [p0, p1, p2, p3, duration, trackWidth, keyframeOut.speed, keyframeIn.speed]);
+  }, [p0, p1, p2, p3, duration, trackWidth, speedOut, speedIn]);
 
   const {mapValueToSvg, mapValueFromSvg} = useValueGraphMapping(
     duration,
@@ -827,8 +818,8 @@ const EasingEditor: React.FC = () => {
     duration,
     speedGraphDims,
     speedGraphSvgRef,
-    keyframeOut,
-    keyframeIn,
+    speedOut,
+    speedIn,
     p0,
     p1,
     p2,
@@ -836,7 +827,6 @@ const EasingEditor: React.FC = () => {
     speedYMin,
     speedYMax
   );
-
   useEffect(() => {
     if (isPaused) {
       elapsedOnPauseRef.current = elapsedTime;
@@ -864,7 +854,7 @@ const EasingEditor: React.FC = () => {
         lastFpsUpdateTimeRef.current = timestamp;
       }
 
-      const frameInterval = 1000 / fps;
+      const frameInterval = 1000 / fpsRef.current;
 
       const timeSinceLastRender = timestamp - lastFrameRenderTimeRef.current;
 
@@ -893,8 +883,7 @@ const EasingEditor: React.FC = () => {
         cancelAnimationFrame(animationFrameRef.current);
       }
     };
-  }, [isPaused, duration, animationMode, fps]);
-
+  }, [isPaused, duration, animationMode]);
   useEffect(() => {
     if (showTrails) {
       setCubeTrail((prev) => [animatedPoint.y, ...prev].slice(0, MAX_TRAIL_COUNT));
@@ -942,6 +931,10 @@ const EasingEditor: React.FC = () => {
 
       const newParams: Partial<KeyframeParams> = {};
 
+      const valueYMax = trackWidth * VALUE_Y_MAX_FACTOR;
+
+      const valueYMin = trackWidth * VALUE_Y_MIN_FACTOR;
+
       if (dragInfo.graphType === "value") {
         const normP = mapValueFromSvg({x: touch.clientX, y: touch.clientY});
 
@@ -949,37 +942,16 @@ const EasingEditor: React.FC = () => {
           return;
         }
 
-        const yMax = trackWidth * VALUE_Y_MAX_FACTOR;
-
-        const yMin = trackWidth * VALUE_Y_MIN_FACTOR;
-        normP.y = Math.max(yMin, Math.min(yMax, normP.y));
-
-        const finalP = {...normP};
+        let clampedY = Math.max(valueYMin, Math.min(valueYMax, normP.y));
 
         if (isShiftPressed) {
-          finalP.y = dragInfo.handle === "p1" ? 0 : trackWidth;
+          clampedY = dragInfo.handle === "p1" ? 0 : trackWidth;
         }
 
-        const handleX = Math.max(0, Math.min(duration, finalP.x));
+        const handleX = Math.max(0, Math.min(duration, normP.x));
         newParams.influence =
           ((dragInfo.handle === "p1" ? handleX : duration - handleX) / duration) * 100;
-
-        if (dragInfo.handle === "p1") {
-          newParams.speed =
-            handleX > 1e-6
-              ? finalP.y / handleX
-              : finalP.y > 0
-                ? INFINITE_SPEED
-                : -INFINITE_SPEED;
-        } else {
-          const influenceX = duration - handleX;
-          newParams.speed =
-            influenceX > 1e-6
-              ? (trackWidth - finalP.y) / influenceX
-              : trackWidth - finalP.y > 0
-                ? INFINITE_SPEED
-                : -INFINITE_SPEED;
-        }
+        newParams.yFactor = clampedY / trackWidth;
       } else {
         const normP = mapSpeedFromSvg({x: touch.clientX, y: touch.clientY});
 
@@ -991,51 +963,23 @@ const EasingEditor: React.FC = () => {
         newParams.influence =
           ((dragInfo.handle === "p1" ? handleX : duration - handleX) / duration) * 100;
 
-        const speedYMinOnDrag = dragSpeedAxisRange ? dragSpeedAxisRange.min : speedYMin;
+        const speedYMinOnDrag = dragSpeedAxisRange?.min ?? speedYMin;
 
-        const speedYMaxOnDrag = dragSpeedAxisRange ? dragSpeedAxisRange.max : speedYMax;
-        let targetSpeed = normP.y;
-
-        if (isShiftPressed) {
-          targetSpeed = 0;
-        }
-
-        let finalSpeed = Math.max(
-          speedYMinOnDrag,
-          Math.min(speedYMaxOnDrag, targetSpeed)
-        );
-
-        const valueYMin = trackWidth * VALUE_Y_MIN_FACTOR;
-
-        const valueYMax = trackWidth * VALUE_Y_MAX_FACTOR;
+        const speedYMaxOnDrag = dragSpeedAxisRange?.max ?? speedYMax;
+        let targetSpeed = isShiftPressed ? 0 : normP.y;
+        targetSpeed = Math.max(speedYMinOnDrag, Math.min(speedYMaxOnDrag, targetSpeed));
 
         if (dragInfo.handle === "p1") {
           const p1x = (newParams.influence / 100) * duration;
-
-          if (p1x > 1e-6) {
-            const minSpeedFromValueBounds = valueYMin / p1x;
-
-            const maxSpeedFromValueBounds = valueYMax / p1x;
-            finalSpeed = Math.max(
-              minSpeedFromValueBounds,
-              Math.min(maxSpeedFromValueBounds, finalSpeed)
-            );
-          }
+          let p1y = targetSpeed * p1x;
+          p1y = Math.max(valueYMin, Math.min(valueYMax, p1y));
+          newParams.yFactor = p1y / trackWidth;
         } else {
           const p2xRelative = (newParams.influence / 100) * duration;
-
-          if (p2xRelative > 1e-6) {
-            const minSpeedFromValueBounds = (trackWidth - valueYMax) / p2xRelative;
-
-            const maxSpeedFromValueBounds = (trackWidth - valueYMin) / p2xRelative;
-            finalSpeed = Math.max(
-              minSpeedFromValueBounds,
-              Math.min(maxSpeedFromValueBounds, finalSpeed)
-            );
-          }
+          let p2y = trackWidth - targetSpeed * p2xRelative;
+          p2y = Math.max(valueYMin, Math.min(valueYMax, p2y));
+          newParams.yFactor = p2y / trackWidth;
         }
-
-        newParams.speed = finalSpeed;
       }
 
       if (dragInfo.handle === "p1") {
@@ -1055,7 +999,6 @@ const EasingEditor: React.FC = () => {
       dragSpeedAxisRange,
     ]
   );
-
   useEffect(() => {
     if (dragInfo) {
       window.addEventListener("mousemove", handleMouseMove);
@@ -1084,8 +1027,8 @@ const EasingEditor: React.FC = () => {
     setCubeTrail([]);
     setDuration(2);
     setFps(30);
-    setKeyframeOut({influence: 33.33, speed: 0});
-    setKeyframeIn({influence: 33.33, speed: 0});
+    setKeyframeOut({influence: 33.33, yFactor: 0});
+    setKeyframeIn({influence: 33.33, yFactor: 1});
     setIsPaused(false);
   };
 
@@ -1353,8 +1296,8 @@ function useSpeedGraphMapping(
   duration: number,
   dimensions: {width: number; height: number},
   svgRef: React.RefObject<SVGSVGElement | null>,
-  keyframeOut: KeyframeParams,
-  keyframeIn: KeyframeParams,
+  speedOut: number,
+  speedIn: number,
   p0: Point,
   p1: Point,
   p2: Point,
@@ -1371,24 +1314,16 @@ function useSpeedGraphMapping(
   const speedYRange = speedYMax - speedYMin;
 
   const mapTimeToSvg = useCallback(
-    (time: number) => {
-      if (duration === 0) {
-        return PADDING;
-      }
-
-      return PADDING + (time / duration) * graphWidth;
-    },
+    (time: number) =>
+      duration === 0 ? PADDING : PADDING + (time / duration) * graphWidth,
     [duration, graphWidth]
   );
 
   const mapSpeedToSvg = useCallback(
-    (speed: number) => {
-      if (speedYRange === 0) {
-        return PADDING + graphHeight / 2;
-      }
-
-      return PADDING + (1 - (speed - speedYMin) / speedYRange) * graphHeight;
-    },
+    (speed: number) =>
+      speedYRange === 0
+        ? PADDING + graphHeight / 2
+        : PADDING + (1 - (speed - speedYMin) / speedYRange) * graphHeight,
     [speedYMin, speedYRange, graphHeight]
   );
 
@@ -1422,7 +1357,7 @@ function useSpeedGraphMapping(
       return "";
     }
 
-    let path = `M ${mapTimeToSvg(0)},${mapSpeedToSvg(keyframeOut.speed)}`;
+    let path = `M ${mapTimeToSvg(0)},${mapSpeedToSvg(speedOut)}`;
 
     for (let i = 1; i <= SAMPLES; i++) {
       const t = i / SAMPLES;
@@ -1445,24 +1380,18 @@ function useSpeedGraphMapping(
     }
 
     return path;
-  }, [
-    width,
-    keyframeOut.speed,
-    p0,
-    p1,
-    p2,
-    p3,
-    mapTimeToSvg,
-    mapSpeedToSvg,
-    speedYRange,
-  ]);
+  }, [width, speedOut, p0, p1, p2, p3, mapTimeToSvg, mapSpeedToSvg, speedYRange]);
 
   const speedGraphHandles = useMemo(() => {
+    const influenceOutX = (p1.x / duration) * 100;
+
+    const influenceInX = ((duration - p2.x) / duration) * 100;
+
     return {
-      h1: {x: (keyframeOut.influence / 100) * duration, y: keyframeOut.speed},
-      h2: {x: duration - (keyframeIn.influence / 100) * duration, y: keyframeIn.speed},
+      h1: {x: (influenceOutX / 100) * duration, y: speedOut},
+      h2: {x: duration - (influenceInX / 100) * duration, y: speedIn},
     };
-  }, [keyframeOut, keyframeIn, duration]);
+  }, [p1.x, p2.x, speedOut, speedIn, duration]);
 
   return {
     mapTimeToSvg,
