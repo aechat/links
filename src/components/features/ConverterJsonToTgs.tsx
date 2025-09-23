@@ -15,6 +15,11 @@ interface Pyodide {
   };
   runPythonAsync: (code: string) => Promise<void>;
 }
+declare global {
+  interface Window {
+    loadPyodide: () => Promise<Pyodide>;
+  }
+}
 
 const TgsToJsonConverter: React.FC = () => {
   const [jsonData, setJsonData] = useState<Record<string, unknown> | null>(null);
@@ -30,7 +35,7 @@ const TgsToJsonConverter: React.FC = () => {
     if (compressionMode === "python" && !pyodide) {
       loadPyodideInline();
     }
-  }, [compressionMode]);
+  }, [compressionMode, pyodide]);
 
   const loadPyodideInline = async (): Promise<void> => {
     setLoading(true);
@@ -39,8 +44,7 @@ const TgsToJsonConverter: React.FC = () => {
       const script = document.createElement("script");
       script.src = "https://cdn.jsdelivr.net/pyodide/v0.22.1/full/pyodide.js";
       script.onload = async () => {
-        // @ts-expect-error, чтобы не втыкал
-        const py: Pyodide = await (window as unknown).loadPyodide();
+        const py: Pyodide = await window.loadPyodide();
         setPyodide(py);
         setLoading(false);
         message.success("Python-интерпретатор загружен, начните процесс конвертации");
@@ -105,7 +109,7 @@ with open("input.json", "rb") as f_in:
       `);
 
       const result = pyodide.FS.readFile("output.tgs");
-      blob = new Blob([result], {type: "application/gzip"});
+      blob = new Blob([result.slice()], {type: "application/gzip"});
     }
 
     if (!blob) {
