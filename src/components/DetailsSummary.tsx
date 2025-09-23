@@ -117,7 +117,6 @@ const DetailsSummary: React.FC<DetailsSummaryProps> = ({title, children, tag}) =
       window.scrollTo({top: y, behavior: "smooth"});
     }, constants.SCROLL_DELAY);
   };
-
   useEffect(() => {
     if (detailsRef.current) {
       const observer = new MutationObserver(() => {
@@ -134,7 +133,6 @@ const DetailsSummary: React.FC<DetailsSummaryProps> = ({title, children, tag}) =
       return () => observer.disconnect();
     }
   }, []);
-
   useEffect(() => {
     if (detailsRef.current) {
       const summaryElement = detailsRef.current.querySelector(".faq-summary");
@@ -159,7 +157,6 @@ const DetailsSummary: React.FC<DetailsSummaryProps> = ({title, children, tag}) =
       }
     }
   }, []);
-
   useEffect(() => {
     const anchorId = window.location.hash.slice(1);
 
@@ -169,7 +166,6 @@ const DetailsSummary: React.FC<DetailsSummaryProps> = ({title, children, tag}) =
       scrollToAnchor(summaryElement as HTMLElement);
     }
   }, [isOpen]);
-
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
       if (
@@ -277,6 +273,8 @@ const DetailsSummary: React.FC<DetailsSummaryProps> = ({title, children, tag}) =
 
   const anchorId = detailsRef.current?.querySelector(".faq-summary")?.id ?? "";
 
+  const headingText = (displayAnchorId ? `${displayAnchorId}. ` : "") + title;
+
   return (
     <details
       ref={detailsRef}
@@ -290,11 +288,11 @@ const DetailsSummary: React.FC<DetailsSummaryProps> = ({title, children, tag}) =
             {isOpen ? "-" : "+"}
           </span>
           <div style={{display: "flex", flexDirection: "column", gap: "5px"}}>
-            <h3>{`${displayAnchorId ? `${displayAnchorId}. ` : ""}${title}`}</h3>
+            <h3>{headingText}</h3>
             {tag && (
               <span className="faq-tags">
-                {tag.split(", ").map((t, index) => (
-                  <mark key={index}>{t}</mark>
+                {tag.split(", ").map((t) => (
+                  <mark key={t}>{t}</mark>
                 ))}
               </span>
             )}
