@@ -316,8 +316,9 @@ img {
   transition:
     transform 0.25s cubic-bezier(0.075, 0.82, 0.165, 1),
     opacity 0.25s cubic-bezier(0.075, 0.82, 0.165, 1);
+  margin: 10px;
   width: 100%;
-  max-width: 95vw;
+  max-width: calc(var(--max-width) * 1.25) !important;
   height: fit-content;
   max-height: 95vh;
 
