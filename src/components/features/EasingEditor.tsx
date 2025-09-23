@@ -192,6 +192,7 @@ const ValueGraph: React.FC<ValueGraphProps> = ({
 
   return (
     <div className="graph-container">
+      <label>Value Graph</label>
       <svg
         ref={svgRef}
         className="graph-svg"
@@ -371,6 +372,7 @@ const SpeedGraph: React.FC<SpeedGraphProps> = ({
 
   return (
     <div className="graph-container">
+      <label>Speed Graph</label>
       <svg
         ref={svgRef}
         className="graph-svg"
