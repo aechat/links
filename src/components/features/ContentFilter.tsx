@@ -6,19 +6,54 @@ type ContentFilterProps =
   | {windowsContent: ReactNode; macContent?: ReactNode}
   | {windowsContent?: ReactNode; macContent: ReactNode};
 
+const detectOperatingSystem = (): boolean => {
+  const userAgent = window.navigator.userAgent.toLowerCase();
+
+  return !(
+    userAgent.includes("mac") ||
+    userAgent.includes("iphone") ||
+    userAgent.includes("ipad")
+  );
+};
+
+const computeState = (
+  hasWindowsContent: boolean,
+  hasMacContent: boolean,
+  isWindowsActive: boolean,
+  windowsContent: ReactNode | undefined,
+  macContent: ReactNode | undefined
+) => {
+  if (hasWindowsContent && hasMacContent) {
+    return {
+      contentToRender: isWindowsActive ? windowsContent : macContent,
+      infoMessagePrefix: "Информация ниже указана для устройств на ",
+      osName: isWindowsActive ? "Windows" : "macOS",
+      osIcon: isWindowsActive ? <WindowSharp /> : <Apple />,
+      showToggleButton: true,
+    } as const;
+  }
+
+  if (hasWindowsContent) {
+    return {
+      contentToRender: windowsContent,
+      infoMessagePrefix: "Информация ниже указана только для устройств на ",
+      osName: "Windows",
+      osIcon: <WindowSharp />,
+      showToggleButton: false,
+    } as const;
+  }
+
+  return {
+    contentToRender: macContent,
+    infoMessagePrefix: "Информация ниже указана только для устройств на ",
+    osName: "macOS",
+    osIcon: <Apple />,
+    showToggleButton: false,
+  } as const;
+};
+
 const ContentFilter: React.FC<ContentFilterProps> = ({windowsContent, macContent}) => {
   const [isWindowsActive, setIsWindowsActive] = useState(true);
-
-  const detectOperatingSystem = (): boolean => {
-    const userAgent = window.navigator.userAgent.toLowerCase();
-
-    return !(
-      userAgent.includes("mac") ||
-      userAgent.includes("iphone") ||
-      userAgent.includes("ipad")
-    );
-  };
-
   useEffect(() => {
     setIsWindowsActive(detectOperatingSystem());
   }, []);
@@ -31,30 +66,14 @@ const ContentFilter: React.FC<ContentFilterProps> = ({windowsContent, macContent
     return null;
   }
 
-  let contentToRender: ReactNode = null;
-  let infoMessagePrefix: string = "";
-  let osName: string = "";
-  let osIcon: ReactNode = null;
-  let showToggleButton = true;
-
-  if (hasWindowsContent && hasMacContent) {
-    contentToRender = isWindowsActive ? windowsContent : macContent;
-    infoMessagePrefix = "Информация ниже указана для устройств на ";
-    osName = isWindowsActive ? "Windows" : "macOS";
-    osIcon = isWindowsActive ? <WindowSharp /> : <Apple />;
-  } else if (hasWindowsContent) {
-    contentToRender = windowsContent;
-    infoMessagePrefix = "Информация ниже указана только для устройств на ";
-    osName = "Windows";
-    osIcon = <WindowSharp />;
-    showToggleButton = false;
-  } else if (hasMacContent) {
-    contentToRender = macContent;
-    infoMessagePrefix = "Информация ниже указана только для устройств на ";
-    osName = "macOS";
-    osIcon = <Apple />;
-    showToggleButton = false;
-  }
+  const {contentToRender, infoMessagePrefix, osName, osIcon, showToggleButton} =
+    computeState(
+      hasWindowsContent,
+      hasMacContent,
+      isWindowsActive,
+      windowsContent,
+      macContent
+    );
 
   return (
     <div>

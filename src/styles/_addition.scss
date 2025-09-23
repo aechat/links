@@ -180,7 +180,7 @@ li > .addition-danger,
   }
 
   .change-os {
-    margin-inline: 5px;
+    margin-inline: -5px;
     outline: 1px solid var(--addition-info-border);
     border-radius: $roundness * 0.5;
     background-color: var(--addition-info-mark);
@@ -188,6 +188,17 @@ li > .addition-danger,
     color: var(--addition-info-text);
     line-height: 1.25;
     text-align: center;
+    button {
+      color: var(--addition-info-mark);
+      outline: 1px solid var(--addition-info-border);
+    }
+    &:first-child {
+      margin-top: 0;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
   }
 
   a {
