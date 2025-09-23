@@ -69,13 +69,17 @@ const SearchResults: React.FC<{
                 }
               }}
               className={`search-link ${isSelected ? "search-selected" : ""}`}
-              style={
-                isMobile
-                  ? {opacity: 1, filter: "none"}
-                  : isSelected || isHovered
-                    ? {filter: "none"}
-                    : {filter: "saturate(0.25)"}
-              }
+              style={(() => {
+                if (isMobile) {
+                  return {opacity: 1, filter: "none"};
+                }
+
+                if (isSelected || isHovered) {
+                  return {filter: "none"};
+                }
+
+                return {filter: "saturate(0.25)"};
+              })()}
               tabIndex={0}
               onClick={(e) => {
                 e.preventDefault();
@@ -88,8 +92,8 @@ const SearchResults: React.FC<{
                 <p className="search-title">{title.replace(/^[+-]+/, "").trim()}</p>
                 {tagsToDisplay.length > 0 && (
                   <span className="faq-tags">
-                    {tagsToDisplay.map((t, i) => (
-                      <mark key={i}>{t}</mark>
+                    {tagsToDisplay.map((t) => (
+                      <mark key={t}>{t}</mark>
                     ))}
                   </span>
                 )}
@@ -343,13 +347,10 @@ export const SearchInPage: React.FC<{sections: SearchSection[]}> = ({sections}) 
       const resultContainer = document.querySelector(".search-results");
 
       const selectedResultElements = resultContainer?.querySelectorAll(".search-link");
-
-      if (selectedResultElements && selectedResultElements[selectedResultIndex]) {
-        (selectedResultElements[selectedResultIndex] as HTMLElement).scrollIntoView({
-          behavior: "smooth",
-          block: "center",
-        });
-      }
+      selectedResultElements?.[selectedResultIndex]?.scrollIntoView({
+        behavior: "smooth",
+        block: "center",
+      });
     }
   }, [selectedResultIndex]);
 

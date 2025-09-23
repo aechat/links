@@ -1,12 +1,10 @@
 import debounce from "lodash/debounce";
 
-import {escapeRegExp} from "./utils";
+import {decodeHtmlEntities, escapeRegExp} from "./utils";
 
 import {useCallback, useEffect, useMemo, useState} from "react";
 
 import {SearchResult} from "./types";
-
-import {decodeHtmlEntities} from "./utils";
 
 const KEY_MODIFIERS = ["ctrl", "alt", "shift", "win", "cmd"] as const;
 
@@ -27,7 +25,7 @@ const stripHtml = (html: string): string => {
   return tmp.textContent || tmp.innerText || "";
 };
 
-const normalizationRegex = /[^\p{L}\d+\-=()]/giu;
+const normalizationRegex = /[^a-zа-яё0-9+\-=()]/gi;
 
 const replaceCharsRegex = /ё/gi;
 
@@ -89,15 +87,13 @@ const hasMatch = (
     const pattern = searchWords
       .map((word) => `(?=.*${escapeRegExp(normalizeText(word))})`)
       .join("");
-    matchCache.set(cacheKey, new RegExp(`^${pattern}.*$`, "u"));
+    matchCache.set(cacheKey, new RegExp(`^${pattern}.*$`));
   }
 
   const regex = matchCache.get(cacheKey)!;
 
   return regex.test(normalizeText(text));
 };
-
-const escapeRegExp = (str: string) => str.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 
 const processTextNode = (
   node: Text,
@@ -109,66 +105,64 @@ const processTextNode = (
   return hasMatch(text, searchWords, isKeyCombination) ? text : "";
 };
 
-const processElement = (
+const isListOrParagraph = (element: Element): boolean => {
+  const tag = element.tagName;
+
+  return tag === "LI" || tag === "P";
+};
+
+const cloneWithoutFigures = (element: Element): Element => {
+  const clone = element.cloneNode(true) as Element;
+  clone.querySelectorAll(".figure-container").forEach((el) => el.remove());
+
+  return clone;
+};
+
+const handleListWithNestedMatches = (
   element: Element,
   searchWords: string[],
   isKeyCombination: boolean
 ): SearchMatch => {
-  const tagName = element.tagName;
+  const ul = element.querySelector("ul");
 
-  if (tagName === "LI" || tagName === "P") {
-    const fullText = element.innerText || "";
+  if (!ul) {
+    const clone = cloneWithoutFigures(element);
 
-    if (hasMatch(fullText, searchWords, isKeyCombination)) {
-      const clone = element.cloneNode(true) as Element;
-
-      const elementsToRemove = clone.querySelectorAll(".figure-container");
-      elementsToRemove.forEach((el) => el.remove());
-
-      if (element.tagName === "LI" && element.querySelector("ul")) {
-        const ul = element.querySelector("ul");
-
-        if (ul) {
-          const nestedItems = Array.from(ul.querySelectorAll("li"));
-
-          const matchingNestedItems = nestedItems.filter((item) =>
-            hasMatch(item.textContent || "", searchWords, isKeyCombination)
-          );
-
-          if (matchingNestedItems.length > 0) {
-            const newUl = document.createElement("ul");
-            matchingNestedItems.forEach((item) => {
-              const nestedItemClone = item.cloneNode(true) as Element;
-
-              const nestedElementsToRemove =
-                nestedItemClone.querySelectorAll(".figure-container");
-              nestedElementsToRemove.forEach((el) => el.remove());
-              newUl.appendChild(nestedItemClone);
-            });
-
-            const oldUl = clone.querySelector("ul");
-
-            if (oldUl) {
-              oldUl.replaceWith(newUl);
-            }
-
-            return {
-              result: clone.outerHTML,
-              matchCount: matchingNestedItems.length + 1,
-            };
-          }
-        }
-      }
-
-      return {
-        result: clone.outerHTML,
-        matchCount: 1,
-      };
-    }
-
-    return {result: "", matchCount: 0};
+    return {result: clone.outerHTML, matchCount: 1};
   }
 
+  const nestedItems = Array.from(ul.querySelectorAll("li"));
+
+  const matchingNestedItems = nestedItems.filter((item) =>
+    hasMatch(item.textContent || "", searchWords, isKeyCombination)
+  );
+
+  const clone = cloneWithoutFigures(element);
+
+  if (matchingNestedItems.length === 0) {
+    return {result: clone.outerHTML, matchCount: 1};
+  }
+
+  const newUl = document.createElement("ul");
+  matchingNestedItems.forEach((item) => {
+    const nestedItemClone = cloneWithoutFigures(item);
+    newUl.appendChild(nestedItemClone);
+  });
+
+  const oldUl = clone.querySelector("ul");
+
+  if (oldUl) {
+    oldUl.replaceWith(newUl);
+  }
+
+  return {result: clone.outerHTML, matchCount: matchingNestedItems.length + 1};
+};
+
+const processContainerChildren = (
+  element: Element,
+  searchWords: string[],
+  isKeyCombination: boolean
+): SearchMatch => {
   let result = "";
   let matchCount = 0;
   Array.from(element.childNodes).forEach((node) => {
@@ -179,7 +173,11 @@ const processElement = (
         result += textResult;
         matchCount += 1;
       }
-    } else if (node.nodeType === Node.ELEMENT_NODE) {
+
+      return;
+    }
+
+    if (node.nodeType === Node.ELEMENT_NODE) {
       const elNode = node as Element;
 
       if (elNode.classList.contains("figure-container")) {
@@ -196,6 +194,30 @@ const processElement = (
   });
 
   return {result, matchCount};
+};
+
+const processElement = (
+  element: Element,
+  searchWords: string[],
+  isKeyCombination: boolean
+): SearchMatch => {
+  if (isListOrParagraph(element)) {
+    const fullText = (element as HTMLElement).innerText || "";
+
+    if (!hasMatch(fullText, searchWords, isKeyCombination)) {
+      return {result: "", matchCount: 0};
+    }
+
+    if (element.tagName === "LI") {
+      return handleListWithNestedMatches(element, searchWords, isKeyCombination);
+    }
+
+    const clone = cloneWithoutFigures(element);
+
+    return {result: clone.outerHTML, matchCount: 1};
+  }
+
+  return processContainerChildren(element, searchWords, isKeyCombination);
 };
 
 const processTable = (
@@ -234,6 +256,94 @@ const processTable = (
   return null;
 };
 
+const getFirstCleanParagraphOrElement = (root: Element): string => {
+  const firstParagraph = root.querySelector("details > p, details > div > p");
+
+  if (firstParagraph) {
+    const cleanedParagraph = firstParagraph.cloneNode(true) as Element;
+    cleanedParagraph.querySelectorAll(".figure-container").forEach((el) => el.remove());
+
+    return cleanedParagraph.outerHTML;
+  }
+
+  const firstElement = root.firstElementChild;
+
+  if (firstElement) {
+    const cleanedElement = firstElement.cloneNode(true) as Element;
+    cleanedElement.querySelectorAll(".figure-container").forEach((el) => el.remove());
+
+    return cleanedElement.outerHTML;
+  }
+
+  return "";
+};
+
+const isKeyCombinationTablePresent = (tables: NodeListOf<HTMLTableElement>): boolean => {
+  return Array.from(tables).some((table) => {
+    const headers = Array.from(table.querySelectorAll("th"));
+
+    return headers.some((th) => {
+      const text = th.textContent?.toLowerCase() || "";
+
+      return text.includes("комбинация") || text.includes("действие");
+    });
+  });
+};
+
+const pickBestListOrParagraphMatch = (
+  root: Element,
+  searchWords: string[],
+  isKeyCombination: boolean
+): SearchMatch => {
+  let bestResult: SearchMatch = {result: "", matchCount: 0};
+
+  const listItems = root.querySelectorAll("ul > li");
+  listItems.forEach((item) => {
+    const itemResult = processElement(item, searchWords, isKeyCombination);
+
+    if (itemResult.matchCount > bestResult.matchCount) {
+      bestResult = itemResult;
+    }
+  });
+
+  if (!bestResult.result) {
+    const paragraphs = root.querySelectorAll("p");
+    paragraphs.forEach((p) => {
+      const pResult = processElement(p, searchWords, isKeyCombination);
+
+      if (pResult.matchCount > bestResult.matchCount) {
+        bestResult = pResult;
+      }
+    });
+  }
+
+  return bestResult;
+};
+
+const pickTableOrFallback = (
+  root: Element,
+  searchWords: string[],
+  isKeyCombination: boolean
+): string => {
+  const tables = root.querySelectorAll("table");
+
+  if (tables.length > 0) {
+    if (isKeyCombinationTablePresent(tables)) {
+      for (const table of Array.from(tables)) {
+        const tableResult = processTable(table, searchWords, isKeyCombination);
+
+        if (tableResult) {
+          return tableResult;
+        }
+      }
+    }
+
+    return tables[0].outerHTML;
+  }
+
+  return getFirstCleanParagraphOrElement(root);
+};
+
 const formatSearchResult = (text: string, searchWords: string[]): string => {
   const tempDiv = document.createElement("div");
   tempDiv.innerHTML = text;
@@ -251,95 +361,299 @@ const formatSearchResult = (text: string, searchWords: string[]): string => {
     (tagMatch && hasMatch(tagMatch, searchWords, isKeyCombination)) ||
     (titleMatch && hasMatch(titleMatch, searchWords, isKeyCombination))
   ) {
-    const firstParagraph = tempDiv.querySelector("details > p, details > div > p");
-
-    if (firstParagraph) {
-      const cleanedParagraph = firstParagraph.cloneNode(true) as Element;
-      cleanedParagraph.querySelectorAll(".figure-container").forEach((el) => el.remove());
-
-      return cleanedParagraph.outerHTML;
-    }
-
-    const firstElement = tempDiv.firstElementChild;
-
-    if (firstElement) {
-      const cleanedElement = firstElement.cloneNode(true) as Element;
-      cleanedElement.querySelectorAll(".figure-container").forEach((el) => el.remove());
-
-      return cleanedElement.outerHTML;
-    }
+    return getFirstCleanParagraphOrElement(tempDiv);
   }
 
-  const listItems = tempDiv.querySelectorAll("ul > li");
-  let bestResult: SearchMatch = {result: "", matchCount: 0};
-  listItems.forEach((item) => {
-    const itemResult = processElement(item, searchWords, isKeyCombination);
-
-    if (itemResult.matchCount > bestResult.matchCount) {
-      bestResult = itemResult;
-    }
-  });
+  const bestResult = pickBestListOrParagraphMatch(tempDiv, searchWords, isKeyCombination);
 
   if (!bestResult.result) {
-    const paragraphs = tempDiv.querySelectorAll("p");
-    paragraphs.forEach((p) => {
-      const pResult = processElement(p, searchWords, isKeyCombination);
-
-      if (pResult.matchCount > bestResult.matchCount) {
-        bestResult = pResult;
-      }
-    });
-  }
-
-  if (!bestResult.result) {
-    const tables = tempDiv.querySelectorAll("table");
-
-    if (tables.length > 0) {
-      const isKeyCombinationTable = Array.from(tables).some((table) => {
-        const headers = Array.from(table.querySelectorAll("th"));
-
-        return headers.some(
-          (th) =>
-            th.textContent?.toLowerCase().includes("комбинация") ||
-            th.textContent?.toLowerCase().includes("действие")
-        );
-      });
-
-      if (isKeyCombinationTable) {
-        for (const table of Array.from(tables)) {
-          const tableResult = processTable(table, searchWords, isKeyCombination);
-
-          if (tableResult) {
-            return tableResult;
-          }
-        }
-      }
-
-      return tables[0].outerHTML;
-    }
-
-    const firstParagraph = tempDiv.querySelector("details > p, details > div > p");
-
-    if (firstParagraph) {
-      const cleanedParagraph = firstParagraph.cloneNode(true) as Element;
-      cleanedParagraph.querySelectorAll(".figure-container").forEach((el) => el.remove());
-
-      return cleanedParagraph.outerHTML;
-    }
-
-    const firstElement = tempDiv.firstElementChild;
-
-    if (firstElement) {
-      const cleanedElement = firstElement.cloneNode(true) as Element;
-      cleanedElement.querySelectorAll(".figure-container").forEach((el) => el.remove());
-
-      return cleanedElement.outerHTML;
-    }
-
-    return "";
+    return pickTableOrFallback(tempDiv, searchWords, isKeyCombination);
   }
 
   return bestResult.result;
+};
+
+const removeFigureContainers = (root: Element): void => {
+  root.querySelectorAll(".figure-container").forEach((el) => el.remove());
+};
+
+const computeTitleTagContentMatches = (
+  searchWords: string[],
+  normalizedTitle: string,
+  normalizedTag: string,
+  normalizedContent: string
+) => {
+  const titleMatches = searchWords.filter((word) => normalizedTitle.includes(word));
+
+  const tagMatches = searchWords.filter((word) => normalizedTag.includes(word));
+
+  const contentMatches = searchWords.filter((word) => normalizedContent.includes(word));
+
+  return {titleMatches, tagMatches, contentMatches};
+};
+
+const computeScore = (
+  searchWords: string[],
+  normalizedTitle: string,
+  normalizedTag: string,
+  titleMatchesCount: number,
+  tagMatchesCount: number,
+  contentMatchesCount: number
+) => {
+  let score = 0;
+
+  if (titleMatchesCount && tagMatchesCount) {
+    score += 100;
+  } else if (titleMatchesCount || tagMatchesCount) {
+    score += 50;
+  }
+
+  score += Math.max(
+    ...searchWords.map((word) =>
+      Math.max(
+        normalizedTitle.includes(word) ? word.length : 0,
+        normalizedTag.includes(word) ? word.length : 0
+      )
+    ),
+    0
+  );
+  score += 10 * (titleMatchesCount + tagMatchesCount - 1);
+  score += 5 * contentMatchesCount;
+
+  if (!titleMatchesCount && !tagMatchesCount && contentMatchesCount) {
+    score -= 10;
+  }
+
+  return score;
+};
+
+const collectDividerTexts = (detail: Element): string[] => {
+  return Array.from(detail.querySelectorAll(".ant-divider-inner-text"))
+    .map((el) => el.textContent?.trim() || "")
+    .filter(Boolean);
+};
+
+const buildParagraphsHtml = (detail: Element): string => {
+  const paragraphs = Array.from(detail.querySelectorAll<HTMLParagraphElement>("p"));
+
+  const htmlParts: string[] = [];
+
+  for (const p of paragraphs) {
+    const clone = p.cloneNode(true) as Element;
+    removeFigureContainers(clone);
+    htmlParts.push(clone.outerHTML);
+  }
+
+  return htmlParts.filter(Boolean).join("\n");
+};
+
+const isKeyCombinationWords = (searchWords: string[]): boolean => {
+  return searchWords.some(
+    (word) =>
+      word.includes("ctrl") ||
+      word.includes("alt") ||
+      word.includes("shift") ||
+      word.includes("win") ||
+      word.includes("cmd")
+  );
+};
+
+const buildTableGroupsHtml = (detail: Element, searchWords: string[]): string => {
+  const tableGroups: Record<string, string[]> = {};
+
+  const tables = Array.from(detail.querySelectorAll<HTMLTableElement>("table"));
+
+  const keyCombo = isKeyCombinationWords(searchWords);
+
+  for (const table of tables) {
+    const headers = Array.from(table.querySelectorAll("th"))
+      .map((th) => decodeHtmlEntities(th.textContent?.trim() ?? ""))
+      .filter((header) => !header.toLowerCase().includes("описание"));
+
+    const headerKey = headers.join("|");
+
+    const allRows = Array.from(table.querySelectorAll("tr")).filter((row) => {
+      let parent = row.parentElement;
+
+      while (parent) {
+        if (parent.tagName.toLowerCase() === "thead") {
+          return false;
+        }
+
+        parent = parent.parentElement;
+      }
+
+      return true;
+    });
+
+    const excludedColumns = Array.from(table.querySelectorAll("th"))
+      .map((th, index) =>
+        th.textContent?.toLowerCase().includes("описание") ? index : -1
+      )
+      .filter((index) => index !== -1);
+
+    const processedRows: string[] = [];
+
+    for (const row of allRows) {
+      const clonedRow = row.cloneNode(true) as HTMLTableRowElement;
+      Array.from(clonedRow.cells).forEach((cell, index) => {
+        if (excludedColumns.includes(index)) {
+          cell.remove();
+        }
+      });
+
+      if (clonedRow.cells.length === 0) {
+        continue;
+      }
+
+      let hasMatch: boolean;
+
+      if (keyCombo) {
+        const searchPattern = normalizeKeyCombination(searchWords.join(" "));
+
+        const rowText = Array.from(clonedRow.cells)
+          .map((cell) => {
+            const keyElements = cell.querySelectorAll("mark.key");
+
+            if (keyElements.length > 0) {
+              return Array.from(keyElements)
+                .map((el) => el.textContent?.toLowerCase() || "")
+                .join(" ");
+            }
+
+            return cell.textContent?.toLowerCase() || "";
+          })
+          .join(" ");
+
+        const normalizedRowText = normalizeKeyCombination(rowText);
+        hasMatch = normalizedRowText.includes(searchPattern);
+      } else {
+        const rowHTML = clonedRow.innerHTML.toLowerCase();
+        hasMatch = searchWords.every((word) => rowHTML.includes(word.toLowerCase()));
+      }
+
+      if (hasMatch) {
+        processedRows.push(clonedRow.outerHTML);
+      }
+    }
+
+    if (processedRows.length > 0) {
+      tableGroups[headerKey] ??= [];
+      tableGroups[headerKey].push(...processedRows);
+    }
+  }
+
+  return Object.entries(tableGroups)
+    .map(([headerKey, rows]) => {
+      const headers = headerKey.split("|").filter(Boolean);
+      let headerRow = "";
+
+      if (headers.length > 0) {
+        const headersHtml = headers.map((h) => `<th>${h}</th>`).join("");
+        headerRow = `<thead><tr>${headersHtml}</tr></thead>`;
+      }
+
+      return `<table>${headerRow}${rows.join("")}</table>`;
+    })
+    .join("");
+};
+
+const buildListContentHtml = (detail: Element, searchWords: string[]): string => {
+  const uls = Array.from(detail.querySelectorAll<HTMLUListElement>("ul"));
+
+  const parts: string[] = [];
+
+  for (const ul of uls) {
+    const ulClone = ul.cloneNode(true) as Element;
+    removeFigureContainers(ulClone);
+
+    const ulText = stripHtml(ulClone.outerHTML);
+
+    const normalizedUlText = normalizeText(ulText);
+
+    const hasMatch =
+      searchWords.length === 0 ||
+      searchWords.some((word) => normalizedUlText.includes(normalizeText(word)));
+
+    if (hasMatch) {
+      parts.push(ulClone.outerHTML);
+    }
+  }
+
+  return parts.filter(Boolean).join("\n");
+};
+type BaseSearchResult = Omit<
+  SearchResult,
+  "isSingleParagraphMatch" | "hasTitleMatch" | "hasTagMatch"
+>;
+
+const isSingleParagraphMatchForResult = (
+  resultContent: string,
+  searchWords: string[]
+): boolean => {
+  const lines = resultContent.split("\n");
+
+  for (const line of lines) {
+    const normalizedLine = normalizeText(stripHtml(line));
+    let allIncluded = true;
+
+    for (const word of searchWords) {
+      if (!normalizedLine.includes(word)) {
+        allIncluded = false;
+
+        break;
+      }
+    }
+
+    if (allIncluded) {
+      return true;
+    }
+  }
+
+  return false;
+};
+
+const transformSearchResult = (
+  result: BaseSearchResult,
+  searchWords: string[]
+): SearchResult & {
+  score: number;
+} => {
+  const isSingleParagraphMatch = isSingleParagraphMatchForResult(
+    result.content,
+    searchWords
+  );
+
+  const normalizedTitle = normalizeText(result.title);
+
+  const normalizedTag = normalizeText(result.tag || "");
+
+  const normalizedContent = normalizeText(stripHtml(result.content || ""));
+
+  const {titleMatches, tagMatches, contentMatches} = computeTitleTagContentMatches(
+    searchWords,
+    normalizedTitle,
+    normalizedTag,
+    normalizedContent
+  );
+
+  const score = computeScore(
+    searchWords,
+    normalizedTitle,
+    normalizedTag,
+    titleMatches.length,
+    tagMatches.length,
+    contentMatches.length
+  );
+
+  return {
+    ...result,
+    content: formatSearchResult(result.content, searchWords),
+    isSingleParagraphMatch,
+    hasTitleMatch: titleMatches.length > 0,
+    hasTagMatch: tagMatches.length > 0,
+    score,
+  };
 };
 
 export const useSearchLogic = (query: string, isPageLoaded: boolean) => {
@@ -388,146 +702,13 @@ export const useSearchLogic = (query: string, isPageLoaded: boolean) => {
 
         const tag = detail.getAttribute("data-tags") ?? "";
 
-        const dividerTexts = Array.from(
-          detail.querySelectorAll(".ant-divider-inner-text")
-        )
-          .map((el) => el.textContent?.trim() || "")
-          .filter(Boolean);
+        const dividerTexts = collectDividerTexts(detail);
 
-        const content = Array.from(detail.querySelectorAll<HTMLParagraphElement>("p"))
-          .map((el) => {
-            const clone = el.cloneNode(true) as Element;
-            clone
-              .querySelectorAll(".figure-container")
-              .forEach((elToRemove) => elToRemove.remove());
+        const content = buildParagraphsHtml(detail);
 
-            return clone.outerHTML;
-          })
-          .filter(Boolean)
-          .join("\n");
+        const tableContent = buildTableGroupsHtml(detail, searchWords);
 
-        const tableGroups: Record<string, string[]> = {};
-        Array.from(detail.querySelectorAll<HTMLTableElement>("table")).forEach(
-          (table) => {
-            const headers = Array.from(table.querySelectorAll("th"))
-              .map((th) => decodeHtmlEntities(th.textContent?.trim() ?? ""))
-              .filter((header) => !header.toLowerCase().includes("описание"));
-
-            const headerKey = headers.join("|");
-
-            const allRows = Array.from(table.querySelectorAll("tr")).filter((row) => {
-              let parent = row.parentElement;
-
-              while (parent) {
-                if (parent.tagName.toLowerCase() === "thead") {
-                  return false;
-                }
-
-                parent = parent.parentElement;
-              }
-
-              return true;
-            });
-
-            const excludedColumns = Array.from(table.querySelectorAll("th"))
-              .map((th, index) =>
-                th.textContent?.toLowerCase().includes("описание") ? index : -1
-              )
-              .filter((index) => index !== -1);
-
-            const processedRows = allRows
-              .map((row) => {
-                const clonedRow = row.cloneNode(true) as HTMLTableRowElement;
-                Array.from(clonedRow.cells).forEach((cell, index) => {
-                  if (excludedColumns.includes(index)) {
-                    cell.remove();
-                  }
-                });
-
-                if (clonedRow.cells.length === 0) {
-                  return null;
-                }
-
-                const rowHTML = clonedRow.innerHTML.toLowerCase();
-
-                const isKeyCombination = searchWords.some(
-                  (word) =>
-                    word.includes("ctrl") ||
-                    word.includes("alt") ||
-                    word.includes("shift") ||
-                    word.includes("win") ||
-                    word.includes("cmd")
-                );
-                let hasMatch;
-
-                if (isKeyCombination) {
-                  const searchPattern = normalizeKeyCombination(searchWords.join(" "));
-
-                  const rowText = Array.from(clonedRow.cells)
-                    .map((cell) => {
-                      const keyElements = cell.querySelectorAll("mark.key");
-
-                      if (keyElements.length > 0) {
-                        return Array.from(keyElements)
-                          .map((el) => el.textContent?.toLowerCase() || "")
-                          .join(" ");
-                      }
-
-                      return cell.textContent?.toLowerCase() || "";
-                    })
-                    .join(" ");
-
-                  const normalizedRowText = normalizeKeyCombination(rowText);
-                  hasMatch = normalizedRowText.includes(searchPattern);
-                } else {
-                  hasMatch = searchWords.every((word) =>
-                    rowHTML.includes(word.toLowerCase())
-                  );
-                }
-
-                return hasMatch ? clonedRow.outerHTML : null;
-              })
-              .filter((row): row is string => row !== null);
-
-            if (processedRows.length > 0) {
-              tableGroups[headerKey] ??= [];
-              tableGroups[headerKey].push(...processedRows);
-            }
-          }
-        );
-
-        const tableContent = Object.entries(tableGroups)
-          .map(([headerKey, rows]) => {
-            const headers = headerKey.split("|").filter(Boolean);
-
-            const headerRow =
-              headers.length > 0
-                ? `<thead><tr>${headers.map((h) => `<th>${h}</th>`).join("")}</tr></thead>`
-                : "";
-
-            return `<table>${headerRow}${rows.join("")}</table>`;
-          })
-          .join("");
-
-        const listContent = Array.from(detail.querySelectorAll<HTMLUListElement>("ul"))
-          .map((ul) => {
-            const ulClone = ul.cloneNode(true) as Element;
-            ulClone
-              .querySelectorAll(".figure-container")
-              .forEach((elToRemove) => elToRemove.remove());
-
-            const ulText = stripHtml(ulClone.outerHTML);
-
-            const normalizedUlText = normalizeText(ulText);
-
-            const hasMatch =
-              searchWords.length === 0 ||
-              searchWords.some((word) => normalizedUlText.includes(normalizeText(word)));
-
-            return hasMatch ? ulClone.outerHTML : "";
-          })
-          .filter(Boolean)
-          .join("\n");
+        const listContent = buildListContentHtml(detail, searchWords);
 
         const text = [content, tableContent, listContent, ...dividerTexts].join("\n");
 
@@ -596,44 +777,10 @@ export const useSearchLogic = (query: string, isPageLoaded: boolean) => {
       });
 
       const results = filtered
-        .map((result) => {
-          const isSingleParagraphMatch = result.content.split("\n").some((line) => {
-            const normalizedLine = normalizeText(stripHtml(line));
-
-            return searchWords.every((word) => normalizedLine.includes(word));
-          });
-
-          return {
-            ...result,
-            content: formatSearchResult(result.content, searchWords),
-            isSingleParagraphMatch,
-            hasTitleMatch: searchWords.some((word) =>
-              normalizeText(result.title).includes(word)
-            ),
-            hasTagMatch: searchWords.some((word) =>
-              normalizeText(result.tag || "").includes(word)
-            ),
-          };
-        })
+        .map((result) => transformSearchResult(result, searchWords))
         .sort((a, b) => {
-          const aTagOrTitle = a.hasTagMatch || a.hasTitleMatch;
-
-          const bTagOrTitle = b.hasTagMatch || b.hasTitleMatch;
-
-          if (aTagOrTitle && !bTagOrTitle) {
-            return -1;
-          }
-
-          if (!aTagOrTitle && bTagOrTitle) {
-            return 1;
-          }
-
-          if (a.isSingleParagraphMatch && !b.isSingleParagraphMatch) {
-            return -1;
-          }
-
-          if (!a.isSingleParagraphMatch && b.isSingleParagraphMatch) {
-            return 1;
+          if (b.score !== a.score) {
+            return b.score - a.score;
           }
 
           return 0;
