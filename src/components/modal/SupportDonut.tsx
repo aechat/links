@@ -15,21 +15,13 @@ const SupportDonut: React.FC = () => {
 
   const [isYoomoneyModalOpen, setIsYoomoneyModalOpen] = useState(false);
 
-  const showDonateModal = () => {
-    setIsDonateModalOpen(true);
-  };
+  const openDonateModal = () => setIsDonateModalOpen(true);
 
-  const handleCloseDonateModal = () => {
-    setIsDonateModalOpen(false);
-  };
+  const closeDonateModal = () => setIsDonateModalOpen(false);
 
-  const handleCloseSberModal = () => {
-    setIsSberModalOpen(false);
-  };
+  const closeSberModal = () => setIsSberModalOpen(false);
 
-  const handleCloseYoomoneyModal = () => {
-    setIsYoomoneyModalOpen(false);
-  };
+  const closeYoomoneyModal = () => setIsYoomoneyModalOpen(false);
 
   return (
     <>
@@ -52,7 +44,7 @@ const SupportDonut: React.FC = () => {
           style={{
             filter: "saturate(1.25)",
           }}
-          onClick={showDonateModal}
+          onClick={openDonateModal}
         >
           <CoffeeRounded />
           Поддержать проект
@@ -63,7 +55,7 @@ const SupportDonut: React.FC = () => {
         closeIcon={null}
         footer={null}
         open={isDonateModalOpen}
-        onCancel={handleCloseDonateModal}
+        onCancel={closeDonateModal}
       >
         <div className="modal">
           <div className="modal-content">
@@ -71,7 +63,7 @@ const SupportDonut: React.FC = () => {
               <div className="modal-header-title">Поддержать проект</div>
               <button
                 className="modal-header-close"
-                onClick={handleCloseDonateModal}
+                onClick={closeDonateModal}
               >
                 <CloseRounded />
               </button>
@@ -93,7 +85,7 @@ const SupportDonut: React.FC = () => {
                 closeIcon={null}
                 footer={null}
                 open={isSberModalOpen}
-                onCancel={handleCloseSberModal}
+                onCancel={closeSberModal}
               >
                 <div className="modal">
                   <div className="modal-content">
@@ -101,7 +93,7 @@ const SupportDonut: React.FC = () => {
                       <div className="modal-header-title">Поддержать на Сбербанк</div>
                       <button
                         className="modal-header-close"
-                        onClick={handleCloseSberModal}
+                        onClick={closeSberModal}
                       >
                         <CloseRounded />
                       </button>
@@ -142,7 +134,7 @@ const SupportDonut: React.FC = () => {
                 closeIcon={null}
                 footer={null}
                 open={isYoomoneyModalOpen}
-                onCancel={handleCloseYoomoneyModal}
+                onCancel={closeYoomoneyModal}
               >
                 <div className="modal">
                   <div className="modal-content">
@@ -150,7 +142,7 @@ const SupportDonut: React.FC = () => {
                       <div className="modal-header-title">Поддержать на ЮMoney</div>
                       <button
                         className="modal-header-close"
-                        onClick={handleCloseYoomoneyModal}
+                        onClick={closeYoomoneyModal}
                       >
                         <CloseRounded />
                       </button>
