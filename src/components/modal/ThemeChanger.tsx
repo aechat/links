@@ -7,7 +7,7 @@ import {
   RestartAlt,
 } from "@mui/icons-material";
 
-import {Divider, Modal, Slider, Tooltip} from "antd";
+import {Modal, Slider, Tooltip} from "antd";
 
 import React, {createContext, useContext, useEffect, useMemo, useState} from "react";
 
