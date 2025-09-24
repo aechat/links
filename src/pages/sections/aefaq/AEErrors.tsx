@@ -663,10 +663,10 @@ const AEErrors: React.FC = () => {
         <Divider>Включаем отключённые эффекты</Divider>
         <p>
           Для повторного включения эффекта откройте{" "}
-          <mark className="select">«Effect Manager»</mark>. Попасть туда можно через
-          панели <mark className="select">«Effect Controls»</mark> или{" "}
-          <mark className="select">«Effects & Presets»</mark>. Достаточно вызвать
-          контекстное меню на одной из панелей и выбрать{" "}
+          <mark className="select">«Effect Manager»</mark>. Попасть туда можно через меню{" "}
+          <mark className="select">«Effect»</mark>, панель{" "}
+          <mark className="select">«Effect Controls»</mark> или{" "}
+          <mark className="select">«Effects & Presets»</mark>, выбрав в выпадающем списке{" "}
           <mark className="select">«Manage Effects»</mark>.
         </p>
         <ContentFigure
@@ -678,8 +678,8 @@ const AEErrors: React.FC = () => {
           variant="windows"
         />
         <p>
-          В открывшемся списке по умолчанию показываются только сторонние эффекты, а
-          отключённые отображаются вверху. Если нужно отобразить стандартные эффекты —
+          В открывшемся окне по умолчанию показываются только сторонние эффекты, а
+          отключённые отображаются первыми. Если нужно отобразить стандартные эффекты —
           уберите чекбокс с{" "}
           <mark className="select">«Only Show Third-Party Effects»</mark>. Чтобы снова
           включить эффект, поставьте флажок рядом с ним, нажмите{" "}

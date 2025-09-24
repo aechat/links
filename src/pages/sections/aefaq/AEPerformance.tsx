@@ -519,11 +519,11 @@ const AEPerformance: React.FC = () => {
           оперативной памяти, а остальные параметры оставим по умолчанию.
         </p>
         <ContentFigure
-          type="image"
+          caption="Виртуальная машина"
           src="images/aftereffects/ae_version_test.png"
           theme="light"
+          type="image"
           variant="windows"
-          caption="Виртуальная машина"
         />
         <p>
           Почему эксперимент идёт не на реальном «железе»? Во-первых, мне просто влом
@@ -539,55 +539,55 @@ const AEPerformance: React.FC = () => {
             7 минут 33 секунды. С включённым{" "}
             <mark className="select">«Multiprocessing»</mark> — 6 минут 3 секунды.
             <ContentFigure
-              type="image"
+              caption="Время экспорта"
               src="images/aftereffects/render_time_cc2014.png"
               theme="light"
+              type="image"
               variant="windows"
-              caption="Время экспорта"
             />
           </li>
           <li>
             <mark className="app">Adobe After Effects</mark> <mark>15.1.2</mark> (CC 2018)
             — 7 минут 27 секунд.
             <ContentFigure
-              type="image"
+              caption="Время экспорта"
               src="images/aftereffects/render_time_cc2018.png"
               theme="light"
+              type="image"
               variant="windows"
-              caption="Время экспорта"
             />
           </li>
           <li>
             <mark className="app">Adobe After Effects</mark> <mark>17.7</mark> (2020) — 8
             минут 34 секунды.
             <ContentFigure
-              type="image"
+              caption="Время экспорта"
               src="images/aftereffects/render_time_2020.png"
               theme="light"
+              type="image"
               variant="windows"
-              caption="Время экспорта"
             />
           </li>
           <li>
             <mark className="app">Adobe After Effects</mark> <mark>23.6</mark> (2023) — 8
             минут 15 секунд без <mark className="select">«Multi-Frame Rendering»</mark>.
             <ContentFigure
-              type="image"
+              caption="Время экспорта"
               src="images/aftereffects/render_time_2023.png"
               theme="light"
+              type="image"
               variant="windows"
-              caption="Время экспорта"
             />
           </li>
           <li>
             <mark className="app">Adobe After Effects</mark> <mark>25.4</mark> (2025) — 8
             минут 18 секунд без <mark className="select">«Multi-Frame Rendering»</mark>.
             <ContentFigure
-              type="image"
+              caption="Время экспорта"
               src="images/aftereffects/render_time_2025.png"
               theme="light"
+              type="image"
               variant="windows"
-              caption="Время экспорта"
             />
           </li>
         </ul>
