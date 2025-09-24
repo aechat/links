@@ -433,6 +433,12 @@ const collectDividerTexts = (detail: Element): string[] => {
     .filter(Boolean);
 };
 
+const collectFlexibleLinksTexts = (detail: Element): string[] => {
+  return Array.from(detail.querySelectorAll(".flexible-links a"))
+    .map((el) => el.textContent?.trim() || "")
+    .filter(Boolean);
+};
+
 const buildParagraphsHtml = (detail: Element): string => {
   const paragraphs = Array.from(detail.querySelectorAll<HTMLParagraphElement>("p"));
 
@@ -704,13 +710,21 @@ export const useSearchLogic = (query: string, isPageLoaded: boolean) => {
 
         const dividerTexts = collectDividerTexts(detail);
 
+        const flexibleLinksTexts = collectFlexibleLinksTexts(detail);
+
         const content = buildParagraphsHtml(detail);
 
         const tableContent = buildTableGroupsHtml(detail, searchWords);
 
         const listContent = buildListContentHtml(detail, searchWords);
 
-        const text = [content, tableContent, listContent, ...dividerTexts].join("\n");
+        const text = [
+          content,
+          tableContent,
+          listContent,
+          ...dividerTexts,
+          ...flexibleLinksTexts,
+        ].join("\n");
 
         if (title || text) {
           data.push({title, content: text.trim(), id, tag: tag.trim()});
