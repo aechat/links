@@ -62,7 +62,7 @@ const ErrorFallback = ({error}: {error: Error}) => (
       <div className="error-content">
         <div className="error-title">Ошибка: {error.message}</div>
         <div className="error-message">
-          <p>Попробуйте перезагрузить страницу для обновления свежих данных.</p>
+          <p>Попробуйте перезагрузить страницу для получения свежих данных.</p>
           <div className="flexible-links">
             <button
               onClick={() => {
