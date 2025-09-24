@@ -373,6 +373,13 @@ const AEInstallProblems: React.FC = () => {
                         </mark>
                         .
                       </li>
+                      <li>
+                        Иногда в архиве может быть уже распакованный{" "}
+                        <mark className="file">ZXP</mark>. Это можно понять по наличию
+                        папок <mark className="path">META-INF</mark> и{" "}
+                        <mark className="path">CSXS</mark> внутри папки с названием
+                        расширения.
+                      </li>
                     </ul>
                   </Addition>
                   <ul>
@@ -405,9 +412,10 @@ const AEInstallProblems: React.FC = () => {
                     </li>
                     <li>
                       Если вы не хотите устанавливать стороннее ПО для установки таких
-                      расширений — переименуйте файл <mark className="file">ZXP</mark> в{" "}
-                      <mark className="file">ZIP</mark> и распакуйте его как обычный
-                      архив, а затем перейдите в папку{" "}
+                      расширений — переименуйте файл <mark className="file">
+                        ZXP
+                      </mark> в <mark className="file">ZIP</mark> и распакуйте его как
+                      обычный архив, а затем перейдите в папку{" "}
                       <mark className="path">
                         /Library/Application Support/Adobe/CEP/extensions
                       </mark>{" "}
@@ -476,13 +484,6 @@ const AEInstallProblems: React.FC = () => {
                         defaults write com.adobe.CSXS.30 PlayerDebugMode 1
                         <br />
                       </code>
-                      <Addition type="info">
-                        Иногда в архиве может быть уже распакованный{" "}
-                        <mark className="file">ZXP</mark>. Это можно понять по наличию
-                        папок <mark className="path">META-INF</mark> и{" "}
-                        <mark className="path">CSXS</mark> внутри папки с названием
-                        расширения.
-                      </Addition>
                     </li>
                   </ul>
                 </li>
@@ -906,6 +907,13 @@ const AEInstallProblems: React.FC = () => {
                         </mark>
                         .
                       </li>
+                      <li>
+                        Иногда в архиве может быть уже распакованный{" "}
+                        <mark className="file">ZXP</mark>. Это можно понять по наличию
+                        папок <mark className="path">META-INF</mark> и{" "}
+                        <mark className="path">CSXS</mark> внутри папки с названием
+                        расширения.
+                      </li>
                     </ul>
                   </Addition>
                   <ul>
@@ -938,9 +946,11 @@ const AEInstallProblems: React.FC = () => {
                     </li>
                     <li>
                       Если вы не хотите устанавливать стороннее ПО для установки таких
-                      расширений — переименуйте файл <mark className="file">ZXP</mark> в{" "}
-                      <mark className="file">ZIP</mark> и распакуйте его как обычный
-                      архив. Поместите содержимое свежераспакованного файла в папку{" "}
+                      расширений — переименуйте файл <mark className="file">
+                        ZXP
+                      </mark> в <mark className="file">ZIP</mark> и распакуйте его как
+                      обычный архив. Поместите содержимое свежераспакованного файла в
+                      папку{" "}
                       <mark className="path">
                         C:\Program Files (x86)\Common Files\Adobe\CEP\extensions
                       </mark>
@@ -964,13 +974,6 @@ const AEInstallProblems: React.FC = () => {
                       подтвердите слияние реестра — в программе будут отображаться
                       сторонние расширения, но при попытке открыть их, ничего не
                       произойдёт.
-                      <Addition type="info">
-                        Иногда в архиве может быть уже распакованный{" "}
-                        <mark className="file">ZXP</mark>. Это можно понять по наличию
-                        папок <mark className="path">META-INF</mark> и{" "}
-                        <mark className="path">CSXS</mark> внутри папки с названием
-                        расширения.
-                      </Addition>
                     </li>
                   </ul>
                 </li>
