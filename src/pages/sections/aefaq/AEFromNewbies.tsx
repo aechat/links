@@ -4296,6 +4296,11 @@ const AEFromNewbies: React.FC = () => {
           настраивать, двигать манипуляторы и смотреть, как меняется анимация.
         </p>
         <EasingEditor />
+        <Addition type="info">
+          Манипуляторы в <mark className="select">«Speed Graph»</mark> ограничены по
+          высоте, чтобы избежать некорректных скачков и слишком больших значений в{" "}
+          <mark className="select">«Value Graph»</mark>.
+        </Addition>
         <Divider>Настраиваем вид в «Graph Editor»</Divider>
         <p>
           Чтобы изменить настройки отображения редактора графика — нажмите на иконку{" "}
