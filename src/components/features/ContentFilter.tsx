@@ -1,97 +1,119 @@
 import {Apple, WindowSharp} from "@mui/icons-material";
+
 import React, {ReactNode, useEffect, useState} from "react";
 
-/**
- * пропсы компонента переключения контента
- */
+type ContentFilterProps =
+  | {windowsContent: ReactNode; macContent?: ReactNode}
+  | {windowsContent?: ReactNode; macContent: ReactNode};
 
-interface ContentSwitcherProps {
-  /** контент для windows */
+const detectOperatingSystem = (): boolean => {
+  const userAgent = window.navigator.userAgent.toLowerCase();
 
-  windowsContent: ReactNode;
+  return !(
+    userAgent.includes("mac") ||
+    userAgent.includes("iphone") ||
+    userAgent.includes("ipad")
+  );
+};
 
-  /** контент для macos */
+const computeState = (
+  hasWindowsContent: boolean,
+  hasMacContent: boolean,
+  isWindowsActive: boolean,
+  windowsContent: ReactNode | undefined,
+  macContent: ReactNode | undefined
+) => {
+  if (hasWindowsContent && hasMacContent) {
+    return {
+      contentToRender: isWindowsActive ? windowsContent : macContent,
+      infoMessagePrefix: "Информация ниже указана для устройств на ",
+      osName: isWindowsActive ? "Windows" : "macOS",
+      osIcon: isWindowsActive ? <WindowSharp /> : <Apple />,
+      showToggleButton: true,
+    } as const;
+  }
 
-  macContent: ReactNode;
-}
+  if (hasWindowsContent) {
+    return {
+      contentToRender: windowsContent,
+      infoMessagePrefix: "Информация ниже указана только для устройств на ",
+      osName: "Windows",
+      osIcon: <WindowSharp />,
+      showToggleButton: false,
+    } as const;
+  }
 
-/**
- * компонент для переключения контента между windows и macos
- * @param windowsContent - контент для windows
- * @param macContent - контент для macos
- * @returns компонент с возможностью переключения контента
- */
+  return {
+    contentToRender: macContent,
+    infoMessagePrefix: "Информация ниже указана только для устройств на ",
+    osName: "macOS",
+    osIcon: <Apple />,
+    showToggleButton: false,
+  } as const;
+};
 
-const ContentSwitcher: React.FC<ContentSwitcherProps> = ({
-  windowsContent,
-  macContent,
-}) => {
-  const [isWindows, setIsWindows] = useState(true);
-
-  /*
-   * определяет операционную систему по useragent
-   * @returns true если система windows, false если macos
-   */
-
-  const detectOperatingSystem = (): boolean => {
-    const userAgent = window.navigator.userAgent.toLowerCase();
-
-    return !(
-      userAgent.includes("mac") ||
-      userAgent.includes("iphone") ||
-      userAgent.includes("ipad")
-    );
-  };
-
-  /*
-   * переключает отображаемый контент
-   */
-
-  const toggleContent = (): void => {
-    setIsWindows(!isWindows);
-  };
-
-  // определение операционной системы при монтировании компонента
-
+const ContentFilter: React.FC<ContentFilterProps> = ({windowsContent, macContent}) => {
+  const [isWindowsActive, setIsWindowsActive] = useState(true);
   useEffect(() => {
-    setIsWindows(detectOperatingSystem());
+    setIsWindowsActive(detectOperatingSystem());
   }, []);
+
+  const hasWindowsContent = windowsContent !== undefined;
+
+  const hasMacContent = macContent !== undefined;
+
+  if (!hasWindowsContent && !hasMacContent) {
+    return null;
+  }
+
+  const {contentToRender, infoMessagePrefix, osName, osIcon, showToggleButton} =
+    computeState(
+      hasWindowsContent,
+      hasMacContent,
+      isWindowsActive,
+      windowsContent,
+      macContent
+    );
 
   return (
     <div>
-      <div className="change_os">
-        {isWindows ? (
+      {hasWindowsContent || hasMacContent ? (
+        <div className="change-os">
           <div style={{display: "flex", gap: "10px", alignItems: "center"}}>
-            <WindowSharp />
+            {osIcon}
             <div>
-              Информация указана для устройств на{" "}
-              <b>
-                <u>Windows</u>
-              </b>
+              {infoMessagePrefix}
+              {osName && (
+                <b>
+                  <u>{osName}</u>
+                </b>
+              )}
               .
             </div>
           </div>
-        ) : (
+          {showToggleButton && (
+            <button
+              aria-label={isWindowsActive ? "Показать для macOS" : "Показать для Windows"}
+              onClick={() => setIsWindowsActive(!isWindowsActive)}
+            >
+              {isWindowsActive ? "Показать для macOS" : "Показать для Windows"}
+            </button>
+          )}
+        </div>
+      ) : (
+        <div className="change-os">
           <div style={{display: "flex", gap: "10px", alignItems: "center"}}>
-            <Apple />
             <div>
-              Информация указана для устройств на{" "}
               <b>
-                <u>macOS</u>
+                <u>Контент для данной операционной системы не указан.</u>
               </b>
-              .
             </div>
           </div>
-        )}
-        <button
-          aria-label={isWindows ? "Показать для macOS" : "Показать для Windows"}
-          onClick={toggleContent}
-        >
-          {isWindows ? "Показать для macOS" : "Показать для Windows"}
-        </button>
-      </div>
-      {isWindows ? windowsContent : macContent}
+        </div>
+      )}
+      {contentToRender}
     </div>
   );
 };
-export default ContentSwitcher;
+
+export default ContentFilter;

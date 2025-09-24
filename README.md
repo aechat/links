@@ -1,4 +1,4 @@
-# aechat.ru: полезные ссылки и ответы на вопросы по программам Adobe для участников [AEChat в Telegram](https://t.me/joinchat/F1DdXtG9LephYWUy)
+# [links@aechat](https://aechat.ru) — ресурс с полезными ссылками и ответами на частые вопросы по программам Adobe
 
 ```plaintext
     ___       __        ______                  __          __
@@ -9,75 +9,68 @@
                       \____/
 ```
 
-## Поддержать автора копеечкой
+> Ресурс создан специально для участников [AEChat в Telegram](https://t.me/joinchat/F1DdXtG9LephYWUy)
+
+## Поддержать автора статей копеечкой
 
 На карту **Сбербанк**: `2202202357342488`
 
 На электронный кошелёк **ЮМани**: `410016763684808`
 
-## Рекомендации по использованию редакторов и плагинов
+## Рекомендации по использованию редакторов и плагинов к ним
 
-Для редактирования этого проекта использую редактор кода `VS Code`, а также плагины `ESLint` и `Prettier`, конфигурации которого уже расположены в файлах.
+Для редактирования этого проекта автор использует редактор кода `VS Code`, а также плагины `ESLint` и `Prettier`, конфигурации которого уже расположены в файлах. Однако вы можете редактировать проект и в своём любимом редакторе кода.
 
-Для установки зависимостей выполните команду `npm install` или `yarn install`, в зависимости какой пакетный менеджер вы предпочитаете.
+Для установки зависимостей выполните команду `yarn install`, если вы используете пакетный менеджер `yarn`. Он используется в этом проекте.
 
-Для форматирования кода используйте команду ниже.
+Для быстрого форматирования кода используйте команду ниже.
 
 ```shell
-npm run format # если используете npm
 yarn format # если используете yarn
 ```
 
 Для локального разворачивания сайта используйте команду ниже.
 
 ```shell
-npm run vite # если используете npm
 yarn dev # если используете yarn
 ```
 
-## Небольшая документация по написанию секций в \*\*faq
+Для корректного использования pnp-модулей в VS Code, возможно, потребуется выполнить команду ниже, чтобы не отображались куча ошибок.
 
-Каждая пустая секция должна содержать вид, как в коде ниже.
+```shell
+yarn dlx @yarnpkg/sdks vscode
+```
 
-В `SHORTNAME_SECTION` должно быть название в формате "первые две буквы программы, о котором идёт речь (AE, PR или PS) и название темы секции на английском языке. Например: `AETips`, `PRExport`, `PSImport`".
+## Гайдлайн по написанию статей в ответах на частые вопросы
+
+Все статьи обычно содержатся в директории `src/pages/sections` и разбиты на несколько директорий со статьями. Каждый файл равен какой-то категории статей.
+
+Пустая и новая категория должна содержать следующий вид.
 
 ```typescript
 import React from "react";
 import GithubUpdateInfo from "../../../components/features/GithubUpdateInfo";
 const SHORTNAME_SECTION: React.FC = () => {
   return (
-    <div
-      className="faq-content"
-      id="SECTION_NAME"
-    >
-      <GithubUpdateInfo filePath="src/pages/sections/ПУТЬ_ДО_СЕКЦИИ/СЕКЦИЯ.tsx" />
+    <div className="faq-content">
+        /* остальной код */
     </div>
   );
 };
 export default SHORTNAME_SECTION;
 ```
 
-В файле с определённой секцией обязательно должен быть спойлер. Для этого используем компонент `DetailsSummary` с обязательным значением `title`. В `title` обычно пишем вопрос, на который мы отвечаем. В `title` не должен содержаться ответ, если в самой описании ошибки программы это не указано явно.
+В статьях обязательно должны быть спойлеры, которые содержат заголовок, теги и сам контент статьи. Если заголовок статьи окажется слишком длинным, например из-за текста ошибки, то часть текста можно перенести в теги. Теги должны быть разделены запятыми.
 
 ```typescript
 import DetailsSummary from "../../../components/DetailsSummary";
-<DetailsSummary title="Название спойлера в виде вопроса в стиле 'Как сделать коммит в Github?' или похожее">
-  <p>Ответ на вопрос. Если возможно - отвечаем минимум в два абзаца: причина и решение.</p>
-</DetailsSummary>
-```
 
-Иногда в секциях можно использовать дополнительные теги, чтобы лучше индексировать поиск для нахождения нужной статьи. Для этого есть необязательный атрибут `tag`, которая принимает строку. Теги должны быть разделены с помощью запятых.
-
-```typescript
-import DetailsSummary from "../../../components/DetailsSummary";
-<DetailsSummary title="Как отключить Windows Defender?" tag="выключить дефендер, отрубить антивирус">
+<DetailsSummary title="Как отключить Windows Defender?" tag="helper.exe не найден, выключить дефендер, отрубить антивирус">
   <p>Ответ на вопрос.</p>
 </DetailsSummary>
 ```
 
-В спойлерах допустимо использовать списки и компоненты `AdditionInfo`, `AdditionWarning` и `AdditionDanger`. Эти же компоненты можно использовать в списках. Пока что не рекомендуется вставлять изображения в списки. Результат вёрстки от таких действий временно не удовлетворяют качеству сайта. Внутри этих компонентов текст пишем без тега `<p>`.
-
-Компоненты `AdditionInfo`, `AdditionWarning` и `AdditionDanger` служат для дополнительной информации.
+В статьях можно использовать списки, а также компоненты  `AdditionInfo`, `AdditionWarning` и `AdditionDanger` для того, чтобы обратить внимание читателя на какую-нибудь дополнительную информацию. Эти же компоненты можно использовать в списках.
 
 ```typescript
 import {
@@ -85,7 +78,9 @@ import {
   AdditionInfo,
   AdditionWarning,
 } from "../../../components/Additions";
+
 import DetailsSummary from "../../../components/DetailsSummary";
+
 <DetailsSummary title="Вопрос">
   <p>Причина поведения определённого действия.</p>
   <ul>
@@ -125,7 +120,7 @@ import DetailsSummary from "../../../components/DetailsSummary";
 - Иконка программы: `className="app"`
 - Иконка пути до файла: `className="path"`
 - Иконка копирования текста: `className="copy"`
-- Иконка кнопки интерфейса: `className="ui"`
+- Иконка кнопки интерфейса: `className="select"`
 - Иконка метки или же тега: `className="tag"`
 - Иконка термина: `className="word"`
 - Иконка видео файла: `className="video"`
@@ -133,70 +128,56 @@ import DetailsSummary from "../../../components/DetailsSummary";
 
 ```typescript
 import DetailsSummary from "../../../components/DetailsSummary";
-<DetailsSummary title="А можешь привести примеры использования тега mark?">
+<DetailsSummary title="А можешь привести примеры использования тега «mark»?">
   <p>
     Конечно. Я могу рассказать об <mark className="app">Adobe After Effects</mark>, указывая на
     интерфейс с помощью тегов. Например я могу указать кнопку в интерфейсе: очистка
-    кэша находится в <mark className="ui">Edit &gt; Purge &gt; All Memory and Cache</mark>
+    кэша находится в <mark className="select">«Edit» → «Purge» → «All Memory and Cache»</mark>
     . Также могу сказать, что используя сторонние эффекты, например{" "}
-    <mark className="plugin">Trapcode Particular</mark> вы можете замедлить
+    <mark className="plugin">Deep Glow</mark> вы можете замедлить
     производительность вашего проекта.
   </p>
 </DetailsSummary>
 ```
 
-Изображения добавляются через компонент `ImageFigure`. Видео файлы добавляются через компонент `VideoFigure`. Этот компонент стилизован компонент нужными классами, которые нужно ввести вручную:
+### Как добавить медиа?
 
-Фигура окна аля Windows:
-
-- Светлая тема: класс `figure_windows-light`
-- Тёмная тема: класс `figure_windows-dark`
-
-Фигура окна аля macOS:
-
-- Светлая тема: класс `figure_macos-light`
-- Тёмная тема: класс `figure_macos-dark`
+Для добавления изображения, видео или ссылку с предпросмотром на YouTube используется компонент `ContentFigure`.
 
 ```typescript
-
 import {ImageFigure, VideoFigure} from "../../../components/ContentFigure";
+
 import DetailsSummary from "../../../components/DetailsSummary";
+
 <DetailsSummary title="Вопрос">
   <p>
     Кэш в <mark className="app">Adobe After Effects</mark> очищается таким образом, как показано
     на изображении ниже.
   </p>
-  <ImageFigure
-    styleClass="figure_windows-light"
-    imgSrc="images/aftereffects/edit_purge_all-memory-and-disk-cache.png"
-    imgTitle="Очистка кэша и освобождение оперативной памяти"
-    caption="Очистка кэша и освобождение оперативной памяти"
+  <ContentFigure
+    caption="Очистка кэша и оперативной памяти"
+    imgTitle="Очистка кэша и оперативной памяти"
+    src="images/aftereffects/edit_purge_all-memory-and-disk-cache.png"
+    theme="light"
+    type="image"
+    variant="windows"
   />
   <p>
     Если вы не понимаете куда нажимать по изображению - ниже приведён скринкаст действий
     для очистки кэша в <mark className="app">Adobe After Effects</mark>.
   </p>
-  <VideoFigure
-    styleClass="figure_macos-dark"
-    videoSrc="images/aftereffects/purge_cache.mp4"
-    caption="Очистка кэша и освобождение оперативной памяти"
+  <ContentFigure
+    caption="Настройка запуска от имени администратора"
+    src="images/aftereffects/how_to_purge_cache.mp4"
+    theme="dark"
+    type="video"
+    variant="macos"
   />
-</DetailsSummary>
-```
-
-Для добавления видео из сервиса YouTube используется компонент `YouTubeVideo`. Использует два аттрибута: `link` и `caption`. Если надо добавить из другого сервиса, который позволяет ссылаться на сам видео файл - можно сделать это через компонент `VideoFigure`.
-
-```typescript
-import {YouTubeVideo} from "../../../components/ContentFigure";
-import DetailsSummary from "../../../components/DetailsSummary";
-<DetailsSummary title="Как легко зарикроллить своего друга?">
-  <p>
-    Достаточно просто. Вам нужно будет вписать компонент с легендарной ссылкой, убрав всё
-    лишнее и оставив только ID видео.
-  </p>
-  <YouTubeVideo
-    link="dQw4w9WgXcQ" // из ссылки https://www.youtube.com/watch?v=dQw4w9WgXcQ нам нужно взять значение после знака "равно"
-    caption="Rick Astley - Never Gonna Give You Up"
+  Подробнее о новых функциях <mark className="app">Adobe After Effects> вы можете посмотреть в официальном канале <mark className="company">Adobe</mark> на <mark className="app">YouTube</mark>
+  <ContentFigure
+    caption="Новые функции в Adobe After Effects 2077"
+    src="dQw4w9WgXcQ" // из ссылки https://www.youtube.com/watch?v=dQw4w9WgXcQ нам нужно взять значение после знака "равно"
+    type="youtube"
   />
 </DetailsSummary>
 ```

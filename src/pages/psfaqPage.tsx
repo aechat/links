@@ -1,44 +1,69 @@
-import React, {Suspense, lazy, useEffect, useState} from "react";
-import {Breadcrumb, Divider} from "antd";
+import {Divider} from "antd";
+
 import {motion} from "framer-motion";
-import {Link} from "react-router-dom";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
+
+import React, {useEffect, useState} from "react";
+
 import {Helmet} from "react-helmet-async";
-import {SearchInPage, SearchProvider} from "../components/search";
-import SupportDonut from "../components/modal/SupportDonut";
-import CopyToClipboard from "../components/features/CopyToClipboard";
-import {CircularProgress} from "@mui/material";
+
 import {generateAnchorId} from "../components/DetailsSummary";
-import {AdditionDanger} from "../components/Additions";
 
-const PSActions = lazy(() => import("./sections/psfaq/Actions"));
+import {useCopyToClipboard} from "../hooks/useCopyToClipboard";
 
-const PSErrors = lazy(() => import("./sections/psfaq/Errors"));
+import {useAnchorScroll} from "../hooks/useAnchorScroll";
 
-const PSExport = lazy(() => import("./sections/psfaq/Export"));
+import {useExternalLinks} from "../hooks/useExternalLinks";
 
-const PSExportProblems = lazy(() => import("./sections/psfaq/ExportProblems"));
+import Footer from "../components/Footer";
 
-const PSFromNewbies = lazy(() => import("./sections/psfaq/FromNewbies"));
+import Header from "../components/Header";
 
-const PSImport = lazy(() => import("./sections/psfaq/Import"));
+import SupportDonut from "../components/modal/SupportDonut";
 
-const PSInstallProblems = lazy(() => import("./sections/psfaq/InstallProblems"));
+import {SearchInPage, SearchProvider} from "../components/search";
 
-const PSInterface = lazy(() => import("./sections/psfaq/Interface"));
+import GithubUpdateInfo from "../components/features/GithubUpdateInfo";
 
-const PSPerformance = lazy(() => import("./sections/psfaq/Performance"));
+import Addition from "../components/Addition";
 
-const PSWhereFind = lazy(() => import("./sections/psfaq/WhereFind"));
+import PSActions from "./sections/psfaq/PSActions";
+
+import PSErrors from "./sections/psfaq/PSErrors";
+
+import PSExport from "./sections/psfaq/PSExport";
+
+import PSExportProblems from "./sections/psfaq/PSExportProblems";
+
+import PSFromNewbies from "./sections/psfaq/PSFromNewbies";
+
+import PSImport from "./sections/psfaq/PSImport";
+
+import PSInstallProblems from "./sections/psfaq/PSInstallProblems";
+
+import PSInterface from "./sections/psfaq/PSInterface";
+
+import PSPerformance from "./sections/psfaq/PSPerformance";
+
+import PSWhereFind from "./sections/psfaq/PSWhereFind";
 
 const PSFAQ = () => {
+  const [isPageLoaded, setIsPageLoaded] = useState(false);
+  useAnchorScroll(isPageLoaded);
+  useExternalLinks();
+
+  const {enableAutoCopy} = useCopyToClipboard();
+
   useEffect(() => {
-    CopyToClipboard.enableAutoCopy();
-  }, []);
+    enableAutoCopy();
+  }, [enableAutoCopy]);
 
   const sections = [
-    {key: "1", title: "Ищем полезности", id: "where-find", component: PSWhereFind},
+    {
+      key: "1",
+      title: "Ищем полезности",
+      id: "where-find",
+      component: PSWhereFind,
+    },
     {
       key: "2",
       title: "Проблемы с установкой",
@@ -65,7 +90,12 @@ const PSFAQ = () => {
       id: "actions",
       component: PSActions,
     },
-    {key: "8", title: "Ошибки и предупреждения", id: "errors", component: PSErrors},
+    {
+      key: "8",
+      title: "Ошибки и предупреждения",
+      id: "errors",
+      component: PSErrors,
+    },
     {key: "9", title: "Рендер и экспорт", id: "export", component: PSExport},
     {
       key: "10",
@@ -74,25 +104,6 @@ const PSFAQ = () => {
       component: PSExportProblems,
     },
   ];
-
-  const [visibleSections, setVisibleSections] = useState<string[]>([]);
-
-  const [isPageLoaded, setIsPageLoaded] = useState(false);
-
-  const [isSectionsLoaded, setIsSectionsLoaded] = useState(false);
-  useEffect(() => {}, [visibleSections.length]);
-
-  const loadSection = async (section: {key: string}) => {
-    setVisibleSections((prev) => [...prev, section.key]);
-  };
-
-  const loadSections = async () => {
-    await Promise.all(sections.map(loadSection));
-    setIsSectionsLoaded(true);
-  };
-  useEffect(() => {
-    loadSections();
-  }, []);
 
   return (
     <div className="page">
@@ -139,96 +150,40 @@ const PSFAQ = () => {
             duration: 0.3,
             ease: [0.25, 0, 0, 1],
           }}
+          onAnimationComplete={() => {
+            setIsPageLoaded(true);
+            generateAnchorId();
+          }}
         >
           <div className="faq-container-flex">
             <div className="faq-container">
               <div className="faq-title">
                 <h1>psfaq</h1>
-                <Breadcrumb
-                  items={[
-                    {
-                      title: <Link to="/psfaq">FAQ по Adobe Photoshop</Link>,
-                      menu: {
-                        items: [
-                          {title: <Link to="/aefaq">FAQ по Adobe After Effects</Link>},
-                          {title: <Link to="/prfaq">FAQ по Adobe Premiere Pro</Link>},
-                        ],
-                      },
-                    },
-                  ]}
-                />
               </div>
+              <GithubUpdateInfo folderPath="src/pages/sections/psfaq" />
               <SupportDonut />
-              <AdditionDanger>
-                Эта страница ещё не проходила полную проверку на точность. В статьях могут
-                быть ошибки или неполная информация. Следите за обновлениями!
-              </AdditionDanger>
-              <Suspense
-                fallback={
-                  <motion.div
-                    animate={{opacity: 1}}
-                    initial={{opacity: 0}}
+              <Addition type="danger">
+                Эта страница всё ещё находится в процессе разработки. Следите за
+                обновлениями!
+              </Addition>
+              {sections.map((section) => (
+                <div
+                  key={section.key}
+                  id={section.id}
+                >
+                  <Divider
+                    orientation="right"
                     style={{
-                      padding: "20px",
-                      display: "flex",
-                      marginBlock: "20px",
-                      flexDirection: "row",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      height: "90dvh",
-                      width: "100%",
-                    }}
-                    transition={{
-                      duration: 0.5,
-                      ease: [0.25, 0, 0, 1],
-                      delay: 1,
+                      color: "var(--text-color)",
+                      textTransform: "uppercase",
+                      fontWeight: "600",
                     }}
                   >
-                    <CircularProgress sx={{color: "var(--accent)"}} />
-                  </motion.div>
-                }
-              >
-                {visibleSections.length > 0 && (
-                  <motion.div
-                    animate={isSectionsLoaded ? {opacity: 1} : {}}
-                    initial={{opacity: 0}}
-                    transition={{
-                      duration: 0.3,
-                      ease: [0.25, 0, 0, 1],
-                    }}
-                    onAnimationStart={() => {
-                      setIsPageLoaded(true);
-                      generateAnchorId();
-                    }}
-                  >
-                    {visibleSections.map((key) => {
-                      const section = sections.find((s) => s.key === key);
-                      if (!section) {
-                        return null;
-                      }
-
-                      return (
-                        <div
-                          key={key}
-                          id={section.id}
-                        >
-                          <Divider
-                            orientation="right"
-                            style={{
-                              color: "var(--text-color)",
-                              textTransform: "uppercase",
-                              fontWeight: "800",
-                            }}
-                          >
-                            {section.title}
-                          </Divider>
-                          <section.component />
-                        </div>
-                      );
-                    })}
-                  </motion.div>
-                )}
-              </Suspense>
+                    {section.title}
+                  </Divider>
+                  <section.component />
+                </div>
+              ))}
               <Footer
                 initialYear={2023}
                 title="aechat & dwchat"
@@ -241,4 +196,5 @@ const PSFAQ = () => {
     </div>
   );
 };
+
 export default PSFAQ;

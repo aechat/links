@@ -1,15 +1,17 @@
 #!/usr/bin/env node
 import {readFileSync, readdirSync, statSync, writeFileSync} from "fs";
+
 import {join} from "path";
+
 import {cwd} from "process";
 
-function fixFileTags (content) {
+function fixFileTags(content) {
   return content.replace(/("file">)\.(.*?)(<)/g, (_, open, word, close) => {
     return `${open}${word.toUpperCase()}${close}`;
   });
 }
 
-function fixKeyTags (content) {
+function fixKeyTags(content) {
   return content.replace(/("key">)(.*?)(<)/g, (_, open, keyContent, close) => {
     const fixed = keyContent.replace(/\s*\+\s*/g, " + ");
 
@@ -17,8 +19,9 @@ function fixKeyTags (content) {
   });
 }
 
-function walkAndFix (dir) {
+function walkAndFix(dir) {
   const files = readdirSync(dir);
+
   for (const file of files) {
     const fullPath = join(dir, file);
 

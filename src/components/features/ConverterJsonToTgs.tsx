@@ -1,81 +1,50 @@
-import React, {useEffect, useState} from "react";
-import {Radio, Spin, Upload, message} from "antd";
-import {saveAs} from "file-saver";
-import {gzip} from "pako";
-import {motion} from "framer-motion";
 import {UploadFileRounded} from "@mui/icons-material";
 
-/**
- * интерфейс для работы с pyodide
- */
+import {Radio, Spin, Upload, message} from "antd";
+
+import {saveAs} from "file-saver";
+
+import {gzip} from "pako";
+
+import React, {useEffect, useState} from "react";
 
 interface Pyodide {
-  /** файловая система */
-
   FS: {
-    /** запись файла */
-
     writeFile: (filename: string, data: Uint8Array) => void;
-
-    /** чтение файла */
-
     readFile: (filename: string) => Uint8Array;
   };
-
-  /** выполнение python кода */
-
   runPythonAsync: (code: string) => Promise<void>;
 }
-
-/**
- * компонент для конвертации json файлов в tgs
- * @returns компонент с возможностью загрузки и конвертации файлов
- */
+declare global {
+  interface Window {
+    loadPyodide: () => Promise<Pyodide>;
+  }
+}
 
 const TgsToJsonConverter: React.FC = () => {
-  /** данные json после загрузки */
-
   const [jsonData, setJsonData] = useState<Record<string, unknown> | null>(null);
-
-  /** оригинальное имя загруженного файла */
 
   const [originalFileName, setOriginalFileName] = useState<string>("");
 
-  /** режим сжатия: js или python */
-
   const [compressionMode, setCompressionMode] = useState<"js" | "python">("js");
-
-  /** экземпляр pyodide для python сжатия */
 
   const [pyodide, setPyodide] = useState<Pyodide | null>(null);
 
-  /** состояние загрузки */
-
   const [loading, setLoading] = useState(false);
-
-  /*
-   * загружает pyodide при выборе python режима
-   */
-
   useEffect(() => {
     if (compressionMode === "python" && !pyodide) {
       loadPyodideInline();
     }
-  }, [compressionMode]);
-
-  /*
-   * загружает pyodide из cdn
-   */
+  }, [compressionMode, pyodide]);
 
   const loadPyodideInline = async (): Promise<void> => {
     setLoading(true);
+
     try {
       const script = document.createElement("script");
       script.src = "https://cdn.jsdelivr.net/pyodide/v0.22.1/full/pyodide.js";
       script.onload = async () => {
-        // @ts-expect-error, чтобы не втыкал
-
-        const py: Pyodide = await (window as unknown).loadPyodide();
+        const py: Pyodide = await window.loadPyodide();
         setPyodide(py);
         setLoading(false);
         message.success("Python-интерпретатор загружен, начните процесс конвертации");
@@ -93,12 +62,6 @@ const TgsToJsonConverter: React.FC = () => {
     }
   };
 
-  /*
-   * обрабатывает загрузку файла
-   * @param file - загруженный файл
-   * @returns false для предотвращения автоматической загрузки
-   */
-
   const handleFileUpload = async (file: File): Promise<boolean> => {
     try {
       const fileData = await file.text();
@@ -115,18 +78,16 @@ const TgsToJsonConverter: React.FC = () => {
     return false;
   };
 
-  /*
-   * скачивает преобразованный tgs файл
-   */
-
   const downloadTgs = async (): Promise<void> => {
     if (!jsonData) {
       return;
     }
+
     setLoading(true);
 
     const jsonString = JSON.stringify(jsonData, null, 2);
     let blob;
+
     if (compressionMode === "js") {
       const compressed = gzip(jsonString);
       blob = new Blob([compressed], {type: "application/gzip"});
@@ -148,7 +109,7 @@ with open("input.json", "rb") as f_in:
       `);
 
       const result = pyodide.FS.readFile("output.tgs");
-      blob = new Blob([result], {type: "application/gzip"});
+      blob = new Blob([result.slice()], {type: "application/gzip"});
     }
 
     if (!blob) {
@@ -157,6 +118,7 @@ with open("input.json", "rb") as f_in:
 
       return;
     }
+
     saveAs(blob, `${originalFileName.replace(/\.json$/, "")}.tgs`);
     setLoading(false);
   };
@@ -188,7 +150,7 @@ with open("input.json", "rb") as f_in:
         >
           <UploadFileRounded />
           <span style={{fontSize: "0.9rem"}}>
-            Перетащите файл формата .json в это поле или нажмите для выбора файла
+            Перетащите файл формата JSON в это поле или нажмите для выбора файла
           </span>
         </div>
       </Upload.Dragger>
@@ -216,37 +178,28 @@ with open("input.json", "rb") as f_in:
             marginBlock: "10px",
           }}
         >
-          <motion.button
+          <button
             className="modal-open-button"
             style={{filter: "saturate(0)", flexGrow: 1}}
-            whileHover={{
-              scale: 0.975,
-              transition: {duration: 0.5, ease: [0.075, 0.82, 0.165, 1]},
-            }}
-            whileTap={{scale: 0.95, opacity: 0.5}}
             onClick={() => {
               setJsonData(null);
               setOriginalFileName("");
             }}
           >
             Сбросить
-          </motion.button>
-          <motion.button
+          </button>
+          <button
             className="modal-open-button"
             disabled={loading}
             style={{flexGrow: 3}}
-            whileHover={{
-              scale: 0.975,
-              transition: {duration: 0.5, ease: [0.075, 0.82, 0.165, 1]},
-            }}
-            whileTap={{scale: 0.95, opacity: 0.5}}
             onClick={downloadTgs}
           >
-            {loading ? <Spin size="small" /> : "Скачать TGS"}
-          </motion.button>
+            {loading ? <Spin size="small" /> : "Скачать преобразованный TGS"}
+          </button>
         </div>
       )}
     </div>
   );
 };
+
 export default TgsToJsonConverter;

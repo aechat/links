@@ -1,24 +1,18 @@
-import {ArrowBackRounded} from "@mui/icons-material";
-import React, {useEffect, useState} from "react";
-import {Link} from "react-router-dom";
-import {SearchButton, WideSearchButton} from "./search";
+import {ArrowBackRounded, SwipeUpRounded} from "@mui/icons-material";
+
 import {motion} from "framer-motion";
-import {MoveToTop} from "./features/MoveToTop";
+
+import React, {useEffect, useState} from "react";
+
+import {Link} from "react-router-dom";
+
 import {ThemeToggleButton} from "./modal/ThemeChanger";
 
-/**
- * пропсы компонента заголовка
- */
+import {SearchButton} from "./search";
 
 interface HeaderProps {
-  /** заголовок страницы */
-
   title: string;
 }
-
-/**
- * стили для компонента заголовка
- */
 
 const styles = {
   header: {
@@ -34,10 +28,6 @@ const styles = {
   },
 } as const;
 
-/**
- * константы для компонента заголовка
- */
-
 const constants = {
   SCROLL_THRESHOLD: 25,
   WIDE_SCREEN_WIDTH: 650,
@@ -45,39 +35,24 @@ const constants = {
   ANIMATION_EASE: [0.075, 0.82, 0.165, 1],
 } as const;
 
-/**
- * список путей страниц с поиском
- */
-
 const SEARCH_PATHS = ["aefaq", "prfaq", "psfaq", "aeexpr"] as const;
 
-/**
- * компонент заголовка страницы с навигацией и поиском
- * @param title - заголовок страницы
- * @returns компонент заголовка
- */
-
 const Header: React.FC<HeaderProps> = ({title}) => {
-  /** состояние видимости заголовка при прокрутке */
-
   const [isVisible, setIsVisible] = useState(false);
-
-  /** состояние ширины экрана для адаптивности */
 
   const [isWide, setIsWide] = useState(window.innerWidth > constants.WIDE_SCREEN_WIDTH);
 
-  /*
-   * проверяет позицию прокрутки и обновляет видимость заголовка
-   */
+  const scrollToTop = (): void => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+    window.history.replaceState({}, "", window.location.pathname);
+  };
 
   const checkScrollPosition = (): void => {
     setIsVisible(window.scrollY > constants.SCROLL_THRESHOLD);
   };
-
-  /*
-   * добавляет обработчик прокрутки при монтировании компонента
-   */
-
   useEffect(() => {
     window.addEventListener("scroll", checkScrollPosition);
 
@@ -85,11 +60,6 @@ const Header: React.FC<HeaderProps> = ({title}) => {
       window.removeEventListener("scroll", checkScrollPosition);
     };
   }, []);
-
-  /*
-   * добавляет обработчик изменения размера окна при монтировании компонента
-   */
-
   useEffect(() => {
     const resizeHandler = (): void => {
       setIsWide(window.innerWidth > constants.WIDE_SCREEN_WIDTH);
@@ -100,10 +70,6 @@ const Header: React.FC<HeaderProps> = ({title}) => {
       window.removeEventListener("resize", resizeHandler);
     };
   }, []);
-
-  /*
-   * проверяет, нужно ли отображать поиск на текущей странице
-   */
 
   const shouldShowSearch = (): boolean => {
     return SEARCH_PATHS.some((path) => location.pathname.includes(path));
@@ -136,14 +102,20 @@ const Header: React.FC<HeaderProps> = ({title}) => {
       </div>
       <div className="header-right">
         <div className={`header-right ${isVisible ? "visible" : "hidden"}`}>
-          <MoveToTop />
+          <button
+            aria-label="Прокрутить страницу вверх"
+            onClick={scrollToTop}
+          >
+            <SwipeUpRounded />
+          </button>
         </div>
         {shouldShowSearch() && (
-          <div>{isWide ? <WideSearchButton /> : <SearchButton />}</div>
+          <div>{isWide ? <SearchButton wide /> : <SearchButton />}</div>
         )}
         <ThemeToggleButton />
       </div>
     </motion.header>
   );
 };
+
 export default Header;

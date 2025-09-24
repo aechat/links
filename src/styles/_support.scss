@@ -1,135 +1,42 @@
 @use "mixins" as *;
 
-.support {
-  &-title {
-    font-weight: 700;
-    font-size: 1.75rem;
-    line-height: 1.25;
-    font-family: "Onest", sans-serif;
-  }
-
-  &-modal {
-    padding: 5px;
-    p {
-      margin-block: 15px;
-    }
-    li {
-      position: relative;
-      padding-inline: 15px;
-      padding-inline-start: 30px;
-      padding-block: 10px;
-      list-style-type: none;
-
-      &:not(:last-child) {
-        border-bottom: 1px solid var(--content-background-border);
-      }
-
-      &::before {
-        display: inline-block;
-        position: absolute;
-        top: 50%;
-        left: 15px;
-        transform: translateY(-50%);
-        opacity: 50%;
-        border-radius: $roundness;
-        background-color: var(--accent);
-        width: 3px;
-        height: 65%;
-        content: "";
-      }
-    }
-  }
-
-  &-button {
-    border-radius: $roundness;
-    padding: 10px;
-    font-weight: 700;
-    font-size: 0.8125rem;
-
-    &-sber {
-      border: solid 1px var(--sber-border);
-      background-color: var(--sber-background);
-      color: var(--sber-text);
-      font-size: 17px;
-      text-align: center;
-
-      &:hover {
-        background-color: var(--sber-hover);
-      }
-    }
-
-    &-yoomoney {
-      border: solid 1px var(--yoomoney-border);
-      background-color: var(--yoomoney-background);
-      color: var(--yoomoney-text);
-      font-size: 17px;
-      text-align: center;
-
-      &:hover {
-        background-color: var(--yoomoney-hover);
-      }
-    }
-
-    &-donut {
-      border: 1px solid hsl(45, 90%, 75%);
-      border-radius: $roundness;
-      background-color: hsl(45, 75%, 90%);
-      padding-inline: 10px;
-      padding-block: 5px;
-      color: black;
-      font-weight: 700;
-    }
-
-    &-share {
-      color: var(--accent);
-    }
-  }
+.support-title {
+  font-weight: 700;
+  font-size: 1.75rem;
+  line-height: 1.25;
+  font-family: Onest, sans-serif;
 }
 
-.copy-cardnumber {
-  display: block;
-  filter: saturate(75%);
-  transition:
-    background-color 0.5s cubic-bezier(0.075, 0.82, 0.165, 1),
-    filter 0.35s cubic-bezier(0.075, 0.82, 0.165, 1);
-  cursor: pointer;
-  margin-block: 10px;
-  border: 1px solid var(--mark-border);
-  border-radius: $roundness * 0.5;
-  background-color: var(--mark-background);
-  padding: 5px 10px;
-  color: var(--mark-text);
-  font-weight: 700;
-  font-size: 1.125rem;
-  text-align: center;
+.support-modal {
+  padding: 5px;
 
-  &:hover {
-    cursor: pointer;
+  p {
+    margin-block: 15px;
   }
 
-  &:active {
-    filter: brightness(0.85);
-  }
+  li {
+    position: relative;
+    padding-inline: 15px;
+    padding-inline-start: 30px;
+    padding-block: 10px;
+    list-style-type: none;
 
-  &-sber {
-    border: solid 1px var(--sber-border);
-    background-color: var(--sber-background);
-    color: var(--sber-text);
-    text-align: center;
-
-    &:hover {
-      background-color: var(--sber-hover);
+    &:not(:last-child) {
+      border-bottom: 1px solid var(--content-background-border);
     }
-  }
 
-  &-yoomoney {
-    border: solid 1px var(--yoomoney-border);
-    background-color: var(--yoomoney-background);
-    color: var(--yoomoney-text);
-    text-align: center;
-
-    &:hover {
-      background-color: var(--yoomoney-hover);
+    &::before {
+      display: inline-block;
+      position: absolute;
+      top: 50%;
+      left: 15px;
+      transform: translateY(-50%);
+      opacity: 0.5;
+      border-radius: $roundness;
+      background-color: var(--accent);
+      width: 3px;
+      height: 65%;
+      content: "";
     }
   }
 }

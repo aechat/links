@@ -1,48 +1,18 @@
-import {motion} from "framer-motion";
 import React from "react";
+
 import {Link} from "react-router-dom";
 
-/**
- * базовые пропсы для карточки ссылки
- */
-
 interface BaseLinkCardProps {
-  /** иконка карточки */
-
-  icon: JSX.Element;
-
-  /** название карточки */
-
+  icon: React.ReactNode;
   name: string;
 }
-
-/**
- * пропсы для карточки ссылки с описанием
- */
-
 interface LinkCardProps extends BaseLinkCardProps {
-  /** внешняя ссылка */
-
   href: string;
-
-  /** описание карточки */
-
   description: string;
 }
-
-/**
- * пропсы для карточки ссылки без описания
- */
-
 interface LinkCardPropsNoDescription extends BaseLinkCardProps {
-  /** внешняя ссылка */
-
   href: string;
 }
-
-/**
- * стили для компонентов карточек
- */
 
 const styles = {
   link: {
@@ -53,49 +23,9 @@ const styles = {
   },
 } as const;
 
-/**
- * анимация при наведении и нажатии на карточку
- */
-
-const cardAnimation = {
-  hover: {
-    scale: 1.025,
-    transition: {
-      duration: 0.5,
-      ease: [0.075, 0.82, 0.165, 1],
-      type: "spring",
-    },
-  },
-  tap: {
-    scale: 0.975,
-    opacity: 0.5,
-  },
-} as const;
-
-/**
- * базовый компонент для карточки ссылки
- */
-
 const BaseLinkCard: React.FC<{
   children: React.ReactNode;
-}> = ({children}) => (
-  <motion.div
-    className="links-button"
-    whileHover={cardAnimation.hover}
-    whileTap={cardAnimation.tap}
-  >
-    {children}
-  </motion.div>
-);
-
-/**
- * компонент для анимированной внешней ссылки с описанием
- * @param href - внешняя ссылка
- * @param icon - иконка карточки
- * @param name - название карточки
- * @param description - описание карточки
- * @returns анимированная карточка с внешней ссылкой
- */
+}> = ({children}) => <div className="links-button">{children}</div>;
 
 export const LinkCard: React.FC<LinkCardProps> = ({href, icon, name, description}) => (
   <BaseLinkCard>
@@ -105,22 +35,14 @@ export const LinkCard: React.FC<LinkCardProps> = ({href, icon, name, description
       style={styles.link}
       target="_blank"
     >
-      <div className="name_container">
-        <p className="name">{name}</p>
+      <div className="name-container">
         <span className="icon">{icon}</span>
+        <p className="name">{name}</p>
       </div>
       <p className="description">{description}</p>
     </a>
   </BaseLinkCard>
 );
-
-/**
- * компонент для анимированной внешней ссылки без описания
- * @param href - внешняя ссылка
- * @param icon - иконка карточки
- * @param name - название карточки
- * @returns анимированная карточка с внешней ссылкой без описания
- */
 
 export const LinkCardNoDescription: React.FC<LinkCardPropsNoDescription> = ({
   href,
@@ -135,24 +57,15 @@ export const LinkCardNoDescription: React.FC<LinkCardPropsNoDescription> = ({
       target="_blank"
     >
       <div
-        className="name_container"
+        className="name-container"
         style={styles.nameContainer}
       >
-        <p className="name">{name}</p>
         <span className="icon">{icon}</span>
+        <p className="name">{name}</p>
       </div>
     </a>
   </BaseLinkCard>
 );
-
-/**
- * компонент для анимированной внутренней ссылки с описанием
- * @param href - внутренняя ссылка
- * @param icon - иконка карточки
- * @param name - название карточки
- * @param description - описание карточки
- * @returns анимированная карточка с внутренней ссылкой
- */
 
 export const LinkInAppCard: React.FC<LinkCardProps> = ({
   href,
@@ -165,9 +78,9 @@ export const LinkInAppCard: React.FC<LinkCardProps> = ({
       style={styles.link}
       to={href}
     >
-      <div className="name_container">
-        <p className="name">{name}</p>
+      <div className="name-container">
         <span className="icon">{icon}</span>
+        <p className="name">{name}</p>
       </div>
       <p className="description">{description}</p>
     </Link>

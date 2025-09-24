@@ -5,7 +5,7 @@ import {
   AssistantRounded,
   BlockRounded,
   BurstModeRounded,
-  BusinessCenterRounded,
+  // BusinessCenterRounded,
   CarRepairRounded,
   ContentCutRounded,
   DesktopWindowsRounded,
@@ -14,8 +14,10 @@ import {
   Download,
   FormatListBulletedRounded,
   ForumRounded,
+  GavelRounded,
   GradientRounded,
   HandymanRounded,
+  ImageRounded,
   MmsRounded,
   MovieFilterRounded,
   MovieRounded,
@@ -34,15 +36,24 @@ import {
   WhatshotRounded,
   WorkRounded,
 } from "@mui/icons-material";
+
 import {Divider} from "antd";
+
 import {motion} from "framer-motion";
+
 import React from "react";
-import Header from "../components/Header";
-import {LinkCard, LinkCardNoDescription, LinkInAppCard} from "../components/LinkCards";
-import {AdditionDanger, AdditionInfo, AdditionWarning} from "../components/Additions";
-import Footer from "../components/Footer";
+
 import {Helmet} from "react-helmet-async";
-import {AEExprIcon, AEIcon, PRIcon, PSIcon} from "./faqIcon";
+
+import Addition from "../components/Addition";
+
+import Footer from "../components/Footer";
+
+import Header from "../components/Header";
+
+import {LinkCard, LinkCardNoDescription, LinkInAppCard} from "../components/LinkCards";
+
+import {/* AEExprIcon, */ AEIcon, PRIcon, PSIcon} from "./faqIcon";
 
 const Links = () => {
   return (
@@ -94,15 +105,17 @@ const Links = () => {
               icon={<PSIcon />}
               name="psfaq (WIP)"
             />
-            <LinkInAppCard
+            {/* <LinkInAppCard
               description="Шпаргалка по использованию выражений в Adobe After Effects"
               href="/aeexpr"
               icon={<AEExprIcon />}
               name="aeexpr (WIP)"
-            />
+            /> 
+            // aeexpr скоро будет возвращён, ссылка временно скрыта из-за пустоты этого раздела
+            */}
           </div>
           <Divider>Наши каналы</Divider>
-          <AdditionInfo>
+          <Addition type="info">
             {(() => {
               const userAgent = navigator.userAgent.toLowerCase();
 
@@ -115,9 +128,9 @@ const Links = () => {
               if (isIOS) {
                 return (
                   <>
-                    Для скачивания материалов из каналов ниже - рекомендую использовать
+                    Для скачивания файлов из каналов ниже рекомендуется использовать
                     официальное приложение <mark className="app">Telegram</mark> вместо
-                    веб-версии, которое можно установить из{" "}
+                    веб-версии. Его можно установить через{" "}
                     <a href="https://telegram.org/dl/ios">App Store</a>.
                   </>
                 );
@@ -126,9 +139,9 @@ const Links = () => {
               if (isAndroid) {
                 return (
                   <>
-                    Для скачивания материалов из каналов ниже - рекомендую использовать
+                    Для скачивания файлов из каналов ниже рекомендуется использовать
                     официальное приложение <mark className="app">Telegram</mark> вместо
-                    веб-версии, которое можно установить по{" "}
+                    веб-версии. Его можно установить по{" "}
                     <a href="https://telegram.org/android">этой ссылке</a>.
                   </>
                 );
@@ -137,9 +150,9 @@ const Links = () => {
               if (isMacOS) {
                 return (
                   <>
-                    Для скачивания материалов из каналов ниже - рекомендую воспользоваться
-                    десктопной версией <mark className="app">Telegram</mark> вместо
-                    веб-версии, которую можно скачать по{" "}
+                    Для скачивания файлов из каналов ниже рекомендуется использовать
+                    десктопную версию <mark className="app">Telegram</mark> вместо
+                    веб-версии. Её можно скачать по{" "}
                     <a href="https://macos.telegram.org/">этой ссылке</a>.
                   </>
                 );
@@ -147,14 +160,14 @@ const Links = () => {
 
               return (
                 <>
-                  Для скачивания материалов из каналов ниже - рекомендую воспользоваться
-                  десктопной версией <mark className="app">Telegram</mark> вместо
-                  веб-версии, которую можно скачать по{" "}
+                  Для скачивания файлов из каналов ниже рекомендуется использовать
+                  десктопную версию <mark className="app">Telegram</mark> вместо
+                  веб-версии. Её можно скачать по{" "}
                   <a href="https://desktop.telegram.org/">этой ссылке</a>.
                 </>
               );
             })()}
-          </AdditionInfo>
+          </Addition>
           <div className="links-grid">
             <LinkCard
               description="Шаблоны и плагины для Adobe After Effects со всего интернета"
@@ -220,13 +233,19 @@ const Links = () => {
               name="Lottie Player"
             />
             <LinkCard
+              description="Просмотрщик и конвертер изображений для Windows"
+              href="https://www.faststone.org/FSIVDownload.htm"
+              icon={<ImageRounded />}
+              name="FastStone Image Viewer"
+            />
+            <LinkCard
               description="Оффлайн конвертер видео файлов в различные кодеки, в том числе монтажные"
               href="https://www.shutterencoder.com/"
               icon={<VideoSettingsRounded />}
               name="Shutter Encoder"
             />
             <LinkCard
-              description="Кросс-платформенная утилита для работы с видеоконтейнерами .mkv и .webm"
+              description="Кросс-платформенная утилита для работы с видеоконтейнерами MKV и WEBM"
               href="https://mkvtoolnix.download/downloads.html"
               icon={<VideoSettingsRounded />}
               name="MKVToolNix"
@@ -275,11 +294,11 @@ const Links = () => {
             />
           </div>
           <Divider>Чаты в Telegram</Divider>
-          <AdditionWarning>
+          <Addition type="warning">
             Перед вступлением в какой-либо чат - прочитайте его правила, чтобы избежать
             недоразумений или внезапных блокировок и ограничений. Обычно правила чатов
             находятся в закреплённом сообщении или в описании чата.
-          </AdditionWarning>
+          </Addition>
           <div className="links-grid">
             <LinkCard
               description="Обсуждаем Adobe After Effects и Adobe Premiere Pro"
@@ -292,6 +311,12 @@ const Links = () => {
               href="https://t.me/+3LF_B_VK-Nw4YzYy"
               icon={<ForumRounded />}
               name="DWChat"
+            />
+            <LinkInAppCard
+              description="Рассказываем об уставе наших чатов"
+              href="rules"
+              icon={<GavelRounded />}
+              name="Правила чатов AEChat и DWChat"
             />
             <LinkCard
               description="Обсуждаем компьютерные технологии и проблемы"
@@ -318,7 +343,13 @@ const Links = () => {
               name="DaVinci Resolve RU"
             />
             <LinkCard
-              description="Сообщество от @TimesaverVFX, где обсуждают Davinci Resolve и Fusion"
+              description="Сообщество от колориста Евгения Ивакина"
+              href="https://t.me/montirovka_chat"
+              icon={<MovieRounded />}
+              name="Монтировка"
+            />
+            <LinkCard
+              description="Сообщество от @TimesaverVFX, где обсуждают DaVinci Resolve и Fusion"
               href="https://t.me/timesaverchat"
               icon={<MovieRounded />}
               name="Чат Таймсейвера"
@@ -341,12 +372,12 @@ const Links = () => {
               icon={<VolumeUpRounded />}
               name="Sound Chat"
             />
-            <LinkCard
+            {/* <LinkCard
               description="Публикуем вакансии и обсуждаем рабочую жизнь"
-              href="https://t.me/upworktut"
+              href="https://t.me/"
               icon={<BusinessCenterRounded />}
               name="Work Chat"
-            />
+            /> */}
             <LinkCard
               description="Обсуждаем Blender и всё что с ним связано"
               href="https://t.me/blender3dchat"
@@ -421,51 +452,45 @@ const Links = () => {
             />
           </div>
           <Divider>Вакансии и работа</Divider>
-          <AdditionDanger>
-            <p
-              style={{
-                textAlign: "center",
-                fontWeight: "bold",
-                fontSize: "1.125rem",
-                marginBlockEnd: "10px",
-              }}
-            >
-              Пожалуйста, остерегайтесь мошенников и разводил!{" "}
-              <a
-                href="https://www.kadrof.ru/articles/45098"
-                title={
-                  "Как обманывают на фрилансе? 12 схем, которые нужно знать фрилансерам"
-                }
-              >
-                Подробнее...
-              </a>
+          <Addition type="danger">
+            <p>
+              Пожалуйста, будьте внимательны при выполнении заказов на фрилансе - вы
+              можете нарваться на недобросовестного заказчика или ловкую схему
+              мошенничества!
             </p>
             <ul>
               <li>
-                Если вас просят перевести гарантийный взнос, деньги на &quot;площадку для
-                фрилансеров&quot; или оформить банковскую карту для &quot;зарплаты&quot; -{" "}
+                Если заказчик просит оплатить гарантийный взнос, перевести средства на
+                &quot;безопасный счёт&quot; или оформить банковскую карту -{" "}
                 <b>
-                  <u>сразу прекращайте диалог</u>
+                  <u>немедленно завершите диалог</u>
+                </b>{" "}
+                и{" "}
+                <b>
+                  <u>никому не называйте коды из SMS</u>
                 </b>
                 . Вы никому не должны переводить деньги для получения того или иного
-                заказа, а также получения для вознаграждения. Если биржа заявляет, мол она
-                получила сертификат от Webmoney -{" "}
+                заказа, а также для получения вознаграждения.
+              </li>
+              <li>
+                Если биржа или площадка для &quot;безопасного счёта&quot; заявляет, мол
+                она получила сертификат от <mark>Webmoney</mark> или других популярных
+                денежных сервисов из прошлого -{" "}
                 <b>
                   <u>сразу покиньте сайт</u>
                 </b>
-                , это не признак для доверия к такому сервису. Вы просто отправите деньги
-                в никуда и ничего взамен не получите.
+                , это не признак для доверия к такому сервису.
               </li>
               <li>
                 <b>
                   <u>
-                    Не переходите по различным ссылкам для получения оплаты из якобы
-                    &quot;универсальных форм получения средств&quot;!
+                    Не переходите по ссылкам для получения оплаты из &quot;универсальных
+                    форм получения средств&quot;!
                   </u>
                 </b>{" "}
-                Зачастую это скам, в котором просят заполнить три поля данных вашей
-                банковской карты (номер карты, срок действия и CVC) и попытаются украсть
-                ваши кровные.
+                Зачастую это скам, в котором вас попросят заполнить три поля данных вашей
+                банковской карты - номер, срок действия и CVC и попытаются украсть ваши
+                деньги.{" "}
               </li>
               <li>
                 Если вы работаете на какой-либо бирже, по типу{" "}
@@ -500,8 +525,8 @@ const Links = () => {
                 заказчиков, которые просят перенести диалог в{" "}
                 <mark className="app">Telegram</mark>,{" "}
                 <mark className="app">Whatsapp</mark> или другой мессенджер/социальную
-                сеть, а оно вам это явно не надо. Диалог вне биржи не регулируется и никто
-                в таком случае не гарантирует вам возврат средств в случае обмана.
+                сеть. Диалог вне биржи никем не регулируется и никто в таком случае не
+                гарантирует вам возврат средств в случае обмана.
               </li>
               <li>
                 <b>
@@ -511,26 +536,19 @@ const Links = () => {
                 мессенджере. Просите поставить имя и никнейм, если он отсутствует.
               </li>
               <li>
-                Если у заказчика в социальной сети или мессенджере два-три фото подряд
-                установлены в одну и ту же дату или даже сегодняшним днём - это явный
-                признак нового или угнанного аккаунта! Цель таких аккаунтов - развести вас
-                на деньги или втереться в доверие.
+                Если в профиле заказчика в <mark className="app">Telegram</mark> или любом
+                другом мессенджере установлены два-три фото подряд в одну и ту же дату или
+                даже сегодняшним днём - это явный признак нового или угнанного аккаунта.
+                Цель таких аккаунтов - развести вас на деньги или втереться в доверие.
               </li>
             </ul>
-          </AdditionDanger>
-          <AdditionWarning>
-            <ul>
-              <li>
-                Если вы всё-таки повелись и ввели кому-то данные банковской карты или
-                совершили перевод мошеннику - сразу обратитесь в ваш банк и сообщите о
-                факте мошенничества.
-              </li>
-              <li>
-                Если ваши банковские данные были похищены - немедленно заблокируйте
-                банковскую карту и перевыпустите её в банковском приложении!
-              </li>
-            </ul>
-          </AdditionWarning>
+          </Addition>
+          <Addition type="warning">
+            Если вы передали данные карты или совершили перевод мошеннику - обратитесь в
+            ваш банк и сообщите о факте мошенничества, а также немедленно заблокируйте
+            банковскую карту и перевыпустите её в банковском приложении. Чем раньше вы
+            свяжетесь с банком - тем лучше.
+          </Addition>
           <div className="links-grid">
             <LinkCardNoDescription
               href="https://t.me/ru_montage_pins"
@@ -590,7 +608,7 @@ const Links = () => {
             <LinkCardNoDescription
               href="https://t.me/s/job_2dfa"
               icon={<WorkRounded />}
-              name="Вакансии для 2D-аниматоров"
+              name="Вакансии для аниматоров"
             />
             <LinkCardNoDescription
               href="https://t.me/s/fordesigner"
@@ -670,4 +688,5 @@ const Links = () => {
     </div>
   );
 };
+
 export default Links;

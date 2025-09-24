@@ -1,29 +1,17 @@
-import React, {useState} from "react";
-import {Upload, message} from "antd";
-import {saveAs} from "file-saver";
-import {inflate} from "pako";
-import {motion} from "framer-motion";
 import {UploadFileRounded} from "@mui/icons-material";
 
-/**
- * компонент для конвертации tgs файлов в json
- * @returns компонент с возможностью загрузки и конвертации файлов
- */
+import {Upload, message} from "antd";
+
+import {saveAs} from "file-saver";
+
+import {inflate} from "pako";
+
+import React, {useState} from "react";
 
 const TgsToJsonConverter: React.FC = () => {
-  /** данные json после конвертации */
-
   const [jsonData, setJsonData] = useState<unknown>(null);
 
-  /** оригинальное имя загруженного файла */
-
   const [originalFileName, setOriginalFileName] = useState<string>("");
-
-  /*
-   * обрабатывает загрузку файла
-   * @param file - загруженный файл
-   * @returns false для предотвращения автоматической загрузки
-   */
 
   const handleFileUpload = async (file: File): Promise<boolean> => {
     try {
@@ -42,10 +30,6 @@ const TgsToJsonConverter: React.FC = () => {
 
     return false;
   };
-
-  /*
-   * скачивает преобразованный json файл
-   */
 
   const downloadJson = (): void => {
     if (jsonData) {
@@ -83,7 +67,7 @@ const TgsToJsonConverter: React.FC = () => {
         >
           <UploadFileRounded />
           <span style={{fontSize: "0.9rem"}}>
-            Перетащите файл формата .tgs в это поле или нажмите для выбора файла
+            Перетащите файл формата TGS в это поле или нажмите для выбора файла
           </span>
         </div>
       </Upload.Dragger>
@@ -96,36 +80,27 @@ const TgsToJsonConverter: React.FC = () => {
             marginBlock: "10px",
           }}
         >
-          <motion.button
+          <button
             className="modal-open-button"
             style={{filter: "saturate(0)", flexGrow: 1}}
-            whileHover={{
-              scale: 0.975,
-              transition: {duration: 0.5, ease: [0.075, 0.82, 0.165, 1]},
-            }}
-            whileTap={{scale: 0.95, opacity: 0.5}}
             onClick={() => {
               setJsonData(null);
               setOriginalFileName("");
             }}
           >
             Сбросить
-          </motion.button>
-          <motion.button
+          </button>
+          <button
             className="modal-open-button"
             style={{flexGrow: 3}}
-            whileHover={{
-              scale: 0.975,
-              transition: {duration: 0.5, ease: [0.075, 0.82, 0.165, 1]},
-            }}
-            whileTap={{scale: 0.95, opacity: 0.5}}
             onClick={downloadJson}
           >
             Скачать преобразованный JSON
-          </motion.button>
+          </button>
         </div>
       ) : null}
     </div>
   );
 };
+
 export default TgsToJsonConverter;

@@ -4,7 +4,7 @@
   opacity: 0.8;
   font-weight: 600 !important;
   font-size: 0.785rem;
-  font-family: "Onest", sans-serif !important;
+  font-family: Onest, sans-serif !important;
   text-transform: uppercase;
 }
 
@@ -14,12 +14,14 @@
 
 .ant-message {
   color: var(--text-color);
-  font-family: "Inter", sans-serif;
+  font-family: Onest, Inter, sans-serif;
 }
 
 .ant-message .ant-message-notice-wrapper .ant-message-notice-content {
   outline: 1px solid var(--content-background-border);
   background: var(--content-background-color);
+  font-size: 0.9rem !important;
+  font-weight: 400;
 }
 
 .ant-modal-root .ant-modal-mask {
@@ -36,9 +38,11 @@
 }
 
 .ant-modal {
-  top: 8px;
+  max-width: calc(100vw - 16px) !important;
+  top: 10px;
+  margin: 0 auto !important;
 
-  @media (min-width: 768px) {
+  @media (width >= 768px) {
     top: 64px;
   }
 }

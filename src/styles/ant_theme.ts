@@ -19,7 +19,7 @@ const themeConfig = {
       dotBorderColor: "var(--accent)",
       railBg: "var(--content-background-border)",
       railHoverBg: "var(--content-background-border)",
-      trackBg: "var(--links-border)",
+      trackBg: "var(--summary-border)",
       trackHoverBg: "var(--accent)",
     },
     Tooltip: {

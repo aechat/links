@@ -1,44 +1,69 @@
-import React, {Suspense, lazy, useEffect, useState} from "react";
-import {Breadcrumb, Divider} from "antd";
+import {Divider} from "antd";
+
 import {motion} from "framer-motion";
-import {Link} from "react-router-dom";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
+
+import React, {useEffect, useState} from "react";
+
 import {Helmet} from "react-helmet-async";
-import {SearchInPage, SearchProvider} from "../components/search";
-import SupportDonut from "../components/modal/SupportDonut";
-import CopyToClipboard from "../components/features/CopyToClipboard";
-import {CircularProgress} from "@mui/material";
+
 import {generateAnchorId} from "../components/DetailsSummary";
-import {AdditionDanger} from "../components/Additions";
 
-const PRActions = lazy(() => import("./sections/prfaq/Actions"));
+import {useCopyToClipboard} from "../hooks/useCopyToClipboard";
 
-const PRErrors = lazy(() => import("./sections/prfaq/Errors"));
+import {useAnchorScroll} from "../hooks/useAnchorScroll";
 
-const PRExport = lazy(() => import("./sections/prfaq/Export"));
+import {useExternalLinks} from "../hooks/useExternalLinks";
 
-const PRExportProblems = lazy(() => import("./sections/prfaq/ExportProblems"));
+import Footer from "../components/Footer";
 
-const PRFromNewbies = lazy(() => import("./sections/prfaq/FromNewbies"));
+import Header from "../components/Header";
 
-const PRImport = lazy(() => import("./sections/prfaq/Import"));
+import SupportDonut from "../components/modal/SupportDonut";
 
-const PRInstallProblems = lazy(() => import("./sections/prfaq/InstallProblems"));
+import {SearchInPage, SearchProvider} from "../components/search";
 
-const PRInterface = lazy(() => import("./sections/prfaq/Interface"));
+import GithubUpdateInfo from "../components/features/GithubUpdateInfo";
 
-const PRPerformance = lazy(() => import("./sections/prfaq/Performance"));
+import Addition from "../components/Addition";
 
-const PRWhereFind = lazy(() => import("./sections/prfaq/WhereFind"));
+import PRActions from "./sections/prfaq/PRActions";
+
+import PRErrors from "./sections/prfaq/PRErrors";
+
+import PRExport from "./sections/prfaq/PRExport";
+
+import PRExportProblems from "./sections/prfaq/PRExportProblems";
+
+import PRFromNewbies from "./sections/prfaq/PRFromNewbies";
+
+import PRImport from "./sections/prfaq/PRImport";
+
+import PRInstallProblems from "./sections/prfaq/PRInstallProblems";
+
+import PRInterface from "./sections/prfaq/PRInterface";
+
+import PRPerformance from "./sections/prfaq/PRPerformance";
+
+import PRWhereFind from "./sections/prfaq/PRWhereFind";
 
 const PRFAQ = () => {
+  const [isPageLoaded, setIsPageLoaded] = useState(false);
+  useAnchorScroll(isPageLoaded);
+  useExternalLinks();
+
+  const {enableAutoCopy} = useCopyToClipboard();
+
   useEffect(() => {
-    CopyToClipboard.enableAutoCopy();
-  }, []);
+    enableAutoCopy();
+  }, [enableAutoCopy]);
 
   const sections = [
-    {key: "1", title: "Ищем полезности", id: "where-find", component: PRWhereFind},
+    {
+      key: "1",
+      title: "Ищем полезности",
+      id: "where-find",
+      component: PRWhereFind,
+    },
     {
       key: "2",
       title: "Проблемы с установкой",
@@ -74,25 +99,6 @@ const PRFAQ = () => {
       component: PRExportProblems,
     },
   ];
-
-  const [visibleSections, setVisibleSections] = useState<string[]>([]);
-
-  const [isPageLoaded, setIsPageLoaded] = useState(false);
-
-  const [isSectionsLoaded, setIsSectionsLoaded] = useState(false);
-  useEffect(() => {}, [visibleSections.length]);
-
-  const loadSection = async (section: {key: string}) => {
-    setVisibleSections((prev) => [...prev, section.key]);
-  };
-
-  const loadSections = async () => {
-    await Promise.all(sections.map(loadSection));
-    setIsSectionsLoaded(true);
-  };
-  useEffect(() => {
-    loadSections();
-  }, []);
 
   return (
     <div className="page">
@@ -139,96 +145,40 @@ const PRFAQ = () => {
             duration: 0.3,
             ease: [0.25, 0, 0, 1],
           }}
+          onAnimationComplete={() => {
+            setIsPageLoaded(true);
+            generateAnchorId();
+          }}
         >
           <div className="faq-container-flex">
             <div className="faq-container">
               <div className="faq-title">
                 <h1>prfaq</h1>
-                <Breadcrumb
-                  items={[
-                    {
-                      title: <Link to="/prfaq">FAQ по Adobe Premiere Pro</Link>,
-                      menu: {
-                        items: [
-                          {title: <Link to="/aefaq">FAQ по Adobe After Effects</Link>},
-                          {title: <Link to="/psfaq">FAQ по Adobe Photoshop</Link>},
-                        ],
-                      },
-                    },
-                  ]}
-                />
               </div>
+              <GithubUpdateInfo folderPath="src/pages/sections/prfaq" />
               <SupportDonut />
-              <AdditionDanger>
-                Эта страница ещё не проходила полную проверку на точность. В статьях могут
-                быть ошибки или неполная информация. Следите за обновлениями!
-              </AdditionDanger>
-              <Suspense
-                fallback={
-                  <motion.div
-                    animate={{opacity: 1}}
-                    initial={{opacity: 0}}
+              <Addition type="danger">
+                Эта страница всё ещё находится в процессе разработки. Следите за
+                обновлениями!
+              </Addition>
+              {sections.map((section) => (
+                <div
+                  key={section.key}
+                  id={section.id}
+                >
+                  <Divider
+                    orientation="right"
                     style={{
-                      padding: "20px",
-                      display: "flex",
-                      marginBlock: "20px",
-                      flexDirection: "row",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      height: "90dvh",
-                      width: "100%",
-                    }}
-                    transition={{
-                      duration: 0.5,
-                      ease: [0.25, 0, 0, 1],
-                      delay: 1,
+                      color: "var(--text-color)",
+                      textTransform: "uppercase",
+                      fontWeight: "600",
                     }}
                   >
-                    <CircularProgress sx={{color: "var(--accent)"}} />
-                  </motion.div>
-                }
-              >
-                {visibleSections.length > 0 && (
-                  <motion.div
-                    animate={isSectionsLoaded ? {opacity: 1} : {}}
-                    initial={{opacity: 0}}
-                    transition={{
-                      duration: 0.3,
-                      ease: [0.25, 0, 0, 1],
-                    }}
-                    onAnimationStart={() => {
-                      setIsPageLoaded(true);
-                      generateAnchorId();
-                    }}
-                  >
-                    {visibleSections.map((key) => {
-                      const section = sections.find((s) => s.key === key);
-                      if (!section) {
-                        return null;
-                      }
-
-                      return (
-                        <div
-                          key={key}
-                          id={section.id}
-                        >
-                          <Divider
-                            orientation="right"
-                            style={{
-                              color: "var(--text-color)",
-                              textTransform: "uppercase",
-                              fontWeight: "800",
-                            }}
-                          >
-                            {section.title}
-                          </Divider>
-                          <section.component />
-                        </div>
-                      );
-                    })}
-                  </motion.div>
-                )}
-              </Suspense>
+                    {section.title}
+                  </Divider>
+                  <section.component />
+                </div>
+              ))}
               <Footer
                 initialYear={2023}
                 title="aechat"
@@ -241,4 +191,5 @@ const PRFAQ = () => {
     </div>
   );
 };
+
 export default PRFAQ;

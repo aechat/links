@@ -1,8 +1,18 @@
-import globals from "globals";
 import pluginJs from "@eslint/js";
-import tseslint from "typescript-eslint";
-import pluginReact from "eslint-plugin-react";
+
+import prettierConfig from "eslint-config-prettier";
+
 import pluginJsxA11y from "eslint-plugin-jsx-a11y";
+
+import perfectionist from "eslint-plugin-perfectionist";
+
+import pluginPrettier from "eslint-plugin-prettier";
+
+import pluginReact from "eslint-plugin-react";
+
+import globals from "globals";
+
+import tseslint from "typescript-eslint";
 
 /** @type {import('eslint').Linter.Config[]} */
 
@@ -12,23 +22,35 @@ export default [
       "**/node_modules/*",
       "**/dist/*",
       "**/@typescript-eslint/*",
-      "**/legacy/*",
+      ".yarn/**",
+      ".pnp.*",
+      "eslint.config.js",
       "vite.config.ts",
+      "scripts/**",
     ],
   },
   {
+    files: ["src/**/*.{ts,tsx,js,jsx}"],
     languageOptions: {
       globals: globals.browser,
+      parser: tseslint.parser,
+      parserOptions: {
+        project: "./tsconfig.json",
+        tsconfigRootDir: import.meta.dirname,
+      },
     },
-  },
-  {
     plugins: {
+      perfectionist,
       "jsx-a11y": pluginJsxA11y,
+      prettier: pluginPrettier,
+      "@typescript-eslint": tseslint.plugin,
+      react: pluginReact,
     },
   },
   pluginJs.configs.recommended,
   ...tseslint.configs.recommended,
   pluginReact.configs.flat.recommended,
+  prettierConfig,
   {
     settings: {
       react: {
@@ -36,76 +58,95 @@ export default [
       },
     },
     rules: {
-      "eol-last": ["error", "always"],
+      "prettier/prettier": [
+        "warn",
+        {
+          arrowParens: "always",
+          bracketSpacing: false,
+          embeddedLanguageFormatting: "auto",
+          endOfLine: "lf",
+          htmlWhitespaceSensitivity: "strict",
+          insertPragma: false,
+          printWidth: 90,
+          proseWrap: "never",
+          quoteProps: "consistent",
+          requirePragma: false,
+          semi: true,
+          singleAttributePerLine: true,
+          singleQuote: false,
+          tabWidth: 2,
+          trailingComma: "es5",
+          useTabs: false,
+          vueIndentScriptAndStyle: true,
+        },
+      ],
+      "eol-last": "off",
       "padding-line-between-statements": [
         "warn",
-        {blankLine: "never", prev: "import", next: "import"},
+        {blankLine: "always", prev: "import", next: "export"},
+        {blankLine: "always", prev: "import", next: "*"},
+        {blankLine: "always", prev: "*", next: "import"},
         {blankLine: "always", prev: "*", next: "const"},
-        {blankLine: "always", prev: "import", next: "let"},
         {blankLine: "always", prev: "const", next: "function"},
         {blankLine: "always", prev: "function", next: "function"},
         {blankLine: "always", prev: "block-like", next: "block-like"},
         {blankLine: "always", prev: "block", next: "*"},
         {blankLine: "always", prev: "function", next: "const"},
-        {
-          blankLine: "always",
-          prev: "return",
-          next: ["function", "class", "block", "export"],
-        },
-        {blankLine: "always", prev: "export", next: ["function", "class", "block"]},
+        {blankLine: "always", prev: "*", next: "export"},
+        {blankLine: "always", prev: "class", next: "export"},
+        {blankLine: "always", prev: "const", next: "export"},
+        {blankLine: "always", prev: "let", next: "export"},
+        {blankLine: "always", prev: "var", next: "export"},
+        {blankLine: "always", prev: "export", next: "class"},
+        {blankLine: "always", prev: "class", next: "class"},
+        {blankLine: "always", prev: "class", next: "function"},
+        {blankLine: "always", prev: "function", next: "class"},
+        {blankLine: "always", prev: "*", next: "class"},
+        {blankLine: "always", prev: "class", next: "*"},
+        {blankLine: "always", prev: "*", next: "function"},
+        {blankLine: "always", prev: "function", next: "*"},
         {blankLine: "always", prev: "*", next: "return"},
+        {blankLine: "always", prev: "return", next: "*"},
+        {blankLine: "always", prev: "*", next: "break"},
+        {blankLine: "always", prev: "break", next: "*"},
+        {blankLine: "always", prev: "*", next: "continue"},
+        {blankLine: "always", prev: "continue", next: "*"},
+        {blankLine: "always", prev: "*", next: "throw"},
+        {blankLine: "always", prev: "throw", next: "*"},
+        {blankLine: "always", prev: "*", next: "try"},
+        {blankLine: "always", prev: "try", next: "*"},
+        {blankLine: "always", prev: "*", next: "switch"},
+        {blankLine: "always", prev: "switch", next: "*"},
+        {blankLine: "always", prev: "*", next: "case"},
+        {blankLine: "always", prev: "case", next: "*"},
+        {blankLine: "always", prev: "*", next: "default"},
+        {blankLine: "always", prev: "default", next: "*"},
+        {blankLine: "always", prev: "*", next: "if"},
+        {blankLine: "always", prev: "if", next: "*"},
+        {blankLine: "always", prev: "*", next: "for"},
+        {blankLine: "always", prev: "for", next: "*"},
+        {blankLine: "always", prev: "*", next: "while"},
+        {blankLine: "always", prev: "while", next: "*"},
+        {blankLine: "always", prev: "*", next: "do"},
+        {blankLine: "always", prev: "do", next: "*"},
       ],
-      "grouped-accessor-pairs": ["error", "getBeforeSet"],
-
-      // "no-unused-vars": ["warn"],
-
-      "no-duplicate-imports": "error",
+      "grouped-accessor-pairs": ["warn", "getBeforeSet"],
+      "no-duplicate-imports": "warn",
       "sort-imports": [
-        "error",
+        "warn",
         {
           ignoreCase: false,
           ignoreDeclarationSort: true,
           ignoreMemberSort: false,
         },
       ],
-
-      // "no-mixed-operators": "error",
-
-      "semi": ["error", "always"],
-      "curly": ["error", "all"],
-      "no-empty": ["error", {allowEmptyCatch: true}],
-      "keyword-spacing": ["error", {before: true, after: true}],
-      "space-infix-ops": ["error", {int32Hint: false}],
-      "space-before-function-paren": ["warn", "always"],
-      "space-before-blocks": ["error", "always"],
-      "comma-spacing": ["error", {before: false, after: true}],
-      "eqeqeq": ["error", "always"],
-      "brace-style": ["error", "1tbs", {allowSingleLine: true}],
-      "space-unary-ops": ["error", {words: true, nonwords: false}],
+      curly: ["warn", "all"],
+      "no-empty": ["warn", {allowEmptyCatch: true}],
+      eqeqeq: ["warn", "always"],
       "no-console": ["warn", {allow: ["warn", "error"]}],
-      "no-multiple-empty-lines": ["error", {max: 1, maxEOF: 1}],
-
-      // "lines-around-comment": [
-      //   "error",
-      //   {
-      //     beforeLineComment: true,
-      //     afterLineComment: true,
-      //     allowBlockStart: false,
-      //     allowBlockEnd: false,
-      //     allowClassStart: false,
-      //     allowClassEnd: false,
-      //     allowObjectStart: false,
-      //     allowObjectEnd: false,
-      //     allowArrayStart: false,
-      //     allowArrayEnd: false,
-      //     beforeBlockComment: true,
-      //     afterBlockComment: true,
-      //   },
-      // ],
-
-      "react/jsx-uses-vars": "error",
+      "react/jsx-uses-vars": "warn",
       "react/jsx-sort-props": [
-        "error",
+        "warn",
         {
           callbacksLast: true,
           shorthandFirst: true,
@@ -115,16 +156,16 @@ export default [
         },
       ],
       "react/jsx-props-no-spreading": "off",
-      "react/jsx-indent-props": ["error", 2],
-      "react/jsx-indent": ["error", 2],
-      "react/jsx-no-duplicate-props": "error",
-      "react/jsx-no-target-blank": "error",
-      "react/jsx-no-undef": "error",
-      "jsx-a11y/alt-text": "error",
-      "jsx-a11y/anchor-has-content": "error",
-      "jsx-a11y/aria-props": "error",
+      "react/jsx-indent-props": ["warn", 2],
+      "react/jsx-indent": ["warn", 2],
+      "react/jsx-no-duplicate-props": "warn",
+      "react/jsx-no-target-blank": "warn",
+      "react/jsx-no-undef": "warn",
+      "jsx-a11y/alt-text": "warn",
+      "jsx-a11y/anchor-has-content": "warn",
+      "jsx-a11y/aria-props": "warn",
       "jsx-a11y/anchor-is-valid": [
-        "error",
+        "warn",
         {
           components: ["Link"],
           specialLink: ["to"],

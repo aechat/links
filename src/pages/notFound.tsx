@@ -1,6 +1,9 @@
 import {motion} from "framer-motion";
+
 import React, {useEffect, useRef, useState} from "react";
+
 import {Helmet} from "react-helmet-async";
+
 interface Subtitle {
   start: number;
   end: number;
@@ -42,6 +45,7 @@ const NotFound = () => {
         audioRef.current.pause();
         audioRef.current.currentTime = 0;
       }
+
       window.removeEventListener("click", handlePlayAudio);
     };
   }, []);
@@ -56,6 +60,7 @@ const NotFound = () => {
       const current = subtitles.find(
         (sub) => currentTime >= sub.start && currentTime <= sub.end
       );
+
       if (current && current.text !== currentSubtitle) {
         setCurrentSubtitle(current.text);
       } else if (!current && currentSubtitle !== "404") {
@@ -89,31 +94,27 @@ const NotFound = () => {
         <div className="error-backtitle">{currentSubtitle}</div>
         <div
           className="modal"
-          style={{maxWidth: "250px", margin: "15px"}}
+          style={{maxWidth: "450px", margin: "15px"}}
         >
-          <div className="modal-header">
-            <div className="modal-header-title">Страница не найдена</div>
-          </div>
-          <div className="modal-content">
-            <motion.button
-              className="modal-open-button"
-              style={{marginBlock: "10px"}}
-              whileHover={{
-                scale: 0.975,
-                transition: {duration: 0.5, ease: [0.25, 0, 0, 1]},
-              }}
-              whileTap={{scale: 0.95, opacity: 0.5}}
-              onClick={() => {
-                window.location.reload();
-                window.location.href = "/";
-              }}
-            >
-              На главную
-            </motion.button>
+          <div className="error-content">
+            <div className="error-title">Страница не найдена</div>
+            <div className="error-message">
+              <div className="flexible-links">
+                <button
+                  onClick={() => {
+                    window.location.reload();
+                    window.location.href = "/";
+                  }}
+                >
+                  На главную
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </motion.main>
   );
 };
+
 export default NotFound;

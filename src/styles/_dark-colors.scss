@@ -1,11 +1,13 @@
 $dark: (
   // ~: стандартные цвета:
   background-color: hsl(0, 0%, 0%),
-  background-color-alpha: hsla(0, 0%, 0%, 0.5),
+  background-color-alpha: hsla(0, 0%, 0%, 0.7),
   text-color: hsl(0, 0%, 100%),
-  content-background-color: hsl(0, 0%, 7.5%),
+  modal-background-color: hsla(var(--accent-hue), calc(8% * var(--saturate-ratio)), 5%, 0.75),
+  modal-background-border: hsla(var(--accent-hue), calc(20% * var(--saturate-ratio)), 15%, 0.5),
+  content-background-color: hsl(0, 0%, 6%),
   content-background-border: hsl(0, 0%, 15%),
-  header-background: hsla(0, 0%, 8%, 0.8),
+  header-background: hsla(var(--accent-hue), calc(30% * var(--saturate-ratio)), 7%, 0.8),
   // ~: банковские цвета:
   sber-background: hsl(130, calc(30% * var(--saturate-ratio)), 13%),
   sber-text: hsl(130, calc(60% * var(--saturate-ratio)), 85%),
@@ -18,37 +20,57 @@ $dark: (
   // ~: с применением акцентного цвета:
   accent: hsl(var(--accent-hue), calc(100% * var(--saturate-ratio)), 73%),
   mark-background: hsl(var(--accent-hue), calc(20% * var(--saturate-ratio)), 12.5%),
-  mark-border: hsl(var(--accent-hue), calc(50% * var(--saturate-ratio)), 50%),
+  mark-border: hsl(var(--accent-hue), calc(20% * var(--saturate-ratio)), 25%),
   mark-text: hsl(var(--accent-hue), calc(75% * var(--saturate-ratio)), 90%),
   button-background: hsl(var(--accent-hue), calc(25% * var(--saturate-ratio)), 12.5%),
   button-border: hsl(var(--accent-hue), calc(35% * var(--saturate-ratio)), 25%),
   header-border: hsla(var(--accent-hue), calc(10% * var(--saturate-ratio)), 25%, 0.5),
   // *: стили summary
-  summary-background: hsl(var(--accent-hue), calc(25% * var(--saturate-ratio)), 8%),
-  summary-border: hsl(var(--accent-hue), calc(35% * var(--saturate-ratio)), 20%),
+  summary-background: hsl(var(--accent-hue), calc(20% * var(--saturate-ratio)), 7%),
+  summary-border: hsl(var(--accent-hue), calc(15% * var(--saturate-ratio)), 17.5%),
   summary-text: hsl(var(--accent-hue), calc(100% * var(--saturate-ratio)), 80%),
-  // *: стили кнопок главной страницы
-  links-background: hsl(var(--accent-hue), calc(25% * var(--saturate-ratio)), 7%),
-  links-gradient: hsl(var(--accent-hue), calc(15% * var(--saturate-ratio)), 10%),
-  links-border: hsl(var(--accent-hue), calc(15% * var(--saturate-ratio)), 12.5%),
-  links-hover: hsl(var(--accent-hue), calc(20% * var(--saturate-ratio)), 11%),
-  links-text: hsl(var(--accent-hue), calc(100% * var(--saturate-ratio)), 80%),
+  summary-hover: hsl(var(--accent-hue), calc(20% * var(--saturate-ratio)), 11%),
   // ~: информационные блоки:
-  addition_info-background: hsl(200, calc(50% * var(--saturate-ratio)), 10%),
-  addition_info-border: hsl(200, calc(40% * var(--saturate-ratio)), 25%),
-  addition_info-text: hsl(200, calc(75% * var(--saturate-ratio)), 90%),
-  addition_info-mark: hsl(200, calc(60% * var(--saturate-ratio)), 25%),
+  addition-info-background: hsl(190, calc(35% * var(--saturate-ratio)), 10%),
+  addition-info-border: hsl(190, calc(30% * var(--saturate-ratio)), 20%),
+  addition-info-text: hsl(190, calc(75% * var(--saturate-ratio)), 90%),
   // ~: предупреждающие блоки:
-  addition_warning-background: hsl(50, calc(40% * var(--saturate-ratio)), 13%),
-  addition_warning-border: hsl(50, calc(50% * var(--saturate-ratio)), 25%),
-  addition_warning-text: hsl(50, calc(75% * var(--saturate-ratio)), 92.5%),
-  addition_warning-mark: hsl(50, calc(95% * var(--saturate-ratio)), 22.5%),
+  addition-warning-background: hsl(50, calc(35% * var(--saturate-ratio)), 11%),
+  addition-warning-border: hsl(50, calc(25% * var(--saturate-ratio)), 20%),
+  addition-warning-text: hsl(50, calc(75% * var(--saturate-ratio)), 92.5%),
   // ~: остерегающие блоки:
-  addition_danger-background: hsl(0, calc(45% * var(--saturate-ratio)), 15%),
-  addition_danger-border: hsl(0, calc(50% * var(--saturate-ratio)), 27.5%),
-  addition_danger-text: hsl(0, calc(100% * var(--saturate-ratio)), 90%),
-  addition_danger-mark: hsl(0, calc(60% * var(--saturate-ratio)), 30%),
+  addition-danger-background: hsl(0, calc(35% * var(--saturate-ratio)), 11%),
+  addition-danger-border: hsl(0, calc(30% * var(--saturate-ratio)), 20%),
+  addition-danger-text: hsl(0, calc(100% * var(--saturate-ratio)), 90%),
   // *: стили таблицы
-  table-background: hsl(0, calc(0% * var(--saturate-ratio)), 10%),
-  table-background-border: hsl(0, calc(0% * var(--saturate-ratio)), 15%)
+  table-background: hsl(0, calc(0% * var(--saturate-ratio)), 8%),
+  table-background-border: hsl(0, calc(0% * var(--saturate-ratio)), 13%),
+  // ~: редактор easing: (ДОБАВЛЕННЫЕ ЦВЕТА)
+  easing-selection-color: hsl(50, 100%, 50%),
+  // для ручек, кубика, ключевых точек
+  easing-text-primary: hsl(0, 0%, 90%),
+  // основной текст
+  easing-text-muted: hsl(0, 0%, 65%),
+  // приглушенный текст (подписи)
+  easing-control-background: hsl(var(--accent-hue), 4%, 17%),
+  // фон кнопок и селекторов
+  easing-control-background-hover: hsl(var(--accent-hue), 4%, 20%),
+  // фон при наведении
+  easing-control-border: hsl(var(--accent-hue), 3%, 29%),
+  // рамка кнопок
+  easing-control-border-hover: hsl(0, 0%, 40%),
+  // рамка при наведении
+  easing-display-background: hsl(var(--accent-hue), 4%, 13%),
+  // фон для таймкода
+  easing-graph-area-background: hsl(0, 0%, 19%),
+  // фон самого графика
+  easing-graph-area-border: hsl(0, 0%, 27%),
+  // рамка контейнера графика
+  easing-graph-grid-major: hsl(0, 0%, 15%),
+  // основные линии сетки
+  easing-graph-grid-minor: hsl(0, 0%, 12%),
+  // второстепенные линии сетки
+  easing-graph-curve-line: hsl(0, 0%, 75%),
+  // цвет кривой
+  easing-track-line-background: hsl(var(--accent-hue), 3%, 29%) // фон трека анимации
 );

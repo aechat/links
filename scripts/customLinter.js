@@ -1,6 +1,8 @@
 #!/usr/bin/env node
 import {readFileSync, readdirSync, statSync, writeFileSync} from "fs";
+
 import {join} from "path";
+
 import {cwd} from "process";
 
 const IGNORED_DIRS = [
@@ -69,14 +71,14 @@ const TEXT_FILE_EXTENSIONS = [
   ".gql",
 ];
 
-function removeEmptyLines (content) {
+function removeEmptyLines(content) {
   return content
     .split("\n")
     .filter((line) => line.trim() !== "")
     .join("\n");
 }
 
-function shouldIgnore (path) {
+function shouldIgnore(path) {
   const parts = path.split(/[/\\]/);
 
   const fileName = parts[parts.length - 1];
@@ -106,7 +108,7 @@ function shouldIgnore (path) {
   return false;
 }
 
-function walkAndRemoveEmptyLines (dir) {
+function walkAndRemoveEmptyLines(dir) {
   const files = readdirSync(dir);
 
   for (const file of files) {

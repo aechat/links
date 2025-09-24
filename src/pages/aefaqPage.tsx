@@ -1,43 +1,67 @@
-import React, {Suspense, lazy, useEffect, useState} from "react";
-import {Breadcrumb, Divider} from "antd";
+import {Divider} from "antd";
+
 import {motion} from "framer-motion";
-import {Link} from "react-router-dom";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
+
+import React, {useEffect, useState} from "react";
+
 import {Helmet} from "react-helmet-async";
-import {SearchInPage, SearchProvider} from "../components/search";
-import SupportDonut from "../components/modal/SupportDonut";
-import CopyToClipboard from "../components/features/CopyToClipboard";
-import {CircularProgress} from "@mui/material";
+
 import {generateAnchorId} from "../components/DetailsSummary";
 
-const AEWhereFind = lazy(() => import("./sections/aefaq/WhereFind"));
+import {useCopyToClipboard} from "../hooks/useCopyToClipboard";
 
-const AEInstallProblems = lazy(() => import("./sections/aefaq/InstallProblems"));
+import {useAnchorScroll} from "../hooks/useAnchorScroll";
 
-const AEFromNewbies = lazy(() => import("./sections/aefaq/FromNewbies"));
+import {useExternalLinks} from "../hooks/useExternalLinks";
 
-const AEImport = lazy(() => import("./sections/aefaq/Import"));
+import Footer from "../components/Footer";
 
-const AEInterface = lazy(() => import("./sections/aefaq/Interface"));
+import Header from "../components/Header";
 
-const AEPerformance = lazy(() => import("./sections/aefaq/Performance"));
+import SupportDonut from "../components/modal/SupportDonut";
 
-const AEActions = lazy(() => import("./sections/aefaq/Actions"));
+import {SearchInPage, SearchProvider} from "../components/search";
 
-const AEErrors = lazy(() => import("./sections/aefaq/Errors"));
+import GithubUpdateInfo from "../components/features/GithubUpdateInfo";
 
-const AEExport = lazy(() => import("./sections/aefaq/Export"));
+import AEWhereFind from "./sections/aefaq/AEWhereFind";
 
-const AEExportProblems = lazy(() => import("./sections/aefaq/ExportProblems"));
+import AEInstallProblems from "./sections/aefaq/AEInstallProblems";
+
+import AEFromNewbies from "./sections/aefaq/AEFromNewbies";
+
+import AEImport from "./sections/aefaq/AEImport";
+
+import AEInterface from "./sections/aefaq/AEInterface";
+
+import AEPerformance from "./sections/aefaq/AEPerformance";
+
+import AEActions from "./sections/aefaq/AEActions";
+
+import AEErrors from "./sections/aefaq/AEErrors";
+
+import AEExport from "./sections/aefaq/AEExport";
+
+import AEExportProblems from "./sections/aefaq/AEExportProblems";
 
 const AEFAQ = () => {
+  const [isPageLoaded, setIsPageLoaded] = useState(false);
+  useAnchorScroll(isPageLoaded);
+  useExternalLinks();
+
+  const {enableAutoCopy} = useCopyToClipboard();
+
   useEffect(() => {
-    CopyToClipboard.enableAutoCopy();
-  }, []);
+    enableAutoCopy();
+  }, [enableAutoCopy]);
 
   const sections = [
-    {key: "1", title: "Ищем полезности", id: "where-find", component: AEWhereFind},
+    {
+      key: "1",
+      title: "Ищем полезности",
+      id: "where-find",
+      component: AEWhereFind,
+    },
     {
       key: "2",
       title: "Проблемы с установкой",
@@ -63,25 +87,6 @@ const AEFAQ = () => {
       component: AEExportProblems,
     },
   ];
-
-  const [visibleSections, setVisibleSections] = useState<string[]>([]);
-
-  const [isPageLoaded, setIsPageLoaded] = useState(false);
-
-  const [isSectionsLoaded, setIsSectionsLoaded] = useState(false);
-  useEffect(() => {}, [visibleSections.length]);
-
-  const loadSection = async (section: {key: string}) => {
-    setVisibleSections((prev) => [...prev, section.key]);
-  };
-
-  const loadSections = async () => {
-    await Promise.all(sections.map(loadSection));
-    setIsSectionsLoaded(true);
-  };
-  useEffect(() => {
-    loadSections();
-  }, []);
 
   return (
     <div className="page">
@@ -128,101 +133,36 @@ const AEFAQ = () => {
             duration: 0.3,
             ease: [0.25, 0, 0, 1],
           }}
+          onAnimationComplete={() => {
+            setIsPageLoaded(true);
+            generateAnchorId();
+          }}
         >
           <div className="faq-container-flex">
             <div className="faq-container">
               <div className="faq-title">
                 <h1>aefaq</h1>
-                <Breadcrumb
-                  items={[
-                    {
-                      title: <Link to="/aefaq">FAQ по Adobe After Effects</Link>,
-                      menu: {
-                        items: [
-                          {
-                            title: (
-                              <Link to="/aeexpr">FAQ по выражениям в After Effects</Link>
-                            ),
-                          },
-                          {
-                            title: <Link to="/prfaq">FAQ по Adobe Premiere Pro</Link>,
-                          },
-                          {
-                            title: <Link to="/psfaq">FAQ по Adobe Photoshop</Link>,
-                          },
-                        ],
-                      },
-                    },
-                  ]}
-                />
               </div>
+              <GithubUpdateInfo folderPath="src/pages/sections/aefaq" />
               <SupportDonut />
-              <Suspense
-                fallback={
-                  <motion.div
-                    animate={{opacity: 1}}
-                    initial={{opacity: 0}}
+              {sections.map((section) => (
+                <div
+                  key={section.key}
+                  id={section.id}
+                >
+                  <Divider
+                    orientation="right"
                     style={{
-                      padding: "20px",
-                      display: "flex",
-                      marginBlock: "20px",
-                      flexDirection: "row",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      height: "90dvh",
-                      width: "100%",
-                    }}
-                    transition={{
-                      duration: 0.5,
-                      ease: [0.25, 0, 0, 1],
-                      delay: 1,
+                      color: "var(--text-color)",
+                      textTransform: "uppercase",
+                      fontWeight: "600",
                     }}
                   >
-                    <CircularProgress sx={{color: "var(--accent)"}} />
-                  </motion.div>
-                }
-              >
-                {visibleSections.length > 0 && (
-                  <motion.div
-                    animate={isSectionsLoaded ? {opacity: 1} : {}}
-                    initial={{opacity: 0}}
-                    transition={{
-                      duration: 0.3,
-                      ease: [0.25, 0, 0, 1],
-                    }}
-                    onAnimationStart={() => {
-                      setIsPageLoaded(true);
-                      generateAnchorId();
-                    }}
-                  >
-                    {visibleSections.map((key) => {
-                      const section = sections.find((s) => s.key === key);
-                      if (!section) {
-                        return null;
-                      }
-
-                      return (
-                        <div
-                          key={key}
-                          id={section.id}
-                        >
-                          <Divider
-                            orientation="right"
-                            style={{
-                              color: "var(--text-color)",
-                              textTransform: "uppercase",
-                              fontWeight: "800",
-                            }}
-                          >
-                            {section.title}
-                          </Divider>
-                          <section.component />
-                        </div>
-                      );
-                    })}
-                  </motion.div>
-                )}
-              </Suspense>
+                    {section.title}
+                  </Divider>
+                  <section.component />
+                </div>
+              ))}
               <Footer
                 initialYear={2023}
                 title="aechat"
@@ -235,4 +175,5 @@ const AEFAQ = () => {
     </div>
   );
 };
+
 export default AEFAQ;

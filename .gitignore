@@ -19,7 +19,6 @@ dist-ssr
 *.sln
 *.sw?
 package-lock.json
-pnpm-lock.yaml
 yarn.lock
 qodana.yaml
 TODO.md
@@ -27,3 +26,9 @@ TODO.md
 .cursor
 public/legacy/css/styles.css
 *.code-workspace
+.husky
+DOCS.md
+.yarn*
+pnpm*.yaml
+.pnp*
+.aider*
