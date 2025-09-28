@@ -6,6 +6,8 @@ import React, {useEffect, useState} from "react";
 
 import {Helmet} from "react-helmet-async";
 
+import PageIntro from "../components/PageIntro";
+
 import Addition from "../components/Addition";
 
 import {generateAnchorId} from "../components/DetailsSummary";
@@ -77,6 +79,10 @@ const AEExpressionPage = () => {
 
   return (
     <div className="page">
+      <PageIntro
+        isLoaded={isPageLoaded}
+        text="aeexpr"
+      />
       <SearchProvider isPageLoaded={isPageLoaded}>
         <Helmet>
           <title>aeexpr@aechat</title>
@@ -115,7 +121,7 @@ const AEExpressionPage = () => {
           animate={{x: 0, y: 0, opacity: 1}}
           className="main"
           exit={{x: 0, y: 50, opacity: 0}}
-          initial={{x: 100, y: 0, opacity: 0}}
+          initial={{x: 0, y: 0, opacity: 0}}
           transition={{
             duration: 0.3,
             ease: [0.25, 0, 0, 1],

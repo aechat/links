@@ -10,6 +10,8 @@ import {Navigate, Route, Routes, useLocation} from "react-router-dom";
 
 import themeConfig from "./styles/ant_theme";
 
+import LoadingAnimation from "./components/LoadingAnimation";
+
 const Links = lazy(() => import("./pages/linksPage"));
 
 const ChatRules = lazy(() => import("./pages/chatRules"));
@@ -138,58 +140,7 @@ export const App = () => {
   return (
     <ConfigProvider theme={themeConfig}>
       <ErrorBoundary>
-        <Suspense
-          fallback={
-            <motion.div
-              animate={{opacity: 1}}
-              initial={{opacity: 0}}
-              transition={{
-                duration: 0.3,
-                ease: [0.25, 0, 0, 1],
-                delay: 1,
-              }}
-            >
-              <LinearProgress color="inherit" />
-              <div style={{marginInline: "auto", maxWidth: "600px"}}>
-                <motion.p
-                  animate={{opacity: 0.5}}
-                  initial={{opacity: 0}}
-                  style={{
-                    margin: "10px",
-                    marginTop: "25px",
-                    fontSize: "0.875rem",
-                    marginInline: "20px",
-                  }}
-                  transition={{
-                    duration: 1,
-                    ease: [0.25, 0, 0, 1],
-                    delay: 5,
-                  }}
-                >
-                  Если страница медленно загружается, проверьте скорость вашего
-                  интернет-соединения
-                </motion.p>
-                <motion.p
-                  animate={{opacity: 0.25}}
-                  initial={{opacity: 0}}
-                  style={{
-                    margin: "10px",
-                    fontSize: "0.8rem",
-                    textAlign: "right",
-                    marginInline: "20px",
-                  }}
-                  transition={{
-                    duration: 1,
-                    ease: [0.25, 0, 0, 1],
-                    delay: 7.5,
-                  }}
-                >
-                  ...или отключите VPN
-                </motion.p>
-              </div>
-            </motion.div>
-          }
-        >
+        <Suspense fallback={<LoadingAnimation />}>
           <AnimatePresence
             mode="wait"
             onExitComplete={() => {

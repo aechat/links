@@ -22,6 +22,8 @@ import {useExternalLinks} from "../hooks/useExternalLinks";
 
 import {useCopyToClipboard} from "../hooks/useCopyToClipboard";
 
+import PageIntro from "../components/PageIntro";
+
 const constants = {
   SCROLL_DELAY: 300,
   PADDING: {
@@ -120,11 +122,12 @@ const ChatRules = () => {
         />
       </Helmet>
       <Header title="rules" />
+      <PageIntro text="rules" />
       <motion.main
         animate={{x: 0, y: 0, opacity: 1}}
         className="main"
         exit={{x: 0, y: 50, opacity: 0}}
-        initial={{x: 100, y: 0, opacity: 0}}
+        initial={{x: 0, y: 0, opacity: 0}}
         transition={{
           duration: 0.3,
           ease: [0.25, 0, 0, 1],
