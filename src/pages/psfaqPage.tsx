@@ -6,6 +6,8 @@ import React, {useEffect, useState} from "react";
 
 import {Helmet} from "react-helmet-async";
 
+import PageIntro from "../components/PageIntro";
+
 import {generateAnchorId} from "../components/DetailsSummary";
 
 import {useCopyToClipboard} from "../hooks/useCopyToClipboard";
@@ -107,6 +109,10 @@ const PSFAQ = () => {
 
   return (
     <div className="page">
+      <PageIntro
+        isLoaded={isPageLoaded}
+        text="psfaq"
+      />
       <SearchProvider isPageLoaded={isPageLoaded}>
         <Helmet>
           <title>psfaq@aechat</title>
@@ -145,7 +151,7 @@ const PSFAQ = () => {
           animate={{x: 0, y: 0, opacity: 1}}
           className="main"
           exit={{x: 0, y: 50, opacity: 0}}
-          initial={{x: 100, y: 0, opacity: 0}}
+          initial={{x: 0, y: 0, opacity: 0}}
           transition={{
             duration: 0.3,
             ease: [0.25, 0, 0, 1],
