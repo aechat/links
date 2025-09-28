@@ -3,10 +3,10 @@
 table {
   margin: 10px;
   border-collapse: separate;
-  border-spacing: 5px;
+  border-spacing: 4px;
   width: calc(100% - 20px);
   overflow: hidden;
-  font-size: 0.925rem;
+  font-size: 0.95rem;
 }
 
 @media (width <= 400px) {
@@ -16,7 +16,7 @@ table {
     td,
     th {
       padding: 4px 2px;
-      font-size: 0.75rem;
+      font-size: 0.85rem;
 
       .addition-info,
       .addition-warning,
@@ -37,23 +37,21 @@ th {
   .addition-info,
   .addition-warning,
   .addition-danger {
-    text-align: left;
     margin-inline: auto;
     font-size: 0.875rem;
+    text-align: left;
   }
 
-  mark {
+  mark,
+  a {
     outline: none;
     background: none;
 
     &::before {
-      width: min(
-        calc(10px + (12 - 10) * ((100vw - 320px) / (768 - 320))),
-        12px
-      ) !important;
+      width: min(calc(9px + (14 - 9) * ((100vw - 320px) / (768 - 320))), 14px) !important;
       height: min(
-        calc(10px + (12 - 10) * ((100vw - 320px) / (768 - 320))),
-        12px
+        calc(9px + (14 - 9) * ((100vw - 320px) / (768 - 320))),
+        14px
       ) !important;
     }
   }
