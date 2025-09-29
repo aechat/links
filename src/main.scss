@@ -88,6 +88,10 @@ footer {
   }
 }
 
+input {
+  accent-color: var(--accent);
+}
+
 .hidden {
   visibility: hidden;
   opacity: 0;
