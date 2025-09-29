@@ -31,17 +31,17 @@ $dark: (
   summary-text: hsl(var(--accent-hue), calc(100% * var(--saturate-ratio)), 80%),
   summary-hover: hsl(var(--accent-hue), calc(20% * var(--saturate-ratio)), 11%),
   // ~: информационные блоки:
-  addition-info-background: hsl(190, calc(35% * var(--saturate-ratio)), 10%),
-  addition-info-border: hsl(190, calc(30% * var(--saturate-ratio)), 20%),
-  addition-info-text: hsl(190, calc(75% * var(--saturate-ratio)), 90%),
+  addition-info-background: hsl(190, 35%, 10%),
+  addition-info-border: hsl(190, 30%, 20%),
+  addition-info-text: hsl(190, 75%, 90%),
   // ~: предупреждающие блоки:
-  addition-warning-background: hsl(50, calc(35% * var(--saturate-ratio)), 11%),
-  addition-warning-border: hsl(50, calc(25% * var(--saturate-ratio)), 20%),
-  addition-warning-text: hsl(50, calc(75% * var(--saturate-ratio)), 92.5%),
+  addition-warning-background: hsl(50, 35%, 11%),
+  addition-warning-border: hsl(50, 25%, 20%),
+  addition-warning-text: hsl(50, 75%, 92.5%),
   // ~: остерегающие блоки:
-  addition-danger-background: hsl(0, calc(35% * var(--saturate-ratio)), 11%),
-  addition-danger-border: hsl(0, calc(30% * var(--saturate-ratio)), 20%),
-  addition-danger-text: hsl(0, calc(100% * var(--saturate-ratio)), 90%),
+  addition-danger-background: hsl(0, 35%, 11%),
+  addition-danger-border: hsl(0, 30%, 20%),
+  addition-danger-text: hsl(0, 100%, 90%),
   // *: стили таблицы
   table-background: hsl(0, calc(0% * var(--saturate-ratio)), 8%),
   table-background-border: hsl(0, calc(0% * var(--saturate-ratio)), 13%),
