@@ -6,6 +6,16 @@
   max-width: var(--max-width);
 }
 
+body.has-open-details .faq-content {
+  details:not([open]) {
+    opacity: 0.5;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+}
+
 .faq-container-flex {
   display: flex;
   flex-direction: row;
@@ -112,6 +122,10 @@
 }
 
 .faq-content {
+  details:not([open]) {
+    transition: opacity 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+  }
+
   p {
     text-wrap: stable;
     margin-inline: min(calc(15px + (20 - 15) * ((100vw - 320px) / (768 - 320))), 20px);
