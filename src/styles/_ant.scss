@@ -20,13 +20,14 @@
 .ant-message .ant-message-notice-wrapper .ant-message-notice-content {
   outline: 1px solid var(--content-background-border);
   background: var(--content-background-color);
-  font-size: 0.9rem !important;
   font-weight: 400;
+  font-size: 0.9rem !important;
 }
 
 .ant-modal-root .ant-modal-mask {
   backdrop-filter: blur(25px);
   background-color: var(--background-color-alpha);
+  height: 100vh;
 }
 
 .ant-breadcrumb {
@@ -38,9 +39,9 @@
 }
 
 .ant-modal {
-  max-width: calc(100vw - 16px) !important;
   top: 10px;
   margin: 0 auto !important;
+  max-width: calc(100vw - 16px) !important;
 
   @media (width >= 768px) {
     top: 64px;
