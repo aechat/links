@@ -5061,6 +5061,25 @@ const AEFromNewbies: React.FC = () => {
           воспользоваться плагином <mark className="plugin">Auto Crop 3</mark>.
         </p>
         <p>{/* FIXME: */}</p>
+        <Divider>Используем «Region of Interest»</Divider>
+        <p>
+          Если точность до пикселя не важна, композицию можно быстро обрезать с помощью{" "}
+          <mark className="select">«Region of Interest»</mark>. Для этого нажмите на
+          соответствующую иконку в окне предпросмотра и начните рисовать рамку.
+        </p>
+        <p>
+          Когда область будет нарисована, перейдите в меню{" "}
+          <mark className="select">«Composition»</mark> и выберите{" "}
+          <mark className="select">«Crop Comp to Region of Interest»</mark>. Композиция
+          тут же обрежется по границам нарисованной области.
+        </p>
+        <ContentFigure
+          caption="Кадрирование с помощью Region of Interest"
+          src="images/aftereffects/crop_comp_to_region_of_interest.mp4"
+          theme="dark"
+          type="video"
+          variant="windows"
+        />
       </DetailsSummary>
       <DetailsSummary
         tag="start timecode, начальный таймкод, начало композиции, ноль, 00:00:00:00"
