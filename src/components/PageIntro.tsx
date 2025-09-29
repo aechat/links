@@ -1,4 +1,5 @@
 import {AnimatePresence, motion} from "framer-motion";
+
 import React, {useEffect, useState} from "react";
 
 import BouncyText from "./BouncyText";
@@ -13,7 +14,9 @@ const PageIntro: React.FC<PageIntroProps> = ({text, isLoaded = true}) => {
 
   useEffect(() => {
     const lastShown = localStorage.getItem("introLastShown");
+
     const now = new Date().getTime();
+
     const oneHour = 60 * 60 * 1000;
 
     if (!lastShown || now - parseInt(lastShown, 10) > oneHour) {

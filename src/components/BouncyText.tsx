@@ -32,7 +32,7 @@ const BouncyText: React.FC<BouncyTextProps> = ({text}) => {
     fontWeight: 500,
     fontStyle: "italic",
     fontSize: "1.5em",
-    translate:"0 10px",
+    translate: "0 10px",
     color: "var(--accent)",
     whiteSpace: "nowrap",
   };
