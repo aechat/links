@@ -1108,7 +1108,9 @@ const AEInstallProblems: React.FC = () => {
                 <mark className="select">«Реклама»</mark> и файлы для подмены активации
                 приложения — и помечает его как{" "}
                 <mark className="warning">«Contrebrew.A!ml»</mark>,{" "}
-                <mark className="warning">«Adware»</mark> или иначе. Иногда файлы могут
+                <mark className="warning">«Adware»</mark>,{" "}
+                <mark className="warning">«Adload»</mark>,{" "}
+                <mark className="warning">«HackTool»</mark> или иначе. Иногда файлы могут
                 удаляться <mark className="app">антивирусным ПО</mark> и из дистрибутивов
                 от <mark className="user">m0nkrus</mark> или других «релизеров», а также
                 при распаковке различных плагинов и файлов из интернета — даже если они
