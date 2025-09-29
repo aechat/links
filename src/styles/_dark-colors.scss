@@ -26,8 +26,8 @@ $dark: (
   button-border: hsl(var(--accent-hue), calc(35% * var(--saturate-ratio)), 25%),
   header-border: hsla(var(--accent-hue), calc(10% * var(--saturate-ratio)), 25%, 0.5),
   // *: стили summary
-  summary-background: hsl(var(--accent-hue), calc(20% * var(--saturate-ratio)), 7%),
-  summary-border: hsl(var(--accent-hue), calc(15% * var(--saturate-ratio)), 17.5%),
+  summary-background: hsl(var(--accent-hue), calc(12.5% * var(--saturate-ratio)), 6%),
+  summary-border: hsl(var(--accent-hue), calc(15% * var(--saturate-ratio)), 15%),
   summary-text: hsl(var(--accent-hue), calc(100% * var(--saturate-ratio)), 80%),
   summary-hover: hsl(var(--accent-hue), calc(20% * var(--saturate-ratio)), 11%),
   // ~: информационные блоки:
