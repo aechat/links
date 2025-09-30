@@ -1,4 +1,4 @@
-@use "mixins" as *;
+@use "mixins"as *;
 
 table {
   margin: 10px;
@@ -9,7 +9,7 @@ table {
   font-size: 0.95rem;
 }
 
-@media (width <= 400px) {
+@media (width <=400px) {
   table {
     word-wrap: break-word;
 
@@ -30,16 +30,28 @@ table {
 td,
 th {
   vertical-align: middle;
-  border-radius: $roundness * 0.5;
+  border-radius: $roundness * 0.75;
   padding: 6px 10px;
+  line-height: 1.65;
   text-align: center;
 
   .addition-info,
   .addition-warning,
   .addition-danger {
     margin-inline: auto;
+    border-radius: $roundness * 0.5;
     font-size: 0.875rem;
     text-align: left;
+    padding-block: 8px;
+    padding-inline: 12px;
+
+    &:last-child {
+      margin-block-end: 5px;
+    }
+
+    &:first-child {
+      margin-block-start: 5px;
+    }
   }
 
   mark,
@@ -49,10 +61,8 @@ th {
 
     &::before {
       width: min(calc(9px + (14 - 9) * ((100vw - 320px) / (768 - 320))), 14px) !important;
-      height: min(
-        calc(9px + (14 - 9) * ((100vw - 320px) / (768 - 320))),
-        14px
-      ) !important;
+      height: min(calc(9px + (14 - 9) * ((100vw - 320px) / (768 - 320))),
+          14px) !important;
     }
   }
 }
