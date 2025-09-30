@@ -4,7 +4,7 @@
   padding-inline-start: 14px;
   padding-block: 8px;
   width: 100%;
-  color: var(--summary-text);
+  color: var(--search-input-text);
   font-weight: 600;
   font-size: 1rem;
 }
@@ -24,10 +24,10 @@
   flex-flow: row nowrap;
   justify-content: space-between;
   z-index: 100;
-  outline: 1px solid var(--summary-border);
+  outline: 1px solid var(--search-input-border);
   border-top-right-radius: $roundness;
   border-top-left-radius: $roundness;
-  background-color: var(--summary-background);
+  background-color: var(--search-input-background);
 }
 
 .search-input-close,
@@ -37,8 +37,17 @@
   flex-shrink: 0;
   justify-content: center;
   align-items: center;
+  transition: background-color 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
   width: 40px;
-  color: var(--summary-text);
+  color: var(--search-input-text);
+
+  &:hover {
+    background-color: var(--search-input-button-hover);
+  }
+
+  &:active {
+    background-color: var(--search-input-button-active);
+  }
 }
 
 .search-input-close svg,
@@ -106,19 +115,23 @@
   z-index: 1000;
   transition: background-color 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
   cursor: pointer;
-  outline: 1px solid var(--summary-border);
-  background-color: var(--summary-background);
+  outline: 1px solid var(--search-result-border);
+  background-color: var(--search-result-background);
   padding: 8px 12px;
 }
 
 .search-header:hover {
-  background-color: var(--summary-hover);
+  background-color: var(--search-result-hover);
+}
+
+.search-header:active {
+  background-color: var(--search-result-active);
 }
 
 .search-title {
   position: relative;
   margin: 0 !important;
-  color: var(--summary-text);
+  color: var(--search-result-text);
   font-weight: 650;
   font-size: min(
     calc(1.05rem + (1.2 - 1.05) * ((100vw - 320px) / (768 - 320))),
@@ -130,9 +143,9 @@
 }
 
 .search-content {
-  outline: solid 1px var(--modal-background-border);
+  outline: solid 1px var(--search-result-content-border);
   border-top: none;
-  background-color: var(--modal-background-color);
+  background-color: var(--search-result-content-background);
   overflow: hidden;
   font-size: 0.925rem;
 }
@@ -170,12 +183,12 @@
 }
 
 .search-selected .search-header {
-  outline: 1px solid var(--accent);
-  background-color: var(--summary-hover);
+  outline: 1px solid var(--search-result-selected-border);
+  background-color: var(--search-result-hover);
 }
 
 .search-selected .search-content {
-  background-color: var(--summary-background);
+  background-color: var(--search-result-background);
 }
 
 .search-no-results {
@@ -186,7 +199,7 @@
   display: flex;
   flex-flow: wrap;
   margin: 10px;
-  outline: 1px solid var(--summary-border);
+  outline: 1px solid var(--button-group-border);
   border-radius: $roundness;
   overflow: hidden;
 
@@ -196,14 +209,14 @@
     flex: 1 0 175px;
     transition: background-color 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
     box-sizing: border-box;
-    outline: 1px solid var(--summary-border);
+    outline: 1px solid var(--button-group-border);
     border-radius: 0;
-    background-color: var(--summary-background);
+    background-color: var(--button-group-background);
     padding-inline: 10px;
     padding-block: 8px;
     width: 100%;
     min-width: 150px;
-    color: var(--summary-text);
+    color: var(--button-group-text);
     font-weight: 500;
     font-size: 0.95rem;
     line-height: 1.25;
@@ -217,7 +230,15 @@
 
     &:hover {
       cursor: pointer;
-      background-color: var(--summary-hover);
+      background-color: var(--button-group-hover);
+    }
+
+    &:active {
+      background-color: var(--button-group-active);
+    }
+
+    &:active {
+      background-color: var(--button-group-active);
     }
   }
 }
@@ -262,14 +283,14 @@
     flex: 1 0 175px;
     transition: background-color 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
     box-sizing: border-box;
-    outline: 1px solid var(--modal-background-border);
+    outline: 1px solid var(--button-group-border);
     border-radius: 0;
-    background-color: var(--summary-background);
+    background-color: var(--button-group-background);
     padding-inline: 10px;
     padding-block: 8px;
     width: 100%;
     min-width: 150px;
-    color: var(--summary-text);
+    color: var(--button-group-text);
     font-weight: 500;
     font-size: 0.95rem;
     line-height: 1.25;
@@ -283,7 +304,11 @@
 
     &:hover {
       cursor: pointer;
-      background-color: var(--summary-hover);
+      background-color: var(--button-group-hover);
+    }
+
+    &:active {
+      background-color: var(--button-group-active);
     }
   }
 }

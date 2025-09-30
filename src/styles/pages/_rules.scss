@@ -20,6 +20,14 @@
   font-family: Onest, sans-serif;
   text-transform: uppercase;
 
+  &:hover {
+    background-color: var(--summary-hover);
+  }
+
+  &:active {
+    background-color: var(--summary-active);
+  }
+
   &:first-of-type {
     border-top-left-radius: $roundness;
     border-top-right-radius: $roundness;

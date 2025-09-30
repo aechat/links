@@ -20,13 +20,14 @@
 .ant-message .ant-message-notice-wrapper .ant-message-notice-content {
   outline: 1px solid var(--content-background-border);
   background: var(--content-background-color);
-  font-size: 0.9rem !important;
   font-weight: 400;
+  font-size: 0.9rem !important;
 }
 
 .ant-modal-root .ant-modal-mask {
   backdrop-filter: blur(25px);
   background-color: var(--background-color-alpha);
+  height: 100vh;
 }
 
 .ant-breadcrumb {
@@ -38,9 +39,9 @@
 }
 
 .ant-modal {
-  max-width: calc(100vw - 16px) !important;
   top: 10px;
   margin: 0 auto !important;
+  max-width: calc(100vw - 16px) !important;
 
   @media (width >= 768px) {
     top: 64px;
@@ -95,7 +96,12 @@
 }
 
 .ant-dropdown-menu-item:hover {
-  outline: 1px solid var(--summary-border);
+  outline: 1px solid var(--dropdown-item-hover-border);
+  background-color: var(--dropdown-item-hover-background);
+}
+
+.ant-dropdown-menu-item:active {
+  background-color: var(--dropdown-item-active-background);
 }
 
 .ant-dropdown-menu-title-content {
@@ -103,6 +109,6 @@
 }
 
 .ant-dropdown {
-  border: 1px solid var(--content-background-border);
+  border: 1px solid var(--dropdown-border);
   border-radius: $roundness;
 }

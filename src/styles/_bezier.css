@@ -144,6 +144,11 @@
   background: var(--easing-control-background-hover);
 }
 
+.control-item-select:active {
+  transform: scale(0.98);
+  transition: transform 0.1s;
+}
+
 .control-item-display {
   display: flex;
   justify-content: center;
@@ -208,4 +213,8 @@
 .handle {
   fill: var(--easing-selection-color);
   cursor: grab;
+}
+
+.handle:active {
+  cursor: grabbing;
 }

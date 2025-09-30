@@ -319,7 +319,7 @@ li {
   .addition-warning,
   .addition-danger {
     margin-inline: 0;
-    margin-block: 15px;
+    margin-block: 5px;
     border-radius: $roundness * 0.75;
   }
 }
@@ -330,14 +330,11 @@ li {
   justify-content: space-between;
   align-items: center;
   gap: 10px;
-
-  // FIXME: добавить отдельный цвет для фильтрации контента
-  filter: saturate(0.5);
   margin-block-start: -1px;
-  outline: 1px solid var(--summary-border);
-  background-color: var(--summary-background);
+  outline: 1px solid var(--filter-border);
+  background-color: var(--filter-background);
   padding: 10px 15px;
-  color: var(--summary-text);
+  color: var(--filter-text);
   font-size: 0.9375rem;
   line-height: 1.5;
 
@@ -345,10 +342,10 @@ li {
     opacity: 0.75;
     transition: opacity 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
     margin-inline-start: 5px;
-    outline: 1px solid var(--summary-border);
+    outline: 1px solid var(--filter-border);
     border-radius: $roundness * 0.5;
     padding: 5px 8px;
-    color: var(--summary-text);
+    color: var(--filter-text);
     font-weight: 600;
     font-size: 0.85rem;
     line-height: 1.25;

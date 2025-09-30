@@ -29,7 +29,20 @@
 }
 
 .modal-header-close {
+  transition:
+    background-color 0.5s cubic-bezier(0.075, 0.82, 0.165, 1),
+    color 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
   color: var(--summary-text);
+  border-radius: $roundness * 0.5;
+  padding: 4px;
+
+  &:hover {
+    background-color: var(--button-hover);
+  }
+
+  &:active {
+    background-color: var(--button-active);
+  }
 }
 
 .modal-content {
@@ -55,6 +68,7 @@
   justify-content: center;
   align-items: center;
   gap: 8px;
+  transition: background-color 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
   cursor: pointer;
   border: 1px solid var(--summary-border);
   border-radius: $roundness;
@@ -65,12 +79,21 @@
   font-size: 0.875rem;
   font-family: Onest, sans-serif;
   text-align: center;
+
+  &:hover {
+    background-color: var(--summary-hover);
+  }
+
+  &:active {
+    background-color: var(--summary-active);
+  }
 }
 
 .modal-open-button {
   display: flex;
   justify-content: center;
   align-items: center;
+  transition: background-color 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
   cursor: pointer;
   margin: 0 auto;
   border: 1px solid var(--summary-border);
@@ -83,6 +106,14 @@
   font-size: 0.95rem;
   font-family: Onest, sans-serif;
   text-align: center;
+
+  &:hover {
+    background-color: var(--summary-hover);
+  }
+
+  &:active {
+    background-color: var(--summary-active);
+  }
 }
 
 .modal p {
@@ -150,6 +181,10 @@
   &:hover {
     background-color: var(--sber-hover);
   }
+
+  &:active {
+    background-color: var(--sber-active);
+  }
 }
 
 .yoomoney {
@@ -170,6 +205,10 @@
 
   &:hover {
     background-color: var(--yoomoney-hover);
+  }
+
+  &:active {
+    background-color: var(--yoomoney-active);
   }
 }
 

@@ -32,25 +32,29 @@
     }
     .youtube-button {
       opacity: 0.75;
-      transition: opacity 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+      transition:
+        opacity,
+        background-color 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
       margin: 5px;
       margin-inline-start: 5px;
-      outline: 1px solid hsl(0deg 0% 20%);
+      outline: 1px solid var(--figure-youtube-border);
       border-radius: $roundness * 0.5;
-      background-color: hsl(0deg 0% 12.5%);
+      background-color: var(--figure-youtube-background);
       padding: 5px 8px;
-      color: hsl(0deg 0% 100%);
+      color: var(--figure-youtube-text);
       font-weight: 600;
       font-size: 0.825rem;
       line-height: 1.25;
       text-align: center;
 
       &:hover {
-        opacity: 0.8;
+        opacity: 1;
+        background-color: var(--figure-youtube-hover);
       }
 
       &:active {
-        opacity: 0.5;
+        opacity: 1;
+        background-color: var(--figure-youtube-active);
       }
     }
   }
@@ -102,20 +106,30 @@
 
     .minimize,
     .maximize {
-      &:hover {
-        background: hsl(0deg 0% 50% / 10%);
-      }
+      transition: background-color 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
     }
 
     .close {
-      &:hover {
-        background: hsl(0deg 100% 75% / 20%);
-      }
+      transition: background-color 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
     }
   }
 }
 
 .figure-windows-light {
+  .minimize:hover,
+  .maximize:hover {
+    background: var(--figure-control-hover);
+  }
+  .minimize:active,
+  .maximize:active {
+    background: var(--figure-control-active);
+  }
+  .close:hover {
+    background: var(--figure-close-control-hover);
+  }
+  .close:active {
+    background: var(--figure-close-control-active);
+  }
   fill: black;
   outline: 1px solid hsl(0deg 0% 90%);
   background-image: linear-gradient(
@@ -135,6 +149,20 @@
 }
 
 .figure-windows-dark {
+  .minimize:hover,
+  .maximize:hover {
+    background: var(--figure-control-hover);
+  }
+  .minimize:active,
+  .maximize:active {
+    background: var(--figure-control-active);
+  }
+  .close:hover {
+    background: var(--figure-close-control-hover);
+  }
+  .close:active {
+    background: var(--figure-close-control-active);
+  }
   fill: white;
   outline: 1px solid hsl(var(--accent-hue) 20% 15%);
   background-image: linear-gradient(
@@ -197,7 +225,11 @@
       height: 13px;
 
       &:hover {
-        opacity: 0.5;
+        opacity: 0.7;
+      }
+
+      &:active {
+        opacity: 0.4;
       }
     }
 

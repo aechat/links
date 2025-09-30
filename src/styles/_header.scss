@@ -86,11 +86,12 @@
   display: flex;
   align-items: center;
   gap: 6px;
-  outline: 1px solid var(--summary-border);
+  transition: background-color 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+  outline: 1px solid var(--header-widget-border);
   border-radius: $roundness * 0.75;
-  background: var(--header-background);
+  background: var(--header-widget-background);
   padding-inline-start: 5px;
-  color: var(--mark-text);
+  color: var(--header-widget-text);
   font-weight: 400;
   font-family: Onest, Inter, sans-serif;
   font-size: 0.85rem;
@@ -110,5 +111,13 @@
     margin-inline-end: -1px;
     padding: 5px;
     margin-block: 0;
+  }
+
+  &:hover {
+    background-color: var(--header-widget-hover);
+  }
+
+  &:active {
+    background-color: var(--header-widget-active);
   }
 }

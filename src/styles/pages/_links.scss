@@ -10,7 +10,7 @@
 .links-grid {
   display: flex;
   flex-wrap: wrap;
-  border: 1px solid var(--summary-border);
+  border: 1px solid var(--link-card-border);
   border-radius: $roundness;
   width: 100%;
   overflow: hidden;
@@ -20,10 +20,10 @@
   flex: 1 1 225px;
   transition: background-color 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
   box-sizing: border-box;
-  outline: 1px solid var(--summary-border);
+  outline: 1px solid var(--link-card-border);
   box-shadow: none;
   border-radius: 0;
-  background-color: var(--summary-background);
+  background-color: var(--link-card-background);
   width: 100%;
   min-width: 150px;
 
@@ -37,7 +37,11 @@
 
   &:hover {
     cursor: pointer;
-    background-color: var(--summary-hover);
+    background-color: var(--link-card-hover);
+  }
+
+  &:active {
+    background-color: var(--link-card-active);
   }
 
   .name-container {
@@ -54,7 +58,7 @@
       flex-shrink: 0;
       width: min(calc(18px + (21 - 18) * ((100vw - 320px) / (768 - 320))), 21px);
       height: min(calc(18px + (21 - 18) * ((100vw - 320px) / (768 - 320))), 21px);
-      color: var(--summary-text);
+      color: var(--link-card-text);
 
       path {
         margin-block: auto;
@@ -63,7 +67,7 @@
 
     .name {
       text-wrap: balance;
-      color: var(--summary-text);
+      color: var(--link-card-text);
       font-weight: 600;
       font-family: Onest, sans-serif;
       text-align: left;
