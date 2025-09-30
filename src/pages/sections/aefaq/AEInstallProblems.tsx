@@ -2522,7 +2522,9 @@ const AEInstallProblems: React.FC = () => {
           <mark className="app">Red Giant Service.exe</mark> во вкладке{" "}
           <mark className="select">«Подробности» (Windows 10 или 11 21H2)</mark> или{" "}
           <mark className="select">«Сведения» (Windows 11 22H2+)</mark>. После завершения
-          проблемного процесса повторите попытку активации — она должна пройти нормально.
+          проблемного процесса, повторите попытку активации с помощью{" "}
+          <mark className="select">«Спробувати знову»</mark> — она должна пройти
+          нормально.
         </p>
         <ContentFigure
           caption="Диспетчер задач"
