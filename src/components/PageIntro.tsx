@@ -17,9 +17,9 @@ const PageIntro: React.FC<PageIntroProps> = ({text, isLoaded = true}) => {
 
     const now = new Date().getTime();
 
-    const oneHour = 60 * 60 * 1000;
+    const time = 20 * 60 * 1000;
 
-    if (!lastShown || now - parseInt(lastShown, 10) > oneHour) {
+    if (!lastShown || now - parseInt(lastShown, 10) > time) {
       localStorage.setItem("introLastShown", now.toString());
       setShow(true);
     }
