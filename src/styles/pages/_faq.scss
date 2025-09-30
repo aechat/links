@@ -221,6 +221,8 @@ body.has-open-details .faq-content {
     .addition-info,
     .addition-warning,
     .addition-danger {
+      margin-block: 15px;
+
       &:first-child {
         margin-block-start: 5px;
       }
