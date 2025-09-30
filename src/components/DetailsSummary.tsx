@@ -229,7 +229,7 @@ const DetailsSummary: React.FC<DetailsSummaryProps> = ({title, children, tag}) =
         const rect = details.getBoundingClientRect();
 
         const isOutOfMainView =
-          rect.bottom < viewportHeight * 0.25 || rect.top > viewportHeight * 0.75;
+          rect.bottom < viewportHeight * 0.15 || rect.top > viewportHeight * 0.9;
 
         return !isOutOfMainView;
       });
