@@ -1131,10 +1131,9 @@ const AEFromNewbies: React.FC = () => {
         <Addition type="info">
           <ul>
             <li>
-              В таблицах приведены комбинации для <mark>Windows</mark>. На{" "}
-              <mark>macOS</mark> <mark className="key">Ctrl</mark> соответствует{" "}
-              <mark className="key">Command</mark>, а <mark className="key">Alt</mark> —{" "}
-              <mark className="key">Option</mark>.
+              В таблице приведены комбинации для <mark>Windows</mark>. В зависимости от
+              версии программы и платформы, на которой вы работаете, комбинации клавиш
+              могут отличаться.
             </li>
             <li>
               Более подробный список комбинаций клавиш можно найти{" "}
@@ -1287,12 +1286,8 @@ const AEFromNewbies: React.FC = () => {
               <td>
                 Инструмент для создания фигур и масок
                 <Addition type="info">
-                  <ul>
-                    <li>
-                      Многократное нажатие на <mark className="key">Q</mark> переключает
-                      между прямоугольником, эллипсом, многоугольником и звездой.
-                    </li>
-                  </ul>
+                  Многократное нажатие на <mark className="key">Q</mark> переключает между
+                  прямоугольником, эллипсом, многоугольником и звездой.
                 </Addition>
               </td>
               <td>
@@ -1929,7 +1924,8 @@ const AEFromNewbies: React.FC = () => {
               <td>
                 Показать/скрыть границы слоёв, контроллеры и пути движения
                 <Addition type="info">
-                  Настроить отображение можно в View Options (
+                  Настроить отображение некоторых наложений можно в окне{" "}
+                  <mark className="select">«View Options»</mark> (
                   <mark className="key">Ctrl + Alt + U</mark>).
                 </Addition>
               </td>
