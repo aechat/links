@@ -192,9 +192,9 @@ export const App = () => {
 
         const now = new Date().getTime();
 
-        const oneDay = 24 * 60 * 60 * 1000;
+        const time = 60 * 60 * 1000;
 
-        if (!lastShown || now - parseInt(lastShown, 10) >= oneDay) {
+        if (!lastShown || now - parseInt(lastShown, 10) >= time) {
           shouldShowWarning = true;
         }
       }
