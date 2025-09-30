@@ -2015,8 +2015,8 @@ const AEFromNewbies: React.FC = () => {
         </table>
       </DetailsSummary>
       <DetailsSummary
-        tag="рекомендация, топ, твикстор, рсмб, мбл, борисфх, трапкод, флоу, тру комп дупликатор, юниверс, mbl, plugins, скрипты, расширения, установка"
-        title="Какие плагины стоит установить в первую очередь?"
+        tag="рекомендация, топ плагинов, твикстор, рсмб, мбл, борисфх, трапкод, флоу, тру комп дупликатор, юниверс, mbl, plugins, скрипты, расширения, установка"
+        title="Какие дополнения стоит установить в первую очередь?"
       >
         <p>
           <mark className="plugin">Плагины</mark> — это компоненты формата{" "}
@@ -2064,20 +2064,21 @@ const AEFromNewbies: React.FC = () => {
             ограничений.
           </li>
           <li>
-            Пакеты от <mark className="plugin">Red Giant</mark>:{" "}
+            Пакеты от <mark className="company">Red Giant</mark>:{" "}
             <mark className="plugin">Magic Bullet Suite</mark> (включает в себя
             полюбившийся многим <mark className="plugin">Looks</mark>),{" "}
             <mark className="plugin">Trapcode Suite</mark>,{" "}
             <mark className="plugin">VFX Suite</mark> и{" "}
-            <mark className="plugin">Universe</mark>. Из них можно выделить{" "}
-            <mark className="plugin">Primatte Keyer</mark> и{" "}
+            <mark className="plugin">Universe</mark>. Из ключевых эффектов из этих пакетов
+            можно выделить <mark className="plugin">Primatte Keyer</mark> и{" "}
             <mark className="plugin">Supercomp</mark> для композитинга, а также{" "}
             <mark className="plugin">Trapcode Particular</mark> для создания частиц и{" "}
             <mark className="plugin">Sound Keys</mark> для генерации ключей из аудио.
           </li>
           <li>
-            <mark className="plugin">Element 3D от VideoCopilot</mark> — используется для
-            импорта трёхмерных моделей в форматах <mark className="file">OBJ</mark>,{" "}
+            <mark className="plugin">Element 3D</mark> от{" "}
+            <mark className="company">VideoCopilot</mark> — используется для импорта
+            трёхмерных моделей в форматах <mark className="file">OBJ</mark>,{" "}
             <mark className="file">C4D</mark>
             <sup>1</sup> и <mark className="file">E3D</mark>.
             <Addition type="warning">
@@ -2087,7 +2088,7 @@ const AEFromNewbies: React.FC = () => {
           </li>
           <li>
             <mark className="plugin">Twixtor</mark> и <mark className="plugin">RSMB</mark>{" "}
-            от <mark className="plugin">RE:VisionFX</mark> — для плавного замедления и
+            от <mark className="company">RE:VisionFX</mark> — для плавного замедления и
             создания размытия в движении.
           </li>
           <li>
@@ -2115,8 +2116,9 @@ const AEFromNewbies: React.FC = () => {
             </Addition>
           </li>
           <li>
-            <mark className="plugin">Saber от VideoCopilot</mark> — бесплатный плагин для
-            создания неоновой обводки.
+            <mark className="plugin">Saber</mark> от{" "}
+            <mark className="company">VideoCopilot</mark> — бесплатный плагин для создания
+            неоновой обводки.
           </li>
           <li>
             <mark className="plugin">loopFlow</mark> — оживляет статичные изображения:
@@ -2131,7 +2133,8 @@ const AEFromNewbies: React.FC = () => {
             </Addition>
           </li>
           <li>
-            <mark className="plugin">Twitch от VideoCopilot</mark> — устаревший
+            <mark className="plugin">Twitch</mark> от{" "}
+            <mark className="company">VideoCopilot</mark> — устаревший
             <sup>1</sup> плагин для создания эффекта тряски, который до сих пор популярен
             у «эдиторов».
             <Addition type="danger">
@@ -2169,12 +2172,14 @@ const AEFromNewbies: React.FC = () => {
             готовых кривых анимации. Позволяет ускорить рутинную работу в несколько раз.
           </li>
           <li>
-            <mark className="plugin">FX Console от VideoCopilot</mark> — всплывающая
-            панель для быстрого поиска и применения эффектов.
+            <mark className="plugin">FX Console</mark> от{" "}
+            <mark className="company">VideoCopilot</mark> — всплывающая панель для
+            быстрого поиска и применения эффектов.
           </li>
           <li>
-            <mark className="plugin">Guides от Rendertom</mark> — расширяет возможности
-            работы с направляющими.
+            <mark className="plugin">Guides</mark> от{" "}
+            <mark className="user">Rendertom</mark> — расширяет возможности работы с
+            направляющими.
           </li>
           <li>
             <mark className="plugin">kBar</mark> — настраиваемая панель, на кнопки которой
