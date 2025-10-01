@@ -1,10 +1,8 @@
-import {LinearProgress} from "@mui/material";
+import {ConfigProvider, Modal} from "antd";
 
-import {ConfigProvider} from "antd";
+import {AnimatePresence} from "framer-motion";
 
-import {AnimatePresence, motion} from "framer-motion";
-
-import React, {Suspense, lazy, useEffect} from "react";
+import React, {Suspense, lazy, useEffect, useState} from "react";
 
 import {Navigate, Route, Routes, useLocation} from "react-router-dom";
 
@@ -54,6 +52,75 @@ const trackPageView = (path: string) => {
   }
 };
 
+const SafariWarningModal = ({
+  open,
+  onClose,
+}: {
+  open: boolean;
+  onClose: (dontShowAgain: boolean) => void;
+}) => {
+  const [dontShowAgain, setDontShowAgain] = React.useState(false);
+
+  const handleClose = () => {
+    onClose(dontShowAgain);
+  };
+
+  return (
+    <Modal
+      centered
+      closable={false}
+      footer={null}
+      open={open}
+      title={null}
+      width={450}
+    >
+      <div className="modal">
+        <div className="error-content">
+          <div className="error-title">⚠ Предупреждение для Safari</div>
+          <div
+            className="error-message"
+            style={{textAlign: "left"}}
+          >
+            <p>
+              В браузере <mark className="app">Safari</mark> при чтении некоторых статаей
+              данная страница может упасть в ошибку{" "}
+              <mark className="danger">«На этой странице произошла ошибка»</mark> из-за
+              переполнения памяти.
+            </p>
+            <p>
+              Во избежание проблем рекомендуется открывать данную страницу с Mac или ПК
+              через <mark className="app">Chrome</mark> или{" "}
+              <mark className="app">Firefox</mark>. Вы можете продолжить работу с сайтом,
+              закрыв данное окно.
+            </p>
+          </div>
+          <div className="flexible-links">
+            <button onClick={handleClose}>Продолжить</button>
+          </div>
+          <label
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: "8px",
+              cursor: "pointer",
+              fontSize: "0.9rem",
+              opacity: "0.75",
+              margin: "15px",
+            }}
+          >
+            <input
+              checked={dontShowAgain}
+              type="checkbox"
+              onChange={(e) => setDontShowAgain(e.target.checked)}
+            />
+            Претензий не имею, больше не показывать
+          </label>
+        </div>
+      </div>
+    </Modal>
+  );
+};
+
 const ErrorFallback = ({error}: {error: Error}) => (
   <div className="error-container">
     <div className="error-backtitle">Ошибка</div>
@@ -64,16 +131,9 @@ const ErrorFallback = ({error}: {error: Error}) => (
       <div className="error-content">
         <div className="error-title">Ошибка: {error.message}</div>
         <div className="error-message">
-          <p>Попробуйте перезагрузить страницу для обновления свежих данных.</p>
+          <p>Попробуйте перезагрузить страницу для получения свежих данных.</p>
           <div className="flexible-links">
-            <button
-              onClick={() => {
-                window.location.reload();
-                window.location.href = "/";
-              }}
-            >
-              На главную
-            </button>
+            <button onClick={() => (window.location.href = "/")}>На главную</button>
             <button onClick={() => window.location.reload()}>Обновить страницу</button>
           </div>
         </div>
@@ -104,13 +164,19 @@ class ErrorBoundary extends React.Component<
 
 export const App = () => {
   const location = useLocation();
+
+  const [showSafariWarning, setShowSafariWarning] = useState(false);
+
+  const [appReady, setAppReady] = useState(false);
   useEffect(() => {
+    let shouldShowWarning = false;
+
     const isWebKit =
       typeof navigator !== "undefined" &&
       /AppleWebKit|Epiphany|Safari/i.test(navigator.userAgent) &&
       !/Chrome|Chromium|Edg|OPR|Brave/i.test(navigator.userAgent);
 
-    const path = window.location.pathname;
+    const path = location.pathname;
 
     const isFaqPage =
       path.startsWith("/aefaq") ||
@@ -119,12 +185,29 @@ export const App = () => {
       path.startsWith("/aeexpr");
 
     if (isWebKit && isFaqPage) {
-      alert(
-        '⚠ В браузере Safari данная страница может упасть в ошибку "На этой странице произошла ошибка" из-за переполнения памяти.\n\nВо избежание проблем рекомендуется открывать данную страницу с Mac или ПК через Chrome или Firefox. Вы можете продолжить работу с сайтом, закрыв данное окно.'
-      );
+      const warningDismissed = localStorage.getItem("safariWarningDismissed") === "true";
+
+      if (!warningDismissed) {
+        const lastShown = localStorage.getItem("safariWarningLastShown");
+
+        const now = new Date().getTime();
+
+        const time = 60 * 60 * 1000;
+
+        if (!lastShown || now - parseInt(lastShown, 10) >= time) {
+          shouldShowWarning = true;
+        }
+      }
+    }
+
+    if (shouldShowWarning) {
+      setAppReady(false);
+      setShowSafariWarning(true);
+    } else {
+      setShowSafariWarning(false);
+      setAppReady(true);
     }
   }, [location.pathname]);
-
   useEffect(() => {
     const path = window.location.pathname;
 
@@ -140,58 +223,76 @@ export const App = () => {
   return (
     <ConfigProvider theme={themeConfig}>
       <ErrorBoundary>
-        <Suspense fallback={<LoadingAnimation />}>
-          <AnimatePresence
-            mode="wait"
-            onExitComplete={() => {
-              setTimeout(() => {
-                window.scrollTo({
-                  top: 0,
-                  behavior: "instant",
-                });
-              }, 50);
-            }}
-          >
-            <Routes
-              key={location.pathname}
-              location={location}
+        <SafariWarningModal
+          open={showSafariWarning}
+          onClose={(dontShowAgain) => {
+            if (dontShowAgain) {
+              localStorage.setItem("safariWarningDismissed", "true");
+            } else {
+              localStorage.setItem(
+                "safariWarningLastShown",
+                new Date().getTime().toString()
+              );
+            }
+
+            setShowSafariWarning(false);
+            setAppReady(true);
+          }}
+        />
+        {appReady && (
+          <Suspense fallback={<LoadingAnimation />}>
+            <AnimatePresence
+              mode="wait"
+              onExitComplete={() => {
+                setTimeout(() => {
+                  window.scrollTo({
+                    top: 0,
+                    behavior: "instant",
+                  });
+                }, 50);
+              }}
             >
-              <Route
-                element={<Links />}
-                path="/"
-              />
-              <Route
-                element={<AEFAQ />}
-                path="/aefaq"
-              />
-              <Route
-                element={<PRFAQ />}
-                path="/prfaq"
-              />
-              <Route
-                element={<PSFAQ />}
-                path="/psfaq"
-              />
-              <Route
-                element={<AEExpressionPage />}
-                path="/aeexpr"
-              />
-              <Route
-                element={<ChatRules />}
-                path="/rules"
-              />
-              <Route
-                element={
-                  <>
-                    <NotFound />
-                    <RedirectHtml />
-                  </>
-                }
-                path="*"
-              />
-            </Routes>
-          </AnimatePresence>
-        </Suspense>
+              <Routes
+                key={location.pathname}
+                location={location}
+              >
+                <Route
+                  element={<Links />}
+                  path="/"
+                />
+                <Route
+                  element={<AEFAQ />}
+                  path="/aefaq"
+                />
+                <Route
+                  element={<PRFAQ />}
+                  path="/prfaq"
+                />
+                <Route
+                  element={<PSFAQ />}
+                  path="/psfaq"
+                />
+                <Route
+                  element={<AEExpressionPage />}
+                  path="/aeexpr"
+                />
+                <Route
+                  element={<ChatRules />}
+                  path="/rules"
+                />
+                <Route
+                  element={
+                    <>
+                      <NotFound />
+                      <RedirectHtml />
+                    </>
+                  }
+                  path="*"
+                />
+              </Routes>
+            </AnimatePresence>
+          </Suspense>
+        )}
       </ErrorBoundary>
     </ConfigProvider>
   );

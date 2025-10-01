@@ -20,7 +20,7 @@ const BouncyText: React.FC<BouncyTextProps> = ({text}) => {
   const logoTextStyle: React.CSSProperties = {
     display: "flex",
     fontFamily: '"Red Hat Display", sans-serif',
-    fontWeight: 900,
+    fontWeight: 800,
     fontStyle: "italic",
     fontSize: "4rem",
     color: "var(--accent)",
@@ -31,7 +31,8 @@ const BouncyText: React.FC<BouncyTextProps> = ({text}) => {
     fontFamily: '"Red Hat Display", sans-serif',
     fontWeight: 500,
     fontStyle: "italic",
-    fontSize: "1.4em",
+    fontSize: "1.5em",
+    translate: "0 10px",
     color: "var(--accent)",
     whiteSpace: "nowrap",
   };

@@ -330,7 +330,7 @@ const AEInterface: React.FC = () => {
               <mark className="select">«Preview»</mark> два параметра:{" "}
               <mark className="select">«Cache Before Playback»</mark> и{" "}
               <mark className="select">«If Caching, play cached frames»</mark>.{" "}
-              <a href="#">Подробнее...</a>
+              <a href="#3.16">Подробнее...</a>
             </Addition>
           </li>
           <li>
@@ -1096,7 +1096,7 @@ const AEInterface: React.FC = () => {
         />
       </DetailsSummary>
       <DetailsSummary
-        tag="кастомная тема, secureuxtheme, цвет интерфейса, внешний вид"
+        tag="кастомная тема, windhawk, цвет интерфейса, внешний вид"
         title="Как изменить светлые участки интерфейса тёмными?"
       >
         <ContentFilter
@@ -1139,25 +1139,11 @@ const AEInterface: React.FC = () => {
           variant="windows"
         />
         <p>
-          К счастью, это можно частично исправить сторонними утилитами и темами:{" "}
-          <mark className="app">Mica For Everyone</mark> для изменения рамки окна,{" "}
-          <mark className="app">SecureUxTheme</mark> для включения возможности применять
-          сторонние темы в <mark>Windows</mark> и темой{" "}
-          <a href="https://www.deviantart.com/niivu/art/Windows-12-for-Windows-11-1139654666">
-            Windows 11 Redux от niivu
-          </a>
-          .
+          К счастью, это можно частично исправить сторонними утилитами:{" "}
+          <mark className="app">Mica For Everyone</mark> для изменения рамки окна и{" "}
+          <mark className="app">Windhawk</mark> с модификацией{" "}
+          <mark>Dark mode context menus</mark>.
         </p>
-        <Addition type="info">
-          Вместо темы{" "}
-          <a href="https://github.com/niivu/Windows-11-themes/tree/main/Windows%2011%20redux">
-            Windows 11 Redux от niivu
-          </a>{" "}
-          можно выбрать любую другую, которая вам понравится. Перед скачиванием и
-          установкой убедитесь, для какой версии <mark>Windows 11</mark> предназначена
-          выбранная тема. Текущую версию <mark>Windows</mark> вы можете узнать с помощью{" "}
-          <mark className="app">winver</mark>.
-        </Addition>
         <Divider>Разбираемся с Mica For Everyone</Divider>
         <p>
           <mark className="app">Mica For Everyone</mark> — утилита для принудительного
@@ -1232,65 +1218,23 @@ const AEInterface: React.FC = () => {
           type="image"
           variant="windows"
         />
-        <Divider>Устанавливаем сторонние темы с помощью SecureUxTheme</Divider>
+        <Divider>Включаем тёмное контекстное меню</Divider>
         <p>
-          Следующий шаг — установка сторонней темы. Перед её применением необходимо
-          установить <mark className="app">SecureUxTheme</mark>, который можно скачать с{" "}
-          <a href="https://github.com/namazso/SecureUxTheme/releases">
-            страницы релизов на GitHub
-          </a>
-          . После установки утилиты обязательно перезагрузите устройство.
+          Следующий шаг — нужно установить <mark className="app">Windhawk</mark>, который
+          вы можете найти на <a href="https://windhawk.net/">сайте проекта</a>. После его
+          установки нужно найти модификацию{" "}
+          <mark className="copy">Dark mode context menus</mark> и установить его.
         </p>
-        <Addition type="info">
-          Если после установки <mark className="app">SecureUXTheme</mark> у вас всё
-          зависло на этапе загрузки системы —{" "}
-          <a href="https://github.com/namazso/SecureUxTheme/wiki/Help:-Login-loop-after-installing-SecureUxTheme">
-            удалите некоторые ключи в реестре из средства восстановления системы
-          </a>
-          .
-        </Addition>
-        <p>
-          Далее скачайте и распакуйте стороннюю тему, например{" "}
-          <a href="https://github.com/niivu/Windows-11-themes/tree/main/Windows%2011%20redux">
-            Windows 11 Redux
-          </a>
-          , в системную директорию{" "}
-          <mark className="path">C:\Windows\Resources\Themes</mark>.
-        </p>
-        <Addition type="warning">
-          Для распаковки файлов в системные директории понадобятся права администратора.
-        </Addition>
         <ContentFigure
-          caption="Импорт сторонних тем"
-          src="images/import_custom_windows_theme.mp4"
+          caption="Включаем модификацию на тёмное контекстное меню"
+          src="images/enable_dark_mode_context_menus.mp4"
           theme="dark"
           type="video"
           variant="windows"
         />
         <p>
-          Затем откройте <mark className="app">Параметры</mark> с помощью{" "}
-          <mark className="key">Win + I</mark>, перейдите в{" "}
-          <mark className="select">«Персонализация» → «Темы»</mark> и примените тему{" "}
-          <mark className="select">«Windows 11 aero - Night»</mark> или{" "}
-          <mark className="select">«Windows 11 redux - Night»</mark>.
-        </p>
-        <ContentFigure
-          caption="Применение сторонней темы"
-          src="images/change_windows_theme.mp4"
-          theme="dark"
-          type="video"
-          variant="windows"
-        />
-        <Addition type="info">
-          Если у вас всё зависло на этапе применения применения темы —{" "}
-          <a href="https://remontka.pro/windows-10-safe-mode/">
-            перезагрузитесь в безопасный режим
-          </a>{" "}
-          и установите стандартную тему.
-        </Addition>
-        <p>
-          После всех изменений и применения темы, откройте{" "}
-          <mark className="app">Adobe After Effects</mark> и наслаждайтесь по настоящему
+          После всех изменений и модификаций, откройте{" "}
+          <mark className="app">Adobe After Effects</mark> и наслаждайтесь по-настоящему
           тёмной темой программы.
         </p>
         <ContentFigure
@@ -1467,7 +1411,7 @@ const AEInterface: React.FC = () => {
             Если предыдущих настроек нет, переименовывать файл, убирая суффикс{" "}
             <mark>-old</mark>, бессмысленно, так как и он может быть повреждён. Советую
             периодически сохранять пользовательские настройки в отдельную папку или{" "}
-            <a href="#">настроить их синхронизацию с облачным хранилищем</a>. Чтобы
+            <a href="#3.9">настроить их синхронизацию с облачным хранилищем</a>. Чтобы
             открыть папку с настройками — нажмите на кнопку{" "}
             <mark className="select">«Reveal Preferences in Explorer»</mark> в{" "}
             <mark className="select">«Edit» → «Preferences» → «Startup & Repair»</mark>.

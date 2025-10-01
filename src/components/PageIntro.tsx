@@ -10,17 +10,30 @@ interface PageIntroProps {
 }
 
 const PageIntro: React.FC<PageIntroProps> = ({text, isLoaded = true}) => {
-  const [show, setShow] = useState(true);
+  const [show, setShow] = useState(false);
 
   useEffect(() => {
-    if (isLoaded) {
+    const lastShown = localStorage.getItem("introLastShown");
+
+    const now = new Date().getTime();
+
+    const time = 20 * 60 * 1000;
+
+    if (!lastShown || now - parseInt(lastShown, 10) > time) {
+      localStorage.setItem("introLastShown", now.toString());
+      setShow(true);
+    }
+  }, []);
+
+  useEffect(() => {
+    if (show && isLoaded) {
       const animationDuration = text.length * 0.05 + 0.4 + 1.25;
 
       const timer = setTimeout(() => setShow(false), animationDuration * 1000 + 250);
 
       return () => clearTimeout(timer);
     }
-  }, [isLoaded, text]);
+  }, [show, isLoaded, text]);
 
   return (
     <AnimatePresence>
@@ -32,7 +45,7 @@ const PageIntro: React.FC<PageIntroProps> = ({text, isLoaded = true}) => {
             alignItems: "center",
             backgroundColor: "var(--background-color)",
             display: "flex",
-            height: "100%",
+            height: "100vh",
             justifyContent: "center",
             left: 0,
             position: "fixed",

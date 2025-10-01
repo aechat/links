@@ -12,6 +12,12 @@ import React, {
   useState,
 } from "react";
 
+declare global {
+  interface Window {
+    detailsSummaryScrollListenerAttached?: boolean;
+  }
+}
+
 interface DetailsSummaryProps {
   title: string;
   children: ReactNode;
@@ -219,6 +225,38 @@ const DetailsSummary: React.FC<DetailsSummaryProps> = ({title, children, tag}) =
     };
   }, []);
 
+  const updateDimmingEffect = useCallback(() => {
+    const openDetailsElements = document.querySelectorAll("details[open]");
+
+    if (openDetailsElements.length > 0) {
+      const viewportHeight = window.innerHeight;
+
+      const isAnyInMainView = Array.from(openDetailsElements).some((details) => {
+        const rect = details.getBoundingClientRect();
+
+        const isOutOfMainView =
+          rect.bottom < viewportHeight * 0.15 || rect.top > viewportHeight * 0.9;
+
+        return !isOutOfMainView;
+      });
+
+      if (isAnyInMainView) {
+        document.body.classList.add("has-open-details");
+      } else {
+        document.body.classList.remove("has-open-details");
+      }
+    } else {
+      document.body.classList.remove("has-open-details");
+    }
+  }, []);
+
+  useEffect(() => {
+    if (!window.detailsSummaryScrollListenerAttached) {
+      window.addEventListener("scroll", updateDimmingEffect, {passive: true});
+      window.detailsSummaryScrollListenerAttached = true;
+    }
+  }, [updateDimmingEffect]);
+
   const debouncedReplaceState = useCallback(
     debounce((hash: string) => {
       history.replaceState(
@@ -253,6 +291,8 @@ const DetailsSummary: React.FC<DetailsSummaryProps> = ({title, children, tag}) =
     } else if (window.location.hash) {
       debouncedReplaceState("");
     }
+
+    setTimeout(updateDimmingEffect, 0);
   };
 
   const handleCopyAnchor = () => {

@@ -25,14 +25,14 @@ const AEFromNewbies: React.FC = () => {
               Учтите, что большинство авторов курсов и каналов на{" "}
               <mark className="app">YouTube</mark> работают в английской версии программы.
               Чтобы избежать проблем с локализацией, рекомендуется{" "}
-              <a href="#">изменить язык программы на английский</a>, если у вас
+              <a href="#3.6">изменить язык программы на английский</a>, если у вас
               установлена русская версия. Это поможет избежать путаницы с переводом
               названий эффектов или элементов интерфейса.
             </li>
             <li>
               Если вы предпочитаете работать с русской локализацией{" "}
               <mark className="app">Adobe After Effects</mark>, вам могут пригодиться
-              таблицы перевода <a href="#">эффектов</a> и <a href="#">пресетов</a>.
+              таблицы перевода <a href="#1.6">эффектов</a> и <a href="#1.7">пресетов</a>.
             </li>
             <li>
               Не стоит всерьёз полагаться на <mark className="app">ChatGPT</mark>,{" "}
@@ -1131,10 +1131,9 @@ const AEFromNewbies: React.FC = () => {
         <Addition type="info">
           <ul>
             <li>
-              В таблицах приведены комбинации для <mark>Windows</mark>. На{" "}
-              <mark>macOS</mark> <mark className="key">Ctrl</mark> соответствует{" "}
-              <mark className="key">Command</mark>, а <mark className="key">Alt</mark> —{" "}
-              <mark className="key">Option</mark>.
+              В таблице приведены комбинации для <mark>Windows</mark>. В зависимости от
+              версии программы и платформы, на которой вы работаете, комбинации клавиш
+              могут отличаться.
             </li>
             <li>
               Более подробный список комбинаций клавиш можно найти{" "}
@@ -1287,12 +1286,8 @@ const AEFromNewbies: React.FC = () => {
               <td>
                 Инструмент для создания фигур и масок
                 <Addition type="info">
-                  <ul>
-                    <li>
-                      Многократное нажатие на <mark className="key">Q</mark> переключает
-                      между прямоугольником, эллипсом, многоугольником и звездой.
-                    </li>
-                  </ul>
+                  Многократное нажатие на <mark className="key">Q</mark> переключает между
+                  прямоугольником, эллипсом, многоугольником и звездой.
                 </Addition>
               </td>
               <td>
@@ -1929,7 +1924,8 @@ const AEFromNewbies: React.FC = () => {
               <td>
                 Показать/скрыть границы слоёв, контроллеры и пути движения
                 <Addition type="info">
-                  Настроить отображение можно в View Options (
+                  Настроить отображение некоторых наложений можно в окне{" "}
+                  <mark className="select">«View Options»</mark> (
                   <mark className="key">Ctrl + Alt + U</mark>).
                 </Addition>
               </td>
@@ -2015,8 +2011,8 @@ const AEFromNewbies: React.FC = () => {
         </table>
       </DetailsSummary>
       <DetailsSummary
-        tag="рекомендация, топ, твикстор, рсмб, мбл, борисфх, трапкод, флоу, тру комп дупликатор, юниверс, mbl, plugins, скрипты, расширения, установка"
-        title="Какие плагины стоит установить в первую очередь?"
+        tag="рекомендация, топ плагинов, твикстор, рсмб, мбл, борисфх, трапкод, флоу, тру комп дупликатор, юниверс, mbl, plugins, скрипты, расширения, установка"
+        title="Какие дополнения стоит установить в первую очередь?"
       >
         <p>
           <mark className="plugin">Плагины</mark> — это компоненты формата{" "}
@@ -2064,20 +2060,21 @@ const AEFromNewbies: React.FC = () => {
             ограничений.
           </li>
           <li>
-            Пакеты от <mark className="plugin">Red Giant</mark>:{" "}
+            Пакеты от <mark className="company">Red Giant</mark>:{" "}
             <mark className="plugin">Magic Bullet Suite</mark> (включает в себя
             полюбившийся многим <mark className="plugin">Looks</mark>),{" "}
             <mark className="plugin">Trapcode Suite</mark>,{" "}
             <mark className="plugin">VFX Suite</mark> и{" "}
-            <mark className="plugin">Universe</mark>. Из них можно выделить{" "}
-            <mark className="plugin">Primatte Keyer</mark> и{" "}
+            <mark className="plugin">Universe</mark>. Из ключевых эффектов из этих пакетов
+            можно выделить <mark className="plugin">Primatte Keyer</mark> и{" "}
             <mark className="plugin">Supercomp</mark> для композитинга, а также{" "}
             <mark className="plugin">Trapcode Particular</mark> для создания частиц и{" "}
             <mark className="plugin">Sound Keys</mark> для генерации ключей из аудио.
           </li>
           <li>
-            <mark className="plugin">Element 3D от VideoCopilot</mark> — используется для
-            импорта трёхмерных моделей в форматах <mark className="file">OBJ</mark>,{" "}
+            <mark className="plugin">Element 3D</mark> от{" "}
+            <mark className="company">VideoCopilot</mark> — используется для импорта
+            трёхмерных моделей в форматах <mark className="file">OBJ</mark>,{" "}
             <mark className="file">C4D</mark>
             <sup>1</sup> и <mark className="file">E3D</mark>.
             <Addition type="warning">
@@ -2087,7 +2084,7 @@ const AEFromNewbies: React.FC = () => {
           </li>
           <li>
             <mark className="plugin">Twixtor</mark> и <mark className="plugin">RSMB</mark>{" "}
-            от <mark className="plugin">RE:VisionFX</mark> — для плавного замедления и
+            от <mark className="company">RE:VisionFX</mark> — для плавного замедления и
             создания размытия в движении.
           </li>
           <li>
@@ -2115,8 +2112,9 @@ const AEFromNewbies: React.FC = () => {
             </Addition>
           </li>
           <li>
-            <mark className="plugin">Saber от VideoCopilot</mark> — бесплатный плагин для
-            создания неоновой обводки.
+            <mark className="plugin">Saber</mark> от{" "}
+            <mark className="company">VideoCopilot</mark> — бесплатный плагин для создания
+            неоновой обводки.
           </li>
           <li>
             <mark className="plugin">loopFlow</mark> — оживляет статичные изображения:
@@ -2131,7 +2129,8 @@ const AEFromNewbies: React.FC = () => {
             </Addition>
           </li>
           <li>
-            <mark className="plugin">Twitch от VideoCopilot</mark> — устаревший
+            <mark className="plugin">Twitch</mark> от{" "}
+            <mark className="company">VideoCopilot</mark> — устаревший
             <sup>1</sup> плагин для создания эффекта тряски, который до сих пор популярен
             у «эдиторов».
             <Addition type="danger">
@@ -2169,12 +2168,14 @@ const AEFromNewbies: React.FC = () => {
             готовых кривых анимации. Позволяет ускорить рутинную работу в несколько раз.
           </li>
           <li>
-            <mark className="plugin">FX Console от VideoCopilot</mark> — всплывающая
-            панель для быстрого поиска и применения эффектов.
+            <mark className="plugin">FX Console</mark> от{" "}
+            <mark className="company">VideoCopilot</mark> — всплывающая панель для
+            быстрого поиска и применения эффектов.
           </li>
           <li>
-            <mark className="plugin">Guides от Rendertom</mark> — расширяет возможности
-            работы с направляющими.
+            <mark className="plugin">Guides</mark> от{" "}
+            <mark className="user">Rendertom</mark> — расширяет возможности работы с
+            направляющими.
           </li>
           <li>
             <mark className="plugin">kBar</mark> — настраиваемая панель, на кнопки которой
@@ -2659,7 +2660,7 @@ const AEFromNewbies: React.FC = () => {
         </p>
         <Addition type="info">
           Чтобы не попасть впросак, если файл проекта повредится — заранее{" "}
-          <a href="#">настройте резервное копирование проектов</a>.
+          <a href="#3.9">настройте резервное копирование проектов</a>.
         </Addition>
       </DetailsSummary>
       <DetailsSummary
@@ -3256,7 +3257,7 @@ const AEFromNewbies: React.FC = () => {
             <Addition type="warning">
               <sup>1</sup> В <mark>Windows</mark> для импорта файлов{" "}
               <mark className="image">HEIF/HEIC</mark> необходимо установить{" "}
-              <a href="#">соответствующие кодеки</a>.
+              <a href="#4.5">соответствующие кодеки</a>.
             </Addition>
             <Addition type="info">
               <ul>
@@ -3303,7 +3304,7 @@ const AEFromNewbies: React.FC = () => {
                 Если <mark className="image">PSD</mark> сохранён в цветовом режиме,
                 отличном от <mark>RGB</mark>, — послойный импорт в{" "}
                 <mark className="app">Adobe After Effects</mark> будет недоступен.{" "}
-                <a href="#">Подробнее...</a>
+                <a href="#4.8">Подробнее...</a>
               </Addition>
             </Addition>
             <Addition type="info">
@@ -4061,7 +4062,7 @@ const AEFromNewbies: React.FC = () => {
           <sup>1</sup> <mark className="image">PSD</mark>, сохранённые в режиме{" "}
           <mark>CMYK</mark>, не поддерживают послойный импорт слоёв в проект. Чтобы это
           исправить — измените цветовой режим файла на <mark>RGB</mark>.{" "}
-          <a href="#">Как?</a>
+          <a href="#4.8">Как?</a>
         </Addition>
         <ContentFigure
           caption="Импорт и анимация PSD в Adobe After Effects"
@@ -4090,7 +4091,7 @@ const AEFromNewbies: React.FC = () => {
           <mark className="plugin">Cinema 4D Lite</mark> — установите полноценную{" "}
           <mark className="app">Maxon Cinema 4D</mark>, иначе вы столкнетесь с тем, что вы
           не сможете импортировать проекты формата <mark className="file">C4D</mark>.{" "}
-          <a href="#">Подробнее...</a>
+          <a href="#8.9">Подробнее...</a>
         </Addition>
         <ContentFigure
           caption="Cineware"
@@ -4533,34 +4534,47 @@ const AEFromNewbies: React.FC = () => {
         />
         <Divider>Разбираемся с «кривыми» исходниками</Divider>
         <p>
-          Если вы работаете с видео, скачанным из интернета, есть шанс, что оно
-          закодировано в «неудобный» для <mark className="app">Adobe After Effects</mark>{" "}
-          формат. <mark className="file">MP4</mark> часто содержит нестабильные свойства —
-          вроде переменной частоты кадров или непредсказуемых алгоритмов сжатия, которые
-          нередко встречаются в геймплейных записях или видео, скачанных с{" "}
+          Если вы работаете с видео или аудио, скачанными из интернета, есть вероятность,
+          что они закодированы в «неудобный» для{" "}
+          <mark className="app">Adobe After Effects</mark> формат. Файлы{" "}
+          <mark className="file">MP4</mark> часто содержат нестабильные свойства —
+          например, переменную частоту кадров или непредсказуемые алгоритмы сжатия, что
+          особенно характерно для геймплейных записей или видео с{" "}
           <mark className="app">YouTube</mark>. Особенно это касается{" "}
-          <mark className="video">H.264</mark> и <mark className="video">H.265</mark> —
-          они отлично подходят для просмотра видео, но плохо ведут себя при монтаже. Эти
-          кодеки требуют постоянной декомпрессии, из-за чего превью «артефачит», эффекты
-          работают с тормозами, а сам <mark className="app">Adobe After Effects</mark>{" "}
-          «задыхается».
+          <mark className="video">H.264</mark> и <mark className="video">H.265</mark>: они
+          отлично подходят для просмотра, но плохо ведут себя при монтаже. Постоянная
+          декомпрессия этих кодеков приводит к «артефактам» на превью, тормозам эффектов,
+          и <mark className="app">Adobe After Effects</mark> начинает «задыхаться».
         </p>
         <p>
-          Чтобы избавиться от таких проблем: рекомендуется заранее перекодировать такие
-          файлы в монтажный формат — например, в{" "}
+          Аудио в формате <mark className="audio">MP3</mark> тоже может создавать
+          проблемы: часть трека может неожиданно пропадать на таймлайне, звук искажаться
+          или рассинхронизироваться с видео.
+        </p>
+        <ContentFigure
+          caption="Пример артефактов проблемного аудио"
+          src="images/aftereffects/audio_artifacts.mp4"
+          theme="dark"
+          type="video"
+          variant="windows"
+        />
+        <p>
+          Чтобы избежать подобных проблем, рекомендуется заранее перекодировать файлы в
+          рабочие форматы — для видео, например,{" "}
           <mark className="video">Apple ProRes 422</mark> или{" "}
-          <mark className="video">Apple ProRes 4444</mark>, а потом импортировать их в
-          проект или заменять уже позже. Сделать это можно через{" "}
+          <mark className="video">Apple ProRes 4444</mark>, для аудио —{" "}
+          <mark className="audio">WAV</mark>, а затем импортировать их в проект или
+          заменять уже после. Сделать это можно через{" "}
           <mark className="app">Shutter Encoder</mark> — бесплатную программу для
-          конвертации видео на основе <mark className="app">FFmpeg</mark>.{" "}
-          <a href="#">Подробнее...</a>
+          конвертации файлов на основе <mark className="app">FFmpeg</mark>.{" "}
+          <a href="#4.1">Подробнее...</a>
         </p>
         <Divider>Разбираемся с проблемами со звуком</Divider>
         <p>
-          Иногда звук при предпросмотре может внезапно пропасть, если вы что-то случайно
-          «натыкали». Первым делом проверьте окно{" "}
-          <mark className="select">«Preview»</mark> — возможно вы случайно отключили там
-          звук с помощью соответствующей кнопки.
+          Иногда звук при предпросмотре может внезапно пропасть, если вы случайно что-то
+          нажали. Сначала проверьте окно <mark className="select">«Preview»</mark>,
+          переключатель аудио на слое и саму аудиодорожку — возможно, звук был случайно
+          отключен соответствующей кнопкой.
         </p>
         <ContentFigure
           caption="Preview"
@@ -4585,28 +4599,52 @@ const AEFromNewbies: React.FC = () => {
           type="image"
           variant="windows"
         />
-
-        <p>Также стоит проверить переключатель аудио у слоя, а также его аудиодорожку.</p>
-        {/* TODO: показать переключатель аудио  */}
-        <p>
-          В редких случаях проблемы могут быть вызваны самим аудиофайлом. Перекодируйте
-          его в формат <mark className="audio">WAV</mark> и замените в проекте.
-        </p>
+        <ContentFilter
+          windowsContent={
+            <div>
+              <Divider>Разбираемся с драйверами</Divider>
+              <p>
+                Иногда драйверы, например видеокарты, могут обновиться автоматически без
+                вашего ведома, после чего начать работать некорректно с вашей версией{" "}
+                <mark className="app">Adobe After Effects</mark>.
+              </p>
+              <p>
+                В таком случае попробуйте откатить проблемный драйвер и{" "}
+                <a href="https://remontka.pro/disable-driver-auto-update-windows-10/">
+                  отключить их автоматическое обновление
+                </a>
+                , чтобы подобные ситуации не повторялись. Если у вас установлена
+                видеокарта от <mark className="company">NVIDIA</mark>, рекомендуется
+                загрузить и установить драйвер редакции{" "}
+                <mark className="app">NVIDIA Studio</mark> с{" "}
+                <a href="https://www.nvidia.com/en-eu/geforce/drivers/">
+                  официального сайта NVIDIA
+                </a>
+                . На странице укажите модель вашей видеокарты, операционную систему и в
+                поле <mark className="select">«Download Type»</mark> выберите{" "}
+                <mark className="select">«Studio Driver»</mark>.
+              </p>
+            </div>
+          }
+        />
       </DetailsSummary>
       <DetailsSummary
         tag="для воспроизведения кэшированного предпросмотра требуется 2 или более кадров, не проигрывается предпросмотр, зацикливается превью, идёт по кругу"
         title="«Cached preview needs 2 or more frames for playback» или как избавиться от зацикливания предпросмотра?"
       >
         <p>
-          Эта ошибка может возникнуть по двум причинам: из-за банальной невнимательности
-          или из-за переполнения кэша и оперативной памяти.
+          Часто зацикливание предпросмотра, даже если он не до конца закэширован, означает
+          лишь одно — программе попросту не хватает оперативной памяти для корректного
+          просмотра. Это особенно заметно, если вы пытаетесь воспроизвести тяжёлую сцену.
+          Чтобы минимизировать последствия такого поведения, стоит оптимизировать проект
+          или изменить настройки системы и программы.
         </p>
         <Divider>Проверяем длину рабочей области</Divider>
         <p>
           Первым делом проверьте длину рабочей области на таймлайне. Возможно, вы случайно
           сократили её до одного кадра — именно поэтому и возникает ошибка. Программа не
           может запустить предпросмотр, если в рабочей области всего один кадр, что
-          логично: любая анимация должна содержать как минимум два кадра.
+          логично: любая анимация должна содержать как минимум два.
         </p>
         <ContentFigure
           caption="Одна из причин ошибки — слишком короткая рабочая область"
@@ -4623,44 +4661,119 @@ const AEFromNewbies: React.FC = () => {
           охватывала всю композицию или выделенный слой, нажмите{" "}
           <mark className="key">Ctrl + Alt + B</mark>.
         </p>
-        <Divider>Очищаем кэш и пробуем снова закэшировать</Divider>
+        <Divider>Очищаем кэш и проверяем память</Divider>
         <p>
-          Если длина рабочей области больше двух кадров, скорее всего, проблема в
-          переполненном кэше или забитой оперативной памяти. Попробуйте очистить кэш через{" "}
-          <mark className="select">Edit → Purge → All Memory & Disk Cache</mark>. После
-          очистки рендеринг предпросмотра должен пройти нормально.
+          Если рабочая область больше двух кадров, а предпросмотр всё равно зациклен —
+          проблема, скорее всего, в переполненном кэше или нехватке оперативной памяти.
+        </p>
+        <ul>
+          <li>
+            Попробуйте очистить кэш через{" "}
+            <mark className="select">«Edit» → «Purge» → «All Memory & Disk Cache»</mark>.
+            После очистки рендеринг предпросмотра должен пройти нормально.
+            <ContentFigure
+              caption="Очистка кэша и оперативной памяти"
+              imgTitle="Очистка кэша и оперативной памяти"
+              src="images/aftereffects/edit_purge_all-memory-and-disk-cache.png"
+              theme="light"
+              type="image"
+              variant="windows"
+            />
+          </li>
+          <li>
+            Проверьте, сколько оперативной памяти вы выделили программе. Для этого
+            перейдите в{" "}
+            <mark className="select">
+              «Edit» → «Preferences» → «Memory & Performance»
+            </mark>{" "}
+            и посмотрите на значение{" "}
+            <mark className="select">«RAM reserved for other applications»</mark>. Если вы
+            неправильно поняли описание и оставили программам{" "}
+            <mark className="company">Adobe</mark> слишком мало памяти, это может вызвать
+            проблемы с проигрыванием предпросмотра. Чтобы выделить максимум ОЗУ, поставьте{" "}
+            <mark>0</mark> в поле{" "}
+            <mark className="select">«RAM reserved for other applications»</mark>.
+            Программа сама подставит минимальное корректное значение памяти для других
+            приложений.
+            <ContentFigure
+              caption="Preferences"
+              imgTitle="Настройка параметра RAM reserved for other applications"
+              src="images/aftereffects/ram_reserved_for_other_applications.png"
+              theme="dark"
+              type="image"
+              variant="windows"
+            />
+          </li>
+          <li>
+            Закройте другие ресурсоёмкие программы, например браузер,{" "}
+            <mark className="app">Blender</mark>,{" "}
+            <mark className="app">Adobe Premiere Pro</mark> или другие.
+          </li>
+          <li>
+            <ContentFilter
+              windowsContent={
+                <p>
+                  Попробуйте <a href="#6.5">настроить файл подкачки</a>. В качестве
+                  минимального и максимального размера установите значения от{" "}
+                  <mark className="copy">1024</mark> до{" "}
+                  <mark className="copy">65536</mark> или{" "}
+                  <mark className="copy">131072</mark>. После настройки система создаст
+                  файл подкачки с начальным размером <mark>1 ГБ</mark>, который сможет
+                  динамически расширяться до <mark>64–128 ГБ</mark> в зависимости от ваших
+                  настроек.
+                </p>
+              }
+            />
+          </li>
+        </ul>
+        <Divider>Разбираемся с эффектами</Divider>
+        <p>
+          Иногда корректному рендерингу мешает какой-нибудь эффект. Попробуйте найти
+          «виновника», поочерёдно отключая эффекты на слоях в композиции. Чаще всего
+          проблемы вызывают большое количество «эдиторских» эффектов или обилие
+          ресурсоёмких эффектов цветокоррекции. В поиске поможет столбец{" "}
+          <mark className="select">«Render Time»</mark>. С его помощью можно выявить самые
+          «тяжёлые» эффекты и при необходимости заменить их более лёгкими аналогами или
+          вовсе удалить.
         </p>
         <Addition type="info">
-          <ul>
-            <li>
-              Если очистка кэша не помогает, а раньше всё работало, — попробуйте{" "}
-              <a href="#">настроить файл подкачки</a>.
-            </li>
-            <li>
-              Иногда корректному рендерингу мешает какой-нибудь эффект. Попробуйте найти
-              «виновника», поочерёдно отключая эффекты на слое.
-            </li>
-          </ul>
+          Чтобы включить отображение времени рендеринга, нажмите на иконку улитки в левом
+          нижнем углу таймлайна или активируйте колонку{" "}
+          <mark className="select">«Render Time»</mark> через меню{" "}
+          <mark className="select">«Columns»</mark>.
         </Addition>
         <ContentFigure
-          caption="Очистка кэша и оперативной памяти"
-          imgTitle="Очистка кэша и оперативной памяти"
-          src="images/aftereffects/edit_purge_all-memory-and-disk-cache.png"
-          theme="light"
+          caption="Timeline"
+          imgTitle="Смотрим время рендера слоя"
+          src="images/aftereffects/view_render_time.png"
+          theme="dark"
           type="image"
           variant="windows"
         />
-        <Divider>Включаем предпросмотр из дискового кэша</Divider>
+        <Divider>Используем дисковый кэш для предпросмотра</Divider>
+
         <p>
-          Если вы сталкиваетесь с тем, что рендеринг предпросмотра зацикливается,
-          попробуйте включить новую функцию воспроизведения из дискового кэша (доступна в{" "}
-          <mark className="app">Adobe After Effects</mark> версии <mark>25.2</mark> и
-          новее). Она позволяет проигрывать предпросмотр напрямую с диска, не загружая
-          кадры в ОЗУ. Для этого в настройках (
-          <mark className="select">Edit → Preferences → Media & Disk Cache</mark>)
-          убедитесь, что дисковый кэш включён, и активируйте параметр{" "}
-          <mark className="select">Enable Preview from Disk Cache</mark>.
+          В <mark className="app">Adobe After Effects</mark> версии <mark>25.2</mark> и
+          новее появилась новая функция воспроизведения предпросмотра напрямую из
+          дискового кэша. Она позволяет проигрывать превью прямо с диска, не загружая
+          кадры в оперативную память. Эта опция может спасти, когда даже файл подкачки не
+          помогает.
         </p>
+        <p>
+          Для активации перейдите в{" "}
+          <mark className="select">«Edit» → «Preferences» → «Media & Disk Cache»</mark>,
+          поставьте галку <mark className="select">«Enable Disk Cache»</mark> и
+          активируйте параметр{" "}
+          <mark className="select">«Enable Preview from Disk Cache»</mark>. Размер кэша{" "}
+          <mark className="select">«Maximum Disk Cache Size»</mark> должен быть не меньше{" "}
+          <mark>100 ГБ</mark>, так как программа любит пожирать много дискового
+          пространства.
+        </p>
+        <Addition type="info">
+          Для комфортной работы с дисковым кэшем нужен быстрый накопитель. Можете купить
+          дешёвый <mark>SSD</mark> на <mark>256–512 ГБ</mark> и использовать его
+          специально для кэша.
+        </Addition>
         <ContentFigure
           caption="Preferences"
           imgTitle="Включение воспроизведения предпросмотра из дискового кэша"
@@ -4949,6 +5062,25 @@ const AEFromNewbies: React.FC = () => {
           воспользоваться плагином <mark className="plugin">Auto Crop 3</mark>.
         </p>
         <p>{/* FIXME: */}</p>
+        <Divider>Используем «Region of Interest»</Divider>
+        <p>
+          Если точность до пикселя не важна, композицию можно быстро обрезать с помощью{" "}
+          <mark className="select">«Region of Interest»</mark>. Для этого нажмите на
+          соответствующую иконку в окне предпросмотра и начните рисовать рамку.
+        </p>
+        <p>
+          Когда область будет нарисована, перейдите в меню{" "}
+          <mark className="select">«Composition»</mark> и выберите{" "}
+          <mark className="select">«Crop Comp to Region of Interest»</mark>. Композиция
+          тут же обрежется по границам нарисованной области.
+        </p>
+        <ContentFigure
+          caption="Кадрирование с помощью Region of Interest"
+          src="images/aftereffects/crop_comp_to_region_of_interest.mp4"
+          theme="dark"
+          type="video"
+          variant="windows"
+        />
       </DetailsSummary>
       <DetailsSummary
         tag="start timecode, начальный таймкод, начало композиции, ноль, 00:00:00:00"

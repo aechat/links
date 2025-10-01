@@ -1,5 +1,7 @@
 import {message} from "antd";
 
+let isAutoCopyEnabled = false;
+let isCopying = false;
 message.config({
   top: 60,
   duration: 3,
@@ -19,17 +21,7 @@ const cleanHtml = (text: string): string => {
   return text.replace(/<br\s*\/?>(\n)?/gi, "\n");
 };
 
-const copyWithClipboardApi = async (text: string): Promise<void> => {
-  try {
-    await navigator.clipboard.writeText(text);
-    message.success("Текст скопирован в буфер обмена");
-  } catch (error: unknown) {
-    const errorMessage = error instanceof Error ? error.message : "Неизвестная ошибка";
-    message.error(`Ошибка при копировании текста в буфер обмена: ${errorMessage}`);
-  }
-};
-
-const copyWithFallback = (text: string): void => {
+const copyWithFallback = (text: string): boolean => {
   const textArea = document.createElement("textarea");
   textArea.value = text;
   Object.assign(textArea.style, {
@@ -47,13 +39,21 @@ const copyWithFallback = (text: string): void => {
   document.body.appendChild(textArea);
   textArea.focus();
   textArea.select();
-  document.execCommand("copy");
-  message.success("Текст успешно скопирован в буфер обмена");
+  let success = false;
+
+  try {
+    success = document.execCommand("copy");
+  } catch (err) {
+    console.error("Fallback copy failed:", err);
+  }
+
   document.body.removeChild(textArea);
+
+  return success;
 };
 
 export const useCopyToClipboard = () => {
-  const copyToClipboard = (event?: MouseEvent): void => {
+  const copyToClipboard = async (event?: MouseEvent): Promise<void> => {
     if (!event?.target) {
       return;
     }
@@ -64,16 +64,34 @@ export const useCopyToClipboard = () => {
       return;
     }
 
+    if (isCopying) {
+      return;
+    }
+
+    isCopying = true;
+
     const textContent = cleanHtml(elementToCopy.textContent || "");
 
-    if (navigator.clipboard) {
-      copyWithClipboardApi(textContent);
-    } else {
-      copyWithFallback(textContent);
+    try {
+      await navigator.clipboard.writeText(textContent);
+      message.success("Текст скопирован в буфер обмена");
+    } catch (err) {
+      if (copyWithFallback(textContent)) {
+        message.success("Текст скопирован в буфер обмена");
+      } else {
+        console.error("Не удалось скопировать текст:", err);
+        message.error("Не удалось скопировать текст");
+      }
+    } finally {
+      isCopying = false;
     }
   };
 
   const enableAutoCopy = (): void => {
+    if (isAutoCopyEnabled) {
+      return;
+    }
+
     document.addEventListener("click", (event) => {
       if (
         event.target instanceof HTMLElement &&
@@ -82,6 +100,7 @@ export const useCopyToClipboard = () => {
         copyToClipboard(event);
       }
     });
+    isAutoCopyEnabled = true;
   };
 
   return {copyToClipboard, enableAutoCopy};

@@ -298,7 +298,7 @@ const ThemeModal: React.FC<ThemeModalProps> = ({isModalOpen, closeModal}) => {
           </div>
           <div className="theme-slider">
             <Slider
-              max={1.5}
+              max={1}
               min={0}
               step={0.025}
               style={{flex: "1 1 auto", width: "100%"}}

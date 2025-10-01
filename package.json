@@ -65,6 +65,7 @@
     "build": "git stash -u && yarn format && vite build && git stash apply",
     "predeploy": "yarn && yarn build",
     "deploy": "gh-pages -d dist -m \"обновление сайта\" && git push",
+    "quick-deploy": "yarn quick-build && yarn gh-pages -d dist -m \"обновление сайта\"",
     "dev": "yarn & vite",
     "preview": "vite preview --host",
     "format:scss": "stylelint \"**/*.scss\" --fix",
