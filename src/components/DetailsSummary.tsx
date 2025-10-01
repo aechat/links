@@ -12,6 +12,12 @@ import React, {
   useState,
 } from "react";
 
+declare global {
+  interface Window {
+    detailsSummaryScrollListenerAttached?: boolean;
+  }
+}
+
 interface DetailsSummaryProps {
   title: string;
   children: ReactNode;
@@ -245,9 +251,9 @@ const DetailsSummary: React.FC<DetailsSummaryProps> = ({title, children, tag}) =
   }, []);
 
   useEffect(() => {
-    if (!(window as any).detailsSummaryScrollListenerAttached) {
+    if (!window.detailsSummaryScrollListenerAttached) {
       window.addEventListener("scroll", updateDimmingEffect, {passive: true});
-      (window as any).detailsSummaryScrollListenerAttached = true;
+      window.detailsSummaryScrollListenerAttached = true;
     }
   }, [updateDimmingEffect]);
 
