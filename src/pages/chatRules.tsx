@@ -18,8 +18,6 @@ import Footer from "../components/Footer";
 
 import Header from "../components/Header";
 
-import {useExternalLinks} from "../hooks/useExternalLinks";
-
 import {useCopyToClipboard} from "../hooks/useCopyToClipboard";
 
 import PageIntro from "../components/PageIntro";
@@ -38,7 +36,6 @@ const constants = {
 
 const ChatRules = () => {
   const {hash} = useLocation();
-  useExternalLinks();
 
   const {enableAutoCopy} = useCopyToClipboard();
 
