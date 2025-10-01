@@ -25,14 +25,14 @@ const AEFromNewbies: React.FC = () => {
               Учтите, что большинство авторов курсов и каналов на{" "}
               <mark className="app">YouTube</mark> работают в английской версии программы.
               Чтобы избежать проблем с локализацией, рекомендуется{" "}
-              <a href="#">изменить язык программы на английский</a>, если у вас
+              <a href="#3.6">изменить язык программы на английский</a>, если у вас
               установлена русская версия. Это поможет избежать путаницы с переводом
               названий эффектов или элементов интерфейса.
             </li>
             <li>
               Если вы предпочитаете работать с русской локализацией{" "}
               <mark className="app">Adobe After Effects</mark>, вам могут пригодиться
-              таблицы перевода <a href="#">эффектов</a> и <a href="#">пресетов</a>.
+              таблицы перевода <a href="#1.6">эффектов</a> и <a href="#1.7">пресетов</a>.
             </li>
             <li>
               Не стоит всерьёз полагаться на <mark className="app">ChatGPT</mark>,{" "}
@@ -2660,7 +2660,7 @@ const AEFromNewbies: React.FC = () => {
         </p>
         <Addition type="info">
           Чтобы не попасть впросак, если файл проекта повредится — заранее{" "}
-          <a href="#">настройте резервное копирование проектов</a>.
+          <a href="#3.9">настройте резервное копирование проектов</a>.
         </Addition>
       </DetailsSummary>
       <DetailsSummary
@@ -3257,7 +3257,7 @@ const AEFromNewbies: React.FC = () => {
             <Addition type="warning">
               <sup>1</sup> В <mark>Windows</mark> для импорта файлов{" "}
               <mark className="image">HEIF/HEIC</mark> необходимо установить{" "}
-              <a href="#">соответствующие кодеки</a>.
+              <a href="#4.5">соответствующие кодеки</a>.
             </Addition>
             <Addition type="info">
               <ul>
@@ -3304,7 +3304,7 @@ const AEFromNewbies: React.FC = () => {
                 Если <mark className="image">PSD</mark> сохранён в цветовом режиме,
                 отличном от <mark>RGB</mark>, — послойный импорт в{" "}
                 <mark className="app">Adobe After Effects</mark> будет недоступен.{" "}
-                <a href="#">Подробнее...</a>
+                <a href="#4.8">Подробнее...</a>
               </Addition>
             </Addition>
             <Addition type="info">
@@ -4062,7 +4062,7 @@ const AEFromNewbies: React.FC = () => {
           <sup>1</sup> <mark className="image">PSD</mark>, сохранённые в режиме{" "}
           <mark>CMYK</mark>, не поддерживают послойный импорт слоёв в проект. Чтобы это
           исправить — измените цветовой режим файла на <mark>RGB</mark>.{" "}
-          <a href="#">Как?</a>
+          <a href="#4.8">Как?</a>
         </Addition>
         <ContentFigure
           caption="Импорт и анимация PSD в Adobe After Effects"
@@ -4091,7 +4091,7 @@ const AEFromNewbies: React.FC = () => {
           <mark className="plugin">Cinema 4D Lite</mark> — установите полноценную{" "}
           <mark className="app">Maxon Cinema 4D</mark>, иначе вы столкнетесь с тем, что вы
           не сможете импортировать проекты формата <mark className="file">C4D</mark>.{" "}
-          <a href="#">Подробнее...</a>
+          <a href="#8.9">Подробнее...</a>
         </Addition>
         <ContentFigure
           caption="Cineware"

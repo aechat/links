@@ -330,7 +330,7 @@ const AEInterface: React.FC = () => {
               <mark className="select">«Preview»</mark> два параметра:{" "}
               <mark className="select">«Cache Before Playback»</mark> и{" "}
               <mark className="select">«If Caching, play cached frames»</mark>.{" "}
-              <a href="#">Подробнее...</a>
+              <a href="#3.16">Подробнее...</a>
             </Addition>
           </li>
           <li>
@@ -1411,7 +1411,7 @@ const AEInterface: React.FC = () => {
             Если предыдущих настроек нет, переименовывать файл, убирая суффикс{" "}
             <mark>-old</mark>, бессмысленно, так как и он может быть повреждён. Советую
             периодически сохранять пользовательские настройки в отдельную папку или{" "}
-            <a href="#">настроить их синхронизацию с облачным хранилищем</a>. Чтобы
+            <a href="#3.9">настроить их синхронизацию с облачным хранилищем</a>. Чтобы
             открыть папку с настройками — нажмите на кнопку{" "}
             <mark className="select">«Reveal Preferences in Explorer»</mark> в{" "}
             <mark className="select">«Edit» → «Preferences» → «Startup & Repair»</mark>.
