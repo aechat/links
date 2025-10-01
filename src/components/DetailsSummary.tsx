@@ -2,6 +2,10 @@ import {ShareRounded} from "@mui/icons-material";
 
 import {Tooltip, message} from "antd";
 
+import {useExternalLinkHandler} from "../hooks/useExternalLinks";
+
+import {useInternalLinkHandler} from "../hooks/useInternalLinks";
+
 import React, {
   ReactNode,
   createContext,
@@ -104,6 +108,17 @@ export const generateAnchorId = () => {
 };
 
 const DetailsSummary: React.FC<DetailsSummaryProps> = ({title, children, tag}) => {
+  const {handleLinkClick: handleInternalLinkClick, InternalLinkModal} =
+    useInternalLinkHandler();
+
+  const {handleLinkClick: handleExternalLinkClick, ExternalLinkModal} =
+    useExternalLinkHandler();
+
+  const handleSectionClick = (event: React.MouseEvent<HTMLElement>) => {
+    handleInternalLinkClick(event);
+    handleExternalLinkClick(event);
+  };
+
   const [isOpen, setIsOpen] = useState(false);
 
   const [displayAnchorId, setDisplayAnchorId] = useState("");
@@ -355,10 +370,13 @@ const DetailsSummary: React.FC<DetailsSummaryProps> = ({title, children, tag}) =
         <section
           ref={sectionRef}
           className="faq-section"
+          onClick={handleSectionClick}
         >
           {children}
         </section>
       </SpoilerContext.Provider>
+      {InternalLinkModal}
+      {ExternalLinkModal}
     </details>
   );
 };

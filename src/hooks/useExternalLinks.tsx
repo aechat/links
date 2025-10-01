@@ -1,34 +1,71 @@
-import {useEffect} from "react";
+import {CloseRounded} from "@mui/icons-material";
 
-export const useExternalLinks = () => {
-  useEffect(() => {
-    const processLinks = () => {
-      const containers = Array.from(
-        document.querySelectorAll(".faq-container, .ant-modal")
-      );
-      containers.forEach((container) => {
-        const links = Array.from(container.querySelectorAll("a[href]"));
-        links.forEach((link) => {
-          const a = link as HTMLAnchorElement;
+import {Modal} from "antd";
 
-          const href = a.getAttribute("href");
+import React, {useCallback, useState} from "react";
 
-          if (!href) {
-            return;
-          }
+export const useExternalLinkHandler = () => {
+  const [modalVisible, setModalVisible] = useState(false);
 
-          if (/^https?:\/\//.test(href)) {
-            a.setAttribute("target", "_blank");
-            a.setAttribute("rel", "noreferrer");
-          }
-        });
-      });
-    };
-    processLinks();
+  const [targetUrl, setTargetUrl] = useState<string | null>(null);
 
-    const observer = new MutationObserver(processLinks);
-    observer.observe(document.body, {childList: true, subtree: true});
+  const handleLinkClick = useCallback((event: React.MouseEvent<HTMLElement>) => {
+    const target = event.target as HTMLElement;
 
-    return () => observer.disconnect();
+    const anchor = target.closest("a[href]");
+
+    if (anchor) {
+      const href = anchor.getAttribute("href");
+
+      if (href && /^https?:\/\//.test(href)) {
+        event.preventDefault();
+        setTargetUrl(href);
+        setModalVisible(true);
+      }
+    }
   }, []);
+
+  const handleOk = () => {
+    if (targetUrl) {
+      window.open(targetUrl, "_blank", "noreferrer");
+    }
+
+    setModalVisible(false);
+    setTargetUrl(null);
+  };
+
+  const handleCancel = () => {
+    setModalVisible(false);
+    setTargetUrl(null);
+  };
+
+  const ExternalLinkModal = (
+    <Modal
+      centered
+      closeIcon={null}
+      footer={null}
+      open={modalVisible}
+      onCancel={handleCancel}
+    >
+      <div className="modal">
+        <div className="modal-content">
+          <div className="modal-header">
+            <div className="modal-header-title">{targetUrl}</div>
+            <button
+              className="modal-header-close"
+              onClick={handleCancel}
+            >
+              <CloseRounded />
+            </button>
+          </div>
+          <p>Вы уверены, что хотите перейти по внешней ссылке?</p>
+          <div className="flexible-links">
+            <button onClick={handleOk}>Перейти</button>
+          </div>
+        </div>
+      </div>
+    </Modal>
+  );
+
+  return {handleLinkClick, ExternalLinkModal};
 };

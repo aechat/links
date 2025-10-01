@@ -29,12 +29,17 @@
 }
 
 .modal-header-close {
+  flex-shrink: 0;
   transition:
     background-color 0.5s cubic-bezier(0.075, 0.82, 0.165, 1),
     color 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
-  color: var(--summary-text);
   border-radius: $roundness * 0.5;
   padding: 4px;
+  color: var(--summary-text);
+  svg {
+    width: 18px;
+    height: 18px;
+  }
 
   &:hover {
     background-color: var(--button-hover);
@@ -120,7 +125,7 @@
   margin-inline: 15px;
   margin-block: 10px;
   font-size: 0.95rem;
-  line-height: 1.5;
+  line-height: 1.65;
 }
 
 .modal a {
