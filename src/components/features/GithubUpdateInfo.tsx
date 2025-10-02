@@ -81,9 +81,8 @@ const GithubUpdateInfo: React.FC<GithubUpdateInfoProps> = ({folderPath}) => {
   }, [folderPath]);
 
   const paragraphStyles: React.CSSProperties = {
-    filter: "saturate(0.5)",
+    color: "var(--color-text-tertiary)",
     fontSize: "0.785rem",
-    opacity: "0.5",
     textAlign: "center",
     overflow: "hidden",
     textOverflow: "ellipsis",
@@ -96,7 +95,7 @@ const GithubUpdateInfo: React.FC<GithubUpdateInfoProps> = ({folderPath}) => {
   const linkStyles: React.CSSProperties = {
     fontWeight: 600,
     lineHeight: "1.35",
-    color: "var(--accent)",
+    color: "var(--color-accent)",
     fontFamily: "Onest, Inter, sans-serif",
   };
 

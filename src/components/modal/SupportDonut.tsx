@@ -112,7 +112,7 @@ const SupportDonut: React.FC = () => {
                       style={{
                         textAlign: "center",
                         fontSize: "0.8rem",
-                        opacity: "0.75",
+                        color: "var(--color-text-tertiary)",
                       }}
                     >
                       Нажмите на номер карты, чтобы скопировать его в буфер обмена
@@ -170,14 +170,14 @@ const SupportDonut: React.FC = () => {
                           style={{
                             textAlign: "center",
                             fontSize: "0.8rem",
-                            opacity: "0.75",
+                            color: "var(--color-text-tertiary)",
                           }}
                         >
                           Нажмите, чтобы скопировать или пополните баланс автору с помощью{" "}
                           <a
                             href="https://yoomoney.ru/to/410016763684808"
                             style={{
-                              color: "var(--accent)",
+                              color: "var(--color-accent)",
                               fontWeight: 700,
                               textDecoration: "underline",
                             }}

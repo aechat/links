@@ -43,7 +43,7 @@ const PageIntro: React.FC<PageIntroProps> = ({text, isLoaded = true}) => {
           initial={{opacity: 1}}
           style={{
             alignItems: "center",
-            backgroundColor: "var(--background-color)",
+            backgroundColor: "var(--color-background-primary)",
             display: "flex",
             height: "100vh",
             justifyContent: "center",

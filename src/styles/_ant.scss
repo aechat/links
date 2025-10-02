@@ -9,32 +9,28 @@
 }
 
 .ant-slider:hover .ant-slider-handle::after {
-  box-shadow: 0 0 0 2px var(--accent);
+  box-shadow: 0 0 0 2px var(--color-accent);
 }
 
 .ant-message {
-  color: var(--text-color);
+  color: var(--color-text-primary);
   font-family: Onest, Inter, sans-serif;
 }
 
 .ant-message .ant-message-notice-wrapper .ant-message-notice-content {
-  outline: 1px solid var(--content-background-border);
-  background: var(--content-background-color);
+  outline: 1px solid var(--color-border-primary);
+  background: var(--color-background-secondary);
   font-weight: 400;
   font-size: 0.9rem !important;
 }
 
 .ant-modal-root .ant-modal-mask {
   backdrop-filter: blur(25px);
-  background-color: var(--background-color-alpha);
+  background-color: var(--color-background-overlay);
   height: 100vh;
 }
 
 .ant-breadcrumb {
-  font-size: 0.875rem;
-}
-
-.ant-message .ant-message-notice-wrapper .ant-message-notice-content {
   font-size: 0.875rem;
 }
 
@@ -43,27 +39,27 @@
   margin: 0 auto !important;
   max-width: calc(100vw - 16px) !important;
 
-  @media (width >= 768px) {
+  @media screen and (width >= 768px) {
     top: 64px;
   }
 }
 
 .ant-spin .ant-spin-dot-holder {
-  color: var(--accent);
+  color: var(--color-accent);
 }
 
 .ant-radio-wrapper .ant-radio-inner {
-  border-color: var(--content-background-border);
-  background-color: var(--content-background-border);
+  border-color: var(--color-border-primary);
+  background-color: var(--color-border-primary);
 }
 
 .ant-radio-wrapper .ant-radio-checked .ant-radio-inner {
-  border-color: var(--accent);
-  background-color: var(--accent);
+  border-color: var(--color-accent);
+  background-color: var(--color-accent);
 }
 
 .ant-radio-wrapper:hover .ant-radio-inner {
-  border-color: var(--accent);
+  border-color: var(--color-accent);
 }
 
 .ant-modal .ant-modal-content {
@@ -75,7 +71,7 @@
 }
 
 .ant-upload-wrapper .ant-upload-drag:not(.ant-upload-disabled):hover {
-  border-color: var(--accent);
+  border-color: var(--color-accent);
 }
 
 .ant-dropdown-menu-item {
@@ -96,12 +92,12 @@
 }
 
 .ant-dropdown-menu-item:hover {
-  outline: 1px solid var(--dropdown-item-hover-border);
-  background-color: var(--dropdown-item-hover-background);
+  outline: 1px solid var(--color-surface-dropdown-border-hover);
+  background-color: var(--color-surface-dropdown-background-hover);
 }
 
 .ant-dropdown-menu-item:active {
-  background-color: var(--dropdown-item-active-background);
+  background-color: var(--color-surface-dropdown-background-active);
 }
 
 .ant-dropdown-menu-title-content {
@@ -109,6 +105,6 @@
 }
 
 .ant-dropdown {
-  border: 1px solid var(--dropdown-border);
+  border: 1px solid var(--color-border-dropdown);
   border-radius: $roundness;
-}
+}

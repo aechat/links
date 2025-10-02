@@ -3,14 +3,16 @@
   flex-direction: column;
   align-items: center;
   gap: 10px;
+  transition: color 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
   box-sizing: border-box;
   padding: 10px;
   width: 100%;
-  color: var(--easing-text-primary);
+  color: var(--color-easing-text-primary);
 
   .flexible-links {
     margin-inline: 0;
   }
+
   label {
     opacity: 0.75;
     cursor: default;
@@ -39,8 +41,9 @@
   right: 0;
   left: 0;
   transform: translateY(-50%);
+  transition: background-color 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
   border-radius: 5px;
-  background: var(--easing-track-line-background);
+  background: var(--color-easing-track-background);
   height: 5px;
 }
 
@@ -56,12 +59,12 @@
 
 .animated-cube {
   z-index: 2;
-  background: var(--easing-selection-color);
+  background: var(--color-accent);
 }
 
 .animated-cube-trail {
   transition: opacity 0.5s ease-out;
-  border: 1px solid var(--accent);
+  border: 1px solid var(--color-accent);
   background: transparent;
 }
 
@@ -75,9 +78,9 @@
 .graph-container {
   flex: 1 1 400px;
   box-sizing: border-box;
-  border: 1px solid var(--easing-graph-area-border);
+  border: 1px solid var(--color-border-primary);
   border-radius: 8px;
-  background: var(--easing-graph-area-background);
+  background: var(--color-background-secondary);
   padding: 10px;
 }
 
@@ -116,7 +119,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  color: var(--easing-text-muted);
+  color: var(--color-text-tertiary);
   font-size: 14px;
 }
 
@@ -125,23 +128,24 @@
   justify-content: center;
   align-items: center;
   transition:
-    border-color 0.2s,
-    background-color 0.2s;
+    border-color 0.5s cubic-bezier(0.075, 0.82, 0.165, 1),
+    background-color 0.5s cubic-bezier(0.075, 0.82, 0.165, 1),
+    color 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
   cursor: pointer;
   box-sizing: border-box;
-  border: 1px solid var(--easing-control-border);
+  border: 1px solid var(--color-easing-control-border);
   border-radius: 4px;
-  background: var(--easing-control-background);
+  background: var(--color-easing-control-background);
   padding: 8px;
   height: 36px;
-  color: var(--easing-text-primary);
+  color: var(--color-easing-text-primary);
   font-size: 14px;
   text-align: center;
 }
 
 .control-item-select:hover {
-  border-color: var(--easing-control-border-hover);
-  background: var(--easing-control-background-hover);
+  border-color: var(--color-easing-control-border-hover);
+  background: var(--color-easing-control-background-hover);
 }
 
 .control-item-select:active {
@@ -153,31 +157,41 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 1px solid var(--easing-control-border);
+  transition:
+    border-color 0.5s cubic-bezier(0.075, 0.82, 0.165, 1),
+    background-color 0.5s cubic-bezier(0.075, 0.82, 0.165, 1),
+    color 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+  border: 1px solid var(--color-easing-control-border);
   border-radius: 4px;
-  background: var(--easing-display-background);
+  background: var(--color-easing-display-background);
   padding: 8px;
   height: 36px;
-  color: var(--easing-text-primary);
+  color: var(--color-easing-text-primary);
   font-size: 14px;
   text-align: center;
 }
 
 .graph-background {
-  fill: var(--easing-graph-area-background);
-  stroke: var(--easing-graph-grid-major);
+  fill: var(--color-easing-graph-background);
+  stroke: var(--color-easing-graph-border);
+  transition:
+    fill 0.5s cubic-bezier(0.075, 0.82, 0.165, 1),
+    stroke 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
 .grid-line-major {
-  stroke: var(--easing-graph-grid-major);
+  stroke: var(--color-easing-grid-major);
+  transition: stroke 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
 .grid-line-minor {
-  stroke: var(--easing-graph-grid-minor);
+  stroke: var(--color-easing-grid-minor);
+  transition: stroke 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
 .grid-text {
-  fill: var(--easing-text-muted);
+  fill: var(--color-easing-text-muted);
+  transition: fill 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
   font-size: 12px;
 }
 
@@ -190,31 +204,42 @@
 }
 
 .graph-curve {
-  stroke: var(--easing-graph-curve-line);
+  stroke: var(--color-easing-curve);
   stroke-width: 2.5px;
   fill: none;
+  transition: stroke 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
 .control-line {
-  stroke: var(--easing-selection-color);
+  stroke: var(--color-accent);
   stroke-width: 2px;
 }
 
 .animated-dot {
-  fill: var(--accent);
-  stroke: var(--text-color);
+  fill: var(--color-accent);
+  stroke: var(--color-easing-text-primary);
   stroke-width: 1.5px;
+  transition:
+    fill 0.5s cubic-bezier(0.075, 0.82, 0.165, 1),
+    stroke 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
 .keyframe-point {
-  fill: var(--easing-selection-color);
+  fill: var(--color-accent);
 }
 
 .handle {
-  fill: var(--easing-selection-color);
+  fill: var(--color-accent);
+  transition:
+    filter 0.5s cubic-bezier(0.075, 0.82, 0.165, 1),
+    fill 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
   cursor: grab;
+}
+
+.handle:hover {
+  filter: brightness(1.2);
 }
 
 .handle:active {
   cursor: grabbing;
-}
+}

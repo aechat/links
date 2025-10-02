@@ -16,11 +16,11 @@ interface HeaderProps {
 
 const styles = {
   header: {
-    backgroundColor: "var(--header-background)",
+    backgroundColor: "var(--color-background-header)",
     backdropFilter: "blur(15px) saturate(50%)",
     WebkitBackdropFilter: "blur(15px)",
-    boxShadow: "0 0 15px 0 var(--header-shadow)",
-    outline: "1px solid var(--header-border)",
+    boxShadow: "0 0 15px 0 var(--shadow-secondary)",
+    outline: "1px solid var(--color-border-header)",
     translate: "0 0 0",
   },
   logo: {
