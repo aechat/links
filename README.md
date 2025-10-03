@@ -14,15 +14,12 @@
 ## Поддержать автора статей копеечкой
 
 На карту **Сбербанк**: `2202202357342488`
-
 На электронный кошелёк **ЮМани**: `410016763684808`
 
 ## Рекомендации по использованию редакторов и плагинов к ним
 
 Для редактирования этого проекта автор использует редактор кода `VS Code`, а также плагины `ESLint` и `Prettier`, конфигурации которого уже расположены в файлах. Однако вы можете редактировать проект и в своём любимом редакторе кода.
-
 Для установки зависимостей выполните команду `yarn install`, если вы используете пакетный менеджер `yarn`. Он используется в этом проекте.
-
 Для быстрого форматирования кода используйте команду ниже.
 
 ```shell
@@ -44,7 +41,6 @@ yarn dlx @yarnpkg/sdks vscode
 ## Гайдлайн по написанию статей в ответах на частые вопросы
 
 Все статьи обычно содержатся в директории `src/pages/sections` и разбиты на несколько директорий со статьями. Каждый файл равен какой-то категории статей.
-
 Пустая и новая категория должна содержать следующий вид.
 
 ```typescript
@@ -64,7 +60,6 @@ export default SHORTNAME_SECTION;
 
 ```typescript
 import DetailsSummary from "../../../components/DetailsSummary";
-
 <DetailsSummary title="Как отключить Windows Defender?" tag="helper.exe не найден, выключить дефендер, отрубить антивирус">
   <p>Ответ на вопрос.</p>
 </DetailsSummary>
@@ -78,9 +73,7 @@ import {
   AdditionInfo,
   AdditionWarning,
 } from "../../../components/Additions";
-
 import DetailsSummary from "../../../components/DetailsSummary";
-
 <DetailsSummary title="Вопрос">
   <p>Причина поведения определённого действия.</p>
   <ul>
@@ -111,7 +104,6 @@ import DetailsSummary from "../../../components/DetailsSummary";
 ```
 
 Иногда в тексте может встречаться `mark` с каким-нибудь классом. Это делается лишь для добавления уникальной иконки рядом с текстом и позволяет копировать текст в буфер обмена. Если у `mark` не будет класса - при нажатии на него текст не будет копироваться в буфер обмена.
-
 Классы для `mark`:
 
 - Иконка файла: `className="file"`
@@ -146,9 +138,7 @@ import DetailsSummary from "../../../components/DetailsSummary";
 
 ```typescript
 import {ImageFigure, VideoFigure} from "../../../components/ContentFigure";
-
 import DetailsSummary from "../../../components/DetailsSummary";
-
 <DetailsSummary title="Вопрос">
   <p>
     Кэш в <mark className="app">Adobe After Effects</mark> очищается таким образом, как показано

@@ -22,7 +22,6 @@ declare global {
     detailsSummaryScrollListenerAttached?: boolean;
   }
 }
-
 interface DetailsSummaryProps {
   title: string;
   children: ReactNode;
@@ -43,7 +42,6 @@ const TagList: React.FC<{tags: string}> = ({tags}) => {
   const isOverflowing = allTags.length > TAG_LIMIT;
 
   const [randomizedTags, setRandomizedTags] = useState<string[]>([]);
-
   useEffect(() => {
     if (isOverflowing) {
       const shuffled = [...allTags].sort(() => 0.5 - Math.random());
@@ -340,7 +338,6 @@ const DetailsSummary: React.FC<DetailsSummaryProps> = ({title, children, tag}) =
       document.body.classList.remove("has-open-details");
     }
   }, []);
-
   useEffect(() => {
     if (!window.detailsSummaryScrollListenerAttached) {
       window.addEventListener("scroll", updateDimmingEffect, {passive: true});

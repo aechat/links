@@ -66,7 +66,6 @@ const BouncyText: React.FC<BouncyTextProps> = ({text}) => {
         delay: shiftDelay,
         duration: 1.25,
         ease: [0.5, 0, 0, 1],
-
         delayChildren: shiftDelay + 0.2,
         staggerChildren: 0.05,
       },

@@ -61,9 +61,7 @@ export const useInternalLinkHandler = () => {
 
           const titleElement = summary?.querySelector("h3");
           let title = titleElement ? titleElement.textContent : "без названия";
-
           title = title.replace(/^\d+\.\d+\.\s*/, "");
-
           setTargetArticle({id: targetId, title});
           setModalVisible(true);
         }

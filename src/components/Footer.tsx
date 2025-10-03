@@ -8,7 +8,6 @@ const OWNER = "aechat";
 const REPO = "links";
 
 const BRANCH = "main";
-
 interface GithubCommitAPI {
   commit: {
     message: string;
@@ -18,13 +17,11 @@ interface GithubCommitAPI {
   };
   html_url: string;
 }
-
 interface CommitData {
   message: string;
   url: string;
   date: Date;
 }
-
 // FOOTER PROPS
 interface FooterProps {
   title: string;
@@ -55,7 +52,6 @@ const Footer: React.FC<FooterProps> = ({title, initialYear}) => {
   const isFaqPage = (p: string): p is FaqPath => {
     return FAQ_PATHS.includes(p as FaqPath);
   };
-
   useEffect(() => {
     if (!isFaqPage(path)) {
       return;
@@ -90,7 +86,6 @@ const Footer: React.FC<FooterProps> = ({title, initialYear}) => {
         const message =
           lastMeaningfulCommit.commit.message.charAt(0).toLowerCase() +
           lastMeaningfulCommit.commit.message.slice(1);
-
         setCommitData({
           message,
           url: lastMeaningfulCommit.html_url,
@@ -105,7 +100,6 @@ const Footer: React.FC<FooterProps> = ({title, initialYear}) => {
         setIsLoading(false);
       }
     };
-
     getLastCommit();
   }, [path]);
 
