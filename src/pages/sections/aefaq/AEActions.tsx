@@ -16,7 +16,7 @@ const AEActions: React.FC = () => {
   return (
     <div className="faq-content">
       <DetailsSummary
-        tag="апскейл, топаз, качество, 4к, резкость, восстановить четкость, шарпен, цветокоррекция"
+        tag="апскейл, topaz, улучшение качества, резкость, цветокоррекция, нейросети"
         title="Какими средствами можно улучшить качество исходников?"
       >
         <p>
@@ -136,7 +136,7 @@ const AEActions: React.FC = () => {
         />
       </DetailsSummary>
       <DetailsSummary
-        tag="слоумо, твикстор, топаз, ретаймер, тайм ремапинг, плавное замедление, флоуфреймс, дайте мне больше фпс, fps interpolation"
+        tag="слоумо, twixtor, topaz, ретаймер, time remapping, flowframes, интерполяция кадров, замедление движения, плавное движение"
         title="Какими средствами можно замедлить видео или сделать его более плавным?"
       >
         <p>
@@ -242,7 +242,7 @@ const AEActions: React.FC = () => {
         />
       </DetailsSummary>
       <DetailsSummary
-        tag="дублирующиеся фреймы, аниме"
+        tag="дубликаты кадров, аниме, удаление кадров, обработка видео, ffmpeg, shutter encoder"
         title="Как и чем можно удалить повторяющиеся кадры из видео?"
       >
         <p>
@@ -399,7 +399,7 @@ const AEActions: React.FC = () => {
         </ul>
       </DetailsSummary>
       <DetailsSummary
-        tag="уменьшить шум, denoiser, денойзер, неат видео"
+        tag="denoiser, neat video, обработка и удаление шума, подавление цифрового шума"
         title="Чем можно подавить шумы на видео?"
       >
         <p>
@@ -459,7 +459,7 @@ const AEActions: React.FC = () => {
         />
       </DetailsSummary>
       <DetailsSummary
-        tag="транскрибация, виспер, whisper, speech to text, речь в текст, сгенерировать субтитры"
+        tag="транскрибация, whisper, речь в текст, speech to text, srt, генерация субтитров, импорт субтитров, автоматический текст"
         title="Как создать автоматические субтитры из речи и применить их в композиции?"
       >
         <p>
@@ -670,7 +670,7 @@ const AEActions: React.FC = () => {
         />
       </DetailsSummary>
       <DetailsSummary
-        tag="кеинг, клинап, убрать фон, keying, зеленый фон, бекграунд зелёнка, синий бэкграунд"
+        tag="кеинг, клинап, удаление фона, зеленый фон, синий фон, хромакей"
         title="Как и чем можно отделить объект от однотонного фона?"
       >
         <p>
@@ -751,7 +751,7 @@ const AEActions: React.FC = () => {
         />
       </DetailsSummary>
       <DetailsSummary
-        tag="ротобраш, ротоскопирование, повермейт"
+        tag="roto brush, power matte, ротоскопирование, ротобраш, выделение объекта, сложный фон"
         title="Как отделить объект от неоднородного фона, сложного для кеинга?"
       >
         <p>
@@ -789,7 +789,7 @@ const AEActions: React.FC = () => {
         />
       </DetailsSummary>
       <DetailsSummary
-        tag="depth scanner, сканер глубины"
+        tag="depth scanner, генерация глубины, размытие фона, карта глубины"
         title="Как и чем можно сгенерировать карту глубины из видео?"
       >
         <p>
@@ -1009,7 +1009,7 @@ const AEActions: React.FC = () => {
         </ul>
       </DetailsSummary>
       <DetailsSummary
-        tag="extract, экстракт, удалить цвет, убрать фон, кеинг, экстракт, анмульт, унмульт"
+        tag="extract, удаление цвета, удаление фона, кеинг, unmult, черный фон, белый фон"
         title="Как и чем можно вырезать белый или чёрный цвет со слоя?"
       >
         <Divider>Отделяем объект с помощью Extract</Divider>
@@ -1067,7 +1067,7 @@ const AEActions: React.FC = () => {
         />
       </DetailsSummary>
       <DetailsSummary
-        tag="tracking, камера трекер, трекинг, мокка"
+        tag="tracking, camera tracker, mocha, отслеживание движения, стабилизация, привязка объекта"
         title="Как и чем можно прикрепить слой к объекту на видео?"
       >
         <p>
@@ -1173,7 +1173,7 @@ const AEActions: React.FC = () => {
         </p>
       </DetailsSummary>
       <DetailsSummary
-        tag="шейповые слои, создание нулей, креате нульс фром патч, создание нулей из пути, create nulls from path"
+        tag="шейпы, создание нулей, create nulls from path, анимация пути, нуль-объекты, управление контуром"
         title="Как сделать точки контура управляемыми с помощью нуль-объектов?"
       >
         <p>
@@ -1205,7 +1205,7 @@ const AEActions: React.FC = () => {
         />
       </DetailsSummary>
       <DetailsSummary
-        tag="stroke, строук, автотрейс, авто-трассировка"
+        tag="stroke, автотрейс, auto-trace, обводка текста, трассировка, стили слоя"
         title="Как сделать обводку слоя?"
       >
         <p>
@@ -1281,7 +1281,7 @@ const AEActions: React.FC = () => {
         />
       </DetailsSummary>
       <DetailsSummary
-        tag="морфинг фигур, variable font"
+        tag="морфинг, анимация шрифта, толщина текста, variable fonts"
         title="Как сделать анимацию толщины шрифта?"
       >
         <p>
@@ -1297,7 +1297,7 @@ const AEActions: React.FC = () => {
         />
       </DetailsSummary>
       <DetailsSummary
-        tag="персонажная анимация, дюик, паппет тулс, рабберхос, лимбер, чарактер тул"
+        tag="персонажная анимация, duik, puppet tool, rubberhose, limber, character tool, риггинг, инструменты для анимации"
         title="Какими средствами обычно делают анимацию персонажей?"
       >
         <p>
@@ -1339,7 +1339,7 @@ const AEActions: React.FC = () => {
         </ul>
       </DetailsSummary>
       <DetailsSummary
-        tag="биты, create audio from keyframes, ключи из аудио"
+        tag="биты, аудио в ключи, синхронизация с аудио, маркеры, ключевые кадры"
         title="Как быстро расставить ключевые кадры и маркеры под бит?"
       >
         <p>
@@ -1399,7 +1399,7 @@ const AEActions: React.FC = () => {
         />
       </DetailsSummary>
       <DetailsSummary
-        tag="декомпозить текст, текст в слои"
+        tag="decomposetext, разделение текста на слои, текстовые слои"
         title="Как разбить текстовый слой на отдельные слои по буквам, словам или строкам?"
       >
         <p>
@@ -1436,7 +1436,7 @@ const AEActions: React.FC = () => {
         />
       </DetailsSummary>
       <DetailsSummary
-        tag="компсеттер, rd:compsetter"
+        tag="rd:compsetter, пакетная обработка, настройки композиции, массовое изменение"
         title="Как изменить параметры сразу у нескольких композиций?"
       >
         <p>
@@ -1457,7 +1457,7 @@ const AEActions: React.FC = () => {
         />
       </DetailsSummary>
       <DetailsSummary
-        tag="аджастмент леер, adjustment layer не для всех слоёв"
+        tag="корректирующий слой, маскирование эффектов, маски для эффектов, выборочные эффекты, adjustment layer"
         title="Как применить корректирующий слой только к определённым слоям?"
       >
         <p>

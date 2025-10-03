@@ -16,7 +16,7 @@ const AEExport: React.FC = () => {
   return (
     <div className="faq-content">
       <DetailsSummary
-        tag="очередь рендера, render queue, как настроить экспорт, куда нажимать для сохранения композиции, свой шаблон с настройками для экспорта композиций"
+        tag="render queue, очередь рендера, настройки экспорта, render settings, output module, export settings"
         title="Что такое очередь рендеринга?"
       >
         <p>
@@ -289,7 +289,7 @@ const AEExport: React.FC = () => {
         />
       </DetailsSummary>
       <DetailsSummary
-        tag="медиа энкодер"
+        tag="dynamic link, проблемы при экспорте"
         title="Почему «из каждого утюга» советуют не использовать Adobe Media Encoder для экспорта?"
       >
         <p>
@@ -411,7 +411,7 @@ const AEExport: React.FC = () => {
         </ul>
       </DetailsSummary>
       <DetailsSummary
-        tag="сохранить максимальное качество, разрешение, битрейт, кодек, fps, соцсети, настройки рендера, вывод видео"
+        tag="качество видео, разрешение, битрейт, кодек, fps, соцсети, настройки экспорта, export settings, video quality, file size, color space"
         title="Как подобрать настройки экспорта для разных задач?"
       >
         <p>
@@ -738,7 +738,7 @@ const AEExport: React.FC = () => {
         />
       </DetailsSummary>
       <DetailsSummary
-        tag="h.264, h.265, мп4, hevc, avc1, вывести видео, вукодер, voukoder, aftercodecs, афтеркодекс, хевк, авс1"
+        tag="h264, h265, hevc, avc1, voukoder, aftercodecs"
         title="Как экспортировать композицию в MP4?"
       >
         <p>
@@ -1271,7 +1271,7 @@ const AEExport: React.FC = () => {
         </Addition>
       </DetailsSummary>
       <DetailsSummary
-        tag="вебм, вп9, ав1, vp9, av1"
+        tag="vp9, av1, alpha channel, видео с прозрачностью"
         title="Как экспортировать композицию в WEBM?"
       >
         <p>
@@ -1433,7 +1433,7 @@ const AEExport: React.FC = () => {
         </ul>
       </DetailsSummary>
       <DetailsSummary
-        tag="создать гифку"
+        tag="gifgun, ezgif, animated gif"
         title="Как экспортировать композицию в GIF?"
       >
         <p>
@@ -1606,8 +1606,8 @@ const AEExport: React.FC = () => {
         </p>
       </DetailsSummary>
       <DetailsSummary
-        tag="export with alpha-channel, вывод в прорес 4444"
-        title="Как экспортировать композицию с альфа-каналом, то есть с прозрачностью?"
+        tag="prores 4444, prores 422, quicktime, видео с прозрачностью, alpha channel"
+        title="Как экспортировать композицию в Apple ProRes?"
       >
         <AdditionWarning>
           В <mark className="video">H.264</mark> и <mark className="file">MP4</mark>{" "}
@@ -1648,23 +1648,14 @@ const AEExport: React.FC = () => {
           styleClass="figure_windows-dark"
           videoSrc="images/aftereffects/export_prores4444_rgb-alpha.mp4"
         />
-        <p>
-          Затем укажите путь для вывода файла и нажмите на кнопку{" "}
-          <mark className="ui">Render</mark> или на клавишу{" "}
-          <mark className="key">Enter</mark>. После экспорта вы сможете воспользоваться
-          этим видео в последующем монтаже видео или где-нибудь ещё.
-        </p>
-        <AdditionInfo>
-          Если вы хотите посмотреть такое видео, но у вас оно не открывается стандартным
-          плеером, то вам нужно установить сторонний видеоплеер, например{" "}
-          <mark className="app">VLC</mark> или <mark className="app">MPC-HC</mark>.
-          Учтите, что не все видео-проигрыватели корректно отображают видео с
-          альфа-каналом.
-        </AdditionInfo>
+      <DetailsSummary
+        tag="аудио, звук, музыка, wav, mp3, aiff"
+        title="Как экспортировать из композиции только аудио?"
+      >
       </DetailsSummary>
       <DetailsSummary
-        tag="телеграм, стикеры, tgs, тгс"
-        title="Как экспортировать композицию как стикеры и эмодзи для Telegram?"
+        tag="стикеры, tgs, lottie, animated stickers"
+        title="Как экспортировать анимацию для стикеров и эмодзи в Telegram?"
       >
         <p>
           В современном мире - только ленивый не слышал о мессенджере{" "}
@@ -1992,7 +1983,7 @@ const AEExport: React.FC = () => {
         </p>
       </DetailsSummary>
       <DetailsSummary
-        tag="создание могрт, анимационный шаблон для дальнейшего использования в Premiere Pro"
+        tag="анимационный шаблон для premiere pro"
         title="Как сохранить проект в формате MOGRT?"
       >
         <p>
@@ -2100,8 +2091,8 @@ const AEExport: React.FC = () => {
         />
       </DetailsSummary>
       <DetailsSummary
-        tag="прокси, proxy composition, ускорение времени рендера, уменьшение перепросчёта, пререндер, prerender, как сократить время повторного экспорта если заказчик попросил внести небольшие правки"
-        title="Как создать прокси для нужной композиции?"
+        tag="proxy, ускорение рендера, уменьшение перепросчёта, пререндер, быстрый повторный экспорт"
+        title="Как создать прокси для композиции?"
       >
         <p>
           В <mark className="app">Adobe After Effects</mark> можно создавать прокси для
@@ -2192,7 +2183,10 @@ const AEExport: React.FC = () => {
           videoSrc="images/aftereffects/toggle_disable_proxy.mp4"
         />
       </DetailsSummary>
-      <DetailsSummary title="Как экспортировать текущий кадр предпросмотра как файл изображения?">
+      <DetailsSummary
+        tag="кадр, изображение, скриншот, jpg, png, psd, превью"
+        title="Как экспортировать текущий кадр как изображение?"
+      >
         <p>
           Иногда у пользователя возникает нужда в выводе одного кадра из композиции как
           файл изображения, желательно в полном качестве, например для создания превью или
@@ -2271,8 +2265,8 @@ const AEExport: React.FC = () => {
         </AdditionInfo>
       </DetailsSummary>
       <DetailsSummary
-        tag="вывести секвенцию фото"
-        title="Как экспортировать все кадры композиции отдельными изображениями?"
+        tag="вывести секвенцию фото, jpg, png, psd"
+        title="Как экспортировать все кадры композиции как отдельные изображения?"
       >
         <p>
           Если вы хотите экспортировать все кадры из композиции в отдельные файлы, то вам
@@ -2323,7 +2317,10 @@ const AEExport: React.FC = () => {
           композиции сохранятся в нужную папку.
         </p>
       </DetailsSummary>
-      <DetailsSummary title="Как экспортировать всю композицию или только его часть?">
+      <DetailsSummary
+        tag="рабочая область, настройки рендера, длина композиции, таймлайн"
+        title="Как экспортировать всю композицию целиком или только её часть?"
+      >
         <p>
           По умолчанию <mark className="app">Adobe After Effects</mark> выводит композицию
           длиной, соответствующей вашей рабочей области, которую вы указали с помощью
@@ -2377,7 +2374,10 @@ const AEExport: React.FC = () => {
           styleClass="figure_windows-dark"
         />
       </DetailsSummary>
-      <DetailsSummary title="Как экспортировать композицию файлом с отображением всех границ и путей движения?">
+      <DetailsSummary
+        tag="границы слоёв, пути движения, направляющие, демонстрация анимации"
+        title="Как экспортировать видео с отображением границ слоёв и путей движения?"
+      >
         <p>
           Для экспорта композиции с отображением границ и путей движения можно
           воспользоваться сторонним плагином <mark className="plugin">Cyclops</mark>. Он
@@ -2438,8 +2438,8 @@ const AEExport: React.FC = () => {
         </p>
       </DetailsSummary>
       <DetailsSummary
-        tag="коллект файлс, collect files"
-        title="Как передать проект вместе с исходниками другому человеку?"
+        tag="сбор проекта, collect files"
+        title="Как передать проект со всеми исходниками другому человеку?"
       >
         <p>
           В <mark className="app">Adobe After Effects</mark> есть функция для сохранения
@@ -2545,15 +2545,7 @@ const AEExport: React.FC = () => {
         tag="лотти"
         title="Какие эффекты можно использовать в Lottie для успешного вывода?"
       >
-        <p>
-          Изначально <mark className="file">Lottie</mark> не поддерживает все функции,
-          например сторонние плагины или эффекты, поэтому на сайте Lottiefiles есть целая{" "}
-          <a href="https://lottiefiles.com/supported-features">
-            таблица совместимости эффектов
-          </a>{" "}
-          вашей анимации с браузерами и платформами. Чтобы проверить вашу анимацию, вы
-          можете её загрузить в{" "}
-          <a href="https://app.lottiefiles.com/preview">предпросмотр от Lottie</a>.
+      <DetailsSummary title="Какие эффекты можно использовать при использовании Lottie?">
         </p>
       </DetailsSummary>
     </div>

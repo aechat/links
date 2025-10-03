@@ -33,7 +33,7 @@ const AEErrors: React.FC = () => {
         </ul>
       </Addition>
       <DetailsSummary
-        tag="bitte lies und akzeptiere die nutzungsbedingungen von adobe, door niet-gelicentieerde adobe-apps kan je apparaat worden blootgesteld aan extra beveilligingsrisico's, deze app is gedeactiveerd, deze app wordt over dagen gedeactiveerd, deze niet-gelicentieerde adobe-app is degeactiveerd, dieses nicht lizenzierte adobe-programm wurde deaktiviert, dieses produkt wurde deaktiviert, cette application a ete desactivee, cette application adobe asns license a ete desactivee, profitez de sur les applications adobe authentiques, start your free trial of app, take advantage of discounts up to 40% off on genuine adobe replacement apps, this app has been disabled, this app will disable in days, this unlicensed adobe app is not genuine and will be disabled soon, unlicensed adobe apps may expose your device to increased security risks, vpn, white and red window, white screen, блокировка доступа в интернет, впн, виртуальная частная сеть, файл хостс, не запускается, начните использовать бесплатную пробную версию, окно с красной полоской при запуске, пустое окно, слетела лицензия, белое и красное окно, белый экран"
+        tag="bitte lies und akzeptiere die nutzungsbedingungen von adobe, door niet-gelicentieerde adobe-apps kan je apparaat worden blootgesteld aan extra beveilligingsrisico's, deze app is gedeactiveerd, deze app wordt over dagen gedeactiveerd, deze niet-gelicentieerde adobe-app is degeactiveerd, dieses nicht lizenzierte adobe-programm wurde deaktiviert, dieses produkt wurde deaktiviert, cette application a ete desactivee, cette application adobe asns license a ete desactivee, profitez de sur les applications adobe authentiques, start your free trial of app, take advantage of discounts up to 40% off on genuine adobe replacement apps, this app has been disabled, this app will disable in days, this unlicensed adobe app is not genuine and will be disabled soon, unlicensed adobe apps may expose your device to increased security risks, vpn, white and red window, white screen, блокировка доступа в интернет, впн, виртуальная частная сеть, файл хостс, не запускается, начните использовать бесплатную пробную версию, окно с красной полоской при запуске, пустое окно, слетела лицензия, белое и красное окно, белый экран, the unlicensed adobe app, adobe genuine, hosts, ошибка лицензии, красное окно"
         title="Как избавиться от «The unlicensed Adobe app has been disabled»?"
       >
         <p>
@@ -391,7 +391,7 @@ const AEErrors: React.FC = () => {
         />
       </DetailsSummary>
       <DetailsSummary
-        tag="23::40, after effects has unexpectedly run out of memory and cannot complete this export, either decrease the memory requirements for the rendering frame or install more ram, нехватка озу, выделенный объем памяти превышает внутреннее ограничение, рекомендуется снизить требования к памяти для рендеринга этого кадра, предупреждение о нехватке памяти, оперативная память, не проигрывается предпросмотр, зацикливается превью"
+        tag="out of memory, after effects has unexpectedly run out of memory and cannot complete this export, either decrease the memory requirements for the rendering frame or install more ram, нехватка озу, выделенный объем памяти превышает внутреннее ограничение, рекомендуется снизить требования к памяти для рендеринга этого кадра, предупреждение о нехватке памяти, unable to allocate enough memory, оперативная память, ошибка памяти, 23::40, не проигрывается предпросмотр, зацикливается превью"
         title="Как избавиться от «Out of Memory», «Unable to allocate enough memory to render the current frame», «Low memory warning. RAM use has been extended for previews» и похожих ошибок?"
       >
         <p>
@@ -566,7 +566,7 @@ const AEErrors: React.FC = () => {
         />
       </DetailsSummary>
       <DetailsSummary
-        tag="видеокарта, гпу, нехватает видеопамяти, врам, vram, this is likely because your gpu is out of memory, ошибка эффектов гп, обнаружена ошибка которая связана с эффектами на этом кадре использующими графический процессор, вероятно это вызвано нехваткой памяти графического процессора"
+        tag="gpu, vram, видеокарта, нехватка видеопамяти, gpu acceleration, ошибка графического процессора, this is likely because your gpu is out of memory, обнаружена ошибка которая связана с эффектами на этом кадре использующими графический процессор, вероятно это вызвано нехваткой памяти графического процессора"
         title="Что делать с ошибкой «After Effects has encountered a failure related to GPU-enabled effects»?"
       >
         <p>
@@ -628,7 +628,7 @@ const AEErrors: React.FC = () => {
         </ul>
       </DetailsSummary>
       <DetailsSummary
-        tag="25::56, невозможно выделить для эффекта буфер величиной более 30000 пикселей в любом направлении, перекрутил, не проигрывается предпросмотр, motion tile, мозаика движения"
+        tag="cannot allocate buffer, 30000 pixels, motion tile, cc repetile, buffer size, pixel limit, 25::56, мозаика движения, невозможно выделить для эффекта буфер величиной более 30000 пикселей в любом направлении"
         title="Что означает «Effect cannot allocate a buffer larger than 30000 pixels in either dimension»?"
       >
         <p>
@@ -647,7 +647,7 @@ const AEErrors: React.FC = () => {
         </p>
       </DetailsSummary>
       <DetailsSummary
-        tag="менеджер эффектов, effect may have caused to quit, if you want you can disable this effect now, to re-enable it later select manager effects from effects menu options, приложение неожиданно завершило работу, эффект мог привести к неожиданному завершению работы приложения, если вы хотите этот эффект можно отключить сейчас, чтобы включить его позже выберите управление эффектами в пункте меню эффекты"
+        tag="менеджер эффектов, effect may have caused to quit, if you want you can disable this effect now, to re-enable it later select manager effects from effects menu options, приложение неожиданно завершило работу, эффект мог привести к неожиданному завершению работы приложения, если вы хотите этот эффект можно отключить сейчас, чтобы включить его позже выберите управление эффектами в пункте меню эффекты, effect manager, сбой эффекта, отключение эффекта, crash, plugin error"
         title="Программа «вылетела» и предложила отключить эффект. Как включить его обратно?"
       >
         <p>
@@ -696,7 +696,7 @@ const AEErrors: React.FC = () => {
         />
       </DetailsSummary>
       <DetailsSummary
-        tag="этот эффект может замедлить предпросмотр и экспорт так как он не оптимизирован для мультикадрового рендера"
+        tag="этот эффект может замедлить предпросмотр и экспорт так как он не оптимизирован для мультикадрового рендера, mfr warning"
         title="Что означает «This effect may slow down Preview and Export as it is optimized Multi-Frame Render» при применении эффекта?"
       >
         <p>
@@ -729,7 +729,7 @@ const AEErrors: React.FC = () => {
         />
       </DetailsSummary>
       <DetailsSummary
-        tag="этот проект содержит ошибки выражений"
+        tag="этот проект содержит ошибки выражений, движок выражений, expression engine"
         title="Что делать с ошибкой «This project contains an expression error»?"
       >
         <p>
@@ -921,7 +921,7 @@ const AEErrors: React.FC = () => {
         />
       </DetailsSummary>
       <DetailsSummary
-        tag="расширенный 3d, вылетает при попытке использовать адвансед 3д, advanced 3D is not supported by the current software, баг"
+        tag="advanced 3d, classic 3d, расширенный 3d, вылетает при попытке использовать адвансед 3д, 3d рендеринг, драйверы видеокарты"
         title="Что делать с ошибкой «Advanced 3D plug-in generated an unexpected exception»?"
       >
         <ContentFilter
@@ -1013,7 +1013,7 @@ const AEErrors: React.FC = () => {
         />
       </DetailsSummary>
       <DetailsSummary
-        tag="5027::12, синема 4д не работает, c4d, с4д, cinema 4d: render failed, cineware server suite failed to acquire renderer port and path. server commands not available, чтобы использовать средство рендеринга cinema 4d - необходимо установить cinema 4d"
+        tag="c4d, синема 4д, cineware, 3d рендеринг, ошибка рендера, render failed, cineware server suite failed to acquire renderer port and path, server commands not available, сервер cineware, чтобы использовать средство рендеринга необходимо установить cinema 4d, 5027::12"
         title="Что делать с «Cinema 4D must be installed in order to use the Cinema 4D renderer»?"
       >
         <p>
@@ -1137,7 +1137,7 @@ const AEErrors: React.FC = () => {
         </ul>
       </DetailsSummary>
       <DetailsSummary
-        tag="advanced 3d is not supported by the current hardware, расширенный 3d не поддерживается текущим оборудованием, аппаратное ускорение, ускорение отображения отключено"
+        tag="advanced 3d is not supported by the current hardware, расширенный 3d не поддерживается текущим оборудованием, аппаратное ускорение, display acceleration disabled, драйверы видеокарты"
         title="Что означает «Display acceleration disabled» в правом верхнем углу предпросмотра?"
       >
         <p>
@@ -1194,7 +1194,7 @@ const AEErrors: React.FC = () => {
         </p>
       </DetailsSummary>
       <DetailsSummary
-        tag="отключение планирования аппаратного ускорения gpu"
+        tag="отключение планирования gpu, аппаратное ускорение, сбой драйвера, hardware decoding"
         title="При работе в программе пропадает изображение на мониторе, как будто перезагружается драйвер видеокарты. Как это исправить?"
       >
         <ContentFilter
@@ -1243,7 +1243,7 @@ const AEErrors: React.FC = () => {
         />
       </DetailsSummary>
       <DetailsSummary
-        tag="сапфир, баг"
+        tag="сапфир, красный экран, ошибка плагина, red screen, plugin error"
         title="Почему появляется красный экран и пропадают параметры у эффектов из пакета Boris FX Sapphire?"
       >
         <p>
@@ -1257,7 +1257,7 @@ const AEErrors: React.FC = () => {
         </p>
       </DetailsSummary>
       <DetailsSummary
-        tag="сапфир, баг"
+        tag="сапфир, вылет при запуске, совместимость, crash fix"
         title="Как избавиться от вылетов Adobe Media Encoder после установки плагина Boris FX Sapphire?"
       >
         <ContentFilter
@@ -1291,7 +1291,7 @@ const AEErrors: React.FC = () => {
         />
       </DetailsSummary>
       <DetailsSummary
-        tag="твикстор, баг"
+        tag="красный экран, синий экран, ошибка плагина, red screen, blue screen, plugin error"
         title="Как избавиться от красного или синего экрана при использовании Twixtor?"
       >
         <p>
@@ -1318,8 +1318,8 @@ const AEErrors: React.FC = () => {
         </ul>
       </DetailsSummary>
       <DetailsSummary
-        tag="ротобраш, баг версии, ротоскопинг, выделение объекта"
-        title="Почему в версии 2019 не выделяется объект при использовании Roto Brush?"
+        tag="roto brush, ротобраш, баг версии cc 2019"
+        title="Почему я не могу выделить объект при использовании Roto Brush?"
       >
         <p>
           Скорее всего, вы столкнулись с багом этой версии, если используете репак от{" "}
@@ -1331,7 +1331,7 @@ const AEErrors: React.FC = () => {
         </p>
       </DetailsSummary>
       <DetailsSummary
-        tag="bad format or not readable, файл поврежден, невозможно импортировать файл как проект, недопустимый формат или чтение невозможно, ошибка с файлом, не читается"
+        tag="file is damaged, unable to import, файл поврежден, ошибка импорта, автосохранение, project corruption, bad format or not readable, недопустимый формат или чтение невозможно, ошибка с файлом"
         title="Что делать с «File is damaged» или «Unable to import file as project»?"
       >
         <p>
@@ -1387,7 +1387,7 @@ const AEErrors: React.FC = () => {
         </ul>
       </DetailsSummary>
       <DetailsSummary
-        tag="дисковый кэш, не хватает места, please make more space available or go to media & disk cache preferences to change the folder or maximium disk cache size"
+        tag="дисковый кэш, нехватка места, please make more space available or go to media & disk cache preferences to change the folder or maximium disk cache size"
         title="Что означает «Your disk cache folder is on a drive that does not have enough avaiable space to safely store the full amount specified in your preferences»?"
       >
         <p>
@@ -1421,7 +1421,7 @@ const AEErrors: React.FC = () => {
         />
       </DetailsSummary>
       <DetailsSummary
-        tag="дисковый кэш отсутствует, please check your settings in media and disk cache preferences"
+        tag="дисковый кэш, папка кэша, disk cache, cache folder, cache error, please check your settings in media and disk cache preferences"
         title="Что делать с «Error: Disk Cache folder doesn't exist (or isn't a directory), so it will be reset to the system temporary directory»?"
       >
         <p>
@@ -1450,7 +1450,7 @@ const AEErrors: React.FC = () => {
         />
       </DetailsSummary>
       <DetailsSummary
-        tag="баг версии, локализация, юникод, английская версия, пути к файлам, кириллица, сброс настроек"
+        tag="unicode, ошибка кодировки, локализация, кириллица в путях, сброс настроек, unicode error, баг версии"
         title="Что делать с ошибками «Не удалось выполнить преобразование символов Unicode» или «Не удалось загрузить псевдоэффекты»?"
       >
         <p>
@@ -1473,7 +1473,7 @@ const AEErrors: React.FC = () => {
         </p>
       </DetailsSummary>
       <DetailsSummary
-        tag="17::19, 17::18, частота кадров, vfr, интерпретация футажа, маски, импорт"
+        tag="vfr, переменная частота кадров, интерпретация видео, frame rate, 17::19, 17::18"
         title="Что делать с ошибкой «Error: overflow converting ratio denominators»?"
       >
         <p>
@@ -1507,7 +1507,7 @@ const AEErrors: React.FC = () => {
         </ul>
       </DetailsSummary>
       <DetailsSummary
-        tag='ротобраш, несоответствие частоты кадров либо не найден видеоряд с полями, для достижения оптимального результата операций "кисть для ротоскопии" и "уточнить края" необходимо задать частоту кадров композиции в соответствии с источником слоя, for best roto brush & refine edge results set the composition to fps to match the layer source, will not render correctly because the source frame rate changed from to fps'
+        tag='ротобраш, несоответствие частоты кадров либо не найден видеоряд с полями, для достижения оптимального результата операций "кисть для ротоскопии" и "уточнить края" необходимо задать частоту кадров композиции в соответствии с источником слоя, for best roto brush & refine edge results set the composition to fps to match the layer source, will not render correctly because the source frame rate changed from to fps roto brush, frame rate mismatch, частота кадров, интерлейсинг, поля, interlace'
         title="Из-за чего появляется «Frame rate mismatch, or footage with fields found» при использовании Roto Brush?"
       >
         <p>
@@ -1660,7 +1660,7 @@ const AEErrors: React.FC = () => {
         </ul>
       </DetailsSummary>
       <DetailsSummary
-        tag="3d camera tracker, размер слоя должен соответствовать композиции и использовать значения трансформирования по умолчанию"
+        tag="3d camera tracker, размер слоя должен соответствовать композиции и использовать значения трансформирования по умолчанию, сброс трансформации, pre-compose, precompose"
         title="Из-за чего появляется «Layer must match Composition and use default transform values»?"
       >
         <p>
@@ -1690,7 +1690,7 @@ const AEErrors: React.FC = () => {
         </p>
       </DetailsSummary>
       <DetailsSummary
-        tag="3d camera tracker, трекер камеры, анализ не удался, solve failed, трекинг, стабилизация, detailed analysis, прокси"
+        tag="3d camera tracker, analysis solve failed, ошибка анализа, трекинг камеры, camera tracking error"
         title="Что делать с ошибками «Analysis Solve Failed» или «Unable to solve camera for this frame»?"
       >
         <p>
@@ -1742,7 +1742,7 @@ const AEErrors: React.FC = () => {
         </ul>
       </DetailsSummary>
       <DetailsSummary
-        tag="совместимость системы, драйверы, плагины, предупреждение, startup & repair, настройки"
+        tag="совместимость системы, драйверы, плагины, startup & repair"
         title="Из-за чего появляется окно «System Compatibility Report» при запуске программы?"
       >
         <p>
@@ -1783,7 +1783,7 @@ const AEErrors: React.FC = () => {
         />
       </DetailsSummary>
       <DetailsSummary
-        tag="неподдерживаемое устройство, авх2, ошибка при запуске приложения"
+        tag="неподдерживаемое устройство, avx2, ошибка запуска, требования к процессору"
         title="Что делать с ошибкой «0xc0000142» при запуске приложения?"
       >
         <p>
@@ -1840,7 +1840,7 @@ const AEErrors: React.FC = () => {
         />
       </DetailsSummary>
       <DetailsSummary
-        tag="d3dcompiler_47.dll, библиотека, отсутствует dll, установка файла, директория программы"
+        tag="d3dcompiler_47.dll, библиотека, отсутствует dll"
         title="Что делать с ошибкой «Не найден файл D3DCompiler_47.dll»?"
       >
         {" "}
@@ -1868,7 +1868,7 @@ const AEErrors: React.FC = () => {
         />
       </DetailsSummary>
       <DetailsSummary
-        tag="отсутствует рейтрейсед 3д, ray-traced 3d"
+        tag="ray-traced 3d, 3d рендеринг, устаревший проект"
         title="Из-за чего появляется «Warning: A rendering plug-in was not found. The default rendering plug-in will be substituted»?"
       >
         <p>
@@ -1887,7 +1887,7 @@ const AEErrors: React.FC = () => {
         </p>
       </DetailsSummary>
       <DetailsSummary
-        tag="font substitution will occur until the originals become available, предупреждение, в данном проекте используются шрифты которые в настоящий момент недоступны на этом компьютере, замена шрифтов будет выполняться до тех пор пока не станут доступны исходные шрифты"
+        tag="font substitution will occur until the originals become available, в данном проекте используются шрифты которые в настоящий момент недоступны на этом компьютере, замена шрифтов будет выполняться до тех пор пока не станут доступны исходные шрифты, missing fonts, отсутствуют шрифты, замена шрифтов"
         title="Что делать с «Warning: This project uses fonts that are not currently available on this computer»?"
       >
         <p>
@@ -1917,7 +1917,7 @@ const AEErrors: React.FC = () => {
         </p>
       </DetailsSummary>
       <DetailsSummary
-        tag="please install the following effects to restore these references, данный проект содержит ссылку на отсутствующий эффект, установите следующий эффект чтобы восстановить эту ссылку"
+        tag="please install the following effects to restore these references, данный проект содержит ссылку на отсутствующий эффект, установите следующий эффект чтобы восстановить эту ссылку, отсутствуют эффекты, ошибка эффектов, установка плагинов"
         title="Что делать с «This project contains references to missing effects»?"
       >
         <p>

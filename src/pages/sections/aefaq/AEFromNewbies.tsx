@@ -16,7 +16,7 @@ const AEFromNewbies: React.FC = () => {
   return (
     <div className="faq-content">
       <DetailsSummary
-        tag="для новичка, курсы, туториалы, уроки, базовый курс, только открыл афтер"
+        tag="для новичка, курсы, туториалы, уроки, базовый курс"
         title="Я первый раз открыл программу. С чего бы мне начать обучение?"
       >
         <Addition type="warning">
@@ -303,7 +303,7 @@ const AEFromNewbies: React.FC = () => {
         </p>
       </DetailsSummary>
       <DetailsSummary
-        tag="сленг, жаргон, терминология, понятия, сокращения, словосочетания, говор"
+        tag="сленг, жаргон, терминология, понятия, сокращения"
         title="Какие популярные термины есть у пользователей программы?"
       >
         <p>
@@ -1121,7 +1121,7 @@ const AEFromNewbies: React.FC = () => {
         </ul>
       </DetailsSummary>
       <DetailsSummary
-        tag="хоткеи, горячие клавиши, шорткаты, ускорение работы"
+        tag="хоткеи, горячие клавиши, шорткаты, keyboard shortcuts, hotkeys"
         title="Есть ли список популярных комбинаций клавиш?"
       >
         <p>

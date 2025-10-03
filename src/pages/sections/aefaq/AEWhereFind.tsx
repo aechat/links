@@ -12,7 +12,7 @@ const AEWhereFind: React.FC = () => {
   return (
     <div className="faq-content">
       <DetailsSummary
-        tag="адоб, афтер эффектс, фотошоп, премьер, загрузить, установить, бесплатно, скрипты, расширения, плагины"
+        tag="adobe, after effects, photoshop, premiere pro, скачать, установить, бесплатно, скрипты, расширения, плагины, templates, plugins, scripts, extensions"
         title="Где я могу найти и скачать шаблоны, плагины и различные программы?"
       >
         <p>
@@ -152,7 +152,7 @@ const AEWhereFind: React.FC = () => {
         </Addition>
       </DetailsSummary>
       <DetailsSummary
-        tag="футажи, ресурсы, стоки, материалы, creative commons, CC0"
+        tag="футажи, стоки, creative commons, cc0, stock footage, free video, video assets"
         title="Где найти и скачать стоковые видео для своих проектов?"
       >
         <p>
@@ -280,7 +280,7 @@ const AEWhereFind: React.FC = () => {
         </Addition>
       </DetailsSummary>
       <DetailsSummary
-        tag="ресурсы, материалы, фото, изображения, текстуры, шрифты, кисти, паттерны, иконки, psd"
+        tag="фото, изображения, текстуры, шрифты, кисти, паттерны, иконки, psd, graphic resources, free graphics, stock photos"
         title="Где найти и скачать графику для своих проектов?"
       >
         <p>
@@ -441,7 +441,7 @@ const AEWhereFind: React.FC = () => {
         </Addition>
       </DetailsSummary>
       <DetailsSummary
-        tag="sfx, звук, музыка, саунд-дизайн, аудио, фонотека"
+        tag="sfx, звук, музыка, саунд-дизайн, аудио, sound effects, royalty free music, audio library"
         title="Где найти и скачать звуковые эффекты для своих композиций?"
       >
         <p>
@@ -624,7 +624,7 @@ const AEWhereFind: React.FC = () => {
         </Addition>
       </DetailsSummary>
       <DetailsSummary
-        tag="идентификация шрифта, найти нужное начертание, find font, likefont, определить шрифт"
+        tag="идентификация шрифта, find font, likefont, определить шрифт, font identification"
         title="Как распознать шрифт по картинке?"
       >
         <p>
@@ -739,7 +739,7 @@ const AEWhereFind: React.FC = () => {
         </ul>
       </DetailsSummary>
       <DetailsSummary
-        tag="русский афтер, английский, локализация, русификация"
+        tag="русский язык, английский перевод, локализация, effects translation, language switch, localization"
         title="Где найти таблицу перевода стандартных эффектов?"
       >
         <Addition type="warning">
@@ -5583,7 +5583,7 @@ const AEWhereFind: React.FC = () => {
         </table>
       </DetailsSummary>
       <DetailsSummary
-        tag="русский афтер, английский, локализация, русификация"
+        tag="русский язык, английский перевод, локализация, effects translation, language switch, localization"
         title="Где найти таблицу перевода стандартных пресетов?"
       >
         <Addition type="warning">

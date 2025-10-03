@@ -12,17 +12,19 @@ const AEExportProblems: React.FC = () => {
   return (
     <div className="faq-content">
       <DetailsSummary
-        tag="не экспортируется, битый файл"
-        title="Почему при экспорте в MP4 через встроенный кодек H.264 сохраняется файл с размером в 1 Кб?"
+        tag="битрейт, качество, артефакты, low quality"
+        title="Почему моя композиция экспортировалась в плохом качестве?"
       >
-        <p>
-          В ранних версиях <mark className="app">Adobe After Effects</mark> версии{" "}
-          <mark>2023</mark> был неприятный баг, когда при экспорте композиции через
-          встроенный кодек <mark className="video">H.264</mark> в путь с кириллицей - на
-          выходе получался файл размером <mark>1 Кб</mark>. И соответственно
-          экспортированная композиция не открывалась и никем не читался. Для решения этой
-          проблемы достаточно обновить <mark className="app">Adobe After Effects</mark> до
-          версии <mark>23.6</mark> или новее. После обновления начните экспорт заново.
+      </DetailsSummary>
+      <DetailsSummary
+        tag="mp4, ошибка воспроизведения"
+        title="Почему я не могу открыть видео, экспортированное через стандартный H.264?"
+      >
+      </DetailsSummary>
+      <DetailsSummary
+        tag="не экспортируется, битый файл, кириллица в пути"
+        title="Почему при экспорте в MP4 с помощью стандартного H.264 сохраняется файл размером 1 КБ?"
+      >
         </p>
         <AdditionInfo>
           Проверить текущую версию <mark className="app">Adobe After Effects</mark> вы
@@ -37,8 +39,8 @@ const AEExportProblems: React.FC = () => {
         </p>
       </DetailsSummary>
       <DetailsSummary
-        tag="исходник с айфона, hlg, rec709"
-        title="После экспорта у меня изменились цвета. Как избежать изменения цветов?"
+        tag="iphone, hlg, rec.709, color shift, color space, color management"
+        title="После экспорта у меня изменились цвета. Как этого избежать?"
       >
         <Divider>Проверяем рабочее цветовое пространство</Divider>
         <p>
@@ -104,8 +106,8 @@ const AEExportProblems: React.FC = () => {
         />
       </DetailsSummary>
       <DetailsSummary
-        tag="медиаенкодер, медиаэнкодер, переместилось"
-        title="Почему в предпросмотре Media Encoder и после экспорта видео смещается влево или вправо?"
+        tag="баг версии"
+        title="Почему в предпросмотре Adobe Media Encoder и после экспорта видео смещается влево или вправо?"
       >
         <p>
           Проверьте текущую версию программ, которыми вы пользуетесь. Вполне вероятно, что
@@ -127,8 +129,8 @@ const AEExportProblems: React.FC = () => {
         </AdditionInfo>
       </DetailsSummary>
       <DetailsSummary
-        tag="растянулось, соотношения пикселя, стандарт пикселя, pixel aspect ratio"
-        title="Почему моя композиция плющится в предпросмотре и после экспорта?"
+        tag="соотношение пикселей, pixel aspect ratio"
+        title="Почему моя композиция «плющится» в предпросмотре и после экспорта?"
       >
         <p>
           Иногда бывает такое, что при экспорте композиции или при предпросмотре
@@ -168,11 +170,8 @@ const AEExportProblems: React.FC = () => {
           styleClass="figure_windows-dark"
         />
       </DetailsSummary>
-      <DetailsSummary
-        tag="элемент 3д, фликерит"
-        title="Почему композиция с Element 3D экспортируется с мерцаниями?"
-      >
-        <Divider>Проверяем значение FPS у композиции</Divider>
+      <DetailsSummary title="Почему композиция с Element 3D экспортируется с мерцаниями?">
+        <Divider>Проверяем FPS композиции</Divider>
         <p>
           Причин для некорректного поведения при рендере композиции с применённым{" "}
           <mark className="plugin">Element 3D</mark> может быть несколько. Одна из частых
@@ -232,8 +231,8 @@ const AEExportProblems: React.FC = () => {
         </p>
       </DetailsSummary>
       <DetailsSummary
-        tag="колор бендинг, полоски, цвет, шум, глубина цвета"
-        title="Экспортировал композицию и вижу в результате ужасный ступенчатый градиент. Как мне от него избавиться?"
+        tag="color banding, полосы, шум, глубина цвета, bit depth"
+        title="Как избавиться от ужасного ступенчатого градиента?"
       >
         <p>
           Поздравляю, вы столкнулись с понятием{" "}
@@ -308,7 +307,7 @@ const AEExportProblems: React.FC = () => {
         </AdditionInfo>
       </DetailsSummary>
       <DetailsSummary
-        tag="odd resolution"
+        tag="odd resolution, нечетное разрешение, ограничения h264"
         title="Почему я не могу экспортировать видео с нечётным разрешением?"
       >
         <p>
@@ -333,8 +332,8 @@ const AEExportProblems: React.FC = () => {
         </p>
       </DetailsSummary>
       <DetailsSummary
-        tag="пропало аудио, отсутствует музыка в видео"
-        title="Почему в экспортированной композиции нет звука?"
+        tag="пропало аудио, no audio"
+        title="Почему в экспортированном видео нет звука?"
       >
         <p>
           Если вы экспортировали свою композицию в формате видео и у вас при проигрывании
@@ -363,8 +362,8 @@ const AEExportProblems: React.FC = () => {
         </p>
       </DetailsSummary>
       <DetailsSummary
-        tag="конвертация, шаттер енкодер, сжатие видео, квантование, cqr"
-        title="Почему экспортированная композиция получается с огромным размером на диске или как сжать его без сильной потери качества или до определённого веса?"
+        tag="конвертация, оптимизация размера, shutter encoder, сжатие видео, квантование, cqr, vbr, cbr, cq, large file size"
+        title="Почему экспортированный файл получается огромным и как его сжать без сильной потери качества?"
       >
         <p>
           При экспорте какой-нибудь композиции из{" "}
@@ -525,7 +524,10 @@ const AEExportProblems: React.FC = () => {
           ожидайте результата в выходной папке.
         </p>
       </DetailsSummary>
-      <DetailsSummary title='"Rendering error while writing to file (...). Unable to delete existing file" или "An unexpected error occurred while exporting a composition. Error code: 9988"'>
+      <DetailsSummary
+        tag="ошибка экспорта, файл занят, видео используется другим процессом"
+        title="«Rendering error while writing to file (...). Unable to delete existing file» или «An unexpected error occurred while exporting a composition. Error code: 9988»"
+      >
         <p>
           Скорее всего вы пытаетесь перезаписать файл, который используется другой
           программой, например, открыт в видеоплеере или отправляется собеседнику в{" "}

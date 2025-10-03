@@ -42,7 +42,7 @@ const AEImport: React.FC = () => {
   return (
     <div className="faq-content">
       <DetailsSummary
-        tag="пайплайн, импорт, конвертация, монтажный кодек, шаттер енкодер, видео из айфона"
+        tag="пайплайн, импорт, подготовка исходников, конвертация, монтажный кодек, shutter encoder, iphone, color space, frame rate"
         title="Какие действия нужно совершить с чужими исходниками, прежде чем начать работу?"
       >
         <p>
@@ -612,7 +612,7 @@ const AEImport: React.FC = () => {
         </Addition>
       </DetailsSummary>
       <DetailsSummary
-        tag="зелёный экран, искажения в предпросмотре, глитчи, полосы, видео mp4 из интернета, youtube"
+        tag="зелёный экран, артефакты, глитчи, полосы, youtube, дисковый кэш, аппаратное декодирование"
         title="Как избавиться от артефактов при работе с исходниками?"
       >
         <p>
@@ -862,7 +862,7 @@ const AEImport: React.FC = () => {
         />
       </DetailsSummary>
       <DetailsSummary
-        tag="переменный фпс, пропуски кадров"
+        tag="переменный фпс, пропуски кадров, vfr, интерпретация видео, variable frame rate, frame drops"
         title="Почему при импорте исходника с переменной частотой кадров его длина в композиции короче, чем в видеопроигрывателе?"
       >
         <p>
@@ -911,7 +911,7 @@ const AEImport: React.FC = () => {
         />
       </DetailsSummary>
       <DetailsSummary
-        tag="как переподключить исходники, отсутствуют файлы, реконнект, потерялись исходники, ошибка импорта, переподключение файлов, linking, missing files"
+        tag="missing files, отсутствуют файлы, потерялись исходники, ошибка импорта, replace footage"
         title="«Warning: files are missing since you last saved project» и вместо клипов — цветовая палитра"
       >
         <p>
@@ -987,7 +987,7 @@ const AEImport: React.FC = () => {
         />
       </DetailsSummary>
       <DetailsSummary
-        tag="хеик, хеиф, хевк, heic, heif, hevc, айфон, iphone"
+        tag="iphone"
         title="Как открыть и импортировать HEIC, HEIF или HEVC?"
       >
         <ContentFilter
@@ -1111,7 +1111,7 @@ const AEImport: React.FC = () => {
         />
       </DetailsSummary>
       <DetailsSummary
-        tag="фпс, частота кадров, интерпретация"
+        tag="fps, частота кадров, интерпретация, frame rate"
         title="Почему при импорте секвенции изображений длина слоя получается короче, длиннее или с неправильной частотой кадров?"
       >
         <p>
@@ -1150,7 +1150,7 @@ const AEImport: React.FC = () => {
         />
       </DetailsSummary>
       <DetailsSummary
-        tag="фотошоп, не появляется окно импорта, не предлагает выбор типа псд"
+        tag="photoshop, layered psd, color mode, цветовой режим"
         title="Почему я не могу импортировать PSD по слоям?"
       >
         <p>
@@ -1245,7 +1245,7 @@ const AEImport: React.FC = () => {
         />
       </DetailsSummary>
       <DetailsSummary
-        tag="ai, перенести макет из иллюстратора, градиенты"
+        tag="ai, иллюстратор, градиенты, vector"
         title="Как импортировать векторное изображение, созданное в Adobe Illustrator?"
       >
         <p>
@@ -1362,7 +1362,7 @@ const AEImport: React.FC = () => {
         </p>
       </DetailsSummary>
       <DetailsSummary
-        tag="перенести из фигмы, фигма"
+        tag="aeux, overlord, импорт макета, фигма"
         title="Как импортировать макет из Figma?"
       >
         <p>
@@ -1491,7 +1491,7 @@ const AEImport: React.FC = () => {
         </p>
       </DetailsSummary>
       <DetailsSummary
-        tag="obj, fbx, gltf, glb, c4d, e3d, элемент 3д, блендер, объемные модели, расширенный 3д, адвансед 3д, с4д, обж, фбх, глтф, глб, е3д"
+        tag="obj, fbx, gltf, glb, c4d, e3d, element 3d, blender, advanced 3d, cineware, импорт 3d моделей, 3d рендеринг"
         title="Как импортировать трёхмерные объекты?"
       >
         <p>
@@ -1612,7 +1612,7 @@ const AEImport: React.FC = () => {
         />
       </DetailsSummary>
       <DetailsSummary
-        tag="json, svg, телеграм, анимированные стикеры из telegram, стикеры, жсон, свг, тгс, лотти"
+        tag="json, svg, telegram, стикеры, tgs, lottie, bodymovin, animated stickers"
         title="Как импортировать Lottie и TGS?"
       >
         <p>
@@ -1806,7 +1806,7 @@ const AEImport: React.FC = () => {
         />
       </DetailsSummary>
       <DetailsSummary
-        tag="импорт из премьер про, import prproj sequence"
+        tag="prproj sequence, dynamic link"
         title="Как импортировать секвенцию из Adobe Premiere Pro?"
       >
         <p>
@@ -1859,7 +1859,7 @@ const AEImport: React.FC = () => {
         </p>
       </DetailsSummary>
       <DetailsSummary
-        tag="импорт могрт, aeproject, анимационный шаблон"
+        tag="aeproject, анимационный шаблон, motion graphics template"
         title="Как открыть и импортировать MOGRT?"
       >
         <p>
@@ -1918,7 +1918,7 @@ const AEImport: React.FC = () => {
         </p>
       </DetailsSummary>
       <DetailsSummary
-        tag="the original file will be unchanged, требуется преобразовать данный проект из версии, исходный файл останется без изменений"
+        tag="the original file will be unchanged, требуется преобразовать данный проект из версии, исходный файл останется без изменений, совместимость версий, конвертация проекта"
         title="Что означает «This project must be converted from version XX.X.X» при открытии проекта?"
       >
         <p>
@@ -1943,7 +1943,7 @@ const AEImport: React.FC = () => {
         </p>
       </DetailsSummary>
       <DetailsSummary
-        tag="обратная совместимость, как открыть проект созданный в более новой версии, я не хочу обновляться,  несовместимость версий, открыть в старой версии, конвертация проекта, сохранить как, save as"
+        tag="обратная совместимость, несовместимость версий, конвертация проекта"
         title="Что делать с «The file you are attempting to open was created with version XX.X.X and cannot be opened with this version»?"
       >
         <p>

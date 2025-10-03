@@ -14,7 +14,7 @@ const AEInstallProblems: React.FC = () => {
   return (
     <div className="faq-content">
       <DetailsSummary
-        tag="как установить, куда устанавливать, установка, распаковка, инструкция, плагины, шаблоны, пресеты, скрипты, расширения, пакеты, луты, архивы, zip, rar"
+        tag="как установить, куда распаковать, инструкция, плагины, шаблоны, пресеты, скрипты, расширения, луты, архивы, installation guide"
         title="В архиве или под записью забыли положить инструкцию по установке. Куда что кидать?"
       >
         <p>
@@ -1084,7 +1084,7 @@ const AEInstallProblems: React.FC = () => {
         </Addition>
       </DetailsSummary>
       <DetailsSummary
-        tag="репак от кролика, выключить дефендер, отрубить антивирус, ложное срабатывание, хелпер, ошибка 24, проверьте правильно ли указано имя и повторите попытку, windows не удается получить доступ к указанному устройству пути или файлу, возможно у вас нет нужных разрешений для доступа к этому объекту, некоторые файлы не были созданы, операция не была успешно завершена так как файл содержит вирус или потенциально нежелательную программу, обнаружены угрозы, куда-то пропадают файлы плагинов и программ, operation did not complete successfully because the file contains a virus or potentially unwanted software, windows cannot find helper.exe, make sure you typed the name correctly and then try again, 0x800700E1"
+        tag="репак от кролика, выключить дефендер, отрубить антивирус, ложное срабатывание, хелпер, ошибка 24, вирусы, трояны, проверьте правильно ли указано имя и повторите попытку, windows не удается получить доступ к указанному устройству пути или файлу, возможно у вас нет нужных разрешений для доступа к этому объекту, некоторые файлы не были созданы, операция не была успешно завершена так как файл содержит вирус или потенциально нежелательную программу, обнаружены угрозы, куда-то пропадают файлы плагинов и программ, operation did not complete successfully because the file contains a virus or potentially unwanted software, windows cannot find helper.exe, make sure you typed the name correctly and then try again, 0x800700E1"
         title="«Не удаётся найти „..\install\helper.exe“» или как отключить Windows Defender и Windows Smartscreen?"
       >
         <ContentFilter
@@ -1217,7 +1217,7 @@ const AEInstallProblems: React.FC = () => {
         />
       </DetailsSummary>
       <DetailsSummary
-        tag="почему недавно установленный плагин не появился в моей программе, символьные ссылки, symlink, нет места на жёстком диске, установил плагин с помощью установщика, нестандартное расположение программы, установил на диск D:\, some products require host applications which are not installed on this computer"
+        tag="символьные ссылки, symlink, нет места на диске, нестандартный путь установки, проблемы с плагинами, installation path, some products require host applications which are not installed on this computer"
         title="Почему из каждого угла советуют не менять путь для установки программы?"
       >
         <ContentFilter
@@ -1474,7 +1474,7 @@ const AEInstallProblems: React.FC = () => {
         />
       </DetailsSummary>
       <DetailsSummary
-        tag="ошибка установки, системные требования, installation error, error code, в настоящее время невозможно установить, операционная система не соответствует минимальным требованиям для этой программы установки, требуется процессор поддерживающий инструкции advanced vector extensions 2, avx2"
+        tag="в настоящее время невозможно установить, ошибка установки, installation error, error code, avx2, системные требования"
         title="Код ошибки 1, 501, 176, 195, 21 или другие при установке Adobe After Effects"
       >
         <Divider>Исправляем ошибку 1 или 501</Divider>
@@ -1597,7 +1597,7 @@ const AEInstallProblems: React.FC = () => {
         </Addition>
       </DetailsSummary>
       <DetailsSummary
-        tag="репак от кролика, повреждённые файлы, ошибка установки, corrupted files, installation error, многотомный архив"
+        tag="репак от кролика, повреждённые файлы, ошибка установки, installation error, многотомный архив, проблемы при скачивании из telegram"
         title="«Некоторые установочные файлы были повреждены. Загрузите свежую копию и повторите установку»"
       >
         <p>
@@ -1690,7 +1690,7 @@ const AEInstallProblems: React.FC = () => {
         </ul>
       </DetailsSummary>
       <DetailsSummary
-        tag="репак от кролика, файл хостс, hosts, нет доступа"
+        tag="репак от кролика, файл hosts, нет доступа"
         title="«rsload.net заблокирован в hosts» или «The hosts file does not exist or is not accessible»"
       >
         <p>
@@ -1729,7 +1729,7 @@ const AEInstallProblems: React.FC = () => {
         </p>
       </DetailsSummary>
       <DetailsSummary
-        tag="ошибка при запуске, хвосты, удаление, переустановка"
+        tag="ошибка запуска, хвосты от неудачного удаления, переустановка, adobe cc"
         title="«Приложение Adobe Creative Cloud, необходимое для устранения проблемы, отсутствует или повреждено...» при запуске программы"
       >
         <ContentFilter
@@ -1761,7 +1761,7 @@ const AEInstallProblems: React.FC = () => {
         />
       </DetailsSummary>
       <DetailsSummary
-        tag="генп, genp, ручная активация, активация, патч, patch"
+        tag="genp, активация, патч, активация приложений из creative cloud"
         title="Я не доверяю репакам, но установить программы от Adobe хочется. Какие есть ещё варианты?"
       >
         <ContentFilter
@@ -2332,7 +2332,7 @@ const AEInstallProblems: React.FC = () => {
         />
       </DetailsSummary>
       <DetailsSummary
-        tag="дубликаты плагинов, конфликт эффектов, удалить дубликаты, предупреждение, на диске существует копия подключаемого модуля эффекта, во избежание конфликтов закройте After Effects после чего удалите или переместите более раннюю или ненужную версию"
+        tag="дубликаты плагинов, конфликт эффектов, на диске существует копия подключаемого модуля эффекта, во избежание конфликтов закройте after effects после чего удалите или переместите более раннюю или ненужную версию"
         title="«Warning: there are duplicated effect plug-ins installed on your drive. To avoid problems, quit After Effects and move or delete the older or unneeded version»"
       >
         <p>
