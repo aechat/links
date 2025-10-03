@@ -12,6 +12,7 @@ import React, {
   useCallback,
   useContext,
   useEffect,
+  useMemo,
   useRef,
   useState,
 } from "react";
@@ -31,6 +32,81 @@ interface DetailsSummaryProps {
 const SpoilerContext = createContext(false);
 
 export const useSpoiler = () => useContext(SpoilerContext);
+
+const TAG_LIMIT = 4;
+
+const TagList: React.FC<{tags: string}> = ({tags}) => {
+  const [expanded, setExpanded] = useState(false);
+
+  const allTags = useMemo(() => tags.split(", ").filter(Boolean), [tags]);
+
+  const isOverflowing = allTags.length > TAG_LIMIT;
+
+  const [randomizedTags, setRandomizedTags] = useState<string[]>([]);
+
+  useEffect(() => {
+    if (isOverflowing) {
+      const shuffled = [...allTags].sort(() => 0.5 - Math.random());
+      setRandomizedTags(shuffled.slice(0, TAG_LIMIT));
+    }
+  }, [allTags, isOverflowing]);
+
+  if (allTags.length === 0) {
+    return null;
+  }
+
+  const visibleTags = expanded ? allTags : isOverflowing ? randomizedTags : allTags;
+
+  const hiddenCount = allTags.length - TAG_LIMIT;
+
+  const expandTags = (e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setExpanded(true);
+  };
+
+  const getPluralizedTags = (count: number): string => {
+    const lastDigit = count % 10;
+
+    const lastTwoDigits = count % 100;
+
+    if (lastTwoDigits >= 11 && lastTwoDigits <= 19) {
+      return "тегов";
+    }
+
+    if (lastDigit === 1) {
+      return "тег";
+    }
+
+    if ([2, 3, 4].includes(lastDigit)) {
+      return "тега";
+    }
+
+    return "тегов";
+  };
+
+  return (
+    <span className="faq-tags">
+      {visibleTags.map((t) => (
+        <mark key={t}>{t}</mark>
+      ))}
+      {isOverflowing && !expanded && (
+        <mark
+          className="faq-tags-toggle"
+          style={{
+            cursor: "pointer",
+            textDecoration: "underline",
+            background: "transparent",
+            opacity: 0.7,
+          }}
+          onClick={expandTags}
+        >
+          {`и ещё ${hiddenCount} ${getPluralizedTags(hiddenCount)}`}
+        </mark>
+      )}
+    </span>
+  );
+};
 
 const constants = {
   SCROLL_DELAY: 150,
@@ -344,13 +420,7 @@ const DetailsSummary: React.FC<DetailsSummaryProps> = ({title, children, tag}) =
           </span>
           <div style={{display: "flex", flexDirection: "column", gap: "5px"}}>
             <h3>{headingText}</h3>
-            {tag && (
-              <span className="faq-tags">
-                {tag.split(", ").map((t) => (
-                  <mark key={t}>{t}</mark>
-                ))}
-              </span>
-            )}
+            {tag && <TagList tags={tag} />}
           </div>
         </div>
         <Tooltip title="Скопировать ссылку в буфер обмена">
