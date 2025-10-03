@@ -22,8 +22,6 @@ import SupportDonut from "../components/modal/SupportDonut";
 
 import {SearchInPage, SearchProvider} from "../components/search";
 
-import GithubUpdateInfo from "../components/features/GithubUpdateInfo";
-
 import Addition from "../components/Addition";
 
 import PRActions from "./sections/prfaq/PRActions";
@@ -51,7 +49,6 @@ const PRFAQ = () => {
   useAnchorScroll(isPageLoaded);
 
   const {enableAutoCopy} = useCopyToClipboard();
-
   useEffect(() => {
     enableAutoCopy();
   }, [enableAutoCopy]);
@@ -158,7 +155,6 @@ const PRFAQ = () => {
               <div className="faq-title">
                 <h1>prfaq</h1>
               </div>
-              <GithubUpdateInfo folderPath="src/pages/sections/prfaq" />
               <SupportDonut />
               <Addition type="danger">
                 Эта страница всё ещё находится в процессе разработки. Следите за

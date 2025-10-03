@@ -24,8 +24,6 @@ import SupportDonut from "../components/modal/SupportDonut";
 
 import {SearchInPage, SearchProvider} from "../components/search";
 
-import GithubUpdateInfo from "../components/features/GithubUpdateInfo";
-
 import AEExprStart from "./sections/aeexpr/ExprStart";
 
 import AEExprBase from "./sections/aeexpr/ExprBase";
@@ -41,7 +39,6 @@ const AEExpressionPage = () => {
   useAnchorScroll(isPageLoaded);
 
   const {enableAutoCopy} = useCopyToClipboard();
-
   useEffect(() => {
     enableAutoCopy();
   }, [enableAutoCopy]);
@@ -133,7 +130,6 @@ const AEExpressionPage = () => {
               <div className="faq-title">
                 <h1>aeexpr</h1>
               </div>
-              <GithubUpdateInfo folderPath="src/pages/sections/aeexpr" />
               <Addition type="warning">
                 Эта страница не является полноценным курсом по написанию выражений в{" "}
                 <mark className="app">Adobe After Effects</mark>. Примеры выражений

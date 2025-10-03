@@ -22,8 +22,6 @@ import SupportDonut from "../components/modal/SupportDonut";
 
 import {SearchInPage, SearchProvider} from "../components/search";
 
-import GithubUpdateInfo from "../components/features/GithubUpdateInfo";
-
 import AEWhereFind from "./sections/aefaq/AEWhereFind";
 
 import AEInstallProblems from "./sections/aefaq/AEInstallProblems";
@@ -49,7 +47,6 @@ const AEFAQ = () => {
   useAnchorScroll(isPageLoaded);
 
   const {enableAutoCopy} = useCopyToClipboard();
-
   useEffect(() => {
     enableAutoCopy();
   }, [enableAutoCopy]);
@@ -146,7 +143,6 @@ const AEFAQ = () => {
               <div className="faq-title">
                 <h1>aefaq</h1>
               </div>
-              <GithubUpdateInfo folderPath="src/pages/sections/aefaq" />
               <SupportDonut />
               {sections.map((section) => (
                 <div
