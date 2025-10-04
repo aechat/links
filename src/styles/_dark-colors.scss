@@ -155,21 +155,6 @@ $dark-theme-map: (
         border: hsl(257deg calc(50% * var(--saturate-ratio)) 50%),
       ),
     ),
-    figure: (
-      youtube: (
-        background: hsl(0deg 0% 12.5%),
-        border: hsl(0deg 0% 20%),
-        text: hsl(0deg 0% 100%),
-        background-hover: hsl(0deg 0% 15%),
-        background-active: hsl(0deg 0% 10%),
-      ),
-      control: (
-        background-hover: hsl(0deg 0% 80% / 15%),
-        background-active: hsl(0deg 0% 80% / 20%),
-        close-background-hover: hsl(0deg 100% 85% / 25%),
-        close-background-active: hsl(0deg 100% 85% / 30%),
-      ),
-    ),
     easing: (
       selection: hsl(50deg 100% 50%),
       text-primary: hsl(0deg 0% 90%),
