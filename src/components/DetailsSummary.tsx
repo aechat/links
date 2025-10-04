@@ -57,10 +57,10 @@ const TagList: React.FC<{tags: string}> = ({tags}) => {
 
   const hiddenCount = allTags.length - TAG_LIMIT;
 
-  const expandTags = (e: React.MouseEvent) => {
+  const toggleTags = (e: React.MouseEvent) => {
     e.preventDefault();
     e.stopPropagation();
-    setExpanded(true);
+    setExpanded((prev) => !prev);
   };
 
   const getPluralizedTags = (count: number): string => {
@@ -88,7 +88,7 @@ const TagList: React.FC<{tags: string}> = ({tags}) => {
       {visibleTags.map((t) => (
         <mark key={t}>{t}</mark>
       ))}
-      {isOverflowing && !expanded && (
+      {isOverflowing && (
         <mark
           className="faq-tags-toggle"
           style={{
@@ -97,9 +97,9 @@ const TagList: React.FC<{tags: string}> = ({tags}) => {
             background: "transparent",
             opacity: 0.7,
           }}
-          onClick={expandTags}
+          onClick={toggleTags}
         >
-          {`и ещё ${hiddenCount} ${getPluralizedTags(hiddenCount)}`}
+          {expanded ? "скрыть" : `и ещё ${hiddenCount} ${getPluralizedTags(hiddenCount)}`}
         </mark>
       )}
     </span>
