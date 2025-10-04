@@ -52,6 +52,22 @@ const copyWithFallback = (text: string): boolean => {
   return success;
 };
 
+export const copyText = async (text: string): Promise<boolean> => {
+  try {
+    await navigator.clipboard.writeText(text);
+
+    return true;
+  } catch (err) {
+    if (copyWithFallback(text)) {
+      return true;
+    } else {
+      console.error("Failed to copy:", err);
+
+      return false;
+    }
+  }
+};
+
 export const useCopyToClipboard = () => {
   const copyToClipboard = async (event?: MouseEvent): Promise<void> => {
     if (!event?.target) {
@@ -73,13 +89,11 @@ export const useCopyToClipboard = () => {
     const textContent = cleanHtml(elementToCopy.textContent || "");
 
     try {
-      await navigator.clipboard.writeText(textContent);
-      message.success("Текст скопирован в буфер обмена");
-    } catch (err) {
-      if (copyWithFallback(textContent)) {
+      const success = await copyText(textContent);
+
+      if (success) {
         message.success("Текст скопирован в буфер обмена");
       } else {
-        console.error("Не удалось скопировать текст:", err);
         message.error("Не удалось скопировать текст");
       }
     } finally {
