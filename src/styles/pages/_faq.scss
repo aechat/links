@@ -573,14 +573,11 @@ body.has-open-details .faq-content {
 
   button,
   a {
-    display: flex;
     flex: 1 0 175px;
     justify-content: center;
     align-items: center;
     vertical-align: middle;
-    transition:
-      opacity,
-      background-color 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+    transition: background-color 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
     margin-block: 0;
     outline: 1px solid var(--color-button-group-border);
     border-radius: 0;
@@ -605,6 +602,7 @@ body.has-open-details .faq-content {
     }
 
     &:active {
+      opacity: 1;
       background-color: var(--color-button-group-background-active);
     }
   }
@@ -621,4 +619,4 @@ li > .flexible-links {
 
 details > summary::-webkit-details-marker {
   display: none;
-}
+}
