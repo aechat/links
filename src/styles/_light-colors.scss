@@ -88,12 +88,12 @@ $light-theme-map: (
         'mark-background': hsl(0, 100%, 96%),
       ),
       'success-subtle': (
-        background: hsl(120, 100%, 50% / 10%),
-        border: hsl(120, 100%, 50% / 25%),
+        background: hsla(120, 100%, 50%, 0.1),
+        border: hsla(120, 100%, 50%, 0.25),
       ),
       'danger-subtle': (
-        background: hsl(0, 100%, 50% / 10%),
-        border: hsl(0, 100%, 50% / 25%),
+        background: hsla(0, 100%, 50%, 0.1),
+        border: hsla(0, 100%, 50%, 0.25),
       ),
     ),
     code: (

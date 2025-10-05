@@ -64,7 +64,7 @@
   @each $key, $value in $map {
     $current-key: if($prefix == "", $key, "#{$prefix}-#{$key}");
 
-    @if type-of($value) == "map" {
+    @if meta.type-of($value) == "map" {
       @include generate-vars-from-map($value, $current-key);
     } @else {
       --#{$current-key}: #{$value};

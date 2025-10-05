@@ -1,4 +1,4 @@
-@import "../mixins";
+@use "../mixins" as *;
 
 .faq-container {
   margin-inline: auto;
