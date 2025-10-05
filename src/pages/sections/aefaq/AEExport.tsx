@@ -1648,173 +1648,295 @@ const AEExport: React.FC = () => {
         title="Как экспортировать композицию в GIF?"
       >
         <p>
-          <mark className="image">GIF</mark> - старый, но ещё популярный формат для обмена
-          изображений, чаще всего анимированных. В базовой комплектации{" "}
-          <mark className="app">Adobe After Effects</mark> экспортировать композицию в
-          формат <mark className="image">GIF</mark> не получится, но никто не запрещал
-          воспользоваться альтернативными способами.
+          <mark className="image">GIF</mark> — старый, но до сих пор популярный формат,
+          разработанный в 1987 году. Его ценят за простоту: любой браузер или мессенджер
+          открывает его без проблем, поэтому он и закрепился в культуре мемов, стикеров и
+          коротких анимаций.
         </p>
-        <AdditionWarning>
+        <p>
+          Стандартного экспорта в <mark className="image">GIF</mark> из{" "}
+          <mark className="app">Adobe After Effects</mark> нет, но есть обходные пути.{" "}
+          <mark className="image">GIF</mark> можно создать с помощью стороннего расширения{" "}
+          <mark className="plugin">GifGun</mark>, через{" "}
+          <mark className="app">Adobe Media Encoder</mark> или с помощью
+          онлайн-конвертера, например <a href="https://ezgif.com/video-to-gif">Ezgif</a>.
+          Последний, пожалуй, даёт лучший результат по соотношению «качество/размер».
+        </p>
+        <Addition type="warning">
           <p>
-            У формата <mark className="image">GIF</mark> есть множество ограничений и
-            нюансов.
+            Имейте в виду: у формата <mark className="image">GIF</mark> множество
+            ограничений и особенностей. Для веб-страниц разумнее использовать{" "}
+            <mark className="video">WEBM</mark> или <mark className="video">H.264</mark> —
+            они обеспечивают лучшее качество при меньшем размере файла.
           </p>
           <ul>
             <li>
-              Данный формат не поддерживает полупрозрачность, только два цвета для
-              альфа-канала: <mark>#FFFFFF</mark> и <mark>#000000</mark>.
+              Нет поддержки полупрозрачности: пиксель либо полностью прозрачный, либо нет.
             </li>
             <li>
-              <mark className="image">GIF</mark> вмещает в себя только 256 цветов, поэтому
-              забудьте о плавных градиентах и качественном цвете.
+              Палитра ограничена 256 цветами, поэтому о плавных градиентах и точной
+              цветопередаче придётся забыть.
             </li>
             <li>
-              Полученный файл может быть огромным по весу, если указать большое разрешение
-              или FPS. Максимально рекомендуемо использовать разрешение{" "}
-              <mark>1024x576</mark> и <mark>15 FPS</mark> для композиций с соотношением
-              сторон <mark>16:9</mark>.
+              Размер файла быстро растёт, особенно при высоком разрешении или частоте
+              кадров. Для веба лучше придерживаться максимум <mark>1024×576</mark> и{" "}
+              <mark>15 FPS</mark>. Тяжёлые <mark className="image">GIF</mark> перегружают
+              браузер и замедляют сайты, особенно на мобильных устройствах.
+            </li>
+            <li>
+              <mark className="image">GIF</mark> сжимается крайне посредственно по
+              сравнению с <mark className="video">WEBM</mark> или{" "}
+              <mark className="video">MP4</mark>, поэтому почти всегда получается больше
+              по размеру и хуже по качеству.
             </li>
           </ul>
-        </AdditionWarning>
+        </Addition>
+        <Divider>Экспортируем с помощью GifGun</Divider>
+        {/* TODO: переделать под список */}
         <ul>
           <li>
-            Из самого <mark className="app">Adobe After Effects</mark> можно
-            экспортировать <mark className="image">GIF</mark> с помощью расширения{" "}
-            <mark className="plugin">GifGun</mark>.
+            Предположим, что вы уже установили расширение{" "}
+            <mark className="plugin">GifGun</mark>. Откройте его через меню{" "}
+            <mark className="select">«Window» → «Extensions» → «GifGun»</mark>.
+            <ContentFigure
+              caption="Adobe After Effects"
+              imgTitle="Открытие расширения GifGun"
+              src="images/aftereffects/open_gifgun.png"
+              theme="light"
+              type="image"
+              variant="windows"
+            />
+            <Addition type="info">
+              <ul>
+                <li>
+                  <ContentFilter
+                    macContent={
+                      <div>
+                        Если расширение есть в списке, но не открывается, убедитесь, что
+                        вы выполнили в <mark className="app">Терминале</mark> команды для
+                        включения debug-режима, необходимые для работы сторонних
+                        расширений. Чтобы скопировать команды в буфер обмена, достаточно
+                        на них нажать.
+                        <code style={{fontSize: "0.875em"}}>
+                          defaults write com.adobe.CSXS.5 PlayerDebugMode 1
+                          <br />
+                          defaults write com.adobe.CSXS.6 PlayerDebugMode 1
+                          <br />
+                          defaults write com.adobe.CSXS.7 PlayerDebugMode 1
+                          <br />
+                          defaults write com.adobe.CSXS.8 PlayerDebugMode 1
+                          <br />
+                          defaults write com.adobe.CSXS.9 PlayerDebugMode 1
+                          <br />
+                          defaults write com.adobe.CSXS.10 PlayerDebugMode 1
+                          <br />
+                          defaults write com.adobe.CSXS.11 PlayerDebugMode 1
+                          <br />
+                          defaults write com.adobe.CSXS.12 PlayerDebugMode 1
+                          <br />
+                          defaults write com.adobe.CSXS.13 PlayerDebugMode 1
+                          <br />
+                          defaults write com.adobe.CSXS.14 PlayerDebugMode 1
+                          <br />
+                          defaults write com.adobe.CSXS.15 PlayerDebugMode 1
+                          <br />
+                          defaults write com.adobe.CSXS.16 PlayerDebugMode 1
+                          <br />
+                          defaults write com.adobe.CSXS.17 PlayerDebugMode 1
+                          <br />
+                          defaults write com.adobe.CSXS.18 PlayerDebugMode 1
+                          <br />
+                          defaults write com.adobe.CSXS.19 PlayerDebugMode 1
+                          <br />
+                          defaults write com.adobe.CSXS.20 PlayerDebugMode 1
+                          <br />
+                          defaults write com.adobe.CSXS.21 PlayerDebugMode 1
+                          <br />
+                          defaults write com.adobe.CSXS.22 PlayerDebugMode 1
+                          <br />
+                          defaults write com.adobe.CSXS.23 PlayerDebugMode 1
+                          <br />
+                          defaults write com.adobe.CSXS.24 PlayerDebugMode 1
+                          <br />
+                          defaults write com.adobe.CSXS.25 PlayerDebugMode 1
+                          <br />
+                          defaults write com.adobe.CSXS.26 PlayerDebugMode 1
+                          <br />
+                          defaults write com.adobe.CSXS.27 PlayerDebugMode 1
+                          <br />
+                          defaults write com.adobe.CSXS.28 PlayerDebugMode 1
+                          <br />
+                          defaults write com.adobe.CSXS.29 PlayerDebugMode 1
+                          <br />
+                          defaults write com.adobe.CSXS.30 PlayerDebugMode 1
+                          <br />
+                        </code>
+                      </div>
+                    }
+                    windowsContent={
+                      <div>
+                        Если расширение есть в списке, но не открывается, убедитесь, что
+                        вы подтвердили слияние записей с{" "}
+                        <a
+                          download
+                          href="files/Enable Extensions Adobe.reg"
+                        >
+                          файлом реестра
+                        </a>
+                        , включающим debug-режим для корректной работы сторонних
+                        расширений.
+                      </div>
+                    }
+                  />
+                </li>
+                <li>
+                  Для корректной работы расширения рекомендуется в настройках{" "}
+                  <mark className="select">
+                    «Edit» → «Preferences» → «Scripting & Expressions»
+                  </mark>{" "}
+                  установить флажок у параметра{" "}
+                  <mark className="select">
+                    «Allow Scripts to Write Files and Access Network»
+                  </mark>
+                  .
+                </li>
+              </ul>
+            </Addition>
           </li>
           <li>
-            Либо экспортировать <mark className="image">GIF</mark> через{" "}
-            <del style={{opacity: 0.5}}>упаси боже</del>{" "}
-            <mark className="app">Adobe Media Encoder</mark>.
+            В открывшемся окне расширения вы увидите две основные кнопки:{" "}
+            <mark className="select">«Make GIF»</mark> для запуска экспорта и кнопка с
+            шестерёнкой для настроек.
+            <ContentFigure
+              caption="GifGun"
+              imgTitle="Главное окно GifGun"
+              src="images/aftereffects/gifgun_main.png"
+              theme="dark"
+              type="image"
+              variant="windows"
+            />
           </li>
           <li>
-            С помощью конвертации вашего видео через онлайн-сервис{" "}
-            <a href="https://ezgif.com/video-to-gif">Ezgif</a>. Он даёт самый адекватный
-            результат по соотношению <mark>качество/размер файла</mark>.
+            В настройках вы можете указать максимальный размер файла, частоту кадров и
+            путь сохранения.
+            <ContentFigure
+              caption="GifGun"
+              imgTitle="Настройки экспорта в GifGun"
+              src="images/aftereffects/gifgun_settings.png"
+              theme="dark"
+              type="image"
+              variant="windows"
+            />
+          </li>
+          <li>
+            Чтобы начать экспорт <mark className="image">GIF</mark> с заданными вами
+            настройками, просто нажмите на <mark className="select">«Make GIF»</mark> из
+            главного окна расширения и ожидайте получения результата. Если чекбокс{" "}
+            <mark className="select">«Open GIF folder»</mark> был включен, расширение
+            автоматически откроет системный проводник с директорией, куда была сохранена
+            анимация.
           </li>
         </ul>
-        <AdditionInfo>
-          Если вы собираетесь выводить композицию в <mark className="image">GIF</mark> для
-          веб-страницы - советую экспортировать вашу композицию в{" "}
-          <mark className="video">WebM</mark>. Он лучше подойдет для получения
-          качественного изображения с маленьким размером, а также для встраивания в
-          различные приложения.
-        </AdditionInfo>
-        <Divider>Экспортируем с помощью GifGun</Divider>
-        <p>
-          Предположим, что вы уже установили расширение{" "}
-          <mark className="plugin">GifGun</mark>. Он должен появиться в{" "}
-          <mark className="ui">Window &gt; Extensions</mark>.
-        </p>
-        <ImageFigure
-          caption="Adobe After Effects"
-          imgSrc="images/aftereffects/open_gifgun.png"
-          imgTitle="Открытие расширения GifGun"
-          styleClass="figure_windows-light"
-        />
-        <p>
-          После открытия расширения вы увидите простое окно с двумя кнопками:{" "}
-          <mark className="ui">Make GIF</mark> для начала экспорта в{" "}
-          <mark className="image">GIF</mark> и кнопку с шестерёнкой. Нажав на вторую
-          кнопку вы откроете настройки, где сможете указать размер, FPS или путь к
-          выходному файлу.
-        </p>
-        <ImageFigure
-          caption="GifGun"
-          imgSrc="images/aftereffects/gifgun_settings.png"
-          imgTitle="Настройки расширения GifGun"
-          styleClass="figure_windows-dark"
-        />
-        <Divider>Экспортируем с помощью Media Encoder</Divider>
-        <p>
-          <mark className="image">GIF</mark> можно ещё получить с помощью{" "}
-          <mark className="app">Adobe Media Encoder</mark>. Хоть мы и отговариваем от его
-          использования, но в выборе различных форматов для экспорта он занимает более
-          выигрышную позицию по сравнению с выводом напрямую из{" "}
-          <mark className="app">Adobe After Effects</mark>.
-        </p>
-        <p>
-          Для того чтобы начать экспорт через{" "}
-          <mark className="app">Adobe Media Encoder</mark>, перейдите в{" "}
-          <mark className="ui">File &gt; Export</mark> и нажмите на{" "}
-          <mark className="ui">Add to Adobe Media Encoder Queue</mark> и подождите, когда
-          откроется вторая программа.
-        </p>
-        <AdditionInfo>
-          Композиция из <mark className="app">Adobe After Effects</mark> корректно
-          отправится в <mark className="app">Adobe Media Encoder</mark> только в том
-          случае, если у вас установлен одинаковый год программ и на стандартном
-          расположении программ. В противном случае вам выбьют ошибку о том, что{" "}
-          <mark className="app">Adobe Media Encoder</mark> не установлен.
-        </AdditionInfo>
-        <p>
-          После открытия <mark className="app">Adobe Media Encoder</mark> укажите формат{" "}
-          <mark className="image">Animated GIF</mark> в очереди экспорта. Там же вы можете
-          указать пресет и путь к выходному файлу. Для детальной настройки вы можете
-          открыть <mark className="ui">Export Settings</mark>, нажав по названию
-          стандартного пресета. Там же вы можете указать разрешение, FPS и другие
-          параметры.
-        </p>
-        <ImageFigure
-          caption="Media Encoder"
-          imgSrc="images/aftereffects/selecting_animated_gif_media_encoder.png"
-          imgTitle="Выбираем формат GIF для экспорта через Adobe Media Encoder"
-          styleClass="figure_windows-light"
-        />
-        <AdditionWarning>
-          Если вы выберете в качестве формата параметр <mark className="ui">GIF</mark> без
-          слова <mark>Animated</mark>, то вы получите только кадры отдельными
-          изображениями формата <mark className="image">GIF</mark> и забьёте себе папку
-          для сохранения.
-        </AdditionWarning>
-        <p>
-          После настройки просто нажмите на кнопку <mark className="ui">OK</mark> и
-          нажмите на зелёную иконку для начала экспорта. После этого в месте, куда вы
-          указали путь, появится файл формата <mark className="image">GIF</mark>.
-        </p>
         <Divider>Конвертируем через Ezgif</Divider>
         <p>
-          Если вы не хотите возиться с экспортом или у вас уже есть готовое видео, которое
-          надо лишь перегнать в формат <mark className="image">GIF</mark>, то советую
-          онлайн-сервис <a href="https://ezgif.com/video-to-gif">Ezgif</a>. При
-          конвертации через этот сервис вы получите <mark className="image">GIF</mark> с
-          отличным соотношением качества и размера файла.
+          Если вы не хотите возиться с дополнениями или у вас уже есть готовое видео,
+          которое нужно просто конвертировать в <mark className="image">GIF</mark>,
+          воспользуйтесь онлайн-сервисом{" "}
+          <a href="https://ezgif.com/video-to-gif">Ezgif</a>. Он обеспечивает хорошее
+          соотношение качества и размера файла.
         </p>
+        <ul>
+          <li>
+            Сначала загрузите видео на сайт — просто перетащите его в область публикации и
+            нажмите кнопку <mark className="select">«Upload Video»</mark>.
+            <Addition type="warning">
+              Максимальный размер загружаемого файла — <mark>200 МБ</mark>.
+            </Addition>
+            <ContentFigure
+              caption="Ezgif"
+              imgTitle="Главная страница Ezgif"
+              src="images/ezgif_main.png"
+              theme="light"
+              type="image"
+              variant="windows"
+            />
+          </li>
+          <li>
+            После загрузки можно настроить частоту кадров и разрешение итогового файла.
+            Выбор параметров не слишком широкий, но для простой конвертации этого вполне
+            достаточно. После указания нужных параметров, нажмите{" "}
+            <mark className="select">«Convert to GIF!»</mark>.
+            <Addition type="warning">
+              Максимальная длительность <mark className="image">GIF</mark> зависит от
+              выбранной частоты кадров: до 60 секунд при <mark>5 FPS</mark> или до 15
+              секунд при <mark>20 FPS</mark>.
+            </Addition>
+            <ContentFigure
+              caption="Ezgif"
+              imgTitle="Настройки конвертации в Ezgif"
+              src="images/ezgif_settings.png"
+              theme="light"
+              type="image"
+              variant="windows"
+            />
+          </li>
+          <li>
+            После конвертации готовый <mark className="image">GIF</mark> появится ниже — в
+            разделе <mark className="select">«Output GIF Animation»</mark>. Сохраните его,
+            нажав <mark className="key">ПКМ</mark> по анимации и выбрав{" "}
+            <mark className="select">«Сохранить изображение как...»</mark>.
+          </li>
+        </ul>
+        <Divider>Экспортируем с помощью Adobe Media Encoder</Divider>
         <p>
-          Для начала конвертации просто загрузите ваше видео в сервис, а затем нажмите на
-          кнопку <mark className="ui">Upload Video</mark>.
+          <mark className="image">GIF</mark> можно экспортировать и через{" "}
+          <mark className="app">Adobe Media Encoder</mark>. Несмотря на то, что многие его
+          обходят стороной, он всё же предлагает больше вариантов форматов экспорта по
+          сравнению с «чистым» <mark className="app">Adobe After Effects</mark>.
         </p>
-        <ImageFigure
-          caption="Ezgif"
-          imgSrc="images/ezgif_main.png"
-          imgTitle="Главная страница Ezgif"
-          styleClass="figure_windows-light"
-        />
-        <AdditionWarning>
-          Максимальный размер файла, который можно загрузить в сервис, не должен превышать{" "}
-          <mark>200 Мб</mark>. Максимальная длина не должна превышать 60 секунд для
-          конвертации в <mark>5 FPS</mark>
-          или 15 секунд для конвертации в <mark>20 FPS</mark>.
-        </AdditionWarning>
-        <p>
-          После загрузки видео вы сможете настроить FPS и нужное разрешение. Выбор из
-          настроек мягко говоря не очень широкий, но для простой конвертации хватает. Если
-          вы настроили всё, что вам нужно, то просто нажмите на кнопку{" "}
-          <mark className="ui">Convert to GIF!</mark>.
-        </p>
-        <ImageFigure
-          caption="Ezgif"
-          imgSrc="images/ezgif_settings.png"
-          imgTitle="Настройки конвертации в Ezgif"
-          styleClass="figure_windows-light"
-        />
-        <p>
-          Далее после успешной конвертации вы получите ваше видео в формате{" "}
-          <mark className="image">GIF</mark> чуть ниже, в разделе{" "}
-          <mark className="ui">Output GIF Animation</mark>, которое можно сохранить по
-          нажатию <mark className="key">ПКМ</mark> &gt;{" "}
-          <mark className="ui">Сохранить изображение как...</mark>.
-        </p>
+        <ul>
+          <li>
+            Для начала отправьте композицию<sup>1</sup> из{" "}
+            <mark className="app">Adobe After Effects</mark> в{" "}
+            <mark className="app">Adobe Media Encoder</mark> через меню{" "}
+            <mark className="select">
+              «File» → «Export» → «Add to Adobe Media Encoder Queue»
+            </mark>{" "}
+            и дождитесь открытия программы, либо откройте{" "}
+            <mark className="app">Adobe Media Encoder</mark> и импортируйте в него готовое
+            видео.
+            <Addition type="info">
+              <sup>1</sup> Композиция корректно отправится в{" "}
+              <mark className="app">Adobe Media Encoder</mark> только если версии обеих
+              программ совпадают по году выпуска и они установлены в стандартные папки.
+            </Addition>
+          </li>
+          <li>
+            В очереди экспорта выберите формат{" "}
+            <mark className="select">«Animated GIF»</mark>. Там же можно задать пресет и
+            путь сохранения. Для детальной настройки разрешения, частоты кадров и других
+            параметров нажмите на название пресета, чтобы открыть окно{" "}
+            <mark className="select">«Export Settings»</mark>.
+            <Addition type="warning">
+              Если выбрать формат <mark className="select">«GIF»</mark> без слова{" "}
+              <mark>Animated</mark>, вы получите последовательность отдельных кадров,
+              которая заполнит всю папку сохранения.
+            </Addition>
+            <ContentFigure
+              caption="Media Encoder"
+              imgTitle="Выбор формата GIF для экспорта через Adobe Media Encoder"
+              src="images/aftereffects/selecting_animated_gif_media_encoder.png"
+              theme="light"
+              type="image"
+              variant="windows"
+            />
+          </li>
+          <li>
+            После настройки параметров в <mark className="select">«Export Settings»</mark>{" "}
+            нажмите <mark className="select">«OK»</mark>, чтобы закрыть окно, и запустите
+            экспорт, нажав на зелёную иконку в очереди экспорта.
+          </li>
+        </ul>
       </DetailsSummary>
       <DetailsSummary
         tag="prores 4444, prores 422, quicktime, видео с прозрачностью, alpha channel"
