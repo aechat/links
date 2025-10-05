@@ -80,11 +80,6 @@ const AEExpressionPage = () => {
       <SearchProvider isPageLoaded={isPageLoaded}>
         <Helmet>
           <title>aeexpr@aechat</title>
-          <link
-            href="icons/aeexpr.svg"
-            rel="icon"
-            type="image/svg+xml"
-          />
           <meta
             content="Ответы на частые вопросы о выражениях в Adobe After Effects"
             name="description"

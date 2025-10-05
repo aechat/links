@@ -105,11 +105,6 @@ const PRFAQ = () => {
       <SearchProvider isPageLoaded={isPageLoaded}>
         <Helmet>
           <title>prfaq@aechat</title>
-          <link
-            href="icons/prfaq.svg"
-            rel="icon"
-            type="image/svg+xml"
-          />
           <meta
             content="Ответы на частые вопросы от пользователей Adobe Premiere Pro"
             name="description"

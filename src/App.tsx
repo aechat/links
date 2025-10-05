@@ -10,6 +10,18 @@ import themeConfig from "./styles/ant_theme";
 
 import LoadingAnimation from "./components/LoadingAnimation";
 
+import useDynamicFavicon from "./hooks/useDynamicFavicon";
+
+import faviconSvg from "/icons/favicon.svg?raw";
+
+import aefaqSvg from "/icons/aefaq.svg?raw";
+
+import prfaqSvg from "/icons/prfaq.svg?raw";
+
+import psfaqSvg from "/icons/psfaq.svg?raw";
+
+import aeexprfaqSvg from "/icons/aeexprfaq.svg?raw";
+
 const Links = lazy(() => import("./pages/linksPage"));
 
 const ChatRules = lazy(() => import("./pages/chatRules"));
@@ -164,6 +176,24 @@ class ErrorBoundary extends React.Component<
 
 export const App = () => {
   const location = useLocation();
+
+  const [svgContent, setSvgContent] = useState(faviconSvg);
+  useEffect(() => {
+    const path = location.pathname;
+
+    if (path.startsWith("/aefaq")) {
+      setSvgContent(aefaqSvg);
+    } else if (path.startsWith("/prfaq")) {
+      setSvgContent(prfaqSvg);
+    } else if (path.startsWith("/psfaq")) {
+      setSvgContent(psfaqSvg);
+    } else if (path.startsWith("/aeexpr")) {
+      setSvgContent(aeexprfaqSvg);
+    } else {
+      setSvgContent(faviconSvg);
+    }
+  }, [location.pathname]);
+  useDynamicFavicon(svgContent);
 
   const [showSafariWarning, setShowSafariWarning] = useState(false);
 

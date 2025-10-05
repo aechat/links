@@ -110,11 +110,6 @@ const PSFAQ = () => {
       <SearchProvider isPageLoaded={isPageLoaded}>
         <Helmet>
           <title>psfaq@aechat</title>
-          <link
-            href="icons/psfaq.svg"
-            rel="icon"
-            type="image/svg+xml"
-          />
           <meta
             content="Ответы на частые вопросы от пользователей Adobe Photoshop"
             name="description"
