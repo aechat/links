@@ -2,7 +2,7 @@ import {CloseRounded} from "@mui/icons-material";
 
 import {Modal} from "antd";
 
-import React, {useCallback, useState} from "react";
+import React, {useCallback, useEffect, useState} from "react";
 
 export const useExternalLinkHandler = () => {
   const [modalVisible, setModalVisible] = useState(false);
@@ -25,19 +25,34 @@ export const useExternalLinkHandler = () => {
     }
   }, []);
 
-  const handleOk = () => {
+  const handleOk = useCallback(() => {
     if (targetUrl) {
       window.open(targetUrl, "_blank", "noreferrer");
     }
 
     setModalVisible(false);
     setTargetUrl(null);
-  };
+  }, [targetUrl]);
 
-  const handleCancel = () => {
+  const handleCancel = useCallback(() => {
     setModalVisible(false);
     setTargetUrl(null);
-  };
+  }, []);
+  useEffect(() => {
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Enter") {
+        handleOk();
+      }
+    };
+
+    if (modalVisible) {
+      document.addEventListener("keydown", handleKeyDown);
+    }
+
+    return () => {
+      document.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [modalVisible, handleOk]);
 
   const ExternalLinkModal = (
     <Modal

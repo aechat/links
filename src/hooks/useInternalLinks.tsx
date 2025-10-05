@@ -2,7 +2,7 @@ import {CloseRounded} from "@mui/icons-material";
 
 import {Modal} from "antd";
 
-import React, {useCallback, useState} from "react";
+import React, {useCallback, useEffect, useState} from "react";
 
 interface TargetArticle {
   id: string;
@@ -69,7 +69,7 @@ export const useInternalLinkHandler = () => {
     }
   }, []);
 
-  const handleOk = () => {
+  const handleOk = useCallback(() => {
     if (targetArticle) {
       const targetElement = document.getElementById(targetArticle.id);
 
@@ -95,12 +95,27 @@ export const useInternalLinkHandler = () => {
 
     setModalVisible(false);
     setTargetArticle(null);
-  };
+  }, [targetArticle]);
 
-  const handleCancel = () => {
+  const handleCancel = useCallback(() => {
     setModalVisible(false);
     setTargetArticle(null);
-  };
+  }, []);
+  useEffect(() => {
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Enter") {
+        handleOk();
+      }
+    };
+
+    if (modalVisible) {
+      document.addEventListener("keydown", handleKeyDown);
+    }
+
+    return () => {
+      document.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [modalVisible, handleOk]);
 
   const InternalLinkModal = (
     <Modal
