@@ -99,7 +99,7 @@ const SearchResults: React.FC<{
                 )}
               </div>
               <div
-                className="search-content faq-content"
+                className="search-content faq-content no-copy"
                 dangerouslySetInnerHTML={{__html: content}}
               />
             </button>
@@ -353,6 +353,32 @@ export const SearchInPage: React.FC<{sections: SearchSection[]}> = ({sections}) 
       });
     }
   }, [selectedResultIndex]);
+  useEffect(() => {
+    const container = resultsContainerRef.current;
+
+    if (!container) {
+      return;
+    }
+
+    const handleClick = (event: MouseEvent) => {
+      if (event.target instanceof HTMLElement && event.target.tagName === "MARK") {
+        event.stopPropagation();
+
+        const button = (event.target as HTMLElement).closest(
+          ".search-link"
+        ) as HTMLButtonElement | null;
+
+        if (button) {
+          button.click();
+        }
+      }
+    };
+    container.addEventListener("click", handleClick, true);
+
+    return () => {
+      container.removeEventListener("click", handleClick, true);
+    };
+  }, []);
 
   const renderContent = () => {
     if (!isSearching) {

@@ -176,6 +176,15 @@ a {
   transition: opacity 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
+.search-content.faq-content.no-copy mark {
+  transition: none;
+
+  &:hover,
+  &:active {
+    opacity: initial;
+  }
+}
+
 .search-content.faq-content a:hover {
   opacity: 1;
 }
