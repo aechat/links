@@ -6849,7 +6849,6 @@ const AEWhereFind: React.FC = () => {
               <td>
                 <mark className="copy">Зеленые точки</mark>
               </td>
-
               <td>
                 <mark className="copy">Green Dots</mark>
               </td>

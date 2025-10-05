@@ -560,7 +560,7 @@ const AEInstallProblems: React.FC = () => {
                   Шрифты форматов <mark className="file">TTF</mark> или{" "}
                   <mark className="file">OTF</mark> устанавливаются стандартными
                   средствами операционной системы. Установленные шрифты будут отображаться
-                  во всех программах, поддерживающие сторонние шрифты, в том числе и в{" "}
+                  во всех программах, поддерживающих сторонние шрифты, в том числе и в{" "}
                   <mark className="app">Adobe After Effects</mark>. Это можно сделать
                   несколькими способами.
                   <ul>
@@ -628,8 +628,9 @@ const AEInstallProblems: React.FC = () => {
                 </li>
                 <li>
                   Для того чтобы установить программу или плагин, поставляющийся в формате
-                  исполняемого файла <mark className="file">EXE</mark> — достаточно его
-                  открыть двойным кликом и следовать инструкциям установщика.
+                  исполняемого файла <mark className="file">EXE</mark> или{" "}
+                  <mark className="file">MSI</mark> — достаточно его открыть двойным
+                  кликом и следовать инструкциям установщика.
                   <Addition type="info">
                     <ul>
                       <li>
@@ -962,7 +963,7 @@ const AEInstallProblems: React.FC = () => {
                       <mark className="path">
                         C:\Program Files (x86)\Common Files\Adobe\CEP\extensions
                       </mark>
-                      . Если такой папки нет — создайте его самостоятельно с помощью
+                      . Если такой папки нет — создайте её самостоятельно с помощью
                       контекстного меню файлового менеджера или командой{" "}
                       <mark className="code">
                         mkdir &quot;C:\Program Files (x86)\Common
@@ -1236,7 +1237,7 @@ const AEInstallProblems: React.FC = () => {
                 <a href="https://t.me/joinchat/F1DdXtG9LephYWUy">нашем AEChat</a>,
                 пользователи сталкиваются с одной и той же проблемой: нужное дополнение не
                 появляется в программе, хотя установка выполнена строго по{" "}
-                <a href="#">инструкциям</a>. Причина часто кроется в одной детали: если{" "}
+                <a href="#2.1">инструкциям</a>. Причина часто кроется в одной детали: если{" "}
                 <mark className="app">Adobe After Effects</mark> установлен в
                 нестандартную директорию, многие установщики просто не обнаружат
                 программу.
@@ -1490,7 +1491,7 @@ const AEInstallProblems: React.FC = () => {
           Обычно ошибка <mark>1</mark> или <mark>501</mark> возникает из-за того, что у
           вас повреждено приложение <mark className="app">Adobe Creative Cloud</mark> или
           были некорректно удалены предыдущие программы от{" "}
-          <mark className="company">Adobe</mark>, а потом установили «народные» версии
+          <mark className="company">Adobe</mark>, а потом вы установили «народные» версии
           программ. Чтобы это исправить — попробуйте очистить остатки предыдущих установок
           с помощью{" "}
           <a href="https://helpx.adobe.com/creative-cloud/kb/cc-cleaner-tool-installation-problems.html">
@@ -1723,7 +1724,7 @@ const AEInstallProblems: React.FC = () => {
           <mark className="select">«Реклама»</mark>, поэтому можно случайно нарваться на
           установку ненужного <mark>me.fo</mark> или <mark>hi.ru</mark> в качестве
           стартовой страницы браузера или на установку{" "}
-          <mark className="app">Яндекс.Браузера</mark>. К счастью, — все эти нововведения
+          <mark className="app">Яндекс.Браузера</mark>. К счастью, все эти нововведения
           можно удалить через <mark className="app">Панель управления</mark> или любым
           другим удобным для вас способом, например через{" "}
           <mark className="app">Revo Uninstaller</mark>.
@@ -2580,7 +2581,6 @@ const AEInstallProblems: React.FC = () => {
           окно лицензирования плагина. После этого попробуйте запустить основное окно
           плагина, оно больше не должно вызывать предупреждения об активации.
         </p>
-
         <ContentFigure
           caption="Effects Controls"
           imgTitle="Открытие окна лицензирования Mocha Pro"

@@ -61,9 +61,9 @@ const AEActions: React.FC = () => {
           type="youtube"
         />
         <p>
-          Если вы не хотите использовать сторонние плагины, вы можете воспользоваться
-          стандартным в <mark className="app">Adobe After Effects</mark> эффектом{" "}
-          <mark className="plugin">Detail-preserving Upscale</mark>.
+          Если вы не хотите использовать сторонние плагины, попробуйте воспользоваться
+          стандартным эффектом <mark className="plugin">Detail-preserving Upscale</mark> в{" "}
+          <mark className="app">Adobe After Effects</mark>.
         </p>
         <ContentFigure
           caption="How to UPSCALE VIDEO to 4K in Adobe After Effects"
@@ -111,7 +111,7 @@ const AEActions: React.FC = () => {
         <p>
           Если вы ищете бесплатный аналог <mark className="app">Topaz AI</mark> — обратите
           внимание на <mark className="app">Upscayl</mark>. Эта программа также использует
-          нейросетевые модели для улучшения качества изображений. Скачать его можно{" "}
+          нейросетевые модели для улучшения качества изображений. Скачать её можно{" "}
           <a href="https://upscayl.org/">по этой ссылке</a>.
         </p>
         <ContentFigure
@@ -202,9 +202,9 @@ const AEActions: React.FC = () => {
         <p>
           Если стоит задача увеличить частоту кадров, например, с <mark>24 FPS</mark> до{" "}
           <mark>60 FPS</mark> или даже <mark>120 FPS</mark> для дальнейшей обработки или
-          более плавного воспроизведения видео, то можно обойтись без{" "}
+          более плавного воспроизведения, можно обойтись без{" "}
           <mark className="app">Adobe After Effects</mark> и воспользоваться программой{" "}
-          <mark className="app">Flowframes</mark>. У данной утилиты есть{" "}
+          <mark className="app">Flowframes</mark>. У этой утилиты есть{" "}
           <a href="https://nmkd.itch.io/flowframes">бесплатная версия</a>
           <sup>1</sup> и <a href="https://www.patreon.com/n00mkrad">платная</a> с
           расширенным функционалом.
@@ -248,8 +248,8 @@ const AEActions: React.FC = () => {
         <p>
           При обработке записей игрового процесса, аниме или любого контента с переменной
           частотой кадров вы, вероятно, сталкивались с дублированием кадров, что мешает
-          плавности движения видео. Чтобы это исправить, повторяющиеся кадры нужно
-          удалить. Это можно сделать несколькими способами.
+          плавности движения. Чтобы это исправить, повторяющиеся кадры нужно удалить. Это
+          можно сделать несколькими способами.
         </p>
         <Divider>Удаляем с помощью Duplicate Frame Remover</Divider>
         <p>
@@ -258,12 +258,12 @@ const AEActions: React.FC = () => {
           <a href="https://aescripts.com/duplicate-frame-remover/">
             Duplicate Frame Remover
           </a>
-          . Из настроек есть несколько параметров.
+          . У него есть несколько параметров.
         </p>
         <ul>
           <li>
-            <mark className="select">«Threshold»</mark> — чем выше значение, тем скрипт
-            будет агрессивнее искать и удалять похожие кадры.
+            <mark className="select">«Threshold»</mark> — чем выше значение, тем
+            агрессивнее скрипт будет искать и удалять похожие кадры.
           </li>
           <li>
             <mark className="select">«Use Region of Interest»</mark> — при включении этой
@@ -291,7 +291,7 @@ const AEActions: React.FC = () => {
         <Divider>Удаляем дубликаты через Shutter Encoder</Divider>
         <p>
           В <mark className="app">Shutter Encoder</mark> есть опция, которая позволяет
-          конвертеру анализировать и удалять повторяющиеся кадры у видео. После импорта
+          конвертеру анализировать и удалять повторяющиеся кадры из видео. После импорта
           исходника выберите формат для вывода, а затем во вкладке{" "}
           <mark className="select">«Advanced features»</mark> включите параметр{" "}
           <mark className="select">«Remove duplicate frames»</mark>. После этого укажите

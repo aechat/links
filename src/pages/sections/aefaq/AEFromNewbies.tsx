@@ -65,7 +65,7 @@ const AEFromNewbies: React.FC = () => {
             <a href="https://www.youtube.com/playlist?list=PLrsq-o51mMFE4ez9Q4qmkyoXZ_lYsyZNi">
               мини-курс «After Effects для начинающих» от VideoSmile
             </a>
-            . При прохождении этого курсы вы научитесь работать с различными эффектами,
+            . При прохождении этого курса вы научитесь работать с различными эффектами,
             создавать анимацию текста, а также использовать маски и инструмент{" "}
             <mark className="plugin">Roto Brush</mark> для вырезания объектов в кадре.
             <ContentFigure
@@ -110,7 +110,7 @@ const AEFromNewbies: React.FC = () => {
           <li>
             И не забываем про дополнительный список как бесплатных, так и платных
             комплексных курсов по <mark className="app">Adobe After Effects</mark>,
-            затрагивающие разные области применения программы.
+            затрагивающий разные области применения программы.
             <div className="flexible-links">
               <a href="https://cloudlessons.ru/v/410/">
                 «Супер After Effects» от VideoSmile
@@ -336,8 +336,8 @@ const AEFromNewbies: React.FC = () => {
             <mark className="select">«Window» → «Preview»</mark>, чтобы убедиться, что всё
             настроено корректно. Бывает, что у пользователя выставлены неправильные
             значения <mark className="select">«FPS»</mark>, из-за чего предпросмотр
-            воспроизводится слишком быстро или медленно. Либо выбрано низкое качество
-            предпросмотра — <mark className="select">«Auto»</mark> или{" "}
+            воспроизводится слишком быстро или медленно, либо выбрано низкое качество
+            предпросмотра: <mark className="select">«Auto»</mark> или{" "}
             <mark className="select">«Quarter»</mark> вместо{" "}
             <mark className="select">«Full»</mark>.
           </li>
@@ -478,7 +478,7 @@ const AEFromNewbies: React.FC = () => {
           <li>
             <mark className="word">Перекодируй видос</mark> — призыв конвертировать
             исходники в монтажный кодек, например{" "}
-            <mark className="video">Apple Prores 422</mark> через{" "}
+            <mark className="video">Apple ProRes 422</mark> через{" "}
             <mark className="app">Shutter Encoder</mark> или{" "}
             <mark className="app">Adobe Media Encoder</mark>.
           </li>
@@ -708,7 +708,7 @@ const AEFromNewbies: React.FC = () => {
             <mark className="plugin">Mocha Pro</mark>.{" "}
             <Addition type="info">
               О различиях <mark className="plugin">Mocha AE</mark> и{" "}
-              <mark className="plugin">Mocha Pro</mark> вы можете прочитать на
+              <mark className="plugin">Mocha Pro</mark> вы можете прочитать на{" "}
               <a href="https://support.borisfx.com/hc/en-us/articles/10232625711117-I-use-Mocha-AE-what-is-the-difference-between-Mocha-AE-and-Mocha-Pro-Do-I-need-Mocha-Pro">
                 официальном сайте Boris FX
               </a>
@@ -876,13 +876,12 @@ const AEFromNewbies: React.FC = () => {
             кодирует и декодирует видеоданные. Кодеки делят на{" "}
             <mark className="word">монтажные</mark> и{" "}
             <mark className="word">потоковые (delivery)</mark>. Использовать видео с
-            потоковые кодеками для монтажа не рекомендуется во избежание различных проблем
-            и артефактов при работе с ними.
+            потоковыми кодеками для монтажа не рекомендуется во избежание различных
+            проблем и артефактов при работе с ними.
             <Divider>Монтажные кодеки</Divider>
             <ul>
               <li>
-                <mark className="video">Apple ProRes</mark> или{" "}
-                <mark className="video">прорес</mark> — индустриальный стандарт для
+                <mark className="video">Apple ProRes</mark> — индустриальный стандарт для
                 монтажа. <mark className="video">Apple ProRes 422</mark> чаще всего
                 применяют на этапе редактирования, а{" "}
                 <mark className="video">Apple ProRes 4444</mark> — для экспорта с
@@ -4751,7 +4750,6 @@ const AEFromNewbies: React.FC = () => {
           variant="windows"
         />
         <Divider>Используем дисковый кэш для предпросмотра</Divider>
-
         <p>
           В <mark className="app">Adobe After Effects</mark> версии <mark>25.2</mark> и
           новее появилась новая функция воспроизведения предпросмотра напрямую из
@@ -4920,7 +4918,6 @@ const AEFromNewbies: React.FC = () => {
           независимыми, их нужно дублировать в окне{" "}
           <mark className="select">«Project»</mark>.
         </p>
-
         <ContentFigure
           caption="Правильное дублирование композиции"
           src={"images/aftereffects/duplicate_composition.mp4"}
@@ -5059,7 +5056,7 @@ const AEFromNewbies: React.FC = () => {
         <Divider>Используем Auto Crop 3</Divider>
         <p>
           Для автоматического кадрирования композиции по границам её содержимого можно
-          воспользоваться плагином <mark className="plugin">Auto Crop 3</mark>.
+          воспользоваться сторонним плагином <mark className="plugin">Auto Crop 3</mark>.
         </p>
         <p>{/* FIXME: */}</p>
         <Divider>Используем «Region of Interest»</Divider>
@@ -5176,7 +5173,6 @@ const AEFromNewbies: React.FC = () => {
           <mark className="app">Adobe Illustrator</mark>, будут так же корректно работать
           в <mark className="app">Adobe After Effects</mark> — из-за его особенностей.
         </p>
-
         <p>
           Суть бага в том, что при смене начертания программа почему-то сохраняет для
           некоторых букв старый стиль или вовсе сбрасывает шрифт на{" "}
@@ -5184,7 +5180,6 @@ const AEFromNewbies: React.FC = () => {
           также не реагирует на кнопки <mark className="select">«Bold»</mark> и{" "}
           <mark className="select">«Italic»</mark>.
         </p>
-
         <ContentFigure
           caption="Проблема некорректного начертания на примере Cascadia Mono"
           src="images/aftereffects/font-reset_bug.mp4"
@@ -5192,7 +5187,6 @@ const AEFromNewbies: React.FC = () => {
           type="video"
           variant="windows"
         />
-
         <Addition type="warning">
           Приведённые ниже способы{" "}
           <u>
@@ -5200,7 +5194,6 @@ const AEFromNewbies: React.FC = () => {
           </u>{" "}
           и лишь помогают исключить некоторые проблемы.
         </Addition>
-
         <ul>
           <li>
             Попробуйте переконвертировать шрифт в другой формат (например, из{" "}
@@ -5233,14 +5226,12 @@ const AEFromNewbies: React.FC = () => {
           Запуск нескольких копий <mark className="app">Adobe After Effects</mark> может
           существенно увеличить нагрузку на ресурсы компьютера.
         </Addition>
-
         <p>
           Иногда возникает ситуация: один проект рендерится, а в это время нужно открыть
           другой и внести правки. По умолчанию{" "}
           <mark className="app">Adobe After Effects</mark> не позволяет запускать
           несколько экземпляров, но это ограничение можно обойти.
         </p>
-
         <ContentFilter
           macContent={
             <div>
