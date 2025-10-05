@@ -14,8 +14,6 @@ import {useCopyToClipboard} from "../hooks/useCopyToClipboard";
 
 import {useAnchorScroll} from "../hooks/useAnchorScroll";
 
-import {useExternalLinks} from "../hooks/useExternalLinks";
-
 import Footer from "../components/Footer";
 
 import Header from "../components/Header";
@@ -23,8 +21,6 @@ import Header from "../components/Header";
 import SupportDonut from "../components/modal/SupportDonut";
 
 import {SearchInPage, SearchProvider} from "../components/search";
-
-import GithubUpdateInfo from "../components/features/GithubUpdateInfo";
 
 import Addition from "../components/Addition";
 
@@ -51,10 +47,8 @@ import PSWhereFind from "./sections/psfaq/PSWhereFind";
 const PSFAQ = () => {
   const [isPageLoaded, setIsPageLoaded] = useState(false);
   useAnchorScroll(isPageLoaded);
-  useExternalLinks();
 
   const {enableAutoCopy} = useCopyToClipboard();
-
   useEffect(() => {
     enableAutoCopy();
   }, [enableAutoCopy]);
@@ -116,11 +110,6 @@ const PSFAQ = () => {
       <SearchProvider isPageLoaded={isPageLoaded}>
         <Helmet>
           <title>psfaq@aechat</title>
-          <link
-            href="icons/psfaq.svg"
-            rel="icon"
-            type="image/svg+xml"
-          />
           <meta
             content="Ответы на частые вопросы от пользователей Adobe Photoshop"
             name="description"
@@ -166,7 +155,6 @@ const PSFAQ = () => {
               <div className="faq-title">
                 <h1>psfaq</h1>
               </div>
-              <GithubUpdateInfo folderPath="src/pages/sections/psfaq" />
               <SupportDonut />
               <Addition type="danger">
                 Эта страница всё ещё находится в процессе разработки. Следите за

@@ -1,21 +1,12 @@
 import pluginJs from "@eslint/js";
-
 import prettierConfig from "eslint-config-prettier";
-
 import pluginJsxA11y from "eslint-plugin-jsx-a11y";
-
 import perfectionist from "eslint-plugin-perfectionist";
-
 import pluginPrettier from "eslint-plugin-prettier";
-
 import pluginReact from "eslint-plugin-react";
-
 import globals from "globals";
-
 import tseslint from "typescript-eslint";
-
 /** @type {import('eslint').Linter.Config[]} */
-
 export default [
   {
     ignores: [

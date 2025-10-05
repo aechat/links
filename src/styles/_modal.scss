@@ -11,9 +11,9 @@
   justify-content: space-between;
   align-items: center;
   gap: 10px;
-  outline: 1px solid var(--summary-border);
+  outline: 1px solid var(--color-surface-primary-border);
   border-radius: $roundness;
-  background-color: var(--summary-background);
+  background-color: var(--color-surface-primary-background);
   padding-inline: 15px;
   padding-inline-end: 10px;
   padding-block: 10px;
@@ -23,19 +23,38 @@
 }
 
 .modal-header-title {
-  color: var(--summary-text);
+  color: var(--color-surface-primary-text);
   font-weight: 500;
   font-size: 1.15rem;
 }
 
 .modal-header-close {
-  color: var(--summary-text);
+  flex-shrink: 0;
+  transition:
+    background-color 0.5s cubic-bezier(0.075, 0.82, 0.165, 1),
+    color 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+  border-radius: $roundness * 0.5;
+  padding: 4px;
+  color: var(--color-surface-primary-text);
+
+  svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  &:hover {
+    background-color: var(--color-surface-primary-background-hover);
+  }
+
+  &:active {
+    background-color: var(--color-surface-primary-background-active);
+  }
 }
 
 .modal-content {
-  outline: 1px solid var(--modal-background-border);
+  outline: 1px solid var(--color-border-modal);
   border-radius: $roundness;
-  background-color: var(--modal-background-color);
+  background-color: var(--color-background-modal);
   width: 100%;
 
   .flexible-links {
@@ -55,45 +74,63 @@
   justify-content: center;
   align-items: center;
   gap: 8px;
+  transition: background-color 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
   cursor: pointer;
-  border: 1px solid var(--summary-border);
+  border: 1px solid var(--color-surface-primary-border);
   border-radius: $roundness;
-  background-color: var(--summary-background);
+  background-color: var(--color-surface-primary-background);
   padding: 10px 20px;
-  color: var(--summary-text);
+  color: var(--color-surface-primary-text);
   font-weight: 700;
   font-size: 0.875rem;
   font-family: Onest, sans-serif;
   text-align: center;
+
+  &:hover {
+    background-color: var(--color-surface-primary-background-hover);
+  }
+
+  &:active {
+    background-color: var(--color-surface-primary-background-active);
+  }
 }
 
 .modal-open-button {
   display: flex;
   justify-content: center;
   align-items: center;
+  transition: background-color 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
   cursor: pointer;
   margin: 0 auto;
-  border: 1px solid var(--summary-border);
+  border: 1px solid var(--color-surface-primary-border);
   border-radius: $roundness;
-  background-color: var(--summary-background);
+  background-color: var(--color-surface-primary-background);
   padding: 10px 20px;
   width: calc(100% - 20px);
-  color: var(--summary-text);
+  color: var(--color-surface-primary-text);
   font-weight: 700;
   font-size: 0.95rem;
   font-family: Onest, sans-serif;
   text-align: center;
+
+  &:hover {
+    background-color: var(--color-surface-primary-background-hover);
+  }
+
+  &:active {
+    background-color: var(--color-surface-primary-background-active);
+  }
 }
 
 .modal p {
   margin-inline: 15px;
   margin-block: 10px;
   font-size: 0.95rem;
-  line-height: 1.5;
+  line-height: 1.65;
 }
 
 .modal a {
-  color: var(--accent);
+  color: var(--color-accent);
   font-weight: 700;
   text-decoration: underline;
 }
@@ -115,7 +152,7 @@
 }
 
 .modal li:not(:last-child) {
-  border-bottom: 1px solid var(--content-background-border);
+  border-bottom: 1px solid var(--color-border-primary);
 }
 
 .modal li::before {
@@ -126,7 +163,7 @@
   left: 15px;
   opacity: 0.5;
   border-radius: $roundness;
-  background-color: var(--accent);
+  background-color: var(--color-accent);
   width: 2px;
   content: "";
 }
@@ -139,16 +176,20 @@
     opacity,
     background-color 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
   outline: none;
-  border: solid 1px var(--sber-border);
+  border: solid 1px var(--color-surface-primary-border);
   border-radius: $roundness * 0.75;
-  background-color: var(--sber-background);
+  background-color: var(--color-surface-primary-background);
   padding: 10px 20px;
-  color: var(--sber-text) !important;
+  color: var(--color-surface-primary-text) !important;
   font-weight: 700;
   font-size: 1.05rem;
 
   &:hover {
-    background-color: var(--sber-hover);
+    background-color: var(--color-surface-primary-background-hover);
+  }
+
+  &:active {
+    background-color: var(--color-surface-primary-background-active);
   }
 }
 
@@ -160,16 +201,20 @@
     opacity,
     background-color 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
   outline: none;
-  border: solid 1px var(--yoomoney-border);
+  border: solid 1px var(--color-surface-primary-border);
   border-radius: $roundness * 0.75;
-  background-color: var(--yoomoney-background);
+  background-color: var(--color-surface-primary-background);
   padding: 10px 20px;
-  color: var(--yoomoney-text) !important;
+  color: var(--color-surface-primary-text) !important;
   font-weight: 700;
   font-size: 1.05rem;
 
   &:hover {
-    background-color: var(--yoomoney-hover);
+    background-color: var(--color-surface-primary-background-hover);
+  }
+
+  &:active {
+    background-color: var(--color-surface-primary-background-active);
   }
 }
 
@@ -205,4 +250,4 @@
     width: 20px;
     height: 20px;
   }
-}
+}

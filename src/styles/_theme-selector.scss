@@ -29,6 +29,19 @@
   margin-block: 10px 2px;
   font-weight: 400;
   font-size: 0.9rem;
+
+  button {
+    transition: background-color 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+    border-radius: $roundness * 0.5;
+
+    &:hover {
+      background-color: var(--color-surface-primary-background-hover);
+    }
+
+    &:active {
+      background-color: var(--color-surface-primary-background-active);
+    }
+  }
 }
 
 .theme-selector {
@@ -37,17 +50,11 @@
   flex-wrap: wrap;
   justify-content: space-between;
   margin: 10px;
-  outline: 1px solid var(--summary-border);
+  outline: 1px solid var(--color-surface-primary-border);
   border-radius: $roundness * 0.75;
   width: calc(100% - 20px);
   overflow: hidden;
-  color: var(--summary-text);
-  button:focus,
-  button:active,
-  button:hover {
-    outline: 1px solid var(--summary-border);
-    background-color: var(--summary-hover);
-  }
+  color: var(--color-surface-primary-text);
 }
 
 .theme-button {
@@ -59,14 +66,22 @@
   gap: 6px;
   z-index: 1;
   transition: background-color 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
-  outline: 1px solid var(--summary-border);
-  background-color: var(--summary-background);
+  outline: 1px solid var(--color-surface-primary-border);
+  background-color: var(--color-surface-primary-background);
   padding: 10px;
   max-width: 100%;
   overflow-y: hidden;
   font-weight: 500;
   font-size: 0.95rem;
   font-family: Onest, sans-serif;
+
+  &:hover {
+    background-color: var(--color-surface-primary-background-hover);
+  }
+
+  &:active {
+    background-color: var(--color-surface-primary-background-active);
+  }
 
   sup {
     margin: -3px;
@@ -75,12 +90,12 @@
 }
 
 .theme-button svg {
-  fill: var(--summary-text);
+  fill: var(--color-surface-primary-text);
   width: min(calc(17px + (19 - 17) * ((100vw - 320px) / (768 - 320))), 19px);
   height: min(calc(17px + (19 - 17) * ((100vw - 320px) / (768 - 320))), 19px);
 }
 
 .theme-button-selected {
-  outline: 1px solid var(--summary-border);
-  background-color: var(--summary-hover);
-}
+  outline: 1px solid var(--color-surface-primary-border);
+  background-color: var(--color-surface-primary-background-hover);
+}

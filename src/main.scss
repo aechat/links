@@ -23,12 +23,12 @@
 html,
 body {
   margin: 0;
-  background: var(--background-color);
+  background: var(--color-background-primary);
   padding: 0;
   scroll-padding-top: var(--header-height);
-  scrollbar-color: var(--summary-border) var(--content-background-color);
+  scrollbar-color: var(--color-surface-primary-border) var(--color-background-secondary);
   scrollbar-width: thin;
-  color: var(--text-color);
+  color: var(--color-text-primary);
   user-select: none;
 
   &::-webkit-scrollbar {
@@ -37,27 +37,27 @@ body {
 
   &::-webkit-scrollbar-thumb {
     border-radius: $roundness;
-    background-color: var(--summary-background);
+    background-color: var(--color-surface-primary-background);
   }
 
   &::-webkit-scrollbar-track {
     margin: 5px;
-    background: var(--content-background-color);
+    background: var(--color-background-secondary);
   }
 }
 
 html {
-  -webkit-tap-highlight-color: rgb(0 0 0 / 0%);
+  -webkit-tap-highlight-color: transparent;
   scrollbar-width: none;
   font-weight: 375;
   font-size: 13px;
   font-family: Inter, sans-serif;
 
-  @media (width >= 320px) {
+  @media screen and (width >= 320px) {
     font-size: calc(13px + (16 - 13) * ((100vw - 320px) / (768 - 320)));
   }
 
-  @media (width >= 768px) {
+  @media screen and (width >= 768px) {
     font-size: 16px;
   }
 }
@@ -68,16 +68,16 @@ html {
 }
 
 footer {
-  opacity: 0.75;
   margin-inline: auto;
   margin-block: 30px 40px;
-  outline: 1px solid var(--content-background-border);
+  outline: 1px solid var(--color-border-primary);
   border-radius: $roundness;
-  background-color: var(--content-background-color);
-  padding-inline: 20px;
+  background-color: var(--color-background-secondary);
+  padding-inline: 15px;
   padding-block: 10px;
   width: calc(100% - 40px);
   max-width: 700px;
+  color: var(--color-text-tertiary);
   font-weight: 600;
   font-size: 0.85rem;
   font-family: Onest, sans-serif;
@@ -89,7 +89,7 @@ footer {
 }
 
 input {
-  accent-color: var(--accent);
+  accent-color: var(--color-accent);
 }
 
 .hidden {
@@ -110,9 +110,9 @@ input {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: var(--background-color);
+  background-color: var(--color-background-primary);
   height: 100vh;
-  color: var(--text-color);
+  color: var(--color-text-primary);
   line-height: 1.5;
 }
 
@@ -120,16 +120,16 @@ input {
   display: inline-flex;
   flex-direction: column;
   gap: 10px;
-  box-shadow: 0 10px 25px 10px rgb(0 0 0 / 15%);
+  box-shadow: var(--shadow-modal);
   border-radius: $roundness * 1.5;
-  background-color: var(--content-background-color);
+  background-color: var(--color-background-secondary);
   padding: 15px;
   max-width: 400px;
 }
 
 .not-found-title {
   margin-inline: 10px;
-  color: var(--accent);
+  color: var(--color-accent);
   font-weight: 800;
   font-size: 2rem;
   font-family: Onest, sans-serif;
@@ -145,8 +145,8 @@ input {
 }
 
 .not-found-small-description {
-  opacity: 0.5;
   margin-inline: 5px;
+  color: var(--color-text-tertiary);
   font-size: 0.75rem;
   hyphens: auto;
 }
@@ -178,6 +178,6 @@ input {
 }
 
 .to-main {
-  background-color: var(--accent);
-  color: #fff;
+  background-color: var(--color-accent);
+  color: var(--color-text-on-accent);
 }

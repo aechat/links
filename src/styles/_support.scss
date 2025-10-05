@@ -22,7 +22,7 @@
     list-style-type: none;
 
     &:not(:last-child) {
-      border-bottom: 1px solid var(--content-background-border);
+      border-bottom: 1px solid var(--color-border-primary);
     }
 
     &::before {
@@ -33,10 +33,10 @@
       transform: translateY(-50%);
       opacity: 0.5;
       border-radius: $roundness;
-      background-color: var(--accent);
+      background-color: var(--color-accent);
       width: 3px;
       height: 65%;
       content: "";
     }
   }
-}
+}

@@ -5,22 +5,18 @@ import React, {useCallback, useEffect, useMemo, useRef, useState} from "react";
 type AnimationMode = "ping-pong" | "loop" | "once";
 
 const MODES: AnimationMode[] = ["ping-pong", "loop", "once"];
-
 interface Point {
   x: number;
   y: number;
 }
-
 interface DragInfo {
   handle: "p1" | "p2";
   graphType: "value" | "speed";
 }
-
 interface KeyframeParams {
   influence: number;
   yFactor: number;
 }
-
 interface TimeMapEntry {
   x: number;
   t: number;
@@ -89,7 +85,6 @@ const getNiceTickStep = (range: number, maxTicks: number): number => {
 
   return magnitude;
 };
-
 interface AnimationDemoProps {
   trackRef: React.RefObject<HTMLDivElement | null>;
   showTrails: boolean;
@@ -127,7 +122,6 @@ const AnimationDemo: React.FC<AnimationDemoProps> = ({
     </div>
   </div>
 );
-
 interface ValueGraphProps {
   svgRef: React.RefObject<SVGSVGElement | null>;
   dimensions: {width: number; height: number};
@@ -322,7 +316,6 @@ const ValueGraph: React.FC<ValueGraphProps> = ({
     </div>
   );
 };
-
 interface SpeedGraphProps {
   svgRef: React.RefObject<SVGSVGElement | null>;
   dimensions: {width: number; height: number};
@@ -492,7 +485,6 @@ const SpeedGraph: React.FC<SpeedGraphProps> = ({
     </div>
   );
 };
-
 interface AnimationControlsProps {
   duration: number;
   setDuration: (value: number) => void;

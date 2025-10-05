@@ -1,22 +1,81 @@
-@use "dark-colors" as *;
 @use "light-colors" as *;
+@use "dark-colors" as *;
+@use "sass:meta";
 
 :root {
   --accent-hue: 210;
-  --header-shadow: hsl(0deg 0% 0% / 5%);
-  --shadow: hsl(0deg 0% 0% / 8%);
   --saturate-ratio: 1;
-  --max-width:1175px;
+  --max-width: 1175px;
+  --shadow-modal: rgb(0 0 0 / 15%);
+  --color-figure-win-light-background: linear-gradient(
+    to bottom,
+    hsl(var(--accent-hue) 50% 97.5%),
+    hsl(0deg 0% 92.5%)
+  );
+  --color-figure-win-light-border: hsl(0deg 0% 90%);
+  --color-figure-win-light-text: black;
+  --color-figure-win-light-media-border: hsl(0deg 0% 93%);
+  --color-figure-win-light-media-background: hsl(0deg 0% 90%);
+  --color-figure-win-light-control-hover: hsl(0deg 0% 0% / 10%);
+  --color-figure-win-light-control-active: hsl(0deg 0% 0% / 20%);
+  --shadow-figure-light: 0 5px 10px 0 hsl(0deg 0% 80%);
+  --color-figure-win-dark-background: linear-gradient(
+    to bottom,
+    hsl(var(--accent-hue) 20% 10%),
+    hsl(var(--accent-hue) 20% 5%)
+  );
+  --color-figure-win-dark-border: hsl(var(--accent-hue) 20% 15%);
+  --color-figure-win-dark-text: white;
+  --color-figure-win-dark-media-border: hsl(0deg 0% 15%);
+  --color-figure-win-dark-media-background: hsl(0deg 0% 10%);
+  --color-figure-win-dark-control-hover: hsl(0deg 0% 100% / 10%);
+  --color-figure-win-dark-control-active: hsl(0deg 0% 100% / 20%);
+  --shadow-figure-dark: 0 5px 10px 0 hsl(0deg 0% 20%);
+  --color-figure-close-control-hover: hsl(0deg 80% 60%);
+  --color-figure-close-control-active: hsl(0deg 80% 50%);
+  --color-figure-mac-light-background: hsl(0deg 0% 97%);
+  --color-figure-mac-light-border: hsl(0deg 0% 85%);
+  --color-figure-mac-light-text: hsl(0deg 0% 20%);
+  --color-figure-mac-dark-background: linear-gradient(
+    to bottom,
+    hsl(0deg 0% 12.5%),
+    hsl(0deg 0% 5%)
+  );
+  --color-figure-mac-dark-border: hsl(0deg 0% 25%);
+  --color-figure-mac-dark-text: hsl(0deg 0% 80%);
+  --color-figure-mac-control-minimize: hsl(128deg 70% 45%);
+  --color-figure-mac-control-maximize: hsl(40deg 100% 60%);
+  --color-figure-mac-control-close: hsl(5deg 100% 65%);
+  --color-text-on-accent: #fff;
+  --figure-youtube-background: hsl(0deg 0% 9%);
+  --figure-youtube-border: hsl(0deg 0% 20%);
+  --figure-youtube-text: hsl(0deg 0% 100%);
+  --figure-youtube-button: hsl(0deg 0% 12.5%);
+  --figure-youtube-button-text: hsl(0deg 0% 90%);
+  --figure-youtube-button-hover: hsl(0deg 0% 20%);
+  --figure-youtube-button-active: hsl(0deg 0% 10%);
+  --figure-control-background-hover: hsl(0deg 0% 80% / 15%);
+  --figure-control-background-active: hsl(0deg 0% 80% / 20%);
+  --figure-control-close-background-hover: hsl(0deg 100% 85% / 25%);
+  --figure-control-close-background-active: hsl(0deg 100% 85% / 30%);
+}
+
+@mixin generate-vars-from-map($map, $prefix: "") {
+  @each $key, $value in $map {
+    $current-key: if($prefix == "", $key, "#{$prefix}-#{$key}");
+
+    @if type-of($value) == "map" {
+      @include generate-vars-from-map($value, $current-key);
+    } @else {
+      --#{$current-key}: #{$value};
+    }
+  }
 }
 
 .light {
-  @each $key, $value in $light {
-    --#{$key}: #{$value};
-  }
+  @include generate-vars-from-map($light-theme-map);
 }
 
 .dark {
-  @each $key, $value in $dark {
-    --#{$key}: #{$value};
-  }
+  @include generate-vars-from-map($dark-theme-map);
 }

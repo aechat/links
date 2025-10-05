@@ -1,76 +1,179 @@
-$dark: (
-  // ~: стандартные цвета:
-  background-color: hsl(0, 0%, 0%),
-  background-color-alpha: hsla(0, 0%, 0%, 0.7),
-  text-color: hsl(0, 0%, 100%),
-  modal-background-color: hsla(var(--accent-hue), calc(8% * var(--saturate-ratio)), 5%, 0.75),
-  modal-background-border: hsla(var(--accent-hue), calc(20% * var(--saturate-ratio)), 15%, 0.5),
-  content-background-color: hsl(0, 0%, 6%),
-  content-background-border: hsl(0, 0%, 15%),
-  header-background: hsla(var(--accent-hue), calc(30% * var(--saturate-ratio)), 7%, 0.8),
-  // ~: банковские цвета:
-  sber-background: hsl(130, calc(30% * var(--saturate-ratio)), 13%),
-  sber-text: hsl(130, calc(60% * var(--saturate-ratio)), 85%),
-  sber-hover: hsl(130, calc(40% * var(--saturate-ratio)), 15%),
-  sber-border: hsl(130, calc(50% * var(--saturate-ratio)), 30%),
-  yoomoney-background: hsl(257, calc(50% * var(--saturate-ratio)), 17%),
-  yoomoney-text: hsl(257, calc(70% * var(--saturate-ratio)), 85%),
-  yoomoney-hover: hsl(257, calc(50% * var(--saturate-ratio)), 20%),
-  yoomoney-border: hsl(257, calc(50% * var(--saturate-ratio)), 50%),
-  // ~: с применением акцентного цвета:
-  accent: hsl(var(--accent-hue), calc(100% * var(--saturate-ratio)), 73%),
-  mark-background: hsl(var(--accent-hue), calc(20% * var(--saturate-ratio)), 12.5%),
-  mark-border: hsl(var(--accent-hue), calc(20% * var(--saturate-ratio)), 25%),
-  mark-text: hsl(var(--accent-hue), calc(75% * var(--saturate-ratio)), 90%),
-  button-background: hsl(var(--accent-hue), calc(25% * var(--saturate-ratio)), 12.5%),
-  button-border: hsl(var(--accent-hue), calc(35% * var(--saturate-ratio)), 25%),
-  header-border: hsla(var(--accent-hue), calc(10% * var(--saturate-ratio)), 25%, 0.5),
-  // *: стили summary
-  summary-background: hsl(var(--accent-hue), calc(12.5% * var(--saturate-ratio)), 6%),
-  summary-border: hsl(var(--accent-hue), calc(15% * var(--saturate-ratio)), 15%),
-  summary-text: hsl(var(--accent-hue), calc(100% * var(--saturate-ratio)), 80%),
-  summary-hover: hsl(var(--accent-hue), calc(20% * var(--saturate-ratio)), 11%),
-  // ~: информационные блоки:
-  addition-info-background: hsl(190, 35%, 10%),
-  addition-info-border: hsl(190, 30%, 20%),
-  addition-info-text: hsl(190, 75%, 90%),
-  // ~: предупреждающие блоки:
-  addition-warning-background: hsl(50, 35%, 11%),
-  addition-warning-border: hsl(50, 25%, 20%),
-  addition-warning-text: hsl(50, 75%, 92.5%),
-  // ~: остерегающие блоки:
-  addition-danger-background: hsl(0, 35%, 11%),
-  addition-danger-border: hsl(0, 30%, 20%),
-  addition-danger-text: hsl(0, 100%, 90%),
-  // *: стили таблицы
-  table-background: hsl(0, calc(0% * var(--saturate-ratio)), 8%),
-  table-background-border: hsl(0, calc(0% * var(--saturate-ratio)), 13%),
-  // ~: редактор easing: (ДОБАВЛЕННЫЕ ЦВЕТА)
-  easing-selection-color: hsl(50, 100%, 50%),
-  // для ручек, кубика, ключевых точек
-  easing-text-primary: hsl(0, 0%, 90%),
-  // основной текст
-  easing-text-muted: hsl(0, 0%, 65%),
-  // приглушенный текст (подписи)
-  easing-control-background: hsl(var(--accent-hue), 4%, 17%),
-  // фон кнопок и селекторов
-  easing-control-background-hover: hsl(var(--accent-hue), 4%, 20%),
-  // фон при наведении
-  easing-control-border: hsl(var(--accent-hue), 3%, 29%),
-  // рамка кнопок
-  easing-control-border-hover: hsl(0, 0%, 40%),
-  // рамка при наведении
-  easing-display-background: hsl(var(--accent-hue), 4%, 13%),
-  // фон для таймкода
-  easing-graph-area-background: hsl(0, 0%, 19%),
-  // фон самого графика
-  easing-graph-area-border: hsl(0, 0%, 27%),
-  // рамка контейнера графика
-  easing-graph-grid-major: hsl(0, 0%, 15%),
-  // основные линии сетки
-  easing-graph-grid-minor: hsl(0, 0%, 12%),
-  // второстепенные линии сетки
-  easing-graph-curve-line: hsl(0, 0%, 75%),
-  // цвет кривой
-  easing-track-line-background: hsl(var(--accent-hue), 3%, 29%) // фон трека анимации
+$dark-theme-map: (
+  color: (
+    background: (
+      primary: hsl(0deg 0% 0%),
+      secondary: hsl(0deg 0% 6%),
+      overlay: hsl(0deg 0% 0% / 70%),
+      header: hsl(var(--accent-hue) calc(10% * var(--saturate-ratio)) 7% / 80%),
+      modal: hsl(var(--accent-hue) calc(8% * var(--saturate-ratio)) 5% / 75%),
+      table: hsl(0deg calc(0% * var(--saturate-ratio)) 10%),
+      table-hover: hsl(0deg calc(0% * var(--saturate-ratio)) 13%),
+      divider: hsl(var(--accent-hue) calc(7.5% * var(--saturate-ratio)) 8%),
+    ),
+    text: (
+      primary: hsl(0deg 0% 95%),
+      tertiary: hsl(0deg 0% 60%),
+    ),
+    accent: hsl(var(--accent-hue) calc(100% * var(--saturate-ratio)) 73%),
+    border: (
+      primary: hsl(0deg 0% 18%),
+      header: hsl(var(--accent-hue) calc(10% * var(--saturate-ratio)) 25% / 50%),
+      modal: hsl(var(--accent-hue) calc(20% * var(--saturate-ratio)) 15% / 50%),
+      table: hsl(0deg calc(0% * var(--saturate-ratio)) 16%),
+      divider: hsl(var(--accent-hue) calc(15% * var(--saturate-ratio)) 15%),
+      dropdown: hsl(0deg 0% 20%),
+    ),
+    surface: (
+      primary: (
+        background: hsl(var(--accent-hue) calc(12.5% * var(--saturate-ratio)) 9%),
+        background-hover: hsl(var(--accent-hue) calc(20% * var(--saturate-ratio)) 13%),
+        background-active: hsl(var(--accent-hue) calc(15% * var(--saturate-ratio)) 7%),
+        border: hsl(var(--accent-hue) calc(15% * var(--saturate-ratio)) 22%),
+        text: hsl(var(--accent-hue) calc(90% * var(--saturate-ratio)) 83.5%),
+      ),
+      card: (
+        background: hsl(var(--accent-hue) calc(15% * var(--saturate-ratio)) 7%),
+        background-hover: hsl(var(--accent-hue) calc(20% * var(--saturate-ratio)) 11%),
+        background-active: hsl(var(--accent-hue) calc(15% * var(--saturate-ratio)) 5%),
+        border: hsl(var(--accent-hue) calc(12% * var(--saturate-ratio)) 19%),
+        text: hsl(var(--accent-hue) calc(85% * var(--saturate-ratio)) 86%),
+      ),
+      dropdown: (
+        background-hover: hsl(var(--accent-hue) calc(20% * var(--saturate-ratio)) 11%),
+        background-active: hsl(var(--accent-hue) calc(25% * var(--saturate-ratio)) 9%),
+        border-hover: hsl(var(--accent-hue) calc(15% * var(--saturate-ratio)) 15%),
+      ),
+    ),
+    button: (
+      primary: (
+        background: hsl(var(--accent-hue) calc(25% * var(--saturate-ratio)) 12.5%),
+        background-hover: hsl(var(--accent-hue) calc(30% * var(--saturate-ratio)) 15.5%),
+        background-active: hsl(var(--accent-hue) calc(35% * var(--saturate-ratio)) 12.5%),
+        border: hsl(var(--accent-hue) calc(35% * var(--saturate-ratio)) 25%),
+      ),
+    ),
+    button-group: (
+      background: hsl(var(--accent-hue) calc(10% * var(--saturate-ratio)) 10%),
+      background-hover: hsl(var(--accent-hue) calc(15% * var(--saturate-ratio)) 14%),
+      background-active: hsl(var(--accent-hue) calc(20% * var(--saturate-ratio)) 12%),
+      border: hsl(var(--accent-hue) calc(10% * var(--saturate-ratio)) 18%),
+      text: hsl(var(--accent-hue) calc(80% * var(--saturate-ratio)) 88%),
+    ),
+    widget: (
+      background: hsl(var(--accent-hue) calc(12.5% * var(--saturate-ratio)) 8%),
+      background-hover: hsl(var(--accent-hue) calc(20% * var(--saturate-ratio)) 13%),
+      background-active: hsl(var(--accent-hue) calc(25% * var(--saturate-ratio)) 11%),
+      border: hsl(var(--accent-hue) calc(15% * var(--saturate-ratio)) 15%),
+      text: hsl(var(--accent-hue) calc(75% * var(--saturate-ratio)) 92%),
+    ),
+    icon: (
+      primary: hsl(var(--accent-hue) calc(100% * var(--saturate-ratio)) 85%),
+      primary-hover: hsl(var(--accent-hue) calc(100% * var(--saturate-ratio)) 95%),
+      primary-active: hsl(var(--accent-hue) calc(100% * var(--saturate-ratio)) 75%),
+    ),
+    mark: (
+      background: hsl(var(--accent-hue) calc(20% * var(--saturate-ratio)) 12.5%),
+      border: hsl(var(--accent-hue) calc(20% * var(--saturate-ratio)) 25%),
+      text: hsl(var(--accent-hue) calc(75% * var(--saturate-ratio)) 90%),
+    ),
+    status: (
+      info: (
+        background: hsl(190deg 45% 12%),
+        border: hsl(190deg 35% 25%),
+        text: hsl(190deg 85% 88%),
+        mark-background: hsl(190deg 45% 15%),
+      ),
+      warning: (
+        background: hsl(48deg 45% 12%),
+        border: hsl(48deg 35% 25%),
+        text: hsl(48deg 85% 88%),
+        mark-background: hsl(48deg 45% 15%),
+      ),
+      danger: (
+        background: hsl(0deg 40% 12%),
+        border: hsl(0deg 35% 25%),
+        text: hsl(0deg 95% 88%),
+        mark-background: hsl(0deg 40% 15%),
+      ),
+      success-subtle: (
+        background: hsl(120deg 100% 50% / 10%),
+        border: hsl(120deg 100% 50% / 25%),
+      ),
+      danger-subtle: (
+        background: hsl(0deg 100% 50% / 10%),
+        border: hsl(0deg 100% 50% / 25%),
+      ),
+    ),
+    code: (
+      background: hsl(225deg 10% 15%),
+      border: hsl(225deg 15% 22%),
+      text: hsl(225deg 15% 95%),
+    ),
+    filter: (
+      background: hsl(var(--accent-hue) calc(10% * var(--saturate-ratio)) 10%),
+      border: hsl(var(--accent-hue) calc(5% * var(--saturate-ratio)) 20%),
+      text: hsl(var(--accent-hue) calc(15% * var(--saturate-ratio)) 75%),
+    ),
+    search: (
+      input-background: hsl(var(--accent-hue) calc(12.5% * var(--saturate-ratio)) 6%),
+      input-border: hsl(var(--accent-hue) calc(15% * var(--saturate-ratio)) 15%),
+      input-text: hsl(var(--accent-hue) calc(100% * var(--saturate-ratio)) 80%),
+      button-background-hover: hsl(
+          var(--accent-hue) calc(20% * var(--saturate-ratio)) 11%
+        ),
+      button-background-active: hsl(
+          var(--accent-hue) calc(25% * var(--saturate-ratio)) 9%
+        ),
+      result-background: hsl(var(--accent-hue) calc(12.5% * var(--saturate-ratio)) 6%),
+      result-border: hsl(var(--accent-hue) calc(15% * var(--saturate-ratio)) 15%),
+      result-background-hover: hsl(
+          var(--accent-hue) calc(20% * var(--saturate-ratio)) 11%
+        ),
+      result-background-active: hsl(
+          var(--accent-hue) calc(25% * var(--saturate-ratio)) 9%
+        ),
+      result-text: hsl(var(--accent-hue) calc(100% * var(--saturate-ratio)) 80%),
+      result-border-selected: hsl(
+          var(--accent-hue) calc(100% * var(--saturate-ratio)) 73%
+        ),
+      content-background: hsl(var(--accent-hue) calc(8% * var(--saturate-ratio)) 5% / 75%),
+      content-border: hsl(var(--accent-hue) calc(20% * var(--saturate-ratio)) 15% / 50%),
+    ),
+    bank: (
+      sber: (
+        background: hsl(130deg calc(30% * var(--saturate-ratio)) 13%),
+        text: hsl(130deg calc(60% * var(--saturate-ratio)) 85%),
+        background-hover: hsl(130deg calc(40% * var(--saturate-ratio)) 15%),
+        background-active: hsl(130deg calc(45% * var(--saturate-ratio)) 18%),
+        border: hsl(130deg calc(50% * var(--saturate-ratio)) 30%),
+      ),
+      yoomoney: (
+        background: hsl(257deg calc(50% * var(--saturate-ratio)) 17%),
+        text: hsl(257deg calc(70% * var(--saturate-ratio)) 85%),
+        background-hover: hsl(257deg calc(50% * var(--saturate-ratio)) 20%),
+        background-active: hsl(257deg calc(55% * var(--saturate-ratio)) 23%),
+        border: hsl(257deg calc(50% * var(--saturate-ratio)) 50%),
+      ),
+    ),
+    easing: (
+      selection: hsl(50deg 100% 50%),
+      text-primary: hsl(0deg 0% 90%),
+      text-muted: hsl(0deg 0% 65%),
+      control-background: hsl(var(--accent-hue) 4% 17%),
+      control-background-hover: hsl(var(--accent-hue) 4% 20%),
+      control-border: hsl(var(--accent-hue) 3% 29%),
+      control-border-hover: hsl(0deg 0% 40%),
+      display-background: hsl(var(--accent-hue) 4% 13%),
+      graph-background: hsl(0deg 0% 19%),
+      graph-border: hsl(0deg 0% 27%),
+      grid-major: hsl(0deg 0% 15%),
+      grid-minor: hsl(0deg 0% 12%),
+      curve: hsl(0deg 0% 75%),
+      track-background: hsl(var(--accent-hue) 3% 29%),
+    ),
+  ),
+  shadow: (
+    primary: hsl(0deg 0% 0% / 8%),
+    secondary: hsl(0deg 0% 0% / 5%),
+  ),
 );

@@ -60,11 +60,6 @@ const Links = () => {
     <div className="page">
       <Helmet>
         <title>links@aechat</title>
-        <link
-          href="icons/favicon.svg"
-          rel="icon"
-          type="image/svg+xml"
-        />
       </Helmet>
       <Header title="links" />
       <motion.main

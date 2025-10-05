@@ -125,7 +125,13 @@ with open("input.json", "rb") as f_in:
 
   return (
     <div>
-      <p style={{opacity: "0.5", fontSize: "0.75rem", textAlign: "center"}}>
+      <p
+        style={{
+          color: "var(--color-text-tertiary)",
+          fontSize: "0.75rem",
+          textAlign: "center",
+        }}
+      >
         Конвертация происходит локально на вашем устройстве, качественный результат не
         гарантируется
       </p>

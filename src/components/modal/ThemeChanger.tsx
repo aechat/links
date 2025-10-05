@@ -68,6 +68,7 @@ export const ThemeProvider: React.FC<{children: React.ReactNode}> = ({children})
     const isDarkMode = themeState === "dark" || (themeState === "system" && isSystemDark);
     root.classList.toggle("dark", isDarkMode);
     root.classList.toggle("light", !isDarkMode);
+    window.dispatchEvent(new CustomEvent("accentHueChanged"));
   };
   useEffect(
     () => updateTheme(),
@@ -149,7 +150,6 @@ const ThemeModal: React.FC<ThemeModalProps> = ({isModalOpen, closeModal}) => {
   } = useTheme();
 
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
-
   useEffect(() => {
     const handleResize = () => setWindowWidth(window.innerWidth);
     window.addEventListener("resize", handleResize);

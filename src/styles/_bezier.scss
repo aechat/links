@@ -1,0 +1,245 @@
+.easing-editor-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  transition: color 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+  box-sizing: border-box;
+  padding: 10px;
+  width: 100%;
+  color: var(--color-easing-text-primary);
+
+  .flexible-links {
+    margin-inline: 0;
+  }
+
+  label {
+    opacity: 0.75;
+    cursor: default;
+    font-size: 0.9rem;
+    text-align: center;
+  }
+}
+
+.animation-preview {
+  display: flex;
+  align-items: center;
+  margin: 10px 0;
+  width: 100%;
+  min-height: 25px;
+}
+
+.animation-track {
+  position: relative;
+  margin: 0 5%;
+  width: 90%;
+}
+
+.track-line {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  left: 0;
+  transform: translateY(-50%);
+  transition: background-color 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+  border-radius: 5px;
+  background: var(--color-easing-track-background);
+  height: 5px;
+}
+
+.animated-cube,
+.animated-cube-trail {
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 5px;
+  width: 20px;
+  height: 20px;
+}
+
+.animated-cube {
+  z-index: 2;
+  background: var(--color-accent);
+}
+
+.animated-cube-trail {
+  transition: opacity 0.5s ease-out;
+  border: 1px solid var(--color-accent);
+  background: transparent;
+}
+
+.graphs-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  width: 100%;
+}
+
+.graph-container {
+  flex: 1 1 400px;
+  box-sizing: border-box;
+  border: 1px solid var(--color-border-primary);
+  border-radius: 8px;
+  background: var(--color-background-secondary);
+  padding: 10px;
+}
+
+.graph-svg {
+  display: block;
+  width: 100%;
+  height: 350px;
+  overflow: hidden;
+}
+
+.timecode {
+  margin: 10px;
+  font-family: "JetBrains Mono", monospace;
+}
+
+.animation-controls {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px 24px;
+  box-sizing: border-box;
+  border-radius: 8px;
+  padding: 10px;
+  width: 100%;
+  min-width: 280px;
+}
+
+.control-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 8px;
+  min-width: 0;
+}
+
+.control-item-label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--color-text-tertiary);
+  font-size: 14px;
+}
+
+.control-item-select {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition:
+    border-color 0.5s cubic-bezier(0.075, 0.82, 0.165, 1),
+    background-color 0.5s cubic-bezier(0.075, 0.82, 0.165, 1),
+    color 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+  cursor: pointer;
+  box-sizing: border-box;
+  border: 1px solid var(--color-easing-control-border);
+  border-radius: 4px;
+  background: var(--color-easing-control-background);
+  padding: 8px;
+  height: 36px;
+  color: var(--color-easing-text-primary);
+  font-size: 14px;
+  text-align: center;
+}
+
+.control-item-select:hover {
+  border-color: var(--color-easing-control-border-hover);
+  background: var(--color-easing-control-background-hover);
+}
+
+.control-item-select:active {
+  transform: scale(0.98);
+  transition: transform 0.1s;
+}
+
+.control-item-display {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition:
+    border-color 0.5s cubic-bezier(0.075, 0.82, 0.165, 1),
+    background-color 0.5s cubic-bezier(0.075, 0.82, 0.165, 1),
+    color 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+  border: 1px solid var(--color-easing-control-border);
+  border-radius: 4px;
+  background: var(--color-easing-display-background);
+  padding: 8px;
+  height: 36px;
+  color: var(--color-easing-text-primary);
+  font-size: 14px;
+  text-align: center;
+}
+
+.graph-background {
+  fill: var(--color-easing-graph-background);
+  stroke: var(--color-easing-graph-border);
+  transition:
+    fill 0.5s cubic-bezier(0.075, 0.82, 0.165, 1),
+    stroke 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.grid-line-major {
+  stroke: var(--color-easing-grid-major);
+  transition: stroke 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.grid-line-minor {
+  stroke: var(--color-easing-grid-minor);
+  transition: stroke 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.grid-text {
+  fill: var(--color-easing-text-muted);
+  transition: fill 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+  font-size: 12px;
+}
+
+.grid-text-x {
+  text-anchor: middle;
+}
+
+.grid-text-y {
+  text-anchor: start;
+}
+
+.graph-curve {
+  stroke: var(--color-easing-curve);
+  stroke-width: 2.5px;
+  fill: none;
+  transition: stroke 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.control-line {
+  stroke: var(--color-accent);
+  stroke-width: 2px;
+}
+
+.animated-dot {
+  fill: var(--color-accent);
+  stroke: var(--color-easing-text-primary);
+  stroke-width: 1.5px;
+  transition:
+    fill 0.5s cubic-bezier(0.075, 0.82, 0.165, 1),
+    stroke 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.keyframe-point {
+  fill: var(--color-accent);
+}
+
+.handle {
+  fill: var(--color-accent);
+  transition:
+    filter 0.5s cubic-bezier(0.075, 0.82, 0.165, 1),
+    fill 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+  cursor: grab;
+}
+
+.handle:hover {
+  filter: brightness(1.2);
+}
+
+.handle:active {
+  cursor: grabbing;
+}

@@ -11,7 +11,6 @@ interface PageIntroProps {
 
 const PageIntro: React.FC<PageIntroProps> = ({text, isLoaded = true}) => {
   const [show, setShow] = useState(false);
-
   useEffect(() => {
     const lastShown = localStorage.getItem("introLastShown");
 
@@ -24,7 +23,6 @@ const PageIntro: React.FC<PageIntroProps> = ({text, isLoaded = true}) => {
       setShow(true);
     }
   }, []);
-
   useEffect(() => {
     if (show && isLoaded) {
       const animationDuration = text.length * 0.05 + 0.4 + 1.25;
@@ -43,7 +41,7 @@ const PageIntro: React.FC<PageIntroProps> = ({text, isLoaded = true}) => {
           initial={{opacity: 1}}
           style={{
             alignItems: "center",
-            backgroundColor: "var(--background-color)",
+            backgroundColor: "var(--color-background-primary)",
             display: "flex",
             height: "100vh",
             justifyContent: "center",

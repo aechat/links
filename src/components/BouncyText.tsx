@@ -23,7 +23,7 @@ const BouncyText: React.FC<BouncyTextProps> = ({text}) => {
     fontWeight: 800,
     fontStyle: "italic",
     fontSize: "4rem",
-    color: "var(--accent)",
+    color: "var(--color-accent)",
   };
 
   const taglineTextStyle: React.CSSProperties = {
@@ -33,7 +33,7 @@ const BouncyText: React.FC<BouncyTextProps> = ({text}) => {
     fontStyle: "italic",
     fontSize: "1.5em",
     translate: "0 10px",
-    color: "var(--accent)",
+    color: "var(--color-accent)",
     whiteSpace: "nowrap",
   };
 
@@ -66,7 +66,6 @@ const BouncyText: React.FC<BouncyTextProps> = ({text}) => {
         delay: shiftDelay,
         duration: 1.25,
         ease: [0.5, 0, 0, 1],
-
         delayChildren: shiftDelay + 0.2,
         staggerChildren: 0.05,
       },

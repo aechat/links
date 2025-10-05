@@ -1,6 +1,12 @@
+import {message} from "antd";
+
 import React, {useCallback, useEffect, useState} from "react";
 
 import {useSpoiler} from "./DetailsSummary";
+
+import {ShareRounded} from "@mui/icons-material";
+
+import {copyText} from "../hooks/useCopyToClipboard";
 
 interface ContentFigureProps {
   type: "image" | "video" | "youtube";
@@ -61,7 +67,6 @@ const ContentFigure: React.FC<ContentFigureProps> = ({
     },
     [handleClose]
   );
-
   useEffect(() => {
     const handleEscKey = (e: KeyboardEvent) => {
       if (e.key === "Escape" && isFullscreen) {
@@ -108,7 +113,6 @@ const ContentFigure: React.FC<ContentFigureProps> = ({
       )}
     </button>
   );
-
   let content: React.ReactNode;
   let id: string | undefined;
 
@@ -207,14 +211,29 @@ const ContentFigure: React.FC<ContentFigureProps> = ({
             <figcaption>
               <b>YouTube</b>: {caption}
             </figcaption>
-            <button
-              className="youtube-button"
-              onClick={() =>
-                window.open(`https://www.youtube.com/watch?v=${id}`, "_blank")
-              }
-            >
-              Открыть в новой вкладке
-            </button>
+            <div className="youtube-button">
+              <button
+                onClick={() =>
+                  window.open(`https://www.youtube.com/watch?v=${id}`, "_blank")
+                }
+              >
+                Открыть в новой вкладке
+              </button>
+              <button
+                aria-label="Копировать ссылку"
+                onClick={async () => {
+                  const success = await copyText(`https://www.youtube.com/watch?v=${id}`);
+
+                  if (success) {
+                    message.success("Ссылка на видео скопирована");
+                  } else {
+                    message.error("Не удалось скопировать ссылку");
+                  }
+                }}
+              >
+                <ShareRounded />
+              </button>
+            </div>
           </div>
           <iframe
             allowFullScreen

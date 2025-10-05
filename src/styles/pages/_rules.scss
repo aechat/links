@@ -1,4 +1,4 @@
-@use "../mixins" as *;
+@import "../mixins";
 
 .rules-title {
   display: flex;
@@ -7,10 +7,10 @@
   justify-content: space-between;
   align-items: center;
   transition: background-color 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
-  border: 1px solid var(--summary-border);
-  background-color: var(--summary-background);
+  border: 1px solid var(--color-surface-primary-border);
+  background-color: var(--color-surface-primary-background);
   padding: 10px 15px;
-  color: var(--summary-text);
+  color: var(--color-surface-primary-text);
   font-weight: 650;
   font-size: min(
     calc(1.15rem + (1.225 - 1.15) * ((100vw - 320px) / (768 - 320))),
@@ -20,9 +20,17 @@
   font-family: Onest, sans-serif;
   text-transform: uppercase;
 
+  &:hover {
+    background-color: var(--color-surface-primary-background-hover);
+  }
+
+  &:active {
+    background-color: var(--color-surface-primary-background-active);
+  }
+
   &:first-of-type {
-    border-top-left-radius: $roundness;
     border-top-right-radius: $roundness;
+    border-top-left-radius: $roundness;
   }
 
   h3 {
@@ -33,13 +41,13 @@
 
 .rules-content {
   margin-block: -1px;
-  border: solid 1px var(--content-background-border);
-  background-color: var(--content-background-color);
+  border: solid 1px var(--color-border-primary);
+  background-color: var(--color-background-secondary);
   padding-block: 1px;
 
   &:last-of-type {
-    border-bottom-left-radius: $roundness;
     border-bottom-right-radius: $roundness;
+    border-bottom-left-radius: $roundness;
   }
 }
 
@@ -51,13 +59,13 @@
 }
 
 .message-incorrect {
-  border: 1px solid hsl(0deg 100% 50% / 25%);
-  background: hsl(0deg 100% 50% / 10%);
+  border: 1px solid var(--color-status-danger-subtle-border);
+  background: var(--color-status-danger-subtle-background);
 }
 
 .message-correct {
-  border: 1px solid hsl(120deg 100% 50% / 25%);
-  background: hsl(120deg 100% 50% / 10%);
+  border: 1px solid var(--color-status-success-subtle-border);
+  background: var(--color-status-success-subtle-background);
 }
 
 .message-flex {
@@ -74,12 +82,12 @@
   margin-right: auto;
   margin-left: 10px;
   margin-block: 10px;
-  border: 1px solid var(--mark-border);
+  border: 1px solid var(--color-mark-border);
   border-radius: $roundness * 0.75;
-  background-color: var(--mark-background);
+  background-color: var(--color-mark-background);
   padding: 8px;
   max-width: 70%;
-  color: var(--mark-text);
+  color: var(--color-mark-text);
   font-size: 0.875rem;
   line-height: 1.5;
   text-align: left;
@@ -90,13 +98,13 @@
   margin-right: 10px;
   margin-left: auto;
   margin-block: 10px;
-  border: 1px solid var(--mark-border);
+  border: 1px solid var(--color-mark-border);
   border-radius: $roundness * 0.75;
-  background-color: var(--mark-background);
+  background-color: var(--color-mark-background);
   padding: 10px;
   max-width: 70%;
-  color: var(--mark-text);
+  color: var(--color-mark-text);
   font-size: 0.875rem;
   line-height: 1.5;
   text-align: right;
-}
+}

@@ -2,12 +2,17 @@ import {ShareRounded} from "@mui/icons-material";
 
 import {Tooltip, message} from "antd";
 
+import {useExternalLinkHandler} from "../hooks/useExternalLinks";
+
+import {useInternalLinkHandler} from "../hooks/useInternalLinks";
+
 import React, {
   ReactNode,
   createContext,
   useCallback,
   useContext,
   useEffect,
+  useMemo,
   useRef,
   useState,
 } from "react";
@@ -17,7 +22,6 @@ declare global {
     detailsSummaryScrollListenerAttached?: boolean;
   }
 }
-
 interface DetailsSummaryProps {
   title: string;
   children: ReactNode;
@@ -27,6 +31,80 @@ interface DetailsSummaryProps {
 const SpoilerContext = createContext(false);
 
 export const useSpoiler = () => useContext(SpoilerContext);
+
+const TAG_LIMIT = 4;
+
+const TagList: React.FC<{tags: string}> = ({tags}) => {
+  const [expanded, setExpanded] = useState(false);
+
+  const allTags = useMemo(() => tags.split(", ").filter(Boolean), [tags]);
+
+  const isOverflowing = allTags.length > TAG_LIMIT;
+
+  const [randomizedTags, setRandomizedTags] = useState<string[]>([]);
+  useEffect(() => {
+    if (isOverflowing) {
+      const shuffled = [...allTags].sort(() => 0.5 - Math.random());
+      setRandomizedTags(shuffled.slice(0, TAG_LIMIT));
+    }
+  }, [allTags, isOverflowing]);
+
+  if (allTags.length === 0) {
+    return null;
+  }
+
+  const visibleTags = expanded ? allTags : isOverflowing ? randomizedTags : allTags;
+
+  const hiddenCount = allTags.length - TAG_LIMIT;
+
+  const toggleTags = (e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setExpanded((prev) => !prev);
+  };
+
+  const getPluralizedTags = (count: number): string => {
+    const lastDigit = count % 10;
+
+    const lastTwoDigits = count % 100;
+
+    if (lastTwoDigits >= 11 && lastTwoDigits <= 19) {
+      return "тегов";
+    }
+
+    if (lastDigit === 1) {
+      return "тег";
+    }
+
+    if ([2, 3, 4].includes(lastDigit)) {
+      return "тега";
+    }
+
+    return "тегов";
+  };
+
+  return (
+    <span className="faq-tags">
+      {visibleTags.map((t) => (
+        <mark key={t}>{t}</mark>
+      ))}
+      {isOverflowing && (
+        <mark
+          className="faq-tags-toggle"
+          style={{
+            cursor: "pointer",
+            textDecoration: "underline",
+            background: "transparent",
+            opacity: 0.7,
+          }}
+          onClick={toggleTags}
+        >
+          {expanded ? "скрыть" : `и ещё ${hiddenCount} ${getPluralizedTags(hiddenCount)}`}
+        </mark>
+      )}
+    </span>
+  );
+};
 
 const constants = {
   SCROLL_DELAY: 150,
@@ -104,6 +182,17 @@ export const generateAnchorId = () => {
 };
 
 const DetailsSummary: React.FC<DetailsSummaryProps> = ({title, children, tag}) => {
+  const {handleLinkClick: handleInternalLinkClick, InternalLinkModal} =
+    useInternalLinkHandler();
+
+  const {handleLinkClick: handleExternalLinkClick, ExternalLinkModal} =
+    useExternalLinkHandler();
+
+  const handleSectionClick = (event: React.MouseEvent<HTMLElement>) => {
+    handleInternalLinkClick(event);
+    handleExternalLinkClick(event);
+  };
+
   const [isOpen, setIsOpen] = useState(false);
 
   const [displayAnchorId, setDisplayAnchorId] = useState("");
@@ -249,7 +338,6 @@ const DetailsSummary: React.FC<DetailsSummaryProps> = ({title, children, tag}) =
       document.body.classList.remove("has-open-details");
     }
   }, []);
-
   useEffect(() => {
     if (!window.detailsSummaryScrollListenerAttached) {
       window.addEventListener("scroll", updateDimmingEffect, {passive: true});
@@ -329,13 +417,7 @@ const DetailsSummary: React.FC<DetailsSummaryProps> = ({title, children, tag}) =
           </span>
           <div style={{display: "flex", flexDirection: "column", gap: "5px"}}>
             <h3>{headingText}</h3>
-            {tag && (
-              <span className="faq-tags">
-                {tag.split(", ").map((t) => (
-                  <mark key={t}>{t}</mark>
-                ))}
-              </span>
-            )}
+            {tag && <TagList tags={tag} />}
           </div>
         </div>
         <Tooltip title="Скопировать ссылку в буфер обмена">
@@ -355,10 +437,13 @@ const DetailsSummary: React.FC<DetailsSummaryProps> = ({title, children, tag}) =
         <section
           ref={sectionRef}
           className="faq-section"
+          onClick={handleSectionClick}
         >
           {children}
         </section>
       </SpoilerContext.Provider>
+      {InternalLinkModal}
+      {ExternalLinkModal}
     </details>
   );
 };

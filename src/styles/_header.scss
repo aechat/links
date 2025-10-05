@@ -13,16 +13,16 @@
     background-color 0.5s cubic-bezier(0.075, 0.82, 0.165, 1),
     box-shadow 0.5s cubic-bezier(0.075, 0.82, 0.165, 1),
     border 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
-  background-color: var(--header-background);
+  background-color: var(--color-background-header);
   padding-inline: 15px;
   width: 100%;
   max-width: 1075px;
 
-  @media (width <= 768px) {
+  @media screen and (width <= 768px) {
     z-index: 100;
   }
 
-  @media (width >= 1075px) {
+  @media screen and (width >= 1075px) {
     transform: translateX(calc(-50% - 0.5px));
     border-bottom-right-radius: $roundness * 1.5;
     border-bottom-left-radius: $roundness * 1.5;
@@ -30,7 +30,7 @@
   }
 
   svg {
-    fill: var(--accent);
+    fill: var(--color-accent);
     width: min(calc(18px + (20 - 18) * ((100vw - 320px) / (768 - 320))), 20px);
     height: min(calc(18px + (20 - 18) * ((100vw - 320px) / (768 - 320))), 20px);
   }
@@ -57,14 +57,19 @@
     }
 
     .logo {
+      transition: opacity 0.3s ease;
       margin-inline: 3px;
       margin-block: 8px 10px;
       max-width: fit-content;
-      color: var(--accent);
+      color: var(--color-accent);
       font-style: italic;
       font-weight: 800;
       font-size: 1.35rem;
       font-family: "Red Hat Display", monospace;
+
+      &:hover {
+        opacity: 0.8;
+      }
 
       sub {
         font-weight: 500;
@@ -86,17 +91,18 @@
   display: flex;
   align-items: center;
   gap: 6px;
-  outline: 1px solid var(--summary-border);
+  transition: background-color 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+  outline: 1px solid var(--color-widget-border);
   border-radius: $roundness * 0.75;
-  background: var(--header-background);
+  background: var(--color-widget-background);
   padding-inline-start: 5px;
-  color: var(--mark-text);
+  color: var(--color-widget-text);
   font-weight: 400;
-  font-family: Onest, Inter, sans-serif;
   font-size: 0.85rem;
+  font-family: Onest, Inter, sans-serif;
 
   svg {
-    fill: var(--accent);
+    fill: var(--color-accent);
     width: 17px;
     height: 17px;
   }
@@ -108,7 +114,15 @@
 
   mark {
     margin-inline-end: -1px;
-    padding: 5px;
     margin-block: 0;
+    padding: 5px;
   }
-}
+
+  &:hover {
+    background-color: var(--color-widget-background-hover);
+  }
+
+  &:active {
+    background-color: var(--color-widget-background-active);
+  }
+}

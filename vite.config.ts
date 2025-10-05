@@ -1,13 +1,8 @@
 import react from "@vitejs/plugin-react";
-
 import autoprefixer from "autoprefixer";
-
 import {readFile, writeFile} from "fs/promises";
-
 import path from "path";
-
 import {defineConfig} from "vite";
-
 export default defineConfig({
   resolve: {
     alias: {
@@ -23,11 +18,8 @@ export default defineConfig({
       name: "generate-404-html",
       closeBundle: async () => {
         const distPath = path.join(__dirname, "dist");
-
         const indexPath = path.join(distPath, "index.html");
-
         const notFoundPath = path.join(distPath, "404.html");
-
         try {
           const indexContent = await readFile(indexPath, "utf-8");
           await writeFile(notFoundPath, indexContent, "utf-8");

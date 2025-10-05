@@ -1,5 +1,29 @@
 @use "mixins" as *;
 
+video {
+  border: none;
+  border-radius: $roundness * 0.75;
+  width: 100%;
+  height: 100%;
+  max-height: 55dvh;
+}
+
+iframe {
+  border: none;
+  border-radius: $roundness * 0.75;
+  width: 100%;
+  height: calc(100vw * 9 / 16);
+  max-height: 55dvh;
+}
+
+img {
+  border: none;
+  border-radius: $roundness * 0.75;
+  width: 100%;
+  height: 100%;
+  max-height: 60vh;
+}
+
 .figure-container {
   display: flex;
   margin-block: 10px;
@@ -7,14 +31,13 @@
 
 .figure-browser-youtube {
   margin-inline: auto;
-  border: 1px solid hsl(0deg 0% 20%);
+  outline: 1px solid var(--figure-youtube-border);
   border-radius: $roundness * 0.75;
-  background: hsl(0deg 0% 5%);
+  background: var(--figure-youtube-background);
   width: calc(100% - 20px);
 
   iframe {
-    outline: 1px solid hsl(0deg 0% 15%);
-    box-shadow: 0 5 10px 0 hsl(0deg 0% 20%);
+    outline: 1px solid var(--figure-youtube-border);
   }
 
   .window-header {
@@ -27,30 +50,40 @@
       display: block;
       padding: 2px 12px;
       overflow: hidden;
-      color: #eee;
+      color: var(--figure-youtube-text);
       font-size: 0.825rem;
     }
+
     .youtube-button {
-      opacity: 0.75;
-      transition: opacity 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+      display: flex;
+      gap: 5px;
       margin: 5px;
-      margin-inline-start: 5px;
-      outline: 1px solid hsl(0deg 0% 20%);
-      border-radius: $roundness * 0.5;
-      background-color: hsl(0deg 0% 12.5%);
-      padding: 5px 8px;
-      color: hsl(0deg 0% 100%);
-      font-weight: 600;
-      font-size: 0.825rem;
-      line-height: 1.25;
-      text-align: center;
 
-      &:hover {
-        opacity: 0.8;
-      }
+      button {
+        opacity: 0.75;
+        transition: background-color 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+        outline: 1px solid var(--figure-youtube-border);
+        border-radius: $roundness * 0.5;
+        background-color: var(--figure-youtube-button);
+        padding: 5px 8px;
+        color: var(--figure-youtube-button-text);
+        font-weight: 600;
+        font-size: 0.825rem;
+        line-height: 1.25;
+        text-align: center;
 
-      &:active {
-        opacity: 0.5;
+        svg {
+          width: min(calc(17px + (19 - 17) * ((100vw - 320px) / (768 - 320))), 19px);
+          height: min(calc(17px + (19 - 17) * ((100vw - 320px) / (768 - 320))), 19px);
+        }
+
+        &:hover {
+          background-color: var(--figure-youtube-button-hover);
+        }
+
+        &:active {
+          background-color: var(--figure-youtube-button-active);
+        }
       }
     }
   }
@@ -102,54 +135,86 @@
 
     .minimize,
     .maximize {
-      &:hover {
-        background: hsl(0deg 0% 50% / 10%);
-      }
+      transition: background-color 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
     }
 
     .close {
-      &:hover {
-        background: hsl(0deg 100% 75% / 20%);
-      }
+      transition: background-color 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
     }
   }
 }
 
 .figure-windows-light {
-  fill: black;
-  outline: 1px solid hsl(0deg 0% 90%);
-  background-image: linear-gradient(
-    to bottom,
-    hsl(var(--accent-hue) 50% 97.5%),
-    hsl(0deg 0% 92.5%)
-  );
-  color: black;
+  fill: var(--color-figure-win-light-text);
+  outline: 1px solid var(--color-figure-win-light-border);
+  background-image: var(--color-figure-win-light-background);
+  color: var(--color-figure-win-light-text);
+
+  .minimize:hover,
+  .maximize:hover {
+    background: var(--color-figure-win-light-control-hover);
+  }
+
+  .minimize:active,
+  .maximize:active {
+    background: var(--color-figure-win-light-control-active);
+  }
+
+  .close:hover {
+    background: var(--color-figure-close-control-hover);
+  }
+
+  .close:active {
+    background: var(--color-figure-close-control-active);
+  }
 
   img,
   video {
+    transition: transform 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
     cursor: pointer;
-    outline: 1px solid hsl(0deg 0% 93%);
-    box-shadow: 0 5 10px 0 hsl(0deg 0% 80%);
-    background-color: hsl(0deg 0% 90%);
+    outline: 1px solid var(--color-figure-win-light-media-border);
+    background-color: var(--color-figure-win-light-media-background);
+
+    &:hover {
+      transform: scale(1.01);
+    }
   }
 }
 
 .figure-windows-dark {
-  fill: white;
-  outline: 1px solid hsl(var(--accent-hue) 20% 15%);
-  background-image: linear-gradient(
-    to bottom,
-    hsl(var(--accent-hue) 20% 10%),
-    hsl(var(--accent-hue) 20% 5%)
-  );
-  color: white;
+  fill: var(--color-figure-win-dark-text);
+  outline: 1px solid var(--color-figure-win-dark-border);
+  background-image: var(--color-figure-win-dark-background);
+  color: var(--color-figure-win-dark-text);
+
+  .minimize:hover,
+  .maximize:hover {
+    background: var(--color-figure-win-dark-control-hover);
+  }
+
+  .minimize:active,
+  .maximize:active {
+    background: var(--color-figure-win-dark-control-active);
+  }
+
+  .close:hover {
+    background: var(--color-figure-close-control-hover);
+  }
+
+  .close:active {
+    background: var(--color-figure-close-control-active);
+  }
 
   img,
   video {
+    transition: transform 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
     cursor: pointer;
-    outline: 1px solid hsl(0deg 0% 15%);
-    box-shadow: 0 5 10px 0 hsl(0deg 0% 20%);
-    background-color: hsl(0deg 0% 10%);
+    outline: 1px solid var(--color-figure-win-dark-media-border);
+    background-color: var(--color-figure-win-dark-media-background);
+
+    &:hover {
+      transform: scale(1.01);
+    }
   }
 }
 
@@ -197,73 +262,61 @@
       height: 13px;
 
       &:hover {
-        opacity: 0.5;
+        opacity: 0.7;
+      }
+
+      &:active {
+        opacity: 0.4;
       }
     }
 
     .minimize {
-      background: hsl(128deg 70% 45%);
+      background: var(--color-figure-mac-control-minimize);
     }
 
     .maximize {
-      background: hsl(40deg 100% 60%);
+      background: var(--color-figure-mac-control-maximize);
     }
 
     .close {
-      background: hsl(5deg 100% 65%);
+      background: var(--color-figure-mac-control-close);
     }
   }
 }
 
 .figure-mac-light {
-  outline: 1px solid hsl(0deg 0% 85%);
-  background: hsl(0deg 0% 97%);
-  color: hsl(0deg 0% 20%);
+  outline: 1px solid var(--color-figure-mac-light-border);
+  background: var(--color-figure-mac-light-background);
+  color: var(--color-figure-mac-light-text);
 
   img,
   video {
+    transition: transform 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
     cursor: pointer;
     outline: 1px solid hsl(0deg 0% 90%);
-    box-shadow: 0 5 10px 0 hsl(0deg 0% 80%);
-    background: hsl(0deg 0% 97%);
+    background: var(--color-figure-mac-light-background);
+
+    &:hover {
+      transform: scale(1.01);
+    }
   }
 }
 
 .figure-mac-dark {
-  outline: 1px solid hsl(0deg 0% 25%);
-  background-image: linear-gradient(to bottom, hsl(0deg 0% 12.5%), hsl(0deg 0% 5%));
-  color: hsl(0deg 0% 80%);
+  outline: 1px solid var(--color-figure-mac-dark-border);
+  background-image: var(--color-figure-mac-dark-background);
+  color: var(--color-figure-mac-dark-text);
 
   img,
   video {
+    transition: transform 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
     cursor: pointer;
-    outline: 1px solid hsl(0deg 0% 25%);
-    box-shadow: 0 5 10px 0 hsl(0deg 0% 20%);
+    outline: 1px solid var(--color-figure-mac-dark-border);
+
+    &:hover {
+      transform: scale(1.01);
+    }
   }
-}
-
-video {
-  border: none;
-  border-radius: $roundness * 0.75;
-  width: 100%;
-  height: 100%;
-  max-height: 55dvh;
-}
-
-iframe {
-  border: none;
-  border-radius: $roundness * 0.75;
-  width: 100%;
-  height: calc(100vw * 9 / 16);
-  max-height: 55dvh;
-}
-
-img {
-  border: none;
-  border-radius: $roundness * 0.75;
-  width: 100%;
-  height: 100%;
-  max-height: 60vh;
 }
 
 .fullscreen-overlay {
@@ -276,18 +329,18 @@ img {
   opacity: 0;
   z-index: 1000;
   backdrop-filter: blur(25px);
-  animation: fadeIn 0.5s cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
+  animation: fade-in 0.5s cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
   transition: opacity 0.25s cubic-bezier(0.075, 0.82, 0.165, 1);
-  background-color: var(--background-color-alpha);
+  background-color: var(--color-background-overlay);
   width: 100%;
   height: 100%;
 
   &.closing {
-    animation: fadeOut 0.5s cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
+    animation: fade-out 0.5s cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
   }
 }
 
-@keyframes fadeIn {
+@keyframes fade-in {
   from {
     opacity: 0;
   }
@@ -297,7 +350,7 @@ img {
   }
 }
 
-@keyframes fadeOut {
+@keyframes fade-out {
   from {
     opacity: 1;
   }
@@ -312,7 +365,7 @@ img {
   transform: scale(0.75);
   transform-origin: center center;
   opacity: 0;
-  animation: scaleUp 0.5s cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
+  animation: scale-up 0.5s cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
   transition:
     transform 0.25s cubic-bezier(0.075, 0.82, 0.165, 1),
     opacity 0.25s cubic-bezier(0.075, 0.82, 0.165, 1);
@@ -323,7 +376,7 @@ img {
   max-height: 95vh;
 
   &.closing {
-    animation: scaleDown 0.5s cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
+    animation: scale-down 0.5s cubic-bezier(0.075, 0.82, 0.165, 1) forwards;
   }
 
   img,
@@ -340,7 +393,7 @@ img {
   }
 }
 
-@keyframes scaleUp {
+@keyframes scale-up {
   from {
     transform: scale(0.75);
     opacity: 0;
@@ -352,7 +405,7 @@ img {
   }
 }
 
-@keyframes scaleDown {
+@keyframes scale-down {
   from {
     transform: scale(1);
     opacity: 1;

@@ -9,8 +9,6 @@ import {Divider} from "antd";
 import {useExternalLinks} from "../../../hooks/useExternalLinks";
 
 const AEExprStart: React.FC = () => {
-  useExternalLinks();
-
   return (
     <div className="faq-content">
       <DetailsSummary title="Для чего нужны выражения и в каких случаях их используют?">

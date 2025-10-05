@@ -16,8 +16,6 @@ import {useCopyToClipboard} from "../hooks/useCopyToClipboard";
 
 import {useAnchorScroll} from "../hooks/useAnchorScroll";
 
-import {useExternalLinks} from "../hooks/useExternalLinks";
-
 import Footer from "../components/Footer";
 
 import Header from "../components/Header";
@@ -25,8 +23,6 @@ import Header from "../components/Header";
 import SupportDonut from "../components/modal/SupportDonut";
 
 import {SearchInPage, SearchProvider} from "../components/search";
-
-import GithubUpdateInfo from "../components/features/GithubUpdateInfo";
 
 import AEExprStart from "./sections/aeexpr/ExprStart";
 
@@ -41,10 +37,8 @@ import AEExprErrors from "./sections/aeexpr/ExprErrors";
 const AEExpressionPage = () => {
   const [isPageLoaded, setIsPageLoaded] = useState(false);
   useAnchorScroll(isPageLoaded);
-  useExternalLinks();
 
   const {enableAutoCopy} = useCopyToClipboard();
-
   useEffect(() => {
     enableAutoCopy();
   }, [enableAutoCopy]);
@@ -86,11 +80,6 @@ const AEExpressionPage = () => {
       <SearchProvider isPageLoaded={isPageLoaded}>
         <Helmet>
           <title>aeexpr@aechat</title>
-          <link
-            href="icons/aeexpr.svg"
-            rel="icon"
-            type="image/svg+xml"
-          />
           <meta
             content="Ответы на частые вопросы о выражениях в Adobe After Effects"
             name="description"
@@ -136,7 +125,6 @@ const AEExpressionPage = () => {
               <div className="faq-title">
                 <h1>aeexpr</h1>
               </div>
-              <GithubUpdateInfo folderPath="src/pages/sections/aeexpr" />
               <Addition type="warning">
                 Эта страница не является полноценным курсом по написанию выражений в{" "}
                 <mark className="app">Adobe After Effects</mark>. Примеры выражений

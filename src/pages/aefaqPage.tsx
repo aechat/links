@@ -14,8 +14,6 @@ import {useCopyToClipboard} from "../hooks/useCopyToClipboard";
 
 import {useAnchorScroll} from "../hooks/useAnchorScroll";
 
-import {useExternalLinks} from "../hooks/useExternalLinks";
-
 import Footer from "../components/Footer";
 
 import Header from "../components/Header";
@@ -23,8 +21,6 @@ import Header from "../components/Header";
 import SupportDonut from "../components/modal/SupportDonut";
 
 import {SearchInPage, SearchProvider} from "../components/search";
-
-import GithubUpdateInfo from "../components/features/GithubUpdateInfo";
 
 import AEWhereFind from "./sections/aefaq/AEWhereFind";
 
@@ -49,10 +45,8 @@ import AEExportProblems from "./sections/aefaq/AEExportProblems";
 const AEFAQ = () => {
   const [isPageLoaded, setIsPageLoaded] = useState(false);
   useAnchorScroll(isPageLoaded);
-  useExternalLinks();
 
   const {enableAutoCopy} = useCopyToClipboard();
-
   useEffect(() => {
     enableAutoCopy();
   }, [enableAutoCopy]);
@@ -99,11 +93,6 @@ const AEFAQ = () => {
       <SearchProvider isPageLoaded={isPageLoaded}>
         <Helmet>
           <title>aefaq@aechat</title>
-          <link
-            href="icons/aefaq.svg"
-            rel="icon"
-            type="image/svg+xml"
-          />
           <meta
             content="Ответы на частые вопросы от пользователей Adobe After Effects"
             name="description"
@@ -149,7 +138,6 @@ const AEFAQ = () => {
               <div className="faq-title">
                 <h1>aefaq</h1>
               </div>
-              <GithubUpdateInfo folderPath="src/pages/sections/aefaq" />
               <SupportDonut />
               {sections.map((section) => (
                 <div
