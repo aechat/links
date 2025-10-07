@@ -560,6 +560,10 @@ body.has-open-details .faq-content {
       opacity: 1;
     }
   }
+  details[open] {
+    filter: drop-shadow(0 0 30px var(--color-surface-primary-open-shadow));
+    transition: 0.75s cubic-bezier(0.075, 0.82, 0.165, 1);
+  }
 }
 
 .flexible-links {

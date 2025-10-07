@@ -30,6 +30,7 @@ $dark-theme-map: (
         background-active: hsl(var(--accent-hue) calc(15% * var(--saturate-ratio)) 7%),
         border: hsl(var(--accent-hue) calc(15% * var(--saturate-ratio)) 22%),
         text: hsl(var(--accent-hue) calc(90% * var(--saturate-ratio)) 83.5%),
+        open-shadow: hsl(var(--accent-hue) calc(15% * var(--saturate-ratio)) 25%),
       ),
       card: (
         background: hsl(var(--accent-hue) calc(15% * var(--saturate-ratio)) 7%),

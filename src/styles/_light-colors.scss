@@ -30,6 +30,7 @@ $light-theme-map: (
         background-active: hsl(var(--accent-hue), calc(50% * var(--saturate-ratio)), 93%),
         border: hsl(var(--accent-hue), calc(35% * var(--saturate-ratio)), 85%),
         text: hsl(var(--accent-hue), calc(60% * var(--saturate-ratio)), 40%),
+        open-shadow: hsl(var(--accent-hue), calc(35% * var(--saturate-ratio)), 75%),
       ),
       card: (
         background: hsl(var(--accent-hue), calc(41% * var(--saturate-ratio)), 97%),
