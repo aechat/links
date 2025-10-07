@@ -554,7 +554,7 @@ mark.quote::before {
 
 body.has-open-details .faq-content {
   details:not([open]) {
-    opacity: 0.5;
+    opacity: 0.35;
 
     &:hover {
       opacity: 1;
