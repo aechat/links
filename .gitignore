@@ -27,7 +27,8 @@ TODO.md
 public/legacy/css/styles.css
 *.code-workspace
 .husky
-DOCS.md
+*.md
+!README.md
 .yarn*
 pnpm*.yaml
 .pnp*
