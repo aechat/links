@@ -1326,9 +1326,15 @@ const AEActions: React.FC = () => {
             <mark className="plugin">Limber</mark>,{" "}
             <mark className="plugin">Character Tool</mark> и другие.
             <Addition type="warning">
-              <mark className="plugin">Duik</mark> на момент написания этой статьи может
-              работать нестабильно в <mark className="app">Adobe After Effects</mark>{" "}
-              версии <mark>2025</mark>.
+              <mark className="plugin">Duik Bassel</mark> может выдавать ошибку{" "}
+              <mark className="warning">«themeColor is no longer available»</mark> в{" "}
+              <mark className="app">Adobe After Effects</mark> версии <mark>2025</mark>.
+              Эта проблема решается либо переходом на{" "}
+              <mark className="plugin">Duik Angela</mark>, либо самодельным багофиксом из{" "}
+              <a href="https://www.reddit.com/r/AfterEffects/comments/1jams32/i_got_duik_bassel_to_work_in_after_effects_2025">
+                темы на Reddit
+              </a>
+              .
             </Addition>
             <ContentFigure
               caption="Сравнение популярных плагинов для персонажной анимации"
