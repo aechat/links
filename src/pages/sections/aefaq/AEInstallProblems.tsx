@@ -1777,57 +1777,94 @@ const AEInstallProblems: React.FC = () => {
           windowsContent={
             <div>
               <p>
-                Если вы параноик и боитесь, что при установке репаков в ваш компьютер
-                ворвётся «барабашка» с троянами и прочей нечистью, вы можете активировать
-                программы от <mark className="company">Adobe</mark> вручную через{" "}
+                Если вы по каким-то причинам опасаетесь, что при установке репаков от{" "}
+                <mark className="user">KpoJluK</mark>,{" "}
+                <mark className="user">m0nkrus</mark> или других релизеров на компьютер
+                может попасть нежелательное ПО, вы можете активировать программы от{" "}
+                <mark className="company">Adobe</mark> вручную с помощью утилиты{" "}
                 <mark className="app">GenP</mark>.
               </p>
               <ul>
                 <li>
-                  Из плюсов этого способа: активируя{" "}
-                  <mark className="app">Adobe After Effects</mark> через{" "}
-                  <mark className="app">GenP</mark>, вы можете устанавливать и обновлять
-                  программы, а также устанавливать бесплатные плагины напрямую из{" "}
-                  <mark className="app">Adobe Creative Cloud</mark>. Кроме того, доступны
-                  бета-версии, если хотите опробовать нововведения до их официального
-                  релиза.
+                  Из плюсов — можно устанавливать и обновлять программы, загружать
+                  бесплатные плагины напрямую из{" "}
+                  <mark className="app">Adobe Creative Cloud</mark>, а также ставить
+                  публичные бета-версии, чтобы опробовать нововведения до того, как они
+                  появятся в стабильном релизе.
                 </li>
                 <li>
-                  Из минусов: пользователи часто жалуются на проблемы при работе с{" "}
-                  <mark className="plugin">Dynamic Link</mark>, то есть{" "}
+                  Из минусов — возможные проблемы с{" "}
+                  <mark className="plugin">Dynamic Link</mark>, когда{" "}
                   <mark className="app">Adobe After Effects</mark> и{" "}
-                  <mark className="app">Adobe Premiere Pro</mark> могут не «видеть» друг
-                  друга, а также после обновлений программ от{" "}
-                  <mark className="company">Adobe</mark> патч может перестать работать —
-                  придётся периодически обновлять сам <mark className="app">GenP</mark>.
+                  <mark className="app">Adobe Premiere Pro</mark> не «видят» друг друга.
+                  Патч также может перестать работать после обновлений приложений от{" "}
+                  <mark className="company">Adobe</mark>, и придётся искать новую версию{" "}
+                  <mark className="app">GenP</mark>. Функции, использующие генерацию
+                  контента на базе <mark className="app">Adobe Firefly</mark>, тоже
+                  недоступны — как и в других «народных» версиях.
                 </li>
               </ul>
               <Addition type="warning">
-                Если вы хотите «переехать» с репаков или у вас уже установлены какие-то
-                приложения от <mark className="company">Adobe</mark>, перед активацией
-                через <mark className="app">GenP</mark> лучше удалить их во избежание
-                конфликтов. Сделать это можно с помощью{" "}
-                <a href="https://helpx.adobe.com/creative-cloud/kb/cc-cleaner-tool-installation-problems.html">
-                  Adobe Creative Cloud Cleaner Tool
-                </a>{" "}
-                или любого другого деинсталлятора, например{" "}
-                <mark className="app">Revo Uninstaller</mark>.
+                <ul>
+                  <li>
+                    Если вы хотите «переехать» с репаков или у вас уже установлены
+                    какие-то приложения от <mark className="company">Adobe</mark>, перед
+                    активацией через <mark className="app">GenP</mark> лучше удалить их, а
+                    также почистить записи в брандмауэре и файле{" "}
+                    <mark className="file">hosts</mark> во избежание конфликтов. Сделать
+                    это можно с помощью{" "}
+                    <a href="https://helpx.adobe.com/creative-cloud/kb/cc-cleaner-tool-installation-problems.html">
+                      Adobe Creative Cloud Cleaner Tool
+                    </a>{" "}
+                    или любого другого деинсталлятора, например{" "}
+                    <mark className="app">Revo Uninstaller</mark>.
+                  </li>
+                  <li>
+                    Во избежание проблем во время работы <mark className="app">GenP</mark>{" "}
+                    рекомендуется <a href="#2.2">отключить</a>{" "}
+                    <mark className="app">антивирусное ПО</mark>, установленное на вашем
+                    устройстве.
+                  </li>
+                </ul>
               </Addition>
               <Addition type="info">
-                Действия, описанные в этой инструкции, могут незначительно отличаться в
-                зависимости от версии <mark className="app">Adobe Creative Cloud</mark> и{" "}
+                Действия, описанные в этой статье, могут немного отличаться в зависимости
+                от версии <mark className="app">Adobe Creative Cloud</mark> и{" "}
                 <mark className="app">GenP</mark>.
               </Addition>
-              <Divider>Активируем Adobe с помощью GenP</Divider>
+              <Divider>Устанавливаем и разбираемся с Adobe Creative Cloud</Divider>
               <ul>
                 <li>
-                  Предположим, что система у вас уже чистая или вы только что
-                  переустановили <mark>Windows</mark>. Для начала загрузите{" "}
+                  Прежде чем искать и применять <mark className="app">GenP</mark>, нужно
+                  скачать <mark className="app">Adobe Creative Cloud</mark> с{" "}
                   <a href="https://www.adobe.com/download/creative-cloud">
-                    Adobe Creative Cloud
+                    официального сайта
                   </a>{" "}
-                  с официального сайта и установите её как обычную программу. Затем
-                  войдите в аккаунт — можно создать новый или использовать существующий.
+                  и установить его как обычную программу. При установке войдите в свой
+                  аккаунт <mark className="company">Adobe</mark> или создайте новый.
+                  <Addition type="warning">
+                    Не устанавливайте флажок напротив параметра{" "}
+                    <mark className="select">
+                      «Установите службу Adobe Genuine Service (AGS)»
+                    </mark>
+                    : его установка, наоборот, усугубит ситуацию с активацией программ от{" "}
+                    <mark className="company">Adobe</mark>.
+                  </Addition>
+                  <ContentFigure
+                    caption="Установка Adobe Creative Cloud"
+                    src="images/creative_cloud_install.mp4"
+                    theme="dark"
+                    type="video"
+                    variant="windows"
+                  />
+                </li>
+                <li>
+                  После успешной установки{" "}
+                  <mark className="app">Adobe Creative Cloud</mark> перед вами появится
+                  главное меню, но скачивать оттуда приложения пока рано: сам{" "}
+                  <mark className="app">Adobe Creative Cloud</mark> ещё не пропатчен для
+                  корректной установки программ. Иначе вам предложат оформить пробную
+                  версию, которая нам не подходит.
                   <ContentFigure
                     caption="Adobe Creative Cloud"
                     imgTitle="Главное меню Creative Cloud"
@@ -1838,116 +1875,124 @@ const AEInstallProblems: React.FC = () => {
                   />
                 </li>
                 <li>
-                  После входа в приложение — сразу отключите автоматические обновления и
-                  автозапуск <mark className="app">Adobe Creative Cloud</mark>, чтобы
-                  избежать сюрпризов в дальнейшем. Нажмите на изображение профиля в правом
-                  верхнем углу и выберите <mark className="select">«Установки»</mark>.
+                  <p>
+                    После входа в <mark className="app">Adobe Creative Cloud</mark> сразу
+                    же отключите его автозапуск и автоматические обновления, чтобы
+                    избежать сюрпризов в дальнейшем.
+                  </p>
+                  <p>
+                    Для этого нажмите на изображение профиля в правом верхнем углу и
+                    выберите <mark className="select">«Установки»</mark>. В открывшемся
+                    окне отключите три параметра, связанные с автозапуском и
+                    автообновлением, в разделе <mark className="select">«Общие»</mark>.
+                  </p>
                   <ContentFigure
                     caption="Adobe Creative Cloud"
                     imgTitle="Открытие установок Creative Cloud"
-                    src="images/creative_cloud_open_settings.png"
+                    src="images/creative_cloud_open_settings.mp4"
                     theme="light"
-                    type="image"
-                    variant="windows"
-                  />
-                </li>
-                <li>
-                  В открывшемся окне отключите три параметра, связанные с автозапуском и
-                  автообновлением, в разделе <mark className="select">«Общие»</mark>.{" "}
-                  <ContentFigure
-                    caption="Adobe Creative Cloud"
-                    imgTitle="Окно установок Creative Cloud"
-                    src="images/creative_cloud_settings.png"
-                    theme="light"
-                    type="image"
+                    type="video"
                     variant="windows"
                   />
                   <Addition type="info">
-                    По желанию можно установить английский язык для новых приложений по
-                    умолчанию — это настраивается в разделе{" "}
-                    <mark className="select">«Приложения»</mark>. Либо вы можете изменить
-                    язык <mark className="app">Adobe After Effects</mark> вручную уже
-                    после установки.
+                    При желании вы можете установить английский язык для новых приложений
+                    по умолчанию — это настраивается в разделе{" "}
+                    <mark className="select">«Приложения»</mark>. Также можно изменить
+                    язык <mark className="app">Adobe After Effects</mark>{" "}
+                    <a href="#3.6">вручную</a> уже после установки.
                   </Addition>
                 </li>
                 <li>
-                  После внесения нужных изменений обязательно закройте{" "}
+                  После внесения нужных изменений обязательно полностью закройте{" "}
                   <mark className="app">Adobe Creative Cloud</mark> перед запуском{" "}
                   <mark className="app">GenP</mark>.
                 </li>
+              </ul>
+              <Divider>Разбираемся с GenP</Divider>
+              <ul>
                 <li>
-                  <Addition type="danger">
-                    Сабреддит <mark>r/genp</mark> был заблокирован по запросу{" "}
-                    <mark className="company">Adobe</mark>. Будьте осторожны при
-                    скачивании <mark className="app">GenP</mark> из непроверенных
-                    источников.
+                  <p>
+                    Далее нужно скачать сам <mark className="app">GenP</mark> с сайта{" "}
+                    <a href="https://gen.paramore.su/#downloads">gen.paramore.su</a>. На
+                    сайте есть три варианта: загрузить готовый образ{" "}
+                    <mark className="app">GenP</mark> для быстрого запуска, скачать
+                    исходники с утилитами для самостоятельной сборки или воспользоваться{" "}
+                    <mark className="file">TORRENT</mark>-файлом.
+                  </p>
+                  <Addition type="info">
+                    Ранее <mark className="app">GenP</mark> распространялся через{" "}
+                    <mark className="app">Reddit</mark>, однако сабреддит{" "}
+                    <mark>r/genp</mark> был заблокирован за нарушение авторских прав.
                   </Addition>
-                  <div style={{opacity: "0.5"}}>
-                    <p>
-                      Далее нужно скачать сам <mark className="app">GenP</mark> с темы{" "}
-                      <a href="https://www.reddit.com/r/genP/">/r/genp</a> на{" "}
-                      <mark className="app">Reddit</mark>. Если основная ссылка не
-                      работает, ниже часто размещают зеркала. Перед скачиванием,
-                      распаковкой и использованием <mark className="app">GenP</mark>{" "}
-                      временно отключите <mark className="app">антивирусное ПО</mark>,
-                      чтобы избежать удаления файлов и ошибок при патчинге.
-                    </p>
-                    <ContentFigure
-                      caption="Браузер"
-                      imgTitle="Взаимодействие браузера с сайтом"
-                      src="images/reddit_genp.png"
-                      theme="dark"
-                      type="image"
-                      variant="windows"
-                    />
-                  </div>
-                </li>
-                <li>
-                  После загрузки архива с <mark className="app">GenP</mark> — распакуйте
-                  его в удобное место, затем откройте{" "}
-                  <mark className="app">AdobeGenP.exe</mark> в папке{" "}
-                  <mark className="path">Source</mark>. При первом запуске может появиться
-                  вопрос:{" "}
-                  <mark>
-                    «Do you wish to elevate GenP to TrustedInstaller to allow for patching
-                    of XD/UWP apps?»
-                  </mark>{" "}
-                  — выберите <mark className="select">No</mark>.
-                </li>
-                <li>
-                  В нижней части интерфейса <mark className="app">GenP</mark> есть
-                  несколько кнопок. Нажмите <mark className="select">«Search»</mark> и
-                  дождитесь появления двух файлов для{" "}
-                  <mark className="app">Adobe Creative Cloud</mark>. Выделите их и нажмите{" "}
-                  <mark className="select">«Patch»</mark>. Подождите, пока применится патч
-                  для <mark className="app">Adobe Creative Cloud</mark>.
+                  <p>
+                    Поскольку основная аудитория программ от{" "}
+                    <mark className="company">Adobe</mark>, как правило, не хочет
+                    разбираться с ручной компиляцией патчера, выберем вариант{" "}
+                    <mark className="select">«Binary»</mark>. После этого начнётся
+                    скачивание архива.
+                  </p>
                   <ContentFigure
-                    caption="Adobe GenP"
-                    imgTitle="Патчим Creative Cloud"
-                    src="images/patching_creative_cloud.png"
-                    theme="light"
-                    type="image"
+                    caption="Скачивание GenP"
+                    src="images/download_genp.mp4"
+                    theme="dark"
+                    type="video"
+                    variant="windows"
+                  />
+                  <Addition type="info">
+                    Если ваш браузер выдаёт предупреждение о вирусе в скачиваемом файле —
+                    разрешите загрузку вручную или уберите из имени файла расширение,
+                    добавленное браузером.
+                  </Addition>
+                </li>
+                <li>
+                  <p>
+                    После загрузки распакуйте архив и запустите файл{" "}
+                    <mark className="app">GenP-vX.Y.Z.exe</mark>.
+                  </p>
+                  <p>
+                    В открывшемся окне <mark className="app">GenP</mark> нажмите{" "}
+                    <mark className="select">«Search»</mark>, чтобы найти{" "}
+                    <mark className="app">Adobe Creative Cloud</mark>, а затем —{" "}
+                    <mark className="select">«Patch»</mark>.
+                  </p>
+                  <ContentFigure
+                    caption="Применение патча для Adobe Creative Cloud"
+                    src="images/apply_genp_first_patch.mp4"
+                    theme="dark"
+                    type="video"
                     variant="windows"
                   />
                 </li>
                 <li>
-                  После успешного применения патча, — откройте{" "}
-                  <mark className="app">Adobe Creative Cloud</mark> и начните установку
-                  нужных программ. После завершения установки{" "}
-                  <mark className="app">Adobe After Effects</mark> и других приложений не
-                  запускайте их сразу. Сначала снова откройте{" "}
-                  <mark className="app">GenP</mark>, нажмите{" "}
-                  <mark className="select">«Search»</mark>, установите чекбоксы напротив
-                  всех установленных программ и снова нажмите{" "}
-                  <mark className="select">«Patch»</mark>.
+                  <p>
+                    После применения первого патча можно устанавливать приложения из{" "}
+                    <mark className="app">Adobe Creative Cloud</mark>.
+                  </p>
+                  <ContentFigure
+                    caption="Установка приложений в Adobe Creative Cloud"
+                    src="images/creative_cloud_install_apps.mp4"
+                    theme="dark"
+                    type="video"
+                    variant="windows"
+                  />
+
+                  <Addition type="warning">
+                    По умолчанию <mark className="app">Adobe Creative Cloud</mark>{" "}
+                    устанавливает приложения на языке, на котором локализована ваша
+                    операционная система. Вы можете изменить язык программ{" "}
+                    <a href="https://helpx.adobe.com/ru/creative-cloud/apps/manage-apps/creative-cloud-apps/change-language-for-creative-cloud-apps.html">
+                      перед установкой
+                    </a>{" "}
+                    или поменять его для <mark className="app">Adobe After Effects</mark>{" "}
+                    уже <a href="#3.6">после установки</a>.
+                  </Addition>
                 </li>
                 <li>
-                  Если в <mark className="select">«Logs»</mark> нет ошибок — поздравляю,
-                  можно запускать свежие программы от{" "}
-                  <mark className="company">Adobe</mark> и спокойно работать. Если же
-                  появились ошибки — проверьте инструкцию, обновите{" "}
-                  <mark className="app">GenP</mark> или, в конце концов, поборойте свою
-                  паранойю насчёт <mark className="app">вредоносного ПО</mark> в репаках.
+                  После установки нужных вам приложений снова откройте{" "}
+                  <mark className="app">GenP</mark>, запустите поиск кнопкой{" "}
+                  <mark className="select">«Search»</mark> и ещё раз примените патч через{" "}
+                  <mark className="select">«Patch»</mark> — на этот раз уже для
+                  установленных программ. После этого ими можно пользоваться.
                 </li>
               </ul>
             </div>
