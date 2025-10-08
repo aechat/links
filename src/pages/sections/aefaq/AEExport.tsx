@@ -22,8 +22,8 @@ const AEExport: React.FC = () => {
         <p>
           <mark className="select">«Render Queue»</mark> — это основное окно для экспорта
           композиций из <mark className="app">Adobe After Effects</mark> в форматах видео,
-          аудио или изображений. Она подразумевает под собой очередь композиций, которые
-          будут экспортироваться последовательно друг за другом сверху вниз.
+          аудио или изображений. Это очередь композиций, которые будут экспортироваться
+          последовательно, сверху вниз.
         </p>
         <ContentFigure
           caption="Render Queue"
@@ -45,8 +45,8 @@ const AEExport: React.FC = () => {
           параметра: <mark className="select">«Render Settings»</mark>,{" "}
           <mark className="select">«Output Module»</mark> и{" "}
           <mark className="select">«Output To»</mark>. Для каждого из них доступны готовые
-          или пользовательские пресеты: чтобы выбрать шаблон, нажмите на иконку стрелки
-          слева от названия, а для изменения параметров — на само название.
+          и пользовательские пресеты. Чтобы выбрать шаблон, нажмите на стрелку слева от
+          названия, а для изменения параметров — на само название.
         </p>
         <p>
           Экспорт выбранных композиций можно запустить кнопкой{" "}
@@ -56,30 +56,30 @@ const AEExport: React.FC = () => {
         <Divider>Разбираемся с «Output Module»</Divider>
         <p>
           <mark className="select">«Output Module»</mark> отвечает за изменение формата
-          вывода и, при необходимости, настройку его параметров через{" "}
+          вывода и при необходимости — за настройку его параметров через{" "}
           <mark className="select">«Format Options»</mark>.
         </p>
         <p>
-          В последних версиях <mark className="app">Adobe After Effects</mark> доступны
-          для экспорта популярные видеоформаты <mark className="video">H.264 (MP4)</mark>,{" "}
+          В последних версиях <mark className="app">Adobe After Effects</mark> для
+          экспорта доступны популярные форматы видео{" "}
+          <mark className="video">H.264 (MP4)</mark>,{" "}
           <mark className="video">QuickTime</mark> и <mark className="video">AVI</mark>,
           аудиоформаты <mark className="audio">AIFF</mark>,{" "}
           <mark className="audio">MP3</mark> и <mark className="audio">WAV</mark>, а также
           возможность экспортировать композицию покадрово в форматах{" "}
           <mark className="image">TIFF</mark>, <mark className="image">JPEG</mark>,{" "}
           <mark className="image">PNG</mark>, <mark className="image">PSD</mark> и других.
-          Чтобы выбрать формат экспорта, установите нужное значение в параметре{" "}
+          Чтобы выбрать формат, установите нужное значение в параметре{" "}
           <mark className="select">«Format»</mark>.
         </p>
         <p>
-          В этом окне можно найти необязательные настройки для изменения размера и
-          кадрирования изображения. В разделе настроек аудио можно задать частоту
-          дискретизации, битовую глубину и выбрать режим между{" "}
-          <mark className="select">«Mono»</mark> и{" "}
+          В этом же окне можно изменить размер и кадрирование изображения. В разделе
+          настроек аудио — задать частоту дискретизации, битовую глубину и выбрать режим:{" "}
+          <mark className="select">«Mono»</mark> или{" "}
           <mark className="select">«Stereo»</mark>.
         </p>
         <Addition type="info">
-          При включённой опции <mark className="select">«Audio Output Auto»</mark> звук
+          При включенной опции <mark className="select">«Audio Output Auto»</mark> звук
           может не попасть в итоговый файл из-за бага в{" "}
           <mark className="app">Adobe After Effects</mark>. Чтобы избежать этого,
           установите значение <mark className="select">«Audio Output On»</mark>.
@@ -111,14 +111,13 @@ const AEExport: React.FC = () => {
           Если в списке шаблонов для <mark className="select">«Output To»</mark> выбрать{" "}
           <mark className="select">«Custom»</mark>, откроется окно{" "}
           <mark className="select">«File Name and Location Template»</mark>, где можно
-          изменить шаблон названия, создать собственный или установить его как шаблон по
-          умолчанию.
+          изменить шаблон названия, создать собственный или установить его по умолчанию.
         </p>
         <p>
-          Для шаблонов имени поддерживаются относительные пути, что даёт гибкость в
-          управлении расположением экспортируемых файлов. Кнопка{" "}
-          <mark className="select">«Add Property»</mark> позволяет добавить дополнительные
-          параметры в структуру имени.
+          Для шаблонов имени поддерживаются относительные пути, что обеспечивает гибкость
+          управления расположением экспортируемых файлов. Кнопка{" "}
+          <mark className="select">«Add Property»</mark> позволяет добавить в структуру
+          имени дополнительные параметры.
         </p>
         <ContentFigure
           caption="File Name and Location Template"
@@ -149,9 +148,9 @@ const AEExport: React.FC = () => {
         <Divider>Разбираемся с «Render Settings»</Divider>
         <p>
           <mark className="select">«Render Settings»</mark> — необязательный, но полезный
-          раздел настроек. В нём можно задать разрешение рендеринга, включить или
-          отключить определённые свойства слоёв или, например, указать, использовать ли
-          прокси в финальном экспорте.
+          раздел настроек. В нём можно задать разрешение, включить или отключить
+          определённые свойства слоёв и указать, использовать ли прокси в финальном
+          экспорте.
         </p>
         <ContentFigure
           caption="Render Settings"
@@ -180,7 +179,7 @@ const AEExport: React.FC = () => {
             <mark className="key">Delete</mark>.
           </li>
           <li>
-            Чтобы экспортировать одну композицию в нескольких форматах, нажмите на кнопку{" "}
+            Чтобы экспортировать одну композицию в нескольких форматах, нажмите на кнопку
             «плюса» рядом с <mark className="select">«Output Module»</mark> и укажите
             нужные форматы. Этот подход экономит время при работе со сложными проектами,
             так как <mark className="app">Adobe After Effects</mark> рендерит композицию
@@ -196,7 +195,7 @@ const AEExport: React.FC = () => {
           </li>
           <li>
             Чтобы повторить экспорт уже отрендеренной или случайно отменённой композиции,
-            нажмите <mark className="key">ПКМ</mark> по нужному элементу в очереди и
+            нажмите <mark className="key">ПКМ</mark> на нужном элементе в очереди и
             выберите <mark className="select">«Duplicate»</mark>. Если вы хотите
             перезаписать исходный файл, выберите{" "}
             <mark className="select">«Duplicate with File Name»</mark>.
@@ -216,7 +215,7 @@ const AEExport: React.FC = () => {
         <p>
           Чтобы не настраивать параметры экспорта каждый раз заново, их можно сохранить в
           собственный шаблон. Для этого добавьте композицию в очередь с помощью{" "}
-          <mark className="key">Ctrl + M</mark> и нажмите на иконку стрелки рядом с{" "}
+          <mark className="key">Ctrl + M</mark> и нажмите на значок стрелки рядом с{" "}
           <mark className="select">«Output Module»</mark>. В контекстном меню выберите{" "}
           <mark className="select">«Make Template»</mark> — откроется окно для создания и
           настройки шаблонов. Это же окно можно вызвать через{" "}
@@ -233,13 +232,13 @@ const AEExport: React.FC = () => {
         <p>
           В открывшемся окне появится пресет <mark>Untitled</mark>, который можно
           переименовать. В разделе <mark className="select">«Defaults»</mark> можно
-          назначить созданный шаблон как стандартный для определённых типов задач.
+          назначить созданный шаблон стандартным для определённых типов задач.
         </p>
         <p>
-          Чтобы отредактировать шаблон, нажмите на <mark className="select">«Edit»</mark>,
-          что откроет окно <mark className="select">«Output Module Settings»</mark>. Окно
-          редактирования шаблона экспорта по сути не отличается от обычной настройки типа
-          вывода.
+          Чтобы отредактировать шаблон, нажмите <mark className="select">«Edit»</mark>,
+          после чего откроется окно{" "}
+          <mark className="select">«Output Module Settings»</mark>. Окно редактирования
+          шаблона экспорта, по сути, не отличается от обычной настройки типа вывода.
         </p>
         <ContentFigure
           caption="Output Module Templates"
@@ -255,7 +254,7 @@ const AEExport: React.FC = () => {
         </Divider>
         <p>
           Процесс создания пресета для <mark className="select">«Render Settings»</mark>{" "}
-          аналогичен созданию шаблона для модуля вывода. Для этого нажмите на иконку
+          аналогичен созданию шаблона для модуля вывода. Для этого нажмите на значок
           стрелки рядом с <mark className="select">«Render Settings»</mark> и выберите{" "}
           <mark className="select">«Make Template»</mark>. Это же окно можно вызвать через{" "}
           <mark className="select">«Edit» → «Templates» → «Render Settings»</mark>.
@@ -271,12 +270,12 @@ const AEExport: React.FC = () => {
         <p>
           В открывшемся окне будет создан пресет с названием <mark>Untitled</mark>,
           которое можно заменить на любое другое. В разделе{" "}
-          <mark className="select">«Defaults»</mark> можно задать пресеты для других типов
-          файлов по умолчанию.
+          <mark className="select">«Defaults»</mark> можно задать его в качестве пресета
+          по умолчанию для других типов файлов.
         </p>
         <p>
-          Чтобы отредактировать шаблон, нажмите на <mark className="select">«Edit»</mark>,
-          что откроет окно <mark className="key">Render Settings</mark>. Окно
+          Чтобы отредактировать шаблон, нажмите <mark className="select">«Edit»</mark>,
+          после чего откроется окно <mark className="key">Render Settings</mark>. Окно
           редактирования шаблона ничем не отличается от обычной настройки рендеринга.
         </p>
         <ContentFigure
@@ -297,8 +296,8 @@ const AEExport: React.FC = () => {
           практически безальтернативным решением для экспорта из{" "}
           <mark className="app">Adobe After Effects</mark> в популярный кодек{" "}
           <mark className="video">H.264</mark>. Это было связано с тем, что в старых
-          версиях <mark className="app">Adobe After Effects</mark> попросту отсутствовала
-          возможность напрямую экспортировать композиции в этом формате. В этой статье
+          версиях <mark className="app">Adobe After Effects</mark> отсутствовала
+          возможность напрямую экспортировать композиции в этом формате. В этой статье мы
           рассмотрим, с какими «сюрпризами» можно столкнуться при использовании{" "}
           <mark className="app">Adobe Media Encoder</mark>.
         </p>
@@ -311,25 +310,25 @@ const AEExport: React.FC = () => {
         <p>
           Однако со временем в <mark className="app">Adobe Media Encoder</mark> появилась
           функция экспорта композиций из <mark className="app">Adobe After Effects</mark>,
-          и пошло-поехало. Некоторые пользователи, по привычке или из-за незнания
-          альтернатив, продолжают полагаться исключительно на{" "}
+          и пошло-поехало. Некоторые пользователи по привычке или из-за незнания
+          альтернатив продолжают полагаться только на{" "}
           <mark className="app">Adobe Media Encoder</mark>.
         </p>
         <p>
-          С выходом версии <mark>23.0</mark> и новее необходимость прибегать к{" "}
+          С выходом версии <mark>23.0</mark> и новее необходимость в{" "}
           <mark className="app">Adobe Media Encoder</mark> для экспорта в{" "}
-          <mark className="video">H.264</mark> заметно уменьшилась, поскольку в{" "}
-          <mark className="app">Adobe After Effects</mark> вернули функцию нативного
+          <mark className="video">H.264</mark> заметно уменьшилась: в{" "}
+          <mark className="app">Adobe After Effects</mark> вернули нативную функцию
           экспорта в этот кодек. Если вы используете старые версии программы, лучше
           воспользоваться плагинами, такими как{" "}
           <mark className="plugin">AfterCodecs</mark> или{" "}
           <mark className="plugin">Voukoder</mark>. <a href="#9.4">Подробнее...</a>
         </p>
         <Addition type="info">
-          Если вам нужно поставить в очередь на рендеринг сразу несколько композиций из
-          разных проектов — создайте один пустой проект в{" "}
-          <mark className="app">Adobe After Effects</mark> и импортируйте в него нужные
-          проекты. Затем вы сможете добавить все композиции в очередь и запустить экспорт.
+          Если нужно поставить на рендеринг сразу несколько композиций из разных проектов,
+          создайте один пустой проект в <mark className="app">Adobe After Effects</mark> и
+          импортируйте в него нужные проекты. Затем вы сможете добавить все композиции в
+          очередь и запустить экспорт.
         </Addition>
         <Divider>
           Какие проблемы могут быть при использовании Adobe Media Encoder?
@@ -337,33 +336,25 @@ const AEExport: React.FC = () => {
         <ul>
           <li>
             При экспорте сложных сцен <mark className="app">Adobe Media Encoder</mark>{" "}
-            может просто остановить рендеринг без объяснения причин, и будет сложно
-            понять, в чём именно проблема. Сложные сцены лучше экспортировать напрямую из{" "}
+            может остановить рендеринг без объяснения причин, и будет сложно понять
+            причину. Сложные сцены лучше экспортировать напрямую из{" "}
             <mark className="app">Adobe After Effects</mark>, при необходимости используя{" "}
-            <a href="#9.11">прокси</a>, чтобы минимизировать время экспорта и риск ошибок.
+            <a href="#9.11">прокси</a>. Это минимизирует время экспорта и риск ошибок.
             <Addition type="warning">
-              При отправке композиции на экспорт в{" "}
-              <mark className="app">Adobe Media Encoder</mark> запускается фоновый процесс{" "}
-              <mark className="file">AfterFX.exe</mark>. Этот лишний процесс создаёт
-              дополнительную нагрузку на компьютер и может занять всю оперативную память,
-              что часто приводит к сбоям.
+              При экспорте композиции в <mark className="app">Adobe Media Encoder</mark>{" "}
+              запускается ещё один процесс <mark className="file">AfterFX.exe</mark>,
+              который создаёт дополнительную нагрузку на компьютер и может занять всю
+              оперативную память, что часто приводит к сбоям.
             </Addition>
           </li>
           <li>
-            Некоторые пользователи могут столкнуться с ошибкой{" "}
-            <mark className="code">-1609629695</mark> с расплывчатым описанием. Эту ошибку
-            можно было бы избежать, не используя{" "}
-            <mark className="app">Adobe Media Encoder</mark> в качестве основного способа
-            экспорта.
-          </li>
-          <li>
-            <mark className="app">Adobe Media Encoder</mark> может потерять исходники:
-            после экспорта вы можете внезапно обнаружить разноцветный плейсхолдер вместо
-            нужного файла, особенно если рендеринг был долгим.
+            <mark className="app">Adobe Media Encoder</mark> может терять исходники: после
+            экспорта вы рискуете обнаружить разноцветный плейсхолдер вместо нужного файла,
+            особенно если рендеринг был долгим.
           </li>
           <li>
             <mark className="app">Adobe Media Encoder</mark> может экспортировать
-            композиции с артефактами, например, со смещённым изображением<sup>1</sup> или
+            композиции с артефактами, например со смещённым изображением<sup>1</sup> или
             искажёнными цветами.
             <Addition type="info">
               <sup>1</sup> Баг со смещением изображения встречается в версиях от{" "}
@@ -378,14 +369,14 @@ const AEExport: React.FC = () => {
             сторонних эффектах могут появиться красные кресты, водяные знаки или другие
             признаки отсутствия лицензии. Даже если в{" "}
             <mark className="app">Adobe After Effects</mark> с активацией всё в порядке,
-            не факт, что она корректно «подхватится» в{" "}
-            <mark className="app">Adobe Media Encoder</mark>, так как лицензии многих
-            плагинов могут быть привязаны именно к{" "}
+            не факт, что она корректно подхватится в{" "}
+            <mark className="app">Adobe Media Encoder</mark>, поскольку лицензии многих
+            сторонних эффектов привязаны именно к{" "}
             <mark className="app">Adobe After Effects</mark>.
           </li>
           <li>
             При экспорте в <mark className="app">Adobe Media Encoder</mark> вы вряд ли
-            получите стабильную работу функции{" "}
+            добьётесь стабильной работы функции{" "}
             <mark className="select">«Multi-Frame Rendering»</mark>, которая отлично
             работает при экспорте напрямую из{" "}
             <mark className="app">Adobe After Effects</mark>.
@@ -393,19 +384,17 @@ const AEExport: React.FC = () => {
           <li>
             Композиция, отправленная из <mark className="app">Adobe After Effects</mark> в{" "}
             <mark className="app">Adobe Media Encoder</mark>, может просто не появиться в
-            очереди рендеринга. Такое бывает при внутреннем сбое в{" "}
-            <mark className="plugin">Dynamic Link</mark>, о котором программа не сообщает
-            пользователю.
+            очереди рендеринга. Такое бывает при внутреннем сбое{" "}
+            <mark className="plugin">Dynamic Link</mark>, о котором программа не сообщает.
           </li>
           <li>
             Обычно процесс экспорта в <mark className="app">Adobe After Effects</mark>{" "}
             запускается почти мгновенно, в отличие от долгого запуска самого{" "}
-            <mark className="app">Adobe Media Encoder</mark>. После запуска{" "}
-            <mark className="app">Adobe Media Encoder</mark> нужно ещё подождать, пока он
-            подгрузит композицию, запустит фоновый процесс{" "}
-            <mark className="file">AfterFX.exe</mark>, и только потом начнёт экспорт. Не
+            <mark className="app">Adobe Media Encoder</mark>. После его запуска нужно ещё
+            подождать, пока он подгрузит композицию, запустит фоновый процесс{" "}
+            <mark className="file">AfterFX.exe</mark> и только потом начнёт экспорт. Не
             всегда удобно ждать минуту, чтобы{" "}
-            <mark className="app">Adobe Media Encoder</mark> «отдуплился» для экспорта
+            <mark className="app">Adobe Media Encoder</mark> «опомнился» для экспорта
             короткого видео.
           </li>
         </ul>
@@ -601,7 +590,7 @@ const AEExport: React.FC = () => {
               Метод постоянного качества<sup>1</sup> позволяет задать кодировщику целевой
               уровень качества со словами:{" "}
               <mark className="quote">
-                „Я задал такой-то уровень качества, а битрейт подбирай сам“
+                «Я задал такой-то уровень качества, а битрейт подбирай сам»
               </mark>
               . Он сам решает, сколько данных выделить каждому кадру, чтобы картинка
               выглядела одинаково хорошо и в спокойных, и в динамичных сценах. Это
@@ -656,8 +645,8 @@ const AEExport: React.FC = () => {
                   <ul>
                     <li>
                       <sup>1</sup> <mark className="plugin">Voukoder Classic</mark>{" "}
-                      доступен только для устройств на <mark>Windows</mark> и больше не
-                      доступен на официальном сайте и в репозитории{" "}
+                      доступен только для <mark>Windows</mark> и больше не доступен на
+                      официальном сайте и в репозитории{" "}
                       <a href="https://github.com/Vouk/voukoder/releases/tag/13.4.1">
                         GitHub
                       </a>
@@ -965,21 +954,21 @@ const AEExport: React.FC = () => {
           совместимостью на старых устройствах.
         </p>
         <p>
-          В этой статье рассмотрим, как экспортировать композицию в{" "}
+          В этой статье мы рассмотрим, как экспортировать композицию в{" "}
           <mark className="video">H.264</mark> и его производных напрямую из{" "}
           <mark className="app">Adobe After Effects</mark> без использования{" "}
           <mark className="app">Adobe Media Encoder</mark>. Это можно сделать несколькими
           способами: с помощью стандартного экспортёра{" "}
-          <mark className="video">H.264</mark>, доступный в{" "}
+          <mark className="video">H.264</mark>, доступного в{" "}
           <mark className="app">Adobe After Effects</mark> с версии <mark>2023</mark> и
           новее, или сторонних плагинов — <mark className="plugin">Voukoder</mark> и{" "}
           <mark className="plugin">AfterCodecs</mark>. Какой способ выбрать — зависит от
           вас, цели экспорта и вашего проекта.
         </p>
         <Addition type="info">
-          Перед чтением этой статьи, рекомендуется <a href="#9.1">ознакомиться</a> с
+          Перед чтением этой статьи рекомендуется <a href="#9.1">ознакомиться</a> с
           интерфейсом окна <mark className="select">«Render Queue»</mark> и его
-          функционалом, если вы первый раз экспортируете композиции из{" "}
+          функционалом, если вы впервые экспортируете композиции из{" "}
           <mark className="app">Adobe After Effects</mark>.
         </Addition>
         <Addition type="danger">
@@ -989,9 +978,10 @@ const AEExport: React.FC = () => {
                 Обратите внимание, что с помощью кодеков{" "}
                 <mark className="video">H.264</mark> и{" "}
                 <mark className="video">H.265</mark> не получится экспортировать видео с
-                прозрачностью. Хоть и <mark className="video">H.265</mark> с альфа-каналом
-                можно экспортировать только на устройствах с <mark>macOS</mark>,
-                совместимость таких видео с другими устройствами оставляет желать лучшего.
+                прозрачностью. Видео с кодеком <mark className="video">H.265</mark> и
+                альфа-каналом можно экспортировать только на устройствах с{" "}
+                <mark>macOS</mark>, но совместимость таких файлов с другими устройствами
+                оставляет желать лучшего.
               </p>
               <p>
                 Для экспорта композиции с прозрачным фоном лучше использовать форматы{" "}
@@ -1055,20 +1045,20 @@ const AEExport: React.FC = () => {
             </li>
             <li>
               Видео, экспортированные через стандартный{" "}
-              <mark className="plugin">H.264</mark> могут не открываться в стандартном{" "}
+              <mark className="plugin">H.264</mark>, могут не открываться в стандартном{" "}
               <mark className="app">медиаплеере Windows</mark> и на некоторых устройствах,
               например <mark>iPhone</mark>. Обычно это решается повторной конвертацией
-              видео через любой конвертер, например{" "}
-              <mark className="app">Shutter Encoder</mark> или экспортом видео через
-              альтернативные способы.
+              видео через любой конвертер (например,{" "}
+              <mark className="app">Shutter Encoder</mark>) или экспортом через
+              альтернативные плагины.
             </li>
           </ul>
         </Addition>
         <ul>
           <li>
             <p>
-              Чтобы отправить на экспорт текущую или выделенную в окне{" "}
-              <mark className="select">«Project»</mark> композицию, нажмите{" "}
+              Чтобы отправить на экспорт текущую композицию или выделенную в окне{" "}
+              <mark className="select">«Project»</mark>, нажмите{" "}
               <mark className="key">Ctrl + M</mark> или выберите в меню{" "}
               <mark className="select">«File» → «Export» → «Add to Render Queue»</mark>.
             </p>
@@ -1081,19 +1071,17 @@ const AEExport: React.FC = () => {
               variant="windows"
             />
             <p>
-              После того как у вас откроется окно{" "}
-              <mark className="select">«Render Queue»</mark>, убедитесь в том, что у вас
-              выбран стандартный пресет для экспорта в{" "}
+              Когда откроется окно <mark className="select">«Render Queue»</mark>,
+              убедитесь, что у вас выбран стандартный пресет для экспорта в{" "}
               <mark className="video">H.264</mark>. Выбрать нужный шаблон можно с помощью
-              иконки стрелки справа от <mark className="select">«Output Module»</mark>.
+              значка стрелки справа от <mark className="select">«Output Module»</mark>.
             </p>
           </li>
           <li>
             Чтобы изменить битрейт или другие параметры, нажмите на название шаблона —
             откроется окно <mark className="select">«Output Module»</mark>. Параметры,
-            связанные с изменением значения битрейта для{" "}
-            <mark className="video">H.264</mark> находится в разделе{" "}
-            <mark className="select">«Format Options»</mark>.
+            связанные с изменением битрейта для <mark className="video">H.264</mark>,
+            находятся в разделе <mark className="select">«Format Options»</mark>.
             <ContentFigure
               caption="Output Module Settings"
               imgTitle="Окно Output Module"

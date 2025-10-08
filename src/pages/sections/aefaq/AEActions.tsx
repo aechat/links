@@ -89,8 +89,8 @@ const AEActions: React.FC = () => {
         <p>
           Для улучшения качества изображений прямо в{" "}
           <mark className="app">Adobe After Effects</mark> можно использовать способы,
-          ранее описанные в статье. Если вы хотите улучшить изображение без использования{" "}
-          <mark className="app">Adobe After Effects</mark> — попробуйте воспользоваться{" "}
+          описанные в статье ранее. Если вы хотите улучшить изображение без{" "}
+          <mark className="app">Adobe After Effects</mark>, попробуйте воспользоваться{" "}
           <mark className="app">Topaz Photo AI</mark> или{" "}
           <mark className="app">Topaz Gigapixel AI</mark>. Задачи у них похожи, но
           результаты обработки могут сильно отличаться, поэтому иногда приходится
@@ -99,8 +99,8 @@ const AEActions: React.FC = () => {
         </p>
         <Addition type="warning">
           Для <mark className="app">Topaz Photo AI</mark> понадобится около{" "}
-          <mark>15 ГБ</mark> свободного места на жёстком диске, а для{" "}
-          <mark className="app">Topaz Gigapixel AI</mark> — около <mark>25 ГБ</mark>. И
+          <mark>50 ГБ</mark> свободного места на жёстком диске, а для{" "}
+          <mark className="app">Topaz Gigapixel AI</mark> — около <mark>20 ГБ</mark>. И
           это без учёта будущих обновлений.
         </Addition>
         <ContentFigure
@@ -123,8 +123,8 @@ const AEActions: React.FC = () => {
         />
         <p>
           В качестве альтернативы можно использовать{" "}
-          <mark className="app">Benvista PhotoZoom</mark>, первая версия которой вышла ещё
-          в 2005 году. В последних версиях в программу добавили нейросетевые модели, хотя
+          <mark className="app">Benvista PhotoZoom</mark> — программу с историей, уходящей
+          корнями в 2003 год. В последних версиях в неё добавили нейросетевые модели, хотя
           работать можно и без них. Благодаря собственным алгоритмам программа порой даёт
           результат даже лучше, чем упомянутые выше инструменты, при этом занимает совсем
           немного места на диске.

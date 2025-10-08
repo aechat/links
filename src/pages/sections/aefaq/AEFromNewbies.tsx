@@ -433,12 +433,12 @@ const AEFromNewbies: React.FC = () => {
           <li>
             <p>
               <mark className="word">Редьюс</mark> — функция{" "}
-              <mark className="select">«Reduce Project»</mark>, которая облегчает проект
-              за счёт удаления всех объектов, кроме выбранной композиции. Находится в{" "}
+              <mark className="select">«Reduce Project»</mark>, которая облегчает проект,
+              удаляя из него всё, кроме выбранной композиции и всех связанных с ней
+              элементов. Находится в{" "}
               <mark className="select">«File» → «Dependencies» → «Reduce Project»</mark>.
-              Также существует кнопка{" "}
-              <mark className="select">«Remove Unused Footage»</mark> — она удаляет
-              неиспользуемые исходники.
+              Похожая команда, <mark className="select">«Remove Unused Footage»</mark>,
+              удаляет только неиспользуемые в проекте исходники.
             </p>
             <Addition type="warning">
               Если вы пользуетесь этой функцией впервые, на всякий случай создайте копию
@@ -873,7 +873,7 @@ const AEFromNewbies: React.FC = () => {
           </li>
           <li>
             <mark className="word">Кодек</mark> — программа или библиотека, которая
-            кодирует и декодирует видеоданные. Кодеки делят на{" "}
+            кодирует и декодирует видеоданные. Кодеки делятся на{" "}
             <mark className="word">монтажные</mark> и{" "}
             <mark className="word">потоковые (delivery)</mark>. Использовать видео с
             потоковыми кодеками для монтажа не рекомендуется во избежание различных
