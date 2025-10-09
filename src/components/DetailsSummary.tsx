@@ -154,14 +154,7 @@ export const generateAnchorId = () => {
         summary.setAttribute("id", generatedAnchor);
       }
 
-      if (window.location.hash === `#${generatedAnchor}`) {
-        const details = summary.closest("details");
 
-        if (details && !details.hasAttribute("data-anchor-processed")) {
-          details.setAttribute("open", "true");
-          details.setAttribute("data-anchor-processed", "true");
-        }
-      }
     });
   });
 
@@ -216,15 +209,48 @@ const DetailsSummary: React.FC<DetailsSummaryProps> = ({title, children, tag}) =
     const details = detailsRef.current;
     if (!details) return;
 
+    const contentWrapper = details.querySelector<HTMLElement>(".details-content-wrapper");
+    if (!contentWrapper) return;
+
+    const innerContent = contentWrapper.querySelector<HTMLElement>(".details-content-inner");
+    if (!innerContent) return;
+
+    const resizeObserver = new ResizeObserver(() => {
+      if (details.open) {
+        contentWrapper.style.maxHeight = `${innerContent.scrollHeight}px`;
+      }
+    });
+
+    const handleTransitionEnd = (e: TransitionEvent) => {
+      if (e.target !== contentWrapper) return;
+
+      document.body.style.overflow = "";
+      if (isOpen) {
+        contentWrapper.style.maxHeight = `${innerContent.scrollHeight}px`;
+        resizeObserver.observe(innerContent);
+      } else {
+        details.open = false;
+      }
+    };
+
+    contentWrapper.addEventListener("transitionend", handleTransitionEnd);
+
     if (isOpen) {
-      // Logic for opening
+      document.body.style.overflow = "hidden";
       details.open = true;
+      const scrollHeight = innerContent.scrollHeight;
+      const viewportHeight = window.innerHeight;
+
+      if (scrollHeight > viewportHeight) {
+        contentWrapper.style.maxHeight = `${viewportHeight}px`;
+      } else {
+        contentWrapper.style.maxHeight = `${scrollHeight}px`;
+      }
 
       const summaryId = details.querySelector(".faq-summary")?.id;
       if (summaryId) {
         debouncedReplaceState(`#${summaryId}`);
-
-        requestAnimationFrame(() => {
+        setTimeout(() => {
           const summary = details.querySelector(".faq-summary");
           if (summary) {
             const {headerHeight, padding} = getScrollOffsets();
@@ -235,29 +261,24 @@ const DetailsSummary: React.FC<DetailsSummaryProps> = ({title, children, tag}) =
               padding;
             window.scrollTo({top: y, behavior: "smooth"});
           }
-        });
+        }, 150);
       }
     } else {
-      // Logic for closing
-      if (window.location.hash) {
-        debouncedReplaceState("");
-      }
-
-      const contentWrapper = details.querySelector(".details-content-wrapper");
-      if (!contentWrapper) return;
-
-      const onTransitionEnd = (e: TransitionEvent) => {
-        if (e.propertyName === "grid-template-rows") {
-          if (!isOpen) {
-            details.open = false;
-          }
+      if (details.open) {
+        document.body.style.overflow = "hidden";
+        resizeObserver.unobserve(innerContent);
+        if (window.location.hash) {
+          debouncedReplaceState("");
         }
-      };
-      contentWrapper.addEventListener("transitionend", onTransitionEnd);
-      return () => {
-        contentWrapper.removeEventListener("transitionend", onTransitionEnd);
-      };
+        contentWrapper.style.maxHeight = "0px";
+      }
     }
+
+    return () => {
+      resizeObserver.disconnect();
+      contentWrapper.removeEventListener("transitionend", handleTransitionEnd);
+      document.body.style.overflow = "";
+    };
   }, [isOpen, debouncedReplaceState]);
 
   const scrollToAnchor = (targetElement: HTMLElement) => {
@@ -295,6 +316,29 @@ const DetailsSummary: React.FC<DetailsSummaryProps> = ({title, children, tag}) =
         }
       }
     }
+  }, []);
+
+  useEffect(() => {
+    const anchorId = window.location.hash.slice(1);
+    if (displayAnchorId && anchorId === displayAnchorId) {
+      setIsOpen(true);
+    }
+  }, [displayAnchorId]);
+
+  useEffect(() => {
+    const handleOpenEvent = (event: Event) => {
+      const customEvent = event as CustomEvent<{ id: string; }>
+      const { id } = customEvent.detail;
+      const summaryElement = detailsRef.current?.querySelector(".faq-summary");
+      if (summaryElement && summaryElement.id === id) {
+        setIsOpen(true);
+      }
+    };
+
+    window.addEventListener("open-spoiler-by-id", handleOpenEvent);
+    return () => {
+      window.removeEventListener("open-spoiler-by-id", handleOpenEvent);
+    };
   }, []);
 
   useEffect(() => {
@@ -364,14 +408,17 @@ const DetailsSummary: React.FC<DetailsSummaryProps> = ({title, children, tag}) =
     const openDetailsElements = document.querySelectorAll("details[open]");
 
     if (openDetailsElements.length > 0) {
-      const viewportHeight = window.innerHeight;
+      document.body.classList.add("body-has-any-spoiler-open");
+    } else {
+      document.body.classList.remove("body-has-any-spoiler-open");
+    }
 
+    if (openDetailsElements.length > 0) {
+      const viewportHeight = window.innerHeight;
       const isAnyInMainView = Array.from(openDetailsElements).some((details) => {
         const rect = details.getBoundingClientRect();
-
         const isOutOfMainView =
           rect.bottom < viewportHeight * 0.15 || rect.top > viewportHeight * 0.9;
-
         return !isOutOfMainView;
       });
 

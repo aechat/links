@@ -553,6 +553,20 @@ mark.quote::before {
   }
 }
 
+.faq-content details[open] {
+  transition: transform 0.75s cubic-bezier(0.075, 0.82, 0.165, 1),
+              filter 0.75s cubic-bezier(0.075, 0.82, 0.165, 1),
+              margin-block 0.75s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+body.body-has-any-spoiler-open .faq-content {
+  details[open] {
+    transform: scale(1.01);
+    transform-origin: top;
+    margin-block: 15px;
+  }
+}
+
 body.has-open-details .faq-content {
   details:not([open]) {
     opacity: 0.35;
@@ -562,11 +576,7 @@ body.has-open-details .faq-content {
     }
   }
   details[open] {
-    transform: scale(1.01);
-    transform-origin: top;
     filter: drop-shadow(0 0 30px var(--color-surface-primary-open-shadow));
-    transition: 0.75s cubic-bezier(0.075, 0.82, 0.165, 1);
-    margin-block: 15px;
   }
 }
 

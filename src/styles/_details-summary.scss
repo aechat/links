@@ -14,9 +14,9 @@ details {
   }
 
   .details-content-wrapper {
-    display: grid;
-    grid-template-rows: 0fr;
-    transition: grid-template-rows 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.35s cubic-bezier(0.4, 0, 0.2, 1);
 
     .details-content-inner {
       overflow: hidden;
@@ -26,10 +26,6 @@ details {
   &.is-open {
     summary .faq-summary-icon {
       transform: rotate(45deg);
-    }
-
-    .details-content-wrapper {
-      grid-template-rows: 1fr;
     }
   }
 }
