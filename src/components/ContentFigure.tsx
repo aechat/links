@@ -2,6 +2,8 @@ import {message} from "antd";
 
 import React, {useCallback, useEffect, useState} from "react";
 
+import {createPortal} from "react-dom";
+
 import {useSpoiler} from "./DetailsSummary";
 
 import {ShareRounded} from "@mui/icons-material";
@@ -254,18 +256,20 @@ const ContentFigure: React.FC<ContentFigureProps> = ({
       <div className="figure-container">
         <figure className={styleClass}>{content}</figure>
       </div>
-      {isFullscreen && (
-        <div
-          className={`fullscreen-overlay ${isClosing ? "closing" : ""}`}
-          onClick={handleClickOutside}
-        >
+      {isFullscreen &&
+        createPortal(
           <div
-            className={`fullscreen-content ${styleClass} ${isClosing ? "closing" : ""}`}
+            className={`fullscreen-overlay ${isClosing ? "closing" : ""}`}
+            onClick={handleClickOutside}
           >
-            {content}
-          </div>
-        </div>
-      )}
+            <div
+              className={`fullscreen-content ${styleClass} ${isClosing ? "closing" : ""}`}
+            >
+              {content}
+            </div>
+          </div>,
+          document.body
+        )}
     </>
   );
 };

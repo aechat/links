@@ -26,6 +26,7 @@ img {
 
 .figure-container {
   display: flex;
+  filter: drop-shadow(0 0 5px var(--shadow-secondary));
   margin-block: 10px;
 }
 
@@ -174,10 +175,6 @@ img {
     cursor: pointer;
     outline: 1px solid var(--color-figure-win-light-media-border);
     background-color: var(--color-figure-win-light-media-background);
-
-    &:hover {
-      transform: scale(1.01);
-    }
   }
 }
 
@@ -211,10 +208,6 @@ img {
     cursor: pointer;
     outline: 1px solid var(--color-figure-win-dark-media-border);
     background-color: var(--color-figure-win-dark-media-background);
-
-    &:hover {
-      transform: scale(1.01);
-    }
   }
 }
 
@@ -295,10 +288,6 @@ img {
     cursor: pointer;
     outline: 1px solid hsl(0deg 0% 90%);
     background: var(--color-figure-mac-light-background);
-
-    &:hover {
-      transform: scale(1.01);
-    }
   }
 }
 
@@ -312,10 +301,6 @@ img {
     transition: transform 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
     cursor: pointer;
     outline: 1px solid var(--color-figure-mac-dark-border);
-
-    &:hover {
-      transform: scale(1.01);
-    }
   }
 }
 
