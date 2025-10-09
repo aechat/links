@@ -366,7 +366,6 @@ mark.quote::before {
 }
 
 .faq-section {
-  margin-block-start: -15px;
   margin-block-end: -1px;
   border: solid 1px var(--color-border-primary);
   background-color: var(--color-background-secondary);
@@ -376,7 +375,7 @@ mark.quote::before {
 
 .faq-content {
   details:not([open]) {
-    transition:  1s cubic-bezier(0.075, 0.82, 0.165, 1);
+    transition: 1s cubic-bezier(0.075, 0.82, 0.165, 1);
   }
 
   p {
@@ -554,9 +553,10 @@ mark.quote::before {
 }
 
 .faq-content details[open] {
-  transition: transform 0.75s cubic-bezier(0.075, 0.82, 0.165, 1),
-              filter 0.75s cubic-bezier(0.075, 0.82, 0.165, 1),
-              margin-block 0.75s cubic-bezier(0.075, 0.82, 0.165, 1);
+  transition:
+    transform 0.75s cubic-bezier(0.075, 0.82, 0.165, 1),
+    filter 0.75s cubic-bezier(0.075, 0.82, 0.165, 1),
+    margin-block 0.75s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
 body.body-has-any-spoiler-open .faq-content {

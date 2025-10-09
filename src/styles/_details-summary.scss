@@ -1,8 +1,8 @@
 details {
   summary {
     position: relative;
-    list-style: none;
     cursor: pointer;
+    list-style: none;
 
     &::-webkit-details-marker {
       display: none;
@@ -14,9 +14,10 @@ details {
   }
 
   .details-content-wrapper {
-    overflow: hidden;
-    max-height: 0;
     transition: max-height 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    margin-block-start: -15px;
+    max-height: 0;
+    overflow: hidden;
 
     .details-content-inner {
       overflow: hidden;
