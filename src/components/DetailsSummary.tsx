@@ -230,6 +230,7 @@ const DetailsSummary: React.FC<DetailsSummaryProps> = ({title, children, tag}) =
         resizeObserver.observe(innerContent);
       } else {
         details.open = false;
+        updateDimmingEffect();
       }
     };
 
@@ -246,7 +247,7 @@ const DetailsSummary: React.FC<DetailsSummaryProps> = ({title, children, tag}) =
       } else {
         contentWrapper.style.maxHeight = `${scrollHeight}px`;
       }
-
+      updateDimmingEffect();
       const summaryId = details.querySelector(".faq-summary")?.id;
       if (summaryId) {
         debouncedReplaceState(`#${summaryId}`);
@@ -449,7 +450,6 @@ const DetailsSummary: React.FC<DetailsSummaryProps> = ({title, children, tag}) =
     } else {
       setIsOpen(true);
     }
-    setTimeout(updateDimmingEffect, 350); // Delay to match animation
   };
 
   const handleCopyAnchor = () => {
