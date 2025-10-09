@@ -1,0 +1,56 @@
+@use "../abstracts/mixins" as *;
+
+.flexible-links {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  margin: 10px;
+  outline: 1px solid var(--color-button-group-border);
+  border-radius: $roundness;
+  overflow: hidden;
+
+  button,
+  a {
+    flex: 1 0 175px;
+    justify-content: center;
+    align-items: center;
+    vertical-align: middle;
+    transition: background-color 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+    margin-block: 0;
+    outline: 1px solid var(--color-button-group-border);
+    border-radius: 0;
+    background-color: var(--color-button-group-background);
+    padding-inline: 10px;
+    padding-block: 5px;
+    color: var(--color-button-group-text);
+    font-weight: 600;
+    font-size: 0.975rem;
+    line-height: 1.5;
+    font-family: Onest, serif;
+    text-align: center;
+    text-decoration: none;
+
+    &::before {
+      display: none;
+    }
+
+    &:hover {
+      opacity: 1;
+      background-color: var(--color-button-group-background-hover);
+    }
+
+    &:active {
+      opacity: 1;
+      background-color: var(--color-button-group-background-active);
+    }
+  }
+
+  .selected {
+    outline: 1px solid var(--color-button-group-border);
+    background-color: var(--color-button-group-background-hover);
+  }
+}
+
+li > .flexible-links {
+  margin-inline: 0;
+}

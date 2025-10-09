@@ -1,0 +1,107 @@
+@use "../abstracts/mixins" as *;
+
+.ant-divider-inner-text {
+  opacity: 0.8;
+  font-weight: 600 !important;
+  font-size: 0.785rem;
+  font-family: Onest, sans-serif !important;
+  text-transform: uppercase;
+}
+
+.ant-slider {
+  &:hover .ant-slider-handle::after {
+    box-shadow: 0 0 0 2px var(--color-accent);
+  }
+}
+
+.ant-message {
+  color: var(--color-text-primary);
+  font-family: Onest, Inter, sans-serif;
+
+  .ant-message-notice-wrapper .ant-message-notice-content {
+    outline: 1px solid var(--color-border-primary);
+    background: var(--color-background-secondary);
+    font-weight: 400;
+    font-size: 0.9rem !important;
+  }
+}
+
+.ant-modal-root .ant-modal-mask {
+  backdrop-filter: blur(25px);
+  background-color: var(--color-background-overlay);
+  height: 100vh;
+}
+
+.ant-breadcrumb {
+  font-size: 0.875rem;
+}
+
+.ant-modal {
+  top: 10px;
+  margin: 0 auto !important;
+  max-width: calc(100vw - 16px) !important;
+
+  @media screen and (width >= 768px) {
+    top: 64px;
+  }
+
+  .ant-modal-content {
+    box-shadow: none;
+    border: none;
+    border-radius: 0;
+    background: none;
+    padding: 0;
+  }
+}
+
+.ant-spin .ant-spin-dot-holder {
+  color: var(--color-accent);
+}
+
+.ant-radio-wrapper {
+  .ant-radio-inner {
+    border-color: var(--color-border-primary);
+    background-color: var(--color-border-primary);
+  }
+
+  &.ant-radio-checked .ant-radio-inner {
+    border-color: var(--color-accent);
+    background-color: var(--color-accent);
+  }
+
+  &:hover .ant-radio-inner {
+    border-color: var(--color-accent);
+  }
+}
+
+
+.ant-upload-wrapper .ant-upload-drag:not(.ant-upload-disabled):hover {
+  border-color: var(--color-accent);
+}
+
+.ant-dropdown-menu-item {
+  outline: 1px solid transparent;
+  border-radius: $roundness;
+
+  .ant-dropdown-menu-item-only-child {
+    border-radius: $roundness;
+  }
+
+  &:hover {
+    outline: 1px solid var(--color-surface-dropdown-border-hover);
+    background-color: var(--color-surface-dropdown-background-hover);
+  }
+
+  &:active {
+    background-color: var(--color-surface-dropdown-background-active);
+  }
+}
+
+.ant-dropdown-menu-title-content {
+  font-size: 0.875rem;
+}
+
+.ant-dropdown {
+  border: 1px solid var(--color-border-dropdown);
+  border-radius: $roundness;
+}

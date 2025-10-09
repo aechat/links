@@ -1,6 +1,7 @@
 @use "light-colors" as *;
 @use "dark-colors" as *;
 @use "sass:meta";
+@use "mixins" as *;
 
 :root {
   --accent-hue: 210;
@@ -58,18 +59,6 @@
   --figure-control-background-active: hsl(0deg 0% 80% / 20%);
   --figure-control-close-background-hover: hsl(0deg 100% 85% / 25%);
   --figure-control-close-background-active: hsl(0deg 100% 85% / 30%);
-}
-
-@mixin generate-vars-from-map($map, $prefix: "") {
-  @each $key, $value in $map {
-    $current-key: if($prefix == "", $key, "#{$prefix}-#{$key}");
-
-    @if meta.type-of($value) == "map" {
-      @include generate-vars-from-map($value, $current-key);
-    } @else {
-      --#{$current-key}: #{$value};
-    }
-  }
 }
 
 .light {

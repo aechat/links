@@ -12,7 +12,7 @@ import {ThemeProvider} from "./components/modal/ThemeChanger";
 
 import "@ant-design/v5-patch-for-react-19";
 
-import "./main.scss";
+import "./styles/main.scss";
 
 const rootElement = document.getElementById("root");
 
