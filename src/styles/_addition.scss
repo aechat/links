@@ -154,7 +154,7 @@
   justify-content: space-between;
   align-items: center;
   gap: 10px;
-  margin-block-start: -1px;
+  margin-block: 10px !important;
   outline: 1px solid var(--color-status-warning-border);
   background-color: var(--color-status-warning-background);
   padding: 10px 15px;
@@ -459,4 +459,4 @@ li .addition-danger {
       background-color: var(--color-status-warning-text) !important;
     }
   }
-}
+}

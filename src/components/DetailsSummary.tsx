@@ -201,6 +201,65 @@ const DetailsSummary: React.FC<DetailsSummaryProps> = ({title, children, tag}) =
 
   const sectionRef = useRef<HTMLElement>(null);
 
+  const debouncedReplaceState = useCallback(
+    debounce((hash: string) => {
+      history.replaceState(
+        null,
+        "",
+        window.location.pathname + window.location.search + hash
+      );
+    }, 50),
+    []
+  );
+
+  useEffect(() => {
+    const details = detailsRef.current;
+    if (!details) return;
+
+    if (isOpen) {
+      // Logic for opening
+      details.open = true;
+
+      const summaryId = details.querySelector(".faq-summary")?.id;
+      if (summaryId) {
+        debouncedReplaceState(`#${summaryId}`);
+
+        requestAnimationFrame(() => {
+          const summary = details.querySelector(".faq-summary");
+          if (summary) {
+            const {headerHeight, padding} = getScrollOffsets();
+            const y =
+              summary.getBoundingClientRect().top +
+              window.pageYOffset -
+              headerHeight -
+              padding;
+            window.scrollTo({top: y, behavior: "smooth"});
+          }
+        });
+      }
+    } else {
+      // Logic for closing
+      if (window.location.hash) {
+        debouncedReplaceState("");
+      }
+
+      const contentWrapper = details.querySelector(".details-content-wrapper");
+      if (!contentWrapper) return;
+
+      const onTransitionEnd = (e: TransitionEvent) => {
+        if (e.propertyName === "grid-template-rows") {
+          if (!isOpen) {
+            details.open = false;
+          }
+        }
+      };
+      contentWrapper.addEventListener("transitionend", onTransitionEnd);
+      return () => {
+        contentWrapper.removeEventListener("transitionend", onTransitionEnd);
+      };
+    }
+  }, [isOpen, debouncedReplaceState]);
+
   const scrollToAnchor = (targetElement: HTMLElement) => {
     const {headerHeight, padding} = getScrollOffsets();
     setTimeout(() => {
@@ -212,22 +271,7 @@ const DetailsSummary: React.FC<DetailsSummaryProps> = ({title, children, tag}) =
       window.scrollTo({top: y, behavior: "smooth"});
     }, constants.SCROLL_DELAY);
   };
-  useEffect(() => {
-    if (detailsRef.current) {
-      const observer = new MutationObserver(() => {
-        setIsOpen(detailsRef.current?.open || false);
 
-        const summaryId = detailsRef.current?.querySelector(".faq-summary")?.id;
-
-        if (summaryId) {
-          setDisplayAnchorId(summaryId);
-        }
-      });
-      observer.observe(detailsRef.current, {attributes: true, attributeFilter: ["open"]});
-
-      return () => observer.disconnect();
-    }
-  }, []);
   useEffect(() => {
     if (detailsRef.current) {
       const summaryElement = detailsRef.current.querySelector(".faq-summary");
@@ -252,6 +296,7 @@ const DetailsSummary: React.FC<DetailsSummaryProps> = ({title, children, tag}) =
       }
     }
   }, []);
+
   useEffect(() => {
     const anchorId = window.location.hash.slice(1);
 
@@ -261,15 +306,15 @@ const DetailsSummary: React.FC<DetailsSummaryProps> = ({title, children, tag}) =
       scrollToAnchor(summaryElement as HTMLElement);
     }
   }, [isOpen]);
+
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
       if (
         (event.ctrlKey && event.altKey && event.shiftKey && event.key === "A") ||
         (event.ctrlKey && event.altKey && event.shiftKey && event.key === "Ф")
       ) {
-        const detailsElements = document.querySelectorAll("details");
-        detailsElements.forEach((details) => {
-          details.setAttribute("open", "true");
+        document.querySelectorAll("details").forEach((details) => {
+          details.open = true;
         });
         message.success("Вжух, и все спойлеры раскрылись!");
       }
@@ -280,6 +325,7 @@ const DetailsSummary: React.FC<DetailsSummaryProps> = ({title, children, tag}) =
       window.removeEventListener("keydown", handleKeyDown);
     };
   }, []);
+
   useEffect(() => {
     if (!sectionRef.current) {
       return;
@@ -295,7 +341,7 @@ const DetailsSummary: React.FC<DetailsSummaryProps> = ({title, children, tag}) =
           history.replaceState(
             null,
             "",
-            window.location.pathname + window.location.search + `#${summaryId}`
+            `${window.location.pathname}${window.location.search}#${summaryId}`
           );
         }
       }, constants.MOUSE_ENTER_DELAY);
@@ -338,6 +384,7 @@ const DetailsSummary: React.FC<DetailsSummaryProps> = ({title, children, tag}) =
       document.body.classList.remove("has-open-details");
     }
   }, []);
+
   useEffect(() => {
     if (!window.detailsSummaryScrollListenerAttached) {
       window.addEventListener("scroll", updateDimmingEffect, {passive: true});
@@ -345,42 +392,17 @@ const DetailsSummary: React.FC<DetailsSummaryProps> = ({title, children, tag}) =
     }
   }, [updateDimmingEffect]);
 
-  const debouncedReplaceState = useCallback(
-    debounce((hash: string) => {
-      history.replaceState(
-        null,
-        "",
-        window.location.pathname + window.location.search + hash
-      );
-    }, 50),
-    []
-  );
+  const handleSummaryClick = (event: React.MouseEvent) => {
+    event.preventDefault();
+    const details = detailsRef.current;
+    if (!details) return;
 
-  const handleToggle = (event: React.SyntheticEvent) => {
-    const details = event.currentTarget as HTMLDetailsElement;
-
-    const summaryId = detailsRef.current?.querySelector(".faq-summary")?.id;
-
-    if (details.open && summaryId) {
-      debouncedReplaceState(`#${summaryId}`);
-
-      const {headerHeight, padding} = getScrollOffsets();
-
-      const summary = detailsRef.current?.querySelector(".faq-summary");
-
-      if (summary) {
-        const y =
-          summary.getBoundingClientRect().top +
-          window.pageYOffset -
-          headerHeight -
-          padding;
-        window.scrollTo({top: y, behavior: "smooth"});
-      }
-    } else if (window.location.hash) {
-      debouncedReplaceState("");
+    if (details.open) {
+      setIsOpen(false);
+    } else {
+      setIsOpen(true);
     }
-
-    setTimeout(updateDimmingEffect, 0);
+    setTimeout(updateDimmingEffect, 350); // Delay to match animation
   };
 
   const handleCopyAnchor = () => {
@@ -406,14 +428,19 @@ const DetailsSummary: React.FC<DetailsSummaryProps> = ({title, children, tag}) =
   return (
     <details
       ref={detailsRef}
+      className={isOpen ? "is-open" : ""}
       data-tags={tag}
-      open={isOpen}
-      onToggle={handleToggle}
     >
-      <summary className="faq-summary">
+      <summary
+        className="faq-summary"
+        onClick={handleSummaryClick}
+      >
         <div className="faq-summary-left">
-          <span style={{fontFamily: "JetBrains Mono, monospace"}}>
-            {isOpen ? "-" : "+"}
+          <span
+            className="faq-summary-icon"
+            style={{fontFamily: "JetBrains Mono, monospace"}}
+          >
+            +
           </span>
           <div style={{display: "flex", flexDirection: "column", gap: "5px"}}>
             <h3>{headingText}</h3>
@@ -433,15 +460,19 @@ const DetailsSummary: React.FC<DetailsSummaryProps> = ({title, children, tag}) =
           </button>
         </Tooltip>
       </summary>
-      <SpoilerContext.Provider value={isOpen}>
-        <section
-          ref={sectionRef}
-          className="faq-section"
-          onClick={handleSectionClick}
-        >
-          {children}
-        </section>
-      </SpoilerContext.Provider>
+      <div className="details-content-wrapper">
+        <div className="details-content-inner">
+          <SpoilerContext.Provider value={isOpen}>
+            <section
+              ref={sectionRef}
+              className="faq-section"
+              onClick={handleSectionClick}
+            >
+              {children}
+            </section>
+          </SpoilerContext.Provider>
+        </div>
+      </div>
       {InternalLinkModal}
       {ExternalLinkModal}
     </details>
