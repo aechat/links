@@ -975,19 +975,26 @@ const AEExport: React.FC = () => {
           <ul>
             <li>
               <p>
-                Обратите внимание, что с помощью кодеков{" "}
-                <mark className="video">H.264</mark> и{" "}
-                <mark className="video">H.265</mark> не получится экспортировать видео с
-                прозрачностью. Видео с кодеком <mark className="video">H.265</mark> и
-                альфа-каналом можно экспортировать только на устройствах с{" "}
-                <mark>macOS</mark>, но совместимость таких файлов с другими устройствами
-                оставляет желать лучшего.
+                Обратите внимание: с помощью кодеков <mark className="video">H.264</mark>{" "}
+                и <mark className="video">H.265</mark>
+                <sup>1</sup> не получится экспортировать видео с прозрачностью. Для
+                экспорта композиции с прозрачным фоном лучше использовать формат{" "}
+                <mark className="video">QuickTime (Apple ProRes 4444)</mark>.
               </p>
-              <p>
-                Для экспорта композиции с прозрачным фоном лучше использовать форматы{" "}
-                <mark className="video">QuickTime (Apple ProRes 4444)</mark> или{" "}
-                <mark className="video">WEBM (VP9)</mark>.
-              </p>
+              <ul>
+                <li>
+                  <sup>1</sup> У кодека <mark className="video">H.265</mark> всё же есть
+                  нюанс — чтобы получить видео с этим кодеком и альфа-каналом, нужно
+                  сначала экспортировать композицию в{" "}
+                  <mark className="video">Apple ProRes 4444</mark>, а затем конвертировать
+                  её через <mark className="app">Shutter Encoder</mark> с включённой
+                  опцией <mark className="select">«Enable alpha channel»</mark>. Однако
+                  альфа-канал в <mark className="video">H.265</mark> на практике можно
+                  увидеть только в браузере <mark className="app">Safari</mark> — в{" "}
+                  <mark className="app">Adobe After Effects</mark> и других монтажных
+                  программах он отображаться не будет.
+                </li>
+              </ul>
             </li>
             <li>
               Из-за особенностей стандарта <mark className="video">H.264</mark> не
