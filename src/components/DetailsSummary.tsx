@@ -153,8 +153,6 @@ export const generateAnchorId = () => {
       if (!summary.hasAttribute("id")) {
         summary.setAttribute("id", generatedAnchor);
       }
-
-
     });
   });
 
@@ -212,7 +210,9 @@ const DetailsSummary: React.FC<DetailsSummaryProps> = ({title, children, tag}) =
     const contentWrapper = details.querySelector<HTMLElement>(".details-content-wrapper");
     if (!contentWrapper) return;
 
-    const innerContent = contentWrapper.querySelector<HTMLElement>(".details-content-inner");
+    const innerContent = contentWrapper.querySelector<HTMLElement>(
+      ".details-content-inner"
+    );
     if (!innerContent) return;
 
     const resizeObserver = new ResizeObserver(() => {
@@ -228,6 +228,8 @@ const DetailsSummary: React.FC<DetailsSummaryProps> = ({title, children, tag}) =
       if (isOpen) {
         contentWrapper.style.maxHeight = `${innerContent.scrollHeight}px`;
         resizeObserver.observe(innerContent);
+        const detailsHeight = details.offsetHeight;
+        details.style.marginBottom = `${detailsHeight * 0.01 + 10}px`;
       } else {
         details.open = false;
         updateDimmingEffect();
@@ -247,6 +249,7 @@ const DetailsSummary: React.FC<DetailsSummaryProps> = ({title, children, tag}) =
       } else {
         contentWrapper.style.maxHeight = `${scrollHeight}px`;
       }
+
       updateDimmingEffect();
       const summaryId = details.querySelector(".faq-summary")?.id;
       if (summaryId) {
@@ -272,6 +275,7 @@ const DetailsSummary: React.FC<DetailsSummaryProps> = ({title, children, tag}) =
           debouncedReplaceState("");
         }
         contentWrapper.style.maxHeight = "0px";
+        details.style.marginBottom = "";
       }
     }
 
@@ -328,8 +332,8 @@ const DetailsSummary: React.FC<DetailsSummaryProps> = ({title, children, tag}) =
 
   useEffect(() => {
     const handleOpenEvent = (event: Event) => {
-      const customEvent = event as CustomEvent<{ id: string; }>
-      const { id } = customEvent.detail;
+      const customEvent = event as CustomEvent<{id: string}>;
+      const {id} = customEvent.detail;
       const summaryElement = detailsRef.current?.querySelector(".faq-summary");
       if (summaryElement && summaryElement.id === id) {
         setIsOpen(true);
