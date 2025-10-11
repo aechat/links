@@ -282,6 +282,17 @@
     border-bottom-right-radius: $roundness;
     border-bottom-left-radius: $roundness;
   }
+
+  details[open] + details .faq-summary {
+    border-top-right-radius: $roundness;
+    border-top-left-radius: $roundness;
+  }
+
+  details:has(+ details[open]) .faq-summary {
+    border-bottom: 1px solid var(--color-surface-primary-border);
+    border-bottom-right-radius: $roundness;
+    border-bottom-left-radius: $roundness;
+  }
 }
 
 .faq-content details[open] {
@@ -289,6 +300,9 @@
     transform 0.75s cubic-bezier(0.075, 0.82, 0.165, 1),
     filter 0.75s cubic-bezier(0.075, 0.82, 0.165, 1),
     margin-block 0.75s cubic-bezier(0.075, 0.82, 0.165, 1);
+  border-bottom: 1px solid var(--color-border-primary);
+  border-bottom-right-radius: $roundness;
+  border-bottom-left-radius: $roundness;
 }
 
 body.body-has-any-spoiler-open .faq-content {
