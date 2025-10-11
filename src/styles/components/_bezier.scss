@@ -26,18 +26,18 @@
   align-items: center;
   margin: 10px 0;
   width: 100%;
-  overflow: hidden;
   min-height: 200px;
+  overflow: hidden;
 }
 
 .animation-demo-container {
-  position: relative;
-  width: 100%;
   display: flex;
+  position: relative;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   perspective: 800px;
+  width: 100%;
 }
 
 .animation-track {
@@ -47,14 +47,14 @@
 }
 
 .track-visuals {
+  display: flex;
   position: absolute;
   top: 50%;
-  left: 0;
   right: 0;
-  transform: translateY(-50%);
-  display: flex;
+  left: 0;
   flex-direction: column;
   align-items: center;
+  transform: translateY(-50%);
 }
 
 .track-line {
@@ -62,30 +62,30 @@
   transition: background-color 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
   border-radius: 5px;
   background: var(--color-easing-track-background);
-  height: 5px;
   width: 100%;
+  height: 5px;
 }
 
 .ruler {
   position: relative;
-  height: 20px;
-  width: 100%;
   margin-bottom: 5px;
+  width: 100%;
+  height: 20px;
 }
 
 .ruler-tick {
   position: absolute;
   bottom: 0;
+  background-color: var(--color-easing-text-muted);
   width: 1px;
   height: 5px;
-  background-color: var(--color-easing-text-muted);
 
   .ruler-label {
     position: absolute;
     bottom: 10px;
     transform: translateX(-50%);
-    font-size: 10px;
     color: var(--color-easing-text-muted);
+    font-size: 10px;
 
     &--start {
       transform: translateX(0);
@@ -100,56 +100,24 @@
 .animated-cube {
   position: absolute;
   top: 50%;
-  width: 40px;
-  height: 40px;
-  background: var(--color-accent);
-  border-radius: 5px;
-
-  &--3d {
-    width: 60px;
-    height: 60px;
-    background: none;
-    border-radius: 0;
-  }
-}
-
-.animated-cube-3d-wrapper {
-  width: 100%;
-  height: 100%;
-  transform-style: preserve-3d;
-  transform: translate(-50%, -50%);
-}
-
-.animated-cube-flat {
-  width: 40px;
-  height: 40px;
-  background: var(--color-accent);
-  border-radius: 5px;
-  transform: translate(-50%, -50%);
-}
-
-.animated-cube-face {
-  position: absolute;
-  width: 60px;
-  height: 60px;
   border: 2px solid var(--color-accent);
-  background: rgba(var(--color-accent-rgb), 0.5);
-  color: white;
-  text-align: center;
-  font-size: 12px;
-  line-height: 40px;
+  border-radius: 8px;
+  background: var(--color-easing-display-background);
+  width: 40px;
+  height: 40px;
 }
 
 .animated-cube-trail {
   position: absolute;
   top: 50%;
   transform: translate(-50%, -50%);
-  border-radius: 5px;
-  width: 40px;
-  height: 40px;
+  opacity: 0.5;
   transition: opacity 0.5s ease-out;
   border: 1px solid var(--color-accent);
+  border-radius: 8px;
   background: transparent;
+  width: 40px;
+  height: 40px;
 }
 
 .graphs-container {
@@ -162,9 +130,9 @@
 .graph-container {
   flex: 1 1 400px;
   box-sizing: border-box;
-  border: 1px solid var(--color-border-primary);
+  border: 1px solid var(--color-easing-graph-border);
   border-radius: 8px;
-  background: var(--color-background-secondary);
+  background: var(--color-easing-graph-background);
   padding: 10px;
 }
 
@@ -197,62 +165,6 @@
   justify-content: center;
   gap: 8px;
   min-width: 0;
-}
-
-.control-item-label {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  color: var(--color-text-tertiary);
-  font-size: 14px;
-}
-
-.control-item-select {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  transition:
-    border-color 0.5s cubic-bezier(0.075, 0.82, 0.165, 1),
-    background-color 0.5s cubic-bezier(0.075, 0.82, 0.165, 1),
-    color 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
-  cursor: pointer;
-  box-sizing: border-box;
-  border: 1px solid var(--color-easing-control-border);
-  border-radius: 4px;
-  background: var(--color-easing-control-background);
-  padding: 8px;
-  height: 36px;
-  color: var(--color-easing-text-primary);
-  font-size: 14px;
-  text-align: center;
-}
-
-.control-item-select:hover {
-  border-color: var(--color-easing-control-border-hover);
-  background: var(--color-easing-control-background-hover);
-}
-
-.control-item-select:active {
-  transform: scale(0.98);
-  transition: transform 0.1s;
-}
-
-.control-item-display {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  transition:
-    border-color 0.5s cubic-bezier(0.075, 0.82, 0.165, 1),
-    background-color 0.5s cubic-bezier(0.075, 0.82, 0.165, 1),
-    color 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
-  border: 1px solid var(--color-easing-control-border);
-  border-radius: 4px;
-  background: var(--color-easing-display-background);
-  padding: 8px;
-  height: 36px;
-  color: var(--color-easing-text-primary);
-  font-size: 14px;
-  text-align: center;
 }
 
 .graph-background {
@@ -295,12 +207,12 @@
 }
 
 .control-line {
-  stroke: var(--color-accent);
+  stroke: var(--color-easing-selection);
   stroke-width: 2px;
 }
 
 .animated-dot {
-  fill: var(--color-accent);
+  fill: var(--color-easing-selection);
   stroke: var(--color-easing-text-primary);
   stroke-width: 1.5px;
   transition:
@@ -309,11 +221,11 @@
 }
 
 .keyframe-point {
-  fill: var(--color-accent);
+  fill: var(--color-easing-selection);
 }
 
 .handle {
-  fill: var(--color-accent);
+  fill: var(--color-easing-selection);
   transition:
     filter 0.5s cubic-bezier(0.075, 0.82, 0.165, 1),
     fill 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);

@@ -138,6 +138,12 @@ interface AnimationDemoProps {
   trackWidth: number;
   valueYMin: number;
   valueYMax: number;
+  showTrail: boolean;
+}
+
+interface TrailFrame {
+  point: Point;
+  progress: number;
 }
 
 const AnimationDemo: React.FC<AnimationDemoProps> = ({
@@ -147,6 +153,7 @@ const AnimationDemo: React.FC<AnimationDemoProps> = ({
   trackWidth,
   valueYMin,
   valueYMax,
+  showTrail,
 }) => {
   const curveRange = valueYMax - valueYMin;
 
@@ -163,6 +170,25 @@ const AnimationDemo: React.FC<AnimationDemoProps> = ({
     transform: `translateX(${offset}px) scaleX(${scaleX})`,
     transformOrigin: "left",
   };
+
+  const [trailPositions, setTrailPositions] = useState<TrailFrame[]>([]);
+
+  useEffect(() => {
+    if (
+      showTrail &&
+      ["position", "positionAndRotation", "positionAndScale"].includes(animationProperty)
+    ) {
+      setTrailPositions((prev) => {
+        const progress = animatedPoint.y / trackWidth;
+
+        const newTrail = [...prev, {point: animatedPoint, progress}];
+
+        return newTrail.slice(Math.max(newTrail.length - 15, 0));
+      });
+    } else {
+      setTrailPositions([]);
+    }
+  }, [animatedPoint, animationProperty, showTrail, trackWidth]);
 
   const getAnimatedStyle = () => {
     if (trackWidth === 0) {
@@ -257,6 +283,46 @@ const AnimationDemo: React.FC<AnimationDemoProps> = ({
             <div className="track-line" />
           </div>
         )}
+        {showTrail &&
+          trailPositions.map((trailFrame, index) => {
+            const opacity = 0.5 * ((index + 1) / trailPositions.length);
+
+            const left = shouldScale
+              ? trailFrame.point.y * scaleX + offset
+              : trailFrame.point.y;
+
+            let animTransform = "";
+
+            switch (animationProperty) {
+              case "positionAndRotation":
+                const posRotRotation = trailFrame.progress * 720;
+                animTransform = `rotate(${posRotRotation}deg)`;
+
+                break;
+
+              case "positionAndScale":
+                const posScaleScale = 0.5 + trailFrame.progress * 1.5;
+                animTransform = `scale(${posScaleScale})`;
+
+                break;
+
+              default:
+                animTransform = "";
+            }
+
+            return (
+              <div
+                key={index}
+                className="animated-cube-trail"
+                style={{
+                  left: `${left}px`,
+                  top: "50%",
+                  opacity: opacity,
+                  transform: `translateY(-50%) translateX(-50%) ${animTransform}`,
+                }}
+              ></div>
+            );
+          })}
         <div
           className={`animated-cube`}
           style={getAnimatedStyle()}
@@ -703,6 +769,8 @@ interface AnimationControlsProps {
   isPaused: boolean;
   handleTogglePlayPause: () => void;
   handleResetAnimation: () => void;
+  showTrail: boolean;
+  setShowTrail: (show: boolean) => void;
 }
 
 const AnimationControls: React.FC<AnimationControlsProps> = ({
@@ -718,6 +786,8 @@ const AnimationControls: React.FC<AnimationControlsProps> = ({
   isPaused,
   handleTogglePlayPause = () => {},
   handleResetAnimation = () => {},
+  showTrail,
+  setShowTrail = () => {},
 }) => {
   const modeTextMap: Record<AnimationMode, string> = {
     "ping-pong": "Пинг-понг",
@@ -799,6 +869,12 @@ const AnimationControls: React.FC<AnimationControlsProps> = ({
             {isPaused ? "▶ Воспроизвести" : "❚❚ Пауза"}
           </button>
           <button onClick={handleResetAnimation}>Сбросить</button>
+          <button
+            className={showTrail ? "active selected" : ""}
+            onClick={() => setShowTrail(!showTrail)}
+          >
+            Показать след
+          </button>
         </div>
       </div>
     </div>
@@ -839,6 +915,8 @@ const EasingEditor: React.FC = () => {
   const [fps, setFps] = useState(30);
 
   const [isPaused, setIsPaused] = useState(false);
+
+  const [showTrail, setShowTrail] = useState(true);
 
   const [actualFps, setActualFps] = useState(fps);
 
@@ -1311,6 +1389,7 @@ const EasingEditor: React.FC = () => {
         <AnimationDemo
           animatedPoint={animatedPoint}
           animationProperty={animationProperty}
+          showTrail={showTrail}
           trackRef={trackRef}
           trackWidth={trackWidth}
           valueYMax={valueYMax}
@@ -1359,6 +1438,8 @@ const EasingEditor: React.FC = () => {
         setAnimationProperty={setAnimationProperty}
         setDuration={setDuration}
         setFps={setFps}
+        setShowTrail={setShowTrail}
+        showTrail={showTrail}
         timecode={timecode}
       />
     </div>
