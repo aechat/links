@@ -26,7 +26,18 @@
   align-items: center;
   margin: 10px 0;
   width: 100%;
-  min-height: 25px;
+  overflow: hidden;
+  min-height: 200px;
+}
+
+.animation-demo-container {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  perspective: 800px;
 }
 
 .animation-track {
@@ -35,34 +46,107 @@
   width: 90%;
 }
 
-.track-line {
+.track-visuals {
   position: absolute;
   top: 50%;
-  right: 0;
   left: 0;
+  right: 0;
   transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.track-line {
+  position: relative;
   transition: background-color 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
   border-radius: 5px;
   background: var(--color-easing-track-background);
   height: 5px;
+  width: 100%;
 }
 
-.animated-cube,
+.ruler {
+  position: relative;
+  height: 20px;
+  width: 100%;
+  margin-bottom: 5px;
+}
+
+.ruler-tick {
+  position: absolute;
+  bottom: 0;
+  width: 1px;
+  height: 5px;
+  background-color: var(--color-easing-text-muted);
+
+  .ruler-label {
+    position: absolute;
+    bottom: 10px;
+    transform: translateX(-50%);
+    font-size: 10px;
+    color: var(--color-easing-text-muted);
+
+    &--start {
+      transform: translateX(0);
+    }
+
+    &--end {
+      transform: translateX(-100%);
+    }
+  }
+}
+
+.animated-cube {
+  position: absolute;
+  top: 50%;
+  width: 40px;
+  height: 40px;
+  background: var(--color-accent);
+  border-radius: 5px;
+
+  &--3d {
+    width: 60px;
+    height: 60px;
+    background: none;
+    border-radius: 0;
+  }
+}
+
+.animated-cube-3d-wrapper {
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transform: translate(-50%, -50%);
+}
+
+.animated-cube-flat {
+  width: 40px;
+  height: 40px;
+  background: var(--color-accent);
+  border-radius: 5px;
+  transform: translate(-50%, -50%);
+}
+
+.animated-cube-face {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  border: 2px solid var(--color-accent);
+  background: rgba(var(--color-accent-rgb), 0.5);
+  color: white;
+  text-align: center;
+  font-size: 12px;
+  line-height: 40px;
+}
+
 .animated-cube-trail {
   position: absolute;
   top: 50%;
   transform: translate(-50%, -50%);
   border-radius: 5px;
-  width: 20px;
-  height: 20px;
-}
-
-.animated-cube {
-  z-index: 2;
-  background: var(--color-accent);
-}
-
-.animated-cube-trail {
+  width: 40px;
+  height: 40px;
   transition: opacity 0.5s ease-out;
   border: 1px solid var(--color-accent);
   background: transparent;
@@ -242,4 +326,4 @@
 
 .handle:active {
   cursor: grabbing;
-}
+}

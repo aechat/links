@@ -28,8 +28,6 @@ const SAMPLES = 100;
 
 const INFINITE_SPEED = 99999;
 
-const MAX_TRAIL_COUNT = 15;
-
 const SPEED_AXIS_PADDING_FACTOR = 0.2;
 
 const VALUE_Y_MIN_FACTOR = -0.5;
@@ -85,43 +83,188 @@ const getNiceTickStep = (range: number, maxTicks: number): number => {
 
   return magnitude;
 };
+
+const Ruler: React.FC<{trackWidth: number; style?: React.CSSProperties}> = ({
+  trackWidth,
+  style,
+}) => {
+  if (trackWidth === 0) {
+    return null;
+  }
+
+  const numDivisions = 10;
+
+  const tickInterval = trackWidth / numDivisions;
+
+  const ticks = Array.from({length: numDivisions + 1}, (_, i) => i * tickInterval);
+
+  return (
+    <div
+      className="ruler"
+      style={style}
+    >
+      {ticks.map((tick) => {
+        let labelClass = "ruler-label";
+
+        if (tick === 0) {
+          labelClass += " ruler-label--start";
+        } else if (tick === trackWidth) {
+          labelClass += " ruler-label--end";
+        }
+
+        return (
+          <div
+            key={tick}
+            className="ruler-tick"
+            style={{left: `calc(${tick}px - 0.5px)`}}
+          >
+            <span className={labelClass}>{Math.round(tick)}</span>
+          </div>
+        );
+      })}
+    </div>
+  );
+};
 interface AnimationDemoProps {
   trackRef: React.RefObject<HTMLDivElement | null>;
-  showTrails: boolean;
-  cubeTrail: number[];
   animatedPoint: Point;
+  animationProperty:
+    | "position"
+    | "positionAndRotation"
+    | "positionAndScale"
+    | "scale"
+    | "rotation"
+    | "scaleAndRotate";
+  trackWidth: number;
+  valueYMin: number;
+  valueYMax: number;
 }
 
 const AnimationDemo: React.FC<AnimationDemoProps> = ({
   trackRef,
-  showTrails,
-  cubeTrail,
   animatedPoint,
-}) => (
-  <div className="animation-preview">
-    <div
-      ref={trackRef}
-      className="animation-track"
-    >
-      <div className="track-line" />
-      {showTrails &&
-        cubeTrail.map((progress, index) => (
-          <div
-            key={index}
-            className="animated-cube-trail"
-            style={{
-              left: `${progress}px`,
-              opacity: 1 - (index + 1) / (MAX_TRAIL_COUNT + 1),
-            }}
-          />
-        ))}
+  animationProperty,
+  trackWidth,
+  valueYMin,
+  valueYMax,
+}) => {
+  const curveRange = valueYMax - valueYMin;
+
+  const shouldScale =
+    ["position", "positionAndRotation", "positionAndScale"].includes(animationProperty) &&
+    curveRange > trackWidth &&
+    trackWidth > 0;
+
+  const scaleX = shouldScale ? trackWidth / curveRange : 1;
+
+  const offset = shouldScale ? -valueYMin * scaleX : 0;
+
+  const trackElementsStyle = {
+    transform: `translateX(${offset}px) scaleX(${scaleX})`,
+    transformOrigin: "left",
+  };
+
+  const getAnimatedStyle = () => {
+    if (trackWidth === 0) {
+      return {};
+    }
+
+    const progress = animatedPoint.y / trackWidth;
+
+    const left = shouldScale ? animatedPoint.y * scaleX + offset : animatedPoint.y;
+
+    const translateY = "translateY(-50%)";
+    let animTransform = "";
+
+    switch (animationProperty) {
+      case "scale":
+        const scale = 0.5 + progress * 2;
+        animTransform = `scale(${scale})`;
+
+        return {
+          transform: `${translateY} translateX(-50%) ${animTransform}`,
+          left: "50%",
+          top: "50%",
+        };
+
+      case "rotation":
+        const rotation = progress * 720;
+        animTransform = `rotate(${rotation}deg)`;
+
+        return {
+          transform: `${translateY} translateX(-50%) ${animTransform}`,
+          left: "50%",
+          top: "50%",
+        };
+
+      case "scaleAndRotate":
+        const comboScale = 0.5 + progress * 2;
+
+        const comboRotation = progress * 720;
+        animTransform = `scale(${comboScale}) rotate(${comboRotation}deg)`;
+
+        return {
+          transform: `${translateY} translateX(-50%) ${animTransform}`,
+          left: "50%",
+          top: "50%",
+        };
+
+      case "positionAndRotation":
+        const posRotRotation = progress * 720;
+        animTransform = `rotate(${posRotRotation}deg)`;
+
+        return {
+          transform: `${translateY} translateX(-50%) ${animTransform}`,
+          left: `${left}px`,
+          top: "50%",
+        };
+
+      case "positionAndScale":
+        const posScaleScale = 0.5 + progress * 1.5;
+        animTransform = `scale(${posScaleScale})`;
+
+        return {
+          transform: `${translateY} translateX(-50%) ${animTransform}`,
+          left: `${left}px`,
+          top: "50%",
+        };
+
+      case "position":
+
+      default:
+        return {
+          transform: `${translateY} translateX(-50%)`,
+          left: `${left}px`,
+          top: "50%",
+        };
+    }
+  };
+
+  return (
+    <div className="animation-preview">
       <div
-        className="animated-cube"
-        style={{left: `${animatedPoint.y}px`}}
-      />
+        ref={trackRef}
+        className="animation-track"
+      >
+        {["position", "positionAndRotation", "positionAndScale"].includes(
+          animationProperty
+        ) && (
+          <div
+            className="track-visuals"
+            style={trackElementsStyle}
+          >
+            <Ruler trackWidth={trackWidth} />
+            <div className="track-line" />
+          </div>
+        )}
+        <div
+          className={`animated-cube`}
+          style={getAnimatedStyle()}
+        ></div>
+      </div>
     </div>
-  </div>
-);
+  );
+};
 interface ValueGraphProps {
   svgRef: React.RefObject<SVGSVGElement | null>;
   dimensions: {width: number; height: number};
@@ -132,6 +275,13 @@ interface ValueGraphProps {
   animatedPoint: Point;
   duration: number;
   trackWidth: number;
+  animationProperty:
+    | "position"
+    | "positionAndRotation"
+    | "positionAndScale"
+    | "scale"
+    | "rotation"
+    | "scaleAndRotate";
   mapToSvg: (p: Point) => Point;
   onMouseDown: (e: React.MouseEvent | React.TouchEvent, handle: "p1" | "p2") => void;
 }
@@ -146,6 +296,7 @@ const ValueGraph: React.FC<ValueGraphProps> = ({
   animatedPoint,
   duration,
   trackWidth,
+  animationProperty,
   mapToSvg,
   onMouseDown,
 }) => {
@@ -184,6 +335,43 @@ const ValueGraph: React.FC<ValueGraphProps> = ({
     ];
   }, [trackWidth]);
 
+  const getLabel = (tick: number) => {
+    if (trackWidth === 0) {
+      return "0";
+    }
+
+    const progress = tick / trackWidth;
+
+    const getPositionLabel = () => `${Math.round(tick)}px`;
+
+    const getRotationLabel = () => `${Math.round(progress * 720)}°`;
+
+    const getScaleLabel = () => `${Math.round(50 + progress * 200)}%`;
+
+    switch (animationProperty) {
+      case "position":
+        return getPositionLabel();
+
+      case "rotation":
+        return getRotationLabel();
+
+      case "scale":
+        return getScaleLabel();
+
+      case "positionAndRotation":
+        return `${getPositionLabel()} + ${getRotationLabel()}`;
+
+      case "positionAndScale":
+        return `${getPositionLabel()} + ${getScaleLabel()}`;
+
+      case "scaleAndRotate":
+        return `${getScaleLabel()} + ${getRotationLabel()}`;
+
+      default:
+        return "0";
+    }
+  };
+
   return (
     <div className="graph-container">
       <label>Value Graph</label>
@@ -217,7 +405,9 @@ const ValueGraph: React.FC<ValueGraphProps> = ({
                   className="grid-text grid-text-y"
                   x={PADDING + 8}
                   y={mapToSvg({x: 0, y: tick}).y + 4}
-                >{`${Math.round(tick)}px`}</text>
+                >
+                  {getLabel(tick)}
+                </text>
               </g>
             ))}
             {xTicks.map((tick) => (
@@ -492,33 +682,56 @@ interface AnimationControlsProps {
   fps: number;
   actualFps: number;
   setFps: (value: number) => void;
+  animationProperty:
+    | "position"
+    | "positionAndRotation"
+    | "positionAndScale"
+    | "scale"
+    | "rotation"
+    | "scaleAndRotate";
+  setAnimationProperty: (
+    property:
+      | "position"
+      | "positionAndRotation"
+      | "positionAndScale"
+      | "scale"
+      | "rotation"
+      | "scaleAndRotate"
+  ) => void;
   animationMode: AnimationMode;
   setAnimationMode: (mode: AnimationMode) => void;
   isPaused: boolean;
   handleTogglePlayPause: () => void;
   handleResetAnimation: () => void;
-  showTrails: boolean;
-  setShowTrails: (value: boolean) => void;
 }
 
 const AnimationControls: React.FC<AnimationControlsProps> = ({
   duration,
-  setDuration,
+  setDuration = () => {},
   fps,
   actualFps,
-  setFps,
+  setFps = () => {},
+  animationProperty,
+  setAnimationProperty = () => {},
   animationMode,
-  setAnimationMode,
+  setAnimationMode = () => {},
   isPaused,
-  handleTogglePlayPause,
-  handleResetAnimation,
-  showTrails,
-  setShowTrails,
+  handleTogglePlayPause = () => {},
+  handleResetAnimation = () => {},
 }) => {
   const modeTextMap: Record<AnimationMode, string> = {
     "ping-pong": "Пинг-понг",
     "loop": "Цикл",
     "once": "Один раз",
+  };
+
+  const propertyTextMap: Record<typeof animationProperty, string> = {
+    position: "Позиция",
+    positionAndRotation: "Позиция + Поворот",
+    positionAndScale: "Позиция + масштаб",
+    scale: "Масштаб",
+    rotation: "Поворот",
+    scaleAndRotate: "Поворот + масштаб",
   };
 
   return (
@@ -554,6 +767,18 @@ const AnimationControls: React.FC<AnimationControlsProps> = ({
         </div>
       </div>
       <div className="control-item">
+        <label>Свойство</label>
+        <div className="flexible-links">
+          {Object.keys(propertyTextMap).map((prop) => (
+            <button
+              key={prop}
+              className={animationProperty === prop ? "active selected" : ""}
+              onClick={() => setAnimationProperty(prop as typeof animationProperty)}
+            >
+              {propertyTextMap[prop as typeof animationProperty]}
+            </button>
+          ))}
+        </div>
         <label>Режим</label>
         <div className="flexible-links">
           {MODES.map((mode) => (
@@ -566,18 +791,14 @@ const AnimationControls: React.FC<AnimationControlsProps> = ({
             </button>
           ))}
         </div>
+      </div>
+      <div className="control-item">
         <label>Управление</label>
         <div className="flexible-links">
           <button onClick={handleTogglePlayPause}>
             {isPaused ? "▶ Воспроизвести" : "❚❚ Пауза"}
           </button>
           <button onClick={handleResetAnimation}>Сбросить</button>
-          <button
-            className={showTrails ? "active selected" : ""}
-            onClick={() => setShowTrails(!showTrails)}
-          >
-            Показать след
-          </button>
         </div>
       </div>
     </div>
@@ -604,19 +825,24 @@ const EasingEditor: React.FC = () => {
 
   const [duration, setDuration] = useState(2);
 
+  const [animationProperty, setAnimationProperty] = useState<
+    | "position"
+    | "positionAndRotation"
+    | "positionAndScale"
+    | "scale"
+    | "rotation"
+    | "scaleAndRotate"
+  >("position");
+
   const [animationMode, setAnimationMode] = useState<AnimationMode>("ping-pong");
 
   const [fps, setFps] = useState(30);
-
-  const [showTrails, setShowTrails] = useState(false);
 
   const [isPaused, setIsPaused] = useState(false);
 
   const [actualFps, setActualFps] = useState(fps);
 
   const [trackWidth, setTrackWidth] = useState(0);
-
-  const [cubeTrail, setCubeTrail] = useState<number[]>([]);
 
   const [elapsedTime, setElapsedTime] = useState(0);
 
@@ -683,7 +909,7 @@ const EasingEditor: React.FC = () => {
     return () => observer.disconnect();
   }, []);
 
-  const {p0, p1, p2, p3, speedOut, speedIn} = useMemo(() => {
+  const {p0, p1, p2, p3, speedOut, speedIn, valueYMin, valueYMax} = useMemo(() => {
     if (trackWidth === 0) {
       return {
         p0: {x: 0, y: 0},
@@ -692,6 +918,8 @@ const EasingEditor: React.FC = () => {
         p3: {x: 0, y: 0},
         speedOut: 0,
         speedIn: 0,
+        valueYMin: 0,
+        valueYMax: 0,
       };
     }
 
@@ -716,9 +944,50 @@ const EasingEditor: React.FC = () => {
         : trackWidth - p2.y > 0
           ? INFINITE_SPEED
           : -INFINITE_SPEED;
+    let yMin = p0.y;
+    let yMax = p0.y;
 
-    return {p0, p1, p2, p3, speedOut: currentSpeedOut, speedIn: currentSpeedIn};
+    for (let i = 0; i <= SAMPLES; i++) {
+      const t = i / SAMPLES;
+
+      const point = getPointOnCubicBezier(t, p0, p1, p2, p3);
+
+      if (point.y < yMin) {
+        yMin = point.y;
+      }
+
+      if (point.y > yMax) {
+        yMax = point.y;
+      }
+    }
+
+    return {
+      p0,
+      p1,
+      p2,
+      p3,
+      speedOut: currentSpeedOut,
+      speedIn: currentSpeedIn,
+      valueYMin: yMin,
+      valueYMax: yMax,
+    };
   }, [keyframeIn, keyframeOut, duration, trackWidth]);
+
+  const getContainerHeight = () => {
+    switch (animationProperty) {
+      case "scale":
+
+      case "scaleAndRotate":
+        return 250;
+
+      case "position":
+
+      case "rotation":
+
+      default:
+        return 120;
+    }
+  };
 
   const getTforX = useGetTforX(p0, p1, p2, p3);
 
@@ -878,13 +1147,6 @@ const EasingEditor: React.FC = () => {
       }
     };
   }, [isPaused, duration, animationMode]);
-  useEffect(() => {
-    if (showTrails) {
-      setCubeTrail((prev) => [animatedPoint.y, ...prev].slice(0, MAX_TRAIL_COUNT));
-    } else if (cubeTrail.length > 0) {
-      setCubeTrail([]);
-    }
-  }, [animatedPoint, showTrails, cubeTrail.length]);
 
   const handleMouseDown = useCallback(
     (
@@ -1018,7 +1280,6 @@ const EasingEditor: React.FC = () => {
 
   const handleResetAnimation = () => {
     resetTimer();
-    setCubeTrail([]);
     setDuration(2);
     setFps(30);
     setKeyframeOut({influence: 33.33, yFactor: 0});
@@ -1043,16 +1304,24 @@ const EasingEditor: React.FC = () => {
 
   return (
     <div className="easing-editor-wrapper">
-      <AnimationDemo
-        animatedPoint={animatedPoint}
-        cubeTrail={cubeTrail}
-        showTrails={showTrails}
-        trackRef={trackRef}
-      />
-      <span className="timecode">{timecode}</span>
+      <div
+        className="animation-demo-container"
+        style={{minHeight: `${getContainerHeight()}px`}}
+      >
+        <AnimationDemo
+          animatedPoint={animatedPoint}
+          animationProperty={animationProperty}
+          trackRef={trackRef}
+          trackWidth={trackWidth}
+          valueYMax={valueYMax}
+          valueYMin={valueYMin}
+        />
+        <span className="timecode">{timecode}</span>
+      </div>
       <div className="graphs-container">
         <ValueGraph
           animatedPoint={animatedPoint}
+          animationProperty={animationProperty}
           dimensions={valueGraphDims}
           duration={duration}
           mapToSvg={mapValueToSvg}
@@ -1080,16 +1349,16 @@ const EasingEditor: React.FC = () => {
       <AnimationControls
         actualFps={actualFps}
         animationMode={animationMode}
+        animationProperty={animationProperty}
         duration={duration}
         fps={fps}
         handleResetAnimation={handleResetAnimation}
         handleTogglePlayPause={handleTogglePlayPause}
         isPaused={isPaused}
         setAnimationMode={handleSetAnimationMode}
+        setAnimationProperty={setAnimationProperty}
         setDuration={setDuration}
         setFps={setFps}
-        setShowTrails={setShowTrails}
-        showTrails={showTrails}
         timecode={timecode}
       />
     </div>
