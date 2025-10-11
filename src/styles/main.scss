@@ -8,6 +8,7 @@
 
 @use "layout/header";
 @use "layout/error";
+@use "layout/footer";
 @use "layout/layout";
 @use "layout/pages/faq";
 @use "layout/pages/links";
@@ -16,12 +17,18 @@
 @use "components/addition";
 @use "components/ant";
 @use "components/bezier";
+@use "components/bouncy-text";
+@use "components/code-snippet";
+@use "components/content-filter";
+@use "components/converter";
 @use "components/copy-button";
-@use "components/details-summary";
 @use "components/figure";
 @use "components/flexible-links";
+@use "components/hosts-adobe";
+@use "components/loading-animation";
 @use "components/mark";
 @use "components/modal";
+@use "components/page-intro";
 @use "components/search";
 @use "components/support";
 @use "components/table";

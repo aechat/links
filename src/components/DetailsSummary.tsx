@@ -91,12 +91,6 @@ const TagList: React.FC<{tags: string}> = ({tags}) => {
       {isOverflowing && (
         <mark
           className="faq-tags-toggle"
-          style={{
-            cursor: "pointer",
-            textDecoration: "underline",
-            background: "transparent",
-            opacity: 0.7,
-          }}
           onClick={toggleTags}
         >
           {expanded ? "скрыть" : `и ещё ${hiddenCount} ${getPluralizedTags(hiddenCount)}`}
@@ -205,15 +199,24 @@ const DetailsSummary: React.FC<DetailsSummaryProps> = ({title, children, tag}) =
 
   useEffect(() => {
     const details = detailsRef.current;
-    if (!details) return;
+
+    if (!details) {
+      return;
+    }
 
     const contentWrapper = details.querySelector<HTMLElement>(".details-content-wrapper");
-    if (!contentWrapper) return;
+
+    if (!contentWrapper) {
+      return;
+    }
 
     const innerContent = contentWrapper.querySelector<HTMLElement>(
       ".details-content-inner"
     );
-    if (!innerContent) return;
+
+    if (!innerContent) {
+      return;
+    }
 
     const resizeObserver = new ResizeObserver(() => {
       if (details.open) {
@@ -222,12 +225,16 @@ const DetailsSummary: React.FC<DetailsSummaryProps> = ({title, children, tag}) =
     });
 
     const handleTransitionEnd = (e: TransitionEvent) => {
-      if (e.target !== contentWrapper) return;
+      if (e.target !== contentWrapper) {
+        return;
+      }
 
       document.body.style.overflow = "";
+
       if (isOpen) {
         contentWrapper.style.maxHeight = `${innerContent.scrollHeight}px`;
         resizeObserver.observe(innerContent);
+
         const detailsHeight = details.offsetHeight;
         details.style.marginBottom = `${detailsHeight * 0.01 + 10}px`;
       } else {
@@ -241,7 +248,9 @@ const DetailsSummary: React.FC<DetailsSummaryProps> = ({title, children, tag}) =
     if (isOpen) {
       document.body.style.overflow = "hidden";
       details.open = true;
+
       const scrollHeight = innerContent.scrollHeight;
+
       const viewportHeight = window.innerHeight;
 
       if (scrollHeight > viewportHeight) {
@@ -251,13 +260,17 @@ const DetailsSummary: React.FC<DetailsSummaryProps> = ({title, children, tag}) =
       }
 
       updateDimmingEffect();
+
       const summaryId = details.querySelector(".faq-summary")?.id;
+
       if (summaryId) {
         debouncedReplaceState(`#${summaryId}`);
         setTimeout(() => {
           const summary = details.querySelector(".faq-summary");
+
           if (summary) {
             const {headerHeight, padding} = getScrollOffsets();
+
             const y =
               summary.getBoundingClientRect().top +
               window.pageYOffset -
@@ -271,9 +284,11 @@ const DetailsSummary: React.FC<DetailsSummaryProps> = ({title, children, tag}) =
       if (details.open) {
         document.body.style.overflow = "hidden";
         resizeObserver.unobserve(innerContent);
+
         if (window.location.hash) {
           debouncedReplaceState("");
         }
+
         contentWrapper.style.maxHeight = "0px";
         details.style.marginBottom = "";
       }
@@ -325,6 +340,7 @@ const DetailsSummary: React.FC<DetailsSummaryProps> = ({title, children, tag}) =
 
   useEffect(() => {
     const anchorId = window.location.hash.slice(1);
+
     if (displayAnchorId && anchorId === displayAnchorId) {
       setIsOpen(true);
     }
@@ -333,14 +349,18 @@ const DetailsSummary: React.FC<DetailsSummaryProps> = ({title, children, tag}) =
   useEffect(() => {
     const handleOpenEvent = (event: Event) => {
       const customEvent = event as CustomEvent<{id: string}>;
+
       const {id} = customEvent.detail;
+
       const summaryElement = detailsRef.current?.querySelector(".faq-summary");
+
       if (summaryElement && summaryElement.id === id) {
         setIsOpen(true);
       }
     };
 
     window.addEventListener("open-spoiler-by-id", handleOpenEvent);
+
     return () => {
       window.removeEventListener("open-spoiler-by-id", handleOpenEvent);
     };
@@ -420,10 +440,13 @@ const DetailsSummary: React.FC<DetailsSummaryProps> = ({title, children, tag}) =
 
     if (openDetailsElements.length > 0) {
       const viewportHeight = window.innerHeight;
+
       const isAnyInMainView = Array.from(openDetailsElements).some((details) => {
         const rect = details.getBoundingClientRect();
+
         const isOutOfMainView =
           rect.bottom < viewportHeight * 0.15 || rect.top > viewportHeight * 0.9;
+
         return !isOutOfMainView;
       });
 
@@ -446,8 +469,12 @@ const DetailsSummary: React.FC<DetailsSummaryProps> = ({title, children, tag}) =
 
   const handleSummaryClick = (event: React.MouseEvent) => {
     event.preventDefault();
+
     const details = detailsRef.current;
-    if (!details) return;
+
+    if (!details) {
+      return;
+    }
 
     if (details.open) {
       setIsOpen(false);
@@ -487,24 +514,15 @@ const DetailsSummary: React.FC<DetailsSummaryProps> = ({title, children, tag}) =
         onClick={handleSummaryClick}
       >
         <div className="faq-summary-left">
-          <span
-            className="faq-summary-icon"
-            style={{fontFamily: "JetBrains Mono, monospace"}}
-          >
-            +
-          </span>
-          <div style={{display: "flex", flexDirection: "column", gap: "5px"}}>
+          <span className="faq-summary-icon">+</span>
+          <div className="faq-summary-text-content">
             <h3>{headingText}</h3>
             {tag && <TagList tags={tag} />}
           </div>
         </div>
         <Tooltip title="Скопировать ссылку в буфер обмена">
           <button
-            className="copy-button"
-            style={{
-              flex: "none",
-              filter: anchorId ? "none" : "saturate(0) opacity(0.25)",
-            }}
+            className={`copy-button ${!anchorId ? "disabled" : ""}`}
             onClick={handleCopyAnchor}
           >
             <ShareRounded />

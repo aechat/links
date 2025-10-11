@@ -14,15 +14,6 @@ interface LinkCardPropsNoDescription extends BaseLinkCardProps {
   href: string;
 }
 
-const styles = {
-  link: {
-    height: "100%",
-  },
-  nameContainer: {
-    height: "100%",
-  },
-} as const;
-
 const BaseLinkCard: React.FC<{
   children: React.ReactNode;
 }> = ({children}) => <div className="links-button">{children}</div>;
@@ -32,7 +23,6 @@ export const LinkCard: React.FC<LinkCardProps> = ({href, icon, name, description
     <a
       href={href}
       rel="noreferrer"
-      style={styles.link}
       target="_blank"
     >
       <div className="name-container">
@@ -53,13 +43,9 @@ export const LinkCardNoDescription: React.FC<LinkCardPropsNoDescription> = ({
     <a
       href={href}
       rel="noreferrer"
-      style={styles.link}
       target="_blank"
     >
-      <div
-        className="name-container"
-        style={styles.nameContainer}
-      >
+      <div className="name-container name-container_full-height">
         <span className="icon">{icon}</span>
         <p className="name">{name}</p>
       </div>
@@ -74,10 +60,7 @@ export const LinkInAppCard: React.FC<LinkCardProps> = ({
   description,
 }) => (
   <BaseLinkCard>
-    <Link
-      style={styles.link}
-      to={href}
-    >
+    <Link to={href}>
       <div className="name-container">
         <span className="icon">{icon}</span>
         <p className="name">{name}</p>

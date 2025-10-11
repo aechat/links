@@ -79,7 +79,7 @@ const ContentFilter: React.FC<ContentFilterProps> = ({windowsContent, macContent
     <div>
       {hasWindowsContent || hasMacContent ? (
         <div className="change-os">
-          <div style={{display: "flex", gap: "10px", alignItems: "center"}}>
+          <div className="os-info-container">
             {osIcon}
             <div>
               {infoMessagePrefix}
@@ -102,7 +102,7 @@ const ContentFilter: React.FC<ContentFilterProps> = ({windowsContent, macContent
         </div>
       ) : (
         <div className="change-os">
-          <div style={{display: "flex", gap: "10px", alignItems: "center"}}>
+          <div className="os-info-container">
             <div>
               <b>
                 <u>Контент для данной операционной системы не указан.</u>

@@ -110,57 +110,6 @@
   }
 }
 
-.change-os {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  gap: 10px;
-  margin-block: 10px !important;
-  outline: 1px solid var(--color-status-warning-border);
-  background-color: var(--color-status-warning-background);
-  padding: 10px 15px;
-  color: var(--color-status-warning-text);
-  font-size: 0.9375rem;
-  line-height: 1.5;
-
-  button {
-    opacity: 0.9;
-    transition: opacity 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
-    margin-inline-start: 5px;
-    outline: 1px solid var(--color-status-warning-border);
-    border-radius: $roundness * 0.5;
-    padding: 5px 8px;
-    color: var(--color-status-warning-text);
-    font-weight: 600;
-    font-size: 0.85rem;
-    line-height: 1.25;
-    text-align: center;
-
-    &:hover {
-      opacity: 1;
-    }
-
-    &:active {
-      opacity: 0.8;
-    }
-  }
-
-  a {
-    color: var(--color-status-warning-text);
-  }
-
-  mark {
-    outline: 1px solid var(--color-status-warning-border);
-    background-color: var(--color-status-warning-mark-background);
-    color: var(--color-status-warning-text);
-
-    &::before {
-      background-color: var(--color-status-warning-text) !important;
-    }
-  }
-}
-
 .faq-container,
 .faq-content,
 li,
@@ -218,30 +167,6 @@ li,
 
   .figure-windows-dark {
     outline: 1px solid var(--color-status-info-border);
-  }
-
-  .change-os {
-    margin-inline: -5px;
-    outline: 1px solid var(--color-status-info-border);
-    border-radius: $roundness * 0.5;
-    background-color: var(--color-status-info-background);
-    padding: 5px;
-    color: var(--color-status-info-text);
-    line-height: 1.25;
-    text-align: center;
-
-    button {
-      outline: 1px solid var(--color-status-info-border);
-      color: var(--color-status-info-text);
-    }
-
-    &:first-child {
-      margin-top: 0;
-    }
-
-    &:last-child {
-      margin-bottom: 0;
-    }
   }
 
   a {
@@ -352,7 +277,6 @@ li,
 }
 
 li {
-  & .change-os,
   & .addition-info,
   & .addition-warning,
   & .addition-danger {

@@ -1,0 +1,49 @@
+.converter-info-text {
+  color: var(--color-text-tertiary);
+  font-size: 0.75rem;
+  text-align: center;
+}
+
+.converter-dragger {
+  margin-inline: 10px;
+  margin-block: 12px;
+  width: calc(100% - 20px);
+}
+
+.converter-dragger-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.converter-dragger-text {
+  font-size: 0.9rem;
+}
+
+.converter-radio-wrapper {
+  padding-inline: 10px;
+}
+
+.converter-radio-group {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.converter-button-group {
+  display: flex;
+  gap: 10px;
+  margin-inline: 10px;
+  margin-block: 10px;
+}
+
+.converter-button-reset {
+  flex-grow: 1;
+  filter: saturate(0);
+}
+
+.converter-button-action {
+  flex-grow: 3;
+}

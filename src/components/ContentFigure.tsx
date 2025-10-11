@@ -28,6 +28,7 @@ const ContentFigure: React.FC<ContentFigureProps> = ({
   imgTitle,
 }) => {
   const isOpen = useSpoiler();
+
   const [shouldRender, setShouldRender] = useState(isOpen);
 
   useEffect(() => {
