@@ -76,20 +76,11 @@ export const useInternalLinkHandler = () => {
       if (targetElement) {
         const details = targetElement.closest("details");
 
-        if (details && !details.open) {
-          details.setAttribute("open", "true");
+        if (details) {
+          window.dispatchEvent(
+            new CustomEvent("open-spoiler-by-id", {detail: {id: targetArticle.id}})
+          );
         }
-
-        setTimeout(() => {
-          const {headerHeight, padding} = getScrollOffsets();
-
-          const y =
-            targetElement.getBoundingClientRect().top +
-            window.pageYOffset -
-            headerHeight -
-            padding;
-          window.scrollTo({top: y, behavior: "smooth"});
-        }, 150);
       }
     }
 
