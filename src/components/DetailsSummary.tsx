@@ -197,6 +197,37 @@ const DetailsSummary: React.FC<DetailsSummaryProps> = ({title, children, tag}) =
     []
   );
 
+  const updateDimmingEffect = useCallback(() => {
+    const openDetailsElements = document.querySelectorAll("details[open]");
+
+    if (openDetailsElements.length > 0) {
+      document.body.classList.add("body-has-any-spoiler-open");
+    } else {
+      document.body.classList.remove("body-has-any-spoiler-open");
+    }
+
+    if (openDetailsElements.length > 0) {
+      const viewportHeight = window.innerHeight;
+
+      const isAnyInMainView = Array.from(openDetailsElements).some((details) => {
+        const rect = details.getBoundingClientRect();
+
+        const isOutOfMainView =
+          rect.bottom < viewportHeight * 0.15 || rect.top > viewportHeight * 0.9;
+
+        return !isOutOfMainView;
+      });
+
+      if (isAnyInMainView) {
+        document.body.classList.add("has-open-details");
+      } else {
+        document.body.classList.remove("has-open-details");
+      }
+    } else {
+      document.body.classList.remove("has-open-details");
+    }
+  }, []);
+
   useEffect(() => {
     const details = detailsRef.current;
 
@@ -260,6 +291,9 @@ const DetailsSummary: React.FC<DetailsSummaryProps> = ({title, children, tag}) =
       }
 
       updateDimmingEffect();
+      setTimeout(() => {
+        updateDimmingEffect();
+      }, 100);
 
       const summaryId = details.querySelector(".faq-summary")?.id;
 
@@ -299,7 +333,7 @@ const DetailsSummary: React.FC<DetailsSummaryProps> = ({title, children, tag}) =
       contentWrapper.removeEventListener("transitionend", handleTransitionEnd);
       document.body.style.overflow = "";
     };
-  }, [isOpen, debouncedReplaceState]);
+  }, [isOpen, debouncedReplaceState, updateDimmingEffect]);
 
   const scrollToAnchor = (targetElement: HTMLElement) => {
     const {headerHeight, padding} = getScrollOffsets();
@@ -427,37 +461,6 @@ const DetailsSummary: React.FC<DetailsSummaryProps> = ({title, children, tag}) =
       sectionRef.current?.removeEventListener("mouseleave", handleMouseLeave);
       clearTimeout(timeoutId);
     };
-  }, []);
-
-  const updateDimmingEffect = useCallback(() => {
-    const openDetailsElements = document.querySelectorAll("details[open]");
-
-    if (openDetailsElements.length > 0) {
-      document.body.classList.add("body-has-any-spoiler-open");
-    } else {
-      document.body.classList.remove("body-has-any-spoiler-open");
-    }
-
-    if (openDetailsElements.length > 0) {
-      const viewportHeight = window.innerHeight;
-
-      const isAnyInMainView = Array.from(openDetailsElements).some((details) => {
-        const rect = details.getBoundingClientRect();
-
-        const isOutOfMainView =
-          rect.bottom < viewportHeight * 0.15 || rect.top > viewportHeight * 0.9;
-
-        return !isOutOfMainView;
-      });
-
-      if (isAnyInMainView) {
-        document.body.classList.add("has-open-details");
-      } else {
-        document.body.classList.remove("has-open-details");
-      }
-    } else {
-      document.body.classList.remove("has-open-details");
-    }
   }, []);
 
   useEffect(() => {
