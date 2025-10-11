@@ -411,25 +411,6 @@ const DetailsSummary: React.FC<DetailsSummaryProps> = ({title, children, tag}) =
   }, [isOpen]);
 
   useEffect(() => {
-    const handleKeyDown = (event: KeyboardEvent) => {
-      if (
-        (event.ctrlKey && event.altKey && event.shiftKey && event.key === "A") ||
-        (event.ctrlKey && event.altKey && event.shiftKey && event.key === "Ф")
-      ) {
-        document.querySelectorAll("details").forEach((details) => {
-          details.open = true;
-        });
-        message.success("Вжух, и все спойлеры раскрылись!");
-      }
-    };
-    window.addEventListener("keydown", handleKeyDown);
-
-    return () => {
-      window.removeEventListener("keydown", handleKeyDown);
-    };
-  }, []);
-
-  useEffect(() => {
     if (!sectionRef.current) {
       return;
     }
