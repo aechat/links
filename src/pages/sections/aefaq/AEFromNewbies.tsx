@@ -4946,16 +4946,19 @@ const AEFromNewbies: React.FC = () => {
       </DetailsSummary>
       <DetailsSummary
         tag="unprecompose, распрекомпозить, раскомпозить"
-        title="Как распаковать прекомпозицию?"
+        title="Как «распаковать» прекомпозицию?"
       >
         <p>
           Бывают случаи, когда вы создали несколько прекомпозиций, а затем вам внезапно
-          понадобилось их «распаковать» обратно. Заходить в каждую, выделять все слои (
-          <mark className="key">Ctrl + A</mark>), копировать (
-          <mark className="key">Ctrl + C</mark>), возвращаться в основную композицию и
-          вставлять (<mark className="key">Ctrl + V</mark>) — долго и муторно, особенно
-          если прекомпозиций много.
+          понадобилось их «распаковать» обратно. Заходить в каждую, выделять все слои,
+          копировать, возвращаться в основную композицию и вставлять — долго и муторно,
+          особенно если прекомпозиций много. Однако такие действия можно автоматизировать.
         </p>
+        <Addition type="warning">
+          Учтите, что при распаковке могут «слететь» выражения и ссылки на слои в
+          эффектах, например ссылка на слой в эффекте{" "}
+          <mark className="plugin">Displacement Map</mark>.
+        </Addition>
         <Divider>Используем Un-PreCompose</Divider>
         <p>
           Для решения этой проблемы был создан бесплатный<sup>1</sup> скрипт{" "}
@@ -4978,23 +4981,24 @@ const AEFromNewbies: React.FC = () => {
         <ContentFigure
           caption="Распаковка нескольких прекомпозиций с помощью Un-precompose"
           src="images/aftereffects/unprecompose_demonstration.mp4"
-          theme="light"
+          theme="dark"
           type="video"
           variant="windows"
         />
-        <Addition type="warning">
-          Учтите, что при распаковке могут «слететь» выражения и ссылки на слои в эффектах
-          (например, ссылка на слой в эффекте{" "}
-          <mark className="plugin">Displacement Map</mark>).
-        </Addition>
+
         <Divider>Используем AEUX</Divider>
+
         <p>
-          Хотя основное предназначение плагина <mark className="plugin">AEUX</mark> —
-          перенос макетов из <mark className="app">Figma</mark> в{" "}
-          <mark className="app">Adobe After Effects</mark>, в нём есть и другие полезные
-          инструменты. С его помощью тоже можно распаковать выделенные прекомпозиции,
-          нажав кнопку <mark className="select">«Un-Precomp»</mark>.
+          С помощью расширения <mark className="plugin">AEUX</mark>, который был создан
+          для переноса макетов из <mark className="app">Figma</mark>, тоже можно
+          «распаковать» выделенные композиции с помощью кнопки{" "}
+          <mark className="select">«Un-Precomp»</mark> в разделе{" "}
+          <mark className="select">«Groups»</mark>.
         </p>
+        <Addition type="info">
+          Скачать <mark className="plugin">AEUX</mark> можно на странице релизов в{" "}
+          <a href="https://github.com/google/AEUX/releases">GitHub</a>.
+        </Addition>
         <ContentFigure
           caption="AEUX"
           imgTitle="Un-Precomp в AEUX"
@@ -5003,10 +5007,6 @@ const AEFromNewbies: React.FC = () => {
           type="image"
           variant="windows"
         />
-        <Addition type="info">
-          Скачать <mark className="plugin">AEUX</mark> можно на странице релизов в{" "}
-          <a href="https://github.com/google/AEUX/releases">GitHub</a>.
-        </Addition>
       </DetailsSummary>
       <DetailsSummary
         tag="перевернуть очерёдность, обратный порядок, инверсия, нумерация"
