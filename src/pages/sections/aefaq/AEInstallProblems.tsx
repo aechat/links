@@ -1557,34 +1557,62 @@ const AEInstallProblems: React.FC = () => {
               </p>
               <ul>
                 <li>
-                  Если вы хотите установить свежую версию{" "}
-                  <mark className="app">Adobe After Effects</mark> — обновите систему до{" "}
-                  <mark>Windows 10</mark> сборки <mark>22H2</mark> или установите{" "}
-                  <mark>Windows 11</mark>. Вы можете обновить свою систему поверх
-                  предыдущей версии с помощью образа <mark className="file">ISO</mark>{" "}
-                  прямо без потери данных, настроек и приложений. Обычно в{" "}
-                  <a href="https://helpx.adobe.com/after-effects/system-requirements.html">
-                    системных требованиях After Effects
-                  </a>{" "}
-                  указывается минимальная версия операционной системы для корректного
-                  запуска программы.
+                  <p>
+                    Если планируете установить свежую версию{" "}
+                    <mark className="app">Adobe After Effects</mark>, перейдите на{" "}
+                    <mark>Windows 11</mark>. Систему можно обновить поверх предыдущей
+                    версии с помощью образа <mark className="file">ISO</mark> — без потери
+                    данных, настроек и приложений. В{" "}
+                    <a href="https://helpx.adobe.com/after-effects/system-requirements.html">
+                      системных требованиях After Effects
+                    </a>{" "}
+                    обычно указана минимальная версия операционной системы, необходимая
+                    для корректного запуска программы.
+                  </p>
                   <Addition type="info">
                     <ul>
                       <li>
-                        Текущую сборку <mark>Windows</mark> можно посмотреть в{" "}
-                        <mark className="app">winver</mark>.
+                        Последняя версия <mark className="app">Adobe After Effects</mark>,
+                        поддерживающая <mark>Windows 7</mark> и <mark>Windows 8.1</mark> —{" "}
+                        <mark>2019 (16.X)</mark>.
                       </li>
                       <li>
-                        Если у вас стоит <mark>Windows 10</mark> редакции{" "}
-                        <mark>LTSC</mark>, то сборку новее <mark>21H2</mark> вы установить
-                        не сможете. Вам понадобится переустановить систему на редакцию{" "}
-                        <mark>Home</mark> или <mark>Pro</mark>.{" "}
-                        <i style={{opacity: 0.5}}>
-                          Или экспериментируйте с редакцией <mark>LTSC для IoT</mark>.
-                        </i>
+                        Последняя версия <mark className="app">Adobe After Effects</mark>,
+                        поддерживающая <mark>Windows 10</mark> версии{" "}
+                        <mark>LTSC 21H2</mark> — <mark>2023 (23.X)</mark>.
                       </li>
                     </ul>
                   </Addition>
+                  <p>
+                    Проверить текущую сборку <mark>Windows</mark> можно с помощью команды{" "}
+                    <mark className="app">winver</mark> в окне{" "}
+                    <mark className="app">Выполнить</mark>, которое открывается
+                    комбинацией клавиш <mark className="key">Win + R</mark>.
+                  </p>
+                  <div className="flexible-links">
+                    <a href="https://www.microsoft.com/ru-ru/software-download/windows11">
+                      Обновиться до Windows 11
+                    </a>
+                  </div>
+                  <p>
+                    Если загрузка с сайта <mark className="company">Microsoft</mark> не
+                    работает или вам нужен образ <mark className="file">ISO</mark> для
+                    записи на USB-накопитель — воспользуйтесь ссылками ниже.
+                  </p>
+                  <div className="flexible-links">
+                    <a href="https://files.rg-adguard.net/category">
+                      Скачать оригинальные файлы Microsoft на rg-adguard.net
+                    </a>
+                    <a href="https://www.comss.ru/download/page.php?id=2572">
+                      Скачать оригинальные образы Windows 10 на Comss
+                    </a>
+                    <a href="https://www.comss.ru/download/page.php?id=9234">
+                      Скачать оригинальные образы Windows 11 на Comss
+                    </a>
+                    <a href="https://nnmclub.to/forum/tracker.php?pid=10412851">
+                      Сборки Windows от SanLex на NNM-Club
+                    </a>
+                  </div>
                 </li>
                 <li>
                   Если вы не желаете обновлять или переустанавливать систему, то можете
@@ -2353,9 +2381,18 @@ const AEInstallProblems: React.FC = () => {
                 для нужной версии программы, прежде чем его устанавливать.
               </p>
               <Addition type="info">
-                Последняя версия <mark className="app">Adobe After Effects</mark>,
-                поддерживающая <mark>Windows 7</mark> и <mark>Windows 8.1</mark> —{" "}
-                <mark>2019 (16.X)</mark>.
+                <ul>
+                  <li>
+                    Последняя версия <mark className="app">Adobe After Effects</mark>,
+                    поддерживающая <mark>Windows 7</mark> и <mark>Windows 8.1</mark> —{" "}
+                    <mark>2019 (16.X)</mark>.
+                  </li>
+                  <li>
+                    Последняя версия <mark className="app">Adobe After Effects</mark>,
+                    поддерживающая <mark>Windows 10</mark> версии <mark>LTSC 21H2</mark> —{" "}
+                    <mark>2023 (23.X)</mark>.
+                  </li>
+                </ul>
               </Addition>
               <p>
                 Эти ошибки решаются обновлением операционной системы до последней
@@ -2365,11 +2402,8 @@ const AEInstallProblems: React.FC = () => {
                 клавиш <mark className="key">Win + R</mark>.
               </p>
               <div className="flexible-links">
-                <a href="https://www.microsoft.com/ru-ru/software-download/windows10">
-                  Обновить Windows 10
-                </a>
                 <a href="https://www.microsoft.com/ru-ru/software-download/windows11">
-                  Обновить Windows 11
+                  Обновиться до Windows 11
                 </a>
               </div>
               <p>
