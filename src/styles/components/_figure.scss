@@ -148,7 +148,7 @@ img {
 .figure-windows-light {
   fill: var(--color-figure-win-light-text);
   outline: 1px solid var(--color-figure-win-light-border);
-  background-image: var(--color-figure-win-light-background);
+  background: var(--color-figure-win-light-background);
   color: var(--color-figure-win-light-text);
 
   .minimize:hover,
@@ -181,7 +181,7 @@ img {
 .figure-windows-dark {
   fill: var(--color-figure-win-dark-text);
   outline: 1px solid var(--color-figure-win-dark-border);
-  background-image: var(--color-figure-win-dark-background);
+  background: var(--color-figure-win-dark-background);
   color: var(--color-figure-win-dark-text);
 
   .minimize:hover,

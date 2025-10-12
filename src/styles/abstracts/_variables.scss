@@ -8,11 +8,7 @@
   --saturate-ratio: 1;
   --max-width: 1175px;
   --shadow-modal: rgb(0 0 0 / 15%);
-  --color-figure-win-light-background: linear-gradient(
-    to bottom,
-    hsl(var(--accent-hue) 50% 97.5%),
-    hsl(0deg 0% 92.5%)
-  );
+  --color-figure-win-light-background: hsl(0deg 0% 95%);
   --color-figure-win-light-border: hsl(0deg 0% 90%);
   --color-figure-win-light-text: black;
   --color-figure-win-light-media-border: hsl(0deg 0% 93%);
@@ -20,12 +16,8 @@
   --color-figure-win-light-control-hover: hsl(0deg 0% 0% / 10%);
   --color-figure-win-light-control-active: hsl(0deg 0% 0% / 20%);
   --shadow-figure-light: 0 5px 10px 0 hsl(0deg 0% 80%);
-  --color-figure-win-dark-background: linear-gradient(
-    to bottom,
-    hsl(var(--accent-hue) 20% 10%),
-    hsl(var(--accent-hue) 20% 5%)
-  );
-  --color-figure-win-dark-border: hsl(var(--accent-hue) 20% 15%);
+  --color-figure-win-dark-background: hsl(0deg 0% 12.5%);
+  --color-figure-win-dark-border: hsl(0deg 0% 20%);
   --color-figure-win-dark-text: white;
   --color-figure-win-dark-media-border: hsl(0deg 0% 15%);
   --color-figure-win-dark-media-background: hsl(0deg 0% 10%);
