@@ -5123,8 +5123,8 @@ const AEFromNewbies: React.FC = () => {
           появления самого раннего из выделенных слоёв.
         </p>
         <p>
-          Чтобы это исправить, откройте настройки композиции (
-          <mark className="key">Ctrl + K</mark>) и в поле{" "}
+          Чтобы это исправить, откройте настройки композиции с помощью комбинации клавиш{" "}
+          <mark className="key">Ctrl + K</mark> и в поле{" "}
           <mark className="select">«Start Timecode»</mark> укажите{" "}
           <mark>00:00:00:00</mark>.
         </p>
