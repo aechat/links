@@ -3,6 +3,8 @@
 .copy-button {
   fill: var(--color-icon-primary);
   transition: fill 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+  margin: -15px;
+  padding: 15px;
 
   &:hover {
     fill: var(--color-icon-primary-hover);
