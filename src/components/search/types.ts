@@ -15,7 +15,8 @@ export interface SearchResult {
   hasTagMatch: boolean;
 }
 
-export interface SearchSection {
+export type SearchSection = {
   id: string;
   title: string;
-}
+  icon?: React.ReactNode;
+};

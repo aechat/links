@@ -42,6 +42,19 @@ import AEExport from "./sections/aefaq/AEExport";
 
 import AEExportProblems from "./sections/aefaq/AEExportProblems";
 
+import {
+  BrokenImageOutlined,
+  ErrorOutlineRounded,
+  HelpCenterOutlined,
+  InputRounded,
+  InstallDesktopRounded,
+  PsychologyAltOutlined,
+  SpeedRounded,
+  TouchAppOutlined,
+  TravelExploreRounded,
+  VideoSettingsRounded,
+} from "@mui/icons-material";
+
 const AEFAQ = () => {
   const [isPageLoaded, setIsPageLoaded] = useState(false);
   useAnchorScroll(isPageLoaded);
@@ -57,30 +70,70 @@ const AEFAQ = () => {
       title: "Ищем полезности",
       id: "where-find",
       component: AEWhereFind,
+      icon: <TravelExploreRounded />,
     },
     {
       key: "2",
       title: "Проблемы с установкой",
       id: "install-problems",
       component: AEInstallProblems,
+      icon: <InstallDesktopRounded />,
     },
     {
       key: "3",
       title: "Вопросы от новичков",
       id: "from-newbies",
       component: AEFromNewbies,
+      icon: <HelpCenterOutlined />,
     },
-    {key: "4", title: "Импорт", id: "import", component: AEImport},
-    {key: "5", title: "Интерфейс", id: "interface", component: AEInterface},
-    {key: "6", title: "Производительность", id: "performance", component: AEPerformance},
-    {key: "7", title: "Как и чем?", id: "actions", component: AEActions},
-    {key: "8", title: "Ошибки и предупреждения", id: "errors", component: AEErrors},
-    {key: "9", title: "Рендер и экспорт", id: "export", component: AEExport},
+    {
+      key: "4",
+      title: "Импорт",
+      id: "import",
+      component: AEImport,
+      icon: <InputRounded />,
+    },
+    {
+      key: "5",
+      title: "Интерфейс",
+      id: "interface",
+      component: AEInterface,
+      icon: <TouchAppOutlined />,
+    },
+    {
+      key: "6",
+      title: "Производительность",
+      id: "performance",
+      component: AEPerformance,
+      icon: <SpeedRounded />,
+    },
+    {
+      key: "7",
+      title: "Как и чем?",
+      id: "actions",
+      component: AEActions,
+      icon: <PsychologyAltOutlined />,
+    },
+    {
+      key: "8",
+      title: "Ошибки и предупреждения",
+      id: "errors",
+      component: AEErrors,
+      icon: <ErrorOutlineRounded />,
+    },
+    {
+      key: "9",
+      title: "Рендер и экспорт",
+      id: "export",
+      component: AEExport,
+      icon: <VideoSettingsRounded />,
+    },
     {
       key: "10",
       title: "Проблемы при экспорте",
       id: "export-problems",
       component: AEExportProblems,
+      icon: <BrokenImageOutlined />,
     },
   ];
 

@@ -22,6 +22,7 @@ const SearchCategories: React.FC<{
         key={section.id}
         onClick={() => onLinkClick(section.id)}
       >
+        {section.icon}
         {section.title}
       </button>
     ))}
