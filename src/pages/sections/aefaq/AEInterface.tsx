@@ -25,6 +25,13 @@ const AEInterface: React.FC = () => {
           <mark className="company">Adobe</mark> через{" "}
           <mark className="select">«Help» → «Sign In»</mark>.
         </p>
+        <ContentFigure
+          caption="Пустое домашнее окно Adobe After Effects"
+          src="images/aftereffects/empty_home_screen.png"
+          theme="dark"
+          type="image"
+          variant="windows"
+        />
         <Addition type="warning">
           <ul>
             <li>
