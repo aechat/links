@@ -37,20 +37,9 @@ const PageIntro: React.FC<PageIntroProps> = ({text, isLoaded = true}) => {
     <AnimatePresence>
       {show && (
         <motion.div
+          className="page-intro-overlay"
           exit={{opacity: 0}}
           initial={{opacity: 1}}
-          style={{
-            alignItems: "center",
-            backgroundColor: "var(--color-background-primary)",
-            display: "flex",
-            height: "100vh",
-            justifyContent: "center",
-            left: 0,
-            position: "fixed",
-            top: 0,
-            width: "100%",
-            zIndex: 100000,
-          }}
           transition={{duration: 0.5, ease: [0.75, 0, 0, 1]}}
         >
           {isLoaded && <BouncyText text={text} />}

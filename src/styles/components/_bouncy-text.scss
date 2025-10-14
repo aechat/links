@@ -1,0 +1,29 @@
+.bouncy-text-container {
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+
+  .bouncy-text-logo {
+    display: flex;
+    font-family: "Red Hat Display", monospace;
+    font-weight: 800;
+    font-style: italic;
+    font-size: 4rem;
+    color: var(--color-accent);
+  }
+
+  .bouncy-text-tagline {
+    display: flex;
+    font-family: "Red Hat Display", monospace;
+    font-weight: 500;
+    font-style: italic;
+    font-size: 1.5em;
+    translate: 0 10px;
+    color: var(--color-accent);
+    white-space: nowrap;
+  }
+
+  .bouncy-text-letter {
+    display: inline-block;
+  }
+}

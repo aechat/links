@@ -1,0 +1,15 @@
+$roundness: 8px;
+
+@use "sass:meta";
+
+@mixin generate-vars-from-map($map, $prefix: "") {
+  @each $key, $value in $map {
+    $name: if($prefix == "", $key, "#{$prefix}-#{$key}");
+
+    @if meta.type-of($value) == "map" {
+      @include generate-vars-from-map($value, $name);
+    } @else {
+      --#{$name}: #{$value};
+    }
+  }
+}

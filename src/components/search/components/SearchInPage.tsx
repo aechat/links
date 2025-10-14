@@ -22,6 +22,7 @@ const SearchCategories: React.FC<{
         key={section.id}
         onClick={() => onLinkClick(section.id)}
       >
+        {section.icon}
         {section.title}
       </button>
     ))}
@@ -287,11 +288,10 @@ export const SearchInPage: React.FC<{sections: SearchSection[]}> = ({sections}) 
         window.pageYOffset -
         headerHeight -
         padding;
-      window.history.pushState({}, "", `#${id}`);
       window.scrollTo({top: y, behavior: "smooth"});
-      setTimeout(() => {
-        history.replaceState(null, "", window.location.pathname + window.location.search);
-      }, 5000);
+
+      const event = new CustomEvent("open-spoiler-by-id", {detail: {id}});
+      window.dispatchEvent(event);
       closeModal();
     },
     [closeModal]

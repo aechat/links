@@ -1,0 +1,19 @@
+@use "../abstracts/mixins" as *;
+
+.copy-button {
+  fill: var(--color-icon-primary);
+  transition: fill 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+
+  &:hover {
+    fill: var(--color-icon-primary-hover);
+  }
+
+  &:active {
+    fill: var(--color-icon-primary-active);
+  }
+
+  svg {
+    width: min(calc(17px + (19 - 17) * ((100vw - 320px) / (768 - 320))), 19px);
+    height: min(calc(17px + (19 - 17) * ((100vw - 320px) / (768 - 320))), 19px);
+  }
+}

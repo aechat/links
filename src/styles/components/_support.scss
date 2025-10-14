@@ -1,4 +1,4 @@
-@use "mixins" as *;
+@use "../abstracts/mixins" as *;
 
 .support-title {
   font-weight: 700;
@@ -39,4 +39,25 @@
       content: "";
     }
   }
-}
+}
+
+.support-button-enhanced {
+  filter: saturate(1.25);
+}
+
+.copy-cardnumber-sber,
+.copy-cardnumber-yoomoney {
+  margin-inline: 10px;
+}
+
+.support-card-recipient-info {
+  color: var(--color-text-tertiary);
+  font-size: 0.8rem;
+  text-align: center;
+}
+
+.support-yoomoney-link {
+  color: var(--color-accent);
+  font-weight: 700;
+  text-decoration: underline;
+}

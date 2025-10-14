@@ -5,14 +5,7 @@ import Addition from "../Addition";
 const HostsAdobeModal: React.FC = () => {
   return (
     <div>
-      <code
-        style={{
-          maxHeight: "200px",
-          textAlign: "center",
-          margin: "10px",
-          overflow: "auto",
-        }}
-      >
+      <code className="hosts-adobe-code">
         0.0.0.0 ic.adobe.io
         <br />
         0.0.0.0 cc-api-data.adobe.io

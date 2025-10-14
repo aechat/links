@@ -104,28 +104,12 @@ const Footer: React.FC<FooterProps> = ({title, initialYear}) => {
   }, [path]);
 
   const renderCommitInfo = () => {
-    const paragraphStyles: React.CSSProperties = {
-      color: "var(--color-text-tertiary)",
-      fontSize: "0.785rem",
-      overflow: "hidden",
-      textOverflow: "ellipsis",
-      lineHeight: "1.5",
-      marginBlockStart: "15px",
-    };
-
-    const linkStyles: React.CSSProperties = {
-      fontWeight: 600,
-      lineHeight: "1.35",
-      color: "var(--color-accent)",
-      fontFamily: "Onest, Inter, sans-serif",
-    };
-
     if (isLoading) {
-      return <p style={paragraphStyles}>Ищем информацию...</p>;
+      return <p className="commit-info">Ищем информацию...</p>;
     }
 
     if (error) {
-      return <p style={paragraphStyles}>{error}</p>;
+      return <p className="commit-info">{error}</p>;
     }
 
     if (!commitData) {
@@ -148,12 +132,11 @@ const Footer: React.FC<FooterProps> = ({title, initialYear}) => {
     const formattedTime = commitData.date.toLocaleTimeString("ru-RU", clockOptions);
 
     return (
-      <p style={paragraphStyles}>
+      <p className="commit-info">
         Последнее обновление страницы {formattedDate} в {formattedTime}:{" "}
         <a
           href={commitData.url}
           rel="noreferrer"
-          style={linkStyles}
           target="_blank"
         >
           {commitData.message}
@@ -164,13 +147,7 @@ const Footer: React.FC<FooterProps> = ({title, initialYear}) => {
 
   return (
     <footer>
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "space-between",
-          alignItems: "center",
-        }}
-      >
+      <div className="footer-container">
         <div>
           <p>
             <a href="https://github.com/m1sh3r">m1sh3r</a> {"+ "}
@@ -178,13 +155,7 @@ const Footer: React.FC<FooterProps> = ({title, initialYear}) => {
           </p>
           {isFaqPage(path) && (
             <>
-              <p
-                style={{
-                  opacity: 0.5,
-                  fontSize: "0.9em",
-                  fontWeight: 400,
-                }}
-              >
+              <p className="footer-content-info">
                 Контент на этой странице обновляется благодаря вопросам участников наших
                 чатов. Информация для статей взята с открытых источников.
               </p>
@@ -194,15 +165,9 @@ const Footer: React.FC<FooterProps> = ({title, initialYear}) => {
         </div>
         <a
           aria-label="перейти на GitHub"
+          className="footer-github-link"
           href="https://github.com/aechat/links"
           rel="noreferrer"
-          style={{
-            textDecoration: "none",
-            display: "flex",
-            alignItems: "center",
-            gap: "5px",
-            flexShrink: 0,
-          }}
           target="_blank"
         >
           <GitHub />

@@ -1,0 +1,18 @@
+.loading-animation-container {
+  margin-inline: auto;
+  max-width: 600px;
+
+  .loading-animation-text {
+    margin: 10px;
+    margin-top: 25px;
+    margin-inline: 20px;
+    font-size: 0.875rem;
+  }
+
+  .loading-animation-subtext {
+    margin: 10px;
+    margin-inline: 20px;
+    font-size: 0.8rem;
+    text-align: right;
+  }
+}

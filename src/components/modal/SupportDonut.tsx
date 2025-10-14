@@ -40,10 +40,7 @@ const SupportDonut: React.FC = () => {
       </Addition>
       <div className="support">
         <button
-          className="modal-page-button"
-          style={{
-            filter: "saturate(1.25)",
-          }}
+          className="modal-page-button support-button-enhanced"
           onClick={openDonateModal}
         >
           <CoffeeRounded />
@@ -102,19 +99,10 @@ const SupportDonut: React.FC = () => {
                       Вы можете перевести из любого банка по номеру банковской карты любую
                       сумму.
                     </p>
-                    <motion.mark
-                      className="copy-cardnumber-sber"
-                      style={{marginInline: "10px"}}
-                    >
+                    <motion.mark className="copy-cardnumber-sber">
                       2202202357342488
                     </motion.mark>
-                    <p
-                      style={{
-                        textAlign: "center",
-                        fontSize: "0.8rem",
-                        color: "var(--color-text-tertiary)",
-                      }}
-                    >
+                    <p className="support-card-recipient-info">
                       Нажмите на номер карты, чтобы скопировать его в буфер обмена
                       <br />
                       Получатель: <mark>Михаил Денисович Ф.</mark>
@@ -166,21 +154,11 @@ const SupportDonut: React.FC = () => {
                         <motion.mark className="copy-cardnumber-yoomoney">
                           410016763684808
                         </motion.mark>
-                        <p
-                          style={{
-                            textAlign: "center",
-                            fontSize: "0.8rem",
-                            color: "var(--color-text-tertiary)",
-                          }}
-                        >
+                        <p className="support-card-recipient-info">
                           Нажмите, чтобы скопировать или пополните баланс автору с помощью{" "}
                           <a
+                            className="support-yoomoney-link"
                             href="https://yoomoney.ru/to/410016763684808"
-                            style={{
-                              color: "var(--color-accent)",
-                              fontWeight: 700,
-                              textDecoration: "underline",
-                            }}
                           >
                             этой ссылки
                           </a>

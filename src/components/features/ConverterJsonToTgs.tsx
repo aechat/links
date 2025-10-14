@@ -125,49 +125,27 @@ with open("input.json", "rb") as f_in:
 
   return (
     <div>
-      <p
-        style={{
-          color: "var(--color-text-tertiary)",
-          fontSize: "0.75rem",
-          textAlign: "center",
-        }}
-      >
+      <p className="converter-info-text">
         Конвертация происходит локально на вашем устройстве, качественный результат не
         гарантируется
       </p>
       <Upload.Dragger
         accept=".json"
         beforeUpload={handleFileUpload}
+        className="converter-dragger"
         name="file"
         showUploadList={false}
-        style={{
-          marginInline: "10px",
-          marginBlock: "12px",
-          width: "calc(100% - 20px)",
-        }}
       >
-        <div
-          style={{
-            display: "flex",
-            gap: "10px",
-            justifyContent: "center",
-            alignItems: "center",
-          }}
-        >
+        <div className="converter-dragger-content">
           <UploadFileRounded />
-          <span style={{fontSize: "0.9rem"}}>
+          <span className="converter-dragger-text">
             Перетащите файл формата JSON в это поле или нажмите для выбора файла
           </span>
         </div>
       </Upload.Dragger>
-      <div style={{paddingInline: "10px"}}>
+      <div className="converter-radio-wrapper">
         <Radio.Group
-          style={{
-            justifyContent: "center",
-            display: "flex",
-            gap: "10px",
-            alignItems: "center",
-          }}
+          className="converter-radio-group"
           value={compressionMode}
           onChange={(e) => setCompressionMode(e.target.value)}
         >
@@ -176,17 +154,9 @@ with open("input.json", "rb") as f_in:
         </Radio.Group>
       </div>
       {jsonData && typeof jsonData === "object" && (
-        <div
-          style={{
-            display: "flex",
-            gap: "10px",
-            marginInline: "10px",
-            marginBlock: "10px",
-          }}
-        >
+        <div className="converter-button-group">
           <button
-            className="modal-open-button"
-            style={{filter: "saturate(0)", flexGrow: 1}}
+            className="modal-open-button converter-button-reset"
             onClick={() => {
               setJsonData(null);
               setOriginalFileName("");
@@ -195,9 +165,8 @@ with open("input.json", "rb") as f_in:
             Сбросить
           </button>
           <button
-            className="modal-open-button"
+            className="modal-open-button converter-button-action"
             disabled={loading}
-            style={{flexGrow: 3}}
             onClick={downloadTgs}
           >
             {loading ? <Spin size="small" /> : "Скачать преобразованный TGS"}

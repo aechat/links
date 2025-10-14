@@ -1,0 +1,89 @@
+@use "../abstracts/mixins" as *;
+
+:root {
+  --header-height: 55px;
+}
+
+html,
+body {
+  margin: 0;
+  background: var(--color-background-primary);
+  padding: 0;
+  scroll-padding-top: var(--header-height);
+  scrollbar-color: var(--color-surface-primary-border) var(--color-background-secondary);
+  scrollbar-width: thin;
+  color: var(--color-text-primary);
+  user-select: none;
+
+  &::-webkit-scrollbar {
+    width: 5px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border-radius: $roundness;
+    background-color: var(--color-surface-primary-background);
+  }
+
+  &::-webkit-scrollbar-track {
+    margin: 5px;
+    background: var(--color-background-secondary);
+  }
+}
+
+html {
+  -webkit-tap-highlight-color: transparent;
+  scrollbar-width: none;
+  font-weight: 375;
+  font-size: 13px;
+  font-family: Inter, sans-serif;
+
+  @media screen and (width >= 320px) {
+    font-size: calc(13px + (16 - 13) * ((100vw - 320px) / (768 - 320)));
+  }
+
+  @media screen and (width >= 768px) {
+    font-size: 16px;
+  }
+}
+
+code {
+  display: block;
+  transition: opacity 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+  margin-block: 10px;
+  border: 1px solid var(--color-code-border);
+  border-radius: $roundness * 0.75;
+  background-color: var(--color-code-background);
+  padding: 10px 15px;
+  scrollbar-color: var(--color-code-border) var(--color-code-background);
+  scrollbar-width: thin;
+  color: var(--color-code-text);
+  font-weight: 400;
+  font-size: 0.95rem;
+  line-height: 1.4;
+  font-family: "JetBrains Mono", monospace;
+  font-variant-ligatures: none;
+  user-select: text;
+
+  &:hover {
+    opacity: 0.8;
+    cursor: pointer;
+  }
+
+  &:active {
+    opacity: 0.6;
+  }
+
+  &::-webkit-scrollbar {
+    width: 5px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border-radius: $roundness;
+    background-color: var(--color-code-border);
+  }
+
+  &::-webkit-scrollbar-track {
+    margin: 5px;
+    background: var(--color-code-background);
+  }
+}

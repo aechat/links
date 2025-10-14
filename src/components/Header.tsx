@@ -14,20 +14,6 @@ interface HeaderProps {
   title: string;
 }
 
-const styles = {
-  header: {
-    backgroundColor: "var(--color-background-header)",
-    backdropFilter: "blur(15px) saturate(50%)",
-    WebkitBackdropFilter: "blur(15px)",
-    boxShadow: "0 0 15px 0 var(--shadow-secondary)",
-    outline: "1px solid var(--color-border-header)",
-    translate: "0 0 0",
-  },
-  logo: {
-    fontSize: "0.825rem",
-  },
-} as const;
-
 const constants = {
   SCROLL_THRESHOLD: 25,
   WIDE_SCREEN_WIDTH: 650,
@@ -81,7 +67,6 @@ const Header: React.FC<HeaderProps> = ({title}) => {
       className={`header ${isVisible ? "" : "header-transparent"}`}
       exit={{opacity: 0}}
       initial={{opacity: 0}}
-      style={styles.header}
       transition={{
         duration: constants.ANIMATION_DURATION,
         ease: constants.ANIMATION_EASE,
@@ -97,7 +82,7 @@ const Header: React.FC<HeaderProps> = ({title}) => {
         )}
         <div className="logo">
           {title}
-          <sub style={styles.logo}>@aechat</sub>
+          <sub>@aechat</sub>
         </div>
       </div>
       <div className="header-right">

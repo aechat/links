@@ -11,32 +11,6 @@ const BouncyText: React.FC<BouncyTextProps> = ({text}) => {
 
   const shiftDelay = text.length * 0.05 + 0.4;
 
-  const containerStyle: React.CSSProperties = {
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "baseline",
-  };
-
-  const logoTextStyle: React.CSSProperties = {
-    display: "flex",
-    fontFamily: '"Red Hat Display", sans-serif',
-    fontWeight: 800,
-    fontStyle: "italic",
-    fontSize: "4rem",
-    color: "var(--color-accent)",
-  };
-
-  const taglineTextStyle: React.CSSProperties = {
-    display: "flex",
-    fontFamily: '"Red Hat Display", sans-serif',
-    fontWeight: 500,
-    fontStyle: "italic",
-    fontSize: "1.5em",
-    translate: "0 10px",
-    color: "var(--color-accent)",
-    whiteSpace: "nowrap",
-  };
-
   const mainTextContainerVariants: Variants = {
     hidden: {opacity: 1},
     visible: {
@@ -82,18 +56,18 @@ const BouncyText: React.FC<BouncyTextProps> = ({text}) => {
   };
 
   return (
-    <div style={containerStyle}>
+    <div className="bouncy-text-container">
       <motion.div
         animate="visible"
         aria-label={text}
+        className="bouncy-text-logo"
         initial="hidden"
-        style={logoTextStyle}
         variants={mainTextContainerVariants}
       >
         {text.split("").map((char, index) => (
           <motion.span
             key={`${char}-${index}`}
-            style={{display: "inline-block"}}
+            className="bouncy-text-letter"
             variants={letterVariants}
           >
             {char}
@@ -103,14 +77,14 @@ const BouncyText: React.FC<BouncyTextProps> = ({text}) => {
       <motion.div
         animate="visible"
         aria-label={taglineText}
+        className="bouncy-text-tagline"
         initial="hidden"
-        style={taglineTextStyle}
         variants={taglineContainerVariants}
       >
         {taglineText.split("").map((char, index) => (
           <motion.span
             key={`${char}-${index}`}
-            style={{display: "inline-block"}}
+            className="bouncy-text-letter"
             variants={taglineLetterVariants}
           >
             {char}

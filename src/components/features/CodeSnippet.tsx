@@ -42,7 +42,6 @@ const CodeSnippet: React.FC<CodeSnippetProps> = ({language = "javascript", child
       <code
         ref={codeRef}
         className={language}
-        style={{userSelect: "none"}}
       >
         {children}
       </code>

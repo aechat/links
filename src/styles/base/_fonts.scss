@@ -1,4 +1,4 @@
-// *: static Inter (мультиязычный)
+
 @font-face {
   font-style: normal;
   font-weight: 100;
@@ -62,14 +62,6 @@
   font-family: Inter;
 }
 
-// *: variable Inter
-@font-face {
-  font-style: normal;
-  font-weight: 100 900;
-  src: url("/src/fonts/ttf/Inter/Inter-VariableFont.ttf") format("truetype-variations");
-  font-family: Inter;
-  font-display: swap;
-}
 
 @font-face {
   font-style: normal;
@@ -79,7 +71,15 @@
   font-display: swap;
 }
 
-// *: static Jetbrains Mono
+@font-face {
+  font-style: normal;
+  font-weight: 100 900;
+  src: url("/src/fonts/ttf/Inter/Inter-VariableFont.ttf") format("truetype-variations");
+  font-family: Inter;
+  font-display: swap;
+}
+
+
 @font-face {
   font-style: normal;
   font-weight: 100;
@@ -208,7 +208,7 @@
   font-family: "JetBrains Mono";
 }
 
-// *: variable Jetbrains Mono
+
 @font-face {
   font-style: normal;
   font-weight: 100 800;
@@ -225,7 +225,7 @@
   font-family: "JetBrains Mono";
 }
 
-// *: static Onest
+
 @font-face {
   font-style: normal;
   font-weight: 900;
@@ -297,7 +297,7 @@
   font-family: Onest;
 }
 
-// *: Static Manrope
+
 @font-face {
   font-style: normal;
   font-weight: 700;
@@ -347,7 +347,7 @@
   font-family: Manrope;
 }
 
-// *: Variable Manrope
+
 @font-face {
   font-style: normal;
   font-weight: 100 900;
@@ -356,7 +356,7 @@
   font-family: Manrope;
 }
 
-// *: static Red Hat Display
+
 @font-face {
   font-style: italic;
   font-weight: 100;

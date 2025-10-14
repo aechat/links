@@ -1,4 +1,4 @@
-@use "../mixins" as *;
+@use "../../abstracts/mixins" as *;
 
 .links {
   margin-top: 0;
@@ -33,6 +33,7 @@
 
   a {
     width: 100%;
+    height: 100%;
   }
 
   &:hover {
@@ -102,4 +103,8 @@
       font-size: 0.9rem;
     }
   }
-}
+}
+
+.name-container.name-container_full-height {
+  height: 100%;
+}

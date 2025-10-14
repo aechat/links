@@ -255,14 +255,7 @@ const ThemeModal: React.FC<ThemeModalProps> = ({isModalOpen, closeModal}) => {
             Оттенок акцентного цвета
             <Tooltip title="Сбросить оттенок">
               <button
-                style={{
-                  width: "28px",
-                  height: "28px",
-                  backgroundColor: "transparent",
-                  border: "none",
-                  padding: 0,
-                  cursor: "pointer",
-                }}
+                className="theme-reset-button"
                 onClick={() => setAccentHue(210)}
               >
                 <RestartAlt />
@@ -273,7 +266,6 @@ const ThemeModal: React.FC<ThemeModalProps> = ({isModalOpen, closeModal}) => {
             <Slider
               max={360}
               min={0}
-              style={{flex: "1 1 auto", width: "100%"}}
               value={accentHue}
               onChange={(value) => setAccentHue(value)}
             />
@@ -282,14 +274,7 @@ const ThemeModal: React.FC<ThemeModalProps> = ({isModalOpen, closeModal}) => {
             Насыщенность акцентного цвета
             <Tooltip title="Сбросить насыщенность">
               <button
-                style={{
-                  width: "28px",
-                  height: "28px",
-                  backgroundColor: "transparent",
-                  border: "none",
-                  padding: 0,
-                  cursor: "pointer",
-                }}
+                className="theme-reset-button"
                 onClick={() => setSaturateRatio(1)}
               >
                 <RestartAlt />
@@ -301,7 +286,6 @@ const ThemeModal: React.FC<ThemeModalProps> = ({isModalOpen, closeModal}) => {
               max={1}
               min={0}
               step={0.025}
-              style={{flex: "1 1 auto", width: "100%"}}
               value={saturateRatio}
               onChange={(value) => setSaturateRatio(value)}
             />

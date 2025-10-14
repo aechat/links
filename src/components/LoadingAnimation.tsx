@@ -16,16 +16,11 @@ const LoadingAnimation: React.FC = () => {
       }}
     >
       <LinearProgress color="inherit" />
-      <div style={{marginInline: "auto", maxWidth: "600px"}}>
+      <div className="loading-animation-container">
         <motion.p
           animate={{opacity: 0.5}}
+          className="loading-animation-text"
           initial={{opacity: 0}}
-          style={{
-            margin: "10px",
-            marginTop: "25px",
-            fontSize: "0.875rem",
-            marginInline: "20px",
-          }}
           transition={{
             duration: 1,
             ease: [0.25, 0, 0, 1],
@@ -37,13 +32,8 @@ const LoadingAnimation: React.FC = () => {
         </motion.p>
         <motion.p
           animate={{opacity: 0.25}}
+          className="loading-animation-subtext"
           initial={{opacity: 0}}
-          style={{
-            margin: "10px",
-            fontSize: "0.8rem",
-            textAlign: "right",
-            marginInline: "20px",
-          }}
           transition={{
             duration: 1,
             ease: [0.25, 0, 0, 1],

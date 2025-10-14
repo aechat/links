@@ -29,6 +29,20 @@ const ContentFigure: React.FC<ContentFigureProps> = ({
 }) => {
   const isOpen = useSpoiler();
 
+  const [shouldRender, setShouldRender] = useState(isOpen);
+
+  useEffect(() => {
+    if (isOpen) {
+      setShouldRender(true);
+    } else {
+      const timer = setTimeout(() => {
+        setShouldRender(false);
+      }, 350); // Animation duration
+
+      return () => clearTimeout(timer);
+    }
+  }, [isOpen]);
+
   const [isFullscreen, setIsFullscreen] = useState(false);
 
   const [isClosing, setIsClosing] = useState(false);
@@ -85,7 +99,7 @@ const ContentFigure: React.FC<ContentFigureProps> = ({
     };
   }, [isFullscreen, handleClose]);
 
-  if (!isOpen) {
+  if (!shouldRender) {
     return null;
   }
 
