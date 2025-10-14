@@ -32,30 +32,26 @@ const AEInterface: React.FC = () => {
           type="image"
           variant="windows"
         />
-        <Addition type="warning">
-          <ul>
-            <li>
-              Если при попытке входа вы столкнулись с окном{" "}
+        <p>
+          Если при попытке входа в аккаунт вы столкнулись с окном{" "}
               <mark className="select">«Sorry, something went wrong»</mark> и надписью{" "}
-              <mark className="select">«Are you connected to the internet?»</mark>, то,
-              скорее всего, программа не может выйти в интернет. Для решения этой проблемы
-              временно включите <mark className="app">VPN</mark> или разрешите программе
-              доступ в сеть в настройках <mark className="app">брандмауэра</mark>.
-            </li>
-            <li>
+          <mark className="select">«Are you connected to the internet?»</mark>, то, скорее
+          всего, программа не может выйти в интернет. Для решения этой проблемы временно
+          включите <mark className="app">VPN</mark> или разрешите программе доступ в сеть
+          в настройках <mark className="app">брандмауэра</mark>.
+        </p>
+        <Addition type="info">
               Чтобы открыть <mark className="app">брандмауэр</mark>, запустите{" "}
               <mark className="app">«Выполнить»</mark> с помощью комбинации клавиш{" "}
               <mark className="key">Win + R</mark>, введите{" "}
               <mark className="code">wf.msc</mark> и нажмите{" "}
               <mark className="key">Enter</mark>. Затем перейдите в{" "}
               <mark className="select">«Правила для входящих подключений»</mark>, найдите
-              правила, связанные с блокировкой <mark className="company">Adobe</mark>,
-              нажмите на них <mark className="key">ПКМ</mark> и выберите{" "}
-              <mark className="select">«Отключить правило»</mark>. После этого
-              перезапустите <mark className="app">Adobe After Effects</mark>, войдите в
-              аккаунт и снова включите правила <mark className="app">брандмауэра</mark>.
-            </li>
-          </ul>
+          правила, связанные с блокировкой <mark className="company">Adobe</mark>, нажмите
+          на них <mark className="key">ПКМ</mark> и выберите{" "}
+          <mark className="select">«Отключить правило»</mark>. После этого перезапустите{" "}
+          <mark className="app">Adobe After Effects</mark>, войдите в аккаунт и снова
+          включите правила <mark className="app">брандмауэра</mark>.
         </Addition>
         <Divider>Отключаем домашний экран при запуске программы</Divider>
         <p>
