@@ -467,7 +467,10 @@ const DetailsSummary: React.FC<DetailsSummaryProps> = ({title, children, tag}) =
     }
   };
 
-  const handleCopyAnchor = () => {
+  const handleCopyAnchor = (event: React.MouseEvent) => {
+    event.preventDefault();
+    event.stopPropagation();
+
     const anchorId = detailsRef.current?.querySelector(".faq-summary")?.id ?? "";
 
     if (!anchorId) {
