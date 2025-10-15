@@ -1,0 +1,114 @@
+@use "../abstracts/mixins" as *;
+
+.noscript-container {
+  display: flex;
+  position: fixed;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  inset: 0;
+  width: 100vw;
+  height: 100dvh;
+  overflow: hidden;
+}
+
+.noscript-modal {
+  display: flex;
+  flex-direction: column;
+  backdrop-filter: blur(5px);
+  filter: drop-shadow(0 0 10px var(--shadow-primary));
+  outline: 1px solid var(--color-border-modal);
+  border-radius: $roundness;
+  background-color: var(--color-background-modal);
+  max-width: 500px;
+
+  p {
+    margin-inline: 15px;
+    margin-block: 10px;
+    font-size: 0.95rem;
+    line-height: 1.65;
+  }
+}
+
+.noscript-backtitle {
+  position: absolute;
+  opacity: 0.1;
+  pointer-events: none;
+  font-style: italic;
+  font-weight: 900;
+  font-size: 18rem;
+  font-family: Onest, sans-serif;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.noscript-title {
+  text-wrap: balance;
+  outline: 1px solid var(--color-surface-primary-border);
+  border-radius: $roundness;
+  background-color: var(--color-surface-primary-background);
+  padding-inline: 15px;
+  padding-block: 10px;
+  color: var(--color-surface-primary-text);
+  font-weight: 500;
+  font-size: 1.15rem;
+  line-height: 1.25;
+  font-family: Onest, sans-serif;
+  text-transform: uppercase;
+}
+
+.noscript-links {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  margin-inline: 10px;
+  border-radius: $roundness;
+  overflow: hidden;
+
+  button,
+  a {
+    display: flex;
+    flex: 1 0 250px;
+    justify-content: center;
+    align-items: center;
+    vertical-align: middle;
+    gap: 10px;
+    transition: background-color 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+    margin-block: 0;
+    border-radius: 0;
+    background-color: var(--color-button-group-background);
+    padding-inline: 10px;
+    padding-block: 8px;
+    color: var(--color-button-group-text);
+    font-weight: 600;
+    font-size: 0.975rem;
+    line-height: 1.5;
+    font-family: Onest, serif;
+    text-align: center;
+    text-decoration: none;
+
+    &::before {
+      display: none;
+    }
+  }
+
+  img {
+    width: 20px;
+    height: 20px;
+  }
+
+  .link-chrome {
+    background-color: hsl(137deg 40% 86%);
+    color: hsl(138deg 68% 30%);
+  }
+
+  .link-firefox {
+    background-color: hsl(276deg 100% 12%);
+    color: hsl(0deg 0% 100%);
+  }
+
+  .link-yandex {
+    background-color: hsl(8deg 92% 63%);
+    color: hsl(0deg 0% 100%);
+  }
+}
