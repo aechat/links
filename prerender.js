@@ -25,13 +25,14 @@ const routesToPrerender = [
     const context = {};
     const {html} = await render(url, context);
     const {helmet} = context;
-        let htmlWithMeta = template
-          .replace(
-            '</title>',
-            `</title>${helmet.title.toString()}${helmet.meta.toString()}${helmet.link.toString()}`
-          )
-          .replace('<!--app-html-->', html)
-          .replace('</head>', `${cssLink}</head>`)
+    let htmlWithMeta = template
+      .replace(/<title>.*<\/title>/, `${helmet.title.toString()}`)
+      .replace(
+        "</head>",
+        `${helmet.meta.toString()}${helmet.link.toString()}</head>`
+      )
+      .replace("<!--app-html-->", html)
+      .replace("</head>", `${cssLink}</head>`)
       .replace('src="/src/main.tsx"', `src="/${jsFile}"`);
     if (url === '/404') {
       const redirectScript = `

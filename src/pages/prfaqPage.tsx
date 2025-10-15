@@ -110,6 +110,18 @@ const PRFAQ = () => {
             name="description"
           />
           <meta
+            content="prfaq@aechat"
+            itemProp="name"
+          />
+          <meta
+            content="Ответы на частые вопросы от пользователей Adobe Premiere Pro"
+            itemProp="description"
+          />
+          <meta
+            content="https://aechat.ru/icons/prfaq.svg"
+            itemProp="image"
+          />
+          <meta
             content="aechat, prfaq, premiere pro, telegram, чат, прфак, ссылки, плагины, шаблоны, утилиты, faq, pr, design, motion design, видеомонтаж"
             name="keywords"
           />
@@ -128,6 +140,26 @@ const PRFAQ = () => {
           <meta
             content="Ответы на частые вопросы от пользователей Adobe Premiere Pro"
             property="og:description"
+          />
+          <meta
+            content="https://aechat.ru/icons/prfaq.svg"
+            property="og:image"
+          />
+          <meta
+            content="summary"
+            name="twitter:card"
+          />
+          <meta
+            content="prfaq@aechat"
+            name="twitter:title"
+          />
+          <meta
+            content="Ответы на частые вопросы от пользователей Adobe Premiere Pro"
+            name="twitter:description"
+          />
+          <meta
+            content="https://aechat.ru/icons/prfaq.svg"
+            name="twitter:image"
           />
         </Helmet>
         <Header title="prfaq" />

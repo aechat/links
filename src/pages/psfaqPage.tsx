@@ -115,6 +115,18 @@ const PSFAQ = () => {
             name="description"
           />
           <meta
+            content="psfaq@aechat"
+            itemProp="name"
+          />
+          <meta
+            content="Ответы на частые вопросы от пользователей Adobe Photoshop"
+            itemProp="description"
+          />
+          <meta
+            content="https://aechat.ru/icons/psfaq.svg"
+            itemProp="image"
+          />
+          <meta
             content="aechat, psfaq, photoshop, telegram, чат, псфак, ссылки, плагины, шаблоны, утилиты, faq, ps, design"
             name="keywords"
           />
@@ -133,6 +145,26 @@ const PSFAQ = () => {
           <meta
             content="Ответы на частые вопросы от пользователей Adobe Photoshop"
             property="og:description"
+          />
+          <meta
+            content="https://aechat.ru/icons/psfaq.svg"
+            property="og:image"
+          />
+          <meta
+            content="summary"
+            name="twitter:card"
+          />
+          <meta
+            content="psfaq@aechat"
+            name="twitter:title"
+          />
+          <meta
+            content="Ответы на частые вопросы от пользователей Adobe Photoshop"
+            name="twitter:description"
+          />
+          <meta
+            content="https://aechat.ru/icons/psfaq.svg"
+            name="twitter:image"
           />
         </Helmet>
         <Header title="psfaq" />

@@ -151,6 +151,18 @@ const AEFAQ = () => {
             name="description"
           />
           <meta
+            content="aefaq@aechat"
+            itemProp="name"
+          />
+          <meta
+            content="Ответы на частые вопросы от пользователей Adobe After Effects"
+            itemProp="description"
+          />
+          <meta
+            content="https://aechat.ru/icons/aefaq.svg"
+            itemProp="image"
+          />
+          <meta
             content="aechat, aefaq, after effects, telegram, чат, аефак, ссылки, плагины, шаблоны, утилиты, faq, ae, design, motion design, видеомонтаж"
             name="keywords"
           />
@@ -169,6 +181,26 @@ const AEFAQ = () => {
           <meta
             content="Ответы на частые вопросы от пользователей Adobe After Effects"
             property="og:description"
+          />
+          <meta
+            content="https://aechat.ru/icons/aefaq.svg"
+            property="og:image"
+          />
+          <meta
+            content="summary"
+            name="twitter:card"
+          />
+          <meta
+            content="aefaq@aechat"
+            name="twitter:title"
+          />
+          <meta
+            content="Ответы на частые вопросы от пользователей Adobe After Effects"
+            name="twitter:description"
+          />
+          <meta
+            content="https://aechat.ru/icons/aefaq.svg"
+            name="twitter:image"
           />
         </Helmet>
         <Header title="aefaq" />

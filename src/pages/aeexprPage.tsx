@@ -85,6 +85,18 @@ const AEExpressionPage = () => {
             name="description"
           />
           <meta
+            content="aeexpr@aechat"
+            itemProp="name"
+          />
+          <meta
+            content="Ответы на частые вопросы о выражениях в Adobe After Effects"
+            itemProp="description"
+          />
+          <meta
+            content="https://aechat.ru/icons/aeexprfaq.svg"
+            itemProp="image"
+          />
+          <meta
             content="чат, ссылки, After Effects, шаблоны After Effects, AETemp, Adobe, советы After Effects, FAQ After Effects, склад стройматериалов, помощь, видеомонтаж, графический дизайн, видеоэффекты, спецэффекты, анимация, 3D-моделирование, motion graphics, композитинг, цветокоррекция, Adobe Premiere, Photoshop, Illustrator, Media Encoder, плагины After Effects, видеопроизводство, рендеринг, обучение, видеоуроки, монтаж видео, создание видео, редактирование видео, графика, видеоконтент, пост-продакшн, filmmaking, кино, телевидение, спецэффекты для фильмов, видеомаркетинг, визуальные эффекты, мультимедиа, медиа, презентации, видеореклама, обучающие видео, видеокурсы, видеоуроки, курсы по анимации, туториалы по видеомонтажу, уроки по цветокоррекции, советы по ускорению After Effects, оптимизация, исправление ошибок, видеографика, motion design, инфографика, 3D-анимация, видеоклипы, рекламные ролики, видеопрезентации"
             name="keywords"
           />
@@ -93,7 +105,7 @@ const AEExpressionPage = () => {
             property="og:type"
           />
           <meta
-            content="https://aechat.ru/"
+            content="https://aechat.ru/aeexpr"
             property="og:url"
           />
           <meta
@@ -103,6 +115,26 @@ const AEExpressionPage = () => {
           <meta
             content="Ответы на частые вопросы о выражениях в Adobe After Effects"
             property="og:description"
+          />
+          <meta
+            content="https://aechat.ru/icons/aeexprfaq.svg"
+            property="og:image"
+          />
+          <meta
+            content="summary"
+            name="twitter:card"
+          />
+          <meta
+            content="aeexpr@aechat"
+            name="twitter:title"
+          />
+          <meta
+            content="Ответы на частые вопросы о выражениях в Adobe After Effects"
+            name="twitter:description"
+          />
+          <meta
+            content="https://aechat.ru/icons/aeexprfaq.svg"
+            name="twitter:image"
           />
         </Helmet>
         <Header title="aeexpr" />

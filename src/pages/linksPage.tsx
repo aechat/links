@@ -76,6 +76,18 @@ const Links = () => {
           name="description"
         />
         <meta
+          content="links@aechat"
+          itemProp="name"
+        />
+        <meta
+          content="Коллекция полезных ссылок, FAQ и ресурсов для сообщества AEChat"
+          itemProp="description"
+        />
+        <meta
+          content="https://aechat.ru/icons/favicon.svg"
+          itemProp="image"
+        />
+        <meta
           content="aechat, aefaq, prfaq, psfaq, after effects, premiere pro, photoshop, telegram, чат, аефак, прфак, псфак, ссылки, плагины, шаблоны, утилиты, faq, ae, pr, ps, design, motion design, видеомонтаж"
           name="keywords"
         />
@@ -84,12 +96,36 @@ const Links = () => {
           property="og:type"
         />
         <meta
+          content="https://aechat.ru/"
+          property="og:url"
+        />
+        <meta
           content="links@aechat"
           property="og:title"
         />
         <meta
           content="Коллекция полезных ссылок, FAQ и ресурсов для сообщества AEChat"
           property="og:description"
+        />
+        <meta
+          content="https://aechat.ru/icons/favicon.svg"
+          property="og:image"
+        />
+        <meta
+          content="summary"
+          name="twitter:card"
+        />
+        <meta
+          content="links@aechat"
+          name="twitter:title"
+        />
+        <meta
+          content="Коллекция полезных ссылок, FAQ и ресурсов для сообщества AEChat"
+          name="twitter:description"
+        />
+        <meta
+          content="https://aechat.ru/icons/favicon.svg"
+          name="twitter:image"
         />
       </Helmet>
       <Header title="links" />

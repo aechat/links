@@ -89,6 +89,62 @@ const NotFound = () => {
     >
       <Helmet>
         <title>notfound@aechat</title>
+        <meta
+          content="Страница не найдена"
+          name="description"
+        />
+        <meta
+          content="notfound@aechat"
+          itemProp="name"
+        />
+        <meta
+          content="Страница не найдена"
+          itemProp="description"
+        />
+        <meta
+          content="https://aechat.ru/icons/favicon.svg"
+          itemProp="image"
+        />
+        <meta
+          content="404, not found, aechat, страница не найдена"
+          name="keywords"
+        />
+        <meta
+          content="website"
+          property="og:type"
+        />
+        <meta
+          content="https://aechat.ru/404"
+          property="og:url"
+        />
+        <meta
+          content="notfound@aechat"
+          property="og:title"
+        />
+        <meta
+          content="Страница не найдена"
+          property="og:description"
+        />
+        <meta
+          content="https://aechat.ru/icons/favicon.svg"
+          property="og:image"
+        />
+        <meta
+          content="summary"
+          name="twitter:card"
+        />
+        <meta
+          content="notfound@aechat"
+          name="twitter:title"
+        />
+        <meta
+          content="Страница не найдена"
+          name="twitter:description"
+        />
+        <meta
+          content="https://aechat.ru/icons/favicon.svg"
+          name="twitter:image"
+        />
       </Helmet>
       <div className="error-container">
         <div className="error-backtitle">{currentSubtitle}</div>

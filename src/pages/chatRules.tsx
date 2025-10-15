@@ -102,6 +102,22 @@ const ChatRules = () => {
           name="description"
         />
         <meta
+          content="rules@aechat"
+          itemProp="name"
+        />
+        <meta
+          content="Правила чатов AEChat и DWChat"
+          itemProp="description"
+        />
+        <meta
+          content="https://aechat.ru/icons/favicon.svg"
+          itemProp="image"
+        />
+        <meta
+          content="aechat, dwchat, rules, правила, чат, телеграм, aechat, dwchat, after effects, photoshop"
+          name="keywords"
+        />
+        <meta
           content="website"
           property="og:type"
         />
@@ -116,6 +132,26 @@ const ChatRules = () => {
         <meta
           content="Правила чатов AEChat и DWChat"
           property="og:description"
+        />
+        <meta
+          content="https://aechat.ru/icons/favicon.svg"
+          property="og:image"
+        />
+        <meta
+          content="summary"
+          name="twitter:card"
+        />
+        <meta
+          content="rules@aechat"
+          name="twitter:title"
+        />
+        <meta
+          content="Правила чатов AEChat и DWChat"
+          name="twitter:description"
+        />
+        <meta
+          content="https://aechat.ru/icons/favicon.svg"
+          name="twitter:image"
         />
       </Helmet>
       <Header title="rules" />
