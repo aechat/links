@@ -81,11 +81,11 @@ const NotFound = () => {
 
   return (
     <motion.main
-      animate={{x: 0, opacity: 1}}
+      animate={{scale: 1, opacity: 1}}
       className="not-found error"
-      exit={{x: -50, opacity: 0}}
-      initial={{x: 100, opacity: 0}}
-      transition={{duration: 0.5, ease: [0.25, 0, 0, 1]}}
+      exit={{scale: 0.5, opacity: 0}}
+      initial={{scale: 0.5, opacity: 0}}
+      transition={{duration: 0.75, ease: [0.25, 0, 0, 1]}}
     >
       <Helmet>
         <title>notfound@aechat</title>
