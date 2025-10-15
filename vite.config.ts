@@ -11,13 +11,18 @@ export default defineConfig({
   },
   build: {
     target: ["es2017", "safari12"],
+    outDir: "./dist/client",
+    manifest: "manifest.json",
+  },
+  ssr: {
+    noExternal: ["react-helmet-async"],
   },
   plugins: [
     react(),
     {
       name: "generate-404-html",
       closeBundle: async () => {
-        const distPath = path.join(__dirname, "dist");
+        const distPath = path.join(__dirname, "dist", "client");
         const indexPath = path.join(distPath, "index.html");
         const notFoundPath = path.join(distPath, "404.html");
         try {

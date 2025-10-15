@@ -2,7 +2,8 @@ import {GitHub} from "@mui/icons-material";
 
 import React, {useEffect, useState} from "react";
 
-// GITHUB API
+import {useLocation} from "react-router-dom";
+
 const OWNER = "aechat";
 
 const REPO = "links";
@@ -22,7 +23,6 @@ interface CommitData {
   url: string;
   date: Date;
 }
-// FOOTER PROPS
 interface FooterProps {
   title: string;
   initialYear: number;
@@ -39,6 +39,8 @@ const PATH_MAP: Record<FaqPath, string> = {
 };
 
 const Footer: React.FC<FooterProps> = ({title, initialYear}) => {
+  const location = useLocation();
+
   const [commitData, setCommitData] = useState<CommitData | null>(null);
 
   const [isLoading, setIsLoading] = useState<boolean>(true);
@@ -47,7 +49,7 @@ const Footer: React.FC<FooterProps> = ({title, initialYear}) => {
 
   const currentYear = new Date().getFullYear();
 
-  const path = window.location.pathname;
+  const path = location.pathname;
 
   const isFaqPage = (p: string): p is FaqPath => {
     return FAQ_PATHS.includes(p as FaqPath);

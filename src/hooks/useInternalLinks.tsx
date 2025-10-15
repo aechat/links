@@ -9,29 +9,6 @@ interface TargetArticle {
   title: string;
 }
 
-const getScrollOffsets = () => {
-  const headerHeight = document.querySelector("header")?.offsetHeight ?? 0;
-
-  const PADDING = {
-    MIN: 10,
-    MAX: 14,
-    SCREEN: {
-      MIN: 320,
-      MAX: 768,
-    },
-  };
-
-  const padding = Math.min(
-    PADDING.MIN +
-      (PADDING.MAX - PADDING.MIN) *
-        ((window.innerWidth - PADDING.SCREEN.MIN) /
-          (PADDING.SCREEN.MAX - PADDING.SCREEN.MIN)),
-    PADDING.MAX
-  );
-
-  return {headerHeight, padding};
-};
-
 export const useInternalLinkHandler = () => {
   const [modalVisible, setModalVisible] = useState(false);
 

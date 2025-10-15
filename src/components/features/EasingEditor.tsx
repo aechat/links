@@ -140,7 +140,6 @@ interface AnimationDemoProps {
   valueYMax: number;
   showTrail: boolean;
 }
-
 interface TrailFrame {
   point: Point;
   progress: number;
@@ -172,7 +171,6 @@ const AnimationDemo: React.FC<AnimationDemoProps> = ({
   };
 
   const [trailPositions, setTrailPositions] = useState<TrailFrame[]>([]);
-
   useEffect(() => {
     if (
       showTrail &&
@@ -203,7 +201,7 @@ const AnimationDemo: React.FC<AnimationDemoProps> = ({
     let animTransform = "";
 
     switch (animationProperty) {
-      case "scale":
+      case "scale": {
         const scale = 0.5 + progress * 2;
         animTransform = `scale(${scale})`;
 
@@ -212,8 +210,9 @@ const AnimationDemo: React.FC<AnimationDemoProps> = ({
           left: "50%",
           top: "50%",
         };
+      }
 
-      case "rotation":
+      case "rotation": {
         const rotation = progress * 720;
         animTransform = `rotate(${rotation}deg)`;
 
@@ -222,8 +221,9 @@ const AnimationDemo: React.FC<AnimationDemoProps> = ({
           left: "50%",
           top: "50%",
         };
+      }
 
-      case "scaleAndRotate":
+      case "scaleAndRotate": {
         const comboScale = 0.5 + progress * 2;
 
         const comboRotation = progress * 720;
@@ -234,8 +234,9 @@ const AnimationDemo: React.FC<AnimationDemoProps> = ({
           left: "50%",
           top: "50%",
         };
+      }
 
-      case "positionAndRotation":
+      case "positionAndRotation": {
         const posRotRotation = progress * 720;
         animTransform = `rotate(${posRotRotation}deg)`;
 
@@ -244,8 +245,9 @@ const AnimationDemo: React.FC<AnimationDemoProps> = ({
           left: `${left}px`,
           top: "50%",
         };
+      }
 
-      case "positionAndScale":
+      case "positionAndScale": {
         const posScaleScale = 0.5 + progress * 1.5;
         animTransform = `scale(${posScaleScale})`;
 
@@ -254,15 +256,15 @@ const AnimationDemo: React.FC<AnimationDemoProps> = ({
           left: `${left}px`,
           top: "50%",
         };
+      }
 
-      case "position":
-
-      default:
+      default: {
         return {
           transform: `${translateY} translateX(-50%)`,
           left: `${left}px`,
           top: "50%",
         };
+      }
     }
   };
 
@@ -290,21 +292,22 @@ const AnimationDemo: React.FC<AnimationDemoProps> = ({
             const left = shouldScale
               ? trailFrame.point.y * scaleX + offset
               : trailFrame.point.y;
-
             let animTransform = "";
 
             switch (animationProperty) {
-              case "positionAndRotation":
+              case "positionAndRotation": {
                 const posRotRotation = trailFrame.progress * 720;
                 animTransform = `rotate(${posRotRotation}deg)`;
 
                 break;
+              }
 
-              case "positionAndScale":
+              case "positionAndScale": {
                 const posScaleScale = 0.5 + trailFrame.progress * 1.5;
                 animTransform = `scale(${posScaleScale})`;
 
                 break;
+              }
 
               default:
                 animTransform = "";
@@ -1050,19 +1053,11 @@ const EasingEditor: React.FC = () => {
   }, [keyframeIn, keyframeOut, duration, trackWidth]);
 
   const getContainerHeight = () => {
-    switch (animationProperty) {
-      case "scale":
-
-      case "scaleAndRotate":
-        return 250;
-
-      case "position":
-
-      case "rotation":
-
-      default:
-        return 120;
+    if (["scale", "scaleAndRotate"].includes(animationProperty)) {
+      return 250;
     }
+
+    return 120;
   };
 
   const getTforX = useGetTforX(p0, p1, p2, p3);

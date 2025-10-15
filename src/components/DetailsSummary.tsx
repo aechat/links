@@ -114,6 +114,10 @@ const constants = {
 } as const;
 
 const getScrollOffsets = () => {
+  if (typeof window === "undefined") {
+    return {headerHeight: 0, padding: 0};
+  }
+
   const headerHeight = document.querySelector("header")?.offsetHeight ?? 0;
 
   const padding = Math.min(
@@ -150,7 +154,7 @@ export const generateAnchorId = () => {
     });
   });
 
-  if (window.location.hash) {
+  if (typeof window !== "undefined" && window.location.hash) {
     const anchorId = window.location.hash.slice(1);
 
     const existingAnchor = document.getElementById(anchorId);
@@ -188,16 +192,22 @@ const DetailsSummary: React.FC<DetailsSummaryProps> = ({title, children, tag}) =
 
   const debouncedReplaceState = useCallback(
     debounce((hash: string) => {
-      history.replaceState(
-        null,
-        "",
-        window.location.pathname + window.location.search + hash
-      );
+      if (typeof window !== "undefined") {
+        history.replaceState(
+          null,
+          "",
+          window.location.pathname + window.location.search + hash
+        );
+      }
     }, 50),
     []
   );
 
   const updateDimmingEffect = useCallback(() => {
+    if (typeof window === "undefined") {
+      return;
+    }
+
     const openDetailsElements = document.querySelectorAll("details[open]");
 
     if (openDetailsElements.length > 0) {
@@ -227,8 +237,11 @@ const DetailsSummary: React.FC<DetailsSummaryProps> = ({title, children, tag}) =
       document.body.classList.remove("has-open-details");
     }
   }, []);
-
   useEffect(() => {
+    if (typeof window === "undefined") {
+      return;
+    }
+
     const details = detailsRef.current;
 
     if (!details) {
@@ -273,7 +286,6 @@ const DetailsSummary: React.FC<DetailsSummaryProps> = ({title, children, tag}) =
         updateDimmingEffect();
       }
     };
-
     contentWrapper.addEventListener("transitionend", handleTransitionEnd);
 
     if (isOpen) {
@@ -336,6 +348,10 @@ const DetailsSummary: React.FC<DetailsSummaryProps> = ({title, children, tag}) =
   }, [isOpen, debouncedReplaceState, updateDimmingEffect]);
 
   const scrollToAnchor = (targetElement: HTMLElement) => {
+    if (typeof window === "undefined") {
+      return;
+    }
+
     const {headerHeight, padding} = getScrollOffsets();
     setTimeout(() => {
       const y =
@@ -346,7 +362,6 @@ const DetailsSummary: React.FC<DetailsSummaryProps> = ({title, children, tag}) =
       window.scrollTo({top: y, behavior: "smooth"});
     }, constants.SCROLL_DELAY);
   };
-
   useEffect(() => {
     if (detailsRef.current) {
       const summaryElement = detailsRef.current.querySelector(".faq-summary");
@@ -371,16 +386,22 @@ const DetailsSummary: React.FC<DetailsSummaryProps> = ({title, children, tag}) =
       }
     }
   }, []);
-
   useEffect(() => {
+    if (typeof window === "undefined") {
+      return;
+    }
+
     const anchorId = window.location.hash.slice(1);
 
     if (displayAnchorId && anchorId === displayAnchorId) {
       setIsOpen(true);
     }
   }, [displayAnchorId]);
-
   useEffect(() => {
+    if (typeof window === "undefined") {
+      return;
+    }
+
     const handleOpenEvent = (event: Event) => {
       const customEvent = event as CustomEvent<{id: string}>;
 
@@ -392,15 +413,17 @@ const DetailsSummary: React.FC<DetailsSummaryProps> = ({title, children, tag}) =
         setIsOpen(true);
       }
     };
-
     window.addEventListener("open-spoiler-by-id", handleOpenEvent);
 
     return () => {
       window.removeEventListener("open-spoiler-by-id", handleOpenEvent);
     };
   }, []);
-
   useEffect(() => {
+    if (typeof window === "undefined") {
+      return;
+    }
+
     const anchorId = window.location.hash.slice(1);
 
     const summaryElement = detailsRef.current?.querySelector(".faq-summary");
@@ -409,8 +432,11 @@ const DetailsSummary: React.FC<DetailsSummaryProps> = ({title, children, tag}) =
       scrollToAnchor(summaryElement as HTMLElement);
     }
   }, [isOpen]);
-
   useEffect(() => {
+    if (typeof window === "undefined") {
+      return;
+    }
+
     if (!sectionRef.current) {
       return;
     }
@@ -443,8 +469,11 @@ const DetailsSummary: React.FC<DetailsSummaryProps> = ({title, children, tag}) =
       clearTimeout(timeoutId);
     };
   }, []);
-
   useEffect(() => {
+    if (typeof window === "undefined") {
+      return;
+    }
+
     if (!window.detailsSummaryScrollListenerAttached) {
       window.addEventListener("scroll", updateDimmingEffect, {passive: true});
       window.detailsSummaryScrollListenerAttached = true;
@@ -481,9 +510,11 @@ const DetailsSummary: React.FC<DetailsSummaryProps> = ({title, children, tag}) =
       return;
     }
 
-    const anchor = `${window.location.origin}${window.location.pathname}#${anchorId}`;
-    navigator.clipboard.writeText(anchor);
-    message.success(`Ссылка на статью ${anchorId} скопирована в буфер обмена`);
+    if (typeof window !== "undefined") {
+      const anchor = `${window.location.origin}${window.location.pathname}#${anchorId}`;
+      navigator.clipboard.writeText(anchor);
+      message.success(`Ссылка на статью ${anchorId} скопирована в буфер обмена`);
+    }
   };
 
   const anchorId = detailsRef.current?.querySelector(".faq-summary")?.id ?? "";

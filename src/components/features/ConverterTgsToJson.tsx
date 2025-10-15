@@ -2,7 +2,9 @@ import {UploadFileRounded} from "@mui/icons-material";
 
 import {Upload, message} from "antd";
 
-import {saveAs} from "file-saver";
+import pkg from "file-saver";
+
+const {saveAs} = pkg;
 
 import {inflate} from "pako";
 

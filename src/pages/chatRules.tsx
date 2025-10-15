@@ -106,11 +106,11 @@ const ChatRules = () => {
           property="og:type"
         />
         <meta
-          content="https://aechat.ru/"
+          content="https://aechat.ru/rules"
           property="og:url"
         />
         <meta
-          content="Правила AEChat и DWChat"
+          content="rules@aechat"
           property="og:title"
         />
         <meta

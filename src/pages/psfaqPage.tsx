@@ -115,7 +115,7 @@ const PSFAQ = () => {
             name="description"
           />
           <meta
-            content="чат, ссылки, Photoshop, шаблоны Photoshop, AETemp, Adobe, советы Photoshop, FAQ Photoshop, склад стройматериалов, помощь, графический дизайн, редактирование, photo editing, ретушь, фотограф, фотография, дизайн, web design, UI/UX, создание логотипов, создание иконок, создание баннеров, создание визиток, создание буклетов, создание флаеров, создание постеров, создание визуальных эффектов, создание 3D-графики, создание анимации, видеографика, motion design, инфографика, 3D-анимация, видеоклипы, рекламные ролики, видеопрезентации"
+            content="aechat, psfaq, photoshop, telegram, чат, псфак, ссылки, плагины, шаблоны, утилиты, faq, ps, design"
             name="keywords"
           />
           <meta
@@ -123,7 +123,7 @@ const PSFAQ = () => {
             property="og:type"
           />
           <meta
-            content="https://aechat.ru/"
+            content="https://aechat.ru/psfaq"
             property="og:url"
           />
           <meta

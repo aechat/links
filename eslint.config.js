@@ -6,6 +6,7 @@ import pluginPrettier from "eslint-plugin-prettier";
 import pluginReact from "eslint-plugin-react";
 import globals from "globals";
 import tseslint from "typescript-eslint";
+
 /** @type {import('eslint').Linter.Config[]} */
 export default [
   {
@@ -19,6 +20,12 @@ export default [
       "vite.config.ts",
       "scripts/**",
     ],
+  },
+  {
+    files: ["*.js"],
+    languageOptions: {
+      globals: globals.node,
+    },
   },
   {
     files: ["src/**/*.{ts,tsx,js,jsx}"],
@@ -37,15 +44,9 @@ export default [
       "@typescript-eslint": tseslint.plugin,
       react: pluginReact,
     },
-  },
-  pluginJs.configs.recommended,
-  ...tseslint.configs.recommended,
-  pluginReact.configs.flat.recommended,
-  prettierConfig,
-  {
     settings: {
       react: {
-        version: "detect",
+        version: "19.2.0",
       },
     },
     rules: {
@@ -165,4 +166,8 @@ export default [
       ],
     },
   },
+  pluginJs.configs.recommended,
+  ...tseslint.configs.recommended,
+  pluginReact.configs.flat.recommended,
+  prettierConfig,
 ];

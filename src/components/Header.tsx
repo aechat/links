@@ -4,7 +4,7 @@ import {motion} from "framer-motion";
 
 import React, {useEffect, useState} from "react";
 
-import {Link} from "react-router-dom";
+import {Link, useLocation} from "react-router-dom";
 
 import {ThemeToggleButton} from "./modal/ThemeChanger";
 
@@ -24,41 +24,59 @@ const constants = {
 const SEARCH_PATHS = ["aefaq", "prfaq", "psfaq", "aeexpr"] as const;
 
 const Header: React.FC<HeaderProps> = ({title}) => {
+  const location = useLocation();
+
   const [isVisible, setIsVisible] = useState(false);
 
-  const [isWide, setIsWide] = useState(window.innerWidth > constants.WIDE_SCREEN_WIDTH);
+  const [isWide, setIsWide] = useState(
+    typeof window !== "undefined"
+      ? window.innerWidth > constants.WIDE_SCREEN_WIDTH
+      : false
+  );
 
   const scrollToTop = (): void => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
-    window.history.replaceState({}, "", window.location.pathname);
+    if (typeof window !== "undefined") {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
+      window.history.replaceState({}, "", location.pathname);
+    }
   };
 
   const checkScrollPosition = (): void => {
-    setIsVisible(window.scrollY > constants.SCROLL_THRESHOLD);
+    if (typeof window !== "undefined") {
+      setIsVisible(window.scrollY > constants.SCROLL_THRESHOLD);
+    }
   };
   useEffect(() => {
-    window.addEventListener("scroll", checkScrollPosition);
+    if (typeof window !== "undefined") {
+      window.addEventListener("scroll", checkScrollPosition);
 
-    return () => {
-      window.removeEventListener("scroll", checkScrollPosition);
-    };
+      return () => {
+        window.removeEventListener("scroll", checkScrollPosition);
+      };
+    }
   }, []);
   useEffect(() => {
-    const resizeHandler = (): void => {
-      setIsWide(window.innerWidth > constants.WIDE_SCREEN_WIDTH);
-    };
-    window.addEventListener("resize", resizeHandler);
+    if (typeof window !== "undefined") {
+      const resizeHandler = (): void => {
+        setIsWide(window.innerWidth > constants.WIDE_SCREEN_WIDTH);
+      };
+      window.addEventListener("resize", resizeHandler);
 
-    return () => {
-      window.removeEventListener("resize", resizeHandler);
-    };
+      return () => {
+        window.removeEventListener("resize", resizeHandler);
+      };
+    }
   }, []);
 
   const shouldShowSearch = (): boolean => {
-    return SEARCH_PATHS.some((path) => location.pathname.includes(path));
+    if (typeof window !== "undefined") {
+      return SEARCH_PATHS.some((path) => location.pathname.includes(path));
+    }
+
+    return false;
   };
 
   return (

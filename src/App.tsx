@@ -12,6 +12,8 @@ import LoadingAnimation from "./components/LoadingAnimation";
 
 import useDynamicFavicon from "./hooks/useDynamicFavicon";
 
+import {ThemeProvider} from "./components/modal/ThemeChanger";
+
 import faviconSvg from "/icons/favicon.svg?raw";
 
 import aefaqSvg from "/icons/aefaq.svg?raw";
@@ -145,8 +147,20 @@ const ErrorFallback = ({error}: {error: Error}) => (
         <div className="error-message">
           <p>Попробуйте перезагрузить страницу для получения свежих данных.</p>
           <div className="flexible-links">
-            <button onClick={() => (window.location.href = "/")}>На главную</button>
-            <button onClick={() => window.location.reload()}>Обновить страницу</button>
+            <button
+              onClick={() => {
+                if (typeof window !== "undefined") window.location.href = "/";
+              }}
+            >
+              На главную
+            </button>
+            <button
+              onClick={() => {
+                if (typeof window !== "undefined") window.location.reload();
+              }}
+            >
+              Обновить страницу
+            </button>
           </div>
         </div>
       </div>
@@ -197,8 +211,10 @@ export const App = () => {
 
   const [showSafariWarning, setShowSafariWarning] = useState(false);
 
-  const [appReady, setAppReady] = useState(false);
+  const [appReady, setAppReady] = useState(true);
   useEffect(() => {
+    if (typeof window === "undefined") return;
+
     let shouldShowWarning = false;
 
     const isWebKit =
@@ -215,17 +231,20 @@ export const App = () => {
       path.startsWith("/aeexpr");
 
     if (isWebKit && isFaqPage) {
-      const warningDismissed = localStorage.getItem("safariWarningDismissed") === "true";
+      if (typeof localStorage !== "undefined") {
+        const warningDismissed =
+          localStorage.getItem("safariWarningDismissed") === "true";
 
-      if (!warningDismissed) {
-        const lastShown = localStorage.getItem("safariWarningLastShown");
+        if (!warningDismissed) {
+          const lastShown = localStorage.getItem("safariWarningLastShown");
 
-        const now = new Date().getTime();
+          const now = new Date().getTime();
 
-        const time = 60 * 60 * 1000;
+          const time = 60 * 60 * 1000;
 
-        if (!lastShown || now - parseInt(lastShown, 10) >= time) {
-          shouldShowWarning = true;
+          if (!lastShown || now - parseInt(lastShown, 10) >= time) {
+            shouldShowWarning = true;
+          }
         }
       }
     }
@@ -239,6 +258,10 @@ export const App = () => {
     }
   }, [location.pathname]);
   useEffect(() => {
+    if (typeof window === "undefined") {
+      return;
+    }
+
     const path = window.location.pathname;
 
     if (path.endsWith("/index.html")) {
@@ -252,78 +275,84 @@ export const App = () => {
 
   return (
     <ConfigProvider theme={themeConfig}>
-      <ErrorBoundary>
-        <SafariWarningModal
-          open={showSafariWarning}
-          onClose={(dontShowAgain) => {
-            if (dontShowAgain) {
-              localStorage.setItem("safariWarningDismissed", "true");
-            } else {
-              localStorage.setItem(
-                "safariWarningLastShown",
-                new Date().getTime().toString()
-              );
-            }
+      <ThemeProvider>
+        <ErrorBoundary>
+          <SafariWarningModal
+            open={showSafariWarning}
+            onClose={(dontShowAgain) => {
+              if (typeof localStorage !== "undefined") {
+                if (dontShowAgain) {
+                  localStorage.setItem("safariWarningDismissed", "true");
+                } else {
+                  localStorage.setItem(
+                    "safariWarningLastShown",
+                    new Date().getTime().toString()
+                  );
+                }
+              }
 
-            setShowSafariWarning(false);
-            setAppReady(true);
-          }}
-        />
-        {appReady && (
-          <Suspense fallback={<LoadingAnimation />}>
-            <AnimatePresence
-              mode="wait"
-              onExitComplete={() => {
-                setTimeout(() => {
-                  window.scrollTo({
-                    top: 0,
-                    behavior: "instant",
-                  });
-                }, 50);
-              }}
-            >
-              <Routes
-                key={location.pathname}
-                location={location}
-              >
-                <Route
-                  element={<Links />}
-                  path="/"
-                />
-                <Route
-                  element={<AEFAQ />}
-                  path="/aefaq"
-                />
-                <Route
-                  element={<PRFAQ />}
-                  path="/prfaq"
-                />
-                <Route
-                  element={<PSFAQ />}
-                  path="/psfaq"
-                />
-                <Route
-                  element={<AEExpressionPage />}
-                  path="/aeexpr"
-                />
-                <Route
-                  element={<ChatRules />}
-                  path="/rules"
-                />
-                <Route
-                  element={
-                    <>
-                      <NotFound />
-                      <RedirectHtml />
-                    </>
+              setShowSafariWarning(false);
+              setAppReady(true);
+            }}
+          />
+          {appReady && (
+            <Suspense fallback={<LoadingAnimation />}>
+              <AnimatePresence
+                mode="wait"
+                onExitComplete={() => {
+                  if (typeof window !== "undefined") {
+                    setTimeout(() => {
+                      window.scrollTo({
+                        top: 0,
+                        behavior: "instant",
+                      });
+                    }, 50);
                   }
-                  path="*"
-                />
-              </Routes>
-            </AnimatePresence>
-          </Suspense>
-        )}
-      </ErrorBoundary>
+                }}
+              >
+                <Routes
+                  key={location.pathname}
+                  location={location}
+                >
+                  <Route
+                    element={<Links />}
+                    path="/"
+                  />
+                  <Route
+                    element={<AEFAQ />}
+                    path="/aefaq"
+                  />
+                  <Route
+                    element={<PRFAQ />}
+                    path="/prfaq"
+                  />
+                  <Route
+                    element={<PSFAQ />}
+                    path="/psfaq"
+                  />
+                  <Route
+                    element={<AEExpressionPage />}
+                    path="/aeexpr"
+                  />
+                  <Route
+                    element={<ChatRules />}
+                    path="/rules"
+                  />
+                  <Route
+                    element={
+                      <>
+                        <NotFound />
+                        <RedirectHtml />
+                      </>
+                    }
+                    path="*"
+                  />
+                </Routes>
+              </AnimatePresence>
+            </Suspense>
+          )}
+        </ErrorBoundary>
+      </ThemeProvider>
     </ConfigProvider>
   );
 };

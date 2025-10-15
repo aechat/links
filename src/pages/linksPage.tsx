@@ -71,6 +71,26 @@ const Links = () => {
     <div className="page">
       <Helmet>
         <title>links@aechat</title>
+        <meta
+          content="Коллекция полезных ссылок, FAQ и ресурсов для сообщества AEChat"
+          name="description"
+        />
+        <meta
+          content="aechat, aefaq, prfaq, psfaq, after effects, premiere pro, photoshop, telegram, чат, аефак, прфак, псфак, ссылки, плагины, шаблоны, утилиты, faq, ae, pr, ps, design, motion design, видеомонтаж"
+          name="keywords"
+        />
+        <meta
+          content="website"
+          property="og:type"
+        />
+        <meta
+          content="links@aechat"
+          property="og:title"
+        />
+        <meta
+          content="Коллекция полезных ссылок, FAQ и ресурсов для сообщества AEChat"
+          property="og:description"
+        />
       </Helmet>
       <Header title="links" />
       <motion.main
@@ -461,12 +481,22 @@ const Links = () => {
           <Addition type="danger">
             Пожалуйста, будьте внимательны при выполнении заказов и остерегайтесь
             мошенников на фрилансе!{" "}
-            <a
-              style={{cursor: "pointer"}}
+            <button
+              style={{
+                background: "none",
+                border: "none",
+                color: "inherit",
+                cursor: "pointer",
+                font: "inherit",
+                fontWeight: "700",
+                padding: "0",
+                textDecoration: "underline",
+              }}
+              type="button"
               onClick={showModal}
             >
               Подробнее...
-            </a>
+            </button>
           </Addition>
           <Modal
             centered

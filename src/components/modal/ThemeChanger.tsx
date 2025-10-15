@@ -26,38 +26,77 @@ interface ThemeContextProps {
 const ThemeContext = createContext<ThemeContextProps | undefined>(undefined);
 
 export const ThemeProvider: React.FC<{children: React.ReactNode}> = ({children}) => {
-  const [themeState, setThemeState] = useState<Theme>(
-    () => (localStorage.getItem("theme") as Theme) || "system"
+  const getInitialTheme = (): Theme => {
+    if (typeof localStorage !== "undefined") {
+      return (localStorage.getItem("theme") as Theme) || "system";
+    }
+
+    return "system";
+  };
+
+  const [themeState, setThemeState] = useState<Theme>(getInitialTheme);
+
+  const getInitialAccentHue = (): number => {
+    if (typeof localStorage !== "undefined") {
+      return parseInt(localStorage.getItem("accentHue") ?? "210", 10);
+    }
+
+    return 210;
+  };
+
+  const [accentHueState, setAccentHueState] = useState<number>(getInitialAccentHue);
+
+  const getInitialSaturateRatio = (): number => {
+    if (typeof localStorage !== "undefined") {
+      return parseFloat(localStorage.getItem("saturateRatio") ?? "1");
+    }
+
+    return 1;
+  };
+
+  const [saturateRatioState, setSaturateRatioState] = useState<number>(
+    getInitialSaturateRatio
   );
 
-  const [accentHueState, setAccentHueState] = useState<number>(() =>
-    parseInt(localStorage.getItem("accentHue") ?? "210", 10)
-  );
+  const getInitialMaxWidth = (): number => {
+    if (typeof localStorage !== "undefined") {
+      return parseInt(localStorage.getItem("maxWidth") ?? "1175", 10);
+    }
 
-  const [saturateRatioState, setSaturateRatioState] = useState<number>(() =>
-    parseFloat(localStorage.getItem("saturateRatio") ?? "1")
-  );
+    return 1175;
+  };
 
-  const [maxWidthState, setMaxWidthState] = useState<number>(() =>
-    parseInt(localStorage.getItem("maxWidth") ?? "1175", 10)
-  );
+  const [maxWidthState, setMaxWidthState] = useState<number>(getInitialMaxWidth);
 
   const setTheme = (newTheme: Theme) => {
     setThemeState(newTheme);
-    localStorage.setItem("theme", newTheme);
+
+    if (typeof localStorage !== "undefined") {
+      localStorage.setItem("theme", newTheme);
+    }
   };
 
   const setAccentHue = (hue: number) => {
     setAccentHueState(hue);
-    localStorage.setItem("accentHue", hue.toString());
+
+    if (typeof localStorage !== "undefined") {
+      localStorage.setItem("accentHue", hue.toString());
+    }
   };
 
   const setSaturateRatio = (ratio: number) => {
     setSaturateRatioState(ratio);
-    localStorage.setItem("saturateRatio", ratio.toString());
+
+    if (typeof localStorage !== "undefined") {
+      localStorage.setItem("saturateRatio", ratio.toString());
+    }
   };
 
   const updateTheme = () => {
+    if (typeof window === "undefined") {
+      return;
+    }
+
     const root = document.documentElement;
     root.style.setProperty("--accent-hue", accentHueState.toString());
     root.style.setProperty("--saturate-ratio", saturateRatioState.toString());
@@ -75,6 +114,10 @@ export const ThemeProvider: React.FC<{children: React.ReactNode}> = ({children})
     [themeState, accentHueState, saturateRatioState, maxWidthState]
   );
   useEffect(() => {
+    if (typeof window === "undefined") {
+      return;
+    }
+
     const handleSystemThemeChange = () => themeState === "system" && updateTheme();
 
     const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
@@ -94,7 +137,10 @@ export const ThemeProvider: React.FC<{children: React.ReactNode}> = ({children})
       maxWidth: maxWidthState,
       setMaxWidth: (width: number) => {
         setMaxWidthState(width);
-        localStorage.setItem("maxWidth", width.toString());
+
+        if (typeof localStorage !== "undefined") {
+          localStorage.setItem("maxWidth", width.toString());
+        }
       },
     }),
     [themeState, accentHueState, saturateRatioState, maxWidthState]
@@ -149,15 +195,21 @@ const ThemeModal: React.FC<ThemeModalProps> = ({isModalOpen, closeModal}) => {
     setMaxWidth,
   } = useTheme();
 
-  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const [windowWidth, setWindowWidth] = useState(
+    typeof window !== "undefined" ? window.innerWidth : 0
+  );
   useEffect(() => {
+    if (typeof window === "undefined") {
+      return;
+    }
+
     const handleResize = () => setWindowWidth(window.innerWidth);
     window.addEventListener("resize", handleResize);
 
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  const currentPath = window.location.pathname;
+  const currentPath = typeof window !== "undefined" ? window.location.pathname : "";
 
   const allowedPaths = ["/aefaq", "/prfaq", "/psfaq", "/aeexpr", "/rules"];
 
