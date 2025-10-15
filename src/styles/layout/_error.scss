@@ -12,6 +12,7 @@
 
 .error-content {
   backdrop-filter: blur(5px);
+  filter: drop-shadow(0 0 10px var(--shadow-primary));
   outline: 1px solid var(--color-border-modal);
   border-radius: $roundness;
   background-color: var(--color-background-modal);
@@ -51,4 +52,4 @@
 
 .error-message {
   text-wrap: balance;
-}
+}

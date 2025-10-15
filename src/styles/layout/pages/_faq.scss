@@ -101,8 +101,7 @@
   margin-block-end: -1px;
   border: solid 1px var(--color-border-primary);
   background-color: var(--color-background-secondary);
-  padding-block-start: 15px;
-  padding-block-end: 1px;
+  padding-block: 15px 1px;
 }
 
 .faq-content {
@@ -321,6 +320,7 @@ body.has-open-details .faq-content {
       opacity: 1;
     }
   }
+
   details[open] {
     filter: drop-shadow(0 0 30px var(--color-surface-primary-open-shadow));
   }
@@ -378,8 +378,9 @@ details {
 
 .copy-button {
   flex: none;
+
   &.disabled {
     filter: saturate(0) opacity(0.25);
     cursor: not-allowed;
   }
-}
+}

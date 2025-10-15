@@ -10,6 +10,7 @@
 @use "layout/error";
 @use "layout/footer";
 @use "layout/layout";
+@use "layout/noscript";
 @use "layout/pages/faq";
 @use "layout/pages/links";
 @use "layout/pages/rules";
@@ -34,5 +35,4 @@
 @use "components/table";
 @use "components/theme-selector";
 
-@use "utilities/index";
 @use "utilities/utilities";

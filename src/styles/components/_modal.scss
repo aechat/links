@@ -23,10 +23,10 @@
 }
 
 .modal-header-title {
+  overflow: hidden;
   color: var(--color-surface-primary-text);
   font-weight: 500;
   font-size: 1.15rem;
-  overflow: hidden;
 }
 
 .modal-header-close {
