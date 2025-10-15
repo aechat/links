@@ -5,7 +5,7 @@ import {
   AssistantRounded,
   BlockRounded,
   BurstModeRounded,
-  // BusinessCenterRounded,
+  BusinessCenterRounded,
   CarRepairRounded,
   CloseRounded,
   ContentCutRounded,
@@ -398,12 +398,12 @@ const Links = () => {
               icon={<VolumeUpRounded />}
               name="Sound Chat"
             />
-            {/* <LinkCard
+            <LinkCard
               description="Публикуем вакансии и обсуждаем рабочую жизнь"
-              href="https://t.me/"
+              href="https://t.me/s/UpWorkTut"
               icon={<BusinessCenterRounded />}
               name="Work Chat"
-            /> */}
+            />
             <LinkCard
               description="Обсуждаем Blender и всё что с ним связано"
               href="https://t.me/blender3dchat"
