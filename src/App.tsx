@@ -6,6 +6,8 @@ import React, {Suspense, lazy, useEffect, useState} from "react";
 
 import {Navigate, Route, Routes, useLocation} from "react-router-dom";
 
+import {MetrikaCounter} from "react-metrika";
+
 import themeConfig from "./styles/ant_theme";
 
 import LoadingAnimation from "./components/LoadingAnimation";
@@ -53,17 +55,6 @@ const RedirectHtml = () => {
   }
 
   return null;
-};
-declare global {
-  interface Window {
-    ym: (counterId: number, method: string, ...args: unknown[]) => void;
-  }
-}
-
-const trackPageView = (path: string) => {
-  if (typeof window === "object" && window.ym) {
-    window.ym(96346999, "hit", path);
-  }
 };
 
 const SafariWarningModal = ({
@@ -268,14 +259,22 @@ export const App = () => {
       window.location.replace("/");
     } else if (path.endsWith(".html")) {
       window.location.replace(path.replace(/\.html$/, ""));
-    } else {
-      trackPageView(path);
     }
   }, [location]);
 
   return (
     <ConfigProvider theme={themeConfig}>
       <ThemeProvider>
+        <MetrikaCounter
+          id={96346999}
+          options={{
+            clickmap: true,
+            trackLinks: true,
+            accurateTrackBounce: true,
+            webvisor: true,
+            trackHash: true,
+          }}
+        />
         <ErrorBoundary>
           <SafariWarningModal
             open={showSafariWarning}
