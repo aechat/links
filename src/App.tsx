@@ -87,7 +87,7 @@ const SafariWarningModal = ({
             style={{textAlign: "left"}}
           >
             <p>
-              В браузере <mark className="app">Safari</mark> при чтении некоторых статаей
+              В браузере <mark className="app">Safari</mark> при чтении некоторых статей
               данная страница может упасть в ошибку{" "}
               <mark className="danger">«На этой странице произошла ошибка»</mark> из-за
               переполнения памяти.
