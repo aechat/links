@@ -168,7 +168,10 @@ export const ThemeToggleButton: React.FC = () => {
 
   return (
     <>
-      <button onClick={openModal}>
+      <button
+        className="icon"
+        onClick={openModal}
+      >
         <FormatColorFillOutlined />
       </button>
       <ThemeModal

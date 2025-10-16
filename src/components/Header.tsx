@@ -107,6 +107,7 @@ const Header: React.FC<HeaderProps> = ({title}) => {
         <div className={`header-right ${isVisible ? "visible" : "hidden"}`}>
           <button
             aria-label="Прокрутить страницу вверх"
+            className="icon"
             onClick={scrollToTop}
           >
             <SwipeUpRounded />
