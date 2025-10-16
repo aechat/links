@@ -36,7 +36,7 @@ const ContentFigure: React.FC<ContentFigureProps> = ({
     } else {
       const timer = setTimeout(() => {
         setShouldRender(false);
-      }, 350); // Animation duration
+      }, 350);
 
       return () => clearTimeout(timer);
     }
@@ -46,6 +46,8 @@ const ContentFigure: React.FC<ContentFigureProps> = ({
 
   const [isClosing, setIsClosing] = useState(false);
 
+  const [initialScrollY, setInitialScrollY] = useState(0);
+
   const styleClass =
     type === "youtube"
       ? "figure-browser-youtube"
@@ -54,6 +56,7 @@ const ContentFigure: React.FC<ContentFigureProps> = ({
   const isWindowsStyle = variant === "windows";
 
   const handleMaximize = useCallback(() => {
+    setInitialScrollY(window.scrollY);
     setIsFullscreen(true);
     setIsClosing(false);
   }, []);
@@ -97,6 +100,22 @@ const ContentFigure: React.FC<ContentFigureProps> = ({
       document.removeEventListener("keydown", handleEscKey);
     };
   }, [isFullscreen, handleClose]);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (Math.abs(window.scrollY - initialScrollY) > window.innerHeight * 0.25) {
+        handleClose();
+      }
+    };
+
+    if (isFullscreen) {
+      window.addEventListener("scroll", handleScroll);
+    }
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [isFullscreen, handleClose, initialScrollY]);
 
   if (!shouldRender) {
     return null;
