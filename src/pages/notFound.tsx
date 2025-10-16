@@ -130,7 +130,7 @@ const NotFound = () => {
           property="og:image"
         />
         <meta
-          content="summary"
+          content="summary_large_image"
           name="twitter:card"
         />
         <meta

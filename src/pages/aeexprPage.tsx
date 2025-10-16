@@ -93,7 +93,7 @@ const AEExpressionPage = () => {
             itemProp="description"
           />
           <meta
-            content="https://aechat.ru/icons/aeexprfaq.svg"
+            content="https://aechat.ru/icons/aeexpr@aechat.png"
             itemProp="image"
           />
           <meta
@@ -117,11 +117,11 @@ const AEExpressionPage = () => {
             property="og:description"
           />
           <meta
-            content="https://aechat.ru/icons/aeexprfaq.svg"
+            content="https://aechat.ru/icons/aeexpr@aechat.png"
             property="og:image"
           />
           <meta
-            content="summary"
+            content="summary_large_image"
             name="twitter:card"
           />
           <meta
@@ -133,7 +133,7 @@ const AEExpressionPage = () => {
             name="twitter:description"
           />
           <meta
-            content="https://aechat.ru/icons/aeexprfaq.svg"
+            content="https://aechat.ru/icons/aeexpr@aechat.png"
             name="twitter:image"
           />
         </Helmet>

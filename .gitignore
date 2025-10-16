@@ -33,3 +33,4 @@ public/legacy/css/styles.css
 pnpm*.yaml
 .pnp*
 .aider*
+.psd

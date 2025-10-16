@@ -84,7 +84,7 @@ const Links = () => {
           itemProp="description"
         />
         <meta
-          content="https://aechat.ru/icons/favicon.svg"
+          content="https://aechat.ru/icons/links@aechat.png"
           itemProp="image"
         />
         <meta
@@ -108,11 +108,11 @@ const Links = () => {
           property="og:description"
         />
         <meta
-          content="https://aechat.ru/icons/favicon.svg"
+          content="https://aechat.ru/icons/links@aechat.png"
           property="og:image"
         />
         <meta
-          content="summary"
+          content="summary_large_image"
           name="twitter:card"
         />
         <meta
@@ -124,7 +124,7 @@ const Links = () => {
           name="twitter:description"
         />
         <meta
-          content="https://aechat.ru/icons/favicon.svg"
+          content="https://aechat.ru/icons/links@aechat.png"
           name="twitter:image"
         />
       </Helmet>
