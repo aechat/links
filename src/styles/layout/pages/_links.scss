@@ -1,6 +1,7 @@
 @use "../../abstracts/mixins" as *;
 
 .links {
+  filter: drop-shadow(0 10px 15px var(--shadow-primary));
   margin-top: 0;
   margin-inline: auto;
   width: calc(100% - 16px);
