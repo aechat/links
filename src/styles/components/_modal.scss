@@ -53,6 +53,7 @@
 }
 
 .modal-content {
+  filter: drop-shadow(0 0 15px var(--shadow-primary));
   outline: 1px solid var(--color-border-modal);
   border-radius: $roundness;
   background-color: var(--color-background-modal);
