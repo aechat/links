@@ -193,7 +193,14 @@ const Links = () => {
                     Для скачивания файлов из каналов ниже рекомендуется использовать
                     официальное приложение <mark className="app">Telegram</mark> вместо
                     веб-версии. Его можно установить через{" "}
-                    <a href="https://telegram.org/dl/ios">App Store</a>.
+                    <a
+                      href="https://telegram.org/dl/ios"
+                      rel="noreferrer"
+                      target="_blank"
+                    >
+                      App Store
+                    </a>
+                    .
                   </>
                 );
               }
@@ -204,7 +211,14 @@ const Links = () => {
                     Для скачивания файлов из каналов ниже рекомендуется использовать
                     официальное приложение <mark className="app">Telegram</mark> вместо
                     веб-версии. Его можно установить по{" "}
-                    <a href="https://telegram.org/android">этой ссылке</a>.
+                    <a
+                      href="https://telegram.org/android"
+                      rel="noreferrer"
+                      target="_blank"
+                    >
+                      этой ссылке
+                    </a>
+                    .
                   </>
                 );
               }
@@ -215,7 +229,14 @@ const Links = () => {
                     Для скачивания файлов из каналов ниже рекомендуется использовать
                     десктопную версию <mark className="app">Telegram</mark> вместо
                     веб-версии. Её можно скачать по{" "}
-                    <a href="https://macos.telegram.org/">этой ссылке</a>.
+                    <a
+                      href="https://macos.telegram.org/"
+                      rel="noreferrer"
+                      target="_blank"
+                    >
+                      этой ссылке
+                    </a>
+                    .
                   </>
                 );
               }
@@ -225,7 +246,14 @@ const Links = () => {
                   Для скачивания файлов из каналов ниже рекомендуется использовать
                   десктопную версию <mark className="app">Telegram</mark> вместо
                   веб-версии. Её можно скачать по{" "}
-                  <a href="https://desktop.telegram.org/">этой ссылке</a>.
+                  <a
+                    href="https://desktop.telegram.org/"
+                    rel="noreferrer"
+                    target="_blank"
+                  >
+                    этой ссылке
+                  </a>
+                  .
                 </>
               );
             })()}
