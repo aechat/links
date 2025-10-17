@@ -422,7 +422,6 @@ export const SearchInPage: React.FC<{sections: SearchSection[]}> = ({sections}) 
       closeIcon={null}
       footer={null}
       forceRender={true}
-      getContainer={false}
       open={isOpen}
       width={850}
       onCancel={closeModal}
