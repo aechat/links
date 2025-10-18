@@ -1015,6 +1015,14 @@ const AEExport: React.FC = () => {
           type="youtube"
         />
         <Divider>Дополнительный материал для размышлений</Divider>
+        <div className="flexible-links">
+          <a href="https://blog.frame.io/2017/02/15/choose-the-right-codec/">
+            Выбор кодека для проекта
+          </a>
+          <a href="https://aws.amazon.com/ru/blogs/rus/media-part-1-back-to-basics-gops-explained/">
+            Что такое «GOP»?
+          </a>
+        </div>
         <ContentFigure
           caption="Как работают видеокодеки?"
           src="gqDuIcJ-alM"
