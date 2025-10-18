@@ -41,31 +41,29 @@ const AEInstallProblems: React.FC = () => {
         <Divider>Универсальные инструкции для разных типов файлов</Divider>
         <ul>
           <li>
-            Файлы проектов формата <mark className="file">AEP</mark> открываются как
-            обычный проект в <mark className="app">Adobe After Effects</mark> с помощью
-            двойного клика, <mark className="select">«File» → «Open Project»</mark> или{" "}
-            <mark className="key">Ctrl + O</mark>. Если вы хотите импортировать такой файл
-            в свой проект — сделайте это с помощью{" "}
-            <mark className="select">«File» → «Import» → «File»</mark> или{" "}
+            Проекты формата <mark className="file">AEP</mark> открываются как обычные
+            проекты в <mark className="app">Adobe After Effects</mark>: двойным кликом,
+            через <mark className="select">«File» → «Open Project»</mark> или сочетанием
+            клавиш <mark className="key">Ctrl + O</mark>. Чтобы импортировать такой файл в
+            свой проект, воспользуйтесь командой{" "}
+            <mark className="select">«File» → «Import» → «File»</mark> или сочетанием{" "}
             <mark className="key">Ctrl + I</mark>.
             <Addition type="info">
               <ul>
                 <li>
-                  Прежде чем открывать проект формата <mark className="file">AEP</mark> —
-                  полностью распакуйте архив с помощью архиватора, а затем открывайте
-                  проект из уже распакованной папки. Таким образом вы убережёте себя от
-                  разноцветных «плейсхолдеров», как при технических работах на телевидении
-                  и ошибок отсутствия файлов для проекта.
+                  Прежде чем открывать проект формата <mark className="file">AEP</mark>,
+                  полностью распакуйте архив и открывайте проект уже из распакованной
+                  папки. Так вы убережёте себя от появления разноцветных «плейсхолдеров» и
+                  ошибок, связанных с отсутствием файлов.
                 </li>
                 <li>
-                  Если вы попытаетесь открыть лишь один файл{" "}
-                  <mark className="file">AEP</mark> без полной распаковки архива, то вы
-                  можете столкнуться с тем, что{" "}
+                  Если попытаться открыть только файл <mark className="file">AEP</mark>{" "}
+                  без полной распаковки архива,{" "}
                   <mark className="app">Adobe After Effects</mark> не сможет найти все
-                  необходимые файлы для проекта.
+                  необходимые для проекта файлы.
                 </li>
                 <li>
-                  В большинстве случаев рядом с файлом шаблона может располагаться{" "}
+                  В большинстве случаев рядом с файлом шаблона есть{" "}
                   <mark className="video">туториал</mark>, объясняющий, как им
                   пользоваться. Он может находиться в папке{" "}
                   <mark className="path">Help</mark>,{" "}
@@ -76,20 +74,18 @@ const AEInstallProblems: React.FC = () => {
           </li>
           <li>
             Пакеты шаблонов формата <mark className="file">ATOM</mark> устанавливаются
-            путём перетаскивания файла в окно расширения{" "}
-            <mark className="plugin">AtomX</mark>.
+            перетаскиванием файла в окно расширения <mark className="plugin">AtomX</mark>.
             <Addition type="warning">
               <mark className="plugin">AtomX</mark> версии <mark>3.0.9</mark> может не
               импортировать пакеты, выдавая ошибку{" "}
               <mark className="danger">«Connection Failure»</mark>. Для решения этой
               проблемы попробуйте установить <mark className="plugin">AtomX</mark> версии{" "}
-              <mark>3.0.8</mark> и повторить попытку импорта нужного пакета в расширение.
+              <mark>3.0.8</mark> и повторить попытку импорта пакета.
             </Addition>
           </li>
           <li>
             Пакеты шаблонов формата <mark className="file">MBR</mark> устанавливаются
-            путём перетаскивания в окно расширения{" "}
-            <mark className="plugin">Motion Bro</mark>.
+            перетаскиванием в окно расширения <mark className="plugin">Motion Bro</mark>.
           </li>
         </ul>
         <ContentFilter
@@ -416,10 +412,9 @@ const AEInstallProblems: React.FC = () => {
                     </li>
                     <li>
                       Если вы не хотите устанавливать стороннее ПО для установки таких
-                      расширений — переименуйте файл <mark className="file">
-                        ZXP
-                      </mark> в <mark className="file">ZIP</mark> и распакуйте его как
-                      обычный архив, а затем перейдите в папку{" "}
+                      расширений — переименуйте файл <mark className="file">ZXP</mark> в{" "}
+                      <mark className="file">ZIP</mark> и распакуйте его как обычный
+                      архив, а затем перейдите в папку{" "}
                       <mark className="path">
                         /Library/Application Support/Adobe/CEP/extensions
                       </mark>{" "}
@@ -2003,7 +1998,6 @@ const AEInstallProblems: React.FC = () => {
                     type="video"
                     variant="windows"
                   />
-
                   <Addition type="warning">
                     По умолчанию <mark className="app">Adobe Creative Cloud</mark>{" "}
                     устанавливает приложения на языке, на котором локализована ваша
