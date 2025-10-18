@@ -4236,92 +4236,263 @@ const AEFromNewbies: React.FC = () => {
         />
       </DetailsSummary>
       <DetailsSummary
-        tag="graph editor, speed graph, value graph, интерполяция, анимация, кривые скорости"
-        title="Что такое графики скорости и для чего они нужны?"
+        tag="графики скорости, ключи, кейфрейм, keyframe, graph editor, speed graph, value graph, интерполяция, анимация, кривые скорости"
+        title="Что такое ключевые кадры и для чего они нужны?"
       >
         <p>
-          <mark className="select">«Graph Editor»</mark> — это инструмент для детальной
-          настройки анимации, который открывается комбинацией клавиш{" "}
-          <mark className="key">Shift + F3</mark>. Он позволяет управлять скоростью
-          изменения значения параметров между ключевыми кадрами. По умолчанию при создании
-          ключевых кадров задаётся линейная анимация, чтобы включить возможность изменения
-          графика скорости — выделите нужные ключи и нажмите на{" "}
-          <mark className="key">F9</mark> для применения{" "}
-          <mark className="select">«Easy Ease»</mark> или нажмите на{" "}
-          <mark className="key">Ctrl + Alt + K</mark> для открытия окна{" "}
-          <mark className="select">«Keyframe Interpolation»</mark>, в котором вы можете
-          выбрать тип интерполяции для выделенных ключевых кадров. Вместо линейного
-          движения можно задать плавные ускорения и замедления — анимация получится живее
-          и динамичнее.
+          <mark className="word">Ключевые кадры</mark>, или{" "}
+          <mark className="word">кейфреймы</mark>, — это важный элемент, с помощью
+          которого строится любая анимация. Они задают начальное и конечное состояние
+          объекта или эффекта: например, где он должен появиться и где исчезнуть.
         </p>
-        <Divider>Типы графиков для анимации</Divider>
         <p>
-          В <mark className="app">Adobe After Effects</mark> есть два типа графика, на
-          основе которых строится анимация того или иного параметра —{" "}
-          <mark className="select">«Value Graph»</mark> и{" "}
-          <mark className="select">«Speed Graph»</mark>.
+          Чтобы установить ключевой кадр для параметра, нажмите на иконку секундомера
+          рядом со свойством на панели таймлайна или в{" "}
+          <mark className="select">«Effect Controls»</mark>. Дополнительные ключевые кадры
+          создаются автоматически, если изменить значение свойства в текущей позиции
+          индикатора времени.
+        </p>
+        <ContentFigure
+          caption="Установка ключевых кадров"
+          src="images/aftereffects/position_keyframing.mp4"
+          theme="dark"
+          type="video"
+          variant="windows"
+        />
+        <p>
+          По умолчанию при создании ключевых кадров задаётся линейная анимация. Чтобы
+          сделать движение живее и динамичнее, можно добавить плавные ускорения и
+          замедления. Для этого используется{" "}
+          <mark className="select">«Graph Editor»</mark> — инструмент для детальной
+          настройки скорости анимации, который открывается комбинацией клавиш{" "}
+          <mark className="key">Shift + F3</mark>. Он позволяет управлять скоростью
+          изменения параметров между ключевыми кадрами.
+        </p>
+        <p>
+          Чтобы включить возможность изменения графика скорости, выделите нужные ключи и
+          нажмите <mark className="key">F9</mark> для применения{" "}
+          <mark className="select">«Easy Ease»</mark> или{" "}
+          <mark className="key">Ctrl + Alt + K</mark> для открытия окна{" "}
+          <mark className="select">«Keyframe Interpolation»</mark>, где можно выбрать тип
+          интерполяции для выделенных ключевых кадров.
+        </p>
+        <Divider>Типы интерполяции</Divider>
+        <p>
+          <mark className="word">Интерполяция</mark> — это математический способ, которым
+          программа рассчитывает промежуточные состояния объекта между{" "}
+          <mark className="word">ключевыми кадрами</mark> для создания плавных переходов.
+        </p>
+        <p>
+          <mark className="word">Ключевые кадры</mark> задают конкретные значения
+          параметров в определённые моменты времени, а интерполяция определяет, как эти
+          значения будут изменяться между ними. В{" "}
+          <mark className="app">Adobe After Effects</mark> есть два типа интерполяции
+          ключевых кадров: <mark className="select">«Temporal Interpolation»</mark> и{" "}
+          <mark className="select">«Spatial Interpolation»</mark>.
         </p>
         <ul>
           <li>
-            <mark className="select">«Value Graph»</mark> — график значения параметра. По
-            оси X — время, по оси Y — значение параметра: снизу вверх от меньшего к
-            большему. Например, для <mark className="select">«Position»</mark>
-            <sup>1</sup> — это координаты в пикселях в каждый момент времени. Уклон кривой
-            отражает скорость изменения: чем круче наклон, тем быстрее меняется значение.
+            <p>
+              <mark className="select">«Temporal Interpolation»</mark> или же{" "}
+              <mark className="select">«Временная интерполяция»</mark> отвечает за
+              скорость изменения свойства во времени.
+            </p>
+            <Addition type="info">
+              Примеры интерполяции демонстрируются в режиме отображения{" "}
+              <mark className="select">«Value Graph»</mark>.
+            </Addition>
+            <ul>
+              <li>
+                <mark className="select">«Linear»</mark> — движение с постоянной,
+                неизменной скоростью. На графиках значения и скорости она отображается
+                прямой линией. На таймлайне обозначается значком ромба.
+                <ContentFigure
+                  caption="Линейная интерполяция"
+                  src="images/aftereffects/temporal_linear.png"
+                  theme="dark"
+                  type="image"
+                  variant="windows"
+                />
+              </li>
+              <li>
+                <mark className="select">«Bezier»</mark> — предоставляет максимальный
+                контроль над анимацией, позволяя вручную регулировать кривые ускорения и
+                замедления с помощью независимых манипуляторов с обеих сторон ключевого
+                кадра. В отличие от <mark className="select">«Auto Bezier»</mark> и{" "}
+                <mark className="select">«Continuous Bezier»</mark>, направление каждого
+                манипулятора задаётся отдельно, что позволяет точно управлять скоростью и
+                формой движения. На таймлайне отображается значком песочных часов.
+                <ContentFigure
+                  caption="Интерполяция по Безье"
+                  src="images/aftereffects/temporal_bezier.mp4"
+                  theme="dark"
+                  type="video"
+                  variant="windows"
+                />
+                <Addition type="info">
+                  Быстро переключиться между <mark className="select">«Bezier»</mark> и{" "}
+                  <mark className="select">«Continuous Bezier»</mark> можно, двигая
+                  манипуляторы с зажатой клавишей <mark className="key">Alt</mark> в{" "}
+                  <mark className="select">«Graph Editor»</mark>.
+                </Addition>
+              </li>
+              <li>
+                <mark className="select">«Continuous Bezier»</mark> — похожа на предыдущий
+                тип, но манипуляторы соединены, что сглаживает кривую с обеих сторон
+                ключевого кадра и позволяет избежать резких «изломов» на графике скорости.
+                Изменяя их, вы влияете на форму графика значения или траектории движения
+                по обе стороны от ключевого кадра. Этот тип интерполяции — один из самых
+                популярных при создании анимации. На таймлайне отображается значком
+                песочных часов.
+                <ContentFigure
+                  caption="Интерполяция по «продолжающемуся» Безье"
+                  src="images/aftereffects/temporal_continuous_bezier.mp4"
+                  theme="dark"
+                  type="video"
+                  variant="windows"
+                />
+              </li>
+              <li>
+                <mark className="select">«Auto Bezier»</mark> — автоматическая
+                интерполяция между ключевыми кадрами. Используется редко, так как в
+                большинстве случаев анимация всё равно корректируется вручную.
+                <Addition type="info">
+                  Чтобы быстро установить <mark className="select">«Auto Bezier»</mark>,
+                  нажмите на ключевой кадр с зажатой клавишей{" "}
+                  <mark className="key">Alt</mark> в{" "}
+                  <mark className="select">«Graph Editor»</mark>. На таймлайне
+                  отображается значком круга.
+                </Addition>{" "}
+                <ContentFigure
+                  caption="Интерполяция автоматического Безье"
+                  src="images/aftereffects/temporal_auto_bezier.mp4"
+                  theme="dark"
+                  type="video"
+                  variant="windows"
+                />
+              </li>
+              <li>
+                <p>
+                  <mark className="select">«Hold»</mark> — тип временной интерполяции, при
+                  котором значение параметра остаётся неизменным до следующего ключевого
+                  кадра, а затем мгновенно переключается на новое. Такой способ подходит
+                  для создания слайд-шоу или резких смен состояний, когда объект должен
+                  внезапно появляться или исчезать. На таймлайне отображается значком
+                  квадрата.
+                </p>
+                <ContentFigure
+                  caption="Интерполяция «задержки»"
+                  src="images/aftereffects/temporal_hold.mp4"
+                  theme="dark"
+                  type="video"
+                  variant="windows"
+                />
+              </li>
+            </ul>
+          </li>
+          <li>
+            <p>
+              <mark className="select">«Spatial Interpolation»</mark> или{" "}
+              <mark className="select">«Пространственная интерполяция»</mark> отвечает за
+              форму траектории движения объекта в пространстве, например для свойства{" "}
+              <mark className="select">«Position»</mark>.
+            </p>
+            <ul>
+              <li>
+                <mark className="select">«Linear»</mark>
+              </li>
+              <li>
+                <mark className="select">«Bezier»</mark>
+              </li>
+              <li>
+                <mark className="select">«Continuous Bezier»</mark>
+              </li>
+              <li>
+                <mark className="select">«Auto Bezier»</mark>
+                {/* TODO: Добавить объяснение: «Автоматически создаёт плавную, изогнутую траекторию между ключевыми кадрами.» */}
+              </li>
+            </ul>
+            <p>
+              Для свойств, поддерживающих этот тип интерполяции, дополнительно доступен
+              параметр <mark className="select">«Rove Across Time»</mark>, если
+              установлено три ключевых кадра или больше. Этот параметр делает скорость
+              изменения значения равномерной на всём пути через помеченные ключи, убирая
+              замедления в промежуточных точках. Кроме того, при перемещении начального
+              или конечного ключа по временной шкале промежуточные ключевые кадры будут
+              автоматически перераспределяться, сохраняя равномерность движения.
+            </p>
+          </li>
+        </ul>
+        <Divider>Типы графиков для анимации</Divider>
+        <p>
+          В <mark className="app">Adobe After Effects</mark> есть два типа графика, на
+          основе которых строится анимация: <mark className="select">«Value Graph»</mark>{" "}
+          и <mark className="select">«Speed Graph»</mark>.
+        </p>
+        <ul>
+          <li>
+            <mark className="select">«Value Graph»</mark> (график значения). По оси X —
+            время, по оси Y — значение параметра, от меньшего к большему. Например, для
+            свойства <mark className="select">«Position»</mark>
+            <sup>1</sup> это будут координаты в пикселях в каждый момент времени. Уклон
+            кривой отражает скорость: чем он круче, тем быстрее меняется значение.
             <Addition type="info">
               <sup>1</sup> С помощью <mark className="select">«Value Graph»</mark> нельзя
-              редактировать график параметрам, представленные массивом из нескольких
+              редактировать график у параметров, представленных массивом из нескольких
               значений, например <mark className="select">«Anchor Point»</mark> или{" "}
               <mark className="select">«Position»</mark>. Чтобы отредактировать график для{" "}
-              <mark className="select">«Position»</mark> по отдельности — нажмите{" "}
+              <mark className="select">«Position»</mark> по отдельности, нажмите{" "}
               <mark className="key">ПКМ</mark> по параметру{" "}
               <mark className="select">«Position»</mark> и выберите{" "}
               <mark className="select">«Separate Dimensions»</mark> в контекстном меню.
-              Если вы не хотите делить оси — используйте{" "}
+              Если вы не хотите разделять оси, используйте{" "}
               <mark className="select">«Speed Graph»</mark>.
             </Addition>
           </li>
           <li>
-            <mark className="select">«Speed Graph»</mark> — график скорости изменения
-            параметра. По оси Y отображается скорость в пикселях в секунду. Он показывает,
-            насколько быстро меняется значение между ключевыми кадрами. Редактируя{" "}
-            <mark className="select">«Speed Graph»</mark>, вы управляете именно темпом и
-            плавностью анимации, не затрагивая сами значения свойства.
+            <mark className="select">«Speed Graph»</mark> (график скорости). По оси Y
+            отображается скорость изменения параметра (например, в пикселях в секунду). Он
+            показывает, насколько быстро меняется значение между ключевыми кадрами.
+            Редактируя <mark className="select">«Speed Graph»</mark>, вы управляете именно
+            темпом и плавностью анимации, не затрагивая сами значения свойства.
           </li>
         </ul>
         <p>
-          Ниже — интерактивный пример работы <mark className="select">«Value Graph»</mark>{" "}
-          и <mark className="select">«Speed Graph»</mark>, имитирующий поведение редактора
-          графиков, как в <mark className="app">Adobe After Effects</mark>. Его можно
-          настраивать, двигать манипуляторы и смотреть, как меняется анимация.
+          Чтобы изменить режим отображения графика, нажмите на иконку{" "}
+          <mark className="select">«Choose graph type and options»</mark> в нижней части
+          окна <mark className="select">«Graph Editor»</mark>, а затем выберите нужный вам
+          тип.
         </p>
-        <EasingEditor />
-        <Addition type="info">
+        <ContentFigure
+          caption="Изменение вида графика скорости"
+          src="images/aftereffects/change_graph_view.mp4"
+          theme="dark"
+          type="video"
+          variant="windows"
+        />
+        <p>
+          При необходимости вы можете включить параметр{" "}
+          <mark className="select">«Auto-Select Graph Type»</mark> для автоматического
+          выбора типа графика: если <mark className="select">«Value Graph»</mark> не
+          сможет отредактировать скорость, программа автоматически переключится на{" "}
+          <mark className="select">«Speed Graph»</mark>. Параметр{" "}
+          <mark className="select">«Show Reference Graph»</mark> отобразит второй тип
+          графика позади основного для наглядности.
+        </p>
+        <Divider>Интерактивная демонстрация «Graph Editor»</Divider>
+        <p>
+          Ниже — интерактивный пример работы <mark className="select">«Value Graph»</mark>{" "}
+          и <mark className="select">«Speed Graph»</mark>, имитирующий редактор графиков в
+          режиме временной интерполяции <mark className="select">«Bezier»</mark>, как в{" "}
+          <mark className="app">Adobe After Effects</mark>. Его можно настраивать, двигать
+          манипуляторы и смотреть, как меняется анимация в реальном времени.
+        </p>
+        <Addition type="warning">
           Манипуляторы в <mark className="select">«Speed Graph»</mark> ограничены по
           высоте, чтобы избежать некорректных скачков и слишком больших значений в{" "}
           <mark className="select">«Value Graph»</mark>.
         </Addition>
-        <Divider>Настраиваем вид в «Graph Editor»</Divider>
-        <p>
-          Чтобы изменить настройки отображения редактора графика — нажмите на иконку{" "}
-          <mark className="select">«Choose graph type and options»</mark> в нижней части
-          окна с открытым <mark className="select">«Graph Editor»</mark>. При
-          необходимости вы можете включить параметр{" "}
-          <mark className="select">«Auto-Select Graph Type»</mark> для автоматического
-          выбора типа графика: если с помощью{" "}
-          <mark className="select">«Value Graph»</mark> нельзя будет отредактировать
-          скорость — будет автоматически выбираться{" "}
-          <mark className="select">«Speed Graph»</mark>. Параметр{" "}
-          <mark className="select">«Show Reference Graph»</mark> отобразит альтернативный
-          вид графика позади текущего вида отображения для наглядности.
-        </p>
-        <ContentFigure
-          caption="Graph Editor"
-          src="images/aftereffects/choose_graph_type_and_options.png"
-          theme="dark"
-          type="image"
-          variant="windows"
-        />
+        <EasingEditor />
       </DetailsSummary>
       <DetailsSummary
         tag="интерполяция, лишнее движение, одинаковые ключи, graph editor, keyframe interpolation"
