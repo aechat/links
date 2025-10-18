@@ -1,5 +1,49 @@
+@use "../abstracts/mixins" as *;
+
 pre[role="button"] {
   code {
     user-select: none;
+  }
+}
+
+code {
+  display: block;
+  transition: opacity 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+  margin: 10px;
+  border: 1px solid var(--color-code-border);
+  border-radius: $roundness * 0.75;
+  background-color: var(--color-code-background);
+  padding: 10px;
+  scrollbar-color: var(--color-code-border) var(--color-code-background);
+  scrollbar-width: thin;
+  color: var(--color-code-text);
+  font-weight: 400;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  font-family: "JetBrains Mono", monospace;
+  font-variant-ligatures: none;
+  user-select: text;
+
+  &:hover {
+    opacity: 0.8;
+    cursor: pointer;
+  }
+
+  &:active {
+    opacity: 0.6;
+  }
+
+  &::-webkit-scrollbar {
+    width: 5px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border-radius: $roundness;
+    background-color: var(--color-code-border);
+  }
+
+  &::-webkit-scrollbar-track {
+    margin: 5px;
+    background: var(--color-code-background);
   }
 }
