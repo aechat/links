@@ -12,6 +12,8 @@ import ContentFilter from "../../../components/features/ContentFilter";
 
 import JsonToTgsConverter from "../../../components/features/ConverterJsonToTgs";
 
+import CodeSnippet from "../../../components/features/CodeSnippet";
+
 const AEExport: React.FC = () => {
   return (
     <div className="faq-content">
@@ -1570,77 +1572,110 @@ const AEExport: React.FC = () => {
         </Addition>
       </DetailsSummary>
       <DetailsSummary
-        tag="vp9, av1, alpha channel, видео с прозрачностью"
-        title="Как экспортировать композицию в WEBM?"
+        tag="видео с прозрачностью, webm, vp9, av1, h265, alpha channel"
+        title="Как экспортировать композицию для веб-страницы?"
       >
         <p>
-          Обычно под <mark className="video">WEBM</mark> понимают видео с кодеками{" "}
-          <mark className="video">VP9</mark> или <mark className="video">AV1</mark>. Это
-          современные стандарты сжатия от <mark className="company">Google</mark>, которые
-          часто используют в вебе и мобильных приложениях. Они сжимают видео эффективнее,
-          чем <mark className="video">H.264</mark>, и, что важно, поддерживают альфа-канал
-          <sup>1</sup>.
+          Рано или поздно наступает момент, когда нужно подготовить видео для публикации
+          на веб-странице. Современные браузеры без проблем воспроизводят{" "}
+          <mark className="video">H.264</mark> в контейнере{" "}
+          <mark className="video">MP4</mark>, но этот формат не всегда даёт оптимальное
+          соотношение качества и размера файла. Для веба существуют и более эффективные
+          варианты — например, <mark className="video">WEBM</mark> с кодеками{" "}
+          <mark className="video">VP9</mark> или <mark className="video">AV1</mark>. Эти
+          современные алгоритмы сжатия от <mark className="company">Google</mark>{" "}
+          обеспечивают заметно лучшее качество при том же битрейте и часто применяются в
+          вебе и мобильных приложениях.
         </p>
-        <Addition type="warning">
-          <sup>1</sup> <mark className="app">Safari</mark> на <mark>iOS</mark> и{" "}
-          <mark>macOS</mark> плохо дружит с <mark className="video">WEBM</mark> с
-          прозрачностью. Вместо неё вы, скорее всего, увидите просто чёрный фон.
-        </Addition>
         <p>
-          Стандартными средствами из <mark className="app">Adobe After Effects</mark> или{" "}
-          <mark className="app">Adobe Media Encoder</mark> экспортировать в{" "}
-          <mark className="video">WEBM</mark> не получится. Сначала придётся вывести
-          композицию в качественном монтажном кодеке, например{" "}
-          <mark className="video">Apple ProRes</mark>, а уже потом конвертировать
-          полученный файл через <mark className="app">Shutter Encoder</mark>.
+          На веб-странице можно указать несколько источников для одного тега{" "}
+          <mark className="code">{`<video>`}</mark> — браузер сам выберет первый, который
+          поддерживается устройством пользователя. Это нужно на случай, если тот или иной
+          кодек не будет работать в браузере или на устройстве.
+        </p>
+        <CodeSnippet language="html">
+          {`<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>aefaq@aechat</title>
+  </head>
+  <body>
+    <video controls autoplay>
+      <source src="aefaq.webm" type="video/webm" />
+      <source src="aefaq.mp4" type="video/mp4" />
+    </video>
+  </body>
+</html>`}
+        </CodeSnippet>
+        <p>
+          Если видео на странице не требует прозрачности, его можно экспортировать в{" "}
+          <mark className="video">H.264</mark>, используя <a href="#9.4">те же способы</a>
+          , что и при обычном рендере. Затем останется указать файл в качестве источника в
+          исходном коде. Главное — следить за размером файла: не каждый посетитель захочет
+          ждать, пока загрузится видео на сотни мегабайт.
+        </p>
+        <p>
+          А вот экспортировать композицию в более эффективные{" "}
+          <mark className="video">VP9</mark> или <mark className="video">AV1</mark> с
+          поддержкой альфа-канала<sup>1</sup> напрямую из{" "}
+          <mark className="app">Adobe After Effects</mark> не получится<sup>2</sup>.
+          Придётся сначала вывести её в качественном монтажном кодеке, например{" "}
+          <mark className="video">Apple ProRes</mark>, а затем перекодировать результат
+          через <mark className="app">Shutter Encoder</mark>.
         </p>
         <Addition type="danger">
-          <p>
-            Несмотря на то, что существует сторонний плагин для экспорта{" "}
-            <a href="https://fnord.com/">WEBM от fnord</a>, я категорически не рекомендую
-            его использовать. Он часто выдаёт видео с жуткими артефактами, отвратительным
-            качеством или просто «падает» посреди рендера без всякой на то причины.
-          </p>
+          <ul>
+            <li>
+              <sup>1</sup> <mark className="app">Safari</mark> на <mark>iOS</mark> и{" "}
+              <mark>macOS</mark>, а также многие программы для монтажа не поддерживают{" "}
+              <mark className="video">WEBM</mark> с прозрачностью, поэтому вместо
+              альфа-канала вы просто увидите чёрный фон.
+            </li>
+            <li>
+              <sup>2</sup> Несмотря на то, что существует сторонний плагин для экспорта{" "}
+              <a href="https://fnord.com/">WEBM</a> от <mark className="user">fnord</mark>{" "}
+              для <mark className="app">Adobe Media Encoder</mark>, я категорически не
+              рекомендую его использовать. Он часто выдаёт видео с жуткими артефактами,
+              отвратительным качеством или просто «падает» посреди рендера без всякой
+              причины.
+            </li>
+          </ul>
         </Addition>
         <Divider>Экспортируем композицию в промежуточном формате</Divider>
-        {/* FIXME: заменить видео на поштучные картинки */}
-        <ContentFigure
-          caption="Экспорт видео в Apple ProRes"
-          src="images/aftereffects/export_to_prores.mp4"
-          theme="dark"
-          type="video"
-          variant="windows"
-        />
         <ul>
           <li>
             Прежде чем экспортировать композицию в{" "}
-            <mark className="video">Apple Prores</mark>, добавьте её в очередь рендеринга
+            <mark className="video">Apple ProRes</mark>, добавьте её в очередь рендеринга
             с помощью комбинации клавиш <mark className="key">Ctrl + M</mark> или через
             меню <mark className="select">«File» → «Export» → «Add to Render Queue»</mark>
             .
           </li>
           <li>
             Нажмите на название пресета в очереди рендера, чтобы открыть настройки{" "}
-            <mark className="select">«Output Module»</mark>.{/* FIXME: фото */}
+            <mark className="select">«Output Module»</mark>.
           </li>
           <li>
             В параметре <mark className="select">«Format»</mark> выберите{" "}
             <mark className="select">«QuickTime»</mark>, а в{" "}
             <mark className="select">«Format Options»</mark> — подходящий тип кодека{" "}
-            <mark className="video">Apple ProRes</mark>.{/* FIXME: фото */}
-            <ul>
-              <li>
-                Для экспорта без альфа-канала выберите{" "}
-                <mark className="video">Apple ProRes 422</mark> или другой подходящий
-                вариант.
-              </li>
-              <li>
-                Для экспорта с альфа-каналом выберите кодек{" "}
-                <mark className="video">Apple ProRes 4444</mark> и не забудьте установить
-                для параметра <mark className="select">«Channels»</mark> значение{" "}
-                <mark className="select">«RGB + Alpha»</mark>.
-              </li>
-            </ul>
+            <mark className="video">Apple ProRes</mark>.
+            <Addition type="info">
+              <ul>
+                <li>
+                  Для экспорта без альфа-канала выберите{" "}
+                  <mark className="video">Apple ProRes 422</mark> или другой подходящий
+                  вариант.
+                </li>
+                <li>
+                  Для экспорта с альфа-каналом выберите кодек{" "}
+                  <mark className="video">Apple ProRes 4444</mark> и не забудьте в
+                  параметре <mark className="select">«Channels»</mark> установить значение{" "}
+                  <mark className="select">«RGB + Alpha»</mark>.
+                </li>
+              </ul>
+            </Addition>
           </li>
           <li>
             Если другие настройки не требуются, нажмите{" "}
@@ -1658,30 +1693,63 @@ const AEExport: React.FC = () => {
             />
           </li>
         </ul>
-        <Divider>Конвертируем в WEBM с помощью Shutter Encoder</Divider>
+        <Divider>Разбираемся с целью экспорта и альфа-каналом в браузерах</Divider>
+        <p>
+          После получения промежуточного результата, нужно разобраться как и для чего вы
+          хотите экспортировать видео.
+        </p>
         <ul>
           <li>
-            После экспорта композиции из <mark className="app">Adobe After Effects</mark>,
-            откройте <mark className="app">Shutter Encoder</mark>
-            <sup>1</sup> и импортируйте в него полученный файл.
-            <Addition type="info">
-              <ul>
-                <li>
-                  <sup>1</sup> Если <mark className="app">Shutter Encoder</mark> у вас не
-                  установлен, скачайте его{" "}
-                  <a href="https://www.shutterencoder.com/">по этой ссылке</a>. Чтобы
-                  появилась ссылка на скачивание, не забудьте сдвинуть ползунок для
-                  пожертвований на <mark>0</mark>.
-                </li>
-                <li>
-                  В <mark className="app">Shutter Encoder</mark> лучше сразу переключиться
-                  на английский интерфейс. Перевод на русский язык в этой программе
-                  кривоват, из-за него можно легко запутаться и включить не те параметры.
-                  Чтобы открыть настройки, нажмите на иконку шестерёнки в левой части
-                  заголовка окна.
-                </li>
-              </ul>
-            </Addition>
+            Если нужно расположить на страницу обычное видео без альфа-канала, то как было
+            сказано ранее, вы можете конвертировать промежуточный результат в{" "}
+            <a href="https://developer.mozilla.org/en-US/docs/Web/Media/Guides/Formats/Video_codecs#common_codecs">
+              популярные кодеки, которые поддерживаются браузерами
+            </a>{" "}
+            и указать несколько источников для одного HTML-тега{" "}
+            <mark className="code">{`<video>`}</mark>.
+          </li>
+          <li>
+            Если же нужно получить видео с альфа-каналом, и при этом добиться корректного
+            отображения во всех браузерах — включая <mark className="app">Safari</mark>,{" "}
+            <mark className="app">Firefox</mark> и браузеры на базе{" "}
+            <mark className="app">Chromium</mark> — придётся подготовить два файла:
+            специальный <mark className="video">H.265</mark> для{" "}
+            <mark className="app">Safari</mark> и <mark className="video">WEBM</mark> для
+            остальных. Дело в том, что <mark className="app">Safari</mark> на{" "}
+            <mark>iOS</mark> и <mark>macOS</mark> не поддерживает{" "}
+            <mark className="video">WEBM</mark> с прозрачностью, поэтому при единственном
+            источнике вместо альфа-канала вы просто увидите чёрный фон.
+          </li>
+        </ul>
+        <Divider>Конвертируем промежуточный результат</Divider>
+        <p>
+          Для конвертации промежуточного результата в этой статье мы воспользуемся
+          бесплатной<sup>1</sup> сторонней программой{" "}
+          <mark className="app">Shutter Encoder</mark>.
+        </p>
+        <Addition type="info">
+          <ul>
+            <li>
+              <sup>1</sup> Если <mark className="app">Shutter Encoder</mark> у вас не
+              установлен, скачайте его{" "}
+              <a href="https://www.shutterencoder.com/">по этой ссылке</a>. Чтобы
+              появилась ссылка на скачивание, не забудьте сдвинуть ползунок для
+              пожертвований на <mark>0</mark>.
+            </li>
+            <li>
+              В <mark className="app">Shutter Encoder</mark> лучше сразу переключиться на
+              английский интерфейс. Перевод на русский язык в этой программе некорректен,
+              из-за чего можно легко запутаться и включить не те параметры. Чтобы открыть
+              настройки, нажмите на значок шестерёнки в левой части заголовка окна.
+            </li>
+          </ul>
+        </Addition>
+        <ul>
+          <li>
+            Для начала конвертации, откройте <mark className="app">Shutter Encoder</mark>
+            <sup>1</sup> и импортируйте в него полученный файл с помощью кнопки{" "}
+            <mark className="select">«Browse»</mark> или перетащите их в окно программы
+            для добавления в очередь.
             <ContentFigure
               caption="Shutter Encoder"
               imgTitle="Импорт материалов в Shutter Encoder"
@@ -1692,9 +1760,11 @@ const AEExport: React.FC = () => {
             />
           </li>
           <li>
-            В поле <mark className="select">«Choose Function»</mark> выберите{" "}
-            <mark className="video">VP9</mark> или <mark className="video">AV1</mark>
-            <sup>1</sup>.
+            Затем выберите в <mark className="select">«Choose Function»</mark> нужный
+            формат для конвертации, например <mark className="video">VP9</mark>,{" "}
+            <mark className="video">AV1</mark>
+            <sup>1</sup> или <mark className="video">H.265</mark>. Изменение данного
+            параметра будет относиться ко всем файлам в очереди конвертации.
             <Addition type="info">
               <sup>1</sup> <mark className="video">AV1</mark> сжимает видео эффективнее,
               чем <mark className="video">VP9</mark>, но хуже поддерживается старыми
@@ -1710,8 +1780,58 @@ const AEExport: React.FC = () => {
             />
           </li>
           <li>
-            Если вы экспортировали файл в <mark className="video">Apple ProRes 4444</mark>{" "}
-            и нужно сохранить прозрачность, справа в разделе{" "}
+            Измените тип кодирования, переключив его с{" "}
+            <mark className="select">«VBR»</mark> на <mark className="select">«CQ»</mark>.
+            Почему не <mark className="select">«VBR»</mark> и не{" "}
+            <mark className="select">«CBR»</mark>? Режим{" "}
+            <mark className="select">«CQ»</mark> распределяет битрейт динамически в
+            зависимости от сложности сцены и поддерживает стабильное качество на всём
+            протяжении ролика. В то время как <mark className="select">«VBR»</mark>{" "}
+            требует настройки целевого и максимального битрейта, подобрать которые с
+            первого раза непросто, особенно если важно сохранить высокое качество и при
+            этом не получить слишком тяжёлый файл. А <mark className="select">«CBR»</mark>{" "}
+            нередко приводит к «раздутому» размеру файла и не гарантирует стабильное
+            качество в разных промежутках видео.
+            <ContentFigure
+              caption="Shutter Encoder"
+              src="images/shutter_encoder_change_cq_h264.mp4"
+              theme="dark"
+              type="video"
+              variant="mac"
+            />
+            <Addition type="info">
+              <ul>
+                <li>
+                  Чем меньше значение <mark className="select">«CQ»</mark>, тем лучше
+                  качество. По умолчанию устанавливается <mark>23</mark> — этого
+                  достаточно для большинства случаев.
+                </li>
+                <li>
+                  Если нужно сохранить почти максимальное качество, укажите значение от{" "}
+                  <mark>17</mark> до <mark>20</mark>. Однако размер файла при этом заметно
+                  возрастёт.
+                </li>
+                <li>
+                  Экстремальные значения (например, <mark>50</mark>) использовать не
+                  рекомендуется — в итоге можно получить «кашу» из пикселей.
+                </li>
+              </ul>
+            </Addition>
+          </li>
+          <li>
+            Укажите битрейт для аудио в параметре{" "}
+            <mark className="select">«Audio Bitrate»</mark>; достаточно установить
+            значение <mark>320</mark> Кбит/с.
+            <ContentFigure
+              caption="Shutter Encoder"
+              src="images/shutter_encoder_change_audio_bitrate_h264.mp4"
+              theme="dark"
+              type="video"
+              variant="mac"
+            />
+          </li>
+          <li>
+            Если при конвертации нужно сохранить альфа-канал, справа в разделе{" "}
             <mark className="select">«Advanced Settings»</mark> включите параметр{" "}
             <mark className="select">«Enable alpha channel»</mark>.
             <ContentFigure
@@ -1724,12 +1844,110 @@ const AEExport: React.FC = () => {
             />
           </li>
           <li>
-            Если больше ничего настраивать не нужно, укажите путь для сохранения и нажмите{" "}
-            <mark className="select">«Start function»</mark>. Готовый файл будет упакован
-            в контейнер <mark className="video">WEBM</mark> и готов к использованию.
-            {/* FIXME: фото  */}
+            При необходимости включите аппаратное ускорение для декодирования видео в
+            параметре <mark className="select">«Hardware Acceleration»</mark>. В
+            большинстве случаев это ускорит процесс конвертации видео.
+            <ContentFigure
+              caption="Shutter Encoder"
+              imgTitle="Включение аппаратного ускорения для H.264 в Shutter Encoder"
+              src="images/shutter_encoder_enable_hardware_acceleration_h264.png"
+              theme="dark"
+              type="image"
+              variant="mac"
+            />
+            <Addition type="info">
+              Выбор значений в этом параметре зависит от вашего устройства и установленных
+              драйверов.
+            </Addition>
+            <Addition type="warning">
+              На <mark>Windows</mark> при включенном аппаратном ускорении для{" "}
+              <mark className="video">H.265</mark> нельзя включить опцию сохранения
+              альфа-канала.
+            </Addition>
+          </li>
+          <li>
+            После настройки нужных параметров нажмите на кнопку{" "}
+            <mark className="select">«Start function»</mark> для начала конвертации. По
+            умолчанию программа сохраняет конвертированные файлы в ту же папку, откуда
+            были импортированы исходники.
+            <ContentFigure
+              caption="Shutter Encoder"
+              imgTitle="Начало конвертации в Shutter Encoder"
+              src="images/shutter_encoder_start_function.png"
+              theme="dark"
+              type="image"
+              variant="mac"
+            />
+            <Addition type="info">
+              <ul>
+                <li>
+                  Если в программу добавлено несколько исходников, они будут
+                  конвертированы последовательно в соответствии с вашими настройками.
+                </li>
+                <li>
+                  При необходимости вы можете указать свою директорию для сохранения
+                  файлов во вкладке <mark className="select">«Output»</mark>.
+                </li>
+              </ul>
+            </Addition>
           </li>
         </ul>
+        <Divider>
+          Используем конвертированное видео с прозрачностью на веб-странице
+        </Divider>
+        <p>
+          После того как вы экспортировали видео в <mark className="video">VP9</mark> или{" "}
+          <mark className="video">AV1</mark>, а также в{" "}
+          <mark className="video">H.265</mark> с альфа-каналом, нужно указать их как
+          источник для HTML-тега <mark className="code">{`<video>`}</mark>.
+        </p>
+        <CodeSnippet language="html">
+          {`<video loop controls autoplay>
+  <source
+    src="images/aefaq@aechat_alpha.mp4"
+    type="video/mp4;codecs=hvc1"
+  />
+  <source
+    src="images/aefaq@aechat_alpha.webm"
+    type="video/webm"
+  />
+</video>`}
+        </CodeSnippet>
+        <p>
+          Пример работы этого кода вы можете увидеть на примере ниже, в браузерах на базе{" "}
+          <mark className="app">Chromium</mark> и <mark className="app">Firefox</mark> вы
+          увидите видео с прозрачностью в кодеке <mark className="video">VP9</mark>, а в{" "}
+          <mark className="app">Safari</mark> — в <mark className="video">H.265</mark>.
+        </p>
+        <div>
+          <div className="figure-container">
+            <div
+              style={{
+                width: "calc(100% - 20px)",
+                maxHeight: "240px",
+                marginInline: "auto",
+                background:
+                  "linear-gradient(180deg, var(--color-surface-primary-background-active), var(--color-surface-primary-background))",
+                borderRadius: "8px",
+              }}
+            >
+              <video
+                loop
+                controls
+                autoPlay
+              >
+                <source
+                  src="images/aefaq@aechat_alpha.mp4"
+                  type="video/mp4;codecs=hvc1"
+                />
+                <source
+                  src="images/aefaq@aechat_alpha.webm"
+                  type="video/webm"
+                />
+              </video>
+            </div>
+          </div>
+        </div>
       </DetailsSummary>
       <DetailsSummary
         tag="gifgun, ezgif, animated gif"
