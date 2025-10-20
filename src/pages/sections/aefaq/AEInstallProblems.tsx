@@ -410,78 +410,100 @@ const AEInstallProblems: React.FC = () => {
                       </Addition>
                     </li>
                     <li>
-                      Если вы не хотите устанавливать стороннее ПО для установки таких
-                      расширений — переименуйте файл <mark className="file">ZXP</mark> в{" "}
-                      <mark className="file">ZIP</mark> и распакуйте его как обычный
-                      архив, а затем перейдите в папку{" "}
-                      <mark className="path">
-                        /Library/Application Support/Adobe/CEP/extensions
-                      </mark>{" "}
-                      любым удобным для вас способом. Если этой папки нет — создайте его
-                      самостоятельно с помощью контекстного меню файлового менеджера.
-                      Поместите содержимое свежераспакованного файла в эту папку и после
-                      этого введите в <mark className="app">Терминал</mark> команды,
-                      расположенные ниже. Их достаточно ввести один раз, в дальнейшем при
-                      установке подобных расширений повторно эти команды выполнять не
-                      нужно. Эти команды включают debug-режим в{" "}
-                      <mark className="app">Adobe After Effects</mark> для корректной
-                      работы сторонних расширений, установленных из интернета. Если вы эти
-                      команды не выполните — в программе будут отображаться сторонние
-                      расширения, но при попытке открыть их, ничего не произойдёт.
-                      <code style={{fontSize: "0.875em"}}>
-                        defaults write com.adobe.CSXS.5 PlayerDebugMode 1
-                        <br />
-                        defaults write com.adobe.CSXS.6 PlayerDebugMode 1
-                        <br />
-                        defaults write com.adobe.CSXS.7 PlayerDebugMode 1
-                        <br />
-                        defaults write com.adobe.CSXS.8 PlayerDebugMode 1
-                        <br />
-                        defaults write com.adobe.CSXS.9 PlayerDebugMode 1
-                        <br />
-                        defaults write com.adobe.CSXS.10 PlayerDebugMode 1
-                        <br />
-                        defaults write com.adobe.CSXS.11 PlayerDebugMode 1
-                        <br />
-                        defaults write com.adobe.CSXS.12 PlayerDebugMode 1
-                        <br />
-                        defaults write com.adobe.CSXS.13 PlayerDebugMode 1
-                        <br />
-                        defaults write com.adobe.CSXS.14 PlayerDebugMode 1
-                        <br />
-                        defaults write com.adobe.CSXS.15 PlayerDebugMode 1
-                        <br />
-                        defaults write com.adobe.CSXS.16 PlayerDebugMode 1
-                        <br />
-                        defaults write com.adobe.CSXS.17 PlayerDebugMode 1
-                        <br />
-                        defaults write com.adobe.CSXS.18 PlayerDebugMode 1
-                        <br />
-                        defaults write com.adobe.CSXS.19 PlayerDebugMode 1
-                        <br />
-                        defaults write com.adobe.CSXS.20 PlayerDebugMode 1
-                        <br />
-                        defaults write com.adobe.CSXS.21 PlayerDebugMode 1
-                        <br />
-                        defaults write com.adobe.CSXS.22 PlayerDebugMode 1
-                        <br />
-                        defaults write com.adobe.CSXS.23 PlayerDebugMode 1
-                        <br />
-                        defaults write com.adobe.CSXS.24 PlayerDebugMode 1
-                        <br />
-                        defaults write com.adobe.CSXS.25 PlayerDebugMode 1
-                        <br />
-                        defaults write com.adobe.CSXS.26 PlayerDebugMode 1
-                        <br />
-                        defaults write com.adobe.CSXS.27 PlayerDebugMode 1
-                        <br />
-                        defaults write com.adobe.CSXS.28 PlayerDebugMode 1
-                        <br />
-                        defaults write com.adobe.CSXS.29 PlayerDebugMode 1
-                        <br />
-                        defaults write com.adobe.CSXS.30 PlayerDebugMode 1
-                        <br />
-                      </code>
+                      <p>
+                        Если вы не хотите устанавливать сторонние программы для таких
+                        расширений, выполните шаги ниже.
+                      </p>
+                      <ul>
+                        <li>
+                          Переименуйте файл <mark className="file">ZXP</mark> в{" "}
+                          <mark className="file">ZIP</mark> и распакуйте его как обычный
+                          архив.
+                        </li>
+                        <li>
+                          Переместите содержимое распакованного архива в папку{" "}
+                          <mark className="path">
+                            /Library/Application Support/Adobe/CEP/extensions
+                          </mark>
+                          <Addition type="info">
+                            Если такой папки нет — создайте её вручную через контекстное
+                            меню <mark className="app">Finder</mark>.
+                          </Addition>
+                        </li>
+                        <li>
+                          <p>
+                            Откройте <mark className="app">Терминал</mark> и введите
+                            команды ниже — они активируют debug-режим, необходимый для
+                            корректной работы вручную установленных расширений.
+                          </p>
+                          <code style={{fontSize: "0.875em"}}>
+                            defaults write com.adobe.CSXS.5 PlayerDebugMode 1
+                            <br />
+                            defaults write com.adobe.CSXS.6 PlayerDebugMode 1
+                            <br />
+                            defaults write com.adobe.CSXS.7 PlayerDebugMode 1
+                            <br />
+                            defaults write com.adobe.CSXS.8 PlayerDebugMode 1
+                            <br />
+                            defaults write com.adobe.CSXS.9 PlayerDebugMode 1
+                            <br />
+                            defaults write com.adobe.CSXS.10 PlayerDebugMode 1
+                            <br />
+                            defaults write com.adobe.CSXS.11 PlayerDebugMode 1
+                            <br />
+                            defaults write com.adobe.CSXS.12 PlayerDebugMode 1
+                            <br />
+                            defaults write com.adobe.CSXS.13 PlayerDebugMode 1
+                            <br />
+                            defaults write com.adobe.CSXS.14 PlayerDebugMode 1
+                            <br />
+                            defaults write com.adobe.CSXS.15 PlayerDebugMode 1
+                            <br />
+                            defaults write com.adobe.CSXS.16 PlayerDebugMode 1
+                            <br />
+                            defaults write com.adobe.CSXS.17 PlayerDebugMode 1
+                            <br />
+                            defaults write com.adobe.CSXS.18 PlayerDebugMode 1
+                            <br />
+                            defaults write com.adobe.CSXS.19 PlayerDebugMode 1
+                            <br />
+                            defaults write com.adobe.CSXS.20 PlayerDebugMode 1
+                            <br />
+                            defaults write com.adobe.CSXS.21 PlayerDebugMode 1
+                            <br />
+                            defaults write com.adobe.CSXS.22 PlayerDebugMode 1
+                            <br />
+                            defaults write com.adobe.CSXS.23 PlayerDebugMode 1
+                            <br />
+                            defaults write com.adobe.CSXS.24 PlayerDebugMode 1
+                            <br />
+                            defaults write com.adobe.CSXS.25 PlayerDebugMode 1
+                            <br />
+                            defaults write com.adobe.CSXS.26 PlayerDebugMode 1
+                            <br />
+                            defaults write com.adobe.CSXS.27 PlayerDebugMode 1
+                            <br />
+                            defaults write com.adobe.CSXS.28 PlayerDebugMode 1
+                            <br />
+                            defaults write com.adobe.CSXS.29 PlayerDebugMode 1
+                            <br />
+                            defaults write com.adobe.CSXS.30 PlayerDebugMode 1
+                          </code>
+                          <Addition type="info">
+                            <ul>
+                              <li>
+                                Эти команды нужно ввести только один раз — при последующих
+                                установках дополнительных расширений повторять их не
+                                требуется.
+                              </li>
+                              <li>
+                                Если вы пропустите этот шаг, расширения будут отображаться
+                                в списке, но при попытке их открыть ничего не произойдёт.
+                              </li>
+                            </ul>
+                          </Addition>
+                        </li>
+                      </ul>
                     </li>
                   </ul>
                 </li>
@@ -948,35 +970,62 @@ const AEInstallProblems: React.FC = () => {
                       </Addition>
                     </li>
                     <li>
-                      Если вы не хотите устанавливать стороннее ПО для установки таких
-                      расширений — переименуйте файл <mark className="file">
-                        ZXP
-                      </mark> в <mark className="file">ZIP</mark> и распакуйте его как
-                      обычный архив. Поместите содержимое свежераспакованного файла в
-                      папку{" "}
-                      <mark className="path">
-                        C:\Program Files (x86)\Common Files\Adobe\CEP\extensions
-                      </mark>
-                      . Если такой папки нет — создайте её самостоятельно с помощью
-                      контекстного меню файлового менеджера или командой{" "}
-                      <mark className="code">
-                        mkdir &quot;C:\Program Files (x86)\Common
-                        Files\Adobe\CEP\extensions&quot;
-                      </mark>
-                      . Затем скачайте и откройте, подтвердив слияние записей,{" "}
-                      <a
-                        download
-                        href="files/Enable Extensions Adobe.reg"
-                      >
-                        файл реестра, включающий debug-режим
-                      </a>{" "}
-                      в <mark className="app">Adobe After Effects</mark> для корректной
-                      работы сторонних расширений, установленных из интернета. Его
-                      достаточно применить один раз, в дальнейшем при установке подобных
-                      расширений данное действие повторять не нужно. Если вы не
-                      подтвердите слияние реестра — в программе будут отображаться
-                      сторонние расширения, но при попытке открыть их, ничего не
-                      произойдёт.
+                      <p>
+                        Если вы не хотите использовать сторонние программы для установки
+                        расширений, выполните шаги ниже.
+                      </p>
+                      <ul>
+                        <li>
+                          Переименуйте файл <mark className="file">ZXP</mark> в{" "}
+                          <mark className="file">ZIP</mark> и распакуйте его как обычный
+                          архив. Прежде чем менять название, убедитесь, что в проводнике
+                          включено{" "}
+                          <a href="https://remontka.pro/show-file-extensions-windows-11/">
+                            отображение расширений файлов
+                          </a>
+                          .
+                        </li>
+                        <li>
+                          Переместите содержимое распакованного архива в папку{" "}
+                          <mark className="path">
+                            C:\Program Files (x86)\Common Files\Adobe\CEP\extensions
+                          </mark>
+                          .
+                          <Addition type="info">
+                            Если папка отсутствует — создайте её вручную через контекстное
+                            меню проводника или с помощью команды{" "}
+                            <mark className="code">
+                              mkdir &quot;C:\Program Files (x86)\Common
+                              Files\Adobe\CEP\extensions&quot;
+                            </mark>
+                            .
+                          </Addition>
+                        </li>
+                        <li>
+                          Скачайте и откройте, подтвердив слияние записей,{" "}
+                          <a
+                            download
+                            href="files/Enable Extensions Adobe.reg"
+                          >
+                            файл реестра, включающий debug-режим
+                          </a>{" "}
+                          для <mark className="app">Adobe After Effects</mark>. Это
+                          необходимо, чтобы вручную установленные расширения корректно
+                          запускались.
+                          <Addition type="info">
+                            <ul>
+                              <li>
+                                Применять этот файл достаточно один раз — при последующих
+                                установках повторять действие не нужно.
+                              </li>
+                              <li>
+                                Если вы пропустите этот шаг, расширения будут отображаться
+                                в списке, но не откроются при запуске.
+                              </li>
+                            </ul>
+                          </Addition>
+                        </li>
+                      </ul>
                     </li>
                   </ul>
                 </li>
