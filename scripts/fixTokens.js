@@ -1,15 +1,15 @@
 #!/usr/bin/env node
 /**
  * @file Скрипт для исправления токенов в `.tsx` файлах.
- * 1. Преобразует текст в тегах <file> в верхний регистр (например, `<file>.env<` -> `<file>ENV<`).
+ * 1. Преобразует текст в тегах <file>, <image>, <video>, <audio> в верхний регистр. Удаляет ведущую точку, если она есть (например, `<file>.env<` -> `<file>ENV<`).
  * 2. Форматирует пробелы вокруг знака `+` в тегах `<key>` (например, `<key>CTRL+S<` -> `<key>CTRL + S<`).
  */
 import {readFileSync, writeFileSync} from "fs";
 import {cwd} from "process";
 import {walk} from "./utils/fileUtils.js";
 
-function fixFileTags(content) {
-  return content.replace(/("file">)\.(.*?)(<)/g, (_, open, word, close) => {
+function fixContentTags(content) {
+  return content.replace(/("(?:file|image|video|audio)">)\.?(.*?)(<)/g, (_, open, word, close) => {
     return `${open}${word.toUpperCase()}${close}`;
   });
 }
@@ -28,7 +28,7 @@ function processFile(filePath) {
 
   try {
     const original = readFileSync(filePath, "utf8");
-    const fixed = fixKeyTags(fixFileTags(original));
+    const fixed = fixKeyTags(fixContentTags(original));
     if (original !== fixed) {
       writeFileSync(filePath, fixed);
       console.log(`✔ обновлено: ${filePath}`);
