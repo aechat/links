@@ -5443,8 +5443,8 @@ const HostsAdobeModal: React.FC = () => {
       </code>
       <Addition type="warning">
         Для изменения системных файлов требуются права администратора. Если файла{" "}
-        <mark className="file">hosts</mark> в этой директории нет, создайте его вручную
-        без расширения. После изменения файла <mark className="file">hosts</mark>{" "}
+        <mark className="file">HOSTS</mark> в этой директории нет, создайте его вручную
+        без расширения. После изменения файла <mark className="file">HOSTS</mark>{" "}
         желательно перезагрузить устройство.
       </Addition>
       <Addition type="info">
@@ -5452,7 +5452,7 @@ const HostsAdobeModal: React.FC = () => {
           <li>
             Чтобы скопировать адреса в буфер обмена, просто нажмите на них. Так как{" "}
             <mark className="company">Adobe</mark> регулярно обновляет свои базы,
-            актуальные адреса для блокировки в <mark className="file">hosts</mark> всегда
+            актуальные адреса для блокировки в <mark className="file">HOSTS</mark> всегда
             можно найти{" "}
             <a
               href="https://a.dove.isdumb.one/list.txt"
@@ -5464,7 +5464,7 @@ const HostsAdobeModal: React.FC = () => {
             .
           </li>
           <li>
-            Если не хочется копировать файл <mark className="file">hosts</mark> туда-сюда,
+            Если не хочется копировать файл <mark className="file">HOSTS</mark> туда-сюда,
             откройте текстовый редактор от имени администратора, внесите строки и
             сохраните изменения.
           </li>

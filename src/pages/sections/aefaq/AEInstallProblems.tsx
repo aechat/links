@@ -63,9 +63,8 @@ const AEInstallProblems: React.FC = () => {
                   необходимые для проекта файлы.
                 </li>
                 <li>
-                  В большинстве случаев рядом с файлом шаблона есть{" "}
-                  <mark className="video">туториал</mark>, объясняющий, как им
-                  пользоваться. Он может находиться в папке{" "}
+                  В большинстве случаев рядом с файлом шаблона есть туториал, объясняющий,
+                  как им пользоваться. Он может находиться в папке{" "}
                   <mark className="path">Help</mark>,{" "}
                   <mark className="path">Tutorial</mark> или в корне архива.
                 </li>
@@ -1733,10 +1732,10 @@ const AEInstallProblems: React.FC = () => {
       >
         <p>
           Данная ошибка чаще всего возникает из-за того, что в вашей системе по какой-то
-          причине отсутствует файл <mark className="file">hosts</mark>. Чтобы решить эту
+          причине отсутствует файл <mark className="file">HOSTS</mark>. Чтобы решить эту
           проблему — проверьте содержимое директории{" "}
           <mark className="path">%WinDir%\System32\Drivers\etc</mark>. Если в нём нет
-          файла <mark className="file">hosts</mark> — создайте его самостоятельно,
+          файла <mark className="file">HOSTS</mark> — создайте его самостоятельно,
           например с помощью <mark className="app">Блокнота</mark>, и переместите
           созданный файл без расширения в эту папку.{" "}
           <a href="https://support.microsoft.com/ru-ru/topic/%D0%BA%D0%B0%D0%BA-%D0%B2%D0%BE%D1%81%D1%81%D1%82%D0%B0%D0%BD%D0%BE%D0%B2%D0%B8%D1%82%D1%8C-%D1%81%D0%BE%D0%B4%D0%B5%D1%80%D0%B6%D0%B8%D0%BC%D0%BE%D0%B5-%D1%84%D0%B0%D0%B9%D0%BB%D0%B0-hosts-%D0%BF%D0%BE-%D1%83%D0%BC%D0%BE%D0%BB%D1%87%D0%B0%D0%BD%D0%B8%D1%8E-c2a43f9d-e176-c6f3-e4ef-3500277a6dae">
@@ -1840,7 +1839,7 @@ const AEInstallProblems: React.FC = () => {
                     какие-то приложения от <mark className="company">Adobe</mark>, перед
                     активацией через <mark className="app">GenP</mark> лучше удалить их, а
                     также почистить записи в брандмауэре и файле{" "}
-                    <mark className="file">hosts</mark> во избежание конфликтов. Сделать
+                    <mark className="file">HOSTS</mark> во избежание конфликтов. Сделать
                     это можно с помощью{" "}
                     <a href="https://helpx.adobe.com/creative-cloud/kb/cc-cleaner-tool-installation-problems.html">
                       Adobe Creative Cloud Cleaner Tool
