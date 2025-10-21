@@ -385,3 +385,9 @@ details {
     cursor: not-allowed;
   }
 }
+
+html.no-spoiler-animation {
+  details .details-content-wrapper {
+    transition: none;
+  }
+}

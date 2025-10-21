@@ -21,6 +21,8 @@ interface ThemeContextProps {
   setSaturateRatio: (ratio: number) => void;
   maxWidth: number;
   setMaxWidth: (width: number) => void;
+  isAnimationDisabled: boolean;
+  setIsAnimationDisabled: (disabled: boolean) => void;
 }
 
 const ThemeContext = createContext<ThemeContextProps | undefined>(undefined);
@@ -68,6 +70,18 @@ export const ThemeProvider: React.FC<{children: React.ReactNode}> = ({children})
 
   const [maxWidthState, setMaxWidthState] = useState<number>(getInitialMaxWidth);
 
+  const getInitialIsAnimationDisabled = (): boolean => {
+    if (typeof localStorage !== "undefined") {
+      return localStorage.getItem("isAnimationDisabled") === "true";
+    }
+
+    return false;
+  };
+
+  const [isAnimationDisabledState, setIsAnimationDisabledState] = useState<boolean>(
+    getInitialIsAnimationDisabled
+  );
+
   const setTheme = (newTheme: Theme) => {
     setThemeState(newTheme);
 
@@ -92,6 +106,14 @@ export const ThemeProvider: React.FC<{children: React.ReactNode}> = ({children})
     }
   };
 
+  const setIsAnimationDisabled = (disabled: boolean) => {
+    setIsAnimationDisabledState(disabled);
+
+    if (typeof localStorage !== "undefined") {
+      localStorage.setItem("isAnimationDisabled", disabled.toString());
+    }
+  };
+
   const updateTheme = () => {
     if (typeof window === "undefined") {
       return;
@@ -101,6 +123,7 @@ export const ThemeProvider: React.FC<{children: React.ReactNode}> = ({children})
     root.style.setProperty("--accent-hue", accentHueState.toString());
     root.style.setProperty("--saturate-ratio", saturateRatioState.toString());
     root.style.setProperty("--max-width", `${maxWidthState}px`);
+    root.classList.toggle("no-spoiler-animation", isAnimationDisabledState);
 
     const isSystemDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
 
@@ -111,7 +134,13 @@ export const ThemeProvider: React.FC<{children: React.ReactNode}> = ({children})
   };
   useEffect(
     () => updateTheme(),
-    [themeState, accentHueState, saturateRatioState, maxWidthState]
+    [
+      themeState,
+      accentHueState,
+      saturateRatioState,
+      maxWidthState,
+      isAnimationDisabledState,
+    ]
   );
   useEffect(() => {
     if (typeof window === "undefined") {
@@ -142,8 +171,16 @@ export const ThemeProvider: React.FC<{children: React.ReactNode}> = ({children})
           localStorage.setItem("maxWidth", width.toString());
         }
       },
+      isAnimationDisabled: isAnimationDisabledState,
+      setIsAnimationDisabled,
     }),
-    [themeState, accentHueState, saturateRatioState, maxWidthState]
+    [
+      themeState,
+      accentHueState,
+      saturateRatioState,
+      maxWidthState,
+      isAnimationDisabledState,
+    ]
   );
 
   return <ThemeContext.Provider value={contextValue}>{children}</ThemeContext.Provider>;
@@ -196,6 +233,8 @@ const ThemeModal: React.FC<ThemeModalProps> = ({isModalOpen, closeModal}) => {
     setSaturateRatio,
     maxWidth,
     setMaxWidth,
+    isAnimationDisabled,
+    setIsAnimationDisabled,
   } = useTheme();
 
   const [windowWidth, setWindowWidth] = useState(
@@ -306,6 +345,29 @@ const ThemeModal: React.FC<ThemeModalProps> = ({isModalOpen, closeModal}) => {
               </div>
             </>
           )}
+          <div className="theme-title">Анимация раскрытия спойлеров</div>
+          <div className="theme-selector">
+            <button
+              className={
+                !isAnimationDisabled
+                  ? "theme-button theme-button-selected"
+                  : "theme-button"
+              }
+              onClick={() => setIsAnimationDisabled(false)}
+            >
+              Включена
+            </button>
+            <button
+              className={
+                isAnimationDisabled
+                  ? "theme-button theme-button-selected"
+                  : "theme-button"
+              }
+              onClick={() => setIsAnimationDisabled(true)}
+            >
+              Выключена
+            </button>
+          </div>
           <div className="theme-title">
             Оттенок акцентного цвета
             <Tooltip title="Сбросить оттенок">

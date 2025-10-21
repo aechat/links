@@ -6,6 +6,17 @@ import {useExternalLinkHandler} from "../hooks/useExternalLinks";
 
 import {useInternalLinkHandler} from "../hooks/useInternalLinks";
 
+import {useTheme} from "./modal/ThemeChanger";
+
+function usePrevious<T>(value: T): T | undefined {
+  const ref = React.useRef<T | undefined>(undefined);
+  React.useEffect(() => {
+    ref.current = value;
+  });
+
+  return ref.current;
+}
+
 import React, {
   ReactNode,
   createContext,
@@ -177,12 +188,16 @@ const DetailsSummary: React.FC<DetailsSummaryProps> = ({title, children, tag}) =
   const {handleLinkClick: handleExternalLinkClick, ExternalLinkModal} =
     useExternalLinkHandler();
 
+  const {isAnimationDisabled} = useTheme();
+
   const handleSectionClick = (event: React.MouseEvent<HTMLElement>) => {
     handleInternalLinkClick(event);
     handleExternalLinkClick(event);
   };
 
   const [isOpen, setIsOpen] = useState(false);
+
+  const prevIsOpen = usePrevious(isOpen);
 
   const [displayAnchorId, setDisplayAnchorId] = useState("");
 
@@ -262,6 +277,10 @@ const DetailsSummary: React.FC<DetailsSummaryProps> = ({title, children, tag}) =
       return;
     }
 
+    const justOpened = isOpen && prevIsOpen === false;
+
+    const justClosed = !isOpen && prevIsOpen === true;
+
     const resizeObserver = new ResizeObserver(() => {
       if (details.open) {
         contentWrapper.style.maxHeight = `${innerContent.scrollHeight}px`;
@@ -286,49 +305,99 @@ const DetailsSummary: React.FC<DetailsSummaryProps> = ({title, children, tag}) =
         updateDimmingEffect();
       }
     };
-    contentWrapper.addEventListener("transitionend", handleTransitionEnd);
 
-    if (isOpen) {
-      document.body.style.overflow = "hidden";
-      details.open = true;
-
-      const scrollHeight = innerContent.scrollHeight;
-
-      const viewportHeight = window.innerHeight;
-
-      if (scrollHeight > viewportHeight) {
-        contentWrapper.style.maxHeight = `${viewportHeight}px`;
-      } else {
-        contentWrapper.style.maxHeight = `${scrollHeight}px`;
-      }
-
-      updateDimmingEffect();
-      setTimeout(() => {
+    if (isAnimationDisabled) {
+      if (isOpen) {
+        details.open = true;
+        contentWrapper.style.maxHeight = `${innerContent.scrollHeight}px`;
+        resizeObserver.observe(innerContent);
         updateDimmingEffect();
-      }, 100);
-
-      const summaryId = details.querySelector(".faq-summary")?.id;
-
-      if (summaryId) {
-        debouncedReplaceState(`#${summaryId}`);
         setTimeout(() => {
-          const summary = details.querySelector(".faq-summary");
+          const detailsHeight = details.offsetHeight;
+          details.style.marginBottom = `${detailsHeight * 0.01 + 10}px`;
+        }, 0);
+        setTimeout(() => {
+          updateDimmingEffect();
+        }, 100);
 
-          if (summary) {
-            const {headerHeight, padding} = getScrollOffsets();
+        const summaryId = details.querySelector(".faq-summary")?.id;
 
-            const y =
-              summary.getBoundingClientRect().top +
-              window.pageYOffset -
-              headerHeight -
-              padding;
-            window.scrollTo({top: y, behavior: "smooth"});
-          }
-        }, 150);
+        if (summaryId) {
+          debouncedReplaceState(`#${summaryId}`);
+          setTimeout(() => {
+            const summary = details.querySelector(".faq-summary");
+
+            if (summary) {
+              const {headerHeight, padding} = getScrollOffsets();
+
+              const y =
+                summary.getBoundingClientRect().top +
+                window.pageYOffset -
+                headerHeight -
+                padding;
+              window.scrollTo({top: y, behavior: "smooth"});
+            }
+          }, 150);
+        }
+      } else if (details.open) {
+        resizeObserver.unobserve(innerContent);
+
+        if (window.location.hash) {
+          debouncedReplaceState("");
+        }
+
+        details.open = false;
+        contentWrapper.style.maxHeight = "0px";
+        details.style.marginBottom = "";
+        updateDimmingEffect();
       }
     } else {
-      if (details.open) {
+      contentWrapper.addEventListener("transitionend", handleTransitionEnd);
+
+      if (justOpened) {
         document.body.style.overflow = "hidden";
+      } else if (justClosed && details.open) {
+        document.body.style.overflow = "hidden";
+      }
+
+      if (isOpen) {
+        details.open = true;
+
+        const scrollHeight = innerContent.scrollHeight;
+
+        const viewportHeight = window.innerHeight;
+
+        if (scrollHeight > viewportHeight) {
+          contentWrapper.style.maxHeight = `${viewportHeight}px`;
+        } else {
+          contentWrapper.style.maxHeight = `${scrollHeight}px`;
+        }
+
+        updateDimmingEffect();
+        setTimeout(() => {
+          updateDimmingEffect();
+        }, 100);
+
+        const summaryId = details.querySelector(".faq-summary")?.id;
+
+        if (summaryId) {
+          debouncedReplaceState(`#${summaryId}`);
+          setTimeout(() => {
+            const summary = details.querySelector(".faq-summary");
+
+            if (summary) {
+              const {headerHeight, padding} = getScrollOffsets();
+
+              const y =
+                summary.getBoundingClientRect().top +
+                window.pageYOffset -
+                headerHeight -
+                padding;
+              window.scrollTo({top: y, behavior: "smooth"});
+            }
+          }, 150);
+        }
+      } else if (details.open) {
         resizeObserver.unobserve(innerContent);
 
         if (window.location.hash) {
@@ -345,7 +414,13 @@ const DetailsSummary: React.FC<DetailsSummaryProps> = ({title, children, tag}) =
       contentWrapper.removeEventListener("transitionend", handleTransitionEnd);
       document.body.style.overflow = "";
     };
-  }, [isOpen, debouncedReplaceState, updateDimmingEffect]);
+  }, [
+    isOpen,
+    prevIsOpen,
+    debouncedReplaceState,
+    updateDimmingEffect,
+    isAnimationDisabled,
+  ]);
 
   const scrollToAnchor = (targetElement: HTMLElement) => {
     if (typeof window === "undefined") {
