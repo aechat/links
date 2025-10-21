@@ -4,30 +4,41 @@
  * Он рекурсивно обходит все директории, находит файлы с расширением `.tsx`
  * и приводит содержимое `tag="..."` к нижнему регистру.
  */
-import {readFileSync, writeFileSync} from "fs";
-import {cwd} from "process";
-import {walk} from "./utils/fileUtils.js";
+import {runScript} from "./utils/scriptRunner.js";
+import {askForConfirmation} from "./utils/interactiveUtils.js";
 
-function lowercaseTags(content) {
-  return content.replace(/tag="([^"]*)"/g, (_, p1) => `tag="${p1.toLowerCase()}"`);
-}
-
-function processFile(filePath) {
+async function processor(filePath, originalContent) {
   if (!filePath.endsWith(".tsx")) {
-    return;
+    return originalContent;
   }
 
-  try {
-    const original = readFileSync(filePath, "utf8");
-    const normalized = original.replace(/\r\n/g, "\n");
-    const fixed = lowercaseTags(normalized);
-    if (original !== fixed) {
-      writeFileSync(filePath, fixed, {encoding: "utf8"});
-      console.log(`✔ теги в нижнем регистре: ${filePath}`);
+  let fixedContent = originalContent;
+  const regex = /tag="([^"]*)"/g;
+  const matches = Array.from(originalContent.matchAll(regex));
+  const replacements = [];
+
+  for (const match of matches) {
+    const [fullMatch, tagValue] = match;
+    const proposed = tagValue.toLowerCase();
+
+    if (tagValue === proposed) continue;
+
+    const shouldReplace = await askForConfirmation(tagValue, proposed);
+    if (shouldReplace) {
+      const newText = fullMatch.replace(tagValue, proposed);
+      replacements.push({
+        start: match.index,
+        end: match.index + fullMatch.length,
+        newText,
+      });
     }
-  } catch (error) {
-    console.error(`✘ ошибка обработки ${filePath}: ${error.message}`);
   }
+
+  for (const rep of replacements.reverse()) {
+    fixedContent = fixedContent.substring(0, rep.start) + rep.newText + fixedContent.substring(rep.end);
+  }
+
+  return fixedContent;
 }
 
-walk(cwd(), processFile);
+runScript("lowercaseTags", processor);

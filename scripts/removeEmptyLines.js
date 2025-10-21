@@ -4,9 +4,8 @@
  * Он обходит все директории, игнорируя системные и указанные в `ignore.js`,
  * и обрабатывает файлы с текстовыми расширениями.
  */
-import {readFileSync, writeFileSync} from "fs";
-import {cwd} from "process";
-import {walk} from "./utils/fileUtils.js";
+import {runScript} from "./utils/scriptRunner.js";
+import {confirmFileWrite} from "./utils/interactiveUtils.js";
 
 const TEXT_FILE_EXTENSIONS = [
   ".js",
@@ -38,22 +37,21 @@ function removeEmptyLines(content) {
     .join("\n");
 }
 
-function processFile(filePath) {
+async function processor(filePath, originalContent) {
   const ext = `.${filePath.split(".").pop()}`;
   if (!TEXT_FILE_EXTENSIONS.includes(ext)) {
-    return;
+    return originalContent;
   }
 
-  try {
-    const original = readFileSync(filePath, "utf8");
-    const fixed = removeEmptyLines(original);
-    if (original !== fixed) {
-      writeFileSync(filePath, fixed);
-      console.log(`✔ удалены пустые строки: ${filePath}`);
+  const fixedContent = removeEmptyLines(originalContent);
+
+  if (originalContent !== fixedContent) {
+    const shouldWrite = await confirmFileWrite(filePath);
+    if (shouldWrite) {
+      return fixedContent;
     }
-  } catch (error) {
-    console.error(`✘ ошибка обработки ${filePath}: ${error.message}`);
   }
+  return originalContent;
 }
 
-walk(cwd(), processFile);
+runScript("removeEmptyLines", processor);
