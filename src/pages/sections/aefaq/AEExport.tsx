@@ -1998,7 +1998,6 @@ const AEExport: React.FC = () => {
           </ul>
         </Addition>
         <Divider>Экспортируем с помощью GifGun</Divider>
-        {/* TODO: переделать под список */}
         <ul>
           <li>
             Предположим, что вы уже установили расширение{" "}
