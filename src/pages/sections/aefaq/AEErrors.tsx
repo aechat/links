@@ -626,7 +626,7 @@ const AEErrors: React.FC = () => {
         </ul>
       </DetailsSummary>
       <DetailsSummary
-        tag="cannot allocate buffer, 30000 pixels, motion tile, cc repetile, buffer size, pixel limit, 25::56, мозаика движения, невозможно выделить для эффекта буфер величиной более 30000 пикселей в любом направлении"
+        tag="25::56, 37::102, attempted to render a frame with an unsupported frame size, the frame size must be between 1 and 30000 pixels for both width and height, please check layer dimensions and the output from any effects that may be modifying layer content, cannot allocate buffer, motion tile, cc repetile, buffer size, pixel limit, мозаика движения, невозможно выделить для эффекта буфер величиной более 30000 пикселей в любом направлении"
         title="Что означает «Effect cannot allocate a buffer larger than 30000 pixels in either dimension»?"
       >
         <p>
