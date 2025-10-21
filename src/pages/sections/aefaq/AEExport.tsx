@@ -2247,45 +2247,123 @@ const AEExport: React.FC = () => {
         tag="prores 4444, prores 422, quicktime, видео с прозрачностью, alpha channel"
         title="Как экспортировать композицию в Apple ProRes?"
       >
-        <AdditionWarning>
-          В <mark className="video">H.264</mark> и <mark className="file">MP4</mark>{" "}
-          нельзя экспортировать композицию с альфа-каналом. Это можно сделать только на
-          устройствах с <mark>macOS</mark> и при использовании кодека{" "}
-          <mark className="video">H.265 (HEVC)</mark>.
-        </AdditionWarning>
         <p>
-          Прежде чем начать выводить композицию с альфа-каналом, убедитесь в том, что в
-          вашей композиции есть сам альфа-канал. Без этого никак. Чтобы проверить это,
-          можно воспользоваться кнопкой{" "}
-          <mark className="ui">Toggle Transparency Grid</mark>, которая подставляет сетку
-          в виде шахматной доски для отображения прозрачных частей в композиции.
+          <mark className="video">Apple ProRes</mark> — это семейство высококачественных
+          кодеков, разработанное <mark>Apple</mark> в 2007 году и широко используемое в
+          сфере видеопроизводства. Из <mark className="app">Adobe After Effects</mark>{" "}
+          можно напрямую экспортировать композицию в кодеках{" "}
+          <mark className="video">Apple ProRes 422</mark>
+          <sup>1</sup> и <mark className="video">Apple ProRes 4444</mark>
+          <sup>2</sup>, а затем применять их по назначению.
         </p>
-        <ImageFigure
+        <Addition type="warning">
+          В старых версиях <mark className="app">Adobe After Effects</mark> нельзя было
+          импортировать файлы с кодеком <mark className="app">Apple ProRes</mark> и
+          экспортировать композиции в <mark className="app">Apple ProRes</mark>. Данная
+          функция появилась в <mark className="app">Adobe After Effects</mark> версии{" "}
+          <mark>16.0.1</mark> (2019) и новее.
+        </Addition>
+        <p>
+          Ключевая особенность монтажных кодеков, включая{" "}
+          <mark className="video">Apple ProRes</mark>, в отличие от кодеков,
+          предназначенных для просмотра видео, например{" "}
+          <mark className="video">H.264</mark> или <mark className="video">VP9</mark>,
+          заключается в том, что они меньше сжимают видео и работают стабильнее в
+          монтажных программах, хотя занимают больше места на диске.
+        </p>
+        <Addition type="info">
+          <ul>
+            <li>
+              <sup>1</sup> <mark className="video">Apple ProRes 422</mark> включает
+              несколько вариантов, различающихся степенью сжатия и битрейтом. Все они
+              поддерживают 10-битную глубину цвета и цветовую субдискретизацию{" "}
+              <mark>4:2:2</mark>. Битрейт зависит от разрешения, частоты кадров и
+              сложности контента. Хороши для дальнейшего монтажа, если не требуется
+              альфа-канал или максимально точное сохранение цвета.{" "}
+              <a href="https://ru.m.wikipedia.org/wiki/Apple_ProRes#Apple_ProRes_422">
+                Подробнее о вариантах...
+              </a>
+            </li>
+            <li>
+              <sup>2</sup> <mark className="video">Apple ProRes 4444</mark> и{" "}
+              <mark className="video">Apple ProRes 4444 XQ</mark> — версии с максимальным
+              качеством, без цветовой субдискретизации и поддержкой 12-битного цвета и
+              альфа-канала. Идеальны для экспорта графики с прозрачностью или без
+              изменения цвета после конвертации.
+            </li>
+          </ul>
+        </Addition>
+        <Divider>Экспортируем в Apple ProRes</Divider>
+        <ul>
+          <li>
+            Чтобы отправить на экспорт текущую композицию или выделенную в окне{" "}
+            <mark className="select">«Project»</mark>, нажмите{" "}
+            <mark className="key">Ctrl + M</mark> или выберите в меню{" "}
+            <mark className="select">«File» → «Export» → «Add to Render Queue»</mark>.
+            <ContentFigure
+              caption="Render Queue"
+              imgTitle="Очередь рендеринга с выбранным H.264"
+              src="images/aftereffects/render_queue_h264.png"
+              theme="dark"
+              type="image"
+              variant="windows"
+            />
+          </li>
+          <li>
+            Чтобы изменить формат экспорта, нажмите на название шаблона — откроется окно{" "}
+            <mark className="select">«Output Module»</mark>.
+          </li>
+          <li>
+            В открывшемся окне в параметре <mark className="select">«Format»</mark>{" "}
+            выберите <mark className="select">«QuickTime»</mark>, а затем перейдите в{" "}
+            <mark className="select">«Format Options»</mark>.
+          </li>
+          <li>
+            В открывшемся окне в параметре <mark className="select">«Video Codec»</mark>{" "}
+            выберите нужный вам вариант <mark className="video">Apple ProRes</mark>.
+          </li>
+          <li>
+            Если вы собираетесь экспортировать композицию с альфа-каналом — не забудьте в{" "}
+            <mark className="select">«Channels»</mark> установить параметр{" "}
+            <mark className="select">«RGB + Alpha»</mark>.
+          </li>
+          <li>
+            Затем укажите путь сохранения и нажмите кнопку{" "}
+            <mark className="select">«Render»</mark>.
+          </li>
+        </ul>
+        <p></p>
+        <ContentFigure
+          caption="Экспорт видео в Apple ProRes"
+          src="images/aftereffects/export_to_ProRes.mp4"
+          theme="dark"
+          type="video"
+          variant="windows"
+        />
+        <Divider>Как проверить наличие прозрачности в композиции?</Divider>
+        <p>
+          Перед экспортом убедитесь, что в вашей композиции действительно есть
+          прозрачность. Чтобы проверить это, нажмите на кнопку{" "}
+          <mark className="select">«Toggle Transparency Grid»</mark> под окном
+          предпросмотра. Она заменяет фон на сетку в виде шахматной доски, показывая
+          прозрачные области.
+        </p>
+        <ContentFigure
           caption="Composition"
-          imgSrc="images/aftereffects/toggle_transparency_grid.png"
-          imgTitle="Включение сетки для отображения прозрачных частей"
-          styleClass="figure_windows-dark"
+          imgTitle="Включение сетки для отображения прозрачных областей"
+          src="images/aftereffects/toggle_transparency_grid.png"
+          theme="dark"
+          type="image"
+          variant="windows"
         />
-        <p>
-          Если всё с этим в порядке, то пора переходить в{" "}
-          <mark className="ui">Render Queue</mark>, нажав на комбинацию клавиш{" "}
-          <mark className="key">Ctrl + M</mark>. После перехода в очередь рендера откройте{" "}
-          <mark className="ui">Output Module</mark> и выберите в параметре{" "}
-          <mark className="ui">Format</mark> значение{" "}
-          <mark className="plugin">Quicktime</mark>. Потом откройте{" "}
-          <mark className="ui">Format Options</mark> и выберите там параметр{" "}
-          <mark className="video">Apple Prores 4444</mark> или{" "}
-          <mark className="video">GoPro Cineform</mark> в разделе{" "}
-          <mark className="ui">Video Codec</mark>. Затем не забудьте указать в{" "}
-          <mark className="ui">Channels</mark> значение{" "}
-          <mark className="ui">RGB + Alpha</mark>, чтобы экспортировать видео с
-          прозрачностью.
-        </p>
-        <VideoFigure
-          caption="Adobe After Effects"
-          styleClass="figure_windows-dark"
-          videoSrc="images/aftereffects/export_prores4444_rgb-alpha.mp4"
-        />
+        <Addition type="info">
+          Для просмотра видео, закодированных в{" "}
+          <mark className="video">Apple ProRes</mark>, рекомендуется использовать
+          сторонние плееры, например <mark className="app">VLC</mark> или{" "}
+          <mark className="app">MPC-HC</mark>. Учтите, что не все плееры могут корректно
+          отобразить видео с альфа-каналом.
+        </Addition>
+      </DetailsSummary>
       <DetailsSummary
         tag="аудио, звук, музыка, wav, mp3, aiff"
         title="Как экспортировать из композиции только аудио?"
