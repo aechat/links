@@ -344,7 +344,7 @@ const AEExport: React.FC = () => {
             <a href="#9.11">прокси</a>. Это минимизирует время экспорта и риск ошибок.
             <Addition type="warning">
               При экспорте композиции в <mark className="app">Adobe Media Encoder</mark>{" "}
-              запускается ещё один процесс <mark className="file">AfterFX.exe</mark>,
+              запускается ещё один процесс <mark className="file">AFTERFX.EXE</mark>,
               который создаёт дополнительную нагрузку на компьютер и может занять всю
               оперативную память, что часто приводит к сбоям.
             </Addition>
@@ -394,7 +394,7 @@ const AEExport: React.FC = () => {
             запускается почти мгновенно, в отличие от долгого запуска самого{" "}
             <mark className="app">Adobe Media Encoder</mark>. После его запуска нужно ещё
             подождать, пока он подгрузит композицию, запустит фоновый процесс{" "}
-            <mark className="file">AfterFX.exe</mark> и только потом начнёт экспорт. Не
+            <mark className="file">AFTERFX.EXE</mark> и только потом начнёт экспорт. Не
             всегда удобно ждать минуту, чтобы{" "}
             <mark className="app">Adobe Media Encoder</mark> «опомнился» для экспорта
             короткого видео.
@@ -726,9 +726,10 @@ const AEExport: React.FC = () => {
           </li>
           <li>
             <mark className="word">P-кадры</mark> — прогнозируемые. Они не хранят целое
-            изображение, а только данные о различиях относительно предыдущего I- или
-            P-кадра: например, «сдвинуть этот блок пикселей вправо» или «немного осветлить
-            область». Это позволяет значительно экономить место.
+            изображение, а только данные о различиях относительно предыдущего{" "}
+            <mark>I-кадра</mark> или <mark>P-кадра</mark>: например, «сдвинуть этот блок
+            пикселей вправо» или «немного осветлить область». Это позволяет значительно
+            экономить место.
           </li>
           <li>
             <mark className="word">B-кадры</mark> — двунаправленные. Они анализируют и
@@ -746,8 +747,8 @@ const AEExport: React.FC = () => {
           <mark className="word">GOP</mark> или{" "}
           <mark className="word">Group of Pictures</mark> — это последовательность,
           начинающаяся с одного <mark>I-кадра</mark> и включающая несколько{" "}
-          <mark>P-</mark> и <mark>B-кадров</mark> до следующего опорного. От длины этой
-          группы напрямую зависит поведение видео при сжатии.
+          <mark>P-кадров</mark> и <mark>B-кадров</mark> до следующего опорного. От длины
+          этой группы напрямую зависит поведение видео при сжатии.
         </p>
         <ul>
           <li>
@@ -1092,9 +1093,9 @@ const AEExport: React.FC = () => {
               </ul>
             </li>
             <li>
-              Из-за особенностей стандарта <mark className="video">H.264</mark> не
-              получится экспортировать композицию с нечётным разрешением, например{" "}
-              <mark>725×501</mark>. В таком случае{" "}
+              Из-за особенностей стандарта <mark className="video">H.264</mark> и его
+              производных, не получится экспортировать композицию с нечётным разрешением,
+              например <mark>725×501</mark>. В таком случае{" "}
               <mark className="app">Adobe After Effects</mark> автоматически растянет
               видео до разрешения <mark>726×502</mark> или выдаст ошибку при экспорте.
             </li>
@@ -1194,16 +1195,16 @@ const AEExport: React.FC = () => {
             />
           </li>
           <li>
-            В этом окне выбирается режим битрейта: переменный или постоянный. Для
-            динамичных сцен с кучей частиц выберите <mark className="select">«CBR»</mark>{" "}
-            и установите битрейт повыше. Режим <mark className="select">«VBR»</mark>{" "}
-            сэкономит размер файла, но может ударить по качеству.
+            В этом окне можно выбрать режим битрейта: переменный или постоянный. Для
+            динамичных сцен с множеством частиц выберите{" "}
+            <mark className="select">«CBR»</mark> и установите битрейт повыше. Режим{" "}
+            <mark className="select">«VBR»</mark> сэкономит место, но может ухудшить
+            качество.
             <Addition type="info">
-              Если не хотите подбирать битрейт вручную, но нужно получить максимальное
-              качество экспортируемой композиции, тогда ваш выбор — режим{" "}
-              <mark className="select">«CQ»</mark> в плагине{" "}
+              Если вы не хотите подбирать битрейт вручную, но нужно получить максимальное
+              качество, ваш выбор — режим <mark className="select">«CQ»</mark> в плагине{" "}
               <mark className="plugin">Voukoder</mark>. В стандартном{" "}
-              <mark className="plugin">H.264</mark> данный режим кодирования отсутствует.
+              <mark className="plugin">H.264</mark> этот режим кодирования отсутствует.
             </Addition>
             <ContentFigure
               caption="H.264 Options"
@@ -1215,9 +1216,9 @@ const AEExport: React.FC = () => {
             />
           </li>
           <li>
-            После того как вы указали нужный битрейт или настроили нужные параметры
-            экспорта, нажмите на <mark className="select">«OK»</mark>, пока не закроются
-            все окна настроек формата.
+            После того как вы указали нужный битрейт или настроили другие параметры
+            экспорта, нажимайте <mark className="select">«OK»</mark>, пока не закроются
+            все окна настроек.
           </li>
           <li>
             В <mark className="select">«Output To»</mark> укажите путь и имя файла. Для
@@ -1233,7 +1234,7 @@ const AEExport: React.FC = () => {
             />
           </li>
           <li>
-            Когда экспорт композиции закончится, файл будет лежать в указанной вами
+            Когда экспорт композиции закончится, файл появится в указанной вами
             директории. С полученным видео делайте что хотите: передайте клиенту,
             опубликуйте в соцсетях или удалите.
           </li>
@@ -1245,39 +1246,38 @@ const AEExport: React.FC = () => {
               <Addition type="info">
                 В этой статье демонстрируется{" "}
                 <mark className="plugin">Voukoder Classic</mark> версии{" "}
-                <mark>13.4.1</mark>, недоступная для устройств на <mark>macOS</mark>.
+                <mark>13.4.1</mark>, недоступный для устройств на <mark>macOS</mark>.
               </Addition>
               <p>
                 Если результат экспорта через стандартный{" "}
                 <mark className="video">H.264</mark> вас не устраивает, попробуйте плагин{" "}
-                <mark className="plugin">Voukoder</mark>. Прежде чем воспользоваться
-                экспортом композиции с помощью <mark className="plugin">Voukoder</mark> —
-                нужно установить саму утилиту вместе с «коннекторами» как обычно с помощью
+                <mark className="plugin">Voukoder</mark>. Прежде чем им воспользоваться,
+                нужно установить саму утилиту вместе с «коннекторами» с помощью
                 установочных файлов.
               </p>
               <p>
-                К сожалению, исходный репозиторий демонстрируемой версии{" "}
+                К сожалению, исходный репозиторий этой версии{" "}
                 <mark className="plugin">Voukoder</mark> на{" "}
                 <a href="https://github.com/Vouk/voukoder/releases/tag/13.4.1">GitHub</a>{" "}
-                был удалён из-за его замены на платный{" "}
-                <mark className="plugin">Voukoder Pro</mark>, поэтому перезалив данной
-                версии экспортёра вместе с «коннекторами» вы можете найти в{" "}
+                был удалён, так как её заменили платной{" "}
+                <mark className="plugin">Voukoder Pro</mark>. Архив с этой версией
+                экспортёра и «коннекторами» вы можете найти в{" "}
                 <a href="https://t.me/+Qd9xu7A4TeIwNzY6">складе стройматериалов</a> по
                 хештегу <mark className="tag">#voukoder</mark>. После корректной установки{" "}
-                <mark className="plugin">Voukoder</mark> он должен появиться в списке{" "}
+                <mark className="plugin">Voukoder</mark> должен появиться в списке{" "}
                 <mark className="select">«Format»</mark> в окне{" "}
                 <mark className="select">«Output Module»</mark>.
               </p>
               <Addition type="warning">
-                Для корректной установки <mark className="plugin">Voukoder</mark> —
-                убедитесь в том, что <mark className="app">Adobe After Effects</mark> был
-                установлен в директорию по умолчанию и не менялся при установке.
+                Для корректной установки <mark className="plugin">Voukoder</mark>{" "}
+                убедитесь, что <mark className="app">Adobe After Effects</mark> был
+                установлен в директорию по умолчанию.
               </Addition>
               <ul>
                 <li>
                   <p>
-                    Чтобы отправить на экспорт текущую или выделенную в окне{" "}
-                    <mark className="select">«Project»</mark> композицию, нажмите{" "}
+                    Чтобы отправить на экспорт текущую композицию или выделенную в окне{" "}
+                    <mark className="select">«Project»</mark>, нажмите{" "}
                     <mark className="key">Ctrl + M</mark> или выберите в меню{" "}
                     <mark className="select">
                       «File» → «Export» → «Add to Render Queue»
@@ -1294,17 +1294,16 @@ const AEExport: React.FC = () => {
                   />
                   <p>
                     Чтобы выбрать <mark className="plugin">Voukoder</mark> в качестве
-                    формата для экспорта, нужно нажать на название текущего пресета для
-                    открытия окна <mark className="select">«Output Module»</mark>.
+                    формата для экспорта, нажмите на название текущего пресета, чтобы
+                    открыть окно <mark className="select">«Output Module»</mark>.
                   </p>
                 </li>
                 <li>
                   В открывшемся окне <mark className="select">«Output Module»</mark>{" "}
                   выберите в <mark className="select">«Format</mark> значение{" "}
                   <mark className="select">«Voukoder»</mark>. Чтобы открыть основное окно
-                  дополнительных настроек экспорта в{" "}
-                  <mark className="plugin">Voukoder</mark> для выбора кодека и настроек
-                  его качества, намжмите на{" "}
+                  дополнительных настроек <mark className="plugin">Voukoder</mark> для
+                  выбора кодека и его параметров, нажмите на{" "}
                   <mark className="select">«Format Options»</mark>.
                   <ContentFigure
                     caption="Output Module Settings"
@@ -1365,8 +1364,8 @@ const AEExport: React.FC = () => {
                         <mark className="video">VP9</mark> редко используются для экспорта
                         из <mark className="app">Adobe After Effects</mark>. Если вам
                         нужен этот формат, проще экспортировать композицию в условном{" "}
-                        <mark className="video">Apple Prores 4444</mark>, а затем
-                        переконвертировать видео позже через{" "}
+                        <mark className="video">Apple ProRes 4444</mark>, а затем
+                        переконвертировать видео через{" "}
                         <a href="https://www.shutterencoder.com/">Shutter Encoder</a> или
                         другие конвертеры.
                       </li>
@@ -1375,10 +1374,10 @@ const AEExport: React.FC = () => {
                 </li>
                 <li>
                   <p>
-                    После выбора кодека нужного кодека, например{" "}
+                    После выбора нужного кодека, например{" "}
                     <mark className="select">«H.264 (NVIDIA NVENC)»</mark>, перейдите во
-                    вкладку <mark className="select">«Параметры»</mark>. В этой вкладке
-                    можно настроить качество видео с помощью метода постоянного качества
+                    вкладку <mark className="select">«Параметры»</mark>. Здесь можно
+                    настроить качество видео с помощью метода постоянного качества
                     <sup>1</sup>, который нацелен на поддержание постоянного
                     воспринимаемого качества, не заботясь о размере файла.
                   </p>
@@ -1400,28 +1399,28 @@ const AEExport: React.FC = () => {
                   />
                   <p>
                     При использовании метода постоянного качества кодировщик сам решает,
-                    какой битрейт необходимо выделить для каждого кадра, чтобы
-                    соответствовать заданному уровню качества, который устанавливается
-                    значением <mark className="select">«CQP»</mark> от <mark>0</mark> до{" "}
-                    <mark>51</mark>, где <mark>0</mark> равно сжатию без потерь с огромным
-                    размером, <mark>51</mark> — наименьшему размеру файла и наихудшему
-                    качеству видео.
+                    какой битрейт выделить для каждого кадра, чтобы соответствовать
+                    заданному уровню качества. Этот уровень устанавливается значением{" "}
+                    <mark className="select">«CQP»</mark> от <mark>0</mark> до{" "}
+                    <mark>51</mark>, где <mark>0</mark> — сжатие без потерь с огромным
+                    размером файла, а <mark>51</mark> — наименьший размер и наихудшее
+                    качество.
                   </p>
                   <ul>
                     <li>
                       По умолчанию для параметра постоянного качества установлено значение{" "}
-                      <mark>23</mark>. Этого с головой хватит для экспорта на{" "}
+                      <mark>23</mark>. Этого более чем достаточно для экспорта на{" "}
                       <mark className="app">YouTube</mark>,{" "}
                       <mark className="app">VK Видео</mark> и подобные платформы. Учтите,
-                      что видеохостинги всё равно будут сжимать видео по-своему, чтобы
-                      уместить видео для хранения на собственных серверах.
+                      что видеохостинги всё равно пережмут видео по-своему, чтобы
+                      сэкономить место на своих серверах.
                     </li>
                     <li>
                       Если нужно сохранить почти максимальное качество, укажите для
                       параметра постоянного качества значение от <mark>17</mark> до{" "}
-                      <mark>20</mark>. Размер файла заметно возрастёт. Значение меньше{" "}
-                      <mark>15</mark> смысла ставить нет, серьёзного сохранения качества
-                      вы не заметите, однако можете сильно раздуть размер файла.
+                      <mark>20</mark>. Размер файла заметно возрастёт. Ставить значение
+                      меньше <mark>15</mark> нет смысла: серьёзного прироста качества вы
+                      не заметите, а вот размер файла раздуете не на шутку.
                     </li>
                     <li>
                       Если хотите получить хорошее соотношение «качество/минимальный вес»,
@@ -1433,9 +1432,9 @@ const AEExport: React.FC = () => {
                   </ul>
                 </li>
                 <li>
-                  Если ничего дополнительного вам не нужно настраивать, то нажмите на{" "}
+                  Если больше ничего настраивать не нужно, нажимайте{" "}
                   <mark className="select">«OK»</mark>, пока не закроются все окна
-                  настроек формата. Не забудьте указать в{" "}
+                  настроек. Не забудьте указать в{" "}
                   <mark className="select">«Output To»</mark> путь и имя файла. Для
                   запуска экспорта нажмите <mark className="select">«Render»</mark> или
                   клавишу <mark className="key">Enter</mark>.
@@ -1455,15 +1454,15 @@ const AEExport: React.FC = () => {
         <Divider>Экспортируем с помощью AfterCodecs</Divider>
         <p>
           Ещё одна хорошая альтернатива для экспорта <mark className="video">H.264</mark>{" "}
-          из <mark className="app">Adobe After Effects</mark> — использование стороннего
-          экспортёра <mark className="plugin">AfterCodecs</mark> от{" "}
+          из <mark className="app">Adobe After Effects</mark> — сторонний экспортёр{" "}
+          <mark className="plugin">AfterCodecs</mark> от{" "}
           <mark className="company">Autokroma</mark>.
         </p>
         <ul>
           <li>
             <p>
-              Чтобы отправить на экспорт текущую или выделенную в окне{" "}
-              <mark className="select">«Project»</mark> композицию, нажмите{" "}
+              Чтобы отправить на экспорт текущую композицию или выделенную в окне{" "}
+              <mark className="select">«Project»</mark>, нажмите{" "}
               <mark className="key">Ctrl + M</mark> или выберите в меню{" "}
               <mark className="select">«File» → «Export» → «Add to Render Queue»</mark>.
             </p>
@@ -1477,7 +1476,7 @@ const AEExport: React.FC = () => {
             />
             <p>
               Чтобы выбрать <mark className="plugin">AfterCodecs</mark> в качестве формата
-              для экспорта, нужно нажать на название текущего пресета для открытия окна{" "}
+              для экспорта, нажмите на название текущего пресета, чтобы открыть окно{" "}
               <mark className="select">«Output Module»</mark>.
             </p>
           </li>
@@ -1485,8 +1484,8 @@ const AEExport: React.FC = () => {
             В открывшемся окне <mark className="select">«Output Module»</mark> выберите в{" "}
             <mark className="select">«Format</mark> значение{" "}
             <mark className="select">«AfterCodecs MP4»</mark>. Чтобы открыть основное окно
-            дополнительных настроек экспорта в <mark className="plugin">AfterCodecs</mark>{" "}
-            для выбора кодека и настроек его качества, намжмите на{" "}
+            дополнительных настроек <mark className="plugin">AfterCodecs</mark> для выбора
+            кодека и его параметров, нажмите на{" "}
             <mark className="select">«Format Options»</mark>.
             <ContentFigure
               caption="Output Module Settings"
@@ -1515,13 +1514,12 @@ const AEExport: React.FC = () => {
             <ul>
               <li>
                 Параметр <mark className="select">«Tradeoff»</mark> определяет тип
-                кодирования: <mark className="select">«Quality»</mark> — ставит в
-                приоритет качество, которое задаётся в процентах, а результат похож на
-                смесь <mark className="select">«VBR»</mark> и режима постоянного качества;{" "}
-                <mark className="select">«Bitrate»</mark> — задаёт постоянный битрейт на
-                всё видео; <mark className="select">«File Size»</mark> — подгоняет
-                качество с помощью переменного битрейта, чтобы уложиться в заданный размер
-                файла.
+                кодирования. <mark className="select">«Quality»</mark> ставит в приоритет
+                качество (задаётся в процентах), а результат похож на смесь{" "}
+                <mark className="select">«VBR»</mark> и режима постоянного качества.
+                <mark className="select">«Bitrate»</mark> задаёт постоянный битрейт на всё
+                видео. <mark className="select">«File Size»</mark> подгоняет качество с
+                помощью переменного битрейта, чтобы уложиться в заданный размер файла.
               </li>
               <li>
                 Параметр <mark className="select">«Speed»</mark> определяет скорость
@@ -1534,28 +1532,30 @@ const AEExport: React.FC = () => {
               </li>
               <li>
                 Параметр <mark className="select">«Audio Bitrate»</mark> отвечает за
-                качество звука. Автоматический режим может работать криво, поэтому лучше
-                вручную выставить значение <mark>512 Кбит/с</mark>, чтобы не жертвовать
-                качеством.
+                качество звука. Автоматический режим может работать некорректно, поэтому
+                лучше вручную выставить значение <mark>320 Кбит/с</mark> или{" "}
+                <mark>512 Кбит/с</mark>, чтобы не жертвовать качеством.
+              </li>
+              <li>
+                Параметр <mark className="select">«GOP»</mark> определяет, сколько{" "}
+                <mark>P-кадров</mark> и <mark>B-кадров</mark> вставляется между ключевыми{" "}
+                <mark>I-кадрами</mark>.
               </li>
               <li>
                 Параметры <mark className="select">«Tuning»</mark>,{" "}
                 <mark className="select">«H.264 Profiles»</mark>,{" "}
-                <mark className="select">«GOP»</mark>,{" "}
-                <mark className="select">«Audio Bitrate»</mark>,{" "}
                 <mark className="select">«VR Meta»</mark> и{" "}
-                <mark className="select">«Fast Start»</mark> лучше не трогать, если нет
-                веской на то причины.
+                <mark className="select">«Fast Start»</mark> лучше не трогать, если на то
+                нет веской причины.
               </li>
             </ul>
           </li>
           <li>
-            Если ничего дополнительного вам не нужно настраивать, то нажмите на{" "}
-            <mark className="select">«OK»</mark>, пока не закроются все окна настроек
-            формата. Не забудьте указать в <mark className="select">«Output To»</mark>{" "}
-            путь и имя файла. Для запуска экспорта нажмите{" "}
-            <mark className="select">«Render»</mark> или клавишу{" "}
-            <mark className="key">Enter</mark>.
+            Если больше ничего настраивать не нужно, нажимайте{" "}
+            <mark className="select">«OK»</mark>, пока не закроются все окна настроек. Не
+            забудьте указать в <mark className="select">«Output To»</mark> путь и имя
+            файла. Для запуска экспорта нажмите <mark className="select">«Render»</mark>{" "}
+            или клавишу <mark className="key">Enter</mark>.
             <ContentFigure
               caption="Render Queue"
               imgTitle="Кнопка начала рендеринга"
@@ -1856,8 +1856,8 @@ const AEExport: React.FC = () => {
               variant="mac"
             />
             <Addition type="info">
-              Выбор значений в этом параметре зависит от вашего устройства и установленных
-              драйверов.
+              Выбор значений в этом параметре зависит от выбранного кодека, вашего
+              устройства и установленных драйверов.
             </Addition>
             <Addition type="warning">
               На <mark>Windows</mark> при включенном аппаратном ускорении для{" "}
@@ -1932,9 +1932,9 @@ const AEExport: React.FC = () => {
               }}
             >
               <video
-                loop
-                controls
                 autoPlay
+                controls
+                loop
               >
                 <source
                   src="images/aefaq@aechat_alpha.mp4"
@@ -1984,10 +1984,11 @@ const AEExport: React.FC = () => {
               цветопередаче придётся забыть.
             </li>
             <li>
-              Размер файла быстро растёт, особенно при высоком разрешении или частоте
-              кадров. Для веба лучше придерживаться максимум <mark>1024×576</mark> и{" "}
-              <mark>15 FPS</mark>. Тяжёлые <mark className="image">GIF</mark> перегружают
-              браузер и замедляют сайты, особенно на мобильных устройствах.
+              Полученный файл может быть огромным по весу, если указать высокое разрешение
+              или частоту кадров. Для веба лучше придерживаться максимум{" "}
+              <mark>1024×576</mark> и <mark>15 FPS</mark>. Тяжёлые{" "}
+              <mark className="image">GIF</mark> перегружают браузер и замедляют сайты,
+              особенно на мобильных устройствах.
             </li>
             <li>
               <mark className="image">GIF</mark> сжимается крайне посредственно по
@@ -2335,7 +2336,7 @@ const AEExport: React.FC = () => {
         <p></p>
         <ContentFigure
           caption="Экспорт видео в Apple ProRes"
-          src="images/aftereffects/export_to_ProRes.mp4"
+          src="images/aftereffects/export_to_prores.mp4"
           theme="dark"
           type="video"
           variant="windows"
@@ -2396,7 +2397,7 @@ const AEExport: React.FC = () => {
             <ul>
               <li>
                 Для создания принимаются изображения формата{" "}
-                <mark className="image">PNG</mark> или <mark className="image">WebP</mark>{" "}
+                <mark className="image">PNG</mark> или <mark className="image">WEBP</mark>{" "}
                 с прозрачным или непрозрачным фоном.
               </li>
               <li>
@@ -2499,7 +2500,7 @@ const AEExport: React.FC = () => {
           </li>
           <li>
             <mark className="word">Видеостикер</mark> — это, по сути, обычное видео в
-            формате <mark className="video">WebM</mark> с кодеком{" "}
+            формате <mark className="video">WEBM</mark> с кодеком{" "}
             <mark className="video">VP9</mark>. Максимальное разрешение такого стикера —
             <mark>512</mark> на <mark>512</mark> пикселей.
           </li>
