@@ -159,12 +159,19 @@ const AEImport: React.FC = () => {
           <mark className="audio">WAV</mark>.
         </p>
         <Addition type="info">
-          Конвертировать видео в монтажный кодек можно с помощью разных утилит, например{" "}
-          <mark className="app">Handbrake</mark> или{" "}
-          <mark className="app">Shutter Encoder</mark>, который будет затронут в этой
-          статье. Для изображений можно использовать пакетное преобразование с помощью{" "}
-          <mark className="app">Faststone Image Viewer</mark>, а для аудио —{" "}
-          <mark className="app">EZ CD Audio Converter</mark>.
+          <p>
+            <sup>1</sup> Работа с видео в сжатых кодеках, таких как{" "}
+            <mark className="video">H.264</mark>, — это крайняя мера. К ней прибегают,
+            лишь когда перекодирование в монтажный формат невозможно из-за нехватки
+            дискового пространства. Хотя это и экономит место, производительность страдает
+            из-за постоянной декомпрессии «на лету». Если вы всё же вынуждены использовать{" "}
+            <mark className="video">H.264</mark>, лучшим компромиссом будет перекодировать
+            его в режим <mark className="word">All-Intra</mark>, или{" "}
+            <mark className="word">I-Frame Only</mark>. В таком файле каждый кадр
+            становится ключевым, что значительно ускоряет работу. Размер файла увеличится,
+            но, как правило, он всё равно будет меньше, чем у условного{" "}
+            <mark className="video">Apple ProRes</mark>.
+          </p>
         </Addition>
         <p>
           С кодеками, которые некоторые по незнанию называют форматом, разобрались.
@@ -811,7 +818,7 @@ const AEImport: React.FC = () => {
                   <li>
                     Чтобы открыть настройки{" "}
                     <mark className="plugin">Autokroma Influx</mark>, запустите{" "}
-                    <mark className="file">Influx.exe</mark>, находящийся по пути{" "}
+                    <mark className="file">INFLUX.EXE</mark>, находящийся по пути{" "}
                     <mark className="path">
                       C:\Program Files\Adobe\Common\Plug-ins\7.0\MediaCore\Autokroma
                       Influx
@@ -1400,7 +1407,7 @@ const AEImport: React.FC = () => {
         </Addition>
         <p>
           Для установки плагина в десктопную версию <mark className="app">Figma</mark>{" "}
-          нужно указать путь к файлу <mark className="file">manifest.json</mark> из
+          нужно указать путь к файлу <mark className="file">MANIFEST.JSON</mark> из
           распакованной папки <mark className="path">Figma</mark> в архиве. Сделать это
           можно через меню{" "}
           <mark className="select">

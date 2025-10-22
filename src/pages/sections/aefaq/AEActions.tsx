@@ -142,8 +142,8 @@ const AEActions: React.FC = () => {
         <p>
           Иногда возникает необходимость сделать видео максимально плавным, особенно если
           исходник снят с низкой частотой кадров. С этой задачей отлично справляются
-          современные инструменты интерполяции, которые создают дополнительные кадры на
-          основе существующих, сглаживая движение и убирая рывки.
+          современные инструменты интерполяции, которые создают дополнительные кадры между
+          существующими, сглаживая движение и убирая рывки.
         </p>
         <Addition type="warning">
           Прежде чем замедлять аниме, записи игрового процесса или видео с переменной
@@ -966,14 +966,14 @@ const AEActions: React.FC = () => {
         <ul>
           <li>
             Для генерации карты глубины для изображения используется скрипт{" "}
-            <mark className="file">run.py</mark>.
+            <mark className="file">RUN.PY</mark>.
             <CodeSnippet>
               {`python .\\run.py --encoder МОДЕЛЬ --img-path "ПУТЬ\\К\\ФАЙЛУ" --outdir "ПУТЬ\\ДЛЯ\\СОХРАНЕНИЯ" --grayscale --pred-only`}
             </CodeSnippet>
           </li>
           <li>
             Для генерации карты глубины для видео используется скрипт{" "}
-            <mark className="file">run_video.py</mark>.
+            <mark className="file">RUN_VIDEO.PY</mark>.
             <CodeSnippet>
               {`python .\\run_video.py --encoder МОДЕЛЬ --video-path "ПУТЬ\\К\\ФАЙЛУ" --outdir "ПУТЬ\\ДЛЯ\\СОХРАНЕНИЯ" --grayscale --pred-only`}
             </CodeSnippet>
@@ -1179,7 +1179,7 @@ const AEActions: React.FC = () => {
         <p>
           Представим, что у вас есть фигура или маска, и хочется анимировать её контур. В{" "}
           <mark className="app">Adobe After Effects</mark> для этого есть встроенный
-          скрипт <mark className="file">Create Nulls From Path.jsx</mark>, который создаёт
+          скрипт <mark className="file">CREATE NULLS FROM PATH.JSX</mark>, который создаёт
           отдельные <mark className="select">«Null Layers»</mark> для каждой точки,
           облегчая дальнейшую анимацию. Найти его можно в меню{" "}
           <mark className="select">«Window» → «Create Nulls From Path.jsx»</mark>.

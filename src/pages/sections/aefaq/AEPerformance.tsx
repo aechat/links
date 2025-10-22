@@ -138,7 +138,7 @@ const AEPerformance: React.FC = () => {
                 <p>
                   В качестве бюджетного варианта можно взять практически любой процессор с
                   6 ядрами или больше, например{" "}
-                  <mark className="copy">AMD Ryzen 7500F</mark> или{" "}
+                  <mark className="copy">AMD Ryzen 5 7500F</mark> или{" "}
                   <mark className="copy">AMD Ryzen 7 7700</mark>. Оптимальным выбором
                   будет <mark className="copy">AMD Ryzen 9 7900X</mark> или мощнее.
                 </p>

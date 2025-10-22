@@ -2103,7 +2103,7 @@ const AEFromNewbies: React.FC = () => {
                   старой версии эффекта в новую в старых проектах. Начиная с{" "}
                   <mark className="plugin">Deep Glow 2</mark> версии <mark>1.1</mark>, в
                   комплект поставляется скрипт{" "}
-                  <mark className="file">Deep Glow Upgrader.jsx</mark>, который находит в
+                  <mark className="file">DEEP GLOW UPGRADER.JSX</mark>, который находит в
                   проекте первую версию <mark className="plugin">Deep Glow</mark> и
                   заменяет её на <mark className="plugin">Deep Glow 2</mark>.
                 </li>
@@ -5156,9 +5156,7 @@ const AEFromNewbies: React.FC = () => {
           type="video"
           variant="windows"
         />
-
         <Divider>Используем AEUX</Divider>
-
         <p>
           С помощью расширения <mark className="plugin">AEUX</mark>, который был создан
           для переноса макетов из <mark className="app">Figma</mark>, тоже можно
@@ -5260,7 +5258,6 @@ const AEFromNewbies: React.FC = () => {
             область кадрирования.
           </li>
         </ul>
-
         <Divider>Используем «Region of Interest»</Divider>
         <p>
           Если точность до пикселя не важна, композицию можно быстро обрезать с помощью{" "}

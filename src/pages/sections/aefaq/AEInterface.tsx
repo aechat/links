@@ -34,19 +34,19 @@ const AEInterface: React.FC = () => {
         />
         <p>
           Если при попытке входа в аккаунт вы столкнулись с окном{" "}
-              <mark className="select">«Sorry, something went wrong»</mark> и надписью{" "}
+          <mark className="select">«Sorry, something went wrong»</mark> и надписью{" "}
           <mark className="select">«Are you connected to the internet?»</mark>, то, скорее
           всего, программа не может выйти в интернет. Для решения этой проблемы временно
           включите <mark className="app">VPN</mark> или разрешите программе доступ в сеть
           в настройках <mark className="app">брандмауэра</mark>.
         </p>
         <Addition type="info">
-              Чтобы открыть <mark className="app">брандмауэр</mark>, запустите{" "}
-              <mark className="app">«Выполнить»</mark> с помощью комбинации клавиш{" "}
-              <mark className="key">Win + R</mark>, введите{" "}
-              <mark className="code">wf.msc</mark> и нажмите{" "}
-              <mark className="key">Enter</mark>. Затем перейдите в{" "}
-              <mark className="select">«Правила для входящих подключений»</mark>, найдите
+          Чтобы открыть <mark className="app">брандмауэр</mark>, запустите{" "}
+          <mark className="app">«Выполнить»</mark> с помощью комбинации клавиш{" "}
+          <mark className="key">Win + R</mark>, введите{" "}
+          <mark className="code">wf.msc</mark> и нажмите{" "}
+          <mark className="key">Enter</mark>. Затем перейдите в{" "}
+          <mark className="select">«Правила для входящих подключений»</mark>, найдите
           правила, связанные с блокировкой <mark className="company">Adobe</mark>, нажмите
           на них <mark className="key">ПКМ</mark> и выберите{" "}
           <mark className="select">«Отключить правило»</mark>. После этого перезапустите{" "}
@@ -612,7 +612,7 @@ const AEInterface: React.FC = () => {
               <ul>
                 <li>
                   Чтобы установить это расширение, перенесите файл{" "}
-                  <mark className="file">Zoom.jsx</mark> из архива в стандартную папку для
+                  <mark className="file">ZOOM.JSX</mark> из архива в стандартную папку для
                   скриптов —{" "}
                   <mark className="path">
                     Library/Applications/Adobe After Effects 20XX/Scripts/
@@ -620,7 +620,7 @@ const AEInterface: React.FC = () => {
                   .
                 </li>
                 <li>
-                  Затем перенесите <mark className="file">Zoom.plugin</mark> из папки
+                  Затем перенесите <mark className="file">ZOOM.PLUGIN</mark> из папки
                   архива <mark className="path">Plug-in/macOS</mark> в общую папку для
                   плагинов —{" "}
                   <mark className="path">
@@ -636,7 +636,7 @@ const AEInterface: React.FC = () => {
               <ul>
                 <li>
                   Чтобы установить это расширение, перенесите файл{" "}
-                  <mark className="file">Zoom.jsx</mark> из архива в стандартную папку для
+                  <mark className="file">ZOOM.JSX</mark> из архива в стандартную папку для
                   скриптов —{" "}
                   <mark className="path">
                     C:\Program Files\Adobe\Adobe After Effects 20XX\Support Files\Scripts\
@@ -644,7 +644,7 @@ const AEInterface: React.FC = () => {
                   .
                 </li>
                 <li>
-                  Затем перенесите <mark className="file">Zoom.aex</mark> из папки архива{" "}
+                  Затем перенесите <mark className="file">ZOOM.AEX</mark> из папки архива{" "}
                   <mark className="path">Plug-in/Windows</mark> в общую папку для плагинов
                   —{" "}
                   <mark className="path">
@@ -660,7 +660,7 @@ const AEInterface: React.FC = () => {
           После установки вы сможете открыть окно для увеличения в{" "}
           <mark className="select">«File» → «Scripts»</mark> и регулировать масштаб. Если
           вы хотите, чтобы окно для масштабирования можно было прикрепить, переместите{" "}
-          <mark className="file">Zoom.jsx</mark> в дочернюю папку{" "}
+          <mark className="file">ZOOM.JSX</mark> в дочернюю папку{" "}
           <mark className="path">ScriptUI Panels</mark>. Тогда скрипт будет открываться из
           меню <mark className="select">«Window»</mark>.
         </p>
@@ -1284,7 +1284,7 @@ const AEInterface: React.FC = () => {
               <Divider>Извлекаем изображения из DLL</Divider>
               <p>
                 После открытия <mark className="app">Resource Hacker</mark> откройте в
-                программе файл <mark className="file">AfterFXLib.dll</mark>, находящийся
+                программе файл <mark className="file">AFTERFXLIB.DLL</mark>, находящийся
                 по пути{" "}
                 <mark className="path">
                   C:\Program Files\Adobe\Adobe After Effects 20XX\Support Files
