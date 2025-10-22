@@ -645,20 +645,57 @@ const AEErrors: React.FC = () => {
         </p>
       </DetailsSummary>
       <DetailsSummary
-        tag="менеджер эффектов, effect may have caused to quit, if you want you can disable this effect now, to re-enable it later select manager effects from effects menu options, приложение неожиданно завершило работу, эффект мог привести к неожиданному завершению работы приложения, если вы хотите этот эффект можно отключить сейчас, чтобы включить его позже выберите управление эффектами в пункте меню эффекты, effect manager, сбой эффекта, отключение эффекта, crash, plugin error"
-        title="Программа «вылетела» и предложила отключить эффект. Как включить его обратно?"
+        tag="please install the following effects to restore these references, данный проект содержит ссылку на отсутствующий эффект, установите следующий эффект чтобы восстановить эту ссылку, отсутствуют эффекты, ошибка эффектов, установка плагинов, менеджер эффектов, effect may have caused to quit, if you want you can disable this effect now, to re-enable it later select manager effects from effects menu options, приложение неожиданно завершило работу, эффект мог привести к неожиданному завершению работы приложения, если вы хотите этот эффект можно отключить сейчас, чтобы включить его позже выберите управление эффектами в пункте меню эффекты, effect manager, сбой эффекта, отключение эффекта, crash, plugin error"
+        title="Что делать с «This project contains references to missing effects»?"
       >
+        <p>
+          Это предупреждение означает, что в проекте используются эффекты, которые не
+          установлены или были отключены на вашем устройстве. Вы можете продолжить работу
+          с проектом, но не сможете видеть, рендерить и настраивать эти эффекты.
+        </p>
+        <ContentFigure
+          caption="Warning"
+          imgTitle="Предупреждение об отсутствующих эффектах"
+          src="images/aftereffects/missing_effects_warning.png"
+          theme="dark"
+          type="image"
+          variant="windows"
+        />
+        <p>
+          Проблема возникает по двум основным причинам: либо эффект действительно не
+          установлен, либо он был случайно отключён после сбоя программы.
+        </p>
+        <Divider>Устанавливаем недостающие эффекты</Divider>
+        <p>
+          Для решения проблемы установите недостающие эффекты из списка, указанного в
+          предупреждении, и перезапустите <mark className="app">Adobe After Effects</mark>
+          . Иногда название эффекта может отличаться в зависимости от версии плагина или
+          программы, поэтому его придётся заменить вручную.
+        </p>
+        <Addition type="info">
+          <ul>
+            <li>
+              Большинство популярных плагинов для{" "}
+              <mark className="app">Adobe After Effects</mark> вы можете найти в каналах{" "}
+              <a href="https://t.me/s/aetemp">AETemp</a>,{" "}
+              <a href="https://t.me/+Qd9xu7A4TeIwNzY6">склад стройматериалов (Windows)</a>{" "}
+              или <a href="https://t.me/+ZqiaMfQRFgM4YmEy">Яблоневый сад (macOS)</a>.
+            </li>
+            <li>
+              Перед установкой сторонних плагинов, распространяемых через установщики,
+              убедитесь, что <mark className="app">Adobe After Effects</mark> установлена
+              по стандартному пути. Иначе плагины могут не отобразиться в программе.
+            </li>
+          </ul>
+        </Addition>
+        <Divider>Включаем случайно отключённые эффекты</Divider>
         <p>
           С версии <mark>23.4</mark> в <mark className="app">Adobe After Effects</mark>{" "}
           появилась возможность отключать эффекты с помощью{" "}
           <mark className="select">«Effect Manager»</mark>. Когда какой-то эффект вызывает
-          сбой, программа предлагает его выключить. Многие не обращают внимания на этот
-          вопрос при запуске программы после «вылета», а потом удивляются, почему из
-          списка <mark className="select">«Effects & Presets»</mark> пропадают даже
-          стандартные эффекты. Дело в том, что после отключения плагины остаются
-          неактивными, пока их не включить вручную в менеджере эффектов.
+          сбой, программа предлагает его выключить. Если вы согласились, плагин останется
+          неактивным, пока его не включить вручную.
         </p>
-        <Divider>Включаем отключённые эффекты</Divider>
         <p>
           Для повторного включения эффекта откройте{" "}
           <mark className="select">«Effect Manager»</mark>. Попасть туда можно через меню{" "}
@@ -1914,79 +1951,6 @@ const AEErrors: React.FC = () => {
           названиями, и <mark className="app">Adobe After Effects</mark> в таком случае не
           распознает его автоматически.
         </p>
-      </DetailsSummary>
-      <DetailsSummary
-        tag="please install the following effects to restore these references, данный проект содержит ссылку на отсутствующий эффект, установите следующий эффект чтобы восстановить эту ссылку, отсутствуют эффекты, ошибка эффектов, установка плагинов"
-        title="Что делать с «This project contains references to missing effects»?"
-      >
-        <p>
-          Это предупреждение означает, что в проекте используются эффекты, которые не
-          установлены на вашем устройстве. Вы можете продолжить работу с проектом, но не
-          сможете видеть, рендерить и настраивать эти эффекты.
-        </p>
-        <ContentFigure
-          caption="Warning"
-          imgTitle="Предупреждение об отсутствующих эффектах"
-          src="images/aftereffects/missing_effects_warning.png"
-          theme="dark"
-          type="image"
-          variant="windows"
-        />
-        <p>
-          Для решения проблемы установите недостающие эффекты из списка и перезапустите{" "}
-          <mark className="app">Adobe After Effects</mark>. Иногда название эффекта может
-          отличаться в зависимости от версии плагина или программы, поэтому его придётся
-          заменить вручную.
-        </p>
-        <Addition type="info">
-          <ul>
-            <li>
-              Большинство популярных плагинов для{" "}
-              <mark className="app">Adobe After Effects</mark> вы можете найти в каналах{" "}
-              <a href="https://t.me/s/aetemp">AETemp</a>,{" "}
-              <a href="https://t.me/+Qd9xu7A4TeIwNzY6">склад стройматериалов (Windows)</a>{" "}
-              или <a href="https://t.me/+ZqiaMfQRFgM4YmEy">Яблоневый сад (macOS)</a>.
-            </li>
-            <li>
-              Перед установкой сторонних плагинов, распространяемых через установщики,
-              убедитесь, что <mark className="app">Adobe After Effects</mark> установлена
-              по стандартному пути. Иначе плагины могут не отобразиться в программе.
-            </li>
-          </ul>
-        </Addition>
-        <Divider>Возвращаем случайно выключенные эффекты</Divider>
-        <p>
-          В некоторых случаях вы могли случайно отключить эффект после сбоя программы.
-          Чтобы включить его снова, откройте{" "}
-          <mark className="select">«Effect Manager»</mark>. Попасть туда можно через
-          панели <mark className="select">«Effect Controls»</mark> или{" "}
-          <mark className="select">«Effects & Presets»</mark>, вызвав контекстное меню и
-          выбрав <mark className="select">«Manage Effects»</mark>.
-        </p>
-        <ContentFigure
-          caption="Adobe After Effects"
-          imgTitle="Открытие менеджера эффектов"
-          src="images/aftereffects/effects_presets_manage_effects.png"
-          theme="dark"
-          type="image"
-          variant="windows"
-        />
-        <p>
-          В списке по умолчанию отображаются только сторонние эффекты, при этом
-          отключённые находятся вверху. Чтобы увидеть стандартные эффекты, снимите флажок
-          с <mark className="select">«Only Show Third-Party Effects»</mark>. Для
-          повторного включения нужного эффекта поставьте галочку рядом с ним, нажмите{" "}
-          <mark className="select">«OK»</mark> и перезапустите{" "}
-          <mark className="app">Adobe After Effects</mark>.
-        </p>
-        <ContentFigure
-          caption="Effect Manager"
-          imgTitle="Менеджер эффектов"
-          src="images/aftereffects/effect_manager.png"
-          theme="dark"
-          type="image"
-          variant="windows"
-        />
       </DetailsSummary>
     </div>
   );
