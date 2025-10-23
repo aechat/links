@@ -284,6 +284,9 @@ const DetailsSummary: React.FC<DetailsSummaryProps> = ({title, children, tag}) =
     const resizeObserver = new ResizeObserver(() => {
       if (details.open) {
         contentWrapper.style.maxHeight = `${innerContent.scrollHeight}px`;
+
+        const detailsHeight = details.offsetHeight;
+        details.style.marginBottom = `${detailsHeight * 0.01 + 10}px`;
       }
     });
 
@@ -312,10 +315,6 @@ const DetailsSummary: React.FC<DetailsSummaryProps> = ({title, children, tag}) =
         contentWrapper.style.maxHeight = `${innerContent.scrollHeight}px`;
         resizeObserver.observe(innerContent);
         updateDimmingEffect();
-        setTimeout(() => {
-          const detailsHeight = details.offsetHeight;
-          details.style.marginBottom = `${detailsHeight * 0.01 + 10}px`;
-        }, 0);
         setTimeout(() => {
           updateDimmingEffect();
         }, 100);
@@ -369,8 +368,12 @@ const DetailsSummary: React.FC<DetailsSummaryProps> = ({title, children, tag}) =
 
         const viewportHeight = window.innerHeight;
 
-        if (scrollHeight > viewportHeight) {
-          contentWrapper.style.maxHeight = `${viewportHeight}px`;
+        if (justOpened) {
+          if (scrollHeight > viewportHeight) {
+            contentWrapper.style.maxHeight = `${viewportHeight}px`;
+          } else {
+            contentWrapper.style.maxHeight = `${scrollHeight}px`;
+          }
         } else {
           contentWrapper.style.maxHeight = `${scrollHeight}px`;
         }
