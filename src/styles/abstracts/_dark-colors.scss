@@ -45,20 +45,13 @@ $dark-theme-map: (
         border-hover: hsl(var(--accent-hue) calc(15% * var(--saturate-ratio)) 15%),
       ),
     ),
-    button: (
-      primary: (
-        background: hsl(var(--accent-hue) calc(25% * var(--saturate-ratio)) 12.5%),
-        background-hover: hsl(var(--accent-hue) calc(30% * var(--saturate-ratio)) 15.5%),
-        background-active: hsl(var(--accent-hue) calc(35% * var(--saturate-ratio)) 12.5%),
-        border: hsl(var(--accent-hue) calc(35% * var(--saturate-ratio)) 25%),
-      ),
-    ),
     button-group: (
-      background: hsl(var(--accent-hue) calc(10% * var(--saturate-ratio)) 10%),
+      background: hsl(var(--accent-hue) calc(10% * var(--saturate-ratio)) 9%),
       background-hover: hsl(var(--accent-hue) calc(15% * var(--saturate-ratio)) 14%),
-      background-active: hsl(var(--accent-hue) calc(20% * var(--saturate-ratio)) 12%),
+      background-active: hsl(var(--accent-hue) calc(12.5% * var(--saturate-ratio)) 11%),
       border: hsl(var(--accent-hue) calc(10% * var(--saturate-ratio)) 18%),
       text: hsl(var(--accent-hue) calc(80% * var(--saturate-ratio)) 88%),
+      selected: hsl(var(--accent-hue) calc(17.5% * var(--saturate-ratio)) 12.5%),
     ),
     widget: (
       background: hsl(var(--accent-hue) calc(12.5% * var(--saturate-ratio)) 8%),
@@ -109,52 +102,6 @@ $dark-theme-map: (
       background: hsl(225deg 10% 15%),
       border: hsl(225deg 15% 22%),
       text: hsl(225deg 15% 95%),
-    ),
-    filter: (
-      background: hsl(var(--accent-hue) calc(10% * var(--saturate-ratio)) 10%),
-      border: hsl(var(--accent-hue) calc(5% * var(--saturate-ratio)) 20%),
-      text: hsl(var(--accent-hue) calc(15% * var(--saturate-ratio)) 75%),
-    ),
-    search: (
-      input-background: hsl(var(--accent-hue) calc(12.5% * var(--saturate-ratio)) 6%),
-      input-border: hsl(var(--accent-hue) calc(15% * var(--saturate-ratio)) 15%),
-      input-text: hsl(var(--accent-hue) calc(100% * var(--saturate-ratio)) 80%),
-      button-background-hover: hsl(
-          var(--accent-hue) calc(20% * var(--saturate-ratio)) 11%
-        ),
-      button-background-active: hsl(
-          var(--accent-hue) calc(25% * var(--saturate-ratio)) 9%
-        ),
-      result-background: hsl(var(--accent-hue) calc(12.5% * var(--saturate-ratio)) 6%),
-      result-border: hsl(var(--accent-hue) calc(15% * var(--saturate-ratio)) 15%),
-      result-background-hover: hsl(
-          var(--accent-hue) calc(20% * var(--saturate-ratio)) 11%
-        ),
-      result-background-active: hsl(
-          var(--accent-hue) calc(25% * var(--saturate-ratio)) 9%
-        ),
-      result-text: hsl(var(--accent-hue) calc(100% * var(--saturate-ratio)) 80%),
-      result-border-selected: hsl(
-          var(--accent-hue) calc(100% * var(--saturate-ratio)) 73%
-        ),
-      content-background: hsl(var(--accent-hue) calc(8% * var(--saturate-ratio)) 5% / 75%),
-      content-border: hsl(var(--accent-hue) calc(20% * var(--saturate-ratio)) 15% / 50%),
-    ),
-    bank: (
-      sber: (
-        background: hsl(130deg calc(30% * var(--saturate-ratio)) 13%),
-        text: hsl(130deg calc(60% * var(--saturate-ratio)) 85%),
-        background-hover: hsl(130deg calc(40% * var(--saturate-ratio)) 15%),
-        background-active: hsl(130deg calc(45% * var(--saturate-ratio)) 18%),
-        border: hsl(130deg calc(50% * var(--saturate-ratio)) 30%),
-      ),
-      yoomoney: (
-        background: hsl(257deg calc(50% * var(--saturate-ratio)) 17%),
-        text: hsl(257deg calc(70% * var(--saturate-ratio)) 85%),
-        background-hover: hsl(257deg calc(50% * var(--saturate-ratio)) 20%),
-        background-active: hsl(257deg calc(55% * var(--saturate-ratio)) 23%),
-        border: hsl(257deg calc(50% * var(--saturate-ratio)) 50%),
-      ),
     ),
     easing: (
       selection: hsl(50deg 100% 50%),
