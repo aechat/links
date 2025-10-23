@@ -34,17 +34,11 @@ const routesToPrerender = [
       .replace("<!--app-html-->", html)
       .replace("</head>", `${cssLink}</head>`)
       .replace('src="/src/main.tsx"', `src="/${jsFile}"`);
-    if (url === '/404') {
-      const redirectScript = `
-          <script>
-            const path = window.location.pathname;
-            if (path !== '/' && path !== '/404.html') {
-              sessionStorage.redirect = path;
-              window.location.href = '/';
-            }
-          </script>
-        `;
-      htmlWithMeta = htmlWithMeta.replace('</head>', `${redirectScript}</head>`);
+    if (url.endsWith('404')) {
+      htmlWithMeta = htmlWithMeta.replace(
+        '<meta name="prerender-status-code" content="200">',
+        '<meta name="prerender-status-code" content="404">'
+      );
     }
         if (['/aefaq', '/prfaq', '/psfaq', '/aeexpr'].includes(url)) {
           htmlWithMeta = htmlWithMeta.replace(/<details/g, '<details open');
@@ -59,4 +53,4 @@ const routesToPrerender = [
         fs.writeFileSync(filePath, htmlWithMeta);
     console.log(`prerendered: ${url} to ${path.relative(__dirname, filePath)}`);
   }
-})();
+})();
