@@ -320,24 +320,26 @@ const DetailsSummary: React.FC<DetailsSummaryProps> = ({title, children, tag}) =
           updateDimmingEffect();
         }, 100);
 
-        const summaryId = details.querySelector(".faq-summary")?.id;
+        if (justOpened) {
+          const summaryId = details.querySelector(".faq-summary")?.id;
 
-        if (summaryId) {
-          debouncedReplaceState(`#${summaryId}`);
-          setTimeout(() => {
-            const summary = details.querySelector(".faq-summary");
+          if (summaryId) {
+            debouncedReplaceState(`#${summaryId}`);
+            setTimeout(() => {
+              const summary = details.querySelector(".faq-summary");
 
-            if (summary) {
-              const {headerHeight, padding} = getScrollOffsets();
+              if (summary) {
+                const {headerHeight, padding} = getScrollOffsets();
 
-              const y =
-                summary.getBoundingClientRect().top +
-                window.pageYOffset -
-                headerHeight -
-                padding;
-              window.scrollTo({top: y, behavior: "smooth"});
-            }
-          }, 150);
+                const y =
+                  summary.getBoundingClientRect().top +
+                  window.pageYOffset -
+                  headerHeight -
+                  padding;
+                window.scrollTo({top: y, behavior: "smooth"});
+              }
+            }, 150);
+          }
         }
       } else if (details.open) {
         resizeObserver.unobserve(innerContent);
@@ -378,24 +380,26 @@ const DetailsSummary: React.FC<DetailsSummaryProps> = ({title, children, tag}) =
           updateDimmingEffect();
         }, 100);
 
-        const summaryId = details.querySelector(".faq-summary")?.id;
+        if (justOpened) {
+          const summaryId = details.querySelector(".faq-summary")?.id;
 
-        if (summaryId) {
-          debouncedReplaceState(`#${summaryId}`);
-          setTimeout(() => {
-            const summary = details.querySelector(".faq-summary");
+          if (summaryId) {
+            debouncedReplaceState(`#${summaryId}`);
+            setTimeout(() => {
+              const summary = details.querySelector(".faq-summary");
 
-            if (summary) {
-              const {headerHeight, padding} = getScrollOffsets();
+              if (summary) {
+                const {headerHeight, padding} = getScrollOffsets();
 
-              const y =
-                summary.getBoundingClientRect().top +
-                window.pageYOffset -
-                headerHeight -
-                padding;
-              window.scrollTo({top: y, behavior: "smooth"});
-            }
-          }, 150);
+                const y =
+                  summary.getBoundingClientRect().top +
+                  window.pageYOffset -
+                  headerHeight -
+                  padding;
+                window.scrollTo({top: y, behavior: "smooth"});
+              }
+            }, 150);
+          }
         }
       } else if (details.open) {
         resizeObserver.unobserve(innerContent);
@@ -597,47 +601,49 @@ const DetailsSummary: React.FC<DetailsSummaryProps> = ({title, children, tag}) =
   const headingText = (displayAnchorId ? `${displayAnchorId}. ` : "") + title;
 
   return (
-    <details
-      ref={detailsRef}
-      className={isOpen ? "is-open" : ""}
-      data-tags={tag}
-    >
-      <summary
-        className="faq-summary"
-        onClick={handleSummaryClick}
+    <>
+      <details
+        ref={detailsRef}
+        className={isOpen ? "is-open" : ""}
+        data-tags={tag}
       >
-        <div className="faq-summary-left">
-          <span className="faq-summary-icon">+</span>
-          <div className="faq-summary-text-content">
-            <h3>{headingText}</h3>
-            {tag && <TagList tags={tag} />}
+        <summary
+          className="faq-summary"
+          onClick={handleSummaryClick}
+        >
+          <div className="faq-summary-left">
+            <span className="faq-summary-icon">+</span>
+            <div className="faq-summary-text-content">
+              <h3>{headingText}</h3>
+              {tag && <TagList tags={tag} />}
+            </div>
+          </div>
+          <Tooltip title="Скопировать ссылку в буфер обмена">
+            <button
+              className={`copy-button ${!anchorId ? "disabled" : ""}`}
+              onClick={handleCopyAnchor}
+            >
+              <ShareRounded />
+            </button>
+          </Tooltip>
+        </summary>
+        <div className="details-content-wrapper">
+          <div className="details-content-inner">
+            <SpoilerContext.Provider value={isOpen}>
+              <section
+                ref={sectionRef}
+                className="faq-section"
+                onClick={handleSectionClick}
+              >
+                {children}
+              </section>
+            </SpoilerContext.Provider>
           </div>
         </div>
-        <Tooltip title="Скопировать ссылку в буфер обмена">
-          <button
-            className={`copy-button ${!anchorId ? "disabled" : ""}`}
-            onClick={handleCopyAnchor}
-          >
-            <ShareRounded />
-          </button>
-        </Tooltip>
-      </summary>
-      <div className="details-content-wrapper">
-        <div className="details-content-inner">
-          <SpoilerContext.Provider value={isOpen}>
-            <section
-              ref={sectionRef}
-              className="faq-section"
-              onClick={handleSectionClick}
-            >
-              {children}
-            </section>
-          </SpoilerContext.Provider>
-        </div>
-      </div>
+      </details>
       {InternalLinkModal}
       {ExternalLinkModal}
-    </details>
+    </>
   );
 };
 
