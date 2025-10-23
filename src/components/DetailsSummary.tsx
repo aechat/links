@@ -281,14 +281,17 @@ const DetailsSummary: React.FC<DetailsSummaryProps> = ({title, children, tag}) =
 
     const justClosed = !isOpen && prevIsOpen === true;
 
-    const resizeObserver = new ResizeObserver(() => {
+    const updateDynamicStyles = () => {
       if (details.open) {
         contentWrapper.style.maxHeight = `${innerContent.scrollHeight}px`;
 
         const detailsHeight = details.offsetHeight;
         details.style.marginBottom = `${detailsHeight * 0.01 + 10}px`;
       }
-    });
+    };
+
+    const resizeObserver = new ResizeObserver(updateDynamicStyles);
+    window.addEventListener("resize", updateDynamicStyles);
 
     const handleTransitionEnd = (e: TransitionEvent) => {
       if (e.target !== contentWrapper) {
@@ -298,11 +301,8 @@ const DetailsSummary: React.FC<DetailsSummaryProps> = ({title, children, tag}) =
       document.body.style.overflow = "";
 
       if (isOpen) {
-        contentWrapper.style.maxHeight = `${innerContent.scrollHeight}px`;
         resizeObserver.observe(innerContent);
-
-        const detailsHeight = details.offsetHeight;
-        details.style.marginBottom = `${detailsHeight * 0.01 + 10}px`;
+        updateDynamicStyles();
       } else {
         details.open = false;
         updateDimmingEffect();
@@ -314,6 +314,7 @@ const DetailsSummary: React.FC<DetailsSummaryProps> = ({title, children, tag}) =
         details.open = true;
         contentWrapper.style.maxHeight = `${innerContent.scrollHeight}px`;
         resizeObserver.observe(innerContent);
+        updateDynamicStyles();
         updateDimmingEffect();
         setTimeout(() => {
           updateDimmingEffect();
@@ -419,6 +420,7 @@ const DetailsSummary: React.FC<DetailsSummaryProps> = ({title, children, tag}) =
     return () => {
       resizeObserver.disconnect();
       contentWrapper.removeEventListener("transitionend", handleTransitionEnd);
+      window.removeEventListener("resize", updateDynamicStyles);
       document.body.style.overflow = "";
     };
   }, [
