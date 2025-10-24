@@ -38,9 +38,9 @@ const SupportDonut: React.FC = () => {
           </li>
         </ul>
       </Addition>
-      <div className="support">
+      <div className="modal-support">
         <button
-          className="modal-page-button support-button-enhanced"
+          className="modal-page-button modal-page-button--enhanced"
           onClick={openDonateModal}
         >
           <CoffeeRounded />
@@ -71,14 +71,14 @@ const SupportDonut: React.FC = () => {
             </p>
             <div className="flexible-links">
               <button
-                className="support-button-sber"
+                className="modal-support-button--sber"
                 onClick={() => setIsSberModalOpen(true)}
               >
                 Сбербанк
               </button>
               <Modal
                 centered
-                className="support-modal"
+                className="modal--support"
                 closeIcon={null}
                 footer={null}
                 open={isSberModalOpen}
@@ -99,10 +99,10 @@ const SupportDonut: React.FC = () => {
                       Вы можете перевести из любого банка по номеру банковской карты любую
                       сумму.
                     </p>
-                    <motion.mark className="copy-cardnumber-sber">
+                    <mark className="modal-support-cardnumber--sber">
                       2202202357342488
-                    </motion.mark>
-                    <p className="support-card-recipient-info">
+                    </mark>
+                    <p className="modal-support-recipient-info">
                       Нажмите на номер карты, чтобы скопировать его в буфер обмена
                       <br />
                       Получатель: <mark>Михаил Денисович Ф.</mark>
@@ -111,14 +111,14 @@ const SupportDonut: React.FC = () => {
                 </div>
               </Modal>
               <button
-                className="support-button-yoomoney"
+                className="modal-support-button--yoomoney"
                 onClick={() => setIsYoomoneyModalOpen(true)}
               >
                 ЮMoney
               </button>
               <Modal
                 centered
-                className="support-modal"
+                className="modal--support"
                 closeIcon={null}
                 footer={null}
                 open={isYoomoneyModalOpen}
@@ -151,13 +151,13 @@ const SupportDonut: React.FC = () => {
                         Вставьте этот номер в поле{" "}
                         <mark className="select">«Номер кошелька»</mark> приложения вашего
                         банка и введите любую сумму. После этого - подтвердите перевод.
-                        <motion.mark className="copy-cardnumber-yoomoney">
+                        <motion.mark className="modal-support-cardnumber--yoomoney">
                           410016763684808
                         </motion.mark>
-                        <p className="support-card-recipient-info">
+                        <p className="modal-support-recipient-info">
                           Нажмите, чтобы скопировать или пополните баланс автору с помощью{" "}
                           <a
-                            className="support-yoomoney-link"
+                            className="modal-support-yoomoney-link"
                             href="https://yoomoney.ru/to/410016763684808"
                           >
                             этой ссылки

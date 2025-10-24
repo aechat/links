@@ -162,15 +162,15 @@
   position: absolute;
   top: 12px;
   bottom: 12px;
-  left: 15px;
+  left: min(calc(10px + (15 - 10) * ((100vw - 320px) / (768 - 320))), 15px);
   opacity: 0.5;
   border-radius: $roundness;
   background-color: var(--color-accent);
-  width: 2px;
+  width: 1px;
   content: "";
 }
 
-.sber {
+.modal-support-button--sber {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -195,7 +195,7 @@
   }
 }
 
-.yoomoney {
+.modal-support-button--yoomoney {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -241,7 +241,7 @@
   text-align: right;
 }
 
-.support {
+.modal-support {
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-end;
@@ -252,4 +252,42 @@
     width: 20px;
     height: 20px;
   }
+}
+
+.modal-support-title {
+  font-weight: 700;
+  font-size: 1.75rem;
+  line-height: 1.25;
+  font-family: Onest, sans-serif;
+}
+
+.modal-page-button--enhanced {
+  filter: saturate(1.25);
+}
+
+.modal-support-cardnumber--sber,
+.modal-support-cardnumber--yoomoney {
+  display: block;
+  cursor: pointer;
+  margin: 10px;
+  padding: 5px;
+  font-size: 1.25rem;
+  text-align: center;
+  width: calc(100% - 20px);
+}
+
+.modal-support-cardnumber--yoomoney {
+  margin-inline: 0;
+  width: 100%;
+}
+.modal-support-recipient-info {
+  color: var(--color-text-tertiary);
+  font-size: 0.8rem !important;
+  text-align: center;
+}
+
+.modal-support-yoomoney-link {
+  color: var(--color-accent);
+  font-weight: 700;
+  text-decoration: underline;
 }

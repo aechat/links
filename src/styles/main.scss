@@ -15,7 +15,6 @@
 @use "layout/pages/links";
 @use "layout/pages/rules";
 
-@use "components/addition";
 @use "components/ant";
 @use "components/bezier";
 @use "components/bouncy-text";
@@ -29,6 +28,7 @@
 @use "components/loading-animation";
 @use "components/mark";
 @use "components/modal";
+@use "components/addition";
 @use "components/page-intro";
 @use "components/search";
 @use "components/support";

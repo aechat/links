@@ -7,52 +7,28 @@
   font-family: Onest, sans-serif;
 }
 
-.support-modal {
-  padding: 5px;
-
-  p {
-    margin-block: 15px;
-  }
-
-  li {
-    position: relative;
-    padding-inline: 15px;
-    padding-inline-start: 30px;
-    padding-block: 10px;
-    list-style-type: none;
-
-    &:not(:last-child) {
-      border-bottom: 1px solid var(--color-border-primary);
-    }
-
-    &::before {
-      display: inline-block;
-      position: absolute;
-      top: 50%;
-      left: 15px;
-      transform: translateY(-50%);
-      opacity: 0.5;
-      border-radius: $roundness;
-      background-color: var(--color-accent);
-      width: 3px;
-      height: 65%;
-      content: "";
-    }
-  }
-}
-
 .support-button-enhanced {
   filter: saturate(1.25);
 }
 
 .copy-cardnumber-sber,
 .copy-cardnumber-yoomoney {
-  margin-inline: 10px;
+  display: block;
+  cursor: pointer;
+  margin: 10px;
+  padding: 5px;
+  font-size: 1.25rem;
+  text-align: center;
+  width: calc(100% - 20px);
 }
 
+.copy-cardnumber-yoomoney {
+  margin-inline: 0;
+  width: 100%;
+}
 .support-card-recipient-info {
   color: var(--color-text-tertiary);
-  font-size: 0.8rem;
+  font-size: 0.8rem !important;
   text-align: center;
 }
 
