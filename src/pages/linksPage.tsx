@@ -466,7 +466,7 @@ const Links = () => {
               description="Публикуем вакансии и обсуждаем рабочую жизнь"
               href="https://t.me/s/UpWorkTut"
               icon={<BusinessCenterRounded />}
-              name="Work Chat"
+              name="Рабочая курилка"
             />
             <LinkCard
               description="Обсуждаем Blender и всё что с ним связано"
