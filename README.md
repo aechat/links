@@ -136,7 +136,7 @@ import DetailsSummary from "../../../components/DetailsSummary";
 Для добавления изображения, видео или ссылку с предпросмотром на YouTube используется компонент `ContentFigure`.
 
 ```typescript
-import {ImageFigure, VideoFigure} from "../../../components/ContentFigure";
+import {ContentFigure} from "../../../components/ContentFigure";
 import DetailsSummary from "../../../components/DetailsSummary";
 <DetailsSummary title="Вопрос">
   <p>
