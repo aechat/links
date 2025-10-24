@@ -178,7 +178,6 @@
     opacity,
     background-color 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
   outline: none;
-  border: solid 1px var(--color-surface-primary-border);
   border-radius: $roundness * 0.75;
   background-color: var(--color-surface-primary-background);
   padding: 10px 20px;
@@ -203,7 +202,6 @@
     opacity,
     background-color 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
   outline: none;
-  border: solid 1px var(--color-surface-primary-border);
   border-radius: $roundness * 0.75;
   background-color: var(--color-surface-primary-background);
   padding: 10px 20px;
@@ -271,9 +269,9 @@
   cursor: pointer;
   margin: 10px;
   padding: 5px;
+  width: calc(100% - 20px);
   font-size: 1.25rem;
   text-align: center;
-  width: calc(100% - 20px);
 }
 
 .modal-support-cardnumber--yoomoney {
