@@ -1401,6 +1401,15 @@ const AEImport: React.FC = () => {
           <mark className="app">Adobe After Effects</mark>. В таком случае вам придётся
           пересоздавать градиенты самостоятельно.
         </p>
+        <Addition type="info">
+          В публичной бета-версии <mark>26.0</mark> всё же{" "}
+          <a href="https://helpx.adobe.com/after-effects/using/creating-shapes-masks.html#convert-Illustrator-layers-to-shape-layers">
+            появилась нормальная конвертация фигур
+          </a>{" "}
+          из <mark className="app">Adobe Illustrator</mark> с сохранением всех градиентов.
+          Когда эта функция доберётся до релиза, статья будет обновлена с учётом
+          особенностей новой версии программы.
+        </Addition>
       </DetailsSummary>
       <DetailsSummary
         tag="aeux, overlord, импорт макета, фигма"
