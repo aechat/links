@@ -15,7 +15,7 @@ const NotFound = () => {
 
   const [subtitles, setSubtitles] = useState<Subtitle[]>([]);
 
-  const [currentSubtitle, setCurrentSubtitle] = useState<string>("404");
+  const [currentSubtitle, setCurrentSubtitle] = useState<string>("Пустота");
   useEffect(() => {
     audioRef.current = new Audio("/files/404.mp3");
 
@@ -63,8 +63,8 @@ const NotFound = () => {
 
       if (current && current.text !== currentSubtitle) {
         setCurrentSubtitle(current.text);
-      } else if (!current && currentSubtitle !== "404") {
-        setCurrentSubtitle("404");
+      } else if (!current && currentSubtitle !== "Пустота") {
+        setCurrentSubtitle("Пустота");
       }
     };
 

@@ -29,10 +29,18 @@
   pointer-events: none;
   font-style: italic;
   font-weight: 900;
-  font-size: 18rem;
+  font-size: 16rem;
   font-family: Onest, sans-serif;
   text-transform: uppercase;
   white-space: nowrap;
+
+  @media screen and (width < 1024px) {
+    font-style: normal;
+    font-size: 8rem;
+    letter-spacing: -2rem;
+    writing-mode: vertical-rl;
+    text-orientation: upright;
+  }
 }
 
 .error-title {
