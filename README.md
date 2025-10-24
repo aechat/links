@@ -45,7 +45,6 @@ yarn dlx @yarnpkg/sdks vscode
 
 ```typescript
 import React from "react";
-import GithubUpdateInfo from "../../../components/features/GithubUpdateInfo";
 const SHORTNAME_SECTION: React.FC = () => {
   return (
     <div className="faq-content">
