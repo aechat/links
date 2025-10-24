@@ -64,41 +64,37 @@ import DetailsSummary from "../../../components/DetailsSummary";
 </DetailsSummary>
 ```
 
-В статьях можно использовать списки, а также компоненты  `AdditionInfo`, `AdditionWarning` и `AdditionDanger` для того, чтобы обратить внимание читателя на какую-нибудь дополнительную информацию. Эти же компоненты можно использовать в списках.
+В статьях можно использовать списки, а также компоненты  `Addition` для того, чтобы обратить внимание читателя на какую-нибудь дополнительную информацию. Эти же компоненты можно использовать в списках. Тип компонента задаётся через `type` и может быть задан тремя значениями: `info`, `warning` и `danger`.
 
 ```typescript
-import {
-  AdditionDanger,
-  AdditionInfo,
-  AdditionWarning,
-} from "../../../components/Additions";
+import Addition from "../../../components/Addition";
 import DetailsSummary from "../../../components/DetailsSummary";
-<DetailsSummary title="Вопрос">
+<DetailsSummary tag="как, зачем, на$&я" title="Вопрос">
   <p>Причина поведения определённого действия.</p>
   <ul>
     <li>Решение 1.</li>
     <li>
       Решение 2.
-      <AdditionWarning>
+      <Addition type="warning">
         Данное решение может привести к неожиданным резульатам.
-      </AdditionWarning>
+      </Addition>
     </li>
     <li>Решение 3.</li>
   </ul>
-  <AdditionInfo>
+  <Addition type="info">
     Выноска с текстом на голубом фоне. Служит для дополнительной информации, например
     откуда скачать определённый плагин или рассказывает об особенностях работы конкретного
     действия.
-  </AdditionInfo>
-  <AdditionWarning>
+  </Addition>
+  <Addition type="warning">
     Выноска с текстом на жёлтом фоне. Служит для предупреждения пользователей о возможных
     рисках или о возможном получении неожиданных результатах.
-  </AdditionWarning>
-  <AdditionDanger>
+  </Addition>
+  <Addition type="danger">
     Выноска с текстом на красном фоне. Служит для оповещения пользователей о том, что
     действия делаются на свой страх и риск или о том, на что нужно обратить внимание в
     первую очередь.
-  </AdditionDanger>
+  </Addition>
 </DetailsSummary>
 ```
 
@@ -162,7 +158,9 @@ import DetailsSummary from "../../../components/DetailsSummary";
     type="video"
     variant="macos"
   />
+  <p>
   Подробнее о новых функциях <mark className="app">Adobe After Effects> вы можете посмотреть в официальном канале <mark className="company">Adobe</mark> на <mark className="app">YouTube</mark>
+  </p>
   <ContentFigure
     caption="Новые функции в Adobe After Effects 2077"
     src="dQw4w9WgXcQ" // из ссылки https://www.youtube.com/watch?v=dQw4w9WgXcQ нам нужно взять значение после знака "равно"
