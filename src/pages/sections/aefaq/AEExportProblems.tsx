@@ -56,7 +56,7 @@ const AEExportProblems: React.FC = () => {
         </p>
       </DetailsSummary>
       <DetailsSummary
-        tag="output file will be resized from to meet format constraints, odd resolution, нечетное разрешение, ограничения h264"
+        tag="settings mismatch, output file will be resized from to meet format constraints, odd resolution, нечетное разрешение, ограничения h264"
         title="Почему при экспорте размер композиции растягивается до чётного значения?"
       >
         <p>
