@@ -30,38 +30,31 @@ const AEExportProblems: React.FC = () => {
         tag="не экспортируется, битый файл, кириллица в пути"
         title="Почему при экспорте в MP4 с помощью стандартного H.264 сохраняется файл размером 1 КБ?"
       >
-        </p>
-        <AdditionInfo>
-          Проверить текущую версию <mark className="app">Adobe After Effects</mark> вы
-          можете в <mark className="ui">Help &gt; About After Effects</mark>.
-        </AdditionInfo>
         <p>
-          Если вы по каким-то причинам не можете или не хотите обновлять программу, то
-          установите плагин{" "}
-          <a href="https://www.autokroma.com/AfterCodecs/">AfterCodecs</a> или{" "}
-          <a href="https://www.voukoder.org/">Voukoder</a> и начните экспорт через них.
-          Или просто выводите композицию в путь без кириллицы или в другом кодеке.
+          Скорее всего, вы столкнулись с багом{" "}
+          <mark className="app">Adobe After Effects</mark> версии <mark>23.1</mark>, из-за
+          которого при экспорте композиции через встроенный кодек{" "}
+          <mark className="video">H.264</mark> в папку с кириллицей в пути на выходе
+          получался файл размером <mark>1 КБ</mark>. В результате чего такой файл не
+          открывается и не читается ни одной программой по понятной причине.
+        </p>
+        <Addition type="info">
+          Проверить текущую версию <mark className="app">Adobe After Effects</mark> можно
+          в меню <mark className="select">«Help» → «About After Effects»</mark>.
+        </Addition>
+        <p>
+          Для решения этой проблемы достаточно обновить{" "}
+          <mark className="app">Adobe After Effects</mark> до версии <mark>23.6</mark> или
+          новее и повторить процесс экспорта заново.
+        </p>
+        <p>
+          Если не хотите или не можете обновить программу, экспортируйте видео через
+          сторонние плагины вроде <mark className="plugin">Voukoder</mark> или{" "}
+          <mark className="plugin">AfterCodecs</mark>, о чём{" "}
+          <a href="#9.4">рассказано здесь</a>, или сохраните композицию в папку без
+          кириллицы в пути.
         </p>
       </DetailsSummary>
-      <DetailsSummary
-        tag="iphone, hlg, rec.709, color shift, color space, color management"
-        title="После экспорта у меня изменились цвета. Как этого избежать?"
-      >
-        <Divider>Проверяем рабочее цветовое пространство</Divider>
-        <p>
-          Для начала убедитесь в том, что в настройках проекта не установлен какой-нибудь
-          другой цветовой профиль, отличный от <mark>None</mark>. Для этого откройте{" "}
-          <mark className="ui">Project Manager</mark> через комбинацию клавиш{" "}
-          <mark className="key">Ctrl + Alt + Shift + K</mark> и перейдите в вкладку{" "}
-          <mark className="ui">Color</mark>. В разделе{" "}
-          <mark className="ui">Working Color Space</mark> укажите значение{" "}
-          <mark>None</mark>.
-        </p>
-        <ImageFigure
-          caption="Project Settings"
-          imgSrc="images/aftereffects/change_working_color_space.png"
-          imgTitle="Изменение цветового профиля"
-          styleClass="figure_windows-dark"
         />
         <Divider>Изменение цветов из-за особенностей кодека для вывода</Divider>
         <p>
