@@ -12,14 +12,19 @@ const AEExportProblems: React.FC = () => {
   return (
     <div className="faq-content">
       <DetailsSummary
-        tag="битрейт, качество, артефакты, low quality"
-        title="Почему моя композиция экспортировалась в плохом качестве?"
+        tag="ошибка экспорта, файл занят, видео используется другим процессом"
+        title="«Rendering error while writing to file (...). Unable to delete existing file» или «An unexpected error occurred while exporting a composition. Error code: 9988»"
       >
-      </DetailsSummary>
-      <DetailsSummary
-        tag="mp4, ошибка воспроизведения"
-        title="Почему я не могу открыть видео, экспортированное через стандартный H.264?"
-      >
+        <p>
+          Скорее всего, вы пытаетесь перезаписать файл, который в данный момент
+          используется другой программой — например, открыт в видеоплеере или отправляется
+          в <mark className="app">Telegram</mark>.
+        </p>
+        <p>
+          Для решения проблемы закройте программу, использующую файл, который вы пытаетесь
+          перезаписать, и попробуйте экспортировать композицию снова. Если это не поможет,
+          перезагрузите устройство или укажите другой путь для сохранения.
+        </p>
       </DetailsSummary>
       <DetailsSummary
         tag="не экспортируется, битый файл, кириллица в пути"
