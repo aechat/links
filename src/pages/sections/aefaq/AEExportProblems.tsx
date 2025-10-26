@@ -55,29 +55,49 @@ const AEExportProblems: React.FC = () => {
           кириллицы в пути.
         </p>
       </DetailsSummary>
+      <DetailsSummary
+        tag="output file will be resized from to meet format constraints, odd resolution, нечетное разрешение, ограничения h264"
+        title="Почему при экспорте размер композиции растягивается до чётного значения?"
+      >
+        <p>
+          Скорее всего, вы пытаетесь экспортировать видео с нечётным разрешением,
+          используя кодеки <mark className="video">H.264</mark>,{" "}
+          <mark className="video">H.265</mark> или их производные. Эти кодеки не
+          поддерживают нечётные разрешения из-за своих технических особенностей: они
+          обрабатывают изображение макроблоками, размеры которых должны быть чётными.
+        </p>
+        <ContentFigure
+          caption="Предупреждение об изменении размеров композиции"
+          src="images/aftereffects/output_file_will_be_resized.png"
+          theme="dark"
+          type="image"
+          variant="windows"
         />
-        <Divider>Изменение цветов из-за особенностей кодека для вывода</Divider>
+        <Addition type="info">
+          Предупреждение <mark className="select">«Output file will be resized»</mark>{" "}
+          может появиться и по другим причинам. Например, если формат вывода требует иного
+          разрешения, чем у композиции, или если используется неквадратный пиксель.
+        </Addition>
         <p>
-          Ещё бывает такое, что некоторые кодеки и варианты экспорта любят изменять цвета
-          из-за сжатия или некоторых особенностей, например{" "}
-          <mark className="video">H.264</mark>. Исправить это поведение сложновато, кроме
-          как экспортом из <mark className="app">Adobe After Effects</mark> в другой
-          формат, например <mark className="video">Apple Prores 422</mark>. После экспорта
-          можно переконвертировать в <mark className="video">H.264</mark> через{" "}
-          <mark className="app">Shutter Encoder</mark> и не потерять в цветах.
+          Иногда ошибка, связанная с нечётным разрешением, может возникать и при экспорте
+          через сторонние плагины, например <mark className="plugin">AfterCodecs</mark>.
         </p>
-        <Divider>Изменение цветов из-за исходников</Divider>
+        <ContentFigure
+          caption="Ошибка в AfterCodecs при экспорте с нечётным разрешением"
+          imgTitle="Ошибка экспорта с нечётным разрешением"
+          src="images/odd_resolution_error.png"
+          theme="light"
+          type="image"
+          variant="windows"
+        />
         <p>
-          Иногда при использовании исходников с мобильных телефонов, например{" "}
-          <mark>iPhone 13</mark> или новее, возникают проблемы с пересветом. Это
-          происходит из-за того, что <mark className="word">яблочные устройства</mark>{" "}
-          пишут в <mark>Rec.2020</mark>, а не в <mark>Rec.709</mark>. Да, получается более
-          широкий диапазон для дальнейшего монтажа, но для обычного пользователя это всё
-          превращается в геморрой. Поэтому для того, чтобы с данной проблемой не
-          сталкиваться в дальнейшем - смотрите на параметры вашего исходника и переводите
-          их в <mark>Rec.709</mark> с помощью конвертеров, например, через{" "}
-          <mark className="app">Shutter Encoder</mark>.
+          Чтобы решить эту проблему, откройте настройки композиции с помощью комбинации
+          клавиш <mark className="key">Ctrl + K</mark> или через меню{" "}
+          <mark className="select">«Composition» → «Composition Settings»</mark> и укажите
+          чётные значения для ширины и высоты. После этого экспорт должен пройти без
+          ошибок.
         </p>
+      </DetailsSummary>
         <p>
           В <mark className="app">Shutter Encoder</mark> поместите ваш исходник, выберите
           нужный формат для вывода и укажите в вкладке{" "}
