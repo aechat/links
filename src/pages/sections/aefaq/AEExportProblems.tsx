@@ -356,7 +356,7 @@ const AEExportProblems: React.FC = () => {
             <mark className="key">Ctrl + I</mark>, либо дважды щёлкните по пустой области
             в окне очереди.
             <ContentFigure
-              caption="Media Encoder"
+              caption="Adobe Media Encoder"
               imgTitle="Импорт в Adobe Media Encoder"
               src="images/media_encoder_import.png"
               theme="light"
