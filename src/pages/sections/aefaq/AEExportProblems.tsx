@@ -98,30 +98,297 @@ const AEExportProblems: React.FC = () => {
           ошибок.
         </p>
       </DetailsSummary>
+      <DetailsSummary
+        tag="конвертация, оптимизация размера, shutter encoder, сжатие видео, квантование, cqr, vbr, cbr, cq, large file size"
+        title="Как уменьшить размер видео после экспорта, не потеряв в качестве?"
+      >
         <p>
-          В <mark className="app">Shutter Encoder</mark> поместите ваш исходник, выберите
-          нужный формат для вывода и укажите в вкладке{" "}
-          <mark className="ui">Colorimetry</mark>{" "}
+          При экспорте композиции из <mark className="app">Adobe After Effects</mark>{" "}
+          итоговый файл может получиться слишком большим. Такой файл может не подойти для
+          загрузки на нужный сервис и будет занимать много места на диске.
         </p>
-        <AdditionInfo>
+        <p>
+          Чтобы уменьшить размер видео, его нужно сжать с помощью видеокодека. Кодеки
+          различаются по эффективности сжатия и совместимости с устройствами и
+          программами.
+        </p>
+        <p>
+          Если вы используете <mark className="app">Adobe After Effects</mark> версии ниже{" "}
+          <mark>23.0</mark>, то, скорее всего, вы пытались экспортировать композицию без
+          детальной настройки <mark className="select">«Output Module»</mark>. В старых
+          версиях по умолчанию стоял неоптимальный пресет —{" "}
+          <mark className="video">AVI</mark> с кодеком{" "}
+          <mark className="video">Animation</mark> без сжатия, из-за чего экспортированный
+          файл получался огромным.{" "}
+          <i style={{opacity: "0.5"}}>
+            Хотя достаточно было просто выбрать другой формат перед экспортом или
+            воспользоваться <mark className="plugin">Voukoder</mark> или{" "}
+            <mark className="plugin">AfterCodecs</mark>.
+          </i>
+        </p>
+        <p>
+          Если вы не хотите заново экспортировать композицию из{" "}
+          <mark className="app">Adobe After Effects</mark>, достаточно прогнать полученное
+          видео через любой конвертер, например{" "}
+          <mark className="app">Shutter Encoder</mark>,{" "}
+          <mark className="app">Handbrake</mark> или{" "}
+          <mark className="app">Adobe Media Encoder</mark>.
+        </p>
+        <Divider>Сжимаем видео с помощью Shutter Encoder</Divider>
+        <p>
+          Для быстрой конвертации видео можно воспользоваться{" "}
+          <mark className="app">Shutter Encoder</mark> — это бесплатный графический
+          интерфейс для утилиты <mark className="app">FFmpeg</mark>, доступный для{" "}
+          <mark>Windows</mark> и <mark>macOS</mark>. Он позволяет конвертировать видео в
+          распространённые форматы и гибко настраивать параметры кодирования.
+        </p>
+        <Addition type="info">
           <ul>
             <li>
-              Узнать цветовое пространство у исходника можно через{" "}
-              <mark className="app">MediaInfo</mark>.
+              Если у вас не установлен <mark className="app">Shutter Encoder</mark>, его
+              можно скачать <a href="https://www.shutterencoder.com/">по этой ссылке</a>.
+              Не забудьте передвинуть ползунок пожертвования на <mark>0</mark>, чтобы
+              получить ссылку на скачивание.
             </li>
             <li>
-              Если у вас не установлен <mark className="app">Shutter Encoder</mark>, то
-              его можно скачать{" "}
-              <a href="https://www.shutterencoder.com/">по этой ссылке</a>.
+              Рекомендуется использовать английский интерфейс программы: в русской
+              локализации встречаются некорректные переводы, которые могут сбить с толку.
+              Чтобы сменить язык, откройте настройки программы, нажав на иконку{" "}
+              <mark className="select">«шестерёнки»</mark> в левом верхнем углу. В
+              открывшемся окне найдите параметр{" "}
+              <mark className="select">«Установить язык»</mark>, измените его значение на{" "}
+              <mark className="select">«English»</mark> и подтвердите перезапуск.
             </li>
           </ul>
-        </AdditionInfo>
-        <ImageFigure
-          caption="Shutter Encoder"
-          imgSrc="images/shutter_encoder_interface.png"
-          imgTitle="Интерфейс Shutter Encoder"
-          styleClass="figure_macos-dark"
-        />
+        </Addition>
+        <ul>
+          <li>
+            После открытия <mark className="app">Shutter Encoder</mark> импортируйте в
+            программу полученный файл из <mark className="app">Adobe After Effects</mark>{" "}
+            с помощью кнопки <mark className="select">«Browse»</mark> или перетащите его в
+            окно программы, чтобы добавить в очередь.
+            <ContentFigure
+              caption="Shutter Encoder"
+              imgTitle="Импорт материалов в Shutter Encoder"
+              src="images/shutter_encoder_import.png"
+              theme="dark"
+              type="image"
+              variant="mac"
+            />
+          </li>
+          <li>
+            <p>
+              Затем в <mark className="select">«Choose Function»</mark> выберите
+              подходящий формат. Выбор зависит от ваших задач. Выбранный параметр будет
+              применён ко всем файлам в очереди конвертации.
+            </p>
+            <ContentFigure
+              caption="Shutter Encoder"
+              imgTitle="Выбор кодека в Shutter Encoder"
+              src="images/shutter_encoder_choose_function.png"
+              theme="dark"
+              type="image"
+              variant="mac"
+            />
+            <ul>
+              <li>
+                Для максимальной совместимости с большинством устройств выберите{" "}
+                <mark className="video">H.264</mark>. Это самый распространённый кодек,
+                который поддерживается практически везде: от старых смартфонов до
+                современных браузеров. Хотя он менее эффективен по сравнению с новыми
+                стандартами, это надёжный выбор, если видео должно открываться у всех без
+                проблем.
+              </li>
+              <li>
+                Если вам важнее более эффективное сжатие и хорошая поддержка на
+                современных устройствах, подойдут <mark className="video">H.265</mark> или{" "}
+                <mark className="video">VP9</mark>.{" "}
+                <mark className="video">H.265 (HEVC)</mark> сжимает видео на 25–50% лучше,
+                чем <mark className="video">H.264</mark>, но может не работать на старом
+                оборудовании. <mark className="video">VP9</mark> — его открытая и
+                бесплатная альтернатива от <mark className="company">Google</mark> со
+                схожим уровнем сжатия, широко используемая на{" "}
+                <mark className="app">YouTube</mark>.
+              </li>
+              <li>
+                Для наилучшего сжатия существуют <mark className="video">AV1</mark> и{" "}
+                <mark className="video">H.266</mark>. <mark className="video">AV1</mark> —
+                современный открытый кодек, который сжимает видео ещё на 20–30%
+                эффективнее, чем <mark className="video">H.265</mark>, но требует
+                современного оборудования для кодирования и воспроизведения.{" "}
+                <mark className="video">H.266 (VVC)</mark> — самый передовой стандарт
+                сжатия видео, но его поддержка тоже крайне ограничена.
+              </li>
+            </ul>
+          </li>
+          <li>
+            Если вы выбрали один из вышеописанных кодеков, для этих форматов потребуется
+            выполнить ещё несколько действий.
+            <ul>
+              <li>
+                <p>
+                  Для начала нужно определиться с режимом кодирования, который определяет,
+                  как программа управляет битрейтом, что напрямую влияет на качество и
+                  размер итогового файла.
+                </p>
+                <ul>
+                  <li>
+                    <mark className="select">CQ (Constant Quality)</mark> — динамически
+                    распределяет битрейт в зависимости от сложности сцены и поддерживает
+                    стабильное качество на всём протяжении ролика. Это оптимальный выбор
+                    для большинства задач.
+                  </li>
+                  <li>
+                    <mark className="select">VBR (Variable Bitrate)</mark> — требует
+                    настройки целевого и максимального битрейта, подобрать которые с
+                    первого раза непросто, особенно если важно сохранить высокое качество
+                    и при этом не получить слишком тяжёлый файл.
+                  </li>
+                  <li>
+                    <mark className="select">CBR (Constant Bitrate)</mark> — использует
+                    постоянный битрейт независимо от сложности кадра, что нередко приводит
+                    к «раздутому» размеру файла и не гарантирует стабильное качество в
+                    разных частях видео.
+                  </li>
+                </ul>
+                <p>
+                  Поскольку режим <mark className="select">«CQ»</mark> обеспечивает лучший
+                  баланс между качеством и размером, измените стандартную настройку,
+                  переключившись с <mark className="select">«VBR»</mark> на него.
+                </p>
+                <ContentFigure
+                  caption="Shutter Encoder"
+                  src="images/shutter_encoder_change_cq_h264.mp4"
+                  theme="dark"
+                  type="video"
+                  variant="mac"
+                />
+                <Addition type="info">
+                  <ul>
+                    <li>
+                      Чем меньше значение <mark className="select">«CQ»</mark>, тем лучше
+                      качество. По умолчанию устанавливается <mark>23</mark> — этого
+                      достаточно для большинства случаев.
+                    </li>
+                    <li>
+                      Если нужно сохранить почти максимальное качество, укажите значение
+                      от <mark>17</mark> до <mark>20</mark>. Однако размер файла при этом
+                      заметно возрастёт.
+                    </li>
+                    <li>
+                      Экстремальные значения, например <mark>50</mark>, использовать не
+                      рекомендуется — в итоге можно получить «кашу» из пикселей.
+                    </li>
+                  </ul>
+                </Addition>
+              </li>
+              <li>
+                Укажите битрейт для аудио в параметре{" "}
+                <mark className="select">«Audio Bitrate»</mark>; достаточно установить
+                значение <mark>320</mark> Кбит/с.
+                <ContentFigure
+                  caption="Shutter Encoder"
+                  src="images/shutter_encoder_change_audio_bitrate_h264.mp4"
+                  theme="dark"
+                  type="video"
+                  variant="mac"
+                />
+              </li>
+              <li>
+                При необходимости включите аппаратное ускорение для декодирования видео в
+                параметре <mark className="select">«Hardware Acceleration»</mark>. В
+                большинстве случаев это ускорит процесс конвертации.
+                <ContentFigure
+                  caption="Shutter Encoder"
+                  imgTitle="Включение аппаратного ускорения для H.264 в Shutter Encoder"
+                  src="images/shutter_encoder_enable_hardware_acceleration_h264.png"
+                  theme="dark"
+                  type="image"
+                  variant="mac"
+                />
+                <Addition type="info">
+                  Выбор значений в этом параметре зависит от формата, вашего устройства и
+                  установленных драйверов.
+                </Addition>
+              </li>
+            </ul>
+          </li>
+          <li>
+            После настройки нужных параметров нажмите кнопку{" "}
+            <mark className="select">«Start function»</mark> для начала конвертации. По
+            умолчанию программа сохраняет готовые файлы в ту же папку, откуда были
+            импортированы исходники.
+            <ContentFigure
+              caption="Shutter Encoder"
+              imgTitle="Начало конвертации в Shutter Encoder"
+              src="images/shutter_encoder_start_function.png"
+              theme="dark"
+              type="image"
+              variant="mac"
+            />
+            <Addition type="info">
+              <ul>
+                <li>
+                  Если в программу добавлено несколько исходников, они будут
+                  конвертированы последовательно в соответствии с вашими настройками.
+                </li>
+                <li>
+                  При необходимости вы можете указать свою директорию для сохранения
+                  файлов во вкладке <mark className="select">«Output»</mark>.
+                </li>
+              </ul>
+            </Addition>
+          </li>
+        </ul>
+        <Divider>Сжимаем с помощью Adobe Media Encoder</Divider>
+        <p>
+          Изначально <mark className="app">Adobe Media Encoder</mark> был задуман как
+          конвертер и раньше не имел прямого экспорта из{" "}
+          <mark className="app">Adobe After Effects</mark>. Именно этой функцией и можно
+          воспользоваться для сжатия видео.
+        </p>
+        <ul>
+          <li>
+            Для начала импортируйте видео в{" "}
+            <mark className="app">Adobe Media Encoder</mark> любым удобным способом:
+            перетащите файл в очередь, воспользуйтесь меню{" "}
+            <mark className="select">«File» → «Import»</mark> или комбинацией клавиш{" "}
+            <mark className="key">Ctrl + I</mark>, либо дважды щёлкните по пустой области
+            в окне очереди.
+            <ContentFigure
+              caption="Media Encoder"
+              imgTitle="Импорт в Adobe Media Encoder"
+              src="images/media_encoder_import.png"
+              theme="light"
+              type="image"
+              variant="windows"
+            />
+          </li>
+          <li>
+            После импорта файла вы можете указать формат, шаблон и путь для сохранения
+            файла. Нажатие на название формата или пресета откроет редактор настроек, где
+            можно изменить различные параметры или выбрать модуль рендеринга.
+            <ContentFigure
+              caption="Adobe Media Encoder"
+              imgTitle="Экспорт в Adobe Media Encoder"
+              src="images/media_encoder_exporting.png"
+              theme="light"
+              type="image"
+              variant="windows"
+            />
+            <Addition type="info">
+              В <mark className="app">Adobe Media Encoder</mark> можно конвертировать
+              видео с помощью сторонних плагинов, таких как{" "}
+              <mark className="plugin">Voukoder</mark> и{" "}
+              <mark className="plugin">AfterCodecs</mark>, если результат стандартных
+              кодеков вас не устраивает.
+            </Addition>
+          </li>
+          <li>
+            После настройки нажмите кнопку запуска и дождитесь появления готового файла в
+            указанной вами папке.
+          </li>
+        </ul>
       </DetailsSummary>
       <DetailsSummary
         tag="баг версии"
