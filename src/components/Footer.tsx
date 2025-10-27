@@ -85,9 +85,18 @@ const Footer: React.FC<FooterProps> = ({title, initialYear}) => {
           throw new Error("Не удалось найти коммиты для этой папки.");
         }
 
-        const message =
-          lastMeaningfulCommit.commit.message.charAt(0).toLowerCase() +
-          lastMeaningfulCommit.commit.message.slice(1);
+        const rawMessage = lastMeaningfulCommit.commit.message;
+
+        const regex = /^\w+(\([\w\/\-.]+\))?:\s*(.*)/;
+
+        const match = rawMessage.match(regex);
+        let description = rawMessage;
+
+        if (match && match[2]) {
+          description = match[2];
+        }
+
+        const message = description;
         setCommitData({
           message,
           url: lastMeaningfulCommit.html_url,
