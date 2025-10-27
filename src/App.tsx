@@ -40,6 +40,14 @@ const PSFAQ = lazy(() => import("./pages/psfaqPage"));
 
 const AEExpressionPage = lazy(() => import("./pages/aeexprPage"));
 
+const FilesRedirect = () => {
+  useEffect(() => {
+    window.location.href = "https://github.com/aechat/links/tree/main/public/files";
+  }, []);
+
+  return null;
+};
+
 const RedirectHtml = () => {
   const location = useLocation();
 
@@ -336,6 +344,10 @@ export const App = () => {
                   <Route
                     element={<ChatRules />}
                     path="/rules"
+                  />
+                  <Route
+                    element={<FilesRedirect />}
+                    path="/files"
                   />
                   <Route
                     element={
