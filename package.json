@@ -71,7 +71,8 @@
     "dev": "yarn & vite",
     "preview": "vite preview --host",
     "format:scss": "stylelint \"**/*.scss\" --fix",
-    "prepare": "husky"
+    "prepare": "husky",
+    "postinstall": "husky install"
   },
   "packageManager": "yarn@4.9.4"
 }
