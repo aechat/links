@@ -635,30 +635,37 @@ const AEExportProblems: React.FC = () => {
         title="Почему в экспортированном видео нет звука?"
       >
         <p>
-          Если вы экспортировали свою композицию в формате видео и у вас при проигрывании
-          нет звука, даже если он должен быть, то скорее всего вы столкнулись с редким
-          багом, связанный с кривой автоматикой сохранения звука в видеоконтейнер. Для
-          решения проблемы и принудительного экспорта видео вместе с звуковой дорожкой -
-          нужно перейти в параметры <mark className="ui">Output Module</mark> и указать{" "}
-          <mark className="ui">Audio Output On</mark> вместо{" "}
-          <mark className="ui">Audio Output Auto</mark>.
+          Если в вашей композиции был звук, а в экспортированном видео его вдруг не
+          оказалось, то, скорее всего, вы столкнулись с редким багом настроек вывода.
         </p>
-        <AdditionInfo>
-          Ещё данный способ может помочь от принудительной конвертации вашего видео в{" "}
-          <mark className="image">GIF</mark> в мессенджерах, например{" "}
-          <mark className="app">Telegram</mark>.
-        </AdditionInfo>
-        <ImageFigure
-          caption="Output Module Settings"
-          imgSrc="images/aftereffects/audio_output_on.png"
-          imgTitle="Принудительно включаем вывод звука"
-          styleClass="figure_windows-dark"
-        />
         <p>
-          Если это не помогло, то попробуйте экспортировать звук из вашей композиции
-          отдельно в формате <mark className="audio">WAV</mark> и заменить её в
-          композиции, а затем повторить попытку экспорта ещё раз.
+          Чтобы это исправить, перейдите в <mark className="select">«Output Module»</mark>{" "}
+          и для параметра <mark className="select">«Audio Output»</mark> установите
+          значение <mark className="select">«On»</mark> вместо{" "}
+          <mark className="select">«Auto»</mark>.
         </p>
+        <ContentFigure
+          caption="Output Module Settings"
+          imgTitle="Принудительное включение вывода звука"
+          src="images/aftereffects/audio_output_on.png"
+          theme="dark"
+          type="image"
+          variant="windows"
+        />
+        <Addition type="info">
+          <ul>
+            <li>
+              Этот способ также может помочь избежать принудительной конвертации видео в{" "}
+              <mark className="image">GIF</mark> в таких мессенджерах, как{" "}
+              <mark className="app">Telegram</mark>.
+            </li>
+            <li>
+              Если это не помогло, попробуйте экспортировать звук из композиции отдельно в
+              формате <mark className="audio">WAV</mark>, импортировать его обратно в
+              проект, заменив исходную аудиодорожку, и повторить экспорт.
+            </li>
+          </ul>
+        </Addition>
       </DetailsSummary>
       <DetailsSummary
         tag="конвертация, оптимизация размера, shutter encoder, сжатие видео, квантование, cqr, vbr, cbr, cq, large file size"
