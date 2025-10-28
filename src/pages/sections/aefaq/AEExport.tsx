@@ -2730,107 +2730,100 @@ const AEExport: React.FC = () => {
         title="Как сохранить проект в формате MOGRT?"
       >
         <p>
-          В <mark className="app">Adobe After Effects</mark> есть возможность создать
-          анимационный шаблон из вашей композиции для последующего использования в{" "}
-          <mark className="app">Adobe Premiere Pro</mark>. Для этого в окне{" "}
-          <mark className="ui">Essential Graphics</mark> достаточно нажать на кнопку{" "}
-          <mark className="ui">Export Motion Graphics Template</mark>.
+          В <mark className="app">Adobe After Effects</mark> можно создать анимированный
+          шаблон формата <mark className="file">MOGRT</mark> из вашей композиции для
+          последующего использования в <mark className="app">Adobe Premiere Pro</mark>.
         </p>
-        <AdditionWarning>
-          Экспортировать такой шаблон не получится, если не будет создан какой-либо
-          контроллер или не будет перенесено какое-либо свойство в окно{" "}
-          <mark className="ui">Essential Graphics</mark>.
-        </AdditionWarning>
-        <ImageFigure
+        <p>
+          Для этого в окне <mark className="select">«Essential Graphics»</mark> нужно
+          нажать на кнопку{" "}
+          <mark className="select">«Export Motion Graphics Template»</mark>.
+        </p>
+        <Addition type="warning">
+          Экспортировать шаблон не получится, если вы не добавили в панель{" "}
+          <mark className="select">«Essential Graphics»</mark> хотя бы одно свойство или
+          контроллер.
+        </Addition>
+        <ContentFigure
           caption="Essential Graphics"
-          imgSrc="images/aftereffects/export_motion_graphics_template.png"
-          imgTitle="Начинаем экспорт композиции как анимационный шаблон"
-          styleClass="figure_windows-dark"
+          imgTitle="Экспорт композиции как анимированного шаблона"
+          src="images/aftereffects/export_motion_graphics_template.png"
+          theme="dark"
+          type="image"
+          variant="windows"
         />
-        <AdditionInfo>
+        <Addition type="info">
           <p>
-            <mark className="file">MOGRT</mark> файл по своей сути обычный архив, в
-            котором хранятся два-три файла, которые формируют сам анимационный шаблон.
+            Файл <mark className="file">MOGRT</mark> — это, по сути, архив, в котором
+            хранятся несколько файлов, формирующих шаблон.
           </p>
           <ul>
             <li>
-              <mark className="file">definition.json</mark> - файл, в котором находятся
-              ссылки, контроллеры и прочая техническая информация шаблона для его
-              корректной работы.
+              <mark className="file">DEFINITION.JSON</mark> — файл с технической
+              информацией о контроллерах и свойствах шаблона.
             </li>
             <li>
-              <mark className="file">project.aegraphics</mark> - файл, где хранится вся
-              заготовленная анимация. Стандартными средствами{" "}
-              <mark className="app">Adobe Premiere Pro</mark> анимацию нельзя
-              отредактировать, но такой проект можно открыть в{" "}
-              <mark className="app">Adobe After Effects</mark> и при необходимости внести
-              свои правки там, а затем конвертировать обратно в{" "}
-              <mark className="file">MOGRT</mark>.
+              <mark className="file">PROJECT.AEGRAPHICS</mark> — файл проекта After
+              Effects со всей анимацией.
             </li>
             <li>
-              <mark className="file">thumb.jpg</mark> - статичная обложка для
-              анимационного шаблона для предварительного просмотра в окне{" "}
-              <mark className="ui">Graphics Templates</mark>.
+              <mark className="file">THUMB.JPG</mark> — обложка для предпросмотра шаблона
+              в Premiere Pro.
             </li>
           </ul>
-        </AdditionInfo>
+        </Addition>
         <p>
-          После нажатия на кнопку экспорта - измените параметр в{" "}
-          <mark className="ui">Destination</mark> на{" "}
-          <mark className="ui">Local Drive</mark> и с помощью кнопки{" "}
-          <mark className="ui">Browse</mark> укажите нужный путь для сохранения шаблона.
-          Также в разделе <mark className="ui">Compatibility</mark> вы можете указать,
-          нужно ли будет пользователю <mark className="app">Adobe Premiere Pro</mark>{" "}
-          устанавливать <mark className="app">Adobe After Effects</mark> для корректной
-          работы анимации или нет.
+          После нажатия на кнопку экспорта измените{" "}
+          <mark className="select">«Destination»</mark> на{" "}
+          <mark className="select">«Local Drive»</mark> и с помощью кнопки{" "}
+          <mark className="select">«Browse»</mark> укажите путь для сохранения. В разделе{" "}
+          <mark className="select">«Compatibility»</mark> можно указать, потребуется ли
+          для работы шаблона в Premiere Pro установленный After Effects.
         </p>
-        <ImageFigure
+        <ContentFigure
           caption="Export as Motion Graphics Template"
-          imgSrc="images/aftereffects/export_as_motion_graphics_template.png"
-          imgTitle=""
-          styleClass="figure_windows-dark"
+          imgTitle="Окно экспорта MOGRT"
+          src="images/aftereffects/export_as_motion_graphics_template.png"
+          theme="dark"
+          type="image"
+          variant="windows"
         />
-        <AdditionDanger>
+        <Addition type="danger">
           <p>
-            Не все эффекты, созданными вами, будут поддерживаться в анимационном шаблоне,
-            если вы решите использовать <mark className="file">MOGRT</mark> в{" "}
-            <mark className="app">Adobe Premiere Pro</mark> без установленного{" "}
-            <mark className="app">Adobe After Effects</mark> на устройстве. Ниже вы можете
-            посмотреть условия для корректной работы вашего анимационного шаблона в{" "}
-            <mark className="app">Adobe Premiere Pro</mark> без{" "}
-            <mark className="app">Adobe After Effects</mark>.
+            Не все эффекты будут поддерживаться в{" "}
+            <mark className="app">Adobe Premiere Pro</mark>, если на компьютере не
+            установлен <mark className="app">Adobe After Effects</mark>. Для корректной
+            работы шаблона без <mark className="app">Adobe After Effects</mark> должны
+            быть соблюдены следующие условия.
           </p>
           <ul>
             <li>
               Поддерживаются все стандартные эффекты, кроме{" "}
               <mark className="plugin">Camera-Shake Deblur</mark>,{" "}
               <mark className="plugin">Maxon Cineware</mark>,{" "}
-              <mark className="plugin">Warp Stabilizer</mark> и нельзя использовать{" "}
-              <mark className="plugin">Puppet</mark> для деформации слоёв.
+              <mark className="plugin">Warp Stabilizer</mark> и{" "}
+              <mark className="plugin">Puppet</mark>.
+            </li>
+            <li>Сторонние плагины, очевидно, не поддерживаются.</li>
+            <li>
+              При использовании 3D-слоёв поддерживается только рендер{" "}
+              <mark className="plugin">Classic 3D</mark>.
             </li>
             <li>
-              Само собой из-за отсутствия <mark className="app">Adobe After Effects</mark>{" "}
-              нельзя будет использовать сторонние плагины.
-            </li>
-            <li>
-              Если вы решите использовать 3D-слои, то в таком случае будет поддерживаться
-              только <mark className="plugin">Classic 3D</mark>.
-            </li>
-            <li>
-              Не все видеоформаты, а также футажи, использующие связь через{" "}
-              <mark className="plugin">Dynamic Link</mark> будут работать.
+              Некоторые видеоформаты и футажи, связанные через{" "}
+              <mark className="plugin">Dynamic Link</mark>, могут не работать.
             </li>
           </ul>
-        </AdditionDanger>
+        </Addition>
         <p>
-          После успешного экспорта вы можете использовать вашу анимацию в{" "}
-          <mark className="app">Adobe Premiere Pro</mark>, сначала переместив файл в{" "}
-          <mark className="ui">Graphic Templates</mark>, а затем импортированный шаблон -
-          на таймлайн секвенции.
+          После экспорта вы можете импортировать <mark className="file">MOGRT</mark> в
+          окно <mark className="select">«Graphic Templates»</mark> в{" "}
+          <mark className="app">Adobe Premiere Pro</mark> и перетащить его на таймлайн.
         </p>
-        <YouTubeVideo
+        <ContentFigure
           caption="How to export MOGRT templates"
-          link="tHDnFgW9NpQ"
+          src="tHDnFgW9NpQ"
+          type="youtube"
         />
       </DetailsSummary>
       <DetailsSummary
