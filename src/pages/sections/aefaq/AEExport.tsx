@@ -2365,6 +2365,33 @@ const AEExport: React.FC = () => {
         tag="аудио, звук, музыка, wav, mp3, aiff"
         title="Как экспортировать из композиции только аудио?"
       >
+        <p>
+          Несмотря на то, что <mark className="app">Adobe After Effects</mark> не является
+          аудиоредактором, иногда всё же возникает необходимость экспорта целой звуковой
+          композиции отдельным файлом.
+        </p>
+        <ul>
+          <li>
+            Прежде чем экспортировать композицию как аудиофайл, добавьте её в очередь
+            рендеринга с помощью комбинации клавиш <mark className="key">Ctrl + M</mark>{" "}
+            или через меню{" "}
+            <mark className="select">«File» → «Export» → «Add to Render Queue»</mark>.
+          </li>
+          <li>
+            Нажмите на название пресета в очереди рендера, чтобы открыть настройки{" "}
+            <mark className="select">«Output Module»</mark>.
+          </li>
+          <li>
+            В параметре <mark className="select">«Format»</mark> выберите один из
+            аудиоформатов: <mark className="audio">WAV</mark>,{" "}
+            <mark className="audio">MP3</mark> или <mark className="audio">AIFF</mark>.
+          </li>
+          <li>
+            В <mark className="select">«Output To»</mark> укажите путь и имя файла. Для
+            запуска экспорта нажмите <mark className="select">«Render»</mark> или клавишу{" "}
+            <mark className="key">Enter</mark>.
+          </li>
+        </ul>
       </DetailsSummary>
       <DetailsSummary
         tag="стикеры, tgs, lottie, animated stickers"
