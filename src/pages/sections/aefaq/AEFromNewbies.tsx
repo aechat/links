@@ -5032,6 +5032,27 @@ const AEFromNewbies: React.FC = () => {
         />
       </DetailsSummary>
       <DetailsSummary
+        tag="расширенный 3д"
+        title="Почему у меня не активна функция «Casts Shadows» при использовании Advanced 3D?"
+      >
+        {/* FIXME: если эта функция появится в стабильном релизе - обновить статью */}
+        <p>
+          В стабильной версии <mark className="app">Adobe After Effects</mark> на момент
+          написания статьи нельзя включить тени для источников света, так как эта функция
+          ещё не реализована.
+        </p>
+        <p>
+          Если вы смотрите обучающее видео, в котором автор включает{" "}
+          <mark className="select">«Casts Shadows»</mark>, то, скорее всего, у него
+          установлена бета-версия <mark className="app">Adobe After Effects</mark>, где
+          эта функция уже{" "}
+          <a href="https://helpx.adobe.com/after-effects/using/enable-lights-to-cast-shadows.html">
+            доступна
+          </a>
+          .
+        </p>
+      </DetailsSummary>
+      <DetailsSummary
         tag="прозрачность, чёрный фон, unmult, extract, blending modes"
         title="Почему у слоя не исчезает фон при использовании режимов наложения?"
       >
