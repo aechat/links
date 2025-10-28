@@ -3134,53 +3134,6 @@ const AEExport: React.FC = () => {
           link="vNH3d9YqLo4"
         />
       </DetailsSummary>
-      <DetailsSummary title="Как сохранить свой шаблон с настройками для экспорта композиций?">
-        <p>
-          У каждого пользователя <mark className="app">Adobe After Effects</mark> может
-          возникнуть желание сохранить настройки для экспорта, чтобы каждый раз не
-          настраивать его. Для создания своих предустановок нужно открыть очередь экспорта
-          с помощью комбинации клавиш <mark className="key">Ctrl + M</mark> и нажать на
-          стрелочку возле <mark className="ui">Output Module</mark>. В открывшемся меню
-          нужно выбрать <mark className="key">Make Template</mark> для перехода на окно
-          создания и настроек пресетов.
-        </p>
-        <ImageFigure
-          caption="Make Template"
-          imgSrc="images/aftereffects/render_queue_make_template.png"
-          imgTitle="Создаём шаблон экспорта"
-          styleClass="figure_windows-dark"
-        />
-        <p>
-          В открывшемся окне у нас уже будет создан пресет под названием{" "}
-          <mark>Untitled</mark>, название которого можно заменить на какое угодно. В этом
-          же окне можно задать пресеты и для других типов файлов по умолчанию в разделе{" "}
-          <mark className="ui">Defaults</mark>, если необходимо.
-        </p>
-        <ImageFigure
-          caption="Output Module Templates"
-          imgSrc="images/aftereffects/output_module_templates.png"
-          imgTitle="Настраиваем шаблоны для экспорта"
-          styleClass="figure_windows-dark"
-        />
-        <AdditionInfo>
-          Чтобы не переходить каждый раз в очередь экспорта - данное окно редактирования
-          шаблонов для экспорта можно открыть с помощью{" "}
-          <mark className="ui">Edit &gt; Templates &gt; Output Module</mark>.
-        </AdditionInfo>
-        <p>
-          Для редактирования нового шаблона нужно нажать на{" "}
-          <mark className="ui">Edit</mark>, которое открывает уже привычное нам окно{" "}
-          <mark className="key">Output Module Settings</mark>. Окно редактирования шаблона
-          экспорта буквально ничем не отличается от обычной настройки типа вывода.
-        </p>
-        <p>
-          После создания пресета - проверьте его на работоспособность и поставьте новый
-          шаблон по умолчанию для определённого типа экспорта по вашему желанию.
-          Аналогичным образом можно создать пресеты и для{" "}
-          <mark className="ui">Render Settings</mark> с помощью{" "}
-          <mark className="ui">Edit &gt; Templates &gt; Render Settings</mark>.
-        </p>
-      </DetailsSummary>
       <DetailsSummary
         tag="сбор проекта, collect files"
         title="Как передать проект со всеми исходниками другому человеку?"
