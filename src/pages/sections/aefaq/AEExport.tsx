@@ -2922,81 +2922,91 @@ const AEExport: React.FC = () => {
         title="Как экспортировать текущий кадр как изображение?"
       >
         <p>
-          Иногда у пользователя возникает нужда в выводе одного кадра из композиции как
-          файл изображения, желательно в полном качестве, например для создания превью или
-          показать пример чего-либо. Можно сделать это двумя способами.
+          Иногда нужно сохранить один кадр из композиции как файл изображения, например
+          для создания превью. Это можно сделать двумя способами.
         </p>
-        <Divider>Экспортируем через Render Queue</Divider>
+        <Divider>Экспортируем через «Render Queue»</Divider>
         <p>
-          Для того, чтобы быстро отправить текущий кадр в очередь рендера, нужно прожать
-          комбинацию клавиш <mark className="key">Ctrl + Alt + S</mark> или перейти в{" "}
-          <mark className="ui">Composition &gt; Save Frame As</mark> и выбрать{" "}
-          <mark className="ui">File</mark>.
+          Чтобы быстро отправить текущий кадр в очередь рендеринга, нажмите{" "}
+          <mark className="key">Ctrl + Alt + S</mark> или перейдите в меню{" "}
+          <mark className="select">«Composition» → «Save Frame As» → «File»</mark>.
         </p>
-        <ImageFigure
+        <p>
+          После этого откроется <mark className="select">«Render Queue»</mark>, где по
+          умолчанию будет предложен экспорт в формат <mark className="image">PSD</mark>.
+          Формат изображения можно изменить в настройках{" "}
+          <mark className="select">«Output Module»</mark>. Чтобы запустить экспорт,
+          нажмите кнопку <mark className="select">«Render»</mark> в правом верхнем углу
+          или клавишу <mark className="key">Enter</mark>.
+        </p>
+        <ContentFigure
           caption="Render Queue"
-          imgSrc="images/aftereffects/export_one_frame_render_queue.png"
-          imgTitle="Сохранение одного кадра через Render Queue"
-          styleClass="figure_windows-dark"
+          imgTitle="Сохранение одного кадра через очередь рендеринга"
+          src="images/aftereffects/export_one_frame_render_queue.png"
+          theme="dark"
+          type="image"
+          variant="windows"
         />
-        <p>
-          После этого у вас откроется <mark className="ui">Render Queue</mark>, который
-          предложит экспортировать <mark className="file">PSD</mark> файл в путь, который
-          вы укажете в графе <mark className="ui">Output To</mark>. Формат можно изменить
-          на свой, нажав на название пресета или на стрелочку рядом с ним.
-        </p>
-        <AdditionInfo>
-          Вы можете создать свой шаблон формата, чтобы не менять тип файла каждый раз,
-          когда вы экспортируете кадр через{" "}
-          <mark className="ui">Composition &gt; Save Frame As &gt; File</mark>.
-        </AdditionInfo>
+        <Addition type="info">
+          <ul>
+            <li>
+              Вы можете создать собственный шаблон для экспорта кадров, чтобы не менять
+              формат файла каждый раз вручную.
+            </li>
+            <li>
+              Некоторые пользователи ошибочно считают, что кнопка{" "}
+              <mark className="select">«Take Snapshot»</mark> (иконка фотоаппарата в окне
+              предпросмотра) сохраняет кадр в файл. На самом деле она сохраняет его только
+              во временную память программы для сравнения с другими кадрами.
+            </li>
+          </ul>
+        </Addition>
         <Divider>Экспортируем с помощью FX Console</Divider>
         <p>
-          Если вы считаете способ через <mark className="ui">Save Frame As</mark>{" "}
-          неудобным, то есть альтернатива. Вы можете сохранить текущий кадр через плагин{" "}
-          <mark className="ui">FX Console</mark>, который можно загрузить{" "}
+          Если стандартный способ сохранения кадра через{" "}
+          <mark className="select">«Save Frame As»</mark> кажется вам неудобным, есть
+          альтернатива — плагин <mark className="plugin">FX Console</mark>, который можно
+          загрузить{" "}
           <a href="https://www.videocopilot.net/blog/?s=fx%20console">по этой ссылке</a>.
         </p>
         <p>
-          После установки плагина, откройте панель эффектов с помощью комбинации клавиш{" "}
-          <mark className="key">Ctrl + Space</mark> и нажмите на иконку шестерёнки. В
-          настройках установите чекбокс у параметра{" "}
-          <mark className="ui">Full Resolution Screenshots</mark>. Это позволит сохранять
-          вам скриншоты в полном разрешении, независимо от того, какое было установлено в
-          окне предпросмотра.
+          После установки плагин нужно настроить для сохранения изображений в высоком
+          качестве. Для этого вызовите его панель сочетанием клавиш{" "}
+          <mark className="key">Ctrl + Space</mark>, нажмите на иконку шестерёнки и в
+          открывшихся настройках активируйте опцию{" "}
+          <mark className="select">«Full Resolution Screenshots»</mark>. Она позволяет
+          делать снимки в полном разрешении независимо от выбранного качества
+          предпросмотра.
         </p>
-        <ImageFigure
+        <ContentFigure
           caption="FX Console"
-          imgSrc="images/aftereffects/fx_console_full_resolution_screenshots.png"
-          imgTitle="Устанавливаем полное разрешение скриншотов"
-          styleClass="figure_windows-dark"
+          imgTitle="Настройка полного разрешения для скриншотов"
+          src="images/aftereffects/fx_console_full_resolution_screenshots.png"
+          theme="dark"
+          type="image"
+          variant="windows"
         />
         <p>
-          Теперь для быстрого сохранения текущего кадра в отдельный файл вам достаточно
-          открыть окно плагина через <mark className="key">Ctrl + Space</mark> и нажать на
-          иконку сохранения. Вам предложат три варианта: сохранить как{" "}
-          <mark className="file">JPG</mark>, <mark className="file">PNG</mark> или
-          сохранить кадр в буфер обмена.
+          Теперь, чтобы быстро сохранить кадр, достаточно вызвать окно плагина с помощью{" "}
+          <mark className="key">Ctrl + Space</mark> и нажать на иконку фотоаппарата.{" "}
+          <mark className="plugin">FX Console</mark> предложит три варианта: сохранить
+          изображение в формате <mark className="image">JPG</mark>,{" "}
+          <mark className="image">PNG</mark> или скопировать его в буфер обмена.
         </p>
-        <ImageFigure
-          caption="Adobe After Effects"
-          imgSrc="images/aftereffects/fx_console_save_frame_as.png"
-          imgTitle="Сохраняем текущий кадр через FX Console"
-          styleClass="figure_windows-dark"
+        <ContentFigure
+          caption="FX Console"
+          imgTitle="Сохранение текущего кадра через FX Console"
+          src="images/aftereffects/fx_console_save_frame_as.png"
+          theme="dark"
+          type="image"
+          variant="windows"
         />
         <p>
-          При нажатии на кнопку <mark className="ui">Save to JPG</mark> или{" "}
-          <mark className="ui">Save to PNG</mark> появится системное окно для выбора места
-          сохранения изображения. После указания местоположения вы сразу же получите файл
-          в нужном месте.
+          При нажатии на <mark className="select">«Save to JPG»</mark> или{" "}
+          <mark className="select">«Save to PNG»</mark> появится системное окно для выбора
+          пути сохранения файла. После этого текущий кадр композиции будет сохранён как
+          отдельное изображение.
         </p>
-        <AdditionInfo>
-          Некоторые пользователи ошибочно считают, что иконка фотоаппарата или же кнопка{" "}
-          <mark className="ui">Take Snapshot</mark> в окне предпросмотра композиции
-          сохранит куда-то кадр в какую-то папку. Отчасти это верно, но только этот кадр
-          сохраняется в оперативную память и служит лишь для сравнения снятого кадра с
-          каким-либо другим.
-        </AdditionInfo>
       </DetailsSummary>
       <DetailsSummary
         tag="вывести секвенцию фото, jpg, png, psd"
