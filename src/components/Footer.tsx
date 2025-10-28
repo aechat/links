@@ -87,7 +87,7 @@ const Footer: React.FC<FooterProps> = ({title, initialYear}) => {
 
         const rawMessage = lastMeaningfulCommit.commit.message;
 
-        const regex = /^\w+(\([\w\/\-.]+\))?:\s*(.*)/;
+        const regex = /^\w+(\([\w/.-]+\))?:\s*(.*)/;
 
         const match = rawMessage.match(regex);
         let description = rawMessage;
