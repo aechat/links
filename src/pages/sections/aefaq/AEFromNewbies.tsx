@@ -4399,17 +4399,23 @@ const AEFromNewbies: React.FC = () => {
             </p>
             <ul>
               <li>
-                <mark className="select">«Linear»</mark>
+                <mark className="select">«Linear»</mark> — объект движется по прямой линии
+                между ключевыми кадрами.
               </li>
               <li>
-                <mark className="select">«Bezier»</mark>
+                <mark className="select">«Bezier»</mark> — позволяет создавать произвольно
+                изогнутые траектории. Манипуляторы Безье с обеих сторон ключевого кадра
+                независимы, что даёт полный контроль над формой пути.
               </li>
               <li>
-                <mark className="select">«Continuous Bezier»</mark>
+                <mark className="select">«Continuous Bezier»</mark> — создаёт плавную
+                кривую в точке ключа. Манипуляторы Безье взаимосвязаны, что позволяет
+                избежать резких углов и «изломов» на траектории движения.
               </li>
               <li>
-                <mark className="select">«Auto Bezier»</mark>
-                {/* TODO: Добавить объяснение: «Автоматически создаёт плавную, изогнутую траекторию между ключевыми кадрами.» */}
+                <mark className="select">«Auto Bezier»</mark> — автоматически создаёт
+                плавную, сглаженную траекторию между ключевыми кадрами, однако такой
+                способ интерполяции используется редко.
               </li>
             </ul>
             <p>
