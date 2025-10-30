@@ -3074,60 +3074,74 @@ const AEExport: React.FC = () => {
       </DetailsSummary>
       <DetailsSummary
         tag="рабочая область, настройки рендера, длина композиции, таймлайн"
-        title="Как экспортировать всю композицию целиком или только её часть?"
+        title="Как экспортировать всю длину композиции или только её часть?"
       >
         <p>
-          По умолчанию <mark className="app">Adobe After Effects</mark> выводит композицию
-          длиной, соответствующей вашей рабочей области, которую вы указали с помощью
-          комбинаций клавиш <mark className="key">B</mark> и{" "}
-          <mark className="key">N</mark> или соответствующими маркерами на таймлайне.
+          По умолчанию <mark className="app">Adobe After Effects</mark> рендерит только
+          выделенную рабочую область. Её начало и конец задаются клавишами{" "}
+          <mark className="key">B</mark> и <mark className="key">N</mark> или
+          перетаскиванием соответствующих маркеров на таймлайне.
         </p>
+        <Divider>А как тогда экспортировать всю композицию целиком?</Divider>
         <p>
-          Если же вы хотите сделать так, чтобы композиция всегда экспортировалась по всей
-          длине композиции, то вам нужно создать свой пресет для{" "}
-          <mark className="ui">Render Settings</mark> и сделать его при необходимости
-          стандартным. Для этого нажмите на иконку стрелочки возле{" "}
-          <mark className="ui">Render Settings</mark> и нажмите на кнопку{" "}
-          <mark className="ui">Make Template</mark>.
+          Если вы хотите, чтобы композиция всегда экспортировалась целиком, независимо от
+          заданной рабочей области, нужно изменить один параметр в{" "}
+          <mark className="select">«Render Settings»</mark>. Удобнее всего создать для
+          этого отдельный шаблон.
         </p>
-        <ImageFigure
-          caption="Render Queue"
-          imgSrc="images/aftereffects/make_template_render_settings.png"
-          imgTitle="Создание шаблона для Render Settings"
-          styleClass="figure_windows-dark"
-        />
-        <p>
-          В открывшемся окне у нас уже будет создан пресет под названием{" "}
-          <mark>Untitled</mark>, название которого можно заменить на какое угодно. Чтобы
-          установить новый пресет в качестве стандартного - укажите его в разделе{" "}
-          <mark className="ui">Defaults</mark> для нужного типа файла.
-        </p>
-        <ImageFigure
-          caption="Render Settings Templates"
-          imgSrc="images/aftereffects/render_settings_templates.png"
-          imgTitle="Создание шаблона для Render Settings"
-          styleClass="figure_windows-dark"
-        />
-        <AdditionInfo>
-          Чтобы не переходить каждый раз в очередь экспорта - данное окно редактирования
-          шаблонов для экспорта можно открыть с помощью{" "}
-          <mark className="ui">Edit &gt; Templates &gt; Render Settings</mark>.
-        </AdditionInfo>
-        <p>
-          Для редактирования нового шаблона нужно нажать на{" "}
-          <mark className="ui">Edit</mark>, которое открывает уже привычное нам окно{" "}
-          <mark className="key">Render Settings</mark>. Окно редактирования шаблона
-          настроек буквально ничем не отличается от обычной настройки параметров рендера.
-          В этом окне в параметре <mark className="ui">Time Span</mark> нужно установить
-          значение <mark className="ui">Length of Comp</mark> вместо{" "}
-          <mark className="ui">Work Area Only</mark>.
-        </p>
-        <ImageFigure
-          caption="Render Settings"
-          imgSrc="images/aftereffects/change_render_time_span.png"
-          imgTitle="Изменение области рендера композиции"
-          styleClass="figure_windows-dark"
-        />
+        <ul>
+          <li>
+            Добавьте композицию в очередь рендеринга с помощью комбинации клавиш{" "}
+            <mark className="key">Ctrl + M</mark> или через меню{" "}
+            <mark className="select">«File» → «Export» → «Add to Render Queue»</mark>.
+          </li>
+          <li>
+            Нажмите на стрелку рядом с <mark className="select">«Render Settings»</mark> и
+            выберите <mark className="select">«Make Template»</mark>.
+            <ContentFigure
+              caption="Render Queue"
+              imgTitle="Создание шаблона для Render Settings"
+              src="images/aftereffects/make_template_render_settings.png"
+              theme="dark"
+              type="image"
+              variant="windows"
+            />
+          </li>
+          <li>
+            В открывшемся окне появится пресет <mark>Untitled</mark>, который можно
+            переименовать. Чтобы сделать его шаблоном по умолчанию, выберите его в разделе{" "}
+            <mark className="select">«Defaults»</mark>. Для редактирования шаблона нажмите{" "}
+            <mark className="select">«Edit»</mark>.
+            <ContentFigure
+              caption="Render Settings Templates"
+              imgTitle="Окно управления шаблонами Render Settings"
+              src="images/aftereffects/render_settings_templates.png"
+              theme="dark"
+              type="image"
+              variant="windows"
+            />
+            <Addition type="info">
+              Окно управления шаблонами также открывается через{" "}
+              <mark className="select">«Edit» → «Templates» → «Render Settings»</mark>.
+            </Addition>
+          </li>
+          <li>
+            В открывшемся окне <mark className="select">«Render Settings»</mark> для
+            параметра <mark className="select">«Time Span»</mark> установите значение{" "}
+            <mark className="select">«Length of Comp»</mark> (длина всей композиции)
+            вместо <mark className="select">«Work Area Only»</mark> (только рабочая
+            область).
+            <ContentFigure
+              caption="Render Settings"
+              imgTitle="Изменение области рендеринга композиции"
+              src="images/aftereffects/change_render_time_span.png"
+              theme="dark"
+              type="image"
+              variant="windows"
+            />
+          </li>
+          <li>Закройте все окна и проверьте работу нового шаблона.</li>
+        </ul>
       </DetailsSummary>
       <DetailsSummary
         tag="границы слоёв, пути движения, направляющие, демонстрация анимации"
