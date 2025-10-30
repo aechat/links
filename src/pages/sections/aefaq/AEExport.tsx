@@ -3012,54 +3012,65 @@ const AEExport: React.FC = () => {
         tag="вывести секвенцию фото, jpg, png, psd"
         title="Как экспортировать все кадры композиции как отдельные изображения?"
       >
-        <p>
-          Если вы хотите экспортировать все кадры из композиции в отдельные файлы, то вам
-          достаточно выбрать в качестве способа вывода{" "}
-          <mark className="ui">JPG Sequence</mark>,{" "}
-          <mark className="ui">PNG Sequence</mark> или любой другой формат с названием{" "}
-          <mark>Sequence</mark> в конце.
-        </p>
-        <p>
-          Для начала как всегда отправляем нашу композицию в очередь рендера, указываем
-          путь и открываем <mark className="ui">Output Module</mark> для настройки формата
-          вывода.
-        </p>
-        <AdditionInfo>
-          <mark className="app">Adobe After Effects</mark> по умолчанию при выводе
-          секвенции создаст дополнительную папку, чтобы не забивать папку, в которую вы
-          хотите экспортировать. Это поведение можно отключить, убрав чекбокс с{" "}
-          <mark className="ui">Save in subfolder</mark> при выборе расположения вывода.
-        </AdditionInfo>
-        <ImageFigure
-          caption="Render Queue"
-          imgSrc="images/aftereffects/render_queue.png"
-          imgTitle="Интерфейс очереди просчёта"
-          styleClass="figure_windows-dark"
-        />
-        <p>
-          Потом в окне <mark className="ui">Output Module</mark> в параметре{" "}
-          <mark className="ui">Format</mark> выберите любой формат с названием{" "}
-          <mark>Sequence</mark> в конце. В моем случае - я выберу{" "}
-          <mark className="ui">PNG Sequence</mark>. В{" "}
-          <mark className="ui">Format Options</mark> можно настроить параметры
-          изображения, например качество или сжатие.
-        </p>
-        <AdditionInfo>
-          Если вы хотите экспортировать кадры с прозрачностью - не забудьте указать
-          параметр <mark className="ui">RGB + Alpha</mark> в параметре{" "}
-          <mark className="ui">Channels</mark>.
-        </AdditionInfo>
-        <ImageFigure
-          caption="Output Module Settings"
-          imgSrc="images/aftereffects/selecting_png_sequence.png"
-          imgTitle="Выбираем последовательность PNG для вывода"
-          styleClass="figure_windows-dark"
-        />
-        <p>
-          После этого просто нажимаем на кнопку <mark className="ui">Render</mark> или на
-          клавишу <mark className="key">Enter</mark>. Вот и всё, все кадры из вашей
-          композиции сохранятся в нужную папку.
-        </p>
+        <ul>
+          <li>
+            Добавьте композицию в очередь рендеринга с помощью комбинации клавиш{" "}
+            <mark className="key">Ctrl + M</mark> или через меню{" "}
+            <mark className="select">«File» → «Export» → «Add to Render Queue»</mark>.
+          </li>
+          <li>
+            В очереди рендеринга нажмите на название пресета рядом с{" "}
+            <mark className="select">«Output Module»</mark>, чтобы открыть его настройки.
+            <ContentFigure
+              caption="Render Queue"
+              imgTitle="Интерфейс очереди рендеринга"
+              src="images/aftereffects/render_queue.png"
+              theme="dark"
+              type="image"
+              variant="windows"
+            />
+          </li>
+          <li>
+            В параметре <mark className="select">«Format»</mark> выберите формат с
+            припиской <mark>Sequence</mark> в названии, например{" "}
+            <mark className="select">«PNG Sequence»</mark> или{" "}
+            <mark className="select">«JPG Sequence»</mark>. В разделе{" "}
+            <mark className="select">«Format Options»</mark> можно настроить параметры
+            изображения, например качество или сжатие.
+            <Addition type="info">
+              Если вы хотите экспортировать кадры с прозрачностью, не забудьте установить
+              для параметра <mark className="select">«Channels»</mark> значение{" "}
+              <mark className="select">«RGB + Alpha»</mark>.
+            </Addition>
+            <ContentFigure
+              caption="Output Module Settings"
+              imgTitle="Выбор PNG-секвенции для экспорта"
+              src="images/aftereffects/selecting_png_sequence.png"
+              theme="dark"
+              type="image"
+              variant="windows"
+            />
+          </li>
+          <li>
+            Укажите путь и имя файла в <mark className="select">«Output To»</mark>, а
+            затем запустите экспорт кнопкой <mark className="select">«Render»</mark> или
+            клавишей <mark className="key">Enter</mark>.
+            <ContentFigure
+              caption="Render Queue"
+              imgTitle="Кнопка начала рендеринга"
+              src="images/aftereffects/start_render_button.png"
+              theme="dark"
+              type="image"
+              variant="windows"
+            />
+            <Addition type="info">
+              При экспорте секвенции <mark className="app">Adobe After Effects</mark> по
+              умолчанию создаёт отдельную подпапку для изображений. Это поведение можно
+              отключить, убрав флажок <mark className="select">«Save in subfolder»</mark>{" "}
+              при выборе пути сохранения.
+            </Addition>
+          </li>
+        </ul>
       </DetailsSummary>
       <DetailsSummary
         tag="рабочая область, настройки рендера, длина композиции, таймлайн"
