@@ -902,7 +902,7 @@ const AEFromNewbies: React.FC = () => {
                 <mark className="video">Apple ProRes</mark>.
               </li>
               <li>
-                <mark className="video">GoPro CineForm</mark> — ещё один популярный
+                <mark className="video">GoPro Cineform</mark> — ещё один популярный
                 монтажный кодек, поддерживает альфа-канал.
               </li>
             </ul>
@@ -5069,9 +5069,7 @@ const AEFromNewbies: React.FC = () => {
         </p>
         <p>
           Если вы хотите просто убрать чёрный фон у слоя, воспользуйтесь стандартным
-          эффектом <mark className="plugin">Extract</mark> или{" "}
-          <mark className="plugin">Unmult</mark>, который доступен в последней публичной
-          бете <mark className="app">Adobe After Effects</mark> или сторонним{" "}
+          эффектом <mark className="plugin">Extract</mark> или сторонним{" "}
           <mark className="plugin">uni.unmult</mark> из пакета{" "}
           <mark className="plugin">Red Giant Universe</mark>.
         </p>
