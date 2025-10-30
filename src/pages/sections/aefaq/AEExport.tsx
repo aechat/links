@@ -3240,9 +3240,21 @@ const AEExport: React.FC = () => {
       </DetailsSummary>
       <DetailsSummary
         tag="лотти"
-        title="Какие эффекты можно использовать в Lottie для успешного вывода?"
+        title="Какие эффекты можно использовать при использовании Lottie?"
       >
-      <DetailsSummary title="Какие эффекты можно использовать при использовании Lottie?">
+        <p>
+          <mark className="file">LOTTIE</mark> не поддерживает все функции{" "}
+          <mark className="app">Adobe After Effects</mark>, особенно сторонние плагины и
+          сложные эффекты. На сайте <mark className="company">LottieFiles</mark> есть
+          подробная{" "}
+          <a href="https://lottiefiles.com/supported-features">таблица совместимости</a>,
+          где показано, какие свойства и эффекты поддерживаются на разных платформах.
+          Чтобы проверить свою анимацию, вы можете загрузить экспортированный файл{" "}
+          <mark className="file">JSON</mark> в{" "}
+          <a href="https://app.lottiefiles.com/preview">
+            инструмент предпросмотра от Lottie
+          </a>{" "}
+          или <a href="https://www.svgsprite.com/tools/lottie-player/">Lottie Player</a>.
         </p>
       </DetailsSummary>
     </div>
