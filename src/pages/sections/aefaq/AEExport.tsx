@@ -3252,8 +3252,43 @@ const AEExport: React.FC = () => {
           </li>
         </ul>
       </DetailsSummary>
+      <DetailsSummary
+        tag="presets, ffx"
+        title="Как создать свой пресет с эффектами и передать его другому человеку?"
+      >
         <p>
+          <mark className="word">Пресеты</mark> — это готовые наборы эффектов формата{" "}
+          <mark className="file">FFX</mark> с заданными настройками. Их можно сохранять,
+          применять к другим слоям и передавать другим пользователям.
+        </p>
+        <p>
+          Чтобы создать пресет, примените и настройте нужные эффекты на любом слое,
+          выделите их в окне <mark className="select">«Effect Controls»</mark>, перейдите
+          на панель <mark className="select">«Effects & Presets»</mark>, нажмите на иконку
+          меню и выберите <mark className="select">«Save Animation Preset»</mark>. В
+          открывшемся окне останется указать название и путь для сохранения файла.
+        </p>
+        <ContentFigure
+          caption="Создание пресета анимации"
+          src="images/aftereffects/save_animation_preset.mp4"
+          theme="dark"
+          type="video"
+          variant="windows"
         />
+        <p>
+          Теперь вы можете поделиться сохранённым файлом <mark className="file">FFX</mark>{" "}
+          с другими пользователями. Получателю нужно будет импортировать его, следуя{" "}
+          <a href="#2.1">инструкции по установке</a>. После этого пресет появится в папке{" "}
+          <mark className="path">Animation Presets</mark> на панели{" "}
+          <mark className="select">«Effects & Presets»</mark> и будет готов к применению.
+        </p>
+        <Addition type="warning">
+          Прежде чем делиться пресетами, сообщите получателю, для какой версии{" "}
+          <mark className="app">Adobe After Effects</mark> и для какого разрешения
+          композиции они предназначены. Если используются сторонние эффекты, обязательно
+          укажите их названия и точные версии для корректной работы.
+        </Addition>
+      </DetailsSummary>
           macContent={
             <div>
             </div>
