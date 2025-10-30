@@ -3139,101 +3139,127 @@ const AEExport: React.FC = () => {
         title="Как передать проект со всеми исходниками другому человеку?"
       >
         <p>
-          В <mark className="app">Adobe After Effects</mark> есть функция для сохранения
-          вашего проекта в отдельную папку вместе со всеми исходниками, чтобы в дальнейшем
-          при переносе или передаче другому лицу ничего не потерялось и не отвалилось.
-          Чтобы это сделать, нужно перейти в{" "}
-          <mark className="ui">File &gt; Dependencies</mark> и нажать кнопку{" "}
-          <mark className="ui">Collect Files</mark>. Если не сохраняли проект, то
-          программа предложит вам это сделать.
+          В <mark className="app">Adobe After Effects</mark> есть функция сбора проекта,
+          которая сохраняет в отдельную папку сам файл проекта{" "}
+          <mark className="file">AEP</mark> и все используемые в нём исходники (видео,
+          аудио, изображения). Это гарантирует, что при переносе проекта на другой
+          компьютер или передаче другому человеку ничего не потеряется.
         </p>
-        <AdditionInfo>
-          Данная функция не сохраняет исполняемые файлы плагинов, пресетов и шрифтов.
-          Заранее предупредите того, кому вы собираетесь передать ваш проект, что ему
-          нужно будет установить необходимые плагины и шрифты. Информация об используемых
-          шрифтах, эффектах и исходниках будет указана в текстовом файле рядом с файлом
-          проекта.
-        </AdditionInfo>
-        <ImageFigure
-          caption="Adobe After Effects"
-          imgSrc="images/aftereffects/select_collect_files.png"
-          imgTitle="Выбираем функцию Collect Files"
-          styleClass="figure_windows-light"
-        />
+        <Addition type="warning">
+          Эта функция не собирает файлы плагинов, пресетов и шрифтов. Предупредите
+          человека, которому передаёте проект, о необходимости установить их отдельно.
+          Информация об используемых шрифтах, эффектах и исходниках будет сохранена в
+          текстовый файл отчёта рядом с файлом проекта.
+        </Addition>
+        <ul>
+          <li>
+            Чтобы запустить сбор, перейдите в{" "}
+            <mark className="select">«File» → «Dependencies» → «Collect Files»</mark>.
+            Если проект не сохранён, программа предложит это сделать.
+            <ContentFigure
+              caption="Adobe After Effects"
+              imgTitle="Выбор функции Collect Files"
+              src="images/aftereffects/select_collect_files.png"
+              theme="light"
+              type="image"
+              variant="windows"
+            />
+          </li>
+          <li>
+            Появится окно, где в параметре{" "}
+            <mark className="select">«Collect Source Files»</mark> можно выбрать, что
+            именно собирать: <mark className="select">«All»</mark> — все файлы из проекта
+            или <mark className="select">«For All Comps»</mark> — только те, что
+            используются в композициях. Второй вариант поможет уменьшить размер архива.
+            <ContentFigure
+              caption="Collect Files"
+              imgTitle="Настройки Collect Files"
+              src="images/aftereffects/collect_files_settings.png"
+              theme="dark"
+              type="image"
+              variant="windows"
+            />
+          </li>
+          <li>
+            После нажатия на кнопку <mark className="select">«Collect»</mark> программа
+            предложит указать, куда сохранить папку с проектом.
+          </li>
+          <li>
+            <ContentFilter
+              macContent={
+                <div>
+                  <p>
+                    После завершения сбора перейдите в папку с проектом и создайте архив с
+                    помощью утилиты вроде <a href="https://www.keka.io/ru/">Keka</a>. Если
+                    нужно отправить большой проект, а площадка для обмена файлами имеет
+                    ограничения на размер, вы можете разделить архив на части. После
+                    создания архива отправьте его любым удобным способом.
+                  </p>
+                  <div
+                    style={{
+                      display: "grid",
+                      gap: "10px",
+                      gridTemplateColumns: "repeat(auto-fit, minmax(275px, 1fr))",
+                      alignItems: "center",
+                    }}
+                  >
+                    <ContentFigure
+                      caption="Выбор формата архива"
+                      imgTitle="Выбор формата архива"
+                      src="https://github.com/aonez/Keka/raw/master/Wiki/Images/Animated/main-window-format.gif"
+                      theme="light"
+                      type="image"
+                      variant="mac"
+                    />
+                    <ContentFigure
+                      caption="Разделение архива на части"
+                      imgTitle="Разделение архива на части"
+                      src="https://github.com/aonez/Keka/raw/master/Wiki/Images/Animated/main-window-split.gif"
+                      theme="light"
+                      type="image"
+                      variant="mac"
+                    />
+                  </div>
+                  <Addition type="info">
+                    Подробнее о создании архивов через{" "}
+                    <a href="https://www.keka.io/ru/">Keka</a> можно прочитать на{" "}
+                    <a href="https://github.com/aonez/Keka/wiki/Compressing-with-Keka">
+                      этой странице
+                    </a>
+                    .
+                  </Addition>
+                </div>
+              }
+              windowsContent={
+                <div>
+                  <p>
+                    После завершения сбора перейдите в папку с проектом и создайте архив с
+                    помощью архиватора, например{" "}
+                    <a href="https://www.rarlab.com/download.htm">WinRAR</a> или{" "}
+                    <a href="https://www.7-zip.org/">7-Zip</a>. Если площадка для обмена
+                    файлами имеет ограничения на размер, вы можете разделить архив на
+                    части и отправить его по кускам. После создания архива отправьте его
+                    любым удобным способом.
+                  </p>
+                  <ContentFigure
+                    caption="Как разбить архив на части и собрать его"
+                    src="6KumGS0EyUQ"
+                    type="youtube"
+                  />
+                </div>
+              }
+            />
+          </li>
+        </ul>
+      </DetailsSummary>
         <p>
-          Далее появится окно, где предложат, что именно нужно собрать в папку с проектом.
-          В параметре <mark className="ui">Collect Source Files</mark> можно выбрать, что
-          именно собирать - все файлы из проекта или лишь те, которые используются в
-          композициях, чтобы уменьшить вес. После нажатия на кнопку{" "}
-          <mark className="ui">Collect</mark> программа откроет системный файловый
-          менеджер для того, чтобы вы указали путь куда сохранить папку с проектом.
-        </p>
-        <ImageFigure
-          caption="Collect Files"
-          imgSrc="images/aftereffects/collect_files_settings.png"
-          imgTitle="Настройки Collect Files"
-          styleClass="figure_windows-dark"
         />
-        <ContentSwitcher
           macContent={
             <div>
-              <p>
-                После окончания сборки файлов, перейдите в папку, куда вы сохранили проект
-                и создайте архив с помощью <a href="https://www.keka.io/ru/">keka</a>.
-                Если площадка или социальная сеть, в которой вы пытаетесь поделиться
-                архивом, вставляет палки в колёса в виде ограничений на размер файла - вы
-                сможете разделить архив на определённый размер файла перед его созданием и
-                отправить его другому человеку по кусочкам. После создания архива,
-                отправьте его другому человеку любым удобным для вас способом.
-              </p>
-              <div
-                style={{
-                  display: "grid",
-                  gap: "10px",
-                  gridTemplateColumns: "repeat(auto-fit, minmax(275px, 1fr))",
-                  alignItems: "center",
-                }}
-              >
-                <ImageFigure
-                  caption="Выбор формата архива"
-                  imgSrc="https://github.com/aonez/Keka/raw/master/Wiki/Images/Animated/main-window-format.gif"
-                  imgTitle="Выбор формата архива"
-                  styleClass="figure_macos-light"
-                />
-                <ImageFigure
-                  caption="Выбор размера разделения архива"
-                  imgSrc="https://github.com/aonez/Keka/raw/master/Wiki/Images/Animated/main-window-split.gif"
-                  imgTitle="Выбор размера разделения архива"
-                  styleClass="figure_macos-light"
-                />
-              </div>
-              <AdditionInfo>
-                Подробнее о создании архивов через{" "}
-                <a href="https://www.keka.io/ru/">keka</a> вы можете прочесть на{" "}
-                <a href="https://github.com/aonez/Keka/wiki/Compressing-with-Keka">
-                  этой странице
-                </a>
-                .
-              </AdditionInfo>
             </div>
           }
           windowsContent={
             <div>
-              <p>
-                После окончания сборки файлов, перейдите в папку, куда вы сохранили проект
-                и создайте архив с помощью{" "}
-                <a href="https://www.rarlab.com/download.htm">WinRAR</a> или{" "}
-                <a href="https://www.7-zip.org/">7-Zip</a>. Если площадка или социальная
-                сеть, в которой вы пытаетесь поделиться архивом, вставляет палки в колёса
-                в виде ограничений на размер файла - вы сможете разделить архив на
-                определённый размер файла перед его созданием и отправить его другому
-                человеку по кусочкам. После создания архива, отправьте его другому
-                человеку любым удобным для вас способом.
-              </p>
-              <YouTubeVideo
-                caption="Как разбить архив на части и собрать его"
-                link="6KumGS0EyUQ"
-              />
             </div>
           }
         />
