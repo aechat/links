@@ -13,7 +13,7 @@ const AEWhereFind: React.FC = () => {
     <div className="faq-content">
       <DetailsSummary
         tag="adobe, after effects, photoshop, premiere pro, скачать, установить, бесплатно, скрипты, расширения, плагины, templates, plugins, scripts, extensions"
-        title="Где я могу найти и скачать шаблоны, плагины и различные программы?"
+        title="Где найти и скачать шаблоны, плагины и различные программы?"
       >
         <p>
           На <a href="/">главной странице</a>, в закреплённом сообщении в чате{" "}
@@ -26,6 +26,59 @@ const AEWhereFind: React.FC = () => {
           и в списке ниже вы всегда сможете найти ссылки на наши каналы в{" "}
           <mark className="app">Telegram</mark> с полезным контентом.
         </p>
+        <Addition type="info">
+          {(() => {
+            const userAgent = navigator.userAgent.toLowerCase();
+
+            const isIOS = /iphone|ipad/.test(userAgent);
+
+            const isAndroid = /android/.test(userAgent);
+
+            const isMacOS = /macintosh|mac os x/.test(userAgent);
+
+            if (isIOS) {
+              return (
+                <>
+                  Чтобы без проблем скачивать файлы из каналов, описанных ниже,
+                  рекомендуется использовать официальное приложение{" "}
+                  <mark className="app">Telegram</mark> вместо веб-версии. Его можно
+                  установить из <a href="https://telegram.org/dl/ios">App Store</a>.
+                </>
+              );
+            }
+
+            if (isAndroid) {
+              return (
+                <>
+                  Чтобы без проблем скачивать файлы из каналов, описанных ниже,
+                  рекомендуется использовать официальное приложение{" "}
+                  <mark className="app">Telegram</mark> вместо веб-версии. Его можно
+                  установить по <a href="https://telegram.org/android">этой ссылке</a>.
+                </>
+              );
+            }
+
+            if (isMacOS) {
+              return (
+                <>
+                  Чтобы без проблем скачивать файлы из каналов, описанных ниже,
+                  рекомендуется использовать десктопную версию{" "}
+                  <mark className="app">Telegram</mark> вместо веб-версии. Её можно
+                  скачать по <a href="https://macos.telegram.org/">этой ссылке</a>.
+                </>
+              );
+            }
+
+            return (
+              <>
+                Чтобы без проблем скачивать файлы из каналов, описанных ниже,
+                рекомендуется использовать десктопную версию{" "}
+                <mark className="app">Telegram</mark> вместо веб-версии. Её можно скачать
+                по <a href="https://desktop.telegram.org/">этой ссылке</a>.
+              </>
+            );
+          })()}
+        </Addition>
         <Divider>Скачать шаблоны и различные материалы</Divider>
         <ul>
           <li>
