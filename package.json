@@ -75,5 +75,5 @@
     "prepare": "husky",
     "postinstall": "husky install"
   },
-  "packageManager": "yarn@4.9.4"
+  "packageManager": "yarn@4.10.3"
 }
