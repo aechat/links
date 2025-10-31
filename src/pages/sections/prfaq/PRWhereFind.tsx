@@ -4,7 +4,7 @@ import React from "react";
 
 import Addition from "../../../components/Addition";
 
-import {ImageFigure} from "../../../components/ContentFigure";
+import {ContentFigure} from "../../../components/ContentFigure";
 
 import DetailsSummary from "../../../components/DetailsSummary";
 
@@ -12,8 +12,8 @@ const PRWhereFind: React.FC = () => {
   return (
     <div className="faq-content">
       <DetailsSummary
-        tag="адоб, download, афтер эффектс, фотошоп, премьер, загрузить, установить, бесплатно, free"
-        title="Где я могу найти и скачать шаблоны, плагины и различные программы?"
+        tag="adobe, after effects, photoshop, premiere pro, скачать, установить, бесплатно, скрипты, расширения, плагины, templates, plugins, scripts, extensions"
+        title="Где найти и скачать шаблоны, плагины и различные программы?"
       >
         <p>
           На <a href="/">главной странице</a>, в закреплённом сообщении в чате{" "}
@@ -24,34 +24,83 @@ const PRWhereFind: React.FC = () => {
             AEChat
           </a>{" "}
           и в списке ниже вы всегда сможете найти ссылки на наши каналы в{" "}
-          <mark className="app">Telegram</mark> с различным полезным контентом.
+          <mark className="app">Telegram</mark> с полезным контентом.
         </p>
+        <Addition type="info">
+          {(() => {
+            const userAgent = navigator.userAgent.toLowerCase();
+
+            const isIOS = /iphone|ipad/.test(userAgent);
+
+            const isAndroid = /android/.test(userAgent);
+
+            const isMacOS = /macintosh|mac os x/.test(userAgent);
+
+            if (isIOS) {
+              return (
+                <>
+                  Чтобы без проблем скачивать файлы из каналов, описанных ниже,
+                  рекомендуется использовать официальное приложение{" "}
+                  <mark className="app">Telegram</mark> вместо веб-версии. Его можно
+                  установить из <a href="https://telegram.org/dl/ios">App Store</a>.
+                </>
+              );
+            }
+
+            if (isAndroid) {
+              return (
+                <>
+                  Чтобы без проблем скачивать файлы из каналов, описанных ниже,
+                  рекомендуется использовать официальное приложение{" "}
+                  <mark className="app">Telegram</mark> вместо веб-версии. Его можно
+                  установить по <a href="https://telegram.org/android">этой ссылке</a>.
+                </>
+              );
+            }
+
+            if (isMacOS) {
+              return (
+                <>
+                  Чтобы без проблем скачивать файлы из каналов, описанных ниже,
+                  рекомендуется использовать десктопную версию{" "}
+                  <mark className="app">Telegram</mark> вместо веб-версии. Её можно
+                  скачать по <a href="https://macos.telegram.org/">этой ссылке</a>.
+                </>
+              );
+            }
+
+            return (
+              <>
+                Чтобы без проблем скачивать файлы из каналов, описанных ниже,
+                рекомендуется использовать десктопную версию{" "}
+                <mark className="app">Telegram</mark> вместо веб-версии. Её можно скачать
+                по <a href="https://desktop.telegram.org/">этой ссылке</a>.
+              </>
+            );
+          })()}
+        </Addition>
         <Divider>Скачать шаблоны и различные материалы</Divider>
         <ul>
           <li>
-            <a href="https://t.me/s/premtemp">PremTemp</a> - канал с переходами,
+            <a href="https://t.me/s/premtemp">PremTemp</a> — канал с переходами,
             шаблонами, расширениями и прочими полезными материалами для ваших секвенций в{" "}
             <mark className="app">Adobe Premiere Pro</mark>.
           </li>
           <li>
-            <a href="https://t.me/s/aetemp">AETemp</a> - аналогичный канал, как{" "}
-            <mark className="app">PremTemp</mark>, но для{" "}
-            <mark className="app">Adobe After Effects</mark>. Иногда в нём можно найти
-            старые записи, которые предназначены для{" "}
-            <mark className="app">Adobe Premiere Pro</mark>.
+            <a href="https://t.me/s/aetemp">AETemp</a> — канал с аналогичным контентом, но
+            для <mark className="app">Adobe After Effects</mark>.
           </li>
           <li>
-            <a href="https://t.me/s/designworld">Design World</a> - канал с статичной
+            <a href="https://t.me/s/designworld">Design World</a> — канал со статичной
             графикой, эффектами и кистями для <mark className="app">Adobe Photoshop</mark>
-            , которые в дальнейшем можно использовать для ваших проектов в{" "}
-            <mark className="app">Adobe Premiere Pro</mark>.
+            , которые в дальнейшем можно использовать в ваших проектах.
           </li>
         </ul>
-        <AdditionInfo>
-          Если вы не нашли нужный шаблон из каналов{" "}
+        <Addition type="info">
+          Если вы не нашли в каналах <a href="https://t.me/s/premtemp">PremTemp</a>,{" "}
           <a href="https://t.me/s/aetemp">AETemp</a> и{" "}
-          <a href="https://t.me/s/designworld">Design World</a>, но у вас есть на него
-          ссылка - воспользуйтесь нашим ботом{" "}
+          <a href="https://t.me/s/designworld">Design World</a> нужный шаблон, но у вас
+          есть на него ссылка — воспользуйтесь нашим ботом{" "}
           <a
             href="https://t.me/HiStockBot?start=509060394"
             title="Бот HiStock для покупки шаблонов в Telegram"
@@ -87,84 +136,89 @@ const PRWhereFind: React.FC = () => {
             Artlist
           </a>{" "}
           по выгодным ценам.
-          <AdditionDanger>
-            Файлы из <mark>Videohive</mark>, <mark>Shutter Stock</mark> и других сервисов,
-            которые не используют подписочную модель распространения файлов -{" "}
-            <b>
-              <u>не поддерживаются ботом</u>
-            </b>{" "}
-            по понятной причине.
-          </AdditionDanger>
-        </AdditionInfo>
-        <AdditionWarning>
+        </Addition>
+        <Addition type="danger">
+          Файлы из <mark>Videohive</mark>, <mark>Shutterstock</mark> и других сервисов,
+          которые не используют подписочную модель распространения, —{" "}
+          <b>
+            <u>не поддерживаются</u>
+          </b>
+          .
+        </Addition>
+        <Addition type="warning">
           Контент, предоставленный в <a href="https://t.me/s/premtemp">PremTemp</a>,{" "}
           <a href="https://t.me/s/aetemp">AETemp</a> и{" "}
-          <a href="https://t.me/s/designworld">Design World</a> не должен использоваться в
-          коммерческих целях. Если вы планируете использовать какой-либо материал в
-          коммерческих целях, то вам нужно будет приобрести нужный шаблон во избежание
-          различных проблем с правообладателями.
-        </AdditionWarning>
+          <a href="https://t.me/s/designworld">Design World</a>, не должен использоваться
+          в коммерческих целях. Если вы планируете использовать какой-либо материал в
+          коммерческих целях, вам нужно будет приобрести нужный шаблон во избежание
+          проблем с правообладателями.
+        </Addition>
         <Divider>Скачать программы и плагины</Divider>
         <ul>
           <li>
-            <a href="https://t.me/+Qd9xu7A4TeIwNzY6">склад стройматериалов</a> - канал с
+            <a href="https://t.me/+Qd9xu7A4TeIwNzY6">склад стройматериалов</a> — канал с
             творческими программами, утилитами и плагинами к различным программам по
             демократичным ценам для пользователей устройств на операционной системе{" "}
             <mark>Windows</mark>.
           </li>
           <li>
-            <a href="https://t.me/+ZqiaMfQRFgM4YmEy">Яблоневый сад</a> - аналогичный канал
-            с программами, как <mark>склад стройматериалов</mark>, но для пользователей
+            <a href="https://t.me/+ZqiaMfQRFgM4YmEy">Яблоневый сад</a> — такой же канал с
+            программами, как и <mark>склад стройматериалов</mark>, но для пользователей
             устройств на <mark>macOS</mark>.
           </li>
         </ul>
-        <AdditionInfo>
-          Если у вас возникли проблемы с установкой программ или плагинов - прочтите
-          раздел <mark>Проблемы с установкой</mark> или обратитесь к нам в{" "}
-          <a href="https://t.me/joinchat/F1DdXtG9LephYWUy">AEChat</a>.
-        </AdditionInfo>
-        <AdditionWarning>
-          При установке программ с пометкой <mark>репак от кролика</mark> из{" "}
+        <Addition type="info">
+          Если у вас возникли проблемы с установкой программ или плагинов — прочтите
+          раздел <a href="#install-problems">«Проблемы с установкой»</a> или обратитесь к
+          нам в <a href="https://t.me/joinchat/F1DdXtG9LephYWUy">AEChat</a>.
+        </Addition>
+        <Addition type="warning">
+          При установке программ с пометкой <mark>«репак от кролика»</mark> из{" "}
           <a href="https://t.me/+Qd9xu7A4TeIwNzY6">склада стройматериалов (Windows)</a> не
-          забывайте убирать галочку <mark className="ui">Реклама</mark> и отключать
-          антивирус перед установкой, иначе можете наткнуться на проблему{" "}
-          <mark className="ui">helper.exe не найден</mark>.
-        </AdditionWarning>
-        <AdditionDanger>
-          Устанавливая содержимое на ваше устройство из каналов{" "}
-          <a href="https://t.me/s/premtemp">PremTemp</a>,{" "}
+          забывайте убирать галочку <mark className="select">«Реклама»</mark> и отключать
+          антивирус перед установкой, иначе можете столкнуться с ошибкой{" "}
+          <mark className="select">«helper.exe не найден»</mark>.
+        </Addition>
+        <Addition type="danger">
+          Файлы из каналов <a href="https://t.me/s/premtemp">PremTemp</a>,{" "}
           <a href="https://t.me/s/aetemp">AETemp</a>,{" "}
           <a href="https://t.me/+Qd9xu7A4TeIwNzY6">склад стройматериалов (Windows)</a> или{" "}
-          <a href="https://t.me/+ZqiaMfQRFgM4YmEy">Яблоневый сад (macOS)</a> - вы
-          принимаете на себя все риски и берёте ответственность за использование
-          нелегальных материалов.
+          <a href="https://t.me/+ZqiaMfQRFgM4YmEy">Яблоневый сад (macOS)</a>{" "}
+          предоставляются «как есть» из открытых источников. Устанавливая или распаковывая
+          содержимое из данных каналов — вы принимаете на себя все риски и берёте
+          ответственность за использование «народных» материалов.
           <ul>
             <li>
-              Мы не можем принимать вбросы по типу{" "}
+              Администрация этих каналов не может всерьёз воспринимать вбросы вроде{" "}
               <mark className="quote">
-                ой в складе, саду или аетемпе одни вирусы водятся
+                «В „складе“, „саду“ или „аетемпе“ одни вирусы водятся!»
               </mark>{" "}
-              на полном серьёзе без внятных доказательств наличия того или иного{" "}
-              <mark className="app">вредоносного ПО</mark>. Ложное срабатывание антивируса
-              также не является доказательством действительного наличия{" "}
-              <mark className="app">зловредов</mark> в том или ином архиве или программе.
+              без внятных доказательств наличия{" "}
+              <mark className="app">вредоносного ПО</mark>. Ложное срабатывание вашего{" "}
+              <mark className="app">антивируса</mark> и{" "}
+              <mark className="app">Virustotal</mark> также не является доказательством
+              наличия <mark className="app">зловредов</mark> в архиве или программе.
             </li>
             <li>
-              Если вы доверяете нашим источникам - отключайте{" "}
+              Если вы доверяете нашим источникам, то во избежание проблем с установкой
+              программ или плагинов — рекомендуется на время или полностью отключить{" "}
               <mark className="app">антивирусное ПО</mark>, установленное на вашем
-              устройстве, при установке программ и плагинов во избежание проблем с
-              активацией, либо не предъявляйте претензии на основе вашей паранои и
-              оформляйте покупку софта за свои кровные деньги.
+              устройстве. В противном случае не предъявляйте администраторам свои
+              претензии, основанные на вашей паранойе, и покупайте программы за свои
+              деньги.
             </li>
           </ul>
-        </AdditionDanger>
+        </Addition>
       </DetailsSummary>
-      <DetailsSummary title="Где я могу найти и скачать стоковые видео для своих проектов?">
+      <DetailsSummary
+        tag="футажи, стоки, creative commons, cc0, stock footage, free video, video assets"
+        title="Где найти и скачать стоковые видео для своих проектов?"
+      >
         <p>
-          Существует множество видеостоков онлайн, среди которых многие предоставляют
-          материалы с лицензией <mark>Creative Commons Zero (CC0)</mark>, что означает
-          возможность использования их в своих коммерческих проектах, не указывая
-          авторство.
+          В Интернете существует множество онлайн-видеостоков, среди которых многие
+          предоставляют материалы с лицензией <mark>Creative Commons Zero (CC0)</mark>.
+          Это означает, что вы можете использовать их в своих коммерческих проектах, не
+          указывая авторство.
         </p>
         <div className="flexible-links">
           <a
@@ -270,31 +324,33 @@ const PRWhereFind: React.FC = () => {
             Storyblocks
           </a>
         </div>
-        <AdditionWarning>
+        <Addition type="warning">
           <ul>
             <li>
-              Перед использованием материалов, внимательно ознакомьтесь с условиями
-              использования на каждом конкретном ресурсе. Некоторые ресурсы из списка
-              могут потребовать оформить подписку на использование некоторых материалов.
+              Перед использованием материалов внимательно ознакомьтесь с условиями
+              использования на каждом конкретном ресурсе. Некоторые из них могут
+              потребовать оформить подписку.
             </li>
             <li>
               Некоторые ресурсы могут быть заблокированы на территории Российской
-              Федерации или других стран, используйте <mark className="app">VPN</mark> для
-              доступа на данные ресурсы.
+              Федерации или других стран.
             </li>
           </ul>
-        </AdditionWarning>
+        </Addition>
       </DetailsSummary>
-      <DetailsSummary title="Где я могу найти и скачать различную графику для своих проектов?">
+      <DetailsSummary
+        tag="фото, изображения, текстуры, шрифты, кисти, паттерны, иконки, psd, graphic resources, free graphics, stock photos"
+        title="Где найти и скачать графику для своих проектов?"
+      >
         <p>
-          Для таких случаев был создан канал{" "}
+          В канале{" "}
           <a
             href="https://t.me/s/DesignWorld"
             title="Канал Design World в Telegram"
           >
             Design World
           </a>{" "}
-          в <mark className="app">Telegram</mark> с полезными материалами для
+          в <mark className="app">Telegram</mark> вы можете найти полезные материалы для
           использования в различных графических редакторах, например{" "}
           <mark className="app">Adobe Photoshop</mark> и{" "}
           <mark className="app">Adobe Illustrator</mark>. В{" "}
@@ -302,9 +358,9 @@ const PRWhereFind: React.FC = () => {
             href="https://t.me/s/DesignWorld"
             title="Канал Design World в Telegram"
           >
-            данном канале
+            этом канале
           </a>{" "}
-          есть навигация по каналу для нахождения всякой всячины, например:{" "}
+          есть навигация для поиска всевозможных материалов, например по тегам:{" "}
           <mark className="tag">#текстуры</mark>, <mark className="tag">#шрифты</mark>,{" "}
           <mark className="tag">#кисти</mark>, <mark className="tag">#паттерны</mark>.
         </p>
@@ -316,8 +372,7 @@ const PRWhereFind: React.FC = () => {
           >
             Design World
           </a>
-          , то вы можете воспользоваться списком различных сайтов с различными
-          графическими материалами.
+          , можете воспользоваться списком сайтов с различными графическими материалами.
         </p>
         <div className="flexible-links">
           {" "}
@@ -430,30 +485,29 @@ const PRWhereFind: React.FC = () => {
             Texture Box
           </a>
         </div>
-        <AdditionWarning>
+        <Addition type="warning">
           <ul>
             <li>
-              Перед использованием материалов, внимательно ознакомьтесь с условиями
-              использования на каждом конкретном ресурсе. Некоторые ресурсы из списка
-              могут потребовать оформить подписку на использование некоторых материалов.
+              Перед использованием материалов внимательно ознакомьтесь с условиями
+              использования на каждом конкретном ресурсе. Некоторые из них могут
+              потребовать оформить подписку.
             </li>
             <li>
               Некоторые ресурсы могут быть заблокированы на территории Российской
-              Федерации или других стран, используйте <mark className="app">VPN</mark> для
-              доступа на данные ресурсы.
+              Федерации или других стран.
             </li>
           </ul>
-        </AdditionWarning>
+        </Addition>
       </DetailsSummary>
       <DetailsSummary
-        tag="sfx"
-        title="Где я могу найти и скачать звуки и различные звуковые эффекты для своих композиций?"
+        tag="sfx, звук, музыка, саунд-дизайн, аудио, sound effects, royalty free music, audio library"
+        title="Где найти и скачать звуковые эффекты для своих композиций?"
       >
         <p>
           В канале <a href="https://t.me/s/aetemp">AETemp</a> вы можете найти звуковые
-          эффекты в поиске по хештегу <mark className="tag">#звуки</mark>. Если же вам не
-          хватает ассортимента из <a href="https://t.me/s/aetemp">данного канала</a>, то
-          ниже предоставлен список сайтов, откуда вы можете достать звуковые эффекты и
+          эффекты по хештегу <mark className="tag">#звуки</mark>. Если же вам не хватит
+          ассортимента из <a href="https://t.me/s/aetemp">этого канала</a>, то ниже
+          приведён список сайтов, откуда можно скачать другие звуковые эффекты и
           использовать их в своих проектах.
         </p>
         <div className="flexible-links">
@@ -552,43 +606,100 @@ const PRWhereFind: React.FC = () => {
             title="Musopen"
           >
             Musopen
-          </a>{" "}
+          </a>
+          <a
+            href="https://mobygratis.com/"
+            title="mobygratis"
+          >
+            mobygratis
+          </a>
+          <a
+            href="https://tunetank.com/"
+            title="tunetank"
+          >
+            tunetank
+          </a>
+          <a
+            href="https://app.hellothematic.com/"
+            title="Thematic"
+          >
+            Thematic
+          </a>
+          <a
+            href="https://taketones.com/"
+            title="TakeTones"
+          >
+            TakeTones
+          </a>
+          <a
+            href="https://audiokaif.ru/"
+            title="Аудио Кайф"
+          >
+            Аудио Кайф
+          </a>
+          <a
+            href="https://www.chosic.com/free-music/all/"
+            title="Chosic"
+          >
+            Chosic
+          </a>
+          <a
+            href="https://freepd.com/"
+            title="freefd"
+          >
+            freepd
+          </a>
+          <a
+            href="https://blocsonic.com/"
+            title="blocSonic"
+          >
+            blocSonic
+          </a>
+          <a
+            href="https://audionautix.com/"
+            title="AudionautiX"
+          >
+            AudionautiX
+          </a>
+          <a
+            href="https://www.looperman.com/"
+            title="Looperman"
+          >
+            Looperman
+          </a>
         </div>
-        <AdditionWarning>
+        <Addition type="warning">
           <ul>
             <li>
-              Перед использованием материалов, внимательно ознакомьтесь с условиями
-              использования на каждом конкретном ресурсе. Некоторые ресурсы из списка
-              могут потребовать оформить подписку на использование некоторых материалов.
+              Перед использованием материалов внимательно ознакомьтесь с условиями
+              использования на каждом конкретном ресурсе. Некоторые из них могут
+              потребовать оформить подписку.
             </li>
             <li>
               Некоторые ресурсы могут быть заблокированы на территории Российской
-              Федерации или других стран, используйте <mark className="app">VPN</mark> для
-              доступа на данные ресурсы.
+              Федерации или других стран.
             </li>
           </ul>
-        </AdditionWarning>
+        </Addition>
       </DetailsSummary>
       <DetailsSummary
-        tag="идентификация шрифта, найти нужное начертание, find font, likefont"
-        title="Как я могу распознать шрифт по имеющемуся фото?"
+        tag="идентификация шрифта, find font, likefont, определить шрифт, font identification"
+        title="Как распознать шрифт по картинке?"
       >
         <p>
-          Для распознавания нужного начертания из изображения вы можете воспользоваться
-          сервисом{" "}
+          Для распознавания шрифта на изображении вы можете воспользоваться сервисом{" "}
           <a
             href="https://en.likefont.com"
             title="Сервис по нахождению шрифтов LikeFont"
           >
             LikeFont
           </a>
-          . Данный сервис может распознавать шрифты как на латинице, так и на кириллице.
-          Как начать им пользоваться? Всё просто.
+          . Этот сервис может распознавать шрифты как на латинице, так и на кириллице.
         </p>
         <ul>
           <li>
             <p>
-              Для начала перейдите на сайт{" "}
+              Чтобы начать поиск нужного начертания, сначала перейдите на сайт{" "}
               <a
                 href="https://en.likefont.com"
                 title="Сервис по нахождению шрифтов LikeFont"
@@ -598,96 +709,111 @@ const PRWhereFind: React.FC = () => {
               и загрузите туда своё изображение с помощью проводника или{" "}
               <mark className="key">Ctrl + V</mark>.
             </p>
-            <AdditionDanger>
-              Учтите, что по умолчанию на странице стоит чекбокс напротив{" "}
-              <mark className="ui">I agree to post it in Identification Community</mark>,
-              которая выкладывает ваш скриншот на общее обозрение. Если не хотите
-              выкладывать скриншот в сеть - уберите галочку.
-            </AdditionDanger>
-            <ImageFigure
+            <Addition type="danger">
+              Учтите, что по умолчанию на странице установлен флажок{" "}
+              <mark className="select">
+                «I agree to post it in Identification Community»
+              </mark>
+              , который разрешает публикацию вашего скриншота в сообществе. Если вы не
+              хотите выкладывать скриншот в сеть — уберите галочку.
+            </Addition>
+            <ContentFigure
               caption="Главная страница LikeFont"
-              imgSrc="images/likefont/likefont_mainpage.png"
               imgTitle="Главная страница LikeFont"
-              styleClass="figure_windows-light"
+              src="images/likefont/likefont_mainpage.png"
+              theme="light"
+              type="image"
+              variant="windows"
             />
           </li>
           <li>
             <p>
-              Предположим, что на вход вы дали скриншот, но с одной проблемой - он
+              Предположим, что на вход вы дали скриншот, но с одной проблемой — он
               неконтрастный и весь контент сливается. Что же делать? Для этого нужно
               предварительно обработать изображение.
             </p>
-            <ImageFigure
+            <ContentFigure
               caption="Пример плохого исходника"
-              imgSrc="images/likefont/prfaq_likefont_example.png"
               imgTitle="Пример плохого исходника"
-              styleClass="figure_windows-light"
+              src="images/likefont/prfaq_likefont_example.png"
+              theme="light"
+              type="image"
+              variant="windows"
             />
           </li>
           <li>
             <p>
-              После загрузки изображения сайт предлагает инструменты для обработки
-              изображения, например <mark className="ui">Threshold</mark>. Мы его повышаем
-              до максимально возможного значения, чтобы отделить текст от фона. Также есть
-              инструменты для поворота, отзеркаливания и наклона изображения при
-              необходимости.
+              После загрузки сайт предлагает инструменты для обработки изображения,
+              например <mark className="select">«Threshold»</mark>. Его нужно повысить до
+              максимально возможного значения, чтобы отделить текст от фона. При
+              необходимости вы можете воспользоваться инструментами для поворота,
+              отзеркаливания и наклона изображения.
             </p>
-            <ImageFigure
+            <ContentFigure
               caption="Изображение после обработки средствами сайта"
-              imgSrc="images/likefont/prfaq_likefont_fixed.png"
               imgTitle="Изображение после обработки средствами сайта"
-              styleClass="figure_windows-light"
+              src="images/likefont/prfaq_likefont_fixed.png"
+              theme="light"
+              type="image"
+              variant="windows"
             />
           </li>
           <li>
             <p>
-              После этого пролистайте страницу ниже и вы увидите несколько изображений,
-              поделённых на буквы. К каждому такому изображению нужно вписать нужную букву
-              для точности распознавания. Если на таких изображениях нет букв или символа,
-              то такие ячейки можно пропустить. После того как вы вписали буквы, нажмите
-              на <mark className="ui">Identify Now</mark> и сервис начнёт распознавать
+              После этого пролистайте страницу ниже, и вы увидите несколько изображений,
+              разделённых на распознанные сервисом буквы. К каждому такому изображению
+              нужно вписать соответствующую букву для точности распознавания. Если на
+              изображении нет буквы или символа, то такую ячейку можно пропустить. После
+              того как вы впишете буквы, нажмите на{" "}
+              <mark className="select">«Identify Now»</mark>, и сервис начнёт распознавать
               шрифт, а затем выдаст результат.
             </p>
-            <AdditionInfo>
-              Чем больше вы впишете букв, тем лучше будет результат распознавания шрифта!
-            </AdditionInfo>
-            <ImageFigure
+            <Addition type="info">
+              Чем больше букв вы впишете, тем точнее будет результат распознавания шрифта.
+            </Addition>
+            <ContentFigure
               caption="Изображения к которым нужно вписать букву"
-              imgSrc="images/likefont/prfaq_likefont_recognition.png"
               imgTitle="Изображения к которым нужно вписать букву"
-              styleClass="figure_windows-light"
+              src="images/likefont/prfaq_likefont_recognition.png"
+              theme="light"
+              type="image"
+              variant="windows"
             />
           </li>
           <li>
-            После обработки изображения ниже у вас появится список возможных шрифтов. В
-            моём примере был использован шрифт <mark>Berlin Sans FB</mark> и с его
-            нахождением сервис справился прекрасно.
-            <ImageFigure
+            <p>
+              После обработки изображения ниже у вас появится список возможных шрифтов. В
+              моём примере был использован шрифт <mark>Berlin Sans FB</mark>, и с его
+              нахождением сервис отлично справился.
+            </p>
+            <ContentFigure
               caption="Результат распознавания"
-              imgSrc="images/likefont/prfaq_likefont_result.png"
               imgTitle="Результат распознавания"
-              styleClass="figure_windows-light"
+              src="images/likefont/prfaq_likefont_result.png"
+              theme="light"
+              type="image"
+              variant="windows"
             />
           </li>
         </ul>
       </DetailsSummary>
       <DetailsSummary
-        tag="русский премьер, английский"
+        tag="русский язык, английский перевод, локализация, effects translation, language switch, localization"
         title="Где найти таблицу перевода стандартных эффектов?"
       >
-        <AdditionWarning>
-          Перевод и наличие эффектов, а также способ их работы может отличаться в
+        <Addition type="warning">
+          Перевод и наличие эффектов, а также способ их работы могут отличаться в
           зависимости от версии <mark className="app">Adobe Premiere Pro</mark>. Также
-          рекомендуем переключить интерфейс на английский язык, чтобы не возвращаться к
+          рекомендуется переключить интерфейс на английский язык, чтобы не возвращаться к
           этой таблице снова и снова.
-        </AdditionWarning>
+        </Addition>
         <p>
-          Пользователям, использующие русскоязычный интерфейс{" "}
+          Пользователям, использующим русскоязычный интерфейс{" "}
           <mark className="app">Adobe Premiere Pro</mark>, иногда бывает трудно найти
           эффект, который обозначен на английском языке. В таких случаях можно обратиться
           к таблице перевода.
         </p>
-        <AdditionDanger>
+        <Addition type="danger">
           В <mark className="app">Adobe Premiere Pro</mark> версии <mark>25.0</mark> и
           новее убрали папку <mark className="path">Obsolete</mark>, где были расположены
           устаревшие, по мнению Adobe, эффекты. Эффекты все ещё будут доступны для
@@ -697,7 +823,7 @@ const PRWhereFind: React.FC = () => {
           <a href="https://community.adobe.com/t5/premiere-pro-beta-discussions/now-released-obsolete-effects-transitions-and-presets-removed/td-p/14703879">
             Подробнее...
           </a>
-        </AdditionDanger>
+        </Addition>
         <Divider>Аудиоэффекты (Audio Effects)</Divider>
         <table className="table">
           <thead>
