@@ -6,8 +6,6 @@ import DetailsSummary from "../../../components/DetailsSummary";
 
 import {Divider} from "antd";
 
-import {useExternalLinks} from "../../../hooks/useExternalLinks";
-
 const AEExprStart: React.FC = () => {
   return (
     <div className="faq-content">
