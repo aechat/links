@@ -77,9 +77,10 @@ const AEInstallProblems: React.FC = () => {
             <Addition type="warning">
               <mark className="plugin">AtomX</mark> версии <mark>3.0.9</mark> может не
               импортировать пакеты, выдавая ошибку{" "}
-              <mark className="danger">«Connection Failure»</mark>. Для решения этой
-              проблемы попробуйте установить <mark className="plugin">AtomX</mark> версии{" "}
-              <mark>3.0.8</mark> и повторить попытку импорта пакета.
+              <mark className="danger">«Connection Failure»</mark> или просить код для
+              активации. Для решения этой проблемы попробуйте установить{" "}
+              <mark className="plugin">AtomX</mark> версии <mark>3.0.8</mark> и повторить
+              попытку импорта пакета.
             </Addition>
           </li>
           <li>
