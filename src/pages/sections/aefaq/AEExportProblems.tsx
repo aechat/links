@@ -247,19 +247,19 @@ const AEExportProblems: React.FC = () => {
                 </p>
                 <ul>
                   <li>
-                    <mark className="select">CQ (Constant Quality)</mark> — динамически
+                    <mark className="select">«CQ (Constant Quality)»</mark> — динамически
                     распределяет битрейт в зависимости от сложности сцены и поддерживает
                     стабильное качество на всём протяжении ролика. Это оптимальный выбор
                     для большинства задач.
                   </li>
                   <li>
-                    <mark className="select">VBR (Variable Bitrate)</mark> — требует
+                    <mark className="select">«VBR (Variable Bitrate)»</mark> — требует
                     настройки целевого и максимального битрейта, подобрать которые с
                     первого раза непросто, особенно если важно сохранить высокое качество
                     и при этом не получить слишком тяжёлый файл.
                   </li>
                   <li>
-                    <mark className="select">CBR (Constant Bitrate)</mark> — использует
+                    <mark className="select">«CBR (Constant Bitrate)»</mark> — использует
                     постоянный битрейт независимо от сложности кадра, что нередко приводит
                     к «раздутому» размеру файла и не гарантирует стабильное качество в
                     разных частях видео.
