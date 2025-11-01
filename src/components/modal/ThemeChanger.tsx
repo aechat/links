@@ -28,59 +28,35 @@ interface ThemeContextProps {
 const ThemeContext = createContext<ThemeContextProps | undefined>(undefined);
 
 export const ThemeProvider: React.FC<{children: React.ReactNode}> = ({children}) => {
-  const getInitialTheme = (): Theme => {
+  const [themeState, setThemeState] = useState<Theme>("system");
+
+  const [accentHueState, setAccentHueState] = useState<number>(210);
+
+  const [saturateRatioState, setSaturateRatioState] = useState<number>(1);
+
+  const [maxWidthState, setMaxWidthState] = useState<number>(1175);
+
+  const [isAnimationDisabledState, setIsAnimationDisabledState] =
+    useState<boolean>(false);
+  useEffect(() => {
     if (typeof localStorage !== "undefined") {
-      return (localStorage.getItem("theme") as Theme) || "system";
+      const savedTheme = (localStorage.getItem("theme") as Theme) || "system";
+
+      const savedAccentHue = parseInt(localStorage.getItem("accentHue") ?? "210", 10);
+
+      const savedSaturateRatio = parseFloat(localStorage.getItem("saturateRatio") ?? "1");
+
+      const savedMaxWidth = parseInt(localStorage.getItem("maxWidth") ?? "1175", 10);
+
+      const savedIsAnimationDisabled =
+        localStorage.getItem("isAnimationDisabled") === "true";
+      setThemeState(savedTheme);
+      setAccentHueState(savedAccentHue);
+      setSaturateRatioState(savedSaturateRatio);
+      setMaxWidthState(savedMaxWidth);
+      setIsAnimationDisabledState(savedIsAnimationDisabled);
     }
-
-    return "system";
-  };
-
-  const [themeState, setThemeState] = useState<Theme>(getInitialTheme);
-
-  const getInitialAccentHue = (): number => {
-    if (typeof localStorage !== "undefined") {
-      return parseInt(localStorage.getItem("accentHue") ?? "210", 10);
-    }
-
-    return 210;
-  };
-
-  const [accentHueState, setAccentHueState] = useState<number>(getInitialAccentHue);
-
-  const getInitialSaturateRatio = (): number => {
-    if (typeof localStorage !== "undefined") {
-      return parseFloat(localStorage.getItem("saturateRatio") ?? "1");
-    }
-
-    return 1;
-  };
-
-  const [saturateRatioState, setSaturateRatioState] = useState<number>(
-    getInitialSaturateRatio
-  );
-
-  const getInitialMaxWidth = (): number => {
-    if (typeof localStorage !== "undefined") {
-      return parseInt(localStorage.getItem("maxWidth") ?? "1175", 10);
-    }
-
-    return 1175;
-  };
-
-  const [maxWidthState, setMaxWidthState] = useState<number>(getInitialMaxWidth);
-
-  const getInitialIsAnimationDisabled = (): boolean => {
-    if (typeof localStorage !== "undefined") {
-      return localStorage.getItem("isAnimationDisabled") === "true";
-    }
-
-    return false;
-  };
-
-  const [isAnimationDisabledState, setIsAnimationDisabledState] = useState<boolean>(
-    getInitialIsAnimationDisabled
-  );
+  }, []);
 
   const setTheme = (newTheme: Theme) => {
     setThemeState(newTheme);
