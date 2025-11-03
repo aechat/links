@@ -2173,7 +2173,7 @@ const AEInstallProblems: React.FC = () => {
                   Убедитесь, что вы установили{" "}
                   <mark className="app">Adobe After Effects</mark>,{" "}
                   <mark className="app">Adobe Premiere Pro</mark> и{" "}
-                  <mark className="app">Adobe Media Encoder</mark> одной версии-года.
+                  <mark className="app">Adobe Media Encoder</mark> одной «версии-года».
                   Если, например, установлены{" "}
                   <mark className="app">Adobe After Effects 2025</mark>,{" "}
                   <mark className="app">Adobe Premiere Pro 2024</mark> и{" "}
