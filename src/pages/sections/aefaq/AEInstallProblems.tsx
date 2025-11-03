@@ -2252,7 +2252,7 @@ const AEInstallProblems: React.FC = () => {
         </p>
         <ul>
           <li>
-            <mark className="word">AE</mark>, <mark className="word">AEX</mark>,{" "}
+            <mark className="word">AE</mark>, <mark className="file">AEX</mark>,{" "}
             <mark className="word">PR</mark> или <mark className="word">Adobe</mark> —
             плагины установятся в <mark className="app">Adobe After Effects</mark> или{" "}
             <mark className="app">Adobe Premiere Pro</mark>.
