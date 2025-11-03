@@ -1734,105 +1734,150 @@ const PRInstallProblems: React.FC = () => {
       >
         <Divider>Исправляем ошибку 1 или 501</Divider>
         <p>
-          Обычно ошибка <mark>1</mark> и <mark>501</mark> возникает из-за того, что у вас
-          повреждено приложение <mark className="app">Adobe Creative Cloud Cleaner</mark>{" "}
-          или были криво удалены предыдущие программы от <mark>Adobe</mark>. Чтобы
-          исправить это - очистите остатки предыдущих установок с помощью{" "}
+          Обычно ошибка <mark>1</mark> или <mark>501</mark> возникает из-за того, что у
+          вас повреждено приложение <mark className="app">Adobe Creative Cloud</mark> или
+          были некорректно удалены предыдущие программы от{" "}
+          <mark className="company">Adobe</mark>, а потом вы установили «народные» версии
+          программ. Чтобы это исправить — попробуйте очистить остатки предыдущих установок
+          с помощью{" "}
           <a href="https://helpx.adobe.com/creative-cloud/kb/cc-cleaner-tool-installation-problems.html">
-            Adobe Creative Cloud Cleaner
+            Adobe Creative Cloud Cleaner Tool
           </a>{" "}
-          или <mark className="app">Revo Uninstaller</mark>.
+          или любого другого деинсталлятора, например{" "}
+          <mark className="app">Revo Uninstaller</mark>.
         </p>
         <Divider>Исправляем ошибку 176</Divider>
-        <ContentSwitcher
+        <ContentFilter
           macContent={
             <div>
               <p>
-                Скорее всего вы до установки более новых версий{" "}
-                <mark className="app">Adobe Premiere Pro</mark> пользовались другими
-                программами <mark>Adobe</mark>. Для решения - попробуйте удалить папку{" "}
-                <mark className="path">~/Library/Application Support/Adobe/caps</mark>, а
-                затем повторить попытку установки нужной программы.
+                Скорее всего, до установки более новых версий{" "}
+                <mark className="app">Adobe Premiere Pro</mark> вы пользовались другими
+                программами <mark className="app">Adobe</mark>. Для решения проблемы
+                попробуйте удалить папку{" "}
+                <mark className="path">/Library/Application Support/Adobe/caps</mark>, а
+                затем повторить попытку установки.
               </p>
             </div>
           }
           windowsContent={
             <div>
               <p>
-                Скорее всего вы до установки более новых версий{" "}
-                <mark className="app">Adobe Premiere Pro</mark> пользовались другими
-                программами <mark>Adobe</mark>. Для решения - попробуйте удалить папку{" "}
+                Скорее всего, до установки более новых версий{" "}
+                <mark className="app">Adobe Premiere Pro</mark> вы пользовались другими
+                программами <mark className="app">Adobe</mark>. Для решения проблемы
+                попробуйте удалить папку{" "}
                 <mark className="path">
                   C:\Program Files (x86)\Common Files\Adobe\caps
                 </mark>
-                , а затем повторить попытку установки нужной программы.
+                , а затем повторить попытку установки.
               </p>
             </div>
           }
         />
         <Divider>
-          Исправляем ошибку 195 - &quot;Требуется процессор, поддерживающий инструкции
-          Advanced Vector Extensions 2 (AVX2)&quot;
+          Исправляем ошибку 195 — «Требуется процессор, поддерживающий инструкции Advanced
+          Vector Extensions 2 (AVX2)»
         </Divider>
         <p>
-          Если вы столкнулись с этой ошибкой при установке, это означает, что ваш
-          процессор не поддерживает инструкции <mark>AVX2</mark>, необходимые для
-          последних версий <mark className="app">Adobe Premiere Pro</mark>. Для решения
-          проблемы обновите процессор или установите более старую версию программы,
-          например <mark>23.6</mark> или <mark>24.0</mark>.
+          Если вы столкнулись с этой ошибкой при установке программы — это означает, что
+          ваш процессор не поддерживает инструкции <mark>AVX2</mark>, необходимые для
+          корректной работы последних версий{" "}
+          <mark className="app">Adobe Premiere Pro</mark>. Чтобы устранить проблему —
+          обновите устройство или процессор на более современный либо установите более
+          старую версию программы, например <mark>23.6</mark> (2023) или <mark>24.0</mark>{" "}
+          (2024).
         </p>
         <Divider>
-          Исправляем ошибку 21 - &quot;Операционная система не соответствует минимальным
-          требованиям для этой программы установки&quot;
+          Исправляем ошибку 21 — «Операционная система не соответствует минимальным
+          требованиям для этой программы установки»
         </Divider>
-        <p>
-          Скорее всего вы пытаетесь установить{" "}
-          <mark className="app">Adobe Premiere Pro</mark> версии <mark>2024</mark> или
-          новее на несвежую сборку <mark>Windows</mark>. В таком случае у вас есть только
-          два выхода, по какому пути идти - решать только вам.
-        </p>
-        <ul>
-          <li>
-            Если вы хотите установить свежую версию{" "}
-            <mark className="app">Adobe Premiere Pro</mark>, то вам нужно обновить вашу
-            систему до <mark>Windows 10</mark> сборки <mark>22H2</mark> или установить{" "}
-            <mark>Windows 11</mark>. Обычно в{" "}
-            <a href="https://helpx.adobe.com/premiere-pro/system-requirements.html">
-              системных требованиях Premiere Pro
-            </a>{" "}
-            указывается минимальная версия операционной системы.
-            <AdditionInfo>
+        <ContentFilter
+          windowsContent={
+            <div>
+              <p>
+                Скорее всего, вы пытаетесь установить{" "}
+                <mark className="app">Adobe Premiere Pro</mark> версии <mark>2024</mark>{" "}
+                или новее на устаревшую сборку <mark>Windows</mark>. В таком случае есть
+                только два решения.
+              </p>
               <ul>
                 <li>
-                  Текущую сборку <mark>Windows</mark> вы можете посмотреть в{" "}
-                  <mark className="app">winver</mark>.
+                  <p>
+                    Если планируете установить свежую версию{" "}
+                    <mark className="app">Adobe Premiere Pro</mark>, перейдите на{" "}
+                    <mark>Windows 11</mark>. Систему можно обновить поверх предыдущей
+                    версии с помощью образа <mark className="file">ISO</mark> — без потери
+                    данных, настроек и приложений. В{" "}
+                    <a href="https://helpx.adobe.com/premiere-pro/system-requirements.html">
+                      системных требованиях Premiere Pro
+                    </a>{" "}
+                    обычно указана минимальная версия операционной системы, необходимая
+                    для корректного запуска программы.
+                  </p>
+                  <Addition type="info">
+                    <ul>
+                      <li>
+                        Последняя версия <mark className="app">Adobe Premiere Pro</mark>,
+                        поддерживающая <mark>Windows 7</mark> и <mark>Windows 8.1</mark> —{" "}
+                        <mark>2019 (16.X)</mark>.
+                      </li>
+                      <li>
+                        Последняя версия <mark className="app">Adobe Premiere Pro</mark>,
+                        поддерживающая <mark>Windows 10</mark> версии{" "}
+                        <mark>LTSC 21H2</mark> — <mark>2023 (23.X)</mark>.
+                      </li>
+                    </ul>
+                  </Addition>
+                  <p>
+                    Проверить текущую сборку <mark>Windows</mark> можно с помощью команды{" "}
+                    <mark className="app">winver</mark> в окне{" "}
+                    <mark className="app">Выполнить</mark>, которое открывается
+                    комбинацией клавиш <mark className="key">Win + R</mark>.
+                  </p>
+                  <div className="flexible-links">
+                    <a href="https://www.microsoft.com/ru-ru/software-download/windows11">
+                      Обновиться до Windows 11
+                    </a>
+                  </div>
+                  <p>
+                    Если загрузка с сайта <mark className="company">Microsoft</mark> не
+                    работает или вам нужен образ <mark className="file">ISO</mark> для
+                    записи на USB-накопитель — воспользуйтесь ссылками ниже.
+                  </p>
+                  <div className="flexible-links">
+                    <a href="https://files.rg-adguard.net/category">
+                      Скачать оригинальные файлы Microsoft на rg-adguard.net
+                    </a>
+                    <a href="https://www.comss.ru/download/page.php?id=2572">
+                      Скачать оригинальные образы Windows 10 на Comss
+                    </a>
+                    <a href="https://www.comss.ru/download/page.php?id=9234">
+                      Скачать оригинальные образы Windows 11 на Comss
+                    </a>
+                    <a href="https://nnmclub.to/forum/tracker.php?pid=10412851">
+                      Сборки Windows от SanLex на NNM-Club
+                    </a>
+                  </div>
                 </li>
                 <li>
-                  Если у вас стоит <mark>Windows 10</mark> редакции <mark>LTSC</mark>, то
-                  сборку новее <mark>21H2</mark> вы не сможете установить. Вам нужно будет
-                  переустановить систему на редакцию <mark>Home</mark> или{" "}
-                  <mark>Pro</mark>.{" "}
-                  <i style={{opacity: "0.5"}}>
-                    Или поэкспериментировать с редакцией <mark>LTSC для IoT</mark>.
-                  </i>
+                  Если вы не желаете обновлять или переустанавливать систему, то можете
+                  установить более старую версию{" "}
+                  <mark className="app">Adobe Premiere Pro</mark>, например{" "}
+                  <mark>23.6</mark> (2023) или <mark>15.1</mark> (2018). В таком случае
+                  установка пройдёт корректно.
                 </li>
               </ul>
-            </AdditionInfo>
-          </li>
-          <li>
-            Если вы не желаете обновлять или переустанавливать систему, то вы можете
-            установить более старую версию <mark className="app">Adobe Premiere Pro</mark>
-            , например <mark>23.6</mark> (2023) или <mark>15.1</mark> (2018). В таком
-            случае установщик выполнит установку корректно.
-          </li>
-        </ul>
-        <AdditionInfo>
-          Остальные решения по кодам ошибок при установке вы можете найти на{" "}
+            </div>
+          }
+        />
+        <Addition type="info">
+          Другие решения по кодам ошибок при установке вы можете найти на{" "}
           <a href="https://helpx.adobe.com/creative-cloud/kb/troubleshoot-download-install-logs.html">
             сайте Adobe
           </a>{" "}
-          или на различных форумах в интернете.
-        </AdditionInfo>
+          или на различных интернет-форумах.
+        </Addition>
       </DetailsSummary>
       <DetailsSummary
         tag="репак от кролика"
