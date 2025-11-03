@@ -2241,58 +2241,71 @@ const PRInstallProblems: React.FC = () => {
           }
         />
       </DetailsSummary>
-        </p>
-        <Divider>Очищаем системный раздел от мусора</Divider>
+      <DetailsSummary
+        tag="бесконечная загрузка, голос в субтитры, транскрибация, captions, text"
+        title="Почему функция Speech to Text не работает на «народных» версиях?"
+      >
         <p>
-          Если вы согласны переустановить <mark className="app">Adobe Premiere Pro</mark>{" "}
-          на стандартный раздел, но у вас мало места, то попробуйте почистить систему от
-          разного хлама. Это можно сделать разными способами, например стандартными
-          средствами, сторонними программами или руками, предварительно проанализировав
-          всю систему. После очистки системы от мусора - начните процесс переустановки{" "}
-          <mark className="app">Adobe Premiere Pro</mark> на стандартное место и
-          наслаждайтесь корректной работой сторонних плагинов.
+          По умолчанию <mark className="app">Adobe Premiere Pro</mark> поставляется без
+          языковых пакетов для распознавания речи. При необходимости они загружаются прямо
+          из приложения. Однако в «народных» версиях программы эта загрузка будет длиться
+          бесконечно, потому что у приложения нет доступа к интернету.
         </p>
+        <p>
+          Решается это довольно просто — нужно установить языковые пакеты отдельно, с того
+          же ресурса, откуда вы скачали программу.
+        </p>
+        <p>
+          Например, языковые пакеты для репака от <mark className="user">KpoJluK</mark> вы
+          можете скачать в канале{" "}
+          <a href="https://t.me/+Qd9xu7A4TeIwNzY6">склад стройматериалов (Windows)</a> по
+          хештегу <mark className="tag">#speechtotext</mark> или в канале{" "}
+          <a href="https://t.me/+ZqiaMfQRFgM4YmEy">Яблоневый сад (macOS)</a> по поиску{" "}
+          <mark className="tag">Speech To Text</mark>.
+        </p>
+        <Addition type="danger">
+          Устанавливая языковой пакет, смотрите, для какой версии{" "}
+          <mark className="app">Adobe Premiere Pro</mark> он предназначен! Версию{" "}
+          <mark className="app">Adobe Premiere Pro</mark> вы можете узнать в{" "}
+          <mark className="select">«Help» → «About Adobe Premiere Pro»</mark>. Если вы
+          установите пакет для другой версии, то не сможете использовать функцию
+          транскрибации и зря займёте место на диске.
+        </Addition>
         <ul>
           <li>
-            Систему от мусора стандартными средствами можно почистить с помощью служебной
-            программы <mark className="code">cleanmgr.exe</mark>, которая может
-            открываться из окна <mark className="app">Выполнить</mark>. В нём вам нужно
-            указать нужный раздел с системой и нажать на <mark className="ui">ОК</mark>.
-            Данная утилита проанализирует систему от накопившихся обновлений{" "}
-            <mark>Windows</mark>, от старых точек восстановления и хлама, который можно
-            выборочно удалить.
+            После установки языкового пакета — откройте окно{" "}
+            <mark className="select">«Text»</mark> и создайте субтитры с помощью{" "}
+            <mark className="select">«Generate static transcript»</mark>.
+            <ContentFigure
+              caption="Text"
+              imgTitle="Начало генерации текста на основе речи"
+              src="images/premierepro/text_generate_static_transcript.png"
+              theme="dark"
+              type="image"
+              variant="windows"
+            />
           </li>
           <li>
-            Автоматически почистить систему от мусора можно и с помощью сторонних
-            программ, по типу <mark className="app">Auslogics BoostSpeed</mark>,{" "}
-            <mark className="app">Reg Organizer</mark>,{" "}
-            <mark className="app">Dism++</mark>,{" "}
-            <mark className="app">Kerish Doctor</mark> или{" "}
-            <mark className="app">CCleaner</mark>.
-            <AdditionDanger>
-              Используйте подобные утилиты с осторожностью, а то вдруг удалите нужные вам
-              файлы. Данные утилиты предназначены для чуть более продвинутых
-              пользователей, которые понимают, что делают.
-            </AdditionDanger>
+            В открывшемся окне в параметре <mark className="select">«Language»</mark>{" "}
+            выберите язык, на котором говорит диктор, и нажмите{" "}
+            <mark className="select">«Transcribe»</mark>.
+            <ContentFigure
+              caption="Generate static transcript"
+              imgTitle="Настройки генерации текста на основе речи"
+              src="images/premierepro/generate_transcribe_settings.png"
+              theme="dark"
+              type="image"
+              variant="windows"
+            />
           </li>
           <li>
-            Если вы хотите проанализировать ваш системный раздел и посмотреть, какая
-            директория занимает психологически слишком много места, то вам помогут
-            программы, по типу <mark className="app">WizTree</mark>,{" "}
-            <mark className="app">WinDirStat</mark> или{" "}
-            <mark className="app">JDiskReport</mark>. С помощью них вы можете
-            просканировать все директории и узнать размер каждой папки или файла и, при
-            необходимости, удалить ненужное.
+            После этого подождите некоторое время, и вы получите какую-никакую расшифровку
+            аудио. На основе этих данных вы можете создать субтитры, выбрав в трёх точках{" "}
+            <mark className="select">«Create Captions»</mark>, подредактировать их или
+            перемещаться к моменту на таймлайне, где звучит определённая фраза.
           </li>
         </ul>
-        <Divider>Сжимаем пространство на диске</Divider>
-        <p>
-          В <mark>Windows</mark> есть функция сжатия операционной системы или вообще
-          целого раздела. Она может помочь в тех случаях, когда в вашем устройстве
-          установлен накопитель с слишком малым объемом памяти и его не хватает даже для
-          базовых программ и утилит. Этой функцией можно воспользоваться с помощью{" "}
-          <mark className="app">командной строки Windows</mark> или{" "}
-          <mark className="app">PowerShell</mark>.
+      </DetailsSummary>
         </p>
         <AdditionDanger>
           Используйте функцию сжатия файлов с осторожностью и только если у вашего
