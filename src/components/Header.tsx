@@ -23,6 +23,8 @@ const constants = {
 
 const SEARCH_PATHS = ["aefaq", "prfaq", "psfaq", "aeexpr"] as const;
 
+const WIP_PATHS = ["prfaq", "psfaq", "aeexpr"] as const;
+
 const Header: React.FC<HeaderProps> = ({title}) => {
   const location = useLocation();
 
@@ -101,6 +103,9 @@ const Header: React.FC<HeaderProps> = ({title}) => {
         <div className="logo">
           {title}
           <sub>@aechat</sub>
+          {WIP_PATHS.some((path) => location.pathname.includes(path)) && (
+            <mark>{isWide ? "[В РАЗРАБОТКЕ]" : "[WIP]"}</mark>
+          )}
         </div>
       </div>
       <div className="header-right">

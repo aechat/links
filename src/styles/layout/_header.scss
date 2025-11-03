@@ -23,11 +23,11 @@
   width: 100%;
   max-width: 1075px;
 
-  @media screen and (width <= 768px) {
+  @media screen and (width <=768px) {
     z-index: 100;
   }
 
-  @media screen and (width >= 1075px) {
+  @media screen and (width >=1075px) {
     transform: translateX(calc(-50% - 0.5px));
     border-bottom-right-radius: $roundness * 1.5;
     border-bottom-left-radius: $roundness * 1.5;
@@ -103,6 +103,15 @@
 
   .header-left {
     gap: 8px;
+
+    mark {
+      margin-inline: 8px;
+      outline: 1px solid var(--color-status-danger-border);
+      background: var(--color-status-danger-mark-background);
+      color: var(--color-status-danger-text);
+      font-style: normal;
+      font-size: 1rem;
+    }
   }
 
   .header-right {
