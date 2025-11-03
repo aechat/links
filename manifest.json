@@ -1,6 +1,6 @@
 {
-  "_Apple-CAz7SVzQ.js": {
-    "file": "assets/Apple-CAz7SVzQ.js",
+  "_Apple-DFu6Ntpg.js": {
+    "file": "assets/Apple-DFu6Ntpg.js",
     "name": "Apple",
     "imports": [
       "index.html"
@@ -10,66 +10,66 @@
     "file": "assets/CodeSnippet-BEHUn5zE.css",
     "src": "_CodeSnippet-BEHUn5zE.css"
   },
-  "_CodeSnippet-IFlvDQzz.js": {
-    "file": "assets/CodeSnippet-IFlvDQzz.js",
+  "_CodeSnippet-D4NPGsEQ.js": {
+    "file": "assets/CodeSnippet-D4NPGsEQ.js",
     "name": "CodeSnippet",
     "imports": [
       "index.html",
-      "_Header-jbUfh-f_.js"
+      "_Header-CjO1Gh6i.js"
     ],
     "css": [
       "assets/CodeSnippet-BEHUn5zE.css"
     ]
   },
-  "_ContentFigure-C6D7ttxH.js": {
-    "file": "assets/ContentFigure-C6D7ttxH.js",
+  "_ContentFigure-jdOksV0g.js": {
+    "file": "assets/ContentFigure-jdOksV0g.js",
     "name": "ContentFigure",
     "imports": [
       "index.html",
-      "_Header-jbUfh-f_.js",
-      "_PageIntro-_VHgtcM9.js"
+      "_Header-CjO1Gh6i.js",
+      "_PageIntro-b7aetgSr.js"
     ]
   },
-  "_ContentFilter-URT-rBoS.js": {
-    "file": "assets/ContentFilter-URT-rBoS.js",
+  "_ContentFilter-614nxPqQ.js": {
+    "file": "assets/ContentFilter-614nxPqQ.js",
     "name": "ContentFilter",
     "imports": [
       "index.html",
-      "_Apple-CAz7SVzQ.js"
+      "_Apple-DFu6Ntpg.js"
     ]
   },
-  "_Header-jbUfh-f_.js": {
-    "file": "assets/Header-jbUfh-f_.js",
+  "_Header-CjO1Gh6i.js": {
+    "file": "assets/Header-CjO1Gh6i.js",
     "name": "Header",
     "imports": [
       "index.html"
     ]
   },
-  "_HostsAdobe-BY6u4BOG.js": {
-    "file": "assets/HostsAdobe-BY6u4BOG.js",
+  "_HostsAdobe-BEztu9L6.js": {
+    "file": "assets/HostsAdobe-BEztu9L6.js",
     "name": "HostsAdobe",
     "imports": [
       "index.html",
-      "_Header-jbUfh-f_.js"
+      "_Header-CjO1Gh6i.js"
     ]
   },
-  "_PageIntro-_VHgtcM9.js": {
-    "file": "assets/PageIntro-_VHgtcM9.js",
+  "_PageIntro-b7aetgSr.js": {
+    "file": "assets/PageIntro-b7aetgSr.js",
     "name": "PageIntro",
     "imports": [
       "index.html",
-      "_Header-jbUfh-f_.js"
+      "_Header-CjO1Gh6i.js"
     ]
   },
-  "_VideoSettingsRounded-C0vgg08w.js": {
-    "file": "assets/VideoSettingsRounded-C0vgg08w.js",
+  "_VideoSettingsRounded-DU4sAf1i.js": {
+    "file": "assets/VideoSettingsRounded-DU4sAf1i.js",
     "name": "VideoSettingsRounded",
     "imports": [
       "index.html"
     ]
   },
   "index.html": {
-    "file": "assets/index-ICTaIlpj.js",
+    "file": "assets/index-BH2y3lQy.js",
     "name": "index",
     "src": "index.html",
     "isEntry": true,
@@ -399,62 +399,62 @@
     "src": "src/fonts/ttf/RedHatDisplay/static/RedHatDisplay-SemiBoldItalic.ttf"
   },
   "src/pages/aeexprPage.tsx": {
-    "file": "assets/aeexprPage-CpUL2Ytd.js",
+    "file": "assets/aeexprPage-DCgwsMT5.js",
     "name": "aeexprPage",
     "src": "src/pages/aeexprPage.tsx",
     "isDynamicEntry": true,
     "imports": [
       "index.html",
-      "_PageIntro-_VHgtcM9.js",
-      "_Header-jbUfh-f_.js",
-      "_ContentFigure-C6D7ttxH.js",
-      "_CodeSnippet-IFlvDQzz.js"
+      "_PageIntro-b7aetgSr.js",
+      "_Header-CjO1Gh6i.js",
+      "_ContentFigure-jdOksV0g.js",
+      "_CodeSnippet-D4NPGsEQ.js"
     ]
   },
   "src/pages/aefaqPage.tsx": {
-    "file": "assets/aefaqPage-DwL8Aoj4.js",
+    "file": "assets/aefaqPage-CS4cBlxR.js",
     "name": "aefaqPage",
     "src": "src/pages/aefaqPage.tsx",
     "isDynamicEntry": true,
     "imports": [
       "index.html",
-      "_PageIntro-_VHgtcM9.js",
-      "_ContentFigure-C6D7ttxH.js",
-      "_Header-jbUfh-f_.js",
-      "_ContentFilter-URT-rBoS.js",
-      "_CodeSnippet-IFlvDQzz.js",
-      "_HostsAdobe-BY6u4BOG.js",
-      "_VideoSettingsRounded-C0vgg08w.js",
-      "_Apple-CAz7SVzQ.js"
+      "_PageIntro-b7aetgSr.js",
+      "_ContentFigure-jdOksV0g.js",
+      "_Header-CjO1Gh6i.js",
+      "_ContentFilter-614nxPqQ.js",
+      "_CodeSnippet-D4NPGsEQ.js",
+      "_HostsAdobe-BEztu9L6.js",
+      "_VideoSettingsRounded-DU4sAf1i.js",
+      "_Apple-DFu6Ntpg.js"
     ]
   },
   "src/pages/chatRules.tsx": {
-    "file": "assets/chatRules-Ro-8a3JL.js",
+    "file": "assets/chatRules-BnfstN1Z.js",
     "name": "chatRules",
     "src": "src/pages/chatRules.tsx",
     "isDynamicEntry": true,
     "imports": [
       "index.html",
-      "_Header-jbUfh-f_.js",
-      "_ContentFilter-URT-rBoS.js",
-      "_PageIntro-_VHgtcM9.js",
-      "_Apple-CAz7SVzQ.js"
+      "_Header-CjO1Gh6i.js",
+      "_ContentFilter-614nxPqQ.js",
+      "_PageIntro-b7aetgSr.js",
+      "_Apple-DFu6Ntpg.js"
     ]
   },
   "src/pages/linksPage.tsx": {
-    "file": "assets/linksPage-vvBxk1Hg.js",
+    "file": "assets/linksPage-Hf1S4UTB.js",
     "name": "linksPage",
     "src": "src/pages/linksPage.tsx",
     "isDynamicEntry": true,
     "imports": [
       "index.html",
-      "_Header-jbUfh-f_.js",
-      "_Apple-CAz7SVzQ.js",
-      "_VideoSettingsRounded-C0vgg08w.js"
+      "_Header-CjO1Gh6i.js",
+      "_Apple-DFu6Ntpg.js",
+      "_VideoSettingsRounded-DU4sAf1i.js"
     ]
   },
   "src/pages/notFound.tsx": {
-    "file": "assets/notFound-bCNwWNU9.js",
+    "file": "assets/notFound-CoxwHtxS.js",
     "name": "notFound",
     "src": "src/pages/notFound.tsx",
     "isDynamicEntry": true,
@@ -463,33 +463,33 @@
     ]
   },
   "src/pages/prfaqPage.tsx": {
-    "file": "assets/prfaqPage-DEXZWmlQ.js",
+    "file": "assets/prfaqPage-VnF9mWk7.js",
     "name": "prfaqPage",
     "src": "src/pages/prfaqPage.tsx",
     "isDynamicEntry": true,
     "imports": [
       "index.html",
-      "_PageIntro-_VHgtcM9.js",
-      "_ContentFigure-C6D7ttxH.js",
-      "_Header-jbUfh-f_.js",
-      "_ContentFilter-URT-rBoS.js",
-      "_HostsAdobe-BY6u4BOG.js",
-      "_Apple-CAz7SVzQ.js"
+      "_PageIntro-b7aetgSr.js",
+      "_ContentFigure-jdOksV0g.js",
+      "_Header-CjO1Gh6i.js",
+      "_ContentFilter-614nxPqQ.js",
+      "_HostsAdobe-BEztu9L6.js",
+      "_Apple-DFu6Ntpg.js"
     ]
   },
   "src/pages/psfaqPage.tsx": {
-    "file": "assets/psfaqPage-Cmx2Bac7.js",
+    "file": "assets/psfaqPage-Bm4_OCkl.js",
     "name": "psfaqPage",
     "src": "src/pages/psfaqPage.tsx",
     "isDynamicEntry": true,
     "imports": [
       "index.html",
-      "_PageIntro-_VHgtcM9.js",
-      "_ContentFigure-C6D7ttxH.js",
-      "_Header-jbUfh-f_.js",
-      "_ContentFilter-URT-rBoS.js",
-      "_HostsAdobe-BY6u4BOG.js",
-      "_Apple-CAz7SVzQ.js"
+      "_PageIntro-b7aetgSr.js",
+      "_ContentFigure-jdOksV0g.js",
+      "_Header-CjO1Gh6i.js",
+      "_ContentFilter-614nxPqQ.js",
+      "_HostsAdobe-BEztu9L6.js",
+      "_Apple-DFu6Ntpg.js"
     ]
   }
 }
