@@ -2490,6 +2490,98 @@ const PRInstallProblems: React.FC = () => {
           }
         />
       </DetailsSummary>
+      <DetailsSummary
+        tag="непонятные обозначения, adobe, ae, pr, ps, lr, ofx, ce, davinci, vegas, repack, standalone, офх, адоб, репак, стандалон"
+        title="Как понять, для какой программы предназначен установщик плагина?"
+      >
+        <p>
+          Обычно в названии установочных файлов указывается, для каких программ
+          предназначен плагин. Это сделано, чтобы не перепутать файлы для нужных вам
+          программ и установить их правильно.
+        </p>
+        <ul>
+          <li>
+            <mark className="word">AE</mark>, <mark className="file">AEX</mark>,{" "}
+            <mark className="word">PR</mark>, <mark className="file">PRM</mark> или{" "}
+            <mark className="word">Adobe</mark> — плагины установятся в{" "}
+            <mark className="app">Adobe Premiere Pro</mark> или{" "}
+            <mark className="app">Adobe After Effects</mark>.
+            <Addition type="info">
+              <ul>
+                <li>
+                  Иногда плагины с припиской <mark className="word">AE</mark> или{" "}
+                  <mark className="word">AEX</mark> могут устанавливаться как в{" "}
+                  <mark className="app">Adobe After Effects</mark>, так и в{" "}
+                  <mark className="app">Adobe Premiere Pro</mark>.
+                </li>
+                <li>
+                  Плагины, распространяющиеся в виде установщиков, устанавливаются в
+                  стандартные папки программ. Перед установкой убедитесь, что программы от{" "}
+                  <mark className="company">Adobe</mark> установлены в стандартное
+                  расположение — это поможет избежать ситуаций, когда плагин не появляется
+                  в нужной программе.
+                </li>
+              </ul>
+            </Addition>
+          </li>
+          <li>
+            <mark className="word">PS</mark>, <mark className="word">LR</mark> — плагины
+            установятся в <mark className="app">Adobe Photoshop</mark> или{" "}
+            <mark className="app">Adobe Lightroom</mark>.
+          </li>
+          <li>
+            <mark className="word">OFX</mark> или <mark className="word">OpenFX</mark> —
+            плагин установится для программ, поддерживающих стандарт формата{" "}
+            <mark className="copy">OpenFX</mark>. К ним относятся{" "}
+            <mark className="app">DaVinci Resolve</mark>,{" "}
+            <mark className="app">Vegas Pro</mark>, <mark className="app">Nuke</mark> и{" "}
+            <a href="https://ru.wikipedia.org/wiki/OpenFX#%D0%A5%D0%BE%D1%81%D1%82%D1%8B">
+              остальные
+            </a>
+            .
+            <Addition type="warning">
+              Такой тип плагинов не совместим с продуктами{" "}
+              <mark className="company">Adobe</mark>, так как их программы не поддерживают
+              стандарт плагинов <mark className="copy">OpenFX</mark>.
+            </Addition>
+          </li>
+          <li>
+            <mark className="word">AVX</mark> — плагин установится для программ от{" "}
+            <mark className="company">Avid</mark>.
+            <Addition type="warning">
+              Такой тип плагинов не совместим с программами от{" "}
+              <mark className="company">Adobe</mark> и с программами, поддерживающими
+              стандарт <mark className="copy">OpenFX</mark>.
+            </Addition>
+          </li>
+          <li>
+            <mark className="word">Standalone</mark> или <mark className="word">SAL</mark>{" "}
+            — плагин, который может работать как самостоятельная программа и не зависит от
+            других приложений, например <mark className="plugin">Boris FX Mocha Pro</mark>{" "}
+            или <mark className="plugin">Boris FX Optics</mark>.
+          </li>
+          <li>
+            <mark className="word">Репак от ...</mark> или{" "}
+            <mark className="word">Repack by ...</mark> — перепакованный установщик
+            плагина, который устанавливает его в нужное место. Обычно такие плагины уже
+            активированы, если не указано иное.
+            <Addition type="warning">
+              При запуске таких установщиков стоит быть внимательным к чекбоксам — есть
+              риск установить в систему ненужные программы.
+            </Addition>
+          </li>
+          <li>
+            <mark className="word">CE</mark> — маркировка от группы релизеров{" "}
+            <mark className="user">Team V.R.</mark>, расшифровывающаяся как{" "}
+            <mark>Corporate Edition</mark>. Так обозначаются дистрибутивы, которые можно
+            установить без дополнительных действий по активации. По сути, это маркировка{" "}
+            <mark className="word">репака</mark>.
+            <Addition type="warning">
+              Однако такие установщики не всегда содержат полностью «пролечённый» продукт
+              — некоторые эффекты могут остаться без «патченной» лицензии.
+            </Addition>
+          </li>
+        </ul>
       </DetailsSummary>
       <DetailsSummary
         tag="плагин не активирован, license failed, красный крест, почему при его применении появляются красные кресты, непонятные наложения, надписи про отсутствие лицензии"
