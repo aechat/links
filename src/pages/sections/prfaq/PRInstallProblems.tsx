@@ -2606,76 +2606,78 @@ const PRInstallProblems: React.FC = () => {
       </DetailsSummary>
       <DetailsSummary
         tag="trapcode, mbl, magic bullet, vfx suite, universe, юниверс, трапкод, партикуляр, мбл"
-        title='"This installer application has been moved. It must be run from its original folder containing a packages directory. The installer will now exit." при установке любого пакета от Red Giant'
+        title="«This installer application has been moved. It must be run from its original folder containing a packages directory. The installer will now exit.» при установке любого пакета от Red Giant"
       >
         <p>
-          Скорее всего пытаетесь установить плагины от{" "}
+          Скорее всего, вы пытаетесь установить плагины от{" "}
           <mark className="plugin">Red Giant</mark>, предварительно не распаковав архив
           полностью. При использовании стандартного просмотрщика архивов в{" "}
           <mark>Windows 10 или 11</mark> и при открытии в нём любого{" "}
-          <mark className="file">EXE</mark> файла - остальные файлы-зависимости не будут
-          распакованы. Поэтому установщик не видит файлы для распаковки и выдаёт данную
+          <mark className="file">EXE</mark>-файла остальные файлы-зависимости не будут
+          распакованы. Поэтому установщик не видит файлы для распаковки и выдаёт эту
           ошибку.
         </p>
         <p>
-          Чтобы установить плагины от <mark className="plugin">Red Giant</mark> корректно
-          - вы должны распаковать полностью архив или использовать{" "}
+          Чтобы установить плагины от <mark className="plugin">Red Giant</mark> корректно,
+          вы должны распаковать архив полностью или использовать{" "}
           <a
             href="https://www.rarlab.com/download.htm"
             title="Официальный сайт WinRAR"
           >
             WinRAR
           </a>{" "}
-          при открытии <mark className="file">EXE</mark> файла из под нераспакованного
-          архива. Он умеет распаковывать весь архив в временную папку при открытии{" "}
+          при открытии <mark className="file">EXE</mark>-файла из нераспакованного архива.
+          Он умеет распаковывать весь архив во временную папку при открытии{" "}
           <mark className="file">EXE</mark>, <mark className="file">MSI</mark> и подобных
           установочных файлов.
         </p>
       </DetailsSummary>
       <DetailsSummary
         tag="please launch the maxon app and sign in to your account, in order to keep using this product without interruption, please activate a license, trapcode particular, magic bullet looks, vfx suite, universe"
-        title='"Red Giant is unlicensed" при применении любого плагина от Maxon'
+        title="«Red Giant is unlicensed» при применении любого плагина от Maxon"
       >
         <p>
-          Данная ошибка возникает из-за того что у вас не активированы плагины от{" "}
+          Эта ошибка возникает из-за того, что у вас не активированы плагины от{" "}
           <mark>Red Giant</mark>. Если вы недавно установили{" "}
-          <mark className="word">народную</mark> версию программы - скорее всего вы не
+          <mark className="word">«народную»</mark> версию программы — скорее всего, вы не
           прочитали инструкцию по установке полностью и пропустили важный пункт. Дело в
           том, что пользователи часто забывают открывать{" "}
           <mark className="app">RedGiant Activation Service Unlocker.exe</mark> после
-          установки плагинов, а потом натыкаются на ошибку об отсутствии лицензии.
+          установки плагинов, а потом сталкиваются с ошибкой об отсутствии лицензии.
         </p>
         <p>
-          Чтобы исправить ошибку об отсутствии лицензии - откройте вышеупомянутый файл из
-          записи или архива, или перечитайте инструкцию приложенную к релизу ещё раз. Если
-          данное предупреждение появляется снова через время - примените{" "}
+          Чтобы исправить ошибку об отсутствии лицензии, откройте вышеупомянутый файл из
+          записи или архива либо перечитайте инструкцию, приложенную к релизу, ещё раз.
+          Если это предупреждение появляется снова через время — примените{" "}
           <mark className="app">патч</mark> повторно или установите старые версии
           плагинов, например <mark>2024.1</mark> или старше.
         </p>
       </DetailsSummary>
       <DetailsSummary
-        tag="Select action - an error occurred while trying to replace the existing file: DeleteFile failed; code 5. Access denied"
-        title='"Виберiть дiю - виникла помилка при спробi замiни iснуючого файлу: DeleteFile збiй; код 5. Отказано в доступе" при применении активатора для пакетов Red Giant от Team V.R.'
+        tag="select action - an error occurred while trying to replace the existing file: deletefile failed; code 5. access denied"
+        title="«Виберiть дiю - виникла помилка при спробi замiни iснуючого файлу: DeleteFile збiй; код 5. Отказано в доступе» при применении активатора от Team V.R. для пакетов Red Giant"
       >
         <p>
-          В данной ошибке показывается, что активатор не может перезаписать какой-то файл
-          из-за того что он у вас открыт в фоне. В вашем окне ошибки должен отобразиться
-          полный путь до виновника торжества - скорее всего это будет висящий в фоне{" "}
+          Эта ошибка указывает на то, что активатор не может перезаписать файл, так как он
+          открыт в фоновом режиме. В окне ошибки должен отобразиться полный путь к
+          «виновнику торжества» — скорее всего, это будет запущенный в фоне{" "}
           <mark className="app">Red Giant Service</mark>.
         </p>
         <p>
-          Чтобы корректно применить активатор - закройте проблемный сервис с помощью{" "}
+          Чтобы корректно применить активатор, закройте проблемный сервис с помощью{" "}
           <mark className="app">Диспетчера задач</mark>, завершив процесс{" "}
           <mark className="app">Red Giant Service.exe</mark> во вкладке{" "}
-          <mark className="ui">Подробности (Windows 10 или 11 21H2)</mark> или{" "}
-          <mark className="ui">Сведения (Windows 11 22H2+)</mark>. После завершения
-          проблемного процесса - повторите попытку активации, он должен пройти нормально.
+          <mark className="select">«Подробности (Windows 10 или 11 21H2)»</mark> или{" "}
+          <mark className="select">«Сведения (Windows 11 22H2+)»</mark>. После завершения
+          проблемного процесса повторите попытку активации — она должна пройти нормально.
         </p>
-        <ImageFigure
+        <ContentFigure
           caption="Диспетчер задач"
-          imgSrc="images/kill_redgiantservice.png"
           imgTitle="Завершаем процесс Red Giant Service.exe"
-          styleClass="figure_windows-dark"
+          src="images/kill_redgiantservice.png"
+          theme="dark"
+          type="image"
+          variant="windows"
         />
       </DetailsSummary>
       <DetailsSummary title='"Error: Extension Manager init failed, status = -193! A required resource is missing. Please relaunch the Creative Cloud app and try again" при использовании ZXP Installer'>
