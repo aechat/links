@@ -2395,89 +2395,101 @@ const PRInstallProblems: React.FC = () => {
           корректно.
         </p>
       </DetailsSummary>
+      <DetailsSummary
+        tag="не подключается dynamic link, программы не видят друг друга, динамик линк, aegp plugin aedynamiclinkserver: adobe media encoder is not installed, please download and install it to use this feature, failed to connect to adobe media encoder, медиа енкодер"
+        title="Установил Adobe Media Encoder и Adobe After Effects, но Adobe Premiere Pro почему-то не видит"
+      >
+        <p>
+          Функция <mark className="plugin">Dynamic Link</mark> позволяет синхронизировать
+          композиции из <mark className="app">Adobe After Effects</mark> в{" "}
+          <mark className="app">Adobe Premiere Pro</mark> на таймлайне и отправлять их в
+          очередь рендера <mark className="app">Adobe Media Encoder</mark>. Но не всегда
+          их получается «подружить». Иногда{" "}
+          <mark className="app">Adobe Premiere Pro</mark> при попытке отправить секвенцию
+          в очередь рендера в <mark className="app">Adobe Media Encoder</mark> может
+          попросить установить <mark className="app">Adobe Media Encoder</mark>, хотя эта
+          программа вроде бы уже есть в системе. Чтобы программы «видели» друг друга,
+          необходимо соблюсти несколько условий.
+        </p>
+        <ContentFigure
+          caption="Исправляем Dynamic Link"
+          src="LvvjQbY1jgw"
+          type="youtube"
+        />
         <ul>
           <li>
-            Чтобы сжать только операционную систему, воспользуйтесь командой{" "}
-            <mark className="code">compact /compactos:always</mark> и дождитесь окончания
-            операции. Обычно сжатие системы освобождает примерно <mark>3-5 ГБ</mark>{" "}
-            дискового пространства, которое можно занять установкой{" "}
-            <mark className="app">Adobe Premiere Pro</mark>.
-            <AdditionInfo>
-              Текущее состояние сжатия <mark>Windows</mark> вы можете узнать с помощью
-              команды <mark className="code">compact /compactos:query</mark>
-            </AdditionInfo>
-          </li>
-          <li>
-            Чтобы сжать нужный раздел, то нам нужно воспользоваться командой{" "}
-            <mark className="code">compact /s /c /a /i /f /exe:lzx</mark>, предварительно
-            перейдя в нужный раздел с помощью команды <mark className="code">cd</mark>.
-            <AdditionWarning>
-              Если вы начнёте сжатие в корневом каталоге, то есть риск нарваться на синий
-              экран смерти. Вместо этого лучше перейдите в каждый раздел из корневого
-              каталога, а затем начните сжатие с помощью ранее упомянутой команды. Она
-              начнёт сжатие файлов в текущем и вложенных каталогах.
-            </AdditionWarning>
+            Убедитесь, что вы установили <mark className="app">Adobe After Effects</mark>,{" "}
+            <mark className="app">Adobe Premiere Pro</mark> и{" "}
+            <mark className="app">Adobe Media Encoder</mark> одной «версии-года». Если,
+            например, установлены <mark className="app">Adobe After Effects 2025</mark>,{" "}
+            <mark className="app">Adobe Premiere Pro 2024</mark> и{" "}
+            <mark className="app">Adobe Media Encoder 2023</mark>, — они никогда не смогут
+            взаимодействовать через <mark className="plugin">Dynamic Link</mark>, так как
+            версии релизного цикла различаются.
           </li>
         </ul>
-        <Divider>Разбираемся с дисковыми разделами</Divider>
-        <p>
-          Иногда при покупке нового ноутбука или устройства на <mark>Windows</mark> с рук,
-          на нём уже зачем-то размечен один диск на два раздела - системный и
-          пользовательский, то есть поделён на <mark className="path">C:\</mark> и{" "}
-          <mark className="path">D:\</mark>. Диск делится типа для удобства, но на самом
-          деле деление одного диска на несколько разделов может привести к уменьшению его
-          производительности, особенно если диск один и на нём установлена операционная
-          система. Также разделы зачем-то делят в соотношении примерно{" "}
-          <mark>30 на системный : 70 на пользовательский</mark>, что часто приводит к
-          ситуациям когда пользователь устанавливает программы не на стандартный раздел, а
-          потом получает проблемы при установке дополнительных материалов.
-        </p>
-        <p>
-          Я бы посоветовал разобраться с вашими разделами и при необходимости - объединить
-          их в один. Для просмотра разделов ваших дисков вы можете воспользоваться
-          стандартной утилитой <mark className="app">diskmgmt.msc</mark>, который можно
-          открыть с помощью окна <mark className="app">Выполнить</mark> через{" "}
-          <mark className="key">Win + R</mark>. Для объединения разделов нужно перенести
-          файлы из одного раздела в другой, то есть из <mark className="path">D:\</mark> в{" "}
-          <mark className="path">C:\</mark>, а затем ненужный раздел удалить и за счёт
-          освободившегося места - расширить системный.
-        </p>
-        <AdditionInfo>
-          Подробнее про объединение разделов стандартными и сторонними средствами написано
-          в статье на{" "}
-          <a href="https://remontka.pro/merge-disk-partitions-windows/">remontka.pro</a>.
-        </AdditionInfo>
-        <Divider>
-          Переносим программы на другой раздел с помощью символьных ссылок
-        </Divider>
-        <AdditionDanger>
-          Используйте функцию переноса программ с помощью символьных ссылок{" "}
-          <b>
-            <u>только в крайнем случае</u>
-          </b>
-          , когда у вас нет возможности разобраться с разделами или почистить систему от
-          мусора. Стабильная работа программ при использовании символьных ссылок{" "}
-          <b>
-            <u>не гарантируется!</u>
-          </b>
-        </AdditionDanger>
-        <p>
-          Если вы действительно хотите перенести программы на другой раздел, то вы можете
-          воспользоваться функцией символьных ссылок, или же{" "}
-          <mark className="app">Symlink</mark> в операционной системе <mark>Windows</mark>
-          . С помощью неё можно заставить программы, находящиеся в другой директории,
-          думать как будто они установлены в месте по умолчанию.
-        </p>
-        <AdditionInfo>
-          Если вы боитесь командной строки, то вы можете воспользоваться различными
-          инструментами с интерфейсом для создания символьных ссылок, например{" "}
-          <a href="https://github.com/arnobpl/SymlinkCreator">Symlink Creator</a> или{" "}
-          <a href="https://sourceforge.net/projects/symlink-manager/">Symlink Manager</a>.
-        </AdditionInfo>
-        <YouTubeVideo
-          caption="Как сделать символическую ссылку в Windows на файл и папку"
-          link="VaupaCuluJA"
+        <ContentFilter
+          windowsContent={
+            <div>
+              <ul>
+                <li>
+                  Если установлены <mark className="app">Adobe After Effects</mark>,{" "}
+                  <mark className="app">Adobe Premiere Pro</mark> и{" "}
+                  <mark className="app">Adobe Media Encoder</mark> одного релизного цикла,
+                  но они всё равно не «видят» друг друга — проверьте, установлены ли они в
+                  директорию по умолчанию, а не на другой диск, отличный от{" "}
+                  <mark className="path">C:\</mark>.
+                  <Addition type="info">
+                    Если на системном разделе не хватает места или вы хотите перенести
+                    программы от <mark className="company">Adobe</mark> на другой раздел —
+                    воспользуйтесь{" "}
+                    <a href="https://www.youtube.com/watch?v=VaupaCuluJA">
+                      функцией создания символьных ссылок
+                    </a>
+                    .
+                  </Addition>
+                </li>
+              </ul>
+              <p>
+                Если условия соблюдены, программы должны увидеть друг друга. В редких
+                случаях, даже при выполнении всех требований, связь может не установиться
+                по следующим причинам.
+              </p>
+              <ul>
+                <li>
+                  Если вы используете <mark className="app">GenP</mark> для активации
+                  программ — он может работать некорректно. Попробуйте полностью удалить
+                  все программы с помощью{" "}
+                  <a href="https://helpx.adobe.com/creative-cloud/kb/cc-cleaner-tool-installation-problems.html">
+                    Adobe Creative Cloud Cleaner Tool
+                  </a>{" "}
+                  или любого стороннего деинсталлятора, например{" "}
+                  <mark className="app">Revo Uninstaller</mark>, а затем установите репаки
+                  от <mark className="user">KpoJluK</mark> или{" "}
+                  <mark className="user">m0nkrus</mark>.
+                </li>
+                <li>
+                  Если вы уже используете репаки от <mark className="user">KpoJluK</mark>{" "}
+                  или <mark className="user">m0nkrus</mark> — попробуйте просто
+                  перезагрузить устройство. Возможно, процессы, отвечающие за{" "}
+                  <mark className="plugin">Dynamic Link</mark>, дали сбой и не уведомили
+                  об этом.{" "}
+                  <i style={{opacity: "0.5"}}>Или просто переустановите программы.</i>
+                </li>
+              </ul>
+              <p>
+                Однако, если вам нужно только экспортировать секвенцию из{" "}
+                <mark className="app">Adobe Premiere Pro</mark>, всё же рекомендуется не
+                использовать <mark className="app">Adobe Media Encoder</mark> без острой
+                необходимости — в программе уже есть вполне хороший инструментарий для
+                экспорта в популярные форматы. Если нужного вам формата нет в списке
+                экспорта, вы можете сконвертировать полученное видео с помощью стороннего
+                ПО — например, <mark className="app">Shutter Encoder</mark>.
+              </p>
+            </div>
+          }
         />
+      </DetailsSummary>
       </DetailsSummary>
       <DetailsSummary
         tag="плагин не активирован, license failed, красный крест, почему при его применении появляются красные кресты, непонятные наложения, надписи про отсутствие лицензии"
