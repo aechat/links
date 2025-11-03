@@ -14,6 +14,8 @@ import {generateAnchorId} from "../components/DetailsSummary";
 
 import {useCopyToClipboard} from "../hooks/useCopyToClipboard";
 
+import {useSmartCopy} from "../hooks/useSmartCopy";
+
 import {useAnchorScroll} from "../hooks/useAnchorScroll";
 
 import Footer from "../components/Footer";
@@ -42,6 +44,7 @@ const AEExpressionPage = () => {
   useEffect(() => {
     enableAutoCopy();
   }, [enableAutoCopy]);
+  useSmartCopy(isPageLoaded);
 
   const sections = [
     {

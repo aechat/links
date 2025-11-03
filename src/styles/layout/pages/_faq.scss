@@ -38,10 +38,8 @@
     padding: 0;
     color: var(--color-text-tertiary);
     font-weight: 500;
-    font-size: min(
-      calc(0.575rem + (0.675 - 0.575) * ((100vw - 320px) / (768 - 320))),
-      0.675rem
-    );
+    font-size: min(calc(0.575rem + (0.675 - 0.575) * ((100vw - 320px) / (768 - 320))),
+        0.675rem);
   }
 }
 
@@ -58,10 +56,8 @@
   padding: 12px 15px;
   color: var(--color-surface-primary-text);
   font-weight: 650;
-  font-size: min(
-    calc(1.15rem + (1.225 - 1.15) * ((100vw - 320px) / (768 - 320))),
-    1.225rem
-  );
+  font-size: min(calc(1.15rem + (1.225 - 1.15) * ((100vw - 320px) / (768 - 320))),
+      1.225rem);
   line-height: 1.3;
   font-family: Onest, sans-serif;
   text-transform: uppercase;
@@ -72,8 +68,8 @@
   }
 
   h3 {
-    text-wrap: balance;
     margin-inline-end: 15px;
+    text-wrap: balance;
   }
 
   &:hover {
@@ -106,23 +102,23 @@
 
 .faq-content {
   filter: drop-shadow(0 10px 15px var(--shadow-primary));
+
   details:not([open]) {
     transition: 1s cubic-bezier(0.075, 0.82, 0.165, 1);
   }
 
   p {
-    text-wrap: stable;
     margin-inline: min(calc(15px + (20 - 15) * ((100vw - 320px) / (768 - 320))), 20px);
     margin-block: min(calc(10px + (15 - 10) * ((100vw - 320px) / (768 - 320))), 15px);
     line-height: 1.75;
+    text-wrap: stable;
   }
 
-  @media screen and (width <= 375px) {
+  @media screen and (width <=375px) {
     hyphens: auto;
   }
 
   .ant-divider-inner-text {
-    text-wrap: stable;
     opacity: 1;
     outline: 1px solid var(--color-border-divider);
     border-radius: $roundness * 0.75;
@@ -135,6 +131,7 @@
     font-size: 0.85rem;
     font-family: Inter, sans-serif;
     text-overflow: ellipsis;
+    text-wrap: stable;
     white-space: wrap;
   }
 
@@ -173,13 +170,12 @@
   }
 
   li {
-    text-wrap: stable;
     position: relative;
-    padding-inline: min(calc(20px + (30 - 20) * ((100vw - 320px) / (768 - 320))), 30px)
-      15px;
+    padding-inline: min(calc(20px + (30 - 20) * ((100vw - 320px) / (768 - 320))), 30px) 15px;
     padding-block: 10px;
     line-height: 1.75;
     list-style-type: none;
+    text-wrap: stable;
 
     p {
       margin-inline: 0;
@@ -205,9 +201,9 @@
       width: 100%;
     }
 
-    > .addition-info,
-    > .addition-warning,
-    > .addition-danger {
+    >.addition-info,
+    >.addition-warning,
+    >.addition-danger {
       margin-block: 15px;
 
       &:first-child {
@@ -245,7 +241,7 @@
     }
   }
 
-  li > ul {
+  li>ul {
     margin-block: 5px;
 
     &:last-child {
@@ -253,7 +249,7 @@
     }
   }
 
-  li > ul > li {
+  li>ul>li {
     padding-inline: min(calc(12px + (20 - 12) * ((100vw - 320px) / (768 - 320))), 20px);
     padding-inline-end: 0;
 
@@ -262,28 +258,28 @@
     }
   }
 
-  > details:last-of-type .faq-summary {
+  >details:last-of-type .faq-summary {
     border-bottom: 1px solid var(--color-surface-primary-border);
     border-bottom-right-radius: $roundness;
     border-bottom-left-radius: $roundness;
   }
 
-  > details:first-of-type .faq-summary {
+  >details:first-of-type .faq-summary {
     border-top-right-radius: $roundness;
     border-top-left-radius: $roundness;
   }
 
-  > details[open] .faq-section {
+  >details[open] .faq-section {
     border-bottom-right-radius: $roundness;
     border-bottom-left-radius: $roundness;
   }
 
-  > details:last-of-type[open] .faq-section {
+  >details:last-of-type[open] .faq-section {
     border-bottom-right-radius: $roundness;
     border-bottom-left-radius: $roundness;
   }
 
-  details[open] + details .faq-summary {
+  details[open]+details .faq-summary {
     border-top-right-radius: $roundness;
     border-top-left-radius: $roundness;
   }
@@ -328,6 +324,8 @@ body.has-open-details .faq-content {
 }
 
 details {
+  user-select: none;
+
   summary {
     position: relative;
     cursor: pointer;
@@ -390,4 +388,12 @@ html.no-spoiler-animation {
   details .details-content-wrapper {
     transition: none;
   }
+}
+
+details[open] .faq-section p,
+details[open] .faq-section li,
+details[open] .faq-section .addition-info,
+details[open] .faq-section .addition-warning,
+details[open] .faq-section .addition-danger {
+  user-select: text;
 }
