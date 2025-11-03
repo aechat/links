@@ -2018,161 +2018,229 @@ const PRInstallProblems: React.FC = () => {
         </p>
       </DetailsSummary>
       <DetailsSummary
-        tag="непонятные обозначения, adobe, ae, pr, ps, lr, ofx, ce, davinci, vegas, repack, standalone, офх, адоб, репак, стандалон"
-        title="Как понять для какой программы предназначен установщик плагина?"
+      <DetailsSummary
+        tag="genp, активация, патч, активация приложений из creative cloud"
+        title="Я не доверяю репакам, но установить программы от Adobe хочется. Какие есть ещё варианты?"
       >
-        <p>
-          Обычно в названии установочных файлов указывается для каких программ
-          устанавливается плагин. Это сделано для того, чтобы не перепутать файлы для
-          нужных вам программ и установить как надо и куда надо.
-        </p>
-        <ul>
-          <li>
-            <mark className="word">AE</mark>, <mark className="word">PR</mark>,{" "}
-            <mark className="word">PS</mark>, <mark className="word">LR</mark> или{" "}
-            <mark className="word">Adobe</mark> - такие плагины устанавливаются в разные
-            программы от Adobe, например <mark className="app">Adobe After Effects</mark>{" "}
-            и <mark className="app">Adobe Premiere Pro</mark>,{" "}
-            <mark className="app">Adobe Photoshop</mark> и{" "}
-            <mark className="app">Adobe Lightroom</mark>.
-            <AdditionInfo>
+        <ContentFilter
+          windowsContent={
+            <div>
+              <p>
+                Если вы по каким-то причинам опасаетесь, что при установке репаков от{" "}
+                <mark className="user">KpoJluK</mark>,{" "}
+                <mark className="user">m0nkrus</mark> или других релизеров на компьютер
+                может попасть нежелательное ПО, вы можете активировать программы от{" "}
+                <mark className="company">Adobe</mark> вручную с помощью утилиты{" "}
+                <mark className="app">GenP</mark>.
+              </p>
               <ul>
                 <li>
-                  Иногда плагины с припиской <mark className="word">AE</mark> могут
-                  устанавливаться и в <mark className="app">Adobe After Effects</mark>, и
-                  в <mark className="app">Adobe Premiere Pro</mark>.
+                  Из плюсов — можно устанавливать и обновлять программы, загружать
+                  бесплатные плагины напрямую из{" "}
+                  <mark className="app">Adobe Creative Cloud</mark>, а также ставить
+                  публичные бета-версии, чтобы опробовать нововведения до того, как они
+                  появятся в стабильном релизе.
                 </li>
                 <li>
-                  Плагины, распространяющиеся в установщиках будут устанавливаться в
-                  стандартные папки программ. Прежде чем устанавливать плагины с помощью
-                  установщиков - убедитесь в том, что вы изначально установили программы
-                  от <mark>Adobe</mark> в стандартное расположение, не меняя его, чтобы не
-                  ныть о том, что плагин не появился в нужной программе.
+                  Из минусов — возможные проблемы с{" "}
+                  <mark className="plugin">Dynamic Link</mark>, когда{" "}
+                  <mark className="app">Adobe After Effects</mark> и{" "}
+                  <mark className="app">Adobe Premiere Pro</mark> не «видят» друг друга.
+                  Патч также может перестать работать после обновлений приложений от{" "}
+                  <mark className="company">Adobe</mark>, и придётся искать новую версию{" "}
+                  <mark className="app">GenP</mark>. Функции, использующие генерацию
+                  контента на базе <mark className="app">Adobe Firefly</mark>, тоже
+                  недоступны — как и в других «народных» версиях.
                 </li>
               </ul>
-            </AdditionInfo>
-          </li>
-          <li>
-            <mark className="word">OFX</mark> - плагин установится для программ, которые
-            поддерживают стандарт формата <mark>OpenFX</mark>. К ним относятся{" "}
-            <mark className="app">Davinci Resolve</mark>,{" "}
-            <mark className="app">Vegas Pro</mark>, <mark className="app">Nuke</mark> и{" "}
-            <a href="https://ru.wikipedia.org/wiki/OpenFX#%D0%A5%D0%BE%D1%81%D1%82%D1%8B">
-              остальные
-            </a>
-            .
-            <AdditionWarning>
-              Такие плагины не подойдут для{" "}
-              <mark className="app">Adobe After Effects</mark> и для{" "}
-              <mark className="app">Adobe Premiere Pro</mark>, так как они не поддерживают
-              стандарт плагинов <mark>OpenFX</mark>.
-            </AdditionWarning>
-          </li>
-          <li>
-            <mark className="word">Standalone</mark> - плагин, работающий как обычная
-            программа и может ни от кого не зависеть, например{" "}
-            <mark className="plugin">BorisFX Mocha Pro</mark> или{" "}
-            <mark className="plugin">BorisFX Optics</mark>.
-          </li>
-          <li>
-            <mark className="word">Репак от ...</mark> или{" "}
-            <mark className="word">Repack by ...</mark> - перепакованный установщик
-            плагина, который устанавливает плагин куда надо. Обычно такие плагины
-            предварительно активированы, если не указано иное.
-            <AdditionWarning>
-              При открытии таких установщиков стоит быть внимательным с чекбоксами, так
-              как есть риск того, что вы можете установить в свою систему явно что-то
-              лишнее.
-            </AdditionWarning>
-          </li>
-          <li>
-            <mark className="word">CE</mark> - маркировка от группы релизеров{" "}
-            <mark>Team V.R.</mark>, которая расшифровывается как{" "}
-            <mark>Corporate Edition</mark>. Таким образом они помечают, что такие
-            дистрибутивы достаточно просто установить без всяких лишних действий по
-            активации плагинов. То есть это для них как синоним к слову &quot;репак&quot;.
-          </li>
-        </ul>
+              <Addition type="warning">
+                <ul>
+                  <li>
+                    Если вы хотите «переехать» с репаков или у вас уже установлены
+                    какие-то приложения от <mark className="company">Adobe</mark>, перед
+                    активацией через <mark className="app">GenP</mark> лучше удалить их, а
+                    также почистить записи в брандмауэре и файле{" "}
+                    <mark className="file">HOSTS</mark> во избежание конфликтов. Сделать
+                    это можно с помощью{" "}
+                    <a href="https://helpx.adobe.com/creative-cloud/kb/cc-cleaner-tool-installation-problems.html">
+                      Adobe Creative Cloud Cleaner Tool
+                    </a>{" "}
+                    или любого другого деинсталлятора, например{" "}
+                    <mark className="app">Revo Uninstaller</mark>.
+                  </li>
+                  <li>
+                    Во избежание проблем во время работы <mark className="app">GenP</mark>{" "}
+                    рекомендуется <a href="#2.2">отключить</a>{" "}
+                    <mark className="app">антивирусное ПО</mark>, установленное на вашем
+                    устройстве.
+                  </li>
+                </ul>
+              </Addition>
+              <Addition type="info">
+                Действия, описанные в этой статье, могут немного отличаться в зависимости
+                от версии <mark className="app">Adobe Creative Cloud</mark> и{" "}
+                <mark className="app">GenP</mark>.
+              </Addition>
+              <Divider>Устанавливаем и разбираемся с Adobe Creative Cloud</Divider>
+              <ul>
+                <li>
+                  Прежде чем искать и применять <mark className="app">GenP</mark>, нужно
+                  скачать <mark className="app">Adobe Creative Cloud</mark> с{" "}
+                  <a href="https://www.adobe.com/download/creative-cloud">
+                    официального сайта
+                  </a>{" "}
+                  и установить его как обычную программу. При установке войдите в свой
+                  аккаунт <mark className="company">Adobe</mark> или создайте новый.
+                  <Addition type="warning">
+                    Не устанавливайте флажок напротив параметра{" "}
+                    <mark className="select">
+                      «Установите службу Adobe Genuine Service (AGS)»
+                    </mark>
+                    : его установка, наоборот, усугубит ситуацию с активацией программ от{" "}
+                    <mark className="company">Adobe</mark>.
+                  </Addition>
+                  <ContentFigure
+                    caption="Установка Adobe Creative Cloud"
+                    src="images/creative_cloud_install.mp4"
+                    theme="dark"
+                    type="video"
+                    variant="windows"
+                  />
+                </li>
+                <li>
+                  После успешной установки{" "}
+                  <mark className="app">Adobe Creative Cloud</mark> перед вами появится
+                  главное меню, но скачивать оттуда приложения пока рано: сам{" "}
+                  <mark className="app">Adobe Creative Cloud</mark> ещё не пропатчен для
+                  корректной установки программ. Иначе вам предложат оформить пробную
+                  версию, которая нам не подходит.
+                  <ContentFigure
+                    caption="Adobe Creative Cloud"
+                    imgTitle="Главное меню Creative Cloud"
+                    src="images/creative_cloud_main_menu.png"
+                    theme="light"
+                    type="image"
+                    variant="windows"
+                  />
+                </li>
+                <li>
+                  <p>
+                    После входа в <mark className="app">Adobe Creative Cloud</mark> сразу
+                    же отключите его автозапуск и автоматические обновления, чтобы
+                    избежать сюрпризов в дальнейшем.
+                  </p>
+                  <p>
+                    Для этого нажмите на изображение профиля в правом верхнем углу и
+                    выберите <mark className="select">«Установки»</mark>. В открывшемся
+                    окне отключите три параметра, связанные с автозапуском и
+                    автообновлением, в разделе <mark className="select">«Общие»</mark>.
+                  </p>
+                  <ContentFigure
+                    caption="Adobe Creative Cloud"
+                    imgTitle="Открытие установок Creative Cloud"
+                    src="images/creative_cloud_open_settings.mp4"
+                    theme="light"
+                    type="video"
+                    variant="windows"
+                  />
+                  <Addition type="info">
+                    При желании вы можете установить английский язык для новых приложений
+                    по умолчанию — это настраивается в разделе{" "}
+                    <mark className="select">«Приложения»</mark>. Также можно изменить
+                    язык <mark className="app">Adobe Premiere Pro</mark>{" "}
+                    <a href="#3.6">вручную</a> уже после установки.
+                  </Addition>
+                </li>
+                <li>
+                  После внесения нужных изменений обязательно полностью закройте{" "}
+                  <mark className="app">Adobe Creative Cloud</mark> перед запуском{" "}
+                  <mark className="app">GenP</mark>.
+                </li>
+              </ul>
+              <Divider>Разбираемся с GenP</Divider>
+              <ul>
+                <li>
+                  <p>
+                    Далее нужно скачать сам <mark className="app">GenP</mark> с сайта{" "}
+                    <a href="https://gen.paramore.su/#downloads">gen.paramore.su</a>. На
+                    сайте есть три варианта: загрузить готовый образ{" "}
+                    <mark className="app">GenP</mark> для быстрого запуска, скачать
+                    исходники с утилитами для самостоятельной сборки или воспользоваться{" "}
+                    <mark className="file">TORRENT</mark>-файлом.
+                  </p>
+                  <ContentFigure
+                    caption="Загрузка GenP"
+                    src="images/download_genp.mp4"
+                    theme="dark"
+                    type="video"
+                    variant="windows"
+                  />
+                </li>
+                <li>
+                  <p>
+                    После загрузки <mark className="app">GenP</mark> запустите его и
+                    нажмите на кнопку <mark className="select">«Patch CC»</mark>. Это
+                    позволит <mark className="app">Adobe Creative Cloud</mark>{" "}
+                    устанавливать приложения без запуска пробного периода.
+                  </p>
+                  <ContentFigure
+                    caption="Патчинг Adobe Creative Cloud"
+                    imgTitle="Патчинг Adobe Creative Cloud"
+                    src="images/patching_creative_cloud.png"
+                    theme="dark"
+                    type="image"
+                    variant="windows"
+                  />
+                </li>
+                <li>
+                  <p>
+                    Когда <mark className="app">Adobe Creative Cloud</mark> будет
+                    пропатчен, можно приступать к установке нужных вам программ. Для этого
+                    перейдите в раздел <mark className="select">«Все приложения»</mark> и
+                    нажмите <mark className="select">«Установить»</mark> напротив нужной
+                    программы.
+                  </p>
+                  <ContentFigure
+                    caption="Установка приложений из Adobe Creative Cloud"
+                    src="images/creative_cloud_install_apps.mp4"
+                    theme="dark"
+                    type="video"
+                    variant="windows"
+                  />
+                </li>
+                <li>
+                  <p>
+                    После установки нужных программ снова запустите{" "}
+                    <mark className="app">GenP</mark> и нажмите на кнопку{" "}
+                    <mark className="select">«Search Files»</mark>. Утилита просканирует
+                    стандартные директории <mark className="company">Adobe</mark> и найдёт
+                    установленные приложения.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    Когда <mark className="app">GenP</mark> найдёт установленные
+                    приложения, отметьте нужные флажками и нажмите на кнопку{" "}
+                    <mark className="select">«Apply»</mark> (или на иконку аптечки), чтобы
+                    их вылечить.
+                  </p>
+                  <ContentFigure
+                    caption="Патчинг приложений"
+                    src="images/apply_genp_first_patch.mp4"
+                    theme="dark"
+                    type="video"
+                    variant="windows"
+                  />
+                </li>
+              </ul>
+              <p>
+                После успешного применения патча вы можете пользоваться программами без
+                каких-либо ограничений.
+              </p>
+            </div>
+          }
+        />
       </DetailsSummary>
-      <DetailsSummary
-        tag="символьные ссылки, symlink, нет места на жёстком диске, установил плагин с помощью установщика, зачем люди из каждого угла советуют не менять путь для установки, нестандартное расположение программы, установил на диск D:\, some products require host applications which are not installed on this computer"
-        title="Почему недавно установленный плагин не появился в моей программе?"
-      >
-        <AdditionInfo>
-          Вся информация в этой статье относится к устройствам с установленной
-          операционной системой <mark>Windows</mark>.
-        </AdditionInfo>
-        <p>
-          Часто в различных чатах возникает вопрос о проблемах при установке того или
-          иного стороннего плагина или расширения, даже если тот, кто пишет, полностью
-          следует всем инструкциям, но забыл об одной маленькой детали. У него{" "}
-          <mark className="app">Adobe Premiere Pro</mark> установлен на другом разделе.
-          Почему эта мелочь является одной из главных проблем при установке плагинов?
-        </p>
-        <ul>
-          <li>
-            Изначальная установка <mark className="app">Adobe Premiere Pro</mark> в
-            нестандартную директорию, например на <mark className="path">D:\MyApps</mark>,
-            может привести к проблемам при установке сторонних плагинов. Большинство
-            установочных пакетов, таких как <mark className="plugin">Red Giant</mark> или{" "}
-            <mark className="plugin">Premiere Composer</mark>, не смогут корректно
-            установиться в нужное место. Это происходит из-за того, что большинство
-            установщиков плагинов запрограммированы на распаковку в стандартные директории{" "}
-            <mark>Adobe</mark> и не проверяют действительное расположение{" "}
-            <mark className="app">Adobe Premiere Pro</mark> в системе. Когда{" "}
-            <mark className="app">Adobe Premiere Pro</mark> находится в нестандартном
-            месте, плагины не могут быть установлены корректно или обнаружены
-            установщиком, даже если программа установлена в системе.
-            <AdditionInfo>
-              Особенно это касается комплексных плагинов вроде{" "}
-              <mark className="plugin">Red Giant</mark> и{" "}
-              <mark className="plugin">Universe</mark>, которые определяют целевые
-              директории установки исходя из наличия поддерживающих хостов в системе. Если
-              у вас установлен монтажный хост, который поддерживает формат плагинов{" "}
-              <mark>OpenFX</mark>, например <mark className="app">Davinci Resolve</mark>,
-              и он стоит на стандартной директории, а{" "}
-              <mark className="app">Adobe Premiere Pro</mark> стоит на другой, то
-              установщик распакует файлы только для <mark>OFX-хоста</mark>, а для{" "}
-              <mark className="app">Adobe Premiere Pro</mark> - ничего, потому что он не
-              обнаружил <mark className="app">Adobe Premiere Pro</mark> в стандартной
-              директории.
-            </AdditionInfo>
-          </li>
-          <li>
-            Даже при установке скриптов, расширений и пресетов в стандартные директории,
-            указанные в <a href="#2.1">универсальных инструкциях</a> - тоже существует
-            вероятность того, что <mark className="app">Adobe Premiere Pro</mark> их не
-            обнаружит.
-          </li>
-          <li>
-            Если вы устанавливаете <mark className="app">Adobe Premiere Pro</mark>,{" "}
-            <mark className="app">Adobe Media Encoder</mark> и{" "}
-            <mark className="app">Adobe Premiere Pro</mark> в нестандартные директории, то
-            это может вызвать проблемы с взаимодействием друг с другом. Программы могут не
-            обнаружить друг друга, даже если они установлены на вашем устройстве.
-            Например, при попытке экспортировать композицию из{" "}
-            <mark className="app">Adobe Premiere Pro</mark> в{" "}
-            <mark className="app">Adobe Media Encoder</mark>, первая программа может
-            сообщить об отсутствии <mark className="app">Adobe Media Encoder</mark>,
-            несмотря на его наличие в системе.
-          </li>
-        </ul>
-        <p>
-          Чтобы избавиться от подобных проблем - вам нужно переустановить{" "}
-          <mark className="app">Adobe Premiere Pro</mark> по-человечески, то есть не
-          менять местоположение программы при установке. Но, к сожалению, часто в качестве
-          аргумента на вопрос{" "}
-          <mark className="quote">
-            А зачем вы собственно установили Premiere Pro на другой раздел?
-          </mark>{" "}
-          мы слышим{" "}
-          <mark className="quote">
-            А у меня на разделе, где Windows установлена - мало места!
-          </mark>{" "}
-          и пользователь, у которого проблемы с установкой - не хочет идти на верный путь.
-          Но и для таких случаев есть хорошие новости - в этой статье мы рассмотрим
-          варианты как навести порядок в вашей системе на <mark>Windows</mark> или
-          корректно перенести программы на другой раздел.
         </p>
         <Divider>Очищаем системный раздел от мусора</Divider>
         <p>
