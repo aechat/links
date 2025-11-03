@@ -2165,23 +2165,22 @@ const AEInstallProblems: React.FC = () => {
           src="LvvjQbY1jgw"
           type="youtube"
         />
+        <ul>
+          <li>
+            Убедитесь, что вы установили <mark className="app">Adobe After Effects</mark>,{" "}
+            <mark className="app">Adobe Premiere Pro</mark> и{" "}
+            <mark className="app">Adobe Media Encoder</mark> одной «версии-года». Если,
+            например, установлены <mark className="app">Adobe After Effects 2025</mark>,{" "}
+            <mark className="app">Adobe Premiere Pro 2024</mark> и{" "}
+            <mark className="app">Adobe Media Encoder 2023</mark>, — они никогда не смогут
+            взаимодействовать через <mark className="plugin">Dynamic Link</mark>, так как
+            версии релизного цикла различаются.
+          </li>
+        </ul>
         <ContentFilter
           windowsContent={
             <div>
               <ul>
-                <li>
-                  Убедитесь, что вы установили{" "}
-                  <mark className="app">Adobe After Effects</mark>,{" "}
-                  <mark className="app">Adobe Premiere Pro</mark> и{" "}
-                  <mark className="app">Adobe Media Encoder</mark> одной «версии-года».
-                  Если, например, установлены{" "}
-                  <mark className="app">Adobe After Effects 2025</mark>,{" "}
-                  <mark className="app">Adobe Premiere Pro 2024</mark> и{" "}
-                  <mark className="app">Adobe Media Encoder 2023</mark>, — они никогда не
-                  смогут взаимодействовать через{" "}
-                  <mark className="plugin">Dynamic Link</mark>, так как версии релизного
-                  цикла различаются.
-                </li>
                 <li>
                   Если установлены <mark className="app">Adobe After Effects</mark>,{" "}
                   <mark className="app">Adobe Premiere Pro</mark> и{" "}
