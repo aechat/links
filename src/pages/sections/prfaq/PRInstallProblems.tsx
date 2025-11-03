@@ -2680,25 +2680,28 @@ const PRInstallProblems: React.FC = () => {
           variant="windows"
         />
       </DetailsSummary>
-      <DetailsSummary title='"Error: Extension Manager init failed, status = -193! A required resource is missing. Please relaunch the Creative Cloud app and try again" при использовании ZXP Installer'>
+      <DetailsSummary
+        tag="extension manager init failed, status -193, a required resource is missing, please relaunch the creative cloud app and try again, zxp installer, ошибка -193, не установлен creative cloud"
+        title="«Error: Extension Manager init failed, status = -193! A required resource is missing. Please relaunch the Creative Cloud app and try again» при использовании ZXP Installer"
+      >
         <p>
-          Данная ошибка прямым текстом указывает на то, что на вашем устройстве
-          отсутствует программа <mark className="app">Adobe Creative Cloud</mark>. Если вы
-          пытаетесь установить какое-либо расширение формата{" "}
-          <mark className="file">ZXP</mark> с помощью{" "}
+          Эта ошибка прямо указывает на то, что на вашем устройстве отсутствует программа{" "}
+          <mark className="app">Adobe Creative Cloud</mark>. Если вы пытаетесь установить
+          какое-либо расширение формата <mark className="file">ZXP</mark> с помощью{" "}
           <a href="https://zxpinstaller.com/">ZXP Installer от ELEMENTS Storage Media</a>,
           то откажитесь от него в пользу{" "}
           <a href="https://aescripts.com/learn/zxp-installer/">
             ZXP Installer от aescripts
           </a>{" "}
-          или ручной распаковки расширения в нужное место. И даже{" "}
-          <mark className="app">Adobe Creative Cloud</mark> устанавливать не нужно, если
-          вы используете репаки от <mark>KpoJluK</mark> или <mark>m0nkrus</mark>.
+          или ручной распаковки расширения в нужное место. Устанавливать{" "}
+          <mark className="app">Adobe Creative Cloud</mark> не нужно, если вы используете
+          репаки от <mark className="user">KpoJluK</mark> или{" "}
+          <mark className="user">m0nkrus</mark>.
         </p>
-        <AdditionInfo>
+        <Addition type="info">
           Более подробную информацию про установку дополнительных материалов вы можете
           прочитать в <a href="#2.1">статье 2.1</a>.
-        </AdditionInfo>
+        </Addition>
       </DetailsSummary>
       <DetailsSummary
         tag="не подключается dynamic link, программы не видят друг друга, динамик линк, aegp plugin aedynamiclinkserver: adobe media encoder is not installed, please download and install it to use this feature, failed to connect to adobe media encoder, медиа енкодер"
