@@ -412,7 +412,7 @@ const Links = () => {
               description="Обсуждаем компьютерные технологии и проблемы"
               href="https://t.me/technical_chat"
               icon={<DevicesOtherRounded />}
-              name="Technical Chat"
+              name="Tech Support"
             />
             <LinkCard
               description="Обсуждаем компьютерное железо в тяжелых задачах"
