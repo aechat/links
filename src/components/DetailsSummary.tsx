@@ -640,7 +640,14 @@ const DetailsSummary: React.FC<DetailsSummaryProps> = ({title, children, tag}) =
                 className="faq-section"
                 onClick={handleSectionClick}
               >
-                {children}
+                {React.Children.count(children) === 0 ? (
+                  <div className="no-content-placeholder">
+                    Данная статья находится в процессе разработки. Следите за
+                    обновлениями.
+                  </div>
+                ) : (
+                  children
+                )}
               </section>
             </SpoilerContext.Provider>
           </div>
