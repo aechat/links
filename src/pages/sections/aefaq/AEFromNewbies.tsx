@@ -4959,6 +4959,71 @@ const AEFromNewbies: React.FC = () => {
         />
       </DetailsSummary>
       <DetailsSummary
+        tag="предпросмотр в плохом качестве, пиксели"
+        title="Почему векторный слой выглядит пиксельным?"
+      >
+        <p>
+          Начнём с того, что <mark className="app">Adobe After Effects</mark> — это
+          программа для композитинга, работающая с растровой графикой. Её механика
+          отличается от векторных редакторов вроде{" "}
+          <mark className="app">Adobe Illustrator</mark>, которые постоянно пересчитывают
+          вектор под разрешение монитора, создавая иллюзию «бесконечной» детализации при
+          увеличении предпросмотра.
+        </p>
+        <p>
+          В <mark className="app">Adobe After Effects</mark> же при создании композиции вы
+          задаёте её разрешение в пикселях, и всё, что в неё помещается, ограничено этим
+          разрешением. Поэтому при увеличении масштаба предпросмотра более чем на{" "}
+          <mark>100%</mark> вы всегда будете видеть пиксели, потому что увеличиваете уже
+          отрендеренное растровое изображение, даже если в проекте есть векторные слои.
+        </p>
+        <Divider>А как же тогда работают «векторные» слои?</Divider>
+        <p>
+          «Векторность» проявляется не при увеличении предпросмотра, а при трансформации
+          самого слоя. Например, при изменении свойства{" "}
+          <mark className="select">«Scale»</mark> слой остаётся чётким, поскольку
+          программа пересчитывает его под новый размер. За это отвечает свойство{" "}
+          <mark className="select">«Continuously Rasterize»</mark>. Для текстовых и
+          фигурных слоёв оно включено по умолчанию, а для импортированных векторных
+          файлов, например <mark className="file">AI</mark>, его нужно активировать
+          вручную, чтобы они сохраняли качество при масштабировании слоя.
+        </p>
+        <ContentFigure
+          caption="Timeline"
+          imgTitle="Включение Continuously Rasterize"
+          src="images/aftereffects/enable_continuously_rasterize.png"
+          theme="dark"
+          type="image"
+          variant="windows"
+        />
+        <Addition type="warning">
+          При включённой опции <mark className="select">«Continuously Rasterize»</mark>{" "}
+          могут возникнуть артефакты — например, разрывы слоя при использовании{" "}
+          <mark className="plugin">Puppet Tool</mark>.
+        </Addition>
+      </DetailsSummary>
+      <DetailsSummary
+        tag="адаптивное разрешение, пиксели"
+        title="Почему при перемещении объектов или временной метки качество предпросмотра падает?"
+      >
+        <p>
+          По умолчанию в <mark className="app">Adobe After Effects</mark> включена функция
+          адаптивного разрешения: при перемещении плейхеда или слоя качество предпросмотра
+          временно снижается для быстрого рендера кадра. Если эта функция вас раздражает,
+          её можно отключить — для этого нажмите на{" "}
+          <mark className="select">«Fast Previews»</mark> под окном предпросмотра и
+          выберите <mark className="select">«Off (Final Quality)»</mark>.
+        </p>
+        <ContentFigure
+          caption="Timeline"
+          imgTitle="Отключение адаптивного разрешения"
+          src="images/aftereffects/disable_adaptive_resolution.png"
+          theme="dark"
+          type="image"
+          variant="windows"
+        />
+      </DetailsSummary>
+      <DetailsSummary
         tag="grow bounds, нарастить границы, обрезается эффект, края слоя"
         title="Применяю эффект, например Glow, но он обрезается по границе слоя. Как это исправить?"
       >
