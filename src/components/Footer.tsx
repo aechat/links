@@ -4,6 +4,8 @@ import React, {useEffect, useState} from "react";
 
 import {useLocation} from "react-router-dom";
 
+import {formatRelativeTime} from "../utils/dateUtils";
+
 const OWNER = "aechat";
 
 const REPO = "links";
@@ -127,24 +129,11 @@ const Footer: React.FC<FooterProps> = ({title, initialYear}) => {
       return null;
     }
 
-    const dateOptions: Intl.DateTimeFormatOptions = {
-      year: "2-digit",
-      month: "2-digit",
-      day: "2-digit",
-    };
-
-    const clockOptions: Intl.DateTimeFormatOptions = {
-      hour: "2-digit",
-      minute: "2-digit",
-    };
-
-    const formattedDate = commitData.date.toLocaleDateString("ru-RU", dateOptions);
-
-    const formattedTime = commitData.date.toLocaleTimeString("ru-RU", clockOptions);
+    const relativeTime = formatRelativeTime(commitData.date);
 
     return (
       <p className="commit-info">
-        Последнее обновление страницы {formattedDate} в {formattedTime}:{" "}
+        Последнее обновление страницы {relativeTime}:{" "}
         <a
           href={commitData.url}
           rel="noreferrer"
