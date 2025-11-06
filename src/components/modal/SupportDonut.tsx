@@ -40,7 +40,7 @@ const SupportDonut: React.FC = () => {
       </Addition>
       <div className="modal-support">
         <button
-          className="modal-page-button modal-page-button--enhanced"
+          className="modal-support-open-button modal-support-open-button--enhanced"
           onClick={openDonateModal}
         >
           <CoffeeRounded />
@@ -71,7 +71,7 @@ const SupportDonut: React.FC = () => {
             </p>
             <div className="flexible-links">
               <button
-                className="modal-support-button--sber"
+                className="modal-support-button modal-support-button--sber"
                 onClick={() => setIsSberModalOpen(true)}
               >
                 Сбербанк
@@ -99,7 +99,7 @@ const SupportDonut: React.FC = () => {
                       Вы можете перевести из любого банка по номеру банковской карты любую
                       сумму.
                     </p>
-                    <mark className="modal-support-cardnumber--sber">
+                    <mark className="modal-support-account-number modal-support-account-number--sber">
                       2202202357342488
                     </mark>
                     <p className="modal-support-recipient-info">
@@ -111,7 +111,7 @@ const SupportDonut: React.FC = () => {
                 </div>
               </Modal>
               <button
-                className="modal-support-button--yoomoney"
+                className="modal-support-button modal-support-button--yoomoney"
                 onClick={() => setIsYoomoneyModalOpen(true)}
               >
                 ЮMoney
@@ -151,7 +151,7 @@ const SupportDonut: React.FC = () => {
                         Вставьте этот номер в поле{" "}
                         <mark className="select">«Номер кошелька»</mark> приложения вашего
                         банка и введите любую сумму. После этого - подтвердите перевод.
-                        <motion.mark className="modal-support-cardnumber--yoomoney">
+                        <motion.mark className="modal-support-account-number modal-support-account-number--yoomoney">
                           410016763684808
                         </motion.mark>
                         <p className="modal-support-recipient-info">
