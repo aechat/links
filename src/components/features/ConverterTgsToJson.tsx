@@ -43,7 +43,7 @@ const TgsToJsonConverter: React.FC = () => {
   };
 
   return (
-    <div>
+    <div className="converter">
       <p className="converter-info-text">
         Конвертация происходит локально на вашем устройстве, качественный результат не
         гарантируется

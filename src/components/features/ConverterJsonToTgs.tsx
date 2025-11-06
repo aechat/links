@@ -126,7 +126,7 @@ with open("input.json", "rb") as f_in:
   };
 
   return (
-    <div>
+    <div className="converter">
       <p className="converter-info-text">
         Конвертация происходит локально на вашем устройстве, качественный результат не
         гарантируется
