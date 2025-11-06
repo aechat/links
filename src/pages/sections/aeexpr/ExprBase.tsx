@@ -16,26 +16,20 @@ const AEExprBase: React.FC = () => {
   return (
     <div className="faq-content">
       <DetailsSummary title="Что такое переменные и функции?">
-        <p>{/* FIXME: */}</p>
+        {/* FIXME: */}
       </DetailsSummary>
       <DetailsSummary title="Как обратиться к нужному атрибуту того или иного слоя?">
-        <p>{/* FIXME: */}</p>
+        {/* FIXME: */}
       </DetailsSummary>
       <DetailsSummary title="Для чего нужны контроллеры, какие они бывают и как ими пользоваться?">
-        <p>{/* FIXME: */}</p>
+        {/* FIXME: */}
       </DetailsSummary>
       <DetailsSummary title="Для чего нужны условия и циклы?">
-        <p>{/* FIXME: */}</p>
+        {/* FIXME: */}
       </DetailsSummary>
-      <DetailsSummary title="Для чего нужен index?">
-        <p>{/* FIXME: */}</p>
-      </DetailsSummary>
-      <DetailsSummary title="Для чего нужен value?">
-        <p>{/* FIXME: */}</p>
-      </DetailsSummary>
-      <DetailsSummary title="Для чего нужен time?">
-        <p>{/* FIXME: */}</p>
-      </DetailsSummary>
+      <DetailsSummary title="Для чего нужен index?">{/* FIXME: */}</DetailsSummary>
+      <DetailsSummary title="Для чего нужен value?">{/* FIXME: */}</DetailsSummary>
+      <DetailsSummary title="Для чего нужен time?">{/* FIXME: */}</DetailsSummary>
       <DetailsSummary title="Для чего нужны комментарии в коде выражений? Код внутри комментариев может выполняться?">
         {/* FIXME: */}
         <p>
@@ -77,7 +71,7 @@ const AEExprBase: React.FC = () => {
           нужно. <mark className="code">value</mark> возвращает число, поэтому с ним можно
           выполнять различные математические операции, по типу умножения или вычитания.
         </p>
-        <p>{/* FIXME: написать!! */}</p>
+        {/* FIXME: написать!! */}
       </DetailsSummary>
       <DetailsSummary title="Как я могу отформатировать текст в строке?">
         <p>
@@ -92,7 +86,7 @@ const AEExprBase: React.FC = () => {
         <CodeSnippet>{formatExample}</CodeSnippet>
       </DetailsSummary>
       <DetailsSummary title="Как сделать Checkbox Control, который выключает или включает действие выражения?">
-        <p>{/* FIXME: */}</p>
+        {/* FIXME: */}
       </DetailsSummary>
     </div>
   );
