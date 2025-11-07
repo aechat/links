@@ -1,16 +1,18 @@
 {
-  "extends": "stylelint-config-standard-scss",
+  "plugins": ["stylelint-order"],
+  "extends": [
+    "stylelint-config-standard-scss",
+    "stylelint-config-concentric-order"
+  ],
   "rules": {
     "at-rule-no-unknown": null,
     "scss/at-rule-no-unknown": true,
-    "scss/dollar-variable-pattern": "^[a-z][a-zA-Z0-9]+$",
-    "scss/selector-no-redundant-nesting-selector": true,
+    "scss/dollar-variable-pattern": "^([a-z][a-z0-9]*)(-[a-z0-9]+)*$",
+    "scss/at-mixin-pattern": "^([a-z][a-z0-9]*)(-[a-z0-9]+)*$",
+    "scss/percent-placeholder-pattern": "^([a-z][a-z0-9]*)(-[a-z0-9]+)*$",
+    "scss/at-function-pattern": "^([a-z][a-z0-9]*)(-[a-z0-9]+)*$",
     "scss/declaration-nested-properties": "never",
-    "scss/selector-no-union-class-name": true,
     "scss/at-mixin-argumentless-call-parentheses": "always",
-    "scss/at-mixin-pattern": "^[a-z][a-zA-Z0-9]+$",
-    "scss/percent-placeholder-pattern": "^[a-z][a-zA-Z0-9]+$",
-    "scss/at-function-pattern": "^[a-z][a-zA-Z0-9]+$",
     "scss/at-extend-no-missing-placeholder": true,
     "scss/comment-no-empty": true,
     "scss/double-slash-comment-whitespace-inside": "always",
@@ -18,7 +20,7 @@
     "scss/operator-no-newline-after": true,
     "scss/operator-no-newline-before": true,
     "scss/operator-no-unspaced": true,
-    "scss/selector-no-redundant-nesting-selector": true,
-    "scss/selector-no-union-class-name": true
+    "selector-class-pattern": "^([a-z][a-z0-9]*)(-[a-z0-9]+)*(--[a-z0-9]+(-[a-z0-9]+)*)?$",
+    "no-descending-specificity": null
   }
 }
