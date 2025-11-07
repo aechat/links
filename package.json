@@ -69,8 +69,7 @@
     "format": "echo \"--- Running tsc ---\"; tsc; echo \"--- Running stylelint ---\"; stylelint \"**/*.scss\" --fix; echo \"--- Running eslint ---\"; eslint . --fix; echo \"--- Running prettier ---\"; prettier --write \"**/*.{json,md,html}\"",
     "build": "vite build && vite build --ssr src/entry-server.tsx --outDir dist/server && node prerender.js",
     "build:stash": "git stash -u && yarn build && git stash apply",
-    "predeploy": "yarn && yarn build",
-    "deploy": "gh-pages -d dist/client -m \"обновление сайта\" && git push",
+    "deploy": "yarn && yarn build && gh-pages -d dist/client -m \"обновление сайта\" && git push",
     "prepare": "husky",
     "postinstall": "husky install"
   },
