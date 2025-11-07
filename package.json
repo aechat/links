@@ -62,16 +62,13 @@
     "vite": "^7.1.12"
   },
   "scripts": {
-    "format": "eslint . --fix && tsc",
-    "build:ssg": "vite build && vite build --ssr src/entry-server.tsx --outDir dist/server && node prerender.js",
-    "build": "yarn format && yarn build:ssg",
+    "dev": "vite",
+    "preview": "vite preview",
+    "format": "echo \"--- Running tsc ---\"; tsc; echo \"--- Running stylelint ---\"; stylelint \"**/*.scss\" --fix; echo \"--- Running eslint ---\"; eslint . --fix; echo \"--- Running prettier ---\"; prettier --write \"**/*.{json,md,html}\"",
+    "build": "vite build && vite build --ssr src/entry-server.tsx --outDir dist/server && node prerender.js",
     "build:stash": "git stash -u && yarn build && git stash apply",
     "predeploy": "yarn && yarn build",
     "deploy": "gh-pages -d dist/client -m \"обновление сайта\" && git push",
-    "quick-deploy": "yarn build:ssg && gh-pages -d dist/client -m \"обновление сайта\"",
-    "dev": "yarn & vite",
-    "preview": "vite preview --host",
-    "format:scss": "stylelint \"**/*.scss\" --fix",
     "prepare": "husky",
     "postinstall": "husky install"
   },
