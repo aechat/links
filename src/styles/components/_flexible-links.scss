@@ -13,23 +13,23 @@
   a {
     display: flex;
     flex: 1 0 175px;
-    justify-content: center;
     align-items: center;
-    vertical-align: middle;
+    justify-content: center;
     transition: background-color 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
     margin-block: 0;
     outline: 1px solid var(--color-button-group-border);
     border-radius: 0;
     background-color: var(--color-button-group-background);
-    padding-inline: 10px;
     padding-block: 8px;
-    color: var(--color-button-group-text);
-    font-weight: 600;
-    font-size: 0.975rem;
-    line-height: 1.5;
-    font-family: Onest, sans-serif;
+    padding-inline: 10px;
+    vertical-align: middle;
     text-align: center;
     text-decoration: none;
+    line-height: 1.5;
+    color: var(--color-button-group-text);
+    font-family: Onest, sans-serif;
+    font-size: 0.975rem;
+    font-weight: 600;
 
     &::before {
       display: none;

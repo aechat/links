@@ -1,39 +1,26 @@
 @use "../abstracts/mixins" as *;
 
-.support-title {
-  font-weight: 700;
-  font-size: 1.75rem;
-  line-height: 1.25;
-  font-family: Onest, sans-serif;
-}
+.support {
+  &-title {
+    line-height: 1.25;
+    font-family: Onest, sans-serif;
+    font-size: 1.75rem;
+    font-weight: 700;
+  }
 
-.support-button-enhanced {
-  filter: saturate(1.25);
-}
+  &-button-enhanced {
+    filter: saturate(1.25);
+  }
 
-.copy-cardnumber-sber,
-.copy-cardnumber-yoomoney {
-  display: block;
-  cursor: pointer;
-  margin: 10px;
-  padding: 5px;
-  font-size: 1.25rem;
-  text-align: center;
-  width: calc(100% - 20px);
-}
+  &-card-recipient-info {
+    text-align: center;
+    color: var(--color-text-tertiary);
+    font-size: 0.8rem !important;
+  }
 
-.copy-cardnumber-yoomoney {
-  margin-inline: 0;
-  width: 100%;
-}
-.support-card-recipient-info {
-  color: var(--color-text-tertiary);
-  font-size: 0.8rem !important;
-  text-align: center;
-}
-
-.support-yoomoney-link {
-  color: var(--color-accent);
-  font-weight: 700;
-  text-decoration: underline;
+  &-yoomoney-link {
+    text-decoration: underline;
+    color: var(--color-accent);
+    font-weight: 700;
+  }
 }

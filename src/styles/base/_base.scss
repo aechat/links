@@ -31,11 +31,11 @@ body {
 }
 
 html {
+  font-family: Inter, sans-serif;
+  font-size: 13px;
+  font-weight: 375;
   -webkit-tap-highlight-color: transparent;
   scrollbar-width: none;
-  font-weight: 375;
-  font-size: 13px;
-  font-family: Inter, sans-serif;
 
   @media screen and (width >= 320px) {
     font-size: calc(13px + (16 - 13) * ((100vw - 320px) / (768 - 320)));

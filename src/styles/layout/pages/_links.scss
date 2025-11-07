@@ -6,107 +6,103 @@
   margin-inline: auto;
   width: calc(100% - 16px);
   max-width: 1300px;
-}
 
-.links-grid {
-  display: flex;
-  flex-wrap: wrap;
-  border: 1px solid var(--color-surface-card-border);
-  border-radius: $roundness;
-  width: 100%;
-  overflow: hidden;
-}
-
-.links-button {
-  flex: 1 1 225px;
-  transition: background-color 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
-  box-sizing: border-box;
-  outline: 1px solid var(--color-surface-card-border);
-  box-shadow: none;
-  border-radius: 0;
-  background-color: var(--color-surface-card-background);
-  width: 100%;
-  min-width: 150px;
-
-  @media screen and (width <= 525px) {
-    flex: 1 1 165px;
-  }
-
-  a {
+  &-grid {
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
+    border: 1px solid var(--color-surface-card-border);
+    border-radius: $roundness;
     width: 100%;
-    height: 100%;
+    overflow: hidden;
   }
 
-  &:hover {
-    cursor: pointer;
-    background-color: var(--color-surface-card-background-hover);
-  }
-
-  &:active {
-    background-color: var(--color-surface-card-background-active);
-  }
-
-  .name-container {
-    display: flex;
-    position: relative;
-    align-items: center;
-    vertical-align: middle;
-    gap: 8px;
+  &-button {
     box-sizing: border-box;
-    padding-inline: 12px;
-    padding-block: 8px;
+    flex: 1 1 225px;
+    transition: background-color 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+    outline: 1px solid var(--color-surface-card-border);
+    border-radius: 0;
+    box-shadow: none;
+    background-color: var(--color-surface-card-background);
+    width: 100%;
+    min-width: 150px;
 
-    .icon {
-      fill: var(--color-surface-card-text);
-      flex-shrink: 0;
-      width: min(calc(18px + (21 - 18) * ((100vw - 320px) / (768 - 320))), 21px);
-      height: min(calc(18px + (21 - 18) * ((100vw - 320px) / (768 - 320))), 21px);
-      color: var(--color-surface-card-text);
+    &:hover {
+      background-color: var(--color-surface-card-background-hover);
+      cursor: pointer;
+    }
 
-      path {
-        margin-block: auto;
+    &:active {
+      background-color: var(--color-surface-card-background-active);
+    }
+
+    a {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      height: 100%;
+    }
+
+    .name-container {
+      box-sizing: border-box;
+      display: flex;
+      position: relative;
+      gap: 8px;
+      align-items: center;
+      padding-block: 8px;
+      padding-inline: 12px;
+      vertical-align: middle;
+
+      .icon {
+        fill: var(--color-surface-card-text);
+        flex-shrink: 0;
+        width: min(calc(18px + (21 - 18) * ((100vw - 320px) / (768 - 320))), 21px);
+        height: min(calc(18px + (21 - 18) * ((100vw - 320px) / (768 - 320))), 21px);
+        color: var(--color-surface-card-text);
+
+        path {
+          margin-block: auto;
+        }
+      }
+
+      .name {
+        text-align: left;
+        color: var(--color-surface-card-text);
+        font-family: Onest, sans-serif;
+        font-weight: 600;
+        text-wrap: balance;
+
+        @media screen and (width >= 320px) {
+          font-size: calc(1.075rem + (1.1 - 1.075) * ((100vw - 320px) / (768 - 320)));
+        }
+
+        @media screen and (width >= 768px) {
+          font-size: 1.1rem;
+        }
       }
     }
 
-    .name {
-      text-wrap: balance;
-      color: var(--color-surface-card-text);
-      font-weight: 600;
-      font-family: Onest, sans-serif;
+    .description {
+      opacity: 0.7;
+      padding-block: 8px;
+      padding-block-start: 0;
+      padding-inline: 12px;
+      vertical-align: middle;
       text-align: left;
+      font-weight: 375;
+      text-wrap: balance;
 
       @media screen and (width >= 320px) {
-        font-size: calc(1.075rem + (1.1 - 1.075) * ((100vw - 320px) / (768 - 320)));
+        font-size: calc(0.875rem + (0.9 - 0.875) * ((100vw - 320px) / (768 - 320)));
       }
 
       @media screen and (width >= 768px) {
-        font-size: 1.1rem;
+        font-size: 0.9rem;
       }
     }
-  }
 
-  .description {
-    text-wrap: balance;
-    vertical-align: middle;
-    opacity: 0.7;
-    padding-inline: 12px;
-    padding-block: 8px;
-    padding-block-start: 0;
-    font-weight: 375;
-    text-align: left;
-
-    @media screen and (width >= 320px) {
-      font-size: calc(0.875rem + (0.9 - 0.875) * ((100vw - 320px) / (768 - 320)));
-    }
-
-    @media screen and (width >= 768px) {
-      font-size: 0.9rem;
+    @media screen and (width <= 525px) {
+      flex: 1 1 165px;
     }
   }
-}
-
-.name-container.name-container_full-height {
-  height: 100%;
 }

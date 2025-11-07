@@ -3,52 +3,98 @@
 .modal {
   display: flex;
   flex-direction: column;
+
+  p {
+    margin-block: 10px;
+    margin-inline: 15px;
+    line-height: 1.65;
+    font-size: 0.95rem;
+  }
+
+  a {
+    text-decoration: underline;
+    color: var(--color-accent);
+    font-weight: 700;
+  }
+
+  ul {
+    margin-block: 10px;
+  }
+
+  li {
+    position: relative;
+    flex-direction: column;
+    gap: 10px;
+    padding-block: 10px;
+    padding-inline: 15px;
+    padding-inline-start: 30px;
+    list-style-type: none;
+    line-height: 1.75;
+    font-size: 0.95rem;
+
+    &::before {
+      display: inline-block;
+      position: absolute;
+      top: 12px;
+      bottom: 12px;
+      left: min(calc(10px + (15 - 10) * ((100vw - 320px) / (768 - 320))), 15px);
+      opacity: 0.5;
+      border-radius: $roundness;
+      background-color: var(--color-accent);
+      width: 1px;
+      content: "";
+    }
+
+    &:not(:last-child) {
+      border-bottom: 1px solid var(--color-border-primary);
+    }
+  }
 }
 
 .modal-header {
-  text-wrap: balance;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
   gap: 10px;
+  align-items: center;
+  justify-content: space-between;
   outline: 1px solid var(--color-surface-primary-border);
   border-radius: $roundness;
   background-color: var(--color-surface-primary-background);
+  padding-block: 10px;
   padding-inline: 15px;
   padding-inline-end: 10px;
-  padding-block: 10px;
+  text-transform: uppercase;
   line-height: 1.25;
   font-family: Onest, sans-serif;
-  text-transform: uppercase;
-}
+  text-wrap: balance;
 
-.modal-header-title {
-  overflow: hidden;
-  color: var(--color-surface-primary-text);
-  font-weight: 500;
-  font-size: 1.15rem;
-}
-
-.modal-header-close {
-  flex-shrink: 0;
-  transition:
-    background-color 0.5s cubic-bezier(0.075, 0.82, 0.165, 1),
-    color 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
-  border-radius: $roundness * 0.5;
-  padding: 4px;
-  color: var(--color-surface-primary-text);
-
-  svg {
-    width: 18px;
-    height: 18px;
+  &-title {
+    overflow: hidden;
+    color: var(--color-surface-primary-text);
+    font-size: 1.15rem;
+    font-weight: 500;
   }
 
-  &:hover {
-    background-color: var(--color-surface-primary-background-hover);
-  }
+  &-close {
+    flex-shrink: 0;
+    transition:
+      background-color 0.5s cubic-bezier(0.075, 0.82, 0.165, 1),
+      color 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+    border-radius: $roundness * 0.5;
+    padding: 4px;
+    color: var(--color-surface-primary-text);
 
-  &:active {
-    background-color: var(--color-surface-primary-background-active);
+    &:hover {
+      background-color: var(--color-surface-primary-background-hover);
+    }
+
+    &:active {
+      background-color: var(--color-surface-primary-background-active);
+    }
+
+    svg {
+      width: 18px;
+      height: 18px;
+    }
   }
 }
 
@@ -66,54 +112,27 @@
 
 .modal-message {
   opacity: 0.5;
-  font-weight: 600;
   font-size: 0.875rem !important;
-}
-
-.modal-page-button {
-  display: flex;
-  flex: 1 1 150px;
-  justify-content: center;
-  align-items: center;
-  gap: 8px;
-  transition: background-color 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
-  cursor: pointer;
-  border: 1px solid var(--color-surface-primary-border);
-  border-radius: $roundness;
-  background-color: var(--color-surface-primary-background);
-  padding: 10px 20px;
-  color: var(--color-surface-primary-text);
-  font-weight: 700;
-  font-size: 0.875rem;
-  font-family: Onest, sans-serif;
-  text-align: center;
-
-  &:hover {
-    background-color: var(--color-surface-primary-background-hover);
-  }
-
-  &:active {
-    background-color: var(--color-surface-primary-background-active);
-  }
+  font-weight: 600;
 }
 
 .modal-open-button {
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
   transition: background-color 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
-  cursor: pointer;
   margin: 0 auto;
   border: 1px solid var(--color-surface-primary-border);
   border-radius: $roundness;
   background-color: var(--color-surface-primary-background);
+  cursor: pointer;
   padding: 10px 20px;
   width: calc(100% - 20px);
-  color: var(--color-surface-primary-text);
-  font-weight: 700;
-  font-size: 0.95rem;
-  font-family: Onest, sans-serif;
   text-align: center;
+  color: var(--color-surface-primary-text);
+  font-family: Onest, sans-serif;
+  font-size: 0.95rem;
+  font-weight: 700;
 
   &:hover {
     background-color: var(--color-surface-primary-background-hover);
@@ -124,50 +143,25 @@
   }
 }
 
-.modal p {
-  margin-inline: 15px;
-  margin-block: 10px;
-  font-size: 0.95rem;
-  line-height: 1.65;
-}
-
-.modal a {
-  color: var(--color-accent);
-  font-weight: 700;
-  text-decoration: underline;
-}
-
-.modal ul {
-  margin-block: 10px;
-}
-
-.modal li {
-  position: relative;
-  flex-direction: column;
-  gap: 10px;
+.modal-modal-title {
+  opacity: 0.75;
+  padding-block: 12px;
   padding-inline: 15px;
-  padding-inline-start: 30px;
-  padding-block: 10px;
-  font-size: 0.95rem;
-  line-height: 1.75;
-  list-style-type: none;
+  text-align: center;
+  line-height: 1.25;
+  font-size: 0.85rem;
+  font-weight: 450;
 }
 
-.modal li:not(:last-child) {
-  border-bottom: 1px solid var(--color-border-primary);
-}
-
-.modal li::before {
-  display: inline-block;
-  position: absolute;
-  top: 12px;
-  bottom: 12px;
-  left: min(calc(10px + (15 - 10) * ((100vw - 320px) / (768 - 320))), 15px);
+.modal-modal-tip {
   opacity: 0.5;
-  border-radius: $roundness;
-  background-color: var(--color-accent);
-  width: 1px;
-  content: "";
+  padding-block: 12px;
+  padding-inline: 15px;
+  max-width: 400px;
+  text-align: right;
+  line-height: 1.25;
+  font-size: 0.75rem;
+  text-wrap: balance;
 }
 
 .modal-support {

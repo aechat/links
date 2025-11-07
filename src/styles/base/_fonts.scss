@@ -1,510 +1,510 @@
 @font-face {
-  font-style: normal;
+  font-family: Inter;
   font-weight: 100;
+  font-style: normal;
   src: url("/src/fonts/ttf/Inter/static/Inter_18pt-Thin.ttf") format("truetype");
-  font-family: Inter;
 }
 
 @font-face {
-  font-style: normal;
+  font-family: Inter;
   font-weight: 200;
+  font-style: normal;
   src: url("/src/fonts/ttf/Inter/static/Inter_18pt-ExtraLight.ttf") format("truetype");
-  font-family: Inter;
 }
 
 @font-face {
-  font-style: normal;
+  font-family: Inter;
   font-weight: 300;
+  font-style: normal;
   src: url("/src/fonts/ttf/Inter/static/Inter_18pt-Light.ttf") format("truetype");
-  font-family: Inter;
 }
 
 @font-face {
-  font-style: normal;
+  font-family: Inter;
   font-weight: 400;
+  font-style: normal;
   src: url("/src/fonts/ttf/Inter/static/Inter_18pt-Regular.ttf") format("truetype");
-  font-family: Inter;
 }
 
 @font-face {
-  font-style: normal;
+  font-family: Inter;
   font-weight: 500;
+  font-style: normal;
   src: url("/src/fonts/ttf/Inter/static/Inter_18pt-Medium.ttf") format("truetype");
-  font-family: Inter;
 }
 
 @font-face {
-  font-style: normal;
+  font-family: Inter;
   font-weight: 600;
+  font-style: normal;
   src: url("/src/fonts/ttf/Inter/static/Inter_18pt-SemiBold.ttf") format("truetype");
-  font-family: Inter;
 }
 
 @font-face {
-  font-style: normal;
+  font-family: Inter;
   font-weight: 700;
+  font-style: normal;
   src: url("/src/fonts/ttf/Inter/static/Inter_18pt-Bold.ttf") format("truetype");
-  font-family: Inter;
 }
 
 @font-face {
-  font-style: normal;
+  font-family: Inter;
   font-weight: 800;
+  font-style: normal;
   src: url("/src/fonts/ttf/Inter/static/Inter_18pt-ExtraBold.ttf") format("truetype");
-  font-family: Inter;
 }
 
 @font-face {
-  font-style: normal;
+  font-family: Inter;
   font-weight: 900;
+  font-style: normal;
   src: url("/src/fonts/ttf/Inter/static/Inter_18pt-Black.ttf") format("truetype");
-  font-family: Inter;
 }
 
 @font-face {
-  font-style: normal;
-  font-weight: 100 900;
-  src: url("/src/fonts/ttf/Inter/Inter-VariableFont.ttf") format("truetype-variations");
   font-family: Inter;
+  font-weight: 100 900;
+  font-style: normal;
+  src: url("/src/fonts/ttf/Inter/Inter-VariableFont.ttf") format("truetype-variations");
   font-display: swap;
 }
 
 @font-face {
-  font-style: normal;
-  font-weight: 100 900;
-  src: url("/src/fonts/ttf/Inter/Inter-VariableFont.ttf") format("truetype-variations");
   font-family: Inter;
+  font-weight: 100 900;
+  font-style: normal;
+  src: url("/src/fonts/ttf/Inter/Inter-VariableFont.ttf") format("truetype-variations");
   font-display: swap;
 }
 
 @font-face {
-  font-style: normal;
+  font-family: "JetBrains Mono";
   font-weight: 100;
+  font-style: normal;
   src: url("/src/fonts/ttf/JetBrainsMono/static/JetBrainsMono-ExtraLight.ttf")
     format("truetype");
-  font-family: "JetBrains Mono";
 }
 
 @font-face {
-  font-style: italic;
+  font-family: "JetBrains Mono";
   font-weight: 100;
+  font-style: italic;
   src: url("/src/fonts/ttf/JetBrainsMono/static/JetBrainsMono-ExtraLightItalic.ttf")
     format("truetype");
-  font-family: "JetBrains Mono";
 }
 
 @font-face {
-  font-style: normal;
+  font-family: "JetBrains Mono";
   font-weight: 200;
+  font-style: normal;
   src: url("/src/fonts/ttf/JetBrainsMono/static/JetBrainsMono-Thin.ttf")
     format("truetype");
-  font-family: "JetBrains Mono";
 }
 
 @font-face {
-  font-style: italic;
+  font-family: "JetBrains Mono";
   font-weight: 200;
+  font-style: italic;
   src: url("/src/fonts/ttf/JetBrainsMono/static/JetBrainsMono-ThinItalic.ttf")
     format("truetype");
-  font-family: "JetBrains Mono";
 }
 
 @font-face {
-  font-style: normal;
+  font-family: "JetBrains Mono";
   font-weight: 300;
+  font-style: normal;
   src: url("/src/fonts/ttf/JetBrainsMono/static/JetBrainsMono-Light.ttf")
     format("truetype");
-  font-family: "JetBrains Mono";
 }
 
 @font-face {
-  font-style: italic;
+  font-family: "JetBrains Mono";
   font-weight: 300;
+  font-style: italic;
   src: url("/src/fonts/ttf/JetBrainsMono/static/JetBrainsMono-LightItalic.ttf")
     format("truetype");
-  font-family: "JetBrains Mono";
 }
 
 @font-face {
-  font-style: normal;
+  font-family: "JetBrains Mono";
   font-weight: 400;
+  font-style: normal;
   src: url("/src/fonts/ttf/JetBrainsMono/static/JetBrainsMono-Regular.ttf")
     format("truetype");
-  font-family: "JetBrains Mono";
 }
 
 @font-face {
-  font-style: italic;
+  font-family: "JetBrains Mono";
   font-weight: 400;
+  font-style: italic;
   src: url("/src/fonts/ttf/JetBrainsMono/static/JetBrainsMono-Italic.ttf")
     format("truetype");
-  font-family: "JetBrains Mono";
 }
 
 @font-face {
-  font-style: normal;
+  font-family: "JetBrains Mono";
   font-weight: 500;
+  font-style: normal;
   src: url("/src/fonts/ttf/JetBrainsMono/static/JetBrainsMono-Medium.ttf")
     format("truetype");
-  font-family: "JetBrains Mono";
 }
 
 @font-face {
-  font-style: italic;
+  font-family: "JetBrains Mono";
   font-weight: 500;
+  font-style: italic;
   src: url("/src/fonts/ttf/JetBrainsMono/static/JetBrainsMono-MediumItalic.ttf")
     format("truetype");
-  font-family: "JetBrains Mono";
 }
 
 @font-face {
-  font-style: normal;
+  font-family: "JetBrains Mono";
   font-weight: 600;
+  font-style: normal;
   src: url("/src/fonts/ttf/JetBrainsMono/static/JetBrainsMono-SemiBold.ttf")
     format("truetype");
-  font-family: "JetBrains Mono";
 }
 
 @font-face {
-  font-style: italic;
+  font-family: "JetBrains Mono";
   font-weight: 600;
+  font-style: italic;
   src: url("/src/fonts/ttf/JetBrainsMono/static/JetBrainsMono-SemiBoldItalic.ttf")
     format("truetype");
-  font-family: "JetBrains Mono";
 }
 
 @font-face {
-  font-style: normal;
+  font-family: "JetBrains Mono";
   font-weight: 700;
+  font-style: normal;
   src: url("/src/fonts/ttf/JetBrainsMono/static/JetBrainsMono-Bold.ttf")
     format("truetype");
-  font-family: "JetBrains Mono";
 }
 
 @font-face {
-  font-style: italic;
+  font-family: "JetBrains Mono";
   font-weight: 700;
+  font-style: italic;
   src: url("/src/fonts/ttf/JetBrainsMono/static/JetBrainsMono-BoldItalic.ttf")
     format("truetype");
-  font-family: "JetBrains Mono";
 }
 
 @font-face {
-  font-style: normal;
+  font-family: "JetBrains Mono";
   font-weight: 800;
+  font-style: normal;
   src: url("/src/fonts/ttf/JetBrainsMono/static/JetBrainsMono-ExtraBold.ttf")
     format("truetype");
-  font-family: "JetBrains Mono";
 }
 
 @font-face {
-  font-style: italic;
+  font-family: "JetBrains Mono";
   font-weight: 800;
+  font-style: italic;
   src: url("/src/fonts/ttf/JetBrainsMono/static/JetBrainsMono-ExtraBoldItalic.ttf")
     format("truetype");
-  font-family: "JetBrains Mono";
 }
 
 @font-face {
-  font-style: normal;
+  font-family: "JetBrains Mono";
   font-weight: 100 800;
+  font-style: normal;
   src: url("/src/fonts/ttf/JetBrainsMono/JetBrainsMono-Variable.ttf")
     format("truetype-variations");
-  font-family: "JetBrains Mono";
 }
 
 @font-face {
-  font-style: italic;
+  font-family: "JetBrains Mono";
   font-weight: 100 800;
+  font-style: italic;
   src: url("/src/fonts/ttf/JetBrainsMono/JetBrainsMono-VariableItalic.ttf")
     format("truetype-variations");
-  font-family: "JetBrains Mono";
 }
 
 @font-face {
-  font-style: normal;
+  font-family: Onest;
   font-weight: 900;
+  font-style: normal;
   src: url("/src/fonts/ttf/Onest/static/Onest-Black.ttf") format("truetype");
-  font-family: Onest;
 }
 
 @font-face {
-  font-style: normal;
+  font-family: Onest;
   font-weight: 700;
+  font-style: normal;
   src: url("/src/fonts/ttf/Onest/static/Onest-Bold.ttf") format("truetype");
-  font-family: Onest;
 }
 
 @font-face {
-  font-style: normal;
+  font-family: Onest;
   font-weight: 800;
+  font-style: normal;
   src: url("/src/fonts/ttf/Onest/static/Onest-ExtraBold.ttf") format("truetype");
-  font-family: Onest;
 }
 
 @font-face {
-  font-style: normal;
+  font-family: Onest;
   font-weight: 200;
+  font-style: normal;
   src: url("/src/fonts/ttf/Onest/static/Onest-ExtraLight.ttf") format("truetype");
-  font-family: Onest;
 }
 
 @font-face {
-  font-style: normal;
+  font-family: Onest;
   font-weight: 300;
+  font-style: normal;
   src: url("/src/fonts/ttf/Onest/static/Onest-Light.ttf") format("truetype");
-  font-family: Onest;
 }
 
 @font-face {
-  font-style: normal;
+  font-family: Onest;
   font-weight: 500;
+  font-style: normal;
   src: url("/src/fonts/ttf/Onest/static/Onest-Medium.ttf") format("truetype");
-  font-family: Onest;
 }
 
 @font-face {
-  font-style: normal;
+  font-family: Onest;
   font-weight: 400;
+  font-style: normal;
   src: url("/src/fonts/ttf/Onest/static/Onest-Regular.ttf") format("truetype");
-  font-family: Onest;
 }
 
 @font-face {
-  font-style: normal;
+  font-family: Onest;
   font-weight: 600;
+  font-style: normal;
   src: url("/src/fonts/ttf/Onest/static/Onest-SemiBold.ttf") format("truetype");
-  font-family: Onest;
 }
 
 @font-face {
-  font-style: normal;
+  font-family: Onest;
   font-weight: 100;
+  font-style: normal;
   src: url("/src/fonts/ttf/Onest/static/Onest-Thin.ttf") format("truetype");
-  font-family: Onest;
 }
 
 @font-face {
-  font-style: normal;
+  font-family: Onest;
   font-weight: 100 900;
+  font-style: normal;
   src: url("/src/fonts/ttf/Onest/Onest-VariableFont_wght.ttf")
     format("truetype-variations");
-  font-family: Onest;
 }
 
 @font-face {
-  font-style: normal;
+  font-family: Manrope;
   font-weight: 700;
+  font-style: normal;
   src: url("/src/fonts/ttf/Manrope/static/Manrope-Bold.ttf") format("truetype");
-  font-family: Manrope;
 }
 
 @font-face {
-  font-style: normal;
+  font-family: Manrope;
   font-weight: 800;
+  font-style: normal;
   src: url("/src/fonts/ttf/Manrope/static/Manrope-ExtraBold.ttf") format("truetype");
-  font-family: Manrope;
 }
 
 @font-face {
-  font-style: normal;
+  font-family: Manrope;
   font-weight: 200;
+  font-style: normal;
   src: url("/src/fonts/ttf/Manrope/static/Manrope-ExtraLight.ttf") format("truetype");
-  font-family: Manrope;
 }
 
 @font-face {
-  font-style: normal;
+  font-family: Manrope;
   font-weight: 300;
+  font-style: normal;
   src: url("/src/fonts/ttf/Manrope/static/Manrope-Light.ttf") format("truetype");
-  font-family: Manrope;
 }
 
 @font-face {
-  font-style: normal;
+  font-family: Manrope;
   font-weight: 500;
+  font-style: normal;
   src: url("/src/fonts/ttf/Manrope/static/Manrope-Medium.ttf") format("truetype");
-  font-family: Manrope;
 }
 
 @font-face {
-  font-style: normal;
+  font-family: Manrope;
   font-weight: 400;
+  font-style: normal;
   src: url("/src/fonts/ttf/Manrope/static/Manrope-Regular.ttf") format("truetype");
-  font-family: Manrope;
 }
 
 @font-face {
-  font-style: normal;
+  font-family: Manrope;
   font-weight: 600;
+  font-style: normal;
   src: url("/src/fonts/ttf/Manrope/static/Manrope-SemiBold.ttf") format("truetype");
-  font-family: Manrope;
 }
 
 @font-face {
-  font-style: normal;
+  font-family: Manrope;
   font-weight: 100 900;
+  font-style: normal;
   src: url("/src/fonts/ttf/Manrope/Manrope-VariableFont_wght.ttf")
     format("truetype-variations");
-  font-family: Manrope;
 }
 
 @font-face {
-  font-style: italic;
+  font-family: "Red Hat Display";
   font-weight: 100;
+  font-style: italic;
   src: url("/src/fonts/ttf/RedHatDisplay/static/RedHatDisplay-LightItalic.ttf")
     format("truetype");
-  font-family: "Red Hat Display";
 }
 
 @font-face {
-  font-style: normal;
+  font-family: "Red Hat Display";
   font-weight: 100;
+  font-style: normal;
   src: url("/src/fonts/ttf/RedHatDisplay/static/RedHatDisplay-Light.ttf")
     format("truetype");
-  font-family: "Red Hat Display";
 }
 
 @font-face {
-  font-style: italic;
+  font-family: "Red Hat Display";
   font-weight: 200;
+  font-style: italic;
   src: url("/src/fonts/ttf/RedHatDisplay/static/RedHatDisplay-MediumItalic.ttf")
     format("truetype");
-  font-family: "Red Hat Display";
 }
 
 @font-face {
-  font-style: normal;
+  font-family: "Red Hat Display";
   font-weight: 200;
+  font-style: normal;
   src: url("/src/fonts/ttf/RedHatDisplay/static/RedHatDisplay-Medium.ttf")
     format("truetype");
-  font-family: "Red Hat Display";
 }
 
 @font-face {
-  font-style: italic;
+  font-family: "Red Hat Display";
   font-weight: 300;
+  font-style: italic;
   src: url("/src/fonts/ttf/RedHatDisplay/static/RedHatDisplay-SemiBoldItalic.ttf")
     format("truetype");
-  font-family: "Red Hat Display";
 }
 
 @font-face {
-  font-style: normal;
+  font-family: "Red Hat Display";
   font-weight: 300;
+  font-style: normal;
   src: url("/src/fonts/ttf/RedHatDisplay/static/RedHatDisplay-SemiBold.ttf")
     format("truetype");
-  font-family: "Red Hat Display";
 }
 
 @font-face {
-  font-style: italic;
+  font-family: "Red Hat Display";
   font-weight: 400;
+  font-style: italic;
   src: url("/src/fonts/ttf/RedHatDisplay/static/RedHatDisplay-Italic.ttf")
     format("truetype");
-  font-family: "Red Hat Display";
 }
 
 @font-face {
-  font-style: normal;
+  font-family: "Red Hat Display";
   font-weight: 400;
+  font-style: normal;
   src: url("/src/fonts/ttf/RedHatDisplay/static/RedHatDisplay-Regular.ttf")
     format("truetype");
-  font-family: "Red Hat Display";
 }
 
 @font-face {
-  font-style: italic;
+  font-family: "Red Hat Display";
   font-weight: 500;
+  font-style: italic;
   src: url("/src/fonts/ttf/RedHatDisplay/static/RedHatDisplay-BoldItalic.ttf")
     format("truetype");
-  font-family: "Red Hat Display";
 }
 
 @font-face {
-  font-style: normal;
+  font-family: "Red Hat Display";
   font-weight: 500;
+  font-style: normal;
   src: url("/src/fonts/ttf/RedHatDisplay/static/RedHatDisplay-Bold.ttf")
     format("truetype");
-  font-family: "Red Hat Display";
 }
 
 @font-face {
-  font-style: italic;
+  font-family: "Red Hat Display";
   font-weight: 600;
+  font-style: italic;
   src: url("/src/fonts/ttf/RedHatDisplay/static/RedHatDisplay-ExtraBoldItalic.ttf")
     format("truetype");
-  font-family: "Red Hat Display";
 }
 
 @font-face {
-  font-style: normal;
+  font-family: "Red Hat Display";
   font-weight: 600;
+  font-style: normal;
   src: url("/src/fonts/ttf/RedHatDisplay/static/RedHatDisplay-ExtraBold.ttf")
     format("truetype");
-  font-family: "Red Hat Display";
 }
 
 @font-face {
-  font-style: italic;
+  font-family: "Red Hat Display";
   font-weight: 700;
+  font-style: italic;
   src: url("/src/fonts/ttf/RedHatDisplay/static/RedHatDisplay-BlackItalic.ttf")
     format("truetype");
-  font-family: "Red Hat Display";
 }
 
 @font-face {
-  font-style: normal;
+  font-family: "Red Hat Display";
   font-weight: 700;
+  font-style: normal;
   src: url("/src/fonts/ttf/RedHatDisplay/static/RedHatDisplay-Black.ttf")
     format("truetype");
-  font-family: "Red Hat Display";
 }
 
 @font-face {
-  font-style: italic;
+  font-family: "Red Hat Display";
   font-weight: 800;
+  font-style: italic;
   src: url("/src/fonts/ttf/RedHatDisplay/static/RedHatDisplay-ExtraBoldItalic.ttf")
     format("truetype");
-  font-family: "Red Hat Display";
 }
 
 @font-face {
-  font-style: normal;
+  font-family: "Red Hat Display";
   font-weight: 800;
+  font-style: normal;
   src: url("/src/fonts/ttf/RedHatDisplay/static/RedHatDisplay-ExtraBold.ttf")
     format("truetype");
-  font-family: "Red Hat Display";
 }
 
 @font-face {
-  font-style: italic;
+  font-family: "Red Hat Display";
   font-weight: 900;
+  font-style: italic;
   src: url("/src/fonts/ttf/RedHatDisplay/static/RedHatDisplay-BlackItalic.ttf")
     format("truetype");
-  font-family: "Red Hat Display";
 }
 
 @font-face {
-  font-style: normal;
+  font-family: "Red Hat Display";
   font-weight: 900;
+  font-style: normal;
   src: url("/src/fonts/ttf/RedHatDisplay/static/RedHatDisplay-Black.ttf")
     format("truetype");
-  font-family: "Red Hat Display";
 }
 
 @font-face {
-  font-style: italic;
+  font-family: "Red Hat Display";
   font-weight: 100 900;
+  font-style: italic;
   src: url("/src/fonts/ttf/RedHatDisplay/RedHatDisplay-Italic-VariableFont_wght.ttf")
     format("truetype-variations");
-  font-family: "Red Hat Display";
 }
 
 @font-face {
-  font-style: normal;
+  font-family: "Red Hat Display";
   font-weight: 100 900;
+  font-style: normal;
   src: url("/src/fonts/ttf/RedHatDisplay/RedHatDisplay-VariableFont_wght.ttf")
     format("truetype-variations");
-  font-family: "Red Hat Display";
 }

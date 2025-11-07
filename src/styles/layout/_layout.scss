@@ -6,19 +6,19 @@
 }
 
 footer {
-  margin-inline: auto;
   margin-block: 30px 40px;
+  margin-inline: auto;
   outline: 1px solid var(--color-border-primary);
   border-radius: $roundness;
   background-color: var(--color-background-secondary);
-  padding-inline: 15px;
   padding-block: 10px;
+  padding-inline: 15px;
   width: calc(100% - 40px);
   max-width: 700px;
   color: var(--color-text-tertiary);
-  font-weight: 600;
-  font-size: 0.85rem;
   font-family: Onest, sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
 
   p {
     text-wrap: balance;

@@ -1,37 +1,39 @@
 footer {
-  .footer-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
+  .footer {
+    &-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
 
-  .footer-content-info {
-    opacity: 0.5;
-    font-weight: 400;
-    font-size: 0.9em;
-  }
+    &-content-info {
+      opacity: 0.5;
+      font-size: 0.9em;
+      font-weight: 400;
+    }
 
-  .footer-github-link {
-    display: flex;
-    flex-shrink: 0;
-    align-items: center;
-    gap: 5px;
-    text-decoration: none;
+    &-github-link {
+      display: flex;
+      flex-shrink: 0;
+      gap: 5px;
+      align-items: center;
+      text-decoration: none;
+    }
   }
 
   .commit-info {
     margin-block-start: 15px;
     overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 1.5;
     color: var(--color-text-tertiary);
     font-size: 0.785rem;
-    line-height: 1.5;
-    text-overflow: ellipsis;
 
     a {
-      color: var(--color-accent);
-      font-weight: 600;
       line-height: 1.35;
+      color: var(--color-accent);
       font-family: Onest, Inter, sans-serif;
+      font-weight: 600;
     }
   }
 }

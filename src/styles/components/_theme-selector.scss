@@ -1,54 +1,99 @@
 @use "../abstracts/mixins" as *;
 
-.theme-slider {
-  display: flex;
-  flex-grow: 1;
-  flex-shrink: 0;
-  justify-content: space-between;
-  align-items: center;
-  gap: 10px;
-  margin-inline: 24px;
-  margin-block-end: 12px;
-  line-height: 1.35;
-}
+.theme {
+  &-slider {
+    display: flex;
+    flex-grow: 1;
+    flex-shrink: 0;
+    gap: 10px;
+    align-items: center;
+    justify-content: space-between;
+    margin-block-end: 12px;
+    margin-inline: 24px;
+    line-height: 1.35;
 
-.theme-slider button {
-  flex-shrink: 0;
-}
+    button {
+      flex-shrink: 0;
+    }
 
-.theme-title svg {
-  width: min(calc(16px + (18 - 16) * ((100vw - 320px) / (768 - 320))), 18px);
-  height: min(calc(16px + (18 - 16) * ((100vw - 320px) / (768 - 320))), 18px);
-}
+    .ant-slider {
+      flex: 1 1 auto;
+      width: 100%;
+    }
+  }
 
-.theme-title {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-inline: 16px;
-  margin-block: 10px 2px;
-  font-weight: 400;
-  font-size: 0.9rem;
+  &-title {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    margin-block: 10px 2px;
+    margin-inline: 16px;
+    font-size: 0.9rem;
+    font-weight: 400;
 
-  button {
-    transition: background-color 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
-    border-radius: 100%;
+    svg {
+      width: min(calc(16px + (18 - 16) * ((100vw - 320px) / (768 - 320))), 18px);
+      height: min(calc(16px + (18 - 16) * ((100vw - 320px) / (768 - 320))), 18px);
+    }
 
-    &.theme-reset-button {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      cursor: pointer;
-      border: none;
-      background-color: transparent;
-      width: 28px;
-      height: 28px;
+    button {
+      transition: background-color 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+      border-radius: 100%;
 
-      svg {
-        width: min(calc(16px + (18 - 16) * ((100vw - 320px) / (768 - 320))), 18px);
-        height: min(calc(16px + (18 - 16) * ((100vw - 320px) / (768 - 320))), 18px);
+      &:hover {
+        background-color: var(--color-button-group-background-hover);
+      }
+
+      &:active {
+        background-color: var(--color-button-group-background-active);
+      }
+
+      &.theme-reset-button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: none;
+        background-color: transparent;
+        cursor: pointer;
+        width: 28px;
+        height: 28px;
+
+        svg {
+          width: min(calc(16px + (18 - 16) * ((100vw - 320px) / (768 - 320))), 18px);
+          height: min(calc(16px + (18 - 16) * ((100vw - 320px) / (768 - 320))), 18px);
+        }
       }
     }
+  }
+
+  &-selector {
+    display: flex;
+    flex-shrink: 0;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 10px;
+    border: 1px solid var(--color-button-group-border);
+    border-radius: $roundness * 0.75;
+    width: calc(100% - 20px);
+    overflow: hidden;
+    color: var(--color-button-group-text);
+  }
+
+  &-button {
+    display: flex;
+    flex: 1 0 100px;
+    flex-wrap: nowrap;
+    gap: 6px;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+    outline: 1px solid var(--color-button-group-border) !important;
+    background-color: var(--color-button-group-background);
+    padding: 10px;
+    max-width: 100%;
+    font-family: Onest, sans-serif;
+    font-size: 0.95rem;
+    font-weight: 500;
 
     &:hover {
       background-color: var(--color-button-group-background-hover);
@@ -57,63 +102,20 @@
     &:active {
       background-color: var(--color-button-group-background-active);
     }
+
+    sup {
+      margin: -3px;
+      font-size: 0.6em;
+    }
+
+    svg {
+      fill: var(--color-button-group-text);
+      width: min(calc(17px + (19 - 17) * ((100vw - 320px) / (768 - 320))), 19px);
+      height: min(calc(17px + (19 - 17) * ((100vw - 320px) / (768 - 320))), 19px);
+    }
+
+    &-selected {
+      background-color: var(--color-button-group-selected);
+    }
   }
-}
-
-.theme-slider .ant-slider {
-  flex: 1 1 auto;
-  width: 100%;
-}
-
-.theme-selector {
-  display: flex;
-  flex-shrink: 0;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  margin: 10px;
-  border: 1px solid var(--color-button-group-border);
-  border-radius: $roundness * 0.75;
-  width: calc(100% - 20px);
-  overflow: hidden;
-  color: var(--color-button-group-text);
-}
-
-.theme-button {
-  display: flex;
-  flex: 1 0 100px;
-  flex-wrap: nowrap;
-  justify-content: center;
-  align-items: center;
-  gap: 6px;
-  transition: background-color 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
-  outline: 1px solid var(--color-button-group-border) !important;
-  background-color: var(--color-button-group-background);
-  padding: 10px;
-  max-width: 100%;
-  font-weight: 500;
-  font-size: 0.95rem;
-  font-family: Onest, sans-serif;
-
-  &:hover {
-    background-color: var(--color-button-group-background-hover);
-  }
-
-  &:active {
-    background-color: var(--color-button-group-background-active);
-  }
-
-  sup {
-    margin: -3px;
-    font-size: 0.6em;
-  }
-}
-
-.theme-button svg {
-  fill: var(--color-button-group-text);
-  width: min(calc(17px + (19 - 17) * ((100vw - 320px) / (768 - 320))), 19px);
-  height: min(calc(17px + (19 - 17) * ((100vw - 320px) / (768 - 320))), 19px);
-}
-
-.theme-button-selected {
-  background-color: var(--color-button-group-selected);
 }
