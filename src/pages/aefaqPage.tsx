@@ -162,7 +162,7 @@ const AEFAQ = () => {
             itemProp="description"
           />
           <meta
-            content="https://aechat.ru/icons/aefaq@aechat.png"
+            content="https://aechat.ru/icons/aechat.png"
             itemProp="image"
           />
           <meta
@@ -186,7 +186,7 @@ const AEFAQ = () => {
             property="og:description"
           />
           <meta
-            content="https://aechat.ru/icons/aefaq@aechat.png"
+            content="https://aechat.ru/icons/aechat.png"
             property="og:image"
           />
           <meta
@@ -202,7 +202,7 @@ const AEFAQ = () => {
             name="twitter:description"
           />
           <meta
-            content="https://aechat.ru/icons/aefaq@aechat.png"
+            content="https://aechat.ru/icons/aechat.png"
             name="twitter:image"
           />
         </Helmet>

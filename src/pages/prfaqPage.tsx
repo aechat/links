@@ -121,7 +121,7 @@ const PRFAQ = () => {
             itemProp="description"
           />
           <meta
-            content="https://aechat.ru/icons/prfaq@aechat.png"
+            content="https://aechat.ru/icons/aechat.png"
             itemProp="image"
           />
           <meta
@@ -145,7 +145,7 @@ const PRFAQ = () => {
             property="og:description"
           />
           <meta
-            content="https://aechat.ru/icons/prfaq@aechat.png"
+            content="https://aechat.ru/icons/aechat.png"
             property="og:image"
           />
           <meta
@@ -161,7 +161,7 @@ const PRFAQ = () => {
             name="twitter:description"
           />
           <meta
-            content="https://aechat.ru/icons/prfaq@aechat.png"
+            content="https://aechat.ru/icons/aechat.png"
             name="twitter:image"
           />
         </Helmet>

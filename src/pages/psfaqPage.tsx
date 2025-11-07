@@ -126,7 +126,7 @@ const PSFAQ = () => {
             itemProp="description"
           />
           <meta
-            content="https://aechat.ru/icons/psfaq@aechat.png"
+            content="https://aechat.ru/icons/aechat.png"
             itemProp="image"
           />
           <meta
@@ -150,7 +150,7 @@ const PSFAQ = () => {
             property="og:description"
           />
           <meta
-            content="https://aechat.ru/icons/psfaq@aechat.png"
+            content="https://aechat.ru/icons/aechat.png"
             property="og:image"
           />
           <meta
@@ -166,7 +166,7 @@ const PSFAQ = () => {
             name="twitter:description"
           />
           <meta
-            content="https://aechat.ru/icons/psfaq@aechat.png"
+            content="https://aechat.ru/icons/aechat.png"
             name="twitter:image"
           />
         </Helmet>
