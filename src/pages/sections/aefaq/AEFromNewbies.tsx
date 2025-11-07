@@ -5134,10 +5134,13 @@ const AEFromNewbies: React.FC = () => {
         </p>
         <p>
           Если вы хотите просто убрать чёрный фон у слоя, воспользуйтесь стандартным
-          эффектом <mark className="plugin">Extract</mark> или сторонним{" "}
+          эффектом <mark className="plugin">Extract</mark> или{" "}
+          <mark className="plugin">Unmult</mark>, который доступен в последней публичной
+          бете <mark className="app">Adobe After Effects</mark> или сторонним{" "}
           <mark className="plugin">uni.unmult</mark> из пакета{" "}
           <mark className="plugin">Red Giant Universe</mark>.
         </p>
+        {/* FIXME: исправить "публичную бету" на стабильную версию, если этот эффект доедет до релиза */}
         <ContentFigure
           caption="Red Giant Universe Unmult"
           src="GGjIu0CZ1M4"
