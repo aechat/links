@@ -20,8 +20,8 @@
     font-family: Onest, Inter, sans-serif;
 
     &-notice-wrapper .ant-message-notice-content {
-      outline: 1px solid var(--color-border-primary);
-      background: var(--color-background-secondary);
+      outline: 1px solid var(--color-border-primary) !important;
+      background: var(--color-background-secondary) !important;
       font-size: 0.9rem !important;
       font-weight: 400;
     }
