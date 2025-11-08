@@ -4959,7 +4959,52 @@ const AEFromNewbies: React.FC = () => {
         />
       </DetailsSummary>
       <DetailsSummary
-        tag="предпросмотр в плохом качестве, пиксели"
+        tag="плохое качество, пиксели, низкое разрешение"
+        title="Что делать, если предпросмотр выглядит пиксельным или размытым?"
+      >
+        <p>
+          Чтобы устранить проблемы с качеством предпросмотра, для начала проверьте
+          разрешение в окне <mark className="select">«Composition»</mark> и установите
+          значение <mark className="select">«Full»</mark>. Список с выбором качества
+          находится под окном предпросмотра или в настройках композиции.
+        </p>
+        <ContentFigure
+          caption="Adobe After Effects"
+          src="images/aftereffects/change_resolution_comppreview.mp4"
+          theme="dark"
+          type="video"
+          variant="windows"
+        />
+        <p>
+          Если там всё в порядке, но при воспроизведении качество всё равно падает — стоит
+          проверить настройки разрешения в окне <mark className="select">«Preview»</mark>.
+          Выставьте в этом окне для параметра <mark className="select">«Resolution»</mark>{" "}
+          значение <mark className="select">«Full»</mark>.
+        </p>
+        <ContentFigure
+          caption="Preview"
+          imgTitle="Изменение качества в окне Preview"
+          src="images/aftereffects/change_resolution_preview.png"
+          theme="dark"
+          type="image"
+          variant="windows"
+        />
+        <Addition type="info">
+          Если в <mark className="select">«Resolution»</mark> стоит{" "}
+          <mark className="select">«Auto»</mark>, качество предпросмотра будет меняться в
+          зависимости от значения, указанного в окне композиции или в настройках
+          композиции.
+        </Addition>
+        <p>
+          Если предпросмотр остаётся размытым и пиксельным даже при качестве{" "}
+          <mark className="select">«Full»</mark>, убедитесь, что его масштаб не превышает{" "}
+          <mark>100%</mark>, а у самой композиции достаточно высокое разрешение. Изменить
+          его можно в настройках композиции сочетанием клавиш{" "}
+          <mark className="key">Ctrl + K</mark>.
+        </p>
+      </DetailsSummary>
+      <DetailsSummary
+        tag="предпросмотр в плохом качестве, пиксели, низкое разрешение"
         title="Почему векторный слой выглядит пиксельным?"
       >
         <p>
