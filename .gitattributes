@@ -1,0 +1,48 @@
+* text=auto eol=lf
+*.js text
+*.jsx text
+*.ts text
+*.tsx text
+*.html text
+*.css text
+*.scss text
+*.json text
+*.md text
+*.yml text
+*.yaml text
+.stylelintrc.json text
+commitlint.config.js text
+eslint.config.js text
+tsconfig.json text
+tsconfig.node.json text
+vite.config.ts text
+prerender.js text
+.gitignore text
+.gitattributes text
+CNAME text
+*.svg text
+*.bat text eol=crlf
+*.cmd text eol=crlf
+*.ps1 text eol=crlf
+*.reg text eol=crlf
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.bmp binary
+*.psd binary
+*.ai binary
+*.mp3 binary
+*.mp4 binary
+*.webm binary
+*.woff binary
+*.woff2 binary
+*.eot binary
+*.ttf binary
+*.otf binary
+*.zip binary
+*.rar binary
+*.prfpset binary
+*.ffx binary
+*.enc binary
