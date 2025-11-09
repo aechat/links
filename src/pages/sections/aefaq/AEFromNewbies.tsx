@@ -4541,87 +4541,16 @@ const AEFromNewbies: React.FC = () => {
         />
       </DetailsSummary>
       <DetailsSummary
-        tag="плохое качество, низкое разрешение, пиксели, лагает превью, векторные изображения, замедленное, ускоренное, тормозит, слоумо, растянутое аудио, adaptive resolution, fast previews, адаптивное разрешение, качество предпросмотра, пиксели, почему пропал звук при проигрывании предпросмотра, нет звука, аудио, отсутствует, audio hardware"
-        title="Почему предпросмотр может воспроизводиться странно?"
+        tag="лагает превью, замедленное, ускоренное, тормозит, слоумо, растянутое аудио"
+        title="Почему предпросмотр может воспроизводиться рывками или ускоренно?"
       >
         <p>
-          Часто пользователи <mark className="app">Adobe After Effects</mark> под
-          «странным» воспроизведением предпросмотра имеют в виду потерю качества, дёргание
-          кадров, артефакты или замедленное воспроизведение. Чтобы не дробить материал на
-          несколько статей, разберём все популярные проблемы в одном месте.
+          Часто пользователи <mark className="app">Adobe After Effects</mark> жалуются на
+          различные проблемы при воспроизведении предпросмотра, в частности, на
+          необъяснимые «тормоза», замедленный или ускоренный предпросмотр. В этой статье
+          мы разберем популярные причины и способы их решения.
         </p>
-        <Divider>Разбираемся с плохим качеством</Divider>
-        <p>
-          Чтобы устранить проблемы с качеством предпросмотра, для начала проверьте
-          разрешение в окне <mark className="select">«Composition»</mark> и установите
-          значение <mark className="select">«Full»</mark>. Список с выбором качества
-          находится под окном предпросмотра или в настройках композиции.
-        </p>
-        <ContentFigure
-          caption="Adobe After Effects"
-          src="images/aftereffects/change_resolution_comppreview.mp4"
-          theme="dark"
-          type="video"
-          variant="windows"
-        />
-        <p>
-          Если там всё в порядке, но при воспроизведении качество всё равно падает — стоит
-          проверить настройки разрешения в окне <mark className="select">«Preview»</mark>.
-          Выставьте в этом окне для параметра <mark className="select">«Resolution»</mark>{" "}
-          значение <mark className="select">«Full»</mark>.
-        </p>
-        <Addition type="info">
-          Если в <mark className="select">«Resolution»</mark> стоит{" "}
-          <mark className="select">«Auto»</mark>, качество предпросмотра будет меняться в
-          зависимости от значения, указанное в окне композиции или в настройках
-          композиции.
-        </Addition>
-        <ContentFigure
-          caption="Preview"
-          imgTitle="Изменение качества в окне Preview"
-          src="images/aftereffects/change_resolution_preview.png"
-          theme="dark"
-          type="image"
-          variant="windows"
-        />
-        <Divider>Как убрать «пикселизацию» при перемещении объектов?</Divider>
-        <p>
-          По умолчанию в <mark className="app">Adobe After Effects</mark> включена функция
-          адаптивного разрешения: при перемещении плейхеда или слоя качество предпросмотра
-          временно снижается для быстрого рендера кадра. Если эта функция вас раздражает,
-          её можно отключить — для этого нажмите на{" "}
-          <mark className="select">«Fast Previews»</mark> под окном предпросмотра и
-          выберите <mark className="select">«Off (Final Quality)»</mark>.
-        </p>
-        <ContentFigure
-          caption="Timeline"
-          imgTitle="Отключение адаптивного разрешения"
-          src="images/aftereffects/disable_adaptive_resolution.png"
-          theme="dark"
-          type="image"
-          variant="windows"
-        />
-        <Divider>Как убрать «пикселизацию» у векторных слоёв?</Divider>
-        <p>
-          Если вы импортировали векторный файл (например, <mark className="file">AI</mark>
-          ), включите для этого слоя опцию{" "}
-          <mark className="select">«Continuously Rasterize»</mark>. Это заставит программу
-          перерисовывать вектор при каждом изменении масштаба, сглаживая пикселизацию.
-        </p>
-        <ContentFigure
-          caption="Timeline"
-          imgTitle="Включение Continuously Rasterize"
-          src="images/aftereffects/enable_continuously_rasterize.png"
-          theme="dark"
-          type="image"
-          variant="windows"
-        />
-        <Addition type="warning">
-          При включённой опции <mark className="select">«Continuously Rasterize»</mark>{" "}
-          могут возникнуть артефакты, например разрывы слоя при использовании{" "}
-          <mark className="plugin">Puppet Tool</mark>.
-        </Addition>
-        <Divider>Устраняем причины «странной» скорости предпросмотра</Divider>
+        <Divider>Кэшируем предпросмотр перед воспроизведением</Divider>
         <p>
           Часто предпросмотр тормозит, потому что{" "}
           <mark className="app">Adobe After Effects</mark> по умолчанию пытается
@@ -4655,7 +4584,7 @@ const AEFromNewbies: React.FC = () => {
           первом нажатии на <mark className="key">Space</mark> программа сначала
           просчитает кадры, а затем воспроизведёт их из кэша. Повторное нажатие на{" "}
           <mark className="key">Space</mark> прервёт процесс кэширования и сразу начнёт
-          воспроизводить те кадры, которые уже были закэшированы.
+          воспроизводить кадры, которые уже были закэшированы.
         </p>
         <ContentFigure
           caption="Preview"
@@ -4665,6 +4594,7 @@ const AEFromNewbies: React.FC = () => {
           type="image"
           variant="windows"
         />
+        <Divider>Проверяем частоту кадров предпросмотра</Divider>
         <p>
           Иногда предпросмотр воспроизводится ускоренно или замедленно из-за неверной
           настройки частоты кадров в окне <mark className="select">«Preview»</mark>, так
@@ -4676,12 +4606,12 @@ const AEFromNewbies: React.FC = () => {
         <Addition type="info">
           Значение <mark className="select">«Frame Rate»</mark> работает следующим
           образом: если вы установили значение <mark>30</mark> для{" "}
-          <mark className="select">«Frame Rate»</mark> и сама композиция тоже в{" "}
+          <mark className="select">«Frame Rate»</mark>, а у самой композиции тоже{" "}
           <mark>30 FPS</mark>, то изменений в скорости вы не заметите. Однако если
-          изменить частоту кадров у композиции, например на <mark>60</mark>, а{" "}
+          изменить частоту кадров композиции, например, на <mark>60</mark>, а{" "}
           <mark className="select">«Frame Rate»</mark> в{" "}
           <mark className="select">«Preview»</mark> оставить прежним, то воспроизведение
-          будет идти в два раза медленнее. Установив значение{" "}
+          будет в два раза медленнее. Если установить значение{" "}
           <mark className="select">«Auto»</mark>, скорость будет автоматически
           подстраиваться под <mark>FPS</mark> композиции.
         </Addition>
@@ -4693,6 +4623,7 @@ const AEFromNewbies: React.FC = () => {
           type="image"
           variant="windows"
         />
+        <Divider>Проверяем устройство для вывода звука</Divider>
         <p>
           Если вы недавно меняли устройство вывода звука, например, подключили наушники,
           то программа может не справляться с синхронизацией аудио, из-за чего
@@ -4719,13 +4650,14 @@ const AEFromNewbies: React.FC = () => {
           <mark className="app">YouTube</mark>. Особенно это касается{" "}
           <mark className="video">H.264</mark> и <mark className="video">H.265</mark>: они
           отлично подходят для просмотра, но плохо ведут себя при монтаже. Постоянная
-          декомпрессия этих кодеков приводит к «артефактам» на превью, тормозам эффектов,
-          и <mark className="app">Adobe After Effects</mark> начинает «задыхаться».
+          декомпрессия этих кодеков приводит к появлению «артефактов» на превью и
+          «тормозам» в работе эффектов, из-за чего{" "}
+          <mark className="app">Adobe After Effects</mark> начинает «задыхаться».
         </p>
         <p>
           Аудио в формате <mark className="audio">MP3</mark> тоже может создавать
-          проблемы: часть трека может неожиданно пропадать на таймлайне, звук искажаться
-          или рассинхронизироваться с видео.
+          проблемы: часть трека может неожиданно пропадать на таймлайне, а звук —
+          искажаться или рассинхронизироваться с видео.
         </p>
         <ContentFigure
           caption="Пример артефактов проблемного аудио"
@@ -4736,16 +4668,44 @@ const AEFromNewbies: React.FC = () => {
         />
         <p>
           Чтобы избежать подобных проблем, рекомендуется заранее перекодировать файлы в
-          рабочие форматы — для видео, например,{" "}
+          рабочие форматы: для видео — например,{" "}
           <mark className="video">Apple ProRes 422</mark> или{" "}
           <mark className="video">Apple ProRes 4444</mark>, для аудио —{" "}
           <mark className="audio">WAV</mark>, а затем импортировать их в проект или
-          заменять уже после. Сделать это можно через{" "}
+          заменять ими уже добавленные исходники. Сделать это можно через{" "}
           <mark className="app">Shutter Encoder</mark> — бесплатную программу для
           конвертации файлов на основе <mark className="app">FFmpeg</mark>.{" "}
           <a href="#4.1">Подробнее...</a>
         </p>
-        <Divider>Разбираемся с проблемами со звуком</Divider>
+        <ContentFilter
+          windowsContent={
+            <div>
+              <Divider>Разбираемся с драйверами</Divider>
+              <p>
+                Иногда драйверы, например для видеокарты, могут обновиться автоматически
+                без вашего ведома и начать работать некорректно с вашей версией{" "}
+                <mark className="app">Adobe After Effects</mark>.
+              </p>
+              <p>
+                В таком случае попробуйте откатить проблемный драйвер и{" "}
+                <a href="https://remontka.pro/disable-driver-auto-update-windows-10/">
+                  отключить их автоматическое обновление
+                </a>
+                , чтобы подобные ситуации не повторялись. Если у вас установлена
+                видеокарта от <mark className="company">NVIDIA</mark>, рекомендуется
+                загрузить и установить драйвер редакции{" "}
+                <mark className="app">«NVIDIA Studio»</mark> с{" "}
+                <a href="https://www.nvidia.com/en-eu/geforce/drivers/">
+                  официального сайта NVIDIA
+                </a>
+                . На странице укажите модель вашей видеокарты, операционную систему и в
+                поле <mark className="select">«Download Type»</mark> выберите{" "}
+                <mark className="select">«Studio Driver»</mark>.
+              </p>
+            </div>
+          }
+        />
+      </DetailsSummary>
         <p>
           Иногда звук при предпросмотре может внезапно пропасть, если вы случайно что-то
           нажали. Сначала проверьте окно <mark className="select">«Preview»</mark>,
