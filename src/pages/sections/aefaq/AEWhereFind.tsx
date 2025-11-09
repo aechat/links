@@ -840,7 +840,7 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>-</td>
+              <td>—</td>
               <td>
                 <mark className="plugin">Cryptomatte</mark>
               </td>
@@ -886,7 +886,7 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>-</td>
+              <td>—</td>
               <td>
                 <mark className="plugin">EXtractoR</mark>
               </td>
@@ -1197,7 +1197,7 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>-</td>
+              <td>—</td>
               <td>
                 <mark className="plugin">CC Cross Blur</mark>
               </td>
@@ -1211,7 +1211,7 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>-</td>
+              <td>—</td>
               <td>
                 <mark className="plugin">CC Radial Blur</mark>
               </td>
@@ -1225,7 +1225,7 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>-</td>
+              <td>—</td>
               <td>
                 <mark className="plugin">CC Radial Fast Blur</mark>
               </td>
@@ -1239,7 +1239,7 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>-</td>
+              <td>—</td>
               <td>
                 <mark className="plugin">CC Vector Blur</mark>
               </td>
@@ -1466,7 +1466,7 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>-</td>
+              <td>—</td>
               <td>
                 <mark className="plugin">CC Composite</mark>
               </td>
@@ -1740,7 +1740,7 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>-</td>
+              <td>—</td>
               <td>
                 <mark className="plugin">CC Color Neutralizer</mark>
               </td>
@@ -1754,7 +1754,7 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>-</td>
+              <td>—</td>
               <td>
                 <mark className="plugin">CC Color Offset</mark>
               </td>
@@ -1768,7 +1768,7 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>-</td>
+              <td>—</td>
               <td>
                 <mark className="plugin">CC Kernel</mark>
               </td>
@@ -1782,7 +1782,7 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>-</td>
+              <td>—</td>
               <td>
                 <mark className="plugin">CC Toner</mark>
               </td>
@@ -1908,7 +1908,7 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>-</td>
+              <td>—</td>
               <td>
                 <mark className="plugin">Colorama</mark>
               </td>
@@ -2287,7 +2287,7 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>-</td>
+              <td>—</td>
               <td>
                 <mark className="plugin">CC Bend It</mark>
               </td>
@@ -2301,7 +2301,7 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>-</td>
+              <td>—</td>
               <td>
                 <mark className="plugin">CC Bender</mark>
               </td>
@@ -2315,7 +2315,7 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>-</td>
+              <td>—</td>
               <td>
                 <mark className="plugin">CC Blobbylize</mark>
               </td>
@@ -2329,7 +2329,7 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>-</td>
+              <td>—</td>
               <td>
                 <mark className="plugin">CC Flo Motion</mark>
               </td>
@@ -2343,7 +2343,7 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>-</td>
+              <td>—</td>
               <td>
                 <mark className="plugin">CC Griddler</mark>
               </td>
@@ -2357,7 +2357,7 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>-</td>
+              <td>—</td>
               <td>
                 <mark className="plugin">CC Lens</mark>
               </td>
@@ -2371,7 +2371,7 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>-</td>
+              <td>—</td>
               <td>
                 <mark className="plugin">CC Page Turn</mark>
               </td>
@@ -2385,7 +2385,7 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>-</td>
+              <td>—</td>
               <td>
                 <mark className="plugin">CC Power Pin</mark>
               </td>
@@ -2399,7 +2399,7 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>-</td>
+              <td>—</td>
               <td>
                 <mark className="plugin">CC Ripple Pulse</mark>
               </td>
@@ -2413,7 +2413,7 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>-</td>
+              <td>—</td>
               <td>
                 <mark className="plugin">CC Slant</mark>
               </td>
@@ -2427,7 +2427,7 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>-</td>
+              <td>—</td>
               <td>
                 <mark className="plugin">CC Smear</mark>
               </td>
@@ -2441,7 +2441,7 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>-</td>
+              <td>—</td>
               <td>
                 <mark className="plugin">CC Split</mark>
               </td>
@@ -2455,7 +2455,7 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>-</td>
+              <td>—</td>
               <td>
                 <mark className="plugin">CC Split 2</mark>
               </td>
@@ -2469,7 +2469,7 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>-</td>
+              <td>—</td>
               <td>
                 <mark className="plugin">CC Tiler</mark>
               </td>
@@ -3020,7 +3020,7 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>-</td>
+              <td>—</td>
               <td>
                 <mark className="plugin">CC Glue Gun</mark>
               </td>
@@ -3034,7 +3034,7 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>-</td>
+              <td>—</td>
               <td>
                 <mark className="plugin">CC Light Burst 2.5</mark>
               </td>
@@ -3048,7 +3048,7 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>-</td>
+              <td>—</td>
               <td>
                 <mark className="plugin">CC Light Rays</mark>
               </td>
@@ -3062,7 +3062,7 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>-</td>
+              <td>—</td>
               <td>
                 <mark className="plugin">CC Light Sweep</mark>
               </td>
@@ -3076,7 +3076,7 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>-</td>
+              <td>—</td>
               <td>
                 <mark className="plugin">CC Threads</mark>
               </td>
@@ -3315,7 +3315,7 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>-</td>
+              <td>—</td>
               <td>
                 <mark className="plugin">Vegas</mark>
               </td>
@@ -3574,7 +3574,7 @@ const AEWhereFind: React.FC = () => {
           </thead>
           <tbody>
             <tr>
-              <td>-</td>
+              <td>—</td>
               <td>
                 <mark className="plugin">Advanced Spill Suppressor</mark>
               </td>
@@ -3588,7 +3588,7 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>-</td>
+              <td>—</td>
               <td>
                 <mark className="plugin">CC Simple Wire Removal</mark>
               </td>
@@ -3682,7 +3682,7 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>-</td>
+              <td>—</td>
               <td>
                 <mark className="plugin">Key Cleaner</mark>
               </td>
@@ -3696,7 +3696,7 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>-</td>
+              <td>—</td>
               <td>
                 <mark className="plugin">Keylight (1.2)</mark>
               </td>
@@ -4274,7 +4274,7 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>-</td>
+              <td>—</td>
               <td>
                 <mark className="plugin">CC Cylinder</mark>
               </td>
@@ -4288,7 +4288,7 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>-</td>
+              <td>—</td>
               <td>
                 <mark className="plugin">CC Environment</mark>
               </td>
@@ -4302,7 +4302,7 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>-</td>
+              <td>—</td>
               <td>
                 <mark className="plugin">CC Sphere</mark>
               </td>
@@ -4316,7 +4316,7 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>-</td>
+              <td>—</td>
               <td>
                 <mark className="plugin">CC Spotlight</mark>
               </td>
@@ -4412,7 +4412,7 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>-</td>
+              <td>—</td>
               <td>
                 <mark className="plugin">CC Ball Action</mark>
               </td>
@@ -4426,7 +4426,7 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>-</td>
+              <td>—</td>
               <td>
                 <mark className="plugin">CC Bubbles</mark>
               </td>
@@ -4440,7 +4440,7 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>-</td>
+              <td>—</td>
               <td>
                 <mark className="plugin">CC Drizzle</mark>
               </td>
@@ -4454,7 +4454,7 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>-</td>
+              <td>—</td>
               <td>
                 <mark className="plugin">CC Hair</mark>
               </td>
@@ -4468,7 +4468,7 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>-</td>
+              <td>—</td>
               <td>
                 <mark className="plugin">CC Mr. Mercury</mark>
               </td>
@@ -4482,7 +4482,7 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>-</td>
+              <td>—</td>
               <td>
                 <mark className="plugin">CC Particle Systems II</mark>
               </td>
@@ -4496,7 +4496,7 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>-</td>
+              <td>—</td>
               <td>
                 <mark className="plugin">CC Particle World</mark>
               </td>
@@ -4510,7 +4510,7 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>-</td>
+              <td>—</td>
               <td>
                 <mark className="plugin">CC Pixel Polly</mark>
               </td>
@@ -4524,7 +4524,7 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>-</td>
+              <td>—</td>
               <td>
                 <mark className="plugin">CC Rainfall</mark>
               </td>
@@ -4538,7 +4538,7 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>-</td>
+              <td>—</td>
               <td>
                 <mark className="plugin">CC Scatterize</mark>
               </td>
@@ -4552,7 +4552,7 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>-</td>
+              <td>—</td>
               <td>
                 <mark className="plugin">CC Snowfall</mark>
               </td>
@@ -4566,7 +4566,7 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>-</td>
+              <td>—</td>
               <td>
                 <mark className="plugin">CC Star Burst</mark>
               </td>
@@ -4694,7 +4694,7 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>-</td>
+              <td>—</td>
               <td>
                 <mark className="plugin">CC Block Load</mark>
               </td>
@@ -4708,7 +4708,7 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>-</td>
+              <td>—</td>
               <td>
                 <mark className="plugin">CC Burn Film</mark>
               </td>
@@ -4722,7 +4722,7 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>-</td>
+              <td>—</td>
               <td>
                 <mark className="plugin">CC Glass</mark>
               </td>
@@ -4736,7 +4736,7 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>-</td>
+              <td>—</td>
               <td>
                 <mark className="plugin">CC HexTile</mark>
               </td>
@@ -4750,7 +4750,7 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>-</td>
+              <td>—</td>
               <td>
                 <mark className="plugin">CC Kaleida</mark>
               </td>
@@ -4764,7 +4764,7 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>-</td>
+              <td>—</td>
               <td>
                 <mark className="plugin">CC Mr. Shoothie</mark>
               </td>
@@ -4778,7 +4778,7 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>-</td>
+              <td>—</td>
               <td>
                 <mark className="plugin">CC Plastic</mark>
               </td>
@@ -4792,7 +4792,7 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>-</td>
+              <td>—</td>
               <td>
                 <mark className="plugin">CC RepeTile</mark>
               </td>
@@ -4806,7 +4806,7 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>-</td>
+              <td>—</td>
               <td>
                 <mark className="plugin">CC Threshold</mark>
               </td>
@@ -4820,7 +4820,7 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>-</td>
+              <td>—</td>
               <td>
                 <mark className="plugin">CC Threshold RGB</mark>
               </td>
@@ -4834,7 +4834,7 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>-</td>
+              <td>—</td>
               <td>
                 <mark className="plugin">CC Vignette</mark>
               </td>
@@ -5109,7 +5109,7 @@ const AEWhereFind: React.FC = () => {
           </thead>
           <tbody>
             <tr>
-              <td>-</td>
+              <td>—</td>
               <td>
                 <mark className="plugin">CC Force Motion Blur</mark>
               </td>
@@ -5123,7 +5123,7 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>-</td>
+              <td>—</td>
               <td>
                 <mark className="plugin">CC Wide Time</mark>
               </td>
@@ -5285,7 +5285,7 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>-</td>
+              <td>—</td>
               <td>
                 <mark className="plugin">CC Glass Wipe</mark>
               </td>
@@ -5299,7 +5299,7 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>-</td>
+              <td>—</td>
               <td>
                 <mark className="plugin">CC Grid Wipe</mark>
               </td>
@@ -5313,7 +5313,7 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>-</td>
+              <td>—</td>
               <td>
                 <mark className="plugin">CC Image Wipe</mark>
               </td>
@@ -5327,7 +5327,7 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>-</td>
+              <td>—</td>
               <td>
                 <mark className="plugin">CC Jaws</mark>
               </td>
@@ -5341,7 +5341,7 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>-</td>
+              <td>—</td>
               <td>
                 <mark className="plugin">CC Light Wipe</mark>
               </td>
@@ -5355,7 +5355,7 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>-</td>
+              <td>—</td>
               <td>
                 <mark className="plugin">CC Line Sweep</mark>
               </td>
@@ -5369,7 +5369,7 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>-</td>
+              <td>—</td>
               <td>
                 <mark className="plugin">CC Radial ScaleWipe</mark>
               </td>
@@ -5383,7 +5383,7 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>-</td>
+              <td>—</td>
               <td>
                 <mark className="plugin">CC Scale Wipe</mark>
               </td>
@@ -5397,7 +5397,7 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>-</td>
+              <td>—</td>
               <td>
                 <mark className="plugin">CC Twister</mark>
               </td>
@@ -5411,7 +5411,7 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>-</td>
+              <td>—</td>
               <td>
                 <mark className="plugin">CC WarpoMatic</mark>
               </td>
@@ -5539,7 +5539,7 @@ const AEWhereFind: React.FC = () => {
               </td>
             </tr>
             <tr>
-              <td>-</td>
+              <td>—</td>
               <td>
                 <mark className="plugin">CC Overbrights</mark>
               </td>

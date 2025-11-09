@@ -885,7 +885,7 @@ const PRWhereFind: React.FC = () => {
           </thead>
           <tbody>
             <tr>
-              <td>-</td>
+              <td>—</td>
               <td>
                 <mark className="plugin">DeEsser</mark>
               </td>
@@ -1132,7 +1132,7 @@ const PRWhereFind: React.FC = () => {
           </thead>
           <tbody>
             <tr>
-              <td>-</td>
+              <td>—</td>
               <td>
                 <mark className="plugin">Phaser</mark>
               </td>
@@ -1165,7 +1165,7 @@ const PRWhereFind: React.FC = () => {
           </thead>
           <tbody>
             <tr>
-              <td>-</td>
+              <td>—</td>
               <td>
                 <mark className="plugin">DeHummer</mark>
               </td>
@@ -1241,7 +1241,7 @@ const PRWhereFind: React.FC = () => {
           </thead>
           <tbody>
             <tr>
-              <td>-</td>
+              <td>—</td>
               <td>
                 <mark className="plugin">Loudness Radar</mark>
               </td>
@@ -1609,7 +1609,7 @@ const PRWhereFind: React.FC = () => {
           </thead>
           <tbody>
             <tr>
-              <td>-</td>
+              <td>—</td>
               <td>
                 <mark className="plugin">ProcAmp</mark>
               </td>
@@ -1811,7 +1811,7 @@ const PRWhereFind: React.FC = () => {
           </thead>
           <tbody>
             <tr>
-              <td>-</td>
+              <td>—</td>
               <td>
                 <mark className="plugin">ASC CDL</mark>
               </td>
@@ -2184,7 +2184,7 @@ const PRWhereFind: React.FC = () => {
           </thead>
           <tbody>
             <tr>
-              <td>-</td>
+              <td>—</td>
               <td>
                 <mark className="plugin">ToneMapper</mark>
               </td>
@@ -2304,13 +2304,13 @@ const PRWhereFind: React.FC = () => {
           </thead>
           <tbody>
             <tr>
-              <td>-</td>
+              <td>—</td>
               <td>
                 <mark className="plugin">Barn Doors</mark>
               </td>
             </tr>
             <tr>
-              <td>-</td>
+              <td>—</td>
               <td>
                 <mark className="plugin">Inset</mark>
               </td>
@@ -2595,13 +2595,13 @@ const PRWhereFind: React.FC = () => {
           </thead>
           <tbody>
             <tr>
-              <td>-</td>
+              <td>—</td>
               <td>
                 <mark className="plugin">Center Split</mark>
               </td>
             </tr>
             <tr>
-              <td>-</td>
+              <td>—</td>
               <td>
                 <mark className="plugin">Split</mark>
               </td>
