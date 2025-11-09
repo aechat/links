@@ -134,38 +134,57 @@ const SafariWarningModal = ({
   );
 };
 
-const ErrorFallback = ({error}: {error: Error}) => (
-  <div className="error-container">
-    <div className="error-backtitle">Ошибка</div>
-    <div
-      className="modal"
-      style={{maxWidth: "450px", margin: "15px"}}
-    >
-      <div className="error-content">
-        <div className="error-title">Ошибка: {error.message}</div>
-        <div className="error-message">
-          <p>Попробуйте перезагрузить страницу для получения свежих данных.</p>
-          <div className="flexible-links">
-            <button
-              onClick={() => {
-                if (typeof window !== "undefined") window.location.href = "/";
-              }}
-            >
-              На главную
-            </button>
-            <button
-              onClick={() => {
-                if (typeof window !== "undefined") window.location.reload();
-              }}
-            >
-              Обновить страницу
-            </button>
+const ErrorFallback = ({error}: {error: Error}) => {
+  const isDynamicImportError =
+    error.message.includes("dynamically imported module") ||
+    (error.cause &&
+      typeof error.cause === "object" &&
+      "message" in error.cause &&
+      (error.cause as Error).message.includes("dynamically imported module"));
+
+  return (
+    <div className="error-container">
+      <div className="error-backtitle">Ошибка</div>
+      <div
+        className="modal"
+        style={{maxWidth: "450px", margin: "15px"}}
+      >
+        <div className="error-content">
+          <div className="error-title">
+            {isDynamicImportError
+              ? "Доступна новая версия сайта"
+              : `Ошибка: ${error.message}`}
+          </div>
+          <div className="error-message">
+            <p>
+              {isDynamicImportError
+                ? "Обновите страницу, чтобы получить доступ к последним изменениям."
+                : "Всякое бывает, попробуйте перезагрузить страницу."}
+            </p>
+            <div className="flexible-links">
+              {!isDynamicImportError && (
+                <button
+                  onClick={() => {
+                    if (typeof window !== "undefined") window.location.href = "/";
+                  }}
+                >
+                  На главную
+                </button>
+              )}
+              <button
+                onClick={() => {
+                  if (typeof window !== "undefined") window.location.reload();
+                }}
+              >
+                Обновить страницу
+              </button>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-);
+  );
+};
 
 class ErrorBoundary extends React.Component<
   {children: React.ReactNode},
