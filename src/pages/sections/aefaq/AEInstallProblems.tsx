@@ -2938,14 +2938,7 @@ const AEInstallProblems: React.FC = () => {
                 Способ обновления, описанный ниже, не гарантирует <mark>100%</mark>{" "}
                 стабильной работы новой версии{" "}
                 <mark className="app">Adobe After Effects</mark>, поэтому все действия вы
-                выполняете на свой страх и риск. Если после такого обновления возникнут
-                проблемы, выполните чистую установку программы, предварительно удалив
-                предыдущие версии с помощью{" "}
-                <a href="https://helpx.adobe.com/creative-cloud/kb/cc-cleaner-tool-installation-problems.html">
-                  Adobe Creative Cloud Cleaner Tool
-                </a>{" "}
-                или любого другого деинсталлятора, например{" "}
-                <mark className="app">Revo Uninstaller</mark>.
+                выполняете на свой страх и риск.
               </Addition>
               <p>
                 Чтобы обновиться с сохранением плагинов и пресетов, нужно переименовать
