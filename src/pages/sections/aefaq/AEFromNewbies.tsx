@@ -1668,7 +1668,7 @@ const AEFromNewbies: React.FC = () => {
                   Работает для <mark className="select">«Null Object»</mark>,{" "}
                   <mark className="select">«Light Layer»</mark>,{" "}
                   <mark className="select">«Solid Layer»</mark> и{" "}
-                  <mark className="select">«Adjustment Layer»</mark>
+                  <mark className="select">«Adjustment Layer»</mark>.
                 </Addition>
               </td>
               <td>
