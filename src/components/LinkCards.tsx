@@ -2,70 +2,50 @@ import React from "react";
 
 import {Link} from "react-router-dom";
 
-interface BaseLinkCardProps {
+interface LinkCardProps {
   icon: React.ReactNode;
   name: string;
-}
-interface LinkCardProps extends BaseLinkCardProps {
   href: string;
-  description: string;
-}
-interface LinkCardPropsNoDescription extends BaseLinkCardProps {
-  href: string;
+  description?: string;
+  variant?: "external" | "internal";
 }
 
-const BaseLinkCard: React.FC<{
-  children: React.ReactNode;
-}> = ({children}) => <div className="links-button">{children}</div>;
-
-export const LinkCard: React.FC<LinkCardProps> = ({href, icon, name, description}) => (
-  <BaseLinkCard>
-    <a
-      href={href}
-      rel="noreferrer"
-      target="_blank"
-    >
-      <div className="name-container">
-        <span className="icon">{icon}</span>
-        <p className="name">{name}</p>
-      </div>
-      <p className="description">{description}</p>
-    </a>
-  </BaseLinkCard>
-);
-
-export const LinkCardNoDescription: React.FC<LinkCardPropsNoDescription> = ({
-  href,
+export const LinkCard: React.FC<LinkCardProps> = ({
   icon,
   name,
-}) => (
-  <BaseLinkCard>
-    <a
-      href={href}
-      rel="noreferrer"
-      target="_blank"
-    >
-      <div className="name-container name-container_full-height">
-        <span className="icon">{icon}</span>
-        <p className="name">{name}</p>
-      </div>
-    </a>
-  </BaseLinkCard>
-);
-
-export const LinkInAppCard: React.FC<LinkCardProps> = ({
   href,
-  icon,
-  name,
   description,
-}) => (
-  <BaseLinkCard>
-    <Link to={href}>
-      <div className="name-container">
+  variant = "external",
+}) => {
+  const hasDescription = !!description;
+
+  const content = (
+    <>
+      <div
+        className={`name-container ${
+          !hasDescription ? "name-container_full-height" : ""
+        }`}
+      >
         <span className="icon">{icon}</span>
         <p className="name">{name}</p>
       </div>
-      <p className="description">{description}</p>
-    </Link>
-  </BaseLinkCard>
-);
+      {hasDescription && <p className="description">{description}</p>}
+    </>
+  );
+
+  return (
+    <div className="links-button">
+      {variant === "internal" ? (
+        <Link to={href}>{content}</Link>
+      ) : (
+        <a
+          href={href}
+          rel="noreferrer"
+          target="_blank"
+        >
+          {content}
+        </a>
+      )}
+    </div>
+  );
+};

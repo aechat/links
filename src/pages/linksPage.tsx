@@ -52,7 +52,7 @@ import Footer from "../components/Footer";
 
 import Header from "../components/Header";
 
-import {LinkCard, LinkCardNoDescription, LinkInAppCard} from "../components/LinkCards";
+import {LinkCard} from "../components/LinkCards";
 
 import {/* AEExprIcon, */ AEIcon, PRIcon, PSIcon} from "./faqIcon";
 
@@ -149,29 +149,33 @@ const Links = () => {
         <div className="links">
           <Divider>Ответы на частые вопросы</Divider>
           <div className="links-grid">
-            <LinkInAppCard
+            <LinkCard
               description="Преодолеваем трудности при работе с Adobe After Effects"
               href="/aefaq"
               icon={<AEIcon />}
               name="aefaq"
+              variant="internal"
             />{" "}
-            <LinkInAppCard
+            <LinkCard
               description="Поясняем за монтаж и нюансы в Adobe Premiere Pro"
               href="/prfaq"
               icon={<PRIcon />}
               name="prfaq [WIP]"
+              variant="internal"
             />{" "}
-            <LinkInAppCard
+            <LinkCard
               description="Базарим за обработку изображений в Adobe Photoshop"
               href="/psfaq"
               icon={<PSIcon />}
               name="psfaq [WIP]"
+              variant="internal"
             />
-            {/* <LinkInAppCard
+            {/* <LinkCard
               description="Шпаргалка по использованию выражений в Adobe After Effects"
               href="/aeexpr"
               icon={<AEExprIcon />}
               name="aeexpr [WIP]"
+              variant="internal"
             /> 
             // aeexpr скоро будет возвращён, ссылка временно скрыта из-за пустоты этого раздела
             */}
@@ -402,11 +406,12 @@ const Links = () => {
               icon={<ForumRounded />}
               name="DWChat"
             />
-            <LinkInAppCard
+            <LinkCard
               description="Рассказываем об уставе наших чатов"
               href="rules"
               icon={<GavelRounded />}
               name="Правила чатов AEChat и DWChat"
+              variant="internal"
             />
             <LinkCard
               description="Обсуждаем компьютерные технологии и проблемы"
@@ -678,102 +683,102 @@ const Links = () => {
             </div>
           </Modal>
           <div className="links-grid">
-            <LinkCardNoDescription
+            <LinkCard
               href="https://t.me/ru_montage_pins"
               icon={<WorkRounded />}
               name="ru_montage_pins"
             />
-            <LinkCardNoDescription
+            <LinkCard
               href="https://t.me/prodjob"
               icon={<WorkRounded />}
               name="Работа видеопродакшн"
             />
-            <LinkCardNoDescription
+            <LinkCard
               href="https://t.me/kinopeople"
               icon={<WorkRounded />}
               name="Работники Кино Pro"
             />
-            <LinkCardNoDescription
+            <LinkCard
               href="https://t.me/cgfreelance"
               icon={<WorkRounded />}
               name="CG Freelance"
             />
-            <LinkCardNoDescription
+            <LinkCard
               href="https://t.me/video_academy"
               icon={<WorkRounded />}
               name="VA Видео для бизнеса"
             />
-            <LinkCardNoDescription
+            <LinkCard
               href="https://t.me/platform_film"
               icon={<WorkRounded />}
               name="ПЛОЩАДКА"
             />
-            <LinkCardNoDescription
+            <LinkCard
               href="https://t.me/tochnop"
               icon={<WorkRounded />}
               name="Точно продюсер"
             />
-            <LinkCardNoDescription
+            <LinkCard
               href="https://t.me/vdhl_good"
               icon={<WorkRounded />}
               name="ВДХЛ - Вакансии для хороших людей"
             />
-            <LinkCardNoDescription
+            <LinkCard
               href="https://t.me/KAADchanel"
               icon={<WorkRounded />}
               name="КААД"
             />
-            <LinkCardNoDescription
+            <LinkCard
               href="https://t.me/+3vHv2p2bRdRlOTMy"
               icon={<WorkRounded />}
               name="Design Career"
             />
-            <LinkCardNoDescription
+            <LinkCard
               href="https://t.me/s/motionhunter"
               icon={<WorkRounded />}
               name="Motion designer hunter"
             />
-            <LinkCardNoDescription
+            <LinkCard
               href="https://t.me/s/job_2dfa"
               icon={<WorkRounded />}
               name="Вакансии для аниматоров"
             />
-            <LinkCardNoDescription
+            <LinkCard
               href="https://t.me/s/fordesigner"
               icon={<WorkRounded />}
               name="Jobs for Designers"
             />
-            <LinkCardNoDescription
+            <LinkCard
               href="https://t.me/s/CGWorkHub"
               icon={<WorkRounded />}
               name="CGWorkHub"
             />
-            <LinkCardNoDescription
+            <LinkCard
               href="https://t.me/s/jobforjunior"
               icon={<WorkRounded />}
               name="Job for Junior"
             />
-            <LinkCardNoDescription
+            <LinkCard
               href="https://t.me/s/dprofilejob"
               icon={<WorkRounded />}
               name="Dprofile.Работа"
             />
-            <LinkCardNoDescription
+            <LinkCard
               href="https://t.me/s/artdesignjob"
               icon={<WorkRounded />}
               name="HSE CHANCE"
             />
-            <LinkCardNoDescription
+            <LinkCard
               href="https://t.me/s/freelancetaverna"
               icon={<WorkRounded />}
               name="Фриланс Таверна"
             />
-            <LinkCardNoDescription
+            <LinkCard
               href="https://t.me/s/workindesign"
               icon={<WorkRounded />}
               name="Work for Designers"
             />
-            <LinkCardNoDescription
+            <LinkCard
               href="https://t.me/s/designer_ru"
               icon={<WorkRounded />}
               name="ИЩУ_ДИЗАЙНЕРА"
@@ -781,27 +786,27 @@ const Links = () => {
           </div>
           <Divider>Чёрные списки</Divider>
           <div className="links-grid">
-            <LinkCardNoDescription
+            <LinkCard
               href="https://t.me/cgblacklist"
               icon={<BlockRounded />}
               name="CG Blacklist"
             />
-            <LinkCardNoDescription
+            <LinkCard
               href="https://t.me/kinostop"
               icon={<BlockRounded />}
               name="Чёрный список кино индустрии"
             />
-            <LinkCardNoDescription
+            <LinkCard
               href="https://t.me/AEnedozakaz"
               icon={<BlockRounded />}
               name="AEНедозаказчики"
             />
-            <LinkCardNoDescription
+            <LinkCard
               href="https://t.me/Brickspacer_blacklist"
               icon={<BlockRounded />}
               name="Brickspacer Blacklist"
             />
-            <LinkCardNoDescription
+            <LinkCard
               href="https://t.me/moshenniki_frilans"
               icon={<BlockRounded />}
               name="Мошенники в фрилансе"
