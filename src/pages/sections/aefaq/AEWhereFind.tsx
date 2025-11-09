@@ -2203,6 +2203,7 @@ const AEWhereFind: React.FC = () => {
               <td>
                 <mark className="plugin">OCIO Display Transform</mark>
               </td>
+              <td rowSpan={5}>—</td>
             </tr>
             <tr>
               <td>
