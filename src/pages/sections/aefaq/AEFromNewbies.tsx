@@ -1813,6 +1813,18 @@ const AEFromNewbies: React.FC = () => {
               </td>
             </tr>
             <tr>
+              <td>
+                Задать длительность рабочей области под выделеные слои
+                <Addition type="info">
+                  Если ни один слой не будет выделен, рабочая область будет выделена по
+                  всей длине композиции.
+                </Addition>
+              </td>
+              <td>
+                <mark className="key">Ctrl + Alt + B</mark>
+              </td>
+            </tr>
+            <tr>
               <td>Перейти к началу рабочей области</td>
               <td>
                 <mark className="key">Shift + Home</mark>
