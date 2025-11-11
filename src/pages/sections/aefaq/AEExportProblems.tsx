@@ -432,102 +432,46 @@ const AEExportProblems: React.FC = () => {
         title="Почему моя композиция «плющится» в предпросмотре и после экспорта?"
       >
         <p>
-          Иногда бывает такое, что при экспорте композиции или при предпросмотре
-          изображение получается каким-то сплюснутым или искажённым. Скорее всего вы
-          указали неквадратный пиксель в настройках композиции или попытались
-          экспортировать видео в формате <mark className="video">DV PAL</mark> или что-то
-          подобное. У таких форматов соотношение пикселей отличается от <mark>1:1</mark>.
+          Иногда при экспорте или предпросмотре композиции изображение может выглядеть
+          сплюснутым или искажённым. Скорее всего, вы указали неквадратный пиксель в
+          настройках композиции или попытались экспортировать видео в формате вроде{" "}
+          <mark className="video">DV PAL</mark>, у которого соотношение сторон пикселя
+          отличается от <mark>1:1</mark>.
         </p>
         <Divider>Проверяем настройки композиции</Divider>
         <p>
-          Чтобы найти причину такого поведения предпросмотра - стоит проверить значение
-          соотношения пикселя у композиции. Для этого откройте настройки композиции с
-          помощью комбинации клавиш <mark className="key">Ctrl + K</mark> и посмотрите
-          значение параметра <mark className="ui">Pixel Aspect Ratio</mark>.
+          Для начала проверьте соотношение сторон пикселя в настройках композиции. Для
+          этого откройте их с помощью комбинации клавиш{" "}
+          <mark className="key">Ctrl + K</mark> и посмотрите на значение параметра{" "}
+          <mark className="select">«Pixel Aspect Ratio»</mark>. При необходимости
+          исправьте значение на нужное, например на{" "}
+          <mark className="select">«Square Pixels»</mark>.
         </p>
-        <ImageFigure
+        <ContentFigure
           caption="Composition Settings"
-          imgSrc="images/aftereffects/change_pixel_aspect_ratio.png"
-          imgTitle="Изменение соотношения пикселей"
-          styleClass="figure_windows-dark"
+          imgTitle="Изменение соотношения сторон пикселя"
+          src="images/aftereffects/change_pixel_aspect_ratio.png"
+          theme="dark"
+          type="image"
+          variant="windows"
         />
-        <Divider>Включаем коррекцию предпросмотра под размер пикселя</Divider>
+        <Divider>Включаем коррекцию соотношения сторон пикселя</Divider>
         <p>
-          Если вы всё же хотите использовать неквадратный пиксель для композиции, чтобы
-          экспортировать его под формат для телевидения, то вам стоит включить коррекцию
-          предпросмотра под размер пикселя. Он включается параметром{" "}
-          <mark className="ui">Pixel Aspect Ration Correction</mark> в меню окна
-          предпросмотра. Это позволит отобразить предпросмотр корректно, как задумано в
-          настройках соотношения пикселя в композиции и не столкнуться с неожиданными
-          результатами после вывода в <mark className="video">DV PAL</mark> или подобные
-          форматы с нестандартным соотношением пикселя.
+          Если вы всё же хотите использовать неквадратный пиксель для композиции, например
+          для экспорта в <mark className="video">DV PAL</mark>, включите коррекцию
+          соотношения сторон для предпросмотра. Она активируется параметром{" "}
+          <mark className="select">«Pixel Aspect Ratio Correction»</mark> в меню окна
+          предпросмотра. Это позволит корректно отображать видео и предотвратить
+          неожиданные искажения после экспорта.
         </p>
-        <ImageFigure
+        <ContentFigure
           caption="Composition"
-          imgSrc="images/aftereffects/enable_pixel_ratio_correction.png"
-          imgTitle="Включение коррекции предпросмотра под размер пикселя"
-          styleClass="figure_windows-dark"
+          imgTitle="Включение коррекции соотношения сторон пикселя для предпросмотра"
+          src="images/aftereffects/enable_pixel_ratio_correction.png"
+          theme="dark"
+          type="image"
+          variant="windows"
         />
-      </DetailsSummary>
-      <DetailsSummary title="Почему композиция с Element 3D экспортируется с мерцаниями?">
-        <Divider>Проверяем FPS композиции</Divider>
-        <p>
-          Причин для некорректного поведения при рендере композиции с применённым{" "}
-          <mark className="plugin">Element 3D</mark> может быть несколько. Одна из частых
-          - дробное значение кадров в секунду у вашей композиции, например{" "}
-          <mark>29,97</mark>. Чтобы проверить этот параметр и изменить его, откройте
-          настройки композиции с помощью <mark className="key">Ctrl + K</mark> или{" "}
-          <mark className="key">ПКМ</mark> по композиции в окне{" "}
-          <mark className="ui">Projects</mark> и выберите{" "}
-          <mark className="ui">Composition Settings</mark>. В открывшемся окне настроек
-          композиции укажите в параметре <mark className="ui">Frame Rate</mark> целую
-          часть числа, например <mark>24</mark>, <mark>30</mark> или <mark>60</mark>.
-        </p>
-        <AdditionInfo>
-          Если композиций с плавающим значением много, то для пакетного изменения
-          параметров можно воспользоваться скриптом{" "}
-          <a href="https://aescripts.com/rd-compsetter/">rd: Comp Setter</a>.
-        </AdditionInfo>
-        <VideoFigure
-          caption="Изменение FPS у композиции"
-          styleClass="figure_windows-dark"
-          videoSrc="images/aftereffects/change_fps_comp.mp4"
-        />
-        <Divider>Разбираемся с исходниками</Divider>
-        <p>
-          Нестабильную работу плагина могут вызывать и используемые исходники, особенно
-          если они применяются в качестве текстур - например, для замены изображения на
-          экране модели. Видео, используемое как текстура, должно иметь целое значение
-          кадров в секунду и желательно быть перекодировано в{" "}
-          <mark className="word">монтажный кодек</mark>. Если перекодирование исходника не
-          помогает, то попробуйте создать прекомпозицию со слоем-текстурой и в нём создать
-          пустой текстовый слой. На текстовый слой в{" "}
-          <mark className="ui">Source Text</mark> примените выражение{" "}
-          <mark className="code">timeToTimecode(time);</mark> и поместите его позади
-          вашего исходника.
-        </p>
-        <ImageFigure
-          caption="Adobe After Effects"
-          imgSrc="images/aftereffects/timetotimecode_element3d_fix.png"
-          imgTitle="Создание текстового слоя с выражением"
-          styleClass="figure_windows-dark"
-        />
-        <AdditionInfo>
-          Чтобы включить режим написания выражения у нужного параметра - нажмите на иконку{" "}
-          <mark className="ui">секундомера</mark> с зажатым{" "}
-          <mark className="key">Alt</mark>.
-        </AdditionInfo>
-        <Divider>Временно отключаем многокадровый рендер</Divider>
-        <p>
-          В редких случаях <mark className="plugin">Element 3D</mark> может работать
-          нестабильно при включенном <mark>многокадровом рендере</mark>. Попробуйте
-          отключить его на время - для этого перейдите в{" "}
-          <mark className="ui">Edit &gt; Preferences &gt; Memory & Performance</mark> и
-          уберите галочку с <mark className="ui">Enable Multi-frame Render</mark>, а затем
-          повторите попытку рендера. Также попробуйте почистить кэш через{" "}
-          <mark className="ui">Edit &gt; Purge &gt; All Memory & Disk Cache</mark>.{" "}
-          <i style={{opacity: "0.5"}}>Банально, но вдруг всё же поможет.</i>
-        </p>
       </DetailsSummary>
       <DetailsSummary
         tag="color banding, полосы, шум, глубина цвета, bit depth"
