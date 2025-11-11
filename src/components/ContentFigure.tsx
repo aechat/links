@@ -17,6 +17,8 @@ interface ContentFigureProps {
   theme?: "light" | "dark";
   src: string;
   imgTitle?: string;
+  autoPlay?: boolean;
+  loop?: boolean;
 }
 
 const ContentFigure: React.FC<ContentFigureProps> = ({
@@ -26,6 +28,8 @@ const ContentFigure: React.FC<ContentFigureProps> = ({
   theme,
   src,
   imgTitle,
+  autoPlay,
+  loop,
 }) => {
   const isOpen = useSpoiler();
 
@@ -230,6 +234,8 @@ const ContentFigure: React.FC<ContentFigureProps> = ({
         <MediaContentWrapper>
           <video
             controls
+            autoPlay={autoPlay}
+            loop={loop}
             src={src}
           />
         </MediaContentWrapper>
