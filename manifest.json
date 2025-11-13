@@ -1,17 +1,24 @@
 {
-  "_Apple-C2v7BjJF.js": {
-    "file": "assets/Apple-C2v7BjJF.js",
+  "_Apple-C72zVfqL.js": {
+    "file": "assets/Apple-C72zVfqL.js",
     "name": "Apple",
     "imports": [
       "index.html"
     ]
   },
-  "_CodeSnippet-B2WH4B8g.js": {
-    "file": "assets/CodeSnippet-B2WH4B8g.js",
+  "_Apple-legacy-CkzHFS2-.js": {
+    "file": "assets/Apple-legacy-CkzHFS2-.js",
+    "name": "Apple",
+    "imports": [
+      "index-legacy.html"
+    ]
+  },
+  "_CodeSnippet-8wH8_x1-.js": {
+    "file": "assets/CodeSnippet-8wH8_x1-.js",
     "name": "CodeSnippet",
     "imports": [
       "index.html",
-      "_Header-K3clzeBJ.js"
+      "_Header-BLI_GWP3.js"
     ],
     "css": [
       "assets/CodeSnippet-Dfs9RUU9.css"
@@ -21,55 +28,189 @@
     "file": "assets/CodeSnippet-Dfs9RUU9.css",
     "src": "_CodeSnippet-Dfs9RUU9.css"
   },
-  "_ContentFigure-DK3HRL-c.js": {
-    "file": "assets/ContentFigure-DK3HRL-c.js",
+  "_CodeSnippet-legacy-Da_x-U6T.js": {
+    "file": "assets/CodeSnippet-legacy-Da_x-U6T.js",
+    "name": "CodeSnippet",
+    "imports": [
+      "index-legacy.html",
+      "_Header-legacy-BUm9z53L.js"
+    ]
+  },
+  "_ContentFigure-BClPS6UG.js": {
+    "file": "assets/ContentFigure-BClPS6UG.js",
     "name": "ContentFigure",
     "imports": [
       "index.html",
-      "_Header-K3clzeBJ.js",
-      "_PageIntro-DESySAj5.js"
+      "_Header-BLI_GWP3.js",
+      "_PageIntro-BKtE6HbK.js"
     ]
   },
-  "_ContentFilter-t1KnKaDM.js": {
-    "file": "assets/ContentFilter-t1KnKaDM.js",
+  "_ContentFigure-legacy-Dejd6hfh.js": {
+    "file": "assets/ContentFigure-legacy-Dejd6hfh.js",
+    "name": "ContentFigure",
+    "imports": [
+      "index-legacy.html",
+      "_Header-legacy-BUm9z53L.js",
+      "_PageIntro-legacy-C3SCb8t-.js"
+    ]
+  },
+  "_ContentFilter-XowwkAfV.js": {
+    "file": "assets/ContentFilter-XowwkAfV.js",
     "name": "ContentFilter",
     "imports": [
       "index.html",
-      "_Apple-C2v7BjJF.js"
+      "_Apple-C72zVfqL.js"
     ]
   },
-  "_Header-K3clzeBJ.js": {
-    "file": "assets/Header-K3clzeBJ.js",
+  "_ContentFilter-legacy-D9Th40FC.js": {
+    "file": "assets/ContentFilter-legacy-D9Th40FC.js",
+    "name": "ContentFilter",
+    "imports": [
+      "index-legacy.html",
+      "_Apple-legacy-CkzHFS2-.js"
+    ]
+  },
+  "_Header-BLI_GWP3.js": {
+    "file": "assets/Header-BLI_GWP3.js",
     "name": "Header",
     "imports": [
       "index.html"
     ]
   },
-  "_HostsAdobe-B1xbzQJS.js": {
-    "file": "assets/HostsAdobe-B1xbzQJS.js",
+  "_Header-legacy-BUm9z53L.js": {
+    "file": "assets/Header-legacy-BUm9z53L.js",
+    "name": "Header",
+    "imports": [
+      "index-legacy.html"
+    ]
+  },
+  "_HostsAdobe-BYsXOEBu.js": {
+    "file": "assets/HostsAdobe-BYsXOEBu.js",
     "name": "HostsAdobe",
     "imports": [
       "index.html",
-      "_Header-K3clzeBJ.js"
+      "_Header-BLI_GWP3.js"
     ]
   },
-  "_PageIntro-DESySAj5.js": {
-    "file": "assets/PageIntro-DESySAj5.js",
+  "_HostsAdobe-legacy-BuAao3AK.js": {
+    "file": "assets/HostsAdobe-legacy-BuAao3AK.js",
+    "name": "HostsAdobe",
+    "imports": [
+      "index-legacy.html",
+      "_Header-legacy-BUm9z53L.js"
+    ]
+  },
+  "_PageIntro-BKtE6HbK.js": {
+    "file": "assets/PageIntro-BKtE6HbK.js",
     "name": "PageIntro",
     "imports": [
       "index.html",
-      "_Header-K3clzeBJ.js"
+      "_Header-BLI_GWP3.js"
     ]
   },
-  "_VideoSettingsRounded-BL03lSPh.js": {
-    "file": "assets/VideoSettingsRounded-BL03lSPh.js",
+  "_PageIntro-legacy-C3SCb8t-.js": {
+    "file": "assets/PageIntro-legacy-C3SCb8t-.js",
+    "name": "PageIntro",
+    "imports": [
+      "index-legacy.html",
+      "_Header-legacy-BUm9z53L.js"
+    ]
+  },
+  "_VideoSettingsRounded-CrIvGeP3.js": {
+    "file": "assets/VideoSettingsRounded-CrIvGeP3.js",
     "name": "VideoSettingsRounded",
     "imports": [
       "index.html"
     ]
   },
+  "_VideoSettingsRounded-legacy-C-jgvlSK.js": {
+    "file": "assets/VideoSettingsRounded-legacy-C-jgvlSK.js",
+    "name": "VideoSettingsRounded",
+    "imports": [
+      "index-legacy.html"
+    ]
+  },
+  "index-legacy.html": {
+    "file": "assets/index-legacy-CQZrJq4r.js",
+    "name": "index",
+    "src": "index-legacy.html",
+    "isEntry": true,
+    "dynamicImports": [
+      "src/pages/linksPage-legacy.tsx",
+      "src/pages/chatRules-legacy.tsx",
+      "src/pages/notFound-legacy.tsx",
+      "src/pages/aefaqPage-legacy.tsx",
+      "src/pages/prfaqPage-legacy.tsx",
+      "src/pages/psfaqPage-legacy.tsx",
+      "src/pages/aeexprPage-legacy.tsx"
+    ],
+    "assets": [
+      "assets/Inter_18pt-Thin-BQGyXcpw.ttf",
+      "assets/Inter_18pt-ExtraLight-DE8yOi_r.ttf",
+      "assets/Inter_18pt-Light-DbzEu6wT.ttf",
+      "assets/Inter_18pt-Regular-BpskOkD5.ttf",
+      "assets/Inter_18pt-Medium-BtfNrkJj.ttf",
+      "assets/Inter_18pt-SemiBold-C9_sHzqi.ttf",
+      "assets/Inter_18pt-Bold-Du8giq-C.ttf",
+      "assets/Inter_18pt-ExtraBold-LoA67B-f.ttf",
+      "assets/Inter_18pt-Black-lPV88BO8.ttf",
+      "assets/Inter-VariableFont-c8O0ljhh.ttf",
+      "assets/JetBrainsMono-ExtraLight-DcIslMz9.ttf",
+      "assets/JetBrainsMono-ExtraLightItalic-DnXUkGZr.ttf",
+      "assets/JetBrainsMono-Thin-CBFX7Vai.ttf",
+      "assets/JetBrainsMono-ThinItalic-BRSmosJb.ttf",
+      "assets/JetBrainsMono-Light-FpqcLTEL.ttf",
+      "assets/JetBrainsMono-LightItalic-BKsNVG0M.ttf",
+      "assets/JetBrainsMono-Regular-8W0DXcRc.ttf",
+      "assets/JetBrainsMono-Italic-BF2YSGCb.ttf",
+      "assets/JetBrainsMono-Medium-CixG9-aE.ttf",
+      "assets/JetBrainsMono-MediumItalic-CYYPywfK.ttf",
+      "assets/JetBrainsMono-SemiBold-Ceft983O.ttf",
+      "assets/JetBrainsMono-SemiBoldItalic-B6mNMPZ8.ttf",
+      "assets/JetBrainsMono-Bold-DLhjZX5R.ttf",
+      "assets/JetBrainsMono-BoldItalic-C7-J3-tE.ttf",
+      "assets/JetBrainsMono-ExtraBold-CKsyU63_.ttf",
+      "assets/JetBrainsMono-ExtraBoldItalic-C5DuE5t7.ttf",
+      "assets/JetBrainsMono-Variable-BzXBp1x2.ttf",
+      "assets/JetBrainsMono-VariableItalic-CnUzJYeA.ttf",
+      "assets/Onest-Black-D5iDUFwp.ttf",
+      "assets/Onest-Bold-ClwrhZ5Q.ttf",
+      "assets/Onest-ExtraBold-DprSsdVf.ttf",
+      "assets/Onest-ExtraLight-CT4ioZBf.ttf",
+      "assets/Onest-Light-7OOp0UHg.ttf",
+      "assets/Onest-Medium-BplfWY5i.ttf",
+      "assets/Onest-Regular-BPGDw7fv.ttf",
+      "assets/Onest-SemiBold-D8Eu6u5D.ttf",
+      "assets/Onest-Thin-ChUB8GcO.ttf",
+      "assets/Onest-VariableFont_wght-BybY81kG.ttf",
+      "assets/Manrope-Bold-BNmhpqUF.ttf",
+      "assets/Manrope-ExtraBold-BXh4xW2d.ttf",
+      "assets/Manrope-ExtraLight-CZwPcVBo.ttf",
+      "assets/Manrope-Light-Cx-P5V5h.ttf",
+      "assets/Manrope-Medium-Cgspblp2.ttf",
+      "assets/Manrope-Regular-BjNcpSXg.ttf",
+      "assets/Manrope-SemiBold-Diovf81e.ttf",
+      "assets/Manrope-VariableFont_wght-CZfUxJDf.ttf",
+      "assets/RedHatDisplay-LightItalic-BAUCb0NI.ttf",
+      "assets/RedHatDisplay-Light-BAfRxVXo.ttf",
+      "assets/RedHatDisplay-MediumItalic-DawxHsfU.ttf",
+      "assets/RedHatDisplay-Medium-DOZjlgmy.ttf",
+      "assets/RedHatDisplay-SemiBoldItalic-BV3QBzW4.ttf",
+      "assets/RedHatDisplay-SemiBold-BkHsiGFM.ttf",
+      "assets/RedHatDisplay-Italic-CSqj_7ec.ttf",
+      "assets/RedHatDisplay-Regular-nQ96Aj5a.ttf",
+      "assets/RedHatDisplay-BoldItalic-Cw9JQ-jz.ttf",
+      "assets/RedHatDisplay-Bold-Dfz18QVV.ttf",
+      "assets/RedHatDisplay-ExtraBoldItalic-CZSAz-Cw.ttf",
+      "assets/RedHatDisplay-ExtraBold-DdOqFHf2.ttf",
+      "assets/RedHatDisplay-BlackItalic-C3yUKVAo.ttf",
+      "assets/RedHatDisplay-Black-g25Y00LO.ttf",
+      "assets/RedHatDisplay-Italic-VariableFont_wght-DlvxZ9v4.ttf",
+      "assets/RedHatDisplay-VariableFont_wght-CQSvDVpY.ttf"
+    ]
+  },
   "index.html": {
-    "file": "assets/index-DcvBUJ1m.js",
+    "file": "assets/index-C76tIkKS.js",
     "name": "index",
     "src": "index.html",
     "isEntry": true,
@@ -83,7 +224,7 @@
       "src/pages/aeexprPage.tsx"
     ],
     "css": [
-      "assets/index-B5AVELxt.css"
+      "assets/index-DXUsxHzX.css"
     ],
     "assets": [
       "assets/Inter_18pt-Thin-BQGyXcpw.ttf",
@@ -398,63 +539,127 @@
     "file": "assets/RedHatDisplay-SemiBoldItalic-BV3QBzW4.ttf",
     "src": "src/fonts/ttf/RedHatDisplay/static/RedHatDisplay-SemiBoldItalic.ttf"
   },
+  "src/pages/aeexprPage-legacy.tsx": {
+    "file": "assets/aeexprPage-legacy-Bump7K4S.js",
+    "name": "aeexprPage",
+    "src": "src/pages/aeexprPage-legacy.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "index-legacy.html",
+      "_PageIntro-legacy-C3SCb8t-.js",
+      "_Header-legacy-BUm9z53L.js",
+      "_ContentFigure-legacy-Dejd6hfh.js",
+      "_CodeSnippet-legacy-Da_x-U6T.js"
+    ]
+  },
   "src/pages/aeexprPage.tsx": {
-    "file": "assets/aeexprPage-tlEs4yGz.js",
+    "file": "assets/aeexprPage-n6BUMzCk.js",
     "name": "aeexprPage",
     "src": "src/pages/aeexprPage.tsx",
     "isDynamicEntry": true,
     "imports": [
       "index.html",
-      "_PageIntro-DESySAj5.js",
-      "_Header-K3clzeBJ.js",
-      "_ContentFigure-DK3HRL-c.js",
-      "_CodeSnippet-B2WH4B8g.js"
+      "_PageIntro-BKtE6HbK.js",
+      "_Header-BLI_GWP3.js",
+      "_ContentFigure-BClPS6UG.js",
+      "_CodeSnippet-8wH8_x1-.js"
+    ]
+  },
+  "src/pages/aefaqPage-legacy.tsx": {
+    "file": "assets/aefaqPage-legacy-C5fmrDsY.js",
+    "name": "aefaqPage",
+    "src": "src/pages/aefaqPage-legacy.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "index-legacy.html",
+      "_PageIntro-legacy-C3SCb8t-.js",
+      "_ContentFigure-legacy-Dejd6hfh.js",
+      "_Header-legacy-BUm9z53L.js",
+      "_ContentFilter-legacy-D9Th40FC.js",
+      "_CodeSnippet-legacy-Da_x-U6T.js",
+      "_HostsAdobe-legacy-BuAao3AK.js",
+      "_VideoSettingsRounded-legacy-C-jgvlSK.js",
+      "_Apple-legacy-CkzHFS2-.js"
     ]
   },
   "src/pages/aefaqPage.tsx": {
-    "file": "assets/aefaqPage-TgtFSTRz.js",
+    "file": "assets/aefaqPage-BdvHlwuJ.js",
     "name": "aefaqPage",
     "src": "src/pages/aefaqPage.tsx",
     "isDynamicEntry": true,
     "imports": [
       "index.html",
-      "_PageIntro-DESySAj5.js",
-      "_ContentFigure-DK3HRL-c.js",
-      "_Header-K3clzeBJ.js",
-      "_ContentFilter-t1KnKaDM.js",
-      "_CodeSnippet-B2WH4B8g.js",
-      "_HostsAdobe-B1xbzQJS.js",
-      "_VideoSettingsRounded-BL03lSPh.js",
-      "_Apple-C2v7BjJF.js"
+      "_PageIntro-BKtE6HbK.js",
+      "_ContentFigure-BClPS6UG.js",
+      "_Header-BLI_GWP3.js",
+      "_ContentFilter-XowwkAfV.js",
+      "_CodeSnippet-8wH8_x1-.js",
+      "_HostsAdobe-BYsXOEBu.js",
+      "_VideoSettingsRounded-CrIvGeP3.js",
+      "_Apple-C72zVfqL.js"
+    ]
+  },
+  "src/pages/chatRules-legacy.tsx": {
+    "file": "assets/chatRules-legacy-CSINEEEn.js",
+    "name": "chatRules",
+    "src": "src/pages/chatRules-legacy.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "index-legacy.html",
+      "_Header-legacy-BUm9z53L.js",
+      "_ContentFilter-legacy-D9Th40FC.js",
+      "_PageIntro-legacy-C3SCb8t-.js",
+      "_Apple-legacy-CkzHFS2-.js"
     ]
   },
   "src/pages/chatRules.tsx": {
-    "file": "assets/chatRules-CrzZrsvj.js",
+    "file": "assets/chatRules-y0af4ZFw.js",
     "name": "chatRules",
     "src": "src/pages/chatRules.tsx",
     "isDynamicEntry": true,
     "imports": [
       "index.html",
-      "_Header-K3clzeBJ.js",
-      "_ContentFilter-t1KnKaDM.js",
-      "_PageIntro-DESySAj5.js",
-      "_Apple-C2v7BjJF.js"
+      "_Header-BLI_GWP3.js",
+      "_ContentFilter-XowwkAfV.js",
+      "_PageIntro-BKtE6HbK.js",
+      "_Apple-C72zVfqL.js"
+    ]
+  },
+  "src/pages/linksPage-legacy.tsx": {
+    "file": "assets/linksPage-legacy-g9ky_ySx.js",
+    "name": "linksPage",
+    "src": "src/pages/linksPage-legacy.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "index-legacy.html",
+      "_Header-legacy-BUm9z53L.js",
+      "_Apple-legacy-CkzHFS2-.js",
+      "_VideoSettingsRounded-legacy-C-jgvlSK.js"
     ]
   },
   "src/pages/linksPage.tsx": {
-    "file": "assets/linksPage-DT5hVAi7.js",
+    "file": "assets/linksPage-DGvxgEpT.js",
     "name": "linksPage",
     "src": "src/pages/linksPage.tsx",
     "isDynamicEntry": true,
     "imports": [
       "index.html",
-      "_Header-K3clzeBJ.js",
-      "_Apple-C2v7BjJF.js",
-      "_VideoSettingsRounded-BL03lSPh.js"
+      "_Header-BLI_GWP3.js",
+      "_Apple-C72zVfqL.js",
+      "_VideoSettingsRounded-CrIvGeP3.js"
+    ]
+  },
+  "src/pages/notFound-legacy.tsx": {
+    "file": "assets/notFound-legacy-CnPVJHi_.js",
+    "name": "notFound",
+    "src": "src/pages/notFound-legacy.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "index-legacy.html"
     ]
   },
   "src/pages/notFound.tsx": {
-    "file": "assets/notFound-BYC00WKA.js",
+    "file": "assets/notFound-CREIXi-4.js",
     "name": "notFound",
     "src": "src/pages/notFound.tsx",
     "isDynamicEntry": true,
@@ -462,34 +667,70 @@
       "index.html"
     ]
   },
+  "src/pages/prfaqPage-legacy.tsx": {
+    "file": "assets/prfaqPage-legacy-CguRvhH3.js",
+    "name": "prfaqPage",
+    "src": "src/pages/prfaqPage-legacy.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "index-legacy.html",
+      "_PageIntro-legacy-C3SCb8t-.js",
+      "_ContentFigure-legacy-Dejd6hfh.js",
+      "_Header-legacy-BUm9z53L.js",
+      "_ContentFilter-legacy-D9Th40FC.js",
+      "_HostsAdobe-legacy-BuAao3AK.js",
+      "_Apple-legacy-CkzHFS2-.js"
+    ]
+  },
   "src/pages/prfaqPage.tsx": {
-    "file": "assets/prfaqPage-DkCbed-f.js",
+    "file": "assets/prfaqPage-CT2RGRPD.js",
     "name": "prfaqPage",
     "src": "src/pages/prfaqPage.tsx",
     "isDynamicEntry": true,
     "imports": [
       "index.html",
-      "_PageIntro-DESySAj5.js",
-      "_ContentFigure-DK3HRL-c.js",
-      "_Header-K3clzeBJ.js",
-      "_ContentFilter-t1KnKaDM.js",
-      "_HostsAdobe-B1xbzQJS.js",
-      "_Apple-C2v7BjJF.js"
+      "_PageIntro-BKtE6HbK.js",
+      "_ContentFigure-BClPS6UG.js",
+      "_Header-BLI_GWP3.js",
+      "_ContentFilter-XowwkAfV.js",
+      "_HostsAdobe-BYsXOEBu.js",
+      "_Apple-C72zVfqL.js"
+    ]
+  },
+  "src/pages/psfaqPage-legacy.tsx": {
+    "file": "assets/psfaqPage-legacy-B7FqGC13.js",
+    "name": "psfaqPage",
+    "src": "src/pages/psfaqPage-legacy.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "index-legacy.html",
+      "_PageIntro-legacy-C3SCb8t-.js",
+      "_ContentFigure-legacy-Dejd6hfh.js",
+      "_Header-legacy-BUm9z53L.js",
+      "_ContentFilter-legacy-D9Th40FC.js",
+      "_HostsAdobe-legacy-BuAao3AK.js",
+      "_Apple-legacy-CkzHFS2-.js"
     ]
   },
   "src/pages/psfaqPage.tsx": {
-    "file": "assets/psfaqPage-V7mdWvjO.js",
+    "file": "assets/psfaqPage-DslMgjxT.js",
     "name": "psfaqPage",
     "src": "src/pages/psfaqPage.tsx",
     "isDynamicEntry": true,
     "imports": [
       "index.html",
-      "_PageIntro-DESySAj5.js",
-      "_ContentFigure-DK3HRL-c.js",
-      "_Header-K3clzeBJ.js",
-      "_ContentFilter-t1KnKaDM.js",
-      "_HostsAdobe-B1xbzQJS.js",
-      "_Apple-C2v7BjJF.js"
+      "_PageIntro-BKtE6HbK.js",
+      "_ContentFigure-BClPS6UG.js",
+      "_Header-BLI_GWP3.js",
+      "_ContentFilter-XowwkAfV.js",
+      "_HostsAdobe-BYsXOEBu.js",
+      "_Apple-C72zVfqL.js"
     ]
+  },
+  "vite/legacy-polyfills-legacy": {
+    "file": "assets/polyfills-legacy-D9tuAINw.js",
+    "name": "polyfills",
+    "src": "vite/legacy-polyfills-legacy",
+    "isEntry": true
   }
 }
