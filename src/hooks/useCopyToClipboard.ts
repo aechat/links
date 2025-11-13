@@ -17,10 +17,6 @@ const isExcludedElement = (element: HTMLElement): boolean => {
   );
 };
 
-const cleanHtml = (text: string): string => {
-  return text.replace(/<br\s*\/?>(\n)?/gi, "\n");
-};
-
 const copyWithFallback = (text: string): boolean => {
   const textArea = document.createElement("textarea");
   textArea.value = text;
@@ -86,10 +82,10 @@ export const useCopyToClipboard = () => {
 
     isCopying = true;
 
-    const textContent = cleanHtml(elementToCopy.textContent || "");
+    const textToCopy = (elementToCopy as HTMLElement).innerText;
 
     try {
-      const success = await copyText(textContent);
+      const success = await copyText(textToCopy);
 
       if (success) {
         message.success("Текст скопирован в буфер обмена");
