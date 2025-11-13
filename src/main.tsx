@@ -1,3 +1,9 @@
+import ResizeObserverPolyfill from "resize-observer-polyfill";
+
+if (typeof globalThis.window !== "undefined" && !globalThis.window.ResizeObserver) {
+  globalThis.window.ResizeObserver = ResizeObserverPolyfill;
+}
+
 import React from "react";
 
 import ReactDOM from "react-dom/client";

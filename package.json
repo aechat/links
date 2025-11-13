@@ -19,7 +19,8 @@
     "react-dom": "^19.2.0",
     "react-helmet-async": "^2.0.5",
     "react-router-dom": "^7.9.5",
-    "react-window": "^2.2.3"
+    "react-window": "^2.2.3",
+    "resize-observer-polyfill": "^1.5.1"
   },
   "devDependencies": {
     "@commitlint/cli": "^20.1.0",
@@ -34,6 +35,7 @@
     "@types/react-helmet": "^6.1.11",
     "@typescript-eslint/eslint-plugin": "^8.46.3",
     "@typescript-eslint/parser": "^8.46.3",
+    "@vitejs/plugin-legacy": "^7.2.1",
     "@vitejs/plugin-react": "^5.1.0",
     "@vitejs/plugin-react-swc": "^4.2.1",
     "autoprefixer": "^10.4.21",
@@ -59,6 +61,7 @@
     "stylelint-config-concentric-order": "^5.2.1",
     "stylelint-config-standard-scss": "^16.0.0",
     "stylelint-order": "^7.0.0",
+    "terser": "^5.44.1",
     "typescript": "^5.9.3",
     "typescript-eslint": "^8.46.3",
     "vite": "^7.2.2"

@@ -1,5 +1,9 @@
 import {ConfigProvider, Modal} from "antd";
 
+import BrowserWarning from "./components/BrowserWarning";
+
+import {getBrowserInfo} from "./utils/browserDetection";
+
 import {AnimatePresence} from "framer-motion";
 
 import React, {Suspense, lazy, useEffect, useState} from "react";
@@ -162,10 +166,11 @@ const ErrorFallback = ({error}: {error: Error}) => {
                 : "Всякое бывает, попробуйте перезагрузить страницу."}
             </p>
             <div className="flexible-links">
-              {!isDynamicImportError && (
+              {isDynamicImportError === false && (
                 <button
                   onClick={() => {
-                    if (typeof window !== "undefined") window.location.href = "/";
+                    if (typeof globalThis.window !== "undefined")
+                      globalThis.window.location.href = "/";
                   }}
                 >
                   На главную
@@ -173,7 +178,8 @@ const ErrorFallback = ({error}: {error: Error}) => {
               )}
               <button
                 onClick={() => {
-                  if (typeof window !== "undefined") window.location.reload();
+                  if (typeof globalThis.window !== "undefined")
+                    globalThis.window.location.reload();
                 }}
               >
                 Обновить страницу
@@ -227,11 +233,49 @@ export const App = () => {
   }, [location.pathname]);
   useDynamicFavicon(svgContent);
 
+  const [isClient, setIsClient] = useState(false);
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
   const [showSafariWarning, setShowSafariWarning] = useState(false);
+
+  const [showOldBrowserWarning, setShowOldBrowserWarning] = useState(false);
+
+  useEffect(() => {
+    if (typeof globalThis.window === "undefined") return;
+
+    let shouldShowWarning = false;
+
+    const browserInfo = getBrowserInfo();
+
+    if (browserInfo.isLegacy) {
+      if (typeof localStorage !== "undefined") {
+        const warningDismissed =
+          localStorage.getItem("oldBrowserWarningDismissed") === "true";
+
+        if (warningDismissed === false) {
+          const lastShown = localStorage.getItem("oldBrowserWarningLastShown");
+
+          const now = Date.now();
+
+          const time = 24 * 60 * 60 * 1000;
+
+          if (!lastShown || now - Number.parseInt(lastShown, 10) >= time) {
+            shouldShowWarning = true;
+          }
+        }
+      } else {
+        shouldShowWarning = true;
+      }
+    }
+
+    setShowOldBrowserWarning(shouldShowWarning);
+  }, []);
 
   const [appReady, setAppReady] = useState(true);
   useEffect(() => {
-    if (typeof window === "undefined") return;
+    if (typeof globalThis.window === "undefined") return;
 
     let shouldShowWarning = false;
 
@@ -253,14 +297,14 @@ export const App = () => {
         const warningDismissed =
           localStorage.getItem("safariWarningDismissed") === "true";
 
-        if (!warningDismissed) {
+        if (warningDismissed === false) {
           const lastShown = localStorage.getItem("safariWarningLastShown");
 
-          const now = new Date().getTime();
+          const now = Date.now();
 
           const time = 60 * 60 * 1000;
 
-          if (!lastShown || now - parseInt(lastShown, 10) >= time) {
+          if (!lastShown || now - Number.parseInt(lastShown, 10) >= time) {
             shouldShowWarning = true;
           }
         }
@@ -276,18 +320,37 @@ export const App = () => {
     }
   }, [location.pathname]);
   useEffect(() => {
-    if (typeof window === "undefined") {
+    if (typeof globalThis.window === "undefined") {
       return;
     }
 
-    const path = window.location.pathname;
+    const path = globalThis.window.location.pathname;
 
     if (path.endsWith("/index.html")) {
-      window.location.replace("/");
+      globalThis.window.location.replace("/");
     } else if (path.endsWith(".html")) {
-      window.location.replace(path.replace(/\.html$/, ""));
+      globalThis.window.location.replace(path.replace(/\.html$/, ""));
     }
   }, [location]);
+
+  if (isClient && showOldBrowserWarning) {
+    return (
+      <BrowserWarning
+        open={showOldBrowserWarning}
+        onClose={(dontShowAgain) => {
+          if (typeof localStorage !== "undefined") {
+            if (dontShowAgain) {
+              localStorage.setItem("oldBrowserWarningDismissed", "true");
+            } else {
+              localStorage.setItem("oldBrowserWarningLastShown", Date.now().toString());
+            }
+          }
+
+          setShowOldBrowserWarning(false);
+        }}
+      />
+    );
+  }
 
   return (
     <ConfigProvider theme={themeConfig}>
@@ -310,10 +373,7 @@ export const App = () => {
                 if (dontShowAgain) {
                   localStorage.setItem("safariWarningDismissed", "true");
                 } else {
-                  localStorage.setItem(
-                    "safariWarningLastShown",
-                    new Date().getTime().toString()
-                  );
+                  localStorage.setItem("safariWarningLastShown", Date.now().toString());
                 }
               }
 
@@ -326,9 +386,9 @@ export const App = () => {
               <AnimatePresence
                 mode="wait"
                 onExitComplete={() => {
-                  if (typeof window !== "undefined") {
+                  if (typeof globalThis.window !== "undefined") {
                     setTimeout(() => {
-                      window.scrollTo({
+                      globalThis.window.scrollTo({
                         top: 0,
                         behavior: "instant",
                       });

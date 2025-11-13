@@ -1,3 +1,4 @@
+import legacy from "@vitejs/plugin-legacy";
 import react from "@vitejs/plugin-react";
 import autoprefixer from "autoprefixer";
 import {readFile, writeFile} from "fs/promises";
@@ -10,7 +11,6 @@ export default defineConfig({
     },
   },
   build: {
-    target: ["es2017", "safari12"],
     outDir: "./dist/client",
     manifest: "manifest.json",
   },
@@ -18,6 +18,9 @@ export default defineConfig({
     noExternal: ["react-helmet-async"],
   },
   plugins: [
+    legacy({
+      targets: ["defaults", "not IE 11", "Firefox 66"],
+    }),
     react(),
     {
       name: "generate-404-html",
