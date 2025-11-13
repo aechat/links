@@ -234,6 +234,7 @@ const ContentFigure: React.FC<ContentFigureProps> = ({
         <MediaContentWrapper>
           <video
             controls
+            playsInline
             autoPlay={autoPlay}
             loop={loop}
             src={src}

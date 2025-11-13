@@ -1930,9 +1930,10 @@ const AEExport: React.FC = () => {
               }}
             >
               <video
-                autoPlay
                 controls
                 loop
+                playsInline
+                controlsList="nofullscreen"
               >
                 <source
                   src="images/aefaq@aechat_alpha.mp4"
