@@ -4,6 +4,8 @@ import {Modal} from "antd";
 
 import React, {useCallback, useEffect, useRef, useState} from "react";
 
+import {RemoveScroll} from "react-remove-scroll";
+
 import {useSearch} from "../context";
 
 import {useSearchLogic} from "../hooks";
@@ -418,66 +420,67 @@ export const SearchInPage: React.FC<{sections: SearchSection[]}> = ({sections}) 
   };
 
   return (
-    <Modal
-      closeIcon={null}
-      footer={null}
-      forceRender={true}
-      open={isOpen}
-      width={850}
-      onCancel={closeModal}
-    >
-      <div className="search">
-        <div className="modal-content">
-          <div className="search-input-wrapper">
-            <input
-              ref={inputRef}
-              className="search-input"
-              placeholder="Введите что-нибудь для поиска..."
-              style={{cursor: "text"}}
-              type="search"
-              value={query}
-              onChange={(e) => handleQueryChange(e.target.value)}
-            />
-            <p className="search-counter">
-              <span
-                style={{
-                  color: "var(--summary-text)",
-                  fontWeight: 500,
-                  fontSize: "1.05em",
-                }}
-              >
-                {results.length}
-              </span>{" "}
-              {getResultWord(results.length)}
-            </p>
-            {query.trim() !== "" && (
+    <RemoveScroll enabled={isOpen}>
+      <Modal
+        closeIcon={null}
+        footer={null}
+        open={isOpen}
+        width={850}
+        onCancel={closeModal}
+      >
+        <div className="search">
+          <div className="modal-content">
+            <div className="search-input-wrapper">
+              <input
+                ref={inputRef}
+                className="search-input"
+                placeholder="Введите что-нибудь для поиска..."
+                style={{cursor: "text"}}
+                type="search"
+                value={query}
+                onChange={(e) => handleQueryChange(e.target.value)}
+              />
+              <p className="search-counter">
+                <span
+                  style={{
+                    color: "var(--summary-text)",
+                    fontWeight: 500,
+                    fontSize: "1.05em",
+                  }}
+                >
+                  {results.length}
+                </span>{" "}
+                {getResultWord(results.length)}
+              </p>
+              {query.trim() !== "" && (
+                <button
+                  className="search-input-clear"
+                  style={{cursor: "pointer"}}
+                  onClick={() => {
+                    setQuery("");
+                    setIsSearching(false);
+                  }}
+                >
+                  <BackspaceOutlined fontSize="small" />
+                </button>
+              )}
               <button
-                className="search-input-clear"
-                style={{cursor: "pointer"}}
-                onClick={() => {
-                  setQuery("");
-                  setIsSearching(false);
-                }}
+                className="search-input-close"
+                onClick={closeModal}
               >
-                <BackspaceOutlined fontSize="small" />
+                <CloseRounded />
               </button>
-            )}
-            <button
-              className="search-input-close"
-              onClick={closeModal}
+            </div>
+            <div
+              ref={resultsContainerRef}
+              className={`search-results${showFade ? " show-fade" : ""}`}
             >
-              <CloseRounded />
-            </button>
-          </div>
-          <div
-            ref={resultsContainerRef}
-            className={`search-results${showFade ? " show-fade" : ""}`}
-          >
-            {renderContent()}
-            {showFade}
+              {renderContent()}
+              {showFade}
+            </div>
           </div>
         </div>
-      </div>
-    </Modal>
+      </Modal>
+    </RemoveScroll>
   );
 };
