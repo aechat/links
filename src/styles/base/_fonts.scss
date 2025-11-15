@@ -1,8 +1,33 @@
 @font-face {
   font-family: Inter;
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+  src: url("/src/fonts/ttf/Inter/Inter-VariableFont_opsz,wght.ttf")
+    format("truetype-variations");
+}
+
+@font-face {
+  font-family: Inter;
+  font-weight: 100 900;
+  font-style: italic;
+  font-display: swap;
+  src: url("/src/fonts/ttf/Inter/Inter-Italic-VariableFont_opsz,wght.ttf")
+    format("truetype-variations");
+}
+
+@font-face {
+  font-family: Inter;
   font-weight: 100;
   font-style: normal;
   src: url("/src/fonts/ttf/Inter/static/Inter_18pt-Thin.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: Inter;
+  font-weight: 100;
+  font-style: italic;
+  src: url("/src/fonts/ttf/Inter/static/Inter_18pt-ThinItalic.ttf") format("truetype");
 }
 
 @font-face {
@@ -14,9 +39,24 @@
 
 @font-face {
   font-family: Inter;
+  font-weight: 200;
+  font-style: italic;
+  src: url("/src/fonts/ttf/Inter/static/Inter_18pt-ExtraLightItalic.ttf")
+    format("truetype");
+}
+
+@font-face {
+  font-family: Inter;
   font-weight: 300;
   font-style: normal;
   src: url("/src/fonts/ttf/Inter/static/Inter_18pt-Light.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: Inter;
+  font-weight: 300;
+  font-style: italic;
+  src: url("/src/fonts/ttf/Inter/static/Inter_18pt-LightItalic.ttf") format("truetype");
 }
 
 @font-face {
@@ -28,9 +68,23 @@
 
 @font-face {
   font-family: Inter;
+  font-weight: 400;
+  font-style: italic;
+  src: url("/src/fonts/ttf/Inter/static/Inter_18pt-Italic.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: Inter;
   font-weight: 500;
   font-style: normal;
   src: url("/src/fonts/ttf/Inter/static/Inter_18pt-Medium.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: Inter;
+  font-weight: 500;
+  font-style: italic;
+  src: url("/src/fonts/ttf/Inter/static/Inter_18pt-MediumItalic.ttf") format("truetype");
 }
 
 @font-face {
@@ -42,9 +96,23 @@
 
 @font-face {
   font-family: Inter;
+  font-weight: 600;
+  font-style: italic;
+  src: url("/src/fonts/ttf/Inter/static/Inter_18pt-SemiBoldItalic.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: Inter;
   font-weight: 700;
   font-style: normal;
   src: url("/src/fonts/ttf/Inter/static/Inter_18pt-Bold.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: Inter;
+  font-weight: 700;
+  font-style: italic;
+  src: url("/src/fonts/ttf/Inter/static/Inter_18pt-BoldItalic.ttf") format("truetype");
 }
 
 @font-face {
@@ -56,6 +124,14 @@
 
 @font-face {
   font-family: Inter;
+  font-weight: 800;
+  font-style: italic;
+  src: url("/src/fonts/ttf/Inter/static/Inter_18pt-ExtraBoldItalic.ttf")
+    format("truetype");
+}
+
+@font-face {
+  font-family: Inter;
   font-weight: 900;
   font-style: normal;
   src: url("/src/fonts/ttf/Inter/static/Inter_18pt-Black.ttf") format("truetype");
@@ -63,39 +139,32 @@
 
 @font-face {
   font-family: Inter;
-  font-weight: 100 900;
-  font-style: normal;
-  src: url("/src/fonts/ttf/Inter/Inter-VariableFont.ttf") format("truetype-variations");
-  font-display: swap;
-}
-
-@font-face {
-  font-family: Inter;
-  font-weight: 100 900;
-  font-style: normal;
-  src: url("/src/fonts/ttf/Inter/Inter-VariableFont.ttf") format("truetype-variations");
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "JetBrains Mono";
-  font-weight: 100;
-  font-style: normal;
-  src: url("/src/fonts/ttf/JetBrainsMono/static/JetBrainsMono-ExtraLight.ttf")
-    format("truetype");
-}
-
-@font-face {
-  font-family: "JetBrains Mono";
-  font-weight: 100;
+  font-weight: 900;
   font-style: italic;
-  src: url("/src/fonts/ttf/JetBrainsMono/static/JetBrainsMono-ExtraLightItalic.ttf")
-    format("truetype");
+  src: url("/src/fonts/ttf/Inter/static/Inter_18pt-BlackItalic.ttf") format("truetype");
 }
 
 @font-face {
   font-family: "JetBrains Mono";
-  font-weight: 200;
+  font-weight: 100 800;
+  font-style: normal;
+  font-display: swap;
+  src: url("/src/fonts/ttf/JetBrainsMono/JetBrainsMono-VariableFont_wght.ttf")
+    format("truetype-variations");
+}
+
+@font-face {
+  font-family: "JetBrains Mono";
+  font-weight: 100 800;
+  font-style: italic;
+  font-display: swap;
+  src: url("/src/fonts/ttf/JetBrainsMono/JetBrainsMono-Italic-VariableFont_wght.ttf")
+    format("truetype-variations");
+}
+
+@font-face {
+  font-family: "JetBrains Mono";
+  font-weight: 100;
   font-style: normal;
   src: url("/src/fonts/ttf/JetBrainsMono/static/JetBrainsMono-Thin.ttf")
     format("truetype");
@@ -103,9 +172,25 @@
 
 @font-face {
   font-family: "JetBrains Mono";
-  font-weight: 200;
+  font-weight: 100;
   font-style: italic;
   src: url("/src/fonts/ttf/JetBrainsMono/static/JetBrainsMono-ThinItalic.ttf")
+    format("truetype");
+}
+
+@font-face {
+  font-family: "JetBrains Mono";
+  font-weight: 200;
+  font-style: normal;
+  src: url("/src/fonts/ttf/JetBrainsMono/static/JetBrainsMono-ExtraLight.ttf")
+    format("truetype");
+}
+
+@font-face {
+  font-family: "JetBrains Mono";
+  font-weight: 200;
+  font-style: italic;
+  src: url("/src/fonts/ttf/JetBrainsMono/static/JetBrainsMono-ExtraLightItalic.ttf")
     format("truetype");
 }
 
@@ -206,40 +291,19 @@
 }
 
 @font-face {
-  font-family: "JetBrains Mono";
-  font-weight: 100 800;
+  font-family: Onest;
+  font-weight: 100 900;
   font-style: normal;
-  src: url("/src/fonts/ttf/JetBrainsMono/JetBrainsMono-Variable.ttf")
-    format("truetype-variations");
-}
-
-@font-face {
-  font-family: "JetBrains Mono";
-  font-weight: 100 800;
-  font-style: italic;
-  src: url("/src/fonts/ttf/JetBrainsMono/JetBrainsMono-VariableItalic.ttf")
+  font-display: swap;
+  src: url("/src/fonts/ttf/Onest/Onest-VariableFont_wght.ttf")
     format("truetype-variations");
 }
 
 @font-face {
   font-family: Onest;
-  font-weight: 900;
+  font-weight: 100;
   font-style: normal;
-  src: url("/src/fonts/ttf/Onest/static/Onest-Black.ttf") format("truetype");
-}
-
-@font-face {
-  font-family: Onest;
-  font-weight: 700;
-  font-style: normal;
-  src: url("/src/fonts/ttf/Onest/static/Onest-Bold.ttf") format("truetype");
-}
-
-@font-face {
-  font-family: Onest;
-  font-weight: 800;
-  font-style: normal;
-  src: url("/src/fonts/ttf/Onest/static/Onest-ExtraBold.ttf") format("truetype");
+  src: url("/src/fonts/ttf/Onest/static/Onest-Thin.ttf") format("truetype");
 }
 
 @font-face {
@@ -258,16 +322,16 @@
 
 @font-face {
   font-family: Onest;
-  font-weight: 500;
+  font-weight: 400;
   font-style: normal;
-  src: url("/src/fonts/ttf/Onest/static/Onest-Medium.ttf") format("truetype");
+  src: url("/src/fonts/ttf/Onest/static/Onest-Regular.ttf") format("truetype");
 }
 
 @font-face {
   font-family: Onest;
-  font-weight: 400;
+  font-weight: 500;
   font-style: normal;
-  src: url("/src/fonts/ttf/Onest/static/Onest-Regular.ttf") format("truetype");
+  src: url("/src/fonts/ttf/Onest/static/Onest-Medium.ttf") format("truetype");
 }
 
 @font-face {
@@ -279,30 +343,46 @@
 
 @font-face {
   font-family: Onest;
-  font-weight: 100;
+  font-weight: 700;
   font-style: normal;
-  src: url("/src/fonts/ttf/Onest/static/Onest-Thin.ttf") format("truetype");
+  src: url("/src/fonts/ttf/Onest/static/Onest-Bold.ttf") format("truetype");
 }
 
 @font-face {
   font-family: Onest;
-  font-weight: 100 900;
+  font-weight: 800;
   font-style: normal;
-  src: url("/src/fonts/ttf/Onest/Onest-VariableFont_wght.ttf")
+  src: url("/src/fonts/ttf/Onest/static/Onest-ExtraBold.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: Onest;
+  font-weight: 900;
+  font-style: normal;
+  src: url("/src/fonts/ttf/Onest/static/Onest-Black.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Red Hat Display";
+  font-weight: 300 900;
+  font-style: normal;
+  font-display: swap;
+  src: url("/src/fonts/ttf/RedHatDisplay/RedHatDisplay-VariableFont_wght.ttf")
     format("truetype-variations");
 }
 
 @font-face {
   font-family: "Red Hat Display";
-  font-weight: 100;
+  font-weight: 300 900;
   font-style: italic;
-  src: url("/src/fonts/ttf/RedHatDisplay/static/RedHatDisplay-LightItalic.ttf")
-    format("truetype");
+  font-display: swap;
+  src: url("/src/fonts/ttf/RedHatDisplay/RedHatDisplay-Italic-VariableFont_wght.ttf")
+    format("truetype-variations");
 }
 
 @font-face {
   font-family: "Red Hat Display";
-  font-weight: 100;
+  font-weight: 300;
   font-style: normal;
   src: url("/src/fonts/ttf/RedHatDisplay/static/RedHatDisplay-Light.ttf")
     format("truetype");
@@ -310,41 +390,9 @@
 
 @font-face {
   font-family: "Red Hat Display";
-  font-weight: 200;
-  font-style: italic;
-  src: url("/src/fonts/ttf/RedHatDisplay/static/RedHatDisplay-MediumItalic.ttf")
-    format("truetype");
-}
-
-@font-face {
-  font-family: "Red Hat Display";
-  font-weight: 200;
-  font-style: normal;
-  src: url("/src/fonts/ttf/RedHatDisplay/static/RedHatDisplay-Medium.ttf")
-    format("truetype");
-}
-
-@font-face {
-  font-family: "Red Hat Display";
   font-weight: 300;
   font-style: italic;
-  src: url("/src/fonts/ttf/RedHatDisplay/static/RedHatDisplay-SemiBoldItalic.ttf")
-    format("truetype");
-}
-
-@font-face {
-  font-family: "Red Hat Display";
-  font-weight: 300;
-  font-style: normal;
-  src: url("/src/fonts/ttf/RedHatDisplay/static/RedHatDisplay-SemiBold.ttf")
-    format("truetype");
-}
-
-@font-face {
-  font-family: "Red Hat Display";
-  font-weight: 400;
-  font-style: italic;
-  src: url("/src/fonts/ttf/RedHatDisplay/static/RedHatDisplay-Italic.ttf")
+  src: url("/src/fonts/ttf/RedHatDisplay/static/RedHatDisplay-LightItalic.ttf")
     format("truetype");
 }
 
@@ -358,15 +406,47 @@
 
 @font-face {
   font-family: "Red Hat Display";
-  font-weight: 500;
+  font-weight: 400;
   font-style: italic;
-  src: url("/src/fonts/ttf/RedHatDisplay/static/RedHatDisplay-BoldItalic.ttf")
+  src: url("/src/fonts/ttf/RedHatDisplay/static/RedHatDisplay-Italic.ttf")
     format("truetype");
 }
 
 @font-face {
   font-family: "Red Hat Display";
   font-weight: 500;
+  font-style: normal;
+  src: url("/src/fonts/ttf/RedHatDisplay/static/RedHatDisplay-Medium.ttf")
+    format("truetype");
+}
+
+@font-face {
+  font-family: "Red Hat Display";
+  font-weight: 500;
+  font-style: italic;
+  src: url("/src/fonts/ttf/RedHatDisplay/static/RedHatDisplay-MediumItalic.ttf")
+    format("truetype");
+}
+
+@font-face {
+  font-family: "Red Hat Display";
+  font-weight: 600;
+  font-style: normal;
+  src: url("/src/fonts/ttf/RedHatDisplay/static/RedHatDisplay-SemiBold.ttf")
+    format("truetype");
+}
+
+@font-face {
+  font-family: "Red Hat Display";
+  font-weight: 600;
+  font-style: italic;
+  src: url("/src/fonts/ttf/RedHatDisplay/static/RedHatDisplay-SemiBoldItalic.ttf")
+    format("truetype");
+}
+
+@font-face {
+  font-family: "Red Hat Display";
+  font-weight: 700;
   font-style: normal;
   src: url("/src/fonts/ttf/RedHatDisplay/static/RedHatDisplay-Bold.ttf")
     format("truetype");
@@ -374,41 +454,9 @@
 
 @font-face {
   font-family: "Red Hat Display";
-  font-weight: 600;
-  font-style: italic;
-  src: url("/src/fonts/ttf/RedHatDisplay/static/RedHatDisplay-ExtraBoldItalic.ttf")
-    format("truetype");
-}
-
-@font-face {
-  font-family: "Red Hat Display";
-  font-weight: 600;
-  font-style: normal;
-  src: url("/src/fonts/ttf/RedHatDisplay/static/RedHatDisplay-ExtraBold.ttf")
-    format("truetype");
-}
-
-@font-face {
-  font-family: "Red Hat Display";
   font-weight: 700;
   font-style: italic;
-  src: url("/src/fonts/ttf/RedHatDisplay/static/RedHatDisplay-BlackItalic.ttf")
-    format("truetype");
-}
-
-@font-face {
-  font-family: "Red Hat Display";
-  font-weight: 700;
-  font-style: normal;
-  src: url("/src/fonts/ttf/RedHatDisplay/static/RedHatDisplay-Black.ttf")
-    format("truetype");
-}
-
-@font-face {
-  font-family: "Red Hat Display";
-  font-weight: 800;
-  font-style: italic;
-  src: url("/src/fonts/ttf/RedHatDisplay/static/RedHatDisplay-ExtraBoldItalic.ttf")
+  src: url("/src/fonts/ttf/RedHatDisplay/static/RedHatDisplay-BoldItalic.ttf")
     format("truetype");
 }
 
@@ -422,9 +470,9 @@
 
 @font-face {
   font-family: "Red Hat Display";
-  font-weight: 900;
+  font-weight: 800;
   font-style: italic;
-  src: url("/src/fonts/ttf/RedHatDisplay/static/RedHatDisplay-BlackItalic.ttf")
+  src: url("/src/fonts/ttf/RedHatDisplay/static/RedHatDisplay-ExtraBoldItalic.ttf")
     format("truetype");
 }
 
@@ -438,16 +486,8 @@
 
 @font-face {
   font-family: "Red Hat Display";
-  font-weight: 100 900;
+  font-weight: 900;
   font-style: italic;
-  src: url("/src/fonts/ttf/RedHatDisplay/RedHatDisplay-Italic-VariableFont_wght.ttf")
-    format("truetype-variations");
-}
-
-@font-face {
-  font-family: "Red Hat Display";
-  font-weight: 100 900;
-  font-style: normal;
-  src: url("/src/fonts/ttf/RedHatDisplay/RedHatDisplay-VariableFont_wght.ttf")
-    format("truetype-variations");
+  src: url("/src/fonts/ttf/RedHatDisplay/static/RedHatDisplay-BlackItalic.ttf")
+    format("truetype");
 }
