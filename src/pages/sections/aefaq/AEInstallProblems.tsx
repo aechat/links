@@ -2796,6 +2796,13 @@ const AEInstallProblems: React.FC = () => {
           . Исходный файл при этом не изменится. Не забудьте сохранить новую версию
           проекта по завершении процесса.
         </p>
+        <Addition type="warning">
+          Обратите внимание: после конвертации вы не сможете открыть новый файл проекта в{" "}
+          <mark className="app">Adobe After Effects</mark> в версии ниже той, что
+          установлена у вас на данный момент. Если вам нужно сохранить проект для старых
+          версий программы, используйте <mark className="select">«File» → «Save As»</mark>
+          .
+        </Addition>
         <Divider>Обновление между версиями «одного года»</Divider>
         <p>
           Чтобы перейти на новую версию <mark className="app">Adobe After Effects</mark> в
