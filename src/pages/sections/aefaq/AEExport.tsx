@@ -1932,6 +1932,7 @@ const AEExport: React.FC = () => {
               <video
                 controls
                 loop
+                preload="metadata"
                 playsInline
                 controlsList="nofullscreen"
               >
