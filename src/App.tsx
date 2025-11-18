@@ -52,6 +52,23 @@ const FilesRedirect = () => {
   return null;
 };
 
+const RegFileRedirect = () => {
+  useEffect(() => {
+    const link = document.createElement("a");
+    link.href = "/files/Enable%20Extensions%20Adobe.reg";
+    link.download = "Enable Extensions Adobe.reg";
+    document.body.appendChild(link);
+    link.click();
+    link.remove();
+    alert(
+      "После скачивания откройте файл реестра и подтвердите слияние, нажав «Да». Это необходимо для корректной работы расширений, которые находятся в меню «Window» → «Extensions»."
+    );
+    history.back();
+  }, []);
+
+  return null;
+};
+
 const RedirectHtml = () => {
   const location = useLocation();
 
@@ -427,6 +444,14 @@ export const App = () => {
                   <Route
                     element={<FilesRedirect />}
                     path="/files"
+                  />
+                  <Route
+                    element={<RegFileRedirect />}
+                    path="/regfile"
+                  />
+                  <Route
+                    element={<RegFileRedirect />}
+                    path="/reg"
                   />
                   <Route
                     element={
