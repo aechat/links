@@ -46,6 +46,7 @@ const AEExpressionPage = lazy(() => import("./pages/aeexprPage"));
 
 const FilesRedirect = () => {
   useEffect(() => {
+    document.title = "files@aechat";
     window.location.href = "https://github.com/aechat/links/tree/main/public/files";
   }, []);
 
@@ -54,6 +55,8 @@ const FilesRedirect = () => {
 
 const RegFileRedirect = () => {
   useEffect(() => {
+    document.title = "regfile@aechat";
+
     const link = document.createElement("a");
     link.href = "/files/Enable%20Extensions%20Adobe.reg";
     link.download = "Enable Extensions Adobe.reg";
