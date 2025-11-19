@@ -17,7 +17,7 @@
 
   &-message {
     color: var(--color-text-primary);
-    font-family: Onest, Inter, sans-serif;
+    font-family: Inter, sans-serif;
 
     &-notice-wrapper .ant-message-notice-content {
       outline: 1px solid var(--color-border-primary) !important;
@@ -25,6 +25,11 @@
       font-size: 0.9rem !important;
       font-weight: 400;
     }
+  }
+
+  &-tooltip {
+    font-family: Inter, sans-serif;
+    font-size: 0.9rem !important;
   }
 
   &-modal-root .ant-modal-mask {
