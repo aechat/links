@@ -16,6 +16,7 @@ const AEFromNewbies: React.FC = () => {
   return (
     <div className="faq-content">
       <DetailsSummary
+        anchor="get-started"
         tag="для новичка, курсы, туториалы, уроки, базовый курс"
         title="Я первый раз открыл программу. С чего бы мне начать обучение?"
       >
@@ -1120,6 +1121,7 @@ const AEFromNewbies: React.FC = () => {
         </ul>
       </DetailsSummary>
       <DetailsSummary
+        anchor="shortcuts"
         tag="хоткеи, горячие клавиши, шорткаты, keyboard shortcuts, hotkeys"
         title="Есть ли список популярных комбинаций клавиш?"
       >
@@ -2252,6 +2254,7 @@ const AEFromNewbies: React.FC = () => {
         </ul>
       </DetailsSummary>
       <DetailsSummary
+        anchor="update-what-new"
         tag="что нового, фишки, обновления, апдейты, патчноуты, changelog, список изменений"
         title="Где я могу узнать о нововведениях в обновлениях программы?"
       >
@@ -2283,6 +2286,7 @@ const AEFromNewbies: React.FC = () => {
         </p>
       </DetailsSummary>
       <DetailsSummary
+        anchor="switch-language"
         tag="изменить язык программы, смена языка, установка английской версии, english version, локализация"
         title="Почему все советуют ставить английскую версию программы и как это сделать?"
       >
@@ -2427,6 +2431,7 @@ const AEFromNewbies: React.FC = () => {
         />
       </DetailsSummary>
       <DetailsSummary
+        anchor="purge"
         tag="очистка кэша, purge, disk cache, память"
         title="Как очистить кэш и зачем это нужно делать?"
       >
@@ -2534,6 +2539,7 @@ const AEFromNewbies: React.FC = () => {
         />
       </DetailsSummary>
       <DetailsSummary
+        anchor="configure-backup"
         tag="бекап, бэкап, возврат, вернуть, восстановить, облачное хранилище, облако, яндекс диск, журнал файлов, история изменений, откат проекта"
         title="Как настроить резервное копирование, чтобы возвращаться к предыдущим версиям проекта?"
       >
@@ -2761,6 +2767,7 @@ const AEFromNewbies: React.FC = () => {
         </ul>
       </DetailsSummary>
       <DetailsSummary
+        anchor="layer-types"
         tag="adjustment layer, camera, image sequence, light layer, null object, shape layer, solid layer, text layer, источник освещения, камера, корректирующий слой, нулевой объект, нуль, секвенция изображений, сплошная заливка, слой фигура, слои, текст"
         title="Какие виды слоёв существуют, для чего они нужны и как их настроить?"
       >
@@ -4205,6 +4212,7 @@ const AEFromNewbies: React.FC = () => {
         </Addition>
       </DetailsSummary>
       <DetailsSummary
+        anchor="replace-footage"
         tag="replace footage, замена файла, перелинковать"
         title="Как заменить один исходник другим?"
       >
@@ -4248,6 +4256,7 @@ const AEFromNewbies: React.FC = () => {
         />
       </DetailsSummary>
       <DetailsSummary
+        anchor="keyframe-types"
         tag="графики скорости, ключи, кейфрейм, keyframe, graph editor, speed graph, value graph, интерполяция, анимация, кривые скорости"
         title="Что такое ключевые кадры и для чего они нужны?"
       >
@@ -4553,6 +4562,7 @@ const AEFromNewbies: React.FC = () => {
         />
       </DetailsSummary>
       <DetailsSummary
+        anchor="preview-laggy"
         tag="лагает превью, замедленное, ускоренное, тормозит, слоумо, растянутое аудио"
         title="Почему предпросмотр может воспроизводиться рывками или ускоренно?"
       >
@@ -4777,6 +4787,7 @@ const AEFromNewbies: React.FC = () => {
         />
       </DetailsSummary>
       <DetailsSummary
+        anchor="cached-preview-needs-2-or-more-frames-for-playback"
         tag="для воспроизведения кэшированного предпросмотра требуется 2 или более кадров, не проигрывается предпросмотр, зацикливается превью, идёт по кругу"
         title="«Cached preview needs 2 or more frames for playback» или как избавиться от зацикливания предпросмотра?"
       >
@@ -4931,6 +4942,7 @@ const AEFromNewbies: React.FC = () => {
         />
       </DetailsSummary>
       <DetailsSummary
+        anchor="preview-low-resolution"
         tag="плохое качество предпросмотра, пиксели, низкое разрешение"
         title="Что делать, если предпросмотр выглядит пиксельным или размытым?"
       >
@@ -4976,6 +4988,7 @@ const AEFromNewbies: React.FC = () => {
         </p>
       </DetailsSummary>
       <DetailsSummary
+        anchor="vector-low-resolution"
         tag="векторные изображения, предпросмотр в плохом качестве, пиксели, низкое разрешение"
         title="Почему векторный слой выглядит пиксельным?"
       >
@@ -5020,6 +5033,7 @@ const AEFromNewbies: React.FC = () => {
         </Addition>
       </DetailsSummary>
       <DetailsSummary
+        anchor="adaptive-resolution"
         tag="адаптивное разрешение, пиксели, adaptive resolution, fast previews"
         title="Почему при перемещении объектов или временной метки качество предпросмотра падает?"
       >
@@ -5041,6 +5055,7 @@ const AEFromNewbies: React.FC = () => {
         />
       </DetailsSummary>
       <DetailsSummary
+        anchor="grow-bounds"
         tag="grow bounds, нарастить границы, обрезается эффект, края слоя"
         title="Применяю эффект, например Glow, но он обрезается по границе слоя. Как это исправить?"
       >
@@ -5090,6 +5105,7 @@ const AEFromNewbies: React.FC = () => {
         />
       </DetailsSummary>
       <DetailsSummary
+        anchor="missing-blending-modes"
         tag="blending modes, classic 3d, cinema 4d, 3d renderer, 3д рендер, track matte"
         title="Почему пропадают режимы наложения и Track Matte, когда я перевожу слой в 3D?"
       >
@@ -5120,6 +5136,7 @@ const AEFromNewbies: React.FC = () => {
         />
       </DetailsSummary>
       <DetailsSummary
+        anchor="missing-casts-shadows"
         tag="расширенный 3д"
         title="Почему у меня не активна функция «Casts Shadows» при использовании Advanced 3D?"
       >
@@ -5165,6 +5182,7 @@ const AEFromNewbies: React.FC = () => {
         />
       </DetailsSummary>
       <DetailsSummary
+        anchor="saber-transparency"
         tag="прозрачность, saber, альфа-канал, composite settings, transparent"
         title="Как сделать прозрачный фон у слоя с эффектом Saber?"
       >
@@ -5190,6 +5208,7 @@ const AEFromNewbies: React.FC = () => {
         />
       </DetailsSummary>
       <DetailsSummary
+        anchor="composition-independent"
         tag="true comp duplicator, прекомпоз, копирование, независимость, дубликат, продублировал композицию на таймлайне но копия зависит от оригинала"
         title="Как сделать дубликаты композиций независимыми друг от друга?"
       >
@@ -5228,6 +5247,7 @@ const AEFromNewbies: React.FC = () => {
         </Addition>
       </DetailsSummary>
       <DetailsSummary
+        anchor="composition-unpack"
         tag="unprecompose, распрекомпозить, раскомпозить"
         title="Как «распаковать» прекомпозицию?"
       >
@@ -5326,6 +5346,7 @@ const AEFromNewbies: React.FC = () => {
         />
       </DetailsSummary>
       <DetailsSummary
+        anchor="composition-crop"
         tag="обрезка, auto crop, region of interest, размер композиции"
         title="Как кадрировать композицию?"
       >
@@ -5530,6 +5551,7 @@ const AEFromNewbies: React.FC = () => {
         </ul>
       </DetailsSummary>
       <DetailsSummary
+        anchor="multiple-instances"
         tag="несколько экземпляров, multiple instances, два окна, запуск, одновременно"
         title="Как открыть несколько копий программы и работать в разных проектах одновременно?"
       >
@@ -5587,6 +5609,7 @@ const AEFromNewbies: React.FC = () => {
         />
       </DetailsSummary>
       <DetailsSummary
+        anchor="secret-settings"
         tag="secret, preferences, отладка, скрытые настройки, disable layer cache"
         title="Что такое «секретные» настройки и как их открыть?"
       >

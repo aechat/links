@@ -792,6 +792,7 @@ const AEWhereFind: React.FC = () => {
         </ul>
       </DetailsSummary>
       <DetailsSummary
+        anchor="effects-list"
         tag="русский язык, английский перевод, локализация, effects translation, language switch, localization"
         title="Где найти таблицу перевода стандартных эффектов?"
       >
@@ -5637,6 +5638,7 @@ const AEWhereFind: React.FC = () => {
         </table>
       </DetailsSummary>
       <DetailsSummary
+        anchor="presets-list"
         tag="русский язык, английский перевод, локализация, effects translation, language switch, localization"
         title="Где найти таблицу перевода стандартных пресетов?"
       >

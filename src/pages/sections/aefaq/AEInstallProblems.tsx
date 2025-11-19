@@ -14,6 +14,7 @@ const AEInstallProblems: React.FC = () => {
   return (
     <div className="faq-content">
       <DetailsSummary
+        anchor="how-to-install"
         tag="как установить, куда распаковать, забыли положить, плагины, шаблоны, пресеты, скрипты, расширения, луты, архивы, installation guide"
         title="В архиве или под записью нет инструкции по установке. Куда что кидать?"
       >
@@ -1138,6 +1139,7 @@ const AEInstallProblems: React.FC = () => {
         </Addition>
       </DetailsSummary>
       <DetailsSummary
+        anchor="disable-defender"
         tag="репак от кролика, выключить дефендер, отрубить антивирус, ложное срабатывание, хелпер, ошибка 24, вирусы, трояны, проверьте правильно ли указано имя и повторите попытку, windows не удается получить доступ к указанному устройству пути или файлу, возможно у вас нет нужных разрешений для доступа к этому объекту, некоторые файлы не были созданы, операция не была успешно завершена так как файл содержит вирус или потенциально нежелательную программу, обнаружены угрозы, куда-то пропадают файлы плагинов и программ, operation did not complete successfully because the file contains a virus or potentially unwanted software, windows cannot find helper.exe, make sure you typed the name correctly and then try again, 0x800700E1"
         title="«Не удаётся найти „..\install\helper.exe“» или как отключить Windows Defender и Windows Smartscreen?"
       >
@@ -1858,6 +1860,7 @@ const AEInstallProblems: React.FC = () => {
         />
       </DetailsSummary>
       <DetailsSummary
+        anchor="genp"
         tag="genp, активация, патч, активация приложений из creative cloud"
         title="Я не доверяю репакам, но установить программы от Adobe хочется. Какие есть ещё варианты?"
       >
@@ -2087,6 +2090,7 @@ const AEInstallProblems: React.FC = () => {
         />
       </DetailsSummary>
       <DetailsSummary
+        anchor="match-version"
         tag="какую версию надо скачать для связки, совместимость версий, dynamic link, premiere pro, media encoder, мажорная версия, релиз"
         title="Обязательно ли точное совпадение версий смежных программ от Adobe для их совместной работы?"
       >
@@ -2145,6 +2149,7 @@ const AEInstallProblems: React.FC = () => {
         </p>
       </DetailsSummary>
       <DetailsSummary
+        anchor="missing-dynamic-link"
         tag="не подключается dynamic link, программы не видят друг друга, динамик линк, aegp plugin aedynamiclinkserver: adobe media encoder is not installed, please download and install it to use this feature, failed to connect to adobe media encoder, медиа енкодер"
         title="Установил Adobe Media Encoder и Adobe Premiere Pro, но Adobe After Effects почему-то их не видит"
       >
@@ -2334,6 +2339,7 @@ const AEInstallProblems: React.FC = () => {
         </ul>
       </DetailsSummary>
       <DetailsSummary
+        anchor="unlicensed-effect"
         tag="плагин не активирован, license failed, красный крест, почему при его применении появляются красные кресты, непонятные наложения, надписи про отсутствие лицензии"
         title="Почему эффект, который я хочу применить к слою, накладывает какие-то кресты или надписи про активацию?"
       >
@@ -2517,6 +2523,7 @@ const AEInstallProblems: React.FC = () => {
         />
       </DetailsSummary>
       <DetailsSummary
+        anchor="rosetta"
         tag="rosetta, розетта, старые плагины на новом маке, apple silicon, следующие установленные подключаемые модули не совместимы с используемой версией, в существующих проектах они будут отображаться как отсутствующие их применение невозможно, чтобы использовать эти подключаемые модули, запустите на компьютере mac с процессором intel, to use these plugins run on an intel-based mac computer, to run in a compatible mode choose get info in the application context menu and enable open using rosetta"
         title="«The following plugins are installed, but not yet compatible with this version of After Effects. They will show as missing in existing projects and cannot be applied» после установки плагинов"
       >
@@ -2653,6 +2660,7 @@ const AEInstallProblems: React.FC = () => {
         </p>
       </DetailsSummary>
       <DetailsSummary
+        anchor="unlicensed-red-giant"
         tag="red giant, maxon, активация, unlicensed, нет лицензии, redgiant activation service unlocker, please launch the maxon app and sign in to your account, in order to keep using this product without interruption, please activate a license, trapcode particular, magic bullet looks, vfx suite, universe"
         title="«Red Giant is unlicensed» при применении любого плагина от Maxon"
       >
@@ -2701,6 +2709,7 @@ const AEInstallProblems: React.FC = () => {
         />
       </DetailsSummary>
       <DetailsSummary
+        anchor="unlicensed-element-3d"
         tag="element 3d, video copilot, vc, лицензия, активация, install license file, use your vc download account to generate a license for this computer"
         title="«Generate License» при применении Element 3D"
       >
@@ -2724,6 +2733,7 @@ const AEInstallProblems: React.FC = () => {
         />
       </DetailsSummary>
       <DetailsSummary
+        anchor="unlicensed-mocha-pro"
         tag="мокка про, mocha pro, boris fx, team v.r., лицензия, license, активация"
         title="«No interactive license in use» при открытии Mocha Pro"
       >
@@ -2747,6 +2757,7 @@ const AEInstallProblems: React.FC = () => {
         />
       </DetailsSummary>
       <DetailsSummary
+        anchor="-193"
         tag="zxp, zxp installer, ошибка -193, error -193, creative cloud, extension manager, расширения, aescripts"
         title="«Error: Extension Manager init failed, status = -193! A required resource is missing. Please relaunch the Creative Cloud app and try again» при использовании ZXP Installer"
       >
@@ -2770,6 +2781,7 @@ const AEInstallProblems: React.FC = () => {
         </Addition>
       </DetailsSummary>
       <DetailsSummary
+        anchor="update-app"
         tag="обновление и перенос, перенести плагины расширения и пресеты, новая версия афтера, хочу обновить программу, update, плагины, скрипты, настройки, сохранить настройки"
         title="Как обновить программу, не потеряв при этом плагины и прочий установленный контент?"
       >

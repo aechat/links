@@ -331,6 +331,7 @@ const AEPerformance: React.FC = () => {
         />
       </DetailsSummary>
       <DetailsSummary
+        anchor="stable-version-explained"
         tag="версия программы для старых устройств"
         title="Какая версия программы считается самой стабильной и какую лучше установить?"
       >
@@ -623,6 +624,7 @@ const AEPerformance: React.FC = () => {
         </p>
       </DetailsSummary>
       <DetailsSummary
+        anchor="about-app-performance"
         tag="тормозит, ускорить работу, оптимизация, увеличить скорость рендера, лаги, медленно работает, низкая скорость, производительность, применение эффектов, системные требования, артефакты, искажения, потребление оперативной памяти"
         title="Почему у меня, б%@#ь, лагает е&#!%й Adobe After Effects, с$%а?"
       >
@@ -1263,6 +1265,7 @@ const AEPerformance: React.FC = () => {
         </p> */}
       </DetailsSummary>
       <DetailsSummary
+        anchor="mercury-acceleration"
         tag="mercury gpu acceleration, software rendering only, рендеринг на процессоре"
         title="Как переключить тип рендеринга и зачем это нужно делать?"
       >
@@ -1383,6 +1386,7 @@ const AEPerformance: React.FC = () => {
         />
       </DetailsSummary>
       <DetailsSummary
+        anchor="configure-swapfile"
         tag="файл подкачки, виртуальная память, swapfile, paging file, virtual memory"
         title="Для чего нужен файл подкачки и почему его не стоит отключать?"
       >
