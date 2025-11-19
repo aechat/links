@@ -18,6 +18,7 @@ const AEExport: React.FC = () => {
   return (
     <div className="faq-content">
       <DetailsSummary
+        anchor="render-queue"
         tag="render queue, очередь рендера, настройки экспорта, render settings, output module, export settings"
         title="Что такое очередь рендеринга?"
       >
@@ -290,6 +291,7 @@ const AEExport: React.FC = () => {
         />
       </DetailsSummary>
       <DetailsSummary
+        anchor="stop-use-ame"
         tag="dynamic link, проблемы при экспорте"
         title="Почему «из каждого утюга» советуют не использовать Adobe Media Encoder для экспорта?"
       >
@@ -1032,6 +1034,7 @@ const AEExport: React.FC = () => {
         {/* TODO: добавить различные видео и материалы */}
       </DetailsSummary>
       <DetailsSummary
+        anchor="export-mp4"
         tag="h264, h265, hevc, avc1, voukoder, aftercodecs"
         title="Как экспортировать композицию в MP4?"
       >
@@ -1570,6 +1573,7 @@ const AEExport: React.FC = () => {
         </Addition>
       </DetailsSummary>
       <DetailsSummary
+        anchor="export-web"
         tag="видео с прозрачностью, webm, vp9, av1, h265, alpha channel"
         title="Как экспортировать композицию для веб-страницы?"
       >
@@ -1950,6 +1954,7 @@ const AEExport: React.FC = () => {
         </div>
       </DetailsSummary>
       <DetailsSummary
+        anchor="export-gif"
         tag="gifgun, ezgif, animated gif"
         title="Как экспортировать композицию в GIF?"
       >
@@ -2245,6 +2250,7 @@ const AEExport: React.FC = () => {
         </ul>
       </DetailsSummary>
       <DetailsSummary
+        anchor="export-prores"
         tag="prores 4444, prores 422, quicktime, видео с прозрачностью, alpha channel"
         title="Как экспортировать композицию в Apple ProRes?"
       >
@@ -2366,6 +2372,7 @@ const AEExport: React.FC = () => {
         </Addition>
       </DetailsSummary>
       <DetailsSummary
+        anchor="export-audio"
         tag="аудио, звук, музыка, wav, mp3, aiff"
         title="Как экспортировать из композиции только аудио?"
       >
@@ -2398,6 +2405,7 @@ const AEExport: React.FC = () => {
         </ul>
       </DetailsSummary>
       <DetailsSummary
+        anchor="export-tgs"
         tag="стикеры, tgs, lottie, animated stickers"
         title="Как экспортировать анимацию для стикеров и эмодзи в Telegram?"
       >
@@ -2730,6 +2738,7 @@ const AEExport: React.FC = () => {
         </p>
       </DetailsSummary>
       <DetailsSummary
+        anchor="export-mogrt"
         tag="анимационный шаблон для premiere pro"
         title="Как сохранить проект в формате MOGRT?"
       >
@@ -2831,6 +2840,7 @@ const AEExport: React.FC = () => {
         />
       </DetailsSummary>
       <DetailsSummary
+        anchor="proxy-comp"
         tag="proxy, ускорение рендера, уменьшение перепросчёта, пререндер, быстрый повторный экспорт"
         title="Как создать прокси для композиции?"
       >
@@ -2922,7 +2932,8 @@ const AEExport: React.FC = () => {
         />
       </DetailsSummary>
       <DetailsSummary
-        tag="кадр, изображение, скриншот, jpg, png, psd, превью"
+        anchor="export-still"
+        tag="кадр, изображение, скриншот, jpg, png, psd, превью, still"
         title="Как экспортировать текущий кадр как изображение?"
       >
         <p>
@@ -3013,6 +3024,7 @@ const AEExport: React.FC = () => {
         </p>
       </DetailsSummary>
       <DetailsSummary
+        anchor="export-sequence"
         tag="вывести секвенцию фото, jpg, png, psd"
         title="Как экспортировать все кадры композиции как отдельные изображения?"
       >
@@ -3164,6 +3176,7 @@ const AEExport: React.FC = () => {
         />
       </DetailsSummary>
       <DetailsSummary
+        anchor="collect-files"
         tag="сбор проекта, collect files"
         title="Как передать проект со всеми исходниками другому человеку?"
       >
@@ -3282,6 +3295,7 @@ const AEExport: React.FC = () => {
         </ul>
       </DetailsSummary>
       <DetailsSummary
+        anchor="save-ffx"
         tag="presets, ffx"
         title="Как создать свой пресет с эффектами и передать его другому человеку?"
       >
