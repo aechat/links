@@ -353,18 +353,26 @@ const DetailsSummary: React.FC<DetailsSummaryProps> = ({
 
     if (!summaryId || typeof window === "undefined") return;
 
+    const justOpened = isOpen && !prevIsOpen;
+
     const currentHash = window.location.hash.slice(1);
 
-    if (isOpen) {
-      if (currentHash !== summaryId) {
+    const textualAnchor = anchor;
+
+    if (justOpened) {
+      if (textualAnchor && currentHash === textualAnchor) {
+        setTimeout(() => {
+          updateUrlHash(`#${summaryId}`);
+        }, 500);
+      } else if (currentHash !== summaryId) {
         updateUrlHash(`#${summaryId}`);
       }
-    } else {
+    } else if (!isOpen) {
       if (currentHash === summaryId) {
         updateUrlHash("");
       }
     }
-  }, [isOpen, displayAnchorId, updateUrlHash]);
+  }, [isOpen, prevIsOpen, displayAnchorId, updateUrlHash, anchor]);
   useEffect(() => {
     const justOpened = isOpen && !prevIsOpen;
 
