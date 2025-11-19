@@ -542,21 +542,25 @@ const DetailsSummary: React.FC<DetailsSummaryProps> = ({
   const handleCopyAnchor = async (event: React.MouseEvent | React.TouchEvent) => {
     event.stopPropagation();
 
-    const anchorId = detailsRef.current?.querySelector(".faq-summary")?.id ?? "";
+    const summaryElement = detailsRef.current?.querySelector(".faq-summary");
 
-    if (!anchorId) {
+    const numericAnchor = summaryElement?.id ?? "";
+
+    const anchorToCopy = anchor || numericAnchor;
+
+    if (!anchorToCopy) {
       message.warning("Дождитесь полной загрузки страницы, прежде чем копировать ссылку");
 
       return;
     }
 
     if (typeof window !== "undefined") {
-      const anchorUrl = `${window.location.origin}${window.location.pathname}#${anchorId}`;
+      const anchorUrl = `${window.location.origin}${window.location.pathname}#${anchorToCopy}`;
 
       const success = await copyText(anchorUrl);
 
       if (success) {
-        message.success(`Ссылка на статью ${anchorId} скопирована`);
+        message.success(`Ссылка на статью ${numericAnchor} скопирована`);
       } else {
         message.error("Не удалось скопировать ссылку");
       }
