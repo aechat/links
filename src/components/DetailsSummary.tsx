@@ -110,6 +110,7 @@ const TagList: React.FC<{tags: string}> = ({tags}) => {
 
 const constants = {
   ACTION_DELAY: 150,
+  MOUSE_ENTER_DELAY: 750,
   PADDING: {MIN: 10, MAX: 14, SCREEN: {MIN: 320, MAX: 768}},
 } as const;
 
@@ -433,6 +434,43 @@ const DetailsSummary: React.FC<DetailsSummaryProps> = ({
       window.detailsSummaryScrollListenerAttached = true;
     }
   }, [updateDimmingEffect]);
+  useEffect(() => {
+    let timeoutId: NodeJS.Timeout;
+
+    const section = sectionRef.current;
+
+    const handleMouseEnter = () => {
+      timeoutId = setTimeout(() => {
+        const summaryId = detailsRef.current?.querySelector(".faq-summary")?.id;
+
+        if (summaryId) {
+          history.replaceState(
+            null,
+            "",
+            `${window.location.pathname}${window.location.search}#${summaryId}`
+          );
+        }
+      }, constants.MOUSE_ENTER_DELAY);
+    };
+
+    const handleMouseLeave = () => {
+      clearTimeout(timeoutId);
+    };
+
+    if (section) {
+      section.addEventListener("mouseenter", handleMouseEnter);
+      section.addEventListener("mouseleave", handleMouseLeave);
+    }
+
+    return () => {
+      if (section) {
+        section.removeEventListener("mouseenter", handleMouseEnter);
+        section.removeEventListener("mouseleave", handleMouseLeave);
+      }
+
+      clearTimeout(timeoutId);
+    };
+  }, []);
 
   const handleSummaryClick = (event: React.MouseEvent) => {
     event.preventDefault();
