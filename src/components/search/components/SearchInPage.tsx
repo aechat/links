@@ -1,6 +1,6 @@
 import {BackspaceOutlined, CloseRounded} from "@mui/icons-material";
 
-import {Modal} from "antd";
+import {Modal, message} from "antd";
 
 import React, {useCallback, useEffect, useRef, useState} from "react";
 
@@ -14,22 +14,101 @@ import {SearchSection} from "../types";
 
 import {getResultWord} from "../utils";
 
+import {copyText} from "../../../hooks/useCopyToClipboard";
+
 const SearchCategories: React.FC<{
   onLinkClick: (id: string) => void;
   sections: SearchSection[];
-}> = ({onLinkClick, sections}) => (
-  <div className="search-category">
-    {sections.map((section) => (
-      <button
-        key={section.id}
-        onClick={() => onLinkClick(section.id)}
-      >
-        {section.icon}
-        {section.title}
-      </button>
-    ))}
-  </div>
-);
+}> = ({onLinkClick, sections}) => {
+  const touchStartTime = useRef(0);
+
+  const isPotentialLongPress = useRef(false);
+
+  const touchStartCoords = useRef({x: 0, y: 0});
+
+  const isTouchEventInProgress = useRef(false);
+
+  const copyToClipboard = async (id: string, title: string) => {
+    const anchorUrl = `${window.location.origin}${window.location.pathname}#${id}`;
+
+    const success = await copyText(anchorUrl);
+
+    if (success) {
+      message.success(`Ссылка на категорию «${title}» скопирована`);
+    } else {
+      message.error("Не удалось скопировать ссылку");
+    }
+  };
+
+  const handleContextMenu = (e: React.MouseEvent, id: string, title: string) => {
+    e.preventDefault();
+
+    if (isTouchEventInProgress.current) {
+      return;
+    }
+
+    copyToClipboard(id, title);
+  };
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    isTouchEventInProgress.current = true;
+    isPotentialLongPress.current = true;
+    touchStartTime.current = Date.now();
+
+    const touch = e.touches[0];
+    touchStartCoords.current = {x: touch.clientX, y: touch.clientY};
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    if (!isPotentialLongPress.current) return;
+
+    const touch = e.touches[0];
+
+    const moveThreshold = 10;
+
+    const deltaX = Math.abs(touch.clientX - touchStartCoords.current.x);
+
+    const deltaY = Math.abs(touch.clientY - touchStartCoords.current.y);
+
+    if (deltaX > moveThreshold || deltaY > moveThreshold) {
+      isPotentialLongPress.current = false;
+    }
+  };
+
+  const handleTouchEnd = (e: React.TouchEvent, id: string, title: string) => {
+    if (isPotentialLongPress.current) {
+      const pressDuration = Date.now() - touchStartTime.current;
+
+      if (pressDuration > 500) {
+        e.preventDefault();
+        copyToClipboard(id, title);
+      }
+    }
+
+    setTimeout(() => {
+      isTouchEventInProgress.current = false;
+    }, 300);
+    isPotentialLongPress.current = false;
+  };
+
+  return (
+    <div className="search-category">
+      {sections.map((section) => (
+        <button
+          key={section.id}
+          onClick={() => onLinkClick(section.id)}
+          onContextMenu={(e) => handleContextMenu(e, section.id, section.title)}
+          onTouchEnd={(e) => handleTouchEnd(e, section.id, section.title)}
+          onTouchMove={handleTouchMove}
+          onTouchStart={handleTouchStart}
+        >
+          {section.icon}
+          {section.title}
+        </button>
+      ))}
+    </div>
+  );
+};
 
 const SearchResults: React.FC<{
   query: string;

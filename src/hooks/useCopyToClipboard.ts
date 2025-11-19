@@ -49,18 +49,26 @@ const copyWithFallback = (text: string): boolean => {
 };
 
 export const copyText = async (text: string): Promise<boolean> => {
-  try {
-    await navigator.clipboard.writeText(text);
+  if (!navigator.clipboard) {
+    return copyWithFallback(text);
+  }
 
-    return true;
-  } catch (err) {
-    if (copyWithFallback(text)) {
+  try {
+    const permission = await navigator.permissions.query({
+      name: "clipboard-write" as PermissionName,
+    });
+
+    if (permission.state === "granted" || permission.state === "prompt") {
+      await navigator.clipboard.writeText(text);
+
       return true;
     } else {
-      console.error("Failed to copy:", err);
-
-      return false;
+      return copyWithFallback(text);
     }
+  } catch (err) {
+    console.error("Clipboard API failed, trying fallback:", err);
+
+    return copyWithFallback(text);
   }
 };
 

@@ -15,6 +15,8 @@ import {Tooltip, message} from "antd";
 
 import {useExternalLinkHandler} from "../hooks/useExternalLinks";
 
+import {copyText} from "../hooks/useCopyToClipboard";
+
 import {useInternalLinkHandler} from "../hooks/useInternalLinks";
 
 import {useTheme} from "./modal/ThemeChanger";
@@ -438,8 +440,68 @@ const DetailsSummary: React.FC<DetailsSummaryProps> = ({
     if (detailsRef.current) setIsOpen(!detailsRef.current.open);
   };
 
-  const handleCopyAnchor = (event: React.MouseEvent) => {
-    event.preventDefault();
+  const touchStartTime = useRef(0);
+
+  const isPotentialLongPress = useRef(false);
+
+  const touchStartCoords = useRef({x: 0, y: 0});
+
+  const isTouchEventInProgress = useRef(false);
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    isTouchEventInProgress.current = true;
+    touchStartTime.current = Date.now();
+    isPotentialLongPress.current = true;
+
+    const touch = e.touches[0];
+    touchStartCoords.current = {x: touch.clientX, y: touch.clientY};
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    if (!isPotentialLongPress.current) return;
+
+    const touch = e.touches[0];
+
+    const moveThreshold = 10;
+
+    const deltaX = Math.abs(touch.clientX - touchStartCoords.current.x);
+
+    const deltaY = Math.abs(touch.clientY - touchStartCoords.current.y);
+
+    if (deltaX > moveThreshold || deltaY > moveThreshold) {
+      isPotentialLongPress.current = false;
+    }
+  };
+
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    if (!isPotentialLongPress.current) {
+      return;
+    }
+
+    const pressDuration = Date.now() - touchStartTime.current;
+
+    if (pressDuration > 500) {
+      e.preventDefault();
+      handleCopyAnchor(e);
+    }
+
+    setTimeout(() => {
+      isTouchEventInProgress.current = false;
+    }, 300);
+    isPotentialLongPress.current = false;
+  };
+
+  const handleSummaryContextMenu = (e: React.MouseEvent) => {
+    e.preventDefault();
+
+    if (isTouchEventInProgress.current) {
+      return;
+    }
+
+    handleCopyAnchor(e);
+  };
+
+  const handleCopyAnchor = async (event: React.MouseEvent | React.TouchEvent) => {
     event.stopPropagation();
 
     const anchorId = detailsRef.current?.querySelector(".faq-summary")?.id ?? "";
@@ -452,8 +514,14 @@ const DetailsSummary: React.FC<DetailsSummaryProps> = ({
 
     if (typeof window !== "undefined") {
       const anchorUrl = `${window.location.origin}${window.location.pathname}#${anchorId}`;
-      navigator.clipboard.writeText(anchorUrl);
-      message.success(`Ссылка на статью ${anchorId} скопирована`);
+
+      const success = await copyText(anchorUrl);
+
+      if (success) {
+        message.success(`Ссылка на статью ${anchorId} скопирована`);
+      } else {
+        message.error("Не удалось скопировать ссылку");
+      }
     }
   };
 
@@ -470,6 +538,10 @@ const DetailsSummary: React.FC<DetailsSummaryProps> = ({
         <summary
           className="faq-summary"
           onClick={handleSummaryClick}
+          onContextMenu={handleSummaryContextMenu}
+          onTouchEnd={handleTouchEnd}
+          onTouchMove={handleTouchMove}
+          onTouchStart={handleTouchStart}
         >
           <div className="faq-summary-left">
             <span className="faq-summary-icon">+</span>
