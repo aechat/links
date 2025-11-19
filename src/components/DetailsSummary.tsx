@@ -588,7 +588,7 @@ const DetailsSummary: React.FC<DetailsSummaryProps> = ({
               {tag && <TagList tags={tag} />}
             </div>
           </div>
-          <Tooltip title="Скопировать ссылку в буфер обмена">
+          <Tooltip title="Скопировать ссылку">
             <button
               className={`copy-button ${!displayAnchorId ? "disabled" : ""}`}
               onClick={handleCopyAnchor}
