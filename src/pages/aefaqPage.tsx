@@ -14,8 +14,6 @@ import {useCopyToClipboard} from "../hooks/useCopyToClipboard";
 
 import {useSmartCopy} from "../hooks/useSmartCopy";
 
-import {useAnchorScroll} from "../hooks/useAnchorScroll";
-
 import Footer from "../components/Footer";
 
 import Header from "../components/Header";
@@ -59,7 +57,6 @@ import {
 
 const AEFAQ = () => {
   const [isPageLoaded, setIsPageLoaded] = useState(false);
-  useAnchorScroll(isPageLoaded);
 
   const {enableAutoCopy} = useCopyToClipboard();
   useEffect(() => {

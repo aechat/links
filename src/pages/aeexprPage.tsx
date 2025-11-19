@@ -16,8 +16,6 @@ import {useCopyToClipboard} from "../hooks/useCopyToClipboard";
 
 import {useSmartCopy} from "../hooks/useSmartCopy";
 
-import {useAnchorScroll} from "../hooks/useAnchorScroll";
-
 import Footer from "../components/Footer";
 
 import Header from "../components/Header";
@@ -38,7 +36,6 @@ import AEExprErrors from "./sections/aeexpr/ExprErrors";
 
 const AEExpressionPage = () => {
   const [isPageLoaded, setIsPageLoaded] = useState(false);
-  useAnchorScroll(isPageLoaded);
 
   const {enableAutoCopy} = useCopyToClipboard();
   useEffect(() => {

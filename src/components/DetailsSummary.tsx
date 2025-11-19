@@ -1,22 +1,3 @@
-import {ShareRounded} from "@mui/icons-material";
-
-import {Tooltip, message} from "antd";
-
-import {useExternalLinkHandler} from "../hooks/useExternalLinks";
-
-import {useInternalLinkHandler} from "../hooks/useInternalLinks";
-
-import {useTheme} from "./modal/ThemeChanger";
-
-function usePrevious<T>(value: T): T | undefined {
-  const ref = React.useRef<T | undefined>(undefined);
-  React.useEffect(() => {
-    ref.current = value;
-  });
-
-  return ref.current;
-}
-
 import React, {
   ReactNode,
   createContext,
@@ -28,15 +9,35 @@ import React, {
   useState,
 } from "react";
 
+import {ShareRounded} from "@mui/icons-material";
+
+import {Tooltip, message} from "antd";
+
+import {useExternalLinkHandler} from "../hooks/useExternalLinks";
+
+import {useInternalLinkHandler} from "../hooks/useInternalLinks";
+
+import {useTheme} from "./modal/ThemeChanger";
+
 declare global {
   interface Window {
     detailsSummaryScrollListenerAttached?: boolean;
   }
 }
+
+const usePrevious = <T,>(value: T): T | undefined => {
+  const ref = useRef<T | undefined>(undefined);
+  useEffect(() => {
+    ref.current = value;
+  });
+
+  return ref.current;
+};
 interface DetailsSummaryProps {
   title: string;
   children: ReactNode;
   tag?: string;
+  anchor?: string;
 }
 
 const SpoilerContext = createContext(false);
@@ -79,17 +80,11 @@ const TagList: React.FC<{tags: string}> = ({tags}) => {
 
     const lastTwoDigits = count % 100;
 
-    if (lastTwoDigits >= 11 && lastTwoDigits <= 19) {
-      return "тегов";
-    }
+    if (lastTwoDigits >= 11 && lastTwoDigits <= 19) return "тегов";
 
-    if (lastDigit === 1) {
-      return "тег";
-    }
+    if (lastDigit === 1) return "тег";
 
-    if ([2, 3, 4].includes(lastDigit)) {
-      return "тега";
-    }
+    if ([2, 3, 4].includes(lastDigit)) return "тега";
 
     return "тегов";
   };
@@ -112,22 +107,12 @@ const TagList: React.FC<{tags: string}> = ({tags}) => {
 };
 
 const constants = {
-  SCROLL_DELAY: 150,
-  MOUSE_ENTER_DELAY: 1000,
-  PADDING: {
-    MIN: 10,
-    MAX: 14,
-    SCREEN: {
-      MIN: 320,
-      MAX: 768,
-    },
-  },
+  ACTION_DELAY: 150,
+  PADDING: {MIN: 10, MAX: 14, SCREEN: {MIN: 320, MAX: 768}},
 } as const;
 
 const getScrollOffsets = () => {
-  if (typeof window === "undefined") {
-    return {headerHeight: 0, padding: 0};
-  }
+  if (typeof window === "undefined") return {headerHeight: 0, padding: 0};
 
   const headerHeight = document.querySelector("header")?.offsetHeight ?? 0;
 
@@ -142,46 +127,73 @@ const getScrollOffsets = () => {
   return {headerHeight, padding};
 };
 
-const debounce = (func: (hash: string) => void, delay: number) => {
-  let timeout: NodeJS.Timeout;
-
-  return (hash: string) => {
-    clearTimeout(timeout);
-    timeout = setTimeout(() => func(hash), delay);
-  };
-};
-
 export const generateAnchorId = () => {
+  if (typeof window === "undefined") return;
+
   const containers = Array.from(document.querySelectorAll(".faq-content"));
-  let generatedAnchor = "";
+
+  const currentHash = window.location.hash.slice(1);
+  let anchorWasFoundAndOpened = false;
   containers.forEach((container, blockIndex) => {
     const summaries = Array.from(container.querySelectorAll(".faq-summary"));
     summaries.forEach((summary, summaryIndex) => {
-      generatedAnchor = `${blockIndex + 1}.${summaryIndex + 1}`;
+      const generatedAnchor = `${blockIndex + 1}.${summaryIndex + 1}`;
 
       if (!summary.hasAttribute("id")) {
         summary.setAttribute("id", generatedAnchor);
       }
+
+      const detailsElement = summary.closest("details");
+
+      const textualAnchor = detailsElement?.dataset.anchor;
+
+      if (currentHash && (summary.id === currentHash || textualAnchor === currentHash)) {
+        setTimeout(() => {
+          const event = new CustomEvent("open-spoiler-by-id", {
+            detail: {id: summary.id},
+          });
+          window.dispatchEvent(event);
+        }, constants.ACTION_DELAY);
+        anchorWasFoundAndOpened = true;
+      }
     });
   });
 
-  if (typeof window !== "undefined" && window.location.hash) {
-    const anchorId = window.location.hash.slice(1);
+  if (currentHash && !anchorWasFoundAndOpened) {
+    const categoryElement = document.getElementById(currentHash);
 
-    const existingAnchor = document.getElementById(anchorId);
+    const faqContainer = document.querySelector(".faq-container");
 
-    if (!existingAnchor && /^\d+\.\d+$/.test(anchorId)) {
+    if (categoryElement && faqContainer) {
+      setTimeout(() => {
+        const {headerHeight, padding} = getScrollOffsets();
+
+        const y =
+          categoryElement.getBoundingClientRect().top +
+          window.pageYOffset -
+          headerHeight -
+          padding;
+        window.scrollTo({top: y, behavior: "smooth"});
+      }, constants.ACTION_DELAY);
+
+      return;
+    }
+
+    if (faqContainer) {
       message.error(
-        "Не удалось найти статью по ссылке, возможно он был перемещён или удалён"
+        "Не удалось найти статью по ссылке, возможно, она была перемещена или удалена."
       );
       history.replaceState(null, "", window.location.pathname + window.location.search);
     }
   }
-
-  return generatedAnchor;
 };
 
-const DetailsSummary: React.FC<DetailsSummaryProps> = ({title, children, tag}) => {
+const DetailsSummary: React.FC<DetailsSummaryProps> = ({
+  title,
+  children,
+  tag,
+  anchor,
+}) => {
   const {handleLinkClick: handleInternalLinkClick, InternalLinkModal} =
     useInternalLinkHandler();
 
@@ -205,31 +217,24 @@ const DetailsSummary: React.FC<DetailsSummaryProps> = ({title, children, tag}) =
 
   const sectionRef = useRef<HTMLElement>(null);
 
-  const debouncedReplaceState = useCallback(
-    debounce((hash: string) => {
-      if (typeof window !== "undefined") {
-        history.replaceState(
-          null,
-          "",
-          window.location.pathname + window.location.search + hash
-        );
-      }
-    }, 50),
-    []
-  );
+  const updateUrlHash = useCallback((hash: string) => {
+    if (typeof window !== "undefined") {
+      history.replaceState(
+        null,
+        "",
+        window.location.pathname + window.location.search + hash
+      );
+    }
+  }, []);
 
   const updateDimmingEffect = useCallback(() => {
-    if (typeof window === "undefined") {
-      return;
-    }
+    if (typeof window === "undefined") return;
 
     const openDetailsElements = document.querySelectorAll("details[open]");
-
-    if (openDetailsElements.length > 0) {
-      document.body.classList.add("body-has-any-spoiler-open");
-    } else {
-      document.body.classList.remove("body-has-any-spoiler-open");
-    }
+    document.body.classList.toggle(
+      "body-has-any-spoiler-open",
+      openDetailsElements.length > 0
+    );
 
     if (openDetailsElements.length > 0) {
       const viewportHeight = window.innerHeight;
@@ -242,51 +247,36 @@ const DetailsSummary: React.FC<DetailsSummaryProps> = ({title, children, tag}) =
 
         return !isOutOfMainView;
       });
-
-      if (isAnyInMainView) {
-        document.body.classList.add("has-open-details");
-      } else {
-        document.body.classList.remove("has-open-details");
-      }
+      document.body.classList.toggle("has-open-details", isAnyInMainView);
     } else {
       document.body.classList.remove("has-open-details");
     }
   }, []);
   useEffect(() => {
-    if (typeof window === "undefined") {
-      return;
-    }
+    if (typeof window === "undefined") return;
 
     const details = detailsRef.current;
 
-    if (!details) {
-      return;
-    }
+    if (!details) return;
 
     const contentWrapper = details.querySelector<HTMLElement>(".details-content-wrapper");
 
-    if (!contentWrapper) {
-      return;
-    }
+    if (!contentWrapper) return;
 
     const innerContent = contentWrapper.querySelector<HTMLElement>(
       ".details-content-inner"
     );
 
-    if (!innerContent) {
-      return;
-    }
+    if (!innerContent) return;
 
-    const justOpened = isOpen && prevIsOpen === false;
+    const justOpened = isOpen && !prevIsOpen;
 
-    const justClosed = !isOpen && prevIsOpen === true;
+    const justClosed = !isOpen && prevIsOpen;
 
     const updateDynamicStyles = () => {
       if (details.open) {
         contentWrapper.style.maxHeight = `${innerContent.scrollHeight}px`;
-
-        const detailsHeight = details.offsetHeight;
-        details.style.marginBottom = `${detailsHeight * 0.01 + 10}px`;
+        details.style.marginBottom = `${details.offsetHeight * 0.01 + 10}px`;
       }
     };
 
@@ -294,9 +284,7 @@ const DetailsSummary: React.FC<DetailsSummaryProps> = ({title, children, tag}) =
     window.addEventListener("resize", updateDynamicStyles);
 
     const handleTransitionEnd = (e: TransitionEvent) => {
-      if (e.target !== contentWrapper) {
-        return;
-      }
+      if (e.target !== contentWrapper) return;
 
       document.body.style.overflow = "";
 
@@ -316,38 +304,9 @@ const DetailsSummary: React.FC<DetailsSummaryProps> = ({title, children, tag}) =
         resizeObserver.observe(innerContent);
         updateDynamicStyles();
         updateDimmingEffect();
-        setTimeout(() => {
-          updateDimmingEffect();
-        }, 100);
-
-        if (justOpened) {
-          const summaryId = details.querySelector(".faq-summary")?.id;
-
-          if (summaryId) {
-            debouncedReplaceState(`#${summaryId}`);
-            setTimeout(() => {
-              const summary = details.querySelector(".faq-summary");
-
-              if (summary) {
-                const {headerHeight, padding} = getScrollOffsets();
-
-                const y =
-                  summary.getBoundingClientRect().top +
-                  window.pageYOffset -
-                  headerHeight -
-                  padding;
-                window.scrollTo({top: y, behavior: "smooth"});
-              }
-            }, 150);
-          }
-        }
+        setTimeout(updateDimmingEffect, 100);
       } else if (details.open) {
         resizeObserver.unobserve(innerContent);
-
-        if (window.location.hash) {
-          debouncedReplaceState("");
-        }
-
         details.open = false;
         contentWrapper.style.maxHeight = "0px";
         details.style.marginBottom = "";
@@ -356,9 +315,7 @@ const DetailsSummary: React.FC<DetailsSummaryProps> = ({title, children, tag}) =
     } else {
       contentWrapper.addEventListener("transitionend", handleTransitionEnd);
 
-      if (justOpened) {
-        document.body.style.overflow = "hidden";
-      } else if (justClosed && details.open) {
+      if (justOpened || (justClosed && details.open)) {
         document.body.style.overflow = "hidden";
       }
 
@@ -368,50 +325,14 @@ const DetailsSummary: React.FC<DetailsSummaryProps> = ({title, children, tag}) =
         const scrollHeight = innerContent.scrollHeight;
 
         const viewportHeight = window.innerHeight;
-
-        if (justOpened) {
-          if (scrollHeight > viewportHeight) {
-            contentWrapper.style.maxHeight = `${viewportHeight}px`;
-          } else {
-            contentWrapper.style.maxHeight = `${scrollHeight}px`;
-          }
-        } else {
-          contentWrapper.style.maxHeight = `${scrollHeight}px`;
-        }
-
+        contentWrapper.style.maxHeight =
+          justOpened && scrollHeight > viewportHeight
+            ? `${viewportHeight}px`
+            : `${scrollHeight}px`;
         updateDimmingEffect();
-        setTimeout(() => {
-          updateDimmingEffect();
-        }, 100);
-
-        if (justOpened) {
-          const summaryId = details.querySelector(".faq-summary")?.id;
-
-          if (summaryId) {
-            debouncedReplaceState(`#${summaryId}`);
-            setTimeout(() => {
-              const summary = details.querySelector(".faq-summary");
-
-              if (summary) {
-                const {headerHeight, padding} = getScrollOffsets();
-
-                const y =
-                  summary.getBoundingClientRect().top +
-                  window.pageYOffset -
-                  headerHeight -
-                  padding;
-                window.scrollTo({top: y, behavior: "smooth"});
-              }
-            }, 150);
-          }
-        }
+        setTimeout(updateDimmingEffect, 100);
       } else if (details.open) {
         resizeObserver.unobserve(innerContent);
-
-        if (window.location.hash) {
-          debouncedReplaceState("");
-        }
-
         contentWrapper.style.maxHeight = "0px";
         details.style.marginBottom = "";
       }
@@ -423,46 +344,64 @@ const DetailsSummary: React.FC<DetailsSummaryProps> = ({title, children, tag}) =
       window.removeEventListener("resize", updateDynamicStyles);
       document.body.style.overflow = "";
     };
-  }, [
-    isOpen,
-    prevIsOpen,
-    debouncedReplaceState,
-    updateDimmingEffect,
-    isAnimationDisabled,
-  ]);
+  }, [isOpen, prevIsOpen, updateDimmingEffect, isAnimationDisabled]);
+  useEffect(() => {
+    const summaryId = displayAnchorId;
 
-  const scrollToAnchor = (targetElement: HTMLElement) => {
-    if (typeof window === "undefined") {
-      return;
+    if (!summaryId || typeof window === "undefined") return;
+
+    const currentHash = window.location.hash.slice(1);
+
+    if (isOpen) {
+      if (currentHash !== summaryId) {
+        updateUrlHash(`#${summaryId}`);
+      }
+    } else {
+      if (currentHash === summaryId) {
+        updateUrlHash("");
+      }
     }
+  }, [isOpen, displayAnchorId, updateUrlHash]);
+  useEffect(() => {
+    const justOpened = isOpen && !prevIsOpen;
 
-    const {headerHeight, padding} = getScrollOffsets();
-    setTimeout(() => {
-      const y =
-        targetElement.getBoundingClientRect().top +
-        window.pageYOffset -
-        headerHeight -
-        padding;
-      window.scrollTo({top: y, behavior: "smooth"});
-    }, constants.SCROLL_DELAY);
-  };
+    if (justOpened) {
+      const summary = detailsRef.current?.querySelector(".faq-summary");
+
+      if (summary) {
+        setTimeout(() => {
+          const {headerHeight, padding} = getScrollOffsets();
+
+          const y =
+            summary.getBoundingClientRect().top +
+            window.pageYOffset -
+            headerHeight -
+            padding;
+          window.scrollTo({top: y, behavior: "smooth"});
+        }, constants.ACTION_DELAY);
+      }
+    }
+  }, [isOpen, prevIsOpen]);
   useEffect(() => {
     if (detailsRef.current) {
       const summaryElement = detailsRef.current.querySelector(".faq-summary");
 
       if (summaryElement) {
-        const initialSummaryId = summaryElement.id;
+        const checkId = () => {
+          const currentSummaryId = summaryElement.id;
 
-        if (initialSummaryId) {
-          setDisplayAnchorId(initialSummaryId);
-        } else {
+          if (currentSummaryId) {
+            setDisplayAnchorId(currentSummaryId);
+
+            return true;
+          }
+
+          return false;
+        };
+
+        if (!checkId()) {
           const checkIdInterval = setInterval(() => {
-            const currentSummaryId = summaryElement.id;
-
-            if (currentSummaryId) {
-              setDisplayAnchorId(currentSummaryId);
-              clearInterval(checkIdInterval);
-            }
+            if (checkId()) clearInterval(checkIdInterval);
           }, 100);
 
           return () => clearInterval(checkIdInterval);
@@ -471,25 +410,8 @@ const DetailsSummary: React.FC<DetailsSummaryProps> = ({title, children, tag}) =
     }
   }, []);
   useEffect(() => {
-    if (typeof window === "undefined") {
-      return;
-    }
-
-    const anchorId = window.location.hash.slice(1);
-
-    if (displayAnchorId && anchorId === displayAnchorId) {
-      setIsOpen(true);
-    }
-  }, [displayAnchorId]);
-  useEffect(() => {
-    if (typeof window === "undefined") {
-      return;
-    }
-
     const handleOpenEvent = (event: Event) => {
-      const customEvent = event as CustomEvent<{id: string}>;
-
-      const {id} = customEvent.detail;
+      const {id} = (event as CustomEvent<{id: string}>).detail;
 
       const summaryElement = detailsRef.current?.querySelector(".faq-summary");
 
@@ -499,64 +421,10 @@ const DetailsSummary: React.FC<DetailsSummaryProps> = ({title, children, tag}) =
     };
     window.addEventListener("open-spoiler-by-id", handleOpenEvent);
 
-    return () => {
-      window.removeEventListener("open-spoiler-by-id", handleOpenEvent);
-    };
+    return () => window.removeEventListener("open-spoiler-by-id", handleOpenEvent);
   }, []);
   useEffect(() => {
-    if (typeof window === "undefined") {
-      return;
-    }
-
-    const anchorId = window.location.hash.slice(1);
-
-    const summaryElement = detailsRef.current?.querySelector(".faq-summary");
-
-    if (anchorId && summaryElement && summaryElement.id === anchorId && isOpen) {
-      scrollToAnchor(summaryElement as HTMLElement);
-    }
-  }, [isOpen]);
-  useEffect(() => {
-    if (typeof window === "undefined") {
-      return;
-    }
-
-    if (!sectionRef.current) {
-      return;
-    }
-
-    let timeoutId: NodeJS.Timeout;
-
-    const handleMouseEnter = () => {
-      timeoutId = setTimeout(() => {
-        const summaryId = detailsRef.current?.querySelector(".faq-summary")?.id;
-
-        if (summaryId) {
-          history.replaceState(
-            null,
-            "",
-            `${window.location.pathname}${window.location.search}#${summaryId}`
-          );
-        }
-      }, constants.MOUSE_ENTER_DELAY);
-    };
-
-    const handleMouseLeave = () => {
-      clearTimeout(timeoutId);
-    };
-    sectionRef.current.addEventListener("mouseenter", handleMouseEnter);
-    sectionRef.current.addEventListener("mouseleave", handleMouseLeave);
-
-    return () => {
-      sectionRef.current?.removeEventListener("mouseenter", handleMouseEnter);
-      sectionRef.current?.removeEventListener("mouseleave", handleMouseLeave);
-      clearTimeout(timeoutId);
-    };
-  }, []);
-  useEffect(() => {
-    if (typeof window === "undefined") {
-      return;
-    }
+    if (typeof window === "undefined") return;
 
     if (!window.detailsSummaryScrollListenerAttached) {
       window.addEventListener("scroll", updateDimmingEffect, {passive: true});
@@ -567,17 +435,7 @@ const DetailsSummary: React.FC<DetailsSummaryProps> = ({title, children, tag}) =
   const handleSummaryClick = (event: React.MouseEvent) => {
     event.preventDefault();
 
-    const details = detailsRef.current;
-
-    if (!details) {
-      return;
-    }
-
-    if (details.open) {
-      setIsOpen(false);
-    } else {
-      setIsOpen(true);
-    }
+    if (detailsRef.current) setIsOpen(!detailsRef.current.open);
   };
 
   const handleCopyAnchor = (event: React.MouseEvent) => {
@@ -587,21 +445,17 @@ const DetailsSummary: React.FC<DetailsSummaryProps> = ({title, children, tag}) =
     const anchorId = detailsRef.current?.querySelector(".faq-summary")?.id ?? "";
 
     if (!anchorId) {
-      message.warning(
-        "Прежде чем копировать ссылку - дождитесь полной загрузки страницы"
-      );
+      message.warning("Дождитесь полной загрузки страницы, прежде чем копировать ссылку");
 
       return;
     }
 
     if (typeof window !== "undefined") {
-      const anchor = `${window.location.origin}${window.location.pathname}#${anchorId}`;
-      navigator.clipboard.writeText(anchor);
-      message.success(`Ссылка на статью ${anchorId} скопирована в буфер обмена`);
+      const anchorUrl = `${window.location.origin}${window.location.pathname}#${anchorId}`;
+      navigator.clipboard.writeText(anchorUrl);
+      message.success(`Ссылка на статью ${anchorId} скопирована`);
     }
   };
-
-  const anchorId = detailsRef.current?.querySelector(".faq-summary")?.id ?? "";
 
   const headingText = (displayAnchorId ? `${displayAnchorId}. ` : "") + title;
 
@@ -610,6 +464,7 @@ const DetailsSummary: React.FC<DetailsSummaryProps> = ({title, children, tag}) =
       <details
         ref={detailsRef}
         className={isOpen ? "is-open" : ""}
+        data-anchor={anchor}
         data-tags={tag}
       >
         <summary
@@ -625,7 +480,7 @@ const DetailsSummary: React.FC<DetailsSummaryProps> = ({title, children, tag}) =
           </div>
           <Tooltip title="Скопировать ссылку в буфер обмена">
             <button
-              className={`copy-button ${!anchorId ? "disabled" : ""}`}
+              className={`copy-button ${!displayAnchorId ? "disabled" : ""}`}
               onClick={handleCopyAnchor}
             >
               <ShareRounded />
