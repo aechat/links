@@ -1936,9 +1936,9 @@ const AEExport: React.FC = () => {
               <video
                 controls
                 loop
-                preload="metadata"
                 playsInline
                 controlsList="nofullscreen"
+                preload="metadata"
               >
                 <source
                   src="images/aefaq@aechat_alpha.mp4"
