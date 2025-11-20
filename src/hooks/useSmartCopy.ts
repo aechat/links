@@ -28,14 +28,18 @@ export const useSmartCopy = (isPageLoaded: boolean) => {
 
           const titleEl = summary?.querySelector("h3");
 
-          const anchorId = summary?.id;
+          const numericAnchor = summary?.id;
+
+          const textualAnchor = (detail as HTMLElement).dataset.anchor;
+
+          const anchorToUse = textualAnchor || numericAnchor;
 
           const title =
             titleEl?.textContent?.replace(/^\d+\.\d+\.\s*/, "") || "Без названия";
 
-          if (anchorId) {
+          if (anchorToUse) {
             const url = new URL(window.location.href);
-            url.hash = anchorId;
+            url.hash = anchorToUse;
             sources.push({title, url: url.toString()});
           }
         }
