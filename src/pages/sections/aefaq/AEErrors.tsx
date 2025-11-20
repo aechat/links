@@ -391,6 +391,7 @@ const AEErrors: React.FC = () => {
         />
       </DetailsSummary>
       <DetailsSummary
+        anchor="fix-out-of-memory"
         tag="out of memory, after effects has unexpectedly run out of memory and cannot complete this export, either decrease the memory requirements for the rendering frame or install more ram, нехватка озу, выделенный объем памяти превышает внутреннее ограничение, рекомендуется снизить требования к памяти для рендеринга этого кадра, предупреждение о нехватке памяти, unable to allocate enough memory, оперативная память, ошибка памяти, 23::40, не проигрывается предпросмотр, зацикливается превью"
         title="Как избавиться от «Out of Memory», «Unable to allocate enough memory to render the current frame», «Low memory warning. RAM use has been extended for previews» и похожих ошибок?"
       >
@@ -565,6 +566,7 @@ const AEErrors: React.FC = () => {
         />
       </DetailsSummary>
       <DetailsSummary
+        anchor="fix-out-of-vram"
         tag="gpu, vram, видеокарта, нехватка видеопамяти, gpu acceleration, ошибка графического процессора, this is likely because your gpu is out of memory, обнаружена ошибка которая связана с эффектами на этом кадре использующими графический процессор, вероятно это вызвано нехваткой памяти графического процессора"
         title="Что делать с ошибкой «After Effects has encountered a failure related to GPU-enabled effects»?"
       >
@@ -627,6 +629,7 @@ const AEErrors: React.FC = () => {
         </ul>
       </DetailsSummary>
       <DetailsSummary
+        anchor="fix-effect-cannot-allocate-a-buffer"
         tag="25::56, 37::102, attempted to render a frame with an unsupported frame size, the frame size must be between 1 and 30000 pixels for both width and height, please check layer dimensions and the output from any effects that may be modifying layer content, cannot allocate buffer, motion tile, cc repetile, buffer size, pixel limit, мозаика движения, невозможно выделить для эффекта буфер величиной более 30000 пикселей в любом направлении"
         title="Что означает «Effect cannot allocate a buffer larger than 30000 pixels in either dimension»?"
       >
@@ -646,6 +649,7 @@ const AEErrors: React.FC = () => {
         </p>
       </DetailsSummary>
       <DetailsSummary
+        anchor="fix-this-project-contains-references-to-missing-effects"
         tag="please install the following effects to restore these references, данный проект содержит ссылку на отсутствующий эффект, установите следующий эффект чтобы восстановить эту ссылку, отсутствуют эффекты, ошибка эффектов, установка плагинов, менеджер эффектов, effect may have caused to quit, if you want you can disable this effect now, to re-enable it later select manager effects from effects menu options, приложение неожиданно завершило работу, эффект мог привести к неожиданному завершению работы приложения, если вы хотите этот эффект можно отключить сейчас, чтобы включить его позже выберите управление эффектами в пункте меню эффекты, effect manager, сбой эффекта, отключение эффекта, crash, plugin error"
         title="Что делать с «This project contains references to missing effects»?"
       >
@@ -732,6 +736,7 @@ const AEErrors: React.FC = () => {
         />
       </DetailsSummary>
       <DetailsSummary
+        anchor="this-effect-may-slow-down-preview"
         tag="этот эффект может замедлить предпросмотр и экспорт так как он не оптимизирован для мультикадрового рендера, mfr warning"
         title="Что означает «This effect may slow down Preview and Export as it is optimized Multi-Frame Render» при применении эффекта?"
       >
@@ -765,6 +770,7 @@ const AEErrors: React.FC = () => {
         />
       </DetailsSummary>
       <DetailsSummary
+        anchor="fix-this-project-contains-an-expression-error"
         tag="этот проект содержит ошибки выражений, движок выражений, expression engine"
         title="Что делать с ошибкой «This project contains an expression error»?"
       >
@@ -957,6 +963,7 @@ const AEErrors: React.FC = () => {
         />
       </DetailsSummary>
       <DetailsSummary
+        anchor="fix-advanced-3d-plugin-generated-an-unexpected-exception"
         tag="advanced 3d, classic 3d, расширенный 3d, вылетает при попытке использовать адвансед 3д, 3d рендеринг, драйверы видеокарты"
         title="Что делать с ошибкой «Advanced 3D plug-in generated an unexpected exception»?"
       >
@@ -1049,6 +1056,7 @@ const AEErrors: React.FC = () => {
         />
       </DetailsSummary>
       <DetailsSummary
+        anchor="fix-cinema-4d-must-be-installed"
         tag="c4d, синема 4д, cineware, 3d рендеринг, ошибка рендера, render failed, cineware server suite failed to acquire renderer port and path, server commands not available, сервер cineware, чтобы использовать средство рендеринга необходимо установить cinema 4d, 5027::12"
         title="Что делать с «Cinema 4D must be installed in order to use the Cinema 4D renderer»?"
       >
@@ -1173,6 +1181,7 @@ const AEErrors: React.FC = () => {
         </ul>
       </DetailsSummary>
       <DetailsSummary
+        anchor="fix-display-acceleration-disabled"
         tag="advanced 3d is not supported by the current hardware, расширенный 3d не поддерживается текущим оборудованием, аппаратное ускорение, display acceleration disabled, драйверы видеокарты"
         title="Что означает «Display acceleration disabled» в правом верхнем углу предпросмотра?"
       >
@@ -1374,6 +1383,7 @@ const AEErrors: React.FC = () => {
         </p>
       </DetailsSummary>
       <DetailsSummary
+        anchor="fix-file-is-damaged"
         tag="file is damaged, unable to import, файл поврежден, ошибка импорта, автосохранение, project corruption, bad format or not readable, недопустимый формат или чтение невозможно, ошибка с файлом"
         title="Что делать с «File is damaged» или «Unable to import file as project»?"
       >
@@ -1430,6 +1440,7 @@ const AEErrors: React.FC = () => {
         </ul>
       </DetailsSummary>
       <DetailsSummary
+        anchor="fix-your-disk-cache-folder-is-on-a-drive-that-does-not-have-enough-avaiable-space"
         tag="дисковый кэш, нехватка места, please make more space available or go to media & disk cache preferences to change the folder or maximium disk cache size"
         title="Что означает «Your disk cache folder is on a drive that does not have enough avaiable space to safely store the full amount specified in your preferences»?"
       >
@@ -1464,6 +1475,7 @@ const AEErrors: React.FC = () => {
         />
       </DetailsSummary>
       <DetailsSummary
+        anchor="fix-disk-cache-folder-doesnt-exist"
         tag="дисковый кэш, папка кэша, disk cache, cache folder, cache error, please check your settings in media and disk cache preferences"
         title="Что делать с «Error: Disk Cache folder doesn't exist (or isn't a directory), so it will be reset to the system temporary directory»?"
       >
@@ -1516,6 +1528,7 @@ const AEErrors: React.FC = () => {
         </p>
       </DetailsSummary>
       <DetailsSummary
+        anchor="fix-overflow-converting-ratio-denominators"
         tag="vfr, переменная частота кадров, интерпретация видео, frame rate, 17::19, 17::18"
         title="Что делать с ошибкой «Error: overflow converting ratio denominators»?"
       >
@@ -1550,6 +1563,7 @@ const AEErrors: React.FC = () => {
         </ul>
       </DetailsSummary>
       <DetailsSummary
+        anchor="fix-rotobrush-frame-rate-mismatch-or-footage-with-fields-found"
         tag='ротобраш, несоответствие частоты кадров либо не найден видеоряд с полями, для достижения оптимального результата операций "кисть для ротоскопии" и "уточнить края" необходимо задать частоту кадров композиции в соответствии с источником слоя, for best roto brush & refine edge results set the composition to fps to match the layer source, will not render correctly because the source frame rate changed from to fps roto brush, frame rate mismatch, частота кадров, интерлейсинг, поля, interlace'
         title="Из-за чего появляется «Frame rate mismatch, or footage with fields found» при использовании Roto Brush?"
       >
@@ -1631,6 +1645,7 @@ const AEErrors: React.FC = () => {
         </ul>
       </DetailsSummary>
       <DetailsSummary
+        anchor="fix-content-aware-fill-initialization-failed"
         tag="ошибка инициализации заливки с учетом содержимого"
         title="Из-за чего может появляться «Content-Aware Fill Error: Initialization Failed»?"
       >
@@ -1702,6 +1717,7 @@ const AEErrors: React.FC = () => {
         </ul>
       </DetailsSummary>
       <DetailsSummary
+        anchor="fix-layer-must-match-composition-and-use-default-transform-values"
         tag="3d camera tracker, размер слоя должен соответствовать композиции и использовать значения трансформирования по умолчанию, сброс трансформации, pre-compose, precompose"
         title="Из-за чего появляется «Layer must match Composition and use default transform values»?"
       >
@@ -1732,6 +1748,7 @@ const AEErrors: React.FC = () => {
         </p>
       </DetailsSummary>
       <DetailsSummary
+        anchor="fix-analysis-solve-failed"
         tag="3d camera tracker, analysis solve failed, ошибка анализа, трекинг камеры, camera tracking error"
         title="Что делать с ошибками «Analysis Solve Failed» или «Unable to solve camera for this frame»?"
       >
@@ -1784,6 +1801,7 @@ const AEErrors: React.FC = () => {
         </ul>
       </DetailsSummary>
       <DetailsSummary
+        anchor="fix-system-compatibility-report"
         tag="совместимость системы, драйверы, плагины, startup & repair"
         title="Из-за чего появляется окно «System Compatibility Report» при запуске программы?"
       >
@@ -1825,6 +1843,7 @@ const AEErrors: React.FC = () => {
         />
       </DetailsSummary>
       <DetailsSummary
+        anchor="fix-0xc0000142"
         tag="неподдерживаемое устройство, avx2, ошибка запуска, требования к процессору"
         title="Что делать с ошибкой «0xc0000142» при запуске приложения?"
       >
@@ -1911,6 +1930,7 @@ const AEErrors: React.FC = () => {
         />
       </DetailsSummary>
       <DetailsSummary
+        anchor="fix-ray-traced-3d-not-found"
         tag="ray-traced 3d, 3d рендеринг, устаревший проект"
         title="Из-за чего появляется «Warning: A rendering plug-in was not found. The default rendering plug-in will be substituted»?"
       >
