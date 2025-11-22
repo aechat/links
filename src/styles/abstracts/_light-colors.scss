@@ -89,6 +89,12 @@ $light-theme-map: (
         text: hsl(0deg 80% 22%),
         mark-background: hsl(0deg 100% 96%),
       ),
+      tldr: (
+        background: hsl(160deg 50% 98%),
+        border: hsl(160deg 50% 85%),
+        text: hsl(160deg 80% 22%),
+        mark-background: hsl(160deg 50% 96%),
+      ),
       success-subtle: (
         background: hsl(120deg 100% 50% / 10%),
         border: hsl(120deg 100% 50% / 25%),

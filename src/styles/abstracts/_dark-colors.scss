@@ -89,6 +89,12 @@ $dark-theme-map: (
         text: hsl(0deg 95% 88%),
         mark-background: hsl(0deg 40% 15%),
       ),
+      tldr: (
+        background: hsl(160deg 40% 12%),
+        border: hsl(160deg 35% 25%),
+        text: hsl(160deg 85% 88%),
+        mark-background: hsl(160deg 45% 15%),
+      ),
       success-subtle: (
         background: hsl(120deg 100% 50% / 10%),
         border: hsl(120deg 100% 50% / 25%),

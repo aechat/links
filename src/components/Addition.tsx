@@ -1,8 +1,10 @@
 import React, {ReactNode} from "react";
 
+import {Tooltip} from "antd";
+
 interface AdditionProps {
   children: ReactNode;
-  type: "info" | "warning" | "danger";
+  type: "info" | "warning" | "danger" | "tldr";
 }
 
 const Addition: React.FC<AdditionProps> = ({children, type}) => {
@@ -23,6 +25,11 @@ const Addition: React.FC<AdditionProps> = ({children, type}) => {
       className = "addition-danger";
 
       break;
+
+    case "tldr":
+      className = "addition-tldr";
+
+      break;
   }
 
   if (!className) {
@@ -31,7 +38,15 @@ const Addition: React.FC<AdditionProps> = ({children, type}) => {
 
   return (
     <div className={className}>
-      <div>{children}</div>
+      <div>
+        {type === "tldr" && (
+          <Tooltip title="Too Long; Didn't Read (Слишком длинно; не читал) или же быстрый ответ на вопрос заголовка статьи.">
+            <strong>TL;DR:</strong>
+            <br />
+          </Tooltip>
+        )}
+        {children}
+      </div>
     </div>
   );
 };
