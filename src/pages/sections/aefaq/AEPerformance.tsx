@@ -331,7 +331,7 @@ const AEPerformance: React.FC = () => {
         />
       </DetailsSummary>
       <DetailsSummary
-        anchor="stable-version-explained"
+        anchor="choose-ae-version"
         tag="версия программы для старых устройств"
         title="Какая версия программы считается самой стабильной и какую лучше установить?"
       >
