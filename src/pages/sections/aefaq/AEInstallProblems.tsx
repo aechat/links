@@ -568,7 +568,8 @@ const AEInstallProblems: React.FC = () => {
                   <ContentFigure
                     caption="Magic Bullet Looks"
                     imgTitle="Импорт пресетов для Magic Bullet Looks"
-                    src="images/import_magic_bullet_looks.png"
+                    // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+                    src="images/legacy/import_magic_bullet_looks.png"
                     theme="dark"
                     type="image"
                     variant="mac"
@@ -1078,7 +1079,8 @@ const AEInstallProblems: React.FC = () => {
                   <ContentFigure
                     caption="Magic Bullet Looks"
                     imgTitle="Импорт пресетов для Magic Bullet Looks"
-                    src="images/import_magic_bullet_looks.png"
+                    // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+                    src="images/legacy/import_magic_bullet_looks.png"
                     theme="dark"
                     type="image"
                     variant="windows"
@@ -1943,7 +1945,8 @@ const AEInstallProblems: React.FC = () => {
                   </Addition>
                   <ContentFigure
                     caption="Установка Adobe Creative Cloud"
-                    src="images/creative_cloud_install.mp4"
+                    // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+                    src="images/legacy/creative_cloud_install.mp4"
                     theme="dark"
                     type="video"
                     variant="windows"
@@ -1959,7 +1962,8 @@ const AEInstallProblems: React.FC = () => {
                   <ContentFigure
                     caption="Adobe Creative Cloud"
                     imgTitle="Главное меню Creative Cloud"
-                    src="images/creative_cloud_main_menu.png"
+                    // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+                    src="images/legacy/creative_cloud_main_menu.png"
                     theme="light"
                     type="image"
                     variant="windows"
@@ -1980,7 +1984,8 @@ const AEInstallProblems: React.FC = () => {
                   <ContentFigure
                     caption="Adobe Creative Cloud"
                     imgTitle="Открытие установок Creative Cloud"
-                    src="images/creative_cloud_open_settings.mp4"
+                    // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+                    src="images/legacy/creative_cloud_open_settings.mp4"
                     theme="light"
                     type="video"
                     variant="windows"
@@ -2024,7 +2029,8 @@ const AEInstallProblems: React.FC = () => {
                   </p>
                   <ContentFigure
                     caption="Скачивание GenP"
-                    src="images/download_genp.mp4"
+                    // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+                    src="images/legacy/download_genp.mp4"
                     theme="dark"
                     type="video"
                     variant="windows"
@@ -2048,7 +2054,8 @@ const AEInstallProblems: React.FC = () => {
                   </p>
                   <ContentFigure
                     caption="Применение патча для Adobe Creative Cloud"
-                    src="images/apply_genp_first_patch.mp4"
+                    // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+                    src="images/legacy/apply_genp_first_patch.mp4"
                     theme="dark"
                     type="video"
                     variant="windows"
@@ -2061,7 +2068,8 @@ const AEInstallProblems: React.FC = () => {
                   </p>
                   <ContentFigure
                     caption="Установка приложений в Adobe Creative Cloud"
-                    src="images/creative_cloud_install_apps.mp4"
+                    // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+                    src="images/legacy/creative_cloud_install_apps.mp4"
                     theme="dark"
                     type="video"
                     variant="windows"
@@ -2516,7 +2524,8 @@ const AEInstallProblems: React.FC = () => {
         <ContentFigure
           caption="Adobe After Effects"
           imgTitle="Некоторые плагины уже установлены"
-          src="images/aftereffects/duplicated_effect_plug-ins_installed.png"
+          // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          src="images/legacy/aftereffects/duplicated_effect_plug-ins_installed.png"
           theme="dark"
           type="image"
           variant="windows"
@@ -2702,7 +2711,8 @@ const AEInstallProblems: React.FC = () => {
         <ContentFigure
           caption="Диспетчер задач"
           imgTitle="Завершаем процесс Red Giant Service.exe"
-          src="images/kill_redgiantservice.png"
+          // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          src="images/legacy/kill_redgiantservice.png"
           theme="dark"
           type="image"
           variant="windows"
@@ -2726,7 +2736,8 @@ const AEInstallProblems: React.FC = () => {
         <ContentFigure
           caption="Element License"
           imgTitle="Окно для установки лицензии"
-          src="images/aftereffects/generate_license_element3d.png"
+          // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          src="images/legacy/aftereffects/generate_license_element3d.png"
           theme="dark"
           type="image"
           variant="windows"
@@ -2750,7 +2761,8 @@ const AEInstallProblems: React.FC = () => {
         <ContentFigure
           caption="Effects Controls"
           imgTitle="Открытие окна лицензирования Mocha Pro"
-          src="images/aftereffects/select_license_in_mocha_pro.png"
+          // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          src="images/legacy/aftereffects/select_license_in_mocha_pro.png"
           theme="dark"
           type="image"
           variant="windows"
@@ -2833,7 +2845,8 @@ const AEInstallProblems: React.FC = () => {
         <ContentFigure
           caption="Adobe After Effects"
           imgTitle="Диалог переноса настроек со старой версии в более новую"
-          src="images/aftereffects/migrate_settings.png"
+          // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          src="images/legacy/aftereffects/migrate_settings.png"
           theme="dark"
           type="image"
           variant="windows"
@@ -3054,7 +3067,8 @@ const AEInstallProblems: React.FC = () => {
               <ContentFigure
                 caption="Adobe After Effects"
                 imgTitle="Окно для решения проблем при запуске программы"
-                src="images/aftereffects/startup_repair_options.png"
+                // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+                src="images/legacy/aftereffects/startup_repair_options.png"
                 theme="dark"
                 type="image"
                 variant="windows"

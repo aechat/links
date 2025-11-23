@@ -714,7 +714,8 @@ const AEWhereFind: React.FC = () => {
             <ContentFigure
               caption="Главная страница LikeFont"
               imgTitle="Главная страница LikeFont"
-              src="images/likefont/likefont_mainpage.png"
+              // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+              src="images/legacy/likefont/likefont_mainpage.png"
               theme="light"
               type="image"
               variant="windows"
@@ -729,7 +730,8 @@ const AEWhereFind: React.FC = () => {
             <ContentFigure
               caption="Пример плохого исходника"
               imgTitle="Пример плохого исходника"
-              src="images/likefont/aefaq_likefont_example.png"
+              // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+              src="images/legacy/likefont/aefaq_likefont_example.png"
               theme="light"
               type="image"
               variant="windows"
@@ -746,7 +748,8 @@ const AEWhereFind: React.FC = () => {
             <ContentFigure
               caption="Изображение после обработки средствами сайта"
               imgTitle="Изображение после обработки средствами сайта"
-              src="images/likefont/aefaq_likefont_fixed.png"
+              // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+              src="images/legacy/likefont/aefaq_likefont_fixed.png"
               theme="light"
               type="image"
               variant="windows"
@@ -768,7 +771,8 @@ const AEWhereFind: React.FC = () => {
             <ContentFigure
               caption="Изображения, к которым нужно вписать букву"
               imgTitle="Изображения, к которым нужно вписать букву"
-              src="images/likefont/aefaq_likefont_recognition.png"
+              // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+              src="images/legacy/likefont/aefaq_likefont_recognition.png"
               theme="light"
               type="image"
               variant="windows"
@@ -783,7 +787,8 @@ const AEWhereFind: React.FC = () => {
             <ContentFigure
               caption="Результат распознавания"
               imgTitle="Результат распознавания"
-              src="images/likefont/aefaq_likefont_result.png"
+              // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+              src="images/legacy/likefont/aefaq_likefont_result.png"
               theme="light"
               type="image"
               variant="windows"

@@ -312,7 +312,8 @@ const AEActions: React.FC = () => {
         <ContentFigure
           caption="Shutter Encoder"
           imgTitle="Включение удаления дублирующихся кадров"
-          src="images/shutter_encoder_remove_duplicate_frames.png"
+          // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          src="images/legacy/shutter_encoder_remove_duplicate_frames.png"
           theme="dark"
           type="image"
           variant="mac"
@@ -527,7 +528,8 @@ const AEActions: React.FC = () => {
               <ContentFigure
                 caption="Subtitle Edit"
                 imgTitle="Импорт видео или аудио в Subtitle Edit"
-                src="images/subtitle_edit_import.png"
+                // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+                src="images/legacy/subtitle_edit_import.png"
                 theme="light"
                 type="image"
                 variant="windows"
@@ -548,7 +550,8 @@ const AEActions: React.FC = () => {
               <ContentFigure
                 caption="Subtitle Edit"
                 imgTitle="Функция для генерации субтитров"
-                src="images/subtitle_edit_video_audio-to-text.png"
+                // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+                src="images/legacy/subtitle_edit_video_audio-to-text.png"
                 theme="light"
                 type="image"
                 variant="windows"
@@ -568,7 +571,8 @@ const AEActions: React.FC = () => {
               <ContentFigure
                 caption="Subtitle Edit"
                 imgTitle="Изменение движка распознавания речи"
-                src="images/subtitle_edit_change_engine.png"
+                // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+                src="images/legacy/subtitle_edit_change_engine.png"
                 theme="light"
                 type="image"
                 variant="windows"
@@ -589,7 +593,8 @@ const AEActions: React.FC = () => {
               <ContentFigure
                 caption="Subtitle Edit"
                 imgTitle="Загрузка моделей распознавания речи"
-                src="images/subtitle_edit_download_models.png"
+                // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+                src="images/legacy/subtitle_edit_download_models.png"
                 theme="light"
                 type="image"
                 variant="windows"
@@ -601,7 +606,8 @@ const AEActions: React.FC = () => {
               <ContentFigure
                 caption="Subtitle Edit"
                 imgTitle="Выбор языка и запуск генерации"
-                src="images/subtitle_edit_change_language_generate.png"
+                // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+                src="images/legacy/subtitle_edit_change_language_generate.png"
                 theme="light"
                 type="image"
                 variant="windows"
@@ -641,7 +647,8 @@ const AEActions: React.FC = () => {
         <ContentFigure
           caption="Adobe After Effects"
           imgTitle="Открытие расширения Subtitle Pro"
-          src="images/aftereffects/subtitlepro_opening.png"
+          // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          src="images/legacy/aftereffects/subtitlepro_opening.png"
           theme="light"
           type="image"
           variant="windows"
@@ -655,7 +662,8 @@ const AEActions: React.FC = () => {
         <ContentFigure
           caption="Subtitle Pro"
           imgTitle="Импорт и применение субтитров"
-          src="images/aftereffects/subtitlepro_import_apply.png"
+          // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          src="images/legacy/aftereffects/subtitlepro_import_apply.png"
           theme="dark"
           type="image"
           variant="windows"
@@ -670,7 +678,8 @@ const AEActions: React.FC = () => {
         <ContentFigure
           caption="Subtitle Pro"
           imgTitle="Выбор стиля для субтитров"
-          src="images/aftereffects/subtitlepro_select_style.png"
+          // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          src="images/legacy/aftereffects/subtitlepro_select_style.png"
           theme="light"
           type="image"
           variant="windows"
@@ -682,7 +691,8 @@ const AEActions: React.FC = () => {
         </p>
         <ContentFigure
           caption="Adobe After Effects"
-          src="images/aftereffects/edit_subtitlepro_text.mp4"
+          // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          src="images/legacy/aftereffects/edit_subtitlepro_text.mp4"
           theme="dark"
           type="video"
           variant="windows"
@@ -888,7 +898,8 @@ const AEActions: React.FC = () => {
               <ContentFigure
                 caption="Python 3.11.9 (64-bit) Setup"
                 imgTitle="Установка Python 3.11.9"
-                src="images/install_python_3119.png"
+                // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+                src="images/legacy/install_python_3119.png"
                 theme="light"
                 type="image"
                 variant="windows"
@@ -904,7 +915,8 @@ const AEActions: React.FC = () => {
               <ContentFigure
                 caption="GitHub"
                 imgTitle="Клонирование репозитория Depth Anything"
-                src="images/depth_anything_clone_repo.png"
+                // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+                src="images/legacy/depth_anything_clone_repo.png"
                 theme="dark"
                 type="image"
                 variant="windows"
@@ -1110,7 +1122,8 @@ const AEActions: React.FC = () => {
         <ContentFigure
           caption="Tracker"
           imgTitle="Окно Tracker"
-          src="images/aftereffects/tracker_window.png"
+          // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          src="images/legacy/aftereffects/tracker_window.png"
           theme="dark"
           type="image"
           variant="windows"
@@ -1222,7 +1235,8 @@ const AEActions: React.FC = () => {
         </p>
         <ContentFigure
           caption="Adobe After Effects"
-          src="images/aftereffects/fix_create_nulls_from_path.mp4"
+          // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          src="images/legacy/aftereffects/fix_create_nulls_from_path.mp4"
           theme="dark"
           type="video"
           variant="windows"
@@ -1250,7 +1264,8 @@ const AEActions: React.FC = () => {
         </p>
         <ContentFigure
           caption="Создание обводки через Layer Style"
-          src="images/aftereffects/stroke_layer-style.mp4"
+          // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          src="images/legacy/aftereffects/stroke_layer-style.mp4"
           theme="dark"
           type="video"
           variant="windows"
@@ -1279,7 +1294,8 @@ const AEActions: React.FC = () => {
         </Addition>
         <ContentFigure
           caption="Создание обводки через Auto-Trace и эффект Stroke"
-          src="images/aftereffects/stroke_auto-trace.mp4"
+          // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          src="images/legacy/aftereffects/stroke_auto-trace.mp4"
           theme="dark"
           type="video"
           variant="windows"
@@ -1299,7 +1315,8 @@ const AEActions: React.FC = () => {
         </Addition>
         <ContentFigure
           caption="Character"
-          src="images/aftereffects/character_stroke.png"
+          // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          src="images/legacy/aftereffects/character_stroke.png"
           theme="dark"
           type="image"
           variant="windows"
@@ -1400,7 +1417,8 @@ const AEActions: React.FC = () => {
         <ContentFigure
           caption="Генерация ключевых кадров из аудиодорожки"
           imgTitle="Генерация ключевых кадров из аудиодорожки"
-          src="images/aftereffects/convert_audio_to_keyframes.png"
+          // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          src="images/legacy/aftereffects/convert_audio_to_keyframes.png"
           theme="dark"
           type="image"
           variant="windows"
@@ -1462,7 +1480,8 @@ const AEActions: React.FC = () => {
         </Addition>
         <ContentFigure
           caption="Разделение текстового слоя на слова с помощью DecomposeText"
-          src="images/aftereffects/decomposetext.mp4"
+          // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          src="images/legacy/aftereffects/decomposetext.mp4"
           theme="dark"
           type="video"
           variant="windows"
@@ -1484,7 +1503,8 @@ const AEActions: React.FC = () => {
         </p>
         <ContentFigure
           caption="Демонстрация работы rd: Comp Setter"
-          src="images/aftereffects/rd_compsetter_demonstration.mp4"
+          // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          src="images/legacy/aftereffects/rd_compsetter_demonstration.mp4"
           theme="dark"
           type="video"
           variant="windows"
@@ -1510,7 +1530,8 @@ const AEActions: React.FC = () => {
         </p>
         <ContentFigure
           caption="Демонстрация создания маски с помощью Supercomp"
-          src="images/aftereffects/supercomp_demonstration.mp4"
+          // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          src="images/legacy/aftereffects/supercomp_demonstration.mp4"
           theme="dark"
           type="video"
           variant="windows"
@@ -1528,7 +1549,8 @@ const AEActions: React.FC = () => {
         </Addition>
         <ContentFigure
           caption="Создание маски для корректирующего слоя без плагинов"
-          src="images/aftereffects/supercomp_without_plugins.mp4"
+          // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          src="images/legacy/aftereffects/supercomp_without_plugins.mp4"
           theme="dark"
           type="video"
           variant="windows"

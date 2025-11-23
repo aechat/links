@@ -51,7 +51,8 @@ const AEExprStart: React.FC = () => {
         </p>
         <ContentFigure
           caption="Включение режима написания выражений для Source Text"
-          src="images/aftereffects/enable_expression_property.mp4"
+          // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          src="images/legacy/aftereffects/enable_expression_property.mp4"
           theme="dark"
           type="video"
           variant="windows"

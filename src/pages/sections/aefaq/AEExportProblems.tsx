@@ -70,7 +70,8 @@ const AEExportProblems: React.FC = () => {
         </p>
         <ContentFigure
           caption="Предупреждение об изменении размеров композиции"
-          src="images/aftereffects/output_file_will_be_resized.png"
+          // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          src="images/legacy/aftereffects/output_file_will_be_resized.png"
           theme="dark"
           type="image"
           variant="windows"
@@ -88,7 +89,8 @@ const AEExportProblems: React.FC = () => {
         <ContentFigure
           caption="Ошибка в AfterCodecs при экспорте с нечётным разрешением"
           imgTitle="Ошибка экспорта с нечётным разрешением"
-          src="images/odd_resolution_error.png"
+          // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          src="images/legacy/odd_resolution_error.png"
           theme="light"
           type="image"
           variant="windows"
@@ -184,7 +186,8 @@ const AEExportProblems: React.FC = () => {
             <ContentFigure
               caption="Shutter Encoder"
               imgTitle="Импорт материалов в Shutter Encoder"
-              src="images/shutter_encoder_import.png"
+              // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+              src="images/legacy/shutter_encoder_import.png"
               theme="dark"
               type="image"
               variant="mac"
@@ -199,7 +202,8 @@ const AEExportProblems: React.FC = () => {
             <ContentFigure
               caption="Shutter Encoder"
               imgTitle="Выбор кодека в Shutter Encoder"
-              src="images/shutter_encoder_choose_function.png"
+              // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+              src="images/legacy/shutter_encoder_choose_function.png"
               theme="dark"
               type="image"
               variant="mac"
@@ -272,7 +276,8 @@ const AEExportProblems: React.FC = () => {
                 </p>
                 <ContentFigure
                   caption="Shutter Encoder"
-                  src="images/shutter_encoder_change_cq_h264.mp4"
+                  // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+                  src="images/legacy/shutter_encoder_change_cq_h264.mp4"
                   theme="dark"
                   type="video"
                   variant="mac"
@@ -302,7 +307,8 @@ const AEExportProblems: React.FC = () => {
                 значение <mark>320</mark> Кбит/с.
                 <ContentFigure
                   caption="Shutter Encoder"
-                  src="images/shutter_encoder_change_audio_bitrate_h264.mp4"
+                  // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+                  src="images/legacy/shutter_encoder_change_audio_bitrate_h264.mp4"
                   theme="dark"
                   type="video"
                   variant="mac"
@@ -315,7 +321,8 @@ const AEExportProblems: React.FC = () => {
                 <ContentFigure
                   caption="Shutter Encoder"
                   imgTitle="Включение аппаратного ускорения для H.264 в Shutter Encoder"
-                  src="images/shutter_encoder_enable_hardware_acceleration_h264.png"
+                  // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+                  src="images/legacy/shutter_encoder_enable_hardware_acceleration_h264.png"
                   theme="dark"
                   type="image"
                   variant="mac"
@@ -335,7 +342,8 @@ const AEExportProblems: React.FC = () => {
             <ContentFigure
               caption="Shutter Encoder"
               imgTitle="Начало конвертации в Shutter Encoder"
-              src="images/shutter_encoder_start_function.png"
+              // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+              src="images/legacy/shutter_encoder_start_function.png"
               theme="dark"
               type="image"
               variant="mac"
@@ -372,7 +380,8 @@ const AEExportProblems: React.FC = () => {
             <ContentFigure
               caption="Adobe Media Encoder"
               imgTitle="Импорт в Adobe Media Encoder"
-              src="images/media_encoder_import.png"
+              // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+              src="images/legacy/media_encoder_import.png"
               theme="light"
               type="image"
               variant="windows"
@@ -385,7 +394,8 @@ const AEExportProblems: React.FC = () => {
             <ContentFigure
               caption="Adobe Media Encoder"
               imgTitle="Экспорт в Adobe Media Encoder"
-              src="images/media_encoder_exporting.png"
+              // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+              src="images/legacy/media_encoder_exporting.png"
               theme="light"
               type="image"
               variant="windows"
@@ -450,7 +460,8 @@ const AEExportProblems: React.FC = () => {
         <ContentFigure
           caption="Composition Settings"
           imgTitle="Изменение соотношения сторон пикселя"
-          src="images/aftereffects/change_pixel_aspect_ratio.png"
+          // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          src="images/legacy/aftereffects/change_pixel_aspect_ratio.png"
           theme="dark"
           type="image"
           variant="windows"
@@ -467,7 +478,8 @@ const AEExportProblems: React.FC = () => {
         <ContentFigure
           caption="Composition"
           imgTitle="Включение коррекции соотношения сторон пикселя для предпросмотра"
-          src="images/aftereffects/enable_pixel_ratio_correction.png"
+          // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          src="images/legacy/aftereffects/enable_pixel_ratio_correction.png"
           theme="dark"
           type="image"
           variant="windows"
@@ -493,7 +505,8 @@ const AEExportProblems: React.FC = () => {
           autoPlay
           loop
           caption="Полосы в градиенте, дефект усилен с помощью Posterize"
-          src="images/color_banding_example.mp4"
+          // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          src="images/legacy/color_banding_example.mp4"
           theme="light"
           type="video"
           variant="windows"
@@ -539,7 +552,8 @@ const AEExportProblems: React.FC = () => {
             <ContentFigure
               caption="Project Settings"
               imgTitle="Изменение битности в проекте"
-              src="images/aftereffects/change_bit_depth.png"
+              // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+              src="images/legacy/aftereffects/change_bit_depth.png"
               theme="dark"
               type="image"
               variant="windows"
@@ -627,7 +641,8 @@ const AEExportProblems: React.FC = () => {
         <ContentFigure
           caption="Output Module Settings"
           imgTitle="Принудительное включение вывода звука"
-          src="images/aftereffects/audio_output_on.png"
+          // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          src="images/legacy/aftereffects/audio_output_on.png"
           theme="dark"
           type="image"
           variant="windows"
