@@ -1780,14 +1780,14 @@ const AEFromNewbies: React.FC = () => {
         <p>
           Когда пользователь только начинает изучать{" "}
           <mark className="app">Adobe After Effects</mark>, у него может возникнуть
-          недопонимание в процессе общения с другими людьми. Это нормально, у каждой сферы
+          недопонимание в процессе общения с другими людьми. Это нормально: у каждой сферы
           есть свой сленг. В этой статье собраны часто используемые термины и слова.
         </p>
         <Divider>Базовые понятия и интерфейс</Divider>
         <ul>
           <li>
-            <mark className="word">Композиция</mark> или{" "}
-            <mark className="word">композ</mark> — сцена вашего проекта. В композиции
+            <mark className="word">Композиция</mark>, или{" "}
+            <mark className="word">композ</mark>, — сцена вашего проекта. В композиции
             обычно собирают слои, фигуры и видеофайлы, а также применяют к ним эффекты. У
             каждой композиции есть своя частота кадров, разрешение, длительность и другие
             параметры.
@@ -1797,45 +1797,46 @@ const AEFromNewbies: React.FC = () => {
             </Addition>
           </li>
           <li>
-            <mark className="word">Превью</mark> или{" "}
-            <mark className="word">предпросмотр</mark> — то, что вы видите в окне, где
+            <mark className="word">Превью</mark>, или{" "}
+            <mark className="word">предпросмотр</mark>, — то, что вы видите в окне, где
             отображается ваша композиция.
           </li>
           <li>
-            <mark className="word">Зайди в окно превью</mark> — вам предлагают открыть
-            окно с настройками проигрывания предпросмотра
+            <mark className="word">«Зайди в окно превью»</mark> — вам предлагают открыть
+            окно с настройками проигрывания предпросмотра{" "}
             <mark className="select">«Window» → «Preview»</mark>, чтобы убедиться, что всё
             настроено корректно. Бывает, что у пользователя выставлены неправильные
-            значения <mark className="select">«FPS»</mark>, из-за чего предпросмотр
-            воспроизводится слишком быстро или медленно, либо выбрано низкое качество
-            предпросмотра: <mark className="select">«Auto»</mark> или{" "}
+            значения частоты кадров, из-за чего предпросмотр воспроизводится слишком
+            быстро или медленно, либо выбрано низкое качество:{" "}
+            <mark className="select">«Auto»</mark> или{" "}
             <mark className="select">«Quarter»</mark> вместо{" "}
             <mark className="select">«Full»</mark>.
           </li>
           <li>
-            <mark className="word">Плейхед</mark> или{" "}
-            <mark className="word">CTI (Current Time Indicator)</mark> — вертикальная
+            <mark className="word">Плейхед</mark>, или{" "}
+            <mark className="word">CTI (Current Time Indicator)</mark>, — вертикальная
             временная метка, показывающая, на каком кадре вы находитесь в предпросмотре.
           </li>
           <li>
-            <mark className="word">Ромбик</mark>, <mark className="word">ключ</mark> или{" "}
-            <mark className="word">кейфрейм</mark> — ключевые кадры, то есть метки, на
+            <mark className="word">Ромбик</mark>, <mark className="word">ключ</mark>, или{" "}
+            <mark className="word">кейфрейм</mark>, — ключевые кадры, то есть метки, на
             основе которых создаётся движение параметра. Они указывают, как должен
             выглядеть анимированный элемент в конкретный момент времени.
           </li>
           <li>
-            <mark className="word">Часы</mark> или{" "}
-            <mark className="word">секундомер</mark> — элемент интерфейса на таймлайне или
-            в панели управления эффектом, с помощью которого добавляются ключевые кадры.
+            <mark className="word">Часы</mark>, или{" "}
+            <mark className="word">секундомер</mark>, — элемент интерфейса на таймлайне
+            или в панели управления эффектом, с помощью которого добавляются ключевые
+            кадры.
             <Addition type="info">
               Если нажать на секундомер с зажатым <mark className="key">Alt</mark>,
               включится режим работы с выражениями. Выключается он так же.
             </Addition>
           </li>
           <li>
-            <mark className="word">Хоткей</mark> или{" "}
-            <mark className="word">горячие клавиши</mark> — комбинация клавиш для быстрого
-            выполнения определённого действия.
+            <mark className="word">Хоткей</mark>, или{" "}
+            <mark className="word">горячие клавиши</mark>, — комбинация клавиш для
+            быстрого выполнения определённого действия.
           </li>
           <li>
             <mark className="word">Ракета</mark> — окно{" "}
@@ -1847,8 +1848,8 @@ const AEFromNewbies: React.FC = () => {
             </Addition>
           </li>
           <li>
-            <mark className="word">Разрешение</mark> или{" "}
-            <mark className="word">резолюшен</mark> — количество пикселей по ширине и
+            <mark className="word">Разрешение</mark>, или{" "}
+            <mark className="word">резолюшен</mark>, — количество пикселей по ширине и
             высоте. Иногда используется в контексте качества предпросмотра:{" "}
             <mark className="select">«Full»</mark>, <mark className="select">«Half»</mark>
             , <mark className="select">«Third»</mark> или{" "}
@@ -1856,7 +1857,7 @@ const AEFromNewbies: React.FC = () => {
             <Addition type="info">
               Если у вас есть композиция с разрешением <mark>1280×720</mark>, а в{" "}
               <mark className="select">«Render Settings»</mark> вы указали{" "}
-              <mark className="select">«Resize»</mark> до <mark>3840×2160</mark> — вы
+              <mark className="select">«Resize»</mark> до <mark>3840×2160</mark>, вы
               просто растянете видео с <mark>720p</mark> до <mark>4K</mark> без
               фактического улучшения качества. Композиция не будет рендериться сразу в{" "}
               <mark>4K</mark>.
@@ -1927,16 +1928,16 @@ const AEFromNewbies: React.FC = () => {
             </Addition>
           </li>
           <li>
-            <mark className="word">Перелинкуй исходники</mark> — призыв переподключить
+            <mark className="word">«Перелинкуй исходники»</mark> — призыв переподключить
             потерянные файлы. Для этого нажмите <mark className="key">ПКМ</mark> по
-            потерянному исходнику в окне <mark className="select">«Project»</mark> и
+            потерянному исходнику в окне <mark className="select">«Project»</mark>,
             выберите <mark className="select">«Replace Footage» → «File»</mark> или
             нажмите <mark className="key">Ctrl + H</mark>.
             <Addition type="info">
               <ul>
                 <li>
                   Чтобы отобразить только потерянные файлы в окне{" "}
-                  <mark className="select">«Project»</mark> — введите в поиск ключевое
+                  <mark className="select">«Project»</mark>, введите в поиск ключевое
                   слово <mark className="copy">Missing Footage</mark>.
                 </li>
                 <li>
@@ -1947,9 +1948,9 @@ const AEFromNewbies: React.FC = () => {
             </Addition>
           </li>
           <li>
-            <mark className="word">Перекодируй видос</mark> — призыв конвертировать
+            <mark className="word">«Перекодируй видос»</mark> — призыв конвертировать
             исходники в монтажный кодек, например{" "}
-            <mark className="video">Apple ProRes 422</mark> через{" "}
+            <mark className="video">Apple ProRes 422</mark>, через{" "}
             <mark className="app">Shutter Encoder</mark> или{" "}
             <mark className="app">Adobe Media Encoder</mark>.
           </li>
@@ -1970,7 +1971,7 @@ const AEFromNewbies: React.FC = () => {
           <li>
             <mark className="word">Солид</mark> — слой сплошной заливки заданного цвета,{" "}
             <mark className="select">«Solid Layer»</mark>. Часто применяется как фон или
-            как «инициатор» для трёхмерных эффектов вроде{" "}
+            «инициатор» для трёхмерных эффектов вроде{" "}
             <mark className="plugin">Trapcode Particular</mark> или{" "}
             <mark className="plugin">Mettle Flux</mark>.
           </li>
@@ -1984,9 +1985,9 @@ const AEFromNewbies: React.FC = () => {
             которую проявляется эффект или сам слой.
           </li>
           <li>
-            <mark className="word">Патч</mark>, <mark className="word">path</mark> или{" "}
-            <mark className="word">путь</mark> — линия или кривая, которая образует фигуру
-            или маску.
+            <mark className="word">Патч</mark>, <mark className="word">path</mark>, или{" "}
+            <mark className="word">путь</mark>, — линия или кривая, которая образует
+            фигуру или маску.
             <Addition type="info">
               Путь маски и фигурного слоя взаимозаменяемы: их можно копировать и вставлять
               друг в друга.
@@ -2017,7 +2018,7 @@ const AEFromNewbies: React.FC = () => {
             </Addition>
           </li>
           <li>
-            <mark className="word">Моушн-блюр</mark> — размытие в движении. С его помощью
+            <mark className="word">Моушен-блюр</mark> — размытие в движении. С его помощью
             можно сделать движение объекта более плавным и естественным. Включается
             переключателем <mark className="select">«Motion Blur»</mark> у слоя или
             применяется как эффект <mark className="plugin">CC Force Motion Blur</mark>.
@@ -2040,9 +2041,9 @@ const AEFromNewbies: React.FC = () => {
             по трём осям, поворачивать объект в пространстве или управлять камерой.
           </li>
           <li>
-            <mark className="word">Солнышко</mark> или{" "}
-            <mark className="word">звёздочка</mark> — иконка, которая выполняет два разных
-            действия в зависимости от типа слоя:{" "}
+            <mark className="word">Солнышко</mark>, или{" "}
+            <mark className="word">звёздочка</mark>, — иконка, которая выполняет два
+            разных действия в зависимости от типа слоя:{" "}
             <mark className="select">«Continuously Rasterize»</mark> для сглаживания
             векторных объектов или{" "}
             <mark className="select">«Collapse Transformation»</mark> для
@@ -2064,7 +2065,7 @@ const AEFromNewbies: React.FC = () => {
           <li>
             <mark className="word">Тайм-ремапинг</mark> — изменение скорости видео в
             определённых промежутках времени. Делается с помощью встроенной функции{" "}
-            <mark className="select">«Time Remapping»</mark>, который включается
+            <mark className="select">«Time Remapping»</mark>, которая включается
             комбинацией клавиш <mark className="key">Ctrl + Alt + T</mark> или сторонних
             плагинов вроде <mark className="plugin">Twixtor</mark>.
           </li>
@@ -2092,12 +2093,12 @@ const AEFromNewbies: React.FC = () => {
             привязки свойств друг к другу.
             <Addition type="info">
               Чтобы активировать режим редактирования выражения, нажмите на{" "}
-              <mark className="select">«секундомер»</mark> нужного параметра, зажав{" "}
+              <mark className="select">секундомер</mark> нужного параметра, зажав{" "}
               <mark className="key">Alt</mark>.
             </Addition>
           </li>
           <li>
-            <mark className="word">Шейк</mark> или <mark className="word">вигл</mark> —
+            <mark className="word">Шейк</mark>, или <mark className="word">вигл</mark>, —
             случайное движение или тряска слоя, часто по осям X и Y. Этот эффект популярен
             в <mark className="word">эдитах</mark>. Под «виглом» обычно подразумевают
             встроенную функцию выражения <mark className="code">wiggle(freq, amp)</mark>.
@@ -2129,8 +2130,8 @@ const AEFromNewbies: React.FC = () => {
             контроллеров.
           </li>
           <li>
-            <mark className="word">Ротобраш</mark> или{" "}
-            <mark className="word">Roto Brush</mark> — стандартный инструмент программы
+            <mark className="word">Ротобраш</mark>, или{" "}
+            <mark className="word">Roto Brush</mark>, — стандартный инструмент программы
             для выделения движущегося объекта в кадре.
           </li>
           <li>
@@ -2158,25 +2159,25 @@ const AEFromNewbies: React.FC = () => {
             <mark className="plugin">BCC Lens Blur</mark>.
           </li>
           <li>
-            <mark className="word">«Максоновский»</mark> или{" "}
-            <mark className="word">«редгиантовский»</mark> — подразумеваются плагины от
+            <mark className="word">«Максоновский»</mark>, или{" "}
+            <mark className="word">«редгиантовский»</mark>, — подразумеваются плагины от
             компаний <mark className="company">Maxon</mark> и{" "}
             <mark className="company">Red Giant</mark>, например{" "}
             <mark className="plugin">Trapcode Particular</mark> или{" "}
             <mark className="plugin">Universe</mark>.
           </li>
           <li>
-            <mark className="word">Могрт</mark> или <mark className="word">MOGRT</mark> —
-            шаблон анимационного дизайна, который создаётся в{" "}
+            <mark className="word">Могрт</mark>, или <mark className="word">MOGRT</mark>,
+            — шаблон анимационного дизайна, который создаётся в{" "}
             <mark className="app">Adobe After Effects</mark> для дальнейшего использования
             в <mark className="app">Adobe Premiere Pro</mark>.
           </li>
           <li>
-            <mark className="word">Мокка</mark> или <mark className="word">моча</mark> —
+            <mark className="word">Мокка</mark>, или <mark className="word">моча</mark>, —
             плагин <mark className="plugin">Boris FX Mocha</mark> для трекинга. В{" "}
             <mark className="app">Adobe After Effects</mark> поставляется урезанная версия{" "}
             <mark className="plugin">Mocha AE</mark>; полная называется{" "}
-            <mark className="plugin">Mocha Pro</mark>.{" "}
+            <mark className="plugin">Mocha Pro</mark>.
             <Addition type="info">
               О различиях <mark className="plugin">Mocha AE</mark> и{" "}
               <mark className="plugin">Mocha Pro</mark> вы можете прочитать на{" "}
@@ -2194,7 +2195,7 @@ const AEFromNewbies: React.FC = () => {
           </li>
           <li>
             <mark className="word">Инфлюкс</mark> — сторонний плагин{" "}
-            <mark className="plugin">Autokroma Influx</mark>, позволяющий импортировать в{" "}
+            <mark className="plugin">Autokroma Influx</mark>, позволяющий импортировать в
             проект неподдерживаемые форматы файлов, например{" "}
             <mark className="video">MKV</mark> или <mark className="video">FLV</mark>.
           </li>
@@ -2223,15 +2224,15 @@ const AEFromNewbies: React.FC = () => {
           <li>
             <mark className="word">Скрипт</mark> — файл формата{" "}
             <mark className="file">JSX</mark> или <mark className="file">JSXBIN</mark>,
-            выполняющий определённые действия.{" "}
+            выполняющий определённые действия.
             <Addition type="info">
               Инструкцию по установке скриптов вы можете найти в{" "}
               <a href="#2.1">статье 2.1</a>.
             </Addition>
           </li>
           <li>
-            <mark className="word">Экстеншен</mark> или{" "}
-            <mark className="word">extension</mark> — расширение, упакованное в формате{" "}
+            <mark className="word">Экстеншен</mark>, или{" "}
+            <mark className="word">extension</mark>, — расширение, упакованное в формате{" "}
             <mark className="file">ZXP</mark>. После установки появляется в меню{" "}
             <mark className="select">«Window» → «Extensions»</mark>.
             <Addition type="info">
@@ -2266,12 +2267,12 @@ const AEFromNewbies: React.FC = () => {
             <mark className="word">КТТС</mark> — сокращение от «как только, так сразу».
           </li>
           <li>
-            <mark className="word">ASAP</mark> или <mark className="word">АСАП</mark> —
-            сокращение от «as soon as possible» или «как можно скорее».
+            <mark className="word">ASAP</mark>, или <mark className="word">АСАП</mark>, —
+            сокращение от «as soon as possible», или «как можно скорее».
           </li>
           <li>
-            <mark className="word">Топикстартер</mark> или{" "}
-            <mark className="word">ТС</mark> — пользователь, который задал вопрос или
+            <mark className="word">Топикстартер</mark>, или{" "}
+            <mark className="word">ТС</mark>, — пользователь, который задал вопрос или
             начал обсуждение.
           </li>
         </ul>
@@ -2306,15 +2307,15 @@ const AEFromNewbies: React.FC = () => {
             <Divider>Виды битрейта</Divider>
             <ul>
               <li>
-                <mark className="word">CBR (Constant Bitrate)</mark> или{" "}
-                <mark className="word">постоянный битрейт</mark> — кодирование, при
+                <mark className="word">CBR (Constant Bitrate)</mark>, или{" "}
+                <mark className="word">постоянный битрейт</mark>, — кодирование, при
                 котором битрейт остаётся неизменным на протяжении всего файла. Размер
                 файла легко предсказать. Подходит для монтажа, но неэффективен для
                 соцсетей из-за большого размера.
               </li>
               <li>
-                <mark className="word">VBR (Variable Bitrate)</mark> или{" "}
-                <mark className="word">переменный битрейт</mark> — кодирование, при
+                <mark className="word">VBR (Variable Bitrate)</mark>, или{" "}
+                <mark className="word">переменный битрейт</mark>, — кодирование, при
                 котором кодек сам регулирует битрейт в зависимости от сложности сцены.
                 Плохо подходит для монтажа, но хорошо — для финального экспорта и
                 публикации в интернете.
@@ -2327,7 +2328,7 @@ const AEFromNewbies: React.FC = () => {
                 для большинства случаев.
                 <Addition type="info">
                   Чтобы экспортировать композицию с использованием{" "}
-                  <mark className="word">CQ</mark> — используйте сторонний плагин{" "}
+                  <mark className="word">CQ</mark>, используйте сторонний плагин{" "}
                   <mark className="plugin">Voukoder Classic</mark> или конвертируйте видео
                   через <mark className="app">Shutter Encoder</mark>.
                 </Addition>
@@ -2449,8 +2450,8 @@ const AEFromNewbies: React.FC = () => {
             <mark className="path">Downloads/your_video.mp4</mark>.
           </li>
           <li>
-            <mark className="word">Векторная графика</mark> или{" "}
-            <mark className="word">вектор</mark> — изображение, описанное с помощью
+            <mark className="word">Векторная графика</mark>, или{" "}
+            <mark className="word">вектор</mark>, — изображение, описанное с помощью
             математических формул. Его отличительная особенность — возможность
             масштабирования без потери качества.
             <Addition type="info">
@@ -2470,8 +2471,8 @@ const AEFromNewbies: React.FC = () => {
             движении. Чем больше семплов, тем лучше картинка, но ниже производительность.
           </li>
           <li>
-            <mark className="word">Мультифрейм-рендер</mark> или{" "}
-            <mark className="word">MFR</mark> — функция{" "}
+            <mark className="word">Мультифрейм-рендер</mark>, или{" "}
+            <mark className="word">MFR</mark>, — функция{" "}
             <mark className="select">«Multi-Frame Rendering»</mark>, появившаяся в{" "}
             <mark className="app">Adobe After Effects</mark> версии <mark>2022</mark> и
             новее. Она ускоряет финальный рендер, обрабатывая сразу несколько кадров
@@ -2507,8 +2508,7 @@ const AEFromNewbies: React.FC = () => {
               <ContentFigure
                 caption="Composition"
                 imgTitle="Включение безопасных зон в предпросмотре"
-                // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-                src="images/legacy/aftereffects/enable_action_safe.png"
+                src="images/aftereffects/enable_action_safe.png"
                 theme="dark"
                 type="image"
                 variant="windows"
@@ -2525,8 +2525,8 @@ const AEFromNewbies: React.FC = () => {
           </li>
           <li>
             <mark className="word">Глитч</mark> или <mark className="word">glitch</mark> —
-            визуальный эффект, имитирующий цифровой сбой или артефакт.
-          </li>
+            <mark className="word">Глитч</mark>, или <mark className="word">glitch</mark>,
+            — визуальный эффект, имитирующий цифровой сбой или артефакт.
           <li>
             <mark className="word">Ванфрейм-эффект</mark> — эффект, который применяется
             всего на один кадр, обычно с использованием{" "}
@@ -2544,12 +2544,12 @@ const AEFromNewbies: React.FC = () => {
           </li>
           <li>
             <mark className="word">Шот</mark> или <mark className="word">футаж</mark> —
-            отдельный фрагмент видео или сцены.
+            <mark className="word">Шот</mark>, или <mark className="word">футаж</mark>, —
           </li>
           <li>
             <mark className="word">Референс</mark> или <mark className="word">реф</mark> —
-            синоним слов «пример» и «образец». Используется для иллюстрации анимации или
-            согласования видения с заказчиком.
+            <mark className="word">Референс</mark>, или <mark className="word">реф</mark>,
+            — синоним слов «пример» и «образец». Используется для иллюстрации анимации или
           </li>
           <li>
             <mark className="word">Шаблон</mark> — готовый проект или пресет, который
@@ -2559,8 +2559,8 @@ const AEFromNewbies: React.FC = () => {
           </li>
           <li>
             <mark className="word">Переходы</mark> или{" "}
-            <mark className="word">транзишены</mark> — визуальные эффекты для стилизации
-            соединения двух клипов.
+            <mark className="word">Переходы</mark>, или{" "}
+            <mark className="word">транзишены</mark>, — визуальные эффекты для стилизации
           </li>
           <li>
             <mark className="word">Туториал</mark> — обучающее видео о том, как
@@ -2575,8 +2575,8 @@ const AEFromNewbies: React.FC = () => {
           </li>
           <li>
             <mark className="word">Рилсы</mark> или <mark className="word">шортсы</mark> —
-            короткие вертикальные видеоролики формата <mark>9:16</mark>, публикующиеся в{" "}
-            <mark className="app">
+            <mark className="word">Рилсы</mark>, или <mark className="word">шортсы</mark>,
+            — короткие вертикальные видеоролики формата <mark>9:16</mark>, публикующиеся в{" "}
               Instagram<sup>1</sup>
             </mark>{" "}
             или <mark className="app">YouTube</mark>. Вокруг этого формата регулярно кипят
