@@ -1044,7 +1044,7 @@ const AEImport: React.FC = () => {
           variant="windows"
         />
       </DetailsSummary>
-       <DetailsSummary
+      <DetailsSummary
         tag="font substitution will occur until the originals become available, в данном проекте используются шрифты которые в настоящий момент недоступны на этом компьютере, замена шрифтов будет выполняться до тех пор пока не станут доступны исходные шрифты, missing fonts, отсутствуют шрифты, замена шрифтов"
         title="Что делать с «Warning: This project uses fonts that are not currently available on this computer»?"
       >
