@@ -373,26 +373,30 @@ const DetailsSummary: React.FC<DetailsSummaryProps> = ({
       }
     }
   }, [isOpen, prevIsOpen, displayAnchorId, updateUrlHash, anchor]);
+
+  const doScroll = useCallback(() => {
+    const summary = detailsRef.current?.querySelector(".faq-summary");
+
+    if (summary) {
+      setTimeout(() => {
+        const {headerHeight, padding} = getScrollOffsets();
+
+        const y =
+          summary.getBoundingClientRect().top +
+          window.pageYOffset -
+          headerHeight -
+          padding;
+        window.scrollTo({top: y, behavior: "smooth"});
+      }, constants.ACTION_DELAY);
+    }
+  }, []);
   useEffect(() => {
     const justOpened = isOpen && !prevIsOpen;
 
     if (justOpened) {
-      const summary = detailsRef.current?.querySelector(".faq-summary");
-
-      if (summary) {
-        setTimeout(() => {
-          const {headerHeight, padding} = getScrollOffsets();
-
-          const y =
-            summary.getBoundingClientRect().top +
-            window.pageYOffset -
-            headerHeight -
-            padding;
-          window.scrollTo({top: y, behavior: "smooth"});
-        }, constants.ACTION_DELAY);
-      }
+      doScroll();
     }
-  }, [isOpen, prevIsOpen]);
+  }, [isOpen, prevIsOpen, doScroll]);
   useEffect(() => {
     if (detailsRef.current) {
       const summaryElement = detailsRef.current.querySelector(".faq-summary");
@@ -427,13 +431,17 @@ const DetailsSummary: React.FC<DetailsSummaryProps> = ({
       const summaryElement = detailsRef.current?.querySelector(".faq-summary");
 
       if (summaryElement && summaryElement.id === id) {
-        setIsOpen(true);
+        if (isOpen) {
+          doScroll();
+        } else {
+          setIsOpen(true);
+        }
       }
     };
     window.addEventListener("open-spoiler-by-id", handleOpenEvent);
 
     return () => window.removeEventListener("open-spoiler-by-id", handleOpenEvent);
-  }, []);
+  }, [isOpen, doScroll]);
   useEffect(() => {
     if (typeof window === "undefined") return;
 

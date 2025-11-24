@@ -22,25 +22,34 @@ export const useInternalLinkHandler = () => {
     if (anchor && anchor.getAttribute("href")!.length > 1) {
       const href = anchor.getAttribute("href")!;
 
-      const targetId = href.substring(1);
+      const anchorValue = href.substring(1);
+      let targetDetails: HTMLElement | null;
 
-      const targetElement = document.getElementById(targetId);
+      const elementById = document.getElementById(anchorValue);
 
-      if (targetElement) {
+      if (elementById) {
+        targetDetails = elementById.closest("details");
+      } else {
+        targetDetails = document.querySelector<HTMLElement>(
+          `details[data-anchor="${anchorValue}"]`
+        );
+      }
+
+      if (targetDetails) {
         const currentDetails = (event.currentTarget as HTMLElement).closest("details");
 
-        const targetDetails = targetElement.closest("details");
-
-        if (targetDetails && currentDetails !== targetDetails) {
+        if (currentDetails !== targetDetails) {
           event.preventDefault();
 
           const summary = targetDetails.querySelector(".faq-summary");
 
-          const titleElement = summary?.querySelector("h3");
-          let title = titleElement ? titleElement.textContent : "без названия";
-          title = title.replace(/^\d+\.\d+\.\s*/, "");
-          setTargetArticle({id: targetId, title});
-          setModalVisible(true);
+          if (summary && summary.id) {
+            const titleElement = summary.querySelector("h3");
+            let title = titleElement ? titleElement.textContent : "без названия";
+            title = title.replace(/^\d+\.\d+\.\s*/, "");
+            setTargetArticle({id: summary.id, title});
+            setModalVisible(true);
+          }
         }
       }
     }
@@ -54,9 +63,12 @@ export const useInternalLinkHandler = () => {
         const details = targetElement.closest("details");
 
         if (details) {
-          window.dispatchEvent(
-            new CustomEvent("open-spoiler-by-id", {detail: {id: targetArticle.id}})
-          );
+          window.dispatchEvent(new CustomEvent("close-all-spoilers"));
+          setTimeout(() => {
+            window.dispatchEvent(
+              new CustomEvent("open-spoiler-by-id", {detail: {id: targetArticle.id}})
+            );
+          }, 50);
         }
       }
     }
