@@ -2389,7 +2389,7 @@ const AEInstallProblems: React.FC = () => {
                   Некоторые плагины могут не запуститься из-за отсутствия пакетов{" "}
                   <mark className="app">Microsoft C++ Visual Redistributable</mark>.
                   Обновите существующие библиотеки или установите недостающие с помощью{" "}
-                  <a href="https://github.com/abbodi1406/vcredist/releases/">
+                  <a href="https://gitlab.com/stdout12/vcredist/-/releases/">
                     репака VisualCppRedist AIO от abbodi1406
                   </a>
                   , затем перезагрузите компьютер и повторно откройте проект.

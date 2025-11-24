@@ -1940,7 +1940,7 @@ const AEErrors: React.FC = () => {
             <div>
               <p>
                 Скорее всего, вы забыли установить или обновить пакеты{" "}
-                <a href="https://github.com/abbodi1406/vcredist/releases/">
+                <a href="https://gitlab.com/stdout12/vcredist/-/releases/">
                   Microsoft Visual C++ Redistributable
                 </a>
                 . Если установка пакетов не помогла, попробуйте обновить вашу операционную
