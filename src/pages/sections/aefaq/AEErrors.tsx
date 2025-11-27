@@ -48,7 +48,7 @@ const AEErrors: React.FC = () => {
         <ContentFigure
           caption="Adobe"
           imgTitle="Сообщение об отсутствии лицензии"
-          // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
           src="images/legacy/adobe_the_unlicensed_app.png"
           theme="light"
           type="image"
@@ -112,7 +112,7 @@ const AEErrors: React.FC = () => {
                   <ContentFigure
                     caption="Radio Silence"
                     imgTitle="Блокировка доступа в интернет на примере Adobe Premiere Pro"
-                    // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+                    // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
                     src="images/legacy/network_radio_silence.png"
                     theme="dark"
                     type="image"
@@ -126,7 +126,7 @@ const AEErrors: React.FC = () => {
                   <ContentFigure
                     caption="Radio Silence"
                     imgTitle="Список заблокированных приложений во вкладке Firewall"
-                    // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+                    // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
                     src="images/legacy/firewall_radio_silence.png"
                     theme="dark"
                     type="image"
@@ -168,7 +168,7 @@ const AEErrors: React.FC = () => {
               <ContentFigure
                 caption="Параметры"
                 imgTitle="Проверяем прокси"
-                // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+                // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
                 src="images/legacy/check_windows_proxy.png"
                 theme="dark"
                 type="image"
@@ -182,7 +182,7 @@ const AEErrors: React.FC = () => {
               <ContentFigure
                 caption="Параметры"
                 imgTitle="Отключаем прокси"
-                // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+                // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
                 src="images/legacy/disable_windows_proxy.png"
                 theme="dark"
                 type="image"
@@ -235,7 +235,7 @@ const AEErrors: React.FC = () => {
                   <ContentFigure
                     caption="Выполнить"
                     imgTitle="Открываем брандмауэр"
-                    // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+                    // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
                     src="images/legacy/open_wf_msc.png"
                     theme="dark"
                     type="image"
@@ -250,7 +250,7 @@ const AEErrors: React.FC = () => {
                   <ContentFigure
                     caption="Монитор брандмауэра Защитника Windows"
                     imgTitle="Список правил брандмауэра"
-                    // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+                    // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
                     src="images/legacy/firewall_main_page.png"
                     theme="light"
                     type="image"
@@ -263,7 +263,7 @@ const AEErrors: React.FC = () => {
                   <ContentFigure
                     caption="Монитор брандмауэра Защитника Windows"
                     imgTitle="Окно создания правила брандмауэра"
-                    // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+                    // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
                     src="images/legacy/firewall_creating_rule.png"
                     theme="light"
                     type="image"
@@ -277,7 +277,7 @@ const AEErrors: React.FC = () => {
                   <ContentFigure
                     caption="Мастер создания правила для нового входящего подключения"
                     imgTitle="Выбор типа правила брандмауэра"
-                    // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+                    // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
                     src="images/legacy/firewall_rule_type.png"
                     theme="light"
                     type="image"
@@ -294,7 +294,7 @@ const AEErrors: React.FC = () => {
                   <ContentFigure
                     caption="Мастер создания правила для нового входящего подключения"
                     imgTitle="Выбор программы для блокировки"
-                    // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+                    // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
                     src="images/legacy/firewall_select_app.png"
                     theme="light"
                     type="image"
@@ -307,7 +307,7 @@ const AEErrors: React.FC = () => {
                   <ContentFigure
                     caption="Мастер создания правила для нового входящего подключения"
                     imgTitle="Окно настроек брандмауэра"
-                    // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+                    // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
                     src="images/legacy/firewall_blocking.png"
                     theme="light"
                     type="image"
@@ -320,7 +320,7 @@ const AEErrors: React.FC = () => {
                   <ContentFigure
                     caption="Мастер создания правила для нового входящего подключения"
                     imgTitle="Выбор профиля брандмауэра"
-                    // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+                    // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
                     src="images/legacy/firewall_select_profile.png"
                     theme="light"
                     type="image"
@@ -336,7 +336,7 @@ const AEErrors: React.FC = () => {
                   <ContentFigure
                     caption="Мастер создания правила для нового входящего подключения"
                     imgTitle="Выбор имени для правила брандмауэра"
-                    // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+                    // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
                     src="images/legacy/firewall_naming.png"
                     theme="light"
                     type="image"
@@ -365,7 +365,7 @@ const AEErrors: React.FC = () => {
               <ContentFigure
                 caption="Рабочий стол"
                 imgTitle="Блокировка доступа в интернет через OneClickFirewall"
-                // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+                // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
                 src="images/legacy/oneclickfirewall_aftereffects.png"
                 theme="dark"
                 type="image"
@@ -466,7 +466,7 @@ const AEErrors: React.FC = () => {
             <ContentFigure
               caption="Очистка кэша и оперативной памяти"
               imgTitle="Очистка кэша и оперативной памяти"
-              // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+              // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
               src="images/legacy/aftereffects/edit_purge_all-memory-and-disk-cache.png"
               theme="light"
               type="image"
@@ -486,7 +486,7 @@ const AEErrors: React.FC = () => {
             <ContentFigure
               caption="Preferences"
               imgTitle="Переключение функции Multi-Frame Rendering"
-              // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+              // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
               src="images/legacy/aftereffects/checkbox_multiframe-render.png"
               theme="dark"
               type="image"
@@ -509,7 +509,7 @@ const AEErrors: React.FC = () => {
             <ContentFigure
               caption="Preferences"
               imgTitle="Настройка параметра RAM reserved for other applications"
-              // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+              // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
               src="images/legacy/aftereffects/ram_reserved_for_other_applications.png"
               theme="dark"
               type="image"
@@ -527,7 +527,7 @@ const AEErrors: React.FC = () => {
             <ContentFigure
               caption="Project Settings"
               imgTitle="Изменение битности в проекте"
-              // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+              // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
               src="images/legacy/aftereffects/change_bit_depth.png"
               theme="dark"
               type="image"
@@ -614,7 +614,7 @@ const AEErrors: React.FC = () => {
             <ContentFigure
               caption="Project Settings"
               imgTitle="Переключение рендеринга на процессор"
-              // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+              // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
               src="images/legacy/aftereffects/set_render_on_cpu.png"
               theme="dark"
               type="image"
@@ -680,7 +680,7 @@ const AEErrors: React.FC = () => {
         <ContentFigure
           caption="Warning"
           imgTitle="Предупреждение об отсутствующих эффектах"
-          // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
           src="images/legacy/aftereffects/missing_effects_warning.png"
           theme="dark"
           type="image"
@@ -732,7 +732,7 @@ const AEErrors: React.FC = () => {
         <ContentFigure
           caption="Adobe After Effects"
           imgTitle="Открытие менеджера эффектов"
-          // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
           src="images/legacy/aftereffects/effects_presets_manage_effects.png"
           theme="dark"
           type="image"
@@ -750,7 +750,7 @@ const AEErrors: React.FC = () => {
         <ContentFigure
           caption="Effect Manager"
           imgTitle="Менеджер эффектов"
-          // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
           src="images/legacy/aftereffects/effect_manager.png"
           theme="dark"
           type="image"
@@ -785,7 +785,7 @@ const AEErrors: React.FC = () => {
         <ContentFigure
           caption="Preferences"
           imgTitle="Переключение функции Multi-Frame Rendering"
-          // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
           src="images/legacy/aftereffects/checkbox_multiframe-render.png"
           theme="dark"
           type="image"
@@ -845,7 +845,7 @@ const AEErrors: React.FC = () => {
               <ContentFigure
                 caption="Включение Debug Database View"
                 imgTitle="Включение Debug Database View"
-                // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+                // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
                 src="images/legacy/aftereffects/console_debug-database-view.png"
                 theme="dark"
                 type="image"
@@ -862,7 +862,7 @@ const AEErrors: React.FC = () => {
               <ContentFigure
                 caption="Установка английского языка в консоли"
                 imgTitle="Установка английского языка в консоли"
-                // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+                // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
                 src="images/legacy/aftereffects/set_language_console.png"
                 theme="dark"
                 type="image"
@@ -916,7 +916,7 @@ const AEErrors: React.FC = () => {
               <ContentFigure
                 caption="Включение Debug Database View"
                 imgTitle="Включение Debug Database View"
-                // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+                // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
                 src="images/legacy/aftereffects/console_debug-database-view.png"
                 theme="dark"
                 type="image"
@@ -933,7 +933,7 @@ const AEErrors: React.FC = () => {
               <ContentFigure
                 caption="Установка английского языка в консоли"
                 imgTitle="Установка английского языка в консоли"
-                // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+                // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
                 src="images/legacy/aftereffects/set_language_console.png"
                 theme="dark"
                 type="image"
@@ -954,7 +954,7 @@ const AEErrors: React.FC = () => {
         <ContentFigure
           caption="Project Settings"
           imgTitle="Изменение движка выражений"
-          // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
           src="images/legacy/aftereffects/change_expression_language.png"
           theme="dark"
           type="image"
@@ -984,7 +984,7 @@ const AEErrors: React.FC = () => {
         </Addition>
         <ContentFigure
           caption="Ищем проблемные выражения"
-          // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
           src="images/legacy/aftereffects/find_expressions_with_errors.mp4"
           theme="dark"
           type="video"
@@ -1027,7 +1027,7 @@ const AEErrors: React.FC = () => {
                   </p>
                   <ContentFigure
                     caption="Настройка запуска от имени администратора"
-                    // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+                    // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
                     src="images/legacy/aftereffects/open_ae_as_admin.mp4"
                     theme="dark"
                     type="video"
@@ -1074,7 +1074,7 @@ const AEErrors: React.FC = () => {
                   <ContentFigure
                     caption="Composition Settings"
                     imgTitle="Изменение 3D-рендерера"
-                    // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+                    // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
                     src="images/legacy/aftereffects/change_3d_renderer.png"
                     theme="dark"
                     type="image"
@@ -1186,7 +1186,7 @@ const AEErrors: React.FC = () => {
               <ContentFigure
                 caption="Composition Settings"
                 imgTitle="Composition Settings"
-                // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+                // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
                 src="images/legacy/aftereffects/composition_settings_3drenderer_cinema4d.png"
                 theme="dark"
                 type="image"
@@ -1195,7 +1195,7 @@ const AEErrors: React.FC = () => {
               <ContentFigure
                 caption="Choose CINEMA 4D Installation"
                 imgTitle="Choose CINEMA 4D Installation"
-                // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+                // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
                 src="images/legacy/aftereffects/cinema4d_renderer_options.png"
                 theme="dark"
                 type="image"
@@ -1204,7 +1204,7 @@ const AEErrors: React.FC = () => {
               <ContentFigure
                 caption="Choose CINEMA 4D Installation"
                 imgTitle="Choose CINEMA 4D Installation"
-                // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+                // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
                 src="images/legacy/aftereffects/choose_cinema4d_installation.png"
                 theme="dark"
                 type="image"
@@ -1294,7 +1294,7 @@ const AEErrors: React.FC = () => {
               <ContentFigure
                 caption="Параметры"
                 imgTitle="Отключение планирования GPU"
-                // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+                // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
                 src="images/legacy/disable_gpu_planning.png"
                 theme="dark"
                 type="image"
@@ -1313,7 +1313,7 @@ const AEErrors: React.FC = () => {
               <ContentFigure
                 caption="Preferences"
                 imgTitle="Отключение аппаратного декодирования в настройках"
-                // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+                // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
                 src="images/legacy/aftereffects/disable_hardware_accelerated_decoding.png"
                 theme="dark"
                 type="image"
@@ -1362,7 +1362,7 @@ const AEErrors: React.FC = () => {
               </p>
               <ContentFigure
                 caption="Настройка режима совместимости"
-                // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+                // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
                 src="images/legacy/compatibility_media_encoder.mp4"
                 theme="dark"
                 type="video"
@@ -1489,7 +1489,7 @@ const AEErrors: React.FC = () => {
         <ContentFigure
           caption="Warning"
           imgTitle="Предупреждение о недостаточном свободном месте на диске"
-          // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
           src="images/legacy/aftereffects/low_diskcache_space_warning.png"
           theme="dark"
           type="image"
@@ -1506,7 +1506,7 @@ const AEErrors: React.FC = () => {
         <ContentFigure
           caption="Preferences"
           imgTitle="Настройка дискового кэша"
-          // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
           src="images/legacy/aftereffects/preferences-media_and_disk_cache.png"
           theme="dark"
           type="image"
@@ -1537,7 +1537,7 @@ const AEErrors: React.FC = () => {
         <ContentFigure
           caption="Preferences"
           imgTitle="Настройка дискового кэша"
-          // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
           src="images/legacy/aftereffects/preferences-media_and_disk_cache.png"
           theme="dark"
           type="image"
@@ -1639,7 +1639,7 @@ const AEErrors: React.FC = () => {
             <ContentFigure
               caption="Composition Settings"
               imgTitle="Вкладка Basic в настройках композиции"
-              // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+              // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
               src="images/legacy/aftereffects/composition_settings_basic.png"
               theme="dark"
               type="image"
@@ -1659,7 +1659,7 @@ const AEErrors: React.FC = () => {
             <mark className="select">«Advanced features»</mark>.
             <ContentFigure
               caption="Shutter Encoder"
-              // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+              // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
               src="images/legacy/shutter_encoder_convert_to_constant_fps.mp4"
               theme="dark"
               type="video"
@@ -1678,7 +1678,7 @@ const AEErrors: React.FC = () => {
             <ContentFigure
               caption="Interpret Footage"
               imgTitle="Интерпретация футажа"
-              // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+              // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
               src="images/legacy/aftereffects/interpret_footage_main.png"
               theme="dark"
               type="image"
@@ -1721,7 +1721,7 @@ const AEErrors: React.FC = () => {
             <ContentFigure
               caption="Adobe After Effects"
               imgTitle="Открываем настройки Content-Aware Fill"
-              // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+              // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
               src="images/legacy/aftereffects/open_content-aware_fill_settings.png"
               theme="dark"
               type="image"
@@ -1734,7 +1734,7 @@ const AEErrors: React.FC = () => {
             <ContentFigure
               caption="Content-Aware Fill Settings"
               imgTitle="Настройки Content-Aware Fill"
-              // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+              // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
               src="images/legacy/aftereffects/content-aware_fill_settings.png"
               theme="dark"
               type="image"
@@ -1753,7 +1753,7 @@ const AEErrors: React.FC = () => {
             <ContentFigure
               caption="Project Settings"
               imgTitle="Изменение цветового профиля"
-              // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+              // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
               src="images/legacy/aftereffects/change_working_color_space.png"
               theme="dark"
               type="image"
@@ -1778,7 +1778,7 @@ const AEErrors: React.FC = () => {
         <ContentFigure
           caption="Timeline"
           imgTitle="Сбрасываем трансформацию у слоя"
-          // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
           src="images/legacy/aftereffects/reset_layer_transform.png"
           theme="dark"
           type="image"
@@ -1834,7 +1834,7 @@ const AEErrors: React.FC = () => {
             <ContentFigure
               caption="Effect Controls"
               imgTitle="Включение детального анализа"
-              // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+              // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
               src="images/legacy/aftereffects/detailed_analysis-3d_camera_tracker.png"
               theme="dark"
               type="image"
@@ -1863,7 +1863,7 @@ const AEErrors: React.FC = () => {
         <ContentFigure
           caption="System Compatibility Report"
           imgTitle="Окно с отчётом о совместимости"
-          // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
           src="images/legacy/aftereffects/system_compatibility_report.png"
           theme="dark"
           type="image"
@@ -1885,7 +1885,7 @@ const AEErrors: React.FC = () => {
         <ContentFigure
           caption="Preferences"
           imgTitle="Отключение отчёта о совместимости"
-          // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
           src="images/legacy/aftereffects/show_system_compatibility_issues.png"
           theme="dark"
           type="image"

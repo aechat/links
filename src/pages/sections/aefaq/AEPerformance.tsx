@@ -544,7 +544,7 @@ const AEPerformance: React.FC = () => {
         </p>
         <ContentFigure
           caption="Виртуальная машина"
-          // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
           src="images/legacy/aftereffects/ae_version_test.png"
           theme="light"
           type="image"
@@ -565,7 +565,7 @@ const AEPerformance: React.FC = () => {
             <mark className="select">«Multiprocessing»</mark> — 6 минут 3 секунды.
             <ContentFigure
               caption="Время экспорта"
-              // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+              // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
               src="images/legacy/aftereffects/render_time_cc2014.png"
               theme="light"
               type="image"
@@ -577,7 +577,7 @@ const AEPerformance: React.FC = () => {
             — 7 минут 27 секунд.
             <ContentFigure
               caption="Время экспорта"
-              // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+              // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
               src="images/legacy/aftereffects/render_time_cc2018.png"
               theme="light"
               type="image"
@@ -589,7 +589,7 @@ const AEPerformance: React.FC = () => {
             минут 34 секунды.
             <ContentFigure
               caption="Время экспорта"
-              // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+              // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
               src="images/legacy/aftereffects/render_time_2020.png"
               theme="light"
               type="image"
@@ -601,7 +601,7 @@ const AEPerformance: React.FC = () => {
             минут 15 секунд без <mark className="select">«Multi-Frame Rendering»</mark>.
             <ContentFigure
               caption="Время экспорта"
-              // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+              // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
               src="images/legacy/aftereffects/render_time_2023.png"
               theme="light"
               type="image"
@@ -613,7 +613,7 @@ const AEPerformance: React.FC = () => {
             минут 18 секунд без <mark className="select">«Multi-Frame Rendering»</mark>.
             <ContentFigure
               caption="Время экспорта"
-              // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+              // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
               src="images/legacy/aftereffects/render_time_2025.png"
               theme="light"
               type="image"
@@ -703,7 +703,7 @@ const AEPerformance: React.FC = () => {
         <ContentFigure
           caption="Preview"
           imgTitle="Включение кэширования предпросмотра"
-          // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
           src="images/legacy/aftereffects/preview_caching.png"
           theme="dark"
           type="image"
@@ -726,7 +726,7 @@ const AEPerformance: React.FC = () => {
         </p>
         <ContentFigure
           caption="Изменение разрешения предпросмотра"
-          // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
           src="images/legacy/aftereffects/change_preview_resolution.png"
           theme="dark"
           type="image"
@@ -751,7 +751,7 @@ const AEPerformance: React.FC = () => {
         <ContentFigure
           caption="Timeline"
           imgTitle="Отключение адаптивного разрешения"
-          // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
           src="images/legacy/aftereffects/disable_adaptive_resolution.png"
           theme="dark"
           type="image"
@@ -772,7 +772,7 @@ const AEPerformance: React.FC = () => {
         <ContentFigure
           caption="Timeline"
           imgTitle="Демонстрация таймлайна"
-          // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
           src="images/legacy/aftereffects/green-blue_lines.png"
           theme="dark"
           type="image"
@@ -788,7 +788,7 @@ const AEPerformance: React.FC = () => {
         <ContentFigure
           caption="Очистка кэша и оперативной памяти"
           imgTitle="Очистка кэша и оперативной памяти"
-          // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
           src="images/legacy/aftereffects/edit_purge_all-memory-and-disk-cache.png"
           theme="light"
           type="image"
@@ -824,7 +824,7 @@ const AEPerformance: React.FC = () => {
         <ContentFigure
           caption="Adobe After Effects"
           imgTitle="Отключение автоматического кэширования предпросмотра при бездействии"
-          // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
           src="images/legacy/aftereffects/disable_idle_cache.png"
           theme="light"
           type="image"
@@ -865,7 +865,7 @@ const AEPerformance: React.FC = () => {
         <ContentFigure
           caption="Preferences"
           imgTitle="Настройка ограничения процессора при многокадровом рендере"
-          // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
           src="images/legacy/aftereffects/mfr_settings.png"
           theme="dark"
           type="image"
@@ -891,7 +891,7 @@ const AEPerformance: React.FC = () => {
         <ContentFigure
           caption="Закрываем панель стороннего расширения"
           imgTitle="Закрываем панель стороннего расширения"
-          // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
           src="images/legacy/aftereffects/close_panel.png"
           theme="dark"
           type="image"
@@ -1337,7 +1337,7 @@ const AEPerformance: React.FC = () => {
         <ContentFigure
           caption="Project Settings"
           imgTitle="Переключение типа рендеринга"
-          // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
           src="images/legacy/aftereffects/project_manager_mercury.png"
           theme="dark"
           type="image"
@@ -1418,7 +1418,7 @@ const AEPerformance: React.FC = () => {
         <ContentFigure
           caption="Adobe After Effects"
           imgTitle="Включение отображения только тех эффектов, которые поддерживают GPU-ускорение"
-          // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
           src="images/legacy/aftereffects/show_gpu_capable_effects_only.png"
           theme="dark"
           type="image"
@@ -1486,7 +1486,7 @@ const AEPerformance: React.FC = () => {
                   попадёте в <mark className="select">«Параметры быстродействия»</mark>.
                   <ContentFigure
                     caption="Выполнить"
-                    // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+                    // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
                     src="images/legacy/run_systempropertiesadvanced.png"
                     theme="dark"
                     type="image"
@@ -1498,7 +1498,7 @@ const AEPerformance: React.FC = () => {
                   перейдите на вкладку <mark className="select">«Дополнительно»</mark>.
                   <ContentFigure
                     caption="Параметры быстродействия"
-                    // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+                    // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
                     src="images/legacy/systempropertiesadvanced_select_advanced.png"
                     theme="light"
                     type="image"
@@ -1511,7 +1511,7 @@ const AEPerformance: React.FC = () => {
                   <mark className="select">«Виртуальная память»</mark>.
                   <ContentFigure
                     caption="Параметры быстродействия"
-                    // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+                    // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
                     src="images/legacy/systempropertiesadvanced_open_change_size.png"
                     theme="light"
                     type="image"
@@ -1526,7 +1526,7 @@ const AEPerformance: React.FC = () => {
                   , снимите его.
                   <ContentFigure
                     caption="Виртуальная память"
-                    // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+                    // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
                     src="images/legacy/systempropertiesadvanced_disable_auto_size.png"
                     theme="light"
                     type="image"
@@ -1549,7 +1549,7 @@ const AEPerformance: React.FC = () => {
                   </p>
                   <ContentFigure
                     caption="Виртуальная память"
-                    // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+                    // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
                     src="images/legacy/systempropertiesadvanced_set_swap_size.png"
                     theme="light"
                     type="image"

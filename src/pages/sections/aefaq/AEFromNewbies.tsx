@@ -319,7 +319,7 @@ const AEFromNewbies: React.FC = () => {
         <ContentFigure
           caption="Timeline"
           imgTitle="Пример таймлайна композиции в Adobe After Effects"
-          // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
           src="images/legacy/aftereffects/timeline_example.png"
           theme="dark"
           type="image"
@@ -344,7 +344,7 @@ const AEFromNewbies: React.FC = () => {
         <ContentFigure
           caption="Adobe After Effects"
           imgTitle="Создание слоёв"
-          // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
           src="images/legacy/aftereffects/create_layers.png"
           theme="dark"
           type="image"
@@ -429,7 +429,7 @@ const AEFromNewbies: React.FC = () => {
         <ContentFigure
           caption="Composition Settings"
           imgTitle="Вкладка Basic в настройках композиции"
-          // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
           src="images/legacy/aftereffects/composition_settings_basic.png"
           theme="dark"
           type="image"
@@ -533,7 +533,7 @@ const AEFromNewbies: React.FC = () => {
         <ContentFigure
           caption="Composition Settings"
           imgTitle="Вкладка Advanced в настройках композиции"
-          // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
           src="images/legacy/aftereffects/composition_settings_advanced.png"
           theme="dark"
           type="image"
@@ -595,7 +595,7 @@ const AEFromNewbies: React.FC = () => {
         <ContentFigure
           caption="Composition Settings"
           imgTitle="Вкладка 3D Renderer в настройках композиции"
-          // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
           src="images/legacy/aftereffects/composition_settings_3d_renderer.png"
           theme="dark"
           type="image"
@@ -634,7 +634,7 @@ const AEFromNewbies: React.FC = () => {
         </Addition>
         <ContentFigure
           caption="Создание прокси для композиции"
-          // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
           src="images/legacy/aftereffects/create_comp_proxy.mp4"
           theme="dark"
           type="video"
@@ -651,7 +651,7 @@ const AEFromNewbies: React.FC = () => {
         <ContentFigure
           caption="Pre-compose"
           imgTitle="Диалог при создании предварительной композиции"
-          // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
           src="images/legacy/aftereffects/pre-compose.png"
           theme="dark"
           type="image"
@@ -1002,7 +1002,7 @@ const AEFromNewbies: React.FC = () => {
             у такого текста нет фиксированной рамки.
             <ContentFigure
               caption="Создание Point Text"
-              // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+              // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
               src="images/legacy/aftereffects/create_point_text.mp4"
               theme="dark"
               type="video"
@@ -1017,7 +1017,7 @@ const AEFromNewbies: React.FC = () => {
             настраивается в <mark className="select">«Paragraph»</mark>.
             <ContentFigure
               caption="Создание Paragraph Text"
-              // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+              // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
               src="images/legacy/aftereffects/create_paragraph_text.mp4"
               theme="dark"
               type="video"
@@ -1035,7 +1035,7 @@ const AEFromNewbies: React.FC = () => {
         </p>
         <ContentFigure
           caption="Конвертация Point Text в Paragraph Text"
-          // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
           src="images/legacy/aftereffects/convert_to_paragraph_text.mp4"
           theme="dark"
           type="video"
@@ -1142,7 +1142,7 @@ const AEFromNewbies: React.FC = () => {
         </p>
         <ContentFigure
           caption="Демонстрация работы корректирующего слоя"
-          // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
           src="images/legacy/aftereffects/enable_adjustment_layer_mode.mp4"
           theme="dark"
           type="video"
@@ -1387,7 +1387,7 @@ const AEFromNewbies: React.FC = () => {
         <ContentFigure
           caption="Camera Settings"
           imgTitle="Настройки камеры"
-          // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
           src="images/legacy/aftereffects/camera_settings.png"
           theme="dark"
           type="image"
@@ -1492,7 +1492,7 @@ const AEFromNewbies: React.FC = () => {
         <ContentFigure
           caption="Timeline"
           imgTitle="Свойства камеры на таймлайне"
-          // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
           src="images/legacy/aftereffects/camera_options_on_timeline.png"
           theme="dark"
           type="image"
@@ -1573,7 +1573,7 @@ const AEFromNewbies: React.FC = () => {
         <ContentFigure
           caption="Preferences"
           imgTitle="Настройки в 3D"
-          // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
           src="images/legacy/aftereffects/edit_preferences_3d.png"
           theme="dark"
           type="image"
@@ -1617,7 +1617,7 @@ const AEFromNewbies: React.FC = () => {
           <ContentFigure
             caption="Tools"
             imgTitle="Выбор универсального манипулятора"
-            // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+            // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
             src="images/legacy/aftereffects/select_universal_transform_gizmo.png"
             theme="dark"
             type="image"
@@ -1649,7 +1649,7 @@ const AEFromNewbies: React.FC = () => {
         <ContentFigure
           caption="Light Settings"
           imgTitle="Настройка источника света"
-          // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
           src="images/legacy/aftereffects/light_settings.png"
           theme="dark"
           type="image"
@@ -2508,7 +2508,8 @@ const AEFromNewbies: React.FC = () => {
               <ContentFigure
                 caption="Composition"
                 imgTitle="Включение безопасных зон в предпросмотре"
-                src="images/aftereffects/enable_action_safe.png"
+                // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+                src="images/legacy/aftereffects/enable_action_safe.png"
                 theme="dark"
                 type="image"
                 variant="windows"
@@ -3807,7 +3808,8 @@ const AEFromNewbies: React.FC = () => {
               <ContentFigure
                 caption="Включение Debug Database View"
                 imgTitle="Включение Debug Database View"
-                src="images/aftereffects/console_debug-database-view.png"
+                // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+                src="images/legacy/aftereffects/console_debug-database-view.png"
                 theme="dark"
                 type="image"
                 variant="windows"
@@ -3823,7 +3825,8 @@ const AEFromNewbies: React.FC = () => {
               <ContentFigure
                 caption="Установка английского языка в консоли"
                 imgTitle="Установка английского языка в консоли"
-                src="images/aftereffects/set_language_console.png"
+                // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+                src="images/legacy/aftereffects/set_language_console.png"
                 theme="dark"
                 type="image"
                 variant="windows"
@@ -3876,7 +3879,8 @@ const AEFromNewbies: React.FC = () => {
               <ContentFigure
                 caption="Включение Debug Database View"
                 imgTitle="Включение Debug Database View"
-                src="images/aftereffects/console_debug-database-view.png"
+                // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+                src="images/legacy/aftereffects/console_debug-database-view.png"
                 theme="dark"
                 type="image"
                 variant="windows"
@@ -3892,7 +3896,8 @@ const AEFromNewbies: React.FC = () => {
               <ContentFigure
                 caption="Установка английского языка в консоли"
                 imgTitle="Установка английского языка в консоли"
-                src="images/aftereffects/set_language_console.png"
+                // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+                src="images/legacy/aftereffects/set_language_console.png"
                 theme="dark"
                 type="image"
                 variant="windows"
@@ -3918,7 +3923,8 @@ const AEFromNewbies: React.FC = () => {
         <ContentFigure
           caption="Очистка кэша и оперативной памяти"
           imgTitle="Очистка кэша и оперативной памяти"
-          src="images/aftereffects/edit_purge_all-memory-and-disk-cache.png"
+          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          src="images/legacy/aftereffects/edit_purge_all-memory-and-disk-cache.png"
           theme="light"
           type="image"
           variant="windows"
@@ -3982,7 +3988,8 @@ const AEFromNewbies: React.FC = () => {
         <ContentFigure
           caption="Adobe After Effects"
           imgTitle="Отключение автоматического кэширования предпросмотра при бездействии"
-          src="images/aftereffects/disable_idle_cache.png"
+          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          src="images/legacy/aftereffects/disable_idle_cache.png"
           theme="light"
           type="image"
           variant="windows"
@@ -4003,7 +4010,8 @@ const AEFromNewbies: React.FC = () => {
         <ContentFigure
           caption="Preferences"
           imgTitle="Изменение времени для автоматического кэширования при бездействии"
-          src="images/aftereffects/change_time_idle_cache.png"
+          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          src="images/legacy/aftereffects/change_time_idle_cache.png"
           theme="dark"
           type="image"
           variant="windows"
@@ -4259,7 +4267,8 @@ const AEFromNewbies: React.FC = () => {
         <ContentFigure
           caption="Project"
           imgTitle="Замена исходника в проекте"
-          src="images/aftereffects/replace_footage.png"
+          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          src="images/legacy/aftereffects/replace_footage.png"
           theme="dark"
           type="image"
           variant="windows"
@@ -4275,7 +4284,8 @@ const AEFromNewbies: React.FC = () => {
         </p>
         <ContentFigure
           caption="Замена футажей с помощью клавиши Alt"
-          src="images/aftereffects/replace_footage_alt.mp4"
+          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          src="images/legacy/aftereffects/replace_footage_alt.mp4"
           theme="dark"
           type="video"
           variant="windows"
@@ -4301,7 +4311,8 @@ const AEFromNewbies: React.FC = () => {
         </p>
         <ContentFigure
           caption="Установка ключевых кадров"
-          src="images/aftereffects/position_keyframing.mp4"
+          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          src="images/legacy/aftereffects/position_keyframing.mp4"
           theme="dark"
           type="video"
           variant="windows"
@@ -4355,7 +4366,8 @@ const AEFromNewbies: React.FC = () => {
                 прямой линией. На таймлайне обозначается значком ромба.
                 <ContentFigure
                   caption="Линейная интерполяция"
-                  src="images/aftereffects/temporal_linear.png"
+                  // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+                  src="images/legacy/aftereffects/temporal_linear.png"
                   theme="dark"
                   type="image"
                   variant="windows"
@@ -4371,7 +4383,8 @@ const AEFromNewbies: React.FC = () => {
                 формой движения. На таймлайне отображается значком песочных часов.
                 <ContentFigure
                   caption="Интерполяция по Безье"
-                  src="images/aftereffects/temporal_bezier.mp4"
+                  // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+                  src="images/legacy/aftereffects/temporal_bezier.mp4"
                   theme="dark"
                   type="video"
                   variant="windows"
@@ -4393,7 +4406,8 @@ const AEFromNewbies: React.FC = () => {
                 песочных часов.
                 <ContentFigure
                   caption="Интерполяция по «продолжающемуся» Безье"
-                  src="images/aftereffects/temporal_continuous_bezier.mp4"
+                  // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+                  src="images/legacy/aftereffects/temporal_continuous_bezier.mp4"
                   theme="dark"
                   type="video"
                   variant="windows"
@@ -4412,7 +4426,8 @@ const AEFromNewbies: React.FC = () => {
                 </Addition>{" "}
                 <ContentFigure
                   caption="Интерполяция автоматического Безье"
-                  src="images/aftereffects/temporal_auto_bezier.mp4"
+                  // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+                  src="images/legacy/aftereffects/temporal_auto_bezier.mp4"
                   theme="dark"
                   type="video"
                   variant="windows"
@@ -4429,7 +4444,8 @@ const AEFromNewbies: React.FC = () => {
                 </p>
                 <ContentFigure
                   caption="Интерполяция «задержки»"
-                  src="images/aftereffects/temporal_hold.mp4"
+                  // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+                  src="images/legacy/aftereffects/temporal_hold.mp4"
                   theme="dark"
                   type="video"
                   variant="windows"
@@ -4518,7 +4534,7 @@ const AEFromNewbies: React.FC = () => {
         </p>
         <ContentFigure
           caption="Изменение вида графика скорости"
-          // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
           src="images/legacy/aftereffects/change_graph_view.mp4"
           theme="dark"
           type="video"
@@ -4563,7 +4579,7 @@ const AEFromNewbies: React.FC = () => {
         <ContentFigure
           caption="Speed Graph"
           imgTitle="Пример с проблемной интерполяцией"
-          // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
           src="images/legacy/aftereffects/problematic_interpolation.png"
           theme="dark"
           type="image"
@@ -4583,7 +4599,7 @@ const AEFromNewbies: React.FC = () => {
         <ContentFigure
           caption="Keyframe Interpolation"
           imgTitle="Изменение интерполяции ключевых кадров"
-          // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
           src="images/legacy/aftereffects/change_keyframe_interpolation.png"
           theme="dark"
           type="image"
@@ -4622,7 +4638,7 @@ const AEFromNewbies: React.FC = () => {
         <ContentFigure
           caption="Info"
           imgTitle="Предпросмотр не в реальном времени"
-          // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
           src="images/legacy/aftereffects/info_non-realtime.png"
           theme="dark"
           type="image"
@@ -4641,7 +4657,7 @@ const AEFromNewbies: React.FC = () => {
         <ContentFigure
           caption="Preview"
           imgTitle="Включение кэширования предпросмотра"
-          // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
           src="images/legacy/aftereffects/preview_caching.png"
           theme="dark"
           type="image"
@@ -4671,7 +4687,7 @@ const AEFromNewbies: React.FC = () => {
         <ContentFigure
           caption="Preview"
           imgTitle="Изменение FPS предпросмотра"
-          // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
           src="images/legacy/aftereffects/change_preview_fps.png"
           theme="dark"
           type="image"
@@ -4688,7 +4704,7 @@ const AEFromNewbies: React.FC = () => {
         <ContentFigure
           caption="Preferences"
           imgTitle="Настройки звукового выхода"
-          // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
           src="images/legacy/aftereffects/audio_hardware_settings.png"
           theme="dark"
           type="image"
@@ -4716,7 +4732,7 @@ const AEFromNewbies: React.FC = () => {
         </p>
         <ContentFigure
           caption="Пример артефактов проблемного аудио"
-          // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
           src="images/legacy/aftereffects/audio_artifacts.mp4"
           theme="dark"
           type="video"
@@ -4771,7 +4787,7 @@ const AEFromNewbies: React.FC = () => {
         <ContentFigure
           caption="Preview"
           imgTitle="Включение звука в окне Preview"
-          // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
           src="images/legacy/aftereffects/toggle_audio_preview.png"
           theme="dark"
           type="image"
@@ -4787,7 +4803,7 @@ const AEFromNewbies: React.FC = () => {
         <ContentFigure
           caption="Preferences"
           imgTitle="Настройка звука для предпросмотра"
-          // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
           src="images/legacy/aftereffects/mute_audio_when_preview_is_not_real-time.png"
           theme="dark"
           type="image"
@@ -4844,7 +4860,7 @@ const AEFromNewbies: React.FC = () => {
         <ContentFigure
           caption="Одна из причин ошибки — слишком короткая рабочая область"
           imgTitle="Короткая рабочая область"
-          // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
           src="images/legacy/aftereffects/low_work-area.png"
           theme="dark"
           type="image"
@@ -4870,7 +4886,7 @@ const AEFromNewbies: React.FC = () => {
             <ContentFigure
               caption="Очистка кэша и оперативной памяти"
               imgTitle="Очистка кэша и оперативной памяти"
-              // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+              // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
               src="images/legacy/aftereffects/edit_purge_all-memory-and-disk-cache.png"
               theme="light"
               type="image"
@@ -4895,7 +4911,7 @@ const AEFromNewbies: React.FC = () => {
             <ContentFigure
               caption="Preferences"
               imgTitle="Настройка параметра RAM reserved for other applications"
-              // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+              // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
               src="images/legacy/aftereffects/ram_reserved_for_other_applications.png"
               theme="dark"
               type="image"
@@ -4943,7 +4959,7 @@ const AEFromNewbies: React.FC = () => {
         <ContentFigure
           caption="Timeline"
           imgTitle="Смотрим время рендера слоя"
-          // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
           src="images/legacy/aftereffects/view_render_time.png"
           theme="dark"
           type="image"
@@ -4975,7 +4991,7 @@ const AEFromNewbies: React.FC = () => {
         <ContentFigure
           caption="Preferences"
           imgTitle="Включение воспроизведения предпросмотра из дискового кэша"
-          // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
           src="images/legacy/aftereffects/enable_preview_from_disk_cache.png"
           theme="dark"
           type="image"
@@ -4995,7 +5011,7 @@ const AEFromNewbies: React.FC = () => {
         </p>
         <ContentFigure
           caption="Adobe After Effects"
-          // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
           src="images/legacy/aftereffects/change_resolution_comppreview.mp4"
           theme="dark"
           type="video"
@@ -5010,7 +5026,7 @@ const AEFromNewbies: React.FC = () => {
         <ContentFigure
           caption="Preview"
           imgTitle="Изменение качества в окне Preview"
-          // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
           src="images/legacy/aftereffects/change_resolution_preview.png"
           theme="dark"
           type="image"
@@ -5064,7 +5080,7 @@ const AEFromNewbies: React.FC = () => {
         <ContentFigure
           caption="Timeline"
           imgTitle="Включение Continuously Rasterize"
-          // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
           src="images/legacy/aftereffects/enable_continuously_rasterize.png"
           theme="dark"
           type="image"
@@ -5092,7 +5108,7 @@ const AEFromNewbies: React.FC = () => {
         <ContentFigure
           caption="Timeline"
           imgTitle="Отключение адаптивного разрешения"
-          // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
           src="images/legacy/aftereffects/disable_adaptive_resolution.png"
           theme="dark"
           type="image"
@@ -5118,7 +5134,7 @@ const AEFromNewbies: React.FC = () => {
         </p>
         <ContentFigure
           caption="Применение Grow Bounds"
-          // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
           src="images/legacy/aftereffects/apply_grow_bounds.mp4"
           theme="dark"
           type="video"
@@ -5144,7 +5160,7 @@ const AEFromNewbies: React.FC = () => {
         <ContentFigure
           caption="Timeline"
           imgTitle="Привязка масок для Saber"
-          // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
           src="images/legacy/aftereffects/linking_masks_for_saber.png"
           theme="dark"
           type="image"
@@ -5176,7 +5192,7 @@ const AEFromNewbies: React.FC = () => {
         <ContentFigure
           caption="Composition Settings"
           imgTitle="Изменение 3D-рендерера"
-          // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
           src="images/legacy/aftereffects/change_3d_renderer.png"
           theme="dark"
           type="image"
@@ -5249,7 +5265,7 @@ const AEFromNewbies: React.FC = () => {
         <ContentFigure
           caption="Включение прозрачности в Saber"
           imgTitle="Включение прозрачности в Saber"
-          // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
           src="images/legacy/aftereffects/transparent_saber.png"
           theme="dark"
           type="image"
@@ -5332,7 +5348,7 @@ const AEFromNewbies: React.FC = () => {
         </Addition>
         <ContentFigure
           caption="Распаковка нескольких прекомпозиций с помощью Un-precompose"
-          // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
           src="images/legacy/aftereffects/unprecompose_demonstration.mp4"
           theme="dark"
           type="video"
@@ -5353,7 +5369,7 @@ const AEFromNewbies: React.FC = () => {
         <ContentFigure
           caption="AEUX"
           imgTitle="Un-Precomp в AEUX"
-          // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
           src="images/legacy/aftereffects/aeux_un-precomp.png"
           theme="dark"
           type="image"
@@ -5373,7 +5389,7 @@ const AEFromNewbies: React.FC = () => {
         </p>
         <ContentFigure
           caption="Инвертирование порядка слоёв"
-          // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
           src="images/legacy/aftereffects/invert_layer_numeration.mp4"
           theme="dark"
           type="video"
@@ -5391,7 +5407,7 @@ const AEFromNewbies: React.FC = () => {
         </p>
         <ContentFigure
           caption="Перемещение слоёв к плейхеду"
-          // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
           src="images/legacy/aftereffects/move_layers_around_playhead.mp4"
           theme="dark"
           type="video"
@@ -5420,7 +5436,7 @@ const AEFromNewbies: React.FC = () => {
         </p>
         <ContentFigure
           caption="Открываем Auto Crop"
-          // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
           src="images/legacy/aftereffects/auto_crop_execute.png"
           theme="dark"
           type="image"
@@ -5459,7 +5475,7 @@ const AEFromNewbies: React.FC = () => {
         </p>
         <ContentFigure
           caption="Кадрирование с помощью Region of Interest"
-          // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
           src="images/legacy/aftereffects/crop_comp_to_region_of_interest.mp4"
           theme="dark"
           type="video"
@@ -5486,7 +5502,7 @@ const AEFromNewbies: React.FC = () => {
         </p>
         <ContentFigure
           caption="Composition Settings"
-          // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
           src="images/legacy/aftereffects/change_start_timecode.mp4"
           theme="dark"
           type="video"
@@ -5507,7 +5523,7 @@ const AEFromNewbies: React.FC = () => {
         </p>
         <ContentFigure
           caption="Создание Paragraph Text"
-          // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
           src="images/legacy/aftereffects/create_paragraph_text.mp4"
           theme="dark"
           type="video"
@@ -5521,7 +5537,7 @@ const AEFromNewbies: React.FC = () => {
         </p>
         <ContentFigure
           caption="Преобразование точечного текста в блочный"
-          // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
           src="images/legacy/aftereffects/convert_to_paragraph_text.mp4"
           theme="dark"
           type="video"
@@ -5572,7 +5588,7 @@ const AEFromNewbies: React.FC = () => {
         </p>
         <ContentFigure
           caption="Проблема некорректного начертания на примере Cascadia Mono"
-          // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
           src="images/legacy/aftereffects/font-reset_bug.mp4"
           theme="dark"
           type="video"
@@ -5658,7 +5674,7 @@ const AEFromNewbies: React.FC = () => {
               </p>
               <ContentFigure
                 caption="Включение возможности открытия нескольких экземпляров"
-                // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+                // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
                 src="images/legacy/aftereffects/enable_multiple_ae_instances.mp4"
                 theme="dark"
                 type="video"
@@ -5688,7 +5704,7 @@ const AEFromNewbies: React.FC = () => {
         <ContentFigure
           caption="Preferences"
           imgTitle="Секретные настройки"
-          // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
           src="images/legacy/aftereffects/secret_settings.png"
           theme="dark"
           type="image"

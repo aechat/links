@@ -27,7 +27,7 @@ const AEInterface: React.FC = () => {
         </p>
         <ContentFigure
           caption="Пустое домашнее окно Adobe After Effects"
-          // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
           src="images/legacy/aftereffects/empty_home_screen.png"
           theme="dark"
           type="image"
@@ -69,7 +69,7 @@ const AEInterface: React.FC = () => {
         <ContentFigure
           caption="Preferences"
           imgTitle="Переключаем отображение домашнего экрана"
-          // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
           src="images/legacy/aftereffects/enable_home_screen.png"
           theme="dark"
           type="image"
@@ -90,7 +90,7 @@ const AEInterface: React.FC = () => {
         </p>
         <ContentFigure
           caption="Восстановление закрытого окна"
-          // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
           src="images/legacy/aftereffects/open_window.mp4"
           theme="light"
           type="video"
@@ -115,7 +115,7 @@ const AEInterface: React.FC = () => {
         </Addition>
         <ContentFigure
           caption="Прикрепление окна в рабочее пространство"
-          // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
           src="images/legacy/aftereffects/attach_window.mp4"
           theme="dark"
           type="video"
@@ -133,7 +133,7 @@ const AEInterface: React.FC = () => {
               </p>
               <ContentFigure
                 caption="Adobe After Effects"
-                // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+                // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
                 src="images/legacy/aftereffects/i_cant_attach_script.mp4"
                 theme="light"
                 type="video"
@@ -154,7 +154,7 @@ const AEInterface: React.FC = () => {
               </Addition>
               <ContentFigure
                 caption="Проводник"
-                // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+                // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
                 src="images/legacy/aftereffects/move_from_scripts_to_scriptuipanels.mp4"
                 theme="dark"
                 type="video"
@@ -176,7 +176,7 @@ const AEInterface: React.FC = () => {
               </p>
               <ContentFigure
                 caption="Adobe After Effects"
-                // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+                // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
                 src="images/legacy/aftereffects/i_cant_attach_script.mp4"
                 theme="light"
                 type="video"
@@ -198,7 +198,7 @@ const AEInterface: React.FC = () => {
               </Addition>
               <ContentFigure
                 caption="Проводник"
-                // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+                // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
                 src="images/legacy/aftereffects/move_from_scripts_to_scriptuipanels.mp4"
                 theme="dark"
                 type="video"
@@ -215,7 +215,7 @@ const AEInterface: React.FC = () => {
         </p>
         <ContentFigure
           caption="Прикрепление скрипта True Comp Duplicator"
-          // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
           src="images/legacy/aftereffects/attaching_jsx_script.mp4"
           theme="light"
           type="video"
@@ -245,7 +245,7 @@ const AEInterface: React.FC = () => {
         </Addition>
         <ContentFigure
           caption="Управление окнами в рабочем пространстве"
-          // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
           src="images/legacy/aftereffects/manage_windows.mp4"
           theme="dark"
           type="video"
@@ -279,7 +279,7 @@ const AEInterface: React.FC = () => {
         <ContentFigure
           caption="Preferences"
           imgTitle="Настройка предотвращения переключения рабочих пространств"
-          // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
           src="images/legacy/aftereffects/enable_maintain_current_workspace.png"
           theme="dark"
           type="image"
@@ -303,7 +303,7 @@ const AEInterface: React.FC = () => {
         </p>
         <ContentFigure
           caption="Включение столбцов на таймлайне"
-          // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
           src="images/legacy/aftereffects/enable_timeline_columns.mp4"
           theme="dark"
           type="video"
@@ -323,7 +323,7 @@ const AEInterface: React.FC = () => {
         <ContentFigure
           caption="Timeline"
           imgTitle="Демонстрация таймлайна"
-          // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
           src="images/legacy/aftereffects/green-blue_lines.png"
           theme="dark"
           type="image"
@@ -385,7 +385,7 @@ const AEInterface: React.FC = () => {
         </p>
         <ContentFigure
           caption="Изменение вида отображения времени на таймлайне"
-          // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
           src="images/legacy/aftereffects/alternate_timecode_style.mp4"
           theme="dark"
           type="video"
@@ -408,7 +408,7 @@ const AEInterface: React.FC = () => {
         </p>
         <ContentFigure
           caption="Работа со скрытыми слоями"
-          // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
           src="images/legacy/aftereffects/toggle_shy.mp4"
           theme="dark"
           type="video"
@@ -437,7 +437,7 @@ const AEInterface: React.FC = () => {
         <ContentFigure
           caption="Timeline"
           imgTitle="Проблема последнего кадра"
-          // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
           src="images/legacy/aftereffects/last_frame_problem.png"
           theme="dark"
           type="image"
@@ -491,7 +491,7 @@ const AEInterface: React.FC = () => {
         <ContentFigure
           caption="Adobe After Effects"
           imgTitle="Отключение оптимизации предпросмотра"
-          // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
           src="images/legacy/aftereffects/disable_previewplaybackoptimization.png"
           theme="dark"
           type="image"
@@ -514,7 +514,7 @@ const AEInterface: React.FC = () => {
         <ContentFigure
           caption="Composition"
           imgTitle="Включение манипуляторов слоя"
-          // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
           src="images/legacy/aftereffects/show_layer_controls.png"
           theme="light"
           type="image"
@@ -531,7 +531,7 @@ const AEInterface: React.FC = () => {
         <ContentFigure
           caption="Composition"
           imgTitle="Включение отображения границ масок и слоёв"
-          // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
           src="images/legacy/aftereffects/toggle_mask_and_shape_path_visibility.png"
           theme="dark"
           type="image"
@@ -547,7 +547,7 @@ const AEInterface: React.FC = () => {
         <ContentFigure
           caption="View Options"
           imgTitle="Настройка отображения параметров слоя"
-          // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
           src="images/legacy/aftereffects/view_options.png"
           theme="dark"
           type="image"
@@ -566,7 +566,7 @@ const AEInterface: React.FC = () => {
         <ContentFigure
           caption="Preferences"
           imgTitle="Изменение области времени отображения пути движения"
-          // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
           src="images/legacy/aftereffects/change_motion_path_range.png"
           theme="dark"
           type="image"
@@ -587,7 +587,7 @@ const AEInterface: React.FC = () => {
         </p>
         <ContentFigure
           caption="Adobe After Effects"
-          // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
           src="images/legacy/aftereffects/smooth_zoom_demonstration.mp4"
           theme="dark"
           type="video"
@@ -606,7 +606,7 @@ const AEInterface: React.FC = () => {
         <ContentFigure
           caption="Preferences"
           imgTitle="Настройка увеличения предпросмотра"
-          // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
           src="images/legacy/aftereffects/magnification_settings.png"
           theme="dark"
           type="image"
@@ -624,7 +624,7 @@ const AEInterface: React.FC = () => {
         </p>
         <ContentFigure
           caption="Демонстрация плагина ae-zoom"
-          // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
           src="images/legacy/ae-zoom_demonstration.webm"
           theme="dark"
           type="video"
@@ -705,7 +705,7 @@ const AEInterface: React.FC = () => {
         <ContentFigure
           caption="Timeline"
           imgTitle="Включение режима 3D для слоя"
-          // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
           src="images/legacy/aftereffects/toggle_3d_layer.png"
           theme="dark"
           type="image"
@@ -720,7 +720,7 @@ const AEInterface: React.FC = () => {
         <ContentFigure
           caption="Composition"
           imgTitle="Переключение видов в окне предпросмотра"
-          // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
           src="images/legacy/aftereffects/change_view.png"
           theme="dark"
           type="image"
@@ -753,7 +753,7 @@ const AEInterface: React.FC = () => {
         </p>
         <ContentFigure
           caption="Keyframe Interpolation"
-          // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
           src="images/legacy/aftereffects/temporal_interpolation_bezier.png"
           theme="dark"
           type="image"
@@ -777,7 +777,7 @@ const AEInterface: React.FC = () => {
         </p>
         <ContentFigure
           caption="Разделение атрибутов положения на X и Y"
-          // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
           src="images/legacy/aftereffects/separate_dimensions.mp4"
           theme="dark"
           type="video"
@@ -795,7 +795,7 @@ const AEInterface: React.FC = () => {
         </p>
         <ContentFigure
           caption="Изменение вида графика скорости"
-          // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
           src="images/legacy/aftereffects/change_graph_view.mp4"
           theme="dark"
           type="video"
@@ -813,7 +813,7 @@ const AEInterface: React.FC = () => {
         </p>
         <ContentFigure
           caption="Изменение типа пространственной интерполяции"
-          // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
           src="images/legacy/aftereffects/change_spatial_interpolation.mp4"
           theme="dark"
           type="video"
@@ -843,7 +843,7 @@ const AEInterface: React.FC = () => {
         </Addition>
         <ContentFigure
           caption="Adobe After Effects"
-          // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
           src="images/legacy/aftereffects/rotobezier_demo.mp4"
           theme="dark"
           type="video"
@@ -864,7 +864,7 @@ const AEInterface: React.FC = () => {
         </p>
         <ContentFigure
           caption="Изменение вида графика скорости"
-          // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
           src="images/legacy/aftereffects/change_graph_view.mp4"
           theme="dark"
           type="video"
@@ -915,7 +915,7 @@ const AEInterface: React.FC = () => {
           <ContentFigure
             caption="Effects Controls"
             imgTitle="Включение точек трекинга"
-            // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+            // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
             src="images/legacy/aftereffects/render_track_points.png"
             theme="dark"
             type="image"
@@ -937,7 +937,7 @@ const AEInterface: React.FC = () => {
         <ContentFigure
           caption="Timeline"
           imgTitle="Отображение звуковой волны у слоя со звуком"
-          // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
           src="images/legacy/aftereffects/show_waveform.png"
           theme="dark"
           type="image"
@@ -970,7 +970,7 @@ const AEInterface: React.FC = () => {
         </Addition>
         <ContentFigure
           caption="Демонстрация плагина FX Console"
-          // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
           src="images/legacy/aftereffects/fx_console_demonstration.mp4"
           theme="dark"
           type="video"
@@ -1006,7 +1006,7 @@ const AEInterface: React.FC = () => {
         <ContentFigure
           caption="Adobe After Effects"
           imgTitle="Отключение автоматического открытия окна свойств"
-          // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
           src="images/legacy/aftereffects/toggle_auto-open_panel.png"
           theme="dark"
           type="image"
@@ -1034,7 +1034,7 @@ const AEInterface: React.FC = () => {
         <ContentFigure
           caption="Preferences"
           imgTitle="Настройки меток"
-          // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
           src="images/legacy/aftereffects/preferences_labels.png"
           theme="dark"
           type="image"
@@ -1056,7 +1056,7 @@ const AEInterface: React.FC = () => {
         <ContentFigure
           caption="Preferences"
           imgTitle="Настройка использования системного выбора цвета"
-          // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
           src="images/legacy/aftereffects/use_system_color_picker.png"
           theme="dark"
           type="image"
@@ -1099,7 +1099,7 @@ const AEInterface: React.FC = () => {
         <ContentFigure
           caption="Console"
           imgTitle="Включение возможности изменения акцента интерфейса"
-          // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
           src="images/legacy/aftereffects/console_theme_colorizing.png"
           theme="dark"
           type="image"
@@ -1113,7 +1113,7 @@ const AEInterface: React.FC = () => {
         <ContentFigure
           caption="Preferences"
           imgTitle="Находим кнопку для смены цвета интерфейса"
-          // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
           src="images/legacy/aftereffects/select_theme_color.png"
           theme="dark"
           type="image"
@@ -1132,7 +1132,7 @@ const AEInterface: React.FC = () => {
         <ContentFigure
           caption="Change Color"
           imgTitle="Выбор акцентного цвета для интерфейса"
-          // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
           src="images/legacy/aftereffects/theme_colorizing.png"
           theme="dark"
           type="image"
@@ -1177,7 +1177,7 @@ const AEInterface: React.FC = () => {
         <ContentFigure
           caption="«Проблемный» интерфейс Adobe After Effects на Windows"
           imgTitle="«Проблемный» интерфейс Adobe After Effects на Windows"
-          // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
           src="images/legacy/aftereffects/problem_windows_interface.png"
           theme="light"
           type="image"
@@ -1213,7 +1213,7 @@ const AEInterface: React.FC = () => {
         <ContentFigure
           caption="Mica For Everyone"
           imgTitle="Добавление правила в Mica For Everyone"
-          // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
           src="images/legacy/micaforeveryone_add_process_rule.png"
           theme="dark"
           type="image"
@@ -1227,7 +1227,7 @@ const AEInterface: React.FC = () => {
         <ContentFigure
           caption="Mica For Everyone"
           imgTitle="Добавляем правило для Adobe After Effects в Mica For Everyone"
-          // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
           src="images/legacy/micaforeveryone_add_afterfx.png"
           theme="dark"
           type="image"
@@ -1247,7 +1247,7 @@ const AEInterface: React.FC = () => {
         <ContentFigure
           caption="Mica For Everyone"
           imgTitle="Настраиваем стили для Mica For Everyone"
-          // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
           src="images/legacy/micaforeveryone_afterfx_settings.png"
           theme="dark"
           type="image"
@@ -1261,7 +1261,7 @@ const AEInterface: React.FC = () => {
         <ContentFigure
           caption="Mica For Everyone"
           imgTitle="Включаем автозапуск Mica For Everyone"
-          // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
           src="images/legacy/micaforeveryone_launch_on_startup.png"
           theme="dark"
           type="image"
@@ -1276,7 +1276,7 @@ const AEInterface: React.FC = () => {
         </p>
         <ContentFigure
           caption="Включаем модификацию на тёмное контекстное меню"
-          // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
           src="images/legacy/enable_dark_mode_context_menus.mp4"
           theme="dark"
           type="video"
@@ -1290,7 +1290,7 @@ const AEInterface: React.FC = () => {
         <ContentFigure
           caption="«Решённый» интерфейс Adobe After Effects на Windows"
           imgTitle="«Решённый» интерфейс Adobe After Effects на Windows"
-          // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
           src="images/legacy/aftereffects/solved_windows_interface.png"
           theme="dark"
           type="image"
@@ -1342,7 +1342,7 @@ const AEInterface: React.FC = () => {
               <ContentFigure
                 caption="Resource Hacker"
                 imgTitle="Открываем файл в Resource Hacker"
-                // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+                // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
                 src="images/legacy/aftereffects/resource_hacker_open_file.png"
                 theme="light"
                 type="image"
@@ -1371,7 +1371,7 @@ const AEInterface: React.FC = () => {
               <ContentFigure
                 caption="Resource Hacker"
                 imgTitle="Извлекаем изображения из .dll"
-                // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+                // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
                 src="images/legacy/aftereffects/resource_hacker_extract_file.png"
                 theme="light"
                 type="image"
@@ -1391,7 +1391,7 @@ const AEInterface: React.FC = () => {
               <ContentFigure
                 caption="Пример модификации изображения при загрузке Adobe After Effects"
                 imgTitle="Изменённое изображение при открытии программы"
-                // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+                // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
                 src="images/legacy/aftereffects/custom_splash_example.png"
                 theme="light"
                 type="image"
@@ -1409,7 +1409,7 @@ const AEInterface: React.FC = () => {
               <ContentFigure
                 caption="Resource Hacker"
                 imgTitle="Заменяем изображение в .dll"
-                // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+                // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
                 src="images/legacy/aftereffects/resource_hacker_replace.png"
                 theme="light"
                 type="image"
@@ -1422,7 +1422,7 @@ const AEInterface: React.FC = () => {
               </p>
               <ContentFigure
                 caption="Пример изменённой плашки при открытии программы"
-                // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+                // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
                 src="images/legacy/aftereffects/custom_splash_opening.mp4"
                 theme="light"
                 type="video"
@@ -1458,7 +1458,7 @@ const AEInterface: React.FC = () => {
           <ContentFigure
             caption="Preferences"
             imgTitle="Переносим настройки из старых версий программы"
-            // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+            // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
             src="images/legacy/aftereffects/migrate_previous_version_preferences.png"
             theme="dark"
             type="image"

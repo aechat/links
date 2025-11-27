@@ -31,7 +31,7 @@ const AEExport: React.FC = () => {
         <ContentFigure
           caption="Render Queue"
           imgTitle="Окно очереди экспорта"
-          // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
           src="images/legacy/aftereffects/render_queue.png"
           theme="dark"
           type="image"
@@ -91,7 +91,7 @@ const AEExport: React.FC = () => {
         <ContentFigure
           caption="Output Module Settings"
           imgTitle="Настройка модуля вывода"
-          // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
           src="images/legacy/aftereffects/output_module_settings.png"
           theme="dark"
           type="image"
@@ -107,7 +107,7 @@ const AEExport: React.FC = () => {
         <ContentFigure
           caption="Render Queue"
           imgTitle="Указание шаблона для названия файла"
-          // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
           src="images/legacy/aftereffects/filename_preset_render_queue.png"
           theme="dark"
           type="image"
@@ -128,7 +128,7 @@ const AEExport: React.FC = () => {
         <ContentFigure
           caption="File Name and Location Template"
           imgTitle="Окно создания собственного шаблона имени"
-          // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
           src="images/legacy/aftereffects/filename_and_location_template.png"
           theme="dark"
           type="image"
@@ -162,7 +162,7 @@ const AEExport: React.FC = () => {
         <ContentFigure
           caption="Render Settings"
           imgTitle="Окно Render Settings"
-          // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
           src="images/legacy/aftereffects/render_settings.png"
           theme="dark"
           type="image"
@@ -176,7 +176,7 @@ const AEExport: React.FC = () => {
             <ContentFigure
               caption="Render Queue"
               imgTitle="Выбор композиций для экспорта"
-              // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+              // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
               src="images/legacy/aftereffects/select_comp_queue.png"
               theme="dark"
               type="image"
@@ -196,7 +196,7 @@ const AEExport: React.FC = () => {
             <ContentFigure
               caption="Render Queue"
               imgTitle="Экспорт одной композиции в нескольких форматах"
-              // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+              // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
               src="images/legacy/aftereffects/multiple_formats_render_queue.png"
               theme="dark"
               type="image"
@@ -212,7 +212,7 @@ const AEExport: React.FC = () => {
             <ContentFigure
               caption="Render Queue"
               imgTitle="Дублирование элемента в очереди рендеринга"
-              // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+              // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
               src="images/legacy/aftereffects/duplicate_with_filename_render_queue.png"
               theme="dark"
               type="image"
@@ -235,7 +235,7 @@ const AEExport: React.FC = () => {
         <ContentFigure
           caption="Make Template"
           imgTitle="Создание шаблона для модуля вывода"
-          // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
           src="images/legacy/aftereffects/render_queue_make_template.png"
           theme="dark"
           type="image"
@@ -255,7 +255,7 @@ const AEExport: React.FC = () => {
         <ContentFigure
           caption="Output Module Templates"
           imgTitle="Окно управления шаблонами модуля вывода"
-          // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
           src="images/legacy/aftereffects/output_module_templates.png"
           theme="dark"
           type="image"
@@ -275,7 +275,7 @@ const AEExport: React.FC = () => {
         <ContentFigure
           caption="Render Queue"
           imgTitle="Создание шаблона для Render Settings"
-          // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
           src="images/legacy/aftereffects/make_template_render_settings.png"
           theme="dark"
           type="image"
@@ -295,7 +295,7 @@ const AEExport: React.FC = () => {
         <ContentFigure
           caption="Render Settings Templates"
           imgTitle="Окно управления шаблонами Render Settings"
-          // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
           src="images/legacy/aftereffects/render_settings_templates.png"
           theme="dark"
           type="image"
@@ -1195,7 +1195,7 @@ const AEExport: React.FC = () => {
             <ContentFigure
               caption="Render Queue"
               imgTitle="Очередь рендеринга с выбранным H.264"
-              // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+              // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
               src="images/legacy/aftereffects/render_queue_h264.png"
               theme="dark"
               type="image"
@@ -1216,7 +1216,7 @@ const AEExport: React.FC = () => {
             <ContentFigure
               caption="Output Module Settings"
               imgTitle="Окно Output Module"
-              // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+              // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
               src="images/legacy/aftereffects/output_module_format_options.png"
               theme="dark"
               type="image"
@@ -1238,7 +1238,7 @@ const AEExport: React.FC = () => {
             <ContentFigure
               caption="H.264 Options"
               imgTitle="Окно настроек H.264"
-              // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+              // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
               src="images/legacy/aftereffects/h264_options.png"
               theme="dark"
               type="image"
@@ -1257,7 +1257,7 @@ const AEExport: React.FC = () => {
             <ContentFigure
               caption="Render Queue"
               imgTitle="Кнопка начала рендеринга"
-              // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+              // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
               src="images/legacy/aftereffects/start_render_button.png"
               theme="dark"
               type="image"
@@ -1318,7 +1318,7 @@ const AEExport: React.FC = () => {
                   <ContentFigure
                     caption="Render Queue"
                     imgTitle="Очередь рендеринга с выбранным H.264"
-                    // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+                    // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
                     src="images/legacy/aftereffects/render_queue_h264.png"
                     theme="dark"
                     type="image"
@@ -1340,7 +1340,7 @@ const AEExport: React.FC = () => {
                   <ContentFigure
                     caption="Output Module Settings"
                     imgTitle="Выбор Voukoder в списке форматов"
-                    // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+                    // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
                     src="images/legacy/aftereffects/selecting_voukoder.png"
                     theme="dark"
                     type="image"
@@ -1359,7 +1359,7 @@ const AEExport: React.FC = () => {
                   <ContentFigure
                     caption="Voukoder 13.4.1"
                     imgTitle="Выбор варианта кодека в Voukoder"
-                    // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+                    // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
                     src="images/legacy/aftereffects/select_codec_in_voukoder.png"
                     theme="light"
                     type="image"
@@ -1426,7 +1426,7 @@ const AEExport: React.FC = () => {
                   <ContentFigure
                     caption="Voukoder 13.4.1"
                     imgTitle="Настройка качества видео в Voukoder"
-                    // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+                    // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
                     src="images/legacy/aftereffects/codec_parameter_voukoder.png"
                     theme="light"
                     type="image"
@@ -1476,7 +1476,7 @@ const AEExport: React.FC = () => {
                   <ContentFigure
                     caption="Render Queue"
                     imgTitle="Кнопка начала рендеринга"
-                    // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+                    // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
                     src="images/legacy/aftereffects/start_render_button.png"
                     theme="dark"
                     type="image"
@@ -1505,7 +1505,7 @@ const AEExport: React.FC = () => {
             <ContentFigure
               caption="Render Queue"
               imgTitle="Очередь рендеринга с выбранным H.264"
-              // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+              // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
               src="images/legacy/aftereffects/render_queue_h264.png"
               theme="dark"
               type="image"
@@ -1527,7 +1527,7 @@ const AEExport: React.FC = () => {
             <ContentFigure
               caption="Output Module Settings"
               imgTitle="Выбор AfterCodecs из списка форматов"
-              // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+              // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
               src="images/legacy/aftereffects/selecting_aftercodecs.png"
               theme="dark"
               type="image"
@@ -1544,7 +1544,7 @@ const AEExport: React.FC = () => {
             <ContentFigure
               caption="AfterCodecs 1.11.5 for Adobe After Effects"
               imgTitle="Настройки AfterCodecs"
-              // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+              // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
               src="images/legacy/aftereffects/aftercodecs_settings.png"
               theme="dark"
               type="image"
@@ -1598,7 +1598,7 @@ const AEExport: React.FC = () => {
             <ContentFigure
               caption="Render Queue"
               imgTitle="Кнопка начала рендеринга"
-              // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+              // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
               src="images/legacy/aftereffects/start_render_button.png"
               theme="dark"
               type="image"
@@ -1727,7 +1727,7 @@ const AEExport: React.FC = () => {
             <ContentFigure
               caption="Render Queue"
               imgTitle="Кнопка начала рендеринга"
-              // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+              // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
               src="images/legacy/aftereffects/start_render_button.png"
               theme="dark"
               type="image"
@@ -1795,7 +1795,7 @@ const AEExport: React.FC = () => {
             <ContentFigure
               caption="Shutter Encoder"
               imgTitle="Импорт материалов в Shutter Encoder"
-              // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+              // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
               src="images/legacy/shutter_encoder_import.png"
               theme="dark"
               type="image"
@@ -1816,7 +1816,7 @@ const AEExport: React.FC = () => {
             <ContentFigure
               caption="Shutter Encoder"
               imgTitle="Выбор VP9 в Shutter Encoder"
-              // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+              // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
               src="images/legacy/select_vp9_shutter_encoder.png"
               theme="dark"
               type="image"
@@ -1838,7 +1838,7 @@ const AEExport: React.FC = () => {
             качество в разных промежутках видео.
             <ContentFigure
               caption="Shutter Encoder"
-              // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+              // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
               src="images/legacy/shutter_encoder_change_cq_h264.mp4"
               theme="dark"
               type="video"
@@ -1869,7 +1869,7 @@ const AEExport: React.FC = () => {
             значение <mark>320</mark> Кбит/с.
             <ContentFigure
               caption="Shutter Encoder"
-              // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+              // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
               src="images/legacy/shutter_encoder_change_audio_bitrate_h264.mp4"
               theme="dark"
               type="video"
@@ -1883,7 +1883,7 @@ const AEExport: React.FC = () => {
             <ContentFigure
               caption="Shutter Encoder"
               imgTitle="Включение альфа-канала в Shutter Encoder"
-              // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+              // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
               src="images/legacy/enable_alpha_shutter_encoder.png"
               theme="dark"
               type="image"
@@ -1897,7 +1897,7 @@ const AEExport: React.FC = () => {
             <ContentFigure
               caption="Shutter Encoder"
               imgTitle="Включение аппаратного ускорения для H.264 в Shutter Encoder"
-              // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+              // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
               src="images/legacy/shutter_encoder_enable_hardware_acceleration_h264.png"
               theme="dark"
               type="image"
@@ -1921,7 +1921,7 @@ const AEExport: React.FC = () => {
             <ContentFigure
               caption="Shutter Encoder"
               imgTitle="Начало конвертации в Shutter Encoder"
-              // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+              // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
               src="images/legacy/shutter_encoder_start_function.png"
               theme="dark"
               type="image"
@@ -1988,12 +1988,12 @@ const AEExport: React.FC = () => {
                 preload="metadata"
               >
                 <source
-                  // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+                  // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
                   src="images/legacy/aefaq@aechat_alpha.mp4"
                   type="video/mp4;codecs=hvc1"
                 />
                 <source
-                  // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+                  // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
                   src="images/legacy/aefaq@aechat_alpha.webm"
                   type="video/webm"
                 />
@@ -2061,7 +2061,7 @@ const AEExport: React.FC = () => {
             <ContentFigure
               caption="Adobe After Effects"
               imgTitle="Открытие расширения GifGun"
-              // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+              // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
               src="images/legacy/aftereffects/open_gifgun.png"
               theme="light"
               type="image"
@@ -2171,7 +2171,7 @@ const AEExport: React.FC = () => {
             <ContentFigure
               caption="GifGun"
               imgTitle="Главное окно GifGun"
-              // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+              // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
               src="images/legacy/aftereffects/gifgun_main.png"
               theme="dark"
               type="image"
@@ -2184,7 +2184,7 @@ const AEExport: React.FC = () => {
             <ContentFigure
               caption="GifGun"
               imgTitle="Настройки экспорта в GifGun"
-              // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+              // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
               src="images/legacy/aftereffects/gifgun_settings.png"
               theme="dark"
               type="image"
@@ -2218,7 +2218,7 @@ const AEExport: React.FC = () => {
             <ContentFigure
               caption="Ezgif"
               imgTitle="Главная страница Ezgif"
-              // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+              // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
               src="images/legacy/ezgif_main.png"
               theme="light"
               type="image"
@@ -2238,7 +2238,7 @@ const AEExport: React.FC = () => {
             <ContentFigure
               caption="Ezgif"
               imgTitle="Настройки конвертации в Ezgif"
-              // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+              // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
               src="images/legacy/ezgif_settings.png"
               theme="light"
               type="image"
@@ -2290,7 +2290,7 @@ const AEExport: React.FC = () => {
             <ContentFigure
               caption="Media Encoder"
               imgTitle="Выбор формата GIF для экспорта через Adobe Media Encoder"
-              // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+              // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
               src="images/legacy/aftereffects/selecting_animated_gif_media_encoder.png"
               theme="light"
               type="image"
@@ -2365,7 +2365,7 @@ const AEExport: React.FC = () => {
             <ContentFigure
               caption="Render Queue"
               imgTitle="Очередь рендеринга с выбранным H.264"
-              // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+              // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
               src="images/legacy/aftereffects/render_queue_h264.png"
               theme="dark"
               type="image"
@@ -2398,7 +2398,7 @@ const AEExport: React.FC = () => {
         <p></p>
         <ContentFigure
           caption="Экспорт видео в Apple ProRes"
-          // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
           src="images/legacy/aftereffects/export_to_prores.mp4"
           theme="dark"
           type="video"
@@ -2415,7 +2415,7 @@ const AEExport: React.FC = () => {
         <ContentFigure
           caption="Composition"
           imgTitle="Включение сетки для отображения прозрачных областей"
-          // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
           src="images/legacy/aftereffects/toggle_transparency_grid.png"
           theme="dark"
           type="image"
@@ -2629,7 +2629,7 @@ const AEExport: React.FC = () => {
         <ContentFigure
           caption="Bodymovin for Telegram Stickers"
           imgTitle="Вывод анимированного стикера через Bodymovin for Telegram Stickers"
-          // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
           src="images/legacy/aftereffects/bodymovin_tg_export_window.png"
           theme="dark"
           type="image"
@@ -2719,7 +2719,7 @@ const AEExport: React.FC = () => {
         <ContentFigure
           caption="Bodymovin"
           imgTitle="Вывод композиции через Bodymovin"
-          // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
           src="images/legacy/aftereffects/bodymovin_export_window.png"
           theme="dark"
           type="image"
@@ -2820,7 +2820,7 @@ const AEExport: React.FC = () => {
         <ContentFigure
           caption="Essential Graphics"
           imgTitle="Экспорт композиции как анимированного шаблона"
-          // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
           src="images/legacy/aftereffects/export_motion_graphics_template.png"
           theme="dark"
           type="image"
@@ -2857,7 +2857,7 @@ const AEExport: React.FC = () => {
         <ContentFigure
           caption="Export as Motion Graphics Template"
           imgTitle="Окно экспорта MOGRT"
-          // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
           src="images/legacy/aftereffects/export_as_motion_graphics_template.png"
           theme="dark"
           type="image"
@@ -2935,7 +2935,7 @@ const AEExport: React.FC = () => {
         </p>
         <ContentFigure
           caption="Создание прокси для композиции"
-          // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
           src="images/legacy/aftereffects/create_comp_proxy.mp4"
           theme="dark"
           type="video"
@@ -2974,7 +2974,7 @@ const AEExport: React.FC = () => {
         </Addition>
         <ContentFigure
           caption="Настройка использования прокси в финальном рендеринге"
-          // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
           src="images/legacy/aftereffects/use_all_proxies.mp4"
           theme="dark"
           type="video"
@@ -2989,7 +2989,7 @@ const AEExport: React.FC = () => {
         </p>
         <ContentFigure
           caption="Переключение состояния прокси"
-          // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
           src="images/legacy/aftereffects/toggle_disable_proxy.mp4"
           theme="dark"
           type="video"
@@ -3022,7 +3022,7 @@ const AEExport: React.FC = () => {
         <ContentFigure
           caption="Render Queue"
           imgTitle="Сохранение одного кадра через очередь рендеринга"
-          // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
           src="images/legacy/aftereffects/export_one_frame_render_queue.png"
           theme="dark"
           type="image"
@@ -3062,7 +3062,7 @@ const AEExport: React.FC = () => {
         <ContentFigure
           caption="FX Console"
           imgTitle="Настройка полного разрешения для скриншотов"
-          // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
           src="images/legacy/aftereffects/fx_console_full_resolution_screenshots.png"
           theme="dark"
           type="image"
@@ -3078,7 +3078,7 @@ const AEExport: React.FC = () => {
         <ContentFigure
           caption="FX Console"
           imgTitle="Сохранение текущего кадра через FX Console"
-          // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
           src="images/legacy/aftereffects/fx_console_save_frame_as.png"
           theme="dark"
           type="image"
@@ -3108,7 +3108,7 @@ const AEExport: React.FC = () => {
             <ContentFigure
               caption="Render Queue"
               imgTitle="Интерфейс очереди рендеринга"
-              // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+              // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
               src="images/legacy/aftereffects/render_queue.png"
               theme="dark"
               type="image"
@@ -3130,7 +3130,7 @@ const AEExport: React.FC = () => {
             <ContentFigure
               caption="Output Module Settings"
               imgTitle="Выбор PNG-секвенции для экспорта"
-              // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+              // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
               src="images/legacy/aftereffects/selecting_png_sequence.png"
               theme="dark"
               type="image"
@@ -3144,7 +3144,7 @@ const AEExport: React.FC = () => {
             <ContentFigure
               caption="Render Queue"
               imgTitle="Кнопка начала рендеринга"
-              // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+              // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
               src="images/legacy/aftereffects/start_render_button.png"
               theme="dark"
               type="image"
@@ -3188,7 +3188,7 @@ const AEExport: React.FC = () => {
             <ContentFigure
               caption="Render Queue"
               imgTitle="Создание шаблона для Render Settings"
-              // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+              // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
               src="images/legacy/aftereffects/make_template_render_settings.png"
               theme="dark"
               type="image"
@@ -3203,7 +3203,7 @@ const AEExport: React.FC = () => {
             <ContentFigure
               caption="Render Settings Templates"
               imgTitle="Окно управления шаблонами Render Settings"
-              // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+              // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
               src="images/legacy/aftereffects/render_settings_templates.png"
               theme="dark"
               type="image"
@@ -3223,7 +3223,7 @@ const AEExport: React.FC = () => {
             <ContentFigure
               caption="Render Settings"
               imgTitle="Изменение области рендеринга композиции"
-              // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+              // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
               src="images/legacy/aftereffects/change_render_time_span.png"
               theme="dark"
               type="image"
@@ -3275,7 +3275,7 @@ const AEExport: React.FC = () => {
             <ContentFigure
               caption="Adobe After Effects"
               imgTitle="Выбор функции Collect Files"
-              // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+              // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
               src="images/legacy/aftereffects/select_collect_files.png"
               theme="light"
               type="image"
@@ -3291,7 +3291,7 @@ const AEExport: React.FC = () => {
             <ContentFigure
               caption="Collect Files"
               imgTitle="Настройки Collect Files"
-              // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+              // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
               src="images/legacy/aftereffects/collect_files_settings.png"
               theme="dark"
               type="image"
@@ -3389,7 +3389,7 @@ const AEExport: React.FC = () => {
         </p>
         <ContentFigure
           caption="Создание пресета анимации"
-          // TODO: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
           src="images/legacy/aftereffects/save_animation_preset.mp4"
           theme="dark"
           type="video"
