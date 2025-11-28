@@ -15,34 +15,23 @@ import HostsAdobeModal from "../../../components/features/HostsAdobe";
 const PRErrors: React.FC = () => {
   return (
     <div className="faq-content">
-      <DetailsSummary title='"This effect requires GPU Acceleration" при применении эффекта'>
-        <p>
-          Скорее всего у вас отключено ускорение на основе видеокарты в настройках
-          проекта. Некоторые эффекты могут напрочь отказываться работать с{" "}
-          <mark className="ui">Mercury Playback Engine Software Only</mark> и требовать
-          ускорение на видеокарте.
-        </p>
-        <p>
-          Для настройки типа рендеринга перейдите в{" "}
-          <mark className="ui">File &gt; Project Settings &gt; General</mark> и в
-          параметре <mark className="ui">Renderer</mark> установите значение{" "}
-          <mark className="ui">Mercury Playback Engine GPU Acceleration</mark>. Если у вас
-          отсутствует какой-либо параметр для ускорения на видеокарте, то попробуйте
-          обновить драйвера на ваш видеочип.
-        </p>
-        <ImageFigure
-          caption="Adobe Premiere Pro"
-          imgSrc="images/premierepro/set_render_on_gpu.png"
-          imgTitle="Установка рендеринга на GPU"
-          styleClass="figure_windows-dark"
-        />
-        <p>
-          В редких случаях эффект, требующий <mark>GPU-ускорения</mark> может
-          конфликтовать с остальными эффектами, применённые на клипе и выдавать похожую
-          ошибку. Для этого отключите все эффекты, а затем выявляйте виновника торжества с
-          помощью постепенного включения тех или иных эффектов.
-        </p>
-      </DetailsSummary>
+      <Addition type="danger">
+        <ul>
+          <li>
+            Пожалуйста, не ленитесь и внимательно читайте текст ошибки, которую вам выдаёт
+            программа. В большинстве случаев в её описании уже содержится причина и
+            возможное решение проблемы.
+          </li>
+          <li>
+            Если у вас возникают трудности с чтением текста на английском языке —{" "}
+            <a href="https://translate.yandex.ru/">воспользуйтесь переводчиком</a>.
+          </li>
+          <li>
+            Если в этом разделе нет вашей ошибки — попробуйте найти решение в интернете,
+            например на профильных форумах.
+          </li>
+        </ul>
+      </Addition>
       <DetailsSummary
         anchor="unlicensed-app"
         tag="bitte lies und akzeptiere die nutzungsbedingungen von adobe, door niet-gelicentieerde adobe-apps kan je apparaat worden blootgesteld aan extra beveilligingsrisico's, bu lisanssiz adobe uygulamasi orijinal olmadigindan yakinda devre disi birakilacak, deze app is gedeactiveerd, deze app wordt over dagen gedeactiveerd, deze niet-gelicentieerde adobe-app is degeactiveerd, dieses nicht lizenzierte adobe-programm wurde deaktiviert, dieses produkt wurde deaktiviert, cette application a ete desactivee, cette application adobe asns license a ete desactivee, profitez de sur les applications adobe authentiques, verhoog je productiviteit met legitieme adobe-apps, start your free trial of app, take advantage of discounts up to 40% off on genuine adobe replacement apps, this app has been disabled, this app will disable in days, this unlicensed adobe app is not genuine and will be disabled soon, unlicensed adobe apps may expose your device to increased security risks, vpn, white and red window, white screen, блокировка доступа в интернет, впн, виртуальная частная сеть, файл хостс, не запускается, начните использовать бесплатную пробную версию, окно с красной полоской при запуске, пустое окно, слетела лицензия, белое и красное окно, белый экран, the unlicensed adobe app, adobe genuine, hosts, ошибка лицензии, красное окно"
