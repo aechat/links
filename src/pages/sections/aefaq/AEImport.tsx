@@ -42,6 +42,7 @@ const AEImport: React.FC = () => {
   return (
     <div className="faq-content">
       <DetailsSummary
+        anchor="import-pipeline"
         tag="пайплайн, импорт, подготовка исходников, конвертация, монтажный кодек, shutter encoder, iphone, color space, frame rate"
         title="Какие действия нужно совершить с чужими исходниками, прежде чем начать работу?"
       >

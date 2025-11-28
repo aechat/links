@@ -436,7 +436,7 @@ const AEErrors: React.FC = () => {
             <a href="https://www.shutterencoder.com/">Shutter Encoder</a> в монтажный
             кодек, например в <mark className="video">Apple ProRes 422</mark>, а затем
             заменить в проекте. Так вы дополнительно обезопасите себя от различных багов.{" "}
-            <a href="#4.1">Как это сделать?</a>
+            <a href="#import-pipeline">Как это сделать?</a>
           </li>
           <li>
             Убедитесь, что вы не перегрузили проект множеством ресурсоёмких эффектов,

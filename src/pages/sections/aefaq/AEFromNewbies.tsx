@@ -2401,7 +2401,7 @@ const AEFromNewbies: React.FC = () => {
                       Прежде чем использовать видео из интернета для монтажа, их стоит
                       перекодировать в монтажный кодек, например{" "}
                       <mark className="video">Apple ProRes 422</mark>.{" "}
-                      <a href="#4.1">Подробнее...</a>
+                      <a href="#import-pipeline">Подробнее...</a>
                     </li>
                     <li>
                       «Проблема зелёного экрана» часто встречается при работе с «кривыми»
@@ -4747,7 +4747,7 @@ const AEFromNewbies: React.FC = () => {
           заменять ими уже добавленные исходники. Сделать это можно через{" "}
           <mark className="app">Shutter Encoder</mark> — бесплатную программу для
           конвертации файлов на основе <mark className="app">FFmpeg</mark>.{" "}
-          <a href="#4.1">Подробнее...</a>
+          <a href="#import-pipeline">Подробнее...</a>
         </p>
         <ContentFilter
           windowsContent={
