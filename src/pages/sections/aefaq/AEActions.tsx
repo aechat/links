@@ -90,7 +90,10 @@ const AEActions: React.FC = () => {
         <p>
           Для улучшения качества изображений прямо в{" "}
           <mark className="app">Adobe After Effects</mark> можно использовать способы,
-          описанные в статье ранее. Если вы хотите улучшить изображение без{" "}
+          описанные в статье ранее.
+        </p>
+        <p>
+          Если вы хотите улучшить изображение без использования{" "}
           <mark className="app">Adobe After Effects</mark>, попробуйте воспользоваться{" "}
           <mark className="app">Topaz Photo AI</mark> или{" "}
           <mark className="app">Topaz Gigapixel AI</mark>. Задачи у них похожи, но
