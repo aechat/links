@@ -528,6 +528,12 @@ const Links = () => {
               name="Houdini Chat"
             />
             <LinkCard
+              description="Общаемся и обмениваемся знаниями в области нейросетей"
+              href="https://t.me/stable_dif"
+              icon={<AssistantRounded />}
+              name="StableDif"
+            />
+            <LinkCard
               description="Обсуждаем нейросети"
               href="https://t.me/neuralnetworkstut"
               icon={<AssistantRounded />}
