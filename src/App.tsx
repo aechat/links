@@ -274,7 +274,7 @@ export const App = () => {
         const warningDismissed =
           localStorage.getItem("oldBrowserWarningDismissed") === "true";
 
-        if (warningDismissed === false) {
+        if (!warningDismissed) {
           const lastShown = localStorage.getItem("oldBrowserWarningLastShown");
 
           const now = Date.now();
@@ -317,7 +317,7 @@ export const App = () => {
         const warningDismissed =
           localStorage.getItem("safariWarningDismissed") === "true";
 
-        if (warningDismissed === false) {
+        if (!warningDismissed) {
           const lastShown = localStorage.getItem("safariWarningLastShown");
 
           const now = Date.now();
