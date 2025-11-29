@@ -74,20 +74,20 @@ const PSActions: React.FC = () => {
           <a href="https://t.me/+Qd9xu7A4TeIwNzY6">склад стройматериалов</a>.
         </AdditionInfo>
       </DetailsSummary>
-      <DetailsSummary title="Как и чем можно отретушировать модель на изображении?">
-        <p>{/* FIXME: написать!! */}</p>
+      <DetailsSummary title="Как и чем можно отретушировать фото?">
+        {/* FIXME: написать!! */}
       </DetailsSummary>
-      <DetailsSummary title="Как и чем можно сделать цветокоррекцию изображения?">
-        <p>{/* FIXME: написать!! */}</p>
+      <DetailsSummary title="Как и чем можно сделать цветокоррекцию?">
+        {/* FIXME: написать!! */}
       </DetailsSummary>
-      <DetailsSummary title="Как и чем можно заменить небо на фотографии?">
-        <p>{/* FIXME: */}</p>
+      <DetailsSummary title="Как и чем можно заменить небо?">
+        {/* FIXME: */}
       </DetailsSummary>
-      <DetailsSummary title="Как красиво размыть фон на фотографии?">
-        <p>{/* FIXME: */}</p>
+      <DetailsSummary title="Как красиво размыть фон?">
+        {/* FIXME: */}
       </DetailsSummary>
-      <DetailsSummary title="Как и чем можно сделать покадровые анимации в программе?">
-        <p>{/* FIXME: написать!! */}</p>
+      <DetailsSummary title="Как и чем можно сделать покадровые анимации?">
+        {/* FIXME: написать!! */}
       </DetailsSummary>
     </div>
   );
