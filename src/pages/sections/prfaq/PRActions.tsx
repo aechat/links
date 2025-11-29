@@ -4,47 +4,110 @@ import React from "react";
 
 import Addition from "../../../components/Addition";
 
-import {ImageFigure, YouTubeVideo} from "../../../components/ContentFigure";
+import {ContentFigure} from "../../../components/ContentFigure";
 
 import DetailsSummary from "../../../components/DetailsSummary";
 
 const PRActions: React.FC = () => {
   return (
     <div className="faq-content">
-      <DetailsSummary title="Чем бы мне улучшить качество исходников?">
+      <DetailsSummary
+        tag="апскейл, топаз, качество, 4к, резкость, восстановить четкость, шарпен, цветокоррекция, улучшение видео, улучшение фото, нейросети, ии"
+        title="Какими средствами можно улучшить качество исходников?"
+      >
         <p>
-          В наше время существует множество различных способов для улучшения качества
-          видеоматериалов с помощью искусственного интеллекта. Все эти методы обычно
-          предполагают локальную обработку материалов на вашем компьютере, поэтому
-          мощность компьютера играет важную роль: если у вас слабый ПК или
-          непроизводительная видеокарта - могут возникнуть проблемы с производительностью.
+          В последнее время появилось множество инструментов с использованием
+          искусственного интеллекта, которые могут помочь вам улучшить качество видео. Все
+          описанные методы работают локально на вашем устройстве, поэтому для их
+          корректной работы потребуется производительная видеокарта и мощный процессор.
         </p>
+        <Addition type="info">
+          Интерфейс и действия в приведённых ниже видео могут отличаться в зависимости от
+          версии программы или плагина.
+        </Addition>
+        <Divider>Улучшаем качество видео</Divider>
         <p>
-          Одним из хороших плагинов для <mark className="app">Adobe Premiere Pro</mark> по
-          улучшению качества могу назвать <mark className="plugin">BCC UpRes ML</mark> в
-          пакете плагинов <mark className="plugin">Boris FX Continuum</mark>.
+          Если вы хотите повысить качество исходного материала прямо в{" "}
+          <mark className="app">Adobe Premiere Pro</mark>, попробуйте применить к слою
+          эффект <mark className="plugin">BCC+UpRes ML</mark>, который входит в сторонний
+          пакет <mark className="plugin">Boris FX Continuum</mark>.
         </p>
-        <YouTubeVideo
+        <ContentFigure
           caption="BCC UpRes ML"
-          link="_gHNqhHfeck"
+          src="_gHNqhHfeck"
+          type="youtube"
         />
         <p>
-          Далее могу посоветовать программу <mark className="app">Topaz Video AI</mark>.
-          Она позволяет улучшить качество видео за счёт различных алгоритмов и моделей.
-          Если у вас есть достаточно времени для экспериментов - можно добыть из плохого
-          исходника вполне себе хорошее качество изображения. Программа распространяется
-          как Standalone, плагин для <mark className="app">Adobe Premiere Pro</mark>{" "}
+          В качестве альтернативы можно посоветовать программу{" "}
+          <mark className="app">Topaz Video AI</mark>. Она позволяет улучшить качество
+          видео за счёт различных алгоритмов и моделей. Однако стоит учесть, что хороший
+          результат не всегда может получиться с первой попытки, поэтому не стоит бояться
+          экспериментировать с настройками. Программа распространяется как отдельное
+          приложение, плагин для <mark className="app">Adobe Premiere Pro</mark>{" "}
           отсутствует.
         </p>
-        <YouTubeVideo
+        <ContentFigure
           caption="Topaz Video AI"
-          link="zbX7x8Oo_Uc"
+          src="zbX7x8Oo_Uc"
+          type="youtube"
         />
-        <AdditionInfo>
+        <Addition type="info">
           Скачать программу <mark className="app">Topaz Video AI</mark>, а также пакет
           плагинов <mark className="plugin">Boris FX Continuum</mark> можно в канале{" "}
           <a href="https://t.me/+Qd9xu7A4TeIwNzY6">склад стройматериалов</a>.
-        </AdditionInfo>
+        </Addition>
+        <Divider>Улучшаем качество фотографий</Divider>
+        <p>
+          Для улучшения качества изображений прямо в{" "}
+          <mark className="app">Adobe Premiere Pro</mark> можно использовать способы,
+          описанные в статье ранее.
+        </p>
+        <p>
+          Если вы хотите улучшить изображение без использования{" "}
+          <mark className="app">Adobe Premiere Pro</mark>, попробуйте воспользоваться{" "}
+          <mark className="app">Topaz Photo AI</mark> или{" "}
+          <mark className="app">Topaz Gigapixel AI</mark>. Задачи у них похожи, но
+          результаты обработки могут сильно отличаться, поэтому иногда приходится
+          использовать обе программы.{" "}
+          <a href="https://www.topazlabs.com/pai-vs-gp">Чем эти программы отличаются?</a>
+        </p>
+        <Addition type="warning">
+          Для <mark className="app">Topaz Photo AI</mark> понадобится около{" "}
+          <mark>50 ГБ</mark> свободного места на жёстком диске, а для{" "}
+          <mark className="app">Topaz Gigapixel AI</mark> — около <mark>20 ГБ</mark>. И
+          это без учёта будущих обновлений.
+        </Addition>
+        <ContentFigure
+          caption="Intro to Photo AI"
+          src="J6vDYRvjbGY"
+          type="youtube"
+        />
+        <p>
+          Если вы ищете бесплатный аналог <mark className="app">Topaz AI</mark> — обратите
+          внимание на <mark className="app">Upscayl</mark>. Эта программа также использует
+          нейросетевые модели для улучшения качества изображений. Скачать её можно{" "}
+          <a href="https://upscayl.org/">по этой ссылке</a>.
+        </p>
+        <ContentFigure
+          caption="Upscayl"
+          src="https://github.com/upscayl/upscayl/assets/25067102/ad2453b1-3c5a-4eb2-b992-4cf10e6a49f5"
+          theme="dark"
+          type="video"
+          variant="mac"
+        />
+        <p>
+          В качестве альтернативы можно использовать{" "}
+          <mark className="app">Benvista PhotoZoom</mark> — программу с историей, уходящей
+          корнями в 2003 год. В последних версиях в неё добавили нейросетевые модели, хотя
+          работать можно и без них. Благодаря собственным алгоритмам программа порой даёт
+          результат даже лучше, чем упомянутые выше инструменты, при этом занимает совсем
+          немного места на диске.
+        </p>
+        <ContentFigure
+          caption="Benvista Photozoom"
+          src="woDDQ0xnt84"
+          type="youtube"
+        />
       </DetailsSummary>
       <DetailsSummary
         tag="слоумо, твикстор, топаз, ретаймер, тайм ремапинг, плавное замедление, флоуфреймс"
