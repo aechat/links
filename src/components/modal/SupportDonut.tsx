@@ -6,9 +6,11 @@ import {motion} from "framer-motion";
 
 import React, {useState} from "react";
 
-import Addition from "../Addition";
+interface SupportDonutProps {
+  wide?: boolean;
+}
 
-const SupportDonut: React.FC = () => {
+const SupportDonut: React.FC<SupportDonutProps> = ({wide}) => {
   const [isDonateModalOpen, setIsDonateModalOpen] = useState(false);
 
   const [isSberModalOpen, setIsSberModalOpen] = useState(false);
@@ -25,26 +27,13 @@ const SupportDonut: React.FC = () => {
 
   return (
     <>
-      <Addition type="info">
-        <ul>
-          <li>
-            Содержание этой страницы периодически обновляется и предоставляется «как
-            есть». Информация в статьях может быть неполной, устаревшей или неточной.
-            Мнение автора и читателя может не совпадать.
-          </li>
-          <li>
-            Если вы хотите сделать ресурс ещё лучше — поделитесь своими замечаниями и
-            идеями через бота <a href="https://t.me/aechatru_bot">@aechatru_bot</a>.
-          </li>
-        </ul>
-      </Addition>
       <div className="modal-support">
         <button
-          className="modal-support-open-button modal-support-open-button--enhanced"
+          className="modal-support-header-button"
           onClick={openDonateModal}
         >
           <CoffeeRounded />
-          Поддержать проект
+          {wide ? <span>Поддержать проект</span> : null}
         </button>
       </div>
       <Modal
@@ -170,6 +159,18 @@ const SupportDonut: React.FC = () => {
                 </div>
               </Modal>
             </div>
+            <p>
+              Также, если вы хотите сделать ресурс ещё лучше — вы можете поделиться своими
+              замечаниями и идеями через бота{" "}
+              <a
+                href="https://t.me/aechatru_bot"
+                rel="noreferrer"
+                target="_blank"
+              >
+                @aechatru_bot
+              </a>
+              .
+            </p>
           </div>
         </div>
       </Modal>

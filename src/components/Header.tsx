@@ -10,6 +10,8 @@ import {ThemeToggleButton} from "./modal/ThemeChanger";
 
 import {SearchButton} from "./search";
 
+import SupportDonut from "./modal/SupportDonut";
+
 interface HeaderProps {
   title: string;
 }
@@ -107,6 +109,7 @@ const Header: React.FC<HeaderProps> = ({title}) => {
             <mark>{isWide ? "[В РАЗРАБОТКЕ]" : "[WIP]"}</mark>
           )}
         </div>
+        <div>{isWide ? <SupportDonut wide /> : <SupportDonut />}</div>
       </div>
       <div className="header-right">
         <div className={`header-right ${isVisible ? "visible" : "hidden"}`}>
