@@ -12,6 +12,8 @@ import {SearchButton} from "./search";
 
 import SupportDonut from "./modal/SupportDonut";
 
+import {Tooltip} from "antd";
+
 interface HeaderProps {
   title: string;
 }
@@ -26,6 +28,15 @@ const constants = {
 const SEARCH_PATHS = ["aefaq", "prfaq", "psfaq", "aeexpr"] as const;
 
 const WIP_PATHS = ["prfaq", "psfaq", "aeexpr"] as const;
+
+const TOOLTIP_MESSAGES: Record<string, string> = {
+  "/aefaq": "Ответы на часто задаваемые вопросы по Adobe After Effects",
+  "/prfaq": "Ответы на часто задаваемые вопросы по Adobe Premiere Pro",
+  "/psfaq": "Ответы на часто задаваемые вопросы по Adobe Photoshop",
+  "/aeexpr": "Руководство по выражениям в Adobe After Effects",
+  "/rules": "Правила сообщества AEChat и DWChat",
+  "/": "Ссылки на полезные ресурсы, программы и чаты",
+};
 
 const Header: React.FC<HeaderProps> = ({title}) => {
   const location = useLocation();
@@ -44,7 +55,7 @@ const Header: React.FC<HeaderProps> = ({title}) => {
         top: 0,
         behavior: "smooth",
       });
-      window.history.replaceState({}, "", location.pathname);
+      window.history.replaceState({}, "", currentPath);
     }
   };
 
@@ -77,11 +88,15 @@ const Header: React.FC<HeaderProps> = ({title}) => {
 
   const shouldShowSearch = (): boolean => {
     if (typeof window !== "undefined") {
-      return SEARCH_PATHS.some((path) => location.pathname.includes(path));
+      return SEARCH_PATHS.some((path) => currentPath.includes(path));
     }
 
     return false;
   };
+
+  const currentPath = location.pathname;
+
+  const tooltipMessage = TOOLTIP_MESSAGES[currentPath];
 
   return (
     <motion.header
@@ -95,7 +110,7 @@ const Header: React.FC<HeaderProps> = ({title}) => {
       }}
     >
       <div className="header-left">
-        {location.pathname === "/" ? null : (
+        {currentPath === "/" ? null : (
           <span className="icon">
             <Link to="/">
               <ArrowBackRounded />
@@ -103,9 +118,18 @@ const Header: React.FC<HeaderProps> = ({title}) => {
           </span>
         )}
         <div className="logo">
-          {title}
-          <sub>@aechat</sub>
-          {WIP_PATHS.some((path) => location.pathname.includes(path)) && (
+          {tooltipMessage ? (
+            <>
+              <Tooltip title={tooltipMessage}>{title}</Tooltip>
+              <sub>@aechat</sub>
+            </>
+          ) : (
+            <>
+              {title}
+              <sub>@aechat</sub>
+            </>
+          )}
+          {WIP_PATHS.some((path) => currentPath.includes(path)) && (
             <mark>{isWide ? "[В РАЗРАБОТКЕ]" : "[WIP]"}</mark>
           )}
         </div>
