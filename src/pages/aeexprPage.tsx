@@ -20,8 +20,6 @@ import Footer from "../components/Footer";
 
 import Header from "../components/Header";
 
-import SupportDonut from "../components/modal/SupportDonut";
-
 import {SearchInPage, SearchProvider} from "../components/search";
 
 import AEExprStart from "./sections/aeexpr/ExprStart";
@@ -166,7 +164,6 @@ const AEExpressionPage = () => {
                 открывается комбинацией клавиш{" "}
                 <mark className="key">Ctrl + Alt + Shift + K</mark>.
               </Addition>
-              <SupportDonut />
               {sections.map((section) => (
                 <div
                   key={section.key}

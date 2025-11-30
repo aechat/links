@@ -18,8 +18,6 @@ import Footer from "../components/Footer";
 
 import Header from "../components/Header";
 
-import SupportDonut from "../components/modal/SupportDonut";
-
 import {SearchInPage, SearchProvider} from "../components/search";
 
 import AEWhereFind from "./sections/aefaq/AEWhereFind";
@@ -223,7 +221,6 @@ const AEFAQ = () => {
               <div className="faq-title">
                 <h1>aefaq</h1>
               </div>
-              <SupportDonut />
               {sections.map((section) => (
                 <div
                   key={section.key}

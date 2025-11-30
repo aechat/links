@@ -18,8 +18,6 @@ import Footer from "../components/Footer";
 
 import Header from "../components/Header";
 
-import SupportDonut from "../components/modal/SupportDonut";
-
 import {SearchInPage, SearchProvider} from "../components/search";
 
 import Addition from "../components/Addition";
@@ -187,7 +185,6 @@ const PSFAQ = () => {
               <div className="faq-title">
                 <h1>psfaq</h1>
               </div>
-              <SupportDonut />
               <Addition type="danger">
                 Эта страница всё ещё находится в процессе разработки. Следите за
                 обновлениями!
