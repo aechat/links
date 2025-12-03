@@ -753,10 +753,9 @@ const AEPerformance: React.FC = () => {
           По умолчанию в <mark className="app">Adobe After Effects</mark> включена функция
           адаптивного разрешения: при перемещении плейхеда или слоя качество предпросмотра
           временно снижается для быстрого рендера кадра. Если эта функция вас раздражает
-          или вы считаете что из-за него вы иногда испытываете трудности с отзывчивостью
-          программы, её можно отключить — для этого нажмите на{" "}
-          <mark className="select">«Fast Previews»</mark> под окном предпросмотра и
-          выберите <mark className="select">«Off (Final Quality)»</mark>.
+          или, по-вашему, снижает отзывчивость программы, её можно отключить — для этого
+          нажмите на <mark className="select">«Fast Previews»</mark> под окном
+          предпросмотра и выберите <mark className="select">«Off (Final Quality)»</mark>.
         </p>
         <ContentFigure
           caption="Timeline"
