@@ -723,12 +723,12 @@ const AEPerformance: React.FC = () => {
         </p>
         <Divider>Снижаем качество предпросмотра</Divider>
         <p>
-          Для дополнительного ускорения предпросмотра можно временно снизить его качество
-          в окне композиции или в <mark className="select">«Preview»</mark>. Установка
-          разрешения на <mark className="select">«Half»</mark>,{" "}
+          Для дополнительного ускорения работы можно временно снизить качество картинки в
+          окне композиции или на панели <mark className="select">«Preview»</mark>.
+          Переключение разрешения на <mark className="select">«Half»</mark>,{" "}
           <mark className="select">«Third»</mark> или{" "}
-          <mark className="select">«Quarter»</mark> облегчит обработку кадров для
-          предпросмотра, что поможет ускорить общую работу с проектом.
+          <mark className="select">«Quarter»</mark> снизит нагрузку на систему и ускорит
+          отзывчивость интерфейса.
         </p>
         <ContentFigure
           caption="Изменение разрешения предпросмотра"
@@ -738,9 +738,13 @@ const AEPerformance: React.FC = () => {
           type="image"
           variant="windows"
         />
+        <p>
+          Также не стоит оставлять режим <mark className="select">«Auto»</mark>: из-за
+          него постоянно «скачет» и качество предпросмотра, и скорость рендера кадров.
+        </p>
         <Addition type="warning">
-          Учтите, что некоторые эффекты в режиме разрешения, отличном от полного, могут
-          выглядеть не так, как хотелось и как это было с полным разрешением, например{" "}
+          Учтите, что при пониженном разрешении некоторые эффекты могут отображаться
+          иначе, чем в полном качестве — например,{" "}
           <mark className="plugin">CC Particle World</mark> или{" "}
           <mark className="plugin">S_LensFlare</mark>.
         </Addition>
