@@ -62,7 +62,9 @@
     mask-position: 0 50%;
     mask-size: 100% 200%;
     mask-repeat: no-repeat;
-    transition: -webkit-mask-position 0.5s ease, mask-position 0.5s ease;
+    transition:
+      -webkit-mask-position 0.5s ease,
+      mask-position 0.5s ease;
     margin: -2px;
     margin-top: -15px;
     border-radius: $roundness;
@@ -198,7 +200,9 @@
   }
 
   &-selected {
-    transition: background-color, outline 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+    transition:
+      background-color,
+      outline 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
 
     .search-header {
       outline: 1px solid var(--color-accent);
@@ -356,12 +360,13 @@ button {
 
 .search-button {
   display: flex;
-  gap: 6px;
+  gap: 12px;
   align-items: center;
   transition: background-color 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
   outline: 1px solid var(--color-widget-border);
   border-radius: $roundness * 0.75;
   background: var(--color-widget-background);
+  padding: 5px;
   padding-inline-start: 5px;
   color: var(--color-widget-text);
   font-family: Onest, Inter, sans-serif;
@@ -389,12 +394,14 @@ button {
 
   span {
     margin-inline-start: -8px;
-    padding: 5px;
+    text-wrap-mode: nowrap;
   }
 
   mark {
+    margin: -5px !important;
     margin-block: 0;
-    margin-inline-end: -1px;
+    margin-inline-end: 0;
+    border-radius: $roundness * 0.75;
     padding: 5px;
   }
 }

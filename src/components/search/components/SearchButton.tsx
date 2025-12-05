@@ -39,11 +39,14 @@ export const SearchButton: React.FC<SearchButtonProps> = ({
     >
       {wide ? (
         <>
-          <Search /> Поиск по странице <mark>Ctrl + F</mark>
+          <Search />
+          <span>Поиск по странице</span>
+          <mark>Ctrl + F</mark>
         </>
       ) : (
         <>
-          <Search /> <span>Поиск</span>
+          <Search />
+          <span>Поиск</span>
         </>
       )}
     </button>

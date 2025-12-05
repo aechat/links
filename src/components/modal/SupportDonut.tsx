@@ -27,15 +27,13 @@ const SupportDonut: React.FC<SupportDonutProps> = ({wide}) => {
 
   return (
     <>
-      <div className="modal-support">
-        <button
-          className="modal-support-header-button"
-          onClick={openDonateModal}
-        >
-          <CoffeeRounded />
-          {wide ? <span>Поддержать проект</span> : null}
-        </button>
-      </div>
+      <button
+        className="modal-support-header-button"
+        onClick={openDonateModal}
+      >
+        <CoffeeRounded />
+        {wide ? <span>Поддержать проект</span> : null}
+      </button>
       <Modal
         centered
         closeIcon={null}
