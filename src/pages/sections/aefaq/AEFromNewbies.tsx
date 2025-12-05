@@ -2542,9 +2542,9 @@ const AEFromNewbies: React.FC = () => {
             (выравнивание по цвету и яркости) и финальную (стилизация, точечные правки).
           </li>
           <li>
-            <mark className="word">Глитч</mark> или <mark className="word">glitch</mark> —
             <mark className="word">Глитч</mark>, или <mark className="word">glitch</mark>,
             — визуальный эффект, имитирующий цифровой сбой или артефакт.
+          </li>
           <li>
             <mark className="word">Ванфрейм-эффект</mark> — эффект, который применяется
             всего на один кадр, обычно с использованием{" "}
@@ -2561,13 +2561,13 @@ const AEFromNewbies: React.FC = () => {
             общей структуры.
           </li>
           <li>
-            <mark className="word">Шот</mark> или <mark className="word">футаж</mark> —
             <mark className="word">Шот</mark>, или <mark className="word">футаж</mark>, —
+            отдельный фрагмент видео или сцены.
           </li>
           <li>
-            <mark className="word">Референс</mark> или <mark className="word">реф</mark> —
             <mark className="word">Референс</mark>, или <mark className="word">реф</mark>,
             — синоним слов «пример» и «образец». Используется для иллюстрации анимации или
+            согласования видения с заказчиком.
           </li>
           <li>
             <mark className="word">Шаблон</mark> — готовый проект или пресет, который
@@ -2576,9 +2576,9 @@ const AEFromNewbies: React.FC = () => {
             шаблон для личного пользования.
           </li>
           <li>
-            <mark className="word">Переходы</mark> или{" "}
             <mark className="word">Переходы</mark>, или{" "}
             <mark className="word">транзишены</mark>, — визуальные эффекты для стилизации
+            соединения двух клипов.
           </li>
           <li>
             <mark className="word">Туториал</mark> — обучающее видео о том, как
@@ -2592,9 +2592,9 @@ const AEFromNewbies: React.FC = () => {
             <mark className="app">YouTube</mark> и <mark className="app">TikTok</mark>.
           </li>
           <li>
-            <mark className="word">Рилсы</mark> или <mark className="word">шортсы</mark> —
             <mark className="word">Рилсы</mark>, или <mark className="word">шортсы</mark>,
             — короткие вертикальные видеоролики формата <mark>9:16</mark>, публикующиеся в{" "}
+            <mark className="app">
               Instagram<sup>1</sup>
             </mark>{" "}
             или <mark className="app">YouTube</mark>. Вокруг этого формата регулярно кипят
