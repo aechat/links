@@ -243,8 +243,8 @@ const AEFromNewbies: React.FC = () => {
               <sup>1</sup> Автор статьи не рекомендует применять{" "}
               <mark className="plugin">Twitch</mark> в новых проектах, так как он морально
               устарел и не поддерживает{" "}
-              <mark className="select">«Multi-Frame Rendering»</mark>. В качестве замены
-              лучше подходит <mark className="plugin">S_Shake</mark> из пакета{" "}
+              <mark className="select">«Multi-Frame Rendering»</mark>. В качестве аналога
+              подойдёт <mark className="plugin">S_Shake</mark> из пакета{" "}
               <mark className="plugin">Boris FX Sapphire</mark> со стилем{" "}
               <mark className="select">«Twitchy»</mark>.
             </Addition>
