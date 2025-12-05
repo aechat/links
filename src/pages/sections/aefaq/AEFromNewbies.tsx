@@ -131,6 +131,23 @@ const AEFromNewbies: React.FC = () => {
             </div>
           </li>
         </ul>
+        <Divider>Принципы анимации</Divider>
+        <ContentFigure
+          caption="12 принципов анимации"
+          src="LcoDiK2a_oM"
+          type="youtube"
+        />
+        <div className="flexible-links">
+          <a href="https://www.youtube.com/playlist?list=PLC1VMnkSWzhyvstYWgvctvjTjKICAXWZD">
+            «Принципы анимации» от ANIMATION CLUB
+          </a>
+          <a href="https://www.youtube.com/watch?v=VvjtQ_ewuQY">
+            Основные принципы анимации на примерах в After Effects (Часть 1)
+          </a>
+          <a href="https://www.youtube.com/watch?v=eoX9_9AuxUc">
+            Основные принципы анимации на примерах в After Effects (Часть 2)
+          </a>
+        </div>
         <Divider>Подборка туториалов на разные темы</Divider>
         <ul>
           <li>
