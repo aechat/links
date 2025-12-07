@@ -996,13 +996,24 @@ const AEInstallProblems: React.FC = () => {
                           </mark>
                           .
                           <Addition type="info">
-                            Если папка отсутствует — создайте её вручную через контекстное
-                            меню проводника или с помощью команды{" "}
-                            <mark className="code">
-                              mkdir &quot;C:\Program Files (x86)\Common
-                              Files\Adobe\CEP\extensions&quot;
-                            </mark>
-                            .
+                            <ul>
+                              <li>
+                                Если папка отсутствует — создайте её вручную через
+                                контекстное меню проводника или с помощью команды{" "}
+                                <mark className="code">
+                                  mkdir &quot;C:\Program Files (x86)\Common
+                                  Files\Adobe\CEP\extensions&quot;
+                                </mark>
+                                .
+                              </li>
+                              <li>
+                                Если у вас нет прав администратора, вы можете распаковать
+                                файлы в папку{" "}
+                                <mark className="path">
+                                  %APPDATA%\Adobe\CEP\extensions
+                                </mark>
+                              </li>
+                            </ul>
                           </Addition>
                         </li>
                         <li>
