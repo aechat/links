@@ -976,15 +976,25 @@ const AEPerformance: React.FC = () => {
           type="youtube"
         />
             <p>
-              Чтобы избежать подобных проблем, стоит{" "}
-              <a href="#import-pipeline">перекодировать</a> такие исходники в монтажный
-              кодек с помощью одной из утилит:{" "}
+          Эта проблема решается, как ни странно,{" "}
+          <a href="#import-pipeline">конвертацией</a> исходников через{" "}
               <mark className="app">Shutter Encoder</mark>,{" "}
-              <mark className="app">Adobe Media Encoder</mark>,{" "}
               <mark className="app">Handbrake</mark> или{" "}
-              <mark className="app">MKVToolNix</mark>.
-            </p>
-            <Addition type="info">
+          <mark className="app">MKVToolNix</mark> в монтажный кодек вроде{" "}
+          <mark className="video">Apple ProRes</mark> или{" "}
+          <mark className="video">DNxHD</mark>.{" "}
+          <mark className="word">Монтажный кодек</mark> — это тип кодеков, созданных
+          специально для работы в программах монтажа и композитинга. В отличие от кодеков
+          для доставки типа <mark className="video">H.264</mark>, он использует
+          внутрикадровое сжатие и меньше нагружает систему. Да, после конвертации файлы
+          станут тяжелее, зато софт с ними будет работать стабильнее, без лагов
+          <sup>1</sup> и внезапных ошибок рендера.
+        </p>
+        <Addition type="warning">
+          <sup>1</sup> Видеофайлы, закодированные в монтажный кодек, лучше хранить на
+          скоростном SSD, так как у них обычно очень высокий битрейт и большой размер, что
+          требует быстрого накопителя. Иначе даже конвертация от «тормозов» не спасёт.
+        </Addition>
               <ul>
                 <li>
                   <mark className="video">Монтажный кодек</mark> — это тип видеокодека,
