@@ -1181,6 +1181,34 @@ const AEPerformance: React.FC = () => {
           src="3CHUvo6bWfM"
           type="youtube"
         />
+        <Divider>Разбираемся с выражениями</Divider>
+        <p>
+          Выражения для свойств слоя также могут нагружать систему, даже такие банальные,
+          как <mark className="code">wiggle(x,y)</mark> или{" "}
+          <mark className="code">time</mark>. Некоторые из них бывают настолько сложными,
+          что долго просчитываются и тормозят весь проект.
+        </p>
+        <p>
+          Если результат выражения вас устраивает, и вы не планируете его дальше
+          редактировать, его можно «запечь» с помощью{" "}
+          <mark className="select">
+            «Keyframe Assistant» → «Convert Expression to Keyframes»
+          </mark>
+          . В результате оно превратится в ключевые кадры.
+        </p>
+        <ContentFigure
+          caption="«Запекание» выражения в ключевые кадры"
+          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          src="images/legacy/aftereffects/convert_expression_to_keyframes.png"
+          theme="dark"
+          type="image"
+          variant="windows"
+        />
+        <Addition type="info">
+          Если после «запекания» вам вдруг понадобилось внести в анимацию правки, просто
+          удалите все созданные ключевые кадры и снова включите выражение для нужного
+          свойства.
+        </Addition>
         <Divider>Создаём прокси для сложных композиций</Divider>
         <p>
           И последнее, но не менее важное:{" "}
