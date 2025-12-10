@@ -11,7 +11,7 @@ services:
       - CHOKIDAR_USEPOLLING=true
       - YARN_IGNORE_PATH=1
       - YARN_NODE_LINKER=node-modules
-    command: yarn dev --host
+    command: sh -c "yarn install && yarn dev --host"
     networks:
       - dev_network
 

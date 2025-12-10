@@ -1,12 +1,11 @@
-FROM node:20-alpine
+FROM node:22-slim
 
 WORKDIR /app
 
 COPY package.json ./
 
 RUN corepack enable && \
-    echo "nodeLinker: node-modules" > .yarnrc.yml && \
-    yarn install
+    echo "nodeLinker: node-modules" > .yarnrc.yml
 
 COPY . .
 
