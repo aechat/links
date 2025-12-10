@@ -1569,7 +1569,7 @@ const AEErrors: React.FC = () => {
       </DetailsSummary>
       <DetailsSummary
         anchor="fix-overflow-converting-ratio-denominators"
-        tag="vfr, переменная частота кадров, интерпретация видео, frame rate, 17::19, 17::18"
+        tag="vfr, переменная частота кадров, интерпретация видео, frame rate, переполнение преобразование знаменателей пропорций, 17::19, 17::18"
         title="Что делать с ошибкой «Error: overflow converting ratio denominators»?"
       >
         <p>
