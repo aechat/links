@@ -395,7 +395,7 @@ const AEErrors: React.FC = () => {
                 <a href="https://youtu.be/HDVvWyBKizo&t=75">отключить</a> эту службу или
                 полностью очистить систему от продуктов{" "}
                 <mark className="company">Adobe</mark> с помощью{" "}
-                <a href="https://helpx.adobe.com/creative-cloud/kb/cc-cleaner-tool-installation-problems.html">
+                <a href="https://helpx.adobe.com/creative-cloud/apps/troubleshoot/diagnostics-repair-tools/run-creative-cloud-cleaner-tool.html">
                   Adobe Creative Cloud Cleaner Tool
                 </a>
                 .

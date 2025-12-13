@@ -1353,7 +1353,7 @@ const AEInstallProblems: React.FC = () => {
                 <mark className="app">Adobe After Effects</mark> «по-человечески» — то
                 есть не менять местоположение программы при установке. Для этого
                 достаточно удалить текущую версию с помощью{" "}
-                <a href="https://helpx.adobe.com/creative-cloud/kb/cc-cleaner-tool-installation-problems.html">
+                <a href="https://helpx.adobe.com/creative-cloud/apps/troubleshoot/diagnostics-repair-tools/run-creative-cloud-cleaner-tool.html">
                   Adobe Creative Cloud Cleaner Tool
                 </a>{" "}
                 или любого другого деинсталлятора, например{" "}
@@ -1563,7 +1563,7 @@ const AEInstallProblems: React.FC = () => {
           <mark className="company">Adobe</mark>, а потом вы установили «народные» версии
           программ. Чтобы это исправить — попробуйте очистить остатки предыдущих установок
           с помощью{" "}
-          <a href="https://helpx.adobe.com/creative-cloud/kb/cc-cleaner-tool-installation-problems.html">
+          <a href="https://helpx.adobe.com/creative-cloud/apps/troubleshoot/diagnostics-repair-tools/run-creative-cloud-cleaner-tool.html">
             Adobe Creative Cloud Cleaner Tool
           </a>{" "}
           или любого другого деинсталлятора, например{" "}
@@ -1862,7 +1862,7 @@ const AEInstallProblems: React.FC = () => {
                 Чтобы полностью очистить систему от программ{" "}
                 <mark className="company">Adobe</mark> — воспользуйтесь консольной
                 утилитой{" "}
-                <a href="https://helpx.adobe.com/creative-cloud/kb/cc-cleaner-tool-installation-problems.html">
+                <a href="https://helpx.adobe.com/creative-cloud/apps/troubleshoot/diagnostics-repair-tools/run-creative-cloud-cleaner-tool.html">
                   Adobe Creative Cloud Cleaner
                 </a>{" "}
                 или любым другим деинсталлятором, например{" "}
@@ -1917,7 +1917,7 @@ const AEInstallProblems: React.FC = () => {
                     также почистить записи в брандмауэре и файле{" "}
                     <mark className="file">HOSTS</mark> во избежание конфликтов. Сделать
                     это можно с помощью{" "}
-                    <a href="https://helpx.adobe.com/creative-cloud/kb/cc-cleaner-tool-installation-problems.html">
+                    <a href="https://helpx.adobe.com/creative-cloud/apps/troubleshoot/diagnostics-repair-tools/run-creative-cloud-cleaner-tool.html">
                       Adobe Creative Cloud Cleaner Tool
                     </a>{" "}
                     или любого другого деинсталлятора, например{" "}
@@ -2233,7 +2233,7 @@ const AEInstallProblems: React.FC = () => {
                   Если вы используете <mark className="app">GenP</mark> для активации
                   программ — он может работать некорректно. Попробуйте полностью удалить
                   все программы с помощью{" "}
-                  <a href="https://helpx.adobe.com/creative-cloud/kb/cc-cleaner-tool-installation-problems.html">
+                  <a href="https://helpx.adobe.com/creative-cloud/apps/troubleshoot/diagnostics-repair-tools/run-creative-cloud-cleaner-tool.html">
                     Adobe Creative Cloud Cleaner Tool
                   </a>{" "}
                   или любого стороннего деинсталлятора, например{" "}
@@ -2439,7 +2439,7 @@ const AEInstallProblems: React.FC = () => {
                   <mark className="app">Visual C++</mark> не помогает — переустановите{" "}
                   <mark className="app">Adobe After Effects</mark> начисто. Перед этим
                   очистите систему от остатков программы с помощью{" "}
-                  <a href="https://helpx.adobe.com/creative-cloud/kb/cc-cleaner-tool-installation-problems.html">
+                  <a href="https://helpx.adobe.com/creative-cloud/apps/troubleshoot/diagnostics-repair-tools/run-creative-cloud-cleaner-tool.html">
                     Adobe Creative Cloud Cleaner Tool
                   </a>{" "}
                   или любого другого деинсталлятора, например{" "}
@@ -3027,7 +3027,7 @@ const AEInstallProblems: React.FC = () => {
               </p>
               <p>
                 После этого удалите старые версии с помощью{" "}
-                <a href="https://helpx.adobe.com/creative-cloud/kb/cc-cleaner-tool-installation-problems.html">
+                <a href="https://helpx.adobe.com/creative-cloud/apps/troubleshoot/diagnostics-repair-tools/run-creative-cloud-cleaner-tool.html">
                   Adobe Creative Cloud Cleaner Tool
                 </a>{" "}
                 или другого деинсталлятора, например{" "}
@@ -3104,7 +3104,7 @@ const AEInstallProblems: React.FC = () => {
                 Если и установка текущей версии поверх не помогла — выполните полную
                 переустановку программы, предварительно удалив предыдущие установки с
                 помощью{" "}
-                <a href="https://helpx.adobe.com/creative-cloud/kb/cc-cleaner-tool-installation-problems.html">
+                <a href="https://helpx.adobe.com/creative-cloud/apps/troubleshoot/diagnostics-repair-tools/run-creative-cloud-cleaner-tool.html">
                   Adobe Creative Cloud Cleaner Tool
                 </a>{" "}
                 или любого другого деинсталлятора, например{" "}
