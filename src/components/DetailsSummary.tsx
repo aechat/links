@@ -276,6 +276,22 @@ const DetailsSummary: React.FC<DetailsSummaryProps> = ({
 
     const justClosed = !isOpen && prevIsOpen;
 
+    const preventScroll = (e: Event) => {
+      e.preventDefault();
+    };
+
+    const scrollLockOptions = {passive: false};
+
+    const enableScroll = () => {
+      window.removeEventListener("wheel", preventScroll, scrollLockOptions);
+      window.removeEventListener("touchmove", preventScroll, scrollLockOptions);
+    };
+
+    const disableScroll = () => {
+      window.addEventListener("wheel", preventScroll, scrollLockOptions);
+      window.addEventListener("touchmove", preventScroll, scrollLockOptions);
+    };
+
     const updateDynamicStyles = () => {
       if (details.open) {
         contentWrapper.style.maxHeight = `${innerContent.scrollHeight}px`;
@@ -289,7 +305,7 @@ const DetailsSummary: React.FC<DetailsSummaryProps> = ({
     const handleTransitionEnd = (e: TransitionEvent) => {
       if (e.target !== contentWrapper) return;
 
-      document.body.style.overflow = "";
+      enableScroll();
 
       if (isOpen) {
         resizeObserver.observe(innerContent);
@@ -319,7 +335,7 @@ const DetailsSummary: React.FC<DetailsSummaryProps> = ({
       contentWrapper.addEventListener("transitionend", handleTransitionEnd);
 
       if (justOpened || (justClosed && details.open)) {
-        document.body.style.overflow = "hidden";
+        disableScroll();
       }
 
       if (isOpen) {
@@ -345,7 +361,7 @@ const DetailsSummary: React.FC<DetailsSummaryProps> = ({
       resizeObserver.disconnect();
       contentWrapper.removeEventListener("transitionend", handleTransitionEnd);
       window.removeEventListener("resize", updateDynamicStyles);
-      document.body.style.overflow = "";
+      enableScroll();
     };
   }, [isOpen, prevIsOpen, updateDimmingEffect, isAnimationDisabled]);
   useEffect(() => {

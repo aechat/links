@@ -58,28 +58,26 @@
   &-results {
     display: block;
     position: relative;
-    mask-image: linear-gradient(to bottom, black 92.5%, transparent 100%);
-    mask-position: 0 50%;
-    mask-size: 100% 200%;
-    mask-repeat: no-repeat;
     transition:
       -webkit-mask-position 0.5s ease,
       mask-position 0.5s ease;
-    margin: -2px;
-    margin-top: -15px;
+    margin-top: 10px;
     border-radius: $roundness;
-    padding: 2px;
-    padding-top: 25px;
     max-height: clamp(
       47.5svh,
       calc(47.5svh + (100 - 47.5) * ((100vw - 400px) / (1200 - 400))),
       100svh
     );
     overflow-y: auto;
-    scrollbar-width: none;
+    mask-image: linear-gradient(to bottom, black 92.5%, transparent 100%);
+    mask-position: 0 50%;
+    mask-size: 100% 200%;
+    mask-repeat: no-repeat;
+    scrollbar-color: var(--color-surface-primary-border) var(--color-background-modal);
+    scrollbar-width: thin;
 
     &::-webkit-scrollbar {
-      display: none;
+      width: 3px;
     }
 
     &.show-fade {
@@ -90,7 +88,8 @@
   &-link {
     display: block;
     position: relative;
-    width: 100%;
+    margin: 10px 5px;
+    width: calc(100% - 10px);
 
     &:first-child {
       margin-block-start: 2px;
@@ -115,6 +114,7 @@
     transition: background-color 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
     z-index: 1000;
     outline: 1px solid var(--color-surface-primary-border);
+    border-radius: $roundness * 0.75;
     background-color: var(--color-surface-primary-background);
     cursor: pointer;
     padding: 8px 12px;
@@ -145,6 +145,8 @@
   &-content {
     outline: solid 1px var(--color-border-modal);
     border-top: none;
+    border-bottom-left-radius: $roundness * 0.75;
+    border-bottom-right-radius: $roundness * 0.75;
     background-color: var(--color-background-modal);
     overflow: hidden;
     font-size: 0.925rem;

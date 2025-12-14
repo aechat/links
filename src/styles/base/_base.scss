@@ -10,7 +10,7 @@ body {
   background: var(--color-background-primary);
   padding: 0;
   scroll-padding-top: var(--header-height);
-  scrollbar-color: var(--color-surface-primary-border) var(--color-background-secondary);
+  scrollbar-color: var(--color-surface-primary-border) transparent;
   scrollbar-width: thin;
   color: var(--color-text-primary);
   user-select: none;
@@ -25,8 +25,7 @@ body {
   }
 
   &::-webkit-scrollbar-track {
-    margin: 5px;
-    background: var(--color-background-secondary);
+    background: transparent;
   }
 }
 
@@ -35,7 +34,6 @@ html {
   font-size: 13px;
   font-weight: 375;
   -webkit-tap-highlight-color: transparent;
-  scrollbar-width: none;
 
   @media screen and (width >= 320px) {
     font-size: calc(13px + (16 - 13) * ((100vw - 320px) / (768 - 320)));
