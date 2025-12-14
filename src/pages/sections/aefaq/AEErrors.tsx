@@ -1252,7 +1252,7 @@ const AEErrors: React.FC = () => {
           </li>
           <li>
             <mark className="company">AMD</mark> - воспользуйтесь{" "}
-            <a href="https://www.amd.com/ru/support/download/drivers.html">
+            <a href="https://www.amd.com/en/support/download/drivers.html">
               автоматическим установщиком с официального сайта
             </a>
             .
