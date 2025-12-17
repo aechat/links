@@ -1161,7 +1161,7 @@ const AEInterface: React.FC = () => {
                   <li>
                     Стабильность работы системы и{" "}
                     <mark className="app">Adobe After Effects</mark> после установки
-                    сторонних тем не гарантируется.
+                    сторонних модификаций не гарантируется.
                   </li>
                 </ul>
               </Addition>
