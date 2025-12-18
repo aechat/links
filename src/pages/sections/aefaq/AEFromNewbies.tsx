@@ -26,14 +26,15 @@ const AEFromNewbies: React.FC = () => {
               Учтите, что большинство авторов курсов и каналов на{" "}
               <mark className="app">YouTube</mark> работают в английской версии программы.
               Чтобы избежать проблем с локализацией, рекомендуется{" "}
-              <a href="#3.6">изменить язык программы на английский</a>, если у вас
-              установлена русская версия. Это поможет избежать путаницы с переводом
+              <a href="#switch-language">изменить язык программы на английский</a>, если у
+              вас установлена русская версия. Это поможет избежать путаницы с переводом
               названий эффектов или элементов интерфейса.
             </li>
             <li>
               Если вы предпочитаете работать с русской локализацией{" "}
               <mark className="app">Adobe After Effects</mark>, вам могут пригодиться
-              таблицы перевода <a href="#1.6">эффектов</a> и <a href="#1.7">пресетов</a>.
+              таблицы перевода <a href="#effects-list">эффектов</a> и{" "}
+              <a href="#presets-list">пресетов</a>.
             </li>
             <li>
               Не стоит всерьёз полагаться на <mark className="app">ChatGPT</mark>,{" "}
@@ -836,7 +837,7 @@ const AEFromNewbies: React.FC = () => {
             <Addition type="warning">
               <sup>1</sup> В <mark>Windows</mark> для импорта файлов{" "}
               <mark className="image">HEIF/HEIC</mark> необходимо установить{" "}
-              <a href="#4.5">соответствующие кодеки</a>.
+              <a href="#import-hevc">соответствующие кодеки</a>.
             </Addition>
             <Addition type="info">
               <ul>
@@ -883,7 +884,7 @@ const AEFromNewbies: React.FC = () => {
                 Если <mark className="image">PSD</mark> сохранён в цветовом режиме,
                 отличном от <mark>RGB</mark>, — послойный импорт в{" "}
                 <mark className="app">Adobe After Effects</mark> будет недоступен.{" "}
-                <a href="#4.8">Подробнее...</a>
+                <a href="#import-layered-psd">Подробнее...</a>
               </Addition>
             </Addition>
             <Addition type="info">
@@ -1206,7 +1207,7 @@ const AEFromNewbies: React.FC = () => {
           <sup>1</sup> <mark className="image">PSD</mark>, сохранённые в режиме{" "}
           <mark>CMYK</mark>, не поддерживают послойный импорт слоёв в проект. Чтобы это
           исправить — измените цветовой режим файла на <mark>RGB</mark>.{" "}
-          <a href="#4.8">Как?</a>
+          <a href="#import-layered-psd">Как?</a>
         </Addition>
         <ContentFigure
           caption="Импорт и анимация PSD в Adobe After Effects"
@@ -1773,7 +1774,7 @@ const AEFromNewbies: React.FC = () => {
           <mark className="plugin">Cinema 4D Lite</mark> — установите полноценную{" "}
           <mark className="app">Maxon Cinema 4D</mark>, иначе вы столкнетесь с тем, что вы
           не сможете импортировать проекты формата <mark className="file">C4D</mark>.{" "}
-          <a href="#8.9">Подробнее...</a>
+          <a href="#fix-cinema-4d-must-be-installed">Подробнее...</a>
         </Addition>
         <ContentFigure
           caption="Cineware"
@@ -2223,7 +2224,7 @@ const AEFromNewbies: React.FC = () => {
             <mark>macOS</mark>. Часто используется с вопросом «где скачать?».
             <Addition type="info">
               Инструкцию по установке плагинов вы можете найти в{" "}
-              <a href="#2.1">статье 2.1</a>.
+              <a href="#how-to-install">статье 2.1</a>.
             </Addition>
           </li>
           <li>
@@ -2231,7 +2232,7 @@ const AEFromNewbies: React.FC = () => {
             <mark className="file">FFX</mark>. Может сохраняться вместе с анимацией.
             <Addition type="info">
               Инструкцию по установке пресетов вы можете найти в{" "}
-              <a href="#2.1">статье 2.1</a>.
+              <a href="#how-to-install">статье 2.1</a>.
             </Addition>
             <Addition type="warning">
               Не все сторонние пресеты будут корректно работать в вашем проекте; иногда их
@@ -2244,7 +2245,7 @@ const AEFromNewbies: React.FC = () => {
             выполняющий определённые действия.
             <Addition type="info">
               Инструкцию по установке скриптов вы можете найти в{" "}
-              <a href="#2.1">статье 2.1</a>.
+              <a href="#how-to-install">статье 2.1</a>.
             </Addition>
           </li>
           <li>
@@ -2254,7 +2255,7 @@ const AEFromNewbies: React.FC = () => {
             <mark className="select">«Window» → «Extensions»</mark>.
             <Addition type="info">
               Инструкцию по установке расширений вы можете найти в{" "}
-              <a href="#2.1">статье 2.1</a>.
+              <a href="#how-to-install">статье 2.1</a>.
             </Addition>
           </li>
           <li>
@@ -3954,7 +3955,7 @@ const AEFromNewbies: React.FC = () => {
                   <li>
                     Если очистка кэша не помогает избавиться от ошибки{" "}
                     <mark className="warning">«Out of Memory»</mark>, попробуйте{" "}
-                    <a href="#6.5">настроить файл подкачки</a>.
+                    <a href="#configure-swapfile">настроить файл подкачки</a>.
                   </li>
                   <li>
                     Вы можете назначить горячую клавишу для очистки кэша в{" "}
@@ -4191,7 +4192,7 @@ const AEFromNewbies: React.FC = () => {
         </p>
         <Addition type="info">
           Чтобы не попасть впросак, если файл проекта повредится — заранее{" "}
-          <a href="#3.9">настройте резервное копирование проектов</a>.
+          <a href="#configure-backup">настройте резервное копирование проектов</a>.
         </Addition>
       </DetailsSummary>
       <DetailsSummary
@@ -4962,8 +4963,8 @@ const AEFromNewbies: React.FC = () => {
             <ContentFilter
               windowsContent={
                 <p>
-                  Попробуйте <a href="#6.5">настроить файл подкачки</a>. В качестве
-                  минимального и максимального размера установите значения от{" "}
+                  Попробуйте <a href="#configure-swapfile">настроить файл подкачки</a>. В
+                  качестве минимального и максимального размера установите значения от{" "}
                   <mark className="copy">1024</mark> до{" "}
                   <mark className="copy">65536</mark> или{" "}
                   <mark className="copy">131072</mark>. После настройки система создаст

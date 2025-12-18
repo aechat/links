@@ -781,7 +781,7 @@ const AEExport: React.FC = () => {
             <p>
               Например, при экспорте из <mark className="app">Adobe After Effects</mark>{" "}
               звук обычно кодируется в <mark className="audio">AAC</mark> с потерями при{" "}
-              <a href="#9.4">любом из трёх видов</a> экспорта в{" "}
+              <a href="#export-mp4">любом из трёх видов</a> экспорта в{" "}
               <mark className="video">H.264</mark> или остаётся несжатым при экспорте в{" "}
               <mark className="video">Apple ProRes</mark>.
             </p>
@@ -914,7 +914,7 @@ const AEExport: React.FC = () => {
           экспорта в этот кодек. Если вы используете старые версии программы, лучше
           воспользоваться плагинами, такими как{" "}
           <mark className="plugin">AfterCodecs</mark> или{" "}
-          <mark className="plugin">Voukoder</mark>. <a href="#9.4">Подробнее...</a>
+          <mark className="plugin">Voukoder</mark>. <a href="#export-mp4">Подробнее...</a>
         </p>
         <Addition type="info">
           Если нужно поставить на рендеринг сразу несколько композиций из разных проектов,
@@ -931,7 +931,8 @@ const AEExport: React.FC = () => {
             может остановить рендеринг без объяснения причин, и будет сложно понять
             причину. Сложные сцены лучше экспортировать напрямую из{" "}
             <mark className="app">Adobe After Effects</mark>, при необходимости используя{" "}
-            <a href="#9.11">прокси</a>. Это минимизирует время экспорта и риск ошибок.
+            <a href="#proxy-comp">прокси</a>. Это минимизирует время экспорта и риск
+            ошибок.
             <Addition type="warning">
               При экспорте композиции в <mark className="app">Adobe Media Encoder</mark>{" "}
               запускается ещё один процесс <mark className="file">AFTERFX.EXE</mark>,
@@ -1675,10 +1676,11 @@ const AEExport: React.FC = () => {
         </CodeSnippet>
         <p>
           Если видео на странице не требует прозрачности, его можно экспортировать в{" "}
-          <mark className="video">H.264</mark>, используя <a href="#9.4">те же способы</a>
-          , что и при обычном рендере. Затем останется указать файл в качестве источника в
-          исходном коде. Главное — следить за размером файла: не каждый посетитель захочет
-          ждать, пока загрузится видео на сотни мегабайт.
+          <mark className="video">H.264</mark>, используя{" "}
+          <a href="#export-mp4">те же способы</a>, что и при обычном рендере. Затем
+          останется указать файл в качестве источника в исходном коде. Главное — следить
+          за размером файла: не каждый посетитель захочет ждать, пока загрузится видео на
+          сотни мегабайт.
         </p>
         <p>
           А вот экспортировать композицию в более эффективные{" "}
@@ -2509,7 +2511,7 @@ const AEExport: React.FC = () => {
             редакторе, например в <mark className="app">Adobe Photoshop</mark> или{" "}
             <mark className="app">GIMP</mark>, или экспортировать из{" "}
             <mark className="app">Adobe After Effects</mark> как{" "}
-            <a href="#9.12">один кадр</a>.
+            <a href="#export-still">один кадр</a>.
             <ul>
               <li>
                 Для создания принимаются изображения формата{" "}
@@ -2780,7 +2782,7 @@ const AEExport: React.FC = () => {
             Для обоих типов требуется экспортировать видео в формате{" "}
             <mark className="video">WEBM</mark> с кодеком{" "}
             <mark className="video">VP9</mark>. На этой странице уже обсуждался{" "}
-            <a href="#9.5">экспорт в VP9</a> из{" "}
+            <a href="#export-web">экспорт в VP9</a> из{" "}
             <mark className="app">Adobe After Effects</mark> с помощью конвертации
             полученного видео.
           </li>
@@ -3421,8 +3423,8 @@ const AEExport: React.FC = () => {
         <p>
           Теперь вы можете поделиться сохранённым файлом <mark className="file">FFX</mark>{" "}
           с другими пользователями. Получателю нужно будет импортировать его, следуя{" "}
-          <a href="#2.1">инструкции по установке</a>. После этого пресет появится в папке{" "}
-          <mark className="path">Animation Presets</mark> на панели{" "}
+          <a href="#how-to-install">инструкции по установке</a>. После этого пресет
+          появится в папке <mark className="path">Animation Presets</mark> на панели{" "}
           <mark className="select">«Effects & Presets»</mark> и будет готов к применению.
         </p>
         <Addition type="warning">

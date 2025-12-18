@@ -681,7 +681,7 @@ const AEInstallProblems: React.FC = () => {
                         корректной установки отключите полностью или на время ваше{" "}
                         <mark className="app">антивирусное ПО</mark> во избежание проблем
                         при установке из-за отсутствия нужных файлов.{" "}
-                        <a href="#2.2">Подробнее...</a>
+                        <a href="#disable-defender">Подробнее...</a>
                       </li>
                     </ul>
                   </Addition>
@@ -1306,8 +1306,8 @@ const AEInstallProblems: React.FC = () => {
                 <a href="https://t.me/joinchat/F1DdXtG9LephYWUy">AEChat</a>, пользователи
                 сталкиваются с одной и той же проблемой: нужное дополнение не появляется в
                 программе, хотя установка выполнена строго по{" "}
-                <a href="#2.1">инструкциям</a>. Причина часто кроется в одной детали: если{" "}
-                <mark className="app">Adobe After Effects</mark> установлен в
+                <a href="#how-to-install">инструкциям</a>. Причина часто кроется в одной
+                детали: если <mark className="app">Adobe After Effects</mark> установлен в
                 нестандартную директорию, многие установщики просто не обнаружат
                 программу.
               </p>
@@ -1796,8 +1796,8 @@ const AEInstallProblems: React.FC = () => {
             Иногда корректному открытию установщика может мешать антивирусное ПО, которое
             «вставляет палки в колёса», принимая за вирус файлы, распаковывающиеся во
             временную директорию. В таком случае{" "}
-            <a href="#2.2">рекомендуется его отключить</a> — разумеется, на свой страх и
-            риск.
+            <a href="#disable-defender">рекомендуется его отключить</a> — разумеется, на
+            свой страх и риск.
           </li>
         </ul>
       </DetailsSummary>
@@ -1925,7 +1925,7 @@ const AEInstallProblems: React.FC = () => {
                   </li>
                   <li>
                     Во избежание проблем во время работы <mark className="app">GenP</mark>{" "}
-                    рекомендуется <a href="#2.2">отключить</a>{" "}
+                    рекомендуется <a href="#disable-defender">отключить</a>{" "}
                     <mark className="app">антивирусное ПО</mark>, установленное на вашем
                     устройстве.
                   </li>
@@ -2006,7 +2006,7 @@ const AEInstallProblems: React.FC = () => {
                     по умолчанию — это настраивается в разделе{" "}
                     <mark className="select">«Приложения»</mark>. Также можно изменить
                     язык <mark className="app">Adobe After Effects</mark>{" "}
-                    <a href="#3.6">вручную</a> уже после установки.
+                    <a href="#switch-language">вручную</a> уже после установки.
                   </Addition>
                 </li>
                 <li>
@@ -2093,7 +2093,7 @@ const AEInstallProblems: React.FC = () => {
                       перед установкой
                     </a>{" "}
                     или поменять его для <mark className="app">Adobe After Effects</mark>{" "}
-                    уже <a href="#3.6">после установки</a>.
+                    уже <a href="#switch-language">после установки</a>.
                   </Addition>
                 </li>
                 <li>
@@ -2800,7 +2800,7 @@ const AEInstallProblems: React.FC = () => {
         </p>
         <Addition type="info">
           Более подробную информацию об установке дополнительных материалов вы можете
-          прочитать в <a href="#2.1">статье 2.1</a>.
+          прочитать в <a href="#how-to-install">статье 2.1</a>.
         </Addition>
       </DetailsSummary>
       <DetailsSummary

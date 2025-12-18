@@ -51,7 +51,7 @@ const AEExportProblems: React.FC = () => {
           Если не хотите или не можете обновить программу, экспортируйте видео через
           сторонние плагины вроде <mark className="plugin">Voukoder</mark> или{" "}
           <mark className="plugin">AfterCodecs</mark>, о чём{" "}
-          <a href="#9.4">рассказано здесь</a>, или сохраните композицию в папку без
+          <a href="#export-mp4">рассказано здесь</a>, или сохраните композицию в папку без
           кириллицы в пути.
         </p>
       </DetailsSummary>

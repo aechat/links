@@ -136,7 +136,7 @@ const AEImport: React.FC = () => {
           двунаправленные <mark>B-кадры</mark>, которые для своей прорисовки требуют
           заглянуть не только в прошлое, но и в будущее, ссылаясь на кадры, которые ещё
           даже не были показаны. Подробнее о структуре <mark className="word">GOP</mark>{" "}
-          можно почитать в <a href="#9.3">этой статье</a>.
+          можно почитать в <a href="#advanced-export-settings">этой статье</a>.
         </p>
         <p>
           И вот тут проявляется разница: <mark className="app">Adobe After Effects</mark>{" "}
@@ -1104,6 +1104,7 @@ const AEImport: React.FC = () => {
         </p>
       </DetailsSummary>
       <DetailsSummary
+        anchor="import-hevc"
         tag="iphone"
         title="Как открыть и импортировать HEIC, HEIF или HEVC?"
       >
@@ -1270,6 +1271,7 @@ const AEImport: React.FC = () => {
         />
       </DetailsSummary>
       <DetailsSummary
+        anchor="import-layered-psd"
         tag="photoshop, layered psd, color mode, цветовой режим"
         title="Почему я не могу импортировать PSD по слоям?"
       >
@@ -1563,7 +1565,7 @@ const AEImport: React.FC = () => {
           <mark className="path">AE</mark> и выберите удобный для вас способ установки{" "}
           <mark className="file">ZXP</mark>: через{" "}
           <a href="https://updates.aescripts.com/zxp-installer/">ZXP Installer</a> или
-          вручную. <a href="#2.1">Подробнее...</a>
+          вручную. <a href="#how-to-install">Подробнее...</a>
         </p>
         <Divider>Отправляем макет в Adobe After Effects</Divider>
         <p>
@@ -1797,8 +1799,8 @@ const AEImport: React.FC = () => {
             </li>
             <li>
               Инструкцию по установке расширений формата <mark className="file">ZXP</mark>{" "}
-              вы можете найти в <a href="#2.1">статье 2.1</a>. Для корректной работы
-              расширения потребуется установить флажок для параметра{" "}
+              вы можете найти в <a href="#how-to-install">статье 2.1</a>. Для корректной
+              работы расширения потребуется установить флажок для параметра{" "}
               <mark className="select">
                 «Allow Scripts to Write Files and Access Network»
               </mark>{" "}
@@ -1905,8 +1907,8 @@ const AEImport: React.FC = () => {
             </li>
             <li>
               Инструкцию по установке расширений формата <mark className="file">ZXP</mark>{" "}
-              вы можете найти в <a href="#2.1">статье 2.1</a>. Для корректной работы
-              расширения потребуется установить флажок для параметра{" "}
+              вы можете найти в <a href="#how-to-install">статье 2.1</a>. Для корректной
+              работы расширения потребуется установить флажок для параметра{" "}
               <mark className="select">
                 «Allow Scripts to Write Files and Access Network»
               </mark>{" "}
@@ -2109,7 +2111,7 @@ const AEImport: React.FC = () => {
           актуальной версии. Второй способ проще и быстрее — не поленитесь потратить
           полчаса на установку новой версии{" "}
           <mark className="app">Adobe After Effects</mark> и{" "}
-          <a href="#2.24">перенос настроек с плагинами</a>.{" "}
+          <a href="#update-app">перенос настроек с плагинами</a>.{" "}
           <i style={{opacity: "0.5"}}>
             Это значительно сэкономит время в будущем, если вы часто работаете с чужими
             проектами.
