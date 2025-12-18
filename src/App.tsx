@@ -1,4 +1,4 @@
-import {ConfigProvider, Modal} from "antd";
+import {ConfigProvider, Modal, message} from "antd";
 
 import BrowserWarning from "./components/BrowserWarning";
 
@@ -15,6 +15,8 @@ import {MetrikaCounter} from "react-metrika";
 import themeConfig from "./styles/ant_theme";
 
 import LoadingAnimation from "./components/LoadingAnimation";
+
+import {copyText} from "./hooks/useCopyToClipboard";
 
 import useDynamicFavicon from "./hooks/useDynamicFavicon";
 
@@ -175,9 +177,27 @@ const ErrorFallback = ({error}: {error: Error}) => {
       >
         <div className="error-content">
           <div className="error-title">
-            {isDynamicImportError
-              ? "Доступна новая версия сайта"
-              : `Ошибка: ${error.message}`}
+            {isDynamicImportError ? (
+              "Доступна новая версия сайта"
+            ) : (
+              <>
+                Ошибка:{" "}
+                <span
+                  style={{cursor: "pointer"}}
+                  onClick={async () => {
+                    const success = await copyText(error.message);
+
+                    if (success) {
+                      message.success("Текст скопирован в буфер обмена");
+                    } else {
+                      message.error("Не удалось скопировать текст");
+                    }
+                  }}
+                >
+                  {error.message}
+                </span>
+              </>
+            )}
           </div>
           <div className="error-message">
             <p>
@@ -261,7 +281,6 @@ export const App = () => {
   const [showSafariWarning, setShowSafariWarning] = useState(false);
 
   const [showOldBrowserWarning, setShowOldBrowserWarning] = useState(false);
-
   useEffect(() => {
     if (typeof globalThis.window === "undefined") return;
 
