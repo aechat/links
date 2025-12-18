@@ -1897,39 +1897,117 @@ const AEErrors: React.FC = () => {
         tag="неподдерживаемое устройство, avx2, ошибка запуска, требования к процессору"
         title="Что делать с ошибкой «0xc0000142» при запуске приложения?"
       >
-        <p>
-          Эта ошибка возникает, если вы пытаетесь запустить{" "}
-          <mark className="app">Adobe After Effects</mark> версии <mark>24.1</mark> или
-          новее на процессоре без поддержки инструкций <mark>AVX2</mark>. В{" "}
-          <a href="https://helpx.adobe.com/after-effects/system-requirements.html">
-            системных требованиях Adobe After Effects последних версий
-          </a>{" "}
-          указано, что для работы требуется процессор{" "}
-          <mark className="company">Intel</mark> не ниже 6-го поколения или{" "}
-          <mark className="company">AMD Ryzen</mark> серии 1000 и новее.
-        </p>
-        <p>
-          На практике программу можно установить на более старое железо, если процессор
-          поддерживает инструкции <mark>AVX2</mark>. Это значит, что{" "}
-          <mark className="app">Adobe After Effects</mark> не установится на системах с
-          процессорами <mark className="company">Intel</mark> 3-го поколения или старше, а
-          также на более ранних процессорах <mark className="company">AMD</mark>.
-        </p>
-        <p>
-          Если ваше устройство не поддерживает <mark>AVX2</mark>, решение простое —
-          установите <mark className="app">Adobe After Effects</mark> версии{" "}
-          <mark>23.6</mark> или ниже. Либо обновите процессор, если это возможно.
-        </p>
-        <p>
-          В редких случаях процессор может поддерживать инструкции <mark>AVX2</mark>, но
-          они могут быть каким-то образом отключены в системе. Посмотрите настройки вашего{" "}
-          <mark>BIOS</mark> или попробуйте ввести команду{" "}
-          <mark className="code">bcdedit /set xsavedisable 0</mark> в командной строке от
-          имени администратора и перезагрузить компьютер. Чтобы снова отключить{" "}
-          <mark>AVX2</mark>, введите команду{" "}
-          <mark className="code">bcdedit /set xsavedisable 1</mark> и перезагрузите
-          устройство.
-        </p>
+        <ContentFilter
+          windowsContent={
+            <div>
+              <p>
+                Эту ошибку вы можете встретить при попытке запустить{" "}
+                <mark className="app">Adobe After Effects</mark> версии <mark>24.1</mark>{" "}
+                или новее. Обычно у неё две причины: либо ваш процессор не поддерживает
+                инструкции <mark>AVX2</mark>, либо система как-то умудрилась поломаться.
+              </p>
+              <Divider>Проверяем системные требования</Divider>
+              <p>
+                Сначала разберёмся с процессором. Хотя{" "}
+                <a href="https://helpx.adobe.com/after-effects/system-requirements.html">
+                  официально для работы требуется
+                </a>{" "}
+                минимум <mark className="copy">Intel Core</mark> 6-го поколения или{" "}
+                <mark className="copy">AMD Ryzen</mark> 1000 и новее, на практике
+                программа окажется менее требовательной, если ваше «железо» поддерживает
+                инструкции <mark>AVX2</mark>. Однако это же значит, что она точно не
+                запустится на <mark className="company">Intel</mark> 3-го поколения и
+                ниже, а также на более ранних процессорах{" "}
+                <mark className="company">AMD</mark>, где этих инструкций нет. Так что
+                если ваш процессор не подходит, решение простое: либо установите{" "}
+                <mark className="app">After Effects</mark> версии <mark>23.6</mark> или
+                ниже, либо, если возможно, обновите «железо».
+              </p>
+              <Divider>Проверяем целостность системы</Divider>
+              <p>
+                Если же ваше устройство подходит по всем системным требованиям, а
+                программа всё так же отказывается запускаться, скорее всего, вы имеете
+                дело с повреждёнными системными файлами <mark>Windows</mark>. Чтобы
+                проверить их целостность, выполните в командной строке от имени
+                администратора команды <mark className="code">sfc /scannow</mark> и{" "}
+                <mark className="code">dism /online /cleanup-image /restorehealth</mark>.
+              </p>
+              <ContentFigure
+                caption="Проверка целостности Windows"
+                src="5iuDr9WJnOg"
+                type="youtube"
+              />
+              <p>
+                Также для уверенности можно попробовать «переустановить» систему без
+                потери данных и приложений. На <mark>Windows 11</mark> версии{" "}
+                <mark>22H2</mark> и выше эта функция доступна в центре обновлений, в
+                стандартном приложении <mark className="app">Параметры</mark>. Для этого
+                нужно перейти в{" "}
+                <mark className="select">
+                  «Центр обновлений Windows» → «Дополнительные параметры» →
+                  «Восстановление»
+                </mark>
+                и нажать <mark className="select">«Переустановить сейчас»</mark> в{" "}
+                <mark className="select">
+                  «Устранение неполадок с помощью Центра обновлений Windows»
+                </mark>
+                . После этого начнётся загрузка и установка образа для восстановления
+                целостности системы.
+              </p>
+              <ContentFigure
+                caption="Устранение неполадок с помощью Центра обновлений Windows"
+                // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+                src="images/legacy/fix_problems_with_windows_update.mp4"
+                theme="dark"
+                type="video"
+                variant="windows"
+              />
+              <p>
+                В чём суть такого действия? Вы просто устанавливаете систему «поверх»
+                существующей. Этот процесс заменяет повреждённые файлы и восстанавливает
+                удалённые, которые могли исчезнуть либо из-за ваших неосторожных действий
+                с «оптимизаторами», либо повредиться сами по себе. Ваши данные, настройки
+                и программы никуда не денутся, однако после такой «переустановки»,
+                возможно, придётся заново удалять ненужные компоненты <mark>Windows</mark>
+                , такие как <mark className="app">Windows Defender</mark> или{" "}
+                <mark className="app">Microsoft OneDrive</mark>, если вы удаляли их ранее.
+              </p>
+              <p>
+                Если вы хотите переустановить систему «поверх» на <mark>Windows 10</mark>{" "}
+                или старой сборке <mark>Windows 11</mark>, вам понадобится оригинальный{" "}
+                <mark className="file">ISO</mark>-образ. После скачивания смонтируйте его
+                в виртуальный привод через контекстное меню{" "}
+                <mark className="app">Проводника</mark> и запустите{" "}
+                <mark className="app">setup.exe</mark>. В процессе установки вам предложат
+                несколько вариантов — выберите тот, что сохраняет все данные и приложения.
+              </p>
+              <div className="flexible-links">
+                <a href="https://files.rg-adguard.net/category">
+                  Скачать оригинальные файлы Microsoft на rg-adguard.net
+                </a>
+                <a href="https://www.comss.ru/download/page.php?id=2572">
+                  Скачать оригинальные образы Windows 10 на Comss
+                </a>
+                <a href="https://www.comss.ru/download/page.php?id=9234">
+                  Скачать оригинальные образы Windows 11 на Comss
+                </a>
+              </div>
+              <Divider>Проверяем конфигурацию системы и BIOS</Divider>
+              <p>
+                В редких случаях процессор может поддерживать инструкции <mark>AVX2</mark>
+                , но они бывают отключены в системе. Посмотрите настройки вашего{" "}
+                <mark>BIOS</mark> или попробуйте ввести команду{" "}
+                <mark className="code">bcdedit /set xsavedisable 0</mark> в командной
+                строке от имени администратора и перезагрузить компьютер.
+              </p>
+              <Addition type="info">
+                Чтобы снова отключить <mark>AVX2</mark>, введите команду{" "}
+                <mark className="code">bcdedit /set xsavedisable 1</mark> и перезагрузите
+                устройство.
+              </Addition>
+            </div>
+          }
+        />
       </DetailsSummary>
       <DetailsSummary
         tag="отсутствует visual c++"
