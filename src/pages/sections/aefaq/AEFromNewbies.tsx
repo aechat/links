@@ -4096,12 +4096,10 @@ const AEFromNewbies: React.FC = () => {
               <p>
                 В <mark>macOS</mark> эта функция называется{" "}
                 <mark className="app">Time Machine</mark>. Она создаёт «снимки» вашей
-                системы и файлов каждый час или по нажатию кнопки.
+                системы и файлов каждый час или по нажатию кнопки. Для работы{" "}
+                <mark className="app">Time Machine</mark> нужен внешний накопитель,
+                желательно объёмом от <mark>512 ГБ</mark>.
               </p>
-              <Addition type="warning">
-                Для работы <mark className="app">Time Machine</mark> нужен внешний
-                накопитель, желательно объёмом от <mark>512 ГБ</mark>.
-              </Addition>
               <ContentFigure
                 caption="How to Set up & Use Time Machine to Backup your Mac"
                 src="Gx76i28c150"
@@ -4115,11 +4113,9 @@ const AEFromNewbies: React.FC = () => {
                 В <mark>Windows</mark> эта функция называется{" "}
                 <mark className="app">«История файлов»</mark>. Она создаёт копии файлов в
                 другой папке или на другом диске. С её помощью можно восстановить
-                удалённый или предыдущую версию файла.
+                удалённый или предыдущую версию файла. Для работы этой функции нужно
+                заранее указать диск для сохранения копий.
               </p>
-              <Addition type="info">
-                Для работы этой функции нужно заранее указать диск для сохранения копий.
-              </Addition>
               <ContentFigure
                 caption="История файлов в Windows 11 и Windows 10"
                 src="xDFQEx9gylc"
