@@ -61,8 +61,8 @@
     transition:
       -webkit-mask-position 0.5s ease,
       mask-position 0.5s ease;
-    margin-top: 10px;
     border-radius: $roundness;
+    padding-top: 10px;
     max-height: clamp(
       47.5svh,
       calc(47.5svh + (100 - 47.5) * ((100vw - 400px) / (1200 - 400))),
