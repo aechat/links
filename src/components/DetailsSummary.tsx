@@ -205,6 +205,8 @@ const DetailsSummary: React.FC<DetailsSummaryProps> = ({
 
   const {isAnimationDisabled} = useTheme();
 
+  const hasScrolledAfterOpening = useRef(false);
+
   const handleSectionClick = (event: React.MouseEvent<HTMLElement>) => {
     handleInternalLinkClick(event);
     handleExternalLinkClick(event);
@@ -255,6 +257,23 @@ const DetailsSummary: React.FC<DetailsSummaryProps> = ({
       document.body.classList.remove("has-open-details");
     }
   }, []);
+
+  const doScroll = useCallback(() => {
+    const summary = detailsRef.current?.querySelector(".faq-summary");
+
+    if (summary) {
+      setTimeout(() => {
+        const {headerHeight, padding} = getScrollOffsets();
+
+        const y =
+          summary.getBoundingClientRect().top +
+          window.pageYOffset -
+          headerHeight -
+          padding;
+        window.scrollTo({top: y, behavior: "smooth"});
+      }, constants.ACTION_DELAY);
+    }
+  }, []);
   useEffect(() => {
     if (typeof window === "undefined") return;
 
@@ -280,7 +299,7 @@ const DetailsSummary: React.FC<DetailsSummaryProps> = ({
       e.preventDefault();
     };
 
-    const scrollLockOptions = {passive: false};
+    const scrollLockOptions: AddEventListenerOptions = {passive: false};
 
     const enableScroll = () => {
       window.removeEventListener("wheel", preventScroll, scrollLockOptions);
@@ -305,14 +324,21 @@ const DetailsSummary: React.FC<DetailsSummaryProps> = ({
     const handleTransitionEnd = (e: TransitionEvent) => {
       if (e.target !== contentWrapper) return;
 
-      enableScroll();
-
       if (isOpen) {
         resizeObserver.observe(innerContent);
         updateDynamicStyles();
+
+        if (justOpened && !hasScrolledAfterOpening.current) {
+          doScroll();
+          hasScrolledAfterOpening.current = true;
+        }
+
+        enableScroll();
       } else {
         details.open = false;
         updateDimmingEffect();
+        hasScrolledAfterOpening.current = false;
+        enableScroll();
       }
     };
 
@@ -363,7 +389,7 @@ const DetailsSummary: React.FC<DetailsSummaryProps> = ({
       window.removeEventListener("resize", updateDynamicStyles);
       enableScroll();
     };
-  }, [isOpen, prevIsOpen, updateDimmingEffect, isAnimationDisabled]);
+  }, [isOpen, prevIsOpen, updateDimmingEffect, isAnimationDisabled, doScroll]);
   useEffect(() => {
     const summaryId = displayAnchorId;
 
@@ -389,23 +415,6 @@ const DetailsSummary: React.FC<DetailsSummaryProps> = ({
       }
     }
   }, [isOpen, prevIsOpen, displayAnchorId, updateUrlHash, anchor]);
-
-  const doScroll = useCallback(() => {
-    const summary = detailsRef.current?.querySelector(".faq-summary");
-
-    if (summary) {
-      setTimeout(() => {
-        const {headerHeight, padding} = getScrollOffsets();
-
-        const y =
-          summary.getBoundingClientRect().top +
-          window.pageYOffset -
-          headerHeight -
-          padding;
-        window.scrollTo({top: y, behavior: "smooth"});
-      }, constants.ACTION_DELAY);
-    }
-  }, []);
   useEffect(() => {
     const justOpened = isOpen && !prevIsOpen;
 
