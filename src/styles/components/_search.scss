@@ -147,7 +147,7 @@
     border-top: none;
     border-bottom-left-radius: $roundness * 0.75;
     border-bottom-right-radius: $roundness * 0.75;
-    background-color: var(--color-background-modal);
+    background-color: var(--color-surface-card-background);
     overflow: hidden;
     font-size: 0.925rem;
     user-select: none;
@@ -212,6 +212,7 @@
     }
 
     .search-content {
+      outline: 1px solid var(--color-surface-primary-border);
       background-color: var(--color-surface-primary-background);
     }
   }
