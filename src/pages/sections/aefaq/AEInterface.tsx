@@ -1433,7 +1433,7 @@ const AEInterface: React.FC = () => {
         />
       </DetailsSummary>
       <DetailsSummary
-        tag="error while accessing the preference files inside directory, please verify the file permissions and try again, сброс настроек, миграция настроек, восстановление параметров"
+        tag="21::31, preferences file is not valid, the file will be renamed with .old and a new preferences file will be created, error while accessing the preference files inside directory, please verify the file permissions and try again, сброс настроек, миграция настроек, восстановление параметров"
         title="Как восстановить настройки программы после сбоя системы?"
       >
         <div>
@@ -1445,6 +1445,13 @@ const AEInterface: React.FC = () => {
             программа, скорее всего, выдаст ошибку чтения пользовательских настроек и
             сбросит их до заводских.
           </p>
+          <ContentFigure
+            caption="Ошибка чтения файла настроек"
+            src="images/legacy/aftereffects/preferences_file_is_not_valid.png"
+            theme="dark"
+            type="image"
+            variant="windows"
+          />
           <p>
             Если вы обновлялись с предыдущих версий{" "}
             <mark className="app">Adobe After Effects</mark> — попробуйте импортировать
