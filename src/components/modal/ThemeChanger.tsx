@@ -42,11 +42,19 @@ export const ThemeProvider: React.FC<{children: React.ReactNode}> = ({children})
     if (typeof localStorage !== "undefined") {
       const savedTheme = (localStorage.getItem("theme") as Theme) || "system";
 
-      const savedAccentHue = parseInt(localStorage.getItem("accentHue") ?? "210", 10);
+      const savedAccentHue = Number.parseInt(
+        localStorage.getItem("accentHue") ?? "210",
+        10
+      );
 
-      const savedSaturateRatio = parseFloat(localStorage.getItem("saturateRatio") ?? "1");
+      const savedSaturateRatio = Number.parseFloat(
+        localStorage.getItem("saturateRatio") ?? "1"
+      );
 
-      const savedMaxWidth = parseInt(localStorage.getItem("maxWidth") ?? "1175", 10);
+      const savedMaxWidth = Number.parseInt(
+        localStorage.getItem("maxWidth") ?? "1175",
+        10
+      );
 
       const savedIsAnimationDisabled =
         localStorage.getItem("isAnimationDisabled") === "true";
@@ -91,7 +99,7 @@ export const ThemeProvider: React.FC<{children: React.ReactNode}> = ({children})
   };
 
   const updateTheme = () => {
-    if (typeof window === "undefined") {
+    if (globalThis.window === undefined) {
       return;
     }
 
@@ -101,7 +109,7 @@ export const ThemeProvider: React.FC<{children: React.ReactNode}> = ({children})
     root.style.setProperty("--max-width", `${maxWidthState}px`);
     root.classList.toggle("no-spoiler-animation", isAnimationDisabledState);
 
-    const isSystemDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+    const isSystemDark = globalThis.matchMedia("(prefers-color-scheme: dark)").matches;
 
     const isDarkMode = themeState === "dark" || (themeState === "system" && isSystemDark);
     root.classList.toggle("dark", isDarkMode);
@@ -119,13 +127,13 @@ export const ThemeProvider: React.FC<{children: React.ReactNode}> = ({children})
     ]
   );
   useEffect(() => {
-    if (typeof window === "undefined") {
+    if (globalThis.window === undefined) {
       return;
     }
 
     const handleSystemThemeChange = () => themeState === "system" && updateTheme();
 
-    const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
+    const mediaQuery = globalThis.window.matchMedia("(prefers-color-scheme: dark)");
     mediaQuery.addEventListener("change", handleSystemThemeChange);
 
     return () => mediaQuery.removeEventListener("change", handleSystemThemeChange);
@@ -213,21 +221,32 @@ const ThemeModal: React.FC<ThemeModalProps> = ({isModalOpen, closeModal}) => {
     setIsAnimationDisabled,
   } = useTheme();
 
+  const [tempHue, setTempHue] = useState(accentHue);
+
+  const [tempSaturate, setTempSaturate] = useState(saturateRatio);
+  useEffect(() => {
+    setTempHue(accentHue);
+  }, [accentHue]);
+  useEffect(() => {
+    setTempSaturate(saturateRatio);
+  }, [saturateRatio]);
+
   const [windowWidth, setWindowWidth] = useState(
-    typeof window !== "undefined" ? window.innerWidth : 0
+    globalThis.window !== undefined ? globalThis.window.innerWidth : 0
   );
   useEffect(() => {
-    if (typeof window === "undefined") {
+    if (globalThis.window === undefined) {
       return;
     }
 
-    const handleResize = () => setWindowWidth(window.innerWidth);
-    window.addEventListener("resize", handleResize);
+    const handleResize = () => setWindowWidth(globalThis.window.innerWidth);
+    globalThis.window.addEventListener("resize", handleResize);
 
-    return () => window.removeEventListener("resize", handleResize);
+    return () => globalThis.window.removeEventListener("resize", handleResize);
   }, []);
 
-  const currentPath = typeof window !== "undefined" ? window.location.pathname : "";
+  const currentPath =
+    globalThis.window !== undefined ? globalThis.window.location.pathname : "";
 
   const allowedPaths = ["/aefaq", "/prfaq", "/psfaq", "/aeexpr", "/rules"];
 
@@ -325,7 +344,7 @@ const ThemeModal: React.FC<ThemeModalProps> = ({isModalOpen, closeModal}) => {
           <div className="theme-selector">
             <button
               className={
-                !isAnimationDisabled
+                isAnimationDisabled === false
                   ? "theme-button theme-button-selected"
                   : "theme-button"
               }
@@ -359,8 +378,9 @@ const ThemeModal: React.FC<ThemeModalProps> = ({isModalOpen, closeModal}) => {
             <Slider
               max={360}
               min={0}
-              value={accentHue}
-              onChange={(value) => setAccentHue(value)}
+              value={tempHue}
+              onAfterChange={setAccentHue}
+              onChange={setTempHue}
             />
           </div>
           <div className="theme-title">
@@ -379,8 +399,9 @@ const ThemeModal: React.FC<ThemeModalProps> = ({isModalOpen, closeModal}) => {
               max={1}
               min={0}
               step={0.025}
-              value={saturateRatio}
-              onChange={(value) => setSaturateRatio(value)}
+              value={tempSaturate}
+              onAfterChange={setSaturateRatio}
+              onChange={setTempSaturate}
             />
           </div>
         </div>
