@@ -6,7 +6,6 @@ import {message} from "antd";
 
 interface Section {
   id: string;
-  [key: string]: any;
 }
 
 export const useAnchorValidation = (sections: Section[], isPageLoaded: boolean) => {
