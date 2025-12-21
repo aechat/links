@@ -20,7 +20,7 @@ import Footer from "../components/Footer";
 
 import Header from "../components/Header";
 
-import {SearchInPage, SearchProvider} from "../components/search";
+import {SearchInPage, SearchProvider} from "../components/SearchEngine";
 
 import AEExprStart from "./sections/aeexpr/ExprStart";
 

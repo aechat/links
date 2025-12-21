@@ -8,7 +8,7 @@ import {Link, useLocation} from "react-router-dom";
 
 import {ThemeToggleButton} from "./modal/ThemeChanger";
 
-import {SearchButton} from "./search";
+import {SearchButton} from "./SearchEngine";
 
 import SupportDonut from "./modal/SupportDonut";
 

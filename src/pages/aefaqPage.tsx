@@ -18,7 +18,7 @@ import Footer from "../components/Footer";
 
 import Header from "../components/Header";
 
-import {SearchInPage, SearchProvider} from "../components/search";
+import {SearchInPage, SearchProvider} from "../components/SearchEngine";
 
 import AEWhereFind from "./sections/aefaq/AEWhereFind";
 
