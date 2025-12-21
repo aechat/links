@@ -424,11 +424,11 @@ const ChatRules = () => {
                                     <mark className="video">MP4</mark>. Это можно сделать
                                     в настройках программы:{" "}
                                     <mark className="select">
-                                      Файл → Настройки → Вывод → Формат записи
+                                      «Файл» → «Настройки» → «Вывод» → «Формат записи»
                                     </mark>{" "}
                                     или{" "}
                                     <mark className="select">
-                                      File → Settings → Output → Recording Format
+                                      «File» → «Settings» → «Output» → «Recording Format»
                                     </mark>
                                     .
                                   </li>
@@ -688,7 +688,7 @@ const ChatRules = () => {
                           <mark className="path">ScriptsUI Panels</mark> в папке с
                           программой, а не просто в папку{" "}
                           <mark className="path">Scripts</mark>. После этого скрипт
-                          появится в меню <mark className="select">Window</mark>, где вы
+                          появится в меню <mark className="select">«Window»</mark>, где вы
                           можете его открыть и закрепить где вам удобно.
                         </div>
                         <div
