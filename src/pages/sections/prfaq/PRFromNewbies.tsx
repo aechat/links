@@ -30,14 +30,15 @@ const PRFromNewbies: React.FC = () => {
           </a>
           .
         </p>
-        <AdditionInfo>
+        <Addition type="info">
           Курс был записан в <mark className="app">Adobe Premiere Pro</mark> версии{" "}
           <mark>2019</mark>. Некоторые функции могут чуть отличаться от вашей текущей
           версии программы.
-        </AdditionInfo>
-        <YouTubeVideo
+        </Addition>
+        <ContentFigure
           caption="Азбука Adobe Premiere Pro"
-          link="Wi-AalXwilg"
+          src="Wi-AalXwilg"
+          type="youtube"
         />
         <p>
           Также при желании вы можете отдельно посмотреть курс по работе с вкладкой{" "}
@@ -46,9 +47,10 @@ const PRFromNewbies: React.FC = () => {
           футажей и исходников от{" "}
           <a href="https://www.youtube.com/@Bolharov">Романа Болгарова</a>.
         </p>
-        <YouTubeVideo
+        <ContentFigure
           caption="Цветокоррекция в Lumetri"
-          link="xqRnW1T_pNk"
+          src="xqRnW1T_pNk"
+          type="youtube"
         />
         <p>
           Если вы уже уверенно монтируете в{" "}
@@ -90,24 +92,24 @@ const PRFromNewbies: React.FC = () => {
           Шорткаты могут помочь ускорить ваш рутинный процесс нахождения нужной функции
           программы, поэтому ниже приведены популярные у многих пользователей комбинации.
         </p>
-        <AdditionWarning>
+        <Addition type="warning">
           Горячие клавиши могут меняться в зависимости от версии программы. Посмотреть
           клавиши, которые назначены у вас для определённого действия, вы можете с помощью
           окна настроек комбинаций клавиш, которая находится в{" "}
-          <mark className="ui">Edit &gt; Keyboard Shortcuts</mark> и открывается с помощью{" "}
-          <mark className="key">Ctrl + Alt + K</mark>. Более подробный список комбинаций
-          клавиш вы можете прочесть{" "}
+          <mark className="select">«Edit» → «Keyboard Shortcuts»</mark> и открывается с
+          помощью <mark className="key">Ctrl + Alt + K</mark>. Более подробный список
+          комбинаций клавиш вы можете прочесть{" "}
           <a href="https://helpx.adobe.com/premiere-pro/using/keyboard-shortcuts.html">
             на официальном сайте Adobe
           </a>
           .
-        </AdditionWarning>
-        <AdditionInfo>
+        </Addition>
+        <Addition type="info">
           В таблице приведены комбинации для устройств на <mark>Windows</mark>. На{" "}
           <mark>macOS</mark> <mark className="key">Ctrl</mark> равен{" "}
           <mark className="key">Command</mark>, а <mark className="key">Alt</mark> равен{" "}
           <mark className="key">Option</mark>.
-        </AdditionInfo>
+        </Addition>
         <Divider>Выбор инструментов</Divider>
         <table>
           <thead>
@@ -238,7 +240,7 @@ const PRFromNewbies: React.FC = () => {
             </tr>
             <tr>
               <td>
-                Создание новой папки в окне <mark className="ui">Project</mark>
+                Создание новой папки в окне <mark className="select">«Project»</mark>
               </td>
               <td>
                 <mark className="key">Ctrl + /</mark>
@@ -282,8 +284,8 @@ const PRFromNewbies: React.FC = () => {
             </tr>
             <tr>
               <td>
-                Открыть окно <mark className="ui">Import</mark> для импорта различных
-                файлов в ваш проект
+                Открыть окно <mark className="select">«Import»</mark> для импорта
+                различных файлов в ваш проект
               </td>
               <td>
                 <mark className="key">Ctrl + I</mark>
@@ -291,7 +293,7 @@ const PRFromNewbies: React.FC = () => {
             </tr>
             <tr>
               <td>
-                Переход во вкладку <mark className="ui">Export</mark> для экспорта
+                Переход во вкладку <mark className="select">«Export»</mark> для экспорта
                 секвенции
               </td>
               <td>
@@ -309,8 +311,8 @@ const PRFromNewbies: React.FC = () => {
             </tr>
             <tr>
               <td>
-                Открыть <mark className="ui">Media File Properties</mark> для выделенного
-                файла
+                Открыть <mark className="select">«Media File Properties»</mark> для
+                выделенного файла
               </td>
               <td>
                 <mark className="key">Ctrl + Shift + H</mark>
@@ -373,7 +375,7 @@ const PRFromNewbies: React.FC = () => {
             </tr>
             <tr>
               <td>
-                Вставить скопированные аттрибуты клипа, например положение или масштаб
+                Вставить скопированные атрибуты клипа, например положение или масштаб
               </td>
               <td>
                 <mark className="key">Ctrl + Alt + V</mark>
@@ -396,7 +398,7 @@ const PRFromNewbies: React.FC = () => {
             <tr>
               <td>
                 Продублировать выделенные объекты в окне{" "}
-                <mark className="ui">Project</mark>
+                <mark className="select">«Project»</mark>
               </td>
               <td>
                 <mark className="key">Ctrl + Shift + /</mark>
@@ -417,11 +419,11 @@ const PRFromNewbies: React.FC = () => {
             <tr>
               <td>
                 Открыть окно поиска
-                <AdditionInfo>
+                <Addition type="info">
                   Работа поиска зависит от выделенного окна{" "}
-                  <mark className="ui">Project</mark> или{" "}
-                  <mark className="ui">Timeline</mark>
-                </AdditionInfo>
+                  <mark className="select">«Project»</mark> или{" "}
+                  <mark className="select">«Timeline»</mark>
+                </Addition>
               </td>
               <td>
                 <mark className="key">Ctrl + F</mark>
@@ -430,11 +432,11 @@ const PRFromNewbies: React.FC = () => {
             <tr>
               <td>
                 Открыть файл в сторонней программе (Edit Original)
-                <AdditionInfo>
+                <Addition type="info">
                   Открытие выделенного файла в сторонней программе зависит от настроенных
                   зависимостей для каждого расширения в настройках вашей системы. Это
                   может быть видеопроигрыватель или графический редактор.
-                </AdditionInfo>
+                </Addition>
               </td>
               <td>
                 <mark className="key">Ctrl + E</mark>
@@ -488,8 +490,8 @@ const PRFromNewbies: React.FC = () => {
             </tr>
             <tr>
               <td>
-                Вставить клип из <mark className="ui">Source Monitor</mark> или{" "}
-                <mark className="ui">Project</mark>
+                Вставить клип из <mark className="select">«Source Monitor»</mark> или{" "}
+                <mark className="select">«Project»</mark>
               </td>
               <td>
                 <mark className="key">, (Б)</mark>
@@ -498,8 +500,8 @@ const PRFromNewbies: React.FC = () => {
             <tr>
               <td>
                 Перезаписать клип на таймлайне тем, что открыто в{" "}
-                <mark className="ui">Source Monitor</mark> или выделено в{" "}
-                <mark className="ui">Project</mark>
+                <mark className="select">«Source Monitor»</mark> или выделено в{" "}
+                <mark className="select">«Project»</mark>
               </td>
               <td>
                 <mark className="key">. (Ю)</mark>
@@ -538,12 +540,12 @@ const PRFromNewbies: React.FC = () => {
               <td>
                 Начать пререндер части секвенции, где имеется красная полоска (Render
                 Effects In to Out)
-                <AdditionInfo>
+                <Addition type="info">
                   При желании вы можете настроить комбинацию клавиш, например на{" "}
                   <mark className="key">Shift + Enter</mark>, для действия{" "}
                   <mark>Render In to Out</mark>, который делает пререндер части секвенции,
                   где имеется жёлтая и красная полоска
-                </AdditionInfo>
+                </Addition>
               </td>
               <td>
                 <mark className="key">Enter</mark>
@@ -582,11 +584,11 @@ const PRFromNewbies: React.FC = () => {
             <tr>
               <td>
                 Применить стандартные переходы для выделенных клипов
-                <AdditionInfo>
+                <Addition type="info">
                   Изменить переход по умолчанию можно нажатием{" "}
                   <mark className="key">ПКМ</mark> по нужному переходу в окне{" "}
-                  <mark className="ui">Effects</mark>
-                </AdditionInfo>
+                  <mark className="select">«Effects»</mark>
+                </Addition>
               </td>
               <td>
                 <mark className="key">Shift + D</mark>
@@ -687,10 +689,10 @@ const PRFromNewbies: React.FC = () => {
               <td>Удалить выделенные маркеры</td>
               <td>
                 <mark className="key">Ctrl + Alt + M</mark>
-                <AdditionWarning>
+                <Addition type="warning">
                   Дополнительно зажав <mark className="key">Shift</mark> вы удалите все
                   маркеры у секвенции.
-                </AdditionWarning>
+                </Addition>
               </td>
             </tr>
           </tbody>
@@ -735,7 +737,7 @@ const PRFromNewbies: React.FC = () => {
           <tbody>
             <tr>
               <td>
-                Открыть окно <mark className="ui">Project</mark>
+                Открыть окно <mark className="select">«Project»</mark>
               </td>
               <td>
                 <mark className="key">Shift + 1</mark>
@@ -743,7 +745,7 @@ const PRFromNewbies: React.FC = () => {
             </tr>
             <tr>
               <td>
-                Открыть окно <mark className="ui">Source Monitor</mark>
+                Открыть окно <mark className="select">«Source Monitor»</mark>
               </td>
               <td>
                 <mark className="key">Shift + 2</mark>
@@ -751,7 +753,7 @@ const PRFromNewbies: React.FC = () => {
             </tr>
             <tr>
               <td>
-                Открыть окно <mark className="ui">Timeline</mark>
+                Открыть окно <mark className="select">«Timeline»</mark>
               </td>
               <td>
                 <mark className="key">Shift + 3</mark>
@@ -759,7 +761,7 @@ const PRFromNewbies: React.FC = () => {
             </tr>
             <tr>
               <td>
-                Открыть окно <mark className="ui">Program Monitor</mark>
+                Открыть окно <mark className="select">«Program Monitor»</mark>
               </td>
               <td>
                 <mark className="key">Shift + 4</mark>
@@ -767,7 +769,7 @@ const PRFromNewbies: React.FC = () => {
             </tr>
             <tr>
               <td>
-                Открыть окно <mark className="ui">Effect Controls</mark>
+                Открыть окно <mark className="select">«Effect Controls»</mark>
               </td>
               <td>
                 <mark className="key">Shift + 5</mark>
@@ -775,7 +777,7 @@ const PRFromNewbies: React.FC = () => {
             </tr>
             <tr>
               <td>
-                Открыть окно <mark className="ui">Audio Track Mixer</mark>
+                Открыть окно <mark className="select">«Audio Track Mixer»</mark>
               </td>
               <td>
                 <mark className="key">Shift + 6</mark>
@@ -783,7 +785,7 @@ const PRFromNewbies: React.FC = () => {
             </tr>
             <tr>
               <td>
-                Открыть окно <mark className="ui">Effects</mark>
+                Открыть окно <mark className="select">«Effects»</mark>
               </td>
               <td>
                 <mark className="key">Shift + 7</mark>
@@ -791,7 +793,7 @@ const PRFromNewbies: React.FC = () => {
             </tr>
             <tr>
               <td>
-                Открыть окно <mark className="ui">Media Browser</mark>
+                Открыть окно <mark className="select">«Media Browser»</mark>
               </td>
               <td>
                 <mark className="key">Shift + 8</mark>
@@ -799,7 +801,7 @@ const PRFromNewbies: React.FC = () => {
             </tr>
             <tr>
               <td>
-                Открыть окно <mark className="ui">Audio Clip Mixer</mark>
+                Открыть окно <mark className="select">«Audio Clip Mixer»</mark>
               </td>
               <td>
                 <mark className="key">Shift + 9</mark>
@@ -912,7 +914,7 @@ const PRFromNewbies: React.FC = () => {
             <tr>
               <td>
                 Выделить текущий клип под плейхедом, если у вас выключен{" "}
-                <mark className="ui">Select Follow Playhead</mark>
+                <mark className="select">«Select Follow Playhead»</mark>
               </td>
               <td>
                 <mark className="key">D</mark>
@@ -921,10 +923,10 @@ const PRFromNewbies: React.FC = () => {
             <tr>
               <td>
                 Проиграть предпросмотр назад (Shuttle Left)
-                <AdditionInfo>
+                <Addition type="info">
                   Многократное нажатие ускоряет проигрывание, с модификатором{" "}
                   <mark className="key">Shift</mark>, наоборот, замедляет.
-                </AdditionInfo>
+                </Addition>
               </td>
               <td>
                 <mark className="key">J</mark>
@@ -933,10 +935,10 @@ const PRFromNewbies: React.FC = () => {
             <tr>
               <td>
                 Проиграть предпросмотр вперёд (Shuttle Right)
-                <AdditionInfo>
+                <Addition type="info">
                   Многократное нажатие ускореяет проигрывание, с модификатором{" "}
                   <mark className="key">Shift</mark>, наоборот, замедляет.
-                </AdditionInfo>
+                </Addition>
               </td>
               <td>
                 <mark className="key">L</mark>
@@ -968,14 +970,14 @@ const PRFromNewbies: React.FC = () => {
         tag="рекомендация, топ, борисфх, твикстор, рсмб, юниверс, мбл, mbl"
         title="Какие плагины и инструменты мне стоит поставить в первую очередь для программы?"
       >
-        <AdditionWarning>
+        <Addition type="warning">
           Сразу хочу{" "}
           <b>
             <u>предупредить</u>
           </b>
           : пожалуйста, не надо скачивать и устанавливать в программу все плагины мира
           подряд. Для начала разберитесь с тем, что вам действительно нужно.
-        </AdditionWarning>
+        </Addition>
         <p>
           Сторонние плагины и расширения в какой-то степени могут ускорить и
           автоматизировать вашу рутинную работу с кадрами и шотами. Ниже приведу список
@@ -1027,10 +1029,10 @@ const PRFromNewbies: React.FC = () => {
           , <mark className="plugin">Premiere Composer</mark> и похожие плагины с
           различными паками помогут ускорить работу за счёт быстрого применения
           разнообразных эффектов и переходов.
-          <AdditionWarning>
+          <Addition type="warning">
             Учтите, что при применении некоторых переходов у вас может снизиться
             производительность проекта.
-          </AdditionWarning>
+          </Addition>
         </li>
         <li>
           <mark className="app">Nobe OmniScope</mark> - программа, подключаемая к{" "}
@@ -1043,13 +1045,13 @@ const PRFromNewbies: React.FC = () => {
           <li>
             <mark className="app">PluralEyes</mark> - программа от Red Giant для
             синхронизации всех аудио и видео, снятые с разных камер.
-            <AdditionWarning>
+            <Addition type="warning">
               Для данной программы поддержка прекращена. Программой пользоваться можно, но
               обновляться она уже не будет.{" "}
               <a href="https://support.maxon.net/hc/en-us/articles/7389361453340-PluralEyes-Limited-Maintenance-Mode">
                 Подробнее...
               </a>
-            </AdditionWarning>
+            </Addition>
           </li>
           <li>
             <mark className="app">Syncaila</mark> или же{" "}
@@ -1057,10 +1059,10 @@ const PRFromNewbies: React.FC = () => {
             синхронизации многокамерной съёмки. Доступна пробная версия на 20 дней, по
             истечении которого будет доступна синхронизация только 20 клипов на двух
             дорожках.
-            <AdditionInfo>
+            <Addition type="info">
               Приобрести полную версию <mark className="app">Syncaila</mark> можно на{" "}
               <a href="https://syncaila.com/ru#section-p7">официальном сайте</a>.
-            </AdditionInfo>
+            </Addition>
           </li>
         </ul>
         <Divider>Создание субтитров</Divider>
@@ -1078,11 +1080,11 @@ const PRFromNewbies: React.FC = () => {
               посмотреть официальное обучающее видео по его использованию
             </a>
             .
-            <AdditionDanger>
+            <Addition type="danger">
               Данный плагин на <mark className="app">Adobe Premiere Pro</mark> версий{" "}
               <mark>24.2</mark> и <mark>24.2.1</mark> работает кривовато. Рекомендуется
               обновить программу до последней версии или откатиться до <mark>24.1</mark>.
-            </AdditionDanger>
+            </Addition>
           </li>
           <li>
             <mark className="plugin">Captioneer</mark> - аналог предыдущего в списке
@@ -1091,11 +1093,11 @@ const PRFromNewbies: React.FC = () => {
           </li>
         </ul>
         <Divider>Обработка звука</Divider>
-        <AdditionInfo>
+        <Addition type="info">
           <mark className="app">Adobe Premiere Pro</mark> поддерживает любые VST3-плагины,
           поэтому вы можете своими любимыми эффектами для обработки звука, если вы
           работали ранее в DAW-программах и хотите перенести эффекты оттуда.
-        </AdditionInfo>
+        </Addition>
         <ul>
           <li>
             <mark className="plugin">iZotope RX</mark>,{" "}
@@ -1147,10 +1149,11 @@ const PRFromNewbies: React.FC = () => {
         title="Где я могу узнать о нововведениях в обновлениях программы?"
       >
         <p>
-          Обычно на сайте <mark>Adobe</mark> в день выхода публичной стабильной версии
-          выкладываются основные нововведения. Это сделано для того, чтобы каждый прохожий
-          не спрашивал из каждого угла <mark className="quote">А что обновилось то?</mark>
-          . Ещё время от времени <mark>Adobe</mark> выкладывает на сайт список выявленных
+          Обычно на сайте <mark className="company">Adobe</mark> в день выхода публичной
+          стабильной версии выкладываются основные нововведения. Это сделано для того,
+          чтобы каждый прохожий не спрашивал из каждого угла{" "}
+          <mark className="quote">А что обновилось то?</mark>. Ещё время от времени{" "}
+          <mark className="company">Adobe</mark> выкладывает на сайт список выявленных
           неполадок и старается приложить к ним временное решение.
         </p>
         <div className="flexible-links">
@@ -1185,13 +1188,16 @@ const PRFromNewbies: React.FC = () => {
         <p>
           Для быстрой смены языка программы вам нужно открыть консоль с помощью комбинации
           клавиш <mark className="key">Ctrl + F12</mark> и переключиться на режим
-          отображения <mark className="ui">Debug Database View</mark>.
+          отображения <mark className="select">«Debug Database View»</mark>.
         </p>
-        <ImageFigure
+        <ContentFigure
           caption="Включение вида Debug Database View"
-          imgSrc="images/premierepro/console_debug-database-view.png"
           imgTitle="Включение вида Debug Database View"
-          styleClass="figure_windows-dark"
+          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          src="images/legacy/premierepro/console_debug-database-view.png"
+          theme="dark"
+          type="image"
+          variant="windows"
         />
         <p>
           Затем в строке поиска нам нужно написать{" "}
@@ -1199,28 +1205,31 @@ const PRFromNewbies: React.FC = () => {
           вручную. В строке с одноимённым параметром пишем{" "}
           <mark className="copy">en_US</mark>.
         </p>
-        <ImageFigure
+        <ContentFigure
           caption="Установка английского языка в консоли"
-          imgSrc="images/premierepro/set_language_console.png"
           imgTitle="Установка английского языка в консоли"
-          styleClass="figure_windows-dark"
+          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          src="images/legacy/premierepro/set_language_console.png"
+          theme="dark"
+          type="image"
+          variant="windows"
         />
         <p>
           После ввода значения - перезагрузите программу и вы сможете насладиться
           англоязычным интерфейсом программы.
         </p>
-        <AdditionInfo>
+        <Addition type="info">
           Чтобы вернуть язык, который был установлен по умолчанию - достаточно убрать
           значение из этого параметра и снова перезапустить{" "}
           <mark className="app">Adobe Premiere Pro</mark>.
-        </AdditionInfo>
-        <AdditionDanger>
+        </Addition>
+        <Addition type="danger">
           После таких способов смены языка названия стандартных пресетов и рабочих
           областей могут остаться на русском языке. Их можно будет переименовать вручную
           или удалить, а затем поставить поверх дистрибутив{" "}
           <mark className="app">Adobe Premiere Pro</mark> с указанием английского языка в
           установщике. Ну или просто переустановите программу сразу на английском языке.
-        </AdditionDanger>
+        </Addition>
       </DetailsSummary>
       <DetailsSummary
         tag="бекап, бэкап, резервное копирование, возврат, вернуть, восстановить, облачное хранилище, облако, яндекс диск, журнал файлов, бэкап, история изменений файлов, откат проекта"
@@ -1235,12 +1244,12 @@ const PRFromNewbies: React.FC = () => {
           восстановление данных. Есть два варианта создания резервного копирования - на
           облачном хранилище или локально на вашем устройстве или сервере.
         </p>
-        <AdditionInfo>
+        <Addition type="info">
           Если вы хотите быстро сохранить открытый проект под другим названием -
           воспользуйтесь комбинацией клавиш{" "}
           <mark className="key">Ctrl + Alt + Shift + S</mark>. Данная команда сохранит
           проект с тем же названием и добавит число в конце по возрастанию.
-        </AdditionInfo>
+        </Addition>
         <Divider>Создаём резервные копии на облачном хранилище</Divider>
         <p>
           Самый простой способ организовать резервное копирование различных файлов
@@ -1287,7 +1296,7 @@ const PRFromNewbies: React.FC = () => {
           копирования файлов, которую необходимо включить. Обычно для работы этой функции
           требуется внешний или отдельный накопитель.
         </p>
-        <ContentSwitcher
+        <ContentFilter
           macContent={
             <div>
               <p>
@@ -1295,13 +1304,14 @@ const PRFromNewbies: React.FC = () => {
                 <mark className="app">Time Machine</mark>, которая создаёт снапшот вашей
                 системы и файлов каждый час или по нажатию кнопки создания бэкапа.
               </p>
-              <AdditionWarning>
+              <Addition type="warning">
                 Для работы данной функции нужен внешний накопитель, желательно с объёмом
                 от <mark>512 ГБ</mark> и более.
-              </AdditionWarning>
-              <YouTubeVideo
+              </Addition>
+              <ContentFigure
                 caption="How to Set up & Use Time Machine to Backup your Mac"
-                link="Gx76i28c150"
+                src="Gx76i28c150"
+                type="youtube"
               />
             </div>
           }
@@ -1313,13 +1323,15 @@ const PRFromNewbies: React.FC = () => {
                 на другую директорию. С помощью него вы можете восстановить удалённый файл
                 или вернуть предыдущую версию файла в свойствах файла.
               </p>
-              <AdditionInfo>
+              <Addition type="info">
                 Для работы данной функции заранее укажите диск, на который вы планируете
-                сохранять копии файлов в разделе <mark className="ui">Смена диска</mark>.
-              </AdditionInfo>
-              <YouTubeVideo
+                сохранять копии файлов в разделе{" "}
+                <mark className="select">Смена диска</mark>.
+              </Addition>
+              <ContentFigure
                 caption="История файлов в Windows 11 и Windows 10"
-                link="xDFQEx9gylc"
+                src="xDFQEx9gylc"
+                type="youtube"
               />
               <p>
                 В настройках этой функции можно установить интервал сохранения от{" "}
@@ -1328,7 +1340,7 @@ const PRFromNewbies: React.FC = () => {
                 <mark>двух лет</mark>, по истечении которого система автоматически удалит
                 старые резервные копии из указанной директории.
               </p>
-              <AdditionInfo>
+              <Addition type="info">
                 <p>
                   По умолчанию функция <mark className="app">История файлов</mark>{" "}
                   копирует только из стандартных папок{" "}
@@ -1343,19 +1355,19 @@ const PRFromNewbies: React.FC = () => {
                   <li>
                     На <mark>Windows 11</mark> - откройте проводник, выберите нужную папку
                     и нажмите на <mark className="key">ПКМ</mark>. Затем в контекстном
-                    меню нажмите на <mark className="ui">Добавить в библиотеку</mark>. Вы
-                    можете выбрать уже существующую библиотеку или создать новую.
-                    <AdditionWarning>
+                    меню нажмите на <mark className="select">Добавить в библиотеку</mark>.
+                    Вы можете выбрать уже существующую библиотеку или создать новую.
+                    <Addition type="warning">
                       Если у вас нет кнопки{" "}
-                      <mark className="ui">Добавить в библиотеку</mark> в контекстном меню
-                      - включите их отображение в параметрах папок.{" "}
+                      <mark className="select">Добавить в библиотеку</mark> в контекстном
+                      меню - включите их отображение в параметрах папок.{" "}
                       <a href="https://remontka.pro/manage-libraries-windows/">
                         Подробнее...
                       </a>
-                    </AdditionWarning>
+                    </Addition>
                   </li>
                 </ul>
-              </AdditionInfo>
+              </Addition>
             </div>
           }
         />
@@ -1374,9 +1386,10 @@ const PRFromNewbies: React.FC = () => {
           <mark className="app">SourceGit</mark> или{" "}
           <mark className="app">SourceTree</mark>.
         </p>
-        <YouTubeVideo
+        <ContentFigure
           caption="Объясняем на пальцах про Git"
-          link="G4f9OH4IQE8"
+          src="G4f9OH4IQE8"
+          type="youtube"
         />
       </DetailsSummary>
       <DetailsSummary
@@ -1392,28 +1405,34 @@ const PRFromNewbies: React.FC = () => {
         <p>
           Для создания <mark>Nest</mark> нужно выделить нужные клипы, нажать на{" "}
           <mark className="key">ПКМ</mark> и нажать на кнопку{" "}
-          <mark className="ui">Nest</mark>. После этого откроется окно в которое вы можете
-          вписать название новой секвенции.
+          <mark className="select">«Nest»</mark>. После этого откроется окно в которое вы
+          можете вписать название новой секвенции.
         </p>
-        <VideoFigure
+        <ContentFigure
           caption="Adobe Premiere Pro"
-          styleClass="figure_windows-dark"
-          videoSrc="images/premierepro/creating_nest.mp4"
+          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          src="images/legacy/premierepro/creating_nest.mp4"
+          theme="dark"
+          type="video"
+          variant="windows"
         />
         <p>
           А чтобы распаковать <mark>Nest</mark> или же наложить на таймлайн
           &quot;распакованную&quot; секвенцию - найдите нужную секвенцию в окне{" "}
-          <mark className="ui">Project</mark>, отключите функцию{" "}
-          <mark className="ui">
-            Insert and overwrite sequences as nests or individual clips
+          <mark className="select">«Project»</mark>, отключите функцию{" "}
+          <mark className="select">
+            «Insert and overwrite sequences as nests or individual clips»
           </mark>{" "}
           и перетяните секвенцию прямо на таймлайн. Старый <mark>Nest</mark> можно удалить
           без всяких проблем.
         </p>
-        <VideoFigure
+        <ContentFigure
           caption="Adobe Premiere Pro"
-          styleClass="figure_windows-dark"
-          videoSrc="images/premierepro/unnesting_nest.mp4"
+          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          src="images/legacy/premierepro/unnesting_nest.mp4"
+          theme="dark"
+          type="video"
+          variant="windows"
         />
       </DetailsSummary>
       <DetailsSummary
@@ -1423,29 +1442,31 @@ const PRFromNewbies: React.FC = () => {
         <p>
           Вы, наверное, не раз замечали параметры слева от ваших клипов, но не всегда
           понимали, для чего они созданы. Это кнопки{" "}
-          <mark className="ui">Source Patching</mark> и{" "}
-          <mark className="ui">Track Targeting</mark>. Самые крайние левые{" "}
-          <mark className="ui">V1</mark> и <mark className="ui">A1</mark>, или же{" "}
-          <mark className="ui">Source Patching</mark> отвечают за импорт футажей. Отключая
-          либо <mark className="ui">A1</mark> либо <mark className="ui">V1</mark> - вы
-          отключаете возможность импорта либо аудиодорожки, либо видеодорожки. Отключая
-          или включая оба параметра - вы сможете импортировать и видео и аудиодорожку на
-          таймлайн.
+          <mark className="select">«Source Patching»</mark> и{" "}
+          <mark className="select">«Track Targeting»</mark>. Самые крайние левые{" "}
+          <mark className="select">«V1»</mark> и <mark className="select">«A1»</mark>, или
+          же <mark className="select">«Source Patching»</mark> отвечают за импорт футажей.
+          Отключая либо <mark className="select">«A1»</mark> либо{" "}
+          <mark className="select">«V1»</mark> - вы отключаете возможность импорта либо
+          аудиодорожки, либо видеодорожки. Отключая или включая оба параметра - вы сможете
+          импортировать и видео и аудиодорожку на таймлайн.
         </p>
-        <YouTubeVideo
+        <ContentFigure
           caption="How to add video and audio to the timeline in Adobe Premiere Pro"
-          link="BOW2Fr7SKo0"
+          src="BOW2Fr7SKo0"
+          type="youtube"
         />
         <p>
-          А вот <mark className="ui">A1</mark>, <mark className="ui">A2</mark>,{" "}
-          <mark className="ui">A3</mark> и <mark className="ui">V1</mark>,{" "}
-          <mark className="ui">V2</mark>, <mark className="ui">V3</mark>, или же{" "}
-          <mark className="ui">Track Targeting</mark> отвечают за выделение клипов и
-          вставку видео и аудиодорожек на таймлайн.
+          А вот <mark className="select">«A1»</mark>, <mark className="select">«A2»</mark>
+          , <mark className="select">«A3»</mark> и <mark className="select">«V1»</mark>,{" "}
+          <mark className="select">«V2»</mark>, <mark className="select">«V3»</mark>, или
+          же <mark className="select">«Track Targeting»</mark> отвечают за выделение
+          клипов и вставку видео и аудиодорожек на таймлайн.
         </p>
-        <YouTubeVideo
+        <ContentFigure
           caption="Shortcuts for the timeline in Adobe Premiere Pro - track targeting"
-          link="pzQnzaRm2OY"
+          src="pzQnzaRm2OY"
+          type="youtube"
         />
       </DetailsSummary>
       <DetailsSummary title="Продублировал секвенцию на таймлайне, но копия зависит от оригинала. Как сделать Nest независимыми друг от друга?">
@@ -1458,33 +1479,36 @@ const PRFromNewbies: React.FC = () => {
         </p>
         <ul>
           <li>
-            <mark className="ui">Scale to Frame Size</mark> изменяет разрешение клипа под
-            размер вашей секвенции, при этом оставляет значение{" "}
-            <mark className="ui">Scale</mark> на 100% и меньше нагружает ресурсы ПК.
-            <AdditionWarning>
+            <mark className="select">«Scale to Frame Size»</mark> изменяет разрешение
+            клипа под размер вашей секвенции, при этом оставляет значение{" "}
+            <mark className="select">«Scale»</mark> на 100% и меньше нагружает ресурсы ПК.
+            <Addition type="warning">
               Если вы уменьшите клип, записанный в <mark>4K</mark> под секвенцию{" "}
-              <mark>1080p</mark> через <mark className="ui">Scale to Frame Size</mark>, то
-              вы заметите, что качество просядет. Также это касается и увеличения клипов.
-            </AdditionWarning>
+              <mark>1080p</mark> через{" "}
+              <mark className="select">«Scale to Frame Size»</mark>, то вы заметите, что
+              качество просядет. Также это касается и увеличения клипов.
+            </Addition>
           </li>
           <li>
-            <mark className="ui">Fill Frame</mark> подгоняет значение{" "}
-            <mark className="ui">Scale</mark> под самую большую сторону вашей секвенции и
-            клип не теряет в качестве.
+            <mark className="select">«Fill Frame»</mark> подгоняет значение{" "}
+            <mark className="select">«Scale»</mark> под самую большую сторону вашей
+            секвенции и клип не теряет в качестве.
           </li>
           <li>
-            <mark className="ui">Fit to Frame</mark> подгоняет размер клипа под ближайшую
-            сторону вашей секвенции через значение <mark className="ui">Scale</mark>.
+            <mark className="select">«Fit to Frame»</mark> подгоняет размер клипа под
+            ближайшую сторону вашей секвенции через значение{" "}
+            <mark className="select">«Scale»</mark>.
           </li>
         </ul>
-        <AdditionInfo>
+        <Addition type="info">
           В старых версиях <mark className="app">Adobe Premiere Pro</mark> вместо{" "}
-          <mark className="ui">Fit to Frame</mark> была кнопка{" "}
-          <mark className="ui">Set to Frame Size</mark>.
-        </AdditionInfo>
-        <YouTubeVideo
+          <mark className="select">«Fit to Frame»</mark> была кнопка{" "}
+          <mark className="select">«Set to Frame Size»</mark>.
+        </Addition>
+        <ContentFigure
           caption="Чем отличается Scale to Frame size от Set to Frame size?"
-          link="dKTWbkPfcmE"
+          src="dKTWbkPfcmE"
+          type="youtube"
         />
       </DetailsSummary>
       <DetailsSummary
@@ -1496,8 +1520,8 @@ const PRFromNewbies: React.FC = () => {
           <mark className="path">Obsolete</mark> слишком устаревшими и решила их удалить в
           новых версиях. Проекты, которые были созданы в более старых версиях{" "}
           <mark className="app">Adobe Premiere Pro</mark>, могут работать спокойно, но
-          применить новые эффекты из окна <mark className="ui">Effects & Presets</mark>{" "}
-          уже не получится.
+          применить новые эффекты из окна{" "}
+          <mark className="select">«Effects & Presets»</mark> уже не получится.
         </p>
         <div className="flexible-links">
           <a href="https://community.adobe.com/t5/premiere-pro-beta-discussions/now-released-obsolete-effects-transitions-and-presets-removed/td-p/14703879">
@@ -1514,7 +1538,7 @@ const PRFromNewbies: React.FC = () => {
             нужный пресет
           </a>{" "}
           и импортировать его в <mark className="app">Adobe Premiere Pro</mark> в
-          соответствии с{" "}
+          соответствии с
           <a href="#2.1">инструкцией по установке дополнительного контента</a>.
         </p>
       </DetailsSummary>
@@ -1522,65 +1546,24 @@ const PRFromNewbies: React.FC = () => {
         <p>
           Для возвращения недостающей части у вашего исходника вам нужно выделить клип, а
           затем нажать на кнопку <mark className="key">F</mark>. Затем уберите{" "}
-          <mark className="ui">Source patching for inserts and overwrites</mark> в той
-          дорожке, в котором вы потеряли видео или аудио. После этого нажмите на{" "}
+          <mark className="select">«Source patching for inserts and overwrites»</mark> в
+          той дорожке, в котором вы потеряли видео или аудио. После этого нажмите на{" "}
           <mark className="key">.</mark> или <mark className="key">Ю</mark>.
         </p>
-        <VideoFigure
+        <ContentFigure
           caption="Видео из Telegram-канала @nano_tutorials"
-          styleClass="figure_macos-dark"
-          videoSrc="images/premierepro/restore_missing.mp4"
+          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          src="images/legacy/premierepro/restore_missing.mp4"
+          theme="dark"
+          type="video"
+          variant="mac"
         />
       </DetailsSummary>
-      <DetailsSummary title="Хочу перевести голос в субтитры, но загрузка чего-то падает в бесконечность. Почему функция транскрибации не работает?">
-        <p>
-          На &quot;народных&quot; версиях <mark className="app">Adobe Premiere Pro</mark>{" "}
-          загрузка языковых моделей для транскрибации речи в текст недоступна, поэтому их
-          нужно устанавливать вручную.
-        </p>
-        <AdditionInfo>
-          Языковые пакеты вы можете скачать в канале{" "}
-          <a href="https://t.me/+Qd9xu7A4TeIwNzY6">склад стройматериалов (Windows)</a> по
-          хештегу <mark className="tag">#speechtotext</mark> или в канале{" "}
-          <a href="https://t.me/+ZqiaMfQRFgM4YmEy">Яблоневый сад (macOS)</a> по поиску{" "}
-          <mark className="tag">Speech To Text</mark>.
-        </AdditionInfo>
-        <AdditionDanger>
-          Устанавливая языковой пакет - смотрите, для какой версии{" "}
-          <mark className="app">Adobe Premiere Pro</mark> он предназначен! Версию{" "}
-          <mark className="app">Adobe Premiere Pro</mark> вы можете узнать в{" "}
-          <mark className="ui">Help &gt; About Adobe Premiere Pro</mark>. Если вы
-          установите языковой пакет для другой версии, отличной от вашей - вы не сможете
-          использовать функцию транскрибации речи в текст.
-        </AdditionDanger>
-        <p>
-          После установки языкового пакета - создайте субтитры с помощью{" "}
-          <mark className="ui">Generate static transcript</mark>.
-        </p>
-        <ImageFigure
-          caption="Text"
-          imgSrc="images/premierepro/text_generate_static_transcript.png"
-          imgTitle="Начало генерации текста на основе речи"
-          styleClass="figure_windows-dark"
-        />
-        <p>
-          В открывшемся окне выберите язык, на котором говорит голос из аудио и нажмите на{" "}
-          <mark className="ui">Transcribe</mark>.
-        </p>
-        <ImageFigure
-          caption="Generate static transcript"
-          imgSrc="images/premierepro/generate_transcribe_settings.png"
-          imgTitle="Настройки генерации текста на основе речи"
-          styleClass="figure_windows-dark"
-        />
-        <p>
-          После этого подождите некоторое время и вы получите какую-никакую расшифровку
-          текста для аудио. На основе этих данных вы можете создать субтитры, выбрав в
-          трёх точках <mark className="ui">Create Captions</mark>, подредактировать их или
-          перемещаться в тот промежуток времени, в котором диктор говорит определённую
-          фразу.
-        </p>
-      </DetailsSummary>
+      <DetailsSummary
+        tag="менеджер эффектов"
+        title="Программа аварийно завершила работу и предложила отключить эффект, который вызывает сбой. Я его отключил, но при последующих запусках он не возвращается обратно. Как его активировать снова?"
+      >
+        {/* TODO: написать про менеджер эффектов */}
       </DetailsSummary>
       <DetailsSummary title="Почему у меня отсутствует звук при проигрывании предпросмотра?">
         <p>
@@ -1588,64 +1571,69 @@ const PRFromNewbies: React.FC = () => {
           внешний монитор с колонками, то вполне вероятно что у вас сбились настройки
           звука. Вам следует проверить настройки аудиовыхода в настройках программы, для
           этого нужно перейти в{" "}
-          <mark className="ui">Edit &gt; Preferences &gt; Audio Hardware</mark> и указать
-          в параметре <mark className="ui">Default Output</mark> нужный вам аудиовыход.
+          <mark className="select">«Edit» → «Preferences» → «Audio Hardware»</mark> и
+          указать в параметре <mark className="select">«Default Output»</mark> нужный вам
+          аудиовыход.
         </p>
-        <ImageFigure
+        <ContentFigure
           caption="Preferences"
-          imgSrc="images/premierepro/set_audio_output.png"
           imgTitle="Установка аудиовыхода"
-          styleClass="figure_windows-dark"
+          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          src="images/legacy/premierepro/set_audio_output.png"
+          theme="dark"
+          type="image"
+          variant="windows"
         />
-        <AdditionInfo>
+        <Addition type="info">
           Иногда в некоторых случаях необходимо будет в параметре{" "}
-          <mark className="ui">Default Input</mark> указать{" "}
-          <mark className="ui">No Input</mark>, так как иногда микрофоны, внезапно, могут
-          мешать нормальному предпросмотру в{" "}
+          <mark className="select">«Default Input»</mark> указать{" "}
+          <mark className="select">«No Input»</mark>, так как иногда микрофоны, внезапно,
+          могут мешать нормальному предпросмотру в{" "}
           <mark className="app">Adobe Premiere Pro</mark>.
-        </AdditionInfo>
+        </Addition>
         {/* TODO: дописать ещё возможные варианты */}
       </DetailsSummary>
       <DetailsSummary title="Как отключить выделение объекта на таймлайне при перемещении временной метки?">
         <p>
           Функцию выделения клипа при перемещении временной метки можно отключить, убрав
-          галочку с <mark className="ui">Select Follow Playhead</mark> в{" "}
-          <mark className="ui">Sequence</mark>. Выделение клипа зависит от выбранных
+          галочку с <mark className="select">«Select Follow Playhead»</mark> в{" "}
+          <mark className="select">«Sequence»</mark>. Выделение клипа зависит от выбранных
           дорожек с помощью <mark>Track Targeting</mark>.
         </p>
         {/* TODO: показать скриншот включения этой опции */}
-        <AdditionInfo>
+        <Addition type="info">
           <ul>
             <li>
               Выделение клипов зависит от выбранных дорожек с помощью{" "}
-              <mark className="ui">Track Targeting</mark>.
+              <mark className="select">«Track Targeting»</mark>.
             </li>
             <li>
               Выделить текущий клип под плейхедом, если у вас выключен{" "}
-              <mark className="ui">Select Follow Playhead</mark> можно с помощью клавиши{" "}
-              <mark className="key">D</mark>.
+              <mark className="select">«Select Follow Playhead»</mark> можно с помощью
+              клавиши <mark className="key">D</mark>.
             </li>
           </ul>
-        </AdditionInfo>
+        </Addition>
       </DetailsSummary>
       <DetailsSummary title="Куда пропала настройка Timeline в Preferences?">
         <p>
-          В настройках раздел <mark className="ui">Timeline</mark> может отсутствовать на
-          некоторых &quot;народных&quot; версиях{" "}
+          В настройках раздел <mark className="select">«Timeline»</mark> может
+          отсутствовать на некоторых «народных» версиях{" "}
           <mark className="app">Adobe Premiere Pro</mark> и его можно вернуть простым
           способом - входом в аккаунт Adobe.
         </p>
-        <AdditionInfo>
+        <Addition type="info">
           После входа в аккаунт Adobe псевдо-лицензия не слетит, не переживайте.
-        </AdditionInfo>
+        </Addition>
         <p>
-          Для входа в аккаунт перейдите в <mark className="ui">Help</mark> и нажмите на{" "}
-          <mark className="ui">Sign In</mark>. Затем в появившемся окне проведите
+          Для входа в аккаунт перейдите в <mark className="select">«Help»</mark> и нажмите
+          на <mark className="select">«Sign In»</mark>. Затем в появившемся окне проведите
           процедуру входа в аккаунт, а затем попробуйте открыть настройки снова и
-          убедитесь в том, что там появился раздел <mark className="ui">Timeline</mark>.
+          убедитесь в том, что там появился раздел{" "}
+          <mark className="select">«Timeline»</mark>.
         </p>
       </DetailsSummary>
-      <AdditionInfo>
+      <Addition type="info">
         Ответы на некоторые возникающие вопросы, связанные с интерфейсом, находятся в
         другом разделе -{" "}
         <a
@@ -1675,7 +1663,7 @@ const PRFromNewbies: React.FC = () => {
           Интерфейс
         </a>
         .
-      </AdditionInfo>
+      </Addition>
     </div>
   );
 };

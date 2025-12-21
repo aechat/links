@@ -301,7 +301,8 @@ const PRInstallProblems: React.FC = () => {
                   <ContentFigure
                     caption="Essential Graphics"
                     imgTitle="Установка mogrt-шаблонов"
-                    src="images/premierepro/install_mogrt.png"
+                    // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+                    src="images/legacy/premierepro/install_mogrt.png"
                     theme="dark"
                     type="image"
                     variant="mac"
@@ -370,7 +371,8 @@ const PRInstallProblems: React.FC = () => {
                       <ContentFigure
                         caption="Adobe Premiere Pro"
                         imgTitle="Установка пресетов в Adobe Premiere Pro"
-                        src="images/premierepro/import_presets.png"
+                        // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+                        src="images/legacy/premierepro/import_presets.png"
                         theme="dark"
                         type="image"
                         variant="windows"
@@ -593,7 +595,8 @@ const PRInstallProblems: React.FC = () => {
                   </p>
                   <ContentFigure
                     caption="Preferences"
-                    src="images/premierepro/install_vst3.mp4"
+                    // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+                    src="images/legacy/premierepro/install_vst3.mp4"
                     theme="dark"
                     type="video"
                     variant="mac"
@@ -686,7 +689,8 @@ const PRInstallProblems: React.FC = () => {
                   <ContentFigure
                     caption="Magic Bullet Looks"
                     imgTitle="Импорт пресетов для Magic Bullet Looks"
-                    src="images/import_magic_bullet_looks.png"
+                    // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+                    src="images/legacy/import_magic_bullet_looks.png"
                     theme="dark"
                     type="image"
                     variant="mac"
@@ -859,7 +863,8 @@ const PRInstallProblems: React.FC = () => {
                   <ContentFigure
                     caption="Essential Graphics"
                     imgTitle="Установка mogrt-шаблонов"
-                    src="images/premierepro/install_mogrt.png"
+                    // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+                    src="images/legacy/premierepro/install_mogrt.png"
                     theme="dark"
                     type="image"
                     variant="windows"
@@ -950,7 +955,8 @@ const PRInstallProblems: React.FC = () => {
                       <ContentFigure
                         caption="Adobe Premiere Pro"
                         imgTitle="Установка пресетов в Adobe Premiere Pro"
-                        src="images/premierepro/import_presets.png"
+                        // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+                        src="images/legacy/premierepro/import_presets.png"
                         theme="dark"
                         type="image"
                         variant="windows"
@@ -1186,7 +1192,8 @@ const PRInstallProblems: React.FC = () => {
                   </p>
                   <ContentFigure
                     caption="Preferences"
-                    src="images/premierepro/install_vst3.mp4"
+                    // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+                    src="images/legacy/premierepro/install_vst3.mp4"
                     theme="dark"
                     type="video"
                     variant="windows"
@@ -1272,7 +1279,8 @@ const PRInstallProblems: React.FC = () => {
                   <ContentFigure
                     caption="Magic Bullet Looks"
                     imgTitle="Импорт пресетов для Magic Bullet Looks"
-                    src="images/import_magic_bullet_looks.png"
+                    // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+                    src="images/legacy/import_magic_bullet_looks.png"
                     theme="dark"
                     type="image"
                     variant="windows"
@@ -1334,7 +1342,7 @@ const PRInstallProblems: React.FC = () => {
       </DetailsSummary>
       <DetailsSummary
         tag="репак от кролика, выключить дефендер, отрубить антивирус, ложное срабатывание, хелпер, ошибка 24, вирусы, трояны, проверьте правильно ли указано имя и повторите попытку, windows не удается получить доступ к указанному устройству пути или файлу, возможно у вас нет нужных разрешений для доступа к этому объекту, некоторые файлы не были созданы, операция не была успешно завершена так как файл содержит вирус или потенциально нежелательную программу, обнаружены угрозы, куда-то пропадают файлы плагинов и программ, operation did not complete successfully because the file contains a virus or potentially unwanted software, windows cannot find helper.exe, make sure you typed the name correctly and then try again, 0x800700E1"
-        title="«Не удаётся найти „..\install\helper.exe“» или как отключить Защитник Windows и Windows SmartScreen?"
+        title="«Не удаётся найти „..\install\helper.exe“» или как отключить Windows Defender и Windows Smartscreen?"
       >
         <ContentFilter
           windowsContent={
@@ -1530,7 +1538,7 @@ const PRInstallProblems: React.FC = () => {
                 <mark className="app">Adobe Premiere Pro</mark> «по-человечески» — то есть
                 не менять местоположение программы при установке. Для этого достаточно
                 удалить текущую версию с помощью{" "}
-                <a href="https://helpx.adobe.com/creative-cloud/kb/cc-cleaner-tool-installation-problems.html">
+                <a href="https://helpx.adobe.com/creative-cloud/apps/troubleshoot/diagnostics-repair-tools/run-creative-cloud-cleaner-tool.html">
                   Adobe Creative Cloud Cleaner Tool
                 </a>{" "}
                 или любого другого деинсталлятора, например{" "}
@@ -1740,7 +1748,7 @@ const PRInstallProblems: React.FC = () => {
           <mark className="company">Adobe</mark>, а потом вы установили «народные» версии
           программ. Чтобы это исправить — попробуйте очистить остатки предыдущих установок
           с помощью{" "}
-          <a href="https://helpx.adobe.com/creative-cloud/kb/cc-cleaner-tool-installation-problems.html">
+          <a href="https://helpx.adobe.com/creative-cloud/apps/troubleshoot/diagnostics-repair-tools/run-creative-cloud-cleaner-tool.html">
             Adobe Creative Cloud Cleaner Tool
           </a>{" "}
           или любого другого деинсталлятора, например{" "}
@@ -2039,7 +2047,7 @@ const PRInstallProblems: React.FC = () => {
                 Чтобы полностью очистить систему от программ{" "}
                 <mark className="company">Adobe</mark> — воспользуйтесь консольной
                 утилитой{" "}
-                <a href="https://helpx.adobe.com/creative-cloud/kb/cc-cleaner-tool-installation-problems.html">
+                <a href="https://helpx.adobe.com/creative-cloud/apps/troubleshoot/diagnostics-repair-tools/run-creative-cloud-cleaner-tool.html">
                   Adobe Creative Cloud Cleaner
                 </a>{" "}
                 или любым другим деинсталлятором, например{" "}
@@ -2093,7 +2101,7 @@ const PRInstallProblems: React.FC = () => {
                     также почистить записи в брандмауэре и файле{" "}
                     <mark className="file">HOSTS</mark> во избежание конфликтов. Сделать
                     это можно с помощью{" "}
-                    <a href="https://helpx.adobe.com/creative-cloud/kb/cc-cleaner-tool-installation-problems.html">
+                    <a href="https://helpx.adobe.com/creative-cloud/apps/troubleshoot/diagnostics-repair-tools/run-creative-cloud-cleaner-tool.html">
                       Adobe Creative Cloud Cleaner Tool
                     </a>{" "}
                     или любого другого деинсталлятора, например{" "}
@@ -2132,7 +2140,8 @@ const PRInstallProblems: React.FC = () => {
                   </Addition>
                   <ContentFigure
                     caption="Установка Adobe Creative Cloud"
-                    src="images/creative_cloud_install.mp4"
+                    // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+                    src="images/legacy/creative_cloud_install.mp4"
                     theme="dark"
                     type="video"
                     variant="windows"
@@ -2148,7 +2157,8 @@ const PRInstallProblems: React.FC = () => {
                   <ContentFigure
                     caption="Adobe Creative Cloud"
                     imgTitle="Главное меню Creative Cloud"
-                    src="images/creative_cloud_main_menu.png"
+                    // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+                    src="images/legacy/creative_cloud_main_menu.png"
                     theme="light"
                     type="image"
                     variant="windows"
@@ -2169,7 +2179,8 @@ const PRInstallProblems: React.FC = () => {
                   <ContentFigure
                     caption="Adobe Creative Cloud"
                     imgTitle="Открытие установок Creative Cloud"
-                    src="images/creative_cloud_open_settings.mp4"
+                    // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+                    src="images/legacy/creative_cloud_open_settings.mp4"
                     theme="light"
                     type="video"
                     variant="windows"
@@ -2201,7 +2212,8 @@ const PRInstallProblems: React.FC = () => {
                   </p>
                   <ContentFigure
                     caption="Загрузка GenP"
-                    src="images/download_genp.mp4"
+                    // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+                    src="images/legacy/download_genp.mp4"
                     theme="dark"
                     type="video"
                     variant="windows"
@@ -2217,7 +2229,8 @@ const PRInstallProblems: React.FC = () => {
                   <ContentFigure
                     caption="Патчинг Adobe Creative Cloud"
                     imgTitle="Патчинг Adobe Creative Cloud"
-                    src="images/patching_creative_cloud.png"
+                    // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+                    src="images/legacy/patching_creative_cloud.png"
                     theme="dark"
                     type="image"
                     variant="windows"
@@ -2233,7 +2246,8 @@ const PRInstallProblems: React.FC = () => {
                   </p>
                   <ContentFigure
                     caption="Установка приложений из Adobe Creative Cloud"
-                    src="images/creative_cloud_install_apps.mp4"
+                    // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+                    src="images/legacy/creative_cloud_install_apps.mp4"
                     theme="dark"
                     type="video"
                     variant="windows"
@@ -2257,7 +2271,8 @@ const PRInstallProblems: React.FC = () => {
                   </p>
                   <ContentFigure
                     caption="Патчинг приложений"
-                    src="images/apply_genp_first_patch.mp4"
+                    // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+                    src="images/legacy/apply_genp_first_patch.mp4"
                     theme="dark"
                     type="video"
                     variant="windows"
@@ -2310,7 +2325,8 @@ const PRInstallProblems: React.FC = () => {
             <ContentFigure
               caption="Text"
               imgTitle="Начало генерации текста на основе речи"
-              src="images/premierepro/text_generate_static_transcript.png"
+              // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+              src="images/legacy/premierepro/text_generate_static_transcript.png"
               theme="dark"
               type="image"
               variant="windows"
@@ -2323,7 +2339,8 @@ const PRInstallProblems: React.FC = () => {
             <ContentFigure
               caption="Generate static transcript"
               imgTitle="Настройки генерации текста на основе речи"
-              src="images/premierepro/generate_transcribe_settings.png"
+              // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+              src="images/legacy/premierepro/generate_transcribe_settings.png"
               theme="dark"
               type="image"
               variant="windows"
@@ -2460,7 +2477,7 @@ const PRInstallProblems: React.FC = () => {
                   Если вы используете <mark className="app">GenP</mark> для активации
                   программ — он может работать некорректно. Попробуйте полностью удалить
                   все программы с помощью{" "}
-                  <a href="https://helpx.adobe.com/creative-cloud/kb/cc-cleaner-tool-installation-problems.html">
+                  <a href="https://helpx.adobe.com/creative-cloud/apps/troubleshoot/diagnostics-repair-tools/run-creative-cloud-cleaner-tool.html">
                     Adobe Creative Cloud Cleaner Tool
                   </a>{" "}
                   или любого стороннего деинсталлятора, например{" "}
@@ -2674,7 +2691,8 @@ const PRInstallProblems: React.FC = () => {
         <ContentFigure
           caption="Диспетчер задач"
           imgTitle="Завершаем процесс Red Giant Service.exe"
-          src="images/kill_redgiantservice.png"
+          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          src="images/legacy/kill_redgiantservice.png"
           theme="dark"
           type="image"
           variant="windows"
@@ -2819,143 +2837,7 @@ const PRInstallProblems: React.FC = () => {
             После обновления программ от Adobe может не всегда работать патч, для этого
             нужно периодически обновлять сам <mark className="app">GenP</mark>.
           </li>
-        </ul>
-        <AdditionDanger>
-          Если вы хотите &quot;переехать&quot; с репаков или у вас уже установлены
-          какие-то приложения от Adobe на вашем устройстве, то перед активацией через{" "}
-          <mark className="app">GenP</mark> лучше удалите все приложения от Adobe во
-          избежание различных проблем при активации. Удалить приложения от Adobe вы можете
-          через{" "}
-          <a href="https://helpx.adobe.com/creative-cloud/kb/cc-cleaner-tool-installation-problems">
-            Adobe Creative Cloud Cleaner Tool
-          </a>{" "}
-          или с помощью любой другой программы для удаления программ, например{" "}
-          <mark className="app">Revo Uninstaller</mark>.
-        </AdditionDanger>
-        <p>
-          Предположим, что ваша система уже чиста от Adobe или вы только-только
-          переустановили <mark>Windows</mark>. Для начала вам нужно загрузить{" "}
-          <a href="https://creativecloud.adobe.com/apps/download/creative-cloud?locale=en">
-            Adobe Creative Cloud
-          </a>{" "}
-          с официального сайта и установить его как обычную программу. Далее нам требуется
-          войти в аккаунт: вы можете создать новый или войти в уже существующий.
-        </p>
-        <ImageFigure
-          caption="Adobe Creative Cloud"
-          imgSrc="images/creative_cloud_main_menu.png"
-          imgTitle="Главное окно Creative Cloud"
-          styleClass="figure_windows-light"
-        />
-        <p>
-          После успешного входа нам нужно отключить автоматические обновления и автозапуск{" "}
-          <mark className="app">Creative Cloud</mark> во избежание различных &quot;детских
-          неожиданностей&quot;. Для этого вам нужно нажать на изображение вашего профиля в
-          правом верхнем углу и в меню выбрать <mark className="ui">Установки</mark>.
-        </p>
-        <ImageFigure
-          caption="Adobe Creative Cloud"
-          imgSrc="images/creative_cloud_open_settings.png"
-          imgTitle="Открытие настроек Creative Cloud"
-          styleClass="figure_windows-light"
-        />
-        <p>
-          В открывшемся окне отключаем три параметра про автозапуск и авто обновление
-          приложений в разделе <mark className="ui">Общие</mark>.
-        </p>
-        <ImageFigure
-          caption="Adobe Creative Cloud"
-          imgSrc="images/creative_cloud_settings.png"
-          imgTitle="Параметры для отключения обновлений и автозапуска Creative Cloud"
-          styleClass="figure_windows-light"
-        />
-        <AdditionInfo>
-          По вашему желанию вы можете выбрать английский язык для новых приложений по
-          умолчанию в разделе <mark className="ui">Приложения</mark> или изменить язык{" "}
-          <mark className="app">Adobe After Effects</mark> вручную после установки. После
-          изменения настроек и перед применением патча обязательно закрываем приложение{" "}
-          <mark className="app">Creative Cloud</mark>.
-        </AdditionInfo>
-        <AdditionDanger>
-          Суббреддит <mark>r/genp</mark> был заблокирован по просьбе <mark>Adobe</mark>.
-          Будьте осторожны при скачивании <mark className="app">GenP</mark> не из
-          проверенных источников.
-        </AdditionDanger>
-        <div style={{opacity: "0.5"}}>
-          <p>
-            Далее нам нужно скачать сам <mark className="app">GenP</mark> с темы{" "}
-            <a href="https://www.reddit.com/r/genP/">/r/genp</a> на Reddit.
-          </p>
-          <AdditionWarning>
-            Если ссылка на скачивание не работает, то обычно ниже прикладываются ссылки на
-            зеркало скачивания. Перед скачиванием, распаковкой и дальнейшем использованием{" "}
-            <mark className="app">GenP</mark>, отключите ваш антивирус на время.
-          </AdditionWarning>
-          <ImageFigure
-            caption="Браузер"
-            imgSrc="images/reddit_genp.png"
-            imgTitle="Скачиваем GenP из Reddit"
-            styleClass="figure_windows-dark"
-          />
-        </div>
-        <p>
-          После успешной загрузки архива - нужно распаковать его в любом удобном месте, а
-          затем открыть <mark className="app">AdobeGenP.exe</mark> в папке{" "}
-          <mark className="path">Source</mark>. Если вас при первом открытии спросят{" "}
-          <mark>
-            Do you wish to elevate GenP to Trustedlnstaller to allow for patching of
-            XD/UWP apps?
-          </mark>
-          - нажмите на <mark className="ui">No</mark>.
-        </p>
-        <AdditionWarning>
-          Интерфейс <mark className="app">GenP</mark>, в зависимости от актуальной версии,
-          может незначительно отличаться от того, что демонстрируется в этой статье. Суть
-          всех действий остаётся примерно одинаковым.
-        </AdditionWarning>
-        <p>
-          Внизу интерфейса <mark className="app">GenP</mark> есть несколько кнопок. Нам
-          нужно нажать на кнопку <mark className="ui">Search</mark> и подождать до
-          появления двух файлов для <mark className="app">Creative Cloud</mark>.{" "}
-        </p>
-        <ImageFigure
-          caption="Adobe GenP"
-          imgSrc="images/patching_creative_cloud.png"
-          imgTitle="Патчим Creative Cloud"
-          styleClass="figure_windows-light"
-        />
-        <p>
-          Их мы выделяем и нажимаем на кнопку <mark className="ui">Patch</mark> и ждём
-          успешного патча.
-        </p>
-        <p>
-          После патча <mark className="app">Creative Cloud</mark>, нам нужно в него зайти
-          и начать скачивать оттуда программы. После установки{" "}
-          <mark className="app">Adobe After Effects</mark> и остального софта -{" "}
-          <u>не спешите</u> их открывать.
-        </p>
-        <p>
-          После установки нужного софта снова открываем <mark className="app">GenP</mark>{" "}
-          и снова нажимаем на кнопку <mark className="ui">Search</mark>. Но уже теперь мы
-          выделяем галочки на всех установленных нами приложениях и снова нажимаем на
-          кнопку <mark className="ui">Patch</mark>.
-        </p>
-        <p>
-          Если в <mark className="ui">Logs</mark> ничего не указывает на ошибки при
-          патчинге, то поздравляю, вы можете теперь запустить свежеустановленные программы
-          от <mark>Adobe</mark> и работать в них. В противном случае пересмотрите
-          инструкцию, обновите <mark className="app">GenP</mark> или всё-таки поборите
-          свою паранойю насчёт репаков.
-        </p>
-      </DetailsSummary>
-        </p>
-        <AdditionInfo>
-        </AdditionInfo>
-        <p>
-          </a>{" "}
-        </p>
-      </DetailsSummary>
-      <AdditionInfo>
+      <Addition type="info">
         Некоторые решения проблем, которые у вас могут возникнуть после установки
         дополнительных материалов или во время использования программы, находятся в общем
         разделе{" "}
@@ -2986,7 +2868,7 @@ const PRInstallProblems: React.FC = () => {
           Ошибки и предупреждения
         </a>
         .
-      </AdditionInfo>
+      </Addition>
     </div>
   );
 };

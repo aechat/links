@@ -191,7 +191,7 @@ const PRWhereFind: React.FC = () => {
             <li>
               Администрация этих каналов не может всерьёз воспринимать вбросы вроде{" "}
               <mark className="quote">
-                «В „складе“, „саду“ или „аетемпе“ одни вирусы водятся!»
+                «В „складе”, „саду”, или „аетемпе” одни вирусы водятся!»
               </mark>{" "}
               без внятных доказательств наличия{" "}
               <mark className="app">вредоносного ПО</mark>. Ложное срабатывание вашего{" "}
@@ -720,7 +720,8 @@ const PRWhereFind: React.FC = () => {
             <ContentFigure
               caption="Главная страница LikeFont"
               imgTitle="Главная страница LikeFont"
-              src="images/likefont/likefont_mainpage.png"
+              // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+              src="images/legacy/likefont/likefont_mainpage.png"
               theme="light"
               type="image"
               variant="windows"
@@ -735,7 +736,8 @@ const PRWhereFind: React.FC = () => {
             <ContentFigure
               caption="Пример плохого исходника"
               imgTitle="Пример плохого исходника"
-              src="images/likefont/prfaq_likefont_example.png"
+              // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+              src="images/legacy/likefont/prfaq_likefont_example.png"
               theme="light"
               type="image"
               variant="windows"
@@ -752,7 +754,8 @@ const PRWhereFind: React.FC = () => {
             <ContentFigure
               caption="Изображение после обработки средствами сайта"
               imgTitle="Изображение после обработки средствами сайта"
-              src="images/likefont/prfaq_likefont_fixed.png"
+              // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+              src="images/legacy/likefont/prfaq_likefont_fixed.png"
               theme="light"
               type="image"
               variant="windows"
@@ -774,7 +777,8 @@ const PRWhereFind: React.FC = () => {
             <ContentFigure
               caption="Изображения к которым нужно вписать букву"
               imgTitle="Изображения к которым нужно вписать букву"
-              src="images/likefont/prfaq_likefont_recognition.png"
+              // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+              src="images/legacy/likefont/prfaq_likefont_recognition.png"
               theme="light"
               type="image"
               variant="windows"
@@ -789,7 +793,8 @@ const PRWhereFind: React.FC = () => {
             <ContentFigure
               caption="Результат распознавания"
               imgTitle="Результат распознавания"
-              src="images/likefont/prfaq_likefont_result.png"
+              // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+              src="images/legacy/likefont/prfaq_likefont_result.png"
               theme="light"
               type="image"
               variant="windows"

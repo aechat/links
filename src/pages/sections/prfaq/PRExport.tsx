@@ -14,58 +14,59 @@ const PRExport: React.FC = () => {
   return (
     <div className="faq-content">
       <DetailsSummary
-        tag="тикток, ютуб, максимальное качество, разрешение, битрейт"
+        tag="тикток, ютуб, максимальное качество, разрешение, битрейт, кодек, fps, соцсети, настройки рендера, вывод видео"
         title="Какие настройки экспорта стоит установить для вывода в социальные сети?"
       >
         <p>
-          Каждая социальная сеть или видео площадка, увы, пережимают загружаемое
-          пользователем видео так, чтобы уместить у себя на серверах с меньшим объёмом
-          файла. Если вы установите слишком высокое значение битрейта и разрешение,
-          например для <mark>TikTok</mark>, то площадка с радостью всё пережмёт до{" "}
-          <mark>1080p/60fps</mark> и около <mark>5 Мбит/с</mark>, поэтому разрешение{" "}
-          <mark>4K</mark> и битрейт условно <mark>100 Мбит/с</mark> смысла ставить нет.
-          Также установка слишком низкого битрейта или других неверных параметров могут
-          испортить ваше прекрасное видео.
+          Каждая социальная сеть или видеоплощадка, увы, пережимают загружаемое
+          пользователем видео так, чтобы оно занимало меньше места на серверах. Если вы
+          установите слишком высокое значение битрейта и разрешение, например для{" "}
+          <mark className="app">TikTok</mark>, то площадка с радостью всё пережмёт до{" "}
+          <mark>1080p/60 FPS</mark> и битрейта около <mark>5 Мбит/с</mark>, поэтому
+          разрешение <mark>4K</mark> и битрейт <mark>100 Мбит/с</mark> ставить
+          бессмысленно. Установка слишком низкого битрейта или других неверных параметров
+          также может испортить ваше видео.
         </p>
         <p>
-          А теперь в целом про качество: оно будет зависеть от того, что происходит на
-          вашем экране. Если вы монтируете спокойные видео, то есть подкасты или ролики
-          без редких движений, то вам спокойно хватит <mark>5-10 Мбит/с</mark> в{" "}
-          <mark>1080p</mark> для сохранения всех деталей на видео.
+          В целом, итоговое качество зависит от того, что происходит на экране. Если вы
+          монтируете спокойные видео, например подкасты или ролики без резких движений, то
+          для сохранения всех деталей в разрешении <mark>1080p</mark> вам хватит{" "}
+          <mark>5–10 Мбит/с</mark>.
         </p>
         <p>
-          Если видео было закодировано условно в <mark>1 Мбит/с</mark>, то вернуть
-          качество установкой более высокого битрейта, которое пережали до вас, нельзя.
-          Это вам не архив, из которого можно распаковать несжатое видео с исходным
-          качеством.
+          Если видео уже было закодировано, скажем, в <mark>1 Мбит/с</mark>, то вернуть
+          качество, просто установив более высокий битрейт, не получится. Это не архив, из
+          которого можно распаковать несжатое видео с исходным качеством.
         </p>
-        <YouTubeVideo
-          caption="Почему снег и конфетти паршивят картинку"
-          link="r6Rp-uo6HmI"
+        <ContentFigure
+          caption="Почему снег и конфетти портят картинку"
+          src="r6Rp-uo6HmI"
+          type="youtube"
         />
         <p>
           Теперь поговорим о правилах хорошего тона для FPS. Если вы импортируете видео в
-          монтажную программу в 30 кадров/сек, то и выводить нужно точно с такой же
-          частотой, не больше. Вывести с меньшим фреймрейтом допустимо, если у вас такая
-          творческая задумка, но с большим - нет смысла, кадры не появятся из воздуха.
-          Если вы импортируете видео с разным фреймрейтом, например <mark>24</mark>,{" "}
-          <mark>30</mark> и <mark>60</mark>, то лучше создавать композицию с наименьшим
-          FPS, то есть в <mark>24</mark> кадра/сек в данном примере. Не всем понравится
-          ваш трюк с комбинацией различных фреймрейтов в одном видео.
+          монтажную программу с частотой 30 кадров в секунду, то и выводить его нужно с
+          такой же частотой, не больше. Вывести с меньшим фреймрейтом допустимо, если
+          такова ваша творческая задумка, но с большим — нет смысла, кадры из воздуха не
+          появятся. Если вы импортируете видео с разным фреймрейтом, например{" "}
+          <mark>24</mark>, <mark>30</mark> и <mark>60</mark>, то лучше создавать
+          композицию с наименьшим FPS, то есть <mark>24 кадра/с</mark> в данном примере.
+          Не всем понравится ваш трюк с комбинацией различных фреймрейтов в одном видео.
         </p>
-        <YouTubeVideo
-          caption="Как несовпадение частоты кадров портят ваше видео"
-          link="p3Jb3UPAw-w"
+        <ContentFigure
+          caption="Как несовпадение частоты кадров портит ваше видео"
+          src="p3Jb3UPAw-w"
+          type="youtube"
         />
         <p>
-          И прежде чем загрузить куда-нибудь контент с чересстрочной разверткой - сделайте
+          И прежде чем загрузить куда-нибудь контент с чересстрочной развёрткой — сделайте
           её прогрессивной. Например, если у вас контент в <mark>1080i60</mark>, то его
           следует перевести в <mark>1080p30</mark>, то есть 60 чересстрочных полукадров в
           секунду следует заменить 30 прогрессивными кадрами в секунду.
         </p>
         <Divider>Экспортируем для YouTube</Divider>
         <p>
-          Для публикации видео на YouTube нужно соблюдать{" "}
+          Для публикации видео на <mark className="app">YouTube</mark> нужно соблюдать{" "}
           <a href="https://support.google.com/youtube/answer/1722171?hl=ru#zippy=%2C%D0%B2%D0%B8%D0%B4%D0%B5%D0%BE%D0%BA%D0%BE%D0%B4%D0%B5%D0%BA-h%2C%D0%B1%D0%B8%D1%82%D1%80%D0%B5%D0%B9%D1%82">
             несколько рекомендаций
           </a>
@@ -84,7 +85,8 @@ const PRExport: React.FC = () => {
           </li>
           <li>
             Видео должно быть в переменном или постоянном битрейте. Ограничений на него
-            нет, но лучше соблюдать таблицу битрейтов из официального сайта YouTube.
+            нет, но лучше соблюдать таблицу битрейтов с официального сайта{" "}
+            <mark className="app">YouTube</mark>.
           </li>
         </ul>
         <Divider>Таблица рекомендуемого битрейта при использовании SDR</Divider>
@@ -99,13 +101,13 @@ const PRExport: React.FC = () => {
           <tbody>
             <tr>
               <td>8K</td>
-              <td>80-160 Мбит/с</td>
-              <td>120-240 Мбит/с</td>
+              <td>80–160 Мбит/с</td>
+              <td>120–240 Мбит/с</td>
             </tr>
             <tr>
               <td>2160p (4K)</td>
-              <td>35-45 Мбит/с</td>
-              <td>53-68 Мбит/с</td>
+              <td>35–45 Мбит/с</td>
+              <td>53–68 Мбит/с</td>
             </tr>
             <tr>
               <td>1440p (2К)</td>
@@ -146,13 +148,13 @@ const PRExport: React.FC = () => {
           <tbody>
             <tr>
               <td>8K</td>
-              <td>100-200 Мбит/с</td>
-              <td>150-300 Мбит/с</td>
+              <td>100–200 Мбит/с</td>
+              <td>150–300 Мбит/с</td>
             </tr>
             <tr>
               <td>2160p (4K)</td>
-              <td>44-56 Мбит/с</td>
-              <td>66-85 Мбит/с</td>
+              <td>44–56 Мбит/с</td>
+              <td>66–85 Мбит/с</td>
             </tr>
             <tr>
               <td>1440p (2К)</td>
@@ -183,100 +185,101 @@ const PRExport: React.FC = () => {
         </table>
         <Divider>Экспортируем для TikTok</Divider>
         <p>
-          Данная площадка с вертикальными видео тоже имеет свои ограничения и рекомендации
-          по кодированию видео.
+          Эта площадка с вертикальными видео тоже имеет свои ограничения и рекомендации по
+          кодированию.
         </p>
         <ul>
           <li>
             Вес полученного файла не должен превышать <mark>75 МБ</mark>, если вы
-            собираетесь выкладывать видео с устройства на Android. Или не превышать{" "}
-            <mark>250 МБ</mark>, если вы собираетесь выкладывать видео с устройства на
-            <mark>iOS</mark>.
+            собираетесь выкладывать видео с устройства на <mark>Android</mark>, или{" "}
+            <mark>250 МБ</mark> — с устройства на <mark>iOS</mark>.
           </li>
           <li>
-            Контейнер у видео должен быть <mark className="video">MP4</mark>.
+            Контейнер видео должен быть <mark className="video">MP4</mark>.
           </li>
           <li>
-            Видеокодек должен быть <mark className="video">H.264</mark>.
+            Видеокодек — <mark className="video">H.264</mark>.
           </li>
           <li>
-            Рекомендуется установить битрейт <mark>5-8 Мбит/с</mark> для видео в
-            разрешении <mark>1080p</mark> или <mark>3-5 Мбит/с</mark> для видео в
-            разрешении <mark>720p</mark>.
+            Рекомендуется установить битрейт <mark>5–8 Мбит/с</mark> для видео в
+            разрешении <mark>1080p</mark> или <mark>3–5 Мбит/с</mark> для{" "}
+            <mark>720p</mark>.
           </li>
         </ul>
         <Divider>
           Экспортируем для Instagram<sup>1</sup>
         </Divider>
-        <AdditionDanger>
+        <Addition type="danger">
           <sup>1</sup> <mark className="app">Instagram</mark> и <mark>Meta</mark> признаны
           экстремистскими организациями и запрещены на территории Российской Федерации.
-        </AdditionDanger>
+        </Addition>
         <p>
-          На этой площадке можно выложить видео как отдельный пост, так и вертикальные
-          Reels. Из-за того что это два разных типа публикаций, то и требования тоже
-          разные.
+          На этой площадке можно выложить видео как отдельный пост или как вертикальные
+          Reels. Из-за того, что это два разных типа публикаций, требования тоже разные.
         </p>
         <ul>
           <li>
-            При создании обычного поста в него можно засунуть видео с соотношением сторон{" "}
+            При создании обычного поста в него можно добавить видео с соотношением сторон{" "}
             <mark>4:5</mark>, <mark>16:9</mark> или <mark>4:3</mark>.
           </li>
           <li>
             Если вы попытаетесь опубликовать видео с соотношением сторон <mark>9:16</mark>
-            , то оно превратится в Reels.
+            , оно превратится в Reels.
           </li>
           <li>
             Желательно использовать фреймрейт <mark>24</mark>, <mark>25</mark> или{" "}
-            <mark>30</mark> FPS, а битрейт установить <mark>5 Мбит/с</mark>.
-            <AdditionInfo>
+            <mark>30 FPS</mark>, а битрейт установить <mark>5 Мбит/с</mark>.
+            <Addition type="info">
               Из-за специфики алгоритмов сжатия на этой платформе видео с 60 FPS может
-              нещадно резаться в битрейте, соответственно и в качестве.
-            </AdditionInfo>
+              нещадно резаться по битрейту, а соответственно, и по качеству.
+            </Addition>
           </li>
         </ul>
         <Divider>Экспортируем для Telegram</Divider>
         <p>
-          Этот мессенджер более лоялен к видео файлам. Если выкладывать видео через{" "}
-          <mark className="app">Telegram Desktop</mark> в личные чаты или каналы, то он
-          отправится без сжатия и не пережмёт ваше видео. Это хорошо, если нужно отдать
-          клиенту видео в оригинальном качестве, но не очень, если собираетесь выкладывать
-          видео в пост, так как не все смогут скачать полностью видео. Поэтому просто
-          постарайтесь любыми способами обойтись в <mark>50 МБ</mark> для коротких видео
-          или <mark>300 МБ</mark> для длинных. Желательно тоже в кодеке{" "}
-          <mark className="video">H.264</mark>.
+          Этот мессенджер более лоялен к видеофайлам. Если выкладывать видео через{" "}
+          <mark className="app">Telegram Desktop</mark> в личные чаты или каналы, оно
+          отправится без сжатия. Это хорошо, если нужно отдать клиенту видео в
+          оригинальном качестве, но не очень, если собираетесь выкладывать ролик в пост,
+          так как не все смогут его полностью скачать. Поэтому постарайтесь уложиться в{" "}
+          <mark>50 МБ</mark> для коротких видео или <mark>300 МБ</mark> для длинных.
+          Желательно тоже в кодеке <mark className="video">H.264</mark>.
         </p>
         <p>
-          Публикация видео в каналы и через мобильные устройства может ухудшить ваше видео
-          из-за автоматической конвертации по умолчанию в чуть худшее качество, чем
-          оригинал. Для того чтобы отправить видео в максимальном качестве - нажмите на
-          кнопку выбора качества и потяните его максимально вправо.
+          Публикация видео в каналы через мобильные устройства может ухудшить его качество
+          из-за автоматической конвертации. Чтобы отправить видео в максимальном качестве,
+          нажмите на кнопку выбора качества и потяните ползунок максимально вправо.
         </p>
-        <ImageFigure
+        <ContentFigure
           caption="Telegram"
-          imgSrc="images/phone_telegram_videoquality.jpg"
           imgTitle="Выбор качества видео в Telegram"
-          styleClass="figure_windows-dark"
+          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          src="images/legacy/phone_telegram_videoquality.jpg"
+          theme="dark"
+          type="image"
+          variant="windows"
         />
         <p>
-          Если вы хотите опубликовать историю в Telegram, то вам нужно экспортировать
-          видео в разрешении <mark>1280 x 720</mark> и указать перед экспортом битрейт до{" "}
-          <mark>5 Мбит/с</mark>.
+          Если вы хотите опубликовать историю в <mark className="app">Telegram</mark>,
+          нужно экспортировать видео в разрешении <mark>1280×720</mark> и указать перед
+          экспортом битрейт до <mark>5 Мбит/с</mark>.
         </p>
-        <AdditionWarning>
+        <Addition type="warning">
           Если вы попробуете опубликовать историю с разрешением больше, чем{" "}
-          <mark>1280 x 720</mark>, то <mark className="app">Telegram</mark> обратно сожмёт
-          ваше видео до <mark>720p</mark>.
-        </AdditionWarning>
+          <mark>1280×720</mark>, <mark className="app">Telegram</mark> сожмёт ваше видео
+          до <mark>720p</mark>.
+        </Addition>
         <p>
-          Для анимированной аватарки вашего профиля нужно вывести видео в разрешении до{" "}
-          <mark>800 x 800</mark> и с битрейтом до <mark>2 Мбит/с</mark>.
+          Для анимированной аватарки профиля нужно вывести видео в разрешении до{" "}
+          <mark>800×800</mark> и с битрейтом до <mark>2 Мбит/с</mark>.
         </p>
       </DetailsSummary>
-      <DetailsSummary title="Как вывести секвенцию в MP4 и H.264/H.265?">
+      <DetailsSummary
+        tag="h.264, h.265, мп4, hevc, avc1, вывести видео, вукодер, voukoder, aftercodecs, афтеркодекс, хевк, авс1"
+        title="Как вывести секвенцию в MP4 и H.264/H.265?"
+      >
         <p>
-          Предположим, что вы хотите вывести качественное видео с минимальным весом в
-          кодеке
+          Предположим, вы хотите вывести качественное видео с минимальным весом в кодеке{" "}
           <mark className="video">H.264</mark> или <mark className="video">H.265</mark>, а
           также в цветовом пространстве <mark>Rec.709</mark>. Из{" "}
           <mark className="app">Adobe Premiere Pro</mark> можно вывести тремя способами.
@@ -297,52 +300,57 @@ const PRExport: React.FC = () => {
             много старых версий программы.
           </li>
         </ul>
-        <AdditionWarning>
+        <Addition type="warning">
           Через кодеки <mark className="video">H.264</mark> и{" "}
           <mark className="video">H.265</mark> нельзя вывести видео с альфа-каналом, то
           есть с прозрачностью. Для вывода видео на прозрачном фоне воспользуйтесь
-          форматом <mark className="video">Quicktime - Apple Prores 4444</mark>.
-        </AdditionWarning>
+          форматом <mark className="video">QUICKTIME — Apple ProRes 4444</mark>.
+        </Addition>
         <p>
-          Для начала нужно разобраться, куда что тыкать. Для того чтобы перейти к началу
-          экспорта, перейдите в вкладку <mark className="ui">Export</mark> или нажмите на
-          комбинацию клавиш <mark className="key">Ctrl + M</mark>.
+          Для начала нужно разобраться, куда нажимать. Чтобы перейти к началу экспорта,
+          откройте вкладку <mark className="select">«Export»</mark> или нажмите комбинацию
+          клавиш <mark className="key">Ctrl + M</mark>.
         </p>
         <p>
-          После этого вы переместитесь на полноэкранное окно настроек экспорта. В этой
-          вкладке вы можете указать название файла, путь сохранения, формат и указать в
+          После этого вы переместитесь в полноэкранное окно настроек экспорта. В этой
+          вкладке можно указать название файла, путь сохранения, формат и задать в других
           вкладках более детальные настройки. Также вы можете выбрать область для
-          кодирования видео - всю секвенцию или только часть.
+          кодирования видео — всю секвенцию или только её часть.
         </p>
-        <ImageFigure
+        <ContentFigure
           caption="Интерфейс экспорта"
-          imgSrc="images/premierepro/export_interface.png"
           imgTitle="Интерфейс экспорта"
-          styleClass="figure_windows-dark"
+          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          src="images/legacy/premierepro/export_interface.png"
+          theme="dark"
+          type="image"
+          variant="windows"
         />
         <Divider>Экспортируем через встроенный H.264</Divider>
         <p>
           По умолчанию при открытии вкладки экспорта,{" "}
           <mark className="app">Adobe Premiere Pro</mark> сам установит пресет для вывода
           в <mark className="video">H.264</mark> с переменным битрейтом с одним проходом
-          примерно в 15 Мбит/с. Для социальных сетей таких параметров хватит спокойно.
+          примерно в 15 Мбит/с. Для социальных сетей таких параметров хватит.
         </p>
         <p>
-          Если вам нужно изменить тип битрейта и скорость передачи данных - раскройте
-          вкладку <mark className="ui">Video</mark> и измените нужные вам параметры. Из
-          доступных параметров нам доступно изменение битрейта, кадров в секунду,
-          цветового профиля, включение эффектов и переключение между Software- или
-          Hardware-кодированием. Чтобы изменить{" "}
-          <mark className="ui">заблокированные настройки</mark> - просто уберите чекбокс
+          Если вам нужно изменить тип битрейта и скорость передачи данных — раскройте
+          вкладку <mark className="select">«Video»</mark> и измените нужные параметры. Вам
+          доступны изменение битрейта, частоты кадров, цветового профиля, включение
+          эффектов и переключение между <mark>Software</mark>- или <mark>Hardware</mark>
+          -кодированием. Чтобы изменить «заблокированные настройки», просто уберите флажок
           справа от нужного параметра.
         </p>
-        <VideoFigure
+        <ContentFigure
           caption="Настройки экспорта видео"
-          styleClass="figure_windows-dark"
-          videoSrc="images/premierepro/export_video_settings.mp4"
+          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          src="images/legacy/premierepro/export_video_settings.mp4"
+          theme="dark"
+          type="video"
+          variant="windows"
         />
         <p>
-          Затем просто нажмите на кнопку <mark className="ui">Export</mark> в правом
+          Затем просто нажмите на кнопку <mark className="select">«Export»</mark> в правом
           нижнем углу и дождитесь окончания кодирования вашей секвенции.
         </p>
         <Divider>Экспортируем через Voukoder</Divider>
@@ -351,15 +359,15 @@ const PRExport: React.FC = () => {
           воспользоваться плагином <mark className="plugin">Voukoder</mark>. В этом
           примере мы рассмотрим плагин{" "}
           <a href="https://github.com/Vouk/voukoder/releases/tag/13.4.1">версии 13.4.1</a>
-          , не Pro версию.
+          , не Pro-версию.
         </p>
-        <AdditionWarning>
+        <Addition type="warning">
           <ul>
             <li>
-              Чтобы подключить плагин к <mark className="app">Adobe Premiere Pro</mark> -
-              нужно скачать и установить сам <mark className="plugin">Voukoder</mark>и{" "}
+              Чтобы подключить плагин к <mark className="app">Adobe Premiere Pro</mark>,{" "}
+              нужно скачать и установить сам <mark className="plugin">Voukoder</mark> и{" "}
               <mark className="plugin">коннектор</mark> к нему. Для корректной установки
-              плагина - убедитесь в том, что вы не устанавливали{" "}
+              плагина убедитесь, что вы не устанавливали{" "}
               <mark className="app">Adobe Premiere Pro</mark> в нестандартное
               расположение.
             </li>
@@ -375,28 +383,35 @@ const PRExport: React.FC = () => {
               <mark>macOS</mark>.
             </li>
           </ul>
-        </AdditionWarning>
+        </Addition>
         <p>
           Чтобы начать рендер с помощью <mark className="plugin">Voukoder</mark>, вам
-          нужно снова перейти в вкладку <mark className="ui">Export</mark> и в параметре{" "}
-          <mark className="ui">Format</mark> выбрать <mark className="ui">Voukoder</mark>.
+          нужно снова перейти во вкладку <mark className="select">«Export»</mark> и в
+          параметре <mark className="select">«Format»</mark> выбрать{" "}
+          <mark className="select">«Voukoder»</mark>.
         </p>
-        <ImageFigure
+        <ContentFigure
           caption="Export"
-          imgSrc="images/premierepro/selecting_voukoder.png"
           imgTitle="Выбираем Voukoder для рендера"
-          styleClass="figure_windows-dark"
+          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          src="images/legacy/premierepro/selecting_voukoder.png"
+          theme="dark"
+          type="image"
+          variant="windows"
         />
         <p>
           Чтобы перейти в настройки плагина, вам нужно раскрыть вкладку{" "}
-          <mark className="ui">Voukoder</mark> и нажать на кнопку{" "}
-          <mark className="ui">Configure</mark>.
+          <mark className="select">«Voukoder»</mark> и нажать на кнопку{" "}
+          <mark className="select">«Configure»</mark>.
         </p>
-        <ImageFigure
+        <ContentFigure
           caption="Export"
-          imgSrc="images/premierepro/open_voukoder_settings.png"
           imgTitle="Открываем настройки Voukoder"
-          styleClass="figure_windows-dark"
+          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          src="images/legacy/premierepro/open_voukoder_settings.png"
+          theme="dark"
+          type="image"
+          variant="windows"
         />
         <p>
           После открытия настроек нам нужно выбрать кодек, в который мы хотим
@@ -404,24 +419,24 @@ const PRExport: React.FC = () => {
           многих современных устройствах используется кодек{" "}
           <mark className="video">H.264</mark>. Но можно и воспользоваться{" "}
           <mark className="video">HEVC (H.265)</mark>, если вам нужно примерно сохранить
-          качество видео с меньшим объёмом файла. Кодеки{" "}
+          качество видео с меньшим объёмом файла. Кодеки{" "}
           <mark className="video">AV1</mark> и <mark className="video">VP9</mark> для
           вывода из <mark className="app">Adobe After Effects</mark> используются редко, а
           если уж и надо вывести в таком формате, то проще переконвертировать видео позже
           через условный <a href="https://www.shutterencoder.com/">Shutter Encoder</a>.
           Теперь поговорим и о приставках в названиях кодеков.
         </p>
-        <AdditionInfo>
-          Варианты кодирования показаны на устройстве с связкой процессора AMD и
+        <Addition type="info">
+          Варианты кодирования показаны на устройстве со связкой процессора AMD и
           видеокарты NVIDIA. Выбор у вас может отличаться в зависимости от вашего железа.
-        </AdditionInfo>
+        </Addition>
         <ul>
           <p>
             Для вариантов <mark className="video">H.264</mark> и{" "}
             <mark className="video">H.265</mark> есть три варианта для кодирования.
           </p>
           <li>
-            <mark>x264</mark> или <mark>x265</mark> используется кодирования видео на
+            <mark>x264</mark> или <mark>x265</mark> используется для кодирования видео на
             процессоре без дополнительного использования видеокарты. Стабильно, но не
             всегда быстро.
           </li>
@@ -431,89 +446,102 @@ const PRExport: React.FC = () => {
             использование видеокарты.
           </li>
           <li>
-            <mark>AMD AMF</mark> - тоже самое, что и предыдущий параметр, но на встроенном
-            видеочипе AMD.
+            <mark>AMD AMF</mark> — то же самое, что и предыдущий параметр, но на
+            встроенном видеочипе AMD.
           </li>
         </ul>
-        <ImageFigure
+        <ContentFigure
           caption="Voukoder 13.4.1"
-          imgSrc="images/premierepro/select_codec_in_voukoder.png"
           imgTitle="Выбираем нужный вариант кодека в Voukoder"
-          styleClass="figure_windows-light"
+          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          src="images/legacy/premierepro/select_codec_in_voukoder.png"
+          theme="light"
+          type="image"
+          variant="windows"
         />
         <p>
           После выбора нужного нам кодека (я выбрал{" "}
           <mark className="video">H.264 (NVIDIA NVENC)</mark>), нужно перейти во вкладку{" "}
-          <mark className="ui">Параметры</mark>. В этой вкладке можно указать качество
-          желаемого видео. По умолчанию там уже стоит то, что нам нужно, а именно параметр
-          квантования и его фактор. <mark>CQP</mark> или <mark>CRF</mark> - это некий
-          эквивалент качества, чем меньше - тем лучше качество, но больше вес.
+          <mark className="select">«Параметры»</mark>. В этой вкладке можно указать
+          качество желаемого видео. По умолчанию там уже стоит то, что нам нужно, а именно
+          параметр квантования и его фактор. <mark>CQP</mark> или <mark>CRF</mark> — это
+          некий эквивалент качества, чем меньше — тем лучше качество, но больше вес.
         </p>
-        <ImageFigure
+        <ContentFigure
           caption="Voukoder 13.4.1"
-          imgSrc="images/premierepro/codec_parameter_voukoder.png"
           imgTitle="Настраиваем качество видео в Voukoder"
-          styleClass="figure_windows-light"
+          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          src="images/legacy/premierepro/codec_parameter_voukoder.png"
+          theme="light"
+          type="image"
+          variant="windows"
         />
         <ul>
           <li>
             Значения <mark>23</mark> или <mark>25</mark> хватит с головой для экспорта
-            видео в YouTube, VK Видео и подобных видео площадок.
-            <AdditionInfo>
-              Учтите, что многие видео площадки всё равно будут сжимать видео по своему,
+            видео в YouTube, VK Видео и подобные видеоплощадки.
+            <Addition type="info">
+              Учтите, что многие видеоплощадки всё равно будут сжимать видео по-своему,
               чтобы уместить их у себя на серверах.
-            </AdditionInfo>
+            </Addition>
           </li>
           <li>
-            Если вам нужно около максимальное качество, тогда укажите значение квантования{" "}
+            Если вам нужно почти максимальное качество, тогда укажите значение квантования{" "}
             <mark>17</mark> или <mark>20</mark>. В таком случае вес файла заметно
             возрастёт.
           </li>
           <li>
             Если вы хотите получить видео с хорошим соотношением{" "}
             <mark>качество/минимальный вес</mark>, тогда укажите значение <mark>30</mark>.
-            Можете поэкспериментировать с значением в большую или меньшую сторону.
-            <AdditionWarning>
+            Можете поэкспериментировать со значением в большую или меньшую сторону.
+            <Addition type="warning">
               Экстремальные значения, например <mark>50</mark>, не рекомендуется
               использовать, так как можете получить кашу из кадров на выходе.
-            </AdditionWarning>
+            </Addition>
           </li>
         </ul>
         <p>
           Дальше в <mark className="plugin">Voukoder</mark> нам ничего не нужно
           настраивать. При необходимости вы можете изменить другие параметры в окне
-          экспорта и начать экспорт с помощью кнопки <mark className="ui">Export</mark>.
+          экспорта и начать экспорт с помощью кнопки{" "}
+          <mark className="select">«Export»</mark>.
         </p>
         <Divider>Экспортируем через AfterCodecs</Divider>
         <p>
           Теперь поговорим и про <mark className="plugin">AfterCodecs</mark>. Для начала
           экспорта через <mark className="plugin">AfterCodecs</mark> нам нужно снова
-          вернуться во вкладку <mark className="ui">Export</mark> и выбрать в параметре{" "}
-          <mark className="ui">Format</mark> значение{" "}
-          <mark className="ui">AfterCodecs</mark>.
+          вернуться во вкладку <mark className="select">«Export»</mark> и выбрать в
+          параметре <mark className="select">«Format»</mark> значение{" "}
+          <mark className="select">«AfterCodecs»</mark>.
         </p>
-        <ImageFigure
+        <ContentFigure
           caption="Export"
-          imgSrc="images/premierepro/selecting_aftercodecs.png"
           imgTitle="Выбор AfterCodecs"
-          styleClass="figure_windows-dark"
+          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          src="images/legacy/premierepro/selecting_aftercodecs.png"
+          theme="dark"
+          type="image"
+          variant="windows"
         />
         <p>
-          Чтобы перейти в настройки <mark className="plugin">AfterCodecs</mark> -
-          раскройте вкладку <mark className="ui">Video Settings</mark> и нажмите на кнопку{" "}
-          <mark className="ui">AfterCodecs Settings</mark>.
+          Чтобы перейти в настройки <mark className="plugin">AfterCodecs</mark>, раскройте
+          вкладку <mark className="select">«Video Settings»</mark> и нажмите на кнопку{" "}
+          <mark className="select">«AfterCodecs Settings»</mark>.
         </p>
-        <AdditionInfo>
+        <Addition type="info">
           По умолчанию в <mark className="plugin">AfterCodecs</mark> стоит контейнер{" "}
           <mark className="video">MOV</mark>. Так как мы в этой статье экспортируем видео
           в <mark className="video">MP4</mark>, то и указать нужно соответствующий
           контейнер для вывода.
-        </AdditionInfo>
-        <ImageFigure
+        </Addition>
+        <ContentFigure
           caption="Export"
-          imgSrc="images/premierepro/change_format_open_aftercodecs_settings.png"
           imgTitle="Изменение контейнера и открытие настроек AfterCodecs"
-          styleClass="figure_windows-dark"
+          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          src="images/legacy/premierepro/change_format_open_aftercodecs_settings.png"
+          theme="dark"
+          type="image"
+          variant="windows"
         />
         <p>
           В открывшемся окне мы снова видим кучу непонятных параметров. Здесь нам нужно
@@ -521,41 +549,47 @@ const PRExport: React.FC = () => {
         </p>
         <ul>
           <li>
-            В параметре <mark className="ui">Tradeoff</mark> мы можем указать три варианта
-            на что ориентироваться при кодировании: на процент качества (похож на метод
-            квантования CQP), на желаемый битрейт или на желаемый размер файла (не
-            рекомендуется при повседневном использовании).
+            В параметре <mark className="select">«Tradeoff»</mark> мы можем указать три
+            варианта, на что ориентироваться при кодировании: на процент качества (похож
+            на метод квантования CQP), на желаемый битрейт или на желаемый размер файла
+            (не рекомендуется при повседневном использовании).
           </li>
           <li>
-            Значение для скорости кодирования <mark className="ui">Speed</mark> можно
-            поставить <mark>2</mark> или <mark>4</mark>.
+            Значение для скорости кодирования <mark className="select">«Speed»</mark>{" "}
+            можно поставить <mark>2</mark> или <mark>4</mark>.
           </li>
           <li>
-            В разделе <mark className="ui">Colors</mark> можно изменить битность и
+            В разделе <mark className="select">«Colors»</mark> можно изменить битность и
             цветовой диапазон. Обычно там значения меняют редко.
           </li>
           <li>
-            В <mark className="ui">Audio</mark> лучше указать значение <mark>512</mark>,
-            вместо <mark>Auto</mark>, чтобы вывести звук в аудио без сильной потери
-            качества.
+            В <mark className="select">«Audio»</mark> лучше указать значение{" "}
+            <mark>512</mark> вместо <mark>Auto</mark>, чтобы вывести звук без сильной
+            потери качества.
           </li>
-          <AdditionWarning>
-            Параметры <mark className="ui">Tuning</mark>,{" "}
-            <mark className="ui">H.264 Profiles</mark>, <mark className="ui">GOP</mark>,{" "}
-            <mark className="ui">Audio Bitrate</mark>, <mark className="ui">VR Meta</mark>{" "}
-            и <mark className="ui">Fast Start</mark> лучше не менять без острой
+          <Addition type="warning">
+            Параметры <mark className="select">«Tuning»</mark>,{" "}
+            <mark className="select">«H.264 Profiles»</mark>,{" "}
+            <mark className="select">«GOP»</mark>,{" "}
+            <mark className="select">«Audio Bitrate»</mark>,{" "}
+            <mark className="select">«VR Meta»</mark> и{" "}
+            <mark className="select">«Fast Start»</mark> лучше не менять без острой
             необходимости!
-          </AdditionWarning>
+          </Addition>
         </ul>
-        <ImageFigure
+        <ContentFigure
           caption="AfterCodecs 1.11.5 for Adobe Premiere Pro"
-          imgSrc="images/premierepro/aftercodecs_settings.png"
           imgTitle="Настройки AfterCodecs"
-          styleClass="figure_windows-dark"
+          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          src="images/legacy/premierepro/aftercodecs_settings.png"
+          theme="dark"
+          type="image"
+          variant="windows"
         />
         <p>
-          После завершения настроек мы нажимаем <mark className="ui">OK</mark> и начинаем
-          рендер как обычно, через кнопку <mark className="ui">Export</mark>.
+          После завершения настроек мы нажимаем <mark className="select">«OK»</mark> и
+          начинаем рендер как обычно, через кнопку{" "}
+          <mark className="select">«Export»</mark>.
         </p>
       </DetailsSummary>
       <DetailsSummary title="Как вывести секвенцию в WEBM и VP9?">
@@ -565,111 +599,122 @@ const PRExport: React.FC = () => {
           <mark className="video">WEBM</mark>, но можно вывести в другом формате и
           переконвертировать его.
         </p>
-        <AdditionDanger>
+        <Addition type="danger">
           Крайне не рекомендую использовать плагин{" "}
-          <a href="https://fnord.com/">WebM от fnord</a> для экспорта из{" "}
+          <a href="https://fnord.com/">WEBM от fnord</a> для экспорта из{" "}
           <mark className="app">Adobe Premiere Pro</mark> и{" "}
           <mark className="app">Adobe Media Encoder</mark>, так как он часто выводит видео
           на прозрачном фоне с жуткими артефактами.
-        </AdditionDanger>
+        </Addition>
         <Divider>Экспортируем секвенцию в удобном формате</Divider>
         <p>
           Для начала нам нужно вывести секвенцию как обычно, через{" "}
-          <mark className="video">Apple Prores 4444</mark>, если вы хотите видео с
-          альфа-каналом или в <mark className="video">Apple Prores 422</mark>, если вы
+          <mark className="video">Apple ProRes 4444</mark>, если вы хотите видео с
+          альфа-каналом или в <mark className="video">Apple ProRes 422</mark>, если вы
           хотите видео без альфа-канала. Ну или вообще вывести в ваш любимый формат, так
           как полученное видео мы всё равно будем конвертировать. Чтобы это сделать, нам
-          нужно перейти в вкладку <mark className="ui">Export</mark> с помощью комбинации
-          клавиш <mark className="key">Ctrl + M</mark>.
+          нужно перейти во вкладку <mark className="select">«Export»</mark> с помощью
+          комбинации клавиш <mark className="key">Ctrl + M</mark>.
         </p>
         <p>
           После перехода во вкладку экспорта выбираем в параметре{" "}
-          <mark className="ui">Format</mark> значение{" "}
-          <mark className="plugin">QuickTime</mark>. Затем раскройте вкладку{" "}
-          <mark className="ui">Video</mark> и в параметре{" "}
-          <mark className="ui">Video Codec</mark> укажите нужный кодек в зависимости от
-          ваших требований.
+          <mark className="select">«Format»</mark> значение{" "}
+          <mark className="select">«QuickTime»</mark>. Затем раскройте вкладку{" "}
+          <mark className="select">«Video»</mark> и в параметре{" "}
+          <mark className="select">«Video Codec»</mark> укажите нужный кодек в зависимости
+          от ваших требований.
         </p>
-        <ImageFigure
+        <ContentFigure
           caption="Export"
-          imgSrc="images/premierepro/export_prores4444_8bit-alpha.png"
           imgTitle="Экспортируем видео в Apple Prores"
-          styleClass="figure_windows-dark"
+          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          src="images/legacy/premierepro/export_prores4444_8bit-alpha.png"
+          theme="dark"
+          type="image"
+          variant="windows"
         />
-        <AdditionWarning>
-          Не забудьте поставить в <mark className="ui">Depth</mark> параметр{" "}
-          <mark className="ui">8-bpc + alpha</mark> или{" "}
-          <mark className="ui">16-bpc + alpha</mark>, если вы собираетесь выводить видео с
-          альфа-каналом.
-        </AdditionWarning>
+        <Addition type="warning">
+          Не забудьте поставить в <mark className="select">«Depth»</mark> параметр{" "}
+          <mark className="select">«8-bpc + alpha»</mark> или{" "}
+          <mark className="select">«16-bpc + alpha»</mark>, если вы собираетесь выводить
+          видео с альфа-каналом.
+        </Addition>
         <p>
           Затем не забудьте указать путь, куда вы хотите вывести видео и нажмите на кнопку{" "}
-          <mark className="ui">Export</mark> в правом нижнем углу.
+          <mark className="select">«Export»</mark> в правом нижнем углу. После экспорта вы
+          сможете воспользоваться этим видео в последующем монтаже видео или где-нибудь
+          ещё.
         </p>
-        <Divider>Конвертируем в WebM с помощью Shutter Encoder</Divider>
+        <Divider>Конвертируем в WEBM с помощью Shutter Encoder</Divider>
         <p>
           После успешного экспорта открываем <mark className="app">Shutter Encoder</mark>{" "}
           и вставляем в него выведенное видео из{" "}
           <mark className="app">Adobe Premiere Pro</mark>. В параметре{" "}
-          <mark className="ui">Choose Function</mark> выбираем{" "}
+          <mark className="select">«Choose Function»</mark> выбираем{" "}
           <mark className="video">VP9</mark>.
         </p>
-        <AdditionInfo>
+        <Addition type="info">
           Если у вас не установлен <mark className="app">Shutter Encoder</mark>, то его
           можно скачать <a href="https://www.shutterencoder.com/">по этой ссылке</a>.
-        </AdditionInfo>
-        <ImageFigure
+        </Addition>
+        <ContentFigure
           caption="Shutter Encoder"
-          imgSrc="images/select_vp9_shutter_encoder.png"
           imgTitle="Выбор VP9 в Shutter Encoder"
-          styleClass="figure_macos-dark"
+          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          src="images/legacy/select_vp9_shutter_encoder.png"
+          theme="dark"
+          type="image"
+          variant="mac"
         />
         <p>
           Затем включаем в дополнительных опциях{" "}
-          <mark className="ui">Enable alpha channel</mark>, если вы хотите вывести видео с
-          альфа-каналом.
+          <mark className="select">«Enable alpha channel»</mark>, если вы хотите вывести
+          видео с альфа-каналом.
         </p>
-        <ImageFigure
+        <ContentFigure
           caption="Shutter Encoder"
-          imgSrc="images/enable_alpha_shutter_encoder.png"
           imgTitle="Включение альфа-канала в Shutter Encoder"
-          styleClass="figure_macos-dark"
+          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          src="images/legacy/enable_alpha_shutter_encoder.png"
+          theme="dark"
+          type="image"
+          variant="mac"
         />
         <p>
           В программе можно также выставить путь для файла (по умолчанию видео кодируется
           в папку, где был исходник) и остальные параметры, если вам это нужно. После
-          настроек нажимаем на кнопку <mark className="ui">Start function</mark> или на
-          комбинацию клавиш <mark className="key">Ctrl + Enter</mark>.
+          настроек нажимаем на кнопку <mark className="select">«Start function»</mark> или
+          на комбинацию клавиш <mark className="key">Ctrl + Enter</mark>.
         </p>
         <p>
           После экспорта вы получите видео в кодеке <mark className="video">VP9</mark> и
           контейнере <mark className="video">WEBM</mark>, которое можно использовать в
           веб-проектах или где-нибудь ещё.
         </p>
-        <AdditionWarning>
-          Имейте ввиду, что поддержка <mark className="video">WebM</mark> на прозрачном
+        <Addition type="warning">
+          Имейте в виду, что поддержка <mark className="video">WEBM</mark> на прозрачном
           фоне в <mark className="app">Safari</mark> для устройств на <mark>iOS</mark> и{" "}
           <mark>macOS</mark>
           отсутствует, там будет отображаться чёрный фон вместо прозрачности.
-        </AdditionWarning>
+        </Addition>
       </DetailsSummary>
       <DetailsSummary title="Как вывести секвенцию в GIF?">
         <p>
           Из <mark className="app">Adobe Premiere Pro</mark> вывести ваш ролик в формат{" "}
           <mark className="image">GIF</mark> можно тремя способами.
         </p>
-        <AdditionInfo>
+        <Addition type="info">
           Если вы собираетесь выводить секвенцию в <mark className="image">GIF</mark> для
           веб-страницы, то советую лучше вывести в формат{" "}
-          <mark className="video">WebM</mark>. Он лучше подходит для получения
+          <mark className="video">WEBM</mark>. Он лучше подходит для получения
           качественного изображения с маленьким размером.
-        </AdditionInfo>
+        </Addition>
         <ul>
           <li>
             Вывести <mark className="image">GIF</mark> напрямую из{" "}
             <mark className="app">Adobe Premiere Pro</mark>, указав формат{" "}
-            <mark className="ui">Animated GIF</mark> во вкладке{" "}
-            <mark className="ui">Export</mark>.
+            <mark className="select">«Animated GIF»</mark> во вкладке{" "}
+            <mark className="select">«Export»</mark>.
           </li>
           <li>
             Либо вывести <mark className="image">GIF</mark> через{" "}
@@ -682,7 +727,7 @@ const PRExport: React.FC = () => {
             результат по соотношению <mark>качество/размер файла</mark>.
           </li>
         </ul>
-        <AdditionWarning>
+        <Addition type="warning">
           <p>
             У формата <mark className="image">GIF</mark> есть множество ограничений и
             нюансов.
@@ -703,78 +748,84 @@ const PRExport: React.FC = () => {
               сторон <mark>16:9</mark>.
             </li>
           </ul>
-        </AdditionWarning>
+        </Addition>
         <Divider>Экспортируем из Premiere Pro</Divider>
         <p>
           Для начала экспорта <mark className="image">GIF</mark> напрямую из{" "}
           <mark className="app">Adobe Premiere Pro</mark> вам нужно перейти во вкладку{" "}
-          <mark className="ui">Export</mark> с помощью комбинации клавиш{" "}
+          <mark className="select">«Export»</mark> с помощью комбинации клавиш{" "}
           <mark className="key">Ctrl + M</mark>. Затем выберите в параметре{" "}
-          <mark className="ui">Format</mark> значение{" "}
-          <mark className="ui">Animated GIF</mark> и не забудьте указать путь для вывода
-          файла.
+          <mark className="select">«Format»</mark> значение{" "}
+          <mark className="select">«Animated GIF»</mark> и не забудьте указать путь для
+          вывода файла.
         </p>
-        <ImageFigure
+        <ContentFigure
           caption="Export"
-          imgSrc="images/premierepro/selecting_animated_gif.png"
           imgTitle="Выбор формата Animated GIF"
-          styleClass="figure_windows-dark"
+          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          src="images/legacy/premierepro/selecting_animated_gif.png"
+          theme="dark"
+          type="image"
+          variant="windows"
         />
-        <AdditionWarning>
-          Если вы выберете в качестве формата параметр <mark className="ui">GIF</mark> без
-          слова <mark>Animated</mark>, то вы получите только кадры отдельными
-          изображениями формата <mark className="image">GIF</mark> и забьёте себе папку
-          для сохранения.
-        </AdditionWarning>
+        <Addition type="warning">
+          Если вы выберете в качестве формата параметр{" "}
+          <mark className="select">«GIF»</mark> без слова <mark>Animated</mark>, то вы
+          получите только кадры отдельными изображениями формата{" "}
+          <mark className="image">GIF</mark> и забьёте себе папку для сохранения.
+        </Addition>
         <p>
-          После завершения настроек - просто нажмите на кнопку{" "}
-          <mark className="ui">Export</mark> в правом нижнем углу экрана и вы получите в
-          нужном месте нужный файл.
+          После завершения настроек просто нажмите на кнопку{" "}
+          <mark className="select">«Export»</mark> в правом нижнем углу экрана, и вы
+          получите в нужном месте нужный файл.
         </p>
         <Divider>Экспортируем из Media Encoder</Divider>
         <p>
           <mark className="image">GIF</mark> можно ещё получить с помощью{" "}
           <mark className="app">Adobe Media Encoder</mark>. Хоть мы и отговариваем от его
           использования, но если вам нужно вывести много изображений формата{" "}
-          <mark className="image">GIF</mark>, то он подойдет лучше.
+          <mark className="image">GIF</mark>, то он подойдёт лучше.
         </p>
         <p>
           Для того чтобы начать экспорт через{" "}
           <mark className="app">Adobe Media Encoder</mark>, перейдите в{" "}
-          <mark className="ui">File &gt; Export</mark> и нажмите на{" "}
-          <mark className="ui">Add to Adobe Media Encoder Queue</mark> или нажмите на
-          комбинацию клавиш <mark className="key">Alt + Shift + M</mark> и подождите,
+          <mark className="select">«File» → «Export»</mark> и нажмите на{" "}
+          <mark className="select">«Add to Adobe Media Encoder Queue»</mark> или нажмите
+          на комбинацию клавиш <mark className="key">Alt + Shift + M</mark> и подождите,
           когда откроется вторая программа.
         </p>
-        <AdditionInfo>
+        <Addition type="info">
           Секвенция из <mark className="app">Adobe Premiere Pro</mark> корректно
           отправится в <mark className="app">Adobe Media Encoder</mark> только в том
           случае, если у вас установлен одинаковый год программ и на стандартном
           расположении программ. В противном случае вам выбьют ошибку о том, что{" "}
           <mark className="app">Adobe Media Encoder</mark> не установлен.
-        </AdditionInfo>
+        </Addition>
         <p>
           После открытия <mark className="app">Adobe Media Encoder</mark> укажите формат{" "}
-          <mark className="image">Animated GIF</mark> в очереди экспорта. Там же вы можете
+          <mark className="image">ANIMATED GIF</mark> в очереди экспорта. Там же вы можете
           указать пресет и путь к выходному файлу. Для детальной настройки вы можете
-          открыть <mark className="ui">Export Settings</mark>, нажав по названию
+          открыть <mark className="select">«Export Settings»</mark>, нажав по названию
           стандартного пресета. Там же вы можете указать разрешение, FPS и другие
           параметры.
         </p>
-        <ImageFigure
+        <ContentFigure
           caption="Media Encoder"
-          imgSrc="images/premierepro/selecting_animated_gif_media_encoder.png"
           imgTitle="Выбираем формат GIF для экспорта через Adobe Media Encoder"
-          styleClass="figure_windows-light"
+          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          src="images/legacy/premierepro/selecting_animated_gif_media_encoder.png"
+          theme="light"
+          type="image"
+          variant="windows"
         />
-        <AdditionWarning>
-          Если вы выберете в качестве формата параметр <mark className="ui">GIF</mark> без
-          слова <mark>Animated</mark>, то вы получите только кадры отдельными
-          изображениями формата <mark className="image">GIF</mark> и забьёте себе папку
-          для сохранения.
-        </AdditionWarning>
+        <Addition type="warning">
+          Если вы выберете в качестве формата параметр{" "}
+          <mark className="select">«GIF»</mark> без слова <mark>Animated</mark>, то вы
+          получите только кадры отдельными изображениями формата{" "}
+          <mark className="image">GIF</mark> и забьёте себе папку для сохранения.
+        </Addition>
         <p>
-          После настройки просто нажмите на кнопку <mark className="ui">OK</mark> и
+          После настройки просто нажмите на кнопку <mark className="select">«OK»</mark> и
           нажмите на зелёную иконку для начала экспорта. После этого в месте, куда вы
           указали путь, появится файл формата <mark className="image">GIF</mark>.
         </p>
@@ -788,140 +839,163 @@ const PRExport: React.FC = () => {
         </p>
         <p>
           Для начала конвертации просто загрузите ваше видео в сервис, а затем нажмите на
-          кнопку <mark className="ui">Upload Video</mark>.
+          кнопку <mark className="select">«Upload Video»</mark>.
         </p>
-        <ImageFigure
+        <ContentFigure
           caption="Ezgif"
-          imgSrc="images/ezgif_main.png"
           imgTitle="Главная страница Ezgif"
-          styleClass="figure_windows-light"
+          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          src="images/legacy/ezgif_main.png"
+          theme="light"
+          type="image"
+          variant="windows"
         />
-        <AdditionWarning>
+        <Addition type="warning">
           Максимальный размер файла, который можно загрузить в сервис, не должен превышать{" "}
           <mark>200 МБ</mark>. Максимальная длина не должна превышать 60 секунд для
           конвертации в <mark>5 FPS</mark>
           или 15 секунд для конвертации в <mark>20 FPS</mark>.
-        </AdditionWarning>
+        </Addition>
         <p>
           После загрузки видео вы сможете настроить FPS и нужное разрешение. Выбор из
-          настроек мягко говоря не очень широкий, но для простой конвертации хватает. Если
-          вы настроили всё, что вам нужно, то просто нажмите на кнопку{" "}
-          <mark className="ui">Convert to GIF!</mark>.
+          настроек, мягко говоря, не очень широкий, но для простой конвертации хватает.
+          Если вы настроили всё, что вам нужно, то просто нажмите на кнопку{" "}
+          <mark className="select">«Convert to GIF!»</mark>.
         </p>
-        <ImageFigure
+        <ContentFigure
           caption="Ezgif"
-          imgSrc="images/ezgif_settings.png"
           imgTitle="Настройки конвертации в Ezgif"
-          styleClass="figure_windows-light"
+          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          src="images/legacy/ezgif_settings.png"
+          theme="light"
+          type="image"
+          variant="windows"
         />
         <p>
           Далее после успешной конвертации вы получите ваше видео в формате{" "}
           <mark className="image">GIF</mark> чуть ниже, в разделе{" "}
-          <mark className="ui">Output GIF Animation</mark>, которое можно сохранить по
-          нажатию <mark className="key">ПКМ</mark> &gt;{" "}
-          <mark className="ui">Сохранить изображение как...</mark>.
+          <mark className="select">«Output GIF Animation»</mark>, которое можно сохранить
+          по нажатию <mark className="key">ПКМ</mark> →{" "}
+          <mark className="select">«Сохранить изображение как...»</mark>.
         </p>
       </DetailsSummary>
       <DetailsSummary title="Как вывести секвенцию с альфа-каналом, то есть с прозрачностью?">
-        <AdditionWarning>
+        <Addition type="warning">
           В <mark className="video">H.264</mark> и <mark className="video">MP4</mark>{" "}
           нельзя вывести композицию с альфа-каналом. Это можно сделать только на
           устройствах с <mark>macOS</mark> и при использовании кодека{" "}
           <mark className="video">H.265 (HEVC)</mark>.
-        </AdditionWarning>
+        </Addition>
         <p>
           Прежде чем начать вывод секвенции с прозрачностью, убедитесь в том, что сама
           прозрачность у вас существует. Без этого никак. Чтобы проверить прозрачные
-          участки в видео - нажмите на иконку гаечного ключа в окне{" "}
-          <mark className="ui">Program Monitor</mark> и выберите в меню параметр{" "}
-          <mark className="ui">Transparency Grid</mark>. Данная опция подставляет сетку в
-          виде шахматной доски для отображения прозрачных частей в секвенции.
+          участки в видео, нажмите на иконку гаечного ключа в окне{" "}
+          <mark className="select">«Program Monitor»</mark> и выберите в меню параметр{" "}
+          <mark className="select">«Transparency Grid»</mark>. Эта опция подставляет сетку
+          в виде шахматной доски для отображения прозрачных частей в секвенции.
         </p>
-        <ImageFigure
+        <ContentFigure
           caption="Program Monitor"
-          imgSrc="images/premierepro/toggle_transparency_grid.png"
           imgTitle="Включение сетки для отображения прозрачных частей"
-          styleClass="figure_windows-dark"
+          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          src="images/legacy/premierepro/toggle_transparency_grid.png"
+          theme="dark"
+          type="image"
+          variant="windows"
         />
         <p>
           Если всё с этим в порядке, то пора переходить во вкладку{" "}
-          <mark className="ui">Export</mark> нажав на комбинацию клавиш{" "}
+          <mark className="select">«Export»</mark>, нажав на комбинацию клавиш{" "}
           <mark className="key">Ctrl + M</mark>. Затем выберите в{" "}
-          <mark className="ui">Format</mark> параметр{" "}
-          <mark className="ui">QuickTime</mark> и в <mark className="ui">Depth</mark>{" "}
-          выберите <mark className="ui">8-bpc + Alpha</mark> или{" "}
-          <mark className="ui">16-bpc + Alpha</mark>, если вам нужно вывести видео с
+          <mark className="select">«Format»</mark> параметр{" "}
+          <mark className="select">«QuickTime»</mark> и в{" "}
+          <mark className="select">«Depth»</mark> выберите{" "}
+          <mark className="select">«8-bpc + Alpha»</mark> или{" "}
+          <mark className="select">«16-bpc + Alpha»</mark>, если вам нужно вывести видео с
           большей битностью.
         </p>
-        <ImageFigure
+        <ContentFigure
           caption="Export"
-          imgSrc="images/premierepro/export_prores4444_8bit-alpha.png"
           imgTitle="Экспорт секвенции с альфа-каналом"
-          styleClass="figure_windows-dark"
+          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          src="images/legacy/premierepro/export_prores4444_8bit-alpha.png"
+          theme="dark"
+          type="image"
+          variant="windows"
         />
         <p>
           Затем укажите путь для вывода файла и нажмите на кнопку{" "}
-          <mark className="ui">Export</mark> в левом нижнем углу. После экспорта вы
-          сможете воспользоваться этим видео в последующем монтаже видео или где-нибудь
-          ещё.
+          <mark className="select">«Export»</mark> в правом нижнем углу. После экспорта вы
+          сможете воспользоваться этим видео в последующем монтаже или где-нибудь ещё.
         </p>
-        <AdditionInfo>
+        <Addition type="info">
           Если вы хотите посмотреть такое видео, но у вас оно не открывается стандартным
           плеером, то вам нужно установить сторонний видеоплеер, например{" "}
           <mark className="app">VLC</mark> или <mark className="app">MPC-HC</mark>.
           Учтите, что не все видеопроигрыватели корректно отображают видео с
           альфа-каналом.
-        </AdditionInfo>
+        </Addition>
+      </DetailsSummary>
       </DetailsSummary>
       <DetailsSummary title="Как сохранить свой шаблон с настройками для экспорта секвенций?">
         <p>
-          Вы, наверное, не раз замечали параметр <mark className="ui">Preset</mark> в окне
-          экспорта и задумывались, можно ли добавить свои? Да, в{" "}
+          Вы, наверное, не раз замечали параметр <mark className="select">«Preset»</mark>{" "}
+          в окне экспорта и задумывались, можно ли добавить свои? Да, в{" "}
           <mark className="app">Adobe Premiere Pro</mark> можно добавить свои надстройки,
           чтобы в дальнейшем не перенастраивать экспорт.
         </p>
         <p>
-          Для этого перейдите во вкладку <mark className="ui">Export</mark> и начните там
-          настраивать экспорт под себя. После того, как вы закончили - нажмите на три
-          точки рядом с параметром <mark className="ui">Preset</mark> и в контекстном меню
-          нажмите на <mark className="ui">Save Preset</mark>. В открывшемся меню введите
-          название вашего будущего пресета и нажмите на <mark className="ui">OK</mark>.
+          Для этого перейдите во вкладку <mark className="select">«Export»</mark> и
+          начните там настраивать экспорт под себя. После того, как вы закончили — нажмите
+          на три точки рядом с параметром <mark className="select">«Preset»</mark> и в
+          контекстном меню нажмите на <mark className="select">«Save Preset»</mark>. В
+          открывшемся меню введите название вашего будущего пресета и нажмите на{" "}
+          <mark className="select">«OK»</mark>.
         </p>
-        <VideoFigure
+        <ContentFigure
           caption="Export"
-          styleClass="figure_windows-dark"
-          videoSrc="images/premierepro/create_custom_preset.mp4"
+          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          src="images/legacy/premierepro/create_custom_preset.mp4"
+          theme="dark"
+          type="video"
+          variant="windows"
         />
         <p>
           После этого вы сможете воспользоваться своими заготовленными настройками
           экспорта в дальнейшем. Чтобы удалить, импортировать пресеты или сохранить их
           отдельным файлом, воспользуйтесь окном{" "}
-          <mark className="ui">Preset Manager</mark>, которая открывается через три точки
-          у <mark className="ui">Preset</mark> и выбрать там{" "}
-          <mark className="ui">More Presets</mark>.
+          <mark className="select">«Preset Manager»</mark>, которая открывается через три
+          точки у <mark className="select">«Preset»</mark> и выбрать там{" "}
+          <mark className="select">«More Presets»</mark>.
         </p>
       </DetailsSummary>
       <DetailsSummary title="Как вывести текущий кадр предпросмотра как файл изображения?">
         <p>
           Для экспорта текущего кадра предпросмотра достаточно нажать на комбинацию клавиш{" "}
           <mark className="key">Ctrl + Shift + E</mark> или нажать на иконку фотоаппарата
-          в <mark className="ui">Program Monitor</mark>.
+          в <mark className="select">«Program Monitor»</mark>.
         </p>
-        <ImageFigure
+        <ContentFigure
           caption="Program Monitor"
-          imgSrc="images/premierepro/export_frame_program_monitor.png"
           imgTitle="Экспорт текущего кадра в окне Program Monitor"
-          styleClass="figure_windows-dark"
+          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          src="images/legacy/premierepro/export_frame_program_monitor.png"
+          theme="dark"
+          type="image"
+          variant="windows"
         />
         <p>
           Затем в открывшемся окне выберите формат и путь для сохранения изображения, а
-          потом нажмите на <mark className="ui">OK</mark>.
+          потом нажмите на <mark className="select">«OK»</mark>.
         </p>
-        <ImageFigure
+        <ContentFigure
           caption="Export Frame"
-          imgSrc="images/premierepro/export_frame.png"
           imgTitle="Экспорт текущего кадра"
-          styleClass="figure_windows-dark"
+          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          src="images/legacy/premierepro/export_frame.png"
+          theme="dark"
+          type="image"
+          variant="windows"
         />
       </DetailsSummary>
       <DetailsSummary title="Как вывести все кадры секвенции как отдельные файлы изображений?">
@@ -932,33 +1006,36 @@ const PRExport: React.FC = () => {
           любой другой формат изображений.
         </p>
         <p>
-          Для начала как всегда нам нужно перейти во вкладку{" "}
-          <mark className="ui">Export</mark> и выбрать в параметре{" "}
-          <mark className="ui">Format</mark> нужный нам тип файла.
+          Для начала, как всегда, нам нужно перейти во вкладку{" "}
+          <mark className="select">«Export»</mark> и выбрать в параметре{" "}
+          <mark className="select">«Format»</mark> нужный нам тип файла.
         </p>
-        <ImageFigure
+        <ContentFigure
           caption="Export"
-          imgSrc="images/premierepro/select_png_export.png"
           imgTitle="Выбираем формат изображений"
-          styleClass="figure_windows-dark"
+          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          src="images/legacy/premierepro/select_png_export.png"
+          theme="dark"
+          type="image"
+          variant="windows"
         />
-        <AdditionInfo>
-          Если вы хотите вывести кадры с прозрачностью - не забудьте указать параметр{" "}
-          <mark className="ui">Include Alpha Channel</mark>.
-        </AdditionInfo>
+        <Addition type="info">
+          Если вы хотите вывести кадры с прозрачностью — не забудьте указать параметр{" "}
+          <mark className="select">«Include Alpha Channel»</mark>.
+        </Addition>
         <p>
           Затем{" "}
           <b>
             <u>не забудьте</u>
           </b>{" "}
-          создать новую пустую папку, куда вы хотите экспортировать все кадры и указать её
-          в качестве пути для вывода. <mark className="app">Adobe Premiere Pro</mark> не
-          создаёт автоматически подпапку для секвенции изображений, как это делает{" "}
+          создать новую пустую папку, куда вы хотите экспортировать все кадры, и указать
+          её в качестве пути для вывода. <mark className="app">Adobe Premiere Pro</mark>{" "}
+          не создаёт автоматически подпапку для секвенции изображений, как это делает{" "}
           <mark className="app">Adobe After Effects</mark>.
         </p>
         <p>
-          После этого просто нажимаем на кнопку <mark className="ui">Export</mark>. Вот и
-          всё, все кадры из вашей секвенции сохранятся в нужную папку.
+          После этого просто нажимаем на кнопку <mark className="select">«Export»</mark>.
+          Вот и всё, все кадры из вашей секвенции сохранятся в нужную папку.
         </p>
       </DetailsSummary>
       <DetailsSummary title="Как вывести только часть моей секвенции?">
@@ -968,84 +1045,95 @@ const PRExport: React.FC = () => {
           <mark className="key">O</mark>. Это позволит вам создать область, в пределах
           которой мы можем начать экспорт.
         </p>
-        <AdditionInfo>
+        <Addition type="info">
           Чтобы очистить рабочую область, нажмите на комбинацию клавиш{" "}
           <mark className="key">Ctrl + Shift + X</mark>.
-        </AdditionInfo>
+        </Addition>
         <p>
-          Затем нам нужно перейти во вкладку <mark className="ui">Export</mark> и в
-          параметре <mark className="ui">Range</mark> под окном предпросмотра указать
-          область рендера секвенции. Нам предлагают четыре варианта на выбор.
+          Затем нам нужно перейти во вкладку <mark className="select">«Export»</mark> и в
+          параметре <mark className="select">«Range»</mark> под окном предпросмотра
+          указать область рендера секвенции. Нам предлагают четыре варианта на выбор.
         </p>
-        <ImageFigure
+        <ContentFigure
           caption="Export"
-          imgSrc="images/premierepro/select_export_range.png"
           imgTitle="Выбираем область экспорта"
-          styleClass="figure_windows-dark"
+          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          src="images/legacy/premierepro/select_export_range.png"
+          theme="dark"
+          type="image"
+          variant="windows"
         />
         <ul>
           <li>
-            <mark className="ui">Entire Source</mark> позволяет вывести секвенцию по всей
-            его длине. В данной ситуации нам это не подходит.
+            <mark className="select">«Entire Source»</mark> позволяет вывести секвенцию по
+            всей её длине. В данной ситуации нам это не подходит.
           </li>
           <li>
-            <mark className="ui">Source In/Out</mark> позволяет вывести секвенцию по
+            <mark className="select">«Source In/Out»</mark> позволяет вывести секвенцию по
             меткам начала и конца, или же входа и выхода, отмеченная с помощью кнопок{" "}
             <mark className="key">I</mark> и <mark className="key">O</mark>. То, что там
             нужно.
           </li>
           <li>
-            <mark className="ui">Work Area</mark> позволяет вывести секвенцию по размеру
-            рабочей области. По умолчанию рабочая область скрыта и его можно активировать,
-            нажав на три полоски в заголовке таймлайна и выбрать{" "}
-            <mark className="ui">Work Area Bar</mark>. В данной ситуации тоже может
+            <mark className="select">«Work Area»</mark> позволяет вывести секвенцию по
+            размеру рабочей области. По умолчанию рабочая область скрыта, и её можно
+            активировать, нажав на три полоски в заголовке таймлайна и выбрав{" "}
+            <mark className="select">«Work Area Bar»</mark>. В данной ситуации тоже может
             подойти, но он менее удобен.
           </li>
           <li>
-            <mark className="ui">Custom</mark> позволяет вывести секвенцию по длине,
-            указанным под окном предпросмотра в вкладке <mark className="ui">Export</mark>
-            . Подходит, если вы не хотите ставить метки In/Out на вашем таймлайне.
+            <mark className="select">«Custom»</mark> позволяет вывести секвенцию по длине,
+            указанным под окном предпросмотра в вкладке{" "}
+            <mark className="select">«Export»</mark>. Подходит, если вы не хотите ставить
+            метки In/Out на вашем таймлайне.
           </li>
         </ul>
         <p>
-          После настройки области экспорта - не забудьте настроить остальные параметры
-          экспорта под ваши нужны и нажать на кнопку <mark className="ui">Export</mark>.
+          После настройки области экспорта не забудьте настроить остальные параметры
+          экспорта под ваши нужны и нажать на кнопку{" "}
+          <mark className="select">«Export»</mark>.
         </p>
       </DetailsSummary>
       <DetailsSummary title="Я сделал работу в Premiere Pro, но мне нужно передать .prproj файл вместе с исходниками другому человеку. Возможно ли это сделать без танцев с бубном?">
         <p>
           Да, возможно. Это можно сделать через{" "}
-          <mark className="ui">Project Manager</mark>, который находится в параметре{" "}
-          <mark className="ui">File</mark> контекстного меню.
+          <mark className="select">«Project Manager»</mark>, который находится в параметре{" "}
+          <mark className="select">«File»</mark> контекстного меню.
         </p>
-        <ImageFigure
+        <ContentFigure
           caption="Adobe Premiere Pro"
-          imgSrc="images/premierepro/file_project_manager.png"
           imgTitle="Открытие Project Manager"
-          styleClass="figure_windows-light"
+          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          src="images/legacy/premierepro/file_project_manager.png"
+          theme="light"
+          type="image"
+          variant="windows"
         />
         <p>
-          После открытия окна <mark className="ui">Project Manager</mark> вы можете
+          После открытия окна <mark className="select">«Project Manager»</mark> вы можете
           увидеть список ваших секвенций. В этом списке вы можете выбрать все секвенции
           для экспорта или оставить только нужные. Также не забудьте указать нужный путь
-          до файла, нажав на кнопку <mark className="ui">Browse</mark> в параметре{" "}
-          <mark className="ui">Destination Path</mark>. В разделе{" "}
-          <mark className="ui">Options</mark> вы можете указать, сохранять ли файлы
+          до файла, нажав на кнопку <mark className="select">«Browse»</mark> в параметре{" "}
+          <mark className="select">«Destination Path»</mark>. В разделе{" "}
+          <mark className="select">«Options»</mark> вы можете указать, сохранять ли файлы
           предпросмотра или неиспользуемые исходники и прочие параметры.
         </p>
         <p>
           Чтобы начать сохранение проекта вместе с исходниками, достаточно нажать на{" "}
-          <mark className="ui">OK</mark> в правом нижнем углу и дождаться окончания
+          <mark className="select">«OK»</mark> в правом нижнем углу и дождаться окончания
           операции. Убедитесь в том, что у вас включен параметр{" "}
-          <mark className="ui">Collect Files and Copy to New Location</mark>.
+          <mark className="select">«Collect Files and Copy to New Location»</mark>.
         </p>
-        <ImageFigure
+        <ContentFigure
           caption="Project Manager"
-          imgSrc="images/premierepro/project_manager.png"
           imgTitle="Окно Project Manager"
-          styleClass="figure_windows-dark"
+          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          src="images/legacy/premierepro/project_manager.png"
+          theme="dark"
+          type="image"
+          variant="windows"
         />
-        <ContentSwitcher
+        <ContentFilter
           macContent={
             <div>
               <p>
@@ -1065,27 +1153,31 @@ const PRExport: React.FC = () => {
                   alignItems: "center",
                 }}
               >
-                <ImageFigure
+                <ContentFigure
                   caption="Выбор формата архива"
-                  imgSrc="https://github.com/aonez/Keka/raw/master/Wiki/Images/Animated/main-window-format.gif"
                   imgTitle="Выбор формата архива"
-                  styleClass="figure_macos-light"
+                  src="https://github.com/aonez/Keka/raw/master/Wiki/Images/Animated/main-window-format.gif"
+                  theme="light"
+                  type="image"
+                  variant="mac"
                 />
-                <ImageFigure
+                <ContentFigure
                   caption="Выбор размера разделения архива"
-                  imgSrc="https://github.com/aonez/Keka/raw/master/Wiki/Images/Animated/main-window-split.gif"
                   imgTitle="Выбор размера разделения архива"
-                  styleClass="figure_macos-light"
+                  src="https://github.com/aonez/Keka/raw/master/Wiki/Images/Animated/main-window-split.gif"
+                  theme="light"
+                  type="image"
+                  variant="mac"
                 />
               </div>
-              <AdditionInfo>
+              <Addition type="info">
                 Подробнее о создании архивов через{" "}
                 <a href="https://www.keka.io/ru/">keka</a> вы можете прочесть на{" "}
                 <a href="https://github.com/aonez/Keka/wiki/Compressing-with-Keka">
                   этой странице
                 </a>
                 .
-              </AdditionInfo>
+              </Addition>
             </div>
           }
           windowsContent={
@@ -1101,9 +1193,10 @@ const PRExport: React.FC = () => {
                 человеку по кусочкам. После создания архива, отправьте его другому
                 человеку любым удобным для вас способом.
               </p>
-              <YouTubeVideo
+              <ContentFigure
                 caption="Как разбить архив на части и собрать его"
-                link="6KumGS0EyUQ"
+                src="6KumGS0EyUQ"
+                type="youtube"
               />
             </div>
           }

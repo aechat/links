@@ -33,12 +33,12 @@ const PRImport: React.FC = () => {
           локальной версией <a href="https://mediaarea.net/en/MediaInfo">MediaInfo</a>,
           которая доступна для многих операционных систем.
         </p>
-        <AdditionInfo>
+        <Addition type="info">
           Желательно для лучшего отображения информации в{" "}
           <mark className="app">MediaInfo</mark> использовать вид{" "}
-          <mark className="ui">Tree</mark> или воспользоваться консольной версией
+          <mark className="select">«Tree»</mark> или воспользоваться консольной версией
           программы.
-        </AdditionInfo>
+        </Addition>
         <p>
           В <mark className="app">MediaInfo</mark> можно узнать многое о ваших исходниках.
           Если ваш видеоисходник не скачан из площадок, например из <mark>YouTube</mark>,
@@ -46,10 +46,10 @@ const PRImport: React.FC = () => {
           <mark>Rec.709</mark>, то радуемся жизни и спокойно импортируем в композицию и
           работаем с ними.
         </p>
-        <AdditionWarning>
+        <Addition type="warning">
           Но увы, не всегда такие исходники могут работать хорошо. Если проскакивают
           какие-либо артефакты - отправляйте исходники на конвертацию.
-        </AdditionWarning>
+        </Addition>
         <p>
           Если же у вас видео записано в <mark>Variable FPS</mark>, цветовое пространство
           является <mark>Rec.2020</mark>, так ещё и на снят <mark>iPhone</mark>, то вам
@@ -59,11 +59,14 @@ const PRImport: React.FC = () => {
           с цветами и неправильной интерпретации частоты кадров, а также от различных
           артефактов от последствий кривого кодирования до вас.
         </p>
-        <ImageFigure
+        <ContentFigure
           caption="Терминал - MediaInfo-CLI"
-          imgSrc="images/mediainfo_example.png"
           imgTitle="Пример открытого в MediaInfo файла"
-          styleClass="figure_windows-dark"
+          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          src="images/legacy/mediainfo_example.png"
+          theme="dark"
+          type="image"
+          variant="windows"
         />
         <p>
           Для того, чтобы начать процесс перекодирования ваших исходников, вам нужно
@@ -71,37 +74,41 @@ const PRImport: React.FC = () => {
           <a href="https://www.shutterencoder.com/">Shutter Encoder</a>, запустить и
           закинуть в нее ваши исходники, можно даже целую папку.
         </p>
-        <AdditionInfo>
+        <Addition type="info">
           Для того чтобы скачать программу бесплатно, перенесите ползунок из{" "}
-          <mark className="ui">It helps me to pay for the server & the domain</mark> на
-          ноль, а после нажмите на кнопку скачивания в зависимости от вашей операционной
-          системы.
-        </AdditionInfo>
+          <mark className="select">«It helps me to pay for the server & the domain»</mark>{" "}
+          на ноль, а после нажмите на кнопку скачивания в зависимости от вашей
+          операционной системы.
+        </Addition>
         <p>
           На первый взгляд интерфейс <mark className="app">Shutter Encoder</mark> может
           показаться замороченным и сложным, но на самом деле это не так. Пользователю в
           ней для перекодирования исходников нужно сделать лишь несколько действий.
         </p>
-        <ImageFigure
+        <ContentFigure
           caption="Shutter Encoder"
-          imgSrc="images/shutter_encoder_interface.png"
           imgTitle="Интерфейс Shutter Encoder"
-          styleClass="figure_macos-dark"
+          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          src="images/legacy/shutter_encoder_interface.png"
+          theme="dark"
+          type="image"
+          variant="mac"
         />
         <ul>
           <li>
-            Для начала выберите кодек в <mark className="ui">Choose Function</mark>. Чаще
-            всего используют <mark className="video">Apple Prores 422</mark>,{" "}
-            <mark className="video">H.264</mark> или <mark className="video">DNxHR</mark>.
+            Для начала выберите кодек в <mark className="select">«Choose Function»</mark>.
+            Чаще всего используют <mark className="video">Apple ProRes 422</mark>,{" "}
+            <mark className="video">H.264</mark> или <mark className="video">DNXHR</mark>.
           </li>
           <li>
             После выбора кодека - определитесь с режимом кодирования. Для этого в правой
             части рядом с выбором битрейта есть кнопка, которая переключает кодировщик
-            между режимами <mark className="ui">CBR</mark>,{" "}
-            <mark className="ui">VBR</mark> или <mark className="ui">CQ</mark>.
-            <AdditionInfo>
+            между режимами <mark className="select">«CBR»</mark>,{" "}
+            <mark className="select">«VBR»</mark> или <mark className="select">«CQ»</mark>
+            .
+            <Addition type="info">
               При кодировании в некоторые кодеки, в частности{" "}
-              <mark className="video">Apple Prores</mark> этот параметр можно пропустить,
+              <mark className="video">Apple ProRes</mark> этот параметр можно пропустить,
               из-за отсутствия режимов кодирования, так как там обычно используются
               стандартные шаблоны для битрейта.
               <ul>
@@ -123,7 +130,7 @@ const PRImport: React.FC = () => {
                   баланса между качеством и размером.
                 </li>
               </ul>
-            </AdditionInfo>
+            </Addition>
           </li>
           <li>
             После выбора режима кодирования - укажите рекомендуемое значение битрейта или
@@ -131,48 +138,52 @@ const PRImport: React.FC = () => {
           </li>
           <li>
             Если цветовое пространство исходника отличается от <mark>Rec.709</mark>, то в
-            параметре <mark className="ui">Colorimetry</mark> включите галочку{" "}
-            <mark className="ui">Convert Colorspace</mark>. Затем установите там первым
-            значением ваш цветовой профиль, который был указан в{" "}
+            параметре <mark className="select">«Colorimetry»</mark> включите галочку{" "}
+            <mark className="select">«Convert Colorspace»</mark>. Затем установите там
+            первым значением ваш цветовой профиль, который был указан в{" "}
             <mark className="app">MediaInfo</mark>, а вторым значением -{" "}
             <mark>Rec.709</mark>.
           </li>
           <li>
             Затем укажите битрейт для аудио, достаточно установить значение{" "}
-            <mark>320</mark> Кбит/с в параметре <mark className="ui">Audio Bitrate</mark>.
+            <mark>320</mark> Кбит/с в параметре{" "}
+            <mark className="select">«Audio Bitrate»</mark>.
           </li>
           <li>
             После настройки - укажите путь для сохранения перекодированных файлов и
-            нажмите на кнопку <mark className="ui">Start Function</mark>.
-            <AdditionInfo>
+            нажмите на кнопку <mark className="select">«Start Function»</mark>.
+            <Addition type="info">
               Если у вас видеокарта от NVIDIA, то не забудьте установить галочку в
-              параметре <mark className="ui">Hardware Acceleration</mark> и выбрать рядом
-              параметр <mark className="ui">NVIDIA NVENC</mark>.
-            </AdditionInfo>
+              параметре <mark className="select">«Hardware Acceleration»</mark> и выбрать
+              рядом параметр <mark className="select">«NVIDIA NVENC»</mark>.
+            </Addition>
           </li>
         </ul>
         <p>
           После успешного перекодирования исходников вы можете их заменить в окне проекта.
-          Для этого перейдите в <mark className="ui">Project</mark>, выделите нужные
+          Для этого перейдите в <mark className="select">«Project»</mark>, выделите нужные
           исходники, нажмите на <mark className="key">ПКМ</mark> и нажмите на кнопку{" "}
-          <mark className="ui">Replace Footage</mark>. В открывшемся окне укажите путь до
-          нового файла в системном файловом менеджере.
+          <mark className="select">«Replace Footage»</mark>. В открывшемся окне укажите
+          путь до нового файла в системном файловом менеджере.
         </p>
-        <ImageFigure
+        <ContentFigure
           caption="Adobe Premiere Pro"
-          imgSrc="images/premierepro/replace_footage.png"
           imgTitle="Замена исходника в проекте"
-          styleClass="figure_windows-dark"
+          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          src="images/legacy/premierepro/replace_footage.png"
+          theme="dark"
+          type="image"
+          variant="windows"
         />
         <p>
           Вот и всё, удачной работы с проектом! И да, лучше перекодировать, чем
           недокодировать и мучаться с возможными багами кривых исходников.
         </p>
-        <AdditionInfo>
+        <Addition type="info">
           Более подробную информацию о рекомендуемом пайплайне ввода и вывода вы можете
           узнать в Telegram-посте{" "}
           <a href="https://t.me/montage_tutors/2">Montage Tutors</a>.
-        </AdditionInfo>
+        </Addition>
       </DetailsSummary>
       <DetailsSummary
         tag="зелёный экран, зелень, дергается изображение, полосы, глитчи, артефакты, глюки, искажения"
@@ -185,15 +196,18 @@ const PRImport: React.FC = () => {
           непонятно по каким алгоритмам, поэтому их не рекомендуется использовать в
           дальнейшей работе.
         </p>
-        <VideoFigure
+        <ContentFigure
           caption="Артефакты кривых исходников из просторов интернета"
-          styleClass="figure_windows-light"
-          videoSrc="images/h264_artifacts.webm"
+          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          src="images/legacy/h264_artifacts.webm"
+          theme="light"
+          type="video"
+          variant="windows"
         />
         <p>
           Чтобы с такими видео из интернета можно было спокойно работать - вам нужно
           перегнать ваши видео в удобоваримый кодек и формат для монтажа, например в{" "}
-          <mark className="video">Apple Prores 422</mark>, а затем заменить их в проекте.
+          <mark className="video">Apple ProRes 422</mark>, а затем заменить их в проекте.
           Да, это нормальный процесс и желательно так делать каждый раз, когда скачиваете
           видео с сервисов, которые любят пережимать для себя, но не для монтажёров.
           Перекодировать видео можно с помощью программ{" "}
@@ -201,17 +215,20 @@ const PRImport: React.FC = () => {
           <mark className="app">Handbrake</mark> или{" "}
           <mark className="app">Adobe Media Encoder</mark>.
         </p>
-        <ImageFigure
+        <ContentFigure
           caption="Shutter Encoder"
-          imgSrc="images/convert_to_prores_shutterencoder.png"
           imgTitle="Конвертируем в ProRes через Shutter Encoder"
-          styleClass="figure_macos-dark"
+          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          src="images/legacy/convert_to_prores_shutterencoder.png"
+          theme="dark"
+          type="image"
+          variant="mac"
         />
         <p>
-          В редких случаях вы можете встретиться с багом, который &quot;полосатит&quot;
-          изображения. Это баг встречался из-за кривых версий драйверов для видеокарт
-          NVIDIA с <mark>55X</mark> до <mark>56X</mark>. Для решения этой проблемы
-          достаточно обновить драйвера на видеокарту.
+          В редких случаях вы можете встретиться с багом, который «полосатит» изображения.
+          Это баг встречался из-за кривых версий драйверов для видеокарт NVIDIA с{" "}
+          <mark>55X</mark> до <mark>56X</mark>. Для решения этой проблемы достаточно
+          обновить драйвера на видеокарту.
         </p>
       </DetailsSummary>
       <DetailsSummary
@@ -228,33 +245,39 @@ const PRImport: React.FC = () => {
           В <mark className="app">Adobe Premiere Pro</mark> версии 23.2 и выше появилась
           возможность активировать коррекцию цвета для исходников с большим цветовым
           диапазоном. Чтобы его включить - перейдите в настройки нужной секвенции через{" "}
-          <mark className="ui">Sequence &gt; Sequence Settings</mark> и активируйте опцию{" "}
-          <mark className="ui">Auto Tone Map Media</mark> в вкладке{" "}
-          <mark className="ui">Color Management</mark>.
+          <mark className="select">«Sequence» → «Sequence Settings»</mark> и активируйте
+          опцию <mark className="select">«Auto Tone Map Media»</mark> в вкладке{" "}
+          <mark className="select">«Color Management»</mark>.
         </p>
-        <AdditionInfo>
+        <Addition type="info">
           При создании новых секвенций эта опция обычно включена по умолчанию.
-        </AdditionInfo>
-        <ImageFigure
+        </Addition>
+        <ContentFigure
           caption="Sequence Settings"
-          imgSrc="images/premierepro/enable_auto_tone_map.png"
           imgTitle="Включение Auto Tone Map Media в настройках секвенции"
-          styleClass="figure_windows-dark"
+          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          src="images/legacy/premierepro/enable_auto_tone_map.png"
+          theme="dark"
+          type="image"
+          variant="windows"
         />
         <Divider>Перекодируем в другой цветовой профиль</Divider>
         <p>
-          Или же, если результат от <mark className="ui">Auto Tone Map Media</mark> не
-          устраивает или этот параметр не помогает, то вам нужно все ваши исходники
+          Или же, если результат от <mark className="select">«Auto Tone Map Media»</mark>{" "}
+          не устраивает или этот параметр не помогает, то вам нужно все ваши исходники
           перекодировать из одного цветового пространства в другой. Какое цветовое
           пространство у ваших исходников - вы можете об этом узнать через{" "}
           <mark className="app">MediaInfo</mark>. Обычно через эту утилиту можно извлечь
           информацию о формате, FPS и цветовом пространстве вашего исходника.
         </p>
-        <ImageFigure
+        <ContentFigure
           caption="Терминал - MediaInfo-CLI"
-          imgSrc="images/mediainfo_example.png"
           imgTitle="Пример открытого в MediaInfo файла"
-          styleClass="figure_windows-dark"
+          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          src="images/legacy/mediainfo_example.png"
+          theme="dark"
+          type="image"
+          variant="windows"
         />
         <p>
           Чтобы начать перекодирование ваших исходников, вам нужно установить программу{" "}
@@ -262,37 +285,40 @@ const PRImport: React.FC = () => {
           просто запустите программу и перетащите в него ваши файлы, можно даже целую
           папку.
         </p>
-        <AdditionInfo>
+        <Addition type="info">
           Чтобы скачать программу бесплатно, просто переместите ползунок из{" "}
-          <mark className="ui">It helps me to pay for the server & the domain</mark> на
-          ноль, а затем нажмите на кнопку скачивания, соответствующую вашей операционной
-          системе.
-        </AdditionInfo>
+          <mark className="select">«It helps me to pay for the server & the domain»</mark>{" "}
+          на ноль, а затем нажмите на кнопку скачивания, соответствующую вашей
+          операционной системе.
+        </Addition>
         <p>
           На первый взгляд интерфейс <mark className="app">Shutter Encoder</mark> может
           показаться сложным, но на самом деле это не так. Для перекодирования исходников
           вам нужно сделать всего несколько простых шагов.
         </p>
-        <ImageFigure
+        <ContentFigure
           caption="Shutter Encoder"
-          imgSrc="images/shutter_encoder_interface.png"
           imgTitle="Интерфейс Shutter Encoder"
-          styleClass="figure_macos-dark"
+          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          src="images/legacy/shutter_encoder_interface.png"
+          theme="dark"
+          type="image"
+          variant="mac"
         />
         <ul>
           <li>
-            Сначала выберите кодек в <mark className="ui">Choose Function</mark>. Обычно
-            выбирают <mark className="video">Apple Prores 422</mark>,{" "}
-            <mark className="video">H.264</mark> или <mark className="video">DNxHR</mark>.
+            Сначала выберите кодек в <mark className="select">«Choose Function»</mark>.
+            Обычно выбирают <mark className="video">Apple ProRes 422</mark>,{" "}
+            <mark className="video">H.264</mark> или <mark className="video">DNXHR</mark>.
           </li>
           <li>
             После выбора кодека определитесь с режимом кодирования. В правой части, рядом
             с выбором битрейта, есть кнопка, которая переключает кодировщик между режимами{" "}
-            <mark className="ui">CBR</mark>, <mark className="ui">VBR</mark> или{" "}
-            <mark className="ui">CQ</mark>.
-            <AdditionInfo>
+            <mark className="select">«CBR»</mark>, <mark className="select">«VBR»</mark>{" "}
+            или <mark className="select">«CQ»</mark>.
+            <Addition type="info">
               При кодировании в некоторые кодеки, например,{" "}
-              <mark className="video">Apple Prores</mark>, этот параметр можно пропустить,
+              <mark className="video">Apple ProRes</mark>, этот параметр можно пропустить,
               так как там обычно используются стандартные шаблоны для битрейта.
               <ul>
                 <li>
@@ -313,7 +339,7 @@ const PRImport: React.FC = () => {
                   между качеством и размером.
                 </li>
               </ul>
-            </AdditionInfo>
+            </Addition>
           </li>
           <li>
             После выбора режима кодирования укажите рекомендуемое значение битрейта или
@@ -321,27 +347,28 @@ const PRImport: React.FC = () => {
           </li>
           <li>
             Если цветовое пространство вашего исходника отличается от <mark>Rec.709</mark>
-            , то в параметре <mark className="ui">Colorimetry</mark> включите галочку{" "}
-            <mark className="ui">Convert Colorspace</mark>. Затем установите первым
-            значением ваш цветовой профиль, указанный в{" "}
+            , то в параметре <mark className="select">«Colorimetry»</mark> включите
+            галочку <mark className="select">«Convert Colorspace»</mark>. Затем установите
+            первым значением ваш цветовой профиль, указанный в{" "}
             <mark className="app">MediaInfo</mark>, а вторым - <mark>Rec.709</mark>.
           </li>
           <li>
             После настройки укажите путь для сохранения перекодированных файлов и нажмите
-            на кнопку <mark className="ui">Start Function</mark>.
-            <AdditionInfo>
+            на кнопку <mark className="select">«Start Function»</mark>.
+            <Addition type="info">
               Если у вас видеокарта от NVIDIA, не забудьте установить галочку в параметре{" "}
-              <mark className="ui">Hardware Acceleration</mark> и выбрать рядом параметр{" "}
-              <mark className="ui">NVIDIA NVENC</mark>.
-            </AdditionInfo>
+              <mark className="select">«Hardware Acceleration»</mark> и выбрать рядом
+              параметр <mark className="select">«NVIDIA NVENC»</mark>.
+            </Addition>
           </li>
         </ul>
         <p>
           После перекодирования исходников замените каждый в окне{" "}
-          <mark className="ui">Project</mark>, нажав <mark className="key">ПКМ</mark> по
-          нужному исходнику и нажав на <mark className="ui">Replace Footage</mark>. В
-          открывшемся окне укажите путь до нового перекодированного исходника. При
-          необходимости проделайте эти действия с остальными исходниками.
+          <mark className="select">«Project»</mark>, нажав{" "}
+          <mark className="key">ПКМ</mark> по нужному исходнику и нажав на{" "}
+          <mark className="select">«Replace Footage»</mark>. В открывшемся окне укажите
+          путь до нового перекодированного исходника. При необходимости проделайте эти
+          действия с остальными исходниками.
         </p>
       </DetailsSummary>
       <DetailsSummary title="Media Offline или медиаданные в автономном режиме">
@@ -351,32 +378,38 @@ const PRImport: React.FC = () => {
           появляться в разных воплощениях - в качестве окна о потерянных исходниках при
           запуске проекта или в качестве плейсхолдера с красной заливкой.
         </p>
-        <ImageFigure
+        <ContentFigure
           caption="Adobe Premiere Pro"
-          imgSrc="images/premierepro/медиаданные_в_автономном_режиме.png"
           imgTitle="Медиаданные в авнономном режиме"
-          styleClass="figure_windows-dark"
+          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          src="images/legacy/premierepro/медиаданные_в_автономном_режиме.png"
+          theme="dark"
+          type="image"
+          variant="windows"
         />
         <p>
-          Чтобы переподключить &quot;потеряшек&quot;, перейдите в{" "}
-          <mark className="ui">File</mark> и нажмите на кнопку{" "}
-          <mark className="ui">Link Media</mark>. В открывшемся окне вы увидите список
-          потерявшихся исходников. Вы можете выделить нужный и указать ему путь, нажав на{" "}
-          <mark className="ui">Locate</mark>.
+          Чтобы переподключить «потеряшек», перейдите в{" "}
+          <mark className="select">«File»</mark> и нажмите на кнопку{" "}
+          <mark className="select">«Link Media»</mark>. В открывшемся окне вы увидите
+          список потерявшихся исходников. Вы можете выделить нужный и указать ему путь,
+          нажав на <mark className="select">«Locate»</mark>.
         </p>
-        <AdditionInfo>
-          Нажав на кнопку <mark className="ui">Search</mark> в окне для указания пути,
-          программа попытается найти все потерянные файлы во вложенных папках текущего
-          пути. Если вы не помните где потеряли ваши файлы, откройте корень вашего диска,
-          нажмите на кнопку поиска и подождите некоторое время. Также если вы укажете путь
-          только одному файлу, рядом с которым лежат такие же &quot;потеряшки&quot;, то и
-          остальные исходники вместе с ним подключатся автоматически.
-        </AdditionInfo>
-        <ImageFigure
+        <Addition type="info">
+          Нажав на кнопку <mark className="select">«Search»</mark> в окне для указания
+          пути, программа попытается найти все потерянные файлы во вложенных папках
+          текущего пути. Если вы не помните где потеряли ваши файлы, откройте корень
+          вашего диска, нажмите на кнопку поиска и подождите некоторое время. Также если
+          вы укажете путь только одному файлу, рядом с которым лежат такие же «потеряшки»,
+          то и остальные исходники вместе с ним подключатся автоматически.
+        </Addition>
+        <ContentFigure
           caption="Media Offline"
-          imgSrc="images/premierepro/missing_media.png"
           imgTitle="Отсутствующие медиафайлы"
-          styleClass="figure_windows-dark"
+          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          src="images/legacy/premierepro/missing_media.png"
+          theme="dark"
+          type="image"
+          variant="windows"
         />
       </DetailsSummary>
       <DetailsSummary title="Прислали исходники в формате MKV, FLV или что-то не поддерживаемое программой. Как мне их импортировать?">
@@ -398,7 +431,7 @@ const PRImport: React.FC = () => {
           <mark className="app">Adobe After Effects</mark> и{" "}
           <mark className="app">Adobe Media Encoder</mark>.
         </p>
-        <AdditionWarning>
+        <Addition type="warning">
           Поскольку декодирование из немонтажных кодеков, а также через{" "}
           <mark className="plugin">Autokroma Influx</mark> работает не так, как хотелось
           бы, то вы можете столкнуться с некоторыми проблемами, например появление
@@ -406,7 +439,7 @@ const PRImport: React.FC = () => {
           отсутствие изображения. Поэтому рекомендуется в следующий раз всё-таки
           перекодировать ваши исходники в монтажный кодек, например через{" "}
           <mark className="app">Shutter Encoder</mark>.
-        </AdditionWarning>
+        </Addition>
         <p>
           Если вы сталкиваетесь с различными артефактами при использовании{" "}
           <mark className="plugin">Autokroma Influx</mark> или не хотите устанавливать
@@ -444,7 +477,7 @@ const PRImport: React.FC = () => {
           <li>
             Для скачивания кодека <mark className="video">HEVC</mark>.
             <code>https://apps.microsoft.com/9n4wgh0z6vhq</code>
-            <AdditionDanger>
+            <Addition type="danger">
               <mark className="app">Adobe Premiere Pro</mark> после установки кодеков все
               ещё не будет импортировать видео с контейнером{" "}
               <mark className="video">HEVC</mark>. То есть если вы попробуете
@@ -452,23 +485,27 @@ const PRImport: React.FC = () => {
               такой файл не поддерживается. Чтобы это исправить - попробуйте переименовать
               ваше видео в <mark className="video">MP4</mark> или перекодируйте видео в
               другой кодек через <mark className="app">Shutter Encoder</mark>.
-            </AdditionDanger>
+            </Addition>
           </li>
         </ul>
-        <ImageFigure
+        <ContentFigure
           caption="Браузер"
-          imgSrc="images/link_generator_msstore.png"
           imgTitle="Генератор ссылок из Microsoft Store"
-          styleClass="figure_windows-dark"
+          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          src="images/legacy/link_generator_msstore.png"
+          theme="dark"
+          type="image"
+          variant="windows"
         />
         <p>
-          После вставки ссылки и нажатия на кнопку <mark className="ui">OK</mark>, нажмите
-          на файл с форматом <mark className="file">APPXBUNDLE</mark> для его скачивания.
+          После вставки ссылки и нажатия на кнопку <mark className="select">«OK»</mark>,
+          нажмите на файл с форматом <mark className="file">APPXBUNDLE</mark> для его
+          скачивания.
         </p>
-        <AdditionWarning>
+        <Addition type="warning">
           Если браузер жалуется, мол вы скачиваете редкий файл или некий вирус, то
           проигнорируйте и продолжите скачивание дальше.
-        </AdditionWarning>
+        </Addition>
         <p>
           Для установки пакетов с расширением <mark className="file">APPXBUNDLE</mark> -
           достаточно их открыть двойным кликом. Если вам предлагают открыть файл с помощью{" "}
@@ -486,14 +523,13 @@ const PRImport: React.FC = () => {
         </p>
       </DetailsSummary>
       <DetailsSummary title="Как импортировать композиции из After Effects в секвенцию Premiere Pro?">
-        <AdditionWarning>
+        <Addition type="warning">
           Прежде чем начать импорт композиций из{" "}
           <mark className="app">Adobe After Effects</mark> - убедитесь что обе программы
-          установлены на стандартном расположении и их версии являются
-          &quot;одногодками&quot;. При использовании разных версий программ у вас могут
-          быть проблемы с подсоединением файлов и{" "}
-          <mark className="plugin">Dynamic Link</mark>.
-        </AdditionWarning>
+          установлены на стандартном расположении и их версии являются «одногодками». При
+          использовании разных версий программ у вас могут быть проблемы с подсоединением
+          файлов и <mark className="plugin">Dynamic Link</mark>.
+        </Addition>
         <p>
           Для того, чтобы импортировать композиции из{" "}
           <mark className="app">Adobe After Effects</mark> в{" "}
@@ -515,22 +551,22 @@ const PRImport: React.FC = () => {
           <mark className="app">Adobe After Effects</mark> прямо на таймлайн в{" "}
           <mark className="app">Adobe Premiere Pro</mark>.
         </p>
-        <AdditionInfo>
+        <Addition type="info">
           Чтобы закэшировать предпросмотр в местах, где расположены композиции из{" "}
           <mark className="app">Adobe After Effects</mark> - перейдите в{" "}
-          <mark className="ui">Sequence</mark> и выберите{" "}
-          <mark className="ui">Render In to Out</mark>. Рекомендую поставить свою
+          <mark className="select">«Sequence»</mark> и выберите{" "}
+          <mark className="select">«Render In to Out»</mark>. Рекомендую поставить свою
           комбинацию клавиш для этого действия.
-        </AdditionInfo>
-        <AdditionWarning>
+        </Addition>
+        <Addition type="warning">
           <ul>
             <li>
-              Версии приложений от <mark>Adobe</mark>, активированные через{" "}
-              <mark className="app">GenP</mark> могут некорректно работать друг с другом
-              через <mark className="plugin">Dynamic Link</mark>. При возникновении
+              Версии приложений от <mark className="company">Adobe</mark>, активированные
+              через <mark className="app">GenP</mark> могут некорректно работать друг с
+              другом через <mark className="plugin">Dynamic Link</mark>. При возникновении
               проблем с работой <mark className="plugin">Dynamic Link</mark> -
-              переустановите программы на репаки от <mark>KpoJluK</mark> или{" "}
-              <mark>m0nkrus</mark>.
+              переустановите программы на репаки от <mark className="user">KpoJluK</mark>{" "}
+              или <mark className="user">m0nkrus</mark>.
             </li>
             <li>
               Не рекомендуется использовать слишком много композиций, импортированные
@@ -542,7 +578,10 @@ const PRImport: React.FC = () => {
               <mark className="app">Adobe Premiere Pro</mark>.
             </li>
           </ul>
-        </AdditionWarning>
+        </Addition>
+      </DetailsSummary>
+      <DetailsSummary title="Для чего нужны файлы XML и как их импортировать?">
+        {/* FIXME: */}
       </DetailsSummary>
       <DetailsSummary title="Откуда-то появились на предпросмотре чёрные полосы, что это может быть?">
         <p>
