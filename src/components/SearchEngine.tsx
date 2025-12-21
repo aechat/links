@@ -41,7 +41,8 @@ export type SearchSection = {
   icon?: React.ReactNode;
 };
 
-export const escapeRegExp = (str: string) => str.replace(/[.*+?^${}()|[\\]/g, "\\$& ");
+export const escapeRegExp = (str: string) =>
+  str.replaceAll(/[.*+?^${}()|[\\]/g, String.raw`\$& `);
 
 export const decodeHtmlEntities = (text: string): string => {
   const textArea = document.createElement("textarea");
@@ -143,9 +144,9 @@ const replaceCharsRegex = /ё/gi;
 const normalizeText = (text: string): string => {
   return text
     .toLowerCase()
-    .replace(replaceCharsRegex, "е")
-    .replace(normalizationRegex, " ")
-    .replace(/\s+/g, " ")
+    .replaceAll(replaceCharsRegex, "е")
+    .replaceAll(normalizationRegex, " ")
+    .replaceAll(/\s+/g, " ")
     .trim();
 };
 
@@ -156,12 +157,12 @@ const isKeyCombinationSearch = (text: string): boolean => {
 const normalizeKeyCombination = (text: string): string => {
   let normalized = text.toLowerCase();
   Object.entries(KEY_MODIFIER_ALIASES).forEach(([alias, standard]) => {
-    normalized = normalized.replace(new RegExp(alias, "g"), standard);
+    normalized = normalized.replaceAll(new RegExp(alias, "g"), standard);
   });
 
   return normalized
-    .replace(/\s*\+\s*/g, " ")
-    .replace(/\s+/g, " ")
+    .replaceAll(/\s*\+\s*/g, " ")
+    .replaceAll(/\s+/g, " ")
     .trim();
 };
 
@@ -464,7 +465,7 @@ const formatSearchResult = (text: string, searchWords: string[]): string => {
 
   const isKeyCombination = isKeyCombinationSearch(searchWords.join(" "));
 
-  const tagMatch = tempDiv.querySelector("[data-tags]")?.getAttribute("data-tags");
+  const tagMatch = (tempDiv.querySelector("[data-tags]") as HTMLElement)?.dataset.tags;
 
   const titleMatch = tempDiv.querySelector("summary h3")?.textContent;
 
@@ -603,18 +604,20 @@ const buildTableGroupsHtml = (detail: Element, searchWords: string[]): string =>
       return true;
     });
 
-    const excludedColumns = Array.from(table.querySelectorAll("th"))
-      .map((th, index) =>
-        th.textContent?.toLowerCase().includes("описание") ? index : -1
-      )
-      .filter((index) => index !== -1);
+    const excludedColumns = new Set(
+      Array.from(table.querySelectorAll("th"))
+        .map((th, index) =>
+          th.textContent?.toLowerCase().includes("описание") ? index : -1
+        )
+        .filter((index) => index !== -1)
+    );
 
     const processedRows: string[] = [];
 
     for (const row of allRows) {
       const clonedRow = row.cloneNode(true) as HTMLTableRowElement;
       Array.from(clonedRow.cells).forEach((cell, index) => {
-        if (excludedColumns.includes(index)) {
+        if (excludedColumns.has(index)) {
           cell.remove();
         }
       });
@@ -817,7 +820,7 @@ export const useSearchLogic = (query: string, isPageLoaded: boolean) => {
 
         const title = titleElement ? (titleElement.textContent ?? "") : "";
 
-        const tag = detail.getAttribute("data-tags") ?? "";
+        const tag = detail.dataset.tags ?? "";
 
         const dividerTexts = collectDividerTexts(detail);
 
@@ -966,10 +969,10 @@ export const SearchProvider: React.FC<{
         }
       }
     };
-    window.addEventListener("keydown", handleKeyDown);
+    globalThis.addEventListener("keydown", handleKeyDown);
 
     return () => {
-      window.removeEventListener("keydown", handleKeyDown);
+      globalThis.removeEventListener("keydown", handleKeyDown);
     };
   }, [isPageLoaded]);
 
@@ -1050,7 +1053,7 @@ const SearchCategories: React.FC<{
   const isTouchEventInProgress = useRef(false);
 
   const copyToClipboard = async (id: string, title: string) => {
-    const anchorUrl = `${window.location.origin}${window.location.pathname}#${id}`;
+    const anchorUrl = `${globalThis.location.origin}${globalThis.location.pathname}#${id}`;
 
     const success = await copyText(anchorUrl);
 
@@ -1150,7 +1153,7 @@ const SearchResults: React.FC<{
     return allTags.filter((t) => t.toLowerCase().includes(lowerCaseQuery));
   };
 
-  const isMobile = typeof window !== "undefined" && window.innerWidth <= 768;
+  const isMobile = typeof globalThis !== "undefined" && globalThis.innerWidth <= 768;
 
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
@@ -1215,7 +1218,7 @@ const SearchResults: React.FC<{
 
 const ExternalSearch: React.FC<{query: string}> = ({query}) => {
   const getSearchQuery = () => {
-    const path = window.location.pathname;
+    const path = globalThis.location.pathname;
     let context = "";
 
     if (path.includes("aefaq")) {
@@ -1236,7 +1239,7 @@ const ExternalSearch: React.FC<{query: string}> = ({query}) => {
       <div className="search-external-links">
         <button
           onClick={() => {
-            window.open(
+            globalThis.open(
               `https://yandex.com/search/?text=${encodeURIComponent(getSearchQuery())}`,
               "_blank"
             );
@@ -1246,7 +1249,7 @@ const ExternalSearch: React.FC<{query: string}> = ({query}) => {
         </button>
         <button
           onClick={() => {
-            window.open(
+            globalThis.open(
               `https://www.perplexity.ai/search?q=${encodeURIComponent(
                 getSearchQuery()
               )}`,
@@ -1338,11 +1341,11 @@ export const SearchInPage: React.FC<{sections: SearchSection[]}> = ({sections}) 
     };
     checkFade();
     el.addEventListener("scroll", checkFade);
-    window.addEventListener("resize", checkFade);
+    globalThis.addEventListener("resize", checkFade);
 
     return () => {
       el.removeEventListener("scroll", checkFade);
-      window.removeEventListener("resize", checkFade);
+      globalThis.removeEventListener("resize", checkFade);
     };
   }, [results]);
   useEffect(() => {
@@ -1389,13 +1392,13 @@ export const SearchInPage: React.FC<{sections: SearchSection[]}> = ({sections}) 
 
       const y =
         summaryElement.getBoundingClientRect().top +
-        window.pageYOffset -
+        globalThis.pageYOffset -
         headerHeight -
         padding;
-      window.scrollTo({top: y, behavior: "smooth"});
+      globalThis.scrollTo({top: y, behavior: "smooth"});
 
       const event = new CustomEvent("open-spoiler-by-id", {detail: {id}});
-      window.dispatchEvent(event);
+      globalThis.dispatchEvent(event);
       closeModal();
     },
     [closeModal]
@@ -1442,7 +1445,7 @@ export const SearchInPage: React.FC<{sections: SearchSection[]}> = ({sections}) 
   }, [isOpen, results, selectedResultIndex, handleLinkClick]);
   useEffect(() => {
     if (selectedResultIndex >= 0) {
-      const isMobile = window.innerWidth <= 768;
+      const isMobile = globalThis.innerWidth <= 768;
 
       if (isMobile) {
         return;
@@ -1468,9 +1471,7 @@ export const SearchInPage: React.FC<{sections: SearchSection[]}> = ({sections}) 
       if (event.target instanceof HTMLElement && event.target.tagName === "MARK") {
         event.stopPropagation();
 
-        const button = (event.target as HTMLElement).closest(
-          ".search-link"
-        ) as HTMLButtonElement | null;
+        const button = event.target.closest(".search-link") as HTMLButtonElement | null;
 
         if (button) {
           button.click();
