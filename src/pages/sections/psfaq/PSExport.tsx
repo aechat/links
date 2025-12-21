@@ -1,10 +1,10 @@
 import React from "react";
 
-import Addition from "../../../components/Addition";
+import Addition from "../../../components/content/Addition";
 
-import {ImageFigure} from "../../../components/ContentFigure";
+import {ContentFigure} from "../../../components/content/ContentFigure";
 
-import DetailsSummary from "../../../components/DetailsSummary";
+import DetailsSummary from "../../../components/content/DetailsSummary";
 
 const PSExport: React.FC = () => {
   return (

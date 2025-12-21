@@ -1,6 +1,6 @@
 import {ConfigProvider, Modal, message} from "antd";
 
-import BrowserWarning from "./components/BrowserWarning";
+import BrowserWarning from "./components/modals/BrowserWarning";
 
 import {getBrowserInfo} from "./utils/browserDetection";
 
@@ -14,13 +14,13 @@ import {MetrikaCounter} from "react-metrika";
 
 import themeConfig from "./styles/ant_theme";
 
-import LoadingAnimation from "./components/LoadingAnimation";
+import LoadingAnimation from "./components/ui/LoadingAnimation";
 
 import {copyText} from "./hooks/useCopyToClipboard";
 
 import useDynamicFavicon from "./hooks/useDynamicFavicon";
 
-import {ThemeProvider} from "./components/modal/ThemeChanger";
+import {ThemeProvider} from "./components/modals/ThemeChanger";
 
 import faviconSvg from "/icons/favicon.svg?raw";
 

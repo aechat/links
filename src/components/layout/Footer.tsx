@@ -4,7 +4,7 @@ import React, {useEffect, useState} from "react";
 
 import {useLocation} from "react-router-dom";
 
-import {formatRelativeTime} from "../utils/dateUtils";
+import {formatRelativeTime} from "../../utils/dateUtils";
 
 const OWNER = "aechat";
 

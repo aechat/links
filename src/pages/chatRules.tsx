@@ -8,19 +8,19 @@ import {Helmet} from "react-helmet-async";
 
 import {Link, useLocation} from "react-router-dom";
 
-import Addition from "../components/Addition";
+import Addition from "../components/content/Addition";
 
-import ContentFilter from "../components/features/ContentFilter";
+import ContentFilter from "../components/content/ContentFilter";
 
 import {ShareRounded} from "@mui/icons-material";
 
-import Footer from "../components/Footer";
+import Footer from "../components/layout/Footer";
 
-import Header from "../components/Header";
+import Header from "../components/layout/Header";
 
 import {useCopyToClipboard} from "../hooks/useCopyToClipboard";
 
-import PageIntro from "../components/PageIntro";
+import PageIntro from "../components/layout/PageIntro";
 
 const constants = {
   SCROLL_DELAY: 300,

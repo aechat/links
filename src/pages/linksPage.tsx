@@ -46,13 +46,13 @@ import React, {useState} from "react";
 
 import {Helmet} from "react-helmet-async";
 
-import Addition from "../components/Addition";
+import Addition from "../components/content/Addition";
 
-import Footer from "../components/Footer";
+import Footer from "../components/layout/Footer";
 
-import Header from "../components/Header";
+import Header from "../components/layout/Header";
 
-import {LinkCard} from "../components/LinkCards";
+import {LinkCard} from "../components/ui/LinkCards";
 
 import {/* AEExprIcon, */ AEIcon, PRIcon, PSIcon} from "./faqIcon";
 

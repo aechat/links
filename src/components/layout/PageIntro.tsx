@@ -2,7 +2,7 @@ import {AnimatePresence, motion} from "framer-motion";
 
 import React, {useEffect, useState} from "react";
 
-import BouncyText from "./BouncyText";
+import BouncyText from "../ui/BouncyText";
 
 interface PageIntroProps {
   text: string;

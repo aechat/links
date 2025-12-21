@@ -2,15 +2,15 @@ import {Divider} from "antd";
 
 import React from "react";
 
-import Addition from "../../../components/Addition";
+import Addition from "../../../components/content/Addition";
 
-import {ContentFigure} from "../../../components/ContentFigure";
+import {ContentFigure} from "../../../components/content/ContentFigure";
 
-import DetailsSummary from "../../../components/DetailsSummary";
+import DetailsSummary from "../../../components/content/DetailsSummary";
 
-import ContentFilter from "../../../components/features/ContentFilter";
+import ContentFilter from "../../../components/content/ContentFilter";
 
-import HostsAdobeModal from "../../../components/features/HostsAdobe";
+import HostsAdobeModal from "../../../components/content/HostsAdobe";
 
 const PRErrors: React.FC = () => {
   return (

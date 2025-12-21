@@ -1,6 +1,6 @@
 import React from "react";
 
-import Addition from "../Addition";
+import Addition from "./Addition";
 
 const HostsAdobeModal: React.FC = () => {
   return (

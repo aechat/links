@@ -1,8 +1,8 @@
 import React from "react";
 
-import {ContentFigure} from "../../../components/ContentFigure";
+import {ContentFigure} from "../../../components/content/ContentFigure";
 
-import DetailsSummary from "../../../components/DetailsSummary";
+import DetailsSummary from "../../../components/content/DetailsSummary";
 
 import {Divider} from "antd";
 

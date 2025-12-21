@@ -61,8 +61,7 @@ export default SHORTNAME_SECTION;
 В статьях обязательно должны быть спойлеры, которые содержат заголовок, теги и сам контент статьи. Если заголовок статьи окажется слишком длинным, например из-за текста ошибки, то часть текста можно перенести в теги. Теги должны быть разделены запятыми.
 
 ```typescript
-import DetailsSummary from "../../../components/DetailsSummary";
-<DetailsSummary title="Как отключить Windows Defender?" tag="helper.exe не найден, выключить дефендер, отрубить антивирус">
+import DetailsSummary from "../../../components/content/DetailsSummary"; tag="helper.exe не найден, выключить дефендер, отрубить антивирус">
   <p>Ответ на вопрос.</p>
 </DetailsSummary>
 ```
@@ -70,7 +69,7 @@ import DetailsSummary from "../../../components/DetailsSummary";
 В статьях можно использовать списки, а также компоненты `Addition` для того, чтобы обратить внимание читателя на какую-нибудь дополнительную информацию. Эти же компоненты можно использовать в списках. Тип компонента задаётся через `type` и может быть задан тремя значениями: `info`, `warning` и `danger`.
 
 ```typescript
-import Addition from "../../../components/Addition";
+import Addition from "../../../components/content/Addition";
 import DetailsSummary from "../../../components/DetailsSummary";
 <DetailsSummary tag="как, зачем, на$&я" title="Вопрос">
   <p>Причина поведения определённого действия.</p>
@@ -135,7 +134,7 @@ import DetailsSummary from "../../../components/DetailsSummary";
 Для добавления изображения, видео или ссылку с предпросмотром на YouTube используется компонент `ContentFigure`.
 
 ```typescript
-import {ContentFigure} from "../../../components/ContentFigure";
+import {ContentFigure} from "../../../components/content/ContentFigure";
 import DetailsSummary from "../../../components/DetailsSummary";
 <DetailsSummary title="Вопрос">
   <p>

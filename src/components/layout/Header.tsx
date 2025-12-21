@@ -6,11 +6,11 @@ import React, {useEffect, useState} from "react";
 
 import {Link, useLocation} from "react-router-dom";
 
-import {ThemeToggleButton} from "./modal/ThemeChanger";
+import {ThemeToggleButton} from "../modals/ThemeChanger";
 
-import {SearchButton} from "./SearchEngine";
+import {SearchButton} from "../features/SearchEngine";
 
-import SupportDonut from "./modal/SupportDonut";
+import SupportDonut from "../modals/SupportDonut";
 
 import {Tooltip} from "antd";
 

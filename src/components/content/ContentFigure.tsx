@@ -8,7 +8,7 @@ import {useSpoiler} from "./DetailsSummary";
 
 import {ShareRounded} from "@mui/icons-material";
 
-import {copyText} from "../hooks/useCopyToClipboard";
+import {copyText} from "../../hooks/useCopyToClipboard";
 
 interface ContentFigureProps {
   type: "image" | "video" | "youtube";

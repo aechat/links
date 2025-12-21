@@ -4,7 +4,7 @@ import {Link} from "react-router-dom";
 
 import {message} from "antd";
 
-import {copyText} from "../hooks/useCopyToClipboard";
+import {copyText} from "../../hooks/useCopyToClipboard";
 
 interface LinkCardProps {
   icon: React.ReactNode;

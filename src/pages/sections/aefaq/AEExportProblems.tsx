@@ -2,11 +2,11 @@ import {Divider} from "antd";
 
 import React from "react";
 
-import Addition from "../../../components/Addition";
+import Addition from "../../../components/content/Addition";
 
-import {ContentFigure} from "../../../components/ContentFigure";
+import {ContentFigure} from "../../../components/content/ContentFigure";
 
-import DetailsSummary from "../../../components/DetailsSummary";
+import DetailsSummary from "../../../components/content/DetailsSummary";
 
 const AEExportProblems: React.FC = () => {
   return (

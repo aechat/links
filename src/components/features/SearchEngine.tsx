@@ -16,7 +16,7 @@ import React, {
 
 import {RemoveScroll} from "react-remove-scroll";
 
-import {copyText} from "../hooks/useCopyToClipboard";
+import {copyText} from "../../hooks/useCopyToClipboard";
 
 export interface SearchContextType {
   isOpen: boolean;

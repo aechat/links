@@ -2,17 +2,17 @@ import {Divider} from "antd";
 
 import React from "react";
 
-import Addition from "../../../components/Addition";
+import Addition from "../../../components/content/Addition";
 
-import {ContentFigure} from "../../../components/ContentFigure";
+import {ContentFigure} from "../../../components/content/ContentFigure";
 
-import DetailsSummary from "../../../components/DetailsSummary";
+import DetailsSummary from "../../../components/content/DetailsSummary";
 
-import ContentFilter from "../../../components/features/ContentFilter";
+import ContentFilter from "../../../components/content/ContentFilter";
 
-import TgsToJsonConverter from "../../../components/features/ConverterTgsToJson";
+import TgsToJsonConverter from "../../../components/features/converters/ConverterTgsToJson";
 
-import CodeSnippet from "../../../components/features/CodeSnippet";
+import CodeSnippet from "../../../components/content/CodeSnippet";
 
 const ProjectStructureExample = `Обзор на Ford Focus 2
 ├── Video

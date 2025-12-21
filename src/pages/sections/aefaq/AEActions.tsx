@@ -2,15 +2,15 @@ import {Divider} from "antd";
 
 import React from "react";
 
-import Addition from "../../../components/Addition";
+import Addition from "../../../components/content/Addition";
 
-import {ContentFigure} from "../../../components/ContentFigure";
+import {ContentFigure} from "../../../components/content/ContentFigure";
 
-import DetailsSummary from "../../../components/DetailsSummary";
+import DetailsSummary from "../../../components/content/DetailsSummary";
 
-import CodeSnippet from "../../../components/features/CodeSnippet";
+import CodeSnippet from "../../../components/content/CodeSnippet";
 
-import ContentFilter from "../../../components/features/ContentFilter";
+import ContentFilter from "../../../components/content/ContentFilter";
 
 const AEActions: React.FC = () => {
   return (

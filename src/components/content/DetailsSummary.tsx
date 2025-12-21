@@ -13,13 +13,13 @@ import {ShareRounded} from "@mui/icons-material";
 
 import {Tooltip, message} from "antd";
 
-import {useExternalLinkHandler} from "../hooks/useExternalLinks";
+import {useExternalLinkHandler} from "../../hooks/useExternalLinks";
 
-import {copyText} from "../hooks/useCopyToClipboard";
+import {copyText} from "../../hooks/useCopyToClipboard";
 
-import {useInternalLinkHandler} from "../hooks/useInternalLinks";
+import {useInternalLinkHandler} from "../../hooks/useInternalLinks";
 
-import {useTheme} from "./modal/ThemeChanger";
+import {useTheme} from "../modals/ThemeChanger";
 
 declare global {
   interface Window {

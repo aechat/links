@@ -6,21 +6,21 @@ import React, {useEffect, useState} from "react";
 
 import {Helmet} from "react-helmet-async";
 
-import PageIntro from "../components/PageIntro";
+import PageIntro from "../components/layout/PageIntro";
 
-import {generateAnchorId} from "../components/DetailsSummary";
+import {generateAnchorId} from "../components/content/DetailsSummary";
 
 import {useCopyToClipboard} from "../hooks/useCopyToClipboard";
 
 import {useSmartCopy} from "../hooks/useSmartCopy";
 
-import Footer from "../components/Footer";
+import Footer from "../components/layout/Footer";
 
-import Header from "../components/Header";
+import Header from "../components/layout/Header";
 
-import {SearchInPage, SearchProvider} from "../components/SearchEngine";
+import {SearchInPage, SearchProvider} from "../components/features/SearchEngine";
 
-import Addition from "../components/Addition";
+import Addition from "../components/content/Addition";
 
 import PSActions from "./sections/psfaq/PSActions";
 

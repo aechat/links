@@ -1,8 +1,8 @@
 import React from "react";
 
-import DetailsSummary from "../../../components/DetailsSummary";
+import DetailsSummary from "../../../components/content/DetailsSummary";
 
-import CodeSnippet from "../../../components/features/CodeSnippet";
+import CodeSnippet from "../../../components/content/CodeSnippet";
 
 import {
   commentExample,

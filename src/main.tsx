@@ -14,7 +14,7 @@ import {BrowserRouter} from "react-router-dom";
 
 import {App} from "./App";
 
-import {ThemeProvider} from "./components/modal/ThemeChanger";
+import {ThemeProvider} from "./components/modals/ThemeChanger";
 
 import "@ant-design/v5-patch-for-react-19";
 
