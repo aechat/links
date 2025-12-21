@@ -15,47 +15,190 @@ const PSInstallProblems: React.FC = () => {
     <div className="faq-content">
       <DetailsSummary title="Забыли положить инструкцию для установки рядом с файлами, куда что кидать?">
         <p>
-          Обычно установка большинства файлов в{" "}
-          <mark className="app">Adobe Photoshop</mark> универсальна, поэтому следуйте
-          инструкциям ниже.
+          Обычно установка большинства дополнительных материалов универсальна, но может
+          отличаться в зависимости от вашей операционной системы. В этой статье указано
+          как установить тот или иной тип файла для{" "}
+          <mark className="app">Adobe Photoshop</mark>.
         </p>
+        <Divider>Универсальные инструкции для разных типов файлов</Divider>
         <ul>
           <li>
+            Если в архиве находится файл <mark className="image">PSD</mark>, то такие
+            файлы открываются как обычный проект в{" "}
+            <mark className="app">Adobe Photoshop</mark> через{" "}
+            <mark className="select">«File» → «Open»</mark> или открытием из проводника,
+            если в системе зависимости были корректно настроены на данный тип файлов.
+            <Addition type="info">
+              Если вы хотите встроить <mark className="image">PSD</mark> в свой проект -
+              просто перенесите файл из проводника в окно с открытым проектом в{" "}
+              <mark className="app">Adobe Photoshop</mark> или поместите через{" "}
+              <mark className="select">«File» → «Place Embedded»</mark>. Импортированный{" "}
+              <mark className="image">PSD</mark> появится как смарт-объект, который можно
+              будет отредактировать двойным нажатием по миниатюре в окне{" "}
+              <mark className="select">«Layers»</mark>.
+            </Addition>
+          </li>
+          <li>
+            Если в архиве находится <mark className="image">AI</mark>,{" "}
+            <mark className="image">EPS</mark>, <mark className="image">JPG</mark>,{" "}
+            <mark className="image">PNG</mark>, <mark className="image">PDF</mark>,{" "}
+            <mark className="image">SVG</mark> или другие файлы изображений, то такие
+            файлы открываются как обычные изображения в{" "}
+            <mark className="app">Adobe Photoshop</mark> простым перетаскиванием файла в
+            окно программы или через <mark className="select">«File» → «Open»</mark>.
+            <Addition type="info">
+              <p>
+                Чтобы поместить изображение в открытый проект - переместите его из
+                проводника, скопируйте изображение и вставьте его с помощью{" "}
+                <mark className="key">Ctrl + V</mark> или выберите{" "}
+                <mark className="select">
+                  «File» → «Place Embedded»<sup>1</sup>
+                </mark>{" "}
+                и в открытом окне проводника выберите нужный файл.
+              </p>
+              <ul>
+                <li>
+                  <sup>1</sup> Изображения, помещённые в проект через{" "}
+                  <mark className="select">«Place Embedded»</mark> будут импортированы как
+                  смарт-объект.
+                </li>
+              </ul>
+            </Addition>
+          </li>
+          <li>
             Если в архиве находится файл <mark className="file">ATN</mark>, то для
-            установки вам нужно открыть окно <mark className="ui">Actions</mark> с помощью
-            комбинации клавиш <mark className="key">Alt + F9</mark>, нажать на три полоски
-            в углу открывшегося окна и нажать на кнопку{" "}
-            <mark className="ui">Load Actions</mark>. Далее вам предложат выбрать нужный
-            файл. После выбора файла действий оно у вас отобразится в окне{" "}
-            <mark className="ui">Actions</mark> и вы сможете применять их в своих
+            установки вам нужно открыть окно <mark className="select">«Actions»</mark> с
+            помощью комбинации клавиш <mark className="key">Alt + F9</mark>, нажать на три
+            полоски в углу открывшегося окна и нажать на кнопку{" "}
+            <mark className="select">«Load Actions»</mark>. Далее вам предложат выбрать
+            нужный файл. После выбора файла действий оно у вас отобразится в окне{" "}
+            <mark className="select">«Actions»</mark> и вы сможете применять их в своих
             проектах.
+            <Addition type="warning">
+              Рекомендуется использовать английскую локализацию{" "}
+              <mark className="app">Adobe Photoshop</mark> при использовании сторонних{" "}
+              <mark className="file">ATN</mark> файлов. В них часто могут быть завязаны
+              действия на стандартные слова английской локализации.
+            </Addition>
+            <ContentFigure
+              caption="Photoshop"
+              imgTitle="Загрузка действий"
+              // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+              src="images/legacy/photoshop/load_actions.png"
+              theme="light"
+              type="image"
+              variant="windows"
+            />
           </li>
           <li>
             Если в архиве находится файл <mark className="file">ABR</mark>, то для
             установки кистей нужно открыть окно кистей в{" "}
-            <mark className="ui">Window &gt; Brushes</mark>. В открывшемся окне нажмите на
-            три полоски в углу и выберите <mark className="ui">Import Brushes</mark>. В
-            проводнике выберите нужный файл с набором кистей.
-            {/* FIXME: */}
-          </li>
-          <li>
-            Если в архиве находится файл <mark className="file">PSD</mark>, то такие файлы
-            открываются как обычный проект в <mark className="app">Adobe Photoshop</mark>.
-            Их также можно импортировать в уже существующий проект через{" "}
-            <mark className="ui">File &gt; Import</mark>.
-          </li>
-          <li>
-            Если в архиве находится AI, EPS, JPG, PNG, PDF, SVG, то...
-            {/* FIXME: */}
+            <mark className="select">«Window» → «Brushes»</mark>. В открывшемся окне
+            нажмите на три полоски в углу и выберите{" "}
+            <mark className="select">«Import Brushes»</mark>. В проводнике выберите нужный
+            файл с набором кистей.
+            <ContentFigure
+              caption="Photoshop"
+              imgTitle="Импортирование кистей"
+              // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+              src="images/legacy/photoshop/import_brushes.png"
+              theme="light"
+              type="image"
+              variant="windows"
+            />
           </li>
         </ul>
-        <ContentSwitcher
+        <ContentFilter
           macContent={
             <div>
               <ul>
-                <li></li>
-                <li></li>
-                <li></li>
+                <li>
+                  <Addition type="danger">
+                    Если в архиве находится папка <mark className="path">_MACOSX</mark>,
+                    то в нём нет никаких полезных файлов, установщиков и плагинов, которые
+                    предназначены именно для устройств <mark>macOS</mark>. Это скрытая
+                    системная папка, которая иногда создаётся операционной системой, в
+                    которой хранятся метаданные и информация о файловой системе. В нём нет
+                    ничего интересного для пользователя.
+                  </Addition>
+                  Если вы скачали архив формата <mark className="file">ZIP</mark>,{" "}
+                  <mark className="file">7Z</mark> или <mark className="file">RAR</mark>,
+                  то вам необходимо его распаковать с помощью архиватора для дальнейшей
+                  работы с ним. Это можно сделать с помощью{" "}
+                  <mark className="app">keka</mark> или{" "}
+                  <mark className="app">The Unarchiver</mark>.
+                  <Addition type="info">
+                    <ul>
+                      <li>
+                        Загрузить <mark className="app">keka</mark> можно по{" "}
+                        <a href="https://www.keka.io/ru/">этой ссылке</a>, а{" "}
+                        <mark className="app">The Unarchiver</mark> - по{" "}
+                        <a href="https://theunarchiver.com/">этой</a>.
+                      </li>
+                      <li>
+                        Для распаковки многотомного архива, то есть если в названии
+                        архивов есть <mark className="file">PART1</mark>,{" "}
+                        <mark className="file">PART2</mark> и так далее - нужно запустить
+                        распаковку только первой части архива, остальные части подхватятся
+                        автоматически. Остальные части архива не нужно трогать без острой
+                        необходимости, если вы не знаете что с ними делать.
+                      </li>
+                      <li>
+                        Многотомные архивы создаются для того, чтобы файл можно было
+                        спокойно передать, обойдя ограничения максимального размера в{" "}
+                        <mark className="app">Telegram</mark> или другого ресурса.
+                      </li>
+                      <li>
+                        Если вы хотите сделать <mark className="app">keka</mark>{" "}
+                        архиватором по умолчанию, то вам нужно будет установить{" "}
+                        <a href="https://www.keka.io/defaultapp/">kekaExternalHelper</a>.
+                        Подробная инструкция расположена в{" "}
+                        <a href="https://github.com/aonez/Keka/wiki/Default-application">
+                          Wiki на GitHub
+                        </a>
+                        .
+                      </li>
+                    </ul>
+                  </Addition>
+                  <ContentFigure
+                    caption="Распаковка через контекстное меню"
+                    imgTitle="Распаковка через контекстное меню"
+                    src="https://github.com/aonez/Keka/raw/master/Wiki/Images/Animated/extract-context-menu.gif"
+                    theme="light"
+                    type="image"
+                    variant="mac"
+                  />
+                </li>
+                <li>
+                  Если в архиве или в записи находится файл{" "}
+                  <mark className="file">DMG</mark>, <mark className="file">APP</mark> или{" "}
+                  <mark className="file">PKG</mark>, то обычно в нём содержится
+                  автоматический установщик плагина. Для установки таких файлов нужно
+                  следовать инструкциям установщика, например перенести файл из одного
+                  места в другое и так далее.
+                  <Addition type="info">
+                    <ul>
+                      <li>
+                        По умолчанию в <mark>macOS</mark> вы не сможете без танцев с
+                        бубном открыть установщики от неподтверждённых разработчиков.
+                        Чтобы обойти этот запрет - нужно изменить настройки безопасности
+                        операционной системы. Подробнее об этом вы можете прочитать на{" "}
+                        <a href="https://support.apple.com/ru-ru/102445">сайте Apple</a> и
+                        на{" "}
+                        <a href="https://www.iphones.ru/iNotes/pochemu-mac-ne-razreshaet-ustanavlivat-prilozheniya-ne-iz-app-store-05-15-2020">
+                          iPhones.ru
+                        </a>
+                        .
+                      </li>
+                      <li>
+                        Если вы сталкиваетесь с ошибкой{" "}
+                        <mark>«Не удаётся открыть программу „AppName”»</mark> - попробуйте
+                        открыть его через <mark className="key">ПКМ</mark>, выбрав в
+                        контекстном меню <mark className="select">«Открыть»</mark>.
+                      </li>
+                    </ul>
+                  </Addition>
+                </li>
                 <li>
                   Если в архиве находится файл <mark className="file">ZXP</mark>, то такие
                   расширения обычно устанавливаются через{" "}
@@ -69,24 +212,26 @@ const PSInstallProblems: React.FC = () => {
                   терминал не выдал никакие ошибки, то вы можете спокойно открыть{" "}
                   <mark className="app">Adobe Photoshop</mark> и проверить
                   работоспособность установленного расширения.
-                  <AdditionDanger>
+                  <Addition type="danger">
                     Пожалуйста, не используйте{" "}
                     <a href="https://zxpinstaller.com/">
                       ZXP Installer от ELEMENTS Storage Media
                     </a>
-                    , если вы используете версии программ <mark>Adobe</mark>, которые
-                    отвязаны от приложения <mark className="app">Creative Cloud</mark>.
-                    Данный <a href="https://zxpinstaller.com/">ZXP Installer</a> будет вам
-                    выдавать ошибку <strong>-193</strong> до тех пор, пока вы не
-                    установите программу <mark className="app">Creative Cloud</mark>, а он
-                    же может вам поломать уже установленные программы. Для решения
-                    проблемы воспользуйтесь{" "}
+                    , если вы используете версии программ{" "}
+                    <mark className="company">Adobe</mark>, которые отвязаны от приложения{" "}
+                    <mark className="app">Adobe Creative Cloud</mark>. Данный{" "}
+                    <a href="https://zxpinstaller.com/">ZXP Installer</a> будет вам
+                    выдавать ошибку <mark className="danger">-193</mark> до тех пор, пока
+                    вы не установите программу{" "}
+                    <mark className="app">Adobe Creative Cloud</mark>, а он же может вам
+                    поломать уже установленные программы. Для решения проблемы
+                    воспользуйтесь{" "}
                     <a href="https://aescripts.com/learn/zxp-installer/">
                       ZXP Installer от aescripts
                     </a>{" "}
                     или ручной установкой расширений.
-                  </AdditionDanger>
-                  <AdditionInfo>
+                  </Addition>
+                  <Addition type="info">
                     <ul>
                       <li>
                         Если вы не хотите устанавливать стороннее ПО для установки{" "}
@@ -96,7 +241,7 @@ const PSInstallProblems: React.FC = () => {
                         архив. Содержимое свежераспакованного файла нужно поместить в
                         папку{" "}
                         <mark className="path">
-                          ~/Library/Application Support/Adobe/CEP/extensions
+                          /Library/Application Support/Adobe/CEP/extensions
                         </mark>{" "}
                         и после этого ввести команды, которые были расположены чуть ниже в
                         терминал.
@@ -171,7 +316,7 @@ const PSInstallProblems: React.FC = () => {
                         расширения.
                       </li>
                     </ul>
-                  </AdditionInfo>
+                  </Addition>
                 </li>
               </ul>
             </div>
@@ -180,17 +325,93 @@ const PSInstallProblems: React.FC = () => {
             <div>
               <ul>
                 <li>
-                  Если в архиве находится файл формата <mark className="ui">.ccx</mark>,
-                  то вам нужно переименовать этот файл в <mark className="ui">.zip</mark>{" "}
-                  и распаковать его. Папку с распакованным содержимым вам нужно
-                  переместить в{" "}
+                  Если вы скачали архив формата <mark className="file">ZIP</mark>,{" "}
+                  <mark className="file">7Z</mark> или <mark className="file">RAR</mark>,
+                  то вам необходимо его распаковать с помощью архиватора для дальнейшей
+                  работы с ним. Это можно сделать с помощью{" "}
+                  <mark className="app">WinRAR</mark>.
+                  <Addition type="info">
+                    <ul>
+                      <li>
+                        <mark className="app">WinRAR</mark> для устройств на{" "}
+                        <mark>Windows</mark> можно загрузить по{" "}
+                        <a href="https://www.rarlab.com/download.htm">этой ссылке</a>.{" "}
+                        <i style={{opacity: 0.5, fontSize: "0.85em"}}>
+                          Надеюсь, что вы в курсе как обойти 40-дневное «ограничение»
+                        </i>
+                        .
+                      </li>
+                      <li>
+                        Для распаковки многотомного архива, то есть если в названии
+                        архивов есть <mark className="file">PART1</mark>,{" "}
+                        <mark className="file">PART2</mark> и так далее - нужно запустить
+                        распаковку только первой части архива, нажав{" "}
+                        <mark className="key">ПКМ</mark> по файлу и выбрать в контекстном
+                        меню <mark className="select">«WinRAR» → «Распаковать в...»</mark>
+                        . Остальные части подхватятся автоматически и их не нужно трогать
+                        без острой необходимости, если вы не знаете что с ними делать.
+                      </li>
+                      <li>
+                        Многотомные архивы создаются для того, чтобы файл можно было
+                        спокойно передать, обойдя ограничения максимального размера в{" "}
+                        <mark className="app">Telegram</mark> или другого ресурса.
+                      </li>
+                    </ul>
+                  </Addition>
+                  <ContentFigure
+                    caption="Распаковка многотомного архива"
+                    src="1OVwQS0uHhk"
+                    type="youtube"
+                  />
+                </li>
+                <li>
+                  Если в архиве или в записи находится файл{" "}
+                  <mark className="file">EXE</mark>, то обычно в нём содержится
+                  автоматический установщик плагина. Если в записи указано, что данный
+                  установщик является репаком - в таком случае после его установки плагин
+                  будет уже активирован, никаких лишних телодвижений после установки
+                  делать не надо.
+                  <Addition type="warning">
+                    <ul>
+                      <li>
+                        При использовании установщиков убедитесь в том, что у вас{" "}
+                        <mark className="app">Adobe Photoshop</mark> установлен в
+                        стандартном расположении{" "}
+                        <mark className="path">C:\Program Files\Adobe\</mark>, а не в
+                        другом месте или разделе. В противном случае устанавливаемый
+                        плагин может установиться в другом месте и может не отобразиться и
+                        корректно работать в программе.
+                      </li>
+                      <li>
+                        Перед установкой плагинов с помощью установщика - закройте все
+                        открытые инстанции <mark className="app">Adobe Photoshop</mark>{" "}
+                        для корректной установки.
+                      </li>
+                    </ul>
+                  </Addition>
+                </li>
+                <li>
+                  Если в архиве находится файл <mark className="file">8BF</mark>,{" "}
+                  <mark className="file">8BE</mark> или <mark className="file">8BI</mark>{" "}
+                  - то такие плагины обычно распаковываются в папку плагинов программы -{" "}
                   <mark className="path">
                     C:\Program Files\Adobe\Adobe Photoshop 20XX\Plug-ins
                   </mark>
-                  .
+                  . Установленные плагины появятся в{" "}
+                  <mark className="select">«Plugins»</mark> в горизонтальном меню в
+                  верхней части интерфейса программы.
                 </li>
-                <li></li>
-                <li></li>
+                <li>
+                  Если в архиве находится файл формата <mark className="file">CCX</mark> -
+                  переименуйте этот файл в <mark className="file">ZIP</mark> и распакуйте
+                  его в{" "}
+                  <mark className="path">
+                    C:\Program Files\Adobe\Adobe Photoshop 20XX\Plug-ins
+                  </mark>
+                  . Установленные плагины появятся в{" "}
+                  <mark className="select">«Plugins»</mark> в горизонтальном меню в
+                  верхней части интерфейса программы.
+                </li>
                 <li>
                   Если в архиве находится файл <mark className="file">ZXP</mark>, то такие
                   расширения обычно устанавливаются через{" "}
@@ -203,24 +424,26 @@ const PSInstallProblems: React.FC = () => {
                   указаниям программы. Прежде чем устанавливать расширение такого формата,
                   убедитесь в том, что ваша версия{" "}
                   <mark className="app">Adobe Photoshop</mark> его поддерживает.
-                  <AdditionDanger>
+                  <Addition type="danger">
                     Пожалуйста, не используйте{" "}
                     <a href="https://zxpinstaller.com/">
                       ZXP Installer от ELEMENTS Storage Media
                     </a>
-                    , если вы используете версии программ <mark>Adobe</mark>, которые
-                    отвязаны от приложения <mark className="app">Creative Cloud</mark>.
-                    Данный <a href="https://zxpinstaller.com/">ZXP Installer</a> будет вам
-                    выдавать ошибку <strong>-193</strong> до тех пор, пока вы не
-                    установите программу <mark className="app">Creative Cloud</mark>, а он
-                    же может вам поломать уже установленные программы. Для решения
-                    проблемы воспользуйтесь{" "}
+                    , если вы используете версии программ{" "}
+                    <mark className="company">Adobe</mark>, которые отвязаны от приложения{" "}
+                    <mark className="app">Adobe Creative Cloud</mark>. Данный{" "}
+                    <a href="https://zxpinstaller.com/">ZXP Installer</a> будет вам
+                    выдавать ошибку <mark className="danger">-193</mark> до тех пор, пока
+                    вы не установите программу{" "}
+                    <mark className="app">Adobe Creative Cloud</mark>, а он же может вам
+                    поломать уже установленные программы. Для решения проблемы
+                    воспользуйтесь{" "}
                     <a href="https://aescripts.com/learn/zxp-installer/">
                       ZXP Installer от aescripts
                     </a>{" "}
                     или ручной установкой расширений.
-                  </AdditionDanger>
-                  <AdditionInfo>
+                  </Addition>
+                  <Addition type="info">
                     <ul>
                       <li>
                         Если вы не хотите устанавливать стороннее ПО для установки{" "}
@@ -271,7 +494,7 @@ const PSInstallProblems: React.FC = () => {
                         расширения.
                       </li>
                     </ul>
-                  </AdditionInfo>
+                  </Addition>
                 </li>
               </ul>
             </div>
@@ -279,21 +502,23 @@ const PSInstallProblems: React.FC = () => {
         />
       </DetailsSummary>
       <DetailsSummary
-        tag="репак от кролика, выключить дефендер, отрубить антивирус, ложное срабатывание, хелпер, ошибка 24, проверьте правильно ли указано имя и повторите попытку, windows не удается получить доступ к указанному устройству пути или файлу, возможно у вас нет нужных разрешений для доступа к этому объекту, некоторые файлы не были созданы, операция не была успешно завершена так как файл содержит вирус или потенциально нежелательную программу, обнаружены угрозы, куда-то пропадают файлы плагинов и программ, operation did not complete successfully because the file contains a virus or potentially unwanted software, 0x800700E1"
-        title='"Не удаётся найти "..\install\helper.exe" или как отключить Windows Defender и Windows Smartscreen?'
+        tag="репак от кролика, выключить дефендер, отрубить антивирус, ложное срабатывание, хелпер, ошибка 24, вирусы, трояны, проверьте правильно ли указано имя и повторите попытку, windows не удается получить доступ к указанному устройству пути или файлу, возможно у вас нет нужных разрешений для доступа к этому объекту, некоторые файлы не были созданы, операция не была успешно завершена так как файл содержит вирус или потенциально нежелательную программу, обнаружены угрозы, куда-то пропадают файлы плагинов и программ, operation did not complete successfully because the file contains a virus or potentially unwanted software, windows cannot find helper.exe, make sure you typed the name correctly and then try again, 0x800700E1"
+        title="«Не удаётся найти „..\install\helper.exe“» или как отключить Windows Defender и Windows Smartscreen?"
       >
         <p>
           Обычно антивирусы срабатывают на модификацию оригинальных файлов, удаляя{" "}
           <mark className="word">пролеченные файлы</mark> и классифицирует их как{" "}
-          <mark>HackTool:Win32/Crack!MTB</mark> или другими обозначениями. Ещё антивирус
-          может удалить файл <mark className="file">helper.exe</mark> в репаках от{" "}
-          <mark>KpoJluk</mark>, который распаковывает дистрибутивы <mark>Adobe</mark>{" "}
-          из-за того, что в нём находится галочка <mark className="ui">Реклама</mark> и
-          помечает это как <mark>Contrebrew.A!ml</mark>, <mark>Adware</mark> или иначе.
-          Иногда файлы могут удаляться и из дистрибутивов от <mark>m0nkrus</mark> или
-          аналогичных репакеров, а также при распаковке различных плагинов и файлов из
-          интернета, даже если они действительно не содержат{" "}
-          <mark className="app">вредоносного ПО</mark>.
+          <mark className="warning">HackTool:Win32/Crack!MTB</mark> или другими
+          обозначениями. Ещё антивирус может удалить файл{" "}
+          <mark className="file">HELPER.EXE</mark> в репаках от{" "}
+          <mark className="user">KpoJluK</mark>, который распаковывает дистрибутивы{" "}
+          <mark className="company">Adobe</mark> из-за того, что в нём находится галочка{" "}
+          <mark className="select">«Реклама»</mark> и помечает это как{" "}
+          <mark className="warning">Contrebrew.A!ml</mark>,{" "}
+          <mark className="warning">Adware</mark> или иначе. Иногда файлы могут удаляться
+          и из дистрибутивов от <mark className="user">m0nkrus</mark> или аналогичных
+          репакеров, а также при распаковке различных плагинов и файлов из интернета, даже
+          если они действительно не содержат <mark className="app">вредоносного ПО</mark>.
         </p>
         <Divider>Отключаем стандартный антивирус на время</Divider>
         <p>
@@ -303,11 +528,12 @@ const PSInstallProblems: React.FC = () => {
           антивирус <mark className="app">Windows Defender</mark> или любой другой,
           установленный на вашем устройстве.
         </p>
-        <YouTubeVideo
+        <ContentFigure
           caption="Как отключить Защитник Windows 11"
-          link="blwRAOQUjsM"
+          src="blwRAOQUjsM"
+          type="youtube"
         />
-        <AdditionDanger>
+        <Addition type="danger">
           <ul>
             <li>
               Скачиваая и устанавливая содержимое на ваше устройство из каналов{" "}
@@ -321,7 +547,7 @@ const PSInstallProblems: React.FC = () => {
               Администрация вышеупомянутых каналов не может принимать на полном серьёзе
               вбросы по типу{" "}
               <mark className="quote">
-                ой в складе, саду или аетемпе одни вирусы водятся
+                «ой в складе, саду или аетемпе одни вирусы водятся»
               </mark>{" "}
               без внятных доказательств. Ложное срабатывание антивируса или{" "}
               <mark className="app">VirusTotal</mark> не является доказательством
@@ -334,22 +560,23 @@ const PSInstallProblems: React.FC = () => {
               оформляйте покупку софта за свои кровные.
             </li>
           </ul>
-        </AdditionDanger>
+        </Addition>
         <Divider>Вносим исключения для Windows Defender</Divider>
         <p>
           Если вы не хотите отключать или удалять{" "}
           <mark className="app">Windows Defender</mark> с вашего устройства, то вы можете
           добавить папку <mark className="path">C:\Program Files\Adobe</mark>, а также
-          добавить <mark className="path">%Temp%</mark> в список исключений вашего
+          добавить <mark className="path">%TEMP%</mark> в список исключений вашего
           антивируса. После настройки исключений - начните установку программы как обычно.
         </p>
-        <AdditionInfo>
+        <Addition type="info">
           Если директория <mark className="path">C:\Program Files\Adobe</mark> отсутствует
           - создайте его самостоятельно.
-        </AdditionInfo>
-        <YouTubeVideo
+        </Addition>
+        <ContentFigure
           caption="Windows Defender - как восстановить файлы и запретить их удаление"
-          link="ET94_dv3f8c"
+          src="ET94_dv3f8c"
+          type="youtube"
         />
         <Divider>Или удаляем Windows Defender с корнями</Divider>
         <p>
@@ -381,30 +608,32 @@ const PSInstallProblems: React.FC = () => {
             </a>
           </li>
         </ul>
-        <AdditionWarning>
+        <Addition type="warning">
           <mark className="app">Windows Defender</mark> может вернуться к вам после
           установки крупного обновления, например при переходе с <mark>Windows 11</mark>{" "}
           версии <mark>24H2</mark> на <mark>Windows 11</mark> версии <mark>25H2</mark>.
           Для того чтобы от него избавиться - просто повторите процесс удаления.
-        </AdditionWarning>
+        </Addition>
         <Divider>Вынимаем палки из колёс от Windows Smartscreen</Divider>
         <p>
           Иногда при открытии установочного файла вам может помешать предупреждение{" "}
-          <mark className="ui">Система Windows защитила ваш компьютер</mark> по центру
-          экрана. Его обычно вызывает <mark className="app">Windows Smartscreen</mark> -
-          фильтр файлов от <mark>Microsoft</mark>, скачанных с интернета и он часто
-          помечает <mark className="file">EXE</mark> файлы как подозрительные. Поэтому и
+          <mark className="select">«Система Windows защитила ваш компьютер»</mark> по
+          центру экрана. Его обычно вызывает{" "}
+          <mark className="app">Windows Smartscreen</mark> - фильтр файлов от{" "}
+          <mark>Microsoft</mark>, скачанных с интернета и он часто помечает{" "}
+          <mark className="file">EXE</mark> файлы как подозрительные. Поэтому и
           приостанавливает запуск исполняемых файлов. Чтобы запустить такой файл, вам
-          нужно нажать на <mark className="ui">Подробнее</mark> и на{" "}
-          <mark className="ui">Выполнить в любом случае</mark>. Но иногда бывают такие
-          случаи, что после нажатия на <mark className="ui">Подробнее</mark> ничего не
-          выводится. В таком случае вам нужно отключить{" "}
+          нужно нажать на <mark className="select">«Подробнее»</mark> и на{" "}
+          <mark className="select">«Выполнить в любом случае»</mark>. Но иногда бывают
+          такие случаи, что после нажатия на <mark className="select">«Подробнее»</mark>{" "}
+          ничего не выводится. В таком случае вам нужно отключить{" "}
           <mark className="app">Windows Smartscreen</mark> в параметрах{" "}
           <mark className="app">Защитника Windows</mark>.
         </p>
-        <YouTubeVideo
+        <ContentFigure
           caption="Как отключить Windows Smartscreen"
-          link="HxlxS1Mdyp0"
+          src="HxlxS1Mdyp0"
+          type="youtube"
         />
       </DetailsSummary>
       <DetailsSummary
@@ -415,22 +644,24 @@ const PSInstallProblems: React.FC = () => {
         <p>
           Обычно ошибка <mark>1</mark> и <mark>501</mark> возникает из-за того, что у вас
           повреждено приложение <mark className="app">Adobe Creative Cloud Cleaner</mark>{" "}
-          или были криво удалены предыдущие программы от <mark>Adobe</mark>. Чтобы
-          исправить это - очистите остатки предыдущих установок с помощью{" "}
-          <a href="https://helpx.adobe.com/creative-cloud/kb/cc-cleaner-tool-installation-problems.html">
+          или были криво удалены предыдущие программы от{" "}
+          <mark className="company">Adobe</mark>. Чтобы исправить это - очистите остатки
+          предыдущих установок с помощью{" "}
+          <a href="https://helpx.adobe.com/creative-cloud/apps/troubleshoot/diagnostics-repair-tools/run-creative-cloud-cleaner-tool.html">
             Adobe Creative Cloud Cleaner
           </a>{" "}
           или <mark className="app">Revo Uninstaller</mark>.
         </p>
         <Divider>Исправляем ошибку 176</Divider>
-        <ContentSwitcher
+        <ContentFilter
           macContent={
             <div>
               <p>
                 Скорее всего вы до установки более новых версий{" "}
                 <mark className="app">Adobe Photoshop</mark> пользовались другими
-                программами <mark>Adobe</mark>. Для решения - попробуйте удалить папку{" "}
-                <mark className="path">~/Library/Application Support/Adobe/caps</mark>, а
+                программами <mark className="company">Adobe</mark>. Для решения -
+                попробуйте удалить папку{" "}
+                <mark className="path">/Library/Application Support/Adobe/caps</mark>, а
                 затем повторить попытку установки нужной программы.
               </p>
             </div>
@@ -440,7 +671,8 @@ const PSInstallProblems: React.FC = () => {
               <p>
                 Скорее всего вы до установки более новых версий{" "}
                 <mark className="app">Adobe Photoshop</mark> пользовались другими
-                программами <mark>Adobe</mark>. Для решения - попробуйте удалить папку{" "}
+                программами <mark className="company">Adobe</mark>. Для решения -
+                попробуйте удалить папку{" "}
                 <mark className="path">
                   C:\Program Files (x86)\Common Files\Adobe\caps
                 </mark>
@@ -450,8 +682,8 @@ const PSInstallProblems: React.FC = () => {
           }
         />
         <Divider>
-          Исправляем ошибку 195 - &quot;Требуется процессор, поддерживающий инструкции
-          Advanced Vector Extensions 2 (AVX2)&quot;
+          Исправляем ошибку 195 - «Требуется процессор, поддерживающий инструкции Advanced
+          Vector Extensions 2 (AVX2)»
         </Divider>
         <p>
           Если вы столкнулись с этой ошибкой при установке, это означает, что ваш
@@ -461,8 +693,8 @@ const PSInstallProblems: React.FC = () => {
           например <mark>23.6</mark> или <mark>24.0</mark>.
         </p>
         <Divider>
-          Исправляем ошибку 21 - &quot;Операционная система не соответствует минимальным
-          требованиям для этой программы установки&quot;
+          Исправляем ошибку 21 - «Операционная система не соответствует минимальным
+          требованиям для этой программы установки»
         </Divider>
         <p>
           Скорее всего вы пытаетесь установить{" "}
@@ -480,7 +712,7 @@ const PSInstallProblems: React.FC = () => {
               системных требованиях Adobe Photoshop
             </a>{" "}
             указывается минимальная версия операционной системы.
-            <AdditionInfo>
+            <Addition type="info">
               <ul>
                 <li>
                   Текущую сборку <mark>Windows</mark> вы можете посмотреть в{" "}
@@ -496,7 +728,7 @@ const PSInstallProblems: React.FC = () => {
                   </i>
                 </li>
               </ul>
-            </AdditionInfo>
+            </Addition>
           </li>
           <li>
             Если вы не желаете обновлять или переустанавливать систему, то вы можете
@@ -505,17 +737,17 @@ const PSInstallProblems: React.FC = () => {
             установщик выполнит установку корректно.
           </li>
         </ul>
-        <AdditionInfo>
+        <Addition type="info">
           Остальные решения по кодам ошибок при установке вы можете найти на{" "}
           <a href="https://helpx.adobe.com/creative-cloud/kb/troubleshoot-download-install-logs.html">
             сайте Adobe
           </a>{" "}
           или на различных форумах в интернете.
-        </AdditionInfo>
+        </Addition>
       </DetailsSummary>
       <DetailsSummary
         tag="репак от кролика"
-        title='"Некоторые установочные файлы были повреждены. Загрузите свежую копию и повторите установку"'
+        title="«Некоторые установочные файлы были повреждены. Загрузите свежую копию и повторите установку»"
       >
         <p>
           Данная ошибка возникает когда вы пытаетесь открыть установщик репака от{" "}
@@ -579,23 +811,23 @@ const PSInstallProblems: React.FC = () => {
                 </>
               );
             })()}
-            <AdditionInfo>
+            <Addition type="info">
               Если вы полностью скачали файл с канала{" "}
               <a href="https://t.me/+Qd9xu7A4TeIwNzY6">склад стройматериалов</a> и вы
               уверены, что проблема не на вашей стороне - сообщите об этом в комментариях
               под постом.
-            </AdditionInfo>
+            </Addition>
           </li>
           <li>
             Если вы скачали репак, запакованный в многотомный архив, которые обычно
             помечаются как <mark className="file">PART1</mark>,{" "}
             <mark className="file">PART2</mark> и так далее по порядку - убедитесь в том,
             что вы скачали все части архива, а также его корректно распаковали.
-            <AdditionInfo>
+            <Addition type="info">
               Чтобы распаковать такой архив - достаточно начать распаковку первой части
               архива, остальные части подхватятся автоматически. Для распаковки таких
               архивов рекомендую воспользоваться <mark className="app">WinRAR</mark>.
-            </AdditionInfo>
+            </Addition>
           </li>
           <li>
             Иногда корректному открытию установщика может мешать включенное{" "}
@@ -607,16 +839,16 @@ const PSInstallProblems: React.FC = () => {
       </DetailsSummary>
       <DetailsSummary
         tag="репак от кролика"
-        title='"rsload.net заблокирован в hosts" или "The hosts file does not exist or is not accessible"'
+        title="«rsload.net заблокирован в hosts» или «The hosts file does not exist or is not accessible»"
       >
         <p>
           Данная ошибка чаще всего возникает из-за того, что в вашей системе по какой-то
-          неведомой причине отсутствует файл <mark className="file">hosts</mark>. Чтобы
+          неведомой причине отсутствует файл <mark className="file">HOSTS</mark>. Чтобы
           решить эту проблему - для начала посмотрите содержимое{" "}
           <mark className="path">%WinDir%\System32\Drivers\etc</mark>.
         </p>
         <p>
-          Если в этой директории нет файла <mark className="file">hosts</mark> - создайте
+          Если в этой директории нет файла <mark className="file">HOSTS</mark> - создайте
           его самостоятельно, например, с помощью <mark className="app">Блокнота</mark> и
           переместите созданный файл без расширения в папку{" "}
           <mark className="path">%WinDir%\System32\Drivers\etc</mark>.{" "}
@@ -630,8 +862,8 @@ const PSInstallProblems: React.FC = () => {
         title="Забыл убрать галочку с рекламой при установке репака от KpoJIuK. Как избавиться от последствий?"
       >
         <p>
-          По умолчанию в репаках от <mark>KpoJluk</mark> включена галочка{" "}
-          <mark className="ui">Реклама</mark>, поэтому можно случайно нарваться на
+          По умолчанию в репаках от <mark className="user">KpoJluK</mark> включена галочка{" "}
+          <mark className="select">«Реклама»</mark>, поэтому можно случайно нарваться на
           установку <mark>me.fo</mark> или <mark>hi.ru</mark> в качестве стартовой
           страницы браузера или на установку <mark className="app">Яндекс.Браузера</mark>.
           К счастью все эти нововведения можно удалить через{" "}
@@ -639,13 +871,13 @@ const PSInstallProblems: React.FC = () => {
           способом.
         </p>
         <p>
-          В следующий раз не забывайте убирать галочку <mark className="ui">Реклама</mark>
-          . Если вы хотите сделать так, чтобы у вас автоматически убирались рекламные
-          чекбоксы при установке - попробуйте воспользоваться программой{" "}
-          <a href="https://unchecky.com/">Unchecky</a>.
+          В следующий раз не забывайте убирать галочку{" "}
+          <mark className="select">«Реклама»</mark>. Если вы хотите сделать так, чтобы у
+          вас автоматически убирались рекламные чекбоксы при установке - попробуйте
+          воспользоваться программой <a href="https://unchecky.com/">Unchecky</a>.
         </p>
       </DetailsSummary>
-      <DetailsSummary title='"Error: Extension Manager init failed, status = -193! A required resource is missing. Please relaunch the Creative Cloud app and try again" при использовании ZXP Installer'>
+      <DetailsSummary title="«Error: Extension Manager init failed, status = -193! A required resource is missing. Please relaunch the Creative Cloud app and try again» при использовании ZXP Installer">
         <p>
           Данная ошибка прямым текстом указывает на то, что на вашем устройстве
           отсутствует программа <mark className="app">Adobe Creative Cloud</mark>. Если вы
@@ -658,26 +890,28 @@ const PSInstallProblems: React.FC = () => {
           </a>{" "}
           или ручной распаковки расширения в нужное место. И даже{" "}
           <mark className="app">Adobe Creative Cloud</mark> устанавливать не нужно, если
-          вы используете репаки от <mark>KpoJluK</mark> или <mark>m0nkrus</mark>.
+          вы используете репаки от <mark className="user">KpoJluK</mark> или{" "}
+          <mark className="user">m0nkrus</mark>.
         </p>
-        <AdditionInfo>
+        <Addition type="info">
           Более подробную информацию про установку дополнительных материалов вы можете
-          прочитать в <a href="#2.1">статье 2.1</a>.
-        </AdditionInfo>
+          прочитать в<a href="#2.1">статье 2.1</a>.
+        </Addition>
       </DetailsSummary>
       <DetailsSummary
         tag="креатив клауд клинер, удаление адоба, очистка от хвостов"
         title="Как полностью удалить Adobe Photoshop и остальные продукты от Adobe на моем устройстве?"
       >
         <p>
-          Если вы хотите переустановить или забыть о программах <mark>Adobe</mark> раз и
-          навсегда, то вы можете сделать это двумя способами.
+          Если вы хотите переустановить или забыть о программах{" "}
+          <mark className="company">Adobe</mark> раз и навсегда, то вы можете сделать это
+          двумя способами.
         </p>
         <ul>
           <li>
             Через <mark className="app">Adobe Creative Cloud Cleaner Tool</mark>, который
             можно скачать{" "}
-            <a href="https://helpx.adobe.com/creative-cloud/kb/cc-cleaner-tool-installation-problems.html">
+            <a href="https://helpx.adobe.com/creative-cloud/apps/troubleshoot/diagnostics-repair-tools/run-creative-cloud-cleaner-tool.html">
               по этой ссылке
             </a>
             . Это консольная утилита, не требующая установки и не требует дополнительной
@@ -688,13 +922,15 @@ const PSInstallProblems: React.FC = () => {
             В качестве альтернативы вы можете удалить программы через{" "}
             <mark className="app">Revo Uninstaller</mark> или подобный софт, который
             чистит хвосты после удаления. Не все подобные программы могут полностью
-            удалить <mark>Adobe</mark>, но смогут удалить большую часть зависимостей. По
-            желанию вы можете почистить реестр <mark>Windows</mark> после удаления,
-            например с помощью <mark className="app">Vit Registry Fix</mark>.
+            удалить <mark className="company">Adobe</mark>, но смогут удалить большую
+            часть зависимостей. По желанию вы можете почистить реестр <mark>Windows</mark>{" "}
+            после удаления, например с помощью{" "}
+            <mark className="app">Vit Registry Fix</mark>.
           </li>
         </ul>
+        {/* TODO: про почистить руками популярные директории */}
       </DetailsSummary>
-      <AdditionInfo>
+      <Addition type="info">
         Некоторые решения проблем, которые у вас могут возникнуть после установки
         дополнительных материалов или во время использования программы, находятся в общем
         разделе{" "}
@@ -725,7 +961,7 @@ const PSInstallProblems: React.FC = () => {
           Ошибки и предупреждения
         </a>
         .
-      </AdditionInfo>
+      </Addition>
     </div>
   );
 };

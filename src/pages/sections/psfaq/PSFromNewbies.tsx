@@ -21,13 +21,14 @@ const PSFromNewbies: React.FC = () => {
           вы ещё не определились с вектором направления работы с программой, хотите просто
           изучить его функционал и посмотреть примеры работы в нём - советую пройти курс{" "}
           <a href="https://www.youtube.com/playlist?list=PL_jKgaFUK_61p1yXULw7KPi6HGpyXKTWx">
-            Фотошоп с нуля
+            «Фотошоп с нуля»
           </a>{" "}
           от <a href="https://www.youtube.com/@Photofoxchannel">PhotoFox</a>.
         </p>
-        <YouTubeVideo
-          caption='Курс "Фотошоп с нуля"'
-          link="-IqjBmVaApg"
+        <ContentFigure
+          caption="Курс «Фотошоп с нуля»"
+          src="-IqjBmVaApg"
+          type="youtube"
         />
         <p>
           Если вы уже уверенно обрабатываете и создаёте изображения в{" "}
@@ -36,7 +37,7 @@ const PSFromNewbies: React.FC = () => {
         </p>
         <div className="flexible-links">
           <a href="https://www.youtube.com/playlist?list=PL3ysV0s8Gs4UpuSH_wx2vchA-HzRXNcFv">
-            &quot;Уроки Photoshop для продвинутых&quot; от Study Kvo
+            «Уроки Photoshop для продвинутых» от Study Kvo
           </a>
           <a href="https://www.youtube.com/playlist?list=PLrsq-o51mMFHXOE0wRrDpb0l4mj9EjTkS">
             Фишки и лайфхаки от VideoSmile
@@ -74,7 +75,7 @@ const PSFromNewbies: React.FC = () => {
           программы, поэтому в этой статье в таблицах собраны популярные у многих
           пользователей комбинации.
         </p>
-        <AdditionInfo>
+        <Addition type="info">
           <ul>
             <li>
               В таблице приведены комбинации для устройств на <mark>Windows</mark>. На{" "}
@@ -87,21 +88,22 @@ const PSFromNewbies: React.FC = () => {
               <a href="https://helpx.adobe.com/ru/photoshop/using/default-keyboard-shortcuts.html">
                 официальном сайте Adobe
               </a>{" "}
-              или в <mark className="ui">Edit &gt; Keyboard Shortcuts</mark>.
+              или в <mark className="select">«Edit» → «Keyboard Shortcuts»</mark>.
             </li>
           </ul>
-        </AdditionInfo>
-        <p>{/* FIXME: написать!! */}</p>
+        </Addition>
+        {/* FIXME: написать!! */}
       </DetailsSummary>
       <DetailsSummary
         tag="что нового, фишки, обновления, апдейты, патчноуты"
         title="Где я могу узнать о нововведениях в обновлениях программы?"
       >
         <p>
-          Обычно на сайте <mark>Adobe</mark> в день выхода публичной стабильной версии
-          выкладываются основные нововведения. Это сделано для того, чтобы каждый прохожий
-          не спрашивал из каждого угла <mark className="quote">А что обновилось то?</mark>
-          . Ещё время от времени <mark>Adobe</mark> выкладывает на сайт список выявленных
+          Обычно на сайте <mark className="company">Adobe</mark> в день выхода публичной
+          стабильной версии выкладываются основные нововведения. Это сделано для того,
+          чтобы каждый прохожий не спрашивал из каждого угла{" "}
+          <mark className="quote">«А что обновилось то?»</mark>. Ещё время от времени{" "}
+          <mark className="company">Adobe</mark> выкладывает на сайт список выявленных
           неполадок и старается приложить к ним временное решение.
         </p>
         <div className="flexible-links">
@@ -124,9 +126,9 @@ const PSFromNewbies: React.FC = () => {
           Удивительно, но в <mark className="app">Adobe Photoshop</mark> можно сменить
           язык интерфейса, и многие оставляют его на русском по двум причинам. Первая -
           пользователю может быть удобно, что весь интерфейс программы переведено. Вторая
-          - в некоторых <mark className="word">народных</mark> версиях программы, в
-          частности при установке репака от <mark>KpoJluK</mark> при смене языка при
-          установке на английский он попросту не применяется.
+          - в некоторых «народных» версиях программы, в частности при установке репака от{" "}
+          <mark className="user">KpoJluK</mark> при смене языка при установке на
+          английский он попросту не применяется.
         </p>
         <p>
           На практике русская локализация <mark className="app">Adobe Photoshop</mark>{" "}
@@ -143,38 +145,47 @@ const PSFromNewbies: React.FC = () => {
             <mark className="app">Adobe Premiere Pro</mark>, но всё же.
           </i>
         </p>
-        <Divider>Меняем язык в &quot;народной&quot; версии программы</Divider>
+        {/* <p>В <mark className="app">Adobe Photoshop</mark> есть возможность смены языка программы. Часто пользователи оставляют его на русском языке, но не все знают, какие проблемы может принести данное действие. Почему? Обычно при использовании локализации программы, отличного от английского, вы можете получить различные проблемы. Например, сторонние <mark className="plugin">Actions</mark> могут быть жёстко завязаны на английском интерфейсе или на локализации, которым пользовался автор. В редких случаях могут быть различные проблемы при использовании сторонних плагинов и эффектов. Также часто туториалы в ютубе используются английская локализация программы, но русская может встретиться чаще, чем если вы бы смотрели туториал по афтеру или премьеру.</p>
+        <p>В зависимости от того, какая у вас установлена версия программы - "народная" или лицензионная, инструкция по смене языка отличается {/* че я блять несу то?? */}
+        <Divider>Меняем язык в «народной» версии программы</Divider>
         <p>
           Для быстрой смены языка - откройте контекстное меню{" "}
-          <mark className="ui">Редактирование &gt; Настройки</mark> и выберите в нём{" "}
-          <mark className="ui">Интерфейс</mark>.
+          <mark className="select">«Редактирование» → «Настройки»</mark> и выберите в нём{" "}
+          <mark className="select">«Интерфейс»</mark>.
         </p>
-        <ImageFigure
+        <ContentFigure
           caption="Adobe Photoshop"
-          imgSrc="images/photoshop/редактирование_настройки_интерфейс.png"
           imgTitle="Открытие настроек интерфейса"
-          styleClass="figure_windows-light"
+          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          src="images/legacy/photoshop/редактирование_настройки_интерфейс.png"
+          theme="light"
+          type="image"
+          variant="windows"
         />
         <p>
-          Затем в открывшемся окне выберите в параметре <mark className="ui">Язык</mark>{" "}
-          значение <mark className="ui">English</mark>. После этого перезагрузите
-          программу и теперь вы можете работать с английской локализацией{" "}
+          Затем в открывшемся окне выберите в параметре{" "}
+          <mark className="select">«Язык»</mark> значение{" "}
+          <mark className="select">«English»</mark>. После этого перезагрузите программу и
+          теперь вы можете работать с английской локализацией{" "}
           <mark className="app">Adobe Photoshop</mark>.
         </p>
-        <ImageFigure
+        <ContentFigure
           caption="Установки"
-          imgSrc="images/photoshop/change_language.png"
           imgTitle="Выбор языка в настройках программы"
-          styleClass="figure_windows-light"
+          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          src="images/legacy/photoshop/change_language.png"
+          theme="light"
+          type="image"
+          variant="windows"
         />
         <Divider>
-          Альтернативный способ смены языка для &quot;народной&quot; версии программы
+          Альтернативный способ смены языка для «народной» версии программы
         </Divider>
         <Divider>Меняем язык программы с помощью Creative Cloud</Divider>
-        <p>{/* FIXME: написать!! */}</p>
+        {/* FIXME: написать!! */}
       </DetailsSummary>
       <DetailsSummary title="Для чего нужно использовать Photoshop, а для чего Illustrator?">
-        <p>{/* FIXME: написать!! фотошоп - растр, люстра - вектор */}</p>
+        {/* FIXME: написать!! фотошоп - растр, люстра - вектор */}
         <p>Некоторые новички...</p>
         <ul>
           <li>
@@ -198,21 +209,56 @@ const PSFromNewbies: React.FC = () => {
         </ul>
       </DetailsSummary>
       <DetailsSummary title="Как я могу быстро изменить размер изображения или холста?">
-        <p>{/* FIXME: */}</p>
-        <VideoFigure
+        {/* FIXME: */}
+        <ContentFigure
           caption="Adobe Photoshop"
-          styleClass="figure_windows-light"
-          videoSrc="images/photoshop/change_image_size.mp4"
+          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          src="images/legacy/photoshop/change_image_size.mp4"
+          theme="light"
+          type="video"
+          variant="windows"
         />
-        <VideoFigure
+        <ContentFigure
           caption="Adobe Photoshop"
-          styleClass="figure_windows-light"
-          videoSrc="images/photoshop/change_canvas_size.mp4"
+          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          src="images/legacy/photoshop/change_canvas_size.mp4"
+          theme="light"
+          type="video"
+          variant="windows"
         />
         <p>
-          Разница между <mark className="ui">Image Size</mark> и{" "}
-          <mark className="ui">Canvas Size</mark> заключается в том, что в...
+          Разница между <mark className="select">«Image Size»</mark> и{" "}
+          <mark className="select">«Canvas Size»</mark> заключается в том, что в...
         </p>
+      </DetailsSummary>
+      <DetailsSummary
+        tag="smart objects"
+        title="Для чего нужны смарт-объекты?"
+      >
+        {/* FIXME: */}
+        <ContentFigure
+          caption="Photoshop"
+          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          src="images/legacy/photoshop/using_smart_objects.mp4"
+          theme="light"
+          type="video"
+          variant="windows"
+        />
+      </DetailsSummary>
+      <DetailsSummary
+        tag="disable auto-select"
+        title="Как отключить автовыделение слоёв?"
+      >
+        {/* FIXME: */}
+        <ContentFigure
+          caption="Photoshop"
+          imgTitle="Отключение автовыделения слоя"
+          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          src="images/legacy/photoshop/disable_auto-select.png"
+          theme="light"
+          type="image"
+          variant="windows"
+        />
       </DetailsSummary>
     </div>
   );
