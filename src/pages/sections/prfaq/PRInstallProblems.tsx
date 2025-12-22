@@ -292,15 +292,18 @@ const PRInstallProblems: React.FC = () => {
                 <li>
                   <p>
                     Если в архиве находится файл <mark className="file">MOGRT</mark>,
-                    такие шаблоны устанавливаются в панели{" "}
-                    <mark className="select">«Essential Graphics»</mark> с помощью кнопки{" "}
-                    <mark className="select">«Install Motion Graphics template»</mark>.
-                    Также можно перенести файлы формата{" "}
-                    <mark className="file">MOGRT</mark> прямо в это окно перетаскиванием.
+                    такие шаблоны устанавливаются через панель{" "}
+                    <mark className="select">«Graphics Templates»</mark>, начиная с версии{" "}
+                    <mark>25.0</mark>, или через{" "}
+                    <mark className="select">«Essential Graphics»</mark> в ранних версиях.
+                    Чтобы установить такие шаблоны, нажмите кнопку{" "}
+                    <mark className="select">«Install Motion Graphics template»</mark> и
+                    укажите файл в открывшемся окне файлового менеджера либо просто
+                    перетащите <mark className="file">MOGRT</mark> в это окно.
                   </p>
                   <ContentFigure
-                    caption="Essential Graphics"
-                    imgTitle="Установка mogrt-шаблонов"
+                    caption="Graphics Templates (ранее Essential Graphics)"
+                    imgTitle="Установка MOGRT"
                     // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
                     src="images/legacy/premierepro/install_mogrt.png"
                     theme="dark"
@@ -308,52 +311,69 @@ const PRInstallProblems: React.FC = () => {
                     variant="mac"
                   />
                   <p>
-                    Также файлы <mark className="file">MOGRT</mark> можно поместить в
-                    стандартную папку локальных шаблонов по пути{" "}
+                    Также вы можете скопировать файлы вручную в стандартную папку
+                    локальных шаблонов по пути{" "}
                     <mark className="path">
                       /Library/Application Support/Adobe/Common/Motion Graphics Templates
-                    </mark>
-                    , и они появятся в окне{" "}
-                    <mark className="select">«Essential Graphics»</mark>.
+                    </mark>{" "}
+                    или импортировать целую папку, нажав на иконку{" "}
+                    <mark className="select">«Add additional folder»</mark> возле{" "}
+                    <mark className="select">«Local Templates»</mark>, если нажата кнопка
+                    фильтра. После этого они также появятся в программе.
                   </p>
                   <Addition type="info">
-                    <p>
-                      <mark className="file">MOGRT</mark>-файл — по своей сути архив,
-                      внутри которого обычно лежат два-три файла, формирующие анимационный
-                      шаблон. Такие шаблоны можно создавать в{" "}
-                      <mark className="app">Adobe After Effects</mark> и{" "}
-                      <mark className="app">Adobe Premiere Pro</mark>.
-                    </p>
                     <ul>
                       <li>
-                        <mark className="file">DEFINITION.JSON</mark> — файл, в котором
-                        содержатся ссылки, контроллеры и другая техническая информация для
-                        корректной работы шаблона.
+                        В большинстве случаев рядом с шаблоном есть туториал по его
+                        использованию. Он может находиться в папке{" "}
+                        <mark className="path">Help</mark>,{" "}
+                        <mark className="path">Tutorial</mark> или в корне архива.
                       </li>
                       <li>
-                        <mark className="file">PROJECT.AEGRAPHICS</mark> — файл, где
-                        хранится вся заготовленная анимация. Стандартными средствами{" "}
-                        <mark className="app">Adobe Premiere Pro</mark> её нельзя
-                        отредактировать, но такой проект можно открыть в{" "}
-                        <mark className="app">Adobe After Effects</mark>, при
-                        необходимости внести правки, а затем конвертировать обратно в{" "}
-                        <mark className="file">MOGRT</mark>.
+                        Настройка шаблонов, в которых можно менять текст или плейсхолдеры,
+                        производится в панели{" "}
+                        <mark className="select">«Properties» → «Edit»</mark> или{" "}
+                        <mark className="select">«Essential Graphics» → «Edit»</mark>, в
+                        зависимости от версии программы.
                       </li>
                       <li>
-                        <mark className="file">THUMB.JPG</mark> — статичная обложка
-                        шаблона для предварительного просмотра в окне{" "}
-                        <mark className="select">«Essential Graphics»</mark>.
+                        <p>
+                          По своей сути файл формата <mark className="file">MOGRT</mark> —
+                          это архив с двумя или тремя файлами, которые формируют
+                          анимационный шаблон. Такие шаблоны создаются как в{" "}
+                          <mark className="app">Adobe After Effects</mark>, так и в{" "}
+                          <mark className="app">Adobe Premiere Pro</mark>.
+                        </p>
+                        <ul>
+                          <li>
+                            <mark className="file">DEFINITION.JSON</mark> — содержит
+                            ссылки, контроллеры и другую техническую информацию.
+                          </li>
+                          <li>
+                            <mark className="file">PROJECT.AEGRAPHICS</mark> — хранит всю
+                            анимацию. Стандартными средствами{" "}
+                            <mark className="app">Adobe Premiere Pro</mark> его не
+                            отредактировать, но можно открыть в{" "}
+                            <mark className="app">Adobe After Effects</mark>, внести
+                            правки и конвертировать обратно в{" "}
+                            <mark className="file">MOGRT</mark>.
+                          </li>
+                          <li>
+                            <mark className="file">THUMB.JPG</mark> — обложка для
+                            предпросмотра в панели{" "}
+                            <mark className="select">«Essential Graphics»</mark>.
+                          </li>
+                        </ul>
                       </li>
                     </ul>
                   </Addition>
                   <Addition type="warning">
-                    Для использования некоторых шаблонов формата{" "}
-                    <mark className="file">MOGRT</mark> может потребоваться установленный
-                    в системе <mark className="app">Adobe After Effects</mark>. Если эта
-                    программа у вас уже установлена, но{" "}
-                    <mark className="app">Adobe Premiere Pro</mark> выдаёт ошибку о
-                    необходимости её установки, возможно, для связки двух программ
-                    потребуется <mark className="app">Adobe Creative Cloud</mark>.
+                    Для некоторых <mark className="file">MOGRT</mark> может потребоваться
+                    установленный <mark className="app">Adobe After Effects</mark>. Если
+                    он установлен, но <mark className="app">Adobe Premiere Pro</mark> всё
+                    равно выдаёт ошибку, убедитесь, что обе программы относятся к одной
+                    «версии-года» и у вас установлен{" "}
+                    <mark className="app">Adobe Creative Cloud</mark>.
                   </Addition>
                 </li>
                 <li>
@@ -854,15 +874,18 @@ const PRInstallProblems: React.FC = () => {
                 <li>
                   <p>
                     Если в архиве находится файл <mark className="file">MOGRT</mark>,
-                    такие шаблоны устанавливаются в панели{" "}
-                    <mark className="select">«Essential Graphics»</mark> с помощью кнопки{" "}
-                    <mark className="select">«Install Motion Graphics template»</mark>.
-                    Также можно перенести файлы формата{" "}
-                    <mark className="file">MOGRT</mark> прямо в это окно перетаскиванием.
+                    такие шаблоны устанавливаются через панель{" "}
+                    <mark className="select">«Graphics Templates»</mark>, начиная с версии{" "}
+                    <mark>25.0</mark>, или через{" "}
+                    <mark className="select">«Essential Graphics»</mark> в ранних версиях.
+                    Чтобы установить такие шаблоны, нажмите кнопку{" "}
+                    <mark className="select">«Install Motion Graphics template»</mark> и
+                    укажите файл в открывшемся окне файлового менеджера либо просто
+                    перетащите <mark className="file">MOGRT</mark> в это окно.
                   </p>
                   <ContentFigure
-                    caption="Essential Graphics"
-                    imgTitle="Установка mogrt-шаблонов"
+                    caption="Graphics Templates (ранее Essential Graphics)"
+                    imgTitle="Установка MOGRT"
                     // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
                     src="images/legacy/premierepro/install_mogrt.png"
                     theme="dark"
@@ -870,74 +893,86 @@ const PRInstallProblems: React.FC = () => {
                     variant="windows"
                   />
                   <p>
-                    Также файлы <mark className="file">MOGRT</mark> можно поместить в
-                    стандартную папку локальных шаблонов по пути{" "}
+                    Также вы можете скопировать файлы вручную в стандартную папку
+                    локальных шаблонов по пути{" "}
                     <mark className="path">
-                      %AppData%/Adobe/Common/Motion Graphics Templates/
-                    </mark>
-                    , и они появятся в окне{" "}
-                    <mark className="select">«Essential Graphics»</mark>.
+                      %AppData%/Adobe/Common/Motion Graphics Templates
+                    </mark>{" "}
+                    или импортировать целую папку, нажав на иконку{" "}
+                    <mark className="select">«Add additional folder»</mark> возле{" "}
+                    <mark className="select">«Local Templates»</mark>, если нажата кнопка
+                    фильтра. После этого они также появятся в программе.
                   </p>
-                  <Addition type="warning">
-                    Стандартный <mark className="app">Проводник Windows</mark> некорректно
-                    обрабатывает архивы, в которых лежат файлы{" "}
-                    <mark className="file">MOGRT</mark>. Для корректного открытия и
-                    распаковки таких архивов используйте{" "}
-                    <mark className="app">WinRAR</mark> или{" "}
-                    <mark className="app">7-Zip</mark>.
-                  </Addition>
                   <Addition type="info">
-                    <p>
-                      <mark className="file">MOGRT</mark>-файл — по своей сути архив,
-                      внутри которого обычно лежат два-три файла, формирующие анимационный
-                      шаблон. Такие шаблоны можно создавать в{" "}
-                      <mark className="app">Adobe After Effects</mark> и{" "}
-                      <mark className="app">Adobe Premiere Pro</mark>.
-                    </p>
                     <ul>
                       <li>
-                        <mark className="file">DEFINITION.JSON</mark> — файл, в котором
-                        содержатся ссылки, контроллеры и другая техническая информация для
-                        корректной работы шаблона.
+                        В большинстве случаев рядом с шаблоном есть туториал по его
+                        использованию. Он может находиться в папке{" "}
+                        <mark className="path">Help</mark>,{" "}
+                        <mark className="path">Tutorial</mark> или в корне архива.
                       </li>
                       <li>
-                        <mark className="file">PROJECT.AEGRAPHICS</mark> — файл, где
-                        хранится вся заготовленная анимация. Стандартными средствами{" "}
-                        <mark className="app">Adobe Premiere Pro</mark> её нельзя
-                        отредактировать, но такой проект можно открыть в{" "}
-                        <mark className="app">Adobe After Effects</mark>, при
-                        необходимости внести правки, а затем конвертировать обратно в{" "}
-                        <mark className="file">MOGRT</mark>.
-                      </li>
-                      <li>
-                        <mark className="file">THUMB.JPG</mark> — статичная обложка
-                        шаблона для предварительного просмотра в окне{" "}
-                        <mark className="select">«Essential Graphics»</mark>.
+                        Настройка шаблонов, в которых можно менять текст или плейсхолдеры,
+                        производится в панели{" "}
+                        <mark className="select">«Properties» → «Edit»</mark> или{" "}
+                        <mark className="select">«Essential Graphics» → «Edit»</mark>, в
+                        зависимости от версии программы.
                       </li>
                     </ul>
-                    <p>
-                      Часто пользователи, которые работают с архивами через стандартный
-                      Проводник <mark>Windows</mark>, зачем-то заходят внутрь{" "}
-                      <mark className="file">MOGRT</mark>-файла и не могут понять, что
-                      делать с его содержимым. Содержимое{" "}
-                      <mark className="file">MOGRT</mark>-файла не нужно открывать без
-                      острой необходимости. Архив с такими файлами нужно распаковать через{" "}
-                      <mark className="app">WinRAR</mark> или{" "}
-                      <mark className="app">7-Zip</mark>, чтобы их можно было спокойно
-                      импортировать в <mark className="app">Adobe Premiere Pro</mark> по
-                      инструкции выше.
-                    </p>
                   </Addition>
                   <Addition type="warning">
-                    Для использования некоторых шаблонов формата{" "}
-                    <mark className="file">MOGRT</mark> может потребоваться установленный
-                    в системе <mark className="app">Adobe After Effects</mark>. Если эта
-                    программа у вас уже установлена, но{" "}
-                    <mark className="app">Adobe Premiere Pro</mark> выдаёт ошибку о
-                    необходимости её установки, убедитесь, что вы установили{" "}
-                    <mark className="app">Adobe Premiere Pro</mark> и{" "}
-                    <mark className="app">Adobe After Effects</mark> в стандартную
-                    директорию <mark className="path">C:\Program Files\Adobe\</mark>.
+                    <ul>
+                      <li>
+                        Для некоторых <mark className="file">MOGRT</mark> может
+                        потребоваться установленный{" "}
+                        <mark className="app">Adobe After Effects</mark>. Если он
+                        установлен, но <mark className="app">Adobe Premiere Pro</mark> всё
+                        равно выдаёт ошибку, убедитесь, что обе программы находятся в
+                        стандартной директории{" "}
+                        <mark className="path">C:\Program Files\Adobe\</mark> и относятся
+                        к одной «версии-года».
+                      </li>
+                      <li>
+                        <p>
+                          Если вы работаете с архивами в{" "}
+                          <mark className="app">Проводнике Windows</mark>, учтите, что он
+                          некорректно их обрабатывает, если внутри есть файлы{" "}
+                          <mark className="file">MOGRT</mark>. Из-за этого можно случайно
+                          зайти в содержимое такого файла, как в папку, и не понять, что
+                          делать дальше. Чтобы избежать проблем, используйте для
+                          распаковки <mark className="app">WinRAR</mark> или{" "}
+                          <mark className="app">7-Zip</mark>. Не открывайте сам{" "}
+                          <mark className="file">MOGRT</mark> без острой необходимости.
+                        </p>
+                        <p>
+                          По своей сути файл формата <mark className="file">MOGRT</mark> —
+                          это архив с двумя или тремя файлами, которые формируют
+                          анимационный шаблон. Такие шаблоны создаются как в{" "}
+                          <mark className="app">Adobe After Effects</mark>, так и в{" "}
+                          <mark className="app">Adobe Premiere Pro</mark>.
+                        </p>
+                        <ul>
+                          <li>
+                            <mark className="file">DEFINITION.JSON</mark> — содержит
+                            ссылки, контроллеры и другую техническую информацию.
+                          </li>
+                          <li>
+                            <mark className="file">PROJECT.AEGRAPHICS</mark> — хранит всю
+                            анимацию. Стандартными средствами{" "}
+                            <mark className="app">Adobe Premiere Pro</mark> его не
+                            отредактировать, но можно открыть в{" "}
+                            <mark className="app">Adobe After Effects</mark>, внести
+                            правки и конвертировать обратно в{" "}
+                            <mark className="file">MOGRT</mark>.
+                          </li>
+                          <li>
+                            <mark className="file">THUMB.JPG</mark> — обложка для
+                            предпросмотра в панели{" "}
+                            <mark className="select">«Essential Graphics»</mark>.
+                          </li>
+                        </ul>
+                      </li>
+                    </ul>
                   </Addition>
                 </li>
                 <li>
