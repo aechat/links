@@ -2,6 +2,7 @@ services:
   dev:
     build: .
     container_name: aechat-links-dev
+    hostname: aechat
     ports:
       - "5173:5173"
     volumes:
