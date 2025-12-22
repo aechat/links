@@ -284,9 +284,10 @@ const PRInstallProblems: React.FC = () => {
                     <mark className="app">Adobe Premiere Pro</mark>.
                   </Addition>
                   <Addition type="danger">
-                    Плагины формата <mark className="file">AEX</mark> не подходят для
-                    устройств на <mark>macOS</mark>, так как они предназначены для
-                    устройств на <mark>Windows</mark>.
+                    Плагины формата <mark className="file">AEX</mark> и{" "}
+                    <mark className="file">PRM</mark> не подходят для устройств на{" "}
+                    <mark>macOS</mark>, так как они предназначены для устройств на{" "}
+                    <mark>Windows</mark>.
                   </Addition>
                 </li>
                 <li>
@@ -869,6 +870,12 @@ const PRInstallProblems: React.FC = () => {
                     <mark className="app">Adobe After Effects</mark> и не всегда имеют
                     обратную совместимость с{" "}
                     <mark className="app">Adobe Premiere Pro</mark>.
+                  </Addition>
+                  <Addition type="danger">
+                    Плагины формата <mark className="file">PLUGIN</mark> и{" "}
+                    <mark className="file">BUNDLE</mark> не подходят для устройств на{" "}
+                    <mark>Windows</mark>, так как они предназначены для устройств на{" "}
+                    <mark>macOS</mark>.
                   </Addition>
                 </li>
                 <li>
