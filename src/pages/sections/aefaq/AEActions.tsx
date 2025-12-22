@@ -172,7 +172,7 @@ const AEActions: React.FC = () => {
         </Addition>
         <Divider>Плавно замедляем видео в Adobe After Effects</Divider>
         <p>
-          Замедлить видео можно и стандартными средствами{" "}
+          Замедлить видео можно стандартными средствами{" "}
           <mark className="app">Adobe After Effects</mark>. Для этого включите{" "}
           <mark className="select">«Time Remapping»</mark> с помощью{" "}
           <mark className="key">Ctrl + Alt + T</mark>, а затем активируйте смешивание
