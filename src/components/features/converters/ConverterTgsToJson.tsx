@@ -1,28 +1,24 @@
 import {UploadFileRounded} from "@mui/icons-material";
-
-import {Upload, message} from "antd";
+import {message, Upload} from "antd";
 
 import pkg from "file-saver";
 
 const {saveAs} = pkg;
 
 import {inflate} from "pako";
-
 import React, {useState} from "react";
 
 const TgsToJsonConverter: React.FC = () => {
   const [jsonData, setJsonData] = useState<unknown>(null);
-
   const [originalFileName, setOriginalFileName] = useState<string>("");
-
   const handleFileUpload = async (file: File): Promise<boolean> => {
     try {
       const fileData = await file.arrayBuffer();
+
       setOriginalFileName(file.name);
-
       const decompressed = inflate(new Uint8Array(fileData));
-
       const json = JSON.parse(new TextDecoder().decode(decompressed));
+
       setJsonData(json);
       message.success("Файл успешно преобразован!");
     } catch (error) {
@@ -32,12 +28,12 @@ const TgsToJsonConverter: React.FC = () => {
 
     return false;
   };
-
   const downloadJson = (): void => {
     if (jsonData) {
       const blob = new Blob([JSON.stringify(jsonData, null, 2)], {
         type: "application/json",
       });
+
       saveAs(blob, `${originalFileName.replace(/\.tgs$/, "")}.json`);
     }
   };

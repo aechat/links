@@ -2,14 +2,10 @@ import React from "react";
 
 import {Divider} from "antd";
 
-import DetailsSummary from "../../../components/content/DetailsSummary";
-
 import Addition from "../../../components/content/Addition";
-
 import {ContentFigure} from "../../../components/content/ContentFigure";
-
 import ContentFilter from "../../../components/content/ContentFilter";
-
+import DetailsSummary from "../../../components/content/DetailsSummary";
 import HostsAdobeModal from "../../../components/content/HostsAdobe";
 
 const AEErrors: React.FC = () => {
@@ -1177,10 +1173,10 @@ const AEErrors: React.FC = () => {
             можно указать в настройках движка <mark className="plugin">Cineware</mark>.
             <div
               style={{
+                alignItems: "center",
                 display: "grid",
                 gap: "10px",
                 gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))",
-                alignItems: "center",
               }}
             >
               <ContentFigure

@@ -1,11 +1,10 @@
-import {Divider} from "antd";
-
 import React from "react";
 
+import {Divider} from "antd";
+
 import Addition from "../../../components/content/Addition";
-
 import {ContentFigure} from "../../../components/content/ContentFigure";
-
+import ContentFilter from "../../../components/content/ContentFilter";
 import DetailsSummary from "../../../components/content/DetailsSummary";
 
 const PRActions: React.FC = () => {

@@ -1,12 +1,11 @@
 import React, {useEffect, useState} from "react";
 
-import {motion} from "framer-motion";
-
 import LinearProgress from "@mui/material/LinearProgress";
+import {motion} from "framer-motion";
 
 const getCategorizedMessage = (resourceName: string): string => {
   const fileName = resourceName
-    .substring(resourceName.lastIndexOf("/") + 1)
+    .slice(Math.max(0, resourceName.lastIndexOf("/") + 1))
     .split("?")[0];
 
   if (resourceName.includes("/src/pages/sections/")) {
@@ -47,7 +46,6 @@ const getCategorizedMessage = (resourceName: string): string => {
 
   return `Загрузка ресурса: ${fileName}`;
 };
-
 const handlePerformanceEntries = (
   entries: PerformanceEntryList,
   setResource: React.Dispatch<React.SetStateAction<string>>
@@ -55,37 +53,35 @@ const handlePerformanceEntries = (
   const filteredResources = entries
     .map((entry) => entry.name)
     .filter((name) => {
-      const fileName = name.substring(name.lastIndexOf("/") + 1);
+      const fileName = name.slice(Math.max(0, name.lastIndexOf("/") + 1));
 
       return fileName.split("?")[0] !== "tag.js";
     });
 
   if (filteredResources.length > 0) {
-    setResource(filteredResources[filteredResources.length - 1]);
+    setResource(filteredResources.at(-1));
   }
 };
-
 const setupPerformanceObserver = (
   setResource: React.Dispatch<React.SetStateAction<string>>
 ) => {
-  if (typeof window !== "undefined" && "PerformanceObserver" in window) {
+  if (globalThis.window !== undefined && "PerformanceObserver" in globalThis) {
     const observer = new PerformanceObserver((list) =>
       handlePerformanceEntries(list.getEntries(), setResource)
     );
-    observer.observe({type: "resource", buffered: true});
+
+    observer.observe({buffered: true, type: "resource"});
 
     return observer;
   }
 
-  return undefined;
+  return;
 };
-
 const LoadingAnimation: React.FC = () => {
   const [resource, setResource] = useState<string>("");
 
   useEffect(() => {
     let observer: PerformanceObserver | undefined;
-
     const timeoutId = setTimeout(() => {
       observer = setupPerformanceObserver(setResource);
     }, 3000);
@@ -98,7 +94,6 @@ const LoadingAnimation: React.FC = () => {
       }
     };
   }, []);
-
   const formattedResource = resource ? getCategorizedMessage(resource) : "";
 
   return (
@@ -106,9 +101,9 @@ const LoadingAnimation: React.FC = () => {
       animate={{opacity: 1}}
       initial={{opacity: 0}}
       transition={{
+        delay: 1.5,
         duration: 0.3,
         ease: [0.25, 0, 0, 1],
-        delay: 1.5,
       }}
     >
       <LinearProgress color="inherit" />
@@ -119,9 +114,9 @@ const LoadingAnimation: React.FC = () => {
           dangerouslySetInnerHTML={{__html: formattedResource}}
           initial={{opacity: 0}}
           transition={{
+            delay: 3,
             duration: 1,
             ease: [0.25, 0, 0, 1],
-            delay: 3,
           }}
         />
       </div>

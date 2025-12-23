@@ -1,16 +1,12 @@
-import {Divider} from "antd";
-
 import React from "react";
 
+import {Divider} from "antd";
+
 import Addition from "../../../components/content/Addition";
-
-import {ContentFigure} from "../../../components/content/ContentFigure";
-
-import DetailsSummary from "../../../components/content/DetailsSummary";
-
 import CodeSnippet from "../../../components/content/CodeSnippet";
-
+import {ContentFigure} from "../../../components/content/ContentFigure";
 import ContentFilter from "../../../components/content/ContentFilter";
+import DetailsSummary from "../../../components/content/DetailsSummary";
 
 const AEActions: React.FC = () => {
   return (
@@ -1006,14 +1002,14 @@ const AEActions: React.FC = () => {
             Для генерации карты глубины для изображения используется скрипт{" "}
             <mark className="file">RUN.PY</mark>.
             <CodeSnippet>
-              {`python .\\run.py --encoder МОДЕЛЬ --img-path "ПУТЬ\\К\\ФАЙЛУ" --outdir "ПУТЬ\\ДЛЯ\\СОХРАНЕНИЯ" --grayscale --pred-only`}
+              {String.raw`python .\run.py --encoder МОДЕЛЬ --img-path "ПУТЬ\К\ФАЙЛУ" --outdir "ПУТЬ\ДЛЯ\СОХРАНЕНИЯ" --grayscale --pred-only`}
             </CodeSnippet>
           </li>
           <li>
             Для генерации карты глубины для видео используется скрипт{" "}
             <mark className="file">RUN_VIDEO.PY</mark>.
             <CodeSnippet>
-              {`python .\\run_video.py --encoder МОДЕЛЬ --video-path "ПУТЬ\\К\\ФАЙЛУ" --outdir "ПУТЬ\\ДЛЯ\\СОХРАНЕНИЯ" --grayscale --pred-only`}
+              {String.raw`python .\run_video.py --encoder МОДЕЛЬ --video-path "ПУТЬ\К\ФАЙЛУ" --outdir "ПУТЬ\ДЛЯ\СОХРАНЕНИЯ" --grayscale --pred-only`}
             </CodeSnippet>
           </li>
           <li>

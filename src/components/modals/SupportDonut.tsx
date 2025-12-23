@@ -1,28 +1,19 @@
-import {CloseRounded, CoffeeRounded} from "@mui/icons-material";
-
-import {Modal} from "antd";
-
-import {motion} from "framer-motion";
-
 import React, {useState} from "react";
 
-interface SupportDonutProps {
+import {CloseRounded, CoffeeRounded} from "@mui/icons-material";
+import {Modal} from "antd";
+import {motion} from "framer-motion";
+
+interface SupportDonutProperties {
   wide?: boolean;
 }
-
-const SupportDonut: React.FC<SupportDonutProps> = ({wide}) => {
+const SupportDonut: React.FC<SupportDonutProperties> = ({wide}) => {
   const [isDonateModalOpen, setIsDonateModalOpen] = useState(false);
-
   const [isSberModalOpen, setIsSberModalOpen] = useState(false);
-
   const [isYoomoneyModalOpen, setIsYoomoneyModalOpen] = useState(false);
-
   const openDonateModal = () => setIsDonateModalOpen(true);
-
   const closeDonateModal = () => setIsDonateModalOpen(false);
-
   const closeSberModal = () => setIsSberModalOpen(false);
-
   const closeYoomoneyModal = () => setIsYoomoneyModalOpen(false);
 
   return (

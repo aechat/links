@@ -1,24 +1,22 @@
-import {AnimatePresence, motion} from "framer-motion";
-
 import React, {useEffect, useState} from "react";
+
+import {AnimatePresence, motion} from "framer-motion";
 
 import BouncyText from "../ui/BouncyText";
 
-interface PageIntroProps {
-  text: string;
+interface PageIntroProperties {
   isLoaded?: boolean;
+  text: string;
 }
-
-const PageIntro: React.FC<PageIntroProps> = ({text, isLoaded = true}) => {
+const PageIntro: React.FC<PageIntroProperties> = ({isLoaded = true, text}) => {
   const [show, setShow] = useState(false);
+
   useEffect(() => {
     const lastShown = localStorage.getItem("introLastShown");
-
-    const now = new Date().getTime();
-
+    const now = Date.now();
     const time = 20 * 60 * 1000;
 
-    if (!lastShown || now - parseInt(lastShown, 10) > time) {
+    if (!lastShown || now - Number.parseInt(lastShown, 10) > time) {
       localStorage.setItem("introLastShown", now.toString());
       setShow(true);
     }
@@ -26,7 +24,6 @@ const PageIntro: React.FC<PageIntroProps> = ({text, isLoaded = true}) => {
   useEffect(() => {
     if (show && isLoaded) {
       const animationDuration = text.length * 0.05 + 0.4 + 1.25;
-
       const timer = setTimeout(() => setShow(false), animationDuration * 1000 + 250);
 
       return () => clearTimeout(timer);

@@ -1,13 +1,11 @@
 import React from "react";
 
-interface BrowserWarningProps {
-  open: boolean;
+interface BrowserWarningProperties {
   onClose: (dontShowAgain: boolean) => void;
+  open: boolean;
 }
-
-const BrowserWarning: React.FC<BrowserWarningProps> = ({open, onClose}) => {
+const BrowserWarning: React.FC<BrowserWarningProperties> = ({onClose, open}) => {
   const [dontShowAgain, setDontShowAgain] = React.useState(false);
-
   const handleClose = () => {
     onClose(dontShowAgain);
   };
@@ -80,13 +78,13 @@ const BrowserWarning: React.FC<BrowserWarningProps> = ({open, onClose}) => {
         </div>
         <label
           style={{
-            display: "flex",
             alignItems: "center",
-            gap: "8px",
             cursor: "pointer",
+            display: "flex",
             fontSize: "0.9rem",
-            opacity: "0.75",
+            gap: "8px",
             margin: "15px",
+            opacity: "0.75",
           }}
         >
           <input

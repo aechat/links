@@ -1,101 +1,82 @@
-import {Divider} from "antd";
-
-import {motion} from "framer-motion";
-
 import React, {useEffect, useState} from "react";
 
+import {Divider} from "antd";
+import {motion} from "framer-motion";
 import {Helmet} from "react-helmet-async";
 
-import PageIntro from "../components/layout/PageIntro";
-
+import Addition from "../components/content/Addition";
 import {generateAnchorId} from "../components/content/DetailsSummary";
-
+import {SearchInPage, SearchProvider} from "../components/features/SearchEngine";
+import Footer from "../components/layout/Footer";
+import Header from "../components/layout/Header";
+import PageIntro from "../components/layout/PageIntro";
 import {useCopyToClipboard} from "../hooks/useCopyToClipboard";
-
 import {useSmartCopy} from "../hooks/useSmartCopy";
 
-import Footer from "../components/layout/Footer";
-
-import Header from "../components/layout/Header";
-
-import {SearchInPage, SearchProvider} from "../components/features/SearchEngine";
-
-import Addition from "../components/content/Addition";
-
 import PSActions from "./sections/psfaq/PSActions";
-
 import PSErrors from "./sections/psfaq/PSErrors";
-
 import PSExport from "./sections/psfaq/PSExport";
-
 import PSExportProblems from "./sections/psfaq/PSExportProblems";
-
 import PSFromNewbies from "./sections/psfaq/PSFromNewbies";
-
 import PSImport from "./sections/psfaq/PSImport";
-
 import PSInstallProblems from "./sections/psfaq/PSInstallProblems";
-
 import PSInterface from "./sections/psfaq/PSInterface";
-
 import PSPerformance from "./sections/psfaq/PSPerformance";
-
 import PSWhereFind from "./sections/psfaq/PSWhereFind";
 
 const PSFAQ = () => {
   const [isPageLoaded, setIsPageLoaded] = useState(false);
-
   const {enableAutoCopy} = useCopyToClipboard();
+
   useEffect(() => {
     enableAutoCopy();
   }, [enableAutoCopy]);
   useSmartCopy(isPageLoaded);
-
   const sections = [
     {
+      component: PSWhereFind,
+      id: "where-find",
       key: "1",
       title: "Ищем полезности",
-      id: "where-find",
-      component: PSWhereFind,
     },
     {
+      component: PSInstallProblems,
+      id: "install-problems",
       key: "2",
       title: "Проблемы с установкой",
-      id: "install-problems",
-      component: PSInstallProblems,
     },
     {
+      component: PSFromNewbies,
+      id: "from-newbies",
       key: "3",
       title: "Вопросы от новичков",
-      id: "from-newbies",
-      component: PSFromNewbies,
     },
-    {key: "4", title: "Импорт", id: "import", component: PSImport},
-    {key: "5", title: "Интерфейс", id: "interface", component: PSInterface},
+    {component: PSImport, id: "import", key: "4", title: "Импорт"},
+    {component: PSInterface, id: "interface", key: "5", title: "Интерфейс"},
     {
+      component: PSPerformance,
+      id: "performance",
       key: "6",
       title: "Производительность",
-      id: "performance",
-      component: PSPerformance,
     },
     {
+      component: PSActions,
+      id: "actions",
       key: "7",
       title: "Как и чем?",
-      id: "actions",
-      component: PSActions,
     },
     {
+      component: PSErrors,
+      id: "errors",
       key: "8",
       title: "Ошибки и предупреждения",
-      id: "errors",
-      component: PSErrors,
     },
-    {key: "9", title: "Рендер и экспорт", id: "export", component: PSExport},
+    {component: PSExport, id: "export", key: "9", title: "Рендер и экспорт"},
     {
+      component: PSExportProblems,
+      id: "export-problems",
       key: "10",
       title: "Проблемы при экспорте",
-      id: "export-problems",
-      component: PSExportProblems,
     },
   ];
 
@@ -167,10 +148,10 @@ const PSFAQ = () => {
         </Helmet>
         <Header title="psfaq" />
         <motion.main
-          animate={{x: 0, y: 0, opacity: 1}}
+          animate={{opacity: 1, x: 0, y: 0}}
           className="main"
-          exit={{x: 0, y: 50, opacity: 0}}
-          initial={{x: 0, y: 0, opacity: 0}}
+          exit={{opacity: 0, x: 0, y: 50}}
+          initial={{opacity: 0, x: 0, y: 0}}
           transition={{
             duration: 0.3,
             ease: [0.25, 0, 0, 1],
@@ -198,8 +179,8 @@ const PSFAQ = () => {
                     orientation="right"
                     style={{
                       color: "var(--text-color)",
-                      textTransform: "uppercase",
                       fontWeight: "600",
+                      textTransform: "uppercase",
                     }}
                   >
                     {section.title}

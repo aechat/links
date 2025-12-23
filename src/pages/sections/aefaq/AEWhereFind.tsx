@@ -1,11 +1,9 @@
-import {Divider} from "antd";
-
 import React from "react";
 
+import {Divider} from "antd";
+
 import Addition from "../../../components/content/Addition";
-
 import {ContentFigure} from "../../../components/content/ContentFigure";
-
 import DetailsSummary from "../../../components/content/DetailsSummary";
 
 const AEWhereFind: React.FC = () => {
@@ -29,11 +27,8 @@ const AEWhereFind: React.FC = () => {
         <Addition type="info">
           {(() => {
             const userAgent = navigator.userAgent.toLowerCase();
-
             const isIOS = /iphone|ipad/.test(userAgent);
-
             const isAndroid = /android/.test(userAgent);
-
             const isMacOS = /macintosh|mac os x/.test(userAgent);
 
             if (isIOS) {

@@ -1,71 +1,57 @@
-import {Divider} from "antd";
-
-import {motion} from "framer-motion";
-
 import React, {useEffect, useState} from "react";
 
+import {Divider} from "antd";
+import {motion} from "framer-motion";
 import {Helmet} from "react-helmet-async";
 
-import PageIntro from "../components/layout/PageIntro";
-
 import Addition from "../components/content/Addition";
-
 import {generateAnchorId} from "../components/content/DetailsSummary";
-
+import {SearchInPage, SearchProvider} from "../components/features/SearchEngine";
+import Footer from "../components/layout/Footer";
+import Header from "../components/layout/Header";
+import PageIntro from "../components/layout/PageIntro";
 import {useCopyToClipboard} from "../hooks/useCopyToClipboard";
-
 import {useSmartCopy} from "../hooks/useSmartCopy";
 
-import Footer from "../components/layout/Footer";
-
-import Header from "../components/layout/Header";
-
-import {SearchInPage, SearchProvider} from "../components/features/SearchEngine";
-
-import AEExprStart from "./sections/aeexpr/ExprStart";
-
-import AEExprBase from "./sections/aeexpr/ExprBase";
-
-import AEExprLinking from "./sections/aeexpr/ExprLinking";
-
 import AEExprActions from "./sections/aeexpr/ExprActions";
-
+import AEExprBase from "./sections/aeexpr/ExprBase";
 import AEExprErrors from "./sections/aeexpr/ExprErrors";
+import AEExprLinking from "./sections/aeexpr/ExprLinking";
+import AEExprStart from "./sections/aeexpr/ExprStart";
 
 const AEExpressionPage = () => {
   const [isPageLoaded, setIsPageLoaded] = useState(false);
-
   const {enableAutoCopy} = useCopyToClipboard();
+
   useEffect(() => {
     enableAutoCopy();
   }, [enableAutoCopy]);
   useSmartCopy(isPageLoaded);
-
   const sections = [
     {
+      component: AEExprStart,
+      id: "start",
       key: "1",
       title: "Начинаем «выражаться»",
-      id: "start",
-      component: AEExprStart,
     },
-    {key: "2", title: "Основы синтаксиса", id: "base", component: AEExprBase},
+    {component: AEExprBase, id: "base", key: "2", title: "Основы синтаксиса"},
     {
+      component: AEExprLinking,
+      id: "linking",
       key: "3",
       title: "Ссылки и привязки",
-      id: "linking",
-      component: AEExprLinking,
     },
     {
+      component: AEExprActions,
+      id: "actions",
       key: "4",
       title: "Примеры выражений",
-      id: "actions",
-      component: AEExprActions,
     },
     {
+      component: AEExprErrors,
+      id: "errors",
       key: "5",
       title: "Ошибки и предупреждения",
-      id: "errors",
-      component: AEExprErrors,
     },
   ];
 
@@ -137,10 +123,10 @@ const AEExpressionPage = () => {
         </Helmet>
         <Header title="aeexpr" />
         <motion.main
-          animate={{x: 0, y: 0, opacity: 1}}
+          animate={{opacity: 1, x: 0, y: 0}}
           className="main"
-          exit={{x: 0, y: 50, opacity: 0}}
-          initial={{x: 0, y: 0, opacity: 0}}
+          exit={{opacity: 0, x: 0, y: 50}}
+          initial={{opacity: 0, x: 0, y: 0}}
           transition={{
             duration: 0.3,
             ease: [0.25, 0, 0, 1],
@@ -173,8 +159,8 @@ const AEExpressionPage = () => {
                     orientation="right"
                     style={{
                       color: "var(--text-color)",
-                      textTransform: "uppercase",
                       fontWeight: "600",
+                      textTransform: "uppercase",
                     }}
                   >
                     {section.title}

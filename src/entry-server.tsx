@@ -1,12 +1,10 @@
+import {Writable} from "node:stream";
+
 import React from "react";
 
 import {renderToPipeableStream} from "react-dom/server";
-
-import {Writable} from "stream";
-
-import {MemoryRouter} from "react-router-dom";
-
 import {HelmetProvider, HelmetServerState} from "react-helmet-async";
+import {MemoryRouter} from "react-router-dom";
 
 import {App} from "./App";
 
@@ -21,26 +19,26 @@ export async function render(url: string, context: {helmet?: HelmetServerState})
         </HelmetProvider>
       </React.StrictMode>,
       {
+        onError(error: unknown) {
+          console.error(error);
+        },
+        onShellError(error: unknown) {
+          reject(error);
+        },
         onShellReady() {
           const body: string[] = [];
-
           const writable = new Writable({
-            write(chunk, encoding, callback) {
-              body.push(chunk.toString());
-              callback();
-            },
             final(callback) {
               resolve(body.join(""));
               callback();
             },
+            write(chunk, encoding, callback) {
+              body.push(chunk.toString());
+              callback();
+            },
           });
+
           pipe(writable);
-        },
-        onShellError(err: unknown) {
-          reject(err);
-        },
-        onError(err: unknown) {
-          console.error(err);
         },
       }
     );

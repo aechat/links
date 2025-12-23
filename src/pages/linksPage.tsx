@@ -1,3 +1,5 @@
+import React, {useState} from "react";
+
 import {
   AnimationRounded,
   Apple,
@@ -37,32 +39,22 @@ import {
   WhatshotRounded,
   WorkRounded,
 } from "@mui/icons-material";
-
 import {Divider, Modal} from "antd";
-
 import {motion} from "framer-motion";
-
-import React, {useState} from "react";
-
 import {Helmet} from "react-helmet-async";
 
 import Addition from "../components/content/Addition";
-
 import Footer from "../components/layout/Footer";
-
 import Header from "../components/layout/Header";
-
 import {LinkCard} from "../components/ui/LinkCards";
 
 import {/* AEExprIcon, */ AEIcon, PRIcon, PSIcon} from "./faqIcon";
 
 const Links = () => {
   const [isModalVisible, setIsModalVisible] = useState(false);
-
   const showModal = () => {
     setIsModalVisible(true);
   };
-
   const handleCancel = () => {
     setIsModalVisible(false);
   };
@@ -130,10 +122,10 @@ const Links = () => {
       </Helmet>
       <Header title="links" />
       <motion.main
-        animate={{x: 0, opacity: 1}}
+        animate={{opacity: 1, x: 0}}
         className="main"
-        exit={{x: -50, opacity: 0}}
-        initial={{x: 100, opacity: 0}}
+        exit={{opacity: 0, x: -50}}
+        initial={{opacity: 0, x: 100}}
         transition={{
           duration: 0.3,
           ease: [0.25, 0, 0, 1],
@@ -184,11 +176,8 @@ const Links = () => {
           <Addition type="info">
             {(() => {
               const userAgent = navigator.userAgent.toLowerCase();
-
               const isIOS = /iphone|ipad/.test(userAgent);
-
               const isAndroid = /android/.test(userAgent);
-
               const isMacOS = /macintosh|mac os x/.test(userAgent);
 
               if (isIOS) {

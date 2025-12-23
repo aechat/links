@@ -1,44 +1,4 @@
-import {Divider} from "antd";
-
-import {motion} from "framer-motion";
-
 import React, {useEffect, useState} from "react";
-
-import {Helmet} from "react-helmet-async";
-
-import PageIntro from "../components/layout/PageIntro";
-
-import {generateAnchorId} from "../components/content/DetailsSummary";
-
-import {useCopyToClipboard} from "../hooks/useCopyToClipboard";
-
-import {useSmartCopy} from "../hooks/useSmartCopy";
-
-import Footer from "../components/layout/Footer";
-
-import Header from "../components/layout/Header";
-
-import {SearchInPage, SearchProvider} from "../components/features/SearchEngine";
-
-import AEWhereFind from "./sections/aefaq/AEWhereFind";
-
-import AEInstallProblems from "./sections/aefaq/AEInstallProblems";
-
-import AEFromNewbies from "./sections/aefaq/AEFromNewbies";
-
-import AEImport from "./sections/aefaq/AEImport";
-
-import AEInterface from "./sections/aefaq/AEInterface";
-
-import AEPerformance from "./sections/aefaq/AEPerformance";
-
-import AEActions from "./sections/aefaq/AEActions";
-
-import AEErrors from "./sections/aefaq/AEErrors";
-
-import AEExport from "./sections/aefaq/AEExport";
-
-import AEExportProblems from "./sections/aefaq/AEExportProblems";
 
 import {
   BrokenImageOutlined,
@@ -52,86 +12,107 @@ import {
   TravelExploreRounded,
   VideoSettingsRounded,
 } from "@mui/icons-material";
+import {Divider} from "antd";
+import {motion} from "framer-motion";
+import {Helmet} from "react-helmet-async";
+
+import {generateAnchorId} from "../components/content/DetailsSummary";
+import {SearchInPage, SearchProvider} from "../components/features/SearchEngine";
+import Footer from "../components/layout/Footer";
+import Header from "../components/layout/Header";
+import PageIntro from "../components/layout/PageIntro";
+import {useCopyToClipboard} from "../hooks/useCopyToClipboard";
+import {useSmartCopy} from "../hooks/useSmartCopy";
+
+import AEActions from "./sections/aefaq/AEActions";
+import AEErrors from "./sections/aefaq/AEErrors";
+import AEExport from "./sections/aefaq/AEExport";
+import AEExportProblems from "./sections/aefaq/AEExportProblems";
+import AEFromNewbies from "./sections/aefaq/AEFromNewbies";
+import AEImport from "./sections/aefaq/AEImport";
+import AEInstallProblems from "./sections/aefaq/AEInstallProblems";
+import AEInterface from "./sections/aefaq/AEInterface";
+import AEPerformance from "./sections/aefaq/AEPerformance";
+import AEWhereFind from "./sections/aefaq/AEWhereFind";
 
 const AEFAQ = () => {
   const [isPageLoaded, setIsPageLoaded] = useState(false);
-
   const {enableAutoCopy} = useCopyToClipboard();
+
   useEffect(() => {
     enableAutoCopy();
   }, [enableAutoCopy]);
   useSmartCopy(isPageLoaded);
-
   const sections = [
     {
-      key: "1",
-      title: "Ищем полезности",
-      id: "where-find",
       component: AEWhereFind,
       icon: <TravelExploreRounded />,
+      id: "where-find",
+      key: "1",
+      title: "Ищем полезности",
     },
     {
-      key: "2",
-      title: "Проблемы с установкой",
-      id: "install-problems",
       component: AEInstallProblems,
       icon: <InstallDesktopRounded />,
+      id: "install-problems",
+      key: "2",
+      title: "Проблемы с установкой",
     },
     {
-      key: "3",
-      title: "Вопросы от новичков",
-      id: "from-newbies",
       component: AEFromNewbies,
       icon: <HelpCenterOutlined />,
+      id: "from-newbies",
+      key: "3",
+      title: "Вопросы от новичков",
     },
     {
-      key: "4",
-      title: "Импорт",
-      id: "import",
       component: AEImport,
       icon: <InputRounded />,
+      id: "import",
+      key: "4",
+      title: "Импорт",
     },
     {
-      key: "5",
-      title: "Интерфейс",
-      id: "interface",
       component: AEInterface,
       icon: <TouchAppOutlined />,
+      id: "interface",
+      key: "5",
+      title: "Интерфейс",
     },
     {
-      key: "6",
-      title: "Производительность",
-      id: "performance",
       component: AEPerformance,
       icon: <SpeedRounded />,
+      id: "performance",
+      key: "6",
+      title: "Производительность",
     },
     {
-      key: "7",
-      title: "Как и чем?",
-      id: "actions",
       component: AEActions,
       icon: <PsychologyAltOutlined />,
+      id: "actions",
+      key: "7",
+      title: "Как и чем?",
     },
     {
-      key: "8",
-      title: "Ошибки и предупреждения",
-      id: "errors",
       component: AEErrors,
       icon: <ErrorOutlineRounded />,
+      id: "errors",
+      key: "8",
+      title: "Ошибки и предупреждения",
     },
     {
-      key: "9",
-      title: "Рендер и экспорт",
-      id: "export",
       component: AEExport,
       icon: <VideoSettingsRounded />,
+      id: "export",
+      key: "9",
+      title: "Рендер и экспорт",
     },
     {
-      key: "10",
-      title: "Проблемы при экспорте",
-      id: "export-problems",
       component: AEExportProblems,
       icon: <BrokenImageOutlined />,
+      id: "export-problems",
+      key: "10",
+      title: "Проблемы при экспорте",
     },
   ];
 
@@ -203,10 +184,10 @@ const AEFAQ = () => {
         </Helmet>
         <Header title="aefaq" />
         <motion.main
-          animate={{x: 0, y: 0, opacity: 1}}
+          animate={{opacity: 1, x: 0, y: 0}}
           className="main"
-          exit={{x: 0, y: 50, opacity: 0}}
-          initial={{x: 0, y: 0, opacity: 0}}
+          exit={{opacity: 0, x: 0, y: 50}}
+          initial={{opacity: 0, x: 0, y: 0}}
           transition={{
             duration: 0.3,
             ease: [0.25, 0, 0, 1],
@@ -230,8 +211,8 @@ const AEFAQ = () => {
                     orientation="right"
                     style={{
                       color: "var(--text-color)",
-                      textTransform: "uppercase",
                       fontWeight: "600",
+                      textTransform: "uppercase",
                     }}
                   >
                     {section.title}

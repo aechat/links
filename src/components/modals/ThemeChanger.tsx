@@ -1,3 +1,5 @@
+import React, {createContext, useContext, useEffect, useMemo, useState} from "react";
+
 import {
   CloseRounded,
   DarkModeRounded,
@@ -6,58 +8,48 @@ import {
   LightModeRounded,
   RestartAlt,
 } from "@mui/icons-material";
-
 import {Modal, Slider, Tooltip} from "antd";
 
-import React, {createContext, useContext, useEffect, useMemo, useState} from "react";
-
 type Theme = "light" | "dark" | "system";
-interface ThemeContextProps {
-  theme: Theme;
-  setTheme: (theme: Theme) => void;
+interface ThemeContextProperties {
   accentHue: number;
-  setAccentHue: (hue: number) => void;
-  saturateRatio: number;
-  setSaturateRatio: (ratio: number) => void;
-  maxWidth: number;
-  setMaxWidth: (width: number) => void;
   isAnimationDisabled: boolean;
+  maxWidth: number;
+  saturateRatio: number;
+  setAccentHue: (hue: number) => void;
   setIsAnimationDisabled: (disabled: boolean) => void;
+  setMaxWidth: (width: number) => void;
+  setSaturateRatio: (ratio: number) => void;
+  setTheme: (theme: Theme) => void;
+  theme: Theme;
 }
-
-const ThemeContext = createContext<ThemeContextProps | undefined>(undefined);
+const ThemeContext = createContext<ThemeContextProperties | undefined>(undefined);
 
 export const ThemeProvider: React.FC<{children: React.ReactNode}> = ({children}) => {
   const [themeState, setThemeState] = useState<Theme>("system");
-
   const [accentHueState, setAccentHueState] = useState<number>(210);
-
   const [saturateRatioState, setSaturateRatioState] = useState<number>(1);
-
   const [maxWidthState, setMaxWidthState] = useState<number>(1175);
-
   const [isAnimationDisabledState, setIsAnimationDisabledState] =
     useState<boolean>(false);
+
   useEffect(() => {
     if (typeof localStorage !== "undefined") {
       const savedTheme = (localStorage.getItem("theme") as Theme) || "system";
-
       const savedAccentHue = Number.parseInt(
         localStorage.getItem("accentHue") ?? "210",
         10
       );
-
       const savedSaturateRatio = Number.parseFloat(
         localStorage.getItem("saturateRatio") ?? "1"
       );
-
       const savedMaxWidth = Number.parseInt(
         localStorage.getItem("maxWidth") ?? "1175",
         10
       );
-
       const savedIsAnimationDisabled =
         localStorage.getItem("isAnimationDisabled") === "true";
+
       setThemeState(savedTheme);
       setAccentHueState(savedAccentHue);
       setSaturateRatioState(savedSaturateRatio);
@@ -65,7 +57,6 @@ export const ThemeProvider: React.FC<{children: React.ReactNode}> = ({children})
       setIsAnimationDisabledState(savedIsAnimationDisabled);
     }
   }, []);
-
   const setTheme = (newTheme: Theme) => {
     setThemeState(newTheme);
 
@@ -73,7 +64,6 @@ export const ThemeProvider: React.FC<{children: React.ReactNode}> = ({children})
       localStorage.setItem("theme", newTheme);
     }
   };
-
   const setAccentHue = (hue: number) => {
     setAccentHueState(hue);
 
@@ -81,7 +71,6 @@ export const ThemeProvider: React.FC<{children: React.ReactNode}> = ({children})
       localStorage.setItem("accentHue", hue.toString());
     }
   };
-
   const setSaturateRatio = (ratio: number) => {
     setSaturateRatioState(ratio);
 
@@ -89,7 +78,6 @@ export const ThemeProvider: React.FC<{children: React.ReactNode}> = ({children})
       localStorage.setItem("saturateRatio", ratio.toString());
     }
   };
-
   const setIsAnimationDisabled = (disabled: boolean) => {
     setIsAnimationDisabledState(disabled);
 
@@ -97,25 +85,25 @@ export const ThemeProvider: React.FC<{children: React.ReactNode}> = ({children})
       localStorage.setItem("isAnimationDisabled", disabled.toString());
     }
   };
-
   const updateTheme = () => {
     if (globalThis.window === undefined) {
       return;
     }
 
     const root = document.documentElement;
+
     root.style.setProperty("--accent-hue", accentHueState.toString());
     root.style.setProperty("--saturate-ratio", saturateRatioState.toString());
     root.style.setProperty("--max-width", `${maxWidthState}px`);
     root.classList.toggle("no-spoiler-animation", isAnimationDisabledState);
-
     const isSystemDark = globalThis.matchMedia("(prefers-color-scheme: dark)").matches;
-
     const isDarkMode = themeState === "dark" || (themeState === "system" && isSystemDark);
+
     root.classList.toggle("dark", isDarkMode);
     root.classList.toggle("light", !isDarkMode);
-    window.dispatchEvent(new CustomEvent("accentHueChanged"));
+    globalThis.dispatchEvent(new CustomEvent("accentHueChanged"));
   };
+
   useEffect(
     () => updateTheme(),
     [
@@ -132,22 +120,20 @@ export const ThemeProvider: React.FC<{children: React.ReactNode}> = ({children})
     }
 
     const handleSystemThemeChange = () => themeState === "system" && updateTheme();
-
     const mediaQuery = globalThis.window.matchMedia("(prefers-color-scheme: dark)");
+
     mediaQuery.addEventListener("change", handleSystemThemeChange);
 
     return () => mediaQuery.removeEventListener("change", handleSystemThemeChange);
   }, [themeState]);
-
   const contextValue = useMemo(
     () => ({
-      theme: themeState,
-      setTheme,
       accentHue: accentHueState,
-      setAccentHue,
-      saturateRatio: saturateRatioState,
-      setSaturateRatio,
+      isAnimationDisabled: isAnimationDisabledState,
       maxWidth: maxWidthState,
+      saturateRatio: saturateRatioState,
+      setAccentHue,
+      setIsAnimationDisabled,
       setMaxWidth: (width: number) => {
         setMaxWidthState(width);
 
@@ -155,8 +141,9 @@ export const ThemeProvider: React.FC<{children: React.ReactNode}> = ({children})
           localStorage.setItem("maxWidth", width.toString());
         }
       },
-      isAnimationDisabled: isAnimationDisabledState,
-      setIsAnimationDisabled,
+      setSaturateRatio,
+      setTheme,
+      theme: themeState,
     }),
     [
       themeState,
@@ -170,7 +157,7 @@ export const ThemeProvider: React.FC<{children: React.ReactNode}> = ({children})
   return <ThemeContext.Provider value={contextValue}>{children}</ThemeContext.Provider>;
 };
 
-export const useTheme = (): ThemeContextProps => {
+export const useTheme = (): ThemeContextProperties => {
   const context = useContext(ThemeContext);
 
   if (!context) {
@@ -182,9 +169,7 @@ export const useTheme = (): ThemeContextProps => {
 
 export const ThemeToggleButton: React.FC = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
-
   const openModal = () => setIsModalOpen(true);
-
   const closeModal = () => setIsModalOpen(false);
 
   return (
@@ -202,54 +187,51 @@ export const ThemeToggleButton: React.FC = () => {
     </>
   );
 };
-interface ThemeModalProps {
-  isModalOpen: boolean;
+
+interface ThemeModalProperties {
   closeModal: () => void;
+  isModalOpen: boolean;
 }
-
-const ThemeModal: React.FC<ThemeModalProps> = ({isModalOpen, closeModal}) => {
+const ThemeModal: React.FC<ThemeModalProperties> = ({closeModal, isModalOpen}) => {
   const {
-    theme,
-    setTheme,
     accentHue,
-    setAccentHue,
-    saturateRatio,
-    setSaturateRatio,
-    maxWidth,
-    setMaxWidth,
     isAnimationDisabled,
+    maxWidth,
+    saturateRatio,
+    setAccentHue,
     setIsAnimationDisabled,
+    setMaxWidth,
+    setSaturateRatio,
+    setTheme,
+    theme,
   } = useTheme();
+  const [temporaryHue, setTemporaryHue] = useState(accentHue);
+  const [temporarySaturate, setTemporarySaturate] = useState(saturateRatio);
 
-  const [tempHue, setTempHue] = useState(accentHue);
-
-  const [tempSaturate, setTempSaturate] = useState(saturateRatio);
   useEffect(() => {
-    setTempHue(accentHue);
+    setTemporaryHue(accentHue);
   }, [accentHue]);
   useEffect(() => {
-    setTempSaturate(saturateRatio);
+    setTemporarySaturate(saturateRatio);
   }, [saturateRatio]);
-
   const [windowWidth, setWindowWidth] = useState(
-    globalThis.window !== undefined ? globalThis.window.innerWidth : 0
+    globalThis.window === undefined ? 0 : globalThis.window.innerWidth
   );
+
   useEffect(() => {
     if (globalThis.window === undefined) {
       return;
     }
 
     const handleResize = () => setWindowWidth(globalThis.window.innerWidth);
+
     globalThis.window.addEventListener("resize", handleResize);
 
     return () => globalThis.window.removeEventListener("resize", handleResize);
   }, []);
-
   const currentPath =
-    globalThis.window !== undefined ? globalThis.window.location.pathname : "";
-
+    globalThis.window === undefined ? "" : globalThis.window.location.pathname;
   const allowedPaths = ["/aefaq", "/prfaq", "/psfaq", "/aeexpr", "/rules"];
-
   const showWidthSelector =
     allowedPaths.some((path) => currentPath.startsWith(path)) && windowWidth >= 1000;
 
@@ -378,9 +360,9 @@ const ThemeModal: React.FC<ThemeModalProps> = ({isModalOpen, closeModal}) => {
             <Slider
               max={360}
               min={0}
-              value={tempHue}
+              value={temporaryHue}
               onAfterChange={setAccentHue}
-              onChange={setTempHue}
+              onChange={setTemporaryHue}
             />
           </div>
           <div className="theme-title">
@@ -399,9 +381,9 @@ const ThemeModal: React.FC<ThemeModalProps> = ({isModalOpen, closeModal}) => {
               max={1}
               min={0}
               step={0.025}
-              value={tempSaturate}
+              value={temporarySaturate}
               onAfterChange={setSaturateRatio}
-              onChange={setTempSaturate}
+              onChange={setTemporarySaturate}
             />
           </div>
         </div>

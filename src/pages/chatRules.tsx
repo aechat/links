@@ -1,60 +1,50 @@
-import {Divider, Tooltip, message} from "antd";
-
-import {motion} from "framer-motion";
-
 import React, {useCallback, useEffect} from "react";
 
+import {ShareRounded} from "@mui/icons-material";
+import {Divider, message, Tooltip} from "antd";
+import {motion} from "framer-motion";
 import {Helmet} from "react-helmet-async";
-
 import {Link, useLocation} from "react-router-dom";
 
 import Addition from "../components/content/Addition";
-
 import ContentFilter from "../components/content/ContentFilter";
-
-import {ShareRounded} from "@mui/icons-material";
-
 import Footer from "../components/layout/Footer";
-
 import Header from "../components/layout/Header";
-
+import PageIntro from "../components/layout/PageIntro";
 import {useCopyToClipboard} from "../hooks/useCopyToClipboard";
 
-import PageIntro from "../components/layout/PageIntro";
-
 const constants = {
-  SCROLL_DELAY: 300,
   PADDING: {
-    MIN: 10,
     MAX: 14,
+    MIN: 10,
     SCREEN: {
-      MIN: 320,
       MAX: 768,
+      MIN: 320,
     },
   },
+  SCROLL_DELAY: 300,
 } as const;
-
 const ChatRules = () => {
   const {hash} = useLocation();
-
   const {enableAutoCopy} = useCopyToClipboard();
-
   const handleCopyAnchor = useCallback((anchorId: string) => {
-    const anchor = `${window.location.origin}${window.location.pathname}#${anchorId}`;
+    const anchor = `${globalThis.location.origin}${globalThis.location.pathname}#${anchorId}`;
+
     navigator.clipboard.writeText(anchor);
     message.success(`Ссылка на раздел скопирована в буфер обмена`);
   }, []);
-
   const enableAnchorCopyButtons = useCallback(() => {
     const copyButtons = document.querySelectorAll(".copy-button");
-    copyButtons.forEach((button) => {
-      const anchorId = button.getAttribute("data-anchor-id");
+
+    for (const button of copyButtons) {
+      const anchorId = button.dataset.anchorId;
 
       if (anchorId) {
         button.addEventListener("click", () => handleCopyAnchor(anchorId));
       }
-    });
+    }
   }, [handleCopyAnchor]);
+
   useEffect(() => {
     enableAutoCopy();
     enableAnchorCopyButtons();
@@ -66,7 +56,6 @@ const ChatRules = () => {
 
         if (element) {
           const headerHeight = document.querySelector("header")?.offsetHeight ?? 0;
-
           const padding = Math.min(
             constants.PADDING.MIN +
               (constants.PADDING.MAX - constants.PADDING.MIN) *
@@ -74,18 +63,18 @@ const ChatRules = () => {
                   (constants.PADDING.SCREEN.MAX - constants.PADDING.SCREEN.MIN)),
             constants.PADDING.MAX
           );
-
           const y =
             element.getBoundingClientRect().top +
             window.pageYOffset -
             headerHeight -
             padding;
-          window.scrollTo({top: y, behavior: "smooth"});
+
+          window.scrollTo({behavior: "smooth", top: y});
           setTimeout(() => {
             history.replaceState(
               null,
               "",
-              window.location.pathname + window.location.search
+              globalThis.location.pathname + globalThis.location.search
             );
           }, 5000);
         }
@@ -157,10 +146,10 @@ const ChatRules = () => {
       <Header title="rules" />
       <PageIntro text="rules" />
       <motion.main
-        animate={{x: 0, y: 0, opacity: 1}}
+        animate={{opacity: 1, x: 0, y: 0}}
         className="main"
-        exit={{x: 0, y: 50, opacity: 0}}
-        initial={{x: 0, y: 0, opacity: 0}}
+        exit={{opacity: 0, x: 0, y: 50}}
+        initial={{opacity: 0, x: 0, y: 0}}
         transition={{
           duration: 0.3,
           ease: [0.25, 0, 0, 1],
@@ -555,7 +544,7 @@ const ChatRules = () => {
                     <Addition type="info">
                       <ul>
                         <li>
-                          <sup>1</sup> Учтите, что бот может удалять некоторые ссылки на{" "}
+                          <sup>1</sup> Учтите, что бот может удалять некоторые ссылки на
                           каналы в <mark className="app">Telegram</mark>, которых нет в
                           закреплённом сообщении. Если вы хотите поделиться с кем-то
                           каналом — перешлите его собеседнику в личные сообщения.
@@ -642,8 +631,8 @@ const ChatRules = () => {
                         <div className="message-left">всем плотнейший салам</div>
                         <div
                           style={{
-                            opacity: 0.5,
                             fontSize: "0.725rem",
+                            opacity: 0.5,
                             textAlign: "center",
                           }}
                         >
@@ -672,8 +661,8 @@ const ChatRules = () => {
                         <div className="message-left">чел ебать ты токсик</div>
                         <div
                           style={{
-                            opacity: 0.5,
                             fontSize: "0.725rem",
+                            opacity: 0.5,
                             textAlign: "center",
                           }}
                         >
@@ -693,8 +682,8 @@ const ChatRules = () => {
                         </div>
                         <div
                           style={{
-                            opacity: 0.5,
                             fontSize: "0.725rem",
+                            opacity: 0.5,
                             textAlign: "center",
                           }}
                         >
@@ -716,8 +705,8 @@ const ChatRules = () => {
                         <div className="message-left">Спасибо, всё получилось!</div>
                         <div
                           style={{
-                            opacity: 0.5,
                             fontSize: "0.725rem",
+                            opacity: 0.5,
                             textAlign: "center",
                           }}
                         >

@@ -1,68 +1,46 @@
-import {ConfigProvider, Modal, message} from "antd";
-
-import BrowserWarning from "./components/modals/BrowserWarning";
-
-import {getBrowserInfo} from "./utils/browserDetection";
-
-import {AnimatePresence} from "framer-motion";
-
-import React, {Suspense, lazy, useEffect, useState} from "react";
-
-import {Navigate, Route, Routes, useLocation} from "react-router-dom";
-
+import React, {lazy, Suspense, useEffect, useState} from "react";
 import {MetrikaCounter} from "react-metrika";
 
-import themeConfig from "./styles/ant_theme";
+import {ConfigProvider, message, Modal} from "antd";
+import {AnimatePresence} from "framer-motion";
+import {Navigate, Route, Routes, useLocation} from "react-router-dom";
 
-import LoadingAnimation from "./components/ui/LoadingAnimation";
-
-import {copyText} from "./hooks/useCopyToClipboard";
-
-import useDynamicFavicon from "./hooks/useDynamicFavicon";
-
+import BrowserWarning from "./components/modals/BrowserWarning";
 import {ThemeProvider} from "./components/modals/ThemeChanger";
-
+import LoadingAnimation from "./components/ui/LoadingAnimation";
+import {copyText} from "./hooks/useCopyToClipboard";
+import useDynamicFavicon from "./hooks/useDynamicFavicon";
+import themeConfig from "./styles/ant_theme";
+import {getBrowserInfo} from "./utils/browserDetection";
 import faviconSvg from "/icons/favicon.svg?raw";
-
 import aefaqSvg from "/icons/aefaq.svg?raw";
-
 import prfaqSvg from "/icons/prfaq.svg?raw";
-
 import psfaqSvg from "/icons/psfaq.svg?raw";
-
 import aeexprfaqSvg from "/icons/aeexprfaq.svg?raw";
 
 const Links = lazy(() => import("./pages/linksPage"));
-
 const ChatRules = lazy(() => import("./pages/chatRules"));
-
 const NotFound = lazy(() => import("./pages/notFound"));
-
 const AEFAQ = lazy(() => import("./pages/aefaqPage"));
-
 const PRFAQ = lazy(() => import("./pages/prfaqPage"));
-
 const PSFAQ = lazy(() => import("./pages/psfaqPage"));
-
 const AEExpressionPage = lazy(() => import("./pages/aeexprPage"));
-
 const FilesRedirect = () => {
   useEffect(() => {
     document.title = "files@aechat";
-    window.location.href = "https://github.com/aechat/links/tree/main/public/files";
+    globalThis.location.href = "https://github.com/aechat/links/tree/main/public/files";
   }, []);
 
   return null;
 };
-
 const RegFileRedirect = () => {
   useEffect(() => {
     document.title = "regfile@aechat";
-
     const link = document.createElement("a");
+
     link.href = "/files/Enable%20Extensions%20Adobe.reg";
     link.download = "Enable Extensions Adobe.reg";
-    document.body.appendChild(link);
+    document.body.append(link);
     link.click();
     link.remove();
     alert(
@@ -73,10 +51,8 @@ const RegFileRedirect = () => {
 
   return null;
 };
-
 const RedirectHtml = () => {
   const location = useLocation();
-
   const path = location.pathname;
 
   if (path.endsWith(".html")) {
@@ -90,16 +66,14 @@ const RedirectHtml = () => {
 
   return null;
 };
-
 const SafariWarningModal = ({
-  open,
   onClose,
+  open,
 }: {
   open: boolean;
   onClose: (dontShowAgain: boolean) => void;
 }) => {
   const [dontShowAgain, setDontShowAgain] = React.useState(false);
-
   const handleClose = () => {
     onClose(dontShowAgain);
   };
@@ -138,13 +112,13 @@ const SafariWarningModal = ({
           </div>
           <label
             style={{
-              display: "flex",
               alignItems: "center",
-              gap: "8px",
               cursor: "pointer",
+              display: "flex",
               fontSize: "0.9rem",
-              opacity: "0.75",
+              gap: "8px",
               margin: "15px",
+              opacity: "0.75",
             }}
           >
             <input
@@ -159,7 +133,6 @@ const SafariWarningModal = ({
     </Modal>
   );
 };
-
 const ErrorFallback = ({error}: {error: Error}) => {
   const isDynamicImportError =
     error.message.includes("dynamically imported module") ||
@@ -173,7 +146,7 @@ const ErrorFallback = ({error}: {error: Error}) => {
       <div className="error-backtitle">Ошибка</div>
       <div
         className="modal"
-        style={{maxWidth: "450px", margin: "15px"}}
+        style={{margin: "15px", maxWidth: "450px"}}
       >
         <div className="error-content">
           <div className="error-title">
@@ -209,7 +182,7 @@ const ErrorFallback = ({error}: {error: Error}) => {
               {isDynamicImportError === false && (
                 <button
                   onClick={() => {
-                    if (typeof globalThis.window !== "undefined")
+                    if (globalThis.window !== undefined)
                       globalThis.window.location.href = "/";
                   }}
                 >
@@ -218,7 +191,7 @@ const ErrorFallback = ({error}: {error: Error}) => {
               )}
               <button
                 onClick={() => {
-                  if (typeof globalThis.window !== "undefined")
+                  if (globalThis.window !== undefined)
                     globalThis.window.location.reload();
                 }}
               >
@@ -236,12 +209,12 @@ class ErrorBoundary extends React.Component<
   {children: React.ReactNode},
   {hasError: boolean; error: Error | null}
 > {
-  constructor(props: {children: React.ReactNode}) {
-    super(props);
-    this.state = {hasError: false, error: null};
+  constructor(properties: {children: React.ReactNode}) {
+    super(properties);
+    this.state = {error: null, hasError: false};
   }
   static getDerivedStateFromError(error: Error) {
-    return {hasError: true, error};
+    return {error, hasError: true};
   }
   render() {
     if (this.state.hasError && this.state.error) {
@@ -254,8 +227,8 @@ class ErrorBoundary extends React.Component<
 
 export const App = () => {
   const location = useLocation();
-
   const [svgContent, setSvgContent] = useState(faviconSvg);
+
   useEffect(() => {
     const path = location.pathname;
 
@@ -272,80 +245,68 @@ export const App = () => {
     }
   }, [location.pathname]);
   useDynamicFavicon(svgContent);
-
   const [isClient, setIsClient] = useState(false);
+
   useEffect(() => {
     setIsClient(true);
   }, []);
-
   const [showSafariWarning, setShowSafariWarning] = useState(false);
-
   const [showOldBrowserWarning, setShowOldBrowserWarning] = useState(false);
+
   useEffect(() => {
-    if (typeof globalThis.window === "undefined") return;
+    if (globalThis.window === undefined) return;
 
     let shouldShowWarning = false;
-
     const browserInfo = getBrowserInfo();
 
     if (browserInfo.isLegacy) {
-      if (typeof localStorage !== "undefined") {
+      if (typeof localStorage === "undefined") {
+        shouldShowWarning = true;
+      } else {
         const warningDismissed =
           localStorage.getItem("oldBrowserWarningDismissed") === "true";
 
         if (!warningDismissed) {
           const lastShown = localStorage.getItem("oldBrowserWarningLastShown");
-
           const now = Date.now();
-
           const time = 24 * 60 * 60 * 1000;
 
           if (!lastShown || now - Number.parseInt(lastShown, 10) >= time) {
             shouldShowWarning = true;
           }
         }
-      } else {
-        shouldShowWarning = true;
       }
     }
 
     setShowOldBrowserWarning(shouldShowWarning);
   }, []);
-
   const [appReady, setAppReady] = useState(true);
+
   useEffect(() => {
-    if (typeof globalThis.window === "undefined") return;
+    if (globalThis.window === undefined) return;
 
     let shouldShowWarning = false;
-
     const isWebKit =
       typeof navigator !== "undefined" &&
       /AppleWebKit|Epiphany|Safari/i.test(navigator.userAgent) &&
       !/Chrome|Chromium|Edg|OPR|Brave/i.test(navigator.userAgent);
-
     const path = location.pathname;
-
     const isFaqPage =
       path.startsWith("/aefaq") ||
       path.startsWith("/prfaq") ||
       path.startsWith("/psfaq") ||
       path.startsWith("/aeexpr");
 
-    if (isWebKit && isFaqPage) {
-      if (typeof localStorage !== "undefined") {
-        const warningDismissed =
-          localStorage.getItem("safariWarningDismissed") === "true";
+    if (isWebKit && isFaqPage && typeof localStorage !== "undefined") {
+      const warningDismissed = localStorage.getItem("safariWarningDismissed") === "true";
 
-        if (!warningDismissed) {
-          const lastShown = localStorage.getItem("safariWarningLastShown");
+      if (!warningDismissed) {
+        const lastShown = localStorage.getItem("safariWarningLastShown");
+        const now = Date.now();
+        const time = 60 * 60 * 1000;
 
-          const now = Date.now();
-
-          const time = 60 * 60 * 1000;
-
-          if (!lastShown || now - Number.parseInt(lastShown, 10) >= time) {
-            shouldShowWarning = true;
-          }
+        if (!lastShown || now - Number.parseInt(lastShown, 10) >= time) {
+          shouldShowWarning = true;
         }
       }
     }
@@ -359,7 +320,7 @@ export const App = () => {
     }
   }, [location.pathname]);
   useEffect(() => {
-    if (typeof globalThis.window === "undefined") {
+    if (globalThis.window === undefined) {
       return;
     }
 
@@ -395,13 +356,13 @@ export const App = () => {
     <ConfigProvider theme={themeConfig}>
       <ThemeProvider>
         <MetrikaCounter
-          id={96346999}
+          id={96_346_999}
           options={{
-            clickmap: true,
-            trackLinks: true,
             accurateTrackBounce: true,
-            webvisor: true,
+            clickmap: true,
             trackHash: true,
+            trackLinks: true,
+            webvisor: true,
           }}
         />
         <ErrorBoundary>
@@ -425,11 +386,11 @@ export const App = () => {
               <AnimatePresence
                 mode="wait"
                 onExitComplete={() => {
-                  if (typeof globalThis.window !== "undefined") {
+                  if (globalThis.window !== undefined) {
                     setTimeout(() => {
                       globalThis.window.scrollTo({
-                        top: 0,
                         behavior: "instant",
+                        top: 0,
                       });
                     }, 50);
                   }

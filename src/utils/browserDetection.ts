@@ -1,18 +1,17 @@
 interface BrowserInfo {
+  isLegacy: boolean;
   name: string;
   version: number;
-  isLegacy: boolean;
 }
 
 export function getBrowserInfo(): BrowserInfo {
-  if (typeof window === "undefined" || !window.navigator) {
-    return {name: "Unknown", version: 0, isLegacy: false};
+  if (globalThis.window === undefined || !globalThis.navigator) {
+    return {isLegacy: false, name: "Unknown", version: 0};
   }
 
-  const ua = window.navigator.userAgent;
+  const ua = globalThis.navigator.userAgent;
   let name = "Unknown";
   let version = 0;
-
   let match = /(Chrom(e|ium))\/((\d+)\.?(\d+)?\.?(\d+)?\.?(\d+)?)/.exec(ua);
 
   if (match) {
@@ -54,16 +53,15 @@ export function getBrowserInfo(): BrowserInfo {
 
   const legacyThresholds: {[key: string]: number} = {
     Chrome: 90,
-    Firefox: 90,
-    Safari: 14,
     Edge: 90,
+    Firefox: 90,
     Opera: 75,
+    Safari: 14,
   };
-
   const isLegacy =
     version > 0 &&
     legacyThresholds[name] !== undefined &&
     version < legacyThresholds[name];
 
-  return {name, version, isLegacy};
+  return {isLegacy, name, version};
 }

@@ -13,15 +13,11 @@ const useDynamicFavicon = (svgContent: string) => {
 
       return `hsl(${accentHue}, 100%, 70%)`;
     };
-
     const updateFavicon = () => {
       try {
         const color = getAccentColor();
-
-        const themedSvg = svgContent.replace(/fill=".*?"/g, `fill="${color}"`);
-
+        const themedSvg = svgContent.replaceAll(/fill=".*?"/g, `fill="${color}"`);
         const svgBlob = new Blob([themedSvg], {type: "image/svg+xml"});
-
         const url = URL.createObjectURL(svgBlob);
         let link: HTMLLinkElement | null = document.querySelector("link[rel*='icon']");
 
@@ -31,21 +27,22 @@ const useDynamicFavicon = (svgContent: string) => {
           link = document.createElement("link");
           link.rel = "icon";
           link.href = url;
-          document.getElementsByTagName("head")[0].appendChild(link);
+          document.querySelectorAll("head")[0].append(link);
         }
       } catch (error) {
         console.error("Failed to update favicon:", error);
       }
     };
-    updateFavicon();
 
+    updateFavicon();
     const handleAccentHueChange = () => {
       updateFavicon();
     };
-    window.addEventListener("accentHueChanged", handleAccentHueChange);
+
+    globalThis.addEventListener("accentHueChanged", handleAccentHueChange);
 
     return () => {
-      window.removeEventListener("accentHueChanged", handleAccentHueChange);
+      globalThis.removeEventListener("accentHueChanged", handleAccentHueChange);
     };
   }, [svgContent]);
 };

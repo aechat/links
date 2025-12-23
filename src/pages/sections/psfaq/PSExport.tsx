@@ -1,9 +1,7 @@
 import React from "react";
 
 import Addition from "../../../components/content/Addition";
-
 import {ContentFigure} from "../../../components/content/ContentFigure";
-
 import DetailsSummary from "../../../components/content/DetailsSummary";
 
 const PSExport: React.FC = () => {

@@ -3,7 +3,7 @@ import path from "node:path";
 import {fileURLToPath} from "node:url";
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const toAbsolute = (p) => path.resolve(__dirname, p);
-const template = fs.readFileSync(toAbsolute("dist/client/index.html"), "utf-8");
+const template = fs.readFileSync(toAbsolute("dist/client/index.html"), "utf8");
 const {render} = await import("./dist/server/entry-server.js");
 
 const routesToPrerender = [
@@ -34,7 +34,7 @@ const routesToPrerender = [
       );
     }
     if (["/aefaq", "/prfaq", "/psfaq", "/aeexpr"].includes(url)) {
-      htmlWithMeta = htmlWithMeta.replace(/<details/g, "<details open");
+      htmlWithMeta = htmlWithMeta.replaceAll("<details", "<details open");
     }
     const filePath = toAbsolute(
       url === "/" ? "dist/client/index.html" : `dist/client${url}.html`

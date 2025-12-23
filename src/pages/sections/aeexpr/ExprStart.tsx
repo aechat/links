@@ -1,10 +1,9 @@
 import React from "react";
 
-import {ContentFigure} from "../../../components/content/ContentFigure";
-
-import DetailsSummary from "../../../components/content/DetailsSummary";
-
 import {Divider} from "antd";
+
+import {ContentFigure} from "../../../components/content/ContentFigure";
+import DetailsSummary from "../../../components/content/DetailsSummary";
 
 const AEExprStart: React.FC = () => {
   return (
@@ -32,7 +31,7 @@ const AEExprStart: React.FC = () => {
           <mark className="app">Adobe After Effects</mark>, похож на синтаксис, который вы
           могли видеть в браузерных скриптах. Однако есть различия в обращении к
           свойствам, циклах и поддержке некоторых функций. Очевидно, что{" "}
-          <mark className="code">console.log(&quot;Hello, aeexprfaq!&quot;)</mark> в{" "}
+          <mark className="code">console.log(&quot;Hello, aeexprfaq!&quot;)</mark> в
           выражениях работать не будет.
         </p>
         {/* Помимо выражений, для <mark className="app">Adobe After Effects</mark> можно

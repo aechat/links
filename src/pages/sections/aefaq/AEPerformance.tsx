@@ -1,14 +1,11 @@
-import {Divider} from "antd";
-
 import React from "react";
 
+import {Divider} from "antd";
+
 import Addition from "../../../components/content/Addition";
-
 import {ContentFigure} from "../../../components/content/ContentFigure";
-
-import DetailsSummary from "../../../components/content/DetailsSummary";
-
 import ContentFilter from "../../../components/content/ContentFilter";
+import DetailsSummary from "../../../components/content/DetailsSummary";
 
 const AEPerformance: React.FC = () => {
   return (
@@ -1050,11 +1047,11 @@ const AEPerformance: React.FC = () => {
           src="cfz3jwdo1v0"
           type="youtube"
         />
-            <p>
+        <p>
           Эта проблема решается, как ни странно,{" "}
           <a href="#import-pipeline">конвертацией</a> исходников через{" "}
-              <mark className="app">Shutter Encoder</mark>,{" "}
-              <mark className="app">Handbrake</mark> или{" "}
+          <mark className="app">Shutter Encoder</mark>,{" "}
+          <mark className="app">Handbrake</mark> или{" "}
           <mark className="app">MKVToolNix</mark> в монтажный кодек вроде{" "}
           <mark className="video">Apple ProRes</mark> или{" "}
           <mark className="video">DNxHD</mark>.
@@ -1100,8 +1097,8 @@ const AEPerformance: React.FC = () => {
           <mark className="select">«Replace Footage»</mark>.
         </p>
         <p>Помимо видео, подвох может ждать и в других файлах.</p>
-              <ul>
-                <li>
+        <ul>
+          <li>
             Звук из <mark className="app">VK</mark>,{" "}
             <mark className="app">SoundCloud</mark> или даже аудиодорожка внутри видео
             тоже может быть «криво» пережата. Это проявляется в виде искажений, треска или
@@ -1110,8 +1107,8 @@ const AEPerformance: React.FC = () => {
             в формат <mark className="audio">WAV</mark> через{" "}
             <mark className="app">Shutter Encoder</mark> или{" "}
             <mark className="app">EZ CD Audio Converter</mark>.
-                </li>
-                <li>
+          </li>
+          <li>
             С изображениями проблемы возникают реже, но тоже бывают.{" "}
             <mark className="app">Adobe After Effects</mark> «не любит» картинки с
             огромным разрешением, цветовым профилем <mark>CMYK</mark> или слишком
@@ -1159,10 +1156,10 @@ const AEPerformance: React.FC = () => {
           </li>
           <li>
             <p>
-            Не используйте эффекты ради эффектов, чем часто грешат «эдиторы». Перед
-            добавлением задайте себе вопрос:{" "}
-            <mark className="quote">«Действительно ли он здесь нужен?»</mark>, а затем
-            подумайте:{" "}
+              Не используйте эффекты ради эффектов, чем часто грешат «эдиторы». Перед
+              добавлением задайте себе вопрос:{" "}
+              <mark className="quote">«Действительно ли он здесь нужен?»</mark>, а затем
+              подумайте:{" "}
               <mark className="quote">«Не сломает ли это производительность?»</mark>.
               Иначе вам же потом будет сложнее понять, кто именно вызывает «тормоза».
             </p>
@@ -1230,8 +1227,8 @@ const AEPerformance: React.FC = () => {
             <li>
               Чтобы включить отображение времени рендеринга, нажмите на иконку улитки в
               левом нижнем углу таймлайна или включите колонку{" "}
-          <mark className="select">«Render Time»</mark> через меню{" "}
-          <mark className="select">«Columns»</mark>.
+              <mark className="select">«Render Time»</mark> через меню{" "}
+              <mark className="select">«Columns»</mark>.
             </li>
             <li>
               Для получения точных данных рекомендуется очистить кэш через{" "}
@@ -1330,7 +1327,7 @@ const AEPerformance: React.FC = () => {
             композиция остаётся на таймлайне, и вы в любой момент можете вернуться к её
             редактированию, просто отключив прокси в окне{" "}
             <mark className="select">«Project»</mark>.
-        </p>
+          </p>
         </Addition>
         <Divider>Пара слов про сторонние шаблоны</Divider>
         <p>
@@ -1338,12 +1335,12 @@ const AEPerformance: React.FC = () => {
           нередко перегружены лишними эффектами и слоями, которые тормозят работу. В такой
           ситуации есть три выхода.
         </p>
-          <ul>
-            <li>
+        <ul>
+          <li>
             Найти другой, более оптимизированный и менее «тяжёлый» шаблон, который не
             будет так сильно нагружать систему.
-            </li>
-            <li>
+          </li>
+          <li>
             Рендерить проект как есть. Если компьютер не справляется, экспорт затягивается
             на долгие часы или вы просто не хотите мучить своё «железо» — попросите помощи
             у коллеги с мощным ПК или воспользуйтесь услугами рендер-ферм<sup>1</sup>.
@@ -1360,8 +1357,8 @@ const AEPerformance: React.FC = () => {
             Собрать проект с нуля, визуально повторив нужный дизайн или анимацию. В этом
             случае вы получите чистую и «контролируемую» композицию, однако потратите
             значительно больше времени на реализацию.
-            </li>
-          </ul>
+          </li>
+        </ul>
         <Divider>Пара слов про финальный экспорт</Divider>
         <ul>
           <li>

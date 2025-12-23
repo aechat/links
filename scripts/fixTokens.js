@@ -15,7 +15,10 @@ import {runScript} from "./utils/scriptRunner.js";
 import {rl, askForConfirmation} from "./utils/interactiveUtils.js";
 
 async function fixSpecificContentTags(content, tagName) {
-  const regex = new RegExp(`<${tagName}>(?:<mark className="${tagName}">)?.?(.*?)(?:</mark>)?</${tagName}>`, "g");
+  const regex = new RegExp(
+    `<${tagName}>(?:<mark className="${tagName}">)?.?(.*?)(?:</mark>)?</${tagName}>`,
+    "g"
+  );
   const matches = Array.from(content.matchAll(regex));
   const replacements = [];
 
@@ -42,7 +45,7 @@ async function fixSpecificContentTags(content, tagName) {
 }
 
 async function fixKeyTags(content) {
-  const regex = /<key>(?:<mark className="key">)?(.*?)(?:</mark>)?</key>/g;
+  const regex = /<key>(?:<mark className="key">)?(.*?)(?:<\/mark>)?<\/key>/g;
   const matches = Array.from(content.matchAll(regex));
   const replacements = [];
 

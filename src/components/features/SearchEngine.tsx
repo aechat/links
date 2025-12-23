@@ -1,9 +1,4 @@
-import {BackspaceOutlined, CloseRounded, Search} from "@mui/icons-material";
-
-import {Modal, message} from "antd";
-
 import debounce from "lodash/debounce";
-
 import React, {
   createContext,
   useCallback,
@@ -14,25 +9,27 @@ import React, {
   useState,
 } from "react";
 
+import {BackspaceOutlined, CloseRounded, Search} from "@mui/icons-material";
+import {message, Modal} from "antd";
 import {RemoveScroll} from "react-remove-scroll";
 
 import {copyText} from "../../hooks/useCopyToClipboard";
 
 export interface SearchContextType {
-  isOpen: boolean;
-  openModal: () => void;
   closeModal: () => void;
+  isOpen: boolean;
   isPageLoaded: boolean;
+  openModal: () => void;
 }
 
 export interface SearchResult {
-  title: string;
   content: string;
-  id: string;
-  tag?: string;
-  isSingleParagraphMatch: boolean;
-  hasTitleMatch: boolean;
   hasTagMatch: boolean;
+  hasTitleMatch: boolean;
+  id: string;
+  isSingleParagraphMatch: boolean;
+  tag?: string;
+  title: string;
 }
 
 export type SearchSection = {
@@ -41,11 +38,12 @@ export type SearchSection = {
   icon?: React.ReactNode;
 };
 
-export const escapeRegExp = (str: string) =>
-  str.replaceAll(/[.*+?^${}()|[\\]/g, String.raw`\$& `);
+export const escapeRegExp = (string_: string) =>
+  string_.replaceAll(/[.*+?^${}()|[\\]/g, String.raw`\$& `);
 
 export const decodeHtmlEntities = (text: string): string => {
   const textArea = document.createElement("textarea");
+
   textArea.innerHTML = text;
 
   return textArea.value;
@@ -72,12 +70,11 @@ export const extractMatchingLine = (content: string, query: string): string => {
     .toLowerCase()
     .split(/\s+/)
     .filter((word) => word.length > 0);
+  const temporaryDiv = document.createElement("div");
 
-  const tempDiv = document.createElement("div");
-  tempDiv.innerHTML = content;
-
+  temporaryDiv.innerHTML = content;
   const findFirstListMatch = (ulElement: HTMLUListElement): string | null => {
-    const firstMatch = Array.from(ulElement.querySelectorAll("li")).find((li) => {
+    const firstMatch = [...ulElement.querySelectorAll("li")].find((li) => {
       const liText = li.textContent?.toLowerCase() || "";
 
       return searchWords.every((word) => liText.includes(word));
@@ -85,15 +82,15 @@ export const extractMatchingLine = (content: string, query: string): string => {
 
     if (firstMatch) {
       const newUl = document.createElement("ul");
-      newUl.appendChild(firstMatch.cloneNode(true));
+
+      newUl.append(firstMatch.cloneNode(true));
 
       return newUl.outerHTML;
     }
 
     return null;
   };
-
-  const ulElements = Array.from(tempDiv.querySelectorAll("ul"));
+  const ulElements = [...temporaryDiv.querySelectorAll("ul")];
 
   for (const ul of ulElements) {
     const matchedList = findFirstListMatch(ul);
@@ -102,8 +99,7 @@ export const extractMatchingLine = (content: string, query: string): string => {
       return matchedList;
     }
   }
-
-  const allElements = Array.from(tempDiv.querySelectorAll("*"));
+  const allElements = [...temporaryDiv.querySelectorAll("*")];
 
   for (const element of allElements) {
     const elementHTML = element.innerHTML.toLowerCase();
@@ -112,35 +108,31 @@ export const extractMatchingLine = (content: string, query: string): string => {
       return element.outerHTML;
     }
   }
-
-  const firstElement = tempDiv.firstElementChild;
+  const firstElement = temporaryDiv.firstElementChild;
 
   return firstElement?.outerHTML || content;
 };
 
 const KEY_MODIFIERS = ["ctrl", "alt", "shift", "win", "cmd"] as const;
-
 const KEY_MODIFIER_ALIASES: Record<string, string> = {
+  command: "cmd",
   control: "ctrl",
   windows: "win",
-  command: "cmd",
 };
+
 type SearchMatch = {
   result: string;
   matchCount: number;
 };
-
 const stripHtml = (html: string): string => {
-  const tmp = document.createElement("div");
-  tmp.innerHTML = html;
+  const temporary = document.createElement("div");
 
-  return tmp.textContent || tmp.innerText || "";
+  temporary.innerHTML = html;
+
+  return temporary.textContent || temporary.innerText || "";
 };
-
 const normalizationRegex = /[^a-zа-яё0-9+\-=()]/gi;
-
 const replaceCharsRegex = /ё/gi;
-
 const normalizeText = (text: string): string => {
   return text
     .toLowerCase()
@@ -149,37 +141,33 @@ const normalizeText = (text: string): string => {
     .replaceAll(/\s+/g, " ")
     .trim();
 };
-
 const isKeyCombinationSearch = (text: string): boolean => {
   return KEY_MODIFIERS.some((modifier) => text.toLowerCase().includes(modifier));
 };
-
 const normalizeKeyCombination = (text: string): string => {
   let normalized = text.toLowerCase();
-  Object.entries(KEY_MODIFIER_ALIASES).forEach(([alias, standard]) => {
+
+  for (const [alias, standard] of Object.entries(KEY_MODIFIER_ALIASES)) {
     normalized = normalized.replaceAll(new RegExp(alias, "g"), standard);
-  });
+  }
 
   return normalized
     .replaceAll(/\s*\+\s*/g, " ")
     .replaceAll(/\s+/g, " ")
     .trim();
 };
-
 const extractKeyCombinationText = (element: Element): string => {
   const keyElements = element.querySelectorAll("mark.key");
 
   if (keyElements.length > 0) {
-    return Array.from(keyElements)
-      .map((el) => el.textContent?.toLowerCase() || "")
+    return [...keyElements]
+      .map((element_) => element_.textContent?.toLowerCase() || "")
       .join(" ");
   }
 
   return element.textContent?.toLowerCase() || "";
 };
-
 const matchCache = new Map<string, RegExp>();
-
 const hasMatch = (
   text: string,
   searchWords: string[],
@@ -187,7 +175,6 @@ const hasMatch = (
 ): boolean => {
   if (isKeyCombination) {
     const normalizedText = normalizeKeyCombination(text);
-
     const normalizedSearch = normalizeKeyCombination(searchWords.join(" "));
 
     return normalizedText.includes(normalizedSearch);
@@ -199,6 +186,7 @@ const hasMatch = (
     const pattern = searchWords
       .map((word) => `(?=.*${escapeRegExp(normalizeText(word))})`)
       .join("");
+
     matchCache.set(cacheKey, new RegExp(`^${pattern}.*$`));
   }
 
@@ -206,7 +194,6 @@ const hasMatch = (
 
   return regex.test(normalizeText(text));
 };
-
 const processTextNode = (
   node: Text,
   searchWords: string[],
@@ -216,20 +203,18 @@ const processTextNode = (
 
   return hasMatch(text, searchWords, isKeyCombination) ? text : "";
 };
-
 const isListOrParagraph = (element: Element): boolean => {
   const tag = element.tagName;
 
   return tag === "LI" || tag === "P";
 };
-
 const cloneWithoutFigures = (element: Element): Element => {
   const clone = element.cloneNode(true) as Element;
-  clone.querySelectorAll(".figure-container").forEach((el) => el.remove());
+
+  for (const element_ of clone.querySelectorAll(".figure-container")) element_.remove();
 
   return clone;
 };
-
 const handleListWithNestedMatches = (
   element: Element,
   searchWords: string[],
@@ -240,36 +225,37 @@ const handleListWithNestedMatches = (
   if (!ul) {
     const clone = cloneWithoutFigures(element);
 
-    return {result: clone.outerHTML, matchCount: 1};
+    return {matchCount: 1, result: clone.outerHTML};
   }
 
-  const nestedItems = Array.from(ul.querySelectorAll("li"));
-
+  const nestedItems = [...ul.querySelectorAll("li")];
   const matchingNestedItems = nestedItems.filter((item) =>
     hasMatch(item.textContent || "", searchWords, isKeyCombination)
   );
-
   const clone = cloneWithoutFigures(element);
 
   if (matchingNestedItems.length === 0) {
-    return {result: clone.outerHTML, matchCount: 1};
+    return {matchCount: 1, result: clone.outerHTML};
   }
 
   const newUl = document.createElement("ul");
-  matchingNestedItems.forEach((item) => {
-    const nestedItemClone = cloneWithoutFigures(item);
-    newUl.appendChild(nestedItemClone);
-  });
 
+  for (const item of matchingNestedItems) {
+    const nestedItemClone = cloneWithoutFigures(item);
+
+    newUl.append(nestedItemClone);
+  }
   const oldUl = clone.querySelector("ul");
 
   if (oldUl) {
     oldUl.replaceWith(newUl);
   }
 
-  return {result: clone.outerHTML, matchCount: matchingNestedItems.length + 1};
+  return {
+    matchCount: matchingNestedItems.length + 1,
+    result: clone.outerHTML,
+  };
 };
-
 const processContainerChildren = (
   element: Element,
   searchWords: string[],
@@ -277,7 +263,8 @@ const processContainerChildren = (
 ): SearchMatch => {
   let result = "";
   let matchCount = 0;
-  Array.from(element.childNodes).forEach((node) => {
+
+  for (const node of element.childNodes) {
     if (node.nodeType === Node.TEXT_NODE) {
       const textResult = processTextNode(node as Text, searchWords, isKeyCombination);
 
@@ -286,28 +273,27 @@ const processContainerChildren = (
         matchCount += 1;
       }
 
-      return;
+      continue;
     }
 
     if (node.nodeType === Node.ELEMENT_NODE) {
-      const elNode = node as Element;
+      const elementNode = node as Element;
 
-      if (elNode.classList.contains("figure-container")) {
-        return;
+      if (elementNode.classList.contains("figure-container")) {
+        continue;
       }
 
-      const elementResult = processElement(elNode, searchWords, isKeyCombination);
+      const elementResult = processElement(elementNode, searchWords, isKeyCombination);
 
       if (elementResult.result) {
         result += elementResult.result;
         matchCount += elementResult.matchCount;
       }
     }
-  });
+  }
 
-  return {result, matchCount};
+  return {matchCount, result};
 };
-
 const processElement = (
   element: Element,
   searchWords: string[],
@@ -317,7 +303,7 @@ const processElement = (
     const fullText = (element as HTMLElement).innerText || "";
 
     if (!hasMatch(fullText, searchWords, isKeyCombination)) {
-      return {result: "", matchCount: 0};
+      return {matchCount: 0, result: ""};
     }
 
     if (element.tagName === "LI") {
@@ -326,21 +312,19 @@ const processElement = (
 
     const clone = cloneWithoutFigures(element);
 
-    return {result: clone.outerHTML, matchCount: 1};
+    return {matchCount: 1, result: clone.outerHTML};
   }
 
   return processContainerChildren(element, searchWords, isKeyCombination);
 };
-
 const processTable = (
   table: HTMLTableElement,
   searchWords: string[],
   isKeyCombination: boolean
 ): string | null => {
-  const rows = Array.from(table.querySelectorAll("tr"));
-
+  const rows = [...table.querySelectorAll("tr")];
   const matchingRows = rows.filter((row) => {
-    const cells = Array.from(row.querySelectorAll("td"));
+    const cells = [...row.querySelectorAll("td")];
 
     return cells.some((cell) => {
       const cellText = extractKeyCombinationText(cell);
@@ -351,29 +335,30 @@ const processTable = (
 
   if (matchingRows.length > 0) {
     const newTable = document.createElement("table");
-
     const thead = table.querySelector("thead");
 
     if (thead) {
-      newTable.appendChild(thead.cloneNode(true));
+      newTable.append(thead.cloneNode(true));
     }
 
     const tbody = document.createElement("tbody");
-    matchingRows.forEach((row) => tbody.appendChild(row.cloneNode(true)));
-    newTable.appendChild(tbody);
+
+    for (const row of matchingRows) tbody.append(row.cloneNode(true));
+    newTable.append(tbody);
 
     return newTable.outerHTML;
   }
 
   return null;
 };
-
 const getFirstCleanParagraphOrElement = (root: Element): string => {
   const firstParagraph = root.querySelector("details > p, details > div > p");
 
   if (firstParagraph) {
     const cleanedParagraph = firstParagraph.cloneNode(true) as Element;
-    cleanedParagraph.querySelectorAll(".figure-container").forEach((el) => el.remove());
+
+    for (const element of cleanedParagraph.querySelectorAll(".figure-container"))
+      element.remove();
 
     return cleanedParagraph.outerHTML;
   }
@@ -382,17 +367,18 @@ const getFirstCleanParagraphOrElement = (root: Element): string => {
 
   if (firstElement) {
     const cleanedElement = firstElement.cloneNode(true) as Element;
-    cleanedElement.querySelectorAll(".figure-container").forEach((el) => el.remove());
+
+    for (const element of cleanedElement.querySelectorAll(".figure-container"))
+      element.remove();
 
     return cleanedElement.outerHTML;
   }
 
   return "";
 };
-
 const isKeyCombinationTablePresent = (tables: NodeListOf<HTMLTableElement>): boolean => {
-  return Array.from(tables).some((table) => {
-    const headers = Array.from(table.querySelectorAll("th"));
+  return [...tables].some((table) => {
+    const headers = [...table.querySelectorAll("th")];
 
     return headers.some((th) => {
       const text = th.textContent?.toLowerCase() || "";
@@ -401,37 +387,36 @@ const isKeyCombinationTablePresent = (tables: NodeListOf<HTMLTableElement>): boo
     });
   });
 };
-
 const pickBestListOrParagraphMatch = (
   root: Element,
   searchWords: string[],
   isKeyCombination: boolean
 ): SearchMatch => {
-  let bestResult: SearchMatch = {result: "", matchCount: 0};
-
+  let bestResult: SearchMatch = {matchCount: 0, result: ""};
   const listItems = root.querySelectorAll("ul > li");
-  listItems.forEach((item) => {
+
+  for (const item of listItems) {
     const itemResult = processElement(item, searchWords, isKeyCombination);
 
     if (itemResult.matchCount > bestResult.matchCount) {
       bestResult = itemResult;
     }
-  });
+  }
 
   if (!bestResult.result) {
     const paragraphs = root.querySelectorAll("p");
-    paragraphs.forEach((p) => {
+
+    for (const p of paragraphs) {
       const pResult = processElement(p, searchWords, isKeyCombination);
 
       if (pResult.matchCount > bestResult.matchCount) {
         bestResult = pResult;
       }
-    });
+    }
   }
 
   return bestResult;
 };
-
 const pickTableOrFallback = (
   root: Element,
   searchWords: string[],
@@ -441,7 +426,7 @@ const pickTableOrFallback = (
 
   if (tables.length > 0) {
     if (isKeyCombinationTablePresent(tables)) {
-      for (const table of Array.from(tables)) {
+      for (const table of tables) {
         const tableResult = processTable(table, searchWords, isKeyCombination);
 
         if (tableResult) {
@@ -455,40 +440,41 @@ const pickTableOrFallback = (
 
   return getFirstCleanParagraphOrElement(root);
 };
-
 const formatSearchResult = (text: string, searchWords: string[]): string => {
-  const tempDiv = document.createElement("div");
-  tempDiv.innerHTML = text;
-  tempDiv
-    .querySelectorAll(".ant-divider, .ant-divider-inner-text")
-    .forEach((el) => el.remove());
+  const temporaryDiv = document.createElement("div");
 
+  temporaryDiv.innerHTML = text;
+  for (const element of temporaryDiv.querySelectorAll(
+    ".ant-divider, .ant-divider-inner-text"
+  ))
+    element.remove();
   const isKeyCombination = isKeyCombinationSearch(searchWords.join(" "));
-
-  const tagMatch = (tempDiv.querySelector("[data-tags]") as HTMLElement)?.dataset.tags;
-
-  const titleMatch = tempDiv.querySelector("summary h3")?.textContent;
+  const tagMatch = (temporaryDiv.querySelector("[data-tags]") as HTMLElement)?.dataset
+    .tags;
+  const titleMatch = temporaryDiv.querySelector("summary h3")?.textContent;
 
   if (
     (tagMatch && hasMatch(tagMatch, searchWords, isKeyCombination)) ||
     (titleMatch && hasMatch(titleMatch, searchWords, isKeyCombination))
   ) {
-    return getFirstCleanParagraphOrElement(tempDiv);
+    return getFirstCleanParagraphOrElement(temporaryDiv);
   }
 
-  const bestResult = pickBestListOrParagraphMatch(tempDiv, searchWords, isKeyCombination);
+  const bestResult = pickBestListOrParagraphMatch(
+    temporaryDiv,
+    searchWords,
+    isKeyCombination
+  );
 
   if (!bestResult.result) {
-    return pickTableOrFallback(tempDiv, searchWords, isKeyCombination);
+    return pickTableOrFallback(temporaryDiv, searchWords, isKeyCombination);
   }
 
   return bestResult.result;
 };
-
 const removeFigureContainers = (root: Element): void => {
-  root.querySelectorAll(".figure-container").forEach((el) => el.remove());
+  for (const element of root.querySelectorAll(".figure-container")) element.remove();
 };
-
 const computeTitleTagContentMatches = (
   searchWords: string[],
   normalizedTitle: string,
@@ -496,14 +482,11 @@ const computeTitleTagContentMatches = (
   normalizedContent: string
 ) => {
   const titleMatches = searchWords.filter((word) => normalizedTitle.includes(word));
-
   const tagMatches = searchWords.filter((word) => normalizedTag.includes(word));
-
   const contentMatches = searchWords.filter((word) => normalizedContent.includes(word));
 
-  return {titleMatches, tagMatches, contentMatches};
+  return {contentMatches, tagMatches, titleMatches};
 };
-
 const computeScore = (
   searchWords: string[],
   normalizedTitle: string,
@@ -538,33 +521,29 @@ const computeScore = (
 
   return score;
 };
-
 const collectDividerTexts = (detail: Element): string[] => {
-  return Array.from(detail.querySelectorAll(".ant-divider-inner-text"))
-    .map((el) => el.textContent?.trim() || "")
+  return [...detail.querySelectorAll(".ant-divider-inner-text")]
+    .map((element) => element.textContent?.trim() || "")
     .filter(Boolean);
 };
-
 const collectFlexibleLinksTexts = (detail: Element): string[] => {
-  return Array.from(detail.querySelectorAll(".flexible-links a"))
-    .map((el) => el.textContent?.trim() || "")
+  return [...detail.querySelectorAll(".flexible-links a")]
+    .map((element) => element.textContent?.trim() || "")
     .filter(Boolean);
 };
-
 const buildParagraphsHtml = (detail: Element): string => {
-  const paragraphs = Array.from(detail.querySelectorAll<HTMLParagraphElement>("p"));
-
+  const paragraphs = [...detail.querySelectorAll<HTMLParagraphElement>("p")];
   const htmlParts: string[] = [];
 
   for (const p of paragraphs) {
     const clone = p.cloneNode(true) as Element;
+
     removeFigureContainers(clone);
     htmlParts.push(clone.outerHTML);
   }
 
   return htmlParts.filter(Boolean).join("\n");
 };
-
 const isKeyCombinationWords = (searchWords: string[]): boolean => {
   return searchWords.some(
     (word) =>
@@ -575,22 +554,17 @@ const isKeyCombinationWords = (searchWords: string[]): boolean => {
       word.includes("cmd")
   );
 };
-
 const buildTableGroupsHtml = (detail: Element, searchWords: string[]): string => {
   const tableGroups: Record<string, string[]> = {};
-
-  const tables = Array.from(detail.querySelectorAll<HTMLTableElement>("table"));
-
+  const tables = [...detail.querySelectorAll<HTMLTableElement>("table")];
   const keyCombo = isKeyCombinationWords(searchWords);
 
   for (const table of tables) {
-    const headers = Array.from(table.querySelectorAll("th"))
+    const headers = [...table.querySelectorAll("th")]
       .map((th) => decodeHtmlEntities(th.textContent?.trim() ?? ""))
       .filter((header) => !header.toLowerCase().includes("описание"));
-
     const headerKey = headers.join("|");
-
-    const allRows = Array.from(table.querySelectorAll("tr")).filter((row) => {
+    const allRows = [...table.querySelectorAll("tr")].filter((row) => {
       let parent = row.parentElement;
 
       while (parent) {
@@ -603,24 +577,23 @@ const buildTableGroupsHtml = (detail: Element, searchWords: string[]): string =>
 
       return true;
     });
-
     const excludedColumns = new Set(
-      Array.from(table.querySelectorAll("th"))
+      [...table.querySelectorAll("th")]
         .map((th, index) =>
           th.textContent?.toLowerCase().includes("описание") ? index : -1
         )
         .filter((index) => index !== -1)
     );
-
     const processedRows: string[] = [];
 
     for (const row of allRows) {
       const clonedRow = row.cloneNode(true) as HTMLTableRowElement;
-      Array.from(clonedRow.cells).forEach((cell, index) => {
+
+      for (const [index, cell] of [...clonedRow.cells].entries()) {
         if (excludedColumns.has(index)) {
           cell.remove();
         }
-      });
+      }
 
       if (clonedRow.cells.length === 0) {
         continue;
@@ -630,25 +603,25 @@ const buildTableGroupsHtml = (detail: Element, searchWords: string[]): string =>
 
       if (keyCombo) {
         const searchPattern = normalizeKeyCombination(searchWords.join(" "));
-
-        const rowText = Array.from(clonedRow.cells)
+        const rowText = [...clonedRow.cells]
           .map((cell) => {
             const keyElements = cell.querySelectorAll("mark.key");
 
             if (keyElements.length > 0) {
-              return Array.from(keyElements)
-                .map((el) => el.textContent?.toLowerCase() || "")
+              return [...keyElements]
+                .map((element) => element.textContent?.toLowerCase() || "")
                 .join(" ");
             }
 
             return cell.textContent?.toLowerCase() || "";
           })
           .join(" ");
-
         const normalizedRowText = normalizeKeyCombination(rowText);
+
         hasMatch = normalizedRowText.includes(searchPattern);
       } else {
         const rowHTML = clonedRow.innerHTML.toLowerCase();
+
         hasMatch = searchWords.every((word) => rowHTML.includes(word.toLowerCase()));
       }
 
@@ -670,6 +643,7 @@ const buildTableGroupsHtml = (detail: Element, searchWords: string[]): string =>
 
       if (headers.length > 0) {
         const headersHtml = headers.map((h) => `<th>${h}</th>`).join("");
+
         headerRow = `<thead><tr>${headersHtml}</tr></thead>`;
       }
 
@@ -677,20 +651,16 @@ const buildTableGroupsHtml = (detail: Element, searchWords: string[]): string =>
     })
     .join("");
 };
-
 const buildListContentHtml = (detail: Element, searchWords: string[]): string => {
-  const uls = Array.from(detail.querySelectorAll<HTMLUListElement>("ul"));
-
+  const uls = [...detail.querySelectorAll<HTMLUListElement>("ul")];
   const parts: string[] = [];
 
   for (const ul of uls) {
     const ulClone = ul.cloneNode(true) as Element;
+
     removeFigureContainers(ulClone);
-
     const ulText = stripHtml(ulClone.outerHTML);
-
     const normalizedUlText = normalizeText(ulText);
-
     const hasMatch =
       searchWords.length === 0 ||
       searchWords.some((word) => normalizedUlText.includes(normalizeText(word)));
@@ -702,11 +672,11 @@ const buildListContentHtml = (detail: Element, searchWords: string[]): string =>
 
   return parts.filter(Boolean).join("\n");
 };
+
 type BaseSearchResult = Omit<
   SearchResult,
   "isSingleParagraphMatch" | "hasTitleMatch" | "hasTagMatch"
 >;
-
 const isSingleParagraphMatchForResult = (
   resultContent: string,
   searchWords: string[]
@@ -720,7 +690,6 @@ const isSingleParagraphMatchForResult = (
     for (const word of searchWords) {
       if (!normalizedLine.includes(word)) {
         allIncluded = false;
-
         break;
       }
     }
@@ -732,7 +701,6 @@ const isSingleParagraphMatchForResult = (
 
   return false;
 };
-
 const transformSearchResult = (
   result: BaseSearchResult,
   searchWords: string[]
@@ -743,20 +711,15 @@ const transformSearchResult = (
     result.content,
     searchWords
   );
-
   const normalizedTitle = normalizeText(result.title);
-
   const normalizedTag = normalizeText(result.tag || "");
-
   const normalizedContent = normalizeText(stripHtml(result.content || ""));
-
-  const {titleMatches, tagMatches, contentMatches} = computeTitleTagContentMatches(
+  const {contentMatches, tagMatches, titleMatches} = computeTitleTagContentMatches(
     searchWords,
     normalizedTitle,
     normalizedTag,
     normalizedContent
   );
-
   const score = computeScore(
     searchWords,
     normalizedTitle,
@@ -769,22 +732,18 @@ const transformSearchResult = (
   return {
     ...result,
     content: formatSearchResult(result.content, searchWords),
-    isSingleParagraphMatch,
-    hasTitleMatch: titleMatches.length > 0,
     hasTagMatch: tagMatches.length > 0,
+    hasTitleMatch: titleMatches.length > 0,
+    isSingleParagraphMatch,
     score,
   };
 };
 
 export const useSearchLogic = (query: string, isPageLoaded: boolean) => {
   const [results, setResults] = useState<SearchResult[]>([]);
-
   const [selectedResultIndex, setSelectedResultIndex] = useState(0);
-
   const [debouncedQuery, setDebouncedQuery] = useState(query);
-
   const [resultsQuery, setResultsQuery] = useState("");
-
   const cachedDetails = useMemo(() => {
     if (!isPageLoaded) {
       return null;
@@ -792,7 +751,6 @@ export const useSearchLogic = (query: string, isPageLoaded: boolean) => {
 
     return document.querySelectorAll("details");
   }, [isPageLoaded]);
-
   const extractDetailsData = useCallback(
     (searchWords: string[]) => {
       if (!cachedDetails) {
@@ -803,35 +761,28 @@ export const useSearchLogic = (query: string, isPageLoaded: boolean) => {
         SearchResult,
         "isSingleParagraphMatch" | "hasTitleMatch" | "hasTagMatch"
       >[] = [];
-      cachedDetails.forEach((detail) => {
+
+      for (const detail of cachedDetails) {
         const summary = detail.querySelector("summary");
 
         if (!summary) {
-          return;
+          continue;
         }
 
         const id = summary.getAttribute("id");
 
         if (!id) {
-          return;
+          continue;
         }
 
         const titleElement = summary.querySelector("h3");
-
         const title = titleElement ? (titleElement.textContent ?? "") : "";
-
         const tag = detail.dataset.tags ?? "";
-
         const dividerTexts = collectDividerTexts(detail);
-
         const flexibleLinksTexts = collectFlexibleLinksTexts(detail);
-
         const content = buildParagraphsHtml(detail);
-
         const tableContent = buildTableGroupsHtml(detail, searchWords);
-
         const listContent = buildListContentHtml(detail, searchWords);
-
         const text = [
           content,
           tableContent,
@@ -841,15 +792,14 @@ export const useSearchLogic = (query: string, isPageLoaded: boolean) => {
         ].join("\n");
 
         if (title || text) {
-          data.push({title, content: text.trim(), id, tag: tag.trim()});
+          data.push({content: text.trim(), id, tag: tag.trim(), title});
         }
-      });
+      }
 
       return data;
     },
     [cachedDetails]
   );
-
   const handleSearch = useCallback(
     debounce((text: string) => {
       if (!isPageLoaded || !text.trim()) {
@@ -863,16 +813,11 @@ export const useSearchLogic = (query: string, isPageLoaded: boolean) => {
         .split(/\s+/)
         .filter((word) => word.length > 0)
         .map(normalizeText);
-
       const detailsData = extractDetailsData(searchWords);
-
-      const filtered = detailsData.filter(({title, content, tag}) => {
+      const filtered = detailsData.filter(({content, tag, title}) => {
         const normalizedTitle = normalizeText(title);
-
         const normalizedContent = normalizeText(stripHtml(content || ""));
-
         const normalizedTag = normalizeText(tag || "");
-
         const isKeyCombination =
           text.toLowerCase().includes("ctrl") ||
           text.toLowerCase().includes("alt") ||
@@ -882,11 +827,8 @@ export const useSearchLogic = (query: string, isPageLoaded: boolean) => {
 
         if (isKeyCombination) {
           const searchPattern = normalizeKeyCombination(text);
-
           const normalizedTitleComb = normalizeKeyCombination(title);
-
           const normalizedContentComb = normalizeKeyCombination(stripHtml(content || ""));
-
           const normalizedTagComb = normalizeKeyCombination(tag || "");
 
           return (
@@ -903,7 +845,6 @@ export const useSearchLogic = (query: string, isPageLoaded: boolean) => {
             normalizedTag.includes(word)
         );
       });
-
       const results = filtered
         .map((result) => transformSearchResult(result, searchWords))
         .sort((a, b) => {
@@ -913,13 +854,16 @@ export const useSearchLogic = (query: string, isPageLoaded: boolean) => {
 
           return 0;
         });
+
       setResults(results);
       setResultsQuery(text);
     }, 300),
     [isPageLoaded, extractDetailsData]
   );
+
   useEffect(() => {
     const handler = setTimeout(() => setDebouncedQuery(query), 100);
+
     handleSearch(query);
 
     return () => {
@@ -932,11 +876,11 @@ export const useSearchLogic = (query: string, isPageLoaded: boolean) => {
   }, [results]);
 
   return {
+    debouncedQuery,
     results,
+    resultsQuery,
     selectedResultIndex,
     setSelectedResultIndex,
-    debouncedQuery,
-    resultsQuery,
   };
 };
 
@@ -947,14 +891,13 @@ export const SearchProvider: React.FC<{
   isPageLoaded: boolean;
 }> = ({children, isPageLoaded}) => {
   const [isOpen, setIsOpen] = useState(false);
-
   const openModal = () => {
     if (isPageLoaded) {
       setIsOpen(true);
     }
   };
-
   const closeModal = () => setIsOpen(false);
+
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
       if ((event.ctrlKey && event.key === "f") || (event.ctrlKey && event.key === "а")) {
@@ -969,15 +912,15 @@ export const SearchProvider: React.FC<{
         }
       }
     };
+
     globalThis.addEventListener("keydown", handleKeyDown);
 
     return () => {
       globalThis.removeEventListener("keydown", handleKeyDown);
     };
   }, [isPageLoaded]);
-
   const value = useMemo(
-    () => ({isOpen, openModal, closeModal, isPageLoaded}),
+    () => ({closeModal, isOpen, isPageLoaded, openModal}),
     [isOpen, isPageLoaded]
   );
 
@@ -993,25 +936,26 @@ export const useSearch = () => {
 
   return context;
 };
-interface SearchButtonProps {
-  wide?: boolean;
+
+interface SearchButtonProperties {
   className?: string;
   style?: React.CSSProperties;
+  wide?: boolean;
 }
 
-export const SearchButton: React.FC<SearchButtonProps> = ({
-  wide = false,
+export const SearchButton: React.FC<SearchButtonProperties> = ({
   className = "",
   style = {},
+  wide = false,
 }) => {
-  const {openModal, isPageLoaded} = useSearch();
+  const {isPageLoaded, openModal} = useSearch();
 
   return (
     <button
       className={`search-button ${className}`.trim()}
       style={{
-        opacity: isPageLoaded ? 1 : 0.5,
         filter: isPageLoaded ? "saturate(100%)" : "saturate(0%)",
+        opacity: isPageLoaded ? 1 : 0.5,
         ...style,
       }}
       onClick={() => {
@@ -1045,16 +989,11 @@ const SearchCategories: React.FC<{
   sections: SearchSection[];
 }> = ({onLinkClick, sections}) => {
   const touchStartTime = useRef(0);
-
   const isPotentialLongPress = useRef(false);
-
   const touchStartCoords = useRef({x: 0, y: 0});
-
   const isTouchEventInProgress = useRef(false);
-
   const copyToClipboard = async (id: string, title: string) => {
     const anchorUrl = `${globalThis.location.origin}${globalThis.location.pathname}#${id}`;
-
     const success = await copyText(anchorUrl);
 
     if (success) {
@@ -1063,7 +1002,6 @@ const SearchCategories: React.FC<{
       message.error("Не удалось скопировать ссылку");
     }
   };
-
   const handleContextMenu = (e: React.MouseEvent, id: string, title: string) => {
     e.preventDefault();
 
@@ -1073,32 +1011,26 @@ const SearchCategories: React.FC<{
 
     copyToClipboard(id, title);
   };
-
   const handleTouchStart = (e: React.TouchEvent) => {
     isTouchEventInProgress.current = true;
     isPotentialLongPress.current = true;
     touchStartTime.current = Date.now();
-
     const touch = e.touches[0];
+
     touchStartCoords.current = {x: touch.clientX, y: touch.clientY};
   };
-
   const handleTouchMove = (e: React.TouchEvent) => {
     if (!isPotentialLongPress.current) return;
 
     const touch = e.touches[0];
-
     const moveThreshold = 10;
-
     const deltaX = Math.abs(touch.clientX - touchStartCoords.current.x);
-
     const deltaY = Math.abs(touch.clientY - touchStartCoords.current.y);
 
     if (deltaX > moveThreshold || deltaY > moveThreshold) {
       isPotentialLongPress.current = false;
     }
   };
-
   const handleTouchEnd = (e: React.TouchEvent, id: string, title: string) => {
     if (isPotentialLongPress.current) {
       const pressDuration = Date.now() - touchStartTime.current;
@@ -1133,51 +1065,45 @@ const SearchCategories: React.FC<{
     </div>
   );
 };
-
 const SearchResults: React.FC<{
   query: string;
   onLinkClick: (id: string) => void;
   resultRefs: React.RefObject<(HTMLButtonElement | null)[]>;
   results: Array<{content: string; id: string; tag?: string; title: string}>;
   selectedResultIndex: number;
-}> = ({query, onLinkClick, resultRefs, results, selectedResultIndex}) => {
+}> = ({onLinkClick, query, resultRefs, results, selectedResultIndex}) => {
   const getMatchingTags = (tag: string | undefined, query: string) => {
     if (!tag || tag.trim() === "") {
       return [];
     }
 
     const allTags = tag.split(", ");
-
     const lowerCaseQuery = query.toLowerCase().trim();
 
     return allTags.filter((t) => t.toLowerCase().includes(lowerCaseQuery));
   };
-
   const isMobile = typeof globalThis !== "undefined" && globalThis.innerWidth <= 768;
-
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
   return (
     <>
-      {results.map(({title, content, id, tag}, index) => {
+      {results.map(({content, id, tag, title}, index) => {
         const tagsToDisplay = getMatchingTags(tag, query);
-
         const isSelected = index === selectedResultIndex;
-
         const isHovered = hoveredIndex === index;
 
         return (
           <div key={id}>
             <button
-              ref={(el) => {
+              ref={(element) => {
                 if (resultRefs.current) {
-                  resultRefs.current[index] = el;
+                  resultRefs.current[index] = element;
                 }
               }}
               className={`search-link ${isSelected ? "search-selected" : ""}`}
               style={(() => {
                 if (isMobile) {
-                  return {opacity: 1, filter: "none"};
+                  return {filter: "none", opacity: 1};
                 }
 
                 if (isSelected || isHovered) {
@@ -1215,7 +1141,6 @@ const SearchResults: React.FC<{
     </>
   );
 };
-
 const ExternalSearch: React.FC<{query: string}> = ({query}) => {
   const getSearchQuery = () => {
     const path = globalThis.location.pathname;
@@ -1267,7 +1192,6 @@ const ExternalSearch: React.FC<{query: string}> = ({query}) => {
     </div>
   );
 };
-
 const NoResults: React.FC<{query: string}> = ({query}) => (
   <div>
     <div className="search-no-results">
@@ -1293,58 +1217,52 @@ const NoResults: React.FC<{query: string}> = ({query}) => (
 );
 
 export const SearchInPage: React.FC<{sections: SearchSection[]}> = ({sections}) => {
-  const {isOpen, closeModal, isPageLoaded} = useSearch();
-
+  const {closeModal, isOpen, isPageLoaded} = useSearch();
   const [query, setQuery] = useState("");
-
   const [isSearching, setIsSearching] = useState(false);
-
   const [isResultsProcessed, setIsResultsProcessed] = useState(false);
-
-  const resultRefs = useRef<(HTMLButtonElement | null)[]>([]);
-
-  const inputRef = useRef<HTMLInputElement>(null);
-
-  const resultsContainerRef = useRef<HTMLDivElement>(null);
-
+  const resultReferences = useRef<(HTMLButtonElement | null)[]>([]);
+  const inputReference = useRef<HTMLInputElement>(null);
+  const resultsContainerReference = useRef<HTMLDivElement>(null);
   const [showFade, setShowFade] = useState(false);
-
   const {
+    debouncedQuery,
     results,
+    resultsQuery,
     selectedResultIndex,
     setSelectedResultIndex,
-    debouncedQuery,
-    resultsQuery,
   } = useSearchLogic(query, isPageLoaded);
+
   useEffect(() => {
     if (isOpen) {
       const timeout = setTimeout(() => {
-        inputRef.current?.focus();
-        inputRef.current?.select();
+        inputReference.current?.focus();
+        inputReference.current?.select();
       }, 0);
 
       return () => clearTimeout(timeout);
     }
   }, [isOpen]);
   useEffect(() => {
-    const el = resultsContainerRef.current;
+    const element = resultsContainerReference.current;
 
-    if (!el) {
+    if (!element) {
       return;
     }
 
     const checkFade = () => {
       setShowFade(
-        el.scrollHeight > el.clientHeight &&
-          el.scrollTop + el.clientHeight < el.scrollHeight - 1
+        element.scrollHeight > element.clientHeight &&
+          element.scrollTop + element.clientHeight < element.scrollHeight - 1
       );
     };
+
     checkFade();
-    el.addEventListener("scroll", checkFade);
+    element.addEventListener("scroll", checkFade);
     globalThis.addEventListener("resize", checkFade);
 
     return () => {
-      el.removeEventListener("scroll", checkFade);
+      element.removeEventListener("scroll", checkFade);
       globalThis.removeEventListener("resize", checkFade);
     };
   }, [results]);
@@ -1359,7 +1277,6 @@ export const SearchInPage: React.FC<{sections: SearchSection[]}> = ({sections}) 
       setIsResultsProcessed(false);
     }
   }, [isPageLoaded, results]);
-
   const handleQueryChange = (value: string) => {
     setQuery(value);
 
@@ -1371,7 +1288,6 @@ export const SearchInPage: React.FC<{sections: SearchSection[]}> = ({sections}) 
       setIsResultsProcessed(false);
     }
   };
-
   const handleLinkClick = useCallback(
     (id: string) => {
       const summaryElement = document.getElementById(id);
@@ -1387,22 +1303,22 @@ export const SearchInPage: React.FC<{sections: SearchSection[]}> = ({sections}) 
       }
 
       const headerHeight = document.querySelector("header")?.offsetHeight ?? 0;
-
       const padding = 14;
-
       const y =
         summaryElement.getBoundingClientRect().top +
         globalThis.pageYOffset -
         headerHeight -
         padding;
-      globalThis.scrollTo({top: y, behavior: "smooth"});
 
+      globalThis.scrollTo({behavior: "smooth", top: y});
       const event = new CustomEvent("open-spoiler-by-id", {detail: {id}});
+
       globalThis.dispatchEvent(event);
       closeModal();
     },
     [closeModal]
   );
+
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (!isOpen || results.length === 0) {
@@ -1410,23 +1326,21 @@ export const SearchInPage: React.FC<{sections: SearchSection[]}> = ({sections}) 
       }
 
       switch (e.key) {
-        case "ArrowDown":
+        case "ArrowDown": {
           e.preventDefault();
-          setSelectedResultIndex((prevIndex) =>
-            prevIndex < results.length - 1 ? prevIndex + 1 : prevIndex
+          setSelectedResultIndex((previousIndex) =>
+            previousIndex < results.length - 1 ? previousIndex + 1 : previousIndex
           );
-
           break;
-
-        case "ArrowUp":
+        }
+        case "ArrowUp": {
           e.preventDefault();
-          setSelectedResultIndex((prevIndex) =>
-            prevIndex > 0 ? prevIndex - 1 : prevIndex
+          setSelectedResultIndex((previousIndex) =>
+            previousIndex > 0 ? previousIndex - 1 : previousIndex
           );
-
           break;
-
-        case "Enter":
+        }
+        case "Enter": {
           e.preventDefault();
 
           if (selectedResultIndex >= 0 && selectedResultIndex < results.length) {
@@ -1434,6 +1348,7 @@ export const SearchInPage: React.FC<{sections: SearchSection[]}> = ({sections}) 
           }
 
           break;
+        }
       }
     };
 
@@ -1452,8 +1367,8 @@ export const SearchInPage: React.FC<{sections: SearchSection[]}> = ({sections}) 
       }
 
       const resultContainer = document.querySelector(".search-results");
-
       const selectedResultElements = resultContainer?.querySelectorAll(".search-link");
+
       selectedResultElements?.[selectedResultIndex]?.scrollIntoView({
         behavior: "smooth",
         block: "center",
@@ -1461,7 +1376,7 @@ export const SearchInPage: React.FC<{sections: SearchSection[]}> = ({sections}) 
     }
   }, [selectedResultIndex]);
   useEffect(() => {
-    const container = resultsContainerRef.current;
+    const container = resultsContainerReference.current;
 
     if (!container) {
       return;
@@ -1470,7 +1385,6 @@ export const SearchInPage: React.FC<{sections: SearchSection[]}> = ({sections}) 
     const handleClick = (event: MouseEvent) => {
       if (event.target instanceof HTMLElement && event.target.tagName === "MARK") {
         event.stopPropagation();
-
         const button = event.target.closest(".search-link") as HTMLButtonElement | null;
 
         if (button) {
@@ -1478,13 +1392,13 @@ export const SearchInPage: React.FC<{sections: SearchSection[]}> = ({sections}) 
         }
       }
     };
+
     container.addEventListener("click", handleClick, true);
 
     return () => {
       container.removeEventListener("click", handleClick, true);
     };
   }, []);
-
   const renderContent = () => {
     if (!isSearching) {
       return (
@@ -1500,7 +1414,7 @@ export const SearchInPage: React.FC<{sections: SearchSection[]}> = ({sections}) 
         <>
           <SearchResults
             query={resultsQuery}
-            resultRefs={resultRefs}
+            resultRefs={resultReferences}
             results={results}
             selectedResultIndex={selectedResultIndex}
             onLinkClick={handleLinkClick}
@@ -1535,7 +1449,7 @@ export const SearchInPage: React.FC<{sections: SearchSection[]}> = ({sections}) 
           <div className="modal-content">
             <div className="search-input-wrapper">
               <input
-                ref={inputRef}
+                ref={inputReference}
                 className="search-input"
                 placeholder="Введите что-нибудь для поиска..."
                 style={{cursor: "text"}}
@@ -1547,8 +1461,8 @@ export const SearchInPage: React.FC<{sections: SearchSection[]}> = ({sections}) 
                 <span
                   style={{
                     color: "var(--summary-text)",
-                    fontWeight: 500,
                     fontSize: "1.05em",
+                    fontWeight: 500,
                   }}
                 >
                   {results.length}
@@ -1575,7 +1489,7 @@ export const SearchInPage: React.FC<{sections: SearchSection[]}> = ({sections}) 
               </button>
             </div>
             <div
-              ref={resultsContainerRef}
+              ref={resultsContainerReference}
               className={`search-results${showFade ? " show-fade" : ""}`}
             >
               {renderContent()}

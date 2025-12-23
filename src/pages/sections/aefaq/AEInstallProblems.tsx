@@ -1,14 +1,11 @@
-import {Divider} from "antd";
-
 import React from "react";
 
+import {Divider} from "antd";
+
 import Addition from "../../../components/content/Addition";
-
 import {ContentFigure} from "../../../components/content/ContentFigure";
-
-import DetailsSummary from "../../../components/content/DetailsSummary";
-
 import ContentFilter from "../../../components/content/ContentFilter";
+import DetailsSummary from "../../../components/content/DetailsSummary";
 
 const AEInstallProblems: React.FC = () => {
   return (
@@ -1713,11 +1710,8 @@ const AEInstallProblems: React.FC = () => {
             <mark className="app">Telegram</mark> загружает установочные файлы с ошибками.{" "}
             {(() => {
               const userAgent = navigator.userAgent.toLowerCase();
-
               const isIOS = /iphone|ipad/.test(userAgent);
-
               const isAndroid = /android/.test(userAgent);
-
               const isMacOS = /macintosh|mac os x/.test(userAgent);
 
               if (isIOS) {
@@ -2731,7 +2725,7 @@ const AEInstallProblems: React.FC = () => {
           В этом окне вам нужно предоставить файл лицензии с расширением{" "}
           <mark className="file">LICENSE</mark> с помощью кнопки{" "}
           <mark className="select">«Install License File»</mark>. Если файл лицензии не
-          принимается, то, скорее всего, вы не прочли полностью инструкцию по активации{" "}
+          принимается, то, скорее всего, вы не прочли полностью инструкцию по активации
           «народной» версии этого плагина. Обычно там указано, что для корректного
           принятия файла с лицензией нужно подменить файл плагина на тот, что предоставлен
           в записи, откуда вы скачали плагин. Тогда файл с активацией применится
@@ -2980,7 +2974,7 @@ const AEInstallProblems: React.FC = () => {
                 Чтобы обновиться с сохранением плагинов и пресетов, нужно переименовать
                 папку старой версии программы. Так установщик новой версии «подумает»,
                 будто она уже установлена, и предложит перезаписать файлы. Для этого
-                откройте директорию с программами <mark className="company">Adobe</mark>,{" "}
+                откройте директорию с программами <mark className="company">Adobe</mark>,
                 обычно это <mark className="path">C:\Program Files\Adobe</mark>. Затем
                 продублируйте папку старой версии, уберите из имени приставку{" "}
                 <mark>«- копия»</mark> и измените год на нужный. Например, при переходе с{" "}
@@ -3122,23 +3116,21 @@ const AEInstallProblems: React.FC = () => {
           href="#errors"
           onClick={(e) => {
             e.preventDefault();
-
-            const target = document.getElementById("errors");
+            const target = document.querySelector("#errors");
 
             if (target) {
               const headerHeight = document.querySelector("header")?.offsetHeight ?? 0;
-
               const padding = Math.min(
                 10 + (14 - 10) * ((window.innerWidth - 320) / (768 - 320)),
                 14
               );
-
               const y =
                 target.getBoundingClientRect().top +
                 window.pageYOffset -
                 headerHeight -
                 padding;
-              window.scrollTo({top: y, behavior: "smooth"});
+
+              window.scrollTo({behavior: "smooth", top: y});
             }
           }}
         >

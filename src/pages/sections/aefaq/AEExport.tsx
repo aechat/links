@@ -1,18 +1,13 @@
-import {Divider} from "antd";
-
 import React from "react";
 
+import {Divider} from "antd";
+
 import Addition from "../../../components/content/Addition";
-
-import {ContentFigure} from "../../../components/content/ContentFigure";
-
-import DetailsSummary from "../../../components/content/DetailsSummary";
-
-import ContentFilter from "../../../components/content/ContentFilter";
-
-import JsonToTgsConverter from "../../../components/features/converters/ConverterJsonToTgs";
-
 import CodeSnippet from "../../../components/content/CodeSnippet";
+import {ContentFigure} from "../../../components/content/ContentFigure";
+import ContentFilter from "../../../components/content/ContentFilter";
+import DetailsSummary from "../../../components/content/DetailsSummary";
+import JsonToTgsConverter from "../../../components/features/converters/ConverterJsonToTgs";
 
 const AEExport: React.FC = () => {
   return (

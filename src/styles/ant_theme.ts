@@ -1,22 +1,26 @@
 const themeConfig = {
   components: {
     Breadcrumb: {
-      linkHoverColor: "var(--color-accent)",
-      linkColor: "var(--color-text-primary)",
       itemColor: "var(--color-text-tertiary)",
+      linkColor: "var(--color-text-primary)",
+      linkHoverColor: "var(--color-accent)",
       separatorColor: "var(--color-accent)",
     },
     Divider: {
-      colorTextHeading: "var(--color-surface-primary-text)",
       colorSplit: "var(--color-surface-primary-border)",
+      colorTextHeading: "var(--color-surface-primary-text)",
       fontSizeLG: 15,
+    },
+    Modal: {
+      headerBg: "transparent",
+      titleColor: "var(--color-text-primary)",
     },
     Slider: {
       dotActiveBorderColor: "var(--color-accent)",
+      dotBorderColor: "var(--color-accent)",
       handleActiveColor: "var(--color-accent)",
       handleActiveOutlineColor: "var(--color-accent)",
       handleColor: "var(--color-accent)",
-      dotBorderColor: "var(--color-accent)",
       railBg: "var(--color-border-primary)",
       railHoverBg: "var(--color-border-primary)",
       trackBg: "var(--color-surface-primary-border)",
@@ -27,15 +31,11 @@ const themeConfig = {
       colorText: "var(--color-text-primary)",
       colorTextLightSolid: "var(--color-text-primary)",
     },
-    Modal: {
-      titleColor: "var(--color-text-primary)",
-      headerBg: "transparent",
-    },
   },
   token: {
     colorBgElevated: "var(--color-background-secondary)",
-    fontFamily: "Inter, sans-serif",
     colorText: "var(--color-text-primary)",
+    fontFamily: "Inter, sans-serif",
   },
 };
 

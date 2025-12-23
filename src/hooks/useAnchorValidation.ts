@@ -1,8 +1,7 @@
 import {useEffect} from "react";
 
-import {useLocation} from "react-router-dom";
-
 import {message} from "antd";
+import {useLocation} from "react-router-dom";
 
 interface Section {
   id: string;
@@ -10,6 +9,7 @@ interface Section {
 
 export const useAnchorValidation = (sections: Section[], isPageLoaded: boolean) => {
   const {hash} = useLocation();
+
   useEffect(() => {
     if (!isPageLoaded) return;
 
@@ -37,7 +37,11 @@ export const useAnchorValidation = (sections: Section[], isPageLoaded: boolean) 
       message.error(
         "Не удалось найти статью по ссылке, возможно, она была перемещена или удалена."
       );
-      history.replaceState(null, "", window.location.pathname + window.location.search);
+      history.replaceState(
+        null,
+        "",
+        globalThis.location.pathname + globalThis.location.search
+      );
     }
   }, [hash, sections, isPageLoaded]);
 };

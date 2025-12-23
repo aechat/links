@@ -1,8 +1,7 @@
-import {CloseRounded} from "@mui/icons-material";
-
-import {Modal} from "antd";
-
 import React, {useCallback, useEffect, useState} from "react";
+
+import {CloseRounded} from "@mui/icons-material";
+import {Modal} from "antd";
 
 interface TargetArticle {
   id: string;
@@ -11,41 +10,32 @@ interface TargetArticle {
 
 export const useInternalLinkHandler = () => {
   const [modalVisible, setModalVisible] = useState(false);
-
   const [targetArticle, setTargetArticle] = useState<TargetArticle | null>(null);
-
   const handleLinkClick = useCallback((event: React.MouseEvent<HTMLElement>) => {
     const target = event.target as HTMLElement;
-
     const anchor = target.closest('a[href^="#"]');
 
     if (anchor && anchor.getAttribute("href")!.length > 1) {
       const href = anchor.getAttribute("href")!;
-
-      const anchorValue = href.substring(1);
+      const anchorValue = href.slice(1);
       let targetDetails: HTMLElement | null;
-
       const elementById = document.getElementById(anchorValue);
 
-      if (elementById) {
-        targetDetails = elementById.closest("details");
-      } else {
-        targetDetails = document.querySelector<HTMLElement>(
-          `details[data-anchor="${anchorValue}"]`
-        );
-      }
+      targetDetails = elementById
+        ? elementById.closest("details")
+        : document.querySelector<HTMLElement>(`details[data-anchor="${anchorValue}"]`);
 
       if (targetDetails) {
         const currentDetails = (event.currentTarget as HTMLElement).closest("details");
 
         if (currentDetails !== targetDetails) {
           event.preventDefault();
-
           const summary = targetDetails.querySelector(".faq-summary");
 
           if (summary && summary.id) {
             const titleElement = summary.querySelector("h3");
             let title = titleElement ? titleElement.textContent : "без названия";
+
             title = title.replace(/^\d+\.\d+\.\s*/, "");
             setTargetArticle({id: summary.id, title});
             setModalVisible(true);
@@ -54,7 +44,6 @@ export const useInternalLinkHandler = () => {
       }
     }
   }, []);
-
   const handleOk = useCallback(() => {
     if (targetArticle) {
       const targetElement = document.getElementById(targetArticle.id);
@@ -63,10 +52,12 @@ export const useInternalLinkHandler = () => {
         const details = targetElement.closest("details");
 
         if (details) {
-          window.dispatchEvent(new CustomEvent("close-all-spoilers"));
+          globalThis.dispatchEvent(new CustomEvent("close-all-spoilers"));
           setTimeout(() => {
-            window.dispatchEvent(
-              new CustomEvent("open-spoiler-by-id", {detail: {id: targetArticle.id}})
+            globalThis.dispatchEvent(
+              new CustomEvent("open-spoiler-by-id", {
+                detail: {id: targetArticle.id},
+              })
             );
           }, 50);
         }
@@ -76,11 +67,11 @@ export const useInternalLinkHandler = () => {
     setModalVisible(false);
     setTargetArticle(null);
   }, [targetArticle]);
-
   const handleCancel = useCallback(() => {
     setModalVisible(false);
     setTargetArticle(null);
   }, []);
+
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Enter") {
@@ -96,7 +87,6 @@ export const useInternalLinkHandler = () => {
       document.removeEventListener("keydown", handleKeyDown);
     };
   }, [modalVisible, handleOk]);
-
   const InternalLinkModal = (
     <Modal
       centered

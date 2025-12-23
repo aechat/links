@@ -35,7 +35,10 @@ async function processor(filePath, originalContent) {
   }
 
   for (const rep of replacements.reverse()) {
-    fixedContent = fixedContent.substring(0, rep.start) + rep.newText + fixedContent.substring(rep.end);
+    fixedContent =
+      fixedContent.substring(0, rep.start) +
+      rep.newText +
+      fixedContent.substring(rep.end);
   }
 
   return fixedContent;

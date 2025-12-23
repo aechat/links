@@ -1,62 +1,58 @@
-import {motion} from "framer-motion";
-
 import React, {useEffect, useRef, useState} from "react";
 
+import {motion} from "framer-motion";
 import {Helmet} from "react-helmet-async";
 
 interface Subtitle {
-  start: number;
   end: number;
+  start: number;
   text: string;
 }
-
 const NotFound = () => {
-  const audioRef = useRef<HTMLAudioElement | null>(null);
-
+  const audioReference = useRef<HTMLAudioElement | null>(null);
   const [subtitles, setSubtitles] = useState<Subtitle[]>([]);
-
   const [currentSubtitle, setCurrentSubtitle] = useState<string>("Пустота");
-  useEffect(() => {
-    audioRef.current = new Audio("/files/404.mp3");
 
+  useEffect(() => {
+    audioReference.current = new Audio("/files/404.mp3");
     const fetchSubtitles = async () => {
       try {
         const response = await fetch("/files/404.json");
-
         const json = await response.json();
+
         setSubtitles(json);
       } catch (error) {
         console.error("Ошибка загрузки субтитров:", error);
       }
     };
-    fetchSubtitles();
 
+    fetchSubtitles();
     const handlePlayAudio = () => {
-      if (audioRef.current) {
-        audioRef.current.play().catch((error) => {
+      if (audioReference.current) {
+        audioReference.current.play().catch((error) => {
           console.error("Ошибка воспроизведения аудио:", error);
         });
       }
     };
-    window.addEventListener("click", handlePlayAudio);
+
+    globalThis.addEventListener("click", handlePlayAudio);
 
     return () => {
-      if (audioRef.current) {
-        audioRef.current.pause();
-        audioRef.current.currentTime = 0;
+      if (audioReference.current) {
+        audioReference.current.pause();
+        audioReference.current.currentTime = 0;
       }
 
-      window.removeEventListener("click", handlePlayAudio);
+      globalThis.removeEventListener("click", handlePlayAudio);
     };
   }, []);
   useEffect(() => {
     const updateSubtitle = () => {
-      if (!audioRef.current) {
+      if (!audioReference.current) {
         return;
       }
 
-      const currentTime = audioRef.current.currentTime;
-
+      const currentTime = audioReference.current.currentTime;
       const current = subtitles.find(
         (sub) => currentTime >= sub.start && currentTime <= sub.end
       );
@@ -68,23 +64,23 @@ const NotFound = () => {
       }
     };
 
-    if (audioRef.current) {
-      audioRef.current.addEventListener("timeupdate", updateSubtitle);
+    if (audioReference.current) {
+      audioReference.current.addEventListener("timeupdate", updateSubtitle);
     }
 
     return () => {
-      if (audioRef.current) {
-        audioRef.current.removeEventListener("timeupdate", updateSubtitle);
+      if (audioReference.current) {
+        audioReference.current.removeEventListener("timeupdate", updateSubtitle);
       }
     };
   }, [subtitles, currentSubtitle]);
 
   return (
     <motion.main
-      animate={{scale: 1, opacity: 1}}
+      animate={{opacity: 1, scale: 1}}
       className="not-found error"
-      exit={{scale: 0.5, opacity: 0}}
-      initial={{scale: 0.5, opacity: 0}}
+      exit={{opacity: 0, scale: 0.5}}
+      initial={{opacity: 0, scale: 0.5}}
       transition={{duration: 0.75, ease: [0.25, 0, 0, 1]}}
     >
       <Helmet>
@@ -150,7 +146,7 @@ const NotFound = () => {
         <div className="error-backtitle">{currentSubtitle}</div>
         <div
           className="modal"
-          style={{maxWidth: "450px", margin: "15px"}}
+          style={{margin: "15px", maxWidth: "450px"}}
         >
           <div className="error-content">
             <div className="error-title">Страница не найдена</div>
@@ -158,8 +154,8 @@ const NotFound = () => {
               <div className="flexible-links">
                 <button
                   onClick={() => {
-                    window.location.reload();
-                    window.location.href = "/";
+                    globalThis.location.reload();
+                    globalThis.location.href = "/";
                   }}
                 >
                   На главную

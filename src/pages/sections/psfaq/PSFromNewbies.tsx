@@ -1,11 +1,9 @@
-import {Divider} from "antd";
-
 import React from "react";
 
+import {Divider} from "antd";
+
 import Addition from "../../../components/content/Addition";
-
 import {ContentFigure} from "../../../components/content/ContentFigure";
-
 import DetailsSummary from "../../../components/content/DetailsSummary";
 
 const PSFromNewbies: React.FC = () => {
@@ -51,7 +49,13 @@ const PSFromNewbies: React.FC = () => {
           <a href="https://www.youtube.com/@PANTERvision/videos">P A N T E R</a>
           <a href="https://www.youtube.com/@thazero/videos">ThaZero</a>
         </div>
-        <p style={{textAlign: "center", fontSize: "0.95rem", fontWeight: "700"}}>
+        <p
+          style={{
+            fontSize: "0.95rem",
+            fontWeight: "700",
+            textAlign: "center",
+          }}
+        >
           Надеюсь, вы найдёте что-то полезное для себя. Удачи в ваших начинаниях!
         </p>
       </DetailsSummary>

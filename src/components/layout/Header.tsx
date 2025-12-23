@@ -1,71 +1,58 @@
-import {ArrowBackRounded, SwipeUpRounded} from "@mui/icons-material";
-
-import {motion} from "framer-motion";
-
 import React, {useEffect, useState} from "react";
 
+import {ArrowBackRounded, SwipeUpRounded} from "@mui/icons-material";
+import {Tooltip} from "antd";
+import {motion} from "framer-motion";
 import {Link, useLocation} from "react-router-dom";
 
+import {SearchButton} from "../features/SearchEngine";
+import SupportDonut from "../modals/SupportDonut";
 import {ThemeToggleButton} from "../modals/ThemeChanger";
 
-import {SearchButton} from "../features/SearchEngine";
-
-import SupportDonut from "../modals/SupportDonut";
-
-import {Tooltip} from "antd";
-
-interface HeaderProps {
+interface HeaderProperties {
   title: string;
 }
-
 const constants = {
-  SCROLL_THRESHOLD: 25,
-  WIDE_SCREEN_WIDTH: 650,
   ANIMATION_DURATION: 0.5,
   ANIMATION_EASE: [0.075, 0.82, 0.165, 1],
+  SCROLL_THRESHOLD: 25,
+  WIDE_SCREEN_WIDTH: 650,
 } as const;
-
 const SEARCH_PATHS = ["aefaq", "prfaq", "psfaq", "aeexpr"] as const;
-
 const WIP_PATHS = ["prfaq", "psfaq", "aeexpr"] as const;
-
 const TOOLTIP_MESSAGES: Record<string, string> = {
+  "/": "Ссылки на полезные ресурсы, программы и чаты",
+  "/aeexpr": "Руководство по выражениям в Adobe After Effects",
   "/aefaq": "Ответы на часто задаваемые вопросы по Adobe After Effects",
   "/prfaq": "Ответы на часто задаваемые вопросы по Adobe Premiere Pro",
   "/psfaq": "Ответы на часто задаваемые вопросы по Adobe Photoshop",
-  "/aeexpr": "Руководство по выражениям в Adobe After Effects",
   "/rules": "Правила сообщества AEChat и DWChat",
-  "/": "Ссылки на полезные ресурсы, программы и чаты",
 };
-
-const Header: React.FC<HeaderProps> = ({title}) => {
+const Header: React.FC<HeaderProperties> = ({title}) => {
   const location = useLocation();
-
   const [isVisible, setIsVisible] = useState(false);
-
   const [isWide, setIsWide] = useState(
-    typeof window !== "undefined"
-      ? window.innerWidth > constants.WIDE_SCREEN_WIDTH
-      : false
+    globalThis.window === undefined
+      ? false
+      : window.innerWidth > constants.WIDE_SCREEN_WIDTH
   );
-
   const scrollToTop = (): void => {
-    if (typeof window !== "undefined") {
+    if (globalThis.window !== undefined) {
       window.scrollTo({
-        top: 0,
         behavior: "smooth",
+        top: 0,
       });
-      window.history.replaceState({}, "", currentPath);
+      globalThis.history.replaceState({}, "", currentPath);
     }
   };
-
   const checkScrollPosition = (): void => {
-    if (typeof window !== "undefined") {
+    if (globalThis.window !== undefined) {
       setIsVisible(window.scrollY > constants.SCROLL_THRESHOLD);
     }
   };
+
   useEffect(() => {
-    if (typeof window !== "undefined") {
+    if (globalThis.window !== undefined) {
       window.addEventListener("scroll", checkScrollPosition);
 
       return () => {
@@ -74,10 +61,11 @@ const Header: React.FC<HeaderProps> = ({title}) => {
     }
   }, []);
   useEffect(() => {
-    if (typeof window !== "undefined") {
+    if (globalThis.window !== undefined) {
       const resizeHandler = (): void => {
         setIsWide(window.innerWidth > constants.WIDE_SCREEN_WIDTH);
       };
+
       window.addEventListener("resize", resizeHandler);
 
       return () => {
@@ -85,17 +73,14 @@ const Header: React.FC<HeaderProps> = ({title}) => {
       };
     }
   }, []);
-
   const shouldShowSearch = (): boolean => {
-    if (typeof window !== "undefined") {
+    if (globalThis.window !== undefined) {
       return SEARCH_PATHS.some((path) => currentPath.includes(path));
     }
 
     return false;
   };
-
   const currentPath = location.pathname;
-
   const tooltipMessage = TOOLTIP_MESSAGES[currentPath];
 
   return (

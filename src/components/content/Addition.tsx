@@ -2,34 +2,30 @@ import React, {ReactNode} from "react";
 
 import {Tooltip} from "antd";
 
-interface AdditionProps {
+interface AdditionProperties {
   children: ReactNode;
   type: "info" | "warning" | "danger" | "tldr";
 }
-
-const Addition: React.FC<AdditionProps> = ({children, type}) => {
+const Addition: React.FC<AdditionProperties> = ({children, type}) => {
   let className: string;
 
   switch (type) {
-    case "info":
+    case "info": {
       className = "addition-info";
-
       break;
-
-    case "warning":
+    }
+    case "warning": {
       className = "addition-warning";
-
       break;
-
-    case "danger":
+    }
+    case "danger": {
       className = "addition-danger";
-
       break;
-
-    case "tldr":
+    }
+    case "tldr": {
       className = "addition-tldr";
-
       break;
+    }
   }
 
   if (!className) {

@@ -1,14 +1,11 @@
-import {Divider} from "antd";
-
 import React from "react";
 
+import {Divider} from "antd";
+
 import Addition from "../../../components/content/Addition";
-
 import {ContentFigure} from "../../../components/content/ContentFigure";
-
-import DetailsSummary from "../../../components/content/DetailsSummary";
-
 import ContentFilter from "../../../components/content/ContentFilter";
+import DetailsSummary from "../../../components/content/DetailsSummary";
 
 const PRExport: React.FC = () => {
   return (
@@ -364,7 +361,7 @@ const PRExport: React.FC = () => {
         <Addition type="warning">
           <ul>
             <li>
-              Чтобы подключить плагин к <mark className="app">Adobe Premiere Pro</mark>,{" "}
+              Чтобы подключить плагин к <mark className="app">Adobe Premiere Pro</mark>,
               нужно скачать и установить сам <mark className="plugin">Voukoder</mark> и{" "}
               <mark className="plugin">коннектор</mark> к нему. Для корректной установки
               плагина убедитесь, что вы не устанавливали{" "}
@@ -1147,10 +1144,10 @@ const PRExport: React.FC = () => {
               </p>
               <div
                 style={{
+                  alignItems: "center",
                   display: "grid",
                   gap: "10px",
                   gridTemplateColumns: "repeat(auto-fit, minmax(275px, 1fr))",
-                  alignItems: "center",
                 }}
               >
                 <ContentFigure

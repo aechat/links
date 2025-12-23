@@ -41,11 +41,14 @@ table {
       background: none;
 
       &::before {
-        width: min(calc(9px + (14 - 9) * ((100vw - 320px) / (768 - 320))), 14px) !important;
+        width: min(
+          calc(9px + (14 - 9) * ((100vw - 320px) / (768 - 320))),
+          14px
+        ) !important;
         height: min(
-            calc(9px + (14 - 9) * ((100vw - 320px) / (768 - 320))),
-            14px
-          ) !important;
+          calc(9px + (14 - 9) * ((100vw - 320px) / (768 - 320))),
+          14px
+        ) !important;
       }
     }
   }

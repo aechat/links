@@ -1,14 +1,11 @@
-import {UploadFileRounded} from "@mui/icons-material";
-
-import {Radio, Spin, Upload, message} from "antd";
-
 import pkg from "file-saver";
+import {gzip} from "pako";
+import React, {useEffect, useState} from "react";
+
+import {UploadFileRounded} from "@mui/icons-material";
+import {message, Radio, Spin, Upload} from "antd";
 
 const {saveAs} = pkg;
-
-import {gzip} from "pako";
-
-import React, {useEffect, useState} from "react";
 
 interface Pyodide {
   FS: {
@@ -22,54 +19,50 @@ declare global {
     loadPyodide: () => Promise<Pyodide>;
   }
 }
-
 const TgsToJsonConverter: React.FC = () => {
   const [jsonData, setJsonData] = useState<Record<string, unknown> | null>(null);
-
   const [originalFileName, setOriginalFileName] = useState<string>("");
-
   const [compressionMode, setCompressionMode] = useState<"js" | "python">("js");
-
   const [pyodide, setPyodide] = useState<Pyodide | null>(null);
-
   const [loading, setLoading] = useState(false);
+
   useEffect(() => {
     if (compressionMode === "python" && !pyodide) {
       loadPyodideInline();
     }
   }, [compressionMode, pyodide]);
-
   const loadPyodideInline = async (): Promise<void> => {
     setLoading(true);
 
     try {
       const script = document.createElement("script");
+
       script.src = "https://cdn.jsdelivr.net/pyodide/v0.22.1/full/pyodide.js";
-      script.onload = async () => {
-        const py: Pyodide = await window.loadPyodide();
+      script.addEventListener("load", async () => {
+        const py: Pyodide = await globalThis.loadPyodide();
+
         setPyodide(py);
         setLoading(false);
         message.success("Python-интерпретатор загружен, начните процесс конвертации");
-      };
-
+      });
       script.onerror = () => {
         message.error("Не удалось загрузить Python-интерпретатор");
         setLoading(false);
       };
-      document.body.appendChild(script);
-    } catch (e) {
-      console.error("Ошибка загрузки Pyodide:", e);
+      document.body.append(script);
+    } catch (error) {
+      console.error("Ошибка загрузки Pyodide:", error);
       message.error("Не удалось загрузить Python-интерпретатор");
       setLoading(false);
     }
   };
-
   const handleFileUpload = async (file: File): Promise<boolean> => {
     try {
       const fileData = await file.text();
-      setOriginalFileName(file.name);
 
+      setOriginalFileName(file.name);
       const json = JSON.parse(fileData);
+
       setJsonData(json);
       message.success("Файл успешно загружен!");
     } catch (error) {
@@ -79,19 +72,18 @@ const TgsToJsonConverter: React.FC = () => {
 
     return false;
   };
-
   const downloadTgs = async (): Promise<void> => {
     if (!jsonData) {
       return;
     }
 
     setLoading(true);
-
     const jsonString = JSON.stringify(jsonData, null, 2);
     let blob;
 
     if (compressionMode === "js") {
       const compressed = gzip(jsonString);
+
       blob = new Blob([compressed], {type: "application/gzip"});
     } else if (compressionMode === "python") {
       if (!pyodide) {
@@ -102,6 +94,7 @@ const TgsToJsonConverter: React.FC = () => {
       }
 
       const buffer = new TextEncoder().encode(jsonString);
+
       pyodide.FS.writeFile("input.json", buffer);
       await pyodide.runPythonAsync(`
 import gzip
@@ -109,9 +102,9 @@ with open("input.json", "rb") as f_in:
     with gzip.open("output.tgs", "wb") as f_out:
         f_out.write(f_in.read())
       `);
-
       const result = pyodide.FS.readFile("output.tgs");
-      blob = new Blob([result.slice()], {type: "application/gzip"});
+
+      blob = new Blob([[...result]], {type: "application/gzip"});
     }
 
     if (!blob) {

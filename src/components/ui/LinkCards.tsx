@@ -1,41 +1,34 @@
 import React, {useRef} from "react";
 
-import {Link} from "react-router-dom";
-
 import {message} from "antd";
+import {Link} from "react-router-dom";
 
 import {copyText} from "../../hooks/useCopyToClipboard";
 
-interface LinkCardProps {
+interface LinkCardProperties {
+  description?: string;
+  href: string;
   icon: React.ReactNode;
   name: string;
-  href: string;
-  description?: string;
   variant?: "external" | "internal";
 }
 
-export const LinkCard: React.FC<LinkCardProps> = ({
+export const LinkCard: React.FC<LinkCardProperties> = ({
+  description,
+  href,
   icon,
   name,
-  href,
-  description,
   variant = "external",
 }) => {
   const hasDescription = !!description;
-
   const touchStartTime = useRef(0);
-
   const isPotentialLongPress = useRef(false);
-
   const touchStartCoords = useRef({x: 0, y: 0});
-
   const isTouchEventInProgress = useRef(false);
-
   const handleCopyLink = async (event: React.MouseEvent | React.TouchEvent) => {
     event.stopPropagation();
-
-    const urlToCopy = variant === "internal" ? `${window.location.origin}${href}` : href;
-
+    const urlToCopy =
+      variant === "internal" ? `${globalThis.location.origin}${href}` : href;
     const success = await copyText(urlToCopy);
 
     if (success) {
@@ -44,7 +37,6 @@ export const LinkCard: React.FC<LinkCardProps> = ({
       message.error("Не удалось скопировать ссылку");
     }
   };
-
   const handleContextMenu = (e: React.MouseEvent) => {
     e.preventDefault();
 
@@ -54,32 +46,26 @@ export const LinkCard: React.FC<LinkCardProps> = ({
 
     handleCopyLink(e);
   };
-
   const handleTouchStart = (e: React.TouchEvent) => {
     isTouchEventInProgress.current = true;
     touchStartTime.current = Date.now();
     isPotentialLongPress.current = true;
-
     const touch = e.touches[0];
+
     touchStartCoords.current = {x: touch.clientX, y: touch.clientY};
   };
-
   const handleTouchMove = (e: React.TouchEvent) => {
     if (!isPotentialLongPress.current) return;
 
     const touch = e.touches[0];
-
     const moveThreshold = 10;
-
     const deltaX = Math.abs(touch.clientX - touchStartCoords.current.x);
-
     const deltaY = Math.abs(touch.clientY - touchStartCoords.current.y);
 
     if (deltaX > moveThreshold || deltaY > moveThreshold) {
       isPotentialLongPress.current = false;
     }
   };
-
   const handleTouchEnd = (e: React.TouchEvent) => {
     if (isPotentialLongPress.current) {
       const pressDuration = Date.now() - touchStartTime.current;
@@ -95,13 +81,10 @@ export const LinkCard: React.FC<LinkCardProps> = ({
     }, 300);
     isPotentialLongPress.current = false;
   };
-
   const content = (
     <>
       <div
-        className={`name-container ${
-          !hasDescription ? "name-container_full-height" : ""
-        }`}
+        className={`name-container ${hasDescription ? "" : "name-container_full-height"}`}
       >
         <span className="icon">{icon}</span>
         <p className="name">{name}</p>

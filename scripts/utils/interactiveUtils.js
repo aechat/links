@@ -1,7 +1,7 @@
-import * as readline from 'node:readline/promises';
-import { stdin as input, stdout as output } from 'node:process';
+import * as readline from "node:readline/promises";
+import {stdin as input, stdout as output} from "node:process";
 
-export const rl = readline.createInterface({ input, output });
+export const rl = readline.createInterface({input, output});
 
 // Белый список слов, которые не нужно преобразовывать (заполняется в процессе работы).
 const whitelist = new Set();
@@ -38,5 +38,5 @@ export async function askForConfirmation(original, proposed) {
 
 export async function confirmFileWrite(filePath) {
   const answer = await rl.question(`Сохранить изменения в файле ${filePath}? (y/n) `);
-  return answer.toLowerCase() === 'y';
+  return answer.toLowerCase() === "y";
 }

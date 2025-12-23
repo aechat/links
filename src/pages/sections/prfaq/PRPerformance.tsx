@@ -1,12 +1,10 @@
-import {Divider} from "antd";
-
 import React from "react";
 
+import {Divider} from "antd";
+
 import Addition from "../../../components/content/Addition";
-
-import DetailsSummary from "../../../components/content/DetailsSummary";
-
 import ContentFilter from "../../../components/content/ContentFilter";
+import DetailsSummary from "../../../components/content/DetailsSummary";
 
 const PRPerformance: React.FC = () => {
   return (
@@ -17,15 +15,14 @@ const PRPerformance: React.FC = () => {
       >
         <p>{/* FIXME: написать!! */}</p>
       </DetailsSummary>
-      <DetailsSummary title="Как заставить программу использовать всю мощь компьютера?">
-        {/* я заплатил за весь спидометр и я буду использовать весь спидометр */}
-        <p>{/* FIXME: написать!! */}</p>
+      <DetailsSummary title="Какой компьютер или ноутбук стоит взять для работы в Premiere Pro?">
+        {/* FIXME: написать!! */}
       </DetailsSummary>
       <DetailsSummary title="Зачем люди переключают рендер на процессор, если есть видеокарта? Как мне переключить рендер на процессор?">
-        <p>{/* FIXME: написать!! */}</p>
+        {/* FIXME: написать!! */}
       </DetailsSummary>
       <DetailsSummary title="Предпросмотр идёт как-будто в slow-motion, что делать?">
-        <p>{/* FIXME: написать!! */}</p>
+        {/* FIXME: написать!! */}
       </DetailsSummary>
     </div>
   );

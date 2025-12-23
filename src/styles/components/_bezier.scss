@@ -140,7 +140,9 @@
     fill: var(--color-easing-selection);
     stroke: var(--color-easing-text-primary);
     stroke-width: 1.5px;
-    transition: fill 0.5s cubic-bezier(0.075, 0.82, 0.165, 1), stroke 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+    transition:
+      fill 0.5s cubic-bezier(0.075, 0.82, 0.165, 1),
+      stroke 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
   }
 }
 
@@ -171,7 +173,9 @@
   &-background {
     fill: var(--color-easing-graph-background);
     stroke: var(--color-easing-graph-border);
-    transition: fill 0.5s cubic-bezier(0.075, 0.82, 0.165, 1), stroke 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+    transition:
+      fill 0.5s cubic-bezier(0.075, 0.82, 0.165, 1),
+      stroke 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
   }
 
   &-curve {
@@ -236,7 +240,9 @@
 
 .handle {
   fill: var(--color-easing-selection);
-  transition: filter 0.5s cubic-bezier(0.075, 0.82, 0.165, 1), fill 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+  transition:
+    filter 0.5s cubic-bezier(0.075, 0.82, 0.165, 1),
+    fill 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
   cursor: grab;
 
   &:hover {

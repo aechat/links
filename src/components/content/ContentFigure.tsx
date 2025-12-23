@@ -1,39 +1,36 @@
-import {message} from "antd";
-
 import React, {useCallback, useEffect, useState} from "react";
 
-import {createPortal} from "react-dom";
-
-import {useSpoiler} from "./DetailsSummary";
-
 import {ShareRounded} from "@mui/icons-material";
+import {message} from "antd";
+import {createPortal} from "react-dom";
 
 import {copyText} from "../../hooks/useCopyToClipboard";
 
-interface ContentFigureProps {
-  type: "image" | "video" | "youtube";
-  caption: string;
-  variant?: "windows" | "mac";
-  theme?: "light" | "dark";
-  src: string;
-  imgTitle?: string;
-  autoPlay?: boolean;
-  loop?: boolean;
-}
+import {useSpoiler} from "./DetailsSummary";
 
-const ContentFigure: React.FC<ContentFigureProps> = ({
-  type,
-  caption,
-  variant,
-  theme,
-  src,
-  imgTitle,
+interface ContentFigureProperties {
+  autoPlay?: boolean;
+  caption: string;
+  imgTitle?: string;
+  loop?: boolean;
+  src: string;
+  theme?: "light" | "dark";
+  type: "image" | "video" | "youtube";
+  variant?: "windows" | "mac";
+}
+const ContentFigure: React.FC<ContentFigureProperties> = ({
   autoPlay,
+  caption,
+  imgTitle,
   loop,
+  src,
+  theme,
+  type,
+  variant,
 }) => {
   const isOpen = useSpoiler();
-
   const [shouldRender, setShouldRender] = useState(isOpen);
+
   useEffect(() => {
     if (isOpen) {
       setShouldRender(true);
@@ -45,26 +42,19 @@ const ContentFigure: React.FC<ContentFigureProps> = ({
       return () => clearTimeout(timer);
     }
   }, [isOpen]);
-
   const [isFullscreen, setIsFullscreen] = useState(false);
-
   const [isClosing, setIsClosing] = useState(false);
-
   const [initialScrollY, setInitialScrollY] = useState(0);
-
   const styleClass =
     type === "youtube"
       ? "figure-browser-youtube"
       : `figure-${variant || "windows"}-${theme || "light"}`;
-
   const isWindowsStyle = variant === "windows";
-
   const handleMaximize = useCallback(() => {
     setInitialScrollY(window.scrollY);
     setIsFullscreen(true);
     setIsClosing(false);
   }, []);
-
   const handleClose = useCallback(() => {
     setIsClosing(true);
     setTimeout(() => {
@@ -72,7 +62,6 @@ const ContentFigure: React.FC<ContentFigureProps> = ({
       setIsClosing(false);
     }, 250);
   }, []);
-
   const handleClick = useCallback(() => {
     if (isFullscreen) {
       handleClose();
@@ -80,7 +69,6 @@ const ContentFigure: React.FC<ContentFigureProps> = ({
       handleMaximize();
     }
   }, [isFullscreen, handleClose, handleMaximize]);
-
   const handleClickOutside = useCallback(
     (e: React.MouseEvent<HTMLDivElement>) => {
       if (e.target === e.currentTarget) {
@@ -89,6 +77,7 @@ const ContentFigure: React.FC<ContentFigureProps> = ({
     },
     [handleClose]
   );
+
   useEffect(() => {
     const handleEscKey = (e: KeyboardEvent) => {
       if (e.key === "Escape" && isFullscreen) {
@@ -104,7 +93,6 @@ const ContentFigure: React.FC<ContentFigureProps> = ({
       document.removeEventListener("keydown", handleEscKey);
     };
   }, [isFullscreen, handleClose]);
-
   useEffect(() => {
     const handleScroll = () => {
       if (Math.abs(window.scrollY - initialScrollY) > window.innerHeight * 0.25) {
@@ -130,7 +118,7 @@ const ContentFigure: React.FC<ContentFigureProps> = ({
     className: string;
     onClick: () => void;
     svgPath?: string;
-  }> = ({label, className, onClick, svgPath}) => (
+  }> = ({className, label, onClick, svgPath}) => (
     <button
       aria-label={label}
       className={className}
@@ -153,7 +141,6 @@ const ContentFigure: React.FC<ContentFigureProps> = ({
   );
   let content: React.ReactNode;
   let id: string | undefined;
-
   const windowHeaderContent = (
     <>
       {isWindowsStyle && <figcaption>{caption}</figcaption>}
@@ -202,7 +189,6 @@ const ContentFigure: React.FC<ContentFigureProps> = ({
       {!isWindowsStyle && <figcaption>{caption}</figcaption>}
     </>
   );
-
   const MediaContentWrapper: React.FC<{children: React.ReactNode}> = ({children}) => (
     <div>
       <div
@@ -216,7 +202,7 @@ const ContentFigure: React.FC<ContentFigureProps> = ({
   );
 
   switch (type) {
-    case "image":
+    case "image": {
       content = (
         <MediaContentWrapper>
           <img
@@ -226,10 +212,9 @@ const ContentFigure: React.FC<ContentFigureProps> = ({
           />
         </MediaContentWrapper>
       );
-
       break;
-
-    case "video":
+    }
+    case "video": {
       content = (
         <MediaContentWrapper>
           <video
@@ -241,10 +226,9 @@ const ContentFigure: React.FC<ContentFigureProps> = ({
           />
         </MediaContentWrapper>
       );
-
       break;
-
-    case "youtube":
+    }
+    case "youtube": {
       id = src?.split("/").pop();
       content = (
         <>
@@ -283,11 +267,11 @@ const ContentFigure: React.FC<ContentFigureProps> = ({
           />
         </>
       );
-
       break;
-
-    default:
+    }
+    default: {
       content = <></>;
+    }
   }
 
   return (

@@ -1,18 +1,13 @@
-import {Divider} from "antd";
-
 import React from "react";
 
+import {Divider} from "antd";
+
 import Addition from "../../../components/content/Addition";
-
-import {ContentFigure} from "../../../components/content/ContentFigure";
-
-import DetailsSummary from "../../../components/content/DetailsSummary";
-
-import ContentFilter from "../../../components/content/ContentFilter";
-
-import TgsToJsonConverter from "../../../components/features/converters/ConverterTgsToJson";
-
 import CodeSnippet from "../../../components/content/CodeSnippet";
+import {ContentFigure} from "../../../components/content/ContentFigure";
+import ContentFilter from "../../../components/content/ContentFilter";
+import DetailsSummary from "../../../components/content/DetailsSummary";
+import TgsToJsonConverter from "../../../components/features/converters/ConverterTgsToJson";
 
 const ProjectStructureExample = `Обзор на Ford Focus 2
 ├── Video
@@ -37,7 +32,6 @@ const ProjectStructureExample = `Обзор на Ford Focus 2
 ├── сценарий.docx
 ├── project.prproj            // если вдруг пригодится Premiere Pro для сборки и нарезки клипов
 └── project.aep               // главный проект After Effects`;
-
 const AEImport: React.FC = () => {
   return (
     <div className="faq-content">
@@ -634,23 +628,21 @@ const AEImport: React.FC = () => {
             href="#import"
             onClick={(e) => {
               e.preventDefault();
-
-              const target = document.getElementById("import");
+              const target = document.querySelector("#import");
 
               if (target) {
                 const headerHeight = document.querySelector("header")?.offsetHeight ?? 0;
-
                 const padding = Math.min(
                   10 + (14 - 10) * ((window.innerWidth - 320) / (768 - 320)),
                   14
                 );
-
                 const y =
                   target.getBoundingClientRect().top +
                   window.pageYOffset -
                   headerHeight -
                   padding;
-                window.scrollTo({top: y, behavior: "smooth"});
+
+                window.scrollTo({behavior: "smooth", top: y});
               }
             }}
           >
@@ -661,23 +653,21 @@ const AEImport: React.FC = () => {
             href="#export"
             onClick={(e) => {
               e.preventDefault();
-
-              const target = document.getElementById("export");
+              const target = document.querySelector("#export");
 
               if (target) {
                 const headerHeight = document.querySelector("header")?.offsetHeight ?? 0;
-
                 const padding = Math.min(
                   10 + (14 - 10) * ((window.innerWidth - 320) / (768 - 320)),
                   14
                 );
-
                 const y =
                   target.getBoundingClientRect().top +
                   window.pageYOffset -
                   headerHeight -
                   padding;
-                window.scrollTo({top: y, behavior: "smooth"});
+
+                window.scrollTo({behavior: "smooth", top: y});
               }
             }}
           >

@@ -2,48 +2,48 @@ import {message} from "antd";
 
 let isAutoCopyEnabled = false;
 let isCopying = false;
+
 message.config({
-  top: 60,
   duration: 3,
   maxCount: 2,
+  top: 60,
 });
-
 const isExcludedElement = (element: HTMLElement): boolean => {
   return (
     element.closest(".search-content") !== null ||
     element.closest(".search-tags") !== null ||
     element.closest(".faq-tags .tag") !== null ||
-    (element.tagName === "MARK" && !element.classList.length)
+    (element.tagName === "MARK" && element.classList.length === 0)
   );
 };
-
 const copyWithFallback = (text: string): boolean => {
   const textArea = document.createElement("textarea");
+
   textArea.value = text;
   Object.assign(textArea.style, {
+    background: "transparent",
+    border: "none",
+    boxShadow: "none",
+    height: "1px",
+    left: "0",
+    outline: "none",
+    padding: "0",
     position: "fixed",
     top: "0",
-    left: "0",
     width: "1px",
-    height: "1px",
-    padding: "0",
-    border: "none",
-    outline: "none",
-    boxShadow: "none",
-    background: "transparent",
   });
-  document.body.appendChild(textArea);
+  document.body.append(textArea);
   textArea.focus();
   textArea.select();
   let success = false;
 
   try {
     success = document.execCommand("copy");
-  } catch (err) {
-    console.error("Fallback copy failed:", err);
+  } catch (error) {
+    console.error("Fallback copy failed:", error);
   }
 
-  document.body.removeChild(textArea);
+  textArea.remove();
 
   return success;
 };
@@ -65,8 +65,8 @@ export const copyText = async (text: string): Promise<boolean> => {
     } else {
       return copyWithFallback(text);
     }
-  } catch (err) {
-    console.error("Clipboard API failed, trying fallback:", err);
+  } catch (error) {
+    console.error("Clipboard API failed, trying fallback:", error);
 
     return copyWithFallback(text);
   }
@@ -89,7 +89,6 @@ export const useCopyToClipboard = () => {
     }
 
     isCopying = true;
-
     const textToCopy = (elementToCopy as HTMLElement).innerText;
 
     try {
@@ -104,7 +103,6 @@ export const useCopyToClipboard = () => {
       isCopying = false;
     }
   };
-
   const enableAutoCopy = (): void => {
     if (isAutoCopyEnabled) {
       return;

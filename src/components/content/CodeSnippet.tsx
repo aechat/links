@@ -1,32 +1,31 @@
 import {message} from "antd";
 
 import hljs from "highlight.js";
-
 import "highlight.js/styles/github-dark.css";
-
 import React, {useEffect, useRef} from "react";
 
-interface CodeSnippetProps {
-  language?: string;
+interface CodeSnippetProperties {
   children: string;
+  language?: string;
 }
+const CodeSnippet: React.FC<CodeSnippetProperties> = ({
+  children,
+  language = "javascript",
+}) => {
+  const codeReference = useRef<HTMLElement | null>(null);
 
-const CodeSnippet: React.FC<CodeSnippetProps> = ({language = "javascript", children}) => {
-  const codeRef = useRef<HTMLElement | null>(null);
   useEffect(() => {
-    if (codeRef.current) {
-      hljs.highlightBlock(codeRef.current);
+    if (codeReference.current) {
+      hljs.highlightBlock(codeReference.current);
     }
   }, [children, language]);
-
   const handleCopy = (event: React.MouseEvent<HTMLPreElement>): void => {
     event.stopPropagation();
-
     const textArea = document.createElement("textarea");
+    const codeText = codeReference.current?.textContent ?? "";
 
-    const codeText = codeRef.current?.textContent ?? "";
     textArea.value = codeText;
-    document.body.appendChild(textArea);
+    document.body.append(textArea);
     textArea.select();
     document.execCommand("copy");
     textArea.remove();
@@ -40,7 +39,7 @@ const CodeSnippet: React.FC<CodeSnippetProps> = ({language = "javascript", child
       onClick={handleCopy}
     >
       <code
-        ref={codeRef}
+        ref={codeReference}
         className={language}
       >
         {children}
