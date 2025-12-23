@@ -1,9 +1,6 @@
 {
   "plugins": ["stylelint-order"],
-  "extends": [
-    "stylelint-config-standard-scss",
-    "stylelint-config-concentric-order"
-  ],
+  "extends": ["stylelint-config-standard-scss", "stylelint-config-concentric-order"],
   "rules": {
     "at-rule-no-unknown": null,
     "scss/at-rule-no-unknown": true,

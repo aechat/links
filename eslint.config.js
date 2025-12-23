@@ -1,12 +1,14 @@
 import pluginJs from "@eslint/js";
 import prettierConfig from "eslint-config-prettier";
 import pluginJsxA11y from "eslint-plugin-jsx-a11y";
-import perfectionist from "eslint-plugin-perfectionist";
+import pluginImport from "eslint-plugin-import";
 import pluginPrettier from "eslint-plugin-prettier";
 import pluginReact from "eslint-plugin-react";
+import perfectionistPlugin from "eslint-plugin-perfectionist";
+import sonarjs from "eslint-plugin-sonarjs";
+import unicornPlugin from "eslint-plugin-unicorn";
 import globals from "globals";
 import tseslint from "typescript-eslint";
-
 /** @type {import('eslint').Linter.Config[]} */
 export default [
   {
@@ -16,9 +18,7 @@ export default [
       "**/@typescript-eslint/*",
       ".yarn/**",
       ".pnp.*",
-      "eslint.config.js",
-      "vite.config.ts",
-      "scripts/**",
+      "scripts/**/*",
     ],
   },
   {
@@ -38,103 +38,124 @@ export default [
       },
     },
     plugins: {
-      perfectionist,
       "jsx-a11y": pluginJsxA11y,
-      prettier: pluginPrettier,
+      "prettier": pluginPrettier,
       "@typescript-eslint": tseslint.plugin,
-      react: pluginReact,
+      "react": pluginReact,
+      "import": pluginImport,
+      "perfectionist": perfectionistPlugin,
+      "unicorn": unicornPlugin,
     },
     settings: {
       react: {
-        version: "19.2.0",
+        version: "detect",
       },
     },
     rules: {
-      "prettier/prettier": [
-        "warn",
-        {
-          arrowParens: "always",
-          bracketSpacing: false,
-          embeddedLanguageFormatting: "auto",
-          endOfLine: "lf",
-          htmlWhitespaceSensitivity: "strict",
-          insertPragma: false,
-          printWidth: 90,
-          proseWrap: "never",
-          quoteProps: "consistent",
-          requirePragma: false,
-          semi: true,
-          singleAttributePerLine: true,
-          singleQuote: false,
-          tabWidth: 2,
-          trailingComma: "es5",
-          useTabs: false,
-          vueIndentScriptAndStyle: true,
-        },
-      ],
+      "prettier/prettier": "warn",
       "eol-last": "off",
       "padding-line-between-statements": [
         "warn",
-        {blankLine: "always", prev: "import", next: "export"},
-        {blankLine: "always", prev: "import", next: "*"},
-        {blankLine: "always", prev: "*", next: "import"},
-        {blankLine: "always", prev: "*", next: "const"},
-        {blankLine: "always", prev: "const", next: "function"},
-        {blankLine: "always", prev: "function", next: "function"},
-        {blankLine: "always", prev: "block-like", next: "block-like"},
-        {blankLine: "always", prev: "block", next: "*"},
-        {blankLine: "always", prev: "function", next: "const"},
-        {blankLine: "always", prev: "*", next: "export"},
-        {blankLine: "always", prev: "class", next: "export"},
-        {blankLine: "always", prev: "const", next: "export"},
-        {blankLine: "always", prev: "let", next: "export"},
-        {blankLine: "always", prev: "var", next: "export"},
-        {blankLine: "always", prev: "export", next: "class"},
-        {blankLine: "always", prev: "class", next: "class"},
-        {blankLine: "always", prev: "class", next: "function"},
-        {blankLine: "always", prev: "function", next: "class"},
-        {blankLine: "always", prev: "*", next: "class"},
-        {blankLine: "always", prev: "class", next: "*"},
-        {blankLine: "always", prev: "*", next: "function"},
-        {blankLine: "always", prev: "function", next: "*"},
-        {blankLine: "always", prev: "*", next: "return"},
-        {blankLine: "always", prev: "return", next: "*"},
-        {blankLine: "always", prev: "*", next: "break"},
-        {blankLine: "always", prev: "break", next: "*"},
-        {blankLine: "always", prev: "*", next: "continue"},
-        {blankLine: "always", prev: "continue", next: "*"},
-        {blankLine: "always", prev: "*", next: "throw"},
-        {blankLine: "always", prev: "throw", next: "*"},
-        {blankLine: "always", prev: "*", next: "try"},
-        {blankLine: "always", prev: "try", next: "*"},
-        {blankLine: "always", prev: "*", next: "switch"},
-        {blankLine: "always", prev: "switch", next: "*"},
-        {blankLine: "always", prev: "*", next: "case"},
-        {blankLine: "always", prev: "case", next: "*"},
-        {blankLine: "always", prev: "*", next: "default"},
-        {blankLine: "always", prev: "default", next: "*"},
-        {blankLine: "always", prev: "*", next: "if"},
-        {blankLine: "always", prev: "if", next: "*"},
-        {blankLine: "always", prev: "*", next: "for"},
-        {blankLine: "always", prev: "for", next: "*"},
-        {blankLine: "always", prev: "*", next: "while"},
-        {blankLine: "always", prev: "while", next: "*"},
-        {blankLine: "always", prev: "*", next: "do"},
-        {blankLine: "always", prev: "do", next: "*"},
+        {
+          blankLine: "always",
+          prev: "*",
+          next: ["return", "class", "function", "if", "switch", "try", "export"],
+        },
+        {
+          blankLine: "always",
+          prev: ["return", "class", "function", "if", "switch", "try", "export"],
+          next: "*",
+        },
+        {
+          blankLine: "never",
+          prev: ["singleline-const", "singleline-let"],
+          next: ["singleline-const", "singleline-let"],
+        },
       ],
       "grouped-accessor-pairs": ["warn", "getBeforeSet"],
       "no-duplicate-imports": "warn",
-      "sort-imports": [
+      "import/newline-after-import": "warn",
+      "import/order": [
         "warn",
         {
-          ignoreCase: false,
-          ignoreDeclarationSort: true,
-          ignoreMemberSort: false,
+          "groups": [
+            "builtin",
+            "external",
+            "internal",
+            "parent",
+            "sibling",
+            "index",
+            "object",
+            "type",
+          ],
+          "newlines-between": "always",
+          "alphabetize": {
+            order: "asc",
+            caseInsensitive: true,
+          },
         },
       ],
-      curly: ["warn", "all"],
+      "sort-vars": ["warn", {ignoreCase: true}],
+      "perfectionist/sort-variable-declarations": [
+        "warn",
+        {
+          order: "asc",
+          ignoreCase: true,
+        },
+      ],
+      "perfectionist/sort-classes": [
+        "warn",
+        {
+          type: "alphabetical",
+          order: "asc",
+          ignoreCase: true,
+          groups: [
+            "index-signature",
+            "static-property",
+            "private-property",
+            "property",
+            "constructor",
+            "static-method",
+            "private-method",
+            "method",
+            "unknown",
+          ],
+        },
+      ],
+      "perfectionist/sort-interfaces": [
+        "warn",
+        {
+          type: "alphabetical",
+          order: "asc",
+          ignoreCase: true,
+        },
+      ],
+      "perfectionist/sort-named-exports": [
+        "warn",
+        {
+          order: "asc",
+          ignoreCase: true,
+        },
+      ],
+      "perfectionist/sort-named-imports": [
+        "warn",
+        {
+          order: "asc",
+          ignoreCase: true,
+        },
+      ],
+      "perfectionist/sort-objects": [
+        "warn",
+        {
+          type: "alphabetical",
+          order: "asc",
+          ignoreCase: true,
+        },
+      ],
+      ...unicornPlugin.configs.recommended.rules,
+      "curly": ["warn", "all"],
       "no-empty": ["warn", {allowEmptyCatch: true}],
-      eqeqeq: ["warn", "always"],
+      "eqeqeq": ["warn", "always"],
       "no-console": ["warn", {allow: ["warn", "error"]}],
       "react/jsx-uses-vars": "warn",
       "react/jsx-sort-props": [
@@ -169,5 +190,41 @@ export default [
   pluginJs.configs.recommended,
   ...tseslint.configs.recommended,
   pluginReact.configs.flat.recommended,
+  sonarjs.configs.recommended,
+  {
+    rules: {
+      "sonarjs/todo-tag": "warn",
+      "sonarjs/fixme-tag": "warn",
+    },
+  },
+  {
+    files: ["src/**/*.tsx"],
+    rules: {
+      "unicorn/filename-case": [
+        "warn",
+        {
+          case: "pascalCase",
+        },
+      ],
+    },
+  },
+  {
+    files: ["src/**/*.ts"],
+    rules: {
+      "unicorn/filename-case": [
+        "warn",
+        {
+          case: "camelCase",
+          ignore: ["vite-env.d.ts"],
+        },
+      ],
+    },
+  },
+  {
+    files: ["src/vite-env.d.ts"],
+    rules: {
+      "unicorn/prevent-abbreviations": "off",
+    },
+  },
   prettierConfig,
 ];

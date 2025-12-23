@@ -1,8 +1,8 @@
 import legacy from "@vitejs/plugin-legacy";
 import react from "@vitejs/plugin-react";
 import autoprefixer from "autoprefixer";
-import {readFile, writeFile} from "fs/promises";
-import path from "path";
+import {readFile, writeFile} from "node:fs/promises";
+import path from "node:path";
 import {defineConfig} from "vite";
 export default defineConfig({
   resolve: {
@@ -25,14 +25,14 @@ export default defineConfig({
     {
       name: "generate-404-html",
       closeBundle: async () => {
-        const distPath = path.join(__dirname, "dist", "client");
-        const indexPath = path.join(distPath, "index.html");
-        const notFoundPath = path.join(distPath, "404.html");
+        const distributionPath = path.join(__dirname, "dist", "client");
+        const indexPath = path.join(distributionPath, "index.html");
+        const notFoundPath = path.join(distributionPath, "404.html");
         try {
           const indexContent = await readFile(indexPath, "utf-8");
           await writeFile(notFoundPath, indexContent, "utf-8");
-        } catch (err) {
-          console.error("Ошибка при создании 404.html:", err);
+        } catch (error) {
+          console.error("Ошибка при создании 404.html:", error);
         }
       },
     },
