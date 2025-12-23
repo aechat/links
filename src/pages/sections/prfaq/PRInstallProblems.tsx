@@ -1536,44 +1536,33 @@ const PRInstallProblems: React.FC = () => {
                 <a href="https://t.me/joinchat/F1DdXtG9LephYWUy">AEChat</a>, пользователи
                 сталкиваются с одной и той же проблемой: нужное дополнение не появляется в
                 программе, хотя установка выполнена строго по{" "}
-                <a href="#2.1">инструкциям</a>. Причина часто кроется в одной детали: если{" "}
+                <a href="#how-to-install">инструкциям</a>. Причина почти всегда одна:{" "}
                 <mark className="app">Adobe Premiere Pro</mark> установлен в нестандартную
-                директорию, многие установщики просто не обнаружат программу.
+                директорию.
               </p>
               <p>
-                Установка <mark className="app">Adobe Premiere Pro</mark> в нестандартную
-                папку, например в <mark className="path">D:\MyApps</mark>, нередко
-                приводит к проблемам при установке сторонних дополнений. Большинство
-                инсталляторов, такие как <mark className="plugin">Red Giant</mark> или{" "}
-                <mark className="plugin">Universe</mark>, ориентированы на распаковку
-                файлов в стандартных директориях для{" "}
-                <mark className="company">Adobe</mark> и не проверяют фактическое место
-                установки программы. В результате плагины могут не установиться, а
-                установщик сообщит об ошибке, как будто{" "}
-                <mark className="app">Adobe Premiere Pro</mark> отсутствует, хотя на самом
-                деле он установлен.
+                Дело в том, что большинство инсталляторов, такие как{" "}
+                <mark className="plugin">Red Giant</mark>,{" "}
+                <mark className="plugin">Universe</mark> или{" "}
+                <mark className="plugin">FX Console</mark>, «тупо» ищут стандартные пути
+                вроде <mark className="path">C:\Program Files\Adobe</mark> и не пытаются
+                найти программу в другом месте. В итоге установщик либо выдаёт ошибку,
+                будто <mark className="app">Adobe Premiere Pro</mark> не найден, либо, что
+                ещё хуже, ставит плагины для другой программы. Например, найдя{" "}
+                <mark className="app">DaVinci Resolve</mark> по стандартному пути, он
+                установит <mark>OFX</mark>-версию плагина для него, а ваш{" "}
+                <mark className="app">Adobe Premiere Pro</mark> останется ни с чем.
               </p>
               <p>
-                Ситуация осложняется, когда инсталлятор, например{" "}
-                <mark className="plugin">Red Giant</mark>, ищет на диске любую совместимую
-                программу: если в стандартных папках он находит, например,{" "}
-                <mark className="app">DaVinci Resolve</mark>, которая поддерживает формат
-                плагинов <mark>OpenFX</mark>, а{" "}
-                <mark className="app">Adobe Premiere Pro</mark> установлен в другом месте,
-                эффекты будут установлены только для программ с поддержкой формата{" "}
-                <mark>OFX</mark>, а <mark className="app">Adobe Premiere Pro</mark>{" "}
-                останется без них.
-              </p>
-              <p>
-                Проблемы могут возникнуть не только с дополнениями, но и при
-                взаимодействии между программами от <mark className="company">Adobe</mark>
-                . Если <mark className="app">Adobe Premiere Pro</mark> и{" "}
-                <mark className="app">Adobe Media Encoder</mark> установлены в
-                нестандартные директории, они могут не связаться друг с другом. Например,{" "}
+                Но проблемы не заканчиваются на сторонних дополнениях: это может сломать
+                связь и между самими программами <mark className="company">Adobe</mark>.
+                Например, если <mark className="app">Adobe Premiere Pro</mark> и{" "}
+                <mark className="app">Adobe Media Encoder</mark> установлены в разные
+                нестандартные директории, то{" "}
                 <mark className="app">Adobe Premiere Pro</mark> не сможет отправить
-                композицию на рендеринг в <mark className="app">Adobe Media Encoder</mark>
-                , сообщив, что программа не установлена, хотя это не так.
-              </p>{" "}
+                секвенцию на рендер в <mark className="app">Adobe Media Encoder</mark>,
+                сообщив, что программа не установлена.
+              </p>
               <Divider>Как устранить эту проблему в будущем?</Divider>
               <p>
                 Чтобы избавиться от подобных проблем, нужно переустановить{" "}
