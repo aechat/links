@@ -502,138 +502,140 @@ const PSInstallProblems: React.FC = () => {
         />
       </DetailsSummary>
       <DetailsSummary
+        anchor="disable-defender"
         tag="репак от кролика, выключить дефендер, отрубить антивирус, ложное срабатывание, хелпер, ошибка 24, вирусы, трояны, проверьте правильно ли указано имя и повторите попытку, windows не удается получить доступ к указанному устройству пути или файлу, возможно у вас нет нужных разрешений для доступа к этому объекту, некоторые файлы не были созданы, операция не была успешно завершена так как файл содержит вирус или потенциально нежелательную программу, обнаружены угрозы, куда-то пропадают файлы плагинов и программ, operation did not complete successfully because the file contains a virus or potentially unwanted software, windows cannot find helper.exe, make sure you typed the name correctly and then try again, 0x800700E1"
         title="«Не удаётся найти „..\install\helper.exe“» или как отключить Windows Defender и Windows Smartscreen?"
       >
-        <p>
-          Обычно антивирусы срабатывают на модификацию оригинальных файлов, удаляя{" "}
-          <mark className="word">пролеченные файлы</mark> и классифицирует их как{" "}
-          <mark className="warning">HackTool:Win32/Crack!MTB</mark> или другими
-          обозначениями. Ещё антивирус может удалить файл{" "}
-          <mark className="file">HELPER.EXE</mark> в репаках от{" "}
-          <mark className="user">KpoJluK</mark>, который распаковывает дистрибутивы{" "}
-          <mark className="company">Adobe</mark> из-за того, что в нём находится галочка{" "}
-          <mark className="select">«Реклама»</mark> и помечает это как{" "}
-          <mark className="warning">Contrebrew.A!ml</mark>,{" "}
-          <mark className="warning">Adware</mark> или иначе. Иногда файлы могут удаляться
-          и из дистрибутивов от <mark className="user">m0nkrus</mark> или аналогичных
-          репакеров, а также при распаковке различных плагинов и файлов из интернета, даже
-          если они действительно не содержат <mark className="app">вредоносного ПО</mark>.
-        </p>
-        <Divider>Отключаем стандартный антивирус на время</Divider>
-        <p>
-          Если вы готовы взять на себя риски, связанные с установкой программного
-          обеспечения неофициальными способами, то для нормальной установки программ,
-          плагинов или другого содержимого - необходимо временно отключить встроенный
-          антивирус <mark className="app">Windows Defender</mark> или любой другой,
-          установленный на вашем устройстве.
-        </p>
-        <ContentFigure
-          caption="Как отключить Защитник Windows 11"
-          src="blwRAOQUjsM"
-          type="youtube"
-        />
-        <Addition type="danger">
-          <ul>
-            <li>
-              Скачиваая и устанавливая содержимое на ваше устройство из каналов{" "}
-              <a href="https://t.me/s/designworld">Design World</a>,{" "}
-              <a href="https://t.me/+Qd9xu7A4TeIwNzY6">склад стройматериалов (Windows)</a>{" "}
-              или <a href="https://t.me/+ZqiaMfQRFgM4YmEy">Яблоневый сад (macOS)</a> - вы
-              принимаете все риски и берёте на себя ответственность за использование
-              нелегальных материалов.
-            </li>
-            <li>
-              Администрация вышеупомянутых каналов не может принимать на полном серьёзе
-              вбросы по типу{" "}
-              <mark className="quote">
-                «ой в складе, саду или аетемпе одни вирусы водятся»
-              </mark>{" "}
-              без внятных доказательств. Ложное срабатывание антивируса или{" "}
-              <mark className="app">VirusTotal</mark> не является доказательством
-              действительного наличия зловредов в том или ином архиве или программе.
-            </li>
-            <li>
-              Если вы доверяете нашим источникам - отключайте{" "}
-              <mark className="app">антивирусное ПО</mark> при установке программ и
-              плагинов, либо не предъявляйте претензии на основе вашей паранои и
-              оформляйте покупку софта за свои кровные.
-            </li>
-          </ul>
-        </Addition>
-        <Divider>Вносим исключения для Windows Defender</Divider>
-        <p>
-          Если вы не хотите отключать или удалять{" "}
-          <mark className="app">Windows Defender</mark> с вашего устройства, то вы можете
-          добавить папку <mark className="path">C:\Program Files\Adobe</mark>, а также
-          добавить <mark className="path">%TEMP%</mark> в список исключений вашего
-          антивируса. После настройки исключений - начните установку программы как обычно.
-        </p>
-        <Addition type="info">
-          Если директория <mark className="path">C:\Program Files\Adobe</mark> отсутствует
-          - создайте его самостоятельно.
-        </Addition>
-        <ContentFigure
-          caption="Windows Defender - как восстановить файлы и запретить их удаление"
-          src="ET94_dv3f8c"
-          type="youtube"
-        />
-        <Divider>Или удаляем Windows Defender с корнями</Divider>
-        <p>
-          Если вы доверяете источникам, откуда вы скачиваете и устанавливаете программы,
-          или вас бесят ложные срабатывания от{" "}
-          <mark className="app">Windows Defender</mark>, то вы можете удалить его навсегда
-          с помощью различных утилит.
-        </p>
-        <ul>
-          <li>
-            С помощью <mark className="app">DefenderKiller</mark>, который можно загрузить
-            из{" "}
-            <a href="https://win10tweaker.ru/forum/topic/defenderkiller">
-              форума Win10Tweaker
-            </a>
-            .
-          </li>
-          <li>
-            С помощью <mark className="app">Defender Remover</mark> на{" "}
-            <a href="https://github.com/ionuttbara/windows-defender-remover/releases">
-              GitHub
-            </a>
-            .
-          </li>
-          <li>
-            С помощью <mark className="app">Winaero Tweaker</mark>.{" "}
-            <a href="https://winaero.com/disable-or-enable-windows-defender-in-windows-10#Disable_Microsoft_Defender_with_Winaero_Tweaker">
-              Подробнее...
-            </a>
-          </li>
-        </ul>
-        <Addition type="warning">
-          <mark className="app">Windows Defender</mark> может вернуться к вам после
-          установки крупного обновления, например при переходе с <mark>Windows 11</mark>{" "}
-          версии <mark>24H2</mark> на <mark>Windows 11</mark> версии <mark>25H2</mark>.
-          Для того чтобы от него избавиться - просто повторите процесс удаления.
-        </Addition>
-        <Divider>Вынимаем палки из колёс от Windows Smartscreen</Divider>
-        <p>
-          Иногда при открытии установочного файла вам может помешать предупреждение{" "}
-          <mark className="select">«Система Windows защитила ваш компьютер»</mark> по
-          центру экрана. Его обычно вызывает{" "}
-          <mark className="app">Windows Smartscreen</mark> - фильтр файлов от{" "}
-          <mark>Microsoft</mark>, скачанных с интернета и он часто помечает{" "}
-          <mark className="file">EXE</mark> файлы как подозрительные. Поэтому и
-          приостанавливает запуск исполняемых файлов. Чтобы запустить такой файл, вам
-          нужно нажать на <mark className="select">«Подробнее»</mark> и на{" "}
-          <mark className="select">«Выполнить в любом случае»</mark>. Но иногда бывают
-          такие случаи, что после нажатия на <mark className="select">«Подробнее»</mark>{" "}
-          ничего не выводится. В таком случае вам нужно отключить{" "}
-          <mark className="app">Windows Smartscreen</mark> в параметрах{" "}
-          <mark className="app">Защитника Windows</mark>.
-        </p>
-        <ContentFigure
-          caption="Как отключить Windows Smartscreen"
-          src="HxlxS1Mdyp0"
-          type="youtube"
+        <ContentFilter
+          windowsContent={
+            <div>
+              <p>
+                При установке «народного» программного обеспечения ваш антивирус может
+                сработать на модифицированные файлы, удалить их и пометить как{" "}
+                <mark className="warning">«HackTool:Win32/Crack!MTB»</mark>,{" "}
+                <mark className="warning">«Contrebrew.A!ml»</mark>,{" "}
+                <mark className="warning">«Adware»</mark>,{" "}
+                <mark className="warning">«Adload»</mark> или даже «троян» и «опаснейший
+                вирус». Например, ошибка{" "}
+                <mark className="danger">«helper.exe не найден»</mark> в репаках от{" "}
+                <mark className="user">KpoJluK</mark> возникает именно потому, что
+                антивирус удаляет этот файл, считая его угрозой из-за чекбокса для
+                установки рекламного ПО, который можно убрать перед установкой.
+              </p>
+              <p>
+                Поэтому, если вы доверяете <a href="#1.1">источникам</a>, откуда скачали
+                файлы, паниковать не нужно. Просто временно или полностью отключите
+                антивирус, чтобы избежать проблем при установке. Это касается не только
+                репаков, но и плагинов, и других файлов из интернета — даже если они
+                абсолютно безопасны.{" "}
+                <i style={{opacity: "0.5"}}>
+                  А если не доверяете — не предъявляйте администраторам претензии,
+                  основанные на вашей паранойе, а просто купите лицензию.
+                </i>
+              </p>
+              <p>
+                В этой статье в качестве примера{" "}
+                <mark className="app">антивирусного ПО</mark> будет выступать стандартный{" "}
+                <mark className="app">Windows Defender</mark>, поставляемый в операционную
+                систему «из коробки», так как именно он чаще всего и «вставляет палки в
+                колёса».
+              </p>
+              <Addition type="info">
+                Способы отключения и удаления{" "}
+                <mark className="app">Windows Defender</mark>, описанные в этой статье,
+                могут незначительно отличаться в зависимости от вашей установленной версии{" "}
+                <mark>Windows</mark>.
+              </Addition>
+              <Divider>Отключаем Windows Defender на время</Divider>
+              <p>
+                Если вы готовы взять на себя риски, связанные с установкой программного
+                обеспечения неофициальными способами, то для нормальной установки
+                программ, плагинов или другого содержимого необходимо временно отключить
+                встроенный антивирус <mark className="app">Windows Defender</mark> или
+                любой другой, установленный на вашем устройстве.
+              </p>
+              <ContentFigure
+                caption="Как отключить Защитник Windows 11"
+                src="blwRAOQUjsM"
+                type="youtube"
+              />
+              <Divider>Или удаляем Windows Defender с корнем</Divider>
+              <p>
+                Если вас раздражают ложные срабатывания или вы хотите отключить{" "}
+                <mark className="app">Windows Defender</mark> раз и навсегда, то вы можете
+                сделать это с помощью нескольких утилит из списка ниже.
+              </p>
+              <div className="flexible-links">
+                <a href="https://win10tweaker.ru/forum/topic/defenderkiller">
+                  DefenderKiller
+                </a>
+                <a href="https://github.com/ionuttbara/windows-defender-remover/releases">
+                  Defender Remover
+                </a>
+                <a href="https://winaero.com/disable-or-enable-windows-defender-in-windows-10#Disable_Microsoft_Defender_with_Winaero_Tweaker">
+                  Winaero Tweaker
+                </a>
+                <a href="https://www.sordum.org/9480/defender-control-v2-1/">
+                  Defender Control
+                </a>
+              </div>
+              <Addition type="danger">
+                Полное удаление <mark className="app">Windows Defender</mark>{" "}
+                рекомендуется только опытным пользователям <mark>Windows</mark>, которые
+                полностью осознают возможные последствия и используют альтернативные
+                средства защиты — например собственную бдительность, сторонние антивирусы
+                или регулярное резервное копирование данных. Если вы не слишком уверенный
+                пользователь и не уверены в своих действиях, лучше ограничиться временным
+                отключением антивируса или добавлением нужных файлов и папок в исключения.
+              </Addition>
+              <Addition type="warning">
+                <mark className="app">Windows Defender</mark> может вернуться после
+                установки крупного обновления, например при переходе с{" "}
+                <mark>Windows 11</mark> версии <mark>24H2</mark> на{" "}
+                <mark>Windows 11</mark> версии <mark>25H2</mark>. Чтобы от него
+                избавиться, просто повторите процесс удаления.
+              </Addition>
+              <Divider>Вносим исключения для Windows Defender</Divider>
+              <p>
+                Если вы не хотите отключать или удалять{" "}
+                <mark className="app">Windows Defender</mark> с вашего устройства, то
+                можете добавить папку <mark className="path">C:\Program Files\Adobe</mark>
+                , а также <mark className="path">%TEMP%</mark> в список исключений вашего
+                антивируса. После настройки исключений начните установку программы как
+                обычно.
+              </p>
+              <Addition type="info">
+                Если директория <mark className="path">C:\Program Files\Adobe</mark>{" "}
+                отсутствует, создайте её самостоятельно.
+              </Addition>
+              <ContentFigure
+                caption="Windows Defender — как восстановить файлы и запретить их удаление"
+                src="ET94_dv3f8c"
+                type="youtube"
+              />
+              <Divider>Убираем «палки в колёсах» от Windows Smartscreen</Divider>
+              <p>
+                Иногда при открытии установочного файла вам может помешать предупреждение{" "}
+                <mark className="select">«Система Windows защитила ваш компьютер»</mark>{" "}
+                по центру экрана. Его обычно вызывает{" "}
+                <mark className="app">Windows Smartscreen</mark> — фильтр файлов от{" "}
+                <mark>Microsoft</mark>, скачанных из интернета, и он часто помечает{" "}
+                <mark className="file">EXE</mark> как подозрительные, поэтому и
+                приостанавливает их запуск. Чтобы запустить такой файл, вам нужно нажать
+                на <mark className="select">«Подробнее»</mark>, а затем на{" "}
+                <mark className="select">«Выполнить в любом случае»</mark>. Но иногда
+                после нажатия на <mark className="select">«Подробнее»</mark> ничего не
+                выводится. В таком случае вам нужно отключить{" "}
+                <mark className="app">Windows Smartscreen</mark> в параметрах{" "}
+                <mark className="app">«Защитника Windows»</mark>.
+              </p>
+              <ContentFigure
+                caption="Как отключить Windows Smartscreen"
+                src="HxlxS1Mdyp0"
+                type="youtube"
+              />
+            </div>
+          }
         />
       </DetailsSummary>
       <DetailsSummary
