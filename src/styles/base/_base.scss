@@ -9,10 +9,11 @@ body {
   margin: 0;
   background: var(--color-background-primary);
   padding: 0;
+  overflow-x: hidden;
+  color: var(--color-text-primary);
   scroll-padding-top: var(--header-height);
   scrollbar-color: var(--color-surface-primary-border) transparent;
   scrollbar-width: thin;
-  color: var(--color-text-primary);
   user-select: none;
 
   &::-webkit-scrollbar {

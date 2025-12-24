@@ -14,10 +14,12 @@ type Theme = "light" | "dark" | "system";
 interface ThemeContextProperties {
   accentHue: number;
   isAnimationDisabled: boolean;
+  isSnowfallEnabled: boolean;
   maxWidth: number;
   saturateRatio: number;
   setAccentHue: (hue: number) => void;
   setIsAnimationDisabled: (disabled: boolean) => void;
+  setIsSnowfallEnabled: (enabled: boolean) => void;
   setMaxWidth: (width: number) => void;
   setSaturateRatio: (ratio: number) => void;
   setTheme: (theme: Theme) => void;
@@ -32,6 +34,7 @@ export const ThemeProvider: React.FC<{children: React.ReactNode}> = ({children})
   const [maxWidthState, setMaxWidthState] = useState<number>(1175);
   const [isAnimationDisabledState, setIsAnimationDisabledState] =
     useState<boolean>(false);
+  const [isSnowfallEnabled, setIsSnowfallEnabled] = useState<boolean>(false);
 
   useEffect(() => {
     if (typeof localStorage !== "undefined") {
@@ -55,6 +58,20 @@ export const ThemeProvider: React.FC<{children: React.ReactNode}> = ({children})
       setSaturateRatioState(savedSaturateRatio);
       setMaxWidthState(savedMaxWidth);
       setIsAnimationDisabledState(savedIsAnimationDisabled);
+
+      const isWinter = [0, 1, 11].includes(new Date().getMonth());
+
+      if (isWinter) {
+        const snowfallSaved = localStorage.getItem("isSnowfallEnabled");
+
+        if (snowfallSaved === null) {
+          setIsSnowfallEnabled(true);
+        } else {
+          setIsSnowfallEnabled(snowfallSaved === "true");
+        }
+      } else {
+        setIsSnowfallEnabled(false);
+      }
     }
   }, []);
   const setTheme = (newTheme: Theme) => {
@@ -83,6 +100,13 @@ export const ThemeProvider: React.FC<{children: React.ReactNode}> = ({children})
 
     if (typeof localStorage !== "undefined") {
       localStorage.setItem("isAnimationDisabled", disabled.toString());
+    }
+  };
+  const setSnowfallEnabled = (enabled: boolean) => {
+    setIsSnowfallEnabled(enabled);
+
+    if (typeof localStorage !== "undefined") {
+      localStorage.setItem("isSnowfallEnabled", enabled.toString());
     }
   };
   const updateTheme = () => {
@@ -130,10 +154,12 @@ export const ThemeProvider: React.FC<{children: React.ReactNode}> = ({children})
     () => ({
       accentHue: accentHueState,
       isAnimationDisabled: isAnimationDisabledState,
+      isSnowfallEnabled: isSnowfallEnabled,
       maxWidth: maxWidthState,
       saturateRatio: saturateRatioState,
       setAccentHue,
       setIsAnimationDisabled,
+      setIsSnowfallEnabled: setSnowfallEnabled,
       setMaxWidth: (width: number) => {
         setMaxWidthState(width);
 
@@ -151,6 +177,7 @@ export const ThemeProvider: React.FC<{children: React.ReactNode}> = ({children})
       saturateRatioState,
       maxWidthState,
       isAnimationDisabledState,
+      isSnowfallEnabled,
     ]
   );
 
@@ -196,10 +223,12 @@ const ThemeModal: React.FC<ThemeModalProperties> = ({closeModal, isModalOpen}) =
   const {
     accentHue,
     isAnimationDisabled,
+    isSnowfallEnabled,
     maxWidth,
     saturateRatio,
     setAccentHue,
     setIsAnimationDisabled,
+    setIsSnowfallEnabled,
     setMaxWidth,
     setSaturateRatio,
     setTheme,
@@ -232,6 +261,11 @@ const ThemeModal: React.FC<ThemeModalProperties> = ({closeModal, isModalOpen}) =
   const currentPath =
     globalThis.window === undefined ? "" : globalThis.window.location.pathname;
   const allowedPaths = ["/aefaq", "/prfaq", "/psfaq", "/aeexpr", "/rules"];
+  const today = new Date();
+  const month = today.getMonth();
+  const day = today.getDate();
+  const isNewYearPeriod = (month === 11 && day >= 25) || (month === 0 && day <= 7);
+  const isWinter = [0, 1, 11].includes(month);
   const showWidthSelector =
     allowedPaths.some((path) => currentPath.startsWith(path)) && windowWidth >= 1000;
 
@@ -345,6 +379,35 @@ const ThemeModal: React.FC<ThemeModalProperties> = ({closeModal, isModalOpen}) =
               Выключена
             </button>
           </div>
+          {isWinter && (
+            <>
+              <div className="theme-title">
+                {isNewYearPeriod ? "Новогоднее настроение" : "Анимация снега"}
+              </div>
+              <div className="theme-selector">
+                <button
+                  className={
+                    isSnowfallEnabled
+                      ? "theme-button theme-button-selected"
+                      : "theme-button"
+                  }
+                  onClick={() => setIsSnowfallEnabled(true)}
+                >
+                  {isNewYearPeriod ? "Включено" : "Включена"}
+                </button>
+                <button
+                  className={
+                    isSnowfallEnabled
+                      ? "theme-button"
+                      : "theme-button theme-button-selected"
+                  }
+                  onClick={() => setIsSnowfallEnabled(false)}
+                >
+                  {isNewYearPeriod ? "Выключено" : "Выключена"}
+                </button>
+              </div>
+            </>
+          )}
           <div className="theme-title">
             Оттенок акцентного цвета
             <Tooltip title="Сбросить оттенок">

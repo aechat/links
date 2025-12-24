@@ -4,9 +4,10 @@ import {MetrikaCounter} from "react-metrika";
 import {ConfigProvider, message, Modal} from "antd";
 import {AnimatePresence} from "framer-motion";
 import {Navigate, Route, Routes, useLocation} from "react-router-dom";
+import Snowfall from "react-snowfall";
 
 import BrowserWarning from "./components/modals/BrowserWarning";
-import {ThemeProvider} from "./components/modals/ThemeChanger";
+import {ThemeProvider, useTheme} from "./components/modals/ThemeChanger";
 import LoadingAnimation from "./components/ui/LoadingAnimation";
 import {copyText} from "./hooks/useCopyToClipboard";
 import useDynamicFavicon from "./hooks/useDynamicFavicon";
@@ -225,6 +226,31 @@ class ErrorBoundary extends React.Component<
   }
 }
 
+const SnowfallManager = () => {
+  const {accentHue, isSnowfallEnabled, saturateRatio, theme} = useTheme();
+  const isSystemDark =
+    globalThis.window?.matchMedia &&
+    globalThis.window.matchMedia("(prefers-color-scheme: dark)").matches;
+  const isDarkMode = theme === "dark" || (theme === "system" && isSystemDark);
+  const lightness = isDarkMode ? "75%" : "50%";
+  const color = `hsl(${accentHue}, ${saturateRatio * 75}%, ${lightness})`;
+
+  return isSnowfallEnabled ? (
+    <Snowfall
+      color={color}
+      opacity={[0.25, 0.5]}
+      radius={[0.5, 1.5]}
+      speed={[0.25, 1]}
+      style={{
+        height: "100vh",
+        position: "fixed",
+        width: "100vw",
+      }}
+      wind={[0, 1]}
+    />
+  ) : null;
+};
+
 export const App = () => {
   const location = useLocation();
   const [svgContent, setSvgContent] = useState(faviconSvg);
@@ -355,6 +381,7 @@ export const App = () => {
   return (
     <ConfigProvider theme={themeConfig}>
       <ThemeProvider>
+        <SnowfallManager />
         <MetrikaCounter
           id={96_346_999}
           options={{
