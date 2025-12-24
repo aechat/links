@@ -1415,6 +1415,18 @@ const AEPerformance: React.FC = () => {
             <mark className="app">Adobe After Effects</mark> проходит стабильнее и
             быстрее.
           </li>
+          <li>
+            Экспорт в <mark className="video">H.264</mark> и другие кодеки со сжатием
+            может пройти быстрее, если использовать аппаратное ускорение именно для
+            кодирования видео, например через{" "}
+            <mark className="select">«NVIDIA NVENC»</mark> или{" "}
+            <mark className="select">«Intel Quick Sync»</mark>. На коротких композициях
+            разница бывает незаметна, но при экспорте длинных проектов она становится
+            ощутимой. Однако эта возможность доступна не во всех модулях экспорта. Найти
+            её можно, например, в плагинах{" "}
+            <mark className="plugin">Voukoder Classic</mark> и{" "}
+            <mark className="plugin">Voukoder Pro</mark>.
+          </li>
         </ul>
         <p>
           При чтении подобных вопросов сразу вспоминается мем про оплату за полный
