@@ -1428,80 +1428,114 @@ const AEPerformance: React.FC = () => {
             <mark className="plugin">Voukoder Pro</mark>.
           </li>
         </ul>
+        <Divider>Раздел 3: Система, «железо» и другие нюансы</Divider>
         <p>
-          При чтении подобных вопросов сразу вспоминается мем про оплату за полный
-          спидометр автомобиля.
-          {/* , только вот к{" "}
-          <mark className="app">Adobe After Effects</mark> его вряд ли применишь */}
-          {/* Почему?
-          Потому что вся производительность проекта часто упирается в действия пользователя. */}{" "}
-          {/* Но в программе есть некоторые параметры, которые если правильно настроить - могут помочь ускорить работу с программой. */}
+          Иногда проблема «тормозов» кроется не в проекте или настройках программы, а
+          глубже — в конфигурации системы, самом «железе» или даже в ваших наивных
+          ожиданиях. Разберёмся по порядку.
         </p>
-        <ImageFigure
-          caption="Я заплатил за весь спидометр, я буду использовать весь спидометр"
-          imgSrc="images/car_speedometer.jpg"
-          imgTitle="Изображение спидометра на панели приборов в ВАЗ-2190 (Priora)"
-          styleClass="figure_windows-dark"
+        <Divider>Чистка системы и проверка драйверов</Divider>
+        <ContentFilter
+          macContent={
+            <div>
+              <p>
+                Если вы уверены на <mark>100%</mark>, что с проектом всё хорошо, а
+                устройство должно его вытягивать, но не вытягивает, — в первую очередь
+                проверьте систему на наличие «хлама» и почистите её.
+              </p>
+            </div>
+          }
+          windowsContent={
+            <div>
+              <p>
+                Если вы уверены на <mark>100%</mark>, что с проектом всё хорошо, а
+                устройство должно его вытягивать, но не вытягивает, — в первую очередь
+                проверьте систему на «хлам» и убедитесь, что установлены правильные
+                драйверы.
+              </p>
+              <p>
+                Иногда причина ситуации{" "}
+                <mark className="quote">«вчера работало плавно, а сегодня — нет»</mark>{" "}
+                кроется в автоматических обновлениях.{" "}
+                <mark className="app">Центр обновлений Windows</mark> или утилиты от
+                производителей «железа», такие как <mark className="app">NVIDIA App</mark>
+                , <mark className="app">Intel Driver & Support Assistant</mark> или{" "}
+                <mark className="app">AMD Software: Adrenalin Edition</mark>, могут
+                скачивать и устанавливать драйверы в фоне, без вашего ведома. Проблема в
+                том, что не каждая версия драйвера будет одинаково хорошо работать с{" "}
+                <mark className="app">Adobe After Effects</mark>, и свежие драйверы могут
+                легко всё сломать.
+              </p>
+              <p>
+                Если вы не хотите разбираться, какой именно драйвер виноват, самое простое
+                — откатить систему до последнего бэкапа или точки восстановления, если вы
+                их создавали. Но, по моему мнению, мало у кого они есть, поэтому чаще
+                всего остаётся одно — удалять или переустанавливать драйверы вручную.
+                Перед этим не забудьте скачать нужные.
+              </p>
+              <ul>
+                <li>
+                  <p>
+                    Для видеокарт <mark className="company">NVIDIA</mark> рекомендуется
+                    использовать <mark className="app">NVIDIA Studio Driver</mark>: он
+                    оптимизирован для работы в творческих приложениях и обновляется реже,
+                    чем <mark className="app">NVIDIA Game Ready Driver</mark>.
+                  </p>
+                  <Addition type="info">
+                    Загрузить драйверы <mark className="app">NVIDIA Studio</mark> можно на{" "}
+                    <a href="https://www.nvidia.com/en-eu/geforce/drivers/">
+                      официальном сайте NVIDIA
+                    </a>
+                    . На странице укажите модель видеокарты, ОС и в поле{" "}
+                    <mark className="select">«Download Type»</mark> выберите{" "}
+                    <mark className="select">«Studio Driver»</mark>.
+                  </Addition>
+                </li>
+                <li>
+                  Для <mark className="company">Intel</mark> скачайте подходящий драйвер{" "}
+                  <a href="https://www.intel.com/content/www/us/en/search.html#sort=relevancy&f:@tabfilter=[Downloads]&f:@stm_10385_en=[Graphics]&f:downloadtype=[Drivers]">
+                    на официальном сайте
+                  </a>{" "}
+                  или воспользуйтесь{" "}
+                  <a href="https://www.intel.com/content/www/us/en/support/detect.html">
+                    автоматическим установщиком
+                  </a>
+                  .
+                  <Addition type="warning">
+                    <mark className="company">Intel</mark> может блокировать доступ к
+                    сайту для пользователей из Российской Федерации.
+                  </Addition>
+                </li>
+                <li>
+                  Для <mark className="company">AMD</mark> воспользуйтесь{" "}
+                  <a href="https://www.amd.com/en/support/download/drivers.html">
+                    автоматическим установщиком с официального сайта
+                  </a>
+                  .
+                </li>
+              </ul>
+              <p>
+                Текущие драйверы видеокарты можно удалить «подчистую» с помощью утилиты{" "}
+                <mark className="app">Display Driver Uninstaller (DDU)</mark>. Скачать её
+                можно с{" "}
+                <a href="https://www.wagnardsoft.com/display-driver-uninstaller-ddu">
+                  официального сайта
+                </a>
+                , а удаление лучше всего производить в безопасном режиме.
+              </p>
+              <ContentFigure
+                caption="Как использовать DDU для NVIDIA, AMD или Intel"
+                src="98DAgw1KcmI"
+                type="youtube"
+              />
+              <Addition type="danger">
+                Выполняйте удаление драйверов на свой страх и риск. Если вы неопытный
+                пользователь, пропустите этот пункт и попробуйте просто переустановить
+                драйверы поверх существующих.
+              </Addition>
+            </div>
+          }
         />
-        <p>{/* FIXME: */}</p>
-        <Divider>Почему процессор или видеокарта в моем проекте простаивает?</Divider>
-        {/*   <p>
-          Предположим, что вы только-только купили новое устройство и вы хотите его
-          отжарить по полной в <mark className="app">Adobe After Effects</mark>. Наша с вами
-          любимая программа обычно работает не в полную силу, так как потребляет некоторые
-          ресурсы тогда, когда ему это действительно необходимо, и это абсолютно
-          нормально. Но всё же есть несколько способов, как немного ускорить работу
-          программы и позволить программе использовать ресурсы вашего устройства по
-          полной.
-        </p>
-        <Divider>Настраиваем Multi-frame Render</Divider>
-        <p>
-          С помощью функции <mark className="ui">Multi-Frame Rendering</mark> вы сможете
-          приказать программе использовать весь потенциал процессора за счёт рендера
-          нескольких кадров одновременно. В новых версиях{" "}
-          <mark className="app">Adobe After Effects</mark> функция{" "}
-          <mark className="ui">Multi-Frame Rendering</mark> включена по умолчанию. В{" "}
-          <mark className="ui">Edit &gt; Preferences &gt; Memory & Performance</mark>
-          можно ограничить использование процессора на вашем компьютере, для того, чтобы
-          дать другим программам на вашем компе немного мощности при многокадровом
-          рендере.
-        </p>
-        <ImageFigure
-          caption="Preferences"
-          imgSrc="images/aftereffects/mfr_settings.png"
-          imgTitle="Настройка ограничения процессора при многокадровом рендере"
-          styleClass="figure_windows-dark"
-        />
-        <AdditionWarning>
-          <ul>
-            <li>
-              Использование <mark className="ui">Multi-Frame Rendering</mark> может
-              привести к увеличению потребления оперативной памяти и есть риск чаще видеть
-              ошибку <mark>Out of Memory</mark>. Для этого либо отключите{" "}
-              <mark className="ui">Multi-Frame Rendering</mark>, либо ограничьте
-              использование оперативной памяти, увеличив значение{" "}
-              <mark className="ui">RAM reserved for other applications</mark> в
-              настройках. Также Если у вас устройство на <mark>Windows</mark> -{" "}
-              <a href="#4.5">настройте файл подачки</a> и установите программу{" "}
-              <a href="https://github.com/henrypp/memreduct/releases">Mem Reduct</a> для
-              периодической очистки оперативной памяти.
-            </li>
-            <li>
-              Пожалуйста,{" "}
-              <b>
-                <u>не путайте значения</u>
-              </b>{" "}
-              и{" "}
-              <b>
-                <u>внимательно прочтите параметр настройки</u>
-              </b>
-              . Значение <mark>10%</mark> означает, что{" "}
-              <mark className="app">Adobe After Effects</mark> будет использовать{" "}
-              <mark>90%</mark> использования процессора и оставит <mark>10%</mark> для
-              остальных программ. Если вы установите значение <mark>70%</mark>, то вы
-              отдадите программе всего лишь <mark>30%</mark> мощности.
-            </li>
-          </ul>
         <Divider>Влияет ли версия программы на производительность?</Divider>
         <p>
           Всё зависит от того, на каком устройстве запускается программа. Если поставить
