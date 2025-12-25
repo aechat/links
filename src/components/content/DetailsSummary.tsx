@@ -599,8 +599,12 @@ const DetailsSummary: React.FC<DetailsSummaryProperties> = ({
               >
                 {React.Children.count(children) === 0 ? (
                   <div className="no-content-placeholder">
-                    Данная статья находится в процессе разработки. Следите за
-                    обновлениями.
+                    <p>
+                      Эта статья пока пустая: либо я ещё не дошёл до её написания, либо
+                      написал такую дичь, что пришлось всё скрыть и отправить на
+                      переделку.
+                    </p>
+                    <p>Следите за обновлениями.</p>
                   </div>
                 ) : (
                   children
