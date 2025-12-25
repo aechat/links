@@ -317,8 +317,13 @@ const AEPerformance: React.FC = () => {
           type="youtube"
         />
         <ContentFigure
-          caption="Как выбрать ноутбук или ПК для After Effects?"
+          caption="Как выбрать ноутбук или ПК для Adobe After Effects?"
           src="wdXf4ngU4fM"
+          type="youtube"
+        />
+        <ContentFigure
+          caption="Собираем самый быстрый компьютер (НА МОМЕНТ 2019 ГОДА) для Adobe After Effects"
+          src="8_xmXM_XMS4"
           type="youtube"
         />
         <ContentFigure
