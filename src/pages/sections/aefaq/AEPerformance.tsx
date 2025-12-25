@@ -1583,6 +1583,15 @@ const AEPerformance: React.FC = () => {
           на старой, вы отказываетесь от новых функций, оптимизаций и исправлений — ради
           сомнительного преимущества, которое на практике ничего не меняет.
         </p>
+        <Divider>Дополнительный материал для размышлений</Divider>
+        <div className="flexible-links">
+          <a href="https://www.pugetsystems.com/blog/2025/02/24/upcoming-boost-to-after-effects-preview-playback-with-ram-and-disk-cache/">
+            О потреблении ОЗУ и дискового кэша от Puget Systems
+          </a>
+          <a href="https://helpx.adobe.com/after-effects/using/memory-storage1.html">
+            Использование оперативной памяти в Adobe After Effects
+          </a>
+        </div>
       </DetailsSummary>
       <DetailsSummary
         anchor="mercury-acceleration"
