@@ -409,6 +409,14 @@ const AEPerformance: React.FC = () => {
             </a>{" "}
             версией <mark className="app">Adobe After Effects</mark>, особенно если вы
             хотите перейти с предыдущих версий.
+            <Addition type="warning">
+              Имейте в виду, что для установки последних версий{" "}
+              <mark className="app">Adobe After Effects</mark> требуется{" "}
+              <mark>Windows 10</mark> версии <mark>22H2</mark> или <mark>Windows 11</mark>{" "}
+              — на более ранние сборки программа просто не установится или будет работать
+              некорректно. Узнать текущую версию вашей ОС можно с помощью{" "}
+              <mark className="app">winver</mark>.
+            </Addition>
           </li>
           <li>
             Если вам нужна более проверенная пользователями и относительно современная
