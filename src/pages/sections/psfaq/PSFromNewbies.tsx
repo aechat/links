@@ -63,40 +63,11 @@ const PSFromNewbies: React.FC = () => {
         tag="сленг, жаргон, сокращения, словосочетания, говор"
         title="Какие популярные термины есть у пользователей программы?"
       >
-        <p>{/* FIXME: написать!! по аналогии как с терминами в аефаке */}</p>
       </DetailsSummary>
-      >
-        <p>
-        </p>
-      </DetailsSummary>
-      <DetailsSummary title="А есть список популярных комбинаций клавиш для работы в Photoshop?">
       <DetailsSummary
         tag="хоткеи, горячие клавиши, шорткаты, ускорение работы"
         title="А есть список популярных комбинаций клавиш?"
       >
-        <p>
-          Горячие клавиши могут помочь ускорить рутинный процесс нахождения нужной функции
-          программы, поэтому в этой статье в таблицах собраны популярные у многих
-          пользователей комбинации.
-        </p>
-        <Addition type="info">
-          <ul>
-            <li>
-              В таблице приведены комбинации для устройств на <mark>Windows</mark>. На{" "}
-              <mark>macOS</mark> <mark className="key">Ctrl</mark> равен{" "}
-              <mark className="key">Command</mark>, а <mark className="key">Alt</mark>{" "}
-              равен <mark className="key">Option</mark>.
-            </li>
-            <li>
-              Более подробный список комбинаций клавиш вы можете прочесть на{" "}
-              <a href="https://helpx.adobe.com/ru/photoshop/using/default-keyboard-shortcuts.html">
-                официальном сайте Adobe
-              </a>{" "}
-              или в <mark className="select">«Edit» → «Keyboard Shortcuts»</mark>.
-            </li>
-          </ul>
-        </Addition>
-        {/* FIXME: написать!! */}
       </DetailsSummary>
       <DetailsSummary
         tag="что нового, фишки, обновления, апдейты, патчноуты"
