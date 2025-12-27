@@ -413,27 +413,14 @@ const AEExportProblems: React.FC = () => {
         </ul>
       </DetailsSummary>
       <DetailsSummary
-        tag="баг версии"
-        title="Почему в предпросмотре Adobe Media Encoder и после экспорта видео смещается влево или вправо?"
+        tag="битрейт, качество, артефакты, low quality"
+        title="Из-за чего может ухудшаться качество композиции после экспорта?"
       >
-        <p>
-          Проверьте текущую версию программ, которыми вы пользуетесь. Вполне вероятно, что
-          вы используете версии в промежутках от <mark>23.1</mark> до <mark>23.5</mark>,
-          где присутствует такой неприятный баг при использовании{" "}
-          <mark className="app">Adobe Media Encoder</mark> в качестве основной программы
-          для экспорта композиций. Для решения данного бага достаточно обновить все
-          программы от Adobe до версии <mark>23.6</mark> или свежее.{" "}
-          <i style={{opacity: "0.5"}}>
-            Или отказаться от <mark className="app">Adobe Media Encoder</mark> в пользу
-            вывода композиций напрямую из <mark className="app">Adobe After Effects</mark>
-            .
-          </i>
-        </p>
-        <AdditionInfo>
-          Проверить текущую версию <mark className="app">Adobe After Effects</mark> и{" "}
-          <mark className="app">Adobe Media Encoder</mark> вы можете в{" "}
-          <mark className="ui">Help &gt; About</mark>.
-        </AdditionInfo>
+      </DetailsSummary>
+      <DetailsSummary
+        tag="ame, кривые исходники"
+        title="Почему после экспорта иногда появляются артефакты и дёрганные кадры?"
+      >
       </DetailsSummary>
       <DetailsSummary
         tag="соотношение пикселей, pixel aspect ratio"
@@ -599,29 +586,9 @@ const AEExportProblems: React.FC = () => {
         </ul>
       </DetailsSummary>
       <DetailsSummary
-        tag="odd resolution, нечетное разрешение, ограничения h264"
-        title="Почему я не могу экспортировать видео с нечётным разрешением?"
+        tag="iphone, hlg, rec.709, color shift, color space, color management"
+        title="Почему после экспорта у меня изменились цвета и оттенки?"
       >
-        <p>
-          Из-за технических ограничений кодеков <mark className="video">H.264</mark> и{" "}
-          <mark className="video">H.265</mark>, вы не сможете экспортировать видео в таких
-          кодеках с нечётным разрешением. Данные кодеки используют макроблоки только с
-          чётными значениями пикселей.
-        </p>
-        <ImageFigure
-          caption="Ошибка в AfterCodecs при экспорте с нечётным разрешением"
-          imgSrc="images/odd_resolution_error.png"
-          imgTitle="Ошибка экспорта с нечётным разрешением"
-          styleClass="figure_windows-light"
-        />
-        <p>
-          Для решения проблемы при экспорте вам достаточно указать чётное значение
-          пикселей у каждой стороны в свойствах композиции. Для этого откройте настройки
-          композиции с помощью комбинации клавиш <mark className="key">Ctrl + K</mark> и
-          укажите в параметрах ширины и высоты числовое значение, которое делится на{" "}
-          <mark>2</mark> без остатка. После изменения настроек композиции попробуйте
-          начать экспорт заново, он должен пройти без проблем.
-        </p>
       </DetailsSummary>
       <DetailsSummary
         tag="пропало аудио, no audio"
@@ -662,53 +629,15 @@ const AEExportProblems: React.FC = () => {
         </Addition>
       </DetailsSummary>
       <DetailsSummary
-        tag="конвертация, оптимизация размера, shutter encoder, сжатие видео, квантование, cqr, vbr, cbr, cq, large file size"
-        title="Почему экспортированный файл получается огромным и как его сжать без сильной потери качества?"
+        tag="0x80070002, mp4, ошибка воспроизведения"
+        title="Почему я не могу открыть видео‚ которое я экспортировал?"
       >
-        <p>
-          При экспорте какой-нибудь композиции из{" "}
-          <mark className="app">Adobe After Effects</mark> вы можете наткнуться на
-          неприятный сюрприз - файл может получиться слишком большим по весу на жёстком
-          диске. Такой файл может не подойти для загрузки видео на нужный сервис или
-          просто занимать кучу места на дисковом пространстве.
-        </p>
-        <AdditionInfo>
-          В ранних версиях <mark className="app">Adobe After Effects</mark>, до
-          возвращения нативного экспорта в <mark className="video">H.264</mark>, по
-          умолчанию стоял не очень оптимальный пресет для повседневного экспорта. Поэтому,
-          если новичок случайно сохранит композицию в <mark className="video">AVI</mark> с
-          кодеком <mark className="video">Animation</mark>, то он быстро столкнётся с тем,
-          что размер файла у полученного ролика уйдет в небеса. В таких случаях без сжатия
-          и конвертации видео не обойтись.{" "}
-          <i style={{opacity: "0.5"}}>
-            Или достаточно было выбрать другой вариант для экспорта.
-          </i>
-        </AdditionInfo>
-        <Divider>Конвертируем через Shutter Encoder</Divider>
-        <p>
-          Для быстрой конвертации видео нам понадобится{" "}
-          <mark className="app">Shutter Encoder</mark> - бесплатный и популярный
-          графический интерфейс утилиты <mark className="app">FFmpeg</mark>, который
-          доступен для <mark>Windows</mark> и <mark>macOS</mark>. С помощью него можно
-          конвертировать видео в распространённые форматы и при необходимости указывать
-          нужные настройки кодирования.
-        </p>
-        <AdditionInfo>
-          Если у вас не установлен <mark className="app">Shutter Encoder</mark>, то его
-          можно скачать <a href="https://www.shutterencoder.com/">по этой ссылке</a>. Не
-          забудьте передвинуть ползунок доната на <mark>0</mark>, чтобы получить ссылку на
-          скачивание.
-        </AdditionInfo>
-        <p>
-          После установки и открытия <mark className="app">Shutter Encoder</mark> -
-          начните импорт вашего получившегося файла. Затем укажите в{" "}
-          <mark className="ui">Choose function</mark> формат, в который вы хотите
-          экспортировать видео. Между прочим, выбор кодека для конвертации тоже влияет на
-          вес и качество картинки, но не все устройства и площадки могут поддерживать тот
-          или иной кодек. В большинстве случаев вам может подойти вариант{" "}
-          <mark className="video">H.264</mark> или <mark className="video">H.265</mark>.
-        </p>
-        <p>
+      </DetailsSummary>
+      <DetailsSummary
+        tag="зависает, ame"
+        title="Из-за чего может зависать рендер при экспорте композиции через Adobe Media Encoder?"
+      >
+      </DetailsSummary>
       <DetailsSummary
         tag="баг версии, ame"
         title="Почему после экспорта с помощью Adobe Media Encoder видео смещается в сторону?"
@@ -730,7 +659,6 @@ const AEExportProblems: React.FC = () => {
           <mark className="app">Adobe Media Encoder</mark> вы можете в меню{" "}
           <mark className="select">«Help» → «About»</mark>.
         </Addition>
-      </DetailsSummary>
       </DetailsSummary>
     </div>
   );
