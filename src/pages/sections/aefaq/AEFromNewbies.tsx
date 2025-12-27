@@ -4810,6 +4810,12 @@ const AEFromNewbies: React.FC = () => {
           }
         />
       </DetailsSummary>
+      <DetailsSummary
+        anchor="preview-no-audio"
+        tag="пропало аудио, no audio, нет звука, аудио, отсутствует, audio hardware"
+        title="Почему пропал звук при проигрывании предпросмотра?"
+      >
+        <Divider>Проверяем настройки предпросмотра</Divider>
         <p>
           Иногда звук при предпросмотре может внезапно пропасть, если вы случайно что-то
           нажали. Сначала проверьте окно <mark className="select">«Preview»</mark>,
@@ -4825,6 +4831,7 @@ const AEFromNewbies: React.FC = () => {
           type="image"
           variant="windows"
         />
+        <Divider>Включаем звук при воспроизведении не в реальном времени</Divider>
         <p>
           По умолчанию <mark className="app">Adobe After Effects</mark> отключает звук,
           если предпросмотр идёт не в реальном времени. Чтобы это исправить, снимите
@@ -4841,33 +4848,22 @@ const AEFromNewbies: React.FC = () => {
           type="image"
           variant="windows"
         />
-        <ContentFilter
-          windowsContent={
-            <div>
-              <Divider>Разбираемся с драйверами</Divider>
-              <p>
-                Иногда драйверы, например видеокарты, могут обновиться автоматически без
-                вашего ведома, после чего начать работать некорректно с вашей версией{" "}
-                <mark className="app">Adobe After Effects</mark>.
-              </p>
-              <p>
-                В таком случае попробуйте откатить проблемный драйвер и{" "}
-                <a href="https://remontka.pro/disable-driver-auto-update-windows-10/">
-                  отключить их автоматическое обновление
-                </a>
-                , чтобы подобные ситуации не повторялись. Если у вас установлена
-                видеокарта от <mark className="company">NVIDIA</mark>, рекомендуется
-                загрузить и установить драйвер редакции{" "}
-                <mark className="app">NVIDIA Studio</mark> с{" "}
-                <a href="https://www.nvidia.com/en-eu/geforce/drivers/">
-                  официального сайта NVIDIA
-                </a>
-                . На странице укажите модель вашей видеокарты, операционную систему и в
-                поле <mark className="select">«Download Type»</mark> выберите{" "}
-                <mark className="select">«Studio Driver»</mark>.
-              </p>
-            </div>
-          }
+        <Divider>Проверяем устройство для вывода звука</Divider>
+        <p>
+          Если вы недавно меняли устройство вывода звука, например, подключили наушники,
+          то программа может не справляться с синхронизацией аудио, из-за чего при
+          предпросмотре может пропадать звук. Попробуйте изменить аудиовыход или уменьшить
+          значение <mark className="select">«Latency»</mark> в{" "}
+          <mark className="select">«Edit» → «Preferences» → «Audio Hardware»</mark>.
+        </p>
+        <ContentFigure
+          caption="Preferences"
+          imgTitle="Настройки звукового выхода"
+          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          src="images/legacy/aftereffects/audio_hardware_settings.png"
+          theme="dark"
+          type="image"
+          variant="windows"
         />
       </DetailsSummary>
       <DetailsSummary
