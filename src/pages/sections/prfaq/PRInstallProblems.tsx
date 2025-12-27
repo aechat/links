@@ -2742,121 +2742,15 @@ const PRInstallProblems: React.FC = () => {
         </Addition>
       </DetailsSummary>
       <DetailsSummary
-        tag="не подключается dynamic link, программы не видят друг друга, динамик линк, aegp plugin aedynamiclinkserver: adobe media encoder is not installed, please download and install it to use this feature, failed to connect to adobe media encoder, медиа енкодер"
-        title="Установил Adobe Media Encoder, но Adobe Premiere Pro почему-то не видит его"
+        tag="обновление и перенос, перенести плагины и пресеты, новая версия, хочу обновить программу с одной версии на другую"
+        title="Как обновить программу, не потеряв при этом плагины и прочий установленный контент?"
       >
-        <p>
-          Функция Dynamic Link позволяет синхронизировать композиции из{" "}
-          <mark className="app">Adobe Premiere Pro</mark> и очередь рендера в{" "}
-          <mark className="app">Adobe Media Encoder</mark>. Но не всегда их получается
-          подружить.
-        </p>
-        <p>
-          Иногда <mark className="app">Adobe Premiere Pro</mark> при попытке отправить
-          секвенцию на очередь рендера в <mark className="app">Adobe Media Encoder</mark>{" "}
-          выдаёт просьбу мол{" "}
-          <mark className="quote">
-            чувак, установи Media Encoder, а то ты его не установил
-          </mark>
-          , хотя эта программа вроде как установлена. Для того, чтобы программы видели
-          друг друга - вам нужно соблюсти два условия.
-        </p>
-        <ul>
-          <li>
-            Убедитесь в том, что вы установили{" "}
-            <mark className="app">Adobe Premiere Pro</mark> и{" "}
-            <mark className="app">Adobe Media Encoder</mark> одного &quot;года&quot;. Если
-            вы, например, установили <mark className="app">Adobe Premiere Pro 2022</mark>{" "}
-            и <mark className="app">Adobe Media Encoder 2019</mark> - они никогда не
-            увидят друг друга, так как программы жёстко привязаны к &quot;году&quot;.
-          </li>
-          <li>
-            Если вы установили <mark className="app">Adobe Premiere Pro</mark> и{" "}
-            <mark className="app">Adobe Media Encoder</mark> одного года, но они всё ещё
-            не видят друг друга - убедитесь в том, что вы установили обе программы в место
-            по умолчанию, не на другом разделе, отличном от{" "}
-            <mark className="path">C:\</mark>.
-          </li>
-        </ul>
-        <AdditionInfo>
-          Если у вас мало места на системном диске или вы хотите перенести программы от
-          Adobe на другой раздел - воспользуйтесь функцией символьных ссылок.
-        </AdditionInfo>
-        <p>
-          Обычно при соблюдении этих двух условий программы видят друг друга и спокойно
-          отправляются секвенции из <mark className="app">Adobe Premiere Pro</mark> в{" "}
-          <mark className="app">Adobe Media Encoder</mark>.
-        </p>
-        <p>
-          Также в редких случаях при использовании патча <mark>GenP</mark> функция{" "}
-          <mark>Dynamic Link</mark> может работать криво. Поэтому попробуйте удалить ваши
-          программы Adobe и установить репаки от <mark>KpoJluK</mark> или{" "}
-          <mark>m0nkrus</mark>.
-        </p>
       </DetailsSummary>
       <DetailsSummary
-        tag="вст, аудио плагины, звук, изотоп, izotope, vst3"
-        title="Установил VST-плагины, но они не отображаются в Adobe Premiere Pro"
+        tag="безопасный режим, reset preferences, safe mode"
+        title="Чую, что программа работает неправильно, но переустанавливать всё я не хочу. Как сбросить все настройки?"
       >
-        <p>
-          Предположим, что вы недавно установили новые{" "}
-          <mark className="plugin">VST-плагины</mark> для обработки звука, но они не
-          появились автоматически в <mark className="app">Adobe Premiere Pro</mark>. Это
-          нормально, потому что такие плагины программой при запуске не ищутся
-          автоматически.
-        </p>
-        <p>
-          Чтобы вручную начать поиск таких плагинов, откройте{" "}
-          <mark className="ui">Edit &gt; Preferences &gt; Audio</mark> и нажмите на кнопку{" "}
-          <mark className="ui">Manage Audio Plug-ins</mark>.
-        </p>
-        <ImageFigure
-          caption="Preferences"
-          imgSrc="images/premierepro/edit_audio_manage_audio_plugins.png"
-          imgTitle="Окно Preferences с открытым разделом Audio"
-          styleClass="figure_windows-dark"
-        />
-        <p>
-          Затем в открывшемся окне вы можете начать сканирование плагинов с помощью кнопки{" "}
-          <mark className="ui">Scan for Plug-ins</mark>, пересканировать уже существующие
-          плагины или добавить новую папку, где хранятся ваши{" "}
-          <mark className="plugin">VST-плагины</mark>. После сканирования плагинов вы
-          сможете ими воспользоваться в <mark className="ui">Track Mixer</mark> или
-          где-нибудь ещё.
-        </p>
-        <ImageFigure
-          caption="Audio Plug-in Manager"
-          imgSrc="images/premierepro/audio_plugin_manager.png"
-          imgTitle="Менеджер аудио-плагинов"
-          styleClass="figure_windows-dark"
-        />
       </DetailsSummary>
-      <DetailsSummary
-        tag="генп, genp, ручная активация"
-        title="Я не доверяю репакам, но установить программы от Adobe хочется. Какие есть ещё варианты?"
-      >
-        <p>
-          Если вы параноик и боитесь, что при установке репаков в ваш компьютер ворвётся{" "}
-          <mark className="word">барабашка</mark> с троянами и прочей бякой, то вы можете
-          активировать программы от Adobe вручную через <mark className="app">GenP</mark>.
-        </p>
-        <ul>
-          <li>
-            Из плюсов этого способа: активируя Adobe через{" "}
-            <mark className="app">GenP</mark>, вы можете устанавливать, обновлять
-            программы, а также устанавливать бесплатные плагины напрямую из{" "}
-            <mark className="app">Creative Cloud</mark>. Также вы можете устанавливать
-            бета-версии, если вы хотите потыкать нововведения, которые ещё не выкатили в
-            публичный релиз.
-          </li>
-          <li>
-            Из минусов: пользователи часто жалуются на проблемы при использовании{" "}
-            <mark className="plugin">Dynamic Link</mark>, то есть{" "}
-            <mark className="app">Adobe After Effects</mark> и{" "}
-            <mark className="app">Adobe Premiere Pro</mark> могут не увидеть друг друга.
-            После обновления программ от Adobe может не всегда работать патч, для этого
-            нужно периодически обновлять сам <mark className="app">GenP</mark>.
-          </li>
       <Addition type="info">
         Некоторые решения проблем, которые у вас могут возникнуть после установки
         дополнительных материалов или во время использования программы, находятся в общем

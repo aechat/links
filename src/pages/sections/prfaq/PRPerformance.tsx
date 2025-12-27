@@ -13,7 +13,13 @@ const PRPerformance: React.FC = () => {
         tag="тормозит, лаги, медленно, скорость работы, оптимизация, производительность"
         title="Почему у меня, б%@#ь, лагает е&#!%й Adobe Premiere Pro, с$%а?"
       >
-        <p>{/* FIXME: написать!! */}</p>
+      </DetailsSummary>
+      <DetailsSummary
+        tag="своп, свап, swapfile"
+        title="Для чего нужен файл подкачки в Windows и почему его не стоит отключать?"
+      >
+      </DetailsSummary>
+      <DetailsSummary title="Какая версия Adobe Premiere Pro наиболее стабильная, наименее лагучая и какую мне лучше всего поставить?">
       </DetailsSummary>
       <DetailsSummary title="Какой компьютер или ноутбук стоит взять для работы в Premiere Pro?">
         {/* FIXME: написать!! */}

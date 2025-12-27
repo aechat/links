@@ -933,6 +933,10 @@ const PRExport: React.FC = () => {
           альфа-каналом.
         </Addition>
       </DetailsSummary>
+      <DetailsSummary
+        tag="previews, ускорение времени рендера, уменьшение перепросчёта, пререндер, prerender"
+        title="Как сократить время повторного экспорта, если заказчик попросил внести небольшие правки?"
+      >
       </DetailsSummary>
       <DetailsSummary title="Как сохранить свой шаблон с настройками для экспорта секвенций?">
         <p>
