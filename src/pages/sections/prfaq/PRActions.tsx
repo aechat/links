@@ -11,7 +11,8 @@ const PRActions: React.FC = () => {
   return (
     <div className="faq-content">
       <DetailsSummary
-        tag="апскейл, топаз, качество, 4к, резкость, восстановить четкость, шарпен, цветокоррекция, улучшение видео, улучшение фото, нейросети, ии"
+        anchor="upscale-video-photo"
+        tag="апскейл, topaz, улучшение качества, резкость, цветокоррекция, нейросети"
         title="Какими средствами можно улучшить качество исходников?"
       >
         <p>
@@ -109,8 +110,9 @@ const PRActions: React.FC = () => {
         />
       </DetailsSummary>
       <DetailsSummary
-        tag="слоумо, твикстор, топаз, ретаймер, тайм ремапинг, плавное замедление, флоуфреймс, fps interpolation, замедление видео, интерполяция кадров"
-        title="Какими средствами можно плавно замедлить видео?"
+        anchor="frame-interpolation"
+        tag="слоумо, twixtor, topaz, ретаймер, time remapping, flowframes, интерполяция кадров, замедление движения, плавное движение"
+        title="Какими средствами можно замедлить видео или сделать его более плавным?"
       >
         <p>
           Иногда возникает необходимость сделать видео максимально плавным, особенно если
@@ -118,13 +120,29 @@ const PRActions: React.FC = () => {
           современные инструменты интерполяции, которые создают дополнительные кадры на
           основе существующих, сглаживая движение и убирая рывки.
         </p>
+        <Addition type="warning">
+          <ul>
+            <li>
+              Интерполяция кадров в видео низкого качества, особенно с резкими движениями
+              или низкой частотой кадров, может привести к появлению артефактов и ещё
+              больше ухудшить картинку.
+            </li>
+            <li>
+              Прежде чем замедлять аниме, записи игрового процесса или видео с переменной
+              частотой кадров, стоит{" "}
+              <a href="#delete-duplicate-frames">избавиться от дублирующихся кадров</a>.
+              Так вы обеспечите более стабильную работу алгоритмов интерполяции и
+              добьётесь более плавного замедления.
+            </li>
+          </ul>
+        </Addition>
         <Addition type="info">
           Интерфейс и действия в приведённых ниже видео могут отличаться в зависимости от
           версии программы или плагина.
         </Addition>
         <Divider>Плавно замедляем видео в Adobe Premiere Pro</Divider>
         <p>
-          Замедлить видео можно и стандартными средствами{" "}
+          Замедлить видео можно стандартными средствами{" "}
           <mark className="app">Adobe Premiere Pro</mark>, но результат будет не таким
           хорошим, как хотелось бы. Для этого выделите нужный клип, нажмите{" "}
           <mark className="key">Ctrl + R</mark> и растяните видео на нужную длину. В
@@ -141,8 +159,9 @@ const PRActions: React.FC = () => {
         <p>
           Если результат встроенных режимов кажется недостаточно плавным, можно прибегнуть
           к сторонним эффектам. Самый известный среди них —{" "}
-          <mark className="plugin">RE:Vision Twixtor</mark>. Он вышел достаточно давно,
-          хорошо зарекомендовал себя в монтаже и имеет много настроек.
+          <mark className="plugin">RE:Vision Twixtor</mark>. Этот плагин хорошо
+          справляется с интерполяцией кадров как для целых видео, так и для отдельных
+          слоёв.
         </p>
         <ContentFigure
           caption="Twixtor"
@@ -164,12 +183,22 @@ const PRActions: React.FC = () => {
         />
         <Divider>«Уплавняем» видео вне Adobe Premiere Pro</Divider>
         <p>
-          Если вы не хотите замедлять видео в{" "}
-          <mark className="app">Adobe Premiere Pro</mark> или плагины вызывают ошибки при
-          рендере, можно воспользоваться сторонними программами. Например, с помощью{" "}
-          <mark className="app">Flowframes</mark> можно создать копию видео с повышенной
-          частотой кадров и сохранить его для дальнейшей работы.
+          Если стоит задача увеличить частоту кадров, например, с <mark>24 FPS</mark> до{" "}
+          <mark>60 FPS</mark> или даже <mark>120 FPS</mark> для дальнейшей обработки или
+          более плавного воспроизведения, можно обойтись без{" "}
+          <mark className="app">Adobe Premiere Pro</mark> и воспользоваться программой{" "}
+          <mark className="app">Flowframes</mark>. У этой утилиты есть{" "}
+          <a href="https://nmkd.itch.io/flowframes">бесплатная версия</a>
+          <sup>1</sup> и <a href="https://www.patreon.com/n00mkrad">платная</a> с
+          расширенным функционалом.
         </p>
+        <Addition type="info">
+          <sup>1</sup> Для бесплатного скачивания утилиты нажмите на странице{" "}
+          <mark className="select">«Download Now»</mark>, а в модальном окне —{" "}
+          <mark className="select">«No thanks, just take me to the downloads»</mark>.
+          После этого вас перенаправят на страницу загрузки, где вы можете скачать{" "}
+          <mark className="app">Flowframes</mark> бесплатно.
+        </Addition>
         <ContentFigure
           caption="FlowFrames"
           src="H8ISNjzDULw"
@@ -194,12 +223,128 @@ const PRActions: React.FC = () => {
           src="591MqOooDAE"
           type="youtube"
         />
-        <Addition type="info">
-          Некоторые плагины или программы вы можете скачать в канале{" "}
-          <a href="https://t.me/+Qd9xu7A4TeIwNzY6">склад стройматериалов</a> по хештегам{" "}
-          <mark className="tag">#twixtor</mark>, <mark className="tag">#continuum</mark>{" "}
-          или <mark className="tag">#topaz</mark>.
-        </Addition>
+      </DetailsSummary>
+      <DetailsSummary
+        anchor="delete-duplicate-frames"
+        tag="дубликаты кадров, аниме, удаление кадров, обработка видео, ffmpeg, shutter encoder"
+        title="Как и чем можно удалить повторяющиеся кадры из видео?"
+      >
+        <p>
+          При обработке записей игрового процесса, аниме или любого контента с переменной
+          частотой кадров вы, вероятно, сталкивались с дублированием кадров, что мешает
+          плавности движения. Чтобы это исправить, повторяющиеся кадры нужно удалить. Это
+          можно сделать несколькими способами.
+        </p>
+        <Divider>Удаляем дубликаты через Shutter Encoder</Divider>
+        <p>
+          В <mark className="app">Shutter Encoder</mark> есть опция, которая позволяет
+          конвертеру анализировать и удалять повторяющиеся кадры из видео. После импорта
+          исходника выберите формат для вывода, а затем во вкладке{" "}
+          <mark className="select">«Advanced features»</mark> включите параметр{" "}
+          <mark className="select">«Remove duplicate frames»</mark>. После этого укажите
+          путь сохранения и нажмите <mark className="select">«Start function»</mark>.
+        </p>
+        <ContentFigure
+          caption="Shutter Encoder"
+          imgTitle="Включение удаления дублирующихся кадров"
+          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+          src="images/legacy/shutter_encoder_remove_duplicate_frames.png"
+          theme="dark"
+          type="image"
+          variant="mac"
+        />
+        <Divider>Удаление дубликатов через FFmpeg</Divider>
+        <p>
+          Если вы не боитесь командной строки и готовы ей воспользоваться, можно исправить
+          исходник с помощью <mark className="app">FFmpeg</mark> — мощной утилиты для
+          конвертации и обработки видео. Сначала её нужно установить на ваше устройство.
+        </p>
+        <ContentFilter
+          macContent={
+            <div>
+              <Addition type="warning">
+                В этой инструкции <mark className="app">FFmpeg</mark> устанавливается
+                через пакетный менеджер <mark className="app">Homebrew</mark>. Прежде чем
+                выполнять команду, убедитесь, что <mark className="app">Homebrew</mark>{" "}
+                установлен в вашей системе.{" "}
+                <a href="https://brew.sh/">Что ещё за Homebrew?</a>
+              </Addition>
+              <p>
+                Для установки <mark className="app">FFmpeg</mark> на <mark>macOS</mark>{" "}
+                достаточно выполнить в терминале команду{" "}
+                <mark className="code">brew install ffmpeg</mark>.
+              </p>
+            </div>
+          }
+          windowsContent={
+            <div>
+              <p>
+                Для быстрой установки <mark className="app">FFmpeg</mark> выполните
+                команду <mark className="code">winget install Gyan.FFmpeg</mark>. Для её
+                выполнения могут потребоваться права администратора.
+              </p>
+              <Addition type="warning">
+                <ul>
+                  <li>
+                    Если в вашей сборке <mark>Windows</mark> утилита{" "}
+                    <mark className="app">winget</mark> отсутствует,{" "}
+                    <a href="https://github.com/microsoft/winget-cli/releases">
+                      установите её вручную
+                    </a>
+                    .
+                  </li>
+                  <li>
+                    Если вы работаете под ограниченной учётной записью, можно скачать
+                    портативную версию <mark className="app">FFmpeg</mark> с сайта{" "}
+                    <a href="https://www.gyan.dev/ffmpeg/builds/">Gyan.Dev</a>,
+                    распаковать её в удобную папку и работать из неё, перейдя в нужный
+                    каталог в командной строке.
+                  </li>
+                </ul>
+              </Addition>
+            </div>
+          }
+        />
+        <p>
+          После корректной установки <mark className="app">FFmpeg</mark> и добавления его
+          в системные переменные окружения вы сможете пользоваться утилитой, не указывая
+          полный путь к исполняемому файлу. Чтобы убрать повторяющиеся кадры, скопируйте в
+          терминал команду ниже, не забыв заменить значения на свои.
+        </p>
+        <code>
+          ffmpeg -i INPUT_VIDEO_NAME.mp4 -vf &quot;mpdecimate,setpts=N/FRAME_RATE/TB&quot;
+          OUTPUT_VIDEO_NAME.mp4
+        </code>
+        <ul>
+          <li>
+            Вместо <mark>INPUT_VIDEO_NAME.mp4</mark> введите абсолютный или относительный
+            путь к вашему видео.
+            <Addition type="info">
+              <ul>
+                <li>
+                  <mark className="word">Абсолютный путь</mark> — это полный путь от корня
+                  диска, например:{" "}
+                  <mark className="path">C:/Users/aechat/Downloads/your_video.mp4</mark>.
+                </li>
+                <li>
+                  <mark className="word">Относительный путь</mark> — это путь от текущей
+                  папки, в которой вы выполняете команду. Например, если вы находитесь в{" "}
+                  <mark className="path">C:/Users/aechat</mark>, а файл лежит в папке{" "}
+                  <mark className="path">Downloads</mark>, относительный путь будет{" "}
+                  <mark className="path">Downloads/your_video.mp4</mark>.
+                </li>
+              </ul>
+            </Addition>
+          </li>
+          <li>
+            Вместо <mark>FRAME_RATE</mark> введите целевую частоту кадров, например,{" "}
+            <mark>29.97</mark> или <mark>60</mark>.
+          </li>
+          <li>
+            Вместо <mark>OUTPUT_VIDEO_NAME.mp4</mark> введите директорию, имя и расширение
+            для итогового файла.
+          </li>
+        </ul>
       </DetailsSummary>
       <DetailsSummary
         tag="уменьшить шум, denoiser, денойзер, неат видео, шумоподавление, чистка видео"
