@@ -699,6 +699,11 @@ const Links = () => {
               name="CG Freelance"
             />
             <LinkCard
+              href="https://t.me/+R_KxUQG5hYo5ZjAy"
+              icon={<WorkRounded />}
+              name="МИР КРЕАТОРОВ"
+            />
+            <LinkCard
               href="https://t.me/video_academy"
               icon={<WorkRounded />}
               name="VA Видео для бизнеса"
@@ -717,6 +722,11 @@ const Links = () => {
               href="https://t.me/vdhl_good"
               icon={<WorkRounded />}
               name="ВДХЛ - Вакансии для хороших людей"
+            />
+            <LinkCard
+              href="https://t.me/jetlagchat"
+              icon={<WorkRounded />}
+              name="JETLAG CHAT"
             />
             <LinkCard
               href="https://t.me/KAADchanel"
@@ -767,6 +777,11 @@ const Links = () => {
               href="https://t.me/s/freelancetaverna"
               icon={<WorkRounded />}
               name="Фриланс Таверна"
+            />
+            <LinkCard
+              href="https://t.me/vakansii_reelsmaker"
+              icon={<WorkRounded />}
+              name="Таверна монтажёров и рилсмейкеров"
             />
             <LinkCard
               href="https://t.me/s/workindesign"
