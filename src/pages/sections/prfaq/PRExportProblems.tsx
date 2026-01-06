@@ -332,7 +332,7 @@ const PRExportProblems: React.FC = () => {
           <mark className="app">Adobe Premiere Pro</mark>. Воспользуемся в кои-то веки
           данной программой по назначению. Чтобы начать конвертацию — импортируйте нужное
           видео в <mark className="app">Adobe Media Encoder</mark> любым способом — через{" "}
-          <mark className="word">Drag-n-drop</mark> в очередь экспорта, через{" "}
+          <mark className="word">drag'n'drop</mark> в очередь экспорта, через{" "}
           <mark className="select">«File» → «Import»</mark>, через{" "}
           <mark className="key">Ctrl + I</mark> или с помощью двойного нажатия по пустой
           очереди экспорта. В открывшемся окне проводника укажите путь до файла, который
