@@ -5315,7 +5315,7 @@ const AEFromNewbies: React.FC = () => {
         </p>
         <ContentFigure
           caption="Правильное дублирование композиции"
-          src={"images/aftereffects/duplicate_composition.mp4"}
+          src="images/legacy/aftereffects/duplicate_composition.mp4"
           theme="dark"
           type="video"
           variant="windows"
