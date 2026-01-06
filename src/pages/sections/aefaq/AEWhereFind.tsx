@@ -5639,7 +5639,7 @@ const AEWhereFind: React.FC = () => {
       </DetailsSummary>
       <DetailsSummary
         anchor="presets-list"
-        tag="русский язык, английский перевод, локализация, effects translation, language switch, localization"
+        tag="русский язык, английский перевод, локализация, presets translation, language switch, localization"
         title="Где найти таблицу перевода стандартных пресетов?"
       >
         <Addition type="warning">
