@@ -23,6 +23,7 @@ export interface SearchContextType {
 }
 
 export interface SearchResult {
+  anchor?: string;
   content: string;
   hasTagMatch: boolean;
   hasTitleMatch: boolean;
@@ -778,6 +779,7 @@ export const useSearchLogic = (query: string, isPageLoaded: boolean) => {
         const titleElement = summary.querySelector("h3");
         const title = titleElement ? (titleElement.textContent ?? "") : "";
         const tag = detail.dataset.tags ?? "";
+        const anchor = detail.dataset.anchor;
         const dividerTexts = collectDividerTexts(detail);
         const flexibleLinksTexts = collectFlexibleLinksTexts(detail);
         const content = buildParagraphsHtml(detail);
@@ -792,7 +794,7 @@ export const useSearchLogic = (query: string, isPageLoaded: boolean) => {
         ].join("\n");
 
         if (title || text) {
-          data.push({content: text.trim(), id, tag: tag.trim(), title});
+          data.push({anchor, content: text.trim(), id, tag: tag.trim(), title});
         }
       }
 
@@ -1066,10 +1068,10 @@ const SearchCategories: React.FC<{
   );
 };
 const SearchResults: React.FC<{
-  query: string;
   onLinkClick: (id: string) => void;
+  query: string;
   resultRefs: React.RefObject<(HTMLButtonElement | null)[]>;
-  results: Array<{content: string; id: string; tag?: string; title: string}>;
+  results: SearchResult[];
   selectedResultIndex: number;
 }> = ({onLinkClick, query, resultRefs, results, selectedResultIndex}) => {
   const getMatchingTags = (tag: string | undefined, query: string) => {
@@ -1084,10 +1086,74 @@ const SearchResults: React.FC<{
   };
   const isMobile = typeof globalThis !== "undefined" && globalThis.innerWidth <= 768;
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+  const touchStartTime = useRef(0);
+  const isPotentialLongPress = useRef(false);
+  const touchStartCoords = useRef({x: 0, y: 0});
+  const isTouchEventInProgress = useRef(false);
+  const handleCopyAnchor = async (id: string, anchor?: string) => {
+    const anchorToCopy = anchor || id;
+
+    if (globalThis.window !== undefined) {
+      const anchorUrl = `${globalThis.location.origin}${globalThis.location.pathname}#${anchorToCopy}`;
+      const success = await copyText(anchorUrl);
+
+      if (success) {
+        message.success(`Ссылка на статью ${id} скопирована`);
+      } else {
+        message.error("Не удалось скопировать ссылку");
+      }
+    }
+  };
+  const handleTouchStart = (e: React.TouchEvent) => {
+    isTouchEventInProgress.current = true;
+    touchStartTime.current = Date.now();
+    isPotentialLongPress.current = true;
+    const touch = e.touches[0];
+
+    touchStartCoords.current = {x: touch.clientX, y: touch.clientY};
+  };
+  const handleTouchMove = (e: React.TouchEvent) => {
+    if (!isPotentialLongPress.current) return;
+
+    const touch = e.touches[0];
+    const moveThreshold = 10;
+    const deltaX = Math.abs(touch.clientX - touchStartCoords.current.x);
+    const deltaY = Math.abs(touch.clientY - touchStartCoords.current.y);
+
+    if (deltaX > moveThreshold || deltaY > moveThreshold) {
+      isPotentialLongPress.current = false;
+    }
+  };
+  const handleTouchEnd = (e: React.TouchEvent, id: string, anchor?: string) => {
+    if (!isPotentialLongPress.current) {
+      return;
+    }
+
+    const pressDuration = Date.now() - touchStartTime.current;
+
+    if (pressDuration > 500) {
+      e.preventDefault();
+      handleCopyAnchor(id, anchor);
+    }
+
+    setTimeout(() => {
+      isTouchEventInProgress.current = false;
+    }, 300);
+    isPotentialLongPress.current = false;
+  };
+  const handleContextMenu = (e: React.MouseEvent, id: string, anchor?: string) => {
+    e.preventDefault();
+
+    if (isTouchEventInProgress.current) {
+      return;
+    }
+
+    handleCopyAnchor(id, anchor);
+  };
 
   return (
     <>
-      {results.map(({content, id, tag, title}, index) => {
+      {results.map(({anchor, content, id, tag, title}, index) => {
         const tagsToDisplay = getMatchingTags(tag, query);
         const isSelected = index === selectedResultIndex;
         const isHovered = hoveredIndex === index;
@@ -1117,8 +1183,12 @@ const SearchResults: React.FC<{
                 e.preventDefault();
                 onLinkClick(id);
               }}
+              onContextMenu={(e) => handleContextMenu(e, id, anchor)}
               onMouseEnter={() => setHoveredIndex(index)}
               onMouseLeave={() => setHoveredIndex(null)}
+              onTouchEnd={(e) => handleTouchEnd(e, id, anchor)}
+              onTouchMove={handleTouchMove}
+              onTouchStart={handleTouchStart}
             >
               <div className={`search-header ${isSelected ? "search-selected" : ""}`}>
                 <p className="search-title">{title.replace(/^[+-]+/, "").trim()}</p>
