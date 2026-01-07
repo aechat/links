@@ -1,20 +1,20 @@
 {
-  "_Apple-Dr5Dtgzm.js": {
-    "file": "assets/Apple-Dr5Dtgzm.js",
+  "_Apple-ApaQvsX_.js": {
+    "file": "assets/Apple-ApaQvsX_.js",
     "name": "Apple",
     "imports": [
       "index.html"
     ]
   },
-  "_Apple-legacy-8OXzllPI.js": {
-    "file": "assets/Apple-legacy-8OXzllPI.js",
+  "_Apple-legacy-BmZT5nnB.js": {
+    "file": "assets/Apple-legacy-BmZT5nnB.js",
     "name": "Apple",
     "imports": [
       "index-legacy.html"
     ]
   },
-  "_CodeSnippet-DWpdGwil.js": {
-    "file": "assets/CodeSnippet-DWpdGwil.js",
+  "_CodeSnippet-Ct3bPh2L.js": {
+    "file": "assets/CodeSnippet-Ct3bPh2L.js",
     "name": "CodeSnippet",
     "imports": [
       "index.html"
@@ -27,107 +27,107 @@
     "file": "assets/CodeSnippet-Dfs9RUU9.css",
     "src": "_CodeSnippet-Dfs9RUU9.css"
   },
-  "_CodeSnippet-legacy-Cmm9I6RL.js": {
-    "file": "assets/CodeSnippet-legacy-Cmm9I6RL.js",
+  "_CodeSnippet-legacy-CeQ9ijcT.js": {
+    "file": "assets/CodeSnippet-legacy-CeQ9ijcT.js",
     "name": "CodeSnippet",
     "imports": [
       "index-legacy.html"
     ]
   },
-  "_ContentFigure-ByJdPsY9.js": {
-    "file": "assets/ContentFigure-ByJdPsY9.js",
+  "_ContentFigure-DDucYKh2.js": {
+    "file": "assets/ContentFigure-DDucYKh2.js",
     "name": "ContentFigure",
     "imports": [
       "index.html",
-      "_Header-DjRbDr-C.js",
-      "_PageIntro-Rd5FcCp9.js"
+      "_Header-BpX5sasj.js",
+      "_PageIntro-B_ybALyV.js"
     ]
   },
-  "_ContentFigure-legacy-Ddf4Uhxs.js": {
-    "file": "assets/ContentFigure-legacy-Ddf4Uhxs.js",
+  "_ContentFigure-legacy-k3p7e7rK.js": {
+    "file": "assets/ContentFigure-legacy-k3p7e7rK.js",
     "name": "ContentFigure",
     "imports": [
       "index-legacy.html",
-      "_Header-legacy-DQUstPzA.js",
-      "_PageIntro-legacy-CMwDKvZi.js"
+      "_Header-legacy-CIuPJm62.js",
+      "_PageIntro-legacy-dMqffV2Q.js"
     ]
   },
-  "_ContentFilter-D2mXEcxG.js": {
-    "file": "assets/ContentFilter-D2mXEcxG.js",
+  "_ContentFilter-Cn6dQw9g.js": {
+    "file": "assets/ContentFilter-Cn6dQw9g.js",
     "name": "ContentFilter",
     "imports": [
       "index.html",
-      "_Apple-Dr5Dtgzm.js"
+      "_Apple-ApaQvsX_.js"
     ]
   },
-  "_ContentFilter-legacy-NxTlApHq.js": {
-    "file": "assets/ContentFilter-legacy-NxTlApHq.js",
+  "_ContentFilter-legacy-IzIbSwwX.js": {
+    "file": "assets/ContentFilter-legacy-IzIbSwwX.js",
     "name": "ContentFilter",
     "imports": [
       "index-legacy.html",
-      "_Apple-legacy-8OXzllPI.js"
+      "_Apple-legacy-BmZT5nnB.js"
     ]
   },
-  "_Header-DjRbDr-C.js": {
-    "file": "assets/Header-DjRbDr-C.js",
+  "_Header-BpX5sasj.js": {
+    "file": "assets/Header-BpX5sasj.js",
     "name": "Header",
     "imports": [
       "index.html"
     ]
   },
-  "_Header-legacy-DQUstPzA.js": {
-    "file": "assets/Header-legacy-DQUstPzA.js",
+  "_Header-legacy-CIuPJm62.js": {
+    "file": "assets/Header-legacy-CIuPJm62.js",
     "name": "Header",
     "imports": [
       "index-legacy.html"
     ]
   },
-  "_HostsAdobe-BukDoS4_.js": {
-    "file": "assets/HostsAdobe-BukDoS4_.js",
+  "_HostsAdobe-BGhNcF2-.js": {
+    "file": "assets/HostsAdobe-BGhNcF2-.js",
     "name": "HostsAdobe",
     "imports": [
       "index.html",
-      "_Header-DjRbDr-C.js"
+      "_Header-BpX5sasj.js"
     ]
   },
-  "_HostsAdobe-legacy-BsXzUMV3.js": {
-    "file": "assets/HostsAdobe-legacy-BsXzUMV3.js",
+  "_HostsAdobe-legacy-CAl_Z0As.js": {
+    "file": "assets/HostsAdobe-legacy-CAl_Z0As.js",
     "name": "HostsAdobe",
     "imports": [
       "index-legacy.html",
-      "_Header-legacy-DQUstPzA.js"
+      "_Header-legacy-CIuPJm62.js"
     ]
   },
-  "_PageIntro-Rd5FcCp9.js": {
-    "file": "assets/PageIntro-Rd5FcCp9.js",
+  "_PageIntro-B_ybALyV.js": {
+    "file": "assets/PageIntro-B_ybALyV.js",
     "name": "PageIntro",
     "imports": [
       "index.html"
     ]
   },
-  "_PageIntro-legacy-CMwDKvZi.js": {
-    "file": "assets/PageIntro-legacy-CMwDKvZi.js",
+  "_PageIntro-legacy-dMqffV2Q.js": {
+    "file": "assets/PageIntro-legacy-dMqffV2Q.js",
     "name": "PageIntro",
     "imports": [
       "index-legacy.html"
     ]
   },
-  "_VideoSettingsRounded-legacy-D0AtH-hJ.js": {
-    "file": "assets/VideoSettingsRounded-legacy-D0AtH-hJ.js",
-    "name": "VideoSettingsRounded",
-    "imports": [
-      "index-legacy.html"
-    ]
-  },
-  "_VideoSettingsRounded-z5v-8sgP.js": {
-    "file": "assets/VideoSettingsRounded-z5v-8sgP.js",
+  "_VideoSettingsRounded-4HxkZY6e.js": {
+    "file": "assets/VideoSettingsRounded-4HxkZY6e.js",
     "name": "VideoSettingsRounded",
     "imports": [
       "index.html"
+    ]
+  },
+  "_VideoSettingsRounded-legacy-DShCh15R.js": {
+    "file": "assets/VideoSettingsRounded-legacy-DShCh15R.js",
+    "name": "VideoSettingsRounded",
+    "imports": [
+      "index-legacy.html"
     ]
   },
   "index-legacy.html": {
-    "file": "assets/index-legacy-C_AQKHVi.js",
+    "file": "assets/index-legacy-CaFS4GPN.js",
     "name": "index",
     "src": "index-legacy.html",
     "isEntry": true,
@@ -208,7 +208,7 @@
     ]
   },
   "index.html": {
-    "file": "assets/index-By5R1skw.js",
+    "file": "assets/index-C4yBEOyc.js",
     "name": "index",
     "src": "index.html",
     "isEntry": true,
@@ -548,117 +548,117 @@
     "src": "src/fonts/ttf/RedHatDisplay/static/RedHatDisplay-SemiBoldItalic.ttf"
   },
   "src/pages/aeexprPage-legacy.tsx": {
-    "file": "assets/aeexprPage-legacy-CO8gSdMG.js",
+    "file": "assets/aeexprPage-legacy-BiukexpQ.js",
     "name": "aeexprPage",
     "src": "src/pages/aeexprPage-legacy.tsx",
     "isDynamicEntry": true,
     "imports": [
       "index-legacy.html",
-      "_Header-legacy-DQUstPzA.js",
-      "_ContentFigure-legacy-Ddf4Uhxs.js",
-      "_PageIntro-legacy-CMwDKvZi.js",
-      "_CodeSnippet-legacy-Cmm9I6RL.js"
+      "_Header-legacy-CIuPJm62.js",
+      "_ContentFigure-legacy-k3p7e7rK.js",
+      "_PageIntro-legacy-dMqffV2Q.js",
+      "_CodeSnippet-legacy-CeQ9ijcT.js"
     ]
   },
   "src/pages/aeexprPage.tsx": {
-    "file": "assets/aeexprPage-0WHhABmE.js",
+    "file": "assets/aeexprPage-CNnXFBDl.js",
     "name": "aeexprPage",
     "src": "src/pages/aeexprPage.tsx",
     "isDynamicEntry": true,
     "imports": [
       "index.html",
-      "_Header-DjRbDr-C.js",
-      "_ContentFigure-ByJdPsY9.js",
-      "_PageIntro-Rd5FcCp9.js",
-      "_CodeSnippet-DWpdGwil.js"
+      "_Header-BpX5sasj.js",
+      "_ContentFigure-DDucYKh2.js",
+      "_PageIntro-B_ybALyV.js",
+      "_CodeSnippet-Ct3bPh2L.js"
     ]
   },
   "src/pages/aefaqPage-legacy.tsx": {
-    "file": "assets/aefaqPage-legacy-BsU-LE9V.js",
+    "file": "assets/aefaqPage-legacy-BkEP-f-4.js",
     "name": "aefaqPage",
     "src": "src/pages/aefaqPage-legacy.tsx",
     "isDynamicEntry": true,
     "imports": [
       "index-legacy.html",
-      "_ContentFigure-legacy-Ddf4Uhxs.js",
-      "_Header-legacy-DQUstPzA.js",
-      "_PageIntro-legacy-CMwDKvZi.js",
-      "_CodeSnippet-legacy-Cmm9I6RL.js",
-      "_ContentFilter-legacy-NxTlApHq.js",
-      "_HostsAdobe-legacy-BsXzUMV3.js",
-      "_VideoSettingsRounded-legacy-D0AtH-hJ.js",
-      "_Apple-legacy-8OXzllPI.js"
+      "_ContentFigure-legacy-k3p7e7rK.js",
+      "_Header-legacy-CIuPJm62.js",
+      "_PageIntro-legacy-dMqffV2Q.js",
+      "_CodeSnippet-legacy-CeQ9ijcT.js",
+      "_ContentFilter-legacy-IzIbSwwX.js",
+      "_HostsAdobe-legacy-CAl_Z0As.js",
+      "_VideoSettingsRounded-legacy-DShCh15R.js",
+      "_Apple-legacy-BmZT5nnB.js"
     ]
   },
   "src/pages/aefaqPage.tsx": {
-    "file": "assets/aefaqPage-DyRjl9pH.js",
+    "file": "assets/aefaqPage-DbykLS4Y.js",
     "name": "aefaqPage",
     "src": "src/pages/aefaqPage.tsx",
     "isDynamicEntry": true,
     "imports": [
       "index.html",
-      "_ContentFigure-ByJdPsY9.js",
-      "_Header-DjRbDr-C.js",
-      "_PageIntro-Rd5FcCp9.js",
-      "_CodeSnippet-DWpdGwil.js",
-      "_ContentFilter-D2mXEcxG.js",
-      "_HostsAdobe-BukDoS4_.js",
-      "_VideoSettingsRounded-z5v-8sgP.js",
-      "_Apple-Dr5Dtgzm.js"
+      "_ContentFigure-DDucYKh2.js",
+      "_Header-BpX5sasj.js",
+      "_PageIntro-B_ybALyV.js",
+      "_CodeSnippet-Ct3bPh2L.js",
+      "_ContentFilter-Cn6dQw9g.js",
+      "_HostsAdobe-BGhNcF2-.js",
+      "_VideoSettingsRounded-4HxkZY6e.js",
+      "_Apple-ApaQvsX_.js"
     ]
   },
   "src/pages/chatRules-legacy.tsx": {
-    "file": "assets/chatRules-legacy-c1c36Bfp.js",
+    "file": "assets/chatRules-legacy-BCs2zDSq.js",
     "name": "chatRules",
     "src": "src/pages/chatRules-legacy.tsx",
     "isDynamicEntry": true,
     "imports": [
       "index-legacy.html",
-      "_Header-legacy-DQUstPzA.js",
-      "_ContentFilter-legacy-NxTlApHq.js",
-      "_PageIntro-legacy-CMwDKvZi.js",
-      "_Apple-legacy-8OXzllPI.js"
+      "_Header-legacy-CIuPJm62.js",
+      "_ContentFilter-legacy-IzIbSwwX.js",
+      "_PageIntro-legacy-dMqffV2Q.js",
+      "_Apple-legacy-BmZT5nnB.js"
     ]
   },
   "src/pages/chatRules.tsx": {
-    "file": "assets/chatRules-CqfrTG_Q.js",
+    "file": "assets/chatRules-D-zUrbQG.js",
     "name": "chatRules",
     "src": "src/pages/chatRules.tsx",
     "isDynamicEntry": true,
     "imports": [
       "index.html",
-      "_Header-DjRbDr-C.js",
-      "_ContentFilter-D2mXEcxG.js",
-      "_PageIntro-Rd5FcCp9.js",
-      "_Apple-Dr5Dtgzm.js"
+      "_Header-BpX5sasj.js",
+      "_ContentFilter-Cn6dQw9g.js",
+      "_PageIntro-B_ybALyV.js",
+      "_Apple-ApaQvsX_.js"
     ]
   },
   "src/pages/linksPage-legacy.tsx": {
-    "file": "assets/linksPage-legacy-QDsCjsaR.js",
+    "file": "assets/linksPage-legacy-CZEwtRpn.js",
     "name": "linksPage",
     "src": "src/pages/linksPage-legacy.tsx",
     "isDynamicEntry": true,
     "imports": [
       "index-legacy.html",
-      "_Header-legacy-DQUstPzA.js",
-      "_Apple-legacy-8OXzllPI.js",
-      "_VideoSettingsRounded-legacy-D0AtH-hJ.js"
+      "_Header-legacy-CIuPJm62.js",
+      "_Apple-legacy-BmZT5nnB.js",
+      "_VideoSettingsRounded-legacy-DShCh15R.js"
     ]
   },
   "src/pages/linksPage.tsx": {
-    "file": "assets/linksPage-BUylRlA4.js",
+    "file": "assets/linksPage-c4-ecEuG.js",
     "name": "linksPage",
     "src": "src/pages/linksPage.tsx",
     "isDynamicEntry": true,
     "imports": [
       "index.html",
-      "_Header-DjRbDr-C.js",
-      "_Apple-Dr5Dtgzm.js",
-      "_VideoSettingsRounded-z5v-8sgP.js"
+      "_Header-BpX5sasj.js",
+      "_Apple-ApaQvsX_.js",
+      "_VideoSettingsRounded-4HxkZY6e.js"
     ]
   },
   "src/pages/notFound-legacy.tsx": {
-    "file": "assets/notFound-legacy-C534Zpi_.js",
+    "file": "assets/notFound-legacy-_6mS5haO.js",
     "name": "notFound",
     "src": "src/pages/notFound-legacy.tsx",
     "isDynamicEntry": true,
@@ -667,7 +667,7 @@
     ]
   },
   "src/pages/notFound.tsx": {
-    "file": "assets/notFound-TpcuWvBz.js",
+    "file": "assets/notFound-DHZVLI7K.js",
     "name": "notFound",
     "src": "src/pages/notFound.tsx",
     "isDynamicEntry": true,
@@ -676,63 +676,63 @@
     ]
   },
   "src/pages/prfaqPage-legacy.tsx": {
-    "file": "assets/prfaqPage-legacy-Jac4t87y.js",
+    "file": "assets/prfaqPage-legacy-B1hOxFOL.js",
     "name": "prfaqPage",
     "src": "src/pages/prfaqPage-legacy.tsx",
     "isDynamicEntry": true,
     "imports": [
       "index-legacy.html",
-      "_Header-legacy-DQUstPzA.js",
-      "_ContentFigure-legacy-Ddf4Uhxs.js",
-      "_PageIntro-legacy-CMwDKvZi.js",
-      "_ContentFilter-legacy-NxTlApHq.js",
-      "_HostsAdobe-legacy-BsXzUMV3.js",
-      "_Apple-legacy-8OXzllPI.js"
+      "_Header-legacy-CIuPJm62.js",
+      "_ContentFigure-legacy-k3p7e7rK.js",
+      "_PageIntro-legacy-dMqffV2Q.js",
+      "_ContentFilter-legacy-IzIbSwwX.js",
+      "_HostsAdobe-legacy-CAl_Z0As.js",
+      "_Apple-legacy-BmZT5nnB.js"
     ]
   },
   "src/pages/prfaqPage.tsx": {
-    "file": "assets/prfaqPage-hKYbhznM.js",
+    "file": "assets/prfaqPage-__OAFj3m.js",
     "name": "prfaqPage",
     "src": "src/pages/prfaqPage.tsx",
     "isDynamicEntry": true,
     "imports": [
       "index.html",
-      "_Header-DjRbDr-C.js",
-      "_ContentFigure-ByJdPsY9.js",
-      "_PageIntro-Rd5FcCp9.js",
-      "_ContentFilter-D2mXEcxG.js",
-      "_HostsAdobe-BukDoS4_.js",
-      "_Apple-Dr5Dtgzm.js"
+      "_Header-BpX5sasj.js",
+      "_ContentFigure-DDucYKh2.js",
+      "_PageIntro-B_ybALyV.js",
+      "_ContentFilter-Cn6dQw9g.js",
+      "_HostsAdobe-BGhNcF2-.js",
+      "_Apple-ApaQvsX_.js"
     ]
   },
   "src/pages/psfaqPage-legacy.tsx": {
-    "file": "assets/psfaqPage-legacy-Ce2aV4t8.js",
+    "file": "assets/psfaqPage-legacy-Bg-yGDXV.js",
     "name": "psfaqPage",
     "src": "src/pages/psfaqPage-legacy.tsx",
     "isDynamicEntry": true,
     "imports": [
       "index-legacy.html",
-      "_Header-legacy-DQUstPzA.js",
-      "_ContentFigure-legacy-Ddf4Uhxs.js",
-      "_PageIntro-legacy-CMwDKvZi.js",
-      "_ContentFilter-legacy-NxTlApHq.js",
-      "_HostsAdobe-legacy-BsXzUMV3.js",
-      "_Apple-legacy-8OXzllPI.js"
+      "_Header-legacy-CIuPJm62.js",
+      "_ContentFigure-legacy-k3p7e7rK.js",
+      "_PageIntro-legacy-dMqffV2Q.js",
+      "_ContentFilter-legacy-IzIbSwwX.js",
+      "_HostsAdobe-legacy-CAl_Z0As.js",
+      "_Apple-legacy-BmZT5nnB.js"
     ]
   },
   "src/pages/psfaqPage.tsx": {
-    "file": "assets/psfaqPage-CzzNWA7p.js",
+    "file": "assets/psfaqPage-DUPchEKj.js",
     "name": "psfaqPage",
     "src": "src/pages/psfaqPage.tsx",
     "isDynamicEntry": true,
     "imports": [
       "index.html",
-      "_Header-DjRbDr-C.js",
-      "_ContentFigure-ByJdPsY9.js",
-      "_PageIntro-Rd5FcCp9.js",
-      "_ContentFilter-D2mXEcxG.js",
-      "_HostsAdobe-BukDoS4_.js",
-      "_Apple-Dr5Dtgzm.js"
+      "_Header-BpX5sasj.js",
+      "_ContentFigure-DDucYKh2.js",
+      "_PageIntro-B_ybALyV.js",
+      "_ContentFilter-Cn6dQw9g.js",
+      "_HostsAdobe-BGhNcF2-.js",
+      "_Apple-ApaQvsX_.js"
     ]
   },
   "vite/legacy-polyfills-legacy": {
