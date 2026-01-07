@@ -486,6 +486,11 @@ const DetailsSummary: React.FC<DetailsSummaryProperties> = ({
   const isPotentialLongPress = useRef(false);
   const touchStartCoords = useRef({x: 0, y: 0});
   const isTouchEventInProgress = useRef(false);
+  const sectionTouchStartTime = useRef(0);
+  const sectionIsPotentialLongPress = useRef(false);
+  const sectionTouchStartCoords = useRef({x: 0, y: 0});
+  const sectionIsTouchEventInProgress = useRef(false);
+  const longPressTargetLink = useRef<HTMLAnchorElement | null>(null);
   const handleTouchStart = (e: React.TouchEvent) => {
     isTouchEventInProgress.current = true;
     touchStartTime.current = Date.now();
@@ -522,6 +527,70 @@ const DetailsSummary: React.FC<DetailsSummaryProperties> = ({
       isTouchEventInProgress.current = false;
     }, 300);
     isPotentialLongPress.current = false;
+  };
+  const copyFlexibleLink = async (href: string, text: string | null) => {
+    const success = await copyText(href);
+
+    if (success) {
+      message.success(`Ссылка на «${text || href}» скопирована`);
+    } else {
+      message.error("Не удалось скопировать ссылку");
+    }
+  };
+  const handleSectionContextMenu = (e: React.MouseEvent) => {
+    if (sectionIsTouchEventInProgress.current) return;
+
+    const target = e.target as HTMLElement;
+    const link = target.closest<HTMLAnchorElement>(".flexible-links a");
+
+    if (link) {
+      e.preventDefault();
+      copyFlexibleLink(link.href, link.textContent);
+    }
+  };
+  const handleSectionTouchStart = (e: React.TouchEvent) => {
+    const target = e.target as HTMLElement;
+    const link = target.closest<HTMLAnchorElement>(".flexible-links a");
+
+    if (link) {
+      sectionIsTouchEventInProgress.current = true;
+      sectionTouchStartTime.current = Date.now();
+      sectionIsPotentialLongPress.current = true;
+      const touch = e.touches[0];
+
+      sectionTouchStartCoords.current = {x: touch.clientX, y: touch.clientY};
+      longPressTargetLink.current = link;
+    }
+  };
+  const handleSectionTouchMove = (e: React.TouchEvent) => {
+    if (!sectionIsPotentialLongPress.current) return;
+
+    const touch = e.touches[0];
+    const moveThreshold = 10;
+    const deltaX = Math.abs(touch.clientX - sectionTouchStartCoords.current.x);
+    const deltaY = Math.abs(touch.clientY - sectionTouchStartCoords.current.y);
+
+    if (deltaX > moveThreshold || deltaY > moveThreshold) {
+      sectionIsPotentialLongPress.current = false;
+      longPressTargetLink.current = null;
+    }
+  };
+  const handleSectionTouchEnd = (e: React.TouchEvent) => {
+    if (longPressTargetLink.current && sectionIsPotentialLongPress.current) {
+      const pressDuration = Date.now() - sectionTouchStartTime.current;
+      const link = longPressTargetLink.current;
+
+      if (pressDuration > 500) {
+        e.preventDefault();
+        copyFlexibleLink(link.href, link.textContent);
+      }
+    }
+
+    setTimeout(() => {
+      sectionIsTouchEventInProgress.current = false;
+    }, 300);
+    sectionIsPotentialLongPress.current = false;
+    longPressTargetLink.current = null;
   };
   const handleSummaryContextMenu = (e: React.MouseEvent) => {
     e.preventDefault();
@@ -596,6 +665,10 @@ const DetailsSummary: React.FC<DetailsSummaryProperties> = ({
                 ref={sectionReference}
                 className="faq-section"
                 onClick={handleSectionClick}
+                onContextMenu={handleSectionContextMenu}
+                onTouchEnd={handleSectionTouchEnd}
+                onTouchMove={handleSectionTouchMove}
+                onTouchStart={handleSectionTouchStart}
               >
                 {React.Children.count(children) === 0 ? (
                   <div className="no-content-placeholder">
