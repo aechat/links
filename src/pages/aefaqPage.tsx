@@ -38,11 +38,7 @@ import AEWhereFind from "./sections/aefaq/AEWhereFind";
 
 const AEFAQ = () => {
   const [isPageLoaded, setIsPageLoaded] = useState(false);
-  const {enableAutoCopy} = useCopyToClipboard();
-
-  useEffect(() => {
-    enableAutoCopy();
-  }, [enableAutoCopy]);
+  useCopyToClipboard();
   useSmartCopy(isPageLoaded);
   const sections = [
     {

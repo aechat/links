@@ -26,7 +26,7 @@ const constants = {
 } as const;
 const ChatRules = () => {
   const {hash} = useLocation();
-  const {enableAutoCopy} = useCopyToClipboard();
+  useCopyToClipboard();
   const handleCopyAnchor = useCallback((anchorId: string) => {
     const anchor = `${globalThis.location.origin}${globalThis.location.pathname}#${anchorId}`;
 
@@ -46,9 +46,8 @@ const ChatRules = () => {
   }, [handleCopyAnchor]);
 
   useEffect(() => {
-    enableAutoCopy();
     enableAnchorCopyButtons();
-  }, [enableAutoCopy, enableAnchorCopyButtons]);
+  }, [enableAnchorCopyButtons]);
   React.useEffect(() => {
     if (hash) {
       setTimeout(() => {

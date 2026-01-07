@@ -1,7 +1,8 @@
+import {useCallback, useEffect, useRef} from "react";
+
 import {message} from "antd";
 
-let isAutoCopyEnabled = false;
-let isCopying = false;
+import {useLongPress} from "./useLongPress";
 
 message.config({
   duration: 3,
@@ -10,7 +11,7 @@ message.config({
 });
 const isExcludedElement = (element: HTMLElement): boolean => {
   return (
-    element.closest(".search-content") !== null ||
+    element.closest(".no-copy") !== null ||
     element.closest(".search-tags") !== null ||
     element.closest(".faq-tags .tag") !== null ||
     (element.tagName === "MARK" && element.classList.length === 0)
@@ -73,51 +74,73 @@ export const copyText = async (text: string): Promise<boolean> => {
 };
 
 export const useCopyToClipboard = () => {
-  const copyToClipboard = async (event?: MouseEvent): Promise<void> => {
-    if (!event?.target) {
-      return;
-    }
+  const isCopyingReference = useRef(false);
+  const copyToClipboard = useCallback(
+    async (event: React.MouseEvent | React.TouchEvent | MouseEvent | TouchEvent) => {
+      const target = event.target as HTMLElement;
 
-    const elementToCopy = event.target as HTMLElement;
-
-    if (isExcludedElement(elementToCopy)) {
-      return;
-    }
-
-    if (isCopying) {
-      return;
-    }
-
-    isCopying = true;
-    const textToCopy = (elementToCopy as HTMLElement).innerText;
-
-    try {
-      const success = await copyText(textToCopy);
-
-      if (success) {
-        message.success("Текст скопирован в буфер обмена");
-      } else {
-        message.error("Не удалось скопировать текст");
+      if (isExcludedElement(target)) {
+        return;
       }
-    } finally {
-      isCopying = false;
-    }
-  };
-  const enableAutoCopy = (): void => {
-    if (isAutoCopyEnabled) {
+
+      if (isCopyingReference.current) {
+        return;
+      }
+
+      isCopyingReference.current = true;
+      const textToCopy = target.innerText;
+
+      try {
+        const success = await copyText(textToCopy);
+
+        if (success) {
+          message.success("Текст скопирован в буфер обмена");
+        } else {
+          message.error("Не удалось скопировать текст");
+        }
+      } finally {
+        setTimeout(() => {
+          isCopyingReference.current = false;
+        }, 100);
+      }
+    },
+    []
+  );
+  const longPressCallback = useCallback(
+    (e: React.MouseEvent | React.TouchEvent) => {
+      const target = e.target as HTMLElement;
+
+      if (target && (target.tagName === "MARK" || target.tagName === "CODE")) {
+        copyToClipboard(e);
+
+        return true;
+      }
+
+      return false;
+    },
+    [copyToClipboard]
+  );
+  const longPressHandlers = useLongPress(longPressCallback);
+
+  useEffect(() => {
+    if ((globalThis as any).isAutoCopyEnabled) {
       return;
     }
 
-    document.addEventListener("click", (event) => {
-      if (
-        event.target instanceof HTMLElement &&
-        (event.target.tagName === "MARK" || event.target.tagName === "CODE")
-      ) {
-        copyToClipboard(event);
-      }
-    });
-    isAutoCopyEnabled = true;
-  };
+    const {onContextMenu, onTouchEnd, onTouchMove, onTouchStart} = longPressHandlers;
 
-  return {copyToClipboard, enableAutoCopy};
+    document.addEventListener("contextmenu", onContextMenu as any);
+    document.addEventListener("touchstart", onTouchStart as any, {passive: true});
+    document.addEventListener("touchmove", onTouchMove as any, {passive: true});
+    document.addEventListener("touchend", onTouchEnd as any);
+    (globalThis as any).isAutoCopyEnabled = true;
+
+    return () => {
+      document.removeEventListener("contextmenu", onContextMenu as any);
+      document.removeEventListener("touchstart", onTouchStart as any);
+      document.removeEventListener("touchmove", onTouchMove as any);
+      document.removeEventListener("touchend", onTouchEnd as any);
+      (globalThis as any).isAutoCopyEnabled = false;
+    };
+  }, [longPressHandlers]);
 };

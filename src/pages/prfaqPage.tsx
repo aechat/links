@@ -27,11 +27,7 @@ import PRWhereFind from "./sections/prfaq/PRWhereFind";
 
 const PRFAQ = () => {
   const [isPageLoaded, setIsPageLoaded] = useState(false);
-  const {enableAutoCopy} = useCopyToClipboard();
-
-  useEffect(() => {
-    enableAutoCopy();
-  }, [enableAutoCopy]);
+  useCopyToClipboard();
   useSmartCopy(isPageLoaded);
   const sections = [
     {
