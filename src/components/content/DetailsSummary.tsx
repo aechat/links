@@ -151,37 +151,6 @@ export const generateAnchorId = () => {
       }
     }
   }
-
-  if (currentHash && !anchorWasFoundAndOpened) {
-    const categoryElement = document.getElementById(currentHash);
-    const faqContainer = document.querySelector(".faq-container");
-
-    if (categoryElement && faqContainer) {
-      setTimeout(() => {
-        const {headerHeight, padding} = getScrollOffsets();
-        const y =
-          categoryElement.getBoundingClientRect().top +
-          window.pageYOffset -
-          headerHeight -
-          padding;
-
-        window.scrollTo({behavior: "smooth", top: y});
-      }, constants.ACTION_DELAY);
-
-      return;
-    }
-
-    if (faqContainer) {
-      message.error(
-        "Не удалось найти статью по ссылке, возможно, она была перемещена или удалена."
-      );
-      history.replaceState(
-        null,
-        "",
-        globalThis.location.pathname + globalThis.location.search
-      );
-    }
-  }
 };
 
 const DetailsSummary: React.FC<DetailsSummaryProperties> = ({

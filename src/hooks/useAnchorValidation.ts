@@ -13,35 +13,41 @@ export const useAnchorValidation = (sections: Section[], isPageLoaded: boolean) 
   useEffect(() => {
     if (!isPageLoaded) return;
 
-    const currentAnchor = hash.slice(1);
+    const validateAnchors = () => {
+      const currentAnchor = hash.slice(1);
 
-    if (!currentAnchor) return;
+      if (!currentAnchor) return;
 
-    const isCategoryAnchor = sections.some((section) => section.id === currentAnchor);
+      const isCategoryAnchor = sections.some((section) => section.id === currentAnchor);
 
-    if (isCategoryAnchor) {
-      return;
-    }
+      if (isCategoryAnchor) {
+        return;
+      }
 
-    const isSpoilerAnchor =
-      document.getElementById(currentAnchor) ||
-      document.querySelector(`details[data-anchor="${currentAnchor}"]`);
+      const isSpoilerAnchor =
+        document.getElementById(currentAnchor) ||
+        document.querySelector(`details[data-anchor="${currentAnchor}"]`);
 
-    if (isSpoilerAnchor) {
-      return;
-    }
+      if (isSpoilerAnchor) {
+        return;
+      }
 
-    const faqContainer = document.querySelector(".faq-content");
+      const faqContainer = document.querySelector(".faq-content");
 
-    if (faqContainer) {
-      message.error(
-        "Не удалось найти статью по ссылке, возможно, она была перемещена или удалена."
-      );
-      history.replaceState(
-        null,
-        "",
-        globalThis.location.pathname + globalThis.location.search
-      );
-    }
+      if (faqContainer) {
+        message.error(
+          "Не удалось найти статью по ссылке, возможно, она была перемещена или удалена."
+        );
+        history.replaceState(
+          null,
+          "",
+          globalThis.location.pathname + globalThis.location.search
+        );
+      }
+    };
+
+    const validationTimeout = setTimeout(validateAnchors, 1000);
+
+    return () => clearTimeout(validationTimeout);
   }, [hash, sections, isPageLoaded]);
 };

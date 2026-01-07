@@ -10,6 +10,7 @@ import {SearchInPage, SearchProvider} from "../components/features/SearchEngine"
 import Footer from "../components/layout/Footer";
 import Header from "../components/layout/Header";
 import PageIntro from "../components/layout/PageIntro";
+import {useAnchorValidation} from "../hooks/useAnchorValidation";
 import {useCopyToClipboard} from "../hooks/useCopyToClipboard";
 import {useSmartCopy} from "../hooks/useSmartCopy";
 
@@ -54,6 +55,8 @@ const AEExpressionPage = () => {
       title: "Ошибки и предупреждения",
     },
   ];
+
+  useAnchorValidation(sections, isPageLoaded);
 
   return (
     <div className="page">
