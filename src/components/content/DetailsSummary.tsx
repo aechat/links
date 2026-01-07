@@ -15,6 +15,8 @@ import {message, Tooltip} from "antd";
 import {copyText} from "../../hooks/useCopyToClipboard";
 import {useExternalLinkHandler} from "../../hooks/useExternalLinks";
 import {useInternalLinkHandler} from "../../hooks/useInternalLinks";
+import {useLongPress} from "../../hooks/useLongPress";
+import {formatNestedQuotes} from "../../utils/stringUtils";
 import {useTheme} from "../modals/ThemeChanger";
 
 declare global {
@@ -482,148 +484,60 @@ const DetailsSummary: React.FC<DetailsSummaryProperties> = ({
 
     if (detailsReference.current) setIsOpen(!detailsReference.current.open);
   };
-  const touchStartTime = useRef(0);
-  const isPotentialLongPress = useRef(false);
-  const touchStartCoords = useRef({x: 0, y: 0});
-  const isTouchEventInProgress = useRef(false);
-  const sectionTouchStartTime = useRef(0);
-  const sectionIsPotentialLongPress = useRef(false);
-  const sectionTouchStartCoords = useRef({x: 0, y: 0});
-  const sectionIsTouchEventInProgress = useRef(false);
-  const longPressTargetLink = useRef<HTMLAnchorElement | null>(null);
-  const handleTouchStart = (e: React.TouchEvent) => {
-    isTouchEventInProgress.current = true;
-    touchStartTime.current = Date.now();
-    isPotentialLongPress.current = true;
-    const touch = e.touches[0];
+  const handleCopyAnchor = useCallback(
+    async (event: React.MouseEvent | React.TouchEvent) => {
+      event.stopPropagation();
+      const summaryElement = detailsReference.current?.querySelector(".faq-summary");
+      const numericAnchor = summaryElement?.id ?? "";
+      const anchorToCopy = anchor || numericAnchor;
 
-    touchStartCoords.current = {x: touch.clientX, y: touch.clientY};
-  };
-  const handleTouchMove = (e: React.TouchEvent) => {
-    if (!isPotentialLongPress.current) return;
+      if (!anchorToCopy) {
+        message.warning(
+          "Дождитесь полной загрузки страницы, прежде чем копировать ссылку"
+        );
 
-    const touch = e.touches[0];
-    const moveThreshold = 10;
-    const deltaX = Math.abs(touch.clientX - touchStartCoords.current.x);
-    const deltaY = Math.abs(touch.clientY - touchStartCoords.current.y);
-
-    if (deltaX > moveThreshold || deltaY > moveThreshold) {
-      isPotentialLongPress.current = false;
-    }
-  };
-  const handleTouchEnd = (e: React.TouchEvent) => {
-    if (!isPotentialLongPress.current) {
-      return;
-    }
-
-    const pressDuration = Date.now() - touchStartTime.current;
-
-    if (pressDuration > 500) {
-      e.preventDefault();
-      handleCopyAnchor(e);
-    }
-
-    setTimeout(() => {
-      isTouchEventInProgress.current = false;
-    }, 300);
-    isPotentialLongPress.current = false;
-  };
-  const copyFlexibleLink = async (href: string, text: string | null) => {
-    const success = await copyText(href);
-
-    if (success) {
-      message.success(`Ссылка на «${text || href}» скопирована`);
-    } else {
-      message.error("Не удалось скопировать ссылку");
-    }
-  };
-  const handleSectionContextMenu = (e: React.MouseEvent) => {
-    if (sectionIsTouchEventInProgress.current) return;
-
-    const target = e.target as HTMLElement;
-    const link = target.closest<HTMLAnchorElement>(".flexible-links a");
-
-    if (link) {
-      e.preventDefault();
-      copyFlexibleLink(link.href, link.textContent);
-    }
-  };
-  const handleSectionTouchStart = (e: React.TouchEvent) => {
-    const target = e.target as HTMLElement;
-    const link = target.closest<HTMLAnchorElement>(".flexible-links a");
-
-    if (link) {
-      sectionIsTouchEventInProgress.current = true;
-      sectionTouchStartTime.current = Date.now();
-      sectionIsPotentialLongPress.current = true;
-      const touch = e.touches[0];
-
-      sectionTouchStartCoords.current = {x: touch.clientX, y: touch.clientY};
-      longPressTargetLink.current = link;
-    }
-  };
-  const handleSectionTouchMove = (e: React.TouchEvent) => {
-    if (!sectionIsPotentialLongPress.current) return;
-
-    const touch = e.touches[0];
-    const moveThreshold = 10;
-    const deltaX = Math.abs(touch.clientX - sectionTouchStartCoords.current.x);
-    const deltaY = Math.abs(touch.clientY - sectionTouchStartCoords.current.y);
-
-    if (deltaX > moveThreshold || deltaY > moveThreshold) {
-      sectionIsPotentialLongPress.current = false;
-      longPressTargetLink.current = null;
-    }
-  };
-  const handleSectionTouchEnd = (e: React.TouchEvent) => {
-    if (longPressTargetLink.current && sectionIsPotentialLongPress.current) {
-      const pressDuration = Date.now() - sectionTouchStartTime.current;
-      const link = longPressTargetLink.current;
-
-      if (pressDuration > 500) {
-        e.preventDefault();
-        copyFlexibleLink(link.href, link.textContent);
+        return false;
       }
-    }
 
-    setTimeout(() => {
-      sectionIsTouchEventInProgress.current = false;
-    }, 300);
-    sectionIsPotentialLongPress.current = false;
-    longPressTargetLink.current = null;
-  };
-  const handleSummaryContextMenu = (e: React.MouseEvent) => {
-    e.preventDefault();
+      if (globalThis.window !== undefined) {
+        const anchorUrl = `${globalThis.location.origin}${globalThis.location.pathname}#${anchorToCopy}`;
+        const success = await copyText(anchorUrl);
 
-    if (isTouchEventInProgress.current) {
-      return;
-    }
-
-    handleCopyAnchor(e);
-  };
-  const handleCopyAnchor = async (event: React.MouseEvent | React.TouchEvent) => {
-    event.stopPropagation();
-    const summaryElement = detailsReference.current?.querySelector(".faq-summary");
-    const numericAnchor = summaryElement?.id ?? "";
-    const anchorToCopy = anchor || numericAnchor;
-
-    if (!anchorToCopy) {
-      message.warning("Дождитесь полной загрузки страницы, прежде чем копировать ссылку");
-
-      return;
-    }
-
-    if (globalThis.window !== undefined) {
-      const anchorUrl = `${globalThis.location.origin}${globalThis.location.pathname}#${anchorToCopy}`;
-      const success = await copyText(anchorUrl);
-
-      if (success) {
-        message.success(`Ссылка на статью ${numericAnchor} скопирована`);
-      } else {
-        message.error("Не удалось скопировать ссылку");
+        if (success) {
+          message.success(`Ссылка на статью ${numericAnchor} скопирована`);
+        } else {
+          message.error("Не удалось скопировать ссылку");
+        }
       }
-    }
-  };
+
+      return true;
+    },
+    [anchor]
+  );
+  const summaryLongPressProperties = useLongPress(handleCopyAnchor);
+  const handleFlexibleLinkCopy = useCallback(
+    async (event: React.MouseEvent | React.TouchEvent) => {
+      const target = event.target as HTMLElement;
+      const link = target.closest<HTMLAnchorElement>(".flexible-links a");
+
+      if (link) {
+        const success = await copyText(link.href);
+        const displayName = link.textContent || link.href;
+
+        if (success) {
+          message.success(`Ссылка на «${formatNestedQuotes(displayName)}» скопирована`);
+        } else {
+          message.error("Не удалось скопировать ссылку");
+        }
+
+        return true;
+      }
+
+      return false;
+    },
+    []
+  );
+  const sectionLongPressProperties = useLongPress(handleFlexibleLinkCopy);
   const headingText = (displayAnchorId ? `${displayAnchorId}. ` : "") + title;
 
   return (
@@ -637,10 +551,7 @@ const DetailsSummary: React.FC<DetailsSummaryProperties> = ({
         <summary
           className="faq-summary"
           onClick={handleSummaryClick}
-          onContextMenu={handleSummaryContextMenu}
-          onTouchEnd={handleTouchEnd}
-          onTouchMove={handleTouchMove}
-          onTouchStart={handleTouchStart}
+          {...summaryLongPressProperties}
         >
           <div className="faq-summary-left">
             <span className="faq-summary-icon">+</span>
@@ -665,10 +576,7 @@ const DetailsSummary: React.FC<DetailsSummaryProperties> = ({
                 ref={sectionReference}
                 className="faq-section"
                 onClick={handleSectionClick}
-                onContextMenu={handleSectionContextMenu}
-                onTouchEnd={handleSectionTouchEnd}
-                onTouchMove={handleSectionTouchMove}
-                onTouchStart={handleSectionTouchStart}
+                {...sectionLongPressProperties}
               >
                 {React.Children.count(children) === 0 ? (
                   <div className="no-content-placeholder">
