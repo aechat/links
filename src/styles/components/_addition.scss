@@ -18,6 +18,10 @@
     font-size: 0.95rem;
     font-weight: 425;
 
+    > div {
+      flex-grow: 1;
+    }
+
     p {
       margin-block: 10px;
       margin-inline: 0;
