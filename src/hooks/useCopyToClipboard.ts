@@ -128,11 +128,18 @@ export const useCopyToClipboard = () => {
     }
 
     const {onContextMenu, onTouchEnd, onTouchMove, onTouchStart} = longPressHandlers;
+    const onClickCode = (e: MouseEvent) => {
+      const target = e.target as HTMLElement;
 
+      if (target && target.tagName === "CODE") {
+        copyToClipboard(e);
+      }
+    };
     document.addEventListener("contextmenu", onContextMenu as any);
     document.addEventListener("touchstart", onTouchStart as any, {passive: true});
     document.addEventListener("touchmove", onTouchMove as any, {passive: true});
     document.addEventListener("touchend", onTouchEnd as any);
+    document.addEventListener("click", onClickCode);
     (globalThis as any).isAutoCopyEnabled = true;
 
     return () => {
@@ -140,7 +147,8 @@ export const useCopyToClipboard = () => {
       document.removeEventListener("touchstart", onTouchStart as any);
       document.removeEventListener("touchmove", onTouchMove as any);
       document.removeEventListener("touchend", onTouchEnd as any);
+      document.removeEventListener("click", onClickCode);
       (globalThis as any).isAutoCopyEnabled = false;
     };
-  }, [longPressHandlers]);
+  }, [longPressHandlers, copyToClipboard]);
 };
