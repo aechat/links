@@ -485,30 +485,32 @@ const DetailsSummary: React.FC<DetailsSummaryProperties> = ({
     if (detailsReference.current) setIsOpen(!detailsReference.current.open);
   };
   const handleCopyAnchor = useCallback(
-    async (event: React.MouseEvent | React.TouchEvent) => {
+    (event: React.MouseEvent | React.TouchEvent) => {
       event.stopPropagation();
-      const summaryElement = detailsReference.current?.querySelector(".faq-summary");
-      const numericAnchor = summaryElement?.id ?? "";
-      const anchorToCopy = anchor || numericAnchor;
+      (async () => {
+        const summaryElement = detailsReference.current?.querySelector(".faq-summary");
+        const numericAnchor = summaryElement?.id ?? "";
+        const anchorToCopy = anchor || numericAnchor;
 
-      if (!anchorToCopy) {
-        message.warning(
-          "Дождитесь полной загрузки страницы, прежде чем копировать ссылку"
-        );
+        if (!anchorToCopy) {
+          message.warning(
+            "Дождитесь полной загрузки страницы, прежде чем копировать ссылку"
+          );
 
-        return false;
-      }
-
-      if (globalThis.window !== undefined) {
-        const anchorUrl = `${globalThis.location.origin}${globalThis.location.pathname}#${anchorToCopy}`;
-        const success = await copyText(anchorUrl);
-
-        if (success) {
-          message.success(`Ссылка на статью ${numericAnchor} скопирована`);
-        } else {
-          message.error("Не удалось скопировать ссылку");
+          return;
         }
-      }
+
+        if (globalThis.window !== undefined) {
+          const anchorUrl = `${globalThis.location.origin}${globalThis.location.pathname}#${anchorToCopy}`;
+          const success = await copyText(anchorUrl);
+
+          if (success) {
+            message.success(`Ссылка на статью ${numericAnchor} скопирована`);
+          } else {
+            message.error("Не удалось скопировать ссылку");
+          }
+        }
+      })();
 
       return true;
     },
@@ -516,19 +518,21 @@ const DetailsSummary: React.FC<DetailsSummaryProperties> = ({
   );
   const summaryLongPressProperties = useLongPress(handleCopyAnchor);
   const handleFlexibleLinkCopy = useCallback(
-    async (event: React.MouseEvent | React.TouchEvent) => {
+    (event: React.MouseEvent | React.TouchEvent) => {
       const target = event.target as HTMLElement;
       const link = target.closest<HTMLAnchorElement>(".flexible-links a");
 
       if (link) {
-        const success = await copyText(link.href);
-        const displayName = link.textContent || link.href;
+        (async () => {
+          const success = await copyText(link.href);
+          const displayName = link.textContent || link.href;
 
-        if (success) {
-          message.success(`Ссылка на «${formatNestedQuotes(displayName)}» скопирована`);
-        } else {
-          message.error("Не удалось скопировать ссылку");
-        }
+          if (success) {
+            message.success(`Ссылка на «${formatNestedQuotes(displayName)}» скопирована`);
+          } else {
+            message.error("Не удалось скопировать ссылку");
+          }
+        })();
 
         return true;
       }
