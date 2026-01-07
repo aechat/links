@@ -46,15 +46,6 @@ mark {
       vertical-align: sub;
       content: "";
     }
-
-    &:hover {
-      opacity: 0.8;
-      cursor: pointer;
-    }
-
-    &:active {
-      opacity: 0.6;
-    }
   }
 
   &.user::before {
