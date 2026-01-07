@@ -75,7 +75,7 @@ table {
     th {
       text-wrap: balance;
       border: 1px solid var(--color-surface-primary-border);
-      border-radius: $roundness * 0.5;
+      border-radius: $roundness * 0.75;
       background-color: var(--color-surface-primary-background);
       font-weight: 600;
     }
