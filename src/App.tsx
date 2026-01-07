@@ -20,12 +20,19 @@ import psfaqSvg from "/icons/psfaq.svg?raw";
 import aeexprfaqSvg from "/icons/aeexprfaq.svg?raw";
 
 const Links = lazy(() => import("./pages/linksPage"));
+
 const ChatRules = lazy(() => import("./pages/chatRules"));
+
 const NotFound = lazy(() => import("./pages/notFound"));
+
 const AEFAQ = lazy(() => import("./pages/aefaqPage"));
+
 const PRFAQ = lazy(() => import("./pages/prfaqPage"));
+
 const PSFAQ = lazy(() => import("./pages/psfaqPage"));
+
 const AEExpressionPage = lazy(() => import("./pages/aeexprPage"));
+
 const FilesRedirect = () => {
   useEffect(() => {
     document.title = "files@aechat";
@@ -34,9 +41,11 @@ const FilesRedirect = () => {
 
   return null;
 };
+
 const RegFileRedirect = () => {
   useEffect(() => {
     document.title = "regfile@aechat";
+
     const link = document.createElement("a");
 
     link.href = "/files/Enable%20Extensions%20Adobe.reg";
@@ -52,8 +61,10 @@ const RegFileRedirect = () => {
 
   return null;
 };
+
 const RedirectHtml = () => {
   const location = useLocation();
+
   const path = location.pathname;
 
   if (path.endsWith(".html")) {
@@ -67,6 +78,7 @@ const RedirectHtml = () => {
 
   return null;
 };
+
 const SafariWarningModal = ({
   onClose,
   open,
@@ -75,6 +87,7 @@ const SafariWarningModal = ({
   onClose: (dontShowAgain: boolean) => void;
 }) => {
   const [dontShowAgain, setDontShowAgain] = React.useState(false);
+
   const handleClose = () => {
     onClose(dontShowAgain);
   };
@@ -134,6 +147,7 @@ const SafariWarningModal = ({
     </Modal>
   );
 };
+
 const ErrorFallback = ({error}: {error: Error}) => {
   const isDynamicImportError =
     error.message.includes("dynamically imported module") ||
@@ -214,9 +228,11 @@ class ErrorBoundary extends React.Component<
     super(properties);
     this.state = {error: null, hasError: false};
   }
+
   static getDerivedStateFromError(error: Error) {
     return {error, hasError: true};
   }
+
   render() {
     if (this.state.hasError && this.state.error) {
       return <ErrorFallback error={this.state.error} />;
@@ -228,10 +244,13 @@ class ErrorBoundary extends React.Component<
 
 const SnowfallManager = () => {
   const {accentHue, isSnowfallEnabled, saturateRatio, theme} = useTheme();
+
   const isSystemDark =
     globalThis.window?.matchMedia &&
     globalThis.window.matchMedia("(prefers-color-scheme: dark)").matches;
+
   const isDarkMode = theme === "dark" || (theme === "system" && isSystemDark);
+
   const lightness = isDarkMode ? "75%" : "50%";
   const color = `hsl(${accentHue}, ${saturateRatio * 50}%, ${lightness})`;
 
@@ -253,6 +272,7 @@ const SnowfallManager = () => {
 
 export const App = () => {
   const location = useLocation();
+
   const [svgContent, setSvgContent] = useState(faviconSvg);
 
   useEffect(() => {
@@ -271,18 +291,22 @@ export const App = () => {
     }
   }, [location.pathname]);
   useDynamicFavicon(svgContent);
+
   const [isClient, setIsClient] = useState(false);
 
   useEffect(() => {
     setIsClient(true);
   }, []);
+
   const [showSafariWarning, setShowSafariWarning] = useState(false);
+
   const [showOldBrowserWarning, setShowOldBrowserWarning] = useState(false);
 
   useEffect(() => {
     if (globalThis.window === undefined) return;
 
     let shouldShowWarning = false;
+
     const browserInfo = getBrowserInfo();
 
     if (browserInfo.isLegacy) {
@@ -294,7 +318,9 @@ export const App = () => {
 
         if (!warningDismissed) {
           const lastShown = localStorage.getItem("oldBrowserWarningLastShown");
+
           const now = Date.now();
+
           const time = 24 * 60 * 60 * 1000;
 
           if (!lastShown || now - Number.parseInt(lastShown, 10) >= time) {
@@ -306,17 +332,21 @@ export const App = () => {
 
     setShowOldBrowserWarning(shouldShowWarning);
   }, []);
+
   const [appReady, setAppReady] = useState(true);
 
   useEffect(() => {
     if (globalThis.window === undefined) return;
 
     let shouldShowWarning = false;
+
     const isWebKit =
       typeof navigator !== "undefined" &&
       /AppleWebKit|Epiphany|Safari/i.test(navigator.userAgent) &&
       !/Chrome|Chromium|Edg|OPR|Brave/i.test(navigator.userAgent);
+
     const path = location.pathname;
+
     const isFaqPage =
       path.startsWith("/aefaq") ||
       path.startsWith("/prfaq") ||
@@ -328,7 +358,9 @@ export const App = () => {
 
       if (!warningDismissed) {
         const lastShown = localStorage.getItem("safariWarningLastShown");
+
         const now = Date.now();
+
         const time = 60 * 60 * 1000;
 
         if (!lastShown || now - Number.parseInt(lastShown, 10) >= time) {

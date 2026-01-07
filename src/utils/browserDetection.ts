@@ -10,8 +10,11 @@ export function getBrowserInfo(): BrowserInfo {
   }
 
   const ua = globalThis.navigator.userAgent;
+
   let name = "Unknown";
+
   let version = 0;
+
   let match = /(Chrom(e|ium))\/((\d+)\.?(\d+)?\.?(\d+)?\.?(\d+)?)/.exec(ua);
 
   if (match) {
@@ -58,6 +61,7 @@ export function getBrowserInfo(): BrowserInfo {
     Opera: 75,
     Safari: 14,
   };
+
   const isLegacy =
     version > 0 &&
     legacyThresholds[name] !== undefined &&

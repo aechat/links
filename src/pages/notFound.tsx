@@ -8,16 +8,21 @@ interface Subtitle {
   start: number;
   text: string;
 }
+
 const NotFound = () => {
   const audioReference = useRef<HTMLAudioElement | null>(null);
+
   const [subtitles, setSubtitles] = useState<Subtitle[]>([]);
+
   const [currentSubtitle, setCurrentSubtitle] = useState<string>("Пустота");
 
   useEffect(() => {
     audioReference.current = new Audio("/files/404.mp3");
+
     const fetchSubtitles = async () => {
       try {
         const response = await fetch("/files/404.json");
+
         const json = await response.json();
 
         setSubtitles(json);
@@ -27,6 +32,7 @@ const NotFound = () => {
     };
 
     fetchSubtitles();
+
     const handlePlayAudio = () => {
       if (audioReference.current) {
         audioReference.current.play().catch((error) => {
@@ -53,6 +59,7 @@ const NotFound = () => {
       }
 
       const currentTime = audioReference.current.currentTime;
+
       const current = subtitles.find(
         (sub) => currentTime >= sub.start && currentTime <= sub.end
       );

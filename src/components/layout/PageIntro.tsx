@@ -8,12 +8,15 @@ interface PageIntroProperties {
   isLoaded?: boolean;
   text: string;
 }
+
 const PageIntro: React.FC<PageIntroProperties> = ({isLoaded = true, text}) => {
   const [show, setShow] = useState(false);
 
   useEffect(() => {
     const lastShown = localStorage.getItem("introLastShown");
+
     const now = Date.now();
+
     const time = 20 * 60 * 1000;
 
     if (!lastShown || now - Number.parseInt(lastShown, 10) > time) {
@@ -24,6 +27,7 @@ const PageIntro: React.FC<PageIntroProperties> = ({isLoaded = true, text}) => {
   useEffect(() => {
     if (show && isLoaded) {
       const animationDuration = text.length * 0.05 + 0.4 + 1.25;
+
       const timer = setTimeout(() => setShow(false), animationDuration * 1000 + 250);
 
       return () => clearTimeout(timer);

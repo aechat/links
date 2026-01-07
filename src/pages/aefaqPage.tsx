@@ -38,8 +38,10 @@ import AEWhereFind from "./sections/aefaq/AEWhereFind";
 
 const AEFAQ = () => {
   const [isPageLoaded, setIsPageLoaded] = useState(false);
+
   useCopyToClipboard();
   useSmartCopy(isPageLoaded);
+
   const sections = [
     {
       component: AEWhereFind,

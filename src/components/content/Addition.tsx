@@ -6,6 +6,7 @@ interface AdditionProperties {
   children: ReactNode;
   type: "info" | "warning" | "danger" | "tldr";
 }
+
 const Addition: React.FC<AdditionProperties> = ({children, type}) => {
   let className: string;
 
@@ -14,14 +15,17 @@ const Addition: React.FC<AdditionProperties> = ({children, type}) => {
       className = "addition-info";
       break;
     }
+
     case "warning": {
       className = "addition-warning";
       break;
     }
+
     case "danger": {
       className = "addition-danger";
       break;
     }
+
     case "tldr": {
       className = "addition-tldr";
       break;

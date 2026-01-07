@@ -9,6 +9,7 @@ message.config({
   maxCount: 2,
   top: 60,
 });
+
 const isExcludedElement = (element: HTMLElement): boolean => {
   return (
     element.closest(".no-copy") !== null ||
@@ -17,6 +18,7 @@ const isExcludedElement = (element: HTMLElement): boolean => {
     (element.tagName === "MARK" && element.classList.length === 0)
   );
 };
+
 const copyWithFallback = (text: string): boolean => {
   const textArea = document.createElement("textarea");
 
@@ -36,6 +38,7 @@ const copyWithFallback = (text: string): boolean => {
   document.body.append(textArea);
   textArea.focus();
   textArea.select();
+
   let success = false;
 
   try {
@@ -75,6 +78,7 @@ export const copyText = async (text: string): Promise<boolean> => {
 
 export const useCopyToClipboard = () => {
   const isCopyingReference = useRef(false);
+
   const copyToClipboard = useCallback(
     async (event: React.MouseEvent | React.TouchEvent | MouseEvent | TouchEvent) => {
       const target = event.target as HTMLElement;
@@ -88,6 +92,7 @@ export const useCopyToClipboard = () => {
       }
 
       isCopyingReference.current = true;
+
       const textToCopy = target.innerText;
 
       try {
@@ -106,6 +111,7 @@ export const useCopyToClipboard = () => {
     },
     []
   );
+
   const longPressCallback = useCallback(
     (e: React.MouseEvent | React.TouchEvent) => {
       const target = e.target as HTMLElement;
@@ -120,6 +126,7 @@ export const useCopyToClipboard = () => {
     },
     [copyToClipboard]
   );
+
   const longPressHandlers = useLongPress(longPressCallback);
 
   useEffect(() => {
@@ -128,6 +135,7 @@ export const useCopyToClipboard = () => {
     }
 
     const {onContextMenu, onTouchEnd, onTouchMove, onTouchStart} = longPressHandlers;
+
     const onClickCode = (e: MouseEvent) => {
       const target = e.target as HTMLElement;
 
@@ -135,6 +143,7 @@ export const useCopyToClipboard = () => {
         copyToClipboard(e);
       }
     };
+
     document.addEventListener("contextmenu", onContextMenu as any);
     document.addEventListener("touchstart", onTouchStart as any, {passive: true});
     document.addEventListener("touchmove", onTouchMove as any, {passive: true});

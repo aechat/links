@@ -1636,14 +1636,17 @@ const PRFromNewbies: React.FC = () => {
           href="#interface"
           onClick={(e) => {
             e.preventDefault();
+
             const target = document.querySelector("#interface");
 
             if (target) {
               const headerHeight = document.querySelector("header")?.offsetHeight ?? 0;
+
               const padding = Math.min(
                 10 + (14 - 10) * ((window.innerWidth - 320) / (768 - 320)),
                 14
               );
+
               const y =
                 target.getBoundingClientRect().top +
                 window.pageYOffset -

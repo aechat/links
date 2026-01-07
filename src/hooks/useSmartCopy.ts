@@ -26,10 +26,15 @@ export const useSmartCopy = (isPageLoaded: boolean) => {
 
         if (contentSection && selection.containsNode(contentSection, true)) {
           const summary = detail.querySelector("summary");
+
           const titleElement = summary?.querySelector("h3");
+
           const numericAnchor = summary?.id;
+
           const textualAnchor = (detail as HTMLElement).dataset.anchor;
+
           const anchorToUse = textualAnchor || numericAnchor;
+
           const title =
             titleElement?.textContent?.replace(/^\d+\.\d+\.\s*/, "") || "Без названия";
 
@@ -48,16 +53,25 @@ export const useSmartCopy = (isPageLoaded: boolean) => {
 
       event.preventDefault();
       event.stopPropagation();
+
       const range = selection.getRangeAt(0);
+
       const temporaryDiv = document.createElement("div");
 
       temporaryDiv.append(range.cloneContents());
+
       const selectedHtml = temporaryDiv.innerHTML;
+
       const selectedText = selection.toString().trim();
+
       const pageTitle = document.title;
+
       let plainText: string;
+
       let html: string;
+
       const separatorPlain = "\n---\n";
+
       const separatorHtml = "<hr>";
 
       if (sources.length === 1) {
@@ -73,6 +87,7 @@ export const useSmartCopy = (isPageLoaded: boolean) => {
         `;
       } else {
         const sourcesText = sources.map((s) => `— «${s.title}»: ${s.url}`).join("\n");
+
         const sourcesHtml = sources
           .map((s) => `<li><a href="${s.url}">«${s.title}»</a></li>`)
           .join("");

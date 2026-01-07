@@ -1711,8 +1711,11 @@ const AEInstallProblems: React.FC = () => {
             <mark className="app">Telegram</mark> загружает установочные файлы с ошибками.{" "}
             {(() => {
               const userAgent = navigator.userAgent.toLowerCase();
+
               const isIOS = /iphone|ipad/.test(userAgent);
+
               const isAndroid = /android/.test(userAgent);
+
               const isMacOS = /macintosh|mac os x/.test(userAgent);
 
               if (isIOS) {
@@ -3117,14 +3120,17 @@ const AEInstallProblems: React.FC = () => {
           href="#errors"
           onClick={(e) => {
             e.preventDefault();
+
             const target = document.querySelector("#errors");
 
             if (target) {
               const headerHeight = document.querySelector("header")?.offsetHeight ?? 0;
+
               const padding = Math.min(
                 10 + (14 - 10) * ((window.innerWidth - 320) / (768 - 320)),
                 14
               );
+
               const y =
                 target.getBoundingClientRect().top +
                 window.pageYOffset -

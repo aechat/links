@@ -6,7 +6,9 @@ import {useLocation} from "react-router-dom";
 import {formatRelativeTime} from "../../utils/dateUtils";
 
 const OWNER = "aechat";
+
 const REPO = "links";
+
 const BRANCH = "main";
 
 interface GithubCommitAPI {
@@ -18,31 +20,42 @@ interface GithubCommitAPI {
   };
   html_url: string;
 }
+
 interface CommitData {
   date: Date;
   message: string;
   url: string;
 }
+
 interface FooterProperties {
   initialYear: number;
   title: string;
 }
+
 const FAQ_PATHS = ["/aefaq", "/prfaq", "/psfaq", "/aeexpr"] as const;
 
 type FaqPath = (typeof FAQ_PATHS)[number];
+
 const PATH_MAP: Record<FaqPath, string> = {
   "/aeexpr": "src/pages/sections/aeexpr",
   "/aefaq": "src/pages/sections/aefaq",
   "/prfaq": "src/pages/sections/prfaq",
   "/psfaq": "src/pages/sections/psfaq",
 };
+
 const Footer: React.FC<FooterProperties> = ({initialYear, title}) => {
   const location = useLocation();
+
   const [commitData, setCommitData] = useState<CommitData | null>(null);
+
   const [isLoading, setIsLoading] = useState<boolean>(true);
+
   const [error, setError] = useState<string | null>(null);
+
   const currentYear = new Date().getFullYear();
+
   const path = location.pathname;
+
   const isFaqPage = (p: string): p is FaqPath => {
     return FAQ_PATHS.includes(p as FaqPath);
   };
@@ -53,10 +66,12 @@ const Footer: React.FC<FooterProperties> = ({initialYear, title}) => {
     }
 
     const folderPath = PATH_MAP[path];
+
     const getLastCommit = async () => {
       setIsLoading(true);
       setError(null);
       setCommitData(null);
+
       const url = `https://api.github.com/repos/${OWNER}/${REPO}/commits?path=${folderPath}&sha=${BRANCH}`;
 
       try {
@@ -67,6 +82,7 @@ const Footer: React.FC<FooterProperties> = ({initialYear, title}) => {
         }
 
         const commits = (await response.json()) as GithubCommitAPI[];
+
         const lastMeaningfulCommit = commits.find(
           (commit) => !commit.commit.message.startsWith("Merge")
         );
@@ -76,8 +92,11 @@ const Footer: React.FC<FooterProperties> = ({initialYear, title}) => {
         }
 
         const rawMessage = lastMeaningfulCommit.commit.message;
+
         const regex = /^\w+(\([\w/.-]+\))?:\s*(.*)/;
+
         const match = rawMessage.match(regex);
+
         let description = rawMessage;
 
         if (match && match[2]) {
@@ -104,6 +123,7 @@ const Footer: React.FC<FooterProperties> = ({initialYear, title}) => {
 
     getLastCommit();
   }, [path]);
+
   const renderCommitInfo = () => {
     if (isLoading) {
       return <p className="commit-info">Ищем информацию...</p>;

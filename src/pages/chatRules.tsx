@@ -24,15 +24,19 @@ const constants = {
   },
   SCROLL_DELAY: 300,
 } as const;
+
 const ChatRules = () => {
   const {hash} = useLocation();
+
   useCopyToClipboard();
+
   const handleCopyAnchor = useCallback((anchorId: string) => {
     const anchor = `${globalThis.location.origin}${globalThis.location.pathname}#${anchorId}`;
 
     navigator.clipboard.writeText(anchor);
     message.success(`Ссылка на раздел скопирована в буфер обмена`);
   }, []);
+
   const enableAnchorCopyButtons = useCallback(() => {
     const copyButtons = document.querySelectorAll(".copy-button");
 
@@ -55,6 +59,7 @@ const ChatRules = () => {
 
         if (element) {
           const headerHeight = document.querySelector("header")?.offsetHeight ?? 0;
+
           const padding = Math.min(
             constants.PADDING.MIN +
               (constants.PADDING.MAX - constants.PADDING.MIN) *
@@ -62,6 +67,7 @@ const ChatRules = () => {
                   (constants.PADDING.SCREEN.MAX - constants.PADDING.SCREEN.MIN)),
             constants.PADDING.MAX
           );
+
           const y =
             element.getBoundingClientRect().top +
             window.pageYOffset -

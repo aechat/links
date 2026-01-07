@@ -8,6 +8,7 @@ interface CodeSnippetProperties {
   children: string;
   language?: string;
 }
+
 const CodeSnippet: React.FC<CodeSnippetProperties> = ({
   children,
   language = "javascript",
@@ -19,9 +20,12 @@ const CodeSnippet: React.FC<CodeSnippetProperties> = ({
       hljs.highlightBlock(codeReference.current);
     }
   }, [children, language]);
+
   const handleCopy = (event: React.MouseEvent<HTMLPreElement>): void => {
     event.stopPropagation();
+
     const textArea = document.createElement("textarea");
+
     const codeText = codeReference.current?.textContent ?? "";
 
     textArea.value = codeText;

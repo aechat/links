@@ -27,8 +27,10 @@ import PSWhereFind from "./sections/psfaq/PSWhereFind";
 
 const PSFAQ = () => {
   const [isPageLoaded, setIsPageLoaded] = useState(false);
+
   useCopyToClipboard();
   useSmartCopy(isPageLoaded);
+
   const sections = [
     {
       component: PSWhereFind,

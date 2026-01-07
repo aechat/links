@@ -18,6 +18,7 @@ interface ContentFigureProperties {
   type: "image" | "video" | "youtube";
   variant?: "windows" | "mac";
 }
+
 const ContentFigure: React.FC<ContentFigureProperties> = ({
   autoPlay,
   caption,
@@ -29,6 +30,7 @@ const ContentFigure: React.FC<ContentFigureProperties> = ({
   variant,
 }) => {
   const isOpen = useSpoiler();
+
   const [shouldRender, setShouldRender] = useState(isOpen);
 
   useEffect(() => {
@@ -42,19 +44,26 @@ const ContentFigure: React.FC<ContentFigureProperties> = ({
       return () => clearTimeout(timer);
     }
   }, [isOpen]);
+
   const [isFullscreen, setIsFullscreen] = useState(false);
+
   const [isClosing, setIsClosing] = useState(false);
+
   const [initialScrollY, setInitialScrollY] = useState(0);
+
   const styleClass =
     type === "youtube"
       ? "figure-browser-youtube"
       : `figure-${variant || "windows"}-${theme || "light"}`;
+
   const isWindowsStyle = variant === "windows";
+
   const handleMaximize = useCallback(() => {
     setInitialScrollY(window.scrollY);
     setIsFullscreen(true);
     setIsClosing(false);
   }, []);
+
   const handleClose = useCallback(() => {
     setIsClosing(true);
     setTimeout(() => {
@@ -62,6 +71,7 @@ const ContentFigure: React.FC<ContentFigureProperties> = ({
       setIsClosing(false);
     }, 250);
   }, []);
+
   const handleClick = useCallback(() => {
     if (isFullscreen) {
       handleClose();
@@ -69,6 +79,7 @@ const ContentFigure: React.FC<ContentFigureProperties> = ({
       handleMaximize();
     }
   }, [isFullscreen, handleClose, handleMaximize]);
+
   const handleClickOutside = useCallback(
     (e: React.MouseEvent<HTMLDivElement>) => {
       if (e.target === e.currentTarget) {
@@ -139,8 +150,11 @@ const ContentFigure: React.FC<ContentFigureProperties> = ({
       )}
     </button>
   );
+
   let content: React.ReactNode;
+
   let id: string | undefined;
+
   const windowHeaderContent = (
     <>
       {isWindowsStyle && <figcaption>{caption}</figcaption>}
@@ -189,6 +203,7 @@ const ContentFigure: React.FC<ContentFigureProperties> = ({
       {!isWindowsStyle && <figcaption>{caption}</figcaption>}
     </>
   );
+
   const MediaContentWrapper: React.FC<{children: React.ReactNode}> = ({children}) => (
     <div>
       <div
@@ -214,6 +229,7 @@ const ContentFigure: React.FC<ContentFigureProperties> = ({
       );
       break;
     }
+
     case "video": {
       content = (
         <MediaContentWrapper>
@@ -228,6 +244,7 @@ const ContentFigure: React.FC<ContentFigureProperties> = ({
       );
       break;
     }
+
     case "youtube": {
       id = src?.split("/").pop();
       content = (
@@ -269,6 +286,7 @@ const ContentFigure: React.FC<ContentFigureProperties> = ({
       );
       break;
     }
+
     default: {
       content = <></>;
     }

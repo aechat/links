@@ -24,6 +24,7 @@ declare global {
     detailsSummaryScrollListenerAttached?: boolean;
   }
 }
+
 const usePrevious = <T,>(value: T): T | undefined => {
   const reference = useRef<T | undefined>(undefined);
 
@@ -40,15 +41,20 @@ interface DetailsSummaryProperties {
   tag?: string;
   title: string;
 }
+
 const SpoilerContext = createContext(false);
 
 export const useSpoiler = () => useContext(SpoilerContext);
 
 const TAG_LIMIT = 4;
+
 const TagList: React.FC<{tags: string}> = ({tags}) => {
   const [expanded, setExpanded] = useState(false);
+
   const allTags = useMemo(() => tags.split(", ").filter(Boolean), [tags]);
+
   const isOverflowing = allTags.length > TAG_LIMIT;
+
   const [randomizedTags, setRandomizedTags] = useState<string[]>([]);
 
   useEffect(() => {
@@ -64,14 +70,18 @@ const TagList: React.FC<{tags: string}> = ({tags}) => {
   }
 
   const visibleTags = expanded ? allTags : isOverflowing ? randomizedTags : allTags;
+
   const hiddenCount = allTags.length - TAG_LIMIT;
+
   const toggleTags = (e: React.MouseEvent) => {
     e.preventDefault();
     e.stopPropagation();
     setExpanded((previous) => !previous);
   };
+
   const getPluralizedTags = (count: number): string => {
     const lastDigit = count % 10;
+
     const lastTwoDigits = count % 100;
 
     if (lastTwoDigits >= 11 && lastTwoDigits <= 19) return "тегов";
@@ -99,15 +109,18 @@ const TagList: React.FC<{tags: string}> = ({tags}) => {
     </span>
   );
 };
+
 const constants = {
   ACTION_DELAY: 150,
   MOUSE_ENTER_DELAY: 750,
   PADDING: {MAX: 14, MIN: 10, SCREEN: {MAX: 768, MIN: 320}},
 } as const;
+
 const getScrollOffsets = () => {
   if (globalThis.window === undefined) return {headerHeight: 0, padding: 0};
 
   const headerHeight = document.querySelector("header")?.offsetHeight ?? 0;
+
   const padding = Math.min(
     constants.PADDING.MIN +
       (constants.PADDING.MAX - constants.PADDING.MIN) *
@@ -123,7 +136,9 @@ export const generateAnchorId = () => {
   if (globalThis.window === undefined) return;
 
   const containers = [...document.querySelectorAll(".faq-content")];
+
   const currentHash = globalThis.location.hash.slice(1);
+
   let anchorWasFoundAndOpened = false;
 
   for (const [blockIndex, container] of containers.entries()) {
@@ -137,6 +152,7 @@ export const generateAnchorId = () => {
       }
 
       const detailsElement = summary.closest("details");
+
       const textualAnchor = detailsElement?.dataset.anchor;
 
       if (currentHash && (summary.id === currentHash || textualAnchor === currentHash)) {
@@ -161,19 +177,29 @@ const DetailsSummary: React.FC<DetailsSummaryProperties> = ({
 }) => {
   const {handleLinkClick: handleInternalLinkClick, InternalLinkModal} =
     useInternalLinkHandler();
+
   const {ExternalLinkModal, handleLinkClick: handleExternalLinkClick} =
     useExternalLinkHandler();
+
   const {isAnimationDisabled} = useTheme();
+
   const hasScrolledAfterOpening = useRef(false);
+
   const handleSectionClick = (event: React.MouseEvent<HTMLElement>) => {
     handleInternalLinkClick(event);
     handleExternalLinkClick(event);
   };
+
   const [isOpen, setIsOpen] = useState(false);
+
   const previousIsOpen = usePrevious(isOpen);
+
   const [displayAnchorId, setDisplayAnchorId] = useState("");
+
   const detailsReference = useRef<HTMLDetailsElement>(null);
+
   const sectionReference = useRef<HTMLElement>(null);
+
   const updateUrlHash = useCallback((hash: string) => {
     if (globalThis.window !== undefined) {
       history.replaceState(
@@ -183,6 +209,7 @@ const DetailsSummary: React.FC<DetailsSummaryProperties> = ({
       );
     }
   }, []);
+
   const updateDimmingEffect = useCallback(() => {
     if (globalThis.window === undefined) return;
 
@@ -195,8 +222,10 @@ const DetailsSummary: React.FC<DetailsSummaryProperties> = ({
 
     if (openDetailsElements.length > 0) {
       const viewportHeight = window.innerHeight;
+
       const isAnyInMainView = [...openDetailsElements].some((details) => {
         const rect = details.getBoundingClientRect();
+
         const isOutOfMainView =
           rect.bottom < viewportHeight * 0.15 || rect.top > viewportHeight * 0.9;
 
@@ -208,12 +237,14 @@ const DetailsSummary: React.FC<DetailsSummaryProperties> = ({
       document.body.classList.remove("has-open-details");
     }
   }, []);
+
   const doScroll = useCallback(() => {
     const summary = detailsReference.current?.querySelector(".faq-summary");
 
     if (summary) {
       setTimeout(() => {
         const {headerHeight, padding} = getScrollOffsets();
+
         const y =
           summary.getBoundingClientRect().top +
           window.pageYOffset -
@@ -243,28 +274,36 @@ const DetailsSummary: React.FC<DetailsSummaryProperties> = ({
     if (!innerContent) return;
 
     const justOpened = isOpen && !previousIsOpen;
+
     const justClosed = !isOpen && previousIsOpen;
+
     const preventScroll = (e: Event) => {
       e.preventDefault();
     };
+
     const scrollLockOptions: AddEventListenerOptions = {passive: false};
+
     const enableScroll = () => {
       window.removeEventListener("wheel", preventScroll, scrollLockOptions);
       globalThis.removeEventListener("touchmove", preventScroll, scrollLockOptions);
     };
+
     const disableScroll = () => {
       window.addEventListener("wheel", preventScroll, scrollLockOptions);
       globalThis.addEventListener("touchmove", preventScroll, scrollLockOptions);
     };
+
     const updateDynamicStyles = () => {
       if (details.open) {
         contentWrapper.style.maxHeight = `${innerContent.scrollHeight}px`;
         details.style.marginBottom = `${details.offsetHeight * 0.01 + 10}px`;
       }
     };
+
     const resizeObserver = new ResizeObserver(updateDynamicStyles);
 
     window.addEventListener("resize", updateDynamicStyles);
+
     const handleTransitionEnd = (e: TransitionEvent) => {
       if (e.target !== contentWrapper) return;
 
@@ -310,7 +349,9 @@ const DetailsSummary: React.FC<DetailsSummaryProperties> = ({
 
       if (isOpen) {
         details.open = true;
+
         const scrollHeight = innerContent.scrollHeight;
+
         const viewportHeight = window.innerHeight;
 
         contentWrapper.style.maxHeight =
@@ -339,7 +380,9 @@ const DetailsSummary: React.FC<DetailsSummaryProperties> = ({
     if (!summaryId || globalThis.window === undefined) return;
 
     const justOpened = isOpen && !previousIsOpen;
+
     const currentHash = globalThis.location.hash.slice(1);
+
     const textualAnchor = anchor;
 
     if (justOpened) {
@@ -391,6 +434,7 @@ const DetailsSummary: React.FC<DetailsSummaryProperties> = ({
   useEffect(() => {
     const handleOpenEvent = (event: Event) => {
       const {id} = (event as CustomEvent<{id: string}>).detail;
+
       const summaryElement = detailsReference.current?.querySelector(".faq-summary");
 
       if (summaryElement && summaryElement.id === id) {
@@ -416,7 +460,9 @@ const DetailsSummary: React.FC<DetailsSummaryProperties> = ({
   }, [updateDimmingEffect]);
   useEffect(() => {
     let timeoutId: NodeJS.Timeout;
+
     const section = sectionReference.current;
+
     const handleMouseEnter = () => {
       timeoutId = setTimeout(() => {
         const summaryId = detailsReference.current?.querySelector(".faq-summary")?.id;
@@ -430,6 +476,7 @@ const DetailsSummary: React.FC<DetailsSummaryProperties> = ({
         }
       }, constants.MOUSE_ENTER_DELAY);
     };
+
     const handleMouseLeave = () => {
       clearTimeout(timeoutId);
     };
@@ -448,17 +495,22 @@ const DetailsSummary: React.FC<DetailsSummaryProperties> = ({
       clearTimeout(timeoutId);
     };
   }, []);
+
   const handleSummaryClick = (event: React.MouseEvent) => {
     event.preventDefault();
 
     if (detailsReference.current) setIsOpen(!detailsReference.current.open);
   };
+
   const handleCopyAnchor = useCallback(
     (event: React.MouseEvent | React.TouchEvent) => {
       event.stopPropagation();
+
       (async () => {
         const summaryElement = detailsReference.current?.querySelector(".faq-summary");
+
         const numericAnchor = summaryElement?.id ?? "";
+
         const anchorToCopy = anchor || numericAnchor;
 
         if (!anchorToCopy) {
@@ -471,6 +523,7 @@ const DetailsSummary: React.FC<DetailsSummaryProperties> = ({
 
         if (globalThis.window !== undefined) {
           const anchorUrl = `${globalThis.location.origin}${globalThis.location.pathname}#${anchorToCopy}`;
+
           const success = await copyText(anchorUrl);
 
           if (success) {
@@ -485,15 +538,19 @@ const DetailsSummary: React.FC<DetailsSummaryProperties> = ({
     },
     [anchor]
   );
+
   const summaryLongPressProperties = useLongPress(handleCopyAnchor);
+
   const handleFlexibleLinkCopy = useCallback(
     (event: React.MouseEvent | React.TouchEvent) => {
       const target = event.target as HTMLElement;
+
       const link = target.closest<HTMLAnchorElement>(".flexible-links a");
 
       if (link) {
         (async () => {
           const success = await copyText(link.href);
+
           const displayName = link.textContent || link.href;
 
           if (success) {
@@ -510,7 +567,9 @@ const DetailsSummary: React.FC<DetailsSummaryProperties> = ({
     },
     []
   );
+
   const sectionLongPressProperties = useLongPress(handleFlexibleLinkCopy);
+
   const headingText = (displayAnchorId ? `${displayAnchorId}. ` : "") + title;
 
   return (

@@ -23,9 +23,11 @@ export const LinkCard: React.FC<LinkCardProperties> = ({
   variant = "external",
 }) => {
   const hasDescription = !!description;
+
   const handleCopyLink = useCallback(
     (event: React.MouseEvent | React.TouchEvent) => {
       event.stopPropagation();
+
       const urlToCopy =
         variant === "internal" ? `${globalThis.location.origin}${href}` : href;
 
@@ -43,7 +45,9 @@ export const LinkCard: React.FC<LinkCardProperties> = ({
     },
     [href, name, variant]
   );
+
   const longPressProperties = useLongPress(handleCopyLink);
+
   const content = (
     <>
       <div

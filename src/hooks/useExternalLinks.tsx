@@ -5,9 +5,12 @@ import {Modal} from "antd";
 
 export const useExternalLinkHandler = () => {
   const [modalVisible, setModalVisible] = useState(false);
+
   const [targetUrl, setTargetUrl] = useState<string | null>(null);
+
   const handleLinkClick = useCallback((event: React.MouseEvent<HTMLElement>) => {
     const target = event.target as HTMLElement;
+
     const anchor = target.closest("a[href]");
 
     if (anchor) {
@@ -20,6 +23,7 @@ export const useExternalLinkHandler = () => {
       }
     }
   }, []);
+
   const handleOk = useCallback(() => {
     if (targetUrl) {
       window.open(targetUrl, "_blank", "noreferrer");
@@ -28,6 +32,7 @@ export const useExternalLinkHandler = () => {
     setModalVisible(false);
     setTargetUrl(null);
   }, [targetUrl]);
+
   const handleCancel = useCallback(() => {
     setModalVisible(false);
     setTargetUrl(null);
@@ -48,6 +53,7 @@ export const useExternalLinkHandler = () => {
       document.removeEventListener("keydown", handleKeyDown);
     };
   }, [modalVisible, handleOk]);
+
   const ExternalLinkModal = (
     <Modal
       centered

@@ -10,15 +10,21 @@ interface TargetArticle {
 
 export const useInternalLinkHandler = () => {
   const [modalVisible, setModalVisible] = useState(false);
+
   const [targetArticle, setTargetArticle] = useState<TargetArticle | null>(null);
+
   const handleLinkClick = useCallback((event: React.MouseEvent<HTMLElement>) => {
     const target = event.target as HTMLElement;
+
     const anchor = target.closest('a[href^="#"]');
 
     if (anchor && anchor.getAttribute("href")!.length > 1) {
       const href = anchor.getAttribute("href")!;
+
       const anchorValue = href.slice(1);
+
       let targetDetails: HTMLElement | null;
+
       const elementById = document.getElementById(anchorValue);
 
       targetDetails = elementById
@@ -30,10 +36,12 @@ export const useInternalLinkHandler = () => {
 
         if (currentDetails !== targetDetails) {
           event.preventDefault();
+
           const summary = targetDetails.querySelector(".faq-summary");
 
           if (summary && summary.id) {
             const titleElement = summary.querySelector("h3");
+
             let title = titleElement ? titleElement.textContent : "без названия";
 
             title = title.replace(/^\d+\.\d+\.\s*/, "");
@@ -44,6 +52,7 @@ export const useInternalLinkHandler = () => {
       }
     }
   }, []);
+
   const handleOk = useCallback(() => {
     if (targetArticle) {
       const targetElement = document.getElementById(targetArticle.id);
@@ -67,6 +76,7 @@ export const useInternalLinkHandler = () => {
     setModalVisible(false);
     setTargetArticle(null);
   }, [targetArticle]);
+
   const handleCancel = useCallback(() => {
     setModalVisible(false);
     setTargetArticle(null);
@@ -87,6 +97,7 @@ export const useInternalLinkHandler = () => {
       document.removeEventListener("keydown", handleKeyDown);
     };
   }, [modalVisible, handleOk]);
+
   const InternalLinkModal = (
     <Modal
       centered

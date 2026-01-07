@@ -4,8 +4,10 @@ interface BrowserWarningProperties {
   onClose: (dontShowAgain: boolean) => void;
   open: boolean;
 }
+
 const BrowserWarning: React.FC<BrowserWarningProperties> = ({onClose, open}) => {
   const [dontShowAgain, setDontShowAgain] = React.useState(false);
+
   const handleClose = () => {
     onClose(dontShowAgain);
   };

@@ -22,8 +22,10 @@ import AEExprStart from "./sections/aeexpr/ExprStart";
 
 const AEExpressionPage = () => {
   const [isPageLoaded, setIsPageLoaded] = useState(false);
+
   useCopyToClipboard();
   useSmartCopy(isPageLoaded);
+
   const sections = [
     {
       component: AEExprStart,

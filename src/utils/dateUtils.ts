@@ -22,6 +22,7 @@ const getPlural = (number: number, one: string, two: string, five: string) => {
 
 export const formatRelativeTime = (date: Date): string => {
   const now = new Date();
+
   const diffSeconds = Math.floor((now.getTime() - date.getTime()) / 1000);
 
   if (diffSeconds < 60) {

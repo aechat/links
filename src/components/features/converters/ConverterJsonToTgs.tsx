@@ -14,16 +14,22 @@ interface Pyodide {
   };
   runPythonAsync: (code: string) => Promise<void>;
 }
+
 declare global {
   interface Window {
     loadPyodide: () => Promise<Pyodide>;
   }
 }
+
 const TgsToJsonConverter: React.FC = () => {
   const [jsonData, setJsonData] = useState<Record<string, unknown> | null>(null);
+
   const [originalFileName, setOriginalFileName] = useState<string>("");
+
   const [compressionMode, setCompressionMode] = useState<"js" | "python">("js");
+
   const [pyodide, setPyodide] = useState<Pyodide | null>(null);
+
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
@@ -31,6 +37,7 @@ const TgsToJsonConverter: React.FC = () => {
       loadPyodideInline();
     }
   }, [compressionMode, pyodide]);
+
   const loadPyodideInline = async (): Promise<void> => {
     setLoading(true);
 
@@ -45,10 +52,12 @@ const TgsToJsonConverter: React.FC = () => {
         setLoading(false);
         message.success("Python-интерпретатор загружен, начните процесс конвертации");
       });
+
       script.onerror = () => {
         message.error("Не удалось загрузить Python-интерпретатор");
         setLoading(false);
       };
+
       document.body.append(script);
     } catch (error) {
       console.error("Ошибка загрузки Pyodide:", error);
@@ -56,11 +65,13 @@ const TgsToJsonConverter: React.FC = () => {
       setLoading(false);
     }
   };
+
   const handleFileUpload = async (file: File): Promise<boolean> => {
     try {
       const fileData = await file.text();
 
       setOriginalFileName(file.name);
+
       const json = JSON.parse(fileData);
 
       setJsonData(json);
@@ -72,13 +83,16 @@ const TgsToJsonConverter: React.FC = () => {
 
     return false;
   };
+
   const downloadTgs = async (): Promise<void> => {
     if (!jsonData) {
       return;
     }
 
     setLoading(true);
+
     const jsonString = JSON.stringify(jsonData, null, 2);
+
     let blob;
 
     if (compressionMode === "js") {
@@ -102,6 +116,7 @@ with open("input.json", "rb") as f_in:
     with gzip.open("output.tgs", "wb") as f_out:
         f_out.write(f_in.read())
       `);
+
       const result = pyodide.FS.readFile("output.tgs");
 
       blob = new Blob([[...result]], {type: "application/gzip"});

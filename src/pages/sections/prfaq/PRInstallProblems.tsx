@@ -1928,8 +1928,11 @@ const PRInstallProblems: React.FC = () => {
             <mark className="app">Telegram</mark> загружает установочные файлы с ошибками.{" "}
             {(() => {
               const userAgent = navigator.userAgent.toLowerCase();
+
               const isIOS = /iphone|ipad/.test(userAgent);
+
               const isAndroid = /android/.test(userAgent);
+
               const isMacOS = /macintosh|mac os x/.test(userAgent);
 
               if (isIOS) {

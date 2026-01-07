@@ -5,14 +5,18 @@ export const useLongPress = (
   ms = 500
 ) => {
   const touchStartTime = useRef(0);
+
   const isPotentialLongPress = useRef(false);
+
   const touchStartCoords = useRef({x: 0, y: 0});
+
   const isTouchEventInProgress = useRef(false);
 
   const onTouchStart = useCallback((e: React.TouchEvent) => {
     isTouchEventInProgress.current = true;
     touchStartTime.current = Date.now();
     isPotentialLongPress.current = true;
+
     const touch = e.touches[0];
 
     touchStartCoords.current = {x: touch.clientX, y: touch.clientY};
@@ -22,8 +26,11 @@ export const useLongPress = (
     if (!isPotentialLongPress.current) return;
 
     const touch = e.touches[0];
+
     const moveThreshold = 10;
+
     const deltaX = Math.abs(touch.clientX - touchStartCoords.current.x);
+
     const deltaY = Math.abs(touch.clientY - touchStartCoords.current.y);
 
     if (deltaX > moveThreshold || deltaY > moveThreshold) {

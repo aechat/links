@@ -27,6 +27,7 @@ export async function render(url: string, context: {helmet?: HelmetServerState})
         },
         onShellReady() {
           const body: string[] = [];
+
           const writable = new Writable({
             final(callback) {
               resolve(body.join(""));

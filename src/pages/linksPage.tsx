@@ -52,9 +52,11 @@ import {/* AEExprIcon, */ AEIcon, PRIcon, PSIcon} from "./faqIcon";
 
 const Links = () => {
   const [isModalVisible, setIsModalVisible] = useState(false);
+
   const showModal = () => {
     setIsModalVisible(true);
   };
+
   const handleCancel = () => {
     setIsModalVisible(false);
   };
@@ -176,8 +178,11 @@ const Links = () => {
           <Addition type="info">
             {(() => {
               const userAgent = navigator.userAgent.toLowerCase();
+
               const isIOS = /iphone|ipad/.test(userAgent);
+
               const isAndroid = /android/.test(userAgent);
+
               const isMacOS = /macintosh|mac os x/.test(userAgent);
 
               if (isIOS) {

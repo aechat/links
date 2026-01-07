@@ -46,6 +46,7 @@ const getCategorizedMessage = (resourceName: string): string => {
 
   return `Загрузка ресурса: ${fileName}`;
 };
+
 const handlePerformanceEntries = (
   entries: PerformanceEntryList,
   setResource: React.Dispatch<React.SetStateAction<string>>
@@ -62,6 +63,7 @@ const handlePerformanceEntries = (
     setResource(filteredResources.at(-1));
   }
 };
+
 const setupPerformanceObserver = (
   setResource: React.Dispatch<React.SetStateAction<string>>
 ) => {
@@ -77,11 +79,13 @@ const setupPerformanceObserver = (
 
   return;
 };
+
 const LoadingAnimation: React.FC = () => {
   const [resource, setResource] = useState<string>("");
 
   useEffect(() => {
     let observer: PerformanceObserver | undefined;
+
     const timeoutId = setTimeout(() => {
       observer = setupPerformanceObserver(setResource);
     }, 3000);
@@ -94,6 +98,7 @@ const LoadingAnimation: React.FC = () => {
       }
     };
   }, []);
+
   const formattedResource = resource ? getCategorizedMessage(resource) : "";
 
   return (

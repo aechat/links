@@ -12,14 +12,18 @@ import {ThemeToggleButton} from "../modals/ThemeChanger";
 interface HeaderProperties {
   title: string;
 }
+
 const constants = {
   ANIMATION_DURATION: 0.5,
   ANIMATION_EASE: [0.075, 0.82, 0.165, 1],
   SCROLL_THRESHOLD: 25,
   WIDE_SCREEN_WIDTH: 650,
 } as const;
+
 const SEARCH_PATHS = ["aefaq", "prfaq", "psfaq", "aeexpr"] as const;
+
 const WIP_PATHS = ["prfaq", "psfaq", "aeexpr"] as const;
+
 const TOOLTIP_MESSAGES: Record<string, string> = {
   "/": "Ссылки на полезные ресурсы, программы и чаты",
   "/aeexpr": "Руководство по выражениям в Adobe After Effects",
@@ -28,14 +32,18 @@ const TOOLTIP_MESSAGES: Record<string, string> = {
   "/psfaq": "Ответы на часто задаваемые вопросы по Adobe Photoshop",
   "/rules": "Правила сообщества AEChat и DWChat",
 };
+
 const Header: React.FC<HeaderProperties> = ({title}) => {
   const location = useLocation();
+
   const [isVisible, setIsVisible] = useState(false);
+
   const [isWide, setIsWide] = useState(
     globalThis.window === undefined
       ? false
       : window.innerWidth > constants.WIDE_SCREEN_WIDTH
   );
+
   const scrollToTop = (): void => {
     if (globalThis.window !== undefined) {
       window.scrollTo({
@@ -45,6 +53,7 @@ const Header: React.FC<HeaderProperties> = ({title}) => {
       globalThis.history.replaceState({}, "", currentPath);
     }
   };
+
   const checkScrollPosition = (): void => {
     if (globalThis.window !== undefined) {
       setIsVisible(window.scrollY > constants.SCROLL_THRESHOLD);
@@ -73,6 +82,7 @@ const Header: React.FC<HeaderProperties> = ({title}) => {
       };
     }
   }, []);
+
   const shouldShowSearch = (): boolean => {
     if (globalThis.window !== undefined) {
       return SEARCH_PATHS.some((path) => currentPath.includes(path));
@@ -80,7 +90,9 @@ const Header: React.FC<HeaderProperties> = ({title}) => {
 
     return false;
   };
+
   const currentPath = location.pathname;
+
   const tooltipMessage = TOOLTIP_MESSAGES[currentPath];
 
   return (

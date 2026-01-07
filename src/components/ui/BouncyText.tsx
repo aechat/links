@@ -5,15 +5,19 @@ import {motion, Variants} from "framer-motion";
 interface BouncyTextProperties {
   text: string;
 }
+
 const BouncyText: React.FC<BouncyTextProperties> = ({text}) => {
   const taglineText = "@aechat";
+
   const shiftDelay = text.length * 0.05 + 0.4;
+
   const mainTextContainerVariants: Variants = {
     hidden: {opacity: 1},
     visible: {
       transition: {staggerChildren: 0.1},
     },
   };
+
   const letterVariants: Variants = {
     hidden: {opacity: 0, scale: 0, y: 125},
     visible: {
@@ -23,6 +27,7 @@ const BouncyText: React.FC<BouncyTextProperties> = ({text}) => {
       y: 0,
     },
   };
+
   const taglineContainerVariants: Variants = {
     hidden: {
       opacity: 0,
@@ -40,6 +45,7 @@ const BouncyText: React.FC<BouncyTextProperties> = ({text}) => {
       width: "auto",
     },
   };
+
   const taglineLetterVariants: Variants = {
     hidden: {opacity: 0, y: -20},
     visible: {
