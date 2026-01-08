@@ -7,28 +7,14 @@ import {message, Radio, Spin, Upload} from "antd";
 
 const {saveAs} = pkg;
 
-interface Pyodide {
-  FS: {
-    writeFile: (filename: string, data: Uint8Array) => void;
-    readFile: (filename: string) => Uint8Array;
-  };
-  runPythonAsync: (code: string) => Promise<void>;
-}
-
-declare global {
-  interface Window {
-    loadPyodide: () => Promise<Pyodide>;
-  }
-}
-
 const TgsToJsonConverter: React.FC = () => {
-  const [jsonData, setJsonData] = useState<Record<string, unknown> | null>(null);
+  const [jsonData, setJsonData] = useState<Record<string, unknown> | undefined>();
 
   const [originalFileName, setOriginalFileName] = useState<string>("");
 
   const [compressionMode, setCompressionMode] = useState<"js" | "python">("js");
 
-  const [pyodide, setPyodide] = useState<Pyodide | null>(null);
+  const [pyodide, setPyodide] = useState<Pyodide | undefined>();
 
   const [loading, setLoading] = useState(false);
 
@@ -45,18 +31,24 @@ const TgsToJsonConverter: React.FC = () => {
       const script = document.createElement("script");
 
       script.src = "https://cdn.jsdelivr.net/pyodide/v0.22.1/full/pyodide.js";
+
+      script.integrity =
+        "sha256-43a8b5449083ae90c86f457233a4bd595864178d08a8f7c6799288f96e8c9f5d";
+
+      script.crossOrigin = "anonymous";
+
       script.addEventListener("load", async () => {
-        const py: Pyodide = await globalThis.loadPyodide();
+        const py: Pyodide = await loadPyodide();
 
         setPyodide(py);
         setLoading(false);
         message.success("Python-интерпретатор загружен, начните процесс конвертации");
       });
 
-      script.onerror = () => {
+      script.addEventListener("error", () => {
         message.error("Не удалось загрузить Python-интерпретатор");
         setLoading(false);
-      };
+      });
 
       document.body.append(script);
     } catch (error) {
@@ -91,7 +83,7 @@ const TgsToJsonConverter: React.FC = () => {
 
     setLoading(true);
 
-    const jsonString = JSON.stringify(jsonData, null, 2);
+    const jsonString = JSON.stringify(jsonData, undefined, 2);
 
     let blob;
 
@@ -110,6 +102,7 @@ const TgsToJsonConverter: React.FC = () => {
       const buffer = new TextEncoder().encode(jsonString);
 
       pyodide.FS.writeFile("input.json", buffer);
+
       await pyodide.runPythonAsync(`
 import gzip
 with open("input.json", "rb") as f_in:
@@ -119,7 +112,10 @@ with open("input.json", "rb") as f_in:
 
       const result = pyodide.FS.readFile("output.tgs");
 
-      blob = new Blob([[...result]], {type: "application/gzip"});
+      const arrayBuffer = new ArrayBuffer(result.buffer.byteLength);
+
+      new Uint8Array(arrayBuffer).set(new Uint8Array(result.buffer));
+      blob = new Blob([arrayBuffer], {type: "application/gzip"});
     }
 
     if (!blob) {
@@ -157,7 +153,7 @@ with open("input.json", "rb") as f_in:
         <Radio.Group
           className="converter-radio-group"
           value={compressionMode}
-          onChange={(e) => setCompressionMode(e.target.value)}
+          onChange={(event) => setCompressionMode(event.target.value)}
         >
           <Radio value="js">js-pako-gzip</Radio>
           <Radio value="python">python-gzip</Radio>
@@ -168,7 +164,7 @@ with open("input.json", "rb") as f_in:
           <button
             className="modal-open-button converter-button-reset"
             onClick={() => {
-              setJsonData(null);
+              setJsonData(undefined);
               setOriginalFileName("");
             }}
           >

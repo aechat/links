@@ -2,7 +2,7 @@ import React from "react";
 
 import DetailsSummary from "../../../components/content/DetailsSummary";
 
-const AEExprLinking: React.FC = () => {
+const AeExprLinking: React.FC = () => {
   return (
     <div className="faq-content">
       <DetailsSummary title="Как присвоить значение свойства из другого слоя к нужному?">
@@ -12,4 +12,4 @@ const AEExprLinking: React.FC = () => {
   );
 };
 
-export default AEExprLinking;
+export default AeExprLinking;

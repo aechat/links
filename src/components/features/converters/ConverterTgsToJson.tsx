@@ -1,15 +1,14 @@
-import {UploadFileRounded} from "@mui/icons-material";
-import {message, Upload} from "antd";
-
 import pkg from "file-saver";
-
-const {saveAs} = pkg;
-
 import {inflate} from "pako";
 import React, {useState} from "react";
 
+import {UploadFileRounded} from "@mui/icons-material";
+import {message, Upload} from "antd";
+
+const {saveAs} = pkg;
+
 const TgsToJsonConverter: React.FC = () => {
-  const [jsonData, setJsonData] = useState<unknown>(null);
+  const [jsonData, setJsonData] = useState<unknown | undefined>();
 
   const [originalFileName, setOriginalFileName] = useState<string>("");
 
@@ -35,7 +34,7 @@ const TgsToJsonConverter: React.FC = () => {
 
   const downloadJson = (): void => {
     if (jsonData) {
-      const blob = new Blob([JSON.stringify(jsonData, null, 2)], {
+      const blob = new Blob([JSON.stringify(jsonData, undefined, 2)], {
         type: "application/json",
       });
 
@@ -68,7 +67,7 @@ const TgsToJsonConverter: React.FC = () => {
           <button
             className="modal-open-button converter-button-reset"
             onClick={() => {
-              setJsonData(null);
+              setJsonData(undefined);
               setOriginalFileName("");
             }}
           >
@@ -81,7 +80,7 @@ const TgsToJsonConverter: React.FC = () => {
             Скачать преобразованный JSON
           </button>
         </div>
-      ) : null}
+      ) : undefined}
     </div>
   );
 };

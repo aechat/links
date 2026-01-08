@@ -13,7 +13,7 @@ const BrowserWarning: React.FC<BrowserWarningProperties> = ({onClose, open}) => 
   };
 
   if (!open) {
-    return null;
+    return;
   }
 
   return (
@@ -92,7 +92,7 @@ const BrowserWarning: React.FC<BrowserWarningProperties> = ({onClose, open}) => 
           <input
             checked={dontShowAgain}
             type="checkbox"
-            onChange={(e) => setDontShowAgain(e.target.checked)}
+            onChange={(event) => setDontShowAgain(event.target.checked)}
           />
           Больше не показывать
         </label>

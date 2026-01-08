@@ -36,13 +36,15 @@ const ContentFigure: React.FC<ContentFigureProperties> = ({
   useEffect(() => {
     if (isOpen) {
       setShouldRender(true);
-    } else {
-      const timer = setTimeout(() => {
-        setShouldRender(false);
-      }, 350);
 
-      return () => clearTimeout(timer);
+      return;
     }
+
+    const timer = setTimeout(() => {
+      setShouldRender(false);
+    }, 350);
+
+    return () => clearTimeout(timer);
   }, [isOpen]);
 
   const [isFullscreen, setIsFullscreen] = useState(false);
@@ -66,6 +68,7 @@ const ContentFigure: React.FC<ContentFigureProperties> = ({
 
   const handleClose = useCallback(() => {
     setIsClosing(true);
+
     setTimeout(() => {
       setIsFullscreen(false);
       setIsClosing(false);
@@ -81,8 +84,8 @@ const ContentFigure: React.FC<ContentFigureProperties> = ({
   }, [isFullscreen, handleClose, handleMaximize]);
 
   const handleClickOutside = useCallback(
-    (e: React.MouseEvent<HTMLDivElement>) => {
-      if (e.target === e.currentTarget) {
+    (event: React.MouseEvent<HTMLDivElement>) => {
+      if (event.target === event.currentTarget) {
         handleClose();
       }
     },
@@ -90,8 +93,8 @@ const ContentFigure: React.FC<ContentFigureProperties> = ({
   );
 
   useEffect(() => {
-    const handleEscKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape" && isFullscreen) {
+    const handleEscKey = (event: KeyboardEvent) => {
+      if (event.key === "Escape" && isFullscreen) {
         handleClose();
       }
     };
@@ -104,6 +107,7 @@ const ContentFigure: React.FC<ContentFigureProperties> = ({
       document.removeEventListener("keydown", handleEscKey);
     };
   }, [isFullscreen, handleClose]);
+
   useEffect(() => {
     const handleScroll = () => {
       if (Math.abs(window.scrollY - initialScrollY) > window.innerHeight * 0.25) {
@@ -121,7 +125,7 @@ const ContentFigure: React.FC<ContentFigureProperties> = ({
   }, [isFullscreen, handleClose, initialScrollY]);
 
   if (!shouldRender) {
-    return null;
+    return <></>;
   }
 
   const WindowControlButton: React.FC<{
@@ -227,6 +231,7 @@ const ContentFigure: React.FC<ContentFigureProperties> = ({
           />
         </MediaContentWrapper>
       );
+
       break;
     }
 
@@ -242,11 +247,13 @@ const ContentFigure: React.FC<ContentFigureProperties> = ({
           />
         </MediaContentWrapper>
       );
+
       break;
     }
 
     case "youtube": {
       id = src?.split("/").pop();
+
       content = (
         <>
           <div className="window-header">
@@ -284,6 +291,7 @@ const ContentFigure: React.FC<ContentFigureProperties> = ({
           />
         </>
       );
+
       break;
     }
 

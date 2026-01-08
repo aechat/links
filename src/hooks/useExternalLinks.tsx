@@ -6,7 +6,7 @@ import {Modal} from "antd";
 export const useExternalLinkHandler = () => {
   const [modalVisible, setModalVisible] = useState(false);
 
-  const [targetUrl, setTargetUrl] = useState<string | null>(null);
+  const [targetUrl, setTargetUrl] = useState<string | undefined>();
 
   const handleLinkClick = useCallback((event: React.MouseEvent<HTMLElement>) => {
     const target = event.target as HTMLElement;
@@ -30,12 +30,12 @@ export const useExternalLinkHandler = () => {
     }
 
     setModalVisible(false);
-    setTargetUrl(null);
+    setTargetUrl(undefined);
   }, [targetUrl]);
 
   const handleCancel = useCallback(() => {
     setModalVisible(false);
-    setTargetUrl(null);
+    setTargetUrl(undefined);
   }, []);
 
   useEffect(() => {
@@ -57,8 +57,8 @@ export const useExternalLinkHandler = () => {
   const ExternalLinkModal = (
     <Modal
       centered
-      closeIcon={null}
-      footer={null}
+      closeIcon={undefined}
+      footer={<></>}
       open={modalVisible}
       onCancel={handleCancel}
     >

@@ -26,17 +26,17 @@ interface TimeMapEntry {
   x: number;
 }
 
+const INFINITE_SPEED = 99_999;
+
 const PADDING = 20;
 
 const SAMPLES = 100;
 
-const INFINITE_SPEED = 99_999;
-
 const SPEED_AXIS_PADDING_FACTOR = 0.2;
 
-const VALUE_Y_MIN_FACTOR = -0.5;
-
 const VALUE_Y_MAX_FACTOR = 1.5;
+
+const VALUE_Y_MIN_FACTOR = -0.5;
 
 const getPointOnCubicBezier = (
   t: number,
@@ -93,7 +93,7 @@ const Ruler: React.FC<{trackWidth: number; style?: React.CSSProperties}> = ({
   trackWidth,
 }) => {
   if (trackWidth === 0) {
-    return null;
+    return <></>;
   }
 
   const numberDivisions = 10;
@@ -133,15 +133,17 @@ const Ruler: React.FC<{trackWidth: number; style?: React.CSSProperties}> = ({
   );
 };
 
+type AnimationProperty =
+  | "position"
+  | "positionAndRotation"
+  | "positionAndScale"
+  | "scale"
+  | "rotation"
+  | "scaleAndRotate";
+
 interface AnimationDemoProperties {
   animatedPoint: Point;
-  animationProperty:
-    | "position"
-    | "positionAndRotation"
-    | "positionAndScale"
-    | "scale"
-    | "rotation"
-    | "scaleAndRotate";
+  animationProperty: AnimationProperty;
   showTrail: boolean;
   trackRef: React.RefObject<HTMLDivElement | null>;
   trackWidth: number;
@@ -325,10 +327,6 @@ const AnimationDemo: React.FC<AnimationDemoProperties> = ({
                 animTransform = `scale(${posScaleScale})`;
                 break;
               }
-
-              default: {
-                animTransform = "";
-              }
             }
 
             return (
@@ -355,17 +353,11 @@ const AnimationDemo: React.FC<AnimationDemoProperties> = ({
 
 interface ValueGraphProperties {
   animatedPoint: Point;
-  animationProperty:
-    | "position"
-    | "positionAndRotation"
-    | "positionAndScale"
-    | "scale"
-    | "rotation"
-    | "scaleAndRotate";
+  animationProperty: AnimationProperty;
   dimensions: {width: number; height: number};
   duration: number;
   mapToSvg: (p: Point) => Point;
-  onMouseDown: (e: React.MouseEvent | React.TouchEvent, handle: "p1" | "p2") => void;
+  onMouseDown: (event: React.MouseEvent | React.TouchEvent, handle: "p1" | "p2") => void;
   p0: Point;
   p1: Point;
   p2: Point;
@@ -583,8 +575,8 @@ const ValueGraph: React.FC<ValueGraphProperties> = ({
               fill="transparent"
               r="20"
               style={{cursor: "grab"}}
-              onMouseDown={(e) => onMouseDown(e, "p1")}
-              onTouchStart={(e) => onMouseDown(e, "p1")}
+              onMouseDown={(event) => onMouseDown(event, "p1")}
+              onTouchStart={(event) => onMouseDown(event, "p1")}
             />
             <circle
               cx={svgP2.x}
@@ -592,8 +584,8 @@ const ValueGraph: React.FC<ValueGraphProperties> = ({
               fill="transparent"
               r="20"
               style={{cursor: "grab"}}
-              onMouseDown={(e) => onMouseDown(e, "p2")}
-              onTouchStart={(e) => onMouseDown(e, "p2")}
+              onMouseDown={(event) => onMouseDown(event, "p2")}
+              onTouchStart={(event) => onMouseDown(event, "p2")}
             />
           </>
         )}
@@ -610,7 +602,7 @@ interface SpeedGraphProperties {
   handle2: Point;
   mapSpeedToSvg: (speed: number) => number;
   mapTimeToSvg: (time: number) => number;
-  onMouseDown: (e: React.MouseEvent | React.TouchEvent, handle: "p1" | "p2") => void;
+  onMouseDown: (event: React.MouseEvent | React.TouchEvent, handle: "p1" | "p2") => void;
   svgRef: React.RefObject<SVGSVGElement | null>;
   yTicks: number[];
 }
@@ -753,8 +745,8 @@ const SpeedGraph: React.FC<SpeedGraphProperties> = ({
               fill="transparent"
               r="20"
               style={{cursor: "grab"}}
-              onMouseDown={(e) => onMouseDown(e, "p1")}
-              onTouchStart={(e) => onMouseDown(e, "p1")}
+              onMouseDown={(event) => onMouseDown(event, "p1")}
+              onTouchStart={(event) => onMouseDown(event, "p1")}
             />
             <circle
               cx={svgH2.x}
@@ -762,8 +754,8 @@ const SpeedGraph: React.FC<SpeedGraphProperties> = ({
               fill="transparent"
               r="20"
               style={{cursor: "grab"}}
-              onMouseDown={(e) => onMouseDown(e, "p2")}
-              onTouchStart={(e) => onMouseDown(e, "p2")}
+              onMouseDown={(event) => onMouseDown(event, "p2")}
+              onTouchStart={(event) => onMouseDown(event, "p2")}
             />
           </>
         )}
@@ -775,28 +767,14 @@ const SpeedGraph: React.FC<SpeedGraphProperties> = ({
 interface AnimationControlsProperties {
   actualFps: number;
   animationMode: AnimationMode;
-  animationProperty:
-    | "position"
-    | "positionAndRotation"
-    | "positionAndScale"
-    | "scale"
-    | "rotation"
-    | "scaleAndRotate";
+  animationProperty: AnimationProperty;
   duration: number;
   fps: number;
   handleResetAnimation: () => void;
   handleTogglePlayPause: () => void;
   isPaused: boolean;
   setAnimationMode: (mode: AnimationMode) => void;
-  setAnimationProperty: (
-    property:
-      | "position"
-      | "positionAndRotation"
-      | "positionAndScale"
-      | "scale"
-      | "rotation"
-      | "scaleAndRotate"
-  ) => void;
+  setAnimationProperty: (property: AnimationProperty) => void;
   setDuration: (value: number) => void;
   setFps: (value: number) => void;
   setShowTrail: (show: boolean) => void;
@@ -826,7 +804,7 @@ const AnimationControls: React.FC<AnimationControlsProperties> = ({
     "ping-pong": "Пинг-понг",
   };
 
-  const propertyTextMap: Record<typeof animationProperty, string> = {
+  const propertyTextMap: Record<AnimationProperty, string> = {
     position: "Позиция",
     positionAndRotation: "Позиция + Поворот",
     positionAndScale: "Позиция + масштаб",
@@ -886,9 +864,9 @@ const AnimationControls: React.FC<AnimationControlsProperties> = ({
             <button
               key={property}
               className={animationProperty === property ? "active selected" : ""}
-              onClick={() => setAnimationProperty(property as typeof animationProperty)}
+              onClick={() => setAnimationProperty(property as AnimationProperty)}
             >
-              {propertyTextMap[property as typeof animationProperty]}
+              {propertyTextMap[property as AnimationProperty]}
             </button>
           ))}
         </div>
@@ -921,23 +899,20 @@ const EasingEditor: React.FC = () => {
     yFactor: 1,
   });
 
-  const [dragInfo, setDragInfo] = useState<DragInfo | null>(null);
+  const [dragInfo, setDragInfo] = useState<DragInfo | undefined>();
 
-  const [dragSpeedAxisRange, setDragSpeedAxisRange] = useState<{
-    min: number;
-    max: number;
-  } | null>(null);
+  const [dragSpeedAxisRange, setDragSpeedAxisRange] = useState<
+    | {
+        min: number;
+        max: number;
+      }
+    | undefined
+  >();
 
   const [duration, setDuration] = useState(2);
 
-  const [animationProperty, setAnimationProperty] = useState<
-    | "position"
-    | "positionAndRotation"
-    | "positionAndScale"
-    | "scale"
-    | "rotation"
-    | "scaleAndRotate"
-  >("position");
+  const [animationProperty, setAnimationProperty] =
+    useState<AnimationProperty>("position");
 
   const [animationMode, setAnimationMode] = useState<AnimationMode>("ping-pong");
 
@@ -980,6 +955,7 @@ const EasingEditor: React.FC = () => {
   useEffect(() => {
     fpsReference.current = fps;
   }, [fps]);
+
   useEffect(() => {
     const elementsToObserve = [
       trackReference.current,
@@ -1047,15 +1023,21 @@ const EasingEditor: React.FC = () => {
       y: keyframeIn.yFactor * trackWidth,
     };
 
-    const currentSpeedOut =
-      p1x > 1e-6 ? p1.y / p1x : p1.y > 0 ? INFINITE_SPEED : -INFINITE_SPEED;
+    const currentSpeedOut = (() => {
+      if (p1x > 1e-6) {
+        return p1.y / p1x;
+      }
 
-    const currentSpeedIn =
-      p2xRelative > 1e-6
-        ? (trackWidth - p2.y) / p2xRelative
-        : trackWidth - p2.y > 0
-          ? INFINITE_SPEED
-          : -INFINITE_SPEED;
+      return p1.y > 0 ? INFINITE_SPEED : -INFINITE_SPEED;
+    })();
+
+    const currentSpeedIn = (() => {
+      if (p2xRelative > 1e-6) {
+        return (trackWidth - p2.y) / p2xRelative;
+      }
+
+      return trackWidth - p2.y > 0 ? INFINITE_SPEED : -INFINITE_SPEED;
+    })();
 
     let yMin = p0.y;
 
@@ -1261,11 +1243,11 @@ const EasingEditor: React.FC = () => {
 
   const handleMouseDown = useCallback(
     (
-      e: React.MouseEvent | React.TouchEvent,
+      event: React.MouseEvent | React.TouchEvent,
       handle: "p1" | "p2",
       graphType: "value" | "speed"
     ) => {
-      e.preventDefault();
+      event.preventDefault();
       document.body.style.cursor = "grabbing";
       setDragInfo({graphType, handle});
 
@@ -1278,36 +1260,32 @@ const EasingEditor: React.FC = () => {
 
   const handleMouseUp = useCallback(() => {
     document.body.style.cursor = "default";
-    setDragInfo(null);
-    setDragSpeedAxisRange(null);
+    setDragInfo(undefined);
+    setDragSpeedAxisRange(undefined);
   }, []);
 
   const handleMouseMove = useCallback(
-    (e: MouseEvent | TouchEvent) => {
+    (event: MouseEvent | TouchEvent) => {
       if (!dragInfo || trackWidth === 0) {
         return;
       }
 
-      if (e.cancelable) {
-        e.preventDefault();
+      if (event.cancelable) {
+        event.preventDefault();
       }
 
-      const touch = "touches" in e ? e.touches[0] : e;
+      const touch = "touches" in event ? event.touches[0] : event;
 
-      const isShiftPressed = "shiftKey" in e && e.shiftKey;
-
-      const newParameters: Partial<KeyframeParameters> = {};
+      const isShiftPressed = "shiftKey" in event && event.shiftKey;
 
       const valueYMax = trackWidth * VALUE_Y_MAX_FACTOR;
 
       const valueYMin = trackWidth * VALUE_Y_MIN_FACTOR;
 
-      if (dragInfo.graphType === "value") {
+      const handleValueGraphMove = () => {
         const normP = mapValueFromSvg({x: touch.clientX, y: touch.clientY});
 
-        if (!normP) {
-          return;
-        }
+        if (!normP) return;
 
         let clampedY = Math.max(valueYMin, Math.min(valueYMax, normP.y));
 
@@ -1317,19 +1295,21 @@ const EasingEditor: React.FC = () => {
 
         const handleX = Math.max(0, Math.min(duration, normP.x));
 
-        newParameters.influence =
-          ((dragInfo.handle === "p1" ? handleX : duration - handleX) / duration) * 100;
-        newParameters.yFactor = clampedY / trackWidth;
-      } else {
+        return {
+          influence:
+            ((dragInfo.handle === "p1" ? handleX : duration - handleX) / duration) * 100,
+          yFactor: clampedY / trackWidth,
+        };
+      };
+
+      const handleSpeedGraphMove = () => {
         const normP = mapSpeedFromSvg({x: touch.clientX, y: touch.clientY});
 
-        if (!normP) {
-          return;
-        }
+        if (!normP) return;
 
         const handleX = Math.max(0, Math.min(duration, normP.x));
 
-        newParameters.influence =
+        const influence =
           ((dragInfo.handle === "p1" ? handleX : duration - handleX) / duration) * 100;
 
         const speedYMinOnDrag = dragSpeedAxisRange?.min ?? speedYMin;
@@ -1340,27 +1320,36 @@ const EasingEditor: React.FC = () => {
 
         targetSpeed = Math.max(speedYMinOnDrag, Math.min(speedYMaxOnDrag, targetSpeed));
 
+        let yFactor;
+
         if (dragInfo.handle === "p1") {
-          const p1x = (newParameters.influence / 100) * duration;
+          const p1x = (influence / 100) * duration;
 
           let p1y = targetSpeed * p1x;
 
           p1y = Math.max(valueYMin, Math.min(valueYMax, p1y));
-          newParameters.yFactor = p1y / trackWidth;
+          yFactor = p1y / trackWidth;
         } else {
-          const p2xRelative = (newParameters.influence / 100) * duration;
+          const p2xRelative = (influence / 100) * duration;
 
           let p2y = trackWidth - targetSpeed * p2xRelative;
 
           p2y = Math.max(valueYMin, Math.min(valueYMax, p2y));
-          newParameters.yFactor = p2y / trackWidth;
+          yFactor = p2y / trackWidth;
         }
-      }
 
-      if (dragInfo.handle === "p1") {
-        setKeyframeOut((current) => ({...current, ...newParameters}));
-      } else {
-        setKeyframeIn((current) => ({...current, ...newParameters}));
+        return {influence, yFactor};
+      };
+
+      const newParameters =
+        dragInfo.graphType === "value" ? handleValueGraphMove() : handleSpeedGraphMove();
+
+      if (newParameters) {
+        if (dragInfo.handle === "p1") {
+          setKeyframeOut((current) => ({...current, ...newParameters}));
+        } else {
+          setKeyframeIn((current) => ({...current, ...newParameters}));
+        }
       }
     },
     [
@@ -1378,9 +1367,11 @@ const EasingEditor: React.FC = () => {
   useEffect(() => {
     if (dragInfo) {
       globalThis.addEventListener("mousemove", handleMouseMove);
+
       globalThis.addEventListener("touchmove", handleMouseMove, {
         passive: false,
       });
+
       globalThis.addEventListener("mouseup", handleMouseUp);
       globalThis.addEventListener("touchend", handleMouseUp);
     }
@@ -1454,7 +1445,7 @@ const EasingEditor: React.FC = () => {
           p3={p3}
           svgRef={valueGraphSvgReference}
           trackWidth={trackWidth}
-          onMouseDown={(e, handle) => handleMouseDown(e, handle, "value")}
+          onMouseDown={(event, handle) => handleMouseDown(event, handle, "value")}
         />
         <SpeedGraph
           curvePath={speedCurvePath}
@@ -1466,7 +1457,7 @@ const EasingEditor: React.FC = () => {
           mapTimeToSvg={mapTimeToSvg}
           svgRef={speedGraphSvgReference}
           yTicks={speedYTicks}
-          onMouseDown={(e, handle) => handleMouseDown(e, handle, "speed")}
+          onMouseDown={(event, handle) => handleMouseDown(event, handle, "speed")}
         />
       </div>
       <AnimationControls
@@ -1658,9 +1649,9 @@ function useValueGraphMapping(
   );
 
   const mapValueFromSvg = useCallback(
-    (svgP: Point): Point | null => {
+    (svgP: Point): Point | undefined => {
       if (!svgReference.current || trackWidth === 0 || graphWidth <= 0) {
-        return null;
+        return undefined;
       }
 
       const svgRect = svgReference.current.getBoundingClientRect();
@@ -1721,9 +1712,9 @@ function useSpeedGraphMapping(
   );
 
   const mapSpeedFromSvg = useCallback(
-    (svgP: Point): Point | null => {
+    (svgP: Point): Point | undefined => {
       if (!svgReference.current || graphWidth <= 0 || speedYRange === 0) {
-        return null;
+        return undefined;
       }
 
       const svgRect = svgReference.current.getBoundingClientRect();
@@ -1767,8 +1758,13 @@ function useSpeedGraphMapping(
         6 * (1 - t) * t * (p2.y - p1.y) +
         3 * t ** 2 * (p3.y - p2.y);
 
-      const speed =
-        dx_dt < 1e-6 ? (dy_dt > 0 ? INFINITE_SPEED : -INFINITE_SPEED) : dy_dt / dx_dt;
+      let speed;
+
+      if (dx_dt < 1e-6) {
+        speed = dy_dt > 0 ? INFINITE_SPEED : -INFINITE_SPEED;
+      } else {
+        speed = dy_dt / dx_dt;
+      }
 
       path += ` L ${mapTimeToSvg(x_t)},${mapSpeedToSvg(speed)}`;
     }

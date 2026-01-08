@@ -78,6 +78,7 @@ export const useSmartCopy = (isPageLoaded: boolean) => {
         const source = sources[0];
 
         plainText = `«${selectedText}»${separatorPlain}Взято из статьи «${source.title}» (${pageTitle})\n${source.url}`;
+
         html = `
           «${selectedHtml}»
           ${separatorHtml}
@@ -93,6 +94,7 @@ export const useSmartCopy = (isPageLoaded: boolean) => {
           .join("");
 
         plainText = `«${selectedText}»${separatorPlain}Источники (${pageTitle}):\n${sourcesText}`;
+
         html = `
           «${selectedHtml}»
           ${separatorHtml}

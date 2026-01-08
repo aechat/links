@@ -64,7 +64,7 @@ const BouncyText: React.FC<BouncyTextProperties> = ({text}) => {
         initial="hidden"
         variants={mainTextContainerVariants}
       >
-        {text.split("").map((char, index) => (
+        {[...text].map((char, index) => (
           <motion.span
             key={`${char}-${index}`}
             className="bouncy-text-letter"

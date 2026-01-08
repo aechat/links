@@ -28,7 +28,7 @@ const ContentFilter: React.FC<ContentFilterProperties> = ({
   const hasMacContent = macContent !== undefined;
 
   if (!hasWindowsContent && !hasMacContent) {
-    return null;
+    return <></>;
   }
 
   const showToggleButton = hasWindowsContent && hasMacContent;

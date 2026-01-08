@@ -30,12 +30,12 @@ const SupportDonut: React.FC<SupportDonutProperties> = ({wide}) => {
         onClick={openDonateModal}
       >
         <CoffeeRounded />
-        {wide ? <span>Поддержать проект</span> : null}
+        {wide ? <span>Поддержать проект</span> : undefined}
       </button>
       <Modal
         centered
-        closeIcon={null}
-        footer={null}
+        closeIcon={false}
+        footer={<></>}
         open={isDonateModalOpen}
         onCancel={closeDonateModal}
       >
@@ -64,8 +64,8 @@ const SupportDonut: React.FC<SupportDonutProperties> = ({wide}) => {
               <Modal
                 centered
                 className="modal--support"
-                closeIcon={null}
-                footer={null}
+                closeIcon={false}
+                footer={<></>}
                 open={isSberModalOpen}
                 onCancel={closeSberModal}
               >
@@ -104,8 +104,8 @@ const SupportDonut: React.FC<SupportDonutProperties> = ({wide}) => {
               <Modal
                 centered
                 className="modal--support"
-                closeIcon={null}
-                footer={null}
+                closeIcon={false}
+                footer={<></>}
                 open={isYoomoneyModalOpen}
                 onCancel={closeYoomoneyModal}
               >

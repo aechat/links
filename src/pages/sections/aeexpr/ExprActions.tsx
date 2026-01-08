@@ -2,7 +2,7 @@ import React from "react";
 
 import DetailsSummary from "../../../components/content/DetailsSummary";
 
-const AEExprActions: React.FC = () => {
+const AeExprActions: React.FC = () => {
   return (
     <div className="faq-content">
       <DetailsSummary title="Как задать случайное движение объекта или значения?">
@@ -25,4 +25,4 @@ const AEExprActions: React.FC = () => {
   );
 };
 
-export default AEExprActions;
+export default AeExprActions;

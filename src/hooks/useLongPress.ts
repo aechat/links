@@ -12,20 +12,20 @@ export const useLongPress = (
 
   const isTouchEventInProgress = useRef(false);
 
-  const onTouchStart = useCallback((e: React.TouchEvent) => {
+  const onTouchStart = useCallback((event_: React.TouchEvent<HTMLElement>) => {
     isTouchEventInProgress.current = true;
     touchStartTime.current = Date.now();
     isPotentialLongPress.current = true;
 
-    const touch = e.touches[0];
+    const touch = event_.touches[0];
 
     touchStartCoords.current = {x: touch.clientX, y: touch.clientY};
   }, []);
 
-  const onTouchMove = useCallback((e: React.TouchEvent) => {
+  const onTouchMove = useCallback((event_: React.TouchEvent<HTMLElement>) => {
     if (!isPotentialLongPress.current) return;
 
-    const touch = e.touches[0];
+    const touch = event_.touches[0];
 
     const moveThreshold = 10;
 
@@ -39,40 +39,41 @@ export const useLongPress = (
   }, []);
 
   const onTouchEnd = useCallback(
-    (e: React.TouchEvent) => {
+    (event_: React.TouchEvent<HTMLElement>) => {
       if (isPotentialLongPress.current) {
         const pressDuration = Date.now() - touchStartTime.current;
 
-        if (pressDuration > ms && callback(e)) {
-          e.preventDefault();
+        if (pressDuration > ms && callback(event_)) {
+          event_.preventDefault();
         }
       }
 
       setTimeout(() => {
         isTouchEventInProgress.current = false;
       }, 300);
+
       isPotentialLongPress.current = false;
     },
     [callback, ms]
   );
 
   const onContextMenu = useCallback(
-    (e: React.MouseEvent) => {
+    (event_: React.MouseEvent<HTMLElement>) => {
       if (isTouchEventInProgress.current) {
         return;
       }
 
-      if (callback(e)) {
-        e.preventDefault();
+      if (callback(event_)) {
+        event_.preventDefault();
       }
     },
     [callback]
   );
 
   return {
-    onContextMenu,
-    onTouchEnd,
-    onTouchMove,
-    onTouchStart,
+    onContextMenu: onContextMenu as unknown as React.MouseEventHandler<HTMLElement>,
+    onTouchEnd: onTouchEnd as unknown as React.TouchEventHandler<HTMLElement>,
+    onTouchMove: onTouchMove as unknown as React.TouchEventHandler<HTMLElement>,
+    onTouchStart: onTouchStart as unknown as React.TouchEventHandler<HTMLElement>,
   };
 };

@@ -126,6 +126,10 @@ export const ThemeProvider: React.FC<{children: React.ReactNode}> = ({children})
     }
   };
 
+  const calculateIsDarkMode = (theme: Theme, isSystemDark: boolean): boolean => {
+    return theme === "dark" || (theme === "system" && isSystemDark);
+  };
+
   const updateTheme = () => {
     if (globalThis.window === undefined) {
       return;
@@ -140,7 +144,7 @@ export const ThemeProvider: React.FC<{children: React.ReactNode}> = ({children})
 
     const isSystemDark = globalThis.matchMedia("(prefers-color-scheme: dark)").matches;
 
-    const isDarkMode = themeState === "dark" || (themeState === "system" && isSystemDark);
+    const isDarkMode = calculateIsDarkMode(themeState, isSystemDark);
 
     root.classList.toggle("dark", isDarkMode);
     root.classList.toggle("light", !isDarkMode);
@@ -157,6 +161,7 @@ export const ThemeProvider: React.FC<{children: React.ReactNode}> = ({children})
       isAnimationDisabledState,
     ]
   );
+
   useEffect(() => {
     if (globalThis.window === undefined) {
       return;
@@ -243,6 +248,25 @@ interface ThemeModalProperties {
   isModalOpen: boolean;
 }
 
+interface ThemeOptionButtonProperties {
+  children: React.ReactNode;
+  isSelected: boolean;
+  onClick: () => void;
+}
+
+const ThemeOptionButton: React.FC<ThemeOptionButtonProperties> = ({
+  children,
+  isSelected,
+  onClick,
+}) => (
+  <button
+    className={isSelected ? "theme-button theme-button-selected" : "theme-button"}
+    onClick={onClick}
+  >
+    {children}
+  </button>
+);
+
 const ThemeModal: React.FC<ThemeModalProperties> = ({closeModal, isModalOpen}) => {
   const {
     accentHue,
@@ -266,6 +290,7 @@ const ThemeModal: React.FC<ThemeModalProperties> = ({closeModal, isModalOpen}) =
   useEffect(() => {
     setTemporaryHue(accentHue);
   }, [accentHue]);
+
   useEffect(() => {
     setTemporarySaturate(saturateRatio);
   }, [saturateRatio]);
@@ -307,8 +332,8 @@ const ThemeModal: React.FC<ThemeModalProperties> = ({closeModal, isModalOpen}) =
   return (
     <Modal
       destroyOnClose
-      closeIcon={null}
-      footer={null}
+      closeIcon={false}
+      footer={<></>}
       open={isModalOpen}
       width={450}
       onCancel={closeModal}
@@ -326,93 +351,67 @@ const ThemeModal: React.FC<ThemeModalProperties> = ({closeModal, isModalOpen}) =
           </div>
           <div className="theme-title">Цветовая схема</div>
           <div className="theme-selector">
-            <button
-              className={
-                theme === "light" ? "theme-button theme-button-selected" : "theme-button"
-              }
+            <ThemeOptionButton
+              isSelected={theme === "light"}
               onClick={() => setTheme("light")}
             >
               <LightModeRounded />
               Светлая
-            </button>
-            <button
-              className={
-                theme === "dark" ? "theme-button theme-button-selected" : "theme-button"
-              }
+            </ThemeOptionButton>
+            <ThemeOptionButton
+              isSelected={theme === "dark"}
               onClick={() => setTheme("dark")}
             >
               <DarkModeRounded />
               Тёмная
-            </button>
-            <button
-              className={
-                theme === "system" ? "theme-button theme-button-selected" : "theme-button"
-              }
+            </ThemeOptionButton>
+            <ThemeOptionButton
+              isSelected={theme === "system"}
               onClick={() => setTheme("system")}
             >
               <HideSourceRounded />
               Системная
-            </button>
+            </ThemeOptionButton>
           </div>
           {showWidthSelector && (
             <>
               <div className="theme-title">Максимальная ширина контента</div>
               <div className="theme-selector">
-                <button
-                  className={
-                    maxWidth === 1000
-                      ? "theme-button theme-button-selected"
-                      : "theme-button"
-                  }
+                <ThemeOptionButton
+                  isSelected={maxWidth === 1000}
                   onClick={() => setMaxWidth(1000)}
                 >
                   Маленькая<sup>1000px</sup>
-                </button>
-                <button
-                  className={
-                    maxWidth === 1175
-                      ? "theme-button theme-button-selected"
-                      : "theme-button"
-                  }
+                </ThemeOptionButton>
+                <ThemeOptionButton
+                  isSelected={maxWidth === 1175}
                   onClick={() => setMaxWidth(1175)}
                 >
                   Средняя<sup>1175px</sup>
-                </button>
-                <button
-                  className={
-                    maxWidth === 1400
-                      ? "theme-button theme-button-selected"
-                      : "theme-button"
-                  }
+                </ThemeOptionButton>
+                <ThemeOptionButton
+                  isSelected={maxWidth === 1400}
                   onClick={() => setMaxWidth(1400)}
                 >
                   Большая<sup>1400px</sup>
-                </button>
+                </ThemeOptionButton>
               </div>
             </>
           )}
           <div className="theme-title">Анимация раскрытия спойлеров</div>
           <div className="theme-selector">
-            <button
-              className={
-                isAnimationDisabled === false
-                  ? "theme-button theme-button-selected"
-                  : "theme-button"
-              }
+            <ThemeOptionButton
+              isSelected={isAnimationDisabled === false}
               onClick={() => setIsAnimationDisabled(false)}
             >
               Включена
-            </button>
-            <button
-              className={
-                isAnimationDisabled
-                  ? "theme-button theme-button-selected"
-                  : "theme-button"
-              }
+            </ThemeOptionButton>
+            <ThemeOptionButton
+              isSelected={isAnimationDisabled}
               onClick={() => setIsAnimationDisabled(true)}
             >
               Выключена
-            </button>
+            </ThemeOptionButton>
           </div>
           {isWinter && (
             <>
@@ -420,26 +419,18 @@ const ThemeModal: React.FC<ThemeModalProperties> = ({closeModal, isModalOpen}) =
                 {isNewYearPeriod ? "Новогоднее настроение" : "Анимация снега"}
               </div>
               <div className="theme-selector">
-                <button
-                  className={
-                    isSnowfallEnabled
-                      ? "theme-button theme-button-selected"
-                      : "theme-button"
-                  }
+                <ThemeOptionButton
+                  isSelected={isSnowfallEnabled}
                   onClick={() => setIsSnowfallEnabled(true)}
                 >
                   {isNewYearPeriod ? "Включено" : "Включена"}
-                </button>
-                <button
-                  className={
-                    isSnowfallEnabled
-                      ? "theme-button"
-                      : "theme-button theme-button-selected"
-                  }
+                </ThemeOptionButton>
+                <ThemeOptionButton
+                  isSelected={!isSnowfallEnabled}
                   onClick={() => setIsSnowfallEnabled(false)}
                 >
                   {isNewYearPeriod ? "Выключено" : "Выключена"}
-                </button>
+                </ThemeOptionButton>
               </div>
             </>
           )}

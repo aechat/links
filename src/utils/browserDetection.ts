@@ -33,7 +33,7 @@ export function getBrowserInfo(): BrowserInfo {
     version = Number.parseInt(match[2], 10);
   }
 
-  match = /Version\/((\d+)\.?(\d+)?\.?(\d+)?)\s(Safari)\/((\d+)\.?(\d+)?)/.exec(ua);
+  match = /Version\/((\d+)(?:\.\d+){0,2})\s(Safari)\/((\d+)(?:\.\d+){0,2})/.exec(ua);
 
   if (match && !ua.includes("Chrome") && !ua.includes("Edge") && !ua.includes("Opera")) {
     name = "Safari";

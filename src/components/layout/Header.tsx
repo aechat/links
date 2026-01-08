@@ -50,6 +50,7 @@ const Header: React.FC<HeaderProperties> = ({title}) => {
         behavior: "smooth",
         top: 0,
       });
+
       globalThis.history.replaceState({}, "", currentPath);
     }
   };
@@ -61,26 +62,31 @@ const Header: React.FC<HeaderProperties> = ({title}) => {
   };
 
   useEffect(() => {
-    if (globalThis.window !== undefined) {
-      window.addEventListener("scroll", checkScrollPosition);
-
-      return () => {
-        window.removeEventListener("scroll", checkScrollPosition);
-      };
+    if (globalThis.window === undefined) {
+      return;
     }
+
+    window.addEventListener("scroll", checkScrollPosition);
+
+    return () => {
+      window.removeEventListener("scroll", checkScrollPosition);
+    };
   }, []);
+
   useEffect(() => {
-    if (globalThis.window !== undefined) {
-      const resizeHandler = (): void => {
-        setIsWide(window.innerWidth > constants.WIDE_SCREEN_WIDTH);
-      };
-
-      window.addEventListener("resize", resizeHandler);
-
-      return () => {
-        window.removeEventListener("resize", resizeHandler);
-      };
+    if (globalThis.window === undefined) {
+      return;
     }
+
+    const resizeHandler = (): void => {
+      setIsWide(window.innerWidth > constants.WIDE_SCREEN_WIDTH);
+    };
+
+    window.addEventListener("resize", resizeHandler);
+
+    return () => {
+      window.removeEventListener("resize", resizeHandler);
+    };
   }, []);
 
   const shouldShowSearch = (): boolean => {
@@ -107,7 +113,7 @@ const Header: React.FC<HeaderProperties> = ({title}) => {
       }}
     >
       <div className="header-left">
-        {currentPath === "/" ? null : (
+        {currentPath === "/" ? undefined : (
           <span className="icon">
             <Link to="/">
               <ArrowBackRounded />

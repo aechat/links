@@ -24,15 +24,18 @@ const PageIntro: React.FC<PageIntroProperties> = ({isLoaded = true, text}) => {
       setShow(true);
     }
   }, []);
+
   useEffect(() => {
-    if (show && isLoaded) {
-      const animationDuration = text.length * 0.05 + 0.4 + 1.25;
-
-      const timer = setTimeout(() => setShow(false), animationDuration * 1000 + 250);
-
-      return () => clearTimeout(timer);
+    if (!show || !isLoaded) {
+      return;
     }
-  }, [show, isLoaded, text]);
+
+    const animationDuration = text.length * 0.05 + 0.4 + 1.25;
+
+    const timer = setTimeout(() => setShow(false), animationDuration * 1000 + 250);
+
+    return () => clearTimeout(timer);
+  }, [isLoaded, show, text.length]);
 
   return (
     <AnimatePresence>

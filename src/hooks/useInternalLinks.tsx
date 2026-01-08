@@ -8,49 +8,64 @@ interface TargetArticle {
   title: string;
 }
 
+const findTargetDetails = (anchorValue: string): HTMLElement | undefined => {
+  const elementById = document.getElementById(anchorValue);
+
+  if (elementById) {
+    return elementById.closest("details") || undefined;
+  }
+
+  return (
+    document.querySelector<HTMLElement>(`details[data-anchor="${anchorValue}"]`) ||
+    undefined
+  );
+};
+
 export const useInternalLinkHandler = () => {
   const [modalVisible, setModalVisible] = useState(false);
 
-  const [targetArticle, setTargetArticle] = useState<TargetArticle | null>(null);
+  const [targetArticle, setTargetArticle] = useState<TargetArticle | undefined>();
 
   const handleLinkClick = useCallback((event: React.MouseEvent<HTMLElement>) => {
     const target = event.target as HTMLElement;
 
     const anchor = target.closest('a[href^="#"]');
 
-    if (anchor && anchor.getAttribute("href")!.length > 1) {
-      const href = anchor.getAttribute("href")!;
-
-      const anchorValue = href.slice(1);
-
-      let targetDetails: HTMLElement | null;
-
-      const elementById = document.getElementById(anchorValue);
-
-      targetDetails = elementById
-        ? elementById.closest("details")
-        : document.querySelector<HTMLElement>(`details[data-anchor="${anchorValue}"]`);
-
-      if (targetDetails) {
-        const currentDetails = (event.currentTarget as HTMLElement).closest("details");
-
-        if (currentDetails !== targetDetails) {
-          event.preventDefault();
-
-          const summary = targetDetails.querySelector(".faq-summary");
-
-          if (summary && summary.id) {
-            const titleElement = summary.querySelector("h3");
-
-            let title = titleElement ? titleElement.textContent : "без названия";
-
-            title = title.replace(/^\d+\.\d+\.\s*/, "");
-            setTargetArticle({id: summary.id, title});
-            setModalVisible(true);
-          }
-        }
-      }
+    if (!anchor || anchor.getAttribute("href")!.length <= 1) {
+      return;
     }
+
+    const href = anchor.getAttribute("href")!;
+
+    const anchorValue = href.slice(1);
+
+    const targetDetails = findTargetDetails(anchorValue);
+
+    if (!targetDetails) {
+      return;
+    }
+
+    const currentDetails = (event.currentTarget as HTMLElement).closest("details");
+
+    if (currentDetails === targetDetails) {
+      return;
+    }
+
+    event.preventDefault();
+
+    const summary = targetDetails.querySelector(".faq-summary");
+
+    if (!summary || !summary.id) {
+      return;
+    }
+
+    const titleElement = summary.querySelector("h3");
+
+    let title = titleElement ? titleElement.textContent : "без названия";
+
+    title = title.replace(/^\d+\.\d+\.\s*/, "");
+    setTargetArticle({id: summary.id, title});
+    setModalVisible(true);
   }, []);
 
   const handleOk = useCallback(() => {
@@ -62,6 +77,7 @@ export const useInternalLinkHandler = () => {
 
         if (details) {
           globalThis.dispatchEvent(new CustomEvent("close-all-spoilers"));
+
           setTimeout(() => {
             globalThis.dispatchEvent(
               new CustomEvent("open-spoiler-by-id", {
@@ -74,12 +90,12 @@ export const useInternalLinkHandler = () => {
     }
 
     setModalVisible(false);
-    setTargetArticle(null);
+    setTargetArticle(undefined);
   }, [targetArticle]);
 
   const handleCancel = useCallback(() => {
     setModalVisible(false);
-    setTargetArticle(null);
+    setTargetArticle(undefined);
   }, []);
 
   useEffect(() => {
@@ -101,8 +117,8 @@ export const useInternalLinkHandler = () => {
   const InternalLinkModal = (
     <Modal
       centered
-      closeIcon={null}
-      footer={null}
+      closeIcon={undefined}
+      footer={<></>}
       open={modalVisible}
       onCancel={handleCancel}
     >

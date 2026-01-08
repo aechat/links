@@ -3,7 +3,7 @@ import React, {useEffect, useState} from "react";
 import {GitHub} from "@mui/icons-material";
 import {useLocation} from "react-router-dom";
 
-import {formatRelativeTime} from "../../utils/dateUtils";
+import {formatRelativeTime} from "../../utils/dateUtilities";
 
 const OWNER = "aechat";
 
@@ -43,22 +43,22 @@ const PATH_MAP: Record<FaqPath, string> = {
   "/psfaq": "src/pages/sections/psfaq",
 };
 
+const isFaqPage = (p: string): p is FaqPath => {
+  return FAQ_PATHS.includes(p as FaqPath);
+};
+
 const Footer: React.FC<FooterProperties> = ({initialYear, title}) => {
   const location = useLocation();
 
-  const [commitData, setCommitData] = useState<CommitData | null>(null);
+  const [commitData, setCommitData] = useState<CommitData | undefined>();
 
   const [isLoading, setIsLoading] = useState<boolean>(true);
 
-  const [error, setError] = useState<string | null>(null);
+  const [error, setError] = useState<string | undefined>();
 
   const currentYear = new Date().getFullYear();
 
   const path = location.pathname;
-
-  const isFaqPage = (p: string): p is FaqPath => {
-    return FAQ_PATHS.includes(p as FaqPath);
-  };
 
   useEffect(() => {
     if (!isFaqPage(path)) {
@@ -69,8 +69,8 @@ const Footer: React.FC<FooterProperties> = ({initialYear, title}) => {
 
     const getLastCommit = async () => {
       setIsLoading(true);
-      setError(null);
-      setCommitData(null);
+      setError(undefined);
+      setCommitData(undefined);
 
       const url = `https://api.github.com/repos/${OWNER}/${REPO}/commits?path=${folderPath}&sha=${BRANCH}`;
 
@@ -95,7 +95,7 @@ const Footer: React.FC<FooterProperties> = ({initialYear, title}) => {
 
         const regex = /^\w+(\([\w/.-]+\))?:\s*(.*)/;
 
-        const match = rawMessage.match(regex);
+        const match = regex.exec(rawMessage);
 
         let description = rawMessage;
 
@@ -134,7 +134,7 @@ const Footer: React.FC<FooterProperties> = ({initialYear, title}) => {
     }
 
     if (!commitData) {
-      return null;
+      return;
     }
 
     const relativeTime = formatRelativeTime(commitData.date);

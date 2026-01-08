@@ -11,7 +11,7 @@ import {ThemeProvider, useTheme} from "./components/modals/ThemeChanger";
 import LoadingAnimation from "./components/ui/LoadingAnimation";
 import {copyText} from "./hooks/useCopyToClipboard";
 import useDynamicFavicon from "./hooks/useDynamicFavicon";
-import themeConfig from "./styles/ant_theme";
+import themeConfig from "./styles/antTheme";
 import {getBrowserInfo} from "./utils/browserDetection";
 import faviconSvg from "/icons/favicon.svg?raw";
 import aefaqSvg from "/icons/aefaq.svg?raw";
@@ -19,19 +19,19 @@ import prfaqSvg from "/icons/prfaq.svg?raw";
 import psfaqSvg from "/icons/psfaq.svg?raw";
 import aeexprfaqSvg from "/icons/aeexprfaq.svg?raw";
 
-const Links = lazy(() => import("./pages/linksPage"));
+const Links = lazy(() => import("./pages/LinksPage"));
 
-const ChatRules = lazy(() => import("./pages/chatRules"));
+const ChatRules = lazy(() => import("./pages/ChatRules"));
 
-const NotFound = lazy(() => import("./pages/notFound"));
+const NotFound = lazy(() => import("./pages/NotFound"));
 
-const AEFAQ = lazy(() => import("./pages/aefaqPage"));
+const AeFaqPage = lazy(() => import("./pages/AeFaqPage"));
 
-const PRFAQ = lazy(() => import("./pages/prfaqPage"));
+const PrFaqPage = lazy(() => import("./pages/PrFaqPage"));
 
-const PSFAQ = lazy(() => import("./pages/psfaqPage"));
+const PsFaqPage = lazy(() => import("./pages/PsFaqPage"));
 
-const AEExpressionPage = lazy(() => import("./pages/aeexprPage"));
+const AeExprPage = lazy(() => import("./pages/AeExprPage"));
 
 const FilesRedirect = () => {
   useEffect(() => {
@@ -39,7 +39,7 @@ const FilesRedirect = () => {
     globalThis.location.href = "https://github.com/aechat/links/tree/main/public/files";
   }, []);
 
-  return null;
+  return <></>;
 };
 
 const RegFileRedirect = () => {
@@ -53,13 +53,15 @@ const RegFileRedirect = () => {
     document.body.append(link);
     link.click();
     link.remove();
+
     alert(
       "После скачивания откройте файл реестра и подтвердите слияние, нажав «Да». Это необходимо для корректной работы расширений, которые находятся в меню «Window» → «Extensions»."
     );
+
     history.back();
   }, []);
 
-  return null;
+  return <></>;
 };
 
 const RedirectHtml = () => {
@@ -76,7 +78,7 @@ const RedirectHtml = () => {
     );
   }
 
-  return null;
+  return <></>;
 };
 
 const SafariWarningModal = ({
@@ -96,9 +98,9 @@ const SafariWarningModal = ({
     <Modal
       centered
       closable={false}
-      footer={null}
+      footer={<></>}
       open={open}
-      title={null}
+      title={undefined}
       width={450}
     >
       <div className="modal">
@@ -138,7 +140,7 @@ const SafariWarningModal = ({
             <input
               checked={dontShowAgain}
               type="checkbox"
-              onChange={(e) => setDontShowAgain(e.target.checked)}
+              onChange={(event) => setDontShowAgain(event.target.checked)}
             />
             Претензий не имею, больше не показывать
           </label>
@@ -222,11 +224,11 @@ const ErrorFallback = ({error}: {error: Error}) => {
 
 class ErrorBoundary extends React.Component<
   {children: React.ReactNode},
-  {hasError: boolean; error: Error | null}
+  {hasError: boolean; error: Error | undefined}
 > {
   constructor(properties: {children: React.ReactNode}) {
     super(properties);
-    this.state = {error: null, hasError: false};
+    this.state = {error: undefined, hasError: false};
   }
 
   static getDerivedStateFromError(error: Error) {
@@ -238,7 +240,7 @@ class ErrorBoundary extends React.Component<
       return <ErrorFallback error={this.state.error} />;
     }
 
-    return this.props.children;
+    return <>{this.props.children}</>;
   }
 }
 
@@ -252,6 +254,7 @@ const SnowfallManager = () => {
   const isDarkMode = theme === "dark" || (theme === "system" && isSystemDark);
 
   const lightness = isDarkMode ? "75%" : "50%";
+
   const color = `hsl(${accentHue}, ${saturateRatio * 50}%, ${lightness})`;
 
   return isSnowfallEnabled ? (
@@ -267,7 +270,9 @@ const SnowfallManager = () => {
       }}
       wind={[0, 1]}
     />
-  ) : null;
+  ) : (
+    <></>
+  );
 };
 
 export const App = () => {
@@ -290,6 +295,7 @@ export const App = () => {
       setSvgContent(faviconSvg);
     }
   }, [location.pathname]);
+
   useDynamicFavicon(svgContent);
 
   const [isClient, setIsClient] = useState(false);
@@ -377,6 +383,7 @@ export const App = () => {
       setAppReady(true);
     }
   }, [location.pathname]);
+
   useEffect(() => {
     if (globalThis.window === undefined) {
       return;
@@ -464,19 +471,19 @@ export const App = () => {
                     path="/"
                   />
                   <Route
-                    element={<AEFAQ />}
+                    element={<AeFaqPage />}
                     path="/aefaq"
                   />
                   <Route
-                    element={<PRFAQ />}
+                    element={<PrFaqPage />}
                     path="/prfaq"
                   />
                   <Route
-                    element={<PSFAQ />}
+                    element={<PsFaqPage />}
                     path="/psfaq"
                   />
                   <Route
-                    element={<AEExpressionPage />}
+                    element={<AeExprPage />}
                     path="/aeexpr"
                   />
                   <Route

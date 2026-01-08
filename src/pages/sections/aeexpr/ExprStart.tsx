@@ -5,7 +5,7 @@ import {Divider} from "antd";
 import {ContentFigure} from "../../../components/content/ContentFigure";
 import DetailsSummary from "../../../components/content/DetailsSummary";
 
-const AEExprStart: React.FC = () => {
+const AeExprStart: React.FC = () => {
   return (
     <div className="faq-content">
       <DetailsSummary title="Для чего нужны выражения и в каких случаях их используют?">
@@ -100,4 +100,4 @@ const AEExprStart: React.FC = () => {
   );
 };
 
-export default AEExprStart;
+export default AeExprStart;

@@ -59,14 +59,16 @@ const handlePerformanceEntries = (
       return fileName.split("?")[0] !== "tag.js";
     });
 
-  if (filteredResources.length > 0) {
-    setResource(filteredResources.at(-1));
+  const lastResource = filteredResources.at(-1);
+
+  if (lastResource) {
+    setResource(lastResource);
   }
 };
 
 const setupPerformanceObserver = (
   setResource: React.Dispatch<React.SetStateAction<string>>
-) => {
+): PerformanceObserver | undefined => {
   if (globalThis.window !== undefined && "PerformanceObserver" in globalThis) {
     const observer = new PerformanceObserver((list) =>
       handlePerformanceEntries(list.getEntries(), setResource)
@@ -77,7 +79,7 @@ const setupPerformanceObserver = (
     return observer;
   }
 
-  return;
+  return undefined;
 };
 
 const LoadingAnimation: React.FC = () => {

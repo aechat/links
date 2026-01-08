@@ -71,7 +71,7 @@
     "dev": "vite",
     "preview": "vite preview",
     "format": "echo \"--- Running tsc ---\"; tsc; echo \"--- Running stylelint ---\"; stylelint \"**/*.scss\" --fix; echo \"--- Running eslint ---\"; eslint . --fix; echo \"--- Running prettier ---\"; prettier --write .",
-    "build": "vite build && vite build --ssr src/entry-server.tsx --outDir dist/server && node prerender.js",
+    "build": "vite build && vite build --ssr src/EntryServer.tsx --outDir dist/server && node prerender.js",
     "build:stash": "git stash -u && yarn build && git stash apply",
     "deploy": "yarn && yarn build && gh-pages -d dist/client -m \"обновление сайта\" && git push",
     "prepare": "husky",

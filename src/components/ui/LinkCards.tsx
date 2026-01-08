@@ -5,7 +5,7 @@ import {Link} from "react-router-dom";
 
 import {copyText} from "../../hooks/useCopyToClipboard";
 import {useLongPress} from "../../hooks/useLongPress";
-import {formatNestedQuotes} from "../../utils/stringUtils";
+import {formatNestedQuotes} from "../../utils/stringUtilities";
 
 interface LinkCardProperties {
   description?: string;
