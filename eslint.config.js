@@ -83,6 +83,8 @@ export default [
           prev: ["const", "let", "var"],
           next: ["const", "let", "var"],
         },
+        {blankLine: "always", prev: "*", next: "multiline-expression"},
+        {blankLine: "always", prev: "multiline-expression", next: "*"},
         {
           blankLine: "always",
           prev: "*",
@@ -130,7 +132,6 @@ export default [
           },
         },
       ],
-      "sort-vars": ["warn", {ignoreCase: true}],
       "perfectionist/sort-variable-declarations": [
         "warn",
         {
@@ -188,6 +189,7 @@ export default [
         },
       ],
       ...unicornPlugin.configs.recommended.rules,
+      "unicorn/prefer-query-selector": "off",
       "curly": ["warn", "all"],
       "no-empty": ["warn", {allowEmptyCatch: true}],
       "eqeqeq": ["warn", "always"],
@@ -230,6 +232,8 @@ export default [
     rules: {
       "sonarjs/todo-tag": "warn",
       "sonarjs/fixme-tag": "warn",
+      "sonarjs/different-types-comparison": "off",
+      "sonarjs/deprecation": "off",
     },
   },
   {
@@ -239,6 +243,17 @@ export default [
         "warn",
         {
           case: "pascalCase",
+        },
+      ],
+    },
+  },
+  {
+    files: ["src/hooks/**/*.tsx"],
+    rules: {
+      "unicorn/filename-case": [
+        "warn",
+        {
+          case: "camelCase",
         },
       ],
     },

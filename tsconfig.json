@@ -16,7 +16,7 @@
     "jsx": "react",
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "noImplicitReturns": true
+    "downlevelIteration": true
   },
   "include": [".eslintrc.cjs", "src/**/*.ts", "src/**/*.tsx"],
   "references": [
