@@ -2375,7 +2375,7 @@ const PRInstallProblems: React.FC = () => {
         </ul>
       </DetailsSummary>
       <DetailsSummary
-        tag="какую версию надо скачать для связки, совместимость версий, dynamic link, premiere pro, media encoder, мажорная версия, релиз"
+        tag="какую версию надо скачать для связки, совместимость версий, dynamic link, premiere pro, media encoder, мажорная версия, релиз, выбор версии"
         title="Обязательно ли точное совпадение версий смежных программ от Adobe для их совместной работы?"
       >
         <p>
