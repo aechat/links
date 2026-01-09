@@ -233,7 +233,7 @@ const SnowfallManager = () => {
     globalThis.window.matchMedia("(prefers-color-scheme: dark)").matches;
   const isDarkMode = theme === "dark" || (theme === "system" && isSystemDark);
   const lightness = isDarkMode ? "75%" : "50%";
-  const color = `hsl(${accentHue}, ${saturateRatio * 75}%, ${lightness})`;
+  const color = `hsl(${accentHue}, ${saturateRatio * 50}%, ${lightness})`;
 
   return isSnowfallEnabled ? (
     <Snowfall
