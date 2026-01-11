@@ -1169,6 +1169,7 @@ const PRFromNewbies: React.FC = () => {
         </p>
       </DetailsSummary>
       <DetailsSummary
+        anchor="switch-language"
         tag="изменить язык, смена языка, установка английской версии"
         title="Почему мне с каждого угла советуют поставить английский язык программы и как это сделать?"
       >
