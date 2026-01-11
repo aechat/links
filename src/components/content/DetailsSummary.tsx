@@ -1,13 +1,4 @@
-import React, {
-  createContext,
-  ReactNode,
-  useCallback,
-  useContext,
-  useEffect,
-  useMemo,
-  useRef,
-  useState,
-} from "react";
+import React, {ReactNode, useCallback, useEffect, useMemo, useRef, useState} from "react";
 
 import {ShareRounded} from "@mui/icons-material";
 import {message, Tooltip} from "antd";
@@ -18,6 +9,14 @@ import {useInternalLinkHandler} from "../../hooks/useInternalLinks";
 import {useLongPress} from "../../hooks/useLongPress";
 import {formatNestedQuotes} from "../../utils/stringUtilities";
 import {useTheme} from "../modals/ThemeChanger";
+
+import {DetailsSummaryContext, SpoilerContext} from "./spoilerContexts";
+
+declare global {
+  interface Window {
+    detailsSummaryScrollListenerAttached?: boolean;
+  }
+}
 
 const usePrevious = <T,>(value: T): T | undefined => {
   const reference = useRef<T | undefined>(undefined);
@@ -35,10 +34,6 @@ interface DetailsSummaryProperties {
   tag?: string;
   title: string;
 }
-
-const SpoilerContext = createContext(false);
-
-export const useSpoiler = () => useContext(SpoilerContext);
 
 const TAG_LIMIT = 4;
 
@@ -152,7 +147,11 @@ export const generateAnchorId = () => {
   const currentHash = globalThis.location.hash.slice(1);
 
   for (const [blockIndex, container] of containers.entries()) {
-    const summaries = [...container.querySelectorAll(".faq-summary")];
+    const summaries = [
+      ...container.querySelectorAll(
+        "details:not(.nested-details-summary) > .faq-summary"
+      ),
+    ];
 
     for (const [summaryIndex, summary] of summaries.entries()) {
       const generatedAnchor = `${blockIndex + 1}.${summaryIndex + 1}`;
@@ -642,7 +641,7 @@ const DetailsSummary: React.FC<DetailsSummaryProperties> = ({
     <>
       <details
         ref={detailsReference}
-        className={isOpen ? "is-open" : ""}
+        className={`details-summary-root ${isOpen ? "is-open" : ""}`}
         data-anchor={anchor}
         data-tags={tag}
       >
@@ -670,25 +669,27 @@ const DetailsSummary: React.FC<DetailsSummaryProperties> = ({
         <div className="details-content-wrapper">
           <div className="details-content-inner">
             <SpoilerContext.Provider value={isOpen}>
-              <section
-                ref={sectionReference}
-                className="faq-section"
-                onClick={handleSectionClick}
-                {...sectionLongPressProperties}
-              >
-                {React.Children.count(children) === 0 ? (
-                  <div className="no-content-placeholder">
-                    <p>
-                      Эта статья пока пустая: либо я ещё не дошёл до её написания, либо
-                      написал такую дичь, что пришлось всё скрыть и отправить на
-                      переделку.
-                    </p>
-                    <p>Следите за обновлениями.</p>
-                  </div>
-                ) : (
-                  children
-                )}
-              </section>
+              <DetailsSummaryContext.Provider value={true}>
+                <section
+                  ref={sectionReference}
+                  className="faq-section"
+                  onClick={handleSectionClick}
+                  {...sectionLongPressProperties}
+                >
+                  {React.Children.count(children) === 0 ? (
+                    <div className="no-content-placeholder">
+                      <p>
+                        Эта статья пока пустая: либо я ещё не дошёл до её написания, либо
+                        написал такую дичь, что пришлось всё скрыть и отправить на
+                        переделку.
+                      </p>
+                      <p>Следите за обновлениями.</p>
+                    </div>
+                  ) : (
+                    children
+                  )}
+                </section>
+              </DetailsSummaryContext.Provider>
             </SpoilerContext.Provider>
           </div>
         </div>

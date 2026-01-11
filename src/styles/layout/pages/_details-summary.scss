@@ -177,6 +177,7 @@ body {
 
     .nested-details-summary[open] {
       transform: none;
+      margin-block: 0;
     }
   }
 

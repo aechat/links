@@ -6,7 +6,7 @@ import {createPortal} from "react-dom";
 
 import {copyText} from "../../hooks/useCopyToClipboard";
 
-import {useSpoiler} from "./DetailsSummary";
+import {useSpoiler} from "./spoilerContexts";
 
 interface ContentFigureProperties {
   autoPlay?: boolean;
