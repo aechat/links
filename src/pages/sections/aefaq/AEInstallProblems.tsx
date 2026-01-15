@@ -1823,9 +1823,7 @@ const AEInstallProblems: React.FC = () => {
         <p>
           В следующий раз не забывайте убирать чекбокс{" "}
           <mark className="select">«Реклама»</mark> при установке репаков от{" "}
-          <mark className="user">KpoJluK</mark>. Если вы хотите, чтобы рекламные чекбоксы
-          снимались автоматически при установке, — попробуйте воспользоваться программой{" "}
-          <a href="https://unchecky.com/">Unchecky</a>.
+          <mark className="user">KpoJluK</mark>.
         </p>
       </DetailsSummary>
       <DetailsSummary
@@ -2077,7 +2075,7 @@ const AEInstallProblems: React.FC = () => {
                     По умолчанию <mark className="app">Adobe Creative Cloud</mark>{" "}
                     устанавливает приложения на языке, на котором локализована ваша
                     операционная система. Вы можете изменить язык программ{" "}
-                    <a href="https://helpx.adobe.com/ru/creative-cloud/apps/manage-apps/creative-cloud-apps/change-language-for-creative-cloud-apps.html">
+                    <a href="https://helpx.adobe.com/creative-cloud/apps/manage-apps/creative-cloud-apps/change-language-for-creative-cloud-apps.html">
                       перед установкой
                     </a>{" "}
                     или поменять его для <mark className="app">Adobe After Effects</mark>{" "}

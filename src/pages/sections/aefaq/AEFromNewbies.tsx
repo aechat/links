@@ -48,10 +48,11 @@ const AEFromNewbies: React.FC = () => {
             программами вроде <mark className="app">Adobe After Effects</mark>, рекомендую
             пройти курс{" "}
             <a href="https://www.youtube.com/playlist?list=PLcN7xY5E2wrmIU__8uNIHglZTyZ29RMIM">
-              «Основы After Effects» от Ильи Зернова
-            </a>
-            . Этот курс поможет вам освоить интерфейс программы и научиться работать с
-            ключевыми кадрами, титрами и эффектами.
+              «Основы After Effects»
+            </a>{" "}
+            от <a href="https://youtube.com/zernov">Ильи Зернова</a>. Этот курс поможет
+            вам освоить интерфейс программы и научиться работать с ключевыми кадрами,
+            титрами и эффектами.
             <ContentFigure
               caption="Основы After Effects от Ильи Зернова"
               src="nogR7eyhYug"
@@ -116,9 +117,7 @@ const AEFromNewbies: React.FC = () => {
               <a href="https://volnitsa.zenclass.ru/public/course/4b9a6429-5c06-4f91-a73b-312bc57b9e35">
                 «Быстрый вход в After Effects» от Вольницы
               </a>
-              <a href="https://volnitsa.zenclass.ru/public/course/9221df49-3262-444e-b269-8b3bfd496de2">
-                «SUPER SILA FOREVER» от Вольницы
-              </a>
+              <a href="https://volnitsa.net/motiontype">«Motion Type» от Вольницы</a>
               <a href="https://sabatovsky.com/after">
                 «After Effects от новичка до специалиста» от Сабатовского
               </a>

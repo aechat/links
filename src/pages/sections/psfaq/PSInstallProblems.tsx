@@ -868,9 +868,7 @@ const PSInstallProblems: React.FC = () => {
         </p>
         <p>
           В следующий раз не забывайте убирать галочку{" "}
-          <mark className="select">«Реклама»</mark>. Если вы хотите сделать так, чтобы у
-          вас автоматически убирались рекламные чекбоксы при установке - попробуйте
-          воспользоваться программой <a href="https://unchecky.com/">Unchecky</a>.
+          <mark className="select">«Реклама»</mark>.
         </p>
       </DetailsSummary>
       <DetailsSummary title="«Error: Extension Manager init failed, status = -193! A required resource is missing. Please relaunch the Creative Cloud app and try again» при использовании ZXP Installer">

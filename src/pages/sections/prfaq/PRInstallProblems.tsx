@@ -2040,9 +2040,7 @@ const PRInstallProblems: React.FC = () => {
         <p>
           В следующий раз не забывайте убирать чекбокс{" "}
           <mark className="select">«Реклама»</mark> при установке репаков от{" "}
-          <mark className="user">KpoJluK</mark>. Если вы хотите, чтобы рекламные чекбоксы
-          снимались автоматически, — попробуйте воспользоваться программой{" "}
-          <a href="https://unchecky.com/">Unchecky</a>.
+          <mark className="user">KpoJluK</mark>.
         </p>
       </DetailsSummary>
       <DetailsSummary

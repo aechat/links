@@ -42,7 +42,7 @@ const BrowserWarning: React.FC<BrowserWarningProperties> = ({onClose, open}) => 
           </a>
           <a
             className="link-firefox"
-            href="https://www.mozilla.org/firefox/new/"
+            href="https://www.firefox.com/ru/"
             rel="noreferrer"
             target="_blank"
           >

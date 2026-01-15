@@ -235,12 +235,6 @@ const PRWhereFind: React.FC = () => {
             Pixabay
           </a>
           <a
-            href="https://www.videvo.net/"
-            title="Videvo"
-          >
-            Videvo
-          </a>
-          <a
             href="https://coverr.co/"
             title="Coverr"
           >
@@ -269,12 +263,6 @@ const PRWhereFind: React.FC = () => {
             title="Cute Stock Footage"
           >
             Cute Stock Footage
-          </a>
-          <a
-            href="https://mitchmartinez.com/free-4k-red-epic-stock-footage/"
-            title="Mitch Martinez"
-          >
-            Mitch Martinez
           </a>
           <a
             href="https://www.ignitemotion.com/"
@@ -412,12 +400,6 @@ const PRWhereFind: React.FC = () => {
             title="RuPixel"
           >
             RuPixel
-          </a>
-          <a
-            href="https://loon.site/"
-            title="LOON"
-          >
-            LOON
           </a>
           <a
             href="https://www.stockvault.net/"
@@ -637,12 +619,6 @@ const PRWhereFind: React.FC = () => {
             title="Chosic"
           >
             Chosic
-          </a>
-          <a
-            href="https://freepd.com/"
-            title="freefd"
-          >
-            freepd
           </a>
           <a
             href="https://blocsonic.com/"

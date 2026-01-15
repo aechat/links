@@ -18,14 +18,10 @@ const PRFromNewbies: React.FC = () => {
           Если вы только начинаете свой путь в монтаже или никогда не использовали{" "}
           <mark className="app">Adobe Premiere Pro</mark> как основной инструмент и хотите
           разобраться в интерфейсе и его возможностях, то посмотрите плейлист{" "}
-          <a href="https://www.youtube.com/watch?v=Wi-AalXwilg&list=PLcN7xY5E2wrmIlv6SNF2xacsryFtGIfXK&pp=iAQB">
+          <a href="https://www.youtube.com/playlist?list=PLcN7xY5E2wrmIlv6SNF2xacsryFtGIfXK">
             Азбука Adobe Premiere Pro
           </a>{" "}
-          от{" "}
-          <a href="https://www.youtube.com/channel/UCmLY17yagzLy6GRiI1nVBow">
-            Ильи Зернова
-          </a>
-          .
+          от <a href="https://youtube.com/zernov">Ильи Зернова</a>.
         </p>
         <Addition type="info">
           Курс был записан в <mark className="app">Adobe Premiere Pro</mark> версии{" "}
@@ -35,18 +31,6 @@ const PRFromNewbies: React.FC = () => {
         <ContentFigure
           caption="Азбука Adobe Premiere Pro"
           src="Wi-AalXwilg"
-          type="youtube"
-        />
-        <p>
-          Также при желании вы можете отдельно посмотреть курс по работе с вкладкой{" "}
-          <mark className="plugin">Lumetri Color</mark> в{" "}
-          <mark className="app">Adobe Premiere Pro</mark> для цветокоррекции различных
-          футажей и исходников от{" "}
-          <a href="https://www.youtube.com/@Bolharov">Романа Болгарова</a>.
-        </p>
-        <ContentFigure
-          caption="Цветокоррекция в Lumetri"
-          src="xqRnW1T_pNk"
           type="youtube"
         />
         <p>
@@ -1152,13 +1136,13 @@ const PRFromNewbies: React.FC = () => {
           неполадок и старается приложить к ним временное решение.
         </p>
         <div className="flexible-links">
-          <a href="https://helpx.adobe.com/ru/premiere-pro/using/whats-new.html">
+          <a href="https://helpx.adobe.com/premiere-pro/using/whats-new.html">
             Что нового в Adobe Premiere Pro последних выпусков
           </a>
           <a href="https://helpx.adobe.com/premiere-pro/kb/fixed-issues.html">
             Список исправленных ошибок
           </a>
-          <a href="https://helpx.adobe.com/ru/premiere-pro/kb/known-issues.html">
+          <a href="https://helpx.adobe.com/premiere-pro/kb/known-issues.html">
             Выявленные неполадки в Adobe Premiere Pro
           </a>
         </div>
