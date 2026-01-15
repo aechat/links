@@ -10,7 +10,7 @@ import HostsAdobeModal from "../../../components/content/HostsAdobe";
 
 const PrErrors: React.FC = () => {
   return (
-    <div className="faq-content">
+    <div className="article-content">
       <Addition type="danger">
         <ul>
           <li>
@@ -533,8 +533,7 @@ const PrErrors: React.FC = () => {
       <DetailsSummary
         tag="сбой генерации расширения, can't generate extension, генеративное расширение недоступно, проверьте подключение к интернету"
         title="Почему появляется «Generative Extend is not available. Please check your internet connection and try again.» при попытке использовать генеративное расширение клипа?"
-      >
-      </DetailsSummary>
+      ></DetailsSummary>
       <DetailsSummary
         tag="проект поврежден, невозможно импортировать файл, ошибка с файлом, не читается"
         title="Что делать с ошибкой «The project appears to be damaged, it cannot be opened»?"

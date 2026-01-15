@@ -8,7 +8,7 @@ import DetailsSummary from "../../../components/content/DetailsSummary";
 
 const PsInterface: React.FC = () => {
   return (
-    <div className="faq-content">
+    <div className="article-content">
       <DetailsSummary title="Как отключить стартовое окно с последними открытыми проектами при запуске?">
         <p>
           Если вас раздражает окно с недавними открытыми проектами или оно у вас грузится

@@ -8,7 +8,7 @@ import DetailsSummary from "../../../components/content/DetailsSummary";
 
 const PrExportProblems: React.FC = () => {
   return (
-    <div className="faq-content">
+    <div className="article-content">
       <DetailsSummary title="«Error compiling movie», а в конце лога — «Error code: -1609629695»">
         <p>
           Эта ошибка может появиться по самым разным причинам — универсального способа

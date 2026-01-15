@@ -162,12 +162,12 @@ const ChatRules = () => {
           ease: [0.25, 0, 0, 1],
         }}
       >
-        <div className="faq-container-flex">
+        <div className="article-container-flex">
           <div
-            className="faq-container"
+            className="article-container"
             style={{marginBlockStart: "20px"}}
           >
-            <div className="faq-title">
+            <div className="article-title">
               <h1>Правила AEChat и DWChat</h1>
             </div>
             <h2
@@ -188,7 +188,7 @@ const ChatRules = () => {
               </Tooltip>
             </h2>
             <div className="rules-content">
-              <section className="rules-section faq-content">
+              <section className="rules-section article-content">
                 <p>
                   В чатах{" "}
                   <a
@@ -300,7 +300,7 @@ const ChatRules = () => {
               </Tooltip>
             </h2>
             <div className="rules-content">
-              <section className="rules-section faq-content">
+              <section className="rules-section article-content">
                 <p>
                   Для комфортного и эффективного общения в чате рекомендуется соблюдать
                   несколько простых рекомендаций.
@@ -719,7 +719,7 @@ const ChatRules = () => {
               </Tooltip>
             </h2>
             <div className="rules-content">
-              <section className="rules-section faq-content">
+              <section className="rules-section article-content">
                 <ul>
                   <li>
                     В чатах запрещены спам, флуд<sup>1</sup>, чрезмерное употребление
@@ -778,7 +778,7 @@ const ChatRules = () => {
               </Tooltip>
             </h2>
             <div className="rules-content">
-              <section className="rules-section faq-content">
+              <section className="rules-section article-content">
                 <p>
                   Для публикации вакансий, заказов или резюме соблюдайте простые
                   требования к размещению. Это поможет сэкономить время всем участникам.

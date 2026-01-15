@@ -32,7 +32,7 @@ export const useAnchorValidation = (sections: Section[], isPageLoaded: boolean) 
         return;
       }
 
-      const faqContainer = document.querySelector(".faq-content");
+      const faqContainer = document.querySelector(".article-content");
 
       if (faqContainer) {
         message.error(

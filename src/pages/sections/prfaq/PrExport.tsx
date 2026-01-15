@@ -9,7 +9,7 @@ import DetailsSummary from "../../../components/content/DetailsSummary";
 
 const PrExport: React.FC = () => {
   return (
-    <div className="faq-content">
+    <div className="article-content">
       <DetailsSummary
         tag="тикток, ютуб, максимальное качество, разрешение, битрейт, кодек, fps, соцсети, настройки рендера, вывод видео"
         title="Какие настройки экспорта стоит установить для вывода в социальные сети?"
@@ -936,8 +936,7 @@ const PrExport: React.FC = () => {
       <DetailsSummary
         tag="previews, ускорение времени рендера, уменьшение перепросчёта, пререндер, prerender"
         title="Как сократить время повторного экспорта, если заказчик попросил внести небольшие правки?"
-      >
-      </DetailsSummary>
+      ></DetailsSummary>
       <DetailsSummary title="Как сохранить свой шаблон с настройками для экспорта секвенций?">
         <p>
           Вы, наверное, не раз замечали параметр <mark className="select">«Preset»</mark>{" "}

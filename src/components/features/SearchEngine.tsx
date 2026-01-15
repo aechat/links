@@ -1290,7 +1290,7 @@ const SearchResults: React.FC<{
               <div className={`search-header ${isSelected ? "search-selected" : ""}`}>
                 <p className="search-title">{title.replace(/^[+-]+/, "").trim()}</p>
                 {tagsToDisplay.length > 0 && (
-                  <span className="faq-tags">
+                  <span className="details-tags">
                     {tagsToDisplay.map((t) => (
                       <mark key={t}>{t}</mark>
                     ))}
@@ -1298,7 +1298,7 @@ const SearchResults: React.FC<{
                 )}
               </div>
               <div
-                className="search-content faq-content no-copy"
+                className="search-content article-content no-copy"
                 dangerouslySetInnerHTML={{__html: content}}
               />
             </button>

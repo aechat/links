@@ -53,7 +53,7 @@ export const useInternalLinkHandler = () => {
 
     event.preventDefault();
 
-    const summary = targetDetails.querySelector(".faq-summary");
+    const summary = targetDetails.querySelector(".details-summary");
 
     if (!summary || !summary.id) {
       return;

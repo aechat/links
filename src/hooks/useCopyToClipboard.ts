@@ -14,7 +14,7 @@ const isExcludedElement = (element: HTMLElement): boolean => {
   return (
     element.closest(".no-copy") !== null ||
     element.closest(".search-tags") !== null ||
-    element.closest(".faq-tags .tag") !== null ||
+    element.closest(".details-tags .tag") !== null ||
     (element.tagName === "MARK" && element.classList.length === 0)
   );
 };

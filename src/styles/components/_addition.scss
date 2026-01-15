@@ -273,11 +273,11 @@
   }
 }
 
-.faq-container,
-.faq-content,
+.article-container,
+.article-content,
 li,
 .links,
-.nested-details-summary-section {
+.details-nested-section {
   & > .addition-info,
   & > .addition-warning,
   & > .addition-danger,
@@ -301,27 +301,27 @@ li,
     border-radius: 0;
   }
 }
-%faq-content-first-child {
+%article-content-first-child {
   margin-top: 10px;
 }
-%faq-content-last-child {
+%article-content-last-child {
   margin-bottom: 10px;
 }
 
-.faq-content,
-.nested-details-summary-section {
+.article-content,
+.details-nested-section {
   & > .addition-info:first-child,
   & > .addition-warning:first-child,
   & > .addition-danger:first-child,
   & > .addition-tldr:first-child {
-    @extend %faq-content-first-child;
+    @extend %article-content-first-child;
   }
 
   & > .addition-info:last-child,
   & > .addition-warning:last-child,
   & > .addition-danger:last-child,
   & > .addition-tldr:last-child {
-    @extend %faq-content-last-child;
+    @extend %article-content-last-child;
   }
 }
 

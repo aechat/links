@@ -9,7 +9,7 @@ import DetailsSummary from "../../../components/content/DetailsSummary";
 
 const AePerformance: React.FC = () => {
   return (
-    <div className="faq-content">
+    <div className="article-content">
       <DetailsSummary
         tag="pc, железо, выбор пк, сборка, системные требования, hardware recommendations"
         title="Какой компьютер или ноутбук нужен для работы в программе?"

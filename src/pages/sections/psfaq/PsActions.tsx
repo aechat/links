@@ -8,7 +8,7 @@ import DetailsSummary from "../../../components/content/DetailsSummary";
 
 const PsActions: React.FC = () => {
   return (
-    <div className="faq-content">
+    <div className="article-content">
       <DetailsSummary
         tag="апскейл, топаз, качество, 4к, резкость, восстановить четкость"
         title="Какими средствами я могу улучшить качество изображений?"

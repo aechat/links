@@ -9,7 +9,7 @@ import DetailsSummary from "../../../components/content/DetailsSummary";
 
 const AeInstallProblems: React.FC = () => {
   return (
-    <div className="faq-content">
+    <div className="article-content">
       <DetailsSummary
         anchor="how-to-install"
         tag="как установить, куда распаковать, забыли положить, плагины, шаблоны, пресеты, скрипты, расширения, луты, архивы, installation guide"

@@ -22,7 +22,7 @@ export const useSmartCopy = (isPageLoaded: boolean) => {
       const sources: {title: string; url: string}[] = [];
 
       for (const detail of openDetails) {
-        const contentSection = detail.querySelector(".faq-section");
+        const contentSection = detail.querySelector(".details-section");
 
         if (contentSection && selection.containsNode(contentSection, true)) {
           const summary = detail.querySelector("summary");

@@ -35,7 +35,7 @@ const ProjectStructureExample = `Обзор на Ford Focus 2
 
 const AeImport: React.FC = () => {
   return (
-    <div className="faq-content">
+    <div className="article-content">
       <DetailsSummary
         anchor="import-pipeline"
         tag="пайплайн, импорт, подготовка исходников, конвертация, монтажный кодек, shutter encoder, iphone, color space, frame rate"

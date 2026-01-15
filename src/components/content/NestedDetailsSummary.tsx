@@ -114,31 +114,31 @@ const NestedDetailsSummary: React.FC<NestedDetailsSummaryProperties> = ({
     <NestedDetailsSummaryContext.Provider value={true}>
       <details
         ref={detailsReference}
-        className={`nested-details-summary ${modifierClass || ""} ${
+        className={`details-nested ${modifierClass || ""} ${
           isOpen ? "is-open" : ""
         }`.trim()}
         open={startOpen}
       >
         <summary
-          className="nested-details-summary-summary"
+          className="details-nested-summary"
           onClick={handleSummaryClick}
         >
-          <div className="nested-details-summary-summary-left">
-            <span className="nested-details-summary-summary-icon">+</span>
-            <div className="nested-details-summary-summary-text-content">
+          <div className="details-nested-summary-left">
+            <span className="details-nested-summary-icon">+</span>
+            <div className="details-nested-summary-text-content">
               <h3>{title}</h3>
             </div>
           </div>
         </summary>
         <div
           ref={contentWrapperReference}
-          className="nested-details-summary-details-content-wrapper"
+          className="details-nested-content-wrapper"
         >
           <div
             ref={innerContentReference}
-            className="nested-details-summary-details-content-inner"
+            className="details-nested-content-inner"
           >
-            <section className="nested-details-summary-section">{children}</section>
+            <section className="details-nested-section">{children}</section>
           </div>
         </div>
       </details>

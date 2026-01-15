@@ -198,9 +198,9 @@ const AeFaqPage = () => {
             generateAnchorId();
           }}
         >
-          <div className="faq-container-flex">
-            <div className="faq-container">
-              <div className="faq-title">
+          <div className="article-container-flex">
+            <div className="article-container">
+              <div className="article-title">
                 <h1>aefaq</h1>
               </div>
               {sections.map((section) => (

@@ -101,13 +101,13 @@ const TagList: React.FC<{tags: string}> = ({tags}) => {
   };
 
   return (
-    <span className="faq-tags">
+    <span className="details-tags">
       {visibleTags.map((t) => (
         <mark key={t}>{t}</mark>
       ))}
       {isOverflowing && (
         <mark
-          className="faq-tags-toggle"
+          className="details-tags-toggle"
           onClick={toggleTags}
         >
           {expanded ? "скрыть" : `и ещё ${hiddenCount} ${getPluralizedTags(hiddenCount)}`}
@@ -142,15 +142,13 @@ const getScrollOffsets = () => {
 export const generateAnchorId = () => {
   if (globalThis.window === undefined) return;
 
-  const containers = [...document.querySelectorAll(".faq-content")];
+  const containers = [...document.querySelectorAll(".article-content")];
 
   const currentHash = globalThis.location.hash.slice(1);
 
   for (const [blockIndex, container] of containers.entries()) {
     const summaries = [
-      ...container.querySelectorAll(
-        "details:not(.nested-details-summary) > .faq-summary"
-      ),
+      ...container.querySelectorAll("details:not(.details-nested) > .details-summary"),
     ];
 
     for (const [summaryIndex, summary] of summaries.entries()) {
@@ -266,7 +264,7 @@ const DetailsSummary: React.FC<DetailsSummaryProperties> = ({
   }, []);
 
   const doScroll = useCallback(() => {
-    const summary = detailsReference.current?.querySelector(".faq-summary");
+    const summary = detailsReference.current?.querySelector(".details-summary");
 
     if (summary) {
       setTimeout(() => {
@@ -465,7 +463,7 @@ const DetailsSummary: React.FC<DetailsSummaryProperties> = ({
       return;
     }
 
-    const summaryElement = detailsReference.current.querySelector(".faq-summary");
+    const summaryElement = detailsReference.current.querySelector(".details-summary");
 
     if (!summaryElement) {
       return;
@@ -498,7 +496,7 @@ const DetailsSummary: React.FC<DetailsSummaryProperties> = ({
     const handleOpenEvent = (event: Event) => {
       const {id} = (event as CustomEvent<{id: string}>).detail;
 
-      const summaryElement = detailsReference.current?.querySelector(".faq-summary");
+      const summaryElement = detailsReference.current?.querySelector(".details-summary");
 
       if (summaryElement && summaryElement.id === id) {
         if (isOpen) {
@@ -530,7 +528,7 @@ const DetailsSummary: React.FC<DetailsSummaryProperties> = ({
 
     const handleMouseEnter = () => {
       timeoutId = setTimeout(() => {
-        const summaryId = detailsReference.current?.querySelector(".faq-summary")?.id;
+        const summaryId = detailsReference.current?.querySelector(".details-summary")?.id;
 
         if (summaryId) {
           history.replaceState(
@@ -572,7 +570,8 @@ const DetailsSummary: React.FC<DetailsSummaryProperties> = ({
       event.stopPropagation();
 
       (async () => {
-        const summaryElement = detailsReference.current?.querySelector(".faq-summary");
+        const summaryElement =
+          detailsReference.current?.querySelector(".details-summary");
 
         const numericAnchor = summaryElement?.id ?? "";
 
@@ -646,13 +645,13 @@ const DetailsSummary: React.FC<DetailsSummaryProperties> = ({
         data-tags={tag}
       >
         <summary
-          className="faq-summary"
+          className="details-summary"
           onClick={handleSummaryClick}
           {...summaryLongPressProperties}
         >
-          <div className="faq-summary-left">
-            <span className="faq-summary-icon">+</span>
-            <div className="faq-summary-text-content">
+          <div className="details-summary-left">
+            <span className="details-summary-icon">+</span>
+            <div className="details-summary-text-content">
               <h3>{headingText}</h3>
               {tag && <TagList tags={tag} />}
             </div>
@@ -672,12 +671,12 @@ const DetailsSummary: React.FC<DetailsSummaryProperties> = ({
               <DetailsSummaryContext.Provider value={true}>
                 <section
                   ref={sectionReference}
-                  className="faq-section"
+                  className="details-section"
                   onClick={handleSectionClick}
                   {...sectionLongPressProperties}
                 >
                   {React.Children.count(children) === 0 ? (
-                    <div className="no-content-placeholder">
+                    <div className="article-placeholder">
                       <p>
                         Эта статья пока пустая: либо я ещё не дошёл до её написания, либо
                         написал такую дичь, что пришлось всё скрыть и отправить на

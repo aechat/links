@@ -8,7 +8,7 @@ import DetailsSummary from "../../../components/content/DetailsSummary";
 
 const AeExportProblems: React.FC = () => {
   return (
-    <div className="faq-content">
+    <div className="article-content">
       <DetailsSummary
         tag="ошибка экспорта, файл занят, видео используется другим процессом"
         title="«Rendering error while writing to file (...). Unable to delete existing file» или «An unexpected error occurred while exporting a composition. Error code: 9988»"
@@ -415,13 +415,11 @@ const AeExportProblems: React.FC = () => {
       <DetailsSummary
         tag="битрейт, качество, артефакты, low quality"
         title="Из-за чего может ухудшаться качество композиции после экспорта?"
-      >
-      </DetailsSummary>
+      ></DetailsSummary>
       <DetailsSummary
         tag="ame, кривые исходники"
         title="Почему после экспорта иногда появляются артефакты и дёрганные кадры?"
-      >
-      </DetailsSummary>
+      ></DetailsSummary>
       <DetailsSummary
         tag="соотношение пикселей, pixel aspect ratio"
         title="Почему моя композиция «плющится» в предпросмотре и после экспорта?"
@@ -588,8 +586,7 @@ const AeExportProblems: React.FC = () => {
       <DetailsSummary
         tag="iphone, hlg, rec.709, color shift, color space, color management"
         title="Почему после экспорта у меня изменились цвета и оттенки?"
-      >
-      </DetailsSummary>
+      ></DetailsSummary>
       <DetailsSummary
         tag="пропало аудио, no audio"
         title="Почему в экспортированном видео нет звука?"
@@ -631,13 +628,11 @@ const AeExportProblems: React.FC = () => {
       <DetailsSummary
         tag="0x80070002, mp4, ошибка воспроизведения"
         title="Почему я не могу открыть видео‚ которое я экспортировал?"
-      >
-      </DetailsSummary>
+      ></DetailsSummary>
       <DetailsSummary
         tag="зависает, ame"
         title="Из-за чего может зависать рендер при экспорте композиции через Adobe Media Encoder?"
-      >
-      </DetailsSummary>
+      ></DetailsSummary>
       <DetailsSummary
         tag="баг версии, ame"
         title="Почему после экспорта с помощью Adobe Media Encoder видео смещается в сторону?"

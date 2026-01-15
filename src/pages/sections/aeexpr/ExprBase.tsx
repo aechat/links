@@ -13,7 +13,7 @@ import {
 
 const AeExprBase: React.FC = () => {
   return (
-    <div className="faq-content">
+    <div className="article-content">
       <DetailsSummary title="Что такое переменные и функции?">
         {/* FIXME: */}
       </DetailsSummary>

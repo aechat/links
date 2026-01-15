@@ -7,7 +7,7 @@ import DetailsSummary from "../../../components/content/DetailsSummary";
 
 const AeExprStart: React.FC = () => {
   return (
-    <div className="faq-content">
+    <div className="article-content">
       <DetailsSummary title="Для чего нужны выражения и в каких случаях их используют?">
         <p>
           <mark className="word">Выражения</mark>,{" "}
