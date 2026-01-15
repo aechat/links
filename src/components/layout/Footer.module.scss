@@ -1,0 +1,38 @@
+.footer {
+  &-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &-content-info {
+    opacity: 0.5;
+    margin-block: 10px;
+    font-size: 0.9em;
+    font-weight: 400;
+  }
+
+  &-github-link {
+    display: flex;
+    flex-shrink: 0;
+    gap: 5px;
+    align-items: center;
+    text-decoration: none;
+  }
+}
+
+.commit-info {
+  margin-block-start: 15px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1.5;
+  color: var(--color-text-tertiary);
+  font-size: 0.785rem;
+
+  a {
+    line-height: 1.35;
+    color: var(--color-accent);
+    font-family: Onest, Inter, sans-serif;
+    font-weight: 600;
+  }
+}

@@ -3,6 +3,8 @@ import React, {useCallback, useEffect, useState} from "react";
 import {CloseRounded} from "@mui/icons-material";
 import {Modal} from "antd";
 
+import modalStyles from "../components/modals/Modal.module.scss";
+
 interface TargetArticle {
   id: string;
   title: string;
@@ -122,12 +124,14 @@ export const useInternalLinkHandler = () => {
       open={modalVisible}
       onCancel={handleCancel}
     >
-      <div className="modal">
-        <div className="modal-content">
-          <div className="modal-header">
-            <div className="modal-header-title">Переход на другую статью</div>
+      <div className={modalStyles["modal"]}>
+        <div className={modalStyles["modal-content"]}>
+          <div className={modalStyles["modal-header"]}>
+            <div className={modalStyles["modal-header-title"]}>
+              Переход на другую статью
+            </div>
             <button
-              className="modal-header-close"
+              className={modalStyles["modal-header-close"]}
               onClick={handleCancel}
             >
               <CloseRounded />

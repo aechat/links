@@ -3,6 +3,8 @@ import React, {useCallback, useEffect, useState} from "react";
 import {CloseRounded} from "@mui/icons-material";
 import {Modal} from "antd";
 
+import modalStyles from "../components/modals/Modal.module.scss";
+
 export const useExternalLinkHandler = () => {
   const [modalVisible, setModalVisible] = useState(false);
 
@@ -62,12 +64,12 @@ export const useExternalLinkHandler = () => {
       open={modalVisible}
       onCancel={handleCancel}
     >
-      <div className="modal">
-        <div className="modal-content">
-          <div className="modal-header">
-            <div className="modal-header-title">{targetUrl}</div>
+      <div className={modalStyles["modal"]}>
+        <div className={modalStyles["modal-content"]}>
+          <div className={modalStyles["modal-header"]}>
+            <div className={modalStyles["modal-header-title"]}>{targetUrl}</div>
             <button
-              className="modal-header-close"
+              className={modalStyles["modal-header-close"]}
               onClick={handleCancel}
             >
               <CloseRounded />

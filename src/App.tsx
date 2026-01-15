@@ -7,6 +7,7 @@ import {Navigate, Route, Routes, useLocation} from "react-router-dom";
 import Snowfall from "react-snowfall";
 
 import BrowserWarning from "./components/modals/BrowserWarning";
+import modalStyles from "./components/modals/Modal.module.scss";
 import {ThemeProvider, useTheme} from "./components/modals/ThemeChanger";
 import LoadingAnimation from "./components/ui/LoadingAnimation";
 import {copyText} from "./hooks/useCopyToClipboard";
@@ -103,7 +104,7 @@ const SafariWarningModal = ({
       title={undefined}
       width={450}
     >
-      <div className="modal">
+      <div className={modalStyles["modal"]}>
         <div className="error-content">
           <div className="error-title">⚠ Предупреждение для Safari</div>
           <div
@@ -162,7 +163,7 @@ const ErrorFallback = ({error}: {error: Error}) => {
     <div className="error-container">
       <div className="error-backtitle">Ошибка</div>
       <div
-        className="modal"
+        className={modalStyles["modal"]}
         style={{margin: "15px", maxWidth: "450px"}}
       >
         <div className="error-content">

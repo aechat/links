@@ -2,6 +2,8 @@ import React, {ReactNode} from "react";
 
 import {Tooltip} from "antd";
 
+import styles from "./Addition.module.scss";
+
 interface AdditionProperties {
   children: ReactNode;
   type: "info" | "warning" | "danger" | "tldr";
@@ -12,22 +14,22 @@ const Addition: React.FC<AdditionProperties> = ({children, type}) => {
 
   switch (type) {
     case "info": {
-      className = "addition-info";
+      className = styles["addition-info"];
       break;
     }
 
     case "warning": {
-      className = "addition-warning";
+      className = styles["addition-warning"];
       break;
     }
 
     case "danger": {
-      className = "addition-danger";
+      className = styles["addition-danger"];
       break;
     }
 
     case "tldr": {
-      className = "addition-tldr";
+      className = styles["addition-tldr"];
       break;
     }
   }

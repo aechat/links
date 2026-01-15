@@ -1,4 +1,5 @@
-@use "../abstracts/mixins" as *;
+@use "../../styles/abstracts/variables" as *;
+@use "../../styles/abstracts/mixins" as *;
 
 .details-nested {
   position: relative;
@@ -74,13 +75,13 @@
     }
   }
 
-  &-details-content-wrapper {
+  &-content-wrapper {
     transition: max-height 0.35s cubic-bezier(0.4, 0, 0.2, 1);
     max-height: 0;
     overflow: hidden;
   }
 
-  &-details-content-inner {
+  &-content-inner {
     padding-top: 5px;
     overflow: hidden;
   }

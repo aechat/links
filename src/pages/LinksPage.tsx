@@ -46,6 +46,7 @@ import {Helmet} from "react-helmet-async";
 import Addition from "../components/content/Addition";
 import Footer from "../components/layout/Footer";
 import Header from "../components/layout/Header";
+import modalStyles from "../components/modals/Modal.module.scss";
 import {LinkCard} from "../components/ui/LinkCards";
 
 import {/* AEExprIcon, */ AeIcon, PrIcon, PsIcon} from "./FaqIcon";
@@ -575,12 +576,14 @@ const Links = () => {
             width={1000}
             onCancel={handleCancel}
           >
-            <div className="modal">
-              <div className="modal-content">
-                <div className="modal-header">
-                  <div className="modal-header-title">Остерегайтесь мошенников!</div>
+            <div className={modalStyles["modal"]}>
+              <div className={modalStyles["modal-content"]}>
+                <div className={modalStyles["modal-header"]}>
+                  <div className={modalStyles["modal-header-title"]}>
+                    Остерегайтесь мошенников!
+                  </div>
                   <button
-                    className="modal-header-close"
+                    className={modalStyles["modal-header-close"]}
                     onClick={handleCancel}
                   >
                     <CloseRounded />

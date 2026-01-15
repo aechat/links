@@ -1,0 +1,19 @@
+@use "../../styles/abstracts/variables" as *;
+@use "../../styles/abstracts/mixins" as *;
+
+.hosts-adobe-code {
+  display: block;
+  margin: 10px;
+  max-height: 200px;
+  overflow: auto;
+  text-align: center;
+  background: var(--color-surface-code-background);
+  border: 1px solid var(--color-surface-code-border);
+  border-radius: $roundness;
+  padding: 10px;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.85rem;
+  line-height: 1.4;
+  color: var(--color-surface-code-text);
+  white-space: pre;
+}

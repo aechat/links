@@ -3,6 +3,8 @@ import React, {useEffect, useRef, useState} from "react";
 import {motion} from "framer-motion";
 import {Helmet} from "react-helmet-async";
 
+import modalStyles from "../components/modals/Modal.module.scss";
+
 interface Subtitle {
   end: number;
   start: number;
@@ -153,7 +155,7 @@ const NotFound = () => {
       <div className="error-container">
         <div className="error-backtitle">{currentSubtitle}</div>
         <div
-          className="modal"
+          className={modalStyles["modal"]}
           style={{margin: "15px", maxWidth: "450px"}}
         >
           <div className="error-content">

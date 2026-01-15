@@ -206,12 +206,12 @@
       background-color,
       outline 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
 
-    .search-header {
+    :global(.search-header) {
       outline: 1px solid var(--color-accent);
       background-color: var(--color-surface-primary-background-hover);
     }
 
-    .search-content {
+    :global(.search-content) {
       outline: 1px solid var(--color-surface-primary-border);
       background-color: var(--color-surface-primary-background);
     }
