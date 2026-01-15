@@ -10,6 +10,7 @@ import {
 } from "@mui/icons-material";
 import {Modal, Slider, Tooltip} from "antd";
 
+import modalStyles from "./Modal.module.scss";
 import styles from "./ThemeChanger.module.scss";
 
 type Theme = "light" | "dark" | "system";
@@ -340,12 +341,12 @@ const ThemeModal: React.FC<ThemeModalProperties> = ({closeModal, isModalOpen}) =
       width={450}
       onCancel={closeModal}
     >
-      <div className="modal">
-        <div className="modal-content">
-          <div className="modal-header">
-            <div className="modal-header-title">Оформление</div>
+      <div className={modalStyles["modal"]}>
+        <div className={modalStyles["modal-content"]}>
+          <div className={modalStyles["modal-header"]}>
+            <div className={modalStyles["modal-header-title"]}>Оформление</div>
             <button
-              className="modal-header-close"
+              className={modalStyles["modal-header-close"]}
               onClick={closeModal}
             >
               <CloseRounded />

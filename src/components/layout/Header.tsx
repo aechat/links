@@ -9,6 +9,8 @@ import {SearchButton} from "../features/SearchEngine";
 import SupportDonut from "../modals/SupportDonut";
 import {ThemeToggleButton} from "../modals/ThemeChanger";
 
+import styles from "./Header.module.scss";
+
 interface HeaderProperties {
   title: string;
 }
@@ -104,7 +106,7 @@ const Header: React.FC<HeaderProperties> = ({title}) => {
   return (
     <motion.header
       animate={{opacity: 1}}
-      className={`header ${isVisible ? "" : "header-transparent"}`}
+      className={`${styles.header} ${isVisible ? "" : styles["header-transparent"]}`}
       exit={{opacity: 0}}
       initial={{opacity: 0}}
       transition={{
@@ -112,15 +114,15 @@ const Header: React.FC<HeaderProperties> = ({title}) => {
         ease: constants.ANIMATION_EASE,
       }}
     >
-      <div className="header-left">
+      <div className={styles["header-left"]}>
         {currentPath === "/" ? undefined : (
-          <span className="icon">
+          <span className={styles.icon}>
             <Link to="/">
               <ArrowBackRounded />
             </Link>
           </span>
         )}
-        <div className="logo">
+        <div className={styles.logo}>
           {tooltipMessage ? (
             <>
               <Tooltip title={tooltipMessage}>{title}</Tooltip>
@@ -138,11 +140,13 @@ const Header: React.FC<HeaderProperties> = ({title}) => {
         </div>
         <div>{isWide ? <SupportDonut wide /> : <SupportDonut />}</div>
       </div>
-      <div className="header-right">
-        <div className={`header-right ${isVisible ? "visible" : "hidden"}`}>
+      <div className={styles["header-right"]}>
+        <div
+          className={`${styles["header-right"]} ${isVisible ? styles.visible : styles.hidden}`}
+        >
           <button
             aria-label="Прокрутить страницу вверх"
-            className="icon"
+            className={styles.icon}
             onClick={scrollToTop}
           >
             <SwipeUpRounded />
