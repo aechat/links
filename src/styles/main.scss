@@ -9,8 +9,8 @@
 @use "layout/footer";
 @use "layout/layout";
 @use "layout/noscript";
-@use "layout/pages/faq";
-@use "layout/pages/details-summary";
+@use "layout/pages/article";
+@use "layout/pages/details";
 @use "layout/pages/links";
 @use "layout/pages/rules";
 @use "components/ant";
@@ -26,7 +26,7 @@
 @use "components/loading-animation";
 @use "components/mark";
 @use "components/modal";
-@use "components/nested-details-summary";
+@use "components/details-nested";
 @use "components/addition";
 @use "components/page-intro";
 @use "components/search";
