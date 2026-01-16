@@ -169,11 +169,14 @@
   }
 
   &-content {
+    margin-block-start: -16px;
     outline: solid 1px var(--color-border-modal);
     border-top: none;
     border-bottom-left-radius: $roundness * 0.75;
     border-bottom-right-radius: $roundness * 0.75;
     background-color: var(--color-surface-card-background);
+    padding: 0;
+    padding-block-start: 16px;
     overflow: hidden;
     font-size: 0.925rem;
     user-select: none;
@@ -183,10 +186,6 @@
     .addition-danger {
       font-size: 0.9rem;
     }
-
-    margin-block-start: -16px;
-    padding: 0;
-    padding-block-start: 16px;
 
     p {
       margin-block: 8px;
