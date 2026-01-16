@@ -5,6 +5,10 @@ import React, {useEffect, useState} from "react";
 import {UploadFileRounded} from "@mui/icons-material";
 import {message, Radio, Spin, Upload} from "antd";
 
+import modalStyles from "../../modals/Modal.module.scss";
+
+import styles from "./Converter.module.scss";
+
 const {saveAs} = pkg;
 
 const TgsToJsonConverter: React.FC = () => {
@@ -130,28 +134,28 @@ with open("input.json", "rb") as f_in:
   };
 
   return (
-    <div className="converter">
-      <p className="converter-info-text">
+    <div className={styles["converter"]}>
+      <p className={styles["converter-info-text"]}>
         Конвертация происходит локально на вашем устройстве, качественный результат не
         гарантируется
       </p>
       <Upload.Dragger
         accept=".json"
         beforeUpload={handleFileUpload}
-        className="converter-dragger"
+        className={styles["converter-dragger"]}
         name="file"
         showUploadList={false}
       >
-        <div className="converter-dragger-content">
+        <div className={styles["converter-dragger-content"]}>
           <UploadFileRounded />
-          <span className="converter-dragger-text">
+          <span className={styles["converter-dragger-text"]}>
             Перетащите файл формата JSON в это поле или нажмите для выбора файла
           </span>
         </div>
       </Upload.Dragger>
-      <div className="converter-radio-wrapper">
+      <div className={styles["converter-radio-wrapper"]}>
         <Radio.Group
-          className="converter-radio-group"
+          className={styles["converter-radio-group"]}
           value={compressionMode}
           onChange={(event) => setCompressionMode(event.target.value)}
         >
@@ -160,9 +164,9 @@ with open("input.json", "rb") as f_in:
         </Radio.Group>
       </div>
       {jsonData && typeof jsonData === "object" && (
-        <div className="converter-button-group">
+        <div className={styles["converter-button-group"]}>
           <button
-            className="modal-open-button converter-button-reset"
+            className={`${modalStyles["modal-open-button"]} ${styles["converter-button-reset"]}`}
             onClick={() => {
               setJsonData(undefined);
               setOriginalFileName("");
@@ -171,7 +175,7 @@ with open("input.json", "rb") as f_in:
             Сбросить
           </button>
           <button
-            className="modal-open-button converter-button-action"
+            className={`${modalStyles["modal-open-button"]} ${styles["converter-button-action"]}`}
             disabled={loading}
             onClick={downloadTgs}
           >

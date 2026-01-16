@@ -1,3 +1,5 @@
+@use "../../styles/abstracts/mixins" as *;
+
 .page-intro-overlay {
   display: flex;
   position: fixed;

@@ -1,4 +1,4 @@
-@use "../abstracts/mixins" as *;
+@use "../../styles/abstracts/mixins" as *;
 
 .addition {
   &-info,
@@ -330,7 +330,7 @@ li {
   .addition-warning,
   .addition-danger,
   .addition-tldr {
-    margin-block: 5px;
+    margin-block: 10px;
     margin-inline: 0;
     border-radius: $roundness * 0.75;
   }

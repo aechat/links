@@ -17,6 +17,8 @@ import {copyText} from "../../hooks/useCopyToClipboard";
 import {useLongPress} from "../../hooks/useLongPress";
 import {formatNestedQuotes} from "../../utils/stringUtilities";
 
+import styles from "./SearchEngine.module.scss";
+
 export interface SearchContextType {
   closeModal: () => void;
   isOpen: boolean;
@@ -231,7 +233,8 @@ const isListOrParagraph = (element: Element): boolean => {
 const cloneWithoutFigures = (element: Element): Element => {
   const clone = element.cloneNode(true) as Element;
 
-  for (const element_ of clone.querySelectorAll(".figure-container")) element_.remove();
+  for (const element_ of clone.querySelectorAll('[class*="figure-container"]'))
+    element_.remove();
 
   return clone;
 };
@@ -305,7 +308,7 @@ const processContainerChildren = (
     if (node.nodeType === Node.ELEMENT_NODE) {
       const elementNode = node as Element;
 
-      if (elementNode.classList.contains("figure-container")) {
+      if (elementNode.classList.toString().includes("figure-container")) {
         continue;
       }
 
@@ -389,7 +392,9 @@ const getFirstCleanParagraphOrElement = (root: Element): string => {
   if (firstParagraph) {
     const cleanedParagraph = firstParagraph.cloneNode(true) as Element;
 
-    for (const element of cleanedParagraph.querySelectorAll(".figure-container"))
+    for (const element of cleanedParagraph.querySelectorAll(
+      '[class*="figure-container"]'
+    ))
       element.remove();
 
     return cleanedParagraph.outerHTML;
@@ -400,7 +405,7 @@ const getFirstCleanParagraphOrElement = (root: Element): string => {
   if (firstElement) {
     const cleanedElement = firstElement.cloneNode(true) as Element;
 
-    for (const element of cleanedElement.querySelectorAll(".figure-container"))
+    for (const element of cleanedElement.querySelectorAll('[class*="figure-container"]'))
       element.remove();
 
     return cleanedElement.outerHTML;
@@ -515,7 +520,8 @@ const formatSearchResult = (text: string, searchWords: string[]): string => {
 };
 
 const removeFigureContainers = (root: Element): void => {
-  for (const element of root.querySelectorAll(".figure-container")) element.remove();
+  for (const element of root.querySelectorAll('[class*="figure-container"]'))
+    element.remove();
 };
 
 const computeTitleTagContentMatches = (
@@ -1101,7 +1107,7 @@ export const SearchButton: React.FC<SearchButtonProperties> = ({
 
   return (
     <button
-      className={`search-button ${className}`.trim()}
+      className={`${styles["search-button"]} ${className}`.trim()}
       style={{
         filter: isPageLoaded ? "saturate(100%)" : "saturate(0%)",
         opacity: isPageLoaded ? 1 : 0.5,
@@ -1173,7 +1179,7 @@ const SearchCategories: React.FC<{
 
   return (
     <div
-      className="search-category"
+      className={styles["search-category"]}
       {...longPressProperties}
     >
       {sections.map((section) => (
@@ -1265,7 +1271,7 @@ const SearchResults: React.FC<{
                   resultRefs.current[index] = element;
                 }
               }}
-              className={`search-link ${isSelected ? "search-selected" : ""}`}
+              className={`${styles["search-link"]} ${isSelected ? styles["search-selected"] : ""}`}
               data-anchor={anchor}
               data-id={id}
               style={(() => {
@@ -1287,10 +1293,14 @@ const SearchResults: React.FC<{
               onMouseEnter={() => setHoveredIndex(index)}
               onMouseLeave={() => setHoveredIndex(undefined)}
             >
-              <div className={`search-header ${isSelected ? "search-selected" : ""}`}>
-                <p className="search-title">{title.replace(/^[+-]+/, "").trim()}</p>
+              <div
+                className={`${styles["search-header"]} ${isSelected ? styles["search-selected"] : ""}`}
+              >
+                <p className={styles["search-title"]}>
+                  {title.replace(/^[+-]+/, "").trim()}
+                </p>
                 {tagsToDisplay.length > 0 && (
-                  <span className="details-tags">
+                  <span className={styles["search-tags"]}>
                     {tagsToDisplay.map((t) => (
                       <mark key={t}>{t}</mark>
                     ))}
@@ -1298,7 +1308,7 @@ const SearchResults: React.FC<{
                 )}
               </div>
               <div
-                className="search-content article-content no-copy"
+                className={`${styles["search-content"]} article-content no-copy`}
                 dangerouslySetInnerHTML={{__html: content}}
               />
             </button>
@@ -1330,7 +1340,7 @@ const ExternalSearch: React.FC<{query: string}> = ({query}) => {
 
   return (
     <div>
-      <div className="search-external-links">
+      <div className={styles["search-external-links"]}>
         <button
           onClick={() => {
             globalThis.open(
@@ -1354,7 +1364,7 @@ const ExternalSearch: React.FC<{query: string}> = ({query}) => {
           Спросить у Perplexity<sup>1</sup>
         </button>
       </div>
-      <p className="search-no-results-tip">
+      <p className={styles["search-no-results-tip"]}>
         <sup>1</sup> Perplexity и другие чат-боты с использованием нейросетевых моделей
         могут выдавать недостоверную информацию
       </p>
@@ -1364,8 +1374,8 @@ const ExternalSearch: React.FC<{query: string}> = ({query}) => {
 
 const NoResults: React.FC<{query: string}> = ({query}) => (
   <div>
-    <div className="search-no-results">
-      <p className="search-no-results-title">
+    <div className={styles["search-no-results"]}>
+      <p className={styles["search-no-results-title"]}>
         По вашему запросу на этой странице{" "}
         <span
           style={{
@@ -1377,7 +1387,7 @@ const NoResults: React.FC<{query: string}> = ({query}) => (
         </span>{" "}
         не нашлось
       </p>
-      <p className="search-no-results-message">
+      <p className={styles["search-no-results-message"]}>
         Попробуйте перефразировать свой запрос или выполните поиск в Яндексе или
         Perplexity<sup>1</sup>
       </p>
@@ -1563,9 +1573,11 @@ export const SearchInPage: React.FC<{sections: SearchSection[]}> = ({sections}) 
         return;
       }
 
-      const resultContainer = document.querySelector(".search-results");
+      const resultContainer = document.querySelector(`.${styles["search-results"]}`);
 
-      const selectedResultElements = resultContainer?.querySelectorAll(".search-link");
+      const selectedResultElements = resultContainer?.querySelectorAll(
+        `.${styles["search-link"]}`
+      );
 
       selectedResultElements?.[selectedResultIndex]?.scrollIntoView({
         behavior: "smooth",
@@ -1585,7 +1597,9 @@ export const SearchInPage: React.FC<{sections: SearchSection[]}> = ({sections}) 
       if (event.target instanceof HTMLElement && event.target.tagName === "MARK") {
         event.stopPropagation();
 
-        const button = event.target.closest(".search-link") as HTMLButtonElement | null;
+        const button = event.target.closest(
+          `.${styles["search-link"]}`
+        ) as HTMLButtonElement | null;
 
         if (button) {
           button.click();
@@ -1646,19 +1660,19 @@ export const SearchInPage: React.FC<{sections: SearchSection[]}> = ({sections}) 
         width={850}
         onCancel={closeModal}
       >
-        <div className="search">
-          <div className="modal-content">
-            <div className="search-input-wrapper">
+        <div className={styles["search"]}>
+          <div className={styles["modal-content"]}>
+            <div className={styles["search-input-wrapper"]}>
               <input
                 ref={inputReference}
-                className="search-input"
+                className={styles["search-input"]}
                 placeholder="Введите что-нибудь для поиска..."
                 style={{cursor: "text"}}
                 type="search"
                 value={query}
                 onChange={(event_) => handleQueryChange(event_.target.value)}
               />
-              <p className="search-counter">
+              <p className={styles["search-counter"]}>
                 <span
                   style={{
                     color: "var(--summary-text)",
@@ -1672,7 +1686,7 @@ export const SearchInPage: React.FC<{sections: SearchSection[]}> = ({sections}) 
               </p>
               {query.trim() !== "" && (
                 <button
-                  className="search-input-clear"
+                  className={styles["search-input-clear"]}
                   style={{cursor: "pointer"}}
                   onClick={() => {
                     setQuery("");
@@ -1683,7 +1697,7 @@ export const SearchInPage: React.FC<{sections: SearchSection[]}> = ({sections}) 
                 </button>
               )}
               <button
-                className="search-input-close"
+                className={styles["search-input-close"]}
                 onClick={closeModal}
               >
                 <CloseRounded />
@@ -1691,7 +1705,7 @@ export const SearchInPage: React.FC<{sections: SearchSection[]}> = ({sections}) 
             </div>
             <div
               ref={resultsContainerReference}
-              className={`search-results${showFade ? " show-fade" : ""}`}
+              className={`${styles["search-results"]}${showFade ? " " + styles["show-fade"] : ""}`}
             >
               {renderContent()}
               {showFade}

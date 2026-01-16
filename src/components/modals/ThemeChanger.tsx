@@ -10,6 +10,9 @@ import {
 } from "@mui/icons-material";
 import {Modal, Slider, Tooltip} from "antd";
 
+import modalStyles from "./Modal.module.scss";
+import styles from "./ThemeChanger.module.scss";
+
 type Theme = "light" | "dark" | "system";
 
 interface ThemeContextProperties {
@@ -260,7 +263,7 @@ const ThemeOptionButton: React.FC<ThemeOptionButtonProperties> = ({
   onClick,
 }) => (
   <button
-    className={isSelected ? "theme-button theme-button-selected" : "theme-button"}
+    className={`${styles["theme-button"]} ${isSelected ? styles["theme-button-selected"] : ""}`}
     onClick={onClick}
   >
     {children}
@@ -338,19 +341,19 @@ const ThemeModal: React.FC<ThemeModalProperties> = ({closeModal, isModalOpen}) =
       width={450}
       onCancel={closeModal}
     >
-      <div className="modal">
-        <div className="modal-content">
-          <div className="modal-header">
-            <div className="modal-header-title">Оформление</div>
+      <div className={modalStyles["modal"]}>
+        <div className={modalStyles["modal-content"]}>
+          <div className={modalStyles["modal-header"]}>
+            <div className={modalStyles["modal-header-title"]}>Оформление</div>
             <button
-              className="modal-header-close"
+              className={modalStyles["modal-header-close"]}
               onClick={closeModal}
             >
               <CloseRounded />
             </button>
           </div>
-          <div className="theme-title">Цветовая схема</div>
-          <div className="theme-selector">
+          <div className={styles["theme-title"]}>Цветовая схема</div>
+          <div className={styles["theme-selector"]}>
             <ThemeOptionButton
               isSelected={theme === "light"}
               onClick={() => setTheme("light")}
@@ -375,8 +378,8 @@ const ThemeModal: React.FC<ThemeModalProperties> = ({closeModal, isModalOpen}) =
           </div>
           {showWidthSelector && (
             <>
-              <div className="theme-title">Максимальная ширина контента</div>
-              <div className="theme-selector">
+              <div className={styles["theme-title"]}>Максимальная ширина контента</div>
+              <div className={styles["theme-selector"]}>
                 <ThemeOptionButton
                   isSelected={maxWidth === 1000}
                   onClick={() => setMaxWidth(1000)}
@@ -398,8 +401,8 @@ const ThemeModal: React.FC<ThemeModalProperties> = ({closeModal, isModalOpen}) =
               </div>
             </>
           )}
-          <div className="theme-title">Анимация раскрытия спойлеров</div>
-          <div className="theme-selector">
+          <div className={styles["theme-title"]}>Анимация раскрытия спойлеров</div>
+          <div className={styles["theme-selector"]}>
             <ThemeOptionButton
               isSelected={isAnimationDisabled === false}
               onClick={() => setIsAnimationDisabled(false)}
@@ -415,10 +418,10 @@ const ThemeModal: React.FC<ThemeModalProperties> = ({closeModal, isModalOpen}) =
           </div>
           {isWinter && (
             <>
-              <div className="theme-title">
+              <div className={styles["theme-title"]}>
                 {isNewYearPeriod ? "Новогоднее настроение" : "Анимация снега"}
               </div>
-              <div className="theme-selector">
+              <div className={styles["theme-selector"]}>
                 <ThemeOptionButton
                   isSelected={isSnowfallEnabled}
                   onClick={() => setIsSnowfallEnabled(true)}
@@ -434,18 +437,18 @@ const ThemeModal: React.FC<ThemeModalProperties> = ({closeModal, isModalOpen}) =
               </div>
             </>
           )}
-          <div className="theme-title">
+          <div className={styles["theme-title"]}>
             Оттенок акцентного цвета
             <Tooltip title="Сбросить оттенок">
               <button
-                className="theme-reset-button"
+                className={styles["theme-reset-button"]}
                 onClick={() => setAccentHue(210)}
               >
                 <RestartAlt />
               </button>
             </Tooltip>
           </div>
-          <div className="theme-slider">
+          <div className={styles["theme-slider"]}>
             <Slider
               max={360}
               min={0}
@@ -454,18 +457,18 @@ const ThemeModal: React.FC<ThemeModalProperties> = ({closeModal, isModalOpen}) =
               onChange={setTemporaryHue}
             />
           </div>
-          <div className="theme-title">
+          <div className={styles["theme-title"]}>
             Насыщенность акцентного цвета
             <Tooltip title="Сбросить насыщенность">
               <button
-                className="theme-reset-button"
+                className={styles["theme-reset-button"]}
                 onClick={() => setSaturateRatio(1)}
               >
                 <RestartAlt />
               </button>
             </Tooltip>
           </div>
-          <div className="theme-slider">
+          <div className={styles["theme-slider"]}>
             <Slider
               max={1}
               min={0}

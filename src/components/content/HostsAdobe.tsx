@@ -1,11 +1,12 @@
 import React from "react";
 
 import Addition from "./Addition";
+import styles from "./HostsAdobe.module.scss";
 
 const HostsAdobeModal: React.FC = () => {
   return (
     <div>
-      <code className="hosts-adobe-code">
+      <code className={styles["hosts-adobe-code"]}>
         0.0.0.0 ic.adobe.io
         <br />
         0.0.0.0 cc-api-data.adobe.io

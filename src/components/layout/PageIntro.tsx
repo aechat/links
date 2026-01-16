@@ -2,7 +2,9 @@ import React, {useEffect, useState} from "react";
 
 import {AnimatePresence, motion} from "framer-motion";
 
-import BouncyText from "../ui/BouncyText";
+import {BouncyText} from "../ui/LoadingAnimation";
+
+import styles from "./PageIntro.module.scss";
 
 interface PageIntroProperties {
   isLoaded?: boolean;
@@ -41,7 +43,7 @@ const PageIntro: React.FC<PageIntroProperties> = ({isLoaded = true, text}) => {
     <AnimatePresence>
       {show && (
         <motion.div
-          className="page-intro-overlay"
+          className={styles["page-intro-overlay"]}
           exit={{opacity: 0}}
           initial={{opacity: 1}}
           transition={{duration: 0.5, ease: [0.75, 0, 0, 1]}}

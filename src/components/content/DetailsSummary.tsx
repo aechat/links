@@ -1,6 +1,5 @@
 import React, {ReactNode, useCallback, useEffect, useMemo, useRef, useState} from "react";
 
-import {ShareRounded} from "@mui/icons-material";
 import {message, Tooltip} from "antd";
 
 import {copyText} from "../../hooks/useCopyToClipboard";
@@ -9,7 +8,9 @@ import {useInternalLinkHandler} from "../../hooks/useInternalLinks";
 import {useLongPress} from "../../hooks/useLongPress";
 import {formatNestedQuotes} from "../../utils/stringUtilities";
 import {useTheme} from "../modals/ThemeChanger";
+import {CopyButton} from "../ui/CopyButton/CopyButton";
 
+import styles from "./DetailsSummary.module.scss";
 import {DetailsSummaryContext, SpoilerContext} from "./spoilerContexts";
 
 declare global {
@@ -101,13 +102,13 @@ const TagList: React.FC<{tags: string}> = ({tags}) => {
   };
 
   return (
-    <span className="details-tags">
+    <span className={styles["details-tags"]}>
       {visibleTags.map((t) => (
         <mark key={t}>{t}</mark>
       ))}
       {isOverflowing && (
         <mark
-          className="details-tags-toggle"
+          className={styles["details-tags-toggle"]}
           onClick={toggleTags}
         >
           {expanded ? "скрыть" : `и ещё ${hiddenCount} ${getPluralizedTags(hiddenCount)}`}
@@ -148,7 +149,9 @@ export const generateAnchorId = () => {
 
   for (const [blockIndex, container] of containers.entries()) {
     const summaries = [
-      ...container.querySelectorAll("details:not(.details-nested) > .details-summary"),
+      ...container.querySelectorAll(
+        `details:not(.details-nested) > .${styles["details-summary"]}`
+      ),
     ];
 
     for (const [summaryIndex, summary] of summaries.entries()) {
@@ -211,11 +214,11 @@ const DetailsSummary: React.FC<DetailsSummaryProperties> = ({
 
     if (details?.open) {
       const contentWrapper = details.querySelector<HTMLElement>(
-        ".details-content-wrapper"
+        `.${styles["details-content-wrapper"]}`
       );
 
       const innerContent = contentWrapper?.querySelector<HTMLElement>(
-        ".details-content-inner"
+        `.${styles["details-content-inner"]}`
       );
 
       if (contentWrapper && innerContent) {
@@ -264,7 +267,9 @@ const DetailsSummary: React.FC<DetailsSummaryProperties> = ({
   }, []);
 
   const doScroll = useCallback(() => {
-    const summary = detailsReference.current?.querySelector(".details-summary");
+    const summary = detailsReference.current?.querySelector(
+      `.${styles["details-summary"]}`
+    );
 
     if (summary) {
       setTimeout(() => {
@@ -288,12 +293,14 @@ const DetailsSummary: React.FC<DetailsSummaryProperties> = ({
 
     if (!details) return;
 
-    const contentWrapper = details.querySelector<HTMLElement>(".details-content-wrapper");
+    const contentWrapper = details.querySelector<HTMLElement>(
+      `.${styles["details-content-wrapper"]}`
+    );
 
     if (!contentWrapper) return;
 
     const innerContent = contentWrapper.querySelector<HTMLElement>(
-      ".details-content-inner"
+      `.${styles["details-content-inner"]}`
     );
 
     if (!innerContent) return;
@@ -330,12 +337,14 @@ const DetailsSummary: React.FC<DetailsSummaryProperties> = ({
 
     if (!details) return;
 
-    const contentWrapper = details.querySelector<HTMLElement>(".details-content-wrapper");
+    const contentWrapper = details.querySelector<HTMLElement>(
+      `.${styles["details-content-wrapper"]}`
+    );
 
     if (!contentWrapper) return;
 
     const innerContent = contentWrapper.querySelector<HTMLElement>(
-      ".details-content-inner"
+      `.${styles["details-content-inner"]}`
     );
 
     if (!innerContent) return;
@@ -463,7 +472,9 @@ const DetailsSummary: React.FC<DetailsSummaryProperties> = ({
       return;
     }
 
-    const summaryElement = detailsReference.current.querySelector(".details-summary");
+    const summaryElement = detailsReference.current.querySelector(
+      `.${styles["details-summary"]}`
+    );
 
     if (!summaryElement) {
       return;
@@ -496,7 +507,9 @@ const DetailsSummary: React.FC<DetailsSummaryProperties> = ({
     const handleOpenEvent = (event: Event) => {
       const {id} = (event as CustomEvent<{id: string}>).detail;
 
-      const summaryElement = detailsReference.current?.querySelector(".details-summary");
+      const summaryElement = detailsReference.current?.querySelector(
+        `.${styles["details-summary"]}`
+      );
 
       if (summaryElement && summaryElement.id === id) {
         if (isOpen) {
@@ -528,9 +541,11 @@ const DetailsSummary: React.FC<DetailsSummaryProperties> = ({
 
     const handleMouseEnter = () => {
       timeoutId = setTimeout(() => {
-        const summaryId = detailsReference.current?.querySelector(".details-summary")?.id;
+        const summaryId = detailsReference.current?.querySelector(
+          `.${styles["details-summary"]}`
+        )?.id;
 
-        if (summaryId) {
+        if (summaryId && globalThis.window !== undefined) {
           history.replaceState(
             undefined,
             "",
@@ -570,8 +585,9 @@ const DetailsSummary: React.FC<DetailsSummaryProperties> = ({
       event.stopPropagation();
 
       (async () => {
-        const summaryElement =
-          detailsReference.current?.querySelector(".details-summary");
+        const summaryElement = detailsReference.current?.querySelector(
+          `.${styles["details-summary"]}`
+        );
 
         const numericAnchor = summaryElement?.id ?? "";
 
@@ -640,38 +656,36 @@ const DetailsSummary: React.FC<DetailsSummaryProperties> = ({
     <>
       <details
         ref={detailsReference}
-        className={`details-summary-root ${isOpen ? "is-open" : ""}`}
+        className={`${styles["details-summary-root"]} ${isOpen ? styles["is-open"] : ""}`}
         data-anchor={anchor}
         data-tags={tag}
       >
         <summary
-          className="details-summary"
+          className={styles["details-summary"]}
           onClick={handleSummaryClick}
           {...summaryLongPressProperties}
         >
-          <div className="details-summary-left">
-            <span className="details-summary-icon">+</span>
-            <div className="details-summary-text-content">
+          <div className={styles["details-summary-left"]}>
+            <span className={styles["details-summary-icon"]}>+</span>
+            <div className={styles["details-summary-text-content"]}>
               <h3>{headingText}</h3>
               {tag && <TagList tags={tag} />}
             </div>
           </div>
           <Tooltip title="Скопировать ссылку">
-            <button
-              className={`copy-button ${displayAnchorId ? "" : "disabled"}`}
+            <CopyButton
+              disabled={!displayAnchorId}
               onClick={handleCopyAnchor}
-            >
-              <ShareRounded />
-            </button>
+            />
           </Tooltip>
         </summary>
-        <div className="details-content-wrapper">
-          <div className="details-content-inner">
+        <div className={styles["details-content-wrapper"]}>
+          <div className={styles["details-content-inner"]}>
             <SpoilerContext.Provider value={isOpen}>
               <DetailsSummaryContext.Provider value={true}>
                 <section
                   ref={sectionReference}
-                  className="details-section"
+                  className={`${styles["details-section"]} details-nested-section`}
                   onClick={handleSectionClick}
                   {...sectionLongPressProperties}
                 >

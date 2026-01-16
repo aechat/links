@@ -4,6 +4,8 @@ import {CloseRounded, CoffeeRounded} from "@mui/icons-material";
 import {Modal} from "antd";
 import {motion} from "framer-motion";
 
+import modalStyles from "./Modal.module.scss";
+
 interface SupportDonutProperties {
   wide?: boolean;
 }
@@ -26,7 +28,7 @@ const SupportDonut: React.FC<SupportDonutProperties> = ({wide}) => {
   return (
     <>
       <button
-        className="modal-support-header-button"
+        className={modalStyles["modal-support-header-button"]}
         onClick={openDonateModal}
       >
         <CoffeeRounded />
@@ -39,12 +41,12 @@ const SupportDonut: React.FC<SupportDonutProperties> = ({wide}) => {
         open={isDonateModalOpen}
         onCancel={closeDonateModal}
       >
-        <div className="modal">
-          <div className="modal-content">
-            <div className="modal-header">
-              <div className="modal-header-title">Поддержать проект</div>
+        <div className={modalStyles["modal"]}>
+          <div className={modalStyles["modal-content"]}>
+            <div className={modalStyles["modal-header"]}>
+              <div className={modalStyles["modal-header-title"]}>Поддержать проект</div>
               <button
-                className="modal-header-close"
+                className={modalStyles["modal-header-close"]}
                 onClick={closeDonateModal}
               >
                 <CloseRounded />
@@ -56,25 +58,27 @@ const SupportDonut: React.FC<SupportDonutProperties> = ({wide}) => {
             </p>
             <div className="flexible-links">
               <button
-                className="modal-support-button modal-support-button--sber"
+                className={modalStyles["modal-support-button"]}
                 onClick={() => setIsSberModalOpen(true)}
               >
                 Сбербанк
               </button>
               <Modal
                 centered
-                className="modal--support"
+                className={modalStyles["modal--support"]}
                 closeIcon={false}
                 footer={<></>}
                 open={isSberModalOpen}
                 onCancel={closeSberModal}
               >
-                <div className="modal">
-                  <div className="modal-content">
-                    <div className="modal-header">
-                      <div className="modal-header-title">Поддержать на Сбербанк</div>
+                <div className={modalStyles["modal"]}>
+                  <div className={modalStyles["modal-content"]}>
+                    <div className={modalStyles["modal-header"]}>
+                      <div className={modalStyles["modal-header-title"]}>
+                        Поддержать на Сбербанк
+                      </div>
                       <button
-                        className="modal-header-close"
+                        className={modalStyles["modal-header-close"]}
                         onClick={closeSberModal}
                       >
                         <CloseRounded />
@@ -84,10 +88,10 @@ const SupportDonut: React.FC<SupportDonutProperties> = ({wide}) => {
                       Вы можете перевести из любого банка по номеру банковской карты любую
                       сумму.
                     </p>
-                    <mark className="modal-support-account-number modal-support-account-number--sber">
+                    <mark className={modalStyles["modal-support-account-number"]}>
                       2202202357342488
                     </mark>
-                    <p className="modal-support-recipient-info">
+                    <p className={modalStyles["modal-support-recipient-info"]}>
                       Нажмите на номер карты, чтобы скопировать его в буфер обмена
                       <br />
                       Получатель: <mark>Михаил Денисович Ф.</mark>
@@ -96,25 +100,27 @@ const SupportDonut: React.FC<SupportDonutProperties> = ({wide}) => {
                 </div>
               </Modal>
               <button
-                className="modal-support-button modal-support-button--yoomoney"
+                className={modalStyles["modal-support-button"]}
                 onClick={() => setIsYoomoneyModalOpen(true)}
               >
                 ЮMoney
               </button>
               <Modal
                 centered
-                className="modal--support"
+                className={modalStyles["modal--support"]}
                 closeIcon={false}
                 footer={<></>}
                 open={isYoomoneyModalOpen}
                 onCancel={closeYoomoneyModal}
               >
-                <div className="modal">
-                  <div className="modal-content">
-                    <div className="modal-header">
-                      <div className="modal-header-title">Поддержать на ЮMoney</div>
+                <div className={modalStyles["modal"]}>
+                  <div className={modalStyles["modal-content"]}>
+                    <div className={modalStyles["modal-header"]}>
+                      <div className={modalStyles["modal-header-title"]}>
+                        Поддержать на ЮMoney
+                      </div>
                       <button
-                        className="modal-header-close"
+                        className={modalStyles["modal-header-close"]}
                         onClick={closeYoomoneyModal}
                       >
                         <CloseRounded />
@@ -136,13 +142,15 @@ const SupportDonut: React.FC<SupportDonutProperties> = ({wide}) => {
                         Вставьте этот номер в поле{" "}
                         <mark className="select">«Номер кошелька»</mark> приложения вашего
                         банка и введите любую сумму. После этого - подтвердите перевод.
-                        <motion.mark className="modal-support-account-number modal-support-account-number--yoomoney">
+                        <motion.mark
+                          className={modalStyles["modal-support-account-number"]}
+                        >
                           410016763684808
                         </motion.mark>
-                        <p className="modal-support-recipient-info">
+                        <p className={modalStyles["modal-support-recipient-info"]}>
                           Нажмите, чтобы скопировать или пополните баланс автору с помощью{" "}
                           <a
-                            className="modal-support-yoomoney-link"
+                            className={modalStyles["modal-support-yoomoney-link"]}
                             href="https://yoomoney.ru/to/410016763684808"
                           >
                             этой ссылки
