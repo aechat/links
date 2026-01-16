@@ -28,10 +28,6 @@
     height: min(calc(18px + (20 - 18) * ((100vw - 320px) / (768 - 320))), 20px);
   }
 
-  &-transparent {
-    // Add transparent styles if needed
-  }
-
   &-left,
   &-right {
     display: flex;

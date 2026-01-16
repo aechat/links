@@ -106,7 +106,7 @@ const Header: React.FC<HeaderProperties> = ({title}) => {
   return (
     <motion.header
       animate={{opacity: 1}}
-      className={`${styles.header} ${isVisible ? "" : styles["header-transparent"]}`}
+      className={`${styles.header}`}
       exit={{opacity: 0}}
       initial={{opacity: 0}}
       transition={{
