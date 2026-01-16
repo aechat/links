@@ -1,10 +1,11 @@
-@use "../abstracts/mixins" as *;
+@use "../../../styles/abstracts/mixins" as *;
 
 .copy-button {
-  fill: var(--color-icon-primary);
+  flex: none;
   transition: fill 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
   margin: -15px;
   padding: 15px;
+  fill: var(--color-icon-primary);
 
   &:hover {
     fill: var(--color-icon-primary-hover);
@@ -17,5 +18,10 @@
   svg {
     width: min(calc(17px + (19 - 17) * ((100vw - 320px) / (768 - 320))), 19px);
     height: min(calc(17px + (19 - 17) * ((100vw - 320px) / (768 - 320))), 19px);
+  }
+
+  &.disabled {
+    filter: saturate(0) opacity(0.25);
+    cursor: not-allowed;
   }
 }

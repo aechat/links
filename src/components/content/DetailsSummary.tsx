@@ -1,6 +1,5 @@
 import React, {ReactNode, useCallback, useEffect, useMemo, useRef, useState} from "react";
 
-import {ShareRounded} from "@mui/icons-material";
 import {message, Tooltip} from "antd";
 
 import {copyText} from "../../hooks/useCopyToClipboard";
@@ -9,6 +8,7 @@ import {useInternalLinkHandler} from "../../hooks/useInternalLinks";
 import {useLongPress} from "../../hooks/useLongPress";
 import {formatNestedQuotes} from "../../utils/stringUtilities";
 import {useTheme} from "../modals/ThemeChanger";
+import {CopyButton} from "../ui/CopyButton/CopyButton";
 
 import styles from "./DetailsSummary.module.scss";
 import {DetailsSummaryContext, SpoilerContext} from "./spoilerContexts";
@@ -673,12 +673,10 @@ const DetailsSummary: React.FC<DetailsSummaryProperties> = ({
             </div>
           </div>
           <Tooltip title="Скопировать ссылку">
-            <button
-              className={`copy-button ${displayAnchorId ? "" : "disabled"}`}
+            <CopyButton
+              disabled={!displayAnchorId}
               onClick={handleCopyAnchor}
-            >
-              <ShareRounded />
-            </button>
+            />
           </Tooltip>
         </summary>
         <div className={styles["details-content-wrapper"]}>
