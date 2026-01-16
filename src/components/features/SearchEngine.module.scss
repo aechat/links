@@ -142,6 +142,32 @@
     font-weight: 650;
   }
 
+  &-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1px 5px;
+    align-items: center;
+    justify-content: flex-start;
+    margin-inline-end: 10px;
+    max-width: fit-content;
+    text-transform: uppercase;
+    line-height: 1.1;
+
+    mark {
+      display: inline-flex;
+      align-items: center;
+      outline: none;
+      background: none;
+      padding: 0;
+      color: var(--color-text-tertiary);
+      font-size: min(
+        calc(0.575rem + (0.675 - 0.575) * ((100vw - 320px) / (768 - 320))),
+        0.675rem
+      );
+      font-weight: 500;
+    }
+  }
+
   &-content {
     outline: solid 1px var(--color-border-modal);
     border-top: none;

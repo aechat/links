@@ -1300,7 +1300,7 @@ const SearchResults: React.FC<{
                   {title.replace(/^[+-]+/, "").trim()}
                 </p>
                 {tagsToDisplay.length > 0 && (
-                  <span className={styles["details-tags"]}>
+                  <span className={styles["search-tags"]}>
                     {tagsToDisplay.map((t) => (
                       <mark key={t}>{t}</mark>
                     ))}
