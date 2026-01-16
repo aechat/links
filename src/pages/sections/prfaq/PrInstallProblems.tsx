@@ -9,7 +9,7 @@ import DetailsSummary from "../../../components/content/DetailsSummary";
 
 const PrInstallProblems: React.FC = () => {
   return (
-    <div className="faq-content">
+    <div className="article-content">
       <DetailsSummary
         tag="как установить, куда устанавливать, установка, распаковка, инструкция, плагины, шаблоны, пресеты, скрипты, расширения, пакеты, луты, архивы, zip, rar"
         title="В архиве или под записью нет инструкции по установке. Куда что кидать?"
@@ -2747,13 +2747,11 @@ const PrInstallProblems: React.FC = () => {
       <DetailsSummary
         tag="обновление и перенос, перенести плагины и пресеты, новая версия, хочу обновить программу с одной версии на другую"
         title="Как обновить программу, не потеряв при этом плагины и прочий установленный контент?"
-      >
-      </DetailsSummary>
+      ></DetailsSummary>
       <DetailsSummary
         tag="безопасный режим, reset preferences, safe mode"
         title="Чую, что программа работает неправильно, но переустанавливать всё я не хочу. Как сбросить все настройки?"
-      >
-      </DetailsSummary>
+      ></DetailsSummary>
       <Addition type="info">
         Некоторые решения проблем, которые у вас могут возникнуть после установки
         дополнительных материалов или во время использования программы, находятся в общем

@@ -18,6 +18,12 @@
     "scss/operator-no-newline-before": true,
     "scss/operator-no-unspaced": true,
     "selector-class-pattern": "^([a-z][a-z0-9]*)(-[a-z0-9]+)*(--[a-z0-9]+(-[a-z0-9]+)*)?$",
+    "selector-pseudo-class-no-unknown": [
+      true,
+      {
+        "ignorePseudoClasses": ["global"]
+      }
+    ],
     "no-descending-specificity": null
   }
 }

@@ -9,7 +9,7 @@ import DetailsSummary from "../../../components/content/DetailsSummary";
 
 const PsInstallProblems: React.FC = () => {
   return (
-    <div className="faq-content">
+    <div className="article-content">
       <DetailsSummary title="Забыли положить инструкцию для установки рядом с файлами, куда что кидать?">
         <p>
           Обычно установка большинства дополнительных материалов универсальна, но может

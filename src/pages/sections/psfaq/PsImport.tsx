@@ -8,7 +8,7 @@ import DetailsSummary from "../../../components/content/DetailsSummary";
 
 const PsImport: React.FC = () => {
   return (
-    <div className="faq-content">
+    <div className="article-content">
       <DetailsSummary title="Как правильно импортировать RAW изображения?">
         {/* FIXME: написать!! */}
       </DetailsSummary>

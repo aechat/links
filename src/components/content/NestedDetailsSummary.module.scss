@@ -1,6 +1,7 @@
-@use "../abstracts/mixins" as *;
+@use "../../styles/abstracts/variables" as *;
+@use "../../styles/abstracts/mixins" as *;
 
-.nested-details-summary {
+.details-nested {
   position: relative;
   margin: 10px 0;
   border-radius: $roundness;
@@ -74,30 +75,30 @@
     }
   }
 
-  &-details-content-wrapper {
+  &-content-wrapper {
     transition: max-height 0.35s cubic-bezier(0.4, 0, 0.2, 1);
     max-height: 0;
     overflow: hidden;
   }
 
-  &-details-content-inner {
+  &-content-inner {
     padding-top: 5px;
     overflow: hidden;
   }
 
   &.is-open {
-    .nested-details-summary-summary-icon {
+    .details-nested-summary-icon {
       transform: rotate(45deg);
     }
   }
 
   &[open] {
-    .nested-details-summary-summary {
+    .details-nested-summary {
       border-bottom-left-radius: 0;
       border-bottom-right-radius: 0;
     }
 
-    .nested-details-summary-section {
+    .details-nested-section {
       border-bottom-left-radius: $roundness;
       border-bottom-right-radius: $roundness;
     }

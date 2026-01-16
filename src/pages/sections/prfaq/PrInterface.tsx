@@ -8,7 +8,7 @@ import DetailsSummary from "../../../components/content/DetailsSummary";
 
 const PrInterface: React.FC = () => {
   return (
-    <div className="faq-content">
+    <div className="article-content">
       <DetailsSummary title="Как сделать двойной язык интерфейса?">
         <p>
           Если вы не хотите кардинально менять язык программы, то вы можете установить

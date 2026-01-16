@@ -1,6 +1,5 @@
-import React, {useCallback, useEffect} from "react";
+import React, {useCallback} from "react";
 
-import {ShareRounded} from "@mui/icons-material";
 import {Divider, message, Tooltip} from "antd";
 import {motion} from "framer-motion";
 import {Helmet} from "react-helmet-async";
@@ -11,6 +10,7 @@ import ContentFilter from "../components/content/ContentFilter";
 import Footer from "../components/layout/Footer";
 import Header from "../components/layout/Header";
 import PageIntro from "../components/layout/PageIntro";
+import {CopyButton} from "../components/ui/CopyButton/CopyButton";
 import {useCopyToClipboard} from "../hooks/useCopyToClipboard";
 
 const constants = {
@@ -36,22 +36,6 @@ const ChatRules = () => {
     navigator.clipboard.writeText(anchor);
     message.success(`Ссылка на раздел скопирована в буфер обмена`);
   }, []);
-
-  const enableAnchorCopyButtons = useCallback(() => {
-    const copyButtons = document.querySelectorAll(".copy-button");
-
-    for (const button of copyButtons) {
-      const anchorId = (button as HTMLElement).dataset.anchorId;
-
-      if (anchorId) {
-        button.addEventListener("click", () => handleCopyAnchor(anchorId));
-      }
-    }
-  }, [handleCopyAnchor]);
-
-  useEffect(() => {
-    enableAnchorCopyButtons();
-  }, [enableAnchorCopyButtons]);
 
   React.useEffect(() => {
     if (hash) {
@@ -162,12 +146,12 @@ const ChatRules = () => {
           ease: [0.25, 0, 0, 1],
         }}
       >
-        <div className="faq-container-flex">
+        <div className="article-container-flex">
           <div
-            className="faq-container"
+            className="article-container"
             style={{marginBlockStart: "20px"}}
           >
-            <div className="faq-title">
+            <div className="article-title">
               <h1>Правила AEChat и DWChat</h1>
             </div>
             <h2
@@ -176,19 +160,11 @@ const ChatRules = () => {
             >
               Описание AEChat и DWChat
               <Tooltip title="Скопировать ссылку в буфер обмена">
-                <button
-                  className="copy-button"
-                  data-anchor-id="about"
-                  style={{
-                    flex: "none",
-                  }}
-                >
-                  <ShareRounded />
-                </button>
+                <CopyButton onClick={() => handleCopyAnchor("about")} />
               </Tooltip>
             </h2>
             <div className="rules-content">
-              <section className="rules-section faq-content">
+              <section className="rules-section article-content">
                 <p>
                   В чатах{" "}
                   <a
@@ -288,19 +264,11 @@ const ChatRules = () => {
             >
               Правила хорошего тона
               <Tooltip title="Скопировать ссылку в буфер обмена">
-                <button
-                  className="copy-button"
-                  data-anchor-id="tone"
-                  style={{
-                    flex: "none",
-                  }}
-                >
-                  <ShareRounded />
-                </button>
+                <CopyButton onClick={() => handleCopyAnchor("tone")} />
               </Tooltip>
             </h2>
             <div className="rules-content">
-              <section className="rules-section faq-content">
+              <section className="rules-section article-content">
                 <p>
                   Для комфортного и эффективного общения в чате рекомендуется соблюдать
                   несколько простых рекомендаций.
@@ -707,19 +675,11 @@ const ChatRules = () => {
             >
               Что нельзя делать в чатах?
               <Tooltip title="Скопировать ссылку в буфер обмена">
-                <button
-                  className="copy-button"
-                  data-anchor-id="ban"
-                  style={{
-                    flex: "none",
-                  }}
-                >
-                  <ShareRounded />
-                </button>
+                <CopyButton onClick={() => handleCopyAnchor("ban")} />
               </Tooltip>
             </h2>
             <div className="rules-content">
-              <section className="rules-section faq-content">
+              <section className="rules-section article-content">
                 <ul>
                   <li>
                     В чатах запрещены спам, флуд<sup>1</sup>, чрезмерное употребление
@@ -766,19 +726,11 @@ const ChatRules = () => {
             >
               О вакансиях и резюме
               <Tooltip title="Скопировать ссылку в буфер обмена">
-                <button
-                  className="copy-button"
-                  data-anchor-id="work"
-                  style={{
-                    flex: "none",
-                  }}
-                >
-                  <ShareRounded />
-                </button>
+                <CopyButton onClick={() => handleCopyAnchor("work")} />
               </Tooltip>
             </h2>
             <div className="rules-content">
-              <section className="rules-section faq-content">
+              <section className="rules-section article-content">
                 <p>
                   Для публикации вакансий, заказов или резюме соблюдайте простые
                   требования к размещению. Это поможет сэкономить время всем участникам.

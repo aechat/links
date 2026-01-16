@@ -6,6 +6,7 @@ import {createPortal} from "react-dom";
 
 import {copyText} from "../../hooks/useCopyToClipboard";
 
+import styles from "./ContentFigure.module.scss";
 import {useSpoiler} from "./spoilerContexts";
 
 interface ContentFigureProperties {
@@ -55,8 +56,8 @@ const ContentFigure: React.FC<ContentFigureProperties> = ({
 
   const styleClass =
     type === "youtube"
-      ? "figure-browser-youtube"
-      : `figure-${variant || "windows"}-${theme || "light"}`;
+      ? styles["figure-browser-youtube"]
+      : styles[`figure-${variant || "windows"}-${theme || "light"}`];
 
   const isWindowsStyle = variant === "windows";
 
@@ -162,7 +163,7 @@ const ContentFigure: React.FC<ContentFigureProperties> = ({
   const windowHeaderContent = (
     <>
       {isWindowsStyle && <figcaption>{caption}</figcaption>}
-      <div className="window-controls">
+      <div className={styles["window-controls"]}>
         {isWindowsStyle ? (
           <>
             <WindowControlButton
@@ -211,7 +212,7 @@ const ContentFigure: React.FC<ContentFigureProperties> = ({
   const MediaContentWrapper: React.FC<{children: React.ReactNode}> = ({children}) => (
     <div>
       <div
-        className="window-header"
+        className={styles["window-header"]}
         onDoubleClick={handleClick}
       >
         {windowHeaderContent}
@@ -256,11 +257,11 @@ const ContentFigure: React.FC<ContentFigureProperties> = ({
 
       content = (
         <>
-          <div className="window-header">
+          <div className={styles["window-header"]}>
             <figcaption>
               <b>YouTube</b>: {caption}
             </figcaption>
-            <div className="youtube-button">
+            <div className={styles["youtube-button"]}>
               <button
                 onClick={() =>
                   window.open(`https://www.youtube.com/watch?v=${id}`, "_blank")
@@ -302,17 +303,17 @@ const ContentFigure: React.FC<ContentFigureProperties> = ({
 
   return (
     <>
-      <div className="figure-container">
+      <div className={styles["figure-container"]}>
         <figure className={styleClass}>{content}</figure>
       </div>
       {isFullscreen &&
         createPortal(
           <div
-            className={`fullscreen-overlay ${isClosing ? "closing" : ""}`}
+            className={`${styles["fullscreen-overlay"]} ${isClosing ? styles["closing"] : ""}`}
             onClick={handleClickOutside}
           >
             <div
-              className={`fullscreen-content ${styleClass} ${isClosing ? "closing" : ""}`}
+              className={`${styles["fullscreen-content"]} ${styleClass} ${isClosing ? styles["closing"] : ""}`}
             >
               {content}
             </div>

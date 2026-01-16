@@ -9,7 +9,7 @@ import DetailsSummary from "../../../components/content/DetailsSummary";
 
 const PrFromNewbies: React.FC = () => {
   return (
-    <div className="faq-content">
+    <div className="article-content">
       <DetailsSummary
         tag="для новичка, курсы, туториалы, только открыл премьер"
         title="Я первый раз установил и открыл программу, с чего бы мне начать обучение?"
@@ -77,8 +77,7 @@ const PrFromNewbies: React.FC = () => {
       <DetailsSummary
         tag="сленг, жаргон, сокращения, словосочетания, говор"
         title="Какие популярные термины есть у пользователей программы?"
-      >
-      </DetailsSummary>
+      ></DetailsSummary>
       <DetailsSummary
         tag="хоткеи, горячие клавиши, шорткаты, ускорение работы"
         title="А есть список популярных комбинаций клавиш?"

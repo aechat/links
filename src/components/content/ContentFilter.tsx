@@ -2,6 +2,8 @@ import React, {ReactNode, useEffect, useState} from "react";
 
 import {Apple, WindowSharp} from "@mui/icons-material";
 
+import styles from "./ContentFilter.module.scss";
+
 type ContentFilterProperties =
   | {windowsContent: ReactNode; macContent?: ReactNode}
   | {windowsContent?: ReactNode; macContent: ReactNode};
@@ -53,8 +55,8 @@ const ContentFilter: React.FC<ContentFilterProperties> = ({
 
   return (
     <div>
-      <div className="change-os">
-        <div className="os-info-container">
+      <div className={styles["change-os"]}>
+        <div className={styles["change-os-info-container"]}>
           {osIcon}
           <div>
             {infoMessagePrefix}

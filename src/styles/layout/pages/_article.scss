@@ -1,6 +1,6 @@
 @use "../../abstracts/mixins" as *;
 
-.faq {
+.article {
   &-container {
     margin-inline: auto;
     width: calc(100% - 16px);
@@ -176,5 +176,21 @@
     @media screen and (width <= 375px) {
       hyphens: auto;
     }
+  }
+}
+
+.article-placeholder {
+  opacity: 0.25;
+  margin: 40px;
+  margin-inline: auto;
+  max-width: 600px;
+  text-align: center;
+  color: var(--color-surface-primary-text);
+  font-size: 1.15rem;
+  font-weight: 600;
+  font-style: italic;
+
+  p {
+    line-height: 1.3;
   }
 }

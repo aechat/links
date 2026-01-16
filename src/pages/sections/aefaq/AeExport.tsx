@@ -11,7 +11,7 @@ import JsonToTgsConverter from "../../../components/features/converters/Converte
 
 const AeExport: React.FC = () => {
   return (
-    <div className="faq-content">
+    <div className="article-content">
       <DetailsSummary
         anchor="render-queue"
         tag="render queue, очередь рендера, настройки экспорта, render settings, output module, export settings"
@@ -2377,8 +2377,7 @@ const AeExport: React.FC = () => {
       <DetailsSummary
         tag="resolume, дхв"
         title="Как экспортировать композицию в DXV?"
-      >
-      </DetailsSummary>
+      ></DetailsSummary>
       <DetailsSummary
         anchor="export-prores"
         tag="prores 4444, prores 422, quicktime, видео с прозрачностью, alpha channel"
@@ -3495,8 +3494,7 @@ const AeExport: React.FC = () => {
       <DetailsSummary
         tag="командная строка, aerender, автоматизация, пакетный рендер, скриптинг, экспорт, очередь рендера"
         title="Как экспортировать композицию с помощью командной строки?"
-      >
-      </DetailsSummary>
+      ></DetailsSummary>
       <DetailsSummary
         tag="лотти"
         title="Какие эффекты можно использовать при использовании Lottie?"

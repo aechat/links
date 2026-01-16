@@ -9,7 +9,7 @@ import DetailsSummary from "../../../components/content/DetailsSummary";
 import HostsAdobeModal from "../../../components/content/HostsAdobe";
 
 const PsErrors: React.FC = () => (
-  <div className="faq-content">
+  <div className="article-content">
     <DetailsSummary title="Рабочий диск заполнен или Scratch Disk Full">
       <p>
         В основном данная ошибка возникает по причине нехватки дискового пространства в

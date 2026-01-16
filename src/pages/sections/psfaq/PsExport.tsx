@@ -6,7 +6,7 @@ import DetailsSummary from "../../../components/content/DetailsSummary";
 
 const PsExport: React.FC = () => {
   return (
-    <div className="faq-content">
+    <div className="article-content">
       <DetailsSummary title="Какие параметры экспорта нужно установить для загрузки в социальные сети?">
         {/* FIXME: */}
       </DetailsSummary>

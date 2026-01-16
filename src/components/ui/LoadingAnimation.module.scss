@@ -1,0 +1,49 @@
+@use "../../styles/abstracts/variables" as *;
+@use "../../styles/abstracts/mixins" as *;
+
+.bouncy-text {
+  &-container {
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+  }
+
+  &-logo {
+    display: flex;
+    color: var(--color-accent);
+    font-family: "Red Hat Display", monospace;
+    font-size: 3.5rem;
+    font-weight: 800;
+    font-style: italic;
+  }
+
+  &-tagline {
+    display: flex;
+    white-space: nowrap;
+    color: var(--color-accent);
+    font-family: "Red Hat Display", monospace;
+    font-size: 1.35em;
+    font-weight: 500;
+    font-style: italic;
+    translate: 0 10px;
+  }
+
+  &-letter {
+    display: inline-block;
+  }
+}
+
+.loading-animation {
+  &-container {
+    margin-inline: auto;
+    max-width: 800px;
+  }
+
+  &-text {
+    margin: 10px;
+    margin-top: 25px;
+    margin-inline: 20px;
+    white-space: pre-wrap;
+    font-size: 0.875rem;
+  }
+}

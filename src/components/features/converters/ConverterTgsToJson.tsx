@@ -5,6 +5,10 @@ import React, {useState} from "react";
 import {UploadFileRounded} from "@mui/icons-material";
 import {message, Upload} from "antd";
 
+import modalStyles from "../../modals/Modal.module.scss";
+
+import styles from "./Converter.module.scss";
+
 const {saveAs} = pkg;
 
 const TgsToJsonConverter: React.FC = () => {
@@ -43,29 +47,29 @@ const TgsToJsonConverter: React.FC = () => {
   };
 
   return (
-    <div className="converter">
-      <p className="converter-info-text">
+    <div className={styles["converter"]}>
+      <p className={styles["converter-info-text"]}>
         Конвертация происходит локально на вашем устройстве, качественный результат не
         гарантируется
       </p>
       <Upload.Dragger
         accept=".tgs"
         beforeUpload={handleFileUpload}
-        className="converter-dragger"
+        className={styles["converter-dragger"]}
         name="file"
         showUploadList={false}
       >
-        <div className="converter-dragger-content">
+        <div className={styles["converter-dragger-content"]}>
           <UploadFileRounded />
-          <span className="converter-dragger-text">
+          <span className={styles["converter-dragger-text"]}>
             Перетащите файл формата TGS в это поле или нажмите для выбора файла
           </span>
         </div>
       </Upload.Dragger>
       {jsonData ? (
-        <div className="converter-button-group">
+        <div className={styles["converter-button-group"]}>
           <button
-            className="modal-open-button converter-button-reset"
+            className={`${modalStyles["modal-open-button"]} ${styles["converter-button-reset"]}`}
             onClick={() => {
               setJsonData(undefined);
               setOriginalFileName("");
@@ -74,7 +78,7 @@ const TgsToJsonConverter: React.FC = () => {
             Сбросить
           </button>
           <button
-            className="modal-open-button converter-button-action"
+            className={`${modalStyles["modal-open-button"]} ${styles["converter-button-action"]}`}
             onClick={downloadJson}
           >
             Скачать преобразованный JSON

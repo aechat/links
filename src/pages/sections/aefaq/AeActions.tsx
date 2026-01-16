@@ -10,7 +10,7 @@ import DetailsSummary from "../../../components/content/DetailsSummary";
 
 const AeActions: React.FC = () => {
   return (
-    <div className="faq-content">
+    <div className="article-content">
       <DetailsSummary
         anchor="upscale-video-photo"
         tag="апскейл, topaz, улучшение качества, резкость, цветокоррекция, нейросети"

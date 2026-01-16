@@ -1,5 +1,6 @@
 import React, {ReactNode, useContext, useEffect, useRef, useState} from "react";
 
+import styles from "./NestedDetailsSummary.module.scss";
 import {
   DetailsSummaryContext,
   NestedDetailsSummaryContext,
@@ -114,31 +115,31 @@ const NestedDetailsSummary: React.FC<NestedDetailsSummaryProperties> = ({
     <NestedDetailsSummaryContext.Provider value={true}>
       <details
         ref={detailsReference}
-        className={`nested-details-summary ${modifierClass || ""} ${
-          isOpen ? "is-open" : ""
+        className={`${styles["details-nested"]} ${modifierClass || ""} ${
+          isOpen ? styles["is-open"] : ""
         }`.trim()}
         open={startOpen}
       >
         <summary
-          className="nested-details-summary-summary"
+          className={styles["details-nested-summary"]}
           onClick={handleSummaryClick}
         >
-          <div className="nested-details-summary-summary-left">
-            <span className="nested-details-summary-summary-icon">+</span>
-            <div className="nested-details-summary-summary-text-content">
+          <div className={styles["details-nested-summary-left"]}>
+            <span className={styles["details-nested-summary-icon"]}>+</span>
+            <div className={styles["details-nested-summary-text-content"]}>
               <h3>{title}</h3>
             </div>
           </div>
         </summary>
         <div
           ref={contentWrapperReference}
-          className="nested-details-summary-details-content-wrapper"
+          className={styles["details-nested-content-wrapper"]}
         >
           <div
             ref={innerContentReference}
-            className="nested-details-summary-details-content-inner"
+            className={styles["details-nested-content-inner"]}
           >
-            <section className="nested-details-summary-section">{children}</section>
+            <section className={styles["details-nested-section"]}>{children}</section>
           </div>
         </div>
       </details>

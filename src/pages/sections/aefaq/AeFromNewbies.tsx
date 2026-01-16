@@ -11,7 +11,7 @@ import EasingEditor from "../../../components/features/EasingEditor";
 
 const AeFromNewbies: React.FC = () => {
   return (
-    <div className="faq-content">
+    <div className="article-content">
       <DetailsSummary
         anchor="get-started"
         tag="для новичка, курсы, туториалы, уроки, базовый курс"

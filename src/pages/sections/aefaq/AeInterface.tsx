@@ -9,7 +9,7 @@ import DetailsSummary from "../../../components/content/DetailsSummary";
 
 const AeInterface: React.FC = () => {
   return (
-    <div className="faq-content">
+    <div className="article-content">
       <DetailsSummary
         tag="стартовая страница, домашний экран, home screen"
         title="Почему у меня не работает окно с недавними проектами и как его отключить?"

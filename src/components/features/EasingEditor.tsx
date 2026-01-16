@@ -2,6 +2,8 @@ import React, {useCallback, useEffect, useMemo, useRef, useState} from "react";
 
 import {Slider} from "antd";
 
+import styles from "./EasingEditor.module.scss";
+
 type AnimationMode = "ping-pong" | "loop" | "once";
 
 const MODES: AnimationMode[] = ["ping-pong", "loop", "once"];
@@ -107,7 +109,7 @@ const Ruler: React.FC<{trackWidth: number; style?: React.CSSProperties}> = ({
 
   return (
     <div
-      className="ruler"
+      className={styles["ruler"]}
       style={style}
     >
       {ticks.map((tick) => {
@@ -122,10 +124,10 @@ const Ruler: React.FC<{trackWidth: number; style?: React.CSSProperties}> = ({
         return (
           <div
             key={tick}
-            className="ruler-tick"
+            className={styles["ruler-tick"]}
             style={{left: `calc(${tick}px - 0.5px)`}}
           >
-            <span className={labelClass}>{Math.round(tick)}</span>
+            <span className={styles[labelClass]}>{Math.round(tick)}</span>
           </div>
         );
       })}
@@ -287,20 +289,20 @@ const AnimationDemo: React.FC<AnimationDemoProperties> = ({
   };
 
   return (
-    <div className="animation-preview">
+    <div className={styles["animation-preview"]}>
       <div
         ref={trackRef}
-        className="animation-track"
+        className={styles["animation-track"]}
       >
         {["position", "positionAndRotation", "positionAndScale"].includes(
           animationProperty
         ) && (
           <div
-            className="track-visuals"
+            className={styles["track-visuals"]}
             style={trackElementsStyle}
           >
             <Ruler trackWidth={trackWidth} />
-            <div className="track-line" />
+            <div className={styles["track-line"]} />
           </div>
         )}
         {showTrail &&
@@ -332,7 +334,7 @@ const AnimationDemo: React.FC<AnimationDemoProperties> = ({
             return (
               <div
                 key={index}
-                className="animated-cube-trail"
+                className={styles["animated-cube-trail"]}
                 style={{
                   left: `${left}px`,
                   opacity: opacity,
@@ -343,7 +345,7 @@ const AnimationDemo: React.FC<AnimationDemoProperties> = ({
             );
           })}
         <div
-          className={`animated-cube`}
+          className={styles["animated-cube"]}
           style={getAnimatedStyle()}
         ></div>
       </div>
@@ -460,16 +462,16 @@ const ValueGraph: React.FC<ValueGraphProperties> = ({
   };
 
   return (
-    <div className="graph-container">
+    <div className={styles["graph-container"]}>
       <label>Value Graph</label>
       <svg
         ref={svgRef}
-        className="graph-svg"
+        className={styles["graph-svg"]}
       >
         {dimensions.width > 0 && (
           <>
             <rect
-              className="graph-background"
+              className={styles["graph-background"]}
               height={dimensions.height - PADDING * 2}
               width={dimensions.width - PADDING * 2}
               x={PADDING}
@@ -480,8 +482,8 @@ const ValueGraph: React.FC<ValueGraphProperties> = ({
                 <line
                   className={
                     tick === 0 || tick === trackWidth
-                      ? "grid-line-major"
-                      : "grid-line-minor"
+                      ? styles["grid-line-major"]
+                      : styles["grid-line-minor"]
                   }
                   x1={PADDING}
                   x2={dimensions.width - PADDING}
@@ -489,7 +491,7 @@ const ValueGraph: React.FC<ValueGraphProperties> = ({
                   y2={mapToSvg({x: 0, y: tick}).y}
                 />
                 <text
-                  className="grid-text grid-text-y"
+                  className={`${styles["grid-text"]} ${styles["grid-text-y"]}`}
                   x={PADDING + 8}
                   y={mapToSvg({x: 0, y: tick}).y + 4}
                 >
@@ -502,8 +504,8 @@ const ValueGraph: React.FC<ValueGraphProperties> = ({
                 <line
                   className={
                     tick === 0 || tick === duration
-                      ? "grid-line-major"
-                      : "grid-line-minor"
+                      ? styles["grid-line-major"]
+                      : styles["grid-line-minor"]
                   }
                   x1={mapToSvg({x: tick, y: 0}).x}
                   x2={mapToSvg({x: tick, y: 0}).x}
@@ -511,59 +513,59 @@ const ValueGraph: React.FC<ValueGraphProperties> = ({
                   y2={dimensions.height - PADDING}
                 />
                 <text
-                  className="grid-text grid-text-x"
+                  className={`${styles["grid-text"]} ${styles["grid-text-x"]}`}
                   x={mapToSvg({x: tick, y: 0}).x}
                   y={dimensions.height - 8}
                 >{`${tick.toFixed(2)}s`}</text>
               </g>
             ))}
             <path
-              className="graph-curve"
+              className={styles["graph-curve"]}
               d={valueCurvePath}
             />
             <line
-              className="control-line"
+              className={styles["control-line"]}
               x1={svgP0.x}
               x2={svgP1.x}
               y1={svgP0.y}
               y2={svgP1.y}
             />
             <line
-              className="control-line"
+              className={styles["control-line"]}
               x1={svgP3.x}
               x2={svgP2.x}
               y1={svgP3.y}
               y2={svgP2.y}
             />
             <circle
-              className="animated-dot"
+              className={styles["animated-dot"]}
               cx={mapToSvg(animatedPoint).x}
               cy={mapToSvg(animatedPoint).y}
               r="5"
             />
             <rect
-              className="keyframe-point"
+              className={styles["keyframe-point"]}
               height="8"
               width="8"
               x={svgP0.x - 4}
               y={svgP0.y - 4}
             />
             <rect
-              className="keyframe-point"
+              className={styles["keyframe-point"]}
               height="8"
               width="8"
               x={svgP3.x - 4}
               y={svgP3.y - 4}
             />
             <circle
-              className="handle"
+              className={styles["handle"]}
               cx={svgP1.x}
               cy={svgP1.y}
               r="6"
               style={{pointerEvents: "none"}}
             />
             <circle
-              className="handle"
+              className={styles["handle"]}
               cx={svgP2.x}
               cy={svgP2.y}
               r="6"
@@ -642,16 +644,16 @@ const SpeedGraph: React.FC<SpeedGraphProperties> = ({
   }, [duration]);
 
   return (
-    <div className="graph-container">
+    <div className={styles["graph-container"]}>
       <label>Speed Graph</label>
       <svg
         ref={svgRef}
-        className="graph-svg"
+        className={styles["graph-svg"]}
       >
         {dimensions.width > 0 && (
           <>
             <rect
-              className="graph-background"
+              className={styles["graph-background"]}
               height={dimensions.height - PADDING * 2}
               width={dimensions.width - PADDING * 2}
               x={PADDING}
@@ -660,14 +662,16 @@ const SpeedGraph: React.FC<SpeedGraphProperties> = ({
             {yTicks.map((tick) => (
               <g key={`y-speed-${tick}`}>
                 <line
-                  className={tick === 0 ? "grid-line-major" : "grid-line-minor"}
+                  className={
+                    tick === 0 ? styles["grid-line-major"] : styles["grid-line-minor"]
+                  }
                   x1={PADDING}
                   x2={dimensions.width - PADDING}
                   y1={mapSpeedToSvg(tick)}
                   y2={mapSpeedToSvg(tick)}
                 />
                 <text
-                  className="grid-text grid-text-y"
+                  className={`${styles["grid-text"]} ${styles["grid-text-y"]}`}
                   x={PADDING + 8}
                   y={mapSpeedToSvg(tick) + 4}
                 >{`${Math.round(tick)} px/s`}</text>
@@ -678,8 +682,8 @@ const SpeedGraph: React.FC<SpeedGraphProperties> = ({
                 <line
                   className={
                     tick === 0 || tick === duration
-                      ? "grid-line-major"
-                      : "grid-line-minor"
+                      ? styles["grid-line-major"]
+                      : styles["grid-line-minor"]
                   }
                   x1={mapTimeToSvg(tick)}
                   x2={mapTimeToSvg(tick)}
@@ -687,53 +691,53 @@ const SpeedGraph: React.FC<SpeedGraphProperties> = ({
                   y2={dimensions.height - PADDING}
                 />
                 <text
-                  className="grid-text grid-text-x"
+                  className={`${styles["grid-text"]} ${styles["grid-text-x"]}`}
                   x={mapTimeToSvg(tick)}
                   y={dimensions.height - 8}
                 >{`${tick.toFixed(2)}s`}</text>
               </g>
             ))}
             <path
-              className="graph-curve"
+              className={styles["graph-curve"]}
               d={curvePath}
             />
             <line
-              className="control-line"
+              className={styles["control-line"]}
               x1={svgP0.x}
               x2={svgH1.x}
               y1={svgP0.y}
               y2={svgH1.y}
             />
             <line
-              className="control-line"
+              className={styles["control-line"]}
               x1={svgP3.x}
               x2={svgH2.x}
               y1={svgP3.y}
               y2={svgH2.y}
             />
             <rect
-              className="keyframe-point"
+              className={styles["keyframe-point"]}
               height="8"
               width="8"
               x={svgP0.x - 4}
               y={svgP0.y - 4}
             />
             <rect
-              className="keyframe-point"
+              className={styles["keyframe-point"]}
               height="8"
               width="8"
               x={svgP3.x - 4}
               y={svgP3.y - 4}
             />
             <circle
-              className="handle"
+              className={styles["handle"]}
               cx={svgH1.x}
               cy={svgH1.y}
               r="6"
               style={{pointerEvents: "none"}}
             />
             <circle
-              className="handle"
+              className={styles["handle"]}
               cx={svgH2.x}
               cy={svgH2.y}
               r="6"
@@ -814,8 +818,8 @@ const AnimationControls: React.FC<AnimationControlsProperties> = ({
   };
 
   return (
-    <div className="animation-controls">
-      <div className="control-item">
+    <div className={styles["animation-controls"]}>
+      <div className={styles["control-item"]}>
         <label>
           <span>Длительность</span>: <span>{duration.toFixed(2)} сек.</span>
         </label>
@@ -829,14 +833,14 @@ const AnimationControls: React.FC<AnimationControlsProperties> = ({
         <label>
           <span>Частота кадров</span>{" "}
           {actualFps < fps - 0.5 && (
-            <span className="fps-warning">({Math.round(actualFps)})</span>
+            <span className={styles["fps-warning"]}>({Math.round(actualFps)})</span>
           )}
         </label>
-        <div className="flexible-links">
+        <div className={styles["flexible-links"]}>
           {[8, 15, 24, 30, 60].map((f) => (
             <button
               key={f}
-              className={fps === f ? "active selected" : ""}
+              className={fps === f ? `${styles["active"]} ${styles["selected"]}` : ""}
               style={{flexBasis: "15px"}}
               onClick={() => setFps(f)}
             >
@@ -845,11 +849,13 @@ const AnimationControls: React.FC<AnimationControlsProperties> = ({
           ))}
         </div>
         <label>Режим</label>
-        <div className="flexible-links">
+        <div className={styles["flexible-links"]}>
           {MODES.map((mode) => (
             <button
               key={mode}
-              className={animationMode === mode ? "active selected" : ""}
+              className={
+                animationMode === mode ? `${styles["active"]} ${styles["selected"]}` : ""
+              }
               onClick={() => setAnimationMode(mode)}
             >
               {modeTextMap[mode]}
@@ -857,13 +863,17 @@ const AnimationControls: React.FC<AnimationControlsProperties> = ({
           ))}
         </div>
       </div>
-      <div className="control-item">
+      <div className={styles["control-item"]}>
         <label>Свойство</label>
-        <div className="flexible-links">
+        <div className={styles["flexible-links"]}>
           {Object.keys(propertyTextMap).map((property) => (
             <button
               key={property}
-              className={animationProperty === property ? "active selected" : ""}
+              className={
+                animationProperty === property
+                  ? `${styles["active"]} ${styles["selected"]}`
+                  : ""
+              }
               onClick={() => setAnimationProperty(property as AnimationProperty)}
             >
               {propertyTextMap[property as AnimationProperty]}
@@ -871,13 +881,13 @@ const AnimationControls: React.FC<AnimationControlsProperties> = ({
           ))}
         </div>
         <label>Управление</label>
-        <div className="flexible-links">
+        <div className={styles["flexible-links"]}>
           <button onClick={handleTogglePlayPause}>
             {isPaused ? "▶ Воспроизвести" : "❚❚ Пауза"}
           </button>
           <button onClick={handleResetAnimation}>Сбросить</button>
           <button
-            className={showTrail ? "active selected" : ""}
+            className={showTrail ? `${styles["active"]} ${styles["selected"]}` : ""}
             onClick={() => setShowTrail(!showTrail)}
           >
             Показать след
@@ -1416,9 +1426,9 @@ const EasingEditor: React.FC = () => {
   };
 
   return (
-    <div className="easing-editor-wrapper">
+    <div className={styles["easing-editor-wrapper"]}>
       <div
-        className="animation-demo-container"
+        className={styles["animation-demo-container"]}
         style={{minHeight: `${getContainerHeight()}px`}}
       >
         <AnimationDemo
@@ -1430,9 +1440,9 @@ const EasingEditor: React.FC = () => {
           valueYMax={valueYMax}
           valueYMin={valueYMin}
         />
-        <span className="timecode">{timecode}</span>
+        <span className={styles["timecode"]}>{timecode}</span>
       </div>
-      <div className="graphs-container">
+      <div className={styles["graphs-container"]}>
         <ValueGraph
           animatedPoint={animatedPoint}
           animationProperty={animationProperty}

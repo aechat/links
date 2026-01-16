@@ -5,6 +5,8 @@ import {useLocation} from "react-router-dom";
 
 import {formatRelativeTime} from "../../utils/dateUtilities";
 
+import styles from "./Footer.module.scss";
+
 const OWNER = "aechat";
 
 const REPO = "links";
@@ -126,11 +128,11 @@ const Footer: React.FC<FooterProperties> = ({initialYear, title}) => {
 
   const renderCommitInfo = () => {
     if (isLoading) {
-      return <p className="commit-info">Ищем информацию...</p>;
+      return <p className={styles["commit-info"]}>Ищем информацию...</p>;
     }
 
     if (error) {
-      return <p className="commit-info">{error}</p>;
+      return <p className={styles["commit-info"]}>{error}</p>;
     }
 
     if (!commitData) {
@@ -140,7 +142,7 @@ const Footer: React.FC<FooterProperties> = ({initialYear, title}) => {
     const relativeTime = formatRelativeTime(commitData.date);
 
     return (
-      <p className="commit-info">
+      <p className={styles["commit-info"]}>
         Последнее обновление страницы {relativeTime}:{" "}
         <a
           href={commitData.url}
@@ -155,7 +157,7 @@ const Footer: React.FC<FooterProperties> = ({initialYear, title}) => {
 
   return (
     <footer>
-      <div className="footer-container">
+      <div className={styles["footer-container"]}>
         <div>
           <p>
             <a href="https://github.com/m1sh3r">m1sh3r</a> {"+ "}
@@ -163,11 +165,11 @@ const Footer: React.FC<FooterProperties> = ({initialYear, title}) => {
           </p>
           {isFaqPage(path) && (
             <>
-              <p className="footer-content-info">
+              <p className={styles["footer-content-info"]}>
                 Содержание этой страницы периодически обновляется благодаря вопросам от
                 участников наших чатов и предоставляется по принципу «как есть».
               </p>
-              <p className="footer-content-info">
+              <p className={styles["footer-content-info"]}>
                 Статьи основаны на информации из открытых источников. Они могут быть
                 неполными, устаревшими или неточными, а мнения автора и читателей — не
                 совпадать.
@@ -178,7 +180,7 @@ const Footer: React.FC<FooterProperties> = ({initialYear, title}) => {
         </div>
         <a
           aria-label="перейти на GitHub"
-          className="footer-github-link"
+          className={styles["footer-github-link"]}
           href="https://github.com/aechat/links"
           rel="noreferrer"
           target="_blank"

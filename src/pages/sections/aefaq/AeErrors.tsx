@@ -10,7 +10,7 @@ import HostsAdobeModal from "../../../components/content/HostsAdobe";
 
 const AeErrors: React.FC = () => {
   return (
-    <div className="faq-content">
+    <div className="article-content">
       <Addition type="danger">
         <ul>
           <li>
