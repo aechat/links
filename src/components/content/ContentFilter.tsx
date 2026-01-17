@@ -33,7 +33,7 @@ const ContentFilter: React.FC<ContentFilterProperties> = ({
     return <></>;
   }
 
-  const showToggleButton = hasWindowsContent && hasMacContent;
+  const isToggleButtonVisible = hasWindowsContent && hasMacContent;
 
   let displayForWindows = isWindowsActive;
 
@@ -47,7 +47,7 @@ const ContentFilter: React.FC<ContentFilterProperties> = ({
 
   const osIcon = displayForWindows ? <WindowSharp /> : <Apple />;
 
-  const infoMessagePrefix = showToggleButton
+  const infoMessagePrefix = isToggleButtonVisible
     ? "Информация ниже указана для устройств на "
     : "Информация ниже указана только для устройств на ";
 
@@ -66,7 +66,7 @@ const ContentFilter: React.FC<ContentFilterProperties> = ({
             .
           </div>
         </div>
-        {showToggleButton && (
+        {isToggleButtonVisible && (
           <button
             aria-label={buttonLabel}
             onClick={() => setIsWindowsActive(!isWindowsActive)}

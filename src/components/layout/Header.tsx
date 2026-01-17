@@ -38,7 +38,7 @@ const TOOLTIP_MESSAGES: Record<string, string> = {
 const Header: React.FC<HeaderProperties> = ({title}) => {
   const location = useLocation();
 
-  const [isVisible, setIsVisible] = useState(false);
+  const [isScrollButtonVisible, setIsScrollButtonVisible] = useState(false);
 
   const [isWide, setIsWide] = useState(
     globalThis.window === undefined
@@ -59,7 +59,7 @@ const Header: React.FC<HeaderProperties> = ({title}) => {
 
   const checkScrollPosition = (): void => {
     if (globalThis.window !== undefined) {
-      setIsVisible(window.scrollY > constants.SCROLL_THRESHOLD);
+      setIsScrollButtonVisible(window.scrollY > constants.SCROLL_THRESHOLD);
     }
   };
 
@@ -142,7 +142,7 @@ const Header: React.FC<HeaderProperties> = ({title}) => {
       </div>
       <div className={styles["header-right"]}>
         <div
-          className={`${styles["header-right"]} ${isVisible ? styles.visible : styles.hidden}`}
+          className={`${styles["header-right"]} ${isScrollButtonVisible ? styles.visible : styles.hidden}`}
         >
           <button
             aria-label="Прокрутить страницу вверх"

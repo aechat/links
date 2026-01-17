@@ -1411,7 +1411,7 @@ export const SearchInPage: React.FC<{sections: SearchSection[]}> = ({sections}) 
 
   const resultsContainerReference = useRef<HTMLDivElement>(null);
 
-  const [showFade, setShowFade] = useState(false);
+  const [isFadeVisible, setIsFadeVisible] = useState(false);
 
   const {
     debouncedQuery,
@@ -1439,20 +1439,20 @@ export const SearchInPage: React.FC<{sections: SearchSection[]}> = ({sections}) 
       return;
     }
 
-    const checkFade = () => {
-      setShowFade(
+    const checkFadeVisibility = () => {
+      setIsFadeVisible(
         element.scrollHeight > element.clientHeight &&
           element.scrollTop + element.clientHeight < element.scrollHeight - 1
       );
     };
 
-    checkFade();
-    element.addEventListener("scroll", checkFade);
-    globalThis.addEventListener("resize", checkFade);
+    checkFadeVisibility();
+    element.addEventListener("scroll", checkFadeVisibility);
+    globalThis.addEventListener("resize", checkFadeVisibility);
 
     return () => {
-      element.removeEventListener("scroll", checkFade);
-      globalThis.removeEventListener("resize", checkFade);
+      element.removeEventListener("scroll", checkFadeVisibility);
+      globalThis.removeEventListener("resize", checkFadeVisibility);
     };
   }, [results]);
 
@@ -1705,10 +1705,10 @@ export const SearchInPage: React.FC<{sections: SearchSection[]}> = ({sections}) 
             </div>
             <div
               ref={resultsContainerReference}
-              className={`${styles["search-results"]}${showFade ? " " + styles["show-fade"] : ""}`}
+              className={`${styles["search-results"]}${isFadeVisible ? " " + styles["show-fade"] : ""}`}
             >
               {renderContent()}
-              {showFade}
+              {isFadeVisible}
             </div>
           </div>
         </div>
