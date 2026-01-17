@@ -6,7 +6,7 @@ import {Modal} from "antd";
 import modalStyles from "../components/modals/Modal.module.scss";
 
 export const useExternalLinkHandler = () => {
-  const [modalVisible, setModalVisible] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const [targetUrl, setTargetUrl] = useState<string | undefined>();
 
@@ -21,7 +21,7 @@ export const useExternalLinkHandler = () => {
       if (href && /^https?:\/\//.test(href)) {
         event.preventDefault();
         setTargetUrl(href);
-        setModalVisible(true);
+        setIsModalOpen(true);
       }
     }
   }, []);
@@ -31,12 +31,12 @@ export const useExternalLinkHandler = () => {
       window.open(targetUrl, "_blank", "noreferrer");
     }
 
-    setModalVisible(false);
+    setIsModalOpen(false);
     setTargetUrl(undefined);
   }, [targetUrl]);
 
   const handleCancel = useCallback(() => {
-    setModalVisible(false);
+    setIsModalOpen(false);
     setTargetUrl(undefined);
   }, []);
 
@@ -47,21 +47,21 @@ export const useExternalLinkHandler = () => {
       }
     };
 
-    if (modalVisible) {
+    if (isModalOpen) {
       document.addEventListener("keydown", handleKeyDown);
     }
 
     return () => {
       document.removeEventListener("keydown", handleKeyDown);
     };
-  }, [modalVisible, handleOk]);
+  }, [isModalOpen, handleOk]);
 
   const ExternalLinkModal = (
     <Modal
       centered
       closeIcon={undefined}
       footer={<></>}
-      open={modalVisible}
+      open={isModalOpen}
       onCancel={handleCancel}
     >
       <div className={modalStyles["modal"]}>

@@ -305,9 +305,9 @@ export const App = () => {
     setIsClient(true);
   }, []);
 
-  const [showSafariWarning, setShowSafariWarning] = useState(false);
+  const [isSafariWarningOpen, setIsSafariWarningOpen] = useState(false);
 
-  const [showOldBrowserWarning, setShowOldBrowserWarning] = useState(false);
+  const [isOldBrowserWarningOpen, setIsOldBrowserWarningOpen] = useState(false);
 
   useEffect(() => {
     if (globalThis.window === undefined) return;
@@ -337,10 +337,10 @@ export const App = () => {
       }
     }
 
-    setShowOldBrowserWarning(shouldShowWarning);
+    setIsOldBrowserWarningOpen(shouldShowWarning);
   }, []);
 
-  const [appReady, setAppReady] = useState(true);
+  const [isAppReady, setIsAppReady] = useState(true);
 
   useEffect(() => {
     if (globalThis.window === undefined) return;
@@ -377,11 +377,11 @@ export const App = () => {
     }
 
     if (shouldShowWarning) {
-      setAppReady(false);
-      setShowSafariWarning(true);
+      setIsAppReady(false);
+      setIsSafariWarningOpen(true);
     } else {
-      setShowSafariWarning(false);
-      setAppReady(true);
+      setIsSafariWarningOpen(false);
+      setIsAppReady(true);
     }
   }, [location.pathname]);
 
@@ -399,10 +399,10 @@ export const App = () => {
     }
   }, [location]);
 
-  if (isClient && showOldBrowserWarning) {
+  if (isClient && isOldBrowserWarningOpen) {
     return (
       <BrowserWarning
-        open={showOldBrowserWarning}
+        open={isOldBrowserWarningOpen}
         onClose={(dontShowAgain) => {
           if (typeof localStorage !== "undefined") {
             if (dontShowAgain) {
@@ -412,7 +412,7 @@ export const App = () => {
             }
           }
 
-          setShowOldBrowserWarning(false);
+          setIsOldBrowserWarningOpen(false);
         }}
       />
     );
@@ -434,7 +434,7 @@ export const App = () => {
         />
         <ErrorBoundary>
           <SafariWarningModal
-            open={showSafariWarning}
+            open={isSafariWarningOpen}
             onClose={(dontShowAgain) => {
               if (typeof localStorage !== "undefined") {
                 if (dontShowAgain) {
@@ -444,11 +444,11 @@ export const App = () => {
                 }
               }
 
-              setShowSafariWarning(false);
-              setAppReady(true);
+              setIsSafariWarningOpen(false);
+              setIsAppReady(true);
             }}
           />
-          {appReady && (
+          {isAppReady && (
             <Suspense fallback={<LoadingAnimation />}>
               <AnimatePresence
                 mode="wait"

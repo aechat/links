@@ -21,7 +21,7 @@ import styles from "./SearchEngine.module.scss";
 
 export interface SearchContextType {
   closeModal: () => void;
-  isOpen: boolean;
+  isModalOpen: boolean;
   isPageLoaded: boolean;
   openModal: () => void;
 }
@@ -1038,15 +1038,15 @@ export const SearchProvider: React.FC<{
   children: React.ReactNode;
   isPageLoaded: boolean;
 }> = ({children, isPageLoaded}) => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const openModal = () => {
     if (isPageLoaded) {
-      setIsOpen(true);
+      setIsModalOpen(true);
     }
   };
 
-  const closeModal = () => setIsOpen(false);
+  const closeModal = () => setIsModalOpen(false);
 
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
@@ -1075,8 +1075,8 @@ export const SearchProvider: React.FC<{
   }, [isPageLoaded]);
 
   const value = useMemo(
-    () => ({closeModal, isOpen, isPageLoaded, openModal}),
-    [isOpen, isPageLoaded]
+    () => ({closeModal, isModalOpen, isPageLoaded, openModal}),
+    [isModalOpen, isPageLoaded]
   );
 
   return <SearchContext.Provider value={value}>{children}</SearchContext.Provider>;
@@ -1397,7 +1397,7 @@ const NoResults: React.FC<{query: string}> = ({query}) => (
 );
 
 export const SearchInPage: React.FC<{sections: SearchSection[]}> = ({sections}) => {
-  const {closeModal, isOpen, isPageLoaded} = useSearch();
+  const {closeModal, isModalOpen, isPageLoaded} = useSearch();
 
   const [query, setQuery] = useState("");
 
@@ -1422,7 +1422,7 @@ export const SearchInPage: React.FC<{sections: SearchSection[]}> = ({sections}) 
   } = useSearchLogic(query, isPageLoaded);
 
   useEffect(() => {
-    if (isOpen) {
+    if (isModalOpen) {
       const timeout = setTimeout(() => {
         inputReference.current?.focus();
         inputReference.current?.select();
@@ -1430,7 +1430,7 @@ export const SearchInPage: React.FC<{sections: SearchSection[]}> = ({sections}) 
 
       return () => clearTimeout(timeout);
     }
-  }, [isOpen]);
+  }, [isModalOpen]);
 
   useEffect(() => {
     const element = resultsContainerReference.current;
@@ -1556,14 +1556,14 @@ export const SearchInPage: React.FC<{sections: SearchSection[]}> = ({sections}) 
       }
     };
 
-    if (!isOpen) {
+    if (!isModalOpen) {
       return;
     }
 
     document.addEventListener("keydown", handleKeyDown);
 
     return () => document.removeEventListener("keydown", handleKeyDown);
-  }, [isOpen, results, selectedResultIndex, handleLinkClick]);
+  }, [isModalOpen, results, selectedResultIndex, handleLinkClick]);
 
   useEffect(() => {
     if (selectedResultIndex >= 0) {
@@ -1652,11 +1652,11 @@ export const SearchInPage: React.FC<{sections: SearchSection[]}> = ({sections}) 
   };
 
   return (
-    <RemoveScroll enabled={isOpen}>
+    <RemoveScroll enabled={isModalOpen}>
       <Modal
         closeIcon={undefined}
         footer={<></>}
-        open={isOpen}
+        open={isModalOpen}
         width={850}
         onCancel={closeModal}
       >

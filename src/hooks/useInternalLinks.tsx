@@ -24,7 +24,7 @@ const findTargetDetails = (anchorValue: string): HTMLElement | undefined => {
 };
 
 export const useInternalLinkHandler = () => {
-  const [modalVisible, setModalVisible] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const [targetArticle, setTargetArticle] = useState<TargetArticle | undefined>();
 
@@ -67,7 +67,7 @@ export const useInternalLinkHandler = () => {
 
     title = title.replace(/^\d+\.\d+\.\s*/, "");
     setTargetArticle({id: summary.id, title});
-    setModalVisible(true);
+    setIsModalOpen(true);
   }, []);
 
   const handleOk = useCallback(() => {
@@ -91,12 +91,12 @@ export const useInternalLinkHandler = () => {
       }
     }
 
-    setModalVisible(false);
+    setIsModalOpen(false);
     setTargetArticle(undefined);
   }, [targetArticle]);
 
   const handleCancel = useCallback(() => {
-    setModalVisible(false);
+    setIsModalOpen(false);
     setTargetArticle(undefined);
   }, []);
 
@@ -107,21 +107,21 @@ export const useInternalLinkHandler = () => {
       }
     };
 
-    if (modalVisible) {
+    if (isModalOpen) {
       document.addEventListener("keydown", handleKeyDown);
     }
 
     return () => {
       document.removeEventListener("keydown", handleKeyDown);
     };
-  }, [modalVisible, handleOk]);
+  }, [isModalOpen, handleOk]);
 
   const InternalLinkModal = (
     <Modal
       centered
       closeIcon={undefined}
       footer={<></>}
-      open={modalVisible}
+      open={isModalOpen}
       onCancel={handleCancel}
     >
       <div className={modalStyles["modal"]}>

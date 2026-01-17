@@ -20,7 +20,7 @@ const TgsToJsonConverter: React.FC = () => {
 
   const [pyodide, setPyodide] = useState<Pyodide | undefined>();
 
-  const [loading, setLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     if (compressionMode === "python" && !pyodide) {
@@ -29,7 +29,7 @@ const TgsToJsonConverter: React.FC = () => {
   }, [compressionMode, pyodide]);
 
   const loadPyodideInline = async (): Promise<void> => {
-    setLoading(true);
+    setIsLoading(true);
 
     try {
       const script = document.createElement("script");
@@ -45,20 +45,20 @@ const TgsToJsonConverter: React.FC = () => {
         const py: Pyodide = await loadPyodide();
 
         setPyodide(py);
-        setLoading(false);
+        setIsLoading(false);
         message.success("Python-интерпретатор загружен, начните процесс конвертации");
       });
 
       script.addEventListener("error", () => {
         message.error("Не удалось загрузить Python-интерпретатор");
-        setLoading(false);
+        setIsLoading(false);
       });
 
       document.body.append(script);
     } catch (error) {
       console.error("Ошибка загрузки Pyodide:", error);
       message.error("Не удалось загрузить Python-интерпретатор");
-      setLoading(false);
+      setIsLoading(false);
     }
   };
 
@@ -85,7 +85,7 @@ const TgsToJsonConverter: React.FC = () => {
       return;
     }
 
-    setLoading(true);
+    setIsLoading(true);
 
     const jsonString = JSON.stringify(jsonData, undefined, 2);
 
@@ -98,7 +98,7 @@ const TgsToJsonConverter: React.FC = () => {
     } else if (compressionMode === "python") {
       if (!pyodide) {
         message.error("Python-интерпретатор ещё загружается");
-        setLoading(false);
+        setIsLoading(false);
 
         return;
       }
@@ -124,13 +124,13 @@ with open("input.json", "rb") as f_in:
 
     if (!blob) {
       message.error("Ошибка при создании файла!");
-      setLoading(false);
+      setIsLoading(false);
 
       return;
     }
 
     saveAs(blob, `${originalFileName.replace(/\.json$/, "")}.tgs`);
-    setLoading(false);
+    setIsLoading(false);
   };
 
   return (
@@ -176,10 +176,10 @@ with open("input.json", "rb") as f_in:
           </button>
           <button
             className={`${modalStyles["modal-open-button"]} ${styles["converter-button-action"]}`}
-            disabled={loading}
+            disabled={isLoading}
             onClick={downloadTgs}
           >
-            {loading ? <Spin size="small" /> : "Скачать преобразованный TGS"}
+            {isLoading ? <Spin size="small" /> : "Скачать преобразованный TGS"}
           </button>
         </div>
       )}

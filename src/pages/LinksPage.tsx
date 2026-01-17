@@ -52,14 +52,14 @@ import {LinkCard} from "../components/ui/LinkCards";
 import {/* AEExprIcon, */ AeIcon, PrIcon, PsIcon} from "./FaqIcon";
 
 const Links = () => {
-  const [isModalVisible, setIsModalVisible] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const showModal = () => {
-    setIsModalVisible(true);
+  const openModal = () => {
+    setIsModalOpen(true);
   };
 
-  const handleCancel = () => {
-    setIsModalVisible(false);
+  const closeModal = () => {
+    setIsModalOpen(false);
   };
 
   return (
@@ -563,7 +563,7 @@ const Links = () => {
                 textDecoration: "underline",
               }}
               type="button"
-              onClick={showModal}
+              onClick={openModal}
             >
               Подробнее...
             </button>
@@ -572,9 +572,9 @@ const Links = () => {
             centered
             closeIcon={undefined}
             footer={<></>}
-            open={isModalVisible}
+            open={isModalOpen}
             width={1000}
-            onCancel={handleCancel}
+            onCancel={closeModal}
           >
             <div className={modalStyles["modal"]}>
               <div className={modalStyles["modal-content"]}>
@@ -584,7 +584,7 @@ const Links = () => {
                   </div>
                   <button
                     className={modalStyles["modal-header-close"]}
-                    onClick={handleCancel}
+                    onClick={closeModal}
                   >
                     <CloseRounded />
                   </button>

@@ -146,7 +146,7 @@ type AnimationProperty =
 interface AnimationDemoProperties {
   animatedPoint: Point;
   animationProperty: AnimationProperty;
-  showTrail: boolean;
+  isTrailVisible: boolean;
   trackRef: React.RefObject<HTMLDivElement | null>;
   trackWidth: number;
   valueYMax: number;
@@ -161,7 +161,7 @@ interface TrailFrame {
 const AnimationDemo: React.FC<AnimationDemoProperties> = ({
   animatedPoint,
   animationProperty,
-  showTrail,
+  isTrailVisible,
   trackRef,
   trackWidth,
   valueYMax,
@@ -187,7 +187,7 @@ const AnimationDemo: React.FC<AnimationDemoProperties> = ({
 
   useEffect(() => {
     if (
-      showTrail &&
+      isTrailVisible &&
       ["position", "positionAndRotation", "positionAndScale"].includes(animationProperty)
     ) {
       setTrailPositions((previous) => {
@@ -200,7 +200,7 @@ const AnimationDemo: React.FC<AnimationDemoProperties> = ({
     } else {
       setTrailPositions([]);
     }
-  }, [animatedPoint, animationProperty, showTrail, trackWidth]);
+  }, [animatedPoint, animationProperty, isTrailVisible, trackWidth]);
 
   const getAnimatedStyle = () => {
     if (trackWidth === 0) {
@@ -305,7 +305,7 @@ const AnimationDemo: React.FC<AnimationDemoProperties> = ({
             <div className={styles["track-line"]} />
           </div>
         )}
-        {showTrail &&
+        {isTrailVisible &&
           trailPositions.map((trailFrame, index) => {
             const opacity = 0.5 * ((index + 1) / trailPositions.length);
 
@@ -777,12 +777,12 @@ interface AnimationControlsProperties {
   handleResetAnimation: () => void;
   handleTogglePlayPause: () => void;
   isPaused: boolean;
+  isTrailVisible: boolean;
   setAnimationMode: (mode: AnimationMode) => void;
   setAnimationProperty: (property: AnimationProperty) => void;
   setDuration: (value: number) => void;
   setFps: (value: number) => void;
-  setShowTrail: (show: boolean) => void;
-  showTrail: boolean;
+  setIsTrailVisible: (show: boolean) => void;
   timecode: string;
 }
 
@@ -795,12 +795,12 @@ const AnimationControls: React.FC<AnimationControlsProperties> = ({
   handleResetAnimation = () => {},
   handleTogglePlayPause = () => {},
   isPaused,
+  isTrailVisible,
   setAnimationMode = () => {},
   setAnimationProperty = () => {},
   setDuration = () => {},
   setFps = () => {},
-  setShowTrail = () => {},
-  showTrail,
+  setIsTrailVisible = () => {},
 }) => {
   const modeTextMap: Record<AnimationMode, string> = {
     "loop": "Цикл",
@@ -887,8 +887,8 @@ const AnimationControls: React.FC<AnimationControlsProperties> = ({
           </button>
           <button onClick={handleResetAnimation}>Сбросить</button>
           <button
-            className={showTrail ? `${styles["active"]} ${styles["selected"]}` : ""}
-            onClick={() => setShowTrail(!showTrail)}
+            className={isTrailVisible ? `${styles["active"]} ${styles["selected"]}` : ""}
+            onClick={() => setIsTrailVisible(!isTrailVisible)}
           >
             Показать след
           </button>
@@ -930,7 +930,7 @@ const EasingEditor: React.FC = () => {
 
   const [isPaused, setIsPaused] = useState(false);
 
-  const [showTrail, setShowTrail] = useState(true);
+  const [isTrailVisible, setIsTrailVisible] = useState(true);
 
   const [actualFps, setActualFps] = useState(fps);
 
@@ -1434,7 +1434,7 @@ const EasingEditor: React.FC = () => {
         <AnimationDemo
           animatedPoint={animatedPoint}
           animationProperty={animationProperty}
-          showTrail={showTrail}
+          isTrailVisible={isTrailVisible}
           trackRef={trackReference}
           trackWidth={trackWidth}
           valueYMax={valueYMax}
@@ -1479,12 +1479,12 @@ const EasingEditor: React.FC = () => {
         handleResetAnimation={handleResetAnimation}
         handleTogglePlayPause={handleTogglePlayPause}
         isPaused={isPaused}
+        isTrailVisible={isTrailVisible}
         setAnimationMode={handleSetAnimationMode}
         setAnimationProperty={setAnimationProperty}
         setDuration={setDuration}
         setFps={setFps}
-        setShowTrail={setShowTrail}
-        showTrail={showTrail}
+        setIsTrailVisible={setIsTrailVisible}
         timecode={timecode}
       />
     </div>
