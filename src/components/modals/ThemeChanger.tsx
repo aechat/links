@@ -329,7 +329,7 @@ const ThemeModal: React.FC<ThemeModalProperties> = ({closeModal, isModalOpen}) =
 
   const isWinter = [0, 1, 11].includes(month);
 
-  const showWidthSelector =
+  const isWidthSelectorVisible =
     allowedPaths.some((path) => currentPath.startsWith(path)) && windowWidth >= 1000;
 
   return (
@@ -376,7 +376,7 @@ const ThemeModal: React.FC<ThemeModalProperties> = ({closeModal, isModalOpen}) =
               Системная
             </ThemeOptionButton>
           </div>
-          {showWidthSelector && (
+          {isWidthSelectorVisible && (
             <>
               <div className={styles["theme-title"]}>Максимальная ширина контента</div>
               <div className={styles["theme-selector"]}>
