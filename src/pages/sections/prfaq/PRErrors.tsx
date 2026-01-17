@@ -76,7 +76,7 @@ const PRErrors: React.FC = () => {
         </p>
         <ContentFilter
           macContent={
-            <div>
+            <>
               <Divider>Правим файл hosts</Divider>
               <p>
                 Один из способов «лечения» этого окна — редактирование файла{" "}
@@ -137,10 +137,10 @@ const PRErrors: React.FC = () => {
                 <mark className="app">Adobe Activation Tool</mark>, предварительно удалив
                 предыдущие установки программы.
               </p>
-            </div>
+            </>
           }
           windowsContent={
-            <div>
+            <>
               <Divider>Проверяем настройки вашего VPN-клиента</Divider>
               <p>
                 Если вы не хотите отключать себя от виртуальной частной сети, проверьте
@@ -395,7 +395,7 @@ const PRErrors: React.FC = () => {
                 </a>
                 .
               </p>
-            </div>
+            </>
           }
         />
       </DetailsSummary>
@@ -546,8 +546,10 @@ const PRErrors: React.FC = () => {
         </p>
         <ul>
           <li>
+            <p>
             Попробуйте найти автосохранения проекта и открыть их. Обычно они находятся
             рядом с файлом проекта.
+            </p>
             <Addition type="info">
               <ul>
                 <li>

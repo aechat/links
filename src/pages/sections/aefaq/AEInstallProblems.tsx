@@ -70,8 +70,11 @@ const AEInstallProblems: React.FC = () => {
             </Addition>
           </li>
           <li>
-            Пакеты шаблонов формата <mark className="file">ATOM</mark> устанавливаются
-            перетаскиванием файла в окно расширения <mark className="plugin">AtomX</mark>.
+            <p>
+              Пакеты шаблонов формата <mark className="file">ATOM</mark> устанавливаются
+              перетаскиванием файла в окно расширения{" "}
+              <mark className="plugin">AtomX</mark>.
+            </p>
             <Addition type="warning">
               <mark className="plugin">AtomX</mark> версии <mark>3.0.9</mark> может не
               импортировать пакеты, выдавая ошибку{" "}
@@ -88,7 +91,7 @@ const AEInstallProblems: React.FC = () => {
         </ul>
         <ContentFilter
           macContent={
-            <div>
+            <>
               <ul>
                 <li>
                   Если вы скачали архив формата <mark className="file">ZIP</mark>,{" "}
@@ -598,10 +601,10 @@ const AEInstallProblems: React.FC = () => {
                   </ul>
                 </li>
               </ul>
-            </div>
+            </>
           }
           windowsContent={
-            <div>
+            <>
               <ul>
                 <li>
                   Если вы скачали архив формата <mark className="file">ZIP</mark>,{" "}
@@ -1116,9 +1119,11 @@ const AEInstallProblems: React.FC = () => {
                       <mark className="select">«Установить для всех пользователей»</mark>.
                     </li>
                     <li>
-                      Распакуйте файлы шрифтов в{" "}
-                      <mark className="path">C:\Windows\Fonts</mark>. Это позволит
-                      установить шрифты для всех пользователей системы.
+                      <p>
+                        Распакуйте файлы шрифтов в{" "}
+                        <mark className="path">C:\Windows\Fonts</mark>. Это позволит
+                        установить шрифты для всех пользователей системы.
+                      </p>
                       <Addition type="info">
                         Если у вас нет прав администратора, вы можете распаковать файлы
                         шрифтов в папку{" "}
@@ -1139,7 +1144,7 @@ const AEInstallProblems: React.FC = () => {
                   </ul>
                 </li>
               </ul>
-            </div>
+            </>
           }
         />
         <Addition type="info">
@@ -1155,7 +1160,7 @@ const AEInstallProblems: React.FC = () => {
       >
         <ContentFilter
           windowsContent={
-            <div>
+            <>
               <p>
                 При установке «народного» программного обеспечения ваш антивирус может
                 сработать на модифицированные файлы, удалить их и пометить как{" "}
@@ -1281,7 +1286,7 @@ const AEInstallProblems: React.FC = () => {
                 src="HxlxS1Mdyp0"
                 type="youtube"
               />
-            </div>
+            </>
           }
         />
       </DetailsSummary>
@@ -1291,7 +1296,7 @@ const AEInstallProblems: React.FC = () => {
       >
         <ContentFilter
           windowsContent={
-            <div>
+            <>
               <p>
                 Часто в различных чатах, в том числе в нашем{" "}
                 <a href="https://t.me/joinchat/F1DdXtG9LephYWUy">AEChat</a>, пользователи
@@ -1524,7 +1529,7 @@ const AEInstallProblems: React.FC = () => {
                 src="VaupaCuluJA"
                 type="youtube"
               />
-            </div>
+            </>
           }
         />
       </DetailsSummary>
@@ -1549,7 +1554,7 @@ const AEInstallProblems: React.FC = () => {
         <Divider>Исправляем ошибку 176</Divider>
         <ContentFilter
           macContent={
-            <div>
+            <>
               <p>
                 Скорее всего, до установки более новых версий{" "}
                 <mark className="app">Adobe After Effects</mark> вы пользовались другими
@@ -1558,10 +1563,10 @@ const AEInstallProblems: React.FC = () => {
                 <mark className="path">/Library/Application Support/Adobe/caps</mark>, а
                 затем повторить попытку установки.
               </p>
-            </div>
+            </>
           }
           windowsContent={
-            <div>
+            <>
               <p>
                 Скорее всего, до установки более новых версий{" "}
                 <mark className="app">Adobe After Effects</mark> вы пользовались другими
@@ -1572,7 +1577,7 @@ const AEInstallProblems: React.FC = () => {
                 </mark>
                 , а затем повторить попытку установки.
               </p>
-            </div>
+            </>
           }
         />
         <Divider>
@@ -1594,7 +1599,7 @@ const AEInstallProblems: React.FC = () => {
         </Divider>
         <ContentFilter
           windowsContent={
-            <div>
+            <>
               <p>
                 Скорее всего, вы пытаетесь установить{" "}
                 <mark className="app">Adobe After Effects</mark> версии <mark>2024</mark>{" "}
@@ -1668,7 +1673,7 @@ const AEInstallProblems: React.FC = () => {
                   установка пройдёт корректно.
                 </li>
               </ul>
-            </div>
+            </>
           }
         />
         <Divider>Исправляем ошибку «Недопустимый путь установки»</Divider>
@@ -1765,9 +1770,11 @@ const AEInstallProblems: React.FC = () => {
             </Addition>
           </li>
           <li>
-            Если вы скачали репак, запакованный в многотомный архив — убедитесь, что вы
-            скачали все части архива. Если хоть одна часть репака будет повреждена — архив
-            может не открыться.
+            <p>
+              Если вы скачали репак, запакованный в многотомный архив — убедитесь, что вы
+              скачали все части архива. Если хоть одна часть репака будет повреждена —
+              архив может не открыться.
+            </p>
             <Addition type="info">
               Чтобы распаковать такой архив, достаточно начать распаковку первой части —
               остальные подхватятся автоматически. Для распаковки таких архивов рекомендую
@@ -1832,7 +1839,7 @@ const AEInstallProblems: React.FC = () => {
       >
         <ContentFilter
           windowsContent={
-            <div>
+            <>
               <p>
                 Такая ошибка может возникнуть, если вы когда-то установили{" "}
                 <mark className="app">Adobe Creative Cloud</mark> рядом с «народными»
@@ -1854,7 +1861,7 @@ const AEInstallProblems: React.FC = () => {
                 или любым другим деинсталлятором, например{" "}
                 <mark className="app">Revo Uninstaller</mark>.
               </p>
-            </div>
+            </>
           }
         />
       </DetailsSummary>
@@ -1865,7 +1872,7 @@ const AEInstallProblems: React.FC = () => {
       >
         <ContentFilter
           windowsContent={
-            <div>
+            <>
               <p>
                 Если вы по каким-то причинам опасаетесь, что при установке репаков от{" "}
                 <mark className="user">KpoJluK</mark>,{" "}
@@ -2090,7 +2097,7 @@ const AEInstallProblems: React.FC = () => {
                   установленных программ. После этого ими можно пользоваться.
                 </li>
               </ul>
-            </div>
+            </>
           }
         />
       </DetailsSummary>
@@ -2189,7 +2196,7 @@ const AEInstallProblems: React.FC = () => {
         </ul>
         <ContentFilter
           windowsContent={
-            <div>
+            <>
               <ul>
                 <li>
                   Если установлены <mark className="app">Adobe After Effects</mark>,{" "}
@@ -2247,7 +2254,7 @@ const AEInstallProblems: React.FC = () => {
                 помощью стороннего ПО — например,{" "}
                 <mark className="app">Shutter Encoder</mark>.
               </p>
-            </div>
+            </>
           }
         />
       </DetailsSummary>
@@ -2306,8 +2313,10 @@ const AEInstallProblems: React.FC = () => {
             </Addition>
           </li>
           <li>
-            <mark className="word">AVX</mark> — плагин установится для программ от{" "}
-            <mark className="company">Avid</mark>.
+            <p>
+              <mark className="word">AVX</mark> — плагин установится для программ от{" "}
+              <mark className="company">Avid</mark>.
+            </p>
             <Addition type="warning">
               Такой тип плагинов не совместим с программами от{" "}
               <mark className="company">Adobe</mark> и с программами, поддерживающими
@@ -2375,7 +2384,7 @@ const AEInstallProblems: React.FC = () => {
         </p>
         <ContentFilter
           windowsContent={
-            <div>
+            <>
               <ul>
                 <li>
                   Если вы недавно установили плагины, но не можете их использовать в
@@ -2432,7 +2441,7 @@ const AEInstallProblems: React.FC = () => {
                   <mark className="app">Revo Uninstaller</mark>.
                 </li>
               </ul>
-            </div>
+            </>
           }
         />
       </DetailsSummary>
@@ -2442,7 +2451,7 @@ const AEInstallProblems: React.FC = () => {
       >
         <ContentFilter
           windowsContent={
-            <div>
+            <>
               <p>
                 Скорее всего, вы пытаетесь запустить{" "}
                 <mark className="app">Adobe After Effects</mark> или применить плагины на
@@ -2503,7 +2512,7 @@ const AEInstallProblems: React.FC = () => {
                   Сборки Windows от SanLex на NNM-Club
                 </a>
               </div>
-            </div>
+            </>
           }
         />
       </DetailsSummary>
@@ -2535,7 +2544,7 @@ const AEInstallProblems: React.FC = () => {
       >
         <ContentFilter
           macContent={
-            <div>
+            <>
               <p>
                 В этом окне сообщается, что вы установили плагин, который не поддерживает
                 вашу версию <mark className="app">Adobe After Effects</mark>. Чаще всего
@@ -2636,7 +2645,7 @@ const AEInstallProblems: React.FC = () => {
                   <mark className="company">Intel</mark> — и работайте на нём.
                 </li>
               </ul>
-            </div>
+            </>
           }
         />
       </DetailsSummary>
@@ -2861,7 +2870,7 @@ const AEInstallProblems: React.FC = () => {
         <Divider>Обновление с «одного года» на другой</Divider>
         <ContentFilter
           windowsContent={
-            <div>
+            <>
               <p>
                 Если вы решили обновиться с «одного года» на другой — например, с{" "}
                 <mark>23.6</mark> на <mark>25.2</mark>, — вам потребуется вручную
@@ -3027,7 +3036,7 @@ const AEInstallProblems: React.FC = () => {
                 заменяйте новые стандартные файлы старыми, чтобы избежать проблем со
                 стабильностью.
               </Addition>
-            </div>
+            </>
           }
         />
       </DetailsSummary>
@@ -3044,7 +3053,7 @@ const AEInstallProblems: React.FC = () => {
         </p>
         <ContentFilter
           windowsContent={
-            <div>
+            <>
               <Divider>Сброс настроек при запуске</Divider>
               <p>
                 Чтобы быстро сбросить все настройки{" "}
@@ -3103,7 +3112,7 @@ const AEInstallProblems: React.FC = () => {
                 <mark className="path">Program Files</mark> или{" "}
                 <mark className="path">%USERPROFILE%/Documents</mark>).
               </p>
-            </div>
+            </>
           }
         />
       </DetailsSummary>

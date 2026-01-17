@@ -121,7 +121,7 @@ const AEInterface: React.FC = () => {
         <Divider>А как закрепить окно скрипта?</Divider>
         <ContentFilter
           macContent={
-            <div>
+            <>
               <p>
                 Скрипты формата <mark className="file">JSX</mark> или{" "}
                 <mark className="file">JSXBIN</mark> с интерфейсом нельзя прикрепить, если
@@ -157,10 +157,10 @@ const AEInterface: React.FC = () => {
                 type="video"
                 variant="windows"
               />
-            </div>
+            </>
           }
           windowsContent={
-            <div>
+            <>
               <p>
                 Скрипты формата <mark className="file">JSX</mark> или{" "}
                 <mark className="file">JSXBIN</mark> с интерфейсом нельзя прикрепить, если
@@ -201,7 +201,7 @@ const AEInterface: React.FC = () => {
                 type="video"
                 variant="windows"
               />
-            </div>
+            </>
           }
         />
         <p>
@@ -629,7 +629,7 @@ const AEInterface: React.FC = () => {
         />
         <ContentFilter
           macContent={
-            <div>
+            <>
               <ul>
                 <li>
                   Чтобы установить это расширение, перенесите файл{" "}
@@ -650,10 +650,10 @@ const AEInterface: React.FC = () => {
                   .
                 </li>
               </ul>
-            </div>
+            </>
           }
           windowsContent={
-            <div>
+            <>
               <ul>
                 <li>
                   Чтобы установить это расширение, перенесите файл{" "}
@@ -674,7 +674,7 @@ const AEInterface: React.FC = () => {
                   .
                 </li>
               </ul>
-            </div>
+            </>
           }
         />
         <p>
@@ -1142,7 +1142,7 @@ const AEInterface: React.FC = () => {
       >
         <ContentFilter
           windowsContent={
-            <div>
+            <>
               <Addition type="danger">
                 <ul>
                   <li>
@@ -1162,7 +1162,7 @@ const AEInterface: React.FC = () => {
                   </li>
                 </ul>
               </Addition>
-            </div>
+            </>
           }
         />
         <p>
@@ -1300,7 +1300,7 @@ const AEInterface: React.FC = () => {
       >
         <ContentFilter
           windowsContent={
-            <div>
+            <>
               <Addition type="danger">
                 <ul>
                   <li>
@@ -1425,7 +1425,7 @@ const AEInterface: React.FC = () => {
                 type="video"
                 variant="windows"
               />
-            </div>
+            </>
           }
         />
       </DetailsSummary>

@@ -20,11 +20,13 @@ const PSInstallProblems: React.FC = () => {
         <Divider>Универсальные инструкции для разных типов файлов</Divider>
         <ul>
           <li>
+            <p>
             Если в архиве находится файл <mark className="image">PSD</mark>, то такие
             файлы открываются как обычный проект в{" "}
             <mark className="app">Adobe Photoshop</mark> через{" "}
             <mark className="select">«File» → «Open»</mark> или открытием из проводника,
             если в системе зависимости были корректно настроены на данный тип файлов.
+            </p>
             <Addition type="info">
               Если вы хотите встроить <mark className="image">PSD</mark> в свой проект -
               просто перенесите файл из проводника в окно с открытым проектом в{" "}
@@ -36,6 +38,7 @@ const PSInstallProblems: React.FC = () => {
             </Addition>
           </li>
           <li>
+            <p>
             Если в архиве находится <mark className="image">AI</mark>,{" "}
             <mark className="image">EPS</mark>, <mark className="image">JPG</mark>,{" "}
             <mark className="image">PNG</mark>, <mark className="image">PDF</mark>,{" "}
@@ -43,6 +46,7 @@ const PSInstallProblems: React.FC = () => {
             файлы открываются как обычные изображения в{" "}
             <mark className="app">Adobe Photoshop</mark> простым перетаскиванием файла в
             окно программы или через <mark className="select">«File» → «Open»</mark>.
+            </p>
             <Addition type="info">
               <p>
                 Чтобы поместить изображение в открытый проект - переместите его из
@@ -63,14 +67,16 @@ const PSInstallProblems: React.FC = () => {
             </Addition>
           </li>
           <li>
+            <p>
             Если в архиве находится файл <mark className="file">ATN</mark>, то для
             установки вам нужно открыть окно <mark className="select">«Actions»</mark> с
-            помощью комбинации клавиш <mark className="key">Alt + F9</mark>, нажать на три
-            полоски в углу открывшегося окна и нажать на кнопку{" "}
+              помощью комбинации клавиш <mark className="key">Alt + F9</mark>, нажать на
+              три полоски в углу открывшегося окна и нажать на кнопку{" "}
             <mark className="select">«Load Actions»</mark>. Далее вам предложат выбрать
             нужный файл. После выбора файла действий оно у вас отобразится в окне{" "}
             <mark className="select">«Actions»</mark> и вы сможете применять их в своих
             проектах.
+            </p>
             <Addition type="warning">
               Рекомендуется использовать английскую локализацию{" "}
               <mark className="app">Adobe Photoshop</mark> при использовании сторонних{" "}
@@ -107,7 +113,7 @@ const PSInstallProblems: React.FC = () => {
         </ul>
         <ContentFilter
           macContent={
-            <div>
+            <>
               <ul>
                 <li>
                   <Addition type="danger">
@@ -118,12 +124,14 @@ const PSInstallProblems: React.FC = () => {
                     которой хранятся метаданные и информация о файловой системе. В нём нет
                     ничего интересного для пользователя.
                   </Addition>
+                  <p>
                   Если вы скачали архив формата <mark className="file">ZIP</mark>,{" "}
-                  <mark className="file">7Z</mark> или <mark className="file">RAR</mark>,
-                  то вам необходимо его распаковать с помощью архиватора для дальнейшей
-                  работы с ним. Это можно сделать с помощью{" "}
+                    <mark className="file">7Z</mark> или <mark className="file">RAR</mark>
+                    , то вам необходимо его распаковать с помощью архиватора для
+                    дальнейшей работы с ним. Это можно сделать с помощью{" "}
                   <mark className="app">keka</mark> или{" "}
                   <mark className="app">The Unarchiver</mark>.
+                  </p>
                   <Addition type="info">
                     <ul>
                       <li>
@@ -167,12 +175,14 @@ const PSInstallProblems: React.FC = () => {
                   />
                 </li>
                 <li>
+                  <p>
                   Если в архиве или в записи находится файл{" "}
-                  <mark className="file">DMG</mark>, <mark className="file">APP</mark> или{" "}
-                  <mark className="file">PKG</mark>, то обычно в нём содержится
+                    <mark className="file">DMG</mark>, <mark className="file">APP</mark>{" "}
+                    или <mark className="file">PKG</mark>, то обычно в нём содержится
                   автоматический установщик плагина. Для установки таких файлов нужно
                   следовать инструкциям установщика, например перенести файл из одного
                   места в другое и так далее.
+                  </p>
                   <Addition type="info">
                     <ul>
                       <li>
@@ -197,18 +207,20 @@ const PSInstallProblems: React.FC = () => {
                   </Addition>
                 </li>
                 <li>
-                  Если в архиве находится файл <mark className="file">ZXP</mark>, то такие
-                  расширения обычно устанавливаются через{" "}
+                  <p>
+                    Если в архиве находится файл <mark className="file">ZXP</mark>, то
+                    такие расширения обычно устанавливаются через{" "}
                   <a href="https://aescripts.com/learn/zxp-installer/">
                     ZXP Installer от aescripts
                   </a>
                   . Прежде чем устанавливать расширение такого формата, убедитесь в том,
                   что ваша версия <mark className="app">Adobe Photoshop</mark> его
-                  поддерживает. После того как вы установите расширение, откройте терминал
-                  и введите команды ниже, их можно скопировать одним нажатием. Если
-                  терминал не выдал никакие ошибки, то вы можете спокойно открыть{" "}
+                    поддерживает. После того как вы установите расширение, откройте
+                    терминал и введите команды ниже, их можно скопировать одним нажатием.
+                    Если терминал не выдал никакие ошибки, то вы можете спокойно открыть{" "}
                   <mark className="app">Adobe Photoshop</mark> и проверить
                   работоспособность установленного расширения.
+                  </p>
                   <Addition type="danger">
                     Пожалуйста, не используйте{" "}
                     <a href="https://zxpinstaller.com/">
@@ -316,10 +328,10 @@ const PSInstallProblems: React.FC = () => {
                   </Addition>
                 </li>
               </ul>
-            </div>
+            </>
           }
           windowsContent={
-            <div>
+            <>
               <ul>
                 <li>
                   Если вы скачали архив формата <mark className="file">ZIP</mark>,{" "}
@@ -494,7 +506,7 @@ const PSInstallProblems: React.FC = () => {
                   </Addition>
                 </li>
               </ul>
-            </div>
+            </>
           }
         />
       </DetailsSummary>
@@ -505,7 +517,7 @@ const PSInstallProblems: React.FC = () => {
       >
         <ContentFilter
           windowsContent={
-            <div>
+            <>
               <p>
                 При установке «народного» программного обеспечения ваш антивирус может
                 сработать на модифицированные файлы, удалить их и пометить как{" "}
@@ -631,7 +643,7 @@ const PSInstallProblems: React.FC = () => {
                 src="HxlxS1Mdyp0"
                 type="youtube"
               />
-            </div>
+            </>
           }
         />
       </DetailsSummary>
@@ -654,7 +666,7 @@ const PSInstallProblems: React.FC = () => {
         <Divider>Исправляем ошибку 176</Divider>
         <ContentFilter
           macContent={
-            <div>
+            <>
               <p>
                 Скорее всего вы до установки более новых версий{" "}
                 <mark className="app">Adobe Photoshop</mark> пользовались другими
@@ -663,10 +675,10 @@ const PSInstallProblems: React.FC = () => {
                 <mark className="path">/Library/Application Support/Adobe/caps</mark>, а
                 затем повторить попытку установки нужной программы.
               </p>
-            </div>
+            </>
           }
           windowsContent={
-            <div>
+            <>
               <p>
                 Скорее всего вы до установки более новых версий{" "}
                 <mark className="app">Adobe Photoshop</mark> пользовались другими
@@ -677,7 +689,7 @@ const PSInstallProblems: React.FC = () => {
                 </mark>
                 , а затем повторить попытку установки нужной программы.
               </p>
-            </div>
+            </>
           }
         />
         <Divider>
@@ -703,6 +715,7 @@ const PSInstallProblems: React.FC = () => {
         </p>
         <ul>
           <li>
+            <p>
             Если вы хотите установить свежую версию{" "}
             <mark className="app">Adobe Photoshop</mark>, то вам нужно обновить вашу
             систему до <mark>Windows 10</mark> сборки <mark>22H2</mark> или установить{" "}
@@ -711,6 +724,7 @@ const PSInstallProblems: React.FC = () => {
               системных требованиях Adobe Photoshop
             </a>{" "}
             указывается минимальная версия операционной системы.
+            </p>
             <Addition type="info">
               <ul>
                 <li>
@@ -757,8 +771,10 @@ const PSInstallProblems: React.FC = () => {
         <Divider>Как избавиться от этой ошибки?</Divider>
         <ul>
           <li>
+            <p>
             Убедитесь в том, что вы полностью скачали файл. Довольно часто веб-версия{" "}
-            <mark className="app">Telegram</mark> загружает установочные файлы с ошибками.{" "}
+              <mark className="app">Telegram</mark> загружает установочные файлы с
+              ошибками.{" "}
             {(() => {
               const userAgent = navigator.userAgent.toLowerCase();
               const isIOS = /iphone|ipad/.test(userAgent);
@@ -790,9 +806,10 @@ const PSInstallProblems: React.FC = () => {
               if (isMacOS) {
                 return (
                   <>
-                    Чтобы корректно скачивать подобные файлы - рекомендую воспользоваться
-                    десктопной версией <mark className="app">Telegram</mark> вместо
-                    веб-версии, которую можно скачать по{" "}
+                      Чтобы корректно скачивать подобные файлы - рекомендую
+                      воспользоваться десктопной версией{" "}
+                      <mark className="app">Telegram</mark> вместо веб-версии, которую
+                      можно скачать по{" "}
                     <a href="https://macos.telegram.org/">этой ссылке</a>.
                   </>
                 );
@@ -807,6 +824,7 @@ const PSInstallProblems: React.FC = () => {
                 </>
               );
             })()}
+            </p>
             <Addition type="info">
               Если вы полностью скачали файл с канала{" "}
               <a href="https://t.me/+Qd9xu7A4TeIwNzY6">склад стройматериалов</a> и вы
@@ -815,10 +833,12 @@ const PSInstallProblems: React.FC = () => {
             </Addition>
           </li>
           <li>
+            <p>
             Если вы скачали репак, запакованный в многотомный архив, которые обычно
             помечаются как <mark className="file">PART1</mark>,{" "}
-            <mark className="file">PART2</mark> и так далее по порядку - убедитесь в том,
-            что вы скачали все части архива, а также его корректно распаковали.
+              <mark className="file">PART2</mark> и так далее по порядку - убедитесь в
+              том, что вы скачали все части архива, а также его корректно распаковали.
+            </p>
             <Addition type="info">
               Чтобы распаковать такой архив - достаточно начать распаковку первой части
               архива, остальные части подхватятся автоматически. Для распаковки таких

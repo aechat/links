@@ -78,9 +78,11 @@ const PRExportProblems: React.FC = () => {
             <mark className="app">Adobe Premiere Pro</mark>.
           </li>
           <li>
+            <p>
             Если предыдущие методы не помогли, попробуйте включить опцию{" "}
             <mark>Use Previews</mark> в настройках экспорта, чтобы использовать файлы
             пререндера.
+            </p>
             <Addition type="info">
               <ul>
                 <li>

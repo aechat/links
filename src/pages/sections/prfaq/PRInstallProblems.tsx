@@ -126,8 +126,11 @@ const PRInstallProblems: React.FC = () => {
             </Addition>
           </li>
           <li>
+            <p>
             Пакеты шаблонов формата <mark className="file">ATOM</mark> устанавливаются
-            перетаскиванием файла в окно расширения <mark className="plugin">AtomX</mark>.
+              перетаскиванием файла в окно расширения{" "}
+              <mark className="plugin">AtomX</mark>.
+            </p>
             <Addition type="warning">
               <mark className="plugin">AtomX</mark> версии <mark>3.0.9</mark> может не
               импортировать пакеты, выдавая ошибку{" "}
@@ -144,7 +147,7 @@ const PRInstallProblems: React.FC = () => {
         </ul>
         <ContentFilter
           macContent={
-            <div>
+            <>
               <ul>
                 <li>
                   Если вы скачали архив формата <mark className="file">ZIP</mark>,{" "}
@@ -202,10 +205,12 @@ const PRInstallProblems: React.FC = () => {
                   </Addition>
                 </li>
                 <li>
+                  <p>
                   Чтобы установить пакет формата <mark className="file">DMG</mark>,{" "}
-                  <mark className="file">APP</mark> или <mark className="file">PKG</mark>{" "}
-                  — достаточно открыть такой файл двойным кликом и следовать инструкциям
-                  установщика.
+                    <mark className="file">APP</mark> или{" "}
+                    <mark className="file">PKG</mark> — достаточно открыть такой файл
+                    двойным кликом и следовать инструкциям установщика.
+                  </p>
                   <Addition type="info">
                     <ul>
                       <li>
@@ -379,9 +384,11 @@ const PRInstallProblems: React.FC = () => {
                   следующим образом:
                   <ul>
                     <li>
-                      Откройте окно <mark className="select">«Effects»</mark>, нажмите на
-                      иконку с тремя полосками в его заголовке, а затем — на кнопку{" "}
+                      <p>
+                        Откройте окно <mark className="select">«Effects»</mark>, нажмите
+                        на иконку с тремя полосками в его заголовке, а затем — на кнопку{" "}
                       <mark className="select">«Import Presets»</mark>.
+                      </p>
                       <Addition type="info">
                         В папке с пресетами вы можете создать собственную папку или
                         расположить скачанные пресеты в уже существующих.
@@ -401,9 +408,11 @@ const PRInstallProblems: React.FC = () => {
                       <mark className="file">PRFPSET</mark>.
                     </li>
                     <li>
+                      <p>
                       После выбора файла импортированные пресеты появятся в окне{" "}
                       <mark className="select">«Effects»</mark> в папке{" "}
                       <mark className="path">Presets</mark>.
+                      </p>
                       <Addition type="info">
                         Все ваши пресеты хранятся в одном общем файле{" "}
                         <mark className="file">
@@ -503,10 +512,12 @@ const PRInstallProblems: React.FC = () => {
                           архив.
                         </li>
                         <li>
+                          <p>
                           Переместите содержимое распакованного архива в папку{" "}
                           <mark className="path">
                             /Library/Application Support/Adobe/CEP/extensions
                           </mark>
+                          </p>
                           <Addition type="info">
                             Если такой папки нет — создайте её вручную через контекстное
                             меню <mark className="app">Finder</mark>.
@@ -740,10 +751,10 @@ const PRInstallProblems: React.FC = () => {
                   </ul>
                 </li>
               </ul>
-            </div>
+            </>
           }
           windowsContent={
-            <div>
+            <>
               <ul>
                 <li>
                   Если вы скачали архив формата <mark className="file">ZIP</mark>,{" "}
@@ -786,10 +797,12 @@ const PRInstallProblems: React.FC = () => {
                   </Addition>
                 </li>
                 <li>
-                  Для того чтобы установить программу или плагин, поставляющийся в формате
-                  исполняемого файла <mark className="file">EXE</mark> или{" "}
+                  <p>
+                    Для того чтобы установить программу или плагин, поставляющийся в
+                    формате исполняемого файла <mark className="file">EXE</mark> или{" "}
                   <mark className="file">MSI</mark> — достаточно его открыть двойным
                   кликом и следовать инструкциям установщика.
+                  </p>
                   <Addition type="info">
                     <ul>
                       <li>
@@ -1006,9 +1019,11 @@ const PRInstallProblems: React.FC = () => {
                       <mark className="file">PRFPSET</mark>.
                     </li>
                     <li>
+                      <p>
                       После выбора файла импортированные пресеты появятся в окне{" "}
                       <mark className="select">«Effects»</mark> в папке{" "}
                       <mark className="path">Presets</mark>.
+                      </p>
                       <Addition type="info">
                         Все ваши пресеты хранятся в одном общем файле{" "}
                         <mark className="file">
@@ -1347,9 +1362,11 @@ const PRInstallProblems: React.FC = () => {
                       <mark className="select">«Установить для всех пользователей»</mark>.
                     </li>
                     <li>
+                      <p>
                       Распакуйте файлы шрифтов в{" "}
                       <mark className="path">C:\Windows\Fonts</mark>. Это позволит
                       установить шрифты для всех пользователей системы.
+                      </p>
                       <Addition type="info">
                         Если у вас нет прав администратора, вы можете распаковать файлы
                         шрифтов в папку{" "}
@@ -1370,7 +1387,7 @@ const PRInstallProblems: React.FC = () => {
                   </ul>
                 </li>
               </ul>
-            </div>
+            </>
           }
         />
         <Addition type="info">
@@ -1386,7 +1403,7 @@ const PRInstallProblems: React.FC = () => {
       >
         <ContentFilter
           windowsContent={
-            <div>
+            <>
               <p>
                 При установке «народного» программного обеспечения ваш антивирус может
                 сработать на модифицированные файлы, удалить их и пометить как{" "}
@@ -1512,7 +1529,7 @@ const PRInstallProblems: React.FC = () => {
                 src="HxlxS1Mdyp0"
                 type="youtube"
               />
-            </div>
+            </>
           }
         />
       </DetailsSummary>
@@ -1522,7 +1539,7 @@ const PRInstallProblems: React.FC = () => {
       >
         <ContentFilter
           windowsContent={
-            <div>
+            <>
               <p>
                 Часто в различных чатах, в том числе в нашем{" "}
                 <a href="https://t.me/joinchat/F1DdXtG9LephYWUy">AEChat</a>, пользователи
@@ -1755,7 +1772,7 @@ const PRInstallProblems: React.FC = () => {
                 src="VaupaCuluJA"
                 type="youtube"
               />
-            </div>
+            </>
           }
         />
       </DetailsSummary>
@@ -1780,7 +1797,7 @@ const PRInstallProblems: React.FC = () => {
         <Divider>Исправляем ошибку 176</Divider>
         <ContentFilter
           macContent={
-            <div>
+            <>
               <p>
                 Скорее всего, до установки более новых версий{" "}
                 <mark className="app">Adobe Premiere Pro</mark> вы пользовались другими
@@ -1789,10 +1806,10 @@ const PRInstallProblems: React.FC = () => {
                 <mark className="path">/Library/Application Support/Adobe/caps</mark>, а
                 затем повторить попытку установки.
               </p>
-            </div>
+            </>
           }
           windowsContent={
-            <div>
+            <>
               <p>
                 Скорее всего, до установки более новых версий{" "}
                 <mark className="app">Adobe Premiere Pro</mark> вы пользовались другими
@@ -1803,7 +1820,7 @@ const PRInstallProblems: React.FC = () => {
                 </mark>
                 , а затем повторить попытку установки.
               </p>
-            </div>
+            </>
           }
         />
         <Divider>
@@ -1825,7 +1842,7 @@ const PRInstallProblems: React.FC = () => {
         </Divider>
         <ContentFilter
           windowsContent={
-            <div>
+            <>
               <p>
                 Скорее всего, вы пытаетесь установить{" "}
                 <mark className="app">Adobe Premiere Pro</mark> версии <mark>2024</mark>{" "}
@@ -1899,7 +1916,7 @@ const PRInstallProblems: React.FC = () => {
                   установка пройдёт корректно.
                 </li>
               </ul>
-            </div>
+            </>
           }
         />
         <Addition type="info">
@@ -1982,9 +1999,11 @@ const PRInstallProblems: React.FC = () => {
             </Addition>
           </li>
           <li>
+            <p>
             Если вы скачали репак, запакованный в многотомный архив — убедитесь, что вы
-            скачали все части архива. Если хоть одна часть репака будет повреждена — архив
-            может не открыться.
+              скачали все части архива. Если хоть одна часть репака будет повреждена —
+              архив может не открыться.
+            </p>
             <Addition type="info">
               Чтобы распаковать такой архив, достаточно начать распаковку первой части —
               остальные подхватятся автоматически. Для распаковки таких архивов рекомендую
@@ -2049,7 +2068,7 @@ const PRInstallProblems: React.FC = () => {
       >
         <ContentFilter
           windowsContent={
-            <div>
+            <>
               <p>
                 Такая ошибка может возникнуть, если вы когда-то установили{" "}
                 <mark className="app">Adobe Creative Cloud</mark> рядом с «народными»
@@ -2071,7 +2090,7 @@ const PRInstallProblems: React.FC = () => {
                 или любым другим деинсталлятором, например{" "}
                 <mark className="app">Revo Uninstaller</mark>.
               </p>
-            </div>
+            </>
           }
         />
       </DetailsSummary>
@@ -2081,7 +2100,7 @@ const PRInstallProblems: React.FC = () => {
       >
         <ContentFilter
           windowsContent={
-            <div>
+            <>
               <p>
                 Если вы по каким-то причинам опасаетесь, что при установке репаков от{" "}
                 <mark className="user">KpoJluK</mark>,{" "}
@@ -2301,7 +2320,7 @@ const PRInstallProblems: React.FC = () => {
                 После успешного применения патча вы можете пользоваться программами без
                 каких-либо ограничений.
               </p>
-            </div>
+            </>
           }
         />
       </DetailsSummary>
@@ -2465,7 +2484,7 @@ const PRInstallProblems: React.FC = () => {
         </ul>
         <ContentFilter
           windowsContent={
-            <div>
+            <>
               <ul>
                 <li>
                   Если установлены <mark className="app">Adobe After Effects</mark>,{" "}
@@ -2521,7 +2540,7 @@ const PRInstallProblems: React.FC = () => {
                 экспорта, вы можете сконвертировать полученное видео с помощью стороннего
                 ПО — например, <mark className="app">Shutter Encoder</mark>.
               </p>
-            </div>
+            </>
           }
         />
       </DetailsSummary>
@@ -2581,8 +2600,10 @@ const PRInstallProblems: React.FC = () => {
             </Addition>
           </li>
           <li>
+            <p>
             <mark className="word">AVX</mark> — плагин установится для программ от{" "}
             <mark className="company">Avid</mark>.
+            </p>
             <Addition type="warning">
               Такой тип плагинов не совместим с программами от{" "}
               <mark className="company">Adobe</mark> и с программами, поддерживающими

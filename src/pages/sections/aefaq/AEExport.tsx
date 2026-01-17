@@ -979,9 +979,11 @@ const AEExport: React.FC = () => {
             особенно если рендеринг был долгим.
           </li>
           <li>
+            <p>
             <mark className="app">Adobe Media Encoder</mark> может экспортировать
             композиции с артефактами, например со смещённым изображением<sup>1</sup> или
             искажёнными цветами.
+            </p>
             <Addition type="info">
               <sup>1</sup> Баг со смещением изображения встречается в версиях от{" "}
               <mark>23.1</mark> до <mark>23.5</mark>. Чтобы его исправить, обновите{" "}
@@ -1328,7 +1330,7 @@ const AEExport: React.FC = () => {
         <Divider>Экспортируем с помощью Voukoder</Divider>
         <ContentFilter
           windowsContent={
-            <div>
+            <>
               <Addition type="info">
                 <ul>
                   <li>
@@ -1551,7 +1553,7 @@ const AEExport: React.FC = () => {
                   />
                 </li>
               </ul>
-            </div>
+            </>
           }
         />
         <Divider>Экспортируем с помощью AfterCodecs</Divider>
@@ -2278,8 +2280,10 @@ const AEExport: React.FC = () => {
         </p>
         <ul>
           <li>
-            Сначала загрузите видео на сайт — просто перетащите его в область публикации и
-            нажмите кнопку <mark className="select">«Upload Video»</mark>.
+            <p>
+              Сначала загрузите видео на сайт — просто перетащите его в область публикации
+              и нажмите кнопку <mark className="select">«Upload Video»</mark>.
+            </p>
             <Addition type="warning">
               Максимальный размер загружаемого файла — <mark>200 МБ</mark>.
             </Addition>

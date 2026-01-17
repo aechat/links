@@ -428,9 +428,11 @@ const AEPerformance: React.FC = () => {
             </Addition>
           </li>
           <li>
-            Если вам нужна более «проверенная» пользователями и относительно современная
-            версия, попробуйте <mark>25.1</mark> (2025), <mark>24.6</mark> (2024) или{" "}
-            <mark>23.6</mark> (2023).
+            <p>
+              Если вам нужна более «проверенная» пользователями и относительно современная
+              версия, попробуйте <mark>25.1</mark> (2025), <mark>24.6</mark> (2024) или{" "}
+              <mark>23.6</mark> (2023).
+            </p>
             <Addition type="info">
               Современное оборудование требует более свежих версий{" "}
               <mark className="app">Adobe After Effects</mark>. Если вы установите на
@@ -439,10 +441,12 @@ const AEPerformance: React.FC = () => {
             </Addition>
           </li>
           <li>
-            Если процессор вашего устройства не поддерживает{" "}
-            <a href="https://www.youtube.com/watch?v=1IAwkEdRZZw">инструкции AVX2</a>, вы
-            можете установить версию <mark>23.6</mark> (2023) или <mark>24.0</mark>{" "}
-            (2024).
+            <p>
+              Если процессор вашего устройства не поддерживает{" "}
+              <a href="https://www.youtube.com/watch?v=1IAwkEdRZZw">инструкции AVX2</a>,
+              вы можете установить версию <mark>23.6</mark> (2023) или <mark>24.0</mark>{" "}
+              (2024).
+            </p>
             <Addition type="warning">
               Если вы попытаетесь обойти требования к установке версии <mark>24.1</mark>{" "}
               или новее на неподдерживаемом процессоре, то, скорее всего, столкнётесь с
@@ -914,7 +918,7 @@ const AEPerformance: React.FC = () => {
         </Addition>
         <ContentFilter
           windowsContent={
-            <div>
+            <>
               <p>
                 Для стабильной работы в <mark className="app">Adobe After Effects</mark>{" "}
                 также рекомендуется включить и настроить{" "}
@@ -931,7 +935,7 @@ const AEPerformance: React.FC = () => {
                 подкачки, а также объясняет резкий рост потребления ресурсов в сложных
                 проектах.
               </p>
-            </div>
+            </>
           }
         />
         <Divider>Настраиваем многокадровый рендеринг</Divider>
@@ -1472,16 +1476,16 @@ const AEPerformance: React.FC = () => {
         <Divider>Очищаем систему от «мусора»</Divider>
         <ContentFilter
           macContent={
-            <div>
+            <>
               <p>
                 Если вы полностью уверены, что с проектом всё хорошо, а устройство должно
                 с ним справляться, но не справляется, — в первую очередь проверьте систему
                 на наличие «хлама» и почистите её.
               </p>
-            </div>
+            </>
           }
           windowsContent={
-            <div>
+            <>
               <p>
                 Если вы полностью уверены, что с проектом всё хорошо, а устройство должно
                 с ним справляться, но не справляется, в первую очередь проверьте систему
@@ -1505,12 +1509,12 @@ const AEPerformance: React.FC = () => {
                 <mark className="app">WinDirStat</mark>. Они просканируют все директории и
                 помогут найти и удалить ненужное.
               </p>
-            </div>
+            </>
           }
         />
         <ContentFilter
           windowsContent={
-            <div>
+            <>
               <Divider>Проверяем драйверы и отключаем автообновления</Divider>
               <p>
                 Иногда причина ситуации{" "}
@@ -1623,7 +1627,7 @@ const AEPerformance: React.FC = () => {
                   </li>
                 </ul>
               </Addition>
-            </div>
+            </>
           }
         />
         <Divider>Влияет ли версия программы на производительность?</Divider>
@@ -1782,7 +1786,7 @@ const AEPerformance: React.FC = () => {
       >
         <ContentFilter
           windowsContent={
-            <div>
+            <>
               <p>
                 <mark className="file">Файл подкачки</mark>, или{" "}
                 <mark className="file">PAGEFILE.SYS</mark>, — это специальный файл,
@@ -1961,7 +1965,7 @@ const AEPerformance: React.FC = () => {
                   будут возникать заметно реже.
                 </li>
               </ul>
-            </div>
+            </>
           }
         />
       </DetailsSummary>

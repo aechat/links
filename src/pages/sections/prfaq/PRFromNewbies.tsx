@@ -1022,8 +1022,10 @@ const PRFromNewbies: React.FC = () => {
         <Divider>Синхронизация дорожек c разных камер</Divider>
         <ul>
           <li>
+            <p>
             <mark className="app">PluralEyes</mark> - программа от Red Giant для
             синхронизации всех аудио и видео, снятые с разных камер.
+            </p>
             <Addition type="warning">
               Для данной программы поддержка прекращена. Программой пользоваться можно, но
               обновляться она уже не будет.{" "}
@@ -1033,11 +1035,13 @@ const PRFromNewbies: React.FC = () => {
             </Addition>
           </li>
           <li>
+            <p>
             <mark className="app">Syncaila</mark> или же{" "}
             <mark className="app">Синкайла</mark> - отечественный продукт для
             синхронизации многокамерной съёмки. Доступна пробная версия на 20 дней, по
             истечении которого будет доступна синхронизация только 20 клипов на двух
             дорожках.
+            </p>
             <Addition type="info">
               Приобрести полную версию <mark className="app">Syncaila</mark> можно на{" "}
               <a href="https://syncaila.com/ru#section-p7">официальном сайте</a>.
@@ -1278,7 +1282,7 @@ const PRFromNewbies: React.FC = () => {
         </p>
         <ContentFilter
           macContent={
-            <div>
+            <>
               <p>
                 В <mark>macOS</mark> функция бэкапа файлов называется{" "}
                 <mark className="app">Time Machine</mark>, которая создаёт снапшот вашей
@@ -1293,10 +1297,10 @@ const PRFromNewbies: React.FC = () => {
                 src="Gx76i28c150"
                 type="youtube"
               />
-            </div>
+            </>
           }
           windowsContent={
-            <div>
+            <>
               <p>
                 В <mark>Windows</mark> стандартная функция бэкапа файлов называется{" "}
                 <mark className="app">История файлов</mark>, которая создаёт копии файлов
@@ -1348,7 +1352,7 @@ const PRFromNewbies: React.FC = () => {
                   </li>
                 </ul>
               </Addition>
-            </div>
+            </>
           }
         />
         <Divider>

@@ -261,7 +261,7 @@ const PRActions: React.FC = () => {
         </p>
         <ContentFilter
           macContent={
-            <div>
+            <>
               <Addition type="warning">
                 В этой инструкции <mark className="app">FFmpeg</mark> устанавливается
                 через пакетный менеджер <mark className="app">Homebrew</mark>. Прежде чем
@@ -274,10 +274,10 @@ const PRActions: React.FC = () => {
                 достаточно выполнить в терминале команду{" "}
                 <mark className="code">brew install ffmpeg</mark>.
               </p>
-            </div>
+            </>
           }
           windowsContent={
-            <div>
+            <>
               <p>
                 Для быстрой установки <mark className="app">FFmpeg</mark> выполните
                 команду <mark className="code">winget install Gyan.FFmpeg</mark>. Для её
@@ -302,7 +302,7 @@ const PRActions: React.FC = () => {
                   </li>
                 </ul>
               </Addition>
-            </div>
+            </>
           }
         />
         <p>
@@ -317,8 +317,10 @@ const PRActions: React.FC = () => {
         </code>
         <ul>
           <li>
-            Вместо <mark>INPUT_VIDEO_NAME.mp4</mark> введите абсолютный или относительный
-            путь к вашему видео.
+            <p>
+              Вместо <mark>INPUT_VIDEO_NAME.mp4</mark> введите абсолютный или
+              относительный путь к вашему видео.
+            </p>
             <Addition type="info">
               <ul>
                 <li>

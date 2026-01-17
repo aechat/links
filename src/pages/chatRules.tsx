@@ -453,7 +453,7 @@ const ChatRules = () => {
                     </Addition>
                     <ContentFilter
                       macContent={
-                        <div>
+                        <>
                           <p>
                             Для создания скриншота и записи экрана предусмотрены полезные
                             комбинации клавиш, которые не раз пригодятся в жизни.
@@ -519,10 +519,10 @@ const ChatRules = () => {
                             на <mark>macOS</mark> вы можете прочитать на официальном сайте{" "}
                             <mark className="company">Apple</mark>.
                           </Addition>
-                        </div>
+                        </>
                       }
                       windowsContent={
-                        <div>
+                        <>
                           <p>
                             Чтобы сделать скриншот в <mark>Windows</mark>, используйте
                             клавишу <mark className="key">Print Screen</mark> или
@@ -590,7 +590,7 @@ const ChatRules = () => {
                               AMD Software: Adrenalin Edition
                             </a>
                           </div>
-                        </div>
+                        </>
                       }
                     />
                   </li>

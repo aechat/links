@@ -3803,7 +3803,7 @@ const AEFromNewbies: React.FC = () => {
         </Addition>
         <ContentFilter
           macContent={
-            <div>
+            <>
               <Divider>Меняем язык с помощью консоли</Divider>
               <Addition type="warning">
                 Этот способ работает только в{" "}
@@ -3844,10 +3844,10 @@ const AEFromNewbies: React.FC = () => {
                 type="image"
                 variant="windows"
               />
-            </div>
+            </>
           }
           windowsContent={
-            <div>
+            <>
               <Divider>Меняем язык с помощью текстового файла</Divider>
               <p>
                 Для быстрой смены языка на английский достаточно создать пустой текстовый
@@ -3915,7 +3915,7 @@ const AEFromNewbies: React.FC = () => {
                 type="image"
                 variant="windows"
               />
-            </div>
+            </>
           }
         />
       </DetailsSummary>
@@ -3948,7 +3948,7 @@ const AEFromNewbies: React.FC = () => {
         />
         <ContentFilter
           windowsContent={
-            <div>
+            <>
               <Addition type="info">
                 <ul>
                   <li>
@@ -3973,7 +3973,7 @@ const AEFromNewbies: React.FC = () => {
                   </li>
                 </ul>
               </Addition>
-            </div>
+            </>
           }
         />
       </DetailsSummary>
@@ -4092,7 +4092,7 @@ const AEFromNewbies: React.FC = () => {
         </p>
         <ContentFilter
           macContent={
-            <div>
+            <>
               <p>
                 В <mark>macOS</mark> эта функция называется{" "}
                 <mark className="app">Time Machine</mark>. Она создаёт «снимки» вашей
@@ -4105,10 +4105,10 @@ const AEFromNewbies: React.FC = () => {
                 src="Gx76i28c150"
                 type="youtube"
               />
-            </div>
+            </>
           }
           windowsContent={
-            <div>
+            <>
               <p>
                 В <mark>Windows</mark> эта функция называется{" "}
                 <mark className="app">«История файлов»</mark>. Она создаёт копии файлов в
@@ -4135,7 +4135,7 @@ const AEFromNewbies: React.FC = () => {
                   свои папки, их нужно добавить в библиотеку.
                 </p>
               </Addition>
-            </div>
+            </>
           }
         />
         <Divider>Создаём локальные резервные копии сторонними утилитами</Divider>
@@ -4798,7 +4798,7 @@ const AEFromNewbies: React.FC = () => {
         </p>
         <ContentFilter
           windowsContent={
-            <div>
+            <>
               <Divider>Разбираемся с драйверами</Divider>
               <p>
                 Иногда драйверы, например для видеокарты, могут обновиться автоматически
@@ -4821,7 +4821,7 @@ const AEFromNewbies: React.FC = () => {
                 поле <mark className="select">«Download Type»</mark> выберите{" "}
                 <mark className="select">«Studio Driver»</mark>.
               </p>
-            </div>
+            </>
           }
         />
       </DetailsSummary>
@@ -5696,7 +5696,7 @@ const AEFromNewbies: React.FC = () => {
         </p>
         <ContentFilter
           macContent={
-            <div>
+            <>
               <p>
                 Чтобы открыть ещё один экземпляр, перейдите в папку с программой, нажмите{" "}
                 <mark className="key">ПКМ</mark> по иконке{" "}
@@ -5712,10 +5712,10 @@ const AEFromNewbies: React.FC = () => {
                 src="k1x1goE2F10"
                 type="youtube"
               />
-            </div>
+            </>
           }
           windowsContent={
-            <div>
+            <>
               <p>
                 Чтобы снять это ограничение, добавьте ключ{" "}
                 <mark className="code">-m</mark> в свойства ярлыка. Для этого откройте
@@ -5734,7 +5734,7 @@ const AEFromNewbies: React.FC = () => {
                 type="video"
                 variant="windows"
               />
-            </div>
+            </>
           }
         />
       </DetailsSummary>

@@ -78,7 +78,7 @@ const PSErrors: React.FC = () => (
       />
       <ContentFilter
         macContent={
-          <div>
+          <>
             <Divider>Блокируем программе доступ в интернет</Divider>
             <p>
               Если вы не используете различные средства обхода блокировок или{" "}
@@ -151,10 +151,10 @@ const PSErrors: React.FC = () => (
               type="image"
               variant="mac"
             />
-          </div>
+          </>
         }
         windowsContent={
-          <div>
+          <>
             <Divider>Блокируем программе доступ в интернет</Divider>
             <p>
               Если вы не используете различные средства обхода блокировок или{" "}
@@ -391,7 +391,7 @@ const PSErrors: React.FC = () => (
               src="ET94_dv3f8c"
               type="youtube"
             />
-          </div>
+          </>
         }
       />
       <Divider>Проверяем устройство на наличие VPN-соединения</Divider>
