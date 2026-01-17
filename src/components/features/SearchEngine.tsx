@@ -1519,7 +1519,7 @@ export const SearchInPage: React.FC<{sections: SearchSection[]}> = ({sections}) 
 
   useEffect(() => {
     const handleKeyDown = (event_: KeyboardEvent) => {
-      if (!isOpen || results.length === 0) {
+      if (!isModalOpen || results.length === 0) {
         return;
       }
 
