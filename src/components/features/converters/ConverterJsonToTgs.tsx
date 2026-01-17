@@ -11,7 +11,7 @@ import styles from "./Converter.module.scss";
 
 const {saveAs} = pkg;
 
-const TgsToJsonConverter: React.FC = () => {
+const JsonToTgsConverter: React.FC = () => {
   const [jsonData, setJsonData] = useState<Record<string, unknown> | undefined>();
 
   const [originalFileName, setOriginalFileName] = useState<string>("");
@@ -187,4 +187,4 @@ with open("input.json", "rb") as f_in:
   );
 };
 
-export default TgsToJsonConverter;
+export default JsonToTgsConverter;
