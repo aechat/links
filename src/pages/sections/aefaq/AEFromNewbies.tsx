@@ -4828,7 +4828,7 @@ const AEFromNewbies: React.FC = () => {
       <DetailsSummary
         anchor="preview-no-audio"
         tag="пропало аудио, no audio, нет звука, аудио, отсутствует, audio hardware"
-        title="Почему пропал звук при проигрывании предпросмотра?"
+        title="Из-за чего может пропадать звук при проигрывании предпросмотра?"
       >
         <Divider>Проверяем настройки предпросмотра</Divider>
         <p>
