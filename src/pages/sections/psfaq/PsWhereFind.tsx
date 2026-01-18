@@ -283,12 +283,6 @@ const PsWhereFind: React.FC = () => {
             RuPixel
           </a>
           <a
-            href="https://loon.site/"
-            title="LOON"
-          >
-            LOON
-          </a>
-          <a
             href="https://www.stockvault.net/"
             title="Stockvault"
           >
@@ -396,8 +390,7 @@ const PsWhereFind: React.FC = () => {
           <li>
             Либо вы можете воспользоваться различными онлайн-сервисами по генерации
             изображений и редактирования уже существующих. Например,{" "}
-            <a href="https://fusionbrain.ai/">Fusion Brain</a> на основе модели Kandinsky
-            от Сбера, <a href="https://krea.ai">KreaAI</a> или{" "}
+            <a href="https://krea.ai">KreaAI</a> или{" "}
             <a href="https://www.recraft.ai/">RecraftAI</a>.
           </li>
           <li>

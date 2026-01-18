@@ -12,7 +12,6 @@
     "antd": "^5.29.3",
     "file-saver": "^2.0.5",
     "framer-motion": "^12.24.12",
-    "gh-pages": "^6.3.0",
     "lodash": "^4.17.21",
     "pako": "^2.1.0",
     "react": "^19.2.3",
@@ -72,8 +71,6 @@
     "preview": "vite preview",
     "format": "echo \"--- Running tsc ---\"; tsc; echo \"--- Running stylelint ---\"; stylelint \"**/*.scss\" --fix; echo \"--- Running eslint ---\"; eslint . --fix; echo \"--- Running prettier ---\"; prettier --write .",
     "build": "vite build && vite build --ssr src/EntryServer.tsx --outDir dist/server && node prerender.js",
-    "build:stash": "git stash -u && yarn build && git stash apply",
-    "deploy": "yarn && yarn build && gh-pages -d dist/client -m \"обновление сайта\" && git push",
     "prepare": "husky",
     "postinstall": "husky install"
   },

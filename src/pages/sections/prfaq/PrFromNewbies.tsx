@@ -18,14 +18,10 @@ const PrFromNewbies: React.FC = () => {
           Если вы только начинаете свой путь в монтаже или никогда не использовали{" "}
           <mark className="app">Adobe Premiere Pro</mark> как основной инструмент и хотите
           разобраться в интерфейсе и его возможностях, то посмотрите плейлист{" "}
-          <a href="https://www.youtube.com/watch?v=Wi-AalXwilg&list=PLcN7xY5E2wrmIlv6SNF2xacsryFtGIfXK&pp=iAQB">
+          <a href="https://www.youtube.com/playlist?list=PLcN7xY5E2wrmIlv6SNF2xacsryFtGIfXK">
             Азбука Adobe Premiere Pro
           </a>{" "}
-          от{" "}
-          <a href="https://www.youtube.com/channel/UCmLY17yagzLy6GRiI1nVBow">
-            Ильи Зернова
-          </a>
-          .
+          от <a href="https://youtube.com/zernov">Ильи Зернова</a>.
         </p>
         <Addition type="info">
           Курс был записан в <mark className="app">Adobe Premiere Pro</mark> версии{" "}
@@ -35,18 +31,6 @@ const PrFromNewbies: React.FC = () => {
         <ContentFigure
           caption="Азбука Adobe Premiere Pro"
           src="Wi-AalXwilg"
-          type="youtube"
-        />
-        <p>
-          Также при желании вы можете отдельно посмотреть курс по работе с вкладкой{" "}
-          <mark className="plugin">Lumetri Color</mark> в{" "}
-          <mark className="app">Adobe Premiere Pro</mark> для цветокоррекции различных
-          футажей и исходников от{" "}
-          <a href="https://www.youtube.com/@Bolharov">Романа Болгарова</a>.
-        </p>
-        <ContentFigure
-          caption="Цветокоррекция в Lumetri"
-          src="xqRnW1T_pNk"
           type="youtube"
         />
         <p>
@@ -1037,8 +1021,10 @@ const PrFromNewbies: React.FC = () => {
         <Divider>Синхронизация дорожек c разных камер</Divider>
         <ul>
           <li>
-            <mark className="app">PluralEyes</mark> - программа от Red Giant для
-            синхронизации всех аудио и видео, снятые с разных камер.
+            <p>
+              <mark className="app">PluralEyes</mark> - программа от Red Giant для
+              синхронизации всех аудио и видео, снятые с разных камер.
+            </p>
             <Addition type="warning">
               Для данной программы поддержка прекращена. Программой пользоваться можно, но
               обновляться она уже не будет.{" "}
@@ -1048,11 +1034,13 @@ const PrFromNewbies: React.FC = () => {
             </Addition>
           </li>
           <li>
-            <mark className="app">Syncaila</mark> или же{" "}
-            <mark className="app">Синкайла</mark> - отечественный продукт для
-            синхронизации многокамерной съёмки. Доступна пробная версия на 20 дней, по
-            истечении которого будет доступна синхронизация только 20 клипов на двух
-            дорожках.
+            <p>
+              <mark className="app">Syncaila</mark> или же{" "}
+              <mark className="app">Синкайла</mark> - отечественный продукт для
+              синхронизации многокамерной съёмки. Доступна пробная версия на 20 дней, по
+              истечении которого будет доступна синхронизация только 20 клипов на двух
+              дорожках.
+            </p>
             <Addition type="info">
               Приобрести полную версию <mark className="app">Syncaila</mark> можно на{" "}
               <a href="https://syncaila.com/ru#section-p7">официальном сайте</a>.
@@ -1151,13 +1139,13 @@ const PrFromNewbies: React.FC = () => {
           неполадок и старается приложить к ним временное решение.
         </p>
         <div className="flexible-links">
-          <a href="https://helpx.adobe.com/ru/premiere-pro/using/whats-new.html">
+          <a href="https://helpx.adobe.com/premiere-pro/using/whats-new.html">
             Что нового в Adobe Premiere Pro последних выпусков
           </a>
           <a href="https://helpx.adobe.com/premiere-pro/kb/fixed-issues.html">
             Список исправленных ошибок
           </a>
-          <a href="https://helpx.adobe.com/ru/premiere-pro/kb/known-issues.html">
+          <a href="https://helpx.adobe.com/premiere-pro/kb/known-issues.html">
             Выявленные неполадки в Adobe Premiere Pro
           </a>
         </div>
@@ -1293,7 +1281,7 @@ const PrFromNewbies: React.FC = () => {
         </p>
         <ContentFilter
           macContent={
-            <div>
+            <>
               <p>
                 В <mark>macOS</mark> функция бэкапа файлов называется{" "}
                 <mark className="app">Time Machine</mark>, которая создаёт снапшот вашей
@@ -1308,10 +1296,10 @@ const PrFromNewbies: React.FC = () => {
                 src="Gx76i28c150"
                 type="youtube"
               />
-            </div>
+            </>
           }
           windowsContent={
-            <div>
+            <>
               <p>
                 В <mark>Windows</mark> стандартная функция бэкапа файлов называется{" "}
                 <mark className="app">История файлов</mark>, которая создаёт копии файлов
@@ -1363,7 +1351,7 @@ const PrFromNewbies: React.FC = () => {
                   </li>
                 </ul>
               </Addition>
-            </div>
+            </>
           }
         />
         <Divider>

@@ -979,9 +979,11 @@ const AeExport: React.FC = () => {
             особенно если рендеринг был долгим.
           </li>
           <li>
-            <mark className="app">Adobe Media Encoder</mark> может экспортировать
-            композиции с артефактами, например со смещённым изображением<sup>1</sup> или
-            искажёнными цветами.
+            <p>
+              <mark className="app">Adobe Media Encoder</mark> может экспортировать
+              композиции с артефактами, например со смещённым изображением<sup>1</sup> или
+              искажёнными цветами.
+            </p>
             <Addition type="info">
               <sup>1</sup> Баг со смещением изображения встречается в версиях от{" "}
               <mark>23.1</mark> до <mark>23.5</mark>. Чтобы его исправить, обновите{" "}
@@ -1061,14 +1063,12 @@ const AeExport: React.FC = () => {
         </p>
         <p>
           Популярный техноблогер{" "}
-          <a href="https://www.youtube.com/channel/UCBJycsmduvYEL83R_U4JriQ">
-            Маркус Браунли
-          </a>{" "}
-          однажды провёл эксперимент: он тысячу раз загружал на{" "}
-          <mark className="app">YouTube</mark> одно и то же видео, чтобы посмотреть, что с
-          ним станет. Результат оказался предсказуемым: с каждой новой загрузкой площадка
-          сжимала ролик заново, и качество падало. Это работает по тому же принципу, что и
-          копирование старых VHS-кассет: каждая следующая копия всегда хуже предыдущей.
+          <a href="https://www.youtube.com/@mkbhd">Маркус Браунли</a> однажды провёл
+          эксперимент: он тысячу раз загружал на <mark className="app">YouTube</mark> одно
+          и то же видео, чтобы посмотреть, что с ним станет. Результат оказался
+          предсказуемым: с каждой новой загрузкой площадка сжимала ролик заново, и
+          качество падало. Это работает по тому же принципу, что и копирование старых
+          VHS-кассет: каждая следующая копия всегда хуже предыдущей.
         </p>
         <ContentFigure
           caption="Что будет, если опубликовать одно и то же видео 1000 раз?"
@@ -1330,7 +1330,7 @@ const AeExport: React.FC = () => {
         <Divider>Экспортируем с помощью Voukoder</Divider>
         <ContentFilter
           windowsContent={
-            <div>
+            <>
               <Addition type="info">
                 <ul>
                   <li>
@@ -1553,7 +1553,7 @@ const AeExport: React.FC = () => {
                   />
                 </li>
               </ul>
-            </div>
+            </>
           }
         />
         <Divider>Экспортируем с помощью AfterCodecs</Divider>
@@ -2280,8 +2280,10 @@ const AeExport: React.FC = () => {
         </p>
         <ul>
           <li>
-            Сначала загрузите видео на сайт — просто перетащите его в область публикации и
-            нажмите кнопку <mark className="select">«Upload Video»</mark>.
+            <p>
+              Сначала загрузите видео на сайт — просто перетащите его в область публикации
+              и нажмите кнопку <mark className="select">«Upload Video»</mark>.
+            </p>
             <Addition type="warning">
               Максимальный размер загружаемого файла — <mark>200 МБ</mark>.
             </Addition>
@@ -2619,7 +2621,7 @@ const AeExport: React.FC = () => {
                   выполните его автотрассировку для конвертации в вектор в{" "}
                   <mark className="app">Adobe Illustrator</mark> или другой программе, а
                   затем импортируйте как слой-фигуру.{" "}
-                  <a href="https://helpx.adobe.com/ru/illustrator/using/image-trace-results-optimization.html">
+                  <a href="https://helpx.adobe.com/illustrator/using/image-trace-results-optimization.html">
                     Подробнее...
                   </a>
                 </li>

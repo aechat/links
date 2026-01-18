@@ -54,7 +54,7 @@ const ContentFilter: React.FC<ContentFilterProperties> = ({
   const buttonLabel = displayForWindows ? "Показать для macOS" : "Показать для Windows";
 
   return (
-    <div>
+    <>
       <div className={styles["change-os"]}>
         <div className={styles["change-os-info-container"]}>
           {osIcon}
@@ -77,7 +77,7 @@ const ContentFilter: React.FC<ContentFilterProperties> = ({
       </div>
       <div style={{display: displayForWindows ? "block" : "none"}}>{windowsContent}</div>
       <div style={{display: displayForWindows ? "none" : "block"}}>{macContent}</div>
-    </div>
+    </>
   );
 };
 

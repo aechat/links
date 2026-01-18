@@ -148,8 +148,10 @@ const PrImport: React.FC = () => {
             <mark className="select">«Audio Bitrate»</mark>.
           </li>
           <li>
-            После настройки - укажите путь для сохранения перекодированных файлов и
-            нажмите на кнопку <mark className="select">«Start Function»</mark>.
+            <p>
+              После настройки - укажите путь для сохранения перекодированных файлов и
+              нажмите на кнопку <mark className="select">«Start Function»</mark>.
+            </p>
             <Addition type="info">
               Если у вас видеокарта от NVIDIA, то не забудьте установить галочку в
               параметре <mark className="select">«Hardware Acceleration»</mark> и выбрать
@@ -351,8 +353,10 @@ const PrImport: React.FC = () => {
             <mark className="app">MediaInfo</mark>, а вторым - <mark>Rec.709</mark>.
           </li>
           <li>
-            После настройки укажите путь для сохранения перекодированных файлов и нажмите
-            на кнопку <mark className="select">«Start Function»</mark>.
+            <p>
+              После настройки укажите путь для сохранения перекодированных файлов и
+              нажмите на кнопку <mark className="select">«Start Function»</mark>.
+            </p>
             <Addition type="info">
               Если у вас видеокарта от NVIDIA, не забудьте установить галочку в параметре{" "}
               <mark className="select">«Hardware Acceleration»</mark> и выбрать рядом
@@ -473,8 +477,10 @@ const PrImport: React.FC = () => {
             <code>https://apps.microsoft.com/9pmmsr1cgpwg</code>
           </li>
           <li>
-            Для скачивания кодека <mark className="video">HEVC</mark>.
-            <code>https://apps.microsoft.com/9n4wgh0z6vhq</code>
+            <p>
+              Для скачивания кодека <mark className="video">HEVC</mark>.
+              <code>https://apps.microsoft.com/9n4wgh0z6vhq</code>
+            </p>
             <Addition type="danger">
               <mark className="app">Adobe Premiere Pro</mark> после установки кодеков все
               ещё не будет импортировать видео с контейнером{" "}

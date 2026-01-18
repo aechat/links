@@ -326,7 +326,7 @@ const AeActions: React.FC = () => {
         </p>
         <ContentFilter
           macContent={
-            <div>
+            <>
               <Addition type="warning">
                 В этой инструкции <mark className="app">FFmpeg</mark> устанавливается
                 через пакетный менеджер <mark className="app">Homebrew</mark>. Прежде чем
@@ -339,10 +339,10 @@ const AeActions: React.FC = () => {
                 достаточно выполнить в терминале команду{" "}
                 <mark className="code">brew install ffmpeg</mark>.
               </p>
-            </div>
+            </>
           }
           windowsContent={
-            <div>
+            <>
               <p>
                 Для быстрой установки <mark className="app">FFmpeg</mark> выполните
                 команду <mark className="code">winget install Gyan.FFmpeg</mark>. Для её
@@ -367,7 +367,7 @@ const AeActions: React.FC = () => {
                   </li>
                 </ul>
               </Addition>
-            </div>
+            </>
           }
         />
         <p>
@@ -382,8 +382,10 @@ const AeActions: React.FC = () => {
         </code>
         <ul>
           <li>
-            Вместо <mark>INPUT_VIDEO_NAME.mp4</mark> введите абсолютный или относительный
-            путь к вашему видео.
+            <p>
+              Вместо <mark>INPUT_VIDEO_NAME.mp4</mark> введите абсолютный или
+              относительный путь к вашему видео.
+            </p>
             <Addition type="info">
               <ul>
                 <li>
@@ -496,7 +498,7 @@ const AeActions: React.FC = () => {
         </p>
         <ContentFilter
           macContent={
-            <div>
+            <>
               <Divider>Генерируем речь в текст с помощью сторонних инструментов</Divider>
               <p>
                 Для генерации аудио в текст можно воспользоваться утилитами, такими как{" "}
@@ -509,10 +511,10 @@ const AeActions: React.FC = () => {
                 src="strqSTYlIJg"
                 type="youtube"
               />
-            </div>
+            </>
           }
           windowsContent={
-            <div>
+            <>
               <Divider>Генерируем речь в текст с помощью Subtitle Edit</Divider>
               <p>
                 Для преобразования речи в текст можно воспользоваться утилитой{" "}
@@ -619,7 +621,7 @@ const AeActions: React.FC = () => {
                 <mark className="key">Ctrl + S</mark> для дальнейшего импорта в{" "}
                 <mark className="app">Adobe After Effects</mark>.
               </p>
-            </div>
+            </>
           }
         />
         <Divider>Импортируем файл субтитров в композицию</Divider>
@@ -874,7 +876,7 @@ const AeActions: React.FC = () => {
         </p>
         <ContentFilter
           windowsContent={
-            <div>
+            <>
               <Addition type="warning">
                 На <mark>macOS</mark> процесс установки{" "}
                 <mark className="app">Python</mark> и зависимостей может отличаться.
@@ -971,7 +973,7 @@ const AeActions: React.FC = () => {
                   </li>
                 </ul>
               </Addition>
-            </div>
+            </>
           }
         />
         <p>
@@ -1138,9 +1140,11 @@ const AeActions: React.FC = () => {
             />
           </li>
           <li>
-            <mark className="select">«Warp Stabilizer»</mark> — применяет эффект
-            стабилизации. Он нужен для устранения тряски камеры и эффекта «пьяного
-            оператора».
+            <p>
+              <mark className="select">«Warp Stabilizer»</mark> — применяет эффект
+              стабилизации. Он нужен для устранения тряски камеры и эффекта «пьяного
+              оператора».
+            </p>
             <ContentFigure
               caption="Warp Stabilizer"
               src="i-WuS2r8750"
@@ -1156,9 +1160,11 @@ const AeActions: React.FC = () => {
             </Addition>
           </li>
           <li>
-            <mark className="select">«Track Motion»</mark> — то, что нужно для
-            отслеживания движения объекта. С его помощью можно прикрепить любой слой к
-            движущемуся объекту.
+            <p>
+              <mark className="select">«Track Motion»</mark> — то, что нужно для
+              отслеживания движения объекта. С его помощью можно прикрепить любой слой к
+              движущемуся объекту.
+            </p>
             <Addition type="info">
               Если объект движется слишком быстро, увеличьте область поиска трекера. Если
               же, наоборот, объект движется медленно, а точка трекинга «уходит» в сторону,
@@ -1346,25 +1352,31 @@ const AeActions: React.FC = () => {
         </p>
         <ul>
           <li>
-            <mark className="plugin">Puppet Tool</mark> — простой и удобный инструмент,
-            который уже есть в стандартной поставке программы. Он позволяет деформировать
-            слой, расставляя «булавки», словно управляя марионеткой.{" "}
-            <a href="https://www.youtube.com/watch?v=Vu3RHRnoRM4">Как им пользоваться?</a>
+            <p>
+              <mark className="plugin">Puppet Tool</mark> — простой и удобный инструмент,
+              который уже есть в стандартной поставке программы. Он позволяет
+              деформировать слой, расставляя «булавки», словно управляя марионеткой.{" "}
+              <a href="https://www.youtube.com/watch?v=Vu3RHRnoRM4">
+                Как им пользоваться?
+              </a>
+            </p>
             <Addition type="warning">
               При использовании <mark className="select">«Continuously Rasterize»</mark>{" "}
               возможны разрывы слоя.
             </Addition>
           </li>
           <li>
-            <mark className="plugin">Duik</mark> — один из самых известных сторонних
-            инструментов для создания персонажной анимации. Распространяется{" "}
-            <a href="https://rxlaboratory.org/duik-angela-download/">
-              бесплатно на официальном сайте
-            </a>
-            . В качестве альтернативы можно рассмотреть{" "}
-            <mark className="plugin">Rubberhose</mark>,{" "}
-            <mark className="plugin">Limber</mark>,{" "}
-            <mark className="plugin">Character Tool</mark> и другие.
+            <p>
+              <mark className="plugin">Duik</mark> — один из самых известных сторонних
+              инструментов для создания персонажной анимации. Распространяется{" "}
+              <a href="https://rxlaboratory.org/duik-angela-download/">
+                бесплатно на официальном сайте
+              </a>
+              . В качестве альтернативы можно рассмотреть{" "}
+              <mark className="plugin">Rubberhose</mark>,{" "}
+              <mark className="plugin">Limber</mark>,{" "}
+              <mark className="plugin">Character Tool</mark> и другие.
+            </p>
             <Addition type="warning">
               <mark className="plugin">Duik Bassel</mark> может выдавать ошибку{" "}
               <mark className="warning">«themeColor is no longer available»</mark> в{" "}

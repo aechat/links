@@ -70,8 +70,11 @@ const AeInstallProblems: React.FC = () => {
             </Addition>
           </li>
           <li>
-            Пакеты шаблонов формата <mark className="file">ATOM</mark> устанавливаются
-            перетаскиванием файла в окно расширения <mark className="plugin">AtomX</mark>.
+            <p>
+              Пакеты шаблонов формата <mark className="file">ATOM</mark> устанавливаются
+              перетаскиванием файла в окно расширения{" "}
+              <mark className="plugin">AtomX</mark>.
+            </p>
             <Addition type="warning">
               <mark className="plugin">AtomX</mark> версии <mark>3.0.9</mark> может не
               импортировать пакеты, выдавая ошибку{" "}
@@ -88,7 +91,7 @@ const AeInstallProblems: React.FC = () => {
         </ul>
         <ContentFilter
           macContent={
-            <div>
+            <>
               <ul>
                 <li>
                   Если вы скачали архив формата <mark className="file">ZIP</mark>,{" "}
@@ -598,10 +601,10 @@ const AeInstallProblems: React.FC = () => {
                   </ul>
                 </li>
               </ul>
-            </div>
+            </>
           }
           windowsContent={
-            <div>
+            <>
               <ul>
                 <li>
                   Если вы скачали архив формата <mark className="file">ZIP</mark>,{" "}
@@ -1116,9 +1119,11 @@ const AeInstallProblems: React.FC = () => {
                       <mark className="select">«Установить для всех пользователей»</mark>.
                     </li>
                     <li>
-                      Распакуйте файлы шрифтов в{" "}
-                      <mark className="path">C:\Windows\Fonts</mark>. Это позволит
-                      установить шрифты для всех пользователей системы.
+                      <p>
+                        Распакуйте файлы шрифтов в{" "}
+                        <mark className="path">C:\Windows\Fonts</mark>. Это позволит
+                        установить шрифты для всех пользователей системы.
+                      </p>
                       <Addition type="info">
                         Если у вас нет прав администратора, вы можете распаковать файлы
                         шрифтов в папку{" "}
@@ -1139,7 +1144,7 @@ const AeInstallProblems: React.FC = () => {
                   </ul>
                 </li>
               </ul>
-            </div>
+            </>
           }
         />
         <Addition type="info">
@@ -1150,12 +1155,12 @@ const AeInstallProblems: React.FC = () => {
       </DetailsSummary>
       <DetailsSummary
         anchor="disable-defender"
-        tag="репак от кролика, выключить дефендер, отрубить антивирус, ложное срабатывание, хелпер, ошибка 24, вирусы, трояны, проверьте правильно ли указано имя и повторите попытку, windows не удается получить доступ к указанному устройству пути или файлу, возможно у вас нет нужных разрешений для доступа к этому объекту, некоторые файлы не были созданы, операция не была успешно завершена так как файл содержит вирус или потенциально нежелательную программу, обнаружены угрозы, куда-то пропадают файлы плагинов и программ, интеллектуальное управление приложениями заблокировало приложение которое может быть небезопасным, operation did not complete successfully because the file contains a virus or potentially unwanted software, windows cannot find helper.exe, make sure you typed the name correctly and then try again, 0x800700E1"
-        title="«Не удаётся найти „..\install\helper.exe“» или как отключить Windows Defender и Windows Smartscreen?"
+        tag="репак от кролика, выключить дефендер, отрубить антивирус, ложное срабатывание, хелпер, ошибка 24, вирусы, трояны, проверьте правильно ли указано имя и повторите попытку, windows не удается получить доступ к указанному устройству пути или файлу, возможно у вас нет нужных разрешений для доступа к этому объекту, некоторые файлы не были созданы, операция не была успешно завершена так как файл содержит вирус или потенциально нежелательную программу, обнаружены угрозы, куда-то пропадают файлы плагинов и программ, интеллектуальное управление приложениями заблокировало приложение которое может быть небезопасным, приложение заблокировано так как невозможно установить его автора, это не одно из известных нам приложений, operation did not complete successfully because the file contains a virus or potentially unwanted software, windows cannot find helper.exe, make sure you typed the name correctly and then try again, 0x800700E1"
+        title="«Не удаётся найти „..\install\helper.exe“» или как отключить Windows Defender и Windows SmartScreen?"
       >
         <ContentFilter
           windowsContent={
-            <div>
+            <>
               <p>
                 При установке «народного» программного обеспечения ваш антивирус может
                 сработать на модифицированные файлы, удалить их и пометить как{" "}
@@ -1260,28 +1265,59 @@ const AeInstallProblems: React.FC = () => {
                 src="ET94_dv3f8c"
                 type="youtube"
               />
-              <Divider>Убираем «палки в колёсах» от Windows Smartscreen</Divider>
+              <Divider>Убираем «палки в колёсах» от Windows SmartScreen</Divider>
               <p>
-                Иногда при открытии установочного файла вам может помешать предупреждение{" "}
-                <mark className="select">«Система Windows защитила ваш компьютер»</mark>{" "}
-                по центру экрана. Его обычно вызывает{" "}
-                <mark className="app">Windows Smartscreen</mark> — фильтр файлов от{" "}
-                <mark>Microsoft</mark>, скачанных из интернета, и он часто помечает{" "}
-                <mark className="file">EXE</mark> как подозрительные, поэтому и
-                приостанавливает их запуск. Чтобы запустить такой файл, вам нужно нажать
-                на <mark className="select">«Подробнее»</mark>, а затем на{" "}
-                <mark className="select">«Выполнить в любом случае»</mark>. Но иногда
-                после нажатия на <mark className="select">«Подробнее»</mark> ничего не
-                выводится. В таком случае вам нужно отключить{" "}
-                <mark className="app">Windows Smartscreen</mark> в параметрах{" "}
-                <mark className="app">«Защитника Windows»</mark>.
+                В последних сборках <mark>Windows 11</mark> компания{" "}
+                <mark className="company">Microsoft</mark> усилила меры безопасности,
+                внедрив расширенный анализ исполняемых файлов через функцию{" "}
+                <mark className="select">«Интеллектуальное управление приложениями»</mark>
+                . Она дополняет работу фильтра{" "}
+                <mark className="app">Windows SmartScreen</mark>. Из-за этого при запуске
+                репаков или некоторых установщиков система может заблокировать открытие
+                программы сообщением{" "}
+                <mark className="select">
+                  «„Интеллектуальное управление приложениями” заблокировало приложение,
+                  которое может быть небезопасным»
+                </mark>
+                .
+              </p>
+              <p>
+                Чтобы отключить данную защиту, перейдите в настройки{" "}
+                <mark className="app">Защитника Windows</mark>, откройте раздел{" "}
+                <mark className="select">
+                  «Управление приложениями и браузером» → «Параметры интеллектуального
+                  управления приложениями»
+                </mark>{" "}
+                и нажмите <mark className="select">«Выключить»</mark>. После этого
+                препятствий для открытия приложений возникнуть не должно, особенно если вы
+                до этого отключили{" "}
+                <mark className="select">«Защиту в реальном времени»</mark>.
               </p>
               <ContentFigure
-                caption="Как отключить Windows Smartscreen"
+                caption="Отключаем «Интеллектуальное управление приложениями»"
+                src="images/legacy/disable_advanced_smartscreen.mp4"
+                theme="light"
+                type="video"
+                variant="windows"
+              />
+              <p>
+                В <mark>Windows 10</mark> механизм работает иначе: при открытии файла
+                часто появляется окно с предупреждением{" "}
+                <mark className="select">«Система Windows защитила ваш компьютер»</mark>.
+                Так <mark className="app">Windows SmartScreen</mark> реагирует на{" "}
+                <mark className="file">EXE</mark>, которые считает подозрительными. Чтобы
+                запустить такой файл, нажмите <mark className="select">«Подробнее»</mark>,
+                а затем — <mark className="select">«Выполнить в любом случае»</mark>. Если
+                же после нажатия на <mark className="select">«Подробнее»</mark> кнопка
+                запуска не появляется, полностью отключите фильтр в параметрах{" "}
+                <mark className="app">Защитника Windows</mark>.
+              </p>
+              <ContentFigure
+                caption="Как отключить Windows SmartScreen"
                 src="HxlxS1Mdyp0"
                 type="youtube"
               />
-            </div>
+            </>
           }
         />
       </DetailsSummary>
@@ -1291,7 +1327,7 @@ const AeInstallProblems: React.FC = () => {
       >
         <ContentFilter
           windowsContent={
-            <div>
+            <>
               <p>
                 Часто в различных чатах, в том числе в нашем{" "}
                 <a href="https://t.me/joinchat/F1DdXtG9LephYWUy">AEChat</a>, пользователи
@@ -1524,7 +1560,7 @@ const AeInstallProblems: React.FC = () => {
                 src="VaupaCuluJA"
                 type="youtube"
               />
-            </div>
+            </>
           }
         />
       </DetailsSummary>
@@ -1549,7 +1585,7 @@ const AeInstallProblems: React.FC = () => {
         <Divider>Исправляем ошибку 176</Divider>
         <ContentFilter
           macContent={
-            <div>
+            <>
               <p>
                 Скорее всего, до установки более новых версий{" "}
                 <mark className="app">Adobe After Effects</mark> вы пользовались другими
@@ -1558,10 +1594,10 @@ const AeInstallProblems: React.FC = () => {
                 <mark className="path">/Library/Application Support/Adobe/caps</mark>, а
                 затем повторить попытку установки.
               </p>
-            </div>
+            </>
           }
           windowsContent={
-            <div>
+            <>
               <p>
                 Скорее всего, до установки более новых версий{" "}
                 <mark className="app">Adobe After Effects</mark> вы пользовались другими
@@ -1572,7 +1608,7 @@ const AeInstallProblems: React.FC = () => {
                 </mark>
                 , а затем повторить попытку установки.
               </p>
-            </div>
+            </>
           }
         />
         <Divider>
@@ -1594,7 +1630,7 @@ const AeInstallProblems: React.FC = () => {
         </Divider>
         <ContentFilter
           windowsContent={
-            <div>
+            <>
               <p>
                 Скорее всего, вы пытаетесь установить{" "}
                 <mark className="app">Adobe After Effects</mark> версии <mark>2024</mark>{" "}
@@ -1668,7 +1704,7 @@ const AeInstallProblems: React.FC = () => {
                   установка пройдёт корректно.
                 </li>
               </ul>
-            </div>
+            </>
           }
         />
         <Divider>Исправляем ошибку «Недопустимый путь установки»</Divider>
@@ -1768,9 +1804,11 @@ const AeInstallProblems: React.FC = () => {
             </Addition>
           </li>
           <li>
-            Если вы скачали репак, запакованный в многотомный архив — убедитесь, что вы
-            скачали все части архива. Если хоть одна часть репака будет повреждена — архив
-            может не открыться.
+            <p>
+              Если вы скачали репак, запакованный в многотомный архив — убедитесь, что вы
+              скачали все части архива. Если хоть одна часть репака будет повреждена —
+              архив может не открыться.
+            </p>
             <Addition type="info">
               Чтобы распаковать такой архив, достаточно начать распаковку первой части —
               остальные подхватятся автоматически. Для распаковки таких архивов рекомендую
@@ -1826,9 +1864,7 @@ const AeInstallProblems: React.FC = () => {
         <p>
           В следующий раз не забывайте убирать чекбокс{" "}
           <mark className="select">«Реклама»</mark> при установке репаков от{" "}
-          <mark className="user">KpoJluK</mark>. Если вы хотите, чтобы рекламные чекбоксы
-          снимались автоматически при установке, — попробуйте воспользоваться программой{" "}
-          <a href="https://unchecky.com/">Unchecky</a>.
+          <mark className="user">KpoJluK</mark>.
         </p>
       </DetailsSummary>
       <DetailsSummary
@@ -1837,7 +1873,7 @@ const AeInstallProblems: React.FC = () => {
       >
         <ContentFilter
           windowsContent={
-            <div>
+            <>
               <p>
                 Такая ошибка может возникнуть, если вы когда-то установили{" "}
                 <mark className="app">Adobe Creative Cloud</mark> рядом с «народными»
@@ -1859,7 +1895,7 @@ const AeInstallProblems: React.FC = () => {
                 или любым другим деинсталлятором, например{" "}
                 <mark className="app">Revo Uninstaller</mark>.
               </p>
-            </div>
+            </>
           }
         />
       </DetailsSummary>
@@ -1870,7 +1906,7 @@ const AeInstallProblems: React.FC = () => {
       >
         <ContentFilter
           windowsContent={
-            <div>
+            <>
               <p>
                 Если вы по каким-то причинам опасаетесь, что при установке репаков от{" "}
                 <mark className="user">KpoJluK</mark>,{" "}
@@ -2080,7 +2116,7 @@ const AeInstallProblems: React.FC = () => {
                     По умолчанию <mark className="app">Adobe Creative Cloud</mark>{" "}
                     устанавливает приложения на языке, на котором локализована ваша
                     операционная система. Вы можете изменить язык программ{" "}
-                    <a href="https://helpx.adobe.com/ru/creative-cloud/apps/manage-apps/creative-cloud-apps/change-language-for-creative-cloud-apps.html">
+                    <a href="https://helpx.adobe.com/creative-cloud/apps/manage-apps/creative-cloud-apps/change-language-for-creative-cloud-apps.html">
                       перед установкой
                     </a>{" "}
                     или поменять его для <mark className="app">Adobe After Effects</mark>{" "}
@@ -2095,7 +2131,7 @@ const AeInstallProblems: React.FC = () => {
                   установленных программ. После этого ими можно пользоваться.
                 </li>
               </ul>
-            </div>
+            </>
           }
         />
       </DetailsSummary>
@@ -2194,7 +2230,7 @@ const AeInstallProblems: React.FC = () => {
         </ul>
         <ContentFilter
           windowsContent={
-            <div>
+            <>
               <ul>
                 <li>
                   Если установлены <mark className="app">Adobe After Effects</mark>,{" "}
@@ -2252,7 +2288,7 @@ const AeInstallProblems: React.FC = () => {
                 помощью стороннего ПО — например,{" "}
                 <mark className="app">Shutter Encoder</mark>.
               </p>
-            </div>
+            </>
           }
         />
       </DetailsSummary>
@@ -2311,8 +2347,10 @@ const AeInstallProblems: React.FC = () => {
             </Addition>
           </li>
           <li>
-            <mark className="word">AVX</mark> — плагин установится для программ от{" "}
-            <mark className="company">Avid</mark>.
+            <p>
+              <mark className="word">AVX</mark> — плагин установится для программ от{" "}
+              <mark className="company">Avid</mark>.
+            </p>
             <Addition type="warning">
               Такой тип плагинов не совместим с программами от{" "}
               <mark className="company">Adobe</mark> и с программами, поддерживающими
@@ -2380,7 +2418,7 @@ const AeInstallProblems: React.FC = () => {
         </p>
         <ContentFilter
           windowsContent={
-            <div>
+            <>
               <ul>
                 <li>
                   Если вы недавно установили плагины, но не можете их использовать в
@@ -2437,7 +2475,7 @@ const AeInstallProblems: React.FC = () => {
                   <mark className="app">Revo Uninstaller</mark>.
                 </li>
               </ul>
-            </div>
+            </>
           }
         />
       </DetailsSummary>
@@ -2447,7 +2485,7 @@ const AeInstallProblems: React.FC = () => {
       >
         <ContentFilter
           windowsContent={
-            <div>
+            <>
               <p>
                 Скорее всего, вы пытаетесь запустить{" "}
                 <mark className="app">Adobe After Effects</mark> или применить плагины на
@@ -2508,7 +2546,7 @@ const AeInstallProblems: React.FC = () => {
                   Сборки Windows от SanLex на NNM-Club
                 </a>
               </div>
-            </div>
+            </>
           }
         />
       </DetailsSummary>
@@ -2540,7 +2578,7 @@ const AeInstallProblems: React.FC = () => {
       >
         <ContentFilter
           macContent={
-            <div>
+            <>
               <p>
                 В этом окне сообщается, что вы установили плагин, который не поддерживает
                 вашу версию <mark className="app">Adobe After Effects</mark>. Чаще всего
@@ -2641,7 +2679,7 @@ const AeInstallProblems: React.FC = () => {
                   <mark className="company">Intel</mark> — и работайте на нём.
                 </li>
               </ul>
-            </div>
+            </>
           }
         />
       </DetailsSummary>
@@ -2866,7 +2904,7 @@ const AeInstallProblems: React.FC = () => {
         <Divider>Обновление с «одного года» на другой</Divider>
         <ContentFilter
           windowsContent={
-            <div>
+            <>
               <p>
                 Если вы решили обновиться с «одного года» на другой — например, с{" "}
                 <mark>23.6</mark> на <mark>25.2</mark>, — вам потребуется вручную
@@ -3032,7 +3070,7 @@ const AeInstallProblems: React.FC = () => {
                 заменяйте новые стандартные файлы старыми, чтобы избежать проблем со
                 стабильностью.
               </Addition>
-            </div>
+            </>
           }
         />
       </DetailsSummary>
@@ -3049,7 +3087,7 @@ const AeInstallProblems: React.FC = () => {
         </p>
         <ContentFilter
           windowsContent={
-            <div>
+            <>
               <Divider>Сброс настроек при запуске</Divider>
               <p>
                 Чтобы быстро сбросить все настройки{" "}
@@ -3108,7 +3146,7 @@ const AeInstallProblems: React.FC = () => {
                 <mark className="path">Program Files</mark> или{" "}
                 <mark className="path">%USERPROFILE%/Documents</mark>).
               </p>
-            </div>
+            </>
           }
         />
       </DetailsSummary>

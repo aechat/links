@@ -49,10 +49,11 @@ const AeFromNewbies: React.FC = () => {
             программами вроде <mark className="app">Adobe After Effects</mark>, рекомендую
             пройти курс{" "}
             <a href="https://www.youtube.com/playlist?list=PLcN7xY5E2wrmIU__8uNIHglZTyZ29RMIM">
-              «Основы After Effects» от Ильи Зернова
-            </a>
-            . Этот курс поможет вам освоить интерфейс программы и научиться работать с
-            ключевыми кадрами, титрами и эффектами.
+              «Основы After Effects»
+            </a>{" "}
+            от <a href="https://youtube.com/zernov">Ильи Зернова</a>. Этот курс поможет
+            вам освоить интерфейс программы и научиться работать с ключевыми кадрами,
+            титрами и эффектами.
             <ContentFigure
               caption="Основы After Effects от Ильи Зернова"
               src="nogR7eyhYug"
@@ -117,9 +118,7 @@ const AeFromNewbies: React.FC = () => {
               <a href="https://volnitsa.zenclass.ru/public/course/4b9a6429-5c06-4f91-a73b-312bc57b9e35">
                 «Быстрый вход в After Effects» от Вольницы
               </a>
-              <a href="https://volnitsa.zenclass.ru/public/course/9221df49-3262-444e-b269-8b3bfd496de2">
-                «SUPER SILA FOREVER» от Вольницы
-              </a>
+              <a href="https://volnitsa.net/motiontype">«Motion Type» от Вольницы</a>
               <a href="https://sabatovsky.com/after">
                 «After Effects от новичка до специалиста» от Сабатовского
               </a>
@@ -3906,7 +3905,7 @@ const AeFromNewbies: React.FC = () => {
         </Addition>
         <ContentFilter
           macContent={
-            <div>
+            <>
               <Divider>Меняем язык с помощью консоли</Divider>
               <Addition type="warning">
                 Этот способ работает только в{" "}
@@ -3947,10 +3946,10 @@ const AeFromNewbies: React.FC = () => {
                 type="image"
                 variant="windows"
               />
-            </div>
+            </>
           }
           windowsContent={
-            <div>
+            <>
               <Divider>Меняем язык с помощью текстового файла</Divider>
               <p>
                 Для быстрой смены языка на английский достаточно создать пустой текстовый
@@ -4018,7 +4017,7 @@ const AeFromNewbies: React.FC = () => {
                 type="image"
                 variant="windows"
               />
-            </div>
+            </>
           }
         />
       </DetailsSummary>
@@ -4051,7 +4050,7 @@ const AeFromNewbies: React.FC = () => {
         />
         <ContentFilter
           windowsContent={
-            <div>
+            <>
               <Addition type="info">
                 <ul>
                   <li>
@@ -4076,7 +4075,7 @@ const AeFromNewbies: React.FC = () => {
                   </li>
                 </ul>
               </Addition>
-            </div>
+            </>
           }
         />
       </DetailsSummary>
@@ -4195,7 +4194,7 @@ const AeFromNewbies: React.FC = () => {
         </p>
         <ContentFilter
           macContent={
-            <div>
+            <>
               <p>
                 В <mark>macOS</mark> эта функция называется{" "}
                 <mark className="app">Time Machine</mark>. Она создаёт «снимки» вашей
@@ -4208,10 +4207,10 @@ const AeFromNewbies: React.FC = () => {
                 src="Gx76i28c150"
                 type="youtube"
               />
-            </div>
+            </>
           }
           windowsContent={
-            <div>
+            <>
               <p>
                 В <mark>Windows</mark> эта функция называется{" "}
                 <mark className="app">«История файлов»</mark>. Она создаёт копии файлов в
@@ -4238,7 +4237,7 @@ const AeFromNewbies: React.FC = () => {
                   свои папки, их нужно добавить в библиотеку.
                 </p>
               </Addition>
-            </div>
+            </>
           }
         />
         <Divider>Создаём локальные резервные копии сторонними утилитами</Divider>
@@ -4901,7 +4900,7 @@ const AeFromNewbies: React.FC = () => {
         </p>
         <ContentFilter
           windowsContent={
-            <div>
+            <>
               <Divider>Разбираемся с драйверами</Divider>
               <p>
                 Иногда драйверы, например для видеокарты, могут обновиться автоматически
@@ -4924,7 +4923,7 @@ const AeFromNewbies: React.FC = () => {
                 поле <mark className="select">«Download Type»</mark> выберите{" "}
                 <mark className="select">«Studio Driver»</mark>.
               </p>
-            </div>
+            </>
           }
         />
       </DetailsSummary>
@@ -5799,7 +5798,7 @@ const AeFromNewbies: React.FC = () => {
         </p>
         <ContentFilter
           macContent={
-            <div>
+            <>
               <p>
                 Чтобы открыть ещё один экземпляр, перейдите в папку с программой, нажмите{" "}
                 <mark className="key">ПКМ</mark> по иконке{" "}
@@ -5815,10 +5814,10 @@ const AeFromNewbies: React.FC = () => {
                 src="k1x1goE2F10"
                 type="youtube"
               />
-            </div>
+            </>
           }
           windowsContent={
-            <div>
+            <>
               <p>
                 Чтобы снять это ограничение, добавьте ключ{" "}
                 <mark className="code">-m</mark> в свойства ярлыка. Для этого откройте
@@ -5837,7 +5836,7 @@ const AeFromNewbies: React.FC = () => {
                 type="video"
                 variant="windows"
               />
-            </div>
+            </>
           }
         />
       </DetailsSummary>

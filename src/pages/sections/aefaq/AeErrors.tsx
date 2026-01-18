@@ -74,7 +74,7 @@ const AeErrors: React.FC = () => {
         </p>
         <ContentFilter
           macContent={
-            <div>
+            <>
               <Divider>Правим файл hosts</Divider>
               <p>
                 Один из способов решения проблемы — отредактировать файл{" "}
@@ -135,10 +135,10 @@ const AeErrors: React.FC = () => {
                 <mark className="app">Adobe Activation Tool</mark>, предварительно удалив
                 предыдущие установки программы.
               </p>
-            </div>
+            </>
           }
           windowsContent={
-            <div>
+            <>
               <Divider>Проверяем настройки вашего VPN-клиента</Divider>
               <p>
                 Если вы не хотите отключаться от виртуальной частной сети, проверьте
@@ -392,7 +392,7 @@ const AeErrors: React.FC = () => {
                 </a>
                 .
               </p>
-            </div>
+            </>
           }
         />
       </DetailsSummary>
@@ -437,9 +437,11 @@ const AeErrors: React.FC = () => {
             друг с другом и потреблять слишком много оперативной памяти.
           </li>
           <li>
-            Если вы используете несколько композиций с ресурсоёмкими эффектами, попробуйте
-            создать для них прокси. Это сократит время на повторный рендеринг, если вы не
-            планируете вносить в них дальнейшие изменения.
+            <p>
+              Если вы используете несколько композиций с ресурсоёмкими эффектами,
+              попробуйте создать для них прокси. Это сократит время на повторный
+              рендеринг, если вы не планируете вносить в них дальнейшие изменения.
+            </p>
             <Addition type="info">
               Чтобы создать прокси, найдите нужную композицию в окне{" "}
               <mark className="select">«Project»</mark>, нажмите{" "}
@@ -452,8 +454,11 @@ const AeErrors: React.FC = () => {
             </Addition>
           </li>
           <li>
-            Попробуйте очистить кэш и оперативную память через{" "}
-            <mark className="select">«Edit» → «Purge» → «All Memory & Disk Cache»</mark>.
+            <p>
+              Попробуйте очистить кэш и оперативную память через{" "}
+              <mark className="select">«Edit» → «Purge» → «All Memory & Disk Cache»</mark>
+              .
+            </p>
             <Addition type="info">
               Очистка кэша никак не повлияет на ваши проекты: они не сломаются и не
               удалятся. Максимум, что придётся сделать после этого — заново закэшировать
@@ -530,10 +535,12 @@ const AeErrors: React.FC = () => {
             />
           </li>
           <li>
-            Если у вас мало оперативной памяти, по возможности докупите её. В сегодняшних
-            реалиях для комфортной работы в{" "}
-            <mark className="app">Adobe After Effects</mark> требуется минимум{" "}
-            <mark>32 ГБ</mark> ОЗУ.
+            <p>
+              Если у вас мало оперативной памяти, по возможности докупите её. В
+              сегодняшних реалиях для комфортной работы в{" "}
+              <mark className="app">Adobe After Effects</mark> требуется минимум{" "}
+              <mark>32 ГБ</mark> ОЗУ.
+            </p>
             <Addition type="info">
               В <mark className="app">Adobe After Effects</mark> версии <mark>25.2</mark>{" "}
               и новее добавили функцию воспроизведения предпросмотра напрямую из дискового
@@ -550,7 +557,7 @@ const AeErrors: React.FC = () => {
         </ul>
         <ContentFilter
           windowsContent={
-            <div>
+            <ul>
               <li>
                 <a href="#configure-swapfile">Попробуйте настроить файл подкачки</a>. В
                 качестве <mark className="select">исходного размера</mark> установите
@@ -574,7 +581,7 @@ const AeErrors: React.FC = () => {
                 <a href="https://www.memtest86.com/">MemTest86</a> или поменяйте их
                 местами в слотах материнской платы.
               </li>
-            </div>
+            </ul>
           }
         />
       </DetailsSummary>
@@ -821,7 +828,7 @@ const AeErrors: React.FC = () => {
         </Addition>
         <ContentFilter
           macContent={
-            <div>
+            <>
               <Divider>Меняем язык с помощью консоли</Divider>
               <Addition type="warning">
                 Этот способ работает только в{" "}
@@ -862,10 +869,10 @@ const AeErrors: React.FC = () => {
                 type="image"
                 variant="windows"
               />
-            </div>
+            </>
           }
           windowsContent={
-            <div>
+            <>
               <Divider>Меняем язык с помощью текстового файла</Divider>
               <p>
                 Для быстрой смены языка на английский достаточно создать пустой текстовый
@@ -933,7 +940,7 @@ const AeErrors: React.FC = () => {
                 type="image"
                 variant="windows"
               />
-            </div>
+            </>
           }
         />
         <Divider>Меняем движок выражений</Divider>
@@ -992,7 +999,7 @@ const AeErrors: React.FC = () => {
       >
         <ContentFilter
           windowsContent={
-            <div>
+            <>
               <p>
                 В <mark className="app">Adobe After Effects</mark> версии{" "}
                 <mark>24.1</mark> и новее появился новый движок для трёхмерного
@@ -1039,10 +1046,12 @@ const AeErrors: React.FC = () => {
                   />
                 </li>
                 <li>
-                  Если запуск от имени администратора не помог, обновите драйверы
-                  видеокарты — желательно до версии{" "}
-                  <mark className="app">NVIDIA Studio Driver</mark> для более стабильной
-                  работы в творческих приложениях.
+                  <p>
+                    Если запуск от имени администратора не помог, обновите драйверы
+                    видеокарты — желательно до версии{" "}
+                    <mark className="app">NVIDIA Studio Driver</mark> для более стабильной
+                    работы в творческих приложениях.
+                  </p>
                   <Addition type="info">
                     Загрузить драйверы <mark className="app">NVIDIA Studio</mark> можно на{" "}
                     <a href="https://www.nvidia.com/en-eu/geforce/drivers/">
@@ -1054,8 +1063,10 @@ const AeErrors: React.FC = () => {
                   </Addition>
                 </li>
                 <li>
-                  Если и обновление драйверов не помогло, обновите программу до более
-                  свежей версии.
+                  <p>
+                    Если и обновление драйверов не помогло, обновите программу до более
+                    свежей версии.
+                  </p>
                   <Addition type="info">
                     У меня, автора статьи, на ранних сборках{" "}
                     <mark className="app">Adobe After Effects</mark> версии{" "}
@@ -1085,7 +1096,7 @@ const AeErrors: React.FC = () => {
                   />
                 </li>
               </ul>
-            </div>
+            </>
           }
         />
       </DetailsSummary>
@@ -1167,8 +1178,10 @@ const AeErrors: React.FC = () => {
             <mark className="app">Cinema 4D 2023.X.X</mark>.
           </li>
           <li>
-            <mark className="app">Adobe After Effects 22.X-23.0</mark> требует{" "}
-            <mark className="app">Cinema 4D R25.X.X</mark>.
+            <p>
+              <mark className="app">Adobe After Effects 22.X-23.0</mark> требует{" "}
+              <mark className="app">Cinema 4D R25.X.X</mark>.
+            </p>
             <Addition type="warning">
               <mark className="app">Cinema 4D R26.X.X</mark> и новее несовместимы с{" "}
               <mark className="app">Adobe After Effects</mark> ниже <mark>23.1</mark>.
@@ -1282,7 +1295,7 @@ const AeErrors: React.FC = () => {
       >
         <ContentFilter
           windowsContent={
-            <div>
+            <>
               <Divider>Отключаем аппаратное ускорение</Divider>
               <p>
                 Попробуйте отключить аппаратное ускорение в параметрах{" "}
@@ -1324,7 +1337,7 @@ const AeErrors: React.FC = () => {
                 type="image"
                 variant="windows"
               />
-            </div>
+            </>
           }
         />
       </DetailsSummary>
@@ -1348,7 +1361,7 @@ const AeErrors: React.FC = () => {
       >
         <ContentFilter
           windowsContent={
-            <div>
+            <>
               <p>
                 Это известный баг, который мешает запуску{" "}
                 <mark className="app">Adobe Media Encoder</mark> при наличии плагинов{" "}
@@ -1373,7 +1386,7 @@ const AeErrors: React.FC = () => {
                 type="video"
                 variant="windows"
               />
-            </div>
+            </>
           }
         />
       </DetailsSummary>
@@ -1473,7 +1486,7 @@ const AeErrors: React.FC = () => {
         </ul>
         <ContentFilter
           windowsContent={
-            <div>
+            <>
               <ul>
                 <li>
                   <p>
@@ -1505,7 +1518,7 @@ const AeErrors: React.FC = () => {
                   повторить попытку.
                 </li>
               </ul>
-            </div>
+            </>
           }
         />
       </DetailsSummary>
@@ -1929,7 +1942,7 @@ const AeErrors: React.FC = () => {
       >
         <ContentFilter
           windowsContent={
-            <div>
+            <>
               <p>
                 Эту ошибку вы можете встретить при попытке запустить{" "}
                 <mark className="app">Adobe After Effects</mark> версии <mark>24.1</mark>{" "}
@@ -2035,7 +2048,7 @@ const AeErrors: React.FC = () => {
                 <mark className="code">bcdedit /set xsavedisable 1</mark> и перезагрузите
                 устройство.
               </Addition>
-            </div>
+            </>
           }
         />
       </DetailsSummary>
@@ -2045,7 +2058,7 @@ const AeErrors: React.FC = () => {
       >
         <ContentFilter
           windowsContent={
-            <div>
+            <>
               <p>
                 Скорее всего, вы забыли установить или обновить пакеты{" "}
                 <a href="https://gitlab.com/stdout12/vcredist/-/releases/">
@@ -2055,7 +2068,7 @@ const AeErrors: React.FC = () => {
                 систему хотя бы до <mark>Windows 10</mark> версии <mark>22H2</mark> или
                 новее.
               </p>
-            </div>
+            </>
           }
         />
       </DetailsSummary>
@@ -2065,7 +2078,7 @@ const AeErrors: React.FC = () => {
       >
         <ContentFilter
           windowsContent={
-            <div>
+            <>
               <p>
                 Распакуйте архив{" "}
                 <a
@@ -2082,7 +2095,7 @@ const AeErrors: React.FC = () => {
                 </mark>
                 .
               </p>
-            </div>
+            </>
           }
         />
       </DetailsSummary>

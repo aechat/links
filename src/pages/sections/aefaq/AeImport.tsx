@@ -377,9 +377,11 @@ const AeImport: React.FC = () => {
                 </Addition>
               </li>
               <li>
-                Если вы выбрали <mark className="video">H.264</mark> или{" "}
-                <mark className="video">H.265</mark>, то для этого формата потребуется
-                выполнить ещё несколько действий.
+                <p>
+                  Если вы выбрали <mark className="video">H.264</mark> или{" "}
+                  <mark className="video">H.265</mark>, то для этого формата потребуется
+                  выполнить ещё несколько действий.
+                </p>
                 <Addition type="danger">
                   Учтите, что <mark className="video">H.264</mark> и{" "}
                   <mark className="video">H.265</mark> не являются{" "}
@@ -818,7 +820,7 @@ const AeImport: React.FC = () => {
         </p>
         <ContentFilter
           windowsContent={
-            <div>
+            <>
               <Divider>
                 Боремся с «зелёной заливкой» на устройствах с видеокартами AMD
               </Divider>
@@ -941,7 +943,7 @@ const AeImport: React.FC = () => {
                 <mark className="plugin">Autokroma Influx</mark> вне зависимости от
                 настройки <mark className="select">«Formats»</mark>.
               </p>
-            </div>
+            </>
           }
         />
       </DetailsSummary>
@@ -1014,7 +1016,7 @@ const AeImport: React.FC = () => {
         </p>
         <ContentFilter
           macContent={
-            <div>
+            <>
               <p>
                 Для корректного открытия чужого проекта — полностью распакуйте архив, а
                 затем зайдите в созданную директорию и откройте проект формата{" "}
@@ -1028,10 +1030,10 @@ const AeImport: React.FC = () => {
                 type="image"
                 variant="mac"
               />
-            </div>
+            </>
           }
           windowsContent={
-            <div>
+            <>
               <p>
                 Для корректного открытия чужого проекта — полностью распакуйте архив, а
                 затем зайдите в созданную директорию и откройте проект формата{" "}
@@ -1042,7 +1044,7 @@ const AeImport: React.FC = () => {
                 src="1OVwQS0uHhk"
                 type="youtube"
               />
-            </div>
+            </>
           }
         />
         <Divider>
@@ -1111,7 +1113,7 @@ const AeImport: React.FC = () => {
       >
         <ContentFilter
           windowsContent={
-            <div>
+            <>
               <p>
                 Пользователи <mark>Windows</mark> могут столкнуться с проблемой открытия и
                 импорта в <mark className="app">Adobe After Effects</mark> таких файлов,
@@ -1138,8 +1140,10 @@ const AeImport: React.FC = () => {
                   <code>https://apps.microsoft.com/9pmmsr1cgpwg</code>
                 </li>
                 <li>
-                  Ссылка для скачивания кодека <mark className="video">HEVC</mark>:{" "}
-                  <code>https://apps.microsoft.com/9n4wgh0z6vhq</code>
+                  <p>
+                    Ссылка для скачивания кодека <mark className="video">HEVC</mark>:{" "}
+                    <code>https://apps.microsoft.com/9n4wgh0z6vhq</code>
+                  </p>
                   <Addition type="danger">
                     Учтите, что <mark className="app">Adobe After Effects</mark> после
                     установки кодеков всё равно не сможет импортировать видео с
@@ -1193,7 +1197,7 @@ const AeImport: React.FC = () => {
                 для просмотра фото, например в <mark className="app">MPC-HC</mark> и{" "}
                 <mark className="app">FastStone Image Viewer</mark>.
               </p>
-            </div>
+            </>
           }
         />
       </DetailsSummary>
