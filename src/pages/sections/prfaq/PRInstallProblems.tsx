@@ -1399,7 +1399,7 @@ const PRInstallProblems: React.FC = () => {
       <DetailsSummary
         anchor="disable-defender"
         tag="репак от кролика, выключить дефендер, отрубить антивирус, ложное срабатывание, хелпер, ошибка 24, вирусы, трояны, проверьте правильно ли указано имя и повторите попытку, windows не удается получить доступ к указанному устройству пути или файлу, возможно у вас нет нужных разрешений для доступа к этому объекту, некоторые файлы не были созданы, операция не была успешно завершена так как файл содержит вирус или потенциально нежелательную программу, обнаружены угрозы, куда-то пропадают файлы плагинов и программ, интеллектуальное управление приложениями заблокировало приложение которое может быть небезопасным, приложение заблокировано так как невозможно установить его автора, это не одно из известных нам приложений, operation did not complete successfully because the file contains a virus or potentially unwanted software, windows cannot find helper.exe, make sure you typed the name correctly and then try again, 0x800700E1"
-        title="«Не удаётся найти „..\install\helper.exe“» или как отключить Windows Defender и Windows Smartscreen?"
+        title="«Не удаётся найти „..\install\helper.exe“» или как отключить Windows Defender и Windows SmartScreen?"
       >
         <ContentFilter
           windowsContent={
@@ -1508,24 +1508,55 @@ const PRInstallProblems: React.FC = () => {
                 src="ET94_dv3f8c"
                 type="youtube"
               />
-              <Divider>Убираем «палки в колёсах» от Windows Smartscreen</Divider>
+              <Divider>Убираем «палки в колёсах» от Windows SmartScreen</Divider>
               <p>
-                Иногда при открытии установочного файла вам может помешать предупреждение{" "}
-                <mark className="select">«Система Windows защитила ваш компьютер»</mark>{" "}
-                по центру экрана. Его обычно вызывает{" "}
-                <mark className="app">Windows Smartscreen</mark> — фильтр файлов от{" "}
-                <mark>Microsoft</mark>, скачанных из интернета, и он часто помечает{" "}
-                <mark className="file">EXE</mark> как подозрительные, поэтому и
-                приостанавливает их запуск. Чтобы запустить такой файл, вам нужно нажать
-                на <mark className="select">«Подробнее»</mark>, а затем на{" "}
-                <mark className="select">«Выполнить в любом случае»</mark>. Но иногда
-                после нажатия на <mark className="select">«Подробнее»</mark> ничего не
-                выводится. В таком случае вам нужно отключить{" "}
-                <mark className="app">Windows Smartscreen</mark> в параметрах{" "}
-                <mark className="app">«Защитника Windows»</mark>.
+                В последних сборках <mark>Windows 11</mark> компания{" "}
+                <mark className="company">Microsoft</mark> усилила меры безопасности,
+                внедрив расширенный анализ исполняемых файлов через функцию{" "}
+                <mark className="select">«Интеллектуальное управление приложениями»</mark>
+                . Она дополняет работу фильтра{" "}
+                <mark className="app">Windows SmartScreen</mark>. Из-за этого при запуске
+                репаков или некоторых установщиков система может заблокировать открытие
+                программы сообщением{" "}
+                <mark className="select">
+                  «„Интеллектуальное управление приложениями” заблокировало приложение,
+                  которое может быть небезопасным»
+                </mark>
+                .
+              </p>
+              <p>
+                Чтобы отключить данную защиту, перейдите в настройки{" "}
+                <mark className="app">Защитника Windows</mark>, откройте раздел{" "}
+                <mark className="select">
+                  «Управление приложениями и браузером» → «Параметры интеллектуального
+                  управления приложениями»
+                </mark>{" "}
+                и нажмите <mark className="select">«Выключить»</mark>. После этого
+                препятствий для открытия приложений возникнуть не должно, особенно если вы
+                до этого отключили{" "}
+                <mark className="select">«Защиту в реальном времени»</mark>.
               </p>
               <ContentFigure
-                caption="Как отключить Windows Smartscreen"
+                caption="Отключаем «Интеллектуальное управление приложениями»"
+                src="images/legacy/disable_advanced_smartscreen.mp4"
+                theme="light"
+                type="video"
+                variant="windows"
+              />
+              <p>
+                В <mark>Windows 10</mark> механизм работает иначе: при открытии файла
+                часто появляется окно с предупреждением{" "}
+                <mark className="select">«Система Windows защитила ваш компьютер»</mark>.
+                Так <mark className="app">Windows SmartScreen</mark> реагирует на{" "}
+                <mark className="file">EXE</mark>, которые считает подозрительными. Чтобы
+                запустить такой файл, нажмите <mark className="select">«Подробнее»</mark>,
+                а затем — <mark className="select">«Выполнить в любом случае»</mark>. Если
+                же после нажатия на <mark className="select">«Подробнее»</mark> кнопка
+                запуска не появляется, полностью отключите фильтр в параметрах{" "}
+                <mark className="app">Защитника Windows</mark>.
+              </p>
+              <ContentFigure
+                caption="Как отключить Windows SmartScreen"
                 src="HxlxS1Mdyp0"
                 type="youtube"
               />
