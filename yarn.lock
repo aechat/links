@@ -1253,7 +1253,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@commitlint/cli@npm:^20.2.0":
+"@commitlint/cli@npm:^20.3.1":
   version: 20.3.1
   resolution: "@commitlint/cli@npm:20.3.1"
   dependencies:
@@ -1270,7 +1270,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@commitlint/config-conventional@npm:^20.2.0":
+"@commitlint/config-conventional@npm:^20.3.1":
   version: 20.3.1
   resolution: "@commitlint/config-conventional@npm:20.3.1"
   dependencies:
@@ -2084,7 +2084,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@mui/icons-material@npm:^7.3.6":
+"@mui/icons-material@npm:^7.3.7":
   version: 7.3.7
   resolution: "@mui/icons-material@npm:7.3.7"
   dependencies:
@@ -2100,7 +2100,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@mui/material@npm:^7.3.6":
+"@mui/material@npm:^7.3.7":
   version: 7.3.7
   resolution: "@mui/material@npm:7.3.7"
   dependencies:
@@ -2760,6 +2760,22 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@stylistic/eslint-plugin@npm:^5.6.1":
+  version: 5.7.0
+  resolution: "@stylistic/eslint-plugin@npm:5.7.0"
+  dependencies:
+    "@eslint-community/eslint-utils": "npm:^4.9.1"
+    "@typescript-eslint/types": "npm:^8.52.0"
+    eslint-visitor-keys: "npm:^5.0.0"
+    espree: "npm:^11.0.0"
+    estraverse: "npm:^5.3.0"
+    picomatch: "npm:^4.0.3"
+  peerDependencies:
+    eslint: ">=9.0.0"
+  checksum: 10c0/257872abe3841466bf7c5c434d75915c44c77e6707bdca05cec463f56ec87c538489d55b0b7026ac3480baacf5d58536539a29d6c70d116af3a86cc42ee97232
+  languageName: node
+  linkType: hard
+
 "@swc/core-darwin-arm64@npm:1.15.8":
   version: 1.15.8
   resolution: "@swc/core-darwin-arm64@npm:1.15.8"
@@ -3127,7 +3143,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@typescript-eslint/types@npm:8.53.0, @typescript-eslint/types@npm:^8.50.1, @typescript-eslint/types@npm:^8.53.0":
+"@typescript-eslint/types@npm:8.53.0, @typescript-eslint/types@npm:^8.52.0, @typescript-eslint/types@npm:^8.53.0":
   version: 8.53.0
   resolution: "@typescript-eslint/types@npm:8.53.0"
   checksum: 10c0/a88681795becbe857f9868427c0d75c2ab2fb1acde14907b8791709b6d7835400bf9a0b41f22e97a13f1274e0082f5675692b815e30268e6eada492913100306
@@ -4736,7 +4752,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-perfectionist@npm:^5.1.0":
+"eslint-plugin-perfectionist@npm:^5.3.1":
   version: 5.3.1
   resolution: "eslint-plugin-perfectionist@npm:5.3.1"
   dependencies:
@@ -4868,6 +4884,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"eslint-visitor-keys@npm:^5.0.0":
+  version: 5.0.0
+  resolution: "eslint-visitor-keys@npm:5.0.0"
+  checksum: 10c0/5ec68b7ae350f6e7813a9ab469f8c64e01e5a954e6e6ee6dc441cc24d315eb342e5fb81ab5fc21f352cf0125096ab4ed93ca892f602a1576ad1eedce591fe64a
+  languageName: node
+  linkType: hard
+
 "eslint@npm:^9.39.2":
   version: 9.39.2
   resolution: "eslint@npm:9.39.2"
@@ -4925,6 +4948,17 @@ __metadata:
     acorn-jsx: "npm:^5.3.2"
     eslint-visitor-keys: "npm:^4.2.1"
   checksum: 10c0/c63fe06131c26c8157b4083313cb02a9a54720a08e21543300e55288c40e06c3fc284bdecf108d3a1372c5934a0a88644c98714f38b6ae8ed272b40d9ea08d6b
+  languageName: node
+  linkType: hard
+
+"espree@npm:^11.0.0":
+  version: 11.0.0
+  resolution: "espree@npm:11.0.0"
+  dependencies:
+    acorn: "npm:^8.15.0"
+    acorn-jsx: "npm:^5.3.2"
+    eslint-visitor-keys: "npm:^5.0.0"
+  checksum: 10c0/1e07fdb2a135bb9996a4b23baad51980dde7bcdf4d7115cdec06437663790f4bbe3416eb560fc7dc7330c01a6006f789722f1e5b243208f4cb6e054efef57afd
   languageName: node
   linkType: hard
 
@@ -5163,11 +5197,11 @@ __metadata:
   languageName: node
   linkType: hard
 
-"framer-motion@npm:^12.23.26":
-  version: 12.26.2
-  resolution: "framer-motion@npm:12.26.2"
+"framer-motion@npm:^12.24.12":
+  version: 12.27.1
+  resolution: "framer-motion@npm:12.27.1"
   dependencies:
-    motion-dom: "npm:^12.26.2"
+    motion-dom: "npm:^12.27.1"
     motion-utils: "npm:^12.24.10"
     tslib: "npm:^2.4.0"
   peerDependencies:
@@ -5181,7 +5215,7 @@ __metadata:
       optional: true
     react-dom:
       optional: true
-  checksum: 10c0/f2950155c982a95c423d6349cf26b2add58ef7e9633dc1629d2e8506b453699cddaf4c8ad9d8f220c53ce4f6af77740422d4f1c27f2033aeadfee5b941e1b59d
+  checksum: 10c0/b0f9ad6e75188afb25ebc87d0452966117cfa531f00f40eee3296218efca65fed55dc63a3148b7d2fabc46200db488ddfd251fabff37cf7969025bc9b84226ad
   languageName: node
   linkType: hard
 
@@ -5403,10 +5437,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"globals@npm:^16.4.0, globals@npm:^16.5.0":
+"globals@npm:^16.4.0":
   version: 16.5.0
   resolution: "globals@npm:16.5.0"
   checksum: 10c0/615241dae7851c8012f5aa0223005b1ed6607713d6813de0741768bd4ddc39353117648f1a7086b4b0fa45eae733f1c0a0fe369aa4e543bb63f8de8990178ea9
+  languageName: node
+  linkType: hard
+
+"globals@npm:^17.0.0":
+  version: 17.0.0
+  resolution: "globals@npm:17.0.0"
+  checksum: 10c0/e3c169fdcb0fc6755707b697afb367bea483eb29992cfc0de1637382eb893146e17f8f96db6d7453e3696b478a7863ae2000e6c71cd2f4061410285106d3847a
   languageName: node
   linkType: hard
 
@@ -6208,14 +6249,15 @@ __metadata:
   resolution: "links-for-aechat@workspace:."
   dependencies:
     "@ant-design/v5-patch-for-react-19": "npm:^1.0.3"
-    "@commitlint/cli": "npm:^20.2.0"
-    "@commitlint/config-conventional": "npm:^20.2.0"
+    "@commitlint/cli": "npm:^20.3.1"
+    "@commitlint/config-conventional": "npm:^20.3.1"
     "@emotion/react": "npm:^11.14.0"
     "@emotion/styled": "npm:^11.14.1"
     "@eslint/js": "npm:^9.39.2"
     "@iconify/react": "npm:^6.0.2"
-    "@mui/icons-material": "npm:^7.3.6"
-    "@mui/material": "npm:^7.3.6"
+    "@mui/icons-material": "npm:^7.3.7"
+    "@mui/material": "npm:^7.3.7"
+    "@stylistic/eslint-plugin": "npm:^5.6.1"
     "@types/file-saver": "npm:^2.0.7"
     "@types/lodash": "npm:^4.17.21"
     "@types/node": "npm:^25.0.3"
@@ -6223,7 +6265,7 @@ __metadata:
     "@types/react": "npm:^19.2.7"
     "@types/react-dom": "npm:^19.2.3"
     "@types/react-helmet": "npm:^6.1.11"
-    "@typescript-eslint/types": "npm:^8.50.1"
+    "@typescript-eslint/types": "npm:^8.52.0"
     "@vitejs/plugin-legacy": "npm:^7.2.1"
     "@vitejs/plugin-react": "npm:^5.1.2"
     "@vitejs/plugin-react-swc": "npm:^4.2.2"
@@ -6233,14 +6275,14 @@ __metadata:
     eslint-config-prettier: "npm:^10.1.8"
     eslint-plugin-import: "npm:^2.32.0"
     eslint-plugin-jsx-a11y: "npm:^6.10.2"
-    eslint-plugin-perfectionist: "npm:^5.1.0"
+    eslint-plugin-perfectionist: "npm:^5.3.1"
     eslint-plugin-prettier: "npm:^5.5.4"
     eslint-plugin-react: "npm:^7.37.5"
     eslint-plugin-sonarjs: "npm:^3.0.5"
     eslint-plugin-unicorn: "npm:^62.0.0"
     file-saver: "npm:^2.0.5"
-    framer-motion: "npm:^12.23.26"
-    globals: "npm:^16.5.0"
+    framer-motion: "npm:^12.24.12"
+    globals: "npm:^17.0.0"
     highlight.js: "npm:^11.11.1"
     husky: "npm:^9.1.7"
     lint-staged: "npm:^16.2.7"
@@ -6253,19 +6295,19 @@ __metadata:
     react-helmet-async: "npm:^2.0.5"
     react-metrika: "npm:^1.0.0"
     react-remove-scroll: "npm:^2.7.2"
-    react-router-dom: "npm:^7.11.0"
+    react-router-dom: "npm:^7.12.0"
     react-snowfall: "npm:^2.4.0"
-    react-window: "npm:^2.2.3"
+    react-window: "npm:^2.2.4"
     resize-observer-polyfill: "npm:^1.5.1"
-    sass: "npm:^1.97.0"
+    sass: "npm:^1.97.2"
     stylelint: "npm:^16.26.1"
     stylelint-config-concentric-order: "npm:^5.2.1"
     stylelint-config-standard-scss: "npm:^16.0.0"
-    stylelint-order: "npm:^7.0.0"
+    stylelint-order: "npm:^7.0.1"
     terser: "npm:^5.44.1"
     typescript: "npm:^5.9.3"
-    typescript-eslint: "npm:^8.50.0"
-    vite: "npm:^7.3.0"
+    typescript-eslint: "npm:^8.52.0"
+    vite: "npm:^7.3.1"
   languageName: unknown
   linkType: soft
 
@@ -6646,12 +6688,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"motion-dom@npm:^12.26.2":
-  version: 12.26.2
-  resolution: "motion-dom@npm:12.26.2"
+"motion-dom@npm:^12.27.1":
+  version: 12.27.1
+  resolution: "motion-dom@npm:12.27.1"
   dependencies:
     motion-utils: "npm:^12.24.10"
-  checksum: 10c0/9ec544749008b5f53eb3e3140ac720d8a2e0c1f41178ecb29f5fb7629d92c4b92657bd8449a051baa852090a2ea9eacd0fa3c4c7e64bbaea3504c35fc610d430
+  checksum: 10c0/a7a856f2aedd7e8509177410e2c84936640dc77225066310c4ce41d4147407d3782125d556461abcca3c6c03b52095ee4fb12cf4277894221875c34dfae943b4
   languageName: node
   linkType: hard
 
@@ -7825,7 +7867,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-router-dom@npm:^7.11.0":
+"react-router-dom@npm:^7.12.0":
   version: 7.12.0
   resolution: "react-router-dom@npm:7.12.0"
   dependencies:
@@ -7896,7 +7938,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-window@npm:^2.2.3":
+"react-window@npm:^2.2.4":
   version: 2.2.5
   resolution: "react-window@npm:2.2.5"
   peerDependencies:
@@ -8291,7 +8333,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"sass@npm:^1.97.0":
+"sass@npm:^1.97.2":
   version: 1.97.2
   resolution: "sass@npm:1.97.2"
   dependencies:
@@ -8836,7 +8878,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"stylelint-order@npm:^7.0.0":
+"stylelint-order@npm:^7.0.1":
   version: 7.0.1
   resolution: "stylelint-order@npm:7.0.1"
   dependencies:
@@ -9162,7 +9204,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"typescript-eslint@npm:^8.50.0":
+"typescript-eslint@npm:^8.52.0":
   version: 8.53.0
   resolution: "typescript-eslint@npm:8.53.0"
   dependencies:
@@ -9333,7 +9375,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vite@npm:^7.3.0":
+"vite@npm:^7.3.1":
   version: 7.3.1
   resolution: "vite@npm:7.3.1"
   dependencies:
