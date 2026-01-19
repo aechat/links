@@ -4895,6 +4895,31 @@ const AEFromNewbies: React.FC = () => {
           type="image"
           variant="windows"
         />
+        <ContentFilter
+          windowsContent={
+            <>
+              <Divider>Проверяем звуковые драйверы</Divider>
+              <p>
+                Иногда{" "}
+                <mark className="app">служба автоматических обновлений Windows</mark>{" "}
+                заменяет работающий драйвер на новую версию, которая может поломать вывод
+                звука.
+              </p>
+              <p>
+                Для решения проблемы отсутствующего звука попробуйте переустановить
+                драйверы или откатить их в{" "}
+                <mark className="app">Диспетчере устройств</mark>. Если сделать это не
+                удаётся — воспользуйтесь точкой восстановления или резервной копией
+                системы, если они были созданы до появления проблем.
+              </p>
+              <ContentFigure
+                caption="Как откатить драйвер в Windows"
+                src="A9WYBglOKaQ"
+                type="youtube"
+              />
+            </>
+          }
+        />
       </DetailsSummary>
       <DetailsSummary
         anchor="cached-preview-needs-2-or-more-frames-for-playback"
