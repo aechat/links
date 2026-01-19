@@ -13,12 +13,6 @@ import {CopyButton} from "../ui/CopyButton/CopyButton";
 import styles from "./DetailsSummary.module.scss";
 import {DetailsSummaryContext, SpoilerContext} from "./spoilerContexts";
 
-declare global {
-  interface Window {
-    detailsSummaryScrollListenerAttached?: boolean;
-  }
-}
-
 const usePrevious = <T,>(value: T): T | undefined => {
   const reference = useRef<T | undefined>(undefined);
 
@@ -528,9 +522,13 @@ const DetailsSummary: React.FC<DetailsSummaryProperties> = ({
   useEffect(() => {
     if (globalThis.window === undefined) return;
 
-    if (!globalThis.detailsSummaryScrollListenerAttached) {
+    const globalWithFlag = globalThis as typeof globalThis & {
+      detailsSummaryScrollListenerAttached?: boolean;
+    };
+
+    if (!globalWithFlag.detailsSummaryScrollListenerAttached) {
       window.addEventListener("scroll", updateDimmingEffect, {passive: true});
-      globalThis.detailsSummaryScrollListenerAttached = true;
+      globalWithFlag.detailsSummaryScrollListenerAttached = true;
     }
   }, [updateDimmingEffect]);
 
