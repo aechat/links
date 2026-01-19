@@ -127,7 +127,7 @@ const PRInstallProblems: React.FC = () => {
           </li>
           <li>
             <p>
-            Пакеты шаблонов формата <mark className="file">ATOM</mark> устанавливаются
+              Пакеты шаблонов формата <mark className="file">ATOM</mark> устанавливаются
               перетаскиванием файла в окно расширения{" "}
               <mark className="plugin">AtomX</mark>.
             </p>
@@ -206,7 +206,7 @@ const PRInstallProblems: React.FC = () => {
                 </li>
                 <li>
                   <p>
-                  Чтобы установить пакет формата <mark className="file">DMG</mark>,{" "}
+                    Чтобы установить пакет формата <mark className="file">DMG</mark>,{" "}
                     <mark className="file">APP</mark> или{" "}
                     <mark className="file">PKG</mark> — достаточно открыть такой файл
                     двойным кликом и следовать инструкциям установщика.
@@ -387,7 +387,7 @@ const PRInstallProblems: React.FC = () => {
                       <p>
                         Откройте окно <mark className="select">«Effects»</mark>, нажмите
                         на иконку с тремя полосками в его заголовке, а затем — на кнопку{" "}
-                      <mark className="select">«Import Presets»</mark>.
+                        <mark className="select">«Import Presets»</mark>.
                       </p>
                       <Addition type="info">
                         В папке с пресетами вы можете создать собственную папку или
@@ -409,9 +409,9 @@ const PRInstallProblems: React.FC = () => {
                     </li>
                     <li>
                       <p>
-                      После выбора файла импортированные пресеты появятся в окне{" "}
-                      <mark className="select">«Effects»</mark> в папке{" "}
-                      <mark className="path">Presets</mark>.
+                        После выбора файла импортированные пресеты появятся в окне{" "}
+                        <mark className="select">«Effects»</mark> в папке{" "}
+                        <mark className="path">Presets</mark>.
                       </p>
                       <Addition type="info">
                         Все ваши пресеты хранятся в одном общем файле{" "}
@@ -513,10 +513,10 @@ const PRInstallProblems: React.FC = () => {
                         </li>
                         <li>
                           <p>
-                          Переместите содержимое распакованного архива в папку{" "}
-                          <mark className="path">
-                            /Library/Application Support/Adobe/CEP/extensions
-                          </mark>
+                            Переместите содержимое распакованного архива в папку{" "}
+                            <mark className="path">
+                              /Library/Application Support/Adobe/CEP/extensions
+                            </mark>
                           </p>
                           <Addition type="info">
                             Если такой папки нет — создайте её вручную через контекстное
@@ -800,8 +800,8 @@ const PRInstallProblems: React.FC = () => {
                   <p>
                     Для того чтобы установить программу или плагин, поставляющийся в
                     формате исполняемого файла <mark className="file">EXE</mark> или{" "}
-                  <mark className="file">MSI</mark> — достаточно его открыть двойным
-                  кликом и следовать инструкциям установщика.
+                    <mark className="file">MSI</mark> — достаточно его открыть двойным
+                    кликом и следовать инструкциям установщика.
                   </p>
                   <Addition type="info">
                     <ul>
@@ -1020,9 +1020,9 @@ const PRInstallProblems: React.FC = () => {
                     </li>
                     <li>
                       <p>
-                      После выбора файла импортированные пресеты появятся в окне{" "}
-                      <mark className="select">«Effects»</mark> в папке{" "}
-                      <mark className="path">Presets</mark>.
+                        После выбора файла импортированные пресеты появятся в окне{" "}
+                        <mark className="select">«Effects»</mark> в папке{" "}
+                        <mark className="path">Presets</mark>.
                       </p>
                       <Addition type="info">
                         Все ваши пресеты хранятся в одном общем файле{" "}
@@ -1363,9 +1363,9 @@ const PRInstallProblems: React.FC = () => {
                     </li>
                     <li>
                       <p>
-                      Распакуйте файлы шрифтов в{" "}
-                      <mark className="path">C:\Windows\Fonts</mark>. Это позволит
-                      установить шрифты для всех пользователей системы.
+                        Распакуйте файлы шрифтов в{" "}
+                        <mark className="path">C:\Windows\Fonts</mark>. Это позволит
+                        установить шрифты для всех пользователей системы.
                       </p>
                       <Addition type="info">
                         Если у вас нет прав администратора, вы можете распаковать файлы
@@ -2031,7 +2031,7 @@ const PRInstallProblems: React.FC = () => {
           </li>
           <li>
             <p>
-            Если вы скачали репак, запакованный в многотомный архив — убедитесь, что вы
+              Если вы скачали репак, запакованный в многотомный архив — убедитесь, что вы
               скачали все части архива. Если хоть одна часть репака будет повреждена —
               архив может не открыться.
             </p>
@@ -2632,8 +2632,8 @@ const PRInstallProblems: React.FC = () => {
           </li>
           <li>
             <p>
-            <mark className="word">AVX</mark> — плагин установится для программ от{" "}
-            <mark className="company">Avid</mark>.
+              <mark className="word">AVX</mark> — плагин установится для программ от{" "}
+              <mark className="company">Avid</mark>.
             </p>
             <Addition type="warning">
               Такой тип плагинов не совместим с программами от{" "}

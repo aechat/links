@@ -149,8 +149,8 @@ const PRImport: React.FC = () => {
           </li>
           <li>
             <p>
-            После настройки - укажите путь для сохранения перекодированных файлов и
-            нажмите на кнопку <mark className="select">«Start Function»</mark>.
+              После настройки - укажите путь для сохранения перекодированных файлов и
+              нажмите на кнопку <mark className="select">«Start Function»</mark>.
             </p>
             <Addition type="info">
               Если у вас видеокарта от NVIDIA, то не забудьте установить галочку в
@@ -478,8 +478,8 @@ const PRImport: React.FC = () => {
           </li>
           <li>
             <p>
-            Для скачивания кодека <mark className="video">HEVC</mark>.
-            <code>https://apps.microsoft.com/9n4wgh0z6vhq</code>
+              Для скачивания кодека <mark className="video">HEVC</mark>.
+              <code>https://apps.microsoft.com/9n4wgh0z6vhq</code>
             </p>
             <Addition type="danger">
               <mark className="app">Adobe Premiere Pro</mark> после установки кодеков все

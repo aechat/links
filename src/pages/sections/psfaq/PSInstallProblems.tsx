@@ -21,11 +21,11 @@ const PSInstallProblems: React.FC = () => {
         <ul>
           <li>
             <p>
-            Если в архиве находится файл <mark className="image">PSD</mark>, то такие
-            файлы открываются как обычный проект в{" "}
-            <mark className="app">Adobe Photoshop</mark> через{" "}
-            <mark className="select">«File» → «Open»</mark> или открытием из проводника,
-            если в системе зависимости были корректно настроены на данный тип файлов.
+              Если в архиве находится файл <mark className="image">PSD</mark>, то такие
+              файлы открываются как обычный проект в{" "}
+              <mark className="app">Adobe Photoshop</mark> через{" "}
+              <mark className="select">«File» → «Open»</mark> или открытием из проводника,
+              если в системе зависимости были корректно настроены на данный тип файлов.
             </p>
             <Addition type="info">
               Если вы хотите встроить <mark className="image">PSD</mark> в свой проект -
@@ -39,13 +39,13 @@ const PSInstallProblems: React.FC = () => {
           </li>
           <li>
             <p>
-            Если в архиве находится <mark className="image">AI</mark>,{" "}
-            <mark className="image">EPS</mark>, <mark className="image">JPG</mark>,{" "}
-            <mark className="image">PNG</mark>, <mark className="image">PDF</mark>,{" "}
-            <mark className="image">SVG</mark> или другие файлы изображений, то такие
-            файлы открываются как обычные изображения в{" "}
-            <mark className="app">Adobe Photoshop</mark> простым перетаскиванием файла в
-            окно программы или через <mark className="select">«File» → «Open»</mark>.
+              Если в архиве находится <mark className="image">AI</mark>,{" "}
+              <mark className="image">EPS</mark>, <mark className="image">JPG</mark>,{" "}
+              <mark className="image">PNG</mark>, <mark className="image">PDF</mark>,{" "}
+              <mark className="image">SVG</mark> или другие файлы изображений, то такие
+              файлы открываются как обычные изображения в{" "}
+              <mark className="app">Adobe Photoshop</mark> простым перетаскиванием файла в
+              окно программы или через <mark className="select">«File» → «Open»</mark>.
             </p>
             <Addition type="info">
               <p>
@@ -68,14 +68,14 @@ const PSInstallProblems: React.FC = () => {
           </li>
           <li>
             <p>
-            Если в архиве находится файл <mark className="file">ATN</mark>, то для
-            установки вам нужно открыть окно <mark className="select">«Actions»</mark> с
+              Если в архиве находится файл <mark className="file">ATN</mark>, то для
+              установки вам нужно открыть окно <mark className="select">«Actions»</mark> с
               помощью комбинации клавиш <mark className="key">Alt + F9</mark>, нажать на
               три полоски в углу открывшегося окна и нажать на кнопку{" "}
-            <mark className="select">«Load Actions»</mark>. Далее вам предложат выбрать
-            нужный файл. После выбора файла действий оно у вас отобразится в окне{" "}
-            <mark className="select">«Actions»</mark> и вы сможете применять их в своих
-            проектах.
+              <mark className="select">«Load Actions»</mark>. Далее вам предложат выбрать
+              нужный файл. После выбора файла действий оно у вас отобразится в окне{" "}
+              <mark className="select">«Actions»</mark> и вы сможете применять их в своих
+              проектах.
             </p>
             <Addition type="warning">
               Рекомендуется использовать английскую локализацию{" "}
@@ -125,12 +125,12 @@ const PSInstallProblems: React.FC = () => {
                     ничего интересного для пользователя.
                   </Addition>
                   <p>
-                  Если вы скачали архив формата <mark className="file">ZIP</mark>,{" "}
+                    Если вы скачали архив формата <mark className="file">ZIP</mark>,{" "}
                     <mark className="file">7Z</mark> или <mark className="file">RAR</mark>
                     , то вам необходимо его распаковать с помощью архиватора для
                     дальнейшей работы с ним. Это можно сделать с помощью{" "}
-                  <mark className="app">keka</mark> или{" "}
-                  <mark className="app">The Unarchiver</mark>.
+                    <mark className="app">keka</mark> или{" "}
+                    <mark className="app">The Unarchiver</mark>.
                   </p>
                   <Addition type="info">
                     <ul>
@@ -176,12 +176,12 @@ const PSInstallProblems: React.FC = () => {
                 </li>
                 <li>
                   <p>
-                  Если в архиве или в записи находится файл{" "}
+                    Если в архиве или в записи находится файл{" "}
                     <mark className="file">DMG</mark>, <mark className="file">APP</mark>{" "}
                     или <mark className="file">PKG</mark>, то обычно в нём содержится
-                  автоматический установщик плагина. Для установки таких файлов нужно
-                  следовать инструкциям установщика, например перенести файл из одного
-                  места в другое и так далее.
+                    автоматический установщик плагина. Для установки таких файлов нужно
+                    следовать инструкциям установщика, например перенести файл из одного
+                    места в другое и так далее.
                   </p>
                   <Addition type="info">
                     <ul>
@@ -210,16 +210,16 @@ const PSInstallProblems: React.FC = () => {
                   <p>
                     Если в архиве находится файл <mark className="file">ZXP</mark>, то
                     такие расширения обычно устанавливаются через{" "}
-                  <a href="https://aescripts.com/learn/zxp-installer/">
-                    ZXP Installer от aescripts
-                  </a>
-                  . Прежде чем устанавливать расширение такого формата, убедитесь в том,
-                  что ваша версия <mark className="app">Adobe Photoshop</mark> его
+                    <a href="https://aescripts.com/learn/zxp-installer/">
+                      ZXP Installer от aescripts
+                    </a>
+                    . Прежде чем устанавливать расширение такого формата, убедитесь в том,
+                    что ваша версия <mark className="app">Adobe Photoshop</mark> его
                     поддерживает. После того как вы установите расширение, откройте
                     терминал и введите команды ниже, их можно скопировать одним нажатием.
                     Если терминал не выдал никакие ошибки, то вы можете спокойно открыть{" "}
-                  <mark className="app">Adobe Photoshop</mark> и проверить
-                  работоспособность установленного расширения.
+                    <mark className="app">Adobe Photoshop</mark> и проверить
+                    работоспособность установленного расширения.
                   </p>
                   <Addition type="danger">
                     Пожалуйста, не используйте{" "}
@@ -747,14 +747,14 @@ const PSInstallProblems: React.FC = () => {
         <ul>
           <li>
             <p>
-            Если вы хотите установить свежую версию{" "}
-            <mark className="app">Adobe Photoshop</mark>, то вам нужно обновить вашу
-            систему до <mark>Windows 10</mark> сборки <mark>22H2</mark> или установить{" "}
-            <mark>Windows 11</mark>. Обычно в{" "}
-            <a href="https://helpx.adobe.com/photoshop/system-requirements.html">
-              системных требованиях Adobe Photoshop
-            </a>{" "}
-            указывается минимальная версия операционной системы.
+              Если вы хотите установить свежую версию{" "}
+              <mark className="app">Adobe Photoshop</mark>, то вам нужно обновить вашу
+              систему до <mark>Windows 10</mark> сборки <mark>22H2</mark> или установить{" "}
+              <mark>Windows 11</mark>. Обычно в{" "}
+              <a href="https://helpx.adobe.com/photoshop/system-requirements.html">
+                системных требованиях Adobe Photoshop
+              </a>{" "}
+              указывается минимальная версия операционной системы.
             </p>
             <Addition type="info">
               <ul>
@@ -803,58 +803,58 @@ const PSInstallProblems: React.FC = () => {
         <ul>
           <li>
             <p>
-            Убедитесь в том, что вы полностью скачали файл. Довольно часто веб-версия{" "}
+              Убедитесь в том, что вы полностью скачали файл. Довольно часто веб-версия{" "}
               <mark className="app">Telegram</mark> загружает установочные файлы с
               ошибками.{" "}
-            {(() => {
-              const userAgent = navigator.userAgent.toLowerCase();
-              const isIOS = /iphone|ipad/.test(userAgent);
-              const isAndroid = /android/.test(userAgent);
-              const isMacOS = /macintosh|mac os x/.test(userAgent);
+              {(() => {
+                const userAgent = navigator.userAgent.toLowerCase();
+                const isIOS = /iphone|ipad/.test(userAgent);
+                const isAndroid = /android/.test(userAgent);
+                const isMacOS = /macintosh|mac os x/.test(userAgent);
 
-              if (isIOS) {
-                return (
-                  <>
-                    Чтобы корректно скачивать подобные файлы - рекомендую использовать
-                    официальное приложение <mark className="app">Telegram</mark> вместо
-                    веб-версии, которое можно установить из{" "}
-                    <a href="https://telegram.org/dl/ios">App Store</a>.
-                  </>
-                );
-              }
+                if (isIOS) {
+                  return (
+                    <>
+                      Чтобы корректно скачивать подобные файлы - рекомендую использовать
+                      официальное приложение <mark className="app">Telegram</mark> вместо
+                      веб-версии, которое можно установить из{" "}
+                      <a href="https://telegram.org/dl/ios">App Store</a>.
+                    </>
+                  );
+                }
 
-              if (isAndroid) {
-                return (
-                  <>
-                    Чтобы корректно скачивать подобные файлы - рекомендую использовать
-                    официальное приложение <mark className="app">Telegram</mark> вместо
-                    веб-версии, которое можно установить по{" "}
-                    <a href="https://telegram.org/android">этой ссылке</a>.
-                  </>
-                );
-              }
+                if (isAndroid) {
+                  return (
+                    <>
+                      Чтобы корректно скачивать подобные файлы - рекомендую использовать
+                      официальное приложение <mark className="app">Telegram</mark> вместо
+                      веб-версии, которое можно установить по{" "}
+                      <a href="https://telegram.org/android">этой ссылке</a>.
+                    </>
+                  );
+                }
 
-              if (isMacOS) {
-                return (
-                  <>
+                if (isMacOS) {
+                  return (
+                    <>
                       Чтобы корректно скачивать подобные файлы - рекомендую
                       воспользоваться десктопной версией{" "}
                       <mark className="app">Telegram</mark> вместо веб-версии, которую
                       можно скачать по{" "}
-                    <a href="https://macos.telegram.org/">этой ссылке</a>.
+                      <a href="https://macos.telegram.org/">этой ссылке</a>.
+                    </>
+                  );
+                }
+
+                return (
+                  <>
+                    Чтобы корректно скачивать подобные файлы - рекомендую воспользоваться
+                    десктопной версией <mark className="app">Telegram</mark> вместо
+                    веб-версии, которую можно скачать по{" "}
+                    <a href="https://desktop.telegram.org/">этой ссылке</a>.
                   </>
                 );
-              }
-
-              return (
-                <>
-                  Чтобы корректно скачивать подобные файлы - рекомендую воспользоваться
-                  десктопной версией <mark className="app">Telegram</mark> вместо
-                  веб-версии, которую можно скачать по{" "}
-                  <a href="https://desktop.telegram.org/">этой ссылке</a>.
-                </>
-              );
-            })()}
+              })()}
             </p>
             <Addition type="info">
               Если вы полностью скачали файл с канала{" "}
@@ -865,8 +865,8 @@ const PSInstallProblems: React.FC = () => {
           </li>
           <li>
             <p>
-            Если вы скачали репак, запакованный в многотомный архив, которые обычно
-            помечаются как <mark className="file">PART1</mark>,{" "}
+              Если вы скачали репак, запакованный в многотомный архив, которые обычно
+              помечаются как <mark className="file">PART1</mark>,{" "}
               <mark className="file">PART2</mark> и так далее по порядку - убедитесь в
               том, что вы скачали все части архива, а также его корректно распаковали.
             </p>

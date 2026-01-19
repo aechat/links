@@ -377,9 +377,9 @@ const AEImport: React.FC = () => {
               </li>
               <li>
                 <p>
-                Если вы выбрали <mark className="video">H.264</mark> или{" "}
-                <mark className="video">H.265</mark>, то для этого формата потребуется
-                выполнить ещё несколько действий.
+                  Если вы выбрали <mark className="video">H.264</mark> или{" "}
+                  <mark className="video">H.265</mark>, то для этого формата потребуется
+                  выполнить ещё несколько действий.
                 </p>
                 <Addition type="danger">
                   Учтите, что <mark className="video">H.264</mark> и{" "}
@@ -1134,8 +1134,8 @@ const AEImport: React.FC = () => {
                 </li>
                 <li>
                   <p>
-                  Ссылка для скачивания кодека <mark className="video">HEVC</mark>:{" "}
-                  <code>https://apps.microsoft.com/9n4wgh0z6vhq</code>
+                    Ссылка для скачивания кодека <mark className="video">HEVC</mark>:{" "}
+                    <code>https://apps.microsoft.com/9n4wgh0z6vhq</code>
                   </p>
                   <Addition type="danger">
                     Учтите, что <mark className="app">Adobe After Effects</mark> после
