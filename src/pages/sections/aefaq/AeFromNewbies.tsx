@@ -1774,6 +1774,12 @@ const AeFromNewbies: React.FC = () => {
               <mark className="key">Q</mark> или с помощью{" "}
               <mark className="select">«Pen Tool»</mark>, предварительно выделив слой.
             </Addition>
+            <Addition type="warning">
+              Не все эффекты корректно работают с масками на одном слое, например{" "}
+              <mark className="plugin">Roto Brush</mark>. Если нужно наложить маску на
+              слой с таким эффектом, создайте прекомпозицию с переносом атрибутов внутрь,
+              а маски добавляйте уже на ней.
+            </Addition>
             <ContentFigure
               caption="Полное руководство для начинающих по созданию масок"
               src="WMmWIc88HDA"
