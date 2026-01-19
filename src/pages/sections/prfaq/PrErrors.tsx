@@ -3,7 +3,7 @@ import React from "react";
 import {Divider} from "antd";
 
 import Addition from "../../../components/content/Addition";
-import {ContentFigure} from "../../../components/content/ContentFigure";
+import {ArticleMedia} from "../../../components/content/ArticleMedia";
 import ContentFilter from "../../../components/content/ContentFilter";
 import DetailsSummary from "../../../components/content/DetailsSummary";
 import HostsAdobeModal from "../../../components/content/HostsAdobe";
@@ -41,14 +41,10 @@ const PrErrors: React.FC = () => {
           способов, как от него избавиться. Стоит учитывать, что эффективность каждого
           метода может различаться у разных пользователей.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Adobe"
-          imgTitle="Сообщение об отсутствии лицензии"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/adobe_the_unlicensed_app.png"
-          theme="light"
+          src="legacy/adobe_the_unlicensed_app.png"
           type="image"
-          variant="windows"
         />
         <Divider>Проверяем наличие VPN-соединения</Divider>
         <p>
@@ -86,7 +82,7 @@ const PrErrors: React.FC = () => {
                 блока ниже. Затем сохраните файл и перенесите его обратно с заменой.
               </p>
               <HostsAdobeModal />
-              <ContentFigure
+              <ArticleMedia
                 caption="Как отредактировать файл Hosts на Mac"
                 src="VcDYAbH6U_c"
                 type="youtube"
@@ -103,28 +99,20 @@ const PrErrors: React.FC = () => {
                   <mark className="select">«Network Monitor»</mark> и запретите доступ в
                   интернет всем процессам <mark className="company">Adobe</mark>, нажимая
                   кнопку <mark className="select">«Block»</mark> рядом с их названиями.
-                  <ContentFigure
+                  <ArticleMedia
                     caption="Radio Silence"
-                    imgTitle="Блокировка доступа в интернет на примере Adobe Premiere"
-                    // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-                    src="images/legacy/network_radio_silence.png"
-                    theme="dark"
+                    src="legacy/network_radio_silence.png"
                     type="image"
-                    variant="mac"
                   />
                 </li>
                 <li>
                   После этого заблокированные приложения появятся во вкладке{" "}
                   <mark className="select">«Firewall»</mark> и больше не должны
                   подключаться к сети.
-                  <ContentFigure
+                  <ArticleMedia
                     caption="Radio Silence"
-                    imgTitle="Список заблокированных приложений во вкладке Firewall"
-                    // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-                    src="images/legacy/firewall_radio_silence.png"
-                    theme="dark"
+                    src="legacy/firewall_radio_silence.png"
                     type="image"
-                    variant="mac"
                   />
                 </li>
               </ul>
@@ -158,27 +146,19 @@ const PrErrors: React.FC = () => {
                 проверьте настройку{" "}
                 <mark className="select">«Использовать прокси-сервер»</mark>.
               </p>
-              <ContentFigure
+              <ArticleMedia
                 caption="Параметры"
-                imgTitle="Проверяем прокси"
-                // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-                src="images/legacy/check_windows_proxy.png"
-                theme="dark"
+                src="legacy/check_windows_proxy.png"
                 type="image"
-                variant="windows"
               />
               <p>
                 Если прокси включён, нажмите на <mark className="select">«Изменить»</mark>{" "}
                 и отключите настройку адреса собственного сервера.
               </p>
-              <ContentFigure
+              <ArticleMedia
                 caption="Параметры"
-                imgTitle="Отключаем прокси"
-                // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-                src="images/legacy/disable_windows_proxy.png"
-                theme="dark"
+                src="legacy/disable_windows_proxy.png"
                 type="image"
-                variant="windows"
               />
               <Divider>Правим файл hosts</Divider>
               <p>
@@ -193,7 +173,7 @@ const PrErrors: React.FC = () => {
                 перенесите его обратно с заменой.
               </p>
               <HostsAdobeModal />
-              <ContentFigure
+              <ArticleMedia
                 caption="Как редактировать файл hosts"
                 src="wHhay41ocsc"
                 type="youtube"
@@ -224,14 +204,10 @@ const PrErrors: React.FC = () => {
                   <mark className="select">«Открыть»</mark> значение{" "}
                   <mark className="code">wf.msc</mark> и нажмите{" "}
                   <mark className="key">Enter</mark>.
-                  <ContentFigure
+                  <ArticleMedia
                     caption="Выполнить"
-                    imgTitle="Открываем брандмауэр"
-                    // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-                    src="images/legacy/open_wf_msc.png"
-                    theme="dark"
+                    src="legacy/open_wf_msc.png"
                     type="image"
-                    variant="windows"
                   />
                 </li>
                 <li>
@@ -239,41 +215,29 @@ const PrErrors: React.FC = () => {
                   <mark className="app">Монитор брандмауэра Защитника Windows</mark>. В
                   левой части окна перейдите в раздел{" "}
                   <mark className="select">«Правила для входящих подключений»</mark>.
-                  <ContentFigure
+                  <ArticleMedia
                     caption="Монитор брандмауэра Защитника Windows"
-                    imgTitle="Список правил брандмауэра"
-                    // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-                    src="images/legacy/firewall_main_page.png"
-                    theme="light"
+                    src="legacy/firewall_main_page.png"
                     type="image"
-                    variant="windows"
                   />
                 </li>
                 <li>
                   В правой части интерфейса нажмите кнопку{" "}
                   <mark className="select">«Создать правило»</mark>.
-                  <ContentFigure
+                  <ArticleMedia
                     caption="Монитор брандмауэра Защитника Windows"
-                    imgTitle="Окно создания правила брандмауэра"
-                    // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-                    src="images/legacy/firewall_creating_rule.png"
-                    theme="light"
+                    src="legacy/firewall_creating_rule.png"
                     type="image"
-                    variant="windows"
                   />
                 </li>
                 <li>
                   В открывшемся мастере создания правил на первой вкладке оставьте
                   выбранным <mark className="select">«Для программы»</mark> и нажмите{" "}
                   <mark className="select">«Далее»</mark>.
-                  <ContentFigure
+                  <ArticleMedia
                     caption="Мастер создания правила для нового входящего подключения"
-                    imgTitle="Выбор типа правила брандмауэра"
-                    // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-                    src="images/legacy/firewall_rule_type.png"
-                    theme="light"
+                    src="legacy/firewall_rule_type.png"
                     type="image"
-                    variant="windows"
                   />
                 </li>
                 <li>
@@ -282,40 +246,28 @@ const PrErrors: React.FC = () => {
                     C:\Program Files\Adobe\Adobe Premiere Pro 20XX\Adobe Premiere Pro.exe
                   </mark>{" "}
                   и снова нажмите <mark className="select">«Далее»</mark>.
-                  <ContentFigure
+                  <ArticleMedia
                     caption="Мастер создания правила для нового входящего подключения"
-                    imgTitle="Выбор программы для блокировки"
-                    // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-                    src="images/legacy/firewall_select_app.png"
-                    theme="light"
+                    src="legacy/firewall_select_app.png"
                     type="image"
-                    variant="windows"
                   />
                 </li>
                 <li>
                   В качестве действия выберите{" "}
                   <mark className="select">«Блокировать подключение»</mark>.
-                  <ContentFigure
+                  <ArticleMedia
                     caption="Мастер создания правила для нового входящего подключения"
-                    imgTitle="Окно настроек брандмауэра"
-                    // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-                    src="images/legacy/firewall_blocking.png"
-                    theme="light"
+                    src="legacy/firewall_blocking.png"
                     type="image"
-                    variant="windows"
                   />
                 </li>
                 <li>
                   Во вкладке <mark className="select">«Профиль»</mark> оставьте все три
                   флажка включёнными и нажмите <mark className="select">«Далее»</mark>.
-                  <ContentFigure
+                  <ArticleMedia
                     caption="Мастер создания правила для нового входящего подключения"
-                    imgTitle="Выбор профиля брандмауэра"
-                    // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-                    src="images/legacy/firewall_select_profile.png"
-                    theme="light"
+                    src="legacy/firewall_select_profile.png"
                     type="image"
-                    variant="windows"
                   />
                 </li>
                 <li>
@@ -324,14 +276,10 @@ const PrErrors: React.FC = () => {
                     нажмите <mark className="select">«Готово»</mark>. После этого
                     указанная программа больше не должна подключаться к интернету.
                   </p>
-                  <ContentFigure
+                  <ArticleMedia
                     caption="Мастер создания правила для нового входящего подключения"
-                    imgTitle="Выбор имени для правила брандмауэра"
-                    // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-                    src="images/legacy/firewall_naming.png"
-                    theme="light"
+                    src="legacy/firewall_naming.png"
                     type="image"
-                    variant="windows"
                   />
                 </li>
                 <li>
@@ -353,14 +301,10 @@ const PrErrors: React.FC = () => {
                 </a>
                 .
               </p>
-              <ContentFigure
+              <ArticleMedia
                 caption="Рабочий стол"
-                imgTitle="Блокировка доступа в интернет через OneClickFirewall"
-                // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-                src="images/legacy/oneclickfirewall_aftereffects.png"
-                theme="dark"
+                src="legacy/oneclickfirewall_aftereffects.png"
                 type="image"
-                variant="windows"
               />
               <Divider>Проверяем, не «навредил» ли антивирус</Divider>
               <p>
@@ -370,7 +314,7 @@ const PrErrors: React.FC = () => {
                 программами <mark className="company">Adobe</mark> в список исключений
                 антивируса, а затем установите программу вашей версии поверх существующей.
               </p>
-              <ContentFigure
+              <ArticleMedia
                 caption="Windows Defender: как восстановить файлы и добавить их в исключения"
                 src="ET94_dv3f8c"
                 type="youtube"
@@ -413,14 +357,10 @@ const PrErrors: React.FC = () => {
           у вас отсутствует какой-либо параметр для ускорения на видеокарте, попробуйте
           обновить драйверы для вашего видеочипа.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Adobe Premiere"
-          imgTitle="Установка рендеринга на GPU"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/premierepro/set_render_on_gpu.png"
-          theme="dark"
+          src="legacy/premierepro/set_render_on_gpu.png"
           type="image"
-          variant="windows"
         />
         <p>
           В редких случаях эффект, требующий <mark>GPU-ускорения</mark>, может
@@ -496,14 +436,10 @@ const PrErrors: React.FC = () => {
           предупреждение. Запустить программу можно как обычно, нажав на{" "}
           <mark className="select">«Continue with known issues»</mark>.
         </Addition>
-        <ContentFigure
+        <ArticleMedia
           caption="System Compatibility Report"
-          imgTitle="Предупреждение о несовместимости оборудования с программой"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/premierepro/system_compatibility_report.png"
-          theme="dark"
+          src="legacy/premierepro/system_compatibility_report.png"
           type="image"
-          variant="windows"
         />
         <p>
           В этом окне обычно отображаются возможные проблемы с использованием программы,
@@ -516,14 +452,10 @@ const PrErrors: React.FC = () => {
           флажок с параметра{" "}
           <mark className="select">«Show System Compatibility Issues»</mark>.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Preferences"
-          imgTitle="Отключаем предупреждения о несовместимости оборудования с программой"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/premierepro/show_system_compatibility_issues.png"
-          theme="dark"
+          src="legacy/premierepro/show_system_compatibility_issues.png"
           type="image"
-          variant="windows"
         />
       </DetailsSummary>
       <DetailsSummary
@@ -623,13 +555,10 @@ const PrErrors: React.FC = () => {
           </mark>
           .
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Настройка режима совместимости"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/compatibility_media_encoder.mp4"
-          theme="dark"
+          src="legacy/compatibility_media_encoder.mp4"
           type="video"
-          variant="windows"
         />
         <p>
           После этого программа при запуске не должна вылетать. Если всё ещё вылетает,

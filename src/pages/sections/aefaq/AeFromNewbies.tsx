@@ -3,7 +3,7 @@ import React from "react";
 import {Divider} from "antd";
 
 import Addition from "../../../components/content/Addition";
-import {ContentFigure} from "../../../components/content/ContentFigure";
+import {ArticleMedia} from "../../../components/content/ArticleMedia";
 import ContentFilter from "../../../components/content/ContentFilter";
 import DetailsSummary from "../../../components/content/DetailsSummary";
 import NestedDetailsSummary from "../../../components/content/NestedDetailsSummary";
@@ -54,7 +54,7 @@ const AeFromNewbies: React.FC = () => {
             от <a href="https://youtube.com/zernov">Ильи Зернова</a>. Этот курс поможет
             вам освоить интерфейс программы и научиться работать с ключевыми кадрами,
             титрами и эффектами.
-            <ContentFigure
+            <ArticleMedia
               caption="Основы After Effects от Ильи Зернова"
               src="nogR7eyhYug"
               type="youtube"
@@ -68,7 +68,7 @@ const AeFromNewbies: React.FC = () => {
             . При прохождении этого курса вы научитесь работать с различными эффектами,
             создавать анимацию текста, а также использовать маски и инструмент{" "}
             <mark className="plugin">Roto Brush</mark> для вырезания объектов в кадре.
-            <ContentFigure
+            <ArticleMedia
               caption="After Effects для начинающих"
               src="ZTrELWgEtUI"
               type="youtube"
@@ -82,7 +82,7 @@ const AeFromNewbies: React.FC = () => {
             </a>
             . Автор подробно разбирает основные функции программы и демонстрирует
             различные примеры работы.
-            <ContentFigure
+            <ArticleMedia
               caption="What is Adobe After Effects?"
               src="FuJMHF510mc"
               type="youtube"
@@ -129,7 +129,7 @@ const AeFromNewbies: React.FC = () => {
           </li>
         </ul>
         <Divider>Принципы анимации</Divider>
-        <ContentFigure
+        <ArticleMedia
           caption="12 принципов анимации"
           src="LcoDiK2a_oM"
           type="youtube"
@@ -152,7 +152,7 @@ const AeFromNewbies: React.FC = () => {
             значения, а также с <mark className="select">«Graph Editor»</mark>, посмотрите
             подробное объяснение этого инструмента от{" "}
             <a href="https://www.youtube.com/@JakeInMotion">Jake In Motion</a>.
-            <ContentFigure
+            <ArticleMedia
               caption="Туториал по графикам скорости, который вам может пригодиться"
               src="7pOCtlrrE3Y"
               type="youtube"
@@ -167,7 +167,7 @@ const AeFromNewbies: React.FC = () => {
               выделенного слоя, нажмите комбинацию клавиш{" "}
               <mark className="key">Ctrl + Alt + T</mark>.
             </Addition>
-            <ContentFigure
+            <ArticleMedia
               caption="Плавно изменяющаяся скорость"
               src="_kcfkuNwd3M"
               type="youtube"
@@ -187,7 +187,7 @@ const AeFromNewbies: React.FC = () => {
                 Основы цветокоррекции от Adobe
               </a>
             </div>
-            <ContentFigure
+            <ArticleMedia
               caption="Цветокоррекция с помощью Lumetri Color"
               src="y4fuhIPxmJg"
               type="youtube"
@@ -245,7 +245,7 @@ const AeFromNewbies: React.FC = () => {
               <mark className="plugin">Boris FX Sapphire</mark> со стилем{" "}
               <mark className="select">«Twitchy»</mark>.
             </Addition>
-            <ContentFigure
+            <ArticleMedia
               caption="Как добавить эффект тряски камеры без сторонних эффектов"
               src="rT1rOj3BBCE"
               type="youtube"
@@ -256,7 +256,7 @@ const AeFromNewbies: React.FC = () => {
             помощью стандартных генераторов, таких как{" "}
             <mark className="plugin">CC Particle World</mark>, или через сторонние
             инструменты, например <mark className="plugin">Trapcode Particular</mark>.
-            <ContentFigure
+            <ArticleMedia
               caption="Создание частиц с помощью Trapcode Particular"
               src="GgIbELgZLLI"
               type="youtube"
@@ -271,7 +271,7 @@ const AeFromNewbies: React.FC = () => {
               Учтите, что эффект свечения очень требователен к ресурсам и может серьёзно
               снизить производительность проекта.
             </Addition>
-            <ContentFigure
+            <ArticleMedia
               caption="Glow"
               src="t40ZTEBr_M0"
               type="youtube"
@@ -285,7 +285,7 @@ const AeFromNewbies: React.FC = () => {
             <mark className="plugin">Optical Flares</mark>,{" "}
             <mark className="plugin">S_LensFlare</mark> или даже комбинацией различных
             эффектов размытия и искажения.
-            <ContentFigure
+            <ArticleMedia
               caption="S_LensFlare"
               src="-yD3MxlR78c"
               type="youtube"
@@ -305,7 +305,7 @@ const AeFromNewbies: React.FC = () => {
               <mark className="plugin">Sharpen</mark> в погоне за «качеством» — после
               таких «улучшений» результат обычно выглядит так себе.
             </i>
-            <ContentFigure
+            <ArticleMedia
               caption="HOW TO: Make A 4K Color Correction"
               src="d9ESpD7vc2Y"
               type="youtube"
@@ -331,14 +331,10 @@ const AeFromNewbies: React.FC = () => {
           дорожку. Также каждому слою вы можете задать свой цвет метки для лучшего
           ориентирования в таймлайне.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Timeline"
-          imgTitle="Пример таймлайна композиции в Adobe After Effects"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/aftereffects/timeline_example.png"
-          theme="dark"
+          src="legacy/aftereffects/timeline_example.png"
           type="image"
-          variant="windows"
         />
         <p>
           Порядок слоёв на таймлайне влияет на то, как они перекрываются: верхний слой
@@ -355,14 +351,10 @@ const AeFromNewbies: React.FC = () => {
           выберите <mark className="select">«New»</mark>. В выпадающем меню выберите
           нужный тип слоя.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Adobe After Effects"
-          imgTitle="Создание слоёв"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/aftereffects/create_layers.png"
-          theme="dark"
+          src="legacy/aftereffects/create_layers.png"
           type="image"
-          variant="windows"
         />
         <p>
           Для создания слоя из изображения или видео, перетащите файл на таймлайн
@@ -542,7 +534,7 @@ const AeFromNewbies: React.FC = () => {
                 <mark className="app">Blender</mark> или{" "}
                 <mark className="app">Cinema 4D</mark>.
               </p>
-              <ContentFigure
+              <ArticleMedia
                 caption="Импорт секвенции изображений"
                 src="efHrVdCsX-4"
                 type="youtube"
@@ -624,7 +616,7 @@ const AeFromNewbies: React.FC = () => {
                 это исправить — измените цветовой режим файла на <mark>RGB</mark>.{" "}
                 <a href="#import-layered-psd">Как?</a>
               </Addition>
-              <ContentFigure
+              <ArticleMedia
                 caption="Импорт и анимация PSD в Adobe After Effects"
                 src="e1ZJfivOloM"
                 type="youtube"
@@ -662,7 +654,7 @@ const AeFromNewbies: React.FC = () => {
                 <mark className="key">ПКМ</mark> по заголовкам столбцов и выберите{" "}
                 <mark className="select">«Columns» → «Parent & Link»</mark>.
               </Addition>
-              <ContentFigure
+              <ArticleMedia
                 caption="Тебе НУЖНО использовать нулевые слои в Adobe After Effects"
                 src="8ei_cj6A2Gg"
                 type="youtube"
@@ -699,7 +691,7 @@ const AeFromNewbies: React.FC = () => {
                 <mark className="select">«Solid Layer»</mark> и размещённый под{" "}
                 <mark className="select">«Adjustment Layer»</mark>.
               </Addition>
-              <ContentFigure
+              <ArticleMedia
                 caption="Используем корректирующие слои в Adobe After Effects"
                 src="rgMKGFWWqjA"
                 type="youtube"
@@ -711,13 +703,10 @@ const AeFromNewbies: React.FC = () => {
                 <mark className="select">«Layer»</mark>, <mark className="key">ПКМ</mark>{" "}
                 или с помощью соответствующего переключателя на таймлайне.
               </p>
-              <ContentFigure
+              <ArticleMedia
                 caption="Демонстрация работы корректирующего слоя"
-                // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-                src="images/legacy/aftereffects/enable_adjustment_layer_mode.mp4"
-                theme="dark"
+                src="legacy/aftereffects/enable_adjustment_layer_mode.mp4"
                 type="video"
-                variant="windows"
               />
             </NestedDetailsSummary>
             <NestedDetailsSummary title="Сплошная заливка">
@@ -747,7 +736,7 @@ const AeFromNewbies: React.FC = () => {
                   </li>
                 </ul>
               </Addition>
-              <ContentFigure
+              <ArticleMedia
                 caption="Как создать фон и изменить цвет заливки"
                 src="e-g1y4p8Jc0"
                 type="youtube"
@@ -822,13 +811,10 @@ const AeFromNewbies: React.FC = () => {
                   Подходит для заголовков, коротких примечаний и вставок. Поддерживает
                   только выравнивание по левому, правому краю и по центру — выравнивание
                   по ширине невозможно, так как у такого текста нет фиксированной рамки.
-                  <ContentFigure
+                  <ArticleMedia
                     caption="Создание Point Text"
-                    // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-                    src="images/legacy/aftereffects/create_point_text.mp4"
-                    theme="dark"
+                    src="legacy/aftereffects/create_point_text.mp4"
                     type="video"
-                    variant="windows"
                   />
                 </li>
                 <li>
@@ -837,13 +823,10 @@ const AeFromNewbies: React.FC = () => {
                   Часто используется для встраивания текста в фигуры, например
                   прямоугольники. Поддерживает все типы выравнивания, включая выравнивание
                   по ширине — настраивается в <mark className="select">«Paragraph»</mark>.
-                  <ContentFigure
+                  <ArticleMedia
                     caption="Создание Paragraph Text"
-                    // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-                    src="images/legacy/aftereffects/create_paragraph_text.mp4"
-                    theme="dark"
+                    src="legacy/aftereffects/create_paragraph_text.mp4"
                     type="video"
-                    variant="windows"
                   />
                 </li>
               </ul>
@@ -855,13 +838,10 @@ const AeFromNewbies: React.FC = () => {
                 <mark className="select">«Convert to Paragraph Text»</mark> — в
                 зависимости от того, что у вас сейчас.
               </p>
-              <ContentFigure
+              <ArticleMedia
                 caption="Конвертация Point Text в Paragraph Text"
-                // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-                src="images/legacy/aftereffects/convert_to_paragraph_text.mp4"
-                theme="dark"
+                src="legacy/aftereffects/convert_to_paragraph_text.mp4"
                 type="video"
-                variant="windows"
               />
               <p>
                 Также текст можно писать горизонтально и вертикально. Для этого есть
@@ -872,7 +852,7 @@ const AeFromNewbies: React.FC = () => {
                 <mark>monospace-like</mark> шрифта. Это полезно для анимации счётчиков,
                 чтобы текст не прыгал.
               </p>
-              <ContentFigure
+              <ArticleMedia
                 caption="Как сделать текст моноширинным"
                 src="__-rPlFfRow"
                 type="youtube"
@@ -886,7 +866,7 @@ const AeFromNewbies: React.FC = () => {
                 не будет работать с двумерными слоями, если на нём не применён эффект
                 работающий в трёхмерном пространстве.
               </p>
-              <ContentFigure
+              <ArticleMedia
                 caption="Техники с камерой в Adobe After Effects"
                 src="zgMHWFolli8"
                 type="youtube"
@@ -914,14 +894,10 @@ const AeFromNewbies: React.FC = () => {
                   </li>
                 </ul>
               </Addition>
-              <ContentFigure
+              <ArticleMedia
                 caption="Camera Settings"
-                imgTitle="Настройки камеры"
-                // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-                src="images/legacy/aftereffects/camera_settings.png"
-                theme="dark"
+                src="legacy/aftereffects/camera_settings.png"
                 type="image"
-                variant="windows"
               />
               <Addition type="warning">
                 Учтите, что не все параметры камеры доступны в движках рендера{" "}
@@ -1024,14 +1000,10 @@ const AeFromNewbies: React.FC = () => {
                 пересветами
                 <sup>2</sup>.
               </p>
-              <ContentFigure
+              <ArticleMedia
                 caption="Timeline"
-                imgTitle="Свойства камеры на таймлайне"
-                // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-                src="images/legacy/aftereffects/camera_options_on_timeline.png"
-                theme="dark"
+                src="legacy/aftereffects/camera_options_on_timeline.png"
                 type="image"
-                variant="windows"
               />
               <Addition type="info">
                 <ul>
@@ -1108,14 +1080,10 @@ const AeFromNewbies: React.FC = () => {
                 <mark className="key">6</mark> — для переключения типов инструментов для
                 трёхмерных объектов в окне предпросмотра.
               </p>
-              <ContentFigure
+              <ArticleMedia
                 caption="Preferences"
-                imgTitle="Настройки в 3D"
-                // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-                src="images/legacy/aftereffects/edit_preferences_3d.png"
-                theme="dark"
+                src="legacy/aftereffects/edit_preferences_3d.png"
                 type="image"
-                variant="windows"
               />
               <ul>
                 <li>
@@ -1154,14 +1122,10 @@ const AeFromNewbies: React.FC = () => {
                 Чтобы вернуть универсальный манипулятор, выберите его на{" "}
                 <mark className="select">панели инструментов</mark> или нажмите{" "}
                 <mark className="key">Shift + V</mark>.
-                <ContentFigure
+                <ArticleMedia
                   caption="Tools"
-                  imgTitle="Выбор универсального манипулятора"
-                  // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-                  src="images/legacy/aftereffects/select_universal_transform_gizmo.png"
-                  theme="dark"
+                  src="legacy/aftereffects/select_universal_transform_gizmo.png"
                   type="image"
-                  variant="windows"
                 />
               </Addition>
             </NestedDetailsSummary>
@@ -1188,14 +1152,10 @@ const AeFromNewbies: React.FC = () => {
                   </li>
                 </ul>
               </Addition>
-              <ContentFigure
+              <ArticleMedia
                 caption="Light Settings"
-                imgTitle="Настройка источника света"
-                // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-                src="images/legacy/aftereffects/light_settings.png"
-                theme="dark"
+                src="legacy/aftereffects/light_settings.png"
                 type="image"
-                variant="windows"
               />
               <Addition type="info">
                 <ul>
@@ -1313,7 +1273,7 @@ const AeFromNewbies: React.FC = () => {
                   </li>
                 </ul>
               </Addition>
-              <ContentFigure
+              <ArticleMedia
                 caption="Слои-фигуры для начинающих"
                 src="98ro7x3kl8A"
                 type="youtube"
@@ -1352,14 +1312,10 @@ const AeFromNewbies: React.FC = () => {
                 <sup>5</sup>, разрешение<sup>6</sup> и фон композиции
                 <sup>7</sup>.
               </p>
-              <ContentFigure
+              <ArticleMedia
                 caption="Composition Settings"
-                imgTitle="Вкладка Basic в настройках композиции"
-                // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-                src="images/legacy/aftereffects/composition_settings_basic.png"
-                theme="dark"
+                src="legacy/aftereffects/composition_settings_basic.png"
                 type="image"
-                variant="windows"
               />
               <Addition type="warning">
                 Учтите, что при экспорте не все кодеки поддерживают нечётное количество
@@ -1463,14 +1419,10 @@ const AeFromNewbies: React.FC = () => {
                 <mark className="select">«Preserve»</mark>
                 <sup>5</sup>.
               </p>
-              <ContentFigure
+              <ArticleMedia
                 caption="Composition Settings"
-                imgTitle="Вкладка Advanced в настройках композиции"
-                // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-                src="images/legacy/aftereffects/composition_settings_advanced.png"
-                theme="dark"
+                src="legacy/aftereffects/composition_settings_advanced.png"
                 type="image"
-                variant="windows"
               />
               <Addition type="info">
                 <ul>
@@ -1528,14 +1480,10 @@ const AeFromNewbies: React.FC = () => {
                 Например — отсутствует поддержка режимов наложения, размытия в движении,
                 невозможность применения некоторых эффектов и прочее.
               </p>
-              <ContentFigure
+              <ArticleMedia
                 caption="Composition Settings"
-                imgTitle="Вкладка 3D Renderer в настройках композиции"
-                // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-                src="images/legacy/aftereffects/composition_settings_3d_renderer.png"
-                theme="dark"
+                src="legacy/aftereffects/composition_settings_3d_renderer.png"
                 type="image"
-                variant="windows"
               />
               <p>
                 При необходимости композицию можно «зафиксировать и отрендерить», чтобы не
@@ -1568,13 +1516,10 @@ const AeFromNewbies: React.FC = () => {
                   </li>
                 </ul>
               </Addition>
-              <ContentFigure
+              <ArticleMedia
                 caption="Создание прокси для композиции"
-                // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-                src="images/legacy/aftereffects/create_comp_proxy.mp4"
-                theme="dark"
+                src="legacy/aftereffects/create_comp_proxy.mp4"
                 type="video"
-                variant="windows"
               />
             </NestedDetailsSummary>
             <NestedDetailsSummary title="Предварительная композиция">
@@ -1585,14 +1530,10 @@ const AeFromNewbies: React.FC = () => {
                 <mark className="key">Ctrl + Shift + C</mark>. В появившемся окне можно
                 выбрать один из двух способов вложения.
               </p>
-              <ContentFigure
+              <ArticleMedia
                 caption="Pre-compose"
-                imgTitle="Диалог при создании предварительной композиции"
-                // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-                src="images/legacy/aftereffects/pre-compose.png"
-                theme="dark"
+                src="legacy/aftereffects/pre-compose.png"
                 type="image"
-                variant="windows"
               />
               <ul>
                 <li>
@@ -1685,7 +1626,7 @@ const AeFromNewbies: React.FC = () => {
                 прекомпозиция без включённого{" "}
                 <mark className="select">«Collapse Transformations»</mark>.
               </p>
-              <ContentFigure
+              <ArticleMedia
                 caption="Трёхмерные слои в Adobe After Effects"
                 src="7NFsxeG-sWY"
                 type="youtube"
@@ -1710,7 +1651,7 @@ const AeFromNewbies: React.FC = () => {
                 <mark className="app">Cinema 4D</mark> или{" "}
                 <mark className="app">Substance 3D Painter</mark>.
               </p>
-              <ContentFigure
+              <ArticleMedia
                 caption="Работаем с 3D-моделями из Substance Painter в Adobe After Effects"
                 src="qPOkGR7Ek2I"
                 type="youtube"
@@ -1739,7 +1680,7 @@ const AeFromNewbies: React.FC = () => {
                 <mark className="file">C4D</mark>.{" "}
                 <a href="#fix-cinema-4d-must-be-installed">Подробнее...</a>
               </Addition>
-              <ContentFigure
+              <ArticleMedia
                 caption="Cineware"
                 src="qFVQrxWvOjw"
                 type="youtube"
@@ -1780,7 +1721,7 @@ const AeFromNewbies: React.FC = () => {
               слой с таким эффектом, создайте прекомпозицию с переносом атрибутов внутрь,
               а маски добавляйте уже на ней.
             </Addition>
-            <ContentFigure
+            <ArticleMedia
               caption="Полное руководство для начинающих по созданию масок"
               src="WMmWIc88HDA"
               type="youtube"
@@ -1794,7 +1735,7 @@ const AeFromNewbies: React.FC = () => {
               </a>{" "}
               в версии <mark>2023</mark> и новее.
             </p>
-            <ContentFigure
+            <ArticleMedia
               caption="Почему тебе нужны Mattes в After Effects"
               src="VWkS1vcs0Wk"
               type="youtube"
@@ -1827,7 +1768,7 @@ const AeFromNewbies: React.FC = () => {
                 </li>
               </ul>
             </Addition>
-            <ContentFigure
+            <ArticleMedia
               caption="Как использовать Guide Layers"
               src="_rxq8Pa9WdQ"
               type="youtube"
@@ -1841,7 +1782,7 @@ const AeFromNewbies: React.FC = () => {
               слоёв и при создании шаблонов — он помогает скрыть некоторые слои от лишних
               глаз, но при этом никак не защищает их от удаления.
             </p>
-            <ContentFigure
+            <ArticleMedia
               caption="Как спрятать слои?"
               src="Bw3snjRq2kE"
               type="youtube"
@@ -2626,14 +2567,10 @@ const AeFromNewbies: React.FC = () => {
               предпросмотра и выберите{" "}
               <mark className="select">«Title / Action Safe»</mark>
               .
-              <ContentFigure
+              <ArticleMedia
                 caption="Composition"
-                imgTitle="Включение безопасных зон в предпросмотре"
-                // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-                src="images/legacy/aftereffects/enable_action_safe.png"
-                theme="dark"
+                src="legacy/aftereffects/enable_action_safe.png"
                 type="image"
-                variant="windows"
               />
             </Addition>
           </li>
@@ -3926,14 +3863,10 @@ const AeFromNewbies: React.FC = () => {
                 нажмите на иконку открытия контекстного меню и переключитесь в режим{" "}
                 <mark className="select">«Debug Database View»</mark>.
               </p>
-              <ContentFigure
+              <ArticleMedia
                 caption="Включение Debug Database View"
-                imgTitle="Включение Debug Database View"
-                // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-                src="images/legacy/aftereffects/console_debug-database-view.png"
-                theme="dark"
+                src="legacy/aftereffects/console_debug-database-view.png"
                 type="image"
-                variant="windows"
               />
               <p>
                 Затем в строке поиска введите{" "}
@@ -3943,14 +3876,10 @@ const AeFromNewbies: React.FC = () => {
                 вернуть язык по умолчанию, просто удалите значение из этого параметра и
                 снова перезапустите программу.
               </p>
-              <ContentFigure
+              <ArticleMedia
                 caption="Установка английского языка в консоли"
-                imgTitle="Установка английского языка в консоли"
-                // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-                src="images/legacy/aftereffects/set_language_console.png"
-                theme="dark"
+                src="legacy/aftereffects/set_language_console.png"
                 type="image"
-                variant="windows"
               />
             </>
           }
@@ -3997,14 +3926,10 @@ const AeFromNewbies: React.FC = () => {
                 нажмите на иконку открытия контекстного меню и переключитесь в режим{" "}
                 <mark className="select">«Debug Database View»</mark>.
               </p>
-              <ContentFigure
+              <ArticleMedia
                 caption="Включение Debug Database View"
-                imgTitle="Включение Debug Database View"
-                // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-                src="images/legacy/aftereffects/console_debug-database-view.png"
-                theme="dark"
+                src="legacy/aftereffects/console_debug-database-view.png"
                 type="image"
-                variant="windows"
               />
               <p>
                 Затем в строке поиска введите{" "}
@@ -4014,14 +3939,10 @@ const AeFromNewbies: React.FC = () => {
                 вернуть язык по умолчанию, просто удалите значение из этого параметра и
                 снова перезапустите программу.
               </p>
-              <ContentFigure
+              <ArticleMedia
                 caption="Установка английского языка в консоли"
-                imgTitle="Установка английского языка в консоли"
-                // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-                src="images/legacy/aftereffects/set_language_console.png"
-                theme="dark"
+                src="legacy/aftereffects/set_language_console.png"
                 type="image"
-                variant="windows"
               />
             </>
           }
@@ -4045,14 +3966,10 @@ const AeFromNewbies: React.FC = () => {
           Очистка кэша никак не повлияет на ваши проекты: они не сломаются и не удалятся.
           Максимум, что придётся сделать после этого — закэшировать композицию заново.
         </Addition>
-        <ContentFigure
+        <ArticleMedia
           caption="Очистка кэша и оперативной памяти"
-          imgTitle="Очистка кэша и оперативной памяти"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/aftereffects/edit_purge_all-memory-and-disk-cache.png"
-          theme="light"
+          src="legacy/aftereffects/edit_purge_all-memory-and-disk-cache.png"
           type="image"
-          variant="windows"
         />
         <ContentFilter
           windowsContent={
@@ -4110,14 +4027,10 @@ const AeFromNewbies: React.FC = () => {
           <mark className="select">«Cache Frames When Idle»</mark> или нажмите комбинацию
           клавиш <mark className="key">Alt + Shift + I</mark>.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Adobe After Effects"
-          imgTitle="Отключение автоматического кэширования предпросмотра при бездействии"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/aftereffects/disable_idle_cache.png"
-          theme="light"
+          src="legacy/aftereffects/disable_idle_cache.png"
           type="image"
-          variant="windows"
         />
         <Divider>Настраиваем функцию кэширования в простое</Divider>
         <p>
@@ -4132,14 +4045,10 @@ const AeFromNewbies: React.FC = () => {
           <mark>«вокруг временной метки»</mark>, <mark>«от временной метки»</mark> или{" "}
           <mark>«от начала рабочей области»</mark>.
         </Addition>
-        <ContentFigure
+        <ArticleMedia
           caption="Preferences"
-          imgTitle="Изменение времени для автоматического кэширования при бездействии"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/aftereffects/change_time_idle_cache.png"
-          theme="dark"
+          src="legacy/aftereffects/change_time_idle_cache.png"
           type="image"
-          variant="windows"
         />
       </DetailsSummary>
       <DetailsSummary
@@ -4208,7 +4117,7 @@ const AeFromNewbies: React.FC = () => {
                 <mark className="app">Time Machine</mark> нужен внешний накопитель,
                 желательно объёмом от <mark>512 ГБ</mark>.
               </p>
-              <ContentFigure
+              <ArticleMedia
                 caption="How to Set up & Use Time Machine to Backup your Mac"
                 src="Gx76i28c150"
                 type="youtube"
@@ -4224,7 +4133,7 @@ const AeFromNewbies: React.FC = () => {
                 удалённый или предыдущую версию файла. Для работы этой функции нужно
                 заранее указать диск для сохранения копий.
               </p>
-              <ContentFigure
+              <ArticleMedia
                 caption="История файлов в Windows 11 и Windows 10"
                 src="xDFQEx9gylc"
                 type="youtube"
@@ -4256,7 +4165,7 @@ const AeFromNewbies: React.FC = () => {
           настроить автоматическое резервное копирование папок, разделов диска или даже
           целого образа системы — по расписанию или при наступлении определённых событий.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Настройка и обзор AOMEI Backupper"
           src="ImCjFVlF3gQ"
           type="youtube"
@@ -4281,7 +4190,7 @@ const AeFromNewbies: React.FC = () => {
           вручную фиксировать состояние проекта, смотреть историю изменения файлов и при
           необходимости возвращаться к предыдущим версиям.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Объясняем на пальцах про Git"
           src="G4f9OH4IQE8"
           type="youtube"
@@ -4313,7 +4222,7 @@ const AeFromNewbies: React.FC = () => {
           композитингом. Однако такой подход неэффективен. Разберёмся, когда какую
           программу использовать.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Когда нужно использовать Adobe Premiere и Adobe After Effects"
           src="xxDdL455rAo"
           type="youtube"
@@ -4406,14 +4315,10 @@ const AeFromNewbies: React.FC = () => {
           укажите новый файл. Старый исходник будет заменён на новый во всех композициях,
           где он использовался.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Project"
-          imgTitle="Замена исходника в проекте"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/aftereffects/replace_footage.png"
-          theme="dark"
+          src="legacy/aftereffects/replace_footage.png"
           type="image"
-          variant="windows"
         />
         <Divider>Замена с зажатым Alt</Divider>
         <p>
@@ -4424,13 +4329,10 @@ const AeFromNewbies: React.FC = () => {
           <mark className="key">Alt</mark>. Исходник будет заменён только для выделенного
           файла.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Замена футажей с помощью клавиши Alt"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/aftereffects/replace_footage_alt.mp4"
-          theme="dark"
+          src="legacy/aftereffects/replace_footage_alt.mp4"
           type="video"
-          variant="windows"
         />
       </DetailsSummary>
       <DetailsSummary
@@ -4452,13 +4354,10 @@ const AeFromNewbies: React.FC = () => {
           создаются автоматически при изменении значения параметра, если индикатор
           текущего времени находится в другой позиции на временной шкале.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Установка ключевых кадров"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/aftereffects/position_keyframing.mp4"
-          theme="dark"
+          src="legacy/aftereffects/position_keyframing.mp4"
           type="video"
-          variant="windows"
         />
         <p>
           По умолчанию программа создаёт линейную анимацию с равномерным движением. Чтобы
@@ -4506,13 +4405,10 @@ const AeFromNewbies: React.FC = () => {
                 Тип <mark className="select">«Linear»</mark>, или линейная интерполяция,
                 предполагает движение с постоянной скоростью. На графике она отображается
                 в виде прямой линии, а на таймлайне имеет форму ромба.
-                <ContentFigure
+                <ArticleMedia
                   caption="Линейная интерполяция"
-                  // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-                  src="images/legacy/aftereffects/temporal_linear.png"
-                  theme="dark"
+                  src="legacy/aftereffects/temporal_linear.png"
                   type="image"
-                  variant="windows"
                 />
               </li>
               <li>
@@ -4521,13 +4417,10 @@ const AeFromNewbies: React.FC = () => {
                 кривые ускорения с помощью независимых манипуляторов с каждой стороны
                 ключевого кадра. На таймлайне такие ключевые кадры обозначаются значком
                 песочных часов.
-                <ContentFigure
+                <ArticleMedia
                   caption="Интерполяция «Безье»"
-                  // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-                  src="images/legacy/aftereffects/temporal_bezier.mp4"
-                  theme="dark"
+                  src="legacy/aftereffects/temporal_bezier.mp4"
                   type="video"
-                  variant="windows"
                 />
                 <Addition type="info">
                   Чтобы быстро переключиться между режимами{" "}
@@ -4543,13 +4436,10 @@ const AeFromNewbies: React.FC = () => {
                 переход через ключевой кадр без резких изломов на кривой. Изменение одного
                 рычага влияет на форму кривой с противоположной стороны. На таймлайне
                 такие ключевые кадры также обозначаются значком песочных часов.
-                <ContentFigure
+                <ArticleMedia
                   caption="Интерполяция «Непрерывный Безье»"
-                  // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-                  src="images/legacy/aftereffects/temporal_continuous_bezier.mp4"
-                  theme="dark"
+                  src="legacy/aftereffects/temporal_continuous_bezier.mp4"
                   type="video"
-                  variant="windows"
                 />
               </li>
               <li>
@@ -4564,13 +4454,10 @@ const AeFromNewbies: React.FC = () => {
                   <mark className="key">Ctrl</mark> на таймлайне или{" "}
                   <mark className="key">Alt</mark> в редакторе графиков.
                 </Addition>
-                <ContentFigure
+                <ArticleMedia
                   caption="Интерполяция «Автоматический Безье»"
-                  // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-                  src="images/legacy/aftereffects/temporal_auto_bezier.mp4"
-                  theme="dark"
+                  src="legacy/aftereffects/temporal_auto_bezier.mp4"
                   type="video"
-                  variant="windows"
                 />
               </li>
               <li>
@@ -4581,13 +4468,10 @@ const AeFromNewbies: React.FC = () => {
                   слайд-шоу, stop-motion анимации или имитации резкой смены состояний. На
                   таймлайне такой ключевой кадр выглядит как квадрат.
                 </p>
-                <ContentFigure
+                <ArticleMedia
                   caption="Интерполяция «Удержание»"
-                  // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-                  src="images/legacy/aftereffects/temporal_hold.mp4"
-                  theme="dark"
+                  src="legacy/aftereffects/temporal_hold.mp4"
                   type="video"
-                  variant="windows"
                 />
               </li>
             </ul>
@@ -4600,13 +4484,10 @@ const AeFromNewbies: React.FC = () => {
               свойствам, как <mark className="select">«Position»</mark> и{" "}
               <mark className="select">«Anchor Point»</mark>.
             </p>
-            <ContentFigure
+            <ArticleMedia
               caption="Изменение типа пространственной интерполяции"
-              // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-              src="images/legacy/aftereffects/change_spatial_interpolation.mp4"
-              theme="dark"
+              src="legacy/aftereffects/change_spatial_interpolation.mp4"
               type="video"
-              variant="windows"
             />
             <ul>
               <li>
@@ -4676,13 +4557,10 @@ const AeFromNewbies: React.FC = () => {
           <mark className="select">«Choose graph type and options»</mark> в нижней части
           редактора графиков и выберите подходящий вариант.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Изменение вида графика скорости"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/aftereffects/change_graph_view.mp4"
-          theme="dark"
+          src="legacy/aftereffects/change_graph_view.mp4"
           type="video"
-          variant="windows"
         />
         <p>
           При необходимости вы можете включить опцию{" "}
@@ -4721,14 +4599,10 @@ const AeFromNewbies: React.FC = () => {
           ключа одинаковое значение, но между ними всё равно идёт анимация из-за изгиба
           кривой скорости.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Speed Graph"
-          imgTitle="Пример с проблемной интерполяцией"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/aftereffects/problematic_interpolation.png"
-          theme="dark"
+          src="legacy/aftereffects/problematic_interpolation.png"
           type="image"
-          variant="windows"
         />
         <Divider>Меняем интерполяцию ключевых кадров</Divider>
         <p>
@@ -4741,14 +4615,10 @@ const AeFromNewbies: React.FC = () => {
           <mark className="select">«Hold»</mark>. После этого лишняя анимация между
           ключами должна исчезнуть.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Keyframe Interpolation"
-          imgTitle="Изменение интерполяции ключевых кадров"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/aftereffects/change_keyframe_interpolation.png"
-          theme="dark"
+          src="legacy/aftereffects/change_keyframe_interpolation.png"
           type="image"
-          variant="windows"
         />
       </DetailsSummary>
       <DetailsSummary
@@ -4780,14 +4650,10 @@ const AeFromNewbies: React.FC = () => {
           композиции (например, <mark>22,787/25</mark>), значит, воспроизведение идёт не в
           реальном времени.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Info"
-          imgTitle="Предпросмотр не в реальном времени"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/aftereffects/info_non-realtime.png"
-          theme="dark"
+          src="legacy/aftereffects/info_non-realtime.png"
           type="image"
-          variant="windows"
         />
         <p>
           Чтобы это исправить, включите кэширование перед воспроизведением. Для этого
@@ -4799,14 +4665,10 @@ const AeFromNewbies: React.FC = () => {
           <mark className="key">Space</mark> прервёт процесс кэширования и сразу начнёт
           воспроизводить кадры, которые уже были закэшированы.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Preview"
-          imgTitle="Включение кэширования предпросмотра"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/aftereffects/preview_caching.png"
-          theme="dark"
+          src="legacy/aftereffects/preview_caching.png"
           type="image"
-          variant="windows"
         />
         <Divider>Проверяем частоту кадров предпросмотра</Divider>
         <p>
@@ -4829,14 +4691,10 @@ const AeFromNewbies: React.FC = () => {
           <mark className="select">«Auto»</mark>, скорость будет автоматически
           подстраиваться под <mark>FPS</mark> композиции.
         </Addition>
-        <ContentFigure
+        <ArticleMedia
           caption="Preview"
-          imgTitle="Изменение FPS предпросмотра"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/aftereffects/change_preview_fps.png"
-          theme="dark"
+          src="legacy/aftereffects/change_preview_fps.png"
           type="image"
-          variant="windows"
         />
         <p>
           Также стоит проверить значение параметра <mark className="select">«Skip»</mark>.
@@ -4855,14 +4713,10 @@ const AeFromNewbies: React.FC = () => {
           <mark className="select">«Latency»</mark> в{" "}
           <mark className="select">«Edit» → «Preferences» → «Audio Hardware»</mark>.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Preferences"
-          imgTitle="Настройки звукового выхода"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/aftereffects/audio_hardware_settings.png"
-          theme="dark"
+          src="legacy/aftereffects/audio_hardware_settings.png"
           type="image"
-          variant="windows"
         />
         <Divider>Разбираемся с «кривыми» исходниками</Divider>
         <p>
@@ -4884,13 +4738,10 @@ const AeFromNewbies: React.FC = () => {
           проблемы: часть трека может неожиданно пропадать на таймлайне, а звук —
           искажаться или рассинхронизироваться с видео.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Пример артефактов проблемного аудио"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/aftereffects/audio_artifacts.mp4"
-          theme="dark"
+          src="legacy/aftereffects/audio_artifacts.mp4"
           type="video"
-          variant="windows"
         />
         <p>
           Чтобы избежать подобных проблем, рекомендуется заранее перекодировать файлы в
@@ -4944,14 +4795,10 @@ const AeFromNewbies: React.FC = () => {
           переключатель аудио на слое и саму аудиодорожку — возможно, звук был случайно
           отключен соответствующей кнопкой.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Preview"
-          imgTitle="Включение звука в окне Preview"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/aftereffects/toggle_audio_preview.png"
-          theme="dark"
+          src="legacy/aftereffects/toggle_audio_preview.png"
           type="image"
-          variant="windows"
         />
         <Divider>Включаем звук при воспроизведении не в реальном времени</Divider>
         <p>
@@ -4961,14 +4808,10 @@ const AeFromNewbies: React.FC = () => {
           <mark className="select">«Mute Audio When Preview Is Not Real-time»</mark> в
           настройках <mark className="select">«Edit» → «Preferences» → «Previews»</mark>.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Preferences"
-          imgTitle="Настройка звука для предпросмотра"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/aftereffects/mute_audio_when_preview_is_not_real-time.png"
-          theme="dark"
+          src="legacy/aftereffects/mute_audio_when_preview_is_not_real-time.png"
           type="image"
-          variant="windows"
         />
         <Divider>Проверяем и конвертируем исходники</Divider>
         <p>
@@ -4993,14 +4836,10 @@ const AeFromNewbies: React.FC = () => {
           значение <mark className="select">«Latency»</mark> в{" "}
           <mark className="select">«Edit» → «Preferences» → «Audio Hardware»</mark>.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Preferences"
-          imgTitle="Настройки звукового выхода"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/aftereffects/audio_hardware_settings.png"
-          theme="dark"
+          src="legacy/aftereffects/audio_hardware_settings.png"
           type="image"
-          variant="windows"
         />
         <ContentFilter
           windowsContent={
@@ -5047,14 +4886,10 @@ const AeFromNewbies: React.FC = () => {
           может запустить предпросмотр, если в рабочей области всего один кадр, что
           логично: любая анимация должна содержать как минимум два.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Одна из причин ошибки — слишком короткая рабочая область"
-          imgTitle="Короткая рабочая область"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/aftereffects/low_work-area.png"
-          theme="dark"
+          src="legacy/aftereffects/low_work-area.png"
           type="image"
-          variant="windows"
         />
         <p>
           Чтобы это исправить, расширьте рабочую область, переместив метку текущего
@@ -5078,14 +4913,10 @@ const AeFromNewbies: React.FC = () => {
               удалятся. Максимум, что придётся сделать после этого — закэшировать
               композицию заново.
             </Addition>
-            <ContentFigure
+            <ArticleMedia
               caption="Очистка кэша и оперативной памяти"
-              imgTitle="Очистка кэша и оперативной памяти"
-              // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-              src="images/legacy/aftereffects/edit_purge_all-memory-and-disk-cache.png"
-              theme="light"
+              src="legacy/aftereffects/edit_purge_all-memory-and-disk-cache.png"
               type="image"
-              variant="windows"
             />
           </li>
           <li>
@@ -5103,14 +4934,10 @@ const AeFromNewbies: React.FC = () => {
             <mark className="select">«RAM reserved for other applications»</mark>.
             Программа сама подставит минимальное корректное значение памяти для других
             приложений.
-            <ContentFigure
+            <ArticleMedia
               caption="Preferences"
-              imgTitle="Настройка параметра RAM reserved for other applications"
-              // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-              src="images/legacy/aftereffects/ram_reserved_for_other_applications.png"
-              theme="dark"
+              src="legacy/aftereffects/ram_reserved_for_other_applications.png"
               type="image"
-              variant="windows"
             />
           </li>
           <li>
@@ -5151,14 +4978,10 @@ const AeFromNewbies: React.FC = () => {
           <mark className="select">«Render Time»</mark> через меню{" "}
           <mark className="select">«Columns»</mark>.
         </Addition>
-        <ContentFigure
+        <ArticleMedia
           caption="Timeline"
-          imgTitle="Смотрим время рендера слоя"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/aftereffects/view_render_time.png"
-          theme="dark"
+          src="legacy/aftereffects/view_render_time.png"
           type="image"
-          variant="windows"
         />
         <Divider>Используем дисковый кэш для предпросмотра</Divider>
         <p>
@@ -5183,14 +5006,10 @@ const AeFromNewbies: React.FC = () => {
           дешёвый <mark>SSD</mark> на <mark>256–512 ГБ</mark> и использовать его
           специально для кэша.
         </Addition>
-        <ContentFigure
+        <ArticleMedia
           caption="Preferences"
-          imgTitle="Включение воспроизведения предпросмотра из дискового кэша"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/aftereffects/enable_preview_from_disk_cache.png"
-          theme="dark"
+          src="legacy/aftereffects/enable_preview_from_disk_cache.png"
           type="image"
-          variant="windows"
         />
       </DetailsSummary>
       <DetailsSummary
@@ -5204,13 +5023,10 @@ const AeFromNewbies: React.FC = () => {
           значение <mark className="select">«Full»</mark>. Список с выбором качества
           находится под окном предпросмотра или в настройках композиции.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Adobe After Effects"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/aftereffects/change_resolution_comppreview.mp4"
-          theme="dark"
+          src="legacy/aftereffects/change_resolution_comppreview.mp4"
           type="video"
-          variant="windows"
         />
         <p>
           Если там всё в порядке, но при воспроизведении качество всё равно падает — стоит
@@ -5218,14 +5034,10 @@ const AeFromNewbies: React.FC = () => {
           Выставьте в этом окне для параметра <mark className="select">«Resolution»</mark>{" "}
           значение <mark className="select">«Full»</mark>.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Preview"
-          imgTitle="Изменение качества в окне Preview"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/aftereffects/change_resolution_preview.png"
-          theme="dark"
+          src="legacy/aftereffects/change_resolution_preview.png"
           type="image"
-          variant="windows"
         />
         <Addition type="info">
           Если в <mark className="select">«Resolution»</mark> стоит{" "}
@@ -5272,14 +5084,10 @@ const AeFromNewbies: React.FC = () => {
           файлов, например <mark className="file">AI</mark>, его нужно активировать
           вручную, чтобы они сохраняли качество при масштабировании слоя.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Timeline"
-          imgTitle="Включение Continuously Rasterize"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/aftereffects/enable_continuously_rasterize.png"
-          theme="dark"
+          src="legacy/aftereffects/enable_continuously_rasterize.png"
           type="image"
-          variant="windows"
         />
         <Addition type="warning">
           При включённой опции <mark className="select">«Continuously Rasterize»</mark>{" "}
@@ -5300,14 +5108,10 @@ const AeFromNewbies: React.FC = () => {
           <mark className="select">«Fast Previews»</mark> под окном предпросмотра и
           выберите <mark className="select">«Off (Final Quality)»</mark>.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Timeline"
-          imgTitle="Отключение адаптивного разрешения"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/aftereffects/disable_adaptive_resolution.png"
-          theme="dark"
+          src="legacy/aftereffects/disable_adaptive_resolution.png"
           type="image"
-          variant="windows"
         />
       </DetailsSummary>
       <DetailsSummary
@@ -5327,13 +5131,10 @@ const AeFromNewbies: React.FC = () => {
           <mark className="plugin">Grow Bounds</mark> перед всеми остальными эффектами и
           укажите, на сколько пикселей нужно «нарастить» границы.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Применение Grow Bounds"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/aftereffects/apply_grow_bounds.mp4"
-          theme="dark"
+          src="legacy/aftereffects/apply_grow_bounds.mp4"
           type="video"
-          variant="windows"
         />
         <Addition type="warning">
           Иногда стандартный <mark className="plugin">Grow Bounds</mark> может не помочь.
@@ -5352,14 +5153,10 @@ const AeFromNewbies: React.FC = () => {
           выберите <mark className="select">«Layer Masks»</mark> и привяжите маску с
           вашего исходного слоя к маске на слое с <mark className="plugin">Saber</mark>.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Timeline"
-          imgTitle="Привязка масок для Saber"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/aftereffects/linking_masks_for_saber.png"
-          theme="dark"
+          src="legacy/aftereffects/linking_masks_for_saber.png"
           type="image"
-          variant="windows"
         />
       </DetailsSummary>
       <DetailsSummary
@@ -5384,14 +5181,10 @@ const AeFromNewbies: React.FC = () => {
           <mark className="plugin">Classic 3D</mark>. В этой же вкладке можно найти список
           поддерживаемых функций для каждого движка и ознакомиться с ним.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Composition Settings"
-          imgTitle="Изменение 3D-рендерера"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/aftereffects/change_3d_renderer.png"
-          theme="dark"
+          src="legacy/aftereffects/change_3d_renderer.png"
           type="image"
-          variant="windows"
         />
       </DetailsSummary>
       <DetailsSummary
@@ -5436,7 +5229,7 @@ const AeFromNewbies: React.FC = () => {
           <mark className="plugin">Red Giant Universe</mark>.
         </p>
         {/* FIXME: исправить "публичную бету" на стабильную версию, если этот эффект доедет до релиза */}
-        <ContentFigure
+        <ArticleMedia
           caption="Red Giant Universe Unmult"
           src="GGjIu0CZ1M4"
           type="youtube"
@@ -5459,14 +5252,10 @@ const AeFromNewbies: React.FC = () => {
           Чтобы включить сетку прозрачности — нажмите на кнопку{" "}
           <mark className="select">«Toggle Transparency Grid»</mark> в окне предпросмотра.
         </Addition>
-        <ContentFigure
+        <ArticleMedia
           caption="Включение прозрачности в Saber"
-          imgTitle="Включение прозрачности в Saber"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/aftereffects/transparent_saber.png"
-          theme="dark"
+          src="legacy/aftereffects/transparent_saber.png"
           type="image"
-          variant="windows"
         />
       </DetailsSummary>
       <DetailsSummary
@@ -5482,12 +5271,10 @@ const AeFromNewbies: React.FC = () => {
           независимыми, их нужно дублировать в окне{" "}
           <mark className="select">«Project»</mark>.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Правильное дублирование композиции"
-          src="images/legacy/aftereffects/duplicate_composition.mp4"
-          theme="dark"
+          src="legacy/aftereffects/duplicate_composition.mp4"
           type="video"
-          variant="windows"
         />
         <Addition type="info">
           Если вам нужно сделать несколько копий с вложенными композициями, обновить
@@ -5543,13 +5330,10 @@ const AeFromNewbies: React.FC = () => {
           </a>
           .
         </Addition>
-        <ContentFigure
+        <ArticleMedia
           caption="Распаковка нескольких прекомпозиций с помощью Un-precompose"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/aftereffects/unprecompose_demonstration.mp4"
-          theme="dark"
+          src="legacy/aftereffects/unprecompose_demonstration.mp4"
           type="video"
-          variant="windows"
         />
         <Divider>Используем AEUX</Divider>
         <p>
@@ -5563,14 +5347,10 @@ const AeFromNewbies: React.FC = () => {
           Скачать <mark className="plugin">AEUX</mark> можно на странице релизов в{" "}
           <a href="https://github.com/google/AEUX/releases">GitHub</a>.
         </Addition>
-        <ContentFigure
+        <ArticleMedia
           caption="AEUX"
-          imgTitle="Un-Precomp в AEUX"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/aftereffects/aeux_un-precomp.png"
-          theme="dark"
+          src="legacy/aftereffects/aeux_un-precomp.png"
           type="image"
-          variant="windows"
         />
       </DetailsSummary>
       <DetailsSummary
@@ -5584,13 +5364,10 @@ const AeFromNewbies: React.FC = () => {
           этого нажмите <mark className="key">Ctrl + X</mark>, а затем{" "}
           <mark className="key">Ctrl + V</mark>.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Инвертирование порядка слоёв"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/aftereffects/invert_layer_numeration.mp4"
-          theme="dark"
+          src="legacy/aftereffects/invert_layer_numeration.mp4"
           type="video"
-          variant="windows"
         />
       </DetailsSummary>
       <DetailsSummary
@@ -5602,13 +5379,10 @@ const AeFromNewbies: React.FC = () => {
           <mark className="key">[</mark>. Чтобы переместить конец слоя к плейхеду, нажмите{" "}
           <mark className="key">]</mark>.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Перемещение слоёв к плейхеду"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/aftereffects/move_layers_around_playhead.mp4"
-          theme="dark"
+          src="legacy/aftereffects/move_layers_around_playhead.mp4"
           type="video"
-          variant="windows"
         />
       </DetailsSummary>
       <DetailsSummary
@@ -5631,13 +5405,10 @@ const AeFromNewbies: React.FC = () => {
           кадрирования композиции по краям всех слоёв, а также в меню{" "}
           <mark>«Window» → «Auto Crop.jsxbin»</mark> — для дополнительных действий.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Открываем Auto Crop"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/aftereffects/auto_crop_execute.png"
-          theme="dark"
+          src="legacy/aftereffects/auto_crop_execute.png"
           type="image"
-          variant="windows"
         />
         <ul>
           <li>
@@ -5670,13 +5441,10 @@ const AeFromNewbies: React.FC = () => {
           <mark className="select">«Crop Comp to Region of Interest»</mark>. Композиция
           тут же обрежется по границам нарисованной области.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Кадрирование с помощью Region of Interest"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/aftereffects/crop_comp_to_region_of_interest.mp4"
-          theme="dark"
+          src="legacy/aftereffects/crop_comp_to_region_of_interest.mp4"
           type="video"
-          variant="windows"
         />
       </DetailsSummary>
       <DetailsSummary
@@ -5697,13 +5465,10 @@ const AeFromNewbies: React.FC = () => {
           <mark className="select">«Start Timecode»</mark> укажите{" "}
           <mark>00:00:00:00</mark>.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Composition Settings"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/aftereffects/change_start_timecode.mp4"
-          theme="dark"
+          src="legacy/aftereffects/change_start_timecode.mp4"
           type="video"
-          variant="windows"
         />
       </DetailsSummary>
       <DetailsSummary
@@ -5718,13 +5483,10 @@ const AeFromNewbies: React.FC = () => {
           <mark className="select">«Paragraph Text»</mark>, «рисуя» рамку с зажатой{" "}
           <mark className="key">ЛКМ</mark>.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Создание Paragraph Text"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/aftereffects/create_paragraph_text.mp4"
-          theme="dark"
+          src="legacy/aftereffects/create_paragraph_text.mp4"
           type="video"
-          variant="windows"
         />
         <p>
           Вы также можете преобразовать уже существующий точечный текст в блочный — для
@@ -5732,13 +5494,10 @@ const AeFromNewbies: React.FC = () => {
           <mark className="key">ПКМ</mark> по слою и выберите в контекстном меню{" "}
           <mark className="select">«Convert to Paragraph Text»</mark>.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Преобразование точечного текста в блочный"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/aftereffects/convert_to_paragraph_text.mp4"
-          theme="dark"
+          src="legacy/aftereffects/convert_to_paragraph_text.mp4"
           type="video"
-          variant="windows"
         />
       </DetailsSummary>
       <DetailsSummary
@@ -5783,13 +5542,10 @@ const AeFromNewbies: React.FC = () => {
           также не реагирует на кнопки <mark className="select">«Bold»</mark> и{" "}
           <mark className="select">«Italic»</mark>.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Проблема некорректного начертания на примере Cascadia Mono"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/aftereffects/font-reset_bug.mp4"
-          theme="dark"
+          src="legacy/aftereffects/font-reset_bug.mp4"
           type="video"
-          variant="windows"
         />
         <Addition type="warning">
           Приведённые ниже способы{" "}
@@ -5856,7 +5612,7 @@ const AeFromNewbies: React.FC = () => {
                 Откроется терминал, а вместе с ним — ещё одна копия программы, в которой
                 вы можете открыть другой проект и работать с ними.
               </p>
-              <ContentFigure
+              <ArticleMedia
                 caption="Как открыть несколько экземпляров Adobe After Effects"
                 src="k1x1goE2F10"
                 type="youtube"
@@ -5875,13 +5631,10 @@ const AeFromNewbies: React.FC = () => {
                 ярлыка. Теперь этот ярлык позволит запускать несколько копий программы, в
                 которых вы можете открыть разные проекты и работать с ними.
               </p>
-              <ContentFigure
+              <ArticleMedia
                 caption="Включение возможности открытия нескольких экземпляров"
-                // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-                src="images/legacy/aftereffects/enable_multiple_ae_instances.mp4"
-                theme="dark"
+                src="legacy/aftereffects/enable_multiple_ae_instances.mp4"
                 type="video"
-                variant="windows"
               />
             </>
           }
@@ -5904,14 +5657,10 @@ const AeFromNewbies: React.FC = () => {
           Клавиша <mark className="key">Shift</mark> должна быть зажата до тех пор, пока
           окно с настройками не откроется.
         </Addition>
-        <ContentFigure
+        <ArticleMedia
           caption="Preferences"
-          imgTitle="Секретные настройки"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/aftereffects/secret_settings.png"
-          theme="dark"
+          src="legacy/aftereffects/secret_settings.png"
           type="image"
-          variant="windows"
         />
         <p>
           В последних версиях <mark className="app">Adobe After Effects</mark> там

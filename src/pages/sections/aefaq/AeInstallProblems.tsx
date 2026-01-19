@@ -3,7 +3,7 @@ import React from "react";
 import {Divider} from "antd";
 
 import Addition from "../../../components/content/Addition";
-import {ContentFigure} from "../../../components/content/ContentFigure";
+import {ArticleMedia} from "../../../components/content/ArticleMedia";
 import ContentFilter from "../../../components/content/ContentFilter";
 import DetailsSummary from "../../../components/content/DetailsSummary";
 
@@ -111,13 +111,10 @@ const AeInstallProblems: React.FC = () => {
                     <mark className="app">The Unarchiver</mark> — по{" "}
                     <a href="https://theunarchiver.com/">этой</a>.
                   </Addition>
-                  <ContentFigure
+                  <ArticleMedia
                     caption="Распаковка через контекстное меню"
-                    imgTitle="Распаковка через контекстное меню"
                     src="https://github.com/aonez/Keka/raw/master/Wiki/Images/Animated/extract-context-menu.gif"
-                    theme="light"
                     type="image"
-                    variant="mac"
                   />
                   <Addition type="info">
                     <ul>
@@ -553,7 +550,7 @@ const AeInstallProblems: React.FC = () => {
                       <mark className="path">Technical</mark>.
                     </li>
                   </ul>
-                  <ContentFigure
+                  <ArticleMedia
                     caption="Как установить LUT в Adobe After Effects на MacBook"
                     src="WyZ32cYLkpg"
                     type="youtube"
@@ -565,14 +562,10 @@ const AeInstallProblems: React.FC = () => {
                   <mark className="file">MBLOOK</mark> устанавливаются с помощью кнопки
                   импорта во вкладке <mark className="select">«Looks»</mark> стороннего
                   расширения <mark className="plugin">Magic Bullet Looks</mark>.
-                  <ContentFigure
+                  <ArticleMedia
                     caption="Magic Bullet Looks"
-                    imgTitle="Импорт пресетов для Magic Bullet Looks"
-                    // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-                    src="images/legacy/import_magic_bullet_looks.png"
-                    theme="dark"
+                    src="legacy/import_magic_bullet_looks.png"
                     type="image"
-                    variant="mac"
                   />
                 </li>
                 <li>
@@ -621,7 +614,7 @@ const AeInstallProblems: React.FC = () => {
                   распаковку только первой части — остальные подхватятся автоматически.
                   Другие части архива не нужно трогать без острой необходимости, если вы
                   не знаете, что с ними делать.
-                  <ContentFigure
+                  <ArticleMedia
                     caption="Распаковка многотомного архива"
                     src="1OVwQS0uHhk"
                     type="youtube"
@@ -1087,14 +1080,10 @@ const AeInstallProblems: React.FC = () => {
                   <mark className="file">MBLOOK</mark> устанавливаются с помощью кнопки
                   импорта во вкладке <mark className="select">«Looks»</mark> стороннего
                   расширения <mark className="plugin">Magic Bullet Looks</mark>.
-                  <ContentFigure
+                  <ArticleMedia
                     caption="Magic Bullet Looks"
-                    imgTitle="Импорт пресетов для Magic Bullet Looks"
-                    // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-                    src="images/legacy/import_magic_bullet_looks.png"
-                    theme="dark"
+                    src="legacy/import_magic_bullet_looks.png"
                     type="image"
-                    variant="windows"
                   />
                 </li>
                 <li>
@@ -1206,7 +1195,7 @@ const AeInstallProblems: React.FC = () => {
                 встроенный антивирус <mark className="app">Windows Defender</mark> или
                 любой другой, установленный на вашем устройстве.
               </p>
-              <ContentFigure
+              <ArticleMedia
                 caption="Как отключить Защитник Windows 11"
                 src="blwRAOQUjsM"
                 type="youtube"
@@ -1260,7 +1249,7 @@ const AeInstallProblems: React.FC = () => {
                 Если директория <mark className="path">C:\Program Files\Adobe</mark>{" "}
                 отсутствует, создайте её самостоятельно.
               </Addition>
-              <ContentFigure
+              <ArticleMedia
                 caption="Windows Defender — как восстановить файлы и запретить их удаление"
                 src="ET94_dv3f8c"
                 type="youtube"
@@ -1293,12 +1282,10 @@ const AeInstallProblems: React.FC = () => {
                 до этого отключили{" "}
                 <mark className="select">«Защиту в реальном времени»</mark>.
               </p>
-              <ContentFigure
+              <ArticleMedia
                 caption="Отключаем «Интеллектуальное управление приложениями»"
-                src="images/legacy/disable_advanced_smartscreen.mp4"
-                theme="light"
+                src="legacy/disable_advanced_smartscreen.mp4"
                 type="video"
-                variant="windows"
               />
               <p>
                 В <mark>Windows 10</mark> механизм работает иначе: при открытии файла
@@ -1312,7 +1299,7 @@ const AeInstallProblems: React.FC = () => {
                 запуска не появляется, полностью отключите фильтр в параметрах{" "}
                 <mark className="app">Защитника Windows</mark>.
               </p>
-              <ContentFigure
+              <ArticleMedia
                 caption="Как отключить Windows SmartScreen"
                 src="HxlxS1Mdyp0"
                 type="youtube"
@@ -1555,7 +1542,7 @@ const AeInstallProblems: React.FC = () => {
                 </a>
                 .
               </Addition>
-              <ContentFigure
+              <ArticleMedia
                 caption="Как сделать символическую ссылку в Windows на файл и папку"
                 src="VaupaCuluJA"
                 type="youtube"
@@ -1989,13 +1976,10 @@ const AeInstallProblems: React.FC = () => {
                     : его установка, наоборот, усугубит ситуацию с активацией программ от{" "}
                     <mark className="company">Adobe</mark>.
                   </Addition>
-                  <ContentFigure
+                  <ArticleMedia
                     caption="Установка Adobe Creative Cloud"
-                    // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-                    src="images/legacy/creative_cloud_install.mp4"
-                    theme="dark"
+                    src="legacy/creative_cloud_install.mp4"
                     type="video"
-                    variant="windows"
                   />
                 </li>
                 <li>
@@ -2005,14 +1989,10 @@ const AeInstallProblems: React.FC = () => {
                   <mark className="app">Adobe Creative Cloud</mark> ещё не пропатчен для
                   корректной установки программ. Иначе вам предложат оформить пробную
                   версию, которая нам не подходит.
-                  <ContentFigure
+                  <ArticleMedia
                     caption="Adobe Creative Cloud"
-                    imgTitle="Главное меню Creative Cloud"
-                    // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-                    src="images/legacy/creative_cloud_main_menu.png"
-                    theme="light"
+                    src="legacy/creative_cloud_main_menu.png"
                     type="image"
-                    variant="windows"
                   />
                 </li>
                 <li>
@@ -2027,14 +2007,10 @@ const AeInstallProblems: React.FC = () => {
                     окне отключите три параметра, связанные с автозапуском и
                     автообновлением, в разделе <mark className="select">«Общие»</mark>.
                   </p>
-                  <ContentFigure
+                  <ArticleMedia
                     caption="Adobe Creative Cloud"
-                    imgTitle="Открытие установок Creative Cloud"
-                    // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-                    src="images/legacy/creative_cloud_open_settings.mp4"
-                    theme="light"
+                    src="legacy/creative_cloud_open_settings.mp4"
                     type="video"
-                    variant="windows"
                   />
                   <Addition type="info">
                     При желании вы можете установить английский язык для новых приложений
@@ -2073,13 +2049,10 @@ const AeInstallProblems: React.FC = () => {
                     <mark className="select">«Binary»</mark>. После этого начнётся
                     скачивание архива.
                   </p>
-                  <ContentFigure
+                  <ArticleMedia
                     caption="Скачивание GenP"
-                    // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-                    src="images/legacy/download_genp.mp4"
-                    theme="dark"
+                    src="legacy/download_genp.mp4"
                     type="video"
-                    variant="windows"
                   />
                   <Addition type="info">
                     Если ваш браузер выдаёт предупреждение о вирусе в скачиваемом файле —
@@ -2098,13 +2071,10 @@ const AeInstallProblems: React.FC = () => {
                     <mark className="app">Adobe Creative Cloud</mark>, а затем —{" "}
                     <mark className="select">«Patch»</mark>.
                   </p>
-                  <ContentFigure
+                  <ArticleMedia
                     caption="Применение патча для Adobe Creative Cloud"
-                    // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-                    src="images/legacy/apply_genp_first_patch.mp4"
-                    theme="dark"
+                    src="legacy/apply_genp_first_patch.mp4"
                     type="video"
-                    variant="windows"
                   />
                 </li>
                 <li>
@@ -2112,13 +2082,10 @@ const AeInstallProblems: React.FC = () => {
                     После применения первого патча можно устанавливать приложения из{" "}
                     <mark className="app">Adobe Creative Cloud</mark>.
                   </p>
-                  <ContentFigure
+                  <ArticleMedia
                     caption="Установка приложений в Adobe Creative Cloud"
-                    // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-                    src="images/legacy/creative_cloud_install_apps.mp4"
-                    theme="dark"
+                    src="legacy/creative_cloud_install_apps.mp4"
                     type="video"
-                    variant="windows"
                   />
                   <Addition type="warning">
                     По умолчанию <mark className="app">Adobe Creative Cloud</mark>{" "}
@@ -2219,7 +2186,7 @@ const AeInstallProblems: React.FC = () => {
           уже есть в системе. Чтобы программы «видели» друг друга, необходимо соблюсти
           несколько условий.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Исправляем Dynamic Link"
           src="LvvjQbY1jgw"
           type="youtube"
@@ -2569,14 +2536,10 @@ const AeInstallProblems: React.FC = () => {
           Чтобы устранить проблему, достаточно открыть любую из указанных папок и удалить
           один из файлов, предварительно закрыв программу.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Adobe After Effects"
-          imgTitle="Некоторые плагины уже установлены"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/aftereffects/duplicated_effect_plug-ins_installed.png"
-          theme="dark"
+          src="legacy/aftereffects/duplicated_effect_plug-ins_installed.png"
           type="image"
-          variant="windows"
         />
       </DetailsSummary>
       <DetailsSummary
@@ -2756,14 +2719,10 @@ const AeInstallProblems: React.FC = () => {
           <mark className="select">«Спробувати знову»</mark> — она должна пройти
           нормально.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Диспетчер задач"
-          imgTitle="Завершаем процесс Red Giant Service.exe"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/kill_redgiantservice.png"
-          theme="dark"
+          src="legacy/kill_redgiantservice.png"
           type="image"
-          variant="windows"
         />
       </DetailsSummary>
       <DetailsSummary
@@ -2781,14 +2740,10 @@ const AeInstallProblems: React.FC = () => {
           в записи, откуда вы скачали плагин. Тогда файл с активацией применится
           корректно, и вы сможете наконец-то начать работу с этим плагином.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Element License"
-          imgTitle="Окно для установки лицензии"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/aftereffects/generate_license_element3d.png"
-          theme="dark"
+          src="legacy/aftereffects/generate_license_element3d.png"
           type="image"
-          variant="windows"
         />
       </DetailsSummary>
       <DetailsSummary
@@ -2806,14 +2761,10 @@ const AeInstallProblems: React.FC = () => {
           окно лицензирования плагина. После этого попробуйте запустить основное окно
           плагина, оно больше не должно вызывать предупреждения об активации.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Effects Controls"
-          imgTitle="Открытие окна лицензирования Mocha Pro"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/aftereffects/select_license_in_mocha_pro.png"
-          theme="dark"
+          src="legacy/aftereffects/select_license_in_mocha_pro.png"
           type="image"
-          variant="windows"
         />
       </DetailsSummary>
       <DetailsSummary
@@ -2890,14 +2841,10 @@ const AeInstallProblems: React.FC = () => {
           предложением импортировать настройки с предыдущей версии. В нём достаточно
           выбрать нужную версию, и этот процесс начнётся автоматически.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Adobe After Effects"
-          imgTitle="Диалог переноса настроек со старой версии в более новую"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/aftereffects/migrate_settings.png"
-          theme="dark"
+          src="legacy/aftereffects/migrate_settings.png"
           type="image"
-          variant="windows"
         />
         <Addition type="info">
           Если вы случайно закрыли окно с предложением переноса настроек, его можно
@@ -3112,14 +3059,10 @@ const AeInstallProblems: React.FC = () => {
                 <mark className="key">Ctrl + Alt + Shift</mark> появляется более простое
                 окно с вопросом, нужно ли сбросить настройки.
               </Addition>
-              <ContentFigure
+              <ArticleMedia
                 caption="Adobe After Effects"
-                imgTitle="Окно для решения проблем при запуске программы"
-                // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-                src="images/legacy/aftereffects/startup_repair_options.png"
-                theme="dark"
+                src="legacy/aftereffects/startup_repair_options.png"
                 type="image"
-                variant="windows"
               />
               <p>
                 Чтобы сбросить все настройки, нажмите{" "}

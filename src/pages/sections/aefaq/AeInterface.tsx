@@ -3,7 +3,7 @@ import React from "react";
 import {Divider} from "antd";
 
 import Addition from "../../../components/content/Addition";
-import {ContentFigure} from "../../../components/content/ContentFigure";
+import {ArticleMedia} from "../../../components/content/ArticleMedia";
 import ContentFilter from "../../../components/content/ContentFilter";
 import DetailsSummary from "../../../components/content/DetailsSummary";
 
@@ -22,13 +22,10 @@ const AeInterface: React.FC = () => {
           <mark className="company">Adobe</mark> через{" "}
           <mark className="select">«Help» → «Sign In»</mark>.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Пустое домашнее окно Adobe After Effects"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/aftereffects/empty_home_screen.png"
-          theme="dark"
+          src="legacy/aftereffects/empty_home_screen.png"
           type="image"
-          variant="windows"
         />
         <p>
           Если при попытке входа в аккаунт вы столкнулись с окном{" "}
@@ -63,14 +60,10 @@ const AeInterface: React.FC = () => {
           В старых версиях <mark className="app">Adobe After Effects</mark> этот параметр
           находится в разделе <mark className="select">«General»</mark>.
         </Addition>
-        <ContentFigure
+        <ArticleMedia
           caption="Preferences"
-          imgTitle="Переключаем отображение домашнего экрана"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/aftereffects/enable_home_screen.png"
-          theme="dark"
+          src="legacy/aftereffects/enable_home_screen.png"
           type="image"
-          variant="windows"
         />
       </DetailsSummary>
       <DetailsSummary
@@ -85,13 +78,10 @@ const AeInterface: React.FC = () => {
           слева от её заголовка или откройте контекстное меню окна и выберите{" "}
           <mark className="select">«Close Panel»</mark>.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Восстановление закрытого окна"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/aftereffects/open_window.mp4"
-          theme="light"
+          src="legacy/aftereffects/open_window.mp4"
           type="video"
-          variant="windows"
         />
       </DetailsSummary>
       <DetailsSummary
@@ -110,13 +100,10 @@ const AeInterface: React.FC = () => {
           <mark className="app">Adobe After Effects</mark>, а не заголовок окна, который
           создаёт операционная система.
         </Addition>
-        <ContentFigure
+        <ArticleMedia
           caption="Прикрепление окна в рабочее пространство"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/aftereffects/attach_window.mp4"
-          theme="dark"
+          src="legacy/aftereffects/attach_window.mp4"
           type="video"
-          variant="windows"
         />
         <Divider>А как закрепить окно скрипта?</Divider>
         <ContentFilter
@@ -128,13 +115,10 @@ const AeInterface: React.FC = () => {
                 они лежат прямо в папке <mark className="path">../Scripts</mark>, а не в
                 специальной подпапке <mark className="path">ScriptUI Panels</mark>.
               </p>
-              <ContentFigure
+              <ArticleMedia
                 caption="Adobe After Effects"
-                // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-                src="images/legacy/aftereffects/i_cant_attach_script.mp4"
-                theme="light"
+                src="legacy/aftereffects/i_cant_attach_script.mp4"
                 type="video"
-                variant="windows"
               />
               <p>
                 Чтобы сделать такие окна прикрепляемыми, переместите нужные скрипты в{" "}
@@ -149,13 +133,10 @@ const AeInterface: React.FC = () => {
                 Если <mark className="app">Adobe After Effects</mark> был запущен во время
                 переноса скрипта, перезапустите программу.
               </Addition>
-              <ContentFigure
+              <ArticleMedia
                 caption="Проводник"
-                // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-                src="images/legacy/aftereffects/move_from_scripts_to_scriptuipanels.mp4"
-                theme="dark"
+                src="legacy/aftereffects/move_from_scripts_to_scriptuipanels.mp4"
                 type="video"
-                variant="windows"
               />
             </>
           }
@@ -171,13 +152,10 @@ const AeInterface: React.FC = () => {
                 , а не в специальной подпапке{" "}
                 <mark className="path">ScriptUI Panels</mark>.
               </p>
-              <ContentFigure
+              <ArticleMedia
                 caption="Adobe After Effects"
-                // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-                src="images/legacy/aftereffects/i_cant_attach_script.mp4"
-                theme="light"
+                src="legacy/aftereffects/i_cant_attach_script.mp4"
                 type="video"
-                variant="windows"
               />
               <p>
                 Чтобы сделать такие окна прикрепляемыми, переместите нужные скрипты в{" "}
@@ -193,13 +171,10 @@ const AeInterface: React.FC = () => {
                 Если <mark className="app">Adobe After Effects</mark> был запущен во время
                 переноса скрипта, перезапустите программу.
               </Addition>
-              <ContentFigure
+              <ArticleMedia
                 caption="Проводник"
-                // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-                src="images/legacy/aftereffects/move_from_scripts_to_scriptuipanels.mp4"
-                theme="dark"
+                src="legacy/aftereffects/move_from_scripts_to_scriptuipanels.mp4"
                 type="video"
-                variant="windows"
               />
             </>
           }
@@ -210,13 +185,10 @@ const AeInterface: React.FC = () => {
           <mark className="select">«Window»</mark>. Открыв скрипт оттуда, вы сможете
           прикрепить его окно в любой части рабочего пространства.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Прикрепление скрипта True Comp Duplicator"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/aftereffects/attaching_jsx_script.mp4"
-          theme="light"
+          src="legacy/aftereffects/attaching_jsx_script.mp4"
           type="video"
-          variant="windows"
         />
       </DetailsSummary>
       <DetailsSummary
@@ -240,13 +212,10 @@ const AeInterface: React.FC = () => {
           активируйте опцию <mark className="select">«Solo Panels in Stack»</mark> в том
           же контекстном меню.
         </Addition>
-        <ContentFigure
+        <ArticleMedia
           caption="Управление окнами в рабочем пространстве"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/aftereffects/manage_windows.mp4"
-          theme="dark"
+          src="legacy/aftereffects/manage_windows.mp4"
           type="video"
-          variant="windows"
         />
       </DetailsSummary>
       <DetailsSummary
@@ -281,14 +250,10 @@ const AeInterface: React.FC = () => {
             </li>
           </ul>
         </Addition>
-        <ContentFigure
+        <ArticleMedia
           caption="Preferences"
-          imgTitle="Настройка предотвращения переключения рабочих пространств"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/aftereffects/enable_maintain_current_workspace.png"
-          theme="dark"
+          src="legacy/aftereffects/enable_maintain_current_workspace.png"
           type="image"
-          variant="windows"
         />
       </DetailsSummary>
       <DetailsSummary
@@ -306,13 +271,10 @@ const AeInterface: React.FC = () => {
           нижнем углу таймлайна: они позволяют быстро включать и отключать определённые
           столбцы.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Включение столбцов на таймлайне"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/aftereffects/enable_timeline_columns.mp4"
-          theme="dark"
+          src="legacy/aftereffects/enable_timeline_columns.mp4"
           type="video"
-          variant="windows"
         />
       </DetailsSummary>
       <DetailsSummary
@@ -325,14 +287,10 @@ const AeInterface: React.FC = () => {
           пропадают. Эти индикаторы показывают состояние кадров: отрендерены ли они и где
           находятся: в оперативной памяти или в дисковом кэше.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Timeline"
-          imgTitle="Демонстрация таймлайна"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/aftereffects/green-blue_lines.png"
-          theme="dark"
+          src="legacy/aftereffects/green-blue_lines.png"
           type="image"
-          variant="windows"
         />
         <ul>
           <li>
@@ -388,13 +346,10 @@ const AeInterface: React.FC = () => {
           кадры) или просто по номерам кадров. Переключиться между этими режимами можно,
           кликнув по таймкоду с зажатой клавишей <mark className="key">Ctrl</mark>.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Изменение вида отображения времени на таймлайне"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/aftereffects/alternate_timecode_style.mp4"
-          theme="dark"
+          src="legacy/aftereffects/alternate_timecode_style.mp4"
           type="video"
-          variant="windows"
         />
       </DetailsSummary>
       <DetailsSummary
@@ -411,13 +366,10 @@ const AeInterface: React.FC = () => {
           таймлайна с помощью соответствующей иконки. Сделать слой скрытым можно с помощью
           переключателя на самом слое.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Работа со скрытыми слоями"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/aftereffects/toggle_shy.mp4"
-          theme="dark"
+          src="legacy/aftereffects/toggle_shy.mp4"
           type="video"
-          variant="windows"
         />
         <Addition type="info">
           Если вы не видите нужные переключатели у слоя, включите столбец{" "}
@@ -439,14 +391,10 @@ const AeInterface: React.FC = () => {
           клавишу <mark className="key">End</mark>, вы перейдёте в конец композиции —
           дальше перемещать его уже некуда.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Timeline"
-          imgTitle="Проблема последнего кадра"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/aftereffects/last_frame_problem.png"
-          theme="dark"
+          src="legacy/aftereffects/last_frame_problem.png"
           type="image"
-          variant="windows"
         />
         <p>
           Композиция из примера на скриншоте длится 30 секунд с частотой{" "}
@@ -493,14 +441,10 @@ const AeInterface: React.FC = () => {
           перезагрузите программу и попробуйте снова закэшировать и проиграть
           предпросмотр.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Adobe After Effects"
-          imgTitle="Отключение оптимизации предпросмотра"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/aftereffects/disable_previewplaybackoptimization.png"
-          theme="dark"
+          src="legacy/aftereffects/disable_previewplaybackoptimization.png"
           type="image"
-          variant="windows"
         />
       </DetailsSummary>
       <DetailsSummary
@@ -516,14 +460,10 @@ const AeInterface: React.FC = () => {
           <mark className="select">«Show Layer Controls»</mark> или воспользуйтесь
           комбинацией клавиш <mark className="key">Ctrl + Shift + H</mark>.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Composition"
-          imgTitle="Включение манипуляторов слоя"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/aftereffects/show_layer_controls.png"
-          theme="light"
+          src="legacy/aftereffects/show_layer_controls.png"
           type="image"
-          variant="windows"
         />
         <Divider>Включаем видимость границ фигур</Divider>
         <p>
@@ -533,14 +473,10 @@ const AeInterface: React.FC = () => {
           <mark className="select">«Masks»</mark> в{" "}
           <mark className="select">«View Options»</mark>.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Composition"
-          imgTitle="Включение отображения границ масок и слоёв"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/aftereffects/toggle_mask_and_shape_path_visibility.png"
-          theme="dark"
+          src="legacy/aftereffects/toggle_mask_and_shape_path_visibility.png"
           type="image"
-          variant="windows"
         />
         <Divider>Проверяем окно «View Options»</Divider>
         <p>
@@ -549,14 +485,10 @@ const AeInterface: React.FC = () => {
           открываются комбинацией клавиш <mark className="key">Ctrl + Alt + U</mark>. В
           этом окне установите флажки рядом со всеми параметрами или только нужными.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="View Options"
-          imgTitle="Настройка отображения параметров слоя"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/aftereffects/view_options.png"
-          theme="dark"
+          src="legacy/aftereffects/view_options.png"
           type="image"
-          variant="windows"
         />
         <Divider>Увеличиваем промежуток отображения анимации движения</Divider>
         <p>
@@ -568,14 +500,10 @@ const AeInterface: React.FC = () => {
           установите значение <mark className="select">«All Keyframes»</mark>. Также вы
           можете вовсе отключить показ траектории.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Preferences"
-          imgTitle="Изменение области времени отображения пути движения"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/aftereffects/change_motion_path_range.png"
-          theme="dark"
+          src="legacy/aftereffects/change_motion_path_range.png"
           type="image"
-          variant="windows"
         />
       </DetailsSummary>
       <DetailsSummary
@@ -590,13 +518,10 @@ const AeInterface: React.FC = () => {
           <mark>100%</mark>, поэтому можно масштабировать до любого десятичного значения —
           с помощью «интерактивного» текста или колёсика прокрутки.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Adobe After Effects"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/aftereffects/smooth_zoom_demonstration.mp4"
-          theme="dark"
+          src="legacy/aftereffects/smooth_zoom_demonstration.mp4"
           type="video"
-          variant="windows"
         />
         <p>
           Если вам не нравится, как работает новый механизм увеличения предпросмотра, — вы
@@ -608,14 +533,10 @@ const AeInterface: React.FC = () => {
           с какого места увеличивать предпросмотр — от центра композиции или от точки
           положения курсора.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Preferences"
-          imgTitle="Настройка увеличения предпросмотра"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/aftereffects/magnification_settings.png"
-          theme="dark"
+          src="legacy/aftereffects/magnification_settings.png"
           type="image"
-          variant="windows"
         />
         <Divider>Увеличиваем предпросмотр через ae-zoom</Divider>
         <p>
@@ -627,13 +548,10 @@ const AeInterface: React.FC = () => {
           </a>
           .
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Демонстрация плагина ae-zoom"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/ae-zoom_demonstration.webm"
-          theme="dark"
+          src="legacy/ae-zoom_demonstration.webm"
           type="video"
-          variant="windows"
         />
         <ContentFilter
           macContent={
@@ -707,14 +625,10 @@ const AeInterface: React.FC = () => {
           <mark className="plugin">Trapcode Particular</mark>, либо хотя бы один слой
           должен быть преобразован в трёхмерный.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Timeline"
-          imgTitle="Включение режима 3D для слоя"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/aftereffects/toggle_3d_layer.png"
-          theme="dark"
+          src="legacy/aftereffects/toggle_3d_layer.png"
           type="image"
-          variant="windows"
         />
         <p>
           Если одно из условий соблюдено, то в окне предпросмотра появятся кнопки для
@@ -722,14 +636,10 @@ const AeInterface: React.FC = () => {
           включить <mark className="select">«Draft 3D»</mark> или разделить предпросмотр
           на несколько видов.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Composition"
-          imgTitle="Переключение видов в окне предпросмотра"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/aftereffects/change_view.png"
-          theme="dark"
+          src="legacy/aftereffects/change_view.png"
           type="image"
-          variant="windows"
         />
       </DetailsSummary>
       <DetailsSummary
@@ -756,13 +666,10 @@ const AeInterface: React.FC = () => {
           режимах <mark className="select">«Linear»</mark> или{" "}
           <mark className="select">«Hold»</mark> изменить график значения нельзя.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Keyframe Interpolation"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/aftereffects/temporal_interpolation_bezier.png"
-          theme="dark"
+          src="legacy/aftereffects/temporal_interpolation_bezier.png"
           type="image"
-          variant="windows"
         />
         <p>
           Если вы попытаетесь отредактировать график скорости параметра с несколькими
@@ -780,13 +687,10 @@ const AeInterface: React.FC = () => {
           <mark className="key">ПКМ</mark> по атрибуту и выберите{" "}
           <mark className="select">«Separate Dimensions»</mark>.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Разделение атрибутов положения на X и Y"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/aftereffects/separate_dimensions.mp4"
-          theme="dark"
+          src="legacy/aftereffects/separate_dimensions.mp4"
           type="video"
-          variant="windows"
         />
         <Divider>Изменение вида графика скорости</Divider>
         <p>
@@ -798,13 +702,10 @@ const AeInterface: React.FC = () => {
           <mark className="key">Shift + F3</mark> или соответствующей кнопки на таймлайне,
           вызовите контекстное меню и выберите нужный вариант.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Изменение вида графика скорости"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/aftereffects/change_graph_view.mp4"
-          theme="dark"
+          src="legacy/aftereffects/change_graph_view.mp4"
           type="video"
-          variant="windows"
         />
         <Divider>Куда пропали «усики» в пространстве?</Divider>
         <p>
@@ -816,13 +717,10 @@ const AeInterface: React.FC = () => {
           <mark className="select">«Bezier»</mark> или другой тип кривой Безье. После
           этого вы сможете изменять траекторию движения в предпросмотре.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Изменение типа пространственной интерполяции"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/aftereffects/change_spatial_interpolation.mp4"
-          theme="dark"
+          src="legacy/aftereffects/change_spatial_interpolation.mp4"
           type="video"
-          variant="windows"
         />
         <Addition type="info">
           Если вы не видите путь движения объекта или он слишком короткий, измените
@@ -846,13 +744,10 @@ const AeInterface: React.FC = () => {
           <mark className="select">«Convert Vertex Tool»</mark>. Он активирует «усики» у
           фигур, созданных без помощи <mark className="select">«Roto Bezier»</mark>.
         </Addition>
-        <ContentFigure
+        <ArticleMedia
           caption="Adobe After Effects"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/aftereffects/rotobezier_demo.mp4"
-          theme="dark"
+          src="legacy/aftereffects/rotobezier_demo.mp4"
           type="video"
-          variant="windows"
         />
       </DetailsSummary>
       <DetailsSummary
@@ -867,13 +762,10 @@ const AeInterface: React.FC = () => {
           <mark className="key">Shift + F3</mark> или кнопка на таймлайне), вызовите
           контекстное меню и выберите нужный вид графика.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Изменение вида графика скорости"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/aftereffects/change_graph_view.mp4"
-          theme="dark"
+          src="legacy/aftereffects/change_graph_view.mp4"
           type="video"
-          variant="windows"
         />
       </DetailsSummary>
       <DetailsSummary
@@ -895,7 +787,7 @@ const AeInterface: React.FC = () => {
           </a>
           .
         </Addition>
-        <ContentFigure
+        <ArticleMedia
           caption="Обновление вкладки Track Matte"
           src="2Fi57LLJrUE"
           type="youtube"
@@ -917,14 +809,10 @@ const AeInterface: React.FC = () => {
         <Addition type="info">
           Если вам нужно принудительно отобразить точки трекинга, включите функцию{" "}
           <mark className="select">«Render Track Points»</mark> в настройках эффекта.
-          <ContentFigure
+          <ArticleMedia
             caption="Effects Controls"
-            imgTitle="Включение точек трекинга"
-            // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-            src="images/legacy/aftereffects/render_track_points.png"
-            theme="dark"
+            src="legacy/aftereffects/render_track_points.png"
             type="image"
-            variant="windows"
           />
         </Addition>
       </DetailsSummary>
@@ -939,14 +827,10 @@ const AeInterface: React.FC = () => {
           <mark className="select">«Waveform»</mark>, который вы можете растянуть по
           высоте, потянув за его нижний край.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Timeline"
-          imgTitle="Отображение звуковой волны у слоя со звуком"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/aftereffects/show_waveform.png"
-          theme="dark"
+          src="legacy/aftereffects/show_waveform.png"
           type="image"
-          variant="windows"
         />
       </DetailsSummary>
       <DetailsSummary
@@ -973,13 +857,10 @@ const AeInterface: React.FC = () => {
           <mark className="plugin">FX Console</mark> может открываться не с первого раза.
           Чтобы решить эту проблему — просто закройте или скройте это окно.
         </Addition>
-        <ContentFigure
+        <ArticleMedia
           caption="Демонстрация плагина FX Console"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/aftereffects/fx_console_demonstration.mp4"
-          theme="dark"
+          src="legacy/aftereffects/fx_console_demonstration.mp4"
           type="video"
-          variant="windows"
         />
       </DetailsSummary>
       <DetailsSummary
@@ -1008,14 +889,10 @@ const AeInterface: React.FC = () => {
           </a>
           .
         </Addition>
-        <ContentFigure
+        <ArticleMedia
           caption="Adobe After Effects"
-          imgTitle="Отключение автоматического открытия окна свойств"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/aftereffects/toggle_auto-open_panel.png"
-          theme="dark"
+          src="legacy/aftereffects/toggle_auto-open_panel.png"
           type="image"
-          variant="windows"
         />
       </DetailsSummary>
       <DetailsSummary
@@ -1036,14 +913,10 @@ const AeInterface: React.FC = () => {
           нужного типа слоя или маркера любой цвет из второй категории. Во второй
           категории можно изменить цвет и даже задать ему своё имя.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Preferences"
-          imgTitle="Настройки меток"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/aftereffects/preferences_labels.png"
-          theme="dark"
+          src="legacy/aftereffects/preferences_labels.png"
           type="image"
-          variant="windows"
         />
       </DetailsSummary>
       <DetailsSummary
@@ -1063,14 +936,10 @@ const AeInterface: React.FC = () => {
           В старых версиях <mark className="app">Adobe After Effects</mark> эта кнопка
           находится в разделе <mark className="select">«General»</mark>.
         </Addition>
-        <ContentFigure
+        <ArticleMedia
           caption="Preferences"
-          imgTitle="Настройка использования системного выбора цвета"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/aftereffects/use_system_color_picker.png"
-          theme="dark"
+          src="legacy/aftereffects/use_system_color_picker.png"
           type="image"
-          variant="windows"
         />
       </DetailsSummary>
       <DetailsSummary
@@ -1106,28 +975,20 @@ const AeInterface: React.FC = () => {
           параметр доступен и в режиме{" "}
           <mark className="select">«Debug Database View»</mark>.
         </Addition>
-        <ContentFigure
+        <ArticleMedia
           caption="Console"
-          imgTitle="Включение возможности изменения акцента интерфейса"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/aftereffects/console_theme_colorizing.png"
-          theme="dark"
+          src="legacy/aftereffects/console_theme_colorizing.png"
           type="image"
-          variant="windows"
         />
         <p>
           После успешного включения опции перейдите в настройки программы:{" "}
           <mark className="select">«Edit» → «Preferences» → «Appearance»</mark> и нажмите
           на кнопку <mark className="select">«Change Color»</mark>.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Preferences"
-          imgTitle="Находим кнопку для смены цвета интерфейса"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/aftereffects/select_theme_color.png"
-          theme="dark"
+          src="legacy/aftereffects/select_theme_color.png"
           type="image"
-          variant="windows"
         />
         <p>
           В открывшейся цветовой палитре вы можете указать любой цвет. Желательно выбрать
@@ -1139,14 +1000,10 @@ const AeInterface: React.FC = () => {
           Не рекомендуется выбирать слишком тёмные или чрезмерно насыщенные оттенки — это
           может затруднить восприятие некоторых элементов интерфейса.
         </Addition>
-        <ContentFigure
+        <ArticleMedia
           caption="Change Color"
-          imgTitle="Выбор акцентного цвета для интерфейса"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/aftereffects/theme_colorizing.png"
-          theme="dark"
+          src="legacy/aftereffects/theme_colorizing.png"
           type="image"
-          variant="windows"
         />
       </DetailsSummary>
       <DetailsSummary
@@ -1184,14 +1041,10 @@ const AeInterface: React.FC = () => {
           интерфейса <mark>Windows</mark>, которые не всегда гармонируют с интерфейсом
           программы — например, белая полоса меню, контекстное меню и рамка окна.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="«Проблемный» интерфейс Adobe After Effects на Windows"
-          imgTitle="«Проблемный» интерфейс Adobe After Effects на Windows"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/aftereffects/problem_windows_interface.png"
-          theme="light"
+          src="legacy/aftereffects/problem_windows_interface.png"
           type="image"
-          variant="windows"
         />
         <p>
           К счастью, это можно частично исправить сторонними утилитами:{" "}
@@ -1220,28 +1073,20 @@ const AeInterface: React.FC = () => {
           <mark className="select">«Global»</mark>. Для этого перейдите в каждое правило,
           нажмите <mark className="select">«Remove rule»</mark>.
         </Addition>
-        <ContentFigure
+        <ArticleMedia
           caption="Mica For Everyone"
-          imgTitle="Добавление правила в Mica For Everyone"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/micaforeveryone_add_process_rule.png"
-          theme="dark"
+          src="legacy/micaforeveryone_add_process_rule.png"
           type="image"
-          variant="windows"
         />
         <p>
           Затем в текстовом поле окна добавления правила введите{" "}
           <mark className="copy">AfterFX</mark> и нажмите{" "}
           <mark className="select">«Add rule»</mark>.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Mica For Everyone"
-          imgTitle="Добавляем правило для Adobe After Effects в Mica For Everyone"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/micaforeveryone_add_afterfx.png"
-          theme="dark"
+          src="legacy/micaforeveryone_add_afterfx.png"
           type="image"
-          variant="windows"
         />
         <p>
           Далее откройте правило <mark className="select">«AfterFX»</mark> и установите
@@ -1254,28 +1099,20 @@ const AeInterface: React.FC = () => {
           <mark className="select">«Corner preference»</mark> значение{" "}
           <mark className="select">«Squared»</mark>.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Mica For Everyone"
-          imgTitle="Настраиваем стили для Mica For Everyone"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/micaforeveryone_afterfx_settings.png"
-          theme="dark"
+          src="legacy/micaforeveryone_afterfx_settings.png"
           type="image"
-          variant="windows"
         />
         <p>
           После настройки стилей — не забудьте включить автоматический запуск утилиты при
           каждой перезагрузке <mark>Windows</mark> в{" "}
           <mark className="select">«App settings» → «Launch on startup»</mark>.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Mica For Everyone"
-          imgTitle="Включаем автозапуск Mica For Everyone"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/micaforeveryone_launch_on_startup.png"
-          theme="dark"
+          src="legacy/micaforeveryone_launch_on_startup.png"
           type="image"
-          variant="windows"
         />
         <Divider>Включаем тёмное контекстное меню</Divider>
         <p>
@@ -1284,27 +1121,20 @@ const AeInterface: React.FC = () => {
           установки нужно найти модификацию{" "}
           <mark className="copy">Dark mode context menus</mark> и установить его.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Включаем модификацию на тёмное контекстное меню"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/enable_dark_mode_context_menus.mp4"
-          theme="dark"
+          src="legacy/enable_dark_mode_context_menus.mp4"
           type="video"
-          variant="windows"
         />
         <p>
           После всех изменений и модификаций, откройте{" "}
           <mark className="app">Adobe After Effects</mark> и наслаждайтесь по-настоящему
           тёмной темой программы.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="«Решённый» интерфейс Adobe After Effects на Windows"
-          imgTitle="«Решённый» интерфейс Adobe After Effects на Windows"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/aftereffects/solved_windows_interface.png"
-          theme="dark"
+          src="legacy/aftereffects/solved_windows_interface.png"
           type="image"
-          variant="windows"
         />
       </DetailsSummary>
       <DetailsSummary
@@ -1349,14 +1179,10 @@ const AeInterface: React.FC = () => {
                 </mark>
                 .
               </p>
-              <ContentFigure
+              <ArticleMedia
                 caption="Resource Hacker"
-                imgTitle="Открываем файл в Resource Hacker"
-                // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-                src="images/legacy/aftereffects/resource_hacker_open_file.png"
-                theme="light"
+                src="legacy/aftereffects/resource_hacker_open_file.png"
                 type="image"
-                variant="windows"
               />
               <p>
                 После открытия файла в левой части окна{" "}
@@ -1378,14 +1204,10 @@ const AeInterface: React.FC = () => {
                 <mark className="image">AE_ABOUT_AT_2X</mark> и{" "}
                 <mark className="image">AE_ABOUT_AT_3TO2X</mark>.
               </Addition>
-              <ContentFigure
+              <ArticleMedia
                 caption="Resource Hacker"
-                imgTitle="Извлекаем изображения из .dll"
-                // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-                src="images/legacy/aftereffects/resource_hacker_extract_file.png"
-                theme="light"
+                src="legacy/aftereffects/resource_hacker_extract_file.png"
                 type="image"
-                variant="windows"
               />
               <p>
                 Отредактировать извлечённый файл можно в любом редакторе изображений,
@@ -1398,14 +1220,10 @@ const AeInterface: React.FC = () => {
                 картинку с автомобилем <mark>Ford Focus</mark> и сохраню его в{" "}
                 <mark className="image">PNG</mark>.
               </p>
-              <ContentFigure
+              <ArticleMedia
                 caption="Пример модификации изображения при загрузке Adobe After Effects"
-                imgTitle="Изменённое изображение при открытии программы"
-                // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-                src="images/legacy/aftereffects/custom_splash_example.png"
-                theme="light"
+                src="legacy/aftereffects/custom_splash_example.png"
                 type="image"
-                variant="windows"
               />
               <Divider>Заменяем изображения в DLL</Divider>
               <p>
@@ -1416,27 +1234,20 @@ const AeInterface: React.FC = () => {
                 выберите свой файл, а затем нажмите{" "}
                 <mark className="select">«Replace»</mark>.
               </p>
-              <ContentFigure
+              <ArticleMedia
                 caption="Resource Hacker"
-                imgTitle="Заменяем изображение в .dll"
-                // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-                src="images/legacy/aftereffects/resource_hacker_replace.png"
-                theme="light"
+                src="legacy/aftereffects/resource_hacker_replace.png"
                 type="image"
-                variant="windows"
               />
               <p>
                 После успешной замены сохраните изменения, нажав{" "}
                 <mark className="key">Ctrl + S</mark>. Теперь при каждом запуске программы
                 вы будете видеть свой шедевр.
               </p>
-              <ContentFigure
+              <ArticleMedia
                 caption="Пример изменённой плашки при открытии программы"
-                // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-                src="images/legacy/aftereffects/custom_splash_opening.mp4"
-                theme="light"
+                src="legacy/aftereffects/custom_splash_opening.mp4"
                 type="video"
-                variant="windows"
               />
             </>
           }
@@ -1455,12 +1266,10 @@ const AeInterface: React.FC = () => {
             программа, скорее всего, выдаст ошибку чтения пользовательских настроек и
             сбросит их до заводских.
           </p>
-          <ContentFigure
+          <ArticleMedia
             caption="Ошибка чтения файла настроек"
-            src="images/legacy/aftereffects/preferences_file_is_not_valid.png"
-            theme="dark"
+            src="legacy/aftereffects/preferences_file_is_not_valid.png"
             type="image"
-            variant="windows"
           />
           <p>
             Если вы обновлялись с предыдущих версий{" "}
@@ -1472,14 +1281,10 @@ const AeInterface: React.FC = () => {
             открывшемся окне вы сможете выбрать, из какой версии{" "}
             <mark className="app">Adobe After Effects</mark> перенести настройки.
           </p>
-          <ContentFigure
+          <ArticleMedia
             caption="Preferences"
-            imgTitle="Переносим настройки из старых версий программы"
-            // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-            src="images/legacy/aftereffects/migrate_previous_version_preferences.png"
-            theme="dark"
+            src="legacy/aftereffects/migrate_previous_version_preferences.png"
             type="image"
-            variant="windows"
           />
           <p>
             Если предыдущих настроек нет, переименовывать файл, убирая суффикс{" "}

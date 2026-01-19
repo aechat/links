@@ -3,7 +3,7 @@ import React from "react";
 import {Divider} from "antd";
 
 import Addition from "../../../components/content/Addition";
-import {ContentFigure} from "../../../components/content/ContentFigure";
+import {ArticleMedia} from "../../../components/content/ArticleMedia";
 import DetailsSummary from "../../../components/content/DetailsSummary";
 
 const PrExportProblems: React.FC = () => {
@@ -116,14 +116,10 @@ const PrExportProblems: React.FC = () => {
           <mark className="select">«Include Preview Files»</mark>, а затем повторить
           попытку сбора материалов в нужную папку.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Project Manager"
-          imgTitle="Отключаем Include Preview Files в менеджере проекта"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/premierepro/disable_include_preview_files.png"
-          theme="dark"
+          src="legacy/premierepro/disable_include_preview_files.png"
           type="image"
-          variant="windows"
         />
       </DetailsSummary>
       <DetailsSummary title="Экспортировал секвенцию в H.264 и отправил пользователю iPhone, а он не может открыть видео. Почему это происходит и как это исправить?">
@@ -136,13 +132,10 @@ const PrExportProblems: React.FC = () => {
           предварительно убрав флажки напротив <mark className="select">«Profile»</mark> и{" "}
           <mark className="select">«Level»</mark> для разблокировки настроек.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Export"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/premierepro/set_level_4-1.mp4"
-          theme="dark"
+          src="legacy/premierepro/set_level_4-1.mp4"
           type="video"
-          variant="windows"
         />
       </DetailsSummary>
       <DetailsSummary title="Что делать, если экспорт зависает на определённом моменте?">
@@ -220,14 +213,10 @@ const PrExportProblems: React.FC = () => {
           поэтому чисто технически у вас не получится указать разрешение, например{" "}
           <mark>575</mark>.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Ошибка в AfterCodecs при экспорте с нечётным разрешением"
-          imgTitle="Ошибка экспорта с нечётным разрешением"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/odd_resolution_error.png"
-          theme="light"
+          src="legacy/odd_resolution_error.png"
           type="image"
-          variant="windows"
         />
         <p>
           Для решения проблемы просто укажите чётное значение пикселей у каждой стороны в
@@ -282,14 +271,10 @@ const PrExportProblems: React.FC = () => {
           параметров битрейта сильно влияет на качество видео и размер после конвертации.
           Там можно выбрать три варианта для кодирования.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Shutter Encoder"
-          imgTitle="Интерфейс Shutter Encoder"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/shutter_encoder_interface.png"
-          theme="dark"
+          src="legacy/shutter_encoder_interface.png"
           type="image"
-          variant="mac"
         />
         <ul>
           <li>
@@ -363,14 +348,10 @@ const PrExportProblems: React.FC = () => {
           очереди экспорта. В открывшемся окне проводника укажите путь до файла, который
           нужно конвертировать.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Media Encoder"
-          imgTitle="Импорт в Adobe Media Encoder"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/media_encoder_import.png"
-          theme="light"
+          src="legacy/media_encoder_import.png"
           type="image"
-          variant="windows"
         />
         <p>
           После импорта файлов вы можете выбрать формат, шаблон и путь сохранения для
@@ -380,14 +361,10 @@ const PrExportProblems: React.FC = () => {
           конвертации. Также вы можете указать путь до папки, в которую нужно сохранить и
           вариант рендера на процессоре или с аппаратным ускорением с помощью видеокарты.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Media Encoder"
-          imgTitle="Экспорт в Adobe Media Encoder"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/media_encoder_exporting.png"
-          theme="light"
+          src="legacy/media_encoder_exporting.png"
           type="image"
-          variant="windows"
         />
         <Addition type="info">
           В <mark className="app">Adobe Media Encoder</mark> можно конвертировать видео с

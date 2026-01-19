@@ -3,7 +3,7 @@ import React from "react";
 import {Divider} from "antd";
 
 import Addition from "../../../components/content/Addition";
-import {ContentFigure} from "../../../components/content/ContentFigure";
+import {ArticleMedia} from "../../../components/content/ArticleMedia";
 import ContentFilter from "../../../components/content/ContentFilter";
 import DetailsSummary from "../../../components/content/DetailsSummary";
 
@@ -28,8 +28,8 @@ const PrFromNewbies: React.FC = () => {
           <mark>2019</mark>. Некоторые функции могут отличаться от вашей текущей версии
           программы.
         </Addition>
-        <ContentFigure
-          caption="Азбука Adobe Premiere"
+        <ArticleMedia
+          caption="Азбука Adobe Premiere Pro"
           src="Wi-AalXwilg"
           type="youtube"
         />
@@ -1171,14 +1171,10 @@ const PrFromNewbies: React.FC = () => {
           клавиш <mark className="key">Ctrl + F12</mark> и переключиться на режим
           отображения <mark className="select">«Debug Database View»</mark>.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Включение вида Debug Database View"
-          imgTitle="Включение вида Debug Database View"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/premierepro/console_debug-database-view.png"
-          theme="dark"
+          src="legacy/premierepro/console_debug-database-view.png"
           type="image"
-          variant="windows"
         />
         <p>
           Затем в строке поиска нам нужно написать{" "}
@@ -1186,14 +1182,10 @@ const PrFromNewbies: React.FC = () => {
           вручную. В строке с одноимённым параметром пишем{" "}
           <mark className="copy">en_US</mark>.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Установка английского языка в консоли"
-          imgTitle="Установка английского языка в консоли"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/premierepro/set_language_console.png"
-          theme="dark"
+          src="legacy/premierepro/set_language_console.png"
           type="image"
-          variant="windows"
         />
         <p>
           После ввода значения - перезагрузите программу и вы сможете насладиться
@@ -1289,7 +1281,7 @@ const PrFromNewbies: React.FC = () => {
                 Для работы данной функции нужен внешний накопитель, желательно с объёмом
                 от <mark>512 ГБ</mark> и более.
               </Addition>
-              <ContentFigure
+              <ArticleMedia
                 caption="How to Set up & Use Time Machine to Backup your Mac"
                 src="Gx76i28c150"
                 type="youtube"
@@ -1309,7 +1301,7 @@ const PrFromNewbies: React.FC = () => {
                 сохранять копии файлов в разделе{" "}
                 <mark className="select">Смена диска</mark>.
               </Addition>
-              <ContentFigure
+              <ArticleMedia
                 caption="История файлов в Windows 11 и Windows 10"
                 src="xDFQEx9gylc"
                 type="youtube"
@@ -1367,7 +1359,7 @@ const PrFromNewbies: React.FC = () => {
           <mark className="app">SourceGit</mark> или{" "}
           <mark className="app">SourceTree</mark>.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Объясняем на пальцах про Git"
           src="G4f9OH4IQE8"
           type="youtube"
@@ -1389,13 +1381,10 @@ const PrFromNewbies: React.FC = () => {
           <mark className="select">«Nest»</mark>. После этого откроется окно в которое вы
           можете вписать название новой секвенции.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Adobe Premiere"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/premierepro/creating_nest.mp4"
-          theme="dark"
+          src="legacy/premierepro/creating_nest.mp4"
           type="video"
-          variant="windows"
         />
         <p>
           А чтобы распаковать <mark>Nest</mark> или же наложить на таймлайн
@@ -1407,13 +1396,10 @@ const PrFromNewbies: React.FC = () => {
           и перетяните секвенцию прямо на таймлайн. Старый <mark>Nest</mark> можно удалить
           без всяких проблем.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Adobe Premiere"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/premierepro/unnesting_nest.mp4"
-          theme="dark"
+          src="legacy/premierepro/unnesting_nest.mp4"
           type="video"
-          variant="windows"
         />
       </DetailsSummary>
       <DetailsSummary
@@ -1432,8 +1418,8 @@ const PrFromNewbies: React.FC = () => {
           аудиодорожки, либо видеодорожки. Отключая или включая оба параметра - вы сможете
           импортировать и видео и аудиодорожку на таймлайн.
         </p>
-        <ContentFigure
-          caption="How to add video and audio to the timeline in Adobe Premiere"
+        <ArticleMedia
+          caption="How to add video and audio to the timeline in Adobe Premiere Pro"
           src="BOW2Fr7SKo0"
           type="youtube"
         />
@@ -1444,7 +1430,7 @@ const PrFromNewbies: React.FC = () => {
           же <mark className="select">«Track Targeting»</mark> отвечают за выделение
           клипов и вставку видео и аудиодорожек на таймлайн.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Shortcuts for the timeline in Adobe Premiere - track targeting"
           src="pzQnzaRm2OY"
           type="youtube"
@@ -1486,7 +1472,7 @@ const PrFromNewbies: React.FC = () => {
           <mark className="select">«Fit to Frame»</mark> была кнопка{" "}
           <mark className="select">«Set to Frame Size»</mark>.
         </Addition>
-        <ContentFigure
+        <ArticleMedia
           caption="Чем отличается Scale to Frame size от Set to Frame size?"
           src="dKTWbkPfcmE"
           type="youtube"
@@ -1530,13 +1516,10 @@ const PrFromNewbies: React.FC = () => {
           той дорожке, в котором вы потеряли видео или аудио. После этого нажмите на{" "}
           <mark className="key">.</mark> или <mark className="key">Ю</mark>.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Видео из Telegram-канала @nano_tutorials"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/premierepro/restore_missing.mp4"
-          theme="dark"
+          src="legacy/premierepro/restore_missing.mp4"
           type="video"
-          variant="mac"
         />
       </DetailsSummary>
       <DetailsSummary
@@ -1555,14 +1538,10 @@ const PrFromNewbies: React.FC = () => {
           указать в параметре <mark className="select">«Default Output»</mark> нужный вам
           аудиовыход.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Preferences"
-          imgTitle="Установка аудиовыхода"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/premierepro/set_audio_output.png"
-          theme="dark"
+          src="legacy/premierepro/set_audio_output.png"
           type="image"
-          variant="windows"
         />
         <Addition type="info">
           Иногда в некоторых случаях необходимо будет в параметре{" "}

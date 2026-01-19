@@ -3,7 +3,7 @@ import React from "react";
 import {Divider} from "antd";
 
 import Addition from "../../../components/content/Addition";
-import {ContentFigure} from "../../../components/content/ContentFigure";
+import {ArticleMedia} from "../../../components/content/ArticleMedia";
 import ContentFilter from "../../../components/content/ContentFilter";
 import DetailsSummary from "../../../components/content/DetailsSummary";
 
@@ -168,13 +168,10 @@ const PrInstallProblems: React.FC = () => {
                     <mark className="app">The Unarchiver</mark> — по{" "}
                     <a href="https://theunarchiver.com/">этой</a>.
                   </Addition>
-                  <ContentFigure
+                  <ArticleMedia
                     caption="Распаковка через контекстное меню"
-                    imgTitle="Распаковка через контекстное меню"
                     src="https://github.com/aonez/Keka/raw/master/Wiki/Images/Animated/extract-context-menu.gif"
-                    theme="light"
                     type="image"
-                    variant="mac"
                   />
                   <Addition type="info">
                     <ul>
@@ -303,14 +300,10 @@ const PrInstallProblems: React.FC = () => {
                     укажите файл в открывшемся окне файлового менеджера либо просто
                     перетащите <mark className="file">MOGRT</mark> в это окно.
                   </p>
-                  <ContentFigure
+                  <ArticleMedia
                     caption="Graphics Templates (ранее Essential Graphics)"
-                    imgTitle="Установка MOGRT"
-                    // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-                    src="images/legacy/premierepro/install_mogrt.png"
-                    theme="dark"
+                    src="legacy/premierepro/install_mogrt.png"
                     type="image"
-                    variant="mac"
                   />
                   <p>
                     Также вы можете скопировать файлы вручную в стандартную папку
@@ -392,14 +385,10 @@ const PrInstallProblems: React.FC = () => {
                         В папке с пресетами вы можете создать собственную папку или
                         расположить скачанные пресеты в уже существующих.
                       </Addition>
-                      <ContentFigure
+                      <ArticleMedia
                         caption="Adobe Premiere"
-                        imgTitle="Установка пресетов в Adobe Premiere"
-                        // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-                        src="images/legacy/premierepro/import_presets.png"
-                        theme="dark"
+                        src="legacy/premierepro/import_presets.png"
                         type="image"
-                        variant="windows"
                       />
                     </li>
                     <li>
@@ -621,13 +610,10 @@ const PrInstallProblems: React.FC = () => {
                     <mark className="select">«Scan for Plug-Ins»</mark>, чтобы программа
                     обнаружила плагины, установленные в системе.
                   </p>
-                  <ContentFigure
+                  <ArticleMedia
                     caption="Preferences"
-                    // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-                    src="images/legacy/premierepro/install_vst3.mp4"
-                    theme="dark"
+                    src="legacy/premierepro/install_vst3.mp4"
                     type="video"
-                    variant="mac"
                   />
                   <p>
                     При необходимости можно добавить собственную папку с плагинами с
@@ -702,7 +688,7 @@ const PrInstallProblems: React.FC = () => {
                       </li>
                     </ul>
                   </Addition>
-                  <ContentFigure
+                  <ArticleMedia
                     caption="Как использовать файлы цветокоррекции в Adobe Premiere"
                     src="_mg31FMwrxc"
                     type="youtube"
@@ -714,14 +700,10 @@ const PrInstallProblems: React.FC = () => {
                   <mark className="file">MBLOOK</mark> устанавливаются с помощью кнопки
                   импорта во вкладке <mark className="select">«Looks»</mark> стороннего
                   расширения <mark className="plugin">Magic Bullet Looks</mark>.
-                  <ContentFigure
+                  <ArticleMedia
                     caption="Magic Bullet Looks"
-                    imgTitle="Импорт пресетов для Magic Bullet Looks"
-                    // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-                    src="images/legacy/import_magic_bullet_looks.png"
-                    theme="dark"
+                    src="legacy/import_magic_bullet_looks.png"
                     type="image"
-                    variant="mac"
                   />
                 </li>
                 <li>
@@ -770,7 +752,7 @@ const PrInstallProblems: React.FC = () => {
                   распаковку только первой части — остальные подхватятся автоматически.
                   Другие части архива не нужно трогать без острой необходимости, если вы
                   не знаете, что с ними делать.
-                  <ContentFigure
+                  <ArticleMedia
                     caption="Распаковка многотомного архива"
                     src="1OVwQS0uHhk"
                     type="youtube"
@@ -897,14 +879,10 @@ const PrInstallProblems: React.FC = () => {
                     укажите файл в открывшемся окне файлового менеджера либо просто
                     перетащите <mark className="file">MOGRT</mark> в это окно.
                   </p>
-                  <ContentFigure
+                  <ArticleMedia
                     caption="Graphics Templates (ранее Essential Graphics)"
-                    imgTitle="Установка MOGRT"
-                    // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-                    src="images/legacy/premierepro/install_mogrt.png"
-                    theme="dark"
+                    src="legacy/premierepro/install_mogrt.png"
                     type="image"
-                    variant="windows"
                   />
                   <p>
                     Также вы можете скопировать файлы вручную в стандартную папку
@@ -1004,14 +982,10 @@ const PrInstallProblems: React.FC = () => {
                         В папке с пресетами вы можете создать папку со своим названием или
                         расположить скачанные пресеты в уже существующих.
                       </Addition>
-                      <ContentFigure
+                      <ArticleMedia
                         caption="Adobe Premiere"
-                        imgTitle="Установка пресетов в Adobe Premiere"
-                        // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-                        src="images/legacy/premierepro/import_presets.png"
-                        theme="dark"
+                        src="legacy/premierepro/import_presets.png"
                         type="image"
-                        variant="windows"
                       />
                     </li>
                     <li>
@@ -1243,13 +1217,10 @@ const PrInstallProblems: React.FC = () => {
                     <mark className="select">«Scan for Plug-Ins»</mark>, чтобы программа
                     обнаружила плагины, установленные в системе.
                   </p>
-                  <ContentFigure
+                  <ArticleMedia
                     caption="Preferences"
-                    // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-                    src="images/legacy/premierepro/install_vst3.mp4"
-                    theme="dark"
+                    src="legacy/premierepro/install_vst3.mp4"
                     type="video"
-                    variant="windows"
                   />
                   <p>
                     При необходимости можно добавить собственную папку с плагинами с
@@ -1317,7 +1288,7 @@ const PrInstallProblems: React.FC = () => {
                       </li>
                     </ul>
                   </Addition>
-                  <ContentFigure
+                  <ArticleMedia
                     caption="Как использовать файлы цветокоррекции в Adobe Premiere"
                     src="yrrW-V8bO_I"
                     type="youtube"
@@ -1329,14 +1300,10 @@ const PrInstallProblems: React.FC = () => {
                   <mark className="file">MBLOOK</mark> устанавливаются с помощью кнопки
                   импорта во вкладке <mark className="select">«Looks»</mark> стороннего
                   расширения <mark className="plugin">Magic Bullet Looks</mark>.
-                  <ContentFigure
+                  <ArticleMedia
                     caption="Magic Bullet Looks"
-                    imgTitle="Импорт пресетов для Magic Bullet Looks"
-                    // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-                    src="images/legacy/import_magic_bullet_looks.png"
-                    theme="dark"
+                    src="legacy/import_magic_bullet_looks.png"
                     type="image"
-                    variant="windows"
                   />
                 </li>
                 <li>
@@ -1448,7 +1415,7 @@ const PrInstallProblems: React.FC = () => {
                 встроенный антивирус <mark className="app">Windows Defender</mark> или
                 любой другой, установленный на вашем устройстве.
               </p>
-              <ContentFigure
+              <ArticleMedia
                 caption="Как отключить Защитник Windows 11"
                 src="blwRAOQUjsM"
                 type="youtube"
@@ -1502,7 +1469,7 @@ const PrInstallProblems: React.FC = () => {
                 Если директория <mark className="path">C:\Program Files\Adobe</mark>{" "}
                 отсутствует, создайте её самостоятельно.
               </Addition>
-              <ContentFigure
+              <ArticleMedia
                 caption="Windows Defender — как восстановить файлы и запретить их удаление"
                 src="ET94_dv3f8c"
                 type="youtube"
@@ -1535,12 +1502,10 @@ const PrInstallProblems: React.FC = () => {
                 до этого отключили{" "}
                 <mark className="select">«Защиту в реальном времени»</mark>.
               </p>
-              <ContentFigure
+              <ArticleMedia
                 caption="Отключаем «Интеллектуальное управление приложениями»"
-                src="images/legacy/disable_advanced_smartscreen.mp4"
-                theme="light"
+                src="legacy/disable_advanced_smartscreen.mp4"
                 type="video"
-                variant="windows"
               />
               <p>
                 В <mark>Windows 10</mark> механизм работает иначе: при открытии файла
@@ -1554,7 +1519,7 @@ const PrInstallProblems: React.FC = () => {
                 запуска не появляется, полностью отключите фильтр в параметрах{" "}
                 <mark className="app">Защитника Windows</mark>.
               </p>
-              <ContentFigure
+              <ArticleMedia
                 caption="Как отключить Windows SmartScreen"
                 src="HxlxS1Mdyp0"
                 type="youtube"
@@ -1797,7 +1762,7 @@ const PrInstallProblems: React.FC = () => {
                 </a>
                 .
               </Addition>
-              <ContentFigure
+              <ArticleMedia
                 caption="Как сделать символическую ссылку в Windows на файл и папку"
                 src="VaupaCuluJA"
                 type="youtube"
@@ -2208,13 +2173,10 @@ const PrInstallProblems: React.FC = () => {
                     : его установка, наоборот, усугубит ситуацию с активацией программ от{" "}
                     <mark className="company">Adobe</mark>.
                   </Addition>
-                  <ContentFigure
+                  <ArticleMedia
                     caption="Установка Adobe Creative Cloud"
-                    // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-                    src="images/legacy/creative_cloud_install.mp4"
-                    theme="dark"
+                    src="legacy/creative_cloud_install.mp4"
                     type="video"
-                    variant="windows"
                   />
                 </li>
                 <li>
@@ -2224,14 +2186,10 @@ const PrInstallProblems: React.FC = () => {
                   <mark className="app">Adobe Creative Cloud</mark> ещё не пропатчен для
                   корректной установки программ. Иначе вам предложат оформить пробную
                   версию, которая нам не подходит.
-                  <ContentFigure
+                  <ArticleMedia
                     caption="Adobe Creative Cloud"
-                    imgTitle="Главное меню Creative Cloud"
-                    // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-                    src="images/legacy/creative_cloud_main_menu.png"
-                    theme="light"
+                    src="legacy/creative_cloud_main_menu.png"
                     type="image"
-                    variant="windows"
                   />
                 </li>
                 <li>
@@ -2246,14 +2204,10 @@ const PrInstallProblems: React.FC = () => {
                     окне отключите три параметра, связанные с автозапуском и
                     автообновлением, в разделе <mark className="select">«Общие»</mark>.
                   </p>
-                  <ContentFigure
+                  <ArticleMedia
                     caption="Adobe Creative Cloud"
-                    imgTitle="Открытие установок Creative Cloud"
-                    // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-                    src="images/legacy/creative_cloud_open_settings.mp4"
-                    theme="light"
+                    src="legacy/creative_cloud_open_settings.mp4"
                     type="video"
-                    variant="windows"
                   />
                   <Addition type="info">
                     При желании вы можете установить английский язык для новых приложений
@@ -2280,13 +2234,10 @@ const PrInstallProblems: React.FC = () => {
                     исходники с утилитами для самостоятельной сборки или воспользоваться{" "}
                     <mark className="file">TORRENT</mark>-файлом.
                   </p>
-                  <ContentFigure
+                  <ArticleMedia
                     caption="Загрузка GenP"
-                    // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-                    src="images/legacy/download_genp.mp4"
-                    theme="dark"
+                    src="legacy/download_genp.mp4"
                     type="video"
-                    variant="windows"
                   />
                 </li>
                 <li>
@@ -2296,14 +2247,10 @@ const PrInstallProblems: React.FC = () => {
                     позволит <mark className="app">Adobe Creative Cloud</mark>{" "}
                     устанавливать приложения без запуска пробного периода.
                   </p>
-                  <ContentFigure
+                  <ArticleMedia
                     caption="Патчинг Adobe Creative Cloud"
-                    imgTitle="Патчинг Adobe Creative Cloud"
-                    // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-                    src="images/legacy/patching_creative_cloud.png"
-                    theme="dark"
+                    src="legacy/patching_creative_cloud.png"
                     type="image"
-                    variant="windows"
                   />
                 </li>
                 <li>
@@ -2314,13 +2261,10 @@ const PrInstallProblems: React.FC = () => {
                     нажмите <mark className="select">«Установить»</mark> напротив нужной
                     программы.
                   </p>
-                  <ContentFigure
+                  <ArticleMedia
                     caption="Установка приложений из Adobe Creative Cloud"
-                    // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-                    src="images/legacy/creative_cloud_install_apps.mp4"
-                    theme="dark"
+                    src="legacy/creative_cloud_install_apps.mp4"
                     type="video"
-                    variant="windows"
                   />
                 </li>
                 <li>
@@ -2339,13 +2283,10 @@ const PrInstallProblems: React.FC = () => {
                     <mark className="select">«Apply»</mark> (или на иконку аптечки), чтобы
                     их вылечить.
                   </p>
-                  <ContentFigure
+                  <ArticleMedia
                     caption="Патчинг приложений"
-                    // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-                    src="images/legacy/apply_genp_first_patch.mp4"
-                    theme="dark"
+                    src="legacy/apply_genp_first_patch.mp4"
                     type="video"
-                    variant="windows"
                   />
                 </li>
               </ul>
@@ -2392,28 +2333,20 @@ const PrInstallProblems: React.FC = () => {
             После установки языкового пакета — откройте окно{" "}
             <mark className="select">«Text»</mark> и создайте субтитры с помощью{" "}
             <mark className="select">«Generate static transcript»</mark>.
-            <ContentFigure
+            <ArticleMedia
               caption="Text"
-              imgTitle="Начало генерации текста на основе речи"
-              // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-              src="images/legacy/premierepro/text_generate_static_transcript.png"
-              theme="dark"
+              src="legacy/premierepro/text_generate_static_transcript.png"
               type="image"
-              variant="windows"
             />
           </li>
           <li>
             В открывшемся окне в параметре <mark className="select">«Language»</mark>{" "}
             выберите язык, на котором говорит диктор, и нажмите{" "}
             <mark className="select">«Transcribe»</mark>.
-            <ContentFigure
+            <ArticleMedia
               caption="Generate static transcript"
-              imgTitle="Настройки генерации текста на основе речи"
-              // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-              src="images/legacy/premierepro/generate_transcribe_settings.png"
-              theme="dark"
+              src="legacy/premierepro/generate_transcribe_settings.png"
               type="image"
-              variant="windows"
             />
           </li>
           <li>
@@ -2499,7 +2432,7 @@ const PrInstallProblems: React.FC = () => {
           уже есть в системе. Чтобы программы «видели» друг друга, необходимо соблюсти
           несколько условий.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Исправляем Dynamic Link"
           src="LvvjQbY1jgw"
           type="youtube"
@@ -2763,14 +2696,10 @@ const PrInstallProblems: React.FC = () => {
           <mark className="select">«Сведения (Windows 11 22H2+)»</mark>. После завершения
           проблемного процесса повторите попытку активации — она должна пройти нормально.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Диспетчер задач"
-          imgTitle="Завершаем процесс Red Giant Service.exe"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/kill_redgiantservice.png"
-          theme="dark"
+          src="legacy/kill_redgiantservice.png"
           type="image"
-          variant="windows"
         />
       </DetailsSummary>
       <DetailsSummary

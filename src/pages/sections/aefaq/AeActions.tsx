@@ -3,8 +3,8 @@ import React from "react";
 import {Divider} from "antd";
 
 import Addition from "../../../components/content/Addition";
+import {ArticleMedia} from "../../../components/content/ArticleMedia";
 import CodeSnippet from "../../../components/content/CodeSnippet";
-import {ContentFigure} from "../../../components/content/ContentFigure";
 import ContentFilter from "../../../components/content/ContentFilter";
 import DetailsSummary from "../../../components/content/DetailsSummary";
 
@@ -41,7 +41,7 @@ const AeActions: React.FC = () => {
           учесть, что хороший результат не всегда получается с первой попытки, поэтому не
           стоит бояться экспериментировать с настройками.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Topaz Video AI Tutorials Enhancing Low Quality Video"
           src="XBEkVHd2tmw"
           type="youtube"
@@ -52,7 +52,7 @@ const AeActions: React.FC = () => {
           эффект <mark className="plugin">BCC+UpRes ML</mark>, который входит в сторонний
           пакет <mark className="plugin">Boris FX Continuum</mark>.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="BCC UpRes ML"
           src="fTYcNP8ZdTE"
           type="youtube"
@@ -62,7 +62,7 @@ const AeActions: React.FC = () => {
           стандартным эффектом <mark className="plugin">Detail-preserving Upscale</mark> в{" "}
           <mark className="app">Adobe After Effects</mark>.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="How to UPSCALE VIDEO to 4K in Adobe After Effects"
           src="PVPapPNciyQ"
           type="youtube"
@@ -77,7 +77,7 @@ const AeActions: React.FC = () => {
           завышают контраст и насыщенность, а видео при этом называют <mark>4K</mark>,
           хотя на деле оно опубликовано в меньшем разрешении.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="HOW TO: Make A 4K Color Correction"
           src="d9ESpD7vc2Y"
           type="youtube"
@@ -105,7 +105,7 @@ const AeActions: React.FC = () => {
           временные файлы. Для <mark className="app">Topaz Gigapixel AI</mark> — около{" "}
           <mark>20 ГБ</mark>. И это без учёта будущих обновлений.
         </Addition>
-        <ContentFigure
+        <ArticleMedia
           caption="Intro to Photo AI"
           src="J6vDYRvjbGY"
           type="youtube"
@@ -116,12 +116,10 @@ const AeActions: React.FC = () => {
           нейросетевые модели для улучшения качества изображений. Скачать её можно{" "}
           <a href="https://upscayl.org/">по этой ссылке</a>.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Upscayl"
           src="https://github.com/upscayl/upscayl/assets/25067102/ad2453b1-3c5a-4eb2-b992-4cf10e6a49f5"
-          theme="dark"
           type="video"
-          variant="mac"
         />
         <p>
           В качестве альтернативы можно использовать{" "}
@@ -131,7 +129,7 @@ const AeActions: React.FC = () => {
           результат даже лучше, чем упомянутые выше инструменты, и при этом занимает
           совсем немного места на диске.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Benvista Photozoom"
           src="woDDQ0xnt84"
           type="youtube"
@@ -181,7 +179,7 @@ const AeActions: React.FC = () => {
           </mark>
           .
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Frame Blending и Pixel Motion в Adobe After Effects"
           src="fNINAOwY2IY"
           type="youtube"
@@ -193,7 +191,7 @@ const AeActions: React.FC = () => {
           справляется с интерполяцией кадров как для целых видео, так и для отдельных
           слоёв.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Twixtor"
           src="EGZCNcQyvrE"
           type="youtube"
@@ -206,7 +204,7 @@ const AeActions: React.FC = () => {
           более мягкое движение по сравнению с{" "}
           <mark className="plugin">RE:Vision Twixtor</mark>.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="BCC Retimer ML"
           src="YraSxOpy1Qg"
           type="youtube"
@@ -229,7 +227,7 @@ const AeActions: React.FC = () => {
           После этого вас перенаправят на страницу загрузки, где вы можете скачать{" "}
           <mark className="app">Flowframes</mark> бесплатно.
         </Addition>
-        <ContentFigure
+        <ArticleMedia
           caption="FlowFrames"
           src="H8ISNjzDULw"
           type="youtube"
@@ -238,7 +236,7 @@ const AeActions: React.FC = () => {
           В качестве альтернативы можно попробовать менее популярную программу{" "}
           <mark className="app">FrameGUI</mark>.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="FrameGUI"
           src="Axz_KwiqNmc"
           type="youtube"
@@ -248,7 +246,7 @@ const AeActions: React.FC = () => {
           частоты кадров с несколькими моделями на выбор, что позволяет экспериментировать
           для получения наилучшего результата.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Topaz Video AI"
           src="591MqOooDAE"
           type="youtube"
@@ -292,7 +290,7 @@ const AeActions: React.FC = () => {
             <mark className="select">«Frame Mix»</mark>.
           </li>
         </ul>
-        <ContentFigure
+        <ArticleMedia
           caption="Duplicate Frame Remover 3 - Quick Start Tutorial"
           src="yg0vJmgCG5U"
           type="youtube"
@@ -311,14 +309,10 @@ const AeActions: React.FC = () => {
           <mark className="select">«Remove duplicate frames»</mark>. После этого укажите
           путь сохранения и нажмите <mark className="select">«Start function»</mark>.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Shutter Encoder"
-          imgTitle="Включение удаления дублирующихся кадров"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/shutter_encoder_remove_duplicate_frames.png"
-          theme="dark"
+          src="legacy/shutter_encoder_remove_duplicate_frames.png"
           type="image"
-          variant="mac"
         />
         <Divider>Удаление дубликатов через FFmpeg</Divider>
         <p>
@@ -439,7 +433,7 @@ const AeActions: React.FC = () => {
           <mark className="plugin">Remove Grain</mark>, с помощью которого можно подавить
           шумы, не прибегая к сторонним плагинам.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Remove Grain"
           src="FmSTOXu2V6I"
           type="youtube"
@@ -452,7 +446,7 @@ const AeActions: React.FC = () => {
           <mark className="plugin">Neat Video</mark>. Он гибко настраивается, адаптируется
           под разные типы шума и поддерживает аппаратное ускорение с помощью видеокарты.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Neat Video"
           src="mwSqzxApy-E"
           type="youtube"
@@ -462,7 +456,7 @@ const AeActions: React.FC = () => {
           <mark className="plugin">Denoiser III</mark> из пакета{" "}
           <mark className="plugin">Red Giant Magic Bullet Suite</mark>.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Denoiser III"
           src="PXCElU7HcX8"
           type="youtube"
@@ -475,7 +469,7 @@ const AeActions: React.FC = () => {
           применяет машинное обучение, что позволяет эффективно очищать более сложные
           кадры.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="BCC DeNoise ML"
           src="L1PeaTa13H4"
           type="youtube"
@@ -508,7 +502,7 @@ const AeActions: React.FC = () => {
                 <mark className="app">Tero Subtitler</mark>. После преобразования речи,
                 сохраните файл в формате <mark className="file">SRT</mark>.
               </p>
-              <ContentFigure
+              <ArticleMedia
                 caption="Как превратить аудио в текст с помощью MacWhisper?"
                 src="strqSTYlIJg"
                 type="youtube"
@@ -529,14 +523,10 @@ const AeActions: React.FC = () => {
                 и установите её. После запуска перетащите видео или аудио в окно
                 программы.
               </p>
-              <ContentFigure
+              <ArticleMedia
                 caption="Subtitle Edit"
-                imgTitle="Импорт видео или аудио в Subtitle Edit"
-                // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-                src="images/legacy/subtitle_edit_import.png"
-                theme="light"
+                src="legacy/subtitle_edit_import.png"
                 type="image"
-                variant="windows"
               />
               <Addition type="info">
                 Если у вас установлен плеер <mark className="app">MPC-HC</mark> или{" "}
@@ -551,14 +541,10 @@ const AeActions: React.FC = () => {
                 статье будет использоваться генерация через{" "}
                 <mark className="app">Whisper</mark>.
               </p>
-              <ContentFigure
+              <ArticleMedia
                 caption="Subtitle Edit"
-                imgTitle="Функция для генерации субтитров"
-                // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-                src="images/legacy/subtitle_edit_video_audio-to-text.png"
-                theme="light"
+                src="legacy/subtitle_edit_video_audio-to-text.png"
                 type="image"
-                variant="windows"
               />
               <p>
                 При первом запуске подтвердите установку{" "}
@@ -573,14 +559,10 @@ const AeActions: React.FC = () => {
                 <mark className="select">«Purfview&apos;s Faster Whisper»</mark> и
                 подтвердите загрузку.
               </p>
-              <ContentFigure
+              <ArticleMedia
                 caption="Subtitle Edit"
-                imgTitle="Изменение движка распознавания речи"
-                // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-                src="images/legacy/subtitle_edit_change_engine.png"
-                theme="light"
+                src="legacy/subtitle_edit_change_engine.png"
                 type="image"
-                variant="windows"
               />
               <p>
                 Далее нужно скачать языковую модель. Для этого рядом с{" "}
@@ -595,27 +577,19 @@ const AeActions: React.FC = () => {
                 может быть ниже. Скорость обработки также зависит от производительности
                 видеокарты и скорости диска.
               </Addition>
-              <ContentFigure
+              <ArticleMedia
                 caption="Subtitle Edit"
-                imgTitle="Загрузка моделей распознавания речи"
-                // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-                src="images/legacy/subtitle_edit_download_models.png"
-                theme="light"
+                src="legacy/subtitle_edit_download_models.png"
                 type="image"
-                variant="windows"
               />
               <p>
                 Когда модель загрузится, выберите язык аудио и нажмите{" "}
                 <mark className="select">«Generate»</mark>, чтобы запустить процесс.
               </p>
-              <ContentFigure
+              <ArticleMedia
                 caption="Subtitle Edit"
-                imgTitle="Выбор языка и запуск генерации"
-                // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-                src="images/legacy/subtitle_edit_change_language_generate.png"
-                theme="light"
+                src="legacy/subtitle_edit_change_language_generate.png"
                 type="image"
-                variant="windows"
               />
               <p>
                 После генерации вы можете отредактировать субтитры прямо в{" "}
@@ -649,14 +623,10 @@ const AeActions: React.FC = () => {
           </mark>
           .
         </Addition>
-        <ContentFigure
+        <ArticleMedia
           caption="Adobe After Effects"
-          imgTitle="Открытие расширения Subtitle Pro"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/aftereffects/subtitlepro_opening.png"
-          theme="light"
+          src="legacy/aftereffects/subtitlepro_opening.png"
           type="image"
-          variant="windows"
         />
         <p>
           В окне расширения <mark className="plugin">Subtitle Pro</mark> нажмите на{" "}
@@ -664,14 +634,10 @@ const AeActions: React.FC = () => {
           <mark className="file">SRT</mark>. Затем откройте нужную композицию, куда вы
           хотите добавить субтитры, и нажмите <mark className="select">«Apply»</mark>.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Subtitle Pro"
-          imgTitle="Импорт и применение субтитров"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/aftereffects/subtitlepro_import_apply.png"
-          theme="dark"
+          src="legacy/aftereffects/subtitlepro_import_apply.png"
           type="image"
-          variant="windows"
         />
         <p>
           После нажатия на <mark className="select">«Apply»</mark> расширение предложит
@@ -680,27 +646,20 @@ const AeActions: React.FC = () => {
           <mark className="select">«Classic 01»</mark>. В любом случае вы сможете
           настроить внешний вид текста позже.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Subtitle Pro"
-          imgTitle="Выбор стиля для субтитров"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/aftereffects/subtitlepro_select_style.png"
-          theme="light"
+          src="legacy/aftereffects/subtitlepro_select_style.png"
           type="image"
-          variant="windows"
         />
         <p>
           После выбора стиля в вашей композиции появятся новые слои. Текст субтитров
           хранится в маркерах на этих слоях, поэтому его можно легко редактировать двойным
           кликом по маркеру, а также менять длительность и положение каждой фразы.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Adobe After Effects"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/aftereffects/edit_subtitlepro_text.mp4"
-          theme="dark"
+          src="legacy/aftereffects/edit_subtitlepro_text.mp4"
           type="video"
-          variant="windows"
         />
       </DetailsSummary>
       <DetailsSummary
@@ -733,7 +692,7 @@ const AeActions: React.FC = () => {
           <mark className="select">«Screen Colour»</mark> в эффекте{" "}
           <mark className="plugin">Keylight</mark>.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Keylight + Key Cleaner + Advanced Spill Suppressor"
           src="tK_Z1dYgtxs"
           type="youtube"
@@ -743,7 +702,7 @@ const AeActions: React.FC = () => {
           воспользоваться эффектом <mark className="plugin">Linear Color Key</mark> — он
           проще и меньше нагружает систему, если высокое качество кеинга не критично.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Linear Color Key"
           src="8RjOe6cO-cY"
           type="youtube"
@@ -758,7 +717,7 @@ const AeActions: React.FC = () => {
           <mark className="plugin">Paint Bucket</mark>, а затем прокеить слой любым из
           способов, описанных ранее.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Paint Bucket Keying"
           src="D7jueRoMt_Q"
           type="youtube"
@@ -769,7 +728,7 @@ const AeActions: React.FC = () => {
           выделить <mark className="plugin">Primatte Keyer</mark> из пакета{" "}
           <mark className="plugin">Red Giant VFX Suite</mark>.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Getting Started with Primatte Keyer"
           src="zYARqiWTArU"
           type="youtube"
@@ -779,7 +738,7 @@ const AeActions: React.FC = () => {
           <mark className="plugin">BCC Primatte Studio</mark> из пакета{" "}
           <mark className="plugin">Boris FX Continuum</mark>.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="BCC Primatte Studio"
           src="AaKTHKspAkQ"
           type="youtube"
@@ -806,7 +765,7 @@ const AeActions: React.FC = () => {
           При грамотной работе этот инструмент способен дать действительно впечатляющий
           результат.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Roto Brush"
           src="eoOIrdb_0ko"
           type="youtube"
@@ -818,7 +777,7 @@ const AeActions: React.FC = () => {
           <mark className="plugin">Boris FX Silhouette</mark>, в котором есть инструмент{" "}
           <mark className="plugin">Power Matte</mark>.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Power Matte in Silhouette"
           src="3pdkJ1BPEg0"
           type="youtube"
@@ -846,7 +805,7 @@ const AeActions: React.FC = () => {
           множество настроек качества, типа обработки и различных моделей для анализа
           глубины.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Depth Scanner Plugin Tutorial"
           src="OLV8Q93KKHQ"
           type="youtube"
@@ -855,7 +814,7 @@ const AeActions: React.FC = () => {
           В качестве альтернативы можно воспользоваться плагином{" "}
           <mark className="plugin">Quick Depth</mark>. Он работает похожим образом.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Introduction Quick Depth 3"
           src="2BvqTIPNVxY"
           type="youtube"
@@ -866,7 +825,7 @@ const AeActions: React.FC = () => {
           <mark className="plugin">BCC+Depth Map ML</mark>. С его помощью тоже можно
           генерировать карту глубины и использовать её для создания различных эффектов.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Instant AI Depth Maps with Continuum"
           src="OVLxRFsnqM8"
           type="youtube"
@@ -900,14 +859,10 @@ const AeActions: React.FC = () => {
                 <mark className="select">«Install Now»</mark>. После окончания процесса
                 установки, рекомендуется перезагрузить устройство.
               </p>
-              <ContentFigure
+              <ArticleMedia
                 caption="Python 3.11.9 (64-bit) Setup"
-                imgTitle="Установка Python 3.11.9"
-                // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-                src="images/legacy/install_python_3119.png"
-                theme="light"
+                src="legacy/install_python_3119.png"
                 type="image"
-                variant="windows"
               />
               <p>
                 После установки <mark className="app">Python</mark> скачайте сам{" "}
@@ -917,14 +872,10 @@ const AeActions: React.FC = () => {
                 </a>{" "}
                 нажмите <mark className="select">«Code» → «Download ZIP»</mark>.
               </p>
-              <ContentFigure
+              <ArticleMedia
                 caption="GitHub"
-                imgTitle="Клонирование репозитория Depth Anything"
-                // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-                src="images/legacy/depth_anything_clone_repo.png"
-                theme="dark"
+                src="legacy/depth_anything_clone_repo.png"
                 type="image"
-                variant="windows"
               />
               <p>
                 После распаковки архива откройте командную строку{" "}
@@ -1060,7 +1011,7 @@ const AeActions: React.FC = () => {
           Но если вы попытаетесь применить его, например, к футажу со взрывом или сложными
           частицами, рискуете получить неприятную «кашу».
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Extract"
           src="v7pqZ9gtn8I"
           type="youtube"
@@ -1077,7 +1028,7 @@ const AeActions: React.FC = () => {
           С некоторыми футажами может возникнуть ощущение, что слой стал слишком
           прозрачным. В качестве «костыля» можно просто продублировать слой с эффектом.
         </Addition>
-        <ContentFigure
+        <ArticleMedia
           caption="Red Giant Universe Unmult"
           src="GGjIu0CZ1M4"
           type="youtube"
@@ -1099,7 +1050,7 @@ const AeActions: React.FC = () => {
           использовать как маску с помощью функции{" "}
           <mark className="select">«Track Matte»</mark>.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="How to Use Luma Mattes"
           src="ltrGC0kDFic"
           type="youtube"
@@ -1122,21 +1073,17 @@ const AeActions: React.FC = () => {
           <mark className="select">«Window»</mark>. Панель содержит четыре основные
           кнопки.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Tracker"
-          imgTitle="Окно Tracker"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/aftereffects/tracker_window.png"
-          theme="dark"
+          src="legacy/aftereffects/tracker_window.png"
           type="image"
-          variant="windows"
         />
         <ul>
           <li>
             <mark className="select">«Track Camera»</mark> — применяет эффект{" "}
             <mark className="plugin">3D Camera Tracker</mark>. Полезен, если нужно
             прикрепить объект к плоскости в трёхмерном пространстве сцены.
-            <ContentFigure
+            <ArticleMedia
               caption="3D Camera Tracker"
               src="yaT3YwIK-BI"
               type="youtube"
@@ -1148,7 +1095,7 @@ const AeActions: React.FC = () => {
               стабилизации. Он нужен для устранения тряски камеры и эффекта «пьяного
               оператора».
             </p>
-            <ContentFigure
+            <ArticleMedia
               caption="Warp Stabilizer"
               src="i-WuS2r8750"
               type="youtube"
@@ -1173,7 +1120,7 @@ const AeActions: React.FC = () => {
               же, наоборот, объект движется медленно, а точка трекинга «уходит» в сторону,
               уменьшите область и попробуйте повысить контрастность исходного видео.
             </Addition>
-            <ContentFigure
+            <ArticleMedia
               caption="Track Motion Tutorial"
               src="VGJOLjamPbQ"
               type="youtube"
@@ -1182,7 +1129,7 @@ const AeActions: React.FC = () => {
           <li>
             <mark className="select">«Stabilize Motion»</mark> — функция, которая смещает
             само видео, чтобы отслеживаемый объект оставался в центре кадра.
-            <ContentFigure
+            <ArticleMedia
               caption="Object Tracking"
               src="eyWclmjr94k"
               type="youtube"
@@ -1198,7 +1145,7 @@ const AeActions: React.FC = () => {
           полной версией, <mark className="plugin">Mocha Pro</mark>, но его возможностей
           достаточно для большинства задач.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Mocha AE For Beginners"
           src="be_8uRcyiEs"
           type="youtube"
@@ -1228,7 +1175,7 @@ const AeActions: React.FC = () => {
           облегчая дальнейшую анимацию. Найти его можно в меню{" "}
           <mark className="select">«Window» → «Create Nulls From Path.jsx»</mark>.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Animating with Create Nulls From Path"
           src="Unnvx0alhyw"
           type="youtube"
@@ -1240,13 +1187,10 @@ const AeActions: React.FC = () => {
             И не путайте позицию фигуры с позицией слоя, это разные вещи.
           </i>
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Adobe After Effects"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/aftereffects/fix_create_nulls_from_path.mp4"
-          theme="dark"
+          src="legacy/aftereffects/fix_create_nulls_from_path.mp4"
           type="video"
-          variant="windows"
         />
       </DetailsSummary>
       <DetailsSummary
@@ -1269,13 +1213,10 @@ const AeActions: React.FC = () => {
           прозрачность и размер. Данный способ хорошо подходит, если у вашего слоя имеется
           альфа-канал прозрачности, так как такой способ работает с его использованием.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Создание обводки через Layer Style"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/aftereffects/stroke_layer-style.mp4"
-          theme="dark"
+          src="legacy/aftereffects/stroke_layer-style.mp4"
           type="video"
-          variant="windows"
         />
         <Divider>Создаём обводку с помощью автоматической трассировки</Divider>
         <p>
@@ -1299,13 +1240,10 @@ const AeActions: React.FC = () => {
           первой маске на слое. Если масок несколько, можно выбрать нужную в настройках
           эффекта.
         </Addition>
-        <ContentFigure
+        <ArticleMedia
           caption="Создание обводки через Auto-Trace и эффект Stroke"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/aftereffects/stroke_auto-trace.mp4"
-          theme="dark"
+          src="legacy/aftereffects/stroke_auto-trace.mp4"
           type="video"
-          variant="windows"
         />
         <Divider>Задаём обводку тексту в панели Character</Divider>
         <p>
@@ -1320,13 +1258,10 @@ const AeActions: React.FC = () => {
           <mark className="select">«Fill Over Stroke»</mark> отвечают за отображение
           обводки поверх или под заливкой.
         </Addition>
-        <ContentFigure
+        <ArticleMedia
           caption="Character"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/aftereffects/character_stroke.png"
-          theme="dark"
+          src="legacy/aftereffects/character_stroke.png"
           type="image"
-          variant="windows"
         />
       </DetailsSummary>
       <DetailsSummary
@@ -1354,7 +1289,7 @@ const AeActions: React.FC = () => {
           анимировать свойство контура, чтобы получить плавную и красивую анимацию смены
           толщины текста.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Smooth Typo Transition from Bold Text to Thin Text"
           src="yyDAFSC2qDo"
           type="youtube"
@@ -1406,7 +1341,7 @@ const AeActions: React.FC = () => {
               </a>
               .
             </Addition>
-            <ContentFigure
+            <ArticleMedia
               caption="Сравнение популярных плагинов для персонажной анимации"
               src="AcEIT03Mrzk"
               type="youtube"
@@ -1442,14 +1377,10 @@ const AeActions: React.FC = () => {
           . Однако у этого метода есть недостаток: чувствительность изменить нельзя, и
           программа создаёт ключевой кадр буквально на каждом кадре слоя.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Генерация ключевых кадров из аудиодорожки"
-          imgTitle="Генерация ключевых кадров из аудиодорожки"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/aftereffects/convert_audio_to_keyframes.png"
-          theme="dark"
+          src="legacy/aftereffects/convert_audio_to_keyframes.png"
           type="image"
-          variant="windows"
         />
         <Divider>Генерируем ключи на основе аудио сторонними инструментами</Divider>
         <p>
@@ -1459,7 +1390,7 @@ const AeActions: React.FC = () => {
           <mark className="plugin">Red Giant Trapcode Suite</mark>. Он даёт хороший
           результат за счёт гибкой настройки, но не умеет ставить маркеры.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Как пользоваться Sound Keys в Adobe After Effects"
           src="uqKFsIHu-DA"
           type="youtube"
@@ -1470,7 +1401,7 @@ const AeActions: React.FC = () => {
           сторонний плагин — <mark className="plugin">Beat Edit</mark>. Он создаёт меньше
           ключевых кадров, что позволяет в дальнейшем легче адаптировать ключи под аудио.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Как создавать маркеры с помощью Beat Edit"
           src="JGVLRcjp7ss"
           type="youtube"
@@ -1506,13 +1437,10 @@ const AeActions: React.FC = () => {
           контекстном меню выберите{" "}
           <mark className="select">«Convert to Point Text»</mark>.
         </Addition>
-        <ContentFigure
+        <ArticleMedia
           caption="Разделение текстового слоя на слова с помощью DecomposeText"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/aftereffects/decomposetext.mp4"
-          theme="dark"
+          src="legacy/aftereffects/decomposetext.mp4"
           type="video"
-          variant="windows"
         />
       </DetailsSummary>
       <DetailsSummary
@@ -1529,13 +1457,10 @@ const AeActions: React.FC = () => {
           <mark className="select">«Project»</mark>, укажите новые параметры и нажмите{" "}
           <mark className="select">«Apply»</mark>.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Демонстрация работы rd: Comp Setter"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/aftereffects/rd_compsetter_demonstration.mp4"
-          theme="dark"
+          src="legacy/aftereffects/rd_compsetter_demonstration.mp4"
           type="video"
-          variant="windows"
         />
       </DetailsSummary>
       <DetailsSummary
@@ -1556,13 +1481,10 @@ const AeActions: React.FC = () => {
           <mark className="plugin">Red Giant VFX Suite</mark>. С его помощью нужно создать
           чёрно-белую маску из нужных слоёв, как показано на видео.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Демонстрация создания маски с помощью Supercomp"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/aftereffects/supercomp_demonstration.mp4"
-          theme="dark"
+          src="legacy/aftereffects/supercomp_demonstration.mp4"
           type="video"
-          variant="windows"
         />
         <Divider>Работаем с масками</Divider>
         <p>
@@ -1575,13 +1497,10 @@ const AeActions: React.FC = () => {
           Учтите, что со сложными слоями этот способ может не сработать. Однако вам никто
           не запрещал экспериментировать с масками на основе яркости или альфа-канала.
         </Addition>
-        <ContentFigure
+        <ArticleMedia
           caption="Создание маски для корректирующего слоя без плагинов"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/aftereffects/supercomp_without_plugins.mp4"
-          theme="dark"
+          src="legacy/aftereffects/supercomp_without_plugins.mp4"
           type="video"
-          variant="windows"
         />
       </DetailsSummary>
     </div>

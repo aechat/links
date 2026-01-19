@@ -3,7 +3,7 @@ import React from "react";
 import {Divider} from "antd";
 
 import Addition from "../../../components/content/Addition";
-import {ContentFigure} from "../../../components/content/ContentFigure";
+import {ArticleMedia} from "../../../components/content/ArticleMedia";
 import DetailsSummary from "../../../components/content/DetailsSummary";
 
 const PrInterface: React.FC = () => {
@@ -25,14 +25,10 @@ const PrInterface: React.FC = () => {
           программу, и теперь во многих местах интерфейса будет русский язык, а в скобках
           — эквивалент на английском.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Adobe Premiere"
-          imgTitle="Установка двойного языка"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/premierepro/set_double_language.png"
-          theme="dark"
+          src="legacy/premierepro/set_double_language.png"
           type="image"
-          variant="windows"
         />
         <Addition type="danger">
           Не рекомендуется использовать двойной язык на постоянной основе, так как
@@ -105,13 +101,10 @@ const PrInterface: React.FC = () => {
           помощью него можно применять различные эффекты, пресеты и переходы с помощью
           всплывающего меню, а также выполнять некоторые команды.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Adobe Premiere"
-          imgTitle="Демонстрация работы Excalibur"
           src="https://images.squarespace-cdn.com/content/v1/5d090703bfcf6300017faaa8/1605797292871-IKNJ3QIJPGK2TFMMBIIY/web_01_fx.gif?format=750w"
-          theme="light"
           type="image"
-          variant="mac"
         />
         <Addition type="info">
           По умолчанию для открытия всплывающего окна указана комбинация клавиш{" "}
@@ -160,14 +153,10 @@ const PrInterface: React.FC = () => {
           окна. Также этот параметр можно найти и в режиме отображения{" "}
           <mark className="select">«Debug Database View»</mark>.
         </Addition>
-        <ContentFigure
+        <ArticleMedia
           caption="Console"
-          imgTitle="Включение возможности изменения акцента интерфейса"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/premierepro/console_theme_colorizing.png"
-          theme="dark"
+          src="legacy/premierepro/console_theme_colorizing.png"
           type="image"
-          variant="windows"
         />
         <p>
           Далее, после включения возможности изменять цвет, перейдите в{" "}
@@ -211,14 +200,10 @@ const PrInterface: React.FC = () => {
           <mark className="path">C:\Program Files\Adobe\Adobe Premiere Pro 20XX</mark> в
           подпапке <mark className="path">PNG</mark>.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Проводник"
-          imgTitle="Исследуем картинки в папке с ресурсами программы"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/premierepro/exploring_png_in_installation_folder.png"
-          theme="dark"
+          src="legacy/premierepro/exploring_png_in_installation_folder.png"
           type="image"
-          variant="windows"
         />
         <p>
           В случае, как и с <mark className="app">Adobe After Effects</mark>, там хранятся
@@ -248,14 +233,10 @@ const PrInterface: React.FC = () => {
           В качестве примера я заменю стандартное изображение на изображение автомобиля{" "}
           <mark>Ford Focus</mark> и сохраню его в <mark className="image">PNG</mark>.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Пример модификации изображения при загрузке Adobe Premiere"
-          imgTitle="Изменённое изображение при открытии программы"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/premierepro/custom_splash_example.png"
-          theme="light"
+          src="legacy/premierepro/custom_splash_example.png"
           type="image"
-          variant="windows"
         />
         <Divider>Заменяем изображение</Divider>
         <p>
@@ -264,13 +245,10 @@ const PrInterface: React.FC = () => {
           успешной замены можно запустить программу и наслаждаться своим шедевром, который
           вы сотворили.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Замена изображения и открытие программы с уже изменённой плашкой"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/premierepro/replace_splash_screen.mp4"
-          theme="dark"
+          src="legacy/premierepro/replace_splash_screen.mp4"
           type="video"
-          variant="windows"
         />
       </DetailsSummary>
     </div>

@@ -3,7 +3,7 @@ import React from "react";
 import {Divider} from "antd";
 
 import Addition from "../../../components/content/Addition";
-import {ContentFigure} from "../../../components/content/ContentFigure";
+import {ArticleMedia} from "../../../components/content/ArticleMedia";
 import DetailsSummary from "../../../components/content/DetailsSummary";
 
 const PrWhereFind: React.FC = () => {
@@ -691,14 +691,10 @@ const PrWhereFind: React.FC = () => {
               , который разрешает публикацию вашего скриншота в сообществе. Если вы не
               хотите выкладывать скриншот в сеть — уберите галочку.
             </Addition>
-            <ContentFigure
+            <ArticleMedia
               caption="Главная страница LikeFont"
-              imgTitle="Главная страница LikeFont"
-              // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-              src="images/legacy/likefont/likefont_mainpage.png"
-              theme="light"
+              src="legacy/likefont/likefont_mainpage.png"
               type="image"
-              variant="windows"
             />
           </li>
           <li>
@@ -707,14 +703,10 @@ const PrWhereFind: React.FC = () => {
               неконтрастный и весь контент сливается. Что же делать? Для этого нужно
               предварительно обработать изображение.
             </p>
-            <ContentFigure
+            <ArticleMedia
               caption="Пример плохого исходника"
-              imgTitle="Пример плохого исходника"
-              // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-              src="images/legacy/likefont/prfaq_likefont_example.png"
-              theme="light"
+              src="legacy/likefont/prfaq_likefont_example.png"
               type="image"
-              variant="windows"
             />
           </li>
           <li>
@@ -725,14 +717,10 @@ const PrWhereFind: React.FC = () => {
               необходимости вы можете воспользоваться инструментами для поворота,
               отзеркаливания и наклона изображения.
             </p>
-            <ContentFigure
+            <ArticleMedia
               caption="Изображение после обработки средствами сайта"
-              imgTitle="Изображение после обработки средствами сайта"
-              // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-              src="images/legacy/likefont/prfaq_likefont_fixed.png"
-              theme="light"
+              src="legacy/likefont/prfaq_likefont_fixed.png"
               type="image"
-              variant="windows"
             />
           </li>
           <li>
@@ -748,14 +736,10 @@ const PrWhereFind: React.FC = () => {
             <Addition type="info">
               Чем больше букв вы впишете, тем точнее будет результат распознавания шрифта.
             </Addition>
-            <ContentFigure
+            <ArticleMedia
               caption="Изображения к которым нужно вписать букву"
-              imgTitle="Изображения к которым нужно вписать букву"
-              // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-              src="images/legacy/likefont/prfaq_likefont_recognition.png"
-              theme="light"
+              src="legacy/likefont/prfaq_likefont_recognition.png"
               type="image"
-              variant="windows"
             />
           </li>
           <li>
@@ -764,14 +748,10 @@ const PrWhereFind: React.FC = () => {
               моём примере был использован шрифт <mark>Berlin Sans FB</mark>, и с его
               нахождением сервис отлично справился.
             </p>
-            <ContentFigure
+            <ArticleMedia
               caption="Результат распознавания"
-              imgTitle="Результат распознавания"
-              // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-              src="images/legacy/likefont/prfaq_likefont_result.png"
-              theme="light"
+              src="legacy/likefont/prfaq_likefont_result.png"
               type="image"
-              variant="windows"
             />
           </li>
         </ul>

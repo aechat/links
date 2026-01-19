@@ -3,7 +3,7 @@ import React from "react";
 import {Divider} from "antd";
 
 import Addition from "../../../components/content/Addition";
-import {ContentFigure} from "../../../components/content/ContentFigure";
+import {ArticleMedia} from "../../../components/content/ArticleMedia";
 import DetailsSummary from "../../../components/content/DetailsSummary";
 
 const PsImport: React.FC = () => {
@@ -25,14 +25,10 @@ const PsImport: React.FC = () => {
           файла. В этой статье рассмотрим, что такое цветовые профили и как отключить это
           надоедливое предупреждение.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Missing Profile"
-          imgTitle="Предупреждение об отсутствии цветового профиля"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/photoshop/missing_profile.png"
-          theme="light"
+          src="legacy/photoshop/missing_profile.png"
           type="image"
-          variant="windows"
         />
         <Divider>
           Что за «The document has an embedded color profile that does not match the
@@ -49,14 +45,10 @@ const PsImport: React.FC = () => {
           <mark className="key">Ctrl + Shift + K</mark> или найти соответствующую кнопку в{" "}
           <mark className="select">«Edit»</mark>.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Photoshop"
-          imgTitle="Открытие настроек цветовых профилей"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/photoshop/open_color_settings.png"
-          theme="light"
+          src="legacy/photoshop/open_color_settings.png"
           type="image"
-          variant="windows"
         />
         <p>
           Далее в открывшемся окне нужно убрать все чекбоксы у параметров{" "}
@@ -69,14 +61,10 @@ const PsImport: React.FC = () => {
           искажениями цветов при редактировании того или иного изображения, если явно не
           указывать цветовой профиль.
         </Addition>
-        <ContentFigure
+        <ArticleMedia
           caption="Color Settings"
-          imgTitle="Отключаем вопрос при открытии документов"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/photoshop/disable_ask_color_when_opening.png"
-          theme="light"
+          src="legacy/photoshop/disable_ask_color_when_opening.png"
           type="image"
-          variant="windows"
         />
       </DetailsSummary>
       <DetailsSummary title="Мне не нравится новый интерфейс импорта, как вернуть старый?">

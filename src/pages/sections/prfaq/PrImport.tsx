@@ -3,7 +3,7 @@ import React from "react";
 import {Divider} from "antd";
 
 import Addition from "../../../components/content/Addition";
-import {ContentFigure} from "../../../components/content/ContentFigure";
+import {ArticleMedia} from "../../../components/content/ArticleMedia";
 import DetailsSummary from "../../../components/content/DetailsSummary";
 
 const PrImport: React.FC = () => {
@@ -57,14 +57,10 @@ const PrImport: React.FC = () => {
           с цветами и неправильной интерпретации частоты кадров, а также от различных
           артефактов от последствий кривого кодирования до вас.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Терминал - MediaInfo-CLI"
-          imgTitle="Пример открытого в MediaInfo файла"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/mediainfo_example.png"
-          theme="dark"
+          src="legacy/mediainfo_example.png"
           type="image"
-          variant="windows"
         />
         <p>
           Для того, чтобы начать процесс перекодирования ваших исходников, вам нужно
@@ -83,14 +79,10 @@ const PrImport: React.FC = () => {
           показаться замороченным и сложным, но на самом деле это не так. Пользователю в
           ней для перекодирования исходников нужно сделать лишь несколько действий.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Shutter Encoder"
-          imgTitle="Интерфейс Shutter Encoder"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/shutter_encoder_interface.png"
-          theme="dark"
+          src="legacy/shutter_encoder_interface.png"
           type="image"
-          variant="mac"
         />
         <ul>
           <li>
@@ -166,14 +158,10 @@ const PrImport: React.FC = () => {
           <mark className="select">«Replace Footage»</mark>. В открывшемся окне укажите
           путь до нового файла в системном файловом менеджере.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Adobe Premiere"
-          imgTitle="Замена исходника в проекте"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/premierepro/replace_footage.png"
-          theme="dark"
+          src="legacy/premierepro/replace_footage.png"
           type="image"
-          variant="windows"
         />
         <p>
           Вот и всё, удачной работы с проектом! И да, лучше перекодировать, чем
@@ -196,13 +184,10 @@ const PrImport: React.FC = () => {
           непонятно по каким алгоритмам, поэтому их не рекомендуется использовать в
           дальнейшей работе.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Артефакты кривых исходников из просторов интернета"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/h264_artifacts.webm"
-          theme="light"
+          src="legacy/h264_artifacts.webm"
           type="video"
-          variant="windows"
         />
         <p>
           Чтобы с такими видео из интернета можно было спокойно работать - вам нужно
@@ -215,14 +200,10 @@ const PrImport: React.FC = () => {
           <mark className="app">Handbrake</mark> или{" "}
           <mark className="app">Adobe Media Encoder</mark>.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Shutter Encoder"
-          imgTitle="Конвертируем в ProRes через Shutter Encoder"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/convert_to_prores_shutterencoder.png"
-          theme="dark"
+          src="legacy/convert_to_prores_shutterencoder.png"
           type="image"
-          variant="mac"
         />
         <p>
           В редких случаях вы можете встретиться с багом, который «полосатит» изображения.
@@ -252,14 +233,10 @@ const PrImport: React.FC = () => {
         <Addition type="info">
           При создании новых секвенций эта опция обычно включена по умолчанию.
         </Addition>
-        <ContentFigure
+        <ArticleMedia
           caption="Sequence Settings"
-          imgTitle="Включение Auto Tone Map Media в настройках секвенции"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/premierepro/enable_auto_tone_map.png"
-          theme="dark"
+          src="legacy/premierepro/enable_auto_tone_map.png"
           type="image"
-          variant="windows"
         />
         <Divider>Перекодируем в другой цветовой профиль</Divider>
         <p>
@@ -270,14 +247,10 @@ const PrImport: React.FC = () => {
           <mark className="app">MediaInfo</mark>. Обычно через эту утилиту можно извлечь
           информацию о формате, FPS и цветовом пространстве вашего исходника.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Терминал - MediaInfo-CLI"
-          imgTitle="Пример открытого в MediaInfo файла"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/mediainfo_example.png"
-          theme="dark"
+          src="legacy/mediainfo_example.png"
           type="image"
-          variant="windows"
         />
         <p>
           Чтобы начать перекодирование ваших исходников, вам нужно установить программу{" "}
@@ -296,14 +269,10 @@ const PrImport: React.FC = () => {
           показаться сложным, но на самом деле это не так. Для перекодирования исходников
           вам нужно сделать всего несколько простых шагов.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Shutter Encoder"
-          imgTitle="Интерфейс Shutter Encoder"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/shutter_encoder_interface.png"
-          theme="dark"
+          src="legacy/shutter_encoder_interface.png"
           type="image"
-          variant="mac"
         />
         <ul>
           <li>
@@ -380,14 +349,10 @@ const PrImport: React.FC = () => {
           появляться в разных воплощениях - в качестве окна о потерянных исходниках при
           запуске проекта или в качестве плейсхолдера с красной заливкой.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Adobe Premiere"
-          imgTitle="Медиаданные в авнономном режиме"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/premierepro/медиаданные_в_автономном_режиме.png"
-          theme="dark"
+          src="legacy/premierepro/медиаданные_в_автономном_режиме.png"
           type="image"
-          variant="windows"
         />
         <p>
           Чтобы переподключить «потеряшек», перейдите в{" "}
@@ -404,14 +369,10 @@ const PrImport: React.FC = () => {
           вы укажете путь только одному файлу, рядом с которым лежат такие же «потеряшки»,
           то и остальные исходники вместе с ним подключатся автоматически.
         </Addition>
-        <ContentFigure
+        <ArticleMedia
           caption="Media Offline"
-          imgTitle="Отсутствующие медиафайлы"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/premierepro/missing_media.png"
-          theme="dark"
+          src="legacy/premierepro/missing_media.png"
           type="image"
-          variant="windows"
         />
       </DetailsSummary>
       <DetailsSummary title="Прислали исходники в формате MKV, FLV или что-то не поддерживаемое программой. Как мне их импортировать?">
@@ -491,14 +452,10 @@ const PrImport: React.FC = () => {
             </Addition>
           </li>
         </ul>
-        <ContentFigure
+        <ArticleMedia
           caption="Браузер"
-          imgTitle="Генератор ссылок из Microsoft Store"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/link_generator_msstore.png"
-          theme="dark"
+          src="legacy/link_generator_msstore.png"
           type="image"
-          variant="windows"
         />
         <p>
           После вставки ссылки и нажатия на кнопку <mark className="select">«OK»</mark>,

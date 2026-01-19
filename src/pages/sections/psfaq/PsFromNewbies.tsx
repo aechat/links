@@ -3,7 +3,7 @@ import React from "react";
 import {Divider} from "antd";
 
 import Addition from "../../../components/content/Addition";
-import {ContentFigure} from "../../../components/content/ContentFigure";
+import {ArticleMedia} from "../../../components/content/ArticleMedia";
 import DetailsSummary from "../../../components/content/DetailsSummary";
 
 const PsFromNewbies: React.FC = () => {
@@ -23,7 +23,7 @@ const PsFromNewbies: React.FC = () => {
           </a>{" "}
           от <a href="https://www.youtube.com/@Photofoxchannel">PhotoFox</a>.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Курс «Фотошоп с нуля»"
           src="-IqjBmVaApg"
           type="youtube"
@@ -126,14 +126,10 @@ const PsFromNewbies: React.FC = () => {
           <mark className="select">«Редактирование» → «Настройки»</mark> и выберите в нём{" "}
           <mark className="select">«Интерфейс»</mark>.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Adobe Photoshop"
-          imgTitle="Открытие настроек интерфейса"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/photoshop/редактирование_настройки_интерфейс.png"
-          theme="light"
+          src="legacy/photoshop/редактирование_настройки_интерфейс.png"
           type="image"
-          variant="windows"
         />
         <p>
           Затем в открывшемся окне выберите в параметре{" "}
@@ -142,14 +138,10 @@ const PsFromNewbies: React.FC = () => {
           теперь вы можете работать с английской локализацией{" "}
           <mark className="app">Adobe Photoshop</mark>.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Установки"
-          imgTitle="Выбор языка в настройках программы"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/photoshop/change_language.png"
-          theme="light"
+          src="legacy/photoshop/change_language.png"
           type="image"
-          variant="windows"
         />
         <Divider>
           Альтернативный способ смены языка для «народной» версии программы
@@ -182,21 +174,15 @@ const PsFromNewbies: React.FC = () => {
       </DetailsSummary>
       <DetailsSummary title="Как я могу быстро изменить размер изображения или холста?">
         {/* FIXME: */}
-        <ContentFigure
+        <ArticleMedia
           caption="Adobe Photoshop"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/photoshop/change_image_size.mp4"
-          theme="light"
+          src="legacy/photoshop/change_image_size.mp4"
           type="video"
-          variant="windows"
         />
-        <ContentFigure
+        <ArticleMedia
           caption="Adobe Photoshop"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/photoshop/change_canvas_size.mp4"
-          theme="light"
+          src="legacy/photoshop/change_canvas_size.mp4"
           type="video"
-          variant="windows"
         />
         <p>
           Разница между <mark className="select">«Image Size»</mark> и{" "}
@@ -208,13 +194,10 @@ const PsFromNewbies: React.FC = () => {
         title="Для чего нужны смарт-объекты?"
       >
         {/* FIXME: */}
-        <ContentFigure
+        <ArticleMedia
           caption="Photoshop"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/photoshop/using_smart_objects.mp4"
-          theme="light"
+          src="legacy/photoshop/using_smart_objects.mp4"
           type="video"
-          variant="windows"
         />
       </DetailsSummary>
       <DetailsSummary
@@ -222,14 +205,10 @@ const PsFromNewbies: React.FC = () => {
         title="Как отключить автовыделение слоёв?"
       >
         {/* FIXME: */}
-        <ContentFigure
+        <ArticleMedia
           caption="Photoshop"
-          imgTitle="Отключение автовыделения слоя"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/photoshop/disable_auto-select.png"
-          theme="light"
+          src="legacy/photoshop/disable_auto-select.png"
           type="image"
-          variant="windows"
         />
       </DetailsSummary>
     </div>

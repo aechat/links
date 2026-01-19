@@ -3,7 +3,7 @@ import React from "react";
 import {Divider} from "antd";
 
 import Addition from "../../../components/content/Addition";
-import {ContentFigure} from "../../../components/content/ContentFigure";
+import {ArticleMedia} from "../../../components/content/ArticleMedia";
 import ContentFilter from "../../../components/content/ContentFilter";
 import DetailsSummary from "../../../components/content/DetailsSummary";
 
@@ -83,14 +83,10 @@ const PsInstallProblems: React.FC = () => {
               <mark className="file">ATN</mark> файлов. В них часто могут быть завязаны
               действия на стандартные слова английской локализации.
             </Addition>
-            <ContentFigure
+            <ArticleMedia
               caption="Photoshop"
-              imgTitle="Загрузка действий"
-              // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-              src="images/legacy/photoshop/load_actions.png"
-              theme="light"
+              src="legacy/photoshop/load_actions.png"
               type="image"
-              variant="windows"
             />
           </li>
           <li>
@@ -100,14 +96,10 @@ const PsInstallProblems: React.FC = () => {
             нажмите на три полоски в углу и выберите{" "}
             <mark className="select">«Import Brushes»</mark>. В проводнике выберите нужный
             файл с набором кистей.
-            <ContentFigure
+            <ArticleMedia
               caption="Photoshop"
-              imgTitle="Импортирование кистей"
-              // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-              src="images/legacy/photoshop/import_brushes.png"
-              theme="light"
+              src="legacy/photoshop/import_brushes.png"
               type="image"
-              variant="windows"
             />
           </li>
         </ul>
@@ -165,13 +157,10 @@ const PsInstallProblems: React.FC = () => {
                       </li>
                     </ul>
                   </Addition>
-                  <ContentFigure
+                  <ArticleMedia
                     caption="Распаковка через контекстное меню"
-                    imgTitle="Распаковка через контекстное меню"
                     src="https://github.com/aonez/Keka/raw/master/Wiki/Images/Animated/extract-context-menu.gif"
-                    theme="light"
                     type="image"
-                    variant="mac"
                   />
                 </li>
                 <li>
@@ -367,7 +356,7 @@ const PsInstallProblems: React.FC = () => {
                       </li>
                     </ul>
                   </Addition>
-                  <ContentFigure
+                  <ArticleMedia
                     caption="Распаковка многотомного архива"
                     src="1OVwQS0uHhk"
                     type="youtube"
@@ -563,7 +552,7 @@ const PsInstallProblems: React.FC = () => {
                 встроенный антивирус <mark className="app">Windows Defender</mark> или
                 любой другой, установленный на вашем устройстве.
               </p>
-              <ContentFigure
+              <ArticleMedia
                 caption="Как отключить Защитник Windows 11"
                 src="blwRAOQUjsM"
                 type="youtube"
@@ -617,7 +606,7 @@ const PsInstallProblems: React.FC = () => {
                 Если директория <mark className="path">C:\Program Files\Adobe</mark>{" "}
                 отсутствует, создайте её самостоятельно.
               </Addition>
-              <ContentFigure
+              <ArticleMedia
                 caption="Windows Defender — как восстановить файлы и запретить их удаление"
                 src="ET94_dv3f8c"
                 type="youtube"
@@ -650,12 +639,10 @@ const PsInstallProblems: React.FC = () => {
                 до этого отключили{" "}
                 <mark className="select">«Защиту в реальном времени»</mark>.
               </p>
-              <ContentFigure
+              <ArticleMedia
                 caption="Отключаем «Интеллектуальное управление приложениями»"
-                src="images/legacy/disable_advanced_smartscreen.mp4"
-                theme="light"
+                src="legacy/disable_advanced_smartscreen.mp4"
                 type="video"
-                variant="windows"
               />
               <p>
                 В <mark>Windows 10</mark> механизм работает иначе: при открытии файла
@@ -669,7 +656,7 @@ const PsInstallProblems: React.FC = () => {
                 запуска не появляется, полностью отключите фильтр в параметрах{" "}
                 <mark className="app">Защитника Windows</mark>.
               </p>
-              <ContentFigure
+              <ArticleMedia
                 caption="Как отключить Windows SmartScreen"
                 src="HxlxS1Mdyp0"
                 type="youtube"

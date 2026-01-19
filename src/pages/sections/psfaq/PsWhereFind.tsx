@@ -3,7 +3,7 @@ import React from "react";
 import {Divider} from "antd";
 
 import Addition from "../../../components/content/Addition";
-import {ContentFigure} from "../../../components/content/ContentFigure";
+import {ArticleMedia} from "../../../components/content/ArticleMedia";
 import DetailsSummary from "../../../components/content/DetailsSummary";
 
 const PsWhereFind: React.FC = () => {
@@ -440,14 +440,10 @@ const PsWhereFind: React.FC = () => {
           <mark className="select">«Analytics»</mark> нажмите на{" "}
           <mark className="select">«Don&apos;t Share Analytics»</mark>.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Stability Matrix"
-          imgTitle="Первый запуск Stability Matrix"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/photoshop/first_start_stability_matrix.png"
-          theme="dark"
+          src="legacy/photoshop/first_start_stability_matrix.png"
           type="image"
-          variant="windows"
         />
         <Addition type="info">
           <ul>
@@ -474,14 +470,10 @@ const PsWhereFind: React.FC = () => {
           оптимизирована для слабых видеокарт. Вы же можете выбрать любой другой
           интерфейс, основанный на <mark>Automatic1111</mark> или следовать моему выбору.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Stability Matrix"
-          imgTitle="Выбор интерфейса Stable Diffusion"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/photoshop/stability_matrix_select_ui.png"
-          theme="dark"
+          src="legacy/photoshop/stability_matrix_select_ui.png"
           type="image"
-          variant="windows"
         />
         <p>
           После выбора интерфейса нам предложат скачать популярные модели, но для
@@ -490,14 +482,10 @@ const PsWhereFind: React.FC = () => {
           <mark className="select">«Close»</mark>. После этого начнётся скачивание всего и
           вся, поэтому наберитесь терпения.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Stability Matrix"
-          imgTitle="Выбор популярных моделей"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/photoshop/select_popular_models_stability_matrix.png"
-          theme="dark"
+          src="legacy/photoshop/select_popular_models_stability_matrix.png"
           type="image"
-          variant="windows"
         />
         <Addition type="info">
           Если вы столкнулись с ошибкой <mark>«Package Modification Failed»</mark>, то
@@ -509,7 +497,7 @@ const PsWhereFind: React.FC = () => {
           Более подробно о работе программы и интерфейсе{" "}
           <mark className="app">Stability Matrix</mark> вы можете посмотреть в видео ниже.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Самая быстрая установка Stable Diffusion через Stability Matrix"
           src="Fjl9dAoRqHM"
           type="youtube"
@@ -542,14 +530,10 @@ const PsWhereFind: React.FC = () => {
           соединения <mark className="app">Stable Diffusion</mark> и{" "}
           <mark className="app">Adobe Photoshop</mark>.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Firefox // Stable Diffusion"
-          imgTitle="Открываем вкладку Extensions"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/photoshop/select_extensions_sd.png"
-          theme="dark"
+          src="legacy/photoshop/select_extensions_sd.png"
           type="image"
-          variant="windows"
         />
         <p>
           В вкладке <mark className="select">«Extensions»</mark> нам нужно перейти в
@@ -560,14 +544,10 @@ const PsWhereFind: React.FC = () => {
           <mark className="select">«Install»</mark> рядом с{" "}
           <mark className="plugin">Auto-Photoshop-StableDiffusion-Plugin</mark>.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Firefox // Stable Diffusion"
-          imgTitle="Загрузка плагина для соединения Stable Diffusion и Adobe Photoshop"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/photoshop/download_ps_sd_extension.png"
-          theme="dark"
+          src="legacy/photoshop/download_ps_sd_extension.png"
           type="image"
-          variant="windows"
         />
         <p>
           После установки расширения в <mark className="app">Stable Diffusion</mark>{" "}
@@ -576,14 +556,10 @@ const PsWhereFind: React.FC = () => {
           перезагрузите сервер <mark className="app">Stable Diffusion</mark> и активируете
           плагин.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Firefox // Stable Diffusion"
-          imgTitle="Перезагрузка сервера Stable Diffusion для применения расширений"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/photoshop/apply_and_restart_sd.png"
-          theme="dark"
+          src="legacy/photoshop/apply_and_restart_sd.png"
           type="image"
-          variant="windows"
         />
         <p>
           С установкой плагина для <mark className="app">Stable Diffusion</mark> мы
@@ -612,14 +588,10 @@ const PsWhereFind: React.FC = () => {
           Там нам нужно найти любую вам понравившуюся модель именно с пометкой{" "}
           <mark>Inpainting</mark>. Различные версии можно найти на странице модели.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Stability Matrix"
-          imgTitle="Скачиваем Inpainting модель в Stability Matrix"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/photoshop/download_inpainting_model.png"
-          theme="dark"
+          src="legacy/photoshop/download_inpainting_model.png"
           type="image"
-          variant="windows"
         />
         <p>
           Далее нам нужно открыть сам плагин в{" "}
@@ -630,14 +602,10 @@ const PsWhereFind: React.FC = () => {
           </mark>
           .
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Adobe Photoshop"
-          imgTitle="Открываем плагин Stable Diffusion в Adobe Photoshop"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/photoshop/open_sd_plugin_in_ps.png"
-          theme="light"
+          src="legacy/photoshop/open_sd_plugin_in_ps.png"
           type="image"
-          variant="windows"
         />
         <p>
           В открытом окне плагина мы переходим на вкладку{" "}
@@ -650,14 +618,10 @@ const PsWhereFind: React.FC = () => {
           Если у вас установлен <mark>ComfyUI</mark>, то вы можете оставить стандартную
           галочку и указать другой адрес сервера при необходимости.
         </Addition>
-        <ContentFigure
+        <ArticleMedia
           caption="Adobe Photoshop"
-          imgTitle="Меняем настройки привязки"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/photoshop/change_server_sd_settings.png"
-          theme="light"
+          src="legacy/photoshop/change_server_sd_settings.png"
           type="image"
-          variant="windows"
         />
         <p>
           Нам может выбить ошибка про отсутствие флага <mark>--api</mark>, который мы не
@@ -666,14 +630,10 @@ const PsWhereFind: React.FC = () => {
           <mark className="app">Stable Diffusion</mark> и{" "}
           <mark className="app">Adobe Photoshop</mark>.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Adobe Photoshop"
-          imgTitle="Предупреждение о том, что мы забыли флаг для запуска в SD"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/photoshop/forgotten_api_flag.png"
-          theme="light"
+          src="legacy/photoshop/forgotten_api_flag.png"
           type="image"
-          variant="windows"
         />
         <p>
           Решается это просто, нам нужно снова вернуться в{" "}
@@ -682,14 +642,10 @@ const PsWhereFind: React.FC = () => {
           <mark className="select">«Extra Launch Arguments»</mark> впишите{" "}
           <mark>--api</mark>.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Stability Matrix"
-          imgTitle="Вводим дополнительные аргументы для запуска"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/photoshop/enter_launch_arguments.png"
-          theme="dark"
+          src="legacy/photoshop/enter_launch_arguments.png"
           type="image"
-          variant="windows"
         />
         <p>
           После этого перезагрузите сервер <mark className="app">SD</mark>, если он был
@@ -713,13 +669,10 @@ const PsWhereFind: React.FC = () => {
           <mark className="select">«Inpainting»</mark> - не забудьте переключиться на
           соответствующую модель, иначе можете наткнуться на неожиданные генерации.
         </Addition>
-        <ContentFigure
+        <ArticleMedia
           caption="Stable Diffusion в Adobe Photoshop"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/photoshop/sd_in_ps_example.mp4"
-          theme="light"
+          src="legacy/photoshop/sd_in_ps_example.mp4"
           type="video"
-          variant="windows"
         />
         <p>
           Результат генераций без первоначальных настроек может быть ни о чём, но никто не
@@ -776,14 +729,10 @@ const PsWhereFind: React.FC = () => {
           версиях <mark className="app">Adobe Photoshop</mark>. Она не активна по той
           причине, что вы не вошли в аккаунт <mark className="company">Adobe</mark>.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Adobe Photoshop"
-          imgTitle="Вкладка Neural Filters неактивна"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/photoshop/disabled_neural_filters.png"
-          theme="light"
+          src="legacy/photoshop/disabled_neural_filters.png"
           type="image"
-          variant="windows"
         />
         <p>
           Чтобы активировать вкладку <mark className="select">«Neural Filters»</mark> вам
@@ -800,28 +749,20 @@ const PsWhereFind: React.FC = () => {
           <mark className="app">VPN</mark>. Обычно они игнорируют правила блокировки
           доступа программе в интернет.
         </Addition>
-        <ContentFigure
+        <ArticleMedia
           caption="Adobe Photoshop"
-          imgTitle="Вход в аккаунт"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/photoshop/help_sign_in.png"
-          theme="light"
+          src="legacy/photoshop/help_sign_in.png"
           type="image"
-          variant="windows"
         />
         <p>
           После входа в аккаунт - вкладка <mark className="select">«Neural Filters»</mark>{" "}
           в контекстном меню <mark className="select">«Filter»</mark> станет активной и вы
           сможете загрузить нейро-фильтры, нажав на иконку загрузки рядом с ними.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Adobe Photoshop"
-          imgTitle="Загружаем нейро-фильтры"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/photoshop/download_neural_filters.png"
-          theme="light"
+          src="legacy/photoshop/download_neural_filters.png"
           type="image"
-          variant="windows"
         />
         <p>
           Но не тут то было, иногда загрузка нейро-фильтров сразу прерывается, не объясняя
@@ -899,14 +840,10 @@ const PsWhereFind: React.FC = () => {
               , которая выкладывает ваш скриншот на общее обозрение. Если не хотите
               выкладывать скриншот в сеть - уберите галочку.
             </Addition>
-            <ContentFigure
+            <ArticleMedia
               caption="Главная страница LikeFont"
-              imgTitle="Главная страница LikeFont"
-              // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-              src="images/legacy/likefont/likefont_mainpage.png"
-              theme="light"
+              src="legacy/likefont/likefont_mainpage.png"
               type="image"
-              variant="windows"
             />
           </li>
           <li>
@@ -915,14 +852,10 @@ const PsWhereFind: React.FC = () => {
               неконтрастный и весь контент сливается. Что же делать? Для этого нужно
               предварительно обработать изображение.
             </p>
-            <ContentFigure
+            <ArticleMedia
               caption="Пример плохого исходника"
-              imgTitle="Пример плохого исходника"
-              // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-              src="images/legacy/likefont/psfaq_likefont_example.png"
-              theme="light"
+              src="legacy/likefont/psfaq_likefont_example.png"
               type="image"
-              variant="windows"
             />
           </li>
           <li>
@@ -933,14 +866,10 @@ const PsWhereFind: React.FC = () => {
               Также есть инструменты для поворота, отзеркаливания и наклона изображения
               при необходимости.
             </p>
-            <ContentFigure
+            <ArticleMedia
               caption="Изображение после обработки средствами сайта"
-              imgTitle="Изображение после обработки средствами сайта"
-              // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-              src="images/legacy/likefont/psfaq_likefont_fixed.png"
-              theme="light"
+              src="legacy/likefont/psfaq_likefont_fixed.png"
               type="image"
-              variant="windows"
             />
           </li>
           <li>
@@ -955,28 +884,20 @@ const PsWhereFind: React.FC = () => {
             <Addition type="info">
               Чем больше вы впишете букв, тем лучше будет результат распознавания шрифта!
             </Addition>
-            <ContentFigure
+            <ArticleMedia
               caption="Изображения к которым нужно вписать букву"
-              imgTitle="Изображения к которым нужно вписать букву"
-              // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-              src="images/legacy/likefont/psfaq_likefont_recognition.png"
-              theme="light"
+              src="legacy/likefont/psfaq_likefont_recognition.png"
               type="image"
-              variant="windows"
             />
           </li>
           <li>
             После обработки изображения ниже у вас появится список возможных шрифтов. В
             моём примере был использован шрифт <mark>Broadway</mark> и с его нахождением
             сервис справился прекрасно.
-            <ContentFigure
+            <ArticleMedia
               caption="Результат распознавания"
-              imgTitle="Результат распознавания"
-              // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-              src="images/legacy/likefont/psfaq_likefont_result.png"
-              theme="light"
+              src="legacy/likefont/psfaq_likefont_result.png"
               type="image"
-              variant="windows"
             />
           </li>
         </ul>

@@ -3,7 +3,7 @@ import React from "react";
 import {Divider} from "antd";
 
 import Addition from "../../../components/content/Addition";
-import {ContentFigure} from "../../../components/content/ContentFigure";
+import {ArticleMedia} from "../../../components/content/ArticleMedia";
 import DetailsSummary from "../../../components/content/DetailsSummary";
 
 const AeExportProblems: React.FC = () => {
@@ -66,13 +66,10 @@ const AeExportProblems: React.FC = () => {
           Поэтому чтобы соответствовать стандарту, кодек принудительно растягивает или
           обрезает изображение до ближайшего чётного значения.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Предупреждение об изменении размеров композиции"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/aftereffects/output_file_will_be_resized.png"
-          theme="dark"
+          src="legacy/aftereffects/output_file_will_be_resized.png"
           type="image"
-          variant="windows"
         />
         <Addition type="info">
           Предупреждение <mark className="select">«Output file will be resized»</mark>{" "}
@@ -84,14 +81,10 @@ const AeExportProblems: React.FC = () => {
           композицию через некоторые сторонние плагины, например{" "}
           <mark className="plugin">AfterCodecs</mark>, и получите соответствующую ошибку.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Ошибка в AfterCodecs при экспорте с нечётным разрешением"
-          imgTitle="Ошибка экспорта с нечётным разрешением"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/odd_resolution_error.png"
-          theme="light"
+          src="legacy/odd_resolution_error.png"
           type="image"
-          variant="windows"
         />
         <p>
           Чтобы решить эту проблему, откройте настройки композиции с помощью комбинации
@@ -181,14 +174,10 @@ const AeExportProblems: React.FC = () => {
             программу полученный файл из <mark className="app">Adobe After Effects</mark>{" "}
             с помощью кнопки <mark className="select">«Browse»</mark> или перетащите его в
             окно программы, чтобы добавить в очередь.
-            <ContentFigure
+            <ArticleMedia
               caption="Shutter Encoder"
-              imgTitle="Импорт материалов в Shutter Encoder"
-              // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-              src="images/legacy/shutter_encoder_import.png"
-              theme="dark"
+              src="legacy/shutter_encoder_import.png"
               type="image"
-              variant="mac"
             />
           </li>
           <li>
@@ -197,14 +186,10 @@ const AeExportProblems: React.FC = () => {
               подходящий формат. Выбор зависит от ваших задач. Выбранный параметр будет
               применён ко всем файлам в очереди конвертации.
             </p>
-            <ContentFigure
+            <ArticleMedia
               caption="Shutter Encoder"
-              imgTitle="Выбор кодека в Shutter Encoder"
-              // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-              src="images/legacy/shutter_encoder_choose_function.png"
-              theme="dark"
+              src="legacy/shutter_encoder_choose_function.png"
               type="image"
-              variant="mac"
             />
             <ul>
               <li>
@@ -272,13 +257,10 @@ const AeExportProblems: React.FC = () => {
                   баланс между качеством и размером, измените стандартную настройку,
                   переключившись с <mark className="select">«VBR»</mark> на него.
                 </p>
-                <ContentFigure
+                <ArticleMedia
                   caption="Shutter Encoder"
-                  // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-                  src="images/legacy/shutter_encoder_change_cq_h264.mp4"
-                  theme="dark"
+                  src="legacy/shutter_encoder_change_cq_h264.mp4"
                   type="video"
-                  variant="mac"
                 />
                 <Addition type="info">
                   <ul>
@@ -303,27 +285,20 @@ const AeExportProblems: React.FC = () => {
                 Укажите битрейт для аудио в параметре{" "}
                 <mark className="select">«Audio Bitrate»</mark>; достаточно установить
                 значение <mark>320</mark> Кбит/с.
-                <ContentFigure
+                <ArticleMedia
                   caption="Shutter Encoder"
-                  // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-                  src="images/legacy/shutter_encoder_change_audio_bitrate_h264.mp4"
-                  theme="dark"
+                  src="legacy/shutter_encoder_change_audio_bitrate_h264.mp4"
                   type="video"
-                  variant="mac"
                 />
               </li>
               <li>
                 При необходимости включите аппаратное ускорение для декодирования видео в
                 параметре <mark className="select">«Hardware Acceleration»</mark>. В
                 большинстве случаев это ускорит процесс конвертации.
-                <ContentFigure
+                <ArticleMedia
                   caption="Shutter Encoder"
-                  imgTitle="Включение аппаратного ускорения для H.264 в Shutter Encoder"
-                  // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-                  src="images/legacy/shutter_encoder_enable_hardware_acceleration_h264.png"
-                  theme="dark"
+                  src="legacy/shutter_encoder_enable_hardware_acceleration_h264.png"
                   type="image"
-                  variant="mac"
                 />
                 <Addition type="info">
                   Выбор значений в этом параметре зависит от формата, вашего устройства и
@@ -337,14 +312,10 @@ const AeExportProblems: React.FC = () => {
             <mark className="select">«Start function»</mark> для начала конвертации. По
             умолчанию программа сохраняет готовые файлы в ту же папку, откуда были
             импортированы исходники.
-            <ContentFigure
+            <ArticleMedia
               caption="Shutter Encoder"
-              imgTitle="Начало конвертации в Shutter Encoder"
-              // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-              src="images/legacy/shutter_encoder_start_function.png"
-              theme="dark"
+              src="legacy/shutter_encoder_start_function.png"
               type="image"
-              variant="mac"
             />
             <Addition type="info">
               <ul>
@@ -375,28 +346,20 @@ const AeExportProblems: React.FC = () => {
             <mark className="select">«File» → «Import»</mark> или комбинацией клавиш{" "}
             <mark className="key">Ctrl + I</mark>, либо дважды щёлкните по пустой области
             в окне очереди.
-            <ContentFigure
+            <ArticleMedia
               caption="Adobe Media Encoder"
-              imgTitle="Импорт в Adobe Media Encoder"
-              // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-              src="images/legacy/media_encoder_import.png"
-              theme="light"
+              src="legacy/media_encoder_import.png"
               type="image"
-              variant="windows"
             />
           </li>
           <li>
             После импорта файла вы можете указать формат, шаблон и путь для сохранения
             файла. Нажатие на название формата или пресета откроет редактор настроек, где
             можно изменить различные параметры или выбрать модуль рендеринга.
-            <ContentFigure
+            <ArticleMedia
               caption="Adobe Media Encoder"
-              imgTitle="Экспорт в Adobe Media Encoder"
-              // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-              src="images/legacy/media_encoder_exporting.png"
-              theme="light"
+              src="legacy/media_encoder_exporting.png"
               type="image"
-              variant="windows"
             />
             <Addition type="info">
               В <mark className="app">Adobe Media Encoder</mark> можно конвертировать
@@ -440,14 +403,10 @@ const AeExportProblems: React.FC = () => {
           исправьте значение на нужное, например на{" "}
           <mark className="select">«Square Pixels»</mark>.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Composition Settings"
-          imgTitle="Изменение соотношения сторон пикселя"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/aftereffects/change_pixel_aspect_ratio.png"
-          theme="dark"
+          src="legacy/aftereffects/change_pixel_aspect_ratio.png"
           type="image"
-          variant="windows"
         />
         <Divider>Включаем коррекцию соотношения сторон пикселя</Divider>
         <p>
@@ -458,14 +417,10 @@ const AeExportProblems: React.FC = () => {
           предпросмотра. Это позволит корректно отображать видео и предотвратить
           неожиданные искажения после экспорта.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Composition"
-          imgTitle="Включение коррекции соотношения сторон пикселя для предпросмотра"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/aftereffects/enable_pixel_ratio_correction.png"
-          theme="dark"
+          src="legacy/aftereffects/enable_pixel_ratio_correction.png"
           type="image"
-          variant="windows"
         />
       </DetailsSummary>
       <DetailsSummary
@@ -484,15 +439,12 @@ const AeExportProblems: React.FC = () => {
           видимость полос зависит от типа матрицы монитора — на одном они могут быть
           незаметны, а на другом — отчётливо видны.
         </p>
-        <ContentFigure
+        <ArticleMedia
           autoPlay
           loop
           caption="Полосы в градиенте, дефект усилен с помощью Posterize"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/color_banding_example.mp4"
-          theme="light"
+          src="legacy/color_banding_example.mp4"
           type="video"
-          variant="windows"
         />
         <p>
           Основная причина такого явления — ограниченная глубина цвета, вам просто не
@@ -508,7 +460,7 @@ const AeExportProblems: React.FC = () => {
           субдискретизацию <mark>4:2:0</mark>, которая значительно сокращает объём
           информации о цвете, что также может привести к появлению полос.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Почему тёмные видео превращаются в кашу?"
           src="h9j89L8eQQk"
           type="youtube"
@@ -533,14 +485,10 @@ const AeExportProblems: React.FC = () => {
               больше ресурсов устройства, что повышает риск ошибок вроде{" "}
               <mark className="warning">«Out of Memory»</mark>.
             </Addition>
-            <ContentFigure
+            <ArticleMedia
               caption="Project Settings"
-              imgTitle="Изменение битности в проекте"
-              // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-              src="images/legacy/aftereffects/change_bit_depth.png"
-              theme="dark"
+              src="legacy/aftereffects/change_bit_depth.png"
               type="image"
-              variant="windows"
             />
           </li>
           <li>
@@ -601,14 +549,10 @@ const AeExportProblems: React.FC = () => {
           значение <mark className="select">«On»</mark> вместо{" "}
           <mark className="select">«Auto»</mark>.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Output Module Settings"
-          imgTitle="Принудительное включение вывода звука"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/aftereffects/audio_output_on.png"
-          theme="dark"
+          src="legacy/aftereffects/audio_output_on.png"
           type="image"
-          variant="windows"
         />
         <Addition type="info">
           <ul>

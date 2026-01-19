@@ -3,7 +3,7 @@ import React from "react";
 import {Divider} from "antd";
 
 import Addition from "../../../components/content/Addition";
-import {ContentFigure} from "../../../components/content/ContentFigure";
+import {ArticleMedia} from "../../../components/content/ArticleMedia";
 import ContentFilter from "../../../components/content/ContentFilter";
 import DetailsSummary from "../../../components/content/DetailsSummary";
 
@@ -19,14 +19,10 @@ const PsInterface: React.FC = () => {
           <mark className="select">«Auto show the Home Screen»</mark>, а затем нажмите на{" "}
           <mark className="select">«OK»</mark> в правой части окна.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Preferences"
-          imgTitle="Отключаем домашний экран при запуске программы"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/photoshop/disable_show_home_screen.png"
-          theme="light"
+          src="legacy/photoshop/disable_show_home_screen.png"
           type="image"
-          variant="windows"
         />
       </DetailsSummary>
       <DetailsSummary title="Как сделать фон программы светлее или темнее?">
@@ -39,14 +35,10 @@ const PsInterface: React.FC = () => {
           После выбора новой цветовой схемы не забудьте нажать на{" "}
           <mark className="select">«OK»</mark>.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Preferences"
-          imgTitle="Выбор цветовой схемы"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/photoshop/change_color_theme.png"
-          theme="light"
+          src="legacy/photoshop/change_color_theme.png"
           type="image"
-          variant="windows"
         />
       </DetailsSummary>
       <DetailsSummary title="Как прикрепить нужное окно в рабочее пространство?">
@@ -57,116 +49,95 @@ const PsInterface: React.FC = () => {
         {/* FIXME: */}
       </DetailsSummary>
       <DetailsSummary title="Как изменить картинку во время запуска программы?">
-        <ContentFilter
-          windowsContent={
-            <>
-              <Addition type="danger">
-                Действия с заменой файлов программы{" "}
-                <b>
-                  <u>вы делаете на свой страх и риск!</u>
-                </b>{" "}
-                После обновления программы ваша картинка перезапишется на исходную.
-              </Addition>
-              <p>
-                При запуске <mark className="app">Adobe Photoshop</mark> вы часто видите
-                какую-либо картинку, задуманную <mark className="company">Adobe</mark>, и
-                наверняка задумывались, что неплохо бы её заменить на свою. Да, такое
-                можно сделать с помощью махинаций с <mark className="file">DAT</mark>{" "}
-                файлами, расположенными в папке <mark className="path">Resources</mark> в
-                директории с установленной программой. Для этого нам пригодится утилита{" "}
-                <mark className="app">Photoshop Splash Screen Extractor</mark> от{" "}
-                <mark>Pronama</mark>, которую можно загрузить{" "}
-                <a
-                  download
-                  href="files/Photoshop Splash Screen Extractor.rar"
-                >
-                  этой ссылке
-                </a>{" "}
-                и распаковать его с помощью архиватора, например{" "}
-                <mark className="app">WinRAR</mark>, в удобном вам месте. Также существует
-                и <a href="https://psccicon.azurewebsites.net/">онлайн-версия</a> данной
-                утилиты.
-              </p>
-              <Divider>Распаковываем ресурсы программы</Divider>
-              <p>
-                После распаковки утилиты вам нужно перейти в папку с установленным{" "}
-                <mark className="app">Adobe Photoshop</mark>, обычно это{" "}
-                <mark className="path">C:\Program Files\Adobe\Adobe Photoshop 20XX</mark>{" "}
-                и скопировать оттуда папку <mark className="path">Resource</mark> в папку{" "}
-                <mark className="path">PSCC2018Icon</mark>.
-              </p>
-              <ContentFigure
-                caption="Копируем папку ресурсов для извлечения"
-                // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-                src="images/legacy/photoshop/copy_resources_to_extract.mp4"
-                theme="dark"
-                type="video"
-                variant="windows"
-              />
-              <p>
-                Затем перейдите внутрь <mark className="path">PSCC2018Icon</mark> и
-                откройте скрипт <mark className="file">EXTRACT.CMD</mark>. Он начнёт
-                извлечение картинок из этих файлов в новую папку{" "}
-                <mark className="path">Work</mark>, в котором будут храниться изображения
-                малого и большого разрешения. После распаковки ресурсов нужно перейти в{" "}
-                <mark className="path">Work</mark>, а в нём — в подпапку{" "}
-                <mark className="path">Low</mark> и найти изображение{" "}
-                <mark className="image">SPLASHBACKGROUND_S0.PNG</mark>. Отредактировать
-                этот файл вы можете в любом редакторе изображений, хоть в том же{" "}
-                <mark className="app">Adobe Photoshop</mark>. При сохранении нужно просто
-                не менять размер изображения и сохранить его также в{" "}
-                <mark className="image">PNG</mark>.
-              </p>
-              <ContentFigure
-                caption="Извлекаем ресурсы Photoshop"
-                // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-                src="images/legacy/photoshop/extract_resources.mp4"
-                theme="dark"
-                type="video"
-                variant="windows"
-              />
-              <p>
-                В качестве примера я заменю стандартное изображение на изображение
-                автомобиля <mark>Ford Focus</mark> и сохраню его в{" "}
-                <mark className="image">PNG</mark> в той же директории, куда были
-                распакованы картинки интерфейса{" "}
-                <mark className="app">Adobe Photoshop</mark>.
-              </p>
-              <ContentFigure
-                caption="Пример модификации изображения при загрузке Adobe Photoshop"
-                imgTitle="Изменённое изображение при открытии программы"
-                // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-                src="images/legacy/photoshop/custom_splash_example.png"
-                theme="light"
-                type="image"
-                variant="windows"
-              />
-              <Divider>Запаковываем ресурсы и заменяем их</Divider>
-              <p>
-                После редактирования и замены стартового изображения в{" "}
-                <mark className="path">Work\Low</mark> их нужно обратно запаковать с
-                помощью скрипта <mark className="file">PACK.CMD</mark> в папке{" "}
-                <mark className="path">PSCC2018Icon</mark> в директории с утилитой. После
-                упаковки папка <mark className="path">Resources</mark> вновь появится в{" "}
-                <mark className="path">Work</mark>. Его нужно будет переместить с заменой
-                в директорию с <mark className="app">Adobe Photoshop</mark>, обычно это{" "}
-                <mark className="path">C:\Program Files\Adobe\Adobe Photoshop 20XX</mark>.
-              </p>
-              <ContentFigure
-                caption="Замена файлов и открытие программы с уже изменённой плашкой"
-                // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-                src="images/legacy/photoshop/pack_resource_and_start_with_custom_splash.mp4"
-                theme="dark"
-                type="video"
-                variant="windows"
-              />
-              <p>
-                После успешной замены файлов можно запустить программу и наслаждаться
-                своим шедевром.
-              </p>
-            </>
-          }
+        <Addition type="danger">
+          Действия с заменой файлов программы{" "}
+          <b>
+            <u>вы делаете на свой страх и риск!</u>
+          </b>{" "}
+          После обновления программы ваша картинка перезапишется на исходную. Инструкция
+          действительна только для устройств на <mark>Windows</mark>.
+        </Addition>
+        <p>
+          При запуске <mark className="app">Adobe Photoshop</mark> вы часто видите
+          какую-либо картинку, задуманной <mark className="company">Adobe</mark> и
+          наверное задумывались, что неплохо бы её заменить на свою. Да, такое можно
+          сделать с помощью махинаций с <mark className="file">DAT</mark> файлами,
+          располагающиеся в папке <mark className="path">Resources</mark> в директории с
+          установленной программой. Для этого нам пригодится утилита{" "}
+          <mark className="app">Photoshop Splash Screen Extractor</mark> от{" "}
+          <mark>Pronama</mark>, которую можно загрузить{" "}
+          <a
+            download
+            href="files/Photoshop Splash Screen Extractor.rar"
+          >
+            этой ссылке
+          </a>{" "}
+          и распаковать его с помощью архиватора, например{" "}
+          <mark className="app">WinRAR</mark>, в удобном вам месте. Также существует и{" "}
+          <a href="https://psccicon.azurewebsites.net/">онлайн-версия</a> данной утилиты.
+        </p>
+        <Divider>Распаковываем ресурсы программы</Divider>
+        <p>
+          После распаковки утилиты - вам нужно перейти в папку с установленным{" "}
+          <mark className="app">Adobe Photoshop</mark>, обычно это{" "}
+          <mark className="path">C:\Program Files\Adobe\Adobe Photoshop 20XX</mark> и
+          скопировать оттуда папку <mark className="path">Resource</mark> в папку{" "}
+          <mark className="path">PSCC2018Icon</mark>.
+        </p>
+        <ArticleMedia
+          caption="Копируем папку ресурсов для извлечения"
+          src="legacy/photoshop/copy_resources_to_extract.mp4"
+          type="video"
         />
+        <p>
+          Затем перейдите внутрь <mark className="path">PSCC2018Icon</mark> и откройте
+          скрипт <mark className="file">EXTRACT.CMD</mark>. Он начнёт извлечение картинок
+          из этих файлов в новую папку <mark className="path">Work</mark>, в котором будут
+          храниться изображения маленького и большого разрешения. После распаковки
+          ресурсов - нужно перейти в <mark className="path">Work</mark>, а в нём - в
+          подпапку <mark className="path">Low</mark> и найти изображение{" "}
+          <mark className="image">SPLASHBACKGROUND_S0.PNG</mark>. Отредактировать этот
+          файл вы можете в любом редакторе изображений, хоть в том же{" "}
+          <mark className="app">Adobe Photoshop</mark>. При сохранении нужно просто не
+          менять размер изображения и сохранить его также в{" "}
+          <mark className="image">PNG</mark>.
+        </p>
+        <ArticleMedia
+          caption="Извлекаем ресурсы Photoshop"
+          src="legacy/photoshop/extract_resources.mp4"
+          type="video"
+        />
+        <p>
+          В качестве примера я заменю стандартное изображение на изображение автомобиля{" "}
+          <mark>Ford Focus</mark> и сохраню его в <mark className="image">PNG</mark> в той
+          же директории, куда были распакованы картинки интерфейса{" "}
+          <mark className="app">Adobe Photoshop</mark>.
+        </p>
+        <ArticleMedia
+          caption="Пример модификации изображения при загрузке Adobe Photoshop"
+          src="legacy/photoshop/custom_splash_example.png"
+          type="image"
+        />
+        <Divider>Запаковываем ресурсы и заменяем их</Divider>
+        <p>
+          После редактирования и замены стартового изображения в{" "}
+          <mark className="path">Work\Low</mark> - их нужно обратно запаковать с помощью
+          скрипта <mark className="file">PACK.CMD</mark> в папке{" "}
+          <mark className="path">PSCC2018Icon</mark> в директории с утилитой. После
+          упаковки - папка <mark className="path">Resources</mark> вновь появится в{" "}
+          <mark className="path">Work</mark>. Его нужно будет переместить с заменой в
+          директорию с <mark className="app">Adobe Photoshop</mark>, обычно это{" "}
+          <mark className="path">C:\Program Files\Adobe\Adobe Photoshop 20XX</mark>.
+        </p>
+        <ArticleMedia
+          caption="Замена файлов и открытие программы с уже изменённой плашкой"
+          src="legacy/photoshop/pack_resource_and_start_with_custom_splash.mp4"
+          type="video"
+        />
+        <p>
+          После успешной замены файлов - можно запустить программу и наслаждаться своим
+          шедевром, который вы сотворили.
+        </p>
       </DetailsSummary>
     </div>
   );
