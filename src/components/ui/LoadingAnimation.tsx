@@ -90,6 +90,10 @@ const setupPerformanceObserver = (
 const LoadingAnimation: React.FC<LoadingAnimationProperties> = ({isLoading}) => {
   const [showIntro, setShowIntro] = useState(false);
 
+  const [canDismiss, setCanDismiss] = useState(true);
+
+  const [showResourceText, setShowResourceText] = useState(true);
+
   const location = useLocation();
 
   const getTitle = () => {
@@ -112,12 +116,15 @@ const LoadingAnimation: React.FC<LoadingAnimationProperties> = ({isLoading}) => 
     if (isLoading) {
       if (!getTitle()) {
         setShowIntro(false);
+        setCanDismiss(true);
 
         return;
       }
 
       if (globalThis.window === undefined || !globalThis.localStorage) {
         setShowIntro(true);
+        setCanDismiss(false);
+        setTimeout(() => setCanDismiss(true), 5000);
 
         return;
       }
@@ -130,10 +137,22 @@ const LoadingAnimation: React.FC<LoadingAnimationProperties> = ({isLoading}) => 
 
       if (show) {
         localStorage.setItem("introLastShown", now.toString());
+        setCanDismiss(false);
+        setTimeout(() => setCanDismiss(true), 5000);
+      } else {
+        setCanDismiss(true);
       }
 
       setShowIntro(show);
+    } else {
+      const timer = setTimeout(() => {
+        setShowResourceText(false);
+      }, 1000);
+
+      return () => clearTimeout(timer);
     }
+
+    setShowResourceText(true);
   }, [isLoading, location.pathname]);
 
   const [resource, setResource] = useState<string>("");
@@ -143,7 +162,7 @@ const LoadingAnimation: React.FC<LoadingAnimationProperties> = ({isLoading}) => 
 
     const timeoutId = setTimeout(() => {
       observer = setupPerformanceObserver(setResource);
-    }, 3000);
+    }, 500);
 
     return () => {
       clearTimeout(timeoutId);
@@ -208,7 +227,7 @@ const LoadingAnimation: React.FC<LoadingAnimationProperties> = ({isLoading}) => 
 
   return (
     <AnimatePresence>
-      {isLoading && (
+      {(isLoading || !canDismiss) && (
         <motion.div
           animate={{opacity: 1, pointerEvents: "auto"}}
           className={styles["loading-animation-overlay"]}
@@ -289,19 +308,17 @@ const LoadingAnimation: React.FC<LoadingAnimationProperties> = ({isLoading}) => 
               />
             </motion.div>
             <div className={styles["loading-animation-container"]}>
-              {showIntro && (
-                <motion.p
-                  animate={{opacity: 0.5}}
-                  className={styles["loading-animation-text"]}
-                  dangerouslySetInnerHTML={{__html: formattedResource}}
-                  initial={{opacity: 0}}
-                  transition={{
-                    delay: 4,
-                    duration: 1,
-                    ease: [0.25, 0, 0, 1],
-                  }}
-                />
-              )}
+              <motion.p
+                animate={{opacity: showResourceText ? 0.5 : 0}}
+                className={styles["loading-animation-text"]}
+                dangerouslySetInnerHTML={{__html: formattedResource}}
+                initial={{opacity: 0}}
+                transition={{
+                  delay: 2,
+                  duration: 0.5,
+                  ease: [0.25, 0, 0, 1],
+                }}
+              />
             </div>
           </div>
         </motion.div>
