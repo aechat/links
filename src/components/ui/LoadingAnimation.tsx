@@ -18,30 +18,30 @@ const getCategorizedMessage = (resourceName: string): string => {
   const lowerName = fileName.toLowerCase();
 
   if (resourceName.includes("youtube.com") || resourceName.includes("youtu.be")) {
-    return `Загрузка из YouTube: ${fileName}`;
+    return `<b>Загрузка из YouTube:</b> ${fileName}`;
   }
 
   if (/\.(png|jpe?g|gif|svg|webp|ico)$/.test(lowerName)) {
-    return `Загрузка медиа: ${fileName}`;
+    return `<b>Загрузка медиа:</b> ${fileName}`;
   }
 
   if (lowerName.endsWith(".json")) {
-    return `Загрузка данных: ${fileName}`;
+    return `<b>Загрузка данных:</b> ${fileName}`;
   }
 
   if (/\.(woff2?|ttf|otf|eot)$/.test(lowerName)) {
-    return `Загрузка шрифта: ${fileName}`;
+    return `<b>Загрузка шрифта:</b> ${fileName}`;
   }
 
   if (/\.(css|scss|sass|less)$/.test(lowerName)) {
-    return `Загрузка стилей: ${fileName}`;
+    return `<b>Загрузка стилей:</b> ${fileName}`;
   }
 
   if (/\.(js|jsx|ts|tsx)$/.test(lowerName)) {
-    return `Загрузка скрипта: ${fileName}`;
+    return `<b>Загрузка скрипта:</b> ${fileName}`;
   }
 
-  return `Загрузка ресурса: ${fileName}`;
+  return `<b>Загрузка ресурса:</b> ${fileName}`;
 };
 
 const handlePerformanceEntries = (
