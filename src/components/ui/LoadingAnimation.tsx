@@ -92,8 +92,32 @@ const setupPerformanceObserver = (
 const LoadingAnimation: React.FC<LoadingAnimationProperties> = ({isLoading}) => {
   const [showIntro, setShowIntro] = useState(false);
 
+  const location = useLocation();
+
+  const getTitle = () => {
+    const path = location.pathname;
+
+    if (path === "/") return "links";
+
+    if (path.startsWith("/aefaq")) return "aefaq";
+
+    if (path.startsWith("/prfaq")) return "prfaq";
+
+    if (path.startsWith("/psfaq")) return "psfaq";
+
+    if (path.startsWith("/aeexpr")) return "aeexpr";
+
+    if (path.startsWith("/rules")) return "rules";
+  };
+
   useEffect(() => {
     if (isLoading) {
+      if (!getTitle()) {
+        setShowIntro(false);
+
+        return;
+      }
+
       if (globalThis.window === undefined || !globalThis.localStorage) {
         setShowIntro(true);
 
@@ -112,11 +136,9 @@ const LoadingAnimation: React.FC<LoadingAnimationProperties> = ({isLoading}) => 
 
       setShowIntro(show);
     }
-  }, [isLoading]);
+  }, [isLoading, location.pathname]);
 
   const [resource, setResource] = useState<string>("");
-
-  const location = useLocation();
 
   useEffect(() => {
     let observer: PerformanceObserver | undefined;
@@ -135,20 +157,6 @@ const LoadingAnimation: React.FC<LoadingAnimationProperties> = ({isLoading}) => 
   }, []);
 
   const formattedResource = resource ? getCategorizedMessage(resource) : "";
-
-  const getTitle = () => {
-    const path = location.pathname;
-
-    if (path.startsWith("/aefaq")) return "aefaq";
-
-    if (path.startsWith("/prfaq")) return "prfaq";
-
-    if (path.startsWith("/psfaq")) return "psfaq";
-
-    if (path.startsWith("/aeexpr")) return "aeexpr";
-
-    if (path.startsWith("/rules")) return "rules";
-  };
 
   const title = getTitle();
 
@@ -207,7 +215,7 @@ const LoadingAnimation: React.FC<LoadingAnimationProperties> = ({isLoading}) => 
           animate={{opacity: 1, pointerEvents: "auto"}}
           className={styles["loading-animation-overlay"]}
           exit={{opacity: 0, pointerEvents: "none"}}
-          initial={{opacity: 1, pointerEvents: "auto"}}
+          initial={{opacity: 0, pointerEvents: "auto"}}
           style={{
             backgroundColor: "var(--color-background-primary)",
           }}

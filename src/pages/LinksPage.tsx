@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 
 import {
   AnimationRounded,
@@ -40,12 +40,12 @@ import {
   WorkRounded,
 } from "@mui/icons-material";
 import {Divider, Modal} from "antd";
-import {motion, useIsPresent} from "framer-motion";
 import {Helmet} from "react-helmet-async";
 
 import Addition from "../components/content/Addition";
 import Footer from "../components/layout/Footer";
 import Header from "../components/layout/Header";
+import PageTransition from "../components/layout/PageTransition";
 import modalStyles from "../components/modals/Modal.module.scss";
 import {LinkCard} from "../components/ui/LinkCards";
 import {useLoading} from "../context/LoadingContext";
@@ -55,7 +55,9 @@ import {/* AEExprIcon, */ AeIcon, PrIcon, PsIcon} from "./FaqIcon";
 const Links = () => {
   const {setIsLoading} = useLoading();
 
-  const isPresent = useIsPresent();
+  useEffect(() => {
+    setIsLoading(false);
+  }, [setIsLoading]);
 
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -129,21 +131,7 @@ const Links = () => {
         />
       </Helmet>
       <Header title="links" />
-      <motion.main
-        animate={{opacity: 1, x: 0}}
-        className="main"
-        exit={{opacity: 0, x: -50}}
-        initial={{opacity: 0, x: 100}}
-        transition={{
-          duration: 0.3,
-          ease: [0.25, 0, 0, 1],
-        }}
-        onAnimationComplete={() => {
-          if (isPresent) {
-            setIsLoading(false);
-          }
-        }}
-      >
+      <PageTransition className="main">
         <div
           className="logo-container"
           style={{display: "none"}}
@@ -845,7 +833,7 @@ const Links = () => {
             title="aechat"
           />
         </div>
-      </motion.main>
+      </PageTransition>
     </div>
   );
 };

@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 
 import {
   BrokenImageOutlined,
@@ -13,13 +13,13 @@ import {
   VideoSettingsRounded,
 } from "@mui/icons-material";
 import {Divider} from "antd";
-import {motion, useIsPresent} from "framer-motion";
 import {Helmet} from "react-helmet-async";
 
 import {generateAnchorId} from "../components/content/DetailsSummary";
 import {SearchInPage, SearchProvider} from "../components/features/SearchEngine";
 import Footer from "../components/layout/Footer";
 import Header from "../components/layout/Header";
+import PageTransition from "../components/layout/PageTransition";
 import {useLoading} from "../context/LoadingContext";
 import {useAnchorValidation} from "../hooks/useAnchorValidation";
 import {useCopyToClipboard} from "../hooks/useCopyToClipboard";
@@ -39,9 +39,13 @@ import AeWhereFind from "./sections/aefaq/AeWhereFind";
 const AeFaqPage = () => {
   const [isPageLoaded, setIsPageLoaded] = useState(false);
 
-  const isPresent = useIsPresent();
-
   const {setIsLoading} = useLoading();
+
+  useEffect(() => {
+    setIsPageLoaded(true);
+    setIsLoading(false);
+    generateAnchorId();
+  }, [setIsLoading]);
 
   useCopyToClipboard();
   useSmartCopy(isPageLoaded);
@@ -184,25 +188,7 @@ const AeFaqPage = () => {
           />
         </Helmet>
         <Header title="aefaq" />
-        <motion.main
-          animate={{opacity: 1, x: 0, y: 0}}
-          className="main"
-          exit={{opacity: 0, x: 0, y: 50}}
-          initial={{opacity: 0, x: 0, y: 0}}
-          transition={{
-            duration: 0.3,
-            ease: [0.25, 0, 0, 1],
-          }}
-          onAnimationComplete={() => {
-            setIsPageLoaded(true);
-
-            if (isPresent) {
-              setIsLoading(false);
-            }
-
-            generateAnchorId();
-          }}
-        >
+        <PageTransition className="main">
           <div className="article-container-flex">
             <div className="article-container">
               <div className="article-title">
@@ -232,7 +218,7 @@ const AeFaqPage = () => {
               />
             </div>
           </div>
-        </motion.main>
+        </PageTransition>
         <SearchInPage sections={sections} />
       </SearchProvider>
     </div>

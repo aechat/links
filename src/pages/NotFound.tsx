@@ -1,8 +1,8 @@
 import React, {useEffect, useRef, useState} from "react";
 
-import {motion, useIsPresent} from "framer-motion";
 import {Helmet} from "react-helmet-async";
 
+import PageTransition from "../components/layout/PageTransition";
 import modalStyles from "../components/modals/Modal.module.scss";
 import {useLoading} from "../context/LoadingContext";
 
@@ -17,7 +17,9 @@ const NotFound = () => {
 
   const {setIsLoading} = useLoading();
 
-  const isPresent = useIsPresent();
+  useEffect(() => {
+    setIsLoading(false);
+  }, [setIsLoading]);
 
   const [subtitles, setSubtitles] = useState<Subtitle[]>([]);
 
@@ -91,18 +93,7 @@ const NotFound = () => {
   }, [subtitles, currentSubtitle]);
 
   return (
-    <motion.main
-      animate={{opacity: 1, scale: 1}}
-      className="not-found error"
-      exit={{opacity: 0, scale: 0.5}}
-      initial={{opacity: 0, scale: 0.5}}
-      transition={{duration: 0.75, ease: [0.25, 0, 0, 1]}}
-      onAnimationComplete={() => {
-        if (isPresent) {
-          setIsLoading(false);
-        }
-      }}
-    >
+    <PageTransition className="not-found error">
       <Helmet>
         <title>notfound@aechat</title>
         <meta
@@ -185,7 +176,7 @@ const NotFound = () => {
           </div>
         </div>
       </div>
-    </motion.main>
+    </PageTransition>
   );
 };
 
