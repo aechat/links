@@ -61,9 +61,7 @@ const handlePerformanceEntries = (
   const filteredResources = entries
     .map((entry) => entry.name)
     .filter((name) => {
-      const fileName = name.slice(Math.max(0, name.lastIndexOf("/") + 1));
-
-      return fileName.split("?")[0] !== "tag.js";
+      return !(name.includes("api.github.com") || name.includes("tag.js"));
     });
 
   const lastResource = filteredResources.at(-1);
