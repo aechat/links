@@ -17,6 +17,10 @@ const getCategorizedMessage = (resourceName: string): string => {
 
   const lowerName = fileName.toLowerCase();
 
+  if (resourceName.includes("youtube.com") || resourceName.includes("youtu.be")) {
+    return `Загрузка из YouTube: ${fileName}`;
+  }
+
   if (/\.(png|jpe?g|gif|svg|webp|ico)$/.test(lowerName)) {
     return `Загрузка медиа: ${fileName}`;
   }
