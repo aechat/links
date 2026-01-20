@@ -40,7 +40,7 @@ import {
   WorkRounded,
 } from "@mui/icons-material";
 import {Divider, Modal} from "antd";
-import {motion} from "framer-motion";
+import {motion, useIsPresent} from "framer-motion";
 import {Helmet} from "react-helmet-async";
 
 import Addition from "../components/content/Addition";
@@ -48,10 +48,15 @@ import Footer from "../components/layout/Footer";
 import Header from "../components/layout/Header";
 import modalStyles from "../components/modals/Modal.module.scss";
 import {LinkCard} from "../components/ui/LinkCards";
+import {useLoading} from "../context/LoadingContext";
 
 import {/* AEExprIcon, */ AeIcon, PrIcon, PsIcon} from "./FaqIcon";
 
 const Links = () => {
+  const {setIsLoading} = useLoading();
+
+  const isPresent = useIsPresent();
+
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const openModal = () => {
@@ -132,6 +137,11 @@ const Links = () => {
         transition={{
           duration: 0.3,
           ease: [0.25, 0, 0, 1],
+        }}
+        onAnimationComplete={() => {
+          if (isPresent) {
+            setIsLoading(false);
+          }
         }}
       >
         <div

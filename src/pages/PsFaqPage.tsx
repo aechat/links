@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 
 import {Divider} from "antd";
-import {motion} from "framer-motion";
+import {motion, useIsPresent} from "framer-motion";
 import {Helmet} from "react-helmet-async";
 
 import Addition from "../components/content/Addition";
@@ -9,7 +9,7 @@ import {generateAnchorId} from "../components/content/DetailsSummary";
 import {SearchInPage, SearchProvider} from "../components/features/SearchEngine";
 import Footer from "../components/layout/Footer";
 import Header from "../components/layout/Header";
-import PageIntro from "../components/layout/PageIntro";
+import {useLoading} from "../context/LoadingContext";
 import {useAnchorValidation} from "../hooks/useAnchorValidation";
 import {useCopyToClipboard} from "../hooks/useCopyToClipboard";
 import {useSmartCopy} from "../hooks/useSmartCopy";
@@ -26,6 +26,10 @@ import PsPerformance from "./sections/psfaq/PsPerformance";
 import PsWhereFind from "./sections/psfaq/PsWhereFind";
 
 const PsFaqPage = () => {
+  const {setIsLoading} = useLoading();
+
+  const isPresent = useIsPresent();
+
   const [isPageLoaded, setIsPageLoaded] = useState(false);
 
   useCopyToClipboard();
@@ -83,10 +87,6 @@ const PsFaqPage = () => {
 
   return (
     <div className="page">
-      <PageIntro
-        isLoaded={isPageLoaded}
-        text="psfaq"
-      />
       <SearchProvider isPageLoaded={isPageLoaded}>
         <Helmet>
           <title>psfaq@aechat</title>
@@ -159,6 +159,11 @@ const PsFaqPage = () => {
           }}
           onAnimationComplete={() => {
             setIsPageLoaded(true);
+
+            if (isPresent) {
+              setIsLoading(false);
+            }
+
             generateAnchorId();
           }}
         >

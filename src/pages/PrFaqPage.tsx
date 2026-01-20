@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 
 import {Divider} from "antd";
-import {motion} from "framer-motion";
+import {motion, useIsPresent} from "framer-motion";
 import {Helmet} from "react-helmet-async";
 
 import Addition from "../components/content/Addition";
@@ -9,7 +9,7 @@ import {generateAnchorId} from "../components/content/DetailsSummary";
 import {SearchInPage, SearchProvider} from "../components/features/SearchEngine";
 import Footer from "../components/layout/Footer";
 import Header from "../components/layout/Header";
-import PageIntro from "../components/layout/PageIntro";
+import {useLoading} from "../context/LoadingContext";
 import {useAnchorValidation} from "../hooks/useAnchorValidation";
 import {useCopyToClipboard} from "../hooks/useCopyToClipboard";
 import {useSmartCopy} from "../hooks/useSmartCopy";
@@ -27,6 +27,10 @@ import PrWhereFind from "./sections/prfaq/PrWhereFind";
 
 const PrFaqPage = () => {
   const [isPageLoaded, setIsPageLoaded] = useState(false);
+
+  const isPresent = useIsPresent();
+
+  const {setIsLoading} = useLoading();
 
   useCopyToClipboard();
   useSmartCopy(isPageLoaded);
@@ -78,10 +82,6 @@ const PrFaqPage = () => {
 
   return (
     <div className="page">
-      <PageIntro
-        isLoaded={isPageLoaded}
-        text="prfaq"
-      />
       <SearchProvider isPageLoaded={isPageLoaded}>
         <Helmet>
           <title>prfaq@aechat</title>
@@ -154,6 +154,11 @@ const PrFaqPage = () => {
           }}
           onAnimationComplete={() => {
             setIsPageLoaded(true);
+
+            if (isPresent) {
+              setIsLoading(false);
+            }
+
             generateAnchorId();
           }}
         >

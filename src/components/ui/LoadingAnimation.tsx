@@ -1,102 +1,15 @@
-import React, {useEffect, useState} from "react";
+import React, {useEffect, useMemo, useState} from "react";
 
 import LinearProgress from "@mui/material/LinearProgress";
-import {motion, Variants} from "framer-motion";
+import {AnimatePresence, motion} from "framer-motion";
+import {useLocation} from "react-router-dom";
 
+import BouncyText from "./BouncyText";
 import styles from "./LoadingAnimation.module.scss";
 
-interface BouncyTextProperties {
-  text: string;
+interface LoadingAnimationProperties {
+  isLoading: boolean;
 }
-
-const BouncyText: React.FC<BouncyTextProperties> = ({text}) => {
-  const taglineText = "@aechat";
-
-  const shiftDelay = text.length * 0.05 + 0.4;
-
-  const mainTextContainerVariants: Variants = {
-    hidden: {opacity: 1},
-    visible: {
-      transition: {staggerChildren: 0.1},
-    },
-  };
-
-  const letterVariants: Variants = {
-    hidden: {opacity: 0, scale: 0, y: 125},
-    visible: {
-      opacity: 1,
-      scale: 1,
-      transition: {damping: 10, stiffness: 100, type: "spring"},
-      y: 0,
-    },
-  };
-
-  const taglineContainerVariants: Variants = {
-    hidden: {
-      opacity: 0,
-      width: 0,
-    },
-    visible: {
-      opacity: 1,
-      transition: {
-        delay: shiftDelay,
-        delayChildren: shiftDelay + 0.2,
-        duration: 1.25,
-        ease: [0.5, 0, 0, 1],
-        staggerChildren: 0.05,
-      },
-      width: "auto",
-    },
-  };
-
-  const taglineLetterVariants: Variants = {
-    hidden: {opacity: 0, y: -20},
-    visible: {
-      opacity: 1,
-      transition: {damping: 15, stiffness: 200, type: "spring"},
-      y: 0,
-    },
-  };
-
-  return (
-    <div className={styles["bouncy-text-container"]}>
-      <motion.div
-        animate="visible"
-        aria-label={text}
-        className={styles["bouncy-text-logo"]}
-        initial="hidden"
-        variants={mainTextContainerVariants}
-      >
-        {[...text].map((char, index) => (
-          <motion.span
-            key={`${char}-${index}`}
-            className={styles["bouncy-text-letter"]}
-            variants={letterVariants}
-          >
-            {char}
-          </motion.span>
-        ))}
-      </motion.div>
-      <motion.div
-        animate="visible"
-        aria-label={taglineText}
-        className={styles["bouncy-text-tagline"]}
-        initial="hidden"
-        variants={taglineContainerVariants}
-      >
-        {[...taglineText].map((char, index) => (
-          <motion.span
-            key={`${char}-${index}`}
-            className={styles["bouncy-text-letter"]}
-            variants={taglineLetterVariants}
-          >
-            {char}
-          </motion.span>
-        ))}
-      </motion.div>
-    </div>
-  );
-};
 
 const getCategorizedMessage = (resourceName: string): string => {
   const fileName = resourceName
@@ -177,8 +90,10 @@ const setupPerformanceObserver = (
   return undefined;
 };
 
-const LoadingAnimation: React.FC = () => {
+const LoadingAnimation: React.FC<LoadingAnimationProperties> = ({isLoading}) => {
   const [resource, setResource] = useState<string>("");
+
+  const location = useLocation();
 
   useEffect(() => {
     let observer: PerformanceObserver | undefined;
@@ -198,34 +113,142 @@ const LoadingAnimation: React.FC = () => {
 
   const formattedResource = resource ? getCategorizedMessage(resource) : "";
 
+  const getTitle = () => {
+    const path = location.pathname;
+
+    if (path.startsWith("/aefaq")) return "aefaq";
+
+    if (path.startsWith("/prfaq")) return "prfaq";
+
+    if (path.startsWith("/psfaq")) return "psfaq";
+
+    if (path.startsWith("/aeexpr")) return "aeexpr";
+
+    if (path.startsWith("/rules")) return "rules";
+  };
+
+  const title = getTitle();
+
+  const shouldShowIntro = useMemo(() => {
+    if (!title) return false;
+
+    const lastShownKey = "introLastShown";
+
+    const lastShown = localStorage.getItem(lastShownKey);
+
+    const now = Date.now();
+
+    const twentyMinutes = 20 * 60 * 1000;
+
+    return !lastShown || now - Number.parseInt(lastShown, 10) >= twentyMinutes;
+  }, [title]);
+
+  const [isAnimationComplete, setIsAnimationComplete] = useState(!shouldShowIntro);
+
+  useEffect(() => {
+    if (shouldShowIntro) {
+      setIsAnimationComplete(false);
+
+      const lastShownKey = "introLastShown";
+
+      const now = Date.now();
+
+      localStorage.setItem(lastShownKey, now.toString());
+
+      const timer = setTimeout(() => {
+        setIsAnimationComplete(true);
+      }, 4500);
+
+      return () => clearTimeout(timer);
+    }
+
+    setIsAnimationComplete(true);
+  }, [shouldShowIntro]);
+
+  const showOverlay = isLoading || (shouldShowIntro && !isAnimationComplete);
+
   return (
-    <motion.div
-      animate={{opacity: 1}}
-      initial={{opacity: 0}}
-      transition={{
-        delay: 1.5,
-        duration: 0.3,
-        ease: [0.25, 0, 0, 1],
-      }}
-    >
-      <LinearProgress color="inherit" />
-      <div className={styles["loading-animation-container"]}>
-        <motion.p
-          animate={{opacity: 0.5}}
-          className={styles["loading-animation-text"]}
-          dangerouslySetInnerHTML={{__html: formattedResource}}
-          initial={{opacity: 0}}
-          transition={{
-            delay: 3,
-            duration: 1,
-            ease: [0.25, 0, 0, 1],
+    <AnimatePresence>
+      {showOverlay && (
+        <motion.div
+          animate={{opacity: 1, pointerEvents: "auto"}}
+          className={styles["loading-animation-overlay"]}
+          exit={{opacity: 0, pointerEvents: "none"}}
+          initial={{opacity: shouldShowIntro ? 1 : 0, pointerEvents: "none"}}
+          style={{
+            backgroundColor: shouldShowIntro ? undefined : "transparent",
           }}
-        />
-      </div>
-    </motion.div>
+          transition={{
+            delay: shouldShowIntro ? 0 : 1,
+            duration: 0.5,
+          }}
+        >
+          <div
+            style={{
+              alignItems: "center",
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "center",
+              width: "100%",
+            }}
+          >
+            {shouldShowIntro && title && <BouncyText text={title} />}
+            <AnimatePresence>
+              {isLoading && (
+                <motion.div
+                  layout
+                  animate={{
+                    height: "auto",
+                    marginTop: shouldShowIntro && title ? "30px" : "0",
+                    opacity: 1,
+                    scaleX: 1,
+                  }}
+                  exit={{height: 0, marginTop: 0, opacity: 0, scaleX: 0}}
+                  initial={{
+                    height: 0,
+                    marginTop: 0,
+                    opacity: 0,
+                    scaleX: 0,
+                  }}
+                  style={{
+                    maxWidth: "300px",
+                    overflow: "hidden",
+                    width: "80%",
+                  }}
+                  transition={{
+                    delay: shouldShowIntro ? 2.5 : 0,
+                    duration: 0.75,
+                    ease: [0.25, 0, 0, 1],
+                  }}
+                >
+                  <LinearProgress
+                    color="inherit"
+                    style={{borderRadius: "4px", height: "4px"}}
+                  />
+                </motion.div>
+              )}
+            </AnimatePresence>
+            <div className={styles["loading-animation-container"]}>
+              <motion.p
+                animate={{opacity: 0.5}}
+                className={styles["loading-animation-text"]}
+                dangerouslySetInnerHTML={{__html: formattedResource}}
+                initial={{opacity: 0}}
+                style={{
+                  display: shouldShowIntro ? "block" : "none",
+                }}
+                transition={{
+                  delay: 2,
+                  duration: 1,
+                  ease: [0.25, 0, 0, 1],
+                }}
+              />
+            </div>
+          </div>
+        </motion.div>
+      )}
+    </AnimatePresence>
   );
 };
 
 export default LoadingAnimation;
-
-export {BouncyText};

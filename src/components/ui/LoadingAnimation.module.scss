@@ -1,39 +1,21 @@
 @use "../../styles/abstracts/variables" as *;
 @use "../../styles/abstracts/mixins" as *;
 
-.bouncy-text {
-  &-container {
-    display: flex;
-    align-items: baseline;
-    justify-content: center;
-  }
-
-  &-logo {
-    display: flex;
-    color: var(--color-accent);
-    font-family: "Red Hat Display", monospace;
-    font-size: 3.5rem;
-    font-weight: 800;
-    font-style: italic;
-  }
-
-  &-tagline {
-    display: flex;
-    white-space: nowrap;
-    color: var(--color-accent);
-    font-family: "Red Hat Display", monospace;
-    font-size: 1.35em;
-    font-weight: 500;
-    font-style: italic;
-    translate: 0 10px;
-  }
-
-  &-letter {
-    display: inline-block;
-  }
-}
-
 .loading-animation {
+  &-overlay {
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 100000;
+    background-color: var(--color-background-primary);
+    width: 100vw;
+    height: 100vh;
+  }
+
   &-container {
     margin-inline: auto;
     max-width: 800px;

@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 
 import {Divider} from "antd";
-import {motion} from "framer-motion";
+import {motion, useIsPresent} from "framer-motion";
 import {Helmet} from "react-helmet-async";
 
 import Addition from "../components/content/Addition";
@@ -9,7 +9,7 @@ import {generateAnchorId} from "../components/content/DetailsSummary";
 import {SearchInPage, SearchProvider} from "../components/features/SearchEngine";
 import Footer from "../components/layout/Footer";
 import Header from "../components/layout/Header";
-import PageIntro from "../components/layout/PageIntro";
+import {useLoading} from "../context/LoadingContext";
 import {useAnchorValidation} from "../hooks/useAnchorValidation";
 import {useCopyToClipboard} from "../hooks/useCopyToClipboard";
 import {useSmartCopy} from "../hooks/useSmartCopy";
@@ -22,6 +22,10 @@ import AeExprStart from "./sections/aeexpr/ExprStart";
 
 const AeExprPage = () => {
   const [isPageLoaded, setIsPageLoaded] = useState(false);
+
+  const {setIsLoading} = useLoading();
+
+  const isPresent = useIsPresent();
 
   useCopyToClipboard();
   useSmartCopy(isPageLoaded);
@@ -58,10 +62,6 @@ const AeExprPage = () => {
 
   return (
     <div className="page">
-      <PageIntro
-        isLoaded={isPageLoaded}
-        text="aeexpr"
-      />
       <SearchProvider isPageLoaded={isPageLoaded}>
         <Helmet>
           <title>aeexpr@aechat</title>
@@ -135,6 +135,10 @@ const AeExprPage = () => {
           onAnimationComplete={() => {
             setIsPageLoaded(true);
             generateAnchorId();
+
+            if (isPresent) {
+              setIsLoading(false);
+            }
           }}
         >
           <div className="article-container-flex">

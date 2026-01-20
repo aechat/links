@@ -1,9 +1,10 @@
 import React, {useEffect, useRef, useState} from "react";
 
-import {motion} from "framer-motion";
+import {motion, useIsPresent} from "framer-motion";
 import {Helmet} from "react-helmet-async";
 
 import modalStyles from "../components/modals/Modal.module.scss";
+import {useLoading} from "../context/LoadingContext";
 
 interface Subtitle {
   end: number;
@@ -13,6 +14,10 @@ interface Subtitle {
 
 const NotFound = () => {
   const audioReference = useRef<HTMLAudioElement | null>(null);
+
+  const {setIsLoading} = useLoading();
+
+  const isPresent = useIsPresent();
 
   const [subtitles, setSubtitles] = useState<Subtitle[]>([]);
 
@@ -92,6 +97,11 @@ const NotFound = () => {
       exit={{opacity: 0, scale: 0.5}}
       initial={{opacity: 0, scale: 0.5}}
       transition={{duration: 0.75, ease: [0.25, 0, 0, 1]}}
+      onAnimationComplete={() => {
+        if (isPresent) {
+          setIsLoading(false);
+        }
+      }}
     >
       <Helmet>
         <title>notfound@aechat</title>

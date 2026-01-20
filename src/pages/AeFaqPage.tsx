@@ -13,14 +13,14 @@ import {
   VideoSettingsRounded,
 } from "@mui/icons-material";
 import {Divider} from "antd";
-import {motion} from "framer-motion";
+import {motion, useIsPresent} from "framer-motion";
 import {Helmet} from "react-helmet-async";
 
 import {generateAnchorId} from "../components/content/DetailsSummary";
 import {SearchInPage, SearchProvider} from "../components/features/SearchEngine";
 import Footer from "../components/layout/Footer";
 import Header from "../components/layout/Header";
-import PageIntro from "../components/layout/PageIntro";
+import {useLoading} from "../context/LoadingContext";
 import {useAnchorValidation} from "../hooks/useAnchorValidation";
 import {useCopyToClipboard} from "../hooks/useCopyToClipboard";
 import {useSmartCopy} from "../hooks/useSmartCopy";
@@ -38,6 +38,10 @@ import AeWhereFind from "./sections/aefaq/AeWhereFind";
 
 const AeFaqPage = () => {
   const [isPageLoaded, setIsPageLoaded] = useState(false);
+
+  const isPresent = useIsPresent();
+
+  const {setIsLoading} = useLoading();
 
   useCopyToClipboard();
   useSmartCopy(isPageLoaded);
@@ -119,10 +123,6 @@ const AeFaqPage = () => {
 
   return (
     <div className="page">
-      <PageIntro
-        isLoaded={isPageLoaded}
-        text="aefaq"
-      />
       <SearchProvider isPageLoaded={isPageLoaded}>
         <Helmet>
           <title>aefaq@aechat</title>
@@ -195,6 +195,11 @@ const AeFaqPage = () => {
           }}
           onAnimationComplete={() => {
             setIsPageLoaded(true);
+
+            if (isPresent) {
+              setIsLoading(false);
+            }
+
             generateAnchorId();
           }}
         >
