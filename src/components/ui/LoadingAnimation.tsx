@@ -15,40 +15,26 @@ const getCategorizedMessage = (resourceName: string): string => {
     .slice(Math.max(0, resourceName.lastIndexOf("/") + 1))
     .split("?")[0];
 
-  if (resourceName.includes("/src/pages/sections/")) {
-    return `Загрузка модуля: ${fileName}`;
+  const lowerName = fileName.toLowerCase();
+
+  if (/\.(png|jpe?g|gif|svg|webp|ico)$/.test(lowerName)) {
+    return `Загрузка медиа: ${fileName}`;
   }
 
-  if (resourceName.includes("/src/components/")) {
-    return `Загрузка компонента: ${fileName}`;
-  }
-
-  if (resourceName.includes("/src/pages/")) {
-    return `Загрузка страницы: ${fileName}`;
-  }
-
-  if (resourceName.includes("/src/styles/")) {
-    return `Загрузка таблицы стилей: ${fileName}`;
-  }
-
-  if (fileName.endsWith(".js") || fileName.endsWith(".ts") || fileName.endsWith(".tsx")) {
-    return `Загрузка скрипта: ${fileName}`;
-  }
-
-  if (fileName.endsWith(".css") || fileName.endsWith(".scss")) {
-    return `Загрузка таблицы стилей: ${fileName}`;
-  }
-
-  if (fileName.endsWith(".json")) {
+  if (lowerName.endsWith(".json")) {
     return `Загрузка данных: ${fileName}`;
   }
 
-  if (
-    fileName.endsWith(".woff") ||
-    fileName.endsWith(".woff2") ||
-    fileName.endsWith(".ttf")
-  ) {
+  if (/\.(woff2?|ttf|otf|eot)$/.test(lowerName)) {
     return `Загрузка шрифта: ${fileName}`;
+  }
+
+  if (/\.(css|scss|sass|less)$/.test(lowerName)) {
+    return `Загрузка стилей: ${fileName}`;
+  }
+
+  if (/\.(js|jsx|ts|tsx)$/.test(lowerName)) {
+    return `Загрузка скрипта: ${fileName}`;
   }
 
   return `Загрузка ресурса: ${fileName}`;
