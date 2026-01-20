@@ -90,6 +90,30 @@ const setupPerformanceObserver = (
 };
 
 const LoadingAnimation: React.FC<LoadingAnimationProperties> = ({isLoading}) => {
+  const [showIntro, setShowIntro] = useState(false);
+
+  useEffect(() => {
+    if (isLoading) {
+      if (globalThis.window === undefined || !globalThis.localStorage) {
+        setShowIntro(true);
+
+        return;
+      }
+
+      const lastShown = localStorage.getItem("introLastShown");
+
+      const now = Date.now();
+
+      const show = !lastShown || now - Number.parseInt(lastShown, 10) > 20 * 60 * 1000;
+
+      if (show) {
+        localStorage.setItem("introLastShown", now.toString());
+      }
+
+      setShowIntro(show);
+    }
+  }, [isLoading]);
+
   const [resource, setResource] = useState<string>("");
 
   const location = useLocation();
@@ -183,12 +207,11 @@ const LoadingAnimation: React.FC<LoadingAnimationProperties> = ({isLoading}) => 
           animate={{opacity: 1, pointerEvents: "auto"}}
           className={styles["loading-animation-overlay"]}
           exit={{opacity: 0, pointerEvents: "none"}}
-          initial={{opacity: 0, pointerEvents: "none"}}
+          initial={{opacity: 1, pointerEvents: "auto"}}
           style={{
             backgroundColor: "var(--color-background-primary)",
           }}
           transition={{
-            delay: 2,
             duration: 0.3,
             ease: [0.25, 0, 0, 1],
           }}
@@ -202,7 +225,7 @@ const LoadingAnimation: React.FC<LoadingAnimationProperties> = ({isLoading}) => 
               width: "100%",
             }}
           >
-            {title && (
+            {title && showIntro && (
               <div className={styles["bouncy-text-container"]}>
                 <motion.div
                   animate="visible"
@@ -240,30 +263,39 @@ const LoadingAnimation: React.FC<LoadingAnimationProperties> = ({isLoading}) => 
                 </motion.div>
               </div>
             )}
-            <div
+            <motion.div
+              animate={{opacity: 1}}
+              initial={{opacity: 0}}
               style={{
-                marginTop: title ? "30px" : "0",
+                marginTop: title && showIntro ? "30px" : "0",
                 maxWidth: "300px",
                 width: "80%",
+              }}
+              transition={{
+                delay: showIntro ? 1.5 : 1,
+                duration: 0.5,
+                ease: [0.25, 0, 0, 1],
               }}
             >
               <LinearProgress
                 color="inherit"
                 style={{borderRadius: "4px", height: "4px"}}
               />
-            </div>
+            </motion.div>
             <div className={styles["loading-animation-container"]}>
-              <motion.p
-                animate={{opacity: 0.5}}
-                className={styles["loading-animation-text"]}
-                dangerouslySetInnerHTML={{__html: formattedResource}}
-                initial={{opacity: 0}}
-                transition={{
-                  delay: 4,
-                  duration: 1,
-                  ease: [0.25, 0, 0, 1],
-                }}
-              />
+              {showIntro && (
+                <motion.p
+                  animate={{opacity: 0.5}}
+                  className={styles["loading-animation-text"]}
+                  dangerouslySetInnerHTML={{__html: formattedResource}}
+                  initial={{opacity: 0}}
+                  transition={{
+                    delay: 4,
+                    duration: 1,
+                    ease: [0.25, 0, 0, 1],
+                  }}
+                />
+              )}
             </div>
           </div>
         </motion.div>
