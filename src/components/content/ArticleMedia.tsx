@@ -1,52 +1,79 @@
 import React, {useCallback, useEffect, useState} from "react";
+import mediaMetadata from "virtual:media-metadata";
 
-import {ShareRounded} from "@mui/icons-material";
-import {message} from "antd";
 import {createPortal} from "react-dom";
 
-import {copyText} from "../../hooks/useCopyToClipboard";
-
-import styles from "./ContentFigure.module.scss";
+import styles from "./ArticleMedia.module.scss";
 import {useSpoiler} from "./spoilerContexts";
 
-interface ContentFigureProperties {
-  autoPlay?: boolean;
+interface BaseMediaProperties {
   caption: string;
-  imgTitle?: string;
-  loop?: boolean;
   src: string;
-  theme?: "light" | "dark";
-  type: "image" | "video" | "youtube";
-  variant?: "windows" | "mac";
 }
 
-const ContentFigure: React.FC<ContentFigureProperties> = ({
-  autoPlay,
-  caption,
-  imgTitle,
-  loop,
-  src,
-  theme,
-  type,
-  variant,
-}) => {
-  const isOpen = useSpoiler();
+interface ImageMediaProperties extends BaseMediaProperties {
+  height?: number | string;
+  type: "image";
+  width?: number | string;
+}
 
-  const [shouldRender, setShouldRender] = useState(isOpen);
+interface VideoMediaProperties extends BaseMediaProperties {
+  autoPlay?: boolean;
+  height?: number | string;
+  loop?: boolean;
+  type: "video";
+  width?: number | string;
+}
 
-  useEffect(() => {
-    if (isOpen) {
-      setShouldRender(true);
+interface YouTubeMediaProperties extends BaseMediaProperties {
+  height?: number | string;
+  type: "youtube";
+  width?: number | string;
+}
 
-      return;
-    }
+export type ArticleMediaProperties =
+  | ImageMediaProperties
+  | VideoMediaProperties
+  | YouTubeMediaProperties;
 
-    const timer = setTimeout(() => {
-      setShouldRender(false);
-    }, 350);
+const getMediaSource = (source: string): string => {
+  if (source.startsWith("http")) return source;
 
-    return () => clearTimeout(timer);
-  }, [isOpen]);
+  if (source.startsWith("/")) return source;
+
+  if (source.startsWith("media/")) {
+    return `/${source}`;
+  }
+
+  return `/media/${source}`;
+};
+
+const getYouTubeId = (source: string): string => {
+  if (source.includes("/")) {
+    return source.split("/").pop() || "";
+  }
+
+  return source;
+};
+
+const getMetadata = (source: string) => {
+  let key = source;
+
+  if (key.startsWith("/")) key = key.slice(1);
+
+  if (!key.startsWith("media/")) key = `media/${key}`;
+
+  return (mediaMetadata as Record<string, {width: number; height: number} | undefined>)[
+    key
+  ];
+};
+
+const ArticleMedia: React.FC<ArticleMediaProperties> = (properties) => {
+  const {caption, src, type} = properties;
+
+  const isSpoilerOpen = useSpoiler();
+
+  const [hasBeenOpened, setHasBeenOpened] = useState(isSpoilerOpen);
 
   const [isFullscreen, setIsFullscreen] = useState(false);
 
@@ -54,12 +81,11 @@ const ContentFigure: React.FC<ContentFigureProperties> = ({
 
   const [initialScrollY, setInitialScrollY] = useState(0);
 
-  const styleClass =
-    type === "youtube"
-      ? styles["figure-browser-youtube"]
-      : styles[`figure-${variant || "windows"}-${theme || "light"}`];
-
-  const isWindowsStyle = variant === "windows";
+  useEffect(() => {
+    if (isSpoilerOpen) {
+      setHasBeenOpened(true);
+    }
+  }, [isSpoilerOpen]);
 
   const handleMaximize = useCallback(() => {
     setInitialScrollY(window.scrollY);
@@ -104,9 +130,7 @@ const ContentFigure: React.FC<ContentFigureProperties> = ({
       document.addEventListener("keydown", handleEscKey);
     }
 
-    return () => {
-      document.removeEventListener("keydown", handleEscKey);
-    };
+    return () => document.removeEventListener("keydown", handleEscKey);
   }, [isFullscreen, handleClose]);
 
   useEffect(() => {
@@ -120,202 +144,107 @@ const ContentFigure: React.FC<ContentFigureProperties> = ({
       window.addEventListener("scroll", handleScroll);
     }
 
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
+    return () => window.removeEventListener("scroll", handleScroll);
   }, [isFullscreen, handleClose, initialScrollY]);
 
-  if (!shouldRender) {
-    return <></>;
-  }
-
-  const WindowControlButton: React.FC<{
-    label: string;
-    className: string;
-    onClick: () => void;
-    svgPath?: string;
-  }> = ({className, label, onClick, svgPath}) => (
-    <button
-      aria-label={label}
-      className={className}
-      onClick={onClick}
-    >
-      {svgPath && (
-        <svg
-          height="32"
-          viewBox="0 0 24 24"
-          width="32"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d={svgPath}
-            fill="currentColor"
-          />
-        </svg>
-      )}
-    </button>
-  );
-
-  let content: React.ReactNode;
-
-  let id: string | undefined;
-
-  const windowHeaderContent = (
-    <>
-      {isWindowsStyle && <figcaption>{caption}</figcaption>}
-      <div className={styles["window-controls"]}>
-        {isWindowsStyle ? (
-          <>
-            <WindowControlButton
-              className="minimize"
-              label="Свернуть"
-              svgPath="M5 20q-.425 0-.713-.288T4 19q0-.425.288-.713T5 18h14q.425 0 .713.288T20 19q0 .425-.288.713T19 20H5Z"
-              onClick={handleClose}
-            />
-            <WindowControlButton
-              className="maximize"
-              label="Раскрыть"
-              svgPath="M6 20q-.825 0-1.413-.588T4 18V6q0-.825.588-1.413T6 4h12q.825 0 1.413.588T20 6v12q0 .825-.588 1.413T18 20H6Zm0-2h12V6H6v12ZM6 6v12V6Z"
-              onClick={handleMaximize}
-            />
-            <WindowControlButton
-              className="close"
-              label="Закрыть"
-              svgPath="m12 13.4l-4.9 4.9q-.275.275-.7.275t-.7-.275t-.275-.7t.275-.7l4.9-4.9l-4.9-4.9q-.275-.275-.275-.7t.275-.7t.7-.275t.7.275l4.9 4.9l4.9-4.9q.275-.275.7-.275t.7.275t.275.7t-.275.7L13.4 12l4.9 4.9q.275.275.275.7t-.275.7t-.7.275t-.7-.275z"
-              onClick={handleClose}
-            />
-          </>
-        ) : (
-          <>
-            <WindowControlButton
-              className="close"
-              label="Закрыть"
-              onClick={handleClose}
-            />
-            <WindowControlButton
-              className="maximize"
-              label="Раскрыть"
-              onClick={handleMaximize}
-            />
-            <WindowControlButton
-              className="minimize"
-              label="Свернуть"
-              onClick={handleClose}
-            />
-          </>
-        )}
-      </div>
-      {!isWindowsStyle && <figcaption>{caption}</figcaption>}
-    </>
-  );
-
-  const MediaContentWrapper: React.FC<{children: React.ReactNode}> = ({children}) => (
-    <div>
-      <div
-        className={styles["window-header"]}
-        onDoubleClick={handleClick}
-      >
-        {windowHeaderContent}
-      </div>
-      {children}
-    </div>
-  );
-
-  switch (type) {
-    case "image": {
-      content = (
-        <MediaContentWrapper>
-          <img
-            alt={imgTitle}
-            src={src}
-            onClick={handleClick}
-          />
-        </MediaContentWrapper>
-      );
-
-      break;
+  const renderCaption = () => {
+    if (!caption) {
+      return;
     }
 
-    case "video": {
-      content = (
-        <MediaContentWrapper>
+    return <figcaption className={styles["media-caption"]}>{caption}</figcaption>;
+  };
+
+  const renderContent = () => {
+    const metadata = getMetadata(src);
+
+    const aspectRatio = metadata ? `${metadata.width}/${metadata.height}` : "16/9";
+
+    if (!hasBeenOpened) {
+      return (
+        <div
+          className={styles["media-placeholder"]}
+          style={{aspectRatio}}
+        />
+      );
+    }
+
+    const resolvedSource = getMediaSource(src);
+
+    switch (type) {
+      case "image": {
+        return (
+          <img
+            alt={caption}
+            className={`${styles["media-content"]} ${styles["media-content--image"]}`}
+            height={metadata?.height}
+            loading="lazy"
+            src={resolvedSource}
+            style={{aspectRatio}}
+            width={metadata?.width}
+            onClick={handleClick}
+          />
+        );
+      }
+
+      case "video": {
+        return (
           <video
             controls
             playsInline
-            autoPlay={autoPlay}
-            loop={loop}
-            src={src}
+            autoPlay={properties.autoPlay}
+            className={styles["media-content"]}
+            height={metadata?.height}
+            loop={properties.loop}
+            src={resolvedSource}
+            style={{aspectRatio}}
+            width={metadata?.width}
           />
-        </MediaContentWrapper>
-      );
+        );
+      }
 
-      break;
-    }
+      case "youtube": {
+        const videoId = getYouTubeId(src);
 
-    case "youtube": {
-      id = src?.split("/").pop();
-
-      content = (
-        <>
-          <div className={styles["window-header"]}>
-            <figcaption>
-              <b>YouTube</b>: {caption}
-            </figcaption>
-            <div className={styles["youtube-button"]}>
-              <button
-                onClick={() =>
-                  window.open(`https://www.youtube.com/watch?v=${id}`, "_blank")
-                }
-              >
-                Открыть в новой вкладке
-              </button>
-              <button
-                aria-label="Копировать ссылку"
-                onClick={async () => {
-                  const success = await copyText(`https://www.youtube.com/watch?v=${id}`);
-
-                  if (success) {
-                    message.success("Ссылка на видео скопирована");
-                  } else {
-                    message.error("Не удалось скопировать ссылку");
-                  }
-                }}
-              >
-                <ShareRounded />
-              </button>
-            </div>
-          </div>
+        return (
           <iframe
             allowFullScreen
-            src={`https://www.youtube.com/embed/${id}`}
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            className={styles["media-iframe"]}
+            loading="lazy"
+            src={`https://www.youtube.com/embed/${videoId}`}
             title={caption}
           />
-        </>
-      );
+        );
+      }
 
-      break;
+      default: {
+        return;
+      }
     }
+  };
 
-    default: {
-      content = <></>;
-    }
-  }
+  const containerClass = type === "youtube" ? styles["media--youtube"] : undefined;
 
   return (
     <>
-      <div className={styles["figure-container"]}>
-        <figure className={styleClass}>{content}</figure>
+      <div className={styles["media-container"]}>
+        <figure className={`${styles["media-wrapper"]} ${containerClass}`}>
+          {renderContent()}
+          {renderCaption()}
+        </figure>
       </div>
       {isFullscreen &&
         createPortal(
           <div
-            className={`${styles["fullscreen-overlay"]} ${isClosing ? styles["closing"] : ""}`}
+            className={`${styles["media-fullscreen-portal"]} ${
+              isClosing ? styles["media-fullscreen-portal--closing"] : ""
+            }`}
             onClick={handleClickOutside}
           >
-            <div
-              className={`${styles["fullscreen-content"]} ${styleClass} ${isClosing ? styles["closing"] : ""}`}
-            >
-              {content}
+            <div className={`${styles["media-fullscreen-content"]} ${containerClass}`}>
+              {renderContent()}
+              {renderCaption()}
             </div>
           </div>,
           document.body
@@ -324,4 +253,4 @@ const ContentFigure: React.FC<ContentFigureProperties> = ({
   );
 };
 
-export {ContentFigure};
+export {ArticleMedia};

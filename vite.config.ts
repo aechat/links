@@ -4,6 +4,7 @@ import autoprefixer from "autoprefixer";
 import {readFile, writeFile} from "node:fs/promises";
 import path from "node:path";
 import {defineConfig} from "vite";
+import {getMediaMetadata} from "./scripts/getMediaMetadata.js";
 export default defineConfig({
   resolve: {
     alias: {
@@ -22,6 +23,20 @@ export default defineConfig({
       targets: ["defaults", "not IE 11", "Firefox 66"],
     }),
     react(),
+    {
+      name: "media-metadata-provider",
+      resolveId(id) {
+        if (id === "virtual:media-metadata") {
+          return "\0virtual:media-metadata";
+        }
+      },
+      load: async (id) => {
+        if (id === "\0virtual:media-metadata") {
+          const metadata = await getMediaMetadata();
+          return `export default ${JSON.stringify(metadata)};`;
+        }
+      },
+    },
     {
       name: "generate-404-html",
       closeBundle: async () => {
