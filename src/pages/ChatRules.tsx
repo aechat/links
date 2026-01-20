@@ -1,7 +1,6 @@
 import React, {useCallback} from "react";
 
 import {Divider, message, Tooltip} from "antd";
-import {motion} from "framer-motion";
 import {Helmet} from "react-helmet-async";
 import {Link, useLocation} from "react-router-dom";
 
@@ -9,8 +8,9 @@ import Addition from "../components/content/Addition";
 import ContentFilter from "../components/content/ContentFilter";
 import Footer from "../components/layout/Footer";
 import Header from "../components/layout/Header";
-import PageIntro from "../components/layout/PageIntro";
+import PageTransition from "../components/layout/PageTransition";
 import {CopyButton} from "../components/ui/CopyButton/CopyButton";
+import {useLoading} from "../context/LoadingContext";
 import {useCopyToClipboard} from "../hooks/useCopyToClipboard";
 
 const constants = {
@@ -27,6 +27,12 @@ const constants = {
 
 const ChatRules = () => {
   const {hash} = useLocation();
+
+  const {setIsLoading} = useLoading();
+
+  React.useEffect(() => {
+    setIsLoading(false);
+  }, [setIsLoading]);
 
   useCopyToClipboard();
 
@@ -135,17 +141,7 @@ const ChatRules = () => {
         />
       </Helmet>
       <Header title="rules" />
-      <PageIntro text="rules" />
-      <motion.main
-        animate={{opacity: 1, x: 0, y: 0}}
-        className="main"
-        exit={{opacity: 0, x: 0, y: 50}}
-        initial={{opacity: 0, x: 0, y: 0}}
-        transition={{
-          duration: 0.3,
-          ease: [0.25, 0, 0, 1],
-        }}
-      >
+      <PageTransition className="main">
         <div className="article-container-flex">
           <div
             className="article-container"
@@ -851,7 +847,7 @@ const ChatRules = () => {
             />
           </div>
         </div>
-      </motion.main>
+      </PageTransition>
     </div>
   );
 };

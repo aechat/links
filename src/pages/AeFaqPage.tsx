@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 
 import {
   BrokenImageOutlined,
@@ -13,14 +13,14 @@ import {
   VideoSettingsRounded,
 } from "@mui/icons-material";
 import {Divider} from "antd";
-import {motion} from "framer-motion";
 import {Helmet} from "react-helmet-async";
 
 import {generateAnchorId} from "../components/content/DetailsSummary";
 import {SearchInPage, SearchProvider} from "../components/features/SearchEngine";
 import Footer from "../components/layout/Footer";
 import Header from "../components/layout/Header";
-import PageIntro from "../components/layout/PageIntro";
+import PageTransition from "../components/layout/PageTransition";
+import {useLoading} from "../context/LoadingContext";
 import {useAnchorValidation} from "../hooks/useAnchorValidation";
 import {useCopyToClipboard} from "../hooks/useCopyToClipboard";
 import {useSmartCopy} from "../hooks/useSmartCopy";
@@ -38,6 +38,14 @@ import AeWhereFind from "./sections/aefaq/AeWhereFind";
 
 const AeFaqPage = () => {
   const [isPageLoaded, setIsPageLoaded] = useState(false);
+
+  const {setIsLoading} = useLoading();
+
+  useEffect(() => {
+    setIsPageLoaded(true);
+    setIsLoading(false);
+    generateAnchorId();
+  }, [setIsLoading]);
 
   useCopyToClipboard();
   useSmartCopy(isPageLoaded);
@@ -119,10 +127,6 @@ const AeFaqPage = () => {
 
   return (
     <div className="page">
-      <PageIntro
-        isLoaded={isPageLoaded}
-        text="aefaq"
-      />
       <SearchProvider isPageLoaded={isPageLoaded}>
         <Helmet>
           <title>aefaq@aechat</title>
@@ -184,20 +188,7 @@ const AeFaqPage = () => {
           />
         </Helmet>
         <Header title="aefaq" />
-        <motion.main
-          animate={{opacity: 1, x: 0, y: 0}}
-          className="main"
-          exit={{opacity: 0, x: 0, y: 50}}
-          initial={{opacity: 0, x: 0, y: 0}}
-          transition={{
-            duration: 0.3,
-            ease: [0.25, 0, 0, 1],
-          }}
-          onAnimationComplete={() => {
-            setIsPageLoaded(true);
-            generateAnchorId();
-          }}
-        >
+        <PageTransition className="main">
           <div className="article-container-flex">
             <div className="article-container">
               <div className="article-title">
@@ -227,7 +218,7 @@ const AeFaqPage = () => {
               />
             </div>
           </div>
-        </motion.main>
+        </PageTransition>
         <SearchInPage sections={sections} />
       </SearchProvider>
     </div>

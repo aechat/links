@@ -1,4 +1,4 @@
-import React, {lazy, Suspense, useEffect, useState} from "react";
+import React, {lazy, Suspense, useEffect, useRef, useState} from "react";
 import {MetrikaCounter} from "react-metrika";
 
 import {ConfigProvider, message, Modal} from "antd";
@@ -10,6 +10,7 @@ import BrowserWarning from "./components/modals/BrowserWarning";
 import modalStyles from "./components/modals/Modal.module.scss";
 import {ThemeProvider, useTheme} from "./components/modals/ThemeChanger";
 import LoadingAnimation from "./components/ui/LoadingAnimation";
+import LoadingContext from "./context/LoadingContext";
 import {copyText} from "./hooks/useCopyToClipboard";
 import useDynamicFavicon from "./hooks/useDynamicFavicon";
 import themeConfig from "./styles/antTheme";
@@ -342,6 +343,15 @@ export const App = () => {
 
   const [isAppReady, setIsAppReady] = useState(true);
 
+  const [isLoading, setIsLoading] = useState(true);
+
+  const previousPathname = useRef(location.pathname);
+
+  if (previousPathname.current !== location.pathname) {
+    previousPathname.current = location.pathname;
+    setIsLoading(true);
+  }
+
   useEffect(() => {
     if (globalThis.window === undefined) return;
 
@@ -448,74 +458,77 @@ export const App = () => {
               setIsAppReady(true);
             }}
           />
-          {isAppReady && (
-            <Suspense fallback={<LoadingAnimation />}>
-              <AnimatePresence
-                mode="wait"
-                onExitComplete={() => {
-                  if (globalThis.window !== undefined) {
-                    setTimeout(() => {
-                      globalThis.window.scrollTo({
-                        behavior: "instant",
-                        top: 0,
-                      });
-                    }, 50);
-                  }
-                }}
-              >
-                <Routes
-                  key={location.pathname}
-                  location={location}
-                >
-                  <Route
-                    element={<Links />}
-                    path="/"
-                  />
-                  <Route
-                    element={<AeFaqPage />}
-                    path="/aefaq"
-                  />
-                  <Route
-                    element={<PrFaqPage />}
-                    path="/prfaq"
-                  />
-                  <Route
-                    element={<PsFaqPage />}
-                    path="/psfaq"
-                  />
-                  <Route
-                    element={<AeExprPage />}
-                    path="/aeexpr"
-                  />
-                  <Route
-                    element={<ChatRules />}
-                    path="/rules"
-                  />
-                  <Route
-                    element={<FilesRedirect />}
-                    path="/files"
-                  />
-                  <Route
-                    element={<RegFileRedirect />}
-                    path="/regfile"
-                  />
-                  <Route
-                    element={<RegFileRedirect />}
-                    path="/reg"
-                  />
-                  <Route
-                    element={
-                      <>
-                        <NotFound />
-                        <RedirectHtml />
-                      </>
+          <LoadingContext.Provider value={{setIsLoading}}>
+            <LoadingAnimation isLoading={isLoading && !isSafariWarningOpen} />
+            {isAppReady && (
+              <Suspense fallback={undefined}>
+                <AnimatePresence
+                  mode="wait"
+                  onExitComplete={() => {
+                    if (globalThis.window !== undefined) {
+                      setTimeout(() => {
+                        globalThis.window.scrollTo({
+                          behavior: "instant",
+                          top: 0,
+                        });
+                      }, 50);
                     }
-                    path="*"
-                  />
-                </Routes>
-              </AnimatePresence>
-            </Suspense>
-          )}
+                  }}
+                >
+                  <Routes
+                    key={location.pathname}
+                    location={location}
+                  >
+                    <Route
+                      element={<Links />}
+                      path="/"
+                    />
+                    <Route
+                      element={<AeFaqPage />}
+                      path="/aefaq"
+                    />
+                    <Route
+                      element={<PrFaqPage />}
+                      path="/prfaq"
+                    />
+                    <Route
+                      element={<PsFaqPage />}
+                      path="/psfaq"
+                    />
+                    <Route
+                      element={<AeExprPage />}
+                      path="/aeexpr"
+                    />
+                    <Route
+                      element={<ChatRules />}
+                      path="/rules"
+                    />
+                    <Route
+                      element={<FilesRedirect />}
+                      path="/files"
+                    />
+                    <Route
+                      element={<RegFileRedirect />}
+                      path="/regfile"
+                    />
+                    <Route
+                      element={<RegFileRedirect />}
+                      path="/reg"
+                    />
+                    <Route
+                      element={
+                        <>
+                          <NotFound />
+                          <RedirectHtml />
+                        </>
+                      }
+                      path="*"
+                    />
+                  </Routes>
+                </AnimatePresence>
+              </Suspense>
+            )}
+          </LoadingContext.Provider>
         </ErrorBoundary>
       </ThemeProvider>
     </ConfigProvider>
