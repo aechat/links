@@ -282,8 +282,9 @@ const LoadingAnimation: React.FC<LoadingAnimationProperties> = ({isLoading}) => 
               animate={{opacity: 1}}
               initial={{opacity: 0}}
               style={{
+                marginInline: "20px",
                 marginTop: title && showIntro ? "30px" : "0",
-                maxWidth: "300px",
+                maxWidth: "225px",
                 width: "80%",
               }}
               transition={{
