@@ -4936,7 +4936,7 @@ const AeFromNewbies: React.FC = () => {
       <DetailsSummary
         anchor="preview-no-audio"
         tag="пропало аудио, no audio, нет звука, аудио, отсутствует, audio hardware"
-        title="Почему пропал звук при проигрывании предпросмотра?"
+        title="Из-за чего может пропадать звук при проигрывании предпросмотра?"
       >
         <Divider>Проверяем настройки предпросмотра</Divider>
         <p>
@@ -4971,6 +4971,21 @@ const AeFromNewbies: React.FC = () => {
           type="image"
           variant="windows"
         />
+        <Divider>Проверяем и конвертируем исходники</Divider>
+        <p>
+          <mark className="app">Adobe After Effects</mark> может некорректно
+          воспроизводить аудио, если в проекте используются файлы с «кривыми» алгоритмами
+          сжатия. Особенно часто это происходит с форматом{" "}
+          <mark className="audio">MP3</mark> или с видео, скачанными из интернета, —
+          например, с <mark className="app">YouTube</mark>. Проблемы могут проявляться в
+          виде пропущенных фрагментов, искажений или «растягивания» звука. Решение зависит
+          от типа исходника: если проблема в отдельном аудиофайле, его следует
+          конвертировать в формат <mark className="audio">WAV</mark> с помощью{" "}
+          <mark className="app">Adobe Audition</mark> или{" "}
+          <mark className="app">EZ CD Audio Converter</mark>. Если же некорректный звук —
+          часть видеофайла, надёжнее будет перекодировать видео целиком через{" "}
+          <mark className="app">Shutter Encoder</mark> и заменить его в проекте.
+        </p>
         <Divider>Проверяем устройство для вывода звука</Divider>
         <p>
           Если вы недавно меняли устройство вывода звука, например, подключили наушники,
@@ -4987,6 +5002,31 @@ const AeFromNewbies: React.FC = () => {
           theme="dark"
           type="image"
           variant="windows"
+        />
+        <ContentFilter
+          windowsContent={
+            <>
+              <Divider>Проверяем звуковые драйверы</Divider>
+              <p>
+                Иногда{" "}
+                <mark className="app">служба автоматических обновлений Windows</mark>{" "}
+                заменяет работающий драйвер на новую версию, которая может поломать вывод
+                звука.
+              </p>
+              <p>
+                Для решения проблемы отсутствующего звука попробуйте переустановить
+                драйверы или откатить их в{" "}
+                <mark className="app">Диспетчере устройств</mark>. Если сделать это не
+                удаётся — воспользуйтесь точкой восстановления или резервной копией
+                системы, если они были созданы до появления проблем.
+              </p>
+              <ContentFigure
+                caption="Как откатить драйвер в Windows"
+                src="A9WYBglOKaQ"
+                type="youtube"
+              />
+            </>
+          }
         />
       </DetailsSummary>
       <DetailsSummary
@@ -5358,24 +5398,26 @@ const AeFromNewbies: React.FC = () => {
       <DetailsSummary
         anchor="missing-casts-shadows"
         tag="расширенный 3д"
-        title="Почему у меня не активна функция «Casts Shadows» при использовании Advanced 3D?"
+        title="Почему у меня не получается включить «Casts Shadows» при использовании Advanced 3D?"
       >
-        {/* FIXME: если эта функция появится в стабильном релизе - обновить статью */}
         <p>
-          В стабильной версии <mark className="app">Adobe After Effects</mark> на момент
-          написания статьи нельзя включить тени для источников света, так как эта функция
-          ещё не реализована.
-        </p>
-        <p>
-          Если вы смотрите обучающее видео, в котором автор включает{" "}
-          <mark className="select">«Casts Shadows»</mark>, то, скорее всего, у него
-          установлена бета-версия <mark className="app">Adobe After Effects</mark>, где
-          эта функция уже{" "}
+          Функцию{" "}
           <a href="https://helpx.adobe.com/after-effects/using/enable-lights-to-cast-shadows.html">
-            доступна
-          </a>
-          .
+            отбрасывания теней от источника света
+          </a>{" "}
+          при использовании модуля <mark className="plugin">Advanced 3D</mark> добавили в{" "}
+          <mark className="app">Adobe After Effects</mark> версии <mark>26.0</mark> и
+          новее. В предыдущих сборках включить{" "}
+          <mark className="select">«Casts Shadows»</mark> было нельзя, так как эта
+          возможность ещё не была доступна в стабильном релизе и находилась на стадии
+          бета-тестирования.
         </p>
+        <Addition type="info">
+          Если вы смотрите обучающее видео, где автор активирует{" "}
+          <mark className="select">«Casts Shadows»</mark> в{" "}
+          <mark className="app">Adobe After Effects 2025</mark>, значит, на момент записи
+          у него была установлена публичная бета-версия программы.
+        </Addition>
       </DetailsSummary>
       <DetailsSummary
         tag="прозрачность, чёрный фон, unmult, extract, blending modes"

@@ -316,9 +316,8 @@ const ThemeModal: React.FC<ThemeModalProperties> = ({closeModal, isModalOpen}) =
 
   const currentPath =
     globalThis.window === undefined ? "" : globalThis.window.location.pathname;
-
-  const allowedPaths = ["/aefaq", "/prfaq", "/psfaq", "/aeexpr", "/rules"];
-
+  const pagesWithSpoilerAnimation = ["/aefaq", "/prfaq", "/psfaq", "/aeexpr"];
+  const pagesWithWidthSelector = [...pagesWithSpoilerAnimation, "/rules"];
   const today = new Date();
 
   const month = today.getMonth();
@@ -328,9 +327,12 @@ const ThemeModal: React.FC<ThemeModalProperties> = ({closeModal, isModalOpen}) =
   const isNewYearPeriod = (month === 11 && day >= 25) || (month === 0 && day <= 7);
 
   const isWinter = [0, 1, 11].includes(month);
-
-  const isWidthSelectorVisible =
-    allowedPaths.some((path) => currentPath.startsWith(path)) && windowWidth >= 1000;
+  const showSpoilerAnimationSelector = pagesWithSpoilerAnimation.some((path) =>
+    currentPath.startsWith(path)
+  );
+  const showWidthSelector =
+    pagesWithWidthSelector.some((path) => currentPath.startsWith(path)) &&
+    windowWidth >= 1000;
 
   return (
     <Modal
@@ -376,7 +378,7 @@ const ThemeModal: React.FC<ThemeModalProperties> = ({closeModal, isModalOpen}) =
               Системная
             </ThemeOptionButton>
           </div>
-          {isWidthSelectorVisible && (
+          {showWidthSelector && (
             <>
               <div className={styles["theme-title"]}>Максимальная ширина контента</div>
               <div className={styles["theme-selector"]}>
@@ -401,21 +403,33 @@ const ThemeModal: React.FC<ThemeModalProperties> = ({closeModal, isModalOpen}) =
               </div>
             </>
           )}
-          <div className={styles["theme-title"]}>Анимация раскрытия спойлеров</div>
-          <div className={styles["theme-selector"]}>
-            <ThemeOptionButton
-              isSelected={isAnimationDisabled === false}
-              onClick={() => setIsAnimationDisabled(false)}
-            >
-              Включена
-            </ThemeOptionButton>
-            <ThemeOptionButton
-              isSelected={isAnimationDisabled}
-              onClick={() => setIsAnimationDisabled(true)}
-            >
-              Выключена
-            </ThemeOptionButton>
-          </div>
+          {showSpoilerAnimationSelector && (
+            <>
+              <div className={styles["theme-title"]}>Анимация раскрытия спойлеров</div>
+              <div className={styles["theme-selector"]}>
+                <button
+                  className={
+                    isAnimationDisabled === false
+                      ? "theme-button theme-button-selected"
+                      : "theme-button"
+                  }
+                  onClick={() => setIsAnimationDisabled(false)}
+                >
+                  Включена
+                </button>
+                <button
+                  className={
+                    isAnimationDisabled
+                      ? "theme-button theme-button-selected"
+                      : "theme-button"
+                  }
+                  onClick={() => setIsAnimationDisabled(true)}
+                >
+                  Выключена
+                </button>
+              </div>
+            </>
+          )}
           {isWinter && (
             <>
               <div className={styles["theme-title"]}>
