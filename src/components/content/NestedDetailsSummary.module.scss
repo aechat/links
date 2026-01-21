@@ -64,7 +64,7 @@
     border: solid 1px var(--color-border-primary);
     border-top: none;
     background-color: var(--color-background-secondary);
-    padding: 15px;
+    padding: 20px 10px 10px;
 
     > :first-child {
       margin-top: 0;
@@ -77,12 +77,12 @@
 
   &-content-wrapper {
     transition: max-height 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    margin-block-start: -10px;
     max-height: 0;
     overflow: hidden;
   }
 
   &-content-inner {
-    padding-top: 5px;
     overflow: hidden;
   }
 
@@ -90,17 +90,12 @@
     .details-nested-summary-icon {
       transform: rotate(45deg);
     }
-  }
 
-  &[open] {
-    .details-nested-summary {
-      border-bottom-left-radius: 0;
-      border-bottom-right-radius: 0;
-    }
-
-    .details-nested-section {
-      border-bottom-left-radius: $roundness;
-      border-bottom-right-radius: $roundness;
+    &[open] {
+      .details-nested-section {
+        border-bottom-left-radius: $roundness;
+        border-bottom-right-radius: $roundness;
+      }
     }
   }
 }

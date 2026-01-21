@@ -68,8 +68,8 @@ const NestedDetailsSummary: React.FC<NestedDetailsSummaryProperties> = ({
       if (event.target !== contentWrapper) return;
 
       if (isOpen) {
-        contentWrapper.style.maxHeight = "none";
         resizeObserver.observe(innerContent);
+        updateMaxHeight();
       }
     };
 
@@ -135,12 +135,12 @@ const NestedDetailsSummary: React.FC<NestedDetailsSummaryProperties> = ({
           ref={contentWrapperReference}
           className={styles["details-nested-content-wrapper"]}
         >
-          <div
+          <section
             ref={innerContentReference}
-            className={styles["details-nested-content-inner"]}
+            className={styles["details-nested-section"]}
           >
-            <section className={styles["details-nested-section"]}>{children}</section>
-          </div>
+            {children}
+          </section>
         </div>
       </details>
     </NestedDetailsSummaryContext.Provider>
