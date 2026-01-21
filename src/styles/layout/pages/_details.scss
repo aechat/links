@@ -153,7 +153,7 @@
 
 body {
   &.body-has-any-spoiler-open .article-content {
-    details[open] {
+    > details[open] {
       transform: scale(1.01);
       transform-origin: top;
       margin-block: 15px;
@@ -166,7 +166,7 @@ body {
   }
 
   &.has-open-details .article-content {
-    details:not([open]) {
+    > details:not([open]) {
       opacity: 0.35;
 
       &:hover {
@@ -174,7 +174,7 @@ body {
       }
     }
 
-    details[open] {
+    > details[open] {
       filter: drop-shadow(0 0 30px var(--color-surface-primary-open-shadow));
     }
 
