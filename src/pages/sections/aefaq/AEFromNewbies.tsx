@@ -5290,24 +5290,26 @@ const AEFromNewbies: React.FC = () => {
       <DetailsSummary
         anchor="missing-casts-shadows"
         tag="расширенный 3д"
-        title="Почему у меня не активна функция «Casts Shadows» при использовании Advanced 3D?"
+        title="Почему у меня не получается включить «Casts Shadows» при использовании Advanced 3D?"
       >
-        {/* FIXME: если эта функция появится в стабильном релизе - обновить статью */}
         <p>
-          В стабильной версии <mark className="app">Adobe After Effects</mark> на момент
-          написания статьи нельзя включить тени для источников света, так как эта функция
-          ещё не реализована.
-        </p>
-        <p>
-          Если вы смотрите обучающее видео, в котором автор включает{" "}
-          <mark className="select">«Casts Shadows»</mark>, то, скорее всего, у него
-          установлена бета-версия <mark className="app">Adobe After Effects</mark>, где
-          эта функция уже{" "}
+          Функцию{" "}
           <a href="https://helpx.adobe.com/after-effects/using/enable-lights-to-cast-shadows.html">
-            доступна
-          </a>
-          .
+            отбрасывания теней от источника света
+          </a>{" "}
+          при использовании модуля <mark className="plugin">Advanced 3D</mark> добавили в{" "}
+          <mark className="app">Adobe After Effects</mark> версии <mark>26.0</mark> и
+          новее. В предыдущих сборках включить{" "}
+          <mark className="select">«Casts Shadows»</mark> было нельзя, так как эта
+          возможность ещё не была доступна в стабильном релизе и находилась на стадии
+          бета-тестирования.
         </p>
+        <Addition type="info">
+          Если вы смотрите обучающее видео, где автор активирует{" "}
+          <mark className="select">«Casts Shadows»</mark> в{" "}
+          <mark className="app">Adobe After Effects 2025</mark>, значит, на момент записи
+          у него была установлена публичная бета-версия программы.
+        </Addition>
       </DetailsSummary>
       <DetailsSummary
         tag="прозрачность, чёрный фон, unmult, extract, blending modes"
