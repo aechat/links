@@ -1,8 +1,8 @@
 import React from "react";
 
 import Addition from "./Addition";
-import {useSpoiler} from "./DetailsSummary";
 import styles from "./HostsAdobe.module.scss";
+import {useSpoiler} from "./spoilerContexts";
 
 const HOSTS_URL =
   "https://raw.githubusercontent.com/ignaciocastro/a-dove-is-dumb/refs/heads/main/list.txt";
