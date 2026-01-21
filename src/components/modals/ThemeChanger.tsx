@@ -316,8 +316,11 @@ const ThemeModal: React.FC<ThemeModalProperties> = ({closeModal, isModalOpen}) =
 
   const currentPath =
     globalThis.window === undefined ? "" : globalThis.window.location.pathname;
+
   const pagesWithSpoilerAnimation = ["/aefaq", "/prfaq", "/psfaq", "/aeexpr"];
+
   const pagesWithWidthSelector = [...pagesWithSpoilerAnimation, "/rules"];
+
   const today = new Date();
 
   const month = today.getMonth();
@@ -327,9 +330,11 @@ const ThemeModal: React.FC<ThemeModalProperties> = ({closeModal, isModalOpen}) =
   const isNewYearPeriod = (month === 11 && day >= 25) || (month === 0 && day <= 7);
 
   const isWinter = [0, 1, 11].includes(month);
+
   const showSpoilerAnimationSelector = pagesWithSpoilerAnimation.some((path) =>
     currentPath.startsWith(path)
   );
+
   const showWidthSelector =
     pagesWithWidthSelector.some((path) => currentPath.startsWith(path)) &&
     windowWidth >= 1000;

@@ -1,7 +1,7 @@
-import {AnimatePresence, motion, Variants} from "framer-motion";
 import React, {useEffect, useState} from "react";
 
 import LinearProgress from "@mui/material/LinearProgress";
+import {AnimatePresence, motion, Variants} from "framer-motion";
 import {useLocation} from "react-router-dom";
 
 import styles from "./LoadingAnimation.module.scss";
