@@ -84,6 +84,8 @@ const LoadingAnimation: React.FC<LoadingAnimationProperties> = ({isLoading}) => 
 
   const [showResourceText, setShowResourceText] = useState(true);
 
+  const [showProgressBar, setShowProgressBar] = useState(true);
+
   const location = useLocation();
 
   const getTitle = () => {
@@ -104,6 +106,9 @@ const LoadingAnimation: React.FC<LoadingAnimationProperties> = ({isLoading}) => 
 
   useEffect(() => {
     if (isLoading) {
+      setShowProgressBar(true);
+      setShowResourceText(true);
+
       if (!getTitle()) {
         setShowIntro(false);
         setCanDismiss(true);
@@ -135,14 +140,9 @@ const LoadingAnimation: React.FC<LoadingAnimationProperties> = ({isLoading}) => 
 
       setShowIntro(show);
     } else {
-      const timer = setTimeout(() => {
-        setShowResourceText(false);
-      }, 1000);
-
-      return () => clearTimeout(timer);
+      setShowProgressBar(false);
+      setShowResourceText(false);
     }
-
-    setShowResourceText(true);
   }, [isLoading, location.pathname]);
 
   const [resource, setResource] = useState<string>("");
@@ -215,6 +215,18 @@ const LoadingAnimation: React.FC<LoadingAnimationProperties> = ({isLoading}) => 
     },
   };
 
+  let progressBarDelay = 0;
+
+  if (showProgressBar) {
+    progressBarDelay = showIntro ? 1.5 : 1;
+  }
+
+  let resourceTextDelay = 0;
+
+  if (showResourceText) {
+    resourceTextDelay = showIntro ? 1.5 : 1;
+  }
+
   return (
     <AnimatePresence>
       {(isLoading || !canDismiss) && (
@@ -279,7 +291,7 @@ const LoadingAnimation: React.FC<LoadingAnimationProperties> = ({isLoading}) => 
               </div>
             )}
             <motion.div
-              animate={{opacity: 1}}
+              animate={{opacity: showProgressBar ? 1 : 0}}
               initial={{opacity: 0}}
               style={{
                 marginInline: "20px",
@@ -288,7 +300,7 @@ const LoadingAnimation: React.FC<LoadingAnimationProperties> = ({isLoading}) => 
                 width: "80%",
               }}
               transition={{
-                delay: showIntro ? 1.5 : 1,
+                delay: progressBarDelay,
                 duration: 0.5,
                 ease: [0.25, 0, 0, 1],
               }}
@@ -305,7 +317,7 @@ const LoadingAnimation: React.FC<LoadingAnimationProperties> = ({isLoading}) => 
                 dangerouslySetInnerHTML={{__html: formattedResource}}
                 initial={{opacity: 0}}
                 transition={{
-                  delay: 2,
+                  delay: resourceTextDelay,
                   duration: 0.5,
                   ease: [0.25, 0, 0, 1],
                 }}
