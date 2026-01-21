@@ -119,7 +119,7 @@ const LoadingAnimation: React.FC<LoadingAnimationProperties> = ({isLoading}) => 
       if (globalThis.window === undefined || !globalThis.localStorage) {
         setShowIntro(true);
         setCanDismiss(false);
-        setTimeout(() => setCanDismiss(true), 5000);
+        setTimeout(() => setCanDismiss(true), 3750);
 
         return;
       }
@@ -133,7 +133,7 @@ const LoadingAnimation: React.FC<LoadingAnimationProperties> = ({isLoading}) => 
       if (show) {
         localStorage.setItem("introLastShown", now.toString());
         setCanDismiss(false);
-        setTimeout(() => setCanDismiss(true), 5000);
+        setTimeout(() => setCanDismiss(true), 3750);
       } else {
         setCanDismiss(true);
       }
@@ -169,12 +169,10 @@ const LoadingAnimation: React.FC<LoadingAnimationProperties> = ({isLoading}) => 
 
   const taglineText = "@aechat";
 
-  const shiftDelay = (title ? title.length : 0) * 0.05 + 0.25 + 2.5;
-
-  const mainTextContainerVariants: Variants = {
+  const bouncyTextContainerVariants: Variants = {
     hidden: {opacity: 1},
     visible: {
-      transition: {delayChildren: 2.5, staggerChildren: 0.1},
+      transition: {delayChildren: 1.5, staggerChildren: 0.1},
     },
   };
 
@@ -185,24 +183,6 @@ const LoadingAnimation: React.FC<LoadingAnimationProperties> = ({isLoading}) => 
       scale: 1,
       transition: {damping: 7.5, stiffness: 100, type: "spring"},
       y: 0,
-    },
-  };
-
-  const taglineContainerVariants: Variants = {
-    hidden: {
-      opacity: 0,
-      width: 0,
-    },
-    visible: {
-      opacity: 1,
-      transition: {
-        delay: shiftDelay,
-        delayChildren: shiftDelay,
-        duration: 1,
-        ease: [0.5, 0, 0, 1],
-        staggerChildren: 0.075,
-      },
-      width: "auto",
     },
   };
 
@@ -218,13 +198,13 @@ const LoadingAnimation: React.FC<LoadingAnimationProperties> = ({isLoading}) => 
   let progressBarDelay = 0;
 
   if (showProgressBar) {
-    progressBarDelay = showIntro ? 1.5 : 1;
+    progressBarDelay = showIntro ? 2.5 : 1;
   }
 
   let resourceTextDelay = 0;
 
   if (showResourceText) {
-    resourceTextDelay = showIntro ? 1.5 : 1;
+    resourceTextDelay = showIntro ? 2.5 : 1;
   }
 
   return (
@@ -253,42 +233,35 @@ const LoadingAnimation: React.FC<LoadingAnimationProperties> = ({isLoading}) => 
             }}
           >
             {title && showIntro && (
-              <div className={styles["bouncy-text-container"]}>
-                <motion.div
-                  animate="visible"
-                  aria-label={title}
-                  className={styles["bouncy-text-logo"]}
-                  initial="hidden"
-                  variants={mainTextContainerVariants}
-                >
+              <motion.div
+                animate="visible"
+                className={styles["bouncy-text-container"]}
+                initial="hidden"
+                variants={bouncyTextContainerVariants}
+              >
+                <div className={styles["bouncy-text-logo"]}>
                   {[...title].map((char, index) => (
                     <motion.span
-                      key={`${char}-${index}`}
+                      key={`title-${char}-${index}`}
                       className={styles["bouncy-text-letter"]}
                       variants={letterVariants}
                     >
                       {char}
                     </motion.span>
                   ))}
-                </motion.div>
-                <motion.div
-                  animate="visible"
-                  aria-label={taglineText}
-                  className={styles["bouncy-text-tagline"]}
-                  initial="hidden"
-                  variants={taglineContainerVariants}
-                >
+                </div>
+                <div className={styles["bouncy-text-tagline"]}>
                   {[...taglineText].map((char, index) => (
                     <motion.span
-                      key={`${char}-${index}`}
+                      key={`tagline-${char}-${index}`}
                       className={styles["bouncy-text-letter"]}
                       variants={taglineLetterVariants}
                     >
                       {char}
                     </motion.span>
                   ))}
-                </motion.div>
-              </div>
+                </div>
+              </motion.div>
             )}
             <motion.div
               animate={{opacity: showProgressBar ? 1 : 0}}
