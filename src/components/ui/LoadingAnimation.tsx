@@ -1,7 +1,7 @@
+import {AnimatePresence, motion, Variants} from "framer-motion";
 import React, {useEffect, useState} from "react";
 
 import LinearProgress from "@mui/material/LinearProgress";
-import {AnimatePresence, motion, Variants} from "framer-motion";
 import {useLocation} from "react-router-dom";
 
 import styles from "./LoadingAnimation.module.scss";
@@ -169,7 +169,7 @@ const LoadingAnimation: React.FC<LoadingAnimationProperties> = ({isLoading}) => 
 
   const taglineText = "@aechat";
 
-  const shiftDelay = (title ? title.length : 0) * 0.05 + 0.4 + 2.5;
+  const shiftDelay = (title ? title.length : 0) * 0.05 + 0.25 + 2.5;
 
   const mainTextContainerVariants: Variants = {
     hidden: {opacity: 1},
@@ -179,11 +179,11 @@ const LoadingAnimation: React.FC<LoadingAnimationProperties> = ({isLoading}) => 
   };
 
   const letterVariants: Variants = {
-    hidden: {opacity: 0, scale: 0, y: 125},
+    hidden: {opacity: 0, scale: 0, y: 75},
     visible: {
       opacity: 1,
       scale: 1,
-      transition: {damping: 10, stiffness: 100, type: "spring"},
+      transition: {damping: 7.5, stiffness: 100, type: "spring"},
       y: 0,
     },
   };
@@ -197,20 +197,20 @@ const LoadingAnimation: React.FC<LoadingAnimationProperties> = ({isLoading}) => 
       opacity: 1,
       transition: {
         delay: shiftDelay,
-        delayChildren: shiftDelay + 0.2,
-        duration: 1.25,
+        delayChildren: shiftDelay,
+        duration: 1,
         ease: [0.5, 0, 0, 1],
-        staggerChildren: 0.05,
+        staggerChildren: 0.075,
       },
       width: "auto",
     },
   };
 
   const taglineLetterVariants: Variants = {
-    hidden: {opacity: 0, y: -20},
+    hidden: {opacity: 0, y: 10},
     visible: {
       opacity: 1,
-      transition: {damping: 15, stiffness: 200, type: "spring"},
+      transition: {damping: 5, stiffness: 100, type: "spring"},
       y: 0,
     },
   };
