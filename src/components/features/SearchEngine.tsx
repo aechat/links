@@ -1512,7 +1512,7 @@ export const SearchInPage: React.FC<{sections: SearchSection[]}> = ({sections}) 
 
       setTimeout(() => {
         closeModal();
-      }, 0); // Delay closing the modal slightly
+      }, 0);
     },
     [closeModal]
   );
