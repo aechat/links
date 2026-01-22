@@ -1,8 +1,10 @@
-import React, {useEffect, useState} from "react";
+import React, {useEffect, useLayoutEffect, useState} from "react";
 
 import LinearProgress from "@mui/material/LinearProgress";
 import {AnimatePresence, motion, Variants} from "framer-motion";
 import {useLocation} from "react-router-dom";
+
+import {useLoading} from "../../context/LoadingContext";
 
 import styles from "./LoadingAnimation.module.scss";
 
@@ -78,6 +80,8 @@ const setupPerformanceObserver = (
 };
 
 const LoadingAnimation: React.FC<LoadingAnimationProperties> = ({isLoading}) => {
+  const {setIsLoading} = useLoading();
+
   const [showIntro, setShowIntro] = useState(false);
 
   const [canDismiss, setCanDismiss] = useState(true);
@@ -87,6 +91,10 @@ const LoadingAnimation: React.FC<LoadingAnimationProperties> = ({isLoading}) => 
   const [showProgressBar, setShowProgressBar] = useState(true);
 
   const location = useLocation();
+
+  useLayoutEffect(() => {
+    setIsLoading(true);
+  }, [location.pathname, setIsLoading]);
 
   const getTitle = () => {
     const path = location.pathname;
@@ -135,7 +143,8 @@ const LoadingAnimation: React.FC<LoadingAnimationProperties> = ({isLoading}) => 
         setCanDismiss(false);
         setTimeout(() => setCanDismiss(true), 3750);
       } else {
-        setCanDismiss(true);
+        setCanDismiss(false);
+        setTimeout(() => setCanDismiss(true), 500);
       }
 
       setShowIntro(show);
