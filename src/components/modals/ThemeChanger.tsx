@@ -412,26 +412,18 @@ const ThemeModal: React.FC<ThemeModalProperties> = ({closeModal, isModalOpen}) =
             <>
               <div className={styles["theme-title"]}>Анимация раскрытия спойлеров</div>
               <div className={styles["theme-selector"]}>
-                <button
-                  className={
-                    isAnimationDisabled === false
-                      ? "theme-button theme-button-selected"
-                      : "theme-button"
-                  }
+                <ThemeOptionButton
+                  isSelected={!isAnimationDisabled}
                   onClick={() => setIsAnimationDisabled(false)}
                 >
                   Включена
-                </button>
-                <button
-                  className={
-                    isAnimationDisabled
-                      ? "theme-button theme-button-selected"
-                      : "theme-button"
-                  }
+                </ThemeOptionButton>
+                <ThemeOptionButton
+                  isSelected={isAnimationDisabled}
                   onClick={() => setIsAnimationDisabled(true)}
                 >
                   Выключена
-                </button>
+                </ThemeOptionButton>
               </div>
             </>
           )}
