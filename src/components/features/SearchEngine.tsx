@@ -1127,8 +1127,9 @@ export const SearchButton: React.FC<SearchButtonProperties> = ({
       {wide ? (
         <>
           <Search />
-          <span>Поиск по странице</span>
-          <mark>Ctrl + F</mark>
+          <span>
+            Поиск по странице <mark>Ctrl + F</mark>
+          </span>
         </>
       ) : (
         <>
