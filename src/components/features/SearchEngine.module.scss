@@ -425,5 +425,7 @@ button {
     margin: 0;
     margin-inline-start: 2px;
     border-radius: $roundness * 0.5;
+    padding-inline: 5px;
+    font-weight: 600;
   }
 }
