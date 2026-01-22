@@ -568,7 +568,7 @@ const Links = () => {
           </Addition>
           <Modal
             centered
-            closeIcon={undefined}
+            closeIcon={false}
             footer={<></>}
             open={isModalOpen}
             width={1000}

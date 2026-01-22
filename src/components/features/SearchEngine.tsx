@@ -1658,7 +1658,7 @@ export const SearchInPage: React.FC<{sections: SearchSection[]}> = ({sections}) 
   return (
     <RemoveScroll enabled={isModalOpen}>
       <Modal
-        closeIcon={undefined}
+        closeIcon={false}
         footer={<></>}
         open={isModalOpen}
         width={850}

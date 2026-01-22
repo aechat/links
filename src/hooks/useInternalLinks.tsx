@@ -119,7 +119,7 @@ export const useInternalLinkHandler = () => {
   const InternalLinkModal = (
     <Modal
       centered
-      closeIcon={undefined}
+      closeIcon={false}
       footer={<></>}
       open={isModalOpen}
       onCancel={handleCancel}

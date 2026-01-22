@@ -59,7 +59,7 @@ export const useExternalLinkHandler = () => {
   const ExternalLinkModal = (
     <Modal
       centered
-      closeIcon={undefined}
+      closeIcon={false}
       footer={<></>}
       open={isModalOpen}
       onCancel={handleCancel}
