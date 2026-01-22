@@ -127,7 +127,7 @@ const LoadingAnimation: React.FC<LoadingAnimationProperties> = ({isLoading}) => 
       if (globalThis.window === undefined || !globalThis.localStorage) {
         setShowIntro(true);
         setCanDismiss(false);
-        setTimeout(() => setCanDismiss(true), 3750);
+        setTimeout(() => setCanDismiss(true), 2000);
 
         return;
       }
@@ -141,7 +141,7 @@ const LoadingAnimation: React.FC<LoadingAnimationProperties> = ({isLoading}) => 
       if (show) {
         localStorage.setItem("introLastShown", now.toString());
         setCanDismiss(false);
-        setTimeout(() => setCanDismiss(true), 3750);
+        setTimeout(() => setCanDismiss(true), 2000);
       } else {
         setCanDismiss(false);
         setTimeout(() => setCanDismiss(true), 500);
@@ -178,28 +178,20 @@ const LoadingAnimation: React.FC<LoadingAnimationProperties> = ({isLoading}) => 
 
   const taglineText = "@aechat";
 
-  const bouncyTextContainerVariants: Variants = {
+  const textContainerVariants: Variants = {
     hidden: {opacity: 1},
     visible: {
-      transition: {delayChildren: 1.5, staggerChildren: 0.1},
+      transition: {delayChildren: 0.25, staggerChildren: 0.04},
     },
   };
 
   const letterVariants: Variants = {
-    hidden: {opacity: 0, scale: 0, y: 75},
+    hidden: {opacity: 0, scaleX: 0.7, scaleY: 1.5, y: 50},
     visible: {
       opacity: 1,
-      scale: 1,
-      transition: {damping: 7.5, stiffness: 100, type: "spring"},
-      y: 0,
-    },
-  };
-
-  const taglineLetterVariants: Variants = {
-    hidden: {opacity: 0, y: 10},
-    visible: {
-      opacity: 1,
-      transition: {damping: 5, stiffness: 100, type: "spring"},
+      scaleX: 1,
+      scaleY: 1,
+      transition: {damping: 7.5, mass: 0.8, stiffness: 75, type: "spring"},
       y: 0,
     },
   };
@@ -244,27 +236,27 @@ const LoadingAnimation: React.FC<LoadingAnimationProperties> = ({isLoading}) => 
             {title && showIntro && (
               <motion.div
                 animate="visible"
-                className={styles["bouncy-text-container"]}
+                className={styles["animated-text-container"]}
                 initial="hidden"
-                variants={bouncyTextContainerVariants}
+                variants={textContainerVariants}
               >
-                <div className={styles["bouncy-text-logo"]}>
+                <div className={styles["animated-text-logo"]}>
                   {[...title].map((char, index) => (
                     <motion.span
                       key={`title-${char}-${index}`}
-                      className={styles["bouncy-text-letter"]}
+                      className={styles["animated-text-letter"]}
                       variants={letterVariants}
                     >
                       {char}
                     </motion.span>
                   ))}
                 </div>
-                <div className={styles["bouncy-text-tagline"]}>
+                <div className={styles["animated-text-tagline"]}>
                   {[...taglineText].map((char, index) => (
                     <motion.span
                       key={`tagline-${char}-${index}`}
-                      className={styles["bouncy-text-letter"]}
-                      variants={taglineLetterVariants}
+                      className={styles["animated-text-letter"]}
+                      variants={letterVariants}
                     >
                       {char}
                     </motion.span>
