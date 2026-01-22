@@ -16,8 +16,9 @@ import {RemoveScroll} from "react-remove-scroll";
 import {copyText} from "../../hooks/useCopyToClipboard";
 import {useLongPress} from "../../hooks/useLongPress";
 import {formatNestedQuotes} from "../../utils/stringUtilities";
+import modalStyles from "../modals/Modal.module.scss";
 
-import styles from "./SearchEngine.module.scss";
+import searchStyles from "./SearchEngine.module.scss";
 
 export interface SearchContextType {
   closeModal: () => void;
@@ -1107,7 +1108,7 @@ export const SearchButton: React.FC<SearchButtonProperties> = ({
 
   return (
     <button
-      className={`${styles["search-button"]} ${className}`.trim()}
+      className={`${searchStyles["search-button"]} ${className}`.trim()}
       style={{
         filter: isPageLoaded ? "saturate(100%)" : "saturate(0%)",
         opacity: isPageLoaded ? 1 : 0.5,
@@ -1179,7 +1180,7 @@ const SearchCategories: React.FC<{
 
   return (
     <div
-      className={styles["search-category"]}
+      className={searchStyles["search-category"]}
       {...longPressProperties}
     >
       {sections.map((section) => (
@@ -1271,7 +1272,7 @@ const SearchResults: React.FC<{
                   resultRefs.current[index] = element;
                 }
               }}
-              className={`${styles["search-link"]} ${isSelected ? styles["search-selected"] : ""}`}
+              className={`${searchStyles["search-link"]} ${isSelected ? searchStyles["search-selected"] : ""}`}
               data-anchor={anchor}
               data-id={id}
               style={(() => {
@@ -1294,13 +1295,13 @@ const SearchResults: React.FC<{
               onMouseLeave={() => setHoveredIndex(undefined)}
             >
               <div
-                className={`${styles["search-header"]} ${isSelected ? styles["search-selected"] : ""}`}
+                className={`${searchStyles["search-header"]} ${isSelected ? searchStyles["search-selected"] : ""}`}
               >
-                <p className={styles["search-title"]}>
+                <p className={searchStyles["search-title"]}>
                   {title.replace(/^[+-]+/, "").trim()}
                 </p>
                 {tagsToDisplay.length > 0 && (
-                  <span className={styles["search-tags"]}>
+                  <span className={searchStyles["search-tags"]}>
                     {tagsToDisplay.map((t) => (
                       <mark key={t}>{t}</mark>
                     ))}
@@ -1308,7 +1309,7 @@ const SearchResults: React.FC<{
                 )}
               </div>
               <div
-                className={`${styles["search-content"]} article-content no-copy`}
+                className={`${searchStyles["search-content"]} article-content no-copy`}
                 dangerouslySetInnerHTML={{__html: content}}
               />
             </button>
@@ -1340,7 +1341,7 @@ const ExternalSearch: React.FC<{query: string}> = ({query}) => {
 
   return (
     <div>
-      <div className={styles["search-external-links"]}>
+      <div className={searchStyles["search-external-links"]}>
         <button
           onClick={() => {
             globalThis.open(
@@ -1364,7 +1365,7 @@ const ExternalSearch: React.FC<{query: string}> = ({query}) => {
           Спросить у Perplexity<sup>1</sup>
         </button>
       </div>
-      <p className={styles["search-no-results-tip"]}>
+      <p className={searchStyles["search-no-results-tip"]}>
         <sup>1</sup> Perplexity и другие чат-боты с использованием нейросетевых моделей
         могут выдавать недостоверную информацию
       </p>
@@ -1374,8 +1375,8 @@ const ExternalSearch: React.FC<{query: string}> = ({query}) => {
 
 const NoResults: React.FC<{query: string}> = ({query}) => (
   <div>
-    <div className={styles["search-no-results"]}>
-      <p className={styles["search-no-results-title"]}>
+    <div className={searchStyles["search-no-results"]}>
+      <p className={searchStyles["search-no-results-title"]}>
         По вашему запросу на этой странице{" "}
         <span
           style={{
@@ -1387,7 +1388,7 @@ const NoResults: React.FC<{query: string}> = ({query}) => (
         </span>{" "}
         не нашлось
       </p>
-      <p className={styles["search-no-results-message"]}>
+      <p className={searchStyles["search-no-results-message"]}>
         Попробуйте перефразировать свой запрос или выполните поиск в Яндексе или
         Perplexity<sup>1</sup>
       </p>
@@ -1573,10 +1574,12 @@ export const SearchInPage: React.FC<{sections: SearchSection[]}> = ({sections}) 
         return;
       }
 
-      const resultContainer = document.querySelector(`.${styles["search-results"]}`);
+      const resultContainer = document.querySelector(
+        `.${searchStyles["search-results"]}`
+      );
 
       const selectedResultElements = resultContainer?.querySelectorAll(
-        `.${styles["search-link"]}`
+        `.${searchStyles["search-link"]}`
       );
 
       selectedResultElements?.[selectedResultIndex]?.scrollIntoView({
@@ -1598,7 +1601,7 @@ export const SearchInPage: React.FC<{sections: SearchSection[]}> = ({sections}) 
         event.stopPropagation();
 
         const button = event.target.closest(
-          `.${styles["search-link"]}`
+          `.${searchStyles["search-link"]}`
         ) as HTMLButtonElement | null;
 
         if (button) {
@@ -1660,19 +1663,19 @@ export const SearchInPage: React.FC<{sections: SearchSection[]}> = ({sections}) 
         width={850}
         onCancel={closeModal}
       >
-        <div className={styles["search"]}>
-          <div className={styles["modal-content"]}>
-            <div className={styles["search-input-wrapper"]}>
+        <div className={searchStyles["search"]}>
+          <div className={modalStyles["modal-content"]}>
+            <div className={searchStyles["search-input-wrapper"]}>
               <input
                 ref={inputReference}
-                className={styles["search-input"]}
+                className={searchStyles["search-input"]}
                 placeholder="Введите что-нибудь для поиска..."
                 style={{cursor: "text"}}
                 type="search"
                 value={query}
                 onChange={(event_) => handleQueryChange(event_.target.value)}
               />
-              <p className={styles["search-counter"]}>
+              <p className={searchStyles["search-counter"]}>
                 <span
                   style={{
                     color: "var(--summary-text)",
@@ -1686,7 +1689,7 @@ export const SearchInPage: React.FC<{sections: SearchSection[]}> = ({sections}) 
               </p>
               {query.trim() !== "" && (
                 <button
-                  className={styles["search-input-clear"]}
+                  className={searchStyles["search-input-clear"]}
                   style={{cursor: "pointer"}}
                   onClick={() => {
                     setQuery("");
@@ -1697,7 +1700,7 @@ export const SearchInPage: React.FC<{sections: SearchSection[]}> = ({sections}) 
                 </button>
               )}
               <button
-                className={styles["search-input-close"]}
+                className={searchStyles["search-input-close"]}
                 onClick={closeModal}
               >
                 <CloseRounded />
@@ -1705,7 +1708,7 @@ export const SearchInPage: React.FC<{sections: SearchSection[]}> = ({sections}) 
             </div>
             <div
               ref={resultsContainerReference}
-              className={`${styles["search-results"]}${isFadeVisible ? " " + styles["show-fade"] : ""}`}
+              className={`${searchStyles["search-results"]}${isFadeVisible ? " " + searchStyles["show-fade"] : ""}`}
             >
               {renderContent()}
               {isFadeVisible}
