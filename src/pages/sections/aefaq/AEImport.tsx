@@ -1868,6 +1868,12 @@ const AEImport: React.FC = () => {
         </p>
         <Divider>Конвертер TGS в JSON</Divider>
         <TgsToJsonConverter />
+        <Addition type="info">
+          Если вы не хотите разбираться с скачиванием или конвертацией стикера — вы можете
+          отправить нужный стикер боту{" "}
+          <a href="https://t.me/GimmeStickerBot">@GimmeStickerBot</a> и получить в ответ
+          файл в выбранном вами формате.
+        </Addition>
         <Divider />
         <p>
           После успешной конвертации скачайте результат и выберите один из способов
