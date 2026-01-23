@@ -1,6 +1,18 @@
 import {motion} from "framer-motion";
 import React, {useEffect, useState} from "react";
 
+import {
+  BrokenImageOutlined,
+  ErrorOutlineRounded,
+  HelpCenterOutlined,
+  InputRounded,
+  InstallDesktopRounded,
+  PsychologyAltOutlined,
+  SpeedRounded,
+  TouchAppOutlined,
+  TravelExploreRounded,
+  VideoSettingsRounded,
+} from "@mui/icons-material";
 import {Divider} from "antd";
 import {Helmet} from "react-helmet-async";
 
@@ -32,40 +44,70 @@ const PRFAQ = () => {
   const sections = [
     {
       component: PRWhereFind,
+      icon: <TravelExploreRounded />,
       id: "where-find",
       key: "1",
       title: "Ищем полезности",
     },
     {
       component: PRInstallProblems,
+      icon: <InstallDesktopRounded />,
       id: "install-problems",
       key: "2",
       title: "Проблемы с установкой",
     },
     {
       component: PRFromNewbies,
+      icon: <HelpCenterOutlined />,
       id: "from-newbies",
       key: "3",
       title: "Вопросы от новичков",
     },
-    {component: PRImport, id: "import", key: "4", title: "Импорт"},
-    {component: PRInterface, id: "interface", key: "5", title: "Интерфейс"},
+    {
+      component: PRImport,
+      icon: <InputRounded />,
+      id: "import",
+      key: "4",
+      title: "Импорт",
+    },
+    {
+      component: PRInterface,
+      icon: <TouchAppOutlined />,
+      id: "interface",
+      key: "5",
+      title: "Интерфейс",
+    },
     {
       component: PRPerformance,
+      icon: <SpeedRounded />,
       id: "performance",
       key: "6",
       title: "Производительность",
     },
-    {component: PRActions, id: "actions", key: "7", title: "Как и чем?"},
+    {
+      component: PRActions,
+      icon: <PsychologyAltOutlined />,
+      id: "actions",
+      key: "7",
+      title: "Как и чем?",
+    },
     {
       component: PRErrors,
+      icon: <ErrorOutlineRounded />,
       id: "errors",
       key: "8",
       title: "Ошибки и предупреждения",
     },
-    {component: PRExport, id: "export", key: "9", title: "Рендер и экспорт"},
+    {
+      component: PRExport,
+      icon: <VideoSettingsRounded />,
+      id: "export",
+      key: "9",
+      title: "Рендер и экспорт",
+    },
     {
       component: PRExportProblems,
+      icon: <BrokenImageOutlined />,
       id: "export-problems",
       key: "10",
       title: "Проблемы при экспорте",
