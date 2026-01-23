@@ -115,7 +115,9 @@ const Header: React.FC<HeaderProperties> = ({title}) => {
             </>
           )}
           {WIP_PATHS.some((path) => currentPath.includes(path)) && (
-            <mark>{isWide ? "[В РАЗРАБОТКЕ]" : "[WIP]"}</mark>
+            <Tooltip title="Некоторые статьи на этой странице могут отсутствовать или иметь множество ошибок">
+              <mark>{isWide ? "[В РАЗРАБОТКЕ]" : "[WIP]"}</mark>
+            </Tooltip>
           )}
         </div>
         <div>{isWide ? <SupportDonut wide /> : <SupportDonut />}</div>
