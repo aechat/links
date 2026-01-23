@@ -14,23 +14,23 @@ const AEErrors: React.FC = () => {
       <Addition type="danger">
         <ul>
           <li>
-            Пожалуйста, не ленитесь и внимательно читайте текст ошибки, которую выдаёт
+            Пожалуйста, не ленитесь и внимательно читайте текст ошибки, который выдаёт
             программа. В большинстве случаев в её описании уже есть и причина, и возможное
             решение проблемы.
           </li>
           <li>
-            Если у вас возникают трудности с чтением на английском языке —{" "}
+            Если у вас возникают трудности с чтением на английском языке,{" "}
             <a href="https://translate.yandex.ru/">воспользуйтесь переводчиком</a>.
           </li>
           <li>
-            Если в этом разделе нет вашей ошибки — попробуйте найти решение в интернете,
-            например на профильных форумах.
+            Если в этом разделе нет вашей ошибки, попробуйте найти решение в интернете,
+            например, на профильных форумах.
           </li>
         </ul>
       </Addition>
       <DetailsSummary
         anchor="unlicensed-app"
-        tag="bitte lies und akzeptiere die nutzungsbedingungen von adobe, door niet-gelicentieerde adobe-apps kan je apparaat worden blootgesteld aan extra beveilligingsrisico's, bu lisanssiz adobe uygulamasi orijinal olmadigindan yakinda devre disi birakilacak, deze app is gedeactiveerd, deze app wordt over dagen gedeactiveerd, deze niet-gelicentieerde adobe-app is degeactiveerd, dieses nicht lizenzierte adobe-programm wurde deaktiviert, dieses produkt wurde deaktiviert, cette application a ete desactivee, cette application adobe asns license a ete desactivee, profitez de sur les applications adobe authentiques, verhoog je productiviteit met legitieme adobe-apps, start your free trial of app, take advantage of discounts up to 40% off on genuine adobe replacement apps, this app has been disabled, this app will disable in days, this unlicensed adobe app is not genuine and will be disabled soon, unlicensed adobe apps may expose your device to increased security risks, vpn, white and red window, white screen, блокировка доступа в интернет, впн, виртуальная частная сеть, файл хостс, не запускается, начните использовать бесплатную пробную версию, окно с красной полоской при запуске, пустое окно, слетела лицензия, белое и красное окно, белый экран, the unlicensed adobe app, adobe genuine, hosts, ошибка лицензии, красное окно"
+        tag="bitte lies und akzeptiere die nutzungsbedingungen von adobe, door niet-gelicentieerde adobe-apps kan je apparaat worden blootgesteld aan extra beveilligingsrisico's, bu lisanssiz adobe uygulamasi orijinal olmadigindan yakinda devre disi birakilacak, deze app is gedeactiveerd, deze app wordt over dagen gedeactiveerd, deze niet-gelicentieerde adobe-app is degeactiveerd, dieses nicht lizenzierte adobe-programm wurde deaktiviert, dieses produkt wurde deaktiviert, cette application a ete desactivee, cette application adobe asns license a ete desactivee, profitez de sur les applications adobe authentiques, verhoog je productiviteit met legitieme adobe-apps, start your free trial of app, take advantage of discounts up to 40% off on genuine adobe replacement apps, this app has been disabled, this app will disable in days, this unlicensed adobe app is not genuine and will be disabled soon, unlicensed adobe apps may expose your device to increased security risks, vpn, white and red window, white screen, we can't verify your subscription status, we can't reach the adobe servers, this may be because you're not connected to the internet, error code 12014, sorry this app is not available, to continue using this app check your internet connection firewall or ad blocker settings, блокировка доступа в интернет, впн, виртуальная частная сеть, файл хостс, не запускается, не удается проверить статус вашей подписки, не удается подключиться к серверам adobe, возможно у вас отстутствует подключение к интернету, код ошибки 12015, начните использовать бесплатную пробную версию, окно с красной полоской при запуске, пустое окно, слетела лицензия, белое и красное окно, белый экран, the unlicensed adobe app, adobe genuine, hosts, ошибка лицензии, красное окно"
         title="Как избавиться от «The unlicensed Adobe app has been disabled»?"
       >
         <p>
@@ -56,8 +56,8 @@ const AEErrors: React.FC = () => {
           Для начала проверьте, не используете ли вы виртуальную частную сеть. С ростом
           популярности подключений через <mark className="app">VPN</mark> пользователи всё
           чаще сталкиваются с ошибкой лицензии, так как{" "}
-          <mark className="app">Adobe After Effects</mark> после подключения к частной
-          сети может получить доступ в интернет. В результате окно с сообщением о проблеме
+          <mark className="app">Adobe After Effects</mark> после подключения к такой сети
+          может получить доступ в интернет. В результате окно с сообщением о проблеме
           может внезапно появиться на языке той страны, к которой вы подключены.
         </p>
         <p>
@@ -65,7 +65,8 @@ const AEErrors: React.FC = () => {
           брандмауэра и изменения в файле <mark className="file">HOSTS</mark>, из-за чего
           программы, которым ранее был заблокирован доступ в интернет, снова получают его.
           Если вы подключены к частной сети, разорвите соединение и запустите{" "}
-          <mark className="app">Adobe After Effects</mark> снова — окно должно исчезнуть.
+          <mark className="app">Adobe After Effects</mark> снова, тогда окно должно
+          исчезнуть.
         </p>
         <p>
           Если окно с ошибкой лицензии всё равно появляется, попробуйте полностью
@@ -145,7 +146,7 @@ const AEErrors: React.FC = () => {
                 настройки вашего VPN-клиента: возможно, в нём есть функция раздельного
                 туннелирования или возможность внести программы{" "}
                 <mark className="company">Adobe</mark> в список исключений, чтобы трафик
-                для них шёл с учётом правил брандмауэра или блокировался.
+                для них учитывал правила брандмауэра или блокировался.
               </p>
               <Divider>Проверяем настройки прокси в системе</Divider>
               <p>
@@ -398,7 +399,7 @@ const AEErrors: React.FC = () => {
       </DetailsSummary>
       <DetailsSummary
         anchor="fix-out-of-memory"
-        tag="out of memory, after effects has unexpectedly run out of memory and cannot complete this export, either decrease the memory requirements for the rendering frame or install more ram, нехватка озу, выделенный объем памяти превышает внутреннее ограничение, рекомендуется снизить требования к памяти для рендеринга этого кадра, предупреждение о нехватке памяти, unable to allocate enough memory, оперативная память, ошибка памяти, 23::40, не проигрывается предпросмотр, зацикливается превью"
+        tag="out of memory, after effects has unexpectedly run out of memory and cannot complete this export, either decrease the memory requirements for the rendering frame or install more ram, нехватка озу, выделенный объем памяти превышает внутреннее ограничение, рекомендуется снизить требования к памяти для рендеринга этого кадра, предупреждение о нехватке памяти, unable to allocate enough memory, неожиданно для программы нехватило памяти поэтому завершить этот экспорт невозможно, может потребоваться упростить композицию уменьшить разрешение рендеринга или увеличить объём оперативной доступный для программы в меню настройки память и производительность, оперативная память, ошибка памяти, 23::40, не проигрывается предпросмотр, зацикливается превью"
         title="Как избавиться от «Out of Memory», «Unable to allocate enough memory to render the current frame», «Low memory warning. RAM use has been extended for previews» и похожих ошибок?"
       >
         <p>
@@ -1029,12 +1030,12 @@ const AEErrors: React.FC = () => {
                   <Addition type="warning">
                     <sup>1</sup> Если у вас включён контроль учётных записей (UAC) и{" "}
                     <mark className="app">Adobe After Effects</mark> запущен от имени
-                    администратора, то импорт файлов с помощью{" "}
-                    <mark>drag&apos;n&apos;drop</mark>, например из{" "}
-                    <mark className="app">Проводника</mark>, работать не будет. Это не
-                    баг, а особенность безопасности <mark>Windows</mark>. Система просто
-                    не позволяет передавать файлы из приложений, запущенных с правами
-                    обычного пользователя, в те, которые работают от имени администратора.
+                    администратора, то импорт файлов с помощью <mark>drag-and-drop</mark>,
+                    например из <mark className="app">Проводника</mark>, работать не
+                    будет. Это не баг, а особенность безопасности <mark>Windows</mark>.
+                    Система просто не позволяет передавать файлы из приложений, запущенных
+                    с правами обычного пользователя, в те, которые работают от имени
+                    администратора.
                   </Addition>
                   <ContentFigure
                     caption="Настройка запуска от имени администратора"
@@ -1525,7 +1526,7 @@ const AEErrors: React.FC = () => {
       <DetailsSummary
         anchor="fix-your-disk-cache-folder-is-on-a-drive-that-does-not-have-enough-avaiable-space"
         tag="дисковый кэш, нехватка места, please make more space available or go to media & disk cache preferences to change the folder or maximium disk cache size"
-        title="Что означает «Your disk cache folder is on a drive that does not have enough avaiable space to safely store the full amount specified in your preferences»?"
+        title="Что означает «Your disk cache folder is on a drive that does not have enough available space to safely store the full amount specified in your preferences»?"
       >
         <p>
           В этом предупреждении прямо говорится, что на диске, где хранится кэш,
@@ -1733,7 +1734,7 @@ const AEErrors: React.FC = () => {
       </DetailsSummary>
       <DetailsSummary
         anchor="fix-content-aware-fill-initialization-failed"
-        tag="ошибка инициализации заливки с учетом содержимого"
+        tag="ошибка инициализации заливки с учётом содержимого"
         title="Из-за чего может появляться «Content-Aware Fill Error: Initialization Failed»?"
       >
         <p>

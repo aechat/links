@@ -14,32 +14,32 @@ const PRErrors: React.FC = () => {
       <Addition type="danger">
         <ul>
           <li>
-            Пожалуйста, не ленитесь и внимательно читайте текст ошибки, которую вам выдаёт
-            программа. В большинстве случаев в её описании уже содержится причина и
-            возможное решение проблемы.
+            Пожалуйста, не ленитесь и внимательно читайте текст ошибки, который выдаёт
+            программа. В большинстве случаев в её описании уже есть и причина, и возможное
+            решение проблемы.
           </li>
           <li>
-            Если у вас возникают трудности с чтением текста на английском языке —{" "}
+            Если у вас возникают трудности с чтением текста на английском языке,{" "}
             <a href="https://translate.yandex.ru/">воспользуйтесь переводчиком</a>.
           </li>
           <li>
-            Если в этом разделе нет вашей ошибки — попробуйте найти решение в интернете,
-            например на профильных форумах.
+            Если в этом разделе нет вашей ошибки, попробуйте найти решение в интернете,
+            например, на профильных форумах.
           </li>
         </ul>
       </Addition>
       <DetailsSummary
         anchor="unlicensed-app"
-        tag="bitte lies und akzeptiere die nutzungsbedingungen von adobe, door niet-gelicentieerde adobe-apps kan je apparaat worden blootgesteld aan extra beveilligingsrisico's, bu lisanssiz adobe uygulamasi orijinal olmadigindan yakinda devre disi birakilacak, deze app is gedeactiveerd, deze app wordt over dagen gedeactiveerd, deze niet-gelicentieerde adobe-app is degeactiveerd, dieses nicht lizenzierte adobe-programm wurde deaktiviert, dieses produkt wurde deaktiviert, cette application a ete desactivee, cette application adobe asns license a ete desactivee, profitez de sur les applications adobe authentiques, verhoog je productiviteit met legitieme adobe-apps, start your free trial of app, take advantage of discounts up to 40% off on genuine adobe replacement apps, this app has been disabled, this app will disable in days, this unlicensed adobe app is not genuine and will be disabled soon, unlicensed adobe apps may expose your device to increased security risks, vpn, white and red window, white screen, блокировка доступа в интернет, впн, виртуальная частная сеть, файл хостс, не запускается, начните использовать бесплатную пробную версию, окно с красной полоской при запуске, пустое окно, слетела лицензия, белое и красное окно, белый экран, the unlicensed adobe app, adobe genuine, hosts, ошибка лицензии, красное окно"
+        tag="bitte lies und akzeptiere die nutzungsbedingungen von adobe, door niet-gelicentieerde adobe-apps kan je apparaat worden blootgesteld aan extra beveilligingsrisico's, bu lisanssiz adobe uygulamasi orijinal olmadigindan yakinda devre disi birakilacak, deze app is gedeactiveerd, deze app wordt over dagen gedeactiveerd, deze niet-gelicentieerde adobe-app is degeactiveerd, dieses nicht lizenzierte adobe-programm wurde deaktiviert, dieses produkt wurde deaktiviert, cette application a ete desactivee, cette application adobe asns license a ete desactivee, profitez de sur les applications adobe authentiques, verhoog je productiviteit met legitieme adobe-apps, start your free trial of app, take advantage of discounts up to 40% off on genuine adobe replacement apps, this app has been disabled, this app will disable in days, this unlicensed adobe app is not genuine and will be disabled soon, unlicensed adobe apps may expose your device to increased security risks, vpn, white and red window, white screen, we can't verify your subscription status, we can't reach the adobe servers, this may be because you're not connected to the internet, error code 12014, sorry this app is not available, to continue using this app check your internet connection firewall or ad blocker settings, блокировка доступа в интернет, впн, виртуальная частная сеть, файл хостс, не запускается, не удается проверить статус вашей подписки, не удается подключиться к серверам adobe, возможно у вас отстутствует подключение к интернету, код ошибки 12015, начните использовать бесплатную пробную версию, окно с красной полоской при запуске, пустое окно, слетела лицензия, белое и красное окно, белый экран, the unlicensed adobe app, adobe genuine, hosts, ошибка лицензии, красное окно"
         title="Как избавиться от «The unlicensed Adobe app has been disabled»?"
       >
         <p>
           Пользователи «народных» версий программ <mark className="company">Adobe</mark>{" "}
-          иногда могут столкнуться с ошибкой проверки лицензии. Она проявляется как
-          небольшое окно на белом фоне с красной полосой сверху, а в редких случаях
+          иногда сталкиваются с ошибкой проверки лицензии. Она проявляется в виде
+          небольшого окна на белом фоне с красной полосой сверху, а в редких случаях
           сопровождается полностью пустым белым окном. В этой статье разберём несколько
-          способов, как избавиться от такого окна. При этом стоит учитывать, что
-          эффективность каждого метода может различаться для разных пользователей.
+          способов, как от него избавиться. Стоит учитывать, что эффективность каждого
+          метода может различаться у разных пользователей.
         </p>
         <ContentFigure
           caption="Adobe"
@@ -53,24 +53,23 @@ const PRErrors: React.FC = () => {
         <Divider>Проверяем наличие VPN-соединения</Divider>
         <p>
           Для начала проверьте, не используете ли вы виртуальную частную сеть. С ростом
-          популярности подключений через <mark className="app">VPN</mark>, пользователи
-          всё чаще сталкиваются с ошибкой отсутствия лицензии, так как{" "}
-          <mark className="app">Adobe Premiere Pro</mark> после подключения к частной сети
-          может получить доступ в интернет. В результате окно с сообщением о проблеме с
-          лицензией может появиться внезапно и отображаться на языке той страны, к которой
-          вы подключены.
+          популярности подключений через <mark className="app">VPN</mark> пользователи всё
+          чаще сталкиваются с ошибкой лицензии, так как{" "}
+          <mark className="app">Adobe Premiere Pro</mark> после подключения к такой сети
+          может получить доступ в интернет. В результате окно с сообщением о проблеме
+          может внезапно появиться на языке той страны, к которой вы подключены.
         </p>
         <p>
-          Проблема в том, что многие клиенты для подключения к виртуальной частной сети
-          заставляют систему игнорировать правила брандмауэра и изменения в{" "}
+          Проблема в том, что многие клиенты виртуальной частной сети заставляют систему
+          игнорировать правила брандмауэра и изменения в файле{" "}
           <mark className="file">HOSTS</mark>, из-за чего программы, которым ранее был
-          заблокирован доступ к интернету, начинают снова получать доступ к нему. Если вы
-          подключены к частной сети — разорвите соединение и запустите{" "}
-          <mark className="app">Adobe Premiere Pro</mark> снова, окно должно перестать
-          появляться.
+          заблокирован доступ в интернет, снова получают его. Если вы подключены к частной
+          сети, разорвите соединение и запустите{" "}
+          <mark className="app">Adobe Premiere Pro</mark> снова, тогда окно должно
+          исчезнуть.
         </p>
         <p>
-          Если окно с отсутствием лицензии всё равно появляется — попробуйте полностью
+          Если окно с отсутствием лицензии всё равно появляется, попробуйте полностью
           отключить интернет. Если при полном отключении интернета сообщение больше не
           появляется, стоит проверить настройки соединений на устройстве.
         </p>
@@ -79,11 +78,11 @@ const PRErrors: React.FC = () => {
             <>
               <Divider>Правим файл hosts</Divider>
               <p>
-                Один из способов «лечения» этого окна — редактирование файла{" "}
+                Один из способов решения проблемы — редактирование файла{" "}
                 <mark className="file">HOSTS</mark>. Для этого перейдите в директорию{" "}
                 <mark className="path">/private/etc</mark>, скопируйте файл{" "}
                 <mark className="file">HOSTS</mark> в любое удобное место, откройте его в
-                текстовом редакторе, например, <mark className="app">TextEdit</mark> или{" "}
+                текстовом редакторе, например <mark className="app">TextEdit</mark> или{" "}
                 <mark className="app">nano</mark>, и добавьте в конец файла строки из
                 блока ниже. Затем сохраните файл и перенесите его обратно с заменой.
               </p>
@@ -143,18 +142,17 @@ const PRErrors: React.FC = () => {
             <>
               <Divider>Проверяем настройки вашего VPN-клиента</Divider>
               <p>
-                Если вы не хотите отключать себя от виртуальной частной сети, проверьте
+                Если вы не хотите отключаться от виртуальной частной сети, проверьте
                 настройки вашего клиента: возможно, в нём есть возможность включить
-                раздельное туннелирование или внести программы от{" "}
-                <mark className="company">Adobe</mark> в список исключений, чтобы
-                соединение для них проходило с учётом ваших настроек брандмауэра или вовсе
-                блокировалось.
+                раздельное туннелирование или внести программы{" "}
+                <mark className="company">Adobe</mark> в список исключений, чтобы трафик
+                для них учитывал правила брандмауэра или блокировался.
               </p>
               <Divider>Проверяем настройки прокси в системе</Divider>
               <p>
                 Некоторые клиенты для подключения к виртуальной частной сети изменяют
                 настройку адреса прокси-сервера на собственный, что может мешать
-                корректной работе правил в брандмауэре. Чтобы проверить состояние прокси —
+                корректной работе правил в брандмауэре. Чтобы проверить состояние прокси,
                 откройте <mark className="app">Параметры</mark> с помощью комбинации
                 клавиш <mark className="key">Win + I</mark>, перейдите в{" "}
                 <mark className="select">«Сеть и Интернет» → «Прокси-сервер»</mark> и
@@ -171,9 +169,8 @@ const PRErrors: React.FC = () => {
                 variant="windows"
               />
               <p>
-                Если прокси включен — нажмите на{" "}
-                <mark className="select">«Изменить»</mark> и отключите настройку адреса
-                собственного сервера.
+                Если прокси включён, нажмите на <mark className="select">«Изменить»</mark>{" "}
+                и отключите настройку адреса собственного сервера.
               </p>
               <ContentFigure
                 caption="Параметры"
@@ -187,12 +184,12 @@ const PRErrors: React.FC = () => {
               <Divider>Правим файл hosts</Divider>
               <p>
                 Если вы не используете клиенты для подключения к виртуальным частным
-                сетям, стоит перейти к другим способам «лечения» — блокировке доступа
-                программе в интернет. Первый из них — редактирование файла{" "}
+                сетям, стоит перейти к другим способам решения проблемы — блокировке
+                доступа программе в интернет. Первый из них — редактирование файла{" "}
                 <mark className="file">HOSTS</mark>. Для этого перейдите в папку{" "}
                 <mark className="path">C:\Windows\System32\drivers\etc</mark>, скопируйте
                 файл <mark className="file">HOSTS</mark> в удобное место, откройте его в
-                текстовом редакторе, например, <mark className="app">Notepad++</mark>, и
+                текстовом редакторе, например <mark className="app">Notepad++</mark>, и
                 добавьте в конец файла строки из блока ниже. Затем сохраните файл и
                 перенесите его обратно с заменой.
               </p>
@@ -533,8 +530,7 @@ const PRErrors: React.FC = () => {
       <DetailsSummary
         tag="сбой генерации расширения, can't generate extension, генеративное расширение недоступно, проверьте подключение к интернету"
         title="Почему появляется «Generative Extend is not available. Please check your internet connection and try again.» при попытке использовать генеративное расширение клипа?"
-      >
-      </DetailsSummary>
+      ></DetailsSummary>
       <DetailsSummary
         tag="проект поврежден, невозможно импортировать файл, ошибка с файлом, не читается"
         title="Что делать с ошибкой «The project appears to be damaged, it cannot be opened»?"

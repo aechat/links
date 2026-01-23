@@ -12,9 +12,9 @@ const PSErrors: React.FC = () => (
   <div className="faq-content">
     <DetailsSummary title="Рабочий диск заполнен или Scratch Disk Full">
       <p>
-        В основном данная ошибка возникает по причине нехватки дискового пространства в
-        системном разделе. Чтобы устранить эту ошибку - достаточно его почистить от
-        различного хлама.
+        В основном данная ошибка возникает из-за нехватки дискового пространства в
+        системном разделе. Чтобы устранить её, достаточно почистить его от различного
+        хлама.
       </p>
       {/* FIXME: написать!! */}
     </DetailsSummary>
@@ -22,11 +22,11 @@ const PSErrors: React.FC = () => (
       <p>
         Вы пытаетесь использовать функцию генеративной заливки для создания или коррекции
         изображения. На «народных» версиях функции, которые используют{" "}
-        <mark className="plugin">Adobe Firefly</mark> недоступны, так как у вас
+        <mark className="plugin">Adobe Firefly</mark>, недоступны, так как у вас
         отсутствует подписка на Creative Cloud.
       </p>
       <p>
-        Решения два: либо вы оформляете подписку на Creative Cloud, либо заменяйте Firefly
+        Решения два: либо вы оформляете подписку на Creative Cloud, либо заменяете Firefly
         на интеграцию <mark className="app">Stable Diffusion</mark> в{" "}
         <mark className="app">Adobe Photoshop</mark> через плагин{" "}
         <a href="https://github.com/AbdullahAlfaraj/Auto-Photoshop-StableDiffusion-Plugin/releases">
@@ -54,14 +54,15 @@ const PSErrors: React.FC = () => (
       />
     </DetailsSummary>
     <DetailsSummary
-      tag="белое окно, белый экран, слетела лицензия, красное окно, окно с красной полоской при запуске, не запускается, впн, файл хостс, блокировка доступа в интернет, this unlicensed adobe app is not genuine and will be disabled soon, unlicensed adobe apps may expose your device to increased security risks, this app will disable in days, this app has been disabled"
+      anchor="unlicensed-app"
+      tag="bitte lies und akzeptiere die nutzungsbedingungen von adobe, door niet-gelicentieerde adobe-apps kan je apparaat worden blootgesteld aan extra beveilligingsrisico's, bu lisanssiz adobe uygulamasi orijinal olmadigindan yakinda devre disi birakilacak, deze app is gedeactiveerd, deze app wordt over dagen gedeactiveerd, deze niet-gelicentieerde adobe-app is degeactiveerd, dieses nicht lizenzierte adobe-programm wurde deaktiviert, dieses produkt wurde deaktiviert, cette application a ete desactivee, cette application adobe asns license a ete desactivee, profitez de sur les applications adobe authentiques, verhoog je productiviteit met legitieme adobe-apps, start your free trial of app, take advantage of discounts up to 40% off on genuine adobe replacement apps, this app has been disabled, this app will disable in days, this unlicensed adobe app is not genuine and will be disabled soon, unlicensed adobe apps may expose your device to increased security risks, vpn, white and red window, white screen, we can't verify your subscription status, we can't reach the adobe servers, this may be because you're not connected to the internet, error code 12014, sorry this app is not available, to continue using this app check your internet connection firewall or ad blocker settings, блокировка доступа в интернет, впн, виртуальная частная сеть, файл хостс, не запускается, не удается проверить статус вашей подписки, не удается подключиться к серверам adobe, возможно у вас отстутствует подключение к интернету, код ошибки 12015, начните использовать бесплатную пробную версию, окно с красной полоской при запуске, пустое окно, слетела лицензия, белое и красное окно, белый экран, the unlicensed adobe app, adobe genuine, hosts, ошибка лицензии, красное окно"
       title="Как избавиться от «The unlicensed Adobe app has been disabled»?"
     >
       <p>
         Пользователь, работающий в <mark className="word">народной</mark> версии{" "}
         <mark className="app">Adobe Photoshop</mark> или в любой другой программе от{" "}
-        <mark className="company">Adobe</mark> может столкнуться ошибкой проверки
-        лицензии. Оно сопровождается небольшим окном на белом фоне и с красной полосой
+        <mark className="company">Adobe</mark> может столкнуться с ошибкой проверки
+        лицензии. Она сопровождается небольшим окном на белом фоне и с красной полосой
         сверху, а текст внутри окна обычно написан на английском языке. Иногда встречаются
         варианты отображения окна об отсутствии лицензии и на другом языке, например на
         немецком или на голландском. Причин для такого поведения{" "}
@@ -82,13 +83,13 @@ const PSErrors: React.FC = () => (
             <Divider>Блокируем программе доступ в интернет</Divider>
             <p>
               Если вы не используете различные средства обхода блокировок или{" "}
-              <mark className="app">VPN</mark>, то вы можете попробовать отредактировать
-              файл <mark className="file">HOSTS</mark> для блокировки соединения вашего
+              <mark className="app">VPN</mark>, вы можете попробовать отредактировать файл{" "}
+              <mark className="file">HOSTS</mark> для блокировки подключения вашего
               устройства к серверам <mark className="company">Adobe</mark>.
             </p>
             <Divider>Правим файл hosts</Divider>
             <p>
-              Для редактирования файла <mark className="file">HOSTS</mark> - вам нужно
+              Для редактирования файла <mark className="file">HOSTS</mark> вам нужно
               перейти в директорию <mark className="path">/private/etc</mark>, найти и
               скопировать файл <mark className="file">HOSTS</mark> в любое удобное место,
               открыть любой текстовый редактор, например{" "}
@@ -103,7 +104,7 @@ const PSErrors: React.FC = () => (
               <ul>
                 <li>
                   Если файл <mark className="file">HOSTS</mark> в этой директории по
-                  какой-то причине отсутствует - создайте его самостоятельно без указания
+                  какой-то причине отсутствует, создайте его самостоятельно без указания
                   расширения файла.
                 </li>
                 <li>
@@ -158,16 +159,16 @@ const PSErrors: React.FC = () => (
             <Divider>Блокируем программе доступ в интернет</Divider>
             <p>
               Если вы не используете различные средства обхода блокировок или{" "}
-              <mark className="app">VPN</mark>, то скорее всего адреса для проверки
-              лицензии от <mark className="company">Adobe</mark> обновились и не были
-              вписаны в ваши правила блокировки соединения. Это исправляется правкой файла{" "}
+              <mark className="app">VPN</mark>, скорее всего адреса для проверки лицензии
+              от <mark className="company">Adobe</mark> обновились и не были внесены в
+              ваши правила блокировки соединения. Это исправляется правкой файла{" "}
               <mark className="file">HOSTS</mark>, использованием{" "}
               <mark className="app">OneClickFirewall</mark> или внесением новых правил в{" "}
-              <mark className="app">брандмауэре</mark> вашей операционной системы.
+              <mark className="app">брандмауэр</mark> вашей операционной системы.
             </p>
             <Divider>Правим файл hosts</Divider>
             <p>
-              Для редактирования файла <mark className="file">HOSTS</mark> - вам нужно
+              Для редактирования файла <mark className="file">HOSTS</mark> вам нужно
               перейти в папку{" "}
               <mark className="path">C:\Windows\System32\drivers\etc</mark>, скопировать
               файл <mark className="path">hosts</mark> в любое удобное место, открыть
@@ -183,7 +184,7 @@ const PSErrors: React.FC = () => (
               <ul>
                 <li>
                   Если файл <mark className="file">HOSTS</mark> в этой директории по
-                  какой-то причине отсутствует - создайте его самостоятельно без указания
+                  какой-то причине отсутствует, создайте его самостоятельно без указания
                   расширения файла.
                 </li>
                 <li>
@@ -211,13 +212,13 @@ const PSErrors: React.FC = () => (
             <Divider>Создаём новые правила в брандмауэре</Divider>
             <p>
               Если правка файла <mark className="file">HOSTS</mark> вам не помогла и вы
-              всё ещё сталкиваетесь с сбоем лицензии, то попробуйте настроить правила
+              всё ещё сталкиваетесь с сбоем лицензии, попробуйте настроить правила
               брандмауэра. Для этого откройте окно <mark className="app">Выполнить</mark>{" "}
               с помощью комбинации клавиш <mark className="key">Win + R</mark>, введите в
-              него <mark className="code">wf.msc</mark> и нажмите на{" "}
-              <mark className="key">Enter</mark>. Таким образом вы откроете{" "}
-              <mark className="app">монитор брандмауэра</mark>, в котором вы можете
-              настроить правила для блокировки доступа в интернет нужной программе.
+              него <mark className="code">wf.msc</mark> и нажмите{" "}
+              <mark className="key">Enter</mark>. Так вы откроете{" "}
+              <mark className="app">Монитор брандмауэра</mark>, где можно настроить
+              правила для блокировки доступа в интернет нужной программе.
             </p>
             <Addition type="info">
               При установке приложений <mark className="company">Adobe</mark> в формате
@@ -326,19 +327,19 @@ const PSErrors: React.FC = () => (
               variant="windows"
             />
             <Addition type="info">
-              Возможно подобные действия нужно провернуть и к{" "}
-              <mark>правилам для исходящего подключения</mark> по аналогичной схеме.
+              Возможно, подобные действия нужно проделать и для{" "}
+              <mark>правил исходящего подключения</mark> по аналогичной схеме.
             </Addition>
             <Divider>
               Используем OneClickFirewall для быстрой блокировки интернета программе
             </Divider>
             <p>
               Если вы не хотите морочиться с созданием правил в{" "}
-              <mark className="app">Брандмауэре Windows</mark> - попробуйте утилиту{" "}
-              <mark className="app">OneClickFirewall</mark>. С помощью него вы сможете
+              <mark className="app">Брандмауэре Windows</mark>, попробуйте утилиту{" "}
+              <mark className="app">OneClickFirewall</mark>. С её помощью можно
               блокировать доступ в интернет нужной программе кнопкой{" "}
               <mark className="select">«Block Internet Access»</mark> в контекстном меню
-              ярлыка или наоборот, разрешить кнопкой{" "}
+              ярлыка или, наоборот, разрешить кнопкой{" "}
               <mark className="select">«Restore Internet Access»</mark>. Загрузить утилиту
               можно на{" "}
               <a href="https://winaero.com/download-oneclickfirewall/">
@@ -358,13 +359,13 @@ const PSErrors: React.FC = () => (
             <Divider>Проверяем установленные сервисы на устройстве</Divider>
             <p>
               Если вы переходили с лицензионных версий на{" "}
-              <mark className="word">народные</mark>, то скорее всего вы полностью не
-              очищали вашу систему от предыдущих установок программ от{" "}
+              <mark className="word">народные</mark>, скорее всего вы полностью не очищали
+              вашу систему от предыдущих установок программ от{" "}
               <mark className="company">Adobe</mark>. Среди не удалённых сервисов в вашей
               системе мог затесаться{" "}
               <mark className="app">Adobe Genuine Software Integrity Service</mark>,
               который проверяет программы на легальное использование и именно он может
-              вызвать окно об отсутствии лицензии. Для решения проблемы - достаточно{" "}
+              вызвать окно об отсутствии лицензии. Для решения проблемы достаточно{" "}
               <a href="https://github.com/wangzhenjjcn/AdobeGenp/wiki/Disable-Adobe-Genuine-Software-Integrity-on-Windows">
                 отключить
               </a>{" "}
@@ -378,13 +379,12 @@ const PSErrors: React.FC = () => (
             <Divider>Проверяем, не натворил ли чего антивирус</Divider>
             <p>
               В редких случаях ваш антивирус мог удалить файлы для корректной подмены
-              активации, ссылаясь на то, что на вашем устройстве затесался якобы вирус.
-              Если вы не хотите отключать или удалять{" "}
+              активации, ссылаясь на то, что на вашем устройстве якобы есть вирус. Если вы
+              не хотите отключать или удалять{" "}
               <mark className="app">Windows Defender</mark> с вашего устройства, то вы
-              можете добавить нужные папки c программами от{" "}
+              можете добавить нужные папки с программами от{" "}
               <mark className="company">Adobe</mark> в список исключений вашего
-              антивируса, а затем установите программу вашей версии поверх
-              существующей.{" "}
+              антивируса, а затем установить программу вашей версии поверх существующей.
             </p>
             <ContentFigure
               caption="Windows Defender - как восстановить файлы и запретить их удаление"
