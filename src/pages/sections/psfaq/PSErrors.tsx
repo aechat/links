@@ -373,7 +373,11 @@ const PSErrors: React.FC = () => (
         }
       />
     </DetailsSummary>
-    <DetailsSummary title="Рабочий диск заполнен или Scratch Disk Full">
+    <DetailsSummary
+      anchor="fix-stratch-disk-full"
+      tag="не удается использовать инструмент, первичный рабочий диск переполнен, scratch disk low, could not initialize photoshop because the scratch disks are full, could not complete your request because the scratch disks are full"
+      title="Из-за чего может появляться «Scratch Disk Full»?"
+    >
       <p>
         В основном данная ошибка возникает из-за нехватки дискового пространства в
         системном разделе. Чтобы устранить её, достаточно почистить его от различного
