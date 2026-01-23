@@ -2359,7 +2359,7 @@ const PRInstallProblems: React.FC = () => {
         />
       </DetailsSummary>
       <DetailsSummary
-        tag="бесконечная загрузка, голос в субтитры, транскрибация, captions, text"
+        tag="бесконечная загрузка, голос в субтитры, транскрибация, captions, text, beginning language pack download, transcribing"
         title="Почему функция Speech to Text не работает на «народных» версиях?"
       >
         <p>
