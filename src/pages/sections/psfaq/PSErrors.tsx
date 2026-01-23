@@ -16,14 +16,12 @@ const PSErrors: React.FC = () => (
       title="Как избавиться от «The unlicensed Adobe app has been disabled»?"
     >
       <p>
-        Пользователь, работающий в <mark className="word">народной</mark> версии{" "}
-        <mark className="app">Adobe Photoshop</mark> или в любой другой программе от{" "}
-        <mark className="company">Adobe</mark> может столкнуться с ошибкой проверки
-        лицензии. Она сопровождается небольшим окном на белом фоне и с красной полосой
-        сверху, а текст внутри окна обычно написан на английском языке. Иногда встречаются
-        варианты отображения окна об отсутствии лицензии и на другом языке, например на
-        немецком или на голландском. Причин для такого поведения{" "}
-        <mark className="word">слетевшей лицензии</mark> может быть несколько.
+        Пользователи «народных» версий программ <mark className="company">Adobe</mark>{" "}
+        иногда сталкиваются с ошибкой проверки лицензии. Она проявляется в виде небольшого
+        окна на белом фоне с красной полосой сверху, а в редких случаях сопровождается
+        полностью пустым белым окном или внезапным завершением работы программы. В этой
+        статье мы разберём несколько способов, как от него избавиться. Стоит учитывать,
+        что эффективность каждого метода может различаться у разных пользователей.
       </p>
       <ContentFigure
         caption="Adobe"
@@ -34,271 +32,300 @@ const PSErrors: React.FC = () => (
         type="image"
         variant="windows"
       />
+      <Divider>Проверяем наличие VPN-соединения</Divider>
+      <p>
+        Для начала проверьте, не используете ли вы виртуальную частную сеть. С ростом
+        популярности подключений через <mark className="app">VPN</mark> пользователи всё
+        чаще сталкиваются с ошибкой лицензии, так как{" "}
+        <mark className="app">Adobe Photoshop</mark> после подключения к такой сети может
+        получить доступ в интернет. В результате окно с сообщением о проблеме может
+        внезапно появиться на языке той страны, к которой вы подключены.
+      </p>
+      <p>
+        Проблема в том, что многие VPN-клиенты заставляют систему игнорировать правила
+        брандмауэра и изменения в файле <mark className="file">HOSTS</mark>, из-за чего
+        программы, которым ранее был заблокирован доступ в интернет, снова получают его.
+        Если вы подключены к частной сети, разорвите соединение и запустите{" "}
+        <mark className="app">Adobe Photoshop</mark> снова, тогда окно должно исчезнуть.
+      </p>
+      <p>
+        Если окно с ошибкой лицензии всё равно появляется, попробуйте полностью отключить
+        интернет. Если при отключённом интернете сообщение не появляется, стоит проверить
+        настройки сетевых соединений на устройстве.
+      </p>
       <ContentFilter
         macContent={
           <>
-            <Divider>Блокируем программе доступ в интернет</Divider>
-            <p>
-              Если вы не используете различные средства обхода блокировок или{" "}
-              <mark className="app">VPN</mark>, вы можете попробовать отредактировать файл{" "}
-              <mark className="file">HOSTS</mark> для блокировки подключения вашего
-              устройства к серверам <mark className="company">Adobe</mark>.
-            </p>
             <Divider>Правим файл hosts</Divider>
             <p>
-              Для редактирования файла <mark className="file">HOSTS</mark> вам нужно
-              перейти в директорию <mark className="path">/private/etc</mark>, найти и
-              скопировать файл <mark className="file">HOSTS</mark> в любое удобное место,
-              открыть любой текстовый редактор, например{" "}
-              <mark className="app">TextEdit</mark> или{" "}
-              <mark className="app">VS Code</mark>, и внести строки из кнопки для открытия
-              модального окна чуть ниже в конец файла. Затем сохраните отредактированный
-              файл и перенесите его обратно в <mark className="path">/private/etc</mark> с
-              заменой.
+              Один из способов решения проблемы — отредактировать файл{" "}
+              <mark className="file">HOSTS</mark>. Для этого перейдите в директорию{" "}
+              <mark className="path">/private/etc</mark>, скопируйте файл{" "}
+              <mark className="file">HOSTS</mark> в любое удобное место, откройте его в
+              текстовом редакторе, например <mark className="app">TextEdit</mark> или{" "}
+              <mark className="app">nano</mark>, и добавьте в конец файла строки из блока
+              ниже. Затем сохраните файл и верните его в исходную папку с заменой.
             </p>
             <HostsAdobeModal />
-            <Addition type="info">
-              <ul>
-                <li>
-                  Если файл <mark className="file">HOSTS</mark> в этой директории по
-                  какой-то причине отсутствует, создайте его самостоятельно без указания
-                  расширения файла.
-                </li>
-                <li>
-                  Если вы не хотите перемещать туда-сюда файл{" "}
-                  <mark className="file">HOSTS</mark> для редактирования, то вы можете
-                  открыть ваш текстовый редактор от имени администратора и спокойно
-                  сохранять изменения.
-                </li>
-              </ul>
-            </Addition>
-            <Divider>Блокируем доступ в интернет с помощью Radio Silence</Divider>
-            <p>
-              Если внесение адресов в <mark className="file">HOSTS</mark> вам не помогло,
-              то попробуйте воспользоваться программой{" "}
-              <a href="https://radiosilenceapp.com/">Radio Silence</a> для блокировки
-              доступа в интернет нужным приложениям. После установки и активации этой
-              программы перейдите во вкладку{" "}
-              <mark className="select">«Network Monitor»</mark> и в ней запретите
-              программам от <mark className="company">Adobe</mark>, которые лезут в сеть,
-              доступ в интернет, нажав на кнопку <mark className="select">«Block»</mark>{" "}
-              рядом с названием программы.
-            </p>
             <ContentFigure
-              caption="Radio Silence"
-              imgTitle="Блокируем доступ в интернет программам на примере Adobe Premiere Pro"
-              // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-              src="images/legacy/network_radio_silence.png"
-              theme="dark"
-              type="image"
-              variant="mac"
+              caption="Как отредактировать файл Hosts на Mac"
+              src="VcDYAbH6U_c"
+              type="youtube"
             />
+            <Divider>Блокируем доступ с помощью Radio Silence</Divider>
             <p>
-              После проделанных действий, указанные вами программы от{" "}
-              <mark className="company">Adobe</mark> не должны стучаться в сеть и выдавать
-              ошибку об отсутствии лицензии. Ниже показано, как в итоге примерно должна
-              выглядеть вкладка <mark className="select">«Firewall»</mark> после отлова
-              процессов Adobe, лезущие в интернет.
+              Если редактирование файла <mark className="file">HOSTS</mark> не помогло,
+              попробуйте воспользоваться программой{" "}
+              <a href="https://radiosilenceapp.com/">Radio Silence</a>.
             </p>
-            <ContentFigure
-              caption="Radio Silence"
-              imgTitle="Окно Firewall после блокировки доступа в интернет программам"
-              // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-              src="images/legacy/firewall_radio_silence.png"
-              theme="dark"
-              type="image"
-              variant="mac"
-            />
+            <ul>
+              <li>
+                После её установки перейдите во вкладку{" "}
+                <mark className="select">«Network Monitor»</mark> и запретите доступ в
+                интернет всем процессам <mark className="company">Adobe</mark>, нажимая
+                кнопку <mark className="select">«Block»</mark> рядом с их названиями.
+                <ContentFigure
+                  caption="Radio Silence"
+                  imgTitle="Блокировка доступа в интернет на примере Adobe Premiere Pro"
+                  // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+                  src="images/legacy/network_radio_silence.png"
+                  theme="dark"
+                  type="image"
+                  variant="mac"
+                />
+              </li>
+              <li>
+                После этого заблокированные приложения появятся во вкладке{" "}
+                <mark className="select">«Firewall»</mark> и больше не смогут подключаться
+                к сети.
+                <ContentFigure
+                  caption="Radio Silence"
+                  imgTitle="Список заблокированных приложений во вкладке Firewall"
+                  // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+                  src="images/legacy/firewall_radio_silence.png"
+                  theme="dark"
+                  type="image"
+                  variant="mac"
+                />
+              </li>
+            </ul>
+            <Divider>Используем альтернативный способ активации</Divider>
+            <p>
+              Если вы используете релизы от <mark className="user">MONTER GROUP</mark>,
+              попробуйте перейти на метод активации с помощью{" "}
+              <mark className="app">Adobe Activation Tool</mark>, предварительно удалив
+              предыдущие установки программы.
+            </p>
           </>
         }
         windowsContent={
           <>
-            <Divider>Блокируем программе доступ в интернет</Divider>
+            <Divider>Проверяем настройки вашего VPN-клиента</Divider>
             <p>
-              Если вы не используете различные средства обхода блокировок или{" "}
-              <mark className="app">VPN</mark>, скорее всего адреса для проверки лицензии
-              от <mark className="company">Adobe</mark> обновились и не были внесены в
-              ваши правила блокировки соединения. Это исправляется правкой файла{" "}
-              <mark className="file">HOSTS</mark>, использованием{" "}
-              <mark className="app">OneClickFirewall</mark> или внесением новых правил в{" "}
-              <mark className="app">брандмауэр</mark> вашей операционной системы.
+              Если вы не хотите отключаться от виртуальной частной сети, проверьте
+              настройки вашего VPN-клиента: возможно, в нём есть функция раздельного
+              туннелирования или возможность внести программы{" "}
+              <mark className="company">Adobe</mark> в список исключений, чтобы трафик для
+              них учитывал правила брандмауэра или блокировался.
             </p>
+            <Divider>Проверяем настройки прокси в системе</Divider>
+            <p>
+              Некоторые VPN-клиенты могут изменять системные настройки прокси-сервера,
+              устанавливая собственный адрес, что мешает корректной работе правил
+              брандмауэра. Чтобы проверить настройки прокси, откройте{" "}
+              <mark className="app">Параметры</mark> комбинацией клавиш{" "}
+              <mark className="key">Win + I</mark>, перейдите в{" "}
+              <mark className="select">«Сеть и Интернет» → «Прокси-сервер»</mark> и
+              проверьте параметр{" "}
+              <mark className="select">«Использовать прокси-сервер»</mark>.
+            </p>
+            <ContentFigure
+              caption="Параметры"
+              imgTitle="Проверяем прокси"
+              // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+              src="images/legacy/check_windows_proxy.png"
+              theme="dark"
+              type="image"
+              variant="windows"
+            />
+            <p>
+              Если прокси включён, нажмите <mark className="select">«Изменить»</mark> и
+              отключите его.
+            </p>
+            <ContentFigure
+              caption="Параметры"
+              imgTitle="Отключаем прокси"
+              // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+              src="images/legacy/disable_windows_proxy.png"
+              theme="dark"
+              type="image"
+              variant="windows"
+            />
             <Divider>Правим файл hosts</Divider>
             <p>
-              Для редактирования файла <mark className="file">HOSTS</mark> вам нужно
-              перейти в папку{" "}
-              <mark className="path">C:\Windows\System32\drivers\etc</mark>, скопировать
-              файл <mark className="path">hosts</mark> в любое удобное место, открыть
-              любой текстовый редактор, например <mark className="app">Notepad++</mark>{" "}
-              или <mark className="app">VS Code</mark>, и внести строки из кнопки для
-              открытия модального окна чуть ниже в конец файла. Затем сохраните
-              отредактированный файл и перенесите его обратно в{" "}
-              <mark className="path">C:\Windows\System32\drivers\etc\hosts</mark> с
-              заменой.
+              Если вы не используете VPN-клиенты, стоит перейти к другим способам решения
+              проблемы — блокировке доступа программ в интернет. Первый из них —
+              редактирование файла <mark className="file">HOSTS</mark>. Для этого
+              перейдите в папку{" "}
+              <mark className="path">C:\Windows\System32\drivers\etc</mark>, скопируйте
+              файл <mark className="file">HOSTS</mark> в удобное место, откройте его в
+              текстовом редакторе, например <mark className="app">Notepad++</mark>, и
+              добавьте в конец файла строки из блока ниже. Затем сохраните файл и верните
+              его в исходную папку с заменой.
             </p>
             <HostsAdobeModal />
-            <Addition type="info">
-              <ul>
-                <li>
-                  Если файл <mark className="file">HOSTS</mark> в этой директории по
-                  какой-то причине отсутствует, создайте его самостоятельно без указания
-                  расширения файла.
-                </li>
-                <li>
-                  Если вы не хотите перемещать туда-сюда файл{" "}
-                  <mark className="file">HOSTS</mark> для редактирования, то вы можете
-                  открыть ваш текстовый редактор от имени администратора и спокойно
-                  сохранять изменения.
-                </li>
-              </ul>
-            </Addition>
             <ContentFigure
               caption="Как редактировать файл hosts"
               src="wHhay41ocsc"
               type="youtube"
             />
+            <Divider>Создаём новые правила в брандмауэре Защитника Windows</Divider>
             <Addition type="warning">
-              <ul>
-                <li>Для изменения системных файлов требуются права администратора.</li>
-                <li>
-                  После изменения файла <mark className="file">HOSTS</mark> желательно
-                  перезагрузить ваше устройство.
-                </li>
-              </ul>
+              Прежде чем создавать правила в брандмауэре, убедитесь, что он включён. При
+              выключенном брандмауэре правила блокировки не будут применяться.{" "}
+              <a href="https://www.youtube.com/watch?v=goqsVsTMeRU">Как его включить?</a>
             </Addition>
-            <Divider>Создаём новые правила в брандмауэре</Divider>
-            <p>
-              Если правка файла <mark className="file">HOSTS</mark> вам не помогла и вы
-              всё ещё сталкиваетесь с сбоем лицензии, попробуйте настроить правила
-              брандмауэра. Для этого откройте окно <mark className="app">Выполнить</mark>{" "}
-              с помощью комбинации клавиш <mark className="key">Win + R</mark>, введите в
-              него <mark className="code">wf.msc</mark> и нажмите{" "}
-              <mark className="key">Enter</mark>. Так вы откроете{" "}
-              <mark className="app">Монитор брандмауэра</mark>, где можно настроить
-              правила для блокировки доступа в интернет нужной программе.
-            </p>
             <Addition type="info">
-              При установке приложений <mark className="company">Adobe</mark> в формате
-              репака от <mark className="user">KpoJluK</mark> правила в брандмауэре
-              автоматически прописываются при установке.
+              Если вы устанавливали репаки от <mark className="user">KpoJluK</mark> или{" "}
+              <mark className="user">m0nkrus</mark>, то правила для блокировки доступа
+              программ в интернет уже могут быть созданы в брандмауэре.
             </Addition>
             <p>
-              После открытия монитора брандмауэра перейдите в раздел правил для входящих
-              подключений в левой части окна.
+              Если правка файла <mark className="file">HOSTS</mark> не помогла, попробуйте
+              настроить правила в брандмауэре.
             </p>
-            <ContentFigure
-              caption="Монитор брандмауэра Защитника Windows в режиме повышенной безопасности"
-              imgTitle="Список правил брандмауэра"
-              // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-              src="images/legacy/firewall_main_page.png"
-              theme="light"
-              type="image"
-              variant="windows"
-            />
+            <ul>
+              <li>
+                Чтобы быстро открыть брандмауэр, воспользуйтесь окном{" "}
+                <mark className="app">«Выполнить»</mark>: нажмите{" "}
+                <mark className="key">Win + R</mark>, введите в поле{" "}
+                <mark className="select">«Открыть»</mark> значение{" "}
+                <mark className="code">wf.msc</mark> и нажмите{" "}
+                <mark className="key">Enter</mark>.
+                <ContentFigure
+                  caption="Выполнить"
+                  imgTitle="Открываем брандмауэр"
+                  // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+                  src="images/legacy/open_wf_msc.png"
+                  theme="dark"
+                  type="image"
+                  variant="windows"
+                />
+              </li>
+              <li>
+                Перед вами откроется{" "}
+                <mark className="app">монитор брандмауэра Защитника Windows</mark>. В
+                левой части окна перейдите в раздел{" "}
+                <mark className="select">«Правила для входящих подключений»</mark>.
+                <ContentFigure
+                  caption="Монитор брандмауэра Защитника Windows"
+                  imgTitle="Список правил брандмауэра"
+                  // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+                  src="images/legacy/firewall_main_page.png"
+                  theme="light"
+                  type="image"
+                  variant="windows"
+                />
+              </li>
+              <li>
+                В правой части интерфейса нажмите{" "}
+                <mark className="select">«Создать правило»</mark>.
+                <ContentFigure
+                  caption="Монитор брандмауэра Защитника Windows"
+                  imgTitle="Окно создания правила брандмауэра"
+                  // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+                  src="images/legacy/firewall_creating_rule.png"
+                  theme="light"
+                  type="image"
+                  variant="windows"
+                />
+              </li>
+              <li>
+                В открывшемся мастере создания правил на первой вкладке оставьте выбранным{" "}
+                <mark className="select">«Для программы»</mark> и нажмите{" "}
+                <mark className="select">«Далее»</mark>.
+                <ContentFigure
+                  caption="Мастер создания правила для нового входящего подключения"
+                  imgTitle="Выбор типа правила брандмауэра"
+                  // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+                  src="images/legacy/firewall_rule_type.png"
+                  theme="light"
+                  type="image"
+                  variant="windows"
+                />
+              </li>
+              <li>
+                На второй вкладке укажите путь к исполняемому файлу программы —{" "}
+                <mark className="path">
+                  C:\Program Files\Adobe\Adobe Photoshop 20XX\Support Files\Photoshop.exe
+                </mark>{" "}
+                и снова нажмите <mark className="select">«Далее»</mark>.
+                <ContentFigure
+                  caption="Мастер создания правила для нового входящего подключения"
+                  imgTitle="Выбор программы для блокировки"
+                  // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+                  src="images/legacy/firewall_select_app.png"
+                  theme="light"
+                  type="image"
+                  variant="windows"
+                />
+              </li>
+              <li>
+                В качестве действия выберите{" "}
+                <mark className="select">«Блокировать подключение»</mark>.
+                <ContentFigure
+                  caption="Мастер создания правила для нового входящего подключения"
+                  imgTitle="Окно настроек брандмауэра"
+                  // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+                  src="images/legacy/firewall_blocking.png"
+                  theme="light"
+                  type="image"
+                  variant="windows"
+                />
+              </li>
+              <li>
+                Во вкладке <mark className="select">«Профиль»</mark> оставьте все три
+                флажка включёнными и нажмите <mark className="select">«Далее»</mark>.
+                <ContentFigure
+                  caption="Мастер создания правила для нового входящего подключения"
+                  imgTitle="Выбор профиля брандмауэра"
+                  // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+                  src="images/legacy/firewall_select_profile.png"
+                  theme="light"
+                  type="image"
+                  variant="windows"
+                />
+              </li>
+              <li>
+                <p>
+                  Задайте новому правилу любое имя, например название программы, и нажмите{" "}
+                  <mark className="select">«Готово»</mark>. После этого указанная
+                  программа больше не должна подключаться к интернету.
+                </p>
+                <ContentFigure
+                  caption="Мастер создания правила для нового входящего подключения"
+                  imgTitle="Выбор имени для правила брандмауэра"
+                  // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+                  src="images/legacy/firewall_naming.png"
+                  theme="light"
+                  type="image"
+                  variant="windows"
+                />
+              </li>
+              <li>
+                Проделайте то же самое для{" "}
+                <mark className="select">«Правил для исходящего подключения»</mark>.
+              </li>
+            </ul>
+            <Divider>Используем OneClickFirewall для быстрой блокировки</Divider>
             <p>
-              Затем в правой части интерфейса найдите кнопку{" "}
-              <mark className="select">«Создать правило»</mark> и нажмите на него.
-            </p>
-            <ContentFigure
-              caption="Монитор брандмауэра Защитника Windows в режиме повышенной безопасности"
-              imgTitle="Окно создания правила брандмауэра"
-              // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-              src="images/legacy/firewall_creating_rule.png"
-              theme="light"
-              type="image"
-              variant="windows"
-            />
-            <p>
-              После нажатия на кнопку создания нового правила в брандмауэре у вас
-              откроется новое окно с пятью вкладками. В первой вкладке оставьте значение{" "}
-              <mark className="select">«Для программы»</mark> и нажмите на{" "}
-              <mark className="select">«Далее»</mark>.
-            </p>
-            <ContentFigure
-              caption="Мастер создания правила для нового входящего подключения"
-              imgTitle="Выбор типа правила брандмауэра"
-              // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-              src="images/legacy/firewall_rule_type.png"
-              theme="light"
-              type="image"
-              variant="windows"
-            />
-            <p>
-              Во второй вкладке нужно указать путь до исполняемого файла программы вручную
-              или через кнопку <mark className="select">«Обзор»</mark>, а затем снова
-              нажать на <mark className="select">«Далее»</mark>. Путь должен выглядеть как{" "}
-              <mark className="path">
-                C:\Program Files\Adobe\Adobe Photoshop 20XX\Support Files\Photoshop.exe
-              </mark>
-              .
-            </p>
-            <ContentFigure
-              caption="Мастер создания правила для нового входящего подключения"
-              imgTitle="Выбор программы для блокировки доступа"
-              // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-              src="images/legacy/firewall_select_app.png"
-              theme="light"
-              type="image"
-              variant="windows"
-            />
-            <p>
-              Для действия нового правила нам, очевидно, нужно установить параметр{" "}
-              <mark className="select">«Блокировать подключение»</mark>.
-            </p>
-            <ContentFigure
-              caption="Мастер создания правила для нового входящего подключения"
-              imgTitle="Окно настроек брандмауэра"
-              // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-              src="images/legacy/firewall_blocking.png"
-              theme="light"
-              type="image"
-              variant="windows"
-            />
-            <p>
-              Во вкладке <mark className="select">«Профили»</mark> нужно оставить три
-              чекбокса включенными и опять нажать на{" "}
-              <mark className="select">«Далее»</mark>.
-            </p>
-            <ContentFigure
-              caption="Мастер создания правила для нового входящего подключения"
-              imgTitle="Выбор профиля брандмауэра"
-              // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-              src="images/legacy/firewall_select_profile.png"
-              theme="light"
-              type="image"
-              variant="windows"
-            />
-            <p>
-              Далее назовите своё новое правило любым именем. Можно просто написать
-              название программы и нажать на <mark className="select">«Готово»</mark>.
-              После этого правило будет создано, а указанная программа теперь не должна
-              стучаться в интернет.
-            </p>
-            <ContentFigure
-              caption="Мастер создания правила для нового входящего подключения"
-              imgTitle="Выбор имени для правила брандмауэра"
-              // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-              src="images/legacy/firewall_naming.png"
-              theme="light"
-              type="image"
-              variant="windows"
-            />
-            <Addition type="info">
-              Возможно, подобные действия нужно проделать и для{" "}
-              <mark>правил исходящего подключения</mark> по аналогичной схеме.
-            </Addition>
-            <Divider>
-              Используем OneClickFirewall для быстрой блокировки интернета программе
-            </Divider>
-            <p>
-              Если вы не хотите морочиться с созданием правил в{" "}
-              <mark className="app">Брандмауэре Windows</mark>, попробуйте утилиту{" "}
-              <mark className="app">OneClickFirewall</mark>. С её помощью можно
-              блокировать доступ в интернет нужной программе кнопкой{" "}
-              <mark className="select">«Block Internet Access»</mark> в контекстном меню
-              ярлыка или, наоборот, разрешить кнопкой{" "}
-              <mark className="select">«Restore Internet Access»</mark>. Загрузить утилиту
-              можно на{" "}
+              Если вы не хотите возиться с созданием правил вручную, воспользуйтесь
+              утилитой <mark className="app">OneClickFirewall</mark>. Она добавляет в
+              контекстное меню ярлыков две команды:{" "}
+              <mark className="select">«Block Internet Access»</mark> для блокировки
+              доступа в интернет и{" "}
+              <mark className="select">«Restore Internet Access»</mark> для его
+              восстановления. Загрузить утилиту можно на{" "}
               <a href="https://winaero.com/download-oneclickfirewall/">
                 официальном сайте WinAero
               </a>
@@ -306,87 +333,45 @@ const PSErrors: React.FC = () => (
             </p>
             <ContentFigure
               caption="Рабочий стол"
-              imgTitle="Блокируем доступ в интернет через OneClickFirewall"
+              imgTitle="Блокировка доступа в интернет через OneClickFirewall"
               // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-              src="images/legacy/oneclickfirewall_photoshop.png"
+              src="images/legacy/oneclickfirewall_aftereffects.png"
               theme="dark"
               type="image"
               variant="windows"
             />
-            <Divider>Проверяем установленные сервисы на устройстве</Divider>
+            <Divider>Проверяем, не «навредил» ли антивирус</Divider>
             <p>
-              Если вы переходили с лицензионных версий на{" "}
-              <mark className="word">народные</mark>, скорее всего вы полностью не очищали
-              вашу систему от предыдущих установок программ от{" "}
-              <mark className="company">Adobe</mark>. Среди не удалённых сервисов в вашей
-              системе мог затесаться{" "}
-              <mark className="app">Adobe Genuine Software Integrity Service</mark>,
-              который проверяет программы на легальное использование и именно он может
-              вызвать окно об отсутствии лицензии. Для решения проблемы достаточно{" "}
-              <a href="https://github.com/wangzhenjjcn/AdobeGenp/wiki/Disable-Adobe-Genuine-Software-Integrity-on-Windows">
-                отключить
-              </a>{" "}
-              этот сервис в <mark className="app">services.msc</mark> или очистить систему
-              от программ <mark className="company">Adobe</mark> с помощью{" "}
-              <a href="https://helpx.adobe.com/creative-cloud/apps/troubleshoot/diagnostics-repair-tools/run-creative-cloud-cleaner-tool.html">
-                Adobe Creative Cloud Cleaner
-              </a>
-              .
-            </p>
-            <Divider>Проверяем, не натворил ли чего антивирус</Divider>
-            <p>
-              В редких случаях ваш антивирус мог удалить файлы для корректной подмены
-              активации, ссылаясь на то, что на вашем устройстве якобы есть вирус. Если вы
-              не хотите отключать или удалять{" "}
-              <mark className="app">Windows Defender</mark> с вашего устройства, то вы
-              можете добавить нужные папки с программами от{" "}
-              <mark className="company">Adobe</mark> в список исключений вашего
-              антивируса, а затем установить программу вашей версии поверх существующей.
+              В редких случаях антивирус может удалять файлы, отвечающие за активацию,
+              считая их вредоносными. Если вы не хотите отключать или удалять{" "}
+              <mark className="app">Защитник Windows</mark>, добавьте папки с программами{" "}
+              <mark className="company">Adobe</mark> в список исключений антивируса, а
+              затем переустановите программу вашей версии «поверх» существующей.
             </p>
             <ContentFigure
-              caption="Windows Defender - как восстановить файлы и запретить их удаление"
+              caption="Windows Defender: как восстановить файлы и добавить их в исключения"
               src="ET94_dv3f8c"
               type="youtube"
             />
+            <Divider>Проверяем установленные службы</Divider>
+            <p>
+              Если вы переходили с лицензионных версий на «народные», то, скорее всего, не
+              полностью очистили систему от предыдущих установок. Из-за этого среди
+              неудалённых служб могла остаться{" "}
+              <mark className="app">Adobe Genuine Software Integrity Service</mark>,
+              которая проверяет легальность использования программ и может вызывать окно
+              об отсутствии лицензии. Для решения проблемы достаточно{" "}
+              <a href="https://youtu.be/HDVvWyBKizo&t=75">отключить</a> эту службу или
+              полностью очистить систему от продуктов{" "}
+              <mark className="company">Adobe</mark> с помощью{" "}
+              <a href="https://helpx.adobe.com/creative-cloud/apps/troubleshoot/diagnostics-repair-tools/run-creative-cloud-cleaner-tool.html">
+                Adobe Creative Cloud Cleaner Tool
+              </a>
+              .
+            </p>
           </>
         }
       />
-      <Divider>Проверяем устройство на наличие VPN-соединения</Divider>
-      <p>
-        В связи с наплывом блокировок различных интернет-ресурсов на территории СНГ -
-        большинство пользователей стали пользоваться различными способами обхода,
-        например, с помощью <mark className="app">VPN</mark>. И именно из-за использования{" "}
-        <mark className="word">VPN-соединения</mark> - программа от{" "}
-        <mark className="company">Adobe</mark> смогла достучаться в интернет и вывела окно
-        об отсутствии лицензии на языке той страны, к которой вы подключились. Почему так
-        происходит? При использовании вашего <mark className="app">VPN-клиента</mark> - он
-        игнорирует ваши правила соединения, созданные в вашей операционной системе, то
-        есть игнорирует стандартный <mark className="app">брандмауэр</mark> и адреса в{" "}
-        <mark className="file">HOSTS</mark>. Для быстрого решения проблемы с активацией
-        достаточно отключить текущее <mark className="word">VPN-соединение</mark> и
-        пользоваться программами от <mark className="company">Adobe</mark> без него.
-      </p>
-      <Addition type="info">
-        <ul>
-          <li>
-            Если вы не хотите отключать себя от{" "}
-            <mark className="word">VPN-соединения</mark>, то вы можете проверить настройки
-            своего <mark className="app">VPN-клиента</mark>. Возможно, в нём есть
-            возможность внести программы от <mark className="company">Adobe</mark> или его
-            адреса в список исключений соединений для того, чтобы соединение для{" "}
-            <mark className="app">Adobe Photoshop</mark> проходило с учетом ваших настроек
-            брандмауэра или вовсе блокировались.
-          </li>
-          <li>
-            Если вы наоборот используете лицензионную версию{" "}
-            <mark className="app">Adobe Photoshop</mark>, то вам нужно будет поддерживать{" "}
-            <mark className="word">VPN-соединение</mark> к другой стране во время
-            использования программы, так как <mark className="company">Adobe</mark>{" "}
-            блокирует доступ к своим ресурсам пользователям Российской Федерации и из-за
-            этого может выскакивать данная ошибка, так как не может сверить лицензии.
-          </li>
-        </ul>
-      </Addition>
     </DetailsSummary>
     <DetailsSummary title="Рабочий диск заполнен или Scratch Disk Full">
       <p>
