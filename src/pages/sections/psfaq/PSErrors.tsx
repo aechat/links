@@ -10,49 +10,6 @@ import HostsAdobeModal from "../../../components/content/HostsAdobe";
 
 const PSErrors: React.FC = () => (
   <div className="faq-content">
-    <DetailsSummary title="Рабочий диск заполнен или Scratch Disk Full">
-      <p>
-        В основном данная ошибка возникает из-за нехватки дискового пространства в
-        системном разделе. Чтобы устранить её, достаточно почистить его от различного
-        хлама.
-      </p>
-      {/* FIXME: написать!! */}
-    </DetailsSummary>
-    <DetailsSummary title="«Для доступа к функциям на базе технологии Firefly в приложениях Adobe у вас должны быть установлены подлинные приложения Adobe», «Проверьте своё подключение к интернету и повторите попытку» или «Could not complete your request because of a program error»">
-      <p>
-        Вы пытаетесь использовать функцию генеративной заливки для создания или коррекции
-        изображения. На «народных» версиях функции, которые используют{" "}
-        <mark className="plugin">Adobe Firefly</mark>, недоступны, так как у вас
-        отсутствует подписка на Creative Cloud.
-      </p>
-      <p>
-        Решения два: либо вы оформляете подписку на Creative Cloud, либо заменяете Firefly
-        на интеграцию <mark className="app">Stable Diffusion</mark> в{" "}
-        <mark className="app">Adobe Photoshop</mark> через плагин{" "}
-        <a href="https://github.com/AbdullahAlfaraj/Auto-Photoshop-StableDiffusion-Plugin/releases">
-          Auto-Photoshop-StableDiffusion
-        </a>
-        .
-      </p>
-      <p>
-        Если вы пытаетесь использовать инструмент{" "}
-        <mark className="select">«Remove Tool»</mark> и у вас выскакивает ошибка{" "}
-        <mark className="select">
-          «Could not complete your request because of a program error»
-        </mark>
-        , то вам нужно переключить режим заливки на{" "}
-        <mark className="select">«Generative AI Off»</mark>.
-      </p>
-      <ContentFigure
-        caption="Adobe Photoshop"
-        imgTitle="Отключаем генеративную заливку при использовании инструмента Remove Tool"
-        // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-        src="images/legacy/photoshop/disable_generative_ai_removetool.png"
-        theme="light"
-        type="image"
-        variant="windows"
-      />
-    </DetailsSummary>
     <DetailsSummary
       anchor="unlicensed-app"
       tag="bitte lies und akzeptiere die nutzungsbedingungen von adobe, door niet-gelicentieerde adobe-apps kan je apparaat worden blootgesteld aan extra beveilligingsrisico's, bu lisanssiz adobe uygulamasi orijinal olmadigindan yakinda devre disi birakilacak, deze app is gedeactiveerd, deze app wordt over dagen gedeactiveerd, deze niet-gelicentieerde adobe-app is degeactiveerd, dieses nicht lizenzierte adobe-programm wurde deaktiviert, dieses produkt wurde deaktiviert, cette application a ete desactivee, cette application adobe asns license a ete desactivee, profitez de sur les applications adobe authentiques, verhoog je productiviteit met legitieme adobe-apps, start your free trial of app, take advantage of discounts up to 40% off on genuine adobe replacement apps, this app has been disabled, this app will disable in days, this unlicensed adobe app is not genuine and will be disabled soon, unlicensed adobe apps may expose your device to increased security risks, vpn, white and red window, white screen, we can't verify your subscription status, we can't reach the adobe servers, this may be because you're not connected to the internet, error code 12014, sorry this app is not available, to continue using this app check your internet connection firewall or ad blocker settings, блокировка доступа в интернет, впн, виртуальная частная сеть, файл хостс, не запускается, не удается проверить статус вашей подписки, не удается подключиться к серверам adobe, возможно у вас отстутствует подключение к интернету, код ошибки 12015, начните использовать бесплатную пробную версию, окно с красной полоской при запуске, пустое окно, слетела лицензия, белое и красное окно, белый экран, the unlicensed adobe app, adobe genuine, hosts, ошибка лицензии, красное окно"
@@ -430,6 +387,49 @@ const PSErrors: React.FC = () => (
           </li>
         </ul>
       </Addition>
+    </DetailsSummary>
+    <DetailsSummary title="Рабочий диск заполнен или Scratch Disk Full">
+      <p>
+        В основном данная ошибка возникает из-за нехватки дискового пространства в
+        системном разделе. Чтобы устранить её, достаточно почистить его от различного
+        хлама.
+      </p>
+      {/* FIXME: написать!! */}
+    </DetailsSummary>
+    <DetailsSummary title="«Для доступа к функциям на базе технологии Firefly в приложениях Adobe у вас должны быть установлены подлинные приложения Adobe», «Проверьте своё подключение к интернету и повторите попытку» или «Could not complete your request because of a program error»">
+      <p>
+        Вы пытаетесь использовать функцию генеративной заливки для создания или коррекции
+        изображения. На «народных» версиях функции, которые используют{" "}
+        <mark className="plugin">Adobe Firefly</mark>, недоступны, так как у вас
+        отсутствует подписка на Creative Cloud.
+      </p>
+      <p>
+        Решения два: либо вы оформляете подписку на Creative Cloud, либо заменяете Firefly
+        на интеграцию <mark className="app">Stable Diffusion</mark> в{" "}
+        <mark className="app">Adobe Photoshop</mark> через плагин{" "}
+        <a href="https://github.com/AbdullahAlfaraj/Auto-Photoshop-StableDiffusion-Plugin/releases">
+          Auto-Photoshop-StableDiffusion
+        </a>
+        .
+      </p>
+      <p>
+        Если вы пытаетесь использовать инструмент{" "}
+        <mark className="select">«Remove Tool»</mark> и у вас выскакивает ошибка{" "}
+        <mark className="select">
+          «Could not complete your request because of a program error»
+        </mark>
+        , то вам нужно переключить режим заливки на{" "}
+        <mark className="select">«Generative AI Off»</mark>.
+      </p>
+      <ContentFigure
+        caption="Adobe Photoshop"
+        imgTitle="Отключаем генеративную заливку при использовании инструмента Remove Tool"
+        // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+        src="images/legacy/photoshop/disable_generative_ai_removetool.png"
+        theme="light"
+        type="image"
+        variant="windows"
+      />
     </DetailsSummary>
     <DetailsSummary title="Ошибка при запуске приложения «0xc0000142»">
       <p>
