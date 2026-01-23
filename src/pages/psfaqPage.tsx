@@ -1,6 +1,18 @@
 import {motion} from "framer-motion";
 import React, {useEffect, useState} from "react";
 
+import {
+  BrokenImageOutlined,
+  ErrorOutlineRounded,
+  HelpCenterOutlined,
+  InputRounded,
+  InstallDesktopRounded,
+  PsychologyAltOutlined,
+  SpeedRounded,
+  TouchAppOutlined,
+  TravelExploreRounded,
+  VideoSettingsRounded,
+} from "@mui/icons-material";
 import {Divider} from "antd";
 import {Helmet} from "react-helmet-async";
 
@@ -32,45 +44,70 @@ const PSFAQ = () => {
   const sections = [
     {
       component: PSWhereFind,
+      icon: <TravelExploreRounded />,
       id: "where-find",
       key: "1",
       title: "Ищем полезности",
     },
     {
       component: PSInstallProblems,
+      icon: <InstallDesktopRounded />,
       id: "install-problems",
       key: "2",
       title: "Проблемы с установкой",
     },
     {
       component: PSFromNewbies,
+      icon: <HelpCenterOutlined />,
       id: "from-newbies",
       key: "3",
       title: "Вопросы от новичков",
     },
-    {component: PSImport, id: "import", key: "4", title: "Импорт"},
-    {component: PSInterface, id: "interface", key: "5", title: "Интерфейс"},
+    {
+      component: PSImport,
+      icon: <InputRounded />,
+      id: "import",
+      key: "4",
+      title: "Импорт",
+    },
+    {
+      component: PSInterface,
+      icon: <TouchAppOutlined />,
+      id: "interface",
+      key: "5",
+      title: "Интерфейс",
+    },
     {
       component: PSPerformance,
+      icon: <SpeedRounded />,
       id: "performance",
       key: "6",
       title: "Производительность",
     },
     {
       component: PSActions,
+      icon: <PsychologyAltOutlined />,
       id: "actions",
       key: "7",
       title: "Как и чем?",
     },
     {
       component: PSErrors,
+      icon: <ErrorOutlineRounded />,
       id: "errors",
       key: "8",
       title: "Ошибки и предупреждения",
     },
-    {component: PSExport, id: "export", key: "9", title: "Рендер и экспорт"},
+    {
+      component: PSExport,
+      icon: <VideoSettingsRounded />,
+      id: "export",
+      key: "9",
+      title: "Рендер и экспорт",
+    },
     {
       component: PSExportProblems,
+      icon: <BrokenImageOutlined />,
       id: "export-problems",
       key: "10",
       title: "Проблемы при экспорте",
