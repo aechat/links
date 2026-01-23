@@ -1,8 +1,8 @@
+import {AnimatePresence} from "framer-motion";
 import React, {lazy, Suspense, useEffect, useState} from "react";
 import {MetrikaCounter} from "react-metrika";
 
 import {ConfigProvider, message, Modal} from "antd";
-import {AnimatePresence} from "framer-motion";
 import {Navigate, Route, Routes, useLocation} from "react-router-dom";
 import Snowfall from "react-snowfall";
 

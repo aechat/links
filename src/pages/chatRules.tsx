@@ -1,8 +1,8 @@
+import {motion} from "framer-motion";
 import React, {useCallback, useEffect} from "react";
 
 import {ShareRounded} from "@mui/icons-material";
 import {Divider, message, Tooltip} from "antd";
-import {motion} from "framer-motion";
 import {Helmet} from "react-helmet-async";
 import {Link, useLocation} from "react-router-dom";
 

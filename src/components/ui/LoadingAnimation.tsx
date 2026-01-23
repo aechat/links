@@ -1,7 +1,7 @@
+import {motion} from "framer-motion";
 import React, {useEffect, useState} from "react";
 
 import LinearProgress from "@mui/material/LinearProgress";
-import {motion} from "framer-motion";
 
 const getCategorizedMessage = (resourceName: string): string => {
   const fileName = resourceName

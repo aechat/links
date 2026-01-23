@@ -1,8 +1,8 @@
+import {motion} from "framer-motion";
 import React, {useEffect, useState} from "react";
 
 import {ArrowBackRounded, SwipeUpRounded} from "@mui/icons-material";
 import {Tooltip} from "antd";
-import {motion} from "framer-motion";
 import {Link, useLocation} from "react-router-dom";
 
 import {SearchButton} from "../features/SearchEngine";

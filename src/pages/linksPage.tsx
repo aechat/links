@@ -1,3 +1,4 @@
+import {motion} from "framer-motion";
 import React, {useState} from "react";
 
 import {
@@ -40,7 +41,6 @@ import {
   WorkRounded,
 } from "@mui/icons-material";
 import {Divider, Modal} from "antd";
-import {motion} from "framer-motion";
 import {Helmet} from "react-helmet-async";
 
 import Addition from "../components/content/Addition";

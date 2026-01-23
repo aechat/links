@@ -1,3 +1,4 @@
+import {motion} from "framer-motion";
 import React, {useEffect, useState} from "react";
 
 import {
@@ -13,7 +14,6 @@ import {
   VideoSettingsRounded,
 } from "@mui/icons-material";
 import {Divider} from "antd";
-import {motion} from "framer-motion";
 import {Helmet} from "react-helmet-async";
 
 import {generateAnchorId} from "../components/content/DetailsSummary";

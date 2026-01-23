@@ -1,7 +1,7 @@
+import {motion} from "framer-motion";
 import React, {useEffect, useState} from "react";
 
 import {Divider} from "antd";
-import {motion} from "framer-motion";
 import {Helmet} from "react-helmet-async";
 
 import Addition from "../components/content/Addition";
