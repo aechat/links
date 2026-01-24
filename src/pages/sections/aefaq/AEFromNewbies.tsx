@@ -90,7 +90,7 @@ const AEFromNewbies: React.FC = () => {
           <li>
             Если вы уже знакомы с интерфейсом программы, но всё ещё чувствуете себя
             неуверенно, попробуйте изучить каналы на <mark className="app">YouTube</mark>{" "}
-            из списка ниже — они помогут прокачать ваши навыки.
+            из списка ниже: они помогут прокачать ваши навыки.
             <div className="flexible-links">
               <a href="https://www.youtube.com/@TutoView/videos">Tutorials View+</a>
               <a href="https://www.youtube.com/@BenMarriott/videos">Ben Marriott</a>
@@ -158,8 +158,8 @@ const AEFromNewbies: React.FC = () => {
             />
           </li>
           <li>
-            Если вы хотите повторить трендовые ролики с плавным ускорением и замедлением —
-            так называемым «speed ramp», то данный эффект делается с помощью изменения
+            Если вы хотите повторить трендовые ролики с плавным ускорением и замедлением,
+            так называемым «speed ramp», то этот эффект делается с помощью изменения
             скорости в параметре <mark className="select">«Time Remapping»</mark>.
             <Addition type="info">
               Чтобы включить <mark className="select">«Time Remapping»</mark> у
@@ -208,7 +208,7 @@ const AEFromNewbies: React.FC = () => {
             <mark className="app">
               Instagram<sup>1</sup> Reels
             </mark>{" "}
-            и хочется попробовать создать что-то подобное — обратите внимание на обучающие
+            и хочется попробовать создать что-то подобное, обратите внимание на обучающие
             видео на каналах ниже.
             <div className="flexible-links">
               <a href="https://www.youtube.com/@Tozel./videos">Tozel</a>
@@ -230,7 +230,7 @@ const AEFromNewbies: React.FC = () => {
           </li>
           <li>
             В «эдитах» нередко используют эффект тряски камеры. Его можно реализовать
-            разными способами — например, с помощью стандартного выражения{" "}
+            разными способами, например с помощью стандартного выражения{" "}
             <mark className="code">wiggle(freq, amp)</mark> или сторонних эффектов{" "}
             <mark className="plugin">S_Shake</mark> и{" "}
             <mark className="plugin">Twitch</mark>
@@ -262,7 +262,7 @@ const AEFromNewbies: React.FC = () => {
             />
           </li>
           <li>
-            Для придания объектам свечения используют различные эффекты — от стандартного{" "}
+            Для придания объектам свечения используют различные эффекты: от стандартного{" "}
             <mark className="plugin">Glow</mark> до сторонних{" "}
             <mark className="plugin">S_Glow</mark>,{" "}
             <mark className="plugin">Deep Glow</mark> и других.
@@ -291,7 +291,7 @@ const AEFromNewbies: React.FC = () => {
             />
           </li>
           <li>
-            На популярных видеоплощадках вроде <mark className="app">TikTok</mark> и{" "}
+            На популярных видеоплощадках, таких как <mark className="app">TikTok</mark> и{" "}
             <mark className="app">YouTube Shorts</mark> нередко используют спорные приёмы
             «улучшения» качества через цветокоррекцию: применяют эффекты{" "}
             <mark className="plugin">Sharpen</mark> и{" "}
@@ -798,7 +798,7 @@ const AEFromNewbies: React.FC = () => {
                   <mark className="app">Adobe After Effects</mark> не работает с
                   несколькими звуковыми дорожками в одном файле — он «увидит» только
                   первую. Остальные нужно извлечь, например, с помощью{" "}
-                  <mark className="app">Handbrake</mark> или{" "}
+                  <mark className="app">HandBrake</mark> или{" "}
                   <mark className="app">MKVToolNix</mark>, и импортировать в композицию
                   отдельно.
                 </li>

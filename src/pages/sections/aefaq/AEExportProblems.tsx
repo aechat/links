@@ -15,8 +15,8 @@ const AEExportProblems: React.FC = () => {
       >
         <p>
           Скорее всего, вы пытаетесь перезаписать файл, который в данный момент
-          используется другой программой — например, открыт в видеоплеере или отправляется
-          в <mark className="app">Telegram</mark>.
+          используется другой программой, например открыт в видеоплеере или отправляется в{" "}
+          <mark className="app">Telegram</mark>.
         </p>
         <p>
           Для решения проблемы закройте программу, которая использует файл, и попробуйте
@@ -30,11 +30,11 @@ const AEExportProblems: React.FC = () => {
       >
         <p>
           Скорее всего, вы столкнулись с багом{" "}
-          <mark className="app">Adobe After Effects</mark> версии <mark>23.1</mark>, из-за
-          которого при экспорте композиции через встроенный кодек{" "}
-          <mark className="video">H.264</mark> в папку с кириллицей в пути на выходе
-          получался файл размером <mark>1 КБ</mark>. В результате чего такой файл не
-          открывается и не читается ни одной программой.
+          <mark className="app">Adobe After Effects</mark> версии <mark>23.1</mark>. Из-за
+          кириллицы или символов вне <mark>ASCII</mark> в пути сохранения при экспорте
+          через встроенный кодек <mark className="video">H.264</mark> получается
+          повреждённый файл размером <mark>1 КБ</mark>, который не открывается ни одной
+          программой.
         </p>
         <Addition type="info">
           Проверить текущую версию <mark className="app">Adobe After Effects</mark> можно
@@ -42,15 +42,15 @@ const AEExportProblems: React.FC = () => {
         </Addition>
         <p>
           Для решения этой проблемы достаточно обновить{" "}
-          <mark className="app">Adobe After Effects</mark> до версии <mark>23.6</mark> или
-          новее и повторить процесс экспорта заново.
+          <mark className="app">Adobe After Effects</mark> до актуальной версии или до{" "}
+          <mark>23.6</mark>, в которой ошибка исправлена, и повторить экспорт.
         </p>
         <p>
           Если не хотите или не можете обновить программу, экспортируйте видео через
           сторонние плагины вроде <mark className="plugin">Voukoder</mark> или{" "}
           <mark className="plugin">AfterCodecs</mark>, о чём{" "}
-          <a href="#export-mp4">рассказано здесь</a>, или сохраните композицию в папку без
-          кириллицы в пути.
+          <a href="#export-mp4">рассказано здесь</a>, или укажите путь сохранения
+          композиции без кириллицы.
         </p>
       </DetailsSummary>
       <DetailsSummary
@@ -63,7 +63,7 @@ const AEExportProblems: React.FC = () => {
           <mark className="video">H.265</mark> или их производные. Эти кодеки не
           поддерживают нечётные разрешения из-за своих технических особенностей: они
           обрабатывают изображение макроблоками, размеры которых должны быть чётными.
-          Поэтому, чтобы соответствовать стандарту, кодек принудительно растягивает или
+          Поэтому чтобы соответствовать стандарту, кодек принудительно растягивает или
           обрезает изображение до ближайшего чётного значения.
         </p>
         <ContentFigure
@@ -145,7 +145,7 @@ const AEExportProblems: React.FC = () => {
           <mark className="app">Adobe After Effects</mark>, достаточно прогнать полученное
           видео через любой конвертер, например{" "}
           <mark className="app">Shutter Encoder</mark>,{" "}
-          <mark className="app">Handbrake</mark> или{" "}
+          <mark className="app">HandBrake</mark> или{" "}
           <mark className="app">Adobe Media Encoder</mark>.
         </p>
         <Divider>Сжимаем видео с помощью Shutter Encoder</Divider>

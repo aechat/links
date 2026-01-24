@@ -42,9 +42,9 @@ const AEImport: React.FC = () => {
       >
         <p>
           Работа с видео состоит из двух ключевых этапов: подготовки исходных материалов и
-          финального экспорта. От того, насколько грамотно вы подойдете к первому этапу,
+          финального экспорта. От того, насколько грамотно вы подойдёте к первому этапу,
           зависит стабильность работы программы и итоговый результат. В этой статье мы
-          разберем, как правильно подготовить чужие исходники перед импортом в{" "}
+          разберём, как правильно подготовить чужие исходники перед импортом в{" "}
           <mark className="app">Adobe After Effects</mark>, чтобы избежать проблем с
           производительностью, артефактами и ошибками.
         </p>
@@ -55,7 +55,7 @@ const AEImport: React.FC = () => {
           перенесите все исходники в отдельную папку или на отдельный диск, а не храните
           их на рабочем столе или в системных директориях. Избегайте кириллицы в названиях
           папок и файлов — используйте латиницу. Это упростит работу с большим количеством
-          материала, избавит от поиска нужных файлов по разным местам и отчасти — от
+          материала, избавит от поиска нужных файлов по разным местам и, отчасти, от
           необходимости выполнять<sup>1</sup>{" "}
           <mark className="select">«Collect Files»</mark> для передачи или архивации
           проекта.
@@ -74,16 +74,16 @@ const AEImport: React.FC = () => {
         <CodeSnippet language="shell">{ProjectStructureExample}</CodeSnippet>
         <Divider>Шаг 2: Анализ исходников</Divider>
         <p>
-          Для начала давайте разберемся в базовых понятиях. Любой видеофайл состоит из
+          Для начала давайте разберёмся в базовых понятиях. Любой видеофайл состоит из
           двух частей: <mark className="word">контейнера</mark>, например{" "}
           <mark className="file">MOV</mark> или <mark className="file">MP4</mark>, и{" "}
-          <mark className="word">кодека</mark>, например{" "}
+          <mark className="word">кодека</mark>, например,{" "}
           <mark className="video">H.264</mark> или{" "}
           <mark className="video">Apple ProRes</mark>.{" "}
           <mark className="word">Контейнер</mark> — это просто «коробка», в которой лежат
           видео- и аудиодорожки. Сам по себе он не влияет на качество. А вот{" "}
           <mark className="word">кодек</mark> — это алгоритм сжатия, который и определяет,
-          насколько качественным и «тяжелым» будет видео, а также насколько удобно с ним
+          насколько качественным и «тяжёлым» будет видео, а также насколько удобно с ним
           будет работать в монтажной программе.
         </p>
         <p>
@@ -105,7 +105,7 @@ const AEImport: React.FC = () => {
         <Divider>Разбираемся с форматами</Divider>
         <p>
           Вы, наверное, спросите:{" "}
-          <mark className="quote">«А зачем проверять исходники?»</mark>. Потому что это —
+          <mark className="quote">«А зачем проверять исходники?»</mark>. Потому что это
           корень ответов на 90% вопросов про тормоза, «артефакты» и «чёрные кадры» в чатах
           и форумах. Спрашивающий обычно молчит, с какими файлами работает, но часто
           кидает один и тот же железный аргумент:{" "}
@@ -166,7 +166,7 @@ const AEImport: React.FC = () => {
           variant="windows"
         />
         <p>
-          Главный вывод — для стабильной и быстрой работы в{" "}
+          Главный вывод: для стабильной и быстрой работы в{" "}
           <mark className="app">Adobe After Effects</mark> нужно использовать правильно
           подготовленные файлы. Для работы с видео рекомендуется использовать монтажные
           кодеки<sup>1</sup>, например <mark className="video">Apple ProRes</mark>, для
@@ -174,7 +174,7 @@ const AEImport: React.FC = () => {
           <mark className="image">PSD</mark> или <mark className="image">PNG</mark>, а для
           звука — <mark className="audio">WAV</mark>. Перекодировать исходники можно с
           помощью таких программ, как <mark className="app">Shutter Encoder</mark> или{" "}
-          <mark className="app">Handbrake</mark>.
+          <mark className="app">HandBrake</mark>.
         </p>
         <Addition type="info">
           <p>
@@ -218,7 +218,6 @@ const AEImport: React.FC = () => {
             <mark className="select">«Interpret Footage»</mark>, а также установить нужное
             рабочее цветовое пространство в настройках проекта{" "}
             <mark className="select">«Project Settings»</mark>.
-            {/* TODO: уточнить при работе с рек 2020 и прочими */}
           </li>
           <li>
             Конвертировать исходник и преобразовать его цветовое пространство — это самый
@@ -275,7 +274,7 @@ const AEImport: React.FC = () => {
         <p>
           Чтобы перекодировать исходники в <mark className="video">монтажный кодек</mark>{" "}
           или привести в порядок другие свойства, установите и запустите программу для
-          конвертации файлов — для этого подойдёт <mark className="app">Handbrake</mark>,{" "}
+          конвертации файлов — для этого подойдёт <mark className="app">HandBrake</mark>,{" "}
           <mark className="app">Format Factory</mark>, <mark className="app">VLC</mark>{" "}
           или любая другая. В этой статье используется{" "}
           <mark className="app">Shutter Encoder</mark> — бесплатный и надёжный конвертер
@@ -755,7 +754,7 @@ const AEImport: React.FC = () => {
           придерживаться, если вы сомневаетесь в стабильности исходников. Для конвертации
           видео в <mark className="video">монтажные кодеки</mark> подойдут{" "}
           <mark className="app">Shutter Encoder</mark>,{" "}
-          <mark className="app">Handbrake</mark> или{" "}
+          <mark className="app">HandBrake</mark> или{" "}
           <mark className="app">Adobe Media Encoder</mark>.
         </p>
         <ContentFigure
@@ -978,7 +977,7 @@ const AEImport: React.FC = () => {
           Если это не помогло, перекодируйте ваш исходник с постоянной частотой кадров
           через <mark className="app">Shutter Encoder</mark>,{" "}
           <mark className="app">Adobe Media Encoder</mark> или{" "}
-          <mark className="app">Handbrake</mark>. В{" "}
+          <mark className="app">HandBrake</mark>. В{" "}
           <mark className="app">Shutter Encoder</mark> это можно сделать во вкладке{" "}
           <mark className="select">«Advanced features»</mark>.
         </p>
@@ -1393,8 +1392,9 @@ const AEImport: React.FC = () => {
           Чтобы послойно импортировать объекты из{" "}
           <mark className="app">Adobe Illustrator</mark> в{" "}
           <mark className="app">Adobe After Effects</mark> — их нужно разделить на
-          несколько слоёв. Для этого в самом <mark className="app">Adobe Illstrator</mark>{" "}
-          раскройте список объектов, выделите группу и в контекстном меню окна{" "}
+          несколько слоёв. Для этого в самом{" "}
+          <mark className="app">Adobe Illustrator</mark> раскройте список объектов,
+          выделите группу и в контекстном меню окна{" "}
           <mark className="select">«Layers»</mark> выберите{" "}
           <mark className="select">«Release to Layers (Sequence)»</mark>.
         </p>
@@ -1504,7 +1504,7 @@ const AEImport: React.FC = () => {
         title="Как импортировать макет из Figma?"
       >
         <p>
-          Макет, созданный в <mark className="app">Figma</mark> можно перенести в{" "}
+          Макет, созданный в <mark className="app">Figma</mark>, можно перенести в{" "}
           <mark className="app">Adobe After Effects</mark> с помощью двух сторонних
           расширений: <mark className="plugin">AEUX</mark> и{" "}
           <mark className="plugin">Overlord 2</mark>. В этой статье, из-за отсутствия
@@ -1758,7 +1758,7 @@ const AEImport: React.FC = () => {
         title="Как импортировать Lottie и TGS?"
       >
         <p>
-          <mark className="file">LOTTIE</mark> — популярный формат анимации для
+          <mark className="file">Lottie</mark> — популярный формат анимации для
           встраивания на сайты и в мобильные приложения в виде{" "}
           <mark className="file">JSON</mark>. По схожему принципу работает и{" "}
           <mark className="file">TGS</mark> — формат анимированных стикеров в мессенджере{" "}
@@ -1769,12 +1769,12 @@ const AEImport: React.FC = () => {
         </p>
         <Addition type="danger">
           Учтите, что из-за особенностей импорта <mark className="file">JSON</mark> и{" "}
-          <mark className="file">LOTTIE</mark> некоторые элементы анимации могут
+          <mark className="file">Lottie</mark> некоторые элементы анимации могут
           импортироваться некорректно.
         </Addition>
         <Divider>Импортируем файлы Lottie</Divider>
         <p>
-          Прежде чем начать импорт <mark className="file">LOTTIE</mark> или{" "}
+          Прежде чем начать импорт <mark className="file">Lottie</mark> или{" "}
           <mark className="file">JSON</mark>, вам нужно загрузить и установить{" "}
           <mark className="plugin">LottieFiles for Adobe After Effects</mark> —
           официальное бесплатное<sup>1</sup> расширение от{" "}
@@ -1820,7 +1820,7 @@ const AEImport: React.FC = () => {
           <mark className="select">«Import»</mark> в расширении и нажмите кнопку{" "}
           <mark className="select">«Browse»</mark> для выбора файла формата{" "}
           <mark className="file">JSON</mark>, <mark className="file">SVG</mark> или{" "}
-          <mark className="file">LOTTIE</mark>.
+          <mark className="file">Lottie</mark>.
         </p>
         <ContentFigure
           caption="LottieFiles"
@@ -2099,6 +2099,7 @@ const AEImport: React.FC = () => {
         </p>
       </DetailsSummary>
       <DetailsSummary
+        anchor="cannot-be-opened-with-this-version"
         tag="обратная совместимость, несовместимость версий, конвертация проекта"
         title="Что делать с «The file you are attempting to open was created with version XX.X.X and cannot be opened with this version»?"
       >
@@ -2134,7 +2135,7 @@ const AEImport: React.FC = () => {
           Для этого перейдите в <mark className="select">«File» → «Save As»</mark> и
           выберите нужную версию из списка. Программа предложит указать папку для
           сохранения копии проекта. Рекомендуется сохранять копию проекта в той же папке,
-          где находится оригинал, чтобы избежать проблем с ссылками на исходники.
+          где находится оригинал, чтобы избежать проблем со ссылками на исходники.
         </p>
         <ContentFigure
           caption="Adobe After Effects"

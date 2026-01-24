@@ -526,7 +526,7 @@ const PRImport: React.FC = () => {
           <mark className="app">FastStone Image Viewer</mark>.
         </p>
       </DetailsSummary>
-      <DetailsSummary title="Как импортировать композиции из After Effects в секвенцию Premiere Pro?">
+      <DetailsSummary title="Как импортировать композиции из Adobe After Effects в секвенцию?">
         <Addition type="warning">
           Прежде чем начать импорт композиций из{" "}
           <mark className="app">Adobe After Effects</mark> - убедитесь что обе программы

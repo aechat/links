@@ -416,7 +416,7 @@ const AEActions: React.FC = () => {
         </ul>
       </DetailsSummary>
       <DetailsSummary
-        anchor="denoise"
+        anchor="video-denoise"
         tag="уменьшить шум, denoiser, neat video, подавление цифрового шума, денойзер, неат видео, шумоподавление, чистка видео"
         title="Чем можно подавить шумы на видео?"
       >

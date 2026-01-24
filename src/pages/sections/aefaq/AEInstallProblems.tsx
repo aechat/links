@@ -98,15 +98,15 @@ const AEInstallProblems: React.FC = () => {
                   <mark className="file">7Z</mark> или <mark className="file">RAR</mark> —
                   его необходимо распаковать с помощью архиватора для дальнейшей работы с
                   его содержимым. Это можно сделать с помощью{" "}
-                  <mark className="app">keka</mark> или{" "}
+                  <mark className="app">Keka</mark> или{" "}
                   <mark className="app">The Unarchiver</mark>. Для распаковки многотомного
-                  архива, то есть, если в названии архивов есть{" "}
+                  архива, то есть если в названии архивов есть{" "}
                   <mark className="file">PART1</mark>, <mark className="file">PART2</mark>{" "}
-                  и так далее, нужно запустить распаковку только первой части — остальные
+                  и так далее, нужно запускать распаковку только первой части — остальные
                   подхватятся автоматически. Другие части архива не нужно трогать без
                   острой необходимости, если вы не знаете, что с ними делать.
                   <Addition type="info">
-                    Загрузить <mark className="app">keka</mark> можно по{" "}
+                    Загрузить <mark className="app">Keka</mark> можно по{" "}
                     <a href="https://www.keka.io/ru/">этой ссылке</a>, а{" "}
                     <mark className="app">The Unarchiver</mark> — по{" "}
                     <a href="https://theunarchiver.com/">этой</a>.
@@ -127,9 +127,9 @@ const AEInstallProblems: React.FC = () => {
                         <mark className="app">Telegram</mark> или другом сервисе.
                       </li>
                       <li>
-                        Если вы хотите сделать <mark className="app">keka</mark>{" "}
+                        Если вы хотите сделать <mark className="app">Keka</mark>{" "}
                         архиватором по умолчанию, то вам понадобится установить{" "}
-                        <a href="https://www.keka.io/defaultapp/">kekaExternalHelper</a>.
+                        <a href="https://www.keka.io/defaultapp/">KekaExternalHelper</a>.
                         Подробная инструкция расположена в{" "}
                         <a href="https://github.com/aonez/Keka/wiki/Default-application">
                           вики на GitHub
@@ -348,7 +348,7 @@ const AEInstallProblems: React.FC = () => {
                   распаковкой расширения в нужную директорию. После корректной установки
                   установленные расширения появятся в{" "}
                   <mark className="select">«Window» → «Extensions»</mark> и будут работать
-                  в своём новом окне, который вы можете прикрепить в своё рабочее
+                  в своём новом окне, которое вы можете прикрепить в своё рабочее
                   пространство.
                   <Addition type="info">
                     <ul>
@@ -2907,7 +2907,8 @@ const AEInstallProblems: React.FC = () => {
                 <mark>23.6</mark> на <mark>25.2</mark>, — вам потребуется вручную
                 перенести плагины, пресеты и другие дополнения. При установке версии
                 «другого года» старая программа не удаляется автоматически и остаётся на
-                вашем устройстве. При необходимости вы сможете удалить её позже.
+                вашем устройстве. При необходимости вы сможете удалить её позже или
+                продолжить работу в ней.
               </p>
               <Divider>Что нужно сохранить на всякий случай?</Divider>
               <Addition type="danger">

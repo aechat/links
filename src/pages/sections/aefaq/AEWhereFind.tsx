@@ -21,7 +21,7 @@ const AEWhereFind: React.FC = () => {
           >
             AEChat
           </a>{" "}
-          и в списке ниже вы всегда сможете найти ссылки на наши каналы в{" "}
+          и в списке ниже вы всегда можете найти ссылки на наши каналы в{" "}
           <mark className="app">Telegram</mark> с полезным контентом.
         </p>
         <Addition type="info">
@@ -91,7 +91,7 @@ const AEWhereFind: React.FC = () => {
         <Addition type="info">
           Если вы не нашли в каналах <a href="https://t.me/s/aetemp">AETemp</a> и{" "}
           <a href="https://t.me/s/designworld">Design World</a> нужный шаблон, но у вас
-          есть на него ссылка — воспользуйтесь нашим ботом{" "}
+          есть на него ссылка, воспользуйтесь нашим ботом{" "}
           <a
             href="https://t.me/HiStockBot?start=509060394"
             title="Бот HiStock для покупки шаблонов в Telegram"
@@ -130,7 +130,7 @@ const AEWhereFind: React.FC = () => {
         </Addition>
         <Addition type="danger">
           Файлы из <mark>Videohive</mark>, <mark>Shutterstock</mark> и других сервисов,
-          которые не используют подписочную модель распространения, —{" "}
+          которые не используют подписочную модель распространения,{" "}
           <b>
             <u>не поддерживаются</u>
           </b>
@@ -158,9 +158,9 @@ const AEWhereFind: React.FC = () => {
           </li>
         </ul>
         <Addition type="info">
-          Если у вас возникли проблемы с установкой программ или плагинов — прочтите
-          раздел <a href="#install-problems">«Проблемы с установкой»</a> или обратитесь к
-          нам в <a href="https://t.me/joinchat/F1DdXtG9LephYWUy">AEChat</a>.
+          Если у вас возникли проблемы с установкой программ или плагинов, прочтите раздел{" "}
+          <a href="#install-problems">«Проблемы с установкой»</a> или обратитесь к нам в{" "}
+          <a href="https://t.me/joinchat/F1DdXtG9LephYWUy">AEChat</a>.
         </Addition>
         <Addition type="warning">
           При установке программ с пометкой <mark>«репак от кролика»</mark> из{" "}
