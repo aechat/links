@@ -431,9 +431,6 @@ const AEExport: React.FC = () => {
             </li>
           </ul>
         </Addition>
-        <Divider>
-          Что влияет на совместимость для просмотра на различных устройствах?
-        </Divider>
         <Divider>Как настроить «качество» перед экспортом?</Divider>
         <p>
           Обычно за визуальное качество видео отвечает битрейт. Если битрейта не хватит
@@ -2379,8 +2376,7 @@ const AEExport: React.FC = () => {
       <DetailsSummary
         tag="resolume, дхв"
         title="Как экспортировать композицию в DXV?"
-      >
-      </DetailsSummary>
+      ></DetailsSummary>
       <DetailsSummary
         anchor="export-prores"
         tag="prores 4444, prores 422, quicktime, видео с прозрачностью, alpha channel"
@@ -3497,8 +3493,7 @@ const AEExport: React.FC = () => {
       <DetailsSummary
         tag="командная строка, aerender, автоматизация, пакетный рендер, скриптинг, экспорт, очередь рендера"
         title="Как экспортировать композицию с помощью командной строки?"
-      >
-      </DetailsSummary>
+      ></DetailsSummary>
       <DetailsSummary
         tag="лотти"
         title="Какие эффекты можно использовать при использовании Lottie?"
