@@ -262,7 +262,7 @@ const AEInterface: React.FC = () => {
             отдельный параметр
           </a>{" "}
           для решения этой проблемы. Чтобы его включить, откройте{" "}
-          <mark className="select">«Edit» → «Preferences» → «General»</mark> и активируйте{" "}
+          <mark className="select">«Edit» → «Preferences» → «Project»</mark> и активируйте{" "}
           <mark className="select">
             «Maintain current workspace when opening projects»
           </mark>
@@ -270,8 +270,16 @@ const AEInterface: React.FC = () => {
           измените его вручную.
         </p>
         <Addition type="info">
-          В старых версиях <mark className="app">Adobe After Effects</mark> такой опции
-          нет. Чтобы она появилась, обновитесь до более свежей версии программы.
+          <ul>
+            <li>
+              В старых версиях <mark className="app">Adobe After Effects</mark> такой
+              опции нет. Чтобы она появилась, обновитесь до более свежей версии программы.
+            </li>
+            <li>
+              В <mark className="app">Adobe After Effects</mark> версии <mark>2025</mark>{" "}
+              эта кнопка находится в разделе <mark className="select">«General»</mark>.
+            </li>
+          </ul>
         </Addition>
         <ContentFigure
           caption="Preferences"
@@ -1046,10 +1054,15 @@ const AEInterface: React.FC = () => {
           Скорее всего, вы случайно установили флажок возле параметра, который позволяет
           программе использовать системное диалоговое окно выбора цвета. Чтобы вернуть
           стандартный для <mark className="app">Adobe After Effects</mark> вид, перейдите
-          в <mark className="select">«Edit» → «Preferences» → «General»</mark> и уберите
-          флажок возле параметра <mark className="select">«Use System Color Picker»</mark>
-          . После этого при выборе цвета вернётся привычное окно.
+          в <mark className="select">«Edit» → «Preferences» → «Appearance»</mark> и
+          уберите флажок возле параметра{" "}
+          <mark className="select">«Use System Color Picker»</mark>. После этого при
+          выборе цвета вернётся привычное окно.
         </p>
+        <Addition type="info">
+          В старых версиях <mark className="app">Adobe After Effects</mark> эта кнопка
+          находится в разделе <mark className="select">«General»</mark>.
+        </Addition>
         <ContentFigure
           caption="Preferences"
           imgTitle="Настройка использования системного выбора цвета"
