@@ -1,8 +1,8 @@
-import {motion} from "framer-motion";
 import React, {useState} from "react";
 
 import {CloseRounded, CoffeeRounded} from "@mui/icons-material";
 import {Modal} from "antd";
+import {motion} from "framer-motion";
 
 interface SupportDonutProperties {
   wide?: boolean;
