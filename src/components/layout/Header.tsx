@@ -24,7 +24,7 @@ const TOOLTIP_MESSAGES: Record<string, string> = {
   "/": "Ссылки на полезные ресурсы, программы и чаты",
   "/aeexpr": "Руководство по выражениям в Adobe After Effects",
   "/aefaq": "Ответы на часто задаваемые вопросы по Adobe After Effects",
-  "/prfaq": "Ответы на часто задаваемые вопросы по Adobe Premiere Pro",
+  "/prfaq": "Ответы на часто задаваемые вопросы по Adobe Premiere",
   "/psfaq": "Ответы на часто задаваемые вопросы по Adobe Photoshop",
   "/rules": "Правила сообщества AEChat и DWChat",
 };

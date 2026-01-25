@@ -717,7 +717,7 @@ const AEPerformance: React.FC = () => {
         </p>
         <p>
           В отличие от классических программ нелинейного монтажа, таких как{" "}
-          <mark className="app">Adobe Premiere Pro</mark> или{" "}
+          <mark className="app">Adobe Premiere</mark> или{" "}
           <mark className="app">DaVinci Resolve</mark>,{" "}
           <mark className="app">Adobe After Effects</mark> изначально не рассчитан на
           предпросмотр в реальном времени, особенно если в композиции применено много
@@ -880,7 +880,7 @@ const AEPerformance: React.FC = () => {
           Кроме того, <mark className="app">Adobe After Effects</mark> делит общий пул
           оперативной памяти с другими запущенными приложениями{" "}
           <mark className="company">Adobe</mark>. Например,{" "}
-          <mark className="app">Adobe Premiere Pro</mark> или{" "}
+          <mark className="app">Adobe Premiere</mark> или{" "}
           <mark className="app">Adobe Media Encoder</mark> «откусит» часть ресурсов у{" "}
           <mark className="app">Adobe After Effects</mark>, а их закрытие освободит эту
           память.
@@ -1328,7 +1328,7 @@ const AEPerformance: React.FC = () => {
         </p>
         <p>
           Если ваш проект длится дольше 2–5 минут, а переходить в{" "}
-          <mark className="app">Adobe Premiere Pro</mark> или{" "}
+          <mark className="app">Adobe Premiere</mark> или{" "}
           <mark className="app">DaVinci Resolve</mark> вы не хотите, разбейте его на
           отдельные, более мелкие композиции. Когда работа над одной из таких сложных
           композиций завершена и вы не планируете её дальше редактировать, создайте для
@@ -1391,7 +1391,7 @@ const AEPerformance: React.FC = () => {
           </li>
           <li>
             Во время экспорта композиции не стоит работать в других ресурсоёмких
-            программах, таких как <mark className="app">Adobe Premiere Pro</mark> или{" "}
+            программах, таких как <mark className="app">Adobe Premiere</mark> или{" "}
             <mark className="app">Blender</mark>. Это чревато ошибками из-за нехватки
             оперативной памяти и может привести к сбою всего процесса.
           </li>

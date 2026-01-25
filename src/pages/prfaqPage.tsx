@@ -126,7 +126,7 @@ const PRFAQ = () => {
         <Helmet>
           <title>prfaq@aechat</title>
           <meta
-            content="Ответы на частые вопросы от пользователей Adobe Premiere Pro"
+            content="Ответы на частые вопросы от пользователей Adobe Premiere"
             name="description"
           />
           <meta
@@ -134,7 +134,7 @@ const PRFAQ = () => {
             itemProp="name"
           />
           <meta
-            content="Ответы на частые вопросы от пользователей Adobe Premiere Pro"
+            content="Ответы на частые вопросы от пользователей Adobe Premiere"
             itemProp="description"
           />
           <meta
@@ -158,7 +158,7 @@ const PRFAQ = () => {
             property="og:title"
           />
           <meta
-            content="Ответы на частые вопросы от пользователей Adobe Premiere Pro"
+            content="Ответы на частые вопросы от пользователей Adobe Premiere"
             property="og:description"
           />
           <meta
@@ -174,7 +174,7 @@ const PRFAQ = () => {
             name="twitter:title"
           />
           <meta
-            content="Ответы на частые вопросы от пользователей Adobe Premiere Pro"
+            content="Ответы на частые вопросы от пользователей Adobe Premiere"
             name="twitter:description"
           />
           <meta

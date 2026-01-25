@@ -207,7 +207,7 @@ const ChatRules = () => {
                     AEChat
                   </a>{" "}
                   посвящён <mark className="app">Adobe After Effects</mark>,{" "}
-                  <mark className="app">Adobe Premiere Pro</mark> и плагинам для этих
+                  <mark className="app">Adobe Premiere</mark> и плагинам для этих
                   программ, а{" "}
                   <a
                     href="https://t.me/+3LF_B_VK-Nw4YzYy"
@@ -300,8 +300,8 @@ const ChatRules = () => {
                 <Addition type="info">
                   Прежде чем задать вопрос, воспользуйтесь поиском по чату, а также
                   загляните в разделы FAQ по <a href="#aefaq">Adobe After Effects</a>,{" "}
-                  <a href="#prfaq">Adobe Premiere Pro</a> или{" "}
-                  <a href="#psfaq">Photoshop</a>. Возможно, необходимое решение уже
+                  <a href="#prfaq">Adobe Premiere</a> или{" "}
+                  <a href="#psfaq">Adobe Photoshop</a>. Возможно, необходимое решение уже
                   описано в этих источниках.
                 </Addition>
                 <ul>
@@ -854,7 +854,7 @@ const ChatRules = () => {
                     Укажите ваше направление, навыки и программы, которыми вы свободно
                     владеете. Минимальный востребованный набор — уверенное владение{" "}
                     <mark className="app">Adobe After Effects</mark>,{" "}
-                    <mark className="app">Adobe Premiere Pro</mark> и{" "}
+                    <mark className="app">Adobe Premiere</mark> и{" "}
                     <mark className="app">Adobe Photoshop</mark>, а также базовые знания в
                     трёхмерных редакторах, например <mark className="app">Blender</mark>{" "}
                     или <mark className="app">Cinema 4D</mark>.

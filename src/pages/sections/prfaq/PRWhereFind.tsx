@@ -79,7 +79,7 @@ const PRWhereFind: React.FC = () => {
           <li>
             <a href="https://t.me/s/premtemp">PremTemp</a> — канал с переходами,
             шаблонами, расширениями и прочими полезными материалами для ваших секвенций в{" "}
-            <mark className="app">Adobe Premiere Pro</mark>.
+            <mark className="app">Adobe Premiere</mark>.
           </li>
           <li>
             <a href="https://t.me/s/aetemp">AETemp</a> — канал с аналогичным контентом, но
@@ -779,23 +779,23 @@ const PRWhereFind: React.FC = () => {
       >
         <Addition type="warning">
           Перевод и наличие эффектов, а также способ их работы могут отличаться в
-          зависимости от версии <mark className="app">Adobe Premiere Pro</mark>. Также
+          зависимости от версии <mark className="app">Adobe Premiere</mark>. Также
           рекомендуется переключить интерфейс на английский язык, чтобы не возвращаться к
           этой таблице снова и снова.
         </Addition>
         <p>
           Пользователям, использующим русскоязычный интерфейс{" "}
-          <mark className="app">Adobe Premiere Pro</mark>, иногда бывает трудно найти
-          эффект, который обозначен на английском языке. В таких случаях можно обратиться
-          к таблице перевода.
+          <mark className="app">Adobe Premiere</mark>, иногда бывает трудно найти эффект,
+          который обозначен на английском языке. В таких случаях можно обратиться к
+          таблице перевода.
         </p>
         <Addition type="danger">
-          В <mark className="app">Adobe Premiere Pro</mark> версии <mark>25.0</mark> и
-          новее убрали папку <mark className="path">Obsolete</mark>, где были расположены
+          В <mark className="app">Adobe Premiere</mark> версии <mark>2025</mark> и новее
+          убрали папку <mark className="path">Obsolete</mark>, где были расположены
           устаревшие, по мнению Adobe, эффекты. Эффекты все ещё будут доступны для
           проектов, который были созданы в старых версиях{" "}
-          <mark className="app">Adobe Premiere Pro</mark>, но без танцев с бубном их
-          применить в новых проектах не получится.{" "}
+          <mark className="app">Adobe Premiere</mark>, но без танцев с бубном их применить
+          в новых проектах не получится.{" "}
           <a href="https://community.adobe.com/t5/premiere-pro-beta-discussions/now-released-obsolete-effects-transitions-and-presets-removed/td-p/14703879">
             Подробнее...
           </a>

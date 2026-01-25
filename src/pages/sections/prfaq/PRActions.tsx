@@ -40,9 +40,9 @@ const PRActions: React.FC = () => {
         />
         <p>
           Если вы хотите повысить качество исходного материала прямо в{" "}
-          <mark className="app">Adobe Premiere Pro</mark>, попробуйте применить к слою
-          эффект <mark className="plugin">BCC+UpRes ML</mark>, который входит в сторонний
-          пакет <mark className="plugin">Boris FX Continuum</mark>.
+          <mark className="app">Adobe Premiere</mark>, попробуйте применить к слою эффект{" "}
+          <mark className="plugin">BCC+UpRes ML</mark>, который входит в сторонний пакет{" "}
+          <mark className="plugin">Boris FX Continuum</mark>.
         </p>
         <ContentFigure
           caption="BCC UpRes ML"
@@ -52,12 +52,12 @@ const PRActions: React.FC = () => {
         <Divider>Улучшаем качество фотографий</Divider>
         <p>
           Для улучшения качества изображений прямо в{" "}
-          <mark className="app">Adobe Premiere Pro</mark> можно использовать способы,
+          <mark className="app">Adobe Premiere</mark> можно использовать способы,
           описанные в этой статье выше.
         </p>
         <p>
           Если вы хотите улучшить изображение без использования{" "}
-          <mark className="app">Adobe Premiere Pro</mark>, попробуйте воспользоваться{" "}
+          <mark className="app">Adobe Premiere</mark>, попробуйте воспользоваться{" "}
           <mark className="app">Topaz Photo AI</mark> или{" "}
           <mark className="app">Topaz Gigapixel AI</mark>. Задачи у них похожи, но
           результаты обработки могут сильно отличаться, поэтому иногда приходится
@@ -135,10 +135,10 @@ const PRActions: React.FC = () => {
           Интерфейс и действия в приведённых ниже видео могут отличаться в зависимости от
           версии программы или плагина.
         </Addition>
-        <Divider>Плавно замедляем видео в Adobe Premiere Pro</Divider>
+        <Divider>Плавно замедляем видео в Adobe Premiere</Divider>
         <p>
           Замедлить видео можно стандартными средствами{" "}
-          <mark className="app">Adobe Premiere Pro</mark>. Для этого выделите нужный клип,
+          <mark className="app">Adobe Premiere</mark>. Для этого выделите нужный клип,
           нажмите <mark className="key">Ctrl + R</mark> и растяните видео на нужную длину.
           В параметре <mark className="select">«Time Interpolation»</mark> можно выбрать
           три типа интерполяции: <mark className="select">«Frame Sampling»</mark>,{" "}
@@ -175,12 +175,12 @@ const PRActions: React.FC = () => {
           src="YraSxOpy1Qg"
           type="youtube"
         />
-        <Divider>«Уплавняем» видео вне Adobe Premiere Pro</Divider>
+        <Divider>«Уплавняем» видео вне Adobe Premiere</Divider>
         <p>
           Если стоит задача увеличить частоту кадров, например, с <mark>24 FPS</mark> до{" "}
           <mark>60 FPS</mark> или даже <mark>120 FPS</mark> для дальнейшей обработки или
           более плавного воспроизведения, можно обойтись без{" "}
-          <mark className="app">Adobe Premiere Pro</mark> и воспользоваться программой{" "}
+          <mark className="app">Adobe Premiere</mark> и воспользоваться программой{" "}
           <mark className="app">Flowframes</mark>. У этой утилиты есть{" "}
           <a href="https://nmkd.itch.io/flowframes">бесплатная версия</a>
           <sup>1</sup> и <a href="https://www.patreon.com/n00mkrad">платная</a> с
@@ -362,7 +362,7 @@ const PRActions: React.FC = () => {
         </Addition>
         <Divider>Подавляем шумы стандартными средствами</Divider>
         <p>
-          В <mark className="app">Adobe Premiere Pro</mark> есть встроенный эффект{" "}
+          В <mark className="app">Adobe Premiere</mark> есть встроенный эффект{" "}
           <mark className="plugin">VR De-Noise</mark>, с помощью которого можно подавить
           шумы, не прибегая к сторонним плагинам.
         </p>
@@ -437,7 +437,7 @@ const PRActions: React.FC = () => {
         </Addition>
         <Divider>Удаляем однотонный фон стандартными средствами</Divider>
         <p>
-          В <mark className="app">Adobe Premiere Pro</mark> легко убрать зелёный фон,
+          В <mark className="app">Adobe Premiere</mark> легко убрать зелёный фон,
           используя встроенный эффект <mark className="plugin">Ultra Key</mark>.
         </p>
         <ContentFigure
@@ -448,9 +448,8 @@ const PRActions: React.FC = () => {
         <Divider>Удаляем однотонный фон сторонними плагинами</Divider>
         <Addition type="info">
           Плагины ниже демонстрируются в <mark className="app">Adobe After Effects</mark>.
-          Все эти действия можно повторить и в{" "}
-          <mark className="app">Adobe Premiere Pro</mark>, принцип работы мало чем
-          отличается.
+          Все эти действия можно повторить и в <mark className="app">Adobe Premiere</mark>
+          , принцип работы мало чем отличается.
         </Addition>
         <p>
           Из сторонних инструментов для удаления цветного фона любой сложности можно
@@ -506,8 +505,8 @@ const PRActions: React.FC = () => {
         title="Как сделать автоматические субтитры для видео?"
       >
         <p>
-          В <mark className="app">Adobe Premiere Pro</mark> с версии <mark>2022</mark> и
-          новее добавили поддержку автоматического перевода речи в текст. Работает как на
+          В <mark className="app">Adobe Premiere</mark> с версии <mark>2022</mark> и новее
+          добавили поддержку автоматического перевода речи в текст. Работает как на
           лицензионных, так и на «народных» версиях.
         </p>
         <Addition type="info">
@@ -516,7 +515,7 @@ const PRActions: React.FC = () => {
               На «народных» версиях обычно языковые пакеты не поставляются вместе с
               дистрибутивом, чтобы не раздувать размер установщика. Их можно загрузить
               отдельно по запросу <mark className="copy">Speech To Text</mark> именно для
-              вашей версии <mark className="app">Adobe Premiere Pro</mark>.
+              вашей версии <mark className="app">Adobe Premiere</mark>.
               <Addition type="info">
                 Языковые пакеты вы можете скачать в канале{" "}
                 <a href="https://t.me/+Qd9xu7A4TeIwNzY6">
@@ -529,30 +528,30 @@ const PRActions: React.FC = () => {
             </li>
             <li>
               Если вы установите языковой пакет, который предназначен для версии{" "}
-              <mark className="app">Adobe Premiere Pro</mark>, отличной от вашей, вы
-              просто зря займёте место на диске, а язык не установится, и программа будет
+              <mark className="app">Adobe Premiere</mark>, отличной от вашей, вы просто
+              зря займёте место на диске, а язык не установится, и программа будет
               постоянно предлагать его скачать. То есть, если у вас установлен{" "}
-              <mark className="app">Adobe Premiere Pro</mark> версии <mark>24.6</mark>, а
+              <mark className="app">Adobe Premiere</mark> версии <mark>24.6</mark>, а
               языковой пакет, который вы скачали и установили, предназначен для{" "}
               <mark>24.1</mark>, то в вашей версии программы он попросту не появится.
               <Addition type="info">
                 Информацию о текущей сборке программы вы можете узнать в{" "}
-                <mark className="select">«Help» → «About Premiere Pro»</mark>.
+                <mark className="select">«Help» → «About Premiere»</mark>.
               </Addition>
             </li>
             <li>
               Языковые пакеты могут не установиться корректно, если{" "}
-              <mark className="app">Adobe Premiere Pro</mark> расположен в нестандартном
-              пути установки, то есть отличном от{" "}
+              <mark className="app">Adobe Premiere</mark> расположен в нестандартном пути
+              установки, то есть отличном от{" "}
               <mark className="path">C:\Program Files\Adobe</mark>.
             </li>
           </ul>
         </Addition>
-        <Divider>Генерируем субтитры из речи в Premiere Pro</Divider>
+        <Divider>Генерируем субтитры из речи в Premiere</Divider>
         <p>
           Предположим, вы установили языковые пакеты для вашей версии{" "}
-          <mark className="app">Adobe Premiere Pro</mark> и хотите начать транскрибацию.
-          Для этого откройте окно <mark className="select">«Text»</mark> через меню{" "}
+          <mark className="app">Adobe Premiere</mark> и хотите начать транскрибацию. Для
+          этого откройте окно <mark className="select">«Text»</mark> через меню{" "}
           <mark className="select">«Window»</mark>. Затем во вкладке{" "}
           <mark className="select">«Transcribe»</mark> нажмите на три точки в углу и
           выберите функцию <mark className="select">«Generate static transcript»</mark>.
@@ -715,16 +714,15 @@ const PRActions: React.FC = () => {
         </p>
         <Divider>Импортируем файл субтитров в секвенцию</Divider>
         <p>
-          После сохранения файла вернитесь в{" "}
-          <mark className="app">Adobe Premiere Pro</mark>. В окне{" "}
-          <mark className="select">«Text»</mark> нажмите на три точки, перейдите во
+          После сохранения файла вернитесь в <mark className="app">Adobe Premiere</mark>.
+          В окне <mark className="select">«Text»</mark> нажмите на три точки, перейдите во
           вкладку <mark className="select">«Captions»</mark>, нажмите{" "}
           <mark className="select">«Import captions from file»</mark> и укажите путь к
           сохранённым субтитрам.
         </p>
         <ContentFigure
           caption="Text"
-          imgTitle="Импорт субтитров в Adobe Premiere Pro"
+          imgTitle="Импорт субтитров в Adobe Premiere"
           // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
           src="images/legacy/premierepro/import_captions_from_file.png"
           theme="dark"

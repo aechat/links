@@ -75,7 +75,7 @@ const PRExportProblems: React.FC = () => {
           <li>
             Если вы выводите через <mark className="app">Adobe Media Encoder</mark>, то
             откажитесь от него в пользу экспорта напрямую из{" "}
-            <mark className="app">Adobe Premiere Pro</mark>.
+            <mark className="app">Adobe Premiere</mark>.
           </li>
           <li>
             <p>
@@ -128,7 +128,7 @@ const PRExportProblems: React.FC = () => {
       </DetailsSummary>
       <DetailsSummary title="Экспортировал секвенцию в H.264 и отправил пользователю iPhone, а он не может открыть видео. Почему это происходит и как это исправить?">
         <p>
-          <mark className="app">Adobe Premiere Pro</mark> поднимает значение{" "}
+          <mark className="app">Adobe Premiere</mark> поднимает значение{" "}
           <mark className="select">«Level»</mark> для секвенций с большим разрешением,
           например <mark>3840 на 2160</mark>, а <mark>iPhone</mark> не может понять такие
           файлы. Для решения проблемы попробуйте в настройках экспорта опустить{" "}
@@ -161,16 +161,16 @@ const PRExportProblems: React.FC = () => {
         title="Почему при экспорте в MP4 через встроенный кодек H.264 и HEVC сохраняется файл с размером в 1 КБ?"
       >
         <p>
-          Скорее всего, вы столкнулись с багом{" "}
-          <mark className="app">Adobe Premiere Pro</mark> версии <mark>23.1</mark>. Из-за
-          кириллицы или символов вне <mark>ASCII</mark> в пути сохранения при экспорте
-          через встроенный кодек <mark className="video">H.264</mark> и{" "}
-          <mark className="video">HEVC</mark> получается повреждённый файл размером{" "}
-          <mark>1 КБ</mark>, который не открывается ни одной программой.
+          Скорее всего, вы столкнулись с багом <mark className="app">Adobe Premiere</mark>{" "}
+          версии <mark>23.1</mark>. Из-за кириллицы или символов вне <mark>ASCII</mark> в
+          пути сохранения при экспорте через встроенный кодек{" "}
+          <mark className="video">H.264</mark> и <mark className="video">HEVC</mark>{" "}
+          получается повреждённый файл размером <mark>1 КБ</mark>, который не открывается
+          ни одной программой.
         </p>
         <Addition type="info">
-          Проверить текущую версию <mark className="app">Adobe Premiere Pro</mark> можно в
-          меню <mark className="select">«Help» → «About Premiere Pro»</mark>.
+          Проверить текущую версию <mark className="app">Adobe Premiere</mark> можно в
+          меню <mark className="select">«Help» → «About Premiere»</mark>.
         </Addition>
         <p>
           Для решения этой проблемы достаточно обновить{" "}
@@ -193,7 +193,7 @@ const PRExportProblems: React.FC = () => {
       </DetailsSummary>
       <DetailsSummary
         tag="медиаенкодер, медиаэнкодер, переместилось"
-        title="Почему в предпросмотре Premiere Pro, Media Encoder и после экспорта видео смещается влево или вправо?"
+        title="Почему в предпросмотре Premiere, Media Encoder и после экспорта видео смещается влево или вправо?"
       >
         <p>
           Проверьте текущую версию программ, установленных на вашем устройстве. Вполне
@@ -246,7 +246,7 @@ const PRExportProblems: React.FC = () => {
       >
         <p>
           При экспорте какой-нибудь секвенции из{" "}
-          <mark className="app">Adobe Premiere Pro</mark> можно наткнуться на неприятный
+          <mark className="app">Adobe Premiere</mark> можно наткнуться на неприятный
           сюрприз — файл может получиться слишком большим по весу. Такой файл может не
           подойти для загрузки видео на нужный сервис или просто занимать кучу места на
           диске. В таких случаях без сжатия и конвертации видео не обойтись.
@@ -354,9 +354,9 @@ const PRExportProblems: React.FC = () => {
         <p>
           Изначально <mark className="app">Adobe Media Encoder</mark> был задуман как
           конвертер, и в нём ещё не было возможности экспорта секвенций из{" "}
-          <mark className="app">Adobe Premiere Pro</mark>. Воспользуемся в кои-то веки
-          данной программой по назначению. Чтобы начать конвертацию — импортируйте нужное
-          видео в <mark className="app">Adobe Media Encoder</mark> любым способом — через{" "}
+          <mark className="app">Adobe Premiere</mark>. Воспользуемся в кои-то веки данной
+          программой по назначению. Чтобы начать конвертацию — импортируйте нужное видео в{" "}
+          <mark className="app">Adobe Media Encoder</mark> любым способом — через{" "}
           <mark className="word">drag'n'drop</mark> в очередь экспорта, через{" "}
           <mark className="select">«File» → «Import»</mark>, через{" "}
           <mark className="key">Ctrl + I</mark> или с помощью двойного нажатия по пустой

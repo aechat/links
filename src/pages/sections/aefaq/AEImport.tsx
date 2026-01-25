@@ -30,7 +30,7 @@ const ProjectStructureExample = `Обзор на Ford Focus 2
 │   └── Shorts                // вертикальные версии и клипы для соцсетей
 ├── техническое задание.docx
 ├── сценарий.docx
-├── project.prproj            // если вдруг пригодится Premiere Pro для сборки и нарезки клипов
+├── project.prproj            // если вдруг пригодится Premiere для сборки и нарезки клипов
 └── project.aep               // главный проект After Effects`;
 const AEImport: React.FC = () => {
   return (
@@ -1208,7 +1208,7 @@ const AEImport: React.FC = () => {
           <a href="https://www.autokroma.com/Influx">Autokroma Influx</a>. Он упрощает
           импорт файлов, которые не поддерживаются в{" "}
           <mark className="app">Adobe After Effects</mark>,{" "}
-          <mark className="app">Adobe Premiere Pro</mark> и{" "}
+          <mark className="app">Adobe Premiere</mark> и{" "}
           <mark className="app">Adobe Media Encoder</mark>.
         </p>
         <Addition type="warning">
@@ -1959,30 +1959,28 @@ const AEImport: React.FC = () => {
       </DetailsSummary>
       <DetailsSummary
         tag="prproj sequence, dynamic link"
-        title="Как импортировать секвенцию из Adobe Premiere Pro?"
+        title="Как импортировать секвенцию из Adobe Premiere?"
       >
         <p>
           Представим, что вы смонтировали видеоролик в{" "}
-          <mark className="app">Adobe Premiere Pro</mark> и теперь хотите перенести его в{" "}
+          <mark className="app">Adobe Premiere</mark> и теперь хотите перенести его в{" "}
           <mark className="app">Adobe After Effects</mark>. Если вы просто импортируете{" "}
           <mark className="file">PRPROJ</mark> с помощью комбинации клавиш{" "}
           <mark className="key">Ctrl + I</mark>, то получите секвенцию, которую нельзя
           полноценно редактировать. Чтобы её можно было редактировать, словно таймлайн был
-          конвертирован из <mark className="app">Adobe Premiere Pro</mark> в{" "}
+          конвертирован из <mark className="app">Adobe Premiere</mark> в{" "}
           <mark className="app">Adobe After Effects</mark>, нужно использовать другой
           способ.
         </p>
         <p>
-          Чтобы импортировать секвенции из <mark className="app">Adobe Premiere Pro</mark>{" "}
-          как полноценные композиции, выберите{" "}
-          <mark className="select">
-            «File» → «Import» → «Import Premiere Pro Project»
-          </mark>{" "}
-          и укажите нужный проект <mark className="file">PRPROJ</mark>.
+          Чтобы импортировать секвенции из <mark className="app">Adobe Premiere</mark> как
+          полноценные композиции, выберите{" "}
+          <mark className="select">«File» → «Import» → «Import Premiere Project»</mark> и
+          укажите нужный проект <mark className="file">PRPROJ</mark>.
         </p>
         <ContentFigure
           caption="Adobe After Effects"
-          imgTitle="Начало импорта секвенций из Adobe Premiere Pro"
+          imgTitle="Начало импорта секвенций из Adobe Premiere"
           // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
           src="images/legacy/aftereffects/import_premiere_pro_project.png"
           theme="light"
@@ -1996,8 +1994,8 @@ const AEImport: React.FC = () => {
           секвенцию. Также при необходимости можно отключить импорт аудиофайлов.
         </p>
         <ContentFigure
-          caption="Premiere Pro Importer"
-          imgTitle="Импорт секвенций из Adobe Premiere Pro"
+          caption="Premiere Importer"
+          imgTitle="Импорт секвенций из Adobe Premiere"
           // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
           src="images/legacy/aftereffects/premiere_pro_importer.png"
           theme="dark"
@@ -2006,10 +2004,10 @@ const AEImport: React.FC = () => {
         />
         <p>
           После этого в окне <mark className="select">«Project»</mark> появится новая
-          папка с названием вашего проекта из{" "}
-          <mark className="app">Adobe Premiere Pro</mark>, импортированные файлы и новые
-          композиции с нарезками. Учтите, что из-за технических различий между программами
-          некоторые эффекты могут не примениться, и их придётся добавить вручную.
+          папка с названием вашего проекта из <mark className="app">Adobe Premiere</mark>,
+          импортированные файлы и новые композиции с нарезками. Учтите, что из-за
+          технических различий между программами некоторые эффекты могут не примениться, и
+          их придётся добавить вручную.
         </p>
       </DetailsSummary>
       <DetailsSummary
@@ -2019,8 +2017,8 @@ const AEImport: React.FC = () => {
         <p>
           Шаблоны анимации в формате <mark className="file">MOGRT</mark> обычно создаются
           в <mark className="app">Adobe After Effects</mark> и используются в проектах{" "}
-          <mark className="app">Adobe Premiere Pro</mark>. Но при необходимости такие
-          файлы можно распаковать и использовать в своих композициях{" "}
+          <mark className="app">Adobe Premiere</mark>. Но при необходимости такие файлы
+          можно распаковать и использовать в своих композициях{" "}
           <mark className="app">Adobe After Effects</mark>.
         </p>
         <Divider>Открываем MOGRT как проект</Divider>

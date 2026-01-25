@@ -16,8 +16,8 @@ const PRFromNewbies: React.FC = () => {
       >
         <p>
           Если вы только начинаете свой путь в монтаже или никогда не использовали{" "}
-          <mark className="app">Adobe Premiere Pro</mark> в качестве основного инструмента
-          и хотите разобраться в интерфейсе и его возможностях, посмотрите плейлист{" "}
+          <mark className="app">Adobe Premiere</mark> в качестве основного инструмента и
+          хотите разобраться в интерфейсе и его возможностях, посмотрите плейлист{" "}
           <a href="https://www.youtube.com/playlist?list=PLcN7xY5E2wrmIlv6SNF2xacsryFtGIfXK">
             Азбука Adobe Premiere Pro
           </a>{" "}
@@ -25,18 +25,17 @@ const PRFromNewbies: React.FC = () => {
         </p>
         <Addition type="info">
           Курс был записан в <mark className="app">Adobe Premiere Pro</mark> версии{" "}
-          <mark>2019</mark>. Некоторые функции могут чуть отличаться от вашей текущей
-          версии программы.
+          <mark>2019</mark>. Некоторые функции могут отличаться от вашей текущей версии
+          программы.
         </Addition>
         <ContentFigure
-          caption="Азбука Adobe Premiere Pro"
+          caption="Азбука Adobe Premiere"
           src="Wi-AalXwilg"
           type="youtube"
         />
         <p>
-          Если вы уже уверенно монтируете в{" "}
-          <mark className="app">Adobe Premiere Pro</mark> и хотите узнать что-то новое,
-          рекомендую заглянуть на каналы ниже.
+          Если вы уже уверенно монтируете в <mark className="app">Adobe Premiere</mark> и
+          хотите узнать что-то новое, рекомендую заглянуть на каналы ниже.
         </p>
         <div className="flexible-links">
           <a href="https://www.youtube.com/@khs_yt">Хохлов Сабатовский</a>
@@ -299,7 +298,7 @@ const PRFromNewbies: React.FC = () => {
             </tr>
             <tr>
               <td>
-                Закрыть <mark className="app">Adobe Premiere Pro</mark>
+                Закрыть <mark className="app">Adobe Premiere</mark>
               </td>
               <td>
                 <mark className="key">Ctrl + Q</mark>
@@ -1001,7 +1000,7 @@ const PRFromNewbies: React.FC = () => {
           можно переназначить на другую комбинацию в настройках плагина. Данный плагин
           считается аналогом <mark className="plugin">FX Console</mark> из{" "}
           <mark className="app">Adobe After Effects</mark> для{" "}
-          <mark className="app">Adobe Premiere Pro</mark>.
+          <mark className="app">Adobe Premiere</mark>.
         </li>
         <li>
           <mark className="plugin">AtomX</mark>, <mark className="plugin">MotionBro</mark>
@@ -1015,9 +1014,8 @@ const PRFromNewbies: React.FC = () => {
         </li>
         <li>
           <mark className="app">Nobe OmniScope</mark> - программа, подключаемая к{" "}
-          <mark className="app">Adobe Premiere Pro</mark> для отображения спектрограммы
-          вашего видео. Похож на <mark className="plugin">Lumetri Scopes</mark>, только
-          лучше.
+          <mark className="app">Adobe Premiere</mark> для отображения спектрограммы вашего
+          видео. Похож на <mark className="plugin">Lumetri Scopes</mark>, только лучше.
         </li>
         <Divider>Синхронизация дорожек c разных камер</Divider>
         <ul>
@@ -1077,7 +1075,7 @@ const PRFromNewbies: React.FC = () => {
         </ul>
         <Divider>Обработка звука</Divider>
         <Addition type="info">
-          <mark className="app">Adobe Premiere Pro</mark> поддерживает любые VST3-плагины,
+          <mark className="app">Adobe Premiere</mark> поддерживает любые VST3-плагины,
           поэтому вы можете своими любимыми эффектами для обработки звука, если вы
           работали ранее в DAW-программах и хотите перенести эффекты оттуда.
         </Addition>
@@ -1141,19 +1139,19 @@ const PRFromNewbies: React.FC = () => {
         </p>
         <div className="flexible-links">
           <a href="https://helpx.adobe.com/premiere-pro/using/whats-new.html">
-            Что нового в Adobe Premiere Pro последних выпусков
+            Что нового в Adobe Premiere последних выпусков
           </a>
           <a href="https://helpx.adobe.com/premiere-pro/kb/fixed-issues.html">
             Список исправленных ошибок
           </a>
           <a href="https://helpx.adobe.com/premiere-pro/kb/known-issues.html">
-            Выявленные неполадки в Adobe Premiere Pro
+            Выявленные неполадки в Adobe Premiere
           </a>
         </div>
         <p>
           Мы советуем время от времени обновлять{" "}
-          <mark className="app">Adobe Premiere Pro</mark>, а также сторонние плагины,
-          чтобы исключить возможные проблемы при дальнейшем использовании программы.
+          <mark className="app">Adobe Premiere</mark>, а также сторонние плагины, чтобы
+          исключить возможные проблемы при дальнейшем использовании программы.
         </p>
       </DetailsSummary>
       <DetailsSummary
@@ -1162,12 +1160,12 @@ const PRFromNewbies: React.FC = () => {
         title="Почему мне с каждого угла советуют поставить английский язык программы и как это сделать?"
       >
         <p>
-          В <mark className="app">Adobe Premiere Pro</mark>, аналогично как и с{" "}
+          В <mark className="app">Adobe Premiere</mark>, аналогично как и с{" "}
           <mark className="app">Adobe After Effects</mark>, вы можете наткнуться на
           различные баги и приколы при использовании сторонних шаблонов,{" "}
           <mark className="file">MOGRT</mark> или пресетов. Создатели подобного рода
           контента не рассчитывают на то, что вы будете использовать другую локализацию{" "}
-          <mark className="app">Adobe Premiere Pro</mark>, отличную от английского.
+          <mark className="app">Adobe Premiere</mark>, отличную от английского.
         </p>
         <p>
           Для быстрой смены языка программы вам нужно открыть консоль с помощью комбинации
@@ -1205,13 +1203,13 @@ const PRFromNewbies: React.FC = () => {
         <Addition type="info">
           Чтобы вернуть язык, который был установлен по умолчанию - достаточно убрать
           значение из этого параметра и снова перезапустить{" "}
-          <mark className="app">Adobe Premiere Pro</mark>.
+          <mark className="app">Adobe Premiere</mark>.
         </Addition>
         <Addition type="danger">
           После таких способов смены языка названия стандартных пресетов и рабочих
           областей могут остаться на русском языке. Их можно будет переименовать вручную
           или удалить, а затем поставить поверх дистрибутив{" "}
-          <mark className="app">Adobe Premiere Pro</mark> с указанием английского языка в
+          <mark className="app">Adobe Premiere</mark> с указанием английского языка в
           установщике. Ну или просто переустановите программу сразу на английском языке.
         </Addition>
       </DetailsSummary>
@@ -1393,7 +1391,7 @@ const PRFromNewbies: React.FC = () => {
           можете вписать название новой секвенции.
         </p>
         <ContentFigure
-          caption="Adobe Premiere Pro"
+          caption="Adobe Premiere"
           // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
           src="images/legacy/premierepro/creating_nest.mp4"
           theme="dark"
@@ -1411,7 +1409,7 @@ const PRFromNewbies: React.FC = () => {
           без всяких проблем.
         </p>
         <ContentFigure
-          caption="Adobe Premiere Pro"
+          caption="Adobe Premiere"
           // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
           src="images/legacy/premierepro/unnesting_nest.mp4"
           theme="dark"
@@ -1436,7 +1434,7 @@ const PRFromNewbies: React.FC = () => {
           импортировать и видео и аудиодорожку на таймлайн.
         </p>
         <ContentFigure
-          caption="How to add video and audio to the timeline in Adobe Premiere Pro"
+          caption="How to add video and audio to the timeline in Adobe Premiere"
           src="BOW2Fr7SKo0"
           type="youtube"
         />
@@ -1448,7 +1446,7 @@ const PRFromNewbies: React.FC = () => {
           клипов и вставку видео и аудиодорожек на таймлайн.
         </p>
         <ContentFigure
-          caption="Shortcuts for the timeline in Adobe Premiere Pro - track targeting"
+          caption="Shortcuts for the timeline in Adobe Premiere - track targeting"
           src="pzQnzaRm2OY"
           type="youtube"
         />
@@ -1503,7 +1501,7 @@ const PRFromNewbies: React.FC = () => {
           Adobe признала встроенные эффекты, пресеты и переходы, которые были в папке{" "}
           <mark className="path">Obsolete</mark> слишком устаревшими и решила их удалить в
           новых версиях. Проекты, которые были созданы в более старых версиях{" "}
-          <mark className="app">Adobe Premiere Pro</mark>, могут работать спокойно, но
+          <mark className="app">Adobe Premiere</mark>, могут работать спокойно, но
           применить новые эффекты из окна{" "}
           <mark className="select">«Effects & Presets»</mark> уже не получится.
         </p>
@@ -1514,16 +1512,15 @@ const PRFromNewbies: React.FC = () => {
         </div>
         <p>
           К счастью, эти эффекты всё ещё можно восстановить в новых версиях{" "}
-          <mark className="app">Adobe Premiere Pro</mark>. Для этого нужно скачать{" "}
+          <mark className="app">Adobe Premiere</mark>. Для этого нужно скачать{" "}
           <a
             download
             href="files/Obsolete Effects.prfpset"
           >
             нужный пресет
           </a>{" "}
-          и импортировать его в <mark className="app">Adobe Premiere Pro</mark> в
-          соответствии с
-          <a href="#2.1">инструкцией по установке дополнительного контента</a>.
+          и импортировать его в <mark className="app">Adobe Premiere</mark> в соответствии
+          с<a href="#2.1">инструкцией по установке дополнительного контента</a>.
         </p>
       </DetailsSummary>
       <DetailsSummary title="Как вернуть звуковую или видео дорожку на таймлайн?">
@@ -1573,7 +1570,7 @@ const PRFromNewbies: React.FC = () => {
           <mark className="select">«Default Input»</mark> указать{" "}
           <mark className="select">«No Input»</mark>, так как иногда микрофоны, внезапно,
           могут мешать нормальному предпросмотру в{" "}
-          <mark className="app">Adobe Premiere Pro</mark>.
+          <mark className="app">Adobe Premiere</mark>.
         </Addition>
         {/* TODO: дописать ещё возможные варианты */}
       </DetailsSummary>
@@ -1603,8 +1600,8 @@ const PRFromNewbies: React.FC = () => {
         <p>
           В настройках раздел <mark className="select">«Timeline»</mark> может
           отсутствовать на некоторых «народных» версиях{" "}
-          <mark className="app">Adobe Premiere Pro</mark> и его можно вернуть простым
-          способом - входом в аккаунт Adobe.
+          <mark className="app">Adobe Premiere</mark> и его можно вернуть простым способом
+          — входом в аккаунт <mark className="company">Adobe</mark>.
         </p>
         <Addition type="info">
           После входа в аккаунт Adobe псевдо-лицензия не слетит, не переживайте.

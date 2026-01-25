@@ -55,9 +55,9 @@ const PRErrors: React.FC = () => {
           Для начала проверьте, не используете ли вы виртуальную частную сеть. С ростом
           популярности подключений через <mark className="app">VPN</mark> пользователи всё
           чаще сталкиваются с ошибкой лицензии, так как{" "}
-          <mark className="app">Adobe Premiere Pro</mark> после подключения к такой сети
-          может получить доступ в интернет. В результате окно с сообщением о проблеме
-          может внезапно появиться на языке той страны, к которой вы подключены.
+          <mark className="app">Adobe Premiere</mark> после подключения к такой сети может
+          получить доступ в интернет. В результате окно с сообщением о проблеме может
+          внезапно появиться на языке той страны, к которой вы подключены.
         </p>
         <p>
           Проблема в том, что многие клиенты виртуальной частной сети заставляют систему
@@ -65,8 +65,7 @@ const PRErrors: React.FC = () => {
           <mark className="file">HOSTS</mark>, из-за чего программы, которым ранее был
           заблокирован доступ в интернет, снова получают его. Если вы подключены к частной
           сети, разорвите соединение и запустите{" "}
-          <mark className="app">Adobe Premiere Pro</mark> снова, тогда окно должно
-          исчезнуть.
+          <mark className="app">Adobe Premiere</mark> снова, тогда окно должно исчезнуть.
         </p>
         <p>
           Если окно с отсутствием лицензии всё равно появляется, попробуйте полностью
@@ -106,7 +105,7 @@ const PRErrors: React.FC = () => {
                   кнопку <mark className="select">«Block»</mark> рядом с их названиями.
                   <ContentFigure
                     caption="Radio Silence"
-                    imgTitle="Блокировка доступа в интернет на примере Adobe Premiere Pro"
+                    imgTitle="Блокировка доступа в интернет на примере Adobe Premiere"
                     // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
                     src="images/legacy/network_radio_silence.png"
                     theme="dark"
@@ -415,7 +414,7 @@ const PRErrors: React.FC = () => {
           обновить драйверы для вашего видеочипа.
         </p>
         <ContentFigure
-          caption="Adobe Premiere Pro"
+          caption="Adobe Premiere"
           imgTitle="Установка рендеринга на GPU"
           // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
           src="images/legacy/premierepro/set_render_on_gpu.png"
@@ -438,7 +437,7 @@ const PRErrors: React.FC = () => {
           Скорее всего, вы пытаетесь запустить приложение на устройстве с процессором без
           поддержки инструкций <mark>AVX2</mark>. В{" "}
           <a href="https://helpx.adobe.com/premiere-pro/system-requirements.html">
-            системных требованиях Premiere Pro
+            системных требованиях Premiere
           </a>{" "}
           указано, что требуется процессор от <mark className="company">Intel</mark>{" "}
           минимум 6-го поколения или от <mark className="company">AMD</mark> серии 1000 и
@@ -452,9 +451,9 @@ const PRErrors: React.FC = () => {
           также с более ранними процессорами <mark className="company">AMD</mark>.
         </Addition>
         <p>
-          Решение простое: установите <mark className="app">Adobe Premiere Pro</mark>{" "}
-          версии <mark>23.6</mark>. Это будет последняя поддерживаемая для вас версия
-          программы. Либо обновите процессор на вашем устройстве.
+          Решение простое: установите <mark className="app">Adobe Premiere</mark> версии{" "}
+          <mark>23.6</mark>. Это будет последняя поддерживаемая для вас версия программы.
+          Либо обновите процессор на вашем устройстве.
         </p>
         <p>
           В редких случаях процессор может поддерживать инструкции <mark>AVX2</mark>, но
@@ -479,7 +478,7 @@ const PRErrors: React.FC = () => {
             Microsoft Visual C++ Redistributable
           </a>
           . Их можно установить перед инсталляцией{" "}
-          <mark className="app">Adobe Premiere Pro</mark> в репаке от{" "}
+          <mark className="app">Adobe Premiere</mark> в репаке от{" "}
           <mark className="user">KpoJluK</mark> или вручную по{" "}
           <a href="https://gitlab.com/stdout12/vcredist/-/releases/">этой ссылке</a>.
         </p>
@@ -490,7 +489,7 @@ const PRErrors: React.FC = () => {
       </DetailsSummary>
       <DetailsSummary
         tag="совместимость системы, драйверы, плагины, предупреждение"
-        title="Что делать с окном «System Compatibility Report» при запуске Premiere Pro?"
+        title="Что делать с окном «System Compatibility Report» при запуске Premiere?"
       >
         <Addition type="info">
           Когда вы видите это окно при запуске, не паникуйте. Это не ошибка, а
@@ -554,9 +553,9 @@ const PRErrors: React.FC = () => {
                   <mark className="select">«Edit» → «Preferences» → «Auto Save»</mark>.
                 </li>
                 <li>
-                  В <mark className="app">Adobe Premiere Pro</mark> версии{" "}
-                  <mark>24.0</mark> и новее добавлена функция восстановления проектов при
-                  аварийном завершении.{" "}
+                  В <mark className="app">Adobe Premiere</mark> версии <mark>24.0</mark> и
+                  новее добавлена функция восстановления проектов при аварийном
+                  завершении.{" "}
                   <a href="https://helpx.adobe.com/premiere-pro/kb/recovery-mode.html">
                     Подробнее...
                   </a>
@@ -587,30 +586,29 @@ const PRErrors: React.FC = () => {
           установлены на вашем устройстве. Вы можете продолжить работу с проектом, но не
           сможете видеть, рендерить и настраивать эти эффекты. Для решения проблемы
           установите недостающие эффекты и перезапустите{" "}
-          <mark className="app">Adobe Premiere Pro</mark>.
+          <mark className="app">Adobe Premiere</mark>.
         </p>
       </DetailsSummary>
       <DetailsSummary
         tag="premiere pro не удалось найти совместимые видеомодули воспроизведения, обновите видеодрайверы и запустите приложение повторно"
-        title="«Premiere Pro could not find any capable video play modules. Please update your video display drivers and start again» при запуске программы"
+        title="«Premiere could not find any capable video play modules. Please update your video display drivers and start again» при запуске программы"
       >
         <p>
           Эта ошибка может появиться после установки{" "}
-          <mark className="app">Adobe Premiere Pro</mark> версии <mark>25.2</mark> в
-          вариации репака от <mark className="user">KpoJluK</mark>, чаще всего на
-          устройствах с видеокартой от <mark className="company">NVIDIA</mark>. Если вы
-          уверены, что у вас уже обновлены драйверы, попробуйте установить этот же релиз
-          повторно, то есть произвести двойную установку поверх уже установленного
-          приложения.
+          <mark className="app">Adobe Premiere</mark> версии <mark>25.2</mark> в вариации
+          репака от <mark className="user">KpoJluK</mark>, чаще всего на устройствах с
+          видеокартой от <mark className="company">NVIDIA</mark>. Если вы уверены, что у
+          вас уже обновлены драйверы, попробуйте установить этот же релиз повторно, то
+          есть произвести двойную установку поверх уже установленного приложения.
         </p>
       </DetailsSummary>
       <DetailsSummary
         tag="сапфир, баг"
-        title="Вылетает Premiere Pro и Media Encoder после установки плагинов Boris FX Sapphire"
+        title="Вылетает Premiere и Media Encoder после установки плагинов Boris FX Sapphire"
       >
         <p>
           Это известный баг, который мешает нормальному запуску{" "}
-          <mark className="app">Adobe Premiere Pro</mark> и{" "}
+          <mark className="app">Adobe Premiere</mark> и{" "}
           <mark className="app">Adobe Media Encoder</mark> при наличии установленных
           плагинов <mark className="plugin">Boris FX Sapphire</mark>. В более поздних
           версиях плагинов и программ это исправили, но если вы с ним столкнулись, укажите{" "}

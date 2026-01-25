@@ -343,7 +343,7 @@ const AEInterface: React.FC = () => {
             может выгрузить эти кадры в дисковый кэш или удалить их.
             <Addition type="warning">
               В отличие от классических нелинейных редакторов, например{" "}
-              <mark className="app">Adobe Premiere Pro</mark> или{" "}
+              <mark className="app">Adobe Premiere</mark> или{" "}
               <mark className="app">DaVinci Resolve</mark>,{" "}
               <mark className="app">Adobe After Effects</mark> не рассчитан на
               предпросмотр в реальном времени, поэтому кадры всегда стоит предварительно
@@ -475,7 +475,7 @@ const AEInterface: React.FC = () => {
           Этот баг может появиться в любой версии программы, даже на чистой и лицензионной
           без сторонних плагинов и скриптов. Он может возникать при одновременной работе{" "}
           <mark className="app">Adobe After Effects</mark> и{" "}
-          <mark className="app">Adobe Premiere Pro</mark>, а также при использовании{" "}
+          <mark className="app">Adobe Premiere</mark>, а также при использовании{" "}
           <mark className="plugin">Dynamic Link</mark>.
         </p>
         <Addition type="warning">

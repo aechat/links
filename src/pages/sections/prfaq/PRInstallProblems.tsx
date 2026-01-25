@@ -18,14 +18,14 @@ const PRInstallProblems: React.FC = () => {
           Обычно большинство дополнительных материалов устанавливается одинаково — всё
           зависит от типа файла. Однако некоторые шаги могут отличаться в зависимости от
           операционной системы. В этой статье мы расскажем, как устанавливать разные типы
-          файлов для <mark className="app">Adobe Premiere Pro</mark> и использовать их в
+          файлов для <mark className="app">Adobe Premiere</mark> и использовать их в
           программе.
         </p>
         <Addition type="info">
           Сторонние плагины и расширения, будь то лицензионные или «народные», в
           большинстве случаев без проблем устанавливаются как на официальную, так и на
-          «народную» версию <mark className="app">Adobe Premiere Pro</mark>. Способы
-          проверки лицензии программы и сторонних дополнений обычно не пересекаются.
+          «народную» версию <mark className="app">Adobe Premiere</mark>. Способы проверки
+          лицензии программы и сторонних дополнений обычно не пересекаются.
         </Addition>
         <Addition type="warning">
           Прежде чем использовать шаблоны формата <mark className="file">PRPROJ</mark>,{" "}
@@ -40,10 +40,10 @@ const PRInstallProblems: React.FC = () => {
         <ul>
           <li>
             Проекты формата <mark className="file">PRPROJ</mark> открываются как обычные
-            проекты в <mark className="app">Adobe Premiere Pro</mark>: двойным кликом,
-            через <mark className="select">«File» → «Open Project»</mark> или сочетанием
-            клавиш <mark className="key">Ctrl + O</mark>. Чтобы импортировать такой файл в
-            свой проект, воспользуйтесь командой{" "}
+            проекты в <mark className="app">Adobe Premiere</mark>: двойным кликом, через{" "}
+            <mark className="select">«File» → «Open Project»</mark> или сочетанием клавиш{" "}
+            <mark className="key">Ctrl + O</mark>. Чтобы импортировать такой файл в свой
+            проект, воспользуйтесь командой{" "}
             <mark className="select">«File» → «Import»</mark> или сочетанием{" "}
             <mark className="key">Ctrl + I</mark>.
             <Addition type="info">
@@ -58,7 +58,7 @@ const PRInstallProblems: React.FC = () => {
                 <li>
                   Если попытаться открыть только файл <mark className="file">PRPROJ</mark>{" "}
                   без полной распаковки архива,{" "}
-                  <mark className="app">Adobe Premiere Pro</mark> не сможет найти все
+                  <mark className="app">Adobe Premiere</mark> не сможет найти все
                   необходимые для проекта файлы.
                 </li>
                 <li>
@@ -77,7 +77,7 @@ const PRInstallProblems: React.FC = () => {
             свой проект через <mark className="select">«File» → «Import»</mark> или{" "}
             <mark className="key">Ctrl + I</mark>. Композиция из{" "}
             <mark className="app">Adobe After Effects</mark> в{" "}
-            <mark className="app">Adobe Premiere Pro</mark> будет работать через{" "}
+            <mark className="app">Adobe Premiere</mark> будет работать через{" "}
             <mark className="plugin">Dynamic Link</mark>
             <sup>1</sup>.
             <Addition type="warning">
@@ -86,7 +86,7 @@ const PRInstallProblems: React.FC = () => {
                   <sup>1</sup> Прежде чем импортировать <mark className="file">AEP</mark>,
                   убедитесь, что у вас установлены{" "}
                   <mark className="app">Adobe After Effects</mark> и{" "}
-                  <mark className="app">Adobe Premiere Pro</mark> одного года выпуска.
+                  <mark className="app">Adobe Premiere</mark> одного года выпуска.
                   Например, <mark className="app">Adobe After Effects 2025</mark> и{" "}
                   <mark className="app">Adobe Premiere Pro 2024</mark> не смогут
                   взаимодействовать через <mark className="plugin">Dynamic Link</mark>,
@@ -94,8 +94,8 @@ const PRInstallProblems: React.FC = () => {
                 </li>
                 <li>
                   Если <mark className="app">Adobe After Effects</mark> и{" "}
-                  <mark className="app">Adobe Premiere Pro</mark> установлены в рамках
-                  одного релизного цикла, но всё равно не «видят» друг друга — проверьте,
+                  <mark className="app">Adobe Premiere</mark> установлены в рамках одного
+                  релизного цикла, но всё равно не «видят» друг друга — проверьте,
                   установлены ли они в директорию по умолчанию, а не на другой диск,
                   отличный от <mark className="path">C:\</mark>.
                 </li>
@@ -113,7 +113,7 @@ const PRInstallProblems: React.FC = () => {
                 <li>
                   Если попытаться импортировать только файл{" "}
                   <mark className="file">AEP</mark> без полной распаковки архива,{" "}
-                  <mark className="app">Adobe Premiere Pro</mark> не сможет найти все
+                  <mark className="app">Adobe Premiere</mark> не сможет найти все
                   необходимые для проекта файлы.
                 </li>
                 <li>
@@ -260,8 +260,8 @@ const PRInstallProblems: React.FC = () => {
                       </li>
                       <li>
                         Если вы хотите, чтобы плагин отображался только в конкретной
-                        версии <mark className="app">Adobe Premiere Pro</mark> —
-                        распакуйте его в папку{" "}
+                        версии <mark className="app">Adobe Premiere</mark> — распакуйте
+                        его в папку{" "}
                         <mark className="path">
                           /Applications/Adobe Premiere Pro 20XX/Plug-Ins
                         </mark>
@@ -269,21 +269,19 @@ const PRInstallProblems: React.FC = () => {
                       </li>
                       <li>
                         Не всегда новые версии плагинов могут работать со старыми версиями{" "}
-                        <mark className="app">Adobe Premiere Pro</mark> и наоборот.
-                        Уточняйте в документации к устанавливаемому плагину, для каких
-                        версий <mark className="app">Adobe Premiere Pro</mark> он
-                        предназначен.
+                        <mark className="app">Adobe Premiere</mark> и наоборот. Уточняйте
+                        в документации к устанавливаемому плагину, для каких версий{" "}
+                        <mark className="app">Adobe Premiere</mark> он предназначен.
                       </li>
                     </ul>
                   </Addition>
                   <Addition type="warning">
                     Учтите, что не все плагины формата{" "}
                     <mark className="file">PLUGIN</mark> поддерживаются в{" "}
-                    <mark className="app">Adobe Premiere Pro</mark>, так как по большей
-                    части они предназначены для{" "}
-                    <mark className="app">Adobe After Effects</mark> и не всегда имеют
-                    обратную совместимость с{" "}
-                    <mark className="app">Adobe Premiere Pro</mark>.
+                    <mark className="app">Adobe Premiere</mark>, так как по большей части
+                    они предназначены для <mark className="app">Adobe After Effects</mark>{" "}
+                    и не всегда имеют обратную совместимость с{" "}
+                    <mark className="app">Adobe Premiere</mark>.
                   </Addition>
                   <Addition type="danger">
                     Плагины формата <mark className="file">AEX</mark> и{" "}
@@ -345,7 +343,7 @@ const PRInstallProblems: React.FC = () => {
                           это архив с двумя или тремя файлами, которые формируют
                           анимационный шаблон. Такие шаблоны создаются как в{" "}
                           <mark className="app">Adobe After Effects</mark>, так и в{" "}
-                          <mark className="app">Adobe Premiere Pro</mark>.
+                          <mark className="app">Adobe Premiere</mark>.
                         </p>
                         <ul>
                           <li>
@@ -355,7 +353,7 @@ const PRInstallProblems: React.FC = () => {
                           <li>
                             <mark className="file">PROJECT.AEGRAPHICS</mark> — хранит всю
                             анимацию. Стандартными средствами{" "}
-                            <mark className="app">Adobe Premiere Pro</mark> его не
+                            <mark className="app">Adobe Premiere</mark> его не
                             отредактировать, но можно открыть в{" "}
                             <mark className="app">Adobe After Effects</mark>, внести
                             правки и конвертировать обратно в{" "}
@@ -373,7 +371,7 @@ const PRInstallProblems: React.FC = () => {
                   <Addition type="warning">
                     Для некоторых <mark className="file">MOGRT</mark> может потребоваться
                     установленный <mark className="app">Adobe After Effects</mark>. Если
-                    он установлен, но <mark className="app">Adobe Premiere Pro</mark> всё
+                    он установлен, но <mark className="app">Adobe Premiere</mark> всё
                     равно выдаёт ошибку, убедитесь, что обе программы относятся к одной
                     «версии-года» и у вас установлен{" "}
                     <mark className="app">Adobe Creative Cloud</mark>.
@@ -394,8 +392,8 @@ const PRInstallProblems: React.FC = () => {
                         расположить скачанные пресеты в уже существующих.
                       </Addition>
                       <ContentFigure
-                        caption="Adobe Premiere Pro"
-                        imgTitle="Установка пресетов в Adobe Premiere Pro"
+                        caption="Adobe Premiere"
+                        imgTitle="Установка пресетов в Adobe Premiere"
                         // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
                         src="images/legacy/premierepro/import_presets.png"
                         theme="dark"
@@ -423,7 +421,7 @@ const PRInstallProblems: React.FC = () => {
                           ~/Documents/Adobe/Premiere Pro/XX.X/Profile-XXXXXX
                         </mark>
                         . Этот файл не стоит редактировать вне{" "}
-                        <mark className="app">Adobe Premiere Pro</mark>, но его можно
+                        <mark className="app">Adobe Premiere</mark>, но его можно
                         скопировать и перенести в другое место, чтобы в случае
                         необходимости восстановить пресеты.
                       </Addition>
@@ -448,14 +446,14 @@ const PRInstallProblems: React.FC = () => {
                       <li>
                         Прежде чем устанавливать расширение такого формата — убедитесь в
                         том, что используемая вами версия{" "}
-                        <mark className="app">Adobe Premiere Pro</mark> его поддерживает,
+                        <mark className="app">Adobe Premiere</mark> его поддерживает,
                         иначе он может не появиться в списке расширений.
                       </li>
                       <li>
                         Если расширение просит включить разрешение на запись файлов и
                         доступ в интернет, перейдите в{" "}
                         <mark className="select">
-                          «Premiere Pro» → «Preferences» → «Control Surface»
+                          «Premiere» → «Preferences» → «Control Surface»
                         </mark>{" "}
                         и установите флажок у параметра{" "}
                         <mark className="select">
@@ -613,9 +611,9 @@ const PRInstallProblems: React.FC = () => {
                   </p>
                   <p>
                     Однако сами по себе эти плагины в программе не появятся.{" "}
-                    <mark className="app">Adobe Premiere Pro</mark> не ищет их
-                    автоматически при запуске, поэтому сканирование нужно запускать
-                    вручную. Чтобы просканировать аудиоплагины, перейдите в{" "}
+                    <mark className="app">Adobe Premiere</mark> не ищет их автоматически
+                    при запуске, поэтому сканирование нужно запускать вручную. Чтобы
+                    просканировать аудиоплагины, перейдите в{" "}
                     <mark className="select">«Preferences» → «Audio»</mark> и нажмите
                     кнопку <mark className="select">«Manage Audio Plug-Ins»</mark>. В
                     открывшемся окне выберите{" "}
@@ -681,7 +679,7 @@ const PRInstallProblems: React.FC = () => {
                     <li>
                       В <mark className="path">Legacy</mark> располагаются устаревшие
                       файлы для цветокоррекции для совместимости со старыми проектами в{" "}
-                      <mark className="app">Adobe Premiere Pro</mark> и не используются
+                      <mark className="app">Adobe Premiere</mark> и не используются
                       программой в последних версиях. При необходимости вы можете
                       скопировать нужные файлы цветокоррекции оттуда в папку{" "}
                       <mark className="path">Creative</mark> или{" "}
@@ -704,7 +702,7 @@ const PRInstallProblems: React.FC = () => {
                     </ul>
                   </Addition>
                   <ContentFigure
-                    caption="Как использовать файлы цветокоррекции в Adobe Premiere Pro"
+                    caption="Как использовать файлы цветокоррекции в Adobe Premiere"
                     src="_mg31FMwrxc"
                     type="youtube"
                   />
@@ -730,7 +728,7 @@ const PRInstallProblems: React.FC = () => {
                   <mark className="file">OTF</mark> устанавливаются стандартными
                   средствами операционной системы. Установленные шрифты будут отображаться
                   во всех программах, поддерживающих сторонние шрифты, в том числе и в{" "}
-                  <mark className="app">Adobe Premiere Pro</mark>. Это можно сделать
+                  <mark className="app">Adobe Premiere</mark>. Это можно сделать
                   несколькими способами.
                   <ul>
                     <li>
@@ -807,8 +805,8 @@ const PRInstallProblems: React.FC = () => {
                     <ul>
                       <li>
                         Перед установкой плагинов с помощью установщика рекомендуется
-                        закрыть <mark className="app">Adobe Premiere Pro</mark> для
-                        корректной установки.
+                        закрыть <mark className="app">Adobe Premiere</mark> для корректной
+                        установки.
                       </li>
                       <li>
                         Если в записи указано, что установщик является репаком — после его
@@ -821,7 +819,7 @@ const PRInstallProblems: React.FC = () => {
                     <ul>
                       <li>
                         При использовании установщиков убедитесь, что{" "}
-                        <mark className="app">Adobe Premiere Pro</mark> установлен в
+                        <mark className="app">Adobe Premiere</mark> установлен в
                         стандартном расположении{" "}
                         <mark className="path">C:\Program Files\Adobe\</mark>, а не в
                         другом месте или на другом разделе. В противном случае
@@ -857,8 +855,8 @@ const PRInstallProblems: React.FC = () => {
                       </li>
                       <li>
                         Если вы хотите, чтобы плагин отображался только в конкретной
-                        версии <mark className="app">Adobe Premiere Pro</mark> —
-                        распакуйте его в папку{" "}
+                        версии <mark className="app">Adobe Premiere</mark> — распакуйте
+                        его в папку{" "}
                         <mark className="path">
                           C:\Program Files\Adobe\Adobe Premiere Pro 20XX\Plug-ins
                         </mark>
@@ -866,20 +864,18 @@ const PRInstallProblems: React.FC = () => {
                       </li>
                       <li>
                         Не всегда новые версии плагинов могут работать со старыми версиями{" "}
-                        <mark className="app">Adobe Premiere Pro</mark> и наоборот.
-                        Уточняйте в документации к устанавливаемому плагину, для каких
-                        версий <mark className="app">Adobe Premiere Pro</mark> он
-                        предназначен.
+                        <mark className="app">Adobe Premiere</mark> и наоборот. Уточняйте
+                        в документации к устанавливаемому плагину, для каких версий{" "}
+                        <mark className="app">Adobe Premiere</mark> он предназначен.
                       </li>
                     </ul>
                   </Addition>
                   <Addition type="warning">
                     Учтите, что не все плагины формата <mark className="file">AEX</mark>{" "}
-                    поддерживаются в <mark className="app">Adobe Premiere Pro</mark>, так
-                    как по большей части они предназначены для{" "}
+                    поддерживаются в <mark className="app">Adobe Premiere</mark>, так как
+                    по большей части они предназначены для{" "}
                     <mark className="app">Adobe After Effects</mark> и не всегда имеют
-                    обратную совместимость с{" "}
-                    <mark className="app">Adobe Premiere Pro</mark>.
+                    обратную совместимость с <mark className="app">Adobe Premiere</mark>.
                   </Addition>
                   <Addition type="danger">
                     Плагины формата <mark className="file">PLUGIN</mark> и{" "}
@@ -943,7 +939,7 @@ const PRInstallProblems: React.FC = () => {
                         Для некоторых <mark className="file">MOGRT</mark> может
                         потребоваться установленный{" "}
                         <mark className="app">Adobe After Effects</mark>. Если он
-                        установлен, но <mark className="app">Adobe Premiere Pro</mark> всё
+                        установлен, но <mark className="app">Adobe Premiere</mark> всё
                         равно выдаёт ошибку, убедитесь, что обе программы находятся в
                         стандартной директории{" "}
                         <mark className="path">C:\Program Files\Adobe\</mark> и относятся
@@ -960,7 +956,7 @@ const PRInstallProblems: React.FC = () => {
                           распакуйте весь архив с шаблоном, желательно с помощью{" "}
                           <mark className="app">WinRAR</mark> или{" "}
                           <mark className="app">7-Zip</mark> и импортируйте его в{" "}
-                          <mark className="app">Adobe Premiere Pro</mark>. Не открывайте
+                          <mark className="app">Adobe Premiere</mark>. Не открывайте
                           содержимое файла <mark className="file">MOGRT</mark> без острой
                           необходимости.
                         </p>
@@ -969,7 +965,7 @@ const PRInstallProblems: React.FC = () => {
                           это архив с двумя или тремя файлами, которые формируют
                           анимационный шаблон. Такие шаблоны создаются как в{" "}
                           <mark className="app">Adobe After Effects</mark>, так и в{" "}
-                          <mark className="app">Adobe Premiere Pro</mark>.
+                          <mark className="app">Adobe Premiere</mark>.
                         </p>
                         <ul>
                           <li>
@@ -979,7 +975,7 @@ const PRInstallProblems: React.FC = () => {
                           <li>
                             <mark className="file">PROJECT.AEGRAPHICS</mark> — хранит всю
                             анимацию. Стандартными средствами{" "}
-                            <mark className="app">Adobe Premiere Pro</mark> его не
+                            <mark className="app">Adobe Premiere</mark> его не
                             отредактировать, но можно открыть в{" "}
                             <mark className="app">Adobe After Effects</mark>, внести
                             правки и конвертировать обратно в{" "}
@@ -1008,8 +1004,8 @@ const PRInstallProblems: React.FC = () => {
                         расположить скачанные пресеты в уже существующих.
                       </Addition>
                       <ContentFigure
-                        caption="Adobe Premiere Pro"
-                        imgTitle="Установка пресетов в Adobe Premiere Pro"
+                        caption="Adobe Premiere"
+                        imgTitle="Установка пресетов в Adobe Premiere"
                         // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
                         src="images/legacy/premierepro/import_presets.png"
                         theme="dark"
@@ -1038,7 +1034,7 @@ const PRInstallProblems: React.FC = () => {
                           Pro\XX.X\Profile-XXXXXX\
                         </mark>
                         . Этот файл не стоит редактировать вне{" "}
-                        <mark className="app">Adobe Premiere Pro</mark>, но его можно
+                        <mark className="app">Adobe Premiere</mark>, но его можно
                         скопировать и перенести в другое место, чтобы в случае
                         необходимости восстановить пресеты.
                       </Addition>
@@ -1115,7 +1111,7 @@ const PRInstallProblems: React.FC = () => {
                       <li>
                         Прежде чем устанавливать расширение такого формата — убедитесь в
                         том, что используемая вами версия{" "}
-                        <mark className="app">Adobe Premiere Pro</mark> его поддерживает,
+                        <mark className="app">Adobe Premiere</mark> его поддерживает,
                         иначе он может не появиться в списке расширений.
                       </li>
                       <li>
@@ -1205,9 +1201,8 @@ const PRInstallProblems: React.FC = () => {
                           >
                             файл реестра, включающий debug-режим
                           </a>{" "}
-                          для <mark className="app">Adobe Premiere Pro</mark>. Это
-                          необходимо, чтобы установленные вручную расширения запускались
-                          корректно.
+                          для <mark className="app">Adobe Premiere</mark>. Это необходимо,
+                          чтобы установленные вручную расширения запускались корректно.
                           <Addition type="info">
                             <ul>
                               <li>
@@ -1238,9 +1233,9 @@ const PRInstallProblems: React.FC = () => {
                   </p>
                   <p>
                     Однако сами по себе эти плагины в программе не появятся.{" "}
-                    <mark className="app">Adobe Premiere Pro</mark> не ищет их
-                    автоматически при запуске, поэтому сканирование нужно запускать
-                    вручную. Чтобы просканировать аудиоплагины, перейдите в{" "}
+                    <mark className="app">Adobe Premiere</mark> не ищет их автоматически
+                    при запуске, поэтому сканирование нужно запускать вручную. Чтобы
+                    просканировать аудиоплагины, перейдите в{" "}
                     <mark className="select">«Edit» → «Preferences» → «Audio»</mark> и
                     нажмите кнопку <mark className="select">«Manage Audio Plug-Ins»</mark>
                     . В открывшемся окне выберите{" "}
@@ -1299,9 +1294,9 @@ const PRInstallProblems: React.FC = () => {
                     <li>
                       В <mark className="path">Legacy</mark> находятся устаревшие файлы
                       для цветокоррекции для совместимости со старыми проектами в{" "}
-                      <mark className="app">Adobe Premiere Pro</mark> и в последних
-                      версиях программы не используются. При необходимости вы можете
-                      скопировать нужные файлы цветокоррекции из неё в{" "}
+                      <mark className="app">Adobe Premiere</mark> и в последних версиях
+                      программы не используются. При необходимости вы можете скопировать
+                      нужные файлы цветокоррекции из неё в{" "}
                       <mark className="path">Creative</mark> или{" "}
                       <mark className="path">Technical</mark>.
                     </li>
@@ -1322,7 +1317,7 @@ const PRInstallProblems: React.FC = () => {
                     </ul>
                   </Addition>
                   <ContentFigure
-                    caption="Как использовать файлы цветокоррекции в Adobe Premiere Pro"
+                    caption="Как использовать файлы цветокоррекции в Adobe Premiere"
                     src="yrrW-V8bO_I"
                     type="youtube"
                   />
@@ -1348,7 +1343,7 @@ const PRInstallProblems: React.FC = () => {
                   <mark className="file">OTF</mark> устанавливаются стандартными
                   средствами операционной системы. Установленные шрифты будут отображаться
                   во всех программах, поддерживающие сторонние шрифты, в том числе и в{" "}
-                  <mark className="app">Adobe Premiere Pro</mark>. Это можно сделать
+                  <mark className="app">Adobe Premiere</mark>. Это можно сделать
                   несколькими способами.
                   <ul>
                     <li>
@@ -1580,7 +1575,7 @@ const PRInstallProblems: React.FC = () => {
                 сталкиваются с одной и той же проблемой: нужное дополнение не появляется в
                 программе, хотя установка выполнена строго по{" "}
                 <a href="#how-to-install">инструкциям</a>. Причина почти всегда одна:{" "}
-                <mark className="app">Adobe Premiere Pro</mark> установлен в нестандартную
+                <mark className="app">Adobe Premiere</mark> установлен в нестандартную
                 директорию.
               </p>
               <p>
@@ -1590,27 +1585,27 @@ const PRInstallProblems: React.FC = () => {
                 <mark className="plugin">FX Console</mark>, «тупо» ищут стандартные пути
                 вроде <mark className="path">C:\Program Files\Adobe</mark> и не пытаются
                 найти программу в другом месте. В итоге установщик либо выдаёт ошибку,
-                будто <mark className="app">Adobe Premiere Pro</mark> не найден, либо, что
-                ещё хуже, ставит плагины для другой программы. Например, найдя{" "}
+                будто <mark className="app">Adobe Premiere</mark> не найден, либо, что ещё
+                хуже, ставит плагины для другой программы. Например, найдя{" "}
                 <mark className="app">DaVinci Resolve</mark> по стандартному пути, он
                 установит <mark>OFX</mark>-версию плагина для него, а ваш{" "}
-                <mark className="app">Adobe Premiere Pro</mark> останется ни с чем.
+                <mark className="app">Adobe Premiere</mark> останется ни с чем.
               </p>
               <p>
                 Но проблемы не заканчиваются на сторонних дополнениях: это может сломать
                 связь и между самими программами <mark className="company">Adobe</mark>.
-                Например, если <mark className="app">Adobe Premiere Pro</mark> и{" "}
+                Например, если <mark className="app">Adobe Premiere</mark> и{" "}
                 <mark className="app">Adobe Media Encoder</mark> установлены в разные
-                нестандартные директории, то{" "}
-                <mark className="app">Adobe Premiere Pro</mark> не сможет отправить
-                секвенцию на рендер в <mark className="app">Adobe Media Encoder</mark>,
-                сообщив, что программа не установлена.
+                нестандартные директории, то <mark className="app">Adobe Premiere</mark>{" "}
+                не сможет отправить секвенцию на рендер в{" "}
+                <mark className="app">Adobe Media Encoder</mark>, сообщив, что программа
+                не установлена.
               </p>
               <Divider>Как устранить эту проблему в будущем?</Divider>
               <p>
                 Чтобы избавиться от подобных проблем, нужно переустановить{" "}
-                <mark className="app">Adobe Premiere Pro</mark> «по-человечески» — то есть
-                не менять местоположение программы при установке. Для этого достаточно
+                <mark className="app">Adobe Premiere</mark> «по-человечески» — то есть не
+                менять местоположение программы при установке. Для этого достаточно
                 удалить текущую версию с помощью{" "}
                 <a href="https://helpx.adobe.com/creative-cloud/apps/troubleshoot/diagnostics-repair-tools/run-creative-cloud-cleaner-tool.html">
                   Adobe Creative Cloud Cleaner Tool
@@ -1622,13 +1617,13 @@ const PRInstallProblems: React.FC = () => {
                 <mark className="path">Scripts</mark> из установленной программы в удобное
                 место — для резервного копирования и последующего восстановления файлов
                 дополнений. Затем запустите установщик{" "}
-                <mark className="app">Adobe Premiere Pro</mark> и начните его установку,
-                не меняя директорию установки программы.
+                <mark className="app">Adobe Premiere</mark> и начните его установку, не
+                меняя директорию установки программы.
               </p>
               <p>
                 Но, к сожалению, в качестве аргумента на вопрос{" "}
                 <mark className="quote">
-                  «А зачем вы, собственно, установили Premiere Pro на другой раздел?»
+                  «А зачем вы, собственно, установили Premiere на другой раздел?»
                 </mark>{" "}
                 часто слышится{" "}
                 <mark className="quote">
@@ -1643,12 +1638,12 @@ const PRInstallProblems: React.FC = () => {
               <Divider>Очищаем системный раздел от мусора</Divider>
               <p>
                 Если вы согласны переустановить{" "}
-                <mark className="app">Adobe Premiere Pro</mark> на стандартный раздел, но
-                у вас мало места — попробуйте почистить систему от разного хлама. Это
-                можно сделать разными способами: стандартными средствами, сторонними
-                программами или вручную, предварительно проанализировав всю систему. После
-                очистки системы от мусора начните процесс переустановки{" "}
-                <mark className="app">Adobe Premiere Pro</mark> в стандартное место и
+                <mark className="app">Adobe Premiere</mark> на стандартный раздел, но у
+                вас мало места — попробуйте почистить систему от разного хлама. Это можно
+                сделать разными способами: стандартными средствами, сторонними программами
+                или вручную, предварительно проанализировав всю систему. После очистки
+                системы от мусора начните процесс переустановки{" "}
+                <mark className="app">Adobe Premiere</mark> в стандартное место и
                 наслаждайтесь корректной работой сторонних плагинов.
               </p>
               <ul>
@@ -1705,7 +1700,7 @@ const PRInstallProblems: React.FC = () => {
                   <mark className="code">compact /compactos:always</mark> и дождитесь
                   окончания операции. Обычно сжатие системы освобождает примерно{" "}
                   <mark>3–5 ГБ</mark> дискового пространства, которое можно занять
-                  установкой <mark className="app">Adobe Premiere Pro</mark>.
+                  установкой <mark className="app">Adobe Premiere</mark>.
                   <Addition type="info">
                     Текущее состояние сжатия <mark>Windows</mark> можно узнать с помощью
                     команды <mark className="code">compact /compactos:query</mark>.
@@ -1812,7 +1807,7 @@ const PRInstallProblems: React.FC = () => {
       </DetailsSummary>
       <DetailsSummary
         tag="в настоящее время невозможно установить, операционная система не соответствует минимальным требованиям для этой программы установки"
-        title="Код ошибки 1, 501, 176, 195, 21 или другие при установке Adobe Premiere Pro"
+        title="Код ошибки 1, 501, 176, 195, 21 или другие при установке Adobe Premiere"
       >
         <Divider>Исправляем ошибку 1 или 501</Divider>
         <p>
@@ -1834,7 +1829,7 @@ const PRInstallProblems: React.FC = () => {
             <>
               <p>
                 Скорее всего, до установки более новых версий{" "}
-                <mark className="app">Adobe Premiere Pro</mark> вы пользовались другими
+                <mark className="app">Adobe Premiere</mark> вы пользовались другими
                 программами <mark className="app">Adobe</mark>. Для решения проблемы
                 попробуйте удалить папку{" "}
                 <mark className="path">/Library/Application Support/Adobe/caps</mark>, а
@@ -1846,7 +1841,7 @@ const PRInstallProblems: React.FC = () => {
             <>
               <p>
                 Скорее всего, до установки более новых версий{" "}
-                <mark className="app">Adobe Premiere Pro</mark> вы пользовались другими
+                <mark className="app">Adobe Premiere</mark> вы пользовались другими
                 программами <mark className="app">Adobe</mark>. Для решения проблемы
                 попробуйте удалить папку{" "}
                 <mark className="path">
@@ -1864,11 +1859,10 @@ const PRInstallProblems: React.FC = () => {
         <p>
           Если вы столкнулись с этой ошибкой при установке программы — это означает, что
           ваш процессор не поддерживает инструкции <mark>AVX2</mark>, необходимые для
-          корректной работы последних версий{" "}
-          <mark className="app">Adobe Premiere Pro</mark>. Чтобы устранить проблему —
-          обновите устройство или процессор на более современный либо установите более
-          старую версию программы, например <mark>23.6</mark> (2023) или <mark>24.0</mark>{" "}
-          (2024).
+          корректной работы последних версий <mark className="app">Adobe Premiere</mark>.
+          Чтобы устранить проблему — обновите устройство или процессор на более
+          современный либо установите более старую версию программы, например{" "}
+          <mark>23.6</mark> (2023) или <mark>24.0</mark> (2024).
         </p>
         <Divider>
           Исправляем ошибку 21 — «Операционная система не соответствует минимальным
@@ -1879,20 +1873,20 @@ const PRInstallProblems: React.FC = () => {
             <>
               <p>
                 Скорее всего, вы пытаетесь установить{" "}
-                <mark className="app">Adobe Premiere Pro</mark> версии <mark>2024</mark>{" "}
-                или новее на устаревшую сборку <mark>Windows</mark>. В таком случае есть
+                <mark className="app">Adobe Premiere</mark> версии <mark>2024</mark> или
+                новее на устаревшую сборку <mark>Windows</mark>. В таком случае есть
                 только два решения.
               </p>
               <ul>
                 <li>
                   <p>
                     Если планируете установить свежую версию{" "}
-                    <mark className="app">Adobe Premiere Pro</mark>, перейдите на{" "}
+                    <mark className="app">Adobe Premiere</mark>, перейдите на{" "}
                     <mark>Windows 11</mark>. Систему можно обновить поверх предыдущей
                     версии с помощью образа <mark className="file">ISO</mark> — без потери
                     данных, настроек и приложений. В{" "}
                     <a href="https://helpx.adobe.com/premiere-pro/system-requirements.html">
-                      системных требованиях Premiere Pro
+                      системных требованиях Premiere
                     </a>{" "}
                     обычно указана минимальная версия операционной системы, необходимая
                     для корректного запуска программы.
@@ -1900,12 +1894,12 @@ const PRInstallProblems: React.FC = () => {
                   <Addition type="info">
                     <ul>
                       <li>
-                        Последняя версия <mark className="app">Adobe Premiere Pro</mark>,
+                        Последняя версия <mark className="app">Adobe Premiere</mark>,
                         поддерживающая <mark>Windows 7</mark> и <mark>Windows 8.1</mark> —{" "}
                         <mark>2019 (16.X)</mark>.
                       </li>
                       <li>
-                        Последняя версия <mark className="app">Adobe Premiere Pro</mark>,
+                        Последняя версия <mark className="app">Adobe Premiere</mark>,
                         поддерживающая <mark>Windows 10</mark> версии{" "}
                         <mark>LTSC 21H2</mark> — <mark>2023 (23.X)</mark>.
                       </li>
@@ -1945,9 +1939,9 @@ const PRInstallProblems: React.FC = () => {
                 <li>
                   Если вы не желаете обновлять или переустанавливать систему, то можете
                   установить более старую версию{" "}
-                  <mark className="app">Adobe Premiere Pro</mark>, например{" "}
-                  <mark>23.6</mark> (2023) или <mark>15.1</mark> (2018). В таком случае
-                  установка пройдёт корректно.
+                  <mark className="app">Adobe Premiere</mark>, например <mark>23.6</mark>{" "}
+                  (2023) или <mark>15.1</mark> (2018). В таком случае установка пройдёт
+                  корректно.
                 </li>
               </ul>
             </>
@@ -2155,8 +2149,8 @@ const PRInstallProblems: React.FC = () => {
                   Из минусов — возможные проблемы с{" "}
                   <mark className="plugin">Dynamic Link</mark>, когда{" "}
                   <mark className="app">Adobe After Effects</mark> и{" "}
-                  <mark className="app">Adobe Premiere Pro</mark> не «видят» друг друга.
-                  Патч также может перестать работать после обновлений приложений от{" "}
+                  <mark className="app">Adobe Premiere</mark> не «видят» друг друга. Патч
+                  также может перестать работать после обновлений приложений от{" "}
                   <mark className="company">Adobe</mark>, и придётся искать новую версию{" "}
                   <mark className="app">GenP</mark>. Функции, использующие генерацию
                   контента на базе <mark className="app">Adobe Firefly</mark>, тоже
@@ -2260,7 +2254,7 @@ const PRInstallProblems: React.FC = () => {
                     При желании вы можете установить английский язык для новых приложений
                     по умолчанию — это настраивается в разделе{" "}
                     <mark className="select">«Приложения»</mark>. Также можно изменить
-                    язык <mark className="app">Adobe Premiere Pro</mark>{" "}
+                    язык <mark className="app">Adobe Premiere</mark>{" "}
                     <a href="#3.6">вручную</a> уже после установки.
                   </Addition>
                 </li>
@@ -2363,7 +2357,7 @@ const PRInstallProblems: React.FC = () => {
         title="Почему функция Speech to Text не работает на «народных» версиях?"
       >
         <p>
-          По умолчанию <mark className="app">Adobe Premiere Pro</mark> поставляется без
+          По умолчанию <mark className="app">Adobe Premiere</mark> поставляется без
           языковых пакетов для распознавания речи. При необходимости они загружаются прямо
           из приложения. Однако в «народных» версиях программы эта загрузка будет длиться
           бесконечно, потому что у приложения нет доступа к интернету.
@@ -2382,9 +2376,9 @@ const PRInstallProblems: React.FC = () => {
         </p>
         <Addition type="danger">
           Устанавливая языковой пакет, смотрите, для какой версии{" "}
-          <mark className="app">Adobe Premiere Pro</mark> он предназначен! Версию{" "}
-          <mark className="app">Adobe Premiere Pro</mark> вы можете узнать в{" "}
-          <mark className="select">«Help» → «About Adobe Premiere Pro»</mark>. Если вы
+          <mark className="app">Adobe Premiere</mark> он предназначен! Версию{" "}
+          <mark className="app">Adobe Premiere</mark> вы можете узнать в{" "}
+          <mark className="select">«Help» → «About Adobe Premiere»</mark>. Если вы
           установите пакет для другой версии, то не сможете использовать функцию
           транскрибации и зря займёте место на диске.
         </Addition>
@@ -2475,29 +2469,28 @@ const PRInstallProblems: React.FC = () => {
         <Divider>А что делать со сторонними плагинами?</Divider>
         <p>
           Что касается сторонних плагинов с «версией-годом» в названии, то они не всегда
-          должны строго соответствовать версии{" "}
-          <mark className="app">Adobe Premiere Pro</mark>. Чаще всего такие плагины
-          работают и на релизах двухлетней давности. Например, если установить{" "}
-          <mark className="plugin">Boris FX Sapphire 2025</mark> на{" "}
+          должны строго соответствовать версии <mark className="app">Adobe Premiere</mark>
+          . Чаще всего такие плагины работают и на релизах двухлетней давности. Например,
+          если установить <mark className="plugin">Boris FX Sapphire 2025</mark> на{" "}
           <mark className="app">Adobe Premiere Pro 2023</mark>, всё будет работать
           корректно.
         </p>
       </DetailsSummary>
       <DetailsSummary
         tag="не подключается dynamic link, программы не видят друг друга, динамик линк, aegp plugin aedynamiclinkserver: adobe media encoder is not installed, please download and install it to use this feature, failed to connect to adobe media encoder, медиа енкодер"
-        title="Установил Adobe Media Encoder и Adobe After Effects, но Adobe Premiere Pro почему-то не видит"
+        title="Установил Adobe Media Encoder и Adobe After Effects, но Adobe Premiere почему-то не видит"
       >
         <p>
           Функция <mark className="plugin">Dynamic Link</mark> позволяет синхронизировать
           композиции из <mark className="app">Adobe After Effects</mark> в{" "}
-          <mark className="app">Adobe Premiere Pro</mark> на таймлайне и отправлять их в
+          <mark className="app">Adobe Premiere</mark> на таймлайне и отправлять их в
           очередь рендера <mark className="app">Adobe Media Encoder</mark>. Но не всегда
-          их получается «подружить». Иногда{" "}
-          <mark className="app">Adobe Premiere Pro</mark> при попытке отправить секвенцию
-          в очередь рендера в <mark className="app">Adobe Media Encoder</mark> может
-          попросить установить <mark className="app">Adobe Media Encoder</mark>, хотя эта
-          программа вроде бы уже есть в системе. Чтобы программы «видели» друг друга,
-          необходимо соблюсти несколько условий.
+          их получается «подружить». Иногда <mark className="app">Adobe Premiere</mark>{" "}
+          при попытке отправить секвенцию в очередь рендера в{" "}
+          <mark className="app">Adobe Media Encoder</mark> может попросить установить{" "}
+          <mark className="app">Adobe Media Encoder</mark>, хотя эта программа вроде бы
+          уже есть в системе. Чтобы программы «видели» друг друга, необходимо соблюсти
+          несколько условий.
         </p>
         <ContentFigure
           caption="Исправляем Dynamic Link"
@@ -2507,7 +2500,7 @@ const PRInstallProblems: React.FC = () => {
         <ul>
           <li>
             Убедитесь, что вы установили <mark className="app">Adobe After Effects</mark>,{" "}
-            <mark className="app">Adobe Premiere Pro</mark> и{" "}
+            <mark className="app">Adobe Premiere</mark> и{" "}
             <mark className="app">Adobe Media Encoder</mark> одной «версии-года». Если,
             например, установлены <mark className="app">Adobe After Effects 2025</mark>,{" "}
             <mark className="app">Adobe Premiere Pro 2024</mark> и{" "}
@@ -2522,7 +2515,7 @@ const PRInstallProblems: React.FC = () => {
               <ul>
                 <li>
                   Если установлены <mark className="app">Adobe After Effects</mark>,{" "}
-                  <mark className="app">Adobe Premiere Pro</mark> и{" "}
+                  <mark className="app">Adobe Premiere</mark> и{" "}
                   <mark className="app">Adobe Media Encoder</mark> одного релизного цикла,
                   но они всё равно не «видят» друг друга — проверьте, установлены ли они в
                   директорию по умолчанию, а не на другой диск, отличный от{" "}
@@ -2567,7 +2560,7 @@ const PRInstallProblems: React.FC = () => {
               </ul>
               <p>
                 Однако, если вам нужно только экспортировать секвенцию из{" "}
-                <mark className="app">Adobe Premiere Pro</mark>, всё же рекомендуется не
+                <mark className="app">Adobe Premiere</mark>, всё же рекомендуется не
                 использовать <mark className="app">Adobe Media Encoder</mark> без острой
                 необходимости — в программе уже есть вполне хороший инструментарий для
                 экспорта в популярные форматы. Если нужного вам формата нет в списке
@@ -2592,7 +2585,7 @@ const PRInstallProblems: React.FC = () => {
             <mark className="word">AE</mark>, <mark className="file">AEX</mark>,{" "}
             <mark className="word">PR</mark>, <mark className="file">PRM</mark> или{" "}
             <mark className="word">Adobe</mark> — плагины установятся в{" "}
-            <mark className="app">Adobe Premiere Pro</mark> или{" "}
+            <mark className="app">Adobe Premiere</mark> или{" "}
             <mark className="app">Adobe After Effects</mark>.
             <Addition type="info">
               <ul>
@@ -2600,7 +2593,7 @@ const PRInstallProblems: React.FC = () => {
                   Иногда плагины с припиской <mark className="word">AE</mark> или{" "}
                   <mark className="word">AEX</mark> могут устанавливаться как в{" "}
                   <mark className="app">Adobe After Effects</mark>, так и в{" "}
-                  <mark className="app">Adobe Premiere Pro</mark>.
+                  <mark className="app">Adobe Premiere</mark>.
                 </li>
                 <li>
                   Плагины, распространяющиеся в виде установщиков, устанавливаются в
@@ -2691,7 +2684,7 @@ const PRInstallProblems: React.FC = () => {
         <p>
           Если вы экспортируете секвенцию с помощью{" "}
           <mark className="app">Adobe Media Encoder</mark> — откажитесь от него в пользу
-          экспорта напрямую из <mark className="app">Adobe Premiere Pro</mark>.
+          экспорта напрямую из <mark className="app">Adobe Premiere</mark>.
         </p>
       </DetailsSummary>
       <DetailsSummary

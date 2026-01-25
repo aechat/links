@@ -106,7 +106,7 @@ const AEErrors: React.FC = () => {
                   кнопку <mark className="select">«Block»</mark> рядом с их названиями.
                   <ContentFigure
                     caption="Radio Silence"
-                    imgTitle="Блокировка доступа в интернет на примере Adobe Premiere Pro"
+                    imgTitle="Блокировка доступа в интернет на примере Adobe Premiere"
                     // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
                     src="images/legacy/network_radio_silence.png"
                     theme="dark"

@@ -491,7 +491,7 @@ const AEActions: React.FC = () => {
           <mark className="app">Adobe After Effects</mark>, которым нужно добавлять
           субтитры, часто возникает вопрос:{" "}
           <mark className="quote">
-            «Как сделать автоматические субтитры, не открывая Adobe Premiere Pro?»
+            «Как сделать автоматические субтитры, не открывая Adobe Premiere?»
           </mark>
           . К сожалению, в <mark className="app">Adobe After Effects</mark> нет встроенной
           функции генерации текста из речи и импорта субтитров в формате{" "}

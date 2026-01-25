@@ -1924,8 +1924,8 @@ const AEInstallProblems: React.FC = () => {
                   Из минусов — возможные проблемы с{" "}
                   <mark className="plugin">Dynamic Link</mark>, когда{" "}
                   <mark className="app">Adobe After Effects</mark> и{" "}
-                  <mark className="app">Adobe Premiere Pro</mark> не «видят» друг друга.
-                  Патч также может перестать работать после обновлений приложений от{" "}
+                  <mark className="app">Adobe Premiere</mark> не «видят» друг друга. Патч
+                  также может перестать работать после обновлений приложений от{" "}
                   <mark className="company">Adobe</mark>, и придётся искать новую версию{" "}
                   <mark className="app">GenP</mark>. Функции, использующие генерацию
                   контента на базе <mark className="app">Adobe Firefly</mark>, тоже
@@ -2194,12 +2194,12 @@ const AEInstallProblems: React.FC = () => {
       <DetailsSummary
         anchor="missing-dynamic-link"
         tag="не подключается dynamic link, программы не видят друг друга, динамик линк, aegp plugin aedynamiclinkserver: adobe media encoder is not installed, please download and install it to use this feature, failed to connect to adobe media encoder, медиа енкодер"
-        title="Установил Adobe Media Encoder и Adobe Premiere Pro, но Adobe After Effects почему-то их не видит"
+        title="Установил Adobe Media Encoder и Adobe Premiere, но Adobe After Effects почему-то их не видит"
       >
         <p>
           Функция <mark className="plugin">Dynamic Link</mark> позволяет синхронизировать
           композиции из <mark className="app">Adobe After Effects</mark> в{" "}
-          <mark className="app">Adobe Premiere Pro</mark> на таймлайне и отправлять их в
+          <mark className="app">Adobe Premiere</mark> на таймлайне и отправлять их в
           очередь рендера <mark className="app">Adobe Media Encoder</mark>. Но не всегда
           удаётся их «подружить». Иногда <mark className="app">Adobe After Effects</mark>{" "}
           при попытке отправить композицию в очередь рендера в{" "}
@@ -2216,7 +2216,7 @@ const AEInstallProblems: React.FC = () => {
         <ul>
           <li>
             Убедитесь, что вы установили <mark className="app">Adobe After Effects</mark>,{" "}
-            <mark className="app">Adobe Premiere Pro</mark> и{" "}
+            <mark className="app">Adobe Premiere</mark> и{" "}
             <mark className="app">Adobe Media Encoder</mark> одной «версии-года». Если,
             например, установлены <mark className="app">Adobe After Effects 2025</mark>,{" "}
             <mark className="app">Adobe Premiere Pro 2024</mark> и{" "}
@@ -2231,7 +2231,7 @@ const AEInstallProblems: React.FC = () => {
               <ul>
                 <li>
                   Если установлены <mark className="app">Adobe After Effects</mark>,{" "}
-                  <mark className="app">Adobe Premiere Pro</mark> и{" "}
+                  <mark className="app">Adobe Premiere</mark> и{" "}
                   <mark className="app">Adobe Media Encoder</mark> одного релизного цикла,
                   но они всё равно не «видят» друг друга — проверьте, установлены ли они в
                   директорию по умолчанию, а не на другой диск, отличный от{" "}
@@ -2303,14 +2303,14 @@ const AEInstallProblems: React.FC = () => {
             <mark className="word">AE</mark>, <mark className="file">AEX</mark>,{" "}
             <mark className="word">PR</mark> или <mark className="word">Adobe</mark> —
             плагины установятся в <mark className="app">Adobe After Effects</mark> или{" "}
-            <mark className="app">Adobe Premiere Pro</mark>.
+            <mark className="app">Adobe Premiere</mark>.
             <Addition type="info">
               <ul>
                 <li>
                   Иногда плагины с припиской <mark className="word">AE</mark> или{" "}
                   <mark className="word">AEX</mark> могут устанавливаться как в{" "}
                   <mark className="app">Adobe After Effects</mark>, так и в{" "}
-                  <mark className="app">Adobe Premiere Pro</mark>.
+                  <mark className="app">Adobe Premiere</mark>.
                 </li>
                 <li>
                   Плагины, распространяющиеся в виде установщиков, устанавливаются в
@@ -3033,8 +3033,7 @@ const AEInstallProblems: React.FC = () => {
                 <ul>
                   <li>
                     После обновления <mark className="app">Adobe After Effects</mark> не
-                    забудьте также обновить{" "}
-                    <mark className="app">Adobe Premiere Pro</mark> и{" "}
+                    забудьте также обновить <mark className="app">Adobe Premiere</mark> и{" "}
                     <mark className="app">Adobe Media Encoder</mark>, чтобы связь между
                     программами работала корректно.
                   </li>

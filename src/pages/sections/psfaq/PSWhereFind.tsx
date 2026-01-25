@@ -85,8 +85,8 @@ const PSWhereFind: React.FC = () => {
             <a href="https://t.me/s/aetemp">AETemp</a> и{" "}
             <a href="https://t.me/s/premtemp">PremTemp</a> — каналы с материалами для{" "}
             <mark className="app">Adobe After Effects</mark> и{" "}
-            <mark className="app">Adobe Premiere Pro</mark>, откуда можно почерпнуть идеи
-            для ваших проектов в <mark className="app">Adobe Photoshop</mark>.
+            <mark className="app">Adobe Premiere</mark>, откуда можно почерпнуть идеи для
+            ваших проектов в <mark className="app">Adobe Photoshop</mark>.
           </li>
         </ul>
         <Addition type="info">

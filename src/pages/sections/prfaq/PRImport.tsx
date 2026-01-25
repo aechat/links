@@ -12,7 +12,7 @@ const PRImport: React.FC = () => {
       <DetailsSummary title="Какие действия нужно совершить с чужими исходниками, прежде чем начать работу?">
         <p>
           Прежде чем начать создавать секвенцию и импортировать файлы в{" "}
-          <mark className="app">Adobe Premiere Pro</mark>, вам стоит расположить все ваши
+          <mark className="app">Adobe Premiere</mark>, вам стоит расположить все ваши
           исходники в отдельный диск, раздел или папку, чтобы иметь быстрый доступ к
           исходникам, а не на рабочем столе или в системных папках. Так вам будет проще
           работать с кучей материала, особенно когда начинаете работу постепенно.{" "}
@@ -167,7 +167,7 @@ const PRImport: React.FC = () => {
           путь до нового файла в системном файловом менеджере.
         </p>
         <ContentFigure
-          caption="Adobe Premiere Pro"
+          caption="Adobe Premiere"
           imgTitle="Замена исходника в проекте"
           // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
           src="images/legacy/premierepro/replace_footage.png"
@@ -242,12 +242,12 @@ const PRImport: React.FC = () => {
         </p>
         <Divider>Включаем Auto Tone Map Media</Divider>
         <p>
-          В <mark className="app">Adobe Premiere Pro</mark> версии 23.2 и выше появилась
-          возможность активировать коррекцию цвета для исходников с большим цветовым
-          диапазоном. Чтобы его включить - перейдите в настройки нужной секвенции через{" "}
-          <mark className="select">«Sequence» → «Sequence Settings»</mark> и активируйте
-          опцию <mark className="select">«Auto Tone Map Media»</mark> в вкладке{" "}
-          <mark className="select">«Color Management»</mark>.
+          В <mark className="app">Adobe Premiere</mark> версии <mark>23.2</mark> и выше
+          появилась возможность активировать коррекцию цвета для исходников с широким
+          цветовым диапазоном. Чтобы его включить - перейдите в настройки нужной секвенции
+          через <mark className="select">«Sequence» → «Sequence Settings»</mark> и
+          активируйте опцию <mark className="select">«Auto Tone Map Media»</mark> в
+          вкладке <mark className="select">«Color Management»</mark>.
         </p>
         <Addition type="info">
           При создании новых секвенций эта опция обычно включена по умолчанию.
@@ -381,7 +381,7 @@ const PRImport: React.FC = () => {
           запуске проекта или в качестве плейсхолдера с красной заливкой.
         </p>
         <ContentFigure
-          caption="Adobe Premiere Pro"
+          caption="Adobe Premiere"
           imgTitle="Медиаданные в авнономном режиме"
           // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
           src="images/legacy/premierepro/медиаданные_в_автономном_режиме.png"
@@ -416,7 +416,7 @@ const PRImport: React.FC = () => {
       </DetailsSummary>
       <DetailsSummary title="Прислали исходники в формате MKV, FLV или что-то не поддерживаемое программой. Как мне их импортировать?">
         <p>
-          <mark className="app">Adobe Premiere Pro</mark> может не поддерживать некоторые
+          <mark className="app">Adobe Premiere</mark> может не поддерживать некоторые
           кодеки, например <mark className="video">VP9</mark>,{" "}
           <mark className="video">AV1</mark>, а также контейнеры по типу{" "}
           <mark className="video">FLV</mark>, <mark className="video">MKV</mark> и прочие.
@@ -429,7 +429,7 @@ const PRImport: React.FC = () => {
           перекодированием исходников, то вы можете попробовать плагин{" "}
           <a href="https://www.autokroma.com/Influx">Autokroma Influx</a>. Он облегчает
           импорт некоторых файлов которые не поддерживаются в{" "}
-          <mark className="app">Adobe Premiere Pro</mark>,{" "}
+          <mark className="app">Adobe Premiere</mark>,{" "}
           <mark className="app">Adobe After Effects</mark> и{" "}
           <mark className="app">Adobe Media Encoder</mark>.
         </p>
@@ -455,13 +455,12 @@ const PRImport: React.FC = () => {
         title="Прислали исходники в формате HEIC, HEIF или HEVC, но выбивает ошибку. Как их мне открыть и импортировать в проект?"
       >
         <p>
-          Некоторые пользователи, использующие{" "}
-          <mark className="app">Adobe Premiere Pro</mark> на операционных системах{" "}
-          <mark>Windows 10 или 11</mark> могут столкнуться с проблемой открытия и импорта
-          таких файлов, так как у них не установлены кодеки для работы с данными форматами
-          изображений и видео. Казалось бы, достаточно их установить с{" "}
-          <mark className="app">Microsoft Store</mark>, но увы. Один из кодеков платный, а
-          другой - устанавливается неочевидно.
+          Некоторые пользователи, использующие <mark className="app">Adobe Premiere</mark>{" "}
+          на операционных системах <mark>Windows 10 или 11</mark> могут столкнуться с
+          проблемой открытия и импорта таких файлов, так как у них не установлены кодеки
+          для работы с данными форматами изображений и видео. Казалось бы, достаточно их
+          установить с <mark className="app">Microsoft Store</mark>, но увы. Один из
+          кодеков платный, а другой - устанавливается неочевидно.
         </p>
         <p>
           Для того чтобы корректно открыть такие изображения и видео, вам нужно установить
@@ -482,8 +481,8 @@ const PRImport: React.FC = () => {
               <code>https://apps.microsoft.com/9n4wgh0z6vhq</code>
             </p>
             <Addition type="danger">
-              <mark className="app">Adobe Premiere Pro</mark> после установки кодеков все
-              ещё не будет импортировать видео с контейнером{" "}
+              <mark className="app">Adobe Premiere</mark> после установки кодеков все ещё
+              не будет импортировать видео с контейнером{" "}
               <mark className="video">HEVC</mark>. То есть если вы попробуете
               импортировать <mark className="video">HEVC</mark> в проект - вам скажут, что
               такой файл не поддерживается. Чтобы это исправить - попробуйте переименовать
@@ -537,14 +536,14 @@ const PRImport: React.FC = () => {
         <p>
           Для того, чтобы импортировать композиции из{" "}
           <mark className="app">Adobe After Effects</mark> в{" "}
-          <mark className="app">Adobe Premiere Pro</mark> через{" "}
+          <mark className="app">Adobe Premiere</mark> через{" "}
           <mark className="plugin">Dynamic Link</mark> - достаточно открыть окно импорта
           через комбинацию клавиш <mark className="key">Ctrl + I</mark> и указать там
           нужный <mark className="file">AEP</mark> файл.
         </p>
         <p>
           После выбора нужного <mark className="file">AEP</mark> файла - у вас откроется
-          окно, в котором <mark className="app">Adobe Premiere Pro</mark> подключится к{" "}
+          окно, в котором <mark className="app">Adobe Premiere</mark> подключится к{" "}
           <mark className="app">Adobe After Effects</mark> и через некоторое время выдаст
           вам список композиций. Вы можете выбрать одну или несколько композиций для
           импорта.
@@ -553,7 +552,7 @@ const PRImport: React.FC = () => {
         <p>
           После успешного импорта вы можете расположить композиции из{" "}
           <mark className="app">Adobe After Effects</mark> прямо на таймлайн в{" "}
-          <mark className="app">Adobe Premiere Pro</mark>.
+          <mark className="app">Adobe Premiere</mark>.
         </p>
         <Addition type="info">
           Чтобы закэшировать предпросмотр в местах, где расположены композиции из{" "}
@@ -579,7 +578,7 @@ const PRImport: React.FC = () => {
               экспорте секвенции. Если вы не планируете редактировать нужные композиции в
               дальнейшем - рекомендую отрендерить их в{" "}
               <mark className="app">Adobe After Effects</mark> и заменить их в секвенции{" "}
-              <mark className="app">Adobe Premiere Pro</mark>.
+              <mark className="app">Adobe Premiere</mark>.
             </li>
           </ul>
         </Addition>
