@@ -426,10 +426,10 @@ const AEPerformance: React.FC = () => {
             <Addition type="warning">
               Имейте в виду, что для установки последних версий{" "}
               <mark className="app">Adobe After Effects</mark> требуется{" "}
-              <mark>Windows 10</mark> версии <mark>22H2</mark> или новее или{" "}
-              <mark>Windows 11</mark>: на более ранние сборки программа просто не
-              установится или будет работать некорректно. Узнать текущую версию вашей ОС
-              можно с помощью команды <mark className="app">winver</mark>.
+              <mark>Windows 11</mark> версии <mark>24H2</mark>: на более ранних сборках
+              программа может работать некорректно или вовсе не установиться. Узнать
+              текущую версию вашей ОС можно с помощью команды{" "}
+              <mark className="app">winver</mark>.
             </Addition>
           </li>
           <li>

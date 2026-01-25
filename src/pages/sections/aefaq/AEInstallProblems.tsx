@@ -1663,6 +1663,14 @@ const AEInstallProblems: React.FC = () => {
                         поддерживающая <mark>Windows 10</mark> версии{" "}
                         <mark>LTSC 21H2</mark> — <mark>2023 (23.X)</mark>.
                       </li>
+                      <li>
+                        Последняя версия <mark className="app">Adobe After Effects</mark>,{" "}
+                        <b>
+                          <u>официально</u>
+                        </b>{" "}
+                        поддерживающая <mark>Windows 10</mark> версии <mark>22H2</mark> —{" "}
+                        <mark>2025 (25.X)</mark>.
+                      </li>
                     </ul>
                   </Addition>
                   <p>
