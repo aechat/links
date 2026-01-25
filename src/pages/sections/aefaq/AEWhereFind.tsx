@@ -976,6 +976,15 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>
+                <mark className="plugin">Компрессор</mark>
+              </td>
+              <td>
+                <mark className="plugin">Compressor</mark>
+              </td>
+              <td>—</td>
+            </tr>
+            <tr>
+              <td>
                 <mark className="plugin">Задержка</mark>
               </td>
               <td>
@@ -992,6 +1001,15 @@ const AEWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>
+                <mark className="plugin">Искажение</mark>
+              </td>
+              <td>
+                <mark className="plugin">Distortion</mark>
+              </td>
+              <td>—</td>
+            </tr>
+            <tr>
+              <td>
                 <mark className="plugin">Фланджер и хор</mark>
               </td>
               <td>
@@ -1005,6 +1023,15 @@ const AEWhereFind: React.FC = () => {
                   Видео
                 </a>
               </td>
+            </tr>
+            <tr>
+              <td>
+                <mark className="plugin">Шумоподавитель</mark>
+              </td>
+              <td>
+                <mark className="plugin">Gate</mark>
+              </td>
+              <td>—</td>
             </tr>
             <tr>
               <td>
@@ -3702,6 +3729,15 @@ const AEWhereFind: React.FC = () => {
                   Видео
                 </a>
               </td>
+            </tr>
+            <tr>
+              <td>
+                <mark className="plugin">—</mark>
+              </td>
+              <td>
+                <mark className="plugin">Unmult</mark>
+              </td>
+              <td>—</td>
             </tr>
           </tbody>
         </table>
