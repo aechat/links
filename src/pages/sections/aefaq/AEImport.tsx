@@ -1382,13 +1382,10 @@ const AEImport: React.FC = () => {
           <mark className="app">Adobe Illustrator</mark> выполняются в одном слое, внутри
           которого находятся объекты. Однако при попытке импорта в{" "}
           <mark className="app">Adobe After Effects</mark> с выбранным режимом{" "}
-          <mark className="select">
-            «Import As» → «Composition» или «Composition - Retain Layer Sizes»
-          </mark>{" "}
-          вы получите лишь тот самый слой без возможности послойного взаимодействия с
-          объектами, которые были внутри него.
+          <mark className="select">«Import As» → «Composition»</mark> вы получите лишь тот
+          самый слой без возможности послойного взаимодействия с объектами, которые были
+          внутри него.
         </p>
-        <Divider>Импортируем без конвертации в фигуры</Divider>
         <p>
           Чтобы послойно импортировать объекты из{" "}
           <mark className="app">Adobe Illustrator</mark> в{" "}
@@ -1397,7 +1394,8 @@ const AEImport: React.FC = () => {
           <mark className="app">Adobe Illustrator</mark> раскройте список объектов,
           выделите группу и в контекстном меню окна{" "}
           <mark className="select">«Layers»</mark> выберите{" "}
-          <mark className="select">«Release to Layers (Sequence)»</mark>.
+          <mark className="select">«Release to Layers (Sequence)»</mark>. Затем вынесите
+          все ваши объекты на самый верхний уровень, как показано в видео ниже.
         </p>
         <Addition type="info">
           Структура слоёв в <mark className="app">Adobe Illustrator</mark> может
@@ -1414,13 +1412,17 @@ const AEImport: React.FC = () => {
         <p>
           После того как вы вынесли слои из группы, сохраните проект через{" "}
           <mark className="select">«File» → «Save As»</mark>, выбрав в качестве типа файла{" "}
-          <mark className="select">«Adobe Illustrator (*.AI)»</mark>. При сохранении файла{" "}
-          <mark className="image">AI</mark> в{" "}
-          <mark className="app">Adobe Illustrator</mark> не забудьте активировать опцию{" "}
+          <mark className="select">«Adobe Illustrator (*.AI)»</mark>.
+        </p>
+        <p>
+          При сохранении файла <mark className="image">AI</mark> в{" "}
+          <mark className="app">Adobe Illustrator</mark>
+          не забудьте активировать опцию{" "}
           <mark className="select">«Create PDF Compatible File»</mark>. Если этого не
           сделать, <mark className="app">Adobe After Effects</mark> не предложит
-          импортировать <mark className="image">AI</mark> послойно, и при импорте такого
-          файла вы получите пустоту.
+          импортировать файл послойно, а вместо графики вы получите плейсхолдер с чёрным
+          текстом о том, что файл был сохранён без содержимого{" "}
+          <mark className="file">PDF</mark>.
         </p>
         <ContentFigure
           caption="Illustrator Options"
@@ -1431,10 +1433,10 @@ const AEImport: React.FC = () => {
           variant="windows"
         />
         <p>
-          Затем перейдите в <mark className="app">Adobe After Effects</mark> и
-          импортируйте файл через <mark className="select">«Ctrl + I»</mark> или
+          После сохранения перейдите в <mark className="app">Adobe After Effects</mark> и
+          импортируйте файл через <mark className="key">Ctrl + I</mark> или простым
           перетаскиванием в окно <mark className="select">«Project»</mark> либо на
-          таймлайн. Не забудьте импортировать файл как композицию, выбрав в{" "}
+          таймлайн. При этом не забудьте выбрать в{" "}
           <mark className="select">«Import Kind»</mark> или{" "}
           <mark className="select">«Import As»</mark> значение{" "}
           <mark className="select">«Composition»</mark>.
@@ -1449,9 +1451,12 @@ const AEImport: React.FC = () => {
           variant="windows"
         />
         <p>
-          Теперь после импорта <mark className="image">AI</mark> вы получите в{" "}
+          После импорта <mark className="image">AI</mark> вы получите в{" "}
           <mark className="app">Adobe After Effects</mark> слои с градиентами и прочими
-          деталями. Их нельзя редактировать как обычную фигуру, но их можно сделать
+          деталями.
+        </p>
+        <p>
+          Их нельзя редактировать как обычную фигуру, но их можно сделать
           «псевдо-векторными», включив для слоёв опцию{" "}
           <mark className="select">«Continuously Rasterize»</mark>
           <sup>1</sup>, которая позволяет не терять качество слоя при его увеличении.
@@ -1464,8 +1469,14 @@ const AEImport: React.FC = () => {
           type="video"
           variant="windows"
         />
+        <Addition type="warning">
+          <sup>1</sup> При включённой опции{" "}
+          <mark className="select">«Continuously Rasterize»</mark> могут появиться
+          побочные эффекты, например разрывы слоя при использовании{" "}
+          <mark className="plugin">Puppet Tool</mark>.
+        </Addition>
         <Addition type="info">
-          <sup>1</sup> Некоторые ошибочно полагают, что в{" "}
+          Некоторые пользователи ошибочно полагают, что в{" "}
           <mark className="app">Adobe After Effects</mark>, как и в{" "}
           <mark className="app">Adobe Illustrator</mark>, можно приближать изображение в
           предпросмотре без потери качества, если в композиции используются векторные
@@ -1473,22 +1484,47 @@ const AEImport: React.FC = () => {
           прежде всего растровый, а не векторный редактор. Он отображает и растрирует все
           слои до разрешения, установленного в настройках композиции.
         </Addition>
-        <Addition type="warning">
-          При включённой опции <mark className="select">«Continuously Rasterize»</mark>{" "}
-          могут появиться побочные эффекты, например разрывы слоя при использовании{" "}
-          <mark className="plugin">Puppet Tool</mark>.
-        </Addition>
-        <Divider>А если я хочу конвертировать в фигуры?</Divider>
+        <Divider>Про конвертацию слоёв в фигуры</Divider>
         <p>
-          Вот здесь и кроется основная проблема импорта фигур из{" "}
-          <mark className="app">Adobe Illustrator</mark> в{" "}
-          <mark className="app">Adobe After Effects</mark>. Если у объекта есть градиенты,
-          то при выполнении{" "}
-          <mark className="select">«Create Shapes from Vector Layer»</mark> они пропадут:
-          изображение окрасится в серый цвет, поскольку градиенты, созданные в{" "}
-          <mark className="app">Adobe Illustrator</mark>, несовместимы с{" "}
-          <mark className="app">Adobe After Effects</mark>. В таком случае вам придётся
-          пересоздавать градиенты самостоятельно.
+          В <mark className="app">Adobe After Effects</mark> версии <mark>2026</mark> и
+          новее появилась возможность{" "}
+          <a href="https://helpx.adobe.com/after-effects/using/creating-shapes-masks.html#convert-Illustrator-layers-to-shape-layers">
+            преобразовывать слои Illustrator в фигуры без потери градиентов
+          </a>
+          <sup>1</sup>. Для этого выделите нужные элементы и нажмите{" "}
+          <mark className="key">ПКМ</mark> →{" "}
+          <mark className="select">«Create» → «Create Shapes from Vector Layer»</mark>.
+        </p>
+        <ContentFigure
+          caption="Создание фигур из векторного слоя"
+          src="images/legacy/aftereffects/create_shapes_from_vector_layer.png"
+          theme="dark"
+          type="image"
+          variant="windows"
+        />
+        <Addition type="warning">
+          <sup>1</sup> <mark className="select">«Freeform Gradients»</mark> и режимы
+          наложения не переносятся автоматически при создании фигур. Однако режимы
+          наложения можно выставить вручную уже в самом{" "}
+          <mark className="app">Adobe After Effects</mark>.
+        </Addition>
+        <Divider>
+          А как на старых версиях программы создавать фигуры с градиентами?
+        </Divider>
+        <Addition type="tldr">
+          Обновите <mark className="app">Adobe After Effects</mark> до версии{" "}
+          <mark>26.0</mark> или пользуйтесь сторонними расширениями, например{" "}
+          <mark className="plugin">Overlord</mark>.
+        </Addition>
+        <p>
+          В этом и заключается главная проблема импорта из{" "}
+          <mark className="app">Adobe Illustrator</mark> в старых версиях{" "}
+          <mark className="app">Adobe After Effects</mark>. При выполнении{" "}
+          <mark className="select">«Create Shapes from Vector Layer»</mark> градиенты
+          пропадут, а объект окрасится в серый цвет. Это происходит из-за их
+          несовместимости в устаревших сборках программы. В таком случае придётся либо
+          пересоздавать их вручную, либо воспользоваться расширением{" "}
+          <mark className="plugin">Overlord</mark>.
         </p>
       </DetailsSummary>
       <DetailsSummary
