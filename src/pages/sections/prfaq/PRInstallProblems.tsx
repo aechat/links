@@ -11,6 +11,7 @@ const PRInstallProblems: React.FC = () => {
   return (
     <div className="faq-content">
       <DetailsSummary
+        anchor="how-to-install"
         tag="как установить, куда устанавливать, установка, распаковка, инструкция, плагины, шаблоны, пресеты, скрипты, расширения, пакеты, луты, архивы, zip, rar"
         title="В архиве или под записью нет инструкции по установке. Куда что кидать?"
       >
@@ -2123,6 +2124,7 @@ const PRInstallProblems: React.FC = () => {
         />
       </DetailsSummary>
       <DetailsSummary
+        anchor="genp"
         tag="genp, активация, патч, активация приложений из creative cloud"
         title="Я не доверяю репакам, но установить программы от Adobe хочется. Какие есть ещё варианты?"
       >
@@ -2420,6 +2422,7 @@ const PRInstallProblems: React.FC = () => {
         </ul>
       </DetailsSummary>
       <DetailsSummary
+        anchor="match-version"
         tag="какую версию надо скачать для связки, совместимость версий, dynamic link, premiere pro, media encoder, мажорная версия, релиз, выбор версии"
         title="Обязательно ли точное совпадение версий смежных программ от Adobe для их совместной работы?"
       >
@@ -2477,6 +2480,7 @@ const PRInstallProblems: React.FC = () => {
         </p>
       </DetailsSummary>
       <DetailsSummary
+        anchor="missing-dynamic-link"
         tag="не подключается dynamic link, программы не видят друг друга, динамик линк, aegp plugin aedynamiclinkserver: adobe media encoder is not installed, please download and install it to use this feature, failed to connect to adobe media encoder, медиа енкодер"
         title="Установил Adobe Media Encoder и Adobe After Effects, но Adobe Premiere почему-то не видит"
       >
@@ -2667,6 +2671,7 @@ const PRInstallProblems: React.FC = () => {
         </ul>
       </DetailsSummary>
       <DetailsSummary
+        anchor="unlicensed-effect"
         tag="плагин не активирован, license failed, красный крест, почему при его применении появляются красные кресты, непонятные наложения, надписи про отсутствие лицензии"
         title="Почему эффект, который я хочу применить на слой, накладывает какие-то кресты или надписи про активацию?"
       >
@@ -2716,8 +2721,9 @@ const PRInstallProblems: React.FC = () => {
         </p>
       </DetailsSummary>
       <DetailsSummary
+        anchor="unlicensed-red-giant"
         tag="please launch the maxon app and sign in to your account, in order to keep using this product without interruption, please activate a license, trapcode particular, magic bullet looks, vfx suite, universe"
-        title="«Red Giant is unlicensed» при применении любого плагина от Maxon"
+        title="«Red Giant is unlicensed» при применении любого эффекта от Maxon"
       >
         <p>
           Эта ошибка возникает из-за того, что у вас не активированы плагины от{" "}
@@ -2765,6 +2771,7 @@ const PRInstallProblems: React.FC = () => {
         />
       </DetailsSummary>
       <DetailsSummary
+        anchor="-193"
         tag="extension manager init failed, status -193, a required resource is missing, please relaunch the creative cloud app and try again, zxp installer, ошибка -193, не установлен creative cloud"
         title="«Error: Extension Manager init failed, status = -193! A required resource is missing. Please relaunch the Creative Cloud app and try again» при использовании ZXP Installer"
       >
@@ -2788,6 +2795,7 @@ const PRInstallProblems: React.FC = () => {
         </Addition>
       </DetailsSummary>
       <DetailsSummary
+        anchor="update-app"
         tag="обновление и перенос, перенести плагины и пресеты, новая версия, хочу обновить программу с одной версии на другую"
         title="Как обновить программу, не потеряв при этом плагины и прочий установленный контент?"
       >
