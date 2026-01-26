@@ -6,6 +6,7 @@ import {copyText} from "../../hooks/useCopyToClipboard";
 import {useExternalLinkHandler} from "../../hooks/useExternalLinks";
 import {useInternalLinkHandler} from "../../hooks/useInternalLinks";
 import {useLongPress} from "../../hooks/useLongPress";
+import {useViewCounter} from "../../hooks/useViewCounter";
 import {formatNestedQuotes} from "../../utils/stringUtilities";
 import {useTheme} from "../modals/ThemeChanger";
 import {CopyButton} from "../ui/CopyButton/CopyButton";
@@ -194,6 +195,8 @@ const DetailsSummary: React.FC<DetailsSummaryProperties> = ({
   };
 
   const [isOpen, setIsOpen] = useState(false);
+
+  const viewCount = useViewCounter(anchor, isOpen);
 
   const previousIsOpen = usePrevious(isOpen);
 
@@ -666,8 +669,24 @@ const DetailsSummary: React.FC<DetailsSummaryProperties> = ({
           <div className={styles["details-summary-left"]}>
             <span className={styles["details-summary-icon"]}>+</span>
             <div className={styles["details-summary-text-content"]}>
-              <h3>{headingText}</h3>
-              {tag && <TagList tags={tag} />}
+              <h2>{headingText}</h2>
+              <div className={styles["details-summary-meta"]}>
+                {anchor && viewCount !== undefined && (
+                  <span className={styles["details-views"]}>
+                    <svg
+                      fill="currentColor"
+                      height="1em"
+                      viewBox="0 0 24 24"
+                      width="1em"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z" />
+                    </svg>{" "}
+                    {viewCount.toLocaleString("ru-RU")}
+                  </span>
+                )}
+                {tag && <TagList tags={tag} />}
+              </div>
             </div>
           </div>
           <Tooltip title="Скопировать ссылку">
