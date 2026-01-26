@@ -27,7 +27,7 @@ export const useSmartCopy = (isPageLoaded: boolean) => {
         if (contentSection && selection.containsNode(contentSection, true)) {
           const summary = detail.querySelector("summary");
 
-          const titleElement = summary?.querySelector("h3");
+          const titleElement = summary?.querySelector("h2");
 
           const numericAnchor = summary?.id;
 

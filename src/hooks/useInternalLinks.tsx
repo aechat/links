@@ -61,7 +61,7 @@ export const useInternalLinkHandler = () => {
       return;
     }
 
-    const titleElement = summary.querySelector("h3");
+    const titleElement = summary.querySelector("h2");
 
     let title = titleElement ? titleElement.textContent : "без названия";
 

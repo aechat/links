@@ -498,7 +498,7 @@ const formatSearchResult = (text: string, searchWords: string[]): string => {
   const tagMatch = (temporaryDiv.querySelector("[data-tags]") as HTMLElement)?.dataset
     .tags;
 
-  const titleMatch = temporaryDiv.querySelector("summary h3")?.textContent;
+  const titleMatch = temporaryDiv.querySelector("summary h2")?.textContent;
 
   if (
     (tagMatch && hasMatch(tagMatch, searchWords, isKeyCombination)) ||
@@ -934,7 +934,7 @@ export const useSearchLogic = (query: string, isPageLoaded: boolean) => {
           continue;
         }
 
-        const titleElement = summary.querySelector("h3");
+        const titleElement = summary.querySelector("h2");
 
         const title = titleElement ? (titleElement.textContent ?? "") : "";
 
