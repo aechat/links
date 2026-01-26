@@ -1369,7 +1369,8 @@ const AEImport: React.FC = () => {
         />
       </DetailsSummary>
       <DetailsSummary
-        tag="ai, иллюстратор, градиенты, vector"
+        anchor="import-ai"
+        tag='ai, иллюстратор, градиенты, vector, это файл adobe illustrator который был сохранен без содержимого pdf, чтобы поместить файл в другие приложения или открыть его в них необходимо выполнить его повторное сохранение в adobe illustrator с включенным параметром "создать pdf-совместимый файл", этот параметр располагается в диалоговом окне параметры исходных форматов illustrator которое выводится при сохранении файла adobe illustrator с использованием команды сохранить как, this is an adobe illustrator file that was saved without pdf content, to place or open this file in other applications it should be re-saved from adobe illustrator with the "create pdf compatible file" option turned on, this option is in the illustrotor native format options dialog box, which appears when saving an adobe illustrator file using the save as command'
         title="Как импортировать векторное изображение, созданное в Adobe Illustrator?"
       >
         <p>
