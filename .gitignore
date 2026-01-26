@@ -33,3 +33,4 @@ pnpm*.yaml
 .pnp*
 .aider*
 .psd
+!docs/**/*

@@ -5,7 +5,9 @@ import {Link} from "react-router-dom";
 
 import {copyText} from "../../hooks/useCopyToClipboard";
 import {useLongPress} from "../../hooks/useLongPress";
-import {formatNestedQuotes} from "../../utils/stringUtils";
+import {formatNestedQuotes} from "../../utils/stringUtilities";
+
+import styles from "./LinkCards.module.scss";
 
 interface LinkCardProperties {
   description?: string;
@@ -23,9 +25,11 @@ export const LinkCard: React.FC<LinkCardProperties> = ({
   variant = "external",
 }) => {
   const hasDescription = !!description;
+
   const handleCopyLink = useCallback(
     (event: React.MouseEvent | React.TouchEvent) => {
       event.stopPropagation();
+
       const urlToCopy =
         variant === "internal" ? `${globalThis.location.origin}${href}` : href;
 
@@ -43,22 +47,24 @@ export const LinkCard: React.FC<LinkCardProperties> = ({
     },
     [href, name, variant]
   );
+
   const longPressProperties = useLongPress(handleCopyLink);
+
   const content = (
     <>
       <div
-        className={`name-container ${hasDescription ? "" : "name-container_full-height"}`}
+        className={`${styles["name-container"]} ${hasDescription ? "" : styles["name-container_full-height"]}`}
       >
-        <span className="icon">{icon}</span>
-        <p className="name">{name}</p>
+        <span className={styles["icon"]}>{icon}</span>
+        <p className={styles["name"]}>{name}</p>
       </div>
-      {hasDescription && <p className="description">{description}</p>}
+      {hasDescription && <p className={styles["description"]}>{description}</p>}
     </>
   );
 
   return (
     <div
-      className="links-button"
+      className={styles["links-button"]}
       {...longPressProperties}
     >
       {variant === "internal" ? (

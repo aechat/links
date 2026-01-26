@@ -1,33 +1,37 @@
 import React from "react";
 
+import styles from "./BrowserWarning.module.scss";
+
 interface BrowserWarningProperties {
   onClose: (dontShowAgain: boolean) => void;
   open: boolean;
 }
+
 const BrowserWarning: React.FC<BrowserWarningProperties> = ({onClose, open}) => {
   const [dontShowAgain, setDontShowAgain] = React.useState(false);
+
   const handleClose = () => {
     onClose(dontShowAgain);
   };
 
   if (!open) {
-    return null;
+    return;
   }
 
   return (
-    <div className="noscript-container">
-      <div className="noscript-modal">
-        <div className="noscript-title">
+    <div className={styles["noscript-container"]}>
+      <div className={styles["noscript-modal"]}>
+        <div className={styles["noscript-title"]}>
           <h1>А где свежесть?</h1>
         </div>
         <p>
           Похоже, что вы используете устаревшую версию браузера. Попробуйте обновить его
           до последней версии или загрузить другой по ссылкам ниже.
         </p>
-        <div className="noscript-links">
+        <div className={styles["noscript-links"]}>
           {" "}
           <a
-            className="link-chrome"
+            className={styles["link-chrome"]}
             href="https://www.google.com/chrome/"
             rel="noreferrer"
             target="_blank"
@@ -41,7 +45,7 @@ const BrowserWarning: React.FC<BrowserWarningProperties> = ({onClose, open}) => 
             <span>Google Chrome</span>
           </a>
           <a
-            className="link-firefox"
+            className={styles["link-firefox"]}
             href="https://www.firefox.com/ru/"
             rel="noreferrer"
             target="_blank"
@@ -55,7 +59,7 @@ const BrowserWarning: React.FC<BrowserWarningProperties> = ({onClose, open}) => 
             <span>Mozilla Firefox</span>
           </a>
           <a
-            className="link-yandex"
+            className={styles["link-yandex"]}
             href="https://browser.yandex.ru/"
             rel="noreferrer"
             target="_blank"
@@ -90,7 +94,7 @@ const BrowserWarning: React.FC<BrowserWarningProperties> = ({onClose, open}) => 
           <input
             checked={dontShowAgain}
             type="checkbox"
-            onChange={(e) => setDontShowAgain(e.target.checked)}
+            onChange={(event) => setDontShowAgain(event.target.checked)}
           />
           Больше не показывать
         </label>

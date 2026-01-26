@@ -9,18 +9,21 @@ message.config({
   maxCount: 2,
   top: 60,
 });
+
 const isExcludedElement = (element: HTMLElement): boolean => {
   return (
     element.closest(".no-copy") !== null ||
     element.closest(".search-tags") !== null ||
-    element.closest(".faq-tags .tag") !== null ||
+    element.closest(".details-tags .tag") !== null ||
     (element.tagName === "MARK" && element.classList.length === 0)
   );
 };
+
 const copyWithFallback = (text: string): boolean => {
   const textArea = document.createElement("textarea");
 
   textArea.value = text;
+
   Object.assign(textArea.style, {
     background: "transparent",
     border: "none",
@@ -33,9 +36,11 @@ const copyWithFallback = (text: string): boolean => {
     top: "0",
     width: "1px",
   });
+
   document.body.append(textArea);
   textArea.focus();
   textArea.select();
+
   let success = false;
 
   try {
@@ -75,6 +80,7 @@ export const copyText = async (text: string): Promise<boolean> => {
 
 export const useCopyToClipboard = () => {
   const isCopyingReference = useRef(false);
+
   const copyToClipboard = useCallback(
     async (event: React.MouseEvent | React.TouchEvent | MouseEvent | TouchEvent) => {
       const target = event.target as HTMLElement;
@@ -88,7 +94,8 @@ export const useCopyToClipboard = () => {
       }
 
       isCopyingReference.current = true;
-      const textToCopy = target.innerText;
+
+      const textToCopy = target.textContent || "";
 
       try {
         const success = await copyText(textToCopy);
@@ -106,12 +113,13 @@ export const useCopyToClipboard = () => {
     },
     []
   );
+
   const longPressCallback = useCallback(
-    (e: React.MouseEvent | React.TouchEvent) => {
-      const target = e.target as HTMLElement;
+    (event_: React.MouseEvent | React.TouchEvent) => {
+      const target = event_.target as HTMLElement;
 
       if (target && (target.tagName === "MARK" || target.tagName === "CODE")) {
-        copyToClipboard(e);
+        copyToClipboard(event_);
 
         return true;
       }
@@ -120,35 +128,72 @@ export const useCopyToClipboard = () => {
     },
     [copyToClipboard]
   );
+
   const longPressHandlers = useLongPress(longPressCallback);
 
   useEffect(() => {
-    if ((globalThis as any).isAutoCopyEnabled) {
+    if (!(globalThis as unknown as Window).isAutoCopyEnabled) {
       return;
     }
 
     const {onContextMenu, onTouchEnd, onTouchMove, onTouchStart} = longPressHandlers;
-    const onClickCode = (e: MouseEvent) => {
-      const target = e.target as HTMLElement;
+
+    const onClickCode = (event_: MouseEvent) => {
+      const target = event_.target as HTMLElement;
 
       if (target && target.tagName === "CODE") {
-        copyToClipboard(e);
+        copyToClipboard(event_);
       }
     };
-    document.addEventListener("contextmenu", onContextMenu as any);
-    document.addEventListener("touchstart", onTouchStart as any, {passive: true});
-    document.addEventListener("touchmove", onTouchMove as any, {passive: true});
-    document.addEventListener("touchend", onTouchEnd as any);
+
+    document.addEventListener(
+      "contextmenu",
+      onContextMenu as unknown as (event_: MouseEvent) => void
+    );
+
+    document.addEventListener(
+      "touchstart",
+      onTouchStart as unknown as (event_: TouchEvent) => void,
+      {passive: true}
+    );
+
+    document.addEventListener(
+      "touchmove",
+      onTouchMove as unknown as (event_: TouchEvent) => void,
+      {passive: true}
+    );
+
+    document.addEventListener(
+      "touchend",
+      onTouchEnd as unknown as (event_: TouchEvent) => void
+    );
+
     document.addEventListener("click", onClickCode);
-    (globalThis as any).isAutoCopyEnabled = true;
+    (globalThis as unknown as Window).isAutoCopyEnabled = true;
 
     return () => {
-      document.removeEventListener("contextmenu", onContextMenu as any);
-      document.removeEventListener("touchstart", onTouchStart as any);
-      document.removeEventListener("touchmove", onTouchMove as any);
-      document.removeEventListener("touchend", onTouchEnd as any);
+      document.removeEventListener(
+        "contextmenu",
+        onContextMenu as unknown as (event_: MouseEvent) => void
+      );
+
+      document.removeEventListener(
+        "touchstart",
+        onTouchStart as unknown as (event_: TouchEvent) => void
+      );
+
+      document.removeEventListener(
+        "touchmove",
+        onTouchMove as unknown as (event_: TouchEvent) => void
+      );
+
+      document.removeEventListener(
+        "touchend",
+        onTouchEnd as unknown as (event_: TouchEvent) => void
+      );
+
       document.removeEventListener("click", onClickCode);
-      (globalThis as any).isAutoCopyEnabled = false;
+      (globalThis as unknown as Window).isAutoCopyEnabled = false;
     };
   }, [longPressHandlers, copyToClipboard]);
 };

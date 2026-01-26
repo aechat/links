@@ -6,9 +6,11 @@ import pluginPrettier from "eslint-plugin-prettier";
 import pluginReact from "eslint-plugin-react";
 import perfectionistPlugin from "eslint-plugin-perfectionist";
 import sonarjs from "eslint-plugin-sonarjs";
+import stylistic from "@stylistic/eslint-plugin";
 import unicornPlugin from "eslint-plugin-unicorn";
 import globals from "globals";
 import tseslint from "typescript-eslint";
+
 /** @type {import('eslint').Linter.Config[]} */
 export default [
   {
@@ -44,6 +46,7 @@ export default [
       "react": pluginReact,
       "import": pluginImport,
       "perfectionist": perfectionistPlugin,
+      "@stylistic": stylistic,
       "unicorn": unicornPlugin,
     },
     settings: {
@@ -54,24 +57,58 @@ export default [
     rules: {
       "prettier/prettier": "warn",
       "eol-last": "off",
-      "padding-line-between-statements": [
-        "warn",
+      "padding-line-between-statements": "off",
+      "@typescript-eslint/padding-line-between-statements": "off",
+      "@stylistic/padding-line-between-statements": [
+        "error",
+        {blankLine: "always", prev: "*", next: "return"},
+        {blankLine: "always", prev: "directive", next: "*"},
+        {blankLine: "always", prev: "directive", next: "directive"},
         {
           blankLine: "always",
           prev: "*",
-          next: ["return", "class", "function", "if", "switch", "try", "export"],
+          next: ["function", "class", "interface", "type"],
         },
         {
           blankLine: "always",
-          prev: ["return", "class", "function", "if", "switch", "try", "export"],
+          prev: ["function", "class", "interface", "type"],
           next: "*",
         },
+        {blankLine: "always", prev: "*", next: "export"},
+        {blankLine: "always", prev: "export", next: "export"},
+        {blankLine: "always", prev: ["const", "let", "var"], next: "*"},
+        {blankLine: "always", prev: "*", next: ["const", "let", "var"]},
         {
-          blankLine: "never",
-          prev: ["singleline-const", "singleline-let"],
-          next: ["singleline-const", "singleline-let"],
+          blankLine: "always",
+          prev: ["const", "let", "var"],
+          next: ["const", "let", "var"],
         },
+        {blankLine: "always", prev: "*", next: "multiline-expression"},
+        {blankLine: "always", prev: "multiline-expression", next: "*"},
+        {
+          blankLine: "always",
+          prev: "*",
+          next: ["if", "for", "while", "do", "switch", "try"],
+        },
+        {
+          blankLine: "always",
+          prev: ["if", "for", "while", "do", "switch", "try"],
+          next: "*",
+        },
+        {blankLine: "always", prev: "*", next: "multiline-block-like"},
+        {blankLine: "always", prev: "multiline-block-like", next: "*"},
+        {blankLine: "always", prev: "*", next: "iife"},
+        {blankLine: "always", prev: "iife", next: "*"},
+        {blankLine: "always", prev: "case", next: "case"},
       ],
+      "@stylistic/padded-blocks": ["warn", "always"],
+      "@stylistic/lines-between-class-members": [
+        "warn",
+        "always",
+        {exceptAfterSingleLine: true},
+      ],
+      "@stylistic/multiline-ternary": ["warn", "always-multiline"],
+      "@stylistic/operator-linebreak": ["warn", "after"],
       "grouped-accessor-pairs": ["warn", "getBeforeSet"],
       "no-duplicate-imports": "warn",
       "import/newline-after-import": "warn",
@@ -95,7 +132,6 @@ export default [
           },
         },
       ],
-      "sort-vars": ["warn", {ignoreCase: true}],
       "perfectionist/sort-variable-declarations": [
         "warn",
         {
@@ -153,6 +189,7 @@ export default [
         },
       ],
       ...unicornPlugin.configs.recommended.rules,
+      "unicorn/prefer-query-selector": "off",
       "curly": ["warn", "all"],
       "no-empty": ["warn", {allowEmptyCatch: true}],
       "eqeqeq": ["warn", "always"],
@@ -195,6 +232,8 @@ export default [
     rules: {
       "sonarjs/todo-tag": "warn",
       "sonarjs/fixme-tag": "warn",
+      "sonarjs/different-types-comparison": "off",
+      "sonarjs/deprecation": "off",
     },
   },
   {
@@ -204,6 +243,17 @@ export default [
         "warn",
         {
           case: "pascalCase",
+        },
+      ],
+    },
+  },
+  {
+    files: ["src/hooks/**/*.tsx"],
+    rules: {
+      "unicorn/filename-case": [
+        "warn",
+        {
+          case: "camelCase",
         },
       ],
     },

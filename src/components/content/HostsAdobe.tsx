@@ -1,14 +1,17 @@
 import React from "react";
 
 import Addition from "./Addition";
-import {useSpoiler} from "./DetailsSummary";
+import styles from "./HostsAdobe.module.scss";
+import {useSpoiler} from "./spoilerContexts";
 
 const HOSTS_URL =
   "https://raw.githubusercontent.com/ignaciocastro/a-dove-is-dumb/refs/heads/main/list.txt";
 
 const HostsAdobeModal: React.FC = () => {
   const isOpen = useSpoiler();
+
   const [hostsLines, setHostsLines] = React.useState<string[]>([]);
+
   const [hasLoaded, setHasLoaded] = React.useState(false);
 
   React.useEffect(() => {
@@ -17,6 +20,7 @@ const HostsAdobeModal: React.FC = () => {
     }
 
     const controller = new AbortController();
+
     const {signal} = controller;
 
     const fetchHosts = async () => {
@@ -28,6 +32,7 @@ const HostsAdobeModal: React.FC = () => {
         }
 
         const text = await response.text();
+
         const rawLines = text.split(/\r?\n/);
 
         const parsedLines = rawLines.filter((line) => {
@@ -39,9 +44,10 @@ const HostsAdobeModal: React.FC = () => {
         setHostsLines(parsedLines);
         setHasLoaded(true);
       } catch (error: unknown) {
-        if (error instanceof Error && error.name === "AbortError") {
-        } else if (error instanceof Error) {
-          console.error("Failed to fetch hosts:", error);
+        if (error instanceof Error) {
+          if (error.name !== "AbortError") {
+            console.error("Failed to fetch hosts:", error);
+          }
         } else {
           console.error("Failed to fetch hosts with unknown error:", error);
         }
@@ -57,7 +63,7 @@ const HostsAdobeModal: React.FC = () => {
 
   return (
     <>
-      <code className="hosts-adobe-code">
+      <code className={styles["hosts-adobe-code"]}>
         {hostsLines.map((line, index) => (
           <React.Fragment key={index}>
             {line}

@@ -1,29 +1,19 @@
-import React, {
-  createContext,
-  ReactNode,
-  useCallback,
-  useContext,
-  useEffect,
-  useMemo,
-  useRef,
-  useState,
-} from "react";
+import React, {ReactNode, useCallback, useEffect, useMemo, useRef, useState} from "react";
 
-import {ShareRounded} from "@mui/icons-material";
 import {message, Tooltip} from "antd";
 
 import {copyText} from "../../hooks/useCopyToClipboard";
 import {useExternalLinkHandler} from "../../hooks/useExternalLinks";
 import {useInternalLinkHandler} from "../../hooks/useInternalLinks";
 import {useLongPress} from "../../hooks/useLongPress";
-import {formatNestedQuotes} from "../../utils/stringUtils";
+import {useViewCounter} from "../../hooks/useViewCounter";
+import {formatNestedQuotes} from "../../utils/stringUtilities";
 import {useTheme} from "../modals/ThemeChanger";
+import {CopyButton} from "../ui/CopyButton/CopyButton";
 
-declare global {
-  interface Window {
-    detailsSummaryScrollListenerAttached?: boolean;
-  }
-}
+import styles from "./DetailsSummary.module.scss";
+import {DetailsSummaryContext, SpoilerContext} from "./spoilerContexts";
+
 const usePrevious = <T,>(value: T): T | undefined => {
   const reference = useRef<T | undefined>(undefined);
 
@@ -40,57 +30,80 @@ interface DetailsSummaryProperties {
   tag?: string;
   title: string;
 }
-const SpoilerContext = createContext(false);
-
-export const useSpoiler = () => useContext(SpoilerContext);
 
 const TAG_LIMIT = 4;
+
+const getPluralizedTags = (count: number): string => {
+  const lastDigit = count % 10;
+
+  const lastTwoDigits = count % 100;
+
+  if (lastTwoDigits >= 11 && lastTwoDigits <= 19) return "тегов";
+
+  if (lastDigit === 1) return "тег";
+
+  if ([2, 3, 4].includes(lastDigit)) return "тега";
+
+  return "тегов";
+};
+
 const TagList: React.FC<{tags: string}> = ({tags}) => {
   const [expanded, setExpanded] = useState(false);
+
   const allTags = useMemo(() => tags.split(", ").filter(Boolean), [tags]);
+
   const isOverflowing = allTags.length > TAG_LIMIT;
+
   const [randomizedTags, setRandomizedTags] = useState<string[]>([]);
 
   useEffect(() => {
     if (isOverflowing) {
-      const shuffled = [...allTags].sort(() => 0.5 - Math.random());
+      const shuffled = [...allTags];
+
+      for (let index = shuffled.length - 1; index > 0; index--) {
+        const randomValues = new Uint32Array(1);
+
+        crypto.getRandomValues(randomValues);
+
+        const index_ = Math.floor((randomValues[0] / (0xff_ff_ff_ff + 1)) * (index + 1));
+
+        [shuffled[index], shuffled[index_]] = [shuffled[index_], shuffled[index]];
+      }
 
       setRandomizedTags(shuffled.slice(0, TAG_LIMIT));
     }
   }, [allTags, isOverflowing]);
 
   if (allTags.length === 0) {
-    return null;
+    return <></>;
   }
 
-  const visibleTags = expanded ? allTags : isOverflowing ? randomizedTags : allTags;
+  let visibleTags;
+
+  if (expanded) {
+    visibleTags = allTags;
+  } else if (isOverflowing) {
+    visibleTags = randomizedTags;
+  } else {
+    visibleTags = allTags;
+  }
+
   const hiddenCount = allTags.length - TAG_LIMIT;
-  const toggleTags = (e: React.MouseEvent) => {
-    e.preventDefault();
-    e.stopPropagation();
+
+  const toggleTags = (event: React.MouseEvent) => {
+    event.preventDefault();
+    event.stopPropagation();
     setExpanded((previous) => !previous);
-  };
-  const getPluralizedTags = (count: number): string => {
-    const lastDigit = count % 10;
-    const lastTwoDigits = count % 100;
-
-    if (lastTwoDigits >= 11 && lastTwoDigits <= 19) return "тегов";
-
-    if (lastDigit === 1) return "тег";
-
-    if ([2, 3, 4].includes(lastDigit)) return "тега";
-
-    return "тегов";
   };
 
   return (
-    <span className="faq-tags">
+    <span className={styles["details-tags"]}>
       {visibleTags.map((t) => (
         <mark key={t}>{t}</mark>
       ))}
       {isOverflowing && (
         <mark
-          className="faq-tags-toggle"
+          className={styles["details-tags-toggle"]}
           onClick={toggleTags}
         >
           {expanded ? "скрыть" : `и ещё ${hiddenCount} ${getPluralizedTags(hiddenCount)}`}
@@ -99,15 +112,18 @@ const TagList: React.FC<{tags: string}> = ({tags}) => {
     </span>
   );
 };
+
 const constants = {
   ACTION_DELAY: 150,
   MOUSE_ENTER_DELAY: 750,
   PADDING: {MAX: 14, MIN: 10, SCREEN: {MAX: 768, MIN: 320}},
 } as const;
+
 const getScrollOffsets = () => {
   if (globalThis.window === undefined) return {headerHeight: 0, padding: 0};
 
   const headerHeight = document.querySelector("header")?.offsetHeight ?? 0;
+
   const padding = Math.min(
     constants.PADDING.MIN +
       (constants.PADDING.MAX - constants.PADDING.MIN) *
@@ -122,12 +138,16 @@ const getScrollOffsets = () => {
 export const generateAnchorId = () => {
   if (globalThis.window === undefined) return;
 
-  const containers = [...document.querySelectorAll(".faq-content")];
+  const containers = [...document.querySelectorAll(".article-content")];
+
   const currentHash = globalThis.location.hash.slice(1);
-  let anchorWasFoundAndOpened = false;
 
   for (const [blockIndex, container] of containers.entries()) {
-    const summaries = [...container.querySelectorAll(".faq-summary")];
+    const summaries = [
+      ...container.querySelectorAll(
+        `details:not(.details-nested) > .${styles["details-summary"]}`
+      ),
+    ];
 
     for (const [summaryIndex, summary] of summaries.entries()) {
       const generatedAnchor = `${blockIndex + 1}.${summaryIndex + 1}`;
@@ -137,6 +157,7 @@ export const generateAnchorId = () => {
       }
 
       const detailsElement = summary.closest("details");
+
       const textualAnchor = detailsElement?.dataset.anchor;
 
       if (currentHash && (summary.id === currentHash || textualAnchor === currentHash)) {
@@ -147,7 +168,6 @@ export const generateAnchorId = () => {
 
           globalThis.dispatchEvent(event);
         }, constants.ACTION_DELAY);
-        anchorWasFoundAndOpened = true;
       }
     }
   }
@@ -161,28 +181,60 @@ const DetailsSummary: React.FC<DetailsSummaryProperties> = ({
 }) => {
   const {handleLinkClick: handleInternalLinkClick, InternalLinkModal} =
     useInternalLinkHandler();
+
   const {ExternalLinkModal, handleLinkClick: handleExternalLinkClick} =
     useExternalLinkHandler();
+
   const {isAnimationDisabled} = useTheme();
+
   const hasScrolledAfterOpening = useRef(false);
+
   const handleSectionClick = (event: React.MouseEvent<HTMLElement>) => {
     handleInternalLinkClick(event);
     handleExternalLinkClick(event);
   };
+
   const [isOpen, setIsOpen] = useState(false);
+
+  const viewCount = useViewCounter(anchor, isOpen);
+
   const previousIsOpen = usePrevious(isOpen);
+
   const [displayAnchorId, setDisplayAnchorId] = useState("");
+
   const detailsReference = useRef<HTMLDetailsElement>(null);
+
   const sectionReference = useRef<HTMLElement>(null);
+
+  const updateDynamicStyles = useCallback(() => {
+    const details = detailsReference.current;
+
+    if (details?.open) {
+      const contentWrapper = details.querySelector<HTMLElement>(
+        `.${styles["details-content-wrapper"]}`
+      );
+
+      const innerContent = contentWrapper?.querySelector<HTMLElement>(
+        `.${styles["details-content-inner"]}`
+      );
+
+      if (contentWrapper && innerContent) {
+        contentWrapper.style.maxHeight = `${innerContent.scrollHeight}px`;
+        details.style.marginBottom = `${details.offsetHeight * 0.01 + 10}px`;
+      }
+    }
+  }, []);
+
   const updateUrlHash = useCallback((hash: string) => {
     if (globalThis.window !== undefined) {
       history.replaceState(
-        null,
+        undefined,
         "",
         globalThis.location.pathname + globalThis.location.search + hash
       );
     }
   }, []);
+
   const updateDimmingEffect = useCallback(() => {
     if (globalThis.window === undefined) return;
 
@@ -195,8 +247,10 @@ const DetailsSummary: React.FC<DetailsSummaryProperties> = ({
 
     if (openDetailsElements.length > 0) {
       const viewportHeight = window.innerHeight;
+
       const isAnyInMainView = [...openDetailsElements].some((details) => {
         const rect = details.getBoundingClientRect();
+
         const isOutOfMainView =
           rect.bottom < viewportHeight * 0.15 || rect.top > viewportHeight * 0.9;
 
@@ -208,12 +262,16 @@ const DetailsSummary: React.FC<DetailsSummaryProperties> = ({
       document.body.classList.remove("has-open-details");
     }
   }, []);
+
   const doScroll = useCallback(() => {
-    const summary = detailsReference.current?.querySelector(".faq-summary");
+    const summary = detailsReference.current?.querySelector(
+      `.${styles["details-summary"]}`
+    );
 
     if (summary) {
       setTimeout(() => {
         const {headerHeight, padding} = getScrollOffsets();
+
         const y =
           summary.getBoundingClientRect().top +
           window.pageYOffset -
@@ -226,47 +284,94 @@ const DetailsSummary: React.FC<DetailsSummaryProperties> = ({
   }, []);
 
   useEffect(() => {
-    if (globalThis.window === undefined) return;
+    if (globalThis.window === undefined || !isAnimationDisabled) return;
 
     const details = detailsReference.current;
 
     if (!details) return;
 
-    const contentWrapper = details.querySelector<HTMLElement>(".details-content-wrapper");
+    const contentWrapper = details.querySelector<HTMLElement>(
+      `.${styles["details-content-wrapper"]}`
+    );
 
     if (!contentWrapper) return;
 
     const innerContent = contentWrapper.querySelector<HTMLElement>(
-      ".details-content-inner"
+      `.${styles["details-content-inner"]}`
+    );
+
+    if (!innerContent) return;
+
+    const resizeObserver = new ResizeObserver(updateDynamicStyles);
+
+    window.addEventListener("resize", updateDynamicStyles);
+
+    if (isOpen) {
+      details.open = true;
+      contentWrapper.style.maxHeight = `${innerContent.scrollHeight}px`;
+      resizeObserver.observe(innerContent);
+      updateDynamicStyles();
+      updateDimmingEffect();
+      setTimeout(updateDimmingEffect, 100);
+    } else if (details.open) {
+      resizeObserver.unobserve(innerContent);
+      details.open = false;
+      contentWrapper.style.maxHeight = "0px";
+      details.style.marginBottom = "";
+      updateDimmingEffect();
+    }
+
+    return () => {
+      resizeObserver.disconnect();
+      window.removeEventListener("resize", updateDynamicStyles);
+    };
+  }, [isOpen, isAnimationDisabled, updateDimmingEffect, updateDynamicStyles]);
+
+  useEffect(() => {
+    if (globalThis.window === undefined || isAnimationDisabled) return;
+
+    const details = detailsReference.current;
+
+    if (!details) return;
+
+    const contentWrapper = details.querySelector<HTMLElement>(
+      `.${styles["details-content-wrapper"]}`
+    );
+
+    if (!contentWrapper) return;
+
+    const innerContent = contentWrapper.querySelector<HTMLElement>(
+      `.${styles["details-content-inner"]}`
     );
 
     if (!innerContent) return;
 
     const justOpened = isOpen && !previousIsOpen;
+
     const justClosed = !isOpen && previousIsOpen;
-    const preventScroll = (e: Event) => {
-      e.preventDefault();
+
+    const preventScroll = (event: Event) => {
+      event.preventDefault();
     };
+
     const scrollLockOptions: AddEventListenerOptions = {passive: false};
+
     const enableScroll = () => {
       window.removeEventListener("wheel", preventScroll, scrollLockOptions);
       globalThis.removeEventListener("touchmove", preventScroll, scrollLockOptions);
     };
+
     const disableScroll = () => {
       window.addEventListener("wheel", preventScroll, scrollLockOptions);
       globalThis.addEventListener("touchmove", preventScroll, scrollLockOptions);
     };
-    const updateDynamicStyles = () => {
-      if (details.open) {
-        contentWrapper.style.maxHeight = `${innerContent.scrollHeight}px`;
-        details.style.marginBottom = `${details.offsetHeight * 0.01 + 10}px`;
-      }
-    };
+
     const resizeObserver = new ResizeObserver(updateDynamicStyles);
 
     window.addEventListener("resize", updateDynamicStyles);
-    const handleTransitionEnd = (e: TransitionEvent) => {
-      if (e.target !== contentWrapper) return;
+
+    const handleTransitionEnd = (event: TransitionEvent) => {
+      if (event.target !== contentWrapper) return;
 
       if (isOpen) {
         resizeObserver.observe(innerContent);
@@ -286,44 +391,30 @@ const DetailsSummary: React.FC<DetailsSummaryProperties> = ({
       }
     };
 
-    if (isAnimationDisabled) {
-      if (isOpen) {
-        details.open = true;
-        contentWrapper.style.maxHeight = `${innerContent.scrollHeight}px`;
-        resizeObserver.observe(innerContent);
-        updateDynamicStyles();
-        updateDimmingEffect();
-        setTimeout(updateDimmingEffect, 100);
-      } else if (details.open) {
-        resizeObserver.unobserve(innerContent);
-        details.open = false;
-        contentWrapper.style.maxHeight = "0px";
-        details.style.marginBottom = "";
-        updateDimmingEffect();
-      }
-    } else {
-      contentWrapper.addEventListener("transitionend", handleTransitionEnd);
+    contentWrapper.addEventListener("transitionend", handleTransitionEnd);
 
-      if (justOpened || (justClosed && details.open)) {
-        disableScroll();
-      }
+    if (justOpened || (justClosed && details.open)) {
+      disableScroll();
+    }
 
-      if (isOpen) {
-        details.open = true;
-        const scrollHeight = innerContent.scrollHeight;
-        const viewportHeight = window.innerHeight;
+    if (isOpen) {
+      details.open = true;
 
-        contentWrapper.style.maxHeight =
-          justOpened && scrollHeight > viewportHeight
-            ? `${viewportHeight}px`
-            : `${scrollHeight}px`;
-        updateDimmingEffect();
-        setTimeout(updateDimmingEffect, 100);
-      } else if (details.open) {
-        resizeObserver.unobserve(innerContent);
-        contentWrapper.style.maxHeight = "0px";
-        details.style.marginBottom = "";
-      }
+      const scrollHeight = innerContent.scrollHeight;
+
+      const viewportHeight = window.innerHeight;
+
+      contentWrapper.style.maxHeight =
+        justOpened && scrollHeight > viewportHeight
+          ? `${viewportHeight}px`
+          : `${scrollHeight}px`;
+
+      updateDimmingEffect();
+      setTimeout(updateDimmingEffect, 100);
+    } else if (details.open) {
+      resizeObserver.unobserve(innerContent);
+      contentWrapper.style.maxHeight = "0px";
+      details.style.marginBottom = "";
     }
 
     return () => {
@@ -332,14 +423,24 @@ const DetailsSummary: React.FC<DetailsSummaryProperties> = ({
       window.removeEventListener("resize", updateDynamicStyles);
       enableScroll();
     };
-  }, [isOpen, previousIsOpen, updateDimmingEffect, isAnimationDisabled, doScroll]);
+  }, [
+    isOpen,
+    previousIsOpen,
+    updateDimmingEffect,
+    isAnimationDisabled,
+    doScroll,
+    updateDynamicStyles,
+  ]);
+
   useEffect(() => {
     const summaryId = displayAnchorId;
 
     if (!summaryId || globalThis.window === undefined) return;
 
     const justOpened = isOpen && !previousIsOpen;
+
     const currentHash = globalThis.location.hash.slice(1);
+
     const textualAnchor = anchor;
 
     if (justOpened) {
@@ -354,6 +455,7 @@ const DetailsSummary: React.FC<DetailsSummaryProperties> = ({
       updateUrlHash("");
     }
   }, [isOpen, previousIsOpen, displayAnchorId, updateUrlHash, anchor]);
+
   useEffect(() => {
     const justOpened = isOpen && !previousIsOpen;
 
@@ -361,37 +463,50 @@ const DetailsSummary: React.FC<DetailsSummaryProperties> = ({
       doScroll();
     }
   }, [isOpen, previousIsOpen, doScroll]);
+
   useEffect(() => {
-    if (detailsReference.current) {
-      const summaryElement = detailsReference.current.querySelector(".faq-summary");
-
-      if (summaryElement) {
-        const checkId = () => {
-          const currentSummaryId = summaryElement.id;
-
-          if (currentSummaryId) {
-            setDisplayAnchorId(currentSummaryId);
-
-            return true;
-          }
-
-          return false;
-        };
-
-        if (!checkId()) {
-          const checkIdInterval = setInterval(() => {
-            if (checkId()) clearInterval(checkIdInterval);
-          }, 100);
-
-          return () => clearInterval(checkIdInterval);
-        }
-      }
+    if (!detailsReference.current) {
+      return;
     }
+
+    const summaryElement = detailsReference.current.querySelector(
+      `.${styles["details-summary"]}`
+    );
+
+    if (!summaryElement) {
+      return;
+    }
+
+    const checkId = () => {
+      const currentSummaryId = summaryElement.id;
+
+      if (currentSummaryId) {
+        setDisplayAnchorId(currentSummaryId);
+
+        return true;
+      }
+
+      return false;
+    };
+
+    if (checkId()) {
+      return;
+    }
+
+    const checkIdInterval = setInterval(() => {
+      if (checkId()) clearInterval(checkIdInterval);
+    }, 100);
+
+    return () => clearInterval(checkIdInterval);
   }, []);
+
   useEffect(() => {
     const handleOpenEvent = (event: Event) => {
       const {id} = (event as CustomEvent<{id: string}>).detail;
-      const summaryElement = detailsReference.current?.querySelector(".faq-summary");
+
+      const summaryElement = detailsReference.current?.querySelector(
+        `.${styles["details-summary"]}`
+      );
 
       if (summaryElement && summaryElement.id === id) {
         if (isOpen) {
@@ -406,30 +521,41 @@ const DetailsSummary: React.FC<DetailsSummaryProperties> = ({
 
     return () => globalThis.removeEventListener("open-spoiler-by-id", handleOpenEvent);
   }, [isOpen, doScroll]);
+
   useEffect(() => {
     if (globalThis.window === undefined) return;
 
-    if (!globalThis.detailsSummaryScrollListenerAttached) {
+    const globalWithFlag = globalThis as typeof globalThis & {
+      detailsSummaryScrollListenerAttached?: boolean;
+    };
+
+    if (!globalWithFlag.detailsSummaryScrollListenerAttached) {
       window.addEventListener("scroll", updateDimmingEffect, {passive: true});
-      globalThis.detailsSummaryScrollListenerAttached = true;
+      globalWithFlag.detailsSummaryScrollListenerAttached = true;
     }
   }, [updateDimmingEffect]);
+
   useEffect(() => {
-    let timeoutId: NodeJS.Timeout;
+    let timeoutId: ReturnType<typeof setTimeout>;
+
     const section = sectionReference.current;
+
     const handleMouseEnter = () => {
       timeoutId = setTimeout(() => {
-        const summaryId = detailsReference.current?.querySelector(".faq-summary")?.id;
+        const summaryId = detailsReference.current?.querySelector(
+          `.${styles["details-summary"]}`
+        )?.id;
 
-        if (summaryId) {
+        if (summaryId && globalThis.window !== undefined) {
           history.replaceState(
-            null,
+            undefined,
             "",
             `${globalThis.location.pathname}${globalThis.location.search}#${summaryId}`
           );
         }
       }, constants.MOUSE_ENTER_DELAY);
     };
+
     const handleMouseLeave = () => {
       clearTimeout(timeoutId);
     };
@@ -448,17 +574,24 @@ const DetailsSummary: React.FC<DetailsSummaryProperties> = ({
       clearTimeout(timeoutId);
     };
   }, []);
+
   const handleSummaryClick = (event: React.MouseEvent) => {
     event.preventDefault();
 
     if (detailsReference.current) setIsOpen(!detailsReference.current.open);
   };
+
   const handleCopyAnchor = useCallback(
     (event: React.MouseEvent | React.TouchEvent) => {
       event.stopPropagation();
+
       (async () => {
-        const summaryElement = detailsReference.current?.querySelector(".faq-summary");
+        const summaryElement = detailsReference.current?.querySelector(
+          `.${styles["details-summary"]}`
+        );
+
         const numericAnchor = summaryElement?.id ?? "";
+
         const anchorToCopy = anchor || numericAnchor;
 
         if (!anchorToCopy) {
@@ -471,6 +604,7 @@ const DetailsSummary: React.FC<DetailsSummaryProperties> = ({
 
         if (globalThis.window !== undefined) {
           const anchorUrl = `${globalThis.location.origin}${globalThis.location.pathname}#${anchorToCopy}`;
+
           const success = await copyText(anchorUrl);
 
           if (success) {
@@ -485,15 +619,19 @@ const DetailsSummary: React.FC<DetailsSummaryProperties> = ({
     },
     [anchor]
   );
+
   const summaryLongPressProperties = useLongPress(handleCopyAnchor);
+
   const handleFlexibleLinkCopy = useCallback(
     (event: React.MouseEvent | React.TouchEvent) => {
       const target = event.target as HTMLElement;
+
       const link = target.closest<HTMLAnchorElement>(".flexible-links a");
 
       if (link) {
         (async () => {
           const success = await copyText(link.href);
+
           const displayName = link.textContent || link.href;
 
           if (success) {
@@ -510,60 +648,78 @@ const DetailsSummary: React.FC<DetailsSummaryProperties> = ({
     },
     []
   );
+
   const sectionLongPressProperties = useLongPress(handleFlexibleLinkCopy);
+
   const headingText = (displayAnchorId ? `${displayAnchorId}. ` : "") + title;
 
   return (
     <>
       <details
         ref={detailsReference}
-        className={isOpen ? "is-open" : ""}
+        className={`${styles["details-summary-root"]} ${isOpen ? styles["is-open"] : ""}`}
         data-anchor={anchor}
         data-tags={tag}
       >
         <summary
-          className="faq-summary"
+          className={styles["details-summary"]}
           onClick={handleSummaryClick}
           {...summaryLongPressProperties}
         >
-          <div className="faq-summary-left">
-            <span className="faq-summary-icon">+</span>
-            <div className="faq-summary-text-content">
-              <h3>{headingText}</h3>
-              {tag && <TagList tags={tag} />}
+          <div className={styles["details-summary-left"]}>
+            <span className={styles["details-summary-icon"]}>+</span>
+            <div className={styles["details-summary-text-content"]}>
+              <h2>{headingText}</h2>
+              <div className={styles["details-summary-meta"]}>
+                {anchor && viewCount !== undefined && (
+                  <span className={styles["details-views"]}>
+                    <svg
+                      fill="currentColor"
+                      height="1em"
+                      viewBox="0 0 24 24"
+                      width="1em"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z" />
+                    </svg>{" "}
+                    {viewCount.toLocaleString("ru-RU")}
+                  </span>
+                )}
+                {tag && <TagList tags={tag} />}
+              </div>
             </div>
           </div>
           <Tooltip title="Скопировать ссылку">
-            <button
-              className={`copy-button ${displayAnchorId ? "" : "disabled"}`}
+            <CopyButton
+              disabled={!displayAnchorId}
               onClick={handleCopyAnchor}
-            >
-              <ShareRounded />
-            </button>
+            />
           </Tooltip>
         </summary>
-        <div className="details-content-wrapper">
-          <div className="details-content-inner">
+        <div className={styles["details-content-wrapper"]}>
+          <div className={styles["details-content-inner"]}>
             <SpoilerContext.Provider value={isOpen}>
-              <section
-                ref={sectionReference}
-                className="faq-section"
-                onClick={handleSectionClick}
-                {...sectionLongPressProperties}
-              >
-                {React.Children.count(children) === 0 ? (
-                  <div className="no-content-placeholder">
-                    <p>
-                      Эта статья пока пустая: либо я ещё не дошёл до её написания, либо
-                      написал такую дичь, что пришлось всё скрыть и отправить на
-                      переделку.
-                    </p>
-                    <p>Следите за обновлениями.</p>
-                  </div>
-                ) : (
-                  children
-                )}
-              </section>
+              <DetailsSummaryContext.Provider value={true}>
+                <section
+                  ref={sectionReference}
+                  className={`${styles["details-section"]} details-nested-section`}
+                  onClick={handleSectionClick}
+                  {...sectionLongPressProperties}
+                >
+                  {React.Children.count(children) === 0 ? (
+                    <div className="article-placeholder">
+                      <p>
+                        Эта статья пока пустая: либо я ещё не дошёл до её написания, либо
+                        написал такую дичь, что пришлось всё скрыть и отправить на
+                        переделку.
+                      </p>
+                      <p>Следите за обновлениями.</p>
+                    </div>
+                  ) : (
+                    children
+                  )}
+                </section>
+              </DetailsSummaryContext.Provider>
             </SpoilerContext.Provider>
           </div>
         </div>

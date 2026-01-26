@@ -1,4 +1,4 @@
-import React, {lazy, Suspense, useEffect, useState} from "react";
+import React, {lazy, Suspense, useEffect, useRef, useState} from "react";
 import {MetrikaCounter} from "react-metrika";
 
 import {ConfigProvider, message, Modal} from "antd";
@@ -7,11 +7,13 @@ import {Navigate, Route, Routes, useLocation} from "react-router-dom";
 import Snowfall from "react-snowfall";
 
 import BrowserWarning from "./components/modals/BrowserWarning";
+import modalStyles from "./components/modals/Modal.module.scss";
 import {ThemeProvider, useTheme} from "./components/modals/ThemeChanger";
 import LoadingAnimation from "./components/ui/LoadingAnimation";
+import LoadingContext from "./context/LoadingContext";
 import {copyText} from "./hooks/useCopyToClipboard";
 import useDynamicFavicon from "./hooks/useDynamicFavicon";
-import themeConfig from "./styles/ant_theme";
+import themeConfig from "./styles/antTheme";
 import {getBrowserInfo} from "./utils/browserDetection";
 import faviconSvg from "/icons/favicon.svg?raw";
 import aefaqSvg from "/icons/aefaq.svg?raw";
@@ -19,24 +21,33 @@ import prfaqSvg from "/icons/prfaq.svg?raw";
 import psfaqSvg from "/icons/psfaq.svg?raw";
 import aeexprfaqSvg from "/icons/aeexprfaq.svg?raw";
 
-const Links = lazy(() => import("./pages/linksPage"));
-const ChatRules = lazy(() => import("./pages/chatRules"));
-const NotFound = lazy(() => import("./pages/notFound"));
-const AEFAQ = lazy(() => import("./pages/aefaqPage"));
-const PRFAQ = lazy(() => import("./pages/prfaqPage"));
-const PSFAQ = lazy(() => import("./pages/psfaqPage"));
-const AEExpressionPage = lazy(() => import("./pages/aeexprPage"));
+const Links = lazy(() => import("./pages/LinksPage"));
+
+const ChatRules = lazy(() => import("./pages/ChatRules"));
+
+const NotFound = lazy(() => import("./pages/NotFound"));
+
+const AeFaqPage = lazy(() => import("./pages/AeFaqPage"));
+
+const PrFaqPage = lazy(() => import("./pages/PrFaqPage"));
+
+const PsFaqPage = lazy(() => import("./pages/PsFaqPage"));
+
+const AeExprPage = lazy(() => import("./pages/AeExprPage"));
+
 const FilesRedirect = () => {
   useEffect(() => {
     document.title = "files@aechat";
     globalThis.location.href = "https://github.com/aechat/links/tree/main/public/files";
   }, []);
 
-  return null;
+  return <></>;
 };
+
 const RegFileRedirect = () => {
   useEffect(() => {
     document.title = "regfile@aechat";
+
     const link = document.createElement("a");
 
     link.href = "/files/Enable%20Extensions%20Adobe.reg";
@@ -44,16 +55,20 @@ const RegFileRedirect = () => {
     document.body.append(link);
     link.click();
     link.remove();
+
     alert(
       "После скачивания откройте файл реестра и подтвердите слияние, нажав «Да». Это необходимо для корректной работы расширений, которые находятся в меню «Window» → «Extensions»."
     );
+
     history.back();
   }, []);
 
-  return null;
+  return <></>;
 };
+
 const RedirectHtml = () => {
   const location = useLocation();
+
   const path = location.pathname;
 
   if (path.endsWith(".html")) {
@@ -65,8 +80,9 @@ const RedirectHtml = () => {
     );
   }
 
-  return null;
+  return <></>;
 };
+
 const SafariWarningModal = ({
   onClose,
   open,
@@ -75,6 +91,7 @@ const SafariWarningModal = ({
   onClose: (dontShowAgain: boolean) => void;
 }) => {
   const [dontShowAgain, setDontShowAgain] = React.useState(false);
+
   const handleClose = () => {
     onClose(dontShowAgain);
   };
@@ -83,12 +100,12 @@ const SafariWarningModal = ({
     <Modal
       centered
       closable={false}
-      footer={null}
+      footer={<></>}
       open={open}
-      title={null}
+      title={undefined}
       width={450}
     >
-      <div className="modal">
+      <div className={modalStyles["modal"]}>
         <div className="error-content">
           <div className="error-title">⚠ Предупреждение для Safari</div>
           <div
@@ -125,7 +142,7 @@ const SafariWarningModal = ({
             <input
               checked={dontShowAgain}
               type="checkbox"
-              onChange={(e) => setDontShowAgain(e.target.checked)}
+              onChange={(event) => setDontShowAgain(event.target.checked)}
             />
             Претензий не имею, больше не показывать
           </label>
@@ -134,6 +151,7 @@ const SafariWarningModal = ({
     </Modal>
   );
 };
+
 const ErrorFallback = ({error}: {error: Error}) => {
   const isDynamicImportError =
     error.message.includes("dynamically imported module") ||
@@ -146,7 +164,7 @@ const ErrorFallback = ({error}: {error: Error}) => {
     <div className="error-container">
       <div className="error-backtitle">Ошибка</div>
       <div
-        className="modal"
+        className={modalStyles["modal"]}
         style={{margin: "15px", maxWidth: "450px"}}
       >
         <div className="error-content">
@@ -208,31 +226,37 @@ const ErrorFallback = ({error}: {error: Error}) => {
 
 class ErrorBoundary extends React.Component<
   {children: React.ReactNode},
-  {hasError: boolean; error: Error | null}
+  {hasError: boolean; error: Error | undefined}
 > {
   constructor(properties: {children: React.ReactNode}) {
     super(properties);
-    this.state = {error: null, hasError: false};
+    this.state = {error: undefined, hasError: false};
   }
+
   static getDerivedStateFromError(error: Error) {
     return {error, hasError: true};
   }
+
   render() {
     if (this.state.hasError && this.state.error) {
       return <ErrorFallback error={this.state.error} />;
     }
 
-    return this.props.children;
+    return <>{this.props.children}</>;
   }
 }
 
 const SnowfallManager = () => {
   const {accentHue, isSnowfallEnabled, saturateRatio, theme} = useTheme();
+
   const isSystemDark =
     globalThis.window?.matchMedia &&
     globalThis.window.matchMedia("(prefers-color-scheme: dark)").matches;
+
   const isDarkMode = theme === "dark" || (theme === "system" && isSystemDark);
+
   const lightness = isDarkMode ? "75%" : "50%";
+
   const color = `hsl(${accentHue}, ${saturateRatio * 50}%, ${lightness})`;
 
   return isSnowfallEnabled ? (
@@ -248,11 +272,14 @@ const SnowfallManager = () => {
       }}
       wind={[0, 1]}
     />
-  ) : null;
+  ) : (
+    <></>
+  );
 };
 
 export const App = () => {
   const location = useLocation();
+
   const [svgContent, setSvgContent] = useState(faviconSvg);
 
   useEffect(() => {
@@ -270,19 +297,24 @@ export const App = () => {
       setSvgContent(faviconSvg);
     }
   }, [location.pathname]);
+
   useDynamicFavicon(svgContent);
+
   const [isClient, setIsClient] = useState(false);
 
   useEffect(() => {
     setIsClient(true);
   }, []);
-  const [showSafariWarning, setShowSafariWarning] = useState(false);
-  const [showOldBrowserWarning, setShowOldBrowserWarning] = useState(false);
+
+  const [isSafariWarningOpen, setIsSafariWarningOpen] = useState(false);
+
+  const [isOldBrowserWarningOpen, setIsOldBrowserWarningOpen] = useState(false);
 
   useEffect(() => {
     if (globalThis.window === undefined) return;
 
     let shouldShowWarning = false;
+
     const browserInfo = getBrowserInfo();
 
     if (browserInfo.isLegacy) {
@@ -294,7 +326,9 @@ export const App = () => {
 
         if (!warningDismissed) {
           const lastShown = localStorage.getItem("oldBrowserWarningLastShown");
+
           const now = Date.now();
+
           const time = 24 * 60 * 60 * 1000;
 
           if (!lastShown || now - Number.parseInt(lastShown, 10) >= time) {
@@ -304,19 +338,32 @@ export const App = () => {
       }
     }
 
-    setShowOldBrowserWarning(shouldShowWarning);
+    setIsOldBrowserWarningOpen(shouldShowWarning);
   }, []);
-  const [appReady, setAppReady] = useState(true);
+
+  const [isAppReady, setIsAppReady] = useState(true);
+
+  const [isLoading, setIsLoading] = useState(true);
+
+  const previousPathname = useRef(location.pathname);
+
+  if (previousPathname.current !== location.pathname) {
+    previousPathname.current = location.pathname;
+    setIsLoading(true);
+  }
 
   useEffect(() => {
     if (globalThis.window === undefined) return;
 
     let shouldShowWarning = false;
+
     const isWebKit =
       typeof navigator !== "undefined" &&
       /AppleWebKit|Epiphany|Safari/i.test(navigator.userAgent) &&
       !/Chrome|Chromium|Edg|OPR|Brave/i.test(navigator.userAgent);
+
     const path = location.pathname;
+
     const isFaqPage =
       path.startsWith("/aefaq") ||
       path.startsWith("/prfaq") ||
@@ -328,7 +375,9 @@ export const App = () => {
 
       if (!warningDismissed) {
         const lastShown = localStorage.getItem("safariWarningLastShown");
+
         const now = Date.now();
+
         const time = 60 * 60 * 1000;
 
         if (!lastShown || now - Number.parseInt(lastShown, 10) >= time) {
@@ -338,13 +387,14 @@ export const App = () => {
     }
 
     if (shouldShowWarning) {
-      setAppReady(false);
-      setShowSafariWarning(true);
+      setIsAppReady(false);
+      setIsSafariWarningOpen(true);
     } else {
-      setShowSafariWarning(false);
-      setAppReady(true);
+      setIsSafariWarningOpen(false);
+      setIsAppReady(true);
     }
   }, [location.pathname]);
+
   useEffect(() => {
     if (globalThis.window === undefined) {
       return;
@@ -359,10 +409,10 @@ export const App = () => {
     }
   }, [location]);
 
-  if (isClient && showOldBrowserWarning) {
+  if (isClient && isOldBrowserWarningOpen) {
     return (
       <BrowserWarning
-        open={showOldBrowserWarning}
+        open={isOldBrowserWarningOpen}
         onClose={(dontShowAgain) => {
           if (typeof localStorage !== "undefined") {
             if (dontShowAgain) {
@@ -372,7 +422,7 @@ export const App = () => {
             }
           }
 
-          setShowOldBrowserWarning(false);
+          setIsOldBrowserWarningOpen(false);
         }}
       />
     );
@@ -394,7 +444,7 @@ export const App = () => {
         />
         <ErrorBoundary>
           <SafariWarningModal
-            open={showSafariWarning}
+            open={isSafariWarningOpen}
             onClose={(dontShowAgain) => {
               if (typeof localStorage !== "undefined") {
                 if (dontShowAgain) {
@@ -404,78 +454,81 @@ export const App = () => {
                 }
               }
 
-              setShowSafariWarning(false);
-              setAppReady(true);
+              setIsSafariWarningOpen(false);
+              setIsAppReady(true);
             }}
           />
-          {appReady && (
-            <Suspense fallback={<LoadingAnimation />}>
-              <AnimatePresence
-                mode="wait"
-                onExitComplete={() => {
-                  if (globalThis.window !== undefined) {
-                    setTimeout(() => {
-                      globalThis.window.scrollTo({
-                        behavior: "instant",
-                        top: 0,
-                      });
-                    }, 50);
-                  }
-                }}
-              >
-                <Routes
-                  key={location.pathname}
-                  location={location}
-                >
-                  <Route
-                    element={<Links />}
-                    path="/"
-                  />
-                  <Route
-                    element={<AEFAQ />}
-                    path="/aefaq"
-                  />
-                  <Route
-                    element={<PRFAQ />}
-                    path="/prfaq"
-                  />
-                  <Route
-                    element={<PSFAQ />}
-                    path="/psfaq"
-                  />
-                  <Route
-                    element={<AEExpressionPage />}
-                    path="/aeexpr"
-                  />
-                  <Route
-                    element={<ChatRules />}
-                    path="/rules"
-                  />
-                  <Route
-                    element={<FilesRedirect />}
-                    path="/files"
-                  />
-                  <Route
-                    element={<RegFileRedirect />}
-                    path="/regfile"
-                  />
-                  <Route
-                    element={<RegFileRedirect />}
-                    path="/reg"
-                  />
-                  <Route
-                    element={
-                      <>
-                        <NotFound />
-                        <RedirectHtml />
-                      </>
+          <LoadingContext.Provider value={{setIsLoading}}>
+            <LoadingAnimation isLoading={isLoading && !isSafariWarningOpen} />
+            {isAppReady && (
+              <Suspense fallback={undefined}>
+                <AnimatePresence
+                  mode="wait"
+                  onExitComplete={() => {
+                    if (globalThis.window !== undefined) {
+                      setTimeout(() => {
+                        globalThis.window.scrollTo({
+                          behavior: "instant",
+                          top: 0,
+                        });
+                      }, 50);
                     }
-                    path="*"
-                  />
-                </Routes>
-              </AnimatePresence>
-            </Suspense>
-          )}
+                  }}
+                >
+                  <Routes
+                    key={location.pathname}
+                    location={location}
+                  >
+                    <Route
+                      element={<Links />}
+                      path="/"
+                    />
+                    <Route
+                      element={<AeFaqPage />}
+                      path="/aefaq"
+                    />
+                    <Route
+                      element={<PrFaqPage />}
+                      path="/prfaq"
+                    />
+                    <Route
+                      element={<PsFaqPage />}
+                      path="/psfaq"
+                    />
+                    <Route
+                      element={<AeExprPage />}
+                      path="/aeexpr"
+                    />
+                    <Route
+                      element={<ChatRules />}
+                      path="/rules"
+                    />
+                    <Route
+                      element={<FilesRedirect />}
+                      path="/files"
+                    />
+                    <Route
+                      element={<RegFileRedirect />}
+                      path="/regfile"
+                    />
+                    <Route
+                      element={<RegFileRedirect />}
+                      path="/reg"
+                    />
+                    <Route
+                      element={
+                        <>
+                          <NotFound />
+                          <RedirectHtml />
+                        </>
+                      }
+                      path="*"
+                    />
+                  </Routes>
+                </AnimatePresence>
+              </Suspense>
+            )}
+          </LoadingContext.Provider>
         </ErrorBoundary>
       </ThemeProvider>
     </ConfigProvider>

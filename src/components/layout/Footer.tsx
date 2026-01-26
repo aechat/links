@@ -3,10 +3,14 @@ import React, {useEffect, useState} from "react";
 import {GitHub} from "@mui/icons-material";
 import {useLocation} from "react-router-dom";
 
-import {formatRelativeTime} from "../../utils/dateUtils";
+import {formatRelativeTime} from "../../utils/dateUtilities";
+
+import styles from "./Footer.module.scss";
 
 const OWNER = "aechat";
+
 const REPO = "links";
+
 const BRANCH = "main";
 
 interface GithubCommitAPI {
@@ -18,34 +22,45 @@ interface GithubCommitAPI {
   };
   html_url: string;
 }
+
 interface CommitData {
   date: Date;
   message: string;
   url: string;
 }
+
 interface FooterProperties {
   initialYear: number;
   title: string;
 }
+
 const FAQ_PATHS = ["/aefaq", "/prfaq", "/psfaq", "/aeexpr"] as const;
 
 type FaqPath = (typeof FAQ_PATHS)[number];
+
 const PATH_MAP: Record<FaqPath, string> = {
   "/aeexpr": "src/pages/sections/aeexpr",
   "/aefaq": "src/pages/sections/aefaq",
   "/prfaq": "src/pages/sections/prfaq",
   "/psfaq": "src/pages/sections/psfaq",
 };
+
+const isFaqPage = (p: string): p is FaqPath => {
+  return FAQ_PATHS.includes(p as FaqPath);
+};
+
 const Footer: React.FC<FooterProperties> = ({initialYear, title}) => {
   const location = useLocation();
-  const [commitData, setCommitData] = useState<CommitData | null>(null);
+
+  const [commitData, setCommitData] = useState<CommitData | undefined>();
+
   const [isLoading, setIsLoading] = useState<boolean>(true);
-  const [error, setError] = useState<string | null>(null);
+
+  const [error, setError] = useState<string | undefined>();
+
   const currentYear = new Date().getFullYear();
+
   const path = location.pathname;
-  const isFaqPage = (p: string): p is FaqPath => {
-    return FAQ_PATHS.includes(p as FaqPath);
-  };
 
   useEffect(() => {
     if (!isFaqPage(path)) {
@@ -53,10 +68,12 @@ const Footer: React.FC<FooterProperties> = ({initialYear, title}) => {
     }
 
     const folderPath = PATH_MAP[path];
+
     const getLastCommit = async () => {
       setIsLoading(true);
-      setError(null);
-      setCommitData(null);
+      setError(undefined);
+      setCommitData(undefined);
+
       const url = `https://api.github.com/repos/${OWNER}/${REPO}/commits?path=${folderPath}&sha=${BRANCH}`;
 
       try {
@@ -67,6 +84,7 @@ const Footer: React.FC<FooterProperties> = ({initialYear, title}) => {
         }
 
         const commits = (await response.json()) as GithubCommitAPI[];
+
         const lastMeaningfulCommit = commits.find(
           (commit) => !commit.commit.message.startsWith("Merge")
         );
@@ -76,8 +94,11 @@ const Footer: React.FC<FooterProperties> = ({initialYear, title}) => {
         }
 
         const rawMessage = lastMeaningfulCommit.commit.message;
+
         const regex = /^\w+(\([\w/.-]+\))?:\s*(.*)/;
-        const match = rawMessage.match(regex);
+
+        const match = regex.exec(rawMessage);
+
         let description = rawMessage;
 
         if (match && match[2]) {
@@ -104,23 +125,24 @@ const Footer: React.FC<FooterProperties> = ({initialYear, title}) => {
 
     getLastCommit();
   }, [path]);
+
   const renderCommitInfo = () => {
     if (isLoading) {
-      return <p className="commit-info">Ищем информацию...</p>;
+      return <p className={styles["commit-info"]}>Ищем информацию...</p>;
     }
 
     if (error) {
-      return <p className="commit-info">{error}</p>;
+      return <p className={styles["commit-info"]}>{error}</p>;
     }
 
     if (!commitData) {
-      return null;
+      return;
     }
 
     const relativeTime = formatRelativeTime(commitData.date);
 
     return (
-      <p className="commit-info">
+      <p className={styles["commit-info"]}>
         Последнее обновление страницы {relativeTime}:{" "}
         <a
           href={commitData.url}
@@ -135,7 +157,7 @@ const Footer: React.FC<FooterProperties> = ({initialYear, title}) => {
 
   return (
     <footer>
-      <div className="footer-container">
+      <div className={styles["footer-container"]}>
         <div>
           <p>
             <a href="https://github.com/m1sh3r">m1sh3r</a> {"+ "}
@@ -143,11 +165,11 @@ const Footer: React.FC<FooterProperties> = ({initialYear, title}) => {
           </p>
           {isFaqPage(path) && (
             <>
-              <p className="footer-content-info">
+              <p className={styles["footer-content-info"]}>
                 Содержание этой страницы периодически обновляется благодаря вопросам от
                 участников наших чатов и предоставляется по принципу «как есть».
               </p>
-              <p className="footer-content-info">
+              <p className={styles["footer-content-info"]}>
                 Статьи основаны на информации из открытых источников. Они могут быть
                 неполными, устаревшими или неточными, а мнения автора и читателей — не
                 совпадать.
@@ -158,7 +180,7 @@ const Footer: React.FC<FooterProperties> = ({initialYear, title}) => {
         </div>
         <a
           aria-label="перейти на GitHub"
-          className="footer-github-link"
+          className={styles["footer-github-link"]}
           href="https://github.com/aechat/links"
           rel="noreferrer"
           target="_blank"

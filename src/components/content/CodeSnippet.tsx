@@ -1,13 +1,14 @@
-import {message} from "antd";
-
 import hljs from "highlight.js";
-import "highlight.js/styles/github-dark.css";
 import React, {useEffect, useRef} from "react";
+
+import {message} from "antd";
+import "highlight.js/styles/github-dark.css";
 
 interface CodeSnippetProperties {
   children: string;
   language?: string;
 }
+
 const CodeSnippet: React.FC<CodeSnippetProperties> = ({
   children,
   language = "javascript",
@@ -19,9 +20,12 @@ const CodeSnippet: React.FC<CodeSnippetProperties> = ({
       hljs.highlightBlock(codeReference.current);
     }
   }, [children, language]);
+
   const handleCopy = (event: React.MouseEvent<HTMLPreElement>): void => {
     event.stopPropagation();
+
     const textArea = document.createElement("textarea");
+
     const codeText = codeReference.current?.textContent ?? "";
 
     textArea.value = codeText;

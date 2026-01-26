@@ -10,7 +10,11 @@ import {
 } from "@mui/icons-material";
 import {Modal, Slider, Tooltip} from "antd";
 
+import modalStyles from "./Modal.module.scss";
+import styles from "./ThemeChanger.module.scss";
+
 type Theme = "light" | "dark" | "system";
+
 interface ThemeContextProperties {
   accentHue: number;
   isAnimationDisabled: boolean;
@@ -25,31 +29,41 @@ interface ThemeContextProperties {
   setTheme: (theme: Theme) => void;
   theme: Theme;
 }
+
 const ThemeContext = createContext<ThemeContextProperties | undefined>(undefined);
 
 export const ThemeProvider: React.FC<{children: React.ReactNode}> = ({children}) => {
   const [themeState, setThemeState] = useState<Theme>("system");
+
   const [accentHueState, setAccentHueState] = useState<number>(210);
+
   const [saturateRatioState, setSaturateRatioState] = useState<number>(1);
+
   const [maxWidthState, setMaxWidthState] = useState<number>(1175);
+
   const [isAnimationDisabledState, setIsAnimationDisabledState] =
     useState<boolean>(false);
+
   const [isSnowfallEnabled, setIsSnowfallEnabled] = useState<boolean>(false);
 
   useEffect(() => {
     if (typeof localStorage !== "undefined") {
       const savedTheme = (localStorage.getItem("theme") as Theme) || "system";
+
       const savedAccentHue = Number.parseInt(
         localStorage.getItem("accentHue") ?? "210",
         10
       );
+
       const savedSaturateRatio = Number.parseFloat(
         localStorage.getItem("saturateRatio") ?? "1"
       );
+
       const savedMaxWidth = Number.parseInt(
         localStorage.getItem("maxWidth") ?? "1175",
         10
       );
+
       const savedIsAnimationDisabled =
         localStorage.getItem("isAnimationDisabled") === "true";
 
@@ -74,6 +88,7 @@ export const ThemeProvider: React.FC<{children: React.ReactNode}> = ({children})
       }
     }
   }, []);
+
   const setTheme = (newTheme: Theme) => {
     setThemeState(newTheme);
 
@@ -81,6 +96,7 @@ export const ThemeProvider: React.FC<{children: React.ReactNode}> = ({children})
       localStorage.setItem("theme", newTheme);
     }
   };
+
   const setAccentHue = (hue: number) => {
     setAccentHueState(hue);
 
@@ -88,6 +104,7 @@ export const ThemeProvider: React.FC<{children: React.ReactNode}> = ({children})
       localStorage.setItem("accentHue", hue.toString());
     }
   };
+
   const setSaturateRatio = (ratio: number) => {
     setSaturateRatioState(ratio);
 
@@ -95,6 +112,7 @@ export const ThemeProvider: React.FC<{children: React.ReactNode}> = ({children})
       localStorage.setItem("saturateRatio", ratio.toString());
     }
   };
+
   const setIsAnimationDisabled = (disabled: boolean) => {
     setIsAnimationDisabledState(disabled);
 
@@ -102,6 +120,7 @@ export const ThemeProvider: React.FC<{children: React.ReactNode}> = ({children})
       localStorage.setItem("isAnimationDisabled", disabled.toString());
     }
   };
+
   const setSnowfallEnabled = (enabled: boolean) => {
     setIsSnowfallEnabled(enabled);
 
@@ -109,6 +128,11 @@ export const ThemeProvider: React.FC<{children: React.ReactNode}> = ({children})
       localStorage.setItem("isSnowfallEnabled", enabled.toString());
     }
   };
+
+  const calculateIsDarkMode = (theme: Theme, isSystemDark: boolean): boolean => {
+    return theme === "dark" || (theme === "system" && isSystemDark);
+  };
+
   const updateTheme = () => {
     if (globalThis.window === undefined) {
       return;
@@ -120,8 +144,10 @@ export const ThemeProvider: React.FC<{children: React.ReactNode}> = ({children})
     root.style.setProperty("--saturate-ratio", saturateRatioState.toString());
     root.style.setProperty("--max-width", `${maxWidthState}px`);
     root.classList.toggle("no-spoiler-animation", isAnimationDisabledState);
+
     const isSystemDark = globalThis.matchMedia("(prefers-color-scheme: dark)").matches;
-    const isDarkMode = themeState === "dark" || (themeState === "system" && isSystemDark);
+
+    const isDarkMode = calculateIsDarkMode(themeState, isSystemDark);
 
     root.classList.toggle("dark", isDarkMode);
     root.classList.toggle("light", !isDarkMode);
@@ -138,18 +164,21 @@ export const ThemeProvider: React.FC<{children: React.ReactNode}> = ({children})
       isAnimationDisabledState,
     ]
   );
+
   useEffect(() => {
     if (globalThis.window === undefined) {
       return;
     }
 
     const handleSystemThemeChange = () => themeState === "system" && updateTheme();
+
     const mediaQuery = globalThis.window.matchMedia("(prefers-color-scheme: dark)");
 
     mediaQuery.addEventListener("change", handleSystemThemeChange);
 
     return () => mediaQuery.removeEventListener("change", handleSystemThemeChange);
   }, [themeState]);
+
   const contextValue = useMemo(
     () => ({
       accentHue: accentHueState,
@@ -196,7 +225,9 @@ export const useTheme = (): ThemeContextProperties => {
 
 export const ThemeToggleButton: React.FC = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+
   const openModal = () => setIsModalOpen(true);
+
   const closeModal = () => setIsModalOpen(false);
 
   return (
@@ -219,6 +250,26 @@ interface ThemeModalProperties {
   closeModal: () => void;
   isModalOpen: boolean;
 }
+
+interface ThemeOptionButtonProperties {
+  children: React.ReactNode;
+  isSelected: boolean;
+  onClick: () => void;
+}
+
+const ThemeOptionButton: React.FC<ThemeOptionButtonProperties> = ({
+  children,
+  isSelected,
+  onClick,
+}) => (
+  <button
+    className={`${styles["theme-button"]} ${isSelected ? styles["theme-button-selected"] : ""}`}
+    onClick={onClick}
+  >
+    {children}
+  </button>
+);
+
 const ThemeModal: React.FC<ThemeModalProperties> = ({closeModal, isModalOpen}) => {
   const {
     accentHue,
@@ -234,15 +285,19 @@ const ThemeModal: React.FC<ThemeModalProperties> = ({closeModal, isModalOpen}) =
     setTheme,
     theme,
   } = useTheme();
+
   const [temporaryHue, setTemporaryHue] = useState(accentHue);
+
   const [temporarySaturate, setTemporarySaturate] = useState(saturateRatio);
 
   useEffect(() => {
     setTemporaryHue(accentHue);
   }, [accentHue]);
+
   useEffect(() => {
     setTemporarySaturate(saturateRatio);
   }, [saturateRatio]);
+
   const [windowWidth, setWindowWidth] = useState(
     globalThis.window === undefined ? 0 : globalThis.window.innerWidth
   );
@@ -258,18 +313,28 @@ const ThemeModal: React.FC<ThemeModalProperties> = ({closeModal, isModalOpen}) =
 
     return () => globalThis.window.removeEventListener("resize", handleResize);
   }, []);
+
   const currentPath =
     globalThis.window === undefined ? "" : globalThis.window.location.pathname;
+
   const pagesWithSpoilerAnimation = ["/aefaq", "/prfaq", "/psfaq", "/aeexpr"];
+
   const pagesWithWidthSelector = [...pagesWithSpoilerAnimation, "/rules"];
+
   const today = new Date();
+
   const month = today.getMonth();
+
   const day = today.getDate();
+
   const isNewYearPeriod = (month === 11 && day >= 25) || (month === 0 && day <= 7);
+
   const isWinter = [0, 1, 11].includes(month);
+
   const showSpoilerAnimationSelector = pagesWithSpoilerAnimation.some((path) =>
     currentPath.startsWith(path)
   );
+
   const showWidthSelector =
     pagesWithWidthSelector.some((path) => currentPath.startsWith(path)) &&
     windowWidth >= 1000;
@@ -277,158 +342,124 @@ const ThemeModal: React.FC<ThemeModalProperties> = ({closeModal, isModalOpen}) =
   return (
     <Modal
       destroyOnClose
-      closeIcon={null}
-      footer={null}
+      closeIcon={false}
+      footer={<></>}
       open={isModalOpen}
       width={450}
       onCancel={closeModal}
     >
-      <div className="modal">
-        <div className="modal-content">
-          <div className="modal-header">
-            <div className="modal-header-title">Оформление</div>
+      <div className={modalStyles["modal"]}>
+        <div className={modalStyles["modal-content"]}>
+          <div className={modalStyles["modal-header"]}>
+            <div className={modalStyles["modal-header-title"]}>Оформление</div>
             <button
-              className="modal-header-close"
+              className={modalStyles["modal-header-close"]}
               onClick={closeModal}
             >
               <CloseRounded />
             </button>
           </div>
-          <div className="theme-title">Цветовая схема</div>
-          <div className="theme-selector">
-            <button
-              className={
-                theme === "light" ? "theme-button theme-button-selected" : "theme-button"
-              }
+          <div className={styles["theme-title"]}>Цветовая схема</div>
+          <div className={styles["theme-selector"]}>
+            <ThemeOptionButton
+              isSelected={theme === "light"}
               onClick={() => setTheme("light")}
             >
               <LightModeRounded />
               Светлая
-            </button>
-            <button
-              className={
-                theme === "dark" ? "theme-button theme-button-selected" : "theme-button"
-              }
+            </ThemeOptionButton>
+            <ThemeOptionButton
+              isSelected={theme === "dark"}
               onClick={() => setTheme("dark")}
             >
               <DarkModeRounded />
               Тёмная
-            </button>
-            <button
-              className={
-                theme === "system" ? "theme-button theme-button-selected" : "theme-button"
-              }
+            </ThemeOptionButton>
+            <ThemeOptionButton
+              isSelected={theme === "system"}
               onClick={() => setTheme("system")}
             >
               <HideSourceRounded />
               Системная
-            </button>
+            </ThemeOptionButton>
           </div>
           {showWidthSelector && (
             <>
-              <div className="theme-title">Максимальная ширина контента</div>
-              <div className="theme-selector">
-                <button
-                  className={
-                    maxWidth === 1000
-                      ? "theme-button theme-button-selected"
-                      : "theme-button"
-                  }
+              <div className={styles["theme-title"]}>Максимальная ширина контента</div>
+              <div className={styles["theme-selector"]}>
+                <ThemeOptionButton
+                  isSelected={maxWidth === 1000}
                   onClick={() => setMaxWidth(1000)}
                 >
                   Маленькая<sup>1000px</sup>
-                </button>
-                <button
-                  className={
-                    maxWidth === 1175
-                      ? "theme-button theme-button-selected"
-                      : "theme-button"
-                  }
+                </ThemeOptionButton>
+                <ThemeOptionButton
+                  isSelected={maxWidth === 1175}
                   onClick={() => setMaxWidth(1175)}
                 >
                   Средняя<sup>1175px</sup>
-                </button>
-                <button
-                  className={
-                    maxWidth === 1400
-                      ? "theme-button theme-button-selected"
-                      : "theme-button"
-                  }
+                </ThemeOptionButton>
+                <ThemeOptionButton
+                  isSelected={maxWidth === 1400}
                   onClick={() => setMaxWidth(1400)}
                 >
                   Большая<sup>1400px</sup>
-                </button>
+                </ThemeOptionButton>
               </div>
             </>
           )}
           {showSpoilerAnimationSelector && (
             <>
-              <div className="theme-title">Анимация раскрытия спойлеров</div>
-              <div className="theme-selector">
-                <button
-                  className={
-                    isAnimationDisabled === false
-                      ? "theme-button theme-button-selected"
-                      : "theme-button"
-                  }
+              <div className={styles["theme-title"]}>Анимация раскрытия спойлеров</div>
+              <div className={styles["theme-selector"]}>
+                <ThemeOptionButton
+                  isSelected={!isAnimationDisabled}
                   onClick={() => setIsAnimationDisabled(false)}
                 >
                   Включена
-                </button>
-                <button
-                  className={
-                    isAnimationDisabled
-                      ? "theme-button theme-button-selected"
-                      : "theme-button"
-                  }
+                </ThemeOptionButton>
+                <ThemeOptionButton
+                  isSelected={isAnimationDisabled}
                   onClick={() => setIsAnimationDisabled(true)}
                 >
                   Выключена
-                </button>
+                </ThemeOptionButton>
               </div>
             </>
           )}
           {isWinter && (
             <>
-              <div className="theme-title">
+              <div className={styles["theme-title"]}>
                 {isNewYearPeriod ? "Новогоднее настроение" : "Анимация снега"}
               </div>
-              <div className="theme-selector">
-                <button
-                  className={
-                    isSnowfallEnabled
-                      ? "theme-button theme-button-selected"
-                      : "theme-button"
-                  }
+              <div className={styles["theme-selector"]}>
+                <ThemeOptionButton
+                  isSelected={isSnowfallEnabled}
                   onClick={() => setIsSnowfallEnabled(true)}
                 >
                   {isNewYearPeriod ? "Включено" : "Включена"}
-                </button>
-                <button
-                  className={
-                    isSnowfallEnabled
-                      ? "theme-button"
-                      : "theme-button theme-button-selected"
-                  }
+                </ThemeOptionButton>
+                <ThemeOptionButton
+                  isSelected={!isSnowfallEnabled}
                   onClick={() => setIsSnowfallEnabled(false)}
                 >
                   {isNewYearPeriod ? "Выключено" : "Выключена"}
-                </button>
+                </ThemeOptionButton>
               </div>
             </>
           )}
-          <div className="theme-title">
+          <div className={styles["theme-title"]}>
             Оттенок акцентного цвета
             <Tooltip title="Сбросить оттенок">
               <button
-                className="theme-reset-button"
+                className={styles["theme-reset-button"]}
                 onClick={() => setAccentHue(210)}
               >
                 <RestartAlt />
               </button>
             </Tooltip>
           </div>
-          <div className="theme-slider">
+          <div className={styles["theme-slider"]}>
             <Slider
               max={360}
               min={0}
@@ -437,18 +468,18 @@ const ThemeModal: React.FC<ThemeModalProperties> = ({closeModal, isModalOpen}) =
               onChange={setTemporaryHue}
             />
           </div>
-          <div className="theme-title">
+          <div className={styles["theme-title"]}>
             Насыщенность акцентного цвета
             <Tooltip title="Сбросить насыщенность">
               <button
-                className="theme-reset-button"
+                className={styles["theme-reset-button"]}
                 onClick={() => setSaturateRatio(1)}
               >
                 <RestartAlt />
               </button>
             </Tooltip>
           </div>
-          <div className="theme-slider">
+          <div className={styles["theme-slider"]}>
             <Slider
               max={1}
               min={0}

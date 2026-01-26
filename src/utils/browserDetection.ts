@@ -10,8 +10,11 @@ export function getBrowserInfo(): BrowserInfo {
   }
 
   const ua = globalThis.navigator.userAgent;
+
   let name = "Unknown";
+
   let version = 0;
+
   let match = /(Chrom(e|ium))\/((\d+)\.?(\d+)?\.?(\d+)?\.?(\d+)?)/.exec(ua);
 
   if (match) {
@@ -30,7 +33,7 @@ export function getBrowserInfo(): BrowserInfo {
     version = Number.parseInt(match[2], 10);
   }
 
-  match = /Version\/((\d+)\.?(\d+)?\.?(\d+)?)\s(Safari)\/((\d+)\.?(\d+)?)/.exec(ua);
+  match = /Version\/((\d+)(?:\.\d+){0,2})\s(Safari)\/((\d+)(?:\.\d+){0,2})/.exec(ua);
 
   if (match && !ua.includes("Chrome") && !ua.includes("Edge") && !ua.includes("Opera")) {
     name = "Safari";
@@ -58,6 +61,7 @@ export function getBrowserInfo(): BrowserInfo {
     Opera: 75,
     Safari: 14,
   };
+
   const isLegacy =
     version > 0 &&
     legacyThresholds[name] !== undefined &&

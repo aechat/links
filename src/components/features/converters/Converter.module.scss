@@ -1,0 +1,59 @@
+@use "../../../styles/abstracts/mixins" as *;
+
+.converter {
+  margin: 15px;
+
+  &-info-text {
+    text-align: center;
+    color: var(--color-text-tertiary);
+    font-size: 0.75rem;
+  }
+
+  &-dragger {
+    margin-block: 12px;
+    margin-inline: 10px;
+    width: calc(100% - 20px);
+
+    &-content {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      justify-content: center;
+    }
+
+    &-text {
+      font-size: 0.9rem;
+    }
+  }
+
+  &-radio {
+    &-wrapper {
+      padding-inline: 10px;
+    }
+
+    &-group {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+
+  &-button {
+    &-group {
+      display: flex;
+      gap: 10px;
+      margin-block: 10px;
+      margin-inline: 10px;
+    }
+
+    &-reset {
+      flex-grow: 1;
+      filter: saturate(0);
+    }
+
+    &-action {
+      flex-grow: 3;
+    }
+  }
+}

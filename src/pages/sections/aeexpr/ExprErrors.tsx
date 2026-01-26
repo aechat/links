@@ -2,9 +2,9 @@ import React from "react";
 
 import DetailsSummary from "../../../components/content/DetailsSummary";
 
-const AEExprErrors: React.FC = () => {
+const AeExprErrors: React.FC = () => {
   return (
-    <div className="faq-content">
+    <div className="article-content">
       <DetailsSummary title="Плейсхолдер для будущих вопросов">
         <p>Да, здесь пока что ничего интересного. Следите за обновлениями.</p>
       </DetailsSummary>
@@ -12,4 +12,4 @@ const AEExprErrors: React.FC = () => {
   );
 };
 
-export default AEExprErrors;
+export default AeExprErrors;

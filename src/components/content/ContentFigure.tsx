@@ -6,7 +6,8 @@ import {createPortal} from "react-dom";
 
 import {copyText} from "../../hooks/useCopyToClipboard";
 
-import {useSpoiler} from "./DetailsSummary";
+import styles from "./ContentFigure.module.scss";
+import {useSpoiler} from "./spoilerContexts";
 
 interface ContentFigureProperties {
   autoPlay?: boolean;
@@ -18,6 +19,7 @@ interface ContentFigureProperties {
   type: "image" | "video" | "youtube";
   variant?: "windows" | "mac";
 }
+
 const ContentFigure: React.FC<ContentFigureProperties> = ({
   autoPlay,
   caption,
@@ -29,39 +31,51 @@ const ContentFigure: React.FC<ContentFigureProperties> = ({
   variant,
 }) => {
   const isOpen = useSpoiler();
+
   const [shouldRender, setShouldRender] = useState(isOpen);
 
   useEffect(() => {
     if (isOpen) {
       setShouldRender(true);
-    } else {
-      const timer = setTimeout(() => {
-        setShouldRender(false);
-      }, 350);
 
-      return () => clearTimeout(timer);
+      return;
     }
+
+    const timer = setTimeout(() => {
+      setShouldRender(false);
+    }, 350);
+
+    return () => clearTimeout(timer);
   }, [isOpen]);
+
   const [isFullscreen, setIsFullscreen] = useState(false);
+
   const [isClosing, setIsClosing] = useState(false);
+
   const [initialScrollY, setInitialScrollY] = useState(0);
+
   const styleClass =
     type === "youtube"
-      ? "figure-browser-youtube"
-      : `figure-${variant || "windows"}-${theme || "light"}`;
+      ? styles["figure-browser-youtube"]
+      : styles[`figure-${variant || "windows"}-${theme || "light"}`];
+
   const isWindowsStyle = variant === "windows";
+
   const handleMaximize = useCallback(() => {
     setInitialScrollY(window.scrollY);
     setIsFullscreen(true);
     setIsClosing(false);
   }, []);
+
   const handleClose = useCallback(() => {
     setIsClosing(true);
+
     setTimeout(() => {
       setIsFullscreen(false);
       setIsClosing(false);
     }, 250);
   }, []);
+
   const handleClick = useCallback(() => {
     if (isFullscreen) {
       handleClose();
@@ -69,9 +83,10 @@ const ContentFigure: React.FC<ContentFigureProperties> = ({
       handleMaximize();
     }
   }, [isFullscreen, handleClose, handleMaximize]);
+
   const handleClickOutside = useCallback(
-    (e: React.MouseEvent<HTMLDivElement>) => {
-      if (e.target === e.currentTarget) {
+    (event: React.MouseEvent<HTMLDivElement>) => {
+      if (event.target === event.currentTarget) {
         handleClose();
       }
     },
@@ -79,8 +94,8 @@ const ContentFigure: React.FC<ContentFigureProperties> = ({
   );
 
   useEffect(() => {
-    const handleEscKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape" && isFullscreen) {
+    const handleEscKey = (event: KeyboardEvent) => {
+      if (event.key === "Escape" && isFullscreen) {
         handleClose();
       }
     };
@@ -93,6 +108,7 @@ const ContentFigure: React.FC<ContentFigureProperties> = ({
       document.removeEventListener("keydown", handleEscKey);
     };
   }, [isFullscreen, handleClose]);
+
   useEffect(() => {
     const handleScroll = () => {
       if (Math.abs(window.scrollY - initialScrollY) > window.innerHeight * 0.25) {
@@ -110,7 +126,7 @@ const ContentFigure: React.FC<ContentFigureProperties> = ({
   }, [isFullscreen, handleClose, initialScrollY]);
 
   if (!shouldRender) {
-    return null;
+    return <></>;
   }
 
   const WindowControlButton: React.FC<{
@@ -139,12 +155,15 @@ const ContentFigure: React.FC<ContentFigureProperties> = ({
       )}
     </button>
   );
+
   let content: React.ReactNode;
+
   let id: string | undefined;
+
   const windowHeaderContent = (
     <>
       {isWindowsStyle && <figcaption>{caption}</figcaption>}
-      <div className="window-controls">
+      <div className={styles["window-controls"]}>
         {isWindowsStyle ? (
           <>
             <WindowControlButton
@@ -189,10 +208,11 @@ const ContentFigure: React.FC<ContentFigureProperties> = ({
       {!isWindowsStyle && <figcaption>{caption}</figcaption>}
     </>
   );
+
   const MediaContentWrapper: React.FC<{children: React.ReactNode}> = ({children}) => (
     <div>
       <div
-        className="window-header"
+        className={styles["window-header"]}
         onDoubleClick={handleClick}
       >
         {windowHeaderContent}
@@ -212,8 +232,10 @@ const ContentFigure: React.FC<ContentFigureProperties> = ({
           />
         </MediaContentWrapper>
       );
+
       break;
     }
+
     case "video": {
       content = (
         <MediaContentWrapper>
@@ -226,17 +248,20 @@ const ContentFigure: React.FC<ContentFigureProperties> = ({
           />
         </MediaContentWrapper>
       );
+
       break;
     }
+
     case "youtube": {
       id = src?.split("/").pop();
+
       content = (
         <>
-          <div className="window-header">
+          <div className={styles["window-header"]}>
             <figcaption>
               <b>YouTube</b>: {caption}
             </figcaption>
-            <div className="youtube-button">
+            <div className={styles["youtube-button"]}>
               <button
                 onClick={() =>
                   window.open(`https://www.youtube.com/watch?v=${id}`, "_blank")
@@ -267,8 +292,10 @@ const ContentFigure: React.FC<ContentFigureProperties> = ({
           />
         </>
       );
+
       break;
     }
+
     default: {
       content = <></>;
     }
@@ -276,17 +303,17 @@ const ContentFigure: React.FC<ContentFigureProperties> = ({
 
   return (
     <>
-      <div className="figure-container">
+      <div className={styles["figure-container"]}>
         <figure className={styleClass}>{content}</figure>
       </div>
       {isFullscreen &&
         createPortal(
           <div
-            className={`fullscreen-overlay ${isClosing ? "closing" : ""}`}
+            className={`${styles["fullscreen-overlay"]} ${isClosing ? styles["closing"] : ""}`}
             onClick={handleClickOutside}
           >
             <div
-              className={`fullscreen-content ${styleClass} ${isClosing ? "closing" : ""}`}
+              className={`${styles["fullscreen-content"]} ${styleClass} ${isClosing ? styles["closing"] : ""}`}
             >
               {content}
             </div>

@@ -11,9 +11,9 @@ import {
   wiggleOnlyZ,
 } from "./ExpressionExample";
 
-const AEExprBase: React.FC = () => {
+const AeExprBase: React.FC = () => {
   return (
-    <div className="faq-content">
+    <div className="article-content">
       <DetailsSummary title="Что такое переменные и функции?">
         {/* FIXME: */}
       </DetailsSummary>
@@ -91,4 +91,4 @@ const AEExprBase: React.FC = () => {
   );
 };
 
-export default AEExprBase;
+export default AeExprBase;

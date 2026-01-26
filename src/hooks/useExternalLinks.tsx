@@ -3,11 +3,16 @@ import React, {useCallback, useEffect, useState} from "react";
 import {CloseRounded} from "@mui/icons-material";
 import {Modal} from "antd";
 
+import modalStyles from "../components/modals/Modal.module.scss";
+
 export const useExternalLinkHandler = () => {
-  const [modalVisible, setModalVisible] = useState(false);
-  const [targetUrl, setTargetUrl] = useState<string | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const [targetUrl, setTargetUrl] = useState<string | undefined>();
+
   const handleLinkClick = useCallback((event: React.MouseEvent<HTMLElement>) => {
     const target = event.target as HTMLElement;
+
     const anchor = target.closest("a[href]");
 
     if (anchor) {
@@ -16,21 +21,23 @@ export const useExternalLinkHandler = () => {
       if (href && /^https?:\/\//.test(href)) {
         event.preventDefault();
         setTargetUrl(href);
-        setModalVisible(true);
+        setIsModalOpen(true);
       }
     }
   }, []);
+
   const handleOk = useCallback(() => {
     if (targetUrl) {
       window.open(targetUrl, "_blank", "noreferrer");
     }
 
-    setModalVisible(false);
-    setTargetUrl(null);
+    setIsModalOpen(false);
+    setTargetUrl(undefined);
   }, [targetUrl]);
+
   const handleCancel = useCallback(() => {
-    setModalVisible(false);
-    setTargetUrl(null);
+    setIsModalOpen(false);
+    setTargetUrl(undefined);
   }, []);
 
   useEffect(() => {
@@ -40,28 +47,29 @@ export const useExternalLinkHandler = () => {
       }
     };
 
-    if (modalVisible) {
+    if (isModalOpen) {
       document.addEventListener("keydown", handleKeyDown);
     }
 
     return () => {
       document.removeEventListener("keydown", handleKeyDown);
     };
-  }, [modalVisible, handleOk]);
+  }, [isModalOpen, handleOk]);
+
   const ExternalLinkModal = (
     <Modal
       centered
-      closeIcon={null}
-      footer={null}
-      open={modalVisible}
+      closeIcon={false}
+      footer={<></>}
+      open={isModalOpen}
       onCancel={handleCancel}
     >
-      <div className="modal">
-        <div className="modal-content">
-          <div className="modal-header">
-            <div className="modal-header-title">{targetUrl}</div>
+      <div className={modalStyles["modal"]}>
+        <div className={modalStyles["modal-content"]}>
+          <div className={modalStyles["modal-header"]}>
+            <div className={modalStyles["modal-header-title"]}>{targetUrl}</div>
             <button
-              className="modal-header-close"
+              className={modalStyles["modal-header-close"]}
               onClick={handleCancel}
             >
               <CloseRounded />

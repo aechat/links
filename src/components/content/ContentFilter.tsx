@@ -2,9 +2,12 @@ import React, {ReactNode, useEffect, useState} from "react";
 
 import {Apple, WindowSharp} from "@mui/icons-material";
 
+import styles from "./ContentFilter.module.scss";
+
 type ContentFilterProperties =
   | {windowsContent: ReactNode; macContent?: ReactNode}
   | {windowsContent?: ReactNode; macContent: ReactNode};
+
 const ContentFilter: React.FC<ContentFilterProperties> = ({
   macContent,
   windowsContent,
@@ -13,6 +16,7 @@ const ContentFilter: React.FC<ContentFilterProperties> = ({
 
   useEffect(() => {
     const userAgent = globalThis.navigator.userAgent.toLowerCase();
+
     const isMac =
       userAgent.includes("mac") ||
       userAgent.includes("iphone") ||
@@ -20,14 +24,17 @@ const ContentFilter: React.FC<ContentFilterProperties> = ({
 
     setIsWindowsActive(!isMac);
   }, []);
+
   const hasWindowsContent = windowsContent !== undefined;
+
   const hasMacContent = macContent !== undefined;
 
   if (!hasWindowsContent && !hasMacContent) {
-    return null;
+    return <></>;
   }
 
-  const showToggleButton = hasWindowsContent && hasMacContent;
+  const isToggleButtonVisible = hasWindowsContent && hasMacContent;
+
   let displayForWindows = isWindowsActive;
 
   if (hasWindowsContent && !hasMacContent) {
@@ -37,16 +44,19 @@ const ContentFilter: React.FC<ContentFilterProperties> = ({
   }
 
   const osName = displayForWindows ? "Windows" : "macOS";
+
   const osIcon = displayForWindows ? <WindowSharp /> : <Apple />;
-  const infoMessagePrefix = showToggleButton
+
+  const infoMessagePrefix = isToggleButtonVisible
     ? "Информация ниже указана для устройств на "
     : "Информация ниже указана только для устройств на ";
+
   const buttonLabel = displayForWindows ? "Показать для macOS" : "Показать для Windows";
 
   return (
     <>
-      <div className="change-os">
-        <div className="os-info-container">
+      <div className={styles["change-os"]}>
+        <div className={styles["change-os-info-container"]}>
           {osIcon}
           <div>
             {infoMessagePrefix}
@@ -56,7 +66,7 @@ const ContentFilter: React.FC<ContentFilterProperties> = ({
             .
           </div>
         </div>
-        {showToggleButton && (
+        {isToggleButtonVisible && (
           <button
             aria-label={buttonLabel}
             onClick={() => setIsWindowsActive(!isWindowsActive)}

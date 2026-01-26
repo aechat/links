@@ -36,7 +36,29 @@ export async function askForConfirmation(original, proposed) {
   }
 }
 
+let processAll = false;
+
 export async function confirmFileWrite(filePath) {
-  const answer = await rl.question(`Сохранить изменения в файле ${filePath}? (y/n) `);
-  return answer.toLowerCase() === "y";
+  if (processAll) {
+    console.log(`Сохранение изменений в ${filePath} (пакетная обработка)`);
+    return true;
+  }
+
+  const answer = await rl.question(`Сохранить изменения в файле ${filePath}? (Y/n/a) `);
+  const response = answer.toLowerCase();
+
+  if (response === "a") {
+    console.log("Все последующие файлы будут сохранены автоматически.");
+    processAll = true;
+    return true;
+  }
+
+  const shouldWrite = response === "" || response === "y";
+  if (shouldWrite) {
+    console.log(`Сохранение изменений в ${filePath}`);
+  } else {
+    console.log(`Пропуск файла ${filePath}`);
+  }
+
+  return shouldWrite;
 }

@@ -1,0 +1,101 @@
+@use "../../styles/abstracts/variables" as *;
+@use "../../styles/abstracts/mixins" as *;
+
+.details-nested {
+  position: relative;
+  margin: 10px 0;
+  border-radius: $roundness;
+
+  &-summary {
+    display: flex;
+    position: relative;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-between;
+    transition: background-color 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+    border: 1px solid var(--color-surface-primary-border);
+    border-radius: $roundness;
+    background-color: var(--color-surface-primary-background);
+    cursor: pointer;
+    padding: 10px 12px;
+    text-transform: uppercase;
+    line-height: 1.2;
+    color: var(--color-surface-primary-text);
+    font-family: Onest, sans-serif;
+    font-size: min(calc(1rem + (1.1 - 1) * ((100vw - 320px) / (768 - 320))), 1.1rem);
+    font-weight: 600;
+
+    &:hover {
+      background-color: var(--color-surface-primary-background-hover);
+    }
+
+    &:active {
+      background-color: var(--color-surface-primary-background-active);
+    }
+
+    h3 {
+      margin: 0;
+      margin-inline-end: 10px;
+      text-wrap: balance;
+      font-size: inherit;
+      font-weight: inherit;
+    }
+
+    &-left {
+      display: flex;
+      flex-direction: row;
+      gap: 10px;
+      align-items: center;
+    }
+
+    &-icon {
+      transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+      font-family: "JetBrains Mono", monospace;
+    }
+
+    &-text-content {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+  }
+
+  &-section {
+    border: solid 1px var(--color-border-primary);
+    border-top: none;
+    background-color: var(--color-background-secondary);
+    padding: 20px 10px 10px;
+
+    > :first-child {
+      margin-top: 0;
+    }
+
+    > :last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &-content-wrapper {
+    transition: max-height 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    margin-block-start: -10px;
+    max-height: 0;
+    overflow: hidden;
+  }
+
+  &-content-inner {
+    overflow: hidden;
+  }
+
+  &.is-open {
+    .details-nested-summary-icon {
+      transform: rotate(45deg);
+    }
+
+    &[open] {
+      .details-nested-section {
+        border-bottom-left-radius: $roundness;
+        border-bottom-right-radius: $roundness;
+      }
+    }
+  }
+}

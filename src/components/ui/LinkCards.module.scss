@@ -1,0 +1,96 @@
+@use "../../styles/abstracts/variables" as *;
+@use "../../styles/abstracts/mixins" as *;
+
+.links-button {
+  box-sizing: border-box;
+  flex: 1 1 225px;
+  transition: background-color 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+  outline: 1px solid var(--color-surface-card-border);
+  border-radius: 0;
+  box-shadow: none;
+  background-color: var(--color-surface-card-background);
+  width: 100%;
+  min-width: 150px;
+
+  &:hover {
+    background-color: var(--color-surface-card-background-hover);
+    cursor: pointer;
+  }
+
+  &:active {
+    background-color: var(--color-surface-card-background-active);
+  }
+
+  a {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+  }
+
+  @media screen and (width <= 525px) {
+    flex: 1 1 165px;
+  }
+}
+
+.name-container {
+  box-sizing: border-box;
+  display: flex;
+  position: relative;
+  gap: 8px;
+  align-items: center;
+  padding-block: 8px;
+  padding-inline: 12px;
+  vertical-align: middle;
+
+  &_full-height {
+    height: 100%;
+  }
+}
+
+.icon {
+  fill: var(--color-surface-card-text);
+  flex-shrink: 0;
+  width: min(calc(18px + (21 - 18) * ((100vw - 320px) / (768 - 320))), 21px);
+  height: min(calc(18px + (21 - 18) * ((100vw - 320px) / (768 - 320))), 21px);
+  color: var(--color-surface-card-text);
+
+  path {
+    margin-block: auto;
+  }
+}
+
+.name {
+  text-align: left;
+  color: var(--color-surface-card-text);
+  font-family: Onest, sans-serif;
+  font-weight: 600;
+  text-wrap: balance;
+
+  @media screen and (width >= 320px) {
+    font-size: calc(1.075rem + (1.1 - 1.075) * ((100vw - 320px) / (768 - 320)));
+  }
+
+  @media screen and (width >= 768px) {
+    font-size: 1.1rem;
+  }
+}
+
+.description {
+  opacity: 0.7;
+  padding-block: 8px;
+  padding-block-start: 0;
+  padding-inline: 12px;
+  vertical-align: middle;
+  text-align: left;
+  font-weight: 375;
+  text-wrap: balance;
+
+  @media screen and (width >= 320px) {
+    font-size: calc(0.875rem + (0.9 - 0.875) * ((100vw - 320px) / (768 - 320)));
+  }
+
+  @media screen and (width >= 768px) {
+    font-size: 0.9rem;
+  }
+}

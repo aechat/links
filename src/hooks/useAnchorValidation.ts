@@ -25,21 +25,22 @@ export const useAnchorValidation = (sections: Section[], isPageLoaded: boolean) 
       }
 
       const isSpoilerAnchor =
-        document.getElementById(currentAnchor) ||
+        document.querySelector(`#${currentAnchor}`) ||
         document.querySelector(`details[data-anchor="${currentAnchor}"]`);
 
       if (isSpoilerAnchor) {
         return;
       }
 
-      const faqContainer = document.querySelector(".faq-content");
+      const faqContainer = document.querySelector(".article-content");
 
       if (faqContainer) {
         message.error(
           "Не удалось найти статью по ссылке, возможно, она была перемещена или удалена."
         );
+
         history.replaceState(
-          null,
+          undefined,
           "",
           globalThis.location.pathname + globalThis.location.search
         );
