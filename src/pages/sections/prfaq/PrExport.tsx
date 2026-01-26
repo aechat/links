@@ -14,10 +14,10 @@ const PrExport: React.FC = () => {
         tag="тикток, ютуб, максимальное качество, разрешение, битрейт, кодек, fps, соцсети, настройки рендера, вывод видео"
         title="Какие настройки экспорта стоит установить для вывода в социальные сети?"
       >
-        <p>
-          Каждая социальная сеть или видеоплощадка, увы, пережимают загружаемое
+        {/*   <p>
+          Каждая социальная сеть или видеоплощадка, увы, пережимает загружаемое
           пользователем видео так, чтобы оно занимало меньше места на серверах. Если вы
-          установите слишком высокое значение битрейта и разрешение, например для{" "}
+          установите слишком высокие значения битрейта и разрешения, например для{" "}
           <mark className="app">TikTok</mark>, то площадка с радостью всё пережмёт до{" "}
           <mark>1080p/60 FPS</mark> и битрейта около <mark>5 Мбит/с</mark>, поэтому
           разрешение <mark>4K</mark> и битрейт <mark>100 Мбит/с</mark> ставить
@@ -43,12 +43,12 @@ const PrExport: React.FC = () => {
         <p>
           Теперь поговорим о правилах хорошего тона для FPS. Если вы импортируете видео в
           монтажную программу с частотой 30 кадров в секунду, то и выводить его нужно с
-          такой же частотой, не больше. Вывести с меньшим фреймрейтом допустимо, если
-          такова ваша творческая задумка, но с большим — нет смысла, кадры из воздуха не
-          появятся. Если вы импортируете видео с разным фреймрейтом, например{" "}
-          <mark>24</mark>, <mark>30</mark> и <mark>60</mark>, то лучше создавать
-          композицию с наименьшим FPS, то есть <mark>24 кадра/с</mark> в данном примере.
-          Не всем понравится ваш трюк с комбинацией различных фреймрейтов в одном видео.
+          такой же частотой, не больше. Вывести с меньшей частотой допустимо, если такова
+          ваша творческая задумка, но с большей нет смысла: кадры из воздуха не появятся.
+          Если вы импортируете видео с разным фреймрейтом, например <mark>24</mark>,{" "}
+          <mark>30</mark> и <mark>60</mark>, лучше создавать секвенцию с наименьшим FPS,
+          то есть <mark>24 кадра/с</mark> в данном примере. Не всем понравится ваш трюк с
+          комбинацией разных частот кадров в одном видео.
         </p>
         <ContentFigure
           caption="Как несовпадение частоты кадров портит ваше видео"
@@ -56,10 +56,10 @@ const PrExport: React.FC = () => {
           type="youtube"
         />
         <p>
-          И прежде чем загрузить куда-нибудь контент с чересстрочной развёрткой — сделайте
+          И прежде чем загрузить куда-нибудь контент с чересстрочной развёрткой, сделайте
           её прогрессивной. Например, если у вас контент в <mark>1080i60</mark>, то его
-          следует перевести в <mark>1080p30</mark>, то есть 60 чересстрочных полукадров в
-          секунду следует заменить 30 прогрессивными кадрами в секунду.
+          следует перевести в <mark>1080p30</mark>: 60 чересстрочных полукадров в секунду
+          заменяются 30 прогрессивными кадрами.
         </p>
         <Divider>Экспортируем для YouTube</Divider>
         <p>
@@ -108,28 +108,28 @@ const PrExport: React.FC = () => {
             </tr>
             <tr>
               <td>1440p (2К)</td>
-              <td>16 Мбит/c</td>
-              <td>24 Мбит/c</td>
+              <td>16 Мбит/с</td>
+              <td>24 Мбит/с</td>
             </tr>
             <tr>
               <td>1080p</td>
-              <td>8 Мбит/c</td>
-              <td>12 Мбит/c</td>
+              <td>8 Мбит/с</td>
+              <td>12 Мбит/с</td>
             </tr>
             <tr>
               <td>720p</td>
-              <td>5 Мбит/c</td>
-              <td>7,5 Мбит/c</td>
+              <td>5 Мбит/с</td>
+              <td>7,5 Мбит/с</td>
             </tr>
             <tr>
               <td>480p</td>
-              <td>2,5 Мбит/c</td>
-              <td>4 Мбит/c</td>
+              <td>2,5 Мбит/с</td>
+              <td>4 Мбит/с</td>
             </tr>
             <tr>
               <td>360p</td>
-              <td>1 Мбит/c</td>
-              <td>1,5 Мбит/c</td>
+              <td>1 Мбит/с</td>
+              <td>1,5 Мбит/с</td>
             </tr>
           </tbody>
         </table>
@@ -160,7 +160,7 @@ const PrExport: React.FC = () => {
             </tr>
             <tr>
               <td>1080p</td>
-              <td>10 Мбит/c</td>
+              <td>10 Мбит/с</td>
               <td>15 Мбит/с</td>
             </tr>
             <tr>
@@ -212,7 +212,7 @@ const PrExport: React.FC = () => {
         </Addition>
         <p>
           На этой площадке можно выложить видео как отдельный пост или как вертикальные
-          Reels. Из-за того, что это два разных типа публикаций, требования тоже разные.
+          Reels. Из-за того что это два разных типа публикаций, требования тоже разные.
         </p>
         <ul>
           <li>
@@ -245,7 +245,7 @@ const PrExport: React.FC = () => {
           Желательно тоже в кодеке <mark className="video">H.264</mark>.
         </p>
         <p>
-          Публикация видео в каналы через мобильные устройства может ухудшить его качество
+          Публикация видео в каналы с мобильных устройств может ухудшить его качество
           из-за автоматической конвертации. Чтобы отправить видео в максимальном качестве,
           нажмите на кнопку выбора качества и потяните ползунок максимально вправо.
         </p>
@@ -271,9 +271,10 @@ const PrExport: React.FC = () => {
         <p>
           Для анимированной аватарки профиля нужно вывести видео в разрешении до{" "}
           <mark>800×800</mark> и с битрейтом до <mark>2 Мбит/с</mark>.
-        </p>
+        </p> */}
       </DetailsSummary>
       <DetailsSummary
+        anchor="export-mp4"
         tag="h.264, h.265, мп4, hevc, avc1, вывести видео, вукодер, voukoder, aftercodecs, афтеркодекс, хевк, авс1"
         title="Как вывести секвенцию в MP4 и H.264/H.265?"
       >
@@ -281,7 +282,7 @@ const PrExport: React.FC = () => {
           Предположим, вы хотите вывести качественное видео с минимальным весом в кодеке{" "}
           <mark className="video">H.264</mark> или <mark className="video">H.265</mark>, а
           также в цветовом пространстве <mark>Rec.709</mark>. Из{" "}
-          <mark className="app">Adobe Premiere Pro</mark> можно вывести тремя способами.
+          <mark className="app">Adobe Premiere</mark> можно вывести тремя способами.
         </p>
         <ul>
           <li>
@@ -328,15 +329,15 @@ const PrExport: React.FC = () => {
         <Divider>Экспортируем через встроенный H.264</Divider>
         <p>
           По умолчанию при открытии вкладки экспорта,{" "}
-          <mark className="app">Adobe Premiere Pro</mark> сам установит пресет для вывода
-          в <mark className="video">H.264</mark> с переменным битрейтом с одним проходом
+          <mark className="app">Adobe Premiere</mark> сам установит пресет для вывода в{" "}
+          <mark className="video">H.264</mark> с переменным битрейтом с одним проходом
           примерно в 15 Мбит/с. Для социальных сетей таких параметров хватит.
         </p>
         <p>
-          Если вам нужно изменить тип битрейта и скорость передачи данных — раскройте
+          Если вам нужно изменить тип битрейта и скорость передачи данных, раскройте
           вкладку <mark className="select">«Video»</mark> и измените нужные параметры. Вам
           доступны изменение битрейта, частоты кадров, цветового профиля, включение
-          эффектов и переключение между <mark>Software</mark>- или <mark>Hardware</mark>
+          эффектов и переключение между <mark>Software</mark>- и <mark>Hardware</mark>
           -кодированием. Чтобы изменить «заблокированные настройки», просто уберите флажок
           справа от нужного параметра.
         </p>
@@ -354,7 +355,7 @@ const PrExport: React.FC = () => {
         </p>
         <Divider>Экспортируем через Voukoder</Divider>
         <p>
-          Если же вас результат рендера от стандартного H.264 не устраивает, то можно
+          Если же вас результат рендера от стандартного H.264 не устраивает, можно
           воспользоваться плагином <mark className="plugin">Voukoder</mark>. В этом
           примере мы рассмотрим плагин{" "}
           <a href="https://github.com/Vouk/voukoder/releases/tag/13.4.1">версии 13.4.1</a>
@@ -363,12 +364,11 @@ const PrExport: React.FC = () => {
         <Addition type="warning">
           <ul>
             <li>
-              Чтобы подключить плагин к <mark className="app">Adobe Premiere Pro</mark>,
-              нужно скачать и установить сам <mark className="plugin">Voukoder</mark> и{" "}
+              Чтобы подключить плагин к <mark className="app">Adobe Premiere</mark>, нужно
+              скачать и установить сам <mark className="plugin">Voukoder</mark> и{" "}
               <mark className="plugin">коннектор</mark> к нему. Для корректной установки
               плагина убедитесь, что вы не устанавливали{" "}
-              <mark className="app">Adobe Premiere Pro</mark> в нестандартное
-              расположение.
+              <mark className="app">Adobe Premiere</mark> в нестандартное расположение.
             </li>
             <li>
               В этой статье используется версия{" "}
@@ -598,7 +598,7 @@ const PrExport: React.FC = () => {
       </DetailsSummary>
       <DetailsSummary title="Как вывести секвенцию в WEBM и VP9?">
         <p>
-          Стандартными средствами из <mark className="app">Adobe Premiere Pro</mark> и{" "}
+          Стандартными средствами из <mark className="app">Adobe Premiere</mark> и{" "}
           <mark className="app">Adobe Media Encoder</mark> нельзя вывести композицию в{" "}
           <mark className="video">WEBM</mark>, но можно вывести в другом формате и
           переконвертировать его.
@@ -606,7 +606,7 @@ const PrExport: React.FC = () => {
         <Addition type="danger">
           Крайне не рекомендую использовать плагин{" "}
           <a href="https://fnord.com/">WEBM от fnord</a> для экспорта из{" "}
-          <mark className="app">Adobe Premiere Pro</mark> и{" "}
+          <mark className="app">Adobe Premiere</mark> и{" "}
           <mark className="app">Adobe Media Encoder</mark>, так как он часто выводит видео
           на прозрачном фоне с жуткими артефактами.
         </Addition>
@@ -653,7 +653,7 @@ const PrExport: React.FC = () => {
         <p>
           После успешного экспорта открываем <mark className="app">Shutter Encoder</mark>{" "}
           и вставляем в него выведенное видео из{" "}
-          <mark className="app">Adobe Premiere Pro</mark>. В параметре{" "}
+          <mark className="app">Adobe Premiere</mark>. В параметре{" "}
           <mark className="select">«Choose Function»</mark> выбираем{" "}
           <mark className="video">VP9</mark>.
         </p>
@@ -704,7 +704,7 @@ const PrExport: React.FC = () => {
       </DetailsSummary>
       <DetailsSummary title="Как вывести секвенцию в GIF?">
         <p>
-          Из <mark className="app">Adobe Premiere Pro</mark> вывести ваш ролик в формат{" "}
+          Из <mark className="app">Adobe Premiere</mark> вывести ваш ролик в формат{" "}
           <mark className="image">GIF</mark> можно тремя способами.
         </p>
         <Addition type="info">
@@ -716,7 +716,7 @@ const PrExport: React.FC = () => {
         <ul>
           <li>
             Вывести <mark className="image">GIF</mark> напрямую из{" "}
-            <mark className="app">Adobe Premiere Pro</mark>, указав формат{" "}
+            <mark className="app">Adobe Premiere</mark>, указав формат{" "}
             <mark className="select">«Animated GIF»</mark> во вкладке{" "}
             <mark className="select">«Export»</mark>.
           </li>
@@ -753,10 +753,10 @@ const PrExport: React.FC = () => {
             </li>
           </ul>
         </Addition>
-        <Divider>Экспортируем из Premiere Pro</Divider>
+        <Divider>Экспортируем из Premiere</Divider>
         <p>
           Для начала экспорта <mark className="image">GIF</mark> напрямую из{" "}
-          <mark className="app">Adobe Premiere Pro</mark> вам нужно перейти во вкладку{" "}
+          <mark className="app">Adobe Premiere</mark> вам нужно перейти во вкладку{" "}
           <mark className="select">«Export»</mark> с помощью комбинации клавиш{" "}
           <mark className="key">Ctrl + M</mark>. Затем выберите в параметре{" "}
           <mark className="select">«Format»</mark> значение{" "}
@@ -799,10 +799,10 @@ const PrExport: React.FC = () => {
           когда откроется вторая программа.
         </p>
         <Addition type="info">
-          Секвенция из <mark className="app">Adobe Premiere Pro</mark> корректно
-          отправится в <mark className="app">Adobe Media Encoder</mark> только в том
-          случае, если у вас установлен одинаковый год программ и на стандартном
-          расположении программ. В противном случае вам выбьют ошибку о том, что{" "}
+          Секвенция из <mark className="app">Adobe Premiere</mark> корректно отправится в{" "}
+          <mark className="app">Adobe Media Encoder</mark> только в том случае, если у вас
+          установлен одинаковый год программ и на стандартном расположении программ. В
+          противном случае вам выбьют ошибку о том, что{" "}
           <mark className="app">Adobe Media Encoder</mark> не установлен.
         </Addition>
         <p>
@@ -948,7 +948,7 @@ const PrExport: React.FC = () => {
         <p>
           Вы, наверное, не раз замечали параметр <mark className="select">«Preset»</mark>{" "}
           в окне экспорта и задумывались, можно ли добавить свои? Да, в{" "}
-          <mark className="app">Adobe Premiere Pro</mark> можно добавить свои надстройки,
+          <mark className="app">Adobe Premiere</mark> можно добавить свои надстройки,
           чтобы в дальнейшем не перенастраивать экспорт.
         </p>
         <p>
@@ -1036,8 +1036,8 @@ const PrExport: React.FC = () => {
             <u>не забудьте</u>
           </b>{" "}
           создать новую пустую папку, куда вы хотите экспортировать все кадры, и указать
-          её в качестве пути для вывода. <mark className="app">Adobe Premiere Pro</mark>{" "}
-          не создаёт автоматически подпапку для секвенции изображений, как это делает{" "}
+          её в качестве пути для вывода. <mark className="app">Adobe Premiere</mark> не
+          создаёт автоматически подпапку для секвенции изображений, как это делает{" "}
           <mark className="app">Adobe After Effects</mark>.
         </p>
         <p>
@@ -1101,14 +1101,14 @@ const PrExport: React.FC = () => {
           <mark className="select">«Export»</mark>.
         </p>
       </DetailsSummary>
-      <DetailsSummary title="Я сделал работу в Premiere Pro, но мне нужно передать .prproj файл вместе с исходниками другому человеку. Возможно ли это сделать без танцев с бубном?">
+      <DetailsSummary title="Я сделал работу, но мне нужно передать .PRPROJ вместе с исходниками другому человеку. Возможно ли это сделать без танцев с бубном?">
         <p>
           Да, возможно. Это можно сделать через{" "}
           <mark className="select">«Project Manager»</mark>, который находится в параметре{" "}
           <mark className="select">«File»</mark> контекстного меню.
         </p>
         <ContentFigure
-          caption="Adobe Premiere Pro"
+          caption="Adobe Premiere"
           imgTitle="Открытие Project Manager"
           // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
           src="images/legacy/premierepro/file_project_manager.png"
@@ -1179,7 +1179,7 @@ const PrExport: React.FC = () => {
               </div>
               <Addition type="info">
                 Подробнее о создании архивов через{" "}
-                <a href="https://www.keka.io/ru/">keka</a> вы можете прочесть на{" "}
+                <a href="https://www.keka.io/ru/">Keka</a> вы можете прочесть на{" "}
                 <a href="https://github.com/aonez/Keka/wiki/Compressing-with-Keka">
                   этой странице
                 </a>
@@ -1209,9 +1209,9 @@ const PrExport: React.FC = () => {
           }
         />
       </DetailsSummary>
-      <DetailsSummary title="Я нарезал видео в Premiere Pro, но хочу переместить таймлайн в другую монтажную программу. Как это сделать?">
+      <DetailsSummary title="Я нарезал видео, но хочу переместить таймлайн в другую монтажную программу. Как это сделать?">
         <p>
-          В <mark className="app">Adobe Premiere Pro</mark> есть функция для экспорта{" "}
+          В <mark className="app">Adobe Premiere</mark> есть функция для экспорта{" "}
           <mark className="file">XML</mark> файла. В этом файле хранится вся информация об
           используемых клипах, точках их входа и выхода, а также другие параметры.
         </p>

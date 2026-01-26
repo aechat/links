@@ -56,7 +56,7 @@ const AeInterface: React.FC = () => {
           Если вариант со входом в аккаунт вас не устраивает или это окно просто мешает,
           его можно отключить. Для этого перейдите в{" "}
           <mark className="select">«Edit» → «Preferences» → «Startup & Repair»</mark> и
-          снимите чекбокс с параметра <mark className="select">«Enable Home Screen»</mark>
+          снимите чекбокс у параметра <mark className="select">«Enable Home Screen»</mark>
           .
         </p>
         <Addition type="info">
@@ -100,9 +100,9 @@ const AeInterface: React.FC = () => {
       >
         <p>
           Чтобы прикрепить окно к рабочему пространству, зажмите левую кнопку мыши на его
-          названии и перетащите в нужное место. Программа предложит варианты закрепления —
-          внутри другой панели или рядом с ней. Чтобы открепить окно, нажмите на три
-          полоски рядом с его заголовком и выберите{" "}
+          названии и перетащите в нужное место. Программа предложит варианты закрепления,
+          например внутри другой панели или рядом с ней. Чтобы открепить окно, нажмите на
+          три полоски рядом с его заголовком и выберите{" "}
           <mark className="select">«Undock Panel»</mark>.
         </p>
         <Addition type="info">
@@ -230,7 +230,7 @@ const AeInterface: React.FC = () => {
           переключаться.
         </p>
         <p>
-          Есть и другой вариант — организация в виде списка. В этом режиме свёрнутые окна
+          Есть и другой вариант: организация в виде списка. В этом режиме свёрнутые окна
           отображаются строками, а при клике на название нужное окно разворачивается.
           Чтобы включить такой вид, откройте контекстное меню окна и выберите{" "}
           <mark className="select">«Panel Group Settings» → «Stacked Panel Group»</mark>.
@@ -262,7 +262,7 @@ const AeInterface: React.FC = () => {
             отдельный параметр
           </a>{" "}
           для решения этой проблемы. Чтобы его включить, откройте{" "}
-          <mark className="select">«Edit» → «Preferences» → «General»</mark> и активируйте{" "}
+          <mark className="select">«Edit» → «Preferences» → «Project»</mark> и активируйте{" "}
           <mark className="select">
             «Maintain current workspace when opening projects»
           </mark>
@@ -270,8 +270,16 @@ const AeInterface: React.FC = () => {
           измените его вручную.
         </p>
         <Addition type="info">
-          В старых версиях <mark className="app">Adobe After Effects</mark> такой опции
-          нет. Чтобы она появилась, обновитесь до более свежей версии программы.
+          <ul>
+            <li>
+              В старых версиях <mark className="app">Adobe After Effects</mark> такой
+              опции нет. Чтобы она появилась, обновитесь до более свежей версии программы.
+            </li>
+            <li>
+              В <mark className="app">Adobe After Effects</mark> версии <mark>2025</mark>{" "}
+              эта кнопка находится в разделе <mark className="select">«General»</mark>.
+            </li>
+          </ul>
         </Addition>
         <ContentFigure
           caption="Preferences"
@@ -315,7 +323,7 @@ const AeInterface: React.FC = () => {
           Каждый, кто хоть раз работал в <mark className="app">Adobe After Effects</mark>,
           замечал на таймлайне зелёные или синие полосы, которые то появляются, то
           пропадают. Эти индикаторы показывают состояние кадров: отрендерены ли они и где
-          находятся — в оперативной памяти или в дисковом кэше.
+          находятся: в оперативной памяти или в дисковом кэше.
         </p>
         <ContentFigure
           caption="Timeline"
@@ -335,7 +343,7 @@ const AeInterface: React.FC = () => {
             может выгрузить эти кадры в дисковый кэш или удалить их.
             <Addition type="warning">
               В отличие от классических нелинейных редакторов, например{" "}
-              <mark className="app">Adobe Premiere Pro</mark> или{" "}
+              <mark className="app">Adobe Premiere</mark> или{" "}
               <mark className="app">DaVinci Resolve</mark>,{" "}
               <mark className="app">Adobe After Effects</mark> не рассчитан на
               предпросмотр в реальном времени, поэтому кадры всегда стоит предварительно
@@ -467,7 +475,7 @@ const AeInterface: React.FC = () => {
           Этот баг может появиться в любой версии программы, даже на чистой и лицензионной
           без сторонних плагинов и скриптов. Он может возникать при одновременной работе{" "}
           <mark className="app">Adobe After Effects</mark> и{" "}
-          <mark className="app">Adobe Premiere Pro</mark>, а также при использовании{" "}
+          <mark className="app">Adobe Premiere</mark>, а также при использовании{" "}
           <mark className="plugin">Dynamic Link</mark>.
         </p>
         <Addition type="warning">
@@ -1046,10 +1054,15 @@ const AeInterface: React.FC = () => {
           Скорее всего, вы случайно установили флажок возле параметра, который позволяет
           программе использовать системное диалоговое окно выбора цвета. Чтобы вернуть
           стандартный для <mark className="app">Adobe After Effects</mark> вид, перейдите
-          в <mark className="select">«Edit» → «Preferences» → «General»</mark> и уберите
-          флажок возле параметра <mark className="select">«Use System Color Picker»</mark>
-          . После этого при выборе цвета вернётся привычное окно.
+          в <mark className="select">«Edit» → «Preferences» → «Appearance»</mark> и
+          уберите флажок возле параметра{" "}
+          <mark className="select">«Use System Color Picker»</mark>. После этого при
+          выборе цвета вернётся привычное окно.
         </p>
+        <Addition type="info">
+          В старых версиях <mark className="app">Adobe After Effects</mark> эта кнопка
+          находится в разделе <mark className="select">«General»</mark>.
+        </Addition>
         <ContentFigure
           caption="Preferences"
           imgTitle="Настройка использования системного выбора цвета"

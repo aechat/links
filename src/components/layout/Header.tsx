@@ -30,7 +30,7 @@ const TOOLTIP_MESSAGES: Record<string, string> = {
   "/": "Ссылки на полезные ресурсы, программы и чаты",
   "/aeexpr": "Руководство по выражениям в Adobe After Effects",
   "/aefaq": "Ответы на часто задаваемые вопросы по Adobe After Effects",
-  "/prfaq": "Ответы на часто задаваемые вопросы по Adobe Premiere Pro",
+  "/prfaq": "Ответы на часто задаваемые вопросы по Adobe Premiere",
   "/psfaq": "Ответы на часто задаваемые вопросы по Adobe Photoshop",
   "/rules": "Правила сообщества AEChat и DWChat",
 };
@@ -135,7 +135,9 @@ const Header: React.FC<HeaderProperties> = ({title}) => {
             </>
           )}
           {WIP_PATHS.some((path) => currentPath.includes(path)) && (
-            <mark>{isWide ? "[В РАЗРАБОТКЕ]" : "[WIP]"}</mark>
+            <Tooltip title="Некоторые статьи на этой странице могут отсутствовать или иметь множество ошибок">
+              <mark>{isWide ? "[В РАЗРАБОТКЕ]" : "[WIP]"}</mark>
+            </Tooltip>
           )}
         </div>
         <div>{isWide ? <SupportDonut wide /> : <SupportDonut />}</div>

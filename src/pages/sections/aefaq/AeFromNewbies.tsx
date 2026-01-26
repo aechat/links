@@ -91,7 +91,7 @@ const AeFromNewbies: React.FC = () => {
           <li>
             Если вы уже знакомы с интерфейсом программы, но всё ещё чувствуете себя
             неуверенно, попробуйте изучить каналы на <mark className="app">YouTube</mark>{" "}
-            из списка ниже — они помогут прокачать ваши навыки.
+            из списка ниже: они помогут прокачать ваши навыки.
             <div className="flexible-links">
               <a href="https://www.youtube.com/@TutoView/videos">Tutorials View+</a>
               <a href="https://www.youtube.com/@BenMarriott/videos">Ben Marriott</a>
@@ -159,8 +159,8 @@ const AeFromNewbies: React.FC = () => {
             />
           </li>
           <li>
-            Если вы хотите повторить трендовые ролики с плавным ускорением и замедлением —
-            так называемым «speed ramp», то данный эффект делается с помощью изменения
+            Если вы хотите повторить трендовые ролики с плавным ускорением и замедлением,
+            так называемым «speed ramp», то этот эффект делается с помощью изменения
             скорости в параметре <mark className="select">«Time Remapping»</mark>.
             <Addition type="info">
               Чтобы включить <mark className="select">«Time Remapping»</mark> у
@@ -209,7 +209,7 @@ const AeFromNewbies: React.FC = () => {
             <mark className="app">
               Instagram<sup>1</sup> Reels
             </mark>{" "}
-            и хочется попробовать создать что-то подобное — обратите внимание на обучающие
+            и хочется попробовать создать что-то подобное, обратите внимание на обучающие
             видео на каналах ниже.
             <div className="flexible-links">
               <a href="https://www.youtube.com/@Tozel./videos">Tozel</a>
@@ -231,7 +231,7 @@ const AeFromNewbies: React.FC = () => {
           </li>
           <li>
             В «эдитах» нередко используют эффект тряски камеры. Его можно реализовать
-            разными способами — например, с помощью стандартного выражения{" "}
+            разными способами, например с помощью стандартного выражения{" "}
             <mark className="code">wiggle(freq, amp)</mark> или сторонних эффектов{" "}
             <mark className="plugin">S_Shake</mark> и{" "}
             <mark className="plugin">Twitch</mark>
@@ -263,7 +263,7 @@ const AeFromNewbies: React.FC = () => {
             />
           </li>
           <li>
-            Для придания объектам свечения используют различные эффекты — от стандартного{" "}
+            Для придания объектам свечения используют различные эффекты: от стандартного{" "}
             <mark className="plugin">Glow</mark> до сторонних{" "}
             <mark className="plugin">S_Glow</mark>,{" "}
             <mark className="plugin">Deep Glow</mark> и других.
@@ -292,7 +292,7 @@ const AeFromNewbies: React.FC = () => {
             />
           </li>
           <li>
-            На популярных видеоплощадках вроде <mark className="app">TikTok</mark> и{" "}
+            На популярных видеоплощадках, таких как <mark className="app">TikTok</mark> и{" "}
             <mark className="app">YouTube Shorts</mark> нередко используют спорные приёмы
             «улучшения» качества через цветокоррекцию: применяют эффекты{" "}
             <mark className="plugin">Sharpen</mark> и{" "}
@@ -327,7 +327,7 @@ const AeFromNewbies: React.FC = () => {
           нужно создать слои. Слои бывают разных видов, например текст, камера, видео или
           фигура. В <mark className="app">Adobe After Effects</mark>, в отличие от
           программ для нелинейного монтажа вроде{" "}
-          <mark className="app">Adobe Premiere Pro</mark>, каждый слой занимает отдельную
+          <mark className="app">Adobe Premiere</mark>, каждый слой занимает отдельную
           дорожку. Также каждому слою вы можете задать свой цвет метки для лучшего
           ориентирования в таймлайне.
         </p>
@@ -423,7 +423,7 @@ const AeFromNewbies: React.FC = () => {
                     <mark className="app">Adobe After Effects</mark> не работает с
                     несколькими звуковыми дорожками в одном файле — он «увидит» только
                     первую. Остальные нужно извлечь, например, с помощью{" "}
-                    <mark className="app">Handbrake</mark> или{" "}
+                    <mark className="app">HandBrake</mark> или{" "}
                     <mark className="app">MKVToolNix</mark>, и импортировать в композицию
                     отдельно.
                   </li>
@@ -604,7 +604,7 @@ const AeFromNewbies: React.FC = () => {
                     серьёзной работы со звуком, не смотря на наличие эффектов в разделе{" "}
                     <mark className="path">Audio Effects</mark>. Для этого лучше
                     использовать <mark className="app">Adobe Audition</mark> или{" "}
-                    <mark className="app">Adobe Premiere Pro</mark>.
+                    <mark className="app">Adobe Premiere</mark>.
                   </li>
                 </ul>
               </Addition>
@@ -2291,7 +2291,7 @@ const AeFromNewbies: React.FC = () => {
             <mark className="word">Могрт</mark>, или <mark className="word">MOGRT</mark>,
             — шаблон анимационного дизайна, который создаётся в{" "}
             <mark className="app">Adobe After Effects</mark> для дальнейшего использования
-            в <mark className="app">Adobe Premiere Pro</mark>.
+            в <mark className="app">Adobe Premiere</mark>.
           </li>
           <li>
             <mark className="word">Мокка</mark>, или <mark className="word">моча</mark>, —
@@ -4304,17 +4304,17 @@ const AeFromNewbies: React.FC = () => {
       </DetailsSummary>
       <DetailsSummary
         tag="разница, сравнение, after effects vs premiere pro, пайплайн, выбор программы"
-        title="В каких случаях нужно использовать Adobe After Effects, а в каких — Adobe Premiere Pro?"
+        title="В каких случаях нужно использовать Adobe After Effects, а в каких — Adobe Premiere?"
       >
         <p>
           Эти две программы предназначены для разных задач. В{" "}
           <mark className="app">Adobe After Effects</mark> теоретически можно смонтировать
-          двухчасовой фильм, а в <mark className="app">Adobe Premiere Pro</mark> —
-          заняться композитингом. Однако такой подход неэффективен. Разберёмся, когда
-          какую программу использовать.
+          двухчасовой фильм, а в <mark className="app">Adobe Premiere</mark> — заняться
+          композитингом. Однако такой подход неэффективен. Разберёмся, когда какую
+          программу использовать.
         </p>
         <ContentFigure
-          caption="Когда нужно использовать Adobe Premiere Pro и Adobe After Effects"
+          caption="Когда нужно использовать Adobe Premiere и Adobe After Effects"
           src="xxDdL455rAo"
           type="youtube"
         />
@@ -4327,29 +4327,28 @@ const AeFromNewbies: React.FC = () => {
             коротких <mark className="video">«эдитов»</mark>.
           </li>
           <li>
-            Теоретически <mark className="app">Adobe Premiere Pro</mark> позволяет делать
+            Теоретически <mark className="app">Adobe Premiere</mark> позволяет делать
             моушен-дизайн, но реализация создании анимации там крайне неудобна. Проще
             создать нужную анимацию в <mark className="app">Adobe After Effects</mark>,
             экспортировать композицию и импортировать её в{" "}
-            <mark className="app">Adobe Premiere Pro</mark>.
+            <mark className="app">Adobe Premiere</mark>.
           </li>
           <li>
             <mark className="app">Adobe After Effects</mark> не рассчитан на сборку
             длинных видеороликов — он иначе работает с памятью и файлами по сравнению с{" "}
-            <mark className="app">Adobe Premiere Pro</mark>. Даже при полной сборке
-            проекта в <mark className="app">Adobe After Effects</mark> вы можете
-            столкнуться с ошибками вроде <mark className="warning">«Out of Memory»</mark>{" "}
-            и долгим рендером. Для длинных проектов, подкастов, фильмов или сериалов лучше
-            использовать <mark className="app">Adobe Premiere Pro</mark> или другую
-            программу для нелинейного монтажа — например,{" "}
+            <mark className="app">Adobe Premiere</mark>. Даже при полной сборке проекта в{" "}
+            <mark className="app">Adobe After Effects</mark> вы можете столкнуться с
+            ошибками вроде <mark className="warning">«Out of Memory»</mark> и долгим
+            рендером. Для длинных проектов, подкастов, фильмов или сериалов лучше
+            использовать <mark className="app">Adobe Premiere</mark> или другую программу
+            для нелинейного монтажа — например,{" "}
             <mark className="app">DaVinci Resolve</mark>.
             <Addition type="info">
               При необходимости вы можете импортировать нужный фрагмент из секвенции в{" "}
               <mark className="app">Adobe After Effects</mark> с помощью{" "}
               <mark className="select">«Replace with After Effects Composition»</mark>,
               затем экспортировать его в <mark className="video">Apple ProRes 4444</mark>{" "}
-              и заменить исходный участок в{" "}
-              <mark className="app">Adobe Premiere Pro</mark>.
+              и заменить исходный участок в <mark className="app">Adobe Premiere</mark>.
             </Addition>
             <Addition type="warning">
               <ul>
@@ -4372,14 +4371,14 @@ const AeFromNewbies: React.FC = () => {
             полноценной обработки аудио. Несмотря на наличие эффектов вроде{" "}
             <mark className="plugin">Echo</mark> или{" "}
             <mark className="plugin">Reverb</mark>, работать со звуком удобнее в{" "}
-            <mark className="app">Adobe Premiere Pro</mark> или{" "}
+            <mark className="app">Adobe Premiere</mark> или{" "}
             <mark className="app">Adobe Audition</mark>. Эти программы поддерживают
             многодорожечную обработку и <mark className="plugin">VST-плагины</mark>. При
             необходимости звук можно экспортировать из них и импортировать обратно в
             композицию <mark className="app">Adobe After Effects</mark>.
           </li>
           <li>
-            <mark className="app">Adobe Premiere Pro</mark> не подходит для сложного
+            <mark className="app">Adobe Premiere</mark> не подходит для сложного
             композитинга и создания визуальных эффектов с нуля. В этом плане{" "}
             <mark className="app">Adobe After Effects</mark> предлагает больше
             возможностей: поддержка трёхмерных сцен, работа со сторонними эффектами и
@@ -4769,7 +4768,7 @@ const AeFromNewbies: React.FC = () => {
           <mark className="app">Adobe After Effects</mark> по умолчанию пытается
           воспроизводить видео в реальном времени и не успевает просчитывать эффекты. В
           отличие от классических нелинейных редакторов, таких как{" "}
-          <mark className="app">Adobe Premiere Pro</mark> или{" "}
+          <mark className="app">Adobe Premiere</mark> или{" "}
           <mark className="app">DaVinci Resolve</mark>,{" "}
           <mark className="app">Adobe After Effects</mark> изначально не предназначен для
           полноценного предпросмотра в реальном времени — поэтому кадры следует кэшировать
@@ -5117,7 +5116,7 @@ const AeFromNewbies: React.FC = () => {
           <li>
             Закройте другие ресурсоёмкие программы, например браузер,{" "}
             <mark className="app">Blender</mark>,{" "}
-            <mark className="app">Adobe Premiere Pro</mark> или другие.
+            <mark className="app">Adobe Premiere</mark> или другие.
           </li>
           <li>
             <ContentFilter

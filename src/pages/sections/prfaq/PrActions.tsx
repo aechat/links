@@ -16,10 +16,10 @@ const PrActions: React.FC = () => {
         title="Какими средствами можно улучшить качество исходников?"
       >
         <p>
-          В последнее время появилось множество инструментов с использованием
-          искусственного интеллекта, которые могут помочь вам улучшить качество видео. Все
-          описанные методы работают локально на вашем устройстве, поэтому для их
-          корректной работы потребуется производительная видеокарта и мощный процессор.
+          В последнее время появилось множество инструментов на основе искусственного
+          интеллекта, которые помогают улучшить качество фото и видео. Все описанные
+          методы работают локально на вашем устройстве, поэтому для их корректной работы
+          потребуются производительная видеокарта и мощный процессор.
         </p>
         <Addition type="info">
           Интерфейс и действия в приведённых ниже видео могут отличаться в зависимости от
@@ -27,44 +27,37 @@ const PrActions: React.FC = () => {
         </Addition>
         <Divider>Улучшаем качество видео</Divider>
         <p>
+          Начнём с самого популярного запроса: улучшения качества видео. Для этого чаще
+          всего используют <mark className="app">Topaz Video AI</mark> с помощью которого
+          можно заметно повысить качество исходного материала и даже сделать видео более
+          плавным. Однако стоит учесть, что хороший результат не всегда получается с
+          первой попытки, поэтому не стоит бояться экспериментировать с настройками.
+        </p>
+        <ContentFigure
+          caption="Topaz Video AI Tutorials Enhancing Low Quality Video"
+          src="XBEkVHd2tmw"
+          type="youtube"
+        />
+        <p>
           Если вы хотите повысить качество исходного материала прямо в{" "}
-          <mark className="app">Adobe Premiere Pro</mark>, попробуйте применить к слою
-          эффект <mark className="plugin">BCC+UpRes ML</mark>, который входит в сторонний
-          пакет <mark className="plugin">Boris FX Continuum</mark>.
+          <mark className="app">Adobe Premiere</mark>, попробуйте применить к слою эффект{" "}
+          <mark className="plugin">BCC+UpRes ML</mark>, который входит в сторонний пакет{" "}
+          <mark className="plugin">Boris FX Continuum</mark>.
         </p>
         <ContentFigure
           caption="BCC UpRes ML"
           src="_gHNqhHfeck"
           type="youtube"
         />
-        <p>
-          В качестве альтернативы можно посоветовать программу{" "}
-          <mark className="app">Topaz Video AI</mark>. Она позволяет улучшить качество
-          видео за счёт различных алгоритмов и моделей. Однако стоит учесть, что хороший
-          результат не всегда может получиться с первой попытки, поэтому не стоит бояться
-          экспериментировать с настройками. Программа распространяется как отдельное
-          приложение, плагин для <mark className="app">Adobe Premiere Pro</mark>{" "}
-          отсутствует.
-        </p>
-        <ContentFigure
-          caption="Topaz Video AI"
-          src="zbX7x8Oo_Uc"
-          type="youtube"
-        />
-        <Addition type="info">
-          Скачать программу <mark className="app">Topaz Video AI</mark>, а также пакет
-          плагинов <mark className="plugin">Boris FX Continuum</mark> можно в канале{" "}
-          <a href="https://t.me/+Qd9xu7A4TeIwNzY6">склад стройматериалов</a>.
-        </Addition>
         <Divider>Улучшаем качество фотографий</Divider>
         <p>
           Для улучшения качества изображений прямо в{" "}
-          <mark className="app">Adobe Premiere Pro</mark> можно использовать способы,
-          описанные в статье ранее.
+          <mark className="app">Adobe Premiere</mark> можно использовать способы,
+          описанные в этой статье выше.
         </p>
         <p>
           Если вы хотите улучшить изображение без использования{" "}
-          <mark className="app">Adobe Premiere Pro</mark>, попробуйте воспользоваться{" "}
+          <mark className="app">Adobe Premiere</mark>, попробуйте воспользоваться{" "}
           <mark className="app">Topaz Photo AI</mark> или{" "}
           <mark className="app">Topaz Gigapixel AI</mark>. Задачи у них похожи, но
           результаты обработки могут сильно отличаться, поэтому иногда приходится
@@ -73,9 +66,11 @@ const PrActions: React.FC = () => {
         </p>
         <Addition type="warning">
           Для <mark className="app">Topaz Photo AI</mark> понадобится около{" "}
-          <mark>50 ГБ</mark> свободного места на жёстком диске, а для{" "}
-          <mark className="app">Topaz Gigapixel AI</mark> — около <mark>20 ГБ</mark>. И
-          это без учёта будущих обновлений.
+          <mark>50 ГБ</mark> свободного места на диске: примерно <mark>43 ГБ</mark> в{" "}
+          <mark className="path">ProgramData</mark>, около <mark>2 ГБ</mark> в{" "}
+          <mark className="path">Program Files</mark> и ещё около <mark>5 ГБ</mark> под
+          временные файлы. Для <mark className="app">Topaz Gigapixel AI</mark> — около{" "}
+          <mark>20 ГБ</mark>. И это без учёта будущих обновлений.
         </Addition>
         <ContentFigure
           caption="Intro to Photo AI"
@@ -98,10 +93,10 @@ const PrActions: React.FC = () => {
         <p>
           В качестве альтернативы можно использовать{" "}
           <mark className="app">Benvista PhotoZoom</mark> — программу с историей, уходящей
-          корнями в 2003 год. В последних версиях в неё добавили нейросетевые модели, хотя
-          работать можно и без них. Благодаря собственным алгоритмам программа порой даёт
-          результат даже лучше, чем упомянутые выше инструменты, при этом занимает совсем
-          немного места на диске.
+          корнями в нулевые. В последних версиях в неё добавили нейросетевые модели, хотя
+          можно работать и без них. Благодаря собственным алгоритмам программа порой даёт
+          результат даже лучше, чем упомянутые выше инструменты, и при этом занимает
+          совсем немного места на диске.
         </p>
         <ContentFigure
           caption="Benvista Photozoom"
@@ -117,15 +112,15 @@ const PrActions: React.FC = () => {
         <p>
           Иногда возникает необходимость сделать видео максимально плавным, особенно если
           исходник снят с низкой частотой кадров. С этой задачей отлично справляются
-          современные инструменты интерполяции, которые создают дополнительные кадры на
-          основе существующих, сглаживая движение и убирая рывки.
+          современные инструменты интерполяции, которые создают дополнительные кадры между
+          существующими, сглаживая движение и убирая рывки.
         </p>
         <Addition type="warning">
           <ul>
             <li>
               Интерполяция кадров в видео низкого качества, особенно с резкими движениями
               или низкой частотой кадров, может привести к появлению артефактов и ещё
-              больше ухудшить картинку.
+              сильнее ухудшить картинку.
             </li>
             <li>
               Прежде чем замедлять аниме, записи игрового процесса или видео с переменной
@@ -140,14 +135,13 @@ const PrActions: React.FC = () => {
           Интерфейс и действия в приведённых ниже видео могут отличаться в зависимости от
           версии программы или плагина.
         </Addition>
-        <Divider>Плавно замедляем видео в Adobe Premiere Pro</Divider>
+        <Divider>Плавно замедляем видео в Adobe Premiere</Divider>
         <p>
           Замедлить видео можно стандартными средствами{" "}
-          <mark className="app">Adobe Premiere Pro</mark>, но результат будет не таким
-          хорошим, как хотелось бы. Для этого выделите нужный клип, нажмите{" "}
-          <mark className="key">Ctrl + R</mark> и растяните видео на нужную длину. В
-          параметре <mark className="select">«Time Interpolation»</mark> можно выбрать три
-          типа интерполяции: <mark className="select">«Frame Sampling»</mark>,{" "}
+          <mark className="app">Adobe Premiere</mark>. Для этого выделите нужный клип,
+          нажмите <mark className="key">Ctrl + R</mark> и растяните видео на нужную длину.
+          В параметре <mark className="select">«Time Interpolation»</mark> можно выбрать
+          три типа интерполяции: <mark className="select">«Frame Sampling»</mark>,{" "}
           <mark className="select">«Frame Blending»</mark> или{" "}
           <mark className="select">«Optical Flow»</mark>.
         </p>
@@ -181,12 +175,12 @@ const PrActions: React.FC = () => {
           src="YraSxOpy1Qg"
           type="youtube"
         />
-        <Divider>«Уплавняем» видео вне Adobe Premiere Pro</Divider>
+        <Divider>«Уплавняем» видео вне Adobe Premiere</Divider>
         <p>
           Если стоит задача увеличить частоту кадров, например, с <mark>24 FPS</mark> до{" "}
           <mark>60 FPS</mark> или даже <mark>120 FPS</mark> для дальнейшей обработки или
           более плавного воспроизведения, можно обойтись без{" "}
-          <mark className="app">Adobe Premiere Pro</mark> и воспользоваться программой{" "}
+          <mark className="app">Adobe Premiere</mark> и воспользоваться программой{" "}
           <mark className="app">Flowframes</mark>. У этой утилиты есть{" "}
           <a href="https://nmkd.itch.io/flowframes">бесплатная версия</a>
           <sup>1</sup> и <a href="https://www.patreon.com/n00mkrad">платная</a> с
@@ -349,7 +343,8 @@ const PrActions: React.FC = () => {
         </ul>
       </DetailsSummary>
       <DetailsSummary
-        tag="уменьшить шум, denoiser, денойзер, неат видео, шумоподавление, чистка видео"
+        anchor="video-denoise"
+        tag="уменьшить шум, denoiser, neat video, подавление цифрового шума, денойзер, неат видео, шумоподавление, чистка видео"
         title="Чем можно подавить шумы на видео?"
       >
         <p>
@@ -357,14 +352,19 @@ const PrActions: React.FC = () => {
           скорее всего, столкнётесь с цифровым шумом. Этот дефект возникает из-за
           особенностей работы сенсоров камер и самой природы света. Шум особенно заметен
           на однотонных поверхностях: небе, коже, стенах и в тенях. Полностью от него
-          избавиться сложно, но его можно существенно подавить с помощью специальных
+          избавиться сложно, но его можно заметно подавить с помощью специальных
           инструментов.
         </p>
+        <Addition type="warning">
+          Чрезмерное подавление шума может ухудшить качество исходного материала. Важно
+          найти правильный баланс между удалением шума и сохранением деталей, отталкиваясь
+          от особенностей исходника.
+        </Addition>
         <Divider>Подавляем шумы стандартными средствами</Divider>
         <p>
-          Если вы не хотите заморачиваться со сторонними плагинами, но хотите немного
-          подавить шум на видео — воспользуйтесь встроенным эффектом{" "}
-          <mark className="plugin">VR De-Noise</mark>.
+          В <mark className="app">Adobe Premiere</mark> есть встроенный эффект{" "}
+          <mark className="plugin">VR De-Noise</mark>, с помощью которого можно подавить
+          шумы, не прибегая к сторонним плагинам.
         </p>
         <ContentFigure
           caption="VR De-Noise"
@@ -373,9 +373,11 @@ const PrActions: React.FC = () => {
         />
         <Divider>Подавляем шумы с помощью сторонних плагинов</Divider>
         <p>
-          Если результат от стандартного эффекта вас не устраивает, попробуйте
-          воспользоваться одним из самых эффективных плагинов для уменьшения шума и
-          мерцания от искусственного света — <mark className="plugin">Neat Video</mark>.
+          Если результат от стандартного <mark className="plugin">VR De-Noise</mark> вас
+          не устраивает, попробуйте воспользоваться одним из самых эффективных плагинов
+          для уменьшения шума и мерцания от искусственного света —{" "}
+          <mark className="plugin">Neat Video</mark>. Он гибко настраивается, адаптируется
+          под разные типы шума и поддерживает аппаратное ускорение с помощью видеокарты.
         </p>
         <ContentFigure
           caption="Neat Video"
@@ -394,9 +396,11 @@ const PrActions: React.FC = () => {
         />
         <p>
           Также в стороннем пакете <mark className="plugin">Boris FX Continuum</mark> есть
-          два денойзера: <mark className="plugin">BCC DeNoise OBS</mark> на основе
-          «классических» алгоритмов и более современный{" "}
-          <mark className="plugin">BCC+DeNoise ML</mark>, основанный на машинном обучении.
+          два денойзера: <mark className="plugin">BCC DeNoise OBS</mark> использует
+          «классические» алгоритмы подавления шума и отлично справляется с простыми
+          задачами, а более современный <mark className="plugin">BCC+DeNoise ML</mark>{" "}
+          применяет машинное обучение, что позволяет эффективно очищать более сложные
+          кадры.
         </p>
         <ContentFigure
           caption="BCC DeNoise ML"
@@ -404,7 +408,8 @@ const PrActions: React.FC = () => {
           type="youtube"
         />
         <p>
-          Ну и куда же без <mark className="plugin">RE:Vision Effects</mark> с их{" "}
+          В качестве ещё одного варианта можно использовать{" "}
+          <mark className="plugin">RE:Vision Effects</mark> с их{" "}
           <mark className="plugin">DE:Noise</mark>.
         </p>
         <ContentFigure
@@ -418,9 +423,10 @@ const PrActions: React.FC = () => {
         title="Какими средствами обычно удаляют зелёный или синий фон?"
       >
         <p>
-          Допустим, у вас есть видеоматериал с объектом или персонажем на зелёном фоне,
-          который требуется удалить. Для этого существует множество инструментов и техник,
-          которые помогут вам справиться с этой задачей.
+          Предположим, у вас есть исходники с объектом или персонажем на зелёном или синем
+          фоне. Чтобы быстро убрать такой фон, нужно воспользоваться инструментами для
+          кеинга. Использовать <mark className="plugin">Object Mask</mark> в этом случае
+          не стоит: это может занять больше времени, а результат может оказаться хуже.
         </p>
         <Addition type="info">
           Если вы хотите потренироваться в кеинге — скачайте любое видео из{" "}
@@ -431,7 +437,7 @@ const PrActions: React.FC = () => {
         </Addition>
         <Divider>Удаляем однотонный фон стандартными средствами</Divider>
         <p>
-          В <mark className="app">Adobe Premiere Pro</mark> легко убрать зелёный фон,
+          В <mark className="app">Adobe Premiere</mark> легко убрать зелёный фон,
           используя встроенный эффект <mark className="plugin">Ultra Key</mark>.
         </p>
         <ContentFigure
@@ -442,9 +448,8 @@ const PrActions: React.FC = () => {
         <Divider>Удаляем однотонный фон сторонними плагинами</Divider>
         <Addition type="info">
           Плагины ниже демонстрируются в <mark className="app">Adobe After Effects</mark>.
-          Все эти действия можно повторить и в{" "}
-          <mark className="app">Adobe Premiere Pro</mark>, принцип работы мало чем
-          отличается.
+          Все эти действия можно повторить и в <mark className="app">Adobe Premiere</mark>
+          , принцип работы мало чем отличается.
         </Addition>
         <p>
           Из сторонних инструментов для удаления цветного фона любой сложности можно
@@ -457,7 +462,7 @@ const PrActions: React.FC = () => {
           type="youtube"
         />
         <p>
-          Если результат работы плагина выше не нравится, есть{" "}
+          В качестве альтернативы можно попробовать{" "}
           <mark className="plugin">BCC Primatte Studio</mark> из пакета{" "}
           <mark className="plugin">Boris FX Continuum</mark>.
         </p>
@@ -500,8 +505,8 @@ const PrActions: React.FC = () => {
         title="Как сделать автоматические субтитры для видео?"
       >
         <p>
-          В <mark className="app">Adobe Premiere Pro</mark> с версии <mark>2022</mark> и
-          новее добавили поддержку автоматического перевода речи в текст. Работает как на
+          В <mark className="app">Adobe Premiere</mark> с версии <mark>2022</mark> и новее
+          добавили поддержку автоматического перевода речи в текст. Работает как на
           лицензионных, так и на «народных» версиях.
         </p>
         <Addition type="info">
@@ -510,7 +515,7 @@ const PrActions: React.FC = () => {
               На «народных» версиях обычно языковые пакеты не поставляются вместе с
               дистрибутивом, чтобы не раздувать размер установщика. Их можно загрузить
               отдельно по запросу <mark className="copy">Speech To Text</mark> именно для
-              вашей версии <mark className="app">Adobe Premiere Pro</mark>.
+              вашей версии <mark className="app">Adobe Premiere</mark>.
               <Addition type="info">
                 Языковые пакеты вы можете скачать в канале{" "}
                 <a href="https://t.me/+Qd9xu7A4TeIwNzY6">
@@ -523,30 +528,30 @@ const PrActions: React.FC = () => {
             </li>
             <li>
               Если вы установите языковой пакет, который предназначен для версии{" "}
-              <mark className="app">Adobe Premiere Pro</mark>, отличной от вашей, вы
-              просто зря займёте место на диске, а язык не установится, и программа будет
+              <mark className="app">Adobe Premiere</mark>, отличной от вашей, вы просто
+              зря займёте место на диске, а язык не установится, и программа будет
               постоянно предлагать его скачать. То есть, если у вас установлен{" "}
-              <mark className="app">Adobe Premiere Pro</mark> версии <mark>24.6</mark>, а
+              <mark className="app">Adobe Premiere</mark> версии <mark>24.6</mark>, а
               языковой пакет, который вы скачали и установили, предназначен для{" "}
               <mark>24.1</mark>, то в вашей версии программы он попросту не появится.
               <Addition type="info">
                 Информацию о текущей сборке программы вы можете узнать в{" "}
-                <mark className="select">«Help» → «About Premiere Pro»</mark>.
+                <mark className="select">«Help» → «About Premiere»</mark>.
               </Addition>
             </li>
             <li>
               Языковые пакеты могут не установиться корректно, если{" "}
-              <mark className="app">Adobe Premiere Pro</mark> расположен в нестандартном
-              пути установки, то есть отличном от{" "}
+              <mark className="app">Adobe Premiere</mark> расположен в нестандартном пути
+              установки, то есть отличном от{" "}
               <mark className="path">C:\Program Files\Adobe</mark>.
             </li>
           </ul>
         </Addition>
-        <Divider>Генерируем субтитры из речи в Premiere Pro</Divider>
+        <Divider>Генерируем субтитры из речи в Premiere</Divider>
         <p>
           Предположим, вы установили языковые пакеты для вашей версии{" "}
-          <mark className="app">Adobe Premiere Pro</mark> и хотите начать транскрибацию.
-          Для этого откройте окно <mark className="select">«Text»</mark> через меню{" "}
+          <mark className="app">Adobe Premiere</mark> и хотите начать транскрибацию. Для
+          этого откройте окно <mark className="select">«Text»</mark> через меню{" "}
           <mark className="select">«Window»</mark>. Затем во вкладке{" "}
           <mark className="select">«Transcribe»</mark> нажмите на три точки в углу и
           выберите функцию <mark className="select">«Generate static transcript»</mark>.
@@ -617,9 +622,8 @@ const PrActions: React.FC = () => {
         />
         <Addition type="info">
           Если у вас установлен <mark className="app">MPC-HC</mark> или{" "}
-          <mark className="app">VLC</mark>, рекомендую установить этот проигрыватель в
-          программе <mark className="app">Subtitle Edit</mark> как стандартный. Это можно
-          сделать в{" "}
+          <mark className="app">VLC</mark>, рекомендую назначить его стандартным в
+          программе <mark className="app">Subtitle Edit</mark>. Это можно сделать в{" "}
           <mark className="select">«Options» → «Settings» → «Video Player»</mark>.
         </Addition>
         <p>
@@ -628,8 +632,8 @@ const PrActions: React.FC = () => {
           <mark className="select">«Audio to text (Vosk/Kaldi)»</mark>. В этой статье
           будет рассматриваться генерация через <mark>Whisper</mark>. При первом запуске
           программа предложит установить <mark className="app">FFmpeg</mark> и движок{" "}
-          <mark className="app">Purfview&apos;s Faster Whisper</mark>, с чем нужно
-          согласиться.
+          <mark className="app">Purfview&apos;s Faster Whisper</mark> — это стоит
+          подтвердить.
         </p>
         <ContentFigure
           caption="Subtitle Edit"
@@ -648,7 +652,7 @@ const PrActions: React.FC = () => {
             </li>
             <li>
               Если после установки программа предложит скачать{" "}
-              <mark className="select">«Whisper.cpp»</mark> — лучше отказаться от его
+              <mark className="select">«Whisper.cpp»</mark>, лучше отказаться от его
               скачивания, нажав <mark className="select">«No»</mark> в диалоговом окне,
               так как он работает нестабильно. Вместо него следует установить{" "}
               <mark>Purfview&apos;s Faster Whisper</mark>. Для этого в окне в параметре{" "}
@@ -710,16 +714,15 @@ const PrActions: React.FC = () => {
         </p>
         <Divider>Импортируем файл субтитров в секвенцию</Divider>
         <p>
-          После сохранения файла вернитесь в{" "}
-          <mark className="app">Adobe Premiere Pro</mark>. В окне{" "}
-          <mark className="select">«Text»</mark> нажмите на три точки, перейдите во
+          После сохранения файла вернитесь в <mark className="app">Adobe Premiere</mark>.
+          В окне <mark className="select">«Text»</mark> нажмите на три точки, перейдите во
           вкладку <mark className="select">«Captions»</mark>, нажмите{" "}
           <mark className="select">«Import captions from file»</mark> и укажите путь к
           сохранённым субтитрам.
         </p>
         <ContentFigure
           caption="Text"
-          imgTitle="Импорт субтитров в Adobe Premiere Pro"
+          imgTitle="Импорт субтитров в Adobe Premiere"
           // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
           src="images/legacy/premierepro/import_captions_from_file.png"
           theme="dark"

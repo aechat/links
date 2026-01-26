@@ -29,7 +29,7 @@ const PsExport: React.FC = () => {
         <p>
           Для сохранения всех слоёв вашего проекта в отдельные файлы, будь то{" "}
           <mark className="image">PSD</mark>, <mark className="image">PNG</mark> или{" "}
-          <mark className="image">TIFF</mark> - перейдите в{" "}
+          <mark className="image">TIFF</mark>, перейдите в{" "}
           <mark className="select">«File» → «Export» → «Layers to Files»</mark>.
         </p>
         <ContentFigure
@@ -69,12 +69,11 @@ const PsExport: React.FC = () => {
       >
         <p>
           В <mark className="app">Adobe Photoshop</mark> с версии <mark>22.4.2</mark>{" "}
-          решила немного изменить логику сохранения файлов в окнах{" "}
+          решили немного изменить логику сохранения файлов в окнах{" "}
           <mark className="select">«Save As»</mark> и{" "}
           <mark className="select">«Export As»</mark>. Не всем это нововведение может
-          понравилось, так как в новом варианте не было многих форматов файлов для
-          сохранения и приходилось пользоваться{" "}
-          <mark className="select">«Save As Copy»</mark>.
+          понравиться, так как в новом варианте не было многих форматов для сохранения и
+          приходилось пользоваться <mark className="select">«Save As Copy»</mark>.
         </p>
         <Addition type="info">
           Подробнее о командах для сохранения файлов вы можете прочитать на{" "}
@@ -84,10 +83,10 @@ const PsExport: React.FC = () => {
           .
         </Addition>
         <p>
-          К счастью - данное поведение можно вернуть так, как это было в предыдущих
-          версиях программы. Для этого перейдите в настройки программы с помощью{" "}
+          К счастью, данное поведение можно вернуть так, как это было в предыдущих версиях
+          программы. Для этого перейдите в настройки программы с помощью{" "}
           <mark className="select">«Edit» → «Preferences» → «File Handling»</mark>. После
-          открытия настроек - установите чекбоксы напротив двух параметров:{" "}
+          открытия настроек установите чекбоксы напротив двух параметров:{" "}
           <mark className="select">«Enable Legacy „Save As”»</mark> и{" "}
           <mark className="select">
             «Do not append „copy” to filename when saving a copy»

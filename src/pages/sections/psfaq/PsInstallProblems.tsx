@@ -13,7 +13,7 @@ const PsInstallProblems: React.FC = () => {
       <DetailsSummary title="Забыли положить инструкцию для установки рядом с файлами, куда что кидать?">
         <p>
           Обычно установка большинства дополнительных материалов универсальна, но может
-          отличаться в зависимости от вашей операционной системы. В этой статье указано
+          отличаться в зависимости от вашей операционной системы. В этой статье указано,
           как установить тот или иной тип файла для{" "}
           <mark className="app">Adobe Photoshop</mark>.
         </p>
@@ -21,14 +21,14 @@ const PsInstallProblems: React.FC = () => {
         <ul>
           <li>
             <p>
-              Если в архиве находится файл <mark className="image">PSD</mark>, то такие
-              файлы открываются как обычный проект в{" "}
+              Если в архиве находится файл <mark className="image">PSD</mark>, такие файлы
+              открываются как обычный проект в{" "}
               <mark className="app">Adobe Photoshop</mark> через{" "}
               <mark className="select">«File» → «Open»</mark> или открытием из проводника,
               если в системе зависимости были корректно настроены на данный тип файлов.
             </p>
             <Addition type="info">
-              Если вы хотите встроить <mark className="image">PSD</mark> в свой проект -
+              Если вы хотите встроить <mark className="image">PSD</mark> в свой проект,
               просто перенесите файл из проводника в окно с открытым проектом в{" "}
               <mark className="app">Adobe Photoshop</mark> или поместите через{" "}
               <mark className="select">«File» → «Place Embedded»</mark>. Импортированный{" "}
@@ -49,7 +49,7 @@ const PsInstallProblems: React.FC = () => {
             </p>
             <Addition type="info">
               <p>
-                Чтобы поместить изображение в открытый проект - переместите его из
+                Чтобы поместить изображение в открытый проект, переместите его из
                 проводника, скопируйте изображение и вставьте его с помощью{" "}
                 <mark className="key">Ctrl + V</mark> или выберите{" "}
                 <mark className="select">
@@ -60,8 +60,8 @@ const PsInstallProblems: React.FC = () => {
               <ul>
                 <li>
                   <sup>1</sup> Изображения, помещённые в проект через{" "}
-                  <mark className="select">«Place Embedded»</mark> будут импортированы как
-                  смарт-объект.
+                  <mark className="select">«Place Embedded»</mark>, будут импортированы
+                  как смарт-объект.
                 </li>
               </ul>
             </Addition>
@@ -129,24 +129,24 @@ const PsInstallProblems: React.FC = () => {
                     <mark className="file">7Z</mark> или <mark className="file">RAR</mark>
                     , то вам необходимо его распаковать с помощью архиватора для
                     дальнейшей работы с ним. Это можно сделать с помощью{" "}
-                    <mark className="app">keka</mark> или{" "}
+                    <mark className="app">Keka</mark> или{" "}
                     <mark className="app">The Unarchiver</mark>.
                   </p>
                   <Addition type="info">
                     <ul>
                       <li>
-                        Загрузить <mark className="app">keka</mark> можно по{" "}
+                        Загрузить <mark className="app">Keka</mark> можно по{" "}
                         <a href="https://www.keka.io/ru/">этой ссылке</a>, а{" "}
-                        <mark className="app">The Unarchiver</mark> - по{" "}
+                        <mark className="app">The Unarchiver</mark> — по{" "}
                         <a href="https://theunarchiver.com/">этой</a>.
                       </li>
                       <li>
                         Для распаковки многотомного архива, то есть если в названии
                         архивов есть <mark className="file">PART1</mark>,{" "}
-                        <mark className="file">PART2</mark> и так далее - нужно запустить
+                        <mark className="file">PART2</mark> и так далее, нужно запустить
                         распаковку только первой части архива, остальные части подхватятся
                         автоматически. Остальные части архива не нужно трогать без острой
-                        необходимости, если вы не знаете что с ними делать.
+                        необходимости, если вы не знаете, что с ними делать.
                       </li>
                       <li>
                         Многотомные архивы создаются для того, чтобы файл можно было
@@ -154,9 +154,9 @@ const PsInstallProblems: React.FC = () => {
                         <mark className="app">Telegram</mark> или другого ресурса.
                       </li>
                       <li>
-                        Если вы хотите сделать <mark className="app">keka</mark>{" "}
+                        Если вы хотите сделать <mark className="app">Keka</mark>{" "}
                         архиватором по умолчанию, то вам нужно будет установить{" "}
-                        <a href="https://www.keka.io/defaultapp/">kekaExternalHelper</a>.
+                        <a href="https://www.keka.io/defaultapp/">KekaExternalHelper</a>.
                         Подробная инструкция расположена в{" "}
                         <a href="https://github.com/aonez/Keka/wiki/Default-application">
                           Wiki на GitHub
@@ -188,7 +188,7 @@ const PsInstallProblems: React.FC = () => {
                       <li>
                         По умолчанию в <mark>macOS</mark> вы не сможете без танцев с
                         бубном открыть установщики от неподтверждённых разработчиков.
-                        Чтобы обойти этот запрет - нужно изменить настройки безопасности
+                        Чтобы обойти этот запрет, нужно изменить настройки безопасности
                         операционной системы. Подробнее об этом вы можете прочитать на{" "}
                         <a href="https://support.apple.com/ru-ru/102445">сайте Apple</a> и
                         на{" "}
@@ -199,7 +199,7 @@ const PsInstallProblems: React.FC = () => {
                       </li>
                       <li>
                         Если вы сталкиваетесь с ошибкой{" "}
-                        <mark>«Не удаётся открыть программу „AppName”»</mark> - попробуйте
+                        <mark>«Не удаётся открыть программу „AppName”»</mark>, попробуйте
                         открыть его через <mark className="key">ПКМ</mark>, выбрав в
                         контекстном меню <mark className="select">«Открыть»</mark>.
                       </li>
@@ -353,12 +353,12 @@ const PsInstallProblems: React.FC = () => {
                       <li>
                         Для распаковки многотомного архива, то есть если в названии
                         архивов есть <mark className="file">PART1</mark>,{" "}
-                        <mark className="file">PART2</mark> и так далее - нужно запустить
+                        <mark className="file">PART2</mark> и так далее, нужно запустить
                         распаковку только первой части архива, нажав{" "}
                         <mark className="key">ПКМ</mark> по файлу и выбрать в контекстном
                         меню <mark className="select">«WinRAR» → «Распаковать в...»</mark>
                         . Остальные части подхватятся автоматически и их не нужно трогать
-                        без острой необходимости, если вы не знаете что с ними делать.
+                        без острой необходимости, если вы не знаете, что с ними делать.
                       </li>
                       <li>
                         Многотомные архивы создаются для того, чтобы файл можно было
@@ -377,9 +377,9 @@ const PsInstallProblems: React.FC = () => {
                   Если в архиве или в записи находится файл{" "}
                   <mark className="file">EXE</mark>, то обычно в нём содержится
                   автоматический установщик плагина. Если в записи указано, что данный
-                  установщик является репаком - в таком случае после его установки плагин
-                  будет уже активирован, никаких лишних телодвижений после установки
-                  делать не надо.
+                  установщик является репаком, в таком случае после его установки плагин
+                  будет уже активирован, никаких лишних действий после установки делать не
+                  надо.
                   <Addition type="warning">
                     <ul>
                       <li>
@@ -392,7 +392,7 @@ const PsInstallProblems: React.FC = () => {
                         корректно работать в программе.
                       </li>
                       <li>
-                        Перед установкой плагинов с помощью установщика - закройте все
+                        Перед установкой плагинов с помощью установщика закройте все
                         открытые инстанции <mark className="app">Adobe Photoshop</mark>{" "}
                         для корректной установки.
                       </li>

@@ -150,7 +150,7 @@ const Links = () => {
               variant="internal"
             />{" "}
             <LinkCard
-              description="Поясняем за монтаж и нюансы в Adobe Premiere Pro"
+              description="Поясняем за монтаж и нюансы в Adobe Premiere"
               href="/prfaq"
               icon={<PrIcon />}
               name="prfaq [WIP]"
@@ -263,7 +263,7 @@ const Links = () => {
               name="AETemp"
             />
             <LinkCard
-              description="Шаблоны и плагины для Adobe Premiere Pro со всего интернета"
+              description="Шаблоны и плагины для Adobe Premiere со всего интернета"
               href="https://t.me/s/premtemp"
               icon={<MovieFilterRounded />}
               name="PremTemp"
@@ -388,7 +388,7 @@ const Links = () => {
           </Addition>
           <div className="links-grid">
             <LinkCard
-              description="Обсуждаем Adobe After Effects и Adobe Premiere Pro"
+              description="Обсуждаем Adobe After Effects и Adobe Premiere"
               href="https://t.me/joinchat/F1DdXtG9LephYWUy"
               icon={<ForumRounded />}
               name="AEChat"

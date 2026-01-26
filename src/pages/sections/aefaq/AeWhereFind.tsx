@@ -21,7 +21,7 @@ const AeWhereFind: React.FC = () => {
           >
             AEChat
           </a>{" "}
-          и в списке ниже вы всегда сможете найти ссылки на наши каналы в{" "}
+          и в списке ниже вы всегда можете найти ссылки на наши каналы в{" "}
           <mark className="app">Telegram</mark> с полезным контентом.
         </p>
         <Addition type="info">
@@ -94,7 +94,7 @@ const AeWhereFind: React.FC = () => {
         <Addition type="info">
           Если вы не нашли в каналах <a href="https://t.me/s/aetemp">AETemp</a> и{" "}
           <a href="https://t.me/s/designworld">Design World</a> нужный шаблон, но у вас
-          есть на него ссылка — воспользуйтесь нашим ботом{" "}
+          есть на него ссылка, воспользуйтесь нашим ботом{" "}
           <a
             href="https://t.me/HiStockBot?start=509060394"
             title="Бот HiStock для покупки шаблонов в Telegram"
@@ -133,7 +133,7 @@ const AeWhereFind: React.FC = () => {
         </Addition>
         <Addition type="danger">
           Файлы из <mark>Videohive</mark>, <mark>Shutterstock</mark> и других сервисов,
-          которые не используют подписочную модель распространения, —{" "}
+          которые не используют подписочную модель распространения,{" "}
           <b>
             <u>не поддерживаются</u>
           </b>
@@ -161,9 +161,9 @@ const AeWhereFind: React.FC = () => {
           </li>
         </ul>
         <Addition type="info">
-          Если у вас возникли проблемы с установкой программ или плагинов — прочтите
-          раздел <a href="#install-problems">«Проблемы с установкой»</a> или обратитесь к
-          нам в <a href="https://t.me/joinchat/F1DdXtG9LephYWUy">AEChat</a>.
+          Если у вас возникли проблемы с установкой программ или плагинов, прочтите раздел{" "}
+          <a href="#install-problems">«Проблемы с установкой»</a> или обратитесь к нам в{" "}
+          <a href="https://t.me/joinchat/F1DdXtG9LephYWUy">AEChat</a>.
         </Addition>
         <Addition type="warning">
           При установке программ с пометкой <mark>«репак от кролика»</mark> из{" "}
@@ -979,6 +979,15 @@ const AeWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>
+                <mark className="plugin">Компрессор</mark>
+              </td>
+              <td>
+                <mark className="plugin">Compressor</mark>
+              </td>
+              <td>—</td>
+            </tr>
+            <tr>
+              <td>
                 <mark className="plugin">Задержка</mark>
               </td>
               <td>
@@ -995,6 +1004,15 @@ const AeWhereFind: React.FC = () => {
             </tr>
             <tr>
               <td>
+                <mark className="plugin">Искажение</mark>
+              </td>
+              <td>
+                <mark className="plugin">Distortion</mark>
+              </td>
+              <td>—</td>
+            </tr>
+            <tr>
+              <td>
                 <mark className="plugin">Фланджер и хор</mark>
               </td>
               <td>
@@ -1008,6 +1026,15 @@ const AeWhereFind: React.FC = () => {
                   Видео
                 </a>
               </td>
+            </tr>
+            <tr>
+              <td>
+                <mark className="plugin">Шумоподавитель</mark>
+              </td>
+              <td>
+                <mark className="plugin">Gate</mark>
+              </td>
+              <td>—</td>
             </tr>
             <tr>
               <td>
@@ -3705,6 +3732,15 @@ const AeWhereFind: React.FC = () => {
                   Видео
                 </a>
               </td>
+            </tr>
+            <tr>
+              <td>
+                <mark className="plugin">—</mark>
+              </td>
+              <td>
+                <mark className="plugin">Unmult</mark>
+              </td>
+              <td>—</td>
             </tr>
           </tbody>
         </table>

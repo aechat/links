@@ -431,9 +431,6 @@ const AeExport: React.FC = () => {
             </li>
           </ul>
         </Addition>
-        <Divider>
-          Что влияет на совместимость для просмотра на различных устройствах?
-        </Divider>
         <Divider>Как настроить «качество» перед экспортом?</Divider>
         <p>
           Обычно за визуальное качество видео отвечает битрейт. Если битрейта не хватит
@@ -859,7 +856,7 @@ const AeExport: React.FC = () => {
                   Измеряется в герцах или килогерцах. Стандартным значением считается{" "}
                   <mark>48000 Гц</mark>, именно с ним по умолчанию работают{" "}
                   <mark className="app">Adobe After Effects</mark> и{" "}
-                  <mark className="app">Adobe Premiere Pro</mark>.
+                  <mark className="app">Adobe Premiere</mark>.
                 </p>
                 <Addition type="info">
                   Если в одном проекте используются аудиодорожки с разной частотой
@@ -930,7 +927,7 @@ const AeExport: React.FC = () => {
           Изначально <mark className="app">Adobe Media Encoder</mark> был разработан для
           конвертации исходников из одного формата в другой, а также для создания
           прокси-файлов, которые затем использовались в{" "}
-          <mark className="app">Adobe Premiere Pro</mark>.
+          <mark className="app">Adobe Premiere</mark>.
         </p>
         <p>
           Однако со временем в <mark className="app">Adobe Media Encoder</mark> появилась
@@ -2889,7 +2886,7 @@ const AeExport: React.FC = () => {
         <p>
           В <mark className="app">Adobe After Effects</mark> можно создать анимированный
           шаблон формата <mark className="file">MOGRT</mark> из вашей композиции для
-          последующего использования в <mark className="app">Adobe Premiere Pro</mark>.
+          последующего использования в <mark className="app">Adobe Premiere</mark>.
         </p>
         <p>
           Для этого в окне <mark className="select">«Essential Graphics»</mark> нужно
@@ -2926,7 +2923,7 @@ const AeExport: React.FC = () => {
             </li>
             <li>
               <mark className="file">THUMB.JPG</mark> — обложка для предпросмотра шаблона
-              в Premiere Pro.
+              в <mark className="app">Adobe Premiere</mark>.
             </li>
           </ul>
         </Addition>
@@ -2936,7 +2933,8 @@ const AeExport: React.FC = () => {
           <mark className="select">«Local Drive»</mark> и с помощью кнопки{" "}
           <mark className="select">«Browse»</mark> укажите путь для сохранения. В разделе{" "}
           <mark className="select">«Compatibility»</mark> можно указать, потребуется ли
-          для работы шаблона в Premiere Pro установленный After Effects.
+          для работы шаблона в <mark className="app">Adobe Premiere</mark> установленный{" "}
+          <mark className="app">Adobe After Effects</mark>.
         </p>
         <ContentFigure
           caption="Export as Motion Graphics Template"
@@ -2950,10 +2948,10 @@ const AeExport: React.FC = () => {
         <Addition type="danger">
           <p>
             Не все эффекты будут поддерживаться в{" "}
-            <mark className="app">Adobe Premiere Pro</mark>, если на компьютере не
-            установлен <mark className="app">Adobe After Effects</mark>. Для корректной
-            работы шаблона без <mark className="app">Adobe After Effects</mark> должны
-            быть соблюдены следующие условия.
+            <mark className="app">Adobe Premiere</mark>, если на компьютере не установлен{" "}
+            <mark className="app">Adobe After Effects</mark>. Для корректной работы
+            шаблона без <mark className="app">Adobe After Effects</mark> должны быть
+            соблюдены следующие условия.
           </p>
           <ul>
             <li>
@@ -2977,7 +2975,7 @@ const AeExport: React.FC = () => {
         <p>
           После экспорта вы можете импортировать <mark className="file">MOGRT</mark> в
           окно <mark className="select">«Graphic Templates»</mark> в{" "}
-          <mark className="app">Adobe Premiere Pro</mark> и перетащить его на таймлайн.
+          <mark className="app">Adobe Premiere</mark> и перетащить его на таймлайн.
         </p>
         <ContentFigure
           caption="How to export MOGRT templates"

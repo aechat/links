@@ -21,7 +21,7 @@ const PrWhereFind: React.FC = () => {
           >
             AEChat
           </a>{" "}
-          и в списке ниже вы всегда сможете найти ссылки на наши каналы в{" "}
+          и в списке ниже вы всегда можете найти ссылки на наши каналы в{" "}
           <mark className="app">Telegram</mark> с полезным контентом.
         </p>
         <Addition type="info">
@@ -82,7 +82,7 @@ const PrWhereFind: React.FC = () => {
           <li>
             <a href="https://t.me/s/premtemp">PremTemp</a> — канал с переходами,
             шаблонами, расширениями и прочими полезными материалами для ваших секвенций в{" "}
-            <mark className="app">Adobe Premiere Pro</mark>.
+            <mark className="app">Adobe Premiere</mark>.
           </li>
           <li>
             <a href="https://t.me/s/aetemp">AETemp</a> — канал с аналогичным контентом, но
@@ -98,7 +98,7 @@ const PrWhereFind: React.FC = () => {
           Если вы не нашли в каналах <a href="https://t.me/s/premtemp">PremTemp</a>,{" "}
           <a href="https://t.me/s/aetemp">AETemp</a> и{" "}
           <a href="https://t.me/s/designworld">Design World</a> нужный шаблон, но у вас
-          есть на него ссылка — воспользуйтесь нашим ботом{" "}
+          есть на него ссылка, воспользуйтесь нашим ботом{" "}
           <a
             href="https://t.me/HiStockBot?start=509060394"
             title="Бот HiStock для покупки шаблонов в Telegram"
@@ -137,7 +137,7 @@ const PrWhereFind: React.FC = () => {
         </Addition>
         <Addition type="danger">
           Файлы из <mark>Videohive</mark>, <mark>Shutterstock</mark> и других сервисов,
-          которые не используют подписочную модель распространения, —{" "}
+          которые не используют подписочную модель распространения,{" "}
           <b>
             <u>не поддерживаются</u>
           </b>
@@ -166,9 +166,9 @@ const PrWhereFind: React.FC = () => {
           </li>
         </ul>
         <Addition type="info">
-          Если у вас возникли проблемы с установкой программ или плагинов — прочтите
-          раздел <a href="#install-problems">«Проблемы с установкой»</a> или обратитесь к
-          нам в <a href="https://t.me/joinchat/F1DdXtG9LephYWUy">AEChat</a>.
+          Если у вас возникли проблемы с установкой программ или плагинов, прочтите раздел{" "}
+          <a href="#install-problems">«Проблемы с установкой»</a> или обратитесь к нам в{" "}
+          <a href="https://t.me/joinchat/F1DdXtG9LephYWUy">AEChat</a>.
         </Addition>
         <Addition type="warning">
           При установке программ с пометкой <mark>«репак от кролика»</mark> из{" "}
@@ -782,23 +782,23 @@ const PrWhereFind: React.FC = () => {
       >
         <Addition type="warning">
           Перевод и наличие эффектов, а также способ их работы могут отличаться в
-          зависимости от версии <mark className="app">Adobe Premiere Pro</mark>. Также
+          зависимости от версии <mark className="app">Adobe Premiere</mark>. Также
           рекомендуется переключить интерфейс на английский язык, чтобы не возвращаться к
           этой таблице снова и снова.
         </Addition>
         <p>
           Пользователям, использующим русскоязычный интерфейс{" "}
-          <mark className="app">Adobe Premiere Pro</mark>, иногда бывает трудно найти
-          эффект, который обозначен на английском языке. В таких случаях можно обратиться
-          к таблице перевода.
+          <mark className="app">Adobe Premiere</mark>, иногда бывает трудно найти эффект,
+          который обозначен на английском языке. В таких случаях можно обратиться к
+          таблице перевода.
         </p>
         <Addition type="danger">
-          В <mark className="app">Adobe Premiere Pro</mark> версии <mark>25.0</mark> и
-          новее убрали папку <mark className="path">Obsolete</mark>, где были расположены
+          В <mark className="app">Adobe Premiere</mark> версии <mark>2025</mark> и новее
+          убрали папку <mark className="path">Obsolete</mark>, где были расположены
           устаревшие, по мнению Adobe, эффекты. Эффекты все ещё будут доступны для
           проектов, который были созданы в старых версиях{" "}
-          <mark className="app">Adobe Premiere Pro</mark>, но без танцев с бубном их
-          применить в новых проектах не получится.{" "}
+          <mark className="app">Adobe Premiere</mark>, но без танцев с бубном их применить
+          в новых проектах не получится.{" "}
           <a href="https://community.adobe.com/t5/premiere-pro-beta-discussions/now-released-obsolete-effects-transitions-and-presets-removed/td-p/14703879">
             Подробнее...
           </a>

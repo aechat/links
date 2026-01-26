@@ -1,5 +1,17 @@
 import React, {useEffect, useState} from "react";
 
+import {
+  BrokenImageOutlined,
+  ErrorOutlineRounded,
+  HelpCenterOutlined,
+  InputRounded,
+  InstallDesktopRounded,
+  PsychologyAltOutlined,
+  SpeedRounded,
+  TouchAppOutlined,
+  TravelExploreRounded,
+  VideoSettingsRounded,
+} from "@mui/icons-material";
 import {Divider} from "antd";
 import {Helmet} from "react-helmet-async";
 
@@ -42,45 +54,70 @@ const PsFaqPage = () => {
   const sections = [
     {
       component: PsWhereFind,
+      icon: <TravelExploreRounded />,
       id: "where-find",
       key: "1",
       title: "Ищем полезности",
     },
     {
       component: PsInstallProblems,
+      icon: <InstallDesktopRounded />,
       id: "install-problems",
       key: "2",
       title: "Проблемы с установкой",
     },
     {
       component: PsFromNewbies,
+      icon: <HelpCenterOutlined />,
       id: "from-newbies",
       key: "3",
       title: "Вопросы от новичков",
     },
-    {component: PsImport, id: "import", key: "4", title: "Импорт"},
-    {component: PsInterface, id: "interface", key: "5", title: "Интерфейс"},
+    {
+      component: PsImport,
+      icon: <InputRounded />,
+      id: "import",
+      key: "4",
+      title: "Импорт",
+    },
+    {
+      component: PsInterface,
+      icon: <TouchAppOutlined />,
+      id: "interface",
+      key: "5",
+      title: "Интерфейс",
+    },
     {
       component: PsPerformance,
+      icon: <SpeedRounded />,
       id: "performance",
       key: "6",
       title: "Производительность",
     },
     {
       component: PsActions,
+      icon: <PsychologyAltOutlined />,
       id: "actions",
       key: "7",
       title: "Как и чем?",
     },
     {
       component: PsErrors,
+      icon: <ErrorOutlineRounded />,
       id: "errors",
       key: "8",
       title: "Ошибки и предупреждения",
     },
-    {component: PsExport, id: "export", key: "9", title: "Рендер и экспорт"},
+    {
+      component: PsExport,
+      icon: <VideoSettingsRounded />,
+      id: "export",
+      key: "9",
+      title: "Рендер и экспорт",
+    },
     {
       component: PsExportProblems,
+      icon: <BrokenImageOutlined />,
       id: "export-problems",
       key: "10",
       title: "Проблемы при экспорте",

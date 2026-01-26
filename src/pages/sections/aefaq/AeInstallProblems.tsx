@@ -98,15 +98,15 @@ const AeInstallProblems: React.FC = () => {
                   <mark className="file">7Z</mark> или <mark className="file">RAR</mark> —
                   его необходимо распаковать с помощью архиватора для дальнейшей работы с
                   его содержимым. Это можно сделать с помощью{" "}
-                  <mark className="app">keka</mark> или{" "}
+                  <mark className="app">Keka</mark> или{" "}
                   <mark className="app">The Unarchiver</mark>. Для распаковки многотомного
-                  архива, то есть, если в названии архивов есть{" "}
+                  архива, то есть если в названии архивов есть{" "}
                   <mark className="file">PART1</mark>, <mark className="file">PART2</mark>{" "}
-                  и так далее, нужно запустить распаковку только первой части — остальные
+                  и так далее, нужно запускать распаковку только первой части — остальные
                   подхватятся автоматически. Другие части архива не нужно трогать без
                   острой необходимости, если вы не знаете, что с ними делать.
                   <Addition type="info">
-                    Загрузить <mark className="app">keka</mark> можно по{" "}
+                    Загрузить <mark className="app">Keka</mark> можно по{" "}
                     <a href="https://www.keka.io/ru/">этой ссылке</a>, а{" "}
                     <mark className="app">The Unarchiver</mark> — по{" "}
                     <a href="https://theunarchiver.com/">этой</a>.
@@ -127,9 +127,9 @@ const AeInstallProblems: React.FC = () => {
                         <mark className="app">Telegram</mark> или другом сервисе.
                       </li>
                       <li>
-                        Если вы хотите сделать <mark className="app">keka</mark>{" "}
+                        Если вы хотите сделать <mark className="app">Keka</mark>{" "}
                         архиватором по умолчанию, то вам понадобится установить{" "}
-                        <a href="https://www.keka.io/defaultapp/">kekaExternalHelper</a>.
+                        <a href="https://www.keka.io/defaultapp/">KekaExternalHelper</a>.
                         Подробная инструкция расположена в{" "}
                         <a href="https://github.com/aonez/Keka/wiki/Default-application">
                           вики на GitHub
@@ -348,7 +348,7 @@ const AeInstallProblems: React.FC = () => {
                   распаковкой расширения в нужную директорию. После корректной установки
                   установленные расширения появятся в{" "}
                   <mark className="select">«Window» → «Extensions»</mark> и будут работать
-                  в своём новом окне, который вы можете прикрепить в своё рабочее
+                  в своём новом окне, которое вы можете прикрепить в своё рабочее
                   пространство.
                   <Addition type="info">
                     <ul>
@@ -1663,6 +1663,14 @@ const AeInstallProblems: React.FC = () => {
                         поддерживающая <mark>Windows 10</mark> версии{" "}
                         <mark>LTSC 21H2</mark> — <mark>2023 (23.X)</mark>.
                       </li>
+                      <li>
+                        Последняя версия <mark className="app">Adobe After Effects</mark>,{" "}
+                        <b>
+                          <u>официально</u>
+                        </b>{" "}
+                        поддерживающая <mark>Windows 10</mark> версии <mark>22H2</mark> —{" "}
+                        <mark>2025 (25.X)</mark>.
+                      </li>
                     </ul>
                   </Addition>
                   <p>
@@ -1927,8 +1935,8 @@ const AeInstallProblems: React.FC = () => {
                   Из минусов — возможные проблемы с{" "}
                   <mark className="plugin">Dynamic Link</mark>, когда{" "}
                   <mark className="app">Adobe After Effects</mark> и{" "}
-                  <mark className="app">Adobe Premiere Pro</mark> не «видят» друг друга.
-                  Патч также может перестать работать после обновлений приложений от{" "}
+                  <mark className="app">Adobe Premiere</mark> не «видят» друг друга. Патч
+                  также может перестать работать после обновлений приложений от{" "}
                   <mark className="company">Adobe</mark>, и придётся искать новую версию{" "}
                   <mark className="app">GenP</mark>. Функции, использующие генерацию
                   контента на базе <mark className="app">Adobe Firefly</mark>, тоже
@@ -2197,12 +2205,12 @@ const AeInstallProblems: React.FC = () => {
       <DetailsSummary
         anchor="missing-dynamic-link"
         tag="не подключается dynamic link, программы не видят друг друга, динамик линк, aegp plugin aedynamiclinkserver: adobe media encoder is not installed, please download and install it to use this feature, failed to connect to adobe media encoder, медиа енкодер"
-        title="Установил Adobe Media Encoder и Adobe Premiere Pro, но Adobe After Effects почему-то их не видит"
+        title="Установил Adobe Media Encoder и Adobe Premiere, но Adobe After Effects почему-то их не видит"
       >
         <p>
           Функция <mark className="plugin">Dynamic Link</mark> позволяет синхронизировать
           композиции из <mark className="app">Adobe After Effects</mark> в{" "}
-          <mark className="app">Adobe Premiere Pro</mark> на таймлайне и отправлять их в
+          <mark className="app">Adobe Premiere</mark> на таймлайне и отправлять их в
           очередь рендера <mark className="app">Adobe Media Encoder</mark>. Но не всегда
           удаётся их «подружить». Иногда <mark className="app">Adobe After Effects</mark>{" "}
           при попытке отправить композицию в очередь рендера в{" "}
@@ -2219,7 +2227,7 @@ const AeInstallProblems: React.FC = () => {
         <ul>
           <li>
             Убедитесь, что вы установили <mark className="app">Adobe After Effects</mark>,{" "}
-            <mark className="app">Adobe Premiere Pro</mark> и{" "}
+            <mark className="app">Adobe Premiere</mark> и{" "}
             <mark className="app">Adobe Media Encoder</mark> одной «версии-года». Если,
             например, установлены <mark className="app">Adobe After Effects 2025</mark>,{" "}
             <mark className="app">Adobe Premiere Pro 2024</mark> и{" "}
@@ -2234,7 +2242,7 @@ const AeInstallProblems: React.FC = () => {
               <ul>
                 <li>
                   Если установлены <mark className="app">Adobe After Effects</mark>,{" "}
-                  <mark className="app">Adobe Premiere Pro</mark> и{" "}
+                  <mark className="app">Adobe Premiere</mark> и{" "}
                   <mark className="app">Adobe Media Encoder</mark> одного релизного цикла,
                   но они всё равно не «видят» друг друга — проверьте, установлены ли они в
                   директорию по умолчанию, а не на другой диск, отличный от{" "}
@@ -2306,14 +2314,14 @@ const AeInstallProblems: React.FC = () => {
             <mark className="word">AE</mark>, <mark className="file">AEX</mark>,{" "}
             <mark className="word">PR</mark> или <mark className="word">Adobe</mark> —
             плагины установятся в <mark className="app">Adobe After Effects</mark> или{" "}
-            <mark className="app">Adobe Premiere Pro</mark>.
+            <mark className="app">Adobe Premiere</mark>.
             <Addition type="info">
               <ul>
                 <li>
                   Иногда плагины с припиской <mark className="word">AE</mark> или{" "}
                   <mark className="word">AEX</mark> могут устанавливаться как в{" "}
                   <mark className="app">Adobe After Effects</mark>, так и в{" "}
-                  <mark className="app">Adobe Premiere Pro</mark>.
+                  <mark className="app">Adobe Premiere</mark>.
                 </li>
                 <li>
                   Плагины, распространяющиеся в виде установщиков, устанавливаются в
@@ -2711,7 +2719,7 @@ const AeInstallProblems: React.FC = () => {
       <DetailsSummary
         anchor="unlicensed-red-giant"
         tag="red giant, maxon, активация, unlicensed, нет лицензии, redgiant activation service unlocker, please launch the maxon app and sign in to your account, in order to keep using this product without interruption, please activate a license, trapcode particular, magic bullet looks, vfx suite, universe"
-        title="«Red Giant is unlicensed» при применении любого плагина от Maxon"
+        title="«Red Giant is unlicensed» при применении любого эффекта от Maxon"
       >
         <p>
           Эта ошибка возникает из-за того, что у вас не активированы плагины от{" "}
@@ -2910,7 +2918,8 @@ const AeInstallProblems: React.FC = () => {
                 <mark>23.6</mark> на <mark>25.2</mark>, — вам потребуется вручную
                 перенести плагины, пресеты и другие дополнения. При установке версии
                 «другого года» старая программа не удаляется автоматически и остаётся на
-                вашем устройстве. При необходимости вы сможете удалить её позже.
+                вашем устройстве. При необходимости вы сможете удалить её позже или
+                продолжить работу в ней.
               </p>
               <Divider>Что нужно сохранить на всякий случай?</Divider>
               <Addition type="danger">
@@ -3035,8 +3044,7 @@ const AeInstallProblems: React.FC = () => {
                 <ul>
                   <li>
                     После обновления <mark className="app">Adobe After Effects</mark> не
-                    забудьте также обновить{" "}
-                    <mark className="app">Adobe Premiere Pro</mark> и{" "}
+                    забудьте также обновить <mark className="app">Adobe Premiere</mark> и{" "}
                     <mark className="app">Adobe Media Encoder</mark>, чтобы связь между
                     программами работала корректно.
                   </li>

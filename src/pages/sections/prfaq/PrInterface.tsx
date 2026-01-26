@@ -9,21 +9,24 @@ import DetailsSummary from "../../../components/content/DetailsSummary";
 const PrInterface: React.FC = () => {
   return (
     <div className="article-content">
-      <DetailsSummary title="Как сделать двойной язык интерфейса?">
+      <DetailsSummary
+        anchor="bilingual"
+        title="Как сделать двойной язык интерфейса?"
+      >
         <p>
-          Если вы не хотите кардинально менять язык программы, то вы можете установить
-          «двойной язык» интерфейса. Для этого откройте консоль с помощью комбинации
-          клавиш <mark className="key">Ctrl + F12</mark> и переключитесь на режим
-          отображения <mark className="select">«Debug Database View»</mark>. Далее найдите
-          параметры <mark className="select">«ApplicationLanguage»</mark> и{" "}
+          Если вы не хотите кардинально менять язык программы, вы можете сделать интерфейс
+          двуязычным. Для этого откройте консоль с помощью комбинации клавиш{" "}
+          <mark className="key">Ctrl + F12</mark> и переключитесь на режим отображения{" "}
+          <mark className="select">«Debug Database View»</mark>. Далее найдите параметры{" "}
+          <mark className="select">«ApplicationLanguage»</mark> и{" "}
           <mark className="select">«ApplicationLanguageBilingual»</mark> и укажите
           значения <mark className="copy">ru_RU</mark> и{" "}
           <mark className="copy">true</mark> соответственно. После этого перезагрузите
-          программу и теперь во многих местах интерфейса у вас будет русский язык и в
-          скобках будет эквивалент на английском языке.
+          программу, и теперь во многих местах интерфейса будет русский язык, а в скобках
+          — эквивалент на английском.
         </p>
         <ContentFigure
-          caption="Adobe Premiere Pro"
+          caption="Adobe Premiere"
           imgTitle="Установка двойного языка"
           // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
           src="images/legacy/premierepro/set_double_language.png"
@@ -33,17 +36,17 @@ const PrInterface: React.FC = () => {
         />
         <Addition type="danger">
           Не рекомендуется использовать двойной язык на постоянной основе, так как
-          основной язык программы останется русским, а соответственно баги русской
-          локализации <mark className="app">Adobe Premiere Pro</mark> никуда не денутся от
-          вас.
+          основной язык программы останется русским, а значит баги русской локализации{" "}
+          <mark className="app">Adobe Premiere</mark> никуда не денутся.
         </Addition>
       </DetailsSummary>
       <DetailsSummary title="Куда пропало окно Essential Graphics?">
         <p>
-          В <mark className="app">Adobe Premiere Pro</mark> версий 2025 и новее панель{" "}
-          <mark className="select">«Essential Graphics»</mark> убрали и перенесли часть
-          функционала в новое окно <mark className="select">«Graphics Templates»</mark>.
-          Открыть его можно в контекстном меню <mark className="select">«Window»</mark>.
+          В <mark className="app">Adobe Premiere</mark> версии <mark>2025</mark> и новее
+          панель <mark className="select">«Essential Graphics»</mark> убрали и перенесли
+          часть функционала в новое окно{" "}
+          <mark className="select">«Graphics Templates»</mark>. Открыть его можно в
+          контекстном меню <mark className="select">«Window»</mark>.
         </p>
         <p>
           Из нового окна <mark className="select">«Graphics Templates»</mark> вы до сих
@@ -54,7 +57,7 @@ const PrInterface: React.FC = () => {
       </DetailsSummary>
       <DetailsSummary title="Куда пропала кнопка «Set to Frame Size»?">
         <p>
-          В <mark className="app">Adobe Premiere Pro</mark> версии 2025{" "}
+          В <mark className="app">Adobe Premiere</mark> версии <mark>2025</mark> и новее{" "}
           <mark className="select">«Set to Frame Size»</mark> заменили на{" "}
           <mark className="select">«Fit to Frame»</mark>. Данная функция увеличивает
           значение <mark className="select">«Scale»</mark> до тех пор, пока не упрётся в
@@ -62,27 +65,27 @@ const PrInterface: React.FC = () => {
         </p>
         <p>
           Вместе с этим обновлением добавили новую функцию{" "}
-          <mark className="select">«Fill Frame»</mark>, работающий также через{" "}
+          <mark className="select">«Fill Frame»</mark>, которая тоже работает через{" "}
           <mark className="select">«Scale»</mark>, но подгоняет значение под самую большую
           сторону вашей секвенции.
         </p>
       </DetailsSummary>
       <DetailsSummary title="Как изменить вид отсчёта времени на таймлайне?">
         <p>
-          По умолчанию в <mark className="app">Adobe Premiere Pro</mark> текущее время
+          По умолчанию в <mark className="app">Adobe Premiere</mark> текущее время
           отображается в формате <mark>ЧЧ:ММ:СС:Кадр</mark>, но иногда хочется поменять
           вариант отображения на что-то другое.
         </p>
         <p>
-          Для изменения формата отображения текущего времени, нажмите на{" "}
+          Для изменения формата отображения текущего времени нажмите на{" "}
           <mark className="key">ПКМ</mark> по отображению текущего времени и выберите
           нужный вам тип вывода.
         </p>
         {/* TODO: приложить скриншот */}
         <p>
-          Если вы хотите передвинуть временную метку меньше чем на кадр, чтобы подрезать
-          аудио, то вам нужно включить режим отображения аудиовремени. Для этого нажмите
-          на три полоски в заголовке окна с таймлайном и нажмите на
+          Если вы хотите передвинуть временную метку меньше, чем на кадр, чтобы подрезать
+          аудио, вам нужно включить режим отображения аудиовремени. Для этого нажмите на
+          три полоски в заголовке окна с таймлайном и выберите{" "}
           <mark className="select">«Show Audio Units»</mark>. Убрать можно аналогичным
           образом.
         </p>
@@ -94,7 +97,7 @@ const PrInterface: React.FC = () => {
       </DetailsSummary>
       <DetailsSummary
         tag="панель эффектов, фх консоль, экскалибур"
-        title="Есть ли аналог FX Console для Premiere Pro?"
+        title="Есть ли аналог FX Console для Premiere?"
       >
         <p>
           Да, есть, и называется{" "}
@@ -103,7 +106,7 @@ const PrInterface: React.FC = () => {
           всплывающего меню, а также выполнять некоторые команды.
         </p>
         <ContentFigure
-          caption="Adobe Premiere Pro"
+          caption="Adobe Premiere"
           imgTitle="Демонстрация работы Excalibur"
           src="https://images.squarespace-cdn.com/content/v1/5d090703bfcf6300017faaa8/1605797292871-IKNJ3QIJPGK2TFMMBIIY/web_01_fx.gif?format=750w"
           theme="light"
@@ -119,8 +122,8 @@ const PrInterface: React.FC = () => {
       <DetailsSummary title="Пропала визуализация аудиодорожек на таймлайне, как их вернуть?">
         <p>
           Это довольно частый и неприятный баг, возникающий при использовании{" "}
-          <mark className="app">Adobe Premiere Pro</mark>. Обычно это лечится очисткой
-          кэша <mark className="file">PEAK</mark> файлов.
+          <mark className="app">Adobe Premiere</mark>. Обычно это лечится очисткой кэша{" "}
+          <mark className="file">PEAK</mark> файлов.
         </p>
         <p>
           Для очистки кэша и файлов предпросмотра перейдите в{" "}
@@ -131,16 +134,16 @@ const PrInterface: React.FC = () => {
         </p>
         <p>
           После очистки кэша предпросмотр аудиофайлов должен появиться автоматически. Если
-          это не происходит - попробуйте принудительно отрендерить кэш с помощью{" "}
+          это не происходит, попробуйте принудительно отрендерить звук с помощью{" "}
           <mark className="select">«Sequence» → «Render Audio»</mark>.
         </p>
         {/* TODO: приложить скриншот */}
       </DetailsSummary>
       <DetailsSummary title="Как изменить акцентный цвет интерфейса программы?">
         <Addition type="danger">
-          Для <mark className="app">Adobe Premiere Pro</mark> версии <mark>25.0</mark> или
-          новее данная инструкция неактуальна, после включения параметра в консоли - в
-          настройках ничего не будет.
+          Для <mark className="app">Adobe Premiere</mark> версии <mark>2025</mark> и новее
+          данная инструкция неактуальна, после включения параметра в консоли в настройках
+          ничего не будет.
         </Addition>
         <p>
           Вы, наверное, не раз натыкались на различные скриншоты, где у пользователей
@@ -153,8 +156,8 @@ const PrInterface: React.FC = () => {
         </p>
         <code>debug.set Enable_Theme_Colorizing=true</code>
         <Addition type="info">
-          Режимы отображения консоли можно изменить нажав на три полоски в заголовке окна.
-          Также этот параметр можно найти и в режиме отображения{" "}
+          Режимы отображения консоли можно изменить, нажав на три полоски в заголовке
+          окна. Также этот параметр можно найти и в режиме отображения{" "}
           <mark className="select">«Debug Database View»</mark>.
         </Addition>
         <ContentFigure
@@ -177,8 +180,8 @@ const PrInterface: React.FC = () => {
           интерфейса.
         </p>
         <Addition type="warning">
-          Не рекомендую ставить тёмные, а также слишком насыщенные оттенки, ибо вы можете
-          плохо различать некоторые элементы интерфейса.
+          Не рекомендуется выбирать тёмные или слишком насыщенные оттенки: из-за них
+          некоторые элементы интерфейса могут стать плохо различимыми.
         </Addition>
         {/* TODO: показать цветовую палитру при настройке */}
       </DetailsSummary>
@@ -192,9 +195,9 @@ const PrInterface: React.FC = () => {
           действительна только для устройств на <mark>Windows</mark>.
         </Addition>
         <p>
-          При запуске <mark className="app">Adobe Premiere Pro</mark> вы часто видите
-          какую-либо картинку, задуманной <mark className="company">Adobe</mark> и
-          наверное задумывались, что неплохо бы её заменить на свою. К счастью,{" "}
+          При запуске <mark className="app">Adobe Premiere</mark> вы часто видите
+          какую-либо картинку, задуманную <mark className="company">Adobe</mark>, и
+          наверняка задумывались, что неплохо бы её заменить на свою. К счастью,{" "}
           <mark className="company">Adobe</mark> оставила нам возможность замены картинки
           при запуске без ковыряния с <mark className="file">DLL</mark> файлов, как это
           было в статье про замену в <mark className="app">Adobe After Effects</mark> в{" "}
@@ -203,8 +206,8 @@ const PrInterface: React.FC = () => {
         <Divider>Ищем изображение, которое появляется при запуске</Divider>
         <p>
           Картинка, которую вы видите при запуске{" "}
-          <mark className="app">Adobe Premiere Pro</mark>, хранится в директории с
-          установленной програмой, обычно это{" "}
+          <mark className="app">Adobe Premiere</mark>, хранится в директории с
+          установленной программой, обычно это{" "}
           <mark className="path">C:\Program Files\Adobe\Adobe Premiere Pro 20XX</mark> в
           подпапке <mark className="path">PNG</mark>.
         </p>
@@ -218,9 +221,8 @@ const PrInterface: React.FC = () => {
           variant="windows"
         />
         <p>
-          В случае, как и с <mark className="app">Adobe After Effects</mark> - там
-          хранятся три почти одинаковые картинки -{" "}
-          <mark className="image">PR_SPLASH.PNG</mark>,{" "}
+          В случае, как и с <mark className="app">Adobe After Effects</mark>, там хранятся
+          три почти одинаковые картинки: <mark className="image">PR_SPLASH.PNG</mark>,{" "}
           <mark className="image">PR_SPLASH@2X.PNG</mark> и{" "}
           <mark className="image">PR_SPLASH@3TO2X.PNG</mark>, каждое из которых
           адаптировано под определённый масштаб дисплея. Вы можете отредактировать их в
@@ -237,8 +239,8 @@ const PrInterface: React.FC = () => {
         </p>
         <Addition type="warning">
           Для изменения файлов в директории с установкой{" "}
-          <mark className="app">Adobe Premiere Pro</mark> могут потребоваться права
-          администратора. Чтобы изменять картинки - лучше перенесите их в другое место,
+          <mark className="app">Adobe Premiere</mark> могут потребоваться права
+          администратора. Чтобы изменять картинки, лучше перенесите их в другое место,
           например на <mark className="path">Рабочий стол</mark>, отредактируйте, а потом
           переместите их обратно с заменой в папке с программой.
         </Addition>
@@ -247,7 +249,7 @@ const PrInterface: React.FC = () => {
           <mark>Ford Focus</mark> и сохраню его в <mark className="image">PNG</mark>.
         </p>
         <ContentFigure
-          caption="Пример модификации изображения при загрузке Adobe Premiere Pro"
+          caption="Пример модификации изображения при загрузке Adobe Premiere"
           imgTitle="Изменённое изображение при открытии программы"
           // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
           src="images/legacy/premierepro/custom_splash_example.png"
@@ -257,10 +259,10 @@ const PrInterface: React.FC = () => {
         />
         <Divider>Заменяем изображение</Divider>
         <p>
-          После изменения исходого изображения - перенесите его с заменой в папку{" "}
+          После изменения исходного изображения перенесите его с заменой в папку{" "}
           <mark className="path">PNG</mark> в директорию с установленной программой. После
-          успешной замены - можно запустить программу и наслаждаться своим шедевром,
-          который вы сотворили.
+          успешной замены можно запустить программу и наслаждаться своим шедевром, который
+          вы сотворили.
         </p>
         <ContentFigure
           caption="Замена изображения и открытие программы с уже изменённой плашкой"

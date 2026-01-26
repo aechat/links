@@ -21,7 +21,7 @@ const PsWhereFind: React.FC = () => {
           >
             DWChat
           </a>{" "}
-          и в списке ниже вы всегда сможете найти ссылки на наши каналы в{" "}
+          и в списке ниже вы всегда можете найти ссылки на наши каналы в{" "}
           <mark className="app">Telegram</mark> с полезным контентом.
         </p>
         <Addition type="info">
@@ -88,13 +88,13 @@ const PsWhereFind: React.FC = () => {
             <a href="https://t.me/s/aetemp">AETemp</a> и{" "}
             <a href="https://t.me/s/premtemp">PremTemp</a> — каналы с материалами для{" "}
             <mark className="app">Adobe After Effects</mark> и{" "}
-            <mark className="app">Adobe Premiere Pro</mark>, откуда можно почерпнуть идеи
-            для ваших проектов в <mark className="app">Adobe Photoshop</mark>.
+            <mark className="app">Adobe Premiere</mark>, откуда можно почерпнуть идеи для
+            ваших проектов в <mark className="app">Adobe Photoshop</mark>.
           </li>
         </ul>
         <Addition type="info">
           Если вы не нашли в канале <a href="https://t.me/s/designworld">Design World</a>{" "}
-          нужный шаблон, но у вас есть на него ссылка — воспользуйтесь нашим ботом{" "}
+          нужный шаблон, но у вас есть на него ссылка, воспользуйтесь нашим ботом{" "}
           <a
             href="https://t.me/HiStockBot?start=509060394"
             title="Бот HiStock для покупки шаблонов в Telegram"
@@ -133,7 +133,7 @@ const PsWhereFind: React.FC = () => {
         </Addition>
         <Addition type="danger">
           Файлы из <mark>Videohive</mark>, <mark>Shutterstock</mark> и других сервисов,
-          которые не используют подписочную модель распространения, —{" "}
+          которые не используют подписочную модель распространения,{" "}
           <b>
             <u>не поддерживаются</u>
           </b>
@@ -162,9 +162,9 @@ const PsWhereFind: React.FC = () => {
           </li>
         </ul>
         <Addition type="info">
-          Если у вас возникли проблемы с установкой программ или плагинов — прочтите
-          раздел <a href="#install-problems">«Проблемы с установкой»</a> или обратитесь к
-          нам в <a href="https://t.me/+3LF_B_VK-Nw4YzYy">DWChat</a>.
+          Если у вас возникли проблемы с установкой программ или плагинов, прочтите раздел{" "}
+          <a href="#install-problems">«Проблемы с установкой»</a> или обратитесь к нам в{" "}
+          <a href="https://t.me/+3LF_B_VK-Nw4YzYy">DWChat</a>.
         </Addition>
         <Addition type="warning">
           При установке программ с пометкой <mark>«репак от кролика»</mark> из{" "}
@@ -363,9 +363,10 @@ const PsWhereFind: React.FC = () => {
           С выходом <mark className="app">Adobe Photoshop 2024</mark> многие начали из
           каждого угла спрашивать, мол{" "}
           <mark>«где народный фш с нейросетью можно скачать?»</mark>. Благодаря таким
-          повсеместным вопросам от халявщиков - Adobe прикрыл эту функцию с сентября 2023
-          года для тех, у кого отсутствует подписка Creative Cloud. Да, перестаньте об
-          этом спрашивать, пожалуйста.
+          повсеместным вопросам от халявщиков — <mark className="company">Adobe</mark>{" "}
+          прикрыл эту функцию с сентября 2023 года для тех, у кого отсутствует подписка{" "}
+          <mark>Creative Cloud</mark>.{" "}
+          <i style={{opacity: "0.5"}}>Да, перестаньте об этом спрашивать, пожалуйста.</i>
         </p>
         <Addition type="info">
           Источники, распространяющие в интернете{" "}
@@ -394,16 +395,16 @@ const PsWhereFind: React.FC = () => {
             <a href="https://www.recraft.ai/">RecraftAI</a>.
           </li>
           <li>
-            Из онлайн-сервисов, заменяющий Adobe Firefly был популярен плагин{" "}
-            <mark className="plugin">Alpaca ML</mark>, но его работа была прекращена 25
-            октября 2024 года, а ссылки на регистрацию и скачивание были удалены, поэтому
-            поговорить о нём мы не можем.
+            Из онлайн-сервисов, заменяющий <mark className="plugin">Adobe Firefly</mark>{" "}
+            был популярен плагин <mark className="plugin">Alpaca ML</mark>, но его работа
+            была прекращена 25 октября 2024 года, а ссылки на регистрацию и скачивание
+            были удалены, поэтому поговорить о нём мы не можем.
           </li>
           <li>
             Ну и крайний способ - оформлять пробную версию на 14 дней и каждый раз
-            регистрировать новый аккаунт Adobe. Это нам в любом случае не подходит, так
-            как в некоторых случаях при активации пробной версии с вас попросят данные
-            банковской карты или PayPal.
+            регистрировать новый аккаунт <mark className="company">Adobe</mark>. Это нам в
+            любом случае не подходит, так как в некоторых случаях при активации пробной
+            версии с вас попросят данные банковской карты или PayPal.
           </li>
         </ul>
         <p>
@@ -746,8 +747,9 @@ const PsWhereFind: React.FC = () => {
           </a>
           . Почему «одноразовое» использование? Потому что{" "}
           <mark className="company">Adobe Firefly</mark> работает на серверах и для
-          пользователей без активной подписки любого плана от Adobe предоставляется малое
-          количество «генеративных баллов».
+          пользователей без активной подписки любого плана от{" "}
+          <mark className="company">Adobe</mark> предоставляется малое количество
+          «генеративных баллов».
         </p>
         <Addition type="warning">
           <ul>
@@ -772,7 +774,7 @@ const PsWhereFind: React.FC = () => {
           Вы, наверное, не раз натыкались на то, что вкладка{" "}
           <mark className="select">«Neural Filters»</mark> не доступна на «народных»
           версиях <mark className="app">Adobe Photoshop</mark>. Она не активна по той
-          причине, что вы не вошли в аккаунт Adobe.
+          причине, что вы не вошли в аккаунт <mark className="company">Adobe</mark>.
         </p>
         <ContentFigure
           caption="Adobe Photoshop"
@@ -785,8 +787,9 @@ const PsWhereFind: React.FC = () => {
         />
         <p>
           Чтобы активировать вкладку <mark className="select">«Neural Filters»</mark> вам
-          нужно зарегистрировать (если у вас нет аккаунта Adobe) и войти в аккаунт. Для
-          этого перейдите в <mark className="select">«Help»</mark> и нажмите на{" "}
+          нужно зарегистрировать аккаунт <mark className="company">Adobe</mark> если у вас
+          его нет и войти в него. Для этого перейдите в{" "}
+          <mark className="select">«Help»</mark> и нажмите на{" "}
           <mark className="select">«Sign In»</mark>. В открывшемся окне произведите вход в
           аккаунт.
         </p>

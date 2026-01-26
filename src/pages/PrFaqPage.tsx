@@ -1,5 +1,17 @@
 import React, {useEffect, useState} from "react";
 
+import {
+  BrokenImageOutlined,
+  ErrorOutlineRounded,
+  HelpCenterOutlined,
+  InputRounded,
+  InstallDesktopRounded,
+  PsychologyAltOutlined,
+  SpeedRounded,
+  TouchAppOutlined,
+  TravelExploreRounded,
+  VideoSettingsRounded,
+} from "@mui/icons-material";
 import {Divider} from "antd";
 import {Helmet} from "react-helmet-async";
 
@@ -42,40 +54,70 @@ const PrFaqPage = () => {
   const sections = [
     {
       component: PrWhereFind,
+      icon: <TravelExploreRounded />,
       id: "where-find",
       key: "1",
       title: "Ищем полезности",
     },
     {
       component: PrInstallProblems,
+      icon: <InstallDesktopRounded />,
       id: "install-problems",
       key: "2",
       title: "Проблемы с установкой",
     },
     {
       component: PrFromNewbies,
+      icon: <HelpCenterOutlined />,
       id: "from-newbies",
       key: "3",
       title: "Вопросы от новичков",
     },
-    {component: PrImport, id: "import", key: "4", title: "Импорт"},
-    {component: PrInterface, id: "interface", key: "5", title: "Интерфейс"},
+    {
+      component: PrImport,
+      icon: <InputRounded />,
+      id: "import",
+      key: "4",
+      title: "Импорт",
+    },
+    {
+      component: PrInterface,
+      icon: <TouchAppOutlined />,
+      id: "interface",
+      key: "5",
+      title: "Интерфейс",
+    },
     {
       component: PrPerformance,
+      icon: <SpeedRounded />,
       id: "performance",
       key: "6",
       title: "Производительность",
     },
-    {component: PrActions, id: "actions", key: "7", title: "Как и чем?"},
+    {
+      component: PrActions,
+      icon: <PsychologyAltOutlined />,
+      id: "actions",
+      key: "7",
+      title: "Как и чем?",
+    },
     {
       component: PrErrors,
+      icon: <ErrorOutlineRounded />,
       id: "errors",
       key: "8",
       title: "Ошибки и предупреждения",
     },
-    {component: PrExport, id: "export", key: "9", title: "Рендер и экспорт"},
+    {
+      component: PrExport,
+      icon: <VideoSettingsRounded />,
+      id: "export",
+      key: "9",
+      title: "Рендер и экспорт",
+    },
     {
       component: PrExportProblems,
+      icon: <BrokenImageOutlined />,
       id: "export-problems",
       key: "10",
       title: "Проблемы при экспорте",
@@ -90,7 +132,7 @@ const PrFaqPage = () => {
         <Helmet>
           <title>prfaq@aechat</title>
           <meta
-            content="Ответы на частые вопросы от пользователей Adobe Premiere Pro"
+            content="Ответы на частые вопросы от пользователей Adobe Premiere"
             name="description"
           />
           <meta
@@ -98,7 +140,7 @@ const PrFaqPage = () => {
             itemProp="name"
           />
           <meta
-            content="Ответы на частые вопросы от пользователей Adobe Premiere Pro"
+            content="Ответы на частые вопросы от пользователей Adobe Premiere"
             itemProp="description"
           />
           <meta
@@ -122,7 +164,7 @@ const PrFaqPage = () => {
             property="og:title"
           />
           <meta
-            content="Ответы на частые вопросы от пользователей Adobe Premiere Pro"
+            content="Ответы на частые вопросы от пользователей Adobe Premiere"
             property="og:description"
           />
           <meta
@@ -138,7 +180,7 @@ const PrFaqPage = () => {
             name="twitter:title"
           />
           <meta
-            content="Ответы на частые вопросы от пользователей Adobe Premiere Pro"
+            content="Ответы на частые вопросы от пользователей Adobe Premiere"
             name="twitter:description"
           />
           <meta
