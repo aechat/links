@@ -274,9 +274,9 @@
 }
 
 .article-container,
-.article-content,
+:global(.article-content),
 li,
-.links,
+:global(.links),
 .details-nested-section {
   & > .addition-info,
   & > .addition-warning,
@@ -285,7 +285,7 @@ li,
     margin-right: 0;
     margin-left: 0;
     margin-inline: 0;
-    border-radius: $roundness * 0.75;
+    border-radius: $roundness;
     padding-inline: 15px;
     font-size: 0.935rem;
   }
@@ -301,9 +301,11 @@ li,
     border-radius: 0;
   }
 }
+
 %article-content-first-child {
   margin-top: 10px;
 }
+
 %article-content-last-child {
   margin-bottom: 10px;
 }
