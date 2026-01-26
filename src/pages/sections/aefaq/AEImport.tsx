@@ -1507,8 +1507,7 @@ const AEImport: React.FC = () => {
           Макет, созданный в <mark className="app">Figma</mark>, можно перенести в{" "}
           <mark className="app">Adobe After Effects</mark> с помощью двух сторонних
           расширений: <mark className="plugin">AEUX</mark> и{" "}
-          <mark className="plugin">Overlord 2</mark>. В этой статье, из-за отсутствия
-          «народной» версии <mark className="plugin">Overlord 2</mark>, для демонстрации
+          <mark className="plugin">Overlord 2</mark>. В этой статье для демонстрации
           импорта макета из <mark className="app">Figma</mark> в{" "}
           <mark className="app">Adobe After Effects</mark> будет использоваться расширение{" "}
           <mark className="plugin">AEUX</mark>.
