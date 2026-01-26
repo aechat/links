@@ -2716,7 +2716,7 @@ const AEInstallProblems: React.FC = () => {
       <DetailsSummary
         anchor="unlicensed-red-giant"
         tag="red giant, maxon, активация, unlicensed, нет лицензии, redgiant activation service unlocker, please launch the maxon app and sign in to your account, in order to keep using this product without interruption, please activate a license, trapcode particular, magic bullet looks, vfx suite, universe"
-        title="«Red Giant is unlicensed» при применении любого плагина от Maxon"
+        title="«Red Giant is unlicensed» при применении любого эффекта от Maxon"
       >
         <p>
           Эта ошибка возникает из-за того, что у вас не активированы плагины от{" "}
