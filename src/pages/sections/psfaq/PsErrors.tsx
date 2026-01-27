@@ -3,7 +3,7 @@ import React from "react";
 import {Divider} from "antd";
 
 import Addition from "../../../components/content/Addition";
-import {ContentFigure} from "../../../components/content/ContentFigure";
+import {ArticleMedia} from "../../../components/content/ArticleMedia";
 import ContentFilter from "../../../components/content/ContentFilter";
 import DetailsSummary from "../../../components/content/DetailsSummary";
 import HostsAdobeModal from "../../../components/content/HostsAdobe";
@@ -23,14 +23,10 @@ const PsErrors: React.FC = () => (
         статье мы разберём несколько способов, как от него избавиться. Стоит учитывать,
         что эффективность каждого метода может различаться у разных пользователей.
       </p>
-      <ContentFigure
+      <ArticleMedia
         caption="Adobe"
-        imgTitle="Сообщение об отсутствии лицензии"
-        // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-        src="images/legacy/adobe_the_unlicensed_app.png"
-        theme="light"
+        src="legacy/adobe_the_unlicensed_app.png"
         type="image"
-        variant="windows"
       />
       <Divider>Проверяем наличие VPN-соединения</Divider>
       <p>
@@ -67,55 +63,39 @@ const PsErrors: React.FC = () => (
               ниже. Затем сохраните файл и верните его в исходную папку с заменой.
             </p>
             <HostsAdobeModal />
-            <ContentFigure
-              caption="Как отредактировать файл Hosts на Mac"
+            <ArticleMedia
               src="VcDYAbH6U_c"
               type="youtube"
             />
             <Divider>Блокируем доступ с помощью Radio Silence</Divider>
             <p>
-              Если редактирование файла <mark className="file">HOSTS</mark> не помогло,
-              попробуйте воспользоваться программой{" "}
-              <a href="https://radiosilenceapp.com/">Radio Silence</a>.
+              Если внесение адресов в <mark className="file">HOSTS</mark> вам не помогло,
+              то попробуйте воспользоваться программой{" "}
+              <a href="https://radiosilenceapp.com/">Radio Silence</a> для блокировки
+              доступа в интернет нужным приложениям. После установки и активации этой
+              программы перейдите во вкладку{" "}
+              <mark className="select">«Network Monitor»</mark> и в ней запретите
+              программам от <mark className="company">Adobe</mark>, которые лезут в сеть,
+              доступ в интернет, нажав на кнопку <mark className="select">«Block»</mark>{" "}
+              рядом с названием программы.
             </p>
-            <ul>
-              <li>
-                После её установки перейдите во вкладку{" "}
-                <mark className="select">«Network Monitor»</mark> и запретите доступ в
-                интернет всем процессам <mark className="company">Adobe</mark>, нажимая
-                кнопку <mark className="select">«Block»</mark> рядом с их названиями.
-                <ContentFigure
-                  caption="Radio Silence"
-                  imgTitle="Блокировка доступа в интернет на примере Adobe Premiere"
-                  // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-                  src="images/legacy/network_radio_silence.png"
-                  theme="dark"
-                  type="image"
-                  variant="mac"
-                />
-              </li>
-              <li>
-                После этого заблокированные приложения появятся во вкладке{" "}
-                <mark className="select">«Firewall»</mark> и больше не смогут подключаться
-                к сети.
-                <ContentFigure
-                  caption="Radio Silence"
-                  imgTitle="Список заблокированных приложений во вкладке Firewall"
-                  // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-                  src="images/legacy/firewall_radio_silence.png"
-                  theme="dark"
-                  type="image"
-                  variant="mac"
-                />
-              </li>
-            </ul>
-            <Divider>Используем альтернативный способ активации</Divider>
+            <ArticleMedia
+              caption="Radio Silence"
+              src="legacy/network_radio_silence.png"
+              type="image"
+            />
             <p>
-              Если вы используете релизы от <mark className="user">MONTER GROUP</mark>,
-              попробуйте перейти на метод активации с помощью{" "}
-              <mark className="app">Adobe Activation Tool</mark>, предварительно удалив
-              предыдущие установки программы.
+              После проделанных действий, указанные вами программы от{" "}
+              <mark className="company">Adobe</mark> не должны стучаться в сеть и выдавать
+              ошибку об отсутствии лицензии. Ниже показано, как в итоге примерно должна
+              выглядеть вкладка <mark className="select">«Firewall»</mark> после отлова
+              процессов Adobe, лезущие в интернет.
             </p>
+            <ArticleMedia
+              caption="Radio Silence"
+              src="legacy/firewall_radio_silence.png"
+              type="image"
+            />
           </>
         }
         windowsContent={
@@ -139,27 +119,21 @@ const PsErrors: React.FC = () => (
               проверьте параметр{" "}
               <mark className="select">«Использовать прокси-сервер»</mark>.
             </p>
-            <ContentFigure
-              caption="Параметры"
-              imgTitle="Проверяем прокси"
+            <ArticleMedia
+              caption="Проверяем прокси"
               // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-              src="images/legacy/check_windows_proxy.png"
-              theme="dark"
+              src="legacy/check_windows_proxy.png"
               type="image"
-              variant="windows"
             />
             <p>
               Если прокси включён, нажмите <mark className="select">«Изменить»</mark> и
               отключите его.
             </p>
-            <ContentFigure
-              caption="Параметры"
-              imgTitle="Отключаем прокси"
+            <ArticleMedia
+              caption="Отключаем прокси"
               // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-              src="images/legacy/disable_windows_proxy.png"
-              theme="dark"
+              src="legacy/disable_windows_proxy.png"
               type="image"
-              variant="windows"
             />
             <Divider>Правим файл hosts</Divider>
             <p>
@@ -174,8 +148,7 @@ const PsErrors: React.FC = () => (
               его в исходную папку с заменой.
             </p>
             <HostsAdobeModal />
-            <ContentFigure
-              caption="Как редактировать файл hosts"
+            <ArticleMedia
               src="wHhay41ocsc"
               type="youtube"
             />
@@ -191,133 +164,85 @@ const PsErrors: React.FC = () => (
               программ в интернет уже могут быть созданы в брандмауэре.
             </Addition>
             <p>
-              Если правка файла <mark className="file">HOSTS</mark> не помогла, попробуйте
-              настроить правила в брандмауэре.
+              После открытия монитора брандмауэра перейдите в раздел правил для входящих
+              подключений в левой части окна.
             </p>
-            <ul>
-              <li>
-                Чтобы быстро открыть брандмауэр, воспользуйтесь окном{" "}
-                <mark className="app">«Выполнить»</mark>: нажмите{" "}
-                <mark className="key">Win + R</mark>, введите в поле{" "}
-                <mark className="select">«Открыть»</mark> значение{" "}
-                <mark className="code">wf.msc</mark> и нажмите{" "}
-                <mark className="key">Enter</mark>.
-                <ContentFigure
-                  caption="Выполнить"
-                  imgTitle="Открываем брандмауэр"
-                  // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-                  src="images/legacy/open_wf_msc.png"
-                  theme="dark"
-                  type="image"
-                  variant="windows"
-                />
-              </li>
-              <li>
-                Перед вами откроется{" "}
-                <mark className="app">монитор брандмауэра Защитника Windows</mark>. В
-                левой части окна перейдите в раздел{" "}
-                <mark className="select">«Правила для входящих подключений»</mark>.
-                <ContentFigure
-                  caption="Монитор брандмауэра Защитника Windows"
-                  imgTitle="Список правил брандмауэра"
-                  // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-                  src="images/legacy/firewall_main_page.png"
-                  theme="light"
-                  type="image"
-                  variant="windows"
-                />
-              </li>
-              <li>
-                В правой части интерфейса нажмите{" "}
-                <mark className="select">«Создать правило»</mark>.
-                <ContentFigure
-                  caption="Монитор брандмауэра Защитника Windows"
-                  imgTitle="Окно создания правила брандмауэра"
-                  // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-                  src="images/legacy/firewall_creating_rule.png"
-                  theme="light"
-                  type="image"
-                  variant="windows"
-                />
-              </li>
-              <li>
-                В открывшемся мастере создания правил на первой вкладке оставьте выбранным{" "}
-                <mark className="select">«Для программы»</mark> и нажмите{" "}
-                <mark className="select">«Далее»</mark>.
-                <ContentFigure
-                  caption="Мастер создания правила для нового входящего подключения"
-                  imgTitle="Выбор типа правила брандмауэра"
-                  // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-                  src="images/legacy/firewall_rule_type.png"
-                  theme="light"
-                  type="image"
-                  variant="windows"
-                />
-              </li>
-              <li>
-                На второй вкладке укажите путь к исполняемому файлу программы —{" "}
-                <mark className="path">
-                  C:\Program Files\Adobe\Adobe Photoshop 20XX\Support Files\Photoshop.exe
-                </mark>{" "}
-                и снова нажмите <mark className="select">«Далее»</mark>.
-                <ContentFigure
-                  caption="Мастер создания правила для нового входящего подключения"
-                  imgTitle="Выбор программы для блокировки"
-                  // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-                  src="images/legacy/firewall_select_app.png"
-                  theme="light"
-                  type="image"
-                  variant="windows"
-                />
-              </li>
-              <li>
-                В качестве действия выберите{" "}
-                <mark className="select">«Блокировать подключение»</mark>.
-                <ContentFigure
-                  caption="Мастер создания правила для нового входящего подключения"
-                  imgTitle="Окно настроек брандмауэра"
-                  // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-                  src="images/legacy/firewall_blocking.png"
-                  theme="light"
-                  type="image"
-                  variant="windows"
-                />
-              </li>
-              <li>
-                Во вкладке <mark className="select">«Профиль»</mark> оставьте все три
-                флажка включёнными и нажмите <mark className="select">«Далее»</mark>.
-                <ContentFigure
-                  caption="Мастер создания правила для нового входящего подключения"
-                  imgTitle="Выбор профиля брандмауэра"
-                  // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-                  src="images/legacy/firewall_select_profile.png"
-                  theme="light"
-                  type="image"
-                  variant="windows"
-                />
-              </li>
-              <li>
-                <p>
-                  Задайте новому правилу любое имя, например название программы, и нажмите{" "}
-                  <mark className="select">«Готово»</mark>. После этого указанная
-                  программа больше не должна подключаться к интернету.
-                </p>
-                <ContentFigure
-                  caption="Мастер создания правила для нового входящего подключения"
-                  imgTitle="Выбор имени для правила брандмауэра"
-                  // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-                  src="images/legacy/firewall_naming.png"
-                  theme="light"
-                  type="image"
-                  variant="windows"
-                />
-              </li>
-              <li>
-                Проделайте то же самое для{" "}
-                <mark className="select">«Правил для исходящего подключения»</mark>.
-              </li>
-            </ul>
-            <Divider>Используем OneClickFirewall для быстрой блокировки</Divider>
+            <ArticleMedia
+              caption="Монитор брандмауэра Защитника Windows в режиме повышенной безопасности"
+              src="legacy/firewall_main_page.png"
+              type="image"
+            />
+            <p>
+              Затем в правой части интерфейса найдите кнопку{" "}
+              <mark className="select">«Создать правило»</mark> и нажмите на него.
+            </p>
+            <ArticleMedia
+              caption="Монитор брандмауэра Защитника Windows в режиме повышенной безопасности"
+              src="legacy/firewall_creating_rule.png"
+              type="image"
+            />
+            <p>
+              После нажатия на кнопку создания нового правила в брандмауэре у вас
+              откроется новое окно с пятью вкладками. В первой вкладке оставьте значение{" "}
+              <mark className="select">«Для программы»</mark> и нажмите на{" "}
+              <mark className="select">«Далее»</mark>.
+            </p>
+            <ArticleMedia
+              caption="Мастер создания правила для нового входящего подключения"
+              src="legacy/firewall_rule_type.png"
+              type="image"
+            />
+            <p>
+              Во второй вкладке нужно указать путь до исполняемого файла программы вручную
+              или через кнопку <mark className="select">«Обзор»</mark>, а затем снова
+              нажать на <mark className="select">«Далее»</mark>. Путь должен выглядеть как{" "}
+              <mark className="path">
+                C:\Program Files\Adobe\Adobe Photoshop 20XX\Support Files\Photoshop.exe
+              </mark>
+              .
+            </p>
+            <ArticleMedia
+              caption="Мастер создания правила для нового входящего подключения"
+              src="legacy/firewall_select_app.png"
+              type="image"
+            />
+            <p>
+              Для действия нового правила нам, очевидно, нужно установить параметр{" "}
+              <mark className="select">«Блокировать подключение»</mark>.
+            </p>
+            <ArticleMedia
+              caption="Мастер создания правила для нового входящего подключения"
+              src="legacy/firewall_blocking.png"
+              type="image"
+            />
+            <p>
+              Во вкладке <mark className="select">«Профили»</mark> нужно оставить три
+              чекбокса включенными и опять нажать на{" "}
+              <mark className="select">«Далее»</mark>.
+            </p>
+            <ArticleMedia
+              caption="Мастер создания правила для нового входящего подключения"
+              src="legacy/firewall_select_profile.png"
+              type="image"
+            />
+            <p>
+              Далее назовите своё новое правило любым именем. Можно просто написать
+              название программы и нажать на <mark className="select">«Готово»</mark>.
+              После этого правило будет создано, а указанная программа теперь не должна
+              стучаться в интернет.
+            </p>
+            <ArticleMedia
+              caption="Мастер создания правила для нового входящего подключения"
+              src="legacy/firewall_naming.png"
+              type="image"
+            />
+            <Addition type="info">
+              Возможно подобные действия нужно провернуть и к{" "}
+              <mark>правилам для исходящего подключения</mark> по аналогичной схеме.
+            </Addition>
+            <Divider>
+              Используем OneClickFirewall для быстрой блокировки интернета программе
+            </Divider>
             <p>
               Если вы не хотите возиться с созданием правил вручную, воспользуйтесь
               утилитой <mark className="app">OneClickFirewall</mark>. Она добавляет в
@@ -331,14 +256,10 @@ const PsErrors: React.FC = () => (
               </a>
               .
             </p>
-            <ContentFigure
+            <ArticleMedia
               caption="Рабочий стол"
-              imgTitle="Блокировка доступа в интернет через OneClickFirewall"
-              // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-              src="images/legacy/oneclickfirewall_aftereffects.png"
-              theme="dark"
+              src="legacy/oneclickfirewall_photoshop.png"
               type="image"
-              variant="windows"
             />
             <Divider>Проверяем, не «навредил» ли антивирус</Divider>
             <p>
@@ -348,8 +269,7 @@ const PsErrors: React.FC = () => (
               <mark className="company">Adobe</mark> в список исключений антивируса, а
               затем переустановите программу вашей версии «поверх» существующей.
             </p>
-            <ContentFigure
-              caption="Windows Defender: как восстановить файлы и добавить их в исключения"
+            <ArticleMedia
               src="ET94_dv3f8c"
               type="youtube"
             />
@@ -369,6 +289,21 @@ const PsErrors: React.FC = () => (
               </a>
               .
             </p>
+            <Divider>Проверяем, не натворил ли чего антивирус</Divider>
+            <p>
+              В редких случаях ваш антивирус мог удалить файлы для корректной подмены
+              активации, ссылаясь на то, что на вашем устройстве затесался якобы вирус.
+              Если вы не хотите отключать или удалять{" "}
+              <mark className="app">Windows Defender</mark> с вашего устройства, то вы
+              можете добавить нужные папки c программами от{" "}
+              <mark className="company">Adobe</mark> в список исключений вашего
+              антивируса, а затем установите программу вашей версии поверх
+              существующей.{" "}
+            </p>
+            <ArticleMedia
+              src="ET94_dv3f8c"
+              type="youtube"
+            />
           </>
         }
       />
@@ -455,14 +390,11 @@ const PsErrors: React.FC = () => (
         , то вам нужно переключить режим заливки на{" "}
         <mark className="select">«Generative AI Off»</mark>.
       </p>
-      <ContentFigure
-        caption="Adobe Photoshop"
-        imgTitle="Отключаем генеративную заливку при использовании инструмента Remove Tool"
+      <ArticleMedia
+        caption="Отключаем генеративную заливку при использовании инструмента Remove Tool"
         // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-        src="images/legacy/photoshop/disable_generative_ai_removetool.png"
-        theme="light"
+        src="legacy/photoshop/disable_generative_ai_removetool.png"
         type="image"
-        variant="windows"
       />
     </DetailsSummary>
     <DetailsSummary title="Ошибка при запуске приложения «0xc0000142»">

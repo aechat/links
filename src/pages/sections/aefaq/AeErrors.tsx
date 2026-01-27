@@ -3,7 +3,7 @@ import React from "react";
 import {Divider} from "antd";
 
 import Addition from "../../../components/content/Addition";
-import {ContentFigure} from "../../../components/content/ContentFigure";
+import {ArticleMedia} from "../../../components/content/ArticleMedia";
 import ContentFilter from "../../../components/content/ContentFilter";
 import DetailsSummary from "../../../components/content/DetailsSummary";
 import HostsAdobeModal from "../../../components/content/HostsAdobe";
@@ -42,14 +42,10 @@ const AeErrors: React.FC = () => {
           Стоит учитывать, что эффективность каждого метода может различаться у разных
           пользователей.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Adobe"
-          imgTitle="Сообщение об отсутствии лицензии"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/adobe_the_unlicensed_app.png"
-          theme="light"
+          src="legacy/adobe_the_unlicensed_app.png"
           type="image"
-          variant="windows"
         />
         <Divider>Проверяем наличие VPN-соединения</Divider>
         <p>
@@ -87,8 +83,7 @@ const AeErrors: React.FC = () => {
                 блока ниже. Затем сохраните файл и верните его в исходную папку с заменой.
               </p>
               <HostsAdobeModal />
-              <ContentFigure
-                caption="Как отредактировать файл Hosts на Mac"
+              <ArticleMedia
                 src="VcDYAbH6U_c"
                 type="youtube"
               />
@@ -104,28 +99,20 @@ const AeErrors: React.FC = () => {
                   <mark className="select">«Network Monitor»</mark> и запретите доступ в
                   интернет всем процессам <mark className="company">Adobe</mark>, нажимая
                   кнопку <mark className="select">«Block»</mark> рядом с их названиями.
-                  <ContentFigure
+                  <ArticleMedia
                     caption="Radio Silence"
-                    imgTitle="Блокировка доступа в интернет на примере Adobe Premiere"
-                    // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-                    src="images/legacy/network_radio_silence.png"
-                    theme="dark"
+                    src="legacy/network_radio_silence.png"
                     type="image"
-                    variant="mac"
                   />
                 </li>
                 <li>
                   После этого заблокированные приложения появятся во вкладке{" "}
                   <mark className="select">«Firewall»</mark> и больше не смогут
                   подключаться к сети.
-                  <ContentFigure
+                  <ArticleMedia
                     caption="Radio Silence"
-                    imgTitle="Список заблокированных приложений во вкладке Firewall"
-                    // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-                    src="images/legacy/firewall_radio_silence.png"
-                    theme="dark"
+                    src="legacy/firewall_radio_silence.png"
                     type="image"
-                    variant="mac"
                   />
                 </li>
               </ul>
@@ -159,27 +146,19 @@ const AeErrors: React.FC = () => {
                 проверьте параметр{" "}
                 <mark className="select">«Использовать прокси-сервер»</mark>.
               </p>
-              <ContentFigure
+              <ArticleMedia
                 caption="Параметры"
-                imgTitle="Проверяем прокси"
-                // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-                src="images/legacy/check_windows_proxy.png"
-                theme="dark"
+                src="legacy/check_windows_proxy.png"
                 type="image"
-                variant="windows"
               />
               <p>
                 Если прокси включён, нажмите <mark className="select">«Изменить»</mark> и
                 отключите его.
               </p>
-              <ContentFigure
+              <ArticleMedia
                 caption="Параметры"
-                imgTitle="Отключаем прокси"
-                // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-                src="images/legacy/disable_windows_proxy.png"
-                theme="dark"
+                src="legacy/disable_windows_proxy.png"
                 type="image"
-                variant="windows"
               />
               <Divider>Правим файл hosts</Divider>
               <p>
@@ -194,8 +173,7 @@ const AeErrors: React.FC = () => {
                 верните его в исходную папку с заменой.
               </p>
               <HostsAdobeModal />
-              <ContentFigure
-                caption="Как редактировать файл hosts"
+              <ArticleMedia
                 src="wHhay41ocsc"
                 type="youtube"
               />
@@ -224,14 +202,10 @@ const AeErrors: React.FC = () => {
                   <mark className="select">«Открыть»</mark> значение{" "}
                   <mark className="code">wf.msc</mark> и нажмите{" "}
                   <mark className="key">Enter</mark>.
-                  <ContentFigure
+                  <ArticleMedia
                     caption="Выполнить"
-                    imgTitle="Открываем брандмауэр"
-                    // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-                    src="images/legacy/open_wf_msc.png"
-                    theme="dark"
+                    src="legacy/open_wf_msc.png"
                     type="image"
-                    variant="windows"
                   />
                 </li>
                 <li>
@@ -239,41 +213,29 @@ const AeErrors: React.FC = () => {
                   <mark className="app">монитор брандмауэра Защитника Windows</mark>. В
                   левой части окна перейдите в раздел{" "}
                   <mark className="select">«Правила для входящих подключений»</mark>.
-                  <ContentFigure
+                  <ArticleMedia
                     caption="Монитор брандмауэра Защитника Windows"
-                    imgTitle="Список правил брандмауэра"
-                    // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-                    src="images/legacy/firewall_main_page.png"
-                    theme="light"
+                    src="legacy/firewall_main_page.png"
                     type="image"
-                    variant="windows"
                   />
                 </li>
                 <li>
                   В правой части интерфейса нажмите{" "}
                   <mark className="select">«Создать правило»</mark>.
-                  <ContentFigure
+                  <ArticleMedia
                     caption="Монитор брандмауэра Защитника Windows"
-                    imgTitle="Окно создания правила брандмауэра"
-                    // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-                    src="images/legacy/firewall_creating_rule.png"
-                    theme="light"
+                    src="legacy/firewall_creating_rule.png"
                     type="image"
-                    variant="windows"
                   />
                 </li>
                 <li>
                   В открывшемся мастере создания правил на первой вкладке оставьте
                   выбранным <mark className="select">«Для программы»</mark> и нажмите{" "}
                   <mark className="select">«Далее»</mark>.
-                  <ContentFigure
+                  <ArticleMedia
                     caption="Мастер создания правила для нового входящего подключения"
-                    imgTitle="Выбор типа правила брандмауэра"
-                    // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-                    src="images/legacy/firewall_rule_type.png"
-                    theme="light"
+                    src="legacy/firewall_rule_type.png"
                     type="image"
-                    variant="windows"
                   />
                 </li>
                 <li>
@@ -283,40 +245,28 @@ const AeErrors: React.FC = () => {
                     Files\AfterFX.exe
                   </mark>{" "}
                   и снова нажмите <mark className="select">«Далее»</mark>.
-                  <ContentFigure
+                  <ArticleMedia
                     caption="Мастер создания правила для нового входящего подключения"
-                    imgTitle="Выбор программы для блокировки"
-                    // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-                    src="images/legacy/firewall_select_app.png"
-                    theme="light"
+                    src="legacy/firewall_select_app.png"
                     type="image"
-                    variant="windows"
                   />
                 </li>
                 <li>
                   В качестве действия выберите{" "}
                   <mark className="select">«Блокировать подключение»</mark>.
-                  <ContentFigure
+                  <ArticleMedia
                     caption="Мастер создания правила для нового входящего подключения"
-                    imgTitle="Окно настроек брандмауэра"
-                    // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-                    src="images/legacy/firewall_blocking.png"
-                    theme="light"
+                    src="legacy/firewall_blocking.png"
                     type="image"
-                    variant="windows"
                   />
                 </li>
                 <li>
                   Во вкладке <mark className="select">«Профиль»</mark> оставьте все три
                   флажка включёнными и нажмите <mark className="select">«Далее»</mark>.
-                  <ContentFigure
+                  <ArticleMedia
                     caption="Мастер создания правила для нового входящего подключения"
-                    imgTitle="Выбор профиля брандмауэра"
-                    // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-                    src="images/legacy/firewall_select_profile.png"
-                    theme="light"
+                    src="legacy/firewall_select_profile.png"
                     type="image"
-                    variant="windows"
                   />
                 </li>
                 <li>
@@ -325,14 +275,10 @@ const AeErrors: React.FC = () => {
                     нажмите <mark className="select">«Готово»</mark>. После этого
                     указанная программа больше не должна подключаться к интернету.
                   </p>
-                  <ContentFigure
+                  <ArticleMedia
                     caption="Мастер создания правила для нового входящего подключения"
-                    imgTitle="Выбор имени для правила брандмауэра"
-                    // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-                    src="images/legacy/firewall_naming.png"
-                    theme="light"
+                    src="legacy/firewall_naming.png"
                     type="image"
-                    variant="windows"
                   />
                 </li>
                 <li>
@@ -354,14 +300,10 @@ const AeErrors: React.FC = () => {
                 </a>
                 .
               </p>
-              <ContentFigure
+              <ArticleMedia
                 caption="Рабочий стол"
-                imgTitle="Блокировка доступа в интернет через OneClickFirewall"
-                // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-                src="images/legacy/oneclickfirewall_aftereffects.png"
-                theme="dark"
+                src="legacy/oneclickfirewall_aftereffects.png"
                 type="image"
-                variant="windows"
               />
               <Divider>Проверяем, не «навредил» ли антивирус</Divider>
               <p>
@@ -372,8 +314,7 @@ const AeErrors: React.FC = () => {
                 антивируса, а затем переустановите программу вашей версии «поверх»
                 существующей.
               </p>
-              <ContentFigure
-                caption="Windows Defender: как восстановить файлы и добавить их в исключения"
+              <ArticleMedia
                 src="ET94_dv3f8c"
                 type="youtube"
               />
@@ -465,14 +406,10 @@ const AeErrors: React.FC = () => {
               удалятся. Максимум, что придётся сделать после этого — заново закэшировать
               композицию.
             </Addition>
-            <ContentFigure
+            <ArticleMedia
               caption="Очистка кэша и оперативной памяти"
-              imgTitle="Очистка кэша и оперативной памяти"
-              // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-              src="images/legacy/aftereffects/edit_purge_all-memory-and-disk-cache.png"
-              theme="light"
+              src="legacy/aftereffects/edit_purge_all-memory-and-disk-cache.png"
               type="image"
-              variant="windows"
             />
           </li>
           <li>
@@ -485,14 +422,10 @@ const AeErrors: React.FC = () => {
             , снимите флажок{" "}
             <mark className="select">«Enable Multi-Frame Rendering»</mark> и повторите
             попытку рендеринга.
-            <ContentFigure
+            <ArticleMedia
               caption="Preferences"
-              imgTitle="Переключение функции Multi-Frame Rendering"
-              // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-              src="images/legacy/aftereffects/checkbox_multiframe-render.png"
-              theme="dark"
+              src="legacy/aftereffects/checkbox_multiframe-render.png"
               type="image"
-              variant="windows"
             />
           </li>
           <li>
@@ -507,14 +440,10 @@ const AeErrors: React.FC = () => {
             <mark className="company">Adobe</mark> может не хватить оперативной памяти.
             Чтобы выделить максимум для <mark className="company">Adobe</mark>, установите
             значение <mark>0</mark> — программа сама подставит минимально допустимое.
-            <ContentFigure
+            <ArticleMedia
               caption="Preferences"
-              imgTitle="Настройка параметра RAM reserved for other applications"
-              // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-              src="images/legacy/aftereffects/ram_reserved_for_other_applications.png"
-              theme="dark"
+              src="legacy/aftereffects/ram_reserved_for_other_applications.png"
               type="image"
-              variant="windows"
             />
           </li>
           <li>
@@ -525,14 +454,10 @@ const AeErrors: React.FC = () => {
             <mark className="select">«Color»</mark> и в параметре{" "}
             <mark className="select">«Depth»</mark> снизьте битность проекта, чтобы
             облегчить работу.
-            <ContentFigure
+            <ArticleMedia
               caption="Project Settings"
-              imgTitle="Изменение битности в проекте"
-              // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-              src="images/legacy/aftereffects/change_bit_depth.png"
-              theme="dark"
+              src="legacy/aftereffects/change_bit_depth.png"
               type="image"
-              variant="windows"
             />
           </li>
           <li>
@@ -614,14 +539,10 @@ const AeErrors: React.FC = () => {
             <mark className="select">«Video Rendering and Effects»</mark> выберите{" "}
             <mark className="select">«Mercury Software Only»</mark>. После изменения
             настроек рекомендуется перезапустить программу.
-            <ContentFigure
+            <ArticleMedia
               caption="Project Settings"
-              imgTitle="Переключение рендеринга на процессор"
-              // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-              src="images/legacy/aftereffects/set_render_on_cpu.png"
-              theme="dark"
+              src="legacy/aftereffects/set_render_on_cpu.png"
               type="image"
-              variant="windows"
             />
             <Addition type="info">
               Параметры рендеринга показаны на примере связки «процессор{" "}
@@ -680,14 +601,10 @@ const AeErrors: React.FC = () => {
           установлены или были отключены на вашем устройстве. Вы можете продолжить работу,
           но не сможете видеть, рендерить и настраивать эти эффекты.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Warning"
-          imgTitle="Предупреждение об отсутствующих эффектах"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/aftereffects/missing_effects_warning.png"
-          theme="dark"
+          src="legacy/aftereffects/missing_effects_warning.png"
           type="image"
-          variant="windows"
         />
         <p>
           Проблема возникает по двум основным причинам: либо эффект действительно не
@@ -732,14 +649,10 @@ const AeErrors: React.FC = () => {
           <mark className="select">«Effects & Presets»</mark>, выбрав в выпадающем списке{" "}
           <mark className="select">«Manage Effects»</mark>.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Adobe After Effects"
-          imgTitle="Открытие менеджера эффектов"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/aftereffects/effects_presets_manage_effects.png"
-          theme="dark"
+          src="legacy/aftereffects/effects_presets_manage_effects.png"
           type="image"
-          variant="windows"
         />
         <p>
           В открывшемся окне по умолчанию отображаются только сторонние эффекты, а
@@ -749,14 +662,10 @@ const AeErrors: React.FC = () => {
           <mark className="select">«OK»</mark> и перезапустите{" "}
           <mark className="app">Adobe After Effects</mark>.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Effect Manager"
-          imgTitle="Менеджер эффектов"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/aftereffects/effect_manager.png"
-          theme="dark"
+          src="legacy/aftereffects/effect_manager.png"
           type="image"
-          variant="windows"
         />
       </DetailsSummary>
       <DetailsSummary
@@ -784,14 +693,10 @@ const AeErrors: React.FC = () => {
           предпросмотра и экспорта, так как программа будет рендерить кадры
           последовательно, а не параллельно.
         </Addition>
-        <ContentFigure
+        <ArticleMedia
           caption="Preferences"
-          imgTitle="Переключение функции Multi-Frame Rendering"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/aftereffects/checkbox_multiframe-render.png"
-          theme="dark"
+          src="legacy/aftereffects/checkbox_multiframe-render.png"
           type="image"
-          variant="windows"
         />
       </DetailsSummary>
       <DetailsSummary
@@ -844,14 +749,10 @@ const AeErrors: React.FC = () => {
                 нажмите на иконку открытия контекстного меню и переключитесь в режим{" "}
                 <mark className="select">«Debug Database View»</mark>.
               </p>
-              <ContentFigure
+              <ArticleMedia
                 caption="Включение Debug Database View"
-                imgTitle="Включение Debug Database View"
-                // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-                src="images/legacy/aftereffects/console_debug-database-view.png"
-                theme="dark"
+                src="legacy/aftereffects/console_debug-database-view.png"
                 type="image"
-                variant="windows"
               />
               <p>
                 Затем в строке поиска введите{" "}
@@ -861,14 +762,10 @@ const AeErrors: React.FC = () => {
                 вернуть язык по умолчанию, просто удалите значение из этого параметра и
                 снова перезапустите программу.
               </p>
-              <ContentFigure
+              <ArticleMedia
                 caption="Установка английского языка в консоли"
-                imgTitle="Установка английского языка в консоли"
-                // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-                src="images/legacy/aftereffects/set_language_console.png"
-                theme="dark"
+                src="legacy/aftereffects/set_language_console.png"
                 type="image"
-                variant="windows"
               />
             </>
           }
@@ -915,14 +812,10 @@ const AeErrors: React.FC = () => {
                 иконку открытия контекстного меню и переключитесь в режим{" "}
                 <mark className="select">«Debug Database View»</mark>.
               </p>
-              <ContentFigure
+              <ArticleMedia
                 caption="Включение Debug Database View"
-                imgTitle="Включение Debug Database View"
-                // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-                src="images/legacy/aftereffects/console_debug-database-view.png"
-                theme="dark"
+                src="legacy/aftereffects/console_debug-database-view.png"
                 type="image"
-                variant="windows"
               />
               <p>
                 Затем в строке поиска введите{" "}
@@ -932,14 +825,10 @@ const AeErrors: React.FC = () => {
                 вернуть язык по умолчанию, просто удалите значение из этого параметра и
                 снова перезапустите программу.
               </p>
-              <ContentFigure
+              <ArticleMedia
                 caption="Установка английского языка в консоли"
-                imgTitle="Установка английского языка в консоли"
-                // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-                src="images/legacy/aftereffects/set_language_console.png"
-                theme="dark"
+                src="legacy/aftereffects/set_language_console.png"
                 type="image"
-                variant="windows"
               />
             </>
           }
@@ -953,14 +842,10 @@ const AeErrors: React.FC = () => {
           <mark className="select">«Expressions Engine»</mark> выберите другой движок. Это
           может помочь, если выражение в проекте было создано для другого синтаксиса.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Project Settings"
-          imgTitle="Изменение движка выражений"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/aftereffects/change_expression_language.png"
-          theme="dark"
+          src="legacy/aftereffects/change_expression_language.png"
           type="image"
-          variant="windows"
         />
         <Divider>Ищем проблемное выражение</Divider>
         <p>
@@ -984,13 +869,10 @@ const AeErrors: React.FC = () => {
             </li>
           </ul>
         </Addition>
-        <ContentFigure
+        <ArticleMedia
           caption="Ищем проблемные выражения"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/aftereffects/find_expressions_with_errors.mp4"
-          theme="dark"
+          src="legacy/aftereffects/find_expressions_with_errors.mp4"
           type="video"
-          variant="windows"
         />
       </DetailsSummary>
       <DetailsSummary
@@ -1037,13 +919,10 @@ const AeErrors: React.FC = () => {
                     с правами обычного пользователя, в те, которые работают от имени
                     администратора.
                   </Addition>
-                  <ContentFigure
+                  <ArticleMedia
                     caption="Настройка запуска от имени администратора"
-                    // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-                    src="images/legacy/aftereffects/open_ae_as_admin.mp4"
-                    theme="dark"
+                    src="legacy/aftereffects/open_ae_as_admin.mp4"
                     type="video"
-                    variant="windows"
                   />
                 </li>
                 <li>
@@ -1086,14 +965,10 @@ const AeErrors: React.FC = () => {
                   движок на <mark className="plugin">Classic 3D</mark> в окне
                   предпросмотра или в настройках композиции во вкладке{" "}
                   <mark className="select">«3D Renderer»</mark>.
-                  <ContentFigure
+                  <ArticleMedia
                     caption="Composition Settings"
-                    imgTitle="Изменение 3D-рендерера"
-                    // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-                    src="images/legacy/aftereffects/change_3d_renderer.png"
-                    theme="dark"
+                    src="legacy/aftereffects/change_3d_renderer.png"
                     type="image"
-                    variant="windows"
                   />
                 </li>
               </ul>
@@ -1200,32 +1075,21 @@ const AeErrors: React.FC = () => {
                 gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))",
               }}
             >
-              <ContentFigure
+              <ArticleMedia
                 caption="Composition Settings"
-                imgTitle="Composition Settings"
-                // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-                src="images/legacy/aftereffects/composition_settings_3drenderer_cinema4d.png"
-                theme="dark"
+                src="legacy/aftereffects/composition_settings_3drenderer_cinema4d.png"
                 type="image"
-                variant="windows"
               />
-              <ContentFigure
+              <ArticleMedia
                 caption="Choose CINEMA 4D Installation"
-                imgTitle="Choose CINEMA 4D Installation"
                 // NOTE: заменить на новое изображение, видео или пример, желательно с бOльшим разрешением
-                src="images/legacy/aftereffects/cinema4d_renderer_options.png"
-                theme="dark"
+                src="legacy/aftereffects/cinema4d_renderer_options.png"
                 type="image"
-                variant="windows"
               />
-              <ContentFigure
+              <ArticleMedia
                 caption="Choose CINEMA 4D Installation"
-                imgTitle="Choose CINEMA 4D Installation"
-                // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-                src="images/legacy/aftereffects/choose_cinema4d_installation.png"
-                theme="dark"
+                src="legacy/aftereffects/choose_cinema4d_installation.png"
                 type="image"
-                variant="windows"
               />
             </div>
           </li>
@@ -1310,14 +1174,10 @@ const AeErrors: React.FC = () => {
                 <mark className="select">«Планирование GPU с аппаратным ускорением»</mark>
                 . После этого перезагрузите устройство и продолжите работу.
               </p>
-              <ContentFigure
+              <ArticleMedia
                 caption="Параметры"
-                imgTitle="Отключение планирования GPU"
-                // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-                src="images/legacy/disable_gpu_planning.png"
-                theme="dark"
+                src="legacy/disable_gpu_planning.png"
                 type="image"
-                variant="windows"
               />
               <Divider>Отключаем аппаратное декодирование исходников</Divider>
               <p>
@@ -1329,14 +1189,10 @@ const AeErrors: React.FC = () => {
                 <mark className="select">«Enable hardware accelerated decoding»</mark> и
                 перезапустите программу.
               </p>
-              <ContentFigure
+              <ArticleMedia
                 caption="Preferences"
-                imgTitle="Отключение аппаратного декодирования в настройках"
-                // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-                src="images/legacy/aftereffects/disable_hardware_accelerated_decoding.png"
-                theme="dark"
+                src="legacy/aftereffects/disable_hardware_accelerated_decoding.png"
                 type="image"
-                variant="windows"
               />
             </>
           }
@@ -1379,13 +1235,10 @@ const AeErrors: React.FC = () => {
                 </mark>
                 . После этого программа не должна вылетать при запуске.
               </p>
-              <ContentFigure
+              <ArticleMedia
                 caption="Настройка режима совместимости"
-                // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-                src="images/legacy/compatibility_media_encoder.mp4"
-                theme="dark"
+                src="legacy/compatibility_media_encoder.mp4"
                 type="video"
-                variant="windows"
               />
             </>
           }
@@ -1533,14 +1386,10 @@ const AeErrors: React.FC = () => {
           недостаточно места. Чтобы решить эту проблему, достаточно освободить место на
           диске, где у вас расположен кэш.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Warning"
-          imgTitle="Предупреждение о недостаточном свободном месте на диске"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/aftereffects/low_diskcache_space_warning.png"
-          theme="dark"
+          src="legacy/aftereffects/low_diskcache_space_warning.png"
           type="image"
-          variant="windows"
         />
         <p>
           Если нет возможности освободить место, откройте{" "}
@@ -1550,14 +1399,10 @@ const AeErrors: React.FC = () => {
           расположение через <mark className="select">«Choose Folder»</mark> или полностью
           отключить, сняв флажок с <mark className="select">«Enable Disk Cache»</mark>.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Preferences"
-          imgTitle="Настройка дискового кэша"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/aftereffects/preferences-media_and_disk_cache.png"
-          theme="dark"
+          src="legacy/aftereffects/preferences-media_and_disk_cache.png"
           type="image"
-          variant="windows"
         />
       </DetailsSummary>
       <DetailsSummary
@@ -1581,14 +1426,10 @@ const AeErrors: React.FC = () => {
             <mark className="select">«Enable Disk Cache»</mark>.
           </i>
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Preferences"
-          imgTitle="Настройка дискового кэша"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/aftereffects/preferences-media_and_disk_cache.png"
-          theme="dark"
+          src="legacy/aftereffects/preferences-media_and_disk_cache.png"
           type="image"
-          variant="windows"
         />
       </DetailsSummary>
       <DetailsSummary
@@ -1683,14 +1524,10 @@ const AeErrors: React.FC = () => {
               и у исходника, и нажмите <mark className="select">«OK»</mark>. После этого
               предупреждение должно исчезнуть.
             </p>
-            <ContentFigure
+            <ArticleMedia
               caption="Composition Settings"
-              imgTitle="Вкладка Basic в настройках композиции"
-              // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-              src="images/legacy/aftereffects/composition_settings_basic.png"
-              theme="dark"
+              src="legacy/aftereffects/composition_settings_basic.png"
               type="image"
-              variant="windows"
             />
           </li>
           <li>
@@ -1703,13 +1540,10 @@ const AeErrors: React.FC = () => {
             его в проекте через <mark className="select">«Replace Footage» → «File»</mark>
             . Для изменения частоты кадров используйте вкладку{" "}
             <mark className="select">«Advanced features»</mark>.
-            <ContentFigure
+            <ArticleMedia
               caption="Shutter Encoder"
-              // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-              src="images/legacy/shutter_encoder_convert_to_constant_fps.mp4"
-              theme="dark"
+              src="legacy/shutter_encoder_convert_to_constant_fps.mp4"
               type="video"
-              variant="mac"
             />
           </li>
           <li>
@@ -1720,14 +1554,10 @@ const AeErrors: React.FC = () => {
             <mark className="select">«Frame Rate»</mark> выберите{" "}
             <mark className="select">«Conform to frame rate»</mark>, задав значение,
             совпадающее с частотой кадров нужной композиции.
-            <ContentFigure
+            <ArticleMedia
               caption="Interpret Footage"
-              imgTitle="Интерпретация футажа"
-              // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-              src="images/legacy/aftereffects/interpret_footage_main.png"
-              theme="dark"
+              src="legacy/aftereffects/interpret_footage_main.png"
               type="image"
-              variant="windows"
             />
           </li>
         </ul>
@@ -1762,27 +1592,19 @@ const AeErrors: React.FC = () => {
               через <mark className="select">«Window»</mark> и в контекстном меню выберите{" "}
               <mark className="select">«Content-Aware Fill Settings»</mark>.
             </p>
-            <ContentFigure
+            <ArticleMedia
               caption="Adobe After Effects"
-              imgTitle="Открываем настройки Content-Aware Fill"
-              // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-              src="images/legacy/aftereffects/open_content-aware_fill_settings.png"
-              theme="dark"
+              src="legacy/aftereffects/open_content-aware_fill_settings.png"
               type="image"
-              variant="windows"
             />
             <p>
               В окне настроек включите и отключите различные параметры, затем верните их
               предыдущие значения. Этот приём иногда помогает модулю заработать корректно.
             </p>
-            <ContentFigure
+            <ArticleMedia
               caption="Content-Aware Fill Settings"
-              imgTitle="Настройки Content-Aware Fill"
-              // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-              src="images/legacy/aftereffects/content-aware_fill_settings.png"
-              theme="dark"
+              src="legacy/aftereffects/content-aware_fill_settings.png"
               type="image"
-              variant="windows"
             />
           </li>
           <li>
@@ -1794,14 +1616,10 @@ const AeErrors: React.FC = () => {
             Попробуйте установить для{" "}
             <mark className="select">«Working Color Space»</mark> значение{" "}
             <mark className="select">«None»</mark>.
-            <ContentFigure
+            <ArticleMedia
               caption="Project Settings"
-              imgTitle="Изменение цветового профиля"
-              // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-              src="images/legacy/aftereffects/change_working_color_space.png"
-              theme="dark"
+              src="legacy/aftereffects/change_working_color_space.png"
               type="image"
-              variant="windows"
             />
           </li>
         </ul>
@@ -1819,14 +1637,10 @@ const AeErrors: React.FC = () => {
           <mark className="select">«Transform»</mark> и выберите{" "}
           <mark className="key">«Reset»</mark>.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Timeline"
-          imgTitle="Сбрасываем трансформацию у слоя"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/aftereffects/reset_layer_transform.png"
-          theme="dark"
+          src="legacy/aftereffects/reset_layer_transform.png"
           type="image"
-          variant="windows"
         />
         <p>
           Если вы по какой-то причине не хотите сбрасывать трансформацию слоя, выделите
@@ -1875,14 +1689,10 @@ const AeErrors: React.FC = () => {
             Попробуйте изменить <mark className="select">«Solve Method»</mark> на другой
             или включить опцию <mark className="select">«Detailed Analysis»</mark> во
             вкладке <mark className="select">«Advanced»</mark> в настройках эффекта.
-            <ContentFigure
+            <ArticleMedia
               caption="Effect Controls"
-              imgTitle="Включение детального анализа"
-              // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-              src="images/legacy/aftereffects/detailed_analysis-3d_camera_tracker.png"
-              theme="dark"
+              src="legacy/aftereffects/detailed_analysis-3d_camera_tracker.png"
               type="image"
-              variant="windows"
             />
           </li>
           <li>
@@ -1904,14 +1714,10 @@ const AeErrors: React.FC = () => {
           продолжить запуск программы, нажмите{" "}
           <mark className="select">«Continue with known issues»</mark>.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="System Compatibility Report"
-          imgTitle="Окно с отчётом о совместимости"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/aftereffects/system_compatibility_report.png"
-          theme="dark"
+          src="legacy/aftereffects/system_compatibility_report.png"
           type="image"
-          variant="windows"
         />
         <p>
           Если вы знаете о причинах несовместимости и готовы работать с некоторыми
@@ -1926,14 +1732,10 @@ const AeErrors: React.FC = () => {
           В старых версиях <mark className="app">Adobe After Effects</mark> этот параметр
           находится в разделе <mark className="select">«General»</mark>.
         </Addition>
-        <ContentFigure
+        <ArticleMedia
           caption="Preferences"
-          imgTitle="Отключение отчёта о совместимости"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/aftereffects/show_system_compatibility_issues.png"
-          theme="dark"
+          src="legacy/aftereffects/show_system_compatibility_issues.png"
           type="image"
-          variant="windows"
         />
       </DetailsSummary>
       <DetailsSummary
@@ -1976,8 +1778,7 @@ const AeErrors: React.FC = () => {
                 администратора команды <mark className="code">sfc /scannow</mark> и{" "}
                 <mark className="code">dism /online /cleanup-image /restorehealth</mark>.
               </p>
-              <ContentFigure
-                caption="Проверка целостности Windows"
+              <ArticleMedia
                 src="5iuDr9WJnOg"
                 type="youtube"
               />
@@ -1998,13 +1799,10 @@ const AeErrors: React.FC = () => {
                 . После этого начнётся загрузка и установка образа для восстановления
                 целостности системы.
               </p>
-              <ContentFigure
+              <ArticleMedia
                 caption="Устранение неполадок с помощью Центра обновлений Windows"
-                // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-                src="images/legacy/fix_problems_with_windows_update.mp4"
-                theme="dark"
+                src="legacy/fix_problems_with_windows_update.mp4"
                 type="video"
-                variant="windows"
               />
               <p>
                 В чём суть такого действия? Вы просто устанавливаете систему «поверх»

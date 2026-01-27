@@ -3,7 +3,7 @@ import React from "react";
 import {Divider} from "antd";
 
 import Addition from "../../../components/content/Addition";
-import {ContentFigure} from "../../../components/content/ContentFigure";
+import {ArticleMedia} from "../../../components/content/ArticleMedia";
 import ContentFilter from "../../../components/content/ContentFilter";
 import DetailsSummary from "../../../components/content/DetailsSummary";
 
@@ -35,8 +35,7 @@ const PrExport: React.FC = () => {
           качество, просто установив более высокий битрейт, не получится. Это не архив, из
           которого можно распаковать несжатое видео с исходным качеством.
         </p>
-        <ContentFigure
-          caption="Почему снег и конфетти портят картинку"
+        <ArticleMedia
           src="r6Rp-uo6HmI"
           type="youtube"
         />
@@ -50,8 +49,7 @@ const PrExport: React.FC = () => {
           то есть <mark>24 кадра/с</mark> в данном примере. Не всем понравится ваш трюк с
           комбинацией разных частот кадров в одном видео.
         </p>
-        <ContentFigure
-          caption="Как несовпадение частоты кадров портит ваше видео"
+        <ArticleMedia
           src="p3Jb3UPAw-w"
           type="youtube"
         />
@@ -249,14 +247,10 @@ const PrExport: React.FC = () => {
           из-за автоматической конвертации. Чтобы отправить видео в максимальном качестве,
           нажмите на кнопку выбора качества и потяните ползунок максимально вправо.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Telegram"
-          imgTitle="Выбор качества видео в Telegram"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/phone_telegram_videoquality.jpg"
-          theme="dark"
+          src="legacy/phone_telegram_videoquality.jpg"
           type="image"
-          variant="windows"
         />
         <p>
           Если вы хотите опубликовать историю в <mark className="app">Telegram</mark>,
@@ -317,14 +311,10 @@ const PrExport: React.FC = () => {
           вкладках более детальные настройки. Также вы можете выбрать область для
           кодирования видео — всю секвенцию или только её часть.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Интерфейс экспорта"
-          imgTitle="Интерфейс экспорта"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/premierepro/export_interface.png"
-          theme="dark"
+          src="legacy/premierepro/export_interface.png"
           type="image"
-          variant="windows"
         />
         <Divider>Экспортируем через встроенный H.264</Divider>
         <p>
@@ -341,13 +331,10 @@ const PrExport: React.FC = () => {
           -кодированием. Чтобы изменить «заблокированные настройки», просто уберите флажок
           справа от нужного параметра.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Настройки экспорта видео"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/premierepro/export_video_settings.mp4"
-          theme="dark"
+          src="legacy/premierepro/export_video_settings.mp4"
           type="video"
-          variant="windows"
         />
         <p>
           Затем просто нажмите на кнопку <mark className="select">«Export»</mark> в правом
@@ -389,28 +376,20 @@ const PrExport: React.FC = () => {
           параметре <mark className="select">«Format»</mark> выбрать{" "}
           <mark className="select">«Voukoder»</mark>.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Export"
-          imgTitle="Выбираем Voukoder для рендера"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/premierepro/selecting_voukoder.png"
-          theme="dark"
+          src="legacy/premierepro/selecting_voukoder.png"
           type="image"
-          variant="windows"
         />
         <p>
           Чтобы перейти в настройки плагина, вам нужно раскрыть вкладку{" "}
           <mark className="select">«Voukoder»</mark> и нажать на кнопку{" "}
           <mark className="select">«Configure»</mark>.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Export"
-          imgTitle="Открываем настройки Voukoder"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/premierepro/open_voukoder_settings.png"
-          theme="dark"
+          src="legacy/premierepro/open_voukoder_settings.png"
           type="image"
-          variant="windows"
         />
         <p>
           После открытия настроек нам нужно выбрать кодек, в который мы хотим
@@ -449,14 +428,10 @@ const PrExport: React.FC = () => {
             встроенном видеочипе AMD.
           </li>
         </ul>
-        <ContentFigure
+        <ArticleMedia
           caption="Voukoder 13.4.1"
-          imgTitle="Выбираем нужный вариант кодека в Voukoder"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/premierepro/select_codec_in_voukoder.png"
-          theme="light"
+          src="legacy/premierepro/select_codec_in_voukoder.png"
           type="image"
-          variant="windows"
         />
         <p>
           После выбора нужного нам кодека (я выбрал{" "}
@@ -466,14 +441,10 @@ const PrExport: React.FC = () => {
           параметр квантования и его фактор. <mark>CQP</mark> или <mark>CRF</mark> — это
           некий эквивалент качества, чем меньше — тем лучше качество, но больше вес.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Voukoder 13.4.1"
-          imgTitle="Настраиваем качество видео в Voukoder"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/premierepro/codec_parameter_voukoder.png"
-          theme="light"
+          src="legacy/premierepro/codec_parameter_voukoder.png"
           type="image"
-          variant="windows"
         />
         <ul>
           <li>
@@ -518,14 +489,10 @@ const PrExport: React.FC = () => {
           параметре <mark className="select">«Format»</mark> значение{" "}
           <mark className="select">«AfterCodecs»</mark>.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Export"
-          imgTitle="Выбор AfterCodecs"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/premierepro/selecting_aftercodecs.png"
-          theme="dark"
+          src="legacy/premierepro/selecting_aftercodecs.png"
           type="image"
-          variant="windows"
         />
         <p>
           Чтобы перейти в настройки <mark className="plugin">AfterCodecs</mark>, раскройте
@@ -538,14 +505,10 @@ const PrExport: React.FC = () => {
           в <mark className="video">MP4</mark>, то и указать нужно соответствующий
           контейнер для вывода.
         </Addition>
-        <ContentFigure
+        <ArticleMedia
           caption="Export"
-          imgTitle="Изменение контейнера и открытие настроек AfterCodecs"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/premierepro/change_format_open_aftercodecs_settings.png"
-          theme="dark"
+          src="legacy/premierepro/change_format_open_aftercodecs_settings.png"
           type="image"
-          variant="windows"
         />
         <p>
           В открывшемся окне мы снова видим кучу непонятных параметров. Здесь нам нужно
@@ -581,14 +544,10 @@ const PrExport: React.FC = () => {
             необходимости!
           </Addition>
         </ul>
-        <ContentFigure
+        <ArticleMedia
           caption="AfterCodecs 1.11.5 for Adobe Premiere Pro"
-          imgTitle="Настройки AfterCodecs"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/premierepro/aftercodecs_settings.png"
-          theme="dark"
+          src="legacy/premierepro/aftercodecs_settings.png"
           type="image"
-          variant="windows"
         />
         <p>
           После завершения настроек мы нажимаем <mark className="select">«OK»</mark> и
@@ -628,14 +587,10 @@ const PrExport: React.FC = () => {
           <mark className="select">«Video Codec»</mark> укажите нужный кодек в зависимости
           от ваших требований.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Export"
-          imgTitle="Экспортируем видео в Apple Prores"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/premierepro/export_prores4444_8bit-alpha.png"
-          theme="dark"
+          src="legacy/premierepro/export_prores4444_8bit-alpha.png"
           type="image"
-          variant="windows"
         />
         <Addition type="warning">
           Не забудьте поставить в <mark className="select">«Depth»</mark> параметр{" "}
@@ -661,28 +616,20 @@ const PrExport: React.FC = () => {
           Если у вас не установлен <mark className="app">Shutter Encoder</mark>, то его
           можно скачать <a href="https://www.shutterencoder.com/">по этой ссылке</a>.
         </Addition>
-        <ContentFigure
+        <ArticleMedia
           caption="Shutter Encoder"
-          imgTitle="Выбор VP9 в Shutter Encoder"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/select_vp9_shutter_encoder.png"
-          theme="dark"
+          src="legacy/select_vp9_shutter_encoder.png"
           type="image"
-          variant="mac"
         />
         <p>
           Затем включаем в дополнительных опциях{" "}
           <mark className="select">«Enable alpha channel»</mark>, если вы хотите вывести
           видео с альфа-каналом.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Shutter Encoder"
-          imgTitle="Включение альфа-канала в Shutter Encoder"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/enable_alpha_shutter_encoder.png"
-          theme="dark"
+          src="legacy/enable_alpha_shutter_encoder.png"
           type="image"
-          variant="mac"
         />
         <p>
           В программе можно также выставить путь для файла (по умолчанию видео кодируется
@@ -763,14 +710,10 @@ const PrExport: React.FC = () => {
           <mark className="select">«Animated GIF»</mark> и не забудьте указать путь для
           вывода файла.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Export"
-          imgTitle="Выбор формата Animated GIF"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/premierepro/selecting_animated_gif.png"
-          theme="dark"
+          src="legacy/premierepro/selecting_animated_gif.png"
           type="image"
-          variant="windows"
         />
         <Addition type="warning">
           Если вы выберете в качестве формата параметр{" "}
@@ -813,14 +756,10 @@ const PrExport: React.FC = () => {
           стандартного пресета. Там же вы можете указать разрешение, FPS и другие
           параметры.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Media Encoder"
-          imgTitle="Выбираем формат GIF для экспорта через Adobe Media Encoder"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/premierepro/selecting_animated_gif_media_encoder.png"
-          theme="light"
+          src="legacy/premierepro/selecting_animated_gif_media_encoder.png"
           type="image"
-          variant="windows"
         />
         <Addition type="warning">
           Если вы выберете в качестве формата параметр{" "}
@@ -845,14 +784,10 @@ const PrExport: React.FC = () => {
           Для начала конвертации просто загрузите ваше видео в сервис, а затем нажмите на
           кнопку <mark className="select">«Upload Video»</mark>.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Ezgif"
-          imgTitle="Главная страница Ezgif"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/ezgif_main.png"
-          theme="light"
+          src="legacy/ezgif_main.png"
           type="image"
-          variant="windows"
         />
         <Addition type="warning">
           Максимальный размер файла, который можно загрузить в сервис, не должен превышать{" "}
@@ -866,14 +801,10 @@ const PrExport: React.FC = () => {
           Если вы настроили всё, что вам нужно, то просто нажмите на кнопку{" "}
           <mark className="select">«Convert to GIF!»</mark>.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Ezgif"
-          imgTitle="Настройки конвертации в Ezgif"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/ezgif_settings.png"
-          theme="light"
+          src="legacy/ezgif_settings.png"
           type="image"
-          variant="windows"
         />
         <p>
           Далее после успешной конвертации вы получите ваше видео в формате{" "}
@@ -898,14 +829,10 @@ const PrExport: React.FC = () => {
           <mark className="select">«Transparency Grid»</mark>. Эта опция подставляет сетку
           в виде шахматной доски для отображения прозрачных частей в секвенции.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Program Monitor"
-          imgTitle="Включение сетки для отображения прозрачных частей"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/premierepro/toggle_transparency_grid.png"
-          theme="dark"
+          src="legacy/premierepro/toggle_transparency_grid.png"
           type="image"
-          variant="windows"
         />
         <p>
           Если всё с этим в порядке, то пора переходить во вкладку{" "}
@@ -918,14 +845,10 @@ const PrExport: React.FC = () => {
           <mark className="select">«16-bpc + Alpha»</mark>, если вам нужно вывести видео с
           большей битностью.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Export"
-          imgTitle="Экспорт секвенции с альфа-каналом"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/premierepro/export_prores4444_8bit-alpha.png"
-          theme="dark"
+          src="legacy/premierepro/export_prores4444_8bit-alpha.png"
           type="image"
-          variant="windows"
         />
         <p>
           Затем укажите путь для вывода файла и нажмите на кнопку{" "}
@@ -959,13 +882,10 @@ const PrExport: React.FC = () => {
           открывшемся меню введите название вашего будущего пресета и нажмите на{" "}
           <mark className="select">«OK»</mark>.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Export"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/premierepro/create_custom_preset.mp4"
-          theme="dark"
+          src="legacy/premierepro/create_custom_preset.mp4"
           type="video"
-          variant="windows"
         />
         <p>
           После этого вы сможете воспользоваться своими заготовленными настройками
@@ -982,27 +902,19 @@ const PrExport: React.FC = () => {
           <mark className="key">Ctrl + Shift + E</mark> или нажать на иконку фотоаппарата
           в <mark className="select">«Program Monitor»</mark>.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Program Monitor"
-          imgTitle="Экспорт текущего кадра в окне Program Monitor"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/premierepro/export_frame_program_monitor.png"
-          theme="dark"
+          src="legacy/premierepro/export_frame_program_monitor.png"
           type="image"
-          variant="windows"
         />
         <p>
           Затем в открывшемся окне выберите формат и путь для сохранения изображения, а
           потом нажмите на <mark className="select">«OK»</mark>.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Export Frame"
-          imgTitle="Экспорт текущего кадра"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/premierepro/export_frame.png"
-          theme="dark"
+          src="legacy/premierepro/export_frame.png"
           type="image"
-          variant="windows"
         />
       </DetailsSummary>
       <DetailsSummary title="Как вывести все кадры секвенции как отдельные файлы изображений?">
@@ -1017,14 +929,10 @@ const PrExport: React.FC = () => {
           <mark className="select">«Export»</mark> и выбрать в параметре{" "}
           <mark className="select">«Format»</mark> нужный нам тип файла.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Export"
-          imgTitle="Выбираем формат изображений"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/premierepro/select_png_export.png"
-          theme="dark"
+          src="legacy/premierepro/select_png_export.png"
           type="image"
-          variant="windows"
         />
         <Addition type="info">
           Если вы хотите вывести кадры с прозрачностью — не забудьте указать параметр{" "}
@@ -1061,14 +969,10 @@ const PrExport: React.FC = () => {
           параметре <mark className="select">«Range»</mark> под окном предпросмотра
           указать область рендера секвенции. Нам предлагают четыре варианта на выбор.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Export"
-          imgTitle="Выбираем область экспорта"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/premierepro/select_export_range.png"
-          theme="dark"
+          src="legacy/premierepro/select_export_range.png"
           type="image"
-          variant="windows"
         />
         <ul>
           <li>
@@ -1107,14 +1011,10 @@ const PrExport: React.FC = () => {
           <mark className="select">«Project Manager»</mark>, который находится в параметре{" "}
           <mark className="select">«File»</mark> контекстного меню.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Adobe Premiere"
-          imgTitle="Открытие Project Manager"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/premierepro/file_project_manager.png"
-          theme="light"
+          src="legacy/premierepro/file_project_manager.png"
           type="image"
-          variant="windows"
         />
         <p>
           После открытия окна <mark className="select">«Project Manager»</mark> вы можете
@@ -1131,14 +1031,10 @@ const PrExport: React.FC = () => {
           операции. Убедитесь в том, что у вас включен параметр{" "}
           <mark className="select">«Collect Files and Copy to New Location»</mark>.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Project Manager"
-          imgTitle="Окно Project Manager"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/premierepro/project_manager.png"
-          theme="dark"
+          src="legacy/premierepro/project_manager.png"
           type="image"
-          variant="windows"
         />
         <ContentFilter
           macContent={
@@ -1160,21 +1056,15 @@ const PrExport: React.FC = () => {
                   gridTemplateColumns: "repeat(auto-fit, minmax(275px, 1fr))",
                 }}
               >
-                <ContentFigure
+                <ArticleMedia
                   caption="Выбор формата архива"
-                  imgTitle="Выбор формата архива"
                   src="https://github.com/aonez/Keka/raw/master/Wiki/Images/Animated/main-window-format.gif"
-                  theme="light"
                   type="image"
-                  variant="mac"
                 />
-                <ContentFigure
+                <ArticleMedia
                   caption="Выбор размера разделения архива"
-                  imgTitle="Выбор размера разделения архива"
                   src="https://github.com/aonez/Keka/raw/master/Wiki/Images/Animated/main-window-split.gif"
-                  theme="light"
                   type="image"
-                  variant="mac"
                 />
               </div>
               <Addition type="info">
@@ -1200,8 +1090,7 @@ const PrExport: React.FC = () => {
                 человеку по кусочкам. После создания архива, отправьте его другому
                 человеку любым удобным для вас способом.
               </p>
-              <ContentFigure
-                caption="Как разбить архив на части и собрать его"
+              <ArticleMedia
                 src="6KumGS0EyUQ"
                 type="youtube"
               />

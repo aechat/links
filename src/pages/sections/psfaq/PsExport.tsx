@@ -1,7 +1,7 @@
 import React from "react";
 
 import Addition from "../../../components/content/Addition";
-import {ContentFigure} from "../../../components/content/ContentFigure";
+import {ArticleMedia} from "../../../components/content/ArticleMedia";
 import DetailsSummary from "../../../components/content/DetailsSummary";
 
 const PsExport: React.FC = () => {
@@ -32,28 +32,20 @@ const PsExport: React.FC = () => {
           <mark className="image">TIFF</mark>, перейдите в{" "}
           <mark className="select">«File» → «Export» → «Layers to Files»</mark>.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Adobe Photoshop"
-          imgTitle="Кнопка для начала экспорта слоёв в файлы"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/photoshop/layers_to_files.png"
-          theme="light"
+          src="legacy/photoshop/layers_to_files.png"
           type="image"
-          variant="windows"
         />
         <p>
           В открывшемся окне вы можете указать формат файла и путь к папке, куда вы хотите
           сохранить слои. Для начала процесса сохранения нажмите на{" "}
           <mark className="select">«Run»</mark> и ожидайте окончания операции.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Adobe Photoshop"
-          imgTitle="Экспорт слоёв в файлы"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/photoshop/export_layers.png"
-          theme="light"
+          src="legacy/photoshop/export_layers.png"
           type="image"
-          variant="windows"
         />
         {/* FIXME: */}
       </DetailsSummary>

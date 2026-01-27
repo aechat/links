@@ -3,7 +3,7 @@ import React from "react";
 import {Divider} from "antd";
 
 import Addition from "../../../components/content/Addition";
-import {ContentFigure} from "../../../components/content/ContentFigure";
+import {ArticleMedia} from "../../../components/content/ArticleMedia";
 import ContentFilter from "../../../components/content/ContentFilter";
 import DetailsSummary from "../../../components/content/DetailsSummary";
 
@@ -107,38 +107,32 @@ const PrPerformance: React.FC = () => {
                   откроете окно <mark className="select">«Свойства системы»</mark> и сразу
                   же попадёте в <mark className="select">«Параметры быстродействия»</mark>
                   .
-                  <ContentFigure
+                  <ArticleMedia
                     caption="Выполнить"
                     // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-                    src="images/legacy/run_systempropertiesadvanced.png"
-                    theme="dark"
+                    src="legacy/run_systempropertiesadvanced.png"
                     type="image"
-                    variant="windows"
                   />
                 </li>
                 <li>
                   В окне <mark className="select">«Параметры быстродействия»</mark>{" "}
                   перейдите на вкладку <mark className="select">«Дополнительно»</mark>.
-                  <ContentFigure
+                  <ArticleMedia
                     caption="Параметры быстродействия"
                     // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-                    src="images/legacy/systempropertiesadvanced_select_advanced.png"
-                    theme="light"
+                    src="legacy/systempropertiesadvanced_select_advanced.png"
                     type="image"
-                    variant="windows"
                   />
                 </li>
                 <li>
                   Во вкладке <mark className="select">«Дополнительно»</mark> нажмите
                   кнопку <mark className="select">«Изменить»</mark> в разделе{" "}
                   <mark className="select">«Виртуальная память»</mark>.
-                  <ContentFigure
+                  <ArticleMedia
                     caption="Параметры быстродействия"
                     // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-                    src="images/legacy/systempropertiesadvanced_open_change_size.png"
-                    theme="light"
+                    src="legacy/systempropertiesadvanced_open_change_size.png"
                     type="image"
-                    variant="windows"
                   />
                 </li>
                 <li>
@@ -147,13 +141,11 @@ const PrPerformance: React.FC = () => {
                     «Автоматически выбирать объем файла подкачки»
                   </mark>
                   , снимите его.
-                  <ContentFigure
+                  <ArticleMedia
                     caption="Виртуальная память"
                     // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-                    src="images/legacy/systempropertiesadvanced_disable_auto_size.png"
-                    theme="light"
+                    src="legacy/systempropertiesadvanced_disable_auto_size.png"
                     type="image"
-                    variant="windows"
                   />
                 </li>
                 <li>
@@ -170,13 +162,11 @@ const PrPerformance: React.FC = () => {
                     <mark className="select">«Задать»</mark> для сохранения, а затем —{" "}
                     <mark className="select">«ОК»</mark> внизу окна.
                   </p>
-                  <ContentFigure
+                  <ArticleMedia
                     caption="Виртуальная память"
                     // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-                    src="images/legacy/systempropertiesadvanced_set_swap_size.png"
-                    theme="light"
+                    src="legacy/systempropertiesadvanced_set_swap_size.png"
                     type="image"
-                    variant="windows"
                   />
                   <Addition type="info">
                     <ul>

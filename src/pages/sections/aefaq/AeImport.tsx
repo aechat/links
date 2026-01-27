@@ -3,8 +3,8 @@ import React from "react";
 import {Divider} from "antd";
 
 import Addition from "../../../components/content/Addition";
+import {ArticleMedia} from "../../../components/content/ArticleMedia";
 import CodeSnippet from "../../../components/content/CodeSnippet";
-import {ContentFigure} from "../../../components/content/ContentFigure";
 import ContentFilter from "../../../components/content/ContentFilter";
 import DetailsSummary from "../../../components/content/DetailsSummary";
 import TgsToJsonConverter from "../../../components/features/converters/ConverterTgsToJson";
@@ -115,8 +115,7 @@ const AeImport: React.FC = () => {
           </mark>
           .
         </p>
-        <ContentFigure
-          caption="H.264 — не для редактирования видео"
+        <ArticleMedia
           src="Acrm-wQjoaU"
           type="youtube"
         />
@@ -143,13 +142,10 @@ const AeImport: React.FC = () => {
           дёргания, «чёрные кадры», а также утечки оперативной памяти и ошибки вроде{" "}
           <mark className="warning">«Out of Memory»</mark>.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Пример артефактов проблемного исходника из интернета"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/h264_artifacts.webm"
-          theme="light"
+          src="legacy/h264_artifacts.webm"
           type="video"
-          variant="windows"
         />
         <p>
           С аудио и изображениями тоже не всё гладко.{" "}
@@ -158,13 +154,10 @@ const AeImport: React.FC = () => {
           искажаться или растягиваться. Со сжатыми изображениями, особенно в формате{" "}
           <mark className="image">JPEG</mark>, тоже возможны похожие проблемы.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Пример артефактов проблемного аудио"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/aftereffects/audio_artifacts.mp4"
-          theme="dark"
+          src="legacy/aftereffects/audio_artifacts.mp4"
           type="video"
-          variant="windows"
         />
         <p>
           Главный вывод: для стабильной и быстрой работы в{" "}
@@ -202,14 +195,10 @@ const AeImport: React.FC = () => {
           выглядят выжженными и пересвеченными из-за несоответствия между цветовыми
           пространствами исходников и самого проекта.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Терминал — MediaInfo-CLI"
-          imgTitle="Пример открытого в MediaInfo файла"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/mediainfo_example.png"
-          theme="dark"
+          src="legacy/mediainfo_example.png"
           type="image"
-          variant="windows"
         />
         <p>При работе с такими исходниками у вас есть два варианта:</p>
         <ul>
@@ -235,8 +224,7 @@ const AeImport: React.FC = () => {
           предпочтительным из-за своей простоты и предсказуемости при внедрении в
           какой-нибудь проект с разными камерами.
         </Addition>
-        <ContentFigure
-          caption="Цветовые пространства: Базовые знания простым языком"
+        <ArticleMedia
           src="vlFdAqoriL0"
           type="youtube"
         />
@@ -266,8 +254,7 @@ const AeImport: React.FC = () => {
           совпадает. Проверить это можно в окне <mark className="select">«Project»</mark>,
           в столбце <mark className="select">«Frame Rate»</mark>.
         </p>
-        <ContentFigure
-          caption="Как несовпадение частоты кадров портит ваше видео"
+        <ArticleMedia
           src="p3Jb3UPAw-w"
           type="youtube"
         />
@@ -316,14 +303,10 @@ const AeImport: React.FC = () => {
             Первым делом импортируйте в программу исходники или целую папку с помощью
             кнопки <mark className="select">«Browse»</mark> или перетащите их в окно
             программы для добавления в очередь.
-            <ContentFigure
+            <ArticleMedia
               caption="Shutter Encoder"
-              imgTitle="Импорт материалов в Shutter Encoder"
-              // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-              src="images/legacy/shutter_encoder_import.png"
-              theme="dark"
+              src="legacy/shutter_encoder_import.png"
               type="image"
-              variant="mac"
             />
           </li>
           <li>
@@ -331,28 +314,20 @@ const AeImport: React.FC = () => {
             формат для конвертации, например <mark className="video">Apple ProRes</mark>{" "}
             или <mark className="video">H.264</mark>. Изменение данного параметра будет
             относиться ко всем файлам в очереди конвертации.
-            <ContentFigure
+            <ArticleMedia
               caption="Shutter Encoder"
-              imgTitle="Выбор кодека в Shutter Encoder"
-              // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-              src="images/legacy/shutter_encoder_choose_function.png"
-              theme="dark"
+              src="legacy/shutter_encoder_choose_function.png"
               type="image"
-              variant="mac"
             />
             <ul>
               <li>
                 Если вы выбрали <mark className="video">Apple ProRes</mark> — нужно
                 выбрать его тип: <mark className="video">Apple ProRes 422</mark> или{" "}
                 <mark className="video">Apple ProRes 4444</mark>, а также его подвид.
-                <ContentFigure
+                <ArticleMedia
                   caption="Shutter Encoder"
-                  imgTitle="Выбор типа Apple ProRes в Shutter Encoder"
-                  // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-                  src="images/legacy/shutter_encoder_select_type_prores.png"
-                  theme="dark"
+                  src="legacy/shutter_encoder_select_type_prores.png"
                   type="image"
-                  variant="mac"
                 />
                 <Addition type="info">
                   Если вы конвертируете исходник, снятый на свежие <mark>iPhone</mark>, —
@@ -364,14 +339,10 @@ const AeImport: React.FC = () => {
                     «Error opening output files: Invalid argument»
                   </mark>
                   .
-                  <ContentFigure
+                  <ArticleMedia
                     caption="Shutter Encoder"
-                    imgTitle="Отключаем проблемную аудиодорожку в Shutter Encoder"
-                    // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-                    src="images/legacy/shutter_encoder_disable_second_audio.png"
-                    theme="dark"
+                    src="legacy/shutter_encoder_disable_second_audio.png"
                     type="image"
-                    variant="mac"
                   />
                 </Addition>
               </li>
@@ -423,13 +394,10 @@ const AeImport: React.FC = () => {
                       настройку, переключившись с <mark className="select">«VBR»</mark> на
                       него.
                     </p>
-                    <ContentFigure
+                    <ArticleMedia
                       caption="Shutter Encoder"
-                      // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-                      src="images/legacy/shutter_encoder_change_cq_h264.mp4"
-                      theme="dark"
+                      src="legacy/shutter_encoder_change_cq_h264.mp4"
                       type="video"
-                      variant="mac"
                     />
                     <Addition type="info">
                       <ul>
@@ -454,13 +422,10 @@ const AeImport: React.FC = () => {
                     Укажите битрейт для аудио в параметре{" "}
                     <mark className="select">«Audio Bitrate»</mark>; достаточно установить
                     значение <mark>320</mark> Кбит/с.
-                    <ContentFigure
+                    <ArticleMedia
                       caption="Shutter Encoder"
-                      // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-                      src="images/legacy/shutter_encoder_change_audio_bitrate_h264.mp4"
-                      theme="dark"
+                      src="legacy/shutter_encoder_change_audio_bitrate_h264.mp4"
                       type="video"
-                      variant="mac"
                     />
                   </li>
                   <li>
@@ -468,14 +433,10 @@ const AeImport: React.FC = () => {
                     видео в параметре{" "}
                     <mark className="select">«Hardware Acceleration»</mark>. В большинстве
                     случаев это ускорит процесс конвертации видео.
-                    <ContentFigure
+                    <ArticleMedia
                       caption="Shutter Encoder"
-                      imgTitle="Включение аппаратного ускорения для H.264 в Shutter Encoder"
-                      // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-                      src="images/legacy/shutter_encoder_enable_hardware_acceleration_h264.png"
-                      theme="dark"
+                      src="legacy/shutter_encoder_enable_hardware_acceleration_h264.png"
                       type="image"
-                      variant="mac"
                     />
                     <Addition type="info">
                       Выбор значений в этом параметре зависит от формата, вашего
@@ -495,25 +456,19 @@ const AeImport: React.FC = () => {
               Цвета после конвертации из одного цветового пространства в другое могут
               незначительно измениться.
             </Addition>
-            <ContentFigure
+            <ArticleMedia
               caption="Shutter Encoder"
-              // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-              src="images/legacy/shutter_encoder_convert_colorspace.mp4"
-              theme="dark"
+              src="legacy/shutter_encoder_convert_colorspace.mp4"
               type="video"
-              variant="mac"
             />
           </li>
           <li>
             При необходимости преобразуйте переменную частоту кадров в постоянную. Это
             можно сделать во вкладке <mark className="select">«Advanced features»</mark>.
-            <ContentFigure
+            <ArticleMedia
               caption="Shutter Encoder"
-              // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-              src="images/legacy/shutter_encoder_convert_to_constant_fps.mp4"
-              theme="dark"
+              src="legacy/shutter_encoder_convert_to_constant_fps.mp4"
               type="video"
-              variant="mac"
             />
           </li>
           <li>
@@ -521,14 +476,10 @@ const AeImport: React.FC = () => {
             <mark className="select">«Start function»</mark> для начала конвертации. По
             умолчанию программа сохраняет конвертированные файлы в ту же папку, откуда
             были импортированы исходники.
-            <ContentFigure
+            <ArticleMedia
               caption="Shutter Encoder"
-              imgTitle="Начало конвертации в Shutter Encoder"
-              // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-              src="images/legacy/shutter_encoder_start_function.png"
-              theme="dark"
+              src="legacy/shutter_encoder_start_function.png"
               type="image"
-              variant="mac"
             />
             <Addition type="info">
               <ul>
@@ -552,14 +503,10 @@ const AeImport: React.FC = () => {
           настроек, нажмите на значок звезды, расположенный правее кнопки{" "}
           <mark className="select">«Start function»</mark>.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Shutter Encoder"
-          imgTitle="Начало конвертации в Shutter Encoder"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/shutter_encoder_my_functions.png"
-          theme="dark"
+          src="legacy/shutter_encoder_my_functions.png"
           type="image"
-          variant="mac"
         />
         <p>
           Если вы ни разу не сохраняли шаблон конвертации, окно сохранённых функций будет
@@ -594,14 +541,10 @@ const AeImport: React.FC = () => {
           <mark className="select">«Choose Project Template»</mark>. Если файл шаблона
           будет удалён или перемещён, программа загрузит пустой проект и предупредит вас,
           что файл не найден.
-          <ContentFigure
+          <ArticleMedia
             caption="Preferences"
-            imgTitle="Включение и выбор шаблона при каждом открытии Adobe After Effects"
-            // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-            src="images/legacy/aftereffects/choose_project_template.png"
-            theme="dark"
+            src="legacy/aftereffects/choose_project_template.png"
             type="image"
-            variant="windows"
           />
         </Addition>
         <p>
@@ -613,14 +556,10 @@ const AeImport: React.FC = () => {
           который нужно заменить. После этого укажите путь до нового файла в системном
           файловом менеджере.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Adobe After Effects"
-          imgTitle="Замена исходника в проекте"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/aftereffects/replace_footage.png"
-          theme="dark"
+          src="legacy/aftereffects/replace_footage.png"
           type="image"
-          variant="windows"
         />
         <Addition type="info">
           Подробную информацию о пайплайне импорта и экспорта вы можете узнать в{" "}
@@ -708,14 +647,10 @@ const AeImport: React.FC = () => {
           Очистка кэша никак не повлияет на ваши проекты: они не сломаются и не удалятся.
           Максимум, что придётся сделать после этого — закэшировать композицию заново.
         </Addition>
-        <ContentFigure
+        <ArticleMedia
           caption="Очистка кэша и оперативной памяти"
-          imgTitle="Очистка кэша и оперативной памяти"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/aftereffects/edit_purge_all-memory-and-disk-cache.png"
-          theme="light"
+          src="legacy/aftereffects/edit_purge_all-memory-and-disk-cache.png"
           type="image"
-          variant="windows"
         />
         <p>
           При наличии хотя бы <mark>32–64 ГБ</mark> оперативной памяти и мощного
@@ -726,14 +661,10 @@ const AeImport: React.FC = () => {
           Это снизит риск сбоев при воспроизведении кэшированных кадров, однако функция
           предпросмотра кадров с диска станет недоступна.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Отключаем дисковый кэш"
-          imgTitle="Отключаем дисковый кэш"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/aftereffects/enable_disk_cache.png"
-          theme="dark"
+          src="legacy/aftereffects/enable_disk_cache.png"
           type="image"
-          variant="windows"
         />
         <Divider>Исправляем проблемные исходники перекодированием</Divider>
         <p>
@@ -746,13 +677,10 @@ const AeImport: React.FC = () => {
           Иногда он делает это с ошибками — и на экране предпросмотра могут появиться
           артефакты.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Пример артефактов проблемного исходника из интернета"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/h264_artifacts.webm"
-          theme="light"
+          src="legacy/h264_artifacts.webm"
           type="video"
-          variant="windows"
         />
         <p>
           Чтобы избежать проблем с такими видео, их лучше перекодировать в формат для
@@ -764,14 +692,10 @@ const AeImport: React.FC = () => {
           <mark className="app">HandBrake</mark> или{" "}
           <mark className="app">Adobe Media Encoder</mark>.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Shutter Encoder"
-          imgTitle="Конвертируем в ProRes через Shutter Encoder"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/convert_to_prores_shutterencoder.png"
-          theme="dark"
+          src="legacy/convert_to_prores_shutterencoder.png"
           type="image"
-          variant="mac"
         />
         <p>
           В некоторых случаях <mark className="app">Adobe After Effects</mark> может
@@ -783,13 +707,10 @@ const AeImport: React.FC = () => {
           <mark className="app">Adobe Audition</mark> или{" "}
           <mark className="app">EZ CD Audio Converter</mark> и заменой файла в проекте.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Пример артефактов проблемного аудио"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/aftereffects/audio_artifacts.mp4"
-          theme="dark"
+          src="legacy/aftereffects/audio_artifacts.mp4"
           type="video"
-          variant="windows"
         />
         <Divider>Заменяем проблемные исходники</Divider>
         <p>
@@ -801,14 +722,10 @@ const AeImport: React.FC = () => {
           необходимости проделайте те же действия с остальными проблемными исходниками в
           вашем проекте.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Project"
-          imgTitle="Замена исходника в проекте"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/aftereffects/replace_footage.png"
-          theme="dark"
+          src="legacy/aftereffects/replace_footage.png"
           type="image"
-          variant="windows"
         />
         <Divider>Проверяем жёсткий диск, на котором хранится проект</Divider>
         <p>
@@ -835,14 +752,10 @@ const AeImport: React.FC = () => {
                 <mark className="company">AMD</mark>. Если это не поможет, придётся
                 отправлять исходники на конвертацию.
               </p>
-              <ContentFigure
+              <ArticleMedia
                 caption="Preferences"
-                imgTitle="Отключение аппаратного декодирования в настройках"
-                // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-                src="images/legacy/aftereffects/disable_hardware_accelerated_decoding.png"
-                theme="dark"
+                src="legacy/aftereffects/disable_hardware_accelerated_decoding.png"
                 type="image"
-                variant="windows"
               />
               <Divider>Боремся с артефактами из-за драйверов NVIDIA</Divider>
               <p>
@@ -883,14 +796,10 @@ const AeImport: React.FC = () => {
                 поддерживаемых форматов через{" "}
                 <mark className="plugin">Autokroma Influx</mark>.
               </p>
-              <ContentFigure
+              <ArticleMedia
                 caption="Autokroma Influx"
-                imgTitle="Принудительное переопределение стандартного импортёра сторонним"
-                // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-                src="images/legacy/influx_force_override.png"
-                theme="dark"
+                src="legacy/influx_force_override.png"
                 type="image"
-                variant="windows"
               />
               <Addition type="info">
                 <ul>
@@ -971,14 +880,10 @@ const AeImport: React.FC = () => {
           вашего видео. Если такой вариант вас не устраивает — воспользуйтесь конвертацией
           видео с нужными настройками.
         </Addition>
-        <ContentFigure
+        <ArticleMedia
           caption="Interpret Footage"
-          imgTitle="Интерпретация футажа"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/aftereffects/interpret_footage_main.png"
-          theme="dark"
+          src="legacy/aftereffects/interpret_footage_main.png"
           type="image"
-          variant="windows"
         />
         <p>
           Если это не помогло, перекодируйте ваш исходник с постоянной частотой кадров
@@ -988,13 +893,10 @@ const AeImport: React.FC = () => {
           <mark className="app">Shutter Encoder</mark> это можно сделать во вкладке{" "}
           <mark className="select">«Advanced features»</mark>.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Shutter Encoder"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/shutter_encoder_convert_to_constant_fps.mp4"
-          theme="dark"
+          src="legacy/shutter_encoder_convert_to_constant_fps.mp4"
           type="video"
-          variant="mac"
         />
       </DetailsSummary>
       <DetailsSummary
@@ -1021,13 +923,10 @@ const AeImport: React.FC = () => {
                 затем зайдите в созданную директорию и откройте проект формата{" "}
                 <mark className="file">AEP</mark> оттуда.
               </p>
-              <ContentFigure
+              <ArticleMedia
                 caption="Распаковка через контекстное меню"
-                imgTitle="Распаковка через контекстное меню"
                 src="https://github.com/aonez/Keka/raw/master/Wiki/Images/Animated/extract-context-menu.gif"
-                theme="light"
                 type="image"
-                variant="mac"
               />
             </>
           }
@@ -1038,8 +937,7 @@ const AeImport: React.FC = () => {
                 затем зайдите в созданную директорию и откройте проект формата{" "}
                 <mark className="file">AEP</mark> оттуда.
               </p>
-              <ContentFigure
-                caption="Распаковка многотомного архива"
+              <ArticleMedia
                 src="1OVwQS0uHhk"
                 type="youtube"
               />
@@ -1064,14 +962,10 @@ const AeImport: React.FC = () => {
           подпапках, то при переподключении одного файла остальные подключатся
           автоматически.
         </Addition>
-        <ContentFigure
+        <ArticleMedia
           caption="Adobe After Effects"
-          imgTitle="Замена исходника в проекте"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/aftereffects/replace_footage.png"
-          theme="dark"
+          src="legacy/aftereffects/replace_footage.png"
           type="image"
-          variant="windows"
         />
       </DetailsSummary>
       <DetailsSummary
@@ -1084,14 +978,10 @@ const AeImport: React.FC = () => {
           шрифтов. Вы можете открыть проект и работать с ним без установки этих шрифтов,
           однако они будут автоматически заменены на стандартный.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Предупреждение об отсутствующих шрифтах"
-          imgTitle="Предупреждение об отсутствующих шрифтах в системе"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/aftereffects/missing_fonts_warning.png"
-          theme="dark"
+          src="legacy/aftereffects/missing_fonts_warning.png"
           type="image"
-          variant="windows"
         />
         <p>
           Чтобы устранить проблему, попросите у автора проекта необходимые файлы шрифтов и
@@ -1124,14 +1014,10 @@ const AeImport: React.FC = () => {
                 </a>
                 , а затем вставьте в сервис одну из ссылок ниже.
               </p>
-              <ContentFigure
+              <ArticleMedia
                 caption="Браузер"
-                imgTitle="Генератор ссылок из Microsoft Store"
-                // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-                src="images/legacy/link_generator_msstore.png"
-                theme="dark"
+                src="legacy/link_generator_msstore.png"
                 type="image"
-                variant="windows"
               />
               <ul>
                 <li>
@@ -1227,8 +1113,7 @@ const AeImport: React.FC = () => {
           <mark className="app">MKVToolNix</mark>, <mark className="app">HandBrake</mark>{" "}
           или <mark className="app">Shutter Encoder</mark>.
         </Addition>
-        <ContentFigure
-          caption="Autokroma Influx"
+        <ArticleMedia
           src="l3zBFli6BIk"
           type="youtube"
         />
@@ -1246,14 +1131,10 @@ const AeImport: React.FC = () => {
           выберите нужную частоту кадров. Это значение будет применяться при следующем
           импорте секвенций.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Preferences"
-          imgTitle="Настройки импорта секвенций"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/aftereffects/change_fps_sequence_footage.png"
-          theme="dark"
+          src="legacy/aftereffects/change_fps_sequence_footage.png"
           type="image"
-          variant="windows"
         />
         <p>
           Если вам нужно преобразовать частоту кадров уже импортированной секвенции,
@@ -1264,14 +1145,10 @@ const AeImport: React.FC = () => {
           установите для <mark className="select">«Conform to frame rate»</mark> нужное
           количество кадров в секунду.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Interpret Footage"
-          imgTitle="Интерпретация футажа"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/aftereffects/interpret_footage_main.png"
-          theme="dark"
+          src="legacy/aftereffects/interpret_footage_main.png"
           type="image"
-          variant="windows"
         />
       </DetailsSummary>
       <DetailsSummary
@@ -1288,14 +1165,10 @@ const AeImport: React.FC = () => {
           <mark className="select">«LAB»</mark> и других, будут импортироваться как единое
           изображение без возможности разделения на слои.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Adobe Photoshop"
-          imgTitle="Проверяем цветовой режим в Adobe Photoshop"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/aftereffects/tab_in_photoshop.png"
-          theme="light"
+          src="legacy/aftereffects/tab_in_photoshop.png"
           type="image"
-          variant="windows"
         />
         <p>
           Чтобы проверить цветовой режим, откройте файл <mark className="image">PSD</mark>{" "}
@@ -1308,14 +1181,10 @@ const AeImport: React.FC = () => {
           <mark className="select">«RGB Color»</mark> или{" "}
           <mark className="select">«Grayscale»</mark>.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Adobe Photoshop"
-          imgTitle="Переключаем цветовой режим на RGB в Adobe Photoshop"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/aftereffects/photoshop_switch_to_rgb.png"
-          theme="light"
+          src="legacy/aftereffects/photoshop_switch_to_rgb.png"
           type="image"
-          variant="windows"
         />
         <Addition type="warning">
           Если появится окно с вопросом{" "}
@@ -1333,14 +1202,10 @@ const AeImport: React.FC = () => {
           проект или выбрав файл с помощью <mark className="key">Ctrl + I</mark>. Теперь
           при импорте появится возможность типа импорта.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="filename.psd"
-          imgTitle="Корректный импорт PSD в Adobe After Effects"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/aftereffects/correct_import_psd.png"
-          theme="dark"
+          src="legacy/aftereffects/correct_import_psd.png"
           type="image"
-          variant="windows"
         />
         <Divider>Экспортируем слои в отдельные файлы</Divider>
         <p>
@@ -1350,14 +1215,10 @@ const AeImport: React.FC = () => {
           перейдите в <mark className="select">«File» → «Export»</mark> и выберите{" "}
           <mark className="select">«Layers to Files»</mark>.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Adobe Photoshop"
-          imgTitle="Кнопка для начала экспорта слоёв в файлы"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/photoshop/layers_to_files.png"
-          theme="light"
+          src="legacy/photoshop/layers_to_files.png"
           type="image"
-          variant="windows"
         />
         <p>
           В открывшемся окне укажите путь для сохранения, имя и формат файлов. Нажмите{" "}
@@ -1365,14 +1226,10 @@ const AeImport: React.FC = () => {
           После этого их можно импортировать в{" "}
           <mark className="app">Adobe After Effects</mark> и работать с ними как обычно.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Adobe Photoshop"
-          imgTitle="Экспорт слоёв в файлы"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/photoshop/export_layers.png"
-          theme="light"
+          src="legacy/photoshop/export_layers.png"
           type="image"
-          variant="windows"
         />
       </DetailsSummary>
       <DetailsSummary
@@ -1408,13 +1265,10 @@ const AeImport: React.FC = () => {
           Структура слоёв в <mark className="app">Adobe Illustrator</mark> может
           отличаться в зависимости от вашего открытого проекта.
         </Addition>
-        <ContentFigure
+        <ArticleMedia
           caption="Adobe Illustrator"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/illustrator_release_to_layers.mp4"
-          theme="light"
+          src="legacy/illustrator_release_to_layers.mp4"
           type="video"
-          variant="windows"
         />
         <p>
           После того как вы вынесли слои из группы, сохраните проект через{" "}
@@ -1431,13 +1285,10 @@ const AeImport: React.FC = () => {
           текстом о том, что файл был сохранён без содержимого{" "}
           <mark className="file">PDF</mark>.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Illustrator Options"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/illustrator_create_pdf_compatible_file.png"
-          theme="light"
+          src="legacy/illustrator_create_pdf_compatible_file.png"
           type="image"
-          variant="windows"
         />
         <p>
           После сохранения перейдите в <mark className="app">Adobe After Effects</mark> и
@@ -1448,14 +1299,10 @@ const AeImport: React.FC = () => {
           <mark className="select">«Import As»</mark> значение{" "}
           <mark className="select">«Composition»</mark>.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="filename.ai"
-          imgTitle="Импортируем файл Illustrator"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/aftereffects/import_ai_file.png"
-          theme="dark"
+          src="legacy/aftereffects/import_ai_file.png"
           type="image"
-          variant="windows"
         />
         <p>
           После импорта <mark className="image">AI</mark> вы получите в{" "}
@@ -1468,13 +1315,10 @@ const AeImport: React.FC = () => {
           <mark className="select">«Continuously Rasterize»</mark>
           <sup>1</sup>, которая позволяет не терять качество слоя при его увеличении.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Импортированные нередактируемые фигуры"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/aftereffects/imported_non_editable_shapes.mp4"
-          theme="dark"
+          src="legacy/aftereffects/imported_non_editable_shapes.mp4"
           type="video"
-          variant="windows"
         />
         <Addition type="warning">
           <sup>1</sup> При включённой опции{" "}
@@ -1502,12 +1346,10 @@ const AeImport: React.FC = () => {
           <mark className="key">ПКМ</mark> →{" "}
           <mark className="select">«Create» → «Create Shapes from Vector Layer»</mark>.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Создание фигур из векторного слоя"
-          src="images/legacy/aftereffects/create_shapes_from_vector_layer.png"
-          theme="dark"
+          src="legacy/aftereffects/create_shapes_from_vector_layer.png"
           type="image"
-          variant="windows"
         />
         <Addition type="warning">
           <sup>1</sup> <mark className="select">«Freeform Gradients»</mark> и режимы
@@ -1588,14 +1430,10 @@ const AeImport: React.FC = () => {
           </mark>
           .
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Figma"
-          imgTitle="Установка стороннего плагина в Figma"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/figma_install_plugin.png"
-          theme="dark"
+          src="legacy/figma_install_plugin.png"
           type="image"
-          variant="windows"
         />
         <p>
           Далее нужно установить расширение <mark className="plugin">AEUX</mark> для{" "}
@@ -1621,14 +1459,10 @@ const AeImport: React.FC = () => {
           <mark className="select">«File» → «Save local copy»</mark>. В открывшемся окне
           укажите путь до нужной директории для сохранения.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Figma"
-          imgTitle="Сохранение локальной копии макета"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/figma_save_local_copy.png"
-          theme="dark"
+          src="legacy/figma_save_local_copy.png"
           type="image"
-          variant="windows"
         />
         <p>
           Затем откройте в <mark className="app">Figma</mark> только что сохранённый
@@ -1636,14 +1470,10 @@ const AeImport: React.FC = () => {
           сторонние плагины, в том числе и <mark className="plugin">AEUX</mark> с помощью{" "}
           <mark className="select">«Иконка Figma» → «Plugins» → «Development»</mark>.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Figma"
-          imgTitle="Запуск AEUX в Figma"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/figma_run_aeux.png"
-          theme="dark"
+          src="legacy/figma_run_aeux.png"
           type="image"
-          variant="windows"
         />
         <p>
           Чтобы отправить проект в <mark className="app">Adobe After Effects</mark> —
@@ -1655,13 +1485,10 @@ const AeImport: React.FC = () => {
           Учтите, что <mark className="app">Adobe After Effects</mark> должен быть запущен
           до нажатия кнопки переноса макета из <mark className="app">Figma</mark>.
         </Addition>
-        <ContentFigure
+        <ArticleMedia
           caption="Figma"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/aftereffects/send_figma_to_ae.mp4"
-          theme="light"
+          src="legacy/aftereffects/send_figma_to_ae.mp4"
           type="video"
-          variant="windows"
         />
         <p>
           После нажатия на кнопку переноса у вас откроется{" "}
@@ -1718,8 +1545,7 @@ const AeImport: React.FC = () => {
           вставке таких объектов в таймлайн композиции автоматически переключит текущий
           движок на <mark className="plugin">Advanced 3D</mark>, если используется другой.
         </p>
-        <ContentFigure
-          caption="Работаем с 3D-моделями из Substance Painter в Adobe After Effects"
+        <ArticleMedia
           src="qPOkGR7Ek2I"
           type="youtube"
         />
@@ -1767,8 +1593,7 @@ const AeImport: React.FC = () => {
           всего вам потребуется вручную создавать материалы и назначать им текстуры и
           свойства.
         </p>
-        <ContentFigure
-          caption="Import 3D Models to Element 3D in After Effects"
+        <ArticleMedia
           src="Qu9eCU9Ge54"
           type="youtube"
         />
@@ -1788,8 +1613,7 @@ const AeImport: React.FC = () => {
           <mark className="plugin">Cineware</mark> — достаточно импортировать файл в
           проект удобным вам способом и поместить его на таймлайн.
         </p>
-        <ContentFigure
-          caption="Cineware"
+        <ArticleMedia
           src="qFVQrxWvOjw"
           type="youtube"
         />
@@ -1863,14 +1687,10 @@ const AeImport: React.FC = () => {
           <mark className="file">JSON</mark>, <mark className="file">SVG</mark> или{" "}
           <mark className="file">Lottie</mark>.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="LottieFiles"
-          imgTitle="Импорт с помощью расширения LottieFiles"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/aftereffects/import_lottiefiles.png"
-          theme="dark"
+          src="legacy/aftereffects/import_lottiefiles.png"
           type="image"
-          variant="windows"
         />
         <p>
           После выбора файла{" "}
@@ -1893,14 +1713,10 @@ const AeImport: React.FC = () => {
           стикер-паках, например{" "}
           <a href="https://t.me/addstickers/AnimatedEmojies">здесь</a>.
         </Addition>
-        <ContentFigure
+        <ArticleMedia
           caption="Telegram"
-          imgTitle="Сохранить стикер как TGS"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/download_tgs_from_telegram.png"
-          theme="dark"
+          src="legacy/download_tgs_from_telegram.png"
           type="image"
-          variant="windows"
         />
         <p>
           После того как вы скачали <mark className="file">TGS</mark>, его нужно
@@ -1972,14 +1788,10 @@ const AeImport: React.FC = () => {
           проводника выберите нужный файл формата <mark className="file">JSON</mark>,
           который вы конвертировали ранее.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Bodymovin"
-          imgTitle="Импортируем JSON в Adobe After Effects через Bodymovin"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/aftereffects/bodymovin_import_json.png"
-          theme="dark"
+          src="legacy/aftereffects/bodymovin_import_json.png"
           type="image"
-          variant="windows"
         />
         <p>
           После импорта в окне <mark className="select">«Project»</mark> появится новая
@@ -1988,14 +1800,10 @@ const AeImport: React.FC = () => {
           или доработки. При необходимости градиенты можно заменить обычной заливкой или
           восстановить вручную — их количество зависит от конкретного стикера.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Adobe After Effects"
-          imgTitle="Неперенесённые градиенты в Adobe After Effects через Bodymovin"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/aftereffects/gradient_data_bodymovin.png"
-          theme="dark"
+          src="legacy/aftereffects/gradient_data_bodymovin.png"
           type="image"
-          variant="windows"
         />
       </DetailsSummary>
       <DetailsSummary
@@ -2019,14 +1827,10 @@ const AeImport: React.FC = () => {
           <mark className="select">«File» → «Import» → «Import Premiere Project»</mark> и
           укажите нужный проект <mark className="file">PRPROJ</mark>.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Adobe After Effects"
-          imgTitle="Начало импорта секвенций из Adobe Premiere"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/aftereffects/import_premiere_pro_project.png"
-          theme="light"
+          src="legacy/aftereffects/import_premiere_pro_project.png"
           type="image"
-          variant="windows"
         />
         <p>
           Далее <mark className="app">Adobe After Effects</mark> спросит, какие секвенции
@@ -2034,14 +1838,10 @@ const AeImport: React.FC = () => {
           <mark className="select">«All Sequences»</mark>, но вы можете указать конкретную
           секвенцию. Также при необходимости можно отключить импорт аудиофайлов.
         </p>
-        <ContentFigure
-          caption="Premiere Importer"
-          imgTitle="Импорт секвенций из Adobe Premiere"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/aftereffects/premiere_pro_importer.png"
-          theme="dark"
+        <ArticleMedia
+          caption="Premiere Pro Importer"
+          src="legacy/aftereffects/premiere_pro_importer.png"
           type="image"
-          variant="windows"
         />
         <p>
           После этого в окне <mark className="select">«Project»</mark> появится новая
@@ -2087,14 +1887,10 @@ const AeImport: React.FC = () => {
           <mark className="file">MOGRT</mark> после внесения правок с помощью{" "}
           <mark className="select">«Export Motion Graphics Template»</mark>.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Essential Graphics"
-          imgTitle="Демонстрация окна Essential Graphics"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/aftereffects/essential_graphics.png"
-          theme="dark"
+          src="legacy/aftereffects/essential_graphics.png"
           type="image"
-          variant="windows"
         />
         <Divider>Используем MOGRT в другом проекте</Divider>
         <p>
@@ -2122,13 +1918,10 @@ const AeImport: React.FC = () => {
           этом исходный файл остаётся без изменений. Чтобы продолжить работу, просто
           нажмите <mark className="select">«OK»</mark> в появившемся окне.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Adobe After Effects"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/aftereffects/this_project_must_be_converted.png"
-          theme="dark"
+          src="legacy/aftereffects/this_project_must_be_converted.png"
           type="image"
-          variant="windows"
         />
         <p>
           После конвертации и открытия проекта обязательно сохраните его — нажмите{" "}
@@ -2176,14 +1969,10 @@ const AeImport: React.FC = () => {
           сохранения копии проекта. Рекомендуется сохранять копию проекта в той же папке,
           где находится оригинал, чтобы избежать проблем со ссылками на исходники.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Adobe After Effects"
-          imgTitle="Сохранение проекта под более старую версию"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/aftereffects/file_save_as.png"
-          theme="light"
+          src="legacy/aftereffects/file_save_as.png"
           type="image"
-          variant="windows"
         />
         <p>
           Обратите внимание, что новые версии{" "}

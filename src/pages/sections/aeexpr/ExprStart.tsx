@@ -2,7 +2,7 @@ import React from "react";
 
 import {Divider} from "antd";
 
-import {ContentFigure} from "../../../components/content/ContentFigure";
+import {ArticleMedia} from "../../../components/content/ArticleMedia";
 import DetailsSummary from "../../../components/content/DetailsSummary";
 
 const AeExprStart: React.FC = () => {
@@ -48,13 +48,10 @@ const AeExprStart: React.FC = () => {
           секундомера с зажатой клавишей <mark className="key">Alt</mark>. После этого
           откроется поле для ввода кода выражения.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Включение режима написания выражений для Source Text"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/aftereffects/enable_expression_property.mp4"
-          theme="dark"
+          src="legacy/aftereffects/enable_expression_property.mp4"
           type="video"
-          variant="windows"
         />
         <p>
           Вы также можете включить режим отображения графика скорости или значений,

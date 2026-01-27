@@ -3,7 +3,7 @@ import React from "react";
 import {Divider} from "antd";
 
 import Addition from "../../../components/content/Addition";
-import {ContentFigure} from "../../../components/content/ContentFigure";
+import {ArticleMedia} from "../../../components/content/ArticleMedia";
 import ContentFilter from "../../../components/content/ContentFilter";
 import DetailsSummary from "../../../components/content/DetailsSummary";
 
@@ -33,8 +33,7 @@ const PrActions: React.FC = () => {
           плавным. Однако стоит учесть, что хороший результат не всегда получается с
           первой попытки, поэтому не стоит бояться экспериментировать с настройками.
         </p>
-        <ContentFigure
-          caption="Topaz Video AI Tutorials Enhancing Low Quality Video"
+        <ArticleMedia
           src="XBEkVHd2tmw"
           type="youtube"
         />
@@ -44,11 +43,28 @@ const PrActions: React.FC = () => {
           <mark className="plugin">BCC+UpRes ML</mark>, который входит в сторонний пакет{" "}
           <mark className="plugin">Boris FX Continuum</mark>.
         </p>
-        <ContentFigure
-          caption="BCC UpRes ML"
+        <ArticleMedia
           src="_gHNqhHfeck"
           type="youtube"
         />
+        <p>
+          В качестве альтернативы можно посоветовать программу{" "}
+          <mark className="app">Topaz Video AI</mark>. Она позволяет улучшить качество
+          видео за счёт различных алгоритмов и моделей. Однако стоит учесть, что хороший
+          результат не всегда может получиться с первой попытки, поэтому не стоит бояться
+          экспериментировать с настройками. Программа распространяется как отдельное
+          приложение, плагин для <mark className="app">Adobe Premiere Pro</mark>{" "}
+          отсутствует.
+        </p>
+        <ArticleMedia
+          src="zbX7x8Oo_Uc"
+          type="youtube"
+        />
+        <Addition type="info">
+          Скачать программу <mark className="app">Topaz Video AI</mark>, а также пакет
+          плагинов <mark className="plugin">Boris FX Continuum</mark> можно в канале{" "}
+          <a href="https://t.me/+Qd9xu7A4TeIwNzY6">склад стройматериалов</a>.
+        </Addition>
         <Divider>Улучшаем качество фотографий</Divider>
         <p>
           Для улучшения качества изображений прямо в{" "}
@@ -72,8 +88,7 @@ const PrActions: React.FC = () => {
           временные файлы. Для <mark className="app">Topaz Gigapixel AI</mark> — около{" "}
           <mark>20 ГБ</mark>. И это без учёта будущих обновлений.
         </Addition>
-        <ContentFigure
-          caption="Intro to Photo AI"
+        <ArticleMedia
           src="J6vDYRvjbGY"
           type="youtube"
         />
@@ -83,12 +98,10 @@ const PrActions: React.FC = () => {
           нейросетевые модели для улучшения качества изображений. Скачать её можно{" "}
           <a href="https://upscayl.org/">по этой ссылке</a>.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Upscayl"
           src="https://github.com/upscayl/upscayl/assets/25067102/ad2453b1-3c5a-4eb2-b992-4cf10e6a49f5"
-          theme="dark"
           type="video"
-          variant="mac"
         />
         <p>
           В качестве альтернативы можно использовать{" "}
@@ -98,8 +111,7 @@ const PrActions: React.FC = () => {
           результат даже лучше, чем упомянутые выше инструменты, и при этом занимает
           совсем немного места на диске.
         </p>
-        <ContentFigure
-          caption="Benvista Photozoom"
+        <ArticleMedia
           src="woDDQ0xnt84"
           type="youtube"
         />
@@ -145,8 +157,7 @@ const PrActions: React.FC = () => {
           <mark className="select">«Frame Blending»</mark> или{" "}
           <mark className="select">«Optical Flow»</mark>.
         </p>
-        <ContentFigure
-          caption="How to Use Optical Flow"
+        <ArticleMedia
           src="JemBgoF3K6Q"
           type="youtube"
         />
@@ -157,8 +168,7 @@ const PrActions: React.FC = () => {
           справляется с интерполяцией кадров как для целых видео, так и для отдельных
           слоёв.
         </p>
-        <ContentFigure
-          caption="Twixtor"
+        <ArticleMedia
           src="20Smtrzt3m4"
           type="youtube"
         />
@@ -170,8 +180,7 @@ const PrActions: React.FC = () => {
           более мягкое движение по сравнению с{" "}
           <mark className="plugin">RE:Vision Twixtor</mark>.
         </p>
-        <ContentFigure
-          caption="BCC Retimer ML"
+        <ArticleMedia
           src="YraSxOpy1Qg"
           type="youtube"
         />
@@ -193,8 +202,7 @@ const PrActions: React.FC = () => {
           После этого вас перенаправят на страницу загрузки, где вы можете скачать{" "}
           <mark className="app">Flowframes</mark> бесплатно.
         </Addition>
-        <ContentFigure
-          caption="FlowFrames"
+        <ArticleMedia
           src="H8ISNjzDULw"
           type="youtube"
         />
@@ -202,8 +210,7 @@ const PrActions: React.FC = () => {
           В качестве альтернативы можно попробовать менее популярную программу{" "}
           <mark className="app">FrameGUI</mark>.
         </p>
-        <ContentFigure
-          caption="FrameGUI"
+        <ArticleMedia
           src="Axz_KwiqNmc"
           type="youtube"
         />
@@ -212,8 +219,7 @@ const PrActions: React.FC = () => {
           частоты кадров с несколькими моделями на выбор, что позволяет экспериментировать
           для получения наилучшего результата.
         </p>
-        <ContentFigure
-          caption="Topaz Video AI"
+        <ArticleMedia
           src="591MqOooDAE"
           type="youtube"
         />
@@ -238,14 +244,10 @@ const PrActions: React.FC = () => {
           <mark className="select">«Remove duplicate frames»</mark>. После этого укажите
           путь сохранения и нажмите <mark className="select">«Start function»</mark>.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Shutter Encoder"
-          imgTitle="Включение удаления дублирующихся кадров"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/shutter_encoder_remove_duplicate_frames.png"
-          theme="dark"
+          src="legacy/shutter_encoder_remove_duplicate_frames.png"
           type="image"
-          variant="mac"
         />
         <Divider>Удаление дубликатов через FFmpeg</Divider>
         <p>
@@ -366,8 +368,7 @@ const PrActions: React.FC = () => {
           <mark className="plugin">VR De-Noise</mark>, с помощью которого можно подавить
           шумы, не прибегая к сторонним плагинам.
         </p>
-        <ContentFigure
-          caption="VR De-Noise"
+        <ArticleMedia
           src="hr7qFhh6Y5g"
           type="youtube"
         />
@@ -379,8 +380,7 @@ const PrActions: React.FC = () => {
           <mark className="plugin">Neat Video</mark>. Он гибко настраивается, адаптируется
           под разные типы шума и поддерживает аппаратное ускорение с помощью видеокарты.
         </p>
-        <ContentFigure
-          caption="Neat Video"
+        <ArticleMedia
           src="DYKBQF7eIUo"
           type="youtube"
         />
@@ -389,8 +389,7 @@ const PrActions: React.FC = () => {
           <mark className="plugin">Denoiser III</mark> из пакета{" "}
           <mark className="plugin">Red Giant Magic Bullet Suite</mark>.
         </p>
-        <ContentFigure
-          caption="Denoiser III"
+        <ArticleMedia
           src="PXCElU7HcX8"
           type="youtube"
         />
@@ -402,8 +401,7 @@ const PrActions: React.FC = () => {
           применяет машинное обучение, что позволяет эффективно очищать более сложные
           кадры.
         </p>
-        <ContentFigure
-          caption="BCC DeNoise ML"
+        <ArticleMedia
           src="L1PeaTa13H4"
           type="youtube"
         />
@@ -412,8 +410,7 @@ const PrActions: React.FC = () => {
           <mark className="plugin">RE:Vision Effects</mark> с их{" "}
           <mark className="plugin">DE:Noise</mark>.
         </p>
-        <ContentFigure
-          caption="DE:Noise"
+        <ArticleMedia
           src="tGIXeddCPQM"
           type="youtube"
         />
@@ -440,8 +437,7 @@ const PrActions: React.FC = () => {
           В <mark className="app">Adobe Premiere</mark> легко убрать зелёный фон,
           используя встроенный эффект <mark className="plugin">Ultra Key</mark>.
         </p>
-        <ContentFigure
-          caption="Ultra Key"
+        <ArticleMedia
           src="c_P8s3r1dXE"
           type="youtube"
         />
@@ -456,8 +452,7 @@ const PrActions: React.FC = () => {
           выделить <mark className="plugin">Primatte Keyer</mark> из пакета{" "}
           <mark className="plugin">Red Giant VFX Suite</mark>.
         </p>
-        <ContentFigure
-          caption="Getting Started with Primatte Keyer"
+        <ArticleMedia
           src="zYARqiWTArU"
           type="youtube"
         />
@@ -466,8 +461,7 @@ const PrActions: React.FC = () => {
           <mark className="plugin">BCC Primatte Studio</mark> из пакета{" "}
           <mark className="plugin">Boris FX Continuum</mark>.
         </p>
-        <ContentFigure
-          caption="BCC Primatte Studio"
+        <ArticleMedia
           src="AaKTHKspAkQ"
           type="youtube"
         />
@@ -490,8 +484,7 @@ const PrActions: React.FC = () => {
           <mark className="plugin">Beat Edit</mark>, который как раз и выполняет эту
           задачу.
         </p>
-        <ContentFigure
-          caption="Как создавать маркеры с помощью Beat Edit"
+        <ArticleMedia
           src="JGVLRcjp7ss"
           type="youtube"
         />
@@ -556,14 +549,10 @@ const PrActions: React.FC = () => {
           <mark className="select">«Transcribe»</mark> нажмите на три точки в углу и
           выберите функцию <mark className="select">«Generate static transcript»</mark>.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Text"
-          imgTitle="Начало генерации текста на основе речи"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/premierepro/text_generate_static_transcript.png"
-          theme="dark"
+          src="legacy/premierepro/text_generate_static_transcript.png"
           type="image"
-          variant="windows"
         />
         <p>
           В открывшемся окне выберите язык, на котором говорит голос из аудио, параметр
@@ -571,14 +560,10 @@ const PrActions: React.FC = () => {
           выбора настроек нажмите на <mark className="select">«Transcribe»</mark> для
           начала транскрибации.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Generate static transcript"
-          imgTitle="Настройки генерации текста на основе речи"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/premierepro/generate_transcribe_settings.png"
-          theme="dark"
+          src="legacy/premierepro/generate_transcribe_settings.png"
           type="image"
-          variant="windows"
         />
         <p>
           Через некоторое время вы получите расшифровку аудио. На основе этих данных можно
@@ -586,14 +571,10 @@ const PrActions: React.FC = () => {
           <mark className="select">«Create Captions»</mark>, отредактировать их или
           перемещаться по таймлайну к нужным фразам.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Text"
-          imgTitle="Создание субтитров на основе генерации текста"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/premierepro/create_captions_from_transcribe.png"
-          theme="dark"
+          src="legacy/premierepro/create_captions_from_transcribe.png"
           type="image"
-          variant="windows"
         />
         <Divider>Генерируем речь в текст с помощью Subtitle Edit</Divider>
         <Addition type="warning">
@@ -611,14 +592,10 @@ const PrActions: React.FC = () => {
           , а затем установите программу. После запуска перетащите видео или аудио в окно
           программы.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Subtitle Edit"
-          imgTitle="Импорт видео или аудио в Subtitle Edit"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/subtitle_edit_import.png"
-          theme="light"
+          src="legacy/subtitle_edit_import.png"
           type="image"
-          variant="windows"
         />
         <Addition type="info">
           Если у вас установлен <mark className="app">MPC-HC</mark> или{" "}
@@ -635,14 +612,10 @@ const PrActions: React.FC = () => {
           <mark className="app">Purfview&apos;s Faster Whisper</mark> — это стоит
           подтвердить.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Subtitle Edit"
-          imgTitle="Функция для генерации субтитров"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/subtitle_edit_video_audio-to-text.png"
-          theme="light"
+          src="legacy/subtitle_edit_video_audio-to-text.png"
           type="image"
-          variant="windows"
         />
         <Addition type="info">
           <ul>
@@ -659,14 +632,10 @@ const PrActions: React.FC = () => {
               <mark className="select">«Engine»</mark> выберите{" "}
               <mark className="select">«Purfview&apos;s Faster Whisper»</mark> и
               подтвердите загрузку.
-              <ContentFigure
+              <ArticleMedia
                 caption="Subtitle Edit"
-                imgTitle="Изменение движка распознавания речи"
-                // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-                src="images/legacy/subtitle_edit_change_engine.png"
-                theme="light"
+                src="legacy/subtitle_edit_change_engine.png"
                 type="image"
-                variant="windows"
               />
             </li>
           </ul>
@@ -683,28 +652,20 @@ const PrActions: React.FC = () => {
           точность распознавания речи. Скорость транскрибации также зависит от мощности
           вашей видеокарты и скорости чтения жёсткого диска.
         </Addition>
-        <ContentFigure
+        <ArticleMedia
           caption="Subtitle Edit"
-          imgTitle="Загрузка моделей распознавания речи"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/subtitle_edit_download_models.png"
-          theme="light"
+          src="legacy/subtitle_edit_download_models.png"
           type="image"
-          variant="windows"
         />
         <p>
           Когда модель загрузится, выберите язык аудио и нажмите{" "}
           <mark className="select">«Generate»</mark> — это запустит процесс преобразования
           речи в текст.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Subtitle Edit"
-          imgTitle="Изменение языка и начало генерации текста из речи"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/subtitle_edit_change_language_generate.png"
-          theme="light"
+          src="legacy/subtitle_edit_change_language_generate.png"
           type="image"
-          variant="windows"
         />
         <p>
           После генерации вы можете отредактировать субтитры в{" "}
@@ -720,27 +681,19 @@ const PrActions: React.FC = () => {
           <mark className="select">«Import captions from file»</mark> и укажите путь к
           сохранённым субтитрам.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Text"
-          imgTitle="Импорт субтитров в Adobe Premiere"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/premierepro/import_captions_from_file.png"
-          theme="dark"
+          src="legacy/premierepro/import_captions_from_file.png"
           type="image"
-          variant="windows"
         />
         <p>
           Затем в открывшемся модальном окне выберите тип субтитров, вариант, с которого
           их начинать, и нажмите <mark className="select">«OK»</mark>.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="New caption track"
-          imgTitle="Создание новой дорожки субтитров"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/premierepro/new_caption_track.png"
-          theme="dark"
+          src="legacy/premierepro/new_caption_track.png"
           type="image"
-          variant="windows"
         />
         <p>
           После этого сгенерированные субтитры из{" "}
@@ -770,14 +723,10 @@ const PrActions: React.FC = () => {
           После распаковки архива откройте программу и перетащите в неё аудиофайл. После
           обработки результат будет сохранён в папку, указанную в настройках.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="StemRoller"
-          imgTitle="Главная страница StemRoller"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/stemroller_interface.png"
-          theme="dark"
+          src="legacy/stemroller_interface.png"
           type="image"
-          variant="windows"
         />
         <Addition type="warning">
           Скорость обработки аудиофайла зависит от мощности вашего устройства и обычно

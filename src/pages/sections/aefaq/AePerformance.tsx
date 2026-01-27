@@ -3,7 +3,7 @@ import React from "react";
 import {Divider} from "antd";
 
 import Addition from "../../../components/content/Addition";
-import {ContentFigure} from "../../../components/content/ContentFigure";
+import {ArticleMedia} from "../../../components/content/ArticleMedia";
 import ContentFilter from "../../../components/content/ContentFilter";
 import DetailsSummary from "../../../components/content/DetailsSummary";
 
@@ -320,28 +320,23 @@ const AePerformance: React.FC = () => {
             Какое «железо» поддерживает аппаратное ускорение H.264 и H.265?
           </a>
         </div>
-        <ContentFigure
-          caption="Лучшее «железо» для моушн-дизайна"
+        <ArticleMedia
           src="x0YNsn4TtGM"
           type="youtube"
         />
-        <ContentFigure
-          caption="Производительность Adobe After Effects: речь не о мощных компьютерах"
+        <ArticleMedia
           src="sjxG4clyMEs"
           type="youtube"
         />
-        <ContentFigure
-          caption="Как выбрать ноутбук или ПК для Adobe After Effects?"
+        <ArticleMedia
           src="wdXf4ngU4fM"
           type="youtube"
         />
-        <ContentFigure
-          caption="Собираем самый быстрый компьютер (на момент 2019 года) для Adobe After Effects"
+        <ArticleMedia
           src="8_xmXM_XMS4"
           type="youtube"
         />
-        <ContentFigure
-          caption="M4 Max / Pro против всех поколений — что взять в 2025?"
+        <ArticleMedia
           src="bbcnEiu02uc"
           type="youtube"
         />
@@ -568,13 +563,10 @@ const AePerformance: React.FC = () => {
           <mark>12 ГБ</mark> оперативной памяти, а остальные параметры оставим по
           умолчанию.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Виртуальная машина"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/aftereffects/ae_version_test.png"
-          theme="light"
+          src="legacy/aftereffects/ae_version_test.png"
           type="image"
-          variant="windows"
         />
         <p>
           Почему эксперимент идёт не на реальном «железе»? Во-первых, мне не хочется потом
@@ -590,61 +582,46 @@ const AePerformance: React.FC = () => {
             <mark className="app">Adobe After Effects</mark> <mark>13.2</mark> (CC 2014) —
             7 минут 33 секунды. Со включённым{" "}
             <mark className="select">«Multiprocessing»</mark> — 6 минут 3 секунды.
-            <ContentFigure
+            <ArticleMedia
               caption="Время экспорта"
-              // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-              src="images/legacy/aftereffects/render_time_cc2014.png"
-              theme="light"
+              src="legacy/aftereffects/render_time_cc2014.png"
               type="image"
-              variant="windows"
             />
           </li>
           <li>
             <mark className="app">Adobe After Effects</mark> <mark>15.1.2</mark> (CC 2018)
             — 7 минут 27 секунд.
-            <ContentFigure
+            <ArticleMedia
               caption="Время экспорта"
-              // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-              src="images/legacy/aftereffects/render_time_cc2018.png"
-              theme="light"
+              src="legacy/aftereffects/render_time_cc2018.png"
               type="image"
-              variant="windows"
             />
           </li>
           <li>
             <mark className="app">Adobe After Effects</mark> <mark>17.7</mark> (2020) — 8
             минут 34 секунды.
-            <ContentFigure
+            <ArticleMedia
               caption="Время экспорта"
-              // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-              src="images/legacy/aftereffects/render_time_2020.png"
-              theme="light"
+              src="legacy/aftereffects/render_time_2020.png"
               type="image"
-              variant="windows"
             />
           </li>
           <li>
             <mark className="app">Adobe After Effects</mark> <mark>23.6</mark> (2023) — 8
             минут 15 секунд без <mark className="select">«Multi-Frame Rendering»</mark>.
-            <ContentFigure
+            <ArticleMedia
               caption="Время экспорта"
-              // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-              src="images/legacy/aftereffects/render_time_2023.png"
-              theme="light"
+              src="legacy/aftereffects/render_time_2023.png"
               type="image"
-              variant="windows"
             />
           </li>
           <li>
             <mark className="app">Adobe After Effects</mark> <mark>25.4</mark> (2025) — 8
             минут 18 секунд без <mark className="select">«Multi-Frame Rendering»</mark>.
-            <ContentFigure
+            <ArticleMedia
               caption="Время экспорта"
-              // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-              src="images/legacy/aftereffects/render_time_2025.png"
-              theme="light"
+              src="legacy/aftereffects/render_time_2025.png"
               type="image"
-              variant="windows"
             />
           </li>
         </ul>
@@ -732,14 +709,10 @@ const AePerformance: React.FC = () => {
           <mark className="select">«Cache Before Playback»</mark> и{" "}
           <mark className="select">«If caching, play cached frames»</mark>.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Preview"
-          imgTitle="Включение кэширования предпросмотра"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/aftereffects/preview_caching.png"
-          theme="dark"
+          src="legacy/aftereffects/preview_caching.png"
           type="image"
-          variant="windows"
         />
         <p>
           После этого при первом нажатии на <mark className="key">Space</mark> программа
@@ -756,13 +729,10 @@ const AePerformance: React.FC = () => {
           <mark className="select">«Quarter»</mark> снизит нагрузку на систему и ускорит
           отзывчивость интерфейса.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Изменение разрешения предпросмотра"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/aftereffects/change_preview_resolution.png"
-          theme="dark"
+          src="legacy/aftereffects/change_preview_resolution.png"
           type="image"
-          variant="windows"
         />
         <p>
           Также не стоит оставлять режим <mark className="select">«Auto»</mark>: из-за
@@ -784,14 +754,10 @@ const AePerformance: React.FC = () => {
           под окном предпросмотра и выберите{" "}
           <mark className="select">«Off (Final Quality)»</mark>.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Timeline"
-          imgTitle="Отключение адаптивного разрешения"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/aftereffects/disable_adaptive_resolution.png"
-          theme="dark"
+          src="legacy/aftereffects/disable_adaptive_resolution.png"
           type="image"
-          variant="windows"
         />
         <Divider>Очищаем кэш предпросмотра</Divider>
         <p>
@@ -806,14 +772,10 @@ const AePerformance: React.FC = () => {
           Для эффективной работы дискового кэша рекомендуется размещать его на быстром
           накопителе.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Timeline"
-          imgTitle="Демонстрация таймлайна"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/aftereffects/green-blue_lines.png"
-          theme="dark"
+          src="legacy/aftereffects/green-blue_lines.png"
           type="image"
-          variant="windows"
         />
         <p>
           Кэш стоит периодически очищать, чтобы освободить место для новых вычислений.
@@ -821,14 +783,10 @@ const AePerformance: React.FC = () => {
           <mark className="select">«Edit» → «Purge» → «All Memory & Disk Cache»</mark>.
           После очистки предпросмотр придётся кэшировать заново.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Очистка кэша и оперативной памяти"
-          imgTitle="Очистка кэша и оперативной памяти"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/aftereffects/edit_purge_all-memory-and-disk-cache.png"
-          theme="light"
+          src="legacy/aftereffects/edit_purge_all-memory-and-disk-cache.png"
           type="image"
-          variant="windows"
         />
         <Divider>Отключаем кэширование при простое</Divider>
         <p>
@@ -847,14 +805,10 @@ const AePerformance: React.FC = () => {
           <mark className="key">Alt + Shift + I</mark> или выключить её в меню{" "}
           <mark className="select">«Composition» → «Preview»</mark>.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Adobe After Effects"
-          imgTitle="Отключение автоматического кэширования предпросмотра при бездействии"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/aftereffects/disable_idle_cache.png"
-          theme="light"
+          src="legacy/aftereffects/disable_idle_cache.png"
           type="image"
-          variant="windows"
         />
         <Divider>Про потребление оперативной памяти</Divider>
         <p>
@@ -965,14 +919,10 @@ const AePerformance: React.FC = () => {
           значение <mark>70%</mark>, то для рендеринга будет использоваться только{" "}
           <mark>30%</mark> мощности процессора.
         </Addition>
-        <ContentFigure
+        <ArticleMedia
           caption="Preferences"
-          imgTitle="Настройка ограничения процессора при многокадровом рендере"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/aftereffects/mfr_settings.png"
-          theme="dark"
+          src="legacy/aftereffects/mfr_settings.png"
           type="image"
-          variant="windows"
         />
         <p>
           Однако в некоторых случаях эта функция, наоборот, может мешать стабильному
@@ -991,14 +941,10 @@ const AePerformance: React.FC = () => {
           <mark className="select">«Close Panel»</mark> в контекстном меню окна и
           проверьте, какая именно из них замедляет работу программы.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Закрываем панель стороннего расширения"
-          imgTitle="Закрываем панель стороннего расширения"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/aftereffects/close_panel.png"
-          theme="dark"
+          src="legacy/aftereffects/close_panel.png"
           type="image"
-          variant="windows"
         />
         <p>
           Чтобы сбросить текущее рабочее пространство, откройте меню{" "}
@@ -1063,8 +1009,7 @@ const AePerformance: React.FC = () => {
           кодируют для комфортного просмотра, а не для последующего монтажа, из-за чего
           агрессивное межкадровое сжатие может приводить к ошибкам и нестабильной работе.
         </p>
-        <ContentFigure
-          caption="Почему некоторые футажи так сложны в редактировании"
+        <ArticleMedia
           src="cfz3jwdo1v0"
           type="youtube"
         />
@@ -1238,14 +1183,10 @@ const AePerformance: React.FC = () => {
           эффекты, которые при необходимости можно заменить на более лёгкие аналоги или
           вовсе удалить.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Timeline"
-          imgTitle="Смотрим время рендера слоя"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/aftereffects/view_render_time.png"
-          theme="dark"
+          src="legacy/aftereffects/view_render_time.png"
           type="image"
-          variant="windows"
         />
         <Addition type="info">
           <ul>
@@ -1275,20 +1216,16 @@ const AePerformance: React.FC = () => {
           Также не забывайте обрезать слои, как только они исчезают из кадра: это также
           ускоряет просчёт.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Работа со скрытыми слоями"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/aftereffects/toggle_shy.mp4"
-          theme="dark"
+          src="legacy/aftereffects/toggle_shy.mp4"
           type="video"
-          variant="windows"
         />
         <p>
           А если в композиции много текстовых слоёв, например для субтитров, их лучше
           объединить в один, а текст менять в нужный момент с помощью маркеров.
         </p>
-        <ContentFigure
-          caption="Анимация текста маркерами в Adobe After Effects"
+        <ArticleMedia
           src="3CHUvo6bWfM"
           type="youtube"
         />
@@ -1307,13 +1244,10 @@ const AePerformance: React.FC = () => {
           </mark>
           .
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="«Запекание» выражения в ключевые кадры"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/aftereffects/convert_expression_to_keyframes.png"
-          theme="dark"
+          src="legacy/aftereffects/convert_expression_to_keyframes.png"
           type="image"
-          variant="windows"
         />
         <Addition type="info">
           Если после «запекания» вам понадобится внести правки в анимацию, просто удалите
@@ -1602,8 +1536,7 @@ const AePerformance: React.FC = () => {
                 Откатить их можно с помощью{" "}
                 <mark className="app">Диспетчера устройств</mark>.
               </p>
-              <ContentFigure
-                caption="Как откатить драйвер в Windows"
+              <ArticleMedia
                 src="A9WYBglOKaQ"
                 type="youtube"
               />
@@ -1665,8 +1598,7 @@ const AePerformance: React.FC = () => {
                 </a>
                 . Саму процедуру очистки лучше всего выполнять в безопасном режиме.
               </p>
-              <ContentFigure
-                caption="Как использовать DDU для NVIDIA, AMD или Intel"
+              <ArticleMedia
                 src="98DAgw1KcmI"
                 type="youtube"
               />
@@ -1689,8 +1621,7 @@ const AePerformance: React.FC = () => {
                 Если же вы хотите отключить обновления навсегда, придётся обращаться к
                 реестру или редактору локальной групповой политики<sup>1</sup>.
               </p>
-              <ContentFigure
-                caption="Как отключить обновления"
+              <ArticleMedia
                 src="SgU4jB4ooQk"
                 type="youtube"
               />
@@ -1776,14 +1707,10 @@ const AePerformance: React.FC = () => {
           «ракетой», так как иконка космической ракеты в окне{" "}
           <mark className="select">«Project»</mark> открывает именно его.
         </Addition>
-        <ContentFigure
+        <ArticleMedia
           caption="Project Settings"
-          imgTitle="Переключение типа рендеринга"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/aftereffects/project_manager_mercury.png"
-          theme="dark"
+          src="legacy/aftereffects/project_manager_mercury.png"
           type="image"
-          variant="windows"
         />
         <ul>
           <li>
@@ -1856,14 +1783,10 @@ const AePerformance: React.FC = () => {
           <mark className="select">«Show GPU Capable Effects Only»</mark>. После этого вы
           заметите, насколько сильно сократится список ваших эффектов.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Adobe After Effects"
-          imgTitle="Включение отображения только тех эффектов, которые поддерживают GPU-ускорение"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-          src="images/legacy/aftereffects/show_gpu_capable_effects_only.png"
-          theme="dark"
+          src="legacy/aftereffects/show_gpu_capable_effects_only.png"
           type="image"
-          variant="windows"
         />
       </DetailsSummary>
       <DetailsSummary
@@ -1926,38 +1849,29 @@ const AePerformance: React.FC = () => {
                   откроете окно <mark className="select">«Свойства системы»</mark> и сразу
                   же попадёте в <mark className="select">«Параметры быстродействия»</mark>
                   .
-                  <ContentFigure
+                  <ArticleMedia
                     caption="Выполнить"
-                    // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-                    src="images/legacy/run_systempropertiesadvanced.png"
-                    theme="dark"
+                    src="legacy/run_systempropertiesadvanced.png"
                     type="image"
-                    variant="windows"
                   />
                 </li>
                 <li>
                   В окне <mark className="select">«Параметры быстродействия»</mark>{" "}
                   перейдите на вкладку <mark className="select">«Дополнительно»</mark>.
-                  <ContentFigure
+                  <ArticleMedia
                     caption="Параметры быстродействия"
-                    // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-                    src="images/legacy/systempropertiesadvanced_select_advanced.png"
-                    theme="light"
+                    src="legacy/systempropertiesadvanced_select_advanced.png"
                     type="image"
-                    variant="windows"
                   />
                 </li>
                 <li>
                   Во вкладке <mark className="select">«Дополнительно»</mark> нажмите
                   кнопку <mark className="select">«Изменить»</mark> в разделе{" "}
                   <mark className="select">«Виртуальная память»</mark>.
-                  <ContentFigure
+                  <ArticleMedia
                     caption="Параметры быстродействия"
-                    // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-                    src="images/legacy/systempropertiesadvanced_open_change_size.png"
-                    theme="light"
+                    src="legacy/systempropertiesadvanced_open_change_size.png"
                     type="image"
-                    variant="windows"
                   />
                 </li>
                 <li>
@@ -1966,13 +1880,10 @@ const AePerformance: React.FC = () => {
                     «Автоматически выбирать объем файла подкачки»
                   </mark>
                   , снимите его.
-                  <ContentFigure
+                  <ArticleMedia
                     caption="Виртуальная память"
-                    // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-                    src="images/legacy/systempropertiesadvanced_disable_auto_size.png"
-                    theme="light"
+                    src="legacy/systempropertiesadvanced_disable_auto_size.png"
                     type="image"
-                    variant="windows"
                   />
                 </li>
                 <li>
@@ -1989,13 +1900,10 @@ const AePerformance: React.FC = () => {
                     <mark className="select">«Задать»</mark> для сохранения, а затем —{" "}
                     <mark className="select">«ОК»</mark> внизу окна.
                   </p>
-                  <ContentFigure
+                  <ArticleMedia
                     caption="Виртуальная память"
-                    // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-                    src="images/legacy/systempropertiesadvanced_set_swap_size.png"
-                    theme="light"
+                    src="legacy/systempropertiesadvanced_set_swap_size.png"
                     type="image"
-                    variant="windows"
                   />
                   <Addition type="info">
                     <ul>

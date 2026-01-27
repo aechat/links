@@ -3,7 +3,7 @@ import React from "react";
 import {Divider} from "antd";
 
 import Addition from "../../../components/content/Addition";
-import {ContentFigure} from "../../../components/content/ContentFigure";
+import {ArticleMedia} from "../../../components/content/ArticleMedia";
 import DetailsSummary from "../../../components/content/DetailsSummary";
 
 const PsActions: React.FC = () => {
@@ -40,8 +40,7 @@ const PsActions: React.FC = () => {
           <mark className="app">Topaz Gigapixel AI</mark> можно узнать{" "}
           <a href="https://www.topazlabs.com/pai-vs-gp">на официальном сайте</a>.
         </Addition>
-        <ContentFigure
-          caption="Topaz Gigapixel AI"
+        <ArticleMedia
           src="VMaYdjWqRRg"
           type="youtube"
         />
@@ -52,12 +51,10 @@ const PsActions: React.FC = () => {
           по <a href="https://upscayl.org/">этой ссылке</a>. Эта программа также
           использует генеративные модели для улучшения качества изображений.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Upscayl"
           src="https://github.com/upscayl/upscayl/assets/25067102/ad2453b1-3c5a-4eb2-b992-4cf10e6a49f5"
-          theme="dark"
           type="video"
-          variant="mac"
         />
         <p>
           В качестве альтернативы можно использовать{" "}
@@ -67,8 +64,7 @@ const PsActions: React.FC = () => {
           результат даже лучше, чем упомянутые выше инструменты, и при этом занимает
           совсем немного места на диске.
         </p>
-        <ContentFigure
-          caption="Benvista Photozoom"
+        <ArticleMedia
           src="woDDQ0xnt84"
           type="youtube"
         />
