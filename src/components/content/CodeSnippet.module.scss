@@ -1,6 +1,7 @@
-@use "../abstracts/mixins" as *;
+@use "../../styles/abstracts/variables" as *;
+@use "../../styles/abstracts/mixins" as *;
 
-code {
+%code-styles {
   display: block;
   transition: opacity 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
   margin: 10px;
@@ -11,7 +12,7 @@ code {
   line-height: 1.5;
   color: var(--color-code-text);
   font-family: "JetBrains Mono", monospace;
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   font-weight: 400;
   scrollbar-color: var(--color-code-border) var(--color-code-background);
   scrollbar-width: thin;
@@ -40,6 +41,21 @@ code {
   &:active {
     opacity: 0.6;
   }
+}
+
+.code {
+  @extend %code-styles;
+}
+
+.hosts-adobe-code {
+  @extend %code-styles;
+
+  border-radius: $roundness;
+  max-height: 250px;
+  overflow: auto;
+  text-align: center;
+  line-height: 1.4;
+  color: var(--color-surface-code-text);
 }
 
 pre {

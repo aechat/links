@@ -4,13 +4,17 @@ import React, {useEffect, useRef} from "react";
 import {message} from "antd";
 import "highlight.js/styles/github-dark.css";
 
+import styles from "./CodeSnippet.module.scss";
+
 interface CodeSnippetProperties {
   children: string;
+  className?: string;
   language?: string;
 }
 
 const CodeSnippet: React.FC<CodeSnippetProperties> = ({
   children,
+  className,
   language = "javascript",
 }) => {
   const codeReference = useRef<HTMLElement | null>(null);
@@ -44,7 +48,7 @@ const CodeSnippet: React.FC<CodeSnippetProperties> = ({
     >
       <code
         ref={codeReference}
-        className={language}
+        className={`${language} ${className ?? styles.code}`}
       >
         {children}
       </code>

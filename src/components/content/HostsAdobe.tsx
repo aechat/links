@@ -1,7 +1,8 @@
 import React from "react";
 
 import Addition from "./Addition";
-import styles from "./HostsAdobe.module.scss";
+import CodeSnippet from "./CodeSnippet";
+import styles from "./CodeSnippet.module.scss";
 import {useSpoiler} from "./spoilerContexts";
 
 const HOSTS_URL =
@@ -63,14 +64,12 @@ const HostsAdobeModal: React.FC = () => {
 
   return (
     <>
-      <code className={styles["hosts-adobe-code"]}>
-        {hostsLines.map((line, index) => (
-          <React.Fragment key={index}>
-            {line}
-            <br />
-          </React.Fragment>
-        ))}
-      </code>
+      <CodeSnippet
+        className={styles["hosts-adobe-code"]}
+        language="shell"
+      >
+        {hostsLines.join("\n")}
+      </CodeSnippet>
       <Addition type="warning">
         Для изменения системных файлов требуются права администратора. Если файла{" "}
         <mark className="file">HOSTS</mark> в этой директории нет, создайте его вручную
