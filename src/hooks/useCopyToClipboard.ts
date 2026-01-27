@@ -132,7 +132,7 @@ export const useCopyToClipboard = () => {
   const longPressHandlers = useLongPress(longPressCallback);
 
   useEffect(() => {
-    if (!(globalThis as unknown as Window).isAutoCopyEnabled) {
+    if ((globalThis as unknown as Window).isAutoCopyEnabled) {
       return;
     }
 
