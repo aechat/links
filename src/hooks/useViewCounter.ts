@@ -1,12 +1,28 @@
 import {useEffect, useState} from "react";
 
+const getPageId = () => {
+  if (globalThis.window === undefined) {
+    return "";
+  }
+
+  const {pathname} = globalThis.location;
+
+  if (pathname === "/") {
+    return "links";
+  }
+
+  return pathname.replaceAll(/(^\/|\/$)/g, "").replaceAll("/", "-");
+};
+
 export const useViewCounter = (anchor: string | undefined, isOpen: boolean) => {
   const [viewCount, setViewCount] = useState<number | undefined>();
+
+  const pageId = getPageId();
 
   useEffect(() => {
     if (!anchor) return;
 
-    const key = `aechat-links-${anchor}`;
+    const key = `aechat-links-${pageId}-${anchor}`;
 
     const fetchInitialCount = async () => {
       try {
@@ -30,16 +46,16 @@ export const useViewCounter = (anchor: string | undefined, isOpen: boolean) => {
     };
 
     fetchInitialCount();
-  }, [anchor]);
+  }, [anchor, pageId]);
 
   useEffect(() => {
     if (isOpen && anchor) {
-      const storageKey = `viewed-${anchor}`;
+      const storageKey = `viewed-${pageId}-${anchor}`;
 
       const hasViewedInSession = sessionStorage.getItem(storageKey);
 
       if (!hasViewedInSession) {
-        const key = `aechat-links-${anchor}`;
+        const key = `aechat-links-${pageId}-${anchor}`;
 
         const incrementAndFetchCount = async () => {
           try {
@@ -64,7 +80,7 @@ export const useViewCounter = (anchor: string | undefined, isOpen: boolean) => {
         incrementAndFetchCount();
       }
     }
-  }, [isOpen, anchor]);
+  }, [isOpen, anchor, pageId]);
 
   return viewCount;
 };
