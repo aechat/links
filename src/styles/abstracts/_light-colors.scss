@@ -126,6 +126,15 @@ $light-theme-map: (
       curve: hsl(0deg 0% 30%),
       track-background: hsl(var(--accent-hue) 5% 85%),
     ),
+    figure: (
+      youtube: (
+        border: hsl(0deg 0% 85%),
+        button: hsl(0deg 0% 95%),
+        button-text: hsl(0deg 0% 15%),
+        button-hover: hsl(0deg 0% 90%),
+        button-active: hsl(0deg 0% 85%),
+      ),
+    ),
   ),
   shadow: (
     primary: hsl(0deg 0% 0% / 8%),

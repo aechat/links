@@ -126,6 +126,15 @@ $dark-theme-map: (
       curve: hsl(0deg 0% 75%),
       track-background: hsl(var(--accent-hue) 3% 29%),
     ),
+    figure: (
+      youtube: (
+        border: hsl(0deg 0% 20%),
+        button: hsl(0deg 0% 12.5%),
+        button-text: hsl(0deg 0% 90%),
+        button-hover: hsl(0deg 0% 20%),
+        button-active: hsl(0deg 0% 10%),
+      ),
+    ),
   ),
   shadow: (
     primary: hsl(0deg 0% 0% / 8%),
