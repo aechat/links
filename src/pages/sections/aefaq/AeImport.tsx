@@ -1351,12 +1351,10 @@ const AeImport: React.FC = () => {
           <mark className="key">ПКМ</mark> →{" "}
           <mark className="select">«Create» → «Create Shapes from Vector Layer»</mark>.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Создание фигур из векторного слоя"
-          src="images/legacy/aftereffects/create_shapes_from_vector_layer.png"
-          theme="dark"
+          src="legacy/aftereffects/create_shapes_from_vector_layer.png"
           type="image"
-          variant="windows"
         />
         <Addition type="warning">
           <sup>1</sup> <mark className="select">«Freeform Gradients»</mark> и режимы

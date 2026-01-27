@@ -1543,7 +1543,7 @@ const AePerformance: React.FC = () => {
                 Откатить их можно с помощью{" "}
                 <mark className="app">Диспетчера устройств</mark>.
               </p>
-              <ContentFigure
+              <ArticleMedia
                 caption="Как откатить драйвер в Windows"
                 src="A9WYBglOKaQ"
                 type="youtube"

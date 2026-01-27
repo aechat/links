@@ -63,7 +63,7 @@ const PsErrors: React.FC = () => (
               ниже. Затем сохраните файл и верните его в исходную папку с заменой.
             </p>
             <HostsAdobeModal />
-            <ContentFigure
+            <ArticleMedia
               caption="Как отредактировать файл Hosts на Mac"
               src="VcDYAbH6U_c"
               type="youtube"
@@ -120,27 +120,21 @@ const PsErrors: React.FC = () => (
               проверьте параметр{" "}
               <mark className="select">«Использовать прокси-сервер»</mark>.
             </p>
-            <ContentFigure
-              caption="Параметры"
-              imgTitle="Проверяем прокси"
+            <ArticleMedia
+              caption="Проверяем прокси"
               // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-              src="images/legacy/check_windows_proxy.png"
-              theme="dark"
+              src="legacy/check_windows_proxy.png"
               type="image"
-              variant="windows"
             />
             <p>
               Если прокси включён, нажмите <mark className="select">«Изменить»</mark> и
               отключите его.
             </p>
-            <ContentFigure
-              caption="Параметры"
-              imgTitle="Отключаем прокси"
+            <ArticleMedia
+              caption="Отключаем прокси"
               // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-              src="images/legacy/disable_windows_proxy.png"
-              theme="dark"
+              src="legacy/disable_windows_proxy.png"
               type="image"
-              variant="windows"
             />
             <Divider>Правим файл hosts</Divider>
             <p>
@@ -277,7 +271,7 @@ const PsErrors: React.FC = () => (
               <mark className="company">Adobe</mark> в список исключений антивируса, а
               затем переустановите программу вашей версии «поверх» существующей.
             </p>
-            <ContentFigure
+            <ArticleMedia
               caption="Windows Defender: как восстановить файлы и добавить их в исключения"
               src="ET94_dv3f8c"
               type="youtube"
@@ -400,14 +394,11 @@ const PsErrors: React.FC = () => (
         , то вам нужно переключить режим заливки на{" "}
         <mark className="select">«Generative AI Off»</mark>.
       </p>
-      <ContentFigure
-        caption="Adobe Photoshop"
-        imgTitle="Отключаем генеративную заливку при использовании инструмента Remove Tool"
+      <ArticleMedia
+        caption="Отключаем генеративную заливку при использовании инструмента Remove Tool"
         // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
-        src="images/legacy/photoshop/disable_generative_ai_removetool.png"
-        theme="light"
+        src="legacy/photoshop/disable_generative_ai_removetool.png"
         type="image"
-        variant="windows"
       />
     </DetailsSummary>
     <DetailsSummary title="Ошибка при запуске приложения «0xc0000142»">

@@ -4858,7 +4858,7 @@ const AeFromNewbies: React.FC = () => {
                 удаётся — воспользуйтесь точкой восстановления или резервной копией
                 системы, если они были созданы до появления проблем.
               </p>
-              <ContentFigure
+              <ArticleMedia
                 caption="Как откатить драйвер в Windows"
                 src="A9WYBglOKaQ"
                 type="youtube"

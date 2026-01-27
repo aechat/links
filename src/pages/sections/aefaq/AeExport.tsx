@@ -1882,10 +1882,14 @@ const AeExport: React.FC = () => {
           Используем конвертированное видео с прозрачностью на веб-странице
         </Divider>
         <p>
-          После того как вы экспортировали видео в <mark className="video">VP9</mark> или{" "}
-          <mark className="video">AV1</mark>, а также в{" "}
-          <mark className="video">H.265</mark> с альфа-каналом, нужно указать их как
-          источник для HTML-тега <mark className="code">{`<video>`}</mark>.
+          После того как вы экспортировали видео в <mark className="video">VP9</mark>,
+          <mark className="video">AV1</mark> или <mark className="video">H.265</mark> с
+          альфа-каналом, укажите их как источники для HTML-тега{" "}
+          <mark className="code">{`<video>`}</mark>. Браузер сам выберет нужный формат:
+          например, <mark className="app">Chrome</mark>и{" "}
+          <mark className="app">Firefox</mark> будут использовать{" "}
+          <mark className="video">VP9</mark>, а <mark className="app">Safari</mark> —{" "}
+          <mark className="video">HEVC</mark>.
         </p>
         <CodeSnippet language="html">
           {`<video loop controls autoplay>
@@ -1899,43 +1903,6 @@ const AeExport: React.FC = () => {
   />
 </video>`}
         </CodeSnippet>
-        <p>
-          Пример работы этого кода вы можете увидеть на примере ниже, в браузерах на базе{" "}
-          <mark className="app">Chromium</mark> и <mark className="app">Firefox</mark> вы
-          увидите видео с прозрачностью в кодеке <mark className="video">VP9</mark>, а в{" "}
-          <mark className="app">Safari</mark> — в <mark className="video">H.265</mark>.
-        </p>
-        <div>
-          <div className="figure-container">
-            <div
-              style={{
-                background:
-                  "linear-gradient(180deg, var(--color-surface-primary-background-active), var(--color-surface-primary-background))",
-                borderRadius: "8px",
-                marginInline: "auto",
-                maxHeight: "240px",
-                width: "calc(100% - 20px)",
-              }}
-            >
-              <video
-                controls
-                loop
-                playsInline
-                controlsList="nofullscreen"
-                preload="metadata"
-              >
-                <source
-                  src="legacy/aefaq@aechat_alpha.mp4"
-                  type="video/mp4;codecs=hvc1"
-                />
-                <source
-                  src="legacy/aefaq@aechat_alpha.webm"
-                  type="video/webm"
-                />
-              </video>
-            </div>
-          </div>
-        </div>
       </DetailsSummary>
       <DetailsSummary
         anchor="export-gif"

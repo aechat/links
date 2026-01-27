@@ -33,7 +33,7 @@ const PrActions: React.FC = () => {
           плавным. Однако стоит учесть, что хороший результат не всегда получается с
           первой попытки, поэтому не стоит бояться экспериментировать с настройками.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Topaz Video AI Tutorials Enhancing Low Quality Video"
           src="XBEkVHd2tmw"
           type="youtube"

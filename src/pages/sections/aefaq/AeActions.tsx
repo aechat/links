@@ -1276,7 +1276,7 @@ const AeActions: React.FC = () => {
           </a>{" "}
           с поддержкой анимации его толщины и ширины.
         </p>
-        <ContentFigure
+        <ArticleMedia
           caption="Variable Fonts in Adobe After Effects"
           src="wshxc13_s1w"
           type="youtube"
