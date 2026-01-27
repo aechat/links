@@ -11,11 +11,11 @@ import styles from "./ArticleMedia.module.scss";
 import {useSpoiler} from "./spoilerContexts";
 
 interface BaseMediaProperties {
-  caption: string;
   src: string;
 }
 
 interface ImageMediaProperties extends BaseMediaProperties {
+  caption: string;
   height?: number | string;
   type: "image";
   width?: number | string;
@@ -23,6 +23,7 @@ interface ImageMediaProperties extends BaseMediaProperties {
 
 interface VideoMediaProperties extends BaseMediaProperties {
   autoPlay?: boolean;
+  caption: string;
   height?: number | string;
   loop?: boolean;
   type: "video";
@@ -73,7 +74,9 @@ const getMetadata = (source: string) => {
 };
 
 const ArticleMedia: React.FC<ArticleMediaProperties> = (properties) => {
-  const {caption, src, type} = properties;
+  const {src, type} = properties;
+
+  const caption = type === "youtube" ? undefined : properties.caption;
 
   const isSpoilerOpen = useSpoiler();
 
@@ -218,7 +221,6 @@ const ArticleMedia: React.FC<ArticleMediaProperties> = (properties) => {
               className={styles["media-iframe"]}
               loading="lazy"
               src={`https://www.youtube.com/embed/${videoId}`}
-              title={caption}
             />
             <div className={styles["media-youtube-actions"]}>
               <button

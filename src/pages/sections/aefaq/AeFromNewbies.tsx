@@ -55,7 +55,6 @@ const AeFromNewbies: React.FC = () => {
             вам освоить интерфейс программы и научиться работать с ключевыми кадрами,
             титрами и эффектами.
             <ArticleMedia
-              caption="Основы After Effects от Ильи Зернова"
               src="nogR7eyhYug"
               type="youtube"
             />
@@ -69,7 +68,6 @@ const AeFromNewbies: React.FC = () => {
             создавать анимацию текста, а также использовать маски и инструмент{" "}
             <mark className="plugin">Roto Brush</mark> для вырезания объектов в кадре.
             <ArticleMedia
-              caption="After Effects для начинающих"
               src="ZTrELWgEtUI"
               type="youtube"
             />
@@ -83,7 +81,6 @@ const AeFromNewbies: React.FC = () => {
             . Автор подробно разбирает основные функции программы и демонстрирует
             различные примеры работы.
             <ArticleMedia
-              caption="What is Adobe After Effects?"
               src="FuJMHF510mc"
               type="youtube"
             />
@@ -130,7 +127,6 @@ const AeFromNewbies: React.FC = () => {
         </ul>
         <Divider>Принципы анимации</Divider>
         <ArticleMedia
-          caption="12 принципов анимации"
           src="LcoDiK2a_oM"
           type="youtube"
         />
@@ -153,7 +149,6 @@ const AeFromNewbies: React.FC = () => {
             подробное объяснение этого инструмента от{" "}
             <a href="https://www.youtube.com/@JakeInMotion">Jake In Motion</a>.
             <ArticleMedia
-              caption="Туториал по графикам скорости, который вам может пригодиться"
               src="7pOCtlrrE3Y"
               type="youtube"
             />
@@ -168,7 +163,6 @@ const AeFromNewbies: React.FC = () => {
               <mark className="key">Ctrl + Alt + T</mark>.
             </Addition>
             <ArticleMedia
-              caption="Плавно изменяющаяся скорость"
               src="_kcfkuNwd3M"
               type="youtube"
             />
@@ -188,7 +182,6 @@ const AeFromNewbies: React.FC = () => {
               </a>
             </div>
             <ArticleMedia
-              caption="Цветокоррекция с помощью Lumetri Color"
               src="y4fuhIPxmJg"
               type="youtube"
             />
@@ -246,7 +239,6 @@ const AeFromNewbies: React.FC = () => {
               <mark className="select">«Twitchy»</mark>.
             </Addition>
             <ArticleMedia
-              caption="Как добавить эффект тряски камеры без сторонних эффектов"
               src="rT1rOj3BBCE"
               type="youtube"
             />
@@ -257,7 +249,6 @@ const AeFromNewbies: React.FC = () => {
             <mark className="plugin">CC Particle World</mark>, или через сторонние
             инструменты, например <mark className="plugin">Trapcode Particular</mark>.
             <ArticleMedia
-              caption="Создание частиц с помощью Trapcode Particular"
               src="GgIbELgZLLI"
               type="youtube"
             />
@@ -272,7 +263,6 @@ const AeFromNewbies: React.FC = () => {
               снизить производительность проекта.
             </Addition>
             <ArticleMedia
-              caption="Glow"
               src="t40ZTEBr_M0"
               type="youtube"
             />
@@ -286,7 +276,6 @@ const AeFromNewbies: React.FC = () => {
             <mark className="plugin">S_LensFlare</mark> или даже комбинацией различных
             эффектов размытия и искажения.
             <ArticleMedia
-              caption="S_LensFlare"
               src="-yD3MxlR78c"
               type="youtube"
             />
@@ -306,7 +295,6 @@ const AeFromNewbies: React.FC = () => {
               таких «улучшений» результат обычно выглядит так себе.
             </i>
             <ArticleMedia
-              caption="HOW TO: Make A 4K Color Correction"
               src="d9ESpD7vc2Y"
               type="youtube"
             />
@@ -535,7 +523,6 @@ const AeFromNewbies: React.FC = () => {
                 <mark className="app">Cinema 4D</mark>.
               </p>
               <ArticleMedia
-                caption="Импорт секвенции изображений"
                 src="efHrVdCsX-4"
                 type="youtube"
               />
@@ -617,7 +604,6 @@ const AeFromNewbies: React.FC = () => {
                 <a href="#import-layered-psd">Как?</a>
               </Addition>
               <ArticleMedia
-                caption="Импорт и анимация PSD в Adobe After Effects"
                 src="e1ZJfivOloM"
                 type="youtube"
               />
@@ -655,7 +641,6 @@ const AeFromNewbies: React.FC = () => {
                 <mark className="select">«Columns» → «Parent & Link»</mark>.
               </Addition>
               <ArticleMedia
-                caption="Тебе НУЖНО использовать нулевые слои в Adobe After Effects"
                 src="8ei_cj6A2Gg"
                 type="youtube"
               />
@@ -692,7 +677,6 @@ const AeFromNewbies: React.FC = () => {
                 <mark className="select">«Adjustment Layer»</mark>.
               </Addition>
               <ArticleMedia
-                caption="Используем корректирующие слои в Adobe After Effects"
                 src="rgMKGFWWqjA"
                 type="youtube"
               />
@@ -737,7 +721,6 @@ const AeFromNewbies: React.FC = () => {
                 </ul>
               </Addition>
               <ArticleMedia
-                caption="Как создать фон и изменить цвет заливки"
                 src="e-g1y4p8Jc0"
                 type="youtube"
               />
@@ -853,7 +836,6 @@ const AeFromNewbies: React.FC = () => {
                 чтобы текст не прыгал.
               </p>
               <ArticleMedia
-                caption="Как сделать текст моноширинным"
                 src="__-rPlFfRow"
                 type="youtube"
               />
@@ -867,7 +849,6 @@ const AeFromNewbies: React.FC = () => {
                 работающий в трёхмерном пространстве.
               </p>
               <ArticleMedia
-                caption="Техники с камерой в Adobe After Effects"
                 src="zgMHWFolli8"
                 type="youtube"
               />
@@ -1274,7 +1255,6 @@ const AeFromNewbies: React.FC = () => {
                 </ul>
               </Addition>
               <ArticleMedia
-                caption="Слои-фигуры для начинающих"
                 src="98ro7x3kl8A"
                 type="youtube"
               />
@@ -1627,7 +1607,6 @@ const AeFromNewbies: React.FC = () => {
                 <mark className="select">«Collapse Transformations»</mark>.
               </p>
               <ArticleMedia
-                caption="Трёхмерные слои в Adobe After Effects"
                 src="7NFsxeG-sWY"
                 type="youtube"
               />
@@ -1652,7 +1631,6 @@ const AeFromNewbies: React.FC = () => {
                 <mark className="app">Substance 3D Painter</mark>.
               </p>
               <ArticleMedia
-                caption="Работаем с 3D-моделями из Substance Painter в Adobe After Effects"
                 src="qPOkGR7Ek2I"
                 type="youtube"
               />
@@ -1681,7 +1659,6 @@ const AeFromNewbies: React.FC = () => {
                 <a href="#fix-cinema-4d-must-be-installed">Подробнее...</a>
               </Addition>
               <ArticleMedia
-                caption="Cineware"
                 src="qFVQrxWvOjw"
                 type="youtube"
               />
@@ -1722,7 +1699,6 @@ const AeFromNewbies: React.FC = () => {
               а маски добавляйте уже на ней.
             </Addition>
             <ArticleMedia
-              caption="Полное руководство для начинающих по созданию масок"
               src="WMmWIc88HDA"
               type="youtube"
             />
@@ -1736,7 +1712,6 @@ const AeFromNewbies: React.FC = () => {
               в версии <mark>2023</mark> и новее.
             </p>
             <ArticleMedia
-              caption="Почему тебе нужны Mattes в After Effects"
               src="VWkS1vcs0Wk"
               type="youtube"
             />
@@ -1769,7 +1744,6 @@ const AeFromNewbies: React.FC = () => {
               </ul>
             </Addition>
             <ArticleMedia
-              caption="Как использовать Guide Layers"
               src="_rxq8Pa9WdQ"
               type="youtube"
             />
@@ -1783,7 +1757,6 @@ const AeFromNewbies: React.FC = () => {
               глаз, но при этом никак не защищает их от удаления.
             </p>
             <ArticleMedia
-              caption="Как спрятать слои?"
               src="Bw3snjRq2kE"
               type="youtube"
             />
@@ -4118,7 +4091,6 @@ const AeFromNewbies: React.FC = () => {
                 желательно объёмом от <mark>512 ГБ</mark>.
               </p>
               <ArticleMedia
-                caption="How to Set up & Use Time Machine to Backup your Mac"
                 src="Gx76i28c150"
                 type="youtube"
               />
@@ -4134,7 +4106,6 @@ const AeFromNewbies: React.FC = () => {
                 заранее указать диск для сохранения копий.
               </p>
               <ArticleMedia
-                caption="История файлов в Windows 11 и Windows 10"
                 src="xDFQEx9gylc"
                 type="youtube"
               />
@@ -4166,7 +4137,6 @@ const AeFromNewbies: React.FC = () => {
           целого образа системы — по расписанию или при наступлении определённых событий.
         </p>
         <ArticleMedia
-          caption="Настройка и обзор AOMEI Backupper"
           src="ImCjFVlF3gQ"
           type="youtube"
         />
@@ -4191,7 +4161,6 @@ const AeFromNewbies: React.FC = () => {
           необходимости возвращаться к предыдущим версиям.
         </p>
         <ArticleMedia
-          caption="Объясняем на пальцах про Git"
           src="G4f9OH4IQE8"
           type="youtube"
         />
@@ -4223,7 +4192,6 @@ const AeFromNewbies: React.FC = () => {
           программу использовать.
         </p>
         <ArticleMedia
-          caption="Когда нужно использовать Adobe Premiere и Adobe After Effects"
           src="xxDdL455rAo"
           type="youtube"
         />
@@ -4859,7 +4827,6 @@ const AeFromNewbies: React.FC = () => {
                 системы, если они были созданы до появления проблем.
               </p>
               <ArticleMedia
-                caption="Как откатить драйвер в Windows"
                 src="A9WYBglOKaQ"
                 type="youtube"
               />
@@ -5230,7 +5197,6 @@ const AeFromNewbies: React.FC = () => {
         </p>
         {/* FIXME: исправить "публичную бету" на стабильную версию, если этот эффект доедет до релиза */}
         <ArticleMedia
-          caption="Red Giant Universe Unmult"
           src="GGjIu0CZ1M4"
           type="youtube"
         />
@@ -5613,7 +5579,6 @@ const AeFromNewbies: React.FC = () => {
                 вы можете открыть другой проект и работать с ними.
               </p>
               <ArticleMedia
-                caption="Как открыть несколько экземпляров Adobe After Effects"
                 src="k1x1goE2F10"
                 type="youtube"
               />

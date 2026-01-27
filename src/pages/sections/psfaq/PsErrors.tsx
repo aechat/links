@@ -64,7 +64,6 @@ const PsErrors: React.FC = () => (
             </p>
             <HostsAdobeModal />
             <ArticleMedia
-              caption="Как отредактировать файл Hosts на Mac"
               src="VcDYAbH6U_c"
               type="youtube"
             />
@@ -150,7 +149,6 @@ const PsErrors: React.FC = () => (
             </p>
             <HostsAdobeModal />
             <ArticleMedia
-              caption="Как редактировать файл hosts"
               src="wHhay41ocsc"
               type="youtube"
             />
@@ -272,7 +270,6 @@ const PsErrors: React.FC = () => (
               затем переустановите программу вашей версии «поверх» существующей.
             </p>
             <ArticleMedia
-              caption="Windows Defender: как восстановить файлы и добавить их в исключения"
               src="ET94_dv3f8c"
               type="youtube"
             />
@@ -304,7 +301,6 @@ const PsErrors: React.FC = () => (
               существующей.{" "}
             </p>
             <ArticleMedia
-              caption="Windows Defender - как восстановить файлы и запретить их удаление"
               src="ET94_dv3f8c"
               type="youtube"
             />

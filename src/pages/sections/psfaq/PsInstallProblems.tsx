@@ -357,7 +357,6 @@ const PsInstallProblems: React.FC = () => {
                     </ul>
                   </Addition>
                   <ArticleMedia
-                    caption="Распаковка многотомного архива"
                     src="1OVwQS0uHhk"
                     type="youtube"
                   />
@@ -553,7 +552,6 @@ const PsInstallProblems: React.FC = () => {
                 любой другой, установленный на вашем устройстве.
               </p>
               <ArticleMedia
-                caption="Как отключить Защитник Windows 11"
                 src="blwRAOQUjsM"
                 type="youtube"
               />
@@ -607,7 +605,6 @@ const PsInstallProblems: React.FC = () => {
                 отсутствует, создайте её самостоятельно.
               </Addition>
               <ArticleMedia
-                caption="Windows Defender — как восстановить файлы и запретить их удаление"
                 src="ET94_dv3f8c"
                 type="youtube"
               />
@@ -657,7 +654,6 @@ const PsInstallProblems: React.FC = () => {
                 <mark className="app">Защитника Windows</mark>.
               </p>
               <ArticleMedia
-                caption="Как отключить Windows SmartScreen"
                 src="HxlxS1Mdyp0"
                 type="youtube"
               />

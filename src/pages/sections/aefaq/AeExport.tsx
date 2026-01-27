@@ -321,7 +321,6 @@ const AeExport: React.FC = () => {
               корректно, если вы работаете с подобными исходниками.
             </p>
             <ArticleMedia
-              caption="Почему некоторые футажи так сложны в редактировании"
               src="cfz3jwdo1v0"
               type="youtube"
             />
@@ -407,7 +406,6 @@ const AeExport: React.FC = () => {
           <mark className="select">«CQ» («CQP»/«CRF»)</mark>.
         </p>
         <ArticleMedia
-          caption="Объяснение видов битрейта"
           src="eN5a2kHHP7s"
           type="youtube"
         />
@@ -583,7 +581,6 @@ const AeExport: React.FC = () => {
           </li>
         </ul>
         <ArticleMedia
-          caption="Как работает Datamosh и как его сделать?"
           src="v1WgvdbCSs0"
           type="youtube"
         />
@@ -617,7 +614,6 @@ const AeExport: React.FC = () => {
           <mark className="app">Shutter Encoder</mark>.
         </p>
         <ArticleMedia
-          caption="Что такое группа кадров?"
           src="nFGmb8Z2zLw"
           type="youtube"
         />
@@ -674,7 +670,6 @@ const AeExport: React.FC = () => {
           указывает на наличие альфа-канала.
         </p>
         <ArticleMedia
-          caption="Цветовая субдискретизация: что, какая и зачем?"
           src="aF_RCHoc89U"
           type="youtube"
         />
@@ -726,7 +721,6 @@ const AeExport: React.FC = () => {
           редактировать и ротоскопировать.
         </p>
         <ArticleMedia
-          caption="Разбираемся с переменной частотой кадров в видео"
           src="vzh-41y1gxQ"
           type="youtube"
         />
@@ -764,7 +758,6 @@ const AeExport: React.FC = () => {
               <mark className="video">Apple ProRes</mark>.
             </p>
             <ArticleMedia
-              caption="Форматы аудио: какой лучше выбрать?"
               src="6IVmlBWMxVA"
               type="youtube"
             />
@@ -834,7 +827,6 @@ const AeExport: React.FC = () => {
               </li>
             </ul>
             <ArticleMedia
-              caption="Частота дискретизации и её глубина"
               src="w6f6FeRRjPU"
               type="youtube"
             />
@@ -850,12 +842,10 @@ const AeExport: React.FC = () => {
           </a>
         </div>
         <ArticleMedia
-          caption="Всё о кодеках"
           src="MprgQSTqL9E"
           type="youtube"
         />
         <ArticleMedia
-          caption="Как работают видеокодеки?"
           src="gqDuIcJ-alM"
           type="youtube"
         />
@@ -1020,7 +1010,6 @@ const AeExport: React.FC = () => {
           VHS-кассет: каждая следующая копия всегда хуже предыдущей.
         </p>
         <ArticleMedia
-          caption="Что будет, если опубликовать одно и то же видео 1000 раз?"
           src="JR4KHfqw-oE"
           type="youtube"
         />
@@ -1035,7 +1024,6 @@ const AeExport: React.FC = () => {
           видео неизбежно пострадает.
         </p>
         <ArticleMedia
-          caption="Почему снег и конфетти портят картинку"
           src="r6Rp-uo6HmI"
           type="youtube"
         />
@@ -2762,7 +2750,6 @@ const AeExport: React.FC = () => {
           <mark className="app">Adobe Premiere</mark> и перетащить его на таймлайн.
         </p>
         <ArticleMedia
-          caption="How to export MOGRT templates"
           src="tHDnFgW9NpQ"
           type="youtube"
         />
@@ -3065,7 +3052,6 @@ const AeExport: React.FC = () => {
           этими визуальными элементами, что упрощает демонстрацию и анализ вашей работы.
         </p>
         <ArticleMedia
-          caption="Cyclops Tutorial"
           src="vNH3d9YqLo4"
           type="youtube"
         />
@@ -3167,7 +3153,6 @@ const AeExport: React.FC = () => {
                     любым удобным способом.
                   </p>
                   <ArticleMedia
-                    caption="Как разбить архив на части и собрать его"
                     src="6KumGS0EyUQ"
                     type="youtube"
                   />

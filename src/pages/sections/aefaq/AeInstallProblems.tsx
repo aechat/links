@@ -551,7 +551,6 @@ const AeInstallProblems: React.FC = () => {
                     </li>
                   </ul>
                   <ArticleMedia
-                    caption="Как установить LUT в Adobe After Effects на MacBook"
                     src="WyZ32cYLkpg"
                     type="youtube"
                   />
@@ -615,7 +614,6 @@ const AeInstallProblems: React.FC = () => {
                   Другие части архива не нужно трогать без острой необходимости, если вы
                   не знаете, что с ними делать.
                   <ArticleMedia
-                    caption="Распаковка многотомного архива"
                     src="1OVwQS0uHhk"
                     type="youtube"
                   />
@@ -1196,7 +1194,6 @@ const AeInstallProblems: React.FC = () => {
                 любой другой, установленный на вашем устройстве.
               </p>
               <ArticleMedia
-                caption="Как отключить Защитник Windows 11"
                 src="blwRAOQUjsM"
                 type="youtube"
               />
@@ -1250,7 +1247,6 @@ const AeInstallProblems: React.FC = () => {
                 отсутствует, создайте её самостоятельно.
               </Addition>
               <ArticleMedia
-                caption="Windows Defender — как восстановить файлы и запретить их удаление"
                 src="ET94_dv3f8c"
                 type="youtube"
               />
@@ -1300,7 +1296,6 @@ const AeInstallProblems: React.FC = () => {
                 <mark className="app">Защитника Windows</mark>.
               </p>
               <ArticleMedia
-                caption="Как отключить Windows SmartScreen"
                 src="HxlxS1Mdyp0"
                 type="youtube"
               />
@@ -1543,7 +1538,6 @@ const AeInstallProblems: React.FC = () => {
                 .
               </Addition>
               <ArticleMedia
-                caption="Как сделать символическую ссылку в Windows на файл и папку"
                 src="VaupaCuluJA"
                 type="youtube"
               />
@@ -2187,7 +2181,6 @@ const AeInstallProblems: React.FC = () => {
           несколько условий.
         </p>
         <ArticleMedia
-          caption="Исправляем Dynamic Link"
           src="LvvjQbY1jgw"
           type="youtube"
         />

@@ -116,7 +116,6 @@ const AeImport: React.FC = () => {
           .
         </p>
         <ArticleMedia
-          caption="H.264 — не для редактирования видео"
           src="Acrm-wQjoaU"
           type="youtube"
         />
@@ -226,7 +225,6 @@ const AeImport: React.FC = () => {
           какой-нибудь проект с разными камерами.
         </Addition>
         <ArticleMedia
-          caption="Цветовые пространства: Базовые знания простым языком"
           src="vlFdAqoriL0"
           type="youtube"
         />
@@ -257,7 +255,6 @@ const AeImport: React.FC = () => {
           в столбце <mark className="select">«Frame Rate»</mark>.
         </p>
         <ArticleMedia
-          caption="Как несовпадение частоты кадров портит ваше видео"
           src="p3Jb3UPAw-w"
           type="youtube"
         />
@@ -941,7 +938,6 @@ const AeImport: React.FC = () => {
                 <mark className="file">AEP</mark> оттуда.
               </p>
               <ArticleMedia
-                caption="Распаковка многотомного архива"
                 src="1OVwQS0uHhk"
                 type="youtube"
               />
@@ -1118,7 +1114,6 @@ const AeImport: React.FC = () => {
           или <mark className="app">Shutter Encoder</mark>.
         </Addition>
         <ArticleMedia
-          caption="Autokroma Influx"
           src="l3zBFli6BIk"
           type="youtube"
         />
@@ -1551,7 +1546,6 @@ const AeImport: React.FC = () => {
           движок на <mark className="plugin">Advanced 3D</mark>, если используется другой.
         </p>
         <ArticleMedia
-          caption="Работаем с 3D-моделями из Substance Painter в Adobe After Effects"
           src="qPOkGR7Ek2I"
           type="youtube"
         />
@@ -1600,7 +1594,6 @@ const AeImport: React.FC = () => {
           свойства.
         </p>
         <ArticleMedia
-          caption="Import 3D Models to Element 3D in After Effects"
           src="Qu9eCU9Ge54"
           type="youtube"
         />
@@ -1621,7 +1614,6 @@ const AeImport: React.FC = () => {
           проект удобным вам способом и поместить его на таймлайн.
         </p>
         <ArticleMedia
-          caption="Cineware"
           src="qFVQrxWvOjw"
           type="youtube"
         />

@@ -83,7 +83,6 @@ const PrErrors: React.FC = () => {
               </p>
               <HostsAdobeModal />
               <ArticleMedia
-                caption="Как отредактировать файл Hosts на Mac"
                 src="VcDYAbH6U_c"
                 type="youtube"
               />
@@ -174,7 +173,6 @@ const PrErrors: React.FC = () => {
               </p>
               <HostsAdobeModal />
               <ArticleMedia
-                caption="Как редактировать файл hosts"
                 src="wHhay41ocsc"
                 type="youtube"
               />
@@ -315,7 +313,6 @@ const PrErrors: React.FC = () => {
                 антивируса, а затем установите программу вашей версии поверх существующей.
               </p>
               <ArticleMedia
-                caption="Windows Defender: как восстановить файлы и добавить их в исключения"
                 src="ET94_dv3f8c"
                 type="youtube"
               />

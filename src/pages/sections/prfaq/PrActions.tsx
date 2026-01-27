@@ -34,7 +34,6 @@ const PrActions: React.FC = () => {
           первой попытки, поэтому не стоит бояться экспериментировать с настройками.
         </p>
         <ArticleMedia
-          caption="Topaz Video AI Tutorials Enhancing Low Quality Video"
           src="XBEkVHd2tmw"
           type="youtube"
         />
@@ -45,7 +44,6 @@ const PrActions: React.FC = () => {
           <mark className="plugin">Boris FX Continuum</mark>.
         </p>
         <ArticleMedia
-          caption="BCC UpRes ML"
           src="_gHNqhHfeck"
           type="youtube"
         />
@@ -59,7 +57,6 @@ const PrActions: React.FC = () => {
           отсутствует.
         </p>
         <ArticleMedia
-          caption="Topaz Video AI"
           src="zbX7x8Oo_Uc"
           type="youtube"
         />
@@ -92,7 +89,6 @@ const PrActions: React.FC = () => {
           <mark>20 ГБ</mark>. И это без учёта будущих обновлений.
         </Addition>
         <ArticleMedia
-          caption="Intro to Photo AI"
           src="J6vDYRvjbGY"
           type="youtube"
         />
@@ -116,7 +112,6 @@ const PrActions: React.FC = () => {
           совсем немного места на диске.
         </p>
         <ArticleMedia
-          caption="Benvista Photozoom"
           src="woDDQ0xnt84"
           type="youtube"
         />
@@ -163,7 +158,6 @@ const PrActions: React.FC = () => {
           <mark className="select">«Optical Flow»</mark>.
         </p>
         <ArticleMedia
-          caption="How to Use Optical Flow"
           src="JemBgoF3K6Q"
           type="youtube"
         />
@@ -175,7 +169,6 @@ const PrActions: React.FC = () => {
           слоёв.
         </p>
         <ArticleMedia
-          caption="Twixtor"
           src="20Smtrzt3m4"
           type="youtube"
         />
@@ -188,7 +181,6 @@ const PrActions: React.FC = () => {
           <mark className="plugin">RE:Vision Twixtor</mark>.
         </p>
         <ArticleMedia
-          caption="BCC Retimer ML"
           src="YraSxOpy1Qg"
           type="youtube"
         />
@@ -211,7 +203,6 @@ const PrActions: React.FC = () => {
           <mark className="app">Flowframes</mark> бесплатно.
         </Addition>
         <ArticleMedia
-          caption="FlowFrames"
           src="H8ISNjzDULw"
           type="youtube"
         />
@@ -220,7 +211,6 @@ const PrActions: React.FC = () => {
           <mark className="app">FrameGUI</mark>.
         </p>
         <ArticleMedia
-          caption="FrameGUI"
           src="Axz_KwiqNmc"
           type="youtube"
         />
@@ -230,7 +220,6 @@ const PrActions: React.FC = () => {
           для получения наилучшего результата.
         </p>
         <ArticleMedia
-          caption="Topaz Video AI"
           src="591MqOooDAE"
           type="youtube"
         />
@@ -380,7 +369,6 @@ const PrActions: React.FC = () => {
           шумы, не прибегая к сторонним плагинам.
         </p>
         <ArticleMedia
-          caption="VR De-Noise"
           src="hr7qFhh6Y5g"
           type="youtube"
         />
@@ -393,7 +381,6 @@ const PrActions: React.FC = () => {
           под разные типы шума и поддерживает аппаратное ускорение с помощью видеокарты.
         </p>
         <ArticleMedia
-          caption="Neat Video"
           src="DYKBQF7eIUo"
           type="youtube"
         />
@@ -403,7 +390,6 @@ const PrActions: React.FC = () => {
           <mark className="plugin">Red Giant Magic Bullet Suite</mark>.
         </p>
         <ArticleMedia
-          caption="Denoiser III"
           src="PXCElU7HcX8"
           type="youtube"
         />
@@ -416,7 +402,6 @@ const PrActions: React.FC = () => {
           кадры.
         </p>
         <ArticleMedia
-          caption="BCC DeNoise ML"
           src="L1PeaTa13H4"
           type="youtube"
         />
@@ -426,7 +411,6 @@ const PrActions: React.FC = () => {
           <mark className="plugin">DE:Noise</mark>.
         </p>
         <ArticleMedia
-          caption="DE:Noise"
           src="tGIXeddCPQM"
           type="youtube"
         />
@@ -454,7 +438,6 @@ const PrActions: React.FC = () => {
           используя встроенный эффект <mark className="plugin">Ultra Key</mark>.
         </p>
         <ArticleMedia
-          caption="Ultra Key"
           src="c_P8s3r1dXE"
           type="youtube"
         />
@@ -470,7 +453,6 @@ const PrActions: React.FC = () => {
           <mark className="plugin">Red Giant VFX Suite</mark>.
         </p>
         <ArticleMedia
-          caption="Getting Started with Primatte Keyer"
           src="zYARqiWTArU"
           type="youtube"
         />
@@ -480,7 +462,6 @@ const PrActions: React.FC = () => {
           <mark className="plugin">Boris FX Continuum</mark>.
         </p>
         <ArticleMedia
-          caption="BCC Primatte Studio"
           src="AaKTHKspAkQ"
           type="youtube"
         />
@@ -504,7 +485,6 @@ const PrActions: React.FC = () => {
           задачу.
         </p>
         <ArticleMedia
-          caption="Как создавать маркеры с помощью Beat Edit"
           src="JGVLRcjp7ss"
           type="youtube"
         />

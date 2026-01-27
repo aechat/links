@@ -788,7 +788,6 @@ const AeInterface: React.FC = () => {
           .
         </Addition>
         <ArticleMedia
-          caption="Обновление вкладки Track Matte"
           src="2Fi57LLJrUE"
           type="youtube"
         />

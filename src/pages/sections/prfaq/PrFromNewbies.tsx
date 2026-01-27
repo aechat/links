@@ -29,7 +29,6 @@ const PrFromNewbies: React.FC = () => {
           программы.
         </Addition>
         <ArticleMedia
-          caption="Азбука Adobe Premiere Pro"
           src="Wi-AalXwilg"
           type="youtube"
         />
@@ -1282,7 +1281,6 @@ const PrFromNewbies: React.FC = () => {
                 от <mark>512 ГБ</mark> и более.
               </Addition>
               <ArticleMedia
-                caption="How to Set up & Use Time Machine to Backup your Mac"
                 src="Gx76i28c150"
                 type="youtube"
               />
@@ -1302,7 +1300,6 @@ const PrFromNewbies: React.FC = () => {
                 <mark className="select">Смена диска</mark>.
               </Addition>
               <ArticleMedia
-                caption="История файлов в Windows 11 и Windows 10"
                 src="xDFQEx9gylc"
                 type="youtube"
               />
@@ -1360,7 +1357,6 @@ const PrFromNewbies: React.FC = () => {
           <mark className="app">SourceTree</mark>.
         </p>
         <ArticleMedia
-          caption="Объясняем на пальцах про Git"
           src="G4f9OH4IQE8"
           type="youtube"
         />
@@ -1419,7 +1415,6 @@ const PrFromNewbies: React.FC = () => {
           импортировать и видео и аудиодорожку на таймлайн.
         </p>
         <ArticleMedia
-          caption="How to add video and audio to the timeline in Adobe Premiere Pro"
           src="BOW2Fr7SKo0"
           type="youtube"
         />
@@ -1431,7 +1426,6 @@ const PrFromNewbies: React.FC = () => {
           клипов и вставку видео и аудиодорожек на таймлайн.
         </p>
         <ArticleMedia
-          caption="Shortcuts for the timeline in Adobe Premiere - track targeting"
           src="pzQnzaRm2OY"
           type="youtube"
         />
@@ -1473,7 +1467,6 @@ const PrFromNewbies: React.FC = () => {
           <mark className="select">«Set to Frame Size»</mark>.
         </Addition>
         <ArticleMedia
-          caption="Чем отличается Scale to Frame size от Set to Frame size?"
           src="dKTWbkPfcmE"
           type="youtube"
         />

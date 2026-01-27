@@ -42,7 +42,6 @@ const AeActions: React.FC = () => {
           стоит бояться экспериментировать с настройками.
         </p>
         <ArticleMedia
-          caption="Topaz Video AI Tutorials Enhancing Low Quality Video"
           src="XBEkVHd2tmw"
           type="youtube"
         />
@@ -53,7 +52,6 @@ const AeActions: React.FC = () => {
           пакет <mark className="plugin">Boris FX Continuum</mark>.
         </p>
         <ArticleMedia
-          caption="BCC UpRes ML"
           src="fTYcNP8ZdTE"
           type="youtube"
         />
@@ -63,7 +61,6 @@ const AeActions: React.FC = () => {
           <mark className="app">Adobe After Effects</mark>.
         </p>
         <ArticleMedia
-          caption="How to UPSCALE VIDEO to 4K in Adobe After Effects"
           src="PVPapPNciyQ"
           type="youtube"
         />
@@ -78,7 +75,6 @@ const AeActions: React.FC = () => {
           хотя на деле оно опубликовано в меньшем разрешении.
         </p>
         <ArticleMedia
-          caption="HOW TO: Make A 4K Color Correction"
           src="d9ESpD7vc2Y"
           type="youtube"
         />
@@ -106,7 +102,6 @@ const AeActions: React.FC = () => {
           <mark>20 ГБ</mark>. И это без учёта будущих обновлений.
         </Addition>
         <ArticleMedia
-          caption="Intro to Photo AI"
           src="J6vDYRvjbGY"
           type="youtube"
         />
@@ -130,7 +125,6 @@ const AeActions: React.FC = () => {
           совсем немного места на диске.
         </p>
         <ArticleMedia
-          caption="Benvista Photozoom"
           src="woDDQ0xnt84"
           type="youtube"
         />
@@ -180,7 +174,6 @@ const AeActions: React.FC = () => {
           .
         </p>
         <ArticleMedia
-          caption="Frame Blending и Pixel Motion в Adobe After Effects"
           src="fNINAOwY2IY"
           type="youtube"
         />
@@ -192,7 +185,6 @@ const AeActions: React.FC = () => {
           слоёв.
         </p>
         <ArticleMedia
-          caption="Twixtor"
           src="EGZCNcQyvrE"
           type="youtube"
         />
@@ -205,7 +197,6 @@ const AeActions: React.FC = () => {
           <mark className="plugin">RE:Vision Twixtor</mark>.
         </p>
         <ArticleMedia
-          caption="BCC Retimer ML"
           src="YraSxOpy1Qg"
           type="youtube"
         />
@@ -228,7 +219,6 @@ const AeActions: React.FC = () => {
           <mark className="app">Flowframes</mark> бесплатно.
         </Addition>
         <ArticleMedia
-          caption="FlowFrames"
           src="H8ISNjzDULw"
           type="youtube"
         />
@@ -237,7 +227,6 @@ const AeActions: React.FC = () => {
           <mark className="app">FrameGUI</mark>.
         </p>
         <ArticleMedia
-          caption="FrameGUI"
           src="Axz_KwiqNmc"
           type="youtube"
         />
@@ -247,7 +236,6 @@ const AeActions: React.FC = () => {
           для получения наилучшего результата.
         </p>
         <ArticleMedia
-          caption="Topaz Video AI"
           src="591MqOooDAE"
           type="youtube"
         />
@@ -291,7 +279,6 @@ const AeActions: React.FC = () => {
           </li>
         </ul>
         <ArticleMedia
-          caption="Duplicate Frame Remover 3 - Quick Start Tutorial"
           src="yg0vJmgCG5U"
           type="youtube"
         />
@@ -434,7 +421,6 @@ const AeActions: React.FC = () => {
           шумы, не прибегая к сторонним плагинам.
         </p>
         <ArticleMedia
-          caption="Remove Grain"
           src="FmSTOXu2V6I"
           type="youtube"
         />
@@ -447,7 +433,6 @@ const AeActions: React.FC = () => {
           под разные типы шума и поддерживает аппаратное ускорение с помощью видеокарты.
         </p>
         <ArticleMedia
-          caption="Neat Video"
           src="mwSqzxApy-E"
           type="youtube"
         />
@@ -457,7 +442,6 @@ const AeActions: React.FC = () => {
           <mark className="plugin">Red Giant Magic Bullet Suite</mark>.
         </p>
         <ArticleMedia
-          caption="Denoiser III"
           src="PXCElU7HcX8"
           type="youtube"
         />
@@ -470,7 +454,6 @@ const AeActions: React.FC = () => {
           кадры.
         </p>
         <ArticleMedia
-          caption="BCC DeNoise ML"
           src="L1PeaTa13H4"
           type="youtube"
         />
@@ -503,7 +486,6 @@ const AeActions: React.FC = () => {
                 сохраните файл в формате <mark className="file">SRT</mark>.
               </p>
               <ArticleMedia
-                caption="Как превратить аудио в текст с помощью MacWhisper?"
                 src="strqSTYlIJg"
                 type="youtube"
               />
@@ -693,7 +675,6 @@ const AeActions: React.FC = () => {
           <mark className="plugin">Keylight</mark>.
         </p>
         <ArticleMedia
-          caption="Keylight + Key Cleaner + Advanced Spill Suppressor"
           src="tK_Z1dYgtxs"
           type="youtube"
         />
@@ -703,7 +684,6 @@ const AeActions: React.FC = () => {
           проще и меньше нагружает систему, если высокое качество кеинга не критично.
         </p>
         <ArticleMedia
-          caption="Linear Color Key"
           src="8RjOe6cO-cY"
           type="youtube"
         />
@@ -718,7 +698,6 @@ const AeActions: React.FC = () => {
           способов, описанных ранее.
         </p>
         <ArticleMedia
-          caption="Paint Bucket Keying"
           src="D7jueRoMt_Q"
           type="youtube"
         />
@@ -729,7 +708,6 @@ const AeActions: React.FC = () => {
           <mark className="plugin">Red Giant VFX Suite</mark>.
         </p>
         <ArticleMedia
-          caption="Getting Started with Primatte Keyer"
           src="zYARqiWTArU"
           type="youtube"
         />
@@ -739,7 +717,6 @@ const AeActions: React.FC = () => {
           <mark className="plugin">Boris FX Continuum</mark>.
         </p>
         <ArticleMedia
-          caption="BCC Primatte Studio"
           src="AaKTHKspAkQ"
           type="youtube"
         />
@@ -766,7 +743,6 @@ const AeActions: React.FC = () => {
           результат.
         </p>
         <ArticleMedia
-          caption="Roto Brush"
           src="eoOIrdb_0ko"
           type="youtube"
         />
@@ -778,7 +754,6 @@ const AeActions: React.FC = () => {
           <mark className="plugin">Power Matte</mark>.
         </p>
         <ArticleMedia
-          caption="Power Matte in Silhouette"
           src="3pdkJ1BPEg0"
           type="youtube"
         />
@@ -806,7 +781,6 @@ const AeActions: React.FC = () => {
           глубины.
         </p>
         <ArticleMedia
-          caption="Depth Scanner Plugin Tutorial"
           src="OLV8Q93KKHQ"
           type="youtube"
         />
@@ -815,7 +789,6 @@ const AeActions: React.FC = () => {
           <mark className="plugin">Quick Depth</mark>. Он работает похожим образом.
         </p>
         <ArticleMedia
-          caption="Introduction Quick Depth 3"
           src="2BvqTIPNVxY"
           type="youtube"
         />
@@ -826,7 +799,6 @@ const AeActions: React.FC = () => {
           генерировать карту глубины и использовать её для создания различных эффектов.
         </p>
         <ArticleMedia
-          caption="Instant AI Depth Maps with Continuum"
           src="OVLxRFsnqM8"
           type="youtube"
         />
@@ -1012,7 +984,6 @@ const AeActions: React.FC = () => {
           частицами, рискуете получить неприятную «кашу».
         </p>
         <ArticleMedia
-          caption="Extract"
           src="v7pqZ9gtn8I"
           type="youtube"
         />
@@ -1029,7 +1000,6 @@ const AeActions: React.FC = () => {
           прозрачным. В качестве «костыля» можно просто продублировать слой с эффектом.
         </Addition>
         <ArticleMedia
-          caption="Red Giant Universe Unmult"
           src="GGjIu0CZ1M4"
           type="youtube"
         />
@@ -1051,7 +1021,6 @@ const AeActions: React.FC = () => {
           <mark className="select">«Track Matte»</mark>.
         </p>
         <ArticleMedia
-          caption="How to Use Luma Mattes"
           src="ltrGC0kDFic"
           type="youtube"
         />
@@ -1084,7 +1053,6 @@ const AeActions: React.FC = () => {
             <mark className="plugin">3D Camera Tracker</mark>. Полезен, если нужно
             прикрепить объект к плоскости в трёхмерном пространстве сцены.
             <ArticleMedia
-              caption="3D Camera Tracker"
               src="yaT3YwIK-BI"
               type="youtube"
             />
@@ -1096,7 +1064,6 @@ const AeActions: React.FC = () => {
               оператора».
             </p>
             <ArticleMedia
-              caption="Warp Stabilizer"
               src="i-WuS2r8750"
               type="youtube"
             />
@@ -1121,7 +1088,6 @@ const AeActions: React.FC = () => {
               уменьшите область и попробуйте повысить контрастность исходного видео.
             </Addition>
             <ArticleMedia
-              caption="Track Motion Tutorial"
               src="VGJOLjamPbQ"
               type="youtube"
             />
@@ -1130,7 +1096,6 @@ const AeActions: React.FC = () => {
             <mark className="select">«Stabilize Motion»</mark> — функция, которая смещает
             само видео, чтобы отслеживаемый объект оставался в центре кадра.
             <ArticleMedia
-              caption="Object Tracking"
               src="eyWclmjr94k"
               type="youtube"
             />
@@ -1146,7 +1111,6 @@ const AeActions: React.FC = () => {
           достаточно для большинства задач.
         </p>
         <ArticleMedia
-          caption="Mocha AE For Beginners"
           src="be_8uRcyiEs"
           type="youtube"
         />
@@ -1176,7 +1140,6 @@ const AeActions: React.FC = () => {
           <mark className="select">«Window» → «Create Nulls From Path.jsx»</mark>.
         </p>
         <ArticleMedia
-          caption="Animating with Create Nulls From Path"
           src="Unnvx0alhyw"
           type="youtube"
         />
@@ -1277,7 +1240,6 @@ const AeActions: React.FC = () => {
           с поддержкой анимации его толщины и ширины.
         </p>
         <ArticleMedia
-          caption="Variable Fonts in Adobe After Effects"
           src="wshxc13_s1w"
           type="youtube"
         />
@@ -1290,7 +1252,6 @@ const AeActions: React.FC = () => {
           толщины текста.
         </p>
         <ArticleMedia
-          caption="Smooth Typo Transition from Bold Text to Thin Text"
           src="yyDAFSC2qDo"
           type="youtube"
         />
@@ -1342,7 +1303,6 @@ const AeActions: React.FC = () => {
               .
             </Addition>
             <ArticleMedia
-              caption="Сравнение популярных плагинов для персонажной анимации"
               src="AcEIT03Mrzk"
               type="youtube"
             />
@@ -1391,7 +1351,6 @@ const AeActions: React.FC = () => {
           результат за счёт гибкой настройки, но не умеет ставить маркеры.
         </p>
         <ArticleMedia
-          caption="Как пользоваться Sound Keys в Adobe After Effects"
           src="uqKFsIHu-DA"
           type="youtube"
         />
@@ -1402,7 +1361,6 @@ const AeActions: React.FC = () => {
           ключевых кадров, что позволяет в дальнейшем легче адаптировать ключи под аудио.
         </p>
         <ArticleMedia
-          caption="Как создавать маркеры с помощью Beat Edit"
           src="JGVLRcjp7ss"
           type="youtube"
         />

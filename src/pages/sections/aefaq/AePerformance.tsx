@@ -321,27 +321,22 @@ const AePerformance: React.FC = () => {
           </a>
         </div>
         <ArticleMedia
-          caption="Лучшее «железо» для моушн-дизайна"
           src="x0YNsn4TtGM"
           type="youtube"
         />
         <ArticleMedia
-          caption="Производительность Adobe After Effects: речь не о мощных компьютерах"
           src="sjxG4clyMEs"
           type="youtube"
         />
         <ArticleMedia
-          caption="Как выбрать ноутбук или ПК для Adobe After Effects?"
           src="wdXf4ngU4fM"
           type="youtube"
         />
         <ArticleMedia
-          caption="Собираем самый быстрый компьютер (на момент 2019 года) для Adobe After Effects"
           src="8_xmXM_XMS4"
           type="youtube"
         />
         <ArticleMedia
-          caption="M4 Max / Pro против всех поколений — что взять в 2025?"
           src="bbcnEiu02uc"
           type="youtube"
         />
@@ -1015,7 +1010,6 @@ const AePerformance: React.FC = () => {
           агрессивное межкадровое сжатие может приводить к ошибкам и нестабильной работе.
         </p>
         <ArticleMedia
-          caption="Почему некоторые футажи так сложны в редактировании"
           src="cfz3jwdo1v0"
           type="youtube"
         />
@@ -1232,7 +1226,6 @@ const AePerformance: React.FC = () => {
           объединить в один, а текст менять в нужный момент с помощью маркеров.
         </p>
         <ArticleMedia
-          caption="Анимация текста маркерами в Adobe After Effects"
           src="3CHUvo6bWfM"
           type="youtube"
         />
@@ -1544,7 +1537,6 @@ const AePerformance: React.FC = () => {
                 <mark className="app">Диспетчера устройств</mark>.
               </p>
               <ArticleMedia
-                caption="Как откатить драйвер в Windows"
                 src="A9WYBglOKaQ"
                 type="youtube"
               />
@@ -1607,7 +1599,6 @@ const AePerformance: React.FC = () => {
                 . Саму процедуру очистки лучше всего выполнять в безопасном режиме.
               </p>
               <ArticleMedia
-                caption="Как использовать DDU для NVIDIA, AMD или Intel"
                 src="98DAgw1KcmI"
                 type="youtube"
               />
@@ -1631,7 +1622,6 @@ const AePerformance: React.FC = () => {
                 реестру или редактору локальной групповой политики<sup>1</sup>.
               </p>
               <ArticleMedia
-                caption="Как отключить обновления"
                 src="SgU4jB4ooQk"
                 type="youtube"
               />

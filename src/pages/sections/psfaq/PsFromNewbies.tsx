@@ -24,7 +24,6 @@ const PsFromNewbies: React.FC = () => {
           от <a href="https://www.youtube.com/@Photofoxchannel">PhotoFox</a>.
         </p>
         <ArticleMedia
-          caption="Курс «Фотошоп с нуля»"
           src="-IqjBmVaApg"
           type="youtube"
         />

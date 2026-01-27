@@ -41,7 +41,6 @@ const PsActions: React.FC = () => {
           <a href="https://www.topazlabs.com/pai-vs-gp">на официальном сайте</a>.
         </Addition>
         <ArticleMedia
-          caption="Topaz Gigapixel AI"
           src="VMaYdjWqRRg"
           type="youtube"
         />
@@ -66,7 +65,6 @@ const PsActions: React.FC = () => {
           совсем немного места на диске.
         </p>
         <ArticleMedia
-          caption="Benvista Photozoom"
           src="woDDQ0xnt84"
           type="youtube"
         />

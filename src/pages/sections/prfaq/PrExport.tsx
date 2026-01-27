@@ -36,7 +36,6 @@ const PrExport: React.FC = () => {
           которого можно распаковать несжатое видео с исходным качеством.
         </p>
         <ArticleMedia
-          caption="Почему снег и конфетти портят картинку"
           src="r6Rp-uo6HmI"
           type="youtube"
         />
@@ -51,7 +50,6 @@ const PrExport: React.FC = () => {
           комбинацией разных частот кадров в одном видео.
         </p>
         <ArticleMedia
-          caption="Как несовпадение частоты кадров портит ваше видео"
           src="p3Jb3UPAw-w"
           type="youtube"
         />
@@ -1093,7 +1091,6 @@ const PrExport: React.FC = () => {
                 человеку любым удобным для вас способом.
               </p>
               <ArticleMedia
-                caption="Как разбить архив на части и собрать его"
                 src="6KumGS0EyUQ"
                 type="youtube"
               />

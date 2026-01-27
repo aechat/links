@@ -461,7 +461,6 @@ const AeExportProblems: React.FC = () => {
           информации о цвете, что также может привести к появлению полос.
         </p>
         <ArticleMedia
-          caption="Почему тёмные видео превращаются в кашу?"
           src="h9j89L8eQQk"
           type="youtube"
         />

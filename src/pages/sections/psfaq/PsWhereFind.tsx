@@ -498,7 +498,6 @@ const PsWhereFind: React.FC = () => {
           <mark className="app">Stability Matrix</mark> вы можете посмотреть в видео ниже.
         </p>
         <ArticleMedia
-          caption="Самая быстрая установка Stable Diffusion через Stability Matrix"
           src="Fjl9dAoRqHM"
           type="youtube"
         />
