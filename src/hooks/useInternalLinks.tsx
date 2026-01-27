@@ -55,7 +55,7 @@ export const useInternalLinkHandler = () => {
 
     event.preventDefault();
 
-    const summary = targetDetails.querySelector(".details-summary");
+    const summary = targetDetails.querySelector("summary");
 
     if (!summary || !summary.id) {
       return;
