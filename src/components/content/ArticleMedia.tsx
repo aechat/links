@@ -1,7 +1,11 @@
 import React, {useCallback, useEffect, useState} from "react";
 import mediaMetadata from "virtual:media-metadata";
 
+import {ShareRounded} from "@mui/icons-material";
+import {message} from "antd";
 import {createPortal} from "react-dom";
+
+import {copyText} from "../../hooks/useCopyToClipboard";
 
 import styles from "./ArticleMedia.module.scss";
 import {useSpoiler} from "./spoilerContexts";
@@ -148,7 +152,7 @@ const ArticleMedia: React.FC<ArticleMediaProperties> = (properties) => {
   }, [isFullscreen, handleClose, initialScrollY]);
 
   const renderCaption = () => {
-    if (!caption) {
+    if (!caption || type === "youtube") {
       return;
     }
 
@@ -207,14 +211,41 @@ const ArticleMedia: React.FC<ArticleMediaProperties> = (properties) => {
         const videoId = getYouTubeId(src);
 
         return (
-          <iframe
-            allowFullScreen
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            className={styles["media-iframe"]}
-            loading="lazy"
-            src={`https://www.youtube.com/embed/${videoId}`}
-            title={caption}
-          />
+          <>
+            <iframe
+              allowFullScreen
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              className={styles["media-iframe"]}
+              loading="lazy"
+              src={`https://www.youtube.com/embed/${videoId}`}
+              title={caption}
+            />
+            <div className={styles["media-youtube-actions"]}>
+              <button
+                onClick={() =>
+                  window.open(`https://www.youtube.com/watch?v=${videoId}`, "_blank")
+                }
+              >
+                Открыть в новой вкладке
+              </button>
+              <button
+                aria-label="Копировать ссылку"
+                onClick={async () => {
+                  const success = await copyText(
+                    `https://www.youtube.com/watch?v=${videoId}`
+                  );
+
+                  if (success) {
+                    message.success("Ссылка на видео скопирована");
+                  } else {
+                    message.error("Не удалось скопировать ссылку");
+                  }
+                }}
+              >
+                <ShareRounded />
+              </button>
+            </div>
+          </>
         );
       }
 

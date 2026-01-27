@@ -17,6 +17,40 @@
     }
   }
 
+  &-youtube-actions {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+    width: 100%;
+
+    button {
+      transition: background-color 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+      opacity: 0.75;
+      outline: 1px solid var(--figure-youtube-border);
+      border-radius: $roundness * 0.75;
+      background-color: var(--figure-youtube-button);
+      padding: 6px;
+      text-align: center;
+      line-height: 1.25;
+      color: var(--figure-youtube-button-text);
+      font-size: 0.825rem;
+      font-weight: 600;
+
+      &:hover {
+        background-color: var(--figure-youtube-button-hover);
+      }
+
+      &:active {
+        background-color: var(--figure-youtube-button-active);
+      }
+
+      svg {
+        width: min(calc(17px + (19 - 17) * ((100vw - 320px) / (768 - 320))), 19px);
+        height: min(calc(17px + (19 - 17) * ((100vw - 320px) / (768 - 320))), 19px);
+      }
+    }
+  }
+
   &-content {
     display: block;
     outline: 1px solid var(--color-border-content);
