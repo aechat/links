@@ -17,6 +17,7 @@ $dark-theme-map: (
     accent: hsl(var(--accent-hue) calc(100% * var(--saturate-ratio)) 73%),
     border: (
       primary: hsl(0deg 0% 18%),
+      content: hsl(0deg 0% 15%),
       header: hsl(var(--accent-hue) calc(10% * var(--saturate-ratio)) 25% / 50%),
       modal: hsl(var(--accent-hue) calc(20% * var(--saturate-ratio)) 15% / 50%),
       table: hsl(0deg calc(0% * var(--saturate-ratio)) 16%),

@@ -119,15 +119,17 @@
         }
       }
 
-      .figure-mac-light,
-      .figure-mac-dark,
-      .figure-windows-light,
-      .figure-windows-dark {
-        max-width: 100%;
-      }
+      .media {
+        margin-block: 15px;
+        margin-inline: 0;
 
-      .figure-browser-youtube {
-        width: 100%;
+        &:first-child {
+          margin-block-start: 0;
+        }
+
+        &:last-child {
+          margin-block-end: 0;
+        }
       }
 
       > .addition-info,

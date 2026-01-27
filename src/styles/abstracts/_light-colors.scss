@@ -17,6 +17,7 @@ $light-theme-map: (
     accent: hsl(var(--accent-hue) calc(65% * var(--saturate-ratio)) 45%),
     border: (
       primary: hsl(0deg 0% 85%),
+      content: hsl(0deg 0% 90%),
       header: hsl(var(--accent-hue) calc(35% * var(--saturate-ratio)) 80% / 50%),
       modal: hsl(var(--accent-hue) calc(50% * var(--saturate-ratio)) 90% / 50%),
       table: hsl(0deg calc(0% * var(--saturate-ratio)) 90%),

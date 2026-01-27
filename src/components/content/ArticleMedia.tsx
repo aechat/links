@@ -193,7 +193,7 @@ const ArticleMedia: React.FC<ArticleMediaProperties> = (properties) => {
             controls
             playsInline
             autoPlay={properties.autoPlay}
-            className={styles["media-content"]}
+            className={`${styles["media-content"]} ${styles["media-content--video"]}`}
             height={metadata?.height}
             loop={properties.loop}
             src={resolvedSource}
@@ -224,12 +224,12 @@ const ArticleMedia: React.FC<ArticleMediaProperties> = (properties) => {
     }
   };
 
-  const containerClass = type === "youtube" ? styles["media--youtube"] : undefined;
+  const figureClass = type === "youtube" ? styles["media-figure--youtube"] : undefined;
 
   return (
     <>
-      <div className={styles["media-container"]}>
-        <figure className={`${styles["media-wrapper"]} ${containerClass}`}>
+      <div className={`${styles.media} media`}>
+        <figure className={`${styles["media-figure"]} ${figureClass}`}>
           {renderContent()}
           {renderCaption()}
         </figure>
@@ -242,7 +242,7 @@ const ArticleMedia: React.FC<ArticleMediaProperties> = (properties) => {
             }`}
             onClick={handleClickOutside}
           >
-            <div className={`${styles["media-fullscreen-content"]} ${containerClass}`}>
+            <div className={`${styles["media-fullscreen-content"]} ${figureClass}`}>
               {renderContent()}
               {renderCaption()}
             </div>
