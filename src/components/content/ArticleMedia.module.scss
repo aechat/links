@@ -60,6 +60,7 @@
     object-fit: contain;
 
     &--image {
+      width: fit-content;
       max-height: 60vh;
     }
 
