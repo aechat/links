@@ -5185,29 +5185,6 @@ const AeFromNewbies: React.FC = () => {
         </Addition>
       </DetailsSummary>
       <DetailsSummary
-        tag="прозрачность, чёрный фон, unmult, extract, blending modes"
-        title="Почему у слоя не исчезает фон при использовании режимов наложения?"
-      >
-        <p>
-          Убедитесь, что слой, к которому вы применяете режим наложения, расположен выше
-          тех слоёв, с которыми он должен взаимодействовать. Режимы наложения у слоя не
-          будут работать, если под ним в иерархии таймлайна ничего нет.
-        </p>
-        <p>
-          Если вы хотите просто убрать чёрный фон у слоя, воспользуйтесь стандартным
-          эффектом <mark className="plugin">Extract</mark> или{" "}
-          <mark className="plugin">Unmult</mark>, который доступен в последней публичной
-          бете <mark className="app">Adobe After Effects</mark> или сторонним{" "}
-          <mark className="plugin">uni.unmult</mark> из пакета{" "}
-          <mark className="plugin">Red Giant Universe</mark>.
-        </p>
-        {/* FIXME: исправить "публичную бету" на стабильную версию, если этот эффект доедет до релиза */}
-        <ArticleMedia
-          src="GGjIu0CZ1M4"
-          type="youtube"
-        />
-      </DetailsSummary>
-      <DetailsSummary
         anchor="saber-transparency"
         tag="прозрачность, saber, альфа-канал, composite settings, transparent"
         title="Как сделать прозрачный фон у слоя с эффектом Saber?"
