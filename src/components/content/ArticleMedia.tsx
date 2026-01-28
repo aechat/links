@@ -367,6 +367,12 @@ const ArticleMedia: React.FC<ArticleMediaProperties> = (properties) => {
 
   const [isViewerOpen, setIsViewerOpen] = useState(false);
 
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
   useEffect(() => {
     if (isSpoilerOpen) {
       setHasBeenOpened(true);
@@ -486,11 +492,13 @@ const ArticleMedia: React.FC<ArticleMediaProperties> = (properties) => {
           {renderCaption()}
         </figure>
       </div>
-      <ImageViewer
-        isOpen={isViewerOpen}
-        src={getMediaSource(src)}
-        onClose={() => setIsViewerOpen(false)}
-      />
+      {isClient && (
+        <ImageViewer
+          isOpen={isViewerOpen}
+          src={getMediaSource(src)}
+          onClose={() => setIsViewerOpen(false)}
+        />
+      )}
     </>
   );
 };
