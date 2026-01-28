@@ -36,6 +36,8 @@ export const useViewCounter = (anchor: string | undefined, isOpen: boolean) => {
           if (viewCount === undefined) {
             setViewCount(data.value);
           }
+        } else if (response.status === 404 && viewCount === undefined) {
+          setViewCount(0);
         }
       } catch (error) {
         console.error(
