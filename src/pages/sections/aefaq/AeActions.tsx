@@ -971,6 +971,7 @@ const AeActions: React.FC = () => {
         </ul>
       </DetailsSummary>
       <DetailsSummary
+        anchor="remove-black-white-background"
         tag="extract, удаление цвета, удаление фона, кеинг, unmult, черный фон, белый фон"
         title="Как и чем можно вырезать белый или чёрный цвет со слоя?"
       >
@@ -1228,6 +1229,7 @@ const AeActions: React.FC = () => {
         />
       </DetailsSummary>
       <DetailsSummary
+        anchor="variable-font-weight-animation"
         tag="морфинг, анимация шрифта, толщина текста, variable fonts"
         title="Как сделать анимацию толщины шрифта?"
       >
@@ -1257,6 +1259,7 @@ const AeActions: React.FC = () => {
         />
       </DetailsSummary>
       <DetailsSummary
+        anchor="character-animation-tools"
         tag="персонажная анимация, duik, puppet tool, rubberhose, limber, character tool, риггинг, инструменты для анимации"
         title="Какими средствами обычно делают анимацию персонажей?"
       >
@@ -1422,6 +1425,7 @@ const AeActions: React.FC = () => {
         />
       </DetailsSummary>
       <DetailsSummary
+        anchor="adjustment-layer-masking"
         tag="корректирующий слой, маскирование эффектов, маски для эффектов, выборочные эффекты, adjustment layer"
         title="Как применить корректирующий слой только к определённым слоям?"
       >

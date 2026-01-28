@@ -8,7 +8,10 @@ import DetailsSummary from "../../../components/content/DetailsSummary";
 const AeExprStart: React.FC = () => {
   return (
     <div className="article-content">
-      <DetailsSummary title="Для чего нужны выражения и в каких случаях их используют?">
+      <DetailsSummary
+        anchor="about-expressions"
+        title="Для чего нужны выражения и в каких случаях их используют?"
+      >
         <p>
           <mark className="word">Выражения</mark>,{" "}
           <mark className="word">экспрешены</mark> или{" "}
@@ -62,7 +65,10 @@ const AeExprStart: React.FC = () => {
         <p>Чтобы временно отключить выражение, нажмите на...</p>
         {/* TODO: приложить скриншот */}
       </DetailsSummary>
-      <DetailsSummary title="С чего бы начать обучение написанию выражений?">
+      <DetailsSummary
+        anchor="get-started"
+        title="С чего бы начать обучение написанию выражений?"
+      >
         <p>
           <mark className="word">Выражения</mark> требуют от пользователя{" "}
           <mark className="app">Adobe After Effects</mark> уверенного владения программой
@@ -76,11 +82,17 @@ const AeExprStart: React.FC = () => {
           <a href="https://vk.com/ae_exp">AEExpressions в VK</a>
         </div>
       </DetailsSummary>
-      <DetailsSummary title="Можно ли использовать различные LLM-модели для генерации выражений, например с помощью ChatGPT?">
+      <DetailsSummary
+        anchor="llm-usage"
+        title="Можно ли использовать различные LLM-модели для генерации выражений, например с помощью ChatGPT?"
+      >
         <p>И да, и нет.</p>
         {/* FIXME: */}
       </DetailsSummary>
-      <DetailsSummary title="Где можно редактировать код вне Adobe After Effects?">
+      <DetailsSummary
+        anchor="external-code-editors"
+        title="Где можно редактировать код вне Adobe After Effects?"
+      >
         <p>
           Иногда бывают случаи, когда вам не хочется использовать{" "}
           <mark className="app">Adobe After Effects</mark> из-за неудобного редактора

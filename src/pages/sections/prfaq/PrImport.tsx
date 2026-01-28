@@ -9,7 +9,10 @@ import DetailsSummary from "../../../components/content/DetailsSummary";
 const PrImport: React.FC = () => {
   return (
     <div className="article-content">
-      <DetailsSummary title="Какие действия нужно совершить с чужими исходниками, прежде чем начать работу?">
+      <DetailsSummary
+        anchor="import-workflow"
+        title="Какие действия нужно совершить с чужими исходниками, прежде чем начать работу?"
+      >
         <p>
           Прежде чем начать создавать секвенцию и импортировать файлы в{" "}
           <mark className="app">Adobe Premiere</mark>, вам стоит расположить все ваши
@@ -174,8 +177,9 @@ const PrImport: React.FC = () => {
         </Addition>
       </DetailsSummary>
       <DetailsSummary
-        tag="зелёный экран, зелень, дергается изображение, полосы, глитчи, артефакты, глюки, искажения"
-        title="Почему у меня появляются различные артефакты при использовании исходников в кодеке H.264?"
+        anchor="fix-artifacts"
+        tag="зелёный экран, артефакты, глитчи, полосы, youtube, аппаратное декодирование"
+        title="Как избавиться от артефактов при работе с исходниками?"
       >
         <p>
           Скорее всего вы импортируете исходники, которые были загружены из интернета.
@@ -213,6 +217,7 @@ const PrImport: React.FC = () => {
         </p>
       </DetailsSummary>
       <DetailsSummary
+        anchor="fix-overexposed-video"
         tag="пересвет, айфон, яркость, цветовое пространство, рек709"
         title="Импортировал видео, а оно слишком засвеченное. Как исправить?"
       >
@@ -342,7 +347,10 @@ const PrImport: React.FC = () => {
           действия с остальными исходниками.
         </p>
       </DetailsSummary>
-      <DetailsSummary title="Media Offline или медиаданные в автономном режиме">
+      <DetailsSummary
+        anchor="fix-media-offline"
+        title="Что делать с «Media Offline» или «Медиаданные в автономном режиме»"
+      >
         <p>
           Эта ошибка часто возникает, если вы удалили исходники из диска, перенесли их или
           открыли чужой проект, не распаковав его из архива полностью. Оно может
@@ -375,7 +383,11 @@ const PrImport: React.FC = () => {
           type="image"
         />
       </DetailsSummary>
-      <DetailsSummary title="Прислали исходники в формате MKV, FLV или что-то не поддерживаемое программой. Как мне их импортировать?">
+      <DetailsSummary
+        anchor="import-unsupported-formats"
+        tag="autokroma influx"
+        title="Как импортировать MKV, FLV, WEBM или другие неподдерживаемые форматы без конвертации?"
+      >
         <p>
           <mark className="app">Adobe Premiere</mark> может не поддерживать некоторые
           кодеки, например <mark className="video">VP9</mark>,{" "}
@@ -412,8 +424,9 @@ const PrImport: React.FC = () => {
         </p>
       </DetailsSummary>
       <DetailsSummary
-        tag="исходники видео фото с айфона"
-        title="Прислали исходники в формате HEIC, HEIF или HEVC, но выбивает ошибку. Как их мне открыть и импортировать в проект?"
+        anchor="import-hevc"
+        tag="iphone"
+        title="Как открыть и импортировать HEIC, HEIF или HEVC?"
       >
         <p>
           Некоторые пользователи, использующие <mark className="app">Adobe Premiere</mark>{" "}
@@ -482,7 +495,10 @@ const PrImport: React.FC = () => {
           <mark className="app">FastStone Image Viewer</mark>.
         </p>
       </DetailsSummary>
-      <DetailsSummary title="Как импортировать композиции из Adobe After Effects в секвенцию?">
+      <DetailsSummary
+        anchor="import-ae-composition"
+        title="Как импортировать композиции из Adobe After Effects в секвенцию?"
+      >
         <Addition type="warning">
           Прежде чем начать импорт композиций из{" "}
           <mark className="app">Adobe After Effects</mark> - убедитесь что обе программы
@@ -540,7 +556,10 @@ const PrImport: React.FC = () => {
           </ul>
         </Addition>
       </DetailsSummary>
-      <DetailsSummary title="Для чего нужны файлы XML и как их импортировать?">
+      <DetailsSummary
+        anchor="import-xml"
+        title="Для чего нужны файлы XML и как их импортировать?"
+      >
         {/* FIXME: */}
       </DetailsSummary>
       <DetailsSummary title="Откуда-то появились на предпросмотре чёрные полосы, что это может быть?">

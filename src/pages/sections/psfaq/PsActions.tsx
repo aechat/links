@@ -10,6 +10,7 @@ const PsActions: React.FC = () => {
   return (
     <div className="article-content">
       <DetailsSummary
+        anchor="upscale-photo"
         tag="апскейл, топаз, качество, 4к, резкость, восстановить четкость"
         title="Какими средствами я могу улучшить качество изображений?"
       >
@@ -77,17 +78,34 @@ const PsActions: React.FC = () => {
           <a href="https://t.me/+Qd9xu7A4TeIwNzY6">склад стройматериалов</a>.
         </Addition>
       </DetailsSummary>
-      <DetailsSummary title="Как и чем можно отретушировать фото?">
+      <DetailsSummary
+        anchor="retouch-photo"
+        title="Как и чем можно отретушировать фото?"
+      >
         {/* FIXME: написать!! */}
       </DetailsSummary>
-      <DetailsSummary title="Как и чем можно сделать цветокоррекцию?">
+      <DetailsSummary
+        anchor="color-correction"
+        title="Как и чем можно сделать цветокоррекцию?"
+      >
         {/* FIXME: написать!! */}
       </DetailsSummary>
-      <DetailsSummary title="Как и чем можно заменить небо?">
+      <DetailsSummary
+        anchor="replace-sky"
+        title="Как и чем можно заменить небо?"
+      >
         {/* FIXME: */}
       </DetailsSummary>
-      <DetailsSummary title="Как красиво размыть фон?">{/* FIXME: */}</DetailsSummary>
-      <DetailsSummary title="Как и чем можно сделать покадровые анимации?">
+      <DetailsSummary
+        anchor="blur-background"
+        title="Как красиво размыть фон?"
+      >
+        {/* FIXME: */}
+      </DetailsSummary>
+      <DetailsSummary
+        anchor="frame-animation"
+        title="Как и чем можно сделать покадровые анимации?"
+      >
         {/* FIXME: написать!! */}
       </DetailsSummary>
     </div>

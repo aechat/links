@@ -10,6 +10,7 @@ const PrWhereFind: React.FC = () => {
   return (
     <div className="article-content">
       <DetailsSummary
+        anchor="where-to-download"
         tag="adobe, after effects, photoshop, premiere pro, скачать, установить, бесплатно, скрипты, расширения, плагины, templates, plugins, scripts, extensions"
         title="Где найти и скачать шаблоны, плагины и различные программы?"
       >
@@ -209,6 +210,7 @@ const PrWhereFind: React.FC = () => {
         </Addition>
       </DetailsSummary>
       <DetailsSummary
+        anchor="video-resources"
         tag="футажи, стоки, creative commons, cc0, stock footage, free video, video assets"
         title="Где найти и скачать стоковые видео для своих проектов?"
       >
@@ -325,6 +327,7 @@ const PrWhereFind: React.FC = () => {
         </Addition>
       </DetailsSummary>
       <DetailsSummary
+        anchor="graphics-resources"
         tag="фото, изображения, текстуры, шрифты, кисти, паттерны, иконки, psd, graphic resources, free graphics, stock photos"
         title="Где найти и скачать графику для своих проектов?"
       >
@@ -480,6 +483,7 @@ const PrWhereFind: React.FC = () => {
         </Addition>
       </DetailsSummary>
       <DetailsSummary
+        anchor="sfx-resources"
         tag="sfx, звук, музыка, саунд-дизайн, аудио, sound effects, royalty free music, audio library"
         title="Где найти и скачать звуковые эффекты для своих композиций?"
       >
@@ -657,6 +661,7 @@ const PrWhereFind: React.FC = () => {
         </Addition>
       </DetailsSummary>
       <DetailsSummary
+        anchor="likefont"
         tag="идентификация шрифта, find font, likefont, определить шрифт, font identification"
         title="Как распознать шрифт по картинке?"
       >
@@ -757,6 +762,7 @@ const PrWhereFind: React.FC = () => {
         </ul>
       </DetailsSummary>
       <DetailsSummary
+        anchor="effects-list"
         tag="русский язык, английский перевод, локализация, effects translation, language switch, localization"
         title="Где найти таблицу перевода стандартных эффектов?"
       >

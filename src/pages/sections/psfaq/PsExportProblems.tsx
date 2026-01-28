@@ -5,8 +5,10 @@ import DetailsSummary from "../../../components/content/DetailsSummary";
 const PsExportProblems: React.FC = () => {
   return (
     <div className="article-content">
-      <DetailsSummary title="Пока этот раздел нечем забить, поэтому пусть тут будет плейсхолдер">
-        <p>Тут ничего нет, можете не читать.</p>
+      <DetailsSummary
+        anchor="colors-change-on-save"
+        title="Почему при сохранении в JPG или PNG меняются цвета?"
+      >
       </DetailsSummary>
     </div>
   );

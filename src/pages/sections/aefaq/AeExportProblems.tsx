@@ -10,6 +10,7 @@ const AeExportProblems: React.FC = () => {
   return (
     <div className="article-content">
       <DetailsSummary
+        anchor="fix-rendering-error-while-writing-to-file"
         tag="ошибка экспорта, файл занят, видео используется другим процессом"
         title="«Rendering error while writing to file (...). Unable to delete existing file» или «An unexpected error occurred while exporting a composition. Error code: 9988»"
       >
@@ -25,6 +26,7 @@ const AeExportProblems: React.FC = () => {
         </p>
       </DetailsSummary>
       <DetailsSummary
+        anchor="fix-export-1kb-file"
         tag="не экспортируется, битый файл, кириллица в пути"
         title="Почему при экспорте в MP4 с помощью стандартного H.264 сохраняется файл размером 1 КБ?"
       >
@@ -54,6 +56,7 @@ const AeExportProblems: React.FC = () => {
         </p>
       </DetailsSummary>
       <DetailsSummary
+        anchor="fix-odd-resolution-error"
         tag="settings mismatch, output file will be resized from to meet format constraints, odd resolution, нечетное разрешение, ограничения h264"
         title="Почему при экспорте размер композиции растягивается до чётного значения?"
       >
@@ -106,6 +109,7 @@ const AeExportProblems: React.FC = () => {
         </p>
       </DetailsSummary>
       <DetailsSummary
+        anchor="reduce-video-size"
         tag="конвертация, оптимизация размера, shutter encoder, сжатие видео, квантование, cqr, vbr, cbr, cq, large file size"
         title="Как уменьшить размер видео после экспорта, не потеряв в качестве?"
       >
@@ -376,14 +380,17 @@ const AeExportProblems: React.FC = () => {
         </ul>
       </DetailsSummary>
       <DetailsSummary
+        anchor="why-quality-loss"
         tag="битрейт, качество, артефакты, low quality"
         title="Из-за чего может ухудшаться качество композиции после экспорта?"
       ></DetailsSummary>
       <DetailsSummary
+        anchor="fix-export-artifacts"
         tag="ame, кривые исходники"
         title="Почему после экспорта иногда появляются артефакты и дёрганные кадры?"
       ></DetailsSummary>
       <DetailsSummary
+        anchor="fix-aspect-ratio-distortion"
         tag="соотношение пикселей, pixel aspect ratio"
         title="Почему моя композиция «плющится» в предпросмотре и после экспорта?"
       >
@@ -424,6 +431,7 @@ const AeExportProblems: React.FC = () => {
         />
       </DetailsSummary>
       <DetailsSummary
+        anchor="fix-color-banding"
         tag="color banding, полосы, шум, глубина цвета, bit depth"
         title="Как избавиться от ужасного ступенчатого градиента?"
       >
@@ -531,10 +539,12 @@ const AeExportProblems: React.FC = () => {
         </ul>
       </DetailsSummary>
       <DetailsSummary
+        anchor="fix-export-color-shift"
         tag="iphone, hlg, rec.709, color shift, color space, color management"
         title="Почему после экспорта у меня изменились цвета и оттенки?"
       ></DetailsSummary>
       <DetailsSummary
+        anchor="fix-no-audio"
         tag="пропало аудио, no audio"
         title="Почему в экспортированном видео нет звука?"
       >
@@ -569,14 +579,17 @@ const AeExportProblems: React.FC = () => {
         </Addition>
       </DetailsSummary>
       <DetailsSummary
+        anchor="fix-playback-error"
         tag="0x80070002, mp4, ошибка воспроизведения"
         title="Почему я не могу открыть видео‚ которое я экспортировал?"
       ></DetailsSummary>
       <DetailsSummary
+        anchor="fix-render-freeze"
         tag="зависает, ame"
         title="Из-за чего может зависать рендер при экспорте композиции через Adobe Media Encoder?"
       ></DetailsSummary>
       <DetailsSummary
+        anchor="fix-position-shift"
         tag="баг версии, ame"
         title="Почему после экспорта с помощью Adobe Media Encoder видео смещается в сторону?"
       >

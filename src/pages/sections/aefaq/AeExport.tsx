@@ -2173,6 +2173,7 @@ const AeExport: React.FC = () => {
         </ul>
       </DetailsSummary>
       <DetailsSummary
+        anchor="export-dxv"
         tag="resolume, дхв"
         title="Как экспортировать композицию в DXV?"
       ></DetailsSummary>
@@ -2980,6 +2981,7 @@ const AeExport: React.FC = () => {
         </ul>
       </DetailsSummary>
       <DetailsSummary
+        anchor="export-only-work-area"
         tag="рабочая область, настройки рендера, длина композиции, таймлайн"
         title="Как экспортировать всю длину композиции или только её часть?"
       >
@@ -3042,6 +3044,7 @@ const AeExport: React.FC = () => {
         </ul>
       </DetailsSummary>
       <DetailsSummary
+        anchor="export-with-layer-controls"
         tag="границы слоёв, пути движения, направляющие, демонстрация анимации"
         title="Как экспортировать видео с отображением границ слоёв и путей движения?"
       >
@@ -3199,10 +3202,12 @@ const AeExport: React.FC = () => {
         </Addition>
       </DetailsSummary>
       <DetailsSummary
+        anchor="export-with-command-line"
         tag="командная строка, aerender, автоматизация, пакетный рендер, скриптинг, экспорт, очередь рендера"
         title="Как экспортировать композицию с помощью командной строки?"
       ></DetailsSummary>
       <DetailsSummary
+        anchor="lottie-supported-effects"
         tag="лотти"
         title="Какие эффекты можно использовать при использовании Lottie?"
       >

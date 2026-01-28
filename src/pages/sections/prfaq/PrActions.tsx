@@ -416,6 +416,7 @@ const PrActions: React.FC = () => {
         />
       </DetailsSummary>
       <DetailsSummary
+        anchor="remove-green-screen"
         tag="кеинг, клинап, убрать фон, keying, зеленый фон, бекграунд зелёнка, синий бэкграунд, удаление фона, хромакей"
         title="Какими средствами обычно удаляют зелёный или синий фон?"
       >
@@ -467,6 +468,7 @@ const PrActions: React.FC = () => {
         />
       </DetailsSummary>
       <DetailsSummary
+        anchor="audio-to-markers"
         tag="биты, create audio from keyframes, ключи из аудио"
         title="Как быстро расставить маркеры под бит, желательно автоматически?"
       >
@@ -494,8 +496,9 @@ const PrActions: React.FC = () => {
         </Addition>
       </DetailsSummary>
       <DetailsSummary
+        anchor="speech-to-text"
         tag="транскрибация, subtitle, речь в текст, speech to text, сгенерировать субтитры, автоматические субтитры, генерация субтитров"
-        title="Как сделать автоматические субтитры для видео?"
+        title="Как сделать автоматические субтитры из речи?"
       >
         <p>
           В <mark className="app">Adobe Premiere</mark> с версии <mark>2022</mark> и новее
@@ -705,7 +708,10 @@ const PrActions: React.FC = () => {
           <mark className="plugin">Captioneer</mark>.
         </p>
       </DetailsSummary>
-      <DetailsSummary title="Как и чем разделить голос человека от музыки?">
+      <DetailsSummary
+        anchor="separate-voice-music"
+        title="Как и чем разделить голос человека от музыки?"
+      >
         <p>
           Современные технологии позволяют разделить голос и{" "}
           <mark className="word">инструментал</mark> на разные дорожки с помощью ИИ.

@@ -14,22 +14,52 @@ import {
 const AeExprBase: React.FC = () => {
   return (
     <div className="article-content">
-      <DetailsSummary title="Что такое переменные и функции?">
+      <DetailsSummary
+        anchor="variables-and-functions"
+        title="Что такое переменные и функции?"
+      >
         {/* FIXME: */}
       </DetailsSummary>
-      <DetailsSummary title="Как обратиться к нужному атрибуту того или иного слоя?">
+      <DetailsSummary
+        anchor="access-layer-property"
+        title="Как обратиться к нужному атрибуту того или иного слоя?"
+      >
         {/* FIXME: */}
       </DetailsSummary>
-      <DetailsSummary title="Для чего нужны контроллеры, какие они бывают и как ими пользоваться?">
+      <DetailsSummary
+        anchor="expression-controls"
+        title="Для чего нужны контроллеры, какие они бывают и как ими пользоваться?"
+      >
         {/* FIXME: */}
       </DetailsSummary>
-      <DetailsSummary title="Для чего нужны условия и циклы?">
+      <DetailsSummary
+        anchor="conditions-and-loops"
+        title="Для чего нужны условия и циклы?"
+      >
         {/* FIXME: */}
       </DetailsSummary>
-      <DetailsSummary title="Для чего нужен index?">{/* FIXME: */}</DetailsSummary>
-      <DetailsSummary title="Для чего нужен value?">{/* FIXME: */}</DetailsSummary>
-      <DetailsSummary title="Для чего нужен time?">{/* FIXME: */}</DetailsSummary>
-      <DetailsSummary title="Для чего нужны комментарии в коде выражений? Код внутри комментариев может выполняться?">
+      <DetailsSummary
+        anchor="index-attribute"
+        title="Для чего нужен index?"
+      >
+        {/* FIXME: */}
+      </DetailsSummary>
+      <DetailsSummary
+        anchor="value-attribute"
+        title="Для чего нужен value?"
+      >
+        {/* FIXME: */}
+      </DetailsSummary>
+      <DetailsSummary
+        anchor="time-attribute"
+        title="Для чего нужен time?"
+      >
+        {/* FIXME: */}
+      </DetailsSummary>
+      <DetailsSummary
+        anchor="comments-in-code"
+        title="Для чего нужны комментарии в коде выражений? Код внутри комментариев может выполняться?"
+      >
         {/* FIXME: */}
         <p>
           <mark className="word">Комментарии</mark> - необязательный участок кода, в
@@ -40,6 +70,7 @@ const AeExprBase: React.FC = () => {
         <CodeSnippet>{commentExample}</CodeSnippet>
       </DetailsSummary>
       <DetailsSummary
+        anchor="apply-to-single-axis"
         tag="wiggle по X Y Z, задать значение для одного элемента массива"
         title="Как применить действие выражения только для одной оси?"
       >
@@ -72,7 +103,10 @@ const AeExprBase: React.FC = () => {
         </p>
         {/* FIXME: написать!! */}
       </DetailsSummary>
-      <DetailsSummary title="Как я могу отформатировать текст в строке?">
+      <DetailsSummary
+        anchor="string-formatting"
+        title="Как я могу отформатировать текст в строке?"
+      >
         <p>
           С помощью форматирования строки вы можете преобразовать текст как обычную
           строку, но с подставленными значениями переменных. Это можно сделать двумя
@@ -84,7 +118,10 @@ const AeExprBase: React.FC = () => {
         </ul>
         <CodeSnippet>{formatExample}</CodeSnippet>
       </DetailsSummary>
-      <DetailsSummary title="Как сделать Checkbox Control, который выключает или включает действие выражения?">
+      <DetailsSummary
+        anchor="checkbox-control"
+        title="Как сделать Checkbox Control, который выключает или включает действие выражения?"
+      >
         {/* FIXME: */}
       </DetailsSummary>
     </div>

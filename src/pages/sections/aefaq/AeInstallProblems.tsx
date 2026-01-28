@@ -1304,6 +1304,7 @@ const AeInstallProblems: React.FC = () => {
         />
       </DetailsSummary>
       <DetailsSummary
+        anchor="non-stock-installation-path-problems"
         tag="символьные ссылки, symlink, нет места на диске, нестандартный путь установки, проблемы с плагинами, installation path, some products require host applications which are not installed on this computer"
         title="Почему из каждого угла советуют не менять путь для установки программы?"
       >
@@ -1546,6 +1547,7 @@ const AeInstallProblems: React.FC = () => {
         />
       </DetailsSummary>
       <DetailsSummary
+        anchor="install-adobe-errors-codes"
         tag="в настоящее время невозможно установить, ошибка установки, installation error, error code, avx2, системные требования"
         title="Код ошибки 1, 501, 176, 195, 21 или другие при установке Adobe After Effects"
       >
@@ -1719,6 +1721,7 @@ const AeInstallProblems: React.FC = () => {
         </Addition>
       </DetailsSummary>
       <DetailsSummary
+        anchor="kpojluk-corrupted-install-files"
         tag="репак от кролика, повреждённые файлы, ошибка установки, installation error, многотомный архив, проблемы при скачивании из telegram"
         title="«Некоторые установочные файлы были повреждены. Загрузите свежую копию и повторите установку»"
       >
@@ -1820,6 +1823,7 @@ const AeInstallProblems: React.FC = () => {
         </ul>
       </DetailsSummary>
       <DetailsSummary
+        anchor="kpojluk-the-hosts-file-does-not-exist-or-is-not-accessible"
         tag="репак от кролика, файл hosts, нет доступа"
         title="«rsload.net заблокирован в hosts» или «The hosts file does not exist or is not accessible»"
       >
@@ -1837,6 +1841,7 @@ const AeInstallProblems: React.FC = () => {
         </p>
       </DetailsSummary>
       <DetailsSummary
+        anchor="kpojiuk-repack-adware"
         tag="репак от кролика, реклама, adware, нежелательные изменения"
         title="Забыл убрать галочку с рекламой при установке репака от KpoJIuK. Как избавиться от последствий?"
       >
@@ -1857,6 +1862,7 @@ const AeInstallProblems: React.FC = () => {
         </p>
       </DetailsSummary>
       <DetailsSummary
+        anchor="fix-creative-cloud-missing"
         tag="ошибка запуска, хвосты от неудачного удаления, переустановка, adobe cc"
         title="«Приложение Adobe Creative Cloud, необходимое для устранения проблемы, отсутствует или повреждено...» при запуске программы"
       >
@@ -2261,6 +2267,7 @@ const AeInstallProblems: React.FC = () => {
         />
       </DetailsSummary>
       <DetailsSummary
+        anchor="plugin-installer-types"
         tag="непонятные обозначения, adobe, ae, pr, ps, lr, ofx, ce, davinci, vegas, repack, standalone, офх, адоб, репак, стандалон"
         title="Как понять, для какой программы предназначен установщик плагина?"
       >
@@ -2377,6 +2384,7 @@ const AeInstallProblems: React.FC = () => {
         </p>
       </DetailsSummary>
       <DetailsSummary
+        anchor="fix-plugins-have-failed-to-load"
         tag="ошибка 25::3, try reinstalling or contacting the plug-in developer, предупреждение, сбой загрузки, плагин не загружается, visual c++, сбой загрузки следующих подключаемых модулей, переустановите эти модули, ошибка, невозможно применить эффект, не удалось выполнить его инициализацию, попытайтесь переустановить подключаемый модуль или обратитесь к его разработчику, plug-in generated an unexpected exception"
         title="«Warning: The following plugins have failed to load. Please reinstall these plugins» при запуске программы или «Error: This effect cannot be applied because it cannot be initialized» при применении какого-нибудь эффекта"
       >
@@ -2448,6 +2456,7 @@ const AeInstallProblems: React.FC = () => {
         />
       </DetailsSummary>
       <DetailsSummary
+        anchor="fix-not-find-entry-point"
         tag="ошибка 48::72, запуск новых версий программ на старых версиях windows 7 и 8.1"
         title="Что делать с ошибкой «Точка входа в процедуру не найдена в библиотеке Kernel32.dll» или «Couldn't not find entry point main entry point for .aex»?"
       >
@@ -2519,6 +2528,7 @@ const AeInstallProblems: React.FC = () => {
         />
       </DetailsSummary>
       <DetailsSummary
+        anchor="fix-duplicate-plugins-warning"
         tag="дубликаты плагинов, конфликт эффектов, на диске существует копия подключаемого модуля эффекта, во избежание конфликтов закройте after effects после чего удалите или переместите более раннюю или ненужную версию"
         title="«Warning: there are duplicated effect plug-ins installed on your drive. To avoid problems, quit After Effects and move or delete the older or unneeded version»"
       >
@@ -2648,6 +2658,7 @@ const AeInstallProblems: React.FC = () => {
         />
       </DetailsSummary>
       <DetailsSummary
+        anchor="fix-red-giant-installer-moved"
         tag="trapcode, mbl, magic bullet, vfx suite, universe, юниверс, трапкод, партикуляр, мбл, red giant, packages directory, ошибка установки, распаковать архив"
         title="«This installer application has been moved. It must be run from its original folder containing a packages directory. The installer will now exit.» при установке любого пакета от Red Giant"
       >
@@ -2693,6 +2704,7 @@ const AeInstallProblems: React.FC = () => {
         </p>
       </DetailsSummary>
       <DetailsSummary
+        anchor="fix-red-giant-unlocker-error"
         tag="red giant, team v.r., активатор, ошибка 5, отказано в доступе, access denied, deletefile, red giant service, select action - an error occurred while trying to replace the existing file: deletefile failed; code 5. access denied"
         title="«Виберiть дiю — виникла помилка при спробi замiни iснуючого файлу: DeleteFile збiй; код 5. Отказано в доступi» при применении активатора от Team V.R. для пакетов Red Giant"
       >
@@ -2761,7 +2773,7 @@ const AeInstallProblems: React.FC = () => {
         />
       </DetailsSummary>
       <DetailsSummary
-        anchor="-193"
+        anchor="fix-zxp-installer-193"
         tag="zxp, zxp installer, ошибка -193, error -193, creative cloud, extension manager, расширения, aescripts"
         title="«Error: Extension Manager init failed, status = -193! A required resource is missing. Please relaunch the Creative Cloud app and try again» при использовании ZXP Installer"
       >
@@ -3023,6 +3035,7 @@ const AeInstallProblems: React.FC = () => {
         />
       </DetailsSummary>
       <DetailsSummary
+        anchor="safe-mode-and-reset"
         tag="безопасный режим, reset preferences, safe mode, установка поверх, нестабильно, сброс настроек, startup repair options, переустановка поверх, чистая установка"
         title="Что делать, если программа начала работать нестабильно, а переустанавливать с нуля не хочется?"
       >

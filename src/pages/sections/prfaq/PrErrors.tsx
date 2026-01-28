@@ -337,6 +337,7 @@ const PrErrors: React.FC = () => {
         />
       </DetailsSummary>
       <DetailsSummary
+        anchor="fix-this-effect-requires-gpu-acceleration"
         tag="gpu acceleration, mercury playback engine, рендеринг, аппаратное ускорение, ошибка гпу, gpu error"
         title="Что делать с ошибкой «This effect requires GPU Acceleration»?"
       >
@@ -367,6 +368,7 @@ const PrErrors: React.FC = () => {
         </p>
       </DetailsSummary>
       <DetailsSummary
+        anchor="fix-0xc0000142"
         tag="ошибка при запуске приложения, avx2"
         title="Что делать с ошибкой «0xc0000142» при запуске приложения?"
       >
@@ -406,6 +408,7 @@ const PrErrors: React.FC = () => {
         </Addition>
       </DetailsSummary>
       <DetailsSummary
+        anchor="fix-missing-dll-errors"
         tag="отсутствует visual c++"
         title="Что делать с ошибками об отсутствии «MSVCP140.dll», «api-ms-win-crt-runtime-l1-1-0.dll» и похожих?"
       >
@@ -425,8 +428,9 @@ const PrErrors: React.FC = () => {
         </p>
       </DetailsSummary>
       <DetailsSummary
+        anchor="fix-system-compatibility-report"
         tag="совместимость системы, драйверы, плагины, предупреждение"
-        title="Что делать с окном «System Compatibility Report» при запуске Premiere?"
+        title="Что делать с окном «System Compatibility Report» при запуске программы?"
       >
         <Addition type="info">
           Когда вы видите это окно при запуске, не паникуйте. Это не ошибка, а
@@ -456,12 +460,14 @@ const PrErrors: React.FC = () => {
         />
       </DetailsSummary>
       <DetailsSummary
+        anchor="fix-generative-extend-is-not-available"
         tag="сбой генерации расширения, can't generate extension, генеративное расширение недоступно, проверьте подключение к интернету"
         title="Почему появляется «Generative Extend is not available. Please check your internet connection and try again.» при попытке использовать генеративное расширение клипа?"
       ></DetailsSummary>
       <DetailsSummary
+        anchor="fix-project-appears-to-be-damaged"
         tag="проект поврежден, невозможно импортировать файл, ошибка с файлом, не читается"
-        title="Что делать с ошибкой «The project appears to be damaged, it cannot be opened»?"
+        title="Что делать с «The project appears to be damaged, it cannot be opened»?"
       >
         <p>
           Если вчера проект открывался, а сегодня — нет, возможно, программа была закрыта
@@ -506,6 +512,7 @@ const PrErrors: React.FC = () => {
         </p>
       </DetailsSummary>
       <DetailsSummary
+        anchor="fix-video-filter-missing"
         tag="отсутствующий эффект, missing effect"
         title="Что делать с ошибкой «Video Filter missing»?"
       >
@@ -519,6 +526,7 @@ const PrErrors: React.FC = () => {
         </p>
       </DetailsSummary>
       <DetailsSummary
+        anchor="fix-could-not-find-any-capable-video-play-modules"
         tag="premiere pro не удалось найти совместимые видеомодули воспроизведения, обновите видеодрайверы и запустите приложение повторно"
         title="«Premiere could not find any capable video play modules. Please update your video display drivers and start again» при запуске программы"
       >
@@ -532,8 +540,9 @@ const PrErrors: React.FC = () => {
         </p>
       </DetailsSummary>
       <DetailsSummary
-        tag="сапфир, баг"
-        title="Вылетает Premiere и Media Encoder после установки плагинов Boris FX Sapphire"
+        anchor="fix-crash-by-sapphire"
+        tag="сапфир, вылет при запуске, совместимость, crash fix"
+        title="Как избавиться от вылетов Adobe Premiere и Adobe Media Encoder после установки Boris FX Sapphire?"
       >
         <p>
           Это известный баг, который мешает нормальному запуску{" "}

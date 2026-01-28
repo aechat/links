@@ -365,7 +365,10 @@ const PsErrors: React.FC = () => (
       </p>
       {/* FIXME: написать!! */}
     </DetailsSummary>
-    <DetailsSummary title="«Для доступа к функциям на базе технологии Firefly в приложениях Adobe у вас должны быть установлены подлинные приложения Adobe», «Проверьте своё подключение к интернету и повторите попытку» или «Could not complete your request because of a program error»">
+    <DetailsSummary
+      anchor="firefly-access-error"
+      title="«Для доступа к функциям на базе технологии Firefly в приложениях Adobe у вас должны быть установлены подлинные приложения Adobe», «Проверьте своё подключение к интернету и повторите попытку» или «Could not complete your request because of a program error»"
+    >
       <p>
         Вы пытаетесь использовать функцию генеративной заливки для создания или коррекции
         изображения. На «народных» версиях функции, которые используют{" "}
@@ -397,7 +400,10 @@ const PsErrors: React.FC = () => (
         type="image"
       />
     </DetailsSummary>
-    <DetailsSummary title="Ошибка при запуске приложения «0xc0000142»">
+    <DetailsSummary
+      anchor="fix-0xc0000142"
+      title="Ошибка при запуске приложения «0xc0000142»"
+    >
       <p>
         Скорее всего вы пытаетесь запустить приложение на устройстве с процессором без
         поддержки инструкций <mark>AVX2</mark>. В{" "}
@@ -431,7 +437,11 @@ const PsErrors: React.FC = () => (
         устройство.
       </Addition>
     </DetailsSummary>
-    <DetailsSummary title="«Приложение Adobe Creative Cloud, необходимое для устранения проблемы отсутствует или повреждено...»">
+    <DetailsSummary
+      anchor="fix-creative-cloud-missing"
+      tag="ошибка запуска, хвосты от неудачного удаления, переустановка, adobe cc"
+      title="«Приложение Adobe Creative Cloud, необходимое для устранения проблемы отсутствует или повреждено...»"
+    >
       <p>
         Вы зачем-то установили приложение{" "}
         <mark className="app">Adobe Creative Cloud</mark> рядом с пиратскими программами,
@@ -451,7 +461,11 @@ const PsErrors: React.FC = () => (
         .
       </p>
     </DetailsSummary>
-    <DetailsSummary title="Ошибка про отсутствие «MSVCP140.dll», «api-ms-win-crt-runtime-l1-1-0.dll» или аналогичные">
+    <DetailsSummary
+      anchor="fix-missing-dll-errors"
+      tag="отсутствует visual c++"
+      title="Что делать с ошибками об отсутствии «MSVCP140.dll», «api-ms-win-crt-runtime-l1-1-0.dll» и похожих?"
+    >
       <p>
         Скорее всего вы забыли установить или обновить пакеты{" "}
         <a href="https://gitlab.com/stdout12/vcredist/-/releases/">

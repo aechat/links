@@ -11,6 +11,7 @@ const PrFromNewbies: React.FC = () => {
   return (
     <div className="article-content">
       <DetailsSummary
+        anchor="get-started"
         tag="для новичка, курсы, туториалы, только открыл премьер"
         title="Я первый раз установил и открыл программу, с чего бы мне начать обучение?"
       >
@@ -57,10 +58,12 @@ const PrFromNewbies: React.FC = () => {
         </p>
       </DetailsSummary>
       <DetailsSummary
+        anchor="vocabulary"
         tag="сленг, жаргон, сокращения, словосочетания, говор"
         title="Какие популярные термины есть у пользователей программы?"
       ></DetailsSummary>
       <DetailsSummary
+        anchor="keyboard-shortcuts"
         tag="хоткеи, горячие клавиши, шорткаты, ускорение работы"
         title="А есть список популярных комбинаций клавиш?"
       >
@@ -943,6 +946,7 @@ const PrFromNewbies: React.FC = () => {
         {/* FIXME: по возможности дописать ещё */}
       </DetailsSummary>
       <DetailsSummary
+        anchor="recommended-plugins"
         tag="рекомендация, топ, борисфх, твикстор, рсмб, юниверс, мбл, mbl"
         title="Какие плагины и инструменты мне стоит поставить в первую очередь для программы?"
       >
@@ -1124,6 +1128,7 @@ const PrFromNewbies: React.FC = () => {
         </ul>
       </DetailsSummary>
       <DetailsSummary
+        anchor="changelog"
         tag="что нового, фишки, обновления, апдейты, патчноуты"
         title="Где я могу узнать о нововведениях в обновлениях программы?"
       >
@@ -1204,6 +1209,7 @@ const PrFromNewbies: React.FC = () => {
         </Addition>
       </DetailsSummary>
       <DetailsSummary
+        anchor="configure-backup"
         tag="бекап, бэкап, резервное копирование, возврат, вернуть, восстановить, облачное хранилище, облако, яндекс диск, журнал файлов, бэкап, история изменений файлов, откат проекта"
         title="Чем я могу сделать резервные копии файлов и, при необходимости, возвращаться к предыдущим версиям файлов?"
       >
@@ -1362,6 +1368,7 @@ const PrFromNewbies: React.FC = () => {
         />
       </DetailsSummary>
       <DetailsSummary
+        anchor="nest"
         tag="нест, unnest, вложенный таймлайн, вложенные клипы, прекомпоз"
         title="Что такое Nest, как их создать и распаковывать?"
       >
@@ -1399,6 +1406,7 @@ const PrFromNewbies: React.FC = () => {
         />
       </DetailsSummary>
       <DetailsSummary
+        anchor="timeline-track-targeting"
         tag="выделение, вставка клипов"
         title="Для чего нужны A1 и V1 слева от клипов на таймлайне?"
       >
@@ -1430,10 +1438,16 @@ const PrFromNewbies: React.FC = () => {
           type="youtube"
         />
       </DetailsSummary>
-      <DetailsSummary title="Продублировал секвенцию на таймлайне, но копия зависит от оригинала. Как сделать Nest независимыми друг от друга?">
+      <DetailsSummary
+        anchor="sequence-independent"
+        title="Продублировал секвенцию на таймлайне, но копия зависит от оригинала. Как сделать Nest независимыми друг от друга?"
+      >
         <p>{/* FIXME: опять новые пункты писать ну емае */}</p>
       </DetailsSummary>
-      <DetailsSummary title='Чем отличается "Scale to Frame Size" от "Fill Frame" и "Fit to Frame"?'>
+      <DetailsSummary
+        anchor="scale-vs-fit"
+        title='Чем отличается "Scale to Frame Size" от "Fill Frame" и "Fit to Frame"?'
+      >
         <p>
           Использование разных способов подгонки изображения под размер вашей секвенции
           может сказаться на качестве изображения.
@@ -1472,6 +1486,7 @@ const PrFromNewbies: React.FC = () => {
         />
       </DetailsSummary>
       <DetailsSummary
+        anchor="missing-obsolete-effects"
         tag="вернуть устаревшие эффекты, восстановить встроенные пресеты"
         title="Куда пропали эффекты из папки Obsolete в новых версиях программы?"
       >
@@ -1501,7 +1516,10 @@ const PrFromNewbies: React.FC = () => {
           с<a href="#2.1">инструкцией по установке дополнительного контента</a>.
         </p>
       </DetailsSummary>
-      <DetailsSummary title="Как вернуть звуковую или видео дорожку на таймлайн?">
+      <DetailsSummary
+        anchor="restore-track"
+        title="Как вернуть звуковую или видео дорожку на таймлайне?"
+      >
         <p>
           Для возвращения недостающей части у вашего исходника вам нужно выделить клип, а
           затем нажать на кнопку <mark className="key">F</mark>. Затем уберите{" "}
@@ -1516,12 +1534,9 @@ const PrFromNewbies: React.FC = () => {
         />
       </DetailsSummary>
       <DetailsSummary
-        tag="менеджер эффектов"
-        title="Программа аварийно завершила работу и предложила отключить эффект, который вызывает сбой. Я его отключил, но при последующих запусках он не возвращается обратно. Как его активировать снова?"
+        anchor="preview-no-audio"
+        title="Почему у меня отсутствует звук при проигрывании предпросмотра?"
       >
-        {/* TODO: написать про менеджер эффектов */}
-      </DetailsSummary>
-      <DetailsSummary title="Почему у меня отсутствует звук при проигрывании предпросмотра?">
         <p>
           Если вы недавно меняли аудиовыход, например подключили беспроводные наушники или
           внешний монитор с колонками, то вполне вероятно что у вас сбились настройки
@@ -1545,7 +1560,10 @@ const PrFromNewbies: React.FC = () => {
         </Addition>
         {/* TODO: дописать ещё возможные варианты */}
       </DetailsSummary>
-      <DetailsSummary title="Как отключить выделение объекта на таймлайне при перемещении временной метки?">
+      <DetailsSummary
+        anchor="disable-selection-follow-playhead"
+        title="Как отключить выделение объекта на таймлайне при перемещении временной метки?"
+      >
         <p>
           Функцию выделения клипа при перемещении временной метки можно отключить, убрав
           галочку с <mark className="select">«Select Follow Playhead»</mark> в{" "}
@@ -1567,7 +1585,10 @@ const PrFromNewbies: React.FC = () => {
           </ul>
         </Addition>
       </DetailsSummary>
-      <DetailsSummary title="Куда пропала настройка Timeline в Preferences?">
+      <DetailsSummary
+        anchor="timeline-preferences-missing"
+        title="Куда пропала настройка Timeline в Preferences?"
+      >
         <p>
           В настройках раздел <mark className="select">«Timeline»</mark> может
           отсутствовать на некоторых «народных» версиях{" "}

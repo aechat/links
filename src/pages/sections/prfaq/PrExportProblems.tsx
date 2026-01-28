@@ -9,7 +9,10 @@ import DetailsSummary from "../../../components/content/DetailsSummary";
 const PrExportProblems: React.FC = () => {
   return (
     <div className="article-content">
-      <DetailsSummary title="«Error compiling movie» с кодом -1609629695">
+      <DetailsSummary
+        anchor="fix-error-1609629695"
+        title="«Error compiling movie» с кодом -1609629695"
+      >
         <p>
           Эта ошибка может появиться по самым разным причинам, универсального способа
           устранить её нет. Чаще всего она связана с применёнными эффектами, «кривыми»
@@ -110,7 +113,10 @@ const PrExportProblems: React.FC = () => {
           </li>
         </ul>
       </DetailsSummary>
-      <DetailsSummary title="«An unknown error (-1609629695) occurred during the Project Manager operation»">
+      <DetailsSummary
+        anchor="fix-error-1609629695-during-the-project-manager-operation"
+        title="«An unknown error (-1609629695) occurred during the Project Manager operation»"
+      >
         <p>
           Попробуйте выключить флажок напротив параметра{" "}
           <mark className="select">«Include Preview Files»</mark>, а затем повторить
@@ -122,7 +128,11 @@ const PrExportProblems: React.FC = () => {
           type="image"
         />
       </DetailsSummary>
-      <DetailsSummary title="Экспортировал секвенцию в H.264 и отправил пользователю iPhone, а он не может открыть видео. Почему это происходит и как это исправить?">
+      <DetailsSummary
+        anchor="fix-playback-error"
+        tag="0x80070002, mp4, ошибка воспроизведения"
+        title="Почему я не могу открыть видео‚ которое я экспортировал?"
+      >
         <p>
           <mark className="app">Adobe Premiere</mark> поднимает значение{" "}
           <mark className="select">«Level»</mark> для секвенций с большим разрешением,
@@ -138,7 +148,10 @@ const PrExportProblems: React.FC = () => {
           type="video"
         />
       </DetailsSummary>
-      <DetailsSummary title="Что делать, если экспорт зависает на определённом моменте?">
+      <DetailsSummary
+        anchor="fix-render-freeze"
+        title="Что делать, если экспорт зависает на определённом моменте?"
+      >
         {/*   <p>
           При экспорте проблема зависания полосы прогресса может возникнуть по разным
           причинам.
@@ -150,6 +163,7 @@ const PrExportProblems: React.FC = () => {
         {/* FIXME: написать!! */}
       </DetailsSummary>
       <DetailsSummary
+        anchor="fix-export-1kb-file"
         tag="file importer detected an inconsistency in the file structure, reading and writing this file's metadata (xmp) has been disabled, не экспортируется, битый файл"
         title="Почему при экспорте в MP4 через встроенный кодек H.264 и HEVC сохраняется файл с размером в 1 КБ?"
       >
@@ -179,12 +193,14 @@ const PrExportProblems: React.FC = () => {
         </p>
       </DetailsSummary>
       <DetailsSummary
-        tag="исходник с айфона, hlg, rec709"
-        title="После экспорта у меня изменились цвета. Как избежать изменения цветов?"
+        anchor="fix-export-color-shift"
+        tag="iphone, hlg, rec.709, color shift, color space, color management"
+        title="Почему после экспорта у меня изменились цвета и оттенки?"
       >
         {/* FIXME: написать!! */}
       </DetailsSummary>
       <DetailsSummary
+        anchor="fix-position-shift"
         tag="медиаенкодер, медиаэнкодер, переместилось"
         title="Почему в предпросмотре Premiere, Media Encoder и после экспорта видео смещается влево или вправо?"
       >
@@ -200,12 +216,16 @@ const PrExportProblems: React.FC = () => {
         </p>
       </DetailsSummary>
       <DetailsSummary
-        tag="колор бендинг, полоски, цвет, шум, глубина цвета"
-        title="Экспортировал композицию и вижу в результате ужасный ступенчатый градиент. Как мне от него избавиться?"
+        anchor="fix-color-banding"
+        tag="color banding, полосы, шум, глубина цвета, bit depth"
+        title="Как избавиться от ужасного ступенчатого градиента?"
       >
         {/* FIXME: написать!! */}
       </DetailsSummary>
-      <DetailsSummary title="Почему я не могу экспортировать видео в H.264 с нечётным разрешением?">
+      <DetailsSummary
+        anchor="fix-odd-resolution-error"
+        title="Почему при экспорте размер секвенция растягивается до чётного значения?"
+      >
         <p>
           Вы не сможете экспортировать видео в <mark className="video">H.264</mark> или{" "}
           <mark className="video">H.265</mark> с нечётным разрешением из-за технических
@@ -226,10 +246,14 @@ const PrExportProblems: React.FC = () => {
           изменения настроек композиции попробуйте начать экспорт заново.
         </p>
       </DetailsSummary>
-      <DetailsSummary title="Почему после экспорта отсутствует звук в видео?">
+      <DetailsSummary
+        anchor="no-sound-after-export"
+        title="Почему после экспорта отсутствует звук в видео?"
+      >
         {/* FIXME: написать!! */}
       </DetailsSummary>
       <DetailsSummary
+        anchor="compress-video-shutter-encoder"
         tag="конвертация, шаттер енкодер, сжатие видео, квантование, cqr"
         title="Как сжать экспортированное видео без сильной потери качества или до определённого веса?"
       >

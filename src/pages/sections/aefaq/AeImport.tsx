@@ -37,7 +37,7 @@ const AeImport: React.FC = () => {
   return (
     <div className="article-content">
       <DetailsSummary
-        anchor="import-pipeline"
+        anchor="import-workflow"
         tag="пайплайн, импорт, подготовка исходников, конвертация, монтажный кодек, shutter encoder, iphone, color space, frame rate"
         title="Какие действия нужно совершить с чужими исходниками, прежде чем начать работу?"
       >
@@ -624,6 +624,14 @@ const AeImport: React.FC = () => {
         </Addition>
       </DetailsSummary>
       <DetailsSummary
+        anchor="fix-overexposed-video"
+        tag="пересвет, айфон, яркость, цветовое пространство, рек709"
+        title="Импортировал видео, а оно слишком засвеченное. Как исправить?"
+      >
+        {/* FIXME: написать */}
+      </DetailsSummary>
+      <DetailsSummary
+        anchor="fix-artifacts"
         tag="зелёный экран, артефакты, глитчи, полосы, youtube, дисковый кэш, аппаратное декодирование"
         title="Как избавиться от артефактов при работе с исходниками?"
       >
@@ -856,6 +864,7 @@ const AeImport: React.FC = () => {
         />
       </DetailsSummary>
       <DetailsSummary
+        anchor="fix-variable-frame-rate-issues"
         tag="переменный фпс, пропуски кадров, vfr, интерпретация видео, variable frame rate, frame drops"
         title="Почему при импорте исходника с переменной частотой кадров его длина в композиции короче, чем в видеопроигрывателе?"
       >
@@ -900,6 +909,7 @@ const AeImport: React.FC = () => {
         />
       </DetailsSummary>
       <DetailsSummary
+        anchor="fix-files-are-missing-since-you-last-saved-project"
         tag="missing files, отсутствуют файлы, потерялись исходники, ошибка импорта, replace footage"
         title="«Warning: files are missing since you last saved project» и вместо клипов — цветовая палитра"
       >
@@ -969,6 +979,7 @@ const AeImport: React.FC = () => {
         />
       </DetailsSummary>
       <DetailsSummary
+        anchor="fix-this-project-uses-fonts-that-are-not-currently-available"
         tag="font substitution will occur until the originals become available, в данном проекте используются шрифты которые в настоящий момент недоступны на этом компьютере, замена шрифтов будет выполняться до тех пор пока не станут доступны исходные шрифты, missing fonts, отсутствуют шрифты, замена шрифтов"
         title="Что делать с «Warning: This project uses fonts that are not currently available on this computer»?"
       >
@@ -1087,6 +1098,7 @@ const AeImport: React.FC = () => {
         />
       </DetailsSummary>
       <DetailsSummary
+        anchor="import-unsupported-formats"
         tag="autokroma influx"
         title="Как импортировать MKV, FLV, WEBM или другие неподдерживаемые форматы без конвертации?"
       >
@@ -1119,6 +1131,7 @@ const AeImport: React.FC = () => {
         />
       </DetailsSummary>
       <DetailsSummary
+        anchor="fix-image-sequence-frame-rate"
         tag="fps, частота кадров, интерпретация, frame rate"
         title="Почему при импорте секвенции изображений длина слоя получается короче, длиннее или с неправильной частотой кадров?"
       >
@@ -1384,6 +1397,7 @@ const AeImport: React.FC = () => {
         {/* FIXME:  */}
       </DetailsSummary>
       <DetailsSummary
+        anchor="import-figma"
         tag="aeux, overlord, импорт макета, фигма"
         title="Как импортировать макет из Figma?"
       >
@@ -1501,6 +1515,7 @@ const AeImport: React.FC = () => {
         </p>
       </DetailsSummary>
       <DetailsSummary
+        anchor="import-3d-objects"
         tag="obj, fbx, gltf, glb, c4d, e3d, element 3d, blender, advanced 3d, cineware, импорт 3d моделей, 3d рендеринг"
         title="Как импортировать трёхмерные объекты?"
       >
@@ -1619,6 +1634,7 @@ const AeImport: React.FC = () => {
         />
       </DetailsSummary>
       <DetailsSummary
+        anchor="import-lottie-tgs"
         tag="json, svg, telegram, стикеры, tgs, lottie, bodymovin, animated stickers"
         title="Как импортировать Lottie и TGS?"
       >
@@ -1807,6 +1823,7 @@ const AeImport: React.FC = () => {
         />
       </DetailsSummary>
       <DetailsSummary
+        anchor="import-premiere-sequence"
         tag="prproj sequence, dynamic link"
         title="Как импортировать секвенцию из Adobe Premiere?"
       >
@@ -1852,6 +1869,7 @@ const AeImport: React.FC = () => {
         </p>
       </DetailsSummary>
       <DetailsSummary
+        anchor="import-mogrt"
         tag="aeproject, анимационный шаблон, motion graphics template"
         title="Как открыть и импортировать MOGRT?"
       >
@@ -1908,6 +1926,7 @@ const AeImport: React.FC = () => {
         </p>
       </DetailsSummary>
       <DetailsSummary
+        anchor="this-project-must-be-converted-from-version"
         tag="the original file will be unchanged, требуется преобразовать данный проект из версии, исходный файл останется без изменений, совместимость версий, конвертация проекта"
         title="Что означает «This project must be converted from version XX.X.X» при открытии проекта?"
       >
@@ -1931,7 +1950,7 @@ const AeImport: React.FC = () => {
         </p>
       </DetailsSummary>
       <DetailsSummary
-        anchor="cannot-be-opened-with-this-version"
+        anchor="fix-cannot-be-opened-with-this-version"
         tag="обратная совместимость, несовместимость версий, конвертация проекта"
         title="Что делать с «The file you are attempting to open was created with version XX.X.X and cannot be opened with this version»?"
       >

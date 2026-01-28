@@ -7,22 +7,28 @@ import DetailsSummary from "../../../components/content/DetailsSummary";
 const PsExport: React.FC = () => {
   return (
     <div className="article-content">
-      <DetailsSummary title="Какие параметры экспорта нужно установить для загрузки в социальные сети?">
+      <DetailsSummary
+        anchor="social-media-export"
+        title="Какие параметры экспорта нужно установить для загрузки в социальные сети?"
+      >
         {/* FIXME: */}
       </DetailsSummary>
       <DetailsSummary
+        anchor="export-image"
         tag="сохранить фото, пнг, жипег, жпг, вебп"
         title="Как экспортировать изображение в JPEG, PNG, WEBP и прочие популярные форматы изображений?"
       >
         {/* FIXME: */}
       </DetailsSummary>
       <DetailsSummary
+        anchor="export-gif"
         tag="сохранить анимированную гифку"
         title="Как экспортировать последовательность фото в анимацию GIF?"
       >
         {/* FIXME: */}
       </DetailsSummary>
       <DetailsSummary
+        anchor="export-layers"
         tag="export layers"
         title="Как экспортировать слои отдельными файлами?"
       >
@@ -50,12 +56,14 @@ const PsExport: React.FC = () => {
         {/* FIXME: */}
       </DetailsSummary>
       <DetailsSummary
+        anchor="how-to-export-video"
         tag="сохранить видео, мп4, mp4"
         title="Может прозвучит по-идиотски, но как экспортировать из программы видео?"
       >
         {/* FIXME: */}
       </DetailsSummary>
       <DetailsSummary
+        anchor="restore-legacy-save"
         tag="legacy export"
         title="Как вернуть старый механизм сохранения файлов?"
       >

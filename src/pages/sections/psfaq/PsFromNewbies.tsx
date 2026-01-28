@@ -10,6 +10,7 @@ const PsFromNewbies: React.FC = () => {
   return (
     <div className="article-content">
       <DetailsSummary
+        anchor="get-started"
         tag="для новичка, первый раз, только открыл"
         title="Первый раз установил Photoshop, с чего бы мне начать обучение?"
       >
@@ -59,14 +60,17 @@ const PsFromNewbies: React.FC = () => {
         </p>
       </DetailsSummary>
       <DetailsSummary
+        anchor="vocabulary"
         tag="сленг, жаргон, сокращения, словосочетания, говор"
         title="Какие популярные термины есть у пользователей программы?"
       ></DetailsSummary>
       <DetailsSummary
+        anchor="keyboard-shortcuts"
         tag="хоткеи, горячие клавиши, шорткаты, ускорение работы"
         title="А есть список популярных комбинаций клавиш?"
       ></DetailsSummary>
       <DetailsSummary
+        anchor="changelog"
         tag="что нового, фишки, обновления, апдейты, патчноуты"
         title="Где я могу узнать о нововведениях в обновлениях программы?"
       >
@@ -91,6 +95,7 @@ const PsFromNewbies: React.FC = () => {
         </div>
       </DetailsSummary>
       <DetailsSummary
+        anchor="change-language"
         tag="изменить язык, смена языка, установка английской версии"
         title="Почему мне с каждого угла советуют поставить английский язык программы и как это сделать?"
       >
@@ -148,7 +153,10 @@ const PsFromNewbies: React.FC = () => {
         <Divider>Меняем язык программы с помощью Creative Cloud</Divider>
         {/* FIXME: написать!! */}
       </DetailsSummary>
-      <DetailsSummary title="Для чего нужно использовать Photoshop, а для чего Illustrator?">
+      <DetailsSummary
+        anchor="photoshop-vs-illustrator"
+        title="В каких случаях нужно использовать Adobe Photoshop, а в каких — Adobe Illustrator?"
+      >
         {/* FIXME: написать!! фотошоп - растр, люстра - вектор */}
         <ul>
           <li>
@@ -171,7 +179,10 @@ const PsFromNewbies: React.FC = () => {
           <li></li>
         </ul>
       </DetailsSummary>
-      <DetailsSummary title="Как я могу быстро изменить размер изображения или холста?">
+      <DetailsSummary
+        anchor="image-canvas-size-change"
+        title="Как я могу быстро изменить размер изображения или холста?"
+      >
         {/* FIXME: */}
         <ArticleMedia
           caption="Adobe Photoshop"
@@ -189,6 +200,7 @@ const PsFromNewbies: React.FC = () => {
         </p>
       </DetailsSummary>
       <DetailsSummary
+        anchor="smart-objects"
         tag="smart objects"
         title="Для чего нужны смарт-объекты?"
       >
@@ -200,6 +212,7 @@ const PsFromNewbies: React.FC = () => {
         />
       </DetailsSummary>
       <DetailsSummary
+        anchor="disable-auto-select"
         tag="disable auto-select"
         title="Как отключить автовыделение слоёв?"
       >

@@ -36,7 +36,10 @@ const PrInterface: React.FC = () => {
           <mark className="app">Adobe Premiere</mark> никуда не денутся.
         </Addition>
       </DetailsSummary>
-      <DetailsSummary title="Куда пропало окно Essential Graphics?">
+      <DetailsSummary
+        anchor="essential-graphics-missing"
+        title="Куда пропало окно «Essential Graphics»?"
+      >
         <p>
           В <mark className="app">Adobe Premiere</mark> версии <mark>2025</mark> и новее
           панель <mark className="select">«Essential Graphics»</mark> убрали и перенесли
@@ -51,7 +54,10 @@ const PrInterface: React.FC = () => {
           <mark className="select">«Properties»</mark>.
         </p>
       </DetailsSummary>
-      <DetailsSummary title="Куда пропала кнопка «Set to Frame Size»?">
+      <DetailsSummary
+        anchor="set-to-frame-size-missing"
+        title="Куда пропала кнопка «Set to Frame Size»?"
+      >
         <p>
           В <mark className="app">Adobe Premiere</mark> версии <mark>2025</mark> и новее{" "}
           <mark className="select">«Set to Frame Size»</mark> заменили на{" "}
@@ -66,7 +72,10 @@ const PrInterface: React.FC = () => {
           сторону вашей секвенции.
         </p>
       </DetailsSummary>
-      <DetailsSummary title="Как изменить вид отсчёта времени на таймлайне?">
+      <DetailsSummary
+        anchor="change-time-display-format"
+        title="Как изменить вид отсчёта времени на таймлайне?"
+      >
         <p>
           По умолчанию в <mark className="app">Adobe Premiere</mark> текущее время
           отображается в формате <mark>ЧЧ:ММ:СС:Кадр</mark>, но иногда хочется поменять
@@ -87,11 +96,15 @@ const PrInterface: React.FC = () => {
         </p>
         {/* TODO: приложить скриншот */}
       </DetailsSummary>
-      <DetailsSummary title="Как прикрепить нужное окно в рабочее пространство?">
+      <DetailsSummary
+        anchor="dock-panel"
+        title="Как прикрепить нужное окно в рабочее пространство?"
+      >
         {/* TODO: написать ещё отдельную статью по аналогии как расположить по списку или поставить несколько окон во вкладки */}
         {/* FIXME: */}
       </DetailsSummary>
       <DetailsSummary
+        anchor="excalibur"
         tag="панель эффектов, фх консоль, экскалибур"
         title="Есть ли аналог FX Console для Premiere?"
       >
@@ -112,7 +125,10 @@ const PrInterface: React.FC = () => {
           настройках плагина.
         </Addition>
       </DetailsSummary>
-      <DetailsSummary title="Пропала визуализация аудиодорожек на таймлайне, как их вернуть?">
+      <DetailsSummary
+        anchor="audio-waveforms-missing"
+        title="Пропала визуализация аудиодорожек на таймлайне, как их вернуть?"
+      >
         <p>
           Это довольно частый и неприятный баг, возникающий при использовании{" "}
           <mark className="app">Adobe Premiere</mark>. Обычно это лечится очисткой кэша{" "}
@@ -132,7 +148,10 @@ const PrInterface: React.FC = () => {
         </p>
         {/* TODO: приложить скриншот */}
       </DetailsSummary>
-      <DetailsSummary title="Как изменить акцентный цвет интерфейса программы?">
+      <DetailsSummary
+        anchor="change-accent-color"
+        title="Как изменить акцентный цвет интерфейса программы?"
+      >
         <Addition type="danger">
           Для <mark className="app">Adobe Premiere</mark> версии <mark>2025</mark> и новее
           данная инструкция неактуальна, после включения параметра в консоли в настройках
@@ -174,7 +193,10 @@ const PrInterface: React.FC = () => {
         </Addition>
         {/* TODO: показать цветовую палитру при настройке */}
       </DetailsSummary>
-      <DetailsSummary title="Как изменить картинку во время запуска программы?">
+      <DetailsSummary
+        anchor="custom-splash-screen"
+        title="Как изменить картинку во время запуска программы?"
+      >
         <Addition type="danger">
           Действия с заменой файлов программы{" "}
           <b>

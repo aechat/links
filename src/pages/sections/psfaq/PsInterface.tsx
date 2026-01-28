@@ -10,7 +10,10 @@ import DetailsSummary from "../../../components/content/DetailsSummary";
 const PsInterface: React.FC = () => {
   return (
     <div className="article-content">
-      <DetailsSummary title="Как отключить стартовое окно с последними открытыми проектами при запуске?">
+      <DetailsSummary
+        anchor="disable-home-screen"
+        title="Как отключить стартовое окно с последними открытыми проектами при запуске?"
+      >
         <p>
           Если вас раздражает окно с недавними открытыми проектами или оно у вас грузится
           достаточно долго, его можно отключить в настройках. Для этого перейдите в
@@ -25,7 +28,10 @@ const PsInterface: React.FC = () => {
           type="image"
         />
       </DetailsSummary>
-      <DetailsSummary title="Как сделать фон программы светлее или темнее?">
+      <DetailsSummary
+        anchor="change-theme-color"
+        title="Как сделать фон программы светлее или темнее?"
+      >
         <p>
           В <mark className="app">Adobe Photoshop</mark> с давних пор доступна возможность
           сделать фон всего интерфейса более тёмным или светлым. Для изменения цветовой
@@ -41,14 +47,23 @@ const PsInterface: React.FC = () => {
           type="image"
         />
       </DetailsSummary>
-      <DetailsSummary title="Как прикрепить нужное окно в рабочее пространство?">
+      <DetailsSummary
+        anchor="dock-panel"
+        title="Как прикрепить нужное окно в рабочее пространство?"
+      >
         {/* TODO: написать ещё отдельную статью по аналогии как расположить по списку или поставить несколько окон во вкладки  */}
         {/* FIXME:  */}
       </DetailsSummary>
-      <DetailsSummary title="Как изменить акцентный цвет интерфейса программы?">
+      <DetailsSummary
+        anchor="change-accent-color"
+        title="Как изменить акцентный цвет интерфейса программы?"
+      >
         {/* FIXME: */}
       </DetailsSummary>
-      <DetailsSummary title="Как изменить картинку во время запуска программы?">
+      <DetailsSummary
+        anchor="custom-splash-screen"
+        title="Как изменить картинку во время запуска программы?"
+      >
         <Addition type="danger">
           Действия с заменой файлов программы{" "}
           <b>

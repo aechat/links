@@ -10,7 +10,10 @@ import DetailsSummary from "../../../components/content/DetailsSummary";
 const PsInstallProblems: React.FC = () => {
   return (
     <div className="article-content">
-      <DetailsSummary title="Забыли положить инструкцию для установки рядом с файлами, куда что кидать?">
+      <DetailsSummary
+        anchor="how-to-install"
+        title="Забыли положить инструкцию для установки рядом с файлами, куда что кидать?"
+      >
         <p>
           Обычно установка большинства дополнительных материалов универсальна, но может
           отличаться в зависимости от вашей операционной системы. В этой статье указано,
@@ -662,6 +665,7 @@ const PsInstallProblems: React.FC = () => {
         />
       </DetailsSummary>
       <DetailsSummary
+        anchor="install-adobe-errors-codes"
         tag="в настоящее время невозможно установить, операционная система не соответствует минимальным требованиям для этой программы установки"
         title="Код ошибки 1, 501, 176, 195, 21 или другие при установке Adobe Photoshop"
       >
@@ -773,6 +777,7 @@ const PsInstallProblems: React.FC = () => {
         </Addition>
       </DetailsSummary>
       <DetailsSummary
+        anchor="kpojluk-corrupted-install-files"
         tag="репак от кролика"
         title="«Некоторые установочные файлы были повреждены. Загрузите свежую копию и повторите установку»"
       >
@@ -871,6 +876,7 @@ const PsInstallProblems: React.FC = () => {
         </ul>
       </DetailsSummary>
       <DetailsSummary
+        anchor="kpojluk-the-hosts-file-does-not-exist-or-is-not-accessible"
         tag="репак от кролика"
         title="«rsload.net заблокирован в hosts» или «The hosts file does not exist or is not accessible»"
       >
@@ -891,6 +897,7 @@ const PsInstallProblems: React.FC = () => {
         </p>
       </DetailsSummary>
       <DetailsSummary
+        anchor="kpojiuk-repack-adware"
         tag="репак от кролика"
         title="Забыл убрать галочку с рекламой при установке репака от KpoJIuK. Как избавиться от последствий?"
       >
@@ -908,7 +915,10 @@ const PsInstallProblems: React.FC = () => {
           <mark className="select">«Реклама»</mark>.
         </p>
       </DetailsSummary>
-      <DetailsSummary title="«Error: Extension Manager init failed, status = -193! A required resource is missing. Please relaunch the Creative Cloud app and try again» при использовании ZXP Installer">
+      <DetailsSummary
+        anchor="fix-zxp-installer-193"
+        title="«Error: Extension Manager init failed, status = -193! A required resource is missing. Please relaunch the Creative Cloud app and try again» при использовании ZXP Installer"
+      >
         <p>
           Данная ошибка прямым текстом указывает на то, что на вашем устройстве
           отсутствует программа <mark className="app">Adobe Creative Cloud</mark>. Если вы
@@ -930,36 +940,10 @@ const PsInstallProblems: React.FC = () => {
         </Addition>
       </DetailsSummary>
       <DetailsSummary
-        tag="креатив клауд клинер, удаление адоба, очистка от хвостов"
-        title="Как полностью удалить Adobe Photoshop и остальные продукты от Adobe на моем устройстве?"
+        anchor="safe-mode-and-reset"
+        tag="безопасный режим, reset preferences, safe mode, установка поверх, нестабильно, сброс настроек, startup repair options, переустановка поверх, чистая установка"
+        title="Что делать, если программа начала работать нестабильно, а переустанавливать с нуля не хочется?"
       >
-        <p>
-          Если вы хотите переустановить или забыть о программах{" "}
-          <mark className="company">Adobe</mark> раз и навсегда, то вы можете сделать это
-          двумя способами.
-        </p>
-        <ul>
-          <li>
-            Через <mark className="app">Adobe Creative Cloud Cleaner Tool</mark>, который
-            можно скачать{" "}
-            <a href="https://helpx.adobe.com/creative-cloud/apps/troubleshoot/diagnostics-repair-tools/run-creative-cloud-cleaner-tool.html">
-              по этой ссылке
-            </a>
-            . Это консольная утилита, не требующая установки и не требует дополнительной
-            активации. Инструкция по использованию указана на странице рядом с кнопкой для
-            загрузки утилиты.
-          </li>
-          <li>
-            В качестве альтернативы вы можете удалить программы через{" "}
-            <mark className="app">Revo Uninstaller</mark> или подобный софт, который
-            чистит хвосты после удаления. Не все подобные программы могут полностью
-            удалить <mark className="company">Adobe</mark>, но смогут удалить большую
-            часть зависимостей. По желанию вы можете почистить реестр <mark>Windows</mark>{" "}
-            после удаления, например с помощью{" "}
-            <mark className="app">Vit Registry Fix</mark>.
-          </li>
-        </ul>
-        {/* TODO: про почистить руками популярные директории */}
       </DetailsSummary>
       <Addition type="info">
         Некоторые решения проблем, которые у вас могут возникнуть после установки

@@ -1809,6 +1809,7 @@ const AeFromNewbies: React.FC = () => {
         </Addition>
       </DetailsSummary>
       <DetailsSummary
+        anchor="vocabulary"
         tag="сленг, жаргон, терминология, понятия, сокращения, глоссарий"
         title="Какие популярные термины есть у пользователей программы?"
       >
@@ -2624,7 +2625,7 @@ const AeFromNewbies: React.FC = () => {
         </ul>
       </DetailsSummary>
       <DetailsSummary
-        anchor="shortcuts"
+        anchor="keyboard-shortcuts"
         tag="хоткеи, горячие клавиши, шорткаты, keyboard shortcuts, hotkeys"
         title="Есть ли список популярных комбинаций клавиш?"
       >
@@ -3527,6 +3528,7 @@ const AeFromNewbies: React.FC = () => {
         </table>
       </DetailsSummary>
       <DetailsSummary
+        anchor="recommend-plugins"
         tag="рекомендация, топ плагинов, твикстор, рсмб, мбл, борисфх, трапкод, флоу, тру комп дупликатор, юниверс, mbl, plugins, скрипты, расширения, установка"
         title="Какие дополнения стоит установить в первую очередь?"
       >
@@ -3757,7 +3759,7 @@ const AeFromNewbies: React.FC = () => {
         </ul>
       </DetailsSummary>
       <DetailsSummary
-        anchor="update-what-new"
+        anchor="changelog"
         tag="что нового, фишки, обновления, апдейты, патчноуты, changelog, список изменений"
         title="Где я могу узнать о нововведениях в обновлениях программы?"
       >
@@ -3976,6 +3978,7 @@ const AeFromNewbies: React.FC = () => {
         />
       </DetailsSummary>
       <DetailsSummary
+        anchor="disable-idle-cache"
         tag="disable idle caching, выключить кэширование при простое, очень тормозит и зависает программа при выполнении какого-нибудь действия после небольшой паузы"
         title="Как отключить автоматическое кэширование предпросмотра при бездействии?"
       >
@@ -4166,6 +4169,7 @@ const AeFromNewbies: React.FC = () => {
         />
       </DetailsSummary>
       <DetailsSummary
+        anchor="how-to-recover-unsaved"
         tag="вылет, краш, восстановление, не сохранил, автосохранение, autosave"
         title="Я работал над проектом, но ни разу его не сохранял. Программа «вылетела». Можно ли восстановить проект?"
       >
@@ -4181,6 +4185,7 @@ const AeFromNewbies: React.FC = () => {
         </Addition>
       </DetailsSummary>
       <DetailsSummary
+        anchor="ae-vs-premiere"
         tag="разница, сравнение, after effects vs premiere pro, пайплайн, выбор программы"
         title="В каких случаях нужно использовать Adobe After Effects, а в каких — Adobe Premiere?"
       >
@@ -4556,6 +4561,7 @@ const AeFromNewbies: React.FC = () => {
         <EasingEditor />
       </DetailsSummary>
       <DetailsSummary
+        anchor="unwanted-keyframe-interpolation"
         tag="интерполяция, лишнее движение, одинаковые ключи, graph editor, keyframe interpolation"
         title="Почему между ключевыми кадрами с одинаковым значением всё равно есть анимация?"
       >
@@ -4835,7 +4841,7 @@ const AeFromNewbies: React.FC = () => {
         />
       </DetailsSummary>
       <DetailsSummary
-        anchor="cached-preview-needs-2-or-more-frames-for-playback"
+        anchor="fix-cached-preview-needs-2-or-more-frames-for-playback"
         tag="для воспроизведения кэшированного предпросмотра требуется 2 или более кадров, не проигрывается предпросмотр, зацикливается превью, идёт по кругу"
         title="«Cached preview needs 2 or more frames for playback» или как избавиться от зацикливания предпросмотра?"
       >
@@ -5320,6 +5326,7 @@ const AeFromNewbies: React.FC = () => {
         />
       </DetailsSummary>
       <DetailsSummary
+        anchor="how-to-invert-layer-order"
         tag="перевернуть очерёдность, обратный порядок, инверсия, нумерация"
         title="Как инвертировать порядок слоёв на таймлайне?"
       >
@@ -5337,6 +5344,7 @@ const AeFromNewbies: React.FC = () => {
         />
       </DetailsSummary>
       <DetailsSummary
+        anchor="layer-not-visible-on-timeline"
         tag="не видно слой, за кадром, перемещение, плейхед, скобки"
         title="Переместил слой из одной композиции в другую, но он оказался за пределами видимости. Как его вернуть?"
       >
@@ -5414,6 +5422,7 @@ const AeFromNewbies: React.FC = () => {
         />
       </DetailsSummary>
       <DetailsSummary
+        anchor="change-start-timecode"
         tag="start timecode, начальный таймкод, начало композиции, ноль, 00:00:00:00"
         title="Почему первый кадр в композиции начинается не с нулевой секунды?"
       >
@@ -5438,6 +5447,7 @@ const AeFromNewbies: React.FC = () => {
         />
       </DetailsSummary>
       <DetailsSummary
+        anchor="text-alignment-options"
         tag="point text, paragraph text, точечный текст, блочный текст, justify"
         title="Почему не все параметры выравнивания текста доступны в окне Paragraph?"
       >
@@ -5467,6 +5477,7 @@ const AeFromNewbies: React.FC = () => {
         />
       </DetailsSummary>
       <DetailsSummary
+        anchor="mocha-ae-vs-pro"
         tag="сравнение, разница, трекинг, mocha, мока, моча"
         title="Чем отличается Mocha AE от Mocha Pro?"
       >
@@ -5487,6 +5498,7 @@ const AeFromNewbies: React.FC = () => {
         </Addition>
       </DetailsSummary>
       <DetailsSummary
+        anchor="unwanted-switch-font-style"
         tag="font, баг, слетает шрифт, неправильный стиль"
         title="Почему начертание шрифта иногда само меняется?"
       >

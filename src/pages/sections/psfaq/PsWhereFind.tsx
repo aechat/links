@@ -10,6 +10,7 @@ const PsWhereFind: React.FC = () => {
   return (
     <div className="article-content">
       <DetailsSummary
+        anchor="where-to-download"
         tag="adobe, after effects, photoshop, premiere pro, скачать, установить, бесплатно, скрипты, расширения, плагины, templates, plugins, scripts, extensions"
         title="Где найти и скачать шаблоны, плагины и различные программы?"
       >
@@ -204,7 +205,10 @@ const PsWhereFind: React.FC = () => {
           </ul>
         </Addition>
       </DetailsSummary>
-      <DetailsSummary title="Где я могу найти и скачать различную графику для своих проектов?">
+      <DetailsSummary
+        anchor="stock-graphics"
+        title="Где я могу найти и скачать различную графику для своих проектов?"
+      >
         <p>
           Для таких случаев был создан канал{" "}
           <a
@@ -340,6 +344,7 @@ const PsWhereFind: React.FC = () => {
         </Addition>
       </DetailsSummary>
       <DetailsSummary
+        anchor="about-free-photoshop-with-firefly"
         tag="файрфляй, искуственный интеллект, нейросети, нейронная сеть, генерация изображений, стейбл дифьюжен, stable diffusion, sd"
         title="Где скачать Photoshop с рабочим Firefly? Какие есть аналоги?"
       >
@@ -719,6 +724,7 @@ const PsWhereFind: React.FC = () => {
         </Addition>
       </DetailsSummary>
       <DetailsSummary
+        anchor="neural-filters-download"
         tag="neural filters"
         title="Где и как скачать нейро-фильтры в Photoshop?"
       >
@@ -803,6 +809,7 @@ const PsWhereFind: React.FC = () => {
         </p>
       </DetailsSummary>
       <DetailsSummary
+        anchor="likefont"
         tag="идентификация шрифта, найти нужное начертание, find font, likefont"
         title="Как я могу распознать шрифт по имеющемуся фото?"
       >

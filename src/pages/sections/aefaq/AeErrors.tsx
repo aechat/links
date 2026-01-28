@@ -1155,6 +1155,7 @@ const AeErrors: React.FC = () => {
         </p>
       </DetailsSummary>
       <DetailsSummary
+        anchor="fix-gpu-driver-crash"
         tag="отключение планирования gpu, аппаратное ускорение, сбой драйвера, hardware decoding"
         title="При работе в программе пропадает изображение на мониторе, как будто перезагружается драйвер видеокарты. Как это исправить?"
       >
@@ -1199,6 +1200,7 @@ const AeErrors: React.FC = () => {
         />
       </DetailsSummary>
       <DetailsSummary
+        anchor="fix-sapphire-red-screen"
         tag="сапфир, красный экран, ошибка плагина, red screen, plugin error"
         title="Почему появляется красный экран и пропадают параметры у эффектов из пакета Boris FX Sapphire?"
       >
@@ -1213,8 +1215,9 @@ const AeErrors: React.FC = () => {
         </p>
       </DetailsSummary>
       <DetailsSummary
+        anchor="fix-crash-by-sapphire"
         tag="сапфир, вылет при запуске, совместимость, crash fix"
-        title="Как избавиться от вылетов Adobe Media Encoder после установки плагина Boris FX Sapphire?"
+        title="Как избавиться от вылетов Adobe Media Encoder после установки Boris FX Sapphire?"
       >
         <ContentFilter
           windowsContent={
@@ -1245,6 +1248,7 @@ const AeErrors: React.FC = () => {
         />
       </DetailsSummary>
       <DetailsSummary
+        anchor="fix-color-twixtor"
         tag="красный экран, синий экран, ошибка плагина, red screen, blue screen, plugin error"
         title="Как избавиться от красного или синего экрана при использовании Twixtor?"
       >
@@ -1272,6 +1276,7 @@ const AeErrors: React.FC = () => {
         </ul>
       </DetailsSummary>
       <DetailsSummary
+        anchor="fix-cc-2019-roto-brush-selection"
         tag="roto brush, ротобраш, баг версии cc 2019"
         title="Почему я не могу выделить объект при использовании Roto Brush?"
       >
@@ -1433,6 +1438,7 @@ const AeErrors: React.FC = () => {
         />
       </DetailsSummary>
       <DetailsSummary
+        anchor="fix-unicode-error"
         tag="unicode, ошибка кодировки, локализация, кириллица в путях, сброс настроек, unicode error, баг версии"
         title="Что делать с ошибками «Не удалось выполнить преобразование символов Unicode» или «Не удалось загрузить псевдоэффекты»?"
       >
@@ -1852,6 +1858,7 @@ const AeErrors: React.FC = () => {
         />
       </DetailsSummary>
       <DetailsSummary
+        anchor="fix-missing-dll-errors"
         tag="отсутствует visual c++"
         title="Что делать с ошибками отсутствия «MSVCP140.dll», «api-ms-win-crt-runtime-l1-1-0.dll» и похожих?"
       >
@@ -1872,6 +1879,7 @@ const AeErrors: React.FC = () => {
         />
       </DetailsSummary>
       <DetailsSummary
+        anchor="fix-missing-d3dcompiler"
         tag="d3dcompiler_47.dll, библиотека, отсутствует dll"
         title="Что делать с ошибкой «Не найден файл D3DCompiler_47.dll»?"
       >

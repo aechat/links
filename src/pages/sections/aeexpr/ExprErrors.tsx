@@ -5,7 +5,10 @@ import DetailsSummary from "../../../components/content/DetailsSummary";
 const AeExprErrors: React.FC = () => {
   return (
     <div className="article-content">
-      <DetailsSummary title="Плейсхолдер для будущих вопросов">
+      <DetailsSummary
+        anchor="placeholder"
+        title="Плейсхолдер для будущих вопросов"
+      >
         <p>Да, здесь пока что ничего интересного. Следите за обновлениями.</p>
       </DetailsSummary>
     </div>

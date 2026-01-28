@@ -11,6 +11,7 @@ const PrPerformance: React.FC = () => {
   return (
     <div className="article-content">
       <DetailsSummary
+        anchor="choose-computer"
         tag="pc, железо, выбор пк, сборка, системные требования, hardware recommendations"
         title="Какой компьютер или ноутбук нужен для работы в программе?"
       >

@@ -1523,6 +1523,7 @@ const PrInstallProblems: React.FC = () => {
         />
       </DetailsSummary>
       <DetailsSummary
+        anchor="non-stock-installation-path-problems"
         tag="символьные ссылки, symlink, нет места на диске, нестандартный путь установки, проблемы с плагинами, installation path, some products require host applications which are not installed on this computer"
         title="Почему из каждого угла советуют не менять путь для установки программы?"
       >
@@ -1765,6 +1766,7 @@ const PrInstallProblems: React.FC = () => {
         />
       </DetailsSummary>
       <DetailsSummary
+        anchor="install-adobe-errors-codes"
         tag="в настоящее время невозможно установить, операционная система не соответствует минимальным требованиям для этой программы установки"
         title="Код ошибки 1, 501, 176, 195, 21 или другие при установке Adobe Premiere"
       >
@@ -1915,6 +1917,7 @@ const PrInstallProblems: React.FC = () => {
         </Addition>
       </DetailsSummary>
       <DetailsSummary
+        anchor="kpojluk-corrupted-install-files"
         tag="репак от кролика, повреждённые файлы, ошибка установки, installation error, многотомный архив, проблемы при скачивании из telegram"
         title="«Некоторые установочные файлы были повреждены. Загрузите свежую копию и повторите установку»"
       >
@@ -2016,6 +2019,7 @@ const PrInstallProblems: React.FC = () => {
         </ul>
       </DetailsSummary>
       <DetailsSummary
+        anchor="kpojluk-the-hosts-file-does-not-exist-or-is-not-accessible"
         tag="репак от кролика, файл hosts, нет доступа"
         title="«rsload.net заблокирован в hosts» или «The hosts file does not exist or is not accessible»"
       >
@@ -2033,6 +2037,7 @@ const PrInstallProblems: React.FC = () => {
         </p>
       </DetailsSummary>
       <DetailsSummary
+        anchor="kpojiuk-repack-adware"
         tag="репак от кролика, реклама, adware, нежелательные изменения"
         title="Забыл убрать галочку с рекламой при установке репака от KpoJIuK. Как избавиться от последствий?"
       >
@@ -2053,6 +2058,7 @@ const PrInstallProblems: React.FC = () => {
         </p>
       </DetailsSummary>
       <DetailsSummary
+        anchor="fix-creative-cloud-missing"
         tag="ошибка запуска, хвосты от неудачного удаления, переустановка, adobe cc"
         title="«Приложение Adobe Creative Cloud, необходимое для устранения проблемы, отсутствует или повреждено...» при запуске программы"
       >
@@ -2292,6 +2298,7 @@ const PrInstallProblems: React.FC = () => {
         />
       </DetailsSummary>
       <DetailsSummary
+        anchor="speech-to-text-not-working"
         tag="бесконечная загрузка, голос в субтитры, транскрибация, captions, text, beginning language pack download, transcribing"
         title="Почему функция Speech to Text не работает на «народных» версиях?"
       >
@@ -2504,6 +2511,7 @@ const PrInstallProblems: React.FC = () => {
         />
       </DetailsSummary>
       <DetailsSummary
+        anchor="plugin-installer-types"
         tag="непонятные обозначения, adobe, ae, pr, ps, lr, ofx, ce, davinci, vegas, repack, standalone, офх, адоб, репак, стандалон"
         title="Как понять, для какой программы предназначен установщик плагина?"
       >
@@ -2621,6 +2629,7 @@ const PrInstallProblems: React.FC = () => {
         </p>
       </DetailsSummary>
       <DetailsSummary
+        anchor="fix-red-giant-installer-moved"
         tag="trapcode, mbl, magic bullet, vfx suite, universe, юниверс, трапкод, партикуляр, мбл"
         title="«This installer application has been moved. It must be run from its original folder containing a packages directory. The installer will now exit.» при установке любого пакета от Red Giant"
       >
@@ -2671,6 +2680,7 @@ const PrInstallProblems: React.FC = () => {
         </p>
       </DetailsSummary>
       <DetailsSummary
+        anchor="fix-red-giant-unlocker-error"
         tag="select action - an error occurred while trying to replace the existing file: deletefile failed; code 5. access denied"
         title="«Виберiть дiю - виникла помилка при спробi замiни iснуючого файлу: DeleteFile збiй; код 5. Отказано в доступе» при применении активатора от Team V.R. для пакетов Red Giant"
       >
@@ -2695,7 +2705,7 @@ const PrInstallProblems: React.FC = () => {
         />
       </DetailsSummary>
       <DetailsSummary
-        anchor="-193"
+        anchor="fix-zxp-installer-193"
         tag="extension manager init failed, status -193, a required resource is missing, please relaunch the creative cloud app and try again, zxp installer, ошибка -193, не установлен creative cloud"
         title="«Error: Extension Manager init failed, status = -193! A required resource is missing. Please relaunch the Creative Cloud app and try again» при использовании ZXP Installer"
       >
@@ -2724,6 +2734,7 @@ const PrInstallProblems: React.FC = () => {
         title="Как обновить программу, не потеряв при этом плагины и прочий установленный контент?"
       ></DetailsSummary>
       <DetailsSummary
+        anchor="safe-mode-and-reset"
         tag="безопасный режим, reset preferences, safe mode"
         title="Чую, что программа работает неправильно, но переустанавливать всё я не хочу. Как сбросить все настройки?"
       ></DetailsSummary>

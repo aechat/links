@@ -11,6 +11,7 @@ const AeInterface: React.FC = () => {
   return (
     <div className="article-content">
       <DetailsSummary
+        anchor="fix-blank-home-screen"
         tag="стартовая страница, домашний экран, home screen"
         title="Почему у меня не работает окно с недавними проектами и как его отключить?"
       >
@@ -67,6 +68,7 @@ const AeInterface: React.FC = () => {
         />
       </DetailsSummary>
       <DetailsSummary
+        anchor="restore-closed-panel"
         tag="интерфейс, панель, окна, рабочее пространство"
         title="Как вернуть случайно закрытое окно рабочего пространства?"
       >
@@ -85,6 +87,7 @@ const AeInterface: React.FC = () => {
         />
       </DetailsSummary>
       <DetailsSummary
+        anchor="dock-panel"
         tag="закрепить окно, прикрепить панель, scriptui panels, настройка рабочего пространства"
         title="Как прикрепить нужное окно к рабочему пространству программы?"
       >
@@ -192,6 +195,7 @@ const AeInterface: React.FC = () => {
         />
       </DetailsSummary>
       <DetailsSummary
+        anchor="stacked-panels"
         tag="закрепить окно, прикрепить панель, настройка рабочего пространства, stacked panels"
         title="Как разместить несколько окон во вкладках или расположить их списком?"
       >
@@ -219,6 +223,7 @@ const AeInterface: React.FC = () => {
         />
       </DetailsSummary>
       <DetailsSummary
+        anchor="maintain-current-workspace"
         tag="maintain current workspace, сохранить рабочее пространство, открытие проектов"
         title="Как зафиксировать текущее рабочее пространство при открытии проектов?"
       >
@@ -257,6 +262,7 @@ const AeInterface: React.FC = () => {
         />
       </DetailsSummary>
       <DetailsSummary
+        anchor="restore-timeline-columns"
         tag="переключатели, столбцы, колонки, timeline columns, switches"
         title="Как вернуть пропавшие переключатели и столбцы на таймлайне?"
       >
@@ -278,6 +284,7 @@ const AeInterface: React.FC = () => {
         />
       </DetailsSummary>
       <DetailsSummary
+        anchor="timeline-cache-indicators"
         tag="таймлайн, предпросмотр, кэширование, оперативная память, дисковый кэш"
         title="Что означают зелёная и синяя полосы на таймлайне?"
       >
@@ -336,6 +343,7 @@ const AeInterface: React.FC = () => {
         </ul>
       </DetailsSummary>
       <DetailsSummary
+        anchor="change-time-display-format"
         tag="альтернативный таймкод, формат времени, time display, frame count"
         title="Как изменить вид отсчёта времени на таймлайне?"
       >
@@ -353,6 +361,7 @@ const AeInterface: React.FC = () => {
         />
       </DetailsSummary>
       <DetailsSummary
+        anchor="hidden-layers-shy"
         tag="shy layer switch, скрытые слои, таймлайн, видимость слоёв, hidden layers, layer visibility"
         title="Почему я не вижу некоторые слои на таймлайне, хотя они есть в композиции?"
       >
@@ -378,6 +387,7 @@ const AeInterface: React.FC = () => {
         </Addition>
       </DetailsSummary>
       <DetailsSummary
+        anchor="last-frame-problem"
         tag="плейхед, cti, последний кадр, таймкод, playhead, current time indicator"
         title="Почему я не могу поставить метку текущего времени в самый конец композиции?"
       >
@@ -410,6 +420,7 @@ const AeInterface: React.FC = () => {
         </p>
       </DetailsSummary>
       <DetailsSummary
+        anchor="fix-current-time-indicator-stuck"
         tag="current time indicator stuck, cti, плейхед зависает, баг"
         title="Почему красная линия воспроизведения на таймлайне иногда останавливается?"
       >
@@ -448,6 +459,7 @@ const AeInterface: React.FC = () => {
         />
       </DetailsSummary>
       <DetailsSummary
+        anchor="show-layer-controls"
         tag="границы слоёв, предпросмотр, траектория движения, layer controls, mask visibility, motion path"
         title="Как включить отображение манипуляторов слоёв в предпросмотре?"
       >
@@ -507,6 +519,7 @@ const AeInterface: React.FC = () => {
         />
       </DetailsSummary>
       <DetailsSummary
+        anchor="preview-zoom"
         tag="масштаб, предпросмотр, зум, плавное масштабирование, preview zoom, magnification"
         title="Как установить свой процент масштабирования в окне предпросмотра?"
       >
@@ -613,6 +626,7 @@ const AeInterface: React.FC = () => {
         </p>
       </DetailsSummary>
       <DetailsSummary
+        anchor="3d-views"
         tag="3д, проекция, предпросмотр, camera views, 3d view, viewport"
         title="Где найти «Front View», «Current Camera» и другие варианты отображения камеры?"
       >
@@ -643,6 +657,7 @@ const AeInterface: React.FC = () => {
         />
       </DetailsSummary>
       <DetailsSummary
+        anchor="bezier-handles"
         tag="bezier handles, separate dimensions, value speed graph, graph editor, интерполяция, кривые безье, keyframe interpolation, редактор графиков, разделить оси"
         title="Почему у меня пропали направляющие Безье?"
       >
@@ -751,6 +766,7 @@ const AeInterface: React.FC = () => {
         />
       </DetailsSummary>
       <DetailsSummary
+        anchor="change-graph-editor-view"
         tag="graph editor, speed graph, value graph, отображение графика, редкатор графиков, анимация, интерполяция, кривые безье"
         title="Почему мой редактор графика скорости не похож на тот, что показывают в уроках?"
       >
@@ -769,6 +785,7 @@ const AeInterface: React.FC = () => {
         />
       </DetailsSummary>
       <DetailsSummary
+        anchor="track-matte-update"
         tag="trkmat, track matte, alpha matte, luma matte, подтравочные маски, matte options, compositing, маска по альфе, маска по яркости, обновление интерфейса"
         title="Что случилось с «Alpha Matte» и «Luma Matte» в новых версиях программы?"
       >
@@ -793,6 +810,7 @@ const AeInterface: React.FC = () => {
         />
       </DetailsSummary>
       <DetailsSummary
+        anchor="show-3d-camera-tracker-points"
         tag="3d camera tracker, трекер камеры, точки трекинга, point visibility"
         title="Почему точки для прикрепления объекта не отображаются в 3D Camera Tracker?"
       >
@@ -816,6 +834,7 @@ const AeInterface: React.FC = () => {
         </Addition>
       </DetailsSummary>
       <DetailsSummary
+        anchor="show-audio-waveform"
         tag="waveform, аудио, звуковая волна, аудиослой, audio visualization, sound wave, audio layer"
         title="Как включить отображение звуковой волны у аудиослоя?"
       >
@@ -833,6 +852,7 @@ const AeInterface: React.FC = () => {
         />
       </DetailsSummary>
       <DetailsSummary
+        anchor="fx-console"
         tag="fx console, ctrl space, быстрое применение эффектов, плагин, эффекты, quick effects, command palette"
         title="Как включить всплывающую панель для применения эффектов по Ctrl + Space?"
       >
@@ -863,6 +883,7 @@ const AeInterface: React.FC = () => {
         />
       </DetailsSummary>
       <DetailsSummary
+        anchor="disable-auto-open-properties"
         tag="окно свойств слоя, properties window, auto-open panel"
         title="Как отключить автоматическое открытие окна «Properties»?"
       >
@@ -895,6 +916,7 @@ const AeInterface: React.FC = () => {
         />
       </DetailsSummary>
       <DetailsSummary
+        anchor="change-stock-label-colors"
         tag="цвет меток, слои, маркировка слоёв, label colors"
         title="Как изменить стандартные цвета меток для различных типов слоёв?"
       >
@@ -919,6 +941,7 @@ const AeInterface: React.FC = () => {
         />
       </DetailsSummary>
       <DetailsSummary
+        anchor="change-color-picker"
         tag="color picker, системный выбор цвета, системная палитра, color palette"
         title="Почему у меня изменился интерфейс выбора цвета и как его вернуть?"
       >
@@ -942,6 +965,7 @@ const AeInterface: React.FC = () => {
         />
       </DetailsSummary>
       <DetailsSummary
+        anchor="change-accent-color"
         tag="акцентный цвет, консоль, тема, accent color, theme customization"
         title="Как изменить акцентный цвет интерфейса программы?"
       >
@@ -1006,6 +1030,7 @@ const AeInterface: React.FC = () => {
         />
       </DetailsSummary>
       <DetailsSummary
+        anchor="full-dark-theme-interface"
         tag="windhawk, mica for everyone, dark theme, theme customization"
         title="Как изменить светлые участки интерфейса тёмными?"
       >
@@ -1137,6 +1162,7 @@ const AeInterface: React.FC = () => {
         />
       </DetailsSummary>
       <DetailsSummary
+        anchor="custom-splash-screen"
         tag="заставка, изображение запуска, resource hacker, dll, startup image, splash screen customization"
         title="Как изменить картинку во время запуска программы?"
       >
@@ -1253,6 +1279,7 @@ const AeInterface: React.FC = () => {
         />
       </DetailsSummary>
       <DetailsSummary
+        anchor="restore-preferences-after-crash"
         tag="21::31, preferences file is not valid, the file will be renamed with .old and a new preferences file will be created, error while accessing the preference files inside directory, please verify the file permissions and try again, сброс настроек, миграция настроек, восстановление параметров"
         title="Как восстановить настройки программы после сбоя системы?"
       >
