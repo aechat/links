@@ -207,7 +207,8 @@ const PsWhereFind: React.FC = () => {
       </DetailsSummary>
       <DetailsSummary
         anchor="graphics-resources"
-        title="Где я могу найти и скачать различную графику для своих проектов?"
+        tag="фото, изображения, текстуры, шрифты, кисти, паттерны, иконки, psd, graphic resources, free graphics, stock photos"
+        title="Где найти и скачать графику для своих проектов?"
       >
         <p>
           Для таких случаев был создан канал{" "}
@@ -345,8 +346,8 @@ const PsWhereFind: React.FC = () => {
       </DetailsSummary>
       <DetailsSummary
         anchor="likefont"
-        tag="идентификация шрифта, найти нужное начертание, find font, likefont"
-        title="Как я могу распознать шрифт по имеющемуся фото?"
+        tag="идентификация шрифта, find font, likefont, определить шрифт, font identification"
+        title="Как распознать шрифт по картинке?"
       >
         <p>
           Для распознавания нужного начертания из изображения вы можете воспользоваться
