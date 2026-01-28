@@ -25,7 +25,7 @@ const usePrevious = <T,>(value: T): T | undefined => {
 };
 
 interface DetailsSummaryProperties {
-  anchor?: string;
+  anchor: string;
   children: ReactNode;
   tag?: string;
   title: string;
