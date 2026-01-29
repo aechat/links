@@ -4,7 +4,7 @@ import {Helmet} from "react-helmet-async";
 
 import PageTransition from "../components/layout/PageTransition";
 import modalStyles from "../components/modals/Modal.module.scss";
-import {useLoading} from "../context/LoadingContext";
+import {usePageLoad} from "../hooks/usePageLoad";
 
 interface Subtitle {
   end: number;
@@ -15,11 +15,7 @@ interface Subtitle {
 const NotFound = () => {
   const audioReference = useRef<HTMLAudioElement | null>(null);
 
-  const {setIsLoading} = useLoading();
-
-  useEffect(() => {
-    setIsLoading(false);
-  }, [setIsLoading]);
+  usePageLoad();
 
   const [subtitles, setSubtitles] = useState<Subtitle[]>([]);
 

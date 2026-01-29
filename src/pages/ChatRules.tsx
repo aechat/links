@@ -1,4 +1,4 @@
-import React, {useCallback} from "react";
+import React, {useCallback, useEffect} from "react";
 
 import {Divider, message, Tooltip} from "antd";
 import {Helmet} from "react-helmet-async";
@@ -10,8 +10,8 @@ import Footer from "../components/layout/Footer";
 import Header from "../components/layout/Header";
 import PageTransition from "../components/layout/PageTransition";
 import {CopyButton} from "../components/ui/CopyButton/CopyButton";
-import {useLoading} from "../context/LoadingContext";
 import {useCopyToClipboard} from "../hooks/useCopyToClipboard";
+import {usePageLoad} from "../hooks/usePageLoad";
 
 const constants = {
   PADDING: {
@@ -28,12 +28,7 @@ const constants = {
 const ChatRules = () => {
   const {hash} = useLocation();
 
-  const {setIsLoading} = useLoading();
-
-  React.useEffect(() => {
-    setIsLoading(false);
-  }, [setIsLoading]);
-
+  usePageLoad();
   useCopyToClipboard();
 
   const handleCopyAnchor = useCallback((anchorId: string) => {
@@ -43,7 +38,7 @@ const ChatRules = () => {
     message.success(`Ссылка на раздел скопирована в буфер обмена`);
   }, []);
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (hash) {
       setTimeout(() => {
         const element = document.querySelector(hash);

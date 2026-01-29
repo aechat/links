@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React from "react";
 
 import {
   BrokenImageOutlined,
@@ -16,14 +16,13 @@ import {Divider} from "antd";
 import {Helmet} from "react-helmet-async";
 
 import Addition from "../components/content/Addition";
-import {generateAnchorId} from "../components/content/DetailsSummary";
 import {SearchInPage, SearchProvider} from "../components/features/SearchEngine";
 import Footer from "../components/layout/Footer";
 import Header from "../components/layout/Header";
 import PageTransition from "../components/layout/PageTransition";
-import {useLoading} from "../context/LoadingContext";
 import {useAnchorValidation} from "../hooks/useAnchorValidation";
 import {useCopyToClipboard} from "../hooks/useCopyToClipboard";
+import {usePageLoad} from "../hooks/usePageLoad";
 import {useSmartCopy} from "../hooks/useSmartCopy";
 
 import PrActions from "./sections/prfaq/PrActions";
@@ -38,15 +37,7 @@ import PrPerformance from "./sections/prfaq/PrPerformance";
 import PrWhereFind from "./sections/prfaq/PrWhereFind";
 
 const PrFaqPage = () => {
-  const [isPageLoaded, setIsPageLoaded] = useState(false);
-
-  const {setIsLoading} = useLoading();
-
-  useEffect(() => {
-    setIsPageLoaded(true);
-    setIsLoading(false);
-    generateAnchorId();
-  }, [setIsLoading]);
+  const isPageLoaded = usePageLoad(true);
 
   useCopyToClipboard();
   useSmartCopy(isPageLoaded);

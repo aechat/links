@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React, {useState} from "react";
 
 import {
   AnimationRounded,
@@ -48,16 +48,12 @@ import Header from "../components/layout/Header";
 import PageTransition from "../components/layout/PageTransition";
 import modalStyles from "../components/modals/Modal.module.scss";
 import {LinkCard} from "../components/ui/LinkCards";
-import {useLoading} from "../context/LoadingContext";
+import {usePageLoad} from "../hooks/usePageLoad";
 
 import {/* AEExprIcon, */ AeIcon, PrIcon, PsIcon} from "./FaqIcon";
 
 const Links = () => {
-  const {setIsLoading} = useLoading();
-
-  useEffect(() => {
-    setIsLoading(false);
-  }, [setIsLoading]);
+  usePageLoad();
 
   const [isModalOpen, setIsModalOpen] = useState(false);
 

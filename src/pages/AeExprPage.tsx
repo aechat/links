@@ -1,17 +1,16 @@
-import React, {useEffect, useState} from "react";
+import React from "react";
 
 import {Divider} from "antd";
 import {Helmet} from "react-helmet-async";
 
 import Addition from "../components/content/Addition";
-import {generateAnchorId} from "../components/content/DetailsSummary";
 import {SearchInPage, SearchProvider} from "../components/features/SearchEngine";
 import Footer from "../components/layout/Footer";
 import Header from "../components/layout/Header";
 import PageTransition from "../components/layout/PageTransition";
-import {useLoading} from "../context/LoadingContext";
 import {useAnchorValidation} from "../hooks/useAnchorValidation";
 import {useCopyToClipboard} from "../hooks/useCopyToClipboard";
+import {usePageLoad} from "../hooks/usePageLoad";
 import {useSmartCopy} from "../hooks/useSmartCopy";
 
 import AeExprActions from "./sections/aeexpr/ExprActions";
@@ -21,15 +20,7 @@ import AeExprLinking from "./sections/aeexpr/ExprLinking";
 import AeExprStart from "./sections/aeexpr/ExprStart";
 
 const AeExprPage = () => {
-  const [isPageLoaded, setIsPageLoaded] = useState(false);
-
-  const {setIsLoading} = useLoading();
-
-  useEffect(() => {
-    setIsPageLoaded(true);
-    setIsLoading(false);
-    generateAnchorId();
-  }, [setIsLoading]);
+  const isPageLoaded = usePageLoad(true);
 
   useCopyToClipboard();
   useSmartCopy(isPageLoaded);

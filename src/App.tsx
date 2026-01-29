@@ -160,6 +160,8 @@ const ErrorFallback = ({error}: {error: Error}) => {
       "message" in error.cause &&
       (error.cause as Error).message.includes("dynamically imported module"));
 
+  const isTimeoutError = error.message.includes("timed out");
+
   return (
     <div className="error-container">
       <div className="error-backtitle">Ошибка</div>
@@ -169,34 +171,52 @@ const ErrorFallback = ({error}: {error: Error}) => {
       >
         <div className="error-content">
           <div className="error-title">
-            {isDynamicImportError ? (
-              "Доступна новая версия сайта"
-            ) : (
-              <>
-                Ошибка:{" "}
+            {(() => {
+              let errorTitle = "Произошла ошибка";
+
+              if (isDynamicImportError) {
+                errorTitle = "Доступна новая версия сайта";
+              } else if (isTimeoutError) {
+                errorTitle = "Загрузка страницы заняла слишком много времени";
+              }
+
+              return errorTitle;
+            })()}
+          </div>
+          <div className="error-message">
+            <p>
+              {(() => {
+                let errorMessage = "Всякое бывает, попробуйте перезагрузить страницу.";
+
+                if (isDynamicImportError) {
+                  errorMessage =
+                    "Обновите страницу, чтобы получить доступ к последним изменениям.";
+                } else if (isTimeoutError) {
+                  errorMessage =
+                    "Пожалуйста, проверьте ваше интернет-соединение и попробуйте обновить страницу.";
+                }
+
+                return errorMessage;
+              })()}
+            </p>
+            {!isDynamicImportError && (
+              <p>
                 <span
-                  style={{cursor: "pointer"}}
+                  style={{cursor: "pointer", fontSize: "0.9rem", opacity: 0.5}}
                   onClick={async () => {
                     const success = await copyText(error.message);
 
                     if (success) {
-                      message.success("Текст скопирован в буфер обмена");
+                      message.success("Текст ошибки скопирован в буфер обмена");
                     } else {
-                      message.error("Не удалось скопировать текст");
+                      message.error("Не удалось скопировать текст ошибки");
                     }
                   }}
                 >
                   {error.message}
                 </span>
-              </>
+              </p>
             )}
-          </div>
-          <div className="error-message">
-            <p>
-              {isDynamicImportError
-                ? "Обновите страницу, чтобы получить доступ к последним изменениям."
-                : "Всякое бывает, попробуйте перезагрузить страницу."}
-            </p>
             <div className="flexible-links">
               {isDynamicImportError === false && (
                 <button
@@ -345,12 +365,30 @@ export const App = () => {
 
   const [isLoading, setIsLoading] = useState(true);
 
+  const [loadingError, setLoadingError] = useState<Error | undefined>();
+
   const previousPathname = useRef(location.pathname);
 
   if (previousPathname.current !== location.pathname) {
     previousPathname.current = location.pathname;
     setIsLoading(true);
   }
+
+  useEffect(() => {
+    if (!isLoading) {
+      return;
+    }
+
+    const safetyTimer = setTimeout(() => {
+      setLoadingError(new Error("Page loading timed out after 60 seconds."));
+    }, 60_000);
+
+    return () => clearTimeout(safetyTimer);
+  }, [isLoading]);
+
+  useEffect(() => {
+    setLoadingError(undefined);
+  }, [location.pathname]);
 
   useEffect(() => {
     if (globalThis.window === undefined) return;
@@ -408,6 +446,10 @@ export const App = () => {
       globalThis.window.location.replace(path.replace(/\.html$/, ""));
     }
   }, [location]);
+
+  if (loadingError) {
+    return <ErrorFallback error={loadingError} />;
+  }
 
   if (isClient && isOldBrowserWarningOpen) {
     return (
