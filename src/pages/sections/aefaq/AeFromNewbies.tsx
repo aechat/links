@@ -1346,15 +1346,6 @@ const AeFromNewbies: React.FC = () => {
                 src="qFVQrxWvOjw"
                 type="youtube"
               />
-              <Divider>Статьи о слоях от Adobe</Divider>
-              <div className="flexible-links">
-                <a href="https://helpx.adobe.com/after-effects/using/3d-layers.html">
-                  Трёхмерные слои и модели
-                </a>
-                <a href="https://helpx.adobe.com/after-effects/using/cameras-lights-points-interest.html">
-                  Камеры, освещение и точки обзора
-                </a>
-              </div>
             </NestedDetailsSummary>
           </li>
           <li>
@@ -1798,6 +1789,12 @@ const AeFromNewbies: React.FC = () => {
           </a>
           <a href="https://helpx.adobe.com/after-effects/using/precomposing-nesting-pre-rendering.html">
             Создание прекомпозиций и пререндеринг
+          </a>
+          <a href="https://helpx.adobe.com/after-effects/using/3d-layers.html">
+            Трёхмерные слои и модели
+          </a>
+          <a href="https://helpx.adobe.com/after-effects/using/cameras-lights-points-interest.html">
+            Камеры, освещение и точки обзора
           </a>
         </div>
         <Addition type="info">
