@@ -410,6 +410,31 @@ const AeFromNewbies: React.FC = () => {
                 </ul>
               </Addition>
             </NestedDetailsSummary>
+            <NestedDetailsSummary title="Аудио">
+              <p>
+                <mark className="select">«Audio»</mark> — слой, содержащий только
+                аудиодорожку. Для изменения громкости используется параметр{" "}
+                <mark className="select">«Audio Levels»</mark>. Чтобы увидеть форму волны
+                — нажмите дважды <mark className="key">L</mark>.
+              </p>
+              <Addition type="warning">
+                <ul>
+                  <li>
+                    Некоторые форматы аудио, например <mark className="audio">OGG</mark> —
+                    не поддерживаются. Их нужно конвертировать в{" "}
+                    <mark className="audio">WAV</mark> или{" "}
+                    <mark className="audio">MP3</mark>.
+                  </li>
+                  <li>
+                    <mark className="app">Adobe After Effects</mark> не предназначен для
+                    серьёзной работы со звуком, не смотря на наличие эффектов в разделе{" "}
+                    <mark className="path">Audio Effects</mark>. Для этого лучше
+                    использовать <mark className="app">Adobe Audition</mark> или{" "}
+                    <mark className="app">Adobe Premiere</mark>.
+                  </li>
+                </ul>
+              </Addition>
+            </NestedDetailsSummary>
             <NestedDetailsSummary title="Статичное изображение">
               <p>
                 <mark className="select">«Still»</mark> — слой, содержащее растровое или
@@ -563,31 +588,6 @@ const AeFromNewbies: React.FC = () => {
                 </ul>
               </Addition>
             </NestedDetailsSummary>
-            <NestedDetailsSummary title="Аудио">
-              <p>
-                <mark className="select">«Audio»</mark> — слой, содержащий только
-                аудиодорожку. Для изменения громкости используется параметр{" "}
-                <mark className="select">«Audio Levels»</mark>. Чтобы увидеть форму волны
-                — нажмите дважды <mark className="key">L</mark>.
-              </p>
-              <Addition type="warning">
-                <ul>
-                  <li>
-                    Некоторые форматы аудио, например <mark className="audio">OGG</mark> —
-                    не поддерживаются. Их нужно конвертировать в{" "}
-                    <mark className="audio">WAV</mark> или{" "}
-                    <mark className="audio">MP3</mark>.
-                  </li>
-                  <li>
-                    <mark className="app">Adobe After Effects</mark> не предназначен для
-                    серьёзной работы со звуком, не смотря на наличие эффектов в разделе{" "}
-                    <mark className="path">Audio Effects</mark>. Для этого лучше
-                    использовать <mark className="app">Adobe Audition</mark> или{" "}
-                    <mark className="app">Adobe Premiere</mark>.
-                  </li>
-                </ul>
-              </Addition>
-            </NestedDetailsSummary>
             <NestedDetailsSummary title="Файлы Photoshop">
               <p>
                 <mark className="file">PSD</mark> — файлы изображений, создаваемые и
@@ -619,227 +619,12 @@ const AeFromNewbies: React.FC = () => {
           </li>
           <li>
             <p>
-              <mark className="select">«Функциональные слои»</mark> — к ним относятся{" "}
-              <mark className="select">«Camera»</mark>,{" "}
-              <mark className="select">«Light Layer»</mark> и{" "}
-              <mark className="select">«Null Object»</mark>.
+              <mark className="select">«Слои для специальных функций»</mark> — к ним
+              относятся <mark className="select">«Camera»</mark>,{" "}
+              <mark className="select">«Light Layer»</mark>,{" "}
+              <mark className="select">«Null Object»</mark> и{" "}
+              <mark className="select">«Adjustment Layer»</mark>.
             </p>
-            <NestedDetailsSummary title="Нулевой объект">
-              <p>
-                <mark className="select">«Null Object»</mark> — невидимый манипулятор для
-                объектов, слоёв или параметров эффекта. Он часто применяется для создания
-                зависимости между управляющими и управляемыми элементами. К нулевому
-                объекту можно привязать сразу несколько слоёв — например, для их вращения
-                вокруг определённой оси. Для этого можно воспользоваться лассо в столбце{" "}
-                <mark className="select">«Parent & Link»</mark>
-                <sup>1</sup> или <mark className="word">выражениями</mark>.
-              </p>
-              <Addition type="info">
-                <sup>1</sup> Если вы скрыли отображение этого столбца на таймлайне —
-                нажмите <mark className="key">F4</mark> или{" "}
-                <mark className="key">ПКМ</mark> по заголовкам столбцов и выберите{" "}
-                <mark className="select">«Columns» → «Parent & Link»</mark>.
-              </Addition>
-              <ArticleMedia
-                src="8ei_cj6A2Gg"
-                type="youtube"
-              />
-              <Addition type="warning">
-                Не стоит путать колонки <mark className="select">«Parent & Link»</mark> с{" "}
-                <mark className="select">«Track Matte»</mark>, несмотря на то, что у обоих
-                столбцов есть лассо для указания ссылки на нужный слой. Часто новички не
-                смотрят на название нужной колонки, а потом удивляются, почему у них
-                программа работает не так, как они хотят.
-              </Addition>
-            </NestedDetailsSummary>
-          </li>
-          <li>
-            <p>
-              <mark className="select">«Solid Layer»</mark> и{" "}
-              <mark className="select">«Adjustment Layer»</mark>, на которые можно
-              применять эффекты. При создании они появляются в окне{" "}
-              <mark className="select">«Project»</mark> в папке{" "}
-              <mark className="path">Solids</mark>.
-            </p>
-            <NestedDetailsSummary title="Корректирующий слой">
-              <p>
-                <mark className="select">«Adjustment Layer»</mark> — довольно мощный
-                инструмент. С его помощью можно выполнить цветокоррекцию, добавить
-                цифровой шум, заставить трястись всю композицию или внести различные
-                искажения. Эффекты, применённые к такому слою, будут влиять только на те
-                слои, которые расположены ниже него на таймлайне.
-              </p>
-              <Addition type="warning">
-                Не все эффекты могут корректно применяться на{" "}
-                <mark className="select">«Adjustment Layer»</mark>, если в композиции
-                отсутствует фон, созданный через{" "}
-                <mark className="select">«Solid Layer»</mark> и размещённый под{" "}
-                <mark className="select">«Adjustment Layer»</mark>.
-              </Addition>
-              <ArticleMedia
-                src="rgMKGFWWqjA"
-                type="youtube"
-              />
-              <p>
-                По сути, роль <mark className="select">«Adjustment Layer»</mark> может
-                выполнять почти любой объект на таймлайне — достаточно включить для него
-                соответствующую через контекстное меню в{" "}
-                <mark className="select">«Layer»</mark>, <mark className="key">ПКМ</mark>{" "}
-                или с помощью соответствующего переключателя на таймлайне.
-              </p>
-              <ArticleMedia
-                caption="Демонстрация работы корректирующего слоя"
-                src="legacy/aftereffects/enable_adjustment_layer_mode.mp4"
-                type="video"
-              />
-            </NestedDetailsSummary>
-            <NestedDetailsSummary title="Сплошная заливка">
-              <p>
-                <mark className="select">«Solid Layer»</mark> — объект с однотонным
-                цветом, обычно соответствующий размерам композиции. Он часто используется
-                как фон или как «инициатор» для трёхмерных эффектов, таких как{" "}
-                <mark className="plugin">Element 3D</mark>,{" "}
-                <mark className="plugin">Trapcode Particular</mark>,{" "}
-                <mark className="plugin">Trapcode Form</mark> или{" "}
-                <mark className="plugin">CC Particle World</mark>. Кроме того,{" "}
-                <mark className="select">«Solid Layer»</mark> может служить простым фоном
-                — это особенно полезно, когда некоторые эффекты, например переходы из{" "}
-                <mark className="plugin">AtomX</mark> или{" "}
-                <mark className="plugin">Motion Bro</mark>, работают некорректно с
-                прозрачностью.
-              </p>
-              <Addition type="info">
-                <ul>
-                  <li>
-                    Чтобы создать <mark className="select">«Solid Layer»</mark> — нажмите
-                    комбинацию клавиш <mark className="key">Ctrl + Y</mark>.
-                  </li>
-                  <li>
-                    Чтобы настроить размер, цвет и другие параметры такого слоя — нажмите
-                    комбинацию клавиш <mark className="key">Ctrl + Shift + Y</mark>.
-                  </li>
-                </ul>
-              </Addition>
-              <ArticleMedia
-                src="e-g1y4p8Jc0"
-                type="youtube"
-              />
-              <Addition type="warning">
-                <ul>
-                  <li>
-                    Если применённый вами эффект работает в собственном трёхмерном
-                    пространстве — не стоит преобразовывать слой-«инициатор» в{" "}
-                    <mark className="select">«3D Layer»</mark>. Чтобы изменить его вид или
-                    положение, используйте <mark className="select">«Camera»</mark> или,
-                    если возможно, создавайте{" "}
-                    <mark className="select">«Null Object»</mark> для параметров положения
-                    объекта.
-                  </li>
-                  <li>
-                    Чтобы определить, использует ли эффект своё трёхмерное пространство,
-                    обратите внимание на его название в{" "}
-                    <mark className="select">«Effects & Controls»</mark> — рядом должна
-                    отображаться иконка <mark className="select">«кубика»</mark>.
-                  </li>
-                </ul>
-              </Addition>
-            </NestedDetailsSummary>
-          </li>
-          <li>
-            <p>
-              <mark className="select">«Синтетические слои»</mark> — слои, которые
-              содержат визуальные элементы, не основанные на импортированных файлах. К ним
-              относятся <mark className="select">«Text Layer»</mark>,{" "}
-              <mark className="select">«Camera»</mark>,{" "}
-              <mark className="select">«Light Layer»</mark> и{" "}
-              <mark className="select">«Shape Layer»</mark>.
-            </p>
-            <NestedDetailsSummary title="Текстовый слой">
-              <p>
-                <mark className="select">«Text Layer»</mark> — это слой с редактируемым
-                текстом. У него есть два типа:{" "}
-                <mark className="select">«Point Text»</mark> и{" "}
-                <mark className="select">«Paragraph Text»</mark>. Каждый из них
-                используется для разных целей. Вы можете{" "}
-                <a href="https://www.youtube.com/watch?v=-PS2Yl-IzTQ">
-                  анимировать Source Text
-                </a>{" "}
-                — менять сам текст на ключевых кадрах,{" "}
-                <a href="https://www.youtube.com/watch?v=_CEpgznn-XU">
-                  запустить текст по Path
-                </a>{" "}
-                с помощью маски или{" "}
-                <a href="https://www.youtube.com/watch?v=IJ3QHNQSJg8">
-                  использовать текстовые аниматоры
-                </a>
-                .
-              </p>
-              <p>
-                Шрифт, его размер, обводка, межстрочные и межбуквенные интервалы, лигатуры
-                и другие параметры внешнего вида настраиваются в окне{" "}
-                <mark className="select">«Character»</mark>. Выравнивание, отступы и
-                расстояние между абзацами — в окне{" "}
-                <mark className="select">«Paragraph»</mark>.
-              </p>
-              <Addition type="info">
-                Начиная с <mark className="app">Adobe After Effects</mark> версии{" "}
-                <mark>23.4</mark>, большинство этих параметров доступно в окне{" "}
-                <mark className="select">«Properties»</mark>.
-              </Addition>
-              <ul>
-                <li>
-                  <mark className="select">«Point Text»</mark> — используется, когда не
-                  важны ограничения по ширине или высоте. Его название говорит само за
-                  себя: текст задаётся от одной точки и чаще всего идёт в одну строку.
-                  Подходит для заголовков, коротких примечаний и вставок. Поддерживает
-                  только выравнивание по левому, правому краю и по центру — выравнивание
-                  по ширине невозможно, так как у такого текста нет фиксированной рамки.
-                  <ArticleMedia
-                    caption="Создание Point Text"
-                    src="legacy/aftereffects/create_point_text.mp4"
-                    type="video"
-                  />
-                </li>
-                <li>
-                  <mark className="select">«Paragraph Text»</mark> — подходит, когда нужно
-                  вписать текст в конкретную «коробку» (ограничить ширину и/или высоту).
-                  Часто используется для встраивания текста в фигуры, например
-                  прямоугольники. Поддерживает все типы выравнивания, включая выравнивание
-                  по ширине — настраивается в <mark className="select">«Paragraph»</mark>.
-                  <ArticleMedia
-                    caption="Создание Paragraph Text"
-                    src="legacy/aftereffects/create_paragraph_text.mp4"
-                    type="video"
-                  />
-                </li>
-              </ul>
-              <p>
-                Один тип текстового слоя можно преобразовать в другой. Для этого выберите
-                инструмент <mark className="select">«Text»</mark>, затем — нужный слой,
-                кликните по нему <mark className="key">ПКМ</mark> и выберите{" "}
-                <mark className="select">«Convert to Point Text»</mark> или{" "}
-                <mark className="select">«Convert to Paragraph Text»</mark> — в
-                зависимости от того, что у вас сейчас.
-              </p>
-              <ArticleMedia
-                caption="Конвертация Point Text в Paragraph Text"
-                src="legacy/aftereffects/convert_to_paragraph_text.mp4"
-                type="video"
-              />
-              <p>
-                Также текст можно писать горизонтально и вертикально. Для этого есть
-                инструменты <mark className="select">«Horizontal Text Tool»</mark> (по
-                умолчанию) и <mark className="select">«Vertical Text Tool»</mark>.
-                Вертикальный текст чаще используется в азиатских языках, но может
-                пригодиться и для латиницы или кириллицы — например, для создания{" "}
-                <mark>monospace-like</mark> шрифта. Это полезно для анимации счётчиков,
-                чтобы текст не прыгал.
-              </p>
-              <ArticleMedia
-                src="__-rPlFfRow"
-                type="youtube"
-              />
-            </NestedDetailsSummary>
             <NestedDetailsSummary title="Камера">
               <p>
                 <mark className="select">«Camera»</mark> — слой, который служит
@@ -1231,6 +1016,134 @@ const AeFromNewbies: React.FC = () => {
                 </ul>
               </Addition>
             </NestedDetailsSummary>
+            <NestedDetailsSummary title="Корректирующий слой">
+              <p>
+                <mark className="select">«Adjustment Layer»</mark> — довольно мощный
+                инструмент. С его помощью можно выполнить цветокоррекцию, добавить
+                цифровой шум, заставить трястись всю композицию или внести различные
+                искажения. Эффекты, применённые к такому слою, будут влиять только на те
+                слои, которые расположены ниже него на таймлайне.
+              </p>
+              <Addition type="warning">
+                Не все эффекты могут корректно применяться на{" "}
+                <mark className="select">«Adjustment Layer»</mark>, если в композиции
+                отсутствует фон, созданный через{" "}
+                <mark className="select">«Solid Layer»</mark> и размещённый под{" "}
+                <mark className="select">«Adjustment Layer»</mark>.
+              </Addition>
+              <ArticleMedia
+                src="rgMKGFWWqjA"
+                type="youtube"
+              />
+              <p>
+                По сути, роль <mark className="select">«Adjustment Layer»</mark> может
+                выполнять почти любой объект на таймлайне — достаточно включить для него
+                соответствующую через контекстное меню в{" "}
+                <mark className="select">«Layer»</mark>, <mark className="key">ПКМ</mark>{" "}
+                или с помощью соответствующего переключателя на таймлайне.
+              </p>
+              <ArticleMedia
+                caption="Демонстрация работы корректирующего слоя"
+                src="legacy/aftereffects/enable_adjustment_layer_mode.mp4"
+                type="video"
+              />
+            </NestedDetailsSummary>
+            <NestedDetailsSummary title="Нулевой объект">
+              <p>
+                <mark className="select">«Null Object»</mark> — невидимый манипулятор для
+                объектов, слоёв или параметров эффекта. Он часто применяется для создания
+                зависимости между управляющими и управляемыми элементами. К нулевому
+                объекту можно привязать сразу несколько слоёв — например, для их вращения
+                вокруг определённой оси. Для этого можно воспользоваться лассо в столбце{" "}
+                <mark className="select">«Parent & Link»</mark>
+                <sup>1</sup> или <mark className="word">выражениями</mark>.
+              </p>
+              <Addition type="info">
+                <sup>1</sup> Если вы скрыли отображение этого столбца на таймлайне —
+                нажмите <mark className="key">F4</mark> или{" "}
+                <mark className="key">ПКМ</mark> по заголовкам столбцов и выберите{" "}
+                <mark className="select">«Columns» → «Parent & Link»</mark>.
+              </Addition>
+              <ArticleMedia
+                src="8ei_cj6A2Gg"
+                type="youtube"
+              />
+              <Addition type="warning">
+                Не стоит путать колонки <mark className="select">«Parent & Link»</mark> с{" "}
+                <mark className="select">«Track Matte»</mark>, несмотря на то, что у обоих
+                столбцов есть лассо для указания ссылки на нужный слой. Часто новички не
+                смотрят на название нужной колонки, а потом удивляются, почему у них
+                программа работает не так, как они хотят.
+              </Addition>
+            </NestedDetailsSummary>
+          </li>
+          <li>
+            <p>
+              <mark className="select">«Слой сплошной заливки»</mark> —{" "}
+              <mark className="select">«Solid Layer»</mark>, на который можно применять
+              эффекты. При создании он появляется в окне{" "}
+              <mark className="select">«Project»</mark> в папке{" "}
+              <mark className="path">Solids</mark>.
+            </p>
+            <NestedDetailsSummary title="Сплошная заливка">
+              <p>
+                <mark className="select">«Solid Layer»</mark> — объект с однотонным
+                цветом, обычно соответствующий размерам композиции. Он часто используется
+                как фон или как «инициатор» для трёхмерных эффектов, таких как{" "}
+                <mark className="plugin">Element 3D</mark>,{" "}
+                <mark className="plugin">Trapcode Particular</mark>,{" "}
+                <mark className="plugin">Trapcode Form</mark> или{" "}
+                <mark className="plugin">CC Particle World</mark>. Кроме того,{" "}
+                <mark className="select">«Solid Layer»</mark> может служить простым фоном
+                — это особенно полезно, когда некоторые эффекты, например переходы из{" "}
+                <mark className="plugin">AtomX</mark> или{" "}
+                <mark className="plugin">Motion Bro</mark>, работают некорректно с
+                прозрачностью.
+              </p>
+              <Addition type="info">
+                <ul>
+                  <li>
+                    Чтобы создать <mark className="select">«Solid Layer»</mark> — нажмите
+                    комбинацию клавиш <mark className="key">Ctrl + Y</mark>.
+                  </li>
+                  <li>
+                    Чтобы настроить размер, цвет и другие параметры такого слоя — нажмите
+                    комбинацию клавиш <mark className="key">Ctrl + Shift + Y</mark>.
+                  </li>
+                </ul>
+              </Addition>
+              <ArticleMedia
+                src="e-g1y4p8Jc0"
+                type="youtube"
+              />
+              <Addition type="warning">
+                <ul>
+                  <li>
+                    Если применённый вами эффект работает в собственном трёхмерном
+                    пространстве — не стоит преобразовывать слой-«инициатор» в{" "}
+                    <mark className="select">«3D Layer»</mark>. Чтобы изменить его вид или
+                    положение, используйте <mark className="select">«Camera»</mark> или,
+                    если возможно, создавайте{" "}
+                    <mark className="select">«Null Object»</mark> для параметров положения
+                    объекта.
+                  </li>
+                  <li>
+                    Чтобы определить, использует ли эффект своё трёхмерное пространство,
+                    обратите внимание на его название в{" "}
+                    <mark className="select">«Effects & Controls»</mark> — рядом должна
+                    отображаться иконка <mark className="select">«кубика»</mark>.
+                  </li>
+                </ul>
+              </Addition>
+            </NestedDetailsSummary>
+          </li>
+          <li>
+            <p>
+              <mark className="select">«Синтетические слои»</mark> — слои, которые
+              содержат визуальные элементы, не основанные на импортированных файлах. К ним
+              относятся <mark className="select">«Text Layer»</mark> и{" "}
+              <mark className="select">«Shape Layer»</mark>.
+            </p>
             <NestedDetailsSummary title="Слой-фигура">
               <p>
                 <mark className="select">«Shape Layer»</mark> — слой, содержащий
@@ -1258,6 +1171,190 @@ const AeFromNewbies: React.FC = () => {
                 src="98ro7x3kl8A"
                 type="youtube"
               />
+            </NestedDetailsSummary>
+            <NestedDetailsSummary title="Текстовый слой">
+              <p>
+                <mark className="select">«Text Layer»</mark> — это слой с редактируемым
+                текстом. У него есть два типа:{" "}
+                <mark className="select">«Point Text»</mark> и{" "}
+                <mark className="select">«Paragraph Text»</mark>. Каждый из них
+                используется для разных целей. Вы можете{" "}
+                <a href="https://www.youtube.com/watch?v=-PS2Yl-IzTQ">
+                  анимировать Source Text
+                </a>{" "}
+                — менять сам текст на ключевых кадрах,{" "}
+                <a href="https://www.youtube.com/watch?v=_CEpgznn-XU">
+                  запустить текст по Path
+                </a>{" "}
+                с помощью маски или{" "}
+                <a href="https://www.youtube.com/watch?v=IJ3QHNQSJg8">
+                  использовать текстовые аниматоры
+                </a>
+                .
+              </p>
+              <p>
+                Шрифт, его размер, обводка, межстрочные и межбуквенные интервалы, лигатуры
+                и другие параметры внешнего вида настраиваются в окне{" "}
+                <mark className="select">«Character»</mark>. Выравнивание, отступы и
+                расстояние между абзацами — в окне{" "}
+                <mark className="select">«Paragraph»</mark>.
+              </p>
+              <Addition type="info">
+                Начиная с <mark className="app">Adobe After Effects</mark> версии{" "}
+                <mark>23.4</mark>, большинство этих параметров доступно в окне{" "}
+                <mark className="select">«Properties»</mark>.
+              </Addition>
+              <ul>
+                <li>
+                  <mark className="select">«Point Text»</mark> — используется, когда не
+                  важны ограничения по ширине или высоте. Его название говорит само за
+                  себя: текст задаётся от одной точки и чаще всего идёт в одну строку.
+                  Подходит для заголовков, коротких примечаний и вставок. Поддерживает
+                  только выравнивание по левому, правому краю и по центру — выравнивание
+                  по ширине невозможно, так как у такого текста нет фиксированной рамки.
+                  <ArticleMedia
+                    caption="Создание Point Text"
+                    src="legacy/aftereffects/create_point_text.mp4"
+                    type="video"
+                  />
+                </li>
+                <li>
+                  <mark className="select">«Paragraph Text»</mark> — подходит, когда нужно
+                  вписать текст в конкретную «коробку» (ограничить ширину и/или высоту).
+                  Часто используется для встраивания текста в фигуры, например
+                  прямоугольники. Поддерживает все типы выравнивания, включая выравнивание
+                  по ширине — настраивается в <mark className="select">«Paragraph»</mark>.
+                  <ArticleMedia
+                    caption="Создание Paragraph Text"
+                    src="legacy/aftereffects/create_paragraph_text.mp4"
+                    type="video"
+                  />
+                </li>
+              </ul>
+              <p>
+                Один тип текстового слоя можно преобразовать в другой. Для этого выберите
+                инструмент <mark className="select">«Text»</mark>, затем — нужный слой,
+                кликните по нему <mark className="key">ПКМ</mark> и выберите{" "}
+                <mark className="select">«Convert to Point Text»</mark> или{" "}
+                <mark className="select">«Convert to Paragraph Text»</mark> — в
+                зависимости от того, что у вас сейчас.
+              </p>
+              <ArticleMedia
+                caption="Конвертация Point Text в Paragraph Text"
+                src="legacy/aftereffects/convert_to_paragraph_text.mp4"
+                type="video"
+              />
+              <p>
+                Также текст можно писать горизонтально и вертикально. Для этого есть
+                инструменты <mark className="select">«Horizontal Text Tool»</mark> (по
+                умолчанию) и <mark className="select">«Vertical Text Tool»</mark>.
+                Вертикальный текст чаще используется в азиатских языках, но может
+                пригодиться и для латиницы или кириллицы — например, для создания{" "}
+                <mark>monospace-like</mark> шрифта. Это полезно для анимации счётчиков,
+                чтобы текст не прыгал.
+              </p>
+              <ArticleMedia
+                src="__-rPlFfRow"
+                type="youtube"
+              />
+            </NestedDetailsSummary>
+          </li>
+          <li>
+            <mark className="select">«Трёхмерные объекты»</mark>, нативный импорт которых
+            стал доступен с помощью <mark className="plugin">Advanced 3D</mark> в{" "}
+            <mark className="app">Adobe After Effects</mark> версии <mark>24.1</mark> и
+            новее<sup>1</sup>.
+            <Addition type="info">
+              <sup>1</sup> Для импорта трёхмерных объектов в старых версиях{" "}
+              <mark className="app">Adobe After Effects</mark> используйте сторонние
+              плагины, например <mark className="plugin">Element 3D</mark>.
+            </Addition>
+            <NestedDetailsSummary title="Трёхмерный слой">
+              <p>
+                <mark className="select">«3D Layer»</mark> — это двумерный слой, который
+                может перемещаться и вращаться в трёхмерном пространстве. Он
+                взаимодействует с камерами и источниками света, но сам остаётся плоским. В
+                роли трёхмерного слоя может выступать картинка, фигура, текст,
+                слой-заливка и другие типы слоёв. Не стоит путать с{" "}
+                <mark className="select">«3D Object»</mark>.
+              </p>
+              <p>
+                Трёхмерные слои могут пересекаться и отбрасывать тени — но только если
+                между ними нет ничего, что мешает этому взаимодействию. Препятствием может
+                быть не только обычный двумерный слой, но и некоторые другие, даже если
+                они сами трёхмерные: <mark className="select">«Adjustment Layer»</mark>;
+                слой с применённым <mark className="select">«Layer Styles»</mark>;
+                прекомпозиция с эффектом, маской (в любом режиме, кроме{" "}
+                <mark className="select">«None»</mark>) или{" "}
+                <mark className="select">«Track Matte»</mark>; а также трёхмерная
+                прекомпозиция без включённого{" "}
+                <mark className="select">«Collapse Transformations»</mark>.
+              </p>
+              <ArticleMedia
+                src="7NFsxeG-sWY"
+                type="youtube"
+              />
+              <Addition type="warning">
+                Слои, расположенные на одном уровне по оси Z, могут конфликтовать между
+                собой и вызывать артефакты — например, мерцание или разрывы изображения.
+                Чтобы избежать этого, старайтесь смещать их хотя бы на один пиксель друг
+                от друга.
+              </Addition>
+            </NestedDetailsSummary>
+            <NestedDetailsSummary title="Трёхмерные модели">
+              <p>
+                <mark className="select">«3D Object»</mark> — объёмные модели форматов{" "}
+                <mark className="file">FBX</mark>, <mark className="file">OBJ</mark>,{" "}
+                <mark className="file">GLB</mark> или <mark className="file">GLTF</mark>,
+                импорт которых стал возможен в{" "}
+                <mark className="app">Adobe After Effects</mark> версии <mark>24.1</mark>{" "}
+                и новее с помощью <mark className="plugin">Advanced 3D</mark>. Такие
+                модели можно создать в любом популярном 3D-редакторе, например{" "}
+                <mark className="app">Blender</mark>,{" "}
+                <mark className="app">Cinema 4D</mark> или{" "}
+                <mark className="app">Substance 3D Painter</mark>.
+              </p>
+              <ArticleMedia
+                src="qPOkGR7Ek2I"
+                type="youtube"
+              />
+              <Addition type="info">
+                Если вы используете <mark className="app">Adobe After Effects</mark>{" "}
+                версии ниже <mark>24.0</mark> — используйте сторонний плагин{" "}
+                <mark className="plugin">Element 3D</mark> для импорта моделей формата{" "}
+                <mark className="file">OBJ</mark> и <mark className="file">E3D</mark>.
+              </Addition>
+            </NestedDetailsSummary>
+            <NestedDetailsSummary title="Файлы Maxon Cinema 4D">
+              <p>
+                В <mark className="app">Adobe After Effects</mark> можно импортировать
+                проекты формата <mark className="file">C4D</mark>, созданные в{" "}
+                <mark className="app">Maxon Cinema 4D</mark>, с помощью{" "}
+                <mark className="plugin">Cineware</mark> — эффекта и технологии
+                интеграции, обеспечивающей связь между этими двумя программами.
+              </p>
+              <Addition type="warning">
+                Если вы используете репак <mark className="app">Adobe After Effects</mark>{" "}
+                от <mark className="user">KpoJluK</mark> или версию с вырезанным модулем{" "}
+                <mark className="plugin">Cinema 4D Lite</mark> — установите полноценную{" "}
+                <mark className="app">Maxon Cinema 4D</mark>, иначе вы столкнетесь с тем,
+                что вы не сможете импортировать проекты формата{" "}
+                <mark className="file">C4D</mark>.{" "}
+                <a href="#fix-cinema-4d-must-be-installed">Подробнее...</a>
+              </Addition>
+              <ArticleMedia
+                src="qFVQrxWvOjw"
+                type="youtube"
+              />
+              <Divider>Статьи о слоях от Adobe</Divider>
+              <div className="flexible-links">
+                <a href="https://helpx.adobe.com/after-effects/using/3d-layers.html">
+                  Трёхмерные слои и модели
+                </a>
+                <a href="https://helpx.adobe.com/after-effects/using/cameras-lights-points-interest.html">
+                  Камеры, освещение и точки обзора
+                </a>
+              </div>
             </NestedDetailsSummary>
           </li>
           <li>
@@ -1573,104 +1670,6 @@ const AeFromNewbies: React.FC = () => {
                   Подробнее...
                 </a>
               </Addition>
-            </NestedDetailsSummary>
-          </li>
-          <li>
-            <mark className="select">«Трёхмерные объекты»</mark>, нативный импорт которых
-            стал доступен с помощью <mark className="plugin">Advanced 3D</mark> в{" "}
-            <mark className="app">Adobe After Effects</mark> версии <mark>24.1</mark> и
-            новее<sup>1</sup>.
-            <Addition type="info">
-              <sup>1</sup> Для импорта трёхмерных объектов в старых версиях{" "}
-              <mark className="app">Adobe After Effects</mark> используйте сторонние
-              плагины, например <mark className="plugin">Element 3D</mark>.
-            </Addition>
-            <NestedDetailsSummary title="Трёхмерный слой">
-              <p>
-                <mark className="select">«3D Layer»</mark> — это двумерный слой, который
-                может перемещаться и вращаться в трёхмерном пространстве. Он
-                взаимодействует с камерами и источниками света, но сам остаётся плоским. В
-                роли трёхмерного слоя может выступать картинка, фигура, текст,
-                слой-заливка и другие типы слоёв. Не стоит путать с{" "}
-                <mark className="select">«3D Object»</mark>.
-              </p>
-              <p>
-                Трёхмерные слои могут пересекаться и отбрасывать тени — но только если
-                между ними нет ничего, что мешает этому взаимодействию. Препятствием может
-                быть не только обычный двумерный слой, но и некоторые другие, даже если
-                они сами трёхмерные: <mark className="select">«Adjustment Layer»</mark>;
-                слой с применённым <mark className="select">«Layer Styles»</mark>;
-                прекомпозиция с эффектом, маской (в любом режиме, кроме{" "}
-                <mark className="select">«None»</mark>) или{" "}
-                <mark className="select">«Track Matte»</mark>; а также трёхмерная
-                прекомпозиция без включённого{" "}
-                <mark className="select">«Collapse Transformations»</mark>.
-              </p>
-              <ArticleMedia
-                src="7NFsxeG-sWY"
-                type="youtube"
-              />
-              <Addition type="warning">
-                Слои, расположенные на одном уровне по оси Z, могут конфликтовать между
-                собой и вызывать артефакты — например, мерцание или разрывы изображения.
-                Чтобы избежать этого, старайтесь смещать их хотя бы на один пиксель друг
-                от друга.
-              </Addition>
-            </NestedDetailsSummary>
-            <NestedDetailsSummary title="Трёхмерные модели">
-              <p>
-                <mark className="select">«3D Object»</mark> — объёмные модели форматов{" "}
-                <mark className="file">FBX</mark>, <mark className="file">OBJ</mark>,{" "}
-                <mark className="file">GLB</mark> или <mark className="file">GLTF</mark>,
-                импорт которых стал возможен в{" "}
-                <mark className="app">Adobe After Effects</mark> версии <mark>24.1</mark>{" "}
-                и новее с помощью <mark className="plugin">Advanced 3D</mark>. Такие
-                модели можно создать в любом популярном 3D-редакторе, например{" "}
-                <mark className="app">Blender</mark>,{" "}
-                <mark className="app">Cinema 4D</mark> или{" "}
-                <mark className="app">Substance 3D Painter</mark>.
-              </p>
-              <ArticleMedia
-                src="qPOkGR7Ek2I"
-                type="youtube"
-              />
-              <Addition type="info">
-                Если вы используете <mark className="app">Adobe After Effects</mark>{" "}
-                версии ниже <mark>24.0</mark> — используйте сторонний плагин{" "}
-                <mark className="plugin">Element 3D</mark> для импорта моделей формата{" "}
-                <mark className="file">OBJ</mark> и <mark className="file">E3D</mark>.
-              </Addition>
-            </NestedDetailsSummary>
-            <NestedDetailsSummary title="Файлы Maxon Cinema 4D">
-              <p>
-                В <mark className="app">Adobe After Effects</mark> можно импортировать
-                проекты формата <mark className="file">C4D</mark>, созданные в{" "}
-                <mark className="app">Maxon Cinema 4D</mark>, с помощью{" "}
-                <mark className="plugin">Cineware</mark> — эффекта и технологии
-                интеграции, обеспечивающей связь между этими двумя программами.
-              </p>
-              <Addition type="warning">
-                Если вы используете репак <mark className="app">Adobe After Effects</mark>{" "}
-                от <mark className="user">KpoJluK</mark> или версию с вырезанным модулем{" "}
-                <mark className="plugin">Cinema 4D Lite</mark> — установите полноценную{" "}
-                <mark className="app">Maxon Cinema 4D</mark>, иначе вы столкнетесь с тем,
-                что вы не сможете импортировать проекты формата{" "}
-                <mark className="file">C4D</mark>.{" "}
-                <a href="#fix-cinema-4d-must-be-installed">Подробнее...</a>
-              </Addition>
-              <ArticleMedia
-                src="qFVQrxWvOjw"
-                type="youtube"
-              />
-              <Divider>Статьи о слоях от Adobe</Divider>
-              <div className="flexible-links">
-                <a href="https://helpx.adobe.com/after-effects/using/3d-layers.html">
-                  Трёхмерные слои и модели
-                </a>
-                <a href="https://helpx.adobe.com/after-effects/using/cameras-lights-points-interest.html">
-                  Камеры, освещение и точки обзора
-                </a>
-              </div>
             </NestedDetailsSummary>
           </li>
         </ul>
