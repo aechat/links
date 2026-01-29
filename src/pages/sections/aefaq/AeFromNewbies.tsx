@@ -1265,7 +1265,7 @@ const AeFromNewbies: React.FC = () => {
               Слои <mark className="select">«композиций»</mark> и{" "}
               <mark className="select">«прекомпозиций»</mark>.
             </p>
-            <NestedDetailsSummary title="Что такое композиция?">
+            <NestedDetailsSummary title="Композиция">
               <p>
                 <mark className="select">«Composition»</mark> — это ваш рабочий холст, а
                 также своего рода контейнер, в котором вы можете расположить свои слои.
