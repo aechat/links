@@ -32,7 +32,7 @@
     font-size: 0.9rem !important;
   }
 
-  &-modal-root .ant-modal-mask {
+  &-modal-root .ant-modal-mask.ant-modal-mask-blur {
     backdrop-filter: blur(25px);
     background-color: var(--color-background-overlay);
   }
@@ -52,6 +52,12 @@
       box-shadow: none;
       background: none;
       padding: 0;
+    }
+
+    &-container {
+      box-shadow: none !important;
+      background: none !important;
+      padding: 0 !important;
     }
 
     @media screen and (width >= 768px) {
