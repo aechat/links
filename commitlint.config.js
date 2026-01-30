@@ -1,5 +1,6 @@
 export default {
   extends: ["@commitlint/config-conventional"],
+  plugins: ["function-rules"],
   rules: {
     "type-enum": [
       2,
@@ -48,6 +49,22 @@ export default {
     "footer-leading-blank": [2, "always"],
     "type-case": [2, "always", "lower-case"],
     "type-empty": [2, "never"],
+    "subject-case": [0, "always", "lower-case"],
     "subject-empty": [2, "never"],
+    "function-rules/subject-case": [
+      2,
+      "always",
+      (parsed) => {
+        const subject = parsed.subject;
+        if (subject === null) {
+          return [true];
+        }
+        const pattern = /^(?:\[[A-Z]+\] )?[a-zа-яё].*/;
+        if (pattern.test(subject)) {
+          return [true];
+        }
+        return [false, "Subject must start with a lowercase letter or a [TAG]"];
+      },
+    ],
   },
 };
