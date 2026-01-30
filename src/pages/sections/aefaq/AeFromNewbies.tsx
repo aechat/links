@@ -1800,6 +1800,9 @@ const AeFromNewbies: React.FC = () => {
           <a href="https://helpx.adobe.com/after-effects/using/preparing-importing-still-images.html">
             Подготовка и импорт статичных изображений
           </a>
+          <a href="https://helpx.adobe.com/after-effects/using/importing-interpreting-footage-items.html">
+            Импорт и интерпретация футажей
+          </a>
           <a href="https://helpx.adobe.com/after-effects/using/effects-animation-presets-overview.html">
             Применение эффектов и пресетов на слои
           </a>
