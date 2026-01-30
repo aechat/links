@@ -62,7 +62,7 @@ const AeInterface: React.FC = () => {
           находится в разделе <mark className="select">«General»</mark>.
         </Addition>
         <ArticleMedia
-          caption="Preferences"
+          caption="Отключаем отображение домашнего экрана при запуске программы"
           src="legacy/aftereffects/enable_home_screen.png"
           type="image"
         />
@@ -119,7 +119,7 @@ const AeInterface: React.FC = () => {
                 специальной подпапке <mark className="path">ScriptUI Panels</mark>.
               </p>
               <ArticleMedia
-                caption="Adobe After Effects"
+                caption="Демонстрация невозможности прикрепить окно скрипта в рабочее пространство"
                 src="legacy/aftereffects/i_cant_attach_script.mp4"
                 type="video"
               />
@@ -156,7 +156,7 @@ const AeInterface: React.FC = () => {
                 <mark className="path">ScriptUI Panels</mark>.
               </p>
               <ArticleMedia
-                caption="Adobe After Effects"
+                caption="Демонстрация невозможности прикрепить окно скрипта в рабочее пространство"
                 src="legacy/aftereffects/i_cant_attach_script.mp4"
                 type="video"
               />
@@ -256,7 +256,7 @@ const AeInterface: React.FC = () => {
           </ul>
         </Addition>
         <ArticleMedia
-          caption="Preferences"
+          caption="Включаем сохранение текущего рабочего пространства при открытии разных проектов"
           src="legacy/aftereffects/enable_maintain_current_workspace.png"
           type="image"
         />
@@ -453,7 +453,7 @@ const AeInterface: React.FC = () => {
           предпросмотр.
         </p>
         <ArticleMedia
-          caption="Adobe After Effects"
+          caption="Отключаем «PreviewPlaybackOptimization» в консоли программы"
           src="legacy/aftereffects/disable_previewplaybackoptimization.png"
           type="image"
         />
@@ -513,7 +513,7 @@ const AeInterface: React.FC = () => {
           можете вовсе отключить показ траектории.
         </p>
         <ArticleMedia
-          caption="Preferences"
+          caption="Изменяем длину отображения пути движения"
           src="legacy/aftereffects/change_motion_path_range.png"
           type="image"
         />
@@ -532,7 +532,7 @@ const AeInterface: React.FC = () => {
           с помощью «интерактивного» текста или колёсика прокрутки.
         </p>
         <ArticleMedia
-          caption="Adobe After Effects"
+          caption="Демонстрация плавного зумирования"
           src="legacy/aftereffects/smooth_zoom_demonstration.mp4"
           type="video"
         />
@@ -547,7 +547,7 @@ const AeInterface: React.FC = () => {
           положения курсора.
         </p>
         <ArticleMedia
-          caption="Preferences"
+          caption="Настраиваем тип увеличения предпросмотра"
           src="legacy/aftereffects/magnification_settings.png"
           type="image"
         />
@@ -760,7 +760,7 @@ const AeInterface: React.FC = () => {
           фигур, созданных без помощи <mark className="select">«Roto Bezier»</mark>.
         </Addition>
         <ArticleMedia
-          caption="Adobe After Effects"
+          caption="Демонстрация работы «Roto Bezier»"
           src="legacy/aftereffects/rotobezier_demo.mp4"
           type="video"
         />
@@ -910,7 +910,7 @@ const AeInterface: React.FC = () => {
           .
         </Addition>
         <ArticleMedia
-          caption="Adobe After Effects"
+          caption="Переключаем чекбокс автооткрытия панели"
           src="legacy/aftereffects/toggle_auto-open_panel.png"
           type="image"
         />
@@ -935,7 +935,7 @@ const AeInterface: React.FC = () => {
           категории можно изменить цвет и даже задать ему своё имя.
         </p>
         <ArticleMedia
-          caption="Preferences"
+          caption="Настраиваем стандартные цвета для слоёв"
           src="legacy/aftereffects/preferences_labels.png"
           type="image"
         />
@@ -959,7 +959,7 @@ const AeInterface: React.FC = () => {
           находится в разделе <mark className="select">«General»</mark>.
         </Addition>
         <ArticleMedia
-          caption="Preferences"
+          caption="Отключаем системный выбор цвета"
           src="legacy/aftereffects/use_system_color_picker.png"
           type="image"
         />
@@ -1009,7 +1009,7 @@ const AeInterface: React.FC = () => {
           на кнопку <mark className="select">«Change Color»</mark>.
         </p>
         <ArticleMedia
-          caption="Preferences"
+          caption="Изменяем акцентный цвет"
           src="legacy/aftereffects/select_theme_color.png"
           type="image"
         />
@@ -1308,7 +1308,7 @@ const AeInterface: React.FC = () => {
             <mark className="app">Adobe After Effects</mark> перенести настройки.
           </p>
           <ArticleMedia
-            caption="Preferences"
+            caption="Открываем окно переноса настроек из предыдущих версий программы"
             src="legacy/aftereffects/migrate_previous_version_preferences.png"
             type="image"
           />

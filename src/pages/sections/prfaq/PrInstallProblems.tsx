@@ -611,7 +611,7 @@ const PrInstallProblems: React.FC = () => {
                     обнаружила плагины, установленные в системе.
                   </p>
                   <ArticleMedia
-                    caption="Preferences"
+                    caption="Сканируем VST-эффекты"
                     src="legacy/premierepro/install_vst3.mp4"
                     type="video"
                   />
@@ -1216,7 +1216,7 @@ const PrInstallProblems: React.FC = () => {
                     обнаружила плагины, установленные в системе.
                   </p>
                   <ArticleMedia
-                    caption="Preferences"
+                    caption="Сканируем VST-плагины"
                     src="legacy/premierepro/install_vst3.mp4"
                     type="video"
                   />

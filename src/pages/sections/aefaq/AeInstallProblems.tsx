@@ -2540,7 +2540,7 @@ const AeInstallProblems: React.FC = () => {
           один из файлов, предварительно закрыв программу.
         </p>
         <ArticleMedia
-          caption="Adobe After Effects"
+          caption="Предупреждение о том, что на устройстве установлены дубликаты эффектов"
           src="legacy/aftereffects/duplicated_effect_plug-ins_installed.png"
           type="image"
         />
@@ -2847,7 +2847,7 @@ const AeInstallProblems: React.FC = () => {
           выбрать нужную версию, и этот процесс начнётся автоматически.
         </p>
         <ArticleMedia
-          caption="Adobe After Effects"
+          caption="Окно переноса настроек из предыдущих версий программы"
           src="legacy/aftereffects/migrate_settings.png"
           type="image"
         />
@@ -3066,7 +3066,7 @@ const AeInstallProblems: React.FC = () => {
                 окно с вопросом, нужно ли сбросить настройки.
               </Addition>
               <ArticleMedia
-                caption="Adobe After Effects"
+                caption="Окно восстановления: выбор режима запуска, сброс параметров или управление эффектами"
                 src="legacy/aftereffects/startup_repair_options.png"
                 type="image"
               />

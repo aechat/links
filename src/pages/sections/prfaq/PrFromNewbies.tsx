@@ -1547,7 +1547,7 @@ const PrFromNewbies: React.FC = () => {
           аудиовыход.
         </p>
         <ArticleMedia
-          caption="Preferences"
+          caption="Изменяем настройки аудио"
           src="legacy/premierepro/set_audio_output.png"
           type="image"
         />

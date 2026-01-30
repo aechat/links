@@ -542,7 +542,7 @@ const AeImport: React.FC = () => {
           будет удалён или перемещён, программа загрузит пустой проект и предупредит вас,
           что файл не найден.
           <ArticleMedia
-            caption="Preferences"
+            caption="Выбор шаблонного проекта при создании нового проекта"
             src="legacy/aftereffects/choose_project_template.png"
             type="image"
           />
@@ -557,7 +557,7 @@ const AeImport: React.FC = () => {
           файловом менеджере.
         </p>
         <ArticleMedia
-          caption="Adobe After Effects"
+          caption="Заменяем футаж с помощью контекстного меню"
           src="legacy/aftereffects/replace_footage.png"
           type="image"
         />
@@ -761,7 +761,7 @@ const AeImport: React.FC = () => {
                 отправлять исходники на конвертацию.
               </p>
               <ArticleMedia
-                caption="Preferences"
+                caption="Отключаем аппаратное декодирование исходников"
                 src="legacy/aftereffects/disable_hardware_accelerated_decoding.png"
                 type="image"
               />
@@ -973,7 +973,7 @@ const AeImport: React.FC = () => {
           автоматически.
         </Addition>
         <ArticleMedia
-          caption="Adobe After Effects"
+          caption="Заменяем футаж с помощью контекстного меню"
           src="legacy/aftereffects/replace_footage.png"
           type="image"
         />
@@ -1145,7 +1145,7 @@ const AeImport: React.FC = () => {
           импорте секвенций.
         </p>
         <ArticleMedia
-          caption="Preferences"
+          caption="Изменяем стандартное значение кадров в секунду для импортируемых секвенций изображений"
           src="legacy/aftereffects/change_fps_sequence_footage.png"
           type="image"
         />
@@ -1817,7 +1817,7 @@ const AeImport: React.FC = () => {
           восстановить вручную — их количество зависит от конкретного стикера.
         </p>
         <ArticleMedia
-          caption="Adobe After Effects"
+          caption="Предупреждение о том, что некоторые градиенты не перенеслись"
           src="legacy/aftereffects/gradient_data_bodymovin.png"
           type="image"
         />
@@ -1845,7 +1845,7 @@ const AeImport: React.FC = () => {
           укажите нужный проект <mark className="file">PRPROJ</mark>.
         </p>
         <ArticleMedia
-          caption="Adobe After Effects"
+          caption="Импортируем проект из Adobe Premiere"
           src="legacy/aftereffects/import_premiere_pro_project.png"
           type="image"
         />
@@ -1856,7 +1856,7 @@ const AeImport: React.FC = () => {
           секвенцию. Также при необходимости можно отключить импорт аудиофайлов.
         </p>
         <ArticleMedia
-          caption="Premiere Pro Importer"
+          caption="Окно «Premiere Importer»"
           src="legacy/aftereffects/premiere_pro_importer.png"
           type="image"
         />
@@ -1938,7 +1938,7 @@ const AeImport: React.FC = () => {
           нажмите <mark className="select">«OK»</mark> в появившемся окне.
         </p>
         <ArticleMedia
-          caption="Adobe After Effects"
+          caption="Предупреждение о том, что проект будет конвертирован для работы с новой версией программы"
           src="legacy/aftereffects/this_project_must_be_converted.png"
           type="image"
         />
@@ -1989,7 +1989,7 @@ const AeImport: React.FC = () => {
           где находится оригинал, чтобы избежать проблем со ссылками на исходники.
         </p>
         <ArticleMedia
-          caption="Adobe After Effects"
+          caption="Выбираем «Сохранить как...»"
           src="legacy/aftereffects/file_save_as.png"
           type="image"
         />

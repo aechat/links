@@ -606,7 +606,7 @@ const AeActions: React.FC = () => {
           .
         </Addition>
         <ArticleMedia
-          caption="Adobe After Effects"
+          caption="Открываем расширение «Subtitle Pro»"
           src="legacy/aftereffects/subtitlepro_opening.png"
           type="image"
         />
@@ -617,7 +617,7 @@ const AeActions: React.FC = () => {
           хотите добавить субтитры, и нажмите <mark className="select">«Apply»</mark>.
         </p>
         <ArticleMedia
-          caption="Subtitle Pro"
+          caption="Импортируем субтитры с помощью «Subtitle Pro»"
           src="legacy/aftereffects/subtitlepro_import_apply.png"
           type="image"
         />
@@ -629,7 +629,7 @@ const AeActions: React.FC = () => {
           настроить внешний вид текста позже.
         </p>
         <ArticleMedia
-          caption="Subtitle Pro"
+          caption="Выбираем стиль субтитров в «Subtitle Pro»"
           src="legacy/aftereffects/subtitlepro_select_style.png"
           type="image"
         />
@@ -639,7 +639,7 @@ const AeActions: React.FC = () => {
           кликом по маркеру, а также менять длительность и положение каждой фразы.
         </p>
         <ArticleMedia
-          caption="Adobe After Effects"
+          caption="Изменяем текст в маркерах"
           src="legacy/aftereffects/edit_subtitlepro_text.mp4"
           type="video"
         />
@@ -1161,7 +1161,7 @@ const AeActions: React.FC = () => {
           </i>
         </p>
         <ArticleMedia
-          caption="Adobe After Effects"
+          caption="Демонстрация работы стандартного скрипта «Create Nulls From Paths»"
           src="legacy/aftereffects/fix_create_nulls_from_path.mp4"
           type="video"
         />

@@ -423,7 +423,7 @@ const AeErrors: React.FC = () => {
             <mark className="select">«Enable Multi-Frame Rendering»</mark> и повторите
             попытку рендеринга.
             <ArticleMedia
-              caption="Preferences"
+              caption="Выключаем многокадровый рендеринг"
               src="legacy/aftereffects/checkbox_multiframe-render.png"
               type="image"
             />
@@ -441,7 +441,7 @@ const AeErrors: React.FC = () => {
             Чтобы выделить максимум для <mark className="company">Adobe</mark>, установите
             значение <mark>0</mark> — программа сама подставит минимально допустимое.
             <ArticleMedia
-              caption="Preferences"
+              caption="Настраиваем выделение оперативной памяти программам"
               src="legacy/aftereffects/ram_reserved_for_other_applications.png"
               type="image"
             />
@@ -602,7 +602,7 @@ const AeErrors: React.FC = () => {
           но не сможете видеть, рендерить и настраивать эти эффекты.
         </p>
         <ArticleMedia
-          caption="Warning"
+          caption="Предупреждение о том, что указанные эффекты не найдены"
           src="legacy/aftereffects/missing_effects_warning.png"
           type="image"
         />
@@ -650,7 +650,7 @@ const AeErrors: React.FC = () => {
           <mark className="select">«Manage Effects»</mark>.
         </p>
         <ArticleMedia
-          caption="Adobe After Effects"
+          caption="Открываем менеджер эффектов"
           src="legacy/aftereffects/effects_presets_manage_effects.png"
           type="image"
         />
@@ -663,7 +663,7 @@ const AeErrors: React.FC = () => {
           <mark className="app">Adobe After Effects</mark>.
         </p>
         <ArticleMedia
-          caption="Effect Manager"
+          caption="Окно менеджера эффектов"
           src="legacy/aftereffects/effect_manager.png"
           type="image"
         />
@@ -694,7 +694,7 @@ const AeErrors: React.FC = () => {
           последовательно, а не параллельно.
         </Addition>
         <ArticleMedia
-          caption="Preferences"
+          caption="Выключаем многокадровый рендеринг"
           src="legacy/aftereffects/checkbox_multiframe-render.png"
           type="image"
         />
@@ -1191,7 +1191,7 @@ const AeErrors: React.FC = () => {
                 перезапустите программу.
               </p>
               <ArticleMedia
-                caption="Preferences"
+                caption="Отключаем аппаратное декодирование исходников"
                 src="legacy/aftereffects/disable_hardware_accelerated_decoding.png"
                 type="image"
               />
@@ -1405,7 +1405,7 @@ const AeErrors: React.FC = () => {
           отключить, сняв флажок с <mark className="select">«Enable Disk Cache»</mark>.
         </p>
         <ArticleMedia
-          caption="Preferences"
+          caption="Настраиваем дисковый кэш"
           src="legacy/aftereffects/preferences-media_and_disk_cache.png"
           type="image"
         />
@@ -1432,7 +1432,7 @@ const AeErrors: React.FC = () => {
           </i>
         </p>
         <ArticleMedia
-          caption="Preferences"
+          caption="Настраиваем дисковый кэш"
           src="legacy/aftereffects/preferences-media_and_disk_cache.png"
           type="image"
         />
@@ -1599,7 +1599,7 @@ const AeErrors: React.FC = () => {
               <mark className="select">«Content-Aware Fill Settings»</mark>.
             </p>
             <ArticleMedia
-              caption="Adobe After Effects"
+              caption="Открываем настройки «Content-Aware Fill»"
               src="legacy/aftereffects/open_content-aware_fill_settings.png"
               type="image"
             />
@@ -1608,7 +1608,7 @@ const AeErrors: React.FC = () => {
               предыдущие значения. Этот приём иногда помогает модулю заработать корректно.
             </p>
             <ArticleMedia
-              caption="Content-Aware Fill Settings"
+              caption="Настройки модуля «Content-Aware Fill»"
               src="legacy/aftereffects/content-aware_fill_settings.png"
               type="image"
             />
@@ -1739,7 +1739,7 @@ const AeErrors: React.FC = () => {
           находится в разделе <mark className="select">«General»</mark>.
         </Addition>
         <ArticleMedia
-          caption="Preferences"
+          caption="Выключаем проверку совместимости системы"
           src="legacy/aftereffects/show_system_compatibility_issues.png"
           type="image"
         />

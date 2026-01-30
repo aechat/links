@@ -454,7 +454,7 @@ const PrErrors: React.FC = () => {
           <mark className="select">«Show System Compatibility Issues»</mark>.
         </p>
         <ArticleMedia
-          caption="Preferences"
+          caption="Выключаем проверку совместимости системы"
           src="legacy/premierepro/show_system_compatibility_issues.png"
           type="image"
         />

@@ -1949,7 +1949,7 @@ const AeExport: React.FC = () => {
             <mark className="plugin">GifGun</mark>. Откройте его через меню{" "}
             <mark className="select">«Window» → «Extensions» → «GifGun»</mark>.
             <ArticleMedia
-              caption="Adobe After Effects"
+              caption="Открываем расширение «GifGun»"
               src="legacy/aftereffects/open_gifgun.png"
               type="image"
             />
@@ -3083,7 +3083,7 @@ const AeExport: React.FC = () => {
             <mark className="select">«File» → «Dependencies» → «Collect Files»</mark>.
             Если проект не сохранён, программа предложит это сделать.
             <ArticleMedia
-              caption="Adobe After Effects"
+              caption="Открываем окно сборщика проекта"
               src="legacy/aftereffects/select_collect_files.png"
               type="image"
             />
@@ -3095,7 +3095,7 @@ const AeExport: React.FC = () => {
             или <mark className="select">«For All Comps»</mark> — только те, что
             используются в композициях. Второй вариант поможет уменьшить размер архива.
             <ArticleMedia
-              caption="Collect Files"
+              caption="Окно «Collect Files»"
               src="legacy/aftereffects/collect_files_settings.png"
               type="image"
             />

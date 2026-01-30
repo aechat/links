@@ -807,7 +807,7 @@ const AePerformance: React.FC = () => {
           <mark className="select">«Composition» → «Preview»</mark>.
         </p>
         <ArticleMedia
-          caption="Adobe After Effects"
+          caption="Отключаем кэширование в простое"
           src="legacy/aftereffects/disable_idle_cache.png"
           type="image"
         />
@@ -921,7 +921,7 @@ const AePerformance: React.FC = () => {
           <mark>30%</mark> мощности процессора.
         </Addition>
         <ArticleMedia
-          caption="Preferences"
+          caption="Настраиваем многокадровый рендеринг"
           src="legacy/aftereffects/mfr_settings.png"
           type="image"
         />
@@ -1785,7 +1785,7 @@ const AePerformance: React.FC = () => {
           заметите, насколько сильно сократится список ваших эффектов.
         </p>
         <ArticleMedia
-          caption="Adobe After Effects"
+          caption="Включаем отображение только тех эффектов, которые поддерживают аппаратное ускорение"
           src="legacy/aftereffects/show_gpu_capable_effects_only.png"
           type="image"
         />

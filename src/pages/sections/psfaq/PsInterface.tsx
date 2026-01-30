@@ -23,7 +23,7 @@ const PsInterface: React.FC = () => {
           <mark className="select">«OK»</mark> в правой части окна.
         </p>
         <ArticleMedia
-          caption="Preferences"
+          caption="Отключаем отображение домашнего экрана при запуске программы"
           src="legacy/photoshop/disable_show_home_screen.png"
           type="image"
         />

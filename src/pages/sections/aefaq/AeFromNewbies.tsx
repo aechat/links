@@ -340,7 +340,7 @@ const AeFromNewbies: React.FC = () => {
           нужный тип слоя.
         </p>
         <ArticleMedia
-          caption="Adobe After Effects"
+          caption="Создаём слои с помощью контекстного меню"
           src="legacy/aftereffects/create_layers.png"
           type="image"
         />
@@ -872,7 +872,7 @@ const AeFromNewbies: React.FC = () => {
                 трёхмерных объектов в окне предпросмотра.
               </p>
               <ArticleMedia
-                caption="Preferences"
+                caption="Настраиваем управление трёхмерной камерой"
                 src="legacy/aftereffects/edit_preferences_3d.png"
                 type="image"
               />
@@ -4025,7 +4025,7 @@ const AeFromNewbies: React.FC = () => {
           клавиш <mark className="key">Alt + Shift + I</mark>.
         </p>
         <ArticleMedia
-          caption="Adobe After Effects"
+          caption="Отключаем кэширование в простое"
           src="legacy/aftereffects/disable_idle_cache.png"
           type="image"
         />
@@ -4043,7 +4043,7 @@ const AeFromNewbies: React.FC = () => {
           <mark>«от начала рабочей области»</mark>.
         </Addition>
         <ArticleMedia
-          caption="Preferences"
+          caption="Настраиваем время до старта кэширования при простое"
           src="legacy/aftereffects/change_time_idle_cache.png"
           type="image"
         />
@@ -4709,7 +4709,7 @@ const AeFromNewbies: React.FC = () => {
           <mark className="select">«Edit» → «Preferences» → «Audio Hardware»</mark>.
         </p>
         <ArticleMedia
-          caption="Preferences"
+          caption="Изменяем настройки аудио"
           src="legacy/aftereffects/audio_hardware_settings.png"
           type="image"
         />
@@ -4804,7 +4804,7 @@ const AeFromNewbies: React.FC = () => {
           настройках <mark className="select">«Edit» → «Preferences» → «Previews»</mark>.
         </p>
         <ArticleMedia
-          caption="Preferences"
+          caption="Выключаем отключение звука при предпросмотре не в реальном времени"
           src="legacy/aftereffects/mute_audio_when_preview_is_not_real-time.png"
           type="image"
         />
@@ -4832,7 +4832,7 @@ const AeFromNewbies: React.FC = () => {
           <mark className="select">«Edit» → «Preferences» → «Audio Hardware»</mark>.
         </p>
         <ArticleMedia
-          caption="Preferences"
+          caption="Изменяем настройки аудио"
           src="legacy/aftereffects/audio_hardware_settings.png"
           type="image"
         />
@@ -4929,7 +4929,7 @@ const AeFromNewbies: React.FC = () => {
             Программа сама подставит минимальное корректное значение памяти для других
             приложений.
             <ArticleMedia
-              caption="Preferences"
+              caption="Настраиваем выделение оперативной памяти программам"
               src="legacy/aftereffects/ram_reserved_for_other_applications.png"
               type="image"
             />
@@ -5001,7 +5001,7 @@ const AeFromNewbies: React.FC = () => {
           специально для кэша.
         </Addition>
         <ArticleMedia
-          caption="Preferences"
+          caption="Включаем воспроизведение предпросмотра из дискового кэша"
           src="legacy/aftereffects/enable_preview_from_disk_cache.png"
           type="image"
         />
@@ -5018,7 +5018,7 @@ const AeFromNewbies: React.FC = () => {
           находится под окном предпросмотра или в настройках композиции.
         </p>
         <ArticleMedia
-          caption="Adobe After Effects"
+          caption="Изменяем разрешение предпросмотра"
           src="legacy/aftereffects/change_resolution_comppreview.mp4"
           type="video"
         />
@@ -5029,7 +5029,7 @@ const AeFromNewbies: React.FC = () => {
           значение <mark className="select">«Full»</mark>.
         </p>
         <ArticleMedia
-          caption="Preview"
+          caption="Изменяем разрешение предпросмотра в окне «Preview»"
           src="legacy/aftereffects/change_resolution_preview.png"
           type="image"
         />
@@ -5633,7 +5633,7 @@ const AeFromNewbies: React.FC = () => {
           окно с настройками не откроется.
         </Addition>
         <ArticleMedia
-          caption="Preferences"
+          caption="«Секретные» настройки программы"
           src="legacy/aftereffects/secret_settings.png"
           type="image"
         />
