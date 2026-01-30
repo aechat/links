@@ -358,6 +358,21 @@ const AeFromNewbies: React.FC = () => {
           передавать файлы из приложений, запущенных с правами обычного пользователя, в
           те, которые работают от имени администратора.
         </Addition>
+        <Divider>Порядок рендеринга</Divider>
+        <p>
+          В <mark className="app">Adobe After Effects</mark> операции внутри слоя
+          выполняются в строгой последовательности:{" "}
+          <mark className="select">«Masks»</mark> →{" "}
+          <mark className="select">«Effects»</mark> →
+          <mark className="select">«Transformations»</mark> →{" "}
+          <mark className="select">«Layer Styles»</mark>. Применённые на слой эффекты
+          рендерятся сверху вниз — их порядок можно менять простым перетаскиванием.
+        </p>
+        <Addition type="info">
+          В любой непонятной ситуации создавайте{" "}
+          <mark className="select">«Pre-compose»</mark>, чтобы «запечь» результат, прежде
+          чем редактировать его дальше.
+        </Addition>
         <Divider>Какие виды слоёв существуют?</Divider>
         <p>
           В <mark className="app">Adobe After Effects</mark> слои делятся на несколько
