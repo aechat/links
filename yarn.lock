@@ -4579,6 +4579,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"commitlint-plugin-function-rules@npm:^4.3.1":
+  version: 4.3.1
+  resolution: "commitlint-plugin-function-rules@npm:4.3.1"
+  peerDependencies:
+    "@commitlint/lint": ">=19 <21"
+  checksum: 10c0/793c6783c77338bd345c26a0c79cb50dfc2c143da1a5dbb5dc97dd4289dddb1795a28504baa8f13ec0a4169b5e324bd4a5e4b913e3d9711749701607d0051e7f
+  languageName: node
+  linkType: hard
+
 "compare-func@npm:^2.0.0":
   version: 2.0.0
   resolution: "compare-func@npm:2.0.0"
@@ -6849,6 +6858,7 @@ __metadata:
     "@vitejs/plugin-react-swc": "npm:^4.2.2"
     antd: "npm:^6.2.2"
     autoprefixer: "npm:^10.4.24"
+    commitlint-plugin-function-rules: "npm:^4.3.1"
     eslint: "npm:^9.39.2"
     eslint-config-prettier: "npm:^10.1.8"
     eslint-plugin-import: "npm:^2.32.0"
@@ -6885,6 +6895,7 @@ __metadata:
     stylelint-config-standard-scss: "npm:^17.0.0"
     stylelint-order: "npm:^7.0.1"
     terser: "npm:^5.46.0"
+    ts-api-utils: "npm:^2.4.0"
     typescript: "npm:^5.9.3"
     typescript-eslint: "npm:^8.54.0"
     vite: "npm:^7.3.1"
