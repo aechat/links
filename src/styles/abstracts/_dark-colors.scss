@@ -3,6 +3,7 @@ $dark-theme-map: (
     background: (
       primary: hsl(0deg 0% 0%),
       secondary: hsl(0deg 0% 6%),
+      tertiary: hsl(0deg 0% 8%),
       overlay: hsl(0deg 0% 0% / 70%),
       header: hsl(var(--accent-hue) calc(10% * var(--saturate-ratio)) 7% / 80%),
       modal: hsl(var(--accent-hue) calc(8% * var(--saturate-ratio)) 5% / 75%),

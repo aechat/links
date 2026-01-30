@@ -3,6 +3,7 @@ $light-theme-map: (
     background: (
       primary: hsl(0deg 0% 95%),
       secondary: hsl(0deg 0% 100%),
+      tertiary: hsl(0deg 0% 98%),
       overlay: hsl(0deg 0% 85% / 35%),
       header: hsl(var(--accent-hue) calc(100% * var(--saturate-ratio)) 98% / 75%),
       modal: hsl(var(--accent-hue) calc(100% * var(--saturate-ratio)) 99% / 85%),
