@@ -234,7 +234,7 @@ const isListOrParagraph = (element: Element): boolean => {
 const cloneWithoutFigures = (element: Element): Element => {
   const clone = element.cloneNode(true) as Element;
 
-  for (const element_ of clone.querySelectorAll('[class*="figure-container"]'))
+  for (const element_ of clone.querySelectorAll('[class*="media-figure"]'))
     element_.remove();
 
   return clone;
@@ -309,7 +309,7 @@ const processContainerChildren = (
     if (node.nodeType === Node.ELEMENT_NODE) {
       const elementNode = node as Element;
 
-      if (elementNode.classList.toString().includes("figure-container")) {
+      if (elementNode.classList.toString().includes("media-figure")) {
         continue;
       }
 
@@ -393,9 +393,7 @@ const getFirstCleanParagraphOrElement = (root: Element): string => {
   if (firstParagraph) {
     const cleanedParagraph = firstParagraph.cloneNode(true) as Element;
 
-    for (const element of cleanedParagraph.querySelectorAll(
-      '[class*="figure-container"]'
-    ))
+    for (const element of cleanedParagraph.querySelectorAll('[class*="media-figure"]'))
       element.remove();
 
     return cleanedParagraph.outerHTML;
@@ -406,7 +404,7 @@ const getFirstCleanParagraphOrElement = (root: Element): string => {
   if (firstElement) {
     const cleanedElement = firstElement.cloneNode(true) as Element;
 
-    for (const element of cleanedElement.querySelectorAll('[class*="figure-container"]'))
+    for (const element of cleanedElement.querySelectorAll('[class*="media-figure"]'))
       element.remove();
 
     return cleanedElement.outerHTML;
@@ -521,7 +519,7 @@ const formatSearchResult = (text: string, searchWords: string[]): string => {
 };
 
 const removeFigureContainers = (root: Element): void => {
-  for (const element of root.querySelectorAll('[class*="figure-container"]'))
+  for (const element of root.querySelectorAll('[class*="media-figure"]'))
     element.remove();
 };
 
