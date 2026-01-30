@@ -9,7 +9,7 @@
     "@mui/icons-material": "^7.3.7",
     "@mui/material": "^7.3.7",
     "@types/lodash": "^4.17.21",
-    "antd": "^5.29.3",
+    "antd": "^6.2.2",
     "file-saver": "^2.0.5",
     "framer-motion": "^12.24.12",
     "lodash": "^4.17.21",
