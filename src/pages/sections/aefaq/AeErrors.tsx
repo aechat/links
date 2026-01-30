@@ -369,7 +369,7 @@ const AeErrors: React.FC = () => {
             кодек, например <mark className="video">Apple ProRes 422</mark>, через{" "}
             <a href="https://www.shutterencoder.com/">Shutter Encoder</a>, а затем
             заменить в проекте. Так вы обезопасите себя от различных багов.{" "}
-            <a href="#import-pipeline">Как это сделать?</a>
+            <a href="#import-workflow">Как это сделать?</a>
           </li>
           <li>
             Убедитесь, что вы не перегрузили проект множеством ресурсоёмких эффектов,

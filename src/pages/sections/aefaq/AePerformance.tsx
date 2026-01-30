@@ -1016,7 +1016,7 @@ const AePerformance: React.FC = () => {
         />
         <p>
           Эта проблема решается, как ни странно,{" "}
-          <a href="#import-pipeline">конвертацией</a> исходников в монтажный кодек,
+          <a href="#import-workflow">конвертацией</a> исходников в монтажный кодек,
           например, <mark className="video">Apple ProRes</mark> или{" "}
           <mark className="video">DNxHD</mark>, через такие программы, как{" "}
           <mark className="app">Shutter Encoder</mark>,{" "}
@@ -1055,7 +1055,7 @@ const AePerformance: React.FC = () => {
         </p>
         <p>
           А что будет с качеством изображения после конвертации? Если грамотно подойти к{" "}
-          <a href="#import-pipeline">настройкам кодирования</a>, то разница между
+          <a href="#import-workflow">настройкам кодирования</a>, то разница между
           оригиналом и итоговым файлом будет незаметна при обычном просмотре.
         </p>
         <p>
