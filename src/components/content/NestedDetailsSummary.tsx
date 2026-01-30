@@ -1,4 +1,11 @@
-import React, {ReactNode, useContext, useEffect, useRef, useState} from "react";
+import React, {
+  ReactNode,
+  useCallback,
+  useContext,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
 
 import styles from "./NestedDetailsSummary.module.scss";
 import {
@@ -13,6 +20,37 @@ interface NestedDetailsSummaryProperties {
   startOpen?: boolean;
   title: string;
 }
+
+const usePrevious = <T,>(value: T): T | undefined => {
+  const reference = useRef<T | undefined>(undefined);
+
+  useEffect(() => {
+    reference.current = value;
+  });
+
+  return reference.current;
+};
+
+const constants = {
+  ACTION_DELAY: 150,
+  PADDING: {MAX: 14, MIN: 10, SCREEN: {MAX: 768, MIN: 320}},
+} as const;
+
+const getScrollOffsets = () => {
+  if (globalThis.window === undefined) return {headerHeight: 0, padding: 0};
+
+  const headerHeight = document.querySelector("header")?.offsetHeight ?? 0;
+
+  const padding = Math.min(
+    constants.PADDING.MIN +
+      (constants.PADDING.MAX - constants.PADDING.MIN) *
+        ((window.innerWidth - constants.PADDING.SCREEN.MIN) /
+          (constants.PADDING.SCREEN.MAX - constants.PADDING.SCREEN.MIN)),
+    constants.PADDING.MAX
+  );
+
+  return {headerHeight, padding};
+};
 
 const NestedDetailsSummary: React.FC<NestedDetailsSummaryProperties> = ({
   children,
@@ -44,6 +82,36 @@ const NestedDetailsSummary: React.FC<NestedDetailsSummaryProperties> = ({
     event.preventDefault();
     setIsOpen(!isOpen);
   };
+
+  const doScroll = useCallback(() => {
+    const summary = detailsReference.current?.querySelector(
+      `.${styles["details-nested-summary"]}`
+    );
+
+    if (summary) {
+      setTimeout(() => {
+        const {headerHeight, padding} = getScrollOffsets();
+
+        const y =
+          summary.getBoundingClientRect().top +
+          window.pageYOffset -
+          headerHeight -
+          padding;
+
+        window.scrollTo({behavior: "smooth", top: y});
+      }, constants.ACTION_DELAY);
+    }
+  }, []);
+
+  const previousIsOpen = usePrevious(isOpen);
+
+  useEffect(() => {
+    const justOpened = isOpen && !previousIsOpen;
+
+    if (justOpened) {
+      doScroll();
+    }
+  }, [isOpen, previousIsOpen, doScroll]);
 
   useEffect(() => {
     const details = detailsReference.current;
