@@ -393,8 +393,8 @@ const AeFromNewbies: React.FC = () => {
               Слои с <mark className="video">видео</mark>,{" "}
               <mark className="audio">аудио</mark> и{" "}
               <mark className="image">изображениями</mark> относятся к импортируемым
-              объектам. Их добавляют в проект через{" "}
-              <mark className="select">«File» → «Import»</mark> или с помощью{" "}
+              объектам. Чтобы их добавить в проект, используйте{" "}
+              <mark className="select">«File» → «Import»</mark> или комбинацию клавиш{" "}
               <mark className="key">Ctrl + I</mark>.
             </p>
             <NestedDetailsSummary title="Видео">
@@ -412,18 +412,26 @@ const AeFromNewbies: React.FC = () => {
                     перекодировать в подходящий формат, например{" "}
                     <mark className="video">Apple ProRes 422</mark> с помощью{" "}
                     <mark className="app">Shutter Encoder</mark> или использовать
-                    сторонний плагин <mark className="plugin">Autokroma Influx</mark>.
+                    сторонний плагин <mark className="plugin">Autokroma Influx</mark> для
+                    добавления поддержки многих форматов.
                   </li>
                   <li>
-                    <mark className="app">Adobe After Effects</mark> не работает с
+                    <mark className="app">Adobe After Effects</mark> не может работать с
                     несколькими звуковыми дорожками в одном файле — он «увидит» только
-                    первую. Остальные нужно извлечь, например, с помощью{" "}
-                    <mark className="app">HandBrake</mark> или{" "}
-                    <mark className="app">MKVToolNix</mark>, и импортировать в композицию
-                    отдельно.
+                    первую. Если вам нужны все аудиодорожки, запакованные в видео, их
+                    придётся извлечь с помощью <mark className="app">HandBrake</mark> или{" "}
+                    <mark className="app">MKVToolNix</mark> и импортировать отдельно.
                   </li>
                 </ul>
               </Addition>
+              <p>
+                Поскольку <mark className="app">Adobe After Effects</mark> не является
+                программой для монтажа, даже одиночное видео может проигрываться в нём не
+                так плавно, как в обычном плеере, и при этом потреблять много оперативной
+                памяти. Дело в том, что программа кэширует каждый кадр для того, чтобы их
+                показать в предпросмотре, вместо того чтобы просто воспроизводить файл
+                «как есть».
+              </p>
             </NestedDetailsSummary>
             <NestedDetailsSummary title="Аудио">
               <p>
