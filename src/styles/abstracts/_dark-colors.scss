@@ -6,7 +6,7 @@ $dark-theme-map: (
       tertiary: hsl(0deg 0% 8%),
       overlay: hsl(0deg 0% 0% / 70%),
       header: hsl(var(--accent-hue) calc(10% * var(--saturate-ratio)) 7% / 80%),
-      modal: hsl(var(--accent-hue) calc(8% * var(--saturate-ratio)) 5% / 75%),
+      modal: hsl(var(--accent-hue) calc(5% * var(--saturate-ratio)) 8% / 75%),
       table: hsl(0deg calc(0% * var(--saturate-ratio)) 10%),
       table-hover: hsl(0deg calc(0% * var(--saturate-ratio)) 13%),
       divider: hsl(var(--accent-hue) calc(7.5% * var(--saturate-ratio)) 8%),
