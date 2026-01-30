@@ -446,7 +446,9 @@ const AeFromNewbies: React.FC = () => {
                     Некоторые форматы аудио, например <mark className="audio">OGG</mark> —
                     не поддерживаются. Их нужно конвертировать в{" "}
                     <mark className="audio">WAV</mark> или{" "}
-                    <mark className="audio">MP3</mark>.
+                    <mark className="audio">MP3</mark>. Сделать это можно через{" "}
+                    <mark className="app">Shutter Encoder</mark> или{" "}
+                    <mark className="app">EZ CD Audio Converter</mark>.
                   </li>
                   <li>
                     <mark className="app">Adobe After Effects</mark> не предназначен для
