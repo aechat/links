@@ -2,7 +2,7 @@
 @use "../../styles/abstracts/mixins" as *;
 
 .media {
-  margin: 20px;
+  margin: min(calc(15px + (20 - 15) * ((100vw - 320px) / (768 - 320))), 20px);
   text-align: center;
 
   &-figure {
