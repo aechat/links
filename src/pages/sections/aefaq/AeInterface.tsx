@@ -252,7 +252,7 @@ const AeInterface: React.FC = () => {
             </li>
             <li>
               В <mark className="app">Adobe After Effects</mark> версии <mark>2025</mark>{" "}
-              эта кнопка находится в разделе <mark className="select">«General»</mark>.
+              этот чекбокс находится в разделе <mark className="select">«General»</mark>.
             </li>
           </ul>
         </Addition>
