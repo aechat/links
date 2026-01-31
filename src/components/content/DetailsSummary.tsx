@@ -238,7 +238,9 @@ const DetailsSummary: React.FC<DetailsSummaryProperties> = ({
   const updateDimmingEffect = useCallback(() => {
     if (globalThis.window === undefined) return;
 
-    const openDetailsElements = document.querySelectorAll("details[open]");
+    const openDetailsElements = document.querySelectorAll(
+      `.${styles["details-summary-root"]}[open]`
+    );
 
     document.body.classList.toggle(
       "body-has-any-spoiler-open",
