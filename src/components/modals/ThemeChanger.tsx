@@ -1,4 +1,11 @@
-import React, {createContext, useContext, useEffect, useMemo, useState} from "react";
+import React, {
+  createContext,
+  useContext,
+  useEffect,
+  useLayoutEffect,
+  useMemo,
+  useState,
+} from "react";
 
 import {
   CloseRounded,
@@ -46,7 +53,7 @@ export const ThemeProvider: React.FC<{children: React.ReactNode}> = ({children})
 
   const [isSnowfallEnabled, setIsSnowfallEnabled] = useState<boolean>(false);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (typeof localStorage !== "undefined") {
       const savedTheme = (localStorage.getItem("theme") as Theme) || "system";
 
@@ -154,7 +161,7 @@ export const ThemeProvider: React.FC<{children: React.ReactNode}> = ({children})
     globalThis.dispatchEvent(new CustomEvent("accentHueChanged"));
   };
 
-  useEffect(
+  useLayoutEffect(
     () => updateTheme(),
     [
       themeState,
