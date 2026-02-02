@@ -1104,70 +1104,11 @@ const AeFromNewbies: React.FC = () => {
           </li>
           <li>
             <p>
-              <mark className="select">«Слой сплошной заливки»</mark> —{" "}
-              <mark className="select">«Solid Layer»</mark>, на который можно применять
-              эффекты. При создании он появляется в окне{" "}
-              <mark className="select">«Project»</mark> в папке{" "}
-              <mark className="path">Solids</mark>.
-            </p>
-            <NestedDetailsSummary title="Сплошная заливка">
-              <p>
-                <mark className="select">«Solid Layer»</mark> — объект с однотонным
-                цветом, обычно соответствующий размерам композиции. Он часто используется
-                как фон или как «инициатор» для трёхмерных эффектов, таких как{" "}
-                <mark className="plugin">Element 3D</mark>,{" "}
-                <mark className="plugin">Trapcode Particular</mark>,{" "}
-                <mark className="plugin">Trapcode Form</mark> или{" "}
-                <mark className="plugin">CC Particle World</mark>. Кроме того,{" "}
-                <mark className="select">«Solid Layer»</mark> может служить простым фоном
-                — это особенно полезно, когда некоторые эффекты, например переходы из{" "}
-                <mark className="plugin">AtomX</mark> или{" "}
-                <mark className="plugin">Motion Bro</mark>, работают некорректно с
-                прозрачностью.
-              </p>
-              <Addition type="info">
-                <ul>
-                  <li>
-                    Чтобы создать <mark className="select">«Solid Layer»</mark> — нажмите
-                    комбинацию клавиш <mark className="key">Ctrl + Y</mark>.
-                  </li>
-                  <li>
-                    Чтобы настроить размер, цвет и другие параметры такого слоя — нажмите
-                    комбинацию клавиш <mark className="key">Ctrl + Shift + Y</mark>.
-                  </li>
-                </ul>
-              </Addition>
-              <ArticleMedia
-                src="e-g1y4p8Jc0"
-                type="youtube"
-              />
-              <Addition type="warning">
-                <ul>
-                  <li>
-                    Если применённый вами эффект работает в собственном трёхмерном
-                    пространстве — не стоит преобразовывать слой-«инициатор» в{" "}
-                    <mark className="select">«3D Layer»</mark>. Чтобы изменить его вид или
-                    положение, используйте <mark className="select">«Camera»</mark> или,
-                    если возможно, создавайте{" "}
-                    <mark className="select">«Null Object»</mark> для параметров положения
-                    объекта.
-                  </li>
-                  <li>
-                    Чтобы определить, использует ли эффект своё трёхмерное пространство,
-                    обратите внимание на его название в{" "}
-                    <mark className="select">«Effects & Controls»</mark> — рядом должна
-                    отображаться иконка <mark className="select">«кубика»</mark>.
-                  </li>
-                </ul>
-              </Addition>
-            </NestedDetailsSummary>
-          </li>
-          <li>
-            <p>
               <mark className="select">«Синтетические слои»</mark> — слои, которые
               содержат визуальные элементы, не основанные на импортированных файлах. К ним
-              относятся <mark className="select">«Text Layer»</mark> и{" "}
-              <mark className="select">«Shape Layer»</mark>.
+              относятся <mark className="select">«Text Layer»</mark>,{" "}
+              <mark className="select">«Shape Layer»</mark> и{" "}
+              <mark className="select">«Solid Layer»</mark>.
             </p>
             <NestedDetailsSummary title="Слой-фигура">
               <p>
@@ -1282,6 +1223,57 @@ const AeFromNewbies: React.FC = () => {
                 src="__-rPlFfRow"
                 type="youtube"
               />
+            </NestedDetailsSummary>
+            <NestedDetailsSummary title="Сплошная заливка">
+              <p>
+                <mark className="select">«Solid Layer»</mark> — объект с однотонным
+                цветом, обычно соответствующий размерам композиции. Он часто используется
+                как фон или как «инициатор» для трёхмерных эффектов, таких как{" "}
+                <mark className="plugin">Element 3D</mark>,{" "}
+                <mark className="plugin">Trapcode Particular</mark>,{" "}
+                <mark className="plugin">Trapcode Form</mark> или{" "}
+                <mark className="plugin">CC Particle World</mark>. Кроме того,{" "}
+                <mark className="select">«Solid Layer»</mark> может служить простым фоном
+                — это особенно полезно, когда некоторые эффекты, например переходы из{" "}
+                <mark className="plugin">AtomX</mark> или{" "}
+                <mark className="plugin">Motion Bro</mark>, работают некорректно с
+                прозрачностью.
+              </p>
+              <Addition type="info">
+                <ul>
+                  <li>
+                    Чтобы создать <mark className="select">«Solid Layer»</mark> — нажмите
+                    комбинацию клавиш <mark className="key">Ctrl + Y</mark>.
+                  </li>
+                  <li>
+                    Чтобы настроить размер, цвет и другие параметры такого слоя — нажмите
+                    комбинацию клавиш <mark className="key">Ctrl + Shift + Y</mark>.
+                  </li>
+                </ul>
+              </Addition>
+              <ArticleMedia
+                src="e-g1y4p8Jc0"
+                type="youtube"
+              />
+              <Addition type="warning">
+                <ul>
+                  <li>
+                    Если применённый вами эффект работает в собственном трёхмерном
+                    пространстве — не стоит преобразовывать слой-«инициатор» в{" "}
+                    <mark className="select">«3D Layer»</mark>. Чтобы изменить его вид или
+                    положение, используйте <mark className="select">«Camera»</mark> или,
+                    если возможно, создавайте{" "}
+                    <mark className="select">«Null Object»</mark> для параметров положения
+                    объекта.
+                  </li>
+                  <li>
+                    Чтобы определить, использует ли эффект своё трёхмерное пространство,
+                    обратите внимание на его название в{" "}
+                    <mark className="select">«Effects & Controls»</mark> — рядом должна
+                    отображаться иконка <mark className="select">«кубика»</mark>.
+                  </li>
+                </ul>
+              </Addition>
             </NestedDetailsSummary>
           </li>
           <li>
