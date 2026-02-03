@@ -19,8 +19,6 @@ const LoadingAnimation: React.FC<LoadingAnimationProperties> = ({isLoading}) => 
   const getTitle = () => {
     const path = location.pathname;
 
-    if (path === "/") return "links";
-
     if (path.startsWith("/aefaq")) return "aefaq";
 
     if (path.startsWith("/prfaq")) return "prfaq";
@@ -32,19 +30,23 @@ const LoadingAnimation: React.FC<LoadingAnimationProperties> = ({isLoading}) => 
     if (path.startsWith("/rules")) return "rules";
   };
 
-  const [showIntro, setShowIntro] = useState(() => {
-    if (!getTitle()) return false;
+  const [fontsLoaded, setFontsLoaded] = useState(false);
 
-    if (globalThis.window === undefined || !globalThis.localStorage) return true;
+  useEffect(() => {
+    const logoFont = "italic 800 1em 'Red Hat Display'";
 
-    const lastShown = localStorage.getItem("introLastShown");
+    const taglineFont = "italic 500 1em 'Red Hat Display'";
 
-    const now = Date.now();
+    Promise.all([document.fonts.load(logoFont), document.fonts.load(taglineFont)]).then(
+      () => {
+        setFontsLoaded(true);
+      }
+    );
+  }, []);
 
-    return !lastShown || now - Number.parseInt(lastShown, 10) > 20 * 60 * 1000;
-  });
+  const [showIntro, setShowIntro] = useState(false);
 
-  const [canDismiss, setCanDismiss] = useState(!showIntro);
+  const [canDismiss, setCanDismiss] = useState(() => !getTitle());
 
   const [showProgressBar, setShowProgressBar] = useState(false);
 
@@ -62,7 +64,9 @@ const LoadingAnimation: React.FC<LoadingAnimationProperties> = ({isLoading}) => 
         setShowProgressBar(true);
       }, 50);
 
-      const titleExists = !!getTitle();
+      const title = getTitle();
+
+      const titleExists = !!title;
 
       if (!titleExists) {
         setShowIntro(false);
@@ -71,37 +75,34 @@ const LoadingAnimation: React.FC<LoadingAnimationProperties> = ({isLoading}) => 
         return () => clearTimeout(timer);
       }
 
-      let show = false;
+      const lastShown = localStorage.getItem("introLastShown");
 
-      if (globalThis.window === undefined || !globalThis.localStorage) {
-        show = true;
-      } else {
-        const lastShown = localStorage.getItem("introLastShown");
+      const now = Date.now();
 
-        const now = Date.now();
+      const shouldShowIntro = !lastShown || now - Number(lastShown) > 20 * 60 * 1000;
 
-        show = !lastShown || now - Number.parseInt(lastShown, 10) > 20 * 60 * 1000;
-      }
-
-      setShowIntro(show);
-
-      if (show) {
-        if (globalThis.localStorage) {
-          localStorage.setItem("introLastShown", Date.now().toString());
-        }
-
-        setCanDismiss(false);
-        setTimeout(() => setCanDismiss(true), 2000);
-      } else {
+      if (!shouldShowIntro) {
+        setShowIntro(false);
         setCanDismiss(false);
         setTimeout(() => setCanDismiss(true), 500);
+      } else if (fontsLoaded) {
+        setShowIntro(true);
+        setCanDismiss(false);
+
+        setTimeout(() => {
+          localStorage.setItem("introLastShown", Date.now().toString());
+          setCanDismiss(true);
+        }, 1750);
+      } else {
+        setShowIntro(false);
+        setCanDismiss(false);
       }
 
       return () => clearTimeout(timer);
     } else {
       setShowProgressBar(false);
     }
-  }, [isLoading, location.pathname]);
+  }, [isLoading, location.pathname, fontsLoaded]);
 
   const title = getTitle();
 
@@ -132,12 +133,20 @@ const LoadingAnimation: React.FC<LoadingAnimationProperties> = ({isLoading}) => 
   let progressBarDelay = 0;
 
   if (showProgressBar) {
-    progressBarDelay = 0.5;
+    progressBarDelay = 0.25;
   }
 
   const isProgressBarVisible = showProgressBar && (!showIntro || textAnimationFinished);
 
   if (!shouldRender) return <></>;
+
+  const titleLength = title ? title.length : 0;
+
+  const totalLength = titleLength + taglineText.length;
+
+  const centerIndex = (totalLength - 1) / 2;
+
+  const maxDistance = Math.max(centerIndex, totalLength - 1 - centerIndex);
 
   return (
     <div
@@ -158,36 +167,67 @@ const LoadingAnimation: React.FC<LoadingAnimationProperties> = ({isLoading}) => 
           <div className={styles["animated-text-container"]}>
             {title && (
               <div className={styles["animated-text-logo"]}>
-                {[...title].map((char, index) => (
-                  <span
-                    key={`title-${char}-${index}`}
-                    className={styles["animated-text-letter"]}
-                    style={{
-                      animationDelay: `${0.5 + index * 0.04}s`,
-                    }}
-                  >
-                    {char}
-                  </span>
-                ))}
+                {[...title].map((char, index) => {
+                  const globalIndex = index;
+
+                  const distance = Math.abs(globalIndex - centerIndex);
+
+                  const offset = globalIndex - centerIndex;
+
+                  const delay = 0.5 + distance * 0.1;
+
+                  const isFurthest = Math.abs(distance - maxDistance) < 0.01;
+
+                  return (
+                    <span
+                      key={`title-${index}`}
+                      className={styles["animated-text-letter-wrapper"]}
+                      style={{"--char-offset": offset} as React.CSSProperties}
+                    >
+                      <span
+                        className={styles["animated-text-letter"]}
+                        style={{animationDelay: `${delay}s`}}
+                        onAnimationEnd={
+                          isFurthest ? () => setTextAnimationFinished(true) : undefined
+                        }
+                      >
+                        {char}
+                      </span>
+                    </span>
+                  );
+                })}
               </div>
             )}
             <div className={styles["animated-text-tagline"]}>
-              {[...taglineText].map((char, index) => (
-                <span
-                  key={`tagline-${char}-${index}`}
-                  className={styles["animated-text-letter"]}
-                  style={{
-                    animationDelay: `${0.5 + ((title?.length || 0) + index) * 0.04}s`,
-                  }}
-                  onAnimationEnd={
-                    index === taglineText.length - 1
-                      ? () => setTextAnimationFinished(true)
-                      : undefined
-                  }
-                >
-                  {char}
-                </span>
-              ))}
+              {[...taglineText].map((char, index) => {
+                const globalIndex = titleLength + index;
+
+                const distance = Math.abs(globalIndex - centerIndex);
+
+                const offset = globalIndex - centerIndex;
+
+                const delay = 0.5 + distance * 0.1;
+
+                const isFurthest = Math.abs(distance - maxDistance) < 0.01;
+
+                return (
+                  <span
+                    key={`tagline-${index}`}
+                    className={styles["animated-text-letter-wrapper"]}
+                    style={{"--char-offset": offset} as React.CSSProperties}
+                  >
+                    <span
+                      className={styles["animated-text-letter"]}
+                      style={{animationDelay: `${delay}s`}}
+                      onAnimationEnd={
+                        isFurthest ? () => setTextAnimationFinished(true) : undefined
+                      }
+                    >
+                      {char}
+                    </span>
+                  </span>
+                );
+              })}
             </div>
           </div>
         )}
