@@ -52,13 +52,17 @@ const LoadingAnimation: React.FC<LoadingAnimationProperties> = ({isLoading}) => 
 
   const [textAnimationFinished, setTextAnimationFinished] = useState(false);
 
+  const [introLogicFinished, setIntroLogicFinished] = useState(false);
+
   useLayoutEffect(() => {
     setIsLoading(true);
+    setIntroLogicFinished(false);
   }, [location.pathname, setIsLoading]);
 
   useEffect(() => {
     if (isLoading) {
       setTextAnimationFinished(false);
+      setIntroLogicFinished(false);
 
       const timer = setTimeout(() => {
         setShowProgressBar(true);
@@ -71,6 +75,7 @@ const LoadingAnimation: React.FC<LoadingAnimationProperties> = ({isLoading}) => 
       if (!titleExists) {
         setShowIntro(false);
         setCanDismiss(true);
+        setIntroLogicFinished(true);
 
         return () => clearTimeout(timer);
       }
@@ -85,6 +90,7 @@ const LoadingAnimation: React.FC<LoadingAnimationProperties> = ({isLoading}) => 
         setShowIntro(false);
         setCanDismiss(false);
         setTimeout(() => setCanDismiss(true), 500);
+        setIntroLogicFinished(true);
       } else if (fontsLoaded) {
         setShowIntro(true);
         setCanDismiss(false);
@@ -93,6 +99,8 @@ const LoadingAnimation: React.FC<LoadingAnimationProperties> = ({isLoading}) => 
           localStorage.setItem("introLastShown", Date.now().toString());
           setCanDismiss(true);
         }, 1750);
+
+        setIntroLogicFinished(true);
       } else {
         setShowIntro(false);
         setCanDismiss(false);
@@ -136,7 +144,8 @@ const LoadingAnimation: React.FC<LoadingAnimationProperties> = ({isLoading}) => 
     progressBarDelay = 0.25;
   }
 
-  const isProgressBarVisible = showProgressBar && (!showIntro || textAnimationFinished);
+  const isProgressBarVisible =
+    introLogicFinished && showProgressBar && (!showIntro || textAnimationFinished);
 
   if (!shouldRender) return <></>;
 
