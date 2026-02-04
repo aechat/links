@@ -1717,17 +1717,96 @@ const AeFromNewbies: React.FC = () => {
             <NestedDetailsSummary title="Маски и «Track Matte»">
               <p>
                 <mark className="select">«Mask»</mark> — область, в которой слой будет
-                виден или не виден, в зависимости от типа маски и её настроек.
+                виден или не виден, в зависимости от типа маски и её настроек. Её часто
+                используют для выделения или скрытия частей изображения, а также для
+                создания эффектов с плавной анимацией появления или исчезновения объектов.
               </p>
+              <ArticleMedia
+                src="VOV4zs87xOU"
+                type="youtube"
+              />
               <p>
-                <mark className="select">«Track Matte»</mark> представляет собой слой, на
-                основе которого создаётся сложная маска, работающая по прозрачности или
-                яркости. В роли подложки может выступать что угодно: статичное
-                изображение, видео, векторная графика, текст или фигура. Например,
-                текстовый слой может служить маской для видеоряда, чтобы изображение
-                проступало только сквозь очертания букв. Слой заполнения считывает
-                информацию о прозрачности из каналов слоя-подложки либо на основе
-                альфа-канала, либо по яркости пикселей.
+                Для создания обычной маски выделите нужный слой, выберите инструмент{" "}
+                <mark className="select">«Pen Tool»</mark> или одну из фигур:{" "}
+                <mark className="select">
+                  «Rectangle Tool»<sup>1</sup>
+                </mark>
+                ,{" "}
+                <mark className="select">
+                  «Rounded Rectangle Tool»<sup>2</sup>
+                </mark>
+                , <mark className="select">«Ellipse Tool»</mark>,{" "}
+                <mark className="select">«Polygon Tool»</mark> или{" "}
+                <mark className="select">«Star Tool»</mark>, а затем нарисуйте область,
+                которая должна остаться видимой.
+              </p>
+              <Addition type="warning">
+                <ul>
+                  <li>
+                    <sup>1, 2</sup> Вы не можете изменить или анимировать{" "}
+                    <mark className="select">«Roundness»</mark> для таких фигур. Вместо
+                    этого используйте связку{" "}
+                    <mark className="select">«Shape Layer» → «Rectangle»</mark> и{" "}
+                    <mark className="select">«Track Matte»</mark>.
+                  </li>
+                  <li>
+                    Не все эффекты корректно работают с масками на одном слое, например{" "}
+                    <mark className="plugin">Roto Brush</mark>. Если нужно наложить маску
+                    на слой с таким эффектом, создайте прекомпозицию с переносом атрибутов
+                    внутрь, а маски добавляйте уже на ней.
+                  </li>
+                </ul>
+              </Addition>
+              <p>
+                Созданную маску можно растушевать, изменив параметр{" "}
+                <mark className="select">«Mask Feather»</mark>, настроить прозрачность
+                через <mark className="select">«Mask Opacity»</mark>, расширить с помощью{" "}
+                <mark className="select">«Mask Expansion»</mark>, а также анимировать её
+                форму.
+              </p>
+              <Addition type="info">
+                <ul>
+                  <li>
+                    Если на таймлайне выделен{" "}
+                    <mark className="select">«Shape Layer»</mark>, инструменты рисования
+                    по умолчанию создают новую фигуру внутри слоя. Чтобы вместо этого
+                    нарисовать маску, переключите режим на панели инструментов с{" "}
+                    <mark className="select">«Tool Creates Shape»</mark> на{" "}
+                    <mark className="select">«Tool Creates Mask»</mark>.
+                  </li>
+                  <li>
+                    <mark className="select">«Path»</mark> у маски и слоя-фигуры
+                    взаимозаменяемы. Вы можете копировать ключевые кадры формы с{" "}
+                    <mark className="select">«Shape Layer»</mark> на{" "}
+                    <mark className="select">«Mask»</mark> и наоборот.
+                  </li>
+                </ul>
+              </Addition>
+              <p>
+                Для масок можно использовать режимы наложения{" "}
+                <mark className="select">«None»</mark>,{" "}
+                <mark className="select">«Add»</mark> по умолчанию,{" "}
+                <mark className="select">«Subtract»</mark>,{" "}
+                <mark className="select">«Intersect»</mark>,{" "}
+                <mark className="select">«Lighten»</mark>,{" "}
+                <mark className="select">«Darken»</mark> и{" "}
+                <mark className="select">«Difference»</mark>. Если масок несколько, эти
+                режимы определяют способ их взаимодействия, а действие каждой можно
+                инвертировать.
+              </p>
+              <ArticleMedia
+                src="gn0jUFq-vPw"
+                type="youtube"
+              />
+              <p>
+                Помимо обычной маски, есть и <mark className="select">«Track Matte»</mark>
+                . Он представляет собой слой, на основе которого создаётся сложная маска,
+                работающая по прозрачности или яркости. В роли подложки может выступать
+                что угодно: статичное изображение, видео, векторная графика, текст или
+                фигура. Например, текстовый слой может служить маской для видеоряда, чтобы
+                изображение проступало только сквозь очертания букв. Слой заполнения
+                считывает информацию о прозрачности из каналов слоя-подложки либо на
+                основе альфа-канала, либо по яркости пикселей.
               </p>
               <ArticleMedia
                 src="VWkS1vcs0Wk"
