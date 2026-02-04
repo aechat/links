@@ -1713,17 +1713,11 @@ const AeFromNewbies: React.FC = () => {
               type="youtube"
             />
           </NestedDetailsSummary>
-          <NestedDetailsSummary title="Маски">
+            <NestedDetailsSummary title="Маски и «Track Matte»">
             <p>
                 <mark className="select">«Mask»</mark> — область, в которой слой будет
                 виден или не виден, в зависимости от типа маски и её настроек.
             </p>
-            <ArticleMedia
-              src="VWkS1vcs0Wk"
-              type="youtube"
-            />
-            </NestedDetailsSummary>
-            <NestedDetailsSummary title="Track Matte">
               <p>
                 <mark className="select">«Track Matte»</mark> представляет собой слой, на
                 основе которого создаётся сложная маска, работающая по прозрачности или
