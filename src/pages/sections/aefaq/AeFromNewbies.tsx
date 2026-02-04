@@ -1785,7 +1785,7 @@ const AeFromNewbies: React.FC = () => {
               <p>
                 Для масок можно использовать режимы наложения{" "}
                 <mark className="select">«None»</mark>,{" "}
-                <mark className="select">«Add»</mark> по умолчанию,{" "}
+                <mark className="select">«Add»</mark> (по умолчанию),{" "}
                 <mark className="select">«Subtract»</mark>,{" "}
                 <mark className="select">«Intersect»</mark>,{" "}
                 <mark className="select">«Lighten»</mark>,{" "}
