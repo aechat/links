@@ -1682,42 +1682,43 @@ const AeFromNewbies: React.FC = () => {
           </li>
         </ul>
         <Divider>Какие бывают атрибуты у слоя?</Divider>
-        <li>
-          <p>
+        <ul>
+          <li>
+            <p>
               На сами слои можно применять эффекты, добавлять маркеры, использовать маски
               и многое другое.
-          </p>
-          <NestedDetailsSummary title="Parent & Link">
-            <p>
-              <mark className="select">«Parent & Link»</mark> связывает слои в иерархию
+            </p>
+            <NestedDetailsSummary title="Parent & Link">
+              <p>
+                <mark className="select">«Parent & Link»</mark> связывает слои в иерархию
                 «родитель и ребёнок». Дочерний объект наследует положение, масштаб и
                 поворот родителя относительно текущего времени, сохраняя при этом
-              возможность независимой анимации. Поэтому, если родитель уже анимирован,
+                возможность независимой анимации. Поэтому, если родитель уже анимирован,
                 привязку лучше делать в тот момент, когда{" "}
                 <mark className="select">«Current Time Indicator»</mark> стоит в её
                 начале. <i style={{opacity: "0.5"}}>Хотя всё зависит от ситуации...</i>
-            </p>
-            <p>
-              Данный функционал полезен для создания персонажной анимации или для
-              соединения тех или иных слоёв друг с другом.
-            </p>
-            <Addition type="warning">
-              Не стоит путать колонки <mark className="select">«Parent & Link»</mark> с{" "}
-              <mark className="select">«Track Matte»</mark>, несмотря на то, что у обоих
-              столбцов есть лассо для указания ссылки на нужный слой. Часто новички не
-              смотрят на название нужной колонки, а потом удивляются, почему у них
-              программа работает не так, как они хотят.
-            </Addition>
-            <ArticleMedia
-              src="TP1fEnJkzmQ"
-              type="youtube"
-            />
-          </NestedDetailsSummary>
+              </p>
+              <p>
+                Данный функционал полезен для создания персонажной анимации или для
+                соединения тех или иных слоёв друг с другом.
+              </p>
+              <Addition type="warning">
+                Не стоит путать колонки <mark className="select">«Parent & Link»</mark> с{" "}
+                <mark className="select">«Track Matte»</mark>, несмотря на то, что у обоих
+                столбцов есть лассо для указания ссылки на нужный слой. Часто новички не
+                смотрят на название нужной колонки, а потом удивляются, почему у них
+                программа работает не так, как они хотят.
+              </Addition>
+              <ArticleMedia
+                src="TP1fEnJkzmQ"
+                type="youtube"
+              />
+            </NestedDetailsSummary>
             <NestedDetailsSummary title="Маски и «Track Matte»">
-            <p>
+              <p>
                 <mark className="select">«Mask»</mark> — область, в которой слой будет
                 виден или не виден, в зависимости от типа маски и её настроек.
-            </p>
+              </p>
               <p>
                 <mark className="select">«Track Matte»</mark> представляет собой слой, на
                 основе которого создаётся сложная маска, работающая по прозрачности или
@@ -1764,54 +1765,55 @@ const AeFromNewbies: React.FC = () => {
                 src="2Fi57LLJrUE"
                 type="youtube"
               />
-          </NestedDetailsSummary>
-          <NestedDetailsSummary title="Слой направляющей">
-            <p>
+            </NestedDetailsSummary>
+            <NestedDetailsSummary title="Слой направляющей">
+              <p>
                 <mark className="select">«Guide Layer»</mark> — атрибут, который
                 превращает слой в своего рода «комментарий»: он виден в окне
                 предпросмотра, но не рендерится при финальном экспорте<sup>1</sup>.
-            </p>
-            <p>
+              </p>
+              <p>
                 Его можно использовать при наложении технических оверлеев, таких как
                 границы интерфейса <mark className="app">TikTok</mark> или
                 <mark className="app">YouTube Shorts</mark>, а также для передачи
                 инструкций коллегам по проекту, чтобы им было проще внести правки позже.
-            </p>
-            <Addition type="info">
-              <ul>
-                <li>
-                  <sup>1</sup> Данное поведение можно изменить в{" "}
-                  <mark className="select">«Render Settings»</mark>, изменив значение
-                  параметра <mark className="select">«Guide Layers»</mark> на{" "}
-                  <mark className="select">«Current Settings»</mark>.
-                </li>
-                <li>
-                  Чтобы включить этот атрибут — откройте{" "}
-                  <mark className="select">«Layer»</mark> или нажмите{" "}
-                  <mark className="key">ПКМ</mark> по слою и выберите в контекстном меню{" "}
-                  <mark className="select">«Guide Layer»</mark>.
-                </li>
-              </ul>
-            </Addition>
-            <ArticleMedia
-              src="_rxq8Pa9WdQ"
-              type="youtube"
-            />
-          </NestedDetailsSummary>
-          <NestedDetailsSummary title="Скрытые слои">
-            <p>
-              <mark className="select">«Shy Layer»</mark> — атрибут, который задаётся
+              </p>
+              <Addition type="info">
+                <ul>
+                  <li>
+                    <sup>1</sup> Данное поведение можно изменить в{" "}
+                    <mark className="select">«Render Settings»</mark>, изменив значение
+                    параметра <mark className="select">«Guide Layers»</mark> на{" "}
+                    <mark className="select">«Current Settings»</mark>.
+                  </li>
+                  <li>
+                    Чтобы включить этот атрибут — откройте{" "}
+                    <mark className="select">«Layer»</mark> или нажмите{" "}
+                    <mark className="key">ПКМ</mark> по слою и выберите в контекстном меню{" "}
+                    <mark className="select">«Guide Layer»</mark>.
+                  </li>
+                </ul>
+              </Addition>
+              <ArticleMedia
+                src="_rxq8Pa9WdQ"
+                type="youtube"
+              />
+            </NestedDetailsSummary>
+            <NestedDetailsSummary title="Скрытые слои">
+              <p>
+                <mark className="select">«Shy Layer»</mark> — атрибут, который задаётся
                 слою, если его нужно скрыть из таймлайна. При этом сам слой из композиции
                 не исчезает и отображается, как и прежде. Такой атрибут полезен для
                 организации слоёв и при создании шаблонов — он помогает скрыть некоторые
                 слои от лишних глаз, но при этом никак не защищает их от удаления.
-            </p>
-            <ArticleMedia
-              src="Bw3snjRq2kE"
-              type="youtube"
-            />
-          </NestedDetailsSummary>
-        </li>
+              </p>
+              <ArticleMedia
+                src="Bw3snjRq2kE"
+                type="youtube"
+              />
+            </NestedDetailsSummary>
+          </li>
+        </ul>
         <Divider>Статьи о слоях от Adobe</Divider>
         <div className="flexible-links">
           <a href="https://helpx.adobe.com/after-effects/using/creating-layers.html">
