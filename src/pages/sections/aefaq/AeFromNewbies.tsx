@@ -1146,11 +1146,11 @@ const AeFromNewbies: React.FC = () => {
                 <mark className="select">«Paragraph Text»</mark>. Каждый из них
                 используется для разных целей. Вы можете{" "}
                 <a href="https://www.youtube.com/watch?v=-PS2Yl-IzTQ">
-                  анимировать Source Text
+                  анимировать «Source Text»
                 </a>{" "}
                 — менять сам текст на ключевых кадрах,{" "}
                 <a href="https://www.youtube.com/watch?v=_CEpgznn-XU">
-                  запустить текст по Path
+                  запустить текст по «Path»
                 </a>{" "}
                 с помощью маски или{" "}
                 <a href="https://www.youtube.com/watch?v=IJ3QHNQSJg8">
