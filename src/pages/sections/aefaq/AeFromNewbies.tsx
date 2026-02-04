@@ -363,7 +363,7 @@ const AeFromNewbies: React.FC = () => {
           В <mark className="app">Adobe After Effects</mark> операции внутри слоя
           выполняются в строгой последовательности:{" "}
           <mark className="select">«Masks»</mark> →{" "}
-          <mark className="select">«Effects»</mark> →
+          <mark className="select">«Effects»</mark> →{" "}
           <mark className="select">«Transformations»</mark> →{" "}
           <mark className="select">«Layer Styles»</mark>. Применённые на слой эффекты
           рендерятся сверху вниз — их порядок можно менять простым перетаскиванием.
