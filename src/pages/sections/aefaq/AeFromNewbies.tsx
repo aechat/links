@@ -1722,6 +1722,57 @@ const AeFromNewbies: React.FC = () => {
               src="VWkS1vcs0Wk"
               type="youtube"
             />
+            </NestedDetailsSummary>
+            <NestedDetailsSummary title="Track Matte">
+              <p>
+                <mark className="select">«Track Matte»</mark> представляет собой слой, на
+                основе которого создаётся сложная маска, работающая по прозрачности или
+                яркости. В роли подложки может выступать что угодно: статичное
+                изображение, видео, векторная графика, текст или фигура. Например,
+                текстовый слой может служить маской для видеоряда, чтобы изображение
+                проступало только сквозь очертания букв. Слой заполнения считывает
+                информацию о прозрачности из каналов слоя-подложки либо на основе
+                альфа-канала, либо по яркости пикселей.
+              </p>
+              <ArticleMedia
+                src="VWkS1vcs0Wk"
+                type="youtube"
+              />
+              <Addition type="warning">
+                Пожалуйста, не путайте колонки{" "}
+                <mark className="select">«Track Matte»</mark> с{" "}
+                <mark className="select">«Parent & Link»</mark>, несмотря на то, что у
+                обоих столбцов есть лассо для указания ссылки на нужный слой. Часто
+                новички не смотрят на название нужной колонки, а потом удивляются, почему
+                у них программа работает не так, как они хотят.
+              </Addition>
+              <Divider>
+                Особенности работы с «Track Matte» в разных версиях программы
+              </Divider>
+              <p>
+                В <mark className="app">Adobe After Effects</mark> версии{" "}
+                <mark>2023</mark> и новее интерфейс работы с{" "}
+                <mark className="select">«Track Matte»</mark> обновили, что часто путает
+                пользователей при просмотре старых уроков, хотя принцип действия остался
+                прежним.
+              </p>
+              <p>
+                Выбор режимов <mark className="select">«Alpha»</mark> и{" "}
+                <mark className="select">«Luma»</mark> вместе с инверсией заменили на
+                иконки, а привязку сделали удобнее: теперь один слой-маску можно
+                использовать сразу для нескольких слоёв композиции.
+              </p>
+              <Addition type="info">
+                Дополнительную информацию об этом обновлении можно{" "}
+                <a href="https://helpx.adobe.com/after-effects/using/track-mattes-and-traveling-mattes.html">
+                  прочитать на сайте Adobe
+                </a>
+                .
+              </Addition>
+              <ArticleMedia
+                src="2Fi57LLJrUE"
+                type="youtube"
+              />
           </NestedDetailsSummary>
           <NestedDetailsSummary title="Слой направляющей">
             <p>
