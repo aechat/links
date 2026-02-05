@@ -151,11 +151,17 @@ const LoadingAnimation: React.FC<LoadingAnimationProperties> = ({isLoading}) => 
 
   const titleLength = title ? title.length : 0;
 
-  const totalLength = titleLength + taglineText.length;
+  const taglineLength = taglineText.length;
 
-  const centerIndex = (totalLength - 1) / 2;
+  const totalLength = titleLength + taglineLength;
+
+  const hasTitle = titleLength > 0;
+
+  const centerIndex = hasTitle ? (titleLength - 1) / 2 : (taglineLength - 1) / 2;
 
   const maxDistance = Math.max(centerIndex, totalLength - 1 - centerIndex);
+
+  const loopStepDelay = 0.06;
 
   return (
     <div
@@ -185,17 +191,24 @@ const LoadingAnimation: React.FC<LoadingAnimationProperties> = ({isLoading}) => 
 
                   const delay = 0.5 + distance * 0.1;
 
+                  const loopPhase = globalIndex * loopStepDelay;
+
                   const isFurthest = Math.abs(distance - maxDistance) < 0.01;
 
                   return (
                     <span
                       key={`title-${index}`}
                       className={styles["animated-text-letter-wrapper"]}
-                      style={{"--char-offset": offset} as React.CSSProperties}
+                      style={
+                        {
+                          "--char-offset": offset,
+                          "--intro-delay": `${delay}s`,
+                          "--loop-phase": `${loopPhase}s`,
+                        } as React.CSSProperties
+                      }
                     >
                       <span
                         className={styles["animated-text-letter"]}
-                        style={{animationDelay: `${delay}s`}}
                         onAnimationEnd={
                           isFurthest ? () => setTextAnimationFinished(true) : undefined
                         }
@@ -215,7 +228,9 @@ const LoadingAnimation: React.FC<LoadingAnimationProperties> = ({isLoading}) => 
 
                 const offset = globalIndex - centerIndex;
 
-                const delay = 0.5 + distance * 0.1;
+                const delay = 0.675 + distance * 0.0675;
+
+                const loopPhase = globalIndex * loopStepDelay;
 
                 const isFurthest = Math.abs(distance - maxDistance) < 0.01;
 
@@ -223,11 +238,16 @@ const LoadingAnimation: React.FC<LoadingAnimationProperties> = ({isLoading}) => 
                   <span
                     key={`tagline-${index}`}
                     className={styles["animated-text-letter-wrapper"]}
-                    style={{"--char-offset": offset} as React.CSSProperties}
+                    style={
+                      {
+                        "--char-offset": offset,
+                        "--intro-delay": `${delay}s`,
+                        "--loop-phase": `${loopPhase}s`,
+                      } as React.CSSProperties
+                    }
                   >
                     <span
                       className={styles["animated-text-letter"]}
-                      style={{animationDelay: `${delay}s`}}
                       onAnimationEnd={
                         isFurthest ? () => setTextAnimationFinished(true) : undefined
                       }
