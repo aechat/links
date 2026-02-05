@@ -84,7 +84,7 @@ const LoadingAnimation: React.FC<LoadingAnimationProperties> = ({isLoading}) => 
 
       const now = Date.now();
 
-      const shouldShowIntro = !lastShown || now - Number(lastShown) > 20 * 60 * 1000;
+      const shouldShowIntro = !lastShown || now - Number(lastShown) > 10 * 60 * 1000;
 
       if (!shouldShowIntro) {
         setShowIntro(false);
