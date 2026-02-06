@@ -9,9 +9,13 @@ import styles from "./LoadingAnimation.module.scss";
 
 interface LoadingAnimationProperties {
   isLoading: boolean;
+  isSuppressed?: boolean;
 }
 
-const LoadingAnimation: React.FC<LoadingAnimationProperties> = ({isLoading}) => {
+const LoadingAnimation: React.FC<LoadingAnimationProperties> = ({
+  isLoading,
+  isSuppressed = false,
+}) => {
   const {setIsLoading} = useLoading();
 
   const location = useLocation();
@@ -60,6 +64,16 @@ const LoadingAnimation: React.FC<LoadingAnimationProperties> = ({isLoading}) => 
   }, [location.pathname, setIsLoading]);
 
   useEffect(() => {
+    if (isSuppressed) {
+      setShowProgressBar(false);
+      setShowIntro(false);
+      setCanDismiss(true);
+      setTextAnimationFinished(false);
+      setIntroLogicFinished(false);
+
+      return;
+    }
+
     if (isLoading) {
       setTextAnimationFinished(false);
       setIntroLogicFinished(false);
@@ -110,19 +124,26 @@ const LoadingAnimation: React.FC<LoadingAnimationProperties> = ({isLoading}) => 
     } else {
       setShowProgressBar(false);
     }
-  }, [isLoading, location.pathname, fontsLoaded]);
+  }, [isLoading, location.pathname, fontsLoaded, isSuppressed]);
 
   const title = getTitle();
 
   const taglineText = "@aechat";
 
-  const show = isLoading || !canDismiss;
+  const show = !isSuppressed && (isLoading || !canDismiss);
 
   const [shouldRender, setShouldRender] = useState(show);
 
   const [isFadingOut, setIsFadingOut] = useState(false);
 
   useEffect(() => {
+    if (isSuppressed) {
+      setShouldRender(false);
+      setIsFadingOut(false);
+
+      return;
+    }
+
     if (show) {
       setShouldRender(true);
       setIsFadingOut(false);
@@ -136,7 +157,7 @@ const LoadingAnimation: React.FC<LoadingAnimationProperties> = ({isLoading}) => 
 
       return () => clearTimeout(timer);
     }
-  }, [show]);
+  }, [isSuppressed, show]);
 
   let progressBarDelay = 0;
 
@@ -147,7 +168,7 @@ const LoadingAnimation: React.FC<LoadingAnimationProperties> = ({isLoading}) => 
   const isProgressBarVisible =
     introLogicFinished && showProgressBar && (!showIntro || textAnimationFinished);
 
-  if (!shouldRender) return <></>;
+  if (isSuppressed || !shouldRender) return <></>;
 
   const titleLength = title ? title.length : 0;
 

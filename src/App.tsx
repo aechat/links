@@ -501,7 +501,10 @@ export const App = () => {
             }}
           />
           <LoadingContext.Provider value={{setIsLoading}}>
-            <LoadingAnimation isLoading={isLoading && !isSafariWarningOpen} />
+            <LoadingAnimation
+              isLoading={isLoading}
+              isSuppressed={isSafariWarningOpen}
+            />
             {isAppReady && (
               <Suspense fallback={undefined}>
                 <AnimatePresence
