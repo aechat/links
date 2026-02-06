@@ -157,7 +157,7 @@ const Header: React.FC<HeaderProperties> = ({title}) => {
         {shouldShowSearch() && (
           <div>{isWide ? <SearchButton wide /> : <SearchButton />}</div>
         )}
-        <ThemeToggleButton />
+        <ThemeToggleButton className={styles.icon} />
       </div>
     </motion.header>
   );

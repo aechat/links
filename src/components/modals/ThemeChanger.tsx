@@ -230,7 +230,11 @@ export const useTheme = (): ThemeContextProperties => {
   return context;
 };
 
-export const ThemeToggleButton: React.FC = () => {
+interface ThemeToggleButtonProperties {
+  className?: string;
+}
+
+export const ThemeToggleButton: React.FC<ThemeToggleButtonProperties> = ({className}) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const openModal = () => setIsModalOpen(true);
@@ -240,7 +244,7 @@ export const ThemeToggleButton: React.FC = () => {
   return (
     <>
       <button
-        className="icon"
+        className={className}
         onClick={openModal}
       >
         <FormatColorFillOutlined />
