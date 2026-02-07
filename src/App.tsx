@@ -13,7 +13,7 @@ import LoadingAnimation from "./components/ui/LoadingAnimation";
 import LoadingContext from "./context/LoadingContext";
 import {copyText} from "./hooks/useCopyToClipboard";
 import useDynamicFavicon from "./hooks/useDynamicFavicon";
-import themeConfig from "./styles/antTheme";
+import getAntTheme from "./styles/antTheme";
 import {getBrowserInfo} from "./utils/browserDetection";
 import faviconSvg from "/icons/favicon.svg?raw";
 import aefaqSvg from "/icons/aefaq.svg?raw";
@@ -297,8 +297,10 @@ const SnowfallManager = () => {
   );
 };
 
-export const App = () => {
+const AppContent = () => {
   const location = useLocation();
+
+  const {accentHue, saturateRatio, theme} = useTheme();
 
   const [svgContent, setSvgContent] = useState(faviconSvg);
 
@@ -447,6 +449,12 @@ export const App = () => {
     }
   }, [location]);
 
+  const isSystemDark =
+    globalThis.window?.matchMedia &&
+    globalThis.window.matchMedia("(prefers-color-scheme: dark)").matches;
+
+  const isDarkMode = theme === "dark" || (theme === "system" && isSystemDark);
+
   if (loadingError) {
     return <ErrorFallback error={loadingError} />;
   }
@@ -471,111 +479,117 @@ export const App = () => {
   }
 
   return (
-    <ConfigProvider theme={themeConfig}>
-      <ThemeProvider>
-        <SnowfallManager />
-        <MetrikaCounter
-          id={96_346_999}
-          options={{
-            accurateTrackBounce: true,
-            clickmap: true,
-            trackHash: true,
-            trackLinks: true,
-            webvisor: true,
+    <ConfigProvider theme={getAntTheme(isDarkMode, accentHue, saturateRatio)}>
+      <SnowfallManager />
+      <MetrikaCounter
+        id={96_346_999}
+        options={{
+          accurateTrackBounce: true,
+          clickmap: true,
+          trackHash: true,
+          trackLinks: true,
+          webvisor: true,
+        }}
+      />
+      <ErrorBoundary>
+        <SafariWarningModal
+          open={isSafariWarningOpen}
+          onClose={(dontShowAgain) => {
+            if (typeof localStorage !== "undefined") {
+              if (dontShowAgain) {
+                localStorage.setItem("safariWarningDismissed", "true");
+              } else {
+                localStorage.setItem("safariWarningLastShown", Date.now().toString());
+              }
+            }
+
+            setIsSafariWarningOpen(false);
+            setIsAppReady(true);
           }}
         />
-        <ErrorBoundary>
-          <SafariWarningModal
-            open={isSafariWarningOpen}
-            onClose={(dontShowAgain) => {
-              if (typeof localStorage !== "undefined") {
-                if (dontShowAgain) {
-                  localStorage.setItem("safariWarningDismissed", "true");
-                } else {
-                  localStorage.setItem("safariWarningLastShown", Date.now().toString());
-                }
-              }
-
-              setIsSafariWarningOpen(false);
-              setIsAppReady(true);
-            }}
+        <LoadingContext.Provider value={{setIsLoading}}>
+          <LoadingAnimation
+            isLoading={isLoading}
+            isSuppressed={isSafariWarningOpen}
           />
-          <LoadingContext.Provider value={{setIsLoading}}>
-            <LoadingAnimation
-              isLoading={isLoading}
-              isSuppressed={isSafariWarningOpen}
-            />
-            {isAppReady && (
-              <Suspense fallback={undefined}>
-                <AnimatePresence
-                  mode="wait"
-                  onExitComplete={() => {
-                    if (globalThis.window !== undefined) {
-                      setTimeout(() => {
-                        globalThis.window.scrollTo({
-                          behavior: "instant",
-                          top: 0,
-                        });
-                      }, 50);
-                    }
-                  }}
+          {isAppReady && (
+            <Suspense fallback={undefined}>
+              <AnimatePresence
+                mode="wait"
+                onExitComplete={() => {
+                  if (globalThis.window !== undefined) {
+                    setTimeout(() => {
+                      globalThis.window.scrollTo({
+                        behavior: "instant",
+                        top: 0,
+                      });
+                    }, 50);
+                  }
+                }}
+              >
+                <Routes
+                  key={location.pathname}
+                  location={location}
                 >
-                  <Routes
-                    key={location.pathname}
-                    location={location}
-                  >
-                    <Route
-                      element={<Links />}
-                      path="/"
-                    />
-                    <Route
-                      element={<AeFaqPage />}
-                      path="/aefaq"
-                    />
-                    <Route
-                      element={<PrFaqPage />}
-                      path="/prfaq"
-                    />
-                    <Route
-                      element={<PsFaqPage />}
-                      path="/psfaq"
-                    />
-                    <Route
-                      element={<AeExprPage />}
-                      path="/aeexpr"
-                    />
-                    <Route
-                      element={<ChatRules />}
-                      path="/rules"
-                    />
-                    <Route
-                      element={<FilesRedirect />}
-                      path="/files"
-                    />
-                    <Route
-                      element={<RegFileRedirect />}
-                      path="/regfile"
-                    />
-                    <Route
-                      element={<RegFileRedirect />}
-                      path="/reg"
-                    />
-                    <Route
-                      element={
-                        <>
-                          <NotFound />
-                          <RedirectHtml />
-                        </>
-                      }
-                      path="*"
-                    />
-                  </Routes>
-                </AnimatePresence>
-              </Suspense>
-            )}
-          </LoadingContext.Provider>
-        </ErrorBoundary>
-      </ThemeProvider>
+                  <Route
+                    element={<Links />}
+                    path="/"
+                  />
+                  <Route
+                    element={<AeFaqPage />}
+                    path="/aefaq"
+                  />
+                  <Route
+                    element={<PrFaqPage />}
+                    path="/prfaq"
+                  />
+                  <Route
+                    element={<PsFaqPage />}
+                    path="/psfaq"
+                  />
+                  <Route
+                    element={<AeExprPage />}
+                    path="/aeexpr"
+                  />
+                  <Route
+                    element={<ChatRules />}
+                    path="/rules"
+                  />
+                  <Route
+                    element={<FilesRedirect />}
+                    path="/files"
+                  />
+                  <Route
+                    element={<RegFileRedirect />}
+                    path="/regfile"
+                  />
+                  <Route
+                    element={<RegFileRedirect />}
+                    path="/reg"
+                  />
+                  <Route
+                    element={
+                      <>
+                        <NotFound />
+                        <RedirectHtml />
+                      </>
+                    }
+                    path="*"
+                  />
+                </Routes>
+              </AnimatePresence>
+            </Suspense>
+          )}
+        </LoadingContext.Provider>
+      </ErrorBoundary>
     </ConfigProvider>
+  );
+};
+
+export const App = () => {
+  return (
+    <ThemeProvider>
+      <AppContent />
+    </ThemeProvider>
   );
 };
