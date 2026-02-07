@@ -249,7 +249,7 @@ const LoadingAnimation: React.FC<LoadingAnimationProperties> = ({
 
                 const offset = globalIndex - centerIndex;
 
-                const delay = 0.675 + distance * 0.0675;
+                const delay = 0.675 + distance * 0.05;
 
                 const loopPhase = globalIndex * loopStepDelay;
 
