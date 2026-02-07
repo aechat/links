@@ -241,43 +241,45 @@ const LoadingAnimation: React.FC<LoadingAnimationProperties> = ({
                 })}
               </div>
             )}
-            <div className={styles["animated-text-tagline"]}>
-              {[...taglineText].map((char, index) => {
-                const globalIndex = titleLength + index;
+            <div className={styles["animated-text-tagline-wrapper"]}>
+              <div className={styles["animated-text-tagline"]}>
+                {[...taglineText].map((char, index) => {
+                  const globalIndex = titleLength + index;
 
-                const distance = Math.abs(globalIndex - centerIndex);
+                  const distance = Math.abs(globalIndex - centerIndex);
 
-                const offset = globalIndex - centerIndex;
+                  const offset = globalIndex - centerIndex;
 
-                const delay = 0.675 + distance * 0.05;
+                  const delay = 0.675 + distance * 0.05;
 
-                const loopPhase = globalIndex * loopStepDelay;
+                  const loopPhase = globalIndex * loopStepDelay;
 
-                const isFurthest = Math.abs(distance - maxDistance) < 0.01;
+                  const isFurthest = Math.abs(distance - maxDistance) < 0.01;
 
-                return (
-                  <span
-                    key={`tagline-${index}`}
-                    className={styles["animated-text-letter-wrapper"]}
-                    style={
-                      {
-                        "--char-offset": offset,
-                        "--intro-delay": `${delay}s`,
-                        "--loop-phase": `${loopPhase}s`,
-                      } as React.CSSProperties
-                    }
-                  >
+                  return (
                     <span
-                      className={styles["animated-text-letter"]}
-                      onAnimationEnd={
-                        isFurthest ? () => setTextAnimationFinished(true) : undefined
+                      key={`tagline-${index}`}
+                      className={styles["animated-text-letter-wrapper"]}
+                      style={
+                        {
+                          "--char-offset": offset,
+                          "--intro-delay": `${delay}s`,
+                          "--loop-phase": `${loopPhase}s`,
+                        } as React.CSSProperties
                       }
                     >
-                      {char}
+                      <span
+                        className={styles["animated-text-letter"]}
+                        onAnimationEnd={
+                          isFurthest ? () => setTextAnimationFinished(true) : undefined
+                        }
+                      >
+                        {char}
+                      </span>
                     </span>
-                  </span>
-                );
-              })}
+                  );
+                })}
+              </div>
             </div>
           </div>
         )}
