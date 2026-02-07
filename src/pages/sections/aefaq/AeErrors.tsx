@@ -1859,8 +1859,8 @@ const AeErrors: React.FC = () => {
       </DetailsSummary>
       <DetailsSummary
         anchor="fix-missing-dll-errors"
-        tag="отсутствует visual c++"
-        title="Что делать с ошибками отсутствия «MSVCP140.dll», «api-ms-win-crt-runtime-l1-1-0.dll» и похожих?"
+        tag="отсутствует visual c++, не удается продолжить выполнение кода, поскольку система не обнаружила dll, для устранения этой проблемы попробуйте переустановить программу"
+        title="Что делать с ошибками отсутствия «MSVCP140.dll», «api-ms-win-crt-runtime-l1-1-0.dll» и похожих при запуске программы?"
       >
         <ContentFilter
           windowsContent={
@@ -1870,10 +1870,33 @@ const AeErrors: React.FC = () => {
                 <a href="https://gitlab.com/stdout12/vcredist/-/releases/">
                   Microsoft Visual C++ Redistributable
                 </a>
-                . Если установка пакетов не помогла, попробуйте обновить операционную
-                систему хотя бы до <mark>Windows 10</mark> версии <mark>22H2</mark> или
-                новее.
+                . Они необходимы для корректной работы{" "}
+                <mark className="app">Adobe After Effects</mark> и многих других программ{" "}
+                <mark className="company">Adobe</mark>.
               </p>
+              <p>
+                Если установка пакетов не помогла, проверьте текущую версию операционной
+                системы<sup>1</sup> и при необходимости обновите её до последней версии,
+                либо проверьте её целостность. Для восстановления системы выполните
+                <sup>2</sup> в командной строке несколько команд:{" "}
+                <mark className="code">sfc /scannow</mark>,{" "}
+                <mark className="code">dism /online /cleanup-image /restorehealth</mark> и{" "}
+                <mark className="code">chkdsk /f /r</mark>.
+              </p>
+              <Addition type="info">
+                <ul>
+                  <li>
+                    <sup>1</sup> Узнать текущую версию <mark>Windows</mark> можно через
+                    утилиту <mark className="app">winver</mark>.
+                  </li>
+                  <li>
+                    {" "}
+                    <sup>2</sup> Если такое восстановление не сработало, скачайте образ{" "}
+                    <mark className="file">ISO</mark> текущей версии <mark>Windows</mark>{" "}
+                    и выполните обновление системы поверх установленной.
+                  </li>
+                </ul>
+              </Addition>
             </>
           }
         />

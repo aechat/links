@@ -313,57 +313,81 @@ const PsErrors: React.FC = () => (
       tag="не удается использовать инструмент, первичный рабочий диск переполнен, scratch disk low, could not initialize photoshop because the scratch disks are full, could not complete your request because the scratch disks are full"
       title="Из-за чего может появляться «Scratch Disk Full»?"
     >
-      <p>
-        Обычно эта ошибка возникает из-за нехватки места на накопителе. Чтобы её
-        устранить, необходимо очистить систему от «цифрового мусора». Поскольку
-        <mark className="app">Adobe Photoshop</mark> создает объемные временные файлы, для
-        его стабильной работы требуется минимум <mark>20 ГБ</mark> свободного
-        пространства, а в идеале — от <mark>100 ГБ</mark> на диске, выбранном в качестве
-        рабочего.
-      </p>
-      <Addition type="info">
-        <ul>
-          <li>
+      <ContentFilter
+        macContent={<></>}
+        windowsContent={
+          <>
             <p>
-              При необходимости в разделе
-              <mark className="select">«Edit» → «Preferences» → «Scratch Disks»</mark>
-              можно назначить другой диск<sup>1</sup> для хранения временных данных. По
-              умолчанию используется тот же раздел, где установлена программа. Полностью
-              отключить функцию рабочего диска невозможно
-              <strong>в принципе</strong>.
+              Обычно эта ошибка возникает из-за нехватки места на накопителе. Чтобы её
+              устранить, необходимо очистить систему от «цифрового мусора». Поскольку
+              <mark className="app">Adobe Photoshop</mark> создает объемные временные
+              файлы, для его стабильной работы требуется минимум <mark>20 ГБ</mark>{" "}
+              свободного пространства, а в идеале — от <mark>100 ГБ</mark> на диске,
+              выбранном в качестве рабочего.
             </p>
-            <ul>
-              <li>
-                <sup>1</sup> Для быстрой работы кэша крайне рекомендуем использовать SSD.
-                Выбор медленного HDD может привести к заметным «тормозам».
-              </li>
-            </ul>
-          </li>
-          <li>
-            Чтобы сменить рабочий диск до запуска Photoshop, удерживайте клавишу
-            <mark className="key">Alt</mark> при открытии приложения.
-          </li>
-        </ul>
-      </Addition>
-      <p>
-        Самый простой способ избавиться от «хлама» — использовать стандартную утилиту{" "}
-        <mark className="code">cleanmgr.exe</mark>, которую можно запустить из окна{" "}
-        <mark className="app">«Выполнить»</mark>. Она проанализирует систему и позволит
-        выборочно удалить накопившиеся обновления, старые точки восстановления и прочий
-        мусор.
-      </p>
-      <p>
-        Для более тщательной очистки подойдут сторонние инструменты, такие как{" "}
-        <mark className="app">Auslogics BoostSpeed</mark>,{" "}
-        <mark className="app">Reg Organizer</mark> или{" "}
-        <mark className="app">CCleaner</mark>, но будьте с ними осторожны: они
-        предназначены для опытных пользователей и при неосторожном использовании могут
-        удалить важные файлы. Чтобы вручную найти, что именно занимает больше всего места
-        на диске, воспользуйтесь анализаторами, такими как{" "}
-        <mark className="app">WizTree</mark> или <mark className="app">WinDirStat</mark>.
-        Они просканируют все директории и помогут найти и удалить ненужное.
-      </p>
-      {/* FIXME: написать!! */}
+            <Addition type="info">
+              <ul>
+                <li>
+                  <p>
+                    При необходимости в разделе
+                    <mark className="select">
+                      «Edit» → «Preferences» → «Scratch Disks»
+                    </mark>
+                    можно назначить другой диск<sup>1</sup> для хранения временных данных.
+                    По умолчанию используется тот же раздел, где установлена программа.
+                    Полностью отключить функцию рабочего диска невозможно
+                    <strong>в принципе</strong>.
+                  </p>
+                  <ul>
+                    <li>
+                      <sup>1</sup> Для быстрой работы кэша крайне рекомендуем использовать
+                      SSD. Выбор медленного HDD может привести к заметным «тормозам».
+                    </li>
+                  </ul>
+                </li>
+                <li>
+                  Чтобы сменить рабочий диск до запуска Photoshop, удерживайте клавишу
+                  <mark className="key">Alt</mark> при открытии приложения.
+                </li>
+              </ul>
+            </Addition>
+            <p>
+              Самый простой способ избавиться от «хлама» — использовать стандартную
+              утилиту <mark className="code">cleanmgr.exe</mark>, которую можно запустить
+              из окна <mark className="app">«Выполнить»</mark>. Она проанализирует систему
+              и позволит выборочно удалить накопившиеся обновления, старые точки
+              восстановления и прочий мусор.
+            </p>
+            <p>
+              Для более тщательной очистки подойдут сторонние инструменты, такие как{" "}
+              <mark className="app">Auslogics BoostSpeed</mark>,{" "}
+              <mark className="app">Reg Organizer</mark> или{" "}
+              <mark className="app">CCleaner</mark>, но будьте с ними осторожны: они
+              предназначены для опытных пользователей и при неосторожном использовании
+              могут удалить важные файлы. Чтобы вручную найти, что именно занимает больше
+              всего места на диске, воспользуйтесь анализаторами, такими как{" "}
+              <mark className="app">WizTree</mark> или{" "}
+              <mark className="app">WinDirStat</mark>. Они просканируют все директории и
+              помогут найти и удалить ненужное.
+            </p>
+          </>
+        }
+      />
+      <Divider>Что вообще хранится в рабочем диске?</Divider>
+      <p>{/* REVIEW: написать!! */}</p>
+      {/* 
+      REVIEW: проверить валидность статьи
+      Черновое дополнение:
+      - Краткое введение: Scratch Disk хранит временные файлы, кэш и историю для операций Photoshop.
+      - Основные понятия: scratch disk, cache, temp files, History states.
+      - Практические рекомендации: выделять быстрый SSD под scratch, держать достаточно свободного места, периодически чистить временные файлы.
+      - Возможные подводные камни: заполненный системный диск, слишком много History States, большие документы.
+      - Когда применять / когда не применять: при крупных файлах и сложных фильтрах — особенно важно иметь запас места.
+      Источники:
+      - https://helpx.adobe.com/photoshop/using/scratch-disks-preferences.html
+      - https://helpx.adobe.com/photoshop/kb/scratch-disk-is-full.html
+      - https://helpx.adobe.com/photoshop/using/performance-preferences.html
+      */}
     </DetailsSummary>
     <DetailsSummary
       anchor="firefly-access-error"
@@ -463,23 +487,47 @@ const PsErrors: React.FC = () => (
     </DetailsSummary>
     <DetailsSummary
       anchor="fix-missing-dll-errors"
-      tag="отсутствует visual c++"
-      title="Что делать с ошибками об отсутствии «MSVCP140.dll», «api-ms-win-crt-runtime-l1-1-0.dll» и похожих?"
+      tag="отсутствует visual c++, не удается продолжить выполнение кода, поскольку система не обнаружила dll, для устранения этой проблемы попробуйте переустановить программу"
+      title="Что делать с ошибками отсутствия «MSVCP140.dll», «api-ms-win-crt-runtime-l1-1-0.dll» и похожих при запуске программы?"
     >
-      <p>
-        Скорее всего вы забыли установить или обновить пакеты{" "}
-        <a href="https://gitlab.com/stdout12/vcredist/-/releases/">
-          Microsoft Visual C++ Redistributable
-        </a>
-        , которые можно установить перед установкой{" "}
-        <mark className="app">Adobe Photoshop</mark> в репаке от{" "}
-        <mark className="user">KpoJluK</mark> или вручную по{" "}
-        <a href="https://gitlab.com/stdout12/vcredist/-/releases/">этой ссылке</a>.
-      </p>
-      <p>
-        Если установка пакетов не помогла - попробуйте обновить вашу систему до последней
-        версии, хотя бы до <mark>Windows 10</mark> версии <mark>22H2</mark>.
-      </p>
+      <ContentFilter
+        windowsContent={
+          <>
+            <p>
+              Скорее всего, вы забыли установить или обновить пакеты{" "}
+              <a href="https://gitlab.com/stdout12/vcredist/-/releases/">
+                Microsoft Visual C++ Redistributable
+              </a>
+              . Они необходимы для корректной работы{" "}
+              <mark className="app">Adobe Photoshop</mark> и многих других программ{" "}
+              <mark className="company">Adobe</mark>.
+            </p>
+            <p>
+              Если установка пакетов не помогла, проверьте текущую версию операционной
+              системы<sup>1</sup> и при необходимости обновите её до последней версии,
+              либо проверьте её целостность. Для восстановления системы выполните
+              <sup>2</sup> в командной строке несколько команд:{" "}
+              <mark className="code">sfc /scannow</mark>,{" "}
+              <mark className="code">dism /online /cleanup-image /restorehealth</mark> и{" "}
+              <mark className="code">chkdsk /f /r</mark>.
+            </p>
+            <Addition type="info">
+              <ul>
+                <li>
+                  <sup>1</sup> Узнать текущую версию <mark>Windows</mark> можно через
+                  утилиту <mark className="app">winver</mark>.
+                </li>
+                <li>
+                  {" "}
+                  <sup>2</sup> Если такое восстановление не сработало, скачайте образ{" "}
+                  <mark className="file">ISO</mark> текущей версии <mark>Windows</mark> и
+                  выполните обновление системы поверх установленной.
+                </li>
+              </ul>
+            </Addition>
+          </>
+        }
+      />
     </DetailsSummary>
   </div>
 );

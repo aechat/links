@@ -409,23 +409,47 @@ const PrErrors: React.FC = () => {
       </DetailsSummary>
       <DetailsSummary
         anchor="fix-missing-dll-errors"
-        tag="отсутствует visual c++"
-        title="Что делать с ошибками об отсутствии «MSVCP140.dll», «api-ms-win-crt-runtime-l1-1-0.dll» и похожих?"
+        tag="отсутствует visual c++, не удается продолжить выполнение кода, поскольку система не обнаружила dll, для устранения этой проблемы попробуйте переустановить программу"
+        title="Что делать с ошибками отсутствия «MSVCP140.dll», «api-ms-win-crt-runtime-l1-1-0.dll» и похожих при запуске программы?"
       >
-        <p>
-          Скорее всего, вы забыли установить или обновить пакеты{" "}
-          <a href="https://gitlab.com/stdout12/vcredist/-/releases">
-            Microsoft Visual C++ Redistributable
-          </a>
-          . Их можно установить перед инсталляцией{" "}
-          <mark className="app">Adobe Premiere</mark> в репаке от{" "}
-          <mark className="user">KpoJluK</mark> или вручную по{" "}
-          <a href="https://gitlab.com/stdout12/vcredist/-/releases/">этой ссылке</a>.
-        </p>
-        <p>
-          Если установка пакетов не помогла, попробуйте обновить операционную систему до{" "}
-          <mark>Windows 10</mark> версии <mark>22H2</mark> или новее.
-        </p>
+        <ContentFilter
+          windowsContent={
+            <>
+              <p>
+                Скорее всего, вы забыли установить или обновить пакеты{" "}
+                <a href="https://gitlab.com/stdout12/vcredist/-/releases/">
+                  Microsoft Visual C++ Redistributable
+                </a>
+                . Они необходимы для корректной работы{" "}
+                <mark className="app">Adobe Premiere</mark> и многих других программ{" "}
+                <mark className="company">Adobe</mark>.
+              </p>
+              <p>
+                Если установка пакетов не помогла, проверьте текущую версию операционной
+                системы<sup>1</sup> и при необходимости обновите её до последней версии,
+                либо проверьте её целостность. Для восстановления системы выполните
+                <sup>2</sup> в командной строке несколько команд:{" "}
+                <mark className="code">sfc /scannow</mark>,{" "}
+                <mark className="code">dism /online /cleanup-image /restorehealth</mark> и{" "}
+                <mark className="code">chkdsk /f /r</mark>.
+              </p>
+              <Addition type="info">
+                <ul>
+                  <li>
+                    <sup>1</sup> Узнать текущую версию <mark>Windows</mark> можно через
+                    утилиту <mark className="app">winver</mark>.
+                  </li>
+                  <li>
+                    {" "}
+                    <sup>2</sup> Если такое восстановление не сработало, скачайте образ{" "}
+                    <mark className="file">ISO</mark> текущей версии <mark>Windows</mark>{" "}
+                    и выполните обновление системы поверх установленной.
+                  </li>
+                </ul>
+              </Addition>
+            </>
+          }
+        />
       </DetailsSummary>
       <DetailsSummary
         anchor="fix-system-compatibility-report"
@@ -463,7 +487,50 @@ const PrErrors: React.FC = () => {
         anchor="fix-generative-extend-is-not-available"
         tag="сбой генерации расширения, can't generate extension, генеративное расширение недоступно, проверьте подключение к интернету"
         title="Почему появляется «Generative Extend is not available. Please check your internet connection and try again.» при попытке использовать генеративное расширение клипа?"
-      ></DetailsSummary>
+      >
+        {/*
+REVIEW: HIGH
+REVIEW: проверить валидность статьи
+Черновое дополнение:
+- Введение: Кратко объяснить, что такое функция Generative Extend и почему она может быть недоступна. Упомянуть, что это бета-функция.
+- Основные причины и решения:
+    1.  Проблемы с доступом к серверам Adobe:
+        *   Проверить стабильность интернет-соединения.
+        *   Убедиться, что брандмауэр, антивирус или VPN не блокируют доступ Adobe Premiere Pro к сети. (Можно сослаться на статью про "unlicensed app").
+        *   Проверить файл HOSTS на наличие блокирующих записей.
+        *   Сбросить кэш DNS (`ipconfig /flushdns`).
+    2.  Требования к учётной записи и версии:
+        *   Функция доступна только в бета-версиях Premiere Pro. Убедиться, что установлена именно бета-версия.
+        *   Убедиться, что используется не студенческая (educational) лицензия, так как они не включают генеративные функции.
+        *   Проверить, что страна в профиле Adobe соответствует реальному местоположению.
+    3.  Требования к клипу:
+        *   Функция может иметь ограничения по разрешению (например, 1920x1080) и частоте кадров (не выше 30 fps).
+- Итог: Чаще всего проблема решается проверкой сетевых блокировок или использованием соответствующей версии и типа аккаунта.
+Источники:
+- https://community.adobe.com/t5/premiere-pro-beta-discussions/generative-extend-is-not-available-please-check-your-internet-connection-and-try-again/td-p/14585145
+- https://www.youtube.com/watch?v=Fj7p2jN2_gI
+- https://www.youtube.com/watch?v=wPPaHy-2kBE
+        */}
+        {/* 
+        REVIEW: проверить валидность статьи
+        Черновое дополнение:
+        - Краткое введение: Generative Extend требует доступа к онлайн-сервисам Adobe и активной подписки или учетной записи.
+        - Основные понятия: Creative Cloud sign-in, генеративные кредиты, региональная доступность, сетевые ограничения (VPN/прокси/hosts).
+        - Практические рекомендации: обновить Premiere Pro до последней версии, выйти и войти в Creative Cloud, проверить стабильность сети и доступ к доменам Adobe, временно отключить VPN/прокси.
+        - Возможные подводные камни: блокировка доменов Adobe в hosts или фаерволе, использование «народных» сборок, ограничение функции по региону или плану.
+        - Когда применять / когда не применять: если остальные онлайн-функции работают, искать конкретную причину; если не работает все, проверять сеть и учетку.
+        Источники:
+        - https://helpx.adobe.com/premiere-pro/using/generative-extend.html
+        - https://helpx.adobe.com/creative-cloud/help/sign-in-out.html
+        - https://helpx.adobe.com/premiere-pro/using/troubleshoot.html
+        */}
+        <p>
+          Эта ошибка обычно возникает из-за проблем с доступом к серверам{" "}
+          <mark className="company">Adobe</mark>. Убедитесь, что у вас стабильное
+          интернет-соединение и что <mark className="app">брандмауэр</mark> или{" "}
+          <mark className="app">VPN</mark> не блокируют доступ программе к сети.
+        </p>
+      </DetailsSummary>
       <DetailsSummary
         anchor="fix-project-appears-to-be-damaged"
         tag="проект поврежден, невозможно импортировать файл, ошибка с файлом, не читается"
@@ -516,8 +583,40 @@ const PrErrors: React.FC = () => {
         tag="отсутствующий эффект, missing effect"
         title="Что делать с ошибкой «Video Filter missing»?"
       >
+        {/*
+REVIEW: HIGH
+REVIEW: проверить валидность статьи
+Черновое дополнение:
+- Введение: Объяснить, что ошибка «Video Filter missing» означает отсутствие на компьютере плагина (эффекта), который использовался в проекте. Подчеркнуть, что это не критическая ошибка, и проект можно открыть, но эффект работать не будет.
+- Как определить, какой эффект отсутствует:
+    1.  Проанализировать сообщение об ошибке: При открытии проекта Premiere Pro часто показывает диалоговое окно со списком всех отсутствующих эффектов. Это самый простой способ. Посоветовать сделать скриншот этого окна.
+    2.  Изучить клипы на таймлайне:
+        *   Клипы с отсутствующими эффектами могут быть помечены красным цветом или иметь значок предупреждения.
+        *   Выбрать такой клип и открыть панель `Effect Controls`.
+        *   Отсутствующий эффект будет выделен (например, серым цветом) и помечен как `(missing)`. В имени эффекта часто содержится название пакета плагинов (e.g., `BCC Fast Film Glow (missing)`, `Sapphire Glow (missing)`).
+- Что делать дальше:
+    1.  Установить недостающий плагин: После того как имя плагина или пакета определено (например, `Boris FX Continuum`, `Red Giant Universe`, `Sapphire`), нужно найти и установить его.
+    2.  Заменить эффект: Если установка невозможна или нежелательна, можно удалить отсутствующий эффект с клипа и попробовать воссоздать его с помощью встроенных инструментов или других имеющихся плагинов.
+    3.  Игнорировать: Если эффект не является критически важным для проекта, можно просто удалить его и продолжить работу.
+- Профилактика: Посоветовать при передаче проекта указывать список используемых сторонних плагинов.
+Источники:
+- https://community.adobe.com/t5/premiere-pro-discussions/how-to-find-missing-video-filters/td-p/4351689
+- https://www.youtube.com/watch?v=5N-a-3a-jmA
+        */}
+        {/* 
+        REVIEW: проверить валидность статьи
+        Черновое дополнение:
+        - Краткое введение: «Video Filter missing» появляется, когда проект открыт без плагина или эффекта, использованного ранее.
+        - Основные понятия: сторонние плагины (AEX/PRM), совместимость версий, папки установки MediaCore.
+        - Практические рекомендации: выяснить название эффекта, установить нужный плагин той же версии, либо заменить эффект на встроенный аналог.
+        - Возможные подводные камни: несовместимость плагина с версией Premiere, лицензия или активация плагина, разные пути установки на разных ПК.
+        - Когда применять / когда не применять: если эффект критичен, ставить плагин; если нет, удалить или отключить эффект для просмотра и экспорта.
+        Источники:
+        - https://helpx.adobe.com/premiere-pro/using/effects.html
+        - https://helpx.adobe.com/premiere-pro/using/third-party-plugins.html
+        - https://helpx.adobe.com/premiere-pro/using/troubleshoot.html
+        */}
         <p>
-          {/* TODO: про потерянные плагины как в афтере */}
           Это предупреждение означает, что в проекте используются эффекты, которые не
           установлены на вашем устройстве. Вы можете продолжить работу с проектом, но не
           сможете видеть, рендерить и настраивать эти эффекты. Для решения проблемы
@@ -572,6 +671,190 @@ const PrErrors: React.FC = () => {
           версии.
         </p>
       </DetailsSummary>
+      {/*
+      REVIEW: информация ниже не была проверена на применимость в Adobe Premiere Pro
+      <DetailsSummary
+        tag="23::40, after effects has unexpectedly run out of memory and cannot complete this export, either decrease the memory requirements for the rendering frame or install more ram, нехватка озу, выделенный объем памяти превышает внутреннее ограничение, рекомендуется снизить требования к памяти для рендеринга этого кадра, предупреждение о нехватке памяти, оперативная память, не проигрывается предпросмотр, зацикливается превью, нехватка памяти, ошибка памяти, ram, swap"
+        title="Как избавиться от «Out of Memory», «Unable to allocate enough memory to render the current frame», «Low memory warning. RAM use has been extended for previews» и похожих ошибок?"
+      >
+        <p>
+          Поздравляю, вы встретились с первым «боссом» в{" "}
+          <mark className="app">Adobe After Effects</mark>. Эти ошибки и предупреждения
+          возникают, когда программе банально не хватает оперативной памяти для работы над
+          вашими проектами. Часто это происходит из-за слишком «тяжёлых» эффектов,
+          использования видео с немонтажными кодеками или неверных настроек программы и
+          операционной системы.
+        </p>
+        <p>
+          Советы в этой статье помогут вам минимизировать типичные проблемы с нехваткой
+          оперативной памяти и «тормозами» программы, однако не могут полностью исключить
+          их появление в будущем.
+        </p>
+        <ul>
+          <li>
+            Для начала стоит закрыть другие ресурсоёмкие программы при работе в{" "}
+            <mark className="app">Adobe After Effects</mark>, например браузер или другую
+            монтажную программу.
+          </li>
+          <li>
+            Убедитесь, что вы не используете исходники со слишком большим разрешением,
+            например, <mark>4K</mark>. Чем выше разрешение слоя и композиции, тем больше
+            требуется оперативной памяти. Если вы используете исходники из интернета,
+            особенно с видеохостингов, — стоит попробовать их конвертировать через{" "}
+            <a href="https://www.shutterencoder.com/">Shutter Encoder</a> в монтажный
+            кодек, например в <mark className="video">Apple ProRes 422</mark>, а затем
+            заменить в проекте. Так вы дополнительно обезопасите себя от различных багов.{" "}
+            <a href="#4.1">Как это сделать?</a>
+          </li>
+          <li>
+            Убедитесь, что вы не перегрузили проект множеством ресурсоёмких эффектов,
+            например <mark className="plugin">Deep Glow</mark>, эффектами из пакетов{" "}
+            <mark className="plugin">Red Giant</mark> или{" "}
+            <mark className="plugin">Boris FX</mark>. Некоторые эффекты могут
+            конфликтовать друг с другом и потреблять слишком много оперативной памяти.
+          </li>
+          <li>
+            Если вы используете несколько композиций с ресурсоёмкими эффектами, попробуйте
+            создать для них прокси. Это также сократит время на повторный рендеринг, если
+            вы не планируете вносить в эти композиции дальнейшие изменения.
+            <Addition type="info">
+              Чтобы создать прокси, найдите нужную композицию в окне{" "}
+              <mark className="select">«Project»</mark>, нажмите{" "}
+              <mark className="key">ПКМ</mark> и выберите{" "}
+              <mark className="select">«Create Proxy» → «Movie»</mark>. В очереди
+              рендеринга выберите подходящий формат и запустите генерацию. После успешного
+              рендеринга прокси автоматически подключится к композиции. Отключить его
+              можно через то же контекстное меню:{" "}
+              <mark className="select">«Set Proxy» → «None»</mark>.
+            </Addition>
+          </li>
+          <li>
+            Попробуйте очистить кэш и оперативную память с помощью{" "}
+            <mark className="select">«Edit» → «Purge» → «All Memory & Disk Cache»</mark>.
+            <ContentFigure
+              caption="Очистка кэша и оперативной памяти"
+              imgTitle="Очистка кэша и оперативной памяти"
+              // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+src="images/legacy/aftereffects/edit_purge_all-memory-and-disk-cache.png"
+              theme="light"
+              type="image"
+              variant="windows"
+            />
+          </li>
+          <li>
+            Если у вас включена функция{" "}
+            <mark className="select">«Multi-Frame Rendering»</mark>, попробуйте временно
+            её отключить. Для этого перейдите в{" "}
+            <mark className="select">
+              «Edit» → «Preferences» → «Memory & Performance»
+            </mark>
+            , снимите флажок{" "}
+            <mark className="select">«Enable Multi-Frame Rendering»</mark> и повторите
+            попытку рендеринга.
+            <ContentFigure
+              caption="Preferences"
+              imgTitle="Переключение функции Multi-Frame Rendering"
+              // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+src="images/legacy/aftereffects/checkbox_multiframe-render.png"
+              theme="dark"
+              type="image"
+              variant="windows"
+            />
+          </li>
+          <li>
+            Проверьте параметр{" "}
+            <mark className="select">«RAM reserved for other applications»</mark> в{" "}
+            <mark className="select">
+              «Edit» → «Preferences» → «Memory & Performance»
+            </mark>
+            . Многие путают его назначение: он отвечает не за то, сколько памяти получат
+            программы <mark className="company">Adobe</mark>, а за то, сколько останется
+            для сторонних приложений. Если оставить слишком большое значение, то для{" "}
+            <mark className="company">Adobe</mark> может не хватать оперативной памяти.
+            Чтобы выделить максимум для <mark className="company">Adobe</mark>, установите{" "}
+            <mark>0</mark> в этом параметре — программа сама подставит минимально
+            допустимое значение.
+            <ContentFigure
+              caption="Preferences"
+              imgTitle="Настройка параметра RAM reserved for other applications"
+              // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+src="images/legacy/aftereffects/ram_reserved_for_other_applications.png"
+              theme="dark"
+              type="image"
+              variant="windows"
+            />
+          </li>
+          <li>
+            Проверьте, что в настройках проекта не установлена глубина цвета{" "}
+            <mark>16</mark> или <mark>32 бит на канал</mark>. Для этого откройте{" "}
+            <mark className="select">«Project Settings»</mark> с помощью комбинации клавиш{" "}
+            <mark className="key">Ctrl + Alt + Shift + K</mark>, перейдите во вкладку{" "}
+            <mark className="select">«Color»</mark> и в параметре{" "}
+            <mark className="select">«Depth»</mark> снизьте битность проекта, чтобы
+            облегчить работу с ним.
+            <ContentFigure
+              caption="Project Settings"
+              imgTitle="Изменение битности в проекте"
+              // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
+src="images/legacy/aftereffects/change_bit_depth.png"
+              theme="dark"
+              type="image"
+              variant="windows"
+            />
+          </li>
+          <li>
+            Если у вас мало оперативной памяти, докупите её, если это возможно. В
+            сегодняшних реалиях для комфортной работы в{" "}
+            <mark className="app">Adobe After Effects</mark> требуется минимум{" "}
+            <mark>32 ГБ</mark> ОЗУ.
+            <Addition type="info">
+              В <mark className="app">Adobe After Effects</mark> версии <mark>25.2</mark>{" "}
+              и новее добавили функцию воспроизведения предпросмотра напрямую из дискового
+              кэша, без загрузки кадров в ОЗУ. Это может быть полезно, если у вас мало
+              оперативной памяти. Опция включена по умолчанию, если активен дисковый кэш.
+              Управлять ей можно в{" "}
+              <mark className="select">
+                «Edit» → «Preferences» → «Media & Disk Cache» → «Enable Preview from Disk
+                Cache»
+              </mark>
+              . Для этой функции желательно использовать быстрый SSD.
+            </Addition>
+          </li>
+        </ul>
+        <ContentFilter
+          windowsContent={
+            <>
+              <ul>
+                <li>
+                  <a href="#6.5">Попробуйте настроить файл подкачки</a>. В качестве{" "}
+                  <mark className="select">
+                    «минимального и максимального размера файла подкачки»
+                  </mark>{" "}
+                  установите значение от <mark className="copy">1024</mark> до{" "}
+                  <mark className="copy">65536</mark>, <mark className="copy">131072</mark>{" "}
+                  или больше. После настройки, система создаст файл подкачки с начальным
+                  размером <mark>1 ГБ</mark>, который сможет динамически расширяться до{" "}
+                  <mark>64-128 ГБ</mark>, в зависимости от заданных вами настроек.
+                </li>
+                <li>
+                  Установите программу{" "}
+                  <a href="https://github.com/henrypp/memreduct/releases">Mem Reduct</a> и
+                  настройте автоматическую очистку оперативной памяти при достижении{" "}
+                  <mark>90%</mark> заполнения. Данная утилита будет работать эффективнее,
+                  если у вас включён файл подкачки.
+                </li>
+                <li>
+                  Если файл подкачки включён и вы уверены, что проблема не в программе, —
+                  проверьте планки оперативной памяти с помощью{" "}
+                  <a href="https://www.memtest86.com/">MemTest86</a> или поменяйте их
+                  местами в слотах материнской платы.
+                </li>
+              </ul>
+            </>
+          }
+        />
+      </DetailsSummary>
+      */}
     </div>
   );
 };
