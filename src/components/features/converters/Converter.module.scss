@@ -4,14 +4,13 @@
   margin: 15px;
 
   &-info-text {
-    text-align: center;
+    margin-block: 15px !important;
+    margin-inline: 10px !important;
     color: var(--color-text-tertiary);
-    font-size: 0.75rem;
+    font-size: 0.825rem;
   }
 
   &-dragger {
-    margin-block: 12px;
-    margin-inline: 10px;
     width: calc(100% - 20px);
 
     &-content {
@@ -43,8 +42,6 @@
     &-group {
       display: flex;
       gap: 10px;
-      margin-block: 10px;
-      margin-inline: 10px;
     }
 
     &-reset {
