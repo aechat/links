@@ -11,21 +11,57 @@ import styles from "./Converter.module.scss";
 
 const {saveAs} = pkg;
 
+const formatBytes = (bytes: number): string => {
+  if (bytes < 1024) {
+    return `${bytes} B`;
+  }
+
+  const kb = bytes / 1024;
+
+  if (kb < 1024) {
+    return `${kb.toFixed(1)} KB`;
+  }
+
+  const mb = kb / 1024;
+
+  return `${mb.toFixed(1)} MB`;
+};
+
+const formatPercentDelta = (fromBytes: number, toBytes: number): string => {
+  if (fromBytes <= 0) {
+    return "0%";
+  }
+
+  const delta = ((toBytes - fromBytes) / fromBytes) * 100;
+
+  const rounded = Math.round(delta * 10) / 10;
+
+  return `${rounded > 0 ? "+" : ""}${rounded}%`;
+};
+
 const TgsToJsonConverter: React.FC = () => {
   const [jsonData, setJsonData] = useState<unknown | undefined>();
 
   const [originalFileName, setOriginalFileName] = useState<string>("");
+
+  const [originalFileSize, setOriginalFileSize] = useState<number | undefined>();
+
+  const [decompressedJsonSize, setDecompressedJsonSize] = useState<number | undefined>();
 
   const handleFileUpload = async (file: File): Promise<boolean> => {
     try {
       const fileData = await file.arrayBuffer();
 
       setOriginalFileName(file.name);
+      setOriginalFileSize(file.size);
 
       const decompressed = inflate(new Uint8Array(fileData));
 
-      const json = JSON.parse(new TextDecoder().decode(decompressed));
+      const jsonString = new TextDecoder().decode(decompressed);
 
+      const json = JSON.parse(jsonString);
+
+      setDecompressedJsonSize(new TextEncoder().encode(jsonString).length);
       setJsonData(json);
       message.success("Файл успешно преобразован!");
     } catch (error) {
@@ -38,7 +74,9 @@ const TgsToJsonConverter: React.FC = () => {
 
   const downloadJson = (): void => {
     if (jsonData) {
-      const blob = new Blob([JSON.stringify(jsonData, undefined, 2)], {
+      const jsonString = JSON.stringify(jsonData, undefined, 2);
+
+      const blob = new Blob([jsonString], {
         type: "application/json",
       });
 
@@ -65,6 +103,14 @@ const TgsToJsonConverter: React.FC = () => {
       <p className={styles["converter-info-text"]}>
         Конвертация происходит локально на вашем устройстве, качественный результат не
         гарантируется.
+        {originalFileSize && decompressedJsonSize && (
+          <>
+            <br />
+            Примерный размер нового файла:{" "}
+            {`${formatBytes(originalFileSize)} → ${formatBytes(decompressedJsonSize)}`}
+            {` (${formatPercentDelta(originalFileSize, decompressedJsonSize)})`}
+          </>
+        )}
       </p>
       {jsonData ? (
         <div className={styles["converter-button-group"]}>
@@ -73,6 +119,8 @@ const TgsToJsonConverter: React.FC = () => {
             onClick={() => {
               setJsonData(undefined);
               setOriginalFileName("");
+              setOriginalFileSize(undefined);
+              setDecompressedJsonSize(undefined);
             }}
           >
             Сбросить
