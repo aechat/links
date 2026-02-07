@@ -173,22 +173,6 @@ const JsonToTgsConverter: React.FC = () => {
           </span>
         </div>
       </Upload.Dragger>
-      <p className={styles["converter-info-text"]}>
-        Конвертация происходит локально на вашем устройстве, качественный результат не
-        гарантируется.{" "}
-        {preview && (
-          <>
-            Примерный размер нового файла:{" "}
-            {originalFileSize
-              ? `${formatBytes(originalFileSize)} → ${formatBytes(
-                  preview.jsonBytes
-                )} → ${formatBytes(preview.gzipBytes)}`
-              : `${formatBytes(preview.jsonBytes)} → ${formatBytes(preview.gzipBytes)}`}
-            {originalFileSize &&
-              ` (${formatPercentDelta(originalFileSize, preview.gzipBytes)})`}
-          </>
-        )}
-      </p>
       {jsonData && (
         <div className={styles["converter-precision"]}>
           <div className={styles["converter-precision-header"]}>
@@ -222,6 +206,23 @@ const JsonToTgsConverter: React.FC = () => {
           </div>
         </div>
       )}
+      <p className={styles["converter-info-text"]}>
+        Конвертация происходит локально на вашем устройстве, качественный результат не
+        гарантируется.
+        <br />
+        {preview && (
+          <>
+            Примерный размер нового файла:{" "}
+            {originalFileSize
+              ? `${formatBytes(originalFileSize)} → ${formatBytes(
+                  preview.jsonBytes
+                )} → ${formatBytes(preview.gzipBytes)}`
+              : `${formatBytes(preview.jsonBytes)} → ${formatBytes(preview.gzipBytes)}`}
+            {originalFileSize &&
+              ` (${formatPercentDelta(originalFileSize, preview.gzipBytes)})`}
+          </>
+        )}
+      </p>
       {jsonData && typeof jsonData === "object" && (
         <div className={styles["converter-button-group"]}>
           <button
