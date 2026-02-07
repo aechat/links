@@ -5,39 +5,12 @@ import React, {useMemo, useState} from "react";
 import {UploadFileRounded} from "@mui/icons-material";
 import {InputNumber, message, Spin, Switch, Upload} from "antd";
 
+import {formatBytes, formatPercentDelta} from "../../../utils/fileUtilities";
 import modalStyles from "../../modals/Modal.module.scss";
 
 import styles from "./Converter.module.scss";
 
 const {saveAs} = pkg;
-
-const formatBytes = (bytes: number): string => {
-  if (bytes < 1024) {
-    return `${bytes} B`;
-  }
-
-  const kb = bytes / 1024;
-
-  if (kb < 1024) {
-    return `${kb.toFixed(1)} KB`;
-  }
-
-  const mb = kb / 1024;
-
-  return `${mb.toFixed(1)} MB`;
-};
-
-const formatPercentDelta = (fromBytes: number, toBytes: number): string => {
-  if (fromBytes <= 0) {
-    return "0%";
-  }
-
-  const delta = ((toBytes - fromBytes) / fromBytes) * 100;
-
-  const rounded = Math.round(delta * 10) / 10;
-
-  return `${rounded > 0 ? "+" : ""}${rounded}%`;
-};
 
 const roundNumber = (value: number, digits: number): number =>
   Number(value.toFixed(digits));
