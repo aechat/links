@@ -5,7 +5,7 @@
 
   &-info-text {
     margin-block: 15px !important;
-    margin-inline: 10px !important;
+    margin-inline: 5px !important;
     color: var(--color-text-tertiary);
     font-size: 0.825rem;
   }
@@ -51,6 +51,44 @@
 
     &-action {
       flex-grow: 3;
+    }
+  }
+
+  &-precision {
+    display: flex;
+    gap: 10px;
+    justify-content: space-between;
+    margin-block: 15px;
+    margin-inline: 5px;
+
+    &-header {
+      display: flex;
+      flex-flow: column nowrap;
+      gap: 5px;
+      justify-content: space-between;
+    }
+
+    &-title {
+      font-family: Onest, sans-serif;
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+
+    &-controls {
+      display: flex;
+      flex-wrap: nowrap;
+      gap: 15px;
+      align-items: center;
+      justify-content: flex-start;
+    }
+
+    &-input {
+      width: 90px;
+    }
+
+    &-hint {
+      color: var(--color-text-tertiary);
+      font-size: 0.75rem;
     }
   }
 }

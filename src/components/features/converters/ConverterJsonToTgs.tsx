@@ -3,7 +3,7 @@ import {gzip} from "pako";
 import React, {useMemo, useState} from "react";
 
 import {UploadFileRounded} from "@mui/icons-material";
-import {message, Spin, Upload} from "antd";
+import {InputNumber, message, Spin, Switch, Upload} from "antd";
 
 import modalStyles from "../../modals/Modal.module.scss";
 
@@ -39,6 +39,41 @@ const formatPercentDelta = (fromBytes: number, toBytes: number): string => {
   return `${rounded > 0 ? "+" : ""}${rounded}%`;
 };
 
+const roundNumber = (value: number, digits: number): number =>
+  Number(value.toFixed(digits));
+
+const processValue = (
+  value: unknown,
+  digits: number,
+  rounding: (input: number, decimals: number) => number
+): unknown => {
+  if (value === null) {
+    return value;
+  }
+
+  if (typeof value === "number") {
+    return rounding(value, digits);
+  }
+
+  if (Array.isArray(value)) {
+    return value.map((item) => processValue(item, digits, rounding));
+  }
+
+  if (typeof value === "object") {
+    const entries = Object.entries(value);
+
+    const nextValue: Record<string, unknown> = {};
+
+    for (const [key, entryValue] of entries) {
+      nextValue[key] = processValue(entryValue, digits, rounding);
+    }
+
+    return nextValue;
+  }
+
+  return value;
+};
+
 const JsonToTgsConverter: React.FC = () => {
   const [jsonData, setJsonData] = useState<Record<string, unknown> | undefined>();
 
@@ -47,6 +82,10 @@ const JsonToTgsConverter: React.FC = () => {
   const [originalFileSize, setOriginalFileSize] = useState<number | undefined>();
 
   const [isLoading, setIsLoading] = useState(false);
+
+  const [precisionEnabled, setPrecisionEnabled] = useState(false);
+
+  const [precisionDigits, setPrecisionDigits] = useState(3);
 
   const handleFileUpload = async (file: File): Promise<boolean> => {
     try {
@@ -72,7 +111,12 @@ const JsonToTgsConverter: React.FC = () => {
       return;
     }
 
-    const jsonString = JSON.stringify(jsonData);
+    const optimizedData =
+      precisionEnabled && precisionDigits >= 0
+        ? processValue(jsonData, precisionDigits, roundNumber)
+        : jsonData;
+
+    const jsonString = JSON.stringify(optimizedData);
 
     const jsonBytes = new TextEncoder().encode(jsonString).length;
 
@@ -82,7 +126,7 @@ const JsonToTgsConverter: React.FC = () => {
       gzipBytes,
       jsonBytes,
     };
-  }, [jsonData]);
+  }, [jsonData, precisionDigits, precisionEnabled]);
 
   const downloadTgs = async (): Promise<void> => {
     if (!jsonData) {
@@ -91,7 +135,12 @@ const JsonToTgsConverter: React.FC = () => {
 
     setIsLoading(true);
 
-    const jsonString = JSON.stringify(jsonData);
+    const optimizedData =
+      precisionEnabled && precisionDigits >= 0
+        ? processValue(jsonData, precisionDigits, roundNumber)
+        : jsonData;
+
+    const jsonString = JSON.stringify(optimizedData);
 
     const compressed = gzip(jsonString);
 
@@ -129,7 +178,7 @@ const JsonToTgsConverter: React.FC = () => {
         гарантируется.{" "}
         {preview && (
           <>
-            Примерный размер файла:{" "}
+            Примерный размер нового файла:{" "}
             {originalFileSize
               ? `${formatBytes(originalFileSize)} → ${formatBytes(
                   preview.jsonBytes
@@ -140,6 +189,39 @@ const JsonToTgsConverter: React.FC = () => {
           </>
         )}
       </p>
+      {jsonData && (
+        <div className={styles["converter-precision"]}>
+          <div className={styles["converter-precision-header"]}>
+            <span className={styles["converter-precision-title"]}>
+              Изменить количество знаков перед запятой в числах
+            </span>
+            <span className={styles["converter-precision-hint"]}>
+              Меньше знаков — меньше размер файла, но больше риск искажения анимации.
+              Экспериментируйте с умом.
+            </span>
+          </div>
+          <div className={styles["converter-precision-controls"]}>
+            {precisionEnabled && (
+              <InputNumber
+                className={styles["converter-precision-input"]}
+                max={8}
+                min={0}
+                step={1}
+                value={precisionDigits}
+                onChange={(nextValue) => {
+                  if (typeof nextValue === "number") {
+                    setPrecisionDigits(nextValue);
+                  }
+                }}
+              />
+            )}
+            <Switch
+              checked={precisionEnabled}
+              onChange={(nextValue) => setPrecisionEnabled(nextValue)}
+            />
+          </div>
+        </div>
+      )}
       {jsonData && typeof jsonData === "object" && (
         <div className={styles["converter-button-group"]}>
           <button
