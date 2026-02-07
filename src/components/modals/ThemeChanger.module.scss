@@ -118,4 +118,17 @@
       background-color: var(--color-button-group-selected);
     }
   }
+
+  &-toggle {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    justify-content: space-between;
+    margin-block: 15px;
+    margin-inline: 16px;
+
+    .theme-title {
+      margin: 0 !important;
+    }
+  }
 }

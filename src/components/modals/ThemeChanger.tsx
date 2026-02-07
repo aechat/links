@@ -15,7 +15,7 @@ import {
   LightModeRounded,
   RestartAlt,
 } from "@mui/icons-material";
-import {Modal, Slider, Tooltip} from "antd";
+import {Modal, Slider, Switch, Tooltip} from "antd";
 
 import modalStyles from "./Modal.module.scss";
 import styles from "./ThemeChanger.module.scss";
@@ -420,44 +420,24 @@ const ThemeModal: React.FC<ThemeModalProperties> = ({closeModal, isModalOpen}) =
             </>
           )}
           {showSpoilerAnimationSelector && (
-            <>
-              <div className={styles["theme-title"]}>Анимация раскрытия спойлеров</div>
-              <div className={styles["theme-selector"]}>
-                <ThemeOptionButton
-                  isSelected={!isAnimationDisabled}
-                  onClick={() => setIsAnimationDisabled(false)}
-                >
-                  Включена
-                </ThemeOptionButton>
-                <ThemeOptionButton
-                  isSelected={isAnimationDisabled}
-                  onClick={() => setIsAnimationDisabled(true)}
-                >
-                  Выключена
-                </ThemeOptionButton>
-              </div>
-            </>
+            <div className={styles["theme-toggle"]}>
+              <span className={styles["theme-title"]}>Анимация раскрытия спойлеров</span>
+              <Switch
+                checked={!isAnimationDisabled}
+                onChange={(checked) => setIsAnimationDisabled(!checked)}
+              />
+            </div>
           )}
           {isWinter && (
-            <>
-              <div className={styles["theme-title"]}>
+            <div className={styles["theme-toggle"]}>
+              <span className={styles["theme-title"]}>
                 {isNewYearPeriod ? "Новогоднее настроение" : "Анимация снега"}
-              </div>
-              <div className={styles["theme-selector"]}>
-                <ThemeOptionButton
-                  isSelected={isSnowfallEnabled}
-                  onClick={() => setIsSnowfallEnabled(true)}
-                >
-                  {isNewYearPeriod ? "Включено" : "Включена"}
-                </ThemeOptionButton>
-                <ThemeOptionButton
-                  isSelected={!isSnowfallEnabled}
-                  onClick={() => setIsSnowfallEnabled(false)}
-                >
-                  {isNewYearPeriod ? "Выключено" : "Выключена"}
-                </ThemeOptionButton>
-              </div>
-            </>
+              </span>
+              <Switch
+                checked={isSnowfallEnabled}
+                onChange={(checked) => setIsSnowfallEnabled(checked)}
+              />
+            </div>
           )}
           <div className={styles["theme-title"]}>
             Оттенок акцентного цвета
