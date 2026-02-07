@@ -4,6 +4,7 @@ import {Divider} from "antd";
 
 import Addition from "../../../components/content/Addition";
 import {ArticleMedia} from "../../../components/content/ArticleMedia";
+import CodeSnippet from "../../../components/content/CodeSnippet";
 import ContentFilter from "../../../components/content/ContentFilter";
 import DetailsSummary from "../../../components/content/DetailsSummary";
 
@@ -435,7 +436,7 @@ const AeInstallProblems: React.FC = () => {
                             команды ниже — они активируют debug-режим, необходимый для
                             корректной работы вручную установленных расширений.
                           </p>
-                          <code style={{fontSize: "0.875em"}}>
+                          <CodeSnippet>
                             defaults write com.adobe.CSXS.5 PlayerDebugMode 1
                             <br />
                             defaults write com.adobe.CSXS.6 PlayerDebugMode 1
@@ -487,7 +488,7 @@ const AeInstallProblems: React.FC = () => {
                             defaults write com.adobe.CSXS.29 PlayerDebugMode 1
                             <br />
                             defaults write com.adobe.CSXS.30 PlayerDebugMode 1
-                          </code>
+                          </CodeSnippet>
                           <Addition type="info">
                             <ul>
                               <li>

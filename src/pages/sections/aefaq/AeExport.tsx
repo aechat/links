@@ -1965,7 +1965,7 @@ const AeExport: React.FC = () => {
                         включения debug-режима, необходимые для работы сторонних
                         расширений. Чтобы скопировать команды в буфер обмена, достаточно
                         на них нажать.
-                        <code style={{fontSize: "0.875em"}}>
+                        <CodeSnippet>
                           defaults write com.adobe.CSXS.5 PlayerDebugMode 1
                           <br />
                           defaults write com.adobe.CSXS.6 PlayerDebugMode 1
@@ -2018,7 +2018,7 @@ const AeExport: React.FC = () => {
                           <br />
                           defaults write com.adobe.CSXS.30 PlayerDebugMode 1
                           <br />
-                        </code>
+                        </CodeSnippet>
                       </div>
                     }
                     windowsContent={

@@ -4,6 +4,7 @@ import {Divider} from "antd";
 
 import Addition from "../../../components/content/Addition";
 import {ArticleMedia} from "../../../components/content/ArticleMedia";
+import CodeSnippet from "../../../components/content/CodeSnippet";
 import ContentFilter from "../../../components/content/ContentFilter";
 import DetailsSummary from "../../../components/content/DetailsSummary";
 
@@ -246,7 +247,7 @@ const PsInstallProblems: React.FC = () => {
                         </mark>{" "}
                         и после этого ввести команды, которые были расположены чуть ниже в
                         терминал.
-                        <code style={{fontSize: "0.8em"}}>
+                        <CodeSnippet>
                           defaults write com.adobe.CSXS.5 PlayerDebugMode 1
                           <br />
                           defaults write com.adobe.CSXS.6 PlayerDebugMode 1
@@ -299,7 +300,7 @@ const PsInstallProblems: React.FC = () => {
                           <br />
                           defaults write com.adobe.CSXS.30 PlayerDebugMode 1
                           <br />
-                        </code>
+                        </CodeSnippet>
                       </li>
                       <li>
                         Команды выше достаточно ввести один раз, в дальнейшем при
