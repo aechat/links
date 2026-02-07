@@ -1,9 +1,9 @@
 import pkg from "file-saver";
 import {gzip} from "pako";
-import React, {useEffect, useState} from "react";
+import React, {useMemo, useState} from "react";
 
 import {UploadFileRounded} from "@mui/icons-material";
-import {message, Radio, Spin, Upload} from "antd";
+import {message, Spin, Upload} from "antd";
 
 import modalStyles from "../../modals/Modal.module.scss";
 
@@ -11,61 +11,49 @@ import styles from "./Converter.module.scss";
 
 const {saveAs} = pkg;
 
+const formatBytes = (bytes: number): string => {
+  if (bytes < 1024) {
+    return `${bytes} B`;
+  }
+
+  const kb = bytes / 1024;
+
+  if (kb < 1024) {
+    return `${kb.toFixed(1)} KB`;
+  }
+
+  const mb = kb / 1024;
+
+  return `${mb.toFixed(1)} MB`;
+};
+
+const formatPercentDelta = (fromBytes: number, toBytes: number): string => {
+  if (fromBytes <= 0) {
+    return "0%";
+  }
+
+  const delta = ((toBytes - fromBytes) / fromBytes) * 100;
+
+  const rounded = Math.round(delta * 10) / 10;
+
+  return `${rounded > 0 ? "+" : ""}${rounded}%`;
+};
+
 const JsonToTgsConverter: React.FC = () => {
   const [jsonData, setJsonData] = useState<Record<string, unknown> | undefined>();
 
   const [originalFileName, setOriginalFileName] = useState<string>("");
 
-  const [compressionMode, setCompressionMode] = useState<"js" | "python">("js");
-
-  const [pyodide, setPyodide] = useState<Pyodide | undefined>();
+  const [originalFileSize, setOriginalFileSize] = useState<number | undefined>();
 
   const [isLoading, setIsLoading] = useState(false);
-
-  useEffect(() => {
-    if (compressionMode === "python" && !pyodide) {
-      loadPyodideInline();
-    }
-  }, [compressionMode, pyodide]);
-
-  const loadPyodideInline = async (): Promise<void> => {
-    setIsLoading(true);
-
-    try {
-      const script = document.createElement("script");
-
-      script.src = "https://cdn.jsdelivr.net/pyodide/v0.22.1/full/pyodide.js";
-
-      script.integrity = "sha256-Q6i1RJCDrpDIb0VyM6S9WVhkF40IqPfGeZKI+W6Mn10=";
-
-      script.crossOrigin = "anonymous";
-
-      script.addEventListener("load", async () => {
-        const py: Pyodide = await loadPyodide();
-
-        setPyodide(py);
-        setIsLoading(false);
-        message.success("Python-интерпретатор загружен, начните процесс конвертации");
-      });
-
-      script.addEventListener("error", () => {
-        message.error("Не удалось загрузить Python-интерпретатор");
-        setIsLoading(false);
-      });
-
-      document.body.append(script);
-    } catch (error) {
-      console.error("Ошибка загрузки Pyodide:", error);
-      message.error("Не удалось загрузить Python-интерпретатор");
-      setIsLoading(false);
-    }
-  };
 
   const handleFileUpload = async (file: File): Promise<boolean> => {
     try {
       const fileData = await file.text();
 
       setOriginalFileName(file.name);
+      setOriginalFileSize(file.size);
 
       const json = JSON.parse(fileData);
 
@@ -79,6 +67,23 @@ const JsonToTgsConverter: React.FC = () => {
     return false;
   };
 
+  const preview = useMemo(() => {
+    if (!jsonData) {
+      return;
+    }
+
+    const jsonString = JSON.stringify(jsonData);
+
+    const jsonBytes = new TextEncoder().encode(jsonString).length;
+
+    const gzipBytes = gzip(jsonString).length;
+
+    return {
+      gzipBytes,
+      jsonBytes,
+    };
+  }, [jsonData]);
+
   const downloadTgs = async (): Promise<void> => {
     if (!jsonData) {
       return;
@@ -86,40 +91,11 @@ const JsonToTgsConverter: React.FC = () => {
 
     setIsLoading(true);
 
-    const jsonString = JSON.stringify(jsonData, undefined, 2);
+    const jsonString = JSON.stringify(jsonData);
 
-    let blob;
+    const compressed = gzip(jsonString);
 
-    if (compressionMode === "js") {
-      const compressed = gzip(jsonString);
-
-      blob = new Blob([compressed], {type: "application/gzip"});
-    } else if (compressionMode === "python") {
-      if (!pyodide) {
-        message.error("Python-интерпретатор ещё загружается");
-        setIsLoading(false);
-
-        return;
-      }
-
-      const buffer = new TextEncoder().encode(jsonString);
-
-      pyodide.FS.writeFile("input.json", buffer);
-
-      await pyodide.runPythonAsync(`
-import gzip
-with open("input.json", "rb") as f_in:
-    with gzip.open("output.tgs", "wb") as f_out:
-        f_out.write(f_in.read())
-      `);
-
-      const result = pyodide.FS.readFile("output.tgs");
-
-      const arrayBuffer = new ArrayBuffer(result.buffer.byteLength);
-
-      new Uint8Array(arrayBuffer).set(new Uint8Array(result.buffer));
-      blob = new Blob([arrayBuffer], {type: "application/gzip"});
-    }
+    const blob = new Blob([compressed], {type: "application/gzip"});
 
     if (!blob) {
       message.error("Ошибка при создании файла!");
@@ -134,10 +110,6 @@ with open("input.json", "rb") as f_in:
 
   return (
     <div className={styles["converter"]}>
-      <p className={styles["converter-info-text"]}>
-        Конвертация происходит локально на вашем устройстве, качественный результат не
-        гарантируется
-      </p>
       <Upload.Dragger
         accept=".json"
         beforeUpload={handleFileUpload}
@@ -152,16 +124,22 @@ with open("input.json", "rb") as f_in:
           </span>
         </div>
       </Upload.Dragger>
-      <div className={styles["converter-radio-wrapper"]}>
-        <Radio.Group
-          className={styles["converter-radio-group"]}
-          value={compressionMode}
-          onChange={(event) => setCompressionMode(event.target.value)}
-        >
-          <Radio value="js">js-pako-gzip</Radio>
-          <Radio value="python">python-gzip</Radio>
-        </Radio.Group>
-      </div>
+      <p className={styles["converter-info-text"]}>
+        Конвертация происходит локально на вашем устройстве, качественный результат не
+        гарантируется.{" "}
+        {preview && (
+          <>
+            Примерный размер файла:{" "}
+            {originalFileSize
+              ? `${formatBytes(originalFileSize)} → ${formatBytes(
+                  preview.jsonBytes
+                )} → ${formatBytes(preview.gzipBytes)}`
+              : `${formatBytes(preview.jsonBytes)} → ${formatBytes(preview.gzipBytes)}`}
+            {originalFileSize &&
+              ` (${formatPercentDelta(originalFileSize, preview.gzipBytes)})`}
+          </>
+        )}
+      </p>
       {jsonData && typeof jsonData === "object" && (
         <div className={styles["converter-button-group"]}>
           <button
@@ -169,6 +147,7 @@ with open("input.json", "rb") as f_in:
             onClick={() => {
               setJsonData(undefined);
               setOriginalFileName("");
+              setOriginalFileSize(undefined);
             }}
           >
             Сбросить

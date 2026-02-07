@@ -11,5 +11,4 @@ declare global {
 interface Window {
   detailsSummaryScrollListenerAttached?: boolean;
   isAutoCopyEnabled?: boolean;
-  loadPyodide: () => Promise<Pyodide>;
 }
