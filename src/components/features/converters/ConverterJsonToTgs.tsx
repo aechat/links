@@ -36,8 +36,7 @@ const JsonToTgsConverter: React.FC = () => {
 
       script.src = "https://cdn.jsdelivr.net/pyodide/v0.22.1/full/pyodide.js";
 
-      script.integrity =
-        "sha256-43a8b5449083ae90c86f457233a4bd595864178d08a8f7c6799288f96e8c9f5d";
+      script.integrity = "sha256-Q6i1RJCDrpDIb0VyM6S9WVhkF40IqPfGeZKI+W6Mn10=";
 
       script.crossOrigin = "anonymous";
 
