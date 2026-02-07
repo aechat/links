@@ -48,10 +48,6 @@ const TgsToJsonConverter: React.FC = () => {
 
   return (
     <div className={styles["converter"]}>
-      <p className={styles["converter-info-text"]}>
-        Конвертация происходит локально на вашем устройстве, качественный результат не
-        гарантируется
-      </p>
       <Upload.Dragger
         accept=".tgs"
         beforeUpload={handleFileUpload}
@@ -66,6 +62,10 @@ const TgsToJsonConverter: React.FC = () => {
           </span>
         </div>
       </Upload.Dragger>
+      <p className={styles["converter-info-text"]}>
+        Конвертация происходит локально на вашем устройстве, качественный результат не
+        гарантируется.
+      </p>
       {jsonData ? (
         <div className={styles["converter-button-group"]}>
           <button
