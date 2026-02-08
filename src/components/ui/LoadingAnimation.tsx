@@ -149,13 +149,6 @@ const LoadingAnimation: React.FC<LoadingAnimationProperties> = ({
       setIsFadingOut(false);
     } else {
       setIsFadingOut(true);
-
-      const timer = setTimeout(() => {
-        setShouldRender(false);
-        setIsFadingOut(false);
-      }, 300);
-
-      return () => clearTimeout(timer);
     }
   }, [isSuppressed, show]);
 
@@ -189,6 +182,18 @@ const LoadingAnimation: React.FC<LoadingAnimationProperties> = ({
       className={`${styles["loading-animation-overlay"]} ${
         isFadingOut ? styles["fade-out"] : styles["fade-in"]
       }`}
+      onAnimationEnd={(event) => {
+        if (
+          !isFadingOut ||
+          event.target !== event.currentTarget ||
+          event.animationName !== "fade-out"
+        ) {
+          return;
+        }
+
+        setShouldRender(false);
+        setIsFadingOut(false);
+      }}
     >
       <div
         style={{
