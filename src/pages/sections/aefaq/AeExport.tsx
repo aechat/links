@@ -2333,7 +2333,7 @@ const AeExport: React.FC = () => {
         <Addition type="tldr">
           Для экспорта анимации в <mark className="file">TGS</mark> используйте стороннее
           расширение <mark className="plugin">Bodymovin for Telegram</mark>. В качестве
-          альтернативы вы можете экспортировать вашу анимацию в
+          альтернативы вы можете экспортировать вашу анимацию в{" "}
           <mark className="file">JSON</mark> с помощью{" "}
           <mark className="plugin">Bodymovin</mark> и конвертировать полученный файл в{" "}
           <mark className="file">TGS</mark> с помощью конвертера в статье.
