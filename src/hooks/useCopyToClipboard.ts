@@ -37,9 +37,12 @@ const copyWithFallback = (text: string): boolean => {
     width: "1px",
   });
 
+  textArea.setAttribute("readonly", "");
+
   document.body.append(textArea);
   textArea.focus();
   textArea.select();
+  textArea.setSelectionRange(0, textArea.value.length);
 
   let success = false;
 
@@ -55,22 +58,14 @@ const copyWithFallback = (text: string): boolean => {
 };
 
 export const copyText = async (text: string): Promise<boolean> => {
-  if (!navigator.clipboard) {
+  if (!navigator.clipboard?.writeText || !globalThis.isSecureContext) {
     return copyWithFallback(text);
   }
 
   try {
-    const permission = await navigator.permissions.query({
-      name: "clipboard-write" as PermissionName,
-    });
+    await navigator.clipboard.writeText(text);
 
-    if (permission.state === "granted" || permission.state === "prompt") {
-      await navigator.clipboard.writeText(text);
-
-      return true;
-    } else {
-      return copyWithFallback(text);
-    }
+    return true;
   } catch (error) {
     console.error("Clipboard API failed, trying fallback:", error);
 
