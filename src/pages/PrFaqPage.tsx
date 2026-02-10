@@ -15,7 +15,6 @@ import {
 import {Divider} from "antd";
 import {Helmet} from "react-helmet-async";
 
-import Addition from "../components/content/Addition";
 import {SearchInPage, SearchProvider} from "../components/features/SearchEngine";
 import Footer from "../components/layout/Footer";
 import Header from "../components/layout/Header";
@@ -186,10 +185,6 @@ const PrFaqPage = () => {
               <div className="article-title">
                 <h1>prfaq</h1>
               </div>
-              <Addition type="danger">
-                Эта страница всё ещё находится в процессе разработки. Следите за
-                обновлениями!
-              </Addition>
               {sections.map((section) => (
                 <div
                   key={section.key}

@@ -149,21 +149,21 @@ const Links = () => {
               description="Поясняем за монтаж и нюансы в Adobe Premiere"
               href="/prfaq"
               icon={<PrIcon />}
-              name="prfaq [WIP]"
+              name="prfaq"
               variant="internal"
             />{" "}
             <LinkCard
               description="Базарим за обработку изображений в Adobe Photoshop"
               href="/psfaq"
               icon={<PsIcon />}
-              name="psfaq [WIP]"
+              name="psfaq"
               variant="internal"
             />
             {/* <LinkCard
               description="Шпаргалка по использованию выражений в Adobe After Effects"
               href="/aeexpr"
               icon={<AEExprIcon />}
-              name="aeexpr [WIP]"
+              name="aeexpr"
               variant="internal"
             /> 
             // aeexpr скоро будет возвращён, ссылка временно скрыта из-за пустоты этого раздела
