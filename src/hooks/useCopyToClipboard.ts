@@ -38,7 +38,6 @@ const copyWithFallback = (text: string): boolean => {
   });
 
   textArea.setAttribute("readonly", "");
-
   document.body.append(textArea);
   textArea.focus();
   textArea.select();

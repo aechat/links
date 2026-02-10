@@ -321,7 +321,6 @@ const ImageViewer: React.FC<{
           >
             <CloseRounded />
           </button>
-
           <motion.div
             className={styles["media-viewer-image-wrapper"]}
             onClick={handleBackgroundClick}

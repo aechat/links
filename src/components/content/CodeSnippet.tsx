@@ -2,8 +2,8 @@ import hljs from "highlight.js";
 import React, {useEffect, useMemo, useRef} from "react";
 
 import {message} from "antd";
-import "highlight.js/styles/github-dark.css";
 
+import "highlight.js/styles/github-dark.css";
 import styles from "./CodeSnippet.module.scss";
 
 interface CodeSnippetProperties {
