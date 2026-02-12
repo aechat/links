@@ -2,7 +2,8 @@ import React, {useState} from "react";
 
 import {CloseRounded, CoffeeRounded} from "@mui/icons-material";
 import {Modal} from "antd";
-import {motion} from "framer-motion";
+
+import {useCopyToClipboard} from "../../hooks/useCopyToClipboard";
 
 import modalStyles from "./Modal.module.scss";
 
@@ -11,6 +12,8 @@ interface SupportDonutProperties {
 }
 
 const SupportDonut: React.FC<SupportDonutProperties> = ({wide}) => {
+  const {copyElementContent} = useCopyToClipboard();
+
   const [isDonateModalOpen, setIsDonateModalOpen] = useState(false);
 
   const [isSberModalOpen, setIsSberModalOpen] = useState(false);
@@ -88,7 +91,10 @@ const SupportDonut: React.FC<SupportDonutProperties> = ({wide}) => {
                       Вы можете перевести из любого банка по номеру банковской карты любую
                       сумму.
                     </p>
-                    <mark className={modalStyles["modal-support-account-number"]}>
+                    <mark
+                      className={modalStyles["modal-support-account-number"]}
+                      onClick={(event) => copyElementContent(event.currentTarget)}
+                    >
                       2202202357342488
                     </mark>
                     <p className={modalStyles["modal-support-recipient-info"]}>
@@ -142,11 +148,12 @@ const SupportDonut: React.FC<SupportDonutProperties> = ({wide}) => {
                         Вставьте этот номер в поле{" "}
                         <mark className="select">«Номер кошелька»</mark> приложения вашего
                         банка и введите любую сумму. После этого - подтвердите перевод.
-                        <motion.mark
+                        <mark
                           className={modalStyles["modal-support-account-number"]}
+                          onClick={(event) => copyElementContent(event.currentTarget)}
                         >
                           410016763684808
-                        </motion.mark>
+                        </mark>
                         <p className={modalStyles["modal-support-recipient-info"]}>
                           Нажмите, чтобы скопировать или пополните баланс автору с помощью{" "}
                           <a
