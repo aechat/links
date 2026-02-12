@@ -75,52 +75,47 @@ export const copyText = async (text: string): Promise<boolean> => {
 export const useCopyToClipboard = () => {
   const isCopyingReference = useRef(false);
 
-  const copyToClipboard = useCallback(
-    async (event: React.MouseEvent | React.TouchEvent | MouseEvent | TouchEvent) => {
-      const target = event.target as HTMLElement;
+  const copyElementContent = useCallback(async (element: HTMLElement) => {
+    if (isExcludedElement(element)) {
+      return;
+    }
 
-      if (isExcludedElement(target)) {
-        return;
+    if (isCopyingReference.current) {
+      return;
+    }
+
+    isCopyingReference.current = true;
+
+    const textToCopy = element.textContent || "";
+
+    try {
+      const success = await copyText(textToCopy);
+
+      if (success) {
+        message.success("Текст скопирован в буфер обмена");
+      } else {
+        message.error("Не удалось скопировать текст");
       }
-
-      if (isCopyingReference.current) {
-        return;
-      }
-
-      isCopyingReference.current = true;
-
-      const textToCopy = target.textContent || "";
-
-      try {
-        const success = await copyText(textToCopy);
-
-        if (success) {
-          message.success("Текст скопирован в буфер обмена");
-        } else {
-          message.error("Не удалось скопировать текст");
-        }
-      } finally {
-        setTimeout(() => {
-          isCopyingReference.current = false;
-        }, 100);
-      }
-    },
-    []
-  );
+    } finally {
+      setTimeout(() => {
+        isCopyingReference.current = false;
+      }, 100);
+    }
+  }, []);
 
   const longPressCallback = useCallback(
     (event_: React.MouseEvent | React.TouchEvent) => {
       const target = event_.target as HTMLElement;
 
       if (target && (target.tagName === "MARK" || target.tagName === "CODE")) {
-        copyToClipboard(event_);
+        copyElementContent(target);
 
         return true;
       }
 
       return false;
     },
-    [copyToClipboard]
+    [copyElementContent]
   );
 
   const longPressHandlers = useLongPress(longPressCallback);
@@ -136,7 +131,7 @@ export const useCopyToClipboard = () => {
       const target = event_.target as HTMLElement;
 
       if (target && target.tagName === "CODE") {
-        copyToClipboard(event_);
+        copyElementContent(target);
       }
     };
 
@@ -189,5 +184,7 @@ export const useCopyToClipboard = () => {
       document.removeEventListener("click", onClickCode);
       (globalThis as unknown as Window).isAutoCopyEnabled = false;
     };
-  }, [longPressHandlers, copyToClipboard]);
+  }, [longPressHandlers, copyElementContent]);
+
+  return {copyElementContent};
 };
