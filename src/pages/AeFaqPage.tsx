@@ -122,7 +122,7 @@ const AeFaqPage = () => {
         <Helmet>
           <title>aefaq@aechat</title>
           <meta
-            content="Ответы на частые вопросы от пользователей Adobe After Effects"
+            content="Преодолеваем трудности при работе с Adobe After Effects"
             name="description"
           />
           <meta
@@ -150,7 +150,7 @@ const AeFaqPage = () => {
             property="og:title"
           />
           <meta
-            content="Ответы на частые вопросы от пользователей Adobe After Effects"
+            content="Преодолеваем трудности при работе с Adobe After Effects"
             property="og:description"
           />
           <meta
@@ -166,7 +166,7 @@ const AeFaqPage = () => {
             name="twitter:title"
           />
           <meta
-            content="Ответы на частые вопросы от пользователей Adobe After Effects"
+            content="Преодолеваем трудности при работе с Adobe After Effects"
             name="twitter:description"
           />
           <meta

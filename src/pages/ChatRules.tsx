@@ -79,7 +79,7 @@ const ChatRules = () => {
       <Helmet>
         <title>rules@aechat</title>
         <meta
-          content="Правила чатов AEChat и DWChat"
+          content="Рассказываем об уставе наших чатов"
           name="description"
         />
         <meta
@@ -107,7 +107,7 @@ const ChatRules = () => {
           property="og:title"
         />
         <meta
-          content="Правила чатов AEChat и DWChat"
+          content="Рассказываем об уставе наших чатов"
           property="og:description"
         />
         <meta
@@ -123,7 +123,7 @@ const ChatRules = () => {
           name="twitter:title"
         />
         <meta
-          content="Правила чатов AEChat и DWChat"
+          content="Рассказываем об уставе наших чатов"
           name="twitter:description"
         />
         <meta

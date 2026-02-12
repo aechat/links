@@ -122,7 +122,7 @@ const PsFaqPage = () => {
         <Helmet>
           <title>psfaq@aechat</title>
           <meta
-            content="Ответы на частые вопросы от пользователей Adobe Photoshop"
+            content="Базарим за обработку изображений в Adobe Photoshop"
             name="description"
           />
           <meta
@@ -150,7 +150,7 @@ const PsFaqPage = () => {
             property="og:title"
           />
           <meta
-            content="Ответы на частые вопросы от пользователей Adobe Photoshop"
+            content="Базарим за обработку изображений в Adobe Photoshop"
             property="og:description"
           />
           <meta
@@ -166,7 +166,7 @@ const PsFaqPage = () => {
             name="twitter:title"
           />
           <meta
-            content="Ответы на частые вопросы от пользователей Adobe Photoshop"
+            content="Базарим за обработку изображений в Adobe Photoshop"
             name="twitter:description"
           />
           <meta

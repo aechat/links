@@ -122,7 +122,7 @@ const PrFaqPage = () => {
         <Helmet>
           <title>prfaq@aechat</title>
           <meta
-            content="Ответы на частые вопросы от пользователей Adobe Premiere"
+            content="Поясняем за монтаж и нюансы в Adobe Premiere"
             name="description"
           />
           <meta
@@ -150,7 +150,7 @@ const PrFaqPage = () => {
             property="og:title"
           />
           <meta
-            content="Ответы на частые вопросы от пользователей Adobe Premiere"
+            content="Поясняем за монтаж и нюансы в Adobe Premiere"
             property="og:description"
           />
           <meta
@@ -166,7 +166,7 @@ const PrFaqPage = () => {
             name="twitter:title"
           />
           <meta
-            content="Ответы на частые вопросы от пользователей Adobe Premiere"
+            content="Поясняем за монтаж и нюансы в Adobe Premiere"
             name="twitter:description"
           />
           <meta

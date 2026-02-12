@@ -61,7 +61,7 @@ const AeExprPage = () => {
         <Helmet>
           <title>aeexpr@aechat</title>
           <meta
-            content="Ответы на частые вопросы о выражениях в Adobe After Effects"
+            content="Шпаргалка по использованию выражений в Adobe After Effects"
             name="description"
           />
           <meta
@@ -89,7 +89,7 @@ const AeExprPage = () => {
             property="og:title"
           />
           <meta
-            content="Ответы на частые вопросы о выражениях в Adobe After Effects"
+            content="Шпаргалка по использованию выражений в Adobe After Effects"
             property="og:description"
           />
           <meta
@@ -105,7 +105,7 @@ const AeExprPage = () => {
             name="twitter:title"
           />
           <meta
-            content="Ответы на частые вопросы о выражениях в Adobe After Effects"
+            content="Шпаргалка по использованию выражений в Adobe After Effects"
             name="twitter:description"
           />
           <meta
