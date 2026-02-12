@@ -130,10 +130,6 @@ const PsFaqPage = () => {
             itemProp="name"
           />
           <meta
-            content="Ответы на частые вопросы от пользователей Adobe Photoshop"
-            itemProp="description"
-          />
-          <meta
             content="https://aechat.ru/icons/aechat.png"
             itemProp="image"
           />

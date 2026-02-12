@@ -69,10 +69,6 @@ const AeExprPage = () => {
             itemProp="name"
           />
           <meta
-            content="Ответы на частые вопросы о выражениях в Adobe After Effects"
-            itemProp="description"
-          />
-          <meta
             content="https://aechat.ru/icons/aechat.png"
             itemProp="image"
           />

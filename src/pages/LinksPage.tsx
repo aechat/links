@@ -78,10 +78,6 @@ const Links = () => {
           itemProp="name"
         />
         <meta
-          content="Коллекция полезных ссылок, FAQ и ресурсов для сообщества AEChat"
-          itemProp="description"
-        />
-        <meta
           content="https://aechat.ru/icons/aechat.png"
           itemProp="image"
         />

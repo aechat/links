@@ -101,10 +101,6 @@ const NotFound = () => {
           itemProp="name"
         />
         <meta
-          content="Страница не найдена"
-          itemProp="description"
-        />
-        <meta
           content="https://aechat.ru/icons/favicon.svg"
           itemProp="image"
         />

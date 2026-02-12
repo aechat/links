@@ -87,10 +87,6 @@ const ChatRules = () => {
           itemProp="name"
         />
         <meta
-          content="Правила чатов AEChat и DWChat"
-          itemProp="description"
-        />
-        <meta
           content="https://aechat.ru/icons/favicon.svg"
           itemProp="image"
         />
