@@ -191,12 +191,12 @@ const AeFaqPage = () => {
                   id={section.id}
                 >
                   <Divider
-                    orientation="right"
                     style={{
                       color: "var(--text-color)",
                       fontWeight: "600",
                       textTransform: "uppercase",
                     }}
+                    titlePlacement="right"
                   >
                     {section.title}
                   </Divider>
