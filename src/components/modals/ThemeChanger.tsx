@@ -352,7 +352,7 @@ const ThemeModal: React.FC<ThemeModalProperties> = ({closeModal, isModalOpen}) =
 
   return (
     <Modal
-      destroyOnClose
+      destroyOnHidden
       closeIcon={false}
       footer={<></>}
       open={isModalOpen}

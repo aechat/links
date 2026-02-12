@@ -61,7 +61,7 @@ const CodeSnippet: React.FC<CodeSnippetProperties> = ({
 
   useEffect(() => {
     if (codeReference.current) {
-      hljs.highlightBlock(codeReference.current);
+      hljs.highlightElement(codeReference.current);
     }
   }, [codeText, language]);
 
