@@ -1402,7 +1402,7 @@ const PrInstallProblems: React.FC = () => {
               <Addition type="info">
                 Способы отключения и удаления{" "}
                 <mark className="app">Windows Defender</mark>, описанные в этой статье,
-                могут незначительно отличаться в зависимости от вашей установленной версии{" "}
+                могут отличаться в зависимости от вашей установленной версии{" "}
                 <mark>Windows</mark>.
               </Addition>
               <Divider>Отключаем Windows Defender на время</Divider>
@@ -1411,17 +1411,131 @@ const PrInstallProblems: React.FC = () => {
                 обеспечения неофициальными способами, то для нормальной установки
                 программ, плагинов или другого содержимого необходимо временно отключить
                 встроенный антивирус <mark className="app">Windows Defender</mark> или
-                любой другой, установленный на вашем устройстве.
+                любой другой, установленный на вашем устройстве. Обычно для этого хватает
+                отключения <mark className="select">«Защиты в реальном времени»</mark>.
               </p>
+              <Addition type="warning">
+                <mark className="select">«Защита в реальном времени»</mark> в последних
+                сборках <mark>Windows</mark> имеет нездоровое свойство самостоятельно
+                включаться спустя несколько секунд. Не стесняйтесь отключать её заново.
+              </Addition>
               <ArticleMedia
                 src="blwRAOQUjsM"
                 type="youtube"
               />
-              <Divider>Или удаляем Windows Defender с корнем</Divider>
+              <Divider>Вносим исключения для Windows Defender</Divider>
               <p>
-                Если вас раздражают ложные срабатывания или вы хотите отключить{" "}
-                <mark className="app">Windows Defender</mark> раз и навсегда, то вы можете
-                сделать это с помощью нескольких утилит из списка ниже.
+                Если вы не хотите отключать <mark className="app">Windows Defender</mark>{" "}
+                или <mark className="select">«Защита в реальном времени»</mark> включается
+                раньше, чем вы успеваете запустить установщик — попробуйте добавить папки{" "}
+                <mark className="path">C:\Program Files\Adobe</mark>, папку с загруженными
+                файлами и <mark className="path">%TEMP%</mark> в исключения антивируса.
+                После настройки повторите процесс установки программы.
+              </p>
+              <Addition type="info">
+                <ul>
+                  <li>
+                    Если директория <mark className="path">C:\Program Files\Adobe</mark>{" "}
+                    отсутствует, создайте её самостоятельно.
+                  </li>
+                  <li>
+                    После завершения установки исключения можно убрать, но рекомендуется
+                    оставить в списке хотя бы{" "}
+                    <mark className="path">C:\Program Files\Adobe</mark>, чтобы антивирус
+                    не повредил файлы приложения.
+                  </li>
+                </ul>
+              </Addition>
+              <ArticleMedia
+                src="ET94_dv3f8c"
+                type="youtube"
+              />
+              <p>
+                Также вы можете воспользоваться сторонними утилитами для управлениями
+                исключений в <mark className="app">Windows Defender</mark>.
+              </p>
+              <div className="flexible-links">
+                <a href="https://www.sordum.org/10636/defender-exclusion-tool-v1-4/">
+                  Defender Exclusion Tool
+                </a>
+              </div>
+              <Divider>Убираем «палки в колёсах» от Windows SmartScreen</Divider>
+              <p>
+                В последних сборках <mark>Windows 11</mark> компания{" "}
+                <mark className="company">Microsoft</mark>{" "}
+                <del>усилила меры безопасности</del> добавила пользователям проблем,
+                внедрив расширенный анализ исполняемых файлов через функцию{" "}
+                <mark className="select">«Интеллектуальное управление приложениями»</mark>
+                . Она дополняет работу фильтра{" "}
+                <mark className="app">Windows SmartScreen</mark>. Из-за этого при запуске
+                репаков или сторонних установщиков система может заблокировать файл
+                сообщением{" "}
+                <mark className="select">
+                  «„Интеллектуальное управление приложениями” заблокировало приложение,
+                  которое может быть небезопасным»
+                </mark>
+                .
+              </p>
+              <p>
+                Чтобы отключить эту защиту, перейдите в настройки{" "}
+                <mark className="app">Защитника Windows</mark>, откройте раздел{" "}
+                <mark className="select">
+                  «Управление приложениями и браузером» → «Параметры интеллектуального
+                  управления приложениями»
+                </mark>{" "}
+                и выберите <mark className="select">«Выключить»</mark>
+                <sup>1</sup>. После этого препятствий для запуска программ возникнуть не
+                должно, особенно если вы уже отключили{" "}
+                <mark className="select">«Защиту в реальном времени»</mark>.
+              </p>
+              <Addition type="info">
+                <sup>1</sup> Несмотря на предупреждение о том, что эту функцию нельзя
+                вернуть без полной переустановки <mark>Windows</mark>, на базовую защиту{" "}
+                <mark className="app">Windows Defender</mark> её отключение не влияет.{" "}
+                <i style={{opacity: "0.5"}}>Заодно избавитесь от лишних фильтров.</i>
+              </Addition>
+              <ArticleMedia
+                caption="Отключаем «Интеллектуальное управление приложениями»"
+                src="legacy/disable_advanced_smartscreen.mp4"
+                type="video"
+              />
+              <p>
+                В <mark>Windows 10</mark> этот фильтр работает аналогично: при запуске
+                файла всплывает окно{" "}
+                <mark className="select">«Система Windows защитила ваш компьютер»</mark>.
+                Так <mark className="app">Windows SmartScreen</mark> реагирует на файлы,
+                которые кажутся ему подозрительными.
+              </p>
+              <p>
+                Чтобы запустить такой файл, нажмите{" "}
+                <mark className="select">«Подробнее»</mark> в нижней части окна, а затем —{" "}
+                <mark className="select">«Выполнить в любом случае»</mark>.
+              </p>
+              <Addition type="warning">
+                Иногда фильтр может остановить вас окном{" "}
+                <mark className="select">«Вредоносный файл»</mark>. Обычно это решается
+                установкой чекбокса <mark className="select">«Разблокировать»</mark> в
+                свойствах файла возле{" "}
+                <mark className="select">
+                  «Этот файл получен с другого компьютера и, возможно, был заблокирован с
+                  целью защиты компьютера»
+                </mark>
+                .
+              </Addition>
+              <p>
+                Если после нажатия на <mark className="select">«Подробнее»</mark> кнопка
+                запуска не появилась — полностью отключите фильтр в параметрах{" "}
+                <mark className="app">Защитника Windows</mark>.
+              </p>
+              <ArticleMedia
+                src="HxlxS1Mdyp0"
+                type="youtube"
+              />
+              <Divider>Или удаляем Windows Defender с «корнями»</Divider>
+              <p>
+                Если внесение исключений не помогло, вас раздражают ложные срабатывания
+                или вы хотите отключить <mark className="app">Windows Defender</mark> раз
+                и навсегда — воспользуйтесь утилитами из списка ниже.
               </p>
               <div className="flexible-links">
                 <a href="https://win10tweaker.ru/forum/topic/defenderkiller">
@@ -1438,87 +1552,27 @@ const PrInstallProblems: React.FC = () => {
                 </a>
               </div>
               <Addition type="danger">
-                Полное удаление <mark className="app">Windows Defender</mark>{" "}
-                рекомендуется только опытным пользователям <mark>Windows</mark>, которые
-                полностью осознают возможные последствия и используют альтернативные
-                средства защиты — например собственную бдительность, сторонние антивирусы
-                или регулярное резервное копирование данных. Если вы не слишком уверенный
-                пользователь и не уверены в своих действиях, лучше ограничиться временным
-                отключением антивируса или добавлением нужных файлов и папок в исключения.
+                <p>
+                  Полное удаление или отключение{" "}
+                  <mark className="app">Windows Defender</mark> рекомендуется только
+                  опытным пользователям <mark>Windows</mark>, которые полностью осознают
+                  возможные последствия и используют альтернативные средства защиты —
+                  например собственную бдительность, сторонние антивирусы или регулярное
+                  резервное копирование данных.
+                </p>
+                <p>
+                  Если вы не слишком уверенный пользователь и не уверены в своих
+                  действиях, лучше ограничиться временным отключением антивируса или
+                  добавлением нужных файлов и папок в исключения.
+                </p>
               </Addition>
               <Addition type="warning">
-                <mark className="app">Windows Defender</mark> может вернуться после
-                установки крупного обновления, например при переходе с{" "}
+                Удалённый <mark className="app">Windows Defender</mark> может вернуться
+                после установки крупного обновления, например при переходе с{" "}
                 <mark>Windows 11</mark> версии <mark>24H2</mark> на{" "}
                 <mark>Windows 11</mark> версии <mark>25H2</mark>. Чтобы от него
                 избавиться, просто повторите процесс удаления.
               </Addition>
-              <Divider>Вносим исключения для Windows Defender</Divider>
-              <p>
-                Если вы не хотите отключать или удалять{" "}
-                <mark className="app">Windows Defender</mark> с вашего устройства, то
-                можете добавить папку <mark className="path">C:\Program Files\Adobe</mark>
-                , а также <mark className="path">%TEMP%</mark> в список исключений вашего
-                антивируса. После настройки исключений начните установку программы как
-                обычно.
-              </p>
-              <Addition type="info">
-                Если директория <mark className="path">C:\Program Files\Adobe</mark>{" "}
-                отсутствует, создайте её самостоятельно.
-              </Addition>
-              <ArticleMedia
-                src="ET94_dv3f8c"
-                type="youtube"
-              />
-              <Divider>Убираем «палки в колёсах» от Windows SmartScreen</Divider>
-              <p>
-                В последних сборках <mark>Windows 11</mark> компания{" "}
-                <mark className="company">Microsoft</mark> усилила меры безопасности,
-                внедрив расширенный анализ исполняемых файлов через функцию{" "}
-                <mark className="select">«Интеллектуальное управление приложениями»</mark>
-                . Она дополняет работу фильтра{" "}
-                <mark className="app">Windows SmartScreen</mark>. Из-за этого при запуске
-                репаков или некоторых установщиков система может заблокировать открытие
-                программы сообщением{" "}
-                <mark className="select">
-                  «„Интеллектуальное управление приложениями” заблокировало приложение,
-                  которое может быть небезопасным»
-                </mark>
-                .
-              </p>
-              <p>
-                Чтобы отключить данную защиту, перейдите в настройки{" "}
-                <mark className="app">Защитника Windows</mark>, откройте раздел{" "}
-                <mark className="select">
-                  «Управление приложениями и браузером» → «Параметры интеллектуального
-                  управления приложениями»
-                </mark>{" "}
-                и нажмите <mark className="select">«Выключить»</mark>. После этого
-                препятствий для открытия приложений возникнуть не должно, особенно если вы
-                до этого отключили{" "}
-                <mark className="select">«Защиту в реальном времени»</mark>.
-              </p>
-              <ArticleMedia
-                caption="Отключаем «Интеллектуальное управление приложениями»"
-                src="legacy/disable_advanced_smartscreen.mp4"
-                type="video"
-              />
-              <p>
-                В <mark>Windows 10</mark> механизм работает иначе: при открытии файла
-                часто появляется окно с предупреждением{" "}
-                <mark className="select">«Система Windows защитила ваш компьютер»</mark>.
-                Так <mark className="app">Windows SmartScreen</mark> реагирует на{" "}
-                <mark className="file">EXE</mark>, которые считает подозрительными. Чтобы
-                запустить такой файл, нажмите <mark className="select">«Подробнее»</mark>,
-                а затем — <mark className="select">«Выполнить в любом случае»</mark>. Если
-                же после нажатия на <mark className="select">«Подробнее»</mark> кнопка
-                запуска не появляется, полностью отключите фильтр в параметрах{" "}
-                <mark className="app">Защитника Windows</mark>.
-              </p>
-              <ArticleMedia
-                src="HxlxS1Mdyp0"
-                type="youtube"
-              />
             </>
           }
         />
