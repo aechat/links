@@ -2,7 +2,6 @@ import React, {useState} from "react";
 
 import {CloseRounded, CoffeeRounded} from "@mui/icons-material";
 import {Modal} from "antd";
-import {motion} from "framer-motion";
 
 import modalStyles from "./Modal.module.scss";
 
@@ -142,11 +141,9 @@ const SupportDonut: React.FC<SupportDonutProperties> = ({wide}) => {
                         Вставьте этот номер в поле{" "}
                         <mark className="select">«Номер кошелька»</mark> приложения вашего
                         банка и введите любую сумму. После этого - подтвердите перевод.
-                        <motion.mark
-                          className={modalStyles["modal-support-account-number"]}
-                        >
+                        <mark className={modalStyles["modal-support-account-number"]}>
                           410016763684808
-                        </motion.mark>
+                        </mark>
                         <p className={modalStyles["modal-support-recipient-info"]}>
                           Нажмите, чтобы скопировать или пополните баланс автору с помощью{" "}
                           <a
