@@ -5,6 +5,7 @@ import {Link} from "react-router-dom";
 
 import {copyText} from "../../hooks/useCopyToClipboard";
 import {useLongPress} from "../../hooks/useLongPress";
+import {useRipple} from "../../hooks/useRipple";
 import {formatNestedQuotes} from "../../utils/stringUtilities";
 
 import styles from "./LinkCards.module.scss";
@@ -50,6 +51,8 @@ export const LinkCard: React.FC<LinkCardProperties> = ({
 
   const longPressProperties = useLongPress(handleCopyLink);
 
+  const rippleProperties = useRipple<HTMLDivElement>();
+
   const content = (
     <>
       <div
@@ -66,6 +69,7 @@ export const LinkCard: React.FC<LinkCardProperties> = ({
     <div
       className={styles["links-button"]}
       {...longPressProperties}
+      {...rippleProperties}
     >
       {variant === "internal" ? (
         <Link to={href}>{content}</Link>

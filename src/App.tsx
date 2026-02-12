@@ -13,6 +13,7 @@ import LoadingAnimation from "./components/ui/LoadingAnimation";
 import LoadingContext from "./context/LoadingContext";
 import {copyText} from "./hooks/useCopyToClipboard";
 import useDynamicFavicon from "./hooks/useDynamicFavicon";
+import {useRipple} from "./hooks/useRipple";
 import getAntTheme from "./styles/antTheme";
 import {getBrowserInfo} from "./utils/browserDetection";
 import faviconSvg from "/icons/favicon.svg?raw";
@@ -153,6 +154,8 @@ const SafariWarningModal = ({
 };
 
 const ErrorFallback = ({error}: {error: Error}) => {
+  const ripple = useRipple<HTMLButtonElement>();
+
   const isDynamicImportError =
     error.message.includes("dynamically imported module") ||
     (error.cause &&
@@ -224,6 +227,7 @@ const ErrorFallback = ({error}: {error: Error}) => {
                     if (globalThis.window !== undefined)
                       globalThis.window.location.href = "/";
                   }}
+                  onMouseDown={ripple.onMouseDown}
                 >
                   На главную
                 </button>
@@ -233,6 +237,7 @@ const ErrorFallback = ({error}: {error: Error}) => {
                   if (globalThis.window !== undefined)
                     globalThis.window.location.reload();
                 }}
+                onMouseDown={ripple.onMouseDown}
               >
                 Обновить страницу
               </button>

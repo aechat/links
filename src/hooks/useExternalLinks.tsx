@@ -5,10 +5,14 @@ import {Modal} from "antd";
 
 import modalStyles from "../components/modals/Modal.module.scss";
 
+import {useRipple} from "./useRipple";
+
 export const useExternalLinkHandler = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const [targetUrl, setTargetUrl] = useState<string | undefined>();
+
+  const ripple = useRipple<HTMLButtonElement>();
 
   const handleLinkClick = useCallback((event: React.MouseEvent<HTMLElement>) => {
     const target = event.target as HTMLElement;
@@ -71,13 +75,19 @@ export const useExternalLinkHandler = () => {
             <button
               className={modalStyles["modal-header-close"]}
               onClick={handleCancel}
+              onMouseDown={ripple.onMouseDown}
             >
               <CloseRounded />
             </button>
           </div>
           <p>Вы уверены, что хотите перейти по внешней ссылке?</p>
           <div className="flexible-links">
-            <button onClick={handleOk}>Перейти</button>
+            <button
+              onClick={handleOk}
+              onMouseDown={ripple.onMouseDown}
+            >
+              Перейти
+            </button>
           </div>
         </div>
       </div>

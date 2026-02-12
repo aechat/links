@@ -15,6 +15,7 @@ import {RemoveScroll} from "react-remove-scroll";
 
 import {copyText} from "../../hooks/useCopyToClipboard";
 import {useLongPress} from "../../hooks/useLongPress";
+import {useRipple} from "../../hooks/useRipple";
 import {formatNestedQuotes} from "../../utils/stringUtilities";
 import modalStyles from "../modals/Modal.module.scss";
 
@@ -1104,6 +1105,8 @@ export const SearchButton: React.FC<SearchButtonProperties> = ({
 }) => {
   const {isPageLoaded, openModal} = useSearch();
 
+  const ripple = useRipple<HTMLButtonElement>();
+
   return (
     <button
       className={`${searchStyles["search-button"]} ${className}`.trim()}
@@ -1121,6 +1124,7 @@ export const SearchButton: React.FC<SearchButtonProperties> = ({
           );
         }
       }}
+      onMouseDown={ripple.onMouseDown}
     >
       {wide ? (
         <>
@@ -1177,6 +1181,8 @@ const SearchCategories: React.FC<{
 
   const longPressProperties = useLongPress(handleCopy);
 
+  const ripple = useRipple<HTMLButtonElement>();
+
   return (
     <div
       className={searchStyles["search-category"]}
@@ -1188,6 +1194,7 @@ const SearchCategories: React.FC<{
           data-id={section.id}
           data-title={section.title}
           onClick={() => onLinkClick(section.id)}
+          onMouseDown={ripple.onMouseDown}
         >
           {section.icon}
           {section.title}
@@ -1338,6 +1345,8 @@ const ExternalSearch: React.FC<{query: string}> = ({query}) => {
     return `${query} ${context}`;
   };
 
+  const ripple = useRipple<HTMLButtonElement>();
+
   return (
     <div>
       <div className={searchStyles["search-external-links"]}>
@@ -1348,6 +1357,7 @@ const ExternalSearch: React.FC<{query: string}> = ({query}) => {
               "_blank"
             );
           }}
+          onMouseDown={ripple.onMouseDown}
         >
           Найти в Яндексе
         </button>
@@ -1360,6 +1370,7 @@ const ExternalSearch: React.FC<{query: string}> = ({query}) => {
               "_blank"
             );
           }}
+          onMouseDown={ripple.onMouseDown}
         >
           Спросить у Perplexity<sup>1</sup>
         </button>
@@ -1412,6 +1423,8 @@ export const SearchInPage: React.FC<{sections: SearchSection[]}> = ({sections}) 
   const resultsContainerReference = useRef<HTMLDivElement>(null);
 
   const [isFadeVisible, setIsFadeVisible] = useState(false);
+
+  const ripple = useRipple<HTMLButtonElement>();
 
   const {
     debouncedQuery,
@@ -1694,6 +1707,7 @@ export const SearchInPage: React.FC<{sections: SearchSection[]}> = ({sections}) 
                     setQuery("");
                     setIsSearching(false);
                   }}
+                  onMouseDown={ripple.onMouseDown}
                 >
                   <BackspaceOutlined fontSize="small" />
                 </button>
@@ -1701,6 +1715,7 @@ export const SearchInPage: React.FC<{sections: SearchSection[]}> = ({sections}) 
               <button
                 className={searchStyles["search-input-close"]}
                 onClick={closeModal}
+                onMouseDown={ripple.onMouseDown}
               >
                 <CloseRounded />
               </button>
