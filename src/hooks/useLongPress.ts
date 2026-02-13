@@ -46,6 +46,14 @@ export const useLongPress = (
         const pressDuration = Date.now() - touchStartTime.current;
 
         if (pressDuration > ms && callback(event_)) {
+          const touch = event_.changedTouches[0];
+
+          const target = event_.target;
+
+          if (touch && target instanceof HTMLElement) {
+            applyRipple(target, touch.clientX, touch.clientY);
+          }
+
           event_.preventDefault();
         }
       }
