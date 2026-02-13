@@ -6,7 +6,13 @@ export const useRipple = <T extends HTMLElement>() => {
 
     const element = event.currentTarget;
 
-    element.classList.add("ripple-container");
+    const computedStyle = globalThis.getComputedStyle(element);
+
+    if (computedStyle.position === "static") {
+      element.style.position = "relative";
+    }
+
+    element.style.overflow = "hidden";
 
     const ripple = document.createElement("span");
 
