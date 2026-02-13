@@ -41,15 +41,15 @@ const CodeSnippet: React.FC<CodeSnippetProperties> = ({
         return;
       }
 
-      if (React.isValidElement(node)) {
+      if (React.isValidElement<{children?: React.ReactNode}>(node)) {
         if (node.type === "br") {
           parts.push("\n");
 
           return;
         }
 
-        if ("children" in node.props) {
-          visit(node.props.children as React.ReactNode);
+        if (node.props.children !== undefined) {
+          visit(node.props.children);
         }
       }
     };
