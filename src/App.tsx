@@ -13,7 +13,7 @@ import LoadingAnimation from "./components/ui/LoadingAnimation";
 import LoadingContext from "./context/LoadingContext";
 import {copyText} from "./hooks/useCopyToClipboard";
 import useDynamicFavicon from "./hooks/useDynamicFavicon";
-import {useRipple} from "./hooks/useRipple";
+import {applyRipple, useRipple} from "./hooks/useRipple";
 import getAntTheme from "./styles/antTheme";
 import {getBrowserInfo} from "./utils/browserDetection";
 import faviconSvg from "/icons/favicon.svg?raw";
@@ -453,6 +453,41 @@ const AppContent = () => {
       globalThis.window.location.replace(path.replace(/\.html$/, ""));
     }
   }, [location]);
+
+  useEffect(() => {
+    if (globalThis.window === undefined) {
+      return;
+    }
+
+    const handleFlexibleLinksAnchorMouseDown = (event: MouseEvent) => {
+      if (event.button !== 0) {
+        return;
+      }
+
+      const target = event.target;
+
+      if (!(target instanceof Element)) {
+        return;
+      }
+
+      const link = target.closest(".flexible-links a");
+
+      if (!(link instanceof HTMLAnchorElement)) {
+        return;
+      }
+
+      applyRipple(link, event.clientX, event.clientY);
+    };
+
+    globalThis.document.addEventListener("mousedown", handleFlexibleLinksAnchorMouseDown);
+
+    return () => {
+      globalThis.document.removeEventListener(
+        "mousedown",
+        handleFlexibleLinksAnchorMouseDown
+      );
+    };
+  }, []);
 
   const isSystemDark =
     globalThis.window?.matchMedia &&
