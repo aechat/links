@@ -4,6 +4,7 @@ import {CloseRounded, CoffeeRounded} from "@mui/icons-material";
 import {Modal} from "antd";
 
 import {useCopyToClipboard} from "../../hooks/useCopyToClipboard";
+import {useRipple} from "../../hooks/useRipple";
 
 import modalStyles from "./Modal.module.scss";
 
@@ -28,11 +29,14 @@ const SupportDonut: React.FC<SupportDonutProperties> = ({wide}) => {
 
   const closeYoomoneyModal = () => setIsYoomoneyModalOpen(false);
 
+  const ripple = useRipple<HTMLButtonElement>();
+
   return (
     <>
       <button
         className={modalStyles["modal-support-header-button"]}
         onClick={openDonateModal}
+        onMouseDown={ripple.onMouseDown}
       >
         <CoffeeRounded />
         {wide ? <span>Поддержать проект</span> : undefined}
@@ -51,6 +55,7 @@ const SupportDonut: React.FC<SupportDonutProperties> = ({wide}) => {
               <button
                 className={modalStyles["modal-header-close"]}
                 onClick={closeDonateModal}
+                onMouseDown={ripple.onMouseDown}
               >
                 <CloseRounded />
               </button>
@@ -63,6 +68,7 @@ const SupportDonut: React.FC<SupportDonutProperties> = ({wide}) => {
               <button
                 className={modalStyles["modal-support-button"]}
                 onClick={() => setIsSberModalOpen(true)}
+                onMouseDown={ripple.onMouseDown}
               >
                 Сбербанк
               </button>
@@ -83,6 +89,7 @@ const SupportDonut: React.FC<SupportDonutProperties> = ({wide}) => {
                       <button
                         className={modalStyles["modal-header-close"]}
                         onClick={closeSberModal}
+                        onMouseDown={ripple.onMouseDown}
                       >
                         <CloseRounded />
                       </button>
@@ -108,6 +115,7 @@ const SupportDonut: React.FC<SupportDonutProperties> = ({wide}) => {
               <button
                 className={modalStyles["modal-support-button"]}
                 onClick={() => setIsYoomoneyModalOpen(true)}
+                onMouseDown={ripple.onMouseDown}
               >
                 ЮMoney
               </button>
@@ -128,6 +136,7 @@ const SupportDonut: React.FC<SupportDonutProperties> = ({wide}) => {
                       <button
                         className={modalStyles["modal-header-close"]}
                         onClick={closeYoomoneyModal}
+                        onMouseDown={ripple.onMouseDown}
                       >
                         <CloseRounded />
                       </button>

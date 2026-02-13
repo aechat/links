@@ -7,6 +7,8 @@ import React, {
   useState,
 } from "react";
 
+import {useRipple} from "../../hooks/useRipple";
+
 import styles from "./NestedDetailsSummary.module.scss";
 import {
   DetailsSummaryContext,
@@ -71,6 +73,8 @@ const NestedDetailsSummary: React.FC<NestedDetailsSummaryProperties> = ({
   }
 
   const [isOpen, setIsOpen] = useState(startOpen);
+
+  const ripple = useRipple<HTMLElement>();
 
   const detailsReference = useRef<HTMLDetailsElement>(null);
 
@@ -191,6 +195,7 @@ const NestedDetailsSummary: React.FC<NestedDetailsSummaryProperties> = ({
         <summary
           className={styles["details-nested-summary"]}
           onClick={handleSummaryClick}
+          onMouseDown={ripple.onMouseDown}
         >
           <div className={styles["details-nested-summary-left"]}>
             <span className={styles["details-nested-summary-icon"]}>+</span>

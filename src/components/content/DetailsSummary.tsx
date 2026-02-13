@@ -6,6 +6,7 @@ import {copyText} from "../../hooks/useCopyToClipboard";
 import {useExternalLinkHandler} from "../../hooks/useExternalLinks";
 import {useInternalLinkHandler} from "../../hooks/useInternalLinks";
 import {useLongPress} from "../../hooks/useLongPress";
+import {useRipple} from "../../hooks/useRipple";
 import {formatNestedQuotes} from "../../utils/stringUtilities";
 import {useTheme} from "../modals/ThemeChanger";
 import {CopyButton} from "../ui/CopyButton/CopyButton";
@@ -621,6 +622,8 @@ const DetailsSummary: React.FC<DetailsSummaryProperties> = ({
 
   const summaryLongPressProperties = useLongPress(handleCopyAnchor);
 
+  const rippleProperties = useRipple<HTMLElement>();
+
   const handleFlexibleLinkCopy = useCallback(
     (event: React.MouseEvent | React.TouchEvent) => {
       const target = event.target as HTMLElement;
@@ -664,6 +667,7 @@ const DetailsSummary: React.FC<DetailsSummaryProperties> = ({
           className={styles["details-summary"]}
           onClick={handleSummaryClick}
           {...summaryLongPressProperties}
+          {...rippleProperties}
         >
           <div className={styles["details-summary-left"]}>
             <span className={styles["details-summary-icon"]}>+</span>

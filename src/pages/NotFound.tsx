@@ -5,6 +5,7 @@ import {Helmet} from "react-helmet-async";
 import PageTransition from "../components/layout/PageTransition";
 import modalStyles from "../components/modals/Modal.module.scss";
 import {usePageLoad} from "../hooks/usePageLoad";
+import {useRipple} from "../hooks/useRipple";
 
 interface Subtitle {
   end: number;
@@ -14,6 +15,8 @@ interface Subtitle {
 
 const NotFound = () => {
   const audioReference = useRef<HTMLAudioElement | null>(null);
+
+  const ripple = useRipple<HTMLButtonElement>();
 
   usePageLoad();
 
@@ -160,6 +163,7 @@ const NotFound = () => {
                     globalThis.location.reload();
                     globalThis.location.href = "/";
                   }}
+                  onMouseDown={ripple.onMouseDown}
                 >
                   На главную
                 </button>

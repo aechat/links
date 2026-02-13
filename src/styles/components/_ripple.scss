@@ -1,0 +1,20 @@
+.ripple-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.ripple {
+  position: absolute;
+  transform: scale(0);
+  border-radius: 50%;
+  background-color: hsl(var(--accent-hue) 25% 50% / 15%);
+  animation: ripple-enter 0.75s cubic-bezier(0.4, 0, 0.2, 1);
+  pointer-events: none;
+}
+
+@keyframes ripple-enter {
+  to {
+    transform: scale(0.75);
+    opacity: 0;
+  }
+}

@@ -5,6 +5,7 @@ import {Tooltip} from "antd";
 import {motion} from "framer-motion";
 import {Link, useLocation} from "react-router-dom";
 
+import {useRipple} from "../../hooks/useRipple";
 import {SearchButton} from "../features/SearchEngine";
 import SupportDonut from "../modals/SupportDonut";
 import {ThemeToggleButton} from "../modals/ThemeChanger";
@@ -45,6 +46,10 @@ const Header: React.FC<HeaderProperties> = ({title}) => {
       ? false
       : window.innerWidth > constants.WIDE_SCREEN_WIDTH
   );
+
+  const ripple = useRipple<HTMLButtonElement>();
+
+  const rippleLink = useRipple<HTMLAnchorElement>();
 
   const scrollToTop = (): void => {
     if (globalThis.window !== undefined) {
@@ -117,7 +122,10 @@ const Header: React.FC<HeaderProperties> = ({title}) => {
       <div className={styles["header-left"]}>
         {currentPath === "/" ? undefined : (
           <span className={styles.icon}>
-            <Link to="/">
+            <Link
+              to="/"
+              onMouseDown={rippleLink.onMouseDown}
+            >
               <ArrowBackRounded />
             </Link>
           </span>
@@ -150,6 +158,7 @@ const Header: React.FC<HeaderProperties> = ({title}) => {
             aria-label="Прокрутить страницу вверх"
             className={styles.icon}
             onClick={scrollToTop}
+            onMouseDown={ripple.onMouseDown}
           >
             <SwipeUpRounded />
           </button>

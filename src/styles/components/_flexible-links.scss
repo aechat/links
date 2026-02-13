@@ -46,6 +46,11 @@
     }
   }
 
+  a {
+    position: relative;
+    overflow: hidden;
+  }
+
   .selected {
     outline: 1px solid var(--color-button-group-border);
     background-color: var(--color-button-group-background-hover);

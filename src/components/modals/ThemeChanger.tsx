@@ -17,6 +17,8 @@ import {
 } from "@mui/icons-material";
 import {Modal, Slider, Switch, Tooltip} from "antd";
 
+import {useRipple} from "../../hooks/useRipple";
+
 import modalStyles from "./Modal.module.scss";
 import styles from "./ThemeChanger.module.scss";
 
@@ -241,11 +243,14 @@ export const ThemeToggleButton: React.FC<ThemeToggleButtonProperties> = ({classN
 
   const closeModal = () => setIsModalOpen(false);
 
+  const ripple = useRipple<HTMLButtonElement>();
+
   return (
     <>
       <button
         className={className}
         onClick={openModal}
+        onMouseDown={ripple.onMouseDown}
       >
         <FormatColorFillOutlined />
       </button>
@@ -266,16 +271,19 @@ interface ThemeOptionButtonProperties {
   children: React.ReactNode;
   isSelected: boolean;
   onClick: () => void;
+  onMouseDown: (event: React.MouseEvent<HTMLButtonElement>) => void;
 }
 
 const ThemeOptionButton: React.FC<ThemeOptionButtonProperties> = ({
   children,
   isSelected,
   onClick,
+  onMouseDown,
 }) => (
   <button
     className={`${styles["theme-button"]} ${isSelected ? styles["theme-button-selected"] : ""}`}
     onClick={onClick}
+    onMouseDown={onMouseDown}
   >
     {children}
   </button>
@@ -350,6 +358,8 @@ const ThemeModal: React.FC<ThemeModalProperties> = ({closeModal, isModalOpen}) =
     pagesWithWidthSelector.some((path) => currentPath.startsWith(path)) &&
     windowWidth >= 1000;
 
+  const ripple = useRipple<HTMLButtonElement>();
+
   return (
     <Modal
       destroyOnHidden
@@ -366,6 +376,7 @@ const ThemeModal: React.FC<ThemeModalProperties> = ({closeModal, isModalOpen}) =
             <button
               className={modalStyles["modal-header-close"]}
               onClick={closeModal}
+              onMouseDown={ripple.onMouseDown}
             >
               <CloseRounded />
             </button>
@@ -375,6 +386,7 @@ const ThemeModal: React.FC<ThemeModalProperties> = ({closeModal, isModalOpen}) =
             <ThemeOptionButton
               isSelected={theme === "light"}
               onClick={() => setTheme("light")}
+              onMouseDown={ripple.onMouseDown}
             >
               <LightModeRounded />
               Светлая
@@ -382,6 +394,7 @@ const ThemeModal: React.FC<ThemeModalProperties> = ({closeModal, isModalOpen}) =
             <ThemeOptionButton
               isSelected={theme === "dark"}
               onClick={() => setTheme("dark")}
+              onMouseDown={ripple.onMouseDown}
             >
               <DarkModeRounded />
               Тёмная
@@ -389,6 +402,7 @@ const ThemeModal: React.FC<ThemeModalProperties> = ({closeModal, isModalOpen}) =
             <ThemeOptionButton
               isSelected={theme === "system"}
               onClick={() => setTheme("system")}
+              onMouseDown={ripple.onMouseDown}
             >
               <HideSourceRounded />
               Системная
@@ -401,18 +415,21 @@ const ThemeModal: React.FC<ThemeModalProperties> = ({closeModal, isModalOpen}) =
                 <ThemeOptionButton
                   isSelected={maxWidth === 1000}
                   onClick={() => setMaxWidth(1000)}
+                  onMouseDown={ripple.onMouseDown}
                 >
                   Маленькая<sup>1000px</sup>
                 </ThemeOptionButton>
                 <ThemeOptionButton
                   isSelected={maxWidth === 1175}
                   onClick={() => setMaxWidth(1175)}
+                  onMouseDown={ripple.onMouseDown}
                 >
                   Средняя<sup>1175px</sup>
                 </ThemeOptionButton>
                 <ThemeOptionButton
                   isSelected={maxWidth === 1400}
                   onClick={() => setMaxWidth(1400)}
+                  onMouseDown={ripple.onMouseDown}
                 >
                   Большая<sup>1400px</sup>
                 </ThemeOptionButton>
@@ -445,6 +462,7 @@ const ThemeModal: React.FC<ThemeModalProperties> = ({closeModal, isModalOpen}) =
               <button
                 className={styles["theme-reset-button"]}
                 onClick={() => setAccentHue(210)}
+                onMouseDown={ripple.onMouseDown}
               >
                 <RestartAlt />
               </button>
@@ -465,6 +483,7 @@ const ThemeModal: React.FC<ThemeModalProperties> = ({closeModal, isModalOpen}) =
               <button
                 className={styles["theme-reset-button"]}
                 onClick={() => setSaturateRatio(1)}
+                onMouseDown={ripple.onMouseDown}
               >
                 <RestartAlt />
               </button>
