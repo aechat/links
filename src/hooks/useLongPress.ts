@@ -1,5 +1,7 @@
 import {useCallback, useRef} from "react";
 
+import {applyRipple} from "./useRipple";
+
 export const useLongPress = (
   callback: (event: React.MouseEvent | React.TouchEvent) => boolean,
   ms = 500
@@ -64,6 +66,12 @@ export const useLongPress = (
       }
 
       if (callback(event_)) {
+        const target = event_.target;
+
+        if (target instanceof HTMLElement) {
+          applyRipple(target, event_.clientX, event_.clientY);
+        }
+
         event_.preventDefault();
       }
     },
