@@ -22,9 +22,7 @@ export const applyRipple = (element: HTMLElement, clientX: number, clientY: numb
   ripple.style.width = ripple.style.height = `${size}px`;
   ripple.style.left = `${x - size / 2}px`;
   ripple.style.top = `${y - size / 2}px`;
-
   ripple.classList.add("ripple");
-
   element.append(ripple);
 
   setTimeout(() => {
