@@ -15,7 +15,7 @@ import {copyText} from "./hooks/useCopyToClipboard";
 import useDynamicFavicon from "./hooks/useDynamicFavicon";
 import {applyRipple, useRipple} from "./hooks/useRipple";
 import getAntTheme from "./styles/antTheme";
-import {getBrowserInfo} from "./utils/browserDetection";
+import {getBrowserInfo, isWebKitBrowser} from "./utils/browserDetection";
 import faviconSvg from "/icons/favicon.svg?raw";
 import aefaqSvg from "/icons/aefaq.svg?raw";
 import prfaqSvg from "/icons/prfaq.svg?raw";
@@ -402,10 +402,7 @@ const AppContent = () => {
 
     let shouldShowWarning = false;
 
-    const isWebKit =
-      typeof navigator !== "undefined" &&
-      /AppleWebKit|Epiphany|Safari/i.test(navigator.userAgent) &&
-      !/Chrome|Chromium|Edg|OPR|Brave/i.test(navigator.userAgent);
+    const isWebKit = isWebKitBrowser();
 
     const path = location.pathname;
 
