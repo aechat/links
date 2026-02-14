@@ -167,15 +167,8 @@
   flex-wrap: nowrap;
   align-items: center;
   justify-content: space-between;
-  transform-origin: center center;
-  transition:
-    margin 0.5s cubic-bezier(0.2, 0.65, 0.25, 1),
-    transform 0.33s cubic-bezier(0.2, 0.65, 0.25, 1),
-    box-shadow 0.33s cubic-bezier(0.2, 0.65, 0.25, 1),
-    background-color 0.5s cubic-bezier(0.075, 0.82, 0.165, 1),
-    border-radius 0.33s cubic-bezier(0.2, 0.65, 0.25, 1);
+  transition: background-color 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
   border: 1px solid var(--color-surface-primary-border);
-  box-shadow: 0 10px 24px transparent;
   background-color: var(--color-surface-primary-background);
   cursor: pointer;
   padding: 12px 15px;
@@ -188,7 +181,6 @@
     1.225rem
   );
   font-weight: 650;
-  will-change: transform;
 
   &:not(:last-child) {
     border-top: 1px solid var(--color-surface-primary-border);
@@ -227,46 +219,70 @@
   }
 }
 
-.details-summary-root:not(.is-open, [open]) .details-summary {
-  &:hover {
-    transform: scale(1.01);
-    margin-block: 4px;
-    border-bottom: 1px solid var(--color-surface-primary-border);
-    border-radius: $roundness;
-    box-shadow: 0 10px 24px var(--shadow-primary);
+:global(html:not(.no-spoiler-hover-effects)) {
+  .details-summary {
+    transform-origin: center center;
+    transition:
+      margin 0.5s cubic-bezier(0.2, 0.65, 0.25, 1),
+      transform 0.33s cubic-bezier(0.2, 0.65, 0.25, 1),
+      box-shadow 0.33s cubic-bezier(0.2, 0.65, 0.25, 1),
+      background-color 0.5s cubic-bezier(0.075, 0.82, 0.165, 1),
+      border-radius 0.33s cubic-bezier(0.2, 0.65, 0.25, 1);
+    box-shadow: 0 10px 24px transparent;
+    will-change: transform;
   }
 
-  &:active {
-    transform: scale(1.006);
-    margin-block: 4px;
+  .details-summary-root:not(.is-open, [open]) .details-summary {
+    &:hover,
+    &:active {
+      transform: scale(1.01);
+      margin-block: 4px;
+      border-bottom: 1px solid var(--color-surface-primary-border);
+      border-radius: $roundness;
+    }
+
+    &:hover {
+      box-shadow: 0 10px 24px var(--shadow-primary);
+    }
+
+    &:active {
+      transform: scale(1.005);
+      box-shadow: 0 10px 24px var(--shadow-secondary);
+    }
+  }
+
+  .details-summary-root:has(
+      + .details-summary-root:not(.is-open, [open]) .details-summary:hover
+    )
+    .details-summary:not(:last-child),
+  .details-summary-root:has(
+      + .details-summary-root:not(.is-open, [open]) .details-summary:active
+    )
+    .details-summary:not(:last-child) {
     border-bottom: 1px solid var(--color-surface-primary-border);
-    border-radius: $roundness;
-    box-shadow: 0 10px 24px var(--shadow-secondary);
+  }
+
+  .details-summary-root.is-open .details-summary,
+  .details-summary-root[open] .details-summary {
+    transform: none !important;
+    box-shadow: 0 10px 24px transparent;
   }
 }
 
-.details-summary-root:has(
-    + .details-summary-root:not(.is-open, [open]) .details-summary:hover
-  )
-  .details-summary:not(:last-child),
-.details-summary-root:has(
-    + .details-summary-root:not(.is-open, [open]) .details-summary:active
-  )
-  .details-summary:not(:last-child) {
-  border-bottom: 1px solid var(--color-surface-primary-border);
-}
+:global(html.no-spoiler-hover-effects) {
+  .details-summary-root {
+    z-index: auto;
 
-.details-summary-root:not(.is-open, [open]):has(
-    + .details-summary-root:not(.is-open, [open]) .details-summary:not(:hover, :active)
-  )
-  .details-summary:not(:last-child, :hover, :active) {
-  border-bottom: none;
-}
+    &:hover,
+    &:active {
+      z-index: auto;
+    }
 
-.details-summary-root.is-open .details-summary,
-.details-summary-root[open] .details-summary {
-  transform: none !important;
-  box-shadow: 0 10px 24px transparent;
+    &.is-open,
+    &[open] {
+      z-index: auto;
+    }
+  }
 }
 
 .details-section {

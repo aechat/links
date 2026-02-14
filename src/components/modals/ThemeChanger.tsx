@@ -27,11 +27,13 @@ type Theme = "light" | "dark" | "system";
 interface ThemeContextProperties {
   accentHue: number;
   isAnimationDisabled: boolean;
+  isHoverAnimationDisabled: boolean;
   isSnowfallEnabled: boolean;
   maxWidth: number;
   saturateRatio: number;
   setAccentHue: (hue: number) => void;
   setIsAnimationDisabled: (disabled: boolean) => void;
+  setIsHoverAnimationDisabled: (disabled: boolean) => void;
   setIsSnowfallEnabled: (enabled: boolean) => void;
   setMaxWidth: (width: number) => void;
   setSaturateRatio: (ratio: number) => void;
@@ -51,6 +53,9 @@ export const ThemeProvider: React.FC<{children: React.ReactNode}> = ({children})
   const [maxWidthState, setMaxWidthState] = useState<number>(1175);
 
   const [isAnimationDisabledState, setIsAnimationDisabledState] =
+    useState<boolean>(false);
+
+  const [isHoverAnimationDisabledState, setIsHoverAnimationDisabledState] =
     useState<boolean>(false);
 
   const [isSnowfallEnabled, setIsSnowfallEnabled] = useState<boolean>(false);
@@ -76,11 +81,15 @@ export const ThemeProvider: React.FC<{children: React.ReactNode}> = ({children})
       const savedIsAnimationDisabled =
         localStorage.getItem("isAnimationDisabled") === "true";
 
+      const savedIsHoverAnimationDisabled =
+        localStorage.getItem("isHoverAnimationDisabled") === "true";
+
       setThemeState(savedTheme);
       setAccentHueState(savedAccentHue);
       setSaturateRatioState(savedSaturateRatio);
       setMaxWidthState(savedMaxWidth);
       setIsAnimationDisabledState(savedIsAnimationDisabled);
+      setIsHoverAnimationDisabledState(savedIsHoverAnimationDisabled);
 
       const isWinter = [0, 1, 11].includes(new Date().getMonth());
 
@@ -130,6 +139,14 @@ export const ThemeProvider: React.FC<{children: React.ReactNode}> = ({children})
     }
   };
 
+  const setIsHoverAnimationDisabled = (disabled: boolean) => {
+    setIsHoverAnimationDisabledState(disabled);
+
+    if (typeof localStorage !== "undefined") {
+      localStorage.setItem("isHoverAnimationDisabled", disabled.toString());
+    }
+  };
+
   const setSnowfallEnabled = (enabled: boolean) => {
     setIsSnowfallEnabled(enabled);
 
@@ -153,6 +170,7 @@ export const ThemeProvider: React.FC<{children: React.ReactNode}> = ({children})
     root.style.setProperty("--saturate-ratio", saturateRatioState.toString());
     root.style.setProperty("--max-width", `${maxWidthState}px`);
     root.classList.toggle("no-spoiler-animation", isAnimationDisabledState);
+    root.classList.toggle("no-spoiler-hover-effects", isHoverAnimationDisabledState);
 
     const isSystemDark = globalThis.matchMedia("(prefers-color-scheme: dark)").matches;
 
@@ -171,6 +189,7 @@ export const ThemeProvider: React.FC<{children: React.ReactNode}> = ({children})
       saturateRatioState,
       maxWidthState,
       isAnimationDisabledState,
+      isHoverAnimationDisabledState,
     ]
   );
 
@@ -192,11 +211,13 @@ export const ThemeProvider: React.FC<{children: React.ReactNode}> = ({children})
     () => ({
       accentHue: accentHueState,
       isAnimationDisabled: isAnimationDisabledState,
+      isHoverAnimationDisabled: isHoverAnimationDisabledState,
       isSnowfallEnabled: isSnowfallEnabled,
       maxWidth: maxWidthState,
       saturateRatio: saturateRatioState,
       setAccentHue,
       setIsAnimationDisabled,
+      setIsHoverAnimationDisabled,
       setIsSnowfallEnabled: setSnowfallEnabled,
       setMaxWidth: (width: number) => {
         setMaxWidthState(width);
@@ -215,6 +236,7 @@ export const ThemeProvider: React.FC<{children: React.ReactNode}> = ({children})
       saturateRatioState,
       maxWidthState,
       isAnimationDisabledState,
+      isHoverAnimationDisabledState,
       isSnowfallEnabled,
     ]
   );
@@ -293,11 +315,13 @@ const ThemeModal: React.FC<ThemeModalProperties> = ({closeModal, isModalOpen}) =
   const {
     accentHue,
     isAnimationDisabled,
+    isHoverAnimationDisabled,
     isSnowfallEnabled,
     maxWidth,
     saturateRatio,
     setAccentHue,
     setIsAnimationDisabled,
+    setIsHoverAnimationDisabled,
     setIsSnowfallEnabled,
     setMaxWidth,
     setSaturateRatio,
@@ -437,13 +461,26 @@ const ThemeModal: React.FC<ThemeModalProperties> = ({closeModal, isModalOpen}) =
             </>
           )}
           {showSpoilerAnimationSelector && (
-            <div className={styles["theme-toggle"]}>
-              <span className={styles["theme-title"]}>Анимация раскрытия спойлеров</span>
-              <Switch
-                checked={!isAnimationDisabled}
-                onChange={(checked) => setIsAnimationDisabled(!checked)}
-              />
-            </div>
+            <>
+              <div className={styles["theme-toggle"]}>
+                <span className={styles["theme-title"]}>
+                  Анимация раскрытия спойлеров
+                </span>
+                <Switch
+                  checked={!isAnimationDisabled}
+                  onChange={(checked) => setIsAnimationDisabled(!checked)}
+                />
+              </div>
+              <div className={styles["theme-toggle"]}>
+                <span className={styles["theme-title"]}>
+                  Анимация при наведении на спойлеры
+                </span>
+                <Switch
+                  checked={!isHoverAnimationDisabled}
+                  onChange={(checked) => setIsHoverAnimationDisabled(!checked)}
+                />
+              </div>
+            </>
           )}
           {isWinter && (
             <div className={styles["theme-toggle"]}>
