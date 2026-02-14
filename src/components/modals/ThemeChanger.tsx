@@ -27,15 +27,15 @@ type Theme = "light" | "dark" | "system";
 
 interface ThemeContextProperties {
   accentHue: number;
-  isAnimationDisabled: boolean;
-  isHoverAnimationDisabled: boolean;
   isSnowfallEnabled: boolean;
+  isSpoilerAnimationEnabled: boolean;
+  isSpoilerHoverAnimationEnabled: boolean;
   maxWidth: number;
   saturateRatio: number;
   setAccentHue: (hue: number) => void;
-  setIsAnimationDisabled: (disabled: boolean) => void;
-  setIsHoverAnimationDisabled: (disabled: boolean) => void;
   setIsSnowfallEnabled: (enabled: boolean) => void;
+  setIsSpoilerAnimationEnabled: (enabled: boolean) => void;
+  setIsSpoilerHoverAnimationEnabled: (enabled: boolean) => void;
   setMaxWidth: (width: number) => void;
   setSaturateRatio: (ratio: number) => void;
   setTheme: (theme: Theme) => void;
@@ -43,6 +43,28 @@ interface ThemeContextProperties {
 }
 
 const ThemeContext = createContext<ThemeContextProperties | undefined>(undefined);
+
+const getStoredBooleanWithDefault = (key: string, fallback: boolean): boolean => {
+  const saved = localStorage.getItem(key);
+
+  if (saved === null) {
+    localStorage.setItem(key, fallback.toString());
+
+    return fallback;
+  }
+
+  return saved === "true";
+};
+
+const getSnowfallEnabledForMonth = (month: number): boolean => {
+  if (![0, 1, 11].includes(month)) {
+    return false;
+  }
+
+  const saved = localStorage.getItem("isSnowfallEnabled");
+
+  return saved === null ? true : saved === "true";
+};
 
 export const ThemeProvider: React.FC<{children: React.ReactNode}> = ({children}) => {
   const [themeState, setThemeState] = useState<Theme>("system");
@@ -53,72 +75,51 @@ export const ThemeProvider: React.FC<{children: React.ReactNode}> = ({children})
 
   const [maxWidthState, setMaxWidthState] = useState<number>(1175);
 
-  const [isAnimationDisabledState, setIsAnimationDisabledState] =
-    useState<boolean>(false);
+  const [isSpoilerAnimationEnabledState, setIsSpoilerAnimationEnabledState] =
+    useState<boolean>(true);
 
-  const [isHoverAnimationDisabledState, setIsHoverAnimationDisabledState] =
-    useState<boolean>(false);
+  const [isSpoilerHoverAnimationEnabledState, setIsSpoilerHoverAnimationEnabledState] =
+    useState<boolean>(true);
 
   const [isSnowfallEnabled, setIsSnowfallEnabled] = useState<boolean>(false);
 
   useLayoutEffect(() => {
-    if (typeof localStorage !== "undefined") {
-      const savedTheme = (localStorage.getItem("theme") as Theme) || "system";
-
-      const savedAccentHue = Number.parseInt(
-        localStorage.getItem("accentHue") ?? "210",
-        10
-      );
-
-      const savedSaturateRatio = Number.parseFloat(
-        localStorage.getItem("saturateRatio") ?? "1"
-      );
-
-      const savedMaxWidth = Number.parseInt(
-        localStorage.getItem("maxWidth") ?? "1175",
-        10
-      );
-
-      const savedIsAnimationDisabled =
-        localStorage.getItem("isAnimationDisabled") === "true";
-
-      const savedIsHoverAnimationDisabled = localStorage.getItem(
-        "isHoverAnimationDisabled"
-      );
-
-      setThemeState(savedTheme);
-      setAccentHueState(savedAccentHue);
-      setSaturateRatioState(savedSaturateRatio);
-      setMaxWidthState(savedMaxWidth);
-      setIsAnimationDisabledState(savedIsAnimationDisabled);
-
-      if (savedIsHoverAnimationDisabled === null) {
-        const shouldDisableHoverAnimation = isMobileDevice();
-
-        setIsHoverAnimationDisabledState(shouldDisableHoverAnimation);
-
-        localStorage.setItem(
-          "isHoverAnimationDisabled",
-          shouldDisableHoverAnimation.toString()
-        );
-      } else {
-        setIsHoverAnimationDisabledState(savedIsHoverAnimationDisabled === "true");
-      }
-
-      const isWinter = [0, 1, 11].includes(new Date().getMonth());
-
-      if (isWinter) {
-        const snowfallSaved = localStorage.getItem("isSnowfallEnabled");
-
-        if (snowfallSaved === null) {
-          setIsSnowfallEnabled(true);
-        } else {
-          setIsSnowfallEnabled(snowfallSaved === "true");
-        }
-      } else {
-        setIsSnowfallEnabled(false);
-      }
+    if (typeof localStorage === "undefined") {
+      return;
     }
+
+    const savedTheme = (localStorage.getItem("theme") as Theme) || "system";
+
+    const savedAccentHue = Number.parseInt(
+      localStorage.getItem("accentHue") ?? "210",
+      10
+    );
+
+    const savedSaturateRatio = Number.parseFloat(
+      localStorage.getItem("saturateRatio") ?? "1"
+    );
+
+    const savedMaxWidth = Number.parseInt(localStorage.getItem("maxWidth") ?? "1175", 10);
+
+    const resolvedSpoilerAnimationEnabled = getStoredBooleanWithDefault(
+      "isSpoilerAnimationEnabled",
+      true
+    );
+
+    const resolvedSpoilerHoverAnimationEnabled = getStoredBooleanWithDefault(
+      "isSpoilerHoverAnimationEnabled",
+      !isMobileDevice()
+    );
+
+    const resolvedSnowfallEnabled = getSnowfallEnabledForMonth(new Date().getMonth());
+
+    setThemeState(savedTheme);
+    setAccentHueState(savedAccentHue);
+    setSaturateRatioState(savedSaturateRatio);
+    setMaxWidthState(savedMaxWidth);
+    setIsSpoilerAnimationEnabledState(resolvedSpoilerAnimationEnabled);
+    setIsSpoilerHoverAnimationEnabledState(resolvedSpoilerHoverAnimationEnabled);
+    setIsSnowfallEnabled(resolvedSnowfallEnabled);
   }, []);
 
   const setTheme = (newTheme: Theme) => {
@@ -145,19 +146,19 @@ export const ThemeProvider: React.FC<{children: React.ReactNode}> = ({children})
     }
   };
 
-  const setIsAnimationDisabled = (disabled: boolean) => {
-    setIsAnimationDisabledState(disabled);
+  const setIsSpoilerAnimationEnabled = (enabled: boolean) => {
+    setIsSpoilerAnimationEnabledState(enabled);
 
     if (typeof localStorage !== "undefined") {
-      localStorage.setItem("isAnimationDisabled", disabled.toString());
+      localStorage.setItem("isSpoilerAnimationEnabled", enabled.toString());
     }
   };
 
-  const setIsHoverAnimationDisabled = (disabled: boolean) => {
-    setIsHoverAnimationDisabledState(disabled);
+  const setIsSpoilerHoverAnimationEnabled = (enabled: boolean) => {
+    setIsSpoilerHoverAnimationEnabledState(enabled);
 
     if (typeof localStorage !== "undefined") {
-      localStorage.setItem("isHoverAnimationDisabled", disabled.toString());
+      localStorage.setItem("isSpoilerHoverAnimationEnabled", enabled.toString());
     }
   };
 
@@ -183,8 +184,12 @@ export const ThemeProvider: React.FC<{children: React.ReactNode}> = ({children})
     root.style.setProperty("--accent-hue", accentHueState.toString());
     root.style.setProperty("--saturate-ratio", saturateRatioState.toString());
     root.style.setProperty("--max-width", `${maxWidthState}px`);
-    root.classList.toggle("no-spoiler-animation", isAnimationDisabledState);
-    root.classList.toggle("no-spoiler-hover-effects", isHoverAnimationDisabledState);
+    root.classList.toggle("no-spoiler-animation", !isSpoilerAnimationEnabledState);
+
+    root.classList.toggle(
+      "no-spoiler-hover-effects",
+      !isSpoilerHoverAnimationEnabledState
+    );
 
     const isSystemDark = globalThis.matchMedia("(prefers-color-scheme: dark)").matches;
 
@@ -202,8 +207,8 @@ export const ThemeProvider: React.FC<{children: React.ReactNode}> = ({children})
       accentHueState,
       saturateRatioState,
       maxWidthState,
-      isAnimationDisabledState,
-      isHoverAnimationDisabledState,
+      isSpoilerAnimationEnabledState,
+      isSpoilerHoverAnimationEnabledState,
     ]
   );
 
@@ -224,15 +229,15 @@ export const ThemeProvider: React.FC<{children: React.ReactNode}> = ({children})
   const contextValue = useMemo(
     () => ({
       accentHue: accentHueState,
-      isAnimationDisabled: isAnimationDisabledState,
-      isHoverAnimationDisabled: isHoverAnimationDisabledState,
       isSnowfallEnabled: isSnowfallEnabled,
+      isSpoilerAnimationEnabled: isSpoilerAnimationEnabledState,
+      isSpoilerHoverAnimationEnabled: isSpoilerHoverAnimationEnabledState,
       maxWidth: maxWidthState,
       saturateRatio: saturateRatioState,
       setAccentHue,
-      setIsAnimationDisabled,
-      setIsHoverAnimationDisabled,
       setIsSnowfallEnabled: setSnowfallEnabled,
+      setIsSpoilerAnimationEnabled,
+      setIsSpoilerHoverAnimationEnabled,
       setMaxWidth: (width: number) => {
         setMaxWidthState(width);
 
@@ -249,8 +254,8 @@ export const ThemeProvider: React.FC<{children: React.ReactNode}> = ({children})
       accentHueState,
       saturateRatioState,
       maxWidthState,
-      isAnimationDisabledState,
-      isHoverAnimationDisabledState,
+      isSpoilerAnimationEnabledState,
+      isSpoilerHoverAnimationEnabledState,
       isSnowfallEnabled,
     ]
   );
@@ -328,15 +333,15 @@ const ThemeOptionButton: React.FC<ThemeOptionButtonProperties> = ({
 const ThemeModal: React.FC<ThemeModalProperties> = ({closeModal, isModalOpen}) => {
   const {
     accentHue,
-    isAnimationDisabled,
-    isHoverAnimationDisabled,
     isSnowfallEnabled,
+    isSpoilerAnimationEnabled,
+    isSpoilerHoverAnimationEnabled,
     maxWidth,
     saturateRatio,
     setAccentHue,
-    setIsAnimationDisabled,
-    setIsHoverAnimationDisabled,
     setIsSnowfallEnabled,
+    setIsSpoilerAnimationEnabled,
+    setIsSpoilerHoverAnimationEnabled,
     setMaxWidth,
     setSaturateRatio,
     setTheme,
@@ -481,8 +486,8 @@ const ThemeModal: React.FC<ThemeModalProperties> = ({closeModal, isModalOpen}) =
                   Анимация раскрытия спойлеров
                 </span>
                 <Switch
-                  checked={!isAnimationDisabled}
-                  onChange={(checked) => setIsAnimationDisabled(!checked)}
+                  checked={isSpoilerAnimationEnabled}
+                  onChange={(checked) => setIsSpoilerAnimationEnabled(checked)}
                 />
               </div>
               <div className={styles["theme-toggle"]}>
@@ -490,8 +495,8 @@ const ThemeModal: React.FC<ThemeModalProperties> = ({closeModal, isModalOpen}) =
                   Анимация при наведении на спойлеры
                 </span>
                 <Switch
-                  checked={!isHoverAnimationDisabled}
-                  onChange={(checked) => setIsHoverAnimationDisabled(!checked)}
+                  checked={isSpoilerHoverAnimationEnabled}
+                  onChange={(checked) => setIsSpoilerHoverAnimationEnabled(checked)}
                 />
               </div>
             </>
