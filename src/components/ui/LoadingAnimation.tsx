@@ -302,7 +302,7 @@ const LoadingAnimation: React.FC<LoadingAnimationProperties> = ({
         >
           <LinearProgress
             color="inherit"
-            style={{borderRadius: "4px", height: "4px"}}
+            style={{borderRadius: "4px", height: "2px", opacity: "0.5"}}
           />
         </div>
       </div>

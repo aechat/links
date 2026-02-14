@@ -1179,7 +1179,21 @@ const SearchCategories: React.FC<{
     return false;
   }, []);
 
-  const longPressProperties = useLongPress(handleCopy);
+  const getRippleTarget = useCallback((event: React.MouseEvent | React.TouchEvent) => {
+    const target = event.target;
+
+    if (!(target instanceof HTMLElement)) {
+      return;
+    }
+
+    const button = target.closest("button");
+
+    if (button instanceof HTMLElement) {
+      return button;
+    }
+  }, []);
+
+  const longPressProperties = useLongPress(handleCopy, 500, {getRippleTarget});
 
   const ripple = useRipple<HTMLButtonElement>();
 
@@ -1259,7 +1273,21 @@ const SearchResults: React.FC<{
     return false;
   }, []);
 
-  const longPressProperties = useLongPress(handleCopy);
+  const getRippleTarget = useCallback((event: React.MouseEvent | React.TouchEvent) => {
+    const target = event.target;
+
+    if (!(target instanceof HTMLElement)) {
+      return;
+    }
+
+    const button = target.closest("button");
+
+    if (button instanceof HTMLElement) {
+      return button;
+    }
+  }, []);
+
+  const longPressProperties = useLongPress(handleCopy, 500, {getRippleTarget});
 
   return (
     <div {...longPressProperties}>
