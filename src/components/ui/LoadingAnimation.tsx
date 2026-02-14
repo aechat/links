@@ -295,14 +295,14 @@ const LoadingAnimation: React.FC<LoadingAnimationProperties> = ({
           style={{
             marginInline: "20px",
             marginTop: showIntro ? "30px" : "0",
-            maxWidth: "225px",
+            maxWidth: "35vw",
             transitionDelay: `${progressBarDelay}s`,
-            width: "80%",
+            width: "180px",
           }}
         >
           <LinearProgress
             color="inherit"
-            style={{borderRadius: "4px", height: "2px", opacity: "0.5"}}
+            style={{borderRadius: "4px", height: "3px", opacity: "0.5"}}
           />
         </div>
       </div>
