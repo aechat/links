@@ -49,6 +49,7 @@ import PageTransition from "../components/layout/PageTransition";
 import modalStyles from "../components/modals/Modal.module.scss";
 import {LinkCard} from "../components/ui/LinkCards";
 import {usePageLoad} from "../hooks/usePageLoad";
+import {getPlatformInfo} from "../utils/browserDetection";
 
 import {/* AEExprIcon, */ AeIcon, PrIcon, PsIcon} from "./FaqIcon";
 
@@ -168,13 +169,7 @@ const Links = () => {
           <Divider>Наши каналы</Divider>
           <Addition type="info">
             {(() => {
-              const userAgent = navigator.userAgent.toLowerCase();
-
-              const isIOS = /iphone|ipad/.test(userAgent);
-
-              const isAndroid = /android/.test(userAgent);
-
-              const isMacOS = /macintosh|mac os x/.test(userAgent);
+              const {isAndroid, isIOS, isMacOS} = getPlatformInfo();
 
               if (isIOS) {
                 return (

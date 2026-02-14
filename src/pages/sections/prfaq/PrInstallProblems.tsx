@@ -7,6 +7,7 @@ import {ArticleMedia} from "../../../components/content/ArticleMedia";
 import CodeSnippet from "../../../components/content/CodeSnippet";
 import ContentFilter from "../../../components/content/ContentFilter";
 import DetailsSummary from "../../../components/content/DetailsSummary";
+import {getPlatformInfo} from "../../../utils/browserDetection";
 
 const PrInstallProblems: React.FC = () => {
   return (
@@ -1989,13 +1990,7 @@ const PrInstallProblems: React.FC = () => {
             Для начала убедитесь, что вы полностью скачали файл. Довольно часто веб-версия{" "}
             <mark className="app">Telegram</mark> загружает установочные файлы с ошибками.{" "}
             {(() => {
-              const userAgent = navigator.userAgent.toLowerCase();
-
-              const isIOS = /iphone|ipad/.test(userAgent);
-
-              const isAndroid = /android/.test(userAgent);
-
-              const isMacOS = /macintosh|mac os x/.test(userAgent);
+              const {isAndroid, isIOS, isMacOS} = getPlatformInfo();
 
               if (isIOS) {
                 return (

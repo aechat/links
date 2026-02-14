@@ -16,6 +16,7 @@ import {RemoveScroll} from "react-remove-scroll";
 import {copyText} from "../../hooks/useCopyToClipboard";
 import {useLongPress} from "../../hooks/useLongPress";
 import {useRipple} from "../../hooks/useRipple";
+import {isMobileDevice} from "../../utils/browserDetection";
 import {formatNestedQuotes} from "../../utils/stringUtilities";
 import modalStyles from "../modals/Modal.module.scss";
 
@@ -1237,7 +1238,7 @@ const SearchResults: React.FC<{
   results: SearchResult[];
   selectedResultIndex: number;
 }> = ({onLinkClick, query, resultRefs, results, selectedResultIndex}) => {
-  const isMobile = typeof globalThis !== "undefined" && globalThis.innerWidth <= 768;
+  const isMobile = isMobileDevice();
 
   const [hoveredIndex, setHoveredIndex] = useState<number | undefined>();
 
@@ -1608,7 +1609,7 @@ export const SearchInPage: React.FC<{sections: SearchSection[]}> = ({sections}) 
 
   useEffect(() => {
     if (selectedResultIndex >= 0) {
-      const isMobile = globalThis.innerWidth <= 768;
+      const isMobile = isMobileDevice();
 
       if (isMobile) {
         return;

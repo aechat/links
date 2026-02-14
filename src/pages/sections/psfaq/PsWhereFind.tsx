@@ -5,6 +5,7 @@ import {Divider} from "antd";
 import Addition from "../../../components/content/Addition";
 import {ArticleMedia} from "../../../components/content/ArticleMedia";
 import DetailsSummary from "../../../components/content/DetailsSummary";
+import {getPlatformInfo} from "../../../utils/browserDetection";
 
 const PsWhereFind: React.FC = () => {
   return (
@@ -27,13 +28,7 @@ const PsWhereFind: React.FC = () => {
         </p>
         <Addition type="info">
           {(() => {
-            const userAgent = navigator.userAgent.toLowerCase();
-
-            const isIOS = /iphone|ipad/.test(userAgent);
-
-            const isAndroid = /android/.test(userAgent);
-
-            const isMacOS = /macintosh|mac os x/.test(userAgent);
+            const {isAndroid, isIOS, isMacOS} = getPlatformInfo();
 
             if (isIOS) {
               return (

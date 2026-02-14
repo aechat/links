@@ -4,12 +4,32 @@ interface BrowserInfo {
   version: number;
 }
 
+interface PlatformInfo {
+  isAndroid: boolean;
+  isIOS: boolean;
+  isMacOS: boolean;
+  isMobile: boolean;
+  isWindows: boolean;
+}
+
+const MOBILE_VIEWPORT_MAX_WIDTH = 768;
+
+const getUserAgent = (): string => {
+  if (globalThis.window === undefined || !globalThis.navigator) {
+    return "";
+  }
+
+  return globalThis.navigator.userAgent ?? "";
+};
+
+const getUserAgentLowerCase = (): string => getUserAgent().toLowerCase();
+
 export function getBrowserInfo(): BrowserInfo {
   if (globalThis.window === undefined || !globalThis.navigator) {
     return {isLegacy: false, name: "Unknown", version: 0};
   }
 
-  const ua = globalThis.navigator.userAgent;
+  const ua = getUserAgent();
 
   let name = "Unknown";
 
@@ -69,3 +89,64 @@ export function getBrowserInfo(): BrowserInfo {
 
   return {isLegacy, name, version};
 }
+
+export const getPlatformInfo = (): PlatformInfo => {
+  if (globalThis.window === undefined || !globalThis.navigator) {
+    return {
+      isAndroid: false,
+      isIOS: false,
+      isMacOS: false,
+      isMobile: false,
+      isWindows: false,
+    };
+  }
+
+  const ua = getUserAgentLowerCase();
+
+  const isIOS = /iphone|ipad|ipod/.test(ua);
+
+  const isAndroid = /android/.test(ua);
+
+  const isMacOS = /macintosh|mac os x/.test(ua);
+
+  const isWindows = /windows/.test(ua);
+
+  const uaDataMobile = globalThis.navigator.userAgentData?.mobile;
+
+  const isMobile =
+    typeof uaDataMobile === "boolean"
+      ? uaDataMobile
+      : isIOS || isAndroid || /mobile/.test(ua);
+
+  return {isAndroid, isIOS, isMacOS, isMobile, isWindows};
+};
+
+export const isMobileDevice = (
+  options: {useViewportFallback?: boolean; maxWidth?: number} = {}
+): boolean => {
+  if (globalThis.window === undefined) {
+    return false;
+  }
+
+  const {isMobile} = getPlatformInfo();
+
+  const useViewportFallback = options.useViewportFallback === true;
+
+  const maxWidth = options.maxWidth ?? MOBILE_VIEWPORT_MAX_WIDTH;
+
+  const viewportIsMobile = useViewportFallback && globalThis.innerWidth <= maxWidth;
+
+  return isMobile || viewportIsMobile;
+};
+
+export const isWebKitBrowser = (): boolean => {
+  const ua = getUserAgent();
+
+  if (!ua) {
+    return false;
+  }
+
+  return (
+    /AppleWebKit|Epiphany|Safari/i.test(ua) && !/Chrome|Chromium|Edg|OPR|Brave/i.test(ua)
+  );
+};

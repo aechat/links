@@ -2,6 +2,8 @@ import React, {ReactNode, useEffect, useState} from "react";
 
 import {Apple, WindowSharp} from "@mui/icons-material";
 
+import {getPlatformInfo} from "../../utils/browserDetection";
+
 import styles from "./ContentFilter.module.scss";
 
 type ContentFilterProperties =
@@ -15,12 +17,9 @@ const ContentFilter: React.FC<ContentFilterProperties> = ({
   const [isWindowsActive, setIsWindowsActive] = useState(true);
 
   useEffect(() => {
-    const userAgent = globalThis.navigator.userAgent.toLowerCase();
+    const {isIOS, isMacOS} = getPlatformInfo();
 
-    const isMac =
-      userAgent.includes("mac") ||
-      userAgent.includes("iphone") ||
-      userAgent.includes("ipad");
+    const isMac = isMacOS || isIOS;
 
     setIsWindowsActive(!isMac);
   }, []);

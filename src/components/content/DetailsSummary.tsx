@@ -185,7 +185,7 @@ const DetailsSummary: React.FC<DetailsSummaryProperties> = ({
   const {ExternalLinkModal, handleLinkClick: handleExternalLinkClick} =
     useExternalLinkHandler();
 
-  const {isAnimationDisabled} = useTheme();
+  const {isSpoilerAnimationEnabled} = useTheme();
 
   const hasScrolledAfterOpening = useRef(false);
 
@@ -284,7 +284,7 @@ const DetailsSummary: React.FC<DetailsSummaryProperties> = ({
   }, []);
 
   useEffect(() => {
-    if (globalThis.window === undefined || !isAnimationDisabled) return;
+    if (globalThis.window === undefined || isSpoilerAnimationEnabled) return;
 
     const details = detailsReference.current;
 
@@ -325,10 +325,10 @@ const DetailsSummary: React.FC<DetailsSummaryProperties> = ({
       resizeObserver.disconnect();
       window.removeEventListener("resize", updateDynamicStyles);
     };
-  }, [isOpen, isAnimationDisabled, updateDimmingEffect, updateDynamicStyles]);
+  }, [isOpen, isSpoilerAnimationEnabled, updateDimmingEffect, updateDynamicStyles]);
 
   useEffect(() => {
-    if (globalThis.window === undefined || isAnimationDisabled) return;
+    if (globalThis.window === undefined || !isSpoilerAnimationEnabled) return;
 
     const details = detailsReference.current;
 
@@ -427,7 +427,7 @@ const DetailsSummary: React.FC<DetailsSummaryProperties> = ({
     isOpen,
     previousIsOpen,
     updateDimmingEffect,
-    isAnimationDisabled,
+    isSpoilerAnimationEnabled,
     doScroll,
     updateDynamicStyles,
   ]);
