@@ -452,7 +452,7 @@ const ArticleMedia: React.FC<ArticleMediaProperties> = (properties) => {
                   window.open(`https://www.youtube.com/watch?v=${videoId}`, "_blank")
                 }
               >
-                Открыть в новой вкладке
+                Открыть видео в новой вкладке
               </button>
               <button
                 aria-label="Копировать ссылку"
