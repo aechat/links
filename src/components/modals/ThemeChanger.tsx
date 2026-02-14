@@ -18,6 +18,7 @@ import {
 import {Modal, Slider, Switch, Tooltip} from "antd";
 
 import {useRipple} from "../../hooks/useRipple";
+import {isMobileDevice} from "../../utils/browserDetection";
 
 import modalStyles from "./Modal.module.scss";
 import styles from "./ThemeChanger.module.scss";
@@ -81,15 +82,28 @@ export const ThemeProvider: React.FC<{children: React.ReactNode}> = ({children})
       const savedIsAnimationDisabled =
         localStorage.getItem("isAnimationDisabled") === "true";
 
-      const savedIsHoverAnimationDisabled =
-        localStorage.getItem("isHoverAnimationDisabled") === "true";
+      const savedIsHoverAnimationDisabled = localStorage.getItem(
+        "isHoverAnimationDisabled"
+      );
 
       setThemeState(savedTheme);
       setAccentHueState(savedAccentHue);
       setSaturateRatioState(savedSaturateRatio);
       setMaxWidthState(savedMaxWidth);
       setIsAnimationDisabledState(savedIsAnimationDisabled);
-      setIsHoverAnimationDisabledState(savedIsHoverAnimationDisabled);
+
+      if (savedIsHoverAnimationDisabled === null) {
+        const shouldDisableHoverAnimation = isMobileDevice();
+
+        setIsHoverAnimationDisabledState(shouldDisableHoverAnimation);
+
+        localStorage.setItem(
+          "isHoverAnimationDisabled",
+          shouldDisableHoverAnimation.toString()
+        );
+      } else {
+        setIsHoverAnimationDisabledState(savedIsHoverAnimationDisabled === "true");
+      }
 
       const isWinter = [0, 1, 11].includes(new Date().getMonth());
 
