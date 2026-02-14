@@ -651,7 +651,26 @@ const DetailsSummary: React.FC<DetailsSummaryProperties> = ({
     []
   );
 
-  const sectionLongPressProperties = useLongPress(handleFlexibleLinkCopy);
+  const getFlexibleLinkRippleTarget = useCallback(
+    (event: React.MouseEvent | React.TouchEvent) => {
+      const target = event.target;
+
+      if (!(target instanceof HTMLElement)) {
+        return;
+      }
+
+      const link = target.closest(".flexible-links a");
+
+      if (link instanceof HTMLElement) {
+        return link;
+      }
+    },
+    []
+  );
+
+  const sectionLongPressProperties = useLongPress(handleFlexibleLinkCopy, 500, {
+    getRippleTarget: getFlexibleLinkRippleTarget,
+  });
 
   const headingText = (displayAnchorId ? `${displayAnchorId}. ` : "") + title;
 

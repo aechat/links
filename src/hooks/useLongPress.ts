@@ -2,10 +2,33 @@ import {useCallback, useRef} from "react";
 
 import {applyRipple} from "./useRipple";
 
+interface UseLongPressOptions {
+  getRippleTarget?: (
+    event: React.MouseEvent | React.TouchEvent
+  ) => HTMLElement | undefined;
+}
+
+const resolveDefaultRippleTarget = (event_: React.MouseEvent | React.TouchEvent) => {
+  const currentTarget = event_.currentTarget;
+
+  if (currentTarget instanceof HTMLElement) {
+    return currentTarget;
+  }
+
+  const target = event_.target;
+
+  if (target instanceof HTMLElement) {
+    return target;
+  }
+};
+
 export const useLongPress = (
   callback: (event: React.MouseEvent | React.TouchEvent) => boolean,
-  ms = 500
+  ms = 500,
+  options: UseLongPressOptions = {}
 ) => {
+  const {getRippleTarget} = options;
+
   const touchStartTime = useRef(0);
 
   const isPotentialLongPress = useRef(false);
@@ -48,10 +71,11 @@ export const useLongPress = (
         if (pressDuration > ms && callback(event_)) {
           const touch = event_.changedTouches[0];
 
-          const target = event_.target;
+          const rippleTarget =
+            getRippleTarget?.(event_) ?? resolveDefaultRippleTarget(event_);
 
-          if (touch && target instanceof HTMLElement) {
-            applyRipple(target, touch.clientX, touch.clientY);
+          if (touch && rippleTarget) {
+            applyRipple(rippleTarget, touch.clientX, touch.clientY);
           }
 
           event_.preventDefault();
@@ -64,7 +88,7 @@ export const useLongPress = (
 
       isPotentialLongPress.current = false;
     },
-    [callback, ms]
+    [callback, getRippleTarget, ms]
   );
 
   const onContextMenu = useCallback(
@@ -73,17 +97,18 @@ export const useLongPress = (
         return;
       }
 
-      if (callback(event_)) {
-        const target = event_.target;
+      const callbackResult = callback(event_);
 
-        if (target instanceof HTMLElement) {
-          applyRipple(target, event_.clientX, event_.clientY);
-        }
+      const rippleTarget =
+        getRippleTarget?.(event_) ?? resolveDefaultRippleTarget(event_);
+
+      if (callbackResult && rippleTarget) {
+        applyRipple(rippleTarget, event_.clientX, event_.clientY);
 
         event_.preventDefault();
       }
     },
-    [callback]
+    [callback, getRippleTarget]
   );
 
   return {
