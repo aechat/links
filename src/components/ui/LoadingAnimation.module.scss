@@ -184,7 +184,7 @@
 }
 
 .progress-bar-container {
-  transition: opacity 0.5s cubic-bezier(0.25, 0, 0, 1);
+  transition: opacity 0.75s cubic-bezier(0.25, 0, 0, 1);
   opacity: 0;
 
   &.visible {
