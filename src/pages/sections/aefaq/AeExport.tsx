@@ -1726,9 +1726,12 @@ const AeExport: React.FC = () => {
             <li>
               <sup>1</sup> Если <mark className="app">Shutter Encoder</mark> у вас не
               установлен, скачайте его{" "}
-              <a href="https://www.shutterencoder.com/">по этой ссылке</a>. Чтобы
-              появилась ссылка на скачивание, не забудьте сдвинуть ползунок для
-              пожертвований на <mark>0</mark>.
+              <a href="https://www.shutterencoder.com/">по этой ссылке</a>. Чтобы скачать
+              программу бесплатно, на сайте установите чекбокс{" "}
+              <mark className="select">
+                «I do not wish to participate in the development of the software»
+              </mark>
+              , а затем нажмите на кнопку скачивания для вашей операционной системы.
             </li>
             <li>
               В <mark className="app">Shutter Encoder</mark> лучше сразу переключиться на

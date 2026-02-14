@@ -275,9 +275,12 @@ const PrExportProblems: React.FC = () => {
         </p>
         <Addition type="info">
           Если у вас не установлен <mark className="app">Shutter Encoder</mark>, то его
-          можно скачать <a href="https://www.shutterencoder.com/">по этой ссылке</a>. Не
-          забудьте передвинуть ползунок доната на <mark>0</mark>, чтобы получить ссылку на
-          скачивание.
+          можно скачать <a href="https://www.shutterencoder.com/">по этой ссылке</a>.
+          Чтобы скачать программу бесплатно, на сайте установите чекбокс{" "}
+          <mark className="select">
+            «I do not wish to participate in the development of the software»
+          </mark>
+          , а затем нажмите на кнопку скачивания для вашей операционной системы.
         </Addition>
         <p>
           После установки и открытия <mark className="app">Shutter Encoder</mark> —
