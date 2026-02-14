@@ -104,7 +104,6 @@ export const useLongPress = (
 
       if (callbackResult && rippleTarget) {
         applyRipple(rippleTarget, event_.clientX, event_.clientY);
-
         event_.preventDefault();
       }
     },
