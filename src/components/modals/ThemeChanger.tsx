@@ -18,7 +18,7 @@ import {
 import {Modal, Slider, Switch, Tooltip} from "antd";
 
 import {useRipple} from "../../hooks/useRipple";
-import {isMobileDevice} from "../../utils/browserDetection";
+import {isMobileDevice, isWebKitBrowser} from "../../utils/browserDetection";
 
 import modalStyles from "./Modal.module.scss";
 import styles from "./ThemeChanger.module.scss";
@@ -108,7 +108,7 @@ export const ThemeProvider: React.FC<{children: React.ReactNode}> = ({children})
 
     const resolvedSpoilerHoverAnimationEnabled = getStoredBooleanWithDefault(
       "isSpoilerHoverAnimationEnabled",
-      !isMobileDevice()
+      !isMobileDevice() && !isWebKitBrowser()
     );
 
     const resolvedSnowfallEnabled = getSnowfallEnabledForMonth(new Date().getMonth());
