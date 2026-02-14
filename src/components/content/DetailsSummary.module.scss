@@ -34,12 +34,16 @@
   }
 
   &.is-open {
+    z-index: 10;
+
     summary .details-summary-icon {
       transform: rotate(45deg);
     }
   }
 
   &[open] {
+    z-index: 10;
+
     .details-section {
       p,
       li,
