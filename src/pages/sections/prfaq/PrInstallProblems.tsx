@@ -1374,9 +1374,9 @@ const PrInstallProblems: React.FC = () => {
                 сработать на модифицированные файлы, удалить их и пометить как{" "}
                 <mark className="warning">«HackTool:Win32/Crack!MTB»</mark>,{" "}
                 <mark className="warning">«Contrebrew.A!ml»</mark>,{" "}
-                <mark className="warning">«Adware»</mark>,{" "}
-                <mark className="warning">«Adload»</mark> или даже «троян» и «опаснейший
-                вирус». Например, ошибка{" "}
+                <mark className="warning">«Trojan:Win32/Adload!rfn»</mark>,{" "}
+                <mark className="warning">«Adware»</mark> или даже якобы «троян» и
+                «опаснейший вирус». Например, ошибка{" "}
                 <mark className="danger">«helper.exe не найден»</mark> в репаках от{" "}
                 <mark className="user">KpoJluK</mark> возникает именно потому, что
                 антивирус удаляет этот файл, считая его угрозой из-за чекбокса для
