@@ -1950,7 +1950,7 @@ const AeImport: React.FC = () => {
       </DetailsSummary>
       <DetailsSummary
         anchor="fix-cannot-be-opened-with-this-version"
-        tag="обратная совместимость, несовместимость версий, конвертация проекта"
+        tag="обратная совместимость, несовместимость версий, конвертация проекта, файл который вы пытаетесь открыть создан в версии и не может быть открыт с помощью данной версии, сведения об обновлении программного обеспечения"
         title="Что делать с «The file you are attempting to open was created with version XX.X.X and cannot be opened with this version»?"
       >
         <p>
