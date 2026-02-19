@@ -45,30 +45,43 @@ docker-compose up
 
 ```typescript
 import React from "react";
+
 const SHORTNAME_SECTION: React.FC = () => {
   return (
-    <div className="faq-content">
+    <div className="article-content">
         /* остальной код */
     </div>
   );
 };
+
 export default SHORTNAME_SECTION;
 ```
 
 В статьях обязательно должны быть спойлеры, которые содержат заголовок, теги и сам контент статьи. Если заголовок статьи окажется слишком длинным, например из-за текста ошибки, то часть текста можно перенести в теги. Теги должны быть разделены запятыми.
 
 ```typescript
-import DetailsSummary from "../../../components/content/DetailsSummary"; tag="helper.exe не найден, выключить дефендер, отрубить антивирус">
+import DetailsSummary from "../../../components/content/DetailsSummary";
+
+<DetailsSummary
+  anchor="disable-defender"
+  tag="выключить дефендер, отрубить антивирус, ложное срабатывание, вирусы, трояны"
+  title="«Не удаётся найти „..\install\helper.exe“» или как отключить Windows Defender и Windows SmartScreen?"
+>
   <p>Ответ на вопрос.</p>
 </DetailsSummary>
 ```
 
-В статьях можно использовать списки, а также компоненты `Addition` для того, чтобы обратить внимание читателя на какую-нибудь дополнительную информацию. Эти же компоненты можно использовать в списках. Тип компонента задаётся через `type` и может быть задан тремя значениями: `info`, `warning` и `danger`.
+В статьях можно использовать списки, а также компоненты `Addition` для того, чтобы обратить внимание читателя на какую-нибудь дополнительную информацию. Эти же компоненты можно использовать в списках. Тип компонента задаётся через `type` и может быть задан четырьмя значениями: `info`, `warning`, `danger` и `tldr`.
 
 ```typescript
 import Addition from "../../../components/content/Addition";
-import DetailsSummary from "../../../components/DetailsSummary";
-<DetailsSummary tag="как, зачем, на$&я" title="Вопрос">
+import DetailsSummary from "../../../components/content/DetailsSummary";
+
+<DetailsSummary
+  anchor="example-question"
+  tag="как, зачем, на$&я"
+  title="Вопрос"
+>
   <p>Причина поведения определённого действия.</p>
   <ul>
     <li>Решение 1.</li>
@@ -94,6 +107,9 @@ import DetailsSummary from "../../../components/DetailsSummary";
     действия делаются на свой страх и риск или о том, на что нужно обратить внимание в
     первую очередь.
   </Addition>
+  <Addition type="tldr">
+    Выноска с текстом на зелёном фоне. Служит для краткого пересказа статьи.
+  </Addition>
 </DetailsSummary>
 ```
 
@@ -112,8 +128,12 @@ import DetailsSummary from "../../../components/DetailsSummary";
 - Иконка изображения: `className="image"`
 
 ```typescript
-import DetailsSummary from "../../../components/DetailsSummary";
-<DetailsSummary title="А можешь привести примеры использования тега «mark»?">
+import DetailsSummary from "../../../components/content/DetailsSummary";
+
+<DetailsSummary
+  anchor="mark-examples"
+  title="А можешь привести примеры использования тега «mark»?"
+>
   <p>
     Конечно. Я могу рассказать об <mark className="app">Adobe After Effects</mark>, указывая на
     интерфейс с помощью тегов. Например я могу указать кнопку в интерфейсе: очистка
@@ -127,40 +147,40 @@ import DetailsSummary from "../../../components/DetailsSummary";
 
 ### Как добавить медиа?
 
-Для добавления изображения, видео или ссылку с предпросмотром на YouTube используется компонент `ContentFigure`.
+Для добавления изображения, видео или ссылку с предпросмотром на YouTube используется компонент `ArticleMedia`.
 
 ```typescript
-import {ContentFigure} from "../../../components/content/ContentFigure";
-import DetailsSummary from "../../../components/DetailsSummary";
-<DetailsSummary title="Вопрос">
+import {ArticleMedia} from "../../../components/content/ArticleMedia";
+import DetailsSummary from "../../../components/content/DetailsSummary";
+
+<DetailsSummary
+  anchor="media-example"
+  title="Вопрос"
+>
   <p>
     Кэш в <mark className="app">Adobe After Effects</mark> очищается таким образом, как показано
     на изображении ниже.
   </p>
-  <ContentFigure
+  <ArticleMedia
     caption="Очистка кэша и оперативной памяти"
-    imgTitle="Очистка кэша и оперативной памяти"
-    src="images/aftereffects/edit_purge_all-memory-and-disk-cache.png"
-    theme="light"
+    src="aftereffects/edit_purge_all-memory-and-disk-cache.png"
     type="image"
-    variant="windows"
   />
   <p>
     Если вы не понимаете куда нажимать по изображению - ниже приведён скринкаст действий
     для очистки кэша в <mark className="app">Adobe After Effects</mark>.
   </p>
-  <ContentFigure
+  <ArticleMedia
     caption="Настройка запуска от имени администратора"
-    src="images/aftereffects/how_to_purge_cache.mp4"
-    theme="dark"
+    src="aftereffects/open_ae_as_admin.mp4"
     type="video"
-    variant="macos"
   />
   <p>
-  Подробнее о новых функциях <mark className="app">Adobe After Effects> вы можете посмотреть в официальном канале <mark className="company">Adobe</mark> на <mark className="app">YouTube</mark>
+    Подробнее о новых функциях <mark className="app">Adobe After Effects</mark> вы можете
+    посмотреть в официальном канале <mark className="company">Adobe</mark> на{" "}
+    <mark className="app">YouTube</mark>.
   </p>
-  <ContentFigure
-    caption="Новые функции в Adobe After Effects 2077"
+  <ArticleMedia
     src="dQw4w9WgXcQ" // из ссылки https://www.youtube.com/watch?v=dQw4w9WgXcQ нам нужно взять значение после знака "равно"
     type="youtube"
   />
