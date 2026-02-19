@@ -1,6 +1,12 @@
 import {MouseEvent as ReactMouseEvent} from "react";
 
 export const applyRipple = (element: HTMLElement, clientX: number, clientY: number) => {
+  const isMarkElement = element.tagName === "MARK";
+
+  if (isMarkElement && element.classList.length === 0) {
+    return;
+  }
+
   const computedStyle = globalThis.getComputedStyle(element);
 
   if (computedStyle.position === "static") {
@@ -13,7 +19,9 @@ export const applyRipple = (element: HTMLElement, clientX: number, clientY: numb
 
   const rect = element.getBoundingClientRect();
 
-  const size = Math.max(rect.width, rect.height) * 2;
+  const markRippleSize = 128;
+
+  const size = isMarkElement ? markRippleSize : Math.max(rect.width, rect.height) * 2;
 
   const x = clientX - rect.left;
 
