@@ -50,16 +50,11 @@ const PsInterface: React.FC = () => {
       <DetailsSummary
         anchor="dock-panel"
         title="Как прикрепить нужное окно в рабочее пространство?"
-      >
-        {/* TODO: написать ещё отдельную статью по аналогии как расположить по списку или поставить несколько окон во вкладки  */}
-        {/* FIXME:  */}
-      </DetailsSummary>
+      ></DetailsSummary>
       <DetailsSummary
         anchor="change-accent-color"
         title="Как изменить акцентный цвет интерфейса программы?"
-      >
-        {/* FIXME: */}
-      </DetailsSummary>
+      ></DetailsSummary>
       <DetailsSummary
         anchor="custom-splash-screen"
         title="Как изменить картинку во время запуска программы?"

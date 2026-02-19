@@ -1082,7 +1082,6 @@ const AeErrors: React.FC = () => {
               />
               <ArticleMedia
                 caption="Choose CINEMA 4D Installation"
-                // NOTE: заменить на новое изображение, видео или пример, желательно с бOльшим разрешением
                 src="legacy/aftereffects/cinema4d_renderer_options.png"
                 type="image"
               />

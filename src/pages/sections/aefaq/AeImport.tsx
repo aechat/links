@@ -626,9 +626,7 @@ const AeImport: React.FC = () => {
         anchor="fix-overexposed-video"
         tag="пересвет, айфон, яркость, цветовое пространство, рек709"
         title="Импортировал видео, а оно слишком засвеченное. Как исправить?"
-      >
-        {/* FIXME: написать */}
-      </DetailsSummary>
+      ></DetailsSummary>
       <DetailsSummary
         anchor="fix-artifacts"
         tag="зелёный экран, артефакты, глитчи, полосы, youtube, дисковый кэш, аппаратное декодирование"
@@ -1392,9 +1390,7 @@ const AeImport: React.FC = () => {
         anchor="import-svg"
         tag="свг, вектор, vector"
         title="Как импортировать SVG?"
-      >
-        {/* FIXME:  */}
-      </DetailsSummary>
+      ></DetailsSummary>
       <DetailsSummary
         anchor="import-figma"
         tag="aeux, overlord, импорт макета, фигма"

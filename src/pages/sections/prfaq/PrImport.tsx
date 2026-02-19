@@ -521,7 +521,6 @@ const PrImport: React.FC = () => {
           вам список композиций. Вы можете выбрать одну или несколько композиций для
           импорта.
         </p>
-        {/* TODO: приложить скриншот */}
         <p>
           После успешного импорта вы можете расположить композиции из{" "}
           <mark className="app">Adobe After Effects</mark> прямо на таймлайн в{" "}
@@ -559,9 +558,7 @@ const PrImport: React.FC = () => {
       <DetailsSummary
         anchor="import-xml"
         title="Для чего нужны файлы XML и как их импортировать?"
-      >
-        {/* FIXME: */}
-      </DetailsSummary>
+      ></DetailsSummary>
     </div>
   );
 };

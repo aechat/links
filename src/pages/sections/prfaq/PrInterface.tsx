@@ -86,7 +86,6 @@ const PrInterface: React.FC = () => {
           <mark className="key">ПКМ</mark> по отображению текущего времени и выберите
           нужный вам тип вывода.
         </p>
-        {/* TODO: приложить скриншот */}
         <p>
           Если вы хотите передвинуть временную метку меньше, чем на кадр, чтобы подрезать
           аудио, вам нужно включить режим отображения аудиовремени. Для этого нажмите на
@@ -94,15 +93,11 @@ const PrInterface: React.FC = () => {
           <mark className="select">«Show Audio Units»</mark>. Убрать можно аналогичным
           образом.
         </p>
-        {/* TODO: приложить скриншот */}
       </DetailsSummary>
       <DetailsSummary
         anchor="dock-panel"
         title="Как прикрепить нужное окно в рабочее пространство?"
-      >
-        {/* TODO: написать ещё отдельную статью по аналогии как расположить по списку или поставить несколько окон во вкладки */}
-        {/* FIXME: */}
-      </DetailsSummary>
+      ></DetailsSummary>
       <DetailsSummary
         anchor="excalibur"
         tag="панель эффектов, фх консоль, экскалибур"
@@ -146,7 +141,6 @@ const PrInterface: React.FC = () => {
           это не происходит, попробуйте принудительно отрендерить звук с помощью{" "}
           <mark className="select">«Sequence» → «Render Audio»</mark>.
         </p>
-        {/* TODO: приложить скриншот */}
       </DetailsSummary>
       <DetailsSummary
         anchor="change-accent-color"
@@ -181,7 +175,6 @@ const PrInterface: React.FC = () => {
           Далее, после включения возможности изменять цвет, перейдите в{" "}
           <mark className="app">«Edit» → «Preferences» → «Appearance»</mark> и...
         </p>
-        {/* TODO: показать параметр и скриншот в настройках */}
         <p>
           В открывшейся цветовой палитре вы можете указать любой цвет, какой захотите.
           Желательно выбрать тот цвет, который будет хорошо выделяться на фоне остального
@@ -191,7 +184,6 @@ const PrInterface: React.FC = () => {
           Не рекомендуется выбирать тёмные или слишком насыщенные оттенки: из-за них
           некоторые элементы интерфейса могут стать плохо различимыми.
         </Addition>
-        {/* TODO: показать цветовую палитру при настройке */}
       </DetailsSummary>
       <DetailsSummary
         anchor="custom-splash-screen"

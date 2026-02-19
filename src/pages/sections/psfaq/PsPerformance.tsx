@@ -9,9 +9,7 @@ const PsPerformance: React.FC = () => {
         anchor="about-app-performance"
         tag="тормозит, лаги, медленно, скорость работы, оптимизация, производительность"
         title="Почему у меня, б%@#ь, лагает е&#!%й Photoshop, с$%а?"
-      >
-        {/* FIXME: написать!! */}
-      </DetailsSummary>
+      ></DetailsSummary>
     </div>
   );
 };

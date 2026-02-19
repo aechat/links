@@ -61,9 +61,7 @@ const AeExprStart: React.FC = () => {
           который отображает текущее значение или скорость вашего выражения, с помощью
           соответствующей кнопки.
         </p>
-        {/* TODO: приложить скриншот */}
         <p>Чтобы временно отключить выражение, нажмите на...</p>
-        {/* TODO: приложить скриншот */}
       </DetailsSummary>
       <DetailsSummary
         anchor="get-started"
@@ -87,7 +85,6 @@ const AeExprStart: React.FC = () => {
         title="Можно ли использовать различные LLM-модели для генерации выражений, например с помощью ChatGPT?"
       >
         <p>И да, и нет.</p>
-        {/* FIXME: */}
       </DetailsSummary>
       <DetailsSummary
         anchor="external-code-editors"
@@ -103,7 +100,6 @@ const AeExprStart: React.FC = () => {
           которого вы можете отправлять код выражения на выделенный слой с помощью
           стороннего расширения.
         </p>
-        {/* FIXME:  */}
       </DetailsSummary>
     </div>
   );

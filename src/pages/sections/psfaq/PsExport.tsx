@@ -10,23 +10,17 @@ const PsExport: React.FC = () => {
       <DetailsSummary
         anchor="social-media-export"
         title="Какие параметры экспорта нужно установить для загрузки в социальные сети?"
-      >
-        {/* FIXME: */}
-      </DetailsSummary>
+      ></DetailsSummary>
       <DetailsSummary
         anchor="export-image"
         tag="сохранить фото, пнг, жипег, жпг, вебп"
         title="Как экспортировать изображение в JPEG, PNG, WEBP и прочие популярные форматы изображений?"
-      >
-        {/* FIXME: */}
-      </DetailsSummary>
+      ></DetailsSummary>
       <DetailsSummary
         anchor="export-gif"
         tag="сохранить анимированную гифку"
         title="Как экспортировать последовательность фото в анимацию GIF?"
-      >
-        {/* FIXME: */}
-      </DetailsSummary>
+      ></DetailsSummary>
       <DetailsSummary
         anchor="export-layers"
         tag="export layers"
@@ -53,15 +47,12 @@ const PsExport: React.FC = () => {
           src="legacy/photoshop/export_layers.png"
           type="image"
         />
-        {/* FIXME: */}
       </DetailsSummary>
       <DetailsSummary
         anchor="how-to-export-video"
         tag="сохранить видео, мп4, mp4"
         title="Может прозвучит по-идиотски, но как экспортировать из программы видео?"
-      >
-        {/* FIXME: */}
-      </DetailsSummary>
+      ></DetailsSummary>
       <DetailsSummary
         anchor="restore-legacy-save"
         tag="legacy export"
@@ -93,13 +84,11 @@ const PsExport: React.FC = () => {
           </mark>
           .
         </p>
-        {/* TODO: приложить фото */}
         <p>
           Также при желании вы можете включить параметр{" "}
           <mark className="select">«Use Legacy „Export As”»</mark> во вкладке{" "}
           <mark className="select">«Export»</mark>.
         </p>
-        {/* TODO: приложить фото */}
       </DetailsSummary>
     </div>
   );
