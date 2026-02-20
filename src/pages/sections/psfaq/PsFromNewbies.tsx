@@ -2,7 +2,6 @@ import React from "react";
 
 import {Divider} from "antd";
 
-import Addition from "../../../components/content/Addition";
 import {ArticleMedia} from "../../../components/content/ArticleMedia";
 import DetailsSummary from "../../../components/content/DetailsSummary";
 
