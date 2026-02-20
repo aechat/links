@@ -2108,39 +2108,6 @@ const PrInstallProblems: React.FC = () => {
         </p>
       </DetailsSummary>
       <DetailsSummary
-        anchor="fix-creative-cloud-missing"
-        tag="ошибка запуска, хвосты от неудачного удаления, переустановка, adobe cc"
-        title="«Приложение Adobe Creative Cloud, необходимое для устранения проблемы, отсутствует или повреждено...» при запуске программы"
-      >
-        <ContentFilter
-          windowsContent={
-            <>
-              <p>
-                Такая ошибка может возникнуть, если вы когда-то установили{" "}
-                <mark className="app">Adobe Creative Cloud</mark> рядом с «народными»
-                версиями программ, из которых его предварительно вырезали. А затем решили
-                удалить само приложение <mark className="app">Adobe Creative Cloud</mark>,
-                оставив за собой нежелательные «хвосты».
-              </p>
-              <p>
-                Решение довольно простое: удалите все приложения от{" "}
-                <mark className="company">Adobe</mark> и установите их заново — это
-                поможет избавиться от лишних зависимостей, связанных с{" "}
-                <mark className="app">Adobe Creative Cloud</mark>. Да, вы не ослышались.
-                Чтобы полностью очистить систему от программ{" "}
-                <mark className="company">Adobe</mark> — воспользуйтесь консольной
-                утилитой{" "}
-                <a href="https://helpx.adobe.com/creative-cloud/apps/troubleshoot/diagnostics-repair-tools/run-creative-cloud-cleaner-tool.html">
-                  Adobe Creative Cloud Cleaner
-                </a>{" "}
-                или любым другим деинсталлятором, например{" "}
-                <mark className="app">Revo Uninstaller</mark>.
-              </p>
-            </>
-          }
-        />
-      </DetailsSummary>
-      <DetailsSummary
         anchor="genp"
         tag="genp, активация, патч, активация приложений из creative cloud"
         title="Я не доверяю репакам, но установить программы от Adobe хочется. Какие есть ещё варианты?"
