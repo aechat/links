@@ -2349,39 +2349,47 @@ const PrInstallProblems: React.FC = () => {
       </DetailsSummary>
       <DetailsSummary
         anchor="speech-to-text-not-working"
-        tag="бесконечная загрузка, голос в субтитры, транскрибация, captions, text, beginning language pack download, transcribing"
+        tag="бесконечная загрузка, голос в субтитры, транскрибация, распознавание речи в текст, captions, text, beginning language pack download, transcribing"
         title="Почему функция Speech to Text не работает на «народных» версиях?"
       >
         <p>
-          По умолчанию <mark className="app">Adobe Premiere</mark> поставляется без
-          языковых пакетов для распознавания речи. При необходимости они загружаются прямо
-          из приложения. Однако в «народных» версиях программы эта загрузка будет длиться
-          бесконечно, потому что у приложения нет доступа к интернету.
+          Обычно дистрибутивы <mark className="app">Adobe Premiere</mark>, чтобы не
+          раздувать их вес, распространяются без встроенных языковых пакетов для
+          распознавания речи, так как суммарно они занимают более <mark>10 ГБ</mark>. При
+          необходимости нужные файлы загружаются прямо из приложения.{" "}
+          <i style={{opacity: "0.5"}}>Однако есть нюанс...</i>
         </p>
         <p>
-          Решается это довольно просто — нужно установить языковые пакеты отдельно, с того
-          же ресурса, откуда вы скачали программу.
+          В «народных» версиях процесс загрузки файлов будет длиться бесконечно, так как у
+          приложения нет доступа к интернету. Решается эта проблема довольно просто —
+          нужно установить языковые пакеты отдельно, желательно с того же ресурса, откуда
+          вы скачали программу.
         </p>
-        <p>
+        <Addition type="info">
           Например, языковые пакеты для репака от <mark className="user">KpoJluK</mark> вы
           можете скачать в канале{" "}
           <a href="https://t.me/+Qd9xu7A4TeIwNzY6">склад стройматериалов (Windows)</a> по
           хештегу <mark className="tag">#speechtotext</mark> или в канале{" "}
           <a href="https://t.me/+ZqiaMfQRFgM4YmEy">Яблоневый сад (macOS)</a> по поиску{" "}
           <mark className="tag">Speech To Text</mark>.
-        </p>
-        <Addition type="danger">
-          Устанавливая языковой пакет, смотрите, для какой версии{" "}
-          <mark className="app">Adobe Premiere</mark> он предназначен! Версию{" "}
-          <mark className="app">Adobe Premiere</mark> вы можете узнать в{" "}
-          <mark className="select">«Help» → «About Adobe Premiere»</mark>. Если вы
-          установите пакет для другой версии, то не сможете использовать функцию
-          транскрибации и зря займёте место на диске.
         </Addition>
+        <Addition type="danger">
+          Перед установкой языкового пакета, внимательно смотрите, для какой версии{" "}
+          <mark className="app">Adobe Premiere</mark> он предназначен. Если вы установите
+          пакет для другой версии, то вы не сможете воспользоваться им для транскрибации и
+          зря займёте место на диске. Текущую версию{" "}
+          <mark className="app">Adobe Premiere</mark> вы можете узнать у себя в{" "}
+          <mark className="select">«Help» → «About Adobe Premiere»</mark>.
+        </Addition>
+        <Divider>Начинаем транскрибацию речи в текст</Divider>
+        <p>
+          После того как вы установили языковые пакеты, можно приступать к преобразованию
+          речи из аудиодорожки в текст.
+        </p>
         <ul>
           <li>
-            После установки языкового пакета — откройте окно{" "}
-            <mark className="select">«Text»</mark> и создайте субтитры с помощью{" "}
+            Для начала откройте панель <mark className="select">«Window» → «Text»</mark> и
+            выберите в контекстном меню{" "}
             <mark className="select">«Generate static transcript»</mark>.
             <ArticleMedia
               caption="Text"
@@ -2390,9 +2398,12 @@ const PrInstallProblems: React.FC = () => {
             />
           </li>
           <li>
-            В открывшемся окне в параметре <mark className="select">«Language»</mark>{" "}
-            выберите язык, на котором говорит диктор, и нажмите{" "}
-            <mark className="select">«Transcribe»</mark>.
+            В появившемся окне в параметре <mark className="select">«Language»</mark>{" "}
+            выберите язык диктора и нажмите <mark className="select">«Transcribe»</mark>.
+            <Addition type="info">
+              Если в списке рядом с нужным языком виден значок облака со стрелкой, значит
+              языковой пакет по какой-то причине всё ещё не установлен в системе.
+            </Addition>
             <ArticleMedia
               caption="Generate static transcript"
               src="legacy/premierepro/generate_transcribe_settings.png"
@@ -2400,10 +2411,11 @@ const PrInstallProblems: React.FC = () => {
             />
           </li>
           <li>
-            После этого подождите некоторое время, и вы получите какую-никакую расшифровку
-            аудио. На основе этих данных вы можете создать субтитры, выбрав в трёх точках{" "}
-            <mark className="select">«Create Captions»</mark>, подредактировать их или
-            перемещаться к моменту на таймлайне, где звучит определённая фраза.
+            Дождитесь завершения обработки аудиодорожки. На основе полученной расшифровки
+            вы можете создать субтитры с помощью{" "}
+            <mark className="select">«Create Captions»</mark> в контекстном меню,
+            отредактировать текст или перейти к нужному моменту на таймлайне, просто
+            выбрав фразу.
           </li>
         </ul>
       </DetailsSummary>
