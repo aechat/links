@@ -151,13 +151,11 @@ const PsFromNewbies: React.FC = () => {
           Альтернативный способ смены языка для «народной» версии программы
         </Divider>
         <Divider>Меняем язык программы с помощью Creative Cloud</Divider>
-        {/* FIXME: написать!! */}
       </DetailsSummary>
       <DetailsSummary
         anchor="photoshop-vs-illustrator"
         title="В каких случаях нужно использовать Adobe Photoshop, а в каких — Adobe Illustrator?"
       >
-        {/* FIXME: написать!! фотошоп - растр, люстра - вектор */}
         <ul>
           <li>
             <mark className="app">Adobe Photoshop</mark> — это прежде всего программа для
@@ -183,7 +181,6 @@ const PsFromNewbies: React.FC = () => {
         anchor="image-canvas-size-change"
         title="Как я могу быстро изменить размер изображения или холста?"
       >
-        {/* FIXME: */}
         <ArticleMedia
           caption="Adobe Photoshop"
           src="legacy/photoshop/change_image_size.mp4"
@@ -204,7 +201,6 @@ const PsFromNewbies: React.FC = () => {
         tag="smart objects"
         title="Для чего нужны смарт-объекты?"
       >
-        {/* FIXME: */}
         <ArticleMedia
           caption="Photoshop"
           src="legacy/photoshop/using_smart_objects.mp4"
@@ -216,7 +212,6 @@ const PsFromNewbies: React.FC = () => {
         tag="disable auto-select"
         title="Как отключить автовыделение слоёв?"
       >
-        {/* FIXME: */}
         <ArticleMedia
           caption="Photoshop"
           src="legacy/photoshop/disable_auto-select.png"

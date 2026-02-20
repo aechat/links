@@ -12,15 +12,12 @@ const PsImport: React.FC = () => {
       <DetailsSummary
         anchor="import-raw"
         title="Как импортировать RAW изображения?"
-      >
-        {/* FIXME: написать!! */}
-      </DetailsSummary>
+      ></DetailsSummary>
       <DetailsSummary
         anchor="fix-color-profile-mismatch"
         tag="missing profile, embedded profile mismatch, отсутствие встроенного профиля, несоответствие внедренного профиля, документ не содержит встроенных профилей rgb, the document has an embedded color profile that does not match the current rgb working space"
         title="Почему при импорте изображения появляется «The document does not have an embedded RGB profile»?"
       >
-        {/* TODO: */}
         <p>
           При открытии изображения или проекта в{" "}
           <mark className="app">Adobe Photoshop</mark> вы могли наблюдать предупреждение о
@@ -40,7 +37,6 @@ const PsImport: React.FC = () => {
         </Divider>
         <Divider>Что за «The document does not have an embedded RGB profile»</Divider>
         <Divider>Что за цветовые профили и с чем их едят?</Divider>
-        {/* TODO: */}
         <Divider>Отключаем вопрос при открытии</Divider>
         <p>
           Чтобы убрать данный вопрос при открытии каждого документа в{" "}
@@ -74,15 +70,11 @@ const PsImport: React.FC = () => {
       <DetailsSummary
         anchor="restore-legacy-import"
         title="Мне не нравится новый интерфейс импорта, как вернуть старый?"
-      >
-        {/* FIXME: написать!! */}
-      </DetailsSummary>
+      ></DetailsSummary>
       <DetailsSummary
         anchor="fix-colors-mismatch-viewer"
         title="Почему при открытии фото в Adobe Photoshop цвета отличаются от просмотрщика фото?"
-      >
-        {/* FIXME: написать!! */}
-      </DetailsSummary>
+      ></DetailsSummary>
     </div>
   );
 };

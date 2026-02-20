@@ -8,9 +8,7 @@ const AeExprLinking: React.FC = () => {
       <DetailsSummary
         anchor="link-properties"
         title="Как присвоить значение свойства из другого слоя к нужному?"
-      >
-        {/* FIXME: */}
-      </DetailsSummary>
+      ></DetailsSummary>
     </div>
   );
 };

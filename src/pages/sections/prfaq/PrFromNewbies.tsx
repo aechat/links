@@ -943,7 +943,6 @@ const PrFromNewbies: React.FC = () => {
             </tr>
           </tbody>
         </table>
-        {/* FIXME: по возможности дописать ещё */}
       </DetailsSummary>
       <DetailsSummary
         anchor="recommended-plugins"
@@ -1120,7 +1119,6 @@ const PrFromNewbies: React.FC = () => {
           </li>
         </ul>
         <Divider>Остальное</Divider>
-        {/* TODO: дописать!!1! */}
         <ul>
           <li></li>
           <li></li>
@@ -1442,7 +1440,7 @@ const PrFromNewbies: React.FC = () => {
         anchor="sequence-independent"
         title="Продублировал секвенцию на таймлайне, но копия зависит от оригинала. Как сделать Nest независимыми друг от друга?"
       >
-        <p>{/* FIXME: опять новые пункты писать ну емае */}</p>
+        <p></p>
       </DetailsSummary>
       <DetailsSummary
         anchor="scale-vs-fit"
@@ -1558,7 +1556,6 @@ const PrFromNewbies: React.FC = () => {
           могут мешать нормальному предпросмотру в{" "}
           <mark className="app">Adobe Premiere</mark>.
         </Addition>
-        {/* TODO: дописать ещё возможные варианты */}
       </DetailsSummary>
       <DetailsSummary
         anchor="disable-selection-follow-playhead"
@@ -1570,7 +1567,6 @@ const PrFromNewbies: React.FC = () => {
           <mark className="select">«Sequence»</mark>. Выделение клипа зависит от выбранных
           дорожек с помощью <mark>Track Targeting</mark>.
         </p>
-        {/* TODO: показать скриншот включения этой опции */}
         <Addition type="info">
           <ul>
             <li>

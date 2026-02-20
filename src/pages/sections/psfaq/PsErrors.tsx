@@ -138,7 +138,6 @@ const PsErrors: React.FC = () => (
             </p>
             <ArticleMedia
               caption="Проверяем прокси"
-              // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
               src="legacy/check_windows_proxy.png"
               type="image"
             />
@@ -148,7 +147,6 @@ const PsErrors: React.FC = () => (
             </p>
             <ArticleMedia
               caption="Отключаем прокси"
-              // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
               src="legacy/disable_windows_proxy.png"
               type="image"
             />
@@ -391,20 +389,6 @@ const PsErrors: React.FC = () => (
         }
       />
       <Divider>Что вообще хранится в рабочем диске?</Divider>
-      <p>{/* REVIEW: написать!! */}</p>
-      {/* 
-      REVIEW: проверить валидность статьи
-      Черновое дополнение:
-      - Краткое введение: Scratch Disk хранит временные файлы, кэш и историю для операций Photoshop.
-      - Основные понятия: scratch disk, cache, temp files, History states.
-      - Практические рекомендации: выделять быстрый SSD под scratch, держать достаточно свободного места, периодически чистить временные файлы.
-      - Возможные подводные камни: заполненный системный диск, слишком много History States, большие документы.
-      - Когда применять / когда не применять: при крупных файлах и сложных фильтрах — особенно важно иметь запас места.
-      Источники:
-      - https://helpx.adobe.com/photoshop/using/scratch-disks-preferences.html
-      - https://helpx.adobe.com/photoshop/kb/scratch-disk-is-full.html
-      - https://helpx.adobe.com/photoshop/using/performance-preferences.html
-      */}
     </DetailsSummary>
     <DetailsSummary
       anchor="firefly-access-error"
@@ -436,7 +420,6 @@ const PsErrors: React.FC = () => (
       </p>
       <ArticleMedia
         caption="Отключаем генеративную заливку при использовании инструмента Remove Tool"
-        // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
         src="legacy/photoshop/disable_generative_ai_removetool.png"
         type="image"
       />

@@ -1082,7 +1082,6 @@ const AeErrors: React.FC = () => {
               />
               <ArticleMedia
                 caption="Choose CINEMA 4D Installation"
-                // NOTE: заменить на новое изображение, видео или пример, желательно с бOльшим разрешением
                 src="legacy/aftereffects/cinema4d_renderer_options.png"
                 type="image"
               />
@@ -1746,7 +1745,7 @@ const AeErrors: React.FC = () => {
       </DetailsSummary>
       <DetailsSummary
         anchor="fix-0xc0000142"
-        tag="неподдерживаемое устройство, avx2, ошибка запуска, требования к процессору"
+        tag="неподдерживаемое устройство, avx2, ошибка при запуске приложения, требования к процессору"
         title="Что делать с ошибкой «0xc0000142» при запуске приложения?"
       >
         <ContentFilter
@@ -1772,8 +1771,8 @@ const AeErrors: React.FC = () => {
                 ниже, а также на более ранних процессорах{" "}
                 <mark className="company">AMD</mark>, где этих инструкций нет. Так что
                 если ваш процессор не подходит, решение простое: либо установите{" "}
-                <mark className="app">After Effects</mark> версии <mark>23.6</mark> или
-                ниже, либо, если возможно, обновите «железо».
+                <mark className="app">Adobe After Effects</mark> версии <mark>23.6</mark>{" "}
+                или ниже, либо, если возможно, обновите «железо».
               </p>
               <Divider>Проверяем целостность системы</Divider>
               <p>

@@ -39,130 +39,28 @@ yarn dlx @yarnpkg/sdks vscode
 docker-compose up
 ```
 
-## Гайдлайн по написанию статей в ответах на частые вопросы
+## Документация
 
-Все статьи обычно содержатся в директории `src/pages/sections` и разбиты на несколько директорий со статьями. Каждый файл равен какой-то категории статей. Пустая и новая категория должна содержать следующий вид.
-
-```typescript
-import React from "react";
-const SHORTNAME_SECTION: React.FC = () => {
-  return (
-    <div className="faq-content">
-        /* остальной код */
-    </div>
-  );
-};
-export default SHORTNAME_SECTION;
-```
-
-В статьях обязательно должны быть спойлеры, которые содержат заголовок, теги и сам контент статьи. Если заголовок статьи окажется слишком длинным, например из-за текста ошибки, то часть текста можно перенести в теги. Теги должны быть разделены запятыми.
-
-```typescript
-import DetailsSummary from "../../../components/content/DetailsSummary"; tag="helper.exe не найден, выключить дефендер, отрубить антивирус">
-  <p>Ответ на вопрос.</p>
-</DetailsSummary>
-```
-
-В статьях можно использовать списки, а также компоненты `Addition` для того, чтобы обратить внимание читателя на какую-нибудь дополнительную информацию. Эти же компоненты можно использовать в списках. Тип компонента задаётся через `type` и может быть задан тремя значениями: `info`, `warning` и `danger`.
-
-```typescript
-import Addition from "../../../components/content/Addition";
-import DetailsSummary from "../../../components/DetailsSummary";
-<DetailsSummary tag="как, зачем, на$&я" title="Вопрос">
-  <p>Причина поведения определённого действия.</p>
-  <ul>
-    <li>Решение 1.</li>
-    <li>
-      Решение 2.
-      <Addition type="warning">
-        Данное решение может привести к неожиданным резульатам.
-      </Addition>
-    </li>
-    <li>Решение 3.</li>
-  </ul>
-  <Addition type="info">
-    Выноска с текстом на голубом фоне. Служит для дополнительной информации, например
-    откуда скачать определённый плагин или рассказывает об особенностях работы конкретного
-    действия.
-  </Addition>
-  <Addition type="warning">
-    Выноска с текстом на жёлтом фоне. Служит для предупреждения пользователей о возможных
-    рисках или о возможном получении неожиданных результатах.
-  </Addition>
-  <Addition type="danger">
-    Выноска с текстом на красном фоне. Служит для оповещения пользователей о том, что
-    действия делаются на свой страх и риск или о том, на что нужно обратить внимание в
-    первую очередь.
-  </Addition>
-</DetailsSummary>
-```
-
-Иногда в тексте может встречаться `mark` с каким-нибудь классом. Это делается лишь для добавления уникальной иконки рядом с текстом и позволяет копировать текст в буфер обмена. Если у `mark` не будет класса - при нажатии на него текст не будет копироваться в буфер обмена. Классы для `mark`:
-
-- Иконка файла: `className="file"`
-- Иконка кнопки: `className="key"`
-- Иконка плагина: `className="plugin"`
-- Иконка программы: `className="app"`
-- Иконка пути до файла: `className="path"`
-- Иконка копирования текста: `className="copy"`
-- Иконка кнопки интерфейса: `className="select"`
-- Иконка метки или же тега: `className="tag"`
-- Иконка термина: `className="word"`
-- Иконка видео файла: `className="video"`
-- Иконка изображения: `className="image"`
-
-```typescript
-import DetailsSummary from "../../../components/DetailsSummary";
-<DetailsSummary title="А можешь привести примеры использования тега «mark»?">
-  <p>
-    Конечно. Я могу рассказать об <mark className="app">Adobe After Effects</mark>, указывая на
-    интерфейс с помощью тегов. Например я могу указать кнопку в интерфейсе: очистка
-    кэша находится в <mark className="select">«Edit» → «Purge» → «All Memory and Cache»</mark>
-    . Также могу сказать, что используя сторонние эффекты, например{" "}
-    <mark className="plugin">Deep Glow</mark> вы можете замедлить
-    производительность вашего проекта.
-  </p>
-</DetailsSummary>
-```
-
-### Как добавить медиа?
-
-Для добавления изображения, видео или ссылку с предпросмотром на YouTube используется компонент `ContentFigure`.
-
-```typescript
-import {ContentFigure} from "../../../components/content/ContentFigure";
-import DetailsSummary from "../../../components/DetailsSummary";
-<DetailsSummary title="Вопрос">
-  <p>
-    Кэш в <mark className="app">Adobe After Effects</mark> очищается таким образом, как показано
-    на изображении ниже.
-  </p>
-  <ContentFigure
-    caption="Очистка кэша и оперативной памяти"
-    imgTitle="Очистка кэша и оперативной памяти"
-    src="images/aftereffects/edit_purge_all-memory-and-disk-cache.png"
-    theme="light"
-    type="image"
-    variant="windows"
-  />
-  <p>
-    Если вы не понимаете куда нажимать по изображению - ниже приведён скринкаст действий
-    для очистки кэша в <mark className="app">Adobe After Effects</mark>.
-  </p>
-  <ContentFigure
-    caption="Настройка запуска от имени администратора"
-    src="images/aftereffects/how_to_purge_cache.mp4"
-    theme="dark"
-    type="video"
-    variant="macos"
-  />
-  <p>
-  Подробнее о новых функциях <mark className="app">Adobe After Effects> вы можете посмотреть в официальном канале <mark className="company">Adobe</mark> на <mark className="app">YouTube</mark>
-  </p>
-  <ContentFigure
-    caption="Новые функции в Adobe After Effects 2077"
-    src="dQw4w9WgXcQ" // из ссылки https://www.youtube.com/watch?v=dQw4w9WgXcQ нам нужно взять значение после знака "равно"
-    type="youtube"
-  />
-</DetailsSummary>
-```
+- [`coding-rules.md`](docs/coding-rules.md) — технический код-стайл и структура файлов.
+- [`commit-messages.md`](docs/commit-messages.md) — формат коммитов и правила сообщений.
+- [`articles.md`](docs/articles.md) — устройство разделов и статей, подключение новых секций.
+- [`project-structure.md`](docs/project-structure.md) — обзор структуры проекта.
+- [`content-components.md`](docs/components/content-components.md) — обзор контентных компонентов и быстрый старт секции.
+- [`details-summary.md`](docs/components/details-summary.md) — `DetailsSummary`, `anchor`, `tag` и ссылки.
+- [`faq-article-quality.md`](docs/content/faq-article-quality.md) — критерии качества FAQ-ответа.
+- [`faq-question-structure.md`](docs/content/faq-question-structure.md) — правила для `anchor`, `title`, `tag`.
+- [`faq-answer-structure.md`](docs/content/faq-answer-structure.md) — порядок подачи решения и структура ответа.
+- [`faq-reuse-and-checklist.md`](docs/content/faq-reuse-and-checklist.md) — переиспользование контента и финальный чеклист.
+- [`article-content.md`](docs/content/article-content.md) — корневой контейнер контента.
+- [`paragraphs.md`](docs/content/paragraphs.md) — правила для абзацев `p`.
+- [`lists.md`](docs/content/lists.md) — правила для списков `ul/ol/li`.
+- [`addition.md`](docs/content/addition.md) — правила для `Addition`.
+- [`divider.md`](docs/content/divider.md) — правила для `Divider`.
+- [`tables.md`](docs/content/tables.md) — когда и как использовать таблицы.
+- [`article-media.md`](docs/content/article-media.md) — правила для `ArticleMedia`.
+- [`code-snippet.md`](docs/content/code-snippet.md) — правила для `CodeSnippet`.
+- [`content-filter.md`](docs/content/content-filter.md) — правила для `ContentFilter`.
+- [`nested-details.md`](docs/content/nested-details.md) — правила для `NestedDetailsSummary`.
+- [`flexible-links.md`](docs/content/flexible-links.md) — паттерн групп ссылок `.flexible-links`.
+- [`mark-and-icons.md`](docs/content/mark-and-icons.md) — семантические классы `mark`.
+- [`tone-and-style.md`](docs/content/tone-and-style.md) — тон и стиль текстов FAQ.

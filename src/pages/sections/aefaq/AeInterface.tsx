@@ -218,7 +218,6 @@ const AeInterface: React.FC = () => {
         </Addition>
         <ArticleMedia
           caption="Управление окнами в рабочем пространстве"
-          // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
           src="legacy/aftereffects/manage_windows.mp4"
           type="video"
         />

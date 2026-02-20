@@ -17,50 +17,35 @@ const AeExprBase: React.FC = () => {
       <DetailsSummary
         anchor="variables-and-functions"
         title="Что такое переменные и функции?"
-      >
-        {/* FIXME: */}
-      </DetailsSummary>
+      ></DetailsSummary>
       <DetailsSummary
         anchor="access-layer-property"
         title="Как обратиться к нужному атрибуту того или иного слоя?"
-      >
-        {/* FIXME: */}
-      </DetailsSummary>
+      ></DetailsSummary>
       <DetailsSummary
         anchor="expression-controls"
         title="Для чего нужны контроллеры, какие они бывают и как ими пользоваться?"
-      >
-        {/* FIXME: */}
-      </DetailsSummary>
+      ></DetailsSummary>
       <DetailsSummary
         anchor="conditions-and-loops"
         title="Для чего нужны условия и циклы?"
-      >
-        {/* FIXME: */}
-      </DetailsSummary>
+      ></DetailsSummary>
       <DetailsSummary
         anchor="index-attribute"
         title="Для чего нужен index?"
-      >
-        {/* FIXME: */}
-      </DetailsSummary>
+      ></DetailsSummary>
       <DetailsSummary
         anchor="value-attribute"
         title="Для чего нужен value?"
-      >
-        {/* FIXME: */}
-      </DetailsSummary>
+      ></DetailsSummary>
       <DetailsSummary
         anchor="time-attribute"
         title="Для чего нужен time?"
-      >
-        {/* FIXME: */}
-      </DetailsSummary>
+      ></DetailsSummary>
       <DetailsSummary
         anchor="comments-in-code"
         title="Для чего нужны комментарии в коде выражений? Код внутри комментариев может выполняться?"
       >
-        {/* FIXME: */}
         <p>
           <mark className="word">Комментарии</mark> - необязательный участок кода, в
           которую можно записать различную полезную информацию для себя или для тех, кто
@@ -101,7 +86,6 @@ const AeExprBase: React.FC = () => {
           нужно. <mark className="code">value</mark> возвращает число, поэтому с ним можно
           выполнять различные математические операции, по типу умножения или вычитания.
         </p>
-        {/* FIXME: написать!! */}
       </DetailsSummary>
       <DetailsSummary
         anchor="string-formatting"
@@ -121,9 +105,7 @@ const AeExprBase: React.FC = () => {
       <DetailsSummary
         anchor="checkbox-control"
         title="Как сделать Checkbox Control, который выключает или включает действие выражения?"
-      >
-        {/* FIXME: */}
-      </DetailsSummary>
+      ></DetailsSummary>
     </div>
   );
 };

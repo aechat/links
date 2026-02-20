@@ -160,7 +160,6 @@ const PrExportProblems: React.FC = () => {
           Иногда вам может помочь использование <mark>Pre-render</mark> файлов для
           финального экспорта.
         </p> */}
-        {/* FIXME: написать!! */}
       </DetailsSummary>
       <DetailsSummary
         anchor="fix-export-1kb-file"
@@ -196,9 +195,7 @@ const PrExportProblems: React.FC = () => {
         anchor="fix-export-color-shift"
         tag="iphone, hlg, rec.709, color shift, color space, color management"
         title="Почему после экспорта у меня изменились цвета и оттенки?"
-      >
-        {/* FIXME: написать!! */}
-      </DetailsSummary>
+      ></DetailsSummary>
       <DetailsSummary
         anchor="fix-position-shift"
         tag="медиаенкодер, медиаэнкодер, переместилось"
@@ -219,9 +216,7 @@ const PrExportProblems: React.FC = () => {
         anchor="fix-color-banding"
         tag="color banding, полосы, шум, глубина цвета, bit depth"
         title="Как избавиться от ужасного ступенчатого градиента?"
-      >
-        {/* FIXME: написать!! */}
-      </DetailsSummary>
+      ></DetailsSummary>
       <DetailsSummary
         anchor="fix-odd-resolution-error"
         title="Почему при экспорте размер секвенция растягивается до чётного значения?"
@@ -249,9 +244,7 @@ const PrExportProblems: React.FC = () => {
       <DetailsSummary
         anchor="no-sound-after-export"
         title="Почему после экспорта отсутствует звук в видео?"
-      >
-        {/* FIXME: написать!! */}
-      </DetailsSummary>
+      ></DetailsSummary>
       <DetailsSummary
         anchor="compress-video-shutter-encoder"
         tag="конвертация, шаттер енкодер, сжатие видео, квантование, cqr"

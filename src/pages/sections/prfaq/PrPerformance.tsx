@@ -14,9 +14,7 @@ const PrPerformance: React.FC = () => {
         anchor="choose-computer"
         tag="pc, железо, выбор пк, сборка, системные требования, hardware recommendations"
         title="Какой компьютер или ноутбук нужен для работы в программе?"
-      >
-        {/* FIXME: написать!! */}
-      </DetailsSummary>
+      ></DetailsSummary>
       <DetailsSummary
         anchor="choose-version"
         tag="версия программы для старых устройств"
@@ -39,22 +37,17 @@ const PrPerformance: React.FC = () => {
             </li>
           </ul>
         </Addition>
-        {/* FIXME: написать!! */}
       </DetailsSummary>
       <DetailsSummary
         anchor="about-app-performance"
         tag="тормозит, ускорить работу, оптимизация, увеличить скорость рендера, лаги, медленно работает, низкая скорость, производительность, применение эффектов, системные требования, артефакты, искажения, потребление оперативной памяти"
         title="Почему у меня, б%@#ь, лагает е&#!%й Adobe Premiere, с$%а?"
-      >
-        {/* FIXME: написать!! */}
-      </DetailsSummary>
+      ></DetailsSummary>
       <DetailsSummary
         anchor="mercury-acceleration"
         tag="mercury gpu acceleration, software rendering only, рендеринг на процессоре"
         title="Как переключить тип рендеринга и зачем это нужно делать?"
-      >
-        {/* FIXME: дописать что в 25.6 уже нельзя, в 25.1-25.5 делается через шифт */}
-      </DetailsSummary>
+      ></DetailsSummary>
       <DetailsSummary
         anchor="configure-swapfile"
         tag="файл подкачки, виртуальная память, swapfile, paging file, virtual memory"
@@ -110,7 +103,6 @@ const PrPerformance: React.FC = () => {
                   .
                   <ArticleMedia
                     caption="Выполнить"
-                    // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
                     src="legacy/run_systempropertiesadvanced.png"
                     type="image"
                   />
@@ -120,7 +112,6 @@ const PrPerformance: React.FC = () => {
                   перейдите на вкладку <mark className="select">«Дополнительно»</mark>.
                   <ArticleMedia
                     caption="Параметры быстродействия"
-                    // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
                     src="legacy/systempropertiesadvanced_select_advanced.png"
                     type="image"
                   />
@@ -131,7 +122,6 @@ const PrPerformance: React.FC = () => {
                   <mark className="select">«Виртуальная память»</mark>.
                   <ArticleMedia
                     caption="Параметры быстродействия"
-                    // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
                     src="legacy/systempropertiesadvanced_open_change_size.png"
                     type="image"
                   />
@@ -144,7 +134,6 @@ const PrPerformance: React.FC = () => {
                   , снимите его.
                   <ArticleMedia
                     caption="Виртуальная память"
-                    // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
                     src="legacy/systempropertiesadvanced_disable_auto_size.png"
                     type="image"
                   />
@@ -165,7 +154,6 @@ const PrPerformance: React.FC = () => {
                   </p>
                   <ArticleMedia
                     caption="Виртуальная память"
-                    // NOTE: заменить на новое изображение, видео или пример, желательно с бОльшим разрешением
                     src="legacy/systempropertiesadvanced_set_swap_size.png"
                     type="image"
                   />

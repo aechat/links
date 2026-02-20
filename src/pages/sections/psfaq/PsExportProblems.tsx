@@ -8,8 +8,7 @@ const PsExportProblems: React.FC = () => {
       <DetailsSummary
         anchor="colors-change-on-save"
         title="Почему при сохранении в JPG или PNG меняются цвета?"
-      >
-      </DetailsSummary>
+      ></DetailsSummary>
     </div>
   );
 };

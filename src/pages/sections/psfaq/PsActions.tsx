@@ -81,33 +81,23 @@ const PsActions: React.FC = () => {
       <DetailsSummary
         anchor="retouch-photo"
         title="Как и чем можно отретушировать фото?"
-      >
-        {/* FIXME: написать!! */}
-      </DetailsSummary>
+      ></DetailsSummary>
       <DetailsSummary
         anchor="color-correction"
         title="Как и чем можно сделать цветокоррекцию?"
-      >
-        {/* FIXME: написать!! */}
-      </DetailsSummary>
+      ></DetailsSummary>
       <DetailsSummary
         anchor="replace-sky"
         title="Как и чем можно заменить небо?"
-      >
-        {/* FIXME: */}
-      </DetailsSummary>
+      ></DetailsSummary>
       <DetailsSummary
         anchor="blur-background"
         title="Как красиво размыть фон?"
-      >
-        {/* FIXME: */}
-      </DetailsSummary>
+      ></DetailsSummary>
       <DetailsSummary
         anchor="frame-animation"
         title="Как и чем можно сделать покадровые анимации?"
-      >
-        {/* FIXME: написать!! */}
-      </DetailsSummary>
+      ></DetailsSummary>
     </div>
   );
 };
