@@ -3,21 +3,41 @@
 
 .links-button {
   box-sizing: border-box;
+  position: relative;
   flex: 1 1 225px;
-  transition: background-color 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+  backface-visibility: hidden;
+  transform: translateZ(0) scale(1);
+  transform-origin: center center;
+  transition:
+    transform 0.33s cubic-bezier(0.2, 0.65, 0.25, 1),
+    box-shadow 0.33s cubic-bezier(0.2, 0.65, 0.25, 1),
+    background-color 0.5s cubic-bezier(0.075, 0.82, 0.165, 1),
+    border-radius 0.33s cubic-bezier(0.2, 0.65, 0.25, 1),
+    z-index 0s linear 0.25s;
+  z-index: 0;
   outline: 1px solid var(--color-surface-card-border);
   border-radius: 0;
-  box-shadow: none;
+  box-shadow: 0 10px 24px transparent;
   background-color: var(--color-surface-card-background);
   width: 100%;
   min-width: 150px;
+  will-change: transform;
 
   &:hover {
+    transform: translateZ(0) scale(var(--links-hover-scale-x), var(--links-hover-scale-y));
+    transition-delay: 0s;
+    z-index: 4;
+    box-shadow: 0 10px 24px var(--shadow-primary);
     background-color: var(--color-surface-card-background-hover);
     cursor: pointer;
   }
 
   &:active {
+    transform: translateZ(0)
+      scale(var(--links-active-scale-x), var(--links-active-scale-y));
+    transition-delay: 0s;
+    z-index: 4;
+    box-shadow: 0 10px 24px var(--shadow-secondary);
     background-color: var(--color-surface-card-background-active);
   }
 
@@ -30,6 +50,30 @@
 
   @media screen and (width <= 525px) {
     flex: 1 1 165px;
+  }
+}
+
+:global(.links-grid-item.links-corner-tl) {
+  &.links-button {
+    border-top-left-radius: $roundness;
+  }
+}
+
+:global(.links-grid-item.links-corner-tr) {
+  &.links-button {
+    border-top-right-radius: $roundness;
+  }
+}
+
+:global(.links-grid-item.links-corner-bl) {
+  &.links-button {
+    border-bottom-left-radius: $roundness;
+  }
+}
+
+:global(.links-grid-item.links-corner-br) {
+  &.links-button {
+    border-bottom-right-radius: $roundness;
   }
 }
 

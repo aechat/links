@@ -67,7 +67,7 @@ export const LinkCard: React.FC<LinkCardProperties> = ({
 
   return (
     <div
-      className={styles["links-button"]}
+      className={`links-grid-item ${styles["links-button"]}`}
       {...longPressProperties}
       {...rippleProperties}
     >
