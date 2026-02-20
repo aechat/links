@@ -12,6 +12,12 @@ interface PlatformInfo {
   isWindows: boolean;
 }
 
+type NavigatorWithUAData = Navigator & {
+  userAgentData?: {
+    mobile?: boolean;
+  };
+};
+
 const MOBILE_VIEWPORT_MAX_WIDTH = 768;
 
 const getUserAgent = (): string => {
@@ -111,7 +117,8 @@ export const getPlatformInfo = (): PlatformInfo => {
 
   const isWindows = /windows/.test(ua);
 
-  const uaDataMobile = globalThis.navigator.userAgentData?.mobile;
+  const uaDataMobile = (globalThis.navigator as NavigatorWithUAData).userAgentData
+    ?.mobile;
 
   const isMobile =
     typeof uaDataMobile === "boolean"
