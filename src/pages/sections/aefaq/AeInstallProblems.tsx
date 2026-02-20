@@ -2775,20 +2775,22 @@ const AeInstallProblems: React.FC = () => {
         title="«No interactive license in use» при открытии Mocha Pro"
       >
         <p>
-          Эта ошибка об отсутствии лицензии может появляться в последних релизах{" "}
-          <mark className="plugin">Mocha Pro</mark>, распространяемых в виде репаков от{" "}
-          <mark className="user">Team V.R.</mark>. Чтобы быстро избавиться от неё, нажмите{" "}
-          <mark className="select">«License»</mark> рядом с эффектом{" "}
+          Эта ошибка об отсутствии лицензии может появляться в некоторых «народных»
+          релизах <mark className="plugin">Mocha Pro</mark>. Чтобы быстро избавиться от
+          неё, нажмите <mark className="select">«License»</mark> рядом с эффектом{" "}
           <mark className="plugin">Mocha Pro</mark> в окне{" "}
           <mark className="select">«Effects Controls»</mark>, а затем закройте открывшееся
-          окно лицензирования плагина. После этого попробуйте запустить основное окно
-          плагина, оно больше не должно вызывать предупреждения об активации.
+          окно лицензирования плагина.
         </p>
         <ArticleMedia
           caption="Effects Controls"
           src="legacy/aftereffects/select_license_in_mocha_pro.png"
           type="image"
         />
+        <p>
+          После этого попробуйте запустить основное окно плагина, оно больше не должно
+          вызывать предупреждения об активации.
+        </p>
       </DetailsSummary>
       <DetailsSummary
         anchor="fix-zxp-installer-193"
