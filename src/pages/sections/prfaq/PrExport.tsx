@@ -555,7 +555,10 @@ const PrExport: React.FC = () => {
           <mark className="select">«Export»</mark>.
         </p>
       </DetailsSummary>
-      <DetailsSummary title="Как вывести секвенцию в WEBM и VP9?">
+      <DetailsSummary
+        anchor="export-web"
+        title="Как вывести секвенцию в WEBM и VP9?"
+      >
         <p>
           Стандартными средствами из <mark className="app">Adobe Premiere</mark> и{" "}
           <mark className="app">Adobe Media Encoder</mark> нельзя вывести композицию в{" "}
@@ -649,7 +652,10 @@ const PrExport: React.FC = () => {
           отсутствует, там будет отображаться чёрный фон вместо прозрачности.
         </Addition>
       </DetailsSummary>
-      <DetailsSummary title="Как вывести секвенцию в GIF?">
+      <DetailsSummary
+        anchor="export-gif"
+        title="Как вывести секвенцию в GIF?"
+      >
         <p>
           Из <mark className="app">Adobe Premiere</mark> вывести ваш ролик в формат{" "}
           <mark className="image">GIF</mark> можно тремя способами.
@@ -814,7 +820,10 @@ const PrExport: React.FC = () => {
           <mark className="select">«Сохранить изображение как...»</mark>.
         </p>
       </DetailsSummary>
-      <DetailsSummary title="Как вывести секвенцию с альфа-каналом, то есть с прозрачностью?">
+      <DetailsSummary
+        anchor="export-prores"
+        title="Как вывести секвенцию с альфа-каналом, то есть с прозрачностью?"
+      >
         <Addition type="warning">
           В <mark className="video">H.264</mark> и <mark className="video">MP4</mark>{" "}
           нельзя вывести композицию с альфа-каналом. Это можно сделать только на
@@ -867,7 +876,10 @@ const PrExport: React.FC = () => {
         tag="previews, ускорение времени рендера, уменьшение перепросчёта, пререндер, prerender"
         title="Как сократить время повторного экспорта, если заказчик попросил внести небольшие правки?"
       ></DetailsSummary>
-      <DetailsSummary title="Как сохранить свой шаблон с настройками для экспорта секвенций?">
+      <DetailsSummary
+        anchor="save-export-preset"
+        title="Как сохранить свой шаблон с настройками для экспорта секвенций?"
+      >
         <p>
           Вы, наверное, не раз замечали параметр <mark className="select">«Preset»</mark>{" "}
           в окне экспорта и задумывались, можно ли добавить свои? Да, в{" "}
@@ -896,7 +908,10 @@ const PrExport: React.FC = () => {
           <mark className="select">«More Presets»</mark>.
         </p>
       </DetailsSummary>
-      <DetailsSummary title="Как вывести текущий кадр предпросмотра как файл изображения?">
+      <DetailsSummary
+        anchor="export-still"
+        title="Как вывести текущий кадр предпросмотра как файл изображения?"
+      >
         <p>
           Для экспорта текущего кадра предпросмотра достаточно нажать на комбинацию клавиш{" "}
           <mark className="key">Ctrl + Shift + E</mark> или нажать на иконку фотоаппарата
@@ -917,7 +932,10 @@ const PrExport: React.FC = () => {
           type="image"
         />
       </DetailsSummary>
-      <DetailsSummary title="Как вывести все кадры секвенции как отдельные файлы изображений?">
+      <DetailsSummary
+        anchor="export-sequence"
+        title="Как вывести все кадры секвенции как отдельные файлы изображений?"
+      >
         <p>
           Если вы хотите вывести все кадры из секвенции в отдельные файлы, то вам
           достаточно выбрать в качестве способа вывода <mark className="image">JPG</mark>,{" "}
@@ -953,7 +971,10 @@ const PrExport: React.FC = () => {
           Вот и всё, все кадры из вашей секвенции сохранятся в нужную папку.
         </p>
       </DetailsSummary>
-      <DetailsSummary title="Как вывести только часть моей секвенции?">
+      <DetailsSummary
+        anchor="export-only-work-area"
+        title="Как экспортировать всю длину секвенции или только её часть?"
+      >
         <p>
           Прежде чем начать экспорт части секвенции, вам нужно поставить точки входа на
           таймлайне с помощью кнопок <mark className="key">I</mark> и{" "}
@@ -1005,7 +1026,10 @@ const PrExport: React.FC = () => {
           <mark className="select">«Export»</mark>.
         </p>
       </DetailsSummary>
-      <DetailsSummary title="Я сделал работу, но мне нужно передать .PRPROJ вместе с исходниками другому человеку. Возможно ли это сделать без танцев с бубном?">
+      <DetailsSummary
+        anchor="collect-files"
+        title="Я сделал работу, но мне нужно передать .PRPROJ вместе с исходниками другому человеку. Возможно ли это сделать без танцев с бубном?"
+      >
         <p>
           Да, возможно. Это можно сделать через{" "}
           <mark className="select">«Project Manager»</mark>, который находится в параметре{" "}
@@ -1098,7 +1122,10 @@ const PrExport: React.FC = () => {
           }
         />
       </DetailsSummary>
-      <DetailsSummary title="Я нарезал видео, но хочу переместить таймлайн в другую монтажную программу. Как это сделать?">
+      <DetailsSummary
+        anchor="export-xml"
+        title="Я нарезал видео, но хочу переместить таймлайн в другую монтажную программу. Как это сделать?"
+      >
         <p>
           В <mark className="app">Adobe Premiere</mark> есть функция для экспорта{" "}
           <mark className="file">XML</mark> файла. В этом файле хранится вся информация об
