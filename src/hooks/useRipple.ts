@@ -3,6 +3,8 @@ import {MouseEvent as ReactMouseEvent} from "react";
 export const applyRipple = (element: HTMLElement, clientX: number, clientY: number) => {
   const computedStyle = globalThis.getComputedStyle(element);
 
+  const inlineOverflow = element.style.overflow;
+
   if (computedStyle.position === "static") {
     element.style.position = "relative";
   }
@@ -28,6 +30,10 @@ export const applyRipple = (element: HTMLElement, clientX: number, clientY: numb
   setTimeout(() => {
     if (ripple.parentElement) {
       ripple.remove();
+    }
+
+    if (!element.querySelector(".ripple")) {
+      element.style.overflow = inlineOverflow;
     }
   }, 750);
 };

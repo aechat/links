@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 
 import {
   AnimationRounded,
@@ -65,6 +65,124 @@ const Links = () => {
   const closeModal = () => {
     setIsModalOpen(false);
   };
+
+  useEffect(() => {
+    const cornerClasses = [
+      "links-corner-tl",
+      "links-corner-tr",
+      "links-corner-bl",
+      "links-corner-br",
+    ] as const;
+
+    const clearCornerClasses = (element: HTMLElement) => {
+      for (const cornerClass of cornerClasses) {
+        element.classList.remove(cornerClass);
+      }
+    };
+
+    const findLeftMost = (elements: HTMLElement[]) => {
+      let leftMost = elements[0];
+
+      for (const element of elements) {
+        if (element.offsetLeft < leftMost.offsetLeft) {
+          leftMost = element;
+        }
+      }
+
+      return leftMost;
+    };
+
+    const findRightMost = (elements: HTMLElement[]) => {
+      let rightMost = elements[0];
+
+      for (const element of elements) {
+        if (element.offsetLeft > rightMost.offsetLeft) {
+          rightMost = element;
+        }
+      }
+
+      return rightMost;
+    };
+
+    const applyCornersForGrid = (grid: HTMLElement) => {
+      const items = [...grid.querySelectorAll<HTMLElement>(".links-grid-item")];
+
+      if (items.length === 0) {
+        return;
+      }
+
+      for (const item of items) {
+        clearCornerClasses(item);
+      }
+
+      const topValues = items.map((item) => item.offsetTop);
+
+      const minTop = Math.min(...topValues);
+
+      const maxTop = Math.max(...topValues);
+
+      const topRow = items.filter((item) => item.offsetTop === minTop);
+
+      const bottomRow = items.filter((item) => item.offsetTop === maxTop);
+
+      const topLeft = findLeftMost(topRow);
+
+      const topRight = findRightMost(topRow);
+
+      const bottomLeft = findLeftMost(bottomRow);
+
+      const bottomRight = findRightMost(bottomRow);
+
+      topLeft.classList.add("links-corner-tl");
+      topRight.classList.add("links-corner-tr");
+      bottomLeft.classList.add("links-corner-bl");
+      bottomRight.classList.add("links-corner-br");
+    };
+
+    const updateAllGridCorners = () => {
+      const grids = document.querySelectorAll<HTMLElement>(".links-grid");
+
+      for (const grid of grids) {
+        applyCornersForGrid(grid);
+      }
+    };
+
+    let rafId: number | undefined;
+
+    const scheduleUpdate = () => {
+      if (rafId !== undefined) {
+        cancelAnimationFrame(rafId);
+      }
+
+      rafId = requestAnimationFrame(() => {
+        rafId = undefined;
+        updateAllGridCorners();
+      });
+    };
+
+    scheduleUpdate();
+    window.addEventListener("resize", scheduleUpdate);
+
+    const resizeObserver =
+      "ResizeObserver" in globalThis ? new ResizeObserver(scheduleUpdate) : undefined;
+
+    if (resizeObserver) {
+      const grids = document.querySelectorAll<HTMLElement>(".links-grid");
+
+      for (const grid of grids) {
+        resizeObserver.observe(grid);
+      }
+    }
+
+    return () => {
+      if (rafId !== undefined) {
+        cancelAnimationFrame(rafId);
+      }
+
+      window.removeEventListener("resize", scheduleUpdate);
+      resizeObserver?.disconnect();
+    };
+  }, []);
 
   return (
     <div className="page">
