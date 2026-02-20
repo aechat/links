@@ -1274,17 +1274,13 @@ const PsInstallProblems: React.FC = () => {
         <Addition type="warning">
           Для изменения системных файлов требуются права администратора.
         </Addition>
-        <code>
-          127.0.0.1 cc-api-data.adobe.io
-          <br />
+        <CodeSnippet>
+          {`127.0.0.1 cc-api-data.adobe.io
           127.0.0.1 ic.adobe.io
-          <br />
           127.0.0.1 genuine.adobe.com
-          <br />
           127.0.0.1 prod.adobegenuine.com
-          <br />
-          127.0.0.1 assets.adobedtm.com
-        </code>
+127.0.0.1 assets.adobedtm.com`}
+        </CodeSnippet>
         <p>
           После этого загрузка нейро-фильтров должна начаться нормально. Нейро-фильтры
           обычно загружаются в папку{" "}
