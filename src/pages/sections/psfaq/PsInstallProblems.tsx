@@ -525,11 +525,11 @@ const PsInstallProblems: React.FC = () => {
                 установки рекламного ПО, который можно убрать перед установкой.
               </p>
               <p>
-                Поэтому, если вы доверяете <a href="#1.1">источникам</a>, откуда скачали
-                файлы, паниковать не нужно. Просто временно или полностью отключите
-                антивирус, чтобы избежать проблем при установке. Это касается не только
-                репаков, но и плагинов, и других файлов из интернета — даже если они
-                абсолютно безопасны.{" "}
+                Поэтому, если вы доверяете <a href="#where-to-download">источникам</a>,
+                откуда скачали файлы, паниковать не нужно. Просто временно или полностью
+                отключите антивирус, чтобы избежать проблем при установке. Это касается не
+                только репаков, но и плагинов, и других файлов из интернета — даже если
+                они абсолютно безопасны.{" "}
                 <i style={{opacity: "0.5"}}>
                   А если не доверяете — не предъявляйте администраторам претензии,
                   основанные на вашей паранойе, а просто купите лицензию.
@@ -1213,6 +1213,87 @@ const PsInstallProblems: React.FC = () => {
         </Addition>
       </DetailsSummary>
       <DetailsSummary
+        anchor="neural-filters-download"
+        tag="neural filters"
+        title="Где и как скачать нейро-фильтры в Photoshop?"
+      >
+        <p>
+          Вы, наверное, не раз натыкались на то, что вкладка{" "}
+          <mark className="select">«Neural Filters»</mark> не доступна на «народных»
+          версиях <mark className="app">Adobe Photoshop</mark>. Она не активна по той
+          причине, что вы не вошли в аккаунт <mark className="company">Adobe</mark>.
+        </p>
+        <ArticleMedia
+          caption="Adobe Photoshop"
+          src="legacy/photoshop/disabled_neural_filters.png"
+          type="image"
+        />
+        <p>
+          Чтобы активировать вкладку <mark className="select">«Neural Filters»</mark> вам
+          нужно зарегистрировать аккаунт <mark className="company">Adobe</mark> если у вас
+          его нет и войти в него. Для этого перейдите в{" "}
+          <mark className="select">«Help»</mark> и нажмите на{" "}
+          <mark className="select">«Sign In»</mark>. В открывшемся окне произведите вход в
+          аккаунт.
+        </p>
+        <Addition type="info">
+          Не переживайте, псевдо-лицензия после входа в аккаунт не слетит. Если после
+          нажатия на <mark className="select">«Sign In»</mark> вместо окна входа в аккаунт
+          появляется окно об отсутствии интернета, то просто попробуйте включить{" "}
+          <mark className="app">VPN</mark>. Обычно они игнорируют правила блокировки
+          доступа программе в интернет.
+        </Addition>
+        <ArticleMedia
+          caption="Adobe Photoshop"
+          src="legacy/photoshop/help_sign_in.png"
+          type="image"
+        />
+        <p>
+          После входа в аккаунт - вкладка <mark className="select">«Neural Filters»</mark>{" "}
+          в контекстном меню <mark className="select">«Filter»</mark> станет активной и вы
+          сможете загрузить нейро-фильтры, нажав на иконку загрузки рядом с ними.
+        </p>
+        <ArticleMedia
+          caption="Adobe Photoshop"
+          src="legacy/photoshop/download_neural_filters.png"
+          type="image"
+        />
+        <p>
+          Но не тут то было, иногда загрузка нейро-фильтров сразу прерывается, не объясняя
+          причину. Чтобы это исправить - нужно внести несколько адресов в файл{" "}
+          <mark className="file">HOSTS</mark>. Для этого вам нужно перейти в{" "}
+          <mark className="path">C:\Windows\System32\drivers\etc</mark>, скопировать файл{" "}
+          <mark className="path">hosts</mark> в любое удобное место, открыть любой
+          текстовый редактор, например <mark className="app">Notepad++</mark> или{" "}
+          <mark className="app">VS Code</mark>, и внести строки чуть ниже в конец файла.
+          Затем сохраните отредактированный файл и перенесите его обратно в{" "}
+          <mark className="path">C:\Windows\System32\drivers\etc\hosts</mark> с заменой и
+          перезагрузите <mark className="app">Adobe Photoshop</mark>, если он у вас был
+          открыт.
+        </p>
+        <Addition type="warning">
+          Для изменения системных файлов требуются права администратора.
+        </Addition>
+        <CodeSnippet>
+          {`127.0.0.1 cc-api-data.adobe.io
+          127.0.0.1 ic.adobe.io
+          127.0.0.1 genuine.adobe.com
+          127.0.0.1 prod.adobegenuine.com
+127.0.0.1 assets.adobedtm.com`}
+        </CodeSnippet>
+        <p>
+          После этого загрузка нейро-фильтров должна начаться нормально. Нейро-фильтры
+          обычно загружаются в папку{" "}
+          <mark className="path">
+            %AppData%\Adobe\UXP\PluginsStorage\PHSP\XX\Internal\com.adobe.nfp.gallery\PluginData
+          </mark>
+          , где <mark>XX</mark> - версия программы, указаная в первой части числа в{" "}
+          <mark className="select">«Help» → «About Photoshop»</mark>. Эта информация вам
+          пригодится, если вы хотите удалить файлы нейро-фильтров или распаковать их в
+          нужную папку из другого источника в интернете.
+        </p>
+      </DetailsSummary>
+      <DetailsSummary
         anchor="kpojluk-corrupted-install-files"
         tag="репак от кролика"
         title="«Некоторые установочные файлы были повреждены. Загрузите свежую копию и повторите установку»"
@@ -1346,89 +1427,37 @@ const PsInstallProblems: React.FC = () => {
         </p>
       </DetailsSummary>
       <DetailsSummary
-        anchor="neural-filters-download"
-        tag="neural filters"
-        title="Где и как скачать нейро-фильтры в Photoshop?"
+        anchor="fix-creative-cloud-missing"
+        tag="ошибка запуска, хвосты от неудачного удаления, переустановка, adobe cc"
+        title="«Приложение Adobe Creative Cloud, необходимое для устранения проблемы, отсутствует или повреждено...» при запуске программы"
       >
-        <p>
-          Вы, наверное, не раз натыкались на то, что вкладка{" "}
-          <mark className="select">«Neural Filters»</mark> не доступна на «народных»
-          версиях <mark className="app">Adobe Photoshop</mark>. Она не активна по той
-          причине, что вы не вошли в аккаунт <mark className="company">Adobe</mark>.
-        </p>
-        <ArticleMedia
-          caption="Adobe Photoshop"
-          src="legacy/photoshop/disabled_neural_filters.png"
-          type="image"
+        <ContentFilter
+          windowsContent={
+            <>
+              <p>
+                Такая ошибка может возникнуть, если вы когда-то установили{" "}
+                <mark className="app">Adobe Creative Cloud</mark> рядом с «народными»
+                версиями программ, из которых его предварительно вырезали. А затем решили
+                удалить само приложение <mark className="app">Adobe Creative Cloud</mark>,
+                оставив за собой нежелательные «хвосты».
+              </p>
+              <p>
+                Решение довольно простое: удалите все приложения от{" "}
+                <mark className="company">Adobe</mark> и установите их заново — это
+                поможет избавиться от лишних зависимостей, связанных с{" "}
+                <mark className="app">Adobe Creative Cloud</mark>. Да, вы не ослышались.
+                Чтобы полностью очистить систему от программ{" "}
+                <mark className="company">Adobe</mark> — воспользуйтесь консольной
+                утилитой{" "}
+                <a href="https://helpx.adobe.com/creative-cloud/apps/troubleshoot/diagnostics-repair-tools/run-creative-cloud-cleaner-tool.html">
+                  Adobe Creative Cloud Cleaner
+                </a>{" "}
+                или любым другим деинсталлятором, например{" "}
+                <mark className="app">Revo Uninstaller</mark>.
+              </p>
+            </>
+          }
         />
-        <p>
-          Чтобы активировать вкладку <mark className="select">«Neural Filters»</mark> вам
-          нужно зарегистрировать аккаунт <mark className="company">Adobe</mark> если у вас
-          его нет и войти в него. Для этого перейдите в{" "}
-          <mark className="select">«Help»</mark> и нажмите на{" "}
-          <mark className="select">«Sign In»</mark>. В открывшемся окне произведите вход в
-          аккаунт.
-        </p>
-        <Addition type="info">
-          Не переживайте, псевдо-лицензия после входа в аккаунт не слетит. Если после
-          нажатия на <mark className="select">«Sign In»</mark> вместо окна входа в аккаунт
-          появляется окно об отсутствии интернета, то просто попробуйте включить{" "}
-          <mark className="app">VPN</mark>. Обычно они игнорируют правила блокировки
-          доступа программе в интернет.
-        </Addition>
-        <ArticleMedia
-          caption="Adobe Photoshop"
-          src="legacy/photoshop/help_sign_in.png"
-          type="image"
-        />
-        <p>
-          После входа в аккаунт - вкладка <mark className="select">«Neural Filters»</mark>{" "}
-          в контекстном меню <mark className="select">«Filter»</mark> станет активной и вы
-          сможете загрузить нейро-фильтры, нажав на иконку загрузки рядом с ними.
-        </p>
-        <ArticleMedia
-          caption="Adobe Photoshop"
-          src="legacy/photoshop/download_neural_filters.png"
-          type="image"
-        />
-        <p>
-          Но не тут то было, иногда загрузка нейро-фильтров сразу прерывается, не объясняя
-          причину. Чтобы это исправить - нужно внести несколько адресов в файл{" "}
-          <mark className="file">HOSTS</mark>. Для этого вам нужно перейти в{" "}
-          <mark className="path">C:\Windows\System32\drivers\etc</mark>, скопировать файл{" "}
-          <mark className="path">hosts</mark> в любое удобное место, открыть любой
-          текстовый редактор, например <mark className="app">Notepad++</mark> или{" "}
-          <mark className="app">VS Code</mark>, и внести строки чуть ниже в конец файла.
-          Затем сохраните отредактированный файл и перенесите его обратно в{" "}
-          <mark className="path">C:\Windows\System32\drivers\etc\hosts</mark> с заменой и
-          перезагрузите <mark className="app">Adobe Photoshop</mark>, если он у вас был
-          открыт.
-        </p>
-        <Addition type="warning">
-          Для изменения системных файлов требуются права администратора.
-        </Addition>
-        <code>
-          127.0.0.1 cc-api-data.adobe.io
-          <br />
-          127.0.0.1 ic.adobe.io
-          <br />
-          127.0.0.1 genuine.adobe.com
-          <br />
-          127.0.0.1 prod.adobegenuine.com
-          <br />
-          127.0.0.1 assets.adobedtm.com
-        </code>
-        <p>
-          После этого загрузка нейро-фильтров должна начаться нормально. Нейро-фильтры
-          обычно загружаются в папку{" "}
-          <mark className="path">
-            %AppData%\Adobe\UXP\PluginsStorage\PHSP\XX\Internal\com.adobe.nfp.gallery\PluginData
-          </mark>
-          , где <mark>XX</mark> - версия программы, указаная в первой части числа в{" "}
-          <mark className="select">«Help» → «About Photoshop»</mark>. Эта информация вам
-          пригодится, если вы хотите удалить файлы нейро-фильтров или распаковать их в
-          нужную папку из другого источника в интернете.
-        </p>
       </DetailsSummary>
       <DetailsSummary
         anchor="fix-zxp-installer-193"
@@ -1451,7 +1480,7 @@ const PsInstallProblems: React.FC = () => {
         </p>
         <Addition type="info">
           Более подробную информацию про установку дополнительных материалов вы можете
-          прочитать в<a href="#2.1">статье 2.1</a>.
+          прочитать в<a href="#how-to-install">статье 2.1</a>.
         </Addition>
       </DetailsSummary>
       <DetailsSummary

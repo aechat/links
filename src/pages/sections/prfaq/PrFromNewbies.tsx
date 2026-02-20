@@ -1511,7 +1511,8 @@ const PrFromNewbies: React.FC = () => {
             нужный пресет
           </a>{" "}
           и импортировать его в <mark className="app">Adobe Premiere</mark> в соответствии
-          с<a href="#2.1">инструкцией по установке дополнительного контента</a>.
+          с<a href="#how-to-install">инструкцией по установке дополнительного контента</a>
+          .
         </p>
       </DetailsSummary>
       <DetailsSummary
