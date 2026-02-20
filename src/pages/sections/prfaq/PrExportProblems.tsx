@@ -151,16 +151,7 @@ const PrExportProblems: React.FC = () => {
       <DetailsSummary
         anchor="fix-render-freeze"
         title="Что делать, если экспорт зависает на определённом моменте?"
-      >
-        {/*   <p>
-          При экспорте проблема зависания полосы прогресса может возникнуть по разным
-          причинам.
-        </p>
-        <p>
-          Иногда вам может помочь использование <mark>Pre-render</mark> файлов для
-          финального экспорта.
-        </p> */}
-      </DetailsSummary>
+      ></DetailsSummary>
       <DetailsSummary
         anchor="fix-export-1kb-file"
         tag="file importer detected an inconsistency in the file structure, reading and writing this file's metadata (xmp) has been disabled, не экспортируется, битый файл"
