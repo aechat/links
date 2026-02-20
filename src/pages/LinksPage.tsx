@@ -74,10 +74,37 @@ const Links = () => {
       "links-corner-br",
     ] as const;
 
+    const hoverGrowthPx = 6;
+
+    const activeGrowthPx = 3;
+
     const clearCornerClasses = (element: HTMLElement) => {
       for (const cornerClass of cornerClasses) {
         element.classList.remove(cornerClass);
       }
+    };
+
+    const getScaleValue = (dimension: number, growthPx: number) => {
+      const safeDimension = Math.max(dimension, 1);
+
+      return (safeDimension + growthPx) / safeDimension;
+    };
+
+    const applyScaleVariables = (element: HTMLElement) => {
+      const width = element.offsetWidth;
+
+      const height = element.offsetHeight;
+
+      const baseDimension = Math.max(width, height);
+
+      const hoverScale = getScaleValue(baseDimension, hoverGrowthPx);
+
+      const activeScale = getScaleValue(baseDimension, activeGrowthPx);
+
+      element.style.setProperty("--links-hover-scale-x", hoverScale.toFixed(6));
+      element.style.setProperty("--links-hover-scale-y", hoverScale.toFixed(6));
+      element.style.setProperty("--links-active-scale-x", activeScale.toFixed(6));
+      element.style.setProperty("--links-active-scale-y", activeScale.toFixed(6));
     };
 
     const findLeftMost = (elements: HTMLElement[]) => {
@@ -113,6 +140,7 @@ const Links = () => {
 
       for (const item of items) {
         clearCornerClasses(item);
+        applyScaleVariables(item);
       }
 
       const topValues = items.map((item) => item.offsetTop);

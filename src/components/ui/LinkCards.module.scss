@@ -24,7 +24,7 @@
   will-change: transform;
 
   &:hover {
-    transform: translateZ(0) scale(1.025);
+    transform: translateZ(0) scale(var(--links-hover-scale-x), var(--links-hover-scale-y));
     transition-delay: 0s;
     z-index: 4;
     box-shadow: 0 10px 24px var(--shadow-primary);
@@ -33,7 +33,8 @@
   }
 
   &:active {
-    transform: translateZ(0) scale(1.0075);
+    transform: translateZ(0)
+      scale(var(--links-active-scale-x), var(--links-active-scale-y));
     transition-delay: 0s;
     z-index: 4;
     box-shadow: 0 10px 24px var(--shadow-secondary);
