@@ -2988,20 +2988,25 @@ const AeInstallProblems: React.FC = () => {
                   <mark className="file">JSXBIN</mark> из директорий{" "}
                   <mark className="path">
                     C:\Program Files\Adobe\Adobe After Effects 20XX\Support Files\Scripts
-                  </mark>
-                  ,{" "}
+                  </mark>{" "}
+                  и{" "}
                   <mark className="path">
                     C:\Program Files\Adobe\Adobe After Effects 20XX\Support
                     Files\Scripts\ScriptUI Panels
-                  </mark>{" "}
-                  и{" "}
-                  <mark className="path">%APPDATA%\Adobe\After Effects\XX.X\Scripts</mark>{" "}
-                  и{" "}
-                  <mark className="path">
-                    %APPDATA%\Adobe\After Effects\XX.X\Scripts\ScriptUI Panels
                   </mark>
-                  , где <mark>20XX</mark> и <mark>XX.X</mark> — предыдущая версия
-                  программы.
+                  , где <mark>20XX</mark> — предыдущая версия программы.
+                  <Addition type="info">
+                    Скрипты из директорий{" "}
+                    <mark className="path">
+                      %APPDATA%\Adobe\After Effects\XX.X\Scripts
+                    </mark>{" "}
+                    и{" "}
+                    <mark className="path">
+                      %APPDATA%\Adobe\After Effects\XX.X\Scripts\ScriptUI Panels
+                    </mark>{" "}
+                    перенесутся автоматически, если после обновления вы подтвердите
+                    перенос настроек из предыдущей версии.
+                  </Addition>
                 </li>
                 <li>
                   Пользовательские файлы для цветокоррекции из директории{" "}
