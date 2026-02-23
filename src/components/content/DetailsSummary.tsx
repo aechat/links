@@ -116,6 +116,7 @@ const TagList: React.FC<{tags: string}> = ({tags}) => {
 const constants = {
   ACTION_DELAY: 150,
   MOUSE_ENTER_DELAY: 750,
+  NESTED_OPEN_AFTER_PARENT_DELAY: 200,
   PADDING: {MAX: 14, MIN: 10, SCREEN: {MAX: 768, MIN: 320}},
 } as const;
 
@@ -180,7 +181,10 @@ const processNestedSummaries = (
     }
 
     dispatchOpenSpoilerById(parentSummaryId, {skipScroll: true});
-    dispatchOpenSpoilerById(nestedSummaryId, {delay: constants.ACTION_DELAY * 2});
+
+    dispatchOpenSpoilerById(nestedSummaryId, {
+      delay: constants.ACTION_DELAY + constants.NESTED_OPEN_AFTER_PARENT_DELAY,
+    });
   }
 };
 

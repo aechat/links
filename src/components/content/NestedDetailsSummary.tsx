@@ -91,6 +91,7 @@ const NestedDetailsSummary: React.FC<NestedDetailsSummaryProperties> = ({
 
   const innerContentReference = useRef<HTMLDivElement>(null);
 
+  const scrollTimeoutReference = useRef<ReturnType<typeof setTimeout>>();
   const handleSummaryClick = (event: React.MouseEvent) => {
     event.preventDefault();
     setIsOpen(!isOpen);
@@ -138,9 +139,11 @@ const NestedDetailsSummary: React.FC<NestedDetailsSummaryProperties> = ({
     );
 
     if (summary) {
-      setTimeout(() => {
-        const {headerHeight, padding} = getScrollOffsets();
+      clearTimeout(scrollTimeoutReference.current);
 
+      const {headerHeight, padding} = getScrollOffsets();
+
+      scrollTimeoutReference.current = setTimeout(() => {
         const y =
           summary.getBoundingClientRect().top +
           window.pageYOffset -
@@ -152,6 +155,12 @@ const NestedDetailsSummary: React.FC<NestedDetailsSummaryProperties> = ({
     }
   }, []);
 
+  useEffect(
+    () => () => {
+      clearTimeout(scrollTimeoutReference.current);
+    },
+    []
+  );
   const previousIsOpen = usePrevious(isOpen);
 
   useEffect(() => {
@@ -253,73 +262,115 @@ const NestedDetailsSummary: React.FC<NestedDetailsSummaryProperties> = ({
 
     if (!details || !contentWrapper || !innerContent) return;
 
-    const updateMaxHeight = () => {
-      if (details.open) {
-        const scrollHeight = innerContent.scrollHeight;
+    let openRetryAnimationFrame: number | undefined;
 
-        contentWrapper.style.maxHeight = `${scrollHeight}px`;
-      }
-    };
+    let transitionAnimationFrame: number | undefined;
 
-    const openHeightDeadline = performance.now() + 1500;
+    let closeFallbackTimeout: ReturnType<typeof setTimeout> | undefined;
 
-    const applyOpenMaxHeight = () => {
-      const scrollHeight = innerContent.scrollHeight;
+    const updateOpenHeight = (attempt = 0) => {
+      const targetHeight = innerContent.scrollHeight;
 
-      if (scrollHeight > 0 || performance.now() >= openHeightDeadline) {
-        contentWrapper.style.maxHeight = `${scrollHeight}px`;
+      if (targetHeight > 0 || attempt >= 40) {
+        contentWrapper.style.maxHeight = `${targetHeight}px`;
 
         return;
       }
 
-      requestAnimationFrame(() => {
-        applyOpenMaxHeight();
+      openRetryAnimationFrame = requestAnimationFrame(() => {
+        updateOpenHeight(attempt + 1);
       });
     };
 
-    const resizeObserver = new ResizeObserver(updateMaxHeight);
-
-    const handleTransitionEnd = (event: TransitionEvent) => {
-      if (event.target !== contentWrapper) return;
+    const onTransitionEnd = (event: TransitionEvent) => {
+      if (event.target !== contentWrapper || event.propertyName !== "max-height") {
+        return;
+      }
 
       if (isOpen) {
-        resizeObserver.observe(innerContent);
-        updateMaxHeight();
+        contentWrapper.style.maxHeight = "none";
+      } else {
+        details.open = false;
       }
     };
 
-    contentWrapper.addEventListener("transitionend", handleTransitionEnd);
+    contentWrapper.addEventListener("transitionend", onTransitionEnd);
+
+    const resizeObserver = new ResizeObserver(() => {
+      if (!isOpen) {
+        return;
+      }
+
+      if (contentWrapper.style.maxHeight !== "none") {
+        contentWrapper.style.maxHeight = `${innerContent.scrollHeight}px`;
+      }
+    });
+
+    resizeObserver.observe(innerContent);
+
+    const onWindowResize = () => {
+      if (!isOpen) {
+        return;
+      }
+
+      if (contentWrapper.style.maxHeight !== "none") {
+        contentWrapper.style.maxHeight = `${innerContent.scrollHeight}px`;
+      }
+    };
+
+    window.addEventListener("resize", onWindowResize);
 
     if (isOpen) {
       details.open = true;
-      applyOpenMaxHeight();
+
+      const currentHeight = contentWrapper.getBoundingClientRect().height;
+
+      contentWrapper.style.maxHeight = `${currentHeight}px`;
+
+      transitionAnimationFrame = requestAnimationFrame(() => {
+        updateOpenHeight();
+      });
     } else {
-      resizeObserver.unobserve(innerContent);
+      const currentHeight =
+        contentWrapper.style.maxHeight === "none"
+          ? innerContent.scrollHeight
+          : contentWrapper.getBoundingClientRect().height;
 
-      const scrollHeight = innerContent.offsetHeight;
+      contentWrapper.style.maxHeight = `${currentHeight}px`;
 
-      contentWrapper.style.maxHeight = `${scrollHeight}px`;
-
-      requestAnimationFrame(() => {
+      transitionAnimationFrame = requestAnimationFrame(() => {
         contentWrapper.style.maxHeight = "0px";
       });
 
-      const transitionDuration =
-        Number.parseFloat(getComputedStyle(contentWrapper).transitionDuration) * 1000;
+      const duration = Number.parseFloat(
+        getComputedStyle(contentWrapper).transitionDuration
+      );
 
-      setTimeout(() => {
+      const durationMs = Number.isNaN(duration) ? 350 : duration * 1000;
+
+      closeFallbackTimeout = setTimeout(() => {
         if (!isOpen) {
           details.open = false;
         }
-      }, transitionDuration);
+      }, durationMs + 50);
     }
 
-    window.addEventListener("resize", updateMaxHeight);
-
     return () => {
+      if (openRetryAnimationFrame !== undefined) {
+        cancelAnimationFrame(openRetryAnimationFrame);
+      }
+
+      if (transitionAnimationFrame !== undefined) {
+        cancelAnimationFrame(transitionAnimationFrame);
+      }
+
+      if (closeFallbackTimeout) {
+        clearTimeout(closeFallbackTimeout);
+      }
+
       resizeObserver.disconnect();
-      window.removeEventListener("resize", updateMaxHeight);
-      contentWrapper.removeEventListener("transitionend", handleTransitionEnd);
+      window.removeEventListener("resize", onWindowResize);
+      contentWrapper.removeEventListener("transitionend", onTransitionEnd);
     };
   }, [isOpen, isParentOpen]);
 
