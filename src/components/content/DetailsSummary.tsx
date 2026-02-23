@@ -161,6 +161,37 @@ const assignAnchorIdIfMissing = (element: Element, fallbackId: string): string =
 
 const normalizeAnchor = (anchor?: string): string => anchor?.trim() ?? "";
 
+const isFirstAnchorOccurrence = (
+  detailsElement: HTMLDetailsElement,
+  textualAnchor: string
+): boolean => {
+  const normalizedTextualAnchor = normalizeAnchor(textualAnchor);
+
+  if (!normalizedTextualAnchor) {
+    return false;
+  }
+
+  const detailsWithSameAnchor = [
+    ...document.querySelectorAll<HTMLDetailsElement>("details[data-anchor]"),
+  ].find(
+    (details) => normalizeAnchor(details.dataset.anchor) === normalizedTextualAnchor
+  );
+
+  return detailsWithSameAnchor === detailsElement;
+};
+
+const reportDuplicateAnchorError = (anchor: string) => {
+  const normalizedAnchor = normalizeAnchor(anchor);
+
+  if (!normalizedAnchor) {
+    return;
+  }
+
+  throw new Error(
+    `Дублирующийся anchor "${normalizedAnchor}" в DetailsSummary. Якорь должен быть уникальным.`
+  );
+};
+
 const processNestedSummaries = (
   detailsElement: HTMLDetailsElement,
   generatedAnchor: string,
@@ -196,10 +227,15 @@ const processNestedSummaries = (
 
     const normalizedNestedTextualAnchor = normalizeAnchor(nestedTextualAnchor);
 
+    const isNestedTextualAnchorUsable =
+      nestedDetailsElement instanceof HTMLDetailsElement &&
+      normalizedNestedTextualAnchor &&
+      isFirstAnchorOccurrence(nestedDetailsElement, normalizedNestedTextualAnchor);
+
     if (
       !currentHash ||
       (nestedSummaryId !== currentHash &&
-        normalizedNestedTextualAnchor !== currentHash)
+        (!isNestedTextualAnchorUsable || normalizedNestedTextualAnchor !== currentHash))
     ) {
       continue;
     }
@@ -235,9 +271,15 @@ export const generateAnchorId = () => {
 
       const textualAnchor = normalizeAnchor(detailsElement?.dataset.anchor);
 
+      const isTextualAnchorUsable =
+        detailsElement instanceof HTMLDetailsElement &&
+        textualAnchor &&
+        isFirstAnchorOccurrence(detailsElement, textualAnchor);
+
       if (
         currentHash &&
-        (summaryId === currentHash || textualAnchor === currentHash)
+        (summaryId === currentHash ||
+          (isTextualAnchorUsable && textualAnchor === currentHash))
       ) {
         dispatchOpenSpoilerById(summaryId);
       }
@@ -297,8 +339,33 @@ const DetailsSummary: React.FC<DetailsSummaryProperties> = ({
       return generatedAnchor;
     }
 
+    const detailsElement = detailsReference.current;
+
+    if (
+      !(detailsElement instanceof HTMLDetailsElement) ||
+      !isFirstAnchorOccurrence(detailsElement, textualAnchor)
+    ) {
+      reportDuplicateAnchorError(textualAnchor);
+
+      return generatedAnchor;
+    }
+
     return textualAnchor;
   }, [anchor, displayAnchorId]);
+
+  useEffect(() => {
+    const detailsElement = detailsReference.current;
+
+    const textualAnchor = normalizeAnchor(anchor);
+
+    if (
+      detailsElement instanceof HTMLDetailsElement &&
+      textualAnchor &&
+      !isFirstAnchorOccurrence(detailsElement, textualAnchor)
+    ) {
+      reportDuplicateAnchorError(textualAnchor);
+    }
+  }, [anchor]);
 
   const updateDynamicStyles = useCallback(() => {
     const details = detailsReference.current;
@@ -556,7 +623,14 @@ const DetailsSummary: React.FC<DetailsSummaryProperties> = ({
     } else if (!isOpen && (currentHash === summaryId || currentHash === resolvedAnchor)) {
       updateUrlHash("");
     }
-  }, [isOpen, previousIsOpen, displayAnchorId, updateUrlHash, anchor, getEffectiveAnchor]);
+  }, [
+    isOpen,
+    previousIsOpen,
+    displayAnchorId,
+    updateUrlHash,
+    anchor,
+    getEffectiveAnchor,
+  ]);
 
   useEffect(() => {
     const justOpened = isOpen && !previousIsOpen;

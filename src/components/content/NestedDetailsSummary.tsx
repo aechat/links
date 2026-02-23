@@ -62,6 +62,37 @@ const getScrollOffsets = () => {
 
 const normalizeAnchor = (anchor?: string): string => anchor?.trim() ?? "";
 
+const isFirstAnchorOccurrence = (
+  detailsElement: HTMLDetailsElement,
+  textualAnchor: string
+): boolean => {
+  const normalizedTextualAnchor = normalizeAnchor(textualAnchor);
+
+  if (!normalizedTextualAnchor) {
+    return false;
+  }
+
+  const detailsWithSameAnchor = [
+    ...document.querySelectorAll<HTMLDetailsElement>("details[data-anchor]"),
+  ].find(
+    (details) => normalizeAnchor(details.dataset.anchor) === normalizedTextualAnchor
+  );
+
+  return detailsWithSameAnchor === detailsElement;
+};
+
+const reportDuplicateAnchorError = (anchor: string) => {
+  const normalizedAnchor = normalizeAnchor(anchor);
+
+  if (!normalizedAnchor) {
+    return;
+  }
+
+  throw new Error(
+    `Дублирующийся anchor "${normalizedAnchor}" в NestedDetailsSummary. Якорь должен быть уникальным.`
+  );
+};
+
 const NestedDetailsSummary: React.FC<NestedDetailsSummaryProperties> = ({
   anchor,
   children,
@@ -148,14 +179,41 @@ const NestedDetailsSummary: React.FC<NestedDetailsSummaryProperties> = ({
       return generatedAnchor;
     }
 
+    const detailsElement = detailsReference.current;
+
+    if (
+      !(detailsElement instanceof HTMLDetailsElement) ||
+      !isFirstAnchorOccurrence(detailsElement, textualAnchor)
+    ) {
+      reportDuplicateAnchorError(textualAnchor);
+
+      return generatedAnchor;
+    }
+
     const {parentSummaryId, parentTextualAnchor} = getParentAnchorData();
 
     if (textualAnchor === parentTextualAnchor || textualAnchor === parentSummaryId) {
+      reportDuplicateAnchorError(textualAnchor);
+
       return generatedAnchor;
     }
 
     return textualAnchor;
   }, [anchor, displayAnchorId, getParentAnchorData]);
+
+  useEffect(() => {
+    const detailsElement = detailsReference.current;
+
+    const textualAnchor = normalizeAnchor(anchor);
+
+    if (
+      detailsElement instanceof HTMLDetailsElement &&
+      textualAnchor &&
+      !isFirstAnchorOccurrence(detailsElement, textualAnchor)
+    ) {
+      reportDuplicateAnchorError(textualAnchor);
+    }
+  }, [anchor]);
 
   const doScroll = useCallback(() => {
     const summary = detailsReference.current?.querySelector(
