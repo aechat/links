@@ -135,6 +135,55 @@ const getScrollOffsets = () => {
   return {headerHeight, padding};
 };
 
+const dispatchOpenSpoilerById = (
+  id: string,
+  options?: {delay?: number; skipScroll?: boolean}
+) => {
+  const delay = options?.delay ?? constants.ACTION_DELAY;
+
+  setTimeout(() => {
+    globalThis.dispatchEvent(
+      new CustomEvent("open-spoiler-by-id", {
+        detail: {id, skipScroll: options?.skipScroll},
+      })
+    );
+  }, delay);
+};
+
+const assignAnchorIdIfMissing = (element: Element, fallbackId: string): string => {
+  if (!element.hasAttribute("id")) {
+    element.setAttribute("id", fallbackId);
+  }
+
+  return element.id;
+};
+
+const processNestedSummaries = (
+  detailsElement: HTMLDetailsElement,
+  generatedAnchor: string,
+  currentHash: string,
+  parentSummaryId: string
+) => {
+  const nestedSummaries = [
+    ...detailsElement.querySelectorAll<HTMLElement>(
+      `details[data-nested-details-summary="true"] > summary`
+    ),
+  ];
+
+  for (const [nestedIndex, nestedSummary] of nestedSummaries.entries()) {
+    const nestedAnchor = `${generatedAnchor}.${nestedIndex + 1}`;
+
+    const nestedSummaryId = assignAnchorIdIfMissing(nestedSummary, nestedAnchor);
+
+    if (!currentHash || nestedSummaryId !== currentHash) {
+      continue;
+    }
+
+    dispatchOpenSpoilerById(parentSummaryId, {skipScroll: true});
+    dispatchOpenSpoilerById(nestedSummaryId, {delay: constants.ACTION_DELAY * 2});
+  }
+};
+
 export const generateAnchorId = () => {
   if (globalThis.window === undefined) return;
 
@@ -152,22 +201,18 @@ export const generateAnchorId = () => {
     for (const [summaryIndex, summary] of summaries.entries()) {
       const generatedAnchor = `${blockIndex + 1}.${summaryIndex + 1}`;
 
-      if (!summary.hasAttribute("id")) {
-        summary.setAttribute("id", generatedAnchor);
-      }
+      const summaryId = assignAnchorIdIfMissing(summary, generatedAnchor);
 
       const detailsElement = summary.closest("details");
 
       const textualAnchor = detailsElement?.dataset.anchor;
 
-      if (currentHash && (summary.id === currentHash || textualAnchor === currentHash)) {
-        setTimeout(() => {
-          const event = new CustomEvent("open-spoiler-by-id", {
-            detail: {id: summary.id},
-          });
+      if (currentHash && (summaryId === currentHash || textualAnchor === currentHash)) {
+        dispatchOpenSpoilerById(summaryId);
+      }
 
-          globalThis.dispatchEvent(event);
-        }, constants.ACTION_DELAY);
+      if (detailsElement instanceof HTMLDetailsElement) {
+        processNestedSummaries(detailsElement, generatedAnchor, currentHash, summaryId);
       }
     }
   }
@@ -188,6 +233,8 @@ const DetailsSummary: React.FC<DetailsSummaryProperties> = ({
   const {isSpoilerAnimationEnabled} = useTheme();
 
   const hasScrolledAfterOpening = useRef(false);
+
+  const skipNextAutoScroll = useRef(false);
 
   const handleSectionClick = (event: React.MouseEvent<HTMLElement>) => {
     handleInternalLinkClick(event);
@@ -460,6 +507,12 @@ const DetailsSummary: React.FC<DetailsSummaryProperties> = ({
     const justOpened = isOpen && !previousIsOpen;
 
     if (justOpened) {
+      if (skipNextAutoScroll.current) {
+        skipNextAutoScroll.current = false;
+
+        return;
+      }
+
       doScroll();
     }
   }, [isOpen, previousIsOpen, doScroll]);
@@ -502,15 +555,27 @@ const DetailsSummary: React.FC<DetailsSummaryProperties> = ({
 
   useEffect(() => {
     const handleOpenEvent = (event: Event) => {
-      const {id} = (event as CustomEvent<{id: string}>).detail;
+      const {id, skipScroll} = (
+        event as CustomEvent<{
+          id: string;
+          skipScroll?: boolean;
+        }>
+      ).detail;
 
       const summaryElement = detailsReference.current?.querySelector(
         `.${styles["details-summary"]}`
       );
 
       if (summaryElement && summaryElement.id === id) {
+        if (skipScroll) {
+          skipNextAutoScroll.current = true;
+          hasScrolledAfterOpening.current = true;
+        }
+
         if (isOpen) {
-          doScroll();
+          if (!skipScroll) {
+            doScroll();
+          }
         } else {
           setIsOpen(true);
         }

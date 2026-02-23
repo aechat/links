@@ -7,7 +7,11 @@ import React, {
   useState,
 } from "react";
 
+import {message, Tooltip} from "antd";
+
+import {copyText} from "../../hooks/useCopyToClipboard";
 import {useRipple} from "../../hooks/useRipple";
+import {CopyButton} from "../ui/CopyButton/CopyButton";
 
 import styles from "./NestedDetailsSummary.module.scss";
 import {
@@ -74,6 +78,10 @@ const NestedDetailsSummary: React.FC<NestedDetailsSummaryProperties> = ({
 
   const [isOpen, setIsOpen] = useState(startOpen);
 
+  const [displayAnchorId, setDisplayAnchorId] = useState("");
+
+  const isOpenReference = useRef(isOpen);
+
   const ripple = useRipple<HTMLElement>();
 
   const detailsReference = useRef<HTMLDetailsElement>(null);
@@ -86,6 +94,18 @@ const NestedDetailsSummary: React.FC<NestedDetailsSummaryProperties> = ({
     event.preventDefault();
     setIsOpen(!isOpen);
   };
+
+  const updateUrlHash = useCallback((hash: string) => {
+    if (globalThis.window === undefined) {
+      return;
+    }
+
+    history.replaceState(
+      undefined,
+      "",
+      globalThis.location.pathname + globalThis.location.search + hash
+    );
+  }, []);
 
   const doScroll = useCallback(() => {
     const summary = detailsReference.current?.querySelector(
@@ -110,12 +130,92 @@ const NestedDetailsSummary: React.FC<NestedDetailsSummaryProperties> = ({
   const previousIsOpen = usePrevious(isOpen);
 
   useEffect(() => {
+    isOpenReference.current = isOpen;
+  }, [isOpen]);
+
+  useEffect(() => {
     const justOpened = isOpen && !previousIsOpen;
 
     if (justOpened) {
       doScroll();
     }
   }, [isOpen, previousIsOpen, doScroll]);
+
+  useEffect(() => {
+    if (globalThis.window === undefined || !displayAnchorId) {
+      return;
+    }
+
+    const justOpened = isOpen && !previousIsOpen;
+
+    const currentHash = globalThis.location.hash.slice(1);
+
+    if (justOpened && currentHash !== displayAnchorId) {
+      updateUrlHash(`#${displayAnchorId}`);
+    } else if (!isOpen && currentHash === displayAnchorId) {
+      updateUrlHash("");
+    }
+  }, [displayAnchorId, isOpen, previousIsOpen, updateUrlHash]);
+
+  useEffect(() => {
+    const handleOpenEvent = (event: Event) => {
+      const {id} = (event as CustomEvent<{id: string}>).detail;
+
+      const summaryElement = detailsReference.current?.querySelector(
+        `.${styles["details-nested-summary"]}`
+      );
+
+      if (summaryElement && summaryElement.id === id) {
+        if (isOpenReference.current) {
+          doScroll();
+        } else {
+          setIsOpen(true);
+        }
+      }
+    };
+
+    globalThis.addEventListener("open-spoiler-by-id", handleOpenEvent);
+
+    return () => globalThis.removeEventListener("open-spoiler-by-id", handleOpenEvent);
+  }, [doScroll]);
+
+  useEffect(() => {
+    if (!isOpen) return;
+
+    const contentElement = innerContentReference.current;
+
+    if (!contentElement) {
+      return;
+    }
+
+    const handleMediaLoad = (event: Event) => {
+      const target = event.target;
+
+      if (!(target instanceof HTMLElement)) {
+        return;
+      }
+
+      const tagName = target.tagName;
+
+      if (tagName !== "IMG" && tagName !== "VIDEO" && tagName !== "IFRAME") {
+        return;
+      }
+
+      requestAnimationFrame(() => {
+        if (isOpen) {
+          doScroll();
+        }
+      });
+    };
+
+    contentElement.addEventListener("load", handleMediaLoad, true);
+    contentElement.addEventListener("loadeddata", handleMediaLoad, true);
+
+    return () => {
+      contentElement.removeEventListener("load", handleMediaLoad, true);
+      contentElement.removeEventListener("loadeddata", handleMediaLoad, true);
+    };
+  }, [doScroll, isOpen]);
 
   useEffect(() => {
     const details = detailsReference.current;
@@ -128,10 +228,26 @@ const NestedDetailsSummary: React.FC<NestedDetailsSummaryProperties> = ({
 
     const updateMaxHeight = () => {
       if (details.open) {
-        const scrollHeight = innerContent.offsetHeight;
+        const scrollHeight = innerContent.scrollHeight;
 
         contentWrapper.style.maxHeight = `${scrollHeight}px`;
       }
+    };
+
+    const openHeightDeadline = performance.now() + 1500;
+
+    const applyOpenMaxHeight = () => {
+      const scrollHeight = innerContent.scrollHeight;
+
+      if (scrollHeight > 0 || performance.now() >= openHeightDeadline) {
+        contentWrapper.style.maxHeight = `${scrollHeight}px`;
+
+        return;
+      }
+
+      requestAnimationFrame(() => {
+        applyOpenMaxHeight();
+      });
     };
 
     const resizeObserver = new ResizeObserver(updateMaxHeight);
@@ -149,10 +265,7 @@ const NestedDetailsSummary: React.FC<NestedDetailsSummaryProperties> = ({
 
     if (isOpen) {
       details.open = true;
-
-      const scrollHeight = innerContent.offsetHeight;
-
-      contentWrapper.style.maxHeight = `${scrollHeight}px`;
+      applyOpenMaxHeight();
     } else {
       resizeObserver.unobserve(innerContent);
 
@@ -183,6 +296,67 @@ const NestedDetailsSummary: React.FC<NestedDetailsSummaryProperties> = ({
     };
   }, [isOpen, isParentOpen]);
 
+  useEffect(() => {
+    const summaryElement = detailsReference.current?.querySelector(
+      `.${styles["details-nested-summary"]}`
+    );
+
+    if (!summaryElement) {
+      return;
+    }
+
+    const checkId = () => {
+      if (summaryElement.id) {
+        setDisplayAnchorId(summaryElement.id);
+
+        return true;
+      }
+
+      return false;
+    };
+
+    if (checkId()) {
+      return;
+    }
+
+    const checkIdInterval = setInterval(() => {
+      if (checkId()) {
+        clearInterval(checkIdInterval);
+      }
+    }, 100);
+
+    return () => clearInterval(checkIdInterval);
+  }, []);
+
+  const handleCopyAnchor = useCallback(
+    (event: React.MouseEvent) => {
+      event.stopPropagation();
+
+      (async () => {
+        if (!displayAnchorId) {
+          message.warning(
+            "Дождитесь полной загрузки страницы, прежде чем копировать ссылку"
+          );
+
+          return;
+        }
+
+        if (globalThis.window !== undefined) {
+          const anchorUrl = `${globalThis.location.origin}${globalThis.location.pathname}#${displayAnchorId}`;
+
+          const success = await copyText(anchorUrl);
+
+          if (success) {
+            message.success(`Ссылка на спойлер ${displayAnchorId} скопирована`);
+          } else {
+            message.error("Не удалось скопировать ссылку");
+          }
+        }
+      })();
+    },
+    [displayAnchorId]
+  );
+
   return (
     <NestedDetailsSummaryContext.Provider value={true}>
       <details
@@ -190,7 +364,7 @@ const NestedDetailsSummary: React.FC<NestedDetailsSummaryProperties> = ({
         className={`${styles["details-nested"]} ${modifierClass || ""} ${
           isOpen ? styles["is-open"] : ""
         }`.trim()}
-        open={startOpen}
+        data-nested-details-summary="true"
       >
         <summary
           className={styles["details-nested-summary"]}
@@ -203,6 +377,12 @@ const NestedDetailsSummary: React.FC<NestedDetailsSummaryProperties> = ({
               <h3>{title}</h3>
             </div>
           </div>
+          <Tooltip title="Скопировать ссылку">
+            <CopyButton
+              disabled={!displayAnchorId}
+              onClick={handleCopyAnchor}
+            />
+          </Tooltip>
         </summary>
         <div
           ref={contentWrapperReference}
