@@ -10,6 +10,7 @@ import React, {
 import {message, Tooltip} from "antd";
 
 import {copyText} from "../../hooks/useCopyToClipboard";
+import {useLongPress} from "../../hooks/useLongPress";
 import {useRipple} from "../../hooks/useRipple";
 import {CopyButton} from "../ui/CopyButton/CopyButton";
 
@@ -355,7 +356,7 @@ const NestedDetailsSummary: React.FC<NestedDetailsSummaryProperties> = ({
   }, []);
 
   const handleCopyAnchor = useCallback(
-    (event: React.MouseEvent) => {
+    (event: React.MouseEvent | React.TouchEvent) => {
       event.stopPropagation();
 
       (async () => {
@@ -379,9 +380,13 @@ const NestedDetailsSummary: React.FC<NestedDetailsSummaryProperties> = ({
           }
         }
       })();
+
+      return true;
     },
     [displayAnchorId]
   );
+
+  const summaryLongPressProperties = useLongPress(handleCopyAnchor);
 
   return (
     <NestedDetailsSummaryContext.Provider value={true}>
@@ -396,6 +401,7 @@ const NestedDetailsSummary: React.FC<NestedDetailsSummaryProperties> = ({
           className={styles["details-nested-summary"]}
           onClick={handleSummaryClick}
           onMouseDown={ripple.onMouseDown}
+          {...summaryLongPressProperties}
         >
           <div className={styles["details-nested-summary-left"]}>
             <span className={styles["details-nested-summary-icon"]}>+</span>
