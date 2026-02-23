@@ -24,7 +24,7 @@ const PrFromNewbies: React.FC = () => {
           </a>{" "}
           от <a href="https://youtube.com/zernov">Ильи Зернова</a>.
         </p>
-        <Addition type="info">
+        <Addition type="warning">
           Курс был записан в <mark className="app">Adobe Premiere Pro</mark> версии{" "}
           <mark>2019</mark>. Некоторые функции могут отличаться от вашей текущей версии
           программы.
