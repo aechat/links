@@ -22,6 +22,7 @@ import {
 } from "./spoilerContexts";
 
 interface NestedDetailsSummaryProperties {
+  anchor?: string;
   children: ReactNode;
   modifierClass?: string;
   startOpen?: boolean;
@@ -59,7 +60,10 @@ const getScrollOffsets = () => {
   return {headerHeight, padding};
 };
 
+const normalizeAnchor = (anchor?: string): string => anchor?.trim() ?? "";
+
 const NestedDetailsSummary: React.FC<NestedDetailsSummaryProperties> = ({
+  anchor,
   children,
   modifierClass,
   startOpen = false,
@@ -91,7 +95,10 @@ const NestedDetailsSummary: React.FC<NestedDetailsSummaryProperties> = ({
 
   const innerContentReference = useRef<HTMLDivElement>(null);
 
-  const scrollTimeoutReference = useRef<ReturnType<typeof setTimeout>>();
+  const scrollTimeoutReference = useRef<ReturnType<typeof setTimeout> | undefined>(
+    undefined
+  );
+
   const handleSummaryClick = (event: React.MouseEvent) => {
     event.preventDefault();
     setIsOpen(!isOpen);
@@ -109,11 +116,11 @@ const NestedDetailsSummary: React.FC<NestedDetailsSummaryProperties> = ({
     );
   }, []);
 
-  const getParentSummaryId = useCallback(() => {
+  const getParentAnchorData = useCallback(() => {
     const nestedDetails = detailsReference.current;
 
     if (!nestedDetails) {
-      return "";
+      return {parentSummaryId: "", parentTextualAnchor: ""};
     }
 
     const parentDetails = nestedDetails.parentElement?.closest(
@@ -121,17 +128,34 @@ const NestedDetailsSummary: React.FC<NestedDetailsSummaryProperties> = ({
     );
 
     if (!(parentDetails instanceof HTMLDetailsElement)) {
-      return "";
+      return {parentSummaryId: "", parentTextualAnchor: ""};
     }
 
     const parentSummary = parentDetails.querySelector("summary");
 
-    if (!(parentSummary instanceof HTMLElement)) {
-      return "";
+    return {
+      parentSummaryId: parentSummary instanceof HTMLElement ? parentSummary.id || "" : "",
+      parentTextualAnchor: normalizeAnchor(parentDetails.dataset.anchor),
+    };
+  }, []);
+
+  const getEffectiveAnchor = useCallback(() => {
+    const generatedAnchor = displayAnchorId;
+
+    const textualAnchor = normalizeAnchor(anchor);
+
+    if (!textualAnchor) {
+      return generatedAnchor;
     }
 
-    return parentSummary.id || "";
-  }, []);
+    const {parentSummaryId, parentTextualAnchor} = getParentAnchorData();
+
+    if (textualAnchor === parentTextualAnchor || textualAnchor === parentSummaryId) {
+      return generatedAnchor;
+    }
+
+    return textualAnchor;
+  }, [anchor, displayAnchorId, getParentAnchorData]);
 
   const doScroll = useCallback(() => {
     const summary = detailsReference.current?.querySelector(
@@ -161,6 +185,7 @@ const NestedDetailsSummary: React.FC<NestedDetailsSummaryProperties> = ({
     },
     []
   );
+
   const previousIsOpen = usePrevious(isOpen);
 
   useEffect(() => {
@@ -184,14 +209,25 @@ const NestedDetailsSummary: React.FC<NestedDetailsSummaryProperties> = ({
 
     const currentHash = globalThis.location.hash.slice(1);
 
-    if (justOpened && currentHash !== displayAnchorId) {
-      updateUrlHash(`#${displayAnchorId}`);
-    } else if (!isOpen && currentHash === displayAnchorId) {
-      const parentSummaryId = getParentSummaryId();
+    const resolvedAnchor = getEffectiveAnchor();
 
-      updateUrlHash(parentSummaryId ? `#${parentSummaryId}` : "");
+    if (justOpened && resolvedAnchor && currentHash !== resolvedAnchor) {
+      updateUrlHash(`#${resolvedAnchor}`);
+    } else if (!isOpen && currentHash === resolvedAnchor) {
+      const {parentSummaryId, parentTextualAnchor} = getParentAnchorData();
+
+      const parentAnchor = parentTextualAnchor || parentSummaryId;
+
+      updateUrlHash(parentAnchor ? `#${parentAnchor}` : "");
     }
-  }, [displayAnchorId, getParentSummaryId, isOpen, previousIsOpen, updateUrlHash]);
+  }, [
+    displayAnchorId,
+    getParentAnchorData,
+    getEffectiveAnchor,
+    isOpen,
+    previousIsOpen,
+    updateUrlHash,
+  ]);
 
   useEffect(() => {
     const handleOpenEvent = (event: Event) => {
@@ -411,7 +447,9 @@ const NestedDetailsSummary: React.FC<NestedDetailsSummaryProperties> = ({
       event.stopPropagation();
 
       (async () => {
-        if (!displayAnchorId) {
+        const resolvedAnchor = getEffectiveAnchor();
+
+        if (!resolvedAnchor) {
           message.warning(
             "Дождитесь полной загрузки страницы, прежде чем копировать ссылку"
           );
@@ -420,12 +458,12 @@ const NestedDetailsSummary: React.FC<NestedDetailsSummaryProperties> = ({
         }
 
         if (globalThis.window !== undefined) {
-          const anchorUrl = `${globalThis.location.origin}${globalThis.location.pathname}#${displayAnchorId}`;
+          const anchorUrl = `${globalThis.location.origin}${globalThis.location.pathname}#${resolvedAnchor}`;
 
           const success = await copyText(anchorUrl);
 
           if (success) {
-            message.success(`Ссылка на спойлер ${displayAnchorId} скопирована`);
+            message.success(`Ссылка на спойлер ${resolvedAnchor} скопирована`);
           } else {
             message.error("Не удалось скопировать ссылку");
           }
@@ -434,7 +472,7 @@ const NestedDetailsSummary: React.FC<NestedDetailsSummaryProperties> = ({
 
       return true;
     },
-    [displayAnchorId]
+    [getEffectiveAnchor]
   );
 
   const summaryLongPressProperties = useLongPress(handleCopyAnchor);
@@ -446,6 +484,7 @@ const NestedDetailsSummary: React.FC<NestedDetailsSummaryProperties> = ({
         className={`${styles["details-nested"]} ${modifierClass || ""} ${
           isOpen ? styles["is-open"] : ""
         }`.trim()}
+        data-anchor={anchor}
         data-nested-details-summary="true"
       >
         <summary

@@ -159,12 +159,23 @@ const assignAnchorIdIfMissing = (element: Element, fallbackId: string): string =
   return element.id;
 };
 
+const normalizeAnchor = (anchor?: string): string => anchor?.trim() ?? "";
+
 const processNestedSummaries = (
   detailsElement: HTMLDetailsElement,
   generatedAnchor: string,
   currentHash: string,
-  parentSummaryId: string
+  parentSummaryId: string,
+  parentTextualAnchor?: string
 ) => {
+  const isParentAnchorPrioritized =
+    Boolean(currentHash) &&
+    (currentHash === parentSummaryId || currentHash === parentTextualAnchor);
+
+  if (isParentAnchorPrioritized) {
+    return;
+  }
+
   const nestedSummaries = [
     ...detailsElement.querySelectorAll<HTMLElement>(
       `details[data-nested-details-summary="true"] > summary`
@@ -176,7 +187,20 @@ const processNestedSummaries = (
 
     const nestedSummaryId = assignAnchorIdIfMissing(nestedSummary, nestedAnchor);
 
-    if (!currentHash || nestedSummaryId !== currentHash) {
+    const nestedDetailsElement = nestedSummary.closest("details");
+
+    const nestedTextualAnchor =
+      nestedDetailsElement instanceof HTMLDetailsElement
+        ? nestedDetailsElement.dataset.anchor
+        : undefined;
+
+    const normalizedNestedTextualAnchor = normalizeAnchor(nestedTextualAnchor);
+
+    if (
+      !currentHash ||
+      (nestedSummaryId !== currentHash &&
+        normalizedNestedTextualAnchor !== currentHash)
+    ) {
       continue;
     }
 
@@ -209,14 +233,23 @@ export const generateAnchorId = () => {
 
       const detailsElement = summary.closest("details");
 
-      const textualAnchor = detailsElement?.dataset.anchor;
+      const textualAnchor = normalizeAnchor(detailsElement?.dataset.anchor);
 
-      if (currentHash && (summaryId === currentHash || textualAnchor === currentHash)) {
+      if (
+        currentHash &&
+        (summaryId === currentHash || textualAnchor === currentHash)
+      ) {
         dispatchOpenSpoilerById(summaryId);
       }
 
       if (detailsElement instanceof HTMLDetailsElement) {
-        processNestedSummaries(detailsElement, generatedAnchor, currentHash, summaryId);
+        processNestedSummaries(
+          detailsElement,
+          generatedAnchor,
+          currentHash,
+          summaryId,
+          textualAnchor
+        );
       }
     }
   }
@@ -254,6 +287,18 @@ const DetailsSummary: React.FC<DetailsSummaryProperties> = ({
   const detailsReference = useRef<HTMLDetailsElement>(null);
 
   const sectionReference = useRef<HTMLElement>(null);
+
+  const getEffectiveAnchor = useCallback(() => {
+    const generatedAnchor = displayAnchorId;
+
+    const textualAnchor = normalizeAnchor(anchor);
+
+    if (!textualAnchor) {
+      return generatedAnchor;
+    }
+
+    return textualAnchor;
+  }, [anchor, displayAnchorId]);
 
   const updateDynamicStyles = useCallback(() => {
     const details = detailsReference.current;
@@ -492,20 +537,26 @@ const DetailsSummary: React.FC<DetailsSummaryProperties> = ({
 
     const currentHash = globalThis.location.hash.slice(1);
 
-    const textualAnchor = anchor;
+    const rawCustomAnchor = normalizeAnchor(anchor);
+
+    const resolvedAnchor = getEffectiveAnchor();
 
     if (justOpened) {
-      if (textualAnchor && currentHash === textualAnchor) {
+      if (
+        rawCustomAnchor &&
+        resolvedAnchor === rawCustomAnchor &&
+        currentHash === rawCustomAnchor
+      ) {
         setTimeout(() => {
           updateUrlHash(`#${summaryId}`);
         }, 500);
-      } else if (currentHash !== summaryId) {
-        updateUrlHash(`#${summaryId}`);
+      } else if (resolvedAnchor && currentHash !== resolvedAnchor) {
+        updateUrlHash(`#${resolvedAnchor}`);
       }
-    } else if (!isOpen && currentHash === summaryId) {
+    } else if (!isOpen && (currentHash === summaryId || currentHash === resolvedAnchor)) {
       updateUrlHash("");
     }
-  }, [isOpen, previousIsOpen, displayAnchorId, updateUrlHash, anchor]);
+  }, [isOpen, previousIsOpen, displayAnchorId, updateUrlHash, anchor, getEffectiveAnchor]);
 
   useEffect(() => {
     const justOpened = isOpen && !previousIsOpen;
@@ -661,7 +712,7 @@ const DetailsSummary: React.FC<DetailsSummaryProperties> = ({
 
         const numericAnchor = summaryElement?.id ?? "";
 
-        const anchorToCopy = anchor || numericAnchor;
+        const anchorToCopy = getEffectiveAnchor() || numericAnchor;
 
         if (!anchorToCopy) {
           message.warning(
@@ -686,7 +737,7 @@ const DetailsSummary: React.FC<DetailsSummaryProperties> = ({
 
       return true;
     },
-    [anchor]
+    [getEffectiveAnchor]
   );
 
   const summaryLongPressProperties = useLongPress(handleCopyAnchor);
