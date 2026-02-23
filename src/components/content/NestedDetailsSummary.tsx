@@ -107,6 +107,30 @@ const NestedDetailsSummary: React.FC<NestedDetailsSummaryProperties> = ({
     );
   }, []);
 
+  const getParentSummaryId = useCallback(() => {
+    const nestedDetails = detailsReference.current;
+
+    if (!nestedDetails) {
+      return "";
+    }
+
+    const parentDetails = nestedDetails.parentElement?.closest(
+      'details:not([data-nested-details-summary="true"])'
+    );
+
+    if (!(parentDetails instanceof HTMLDetailsElement)) {
+      return "";
+    }
+
+    const parentSummary = parentDetails.querySelector("summary");
+
+    if (!(parentSummary instanceof HTMLElement)) {
+      return "";
+    }
+
+    return parentSummary.id || "";
+  }, []);
+
   const doScroll = useCallback(() => {
     const summary = detailsReference.current?.querySelector(
       `.${styles["details-nested-summary"]}`
@@ -153,9 +177,11 @@ const NestedDetailsSummary: React.FC<NestedDetailsSummaryProperties> = ({
     if (justOpened && currentHash !== displayAnchorId) {
       updateUrlHash(`#${displayAnchorId}`);
     } else if (!isOpen && currentHash === displayAnchorId) {
-      updateUrlHash("");
+      const parentSummaryId = getParentSummaryId();
+
+      updateUrlHash(parentSummaryId ? `#${parentSummaryId}` : "");
     }
-  }, [displayAnchorId, isOpen, previousIsOpen, updateUrlHash]);
+  }, [displayAnchorId, getParentSummaryId, isOpen, previousIsOpen, updateUrlHash]);
 
   useEffect(() => {
     const handleOpenEvent = (event: Event) => {
