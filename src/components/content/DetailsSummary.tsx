@@ -116,7 +116,7 @@ const TagList: React.FC<{tags: string}> = ({tags}) => {
 const constants = {
   ACTION_DELAY: 150,
   MOUSE_ENTER_DELAY: 750,
-  NESTED_OPEN_AFTER_PARENT_DELAY: 200,
+  NESTED_OPEN_AFTER_PARENT_DELAY: 150,
   PADDING: {MAX: 14, MIN: 10, SCREEN: {MAX: 768, MIN: 320}},
 } as const;
 
@@ -240,10 +240,10 @@ const processNestedSummaries = (
       continue;
     }
 
-    dispatchOpenSpoilerById(parentSummaryId, {skipScroll: true});
+    dispatchOpenSpoilerById(parentSummaryId, {delay: 0, skipScroll: true});
 
     dispatchOpenSpoilerById(nestedSummaryId, {
-      delay: constants.ACTION_DELAY + constants.NESTED_OPEN_AFTER_PARENT_DELAY,
+      delay: constants.NESTED_OPEN_AFTER_PARENT_DELAY,
     });
   }
 };
@@ -635,16 +635,22 @@ const DetailsSummary: React.FC<DetailsSummaryProperties> = ({
   useEffect(() => {
     const justOpened = isOpen && !previousIsOpen;
 
-    if (justOpened) {
-      if (skipNextAutoScroll.current) {
-        skipNextAutoScroll.current = false;
-
-        return;
-      }
-
-      doScroll();
+    if (!justOpened) {
+      return;
     }
-  }, [isOpen, previousIsOpen, doScroll]);
+
+    if (skipNextAutoScroll.current) {
+      skipNextAutoScroll.current = false;
+
+      return;
+    }
+
+    doScroll();
+
+    if (isSpoilerAnimationEnabled) {
+      hasScrolledAfterOpening.current = true;
+    }
+  }, [isOpen, previousIsOpen, doScroll, isSpoilerAnimationEnabled]);
 
   useEffect(() => {
     if (!detailsReference.current) {
