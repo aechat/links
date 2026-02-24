@@ -116,6 +116,7 @@ const TagList: React.FC<{tags: string}> = ({tags}) => {
 const constants = {
   ACTION_DELAY: 150,
   MOUSE_ENTER_DELAY: 750,
+  NESTED_OPEN_AFTER_PARENT_DELAY: 150,
   PADDING: {MAX: 14, MIN: 10, SCREEN: {MAX: 768, MIN: 320}},
 } as const;
 
@@ -135,6 +136,145 @@ const getScrollOffsets = () => {
   return {headerHeight, padding};
 };
 
+const dispatchOpenSpoilerById = (
+  id: string,
+  options?: {delay?: number; skipScroll?: boolean}
+) => {
+  const delay = options?.delay ?? constants.ACTION_DELAY;
+
+  setTimeout(() => {
+    globalThis.dispatchEvent(
+      new CustomEvent("open-spoiler-by-id", {
+        detail: {id, skipScroll: options?.skipScroll},
+      })
+    );
+  }, delay);
+};
+
+const assignAnchorIdIfMissing = (element: Element, fallbackId: string): string => {
+  if (!element.hasAttribute("id")) {
+    element.setAttribute("id", fallbackId);
+  }
+
+  return element.id;
+};
+
+const normalizeAnchor = (anchor?: string): string => anchor?.trim() ?? "";
+
+const isFirstAnchorOccurrence = (
+  detailsElement: HTMLDetailsElement,
+  textualAnchor: string
+): boolean => {
+  const normalizedTextualAnchor = normalizeAnchor(textualAnchor);
+
+  if (!normalizedTextualAnchor) {
+    return false;
+  }
+
+  const detailsWithSameAnchor = [
+    ...document.querySelectorAll<HTMLDetailsElement>("details[data-anchor]"),
+  ].find(
+    (details) => normalizeAnchor(details.dataset.anchor) === normalizedTextualAnchor
+  );
+
+  return detailsWithSameAnchor === detailsElement;
+};
+
+const reportDuplicateAnchorError = (anchor: string) => {
+  const normalizedAnchor = normalizeAnchor(anchor);
+
+  if (!normalizedAnchor) {
+    return;
+  }
+
+  throw new Error(
+    `Дублирующийся anchor "${normalizedAnchor}" в DetailsSummary. Якорь должен быть уникальным.`
+  );
+};
+
+const isHashForOpenNestedInDetails = (
+  detailsElement: HTMLDetailsElement | null,
+  hash: string
+): boolean => {
+  if (!detailsElement || !hash) {
+    return false;
+  }
+
+  const openNestedDetails = detailsElement.querySelectorAll<HTMLDetailsElement>(
+    'details[data-nested-details-summary="true"][open]'
+  );
+
+  for (const nestedDetails of openNestedDetails) {
+    const nestedSummary = nestedDetails.querySelector("summary");
+
+    const nestedSummaryId = nestedSummary instanceof HTMLElement ? nestedSummary.id : "";
+
+    const nestedTextualAnchor = normalizeAnchor(nestedDetails.dataset.anchor);
+
+    if (hash === nestedSummaryId || hash === nestedTextualAnchor) {
+      return true;
+    }
+  }
+
+  return false;
+};
+
+const processNestedSummaries = (
+  detailsElement: HTMLDetailsElement,
+  generatedAnchor: string,
+  currentHash: string,
+  parentSummaryId: string,
+  parentTextualAnchor?: string
+) => {
+  const isParentAnchorPrioritized =
+    Boolean(currentHash) &&
+    (currentHash === parentSummaryId || currentHash === parentTextualAnchor);
+
+  if (isParentAnchorPrioritized) {
+    return;
+  }
+
+  const nestedSummaries = [
+    ...detailsElement.querySelectorAll<HTMLElement>(
+      `details[data-nested-details-summary="true"] > summary`
+    ),
+  ];
+
+  for (const [nestedIndex, nestedSummary] of nestedSummaries.entries()) {
+    const nestedAnchor = `${generatedAnchor}.${nestedIndex + 1}`;
+
+    const nestedSummaryId = assignAnchorIdIfMissing(nestedSummary, nestedAnchor);
+
+    const nestedDetailsElement = nestedSummary.closest("details");
+
+    const nestedTextualAnchor =
+      nestedDetailsElement instanceof HTMLDetailsElement
+        ? nestedDetailsElement.dataset.anchor
+        : undefined;
+
+    const normalizedNestedTextualAnchor = normalizeAnchor(nestedTextualAnchor);
+
+    const isNestedTextualAnchorUsable =
+      nestedDetailsElement instanceof HTMLDetailsElement &&
+      normalizedNestedTextualAnchor &&
+      isFirstAnchorOccurrence(nestedDetailsElement, normalizedNestedTextualAnchor);
+
+    if (
+      !currentHash ||
+      (nestedSummaryId !== currentHash &&
+        (!isNestedTextualAnchorUsable || normalizedNestedTextualAnchor !== currentHash))
+    ) {
+      continue;
+    }
+
+    dispatchOpenSpoilerById(parentSummaryId, {delay: 0, skipScroll: true});
+
+    dispatchOpenSpoilerById(nestedSummaryId, {
+      delay: constants.NESTED_OPEN_AFTER_PARENT_DELAY,
+    });
+  }
+};
+
 export const generateAnchorId = () => {
   if (globalThis.window === undefined) return;
 
@@ -152,22 +292,33 @@ export const generateAnchorId = () => {
     for (const [summaryIndex, summary] of summaries.entries()) {
       const generatedAnchor = `${blockIndex + 1}.${summaryIndex + 1}`;
 
-      if (!summary.hasAttribute("id")) {
-        summary.setAttribute("id", generatedAnchor);
-      }
+      const summaryId = assignAnchorIdIfMissing(summary, generatedAnchor);
 
       const detailsElement = summary.closest("details");
 
-      const textualAnchor = detailsElement?.dataset.anchor;
+      const textualAnchor = normalizeAnchor(detailsElement?.dataset.anchor);
 
-      if (currentHash && (summary.id === currentHash || textualAnchor === currentHash)) {
-        setTimeout(() => {
-          const event = new CustomEvent("open-spoiler-by-id", {
-            detail: {id: summary.id},
-          });
+      const isTextualAnchorUsable =
+        detailsElement instanceof HTMLDetailsElement &&
+        textualAnchor &&
+        isFirstAnchorOccurrence(detailsElement, textualAnchor);
 
-          globalThis.dispatchEvent(event);
-        }, constants.ACTION_DELAY);
+      if (
+        currentHash &&
+        (summaryId === currentHash ||
+          (isTextualAnchorUsable && textualAnchor === currentHash))
+      ) {
+        dispatchOpenSpoilerById(summaryId);
+      }
+
+      if (detailsElement instanceof HTMLDetailsElement) {
+        processNestedSummaries(
+          detailsElement,
+          generatedAnchor,
+          currentHash,
+          summaryId,
+          textualAnchor
+        );
       }
     }
   }
@@ -189,6 +340,8 @@ const DetailsSummary: React.FC<DetailsSummaryProperties> = ({
 
   const hasScrolledAfterOpening = useRef(false);
 
+  const skipNextAutoScroll = useRef(false);
+
   const handleSectionClick = (event: React.MouseEvent<HTMLElement>) => {
     handleInternalLinkClick(event);
     handleExternalLinkClick(event);
@@ -203,6 +356,43 @@ const DetailsSummary: React.FC<DetailsSummaryProperties> = ({
   const detailsReference = useRef<HTMLDetailsElement>(null);
 
   const sectionReference = useRef<HTMLElement>(null);
+
+  const getEffectiveAnchor = useCallback(() => {
+    const generatedAnchor = displayAnchorId;
+
+    const textualAnchor = normalizeAnchor(anchor);
+
+    if (!textualAnchor) {
+      return generatedAnchor;
+    }
+
+    const detailsElement = detailsReference.current;
+
+    if (
+      !(detailsElement instanceof HTMLDetailsElement) ||
+      !isFirstAnchorOccurrence(detailsElement, textualAnchor)
+    ) {
+      reportDuplicateAnchorError(textualAnchor);
+
+      return generatedAnchor;
+    }
+
+    return textualAnchor;
+  }, [anchor, displayAnchorId]);
+
+  useEffect(() => {
+    const detailsElement = detailsReference.current;
+
+    const textualAnchor = normalizeAnchor(anchor);
+
+    if (
+      detailsElement instanceof HTMLDetailsElement &&
+      textualAnchor &&
+      !isFirstAnchorOccurrence(detailsElement, textualAnchor)
+    ) {
+      reportDuplicateAnchorError(textualAnchor);
+    }
+  }, [anchor]);
 
   const updateDynamicStyles = useCallback(() => {
     const details = detailsReference.current;
@@ -441,28 +631,53 @@ const DetailsSummary: React.FC<DetailsSummaryProperties> = ({
 
     const currentHash = globalThis.location.hash.slice(1);
 
-    const textualAnchor = anchor;
+    const rawCustomAnchor = normalizeAnchor(anchor);
+
+    const resolvedAnchor = getEffectiveAnchor();
 
     if (justOpened) {
-      if (textualAnchor && currentHash === textualAnchor) {
+      if (
+        rawCustomAnchor &&
+        resolvedAnchor === rawCustomAnchor &&
+        currentHash === rawCustomAnchor
+      ) {
         setTimeout(() => {
           updateUrlHash(`#${summaryId}`);
         }, 500);
-      } else if (currentHash !== summaryId) {
-        updateUrlHash(`#${summaryId}`);
+      } else if (resolvedAnchor && currentHash !== resolvedAnchor) {
+        updateUrlHash(`#${resolvedAnchor}`);
       }
-    } else if (!isOpen && currentHash === summaryId) {
+    } else if (!isOpen && (currentHash === summaryId || currentHash === resolvedAnchor)) {
       updateUrlHash("");
     }
-  }, [isOpen, previousIsOpen, displayAnchorId, updateUrlHash, anchor]);
+  }, [
+    isOpen,
+    previousIsOpen,
+    displayAnchorId,
+    updateUrlHash,
+    anchor,
+    getEffectiveAnchor,
+  ]);
 
   useEffect(() => {
     const justOpened = isOpen && !previousIsOpen;
 
-    if (justOpened) {
-      doScroll();
+    if (!justOpened) {
+      return;
     }
-  }, [isOpen, previousIsOpen, doScroll]);
+
+    if (skipNextAutoScroll.current) {
+      skipNextAutoScroll.current = false;
+
+      return;
+    }
+
+    doScroll();
+
+    if (isSpoilerAnimationEnabled) {
+      hasScrolledAfterOpening.current = true;
+    }
+  }, [isOpen, previousIsOpen, doScroll, isSpoilerAnimationEnabled]);
 
   useEffect(() => {
     if (!detailsReference.current) {
@@ -502,15 +717,27 @@ const DetailsSummary: React.FC<DetailsSummaryProperties> = ({
 
   useEffect(() => {
     const handleOpenEvent = (event: Event) => {
-      const {id} = (event as CustomEvent<{id: string}>).detail;
+      const {id, skipScroll} = (
+        event as CustomEvent<{
+          id: string;
+          skipScroll?: boolean;
+        }>
+      ).detail;
 
       const summaryElement = detailsReference.current?.querySelector(
         `.${styles["details-summary"]}`
       );
 
       if (summaryElement && summaryElement.id === id) {
+        if (skipScroll) {
+          skipNextAutoScroll.current = true;
+          hasScrolledAfterOpening.current = true;
+        }
+
         if (isOpen) {
-          doScroll();
+          if (!skipScroll) {
+            doScroll();
+          }
         } else {
           setIsOpen(true);
         }
@@ -542,11 +769,20 @@ const DetailsSummary: React.FC<DetailsSummaryProperties> = ({
 
     const handleMouseEnter = () => {
       timeoutId = setTimeout(() => {
-        const summaryId = detailsReference.current?.querySelector(
+        const detailsElement = detailsReference.current;
+
+        const summaryId = detailsElement?.querySelector(
           `.${styles["details-summary"]}`
         )?.id;
 
-        if (summaryId && globalThis.window !== undefined) {
+        const currentHash = globalThis.location.hash.slice(1);
+
+        const isCurrentHashOpenNested = isHashForOpenNestedInDetails(
+          detailsElement,
+          currentHash
+        );
+
+        if (summaryId && globalThis.window !== undefined && !isCurrentHashOpenNested) {
           history.replaceState(
             undefined,
             "",
@@ -592,7 +828,7 @@ const DetailsSummary: React.FC<DetailsSummaryProperties> = ({
 
         const numericAnchor = summaryElement?.id ?? "";
 
-        const anchorToCopy = anchor || numericAnchor;
+        const anchorToCopy = getEffectiveAnchor() || numericAnchor;
 
         if (!anchorToCopy) {
           message.warning(
@@ -617,7 +853,7 @@ const DetailsSummary: React.FC<DetailsSummaryProperties> = ({
 
       return true;
     },
-    [anchor]
+    [getEffectiveAnchor]
   );
 
   const summaryLongPressProperties = useLongPress(handleCopyAnchor);
