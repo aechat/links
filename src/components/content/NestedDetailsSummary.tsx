@@ -41,6 +41,7 @@ const usePrevious = <T,>(value: T): T | undefined => {
 
 const constants = {
   ACTION_DELAY: 150,
+  MOUSE_ENTER_DELAY: 750,
   PADDING: {MAX: 14, MIN: 10, SCREEN: {MAX: 768, MIN: 320}},
 } as const;
 
@@ -308,6 +309,50 @@ const NestedDetailsSummary: React.FC<NestedDetailsSummaryProperties> = ({
 
     return () => globalThis.removeEventListener("open-spoiler-by-id", handleOpenEvent);
   }, [doScroll]);
+
+  useEffect(() => {
+    let timeoutId: ReturnType<typeof setTimeout>;
+
+    const detailsElement = detailsReference.current;
+
+    const handleMouseEnter = () => {
+      timeoutId = setTimeout(() => {
+        const summaryId = detailsReference.current?.querySelector(
+          `.${styles["details-nested-summary"]}`
+        )?.id;
+
+        const resolvedAnchor = getEffectiveAnchor();
+
+        const anchorToSet = resolvedAnchor || summaryId;
+
+        if (!anchorToSet || globalThis.window === undefined) {
+          return;
+        }
+
+        if (globalThis.location.hash.slice(1) !== anchorToSet) {
+          updateUrlHash(`#${anchorToSet}`);
+        }
+      }, constants.MOUSE_ENTER_DELAY);
+    };
+
+    const handleMouseLeave = () => {
+      clearTimeout(timeoutId);
+    };
+
+    if (detailsElement) {
+      detailsElement.addEventListener("mouseenter", handleMouseEnter);
+      detailsElement.addEventListener("mouseleave", handleMouseLeave);
+    }
+
+    return () => {
+      if (detailsElement) {
+        detailsElement.removeEventListener("mouseenter", handleMouseEnter);
+        detailsElement.removeEventListener("mouseleave", handleMouseLeave);
+      }
+
+      clearTimeout(timeoutId);
+    };
+  }, [getEffectiveAnchor, updateUrlHash]);
 
   useEffect(() => {
     if (!isOpen) return;

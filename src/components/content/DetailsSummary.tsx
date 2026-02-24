@@ -192,6 +192,33 @@ const reportDuplicateAnchorError = (anchor: string) => {
   );
 };
 
+const isHashForOpenNestedInDetails = (
+  detailsElement: HTMLDetailsElement | null,
+  hash: string
+): boolean => {
+  if (!detailsElement || !hash) {
+    return false;
+  }
+
+  const openNestedDetails = detailsElement.querySelectorAll<HTMLDetailsElement>(
+    'details[data-nested-details-summary="true"][open]'
+  );
+
+  for (const nestedDetails of openNestedDetails) {
+    const nestedSummary = nestedDetails.querySelector("summary");
+
+    const nestedSummaryId = nestedSummary instanceof HTMLElement ? nestedSummary.id : "";
+
+    const nestedTextualAnchor = normalizeAnchor(nestedDetails.dataset.anchor);
+
+    if (hash === nestedSummaryId || hash === nestedTextualAnchor) {
+      return true;
+    }
+  }
+
+  return false;
+};
+
 const processNestedSummaries = (
   detailsElement: HTMLDetailsElement,
   generatedAnchor: string,
@@ -742,11 +769,20 @@ const DetailsSummary: React.FC<DetailsSummaryProperties> = ({
 
     const handleMouseEnter = () => {
       timeoutId = setTimeout(() => {
-        const summaryId = detailsReference.current?.querySelector(
+        const detailsElement = detailsReference.current;
+
+        const summaryId = detailsElement?.querySelector(
           `.${styles["details-summary"]}`
         )?.id;
 
-        if (summaryId && globalThis.window !== undefined) {
+        const currentHash = globalThis.location.hash.slice(1);
+
+        const isCurrentHashOpenNested = isHashForOpenNestedInDetails(
+          detailsElement,
+          currentHash
+        );
+
+        if (summaryId && globalThis.window !== undefined && !isCurrentHashOpenNested) {
           history.replaceState(
             undefined,
             "",
