@@ -75,24 +75,28 @@ $dark-theme-map: (
     status: (
       info: (
         background: hsl(190deg 45% 12%),
+        secondary-background: hsl(190deg 40% 16%),
         border: hsl(190deg 35% 25%),
         text: hsl(190deg 85% 88%),
         mark-background: hsl(190deg 45% 15%),
       ),
       warning: (
         background: hsl(48deg 45% 12%),
+        secondary-background: hsl(48deg 40% 16%),
         border: hsl(48deg 35% 25%),
         text: hsl(48deg 85% 88%),
         mark-background: hsl(48deg 45% 15%),
       ),
       danger: (
         background: hsl(0deg 40% 12%),
+        secondary-background: hsl(0deg 35% 16%),
         border: hsl(0deg 35% 25%),
         text: hsl(0deg 95% 88%),
         mark-background: hsl(0deg 40% 15%),
       ),
       tldr: (
         background: hsl(160deg 40% 12%),
+        secondary-background: hsl(160deg 35% 16%),
         border: hsl(160deg 35% 25%),
         text: hsl(160deg 85% 88%),
         mark-background: hsl(160deg 45% 15%),

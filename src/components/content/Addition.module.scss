@@ -273,6 +273,32 @@
   }
 }
 
+:is(.addition-info, .addition-warning, .addition-danger, .addition-tldr) {
+  .addition-info,
+  .addition-warning,
+  .addition-danger,
+  .addition-tldr {
+    padding-block: min(calc(5px + (7 - 5) * ((100vw - 320px) / (768 - 320))), 7px);
+    padding-inline: min(calc(10px + (15 - 10) * ((100vw - 320px) / (768 - 320))), 15px);
+  }
+
+  .addition-info {
+    background-color: var(--color-status-info-secondary-background);
+  }
+
+  .addition-warning {
+    background-color: var(--color-status-warning-secondary-background);
+  }
+
+  .addition-danger {
+    background-color: var(--color-status-danger-secondary-background);
+  }
+
+  .addition-tldr {
+    background-color: var(--color-status-tldr-secondary-background);
+  }
+}
+
 .article-container,
 :global(.article-content),
 li,

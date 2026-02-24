@@ -75,24 +75,28 @@ $light-theme-map: (
     status: (
       info: (
         background: hsl(190deg 50% 98%),
+        secondary-background: hsl(190deg 40% 95%),
         border: hsl(190deg 50% 85%),
         text: hsl(190deg 80% 22%),
         mark-background: hsl(190deg 50% 96%),
       ),
       warning: (
         background: hsl(50deg 100% 97%),
+        secondary-background: hsl(50deg 100% 95%),
         border: hsl(50deg 50% 85%),
         text: hsl(50deg 100% 18%),
         mark-background: hsl(50deg 100% 95%),
       ),
       danger: (
         background: hsl(0deg 100% 98%),
+        secondary-background: hsl(0deg 100% 95%),
         border: hsl(0deg 50% 87.5%),
         text: hsl(0deg 80% 22%),
         mark-background: hsl(0deg 100% 96%),
       ),
       tldr: (
         background: hsl(160deg 50% 98%),
+        secondary-background: hsl(160deg 50% 95%),
         border: hsl(160deg 50% 85%),
         text: hsl(160deg 80% 22%),
         mark-background: hsl(160deg 50% 96%),
