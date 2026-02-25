@@ -391,11 +391,29 @@ const ArticleMedia: React.FC<ArticleMediaProperties> = (properties) => {
 
     const aspectRatio = metadata ? `${metadata.width}/${metadata.height}` : "16/9";
 
+    const getConstrainedWidth = (maxHeight: string) => {
+      if (!metadata) {
+        return "100%";
+      }
+
+      return `min(${metadata.width}px, calc(${maxHeight} * ${metadata.width} / ${metadata.height}))`;
+    };
+
+    let mediaWidth = "100%";
+
+    if (type === "image") {
+      mediaWidth = getConstrainedWidth("60vh");
+    } else if (type === "video") {
+      mediaWidth = getConstrainedWidth("55dvh");
+    } else if (metadata) {
+      mediaWidth = `${metadata.width}px`;
+    }
+
     if (!hasBeenOpened) {
       return (
         <div
           className={styles["media-placeholder"]}
-          style={{aspectRatio}}
+          style={{aspectRatio, width: mediaWidth}}
         />
       );
     }
@@ -411,7 +429,7 @@ const ArticleMedia: React.FC<ArticleMediaProperties> = (properties) => {
             height={metadata?.height}
             loading="lazy"
             src={resolvedSource}
-            style={{aspectRatio, cursor: "zoom-in"}}
+            style={{aspectRatio, cursor: "zoom-in", width: mediaWidth}}
             width={metadata?.width}
             onClick={() => setIsViewerOpen(true)}
           />
@@ -428,7 +446,7 @@ const ArticleMedia: React.FC<ArticleMediaProperties> = (properties) => {
             height={metadata?.height}
             loop={properties.loop}
             src={resolvedSource}
-            style={{aspectRatio}}
+            style={{aspectRatio, width: mediaWidth}}
             width={metadata?.width}
           />
         );

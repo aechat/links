@@ -61,13 +61,11 @@
 
     &--image {
       outline: 1px solid var(--color-border-content);
-      width: auto;
       max-height: 60vh;
     }
 
     &--video {
       outline: 1px solid var(--color-border-content);
-      width: auto;
       max-height: 55dvh;
     }
   }
