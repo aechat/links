@@ -462,30 +462,6 @@ const PsErrors: React.FC = () => (
       </Addition>
     </DetailsSummary>
     <DetailsSummary
-      anchor="fix-creative-cloud-missing"
-      tag="ошибка запуска, хвосты от неудачного удаления, переустановка, adobe cc"
-      title="«Приложение Adobe Creative Cloud, необходимое для устранения проблемы отсутствует или повреждено...»"
-    >
-      <p>
-        Вы зачем-то установили приложение{" "}
-        <mark className="app">Adobe Creative Cloud</mark> рядом с пиратскими программами,
-        у которых вырезан модуль <mark className="app">Adobe Creative Cloud</mark>. А
-        потом само приложение <mark className="app">Adobe Creative Cloud</mark> удалили,
-        оставив за собой нежелательные хвосты.
-      </p>
-      <p>
-        Решение довольно простое - снесите приложения и поставьте их заново, чтобы лишние
-        зависимости программ от <mark className="app">Adobe Creative Cloud</mark>{" "}
-        почистились. Да, вы не ослышались. Для очистки системы от некоторых или всех
-        программ от <mark className="company">Adobe</mark> можно воспользоваться
-        консольной утилитой{" "}
-        <a href="https://helpx.adobe.com/creative-cloud/apps/troubleshoot/diagnostics-repair-tools/run-creative-cloud-cleaner-tool.html">
-          Adobe Creative Cloud Cleaner
-        </a>
-        .
-      </p>
-    </DetailsSummary>
-    <DetailsSummary
       anchor="fix-missing-dll-errors"
       tag="отсутствует visual c++, не удается продолжить выполнение кода, поскольку система не обнаружила dll, для устранения этой проблемы попробуйте переустановить программу"
       title="Что делать с ошибками отсутствия «MSVCP140.dll», «api-ms-win-crt-runtime-l1-1-0.dll» и похожих при запуске программы?"
