@@ -21,10 +21,9 @@ dist-ssr
 *.sw?
 package-lock.json
 qodana.yaml
-TODO.md
 .vs
+.agent*
 .cursor
-public/legacy/css/styles.css
 *.code-workspace
 *.md
 !README.md
