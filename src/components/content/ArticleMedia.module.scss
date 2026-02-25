@@ -54,6 +54,7 @@
   &-content {
     display: block;
     border-radius: $roundness;
+    background-color: var(--color-background-tertiary);
     max-width: 100%;
     height: auto;
     object-fit: contain;
