@@ -1131,7 +1131,7 @@ export const SearchButton: React.FC<SearchButtonProperties> = ({
         <>
           <Search />
           <span>
-            Поиск по странице <mark>Ctrl + F</mark>
+            Навигация по странице <mark>Ctrl + F</mark>
           </span>
         </>
       ) : (
