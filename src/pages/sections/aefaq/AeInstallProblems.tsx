@@ -44,12 +44,14 @@ const AeInstallProblems: React.FC = () => {
             Проекты формата <mark className="file">AEP</mark> открываются как обычные
             проекты в <mark className="app">Adobe After Effects</mark>: двойным кликом,
             через <mark className="select">«File» → «Open Project»</mark> или сочетанием
-            клавиш <mark className="key">Ctrl + O</mark>. Чтобы импортировать такой файл в
-            свой проект, воспользуйтесь командой{" "}
-            <mark className="select">«File» → «Import» → «File»</mark> или сочетанием{" "}
-            <mark className="key">Ctrl + I</mark>.
+            клавиш <mark className="key">Ctrl + O</mark>.
             <Addition type="info">
               <ul>
+                <li>
+                  Чтобы импортировать такой файл в свой проект, воспользуйтесь командой{" "}
+                  <mark className="select">«File» → «Import» → «File»</mark> или
+                  сочетанием <mark className="key">Ctrl + I</mark>.
+                </li>
                 <li>
                   Прежде чем открывать проект формата <mark className="file">AEP</mark>,
                   полностью распакуйте архив и открывайте проект уже из распакованной
