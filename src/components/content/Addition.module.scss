@@ -274,6 +274,32 @@
 }
 
 :is(.addition-info, .addition-warning, .addition-danger, .addition-tldr) {
+  > div {
+    > .addition-info,
+    > .addition-warning,
+    > .addition-danger,
+    > .addition-tldr {
+      margin-block: 10px;
+      border-radius: $roundness * 0.5;
+
+      &:first-child {
+        margin-block-start: 0;
+      }
+
+      &:last-child {
+        margin-block-end: 0;
+      }
+
+      &:not(:first-child) {
+        margin-block-start: 10px;
+      }
+
+      &:not(:last-child) {
+        margin-block-end: 10px;
+      }
+    }
+  }
+
   .addition-info,
   .addition-warning,
   .addition-danger,
