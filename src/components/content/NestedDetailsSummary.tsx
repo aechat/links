@@ -355,44 +355,6 @@ const NestedDetailsSummary: React.FC<NestedDetailsSummaryProperties> = ({
   }, [getEffectiveAnchor, updateUrlHash]);
 
   useEffect(() => {
-    if (!isOpen) return;
-
-    const contentElement = innerContentReference.current;
-
-    if (!contentElement) {
-      return;
-    }
-
-    const handleMediaLoad = (event: Event) => {
-      const target = event.target;
-
-      if (!(target instanceof HTMLElement)) {
-        return;
-      }
-
-      const tagName = target.tagName;
-
-      if (tagName !== "IMG" && tagName !== "VIDEO" && tagName !== "IFRAME") {
-        return;
-      }
-
-      requestAnimationFrame(() => {
-        if (isOpen) {
-          doScroll();
-        }
-      });
-    };
-
-    contentElement.addEventListener("load", handleMediaLoad, true);
-    contentElement.addEventListener("loadeddata", handleMediaLoad, true);
-
-    return () => {
-      contentElement.removeEventListener("load", handleMediaLoad, true);
-      contentElement.removeEventListener("loadeddata", handleMediaLoad, true);
-    };
-  }, [doScroll, isOpen]);
-
-  useEffect(() => {
     const details = detailsReference.current;
 
     const contentWrapper = contentWrapperReference.current;
