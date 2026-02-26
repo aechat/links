@@ -264,10 +264,11 @@ const PrImport: React.FC = () => {
           папку.
         </p>
         <Addition type="info">
-          Чтобы скачать программу бесплатно, просто переместите ползунок из{" "}
-          <mark className="select">«It helps me to pay for the server & the domain»</mark>{" "}
-          на ноль, а затем нажмите на кнопку скачивания, соответствующую вашей
-          операционной системе.
+          Чтобы скачать программу бесплатно, на сайте установите чекбокс{" "}
+          <mark className="select">
+            «I do not wish to participate in the development of the software»
+          </mark>
+          , а затем нажмите на кнопку скачивания для вашей операционной системы.
         </Addition>
         <p>
           На первый взгляд интерфейс <mark className="app">Shutter Encoder</mark> может

@@ -336,13 +336,14 @@ const PsInstallProblems: React.FC = () => {
                   <Addition type="info">
                     <ul>
                       <li>
-                        <mark className="app">WinRAR</mark> для устройств на{" "}
-                        <mark>Windows</mark> можно загрузить по{" "}
-                        <a href="https://www.rarlab.com/download.htm">этой ссылке</a>.{" "}
-                        <i style={{fontSize: "0.85em", opacity: 0.5}}>
-                          Надеюсь, что вы в курсе как обойти 40-дневное «ограничение»
+                        <mark className="app">WinRAR</mark> можно загрузить по{" "}
+                        <a href="https://www.rarlab.com/download.htm">этой ссылке</a>, а{" "}
+                        <mark className="app">7-Zip</mark> — по{" "}
+                        <a href="https://www.7-zip.org/download.html">этой</a>.{" "}
+                        <i style={{opacity: 0.5}}>
+                          Надеюсь, вы в курсе, как обойти 40-дневное «ограничение» у{" "}
+                          <mark className="app">WinRAR</mark>.
                         </i>
-                        .
                       </li>
                       <li>
                         Для распаковки многотомного архива, то есть если в названии
@@ -1259,8 +1260,8 @@ const PsInstallProblems: React.FC = () => {
           type="image"
         />
         <p>
-          Но не тут то было, иногда загрузка нейро-фильтров сразу прерывается, не объясняя
-          причину. Чтобы это исправить - нужно внести несколько адресов в файл{" "}
+          Но не тут-то было: иногда загрузка нейро-фильтров сразу прерывается без
+          объяснения причины. Чтобы это исправить, нужно внести несколько адресов в файл{" "}
           <mark className="file">HOSTS</mark>. Для этого вам нужно перейти в{" "}
           <mark className="path">C:\Windows\System32\drivers\etc</mark>, скопировать файл{" "}
           <mark className="path">hosts</mark> в любое удобное место, открыть любой
@@ -1276,18 +1277,18 @@ const PsInstallProblems: React.FC = () => {
         </Addition>
         <CodeSnippet>
           {`127.0.0.1 cc-api-data.adobe.io
-          127.0.0.1 ic.adobe.io
-          127.0.0.1 genuine.adobe.com
-          127.0.0.1 prod.adobegenuine.com
+127.0.0.1 ic.adobe.io
+127.0.0.1 genuine.adobe.com
+127.0.0.1 prod.adobegenuine.com
 127.0.0.1 assets.adobedtm.com`}
         </CodeSnippet>
         <p>
           После этого загрузка нейро-фильтров должна начаться нормально. Нейро-фильтры
           обычно загружаются в папку{" "}
           <mark className="path">
-            %AppData%\Adobe\UXP\PluginsStorage\PHSP\XX\Internal\com.adobe.nfp.gallery\PluginData
+            %APPDATA%\Adobe\UXP\PluginsStorage\PHSP\XX\Internal\com.adobe.nfp.gallery\PluginData
           </mark>
-          , где <mark>XX</mark> - версия программы, указаная в первой части числа в{" "}
+          , где <mark>XX</mark> — версия программы, указанная в первой части числа в{" "}
           <mark className="select">«Help» → «About Photoshop»</mark>. Эта информация вам
           пригодится, если вы хотите удалить файлы нейро-фильтров или распаковать их в
           нужную папку из другого источника в интернете.
@@ -1317,7 +1318,7 @@ const PsInstallProblems: React.FC = () => {
                 if (isIOS) {
                   return (
                     <>
-                      Чтобы корректно скачивать подобные файлы - рекомендую использовать
+                      Чтобы корректно скачивать подобные файлы, рекомендую использовать
                       официальное приложение <mark className="app">Telegram</mark> вместо
                       веб-версии, которое можно установить из{" "}
                       <a href="https://telegram.org/dl/ios">App Store</a>.
@@ -1328,7 +1329,7 @@ const PsInstallProblems: React.FC = () => {
                 if (isAndroid) {
                   return (
                     <>
-                      Чтобы корректно скачивать подобные файлы - рекомендую использовать
+                      Чтобы корректно скачивать подобные файлы, рекомендую использовать
                       официальное приложение <mark className="app">Telegram</mark> вместо
                       веб-версии, которое можно установить по{" "}
                       <a href="https://telegram.org/android">этой ссылке</a>.
@@ -1339,10 +1340,9 @@ const PsInstallProblems: React.FC = () => {
                 if (isMacOS) {
                   return (
                     <>
-                      Чтобы корректно скачивать подобные файлы - рекомендую
-                      воспользоваться десктопной версией{" "}
-                      <mark className="app">Telegram</mark> вместо веб-версии, которую
-                      можно скачать по{" "}
+                      Чтобы корректно скачивать подобные файлы, рекомендую воспользоваться
+                      десктопной версией <mark className="app">Telegram</mark> вместо
+                      веб-версии, которую можно скачать по{" "}
                       <a href="https://macos.telegram.org/">этой ссылке</a>.
                     </>
                   );
@@ -1350,7 +1350,7 @@ const PsInstallProblems: React.FC = () => {
 
                 return (
                   <>
-                    Чтобы корректно скачивать подобные файлы - рекомендую воспользоваться
+                    Чтобы корректно скачивать подобные файлы, рекомендую воспользоваться
                     десктопной версией <mark className="app">Telegram</mark> вместо
                     веб-версии, которую можно скачать по{" "}
                     <a href="https://desktop.telegram.org/">этой ссылке</a>.
@@ -1361,7 +1361,7 @@ const PsInstallProblems: React.FC = () => {
             <Addition type="info">
               Если вы полностью скачали файл с канала{" "}
               <a href="https://t.me/+Qd9xu7A4TeIwNzY6">склад стройматериалов</a> и вы
-              уверены, что проблема не на вашей стороне - сообщите об этом в комментариях
+              уверены, что проблема не на вашей стороне, сообщите об этом в комментариях
               под постом.
             </Addition>
           </li>
@@ -1369,11 +1369,11 @@ const PsInstallProblems: React.FC = () => {
             <p>
               Если вы скачали репак, запакованный в многотомный архив, которые обычно
               помечаются как <mark className="file">PART1</mark>,{" "}
-              <mark className="file">PART2</mark> и так далее по порядку - убедитесь в
-              том, что вы скачали все части архива, а также его корректно распаковали.
+              <mark className="file">PART2</mark> и так далее по порядку, убедитесь в том,
+              что вы скачали все части архива, а также его корректно распаковали.
             </p>
             <Addition type="info">
-              Чтобы распаковать такой архив - достаточно начать распаковку первой части
+              Чтобы распаковать такой архив, достаточно начать распаковку первой части
               архива, остальные части подхватятся автоматически. Для распаковки таких
               архивов рекомендую воспользоваться <mark className="app">WinRAR</mark>.
             </Addition>
@@ -1393,15 +1393,12 @@ const PsInstallProblems: React.FC = () => {
       >
         <p>
           Данная ошибка чаще всего возникает из-за того, что в вашей системе по какой-то
-          неведомой причине отсутствует файл <mark className="file">HOSTS</mark>. Чтобы
-          решить эту проблему - для начала посмотрите содержимое{" "}
-          <mark className="path">%WinDir%\System32\Drivers\etc</mark>.
-        </p>
-        <p>
-          Если в этой директории нет файла <mark className="file">HOSTS</mark> - создайте
-          его самостоятельно, например, с помощью <mark className="app">Блокнота</mark> и
-          переместите созданный файл без расширения в папку{" "}
-          <mark className="path">%WinDir%\System32\Drivers\etc</mark>.{" "}
+          причине отсутствует файл <mark className="file">HOSTS</mark>. Чтобы решить эту
+          проблему — проверьте содержимое директории{" "}
+          <mark className="path">%WINDIR%\System32\Drivers\etc</mark>. Если в нём нет
+          файла <mark className="file">HOSTS</mark> — создайте его самостоятельно,
+          например с помощью <mark className="app">Блокнота</mark>, и переместите
+          созданный файл без расширения в эту папку.{" "}
           <a href="https://support.microsoft.com/ru-ru/topic/%D0%BA%D0%B0%D0%BA-%D0%B2%D0%BE%D1%81%D1%81%D1%82%D0%B0%D0%BD%D0%BE%D0%B2%D0%B8%D1%82%D1%8C-%D1%81%D0%BE%D0%B4%D0%B5%D1%80%D0%B6%D0%B8%D0%BC%D0%BE%D0%B5-%D1%84%D0%B0%D0%B9%D0%BB%D0%B0-hosts-%D0%BF%D0%BE-%D1%83%D0%BC%D0%BE%D0%BB%D1%87%D0%B0%D0%BD%D0%B8%D1%8E-c2a43f9d-e176-c6f3-e4ef-3500277a6dae">
             Подробнее на сайте Microsoft...
           </a>

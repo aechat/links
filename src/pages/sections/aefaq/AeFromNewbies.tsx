@@ -199,11 +199,9 @@ const AeFromNewbies: React.FC = () => {
           <li>
             Если вам регулярно попадаются «эдиты» в <mark className="app">TikTok</mark>,{" "}
             <mark className="app">YouTube Shorts</mark> или{" "}
-            <mark className="app">
-              Instagram<sup>1</sup> Reels
-            </mark>{" "}
-            и хочется попробовать создать что-то подобное, обратите внимание на обучающие
-            видео на каналах ниже.
+            <mark className="app">Instagram Reels</mark>
+            <sup>1</sup> и хочется попробовать создать что-то подобное, обратите внимание
+            на обучающие видео на каналах ниже.
             <div className="flexible-links">
               <a href="https://www.youtube.com/@Tozel./videos">Tozel</a>
               <a href="https://www.youtube.com/@rdylt09/videos">rdylt09</a>
@@ -465,27 +463,12 @@ const AeFromNewbies: React.FC = () => {
                 <mark className="select">«Still»</mark> — слой, содержащее растровое или
                 векторное
                 <sup>4</sup> изображение: <mark className="image">JPEG</mark>,{" "}
-                <mark className="image">PNG</mark>,{" "}
-                <mark className="image">
-                  HEIF<sup>1</sup>
-                </mark>
-                ,{" "}
-                <mark className="image">
-                  RAW<sup>2</sup>
-                </mark>
-                ,{" "}
-                <mark className="image">
-                  PSD<sup>3</sup>
-                </mark>
-                ,{" "}
-                <mark className="image">
-                  AI<sup>4</sup>
-                </mark>
-                ,{" "}
-                <mark className="image">
-                  EPS<sup>4</sup>
-                </mark>
-                , <mark className="image">EXR</mark> и другие.
+                <mark className="image">PNG</mark>, <mark className="image">HEIF</mark>
+                <sup>1</sup>, <mark className="image">RAW</mark>
+                <sup>2</sup>, <mark className="image">PSD</mark>
+                <sup>3</sup>, <mark className="image">AI</mark>
+                <sup>4</sup>, <mark className="image">EPS</mark>
+                <sup>4</sup>, <mark className="image">EXR</mark> и другие.
               </p>
               <Addition type="warning">
                 <sup>1</sup> В <mark>Windows</mark> для импорта файлов{" "}
@@ -495,54 +478,61 @@ const AeFromNewbies: React.FC = () => {
               <Addition type="info">
                 <ul>
                   <li>
-                    <sup>2</sup> <mark className="image">RAW</mark> — необработанные
-                    изображения, создаваемые камерой или смартфоном в режиме{" "}
-                    <mark>RAW</mark>. Формат зависит от производителя:{" "}
-                    <mark className="image">DNG</mark>, <mark className="image">CR3</mark>
-                    , <mark className="image">NEF</mark>,{" "}
-                    <mark className="image">ARW</mark>, <mark className="image">RAF</mark>{" "}
-                    и т. д.
+                    <p>
+                      <sup>2</sup> <mark className="image">RAW</mark> — необработанные
+                      изображения, создаваемые камерой или смартфоном в режиме{" "}
+                      <mark>RAW</mark>. Формат зависит от производителя:{" "}
+                      <mark className="image">DNG</mark>,{" "}
+                      <mark className="image">CR3</mark>,{" "}
+                      <mark className="image">NEF</mark>,{" "}
+                      <mark className="image">ARW</mark>,{" "}
+                      <mark className="image">RAF</mark> и т. д.
+                    </p>
+                    <Addition type="info">
+                      <ul>
+                        <li>
+                          При импорте <mark className="image">RAW</mark> может открыться
+                          модуль <mark className="plugin">Camera RAW</mark> — аналог{" "}
+                          <mark className="app">Adobe Lightroom</mark> внутри{" "}
+                          <mark className="app">Adobe After Effects</mark>. Старые версии{" "}
+                          <mark className="plugin">Camera RAW</mark> могут не поддерживать
+                          новые камеры.
+                        </li>
+                        <li>
+                          Чтобы повторно открыть{" "}
+                          <mark className="plugin">Camera RAW</mark> после импорта,
+                          выделите нужный файл в окне{" "}
+                          <mark className="select">«Project»</mark>, нажмите{" "}
+                          <mark className="key">Ctrl + Alt + G</mark>, чтобы открыть окно{" "}
+                          <mark className="select">«Interpret Footage»</mark>, и кликните{" "}
+                          <mark className="select">«More Options»</mark>.
+                        </li>
+                        <li>
+                          <mark className="image">RAW</mark> часто бывает в высоком
+                          разрешении, что может серьёзно нагрузить проект — особенно при
+                          применении эффектов. Лучше предварительно обработать такие
+                          изображения в <mark className="app">Adobe Photoshop</mark> или{" "}
+                          <mark className="app">Adobe Lightroom</mark>, сохранить в{" "}
+                          <mark className="image">TIFF</mark> с меньшим разрешением и
+                          только потом использовать в{" "}
+                          <mark className="app">After Effects</mark>.
+                        </li>
+                      </ul>
+                    </Addition>
                   </li>
                   <li>
-                    При импорте <mark className="image">RAW</mark> может открыться модуль{" "}
-                    <mark className="plugin">Camera RAW</mark> — аналог{" "}
-                    <mark className="app">Adobe Lightroom</mark> внутри{" "}
-                    <mark className="app">Adobe After Effects</mark>. Старые версии{" "}
-                    <mark className="plugin">Camera RAW</mark> могут не поддерживать новые
-                    камеры.
+                    <p>
+                      <sup>3</sup> <mark className="image">PSD</mark> из{" "}
+                      <mark className="app">Adobe Photoshop</mark> можно импортировать как
+                      целое <mark className="image">изображение</mark> или послойно.
+                    </p>
+                    <Addition type="warning">
+                      Если <mark className="image">PSD</mark> сохранён в цветовом режиме,
+                      отличном от <mark>RGB</mark>, — послойный импорт в{" "}
+                      <mark className="app">Adobe After Effects</mark> будет недоступен.{" "}
+                      <a href="#import-layered-psd">Подробнее...</a>
+                    </Addition>
                   </li>
-                  <li>
-                    Чтобы повторно открыть <mark className="plugin">Camera RAW</mark>{" "}
-                    после импорта, выделите нужный файл в окне{" "}
-                    <mark className="select">«Project»</mark>, нажмите{" "}
-                    <mark className="key">Ctrl + Alt + G</mark>, чтобы открыть окно{" "}
-                    <mark className="select">«Interpret Footage»</mark>, и кликните{" "}
-                    <mark className="select">«More Options»</mark>.
-                  </li>
-                  <li>
-                    <mark className="image">RAW</mark> часто бывает в высоком разрешении,
-                    что может серьёзно нагрузить проект — особенно при применении
-                    эффектов. Лучше предварительно обработать такие изображения в{" "}
-                    <mark className="app">Adobe Photoshop</mark> или{" "}
-                    <mark className="app">Adobe Lightroom</mark>, сохранить в{" "}
-                    <mark className="image">TIFF</mark> с меньшим разрешением и только
-                    потом использовать в <mark className="app">After Effects</mark>.
-                  </li>
-                </ul>
-              </Addition>
-              <Addition type="info">
-                <sup>3</sup> <mark className="image">PSD</mark> из{" "}
-                <mark className="app">Adobe Photoshop</mark> можно импортировать как целое{" "}
-                <mark className="image">изображение</mark> или послойно.
-                <Addition type="warning">
-                  Если <mark className="image">PSD</mark> сохранён в цветовом режиме,
-                  отличном от <mark>RGB</mark>, — послойный импорт в{" "}
-                  <mark className="app">Adobe After Effects</mark> будет недоступен.{" "}
-                  <a href="#import-layered-psd">Подробнее...</a>
-                </Addition>
-              </Addition>
-              <Addition type="info">
-                <ul>
                   <li>
                     <sup>4</sup> При импорте векторных изображений включите параметр{" "}
                     <mark className="select">«Continuously Rasterize»</mark> у слоя. Эта
@@ -550,15 +540,15 @@ const AeFromNewbies: React.FC = () => {
                     адаптируя её под разрешение композиции. Однако при её использовании
                     возможны побочные эффекты — например, разрывы при применении{" "}
                     <mark className="plugin">Puppet Tool</mark>.
-                  </li>
-                  <li>
-                    Некоторые считают, что включённый{" "}
-                    <mark className="select">«Continuously Rasterize»</mark> позволяет
-                    увеличивать предпросмотр без потери качества, как в{" "}
-                    <mark className="app">Adobe Illustrator</mark>. На деле это не так:{" "}
-                    <mark className="app">Adobe After Effects</mark> — растровый редактор,
-                    он не может отобразить больше пикселей, чем указано в настройках
-                    композиции.
+                    <Addition type="info">
+                      Некоторые пользователи считают, что включённый{" "}
+                      <mark className="select">«Continuously Rasterize»</mark> позволяет
+                      увеличивать предпросмотр без потери качества, как в{" "}
+                      <mark className="app">Adobe Illustrator</mark>. На деле это не так:{" "}
+                      <mark className="app">Adobe After Effects</mark> — растровый
+                      редактор, он не может отобразить больше пикселей, чем указано в
+                      настройках композиции.
+                    </Addition>
                   </li>
                 </ul>
               </Addition>
@@ -699,36 +689,42 @@ const AeFromNewbies: React.FC = () => {
               <Addition type="info">
                 <ul>
                   <li>
-                    <sup>1</sup> У камеры может быть два типа:{" "}
-                    <mark className="select">«One-Node»</mark> и{" "}
-                    <mark className="select">«Two-Node»</mark>.
-                    <ul>
-                      <li>
-                        <mark className="select">«One-Node Camera»</mark> или{" "}
-                        <mark className="select">«одноузловая камера»</mark> работает как
-                        физическая камера: перемещается независимо от точки фокуса и
-                        вращается вокруг себя.
-                      </li>
-                      <li>
-                        <mark className="select">«Two-Node Camera»</mark> или{" "}
-                        <mark className="select">«двухузловая камера»</mark> имеет точку
-                        обзора и ориентируется относительно{" "}
-                        <mark className="select">«Point of Interest»</mark>. Такой тип
-                        полезен при создании параллакс-эффекта.
-                      </li>
-                      <li>
-                        Для любого типа камеры можно включить автоориентацию: выделите
-                        камеру, нажмите <mark className="key">Ctrl + Alt + O</mark> и
-                        выберите нужный параметр. Если выбрать{" "}
-                        <mark className="select">«Orient Towards Point of Interest»</mark>{" "}
-                        — <mark className="select">«одноузловая камера»</mark> превратится
-                        в <mark className="select">«двухузловую»</mark>. Если выбрать{" "}
-                        <mark className="select">«Off»</mark> или{" "}
-                        <mark className="select">«Orient Along Path»</mark>, наоборот —{" "}
-                        <mark className="select">«двухузловая»</mark> станет{" "}
-                        <mark className="select">«одноузловой»</mark>.
-                      </li>
-                    </ul>
+                    <p>
+                      <sup>1</sup> У камеры может быть два типа:{" "}
+                      <mark className="select">«One-Node»</mark> и{" "}
+                      <mark className="select">«Two-Node»</mark>.
+                    </p>
+                    <Addition type="info">
+                      <ul>
+                        <li>
+                          <mark className="select">«One-Node Camera»</mark> или{" "}
+                          <mark className="select">«одноузловая камера»</mark> работает
+                          как физическая камера: перемещается независимо от точки фокуса и
+                          вращается вокруг себя.
+                        </li>
+                        <li>
+                          <mark className="select">«Two-Node Camera»</mark> или{" "}
+                          <mark className="select">«двухузловая камера»</mark> имеет точку
+                          обзора и ориентируется относительно{" "}
+                          <mark className="select">«Point of Interest»</mark>. Такой тип
+                          полезен при создании параллакс-эффекта.
+                        </li>
+                        <li>
+                          Для любого типа камеры можно включить автоориентацию: выделите
+                          камеру, нажмите <mark className="key">Ctrl + Alt + O</mark> и
+                          выберите нужный параметр. Если выбрать{" "}
+                          <mark className="select">
+                            «Orient Towards Point of Interest»
+                          </mark>{" "}
+                          — <mark className="select">«одноузловая камера»</mark>{" "}
+                          превратится в <mark className="select">«двухузловую»</mark>.
+                          Если выбрать <mark className="select">«Off»</mark> или{" "}
+                          <mark className="select">«Orient Along Path»</mark>, наоборот —{" "}
+                          <mark className="select">«двухузловая»</mark> станет{" "}
+                          <mark className="select">«одноузловой»</mark>.
+                        </li>
+                      </ul>
+                    </Addition>
                   </li>
                   <li>
                     <sup>2</sup> Параметры <mark className="select">«Zoom»</mark>,{" "}
@@ -799,65 +795,74 @@ const AeFromNewbies: React.FC = () => {
               <Addition type="info">
                 <ul>
                   <li>
-                    <sup>1</sup> Параметры, начинающиеся с{" "}
-                    <mark className="select">«Iris»</mark>, задают форму и поведение боке.
-                    Но не все эффекты, работающие в трёхмерном пространстве отзываются на
-                    эти настройки.
-                    <ul>
-                      <li>
-                        <mark className="select">«Iris Shape»</mark> — форма лепестков
-                        диафрагмы, видимых в ярких бликах. Значения, отличные от{" "}
-                        <mark className="select">«Fast Rectangle»</mark>, требуют больше
-                        ресурсов и могут замедлить рендер, зато обеспечивают более
-                        реалистичное размытие. При использовании{" "}
-                        <mark className="select">«Fast Rectangle»</mark> некоторые
-                        параметры ниже не работают.
-                      </li>
-                      <li>
-                        <mark className="select">«Iris Rotation»</mark> — угол поворота
-                        лепестков.
-                      </li>
-                      <li>
-                        <mark className="select">«Iris Roundness»</mark> — сглаженность
-                        углов лепестков: от почти треугольных до идеально округлых.
-                      </li>
-                      <li>
-                        <mark className="select">«Iris Aspect Ratio»</mark> — соотношение
-                        сторон фигуры диафрагмы. Можно растянуть или сплющить форму.
-                      </li>
-                      <li>
-                        <mark className="select">«Iris Diffraction Fringe»</mark> —
-                        имитация световой дифракции на бликах. До значения{" "}
-                        <mark>200</mark> эффект почти незаметен, но при <mark>500</mark>{" "}
-                        становится выраженным.
-                      </li>
-                    </ul>
+                    <p>
+                      <sup>1</sup> Параметры, начинающиеся с{" "}
+                      <mark className="select">«Iris»</mark>, задают форму и поведение
+                      боке. Но не все эффекты, работающие в трёхмерном пространстве
+                      отзываются на эти настройки.
+                    </p>
+                    <Addition type="info">
+                      <ul>
+                        <li>
+                          <mark className="select">«Iris Shape»</mark> — форма лепестков
+                          диафрагмы, видимых в ярких бликах. Значения, отличные от{" "}
+                          <mark className="select">«Fast Rectangle»</mark>, требуют больше
+                          ресурсов и могут замедлить рендер, зато обеспечивают более
+                          реалистичное размытие. При использовании{" "}
+                          <mark className="select">«Fast Rectangle»</mark> некоторые
+                          параметры ниже не работают.
+                        </li>
+                        <li>
+                          <mark className="select">«Iris Rotation»</mark> — угол поворота
+                          лепестков.
+                        </li>
+                        <li>
+                          <mark className="select">«Iris Roundness»</mark> — сглаженность
+                          углов лепестков: от почти треугольных до идеально округлых.
+                        </li>
+                        <li>
+                          <mark className="select">«Iris Aspect Ratio»</mark> —
+                          соотношение сторон фигуры диафрагмы. Можно растянуть или
+                          сплющить форму.
+                        </li>
+                        <li>
+                          <mark className="select">«Iris Diffraction Fringe»</mark> —
+                          имитация световой дифракции на бликах. До значения{" "}
+                          <mark>200</mark> эффект почти незаметен, но при <mark>500</mark>{" "}
+                          становится выраженным.
+                        </li>
+                      </ul>
+                    </Addition>
                   </li>
                   <li>
-                    <sup>2</sup> Параметры, начинающиеся с{" "}
-                    <mark className="select">«Highlight»</mark>, отвечают за усиление
-                    яркости и насыщенности светлых участков изображения. Работают только
-                    при включённом <mark className="select">«Depth of Field»</mark>, но
-                    при этом значение размытия может оставаться нулевым.
-                    <ul>
-                      <li>
-                        <mark className="select">«Highlight Gain»</mark> — усиливает
-                        яркость самых светлых участков размытия.
-                      </li>
-                      <li>
-                        <mark className="select">«Highlight Threshold»</mark> — определяет
-                        порог яркости, с которого начинают работать{" "}
-                        <mark className="select">«Highlight Gain»</mark> и{" "}
-                        <mark className="select">«Highlight Saturation»</mark>. По
-                        умолчанию установлено значение <mark>255</mark>; пока вы не
-                        снизите этот порог, остальные два параметра не окажут никакого
-                        эффекта.
-                      </li>
-                      <li>
-                        <mark className="select">«Highlight Saturation»</mark> —
-                        регулирует насыщенность самых ярких размытых участков.
-                      </li>
-                    </ul>
+                    <p>
+                      <sup>2</sup> Параметры, начинающиеся с{" "}
+                      <mark className="select">«Highlight»</mark>, отвечают за усиление
+                      яркости и насыщенности светлых участков изображения. Работают только
+                      при включённом <mark className="select">«Depth of Field»</mark>, но
+                      при этом значение размытия может оставаться нулевым.
+                    </p>
+                    <Addition type="info">
+                      <ul>
+                        <li>
+                          <mark className="select">«Highlight Gain»</mark> — усиливает
+                          яркость самых светлых участков размытия.
+                        </li>
+                        <li>
+                          <mark className="select">«Highlight Threshold»</mark> —
+                          определяет порог яркости, с которого начинают работать{" "}
+                          <mark className="select">«Highlight Gain»</mark> и{" "}
+                          <mark className="select">«Highlight Saturation»</mark>. По
+                          умолчанию установлено значение <mark>255</mark>; пока вы не
+                          снизите этот порог, остальные два параметра не окажут никакого
+                          эффекта.
+                        </li>
+                        <li>
+                          <mark className="select">«Highlight Saturation»</mark> —
+                          регулирует насыщенность самых ярких размытых участков.
+                        </li>
+                      </ul>
+                    </Addition>
                   </li>
                 </ul>
               </Addition>
@@ -876,48 +881,56 @@ const AeFromNewbies: React.FC = () => {
                 src="legacy/aftereffects/edit_preferences_3d.png"
                 type="image"
               />
-              <ul>
-                <li>
-                  <mark className="key">1</mark> — инструмент вращения по орбите вокруг
-                  курсора, сцены или <mark className="select">«Point of Interest»</mark>.
-                </li>
-                <li>
-                  <mark className="key">2</mark> — инструмент панорамирования от курсора
-                  или поворота <mark className="select">«Point of Interest»</mark>.
-                </li>
-                <li>
-                  <mark className="key">3</mark> — инструмент панорамирования по оси Z
-                  относительно курсора, от вида камеры или от{" "}
-                  <mark className="select">«Point of Interest»</mark>.
-                </li>
-              </ul>
               <Addition type="info">
-                <mark className="key">Shift + 1 / 2 / 3</mark> — быстро переключает
-                инструменты между указанными режимами.
-              </Addition>
-              <ul>
-                <li>
-                  <mark className="key">4</mark> — инструмент перемещения трёхмерного
-                  объекта.
-                </li>
-                <li>
-                  <mark className="key">5</mark> — инструмент масштабирования трёхмерного
-                  объекта.
-                </li>
-                <li>
-                  <mark className="key">6</mark> — инструмент поворота трёхмерного
-                  объекта.
-                </li>
-              </ul>
-              <Addition type="info">
-                Чтобы вернуть универсальный манипулятор, выберите его на{" "}
-                <mark className="select">панели инструментов</mark> или нажмите{" "}
-                <mark className="key">Shift + V</mark>.
-                <ArticleMedia
-                  caption="Tools"
-                  src="legacy/aftereffects/select_universal_transform_gizmo.png"
-                  type="image"
-                />
+                <ul>
+                  <li>
+                    <p>
+                      <mark className="key">Shift + 1 / 2 / 3</mark> — быстро переключает
+                      инструменты между указанными режимами.
+                    </p>
+                    <Addition type="info">
+                      <ul>
+                        <li>
+                          <mark className="key">1</mark> — инструмент вращения по орбите
+                          вокруг курсора, сцены или{" "}
+                          <mark className="select">«Point of Interest»</mark>.
+                        </li>
+                        <li>
+                          <mark className="key">2</mark> — инструмент панорамирования от
+                          курсора или поворота{" "}
+                          <mark className="select">«Point of Interest»</mark>.
+                        </li>
+                        <li>
+                          <mark className="key">3</mark> — инструмент панорамирования по
+                          оси Z относительно курсора, от вида камеры или от{" "}
+                          <mark className="select">«Point of Interest»</mark>.
+                        </li>
+                        <li>
+                          <mark className="key">4</mark> — инструмент перемещения
+                          трёхмерного объекта.
+                        </li>
+                        <li>
+                          <mark className="key">5</mark> — инструмент масштабирования
+                          трёхмерного объекта.
+                        </li>
+                        <li>
+                          <mark className="key">6</mark> — инструмент поворота трёхмерного
+                          объекта.
+                        </li>
+                      </ul>
+                    </Addition>
+                  </li>
+                  <li>
+                    Чтобы вернуть универсальный манипулятор после переключения
+                    инструмента, выберите его в <mark className="select">«Tools»</mark>{" "}
+                    или нажмите <mark className="key">Shift + V</mark>.
+                    <ArticleMedia
+                      caption="Tools"
+                      src="legacy/aftereffects/select_universal_transform_gizmo.png"
+                      type="image"
+                    />
+                  </li>
+                </ul>
               </Addition>
             </NestedDetailsSummary>
             <NestedDetailsSummary title="Источник освещения">
@@ -951,39 +964,43 @@ const AeFromNewbies: React.FC = () => {
               <Addition type="info">
                 <ul>
                   <li>
-                    <sup>1</sup> <mark className="select">«Light Type»</mark> — тип
-                    источника освещения.{" "}
-                    <ul>
-                      <li>
-                        <mark className="select">«Parallel»</mark> — направленный,
-                        неограниченный источник света, имитирующий солнце: лучи идут
-                        строго параллельно и словно приходят «из бесконечности».
-                      </li>
-                      <li>
-                        <mark className="select">«Spot»</mark> (по умолчанию) — свет от
-                        источника в виде конуса, как у фонарика или сценического
-                        прожектора. Для такого типа доступны настройки угла конуса
-                        <sup>4</sup> и плавного рассеивания
-                        <sup>5</sup>.
-                      </li>
-                      <li>
-                        <mark className="select">«Point»</mark> — всенаправленный точечный
-                        свет, как от обычной лампочки.
-                      </li>
-                      <li>
-                        <mark className="select">«Ambient»</mark> — заполняющий свет, не
-                        создающий теней.
-                      </li>
-                      <li>
-                        <mark className="select">«Environment»</mark> — создаёт освещение,
-                        отражения и тени за счёт карты <mark className="image">HDRI</mark>
-                        .
-                        <Addition type="warning">
-                          Этот тип освещения доступен только при работе с движком{" "}
-                          <mark className="plugin">Advanced 3D</mark>.
-                        </Addition>
-                      </li>
-                    </ul>
+                    <p>
+                      <sup>1</sup> <mark className="select">«Light Type»</mark> — тип
+                      источника освещения.
+                    </p>
+                    <Addition type="info">
+                      <ul>
+                        <li>
+                          <mark className="select">«Parallel»</mark> — направленный,
+                          неограниченный источник света, имитирующий солнце: лучи идут
+                          строго параллельно и словно приходят «из бесконечности».
+                        </li>
+                        <li>
+                          <mark className="select">«Spot»</mark> (по умолчанию) — свет от
+                          источника в виде конуса, как у фонарика или сценического
+                          прожектора. Для такого типа доступны настройки угла конуса
+                          <sup>4</sup> и плавного рассеивания
+                          <sup>5</sup>.
+                        </li>
+                        <li>
+                          <mark className="select">«Point»</mark> — всенаправленный
+                          точечный свет, как от обычной лампочки.
+                        </li>
+                        <li>
+                          <mark className="select">«Ambient»</mark> — заполняющий свет, не
+                          создающий теней.
+                        </li>
+                        <li>
+                          <mark className="select">«Environment»</mark> — создаёт
+                          освещение, отражения и тени за счёт карты{" "}
+                          <mark className="image">HDRI</mark>.
+                          <Addition type="warning">
+                            Этот тип освещения доступен только при работе с движком{" "}
+                            <mark className="plugin">Advanced 3D</mark>.
+                          </Addition>
+                        </li>
+                      </ul>
+                    </Addition>
                   </li>
                   <li>
                     <sup>2</sup> <mark className="select">«Color»</mark> — настройка цвета
@@ -1013,21 +1030,23 @@ const AeFromNewbies: React.FC = () => {
                     пределах которой свет остаётся постоянным, а{" "}
                     <mark className="select">«Falloff Distance»</mark> — длину, после
                     которой свет начинает постепенно затухать.
-                    <ul>
-                      <li>
-                        <mark className="select">«None»</mark> — интенсивность света не
-                        зависит от расстояния.
-                      </li>
-                      <li>
-                        <mark className="select">«Smooth»</mark> — плавное уменьшение
-                        яркости в пределах заданных дистанции и радиуса.
-                      </li>
-                      <li>
-                        <mark className="select">«Inverse Square Clamped»</mark> —
-                        интенсивность убывает обратно пропорционально квадрату расстояния
-                        до источника.
-                      </li>
-                    </ul>
+                    <Addition type="info">
+                      <ul>
+                        <li>
+                          <mark className="select">«None»</mark> — интенсивность света не
+                          зависит от расстояния.
+                        </li>
+                        <li>
+                          <mark className="select">«Smooth»</mark> — плавное уменьшение
+                          яркости в пределах заданных дистанции и радиуса.
+                        </li>
+                        <li>
+                          <mark className="select">«Inverse Square Clamped»</mark> —
+                          интенсивность убывает обратно пропорционально квадрату
+                          расстояния до источника.
+                        </li>
+                      </ul>
+                    </Addition>
                   </li>
                   <li>
                     <sup>7</sup> <mark className="select">«Casts Shadows»</mark> —
@@ -1415,27 +1434,31 @@ const AeFromNewbies: React.FC = () => {
                     соотношением сторон.
                   </li>
                   <li>
-                    <sup>2</sup> Настройка <mark className="select">«Drop Frame»</mark> и{" "}
-                    <mark className="select">«Non-Drop Frame»</mark> доступна только при
-                    некоторых значениях частоты кадров с плавающей точкой, например{" "}
-                    <mark>29,97</mark> или <mark>59,94</mark>.
-                    <ul>
-                      <li>
-                        <mark className="select">«Drop Frame»</mark> — это способ
-                        нумерации, при котором иногда пропускаются номера кадров, но сами
-                        кадры при этом не теряются. Это делается для того, чтобы таймкод
-                        точно совпадал с реальным временем. Потому что, например,{" "}
-                        <mark>29,97</mark> кадров в секунду — это не ровно <mark>30</mark>
-                        , и со временем смещение накапливается. Чтобы избежать
-                        расхождений, через определённые интервалы пропускают несколько
-                        номеров кадров в счётчике — включают пропуск кадров.
-                      </li>
-                      <li>
-                        <mark className="select">«Non-Drop Frame»</mark> — нумерация
-                        кадров идёт без пропусков. В таком случае со временем таймкод
-                        может расходиться с реальным временем видео.
-                      </li>
-                    </ul>
+                    <p>
+                      <sup>2</sup> Настройка <mark className="select">«Drop Frame»</mark>{" "}
+                      и <mark className="select">«Non-Drop Frame»</mark> доступна только
+                      при некоторых значениях частоты кадров с плавающей точкой, например{" "}
+                      <mark>29,97</mark> или <mark>59,94</mark>.
+                    </p>
+                    <Addition type="info">
+                      <ul>
+                        <li>
+                          <mark className="select">«Drop Frame»</mark> — это способ
+                          нумерации, при котором иногда пропускаются номера кадров, но
+                          сами кадры при этом не теряются. Это делается для того, чтобы
+                          таймкод точно совпадал с реальным временем. Потому что,
+                          например, <mark>29,97</mark> кадров в секунду — это не ровно{" "}
+                          <mark>30</mark>, и со временем смещение накапливается. Чтобы
+                          избежать расхождений, через определённые интервалы пропускают
+                          несколько номеров кадров в счётчике — включают пропуск кадров.
+                        </li>
+                        <li>
+                          <mark className="select">«Non-Drop Frame»</mark> — нумерация
+                          кадров идёт без пропусков. В таком случае со временем таймкод
+                          может расходиться с реальным временем видео.
+                        </li>
+                      </ul>
+                    </Addition>
                   </li>
                   <li>
                     <sup>3</sup> <mark className="select">«Pixel Aspect Ratio»</mark>{" "}
@@ -1449,19 +1472,23 @@ const AeFromNewbies: React.FC = () => {
                     <mark className="select">«Pixel Aspect Ratio Correction»</mark>.
                   </li>
                   <li>
-                    <sup>4</sup> При создании прекомпозиции, если включить{" "}
-                    <mark className="select">
-                      «Adjust composition duration to the time span of the selected
-                      layers»
-                    </mark>
-                    , новая композиция начнёт отсчёт с момента появления самого раннего
-                    слоя и обрежет ненужную длину, которая не попала в диапазон
-                    длительности выделенных слоёв. Например, если вы выделили три слоя:
-                    первый начинается на второй секунде, второй — на четвёртой, а третий
-                    заканчивается на седьмой, то новая прекомпозиция будет иметь длину
-                    ровно 5 секунд и начнётся не с <mark>00:00:00:00</mark>, а с{" "}
-                    <mark>00:00:02:00</mark> — с момента появления самого раннего слоя в
-                    родительской композиции.
+                    <p>
+                      <sup>4</sup> При создании прекомпозиции, если включить{" "}
+                      <mark className="select">
+                        «Adjust composition duration to the time span of the selected
+                        layers»
+                      </mark>
+                      , новая композиция начнёт отсчёт с момента появления самого раннего
+                      слоя и обрежет ненужную длину, которая не попала в диапазон
+                      длительности выделенных слоёв.
+                    </p>
+                    <Addition type="info">
+                      Например, если вы выделили три слоя: первый начинается на второй
+                      секунде, второй — на четвёртой, а третий заканчивается на седьмой,
+                      то новая прекомпозиция будет иметь длину ровно 5 секунд и начнётся
+                      не с <mark>00:00:00:00</mark>, а с <mark>00:00:02:00</mark> — с
+                      момента появления самого раннего слоя в родительской композиции.
+                    </Addition>
                   </li>
                   <li>
                     <sup>5</sup> По умолчанию в{" "}
@@ -1728,14 +1755,9 @@ const AeFromNewbies: React.FC = () => {
               <p>
                 Для создания обычной маски выделите нужный слой, выберите инструмент{" "}
                 <mark className="select">«Pen Tool»</mark> или одну из фигур:{" "}
-                <mark className="select">
-                  «Rectangle Tool»<sup>1</sup>
-                </mark>
-                ,{" "}
-                <mark className="select">
-                  «Rounded Rectangle Tool»<sup>2</sup>
-                </mark>
-                , <mark className="select">«Ellipse Tool»</mark>,{" "}
+                <mark className="select">«Rectangle Tool»</mark>
+                <sup>1</sup>, <mark className="select">«Rounded Rectangle Tool»</mark>
+                <sup>2</sup>, <mark className="select">«Ellipse Tool»</mark>,{" "}
                 <mark className="select">«Polygon Tool»</mark> или{" "}
                 <mark className="select">«Star Tool»</mark>, а затем нарисуйте область,
                 которая должна остаться видимой.
@@ -2760,13 +2782,11 @@ const AeFromNewbies: React.FC = () => {
           <li>
             <mark className="word">Рилсы</mark>, или <mark className="word">шортсы</mark>,
             — короткие вертикальные видеоролики формата <mark>9:16</mark>, публикующиеся в{" "}
-            <mark className="app">
-              Instagram<sup>1</sup>
-            </mark>{" "}
-            или <mark className="app">YouTube</mark>. Вокруг этого формата регулярно кипят
-            споры о ценах, особенно когда речь заходит о «рилсах за 300 рублей». Это
-            вызывает негодование у профессионалов, так как дешёвые предложения
-            обесценивают труд, а заказчики всё чаще ждут шедевр за копейки.
+            <mark className="app">Instagram</mark>
+            <sup>1</sup> или <mark className="app">YouTube</mark>. Вокруг этого формата
+            регулярно кипят споры о ценах, особенно когда речь заходит о «рилсах за 300
+            рублей». Это вызывает негодование у профессионалов, так как дешёвые
+            предложения обесценивают труд, а заказчики всё чаще ждут шедевр за копейки.
             <Addition type="danger">
               <sup>1</sup> <mark className="app">Instagram</mark> и <mark>Meta</mark>{" "}
               признаны экстремистскими организациями и запрещены на территории Российской
@@ -5393,22 +5413,22 @@ const AeFromNewbies: React.FC = () => {
           type="video"
         />
         <Addition type="info">
-          Если вам нужно сделать несколько копий с вложенными композициями, обновить
-          выражения или сгруппировать их в одну папку, воспользуйтесь бесплатным
-          <sup>1</sup> скриптом{" "}
-          <a href="https://aescripts.com/true-comp-duplicator/">True Comp Duplicator</a>.
-          <ul>
-            <li>
-              <sup>1</sup> Чтобы скачать скрипт, зарегистрируйтесь на{" "}
-              <a href="https://aescripts.com">aescripts</a>, на странице плагина
-              установите цену <mark>0</mark> и оформите заказ. Ссылка на скачивание
-              появится{" "}
-              <a href="https://aescripts.com/downloadable/customer/products/">
-                в вашем профиле
-              </a>
-              .
-            </li>
-          </ul>
+          <p>
+            Если вам нужно сделать несколько копий с вложенными композициями, обновить
+            выражения или сгруппировать их в одну папку, воспользуйтесь бесплатным
+            <sup>1</sup> скриптом{" "}
+            <a href="https://aescripts.com/true-comp-duplicator/">True Comp Duplicator</a>
+            .
+          </p>
+          <Addition type="info">
+            <sup>1</sup> Чтобы скачать скрипт, зарегистрируйтесь на{" "}
+            <a href="https://aescripts.com">aescripts</a>, на странице плагина установите
+            цену <mark>0</mark> и оформите заказ. Ссылка на скачивание появится{" "}
+            <a href="https://aescripts.com/downloadable/customer/products/">
+              в вашем профиле
+            </a>
+            .
+          </Addition>
         </Addition>
       </DetailsSummary>
       <DetailsSummary

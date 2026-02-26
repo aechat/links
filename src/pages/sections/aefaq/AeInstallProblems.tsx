@@ -1889,7 +1889,7 @@ const AeInstallProblems: React.FC = () => {
           Данная ошибка чаще всего возникает из-за того, что в вашей системе по какой-то
           причине отсутствует файл <mark className="file">HOSTS</mark>. Чтобы решить эту
           проблему — проверьте содержимое директории{" "}
-          <mark className="path">%WinDir%\System32\Drivers\etc</mark>. Если в нём нет
+          <mark className="path">%WINDIR%\System32\Drivers\etc</mark>. Если в нём нет
           файла <mark className="file">HOSTS</mark> — создайте его самостоятельно,
           например с помощью <mark className="app">Блокнота</mark>, и переместите
           созданный файл без расширения в эту папку.{" "}

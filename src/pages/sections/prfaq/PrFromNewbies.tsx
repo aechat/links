@@ -1118,12 +1118,6 @@ const PrFromNewbies: React.FC = () => {
             уменьшения мерцания на видео.
           </li>
         </ul>
-        <Divider>Остальное</Divider>
-        <ul>
-          <li></li>
-          <li></li>
-          <li></li>
-        </ul>
       </DetailsSummary>
       <DetailsSummary
         anchor="changelog"
@@ -1439,9 +1433,7 @@ const PrFromNewbies: React.FC = () => {
       <DetailsSummary
         anchor="sequence-independent"
         title="Продублировал секвенцию на таймлайне, но копия зависит от оригинала. Как сделать Nest независимыми друг от друга?"
-      >
-        <p></p>
-      </DetailsSummary>
+      ></DetailsSummary>
       <DetailsSummary
         anchor="scale-vs-fit"
         title='Чем отличается "Scale to Frame Size" от "Fill Frame" и "Fit to Frame"?'
