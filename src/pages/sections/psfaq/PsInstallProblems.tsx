@@ -14,42 +14,73 @@ const PsInstallProblems: React.FC = () => {
     <div className="article-content">
       <DetailsSummary
         anchor="how-to-install"
-        title="Забыли положить инструкцию для установки рядом с файлами, куда что кидать?"
+        tag="как установить, куда распаковать, забыли положить, плагины, шаблоны, пресеты, скрипты, расширения, луты, архивы, installation guide"
+        title="В архиве или под записью нет инструкции по установке. Куда что кидать?"
       >
         <p>
-          Обычно установка большинства дополнительных материалов универсальна, но может
-          отличаться в зависимости от вашей операционной системы. В этой статье указано,
-          как установить тот или иной тип файла для{" "}
-          <mark className="app">Adobe Photoshop</mark>.
+          Обычно большинство дополнительных материалов устанавливается одинаково — всё
+          зависит от типа файла. Однако некоторые шаги могут отличаться в зависимости от
+          операционной системы. В этой статье мы расскажем, как устанавливать разные типы
+          файлов для <mark className="app">Adobe Photoshop</mark> и использовать их в
+          программе.
         </p>
+        <Addition type="info">
+          Сторонние плагины и расширения, будь то лицензионные или «народные», в
+          большинстве случаев без проблем устанавливаются как на официальную, так и на
+          «народную» версию <mark className="app">Adobe Photoshop</mark>. Способы проверки
+          лицензии программы и сторонних дополнений обычно не пересекаются.
+        </Addition>
         <Divider>Универсальные инструкции для разных типов файлов</Divider>
         <ul>
           <li>
             <p>
-              Если в архиве находится файл <mark className="image">PSD</mark>, такие файлы
-              открываются как обычный проект в{" "}
-              <mark className="app">Adobe Photoshop</mark> через{" "}
-              <mark className="select">«File» → «Open»</mark> или открытием из проводника,
-              если в системе зависимости были корректно настроены на данный тип файлов.
+              Изображения формата <mark className="image">PSD</mark> открываются как
+              обычные проекты в <mark className="app">Adobe Photoshop</mark>: двойным
+              кликом
+              <sup>1</sup>, через <mark className="select">«File» → «Open»</mark> или
+              сочетанием клавиш <mark className="key">Ctrl + O</mark>.
             </p>
             <Addition type="info">
-              Если вы хотите встроить <mark className="image">PSD</mark> в свой проект,
-              просто перенесите файл из проводника в окно с открытым проектом в{" "}
-              <mark className="app">Adobe Photoshop</mark> или поместите через{" "}
-              <mark className="select">«File» → «Place Embedded»</mark>. Импортированный{" "}
-              <mark className="image">PSD</mark> появится как смарт-объект, который можно
-              будет отредактировать двойным нажатием по миниатюре в окне{" "}
-              <mark className="select">«Layers»</mark>.
+              <ul>
+                <li>
+                  <p>
+                    <sup>1</sup> Двойное нажатие на <mark className="image">PSD</mark> в
+                    файловом менеджере открывает приложение, назначенное в настройках
+                    системы. Поскольку <mark className="image">PSD</mark> могут
+                    открываться не только в <mark className="app">Adobe Photoshop</mark>,
+                    но и в других просмотрщиках изображений, по умолчанию может
+                    запускаться не та программа.
+                  </p>
+                  <p>
+                    Автор статьи назначил{" "}
+                    <mark className="app">FastStone Image Viewer</mark> на{" "}
+                    <mark>Windows</mark> программой по умолчанию для просмотра{" "}
+                    <mark className="image">PSD</mark>, чтобы открывать их без запуска{" "}
+                    <mark className="app">Adobe Photoshop</mark>. При необходимости файл
+                    можно открыть в <mark className="app">Adobe Photoshop</mark> по
+                    клавише <mark className="key">E</mark>, назначив её в настройках
+                    просмотрщика.
+                  </p>
+                </li>
+                <li>
+                  Если вы хотите встроить <mark className="image">PSD</mark> в свой
+                  проект, просто перенесите файл из проводника в окно с открытым проектом
+                  в <mark className="app">Adobe Photoshop</mark> или поместите через{" "}
+                  <mark className="select">«File» → «Place Embedded»</mark>.
+                  Импортированный <mark className="image">PSD</mark> появится как
+                  смарт-объект, который можно будет отредактировать двойным нажатием по
+                  миниатюре в окне <mark className="select">«Layers»</mark>.
+                </li>
+              </ul>
             </Addition>
           </li>
           <li>
             <p>
-              Если в архиве находится <mark className="image">AI</mark>,{" "}
-              <mark className="image">EPS</mark>, <mark className="image">JPG</mark>,{" "}
+              Аналогично, если в архиве содержатся файлы <mark className="image">AI</mark>
+              , <mark className="image">EPS</mark>, <mark className="image">JPG</mark>,{" "}
               <mark className="image">PNG</mark>, <mark className="image">PDF</mark>,{" "}
-              <mark className="image">SVG</mark> или другие файлы изображений, то такие
-              файлы открываются как обычные изображения в{" "}
-              <mark className="app">Adobe Photoshop</mark> простым перетаскиванием файла в
+              <mark className="image">SVG</mark> или другие изображения, их можно открыть
+              в <mark className="app">Adobe Photoshop</mark> простым перетаскиванием в
               окно программы или через <mark className="select">«File» → «Open»</mark>.
             </p>
             <Addition type="info">
@@ -57,53 +88,78 @@ const PsInstallProblems: React.FC = () => {
                 Чтобы поместить изображение в открытый проект, переместите его из
                 проводника, скопируйте изображение и вставьте его с помощью{" "}
                 <mark className="key">Ctrl + V</mark> или выберите{" "}
-                <mark className="select">
-                  «File» → «Place Embedded»<sup>1</sup>
-                </mark>{" "}
-                и в открытом окне проводника выберите нужный файл.
+                <mark className="select">«File» → «Place Embedded»</mark>
+                <sup>1</sup> и в открытом окне проводника выберите нужный файл.
               </p>
-              <ul>
-                <li>
-                  <sup>1</sup> Изображения, помещённые в проект через{" "}
-                  <mark className="select">«Place Embedded»</mark>, будут импортированы
-                  как смарт-объект.
-                </li>
-              </ul>
+              <Addition type="info">
+                <sup>1</sup> Изображения, помещённые в проект через{" "}
+                <mark className="select">«Place Embedded»</mark>, будут импортированы как
+                смарт-объект.
+              </Addition>
             </Addition>
           </li>
           <li>
             <p>
-              Если в архиве находится файл <mark className="file">ATN</mark>, то для
-              установки вам нужно открыть окно <mark className="select">«Actions»</mark> с
-              помощью комбинации клавиш <mark className="key">Alt + F9</mark>, нажать на
-              три полоски в углу открывшегося окна и нажать на кнопку{" "}
-              <mark className="select">«Load Actions»</mark>. Далее вам предложат выбрать
-              нужный файл. После выбора файла действий оно у вас отобразится в окне{" "}
-              <mark className="select">«Actions»</mark> и вы сможете применять их в своих
+              Операции формата <mark className="file">ATN</mark> импортируются через окно{" "}
+              <mark className="select">«Window» → «Actions»</mark>, которое также можно
+              открыть с помощью комбинации клавиш <mark className="key">Alt + F9</mark>. В
+              этом окне откройте контекстное меню в правом верхнем углу и выберите{" "}
+              <mark className="select">«Load Actions»</mark>.
+            </p>
+            <p>
+              В открывшемся окне файлового менеджера выберите нужный файл. После этого
+              импортированные операции отобразятся в окне{" "}
+              <mark className="select">«Actions»</mark>, и вы сможете применять их в своих
               проектах.
             </p>
+            <ArticleMedia
+              caption="Импорт файлов операций"
+              src="legacy/photoshop/load_actions.png"
+              type="image"
+            />
             <Addition type="warning">
               Рекомендуется использовать английскую локализацию{" "}
               <mark className="app">Adobe Photoshop</mark> при использовании сторонних{" "}
               <mark className="file">ATN</mark> файлов. В них часто могут быть завязаны
-              действия на стандартные слова английской локализации.
+              действия на стандартные слова английской локализации.{" "}
+              <a href="#switch-language">Как изменить локализацию?</a>
             </Addition>
+          </li>
+          <li>
+            <p>
+              Наборы кистей формата <mark className="file">ABR</mark> импортируются через
+              окно <mark className="select">«Window» → «Brushes»</mark>. В этом окне
+              откройте контекстное меню в правом верхнем углу и выберите{" "}
+              <mark className="select">«Import Brushes»</mark>.
+            </p>
+            <p>
+              В открывшемся окне файлового менеджера выберите нужный файл. После этого
+              импортированные кисти отобразятся в окне{" "}
+              <mark className="select">«Brushes»</mark>, и вы сможете рисовать ими в своих
+              проектах.
+            </p>
             <ArticleMedia
-              caption="Photoshop"
-              src="legacy/photoshop/load_actions.png"
+              caption="Импорт кистей"
+              src="legacy/photoshop/import_brushes.png"
               type="image"
             />
           </li>
           <li>
-            Если в архиве находится файл <mark className="file">ABR</mark>, то для
-            установки кистей нужно открыть окно кистей в{" "}
-            <mark className="select">«Window» → «Brushes»</mark>. В открывшемся окне
-            нажмите на три полоски в углу и выберите{" "}
-            <mark className="select">«Import Brushes»</mark>. В проводнике выберите нужный
-            файл с набором кистей.
+            <p>
+              Градиенты формата <mark className="file">GRD</mark> импортируются через окно{" "}
+              <mark className="select">«Window» → «Gradients»</mark>. В этом окне откройте
+              контекстное меню в правом верхнем углу и выберите{" "}
+              <mark className="select">«Import Gradients»</mark>.
+            </p>
+            <p>
+              В открывшемся окне файлового менеджера выберите нужный файл. После этого
+              импортированные градиенты отобразятся в окне{" "}
+              <mark className="select">«Gradients»</mark>, и вы сможете использовать их в
+              своих проектах.
+            </p>
             <ArticleMedia
-              caption="Photoshop"
-              src="legacy/photoshop/import_brushes.png"
+              caption="Импорт градиентов"
+              src="legacy/photoshop/import_gradients.png"
               type="image"
             />
           </li>
@@ -1250,8 +1306,8 @@ const PsInstallProblems: React.FC = () => {
           type="image"
         />
         <p>
-          После входа в аккаунт - вкладка <mark className="select">«Neural Filters»</mark>{" "}
-          в контекстном меню <mark className="select">«Filter»</mark> станет активной и вы
+          После входа в аккаунт вкладка <mark className="select">«Neural Filters»</mark> в
+          контекстном меню <mark className="select">«Filter»</mark> станет активной и вы
           сможете загрузить нейро-фильтры, нажав на иконку загрузки рядом с ними.
         </p>
         <ArticleMedia
@@ -1428,6 +1484,29 @@ const PsInstallProblems: React.FC = () => {
         tag="ошибка запуска, хвосты от неудачного удаления, переустановка, adobe cc"
         title="«Приложение Adobe Creative Cloud, необходимое для устранения проблемы, отсутствует или повреждено...» при запуске программы"
       >
+        {/* <DetailsSummary
+      anchor="fix-creative-cloud-missing"
+      tag="ошибка запуска, хвосты от неудачного удаления, переустановка, adobe cc"
+      title="«Приложение Adobe Creative Cloud, необходимое для устранения проблемы отсутствует или повреждено...»"
+    >
+      <p>
+        Вы зачем-то установили приложение{" "}
+        <mark className="app">Adobe Creative Cloud</mark> рядом с пиратскими программами,
+        у которых вырезан модуль <mark className="app">Adobe Creative Cloud</mark>. А
+        потом само приложение <mark className="app">Adobe Creative Cloud</mark> удалили,
+        оставив за собой нежелательные хвосты.
+      </p>
+      <p>
+        Решение довольно простое: удалите приложения и установите их заново, чтобы лишние
+        зависимости программ от <mark className="app">Adobe Creative Cloud</mark>{" "}
+        очистились. Для очистки системы от некоторых или всех программ от{" "}
+        <mark className="company">Adobe</mark> можно воспользоваться консольной утилитой{" "}
+        <a href="https://helpx.adobe.com/creative-cloud/apps/troubleshoot/diagnostics-repair-tools/run-creative-cloud-cleaner-tool.html">
+          Adobe Creative Cloud Cleaner
+        </a>
+        .
+      </p>
+    </DetailsSummary> */}
         <ContentFilter
           windowsContent={
             <>
@@ -1484,7 +1563,17 @@ const PsInstallProblems: React.FC = () => {
         anchor="safe-mode-and-reset"
         tag="безопасный режим, reset preferences, safe mode, установка поверх, нестабильно, сброс настроек, startup repair options, переустановка поверх, чистая установка"
         title="Что делать, если программа начала работать нестабильно, а переустанавливать с нуля не хочется?"
-      ></DetailsSummary>
+      >
+        {/*
+        REVIEW: HIGH - проверить валидность статьи - переписать
+        Черновое дополнение:
+        - Краткое введение: сброс настроек и безопасный запуск помогают исключить конфликтные настройки.
+        - Основные понятия: preferences, safe mode, reset preferences, plugins.
+        - Практические рекомендации: запускать Photoshop с модификаторами для сброса prefs, временно отключать плагины, очищать кэш.
+        - Возможные подводные камни: сброс удалит кастомные кисти/пресеты без бэкапа.
+        - Когда применять / когда не применять: при нестабильной работе после обновлений; если проблема только в одном файле — проверить его.
+        */}
+      </DetailsSummary>
       <Addition type="info">
         Некоторые решения проблем, которые у вас могут возникнуть после установки
         дополнительных материалов или во время использования программы, находятся в общем
