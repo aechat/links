@@ -37,15 +37,39 @@ const LoadingAnimation: React.FC<LoadingAnimationProperties> = ({
   const [fontsLoaded, setFontsLoaded] = useState(false);
 
   useEffect(() => {
+    let isDisposed = false;
+
+    const markFontsLoaded = () => {
+      if (!isDisposed) {
+        setFontsLoaded(true);
+      }
+    };
+
+    if (!("fonts" in document)) {
+      markFontsLoaded();
+
+      return () => {
+        isDisposed = true;
+      };
+    }
+
     const logoFont = "italic 800 1em 'Red Hat Display'";
 
     const taglineFont = "italic 500 1em 'Red Hat Display'";
 
-    Promise.all([document.fonts.load(logoFont), document.fonts.load(taglineFont)]).then(
-      () => {
-        setFontsLoaded(true);
-      }
-    );
+    const fontsLoading = Promise.all([
+      document.fonts.load(logoFont),
+      document.fonts.load(taglineFont),
+    ]);
+
+    fontsLoading.then(markFontsLoaded).catch(markFontsLoaded);
+
+    const fallbackTimer = globalThis.setTimeout(markFontsLoaded, 2000);
+
+    return () => {
+      isDisposed = true;
+      globalThis.clearTimeout(fallbackTimer);
+    };
   }, []);
 
   const [showIntro, setShowIntro] = useState(false);
