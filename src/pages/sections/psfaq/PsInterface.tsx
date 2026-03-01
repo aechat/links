@@ -68,11 +68,11 @@ const PsInterface: React.FC = () => {
         </Addition>
         <p>
           При запуске <mark className="app">Adobe Photoshop</mark> вы часто видите
-          какую-либо картинку, задуманной <mark className="company">Adobe</mark> и
-          наверное задумывались, что неплохо бы её заменить на свою. Да, такое можно
-          сделать с помощью махинаций с <mark className="file">DAT</mark> файлами,
-          располагающиеся в папке <mark className="path">Resources</mark> в директории с
-          установленной программой. Для этого нам пригодится утилита{" "}
+          какую-либо картинку, задуманную <mark className="company">Adobe</mark>, и,
+          наверное, задумывались, что неплохо бы заменить её на свою. Да, такое можно
+          сделать с помощью правок <mark className="file">DAT</mark>-файлов, расположенных
+          в папке <mark className="path">Resources</mark> в директории с установленной
+          программой. Для этого нам пригодится утилита{" "}
           <mark className="app">Photoshop Splash Screen Extractor</mark> от{" "}
           <mark>Pronama</mark>, которую можно загрузить{" "}
           <a
@@ -81,13 +81,13 @@ const PsInterface: React.FC = () => {
           >
             этой ссылке
           </a>{" "}
-          и распаковать его с помощью архиватора, например{" "}
+          и распаковать её с помощью архиватора, например{" "}
           <mark className="app">WinRAR</mark>, в удобном вам месте. Также существует и{" "}
           <a href="https://psccicon.azurewebsites.net/">онлайн-версия</a> данной утилиты.
         </p>
         <Divider>Распаковываем ресурсы программы</Divider>
         <p>
-          После распаковки утилиты - вам нужно перейти в папку с установленным{" "}
+          После распаковки утилиты вам нужно перейти в папку с установленным{" "}
           <mark className="app">Adobe Photoshop</mark>, обычно это{" "}
           <mark className="path">C:\Program Files\Adobe\Adobe Photoshop 20XX</mark> и
           скопировать оттуда папку <mark className="path">Resource</mark> в папку{" "}
@@ -101,9 +101,9 @@ const PsInterface: React.FC = () => {
         <p>
           Затем перейдите внутрь <mark className="path">PSCC2018Icon</mark> и откройте
           скрипт <mark className="file">EXTRACT.CMD</mark>. Он начнёт извлечение картинок
-          из этих файлов в новую папку <mark className="path">Work</mark>, в котором будут
+          из этих файлов в новую папку <mark className="path">Work</mark>, в которой будут
           храниться изображения маленького и большого разрешения. После распаковки
-          ресурсов - нужно перейти в <mark className="path">Work</mark>, а в нём - в
+          ресурсов нужно перейти в <mark className="path">Work</mark>, а в ней — в
           подпапку <mark className="path">Low</mark> и найти изображение{" "}
           <mark className="image">SPLASHBACKGROUND_S0.PNG</mark>. Отредактировать этот
           файл вы можете в любом редакторе изображений, хоть в том же{" "}
@@ -130,11 +130,11 @@ const PsInterface: React.FC = () => {
         <Divider>Запаковываем ресурсы и заменяем их</Divider>
         <p>
           После редактирования и замены стартового изображения в{" "}
-          <mark className="path">Work\Low</mark> - их нужно обратно запаковать с помощью
+          <mark className="path">Work\Low</mark> их нужно обратно запаковать с помощью
           скрипта <mark className="file">PACK.CMD</mark> в папке{" "}
           <mark className="path">PSCC2018Icon</mark> в директории с утилитой. После
-          упаковки - папка <mark className="path">Resources</mark> вновь появится в{" "}
-          <mark className="path">Work</mark>. Его нужно будет переместить с заменой в
+          упаковки папка <mark className="path">Resources</mark> вновь появится в{" "}
+          <mark className="path">Work</mark>. Её нужно будет переместить с заменой в
           директорию с <mark className="app">Adobe Photoshop</mark>, обычно это{" "}
           <mark className="path">C:\Program Files\Adobe\Adobe Photoshop 20XX</mark>.
         </p>

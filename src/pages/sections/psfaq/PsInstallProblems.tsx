@@ -230,7 +230,7 @@ const PsInstallProblems: React.FC = () => {
                     <mark className="file">DMG</mark>, <mark className="file">APP</mark>{" "}
                     или <mark className="file">PKG</mark>, то обычно в нём содержится
                     автоматический установщик плагина. Для установки таких файлов нужно
-                    следовать инструкциям установщика, например перенести файл из одного
+                    следовать инструкциям инсталлятора, например перенести файл из одного
                     места в другое и так далее.
                   </p>
                   <Addition type="info">
@@ -293,17 +293,19 @@ const PsInstallProblems: React.FC = () => {
                   <Addition type="info">
                     <ul>
                       <li>
-                        Если вы не хотите устанавливать стороннее ПО для установки{" "}
-                        <mark className="file">ZXP</mark>, то вы можете переименовать файл{" "}
-                        <mark className="file">ZXP</mark> в{" "}
-                        <mark className="file">ZIP</mark> и распаковать его как обычный
-                        архив. Содержимое свежераспакованного файла нужно поместить в
-                        папку{" "}
-                        <mark className="path">
-                          /Library/Application Support/Adobe/CEP/extensions
-                        </mark>{" "}
-                        и после этого ввести команды, которые были расположены чуть ниже в
-                        терминал.
+                        <p>
+                          Если вы не хотите устанавливать стороннее ПО для установки{" "}
+                          <mark className="file">ZXP</mark>, то вы можете переименовать
+                          файл <mark className="file">ZXP</mark> в{" "}
+                          <mark className="file">ZIP</mark> и распаковать его как обычный
+                          архив. Содержимое свежераспакованного файла нужно поместить в
+                          папку{" "}
+                          <mark className="path">
+                            /Library/Application Support/Adobe/CEP/extensions
+                          </mark>{" "}
+                          и после этого ввести команды, которые были расположены чуть ниже
+                          в терминал.
+                        </p>
                         <CodeSnippet>
                           defaults write com.adobe.CSXS.5 PlayerDebugMode 1
                           <br />
@@ -384,11 +386,29 @@ const PsInstallProblems: React.FC = () => {
             <>
               <ul>
                 <li>
-                  Если вы скачали архив формата <mark className="file">ZIP</mark>,{" "}
-                  <mark className="file">7Z</mark> или <mark className="file">RAR</mark>,
-                  то вам необходимо его распаковать с помощью архиватора для дальнейшей
-                  работы с ним. Это можно сделать с помощью{" "}
-                  <mark className="app">WinRAR</mark>.
+                  <p>
+                    Если вы скачали архив формата <mark className="file">ZIP</mark>,{" "}
+                    <mark className="file">7Z</mark> или <mark className="file">RAR</mark>{" "}
+                    — его необходимо распаковать с помощью архиватора для дальнейшей
+                    работы с его содержимым. Это можно сделать с помощью{" "}
+                    <mark className="app">WinRAR</mark> или{" "}
+                    <mark className="app">7-Zip</mark>, однако многотомные архивы всё же
+                    рекомендуется распаковывать именно через{" "}
+                    <mark className="app">WinRAR</mark> во избежание непредвиденных
+                    ошибок.
+                  </p>
+                  <p>
+                    Для распаковки многотомного архива, то есть, если в названии архивов
+                    есть <mark className="file">PART1</mark>,{" "}
+                    <mark className="file">PART2</mark> и так далее, нужно запустить
+                    распаковку только первой части — остальные подхватятся автоматически.
+                    Другие части архива не нужно трогать без острой необходимости, если вы
+                    не знаете, что с ними делать.
+                  </p>
+                  <ArticleMedia
+                    src="1OVwQS0uHhk"
+                    type="youtube"
+                  />
                   <Addition type="info">
                     <ul>
                       <li>
@@ -402,63 +422,124 @@ const PsInstallProblems: React.FC = () => {
                         </i>
                       </li>
                       <li>
-                        Для распаковки многотомного архива, то есть если в названии
-                        архивов есть <mark className="file">PART1</mark>,{" "}
-                        <mark className="file">PART2</mark> и так далее, нужно запустить
-                        распаковку только первой части архива, нажав{" "}
-                        <mark className="key">ПКМ</mark> по файлу и выбрать в контекстном
-                        меню <mark className="select">«WinRAR» → «Распаковать в...»</mark>
-                        . Остальные части подхватятся автоматически и их не нужно трогать
-                        без острой необходимости, если вы не знаете, что с ними делать.
-                      </li>
-                      <li>
                         Многотомные архивы создаются для того, чтобы файл можно было
-                        спокойно передать, обойдя ограничения максимального размера в{" "}
-                        <mark className="app">Telegram</mark> или другого ресурса.
+                        спокойно передать, обойдя ограничения на максимальный размер в{" "}
+                        <mark className="app">Telegram</mark> или другом сервисе.
                       </li>
                     </ul>
                   </Addition>
-                  <ArticleMedia
-                    src="1OVwQS0uHhk"
-                    type="youtube"
-                  />
                 </li>
                 <li>
-                  Если в архиве или в записи находится файл{" "}
-                  <mark className="file">EXE</mark>, то обычно в нём содержится
-                  автоматический установщик плагина. Если в записи указано, что данный
-                  установщик является репаком, в таком случае после его установки плагин
-                  будет уже активирован, никаких лишних действий после установки делать не
-                  надо.
-                  <Addition type="warning">
+                  <p>
+                    Для того чтобы установить программу или плагин, поставляющийся в
+                    формате исполняемого файла <mark className="file">EXE</mark> или{" "}
+                    <mark className="file">MSI</mark> — достаточно его открыть двойным
+                    кликом и следовать инструкциям инсталлятора.
+                  </p>
+                  <Addition type="info">
                     <ul>
                       <li>
-                        При использовании установщиков убедитесь в том, что у вас{" "}
+                        Перед установкой плагинов с помощью инсталлятора рекомендуется
+                        закрыть <mark className="app">Adobe Photoshop</mark> для
+                        корректной установки.
+                      </li>
+                      <li>
+                        Если в записи указано, что установщик является репаком — после его
+                        установки программа или плагин уже будет «народно» активирован,
+                        никаких дополнительный действий для активации делать не нужно.
+                      </li>
+                    </ul>
+                  </Addition>
+                  <Addition type="danger">
+                    <ul>
+                      <li>
+                        При использовании установщиков убедитесь, что{" "}
                         <mark className="app">Adobe Photoshop</mark> установлен в
                         стандартном расположении{" "}
                         <mark className="path">C:\Program Files\Adobe\</mark>, а не в
-                        другом месте или разделе. В противном случае устанавливаемый
-                        плагин может установиться в другом месте и может не отобразиться и
-                        корректно работать в программе.
+                        другом месте или на другом разделе. В противном случае
+                        устанавливаемый плагин может установиться не туда, из-за чего не
+                        будет отображаться и корректно работать в программе.
                       </li>
                       <li>
-                        Перед установкой плагинов с помощью установщика закройте все
-                        открытые инстанции <mark className="app">Adobe Photoshop</mark>{" "}
-                        для корректной установки.
+                        Если вы доверяете источнику, откуда вы скачали установщик — для
+                        корректной установки отключите полностью или на время ваше{" "}
+                        <mark className="app">антивирусное ПО</mark> во избежание проблем
+                        при установке из-за отсутствия нужных файлов.{" "}
+                        <a href="#disable-defender">Подробнее...</a>
                       </li>
                     </ul>
                   </Addition>
                 </li>
                 <li>
-                  Если в архиве находится файл <mark className="file">8BF</mark>,{" "}
-                  <mark className="file">8BE</mark> или <mark className="file">8BI</mark>{" "}
-                  - то такие плагины обычно распаковываются в папку плагинов программы -{" "}
-                  <mark className="path">
-                    C:\Program Files\Adobe\Adobe Photoshop 20XX\Plug-ins
-                  </mark>
-                  . Установленные плагины появятся в{" "}
-                  <mark className="select">«Plugins»</mark> в горизонтальном меню в
-                  верхней части интерфейса программы.
+                  <p>
+                    Дополнения форматов <mark className="file">8BF</mark>,{" "}
+                    <mark className="file">8BE</mark>, <mark className="file">8BX</mark>,
+                    или <mark className="file">8BI</mark> распаковываются в папку плагинов
+                    внутри директории программы —{" "}
+                    <mark className="path">
+                      C:\Program Files\Adobe\Adobe Photoshop 20XX\Plug-ins
+                    </mark>
+                    . Устанавливаемое дополнение может вызываться из определённого места
+                    интерфейса, например из <mark className="select">«Filters»</mark>,{" "}
+                    <mark className="select">«File» → «Scripts»</mark> или{" "}
+                    <mark className="select">«File» → «Automate»</mark> — читайте
+                    приложенную документацию к устанавливаемому дополнению.
+                  </p>
+                  <Addition type="info">
+                    Не всегда новые версии плагинов могут работать со старыми версиями{" "}
+                    <mark className="app">Adobe Photoshop</mark> и наоборот. Уточняйте в
+                    документации к устанавливаемому плагину, для каких версий{" "}
+                    <mark className="app">Adobe Photoshop</mark> он предназначен.
+                  </Addition>
+                  <Addition type="warning">
+                    В{" "}
+                    <mark className="path">
+                      C:\Program Files\Adobe\Adobe Photoshop 20XX\Required\Plug-ins
+                    </mark>{" "}
+                    находятся стандартные дополнения программы. Не стоит изменять
+                    содержимое каталога без острой необходимости.
+                  </Addition>
+                  <Addition type="danger">
+                    Дополнения формата <mark className="file">PLUGIN</mark> не подходят
+                    для устройств на <mark>Windows</mark>, так как они предназначены для
+                    устройств на <mark>macOS</mark>.
+                  </Addition>
+                </li>
+                <li>
+                  <p>
+                    Расширения формата <mark className="file">CCX</mark> устанавливаются
+                    по следующему порядку действий.
+                  </p>
+                  <ul>
+                    <li>
+                      <p>
+                        Переименуйте файл <mark className="file">CCX</mark> в{" "}
+                        <mark className="file">ZIP</mark> и распакуйте его как обычный
+                        архив.{" "}
+                      </p>
+                      <Addition type="info">
+                        Прежде чем менять расширение файла, убедитесь, что в{" "}
+                        <mark className="app">Проводнике</mark> включено{" "}
+                        <a href="https://remontka.pro/show-file-extensions-windows-11/">
+                          отображение расширений файлов
+                        </a>
+                        .
+                      </Addition>
+                    </li>
+                    <li>
+                      Переместите содержимое распакованного архива в папку{" "}
+                      <mark className="path">
+                        C:\Program Files\Adobe\Adobe Photoshop 20XX\Plug-ins
+                      </mark>
+                      .
+                    </li>
+                    <li>
+                      После корректной установки установленные расширения появятся в{" "}
+                      <mark className="select">«Plugins»</mark> в горизонтальном меню в
+                      верхней части интерфейса программы.
+                    </li>
+                  </ul>
                 </li>
                 <li>
                   Если в архиве находится файл формата <mark className="file">CCX</mark> -
@@ -1435,7 +1516,7 @@ const PsInstallProblems: React.FC = () => {
             </Addition>
           </li>
           <li>
-            Иногда корректному открытию установщика может мешать включенное{" "}
+            Иногда корректному открытию инсталлятора может мешать включенное{" "}
             <mark className="app">антивирусное ПО</mark>, которое вставляет палки в
             колёса, считая файлы, распаковывающиеся во временную директорию как за вирус.
             В таком случае рекомендуется отключить его, конечно же на свой страх и риск.
