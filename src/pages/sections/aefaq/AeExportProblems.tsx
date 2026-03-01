@@ -177,10 +177,13 @@ const AeExportProblems: React.FC = () => {
         </Addition>
         <ul>
           <li>
-            После открытия <mark className="app">Shutter Encoder</mark> импортируйте в
-            программу полученный файл из <mark className="app">Adobe After Effects</mark>{" "}
-            с помощью кнопки <mark className="select">«Browse»</mark> или перетащите его в
-            окно программы, чтобы добавить в очередь.
+            <p>
+              После открытия <mark className="app">Shutter Encoder</mark> импортируйте в
+              программу полученный файл из{" "}
+              <mark className="app">Adobe After Effects</mark> с помощью кнопки{" "}
+              <mark className="select">«Browse»</mark> или перетащите его в окно
+              программы, чтобы добавить в очередь.
+            </p>
             <ArticleMedia
               caption="Shutter Encoder"
               src="legacy/shutter_encoder_import.png"
@@ -230,8 +233,10 @@ const AeExportProblems: React.FC = () => {
             </ul>
           </li>
           <li>
-            Если вы выбрали один из вышеописанных кодеков, для этих форматов потребуется
-            выполнить ещё несколько действий.
+            <p>
+              Если вы выбрали один из вышеописанных кодеков, для этих форматов потребуется
+              выполнить ещё несколько действий.
+            </p>
             <ul>
               <li>
                 <p>
@@ -289,9 +294,11 @@ const AeExportProblems: React.FC = () => {
                 </Addition>
               </li>
               <li>
-                Укажите битрейт для аудио в параметре{" "}
-                <mark className="select">«Audio Bitrate»</mark>; достаточно установить
-                значение <mark>320</mark> Кбит/с.
+                <p>
+                  Укажите битрейт для аудио в параметре{" "}
+                  <mark className="select">«Audio Bitrate»</mark>; достаточно установить
+                  значение <mark>320</mark> Кбит/с.
+                </p>
                 <ArticleMedia
                   caption="Shutter Encoder"
                   src="legacy/shutter_encoder_change_audio_bitrate_h264.mp4"
@@ -299,9 +306,11 @@ const AeExportProblems: React.FC = () => {
                 />
               </li>
               <li>
-                При необходимости включите аппаратное ускорение для декодирования видео в
-                параметре <mark className="select">«Hardware Acceleration»</mark>. В
-                большинстве случаев это ускорит процесс конвертации.
+                <p>
+                  При необходимости включите аппаратное ускорение для декодирования видео
+                  в параметре <mark className="select">«Hardware Acceleration»</mark>. В
+                  большинстве случаев это ускорит процесс конвертации.
+                </p>
                 <ArticleMedia
                   caption="Shutter Encoder"
                   src="legacy/shutter_encoder_enable_hardware_acceleration_h264.png"
@@ -315,10 +324,12 @@ const AeExportProblems: React.FC = () => {
             </ul>
           </li>
           <li>
-            После настройки нужных параметров нажмите кнопку{" "}
-            <mark className="select">«Start function»</mark> для начала конвертации. По
-            умолчанию программа сохраняет готовые файлы в ту же папку, откуда были
-            импортированы исходники.
+            <p>
+              После настройки нужных параметров нажмите кнопку{" "}
+              <mark className="select">«Start function»</mark> для начала конвертации. По
+              умолчанию программа сохраняет готовые файлы в ту же папку, откуда были
+              импортированы исходники.
+            </p>
             <ArticleMedia
               caption="Shutter Encoder"
               src="legacy/shutter_encoder_start_function.png"
@@ -347,12 +358,14 @@ const AeExportProblems: React.FC = () => {
         </p>
         <ul>
           <li>
-            Для начала импортируйте видео в{" "}
-            <mark className="app">Adobe Media Encoder</mark> любым удобным способом:
-            перетащите файл в очередь, воспользуйтесь меню{" "}
-            <mark className="select">«File» → «Import»</mark> или комбинацией клавиш{" "}
-            <mark className="key">Ctrl + I</mark>, либо дважды щёлкните по пустой области
-            в окне очереди.
+            <p>
+              Для начала импортируйте видео в{" "}
+              <mark className="app">Adobe Media Encoder</mark> любым удобным способом:
+              перетащите файл в очередь, воспользуйтесь меню{" "}
+              <mark className="select">«File» → «Import»</mark> или комбинацией клавиш{" "}
+              <mark className="key">Ctrl + I</mark>, либо дважды щёлкните по пустой
+              области в окне очереди.
+            </p>
             <ArticleMedia
               caption="Adobe Media Encoder"
               src="legacy/media_encoder_import.png"
@@ -360,9 +373,11 @@ const AeExportProblems: React.FC = () => {
             />
           </li>
           <li>
-            После импорта файла вы можете указать формат, шаблон и путь для сохранения
-            файла. Нажатие на название формата или пресета откроет редактор настроек, где
-            можно изменить различные параметры или выбрать модуль рендеринга.
+            <p>
+              После импорта файла вы можете указать формат, шаблон и путь для сохранения
+              файла. Нажатие на название формата или пресета откроет редактор настроек,
+              где можно изменить различные параметры или выбрать модуль рендеринга.
+            </p>
             <ArticleMedia
               caption="Adobe Media Encoder"
               src="legacy/media_encoder_exporting.png"

@@ -95,10 +95,13 @@ const AeErrors: React.FC = () => {
               </p>
               <ul>
                 <li>
-                  После её установки перейдите во вкладку{" "}
-                  <mark className="select">«Network Monitor»</mark> и запретите доступ в
-                  интернет всем процессам <mark className="company">Adobe</mark>, нажимая
-                  кнопку <mark className="select">«Block»</mark> рядом с их названиями.
+                  <p>
+                    После её установки перейдите во вкладку{" "}
+                    <mark className="select">«Network Monitor»</mark> и запретите доступ в
+                    интернет всем процессам <mark className="company">Adobe</mark>,
+                    нажимая кнопку <mark className="select">«Block»</mark> рядом с их
+                    названиями.
+                  </p>
                   <ArticleMedia
                     caption="Radio Silence"
                     src="legacy/network_radio_silence.png"
@@ -106,9 +109,11 @@ const AeErrors: React.FC = () => {
                   />
                 </li>
                 <li>
-                  После этого заблокированные приложения появятся во вкладке{" "}
-                  <mark className="select">«Firewall»</mark> и больше не смогут
-                  подключаться к сети.
+                  <p>
+                    После этого заблокированные приложения появятся во вкладке{" "}
+                    <mark className="select">«Firewall»</mark> и больше не смогут
+                    подключаться к сети.
+                  </p>
                   <ArticleMedia
                     caption="Radio Silence"
                     src="legacy/firewall_radio_silence.png"
@@ -196,12 +201,14 @@ const AeErrors: React.FC = () => {
               </p>
               <ul>
                 <li>
-                  Чтобы быстро открыть брандмауэр, воспользуйтесь окном{" "}
-                  <mark className="app">«Выполнить»</mark>: нажмите{" "}
-                  <mark className="key">Win + R</mark>, введите в поле{" "}
-                  <mark className="select">«Открыть»</mark> значение{" "}
-                  <mark className="code">wf.msc</mark> и нажмите{" "}
-                  <mark className="key">Enter</mark>.
+                  <p>
+                    Чтобы быстро открыть брандмауэр, воспользуйтесь окном{" "}
+                    <mark className="app">«Выполнить»</mark>: нажмите{" "}
+                    <mark className="key">Win + R</mark>, введите в поле{" "}
+                    <mark className="select">«Открыть»</mark> значение{" "}
+                    <mark className="code">wf.msc</mark> и нажмите{" "}
+                    <mark className="key">Enter</mark>.
+                  </p>
                   <ArticleMedia
                     caption="Выполнить"
                     src="legacy/open_wf_msc.png"
@@ -209,10 +216,12 @@ const AeErrors: React.FC = () => {
                   />
                 </li>
                 <li>
-                  Перед вами откроется{" "}
-                  <mark className="app">монитор брандмауэра Защитника Windows</mark>. В
-                  левой части окна перейдите в раздел{" "}
-                  <mark className="select">«Правила для входящих подключений»</mark>.
+                  <p>
+                    Перед вами откроется{" "}
+                    <mark className="app">монитор брандмауэра Защитника Windows</mark>. В
+                    левой части окна перейдите в раздел{" "}
+                    <mark className="select">«Правила для входящих подключений»</mark>.
+                  </p>
                   <ArticleMedia
                     caption="Монитор брандмауэра Защитника Windows"
                     src="legacy/firewall_main_page.png"
@@ -220,8 +229,10 @@ const AeErrors: React.FC = () => {
                   />
                 </li>
                 <li>
-                  В правой части интерфейса нажмите{" "}
-                  <mark className="select">«Создать правило»</mark>.
+                  <p>
+                    В правой части интерфейса нажмите{" "}
+                    <mark className="select">«Создать правило»</mark>.
+                  </p>
                   <ArticleMedia
                     caption="Монитор брандмауэра Защитника Windows"
                     src="legacy/firewall_creating_rule.png"
@@ -229,9 +240,11 @@ const AeErrors: React.FC = () => {
                   />
                 </li>
                 <li>
-                  В открывшемся мастере создания правил на первой вкладке оставьте
-                  выбранным <mark className="select">«Для программы»</mark> и нажмите{" "}
-                  <mark className="select">«Далее»</mark>.
+                  <p>
+                    В открывшемся мастере создания правил на первой вкладке оставьте
+                    выбранным <mark className="select">«Для программы»</mark> и нажмите{" "}
+                    <mark className="select">«Далее»</mark>.
+                  </p>
                   <ArticleMedia
                     caption="Мастер создания правила для нового входящего подключения"
                     src="legacy/firewall_rule_type.png"
@@ -239,12 +252,14 @@ const AeErrors: React.FC = () => {
                   />
                 </li>
                 <li>
-                  На второй вкладке укажите путь к исполняемому файлу программы —{" "}
-                  <mark className="path">
-                    C:\Program Files\Adobe\Adobe After Effects 20XX\Support
-                    Files\AfterFX.exe
-                  </mark>{" "}
-                  и снова нажмите <mark className="select">«Далее»</mark>.
+                  <p>
+                    На второй вкладке укажите путь к исполняемому файлу программы —{" "}
+                    <mark className="path">
+                      C:\Program Files\Adobe\Adobe After Effects 20XX\Support
+                      Files\AfterFX.exe
+                    </mark>{" "}
+                    и снова нажмите <mark className="select">«Далее»</mark>.
+                  </p>
                   <ArticleMedia
                     caption="Мастер создания правила для нового входящего подключения"
                     src="legacy/firewall_select_app.png"
@@ -252,8 +267,10 @@ const AeErrors: React.FC = () => {
                   />
                 </li>
                 <li>
-                  В качестве действия выберите{" "}
-                  <mark className="select">«Блокировать подключение»</mark>.
+                  <p>
+                    В качестве действия выберите{" "}
+                    <mark className="select">«Блокировать подключение»</mark>.
+                  </p>
                   <ArticleMedia
                     caption="Мастер создания правила для нового входящего подключения"
                     src="legacy/firewall_blocking.png"
@@ -261,8 +278,10 @@ const AeErrors: React.FC = () => {
                   />
                 </li>
                 <li>
-                  Во вкладке <mark className="select">«Профиль»</mark> оставьте все три
-                  флажка включёнными и нажмите <mark className="select">«Далее»</mark>.
+                  <p>
+                    Во вкладке <mark className="select">«Профиль»</mark> оставьте все три
+                    флажка включёнными и нажмите <mark className="select">«Далее»</mark>.
+                  </p>
                   <ArticleMedia
                     caption="Мастер создания правила для нового входящего подключения"
                     src="legacy/firewall_select_profile.png"
@@ -413,15 +432,20 @@ const AeErrors: React.FC = () => {
             />
           </li>
           <li>
-            Если у вас включена функция{" "}
-            <mark className="select">«Multi-Frame Rendering»</mark>, попробуйте временно
-            её отключить. Для этого перейдите в{" "}
-            <mark className="select">
-              «Edit» → «Preferences» → «Memory & Performance»
-            </mark>
-            , снимите флажок{" "}
-            <mark className="select">«Enable Multi-Frame Rendering»</mark> и повторите
-            попытку рендеринга.
+            <p>
+              Если у вас включена функция{" "}
+              <mark className="select">«Multi-Frame Rendering»</mark>, попробуйте временно
+              её отключить. Для этого перейдите в{" "}
+              <mark className="select">«Edit» → «Preferences» → «Memory & CPU»</mark>
+              <sup>1</sup>, снимите флажок{" "}
+              <mark className="select">«Enable Multi-Frame Rendering»</mark> и повторите
+              попытку рендеринга.
+            </p>
+            <Addition type="info">
+              <sup>1</sup> В предыдущих версиях{" "}
+              <mark className="app">Adobe After Effects</mark> этот параметр находится в
+              разделе <mark className="select">«Memory & Performance»</mark>.
+            </Addition>
             <ArticleMedia
               caption="Выключаем многокадровый рендеринг"
               src="legacy/aftereffects/checkbox_multiframe-render.png"
@@ -429,17 +453,23 @@ const AeErrors: React.FC = () => {
             />
           </li>
           <li>
-            Проверьте параметр{" "}
-            <mark className="select">«RAM reserved for other applications»</mark> в{" "}
-            <mark className="select">
-              «Edit» → «Preferences» → «Memory & Performance»
-            </mark>
-            . Многие путают его назначение: он отвечает не за то, сколько памяти получат
-            программы <mark className="company">Adobe</mark>, а за то, сколько останется
-            другим приложениям. Если выставить слишком большое значение,{" "}
-            <mark className="company">Adobe</mark> может не хватить оперативной памяти.
-            Чтобы выделить максимум для <mark className="company">Adobe</mark>, установите
-            значение <mark>0</mark> — программа сама подставит минимально допустимое.
+            <p>
+              Проверьте параметр{" "}
+              <mark className="select">«RAM reserved for other applications»</mark> в{" "}
+              <mark className="select">«Edit» → «Preferences» → «Memory & CPU»</mark>
+              <sup>1</sup>. Многие путают его назначение: он отвечает не за то, сколько
+              памяти получат программы <mark className="company">Adobe</mark>, а за то,
+              сколько останется другим приложениям. Если выставить слишком большое
+              значение, <mark className="company">Adobe</mark> может не хватить
+              оперативной памяти. Чтобы выделить максимум для{" "}
+              <mark className="company">Adobe</mark>, установите значение <mark>0</mark> —
+              программа сама подставит минимально допустимое.
+            </p>
+            <Addition type="info">
+              <sup>1</sup> В предыдущих версиях{" "}
+              <mark className="app">Adobe After Effects</mark> этот параметр находится в
+              разделе <mark className="select">«Memory & Performance»</mark>.
+            </Addition>
             <ArticleMedia
               caption="Настраиваем выделение оперативной памяти программам"
               src="legacy/aftereffects/ram_reserved_for_other_applications.png"
@@ -447,13 +477,15 @@ const AeErrors: React.FC = () => {
             />
           </li>
           <li>
-            Проверьте, не установлена ли в настройках проекта глубина цвета{" "}
-            <mark>16</mark> или <mark>32 бит на канал</mark>. Для этого откройте{" "}
-            <mark className="select">«Project Settings»</mark> комбинацией клавиш{" "}
-            <mark className="key">Ctrl + Alt + Shift + K</mark>, перейдите во вкладку{" "}
-            <mark className="select">«Color»</mark> и в параметре{" "}
-            <mark className="select">«Depth»</mark> снизьте битность проекта, чтобы
-            облегчить работу.
+            <p>
+              Проверьте, не установлена ли в настройках проекта глубина цвета{" "}
+              <mark>16</mark> или <mark>32 бит на канал</mark>. Для этого откройте{" "}
+              <mark className="select">«Project Settings»</mark> комбинацией клавиш{" "}
+              <mark className="key">Ctrl + Alt + Shift + K</mark>, перейдите во вкладку{" "}
+              <mark className="select">«Color»</mark> и в параметре{" "}
+              <mark className="select">«Depth»</mark> снизьте битность проекта, чтобы
+              облегчить работу.
+            </p>
             <ArticleMedia
               caption="Project Settings"
               src="legacy/aftereffects/change_bit_depth.png"
@@ -468,16 +500,22 @@ const AeErrors: React.FC = () => {
               <mark>32 ГБ</mark> ОЗУ.
             </p>
             <Addition type="info">
-              В <mark className="app">Adobe After Effects</mark> версии <mark>25.2</mark>{" "}
-              и новее добавили функцию воспроизведения предпросмотра напрямую из дискового
-              кэша, без загрузки кадров в ОЗУ. Это может быть полезно, если у вас мало
-              оперативной памяти. Опция включена по умолчанию, если активен дисковый кэш.
-              Управлять ей можно в{" "}
-              <mark className="select">
-                «Edit» → «Preferences» → «Media & Disk Cache» → «Enable Preview from Disk
-                Cache»
-              </mark>
-              . Для этой функции желательно использовать быстрый SSD.
+              <p>
+                В <mark className="app">Adobe After Effects</mark> версии{" "}
+                <mark>25.2</mark> и новее добавили функцию воспроизведения предпросмотра
+                напрямую из дискового кэша, без загрузки кадров в ОЗУ. Это может быть
+                полезно, если у вас мало оперативной памяти. Опция включена по умолчанию,
+                если активен дисковый кэш. Управлять ей можно в{" "}
+                <mark className="select">
+                  «Edit» → «Preferences» → «Disk» → «Enable Preview from Disk Cache»
+                </mark>
+                <sup>1</sup>. Для этой функции желательно использовать быстрый SSD.
+              </p>
+              <Addition type="info">
+                <sup>1</sup> В предыдущих версиях{" "}
+                <mark className="app">Adobe After Effects</mark> этот параметр находится в
+                разделе <mark className="select">«Media & Disk Cache»</mark>.
+              </Addition>
             </Addition>
           </li>
         </ul>
@@ -532,13 +570,15 @@ const AeErrors: React.FC = () => {
             <mark className="key">Ctrl + Win + Shift + B</mark>.
           </li>
           <li>
-            Попробуйте настроить проект на программный рендеринг без аппаратного
-            ускорения, то есть с использованием только процессора. Для этого откройте
-            настройки проекта комбинацией клавиш{" "}
-            <mark className="key">Ctrl + Alt + Shift + K</mark>, во вкладке{" "}
-            <mark className="select">«Video Rendering and Effects»</mark> выберите{" "}
-            <mark className="select">«Mercury Software Only»</mark>. После изменения
-            настроек рекомендуется перезапустить программу.
+            <p>
+              Попробуйте настроить проект на программный рендеринг без аппаратного
+              ускорения, то есть с использованием только процессора. Для этого откройте
+              настройки проекта комбинацией клавиш{" "}
+              <mark className="key">Ctrl + Alt + Shift + K</mark>, во вкладке{" "}
+              <mark className="select">«Video Rendering and Effects»</mark> выберите{" "}
+              <mark className="select">«Mercury Software Only»</mark>. После изменения
+              настроек рекомендуется перезапустить программу.
+            </p>
             <ArticleMedia
               caption="Project Settings"
               src="legacy/aftereffects/set_render_on_cpu.png"
@@ -684,10 +724,15 @@ const AeErrors: React.FC = () => {
           Если это предупреждение или жёлтый треугольник рядом с названием эффекта вас
           раздражает, а обновлять плагин нет возможности или желания, вы можете избавиться
           от них, отключив многокадровый рендеринг. Для этого перейдите в{" "}
-          <mark className="select">«Edit» → «Preferences» → «Memory & Performance»</mark>{" "}
-          и снимите флажок с{" "}
+          <mark className="select">«Edit» → «Preferences» → «Memory & CPU»</mark>
+          <sup>1</sup> и снимите флажок с{" "}
           <mark className="select">«Enable Multi-Frame Rendering»</mark>.
         </p>
+        <Addition type="info">
+          <sup>1</sup> В предыдущих версиях{" "}
+          <mark className="app">Adobe After Effects</mark> этот параметр находится в
+          разделе <mark className="select">«Memory & Performance»</mark>.
+        </Addition>
         <Addition type="warning">
           Отключение многокадрового рендеринга может снизить скорость обработки
           предпросмотра и экспорта, так как программа будет рендерить кадры
@@ -956,15 +1001,18 @@ const AeErrors: React.FC = () => {
                   </Addition>
                 </li>
                 <li>
-                  Если ни запуск от имени администратора, ни обновление драйверов и
-                  программы не дали результата, вероятно, ваша видеокарта не соответствует{" "}
-                  <a href="https://helpx.adobe.com/after-effects/using/advanced-3d-renderer.html">
-                    системным требованиям для Advanced 3D
-                  </a>
-                  . Если вам всё же нужно работать с трёхмерными слоями, переключите
-                  движок на <mark className="plugin">Classic 3D</mark> в окне
-                  предпросмотра или в настройках композиции во вкладке{" "}
-                  <mark className="select">«3D Renderer»</mark>.
+                  <p>
+                    Если ни запуск от имени администратора, ни обновление драйверов и
+                    программы не дали результата, вероятно, ваша видеокарта не
+                    соответствует{" "}
+                    <a href="https://helpx.adobe.com/after-effects/using/advanced-3d-renderer.html">
+                      системным требованиям для Advanced 3D
+                    </a>
+                    . Если вам всё же нужно работать с трёхмерными слоями, переключите
+                    движок на <mark className="plugin">Classic 3D</mark> в окне
+                    предпросмотра или в настройках композиции во вкладке{" "}
+                    <mark className="select">«3D Renderer»</mark>.
+                  </p>
                   <ArticleMedia
                     caption="Composition Settings"
                     src="legacy/aftereffects/change_3d_renderer.png"
@@ -987,7 +1035,7 @@ const AeErrors: React.FC = () => {
           что в его дистрибутивах <mark className="app">Adobe After Effects</mark> версий{" "}
           <mark>2020</mark> и выше отсутствует{" "}
           <mark className="plugin">Cinema 4D Lite</mark>. Это сделано для уменьшения
-          размера установщика, но из-за этого теряется возможность импорта{" "}
+          размера инсталлятора, но из-за этого теряется возможность импорта{" "}
           <mark className="file">C4D</mark> файлов, некорректно работает плагин{" "}
           <mark className="plugin">Cineware</mark> и нельзя включить соответствующий
           движок рендеринга.
@@ -1064,9 +1112,12 @@ const AeErrors: React.FC = () => {
             </Addition>
           </li>
           <li>
-            <mark className="app">Adobe After Effects 17.X-18.X (2020-2021)</mark> требует{" "}
-            <mark className="app">Cinema 4D R21.X.X</mark>. Путь к установленной программе
-            можно указать в настройках движка <mark className="plugin">Cineware</mark>.
+            <p>
+              <mark className="app">Adobe After Effects 17.X-18.X (2020-2021)</mark>{" "}
+              требует <mark className="app">Cinema 4D R21.X.X</mark>. Путь к установленной
+              программе можно указать в настройках движка{" "}
+              <mark className="plugin">Cineware</mark>.
+            </p>
             <div
               style={{
                 alignItems: "center",
@@ -1117,15 +1168,18 @@ const AeErrors: React.FC = () => {
             <mark>Studio Driver</mark>.
           </li>
           <li>
-            <mark className="company">Intel</mark> — найдите и скачайте подходящий драйвер{" "}
-            <a href="https://www.intel.com/content/www/us/en/search.html#sort=relevancy&f:@tabfilter=[Downloads]&f:@stm_10385_en=[Graphics]&f:downloadtype=[Drivers]">
-              на официальном сайте
-            </a>{" "}
-            или воспользуйтесь{" "}
-            <a href="https://www.intel.com/content/www/us/en/support/detect.html">
-              автоматическим установщиком
-            </a>
-            .
+            <p>
+              <mark className="company">Intel</mark> — найдите и скачайте подходящий
+              драйвер{" "}
+              <a href="https://www.intel.com/content/www/us/en/search.html#sort=relevancy&f:@tabfilter=[Downloads]&f:@stm_10385_en=[Graphics]&f:downloadtype=[Drivers]">
+                на официальном сайте
+              </a>{" "}
+              или воспользуйтесь{" "}
+              <a href="https://www.intel.com/content/www/us/en/support/detect.html">
+                автоматическим установщиком
+              </a>
+              .
+            </p>
             <Addition type="warning">
               <mark className="company">Intel</mark> может блокировать доступ к сайту для
               пользователей из Российской Федерации.
@@ -1314,10 +1368,17 @@ const AeErrors: React.FC = () => {
             <Addition type="info">
               <ul>
                 <li>
-                  Параметры автосохранения настраиваются в{" "}
-                  <mark className="select">«Edit» → «Preferences» → «Auto-Save»</mark>.
-                  Там можно задать расположение файлов и время, после которого будет
-                  выполнено автосохранение.
+                  <p>
+                    Параметры автосохранения настраиваются в{" "}
+                    <mark className="select">«Edit» → «Preferences» → «Project»</mark>
+                    <sup>1</sup>. Там можно задать расположение файлов и время, после
+                    которого будет выполнено автосохранение.
+                  </p>
+                  <Addition type="info">
+                    <sup>1</sup> В предыдущих версиях{" "}
+                    <mark className="app">Adobe After Effects</mark> этот параметр
+                    находится в разделе <mark className="select">«Auto-Save»</mark>.
+                  </Addition>
                 </li>
                 <li>
                   Учтите, что при нажатии <mark className="key">Ctrl + S</mark> таймер
@@ -1397,12 +1458,17 @@ const AeErrors: React.FC = () => {
         />
         <p>
           Если нет возможности освободить место, откройте{" "}
-          <mark className="select">«Edit» → «Preferences» → «Media & Disk Cache»</mark>. В
-          этом разделе можно уменьшить максимальный размер кэша в{" "}
+          <mark className="select">«Edit» → «Preferences» → «Disk»</mark>
+          <sup>1</sup>. В этом разделе можно уменьшить максимальный размер кэша в{" "}
           <mark className="select">«Maximum Disk Cache Size»</mark>, изменить его
           расположение через <mark className="select">«Choose Folder»</mark> или полностью
           отключить, сняв флажок с <mark className="select">«Enable Disk Cache»</mark>.
         </p>
+        <Addition type="info">
+          <sup>1</sup> В предыдущих версиях{" "}
+          <mark className="app">Adobe After Effects</mark> этот параметр находится в
+          разделе <mark className="select">«Media & Disk Cache»</mark>.
+        </Addition>
         <ArticleMedia
           caption="Настраиваем дисковый кэш"
           src="legacy/aftereffects/preferences-media_and_disk_cache.png"
@@ -1423,13 +1489,18 @@ const AeErrors: React.FC = () => {
         </p>
         <p>
           Чтобы настроить расположение дискового кэша, перейдите в{" "}
-          <mark className="select">«Edit» → «Preferences» → «Media & Disk Cache»</mark> и
-          укажите нужную директорию.{" "}
+          <mark className="select">«Edit» → «Preferences» → «Disk»</mark>
+          <sup>1</sup> и укажите нужную директорию.{" "}
           <i style={{opacity: "0.5"}}>
             Или просто отключите дисковый кэш, сняв флажок с{" "}
             <mark className="select">«Enable Disk Cache»</mark>.
           </i>
         </p>
+        <Addition type="info">
+          <sup>1</sup> В предыдущих версиях{" "}
+          <mark className="app">Adobe After Effects</mark> этот параметр находится в
+          разделе <mark className="select">«Media & Disk Cache»</mark>.
+        </Addition>
         <ArticleMedia
           caption="Настраиваем дисковый кэш"
           src="legacy/aftereffects/preferences-media_and_disk_cache.png"
@@ -1472,13 +1543,15 @@ const AeErrors: React.FC = () => {
         </p>
         <ul>
           <li>
-            Ошибка может быть связана с исходниками, особенно с переменной частотой
-            кадров. Если в окне <mark className="select">«Project»</mark> частота кадров
-            отображается как <mark>29.841</mark>, стоит интерпретировать или
-            перекодировать футаж в «ровную» частоту, например <mark>30 FPS</mark>, через{" "}
-            <mark className="app">Shutter Encoder</mark>.{" "}
-            <mark className="app">Adobe After Effects</mark> не любит плавающие значения
-            частоты кадров.
+            <p>
+              Ошибка может быть связана с исходниками, особенно с переменной частотой
+              кадров. Если в окне <mark className="select">«Project»</mark> частота кадров
+              отображается как <mark>29.841</mark>, стоит интерпретировать или
+              перекодировать футаж в «ровную» частоту, например <mark>30 FPS</mark>, через{" "}
+              <mark className="app">Shutter Encoder</mark>.{" "}
+              <mark className="app">Adobe After Effects</mark> не любит плавающие значения
+              частоты кадров.
+            </p>
             <Addition type="info">
               Для интерпретации футажа выделите его в окне{" "}
               <mark className="select">«Project»</mark> и нажмите{" "}
@@ -1540,11 +1613,14 @@ const AeErrors: React.FC = () => {
             исходник, создайте на его основе прекомпозицию с той же частотой кадров.
           </li>
           <li>
-            Если вы не хотите менять частоту кадров композиции, перекодируйте исходник в
-            нужное значение через <mark className="app">Shutter Encoder</mark> и замените
-            его в проекте через <mark className="select">«Replace Footage» → «File»</mark>
-            . Для изменения частоты кадров используйте вкладку{" "}
-            <mark className="select">«Advanced features»</mark>.
+            <p>
+              Если вы не хотите менять частоту кадров композиции, перекодируйте исходник в
+              нужное значение через <mark className="app">Shutter Encoder</mark> и
+              замените его в проекте через{" "}
+              <mark className="select">«Replace Footage» → «File»</mark>. Для изменения
+              частоты кадров используйте вкладку{" "}
+              <mark className="select">«Advanced features»</mark>.
+            </p>
             <ArticleMedia
               caption="Shutter Encoder"
               src="legacy/shutter_encoder_convert_to_constant_fps.mp4"
@@ -1552,13 +1628,16 @@ const AeErrors: React.FC = () => {
             />
           </li>
           <li>
-            Если вы не хотите конвертировать исходник, интерпретируйте его частоту кадров.
-            Для этого выделите файл в окне <mark className="select">«Project»</mark>,
-            нажмите <mark className="key">Ctrl + Alt + G</mark>, чтобы открыть окно{" "}
-            <mark className="select">«Interpret Footage»</mark>, и в разделе{" "}
-            <mark className="select">«Frame Rate»</mark> выберите{" "}
-            <mark className="select">«Conform to frame rate»</mark>, задав значение,
-            совпадающее с частотой кадров нужной композиции.
+            <p>
+              Если вы не хотите конвертировать исходник, интерпретируйте его частоту
+              кадров. Для этого выделите файл в окне{" "}
+              <mark className="select">«Project»</mark>, нажмите{" "}
+              <mark className="key">Ctrl + Alt + G</mark>, чтобы открыть окно{" "}
+              <mark className="select">«Interpret Footage»</mark>, и в разделе{" "}
+              <mark className="select">«Frame Rate»</mark> выберите{" "}
+              <mark className="select">«Conform to frame rate»</mark>, задав значение,
+              совпадающее с частотой кадров нужной композиции.
+            </p>
             <ArticleMedia
               caption="Interpret Footage"
               src="legacy/aftereffects/interpret_footage_main.png"
@@ -1613,14 +1692,16 @@ const AeErrors: React.FC = () => {
             />
           </li>
           <li>
-            Иногда проблема может быть в неверно установленном цветовом профиле проекта.
-            Проверьте настройки цветового пространства во вкладке{" "}
-            <mark className="select">«Color»</mark> в{" "}
-            <mark className="select">«Project Settings»</mark>, который можно открыть
-            комбинацией клавиш <mark className="key">Ctrl + Alt + Shift + K</mark>.
-            Попробуйте установить для{" "}
-            <mark className="select">«Working Color Space»</mark> значение{" "}
-            <mark className="select">«None»</mark>.
+            <p>
+              Иногда проблема может быть в неверно установленном цветовом профиле проекта.
+              Проверьте настройки цветового пространства во вкладке{" "}
+              <mark className="select">«Color»</mark> в{" "}
+              <mark className="select">«Project Settings»</mark>, который можно открыть
+              комбинацией клавиш <mark className="key">Ctrl + Alt + Shift + K</mark>.
+              Попробуйте установить для{" "}
+              <mark className="select">«Working Color Space»</mark> значение{" "}
+              <mark className="select">«None»</mark>.
+            </p>
             <ArticleMedia
               caption="Project Settings"
               src="legacy/aftereffects/change_working_color_space.png"
@@ -1691,9 +1772,11 @@ const AeErrors: React.FC = () => {
             вызывает ошибку.
           </li>
           <li>
-            Попробуйте изменить <mark className="select">«Solve Method»</mark> на другой
-            или включить опцию <mark className="select">«Detailed Analysis»</mark> во
-            вкладке <mark className="select">«Advanced»</mark> в настройках эффекта.
+            <p>
+              Попробуйте изменить <mark className="select">«Solve Method»</mark> на другой
+              или включить опцию <mark className="select">«Detailed Analysis»</mark> во
+              вкладке <mark className="select">«Advanced»</mark> в настройках эффекта.
+            </p>
             <ArticleMedia
               caption="Effect Controls"
               src="legacy/aftereffects/detailed_analysis-3d_camera_tracker.png"
@@ -1734,8 +1817,8 @@ const AeErrors: React.FC = () => {
           <mark className="select">«Show System Compatibility Issues»</mark>.
         </p>
         <Addition type="info">
-          В старых версиях <mark className="app">Adobe After Effects</mark> этот параметр
-          находится в разделе <mark className="select">«General»</mark>.
+          В предыдущих версиях <mark className="app">Adobe After Effects</mark> этот
+          параметр находится в разделе <mark className="select">«General»</mark>.
         </Addition>
         <ArticleMedia
           caption="Выключаем проверку совместимости системы"

@@ -299,9 +299,11 @@ const AeImport: React.FC = () => {
         </p>
         <ul>
           <li>
-            Первым делом импортируйте в программу исходники или целую папку с помощью
-            кнопки <mark className="select">«Browse»</mark> или перетащите их в окно
-            программы для добавления в очередь.
+            <p>
+              Первым делом импортируйте в программу исходники или целую папку с помощью
+              кнопки <mark className="select">«Browse»</mark> или перетащите их в окно
+              программы для добавления в очередь.
+            </p>
             <ArticleMedia
               caption="Shutter Encoder"
               src="legacy/shutter_encoder_import.png"
@@ -309,10 +311,12 @@ const AeImport: React.FC = () => {
             />
           </li>
           <li>
-            Затем выберите в <mark className="select">«Choose Function»</mark> нужный
-            формат для конвертации, например <mark className="video">Apple ProRes</mark>{" "}
-            или <mark className="video">H.264</mark>. Изменение данного параметра будет
-            относиться ко всем файлам в очереди конвертации.
+            <p>
+              Затем выберите в <mark className="select">«Choose Function»</mark> нужный
+              формат для конвертации, например <mark className="video">Apple ProRes</mark>{" "}
+              или <mark className="video">H.264</mark>. Изменение данного параметра будет
+              относиться ко всем файлам в очереди конвертации.
+            </p>
             <ArticleMedia
               caption="Shutter Encoder"
               src="legacy/shutter_encoder_choose_function.png"
@@ -320,9 +324,11 @@ const AeImport: React.FC = () => {
             />
             <ul>
               <li>
-                Если вы выбрали <mark className="video">Apple ProRes</mark> — нужно
-                выбрать его тип: <mark className="video">Apple ProRes 422</mark> или{" "}
-                <mark className="video">Apple ProRes 4444</mark>, а также его подвид.
+                <p>
+                  Если вы выбрали <mark className="video">Apple ProRes</mark> — нужно
+                  выбрать его тип: <mark className="video">Apple ProRes 422</mark> или{" "}
+                  <mark className="video">Apple ProRes 4444</mark>, а также его подвид.
+                </p>
                 <ArticleMedia
                   caption="Shutter Encoder"
                   src="legacy/shutter_encoder_select_type_prores.png"
@@ -418,9 +424,11 @@ const AeImport: React.FC = () => {
                     </Addition>
                   </li>
                   <li>
-                    Укажите битрейт для аудио в параметре{" "}
-                    <mark className="select">«Audio Bitrate»</mark>; достаточно установить
-                    значение <mark>320</mark> Кбит/с.
+                    <p>
+                      Укажите битрейт для аудио в параметре{" "}
+                      <mark className="select">«Audio Bitrate»</mark>; достаточно
+                      установить значение <mark>320</mark> Кбит/с.
+                    </p>
                     <ArticleMedia
                       caption="Shutter Encoder"
                       src="legacy/shutter_encoder_change_audio_bitrate_h264.mp4"
@@ -428,10 +436,12 @@ const AeImport: React.FC = () => {
                     />
                   </li>
                   <li>
-                    При необходимости включите аппаратное ускорение для декодирования
-                    видео в параметре{" "}
-                    <mark className="select">«Hardware Acceleration»</mark>. В большинстве
-                    случаев это ускорит процесс конвертации видео.
+                    <p>
+                      При необходимости включите аппаратное ускорение для декодирования
+                      видео в параметре{" "}
+                      <mark className="select">«Hardware Acceleration»</mark>. В
+                      большинстве случаев это ускорит процесс конвертации видео.
+                    </p>
                     <ArticleMedia
                       caption="Shutter Encoder"
                       src="legacy/shutter_encoder_enable_hardware_acceleration_h264.png"
@@ -447,10 +457,12 @@ const AeImport: React.FC = () => {
             </ul>
           </li>
           <li>
-            При необходимости конвертируйте цветовое пространство во вкладке{" "}
-            <mark className="select">«Colorimetry»</mark>, если оно отличается от{" "}
-            <mark>Rec.709</mark>. Цветовое пространство исходника можно узнать через{" "}
-            <mark className="app">MediaInfo</mark>.
+            <p>
+              При необходимости конвертируйте цветовое пространство во вкладке{" "}
+              <mark className="select">«Colorimetry»</mark>, если оно отличается от{" "}
+              <mark>Rec.709</mark>. Цветовое пространство исходника можно узнать через{" "}
+              <mark className="app">MediaInfo</mark>.
+            </p>
             <Addition type="warning">
               Цвета после конвертации из одного цветового пространства в другое могут
               незначительно измениться.
@@ -462,8 +474,11 @@ const AeImport: React.FC = () => {
             />
           </li>
           <li>
-            При необходимости преобразуйте переменную частоту кадров в постоянную. Это
-            можно сделать во вкладке <mark className="select">«Advanced features»</mark>.
+            <p>
+              При необходимости преобразуйте переменную частоту кадров в постоянную. Это
+              можно сделать во вкладке <mark className="select">«Advanced features»</mark>
+              .
+            </p>
             <ArticleMedia
               caption="Shutter Encoder"
               src="legacy/shutter_encoder_convert_to_constant_fps.mp4"
@@ -471,10 +486,12 @@ const AeImport: React.FC = () => {
             />
           </li>
           <li>
-            После настройки нужных параметров нажмите на кнопку{" "}
-            <mark className="select">«Start function»</mark> для начала конвертации. По
-            умолчанию программа сохраняет конвертированные файлы в ту же папку, откуда
-            были импортированы исходники.
+            <p>
+              После настройки нужных параметров нажмите на кнопку{" "}
+              <mark className="select">«Start function»</mark> для начала конвертации. По
+              умолчанию программа сохраняет конвертированные файлы в ту же папку, откуда
+              были импортированы исходники.
+            </p>
             <ArticleMedia
               caption="Shutter Encoder"
               src="legacy/shutter_encoder_start_function.png"
@@ -531,15 +548,23 @@ const AeImport: React.FC = () => {
           <mark className="plugin">Organize Project Assets Pro</mark>.
         </p>
         <Addition type="info">
-          При необходимости вы можете создать шаблон с уже созданными папками и загружать
-          его при создании нового проекта. Чтобы задать свой файл проекта как шаблон,
-          откройте настройки программы{" "}
-          <mark className="select">«Edit» → «Preferences» → «New Project»</mark>, включите
-          параметр <mark className="select">«New Project loads template»</mark>, а затем
-          выберите свой файл проекта с помощью{" "}
-          <mark className="select">«Choose Project Template»</mark>. Если файл шаблона
-          будет удалён или перемещён, программа загрузит пустой проект и предупредит вас,
-          что файл не найден.
+          <p>
+            При необходимости вы можете создать шаблон с уже созданными папками и
+            загружать его при создании нового проекта. Чтобы задать свой файл проекта как
+            шаблон, откройте настройки программы{" "}
+            <mark className="select">«Edit» → «Preferences» → «Project»</mark>
+            <sup>1</sup>, включите параметр{" "}
+            <mark className="select">«New Project loads template»</mark>, а затем выберите
+            свой файл проекта с помощью{" "}
+            <mark className="select">«Choose Project Template»</mark>. Если файл шаблона
+            будет удалён или перемещён, программа загрузит пустой проект и предупредит
+            вас, что файл не найден.
+          </p>
+          <Addition type="info">
+            <sup>1</sup> В предыдущих версиях{" "}
+            <mark className="app">Adobe After Effects</mark> этот параметр находится в
+            разделе <mark className="select">«Media & Disk Cache»</mark>.
+          </Addition>
           <ArticleMedia
             caption="Выбор шаблонного проекта при создании нового проекта"
             src="legacy/aftereffects/choose_project_template.png"
@@ -662,10 +687,15 @@ const AeImport: React.FC = () => {
           процессора дисковый кэш можно отключить, особенно если вы редко работаете со
           сложными сценами. Для этого снимите флажок{" "}
           <mark className="select">«Enable Disk Cache»</mark> в{" "}
-          <mark className="select">«Edit» → «Preferences» → «Media & Disk Cache»</mark>.
-          Это снизит риск сбоев при воспроизведении кэшированных кадров, однако функция
-          предпросмотра кадров с диска станет недоступна.
+          <mark className="select">«Edit» → «Preferences» → «Disk»</mark>
+          <sup></sup>. Это снизит риск сбоев при воспроизведении кэшированных кадров,
+          однако функция предпросмотра кадров с диска станет недоступна.
         </p>
+        <Addition type="info">
+          <sup>1</sup> В предыдущих версиях{" "}
+          <mark className="app">Adobe After Effects</mark> этот параметр находится в
+          разделе <mark className="select">«Media & Disk Cache»</mark>.
+        </Addition>
         <ArticleMedia
           caption="Отключаем дисковый кэш"
           src="legacy/aftereffects/enable_disk_cache.png"
@@ -723,7 +753,7 @@ const AeImport: React.FC = () => {
           выделите исходник, файл которого вы хотите заменить, нажмите{" "}
           <mark className="key">ПКМ</mark> и выберите{" "}
           <mark className="select">«Replace Footage» → «File»</mark>. В открывшемся
-          проводнике выберите файл, который вы получили после конвертации. При
+          файловом менеджере выберите файл, который вы получили после конвертации. При
           необходимости проделайте те же действия с остальными проблемными исходниками в
           вашем проекте.
         </p>
@@ -962,7 +992,7 @@ const AeImport: React.FC = () => {
           потеряли связь с исходниками. Чтобы восстановить связь — нажмите на нужный файл{" "}
           <mark className="key">ПКМ</mark> и выберите{" "}
           <mark className="select">«Replace Footage» → «File»</mark>. Затем в открывшемся
-          проводнике укажите путь к исходнику — и сможете продолжить работу.
+          файловом менеджере укажите путь к исходнику — и сможете продолжить работу.
         </p>
         <Addition type="info">
           Если вы потеряли несколько исходников, но все они лежали в одной папке или её
@@ -1377,7 +1407,7 @@ const AeImport: React.FC = () => {
         </Addition>
         <p>
           В этом и заключается главная проблема импорта из{" "}
-          <mark className="app">Adobe Illustrator</mark> в старых версиях{" "}
+          <mark className="app">Adobe Illustrator</mark> в предыдущих версиях{" "}
           <mark className="app">Adobe After Effects</mark>. При выполнении{" "}
           <mark className="select">«Create Shapes from Vector Layer»</mark> градиенты
           пропадут, а объект окрасится в серый цвет. Это происходит из-за их
@@ -1953,7 +1983,8 @@ const AeImport: React.FC = () => {
           Это сообщение информирует вас о том, что проект, созданный в новой версии{" "}
           <mark className="app">Adobe After Effects</mark>, нельзя открыть в старой
           версии. В программе отсутствует автоматическая обратная совместимость — для
-          открытия таких проектов в старых версиях потребуются дополнительные действия.
+          открытия таких проектов в предыдущих версиях потребуются дополнительные
+          действия.
         </p>
         <p>
           При возникновении этой проблемы у вас есть два варианта решения: попросить

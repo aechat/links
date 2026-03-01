@@ -79,13 +79,15 @@ const AePerformance: React.FC = () => {
         <Divider>Рекомендации по комплектующим для стационарного ПК на Windows</Divider>
         <ul>
           <li>
-            Для начала стоит определиться с вашими предпочтениями в мире процессоров:{" "}
-            <mark>Intel Core</mark> или <mark>AMD Ryzen</mark>. Существенной разницы между
-            ними нет: оба «лагеря» подходят для работы в творческих программах. Но важно
-            помнить: процессор является ключевым комплектующим в сборке для{" "}
-            <mark className="app">Adobe After Effects</mark>, поэтому выбирайте достаточно
-            производительный вариант. Чем он мощнее, тем быстрее будут рендериться кадры в
-            программе.
+            <p>
+              Для начала стоит определиться с вашими предпочтениями в мире процессоров:{" "}
+              <mark>Intel Core</mark> или <mark>AMD Ryzen</mark>. Существенной разницы
+              между ними нет: оба «лагеря» подходят для работы в творческих программах. Но
+              важно помнить: процессор является ключевым комплектующим в сборке для{" "}
+              <mark className="app">Adobe After Effects</mark>, поэтому выбирайте
+              достаточно производительный вариант. Чем он мощнее, тем быстрее будут
+              рендериться кадры в программе.
+            </p>
             <ul>
               <li>
                 <p>
@@ -149,11 +151,13 @@ const AePerformance: React.FC = () => {
             </ul>
           </li>
           <li>
-            Теперь об оперативной памяти. Многие пользователи{" "}
-            <mark className="app">Adobe After Effects</mark> знают, что программа известна
-            высоким потреблением оперативной памяти, поэтому для комфортной работы
-            потребуется минимум <mark>32 ГБ</mark> оперативной памяти типа{" "}
-            <mark>DDR5</mark>, а лучше — <mark>64 ГБ</mark> или больше.
+            <p>
+              Теперь об оперативной памяти. Многие пользователи{" "}
+              <mark className="app">Adobe After Effects</mark> знают, что программа
+              известна высоким потреблением оперативной памяти, поэтому для комфортной
+              работы потребуется минимум <mark>32 ГБ</mark> оперативной памяти типа{" "}
+              <mark>DDR5</mark>, а лучше — <mark>64 ГБ</mark> или больше.
+            </p>
             <Addition type="info">
               Рекомендуется <a href="#configure-swapfile">настроить файл подкачки</a>,
               даже если у вас установлено много оперативной памяти. Это позволит реже
@@ -162,16 +166,18 @@ const AePerformance: React.FC = () => {
             </Addition>
           </li>
           <li>
-            Что касается видеокарты, <mark className="app">Adobe After Effects</mark>{" "}
-            может задействовать её не во всех сценариях, даже если везде включено
-            аппаратное ускорение. Выбор ускорителя зависит от вашего бюджета: для старта
-            подойдёт <mark className="copy">NVIDIA RTX 4060 Ti</mark> или{" "}
-            <mark className="copy">NVIDIA RTX 5060 Ti</mark> с <mark>16 ГБ</mark>{" "}
-            видеопамяти или, при ограниченном бюджете, —{" "}
-            <mark className="copy">NVIDIA RTX 3060</mark> с <mark>12 ГБ</mark>. На момент
-            написания статьи оптимальным вариантом по соотношению
-            «цена–производительность» для работы в программах, требующих видеокарту,
-            считается <mark className="copy">NVIDIA RTX 5070 Ti</mark>.
+            <p>
+              Что касается видеокарты, <mark className="app">Adobe After Effects</mark>{" "}
+              может задействовать её не во всех сценариях, даже если везде включено
+              аппаратное ускорение. Выбор ускорителя зависит от вашего бюджета: для старта
+              подойдёт <mark className="copy">NVIDIA RTX 4060 Ti</mark> или{" "}
+              <mark className="copy">NVIDIA RTX 5060 Ti</mark> с <mark>16 ГБ</mark>{" "}
+              видеопамяти или, при ограниченном бюджете, —{" "}
+              <mark className="copy">NVIDIA RTX 3060</mark> с <mark>12 ГБ</mark>. На
+              момент написания статьи оптимальным вариантом по соотношению
+              «цена–производительность» для работы в программах, требующих видеокарту,
+              считается <mark className="copy">NVIDIA RTX 5070 Ti</mark>.
+            </p>
             <Addition type="danger">
               <p>
                 Видеокарты от <mark className="company">AMD</mark> считаются не лучшим
@@ -194,14 +200,16 @@ const AePerformance: React.FC = () => {
         <Divider>Рекомендации по ноутбукам на Windows</Divider>
         <ul>
           <li>
-            Если у вас нет стационарного компьютера и вы не планируете его покупать,
-            поскольку часто работаете с серьёзными проектами вне дома или часто
-            переезжаете, то при солидном бюджете стоит обратить внимание на мощные
-            портативные модели с дискретными видеокартами от{" "}
-            <mark className="company">NVIDIA</mark>, например{" "}
-            <mark className="copy">Lenovo ThinkBook 16p</mark>,{" "}
-            <mark className="copy">ASUS Zephyrus</mark> или{" "}
-            <mark className="copy">Honor MagicBook Pro 16</mark>.
+            <p>
+              Если у вас нет стационарного компьютера и вы не планируете его покупать,
+              поскольку часто работаете с серьёзными проектами вне дома или часто
+              переезжаете, то при солидном бюджете стоит обратить внимание на мощные
+              портативные модели с дискретными видеокартами от{" "}
+              <mark className="company">NVIDIA</mark>, например{" "}
+              <mark className="copy">Lenovo ThinkBook 16p</mark>,{" "}
+              <mark className="copy">ASUS Zephyrus</mark> или{" "}
+              <mark className="copy">Honor MagicBook Pro 16</mark>.
+            </p>
             <Addition type="warning">
               <ul>
                 <li>
@@ -221,15 +229,17 @@ const AePerformance: React.FC = () => {
             </Addition>
           </li>
           <li>
-            Если у вас уже есть мощный стационарный компьютер, но для правок «на ходу» или
-            быстрой сборки проекта нужен ноутбук, а финальный рендер вы будете выполнять
-            на основной машине, то можно рассмотреть модель без дискретной видеокарты. Для
-            таких задач не обязательно покупать «игровой» ноутбук. Подойдут, например,{" "}
-            <mark className="copy">ASUS Vivobook Pro</mark> или{" "}
-            <mark className="copy">Lenovo ThinkBook 16+</mark> в комплектации с{" "}
-            <mark>32 ГБ</mark> оперативной памяти на <mark>AMD Ryzen</mark> или{" "}
-            <mark>Intel Core</mark>
-            <sup>1</sup>.
+            <p>
+              Если у вас уже есть мощный стационарный компьютер, но для правок «на ходу»
+              или быстрой сборки проекта нужен ноутбук, а финальный рендер вы будете
+              выполнять на основной машине, то можно рассмотреть модель без дискретной
+              видеокарты. Для таких задач не обязательно покупать «игровой» ноутбук.
+              Подойдут, например, <mark className="copy">ASUS Vivobook Pro</mark> или{" "}
+              <mark className="copy">Lenovo ThinkBook 16+</mark> в комплектации с{" "}
+              <mark>32 ГБ</mark> оперативной памяти на <mark>AMD Ryzen</mark> или{" "}
+              <mark>Intel Core</mark>
+              <sup>1</sup>.
+            </p>
             <Addition type="warning">
               <ul>
                 <li>
@@ -266,12 +276,15 @@ const AePerformance: React.FC = () => {
         <Divider>Рекомендации по устройствам на macOS</Divider>
         <ul>
           <li>
-            Если вы хотите купить первый ноутбук от <mark>Apple</mark> или переезжаете с{" "}
-            <mark>MacBook</mark> на базе <mark className="company">Intel</mark>,
-            посмотрите в сторону <mark className="copy">MacBook Air</mark> на чипе{" "}
-            <mark>Apple M4</mark> или <mark className="copy">MacBook Pro</mark> на чипе{" "}
-            <mark>Apple M3 Pro</mark> или новее. Рекомендуется выбирать комплектацию с
-            объёмом оперативной памяти от <mark>16 ГБ</mark> и SSD от <mark>512 ГБ</mark>.
+            <p>
+              Если вы хотите купить первый ноутбук от <mark>Apple</mark> или переезжаете с{" "}
+              <mark>MacBook</mark> на базе <mark className="company">Intel</mark>,
+              посмотрите в сторону <mark className="copy">MacBook Air</mark> на чипе{" "}
+              <mark>Apple M4</mark> или <mark className="copy">MacBook Pro</mark> на чипе{" "}
+              <mark>Apple M3 Pro</mark> или новее. Рекомендуется выбирать комплектацию с
+              объёмом оперативной памяти от <mark>16 ГБ</mark> и SSD от{" "}
+              <mark>512 ГБ</mark>.
+            </p>
             <Addition type="warning">
               <ul>
                 <li>
@@ -412,13 +425,15 @@ const AePerformance: React.FC = () => {
         </p>
         <ul>
           <li>
-            Если вы нечасто работаете в программе, любите новые функции или стабильность
-            для вас не в приоритете, попробуйте воспользоваться{" "}
-            <a href="https://helpx.adobe.com/after-effects/using/whats-new.html">
-              последней
-            </a>{" "}
-            версией <mark className="app">Adobe After Effects</mark>, особенно если вы
-            хотите перейти с предыдущих версий.
+            <p>
+              Если вы нечасто работаете в программе, любите новые функции или стабильность
+              для вас не в приоритете, попробуйте воспользоваться{" "}
+              <a href="https://helpx.adobe.com/after-effects/using/whats-new.html">
+                последней
+              </a>{" "}
+              версией <mark className="app">Adobe After Effects</mark>, особенно если вы
+              хотите перейти с предыдущих версий.
+            </p>
             <Addition type="warning">
               Имейте в виду, что для установки последних версий{" "}
               <mark className="app">Adobe After Effects</mark> требуется{" "}
@@ -457,11 +472,13 @@ const AePerformance: React.FC = () => {
             </Addition>
           </li>
           <li>
-            Если вы используете устройство на <mark>Windows 7</mark> или{" "}
-            <mark>Windows 8.1</mark>, установите версию <mark>16.1</mark> (2019) или{" "}
-            <mark>15.1</mark> (2018). Более свежие версии установить не получится из-за
-            прекращения официальной поддержки этих операционных систем компаниями{" "}
-            <mark className="company">Adobe</mark> и <mark>Microsoft</mark>.
+            <p>
+              Если вы используете устройство на <mark>Windows 7</mark> или{" "}
+              <mark>Windows 8.1</mark>, установите версию <mark>16.1</mark> (2019) или{" "}
+              <mark>15.1</mark> (2018). Более свежие версии установить не получится из-за
+              прекращения официальной поддержки этих операционных систем компаниями{" "}
+              <mark className="company">Adobe</mark> и <mark>Microsoft</mark>.
+            </p>
             <Addition type="danger">
               <ul>
                 <li>
@@ -580,9 +597,11 @@ const AePerformance: React.FC = () => {
         </p>
         <ul>
           <li>
-            <mark className="app">Adobe After Effects</mark> <mark>13.2</mark> (CC 2014) —
-            7 минут 33 секунды. Со включённым{" "}
-            <mark className="select">«Multiprocessing»</mark> — 6 минут 3 секунды.
+            <p>
+              <mark className="app">Adobe After Effects</mark> <mark>13.2</mark> (CC 2014)
+              — 7 минут 33 секунды. Со включённым{" "}
+              <mark className="select">«Multiprocessing»</mark> — 6 минут 3 секунды.
+            </p>
             <ArticleMedia
               caption="Время экспорта"
               src="legacy/aftereffects/render_time_cc2014.png"
@@ -590,8 +609,10 @@ const AePerformance: React.FC = () => {
             />
           </li>
           <li>
-            <mark className="app">Adobe After Effects</mark> <mark>15.1.2</mark> (CC 2018)
-            — 7 минут 27 секунд.
+            <p>
+              <mark className="app">Adobe After Effects</mark> <mark>15.1.2</mark> (CC
+              2018) — 7 минут 27 секунд.
+            </p>
             <ArticleMedia
               caption="Время экспорта"
               src="legacy/aftereffects/render_time_cc2018.png"
@@ -599,8 +620,10 @@ const AePerformance: React.FC = () => {
             />
           </li>
           <li>
-            <mark className="app">Adobe After Effects</mark> <mark>17.7</mark> (2020) — 8
-            минут 34 секунды.
+            <p>
+              <mark className="app">Adobe After Effects</mark> <mark>17.7</mark> (2020) —
+              8 минут 34 секунды.
+            </p>
             <ArticleMedia
               caption="Время экспорта"
               src="legacy/aftereffects/render_time_2020.png"
@@ -608,8 +631,11 @@ const AePerformance: React.FC = () => {
             />
           </li>
           <li>
-            <mark className="app">Adobe After Effects</mark> <mark>23.6</mark> (2023) — 8
-            минут 15 секунд без <mark className="select">«Multi-Frame Rendering»</mark>.
+            <p>
+              <mark className="app">Adobe After Effects</mark> <mark>23.6</mark> (2023) —
+              8 минут 15 секунд без{" "}
+              <mark className="select">«Multi-Frame Rendering»</mark>.
+            </p>
             <ArticleMedia
               caption="Время экспорта"
               src="legacy/aftereffects/render_time_2023.png"
@@ -617,8 +643,11 @@ const AePerformance: React.FC = () => {
             />
           </li>
           <li>
-            <mark className="app">Adobe After Effects</mark> <mark>25.4</mark> (2025) — 8
-            минут 18 секунд без <mark className="select">«Multi-Frame Rendering»</mark>.
+            <p>
+              <mark className="app">Adobe After Effects</mark> <mark>25.4</mark> (2025) —
+              8 минут 18 секунд без{" "}
+              <mark className="select">«Multi-Frame Rendering»</mark>.
+            </p>
             <ArticleMedia
               caption="Время экспорта"
               src="legacy/aftereffects/render_time_2025.png"
@@ -841,13 +870,20 @@ const AePerformance: React.FC = () => {
           память.
         </p>
         <Addition type="info">
-          Изменить размер общего пула можно в настройках{" "}
-          <mark className="select">«Edit» → «Preferences» → «Memory & Performance»</mark>{" "}
-          через параметр{" "}
-          <mark className="select">«RAM reserved for other applications»</mark>. Главное —
-          не путать назначение этой настройки: она определяет, сколько оперативной памяти
-          будет зарезервировано для других приложений, а не для программ{" "}
-          <mark className="company">Adobe</mark>.
+          <p>
+            Изменить размер общего пула можно в настройках{" "}
+            <mark className="select">«Edit» → «Preferences» → «Memory & CPU»</mark>
+            <sup>1</sup> через параметр{" "}
+            <mark className="select">«RAM reserved for other applications»</mark>. Главное
+            — не путать назначение этой настройки: она определяет, сколько оперативной
+            памяти будет зарезервировано для других приложений, а не для программ{" "}
+            <mark className="company">Adobe</mark>.
+          </p>
+          <Addition type="info">
+            <sup>1</sup> В предыдущих версиях{" "}
+            <mark className="app">Adobe After Effects</mark> этот параметр находится в
+            разделе <mark className="select">«Memory & Performance»</mark>.
+          </Addition>
         </Addition>
         <p>
           Когда оперативной памяти начинает не хватать,{" "}
@@ -868,11 +904,16 @@ const AePerformance: React.FC = () => {
               <sup>1</sup> Для эффективной работы с дисковым кэшем необходим быстрый SSD.
             </li>
             <li>
-              Настроить параметры дискового кэша можно в{" "}
-              <mark className="select">
-                «Edit» → «Preferences» → «Media & Disk Cache»
-              </mark>
-              .
+              <p>
+                Настроить параметры дискового кэша можно в{" "}
+                <mark className="select">«Edit» → «Preferences» → «Disk»</mark>
+                <sup>2</sup>.
+              </p>
+              <Addition type="info">
+                <sup>2</sup> В предыдущих версиях{" "}
+                <mark className="app">Adobe After Effects</mark> этот параметр находится в
+                разделе <mark className="select">«Media & Disk Cache»</mark>.
+              </Addition>
             </li>
           </ul>
         </Addition>
@@ -911,7 +952,8 @@ const AePerformance: React.FC = () => {
           . Чтобы оставить часть мощности процессора другим программам, измените значение{" "}
           <mark className="select">«CPU reserved for other applications»</mark>
           <sup>1</sup> в меню{" "}
-          <mark className="select">«Edit» → «Preferences» → «Memory & Performance»</mark>.
+          <mark className="select">«Edit» → «Preferences» → «Memory & CPU»</mark>
+          <sup>2</sup>.
         </p>
         <Addition type="warning">
           <sup>1</sup> Внимательно прочтите описание параметра. Указанный процент — это
@@ -919,6 +961,11 @@ const AePerformance: React.FC = () => {
           <mark className="app">Adobe After Effects</mark>. Например, если вы установите
           значение <mark>70%</mark>, то для рендеринга будет использоваться только{" "}
           <mark>30%</mark> мощности процессора.
+        </Addition>
+        <Addition type="info">
+          <sup>2</sup> В предыдущих версиях{" "}
+          <mark className="app">Adobe After Effects</mark> этот параметр находится в
+          разделе <mark className="select">«Memory & Performance»</mark>.
         </Addition>
         <ArticleMedia
           caption="Настраиваем многокадровый рендеринг"
@@ -1297,9 +1344,12 @@ const AePerformance: React.FC = () => {
             будет так сильно нагружать систему.
           </li>
           <li>
-            Рендерить проект как есть. Если компьютер не справляется, экспорт затягивается
-            на долгие часы или вы просто не хотите мучить своё «железо» — попросите помощи
-            у коллеги с мощным ПК или воспользуйтесь услугами «рендер-ферм»<sup>1</sup>.
+            <p>
+              Рендерить проект как есть. Если компьютер не справляется, экспорт
+              затягивается на долгие часы или вы просто не хотите мучить своё «железо» —
+              попросите помощи у коллеги с мощным ПК или воспользуйтесь услугами
+              «рендер-ферм»<sup>1</sup>.
+            </p>
             <Addition type="warning">
               <sup>1</sup> Учтите: классические «рендер-фермы» часто не имеют
               установленных сторонних плагинов или даже самой программы{" "}
@@ -1378,16 +1428,18 @@ const AePerformance: React.FC = () => {
             пройден, прогнозируемое время снова снизится.
           </li>
           <li>
-            Экспорт в <mark className="video">H.264</mark> и другие кодеки с сильным
-            сжатием может пройти быстрее, если использовать аппаратное ускорение для
-            кодирования видео, например <mark className="select">«NVIDIA NVENC»</mark>
-            <sup>1</sup>, <mark className="select">«AMD AMF»</mark> или{" "}
-            <mark className="select">«Intel Quick Sync»</mark>. На коротких композициях
-            разница бывает незаметна, но при экспорте длинных проектов она становится
-            ощутимой. Однако эта возможность доступна не во всех модулях экспорта. Найти
-            её можно, например, в плагинах{" "}
-            <mark className="plugin">Voukoder Classic</mark> и{" "}
-            <mark className="plugin">Voukoder Pro</mark>.
+            <p>
+              Экспорт в <mark className="video">H.264</mark> и другие кодеки с сильным
+              сжатием может пройти быстрее, если использовать аппаратное ускорение для
+              кодирования видео, например <mark className="select">«NVIDIA NVENC»</mark>
+              <sup>1</sup>, <mark className="select">«AMD AMF»</mark> или{" "}
+              <mark className="select">«Intel Quick Sync»</mark>. На коротких композициях
+              разница бывает незаметна, но при экспорте длинных проектов она становится
+              ощутимой. Однако эта возможность доступна не во всех модулях экспорта. Найти
+              её можно, например, в плагинах{" "}
+              <mark className="plugin">Voukoder Classic</mark> и{" "}
+              <mark className="plugin">Voukoder Pro</mark>.
+            </p>
             <Addition type="warning">
               <p>
                 <sup>1</sup> Некоторые кодировщики, такие как{" "}
@@ -1568,15 +1620,17 @@ const AePerformance: React.FC = () => {
                   </Addition>
                 </li>
                 <li>
-                  Для <mark className="company">Intel</mark> скачайте подходящий драйвер{" "}
-                  <a href="https://www.intel.com/content/www/us/en/search.html#sort=relevancy&f:@tabfilter=[Downloads]&f:@stm_10385_en=[Graphics]&f:downloadtype=[Drivers]">
-                    на официальном сайте
-                  </a>{" "}
-                  или воспользуйтесь{" "}
-                  <a href="https://www.intel.com/content/www/us/en/support/detect.html">
-                    автоматическим установщиком
-                  </a>
-                  .
+                  <p>
+                    Для <mark className="company">Intel</mark> скачайте подходящий драйвер{" "}
+                    <a href="https://www.intel.com/content/www/us/en/search.html#sort=relevancy&f:@tabfilter=[Downloads]&f:@stm_10385_en=[Graphics]&f:downloadtype=[Drivers]">
+                      на официальном сайте
+                    </a>{" "}
+                    или воспользуйтесь{" "}
+                    <a href="https://www.intel.com/content/www/us/en/support/detect.html">
+                      автоматическим установщиком
+                    </a>
+                    .
+                  </p>
                   <Addition type="warning">
                     <mark className="company">Intel</mark> может блокировать доступ к
                     сайту для пользователей из Российской Федерации.
@@ -1715,11 +1769,13 @@ const AePerformance: React.FC = () => {
         />
         <ul>
           <li>
-            <mark className="select">«Mercury Software Only»</mark>, или{" "}
-            <mark className="word">программное ускорение</mark>, позволит{" "}
-            <mark className="app">Adobe After Effects</mark> реже обращаться к видеокарте
-            и выполнять рендеринг в большинстве случаев на процессоре. Рендеринг на
-            процессоре обычно стабильнее, чем при использовании видеокарты.
+            <p>
+              <mark className="select">«Mercury Software Only»</mark>, или{" "}
+              <mark className="word">программное ускорение</mark>, позволит{" "}
+              <mark className="app">Adobe After Effects</mark> реже обращаться к
+              видеокарте и выполнять рендеринг в большинстве случаев на процессоре.
+              Рендеринг на процессоре обычно стабильнее, чем при использовании видеокарты.
+            </p>
             <Addition type="info">
               <ul>
                 <li>
@@ -1739,13 +1795,15 @@ const AePerformance: React.FC = () => {
             </Addition>
           </li>
           <li>
-            <mark className="select">«Mercury GPU Acceleration»</mark>, или{" "}
-            <mark className="word">аппаратное ускорение</mark>, позволит программе
-            использовать при рендеринге и процессор, и видеокарту. Видеокарта будет
-            задействована в тех случаях, когда применённый эффект её поддерживает. Иногда
-            это значение может быть продублировано с указанием технологии вашей
-            видеокарты, например <mark>CUDA (NVIDIA)</mark>, <mark>OpenCL (AMD)</mark>,{" "}
-            <mark>OpenGL (Intel)</mark> или <mark>Metal (Apple Silicon)</mark>.
+            <p>
+              <mark className="select">«Mercury GPU Acceleration»</mark>, или{" "}
+              <mark className="word">аппаратное ускорение</mark>, позволит программе
+              использовать при рендеринге и процессор, и видеокарту. Видеокарта будет
+              задействована в тех случаях, когда применённый эффект её поддерживает.
+              Иногда это значение может быть продублировано с указанием технологии вашей
+              видеокарты, например <mark>CUDA (NVIDIA)</mark>, <mark>OpenCL (AMD)</mark>,{" "}
+              <mark>OpenGL (Intel)</mark> или <mark>Metal (Apple Silicon)</mark>.
+            </p>
             <Addition type="warning">
               На видеокартах с малым объёмом видеопамяти часто возникает ошибка{" "}
               <mark className="warning">
@@ -1842,14 +1900,16 @@ const AePerformance: React.FC = () => {
               <Divider>Инструкция для Windows 10 и 11</Divider>
               <ul>
                 <li>
-                  Откройте окно <mark className="app">Выполнить</mark> с помощью
-                  комбинации клавиш <mark className="key">Win + R</mark>, введите в поле{" "}
-                  <mark className="select">«Открыть»</mark> команду{" "}
-                  <mark className="code">SystemPropertiesAdvanced.exe</mark>, а затем
-                  нажмите <mark className="key">Enter</mark> дважды. Таким образом вы
-                  откроете окно <mark className="select">«Свойства системы»</mark> и сразу
-                  же попадёте в <mark className="select">«Параметры быстродействия»</mark>
-                  .
+                  <p>
+                    Откройте окно <mark className="app">Выполнить</mark> с помощью
+                    комбинации клавиш <mark className="key">Win + R</mark>, введите в поле{" "}
+                    <mark className="select">«Открыть»</mark> команду{" "}
+                    <mark className="code">SystemPropertiesAdvanced.exe</mark>, а затем
+                    нажмите <mark className="key">Enter</mark> дважды. Таким образом вы
+                    откроете окно <mark className="select">«Свойства системы»</mark> и
+                    сразу же попадёте в{" "}
+                    <mark className="select">«Параметры быстродействия»</mark>.
+                  </p>
                   <ArticleMedia
                     caption="Выполнить"
                     src="legacy/run_systempropertiesadvanced.png"
@@ -1857,8 +1917,10 @@ const AePerformance: React.FC = () => {
                   />
                 </li>
                 <li>
-                  В окне <mark className="select">«Параметры быстродействия»</mark>{" "}
-                  перейдите на вкладку <mark className="select">«Дополнительно»</mark>.
+                  <p>
+                    В окне <mark className="select">«Параметры быстродействия»</mark>{" "}
+                    перейдите на вкладку <mark className="select">«Дополнительно»</mark>.
+                  </p>
                   <ArticleMedia
                     caption="Параметры быстродействия"
                     src="legacy/systempropertiesadvanced_select_advanced.png"
@@ -1866,9 +1928,11 @@ const AePerformance: React.FC = () => {
                   />
                 </li>
                 <li>
-                  Во вкладке <mark className="select">«Дополнительно»</mark> нажмите
-                  кнопку <mark className="select">«Изменить»</mark> в разделе{" "}
-                  <mark className="select">«Виртуальная память»</mark>.
+                  <p>
+                    Во вкладке <mark className="select">«Дополнительно»</mark> нажмите
+                    кнопку <mark className="select">«Изменить»</mark> в разделе{" "}
+                    <mark className="select">«Виртуальная память»</mark>.
+                  </p>
                   <ArticleMedia
                     caption="Параметры быстродействия"
                     src="legacy/systempropertiesadvanced_open_change_size.png"
@@ -1876,11 +1940,13 @@ const AePerformance: React.FC = () => {
                   />
                 </li>
                 <li>
-                  Если у вас установлен флажок у параметра{" "}
-                  <mark className="select">
-                    «Автоматически выбирать объем файла подкачки»
-                  </mark>
-                  , снимите его.
+                  <p>
+                    Если у вас установлен флажок у параметра{" "}
+                    <mark className="select">
+                      «Автоматически выбирать объем файла подкачки»
+                    </mark>
+                    , снимите его.
+                  </p>
                   <ArticleMedia
                     caption="Виртуальная память"
                     src="legacy/systempropertiesadvanced_disable_auto_size.png"
@@ -1909,12 +1975,14 @@ const AePerformance: React.FC = () => {
                   <Addition type="info">
                     <ul>
                       <li>
-                        Для файла подкачки выбирайте самый производительный диск на вашем
-                        устройстве. Как правило, это тот же диск, на котором установлена
-                        система. Размещение файла подкачки на медленном диске может
-                        ухудшить работу как с{" "}
-                        <mark className="app">Adobe After Effects</mark>, так и с{" "}
-                        <mark>Windows</mark> в целом.
+                        <p>
+                          Для файла подкачки выбирайте самый производительный диск на
+                          вашем устройстве. Как правило, это тот же диск, на котором
+                          установлена система. Размещение файла подкачки на медленном
+                          диске может ухудшить работу как с{" "}
+                          <mark className="app">Adobe After Effects</mark>, так и с{" "}
+                          <mark>Windows</mark> в целом.
+                        </p>
                         <Addition type="warning">
                           В некоторых случаях, если указать для файла подкачки не
                           системный раздел, это может привести к ошибкам, связанным с

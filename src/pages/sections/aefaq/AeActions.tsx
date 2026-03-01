@@ -927,15 +927,19 @@ const AeActions: React.FC = () => {
         </p>
         <ul>
           <li>
-            Для генерации карты глубины для изображения используется скрипт{" "}
-            <mark className="file">run.py</mark>.
+            <p>
+              Для генерации карты глубины для изображения используется скрипт{" "}
+              <mark className="file">run.py</mark>.
+            </p>
             <CodeSnippet>
               {String.raw`python .\run.py --encoder МОДЕЛЬ --img-path "ПУТЬ\К\ФАЙЛУ" --outdir "ПУТЬ\ДЛЯ\СОХРАНЕНИЯ" --grayscale --pred-only`}
             </CodeSnippet>
           </li>
           <li>
-            Для генерации карты глубины для видео используется скрипт{" "}
-            <mark className="file">RUN_VIDEO.PY</mark>.
+            <p>
+              Для генерации карты глубины для видео используется скрипт{" "}
+              <mark className="file">RUN_VIDEO.PY</mark>.
+            </p>
             <CodeSnippet>
               {String.raw`python .\run_video.py --encoder МОДЕЛЬ --video-path "ПУТЬ\К\ФАЙЛУ" --outdir "ПУТЬ\ДЛЯ\СОХРАНЕНИЯ" --grayscale --pred-only`}
             </CodeSnippet>
@@ -1059,9 +1063,11 @@ const AeActions: React.FC = () => {
         />
         <ul>
           <li>
-            <mark className="select">«Track Camera»</mark> — применяет эффект{" "}
-            <mark className="plugin">3D Camera Tracker</mark>. Полезен, если нужно
-            прикрепить объект к плоскости в трёхмерном пространстве сцены.
+            <p>
+              <mark className="select">«Track Camera»</mark> — применяет эффект{" "}
+              <mark className="plugin">3D Camera Tracker</mark>. Полезен, если нужно
+              прикрепить объект к плоскости в трёхмерном пространстве сцены.
+            </p>
             <ArticleMedia
               src="yaT3YwIK-BI"
               type="youtube"
@@ -1103,8 +1109,10 @@ const AeActions: React.FC = () => {
             />
           </li>
           <li>
-            <mark className="select">«Stabilize Motion»</mark> — функция, которая смещает
-            само видео, чтобы отслеживаемый объект оставался в центре кадра.
+            <p>
+              <mark className="select">«Stabilize Motion»</mark> — функция, которая
+              смещает само видео, чтобы отслеживаемый объект оставался в центре кадра.
+            </p>
             <ArticleMedia
               src="eyWclmjr94k"
               type="youtube"

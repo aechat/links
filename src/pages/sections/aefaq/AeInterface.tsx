@@ -53,13 +53,14 @@ const AeInterface: React.FC = () => {
         <p>
           Если вариант со входом в аккаунт вас не устраивает или это окно просто мешает,
           его можно отключить. Для этого перейдите в{" "}
-          <mark className="select">«Edit» → «Preferences» → «Startup & Repair»</mark> и
-          снимите чекбокс у параметра <mark className="select">«Enable Home Screen»</mark>
-          .
+          <mark className="select">«Edit» → «Preferences» → «Startup & Repair»</mark>
+          <sup>1</sup> и снимите чекбокс у параметра{" "}
+          <mark className="select">«Enable Home Screen»</mark>.
         </p>
         <Addition type="info">
-          В старых версиях <mark className="app">Adobe After Effects</mark> этот параметр
-          находится в разделе <mark className="select">«General»</mark>.
+          <sup>1</sup> В предыдущих версиях{" "}
+          <mark className="app">Adobe After Effects</mark> этот параметр находится в
+          разделе <mark className="select">«General»</mark>.
         </Addition>
         <ArticleMedia
           caption="Отключаем отображение домашнего экрана при запуске программы"
@@ -246,7 +247,7 @@ const AeInterface: React.FC = () => {
         <Addition type="info">
           <ul>
             <li>
-              В старых версиях <mark className="app">Adobe After Effects</mark> такой
+              В предыдущих версиях <mark className="app">Adobe After Effects</mark> такой
               опции нет. Чтобы она появилась, обновитесь до более свежей версии программы.
             </li>
             <li>
@@ -301,11 +302,13 @@ const AeInterface: React.FC = () => {
         />
         <ul>
           <li>
-            <mark className="select">Зелёная линия</mark> показывает кадры композиции,
-            которые были кэшированы в оперативную память и готовы к воспроизведению. Этот
-            промежуток может как расширяться в зависимости от количества отрендеренных
-            кадров, так и сужаться из-за нехватки оперативной памяти, поскольку программа
-            может выгрузить эти кадры в дисковый кэш или удалить их.
+            <p>
+              <mark className="select">Зелёная линия</mark> показывает кадры композиции,
+              которые были кэшированы в оперативную память и готовы к воспроизведению.
+              Этот промежуток может как расширяться в зависимости от количества
+              отрендеренных кадров, так и сужаться из-за нехватки оперативной памяти,
+              поскольку программа может выгрузить эти кадры в дисковый кэш или удалить их.
+            </p>
             <Addition type="warning">
               В отличие от классических нелинейных редакторов, например{" "}
               <mark className="app">Adobe Premiere</mark> или{" "}
@@ -320,24 +323,33 @@ const AeInterface: React.FC = () => {
             </Addition>
           </li>
           <li>
-            <mark className="select">Синяя линия</mark> означает промежуток кадров,
-            записанных в дисковый кэш. Они остаются доступными даже после перезапуска
-            программы, если кэш не был очищен. При попытке воспроизвести их из дискового
-            кэша кадры перемещаются<sup>1</sup> обратно в оперативную память и
-            проигрываются оттуда. Если дисковый кэш отключён, этот цвет на таймлайне не
-            появляется.
+            <p>
+              <mark className="select">Синяя линия</mark> означает промежуток кадров,
+              записанных в дисковый кэш. Они остаются доступными даже после перезапуска
+              программы, если кэш не был очищен. При попытке воспроизвести их из дискового
+              кэша кадры перемещаются<sup>1</sup> обратно в оперативную память и
+              проигрываются оттуда. Если дисковый кэш отключён, этот цвет на таймлайне не
+              появляется.
+            </p>
             <Addition type="info">
-              <sup>1</sup> В <mark className="app">Adobe After Effects</mark> версии{" "}
-              <mark>25.2</mark> и новее добавили функцию воспроизведения предпросмотра
-              напрямую из дискового кэша, минуя оперативную память, — как в обычном
-              видеопроигрывателе. В таком случае зелёная полоса будет означать промежуток,
-              готовый к воспроизведению. Если дисковый кэш включён, эта опция активна по
-              умолчанию. Включить или выключить её можно в{" "}
-              <mark className="select">
-                «Edit» → «Preferences» → «Media & Disk Cache» → «Enable Preview from Disk
-                Cache»
-              </mark>
-              . При использовании данной опции желательно иметь быстрый накопитель.
+              <p>
+                <sup>1</sup> В <mark className="app">Adobe After Effects</mark> версии{" "}
+                <mark>25.2</mark> и новее добавили функцию воспроизведения предпросмотра
+                напрямую из дискового кэша, минуя оперативную память, — как в обычном
+                видеопроигрывателе. В таком случае зелёная полоса будет означать
+                промежуток, готовый к воспроизведению. Если дисковый кэш включён, эта
+                опция активна по умолчанию. Включить или выключить её можно в{" "}
+                <mark className="select">
+                  «Edit» → «Preferences» → «Disk» → «Enable Preview from Disk Cache»
+                </mark>
+                <sup>2</sup>. При использовании данной опции желательно иметь быстрый
+                накопитель.
+              </p>
+              <Addition type="info">
+                <sup>2</sup> В предыдущих версиях{" "}
+                <mark className="app">Adobe After Effects</mark> этот параметр находится в
+                разделе <mark className="select">«Media & Disk Cache»</mark>.
+              </Addition>
             </Addition>
           </li>
         </ul>
@@ -506,12 +518,18 @@ const AeInterface: React.FC = () => {
         <p>
           Если вы не видите путь движения объекта или он слишком короткий — измените
           область времени его отображения, открыв{" "}
-          <mark className="select">«Edit» → «Preferences» → «Display»</mark>. В разделе{" "}
-          <mark className="select">«Motion Path»</mark> по умолчанию длина пути ограничена
-          15 секундами. Если вы хотите отобразить траекторию по всей длине анимации,
-          установите значение <mark className="select">«All Keyframes»</mark>. Также вы
-          можете вовсе отключить показ траектории.
+          <mark className="select">«Edit» → «Preferences» → «Appearance»</mark>
+          <sup>1</sup>. В разделе <mark className="select">«Motion Path»</mark> по
+          умолчанию длина пути ограничена 15 секундами. Если вы хотите отобразить
+          траекторию по всей длине анимации, установите значение{" "}
+          <mark className="select">«All Keyframes»</mark>. Также вы можете вовсе отключить
+          показ траектории.
         </p>
+        <Addition type="info">
+          <sup>1</sup> В предыдущих версиях{" "}
+          <mark className="app">Adobe After Effects</mark> этот параметр находится в
+          разделе <mark className="select">«Display»</mark>.
+        </Addition>
         <ArticleMedia
           caption="Изменяем длину отображения пути движения"
           src="legacy/aftereffects/change_motion_path_range.png"
@@ -738,12 +756,20 @@ const AeInterface: React.FC = () => {
           type="video"
         />
         <Addition type="info">
-          Если вы не видите путь движения объекта или он слишком короткий, измените
-          область времени его отображения, открыв{" "}
-          <mark className="select">«Edit» → «Preferences» → «Display»</mark> и установив
-          значение <mark className="select">«All Keyframes»</mark>. Также убедитесь, что у
-          вас включено отображение манипуляторов слоя с помощью комбинации клавиш{" "}
-          <mark className="key">Ctrl + Shift + H</mark>.
+          <p>
+            Если вы не видите путь движения объекта или он слишком короткий, измените
+            область времени его отображения, открыв{" "}
+            <mark className="select">«Edit» → «Preferences» → «Appearance»</mark>
+            <sup>1</sup> и установив значение{" "}
+            <mark className="select">«All Keyframes»</mark>. Также убедитесь, что у вас
+            включено отображение манипуляторов слоя с помощью комбинации клавиш{" "}
+            <mark className="key">Ctrl + Shift + H</mark>.
+          </p>
+          <Addition type="info">
+            <sup>1</sup> В предыдущих версиях{" "}
+            <mark className="app">Adobe After Effects</mark> этот параметр находится в
+            разделе <mark className="select">«Display»</mark>.
+          </Addition>
         </Addition>
         <Divider>Почему у меня пропали манипуляторы при создании шейпов?</Divider>
         <p>
@@ -959,14 +985,15 @@ const AeInterface: React.FC = () => {
           Скорее всего, вы случайно установили флажок возле параметра, который позволяет
           программе использовать системное диалоговое окно выбора цвета. Чтобы вернуть
           стандартный для <mark className="app">Adobe After Effects</mark> вид, перейдите
-          в <mark className="select">«Edit» → «Preferences» → «Appearance»</mark> и
-          уберите флажок возле параметра{" "}
+          в <mark className="select">«Edit» → «Preferences» → «Appearance»</mark>
+          <sup>1</sup> и уберите флажок возле параметра{" "}
           <mark className="select">«Use System Color Picker»</mark>. После этого при
           выборе цвета вернётся привычное окно.
         </p>
         <Addition type="info">
-          В старых версиях <mark className="app">Adobe After Effects</mark> эта кнопка
-          находится в разделе <mark className="select">«General»</mark>.
+          <sup>1</sup> В предыдущих версиях{" "}
+          <mark className="app">Adobe After Effects</mark> эта кнопка находится в разделе{" "}
+          <mark className="select">«General»</mark>.
         </Addition>
         <ArticleMedia
           caption="Отключаем системный выбор цвета"

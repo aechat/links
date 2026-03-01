@@ -45,50 +45,59 @@ const AeFromNewbies: React.FC = () => {
         <Divider>Курсы для начинающих</Divider>
         <ul>
           <li>
-            Если вы только начинаете свой путь в мире композитинга и никогда не работали с
-            программами вроде <mark className="app">Adobe After Effects</mark>, рекомендую
-            пройти курс{" "}
-            <a href="https://www.youtube.com/playlist?list=PLcN7xY5E2wrmIU__8uNIHglZTyZ29RMIM">
-              «Основы After Effects»
-            </a>{" "}
-            от <a href="https://youtube.com/zernov">Ильи Зернова</a>. Этот курс поможет
-            вам освоить интерфейс программы и научиться работать с ключевыми кадрами,
-            титрами и эффектами.
+            <p>
+              Если вы только начинаете свой путь в мире композитинга и никогда не работали
+              с программами вроде <mark className="app">Adobe After Effects</mark>,
+              рекомендую пройти курс{" "}
+              <a href="https://www.youtube.com/playlist?list=PLcN7xY5E2wrmIU__8uNIHglZTyZ29RMIM">
+                «Основы After Effects»
+              </a>{" "}
+              от <a href="https://youtube.com/zernov">Ильи Зернова</a>. Этот курс поможет
+              вам освоить интерфейс программы и научиться работать с ключевыми кадрами,
+              титрами и эффектами.
+            </p>
             <ArticleMedia
               src="nogR7eyhYug"
               type="youtube"
             />
           </li>
           <li>
-            В качестве альтернативы вы можете пройти{" "}
-            <a href="https://www.youtube.com/playlist?list=PLrsq-o51mMFE4ez9Q4qmkyoXZ_lYsyZNi">
-              мини-курс «After Effects для начинающих» от VideoSmile
-            </a>
-            . При прохождении этого курса вы научитесь работать с различными эффектами,
-            создавать анимацию текста, а также использовать маски и инструмент{" "}
-            <mark className="plugin">Roto Brush</mark> для вырезания объектов в кадре.
+            <p>
+              В качестве альтернативы вы можете пройти{" "}
+              <a href="https://www.youtube.com/playlist?list=PLrsq-o51mMFE4ez9Q4qmkyoXZ_lYsyZNi">
+                мини-курс «After Effects для начинающих» от VideoSmile
+              </a>
+              . При прохождении этого курса вы научитесь работать с различными эффектами,
+              создавать анимацию текста, а также использовать маски и инструмент{" "}
+              <mark className="plugin">Roto Brush</mark> для вырезания объектов в кадре.
+            </p>
             <ArticleMedia
               src="ZTrELWgEtUI"
               type="youtube"
             />
           </li>
           <li>
-            Если вы владеете английским на уровне комфортного понимания речи, рекомендую к
-            просмотру плейлист{" "}
-            <a href="https://www.youtube.com/playlist?list=PLYfCBK8IplO77FDDLnS06qEMoVLD7Qyib">
-              «Learn Adobe After Effects» от Gareth David Studio
-            </a>
-            . Автор подробно разбирает основные функции программы и демонстрирует
-            различные примеры работы.
+            <p>
+              Если вы владеете английским на уровне комфортного понимания речи, рекомендую
+              к просмотру плейлист{" "}
+              <a href="https://www.youtube.com/playlist?list=PLYfCBK8IplO77FDDLnS06qEMoVLD7Qyib">
+                «Learn Adobe After Effects» от Gareth David Studio
+              </a>
+              . Автор подробно разбирает основные функции программы и демонстрирует
+              различные примеры работы.
+            </p>
             <ArticleMedia
               src="FuJMHF510mc"
               type="youtube"
             />
           </li>
           <li>
-            Если вы уже знакомы с интерфейсом программы, но всё ещё чувствуете себя
-            неуверенно, попробуйте изучить каналы на <mark className="app">YouTube</mark>{" "}
-            из списка ниже: они помогут прокачать ваши навыки.
+            <p>
+              Если вы уже знакомы с интерфейсом программы, но всё ещё чувствуете себя
+              неуверенно, попробуйте изучить каналы на{" "}
+              <mark className="app">YouTube</mark> из списка ниже: они помогут прокачать
+              ваши навыки.
+            </p>
             <div className="flexible-links">
               <a href="https://www.youtube.com/@TutoView/videos">Tutorials View+</a>
               <a href="https://www.youtube.com/@BenMarriott/videos">Ben Marriott</a>
@@ -105,9 +114,11 @@ const AeFromNewbies: React.FC = () => {
             </div>
           </li>
           <li>
-            И не забываем про дополнительный список как бесплатных, так и платных
-            комплексных курсов по <mark className="app">Adobe After Effects</mark>,
-            затрагивающий разные области применения программы.
+            <p>
+              И не забываем про дополнительный список как бесплатных, так и платных
+              комплексных курсов по <mark className="app">Adobe After Effects</mark>,
+              затрагивающий разные области применения программы.
+            </p>
             <div className="flexible-links">
               <a href="https://cloudlessons.ru/v/410/">
                 «Супер After Effects» от VideoSmile
@@ -144,19 +155,25 @@ const AeFromNewbies: React.FC = () => {
         <Divider>Подборка туториалов на разные темы</Divider>
         <ul>
           <li>
-            Если вы сталкиваетесь с трудностями при работе с графиками скорости и
-            значения, а также с <mark className="select">«Graph Editor»</mark>, посмотрите
-            подробное объяснение этого инструмента от{" "}
-            <a href="https://www.youtube.com/@JakeInMotion">Jake In Motion</a>.
+            <p>
+              Если вы сталкиваетесь с трудностями при работе с графиками скорости и
+              значения, а также с <mark className="select">«Graph Editor»</mark>,
+              посмотрите подробное объяснение этого инструмента от{" "}
+              <a href="https://www.youtube.com/@JakeInMotion">Jake In Motion</a> или
+              прочтите <a href="#keyframe-types">статью про ключевые кадры</a>.
+            </p>
             <ArticleMedia
               src="7pOCtlrrE3Y"
               type="youtube"
             />
           </li>
           <li>
-            Если вы хотите повторить трендовые ролики с плавным ускорением и замедлением,
-            так называемым «speed ramp», то этот эффект делается с помощью изменения
-            скорости в параметре <mark className="select">«Time Remapping»</mark>.
+            <p>
+              Если вы хотите повторить трендовые ролики с плавным ускорением и
+              замедлением, так называемым «speed ramp», то этот эффект делается с помощью
+              изменения скорости в параметре{" "}
+              <mark className="select">«Time Remapping»</mark>.
+            </p>
             <Addition type="info">
               Чтобы включить <mark className="select">«Time Remapping»</mark> у
               выделенного слоя, нажмите комбинацию клавиш{" "}
@@ -168,11 +185,13 @@ const AeFromNewbies: React.FC = () => {
             />
           </li>
           <li>
-            Цветокоррекция помогает задать нужное настроение или стиль композиции. Для
-            этого можно использовать <mark className="plugin">Lumetri Color</mark> или
-            отдельные инструменты из раздела{" "}
-            <mark className="path">Color Correction</mark> из стандартной поставки
-            программы.
+            <p>
+              Цветокоррекция помогает задать нужное настроение или стиль композиции. Для
+              этого можно использовать <mark className="plugin">Lumetri Color</mark> или
+              отдельные инструменты из раздела{" "}
+              <mark className="path">Color Correction</mark> из стандартной поставки
+              программы.
+            </p>
             <div className="flexible-links">
               <a href="https://helpx.adobe.com/after-effects/using/color-correction-effects.html">
                 Эффекты для цветокоррекции
@@ -197,11 +216,13 @@ const AeFromNewbies: React.FC = () => {
         </Addition>
         <ul>
           <li>
-            Если вам регулярно попадаются «эдиты» в <mark className="app">TikTok</mark>,{" "}
-            <mark className="app">YouTube Shorts</mark> или{" "}
-            <mark className="app">Instagram Reels</mark>
-            <sup>1</sup> и хочется попробовать создать что-то подобное, обратите внимание
-            на обучающие видео на каналах ниже.
+            <p>
+              Если вам регулярно попадаются «эдиты» в <mark className="app">TikTok</mark>,{" "}
+              <mark className="app">YouTube Shorts</mark> или{" "}
+              <mark className="app">Instagram Reels</mark>
+              <sup>1</sup> и хочется попробовать создать что-то подобное, обратите
+              внимание на обучающие видео на каналах ниже.
+            </p>
             <div className="flexible-links">
               <a href="https://www.youtube.com/@Tozel./videos">Tozel</a>
               <a href="https://www.youtube.com/@rdylt09/videos">rdylt09</a>
@@ -221,12 +242,14 @@ const AeFromNewbies: React.FC = () => {
             </Addition>
           </li>
           <li>
-            В «эдитах» нередко используют эффект тряски камеры. Его можно реализовать
-            разными способами, например с помощью стандартного выражения{" "}
-            <mark className="code">wiggle(freq, amp)</mark> или сторонних эффектов{" "}
-            <mark className="plugin">S_Shake</mark> и{" "}
-            <mark className="plugin">Twitch</mark>
-            <sup>1</sup>.
+            <p>
+              В «эдитах» нередко используют эффект тряски камеры. Его можно реализовать
+              разными способами, например с помощью стандартного выражения{" "}
+              <mark className="code">wiggle(freq, amp)</mark> или сторонних эффектов{" "}
+              <mark className="plugin">S_Shake</mark> и{" "}
+              <mark className="plugin">Twitch</mark>
+              <sup>1</sup>.
+            </p>
             <Addition type="danger">
               <sup>1</sup> Автор статьи не рекомендует применять{" "}
               <mark className="plugin">Twitch</mark> в новых проектах, так как он морально
@@ -242,20 +265,24 @@ const AeFromNewbies: React.FC = () => {
             />
           </li>
           <li>
-            Ещё один популярный эффект для динамичных сцен — частицы. Их можно создавать с
-            помощью стандартных генераторов, таких как{" "}
-            <mark className="plugin">CC Particle World</mark>, или через сторонние
-            инструменты, например <mark className="plugin">Trapcode Particular</mark>.
+            <p>
+              Ещё один популярный эффект для динамичных сцен — частицы. Их можно создавать
+              с помощью стандартных генераторов, таких как{" "}
+              <mark className="plugin">CC Particle World</mark>, или через сторонние
+              инструменты, например <mark className="plugin">Trapcode Particular</mark>.
+            </p>
             <ArticleMedia
               src="GgIbELgZLLI"
               type="youtube"
             />
           </li>
           <li>
-            Для придания объектам свечения используют различные эффекты: от стандартного{" "}
-            <mark className="plugin">Glow</mark> до сторонних{" "}
-            <mark className="plugin">S_Glow</mark>,{" "}
-            <mark className="plugin">Deep Glow</mark> и других.
+            <p>
+              Для придания объектам свечения используют различные эффекты: от стандартного{" "}
+              <mark className="plugin">Glow</mark> до сторонних{" "}
+              <mark className="plugin">S_Glow</mark>,{" "}
+              <mark className="plugin">Deep Glow</mark> и других.
+            </p>
             <Addition type="warning">
               Учтите, что эффект свечения очень требователен к ресурсам и может серьёзно
               снизить производительность проекта.
@@ -266,32 +293,36 @@ const AeFromNewbies: React.FC = () => {
             />
           </li>
           <li>
-            Блики от объектива применяются для усиления реалистичности сцены. В реальности
-            они возникают из-за отражения света от поверхностей объектов, диафрагмы или
-            многократных отражений между линзами. Повторить этот эффект можно стандартным{" "}
-            <mark className="plugin">Lens Flare</mark>, сторонними инструментами{" "}
-            <mark className="plugin">Optical Flares</mark>,{" "}
-            <mark className="plugin">S_LensFlare</mark> или даже комбинацией различных
-            эффектов размытия и искажения.
+            <p>
+              Блики от объектива применяются для усиления реалистичности сцены. В
+              реальности они возникают из-за отражения света от поверхностей объектов,
+              диафрагмы или многократных отражений между линзами. Повторить этот эффект
+              можно стандартным <mark className="plugin">Lens Flare</mark>, сторонними
+              инструментами <mark className="plugin">Optical Flares</mark>,{" "}
+              <mark className="plugin">S_LensFlare</mark> или даже комбинацией различных
+              эффектов размытия и искажения.
+            </p>
             <ArticleMedia
               src="-yD3MxlR78c"
               type="youtube"
             />
           </li>
           <li>
-            На популярных видеоплощадках, таких как <mark className="app">TikTok</mark> и{" "}
-            <mark className="app">YouTube Shorts</mark> нередко используют спорные приёмы
-            «улучшения» качества через цветокоррекцию: применяют эффекты{" "}
-            <mark className="plugin">Sharpen</mark> и{" "}
-            <mark className="plugin">Unsharpen Mask</mark> с чрезмерными значениями,
-            завышают контраст и насыщенность, а затем называют видео <mark>4K</mark>, хотя
-            фактическое разрешение меньше.{" "}
-            <i style={{opacity: "0.5"}}>
-              Пожалуйста, не доводите до максимума значения эффектов{" "}
-              <mark className="plugin">Unsharpen Mask</mark> и{" "}
-              <mark className="plugin">Sharpen</mark> в погоне за «качеством» — после
-              таких «улучшений» результат обычно выглядит так себе.
-            </i>
+            <p>
+              На популярных видеоплощадках, таких как <mark className="app">TikTok</mark>{" "}
+              и <mark className="app">YouTube Shorts</mark> нередко используют спорные
+              приёмы «улучшения» качества через цветокоррекцию: применяют эффекты{" "}
+              <mark className="plugin">Sharpen</mark> и{" "}
+              <mark className="plugin">Unsharpen Mask</mark> с чрезмерными значениями,
+              завышают контраст и насыщенность, а затем называют видео <mark>4K</mark>,
+              хотя фактическое разрешение меньше.{" "}
+              <i style={{opacity: "0.5"}}>
+                Пожалуйста, не доводите до максимума значения эффектов{" "}
+                <mark className="plugin">Unsharpen Mask</mark> и{" "}
+                <mark className="plugin">Sharpen</mark> в погоне за «качеством» — после
+                таких «улучшений» результат обычно выглядит так себе.
+              </i>
+            </p>
             <ArticleMedia
               src="d9ESpD7vc2Y"
               type="youtube"
@@ -534,12 +565,14 @@ const AeFromNewbies: React.FC = () => {
                     </Addition>
                   </li>
                   <li>
-                    <sup>4</sup> При импорте векторных изображений включите параметр{" "}
-                    <mark className="select">«Continuously Rasterize»</mark> у слоя. Эта
-                    функция позволяет масштабировать графику без потери качества,
-                    адаптируя её под разрешение композиции. Однако при её использовании
-                    возможны побочные эффекты — например, разрывы при применении{" "}
-                    <mark className="plugin">Puppet Tool</mark>.
+                    <p>
+                      <sup>4</sup> При импорте векторных изображений включите параметр{" "}
+                      <mark className="select">«Continuously Rasterize»</mark> у слоя. Эта
+                      функция позволяет масштабировать графику без потери качества,
+                      адаптируя её под разрешение композиции. Однако при её использовании
+                      возможны побочные эффекты — например, разрывы при применении{" "}
+                      <mark className="plugin">Puppet Tool</mark>.
+                    </p>
                     <Addition type="info">
                       Некоторые пользователи считают, что включённый{" "}
                       <mark className="select">«Continuously Rasterize»</mark> позволяет
@@ -921,9 +954,11 @@ const AeFromNewbies: React.FC = () => {
                     </Addition>
                   </li>
                   <li>
-                    Чтобы вернуть универсальный манипулятор после переключения
-                    инструмента, выберите его в <mark className="select">«Tools»</mark>{" "}
-                    или нажмите <mark className="key">Shift + V</mark>.
+                    <p>
+                      Чтобы вернуть универсальный манипулятор после переключения
+                      инструмента, выберите его в <mark className="select">«Tools»</mark>{" "}
+                      или нажмите <mark className="key">Shift + V</mark>.
+                    </p>
                     <ArticleMedia
                       caption="Tools"
                       src="legacy/aftereffects/select_universal_transform_gizmo.png"
@@ -991,9 +1026,11 @@ const AeFromNewbies: React.FC = () => {
                           создающий теней.
                         </li>
                         <li>
-                          <mark className="select">«Environment»</mark> — создаёт
-                          освещение, отражения и тени за счёт карты{" "}
-                          <mark className="image">HDRI</mark>.
+                          <p>
+                            <mark className="select">«Environment»</mark> — создаёт
+                            освещение, отражения и тени за счёт карты{" "}
+                            <mark className="image">HDRI</mark>.
+                          </p>
                           <Addition type="warning">
                             Этот тип освещения доступен только при работе с движком{" "}
                             <mark className="plugin">Advanced 3D</mark>.
@@ -1023,13 +1060,15 @@ const AeFromNewbies: React.FC = () => {
                     незаметен.
                   </li>
                   <li>
-                    <sup>6</sup> <mark className="select">«Falloff»</mark> — параметр,
-                    отвечающий за постепенное снижение{" "}
-                    <mark className="select">«Intensity»</mark> в зависимости от
-                    расстояния. <mark className="select">«Radius»</mark> задаёт область, в
-                    пределах которой свет остаётся постоянным, а{" "}
-                    <mark className="select">«Falloff Distance»</mark> — длину, после
-                    которой свет начинает постепенно затухать.
+                    <p>
+                      <sup>6</sup> <mark className="select">«Falloff»</mark> — параметр,
+                      отвечающий за постепенное снижение{" "}
+                      <mark className="select">«Intensity»</mark> в зависимости от
+                      расстояния. <mark className="select">«Radius»</mark> задаёт область,
+                      в пределах которой свет остаётся постоянным, а{" "}
+                      <mark className="select">«Falloff Distance»</mark> — длину, после
+                      которой свет начинает постепенно затухать.
+                    </p>
                     <Addition type="info">
                       <ul>
                         <li>
@@ -1191,12 +1230,14 @@ const AeFromNewbies: React.FC = () => {
               </Addition>
               <ul>
                 <li>
-                  <mark className="select">«Point Text»</mark> — используется, когда не
-                  важны ограничения по ширине или высоте. Его название говорит само за
-                  себя: текст задаётся от одной точки и чаще всего идёт в одну строку.
-                  Подходит для заголовков, коротких примечаний и вставок. Поддерживает
-                  только выравнивание по левому, правому краю и по центру — выравнивание
-                  по ширине невозможно, так как у такого текста нет фиксированной рамки.
+                  <p>
+                    <mark className="select">«Point Text»</mark> — используется, когда не
+                    важны ограничения по ширине или высоте. Его название говорит само за
+                    себя: текст задаётся от одной точки и чаще всего идёт в одну строку.
+                    Подходит для заголовков, коротких примечаний и вставок. Поддерживает
+                    только выравнивание по левому, правому краю и по центру — выравнивание
+                    по ширине невозможно, так как у такого текста нет фиксированной рамки.
+                  </p>
                   <ArticleMedia
                     caption="Создание Point Text"
                     src="legacy/aftereffects/create_point_text.mp4"
@@ -1204,11 +1245,14 @@ const AeFromNewbies: React.FC = () => {
                   />
                 </li>
                 <li>
-                  <mark className="select">«Paragraph Text»</mark> — подходит, когда нужно
-                  вписать текст в конкретную «коробку» (ограничить ширину и/или высоту).
-                  Часто используется для встраивания текста в фигуры, например
-                  прямоугольники. Поддерживает все типы выравнивания, включая выравнивание
-                  по ширине — настраивается в <mark className="select">«Paragraph»</mark>.
+                  <p>
+                    <mark className="select">«Paragraph Text»</mark> — подходит, когда
+                    нужно вписать текст в конкретную «коробку» (ограничить ширину и/или
+                    высоту). Часто используется для встраивания текста в фигуры, например
+                    прямоугольники. Поддерживает все типы выравнивания, включая
+                    выравнивание по ширине — настраивается в{" "}
+                    <mark className="select">«Paragraph»</mark>.
+                  </p>
                   <ArticleMedia
                     caption="Создание Paragraph Text"
                     src="legacy/aftereffects/create_paragraph_text.mp4"
@@ -1296,12 +1340,14 @@ const AeFromNewbies: React.FC = () => {
             </NestedDetailsSummary>
           </li>
           <li>
-            <mark className="select">«Трёхмерные объекты»</mark>, нативный импорт которых
-            стал доступен с помощью <mark className="plugin">Advanced 3D</mark> в{" "}
-            <mark className="app">Adobe After Effects</mark> версии <mark>24.1</mark> и
-            новее<sup>1</sup>.
+            <p>
+              <mark className="select">«Трёхмерные объекты»</mark>, нативный импорт
+              которых стал доступен с помощью <mark className="plugin">Advanced 3D</mark>{" "}
+              в <mark className="app">Adobe After Effects</mark> версии <mark>24.1</mark>{" "}
+              и новее<sup>1</sup>.
+            </p>
             <Addition type="info">
-              <sup>1</sup> Для импорта трёхмерных объектов в старых версиях{" "}
+              <sup>1</sup> Для импорта трёхмерных объектов в предыдущих версиях{" "}
               <mark className="app">Adobe After Effects</mark> используйте сторонние
               плагины, например <mark className="plugin">Element 3D</mark>.
             </Addition>
@@ -1649,16 +1695,18 @@ const AeFromNewbies: React.FC = () => {
               />
               <ul>
                 <li>
-                  <mark className="select">
-                    «Leave all attributes in &apos;Composition Name&apos;»
-                  </mark>{" "}
-                  — создать прекомпозицию, параметры которой (разрешение, частота кадров)
-                  будут основаны на исходном файле, а не на родительской композиции. Все
-                  свойства, атрибуты и эффекты при этом останутся в родительской
-                  композиции. Например, если на таймлайн с частотой <mark>60 FPS</mark> вы
-                  добавили видеофайл с частотой <mark>25 FPS</mark> и создали прекомпоз с
-                  этой опцией, то новая композиция тоже будет иметь частоту{" "}
-                  <mark>25 FPS</mark>.
+                  <p>
+                    <mark className="select">
+                      «Leave all attributes in &apos;Composition Name&apos;»
+                    </mark>{" "}
+                    — создать прекомпозицию, параметры которой (разрешение, частота
+                    кадров) будут основаны на исходном файле, а не на родительской
+                    композиции. Все свойства, атрибуты и эффекты при этом останутся в
+                    родительской композиции. Например, если на таймлайн с частотой{" "}
+                    <mark>60 FPS</mark> вы добавили видеофайл с частотой{" "}
+                    <mark>25 FPS</mark> и создали прекомпоз с этой опцией, то новая
+                    композиция тоже будет иметь частоту <mark>25 FPS</mark>.
+                  </p>
                   <Addition type="warning">
                     Данная опция доступна только тогда, когда выделен один слой, а также
                     если этот слой имеет <mark className="select">«Source»</mark>,
@@ -1668,19 +1716,24 @@ const AeFromNewbies: React.FC = () => {
                   </Addition>
                 </li>
                 <li>
-                  <mark className="select">
-                    «Move all attributes into the new composition»
-                  </mark>{" "}
-                  — перемещает выделенный слой или слои со всеми свойствами, атрибутами и
-                  эффектами в новую композицию, которая создаётся с параметрами
-                  родительской.
+                  <p>
+                    <mark className="select">
+                      «Move all attributes into the new composition»
+                    </mark>{" "}
+                    — перемещает выделенный слой или слои со всеми свойствами, атрибутами
+                    и эффектами в новую композицию, которая создаётся с параметрами
+                    родительской.
+                  </p>
                   <ul>
                     <li>
-                      <mark className="select">
-                        «Adjust composition duration to the time span of the selected
-                        layers»
-                      </mark>{" "}
-                      — обрезает новую композицию под общую длительность выделенных слоёв.
+                      <p>
+                        <mark className="select">
+                          «Adjust composition duration to the time span of the selected
+                          layers»
+                        </mark>{" "}
+                        — обрезает новую композицию под общую длительность выделенных
+                        слоёв.
+                      </p>
                       <Addition type="warning">
                         Учтите: при включённом параметре значение стартового таймкода
                         будет изменено на таймкод начала первого выделенного слоя. При
@@ -1984,11 +2037,13 @@ const AeFromNewbies: React.FC = () => {
         <Divider>Базовые понятия и интерфейс</Divider>
         <ul>
           <li>
-            <mark className="word">Композиция</mark>, или{" "}
-            <mark className="word">композ</mark>, — сцена вашего проекта. В композиции
-            обычно собирают слои, фигуры и видеофайлы, а также применяют к ним эффекты. У
-            каждой композиции есть своя частота кадров, разрешение, длительность и другие
-            параметры.
+            <p>
+              <mark className="word">Композиция</mark>, или{" "}
+              <mark className="word">композ</mark>, — сцена вашего проекта. В композиции
+              обычно собирают слои, фигуры и видеофайлы, а также применяют к ним эффекты.
+              У каждой композиции есть своя частота кадров, разрешение, длительность и
+              другие параметры.
+            </p>
             <Addition type="info">
               Чтобы открыть настройки композиции, используйте комбинацию клавиш{" "}
               <mark className="key">Ctrl + K</mark>.
@@ -2022,10 +2077,12 @@ const AeFromNewbies: React.FC = () => {
             выглядеть анимированный элемент в конкретный момент времени.
           </li>
           <li>
-            <mark className="word">Часы</mark>, или{" "}
-            <mark className="word">секундомер</mark>, — элемент интерфейса на таймлайне
-            или в панели управления эффектом, с помощью которого добавляются ключевые
-            кадры.
+            <p>
+              <mark className="word">Часы</mark>, или{" "}
+              <mark className="word">секундомер</mark>, — элемент интерфейса на таймлайне
+              или в панели управления эффектом, с помощью которого добавляются ключевые
+              кадры.
+            </p>
             <Addition type="info">
               Если нажать на секундомер с зажатым <mark className="key">Alt</mark>,
               включится режим работы с выражениями. Выключается он так же.
@@ -2037,21 +2094,26 @@ const AeFromNewbies: React.FC = () => {
             быстрого выполнения определённого действия.
           </li>
           <li>
-            <mark className="word">Ракета</mark> — окно{" "}
-            <mark className="select">«Project Settings»</mark>, в котором обычно меняют
-            цветовое пространство проекта или настраивают использование видеокарты.
+            <p>
+              <mark className="word">Ракета</mark> — окно{" "}
+              <mark className="select">«Project Settings»</mark>, в котором обычно меняют
+              цветовое пространство проекта или настраивают использование видеокарты.
+            </p>
             <Addition type="info">
               Это окно открывается комбинацией клавиш{" "}
               <mark className="key">Ctrl + Alt + Shift + K</mark>.
             </Addition>
           </li>
           <li>
-            <mark className="word">Разрешение</mark>, или{" "}
-            <mark className="word">резолюшен</mark>, — количество пикселей по ширине и
-            высоте. Иногда используется в контексте качества предпросмотра:{" "}
-            <mark className="select">«Full»</mark>, <mark className="select">«Half»</mark>
-            , <mark className="select">«Third»</mark> или{" "}
-            <mark className="select">«Quarter»</mark>.
+            <p>
+              <mark className="word">Разрешение</mark>, или{" "}
+              <mark className="word">резолюшен</mark>, — количество пикселей по ширине и
+              высоте. Иногда используется в контексте качества предпросмотра:{" "}
+              <mark className="select">«Full»</mark>,{" "}
+              <mark className="select">«Half»</mark>,{" "}
+              <mark className="select">«Third»</mark> или{" "}
+              <mark className="select">«Quarter»</mark>.
+            </p>
             <Addition type="info">
               Если у вас есть композиция с разрешением <mark>1280×720</mark>, а в{" "}
               <mark className="select">«Render Settings»</mark> вы указали{" "}
@@ -2062,16 +2124,20 @@ const AeFromNewbies: React.FC = () => {
             </Addition>
           </li>
           <li>
-            <mark className="word">Прокси</mark> — копия исходника, созданная для
-            повышения производительности. Её качество зависит от кодека и разрешения.
-            Прокси стоит использовать, если возникают проблемы с производительностью из-за
-            высокого разрешения исходников или требуется более стабильная работа. Прокси
-            можно создать прямо в <mark className="app">Adobe After Effects</mark> или с
-            помощью сторонних программ, например{" "}
-            <mark className="app">Adobe Media Encoder</mark> или{" "}
-            <mark className="app">Shutter Encoder</mark>. Также прокси можно применять к
-            композициям, чтобы сократить время повторного рендеринга, если вы не
-            планируете вносить в них изменения.
+            <p>
+              <mark className="word">Прокси</mark> — копия исходника, созданная для
+              повышения производительности. Её качество зависит от кодека и разрешения.
+              Прокси стоит использовать, если возникают проблемы с производительностью
+              из-за высокого разрешения исходников или требуется более стабильная работа.
+            </p>
+            <p>
+              Прокси можно создать прямо в{" "}
+              <mark className="app">Adobe After Effects</mark> или с помощью сторонних
+              программ, например <mark className="app">Adobe Media Encoder</mark> или{" "}
+              <mark className="app">Shutter Encoder</mark>. Также прокси можно применять к
+              композициям, чтобы сократить время повторного рендеринга, если вы не
+              планируете вносить в них изменения.
+            </p>
             <Addition type="info">
               <ul>
                 <li>
@@ -2116,21 +2182,25 @@ const AeFromNewbies: React.FC = () => {
             </Addition>
           </li>
           <li>
-            <mark className="word">Коллект</mark> — функция{" "}
-            <mark className="select">«Collect Files»</mark>, которая собирает все файлы,
-            используемые в проекте, в одну папку. Эту папку можно заархивировать и
-            отправить другому человеку или перенести на другой диск.
+            <p>
+              <mark className="word">Коллект</mark> — функция{" "}
+              <mark className="select">«Collect Files»</mark>, которая собирает все файлы,
+              используемые в проекте, в одну папку. Эту папку можно заархивировать и
+              отправить другому человеку или перенести на другой диск.
+            </p>
             <Addition type="info">
               Функция находится в{" "}
               <mark className="select">«File» → «Dependencies» → «Collect Files»</mark>.
             </Addition>
           </li>
           <li>
-            <mark className="word">«Перелинкуй исходники»</mark> — призыв переподключить
-            потерянные файлы. Для этого нажмите <mark className="key">ПКМ</mark> по
-            потерянному исходнику в окне <mark className="select">«Project»</mark>,
-            выберите <mark className="select">«Replace Footage» → «File»</mark> или
-            нажмите <mark className="key">Ctrl + H</mark>.
+            <p>
+              <mark className="word">«Перелинкуй исходники»</mark> — призыв переподключить
+              потерянные файлы. Для этого нажмите <mark className="key">ПКМ</mark> по
+              потерянному исходнику в окне <mark className="select">«Project»</mark>,
+              выберите <mark className="select">«Replace Footage» → «File»</mark> или
+              нажмите <mark className="key">Ctrl + H</mark>.
+            </p>
             <Addition type="info">
               <ul>
                 <li>
@@ -2156,11 +2226,13 @@ const AeFromNewbies: React.FC = () => {
         <Divider>Работа со слоями и эффектами</Divider>
         <ul>
           <li>
-            <mark className="word">Аджастмент</mark> — корректирующий слой,{" "}
-            <mark className="select">«Adjustment Layer»</mark>. Он позволяет применять
-            эффекты ко всем слоям, расположенным ниже на таймлайне. Такой слой часто
-            используют для общей цветокоррекции или других эффектов, влияющих на всю
-            сцену.
+            <p>
+              <mark className="word">Аджастмент</mark> — корректирующий слой,{" "}
+              <mark className="select">«Adjustment Layer»</mark>. Он позволяет применять
+              эффекты ко всем слоям, расположенным ниже на таймлайне. Такой слой часто
+              используют для общей цветокоррекции или других эффектов, влияющих на всю
+              сцену.
+            </p>
             <Addition type="info">
               Чтобы создать такой слой, нажмите{" "}
               <mark className="key">Ctrl + Alt + Y</mark>.
@@ -2183,19 +2255,23 @@ const AeFromNewbies: React.FC = () => {
             которую проявляется эффект или сам слой.
           </li>
           <li>
-            <mark className="word">Патч</mark>, <mark className="word">path</mark>, или{" "}
-            <mark className="word">путь</mark>, — линия или кривая, которая образует
-            фигуру или маску.
+            <p>
+              <mark className="word">Патч</mark>, <mark className="word">path</mark>, или{" "}
+              <mark className="word">путь</mark>, — линия или кривая, которая образует
+              фигуру или маску.
+            </p>
             <Addition type="info">
               Путь маски и фигурного слоя взаимозаменяемы: их можно копировать и вставлять
               друг в друга.
             </Addition>
           </li>
           <li>
-            <mark className="word">Прекомпоз</mark> — дочерняя композиция, созданная из
-            выделенных слоёв родительской. Создаётся с помощью{" "}
-            <mark className="key">Ctrl + Shift + C</mark>. Чаще всего используется для
-            группировки объектов в один слой.
+            <p>
+              <mark className="word">Прекомпоз</mark> — дочерняя композиция, созданная из
+              выделенных слоёв родительской. Создаётся с помощью{" "}
+              <mark className="key">Ctrl + Shift + C</mark>. Чаще всего используется для
+              группировки объектов в один слой.
+            </p>
             <Addition type="info">
               В любой непонятной ситуации — используйте прекомпоз. Часто помогает.
             </Addition>
@@ -2206,9 +2282,11 @@ const AeFromNewbies: React.FC = () => {
             <mark className="plugin">Transform</mark>.
           </li>
           <li>
-            <mark className="word">Овершут</mark> — приём в анимации, при котором объект
-            слегка «проскакивает» свою конечную точку, а затем возвращается назад. Такой
-            эффект создаёт реалистичное, «пружинящее» движение и имитирует инерцию.
+            <p>
+              <mark className="word">Овершут</mark> — приём в анимации, при котором объект
+              слегка «проскакивает» свою конечную точку, а затем возвращается назад. Такой
+              эффект создаёт реалистичное, «пружинящее» движение и имитирует инерцию.
+            </p>
             <Addition type="warning">
               Некоторые свойства, например положение (если не разделено через{" "}
               <mark className="select">«Separate Dimensions»</mark>), не поддерживают{" "}
@@ -2239,13 +2317,15 @@ const AeFromNewbies: React.FC = () => {
             по трём осям, поворачивать объект в пространстве или управлять камерой.
           </li>
           <li>
-            <mark className="word">Солнышко</mark>, или{" "}
-            <mark className="word">звёздочка</mark>, — иконка, которая выполняет два
-            разных действия в зависимости от типа слоя:{" "}
-            <mark className="select">«Continuously Rasterize»</mark> для сглаживания
-            векторных объектов или{" "}
-            <mark className="select">«Collapse Transformation»</mark> для
-            слоёв-композиций.
+            <p>
+              <mark className="word">Солнышко</mark>, или{" "}
+              <mark className="word">звёздочка</mark>, — иконка, которая выполняет два
+              разных действия в зависимости от типа слоя:{" "}
+              <mark className="select">«Continuously Rasterize»</mark> для сглаживания
+              векторных объектов или{" "}
+              <mark className="select">«Collapse Transformation»</mark> для
+              слоёв-композиций.
+            </p>
             <Addition type="info">
               При включённой опции{" "}
               <mark className="select">«Continuously Rasterize»</mark> увеличение масштаба
@@ -2268,9 +2348,11 @@ const AeFromNewbies: React.FC = () => {
             плагинов вроде <mark className="plugin">Twixtor</mark>.
           </li>
           <li>
-            <mark className="word">Улитка</mark>, <mark className="word">спираль</mark>{" "}
-            или <mark className="word">лассо</mark> — инструмент для привязки свойства
-            одного слоя к другому.
+            <p>
+              <mark className="word">Улитка</mark>, <mark className="word">спираль</mark>{" "}
+              или <mark className="word">лассо</mark> — инструмент для привязки свойства
+              одного слоя к другому.
+            </p>
             <Addition type="info">
               Если этого инструмента нет на таймлайне, включите его:{" "}
               <mark className="key">ПКМ</mark> по заголовкам столбцов →{" "}
@@ -2283,12 +2365,14 @@ const AeFromNewbies: React.FC = () => {
             движения объекта в окне предпросмотра композиции или углами фигуры.
           </li>
           <li>
-            <mark className="word">Выражения</mark>,{" "}
-            <mark className="word">expressions</mark> или{" "}
-            <mark className="word">экспрешены</mark> — код на языке, похожем на{" "}
-            <mark>JavaScript</mark>, который используется для управления параметрами или
-            вычисления значений. Часто применяется для создания сложных анимаций или
-            привязки свойств друг к другу.
+            <p>
+              <mark className="word">Выражения</mark>,{" "}
+              <mark className="word">expressions</mark> или{" "}
+              <mark className="word">экспрешены</mark> — код на языке, похожем на{" "}
+              <mark>JavaScript</mark>, который используется для управления параметрами или
+              вычисления значений. Часто применяется для создания сложных анимаций или
+              привязки свойств друг к другу.
+            </p>
             <Addition type="info">
               Чтобы активировать режим редактирования выражения, нажмите на{" "}
               <mark className="select">секундомер</mark> нужного параметра, зажав{" "}
@@ -2371,11 +2455,13 @@ const AeFromNewbies: React.FC = () => {
             в <mark className="app">Adobe Premiere</mark>.
           </li>
           <li>
-            <mark className="word">Мокка</mark>, или <mark className="word">моча</mark>, —
-            плагин <mark className="plugin">Boris FX Mocha</mark> для трекинга. В{" "}
-            <mark className="app">Adobe After Effects</mark> поставляется урезанная версия{" "}
-            <mark className="plugin">Mocha AE</mark>; полная называется{" "}
-            <mark className="plugin">Mocha Pro</mark>.
+            <p>
+              <mark className="word">Мокка</mark>, или <mark className="word">моча</mark>,
+              — плагин <mark className="plugin">Boris FX Mocha</mark> для трекинга. В{" "}
+              <mark className="app">Adobe After Effects</mark> поставляется урезанная
+              версия <mark className="plugin">Mocha AE</mark>; полная называется{" "}
+              <mark className="plugin">Mocha Pro</mark>.
+            </p>
             <Addition type="info">
               О различиях <mark className="plugin">Mocha AE</mark> и{" "}
               <mark className="plugin">Mocha Pro</mark> вы можете прочитать на{" "}
@@ -2398,18 +2484,22 @@ const AeFromNewbies: React.FC = () => {
             <mark className="video">MKV</mark> или <mark className="video">FLV</mark>.
           </li>
           <li>
-            <mark className="word">Плагин</mark> — подключаемый эффект в виде файла,
-            обычно с расширением <mark className="file">AEX</mark> для{" "}
-            <mark>Windows</mark> или <mark className="file">PLUGIN</mark> для{" "}
-            <mark>macOS</mark>. Часто используется с вопросом «где скачать?».
+            <p>
+              <mark className="word">Плагин</mark> — подключаемый эффект в виде файла,
+              обычно с расширением <mark className="file">AEX</mark> для{" "}
+              <mark>Windows</mark> или <mark className="file">PLUGIN</mark> для{" "}
+              <mark>macOS</mark>. Часто используется с вопросом «где скачать?».
+            </p>
             <Addition type="info">
               Инструкцию по установке плагинов вы можете найти в{" "}
               <a href="#how-to-install">статье 2.1</a>.
             </Addition>
           </li>
           <li>
-            <mark className="word">Пресет</mark> — готовый набор эффектов в формате{" "}
-            <mark className="file">FFX</mark>. Может сохраняться вместе с анимацией.
+            <p>
+              <mark className="word">Пресет</mark> — готовый набор эффектов в формате{" "}
+              <mark className="file">FFX</mark>. Может сохраняться вместе с анимацией.
+            </p>
             <Addition type="info">
               Инструкцию по установке пресетов вы можете найти в{" "}
               <a href="#how-to-install">статье 2.1</a>.
@@ -2420,29 +2510,37 @@ const AeFromNewbies: React.FC = () => {
             </Addition>
           </li>
           <li>
-            <mark className="word">Скрипт</mark> — файл формата{" "}
-            <mark className="file">JSX</mark> или <mark className="file">JSXBIN</mark>,
-            выполняющий определённые действия.
+            <p>
+              <mark className="word">Скрипт</mark> — файл формата{" "}
+              <mark className="file">JSX</mark> или <mark className="file">JSXBIN</mark>,
+              выполняющий определённые действия.
+            </p>
             <Addition type="info">
               Инструкцию по установке скриптов вы можете найти в{" "}
               <a href="#how-to-install">статье 2.1</a>.
             </Addition>
           </li>
           <li>
-            <mark className="word">Экстеншен</mark>, или{" "}
-            <mark className="word">extension</mark>, — расширение, упакованное в формате{" "}
-            <mark className="file">ZXP</mark>. После установки появляется в меню{" "}
-            <mark className="select">«Window» → «Extensions»</mark>.
+            <p>
+              <mark className="word">Экстеншен</mark>, или{" "}
+              <mark className="word">extension</mark>, — расширение, упакованное в формате{" "}
+              <mark className="file">ZXP</mark>. После установки появляется в меню{" "}
+              <mark className="select">«Window» → «Extensions»</mark>.
+            </p>
             <Addition type="info">
               Инструкцию по установке расширений вы можете найти в{" "}
               <a href="#how-to-install">статье 2.1</a>.
             </Addition>
           </li>
           <li>
-            <mark className="word">Дупликатор</mark> — обычно имеется в виду бесплатный
-            скрипт{" "}
-            <a href="https://aescripts.com/true-comp-duplicator/">True Comp Duplicator</a>
-            . Он используется для создания независимых дубликатов композиций.
+            <p>
+              <mark className="word">Дупликатор</mark> — обычно имеется в виду бесплатный
+              скрипт{" "}
+              <a href="https://aescripts.com/true-comp-duplicator/">
+                True Comp Duplicator
+              </a>
+              . Он используется для создания независимых дубликатов композиций.
+            </p>
             <Addition type="info">
               Чтобы скачать его, нужно зарегистрироваться на сайте{" "}
               <a href="https://aescripts.com">aescripts</a>, на странице плагина указать
@@ -2477,13 +2575,16 @@ const AeFromNewbies: React.FC = () => {
         <Divider>Технические термины и форматы</Divider>
         <ul>
           <li>
-            <mark className="word">Альфа-канал</mark> — четвёртый канал в цветовой модели{" "}
-            <mark>RGBA</mark>, отвечающий за прозрачность. Например,{" "}
-            <mark className="file">PNG</mark> поддерживает множество уровней прозрачности,
-            а <mark className="image">GIF</mark> — только полную прозрачность или её
-            отсутствие. Чтобы сохранить видео с прозрачностью, подойдут контейнеры{" "}
-            <mark className="video">MOV</mark>, <mark className="video">AVI</mark> или{" "}
-            <mark className="video">WEBM</mark> с кодеком, поддерживающим альфа-канал.
+            <p>
+              <mark className="word">Альфа-канал</mark> — четвёртый канал в цветовой
+              модели <mark>RGBA</mark>, отвечающий за прозрачность. Например,{" "}
+              <mark className="file">PNG</mark> поддерживает множество уровней
+              прозрачности, а <mark className="image">GIF</mark> — только полную
+              прозрачность или её отсутствие. Чтобы сохранить видео с прозрачностью,
+              подойдут контейнеры <mark className="video">MOV</mark>,{" "}
+              <mark className="video">AVI</mark> или <mark className="video">WEBM</mark> с
+              кодеком, поддерживающим альфа-канал.
+            </p>
             <Addition type="info">
               Если хотите узнать больше об альфа-канале,{" "}
               <a href="https://ru.wikipedia.org/wiki/%D0%90%D0%BB%D1%8C%D1%84%D0%B0-%D0%BA%D0%B0%D0%BD%D0%B0%D0%BB">
@@ -2493,10 +2594,12 @@ const AeFromNewbies: React.FC = () => {
             </Addition>
           </li>
           <li>
-            <mark className="word">Битрейт</mark> — скорость передачи данных в видеофайле,
-            обычно измеряется в <mark>Мбит/с</mark>. Он определяет, насколько сильно сжат
-            поток данных. Чем выше битрейт, тем лучше качество видео, особенно в
-            динамичных сценах.
+            <p>
+              <mark className="word">Битрейт</mark> — скорость передачи данных
+              видеопотока, обычно измеряется в <mark>Мбит/с</mark>. Он определяет,
+              насколько сильно сжаты данные. Чем выше битрейт, тем лучше качество видео,
+              особенно в динамичных сценах.
+            </p>
             <Addition type="info">
               Если у исходного видео битрейт <mark>10 Мбит/с</mark>, а при экспорте вы
               укажете <mark>50 Мбит/с</mark> — качество не улучшится. Вы просто увеличите
@@ -2519,11 +2622,13 @@ const AeFromNewbies: React.FC = () => {
                 публикации в интернете.
               </li>
               <li>
-                <mark className="word">Квантование (Constant Quality)</mark> — метод
-                сжатия, при котором уровень качества остаётся постоянным на протяжении
-                всего видео. Чем меньше значение <mark className="word">CQ</mark>, тем
-                лучше качество, но больше размер. Обычно значения <mark>23</mark> хватает
-                для большинства случаев.
+                <p>
+                  <mark className="word">Квантование (Constant Quality)</mark> — метод
+                  сжатия, при котором уровень качества остаётся постоянным на протяжении
+                  всего видео. Чем меньше значение <mark className="word">CQ</mark>, тем
+                  лучше качество, но больше размер. Обычно значения <mark>23</mark>{" "}
+                  хватает для большинства случаев.
+                </p>
                 <Addition type="info">
                   Чтобы экспортировать композицию с использованием{" "}
                   <mark className="word">CQ</mark>, используйте сторонний плагин{" "}
@@ -2532,8 +2637,10 @@ const AeFromNewbies: React.FC = () => {
                 </Addition>
               </li>
               <li>
-                <mark className="word">Lossless</mark> — кодирование без потерь.
-                Используется редко, когда важна полная идентичность с оригиналом.
+                <p>
+                  <mark className="word">Lossless</mark> — кодирование без потерь.
+                  Используется редко, когда важна полная идентичность с оригиналом.
+                </p>
                 <Addition type="warning">
                   Длинная композиция, закодированная без потерь, может занять почти всё
                   дисковое пространство.
@@ -2542,20 +2649,24 @@ const AeFromNewbies: React.FC = () => {
             </ul>
           </li>
           <li>
-            <mark className="word">Кодек</mark> — программа или библиотека, которая
-            кодирует и декодирует видеоданные. Кодеки делятся на{" "}
-            <mark className="word">монтажные</mark> и{" "}
-            <mark className="word">потоковые (delivery)</mark>. Использовать видео с
-            потоковыми кодеками для монтажа не рекомендуется во избежание различных
-            проблем и артефактов при работе с ними.
+            <p>
+              <mark className="word">Кодек</mark> — программа или библиотека, которая
+              кодирует и декодирует видеоданные. Кодеки делятся на{" "}
+              <mark className="word">монтажные</mark> и{" "}
+              <mark className="word">потоковые (delivery)</mark>. Использовать видео с
+              потоковыми кодеками для монтажа не рекомендуется во избежание различных
+              проблем и артефактов при работе с ними.
+            </p>
             <Divider>Монтажные кодеки</Divider>
             <ul>
               <li>
-                <mark className="video">Apple ProRes</mark> — индустриальный стандарт для
-                монтажа. <mark className="video">Apple ProRes 422</mark> чаще всего
-                применяют на этапе редактирования, а{" "}
-                <mark className="video">Apple ProRes 4444</mark> — для экспорта с
-                альфа-каналом.
+                <p>
+                  <mark className="video">Apple ProRes</mark> — индустриальный стандарт
+                  для монтажа. <mark className="video">Apple ProRes 422</mark> чаще всего
+                  применяют на этапе редактирования, а{" "}
+                  <mark className="video">Apple ProRes 4444</mark> — для экспорта с
+                  альфа-каналом.
+                </p>
                 <Addition type="info">
                   У каждого варианта данного кодека — <mark>422</mark>,{" "}
                   <mark>422 LT</mark> или <mark>4444</mark> — свой фиксированный битрейт.
@@ -2579,10 +2690,12 @@ const AeFromNewbies: React.FC = () => {
             <Divider>Потоковые (delivery) кодеки</Divider>
             <ul>
               <li>
-                <mark className="video">H.264</mark> /{" "}
-                <mark className="video">H.265 (HEVC)</mark> — самые популярные кодеки для
-                распространения видео в интернете. Обеспечивают хорошее соотношение
-                качества и размера.
+                <p>
+                  <mark className="video">H.264</mark> /{" "}
+                  <mark className="video">H.265 (HEVC)</mark> — самые популярные кодеки
+                  для распространения видео в интернете. Обеспечивают хорошее соотношение
+                  качества и размера.
+                </p>
                 <Addition type="danger">
                   <ul>
                     <li>
@@ -2614,9 +2727,11 @@ const AeFromNewbies: React.FC = () => {
                 </Addition>
               </li>
               <li>
-                <mark className="video">VP9</mark> / <mark className="video">AV1</mark> —
-                кодеки от Google в контейнере <mark className="video">WEBM</mark>, часто
-                используются для веб-страниц. Поддерживают альфа-канал.
+                <p>
+                  <mark className="video">VP9</mark> / <mark className="video">AV1</mark>{" "}
+                  — кодеки от Google в контейнере <mark className="video">WEBM</mark>,
+                  часто используются для веб-страниц. Поддерживают альфа-канал.
+                </p>
                 <Addition type="info">
                   Экспортировать в эти кодеки из{" "}
                   <mark className="app">Adobe After Effects</mark> можно только с
@@ -2648,10 +2763,12 @@ const AeFromNewbies: React.FC = () => {
             <mark className="path">Downloads/your_video.mp4</mark>.
           </li>
           <li>
-            <mark className="word">Векторная графика</mark>, или{" "}
-            <mark className="word">вектор</mark>, — изображение, описанное с помощью
-            математических формул. Его отличительная особенность — возможность
-            масштабирования без потери качества.
+            <p>
+              <mark className="word">Векторная графика</mark>, или{" "}
+              <mark className="word">вектор</mark>, — изображение, описанное с помощью
+              математических формул. Его отличительная особенность — возможность
+              масштабирования без потери качества.
+            </p>
             <Addition type="info">
               В <mark className="app">Adobe After Effects</mark> даже при включённом{" "}
               <mark className="select">«Continuously Rasterize»</mark> вы не сможете
@@ -2669,12 +2786,14 @@ const AeFromNewbies: React.FC = () => {
             движении. Чем больше семплов, тем лучше картинка, но ниже производительность.
           </li>
           <li>
-            <mark className="word">Мультифрейм-рендер</mark>, или{" "}
-            <mark className="word">MFR</mark>, — функция{" "}
-            <mark className="select">«Multi-Frame Rendering»</mark>, появившаяся в{" "}
-            <mark className="app">Adobe After Effects</mark> версии <mark>2022</mark> и
-            новее. Она ускоряет финальный рендер, обрабатывая сразу несколько кадров
-            параллельно.
+            <p>
+              <mark className="word">Мультифрейм-рендер</mark>, или{" "}
+              <mark className="word">MFR</mark>, — функция{" "}
+              <mark className="select">«Multi-Frame Rendering»</mark>, появившаяся в{" "}
+              <mark className="app">Adobe After Effects</mark> версии <mark>2022</mark> и
+              новее. Она ускоряет финальный рендер, обрабатывая сразу несколько кадров
+              параллельно.
+            </p>
             <Addition type="warning">
               Использование <mark className="select">«Multi-Frame Rendering»</mark> может
               привести к увеличению потребления оперативной памяти и есть риск чаще видеть
@@ -2702,12 +2821,14 @@ const AeFromNewbies: React.FC = () => {
             копирования.
           </li>
           <li>
-            <mark className="word">Сейф-зона</mark>,{" "}
-            <mark className="word">Safe Area</mark> или{" "}
-            <mark className="word">безопасная зона</mark> — рамки внутри кадра, которые
-            помогают размещать ключевые элементы так, чтобы они были видны на большинстве
-            экранов. Такие зоны актуальны для вертикальных видео, так как интерфейс
-            соцсети может перекрывать часть контента.
+            <p>
+              <mark className="word">Сейф-зона</mark>,{" "}
+              <mark className="word">Safe Area</mark> или{" "}
+              <mark className="word">безопасная зона</mark> — рамки внутри кадра, которые
+              помогают размещать ключевые элементы так, чтобы они были видны на
+              большинстве экранов. Такие зоны актуальны для вертикальных видео, так как
+              интерфейс соцсети может перекрывать часть контента.
+            </p>
             <Addition type="info">
               Чтобы включить отображение безопасных зон, нажмите на иконку{" "}
               <mark className="select">«Choose grid and guide options»</mark> под окном
@@ -2780,13 +2901,13 @@ const AeFromNewbies: React.FC = () => {
             <mark className="app">YouTube</mark> и <mark className="app">TikTok</mark>.
           </li>
           <li>
-            <mark className="word">Рилсы</mark>, или <mark className="word">шортсы</mark>,
-            — короткие вертикальные видеоролики формата <mark>9:16</mark>, публикующиеся в{" "}
-            <mark className="app">Instagram</mark>
-            <sup>1</sup> или <mark className="app">YouTube</mark>. Вокруг этого формата
-            регулярно кипят споры о ценах, особенно когда речь заходит о «рилсах за 300
-            рублей». Это вызывает негодование у профессионалов, так как дешёвые
-            предложения обесценивают труд, а заказчики всё чаще ждут шедевр за копейки.
+            <p>
+              <mark className="word">Рилсы</mark>, или{" "}
+              <mark className="word">шортсы</mark>, — короткие вертикальные видеоролики
+              формата <mark>9:16</mark>, публикующиеся в{" "}
+              <mark className="app">Instagram</mark>
+              <sup>1</sup> или <mark className="app">YouTube</mark>.
+            </p>
             <Addition type="danger">
               <sup>1</sup> <mark className="app">Instagram</mark> и <mark>Meta</mark>{" "}
               признаны экстремистскими организациями и запрещены на территории Российской
@@ -3761,11 +3882,13 @@ const AeFromNewbies: React.FC = () => {
             <mark className="plugin">Sound Keys</mark> для генерации ключей из аудио.
           </li>
           <li>
-            <mark className="plugin">Element 3D</mark> от{" "}
-            <mark className="company">VideoCopilot</mark> — используется для импорта
-            трёхмерных моделей в форматах <mark className="file">OBJ</mark>,{" "}
-            <mark className="file">C4D</mark>
-            <sup>1</sup> и <mark className="file">E3D</mark>.
+            <p>
+              <mark className="plugin">Element 3D</mark> от{" "}
+              <mark className="company">VideoCopilot</mark> — используется для импорта
+              трёхмерных моделей в форматах <mark className="file">OBJ</mark>,{" "}
+              <mark className="file">C4D</mark>
+              <sup>1</sup> и <mark className="file">E3D</mark>.
+            </p>
             <Addition type="warning">
               <sup>1</sup> Для импорта моделей <mark className="file">C4D</mark> требуется
               установленная <mark className="app">Maxon Cinema 4D</mark>.
@@ -3777,8 +3900,10 @@ const AeFromNewbies: React.FC = () => {
             создания размытия в движении.
           </li>
           <li>
-            <mark className="plugin">Deep Glow</mark> — создаёт красивое свечение, но
-            может сильно замедлить рендеринг.
+            <p>
+              <mark className="plugin">Deep Glow</mark> — создаёт красивое свечение, но
+              может сильно замедлить рендеринг.
+            </p>
             <Addition type="warning">
               <ul>
                 <li>
@@ -3810,18 +3935,22 @@ const AeFromNewbies: React.FC = () => {
             текущую воду, клубящийся дым или огонь.
           </li>
           <li>
-            <mark className="plugin">AutoFill</mark> — плагин для создания эффекта
-            «проявления» объекта.
+            <p>
+              <mark className="plugin">AutoFill</mark> — плагин для создания эффекта
+              «проявления» объекта.
+            </p>
             <Addition type="warning">
               Первая и вторая версии <mark className="plugin">AutoFill</mark> также
               несовместимы между собой.
             </Addition>
           </li>
           <li>
-            <mark className="plugin">Twitch</mark> от{" "}
-            <mark className="company">VideoCopilot</mark> — устаревший
-            <sup>1</sup> плагин для создания эффекта тряски, который до сих пор популярен
-            у «эдиторов».
+            <p>
+              <mark className="plugin">Twitch</mark> от{" "}
+              <mark className="company">VideoCopilot</mark> — устаревший
+              <sup>1</sup> плагин для создания эффекта тряски, который до сих пор
+              популярен у «эдиторов».
+            </p>
             <Addition type="danger">
               <sup>1</sup> Автор статьи не рекомендует использовать этот эффект в новых
               проектах, так как он «морально устарел» и не поддерживает{" "}
@@ -3892,8 +4021,10 @@ const AeFromNewbies: React.FC = () => {
             независимых дубликатов композиций.
           </li>
           <li>
-            <mark className="plugin">Workflower</mark> — плагин для организации слоёв на
-            таймлайне. Позволяет создавать папки со слоями без прекомпозиции.
+            <p>
+              <mark className="plugin">Workflower</mark> — плагин для организации слоёв на
+              таймлайне. Позволяет создавать папки со слоями без прекомпозиции.
+            </p>
             <Addition type="danger">
               Не рекомендуется передавать проект с{" "}
               <mark className="plugin">Workflower</mark> тем, у кого этот плагин не
@@ -4134,13 +4265,20 @@ const AeFromNewbies: React.FC = () => {
                     <mark className="key">Ctrl + Alt + / (Num)</mark>.
                   </li>
                   <li>
-                    Если у вас много оперативной памяти и производительный процессор —
-                    отключите дисковый кэш в{" "}
-                    <mark className="select">
-                      «Edit» → «Preferences» → «Media & Disk Cache»
-                    </mark>
-                    , сняв галочку <mark className="select">«Enable Disk Cache»</mark>.
-                    Это позволит программе реже обращаться к накопителю.
+                    <p>
+                      Если у вас много оперативной памяти и производительный процессор —
+                      отключите дисковый кэш в{" "}
+                      <mark className="select">«Edit» → «Preferences» → «Disk»</mark>
+                      <sup>1</sup>, сняв галочку{" "}
+                      <mark className="select">«Enable Disk Cache»</mark>. Это позволит
+                      программе реже обращаться к накопителю.
+                    </p>
+                    <Addition type="info">
+                      <sup>1</sup> В предыдущих версиях{" "}
+                      <mark className="app">Adobe After Effects</mark> этот параметр
+                      находится в разделе{" "}
+                      <mark className="select">«Media & Disk Cache»</mark>.
+                    </Addition>
                   </li>
                 </ul>
               </Addition>
@@ -4387,15 +4525,17 @@ const AeFromNewbies: React.FC = () => {
             <mark className="app">Adobe Premiere</mark>.
           </li>
           <li>
-            <mark className="app">Adobe After Effects</mark> не рассчитан на сборку
-            длинных видеороликов — он иначе работает с памятью и файлами по сравнению с{" "}
-            <mark className="app">Adobe Premiere</mark>. Даже при полной сборке проекта в{" "}
-            <mark className="app">Adobe After Effects</mark> вы можете столкнуться с
-            ошибками вроде <mark className="warning">«Out of Memory»</mark> и долгим
-            рендером. Для длинных проектов, подкастов, фильмов или сериалов лучше
-            использовать <mark className="app">Adobe Premiere</mark> или другую программу
-            для нелинейного монтажа — например,{" "}
-            <mark className="app">DaVinci Resolve</mark>.
+            <p>
+              <mark className="app">Adobe After Effects</mark> не рассчитан на сборку
+              длинных видеороликов — он иначе работает с памятью и файлами по сравнению с{" "}
+              <mark className="app">Adobe Premiere</mark>. Даже при полной сборке проекта
+              в <mark className="app">Adobe After Effects</mark> вы можете столкнуться с
+              ошибками вроде <mark className="warning">«Out of Memory»</mark> и долгим
+              рендером. Для длинных проектов, подкастов, фильмов или сериалов лучше
+              использовать <mark className="app">Adobe Premiere</mark> или другую
+              программу для нелинейного монтажа — например,{" "}
+              <mark className="app">DaVinci Resolve</mark>.
+            </p>
             <Addition type="info">
               При необходимости вы можете импортировать нужный фрагмент из секвенции в{" "}
               <mark className="app">Adobe After Effects</mark> с помощью{" "}
@@ -4546,9 +4686,11 @@ const AeFromNewbies: React.FC = () => {
             </Addition>
             <ul>
               <li>
-                Тип <mark className="select">«Linear»</mark>, или линейная интерполяция,
-                предполагает движение с постоянной скоростью. На графике она отображается
-                в виде прямой линии, а на таймлайне имеет форму ромба.
+                <p>
+                  Тип <mark className="select">«Linear»</mark>, или линейная интерполяция,
+                  предполагает движение с постоянной скоростью. На графике она
+                  отображается в виде прямой линии, а на таймлайне имеет форму ромба.
+                </p>
                 <ArticleMedia
                   caption="Линейная интерполяция"
                   src="legacy/aftereffects/temporal_linear.png"
@@ -4556,11 +4698,13 @@ const AeFromNewbies: React.FC = () => {
                 />
               </li>
               <li>
-                Тип <mark className="select">«Bezier»</mark>, или интерполяция Безье, даёт
-                полный контроль над анимацией. Этот тип позволяет вручную настраивать
-                кривые ускорения с помощью независимых манипуляторов с каждой стороны
-                ключевого кадра. На таймлайне такие ключевые кадры обозначаются значком
-                песочных часов.
+                <p>
+                  Тип <mark className="select">«Bezier»</mark>, или интерполяция Безье,
+                  даёт полный контроль над анимацией. Этот тип позволяет вручную
+                  настраивать кривые ускорения с помощью независимых манипуляторов с
+                  каждой стороны ключевого кадра. На таймлайне такие ключевые кадры
+                  обозначаются значком песочных часов.
+                </p>
                 <ArticleMedia
                   caption="Интерполяция «Безье»"
                   src="legacy/aftereffects/temporal_bezier.mp4"
@@ -4575,11 +4719,14 @@ const AeFromNewbies: React.FC = () => {
                 </Addition>
               </li>
               <li>
-                Тип <mark className="select">«Continuous Bezier»</mark>, или «непрерывный
-                Безье», связывает манипуляторы друг с другом, что обеспечивает плавный
-                переход через ключевой кадр без резких изломов на кривой. Изменение одного
-                рычага влияет на форму кривой с противоположной стороны. На таймлайне
-                такие ключевые кадры также обозначаются значком песочных часов.
+                <p>
+                  Тип <mark className="select">«Continuous Bezier»</mark>, или
+                  «непрерывный Безье», связывает манипуляторы друг с другом, что
+                  обеспечивает плавный переход через ключевой кадр без резких изломов на
+                  кривой. Изменение одного рычага влияет на форму кривой с противоположной
+                  стороны. На таймлайне такие ключевые кадры также обозначаются значком
+                  песочных часов.
+                </p>
                 <ArticleMedia
                   caption="Интерполяция «Непрерывный Безье»"
                   src="legacy/aftereffects/temporal_continuous_bezier.mp4"
@@ -4587,11 +4734,13 @@ const AeFromNewbies: React.FC = () => {
                 />
               </li>
               <li>
-                Тип <mark className="select">«Auto Bezier»</mark>, или «автоматический
-                Безье», заставляет программу автоматически сглаживать кривую для создания
-                плавного движения. Этот тип используют редко, так как анимация часто
-                требует ручной корректировки. На таймлайне такой ключ отображается в виде
-                круга.
+                <p>
+                  Тип <mark className="select">«Auto Bezier»</mark>, или «автоматический
+                  Безье», заставляет программу автоматически сглаживать кривую для
+                  создания плавного движения. Этот тип используют редко, так как анимация
+                  часто требует ручной корректировки. На таймлайне такой ключ отображается
+                  в виде круга.
+                </p>
                 <Addition type="info">
                   Чтобы быстро применить <mark className="select">«Auto Bezier»</mark>,
                   щёлкните по ключевому кадру с зажатой клавишей{" "}
@@ -4673,11 +4822,13 @@ const AeFromNewbies: React.FC = () => {
         </p>
         <ul>
           <li>
-            График значений, или <mark className="select">«Value Graph»</mark>, отображает
-            значение свойства по вертикальной оси. Например, для свойства
-            <mark className="select">«Scale»</mark>
-            <sup>1</sup> значения указываются в процентах. Крутизна кривой напрямую
-            отражает скорость: чем круче наклон, тем быстрее меняется значение.
+            <p>
+              График значений, или <mark className="select">«Value Graph»</mark>,
+              отображает значение свойства по вертикальной оси. Например, для свойства
+              <mark className="select">«Scale»</mark>
+              <sup>1</sup> значения указываются в процентах. Крутизна кривой напрямую
+              отражает скорость: чем круче наклон, тем быстрее меняется значение.
+            </p>
             <Addition type="info">
               <sup>1</sup> График <mark className="select">«Value Graph»</mark> нельзя
               редактировать для параметров, состоящих из нескольких связанных значений,
@@ -4856,8 +5007,14 @@ const AeFromNewbies: React.FC = () => {
           то программа может не справляться с синхронизацией аудио, из-за чего
           предпросмотр «заикается». Попробуйте изменить аудиовыход или уменьшить значение{" "}
           <mark className="select">«Latency»</mark> в{" "}
-          <mark className="select">«Edit» → «Preferences» → «Audio Hardware»</mark>.
+          <mark className="select">«Edit» → «Preferences» → «Audio»</mark>
+          <sup>1</sup>.
         </p>
+        <Addition type="info">
+          <sup>1</sup> В предыдущих версиях{" "}
+          <mark className="app">Adobe After Effects</mark> этот параметр находится в
+          разделе <mark className="select">«Audio Hardware»</mark>.
+        </Addition>
         <ArticleMedia
           caption="Изменяем настройки аудио"
           src="legacy/aftereffects/audio_hardware_settings.png"
@@ -4979,8 +5136,14 @@ const AeFromNewbies: React.FC = () => {
           то программа может не справляться с синхронизацией аудио, из-за чего при
           предпросмотре может пропадать звук. Попробуйте изменить аудиовыход или уменьшить
           значение <mark className="select">«Latency»</mark> в{" "}
-          <mark className="select">«Edit» → «Preferences» → «Audio Hardware»</mark>.
+          <mark className="select">«Edit» → «Preferences» → «Audio»</mark>
+          <sup>1</sup>.
         </p>
+        <Addition type="info">
+          <sup>1</sup> В предыдущих версиях{" "}
+          <mark className="app">Adobe After Effects</mark> этот параметр находится в
+          разделе <mark className="select">«Audio Hardware»</mark>.
+        </Addition>
         <ArticleMedia
           caption="Изменяем настройки аудио"
           src="legacy/aftereffects/audio_hardware_settings.png"
@@ -5049,9 +5212,11 @@ const AeFromNewbies: React.FC = () => {
         </p>
         <ul>
           <li>
-            Попробуйте очистить кэш через{" "}
-            <mark className="select">«Edit» → «Purge» → «All Memory & Disk Cache»</mark>.
-            После очистки рендеринг предпросмотра должен пройти нормально.
+            <p>
+              Попробуйте очистить кэш через{" "}
+              <mark className="select">«Edit» → «Purge» → «All Memory & Disk Cache»</mark>
+              . После очистки рендеринг предпросмотра должен пройти нормально.
+            </p>
             <Addition type="info">
               Очистка кэша никак не повлияет на ваши проекты: они не сломаются и не
               удалятся. Максимум, что придётся сделать после этого — закэшировать
@@ -5064,20 +5229,25 @@ const AeFromNewbies: React.FC = () => {
             />
           </li>
           <li>
-            Проверьте, сколько оперативной памяти вы выделили программе. Для этого
-            перейдите в{" "}
-            <mark className="select">
-              «Edit» → «Preferences» → «Memory & Performance»
-            </mark>{" "}
-            и посмотрите на значение{" "}
-            <mark className="select">«RAM reserved for other applications»</mark>. Если вы
-            неправильно поняли описание и оставили программам{" "}
-            <mark className="company">Adobe</mark> слишком мало памяти, это может вызвать
-            проблемы с проигрыванием предпросмотра. Чтобы выделить максимум ОЗУ, поставьте{" "}
-            <mark>0</mark> в поле{" "}
-            <mark className="select">«RAM reserved for other applications»</mark>.
-            Программа сама подставит минимальное корректное значение памяти для других
-            приложений.
+            <p>
+              Проверьте, сколько оперативной памяти вы выделили программе. Для этого
+              перейдите в{" "}
+              <mark className="select">«Edit» → «Preferences» → «Memory & CPU»</mark>
+              <sup>1</sup> и посмотрите на значение{" "}
+              <mark className="select">«RAM reserved for other applications»</mark>. Если
+              вы неправильно поняли описание и оставили программам{" "}
+              <mark className="company">Adobe</mark> слишком мало памяти, это может
+              вызвать проблемы с проигрыванием предпросмотра. Чтобы выделить максимум ОЗУ,
+              поставьте <mark>0</mark> в поле{" "}
+              <mark className="select">«RAM reserved for other applications»</mark>.
+              Программа сама подставит минимальное корректное значение памяти для других
+              приложений.
+            </p>
+            <Addition type="info">
+              <sup>1</sup> В предыдущих версиях{" "}
+              <mark className="app">Adobe After Effects</mark> этот параметр находится в
+              разделе <mark className="select">«Memory & Performance»</mark>.
+            </Addition>
             <ArticleMedia
               caption="Настраиваем выделение оперативной памяти программам"
               src="legacy/aftereffects/ram_reserved_for_other_applications.png"
@@ -5153,18 +5323,27 @@ const AeFromNewbies: React.FC = () => {
         </p>
         <p>
           Для активации перейдите в{" "}
-          <mark className="select">«Edit» → «Preferences» → «Media & Disk Cache»</mark>,
-          поставьте галку <mark className="select">«Enable Disk Cache»</mark> и
-          активируйте параметр{" "}
+          <mark className="select">«Edit» → «Preferences» → «Disk»</mark>
+          <sup>1</sup>, поставьте галку{" "}
+          <mark className="select">«Enable Disk Cache»</mark> и активируйте параметр{" "}
           <mark className="select">«Enable Preview from Disk Cache»</mark>. Размер кэша{" "}
           <mark className="select">«Maximum Disk Cache Size»</mark> должен быть не меньше{" "}
           <mark>100 ГБ</mark>, так как программа любит пожирать много дискового
           пространства.
         </p>
         <Addition type="info">
-          Для комфортной работы с дисковым кэшем нужен быстрый накопитель. Можете купить
-          дешёвый <mark>SSD</mark> на <mark>256–512 ГБ</mark> и использовать его
-          специально для кэша.
+          <ul>
+            <li>
+              <sup>1</sup> В предыдущих версиях{" "}
+              <mark className="app">Adobe After Effects</mark> этот параметр находится в
+              разделе <mark className="select">«Media & Disk Cache»</mark>.
+            </li>
+            <li>
+              Для комфортной работы с дисковым кэшем нужен быстрый накопитель. Можете
+              купить дешёвый <mark>SSD</mark> на <mark>256–512 ГБ</mark> и использовать
+              его специально для кэша.
+            </li>
+          </ul>
         </Addition>
         <ArticleMedia
           caption="Включаем воспроизведение предпросмотра из дискового кэша"
@@ -5708,10 +5887,12 @@ const AeFromNewbies: React.FC = () => {
             старый.
           </li>
           <li>
-            Если это не помогло, попробуйте переключить рендер на процессор в{" "}
-            <mark className="select">«Project Settings»</mark> и очистить кэш через{" "}
-            <mark className="select">«Edit» → «Purge» → «All Memory & Disk Cache»</mark>,
-            а потом написать текст заново.
+            <p>
+              Если это не помогло, попробуйте переключить рендер на процессор в{" "}
+              <mark className="select">«Project Settings»</mark> и очистить кэш через{" "}
+              <mark className="select">«Edit» → «Purge» → «All Memory & Disk Cache»</mark>
+              , а потом написать текст заново.
+            </p>
             <Addition type="info">
               Очистка кэша никак не повлияет на ваши проекты: они не сломаются и не
               удалятся. Максимум, что придётся сделать после этого — закэшировать
