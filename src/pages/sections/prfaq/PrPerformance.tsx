@@ -93,14 +93,16 @@ const PrPerformance: React.FC = () => {
               <Divider>Инструкция для Windows 10 и 11</Divider>
               <ul>
                 <li>
-                  Откройте окно <mark className="app">Выполнить</mark> с помощью
-                  комбинации клавиш <mark className="key">Win + R</mark>, введите в поле{" "}
-                  <mark className="select">«Открыть»</mark> команду{" "}
-                  <mark className="code">SystemPropertiesAdvanced.exe</mark>, а затем
-                  нажмите <mark className="key">Enter</mark> дважды. Таким образом вы
-                  откроете окно <mark className="select">«Свойства системы»</mark> и сразу
-                  же попадёте в <mark className="select">«Параметры быстродействия»</mark>
-                  .
+                  <p>
+                    Откройте окно <mark className="app">Выполнить</mark> с помощью
+                    комбинации клавиш <mark className="key">Win + R</mark>, введите в поле{" "}
+                    <mark className="select">«Открыть»</mark> команду{" "}
+                    <mark className="code">SystemPropertiesAdvanced.exe</mark>, а затем
+                    нажмите <mark className="key">Enter</mark> дважды. Таким образом вы
+                    откроете окно <mark className="select">«Свойства системы»</mark> и
+                    сразу же попадёте в{" "}
+                    <mark className="select">«Параметры быстродействия»</mark>.
+                  </p>
                   <ArticleMedia
                     caption="Выполнить"
                     src="legacy/run_systempropertiesadvanced.png"
@@ -108,8 +110,10 @@ const PrPerformance: React.FC = () => {
                   />
                 </li>
                 <li>
-                  В окне <mark className="select">«Параметры быстродействия»</mark>{" "}
-                  перейдите на вкладку <mark className="select">«Дополнительно»</mark>.
+                  <p>
+                    В окне <mark className="select">«Параметры быстродействия»</mark>{" "}
+                    перейдите на вкладку <mark className="select">«Дополнительно»</mark>.
+                  </p>
                   <ArticleMedia
                     caption="Параметры быстродействия"
                     src="legacy/systempropertiesadvanced_select_advanced.png"
@@ -117,9 +121,11 @@ const PrPerformance: React.FC = () => {
                   />
                 </li>
                 <li>
-                  Во вкладке <mark className="select">«Дополнительно»</mark> нажмите
-                  кнопку <mark className="select">«Изменить»</mark> в разделе{" "}
-                  <mark className="select">«Виртуальная память»</mark>.
+                  <p>
+                    Во вкладке <mark className="select">«Дополнительно»</mark> нажмите
+                    кнопку <mark className="select">«Изменить»</mark> в разделе{" "}
+                    <mark className="select">«Виртуальная память»</mark>.
+                  </p>
                   <ArticleMedia
                     caption="Параметры быстродействия"
                     src="legacy/systempropertiesadvanced_open_change_size.png"
@@ -127,11 +133,13 @@ const PrPerformance: React.FC = () => {
                   />
                 </li>
                 <li>
-                  Если у вас установлен флажок у параметра{" "}
-                  <mark className="select">
-                    «Автоматически выбирать объем файла подкачки»
-                  </mark>
-                  , снимите его.
+                  <p>
+                    Если у вас установлен флажок у параметра{" "}
+                    <mark className="select">
+                      «Автоматически выбирать объем файла подкачки»
+                    </mark>
+                    , снимите его.
+                  </p>
                   <ArticleMedia
                     caption="Виртуальная память"
                     src="legacy/systempropertiesadvanced_disable_auto_size.png"
@@ -160,11 +168,14 @@ const PrPerformance: React.FC = () => {
                   <Addition type="info">
                     <ul>
                       <li>
-                        Для файла подкачки выбирайте самый производительный диск на вашем
-                        устройстве. Как правило, это тот же диск, на котором установлена
-                        система. Размещение файла подкачки на медленном диске может
-                        ухудшить работу как с <mark className="app">Adobe Premiere</mark>,
-                        так и с <mark>Windows</mark> в целом.
+                        <p>
+                          Для файла подкачки выбирайте самый производительный диск на
+                          вашем устройстве. Как правило, это тот же диск, на котором
+                          установлена система. Размещение файла подкачки на медленном
+                          диске может ухудшить работу как с{" "}
+                          <mark className="app">Adobe Premiere</mark>, так и с{" "}
+                          <mark>Windows</mark> в целом.
+                        </p>
                         <Addition type="warning">
                           В некоторых случаях, если указать для файла подкачки не
                           системный раздел, это может привести к ошибкам, связанным с

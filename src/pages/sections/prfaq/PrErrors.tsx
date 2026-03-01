@@ -94,10 +94,13 @@ const PrErrors: React.FC = () => {
               </p>
               <ul>
                 <li>
-                  После её установки перейдите во вкладку{" "}
-                  <mark className="select">«Network Monitor»</mark> и запретите доступ в
-                  интернет всем процессам <mark className="company">Adobe</mark>, нажимая
-                  кнопку <mark className="select">«Block»</mark> рядом с их названиями.
+                  <p>
+                    После её установки перейдите во вкладку{" "}
+                    <mark className="select">«Network Monitor»</mark> и запретите доступ в
+                    интернет всем процессам <mark className="company">Adobe</mark>,
+                    нажимая кнопку <mark className="select">«Block»</mark> рядом с их
+                    названиями.
+                  </p>
                   <ArticleMedia
                     caption="Radio Silence"
                     src="legacy/network_radio_silence.png"
@@ -105,9 +108,11 @@ const PrErrors: React.FC = () => {
                   />
                 </li>
                 <li>
-                  После этого заблокированные приложения появятся во вкладке{" "}
-                  <mark className="select">«Firewall»</mark> и больше не должны
-                  подключаться к сети.
+                  <p>
+                    После этого заблокированные приложения появятся во вкладке{" "}
+                    <mark className="select">«Firewall»</mark> и больше не должны
+                    подключаться к сети.
+                  </p>
                   <ArticleMedia
                     caption="Radio Silence"
                     src="legacy/firewall_radio_silence.png"
@@ -196,12 +201,14 @@ const PrErrors: React.FC = () => {
               </p>
               <ul>
                 <li>
-                  Чтобы быстро открыть брандмауэр — откройте окно{" "}
-                  <mark className="app">«Выполнить»</mark> с помощью комбинации клавиш{" "}
-                  <mark className="key">Win + R</mark>, введите в поле{" "}
-                  <mark className="select">«Открыть»</mark> значение{" "}
-                  <mark className="code">wf.msc</mark> и нажмите{" "}
-                  <mark className="key">Enter</mark>.
+                  <p>
+                    Чтобы быстро открыть брандмауэр — откройте окно{" "}
+                    <mark className="app">«Выполнить»</mark> с помощью комбинации клавиш{" "}
+                    <mark className="key">Win + R</mark>, введите в поле{" "}
+                    <mark className="select">«Открыть»</mark> значение{" "}
+                    <mark className="code">wf.msc</mark> и нажмите{" "}
+                    <mark className="key">Enter</mark>.
+                  </p>
                   <ArticleMedia
                     caption="Выполнить"
                     src="legacy/open_wf_msc.png"
@@ -209,10 +216,12 @@ const PrErrors: React.FC = () => {
                   />
                 </li>
                 <li>
-                  Перед вами откроется{" "}
-                  <mark className="app">Монитор брандмауэра Защитника Windows</mark>. В
-                  левой части окна перейдите в раздел{" "}
-                  <mark className="select">«Правила для входящих подключений»</mark>.
+                  <p>
+                    Перед вами откроется{" "}
+                    <mark className="app">Монитор брандмауэра Защитника Windows</mark>. В
+                    левой части окна перейдите в раздел{" "}
+                    <mark className="select">«Правила для входящих подключений»</mark>.
+                  </p>
                   <ArticleMedia
                     caption="Монитор брандмауэра Защитника Windows"
                     src="legacy/firewall_main_page.png"
@@ -220,8 +229,10 @@ const PrErrors: React.FC = () => {
                   />
                 </li>
                 <li>
-                  В правой части интерфейса нажмите кнопку{" "}
-                  <mark className="select">«Создать правило»</mark>.
+                  <p>
+                    В правой части интерфейса нажмите кнопку{" "}
+                    <mark className="select">«Создать правило»</mark>.
+                  </p>
                   <ArticleMedia
                     caption="Монитор брандмауэра Защитника Windows"
                     src="legacy/firewall_creating_rule.png"
@@ -229,9 +240,11 @@ const PrErrors: React.FC = () => {
                   />
                 </li>
                 <li>
-                  В открывшемся мастере создания правил на первой вкладке оставьте
-                  выбранным <mark className="select">«Для программы»</mark> и нажмите{" "}
-                  <mark className="select">«Далее»</mark>.
+                  <p>
+                    В открывшемся мастере создания правил на первой вкладке оставьте
+                    выбранным <mark className="select">«Для программы»</mark> и нажмите{" "}
+                    <mark className="select">«Далее»</mark>.
+                  </p>
                   <ArticleMedia
                     caption="Мастер создания правила для нового входящего подключения"
                     src="legacy/firewall_rule_type.png"
@@ -239,11 +252,14 @@ const PrErrors: React.FC = () => {
                   />
                 </li>
                 <li>
-                  На второй вкладке укажите путь к исполняемому файлу программы —{" "}
-                  <mark className="path">
-                    C:\Program Files\Adobe\Adobe Premiere Pro 20XX\Adobe Premiere Pro.exe
-                  </mark>{" "}
-                  и снова нажмите <mark className="select">«Далее»</mark>.
+                  <p>
+                    На второй вкладке укажите путь к исполняемому файлу программы —{" "}
+                    <mark className="path">
+                      C:\Program Files\Adobe\Adobe Premiere Pro 20XX\Adobe Premiere
+                      Pro.exe
+                    </mark>{" "}
+                    и снова нажмите <mark className="select">«Далее»</mark>.
+                  </p>
                   <ArticleMedia
                     caption="Мастер создания правила для нового входящего подключения"
                     src="legacy/firewall_select_app.png"
@@ -251,8 +267,10 @@ const PrErrors: React.FC = () => {
                   />
                 </li>
                 <li>
-                  В качестве действия выберите{" "}
-                  <mark className="select">«Блокировать подключение»</mark>.
+                  <p>
+                    В качестве действия выберите{" "}
+                    <mark className="select">«Блокировать подключение»</mark>.
+                  </p>
                   <ArticleMedia
                     caption="Мастер создания правила для нового входящего подключения"
                     src="legacy/firewall_blocking.png"
@@ -260,8 +278,10 @@ const PrErrors: React.FC = () => {
                   />
                 </li>
                 <li>
-                  Во вкладке <mark className="select">«Профиль»</mark> оставьте все три
-                  флажка включёнными и нажмите <mark className="select">«Далее»</mark>.
+                  <p>
+                    Во вкладке <mark className="select">«Профиль»</mark> оставьте все три
+                    флажка включёнными и нажмите <mark className="select">«Далее»</mark>.
+                  </p>
                   <ArticleMedia
                     caption="Мастер создания правила для нового входящего подключения"
                     src="legacy/firewall_select_profile.png"

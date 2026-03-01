@@ -1004,10 +1004,13 @@ const PrFromNewbies: React.FC = () => {
           <mark className="app">Adobe Premiere</mark>.
         </li>
         <li>
-          <mark className="plugin">AtomX</mark>, <mark className="plugin">MotionBro</mark>
-          , <mark className="plugin">Premiere Composer</mark> и похожие плагины с
-          различными паками помогут ускорить работу за счёт быстрого применения
-          разнообразных эффектов и переходов.
+          <p>
+            <mark className="plugin">AtomX</mark>,{" "}
+            <mark className="plugin">MotionBro</mark>,{" "}
+            <mark className="plugin">Premiere Composer</mark> и похожие плагины с
+            различными паками помогут ускорить работу за счёт быстрого применения
+            разнообразных эффектов и переходов.
+          </p>
           <Addition type="warning">
             Учтите, что при применении некоторых переходов у вас может снизиться
             производительность проекта.
@@ -1055,13 +1058,15 @@ const PrFromNewbies: React.FC = () => {
             <mark>Whisper</mark> и <mark>Vosk/Kaldi</mark>.
           </li>
           <li>
-            <mark className="plugin">Submachine</mark> - плагин для создания анимированных
-            субтитров, как в &quot;тиктоках&quot; и &quot;рилсах&quot;. Перед
-            использованием плагина лучше уделить 20 минут и{" "}
-            <a href="https://youtu.be/xYidiPvc_LY">
-              посмотреть официальное обучающее видео по его использованию
-            </a>
-            .
+            <p>
+              <mark className="plugin">Submachine</mark> - плагин для создания
+              анимированных субтитров, как в &quot;тиктоках&quot; и &quot;рилсах&quot;.
+              Перед использованием плагина лучше уделить 20 минут и{" "}
+              <a href="https://youtu.be/xYidiPvc_LY">
+                посмотреть официальное обучающее видео по его использованию
+              </a>
+              .
+            </p>
             <Addition type="danger">
               Данный плагин на <mark className="app">Adobe Premiere Pro</mark> версий{" "}
               <mark>24.2</mark> и <mark>24.2.1</mark> работает кривовато. Рекомендуется
@@ -1321,10 +1326,13 @@ const PrFromNewbies: React.FC = () => {
                 </p>
                 <ul>
                   <li>
-                    На <mark>Windows 11</mark> - откройте проводник, выберите нужную папку
-                    и нажмите на <mark className="key">ПКМ</mark>. Затем в контекстном
-                    меню нажмите на <mark className="select">Добавить в библиотеку</mark>.
-                    Вы можете выбрать уже существующую библиотеку или создать новую.
+                    <p>
+                      На <mark>Windows 11</mark> - откройте проводник, выберите нужную
+                      папку и нажмите на <mark className="key">ПКМ</mark>. Затем в
+                      контекстном меню нажмите на{" "}
+                      <mark className="select">Добавить в библиотеку</mark>. Вы можете
+                      выбрать уже существующую библиотеку или создать новую.
+                    </p>
                     <Addition type="warning">
                       Если у вас нет кнопки{" "}
                       <mark className="select">Добавить в библиотеку</mark> в контекстном
@@ -1444,9 +1452,12 @@ const PrFromNewbies: React.FC = () => {
         </p>
         <ul>
           <li>
-            <mark className="select">«Scale to Frame Size»</mark> изменяет разрешение
-            клипа под размер вашей секвенции, при этом оставляет значение{" "}
-            <mark className="select">«Scale»</mark> на 100% и меньше нагружает ресурсы ПК.
+            <p>
+              <mark className="select">«Scale to Frame Size»</mark> изменяет разрешение
+              клипа под размер вашей секвенции, при этом оставляет значение{" "}
+              <mark className="select">«Scale»</mark> на 100% и меньше нагружает ресурсы
+              ПК.
+            </p>
             <Addition type="warning">
               Если вы уменьшите клип, записанный в <mark>4K</mark> под секвенцию{" "}
               <mark>1080p</mark> через{" "}
@@ -1466,7 +1477,7 @@ const PrFromNewbies: React.FC = () => {
           </li>
         </ul>
         <Addition type="info">
-          В старых версиях <mark className="app">Adobe Premiere Pro</mark> вместо{" "}
+          В предыдущих версиях <mark className="app">Adobe Premiere Pro</mark> вместо{" "}
           <mark className="select">«Fit to Frame»</mark> была кнопка{" "}
           <mark className="select">«Set to Frame Size»</mark>.
         </Addition>

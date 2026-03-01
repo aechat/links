@@ -508,10 +508,12 @@ const PrActions: React.FC = () => {
         <Addition type="info">
           <ul>
             <li>
-              На «народных» версиях обычно языковые пакеты не поставляются вместе с
-              дистрибутивом, чтобы не раздувать размер установщика. Их можно загрузить
-              отдельно по запросу <mark className="copy">Speech To Text</mark> именно для
-              вашей версии <mark className="app">Adobe Premiere</mark>.
+              <p>
+                На «народных» версиях обычно языковые пакеты не поставляются вместе с
+                дистрибутивом, чтобы не раздувать размер инсталлятора. Их можно загрузить
+                отдельно по запросу <mark className="copy">Speech To Text</mark> именно
+                для вашей версии <mark className="app">Adobe Premiere</mark>.
+              </p>
               <Addition type="info">
                 Языковые пакеты вы можете скачать в канале{" "}
                 <a href="https://t.me/+Qd9xu7A4TeIwNzY6">
@@ -523,13 +525,15 @@ const PrActions: React.FC = () => {
               </Addition>
             </li>
             <li>
-              Если вы установите языковой пакет, который предназначен для версии{" "}
-              <mark className="app">Adobe Premiere</mark>, отличной от вашей, вы просто
-              зря займёте место на диске, а язык не установится, и программа будет
-              постоянно предлагать его скачать. То есть, если у вас установлен{" "}
-              <mark className="app">Adobe Premiere</mark> версии <mark>24.6</mark>, а
-              языковой пакет, который вы скачали и установили, предназначен для{" "}
-              <mark>24.1</mark>, то в вашей версии программы он попросту не появится.
+              <p>
+                Если вы установите языковой пакет, который предназначен для версии{" "}
+                <mark className="app">Adobe Premiere</mark>, отличной от вашей, вы просто
+                зря займёте место на диске, а язык не установится, и программа будет
+                постоянно предлагать его скачать. То есть, если у вас установлен{" "}
+                <mark className="app">Adobe Premiere</mark> версии <mark>24.6</mark>, а
+                языковой пакет, который вы скачали и установили, предназначен для{" "}
+                <mark>24.1</mark>, то в вашей версии программы он попросту не появится.
+              </p>
               <Addition type="info">
                 Информацию о текущей сборке программы вы можете узнать в{" "}
                 <mark className="select">«Help» → «About Premiere»</mark>.
@@ -627,14 +631,16 @@ const PrActions: React.FC = () => {
               <mark className="app">VPN</mark>.
             </li>
             <li>
-              Если после установки программа предложит скачать{" "}
-              <mark className="select">«Whisper.cpp»</mark>, лучше отказаться от его
-              скачивания, нажав <mark className="select">«No»</mark> в диалоговом окне,
-              так как он работает нестабильно. Вместо него следует установить{" "}
-              <mark>Purfview&apos;s Faster Whisper</mark>. Для этого в окне в параметре{" "}
-              <mark className="select">«Engine»</mark> выберите{" "}
-              <mark className="select">«Purfview&apos;s Faster Whisper»</mark> и
-              подтвердите загрузку.
+              <p>
+                Если после установки программа предложит скачать{" "}
+                <mark className="app">Whisper.cpp</mark>, лучше отказаться от его
+                скачивания, нажав <mark className="select">«No»</mark> в диалоговом окне,
+                так как он работает нестабильно. Вместо него следует установить{" "}
+                <mark>Purfview&apos;s Faster Whisper</mark>. Для этого в окне в параметре{" "}
+                <mark className="select">«Engine»</mark> выберите{" "}
+                <mark className="select">«Purfview&apos;s Faster Whisper»</mark> и
+                подтвердите загрузку.
+              </p>
               <ArticleMedia
                 caption="Subtitle Edit"
                 src="legacy/subtitle_edit_change_engine.png"
