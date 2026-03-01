@@ -113,13 +113,13 @@ const Ruler: React.FC<{trackWidth: number; style?: React.CSSProperties}> = ({
       style={style}
     >
       {ticks.map((tick) => {
-        let labelClass = "ruler-label";
-
-        if (tick === 0) {
-          labelClass += " ruler-label--start";
-        } else if (tick === trackWidth) {
-          labelClass += " ruler-label--end";
-        }
+        const labelClassName = [
+          styles["ruler-label"],
+          tick === 0 ? styles["ruler-label--start"] : "",
+          tick === trackWidth ? styles["ruler-label--end"] : "",
+        ]
+          .filter(Boolean)
+          .join(" ");
 
         return (
           <div
@@ -127,7 +127,7 @@ const Ruler: React.FC<{trackWidth: number; style?: React.CSSProperties}> = ({
             className={styles["ruler-tick"]}
             style={{left: `calc(${tick}px - 0.5px)`}}
           >
-            <span className={styles[labelClass]}>{Math.round(tick)}</span>
+            <span className={labelClassName}>{Math.round(tick)}</span>
           </div>
         );
       })}
@@ -836,11 +836,11 @@ const AnimationControls: React.FC<AnimationControlsProperties> = ({
             <span className={styles["fps-warning"]}>({Math.round(actualFps)})</span>
           )}
         </label>
-        <div className={styles["flexible-links"]}>
+        <div className="flexible-links">
           {[8, 15, 24, 30, 60].map((f) => (
             <button
               key={f}
-              className={fps === f ? `${styles["active"]} ${styles["selected"]}` : ""}
+              className={fps === f ? "active selected" : ""}
               style={{flexBasis: "15px"}}
               onClick={() => setFps(f)}
             >
@@ -849,13 +849,11 @@ const AnimationControls: React.FC<AnimationControlsProperties> = ({
           ))}
         </div>
         <label>Режим</label>
-        <div className={styles["flexible-links"]}>
+        <div className="flexible-links">
           {MODES.map((mode) => (
             <button
               key={mode}
-              className={
-                animationMode === mode ? `${styles["active"]} ${styles["selected"]}` : ""
-              }
+              className={animationMode === mode ? "active selected" : ""}
               onClick={() => setAnimationMode(mode)}
             >
               {modeTextMap[mode]}
@@ -865,15 +863,11 @@ const AnimationControls: React.FC<AnimationControlsProperties> = ({
       </div>
       <div className={styles["control-item"]}>
         <label>Свойство</label>
-        <div className={styles["flexible-links"]}>
+        <div className="flexible-links">
           {Object.keys(propertyTextMap).map((property) => (
             <button
               key={property}
-              className={
-                animationProperty === property
-                  ? `${styles["active"]} ${styles["selected"]}`
-                  : ""
-              }
+              className={animationProperty === property ? "active selected" : ""}
               onClick={() => setAnimationProperty(property as AnimationProperty)}
             >
               {propertyTextMap[property as AnimationProperty]}
@@ -881,13 +875,13 @@ const AnimationControls: React.FC<AnimationControlsProperties> = ({
           ))}
         </div>
         <label>Управление</label>
-        <div className={styles["flexible-links"]}>
+        <div className="flexible-links">
           <button onClick={handleTogglePlayPause}>
             {isPaused ? "▶ Воспроизвести" : "❚❚ Пауза"}
           </button>
           <button onClick={handleResetAnimation}>Сбросить</button>
           <button
-            className={isTrailVisible ? `${styles["active"]} ${styles["selected"]}` : ""}
+            className={isTrailVisible ? "active selected" : ""}
             onClick={() => setIsTrailVisible(!isTrailVisible)}
           >
             Показать след
