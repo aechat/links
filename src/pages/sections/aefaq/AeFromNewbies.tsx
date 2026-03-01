@@ -5786,6 +5786,10 @@ const AeFromNewbies: React.FC = () => {
         tag="secret, preferences, отладка, скрытые настройки, disable layer cache"
         title="Что такое «секретные» настройки и как их открыть?"
       >
+        <Addition type="danger">
+          В <mark className="app">Adobe After Effects</mark> версии <mark>2026</mark> и
+          новее данные настройки были удалены.
+        </Addition>
         <p>
           Разработчики оставили некоторые функции, спрятав их в «секретном» разделе{" "}
           <mark className="select">«Secret»</mark>. Правда, ничего особенно интересного
