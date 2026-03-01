@@ -49,7 +49,6 @@
     a {
       transition: opacity 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
       text-decoration: underline;
-      text-decoration-thickness: max(2px, 0.095em);
       color: var(--color-accent);
       font-weight: 700;
 
