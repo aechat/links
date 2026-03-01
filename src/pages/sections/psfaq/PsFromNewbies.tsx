@@ -1,5 +1,7 @@
 import React from "react";
 
+import {Divider} from "antd";
+
 import {ArticleMedia} from "../../../components/content/ArticleMedia";
 import DetailsSummary from "../../../components/content/DetailsSummary";
 
@@ -119,6 +121,29 @@ const PsFromNewbies: React.FC = () => {
             <mark className="app">Adobe Premiere</mark>, но всё же.
           </i>
         </p>
+        <Divider>Меняем язык в «народной» версии программы</Divider>
+        <p>
+          Для быстрой смены языка - откройте контекстное меню{" "}
+          <mark className="select">«Редактирование» → «Настройки»</mark> и выберите в нём{" "}
+          <mark className="select">«Интерфейс»</mark>.
+        </p>
+        <ArticleMedia
+          caption="Adobe Photoshop"
+          src="legacy/photoshop/редактирование_настройки_интерфейс.png"
+          type="image"
+        />
+        <p>
+          Затем в открывшемся окне выберите в параметре{" "}
+          <mark className="select">«Язык»</mark> значение{" "}
+          <mark className="select">«English»</mark>. После этого перезагрузите программу и
+          теперь вы можете работать с английской локализацией{" "}
+          <mark className="app">Adobe Photoshop</mark>.
+        </p>
+        <ArticleMedia
+          caption="Установки"
+          src="legacy/photoshop/change_language.png"
+          type="image"
+        />
       </DetailsSummary>
       <DetailsSummary
         anchor="photoshop-vs-illustrator"
