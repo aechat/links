@@ -45,22 +45,22 @@ docker-compose up
 - [`commit-messages.md`](docs/commit-messages.md) — формат коммитов и правила сообщений.
 - [`articles.md`](docs/articles.md) — устройство разделов и статей, подключение новых секций.
 - [`project-structure.md`](docs/project-structure.md) — обзор структуры проекта.
-- [`content-components.md`](docs/components/content-components.md) — обзор контентных компонентов и быстрый старт секции.
-- [`details-summary.md`](docs/components/details-summary.md) — `DetailsSummary`, `anchor`, `tag` и ссылки.
-- [`faq-article-quality.md`](docs/content/faq-article-quality.md) — критерии качества FAQ-ответа.
-- [`faq-question-structure.md`](docs/content/faq-question-structure.md) — правила для `anchor`, `title`, `tag`.
-- [`faq-answer-structure.md`](docs/content/faq-answer-structure.md) — порядок подачи решения и структура ответа.
-- [`faq-reuse-and-checklist.md`](docs/content/faq-reuse-and-checklist.md) — переиспользование контента и финальный чеклист.
-- [`article-content.md`](docs/content/article-content.md) — корневой контейнер контента.
-- [`paragraphs.md`](docs/content/paragraphs.md) — правила для абзацев `p`.
-- [`lists.md`](docs/content/lists.md) — правила для списков `ul/ol/li`.
-- [`addition.md`](docs/content/addition.md) — правила для `Addition`.
-- [`divider.md`](docs/content/divider.md) — правила для `Divider`.
-- [`tables.md`](docs/content/tables.md) — когда и как использовать таблицы.
-- [`article-media.md`](docs/content/article-media.md) — правила для `ArticleMedia`.
-- [`code-snippet.md`](docs/content/code-snippet.md) — правила для `CodeSnippet`.
-- [`content-filter.md`](docs/content/content-filter.md) — правила для `ContentFilter`.
-- [`nested-details.md`](docs/content/nested-details.md) — правила для `NestedDetailsSummary`.
-- [`flexible-links.md`](docs/content/flexible-links.md) — паттерн групп ссылок `.flexible-links`.
-- [`mark-and-icons.md`](docs/content/mark-and-icons.md) — семантические классы `mark`.
-- [`tone-and-style.md`](docs/content/tone-and-style.md) — тон и стиль текстов FAQ.
+- [`content-components.md`](docs/content/feature-components-rules.md) — обзор контентных компонентов и быстрый старт секции.
+- [`details-summary.md`](docs/content/details-summary-rules.md) — `DetailsSummary`, `anchor`, `tag` и ссылки.
+- [`faq-article-quality.md`](docs/content/article-quality-guide.md) — критерии качества FAQ-ответа.
+- [`faq-question-structure.md`](docs/content/article-question-guide.md) — правила для `anchor`, `title`, `tag`.
+- [`faq-answer-structure.md`](docs/content/article-answer-guide.md) — порядок подачи решения и структура ответа.
+- [`faq-reuse-and-checklist.md`](docs/content/article-reuse-guide.md) — переиспользование контента и финальный чеклист.
+- [`article-content.md`](docs/content/article-container-rules.md) — корневой контейнер контента.
+- [`paragraphs.md`](docs/content/paragraphs-rules.md) — правила для абзацев `p`.
+- [`lists.md`](docs/content/lists-rules.md) — правила для списков `ul/ol/li`.
+- [`addition.md`](docs/content/addition-rules.md) — правила для `Addition`.
+- [`divider.md`](docs/content/divider-rules.md) — правила для `Divider`.
+- [`tables.md`](docs/content/tables-rules.md) — когда и как использовать таблицы.
+- [`article-media.md`](docs/content/article-media-rules.md) — правила для `ArticleMedia`.
+- [`code-snippet.md`](docs/content/code-snippet-rules.md) — правила для `CodeSnippet`.
+- [`content-filter.md`](docs/content/content-filter-rules.md) — правила для `ContentFilter`.
+- [`nested-details.md`](docs/content/nested-details-rules.md) — правила для `NestedDetailsSummary`.
+- [`flexible-links.md`](docs/content/flexible-links-rules.md) — паттерн групп ссылок `.flexible-links`.
+- [`mark-and-icons.md`](docs/content/mark-and-icons-rules.md) — семантические классы `mark`.
+- [`tone-and-style.md`](docs/content/tone-and-style-guide.md) — тон и стиль текстов FAQ.
