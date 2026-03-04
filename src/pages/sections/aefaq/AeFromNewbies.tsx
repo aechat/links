@@ -2925,899 +2925,904 @@ const AeFromNewbies: React.FC = () => {
           Горячие клавиши помогают ускорить рутинные процессы. В таблицах ниже собраны
           популярные комбинации.
         </p>
-        <Addition type="info">
-          <ul>
-            <li>
-              В таблице приведены комбинации для <mark>Windows</mark>. В зависимости от
-              версии программы и платформы, на которой вы работаете, комбинации клавиш
-              могут отличаться.
-            </li>
-            <li>
-              Более подробный список комбинаций клавиш можно найти{" "}
-              <a href="https://helpx.adobe.com/after-effects/using/keyboard-shortcuts-reference.html">
-                на официальном сайте Adobe
-              </a>
-              , посмотреть в{" "}
-              <a href="https://www.youtube.com/watch?v=i6eFTDS2rvI">видео от AEPlug</a>{" "}
-              или изучить в меню{" "}
-              <mark className="select">«Edit» → «Keyboard Shortcuts»</mark>.
-            </li>
-          </ul>
+        <Addition type="warning">
+          Горячие клавиши в этой таблице могут отличаться в зависимости от вашей версии
+          программы и заданных вами комбинаций. Посмотреть клавиши, которые назначены у
+          вас для определённого действия, вы можете с помощью окна настроек комбинаций
+          клавиш в <mark className="select">«Edit» → «Keyboard Shortcuts»</mark>.
+          Подробный список комбинаций клавиш вы можете найти{" "}
+          <a href="https://helpx.adobe.com/after-effects/using/keyboard-shortcuts-reference.html">
+            на официальном сайте Adobe
+          </a>{" "}
+          или посмотреть в{" "}
+          <a href="https://www.youtube.com/watch?v=i6eFTDS2rvI">видео от AEPlug</a>.
         </Addition>
-        <Divider>Работа с файлами и проектом</Divider>
-        <table>
-          <thead>
-            <tr>
-              <th>Действие</th>
-              <th style={{minWidth: "40%"}}>Комбинация</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>
-                Создать новый проект и закрыть текущий
-                <Addition type="info">
-                  Если открытый проект не был сохранён, программа предложит это сделать.
-                </Addition>
-              </td>
-              <td>
-                <mark className="key">Ctrl + Alt + N</mark>
-              </td>
-            </tr>
-            <tr>
-              <td>Открыть окно создания новой композиции</td>
-              <td>
-                <mark className="key">Ctrl + N</mark>
-              </td>
-            </tr>
-            <tr>
-              <td>Открыть системное окно импорта файлов</td>
-              <td>
-                <mark className="key">Ctrl + I</mark>
-              </td>
-            </tr>
-            <tr>
-              <td>Открыть проект</td>
-              <td>
-                <mark className="key">Ctrl + O</mark>
-              </td>
-            </tr>
-            <tr>
-              <td>Открыть последний проект, с которым вы работали</td>
-              <td>
-                <mark className="key">Ctrl + Alt + Shift + P</mark>
-              </td>
-            </tr>
-            <tr>
-              <td>Открыть или выполнить недавно использованный скрипт</td>
-              <td>
-                <mark className="key">Ctrl + Alt + Shift + D</mark>
-              </td>
-            </tr>
-            <tr>
-              <td>Сохранить проект</td>
-              <td>
-                <mark className="key">Ctrl + S</mark>
-              </td>
-            </tr>
-            <tr>
-              <td>Сохранить проект как...</td>
-              <td>
-                <mark className="key">Ctrl + Shift + S</mark>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                Инкрементное сохранение (сохранить копию с новым номером)
-                <Addition type="info">
-                  При каждом нажатии в папке проекта будет создаваться новая копия с
-                  возрастающим числом в названии.
-                </Addition>
-              </td>
-              <td>
-                <mark className="key">Ctrl + Alt + Shift + S</mark>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-        <Divider>Выбор инструментов</Divider>
-        <table>
-          <thead>
-            <tr>
-              <th>Действие</th>
-              <th style={{minWidth: "40%"}}>Комбинация</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Инструмент выделения (Selection Tool)</td>
-              <td>
-                <mark className="key">V</mark>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                Инструмент «Рука» (Hand Tool)
-                <Addition type="info">
-                  Зажмите <mark className="key">Пробел</mark>, чтобы временно активировать
-                  инструмент.
-                </Addition>
-              </td>
-              <td>
-                <mark className="key">H</mark>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                Инструмент «Перо» (Pen Tool)
-                <Addition type="info">
-                  <ul>
-                    <li>Если выделен обычный слой, инструмент будет рисовать маску.</li>
-                    <li>Если выделен слой-фигура, он будет рисовать фигуру.</li>
-                  </ul>
-                </Addition>
-              </td>
-              <td>
-                <mark className="key">G</mark>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                Инструмент «Текст» (Text Tool)
-                <Addition type="info">
-                  Многократное нажатие переключает между горизонтальным и вертикальным
-                  написанием.
-                </Addition>
-              </td>
-              <td>
-                <mark className="key">Ctrl + T</mark>
-              </td>
-            </tr>
-            <tr>
-              <td>Инструмент «Опорная точка» (Pan Behind / Anchor Point Tool)</td>
-              <td>
-                <mark className="key">Y</mark>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                Инструмент для создания фигур и масок
-                <Addition type="info">
-                  Многократное нажатие на <mark className="key">Q</mark> переключает между
-                  прямоугольником, эллипсом, многоугольником и звездой.
-                </Addition>
-              </td>
-              <td>
-                <mark className="key">Q</mark>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                Инструмент «Кисть» (Brush Tool)
-                <Addition type="info">
-                  Многократное нажатие переключает между кистью, штампом и ластиком.
-                </Addition>
-              </td>
-              <td>
-                <mark className="key">Ctrl + B</mark>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                Инструмент «Лупа» (Zoom Tool)
-                <Addition type="info">
-                  С зажатым <mark className="key">Alt</mark> выполняется уменьшение.
-                </Addition>
-              </td>
-              <td>
-                <mark className="key">Z</mark>
-              </td>
-            </tr>
-            <tr>
-              <td>Инструмент поворота (Rotation Tool)</td>
-              <td>
-                <mark className="key">W</mark>
-              </td>
-            </tr>
-            <tr>
-              <td>Инструмент «Кисть для ротоскопии» (Roto Brush Tool)</td>
-              <td>
-                <mark className="key">Alt + W</mark>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                Инструмент «Камера» (Camera Tool)
-                <Addition type="info">
-                  Многократное нажатие переключает между режимами работы камеры.
-                </Addition>
-              </td>
-              <td>
-                <mark className="key">C</mark>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                Инструмент «Марионетка» (Puppet Pin Tool)
-                <Addition type="info">
-                  Многократное нажатие переключает между разными инструментами марионетки.
-                </Addition>
-              </td>
-              <td>
-                <mark className="key">Ctrl + P</mark>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-        <Divider>Отображение свойств слоя</Divider>
-        <table>
-          <thead>
-            <tr>
-              <th>Действие</th>
-              <th style={{minWidth: "40%"}}>Комбинация</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Показать/скрыть применённые эффекты</td>
-              <td>
-                <mark className="key">E</mark>
-              </td>
-            </tr>
-            <tr>
-              <td>Показать/скрыть свойства с выражениями</td>
-              <td>
-                Дважды <mark className="key">E</mark>
-              </td>
-            </tr>
-            <tr>
-              <td>Показать/скрыть уровень громкости (Audio Levels)</td>
-              <td>
-                <mark className="key">L</mark>
-              </td>
-            </tr>
-            <tr>
-              <td>Показать/скрыть форму волны (Waveform)</td>
-              <td>
-                Дважды <mark className="key">L</mark>
-              </td>
-            </tr>
-            <tr>
-              <td>Показать/скрыть опорную точку (Anchor Point)</td>
-              <td>
-                <mark className="key">A</mark>
-              </td>
-            </tr>
-            <tr>
-              <td>Показать/скрыть маски (Masks)</td>
-              <td>
-                <mark className="key">M</mark>
-              </td>
-            </tr>
-            <tr>
-              <td>Показать/скрыть положение (Position)</td>
-              <td>
-                <mark className="key">P</mark>
-              </td>
-            </tr>
-            <tr>
-              <td>Показать/скрыть поворот (Rotation)</td>
-              <td>
-                <mark className="key">R</mark>
-              </td>
-            </tr>
-            <tr>
-              <td>Показать/скрыть масштаб (Scale)</td>
-              <td>
-                <mark className="key">S</mark>
-              </td>
-            </tr>
-            <tr>
-              <td>Показать/скрыть прозрачность (Opacity)</td>
-              <td>
-                <mark className="key">T</mark>
-              </td>
-            </tr>
-            <tr>
-              <td>Показать/скрыть все свойства с ключевыми кадрами</td>
-              <td>
-                <mark className="key">U</mark>
-              </td>
-            </tr>
-            <tr>
-              <td>Показать/скрыть все изменённые свойства (даже без ключей)</td>
-              <td>
-                Дважды <mark className="key">U</mark>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                Добавить свойство к уже открытым, не скрывая их
-                <Addition type="info">
-                  Например, <mark className="key">S</mark>, затем{" "}
-                  <mark className="key">Shift + P</mark>, затем{" "}
-                  <mark className="key">Shift + R</mark> покажут одновременно масштаб,
-                  положение и поворот.
-                </Addition>
-              </td>
-              <td>
-                Модификатор <mark className="key">Shift</mark>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                Добавить ключевой кадр для свойства, не открывая его
-                <Addition type="info">
-                  Например, <mark className="key">Alt + Shift + P</mark> добавит ключ для
-                  положения.
-                </Addition>
-              </td>
-              <td>
-                Модификатор <mark className="key">Alt + Shift</mark>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-        <Divider>Работа с ключевыми кадрами на таймлайне</Divider>
-        <table>
-          <thead>
-            <tr>
-              <th>Действие</th>
-              <th style={{minWidth: "40%"}}>Комбинация</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Снять выделение со всех ключевых кадров</td>
-              <td>
-                <mark className="key">Shift + F2</mark>
-              </td>
-            </tr>
-            <tr>
-              <td>Открыть/закрыть редактор графика скорости</td>
-              <td>
-                <mark className="key">Shift + F3</mark>
-              </td>
-            </tr>
-            <tr>
-              <td>Перейти к предыдущему ключевому кадру/маркеру</td>
-              <td>
-                <mark className="key">J</mark>
-              </td>
-            </tr>
-            <tr>
-              <td>Перейти к следующему ключевому кадру/маркеру</td>
-              <td>
-                <mark className="key">K</mark>
-              </td>
-            </tr>
-            <tr>
-              <td>Применить интерполяцию «Easy Ease»</td>
-              <td>
-                <mark className="key">F9</mark>
-              </td>
-            </tr>
-            <tr>
-              <td>Применить интерполяцию «Easy Ease In»</td>
-              <td>
-                <mark className="key">Shift + F9</mark>
-              </td>
-            </tr>
-            <tr>
-              <td>Применить интерполяцию «Easy Ease Out»</td>
-              <td>
-                <mark className="key">Ctrl + Shift + F9</mark>
-              </td>
-            </tr>
-            <tr>
-              <td>Применить интерполяцию «Hold»</td>
-              <td>
-                <mark className="key">Ctrl + Alt + H</mark>
-              </td>
-            </tr>
-            <tr>
-              <td>Сдвинуть выделенные ключи на 1 кадр влево</td>
-              <td>
-                <mark className="key">Alt + стрелка влево</mark>
-              </td>
-            </tr>
-            <tr>
-              <td>Сдвинуть выделенные ключи на 1 кадр вправо</td>
-              <td>
-                <mark className="key">Alt + стрелка вправо</mark>
-              </td>
-            </tr>
-            <tr>
-              <td>Сдвинуть выделенные ключи на 10 кадров влево</td>
-              <td>
-                <mark className="key">Alt + Shift + стрелка влево</mark>
-              </td>
-            </tr>
-            <tr>
-              <td>Сдвинуть выделенные ключи на 10 кадров вправо</td>
-              <td>
-                <mark className="key">Alt + Shift + стрелка вправо</mark>
-              </td>
-            </tr>
-            <tr>
-              <td>Открыть диалог «Keyframe Interpolation»</td>
-              <td>
-                <mark className="key">Ctrl + Alt + K</mark>
-              </td>
-            </tr>
-            <tr>
-              <td>Открыть диалог «Keyframe Velocity»</td>
-              <td>
-                <mark className="key">Ctrl + Shift + K</mark>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-        <Divider>Работа со слоями на таймлайне</Divider>
-        <table>
-          <thead>
-            <tr>
-              <th>Действие</th>
-              <th style={{minWidth: "40%"}}>Комбинация</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Переместить плейхед к началу выделенного слоя</td>
-              <td>
-                <mark className="key">I</mark>
-              </td>
-            </tr>
-            <tr>
-              <td>Переместить плейхед к концу выделенного слоя</td>
-              <td>
-                <mark className="key">O</mark>
-              </td>
-            </tr>
-            <tr>
-              <td>Выделить все слои</td>
-              <td>
-                <mark className="key">Ctrl + A</mark>
-              </td>
-            </tr>
-            <tr>
-              <td>Снять выделение со всех слоёв</td>
-              <td>
-                <mark className="key">F2</mark> или{" "}
-                <mark className="key">Ctrl + Shift + A</mark>
-              </td>
-            </tr>
-            <tr>
-              <td>Создать прекомпозицию из выделенных слоёв</td>
-              <td>
-                <mark className="key">Ctrl + Shift + C</mark>
-              </td>
-            </tr>
-            <tr>
-              <td>Дублировать слой</td>
-              <td>
-                <mark className="key">Ctrl + D</mark>
-              </td>
-            </tr>
-            <tr>
-              <td>Удалить все эффекты у выделенных слоёв</td>
-              <td>
-                <mark className="key">Ctrl + Shift + E</mark>
-              </td>
-            </tr>
-            <tr>
-              <td>Применить последний использованный пресет</td>
-              <td>
-                <mark className="key">Ctrl + Alt + Shift + F</mark>
-              </td>
-            </tr>
-            <tr>
-              <td>Разделить выделенный слой на две части</td>
-              <td>
-                <mark className="key">Ctrl + Shift + D</mark>
-              </td>
-            </tr>
-            <tr>
-              <td>Открыть/скрыть панель «Effect Controls»</td>
-              <td>
-                <mark className="key">F3</mark>
-              </td>
-            </tr>
-            <tr>
-              <td>Расположить слой в центре композиции</td>
-              <td>
-                <mark className="key">Ctrl + Home</mark>
-              </td>
-            </tr>
-            <tr>
-              <td>Установить опорную точку по центру слоя</td>
-              <td>
-                <mark className="key">Ctrl + Alt + Home</mark>
-              </td>
-            </tr>
-            <tr>
-              <td>Растянуть слой под высоту композиции</td>
-              <td>
-                <mark className="key">Ctrl + Alt + Shift + G</mark>
-              </td>
-            </tr>
-            <tr>
-              <td>Растянуть слой под ширину композиции</td>
-              <td>
-                <mark className="key">Ctrl + Alt + Shift + H</mark>
-              </td>
-            </tr>
-            <tr>
-              <td>Включить/выключить «Time Remapping»</td>
-              <td>
-                <mark className="key">Ctrl + Alt + T</mark>
-              </td>
-            </tr>
-            <tr>
-              <td>Обратить проигрывание слоя (Time-Reverse Layer)</td>
-              <td>
-                <mark className="key">Ctrl + Alt + R</mark>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                Открыть настройки выделенного слоя
-                <Addition type="info">
-                  Работает для <mark className="select">«Null Object»</mark>,{" "}
-                  <mark className="select">«Light Layer»</mark>,{" "}
-                  <mark className="select">«Solid Layer»</mark> и{" "}
-                  <mark className="select">«Adjustment Layer»</mark>.
-                </Addition>
-              </td>
-              <td>
-                <mark className="key">Ctrl + Shift + Y</mark>
-              </td>
-            </tr>
-            <tr>
-              <td>Переместить начало слоя к плейхеду</td>
-              <td>
-                <mark className="key">[</mark>
-              </td>
-            </tr>
-            <tr>
-              <td>Переместить конец слоя к плейхеду</td>
-              <td>
-                <mark className="key">]</mark>
-              </td>
-            </tr>
-            <tr>
-              <td>Сдвинуть слой на 1 кадр влево</td>
-              <td>
-                <mark className="key">Alt + PgUp</mark>
-              </td>
-            </tr>
-            <tr>
-              <td>Сдвинуть слой на 10 кадров влево</td>
-              <td>
-                <mark className="key">Alt + Shift + PgUp</mark>
-              </td>
-            </tr>
-            <tr>
-              <td>Сдвинуть слой на 1 кадр вправо</td>
-              <td>
-                <mark className="key">Alt + PgDown</mark>
-              </td>
-            </tr>
-            <tr>
-              <td>Сдвинуть слой на 10 кадров вправо</td>
-              <td>
-                <mark className="key">Alt + Shift + PgDown</mark>
-              </td>
-            </tr>
-            <tr>
-              <td>Обрезать начало слоя до плейхеда</td>
-              <td>
-                <mark className="key">Alt + [</mark>
-              </td>
-            </tr>
-            <tr>
-              <td>Обрезать конец слоя до плейхеда</td>
-              <td>
-                <mark className="key">Alt + ]</mark>
-              </td>
-            </tr>
-            <tr>
-              <td>Опустить слой ниже по иерархии</td>
-              <td>
-                <mark className="key">Ctrl + [</mark>
-              </td>
-            </tr>
-            <tr>
-              <td>Поднять слой выше по иерархии</td>
-              <td>
-                <mark className="key">Ctrl + ]</mark>
-              </td>
-            </tr>
-            <tr>
-              <td>Переключить режим наложения слоя</td>
-              <td>
-                <mark className="key">Shift и + </mark> или{" "}
-                <mark className="key">Shift и -</mark>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-        <Divider>Создание слоёв</Divider>
-        <table>
-          <thead>
-            <tr>
-              <th>Действие</th>
-              <th style={{minWidth: "40%"}}>Комбинация</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Создать слой-заливку «Solid Layer»</td>
-              <td>
-                <mark className="key">Ctrl + Y</mark>
-              </td>
-            </tr>
-            <tr>
-              <td>Создать корректирующий слой «Adjustment Layer»</td>
-              <td>
-                <mark className="key">Ctrl + Alt + Y</mark>
-              </td>
-            </tr>
-            <tr>
-              <td>Создать нулевой объект «Null Object»</td>
-              <td>
-                <mark className="key">Ctrl + Alt + Shift + Y</mark>
-              </td>
-            </tr>
-            <tr>
-              <td>Создать пустой текстовый слой</td>
-              <td>
-                <mark className="key">Ctrl + Alt + Shift + T</mark>
-              </td>
-            </tr>
-            <tr>
-              <td>Создать камеру</td>
-              <td>
-                <mark className="key">Ctrl + Alt + Shift + C</mark>
-              </td>
-            </tr>
-            <tr>
-              <td>Создать источник света</td>
-              <td>
-                <mark className="key">Ctrl + Alt + Shift + L</mark>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-        <Divider>Работа с таймлайном и композицией</Divider>
-        <table>
-          <thead>
-            <tr>
-              <th>Действие</th>
-              <th style={{minWidth: "40%"}}>Комбинация</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Установить начало рабочей области</td>
-              <td>
-                <mark className="key">B</mark>
-              </td>
-            </tr>
-            <tr>
-              <td>Установить конец рабочей области</td>
-              <td>
-                <mark className="key">N</mark>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                Задать длительность рабочей области под выделеные слои
-                <Addition type="info">
-                  Если ни один слой не будет выделен, рабочая область будет выделена по
-                  всей длине композиции.
-                </Addition>
-              </td>
-              <td>
-                <mark className="key">Ctrl + Alt + B</mark>
-              </td>
-            </tr>
-            <tr>
-              <td>Перейти к началу рабочей области</td>
-              <td>
-                <mark className="key">Shift + Home</mark>
-              </td>
-            </tr>
-            <tr>
-              <td>Перейти к концу рабочей области</td>
-              <td>
-                <mark className="key">Shift + End</mark>
-              </td>
-            </tr>
-            <tr>
-              <td>Перейти к началу композиции</td>
-              <td>
-                <mark className="key">Home</mark>
-              </td>
-            </tr>
-            <tr>
-              <td>Перейти к концу композиции</td>
-              <td>
-                <mark className="key">End</mark>
-              </td>
-            </tr>
-            <tr>
-              <td>Перейти на 1 кадр назад</td>
-              <td>
-                <mark className="key">PgUp</mark> или{" "}
-                <mark className="key">Ctrl + стрелка влево</mark>
-              </td>
-            </tr>
-            <tr>
-              <td>Перейти на 1 кадр вперёд</td>
-              <td>
-                <mark className="key">PgDown</mark> или{" "}
-                <mark className="key">Ctrl + стрелка вправо</mark>
-              </td>
-            </tr>
-            <tr>
-              <td>Перейти на 10 кадров назад</td>
-              <td>
-                <mark className="key">Shift + PgUp</mark>
-              </td>
-            </tr>
-            <tr>
-              <td>Перейти на 10 кадров вперёд</td>
-              <td>
-                <mark className="key">Shift + PgDown</mark>
-              </td>
-            </tr>
-            <tr>
-              <td>Открыть настройки композиции</td>
-              <td>
-                <mark className="key">Ctrl + K</mark>
-              </td>
-            </tr>
-            <tr>
-              <td>Открыть окно «Project Settings»</td>
-              <td>
-                <mark className="key">Ctrl + Alt + Shift + K</mark>
-              </td>
-            </tr>
-            <tr>
-              <td>Показать/скрыть линейки</td>
-              <td>
-                <mark className="key">Ctrl + R</mark>
-              </td>
-            </tr>
-            <tr>
-              <td>Обрезать композицию по рабочей области</td>
-              <td>
-                <mark className="key">Ctrl + Shift + X</mark>
-              </td>
-            </tr>
-            <tr>
-              <td>Увеличить/уменьшить масштаб таймлайна</td>
-              <td>
-                <mark className="key"> + </mark> или <mark className="key">-</mark>
-              </td>
-            </tr>
-            <tr>
-              <td>Перейти к определённому времени на таймлайне</td>
-              <td>
-                <mark className="key">Alt + Shift + J</mark>
-              </td>
-            </tr>
-            <tr>
-              <td>Поставить маркер на таймлайне</td>
-              <td>
-                <mark className="key">* (на Numpad)</mark>
-                <Addition type="info">
-                  Если у вас клавиатура без цифрового блока, можно переназначить эту
-                  клавишу в <mark className="select">«Edit» → «Keyboard Shortcuts»</mark>.
-                </Addition>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-        <Divider>Работа с окном предпросмотра</Divider>
-        <table>
-          <thead>
-            <tr>
-              <th>Действие</th>
-              <th style={{minWidth: "40%"}}>Комбинация</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>
-                Показать/скрыть границы слоёв, контроллеры и пути движения
-                <Addition type="info">
-                  Настроить отображение некоторых наложений можно в окне{" "}
-                  <mark className="select">«View Options»</mark> (
-                  <mark className="key">Ctrl + Alt + U</mark>).
-                </Addition>
-              </td>
-              <td>
-                <mark className="key">Ctrl + Shift + H</mark>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                Показать/скрыть сетку
-                <Addition type="info">
-                  Настроить сетку можно в{" "}
-                  <mark className="select">
-                    «Edit» → «Preferences» → «Grids & Guides»
-                  </mark>
-                  .
-                </Addition>
-              </td>
-              <td>
-                <mark className="key">Ctrl + &apos;</mark>
-              </td>
-            </tr>
-            <tr>
-              <td>Показать/скрыть направляющие</td>
-              <td>
-                <mark className="key">Ctrl + ;</mark>
-              </td>
-            </tr>
-            <tr>
-              <td>Включить/выключить привязку к направляющим</td>
-              <td>
-                <mark className="key">Ctrl + Shift + ;</mark>
-              </td>
-            </tr>
-            <tr>
-              <td>Показать/скрыть безопасные зоны</td>
-              <td>
-                <mark className="key">&apos;</mark>
-              </td>
-            </tr>
-            <tr>
-              <td>Увеличить/уменьшить масштаб предпросмотра</td>
-              <td>
-                <mark className="key">.</mark> или <mark className="key">,</mark>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                Начать/остановить воспроизведение предпросмотра
-                <Addition type="info">
-                  При включённом кэшировании первое нажатие запускает просчёт, второе —
-                  принудительно начинает воспроизведение уже просчитанных кадров.
-                </Addition>
-              </td>
-              <td>
-                <mark className="key">Пробел</mark>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-        <Divider>Прочее</Divider>
-        <table>
-          <thead>
-            <tr>
-              <th>Действие</th>
-              <th style={{minWidth: "40%"}}>Комбинация</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Открыть окно «Preferences»</td>
-              <td>
-                <mark className="key">Ctrl + Alt + ;</mark>
-              </td>
-            </tr>
-            <tr>
-              <td>Открыть редактор горячих клавиш</td>
-              <td>
-                <mark className="key">Ctrl + Alt + &apos;</mark>
-              </td>
-            </tr>
-          </tbody>
-        </table>
+        <ContentFilter
+          windowsContent={
+            <>
+              <Divider>Работа с файлами и проектом</Divider>
+              <table>
+                <thead>
+                  <tr>
+                    <th>Действие</th>
+                    <th style={{minWidth: "40%"}}>Комбинация</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      Создать новый проект и закрыть текущий
+                      <Addition type="info">
+                        Если открытый проект не был сохранён, программа предложит это
+                        сделать.
+                      </Addition>
+                    </td>
+                    <td>
+                      <mark className="key">Ctrl + Alt + N</mark>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Открыть окно создания новой композиции</td>
+                    <td>
+                      <mark className="key">Ctrl + N</mark>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Открыть системное окно импорта файлов</td>
+                    <td>
+                      <mark className="key">Ctrl + I</mark>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Открыть проект</td>
+                    <td>
+                      <mark className="key">Ctrl + O</mark>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Открыть последний проект, с которым вы работали</td>
+                    <td>
+                      <mark className="key">Ctrl + Alt + Shift + P</mark>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Открыть или выполнить недавно использованный скрипт</td>
+                    <td>
+                      <mark className="key">Ctrl + Alt + Shift + D</mark>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Сохранить проект</td>
+                    <td>
+                      <mark className="key">Ctrl + S</mark>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Сохранить проект как...</td>
+                    <td>
+                      <mark className="key">Ctrl + Shift + S</mark>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      Инкрементное сохранение (сохранить копию с новым номером)
+                      <Addition type="info">
+                        При каждом нажатии в папке проекта будет создаваться новая копия с
+                        возрастающим числом в названии.
+                      </Addition>
+                    </td>
+                    <td>
+                      <mark className="key">Ctrl + Alt + Shift + S</mark>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <Divider>Выбор инструментов</Divider>
+              <table>
+                <thead>
+                  <tr>
+                    <th>Действие</th>
+                    <th style={{minWidth: "40%"}}>Комбинация</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Инструмент выделения (Selection Tool)</td>
+                    <td>
+                      <mark className="key">V</mark>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      Инструмент «Рука» (Hand Tool)
+                      <Addition type="info">
+                        Зажмите <mark className="key">Пробел</mark>, чтобы временно
+                        активировать инструмент.
+                      </Addition>
+                    </td>
+                    <td>
+                      <mark className="key">H</mark>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      Инструмент «Перо» (Pen Tool)
+                      <Addition type="info">
+                        <ul>
+                          <li>
+                            Если выделен обычный слой, инструмент будет рисовать маску.
+                          </li>
+                          <li>Если выделен слой-фигура, он будет рисовать фигуру.</li>
+                        </ul>
+                      </Addition>
+                    </td>
+                    <td>
+                      <mark className="key">G</mark>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      Инструмент «Текст» (Text Tool)
+                      <Addition type="info">
+                        Многократное нажатие переключает между горизонтальным и
+                        вертикальным написанием.
+                      </Addition>
+                    </td>
+                    <td>
+                      <mark className="key">Ctrl + T</mark>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Инструмент «Опорная точка» (Pan Behind / Anchor Point Tool)</td>
+                    <td>
+                      <mark className="key">Y</mark>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      Инструмент для создания фигур и масок
+                      <Addition type="info">
+                        Многократное нажатие на <mark className="key">Q</mark> переключает
+                        между прямоугольником, эллипсом, многоугольником и звездой.
+                      </Addition>
+                    </td>
+                    <td>
+                      <mark className="key">Q</mark>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      Инструмент «Кисть» (Brush Tool)
+                      <Addition type="info">
+                        Многократное нажатие переключает между кистью, штампом и ластиком.
+                      </Addition>
+                    </td>
+                    <td>
+                      <mark className="key">Ctrl + B</mark>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      Инструмент «Лупа» (Zoom Tool)
+                      <Addition type="info">
+                        С зажатым <mark className="key">Alt</mark> выполняется уменьшение.
+                      </Addition>
+                    </td>
+                    <td>
+                      <mark className="key">Z</mark>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Инструмент поворота (Rotation Tool)</td>
+                    <td>
+                      <mark className="key">W</mark>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Инструмент «Кисть для ротоскопии» (Roto Brush Tool)</td>
+                    <td>
+                      <mark className="key">Alt + W</mark>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      Инструмент «Камера» (Camera Tool)
+                      <Addition type="info">
+                        Многократное нажатие переключает между режимами работы камеры.
+                      </Addition>
+                    </td>
+                    <td>
+                      <mark className="key">C</mark>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      Инструмент «Марионетка» (Puppet Pin Tool)
+                      <Addition type="info">
+                        Многократное нажатие переключает между разными инструментами
+                        марионетки.
+                      </Addition>
+                    </td>
+                    <td>
+                      <mark className="key">Ctrl + P</mark>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <Divider>Отображение свойств слоя</Divider>
+              <table>
+                <thead>
+                  <tr>
+                    <th>Действие</th>
+                    <th style={{minWidth: "40%"}}>Комбинация</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Показать/скрыть применённые эффекты</td>
+                    <td>
+                      <mark className="key">E</mark>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Показать/скрыть свойства с выражениями</td>
+                    <td>
+                      Дважды <mark className="key">E</mark>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Показать/скрыть уровень громкости (Audio Levels)</td>
+                    <td>
+                      <mark className="key">L</mark>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Показать/скрыть форму волны (Waveform)</td>
+                    <td>
+                      Дважды <mark className="key">L</mark>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Показать/скрыть опорную точку (Anchor Point)</td>
+                    <td>
+                      <mark className="key">A</mark>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Показать/скрыть маски (Masks)</td>
+                    <td>
+                      <mark className="key">M</mark>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Показать/скрыть положение (Position)</td>
+                    <td>
+                      <mark className="key">P</mark>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Показать/скрыть поворот (Rotation)</td>
+                    <td>
+                      <mark className="key">R</mark>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Показать/скрыть масштаб (Scale)</td>
+                    <td>
+                      <mark className="key">S</mark>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Показать/скрыть прозрачность (Opacity)</td>
+                    <td>
+                      <mark className="key">T</mark>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Показать/скрыть все свойства с ключевыми кадрами</td>
+                    <td>
+                      <mark className="key">U</mark>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Показать/скрыть все изменённые свойства (даже без ключей)</td>
+                    <td>
+                      Дважды <mark className="key">U</mark>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      Добавить свойство к уже открытым, не скрывая их
+                      <Addition type="info">
+                        Например, <mark className="key">S</mark>, затем{" "}
+                        <mark className="key">Shift + P</mark>, затем{" "}
+                        <mark className="key">Shift + R</mark> покажут одновременно
+                        масштаб, положение и поворот.
+                      </Addition>
+                    </td>
+                    <td>
+                      Модификатор <mark className="key">Shift</mark>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      Добавить ключевой кадр для свойства, не открывая его
+                      <Addition type="info">
+                        Например, <mark className="key">Alt + Shift + P</mark> добавит
+                        ключ для положения.
+                      </Addition>
+                    </td>
+                    <td>
+                      Модификатор <mark className="key">Alt + Shift</mark>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <Divider>Работа с ключевыми кадрами на таймлайне</Divider>
+              <table>
+                <thead>
+                  <tr>
+                    <th>Действие</th>
+                    <th style={{minWidth: "40%"}}>Комбинация</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Снять выделение со всех ключевых кадров</td>
+                    <td>
+                      <mark className="key">Shift + F2</mark>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Открыть/закрыть редактор графика скорости</td>
+                    <td>
+                      <mark className="key">Shift + F3</mark>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Перейти к предыдущему ключевому кадру/маркеру</td>
+                    <td>
+                      <mark className="key">J</mark>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Перейти к следующему ключевому кадру/маркеру</td>
+                    <td>
+                      <mark className="key">K</mark>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Применить интерполяцию «Easy Ease»</td>
+                    <td>
+                      <mark className="key">F9</mark>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Применить интерполяцию «Easy Ease In»</td>
+                    <td>
+                      <mark className="key">Shift + F9</mark>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Применить интерполяцию «Easy Ease Out»</td>
+                    <td>
+                      <mark className="key">Ctrl + Shift + F9</mark>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Применить интерполяцию «Hold»</td>
+                    <td>
+                      <mark className="key">Ctrl + Alt + H</mark>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Сдвинуть выделенные ключи на 1 кадр влево</td>
+                    <td>
+                      <mark className="key">Alt + стрелка влево</mark>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Сдвинуть выделенные ключи на 1 кадр вправо</td>
+                    <td>
+                      <mark className="key">Alt + стрелка вправо</mark>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Сдвинуть выделенные ключи на 10 кадров влево</td>
+                    <td>
+                      <mark className="key">Alt + Shift + стрелка влево</mark>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Сдвинуть выделенные ключи на 10 кадров вправо</td>
+                    <td>
+                      <mark className="key">Alt + Shift + стрелка вправо</mark>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Открыть диалог «Keyframe Interpolation»</td>
+                    <td>
+                      <mark className="key">Ctrl + Alt + K</mark>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Открыть диалог «Keyframe Velocity»</td>
+                    <td>
+                      <mark className="key">Ctrl + Shift + K</mark>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <Divider>Работа со слоями на таймлайне</Divider>
+              <table>
+                <thead>
+                  <tr>
+                    <th>Действие</th>
+                    <th style={{minWidth: "40%"}}>Комбинация</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Переместить плейхед к началу выделенного слоя</td>
+                    <td>
+                      <mark className="key">I</mark>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Переместить плейхед к концу выделенного слоя</td>
+                    <td>
+                      <mark className="key">O</mark>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Выделить все слои</td>
+                    <td>
+                      <mark className="key">Ctrl + A</mark>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Снять выделение со всех слоёв</td>
+                    <td>
+                      <mark className="key">F2</mark> или{" "}
+                      <mark className="key">Ctrl + Shift + A</mark>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Создать прекомпозицию из выделенных слоёв</td>
+                    <td>
+                      <mark className="key">Ctrl + Shift + C</mark>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Дублировать слой</td>
+                    <td>
+                      <mark className="key">Ctrl + D</mark>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Удалить все эффекты у выделенных слоёв</td>
+                    <td>
+                      <mark className="key">Ctrl + Shift + E</mark>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Применить последний использованный пресет</td>
+                    <td>
+                      <mark className="key">Ctrl + Alt + Shift + F</mark>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Разделить выделенный слой на две части</td>
+                    <td>
+                      <mark className="key">Ctrl + Shift + D</mark>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Открыть/скрыть панель «Effect Controls»</td>
+                    <td>
+                      <mark className="key">F3</mark>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Расположить слой в центре композиции</td>
+                    <td>
+                      <mark className="key">Ctrl + Home</mark>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Установить опорную точку по центру слоя</td>
+                    <td>
+                      <mark className="key">Ctrl + Alt + Home</mark>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Растянуть слой под высоту композиции</td>
+                    <td>
+                      <mark className="key">Ctrl + Alt + Shift + G</mark>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Растянуть слой под ширину композиции</td>
+                    <td>
+                      <mark className="key">Ctrl + Alt + Shift + H</mark>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Включить/выключить «Time Remapping»</td>
+                    <td>
+                      <mark className="key">Ctrl + Alt + T</mark>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Обратить проигрывание слоя (Time-Reverse Layer)</td>
+                    <td>
+                      <mark className="key">Ctrl + Alt + R</mark>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      Открыть настройки выделенного слоя
+                      <Addition type="info">
+                        Работает для <mark className="select">«Null Object»</mark>,{" "}
+                        <mark className="select">«Light Layer»</mark>,{" "}
+                        <mark className="select">«Solid Layer»</mark> и{" "}
+                        <mark className="select">«Adjustment Layer»</mark>.
+                      </Addition>
+                    </td>
+                    <td>
+                      <mark className="key">Ctrl + Shift + Y</mark>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Переместить начало слоя к плейхеду</td>
+                    <td>
+                      <mark className="key">[</mark>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Переместить конец слоя к плейхеду</td>
+                    <td>
+                      <mark className="key">]</mark>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Сдвинуть слой на 1 кадр влево</td>
+                    <td>
+                      <mark className="key">Alt + PgUp</mark>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Сдвинуть слой на 10 кадров влево</td>
+                    <td>
+                      <mark className="key">Alt + Shift + PgUp</mark>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Сдвинуть слой на 1 кадр вправо</td>
+                    <td>
+                      <mark className="key">Alt + PgDown</mark>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Сдвинуть слой на 10 кадров вправо</td>
+                    <td>
+                      <mark className="key">Alt + Shift + PgDown</mark>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Обрезать начало слоя до плейхеда</td>
+                    <td>
+                      <mark className="key">Alt + [</mark>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Обрезать конец слоя до плейхеда</td>
+                    <td>
+                      <mark className="key">Alt + ]</mark>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Опустить слой ниже по иерархии</td>
+                    <td>
+                      <mark className="key">Ctrl + [</mark>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Поднять слой выше по иерархии</td>
+                    <td>
+                      <mark className="key">Ctrl + ]</mark>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Переключить режим наложения слоя</td>
+                    <td>
+                      <mark className="key">Shift и + </mark> или{" "}
+                      <mark className="key">Shift и -</mark>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <Divider>Создание слоёв</Divider>
+              <table>
+                <thead>
+                  <tr>
+                    <th>Действие</th>
+                    <th style={{minWidth: "40%"}}>Комбинация</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Создать слой-заливку «Solid Layer»</td>
+                    <td>
+                      <mark className="key">Ctrl + Y</mark>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Создать корректирующий слой «Adjustment Layer»</td>
+                    <td>
+                      <mark className="key">Ctrl + Alt + Y</mark>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Создать нулевой объект «Null Object»</td>
+                    <td>
+                      <mark className="key">Ctrl + Alt + Shift + Y</mark>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Создать пустой текстовый слой</td>
+                    <td>
+                      <mark className="key">Ctrl + Alt + Shift + T</mark>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Создать камеру</td>
+                    <td>
+                      <mark className="key">Ctrl + Alt + Shift + C</mark>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Создать источник света</td>
+                    <td>
+                      <mark className="key">Ctrl + Alt + Shift + L</mark>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <Divider>Работа с таймлайном и композицией</Divider>
+              <table>
+                <thead>
+                  <tr>
+                    <th>Действие</th>
+                    <th style={{minWidth: "40%"}}>Комбинация</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Установить начало рабочей области</td>
+                    <td>
+                      <mark className="key">B</mark>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Установить конец рабочей области</td>
+                    <td>
+                      <mark className="key">N</mark>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      Задать длительность рабочей области под выделеные слои
+                      <Addition type="info">
+                        Если ни один слой не будет выделен, рабочая область будет выделена
+                        по всей длине композиции.
+                      </Addition>
+                    </td>
+                    <td>
+                      <mark className="key">Ctrl + Alt + B</mark>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Перейти к началу рабочей области</td>
+                    <td>
+                      <mark className="key">Shift + Home</mark>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Перейти к концу рабочей области</td>
+                    <td>
+                      <mark className="key">Shift + End</mark>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Перейти к началу композиции</td>
+                    <td>
+                      <mark className="key">Home</mark>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Перейти к концу композиции</td>
+                    <td>
+                      <mark className="key">End</mark>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Перейти на 1 кадр назад</td>
+                    <td>
+                      <mark className="key">PgUp</mark> или{" "}
+                      <mark className="key">Ctrl + стрелка влево</mark>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Перейти на 1 кадр вперёд</td>
+                    <td>
+                      <mark className="key">PgDown</mark> или{" "}
+                      <mark className="key">Ctrl + стрелка вправо</mark>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Перейти на 10 кадров назад</td>
+                    <td>
+                      <mark className="key">Shift + PgUp</mark>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Перейти на 10 кадров вперёд</td>
+                    <td>
+                      <mark className="key">Shift + PgDown</mark>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Открыть настройки композиции</td>
+                    <td>
+                      <mark className="key">Ctrl + K</mark>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Открыть окно «Project Settings»</td>
+                    <td>
+                      <mark className="key">Ctrl + Alt + Shift + K</mark>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Показать/скрыть линейки</td>
+                    <td>
+                      <mark className="key">Ctrl + R</mark>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Обрезать композицию по рабочей области</td>
+                    <td>
+                      <mark className="key">Ctrl + Shift + X</mark>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Увеличить/уменьшить масштаб таймлайна</td>
+                    <td>
+                      <mark className="key"> + </mark> или <mark className="key">-</mark>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Перейти к определённому времени на таймлайне</td>
+                    <td>
+                      <mark className="key">Alt + Shift + J</mark>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Поставить маркер на таймлайне</td>
+                    <td>
+                      <mark className="key">* (на Numpad)</mark>
+                      <Addition type="info">
+                        Если у вас клавиатура без цифрового блока, можно переназначить эту
+                        клавишу в{" "}
+                        <mark className="select">«Edit» → «Keyboard Shortcuts»</mark>.
+                      </Addition>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <Divider>Работа с окном предпросмотра</Divider>
+              <table>
+                <thead>
+                  <tr>
+                    <th>Действие</th>
+                    <th style={{minWidth: "40%"}}>Комбинация</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      Показать/скрыть границы слоёв, контроллеры и пути движения
+                      <Addition type="info">
+                        Настроить отображение некоторых наложений можно в окне{" "}
+                        <mark className="select">«View Options»</mark> (
+                        <mark className="key">Ctrl + Alt + U</mark>).
+                      </Addition>
+                    </td>
+                    <td>
+                      <mark className="key">Ctrl + Shift + H</mark>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      Показать/скрыть сетку
+                      <Addition type="info">
+                        Настроить сетку можно в{" "}
+                        <mark className="select">
+                          «Edit» → «Preferences» → «Grids & Guides»
+                        </mark>
+                        .
+                      </Addition>
+                    </td>
+                    <td>
+                      <mark className="key">Ctrl + &apos;</mark>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Показать/скрыть направляющие</td>
+                    <td>
+                      <mark className="key">Ctrl + ;</mark>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Включить/выключить привязку к направляющим</td>
+                    <td>
+                      <mark className="key">Ctrl + Shift + ;</mark>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Показать/скрыть безопасные зоны</td>
+                    <td>
+                      <mark className="key">&apos;</mark>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Увеличить/уменьшить масштаб предпросмотра</td>
+                    <td>
+                      <mark className="key">.</mark> или <mark className="key">,</mark>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      Начать/остановить воспроизведение предпросмотра
+                      <Addition type="info">
+                        При включённом кэшировании первое нажатие запускает просчёт,
+                        второе — принудительно начинает воспроизведение уже просчитанных
+                        кадров.
+                      </Addition>
+                    </td>
+                    <td>
+                      <mark className="key">Пробел</mark>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <Divider>Прочее</Divider>
+              <table>
+                <thead>
+                  <tr>
+                    <th>Действие</th>
+                    <th style={{minWidth: "40%"}}>Комбинация</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Открыть окно «Preferences»</td>
+                    <td>
+                      <mark className="key">Ctrl + Alt + ;</mark>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Открыть редактор горячих клавиш</td>
+                    <td>
+                      <mark className="key">Ctrl + Alt + &apos;</mark>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </>
+          }
+        />
       </DetailsSummary>
       <DetailsSummary
         anchor="recommend-plugins"
