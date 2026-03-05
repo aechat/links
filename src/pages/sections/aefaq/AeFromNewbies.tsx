@@ -3616,8 +3616,8 @@ const AeFromNewbies: React.FC = () => {
                       <mark className="select">
                         «Go to Earliest In Point of Selected Layers»
                       </mark>{" "}
-                      — переместить плейхед к ближайшему началу от плейхеда одного из
-                      выделенных слоёв
+                      — переместить индикатор текущего времени к ближайшему началу одного
+                      из выделенных слоёв
                     </td>
                     <td>
                       <mark className="key">I</mark>
@@ -3628,8 +3628,8 @@ const AeFromNewbies: React.FC = () => {
                       <mark className="select">
                         «Go to Latest Out Point of Selected Layers»
                       </mark>{" "}
-                      — переместить плейхед к ближайшему концу от плейхеда одного из
-                      выделенных слоёв
+                      — переместить индикатор текущего времени к ближайшему концу одного
+                      из выделенных слоёв
                     </td>
                     <td>
                       <mark className="key">O</mark>
@@ -3785,7 +3785,7 @@ const AeFromNewbies: React.FC = () => {
                   <tr>
                     <td>
                       <mark className="select">«Set Layer In Point at Current Time»</mark>{" "}
-                      — переместить начало выделенного слоя к плейхеду
+                      — переместить начало выделенных слоёв к индикатору текущего времени
                     </td>
                     <td>
                       <mark className="key">[</mark>
@@ -3796,7 +3796,7 @@ const AeFromNewbies: React.FC = () => {
                       <mark className="select">
                         «Set Layer Out Point at Current Time»
                       </mark>{" "}
-                      — переместить конец выделенного слоя к плейхеду
+                      — переместить конец выделенных слоёв к индикатору текущего времени
                     </td>
                     <td>
                       <mark className="key">]</mark>
@@ -3843,7 +3843,7 @@ const AeFromNewbies: React.FC = () => {
                       <mark className="select">
                         «Trim Layer In Point to Current Time»
                       </mark>{" "}
-                      — обрезать начало выделенных слоёв до плейхеда
+                      — обрезать начало выделенных слоёв до индикатора текущего времени
                     </td>
                     <td>
                       <mark className="key">Alt + [</mark>
@@ -3854,7 +3854,7 @@ const AeFromNewbies: React.FC = () => {
                       <mark className="select">
                         «Trim Layer Out Point to Current Time»
                       </mark>{" "}
-                      — обрезать конец выделенных слоёв до плейхеда
+                      — обрезать конец выделенных слоёв до индикатора текущего времени
                     </td>
                     <td>
                       <mark className="key">Alt + ]</mark>
@@ -4003,7 +4003,7 @@ const AeFromNewbies: React.FC = () => {
                   <tr>
                     <td>
                       <mark className="select">«Go to Start of Work Area»</mark> —
-                      переместить плейхед к началу рабочей области
+                      переместить индикатор текущего времени к началу рабочей области
                     </td>
                     <td>
                       <mark className="key">Shift + Home</mark>
@@ -4012,7 +4012,7 @@ const AeFromNewbies: React.FC = () => {
                   <tr>
                     <td>
                       <mark className="select">«Go to End of Work Area»</mark> —
-                      переместить плейхед к концу рабочей области
+                      переместить индикатор текущего времени к концу рабочей области
                     </td>
                     <td>
                       <mark className="key">Shift + End</mark>
@@ -4023,7 +4023,7 @@ const AeFromNewbies: React.FC = () => {
                       <mark className="select">
                         «Go to Start of Composition, Layer, or Footage Item»
                       </mark>{" "}
-                      — перенести плейхед к началу композиции
+                      — перенести индикатор текущего времени к началу композиции
                     </td>
                     <td>
                       <mark className="key">Home</mark>
@@ -4034,7 +4034,7 @@ const AeFromNewbies: React.FC = () => {
                       <mark className="select">
                         «Go to End of Composition, Layer, or Footage Item»
                       </mark>{" "}
-                      — перенести плейхед к концу композиции
+                      — перенести индикатор текущего времени к концу композиции
                     </td>
                     <td>
                       <mark className="key">End</mark>
@@ -4043,7 +4043,7 @@ const AeFromNewbies: React.FC = () => {
                   <tr>
                     <td>
                       <mark className="select">«Go Back 1 Frame»</mark> — перенести
-                      плейхед на 1 кадр назад
+                      индикатор текущего времени на 1 кадр назад
                     </td>
                     <td>
                       <mark className="key">PgUp</mark> или{" "}
@@ -4053,7 +4053,7 @@ const AeFromNewbies: React.FC = () => {
                   <tr>
                     <td>
                       <mark className="select">«Go Forward 1 Frame»</mark> — перенести
-                      плейхед на 1 кадр вперёд
+                      индикатор текущего времени на 1 кадр вперёд
                     </td>
                     <td>
                       <mark className="key">PgDown</mark> или{" "}
@@ -4063,7 +4063,7 @@ const AeFromNewbies: React.FC = () => {
                   <tr>
                     <td>
                       <mark className="select">«Go Back 10 Frames»</mark> — перенести
-                      плейхед на 10 кадров назад
+                      индикатор текущего времени на 10 кадров назад
                     </td>
                     <td>
                       <mark className="key">Shift + PgUp</mark>
@@ -4072,7 +4072,7 @@ const AeFromNewbies: React.FC = () => {
                   <tr>
                     <td>
                       <mark className="select">«Go Forward 10 Frames»</mark> — перенести
-                      плейхед на 10 кадров вперёд
+                      индикатор текущего времени на 10 кадров вперёд
                     </td>
                     <td>
                       <mark className="key">Shift + PgDown</mark>
