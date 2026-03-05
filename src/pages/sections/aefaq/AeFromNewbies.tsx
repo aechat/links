@@ -2951,7 +2951,8 @@ const AeFromNewbies: React.FC = () => {
                 <tbody>
                   <tr>
                     <td>
-                      Создать новый проект и закрыть текущий
+                      <mark className="select">«New Project»</mark> — создать новый проект
+                      и закрыть текущий
                       <Addition type="info">
                         Если открытый проект не был сохранён, программа предложит это
                         сделать.
@@ -2962,50 +2963,73 @@ const AeFromNewbies: React.FC = () => {
                     </td>
                   </tr>
                   <tr>
-                    <td>Открыть окно создания новой композиции</td>
+                    <td>
+                      <mark className="select">«New Composition»</mark> — открыть окно
+                      создания новой композиции
+                    </td>
                     <td>
                       <mark className="key">Ctrl + N</mark>
                     </td>
                   </tr>
                   <tr>
-                    <td>Открыть системное окно импорта файлов</td>
+                    <td>
+                      <mark className="select">«Import File»</mark> — открыть окно импорта
+                      файлов в проект
+                    </td>
                     <td>
                       <mark className="key">Ctrl + I</mark>
                     </td>
                   </tr>
                   <tr>
-                    <td>Открыть проект</td>
+                    <td>
+                      <mark className="select">«Open Project»</mark> — открыть окно выбора
+                      проекта
+                    </td>
                     <td>
                       <mark className="key">Ctrl + O</mark>
                     </td>
                   </tr>
                   <tr>
-                    <td>Открыть последний проект, с которым вы работали</td>
+                    <td>
+                      <mark className="select">«Open Most Recent Project»</mark> — открыть
+                      последний проект, над которым вы работали
+                    </td>
                     <td>
                       <mark className="key">Ctrl + Alt + Shift + P</mark>
                     </td>
                   </tr>
                   <tr>
-                    <td>Открыть или выполнить недавно использованный скрипт</td>
+                    <td>
+                      <mark className="select">«Recent Script Files → ...»</mark> —
+                      открыть или выполнить недавно использованный скрипт формата{" "}
+                      <mark className="file">JSX</mark> или{" "}
+                      <mark className="file">JSXBIN</mark>
+                    </td>
                     <td>
                       <mark className="key">Ctrl + Alt + Shift + D</mark>
                     </td>
                   </tr>
                   <tr>
-                    <td>Сохранить проект</td>
+                    <td>
+                      <mark className="select">«Save Project»</mark> — сохранить проект
+                    </td>
                     <td>
                       <mark className="key">Ctrl + S</mark>
                     </td>
                   </tr>
                   <tr>
-                    <td>Сохранить проект как...</td>
+                    <td>
+                      <mark className="select">«Save Project As»</mark> — сохранить проект
+                      под другим именем или форматом
+                    </td>
                     <td>
                       <mark className="key">Ctrl + Shift + S</mark>
                     </td>
                   </tr>
                   <tr>
                     <td>
-                      Инкрементное сохранение (сохранить копию с новым номером)
+                      <mark className="select">«Increment and Save Project»</mark> —
+                      инкрементное сохранение проекта
                       <Addition type="info">
                         При каждом нажатии в папке проекта будет создаваться новая копия с
                         возрастающим числом в названии.
@@ -3027,14 +3051,17 @@ const AeFromNewbies: React.FC = () => {
                 </thead>
                 <tbody>
                   <tr>
-                    <td>Инструмент выделения (Selection Tool)</td>
+                    <td>
+                      <mark className="select">«Selection Tool»</mark> — инструмент
+                      выделения
+                    </td>
                     <td>
                       <mark className="key">V</mark>
                     </td>
                   </tr>
                   <tr>
                     <td>
-                      Инструмент «Рука» (Hand Tool)
+                      <mark className="select">«Hand Tool»</mark> — инструмент «Рука»
                       <Addition type="info">
                         Зажмите <mark className="key">Пробел</mark>, чтобы временно
                         активировать инструмент.
@@ -3046,13 +3073,23 @@ const AeFromNewbies: React.FC = () => {
                   </tr>
                   <tr>
                     <td>
-                      Инструмент «Перо» (Pen Tool)
+                      <mark className="select">«Pen Tool / Mask Feather Tool»</mark> —
+                      инструмент пера или растушёвки маски
                       <Addition type="info">
                         <ul>
                           <li>
-                            Если выделен обычный слой, инструмент будет рисовать маску.
+                            Если на таймлайне выделен{" "}
+                            <mark className="select">«Shape Layer»</mark>, инструменты
+                            рисования по умолчанию создают новую фигуру внутри слоя. Чтобы
+                            вместо этого нарисовать маску, переключите режим на панели
+                            инструментов с{" "}
+                            <mark className="select">«Tool Creates Shape»</mark> на{" "}
+                            <mark className="select">«Tool Creates Mask»</mark>.
                           </li>
-                          <li>Если выделен слой-фигура, он будет рисовать фигуру.</li>
+                          <li>
+                            При повторном нажатии клавиши происходит последовательное
+                            переключение между этими инструментами.
+                          </li>
                         </ul>
                       </Addition>
                     </td>
@@ -3062,7 +3099,8 @@ const AeFromNewbies: React.FC = () => {
                   </tr>
                   <tr>
                     <td>
-                      Инструмент «Текст» (Text Tool)
+                      <mark className="select">«Text Tool»</mark> — инструмент создания и
+                      изменения текста
                       <Addition type="info">
                         Многократное нажатие переключает между горизонтальным и
                         вертикальным написанием.
@@ -3073,17 +3111,35 @@ const AeFromNewbies: React.FC = () => {
                     </td>
                   </tr>
                   <tr>
-                    <td>Инструмент «Опорная точка» (Pan Behind / Anchor Point Tool)</td>
+                    <td>
+                      <mark className="select">«Pan Behind (Anchor Point) Tool»</mark> —
+                      инструмент изменения положения якорной точки
+                    </td>
                     <td>
                       <mark className="key">Y</mark>
                     </td>
                   </tr>
                   <tr>
                     <td>
-                      Инструмент для создания фигур и масок
+                      <mark className="select">«Shape / Mask»</mark> — инструмент для
+                      создания фигур и масок
                       <Addition type="info">
-                        Многократное нажатие на <mark className="key">Q</mark> переключает
-                        между прямоугольником, эллипсом, многоугольником и звездой.
+                        <ul>
+                          <li>
+                            Если на таймлайне выделен{" "}
+                            <mark className="select">«Shape Layer»</mark>, инструменты
+                            рисования по умолчанию создают новую фигуру внутри слоя. Чтобы
+                            вместо этого нарисовать маску, переключите режим на панели
+                            инструментов с{" "}
+                            <mark className="select">«Tool Creates Shape»</mark> на{" "}
+                            <mark className="select">«Tool Creates Mask»</mark>.
+                          </li>
+                          <li>
+                            Многократное нажатие на <mark className="key">Q</mark>{" "}
+                            переключает выбор между прямоугольником, эллипсом,
+                            многоугольником и звездой.
+                          </li>
+                        </ul>
                       </Addition>
                     </td>
                     <td>
@@ -3092,7 +3148,8 @@ const AeFromNewbies: React.FC = () => {
                   </tr>
                   <tr>
                     <td>
-                      Инструмент «Кисть» (Brush Tool)
+                      <mark className="select">«Brush Tool»</mark> — инструмент «Кисть»
+                      для рисования на слое
                       <Addition type="info">
                         Многократное нажатие переключает между кистью, штампом и ластиком.
                       </Addition>
@@ -3103,7 +3160,8 @@ const AeFromNewbies: React.FC = () => {
                   </tr>
                   <tr>
                     <td>
-                      Инструмент «Лупа» (Zoom Tool)
+                      <mark className="select">«Zoom»</mark> — инструмент «Лупа» для
+                      увеличения предпросмотра или таймлайна композиции
                       <Addition type="info">
                         С зажатым <mark className="key">Alt</mark> выполняется уменьшение.
                       </Addition>
@@ -3113,20 +3171,26 @@ const AeFromNewbies: React.FC = () => {
                     </td>
                   </tr>
                   <tr>
-                    <td>Инструмент поворота (Rotation Tool)</td>
+                    <td>
+                      <mark className="select">«Rotation Tool»</mark> — инструмент
+                      поворота слоя
+                    </td>
                     <td>
                       <mark className="key">W</mark>
                     </td>
                   </tr>
                   <tr>
-                    <td>Инструмент «Кисть для ротоскопии» (Roto Brush Tool)</td>
+                    <td>
+                      <mark className="select">«Roto Brush Tool / Refine Edge Tool»</mark>{" "}
+                      — инструмент «Кисть для ротоскопии»
+                    </td>
                     <td>
                       <mark className="key">Alt + W</mark>
                     </td>
                   </tr>
                   <tr>
                     <td>
-                      Инструмент «Камера» (Camera Tool)
+                      <mark className="select">«Camera Tool»</mark> — инструмент «Камера»
                       <Addition type="info">
                         Многократное нажатие переключает между режимами работы камеры.
                       </Addition>
@@ -3137,7 +3201,7 @@ const AeFromNewbies: React.FC = () => {
                   </tr>
                   <tr>
                     <td>
-                      Инструмент «Марионетка» (Puppet Pin Tool)
+                      <mark className="select">«Puppet»</mark> — инструмент «Марионетка»
                       <Addition type="info">
                         Многократное нажатие переключает между разными инструментами
                         марионетки.
@@ -3159,85 +3223,181 @@ const AeFromNewbies: React.FC = () => {
                 </thead>
                 <tbody>
                   <tr>
-                    <td>Показать/скрыть применённые эффекты</td>
+                    <td>
+                      <mark className="select">«Show/Hide Effects»</mark> — показать или
+                      скрыть применённые эффекты у выделенного слоя
+                      <Addition type="info">
+                        Если ни один слой не выделен — список эффектов раскроется у всех
+                        слоёв на таймлайне.
+                      </Addition>
+                    </td>
                     <td>
                       <mark className="key">E</mark>
                     </td>
                   </tr>
                   <tr>
-                    <td>Показать/скрыть свойства с выражениями</td>
+                    <td>
+                      <mark className="select">«Show/Hide Effects»</mark>— показать или
+                      скрыть свойства с выражениями у выделенного слоя
+                      <Addition type="info">
+                        Если ни один слой не выделен — применённые выражения раскроются у
+                        всех слоёв на таймлайне.
+                      </Addition>
+                    </td>
                     <td>
                       Дважды <mark className="key">E</mark>
                     </td>
                   </tr>
                   <tr>
-                    <td>Показать/скрыть уровень громкости (Audio Levels)</td>
+                    <td>
+                      <mark className="select">«Show/Hide Audio Levels»</mark> — показать
+                      или скрыть уровень громкости у выделенного слоя
+                      <Addition type="info">
+                        Если ни один слой не выделен — уровень громкости покажется у всех
+                        слоёв со звуковой дорожкой на таймлайне.
+                      </Addition>
+                    </td>
                     <td>
                       <mark className="key">L</mark>
                     </td>
                   </tr>
                   <tr>
-                    <td>Показать/скрыть форму волны (Waveform)</td>
+                    <td>
+                      <mark className="select">«Show/Hide Audio Levels»</mark> — показать
+                      или скрыть звуковую волну у выделенного слоя
+                      <Addition type="info">
+                        Если ни один слой не выделен — звуковая волна раскроется у всех
+                        слоёв со звуковой дорожкой на таймлайне.
+                      </Addition>
+                    </td>
                     <td>
                       Дважды <mark className="key">L</mark>
                     </td>
                   </tr>
                   <tr>
-                    <td>Показать/скрыть опорную точку (Anchor Point)</td>
+                    <td>
+                      <mark className="select">
+                        «Show/Hide Anchor Point or Position of Interest»
+                      </mark>
+                      — показать или скрыть свойство положения якорной точки у выделеноого
+                      слоя или точки обзора у выделенной камеры и источников освещения
+                      <Addition type="info">
+                        Если ни один слой не выделен — данное свойство раскроется у всех
+                        поддерживаемых слоёв на таймлайне.
+                      </Addition>
+                    </td>
                     <td>
                       <mark className="key">A</mark>
                     </td>
                   </tr>
                   <tr>
-                    <td>Показать/скрыть маски (Masks)</td>
+                    <td>
+                      <mark className="select">«Show/Hide Mask Shape»</mark> — показать
+                      или скрыть созданные маски у слоя
+                      <Addition type="info">
+                        Если ни один слой не выделен — список масок раскроется у всех
+                        слоёв с созданными масками на таймлайне.
+                      </Addition>
+                    </td>
                     <td>
                       <mark className="key">M</mark>
                     </td>
                   </tr>
                   <tr>
-                    <td>Показать/скрыть положение (Position)</td>
+                    <td>
+                      <mark className="select">«Show/Hide Position»</mark> — показать или
+                      скрыть свойство положения слоя в пространстве
+                      <Addition type="info">
+                        Если ни один слой не выделен — свойство положения раскроется у
+                        всех двумерных и трёхмерных объектов на таймлайне.
+                      </Addition>
+                    </td>
                     <td>
                       <mark className="key">P</mark>
                     </td>
                   </tr>
                   <tr>
-                    <td>Показать/скрыть поворот (Rotation)</td>
+                    <td>
+                      <mark className="select">
+                        «Show/Hide Rotation and Orientation Properties»
+                      </mark>
+                      — показать или скрыть свойство поворота у выделенного слоя
+                      <Addition type="info">
+                        <ul>
+                          <li>
+                            Если ни один слой не выделен — свойство положения раскроется у
+                            всех двумерных и трёхмерных объектов на таймлайне.
+                          </li>
+                          <li>
+                            У трёхмерных слоёв к свойству поворота добавится свойство
+                            ориентации слоя.
+                          </li>
+                        </ul>
+                      </Addition>
+                    </td>
                     <td>
                       <mark className="key">R</mark>
                     </td>
                   </tr>
                   <tr>
-                    <td>Показать/скрыть масштаб (Scale)</td>
+                    <td>
+                      <mark className="select">«Show/Hide Scale»</mark> — показать или
+                      скрыть свойство масштаба у выделенного слоя
+                      <Addition type="info">
+                        Если ни один слой не выделен — свойство масштаба раскроется у всех
+                        слоёв на таймлайне.
+                      </Addition>
+                    </td>
                     <td>
                       <mark className="key">S</mark>
                     </td>
                   </tr>
                   <tr>
-                    <td>Показать/скрыть прозрачность (Opacity)</td>
+                    <td>
+                      <mark className="select">«Show/Hide Opacity»</mark> — показать или
+                      скрыть свойство непрозрачности у выделенного слоя
+                      <Addition type="info">
+                        Если ни один слой не выделен — свойство непрозрачности раскроется
+                        у всех слоёв на таймлайне.
+                      </Addition>
+                    </td>
                     <td>
                       <mark className="key">T</mark>
                     </td>
                   </tr>
                   <tr>
-                    <td>Показать/скрыть все свойства с ключевыми кадрами</td>
+                    <td>
+                      <mark className="select">
+                        «Show/Hide Properties with Keyframes»
+                      </mark>
+                      — показать или скрыть все свойства с ключевыми кадрами у выделенного
+                      слоя
+                      <Addition type="info">
+                        <ul>
+                          <li>
+                            Если ни один слой не выделен — свойства с ключевыми кадрами
+                            раскроются у всех слоёв на таймлайне.
+                          </li>
+                          <li>
+                            При двойном нажатии у вас раскроются все изменённые свойства
+                            даже без ключевых кадров.
+                          </li>
+                        </ul>
+                      </Addition>
+                    </td>
                     <td>
                       <mark className="key">U</mark>
                     </td>
                   </tr>
                   <tr>
-                    <td>Показать/скрыть все изменённые свойства (даже без ключей)</td>
                     <td>
-                      Дважды <mark className="key">U</mark>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      Добавить свойство к уже открытым, не скрывая их
+                      <mark className="select">«Show/Hide ... (Extend)»</mark> — раскрыть
+                      свойство вместе с уже открытыми
                       <Addition type="info">
-                        Например, <mark className="key">S</mark>, затем{" "}
-                        <mark className="key">Shift + P</mark>, затем{" "}
-                        <mark className="key">Shift + R</mark> покажут одновременно
-                        масштаб, положение и поворот.
+                        Например, при нажатии <mark className="key">S</mark>, затем{" "}
+                        <mark className="key">Shift + P</mark> и{" "}
+                        <mark className="key">Shift + R</mark> у слоя одновременно
+                        отобразятся масштаб, положение и поворот.
                       </Addition>
                     </td>
                     <td>
@@ -3246,10 +3406,13 @@ const AeFromNewbies: React.FC = () => {
                   </tr>
                   <tr>
                     <td>
-                      Добавить ключевой кадр для свойства, не открывая его
+                      <mark className="select">
+                        «Add/Delete ... Keyframe at Current Time»
+                      </mark>{" "}
+                      — добавить ключевой кадр для свойства, не раскрывая его
                       <Addition type="info">
                         Например, <mark className="key">Alt + Shift + P</mark> добавит
-                        ключ для положения.
+                        ключевой кадр для свойства положения.
                       </Addition>
                     </td>
                     <td>
@@ -3268,85 +3431,171 @@ const AeFromNewbies: React.FC = () => {
                 </thead>
                 <tbody>
                   <tr>
-                    <td>Снять выделение со всех ключевых кадров</td>
                     <td>
-                      <mark className="key">Shift + F2</mark>
+                      <mark className="select">«Select All»</mark> — выделить все слои
+                    </td>
+                    <td>
+                      <mark className="key">Ctrl + A</mark>
                     </td>
                   </tr>
                   <tr>
-                    <td>Открыть/закрыть редактор графика скорости</td>
+                    <td>
+                      <mark className="select">«Deselect All Layers»</mark> — снять
+                      выделение со всех слоёв
+                    </td>
+                    <td>
+                      <mark className="key">F2</mark> или{" "}
+                      <mark className="key">Ctrl + Shift + A</mark>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <mark className="select">
+                        «Deselect All Keyframes and Properties»
+                      </mark>{" "}
+                      — снять выделение со всех ключевых кадров и свойств
+                    </td>
+                    <td>
+                      <mark className="key">Shift + F2</mark> или{" "}
+                      <mark className="key">Ctrl + Alt + Shift + A</mark>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <mark className="select">«Show/Hide Graph Editor»</mark> — открыть
+                      или закрыть редактор графиков скорости
+                    </td>
                     <td>
                       <mark className="key">Shift + F3</mark>
                     </td>
                   </tr>
                   <tr>
-                    <td>Перейти к предыдущему ключевому кадру/маркеру</td>
+                    <td>
+                      <mark className="select">«Go to Previous Keyframe»</mark> — перейти
+                      к предыдущему ключевому кадру или маркеру
+                    </td>
                     <td>
                       <mark className="key">J</mark>
                     </td>
                   </tr>
                   <tr>
-                    <td>Перейти к следующему ключевому кадру/маркеру</td>
+                    <td>
+                      <mark className="select">«Go to Next Keyframe»</mark> — перейти к
+                      следующему ключевому кадру или маркеру
+                    </td>
                     <td>
                       <mark className="key">K</mark>
                     </td>
                   </tr>
                   <tr>
-                    <td>Применить интерполяцию «Easy Ease»</td>
+                    <td>
+                      <mark className="select">«Set Keyframe to Easy Ease»</mark> —
+                      применить интерполяцию «Easy Ease» для выделенных ключевых кадров
+                    </td>
                     <td>
                       <mark className="key">F9</mark>
                     </td>
                   </tr>
                   <tr>
-                    <td>Применить интерполяцию «Easy Ease In»</td>
+                    <td>
+                      <mark className="select">«Set Keyframe to Easy Ease In»</mark> —
+                      применить интерполяцию «Easy Ease In» для выделенных ключевых кадров
+                    </td>
                     <td>
                       <mark className="key">Shift + F9</mark>
                     </td>
                   </tr>
                   <tr>
-                    <td>Применить интерполяцию «Easy Ease Out»</td>
+                    <td>
+                      <mark className="select">«Set Keyframe to Easy Ease Out»</mark> —
+                      применить интерполяцию «Easy Ease Out» для выделенных ключевых
+                      кадров
+                    </td>
                     <td>
                       <mark className="key">Ctrl + Shift + F9</mark>
                     </td>
                   </tr>
                   <tr>
-                    <td>Применить интерполяцию «Hold»</td>
+                    <td>
+                      <mark className="select">
+                        «Toggle Hold Interpolation for Selected Keyframes»
+                      </mark>
+                      — применить интерполяцию «Hold» для выделенных ключевых кадров
+                    </td>
                     <td>
                       <mark className="key">Ctrl + Alt + H</mark>
                     </td>
                   </tr>
                   <tr>
-                    <td>Сдвинуть выделенные ключи на 1 кадр влево</td>
                     <td>
-                      <mark className="key">Alt + стрелка влево</mark>
+                      <mark className="select">
+                        «Shift Selected Keyframes 1 Frame Earlier»
+                      </mark>
+                      — сдвинуть выделенные ключевые кадры на 1 кадр влево
+                    </td>
+                    <td>
+                      <mark className="key">Alt + ← (стрелка влево)</mark>
                     </td>
                   </tr>
                   <tr>
-                    <td>Сдвинуть выделенные ключи на 1 кадр вправо</td>
                     <td>
-                      <mark className="key">Alt + стрелка вправо</mark>
+                      <mark className="select">
+                        «Shift Selected Keyframes 1 Frame Later»
+                      </mark>{" "}
+                      — сдвинуть выделенные ключи на 1 кадр вправо
+                    </td>
+                    <td>
+                      <mark className="key">Alt + → (стрелка вправо)</mark>
                     </td>
                   </tr>
                   <tr>
-                    <td>Сдвинуть выделенные ключи на 10 кадров влево</td>
                     <td>
-                      <mark className="key">Alt + Shift + стрелка влево</mark>
+                      <mark className="select">
+                        «Shift Selected Keyframes 10 Frames Earlier»
+                      </mark>
+                      — сдвинуть выделенные ключи на 10 кадров влево
+                    </td>
+                    <td>
+                      <mark className="key">Alt + Shift + ← (стрелка влево)</mark>
                     </td>
                   </tr>
                   <tr>
-                    <td>Сдвинуть выделенные ключи на 10 кадров вправо</td>
                     <td>
-                      <mark className="key">Alt + Shift + стрелка вправо</mark>
+                      <mark className="select">
+                        «Shift Selected Keyframes 10 Frames Later»
+                      </mark>
+                      — сдвинуть выделенные ключи на 10 кадров вправо
+                    </td>
+                    <td>
+                      <mark className="key">Alt + Shift + → (стрелка вправо)</mark>
                     </td>
                   </tr>
                   <tr>
-                    <td>Открыть диалог «Keyframe Interpolation»</td>
+                    <td>
+                      <mark className="select">
+                        «Keyframe Interpolation (Edit in Dialog Box)»
+                      </mark>
+                      — открыть окно «Keyframe Interpolation»
+                      <Addition type="info">
+                        Данное окно откроется, если у вас выделен хотя бы один ключевой
+                        кадр на таймлайне
+                      </Addition>
+                    </td>
                     <td>
                       <mark className="key">Ctrl + Alt + K</mark>
                     </td>
                   </tr>
                   <tr>
-                    <td>Открыть диалог «Keyframe Velocity»</td>
+                    <td>
+                      <mark className="select">
+                        «Keyframe Velocity (Edit in Dialog Box)»
+                      </mark>{" "}
+                      — открыть окно «Keyframe Velocity»
+                      <Addition type="info">
+                        Данное окно откроется, если у вас выделен хотя бы один ключевой
+                        кадр на таймлайне
+                      </Addition>
+                    </td>
                     <td>
                       <mark className="key">Ctrl + Shift + K</mark>
                     </td>
@@ -3363,105 +3612,165 @@ const AeFromNewbies: React.FC = () => {
                 </thead>
                 <tbody>
                   <tr>
-                    <td>Переместить плейхед к началу выделенного слоя</td>
+                    <td>
+                      <mark className="select">
+                        «Go to Earliest In Point of Selected Layers»
+                      </mark>{" "}
+                      — переместить плейхед к ближайшему началу от плейхеда одного из
+                      выделенных слоёв
+                    </td>
                     <td>
                       <mark className="key">I</mark>
                     </td>
                   </tr>
                   <tr>
-                    <td>Переместить плейхед к концу выделенного слоя</td>
+                    <td>
+                      <mark className="select">
+                        «Go to Latest Out Point of Selected Layers»
+                      </mark>{" "}
+                      — переместить плейхед к ближайшему концу от плейхеда одного из
+                      выделенных слоёв
+                    </td>
                     <td>
                       <mark className="key">O</mark>
                     </td>
                   </tr>
                   <tr>
-                    <td>Выделить все слои</td>
                     <td>
-                      <mark className="key">Ctrl + A</mark>
+                      <mark className="select">«Pre-compose»</mark> — создать
+                      прекомпозицию из выделенных слоёв
                     </td>
-                  </tr>
-                  <tr>
-                    <td>Снять выделение со всех слоёв</td>
-                    <td>
-                      <mark className="key">F2</mark> или{" "}
-                      <mark className="key">Ctrl + Shift + A</mark>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Создать прекомпозицию из выделенных слоёв</td>
                     <td>
                       <mark className="key">Ctrl + Shift + C</mark>
                     </td>
                   </tr>
                   <tr>
-                    <td>Дублировать слой</td>
+                    <td>
+                      <mark className="select">«Duplicate»</mark> — дублировать слой
+                      <Addition type="warning">
+                        Дублируя слой с композицией вы копируете лишь ссылку на него. Вы
+                        не создадите таким образом независимый дубликат композиции.{" "}
+                        <a href="#composition-independent">
+                          А как правильно дублировать композиции?
+                        </a>
+                      </Addition>
+                    </td>
                     <td>
                       <mark className="key">Ctrl + D</mark>
                     </td>
                   </tr>
                   <tr>
-                    <td>Удалить все эффекты у выделенных слоёв</td>
+                    <td>
+                      <mark className="select">
+                        «Delete All Effects from Selected Layers»
+                      </mark>{" "}
+                      — удалить все эффекты у выделенных слоёв
+                    </td>
                     <td>
                       <mark className="key">Ctrl + Shift + E</mark>
                     </td>
                   </tr>
                   <tr>
-                    <td>Применить последний использованный пресет</td>
+                    <td>
+                      <mark className="select">
+                        «Apply Recently Used Animation Preset»
+                      </mark>{" "}
+                      — применить недавно использованный пресет формата{" "}
+                      <mark className="file">FFX</mark>
+                    </td>
                     <td>
                       <mark className="key">Ctrl + Alt + Shift + F</mark>
                     </td>
                   </tr>
                   <tr>
-                    <td>Разделить выделенный слой на две части</td>
+                    <td>
+                      <mark className="select">«Split Layer at Current Time»</mark> —
+                      разделить выделенные слои на две части
+                      <Addition type="info">
+                        Изменить поведение деления слоя можно с помощью параметра{" "}
+                        <mark className="select">
+                          «Create Split Layers Above Original Layer»
+                        </mark>{" "}
+                        в{" "}
+                        <mark className="select">«Edit → Preferences → Composition»</mark>
+                        .
+                      </Addition>
+                    </td>
                     <td>
                       <mark className="key">Ctrl + Shift + D</mark>
                     </td>
                   </tr>
                   <tr>
-                    <td>Открыть/скрыть панель «Effect Controls»</td>
+                    <td>
+                      <mark className="select">
+                        «Show/Hide Effect Controls Panel for Selected Layers»
+                      </mark>{" "}
+                      — показать или скрыть панель управления эффектами
+                    </td>
                     <td>
                       <mark className="key">F3</mark>
                     </td>
                   </tr>
                   <tr>
-                    <td>Расположить слой в центре композиции</td>
+                    <td>
+                      <mark className="select">«Center Layer in View»</mark> — расположить
+                      слой по центру композиции
+                    </td>
                     <td>
                       <mark className="key">Ctrl + Home</mark>
                     </td>
                   </tr>
                   <tr>
-                    <td>Установить опорную точку по центру слоя</td>
+                    <td>
+                      <mark className="select">
+                        «Center Anchor Point in Layer Content»
+                      </mark>{" "}
+                      — установить якорную точку по центру слоя
+                    </td>
                     <td>
                       <mark className="key">Ctrl + Alt + Home</mark>
                     </td>
                   </tr>
                   <tr>
-                    <td>Растянуть слой под высоту композиции</td>
+                    <td>
+                      <mark className="select">«Fit Layer to Comp Height»</mark> —
+                      растянуть выделенный слой под высоту композиции
+                    </td>
                     <td>
                       <mark className="key">Ctrl + Alt + Shift + G</mark>
                     </td>
                   </tr>
                   <tr>
-                    <td>Растянуть слой под ширину композиции</td>
+                    <td>
+                      <mark className="select">«Fit Layer to Comp Width»</mark> —
+                      растянуть выделенный слой под ширину композиции
+                    </td>
                     <td>
                       <mark className="key">Ctrl + Alt + Shift + H</mark>
                     </td>
                   </tr>
                   <tr>
-                    <td>Включить/выключить «Time Remapping»</td>
+                    <td>
+                      <mark className="select">«Enable Time Remapping»</mark> — включить
+                      или выключить изменение времени слоя
+                    </td>
                     <td>
                       <mark className="key">Ctrl + Alt + T</mark>
                     </td>
                   </tr>
                   <tr>
-                    <td>Обратить проигрывание слоя (Time-Reverse Layer)</td>
+                    <td>
+                      <mark className="select">«Reverse Layer»</mark> — обратить
+                      проигрывание слоя
+                    </td>
                     <td>
                       <mark className="key">Ctrl + Alt + R</mark>
                     </td>
                   </tr>
                   <tr>
                     <td>
-                      Открыть настройки выделенного слоя
+                      <mark className="select">«Layer Settings»</mark> — открыть настройки
+                      выделенного слоя
                       <Addition type="info">
                         Работает для <mark className="select">«Null Object»</mark>,{" "}
                         <mark className="select">«Light Layer»</mark>,{" "}
@@ -3474,70 +3783,114 @@ const AeFromNewbies: React.FC = () => {
                     </td>
                   </tr>
                   <tr>
-                    <td>Переместить начало слоя к плейхеду</td>
+                    <td>
+                      <mark className="select">«Set Layer In Point at Current Time»</mark>{" "}
+                      — переместить начало выделенного слоя к плейхеду
+                    </td>
                     <td>
                       <mark className="key">[</mark>
                     </td>
                   </tr>
                   <tr>
-                    <td>Переместить конец слоя к плейхеду</td>
+                    <td>
+                      <mark className="select">
+                        «Set Layer Out Point at Current Time»
+                      </mark>{" "}
+                      — переместить конец выделенного слоя к плейхеду
+                    </td>
                     <td>
                       <mark className="key">]</mark>
                     </td>
                   </tr>
                   <tr>
-                    <td>Сдвинуть слой на 1 кадр влево</td>
+                    <td>
+                      <mark className="select">«Shift Layer 1 Frame Earlier»</mark> —
+                      сдвинуть выделенные слои на 1 кадр влево
+                    </td>
                     <td>
                       <mark className="key">Alt + PgUp</mark>
                     </td>
                   </tr>
                   <tr>
-                    <td>Сдвинуть слой на 10 кадров влево</td>
+                    <td>
+                      <mark className="select">«Shift Layer 10 Frames Earlier»</mark> —
+                      сдвинуть выделенные слои на 10 кадров влево
+                    </td>
                     <td>
                       <mark className="key">Alt + Shift + PgUp</mark>
                     </td>
                   </tr>
                   <tr>
-                    <td>Сдвинуть слой на 1 кадр вправо</td>
+                    <td>
+                      <mark className="select">«Shift Layer 1 Frame Later»</mark> —
+                      сдвинуть слой на 1 кадр вправо
+                    </td>
                     <td>
                       <mark className="key">Alt + PgDown</mark>
                     </td>
                   </tr>
                   <tr>
-                    <td>Сдвинуть слой на 10 кадров вправо</td>
+                    <td>
+                      <mark className="select">«Shift Layer 10 Frames Later»</mark> —
+                      сдвинуть слой на 10 кадров вправо
+                    </td>
                     <td>
                       <mark className="key">Alt + Shift + PgDown</mark>
                     </td>
                   </tr>
                   <tr>
-                    <td>Обрезать начало слоя до плейхеда</td>
+                    <td>
+                      <mark className="select">
+                        «Trim Layer In Point to Current Time»
+                      </mark>{" "}
+                      — обрезать начало выделенных слоёв до плейхеда
+                    </td>
                     <td>
                       <mark className="key">Alt + [</mark>
                     </td>
                   </tr>
                   <tr>
-                    <td>Обрезать конец слоя до плейхеда</td>
+                    <td>
+                      <mark className="select">
+                        «Trim Layer Out Point to Current Time»
+                      </mark>{" "}
+                      — обрезать конец выделенных слоёв до плейхеда
+                    </td>
                     <td>
                       <mark className="key">Alt + ]</mark>
                     </td>
                   </tr>
                   <tr>
-                    <td>Опустить слой ниже по иерархии</td>
+                    <td>
+                      <mark className="select">«Send Layer Backward»</mark> — опустить
+                      выделенные слои ниже по иерархии в композиции
+                    </td>
                     <td>
                       <mark className="key">Ctrl + [</mark>
                     </td>
                   </tr>
                   <tr>
-                    <td>Поднять слой выше по иерархии</td>
+                    <td>
+                      <mark className="select">«Bring Layer Forward»</mark> — поднять
+                      выделенные слои выше по иерархии в композиции
+                    </td>
                     <td>
                       <mark className="key">Ctrl + ]</mark>
                     </td>
                   </tr>
                   <tr>
-                    <td>Переключить режим наложения слоя</td>
                     <td>
-                      <mark className="key">Shift и + </mark> или{" "}
-                      <mark className="key">Shift и -</mark>
+                      <mark className="select">«Next/Previous Layer Blending Mode»</mark>{" "}
+                      — переключить режим наложения у выделенных слоёв
+                      <Addition type="info">
+                        Режимы наложения работают только в том случае, если под слоем есть
+                        другие видимые слои. Добавлять под него чёрный{" "}
+                        <mark className="select">«Solid Layer»</mark> бессмысленно.
+                      </Addition>
+                    </td>
+                    <td>
+                      <mark className="key">Shift + =</mark> или{" "}
+                      <mark className="key">Shift + -</mark>
                     </td>
                   </tr>
                 </tbody>
@@ -3552,37 +3905,55 @@ const AeFromNewbies: React.FC = () => {
                 </thead>
                 <tbody>
                   <tr>
-                    <td>Создать слой-заливку «Solid Layer»</td>
+                    <td>
+                      <mark className="select">«New Solid Layer»</mark> — создать новый
+                      слой-заливку
+                    </td>
                     <td>
                       <mark className="key">Ctrl + Y</mark>
                     </td>
                   </tr>
                   <tr>
-                    <td>Создать корректирующий слой «Adjustment Layer»</td>
+                    <td>
+                      <mark className="select">«New Adjustment Layer»</mark> — создать
+                      новый корректирующий слой
+                    </td>
                     <td>
                       <mark className="key">Ctrl + Alt + Y</mark>
                     </td>
                   </tr>
                   <tr>
-                    <td>Создать нулевой объект «Null Object»</td>
+                    <td>
+                      <mark className="select">«New Null Object»</mark> — создать новый
+                      нулевой объект
+                    </td>
                     <td>
                       <mark className="key">Ctrl + Alt + Shift + Y</mark>
                     </td>
                   </tr>
                   <tr>
-                    <td>Создать пустой текстовый слой</td>
+                    <td>
+                      <mark className="select">«New Text Layer»</mark> — создать новый
+                      пустой текстовый слой
+                    </td>
                     <td>
                       <mark className="key">Ctrl + Alt + Shift + T</mark>
                     </td>
                   </tr>
                   <tr>
-                    <td>Создать камеру</td>
+                    <td>
+                      <mark className="select">«New Camera Layer»</mark> — создать новую
+                      камеру
+                    </td>
                     <td>
                       <mark className="key">Ctrl + Alt + Shift + C</mark>
                     </td>
                   </tr>
                   <tr>
-                    <td>Создать источник света</td>
+                    <td>
+                      <mark className="select">«New Light Layer»</mark> — создать новый
+                      источник света
+                    </td>
                     <td>
                       <mark className="key">Ctrl + Alt + Shift + L</mark>
                     </td>
@@ -3599,20 +3970,27 @@ const AeFromNewbies: React.FC = () => {
                 </thead>
                 <tbody>
                   <tr>
-                    <td>Установить начало рабочей области</td>
+                    <td>
+                      <mark className="select">«Set Work Area Start»</mark> — установить
+                      начало рабочей области
+                    </td>
                     <td>
                       <mark className="key">B</mark>
                     </td>
                   </tr>
                   <tr>
-                    <td>Установить конец рабочей области</td>
+                    <td>
+                      <mark className="select">«Set Work Area End»</mark> — установить
+                      конец рабочей области
+                    </td>
                     <td>
                       <mark className="key">N</mark>
                     </td>
                   </tr>
                   <tr>
                     <td>
-                      Задать длительность рабочей области под выделеные слои
+                      <mark className="select">«Set Work Area to Selected Layers»</mark> —
+                      задать длительность рабочей области под выделенные слои
                       <Addition type="info">
                         Если ни один слой не будет выделен, рабочая область будет выделена
                         по всей длине композиции.
@@ -3623,93 +4001,146 @@ const AeFromNewbies: React.FC = () => {
                     </td>
                   </tr>
                   <tr>
-                    <td>Перейти к началу рабочей области</td>
+                    <td>
+                      <mark className="select">«Go to Start of Work Area»</mark> —
+                      переместить плейхед к началу рабочей области
+                    </td>
                     <td>
                       <mark className="key">Shift + Home</mark>
                     </td>
                   </tr>
                   <tr>
-                    <td>Перейти к концу рабочей области</td>
+                    <td>
+                      <mark className="select">«Go to End of Work Area»</mark> —
+                      переместить плейхед к концу рабочей области
+                    </td>
                     <td>
                       <mark className="key">Shift + End</mark>
                     </td>
                   </tr>
                   <tr>
-                    <td>Перейти к началу композиции</td>
+                    <td>
+                      <mark className="select">
+                        «Go to Start of Composition, Layer, or Footage Item»
+                      </mark>{" "}
+                      — перенести плейхед к началу композиции
+                    </td>
                     <td>
                       <mark className="key">Home</mark>
                     </td>
                   </tr>
                   <tr>
-                    <td>Перейти к концу композиции</td>
+                    <td>
+                      <mark className="select">
+                        «Go to End of Composition, Layer, or Footage Item»
+                      </mark>{" "}
+                      — перенести плейхед к концу композиции
+                    </td>
                     <td>
                       <mark className="key">End</mark>
                     </td>
                   </tr>
                   <tr>
-                    <td>Перейти на 1 кадр назад</td>
+                    <td>
+                      <mark className="select">«Go Back 1 Frame»</mark> — перенести
+                      плейхед на 1 кадр назад
+                    </td>
                     <td>
                       <mark className="key">PgUp</mark> или{" "}
-                      <mark className="key">Ctrl + стрелка влево</mark>
+                      <mark className="key">Ctrl + ← (стрелка влево)</mark>
                     </td>
                   </tr>
                   <tr>
-                    <td>Перейти на 1 кадр вперёд</td>
+                    <td>
+                      <mark className="select">«Go Forward 1 Frame»</mark> — перенести
+                      плейхед на 1 кадр вперёд
+                    </td>
                     <td>
                       <mark className="key">PgDown</mark> или{" "}
-                      <mark className="key">Ctrl + стрелка вправо</mark>
+                      <mark className="key">Ctrl + → (стрелка вправо)</mark>
                     </td>
                   </tr>
                   <tr>
-                    <td>Перейти на 10 кадров назад</td>
+                    <td>
+                      <mark className="select">«Go Back 10 Frames»</mark> — перенести
+                      плейхед на 10 кадров назад
+                    </td>
                     <td>
                       <mark className="key">Shift + PgUp</mark>
                     </td>
                   </tr>
                   <tr>
-                    <td>Перейти на 10 кадров вперёд</td>
+                    <td>
+                      <mark className="select">«Go Forward 10 Frames»</mark> — перенести
+                      плейхед на 10 кадров вперёд
+                    </td>
                     <td>
                       <mark className="key">Shift + PgDown</mark>
                     </td>
                   </tr>
                   <tr>
-                    <td>Открыть настройки композиции</td>
+                    <td>
+                      <mark className="select">«Composition Settings»</mark> — открыть
+                      настройки композиции
+                    </td>
                     <td>
                       <mark className="key">Ctrl + K</mark>
                     </td>
                   </tr>
                   <tr>
-                    <td>Открыть окно «Project Settings»</td>
+                    <td>
+                      <mark className="select">«Project Settings»</mark> — открыть
+                      настройки проекта
+                    </td>
                     <td>
                       <mark className="key">Ctrl + Alt + Shift + K</mark>
                     </td>
                   </tr>
                   <tr>
-                    <td>Показать/скрыть линейки</td>
+                    <td>
+                      <mark className="select">«Toggle Show Rulers»</mark> — показать или
+                      скрыть линейки в предпросмотре композиции
+                    </td>
                     <td>
                       <mark className="key">Ctrl + R</mark>
                     </td>
                   </tr>
                   <tr>
-                    <td>Обрезать композицию по рабочей области</td>
+                    <td>
+                      <mark className="select">«Trim Comp to Work Area»</mark> — обрезать
+                      длительность композиции по рабочей области
+                    </td>
                     <td>
                       <mark className="key">Ctrl + Shift + X</mark>
                     </td>
                   </tr>
                   <tr>
-                    <td>Увеличить/уменьшить масштаб таймлайна</td>
                     <td>
-                      <mark className="key"> + </mark> или <mark className="key">-</mark>
+                      <mark className="select">«Zoom In / Zoom Out»</mark> — увеличить или
+                      уменьшить масштабирование таймлайна
+                    </td>
+                    <td>
+                      <mark className="key">=</mark> или <mark className="key">-</mark>
                     </td>
                   </tr>
                   <tr>
-                    <td>Перейти к определённому времени на таймлайне</td>
+                    <td>
+                      <mark className="select">«Go to Time»</mark> — перейти к
+                      определённому времени на таймлайне
+                    </td>
                     <td>
                       <mark className="key">Alt + Shift + J</mark>
                     </td>
                   </tr>
                   <tr>
-                    <td>Поставить маркер на таймлайне</td>
+                    <td>
+                      <mark className="select">«Add Layer Marker»</mark> — поставить
+                      маркер у выделенных слоёв на таймлайне
+                      <Addition type="info">
+                        Если ни один слой не выделен — маркет установится для открытой
+                        композиции
+                      </Addition>
+                    </td>
                     <td>
                       <mark className="key">* (на Numpad)</mark>
                       <Addition type="info">
@@ -3732,7 +4163,8 @@ const AeFromNewbies: React.FC = () => {
                 <tbody>
                   <tr>
                     <td>
-                      Показать/скрыть границы слоёв, контроллеры и пути движения
+                      <mark className="select">«Toggle Show Layer Controls»</mark> —
+                      показать или скрыть границы слоёв, контроллеры и пути движения
                       <Addition type="info">
                         Настроить отображение некоторых наложений можно в окне{" "}
                         <mark className="select">«View Options»</mark> (
@@ -3745,7 +4177,8 @@ const AeFromNewbies: React.FC = () => {
                   </tr>
                   <tr>
                     <td>
-                      Показать/скрыть сетку
+                      <mark className="select">«Toggle Show Grid»</mark> — показать или
+                      скрыть сетку в предпросмотре композиции или слоя
                       <Addition type="info">
                         Настроить сетку можно в{" "}
                         <mark className="select">
@@ -3759,32 +4192,46 @@ const AeFromNewbies: React.FC = () => {
                     </td>
                   </tr>
                   <tr>
-                    <td>Показать/скрыть направляющие</td>
+                    <td>
+                      <mark className="select">«Toggle Show Guides»</mark> — показать или
+                      скрыть направляющие в предпросмотре композиции или слоя
+                    </td>
                     <td>
                       <mark className="key">Ctrl + ;</mark>
                     </td>
                   </tr>
                   <tr>
-                    <td>Включить/выключить привязку к направляющим</td>
+                    <td>
+                      <mark className="select">«Toggle Snap to Guides»</mark> — включить
+                      или выключить привязку к направляющим
+                    </td>
                     <td>
                       <mark className="key">Ctrl + Shift + ;</mark>
                     </td>
                   </tr>
                   <tr>
-                    <td>Показать/скрыть безопасные зоны</td>
+                    <td>
+                      <mark className="select">«Show/Hide Title/Action Safe Guides»</mark>{" "}
+                      — показать или скрыть безопасные зоны в предпросмотре композиции или
+                      слоя
+                    </td>
                     <td>
                       <mark className="key">&apos;</mark>
                     </td>
                   </tr>
                   <tr>
-                    <td>Увеличить/уменьшить масштаб предпросмотра</td>
+                    <td>
+                      <mark className="select">«Zoom In / Zoom Out»</mark> — увеличить или
+                      уменьшить масштаб предпросмотра композиции или слоя
+                    </td>
                     <td>
                       <mark className="key">.</mark> или <mark className="key">,</mark>
                     </td>
                   </tr>
                   <tr>
                     <td>
-                      Начать/остановить воспроизведение предпросмотра
+                      <mark className="select">«Preview»</mark> — начать или остановить
+                      воспроизведение предпросмотра композиции или слоя
                       <Addition type="info">
                         При включённом кэшировании первое нажатие запускает просчёт,
                         второе — принудительно начинает воспроизведение уже просчитанных
@@ -3807,13 +4254,19 @@ const AeFromNewbies: React.FC = () => {
                 </thead>
                 <tbody>
                   <tr>
-                    <td>Открыть окно «Preferences»</td>
+                    <td>
+                      <mark className="select">«Preferences»</mark> — открыть окно
+                      настроек <mark className="app">Adobe After Effects</mark>
+                    </td>
                     <td>
                       <mark className="key">Ctrl + Alt + ;</mark>
                     </td>
                   </tr>
                   <tr>
-                    <td>Открыть редактор горячих клавиш</td>
+                    <td>
+                      <mark className="select">«Keyboard Shortcuts»</mark> — открыть
+                      редактор горячих клавиш
+                    </td>
                     <td>
                       <mark className="key">Ctrl + Alt + &apos;</mark>
                     </td>
