@@ -354,6 +354,23 @@ li,
   }
 }
 
+table {
+  .addition-info,
+  .addition-warning,
+  .addition-danger,
+  .addition-tldr {
+    font-size: inherit;
+
+    p,
+    ul,
+    li,
+    a,
+    mark {
+      font-size: inherit;
+    }
+  }
+}
+
 %article-content-first-child {
   margin-top: 10px;
 }
