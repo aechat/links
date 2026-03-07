@@ -351,6 +351,15 @@ const PrFromNewbies: React.FC = () => {
                   </tr>
                   <tr>
                     <td>
+                      <mark className="select">«Export Frame»</mark> — экспортировать
+                      текущий кадр как изображение
+                    </td>
+                    <td>
+                      <mark className="key">Ctrl + Shift + E</mark>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
                       <mark className="select">
                         «Get Media File Properties for Selection»
                       </mark>{" "}
@@ -906,6 +915,81 @@ const PrFromNewbies: React.FC = () => {
                   </tr>
                   <tr>
                     <td>
+                      <mark className="select">
+                        «Ripple Trim Previous Edit To Playhead»
+                      </mark>{" "}
+                      — разрезать клип до индикатора текущего времени
+                    </td>
+                    <td>
+                      <mark className="key">Q</mark>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <mark className="select">«Ripple Trim Next Edit To Playhead»</mark>{" "}
+                      — разрезать клип после индикатора текущего времени
+                    </td>
+                    <td>
+                      <mark className="key">W</mark>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <mark className="select">«Extend Previous Edit To Playhead»</mark> —
+                      продлить предыдущий стык до индикатора текущего времени
+                    </td>
+                    <td>
+                      <mark className="key">Shift + Q</mark>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <mark className="select">«Extend Next Edit To Playhead»</mark> —
+                      продлить следующий стык до индикатора текущего времени
+                    </td>
+                    <td>
+                      <mark className="key">Shift + W</mark>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <mark className="select">«Trim Previous Edit to Playhead»</mark> —
+                      подрезать предыдущий стык до индикатора текущего времени
+                    </td>
+                    <td>
+                      <mark className="key">Ctrl + Alt + Q</mark>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <mark className="select">«Trim Next Edit to Playhead»</mark> —
+                      подрезать следующий стык до индикатора текущего времени
+                    </td>
+                    <td>
+                      <mark className="key">Ctrl + Alt + W</mark>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <mark className="select">«Add Edit»</mark> — разрезать выделенный
+                      клип по индикатору текущего времени
+                    </td>
+                    <td>
+                      <mark className="key">Ctrl + K</mark>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <mark className="select">«Add Edit to All Tracks»</mark> — разрезать
+                      клипы по индикатору текущего времени на всех дорожках, кроме
+                      заблокированных
+                    </td>
+                    <td>
+                      <mark className="key">Ctrl + Shift + K</mark>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
                       <mark className="select">«Apply Video Transition»</mark> — применить
                       видеопереход
                       <Addition type="info">
@@ -1305,7 +1389,145 @@ const PrFromNewbies: React.FC = () => {
                   </tr>
                 </tbody>
               </table>
-              <Divider>Прочее</Divider>
+              <Divider>Воспроизведение и навигация (Playback)</Divider>
+              <table>
+                <thead>
+                  <tr>
+                    <th>Действие</th>
+                    <th style={{minWidth: "40%"}}>Комбинация</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <mark className="select">«Play-Stop Toggle»</mark> — начать или
+                      остановить воспроизведение предпросмотра
+                    </td>
+                    <td>
+                      <mark className="key">Space</mark>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <mark className="select">«Play from Playhead to Out Point»</mark> —
+                      проиграть от индикатора текущего времени до точки выхода
+                    </td>
+                    <td>
+                      <mark className="key">Ctrl + Space</mark>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <mark className="select">«Play In to Out»</mark> — проиграть
+                      предпросмотр в пределах рабочей области
+                    </td>
+                    <td>
+                      <mark className="key">Ctrl + Shift + Space</mark>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <mark className="select">
+                        «Play In to Out with Preroll/Postroll»
+                      </mark>{" "}
+                      — проиграть от точки входа до точки выхода с preroll/postroll
+                    </td>
+                    <td>
+                      <mark className="key">Shift + Space</mark>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <mark className="select">«Shuttle Left»</mark> — проиграть
+                      предпросмотр назад
+                      <Addition type="info">
+                        Многократное нажатие ускоряет проигрывание, с модификатором{" "}
+                        <mark className="key">Shift</mark>, наоборот, замедляет.
+                      </Addition>
+                    </td>
+                    <td>
+                      <mark className="key">J</mark>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <mark className="select">«Shuttle Stop»</mark> — остановить
+                      перемотку
+                    </td>
+                    <td>
+                      <mark className="key">K</mark>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <mark className="select">«Shuttle Right»</mark> — проиграть
+                      предпросмотр вперёд
+                      <Addition type="info">
+                        Многократное нажатие ускоряет проигрывание, с модификатором{" "}
+                        <mark className="key">Shift</mark>, наоборот, замедляет.
+                      </Addition>
+                    </td>
+                    <td>
+                      <mark className="key">L</mark>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <mark className="select">«Step Back 1 Frame»</mark> — перейти на
+                      предыдущий кадр
+                    </td>
+                    <td>
+                      <mark className="key">
+                        ← <span style={{fontWeight: "450", opacity: "0.5"}}>(влево)</span>
+                      </mark>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <mark className="select">«Step Forward 1 Frame»</mark> — перейти на
+                      следующий кадр
+                    </td>
+                    <td>
+                      <mark className="key">
+                        →{" "}
+                        <span style={{fontWeight: "450", opacity: "0.5"}}>(вправо)</span>
+                      </mark>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <mark className="select">«Go to Selected Clip Start»</mark> —
+                      перейти к началу выделенного клипа
+                    </td>
+                    <td>
+                      <mark className="key">Shift + Home</mark>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <mark className="select">«Go to Selected Clip End»</mark> — перейти
+                      к концу выделенного клипа
+                    </td>
+                    <td>
+                      <mark className="key">Shift + End</mark>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <mark className="select">«Select Clip at Playhead»</mark> — выделить
+                      текущий клип под индикатором текущего времени
+                      <Addition type="info">
+                        Работает, если выключен{" "}
+                        <mark className="select">«Select Follow Playhead»</mark>.
+                      </Addition>
+                    </td>
+                    <td>
+                      <mark className="key">D</mark>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <Divider>Субтитры (Captions)</Divider>
               <table>
                 <thead>
                   <tr>
@@ -1343,90 +1565,17 @@ const PrFromNewbies: React.FC = () => {
                       <mark className="key">Ctrl + Shift + C</mark>
                     </td>
                   </tr>
+                </tbody>
+              </table>
+              <Divider>Интерфейс и окно программы (Window)</Divider>
+              <table>
+                <thead>
                   <tr>
-                    <td>
-                      <mark className="select">«Export Frame»</mark> — экспортировать
-                      текущий кадр как изображение
-                    </td>
-                    <td>
-                      <mark className="key">Ctrl + Shift + E</mark>
-                    </td>
+                    <th>Действие</th>
+                    <th style={{minWidth: "40%"}}>Комбинация</th>
                   </tr>
-                  <tr>
-                    <td>
-                      <mark className="select">«Ripple Trim Next Edit To Playhead»</mark>{" "}
-                      — разрезать клип после индикатора текущего времени
-                    </td>
-                    <td>
-                      <mark className="key">W</mark>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <mark className="select">
-                        «Ripple Trim Previous Edit To Playhead»
-                      </mark>{" "}
-                      — разрезать клип до индикатора текущего времени
-                    </td>
-                    <td>
-                      <mark className="key">Q</mark>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <mark className="select">«Add Edit»</mark> — разрезать выделенный
-                      клип по индикатору текущего времени
-                    </td>
-                    <td>
-                      <mark className="key">Ctrl + K</mark>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <mark className="select">«Add Edit to All Tracks»</mark> — разрезать
-                      клипы по индикатору текущего времени на всех дорожках, кроме
-                      заблокированных
-                    </td>
-                    <td>
-                      <mark className="key">Ctrl + Shift + K</mark>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <mark className="select">«Extend Next Edit To Playhead»</mark> —
-                      продлить следующий стык до индикатора текущего времени
-                    </td>
-                    <td>
-                      <mark className="key">Shift + W</mark>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <mark className="select">«Extend Previous Edit To Playhead»</mark> —
-                      продлить предыдущий стык до индикатора текущего времени
-                    </td>
-                    <td>
-                      <mark className="key">Shift + Q</mark>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <mark className="select">«Trim Next Edit to Playhead»</mark> —
-                      подрезать следующий стык до индикатора текущего времени
-                    </td>
-                    <td>
-                      <mark className="key">Ctrl + Alt + W</mark>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <mark className="select">«Trim Previous Edit to Playhead»</mark> —
-                      подрезать предыдущий стык до индикатора текущего времени
-                    </td>
-                    <td>
-                      <mark className="key">Ctrl + Alt + Q</mark>
-                    </td>
-                  </tr>
+                </thead>
+                <tbody>
                   <tr>
                     <td>
                       <mark className="select">
@@ -1468,133 +1617,6 @@ const PrFromNewbies: React.FC = () => {
                     <td>Раскрыть программу на весь экран, скрыв заголовок окна</td>
                     <td>
                       <mark className="key">Ctrl + \</mark>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <mark className="select">«Play In to Out»</mark> — проиграть
-                      предпросмотр в пределах рабочей области
-                    </td>
-                    <td>
-                      <mark className="key">Ctrl + Shift + Space</mark>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <mark className="select">«Play from Playhead to Out Point»</mark> —
-                      проиграть от индикатора текущего времени до точки выхода
-                    </td>
-                    <td>
-                      <mark className="key">Ctrl + Space</mark>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <mark className="select">
-                        «Play In to Out with Preroll/Postroll»
-                      </mark>{" "}
-                      — проиграть от точки входа до точки выхода с preroll/postroll
-                    </td>
-                    <td>
-                      <mark className="key">Shift + Space</mark>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <mark className="select">«Play-Stop Toggle»</mark> — начать или
-                      остановить воспроизведение предпросмотра
-                    </td>
-                    <td>
-                      <mark className="key">Space</mark>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <mark className="select">«Go to Selected Clip Start»</mark> —
-                      перейти к началу выделенного клипа
-                    </td>
-                    <td>
-                      <mark className="key">Shift + Home</mark>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <mark className="select">«Go to Selected Clip End»</mark> — перейти
-                      к концу выделенного клипа
-                    </td>
-                    <td>
-                      <mark className="key">Shift + End</mark>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <mark className="select">«Select Clip at Playhead»</mark> — выделить
-                      текущий клип под индикатором текущего времени
-                      <Addition type="info">
-                        Работает, если выключен{" "}
-                        <mark className="select">«Select Follow Playhead»</mark>.
-                      </Addition>
-                    </td>
-                    <td>
-                      <mark className="key">D</mark>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <mark className="select">«Shuttle Left»</mark> — проиграть
-                      предпросмотр назад
-                      <Addition type="info">
-                        Многократное нажатие ускоряет проигрывание, с модификатором{" "}
-                        <mark className="key">Shift</mark>, наоборот, замедляет.
-                      </Addition>
-                    </td>
-                    <td>
-                      <mark className="key">J</mark>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <mark className="select">«Shuttle Right»</mark> — проиграть
-                      предпросмотр вперёд
-                      <Addition type="info">
-                        Многократное нажатие ускоряет проигрывание, с модификатором{" "}
-                        <mark className="key">Shift</mark>, наоборот, замедляет.
-                      </Addition>
-                    </td>
-                    <td>
-                      <mark className="key">L</mark>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <mark className="select">«Shuttle Stop»</mark> — остановить
-                      перемотку
-                    </td>
-                    <td>
-                      <mark className="key">K</mark>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <mark className="select">«Step Back 1 Frame»</mark> — перейти на
-                      предыдущий кадр
-                    </td>
-                    <td>
-                      <mark className="key">
-                        ← <span style={{fontWeight: "450", opacity: "0.5"}}>(влево)</span>
-                      </mark>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <mark className="select">«Step Forward 1 Frame»</mark> — перейти на
-                      следующий кадр
-                    </td>
-                    <td>
-                      <mark className="key">
-                        →{" "}
-                        <span style={{fontWeight: "450", opacity: "0.5"}}>(вправо)</span>
-                      </mark>
                     </td>
                   </tr>
                 </tbody>
