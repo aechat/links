@@ -1425,6 +1425,11 @@ const PrFromNewbies: React.FC = () => {
         />
       </DetailsSummary>
       <DetailsSummary
+        anchor="render-bar-colors"
+        tag="полоса рендеринга, render bar color"
+        title="Что означают красные, жёлтые и зелёные полосы вверху таймлайна?"
+      ></DetailsSummary>
+      <DetailsSummary
         anchor="timeline-track-targeting"
         tag="выделение, вставка клипов"
         title="Для чего нужны A1 и V1 слева от клипов на таймлайне?"
