@@ -1484,12 +1484,56 @@ const PrFromNewbies: React.FC = () => {
                   </tr>
                   <tr>
                     <td>
+                      <mark className="select">«Step Backward Many»</mark> — перейти назад
+                      на шаг<sup>1</sup>
+                      <Addition type="info">
+                        <sup>1</sup> По умолчанию в{" "}
+                        <mark className="app">Adobe Premiere</mark> шаг смещения
+                        составляет <mark>5 кадров</mark>. Изменить это значение можно в{" "}
+                        <mark className="select">
+                          «Edit» → «Preferences» → «Playback»
+                        </mark>{" "}
+                        в параметре{" "}
+                        <mark className="select">«Step forward/back many»</mark>.
+                      </Addition>
+                    </td>
+                    <td>
+                      <mark className="key">
+                        Shift + ←{" "}
+                        <span style={{fontWeight: "450", opacity: "0.5"}}>(влево)</span>
+                      </mark>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
                       <mark className="select">«Step Forward 1 Frame»</mark> — перейти на
                       следующий кадр
                     </td>
                     <td>
                       <mark className="key">
                         →{" "}
+                        <span style={{fontWeight: "450", opacity: "0.5"}}>(вправо)</span>
+                      </mark>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <mark className="select">«Step Forward Many»</mark> — перейти вперёд
+                      на шаг<sup>1</sup>
+                      <Addition type="info">
+                        <sup>1</sup> По умолчанию в{" "}
+                        <mark className="app">Adobe Premiere</mark> шаг смещения
+                        составляет <mark>5 кадров</mark>. Изменить это значение можно в{" "}
+                        <mark className="select">
+                          «Edit» → «Preferences» → «Playback»
+                        </mark>{" "}
+                        в параметре{" "}
+                        <mark className="select">«Step forward/back many»</mark>.
+                      </Addition>
+                    </td>
+                    <td>
+                      <mark className="key">
+                        Shift + →{" "}
                         <span style={{fontWeight: "450", opacity: "0.5"}}>(вправо)</span>
                       </mark>
                     </td>
