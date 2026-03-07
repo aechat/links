@@ -3534,7 +3534,12 @@ const AeFromNewbies: React.FC = () => {
                       — сдвинуть выделенные ключевые кадры на 1 кадр влево
                     </td>
                     <td>
-                      <mark className="key">Alt + ← (стрелка влево)</mark>
+                      <mark className="key">
+                        Alt + ←{" "}
+                        <span style={{fontWeight: "450", opacity: "0.5"}}>
+                          (стрелка влево)
+                        </span>
+                      </mark>
                     </td>
                   </tr>
                   <tr>
@@ -3545,7 +3550,12 @@ const AeFromNewbies: React.FC = () => {
                       — сдвинуть выделенные ключи на 1 кадр вправо
                     </td>
                     <td>
-                      <mark className="key">Alt + → (стрелка вправо)</mark>
+                      <mark className="key">
+                        Alt + →{" "}
+                        <span style={{fontWeight: "450", opacity: "0.5"}}>
+                          (стрелка вправо)
+                        </span>
+                      </mark>
                     </td>
                   </tr>
                   <tr>
@@ -3556,7 +3566,12 @@ const AeFromNewbies: React.FC = () => {
                       — сдвинуть выделенные ключи на 10 кадров влево
                     </td>
                     <td>
-                      <mark className="key">Alt + Shift + ← (стрелка влево)</mark>
+                      <mark className="key">
+                        Alt + Shift + ←{" "}
+                        <span style={{fontWeight: "450", opacity: "0.5"}}>
+                          (стрелка влево)
+                        </span>
+                      </mark>
                     </td>
                   </tr>
                   <tr>
@@ -3567,7 +3582,12 @@ const AeFromNewbies: React.FC = () => {
                       — сдвинуть выделенные ключи на 10 кадров вправо
                     </td>
                     <td>
-                      <mark className="key">Alt + Shift + → (стрелка вправо)</mark>
+                      <mark className="key">
+                        Alt + Shift + →{" "}
+                        <span style={{fontWeight: "450", opacity: "0.5"}}>
+                          (стрелка вправо)
+                        </span>
+                      </mark>
                     </td>
                   </tr>
                   <tr>
@@ -3844,7 +3864,9 @@ const AeFromNewbies: React.FC = () => {
                       — переместить начало выделенных слоёв к индикатору текущего времени
                     </td>
                     <td>
-                      <mark className="key">[ (Х)</mark>
+                      <mark className="key">
+                        [ <span style={{fontWeight: "450", opacity: "0.5"}}>(Х)</span>
+                      </mark>
                     </td>
                   </tr>
                   <tr>
@@ -3855,7 +3877,9 @@ const AeFromNewbies: React.FC = () => {
                       — переместить конец выделенных слоёв к индикатору текущего времени
                     </td>
                     <td>
-                      <mark className="key">] (Ъ)</mark>
+                      <mark className="key">
+                        ] <span style={{fontWeight: "450", opacity: "0.5"}}>(Ъ)</span>
+                      </mark>
                     </td>
                   </tr>
                   <tr>
@@ -3902,7 +3926,10 @@ const AeFromNewbies: React.FC = () => {
                       — обрезать начало выделенных слоёв до индикатора текущего времени
                     </td>
                     <td>
-                      <mark className="key">Alt + [ (Х)</mark>
+                      <mark className="key">
+                        Alt + [{" "}
+                        <span style={{fontWeight: "450", opacity: "0.5"}}>(Х)</span>
+                      </mark>
                     </td>
                   </tr>
                   <tr>
@@ -3913,7 +3940,10 @@ const AeFromNewbies: React.FC = () => {
                       — обрезать конец выделенных слоёв до индикатора текущего времени
                     </td>
                     <td>
-                      <mark className="key">Alt + ] (Ъ)</mark>
+                      <mark className="key">
+                        Alt + ]{" "}
+                        <span style={{fontWeight: "450", opacity: "0.5"}}>(Ъ)</span>
+                      </mark>
                     </td>
                   </tr>
                   <tr>
@@ -3922,7 +3952,10 @@ const AeFromNewbies: React.FC = () => {
                       выделенные слои ниже по иерархии в композиции
                     </td>
                     <td>
-                      <mark className="key">Ctrl + [ (Х)</mark>
+                      <mark className="key">
+                        Ctrl + [{" "}
+                        <span style={{fontWeight: "450", opacity: "0.5"}}>(Х)</span>
+                      </mark>
                     </td>
                   </tr>
                   <tr>
@@ -3931,7 +3964,10 @@ const AeFromNewbies: React.FC = () => {
                       выделенные слои выше по иерархии в композиции
                     </td>
                     <td>
-                      <mark className="key">Ctrl + ] (Ъ)</mark>
+                      <mark className="key">
+                        Ctrl + ]{" "}
+                        <span style={{fontWeight: "450", opacity: "0.5"}}>(Ъ)</span>
+                      </mark>
                     </td>
                   </tr>
                   <tr>
@@ -4103,7 +4139,12 @@ const AeFromNewbies: React.FC = () => {
                     </td>
                     <td>
                       <mark className="key">PgUp</mark> или{" "}
-                      <mark className="key">Ctrl + ← (стрелка влево)</mark>
+                      <mark className="key">
+                        Ctrl + ←{" "}
+                        <span style={{fontWeight: "450", opacity: "0.5"}}>
+                          (стрелка влево)
+                        </span>
+                      </mark>
                     </td>
                   </tr>
                   <tr>
@@ -4113,7 +4154,12 @@ const AeFromNewbies: React.FC = () => {
                     </td>
                     <td>
                       <mark className="key">PgDown</mark> или{" "}
-                      <mark className="key">Ctrl + → (стрелка вправо)</mark>
+                      <mark className="key">
+                        Ctrl + →{" "}
+                        <span style={{fontWeight: "450", opacity: "0.5"}}>
+                          (стрелка вправо)
+                        </span>
+                      </mark>
                     </td>
                   </tr>
                   <tr>
@@ -4198,7 +4244,12 @@ const AeFromNewbies: React.FC = () => {
                       </Addition>
                     </td>
                     <td>
-                      <mark className="key">* (на Numpad)</mark>
+                      <mark className="key">
+                        *{" "}
+                        <span style={{fontWeight: "450", opacity: "0.5"}}>
+                          (на Numpad)
+                        </span>
+                      </mark>
                       <Addition type="info">
                         Если у вас клавиатура без цифрового блока, можно переназначить эту
                         клавишу в{" "}
@@ -4244,7 +4295,10 @@ const AeFromNewbies: React.FC = () => {
                       </Addition>
                     </td>
                     <td>
-                      <mark className="key">Ctrl + &apos; (Э)</mark>
+                      <mark className="key">
+                        Ctrl + &apos;{" "}
+                        <span style={{fontWeight: "450", opacity: "0.5"}}>(Э)</span>
+                      </mark>
                     </td>
                   </tr>
                   <tr>
@@ -4253,7 +4307,10 @@ const AeFromNewbies: React.FC = () => {
                       скрыть направляющие в предпросмотре композиции или слоя
                     </td>
                     <td>
-                      <mark className="key">Ctrl + ; (Ж)</mark>
+                      <mark className="key">
+                        Ctrl + ;{" "}
+                        <span style={{fontWeight: "450", opacity: "0.5"}}>(Ж)</span>
+                      </mark>
                     </td>
                   </tr>
                   <tr>
@@ -4262,7 +4319,10 @@ const AeFromNewbies: React.FC = () => {
                       или выключить привязку к направляющим
                     </td>
                     <td>
-                      <mark className="key">Ctrl + Shift + ; (Ж)</mark>
+                      <mark className="key">
+                        Ctrl + Shift + ;{" "}
+                        <span style={{fontWeight: "450", opacity: "0.5"}}>(Ж)</span>
+                      </mark>
                     </td>
                   </tr>
                   <tr>
@@ -4272,7 +4332,10 @@ const AeFromNewbies: React.FC = () => {
                       слоя
                     </td>
                     <td>
-                      <mark className="key">&apos; (Э)</mark>
+                      <mark className="key">
+                        &apos;{" "}
+                        <span style={{fontWeight: "450", opacity: "0.5"}}>(Э)</span>
+                      </mark>
                     </td>
                   </tr>
                   <tr>
@@ -4281,8 +4344,13 @@ const AeFromNewbies: React.FC = () => {
                       уменьшить масштаб предпросмотра композиции или слоя
                     </td>
                     <td>
-                      <mark className="key">. (Ю)</mark> или{" "}
-                      <mark className="key">, (Б)</mark>
+                      <mark className="key">
+                        . <span style={{fontWeight: "450", opacity: "0.5"}}>(Ю)</span>
+                      </mark>{" "}
+                      или{" "}
+                      <mark className="key">
+                        , <span style={{fontWeight: "450", opacity: "0.5"}}>(Б)</span>
+                      </mark>
                     </td>
                   </tr>
                   <tr>
@@ -4316,7 +4384,10 @@ const AeFromNewbies: React.FC = () => {
                       настроек <mark className="app">Adobe After Effects</mark>
                     </td>
                     <td>
-                      <mark className="key">Ctrl + Alt + ; (Ж)</mark>
+                      <mark className="key">
+                        Ctrl + Alt + ;{" "}
+                        <span style={{fontWeight: "450", opacity: "0.5"}}>(Ж)</span>
+                      </mark>
                     </td>
                   </tr>
                   <tr>
@@ -4325,7 +4396,10 @@ const AeFromNewbies: React.FC = () => {
                       редактор горячих клавиш
                     </td>
                     <td>
-                      <mark className="key">Ctrl + Alt + &apos; (Э)</mark>
+                      <mark className="key">
+                        Ctrl + Alt + &apos;{" "}
+                        <span style={{fontWeight: "450", opacity: "0.5"}}>(Э)</span>
+                      </mark>
                     </td>
                   </tr>
                   <tr>
@@ -4334,7 +4408,9 @@ const AeFromNewbies: React.FC = () => {
                       восстановить панель под курсором
                     </td>
                     <td>
-                      <mark className="key">` (Ё)</mark>
+                      <mark className="key">
+                        ` <span style={{fontWeight: "450", opacity: "0.5"}}>(Ё)</span>
+                      </mark>
                     </td>
                   </tr>
                   <tr>
