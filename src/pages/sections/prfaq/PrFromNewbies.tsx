@@ -1186,7 +1186,7 @@ const PrFromNewbies: React.FC = () => {
                 <tbody>
                   <tr>
                     <td>
-                      Открыть окно <mark className="select">«Project»</mark>
+                      Открыть панель <mark className="select">«Project»</mark>
                     </td>
                     <td>
                       <mark className="key">Shift + 1</mark>
@@ -1194,7 +1194,7 @@ const PrFromNewbies: React.FC = () => {
                   </tr>
                   <tr>
                     <td>
-                      Открыть окно <mark className="select">«Source Monitor»</mark>
+                      Открыть панель <mark className="select">«Source Monitor»</mark>
                     </td>
                     <td>
                       <mark className="key">Shift + 2</mark>
@@ -1202,7 +1202,7 @@ const PrFromNewbies: React.FC = () => {
                   </tr>
                   <tr>
                     <td>
-                      Открыть окно <mark className="select">«Timeline»</mark>
+                      Открыть панель <mark className="select">«Timeline»</mark>
                     </td>
                     <td>
                       <mark className="key">Shift + 3</mark>
@@ -1210,7 +1210,7 @@ const PrFromNewbies: React.FC = () => {
                   </tr>
                   <tr>
                     <td>
-                      Открыть окно <mark className="select">«Program Monitor»</mark>
+                      Открыть панель <mark className="select">«Program Monitor»</mark>
                     </td>
                     <td>
                       <mark className="key">Shift + 4</mark>
@@ -1218,7 +1218,7 @@ const PrFromNewbies: React.FC = () => {
                   </tr>
                   <tr>
                     <td>
-                      Открыть окно <mark className="select">«Effect Controls»</mark>
+                      Открыть панель <mark className="select">«Effect Controls»</mark>
                     </td>
                     <td>
                       <mark className="key">Shift + 5</mark>
@@ -1226,7 +1226,7 @@ const PrFromNewbies: React.FC = () => {
                   </tr>
                   <tr>
                     <td>
-                      Открыть окно <mark className="select">«Audio Track Mixer»</mark>
+                      Открыть панель <mark className="select">«Audio Track Mixer»</mark>
                     </td>
                     <td>
                       <mark className="key">Shift + 6</mark>
@@ -1234,7 +1234,7 @@ const PrFromNewbies: React.FC = () => {
                   </tr>
                   <tr>
                     <td>
-                      Открыть окно <mark className="select">«Effects»</mark>
+                      Открыть панель <mark className="select">«Effects»</mark>
                     </td>
                     <td>
                       <mark className="key">Shift + 7</mark>
@@ -1242,7 +1242,7 @@ const PrFromNewbies: React.FC = () => {
                   </tr>
                   <tr>
                     <td>
-                      Открыть окно <mark className="select">«Media Browser»</mark>
+                      Открыть панель <mark className="select">«Media Browser»</mark>
                     </td>
                     <td>
                       <mark className="key">Shift + 8</mark>
@@ -1250,7 +1250,7 @@ const PrFromNewbies: React.FC = () => {
                   </tr>
                   <tr>
                     <td>
-                      Открыть окно <mark className="select">«Audio Clip Mixer»</mark>
+                      Открыть панель <mark className="select">«Audio Clip Mixer»</mark>
                     </td>
                     <td>
                       <mark className="key">Shift + 9</mark>
