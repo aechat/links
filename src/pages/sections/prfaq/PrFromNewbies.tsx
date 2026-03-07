@@ -423,8 +423,8 @@ const PrFromNewbies: React.FC = () => {
                   </tr>
                   <tr>
                     <td>
-                      <mark className="select">«Copy»</mark> — скопировать выделенное и
-                      поместить их в буфер обмена
+                      <mark className="select">«Copy»</mark> — скопировать выделенные
+                      элементы и поместить их в буфер обмена
                     </td>
                     <td>
                       <mark className="key">Ctrl + C</mark>
@@ -432,14 +432,18 @@ const PrFromNewbies: React.FC = () => {
                   </tr>
                   <tr>
                     <td>
-                      <mark className="select">«Paste»</mark> — вставить из буфера обмена
+                      <mark className="select">«Paste»</mark> — вставить содержимое из
+                      буфера обмена
                     </td>
                     <td>
                       <mark className="key">Ctrl + V</mark>
                     </td>
                   </tr>
                   <tr>
-                    <td>Вставить из буфера обмена вставкой</td>
+                    <td>
+                      <mark className="select">«Paste Insert»</mark> — вставить содержимое
+                      из буфера обмена вставкой
+                    </td>
                     <td>
                       <mark className="key">Ctrl + Shift + V</mark>
                     </td>
@@ -451,6 +455,37 @@ const PrFromNewbies: React.FC = () => {
                     </td>
                     <td>
                       <mark className="key">Ctrl + Alt + V</mark>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <mark className="select">«Paste To Same Track»</mark> — вставить
+                      клип на той же дорожке таймлайна, где он был
+                    </td>
+                    <td>
+                      <mark className="key">Ctrl + V</mark>
+                      <Addition type="info">
+                        До версии <mark>22.5</mark> данная комбинация клавиш была
+                        назначена на действие <mark className="select">«Paste»</mark>,
+                        которое работает как{" "}
+                        <mark className="select">«Paste To Target Track»</mark>.
+                      </Addition>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <mark className="select">«Paste Insert To Same Track»</mark> —
+                      вставить клип со сдвигом на той же дорожке таймлайна, где он был
+                    </td>
+                    <td>
+                      <mark className="key">Ctrl + Shift + V</mark>
+                      <Addition type="info">
+                        До версии <mark>22.5</mark> данная комбинация клавиш была
+                        назначена на действие{" "}
+                        <mark className="select">«Paste Insert»</mark>, которое работает
+                        как <mark className="select">«Paste Insert To Target Track»</mark>
+                        .
+                      </Addition>
                     </td>
                   </tr>
                   <tr>
