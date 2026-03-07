@@ -2940,7 +2940,7 @@ const AeFromNewbies: React.FC = () => {
         <ContentFilter
           windowsContent={
             <>
-              <Divider>Работа с файлами и проектом</Divider>
+              <Divider>Работа с файлами и проектом (File)</Divider>
               <table>
                 <thead>
                   <tr>
@@ -3041,7 +3041,7 @@ const AeFromNewbies: React.FC = () => {
                   </tr>
                 </tbody>
               </table>
-              <Divider>Выбор инструментов</Divider>
+              <Divider>Выбор инструментов (Application)</Divider>
               <table>
                 <thead>
                   <tr>
@@ -3213,7 +3213,7 @@ const AeFromNewbies: React.FC = () => {
                   </tr>
                 </tbody>
               </table>
-              <Divider>Отображение свойств слоя</Divider>
+              <Divider>Отображение свойств слоя (Timeline Panel)</Divider>
               <table>
                 <thead>
                   <tr>
@@ -3421,7 +3421,7 @@ const AeFromNewbies: React.FC = () => {
                   </tr>
                 </tbody>
               </table>
-              <Divider>Работа с ключевыми кадрами на таймлайне</Divider>
+              <Divider>Работа с ключевыми кадрами на таймлайне (Animation)</Divider>
               <table>
                 <thead>
                   <tr>
@@ -3602,7 +3602,63 @@ const AeFromNewbies: React.FC = () => {
                   </tr>
                 </tbody>
               </table>
-              <Divider>Работа со слоями на таймлайне</Divider>
+              <Divider>Редактирование (Edit)</Divider>
+              <table>
+                <thead>
+                  <tr>
+                    <th>Действие</th>
+                    <th style={{minWidth: "40%"}}>Комбинация</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <mark className="select">«Undo Last Action»</mark> — отменить
+                      последнее действие
+                    </td>
+                    <td>
+                      <mark className="key">Ctrl + Z</mark>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <mark className="select">«Redo Last Action»</mark> — вернуть
+                      отменённое действие
+                    </td>
+                    <td>
+                      <mark className="key">Ctrl + Shift + Z</mark>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <mark className="select">«Cut»</mark> — вырезать содержимое и
+                      поместить их в буфер обмена
+                    </td>
+                    <td>
+                      <mark className="key">Ctrl + X</mark>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <mark className="select">«Copy»</mark> — скопировать содержимое и
+                      поместить их в буфер обмена
+                    </td>
+                    <td>
+                      <mark className="key">Ctrl + C</mark>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <mark className="select">«Paste»</mark> — вставить содержимое из
+                      буфера обмена
+                    </td>
+                    <td>
+                      <mark className="key">Ctrl + V</mark>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <Divider>Работа со слоями на таймлайне (Layer)</Divider>
               <table>
                 <thead>
                   <tr>
@@ -3895,7 +3951,7 @@ const AeFromNewbies: React.FC = () => {
                   </tr>
                 </tbody>
               </table>
-              <Divider>Создание слоёв</Divider>
+              <Divider>Создание слоёв (Layer → New)</Divider>
               <table>
                 <thead>
                   <tr>
@@ -3960,7 +4016,7 @@ const AeFromNewbies: React.FC = () => {
                   </tr>
                 </tbody>
               </table>
-              <Divider>Работа с таймлайном и композицией</Divider>
+              <Divider>Работа с таймлайном и композицией (Composition)</Divider>
               <table>
                 <thead>
                   <tr>
@@ -4152,7 +4208,7 @@ const AeFromNewbies: React.FC = () => {
                   </tr>
                 </tbody>
               </table>
-              <Divider>Работа с окном предпросмотра</Divider>
+              <Divider>Работа с окном предпросмотра (View)</Divider>
               <table>
                 <thead>
                   <tr>
@@ -4244,7 +4300,7 @@ const AeFromNewbies: React.FC = () => {
                   </tr>
                 </tbody>
               </table>
-              <Divider>Прочее</Divider>
+              <Divider>Прочее (Application)</Divider>
               <table>
                 <thead>
                   <tr>
@@ -4269,6 +4325,24 @@ const AeFromNewbies: React.FC = () => {
                     </td>
                     <td>
                       <mark className="key">Ctrl + Alt + &apos;</mark>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <mark className="select">«Maximize Panel»</mark> — развернуть или
+                      восстановить панель под курсором
+                    </td>
+                    <td>
+                      <mark className="key">` (Ё)</mark>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <mark className="select">«Maximize App Window»</mark> — раскрыть
+                      программу на весь экран, скрыв заголовок окна
+                    </td>
+                    <td>
+                      <mark className="key">Ctrl + \</mark>
                     </td>
                   </tr>
                 </tbody>
