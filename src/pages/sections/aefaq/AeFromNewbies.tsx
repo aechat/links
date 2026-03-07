@@ -3844,7 +3844,7 @@ const AeFromNewbies: React.FC = () => {
                       — переместить начало выделенных слоёв к индикатору текущего времени
                     </td>
                     <td>
-                      <mark className="key">[</mark>
+                      <mark className="key">[ (Х)</mark>
                     </td>
                   </tr>
                   <tr>
@@ -3855,7 +3855,7 @@ const AeFromNewbies: React.FC = () => {
                       — переместить конец выделенных слоёв к индикатору текущего времени
                     </td>
                     <td>
-                      <mark className="key">]</mark>
+                      <mark className="key">] (Ъ)</mark>
                     </td>
                   </tr>
                   <tr>
@@ -3902,7 +3902,7 @@ const AeFromNewbies: React.FC = () => {
                       — обрезать начало выделенных слоёв до индикатора текущего времени
                     </td>
                     <td>
-                      <mark className="key">Alt + [</mark>
+                      <mark className="key">Alt + [ (Х)</mark>
                     </td>
                   </tr>
                   <tr>
@@ -3913,7 +3913,7 @@ const AeFromNewbies: React.FC = () => {
                       — обрезать конец выделенных слоёв до индикатора текущего времени
                     </td>
                     <td>
-                      <mark className="key">Alt + ]</mark>
+                      <mark className="key">Alt + ] (Ъ)</mark>
                     </td>
                   </tr>
                   <tr>
@@ -3922,7 +3922,7 @@ const AeFromNewbies: React.FC = () => {
                       выделенные слои ниже по иерархии в композиции
                     </td>
                     <td>
-                      <mark className="key">Ctrl + [</mark>
+                      <mark className="key">Ctrl + [ (Х)</mark>
                     </td>
                   </tr>
                   <tr>
@@ -3931,7 +3931,7 @@ const AeFromNewbies: React.FC = () => {
                       выделенные слои выше по иерархии в композиции
                     </td>
                     <td>
-                      <mark className="key">Ctrl + ]</mark>
+                      <mark className="key">Ctrl + ] (Ъ)</mark>
                     </td>
                   </tr>
                   <tr>
@@ -4244,7 +4244,7 @@ const AeFromNewbies: React.FC = () => {
                       </Addition>
                     </td>
                     <td>
-                      <mark className="key">Ctrl + &apos;</mark>
+                      <mark className="key">Ctrl + &apos; (Э)</mark>
                     </td>
                   </tr>
                   <tr>
@@ -4253,7 +4253,7 @@ const AeFromNewbies: React.FC = () => {
                       скрыть направляющие в предпросмотре композиции или слоя
                     </td>
                     <td>
-                      <mark className="key">Ctrl + ;</mark>
+                      <mark className="key">Ctrl + ; (Ж)</mark>
                     </td>
                   </tr>
                   <tr>
@@ -4262,7 +4262,7 @@ const AeFromNewbies: React.FC = () => {
                       или выключить привязку к направляющим
                     </td>
                     <td>
-                      <mark className="key">Ctrl + Shift + ;</mark>
+                      <mark className="key">Ctrl + Shift + ; (Ж)</mark>
                     </td>
                   </tr>
                   <tr>
@@ -4272,7 +4272,7 @@ const AeFromNewbies: React.FC = () => {
                       слоя
                     </td>
                     <td>
-                      <mark className="key">&apos;</mark>
+                      <mark className="key">&apos; (Э)</mark>
                     </td>
                   </tr>
                   <tr>
@@ -4281,7 +4281,8 @@ const AeFromNewbies: React.FC = () => {
                       уменьшить масштаб предпросмотра композиции или слоя
                     </td>
                     <td>
-                      <mark className="key">.</mark> или <mark className="key">,</mark>
+                      <mark className="key">. (Ю)</mark> или{" "}
+                      <mark className="key">, (Б)</mark>
                     </td>
                   </tr>
                   <tr>
@@ -4315,7 +4316,7 @@ const AeFromNewbies: React.FC = () => {
                       настроек <mark className="app">Adobe After Effects</mark>
                     </td>
                     <td>
-                      <mark className="key">Ctrl + Alt + ;</mark>
+                      <mark className="key">Ctrl + Alt + ; (Ж)</mark>
                     </td>
                   </tr>
                   <tr>
@@ -4324,7 +4325,7 @@ const AeFromNewbies: React.FC = () => {
                       редактор горячих клавиш
                     </td>
                     <td>
-                      <mark className="key">Ctrl + Alt + &apos;</mark>
+                      <mark className="key">Ctrl + Alt + &apos; (Э)</mark>
                     </td>
                   </tr>
                   <tr>

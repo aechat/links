@@ -1142,7 +1142,7 @@ const PrFromNewbies: React.FC = () => {
                       <mark className="select">«Graphic»</mark> выше по иерархии
                     </td>
                     <td>
-                      <mark className="key">Ctrl + ]</mark>
+                      <mark className="key">Ctrl + ] (Ъ)</mark>
                     </td>
                   </tr>
                   <tr>
@@ -1152,7 +1152,7 @@ const PrFromNewbies: React.FC = () => {
                       <mark className="select">«Graphic»</mark> ниже по иерархии
                     </td>
                     <td>
-                      <mark className="key">Ctrl + [</mark>
+                      <mark className="key">Ctrl + [ (Х)</mark>
                     </td>
                   </tr>
                   <tr>
@@ -1161,7 +1161,7 @@ const PrFromNewbies: React.FC = () => {
                       следующий слой в <mark className="select">«Graphic»</mark>
                     </td>
                     <td>
-                      <mark className="key">Ctrl + Alt + ]</mark>
+                      <mark className="key">Ctrl + Alt + ] (Ъ)</mark>
                     </td>
                   </tr>
                   <tr>
@@ -1170,7 +1170,7 @@ const PrFromNewbies: React.FC = () => {
                       предыдущий слой в <mark className="select">«Graphic»</mark>
                     </td>
                     <td>
-                      <mark className="key">Ctrl + Alt + [</mark>
+                      <mark className="key">Ctrl + Alt + [ (Х)</mark>
                     </td>
                   </tr>
                 </tbody>
