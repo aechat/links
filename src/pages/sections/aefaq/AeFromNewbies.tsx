@@ -3536,9 +3536,7 @@ const AeFromNewbies: React.FC = () => {
                     <td>
                       <mark className="key">
                         Alt + ←{" "}
-                        <span style={{fontWeight: "450", opacity: "0.5"}}>
-                          (стрелка влево)
-                        </span>
+                        <span style={{fontWeight: "450", opacity: "0.5"}}>(влево)</span>
                       </mark>
                     </td>
                   </tr>
@@ -3552,9 +3550,7 @@ const AeFromNewbies: React.FC = () => {
                     <td>
                       <mark className="key">
                         Alt + →{" "}
-                        <span style={{fontWeight: "450", opacity: "0.5"}}>
-                          (стрелка вправо)
-                        </span>
+                        <span style={{fontWeight: "450", opacity: "0.5"}}>(вправо)</span>
                       </mark>
                     </td>
                   </tr>
@@ -3568,9 +3564,7 @@ const AeFromNewbies: React.FC = () => {
                     <td>
                       <mark className="key">
                         Alt + Shift + ←{" "}
-                        <span style={{fontWeight: "450", opacity: "0.5"}}>
-                          (стрелка влево)
-                        </span>
+                        <span style={{fontWeight: "450", opacity: "0.5"}}>(влево)</span>
                       </mark>
                     </td>
                   </tr>
@@ -3584,9 +3578,7 @@ const AeFromNewbies: React.FC = () => {
                     <td>
                       <mark className="key">
                         Alt + Shift + →{" "}
-                        <span style={{fontWeight: "450", opacity: "0.5"}}>
-                          (стрелка вправо)
-                        </span>
+                        <span style={{fontWeight: "450", opacity: "0.5"}}>(вправо)</span>
                       </mark>
                     </td>
                   </tr>
@@ -4141,9 +4133,7 @@ const AeFromNewbies: React.FC = () => {
                       <mark className="key">PgUp</mark> или{" "}
                       <mark className="key">
                         Ctrl + ←{" "}
-                        <span style={{fontWeight: "450", opacity: "0.5"}}>
-                          (стрелка влево)
-                        </span>
+                        <span style={{fontWeight: "450", opacity: "0.5"}}>(влево)</span>
                       </mark>
                     </td>
                   </tr>
@@ -4156,9 +4146,7 @@ const AeFromNewbies: React.FC = () => {
                       <mark className="key">PgDown</mark> или{" "}
                       <mark className="key">
                         Ctrl + →{" "}
-                        <span style={{fontWeight: "450", opacity: "0.5"}}>
-                          (стрелка вправо)
-                        </span>
+                        <span style={{fontWeight: "450", opacity: "0.5"}}>(вправо)</span>
                       </mark>
                     </td>
                   </tr>

@@ -738,10 +738,7 @@ const PrFromNewbies: React.FC = () => {
                     </td>
                     <td>
                       <mark className="key">
-                        ↓{" "}
-                        <span style={{fontWeight: "450", opacity: "0.5"}}>
-                          (стрелка вниз)
-                        </span>
+                        ↓ <span style={{fontWeight: "450", opacity: "0.5"}}>(вниз)</span>
                       </mark>
                     </td>
                   </tr>
@@ -766,10 +763,7 @@ const PrFromNewbies: React.FC = () => {
                     </td>
                     <td>
                       <mark className="key">
-                        ↑{" "}
-                        <span style={{fontWeight: "450", opacity: "0.5"}}>
-                          (стрелка вверх)
-                        </span>
+                        ↑ <span style={{fontWeight: "450", opacity: "0.5"}}>(вверх)</span>
                       </mark>
                     </td>
                   </tr>
@@ -786,9 +780,7 @@ const PrFromNewbies: React.FC = () => {
                     <td>
                       <mark className="key">
                         Shift + ↓{" "}
-                        <span style={{fontWeight: "450", opacity: "0.5"}}>
-                          (стрелка вниз)
-                        </span>
+                        <span style={{fontWeight: "450", opacity: "0.5"}}>(вниз)</span>
                       </mark>
                     </td>
                   </tr>
@@ -807,9 +799,7 @@ const PrFromNewbies: React.FC = () => {
                     <td>
                       <mark className="key">
                         Shift + ↑{" "}
-                        <span style={{fontWeight: "450", opacity: "0.5"}}>
-                          (стрелка вверх)
-                        </span>
+                        <span style={{fontWeight: "450", opacity: "0.5"}}>(вверх)</span>
                       </mark>
                     </td>
                   </tr>
@@ -833,9 +823,7 @@ const PrFromNewbies: React.FC = () => {
                     <td>
                       <mark className="key">
                         Ctrl + →{" "}
-                        <span style={{fontWeight: "450", opacity: "0.5"}}>
-                          (стрелка вправо)
-                        </span>
+                        <span style={{fontWeight: "450", opacity: "0.5"}}>(вправо)</span>
                       </mark>
                     </td>
                   </tr>
@@ -850,9 +838,7 @@ const PrFromNewbies: React.FC = () => {
                     <td>
                       <mark className="key">
                         Ctrl + ←{" "}
-                        <span style={{fontWeight: "450", opacity: "0.5"}}>
-                          (стрелка влево)
-                        </span>
+                        <span style={{fontWeight: "450", opacity: "0.5"}}>(влево)</span>
                       </mark>
                     </td>
                   </tr>
@@ -883,9 +869,7 @@ const PrFromNewbies: React.FC = () => {
                     <td>
                       <mark className="key">
                         Ctrl + Shift + →{" "}
-                        <span style={{fontWeight: "450", opacity: "0.5"}}>
-                          (стрелка вправо)
-                        </span>
+                        <span style={{fontWeight: "450", opacity: "0.5"}}>(вправо)</span>
                       </mark>
                     </td>
                   </tr>
@@ -916,9 +900,7 @@ const PrFromNewbies: React.FC = () => {
                     <td>
                       <mark className="key">
                         Ctrl + Shift + ←{" "}
-                        <span style={{fontWeight: "450", opacity: "0.5"}}>
-                          (стрелка влево)
-                        </span>
+                        <span style={{fontWeight: "450", opacity: "0.5"}}>(влево)</span>
                       </mark>
                     </td>
                   </tr>
@@ -1599,10 +1581,7 @@ const PrFromNewbies: React.FC = () => {
                     </td>
                     <td>
                       <mark className="key">
-                        ←{" "}
-                        <span style={{fontWeight: "450", opacity: "0.5"}}>
-                          (стрелка влево)
-                        </span>
+                        ← <span style={{fontWeight: "450", opacity: "0.5"}}>(влево)</span>
                       </mark>
                     </td>
                   </tr>
@@ -1614,9 +1593,7 @@ const PrFromNewbies: React.FC = () => {
                     <td>
                       <mark className="key">
                         →{" "}
-                        <span style={{fontWeight: "450", opacity: "0.5"}}>
-                          (стрелка вправо)
-                        </span>
+                        <span style={{fontWeight: "450", opacity: "0.5"}}>(вправо)</span>
                       </mark>
                     </td>
                   </tr>
