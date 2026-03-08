@@ -48,13 +48,13 @@ const AeFromNewbies: React.FC = () => {
             </li>
           </ul>
         </Addition>
-        <Divider>Курсы для начинающих</Divider>
+        <Divider>Подборка курсов для начинающих</Divider>
         <ul>
           <li>
             <p>
               Если вы только начинаете свой путь в мире композитинга и никогда не работали
               с программами вроде <mark className="app">Adobe After Effects</mark>,
-              рекомендую пройти курс{" "}
+              пройдите курс{" "}
               <a href="https://www.youtube.com/playlist?list=PLcN7xY5E2wrmIU__8uNIHglZTyZ29RMIM">
                 «Основы After Effects»
               </a>{" "}
@@ -84,8 +84,8 @@ const AeFromNewbies: React.FC = () => {
           </li>
           <li>
             <p>
-              Если вы владеете английским на уровне комфортного понимания речи, рекомендую
-              к просмотру плейлист{" "}
+              Если вы владеете английским на уровне комфортного понимания речи, изучите
+              плейлист{" "}
               <a href="https://www.youtube.com/playlist?list=PLYfCBK8IplO77FDDLnS06qEMoVLD7Qyib">
                 «Learn Adobe After Effects» от Gareth David Studio
               </a>
