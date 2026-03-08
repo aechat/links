@@ -6,7 +6,7 @@ import {UploadFileRounded} from "@mui/icons-material";
 import {message, Upload} from "antd";
 
 import {formatBytes, formatPercentDelta} from "../../../utils/fileUtilities";
-import {triggerHaptic} from "../../../utils/haptics";
+import {triggerHaptic, withSoftHaptic} from "../../../utils/haptics";
 import modalStyles from "../../modals/Modal.module.scss";
 
 import styles from "./Converter.module.scss";
@@ -58,18 +58,16 @@ const TgsToJsonConverter: React.FC = () => {
     }
   };
 
-  const handleReset = () => {
-    triggerHaptic("soft");
+  const handleReset = withSoftHaptic(() => {
     setJsonData(undefined);
     setOriginalFileName("");
     setOriginalFileSize(undefined);
     setDecompressedJsonSize(undefined);
-  };
+  });
 
-  const handleDownload = () => {
-    triggerHaptic("soft");
+  const handleDownload = withSoftHaptic(() => {
     downloadJson();
-  };
+  });
 
   return (
     <div className={styles["converter"]}>

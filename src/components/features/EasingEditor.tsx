@@ -819,6 +819,8 @@ const AnimationControls: React.FC<AnimationControlsProperties> = ({
     scaleAndRotate: "Поворот + масштаб",
   };
 
+  const handleDurationAfterChange = triggerHaptic.bind(undefined, "selection");
+
   return (
     <div className={styles["animation-controls"]}>
       <div className={styles["control-item"]}>
@@ -830,7 +832,7 @@ const AnimationControls: React.FC<AnimationControlsProperties> = ({
           min={1}
           step={0.25}
           value={duration}
-          onAfterChange={() => triggerHaptic("selection")}
+          onAfterChange={handleDurationAfterChange}
           onChange={setDuration}
         />
         <label>

@@ -79,6 +79,44 @@ export const triggerHaptic = (input: HapticInput = "selection") => {
   void instance.trigger(input).catch(() => {});
 };
 
+export const withHaptic = <Arguments extends unknown[], Result>(
+  input: HapticInput,
+  handler: (...arguments_: Arguments) => Result
+) => {
+  return (...arguments_: Arguments): Result => {
+    triggerHaptic(input);
+
+    return handler(...arguments_);
+  };
+};
+
+export const withSelectionHaptic = <Arguments extends unknown[], Result>(
+  handler: (...arguments_: Arguments) => Result
+) => withHaptic("selection", handler);
+
+export const withSoftHaptic = <Arguments extends unknown[], Result>(
+  handler: (...arguments_: Arguments) => Result
+) => withHaptic("soft", handler);
+
+export const triggerDisclosureHaptic = (
+  isOpen: boolean,
+  previousIsOpen: boolean | undefined
+) => {
+  if (previousIsOpen === undefined) {
+    return;
+  }
+
+  if (isOpen && !previousIsOpen) {
+    triggerHaptic("selection");
+
+    return;
+  }
+
+  if (!isOpen && previousIsOpen) {
+    triggerHaptic("soft");
+  }
+};
+
 const patchMessageMethod = (level: MessageLevel) => {
   const mutableMessage = message as unknown as {[K in MessageLevel]: MessageMethod};
 

@@ -7,7 +7,7 @@ import {useExternalLinkHandler} from "../../hooks/useExternalLinks";
 import {useInternalLinkHandler} from "../../hooks/useInternalLinks";
 import {useLongPress} from "../../hooks/useLongPress";
 import {useRipple} from "../../hooks/useRipple";
-import {triggerHaptic} from "../../utils/haptics";
+import {triggerDisclosureHaptic, triggerHaptic} from "../../utils/haptics";
 import {formatNestedQuotes} from "../../utils/stringUtilities";
 import {useTheme} from "../modals/ThemeChanger";
 import {CopyButton} from "../ui/CopyButton";
@@ -354,19 +354,7 @@ const DetailsSummary: React.FC<DetailsSummaryProperties> = ({
   const previousIsOpen = usePrevious(isOpen);
 
   useEffect(() => {
-    if (previousIsOpen === undefined) {
-      return;
-    }
-
-    if (isOpen && !previousIsOpen) {
-      triggerHaptic("selection");
-
-      return;
-    }
-
-    if (!isOpen && previousIsOpen) {
-      triggerHaptic("soft");
-    }
+    triggerDisclosureHaptic(isOpen, previousIsOpen);
   }, [isOpen, previousIsOpen]);
 
   const [displayAnchorId, setDisplayAnchorId] = useState("");
