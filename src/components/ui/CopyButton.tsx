@@ -3,6 +3,7 @@ import React from "react";
 import {ShareRounded} from "@mui/icons-material";
 
 import {useRipple} from "../../../hooks/useRipple";
+import {withSoftHaptic} from "../../../utils/haptics";
 
 import styles from "./CopyButton.module.scss";
 
@@ -17,7 +18,11 @@ export const CopyButton: React.FC<CopyButtonProperties> = ({
   disabled,
   onClick,
 }) => {
-  const ripple = useRipple<HTMLButtonElement>({haptic: "soft"});
+  const ripple = useRipple<HTMLButtonElement>({haptic: false});
+
+  const handleClick = withSoftHaptic((event: React.MouseEvent<HTMLButtonElement>) => {
+    onClick(event);
+  });
 
   const buttonClasses = [
     styles["copy-button"],
@@ -32,7 +37,7 @@ export const CopyButton: React.FC<CopyButtonProperties> = ({
       aria-label="Copy"
       className={buttonClasses}
       disabled={disabled}
-      onClick={onClick}
+      onClick={handleClick}
       onMouseDown={ripple.onMouseDown}
     >
       <ShareRounded />
