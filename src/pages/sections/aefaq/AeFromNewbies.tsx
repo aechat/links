@@ -4634,17 +4634,6 @@ const AeFromNewbies: React.FC = () => {
             <mark className="plugin">True Comp Duplicator</mark> — скрипт для создания
             независимых дубликатов композиций.
           </li>
-          <li>
-            <p>
-              <mark className="plugin">Workflower</mark> — плагин для организации слоёв на
-              таймлайне. Позволяет создавать папки со слоями без прекомпозиции.
-            </p>
-            <Addition type="danger">
-              Не рекомендуется передавать проект с{" "}
-              <mark className="plugin">Workflower</mark> тем, у кого этот плагин не
-              установлен, — это может привести к непредсказуемым результатам.
-            </Addition>
-          </li>
         </ul>
         <Divider>Технические плагины</Divider>
         <ul>
