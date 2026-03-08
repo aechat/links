@@ -358,7 +358,7 @@ const DetailsSummary: React.FC<DetailsSummaryProperties> = ({
     }
 
     if (isOpen && !previousIsOpen) {
-      triggerHaptic("nudge");
+      triggerHaptic("selection");
 
       return;
     }

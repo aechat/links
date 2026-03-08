@@ -254,7 +254,7 @@ const NestedDetailsSummary: React.FC<NestedDetailsSummaryProperties> = ({
     }
 
     if (isOpen && !previousIsOpen) {
-      triggerHaptic("nudge");
+      triggerHaptic("selection");
 
       return;
     }
