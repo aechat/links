@@ -94,6 +94,7 @@ const TagList: React.FC<{tags: string}> = ({tags}) => {
   const toggleTags = (event: React.MouseEvent) => {
     event.preventDefault();
     event.stopPropagation();
+    triggerHaptic("soft");
     setExpanded((previous) => !previous);
   };
 
