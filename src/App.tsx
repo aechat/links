@@ -16,7 +16,12 @@ import useDynamicFavicon from "./hooks/useDynamicFavicon";
 import {applyRipple, useRipple} from "./hooks/useRipple";
 import getAntTheme from "./styles/antTheme";
 import {getBrowserInfo, isWebKitBrowser} from "./utils/browserDetection";
-import {disposeHaptics, setupHapticMessageFeedback, triggerHaptic} from "./utils/haptics";
+import {
+  disposeHaptics,
+  setupHapticMessageFeedback,
+  triggerHaptic,
+  withSelectionHaptic,
+} from "./utils/haptics";
 import faviconSvg from "/icons/favicon.svg?raw";
 import aefaqSvg from "/icons/aefaq.svg?raw";
 import prfaqSvg from "/icons/prfaq.svg?raw";
@@ -100,6 +105,12 @@ const SafariWarningModal = ({
     onClose(dontShowAgain);
   };
 
+  const handleDontShowAgainChange = withSelectionHaptic(
+    (event: React.ChangeEvent<HTMLInputElement>) => {
+      setDontShowAgain(event.target.checked);
+    }
+  );
+
   return (
     <Modal
       centered
@@ -151,10 +162,7 @@ const SafariWarningModal = ({
             <input
               checked={dontShowAgain}
               type="checkbox"
-              onChange={(event) => {
-                triggerHaptic("selection");
-                setDontShowAgain(event.target.checked);
-              }}
+              onChange={handleDontShowAgainChange}
             />
             Претензий не имею, больше не показывать
           </label>
