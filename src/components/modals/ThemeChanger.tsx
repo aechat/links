@@ -19,6 +19,10 @@ import {Modal, Slider, Switch, Tooltip} from "antd";
 
 import {useRipple} from "../../hooks/useRipple";
 import {isMobileDevice, isWebKitBrowser} from "../../utils/browserDetection";
+import {
+  setIsVibrationEnabled as setGlobalVibrationEnabled,
+  triggerHaptic,
+} from "../../utils/haptics";
 
 import modalStyles from "./Modal.module.scss";
 import styles from "./ThemeChanger.module.scss";
@@ -30,12 +34,14 @@ interface ThemeContextProperties {
   isSnowfallEnabled: boolean;
   isSpoilerAnimationEnabled: boolean;
   isSpoilerHoverAnimationEnabled: boolean;
+  isVibrationEnabled: boolean;
   maxWidth: number;
   saturateRatio: number;
   setAccentHue: (hue: number) => void;
   setIsSnowfallEnabled: (enabled: boolean) => void;
   setIsSpoilerAnimationEnabled: (enabled: boolean) => void;
   setIsSpoilerHoverAnimationEnabled: (enabled: boolean) => void;
+  setIsVibrationEnabled: (enabled: boolean) => void;
   setMaxWidth: (width: number) => void;
   setSaturateRatio: (ratio: number) => void;
   setTheme: (theme: Theme) => void;
@@ -83,6 +89,8 @@ export const ThemeProvider: React.FC<{children: React.ReactNode}> = ({children})
 
   const [isSnowfallEnabled, setIsSnowfallEnabled] = useState<boolean>(false);
 
+  const [isVibrationEnabledState, setIsVibrationEnabledState] = useState<boolean>(true);
+
   useLayoutEffect(() => {
     if (typeof localStorage === "undefined") {
       return;
@@ -113,6 +121,11 @@ export const ThemeProvider: React.FC<{children: React.ReactNode}> = ({children})
 
     const resolvedSnowfallEnabled = getSnowfallEnabledForMonth(new Date().getMonth());
 
+    const resolvedVibrationEnabled = getStoredBooleanWithDefault(
+      "isVibrationEnabled",
+      true
+    );
+
     setThemeState(savedTheme);
     setAccentHueState(savedAccentHue);
     setSaturateRatioState(savedSaturateRatio);
@@ -120,6 +133,8 @@ export const ThemeProvider: React.FC<{children: React.ReactNode}> = ({children})
     setIsSpoilerAnimationEnabledState(resolvedSpoilerAnimationEnabled);
     setIsSpoilerHoverAnimationEnabledState(resolvedSpoilerHoverAnimationEnabled);
     setIsSnowfallEnabled(resolvedSnowfallEnabled);
+    setIsVibrationEnabledState(resolvedVibrationEnabled);
+    setGlobalVibrationEnabled(resolvedVibrationEnabled);
   }, []);
 
   const setTheme = (newTheme: Theme) => {
@@ -168,6 +183,11 @@ export const ThemeProvider: React.FC<{children: React.ReactNode}> = ({children})
     if (typeof localStorage !== "undefined") {
       localStorage.setItem("isSnowfallEnabled", enabled.toString());
     }
+  };
+
+  const setVibrationEnabled = (enabled: boolean) => {
+    setIsVibrationEnabledState(enabled);
+    setGlobalVibrationEnabled(enabled);
   };
 
   const calculateIsDarkMode = (theme: Theme, isSystemDark: boolean): boolean => {
@@ -232,12 +252,14 @@ export const ThemeProvider: React.FC<{children: React.ReactNode}> = ({children})
       isSnowfallEnabled: isSnowfallEnabled,
       isSpoilerAnimationEnabled: isSpoilerAnimationEnabledState,
       isSpoilerHoverAnimationEnabled: isSpoilerHoverAnimationEnabledState,
+      isVibrationEnabled: isVibrationEnabledState,
       maxWidth: maxWidthState,
       saturateRatio: saturateRatioState,
       setAccentHue,
       setIsSnowfallEnabled: setSnowfallEnabled,
       setIsSpoilerAnimationEnabled,
       setIsSpoilerHoverAnimationEnabled,
+      setIsVibrationEnabled: setVibrationEnabled,
       setMaxWidth: (width: number) => {
         setMaxWidthState(width);
 
@@ -257,6 +279,7 @@ export const ThemeProvider: React.FC<{children: React.ReactNode}> = ({children})
       isSpoilerAnimationEnabledState,
       isSpoilerHoverAnimationEnabledState,
       isSnowfallEnabled,
+      isVibrationEnabledState,
     ]
   );
 
@@ -336,12 +359,14 @@ const ThemeModal: React.FC<ThemeModalProperties> = ({closeModal, isModalOpen}) =
     isSnowfallEnabled,
     isSpoilerAnimationEnabled,
     isSpoilerHoverAnimationEnabled,
+    isVibrationEnabled,
     maxWidth,
     saturateRatio,
     setAccentHue,
     setIsSnowfallEnabled,
     setIsSpoilerAnimationEnabled,
     setIsSpoilerHoverAnimationEnabled,
+    setIsVibrationEnabled,
     setMaxWidth,
     setSaturateRatio,
     setTheme,
@@ -400,6 +425,8 @@ const ThemeModal: React.FC<ThemeModalProperties> = ({closeModal, isModalOpen}) =
   const showWidthSelector =
     pagesWithWidthSelector.some((path) => currentPath.startsWith(path)) &&
     windowWidth >= 1000;
+
+  const showVibrationSelector = isMobileDevice();
 
   const ripple = useRipple<HTMLButtonElement>();
 
@@ -487,7 +514,10 @@ const ThemeModal: React.FC<ThemeModalProperties> = ({closeModal, isModalOpen}) =
                 </span>
                 <Switch
                   checked={isSpoilerAnimationEnabled}
-                  onChange={(checked) => setIsSpoilerAnimationEnabled(checked)}
+                  onChange={(checked) => {
+                    triggerHaptic("selection");
+                    setIsSpoilerAnimationEnabled(checked);
+                  }}
                 />
               </div>
               <div className={styles["theme-toggle"]}>
@@ -496,10 +526,25 @@ const ThemeModal: React.FC<ThemeModalProperties> = ({closeModal, isModalOpen}) =
                 </span>
                 <Switch
                   checked={isSpoilerHoverAnimationEnabled}
-                  onChange={(checked) => setIsSpoilerHoverAnimationEnabled(checked)}
+                  onChange={(checked) => {
+                    triggerHaptic("selection");
+                    setIsSpoilerHoverAnimationEnabled(checked);
+                  }}
                 />
               </div>
             </>
+          )}
+          {showVibrationSelector && (
+            <div className={styles["theme-toggle"]}>
+              <span className={styles["theme-title"]}>Тактильная отдача</span>
+              <Switch
+                checked={isVibrationEnabled}
+                onChange={(checked) => {
+                  triggerHaptic("selection");
+                  setIsVibrationEnabled(checked);
+                }}
+              />
+            </div>
           )}
           {isWinter && (
             <div className={styles["theme-toggle"]}>
@@ -508,7 +553,10 @@ const ThemeModal: React.FC<ThemeModalProperties> = ({closeModal, isModalOpen}) =
               </span>
               <Switch
                 checked={isSnowfallEnabled}
-                onChange={(checked) => setIsSnowfallEnabled(checked)}
+                onChange={(checked) => {
+                  triggerHaptic("selection");
+                  setIsSnowfallEnabled(checked);
+                }}
               />
             </div>
           )}
@@ -529,7 +577,10 @@ const ThemeModal: React.FC<ThemeModalProperties> = ({closeModal, isModalOpen}) =
               max={360}
               min={0}
               value={temporaryHue}
-              onAfterChange={setAccentHue}
+              onAfterChange={(value) => {
+                triggerHaptic("selection");
+                setAccentHue(value);
+              }}
               onChange={setTemporaryHue}
             />
           </div>
@@ -551,7 +602,10 @@ const ThemeModal: React.FC<ThemeModalProperties> = ({closeModal, isModalOpen}) =
               min={0}
               step={0.025}
               value={temporarySaturate}
-              onAfterChange={setSaturateRatio}
+              onAfterChange={(value) => {
+                triggerHaptic("selection");
+                setSaturateRatio(value);
+              }}
               onChange={setTemporarySaturate}
             />
           </div>

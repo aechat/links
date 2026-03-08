@@ -13,9 +13,45 @@ const messagePatterns: Record<MessageLevel, HapticInput> = {
   warning: "warning",
 };
 
+const vibrationStorageKey = "isVibrationEnabled";
+
 let haptics: WebHaptics | undefined;
 
 let isMessagePatched = false;
+
+let isVibrationEnabled = true;
+
+let hasResolvedVibrationPreference = false;
+
+const resolveVibrationPreference = () => {
+  if (hasResolvedVibrationPreference || globalThis.window === undefined) {
+    return;
+  }
+
+  const saved = localStorage.getItem(vibrationStorageKey);
+
+  if (saved === null) {
+    localStorage.setItem(vibrationStorageKey, "true");
+    isVibrationEnabled = true;
+  } else {
+    isVibrationEnabled = saved === "true";
+  }
+
+  hasResolvedVibrationPreference = true;
+};
+
+export const setIsVibrationEnabled = (enabled: boolean) => {
+  isVibrationEnabled = enabled;
+  hasResolvedVibrationPreference = true;
+
+  if (globalThis.window !== undefined) {
+    localStorage.setItem(vibrationStorageKey, enabled.toString());
+  }
+
+  if (!enabled) {
+    haptics?.cancel();
+  }
+};
 
 const getHapticsInstance = () => {
   if (globalThis.window === undefined || globalThis.document === undefined) {
@@ -28,6 +64,12 @@ const getHapticsInstance = () => {
 };
 
 export const triggerHaptic = (input: HapticInput = "selection") => {
+  resolveVibrationPreference();
+
+  if (!isVibrationEnabled) {
+    return;
+  }
+
   const instance = getHapticsInstance();
 
   if (!instance) {

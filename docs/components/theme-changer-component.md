@@ -56,6 +56,7 @@ import {ThemeToggleButton} from "../modals/ThemeChanger";
 
 - настройки сохраняются в `localStorage` (`theme`, `accentHue`, `saturateRatio`, `maxWidth`, флаги анимаций);
 - `ThemeProvider` пишет CSS-переменные в `document.documentElement` и переключает классы темы (`dark` / `light`);
+- переключатель вибрации показывается только на мобильных устройствах;
 - переключатель анимации снега доступен только зимой (декабрь, январь, февраль);
 - часть опций отображается только на определённых страницах (`/aefaq`, `/prfaq`, `/psfaq`, `/aeexpr`, `/rules`).
 
