@@ -1,7 +1,7 @@
 import React from "react";
 
 import {useRipple} from "../../hooks/useRipple";
-import {triggerHaptic} from "../../utils/haptics";
+import {withSelectionHaptic} from "../../utils/haptics";
 
 import styles from "./BrowserWarning.module.scss";
 
@@ -18,6 +18,12 @@ const BrowserWarning: React.FC<BrowserWarningProperties> = ({onClose, open}) => 
   };
 
   const ripple = useRipple<HTMLButtonElement>({haptic: "soft"});
+
+  const handleDontShowAgainChange = withSelectionHaptic(
+    (event: React.ChangeEvent<HTMLInputElement>) => {
+      setDontShowAgain(event.target.checked);
+    }
+  );
 
   if (!open) {
     return;
@@ -104,10 +110,7 @@ const BrowserWarning: React.FC<BrowserWarningProperties> = ({onClose, open}) => 
           <input
             checked={dontShowAgain}
             type="checkbox"
-            onChange={(event) => {
-              triggerHaptic("selection");
-              setDontShowAgain(event.target.checked);
-            }}
+            onChange={handleDontShowAgainChange}
           />
           Больше не показывать
         </label>
