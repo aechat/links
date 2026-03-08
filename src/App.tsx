@@ -13,7 +13,7 @@ import LoadingAnimation from "./components/ui/LoadingAnimation";
 import LoadingContext from "./context/LoadingContext";
 import {copyText} from "./hooks/useCopyToClipboard";
 import useDynamicFavicon from "./hooks/useDynamicFavicon";
-import {applyRipple, useRipple} from "./hooks/useRipple";
+import {useRipple} from "./hooks/useRipple";
 import getAntTheme from "./styles/antTheme";
 import {getBrowserInfo, isWebKitBrowser} from "./utils/browserDetection";
 import {
@@ -499,7 +499,7 @@ const AppContent = () => {
       return;
     }
 
-    const handleFlexibleLinksAnchorMouseDown = (event: MouseEvent) => {
+    const handleAnchorMouseDown = (event: MouseEvent) => {
       if (event.button !== 0) {
         return;
       }
@@ -510,22 +510,19 @@ const AppContent = () => {
         return;
       }
 
-      const link = target.closest(".flexible-links a");
+      const link = target.closest("a[href]");
 
       if (!(link instanceof HTMLAnchorElement)) {
         return;
       }
 
-      applyRipple(link, event.clientX, event.clientY);
+      triggerHaptic("selection");
     };
 
-    globalThis.document.addEventListener("mousedown", handleFlexibleLinksAnchorMouseDown);
+    globalThis.document.addEventListener("mousedown", handleAnchorMouseDown);
 
     return () => {
-      globalThis.document.removeEventListener(
-        "mousedown",
-        handleFlexibleLinksAnchorMouseDown
-      );
+      globalThis.document.removeEventListener("mousedown", handleAnchorMouseDown);
     };
   }, []);
 
