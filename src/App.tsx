@@ -94,6 +94,8 @@ const SafariWarningModal = ({
 }) => {
   const [dontShowAgain, setDontShowAgain] = React.useState(false);
 
+  const ripple = useRipple<HTMLButtonElement>({haptic: "soft"});
+
   const handleClose = () => {
     onClose(dontShowAgain);
   };
@@ -128,7 +130,12 @@ const SafariWarningModal = ({
             </p>
           </div>
           <div className="flexible-links">
-            <button onClick={handleClose}>Продолжить</button>
+            <button
+              onClick={handleClose}
+              onMouseDown={ripple.onMouseDown}
+            >
+              Продолжить
+            </button>
           </div>
           <label
             style={{
@@ -144,7 +151,10 @@ const SafariWarningModal = ({
             <input
               checked={dontShowAgain}
               type="checkbox"
-              onChange={(event) => setDontShowAgain(event.target.checked)}
+              onChange={(event) => {
+                triggerHaptic("selection");
+                setDontShowAgain(event.target.checked);
+              }}
             />
             Претензий не имею, больше не показывать
           </label>
