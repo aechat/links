@@ -6,6 +6,7 @@ import {UploadFileRounded} from "@mui/icons-material";
 import {message, Upload} from "antd";
 
 import {formatBytes, formatPercentDelta} from "../../../utils/fileUtilities";
+import {triggerHaptic} from "../../../utils/haptics";
 import modalStyles from "../../modals/Modal.module.scss";
 
 import styles from "./Converter.module.scss";
@@ -57,22 +58,37 @@ const TgsToJsonConverter: React.FC = () => {
     }
   };
 
+  const handleReset = () => {
+    triggerHaptic("soft");
+    setJsonData(undefined);
+    setOriginalFileName("");
+    setOriginalFileSize(undefined);
+    setDecompressedJsonSize(undefined);
+  };
+
+  const handleDownload = () => {
+    triggerHaptic("soft");
+    downloadJson();
+  };
+
   return (
     <div className={styles["converter"]}>
-      <Upload.Dragger
-        accept=".tgs"
-        beforeUpload={handleFileUpload}
-        className={styles["converter-dragger"]}
-        name="file"
-        showUploadList={false}
-      >
-        <div className={styles["converter-dragger-content"]}>
-          <UploadFileRounded />
-          <span className={styles["converter-dragger-text"]}>
-            Перетащите файл формата TGS в это поле или нажмите для выбора файла
-          </span>
-        </div>
-      </Upload.Dragger>
+      <div onMouseDown={() => triggerHaptic("selection")}>
+        <Upload.Dragger
+          accept=".tgs"
+          beforeUpload={handleFileUpload}
+          className={styles["converter-dragger"]}
+          name="file"
+          showUploadList={false}
+        >
+          <div className={styles["converter-dragger-content"]}>
+            <UploadFileRounded />
+            <span className={styles["converter-dragger-text"]}>
+              Перетащите файл формата TGS в это поле или нажмите для выбора файла
+            </span>
+          </div>
+        </Upload.Dragger>
+      </div>
       <p className={styles["converter-info-text"]}>
         Конвертация происходит локально на вашем устройстве, качественный результат не
         гарантируется.
@@ -89,18 +105,13 @@ const TgsToJsonConverter: React.FC = () => {
         <div className={styles["converter-button-group"]}>
           <button
             className={`${modalStyles["modal-open-button"]} ${styles["converter-button-reset"]}`}
-            onClick={() => {
-              setJsonData(undefined);
-              setOriginalFileName("");
-              setOriginalFileSize(undefined);
-              setDecompressedJsonSize(undefined);
-            }}
+            onClick={handleReset}
           >
             Сбросить
           </button>
           <button
             className={`${modalStyles["modal-open-button"]} ${styles["converter-button-action"]}`}
-            onClick={downloadJson}
+            onClick={handleDownload}
           >
             Скачать преобразованный JSON
           </button>

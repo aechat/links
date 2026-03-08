@@ -6,6 +6,7 @@ import {UploadFileRounded} from "@mui/icons-material";
 import {InputNumber, message, Spin, Switch, Upload} from "antd";
 
 import {formatBytes, formatPercentDelta} from "../../../utils/fileUtilities";
+import {triggerHaptic} from "../../../utils/haptics";
 import modalStyles from "../../modals/Modal.module.scss";
 
 import styles from "./Converter.module.scss";
@@ -130,22 +131,48 @@ const JsonToTgsConverter: React.FC = () => {
     setIsLoading(false);
   };
 
+  const handlePrecisionDigitsChange = (nextValue: number | null) => {
+    if (typeof nextValue === "number") {
+      triggerHaptic("selection");
+      setPrecisionDigits(nextValue);
+    }
+  };
+
+  const handlePrecisionToggle = (nextValue: boolean) => {
+    triggerHaptic("selection");
+    setPrecisionEnabled(nextValue);
+  };
+
+  const handleReset = () => {
+    triggerHaptic("soft");
+    setJsonData(undefined);
+    setOriginalFileName("");
+    setOriginalFileSize(undefined);
+  };
+
+  const handleDownload = async () => {
+    triggerHaptic("soft");
+    await downloadTgs();
+  };
+
   return (
     <div className={styles["converter"]}>
-      <Upload.Dragger
-        accept=".json"
-        beforeUpload={handleFileUpload}
-        className={styles["converter-dragger"]}
-        name="file"
-        showUploadList={false}
-      >
-        <div className={styles["converter-dragger-content"]}>
-          <UploadFileRounded />
-          <span className={styles["converter-dragger-text"]}>
-            Перетащите файл формата JSON в это поле или нажмите для выбора файла
-          </span>
-        </div>
-      </Upload.Dragger>
+      <div onMouseDown={() => triggerHaptic("selection")}>
+        <Upload.Dragger
+          accept=".json"
+          beforeUpload={handleFileUpload}
+          className={styles["converter-dragger"]}
+          name="file"
+          showUploadList={false}
+        >
+          <div className={styles["converter-dragger-content"]}>
+            <UploadFileRounded />
+            <span className={styles["converter-dragger-text"]}>
+              Перетащите файл формата JSON в это поле или нажмите для выбора файла
+            </span>
+          </div>
+        </Upload.Dragger>
+      </div>
       {jsonData && (
         <div className={styles["converter-precision"]}>
           <div className={styles["converter-precision-header"]}>
@@ -165,16 +192,12 @@ const JsonToTgsConverter: React.FC = () => {
                 min={0}
                 step={1}
                 value={precisionDigits}
-                onChange={(nextValue) => {
-                  if (typeof nextValue === "number") {
-                    setPrecisionDigits(nextValue);
-                  }
-                }}
+                onChange={handlePrecisionDigitsChange}
               />
             )}
             <Switch
               checked={precisionEnabled}
-              onChange={(nextValue) => setPrecisionEnabled(nextValue)}
+              onChange={handlePrecisionToggle}
             />
           </div>
         </div>
@@ -200,18 +223,14 @@ const JsonToTgsConverter: React.FC = () => {
         <div className={styles["converter-button-group"]}>
           <button
             className={`${modalStyles["modal-open-button"]} ${styles["converter-button-reset"]}`}
-            onClick={() => {
-              setJsonData(undefined);
-              setOriginalFileName("");
-              setOriginalFileSize(undefined);
-            }}
+            onClick={handleReset}
           >
             Сбросить
           </button>
           <button
             className={`${modalStyles["modal-open-button"]} ${styles["converter-button-action"]}`}
             disabled={isLoading}
-            onClick={downloadTgs}
+            onClick={handleDownload}
           >
             {isLoading ? <Spin size="small" /> : "Скачать преобразованный TGS"}
           </button>
