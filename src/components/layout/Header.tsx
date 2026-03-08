@@ -144,7 +144,7 @@ const Header: React.FC<HeaderProperties> = ({title}) => {
           )}
           {WIP_PATHS.some((path) => currentPath.includes(path)) && (
             <Tooltip title="Некоторые статьи на этой странице могут отсутствовать или иметь множество ошибок">
-              <mark>{isWide ? "[В РАЗРАБОТКЕ]" : "[WIP]"}</mark>
+              <mark>[WIP]</mark>
             </Tooltip>
           )}
         </div>
