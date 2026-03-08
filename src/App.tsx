@@ -16,6 +16,7 @@ import useDynamicFavicon from "./hooks/useDynamicFavicon";
 import {applyRipple, useRipple} from "./hooks/useRipple";
 import getAntTheme from "./styles/antTheme";
 import {getBrowserInfo, isWebKitBrowser} from "./utils/browserDetection";
+import {disposeHaptics, setupHapticMessageFeedback, triggerHaptic} from "./utils/haptics";
 import faviconSvg from "/icons/favicon.svg?raw";
 import aefaqSvg from "/icons/aefaq.svg?raw";
 import prfaqSvg from "/icons/prfaq.svg?raw";
@@ -155,6 +156,10 @@ const SafariWarningModal = ({
 
 const ErrorFallback = ({error}: {error: Error}) => {
   const ripple = useRipple<HTMLButtonElement>();
+
+  useEffect(() => {
+    triggerHaptic("error");
+  }, []);
 
   const isDynamicImportError =
     error.message.includes("dynamically imported module") ||
@@ -307,6 +312,14 @@ const AppContent = () => {
 
   const {accentHue, saturateRatio, theme} = useTheme();
 
+  useEffect(() => {
+    setupHapticMessageFeedback();
+
+    return () => {
+      disposeHaptics();
+    };
+  }, []);
+
   const [svgContent, setSvgContent] = useState(faviconSvg);
 
   useEffect(() => {
@@ -336,6 +349,18 @@ const AppContent = () => {
   const [isSafariWarningOpen, setIsSafariWarningOpen] = useState(false);
 
   const [isOldBrowserWarningOpen, setIsOldBrowserWarningOpen] = useState(false);
+
+  useEffect(() => {
+    if (isSafariWarningOpen) {
+      triggerHaptic("warning");
+    }
+  }, [isSafariWarningOpen]);
+
+  useEffect(() => {
+    if (isOldBrowserWarningOpen) {
+      triggerHaptic("warning");
+    }
+  }, [isOldBrowserWarningOpen]);
 
   useEffect(() => {
     if (globalThis.window === undefined) return;
