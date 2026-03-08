@@ -5,6 +5,7 @@ import {Modal} from "antd";
 
 import {useCopyToClipboard} from "../../hooks/useCopyToClipboard";
 import {useRipple} from "../../hooks/useRipple";
+import {triggerHaptic} from "../../utils/haptics";
 
 import modalStyles from "./Modal.module.scss";
 
@@ -30,6 +31,11 @@ const SupportDonut: React.FC<SupportDonutProperties> = ({wide}) => {
   const closeYoomoneyModal = () => setIsYoomoneyModalOpen(false);
 
   const ripple = useRipple<HTMLButtonElement>();
+
+  const handleCopyAccount = (element: HTMLElement) => {
+    triggerHaptic("soft");
+    void copyElementContent(element);
+  };
 
   return (
     <>
@@ -100,7 +106,7 @@ const SupportDonut: React.FC<SupportDonutProperties> = ({wide}) => {
                     </p>
                     <mark
                       className={modalStyles["modal-support-account-number"]}
-                      onClick={(event) => copyElementContent(event.currentTarget)}
+                      onClick={(event) => handleCopyAccount(event.currentTarget)}
                     >
                       2202202357342488
                     </mark>
@@ -159,7 +165,7 @@ const SupportDonut: React.FC<SupportDonutProperties> = ({wide}) => {
                         банка и введите любую сумму. После этого - подтвердите перевод.
                         <mark
                           className={modalStyles["modal-support-account-number"]}
-                          onClick={(event) => copyElementContent(event.currentTarget)}
+                          onClick={(event) => handleCopyAccount(event.currentTarget)}
                         >
                           410016763684808
                         </mark>
