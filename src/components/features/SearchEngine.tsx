@@ -17,6 +17,7 @@ import {copyText} from "../../hooks/useCopyToClipboard";
 import {useLongPress} from "../../hooks/useLongPress";
 import {useRipple} from "../../hooks/useRipple";
 import {isMobileDevice} from "../../utils/browserDetection";
+import {withSelectionHaptic} from "../../utils/haptics";
 import {formatNestedQuotes} from "../../utils/stringUtilities";
 import modalStyles from "../modals/Modal.module.scss";
 
@@ -1290,6 +1291,13 @@ const SearchResults: React.FC<{
 
   const longPressProperties = useLongPress(handleCopy, 500, {getRippleTarget});
 
+  const handleResultClick = withSelectionHaptic(
+    (event_: React.MouseEvent<HTMLButtonElement>, id: string) => {
+      event_.preventDefault();
+      onLinkClick(id);
+    }
+  );
+
   return (
     <div {...longPressProperties}>
       {results.map(({anchor, content, id, tag, title}, index) => {
@@ -1322,10 +1330,7 @@ const SearchResults: React.FC<{
                 return {filter: "saturate(0.25)"};
               })()}
               tabIndex={0}
-              onClick={(event_) => {
-                event_.preventDefault();
-                onLinkClick(id);
-              }}
+              onClick={(event_) => handleResultClick(event_, id)}
               onMouseEnter={() => setHoveredIndex(index)}
               onMouseLeave={() => setHoveredIndex(undefined)}
             >
