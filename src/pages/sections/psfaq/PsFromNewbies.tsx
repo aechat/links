@@ -48,15 +48,6 @@ const PsFromNewbies: React.FC = () => {
           <a href="https://www.youtube.com/@PANTERvision/videos">P A N T E R</a>
           <a href="https://www.youtube.com/@thazero/videos">ThaZero</a>
         </div>
-        <p
-          style={{
-            fontSize: "0.95rem",
-            fontWeight: "700",
-            textAlign: "center",
-          }}
-        >
-          Надеюсь, вы найдёте что-то полезное для себя. Удачи в ваших начинаниях!
-        </p>
       </DetailsSummary>
       <DetailsSummary
         anchor="vocabulary"

@@ -47,15 +47,6 @@ const PrFromNewbies: React.FC = () => {
           </a>
           <a href="https://www.youtube.com/@VIDEODIM/videos">Как монтировать видео</a>
         </div>
-        <p
-          style={{
-            fontSize: "0.95rem",
-            fontWeight: "700",
-            textAlign: "center",
-          }}
-        >
-          Надеюсь, вы найдёте что-то полезное для себя. Удачи в ваших начинаниях!
-        </p>
       </DetailsSummary>
       <DetailsSummary
         anchor="vocabulary"

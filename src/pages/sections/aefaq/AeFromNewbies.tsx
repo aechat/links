@@ -329,10 +329,6 @@ const AeFromNewbies: React.FC = () => {
             />
           </li>
         </ul>
-        <p>
-          Надеюсь, вы найдёте в этой статье что-то полезное для себя. Удачи в ваших
-          начинаниях!
-        </p>
       </DetailsSummary>
       <DetailsSummary
         anchor="basic-layer-types"
