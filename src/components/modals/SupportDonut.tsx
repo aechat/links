@@ -5,7 +5,7 @@ import {Modal} from "antd";
 
 import {useCopyToClipboard} from "../../hooks/useCopyToClipboard";
 import {useRipple} from "../../hooks/useRipple";
-import {triggerHaptic} from "../../utils/haptics";
+import {withSoftHaptic} from "../../utils/haptics";
 
 import modalStyles from "./Modal.module.scss";
 
@@ -32,10 +32,9 @@ const SupportDonut: React.FC<SupportDonutProperties> = ({wide}) => {
 
   const ripple = useRipple<HTMLButtonElement>();
 
-  const handleCopyAccount = (element: HTMLElement) => {
-    triggerHaptic("soft");
+  const handleCopyAccount = withSoftHaptic((element: HTMLElement) => {
     void copyElementContent(element);
-  };
+  });
 
   return (
     <>
