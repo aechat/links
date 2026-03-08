@@ -2,6 +2,8 @@ import React, {useCallback, useEffect, useMemo, useRef, useState} from "react";
 
 import {Slider} from "antd";
 
+import {triggerHaptic} from "../../utils/haptics";
+
 import styles from "./EasingEditor.module.scss";
 
 type AnimationMode = "ping-pong" | "loop" | "once";
@@ -828,6 +830,7 @@ const AnimationControls: React.FC<AnimationControlsProperties> = ({
           min={1}
           step={0.25}
           value={duration}
+          onAfterChange={() => triggerHaptic("selection")}
           onChange={setDuration}
         />
         <label>
@@ -842,7 +845,10 @@ const AnimationControls: React.FC<AnimationControlsProperties> = ({
               key={f}
               className={fps === f ? "active selected" : ""}
               style={{flexBasis: "15px"}}
-              onClick={() => setFps(f)}
+              onClick={() => {
+                triggerHaptic("selection");
+                setFps(f);
+              }}
             >
               {f}
             </button>
@@ -854,7 +860,10 @@ const AnimationControls: React.FC<AnimationControlsProperties> = ({
             <button
               key={mode}
               className={animationMode === mode ? "active selected" : ""}
-              onClick={() => setAnimationMode(mode)}
+              onClick={() => {
+                triggerHaptic("selection");
+                setAnimationMode(mode);
+              }}
             >
               {modeTextMap[mode]}
             </button>
@@ -868,7 +877,10 @@ const AnimationControls: React.FC<AnimationControlsProperties> = ({
             <button
               key={property}
               className={animationProperty === property ? "active selected" : ""}
-              onClick={() => setAnimationProperty(property as AnimationProperty)}
+              onClick={() => {
+                triggerHaptic("selection");
+                setAnimationProperty(property as AnimationProperty);
+              }}
             >
               {propertyTextMap[property as AnimationProperty]}
             </button>
@@ -876,13 +888,28 @@ const AnimationControls: React.FC<AnimationControlsProperties> = ({
         </div>
         <label>Управление</label>
         <div className="flexible-links">
-          <button onClick={handleTogglePlayPause}>
+          <button
+            onClick={() => {
+              triggerHaptic("soft");
+              handleTogglePlayPause();
+            }}
+          >
             {isPaused ? "▶ Воспроизвести" : "❚❚ Пауза"}
           </button>
-          <button onClick={handleResetAnimation}>Сбросить</button>
+          <button
+            onClick={() => {
+              triggerHaptic("soft");
+              handleResetAnimation();
+            }}
+          >
+            Сбросить
+          </button>
           <button
             className={isTrailVisible ? "active selected" : ""}
-            onClick={() => setIsTrailVisible(!isTrailVisible)}
+            onClick={() => {
+              triggerHaptic("selection");
+              setIsTrailVisible(!isTrailVisible);
+            }}
           >
             Показать след
           </button>
@@ -1252,6 +1279,7 @@ const EasingEditor: React.FC = () => {
       graphType: "value" | "speed"
     ) => {
       event.preventDefault();
+      triggerHaptic("selection");
       document.body.style.cursor = "grabbing";
       setDragInfo({graphType, handle});
 
