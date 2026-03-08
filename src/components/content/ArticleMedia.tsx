@@ -168,6 +168,8 @@ const ImageViewer: React.FC<{
   }, [scale, x, y]);
 
   const handleManualClose = () => {
+    triggerHaptic("soft");
+
     if (historyPushedReference.current) {
       historyPushedReference.current = false;
       globalThis.history.back();
@@ -318,10 +320,7 @@ const ImageViewer: React.FC<{
           <button
             aria-label="Закрыть"
             className={styles["media-viewer-close"]}
-            onClick={() => {
-              triggerHaptic("soft");
-              handleManualClose();
-            }}
+            onClick={handleManualClose}
           >
             <CloseRounded />
           </button>
