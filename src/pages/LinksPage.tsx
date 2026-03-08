@@ -49,6 +49,7 @@ import PageTransition from "../components/layout/PageTransition";
 import modalStyles from "../components/modals/Modal.module.scss";
 import {LinkCard} from "../components/ui/LinkCards";
 import {usePageLoad} from "../hooks/usePageLoad";
+import {useRipple} from "../hooks/useRipple";
 import {getPlatformInfo} from "../utils/browserDetection";
 
 import {/* AEExprIcon, */ AeIcon, PrIcon, PsIcon} from "./FaqIcon";
@@ -57,6 +58,8 @@ const Links = () => {
   usePageLoad();
 
   const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const ripple = useRipple<HTMLButtonElement>({haptic: "soft"});
 
   const openModal = () => {
     setIsModalOpen(true);
@@ -695,6 +698,7 @@ const Links = () => {
               }}
               type="button"
               onClick={openModal}
+              onMouseDown={ripple.onMouseDown}
             >
               Подробнее...
             </button>
@@ -716,6 +720,7 @@ const Links = () => {
                   <button
                     className={modalStyles["modal-header-close"]}
                     onClick={closeModal}
+                    onMouseDown={ripple.onMouseDown}
                   >
                     <CloseRounded />
                   </button>
