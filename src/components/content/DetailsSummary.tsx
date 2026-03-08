@@ -48,6 +48,10 @@ const getPluralizedTags = (count: number): string => {
   return "тегов";
 };
 
+const stopToggleTagsPointerDown = (event: React.MouseEvent | React.TouchEvent) => {
+  event.stopPropagation();
+};
+
 const TagList: React.FC<{tags: string}> = ({tags}) => {
   const [expanded, setExpanded] = useState(false);
 
@@ -107,6 +111,8 @@ const TagList: React.FC<{tags: string}> = ({tags}) => {
         <mark
           className={styles["details-tags-toggle"]}
           onClick={toggleTags}
+          onMouseDown={stopToggleTagsPointerDown}
+          onTouchStart={stopToggleTagsPointerDown}
         >
           {expanded ? "скрыть" : `и ещё ${hiddenCount} ${getPluralizedTags(hiddenCount)}`}
         </mark>
