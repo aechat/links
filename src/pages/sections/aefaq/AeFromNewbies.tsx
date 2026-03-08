@@ -4419,7 +4419,7 @@ const AeFromNewbies: React.FC = () => {
         />
       </DetailsSummary>
       <DetailsSummary
-        anchor="recommend-plugins"
+        anchor="recommended-plugins"
         tag="рекомендация, топ плагинов, твикстор, рсмб, мбл, борисфх, трапкод, флоу, тру комп дупликатор, юниверс, mbl, plugins, скрипты, расширения, установка"
         title="Какие дополнения стоит установить в первую очередь?"
       >
