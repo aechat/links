@@ -5,7 +5,7 @@ import {triggerHaptic} from "../utils/haptics";
 import type {HapticInput} from "web-haptics";
 
 interface RippleOptions {
-  haptic?: HapticInput | null;
+  haptic?: HapticInput | false;
 }
 
 export const applyRipple = (
@@ -22,7 +22,7 @@ export const applyRipple = (
 
   const {haptic = "selection"} = options;
 
-  if (haptic) {
+  if (haptic !== false) {
     triggerHaptic(haptic);
   }
 
