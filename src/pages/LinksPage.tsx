@@ -51,6 +51,7 @@ import {LinkCard} from "../components/ui/LinkCards";
 import {usePageLoad} from "../hooks/usePageLoad";
 import {useRipple} from "../hooks/useRipple";
 import {getPlatformInfo} from "../utils/browserDetection";
+import {triggerHaptic} from "../utils/haptics";
 
 import {/* AEExprIcon, */ AeIcon, PrIcon, PsIcon} from "./FaqIcon";
 
@@ -59,13 +60,15 @@ const Links = () => {
 
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const ripple = useRipple<HTMLButtonElement>({haptic: "soft"});
+  const ripple = useRipple<HTMLButtonElement>({haptic: false});
 
   const openModal = () => {
+    triggerHaptic("soft");
     setIsModalOpen(true);
   };
 
   const closeModal = () => {
+    triggerHaptic("soft");
     setIsModalOpen(false);
   };
 
