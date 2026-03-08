@@ -7,6 +7,7 @@ import {useExternalLinkHandler} from "../../hooks/useExternalLinks";
 import {useInternalLinkHandler} from "../../hooks/useInternalLinks";
 import {useLongPress} from "../../hooks/useLongPress";
 import {useRipple} from "../../hooks/useRipple";
+import {triggerHaptic} from "../../utils/haptics";
 import {formatNestedQuotes} from "../../utils/stringUtilities";
 import {useTheme} from "../modals/ThemeChanger";
 import {CopyButton} from "../ui/CopyButton";
@@ -350,6 +351,22 @@ const DetailsSummary: React.FC<DetailsSummaryProperties> = ({
   const [isOpen, setIsOpen] = useState(false);
 
   const previousIsOpen = usePrevious(isOpen);
+
+  useEffect(() => {
+    if (previousIsOpen === undefined) {
+      return;
+    }
+
+    if (isOpen && !previousIsOpen) {
+      triggerHaptic("nudge");
+
+      return;
+    }
+
+    if (!isOpen && previousIsOpen) {
+      triggerHaptic("soft");
+    }
+  }, [isOpen, previousIsOpen]);
 
   const [displayAnchorId, setDisplayAnchorId] = useState("");
 
@@ -858,7 +875,7 @@ const DetailsSummary: React.FC<DetailsSummaryProperties> = ({
 
   const summaryLongPressProperties = useLongPress(handleCopyAnchor);
 
-  const rippleProperties = useRipple<HTMLElement>();
+  const rippleProperties = useRipple<HTMLElement>({haptic: false});
 
   const handleFlexibleLinkCopy = useCallback(
     (event: React.MouseEvent | React.TouchEvent) => {
