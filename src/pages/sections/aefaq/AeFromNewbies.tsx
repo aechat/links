@@ -4585,9 +4585,20 @@ const AeFromNewbies: React.FC = () => {
             готовых кривых анимации. Позволяет ускорить рутинную работу в несколько раз.
           </li>
           <li>
-            <mark className="plugin">FX Console</mark> от{" "}
-            <mark className="company">VideoCopilot</mark> — всплывающая панель для
-            быстрого поиска и применения эффектов.
+            <p>
+              <mark className="plugin">FX Console</mark> от{" "}
+              <mark className="company">VideoCopilot</mark> — всплывающая панель для
+              быстрого поиска и применения эффектов.
+            </p>
+            <Addition type="info">
+              В последней публичной бета-версии{" "}
+              <mark className="app">Adobe After Effects</mark> часть функционала этого
+              дополнения теперь заменена новым окном{" "}
+              <mark className="select">«Quick Apply»</mark>.{" "}
+              <a href="https://helpx.adobe.com/after-effects/using/quick-apply.html">
+                Подробнее...
+              </a>
+            </Addition>
           </li>
           <li>
             <mark className="plugin">Guides</mark> от{" "}

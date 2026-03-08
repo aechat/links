@@ -892,6 +892,15 @@ const AeInterface: React.FC = () => {
         tag="fx console, ctrl space, быстрое применение эффектов, плагин, эффекты, quick effects, command palette"
         title="Как включить всплывающую панель для применения эффектов по Ctrl + Space?"
       >
+        <Addition type="info">
+          В последней публичной бета-версии{" "}
+          <mark className="app">Adobe After Effects</mark> часть функционала{" "}
+          <mark className="plugin">FX Console</mark> теперь заменена новым окном{" "}
+          <mark className="select">«Quick Apply»</mark>.{" "}
+          <a href="https://helpx.adobe.com/after-effects/using/quick-apply.html">
+            Подробнее...
+          </a>
+        </Addition>
         <p>
           <mark className="key">Ctrl + Space</mark> для открытия панели применения
           эффектов — это не встроенная функция{" "}
