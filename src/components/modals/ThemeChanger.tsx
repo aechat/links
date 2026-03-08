@@ -21,7 +21,7 @@ import {useRipple} from "../../hooks/useRipple";
 import {isMobileDevice, isWebKitBrowser} from "../../utils/browserDetection";
 import {
   setIsVibrationEnabled as setGlobalVibrationEnabled,
-  triggerHaptic,
+  withSelectionHaptic,
 } from "../../utils/haptics";
 
 import modalStyles from "./Modal.module.scss";
@@ -430,6 +430,20 @@ const ThemeModal: React.FC<ThemeModalProperties> = ({closeModal, isModalOpen}) =
 
   const ripple = useRipple<HTMLButtonElement>();
 
+  const handleSpoilerAnimationChange = withSelectionHaptic(setIsSpoilerAnimationEnabled);
+
+  const handleSpoilerHoverAnimationChange = withSelectionHaptic(
+    setIsSpoilerHoverAnimationEnabled
+  );
+
+  const handleVibrationChange = withSelectionHaptic(setIsVibrationEnabled);
+
+  const handleSnowfallChange = withSelectionHaptic(setIsSnowfallEnabled);
+
+  const handleAccentHueAfterChange = withSelectionHaptic(setAccentHue);
+
+  const handleSaturationAfterChange = withSelectionHaptic(setSaturateRatio);
+
   return (
     <Modal
       destroyOnHidden
@@ -514,10 +528,7 @@ const ThemeModal: React.FC<ThemeModalProperties> = ({closeModal, isModalOpen}) =
                 </span>
                 <Switch
                   checked={isSpoilerAnimationEnabled}
-                  onChange={(checked) => {
-                    triggerHaptic("selection");
-                    setIsSpoilerAnimationEnabled(checked);
-                  }}
+                  onChange={handleSpoilerAnimationChange}
                 />
               </div>
               <div className={styles["theme-toggle"]}>
@@ -526,10 +537,7 @@ const ThemeModal: React.FC<ThemeModalProperties> = ({closeModal, isModalOpen}) =
                 </span>
                 <Switch
                   checked={isSpoilerHoverAnimationEnabled}
-                  onChange={(checked) => {
-                    triggerHaptic("selection");
-                    setIsSpoilerHoverAnimationEnabled(checked);
-                  }}
+                  onChange={handleSpoilerHoverAnimationChange}
                 />
               </div>
             </>
@@ -539,10 +547,7 @@ const ThemeModal: React.FC<ThemeModalProperties> = ({closeModal, isModalOpen}) =
               <span className={styles["theme-title"]}>Тактильная отдача</span>
               <Switch
                 checked={isVibrationEnabled}
-                onChange={(checked) => {
-                  triggerHaptic("selection");
-                  setIsVibrationEnabled(checked);
-                }}
+                onChange={handleVibrationChange}
               />
             </div>
           )}
@@ -553,10 +558,7 @@ const ThemeModal: React.FC<ThemeModalProperties> = ({closeModal, isModalOpen}) =
               </span>
               <Switch
                 checked={isSnowfallEnabled}
-                onChange={(checked) => {
-                  triggerHaptic("selection");
-                  setIsSnowfallEnabled(checked);
-                }}
+                onChange={handleSnowfallChange}
               />
             </div>
           )}
@@ -577,10 +579,7 @@ const ThemeModal: React.FC<ThemeModalProperties> = ({closeModal, isModalOpen}) =
               max={360}
               min={0}
               value={temporaryHue}
-              onAfterChange={(value) => {
-                triggerHaptic("selection");
-                setAccentHue(value);
-              }}
+              onAfterChange={handleAccentHueAfterChange}
               onChange={setTemporaryHue}
             />
           </div>
@@ -602,10 +601,7 @@ const ThemeModal: React.FC<ThemeModalProperties> = ({closeModal, isModalOpen}) =
               min={0}
               step={0.025}
               value={temporarySaturate}
-              onAfterChange={(value) => {
-                triggerHaptic("selection");
-                setSaturateRatio(value);
-              }}
+              onAfterChange={handleSaturationAfterChange}
               onChange={setTemporarySaturate}
             />
           </div>
