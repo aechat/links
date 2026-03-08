@@ -908,6 +908,66 @@ const DetailsSummary: React.FC<DetailsSummaryProperties> = ({
     getRippleTarget: getFlexibleLinkRippleTarget,
   });
 
+  const updateSpoilerStacking = useCallback(() => {
+    const detailsElement = detailsReference.current;
+
+    if (!detailsElement) {
+      return;
+    }
+
+    const articleContent = detailsElement.closest(".article-content");
+
+    if (!articleContent) {
+      return;
+    }
+
+    const spoilerElements = articleContent.querySelectorAll<HTMLDetailsElement>(
+      'details[data-anchor], details[data-nested-details-summary="true"]'
+    );
+
+    const spoilersByDepth = new Map<number, HTMLDetailsElement[]>();
+
+    for (const spoilerElement of spoilerElements) {
+      let depth = 0;
+
+      let ancestorNestedDetails =
+        spoilerElement.parentElement?.closest<HTMLDetailsElement>(
+          'details[data-nested-details-summary="true"]'
+        );
+
+      while (ancestorNestedDetails) {
+        depth += 1;
+
+        ancestorNestedDetails =
+          ancestorNestedDetails.parentElement?.closest<HTMLDetailsElement>(
+            'details[data-nested-details-summary="true"]'
+          );
+      }
+
+      spoilerElement.style.setProperty("--spoiler-depth", String(depth));
+
+      const spoilersAtDepth = spoilersByDepth.get(depth) ?? [];
+
+      spoilersAtDepth.push(spoilerElement);
+      spoilersByDepth.set(depth, spoilersAtDepth);
+    }
+
+    for (const spoilersAtDepth of spoilersByDepth.values()) {
+      const totalSpoilers = spoilersAtDepth.length;
+
+      for (const [index, spoilerElement] of spoilersAtDepth.entries()) {
+        spoilerElement.style.setProperty(
+          "--spoiler-order",
+          String(totalSpoilers - index)
+        );
+      }
+    }
+  }, []);
+
+  useEffect(() => {
+    updateSpoilerStacking();
+  }, [children, updateSpoilerStacking]);
+
   const headingText = (displayAnchorId ? `${displayAnchorId}. ` : "") + title;
 
   return (
