@@ -56,8 +56,8 @@ const PsFromNewbies: React.FC = () => {
       ></DetailsSummary>
       <DetailsSummary
         anchor="keyboard-shortcuts"
-        tag="хоткеи, горячие клавиши, шорткаты, ускорение работы"
-        title="А есть список популярных комбинаций клавиш?"
+        tag="хоткеи, горячие клавиши, шорткаты, keyboard shortcuts, hotkeys"
+        title="Где найти таблицу комбинаций клавиш?"
       ></DetailsSummary>
       <DetailsSummary
         anchor="changelog"

@@ -56,7 +56,7 @@ const PrFromNewbies: React.FC = () => {
       <DetailsSummary
         anchor="keyboard-shortcuts"
         tag="хоткеи, горячие клавиши, шорткаты, keyboard shortcuts, hotkeys"
-        title="Есть ли список популярных комбинаций клавиш?"
+        title="Где найти таблицу комбинаций клавиш?"
       >
         <p>
           Шорткаты помогают быстрее выполнять нужные функции программы, поэтому ниже

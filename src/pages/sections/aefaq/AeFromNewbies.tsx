@@ -2921,7 +2921,7 @@ const AeFromNewbies: React.FC = () => {
       <DetailsSummary
         anchor="keyboard-shortcuts"
         tag="хоткеи, горячие клавиши, шорткаты, keyboard shortcuts, hotkeys"
-        title="Есть ли список популярных комбинаций клавиш?"
+        title="Где найти таблицу комбинаций клавиш?"
       >
         <p>
           Горячие клавиши помогают ускорить рутинные процессы. В таблицах ниже собраны
