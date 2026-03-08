@@ -4600,6 +4600,10 @@ const AeFromNewbies: React.FC = () => {
             скриптов и т. д.
           </li>
           <li>
+            <mark className="plugin">Copy Pasta</mark> — бесплатное расширение для вставки
+            в проект изображений и видео из буфера обмена.
+          </li>
+          <li>
             <mark className="plugin">Keystone</mark> — инструмент для манипуляций с
             ключевыми кадрами: растягивание, смещение, выравнивание.
           </li>
