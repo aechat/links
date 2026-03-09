@@ -1,10 +1,29 @@
 import {MouseEvent as ReactMouseEvent} from "react";
 
-export const applyRipple = (element: HTMLElement, clientX: number, clientY: number) => {
+import {triggerHaptic} from "../utils/haptics";
+
+import type {HapticInput} from "web-haptics";
+
+interface RippleOptions {
+  haptic?: HapticInput | false;
+}
+
+export const applyRipple = (
+  element: HTMLElement,
+  clientX: number,
+  clientY: number,
+  options: RippleOptions = {}
+) => {
   const isMarkElement = element.tagName === "MARK";
 
   if (isMarkElement && element.classList.length === 0) {
     return;
+  }
+
+  const {haptic = "selection"} = options;
+
+  if (haptic !== false) {
+    triggerHaptic(haptic);
   }
 
   const computedStyle = globalThis.getComputedStyle(element);
@@ -46,11 +65,11 @@ export const applyRipple = (element: HTMLElement, clientX: number, clientY: numb
   }, 750);
 };
 
-export const useRipple = <T extends HTMLElement>() => {
+export const useRipple = <T extends HTMLElement>(options: RippleOptions = {}) => {
   const handleMouseDown = (event: ReactMouseEvent<T>) => {
     if (event.button !== 0) return;
 
-    applyRipple(event.currentTarget, event.clientX, event.clientY);
+    applyRipple(event.currentTarget, event.clientX, event.clientY, options);
   };
 
   return {onMouseDown: handleMouseDown};

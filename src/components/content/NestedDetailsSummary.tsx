@@ -12,6 +12,7 @@ import {message, Tooltip} from "antd";
 import {copyText} from "../../hooks/useCopyToClipboard";
 import {useLongPress} from "../../hooks/useLongPress";
 import {useRipple} from "../../hooks/useRipple";
+import {triggerDisclosureHaptic} from "../../utils/haptics";
 import {CopyButton} from "../ui/CopyButton";
 
 import styles from "./NestedDetailsSummary.module.scss";
@@ -119,7 +120,7 @@ const NestedDetailsSummary: React.FC<NestedDetailsSummaryProperties> = ({
 
   const isOpenReference = useRef(isOpen);
 
-  const ripple = useRipple<HTMLElement>();
+  const ripple = useRipple<HTMLElement>({haptic: false});
 
   const detailsReference = useRef<HTMLDetailsElement>(null);
 
@@ -246,6 +247,10 @@ const NestedDetailsSummary: React.FC<NestedDetailsSummaryProperties> = ({
   );
 
   const previousIsOpen = usePrevious(isOpen);
+
+  useEffect(() => {
+    triggerDisclosureHaptic(isOpen, previousIsOpen);
+  }, [isOpen, previousIsOpen]);
 
   useEffect(() => {
     isOpenReference.current = isOpen;

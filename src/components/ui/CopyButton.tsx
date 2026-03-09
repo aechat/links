@@ -2,6 +2,8 @@ import React from "react";
 
 import {ShareRounded} from "@mui/icons-material";
 
+import {withSoftHaptic} from "../../utils/haptics";
+
 import styles from "./CopyButton.module.scss";
 
 interface CopyButtonProperties {
@@ -15,6 +17,10 @@ export const CopyButton: React.FC<CopyButtonProperties> = ({
   disabled,
   onClick,
 }) => {
+  const handleClick = withSoftHaptic((event: React.MouseEvent<HTMLButtonElement>) => {
+    onClick(event);
+  });
+
   const buttonClasses = [
     styles["copy-button"],
     disabled ? styles.disabled : "",
@@ -28,7 +34,7 @@ export const CopyButton: React.FC<CopyButtonProperties> = ({
       aria-label="Copy"
       className={buttonClasses}
       disabled={disabled}
-      onClick={onClick}
+      onClick={handleClick}
     >
       <ShareRounded />
     </button>

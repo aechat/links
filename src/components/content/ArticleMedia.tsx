@@ -7,6 +7,7 @@ import {animate, AnimatePresence, motion, useMotionValue} from "framer-motion";
 import {createPortal} from "react-dom";
 
 import {copyText} from "../../hooks/useCopyToClipboard";
+import {triggerHaptic} from "../../utils/haptics";
 
 import styles from "./ArticleMedia.module.scss";
 import {useSpoiler} from "./spoilerContexts";
@@ -167,6 +168,8 @@ const ImageViewer: React.FC<{
   }, [scale, x, y]);
 
   const handleManualClose = () => {
+    triggerHaptic("soft");
+
     if (historyPushedReference.current) {
       historyPushedReference.current = false;
       globalThis.history.back();
@@ -431,7 +434,10 @@ const ArticleMedia: React.FC<ArticleMediaProperties> = (properties) => {
             src={resolvedSource}
             style={{aspectRatio, cursor: "zoom-in", width: mediaWidth}}
             width={metadata?.width}
-            onClick={() => setIsViewerOpen(true)}
+            onClick={() => {
+              triggerHaptic("soft");
+              setIsViewerOpen(true);
+            }}
           />
         );
       }
@@ -466,15 +472,18 @@ const ArticleMedia: React.FC<ArticleMediaProperties> = (properties) => {
             />
             <div className={styles["media-youtube-actions"]}>
               <button
-                onClick={() =>
-                  window.open(`https://www.youtube.com/watch?v=${videoId}`, "_blank")
-                }
+                onClick={() => {
+                  triggerHaptic("soft");
+                  window.open(`https://www.youtube.com/watch?v=${videoId}`, "_blank");
+                }}
               >
                 Открыть видео в новой вкладке
               </button>
               <button
                 aria-label="Копировать ссылку"
                 onClick={async () => {
+                  triggerHaptic("soft");
+
                   const success = await copyText(
                     `https://www.youtube.com/watch?v=${videoId}`
                   );

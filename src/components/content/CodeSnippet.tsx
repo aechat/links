@@ -3,6 +3,8 @@ import React, {useEffect, useMemo, useRef} from "react";
 
 import {message} from "antd";
 
+import {triggerHaptic} from "../../utils/haptics";
+
 import "highlight.js/styles/github-dark.css";
 import styles from "./CodeSnippet.module.scss";
 
@@ -67,6 +69,7 @@ const CodeSnippet: React.FC<CodeSnippetProperties> = ({
 
   const handleCopy = (event: React.MouseEvent<HTMLPreElement>): void => {
     event.stopPropagation();
+    triggerHaptic("soft");
 
     const textArea = document.createElement("textarea");
 
