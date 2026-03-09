@@ -20,6 +20,7 @@ import {Modal, Slider, Switch, Tooltip} from "antd";
 import {useRipple} from "../../hooks/useRipple";
 import {isMobileDevice, isWebKitBrowser} from "../../utils/browserDetection";
 import {
+  isHapticFeedbackSupported,
   setIsVibrationEnabled as setGlobalVibrationEnabled,
   withSelectionHaptic,
 } from "../../utils/haptics";
@@ -121,10 +122,11 @@ export const ThemeProvider: React.FC<{children: React.ReactNode}> = ({children})
 
     const resolvedSnowfallEnabled = getSnowfallEnabledForMonth(new Date().getMonth());
 
-    const resolvedVibrationEnabled = getStoredBooleanWithDefault(
-      "isVibrationEnabled",
-      true
-    );
+    const hasVibrationSupport = isHapticFeedbackSupported();
+
+    const resolvedVibrationEnabled = hasVibrationSupport
+      ? getStoredBooleanWithDefault("isVibrationEnabled", true)
+      : false;
 
     setThemeState(savedTheme);
     setAccentHueState(savedAccentHue);
@@ -133,8 +135,14 @@ export const ThemeProvider: React.FC<{children: React.ReactNode}> = ({children})
     setIsSpoilerAnimationEnabledState(resolvedSpoilerAnimationEnabled);
     setIsSpoilerHoverAnimationEnabledState(resolvedSpoilerHoverAnimationEnabled);
     setIsSnowfallEnabled(resolvedSnowfallEnabled);
-    setIsVibrationEnabledState(resolvedVibrationEnabled);
-    setGlobalVibrationEnabled(resolvedVibrationEnabled);
+
+    if (hasVibrationSupport) {
+      setIsVibrationEnabledState(resolvedVibrationEnabled);
+      setGlobalVibrationEnabled(resolvedVibrationEnabled);
+    } else {
+      setIsVibrationEnabledState(false);
+      setGlobalVibrationEnabled(false);
+    }
   }, []);
 
   const setTheme = (newTheme: Theme) => {
@@ -186,6 +194,10 @@ export const ThemeProvider: React.FC<{children: React.ReactNode}> = ({children})
   };
 
   const setVibrationEnabled = (enabled: boolean) => {
+    if (!isHapticFeedbackSupported()) {
+      return;
+    }
+
     setIsVibrationEnabledState(enabled);
     setGlobalVibrationEnabled(enabled);
   };
@@ -426,7 +438,7 @@ const ThemeModal: React.FC<ThemeModalProperties> = ({closeModal, isModalOpen}) =
     pagesWithWidthSelector.some((path) => currentPath.startsWith(path)) &&
     windowWidth >= 1000;
 
-  const showVibrationSelector = isMobileDevice();
+  const showVibrationSelector = isHapticFeedbackSupported();
 
   const ripple = useRipple<HTMLButtonElement>();
 

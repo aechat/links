@@ -23,8 +23,24 @@ let isVibrationEnabled = true;
 
 let hasResolvedVibrationPreference = false;
 
+export const isHapticFeedbackSupported = () => {
+  if (
+    globalThis.window === undefined ||
+    globalThis.navigator === undefined ||
+    globalThis.document === undefined
+  ) {
+    return false;
+  }
+
+  return WebHaptics.isSupported;
+};
+
 const resolveVibrationPreference = () => {
-  if (hasResolvedVibrationPreference || globalThis.window === undefined) {
+  if (
+    hasResolvedVibrationPreference ||
+    globalThis.window === undefined ||
+    !isHapticFeedbackSupported()
+  ) {
     return;
   }
 
@@ -41,6 +57,13 @@ const resolveVibrationPreference = () => {
 };
 
 export const setIsVibrationEnabled = (enabled: boolean) => {
+  if (!isHapticFeedbackSupported()) {
+    isVibrationEnabled = false;
+    hasResolvedVibrationPreference = true;
+
+    return;
+  }
+
   isVibrationEnabled = enabled;
   hasResolvedVibrationPreference = true;
 
@@ -54,7 +77,7 @@ export const setIsVibrationEnabled = (enabled: boolean) => {
 };
 
 const getHapticsInstance = () => {
-  if (globalThis.window === undefined || globalThis.document === undefined) {
+  if (!isHapticFeedbackSupported()) {
     return;
   }
 
@@ -64,6 +87,10 @@ const getHapticsInstance = () => {
 };
 
 export const triggerHaptic = (input: HapticInput = "selection") => {
+  if (!isHapticFeedbackSupported()) {
+    return;
+  }
+
   resolveVibrationPreference();
 
   if (!isVibrationEnabled) {
