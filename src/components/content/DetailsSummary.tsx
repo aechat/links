@@ -9,7 +9,7 @@ import {useLongPress} from "../../hooks/useLongPress";
 import {useRipple} from "../../hooks/useRipple";
 import {formatNestedQuotes} from "../../utils/stringUtilities";
 import {useTheme} from "../modals/ThemeChanger";
-import {CopyButton} from "../ui/CopyButton/CopyButton";
+import {CopyButton} from "../ui/CopyButton";
 
 import styles from "./DetailsSummary.module.scss";
 import {DetailsSummaryContext, SpoilerContext} from "./spoilerContexts";

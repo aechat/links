@@ -12,7 +12,7 @@ import {message, Tooltip} from "antd";
 import {copyText} from "../../hooks/useCopyToClipboard";
 import {useLongPress} from "../../hooks/useLongPress";
 import {useRipple} from "../../hooks/useRipple";
-import {CopyButton} from "../ui/CopyButton/CopyButton";
+import {CopyButton} from "../ui/CopyButton";
 
 import styles from "./NestedDetailsSummary.module.scss";
 import {

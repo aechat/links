@@ -9,7 +9,7 @@ import ContentFilter from "../components/content/ContentFilter";
 import Footer from "../components/layout/Footer";
 import Header from "../components/layout/Header";
 import PageTransition from "../components/layout/PageTransition";
-import {CopyButton} from "../components/ui/CopyButton/CopyButton";
+import {CopyButton} from "../components/ui/CopyButton";
 import {useCopyToClipboard} from "../hooks/useCopyToClipboard";
 import {usePageLoad} from "../hooks/usePageLoad";
 
